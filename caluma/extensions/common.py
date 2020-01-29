@@ -1,22 +1,27 @@
 import os
-import urllib.parse
+from urllib.parse import parse_qsl
 
 from django.core.cache import cache
 from django.utils import timezone
 from oauthlib.oauth2 import BackendApplicationClient
 from requests_oauthlib import OAuth2Session
 
-CAMAC_NG_URL = os.environ.get("CAMAC_NG_URL", "http://camac-ng.local").strip("/")
+from .utils import build_url
+
+CAMAC_NG_URL = os.environ.get("CAMAC_NG_URL", "http://camac-ng.local")
 
 ADMIN_CLIENT = os.environ.get("ADMIN_CLIENT", "camac-admin")
 ADMIN_CLIENT_SECRET = os.environ.get(
     "ADMIN_CLIENT_SECRET", "a7d2be1b-6a7a-4f28-a978-10a63b1e9850"
 )
 
-KEYCLOAK_URL = os.environ.get("KEYCLOAK_URL", "http://camac-ng-keycloak.local/auth/")
+KEYCLOAK_URL = build_url(
+    os.environ.get("KEYCLOAK_URL", "http://camac-ng-keycloak.local/auth/"),
+    trailing=True,
+)
 KEYCLOAK_REALM = os.environ.get("KEYCLOAK_REALM", "ebau")
-KEYCLOAK_OIDC_TOKEN_URL = (
-    f"{KEYCLOAK_URL}realms/{KEYCLOAK_REALM}/protocol/openid-connect/token"
+KEYCLOAK_OIDC_TOKEN_URL = build_url(
+    KEYCLOAK_URL, f"/realms/{KEYCLOAK_REALM}/protocol/openid-connect/token"
 )
 
 CAMAC_ADMIN_GROUP = 1
@@ -67,9 +72,7 @@ def filters(info):
 
     The filters are expected to be a URLencoded string (foo=bar&baz=blah).
     """
-    return dict(
-        urllib.parse.parse_qsl(info.context.META.get("HTTP_X_CAMAC_FILTERS", ""))
-    )
+    return dict(parse_qsl(info.context.META.get("HTTP_X_CAMAC_FILTERS", "")))
 
 
 def headers(info):
