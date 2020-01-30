@@ -9,16 +9,26 @@ from . import models
 
 class ObjectionParticipantSerializer(serializers.ModelSerializer):
     representative = serializers.BooleanField()
-    email = serializers.EmailField()
+    email = serializers.EmailField(required=False, allow_blank=True)
 
     def validate(self, data):
-        print(data)
+        representative_filter = data["objection"].objection_participants.filter(
+            representative=1
+        )
+
         if (
             "representative" in data
             and data["representative"]
-            and data["objection"]
-            .objection_participants.filter(representative=1)
-            .exists()
+            and (
+                # Check if its updating an existing representative
+                (
+                    self.instance
+                    and representative_filter.exists()
+                    and representative_filter.first().pk != self.instance.id
+                )
+                # Check if its creating a duplicate representative
+                or (not self.instance and representative_filter.exists())
+            )
         ):
             raise ValidationError(
                 _("Objection %(objection) already has a representative")
