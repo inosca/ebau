@@ -208,24 +208,28 @@ export default Controller.extend(queryParams.Mixin, {
       );
       const rawDocuments = raw.edges.map(({ node }) => node);
 
-      const municipalities = yield this.getMunicipalities.last;
+      if (rawDocuments.length) {
+        const municipalities = yield this.getMunicipalities.last;
 
-      yield this.store.query("instance", {
-        instance_id: rawDocuments.map(({ meta }) => meta["camac-instance-id"])
-      });
-
-      const documents = rawDocuments.map(raw => {
-        return Document.create(getOwner(this).ownerInjection(), {
-          raw,
-          instance: this.store.peekRecord(
-            "instance",
-            raw.meta["camac-instance-id"]
-          ),
-          municipalities
+        yield this.store.query("instance", {
+          instance_id: rawDocuments
+            .map(({ meta }) => meta["camac-instance-id"])
+            .join(",")
         });
-      });
 
-      this.set("documents", [...this.documents, ...documents]);
+        const documents = rawDocuments.map(raw => {
+          return Document.create(getOwner(this).ownerInjection(), {
+            raw,
+            instance: this.store.peekRecord(
+              "instance",
+              raw.meta["camac-instance-id"]
+            ),
+            municipalities
+          });
+        });
+
+        this.set("documents", [...this.documents, ...documents]);
+      }
 
       set(raw, "pageInfo", { ...raw.pageInfo, totalCount: raw.totalCount });
 
