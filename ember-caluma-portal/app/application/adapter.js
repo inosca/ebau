@@ -9,26 +9,8 @@ export default class ApplicationAdapter extends JSONAPIAdapter.extend(
   namespace = "api/v1";
 
   @service session;
-  @service router;
-  @service intl;
 
-  @reads("session.data.authenticated.access_token") token;
-  @reads("session.group") group;
-  @reads("session.language") language;
-
-  authorize(request) {
-    if (this.token) {
-      request.setRequestHeader("authorization", `Bearer ${this.token}`);
-    }
-
-    if (this.group) {
-      request.setRequestHeader("x-camac-group", this.group);
-    }
-
-    if (this.language) {
-      request.setRequestHeader("accept-language", this.language);
-    }
-  }
+  @reads("session.headers") headers;
 
   _appendInclude(url, adapterOptions) {
     if (adapterOptions && adapterOptions.include) {
