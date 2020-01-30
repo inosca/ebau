@@ -62,8 +62,22 @@ def test_objection_participant_create(admin_client, status_code, objection):
 def test_objection_participant_update(admin_client, objection_participant, status_code):
     url = reverse("objectionparticipant-detail", args=[objection_participant.pk])
 
-    data = {"name": "new"}
-    response = admin_client.patch(url, data=data, format="multipart")
+    data = {
+        "data": {
+            "type": "objection-participants",
+            "id": objection_participant.pk,
+            "attributes": {"name": "Updated"},
+            "relationships": {
+                "objection": {
+                    "data": {
+                        "type": "objections",
+                        "id": objection_participant.objection.id,
+                    }
+                }
+            },
+        }
+    }
+    response = admin_client.patch(url, data=data)
     assert response.status_code == status_code
 
 
@@ -108,3 +122,29 @@ def test_objection_participant_create_duplicate(admin_client, objection):
     admin_client.post(url, data=data)
     response = admin_client.post(url, data=data)
     assert response.status_code == status.HTTP_400_BAD_REQUEST
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_objection_participant_update_representative(
+    admin_client, objection_participant_factory
+):
+    objection_participant = objection_participant_factory(representative=1)
+    url = reverse("objectionparticipant-detail", args=[objection_participant.pk])
+
+    data = {
+        "data": {
+            "type": "objection-participants",
+            "id": objection_participant.pk,
+            "attributes": {"name": "Updated", "representative": 1},
+            "relationships": {
+                "objection": {
+                    "data": {
+                        "type": "objections",
+                        "id": objection_participant.objection.id,
+                    }
+                }
+            },
+        }
+    }
+    response = admin_client.patch(url, data=data)
+    assert response.status_code == status.HTTP_200_OK
