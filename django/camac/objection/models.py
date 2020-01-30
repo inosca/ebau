@@ -1,3 +1,4 @@
+from django.core.validators import MaxValueValidator
 from django.db import models
 
 
@@ -18,4 +19,6 @@ class ObjectionParticipant(models.Model):
     city = models.CharField(max_length=100, blank=True, null=True)
     email = models.EmailField(blank=True, null=True)
     phone = models.CharField(max_length=50, blank=True, null=True)
-    representative = models.PositiveSmallIntegerField(default=0)
+    representative = models.PositiveSmallIntegerField(
+        default=0, validators=[MaxValueValidator(1)]
+    )
