@@ -114638,6 +114638,38 @@
   },
   {
     "fields": {
+      "resource": 20010,
+      "role": 20001
+    },
+    "model": "core.rroleacl",
+    "pk": 150017
+  },
+  {
+    "fields": {
+      "resource": 20010,
+      "role": 20004
+    },
+    "model": "core.rroleacl",
+    "pk": 150018
+  },
+  {
+    "fields": {
+      "resource": 20010,
+      "role": 20005
+    },
+    "model": "core.rroleacl",
+    "pk": 150019
+  },
+  {
+    "fields": {
+      "resource": 20010,
+      "role": 20000
+    },
+    "model": "core.rroleacl",
+    "pk": 150020
+  },
+  {
+    "fields": {
       "answer": "NEU",
       "chapter": 6,
       "form": 1,
