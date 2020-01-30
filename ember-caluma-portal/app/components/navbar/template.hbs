@@ -39,7 +39,7 @@
         {{#each this.languages as |lang|}}
           <li class={{if (eq lang this.language) "uk-active"}}><a href="#" {{on "click" (fn this.setLanguage lang)}}>{{lang}}</a></li>
         {{/each}}
-        <LinkTo @route="logout" @tagName="li" @activeClass="uk-active"><a href="#"><UkIcon @icon="sign-out" /></a></LinkTo>
+        <li><a href="#" {{on "click" this.logout}}><UkIcon @icon="sign-out" /></a></li>
       </ul>
     </div>
   </nav>
