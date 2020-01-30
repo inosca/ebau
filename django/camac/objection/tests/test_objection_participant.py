@@ -49,6 +49,9 @@ def test_objection_participant_create(admin_client, status_code, objection):
     }
     response = admin_client.post(url, data=data)
     assert response.status_code == status_code
+    if status_code == status.HTTP_201_CREATED:
+        json = response.json()
+        assert json["data"]["attributes"]["name"] == "Fiona Franzi"
 
 
 @pytest.mark.parametrize(
@@ -59,6 +62,7 @@ def test_objection_participant_create(admin_client, status_code, objection):
         ("Applicant", status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.parametrize("objection_participant__name", ("Example",))
 def test_objection_participant_update(admin_client, objection_participant, status_code):
     url = reverse("objectionparticipant-detail", args=[objection_participant.pk])
 
@@ -79,6 +83,9 @@ def test_objection_participant_update(admin_client, objection_participant, statu
     }
     response = admin_client.patch(url, data=data)
     assert response.status_code == status_code
+    if status_code == status.HTTP_200_OK:
+        json = response.json()
+        assert json["data"]["attributes"]["name"] == "Updated"
 
 
 @pytest.mark.parametrize(
@@ -128,7 +135,9 @@ def test_objection_participant_create_duplicate(admin_client, objection):
 def test_objection_participant_update_representative(
     admin_client, objection_participant_factory
 ):
-    objection_participant = objection_participant_factory(representative=1)
+    objection_participant = objection_participant_factory(
+        name="Example", representative=1
+    )
     url = reverse("objectionparticipant-detail", args=[objection_participant.pk])
 
     data = {
@@ -148,3 +157,6 @@ def test_objection_participant_update_representative(
     }
     response = admin_client.patch(url, data=data)
     assert response.status_code == status.HTTP_200_OK
+    if response.status_code == status.HTTP_200_OK:
+        json = response.json()
+        assert json["data"]["attributes"]["name"] == "Updated"

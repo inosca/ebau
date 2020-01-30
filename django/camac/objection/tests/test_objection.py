@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, timedelta
 
 import pytest
 from django.urls import reverse
@@ -44,6 +44,9 @@ def test_objection_create(admin_client, group, instance, status_code):
     }
     response = admin_client.post(url, data=data)
     assert response.status_code == status_code
+    if status_code == status.HTTP_201_CREATED:
+        json = response.json()
+        assert json["data"]["attributes"]["creation-date"] == date.today().isoformat()
 
 
 @pytest.mark.parametrize(
@@ -54,12 +57,23 @@ def test_objection_create(admin_client, group, instance, status_code):
         ("Applicant", status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.parametrize("objection__creation_date", (date.today(),))
 def test_objection_update(admin_client, objection, status_code):
     url = reverse("objection-detail", args=[objection.pk])
 
-    data = {"name": "new"}
-    response = admin_client.patch(url, data=data, format="multipart")
+    creation_date = date.today() - timedelta(days=3)
+    data = {
+        "data": {
+            "type": "objections",
+            "id": objection.pk,
+            "attributes": {"creation_date": creation_date},
+        }
+    }
+    response = admin_client.patch(url, data=data)
     assert response.status_code == status_code
+    if status_code == status.HTTP_200_OK:
+        json = response.json()
+        assert json["data"]["attributes"]["creation-date"] == creation_date.isoformat()
 
 
 @pytest.mark.parametrize(
