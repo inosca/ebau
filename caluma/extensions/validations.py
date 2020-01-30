@@ -55,7 +55,11 @@ class CustomValidation(BaseValidation):
     def _send_claim_ech_event(self, info, instance_id, event):
         if common.ECH_API:
             requests.post(
-                build_url(common.CAMAC_NG_URL, f"/ech/v1/event/{instance_id}/{event}"),
+                build_url(
+                    common.CAMAC_NG_URL,
+                    f"/ech/v1/event/{instance_id}/{event}",
+                    trailing=True,
+                ),
                 headers={"authorization": f"Bearer {common.get_admin_token()}"},
             )
 
