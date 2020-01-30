@@ -1,6 +1,7 @@
 from datetime import date, timedelta
 
 import pytest
+from django.core.exceptions import ObjectDoesNotExist
 from django.urls import reverse
 from rest_framework import status
 
@@ -89,3 +90,6 @@ def test_objection_destroy(admin_client, objection, status_code):
 
     response = admin_client.delete(url)
     assert response.status_code == status_code
+    if status_code == status.HTTP_204_NO_CONTENT:
+        with pytest.raises(ObjectDoesNotExist):
+            objection.refresh_from_db()
