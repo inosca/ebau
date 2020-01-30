@@ -21,7 +21,7 @@ nav:
   instances: "Dossiers"
   applicant: "Requérant/e"
   group: "Groupe"
-  internal: "#TODO"
+  internal: "Section interne"
 
   canNotChangeLanguage: "La langue ne peut pas être modifiée, car il y a déjà une langue dans l'URL"
   canNotChangeGroup: "Le groupe ne peut pas être modifiée, car il y a déjà un groupe dans l'URL"
@@ -270,8 +270,8 @@ notfound:
 
 paper:
   type: "(papier)"
-  noteTitle: "Note:"
-  noteBody: "Vous créez un dossier qui a été soumis sous forme papier dans
-  votre commune (dossier papier). Si vous souhaitez créer un dossier normal
-  en tant que requérant/e, sélectionnez \"Requérant/e\" dans le menu de
-  groupe en haut à droite de la page."
+  noteTitle: "Remarque :"
+  noteBody: "Vous créez un dossier qui a été déposé dans votre commune sous
+  forme papier (dossier papier). Si vous souhaitez créer un dossier normal en
+  tant que requérant/e, sélectionnez \"Requérant/e\" dans le menu de groupe
+  en haut à droite de la page."
