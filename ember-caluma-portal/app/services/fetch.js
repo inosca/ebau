@@ -1,40 +1,34 @@
-import { computed } from "@ember/object";
-import { reads } from "@ember/object/computed";
 import Service, { inject as service } from "@ember/service";
+import { isEmpty } from "@ember/utils";
 import fetch from "fetch";
+
+const CONTENT_TYPE = "application/vnd.api+json";
+
+const cleanObject = obj => {
+  return Object.entries(obj).reduce((clean, [key, value]) => {
+    return {
+      ...clean,
+      ...(isEmpty(value) ? {} : { [key]: value })
+    };
+  }, {});
+};
 
 export default class FetchService extends Service {
   @service session;
 
-  @reads("session.data.authenticated.access_token") token;
-  @reads("session.language") language;
-  @reads("session.group") group;
-
-  @computed("token", "group")
-  get headers() {
-    return {
-      authorization: `Bearer ${this.token}`,
-      accept: "application/vnd.api+json",
-      "content-type": "application/vnd.api+json",
-      "accept-language": this.language,
-      ...(this.group ? { "x-camac-group": this.group } : {})
-    };
-  }
-
   async fetch(resource, init = {}) {
-    init.headers = Object.assign({}, this.headers, init.headers);
-
-    // clean out undefined headers
-    Object.keys(init.headers).forEach(
-      k => init.headers[k] === undefined && delete init.headers[k]
-    );
+    init.headers = cleanObject({
+      ...this.session.headers,
+      accept: CONTENT_TYPE,
+      "content-type": CONTENT_TYPE,
+      ...(init.headers || {})
+    });
 
     const response = await fetch(resource, init);
 
     if (!response.ok) {
-      // invalidate the session on 401 requests
-      if (response.status === 401 && this.session.isAuthenticated) {
-        this.session.invalidate();
+      if (response.status === 401) {
+        return this.session.handleUnauthorized();
       }
 
       const contentType = response.headers.map["content-type"];

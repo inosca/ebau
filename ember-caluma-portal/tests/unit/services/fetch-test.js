@@ -1,30 +1,19 @@
 import setupMirage from "ember-cli-mirage/test-support/setup-mirage";
 import { setupTest } from "ember-qunit";
+import { authenticateSession } from "ember-simple-auth/test-support";
 import { module, test } from "qunit";
 
 module("Unit | Service | fetch", function(hooks) {
   setupTest(hooks);
   setupMirage(hooks);
 
-  hooks.beforeEach(function() {
+  hooks.beforeEach(async function() {
+    await authenticateSession({ access_token: "opensesame" });
+
     const session = this.owner.lookup("service:session");
 
-    session.set("data.authenticated.access_token", "opensesame");
     session.set("data.language", "de");
-  });
-
-  test("it computes the headers", function(assert) {
-    assert.expect(2);
-
-    const service = this.owner.lookup("service:fetch");
-
-    assert.equal(service.token, "opensesame");
-    assert.deepEqual(service.headers, {
-      authorization: "Bearer opensesame",
-      "accept-language": "de",
-      accept: "application/vnd.api+json",
-      "content-type": "application/vnd.api+json"
-    });
+    session.set("data.group", 5);
   });
 
   test("it can fetch", function(assert) {
@@ -36,6 +25,7 @@ module("Unit | Service | fetch", function(hooks) {
       assert.deepEqual(requestHeaders, {
         authorization: "changed",
         "accept-language": "de",
+        "x-camac-group": "5",
         accept: "application/vnd.api+json",
         "content-type": "application/vnd.api+json",
         "x-some-header": "changed"
