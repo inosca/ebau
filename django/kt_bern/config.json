@@ -53805,7 +53805,7 @@
       "description": null,
       "instance_resource": 20008,
       "language": "fr",
-      "name": "R\u00e9diger une prise de position"
+      "name": "R\u00e9diger pr\u00e9avis / demande de compl\u00e9ment"
     },
     "model": "core.instanceresourcet",
     "pk": 120016
