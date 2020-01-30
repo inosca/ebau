@@ -12,7 +12,6 @@ const resetNamespace = true;
 /* eslint-disable-next-line array-callback-return */
 Router.map(function() {
   this.route("login");
-  this.route("logout");
 
   this.route("protected", { path: "/" }, function() {
     this.route("index", { path: "/", resetNamespace });

@@ -4,14 +4,16 @@ import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
 import OIDCApplicationRouteMixin from "ember-simple-auth-oidc/mixins/oidc-application-route-mixin";
 
-const RouteClass = Route.extend(OIDCApplicationRouteMixin);
-
-export default class ApplicationRouter extends RouteClass {
+export default class ApplicationRouter extends Route.extend(
+  OIDCApplicationRouteMixin
+) {
   @service session;
   @service router;
   @service calumaOptions;
 
   beforeModel(transition) {
+    super.beforeModel(transition);
+
     const { language, group } = get(transition, "to.queryParams") || {};
 
     this.session.set("language", language || this.session.language);

@@ -104,4 +104,9 @@ export default class NavbarComponent extends Component {
       window.location.reload();
     }
   }
+
+  @action
+  logout() {
+    this.session.invalidate();
+  }
 }
