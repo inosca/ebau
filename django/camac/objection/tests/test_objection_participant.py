@@ -1,4 +1,5 @@
 import pytest
+from django.core.exceptions import ObjectDoesNotExist
 from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
@@ -103,6 +104,9 @@ def test_objection_participant_destroy(
 
     response = admin_client.delete(url)
     assert response.status_code == status_code
+    if status_code == status.HTTP_204_NO_CONTENT:
+        with pytest.raises(ObjectDoesNotExist):
+            objection_participant.refresh_from_db()
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
