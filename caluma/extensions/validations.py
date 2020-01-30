@@ -31,7 +31,7 @@ class CustomValidation(BaseValidation):
         requests.post(
             build_url(
                 common.CAMAC_NG_URL,
-                "/api/v1/notification-templates/{template_id}/sendmail",
+                f"/api/v1/notification-templates/{template_id}/sendmail",
             ),
             headers={
                 "content-type": "application/vnd.api+json",
