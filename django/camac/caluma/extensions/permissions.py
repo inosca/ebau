@@ -43,7 +43,7 @@ class CustomPermission(BasePermission):
     # Document
     @permission_for(SaveDocument)
     def has_permission_for_savedocument(self, mutation, info):
-        if self.get_input_variables(info).get("form") == DASHBOARD_FORM_SLUG:
+        if mutation.get_params(info).get("form") == DASHBOARD_FORM_SLUG:
             # There should only be one dashboard document which has to be
             # created by a support user
             return (
@@ -63,9 +63,15 @@ class CustomPermission(BasePermission):
     # Answer
     @permission_for(SaveDocumentAnswer)
     def has_permission_for_savedocumentanswer(self, mutation, info):
-        document = Document.objects.get(
-            pk=self.get_input_variables(info)["input"]["document"]
-        )
+        try:
+            document = Document.objects.get(
+                pk=mutation.get_params(info)["input"]["document"]
+            )
+        except (Document.DoesNotExist, KeyError):
+            log.error(
+                f"{mutation.__name__}: unable not find document: {json.dumps(mutation.get_params(info))}"
+            )
+            return False
 
         if document.form.slug == DASHBOARD_FORM_SLUG:
             return self.has_camac_group_permission(info, CAMAC_SUPPORT_GROUP)
@@ -89,11 +95,6 @@ class CustomPermission(BasePermission):
     @object_permission_for(RemoveAnswer)
     def has_object_permission_for_removeanswer(self, mutation, info, instance):
         return self.has_camac_edit_permission(instance.document.family, info)
-
-    def get_input_variables(self, info):
-        body = json.loads(info.context.body)
-
-        return body.get("variables", {})
 
     def has_camac_group_permission(self, info, required_group):
         response = requests.get(
