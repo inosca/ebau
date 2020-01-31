@@ -48,7 +48,6 @@ export default class NavbarComponent extends Component {
   *fetchGroups() {
     try {
       const groups = yield this.store.query("public-group", {
-        service_group: selectableGroups.serviceGroups.join(","),
         role: selectableGroups.roles.join(","),
         include: ["service", "service.service_group", "role"].join(",")
       });

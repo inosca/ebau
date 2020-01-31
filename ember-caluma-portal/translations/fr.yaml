@@ -9,6 +9,7 @@ global:
   delete: "Effacer"
   cancel: "Casser"
   back: "Retour"
+  save: "Enregistrer"
 
 nav:
   form: "Formulaire"
@@ -270,3 +271,9 @@ paper:
   forme papier (dossier papier). Si vous souhaitez créer un dossier normal en
   tant que requérant/e, sélectionnez \"Requérant/e\" dans le menu de groupe
   en haut à droite de la page."
+
+dashboard:
+  edit: "modifier"
+  no-content: "Aucun contenu n'a encore été enregistré. Cliquez sur \"modifier\" pour entrer un nouveau contenu."
+  load-error: "Erreur lors du chargement du contenu"
+  save-error: "Erreur lors de la sauvegarde du contenu"

@@ -51,16 +51,14 @@ module.exports = function(environment) {
       attachments: {
         allowedMimetypes: ["image/png", "image/jpeg", "application/pdf"]
       },
+      supportGroups: [10000],
       selectableGroups: {
         roles: [
           3, // Leitung Leitbehörde
           5, // Leitung Baukontrolle
           20004, // Sachbearbeiter Leitbehörde
-          20005 // Sachbearbeiter Baukontrolle
-        ],
-        serviceGroups: [
-          2, // Gemeinde
-          3 // Baukontrolle
+          20005, // Sachbearbeiter Baukontrolle
+          10000 // System-Betrieb
         ]
       },
       paperInstances: {
