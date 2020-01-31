@@ -290,7 +290,7 @@ def test_instance_submit(
 
     instance_state_factory(name=new_instance_state_name)
 
-    requests_mock.post("http://caluma:8000/graphql/", json=full_document)
+    requests_mock.post("http://camac-ng.local/graphql/", json=full_document)
     mocker.patch.object(data_preparation, "get_admin_token", return_value="token")
 
     response = admin_client.post(reverse("instance-submit", args=[instance.pk]))
@@ -463,7 +463,7 @@ def test_generate_and_store_pdf(
     paper,
     application_settings,
 ):
-    mocker.patch("camac.caluma.CalumaApi.is_paper", lambda s, i: paper)
+    mocker.patch("camac.caluma.api.CalumaApi.is_paper", lambda s, i: paper)
 
     attachment_section_default = attachment_section_factory()
     attachment_section_paper = attachment_section_factory()

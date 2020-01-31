@@ -17,7 +17,7 @@ from .caluma_responses import full_document
 
 def test_submit_event(ech_instance, role_factory, group_factory, requests_mock, mocker):
     group_factory(role=role_factory(name="support"))
-    requests_mock.post("http://caluma:8000/graphql/", json=full_document)
+    requests_mock.post("http://camac-ng.local/graphql/", json=full_document)
     mocker.patch.object(data_preparation, "get_admin_token", return_value="token")
     instance_submitted.send(
         sender=None,
@@ -54,7 +54,7 @@ def test_event_handlers(
 ):
     if event_type == "FileSubsequently":
         group_factory(role=role_factory(name="support"))
-        requests_mock.post("http://caluma:8000/graphql/", json=full_document)
+        requests_mock.post("http://camac-ng.local/graphql/", json=full_document)
         mocker.patch.object(data_preparation, "get_admin_token", return_value="token")
 
     if event_type == "StatusNotification":

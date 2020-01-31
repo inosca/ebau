@@ -1,3 +1,5 @@
+from caluma.caluma_user.views import AuthenticationGraphQLView
+from django.conf import settings
 from django.conf.urls import include, url
 
 from camac.swagger.views import SCHEMA_VIEW
@@ -32,6 +34,11 @@ urlpatterns = [
         SCHEMA_VIEW.with_ui("redoc", cache_timeout=0),
         name="schema-redoc",
     ),
+    url(
+        r"^graphql",
+        AuthenticationGraphQLView.as_view(graphiql=settings.DEBUG),
+        name="graphql",
+    )
     # url(r'^api/docs/$', schema_view),
     # url(r'^api/auth/$', include('keycloak_adapter.urls')),
 ]
