@@ -146,9 +146,9 @@ build-kt_uri-production:
         - docker:dind
     script:
         - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
-        - eval $COMPOSE pull --ignore-pull-failures --quiet ember django php db caluma ember-caluma-portal document-merge-service
+        - eval $COMPOSE pull --ignore-pull-failures --quiet ember django php db ember-caluma-portal document-merge-service
         - eval $COMPOSE build --pull
-        - eval $COMPOSE up -d php django caluma ember-caluma-portal document-merge-service
+        - eval $COMPOSE up -d php django ember-caluma-portal document-merge-service
         - mkdir tarball
         - docker cp $(eval $COMPOSE ps -q php):/var/www/camac tarball/camac
         - cd tarball/camac
@@ -156,7 +156,6 @@ build-kt_uri-production:
         - cd ../..
         - docker cp $(eval $COMPOSE ps -q django):/app tarball/django
         - rm -rf tarball/django/kt_uri tarball/django/kt_schwyz tarball/django/demo
-        - docker cp $(eval $COMPOSE ps -q caluma):/app tarball/caluma
         - mkdir -p tarball/document-merge-service/fixtures
         - docker cp $(eval $COMPOSE ps -q document-merge-service):/tmp/document-merge-service/dump.json tarball/document-merge-service/fixtures/
         - docker cp $(eval $COMPOSE ps -q document-merge-service):/var/lib/document-merge-service/media tarball/document-merge-service/templates
