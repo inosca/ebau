@@ -97,9 +97,6 @@ services:
             - /app/build/
         networks:
             - camac-ng.local
-        build:
-            args:
-                KEYCLOAK_URL_ARG: http://camac-ng-keycloak.local/auth/
 
     php:
         image: acr.run/camac-ng/camac-ng/php:master
