@@ -10,9 +10,14 @@ from caluma.caluma_core.permissions import (
 )
 from caluma.caluma_form.models import Document
 from caluma.caluma_form.schema import RemoveAnswer, SaveDocument, SaveDocumentAnswer
+from django.conf import settings
 
-from . import common
-from .utils import build_url
+from camac.constants.kt_bern import (
+    CAMAC_ADMIN_GROUP,
+    CAMAC_SUPPORT_GROUP,
+    DASHBOARD_FORM_SLUG,
+)
+from camac.utils import build_url, headers
 
 log = getLogger()
 
@@ -25,7 +30,7 @@ class CustomPermission(BasePermission):
             f"mutation '{mutation.__name__}' on {instance} for admin users"
         )
 
-        return self.has_camac_group_permission(info, common.CAMAC_ADMIN_GROUP)
+        return self.has_camac_group_permission(info, CAMAC_ADMIN_GROUP)
 
     @permission_for(Mutation)
     def has_permission_default(self, mutation, info):
@@ -33,28 +38,25 @@ class CustomPermission(BasePermission):
             f"ACL: fallback permission: allow mutation '{mutation.__name__}' for admins"
         )
 
-        return self.has_camac_group_permission(info, common.CAMAC_ADMIN_GROUP)
+        return self.has_camac_group_permission(info, CAMAC_ADMIN_GROUP)
 
     # Document
     @permission_for(SaveDocument)
     def has_permission_for_savedocument(self, mutation, info):
-        if self.get_input_variables(info).get("form") == common.DASHBOARD_FORM_SLUG:
+        if self.get_input_variables(info).get("form") == DASHBOARD_FORM_SLUG:
             # There should only be one dashboard document which has to be
             # created by a support user
             return (
-                self.has_camac_group_permission(info, common.CAMAC_SUPPORT_GROUP)
-                and Document.objects.filter(
-                    form__slug=common.DASHBOARD_FORM_SLUG
-                ).count()
-                == 0
+                self.has_camac_group_permission(info, CAMAC_SUPPORT_GROUP)
+                and Document.objects.filter(form__slug=DASHBOARD_FORM_SLUG).count() == 0
             )
 
         return True
 
     @object_permission_for(SaveDocument)
     def has_object_permission_for_savedocument(self, mutation, info, instance):
-        if instance.form.slug == common.DASHBOARD_FORM_SLUG:
-            return self.has_camac_group_permission(info, common.CAMAC_SUPPORT_GROUP)
+        if instance.form.slug == DASHBOARD_FORM_SLUG:
+            return self.has_camac_group_permission(info, CAMAC_SUPPORT_GROUP)
 
         return self.has_camac_edit_permission(instance.family, info, "write-meta")
 
@@ -65,15 +67,15 @@ class CustomPermission(BasePermission):
             pk=self.get_input_variables(info)["input"]["document"]
         )
 
-        if document.form.slug == common.DASHBOARD_FORM_SLUG:
-            return self.has_camac_group_permission(info, common.CAMAC_SUPPORT_GROUP)
+        if document.form.slug == DASHBOARD_FORM_SLUG:
+            return self.has_camac_group_permission(info, CAMAC_SUPPORT_GROUP)
 
         return self.has_camac_edit_permission(document.family, info)
 
     @object_permission_for(SaveDocumentAnswer)
     def has_object_permission_for_savedocumentanswer(self, mutation, info, instance):
-        if instance.document.form.slug == common.DASHBOARD_FORM_SLUG:
-            return self.has_camac_group_permission(info, common.CAMAC_SUPPORT_GROUP)
+        if instance.document.form.slug == DASHBOARD_FORM_SLUG:
+            return self.has_camac_group_permission(info, CAMAC_SUPPORT_GROUP)
 
         return self.has_camac_edit_permission(instance.document.family, info)
 
@@ -95,7 +97,7 @@ class CustomPermission(BasePermission):
 
     def has_camac_group_permission(self, info, required_group):
         response = requests.get(
-            build_url(common.CAMAC_NG_URL, "/api/v1/me"), headers=common.headers(info)
+            build_url(settings.INTERNAL_BASE_URL, "/api/v1/me"), headers=headers(info)
         )
 
         response.raise_for_status()
@@ -121,8 +123,8 @@ class CustomPermission(BasePermission):
             return True
 
         resp = requests.get(
-            build_url(common.CAMAC_NG_URL, f"/api/v1/instances/{instance_id}"),
-            headers=common.headers(info),
+            build_url(settings.INTERNAL_BASE_URL, f"/api/v1/instances/{instance_id}"),
+            headers=headers(info),
         )
 
         resp.raise_for_status()

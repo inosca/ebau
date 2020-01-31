@@ -12,9 +12,10 @@ import requests
 from caluma.caluma_core.validations import BaseValidation, validation_for
 from caluma.caluma_form.models import Answer, Document
 from caluma.caluma_form.schema import SaveDocumentStringAnswer, SaveDocumentTableAnswer
+from django.conf import settings
 
-from . import common
-from .utils import build_url
+from camac.caluma.api import get_admin_token
+from camac.utils import build_url, headers
 
 CLAIM_QUESTION = "nfd-tabelle-table"
 CLAIM_STATUS_QUESTION = "nfd-tabelle-status"
@@ -30,13 +31,10 @@ class CustomValidation(BaseValidation):
     def _send_claim_notification(self, info, instance_id, template_id, recipient_types):
         requests.post(
             build_url(
-                common.CAMAC_NG_URL,
+                settings.INTERNAL_BASE_URL,
                 f"/api/v1/notification-templates/{template_id}/sendmail",
             ),
-            headers={
-                "content-type": "application/vnd.api+json",
-                **common.headers(info),
-            },
+            headers={"content-type": "application/vnd.api+json", **headers(info)},
             data=json.dumps(
                 {
                     "data": {
@@ -53,14 +51,14 @@ class CustomValidation(BaseValidation):
         )
 
     def _send_claim_ech_event(self, info, instance_id, event):
-        if common.ECH_API:
+        if settings.ECH_API:
             requests.post(
                 build_url(
-                    common.CAMAC_NG_URL,
+                    settings.INTERNAL_BASE_URL,
                     f"/ech/v1/event/{instance_id}/{event}",
                     trailing=True,
                 ),
-                headers={"authorization": f"Bearer {common.get_admin_token()}"},
+                headers={"authorization": f"Bearer {get_admin_token()}"},
             )
 
     def _validate_claim_status(self, info, instance_id, status, old_status=None):

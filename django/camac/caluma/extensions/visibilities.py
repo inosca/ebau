@@ -3,10 +3,11 @@ import json.decoder
 import requests
 from caluma.caluma_core.visibilities import BaseVisibility, filter_queryset_for
 from caluma.caluma_form import models as form_models, schema as form_schema
+from django.conf import settings
 from django.db.models import F, Q
 
-from . import common
-from .utils import build_url
+from camac.constants.kt_bern import DASHBOARD_FORM_SLUG
+from camac.utils import build_url, filters, headers
 
 
 class CustomVisibility(BaseVisibility):
@@ -41,7 +42,7 @@ class CustomVisibility(BaseVisibility):
     @filter_queryset_for(form_schema.Document)
     def filter_queryset_for_document(self, node, queryset, info):
         return queryset.filter(
-            Q(form__slug=common.DASHBOARD_FORM_SLUG)
+            Q(form__slug=DASHBOARD_FORM_SLUG)
             | Q(family__in=self._all_visible_documents(info))
             | Q(**self.get_unlinked_table_documents_filter(info))
         )
@@ -49,7 +50,7 @@ class CustomVisibility(BaseVisibility):
     @filter_queryset_for(form_schema.Answer)
     def filter_queryset_for_answer(self, node, queryset, info):
         return queryset.filter(
-            Q(document__form__slug=common.DASHBOARD_FORM_SLUG)
+            Q(document__form__slug=DASHBOARD_FORM_SLUG)
             | Q(document__family__in=self._all_visible_documents(info))
             | Q(**self.get_unlinked_table_documents_filter(info, prefix="document__"))
         )
@@ -83,10 +84,10 @@ class CustomVisibility(BaseVisibility):
             return result
 
         resp = requests.get(
-            build_url(common.CAMAC_NG_URL, "/api/v1/instances"),
+            build_url(settings.INTERNAL_BASE_URL, "/api/v1/instances"),
             # forward filters via query params
-            {**common.filters(info), "fields[instances]": "id"},
-            headers=common.headers(info),
+            {**filters(info), "fields[instances]": "id"},
+            headers=headers(info),
         )
 
         try:
