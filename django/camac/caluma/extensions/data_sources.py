@@ -1,9 +1,9 @@
 import requests
 from caluma.caluma_data_source.data_sources import BaseDataSource
 from caluma.caluma_data_source.utils import data_source_cache
+from django.conf import settings
 
-from . import common
-from .utils import build_url
+from camac.utils import build_url, headers
 
 SERVICE_GROUP_MUNICIPALITY = 2
 SERVICE_GROUP_SERVICE = 1
@@ -16,11 +16,11 @@ class Municipalities(BaseDataSource):
     def get_data(self, info):
         response = requests.get(
             build_url(
-                common.CAMAC_NG_URL,
+                settings.INTERNAL_BASE_URL,
                 f"api/v1/public-services?has_parent=0&service_group={SERVICE_GROUP_MUNICIPALITY}",
                 trailing=False,
             ),
-            headers=common.headers(info),
+            headers=headers(info),
         )
 
         response.raise_for_status()
@@ -44,10 +44,10 @@ class Services(BaseDataSource):
     def get_data(self, info):
         response = requests.get(
             build_url(
-                common.CAMAC_NG_URL,
+                settings.INTERNAL_BASE_URL,
                 f"api/v1/public-services?service_group={SERVICE_GROUP_SERVICE}",
             ),
-            headers=common.headers(info),
+            headers=headers(info),
         )
 
         response.raise_for_status()
