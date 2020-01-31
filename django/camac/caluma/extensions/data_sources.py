@@ -1,9 +1,7 @@
-import requests
 from caluma.caluma_data_source.data_sources import BaseDataSource
 from caluma.caluma_data_source.utils import data_source_cache
-from django.conf import settings
 
-from camac.utils import build_url, headers
+from camac.user.models import Service
 
 SERVICE_GROUP_MUNICIPALITY = 2
 SERVICE_GROUP_SERVICE = 1
@@ -14,27 +12,19 @@ class Municipalities(BaseDataSource):
 
     @data_source_cache(timeout=3600)
     def get_data(self, info):
-        response = requests.get(
-            build_url(
-                settings.INTERNAL_BASE_URL,
-                f"api/v1/public-services?has_parent=0&service_group={SERVICE_GROUP_MUNICIPALITY}",
-                trailing=False,
-            ),
-            headers=headers(info),
+        services = Service.objects.filter(
+            service_parent__isnull=True,
+            service_group__pk=SERVICE_GROUP_MUNICIPALITY,
+            disabled=False,
         )
-
-        response.raise_for_status()
-
-        return sorted(
+        data = sorted(
             [
-                [
-                    int(service["id"]),
-                    service["attributes"]["name"].replace("Leitbehörde", "").strip(),
-                ]
-                for service in response.json()["data"]
+                [service.pk, service.get_name().replace("Leitbehörde ", "")]
+                for service in services.iterator()
             ],
-            key=lambda entry: entry[1].casefold(),
+            key=lambda x: x[1].casefold(),
         )
+        return data
 
 
 class Services(BaseDataSource):
@@ -42,20 +32,16 @@ class Services(BaseDataSource):
 
     @data_source_cache(timeout=3600)
     def get_data(self, info):
-        response = requests.get(
-            build_url(
-                settings.INTERNAL_BASE_URL,
-                f"api/v1/public-services?service_group={SERVICE_GROUP_SERVICE}",
-            ),
-            headers=headers(info),
+        services = Service.objects.filter(
+            service_group__pk=SERVICE_GROUP_SERVICE, disabled=False
         )
 
-        response.raise_for_status()
-
-        return sorted(
+        data = sorted(
             [
-                [str(service["id"]), service["attributes"]["name"]]
-                for service in response.json()["data"]
+                [str(service.pk), service.get_name().replace("Leitbehörde ", "")]
+                for service in services.iterator()
             ],
-            key=lambda entry: entry[1].casefold(),
+            key=lambda x: x[1].casefold(),
         ) + [["-1", "Andere"]]
+
+        return data
