@@ -1257,7 +1257,7 @@
   {
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
-      "recipient_type": "Notification_Manager_Service",
+      "recipient_type": "Notification_Manager_UnnotifiedService",
       "template": 17
     },
     "model": "core.anotification",
@@ -1275,7 +1275,7 @@
   {
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
-      "recipient_type": "Notification_Manager_Service",
+      "recipient_type": "Notification_Manager_UnnotifiedService",
       "template": 17
     },
     "model": "core.anotification",
@@ -1284,7 +1284,7 @@
   {
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
-      "recipient_type": "Notification_Manager_Service",
+      "recipient_type": "Notification_Manager_UnnotifiedService",
       "template": 17
     },
     "model": "core.anotification",
@@ -1302,7 +1302,7 @@
   {
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
-      "recipient_type": "Notification_Manager_Service",
+      "recipient_type": "Notification_Manager_UnnotifiedService",
       "template": 17
     },
     "model": "core.anotification",
