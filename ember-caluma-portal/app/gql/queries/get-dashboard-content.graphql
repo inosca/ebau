@@ -1,0 +1,18 @@
+query GetDashboardContent($page: ID!) {
+  allDocuments(filter: [{ form: "dashboard" }], last: 1) {
+    edges {
+      node {
+        id
+        answers(filter: [{ question: $page }], last: 1) {
+          edges {
+            node {
+              ... on StringAnswer {
+                value
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

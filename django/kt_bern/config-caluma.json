@@ -5323,7 +5323,7 @@
       "form": "dashboard",
       "modified_at": "2019-09-25T10:19:39.231Z",
       "question": "dashboard-inhalt-de",
-      "sort": 4
+      "sort": 6
     },
     "model": "caluma_form.formquestion",
     "pk": "dashboard.dashboard-inhalt-de"
@@ -5336,7 +5336,7 @@
       "form": "dashboard",
       "modified_at": "2019-09-25T10:19:39.841Z",
       "question": "dashboard-inhalt-fr",
-      "sort": 3
+      "sort": 5
     },
     "model": "caluma_form.formquestion",
     "pk": "dashboard.dashboard-inhalt-fr"
@@ -5349,7 +5349,7 @@
       "form": "dashboard",
       "modified_at": "2019-11-12T13:28:46.579Z",
       "question": "hilfe-inhalt-de",
-      "sort": 2
+      "sort": 4
     },
     "model": "caluma_form.formquestion",
     "pk": "dashboard.hilfe-inhalt-de"
@@ -5362,10 +5362,36 @@
       "form": "dashboard",
       "modified_at": "2019-11-12T13:29:21.302Z",
       "question": "hilfe-inhalt-fr",
-      "sort": 1
+      "sort": 3
     },
     "model": "caluma_form.formquestion",
     "pk": "dashboard.hilfe-inhalt-fr"
+  },
+  {
+    "fields": {
+      "created_at": "2020-01-31T12:28:37.267Z",
+      "created_by_group": null,
+      "created_by_user": null,
+      "form": "dashboard",
+      "modified_at": "2020-01-31T12:28:37.267Z",
+      "question": "portal-inhalt-de",
+      "sort": 2
+    },
+    "model": "caluma_form.formquestion",
+    "pk": "dashboard.portal-inhalt-de"
+  },
+  {
+    "fields": {
+      "created_at": "2020-01-31T12:29:08.559Z",
+      "created_by_group": null,
+      "created_by_user": null,
+      "form": "dashboard",
+      "modified_at": "2020-01-31T12:29:08.559Z",
+      "question": "portal-inhalt-fr",
+      "sort": 1
+    },
+    "model": "caluma_form.formquestion",
+    "pk": "dashboard.portal-inhalt-fr"
   },
   {
     "fields": {
@@ -28091,7 +28117,7 @@
       "is_archived": false,
       "is_hidden": "false",
       "is_required": "true",
-      "label": "{\"de\": \"Inhalt DE\", \"fr\": null}",
+      "label": "{\"de\": \"Dashboard Inhalt DE\", \"fr\": null}",
       "meta": {},
       "modified_at": "2019-09-19T07:31:18.230Z",
       "placeholder": "{\"de\": \"\", \"fr\": null}",
@@ -28118,7 +28144,7 @@
       "is_archived": false,
       "is_hidden": "false",
       "is_required": "true",
-      "label": "{\"de\": \"Inhalt FR\", \"fr\": null}",
+      "label": "{\"de\": \"Dashboard Inhalt FR\", \"fr\": null}",
       "meta": {},
       "modified_at": "2019-09-19T07:31:12.336Z",
       "placeholder": "{\"de\": null, \"fr\": null}",
@@ -33042,14 +33068,14 @@
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "data_source": null,
       "format_validators": "[]",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "is_archived": false,
       "is_hidden": "false",
-      "is_required": "false",
+      "is_required": "true",
       "label": "{\"de\": \"Hilfe Inhalt DE\", \"fr\": null}",
       "meta": {},
-      "modified_at": "2019-11-12T13:28:46.433Z",
-      "placeholder": "{\"de\": null, \"fr\": null}",
+      "modified_at": "2020-01-31T12:28:47.036Z",
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
       "row_form": null,
       "source": null,
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
@@ -33069,14 +33095,14 @@
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "data_source": null,
       "format_validators": "[]",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "is_archived": false,
       "is_hidden": "false",
-      "is_required": "false",
+      "is_required": "true",
       "label": "{\"de\": \"Hilfe Inhalt FR\", \"fr\": null}",
       "meta": {},
-      "modified_at": "2019-11-12T13:29:21.149Z",
-      "placeholder": "{\"de\": null, \"fr\": null}",
+      "modified_at": "2020-01-31T12:28:43.649Z",
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
       "row_form": null,
       "source": null,
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
@@ -39994,6 +40020,60 @@
     },
     "model": "caluma_form.question",
     "pk": "plz-wald-eigentuemer"
+  },
+  {
+    "fields": {
+      "configuration": {
+        "max_length": null
+      },
+      "created_at": "2020-01-31T12:28:37.147Z",
+      "created_by_group": null,
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "data_source": null,
+      "format_validators": "[]",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "is_archived": false,
+      "is_hidden": "false",
+      "is_required": "true",
+      "label": "{\"de\": \"Portal Inhalt DE\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-01-31T12:28:37.147Z",
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "row_form": null,
+      "source": null,
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "sub_form": null,
+      "type": "textarea"
+    },
+    "model": "caluma_form.question",
+    "pk": "portal-inhalt-de"
+  },
+  {
+    "fields": {
+      "configuration": {
+        "max_length": null
+      },
+      "created_at": "2020-01-31T12:29:08.352Z",
+      "created_by_group": null,
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "data_source": null,
+      "format_validators": "[]",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "is_archived": false,
+      "is_hidden": "false",
+      "is_required": "true",
+      "label": "{\"de\": \"Portal Inhalt FR\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-01-31T12:29:08.352Z",
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "row_form": null,
+      "source": null,
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "sub_form": null,
+      "type": "textarea"
+    },
+    "model": "caluma_form.question",
+    "pk": "portal-inhalt-fr"
   },
   {
     "fields": {
