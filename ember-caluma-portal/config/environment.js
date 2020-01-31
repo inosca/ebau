@@ -1,16 +1,6 @@
 "use strict";
 
-const clean = str => str.replace(/\/$/, "");
-
 module.exports = function(environment) {
-  const oidcHost = clean(
-    process.env.KEYCLOAK_URL || "http://camac-ng-keycloak.local/auth"
-  );
-
-  const internalURL = clean(
-    process.env.INTERNAL_URL || "http://camac-ng.local"
-  );
-
   const ENV = {
     modulePrefix: "ember-caluma-portal",
     environment,
@@ -18,7 +8,8 @@ module.exports = function(environment) {
     locationType: "auto",
     historySupportMiddleware: true,
     "ember-simple-auth-oidc": {
-      host: `${oidcHost}/realms/ebau/protocol/openid-connect`,
+      host:
+        "http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect",
       clientId: "portal",
       authEndpoint: "/auth",
       tokenEndpoint: "/token",
@@ -53,7 +44,7 @@ module.exports = function(environment) {
     fallbackLanguage: "de",
 
     ebau: {
-      internalURL,
+      internalURL: "http://camac-ng.local",
       claims: {
         notificationTemplateId: 32
       },
