@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.core.cache import cache
 
-from camac.caluma import get_admin_token
+from camac.caluma.api import get_admin_token
 
 
 def test_get_admin_token(requests_mock):

@@ -104,7 +104,6 @@ format:
 	@yarn --cwd=ember install
 	@yarn --cwd=ember lint:js --fix
 	@black django
-	@black caluma
 
 .PHONY: makemigrations
 makemigrations: ## Create schema migrations

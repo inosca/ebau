@@ -16,7 +16,7 @@ from rest_framework.generics import RetrieveAPIView
 from rest_framework.settings import api_settings
 from rest_framework_json_api import views
 
-from camac.caluma import CalumaApi, get_paper_settings
+from camac.caluma.api import CalumaApi, get_paper_settings
 from camac.core.models import InstanceService, WorkflowEntry
 from camac.document.models import Attachment, AttachmentSection
 from camac.notification.serializers import NotificationTemplateSendmailSerializer

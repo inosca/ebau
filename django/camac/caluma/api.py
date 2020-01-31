@@ -5,11 +5,14 @@ import requests
 from caluma.caluma_form import models as caluma_form_models
 from django.conf import settings
 from django.core.cache import cache
+from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import gettext as _
 from oauthlib.oauth2 import BackendApplicationClient
 from requests_oauthlib import OAuth2Session
 from rest_framework import exceptions
+
+from camac.utils import build_url
 
 APPLICANT_GROUP_ID = 6
 
@@ -166,7 +169,9 @@ class CalumaClient:
 
         with CalumaSession(self.auth_token) as session:
             response = session.post(
-                settings.CALUMA_URL,
+                build_url(
+                    settings.INTERNAL_BASE_URL, reverse("graphql"), trailing=True
+                ),
                 json={"query": query, "variables": variables},
                 headers=headers,
             )

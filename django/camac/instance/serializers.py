@@ -13,7 +13,7 @@ from rest_framework import exceptions
 from rest_framework.authentication import get_authorization_header
 from rest_framework_json_api import relations, serializers
 
-from camac.caluma import CalumaApi, get_paper_settings
+from camac.caluma.api import CalumaApi, get_paper_settings
 from camac.constants import kt_bern as constants
 from camac.core.models import (
     Answer,

@@ -13,7 +13,7 @@ from django.utils.translation import gettext_noop
 from rest_framework import exceptions
 from rest_framework_json_api import serializers
 
-from camac.caluma import CalumaApi
+from camac.caluma.api import CalumaApi
 from camac.constants import kt_bern as be_constants
 from camac.core.models import (
     Activation,

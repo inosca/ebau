@@ -17,7 +17,7 @@ FULL_PERMISSIONS = {
 @pytest.fixture
 def mock_nfd_permissions(requests_mock):
     requests_mock.post(
-        "http://caluma:8000/graphql/",
+        "http://camac-ng.local/graphql/",
         text=json.dumps({"data": {"allDocuments": {"edges": []}}}),
     )
 
@@ -341,7 +341,7 @@ def test_instance_paper_permissions(
     application_settings,
     instance_service_factory,
 ):
-    mocker.patch("camac.caluma.CalumaApi.is_paper", lambda s, i: True)
+    mocker.patch("camac.caluma.api.CalumaApi.is_paper", lambda s, i: True)
 
     groups = {
         "municipality": group_factory(role=role),

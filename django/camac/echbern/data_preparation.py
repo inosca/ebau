@@ -1,9 +1,8 @@
 from django.conf import settings
 
-from camac.caluma import get_admin_token
+from camac.caluma.api import CalumaClient, get_admin_token
 from camac.user.models import Role
 
-from ..caluma import CalumaClient
 from .utils import xml_encode_newlines
 
 
