@@ -58,7 +58,7 @@ def test_application_retrieve_full(
     url = reverse("application", args=[ech_instance.pk])
 
     mocker.patch.object(views, "get_authorization_header", return_value="token")
-    requests_mock.post("http://caluma:8000/graphql/", json=full_document)
+    requests_mock.post("http://camac-ng.local/graphql/", json=full_document)
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
@@ -182,7 +182,7 @@ def test_send(
     ech_instance.save()
 
     mocker.patch.object(views, "get_authorization_header", return_value="token")
-    requests_mock.post("http://caluma:8000/graphql/", json=document_form)
+    requests_mock.post("http://camac-ng.local/graphql/", json=document_form)
 
     url = reverse("send")
     response = admin_client.post(
@@ -227,7 +227,7 @@ def test_send_400_invalid_judgement(
     ech_instance.save()
 
     mocker.patch.object(views, "get_authorization_header", return_value="token")
-    requests_mock.post("http://caluma:8000/graphql/", json=document_form)
+    requests_mock.post("http://camac-ng.local/graphql/", json=document_form)
 
     if is_vorabklaerung:
         mocker.patch.object(

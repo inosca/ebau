@@ -43,11 +43,11 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.staticfiles",
     # Caluma and it's dependencies:
-    "caluma.caluma_core",
-    "caluma.caluma_user",
-    "caluma.caluma_form",
-    "caluma.caluma_workflow",
-    "caluma.caluma_data_source",
+    "caluma.caluma_core.apps.DefaultConfig",
+    "caluma.caluma_user.apps.DefaultConfig",
+    "caluma.caluma_form.apps.DefaultConfig",
+    "caluma.caluma_workflow.apps.DefaultConfig",
+    "caluma.caluma_data_source.apps.DefaultConfig",
     "graphene_django",
     "localized_fields",
     "psqlextra",
@@ -84,6 +84,7 @@ MIDDLEWARE = [
     "camac.middleware.LoggingMiddleware",
     "reversion.middleware.RevisionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
+    "simple_history.middleware.HistoryRequestMiddleware",
 ]
 
 
@@ -340,11 +341,11 @@ UNOCONV_URL = env.str("DJANGO_UNOCONV_URL", default="http://localhost:3000")
 DATABASES = {
     "default": {
         "ENGINE": "camac.core.postgresql_dbdefaults.psqlextra",
-        "NAME": env.str("DJANGO_DATABASE_NAME", default=APPLICATION_NAME),
-        "USER": env.str("DJANGO_DATABASE_USER", default="camac"),
-        "PASSWORD": env.str("DJANGO_DATABASE_PASSWORD", default=default("camac")),
-        "HOST": env.str("DJANGO_DATABASE_HOST", default="localhost"),
-        "PORT": env.str("DJANGO_DATABASE_PORT", default=""),
+        "NAME": env.str("DATABASE_NAME", default=APPLICATION_NAME),
+        "USER": env.str("DATABASE_USER", default="camac"),
+        "PASSWORD": env.str("DATABASE_PASSWORD", default=default("camac")),
+        "HOST": env.str("DATABASE_HOST", default="localhost"),
+        "PORT": env.str("DATABASE_PORT", default=""),
     }
 }
 
@@ -537,9 +538,6 @@ GIS_SKIP_BOOLEAN_LAYERS = env.list("GIS_SKIP_BOOLEAN_LAYERS", default=[])
 
 GIS_SKIP_SPECIAL_LAYERS = env.list("GIS_SKIP_SPECIAL_LAYERS", default=[])
 
-CALUMA_URL = build_url(
-    env.str("CALUMA_URL", "http://caluma:8000/graphql/"), trailing=True
-)
 DOCUMENT_MERGE_SERVICE_URL = build_url(
     env.str("DOCUMENT_MERGE_SERVICE_URL", "http://document-merge-service:8000/api/v1/")
 )
@@ -616,3 +614,35 @@ MINIO_STORAGE_AUTO_CREATE_MEDIA_BUCKET = env.str(
     "MINIO_STORAGE_AUTO_CREATE_MEDIA_BUCKET", default=True
 )
 MINIO_PRESIGNED_TTL_MINUTES = env.str("MINIO_PRESIGNED_TTL_MINUTES", default=15)
+
+# GraphQL
+
+GRAPHENE = {"SCHEMA": "caluma.schema.schema", "MIDDLEWARE": []}
+
+if DEBUG:
+    GRAPHENE["MIDDLEWARE"].append("graphene_django.debug.DjangoDebugMiddleware")
+
+# Configure the fields you intend to use in the "meta" fields. This will
+# provide corresponding constants in the ordreBy filter.
+META_FIELDS = env.list("META_FIELDS", default=[])
+
+# Cors headers
+CORS_ORIGIN_ALLOW_ALL = env.bool("CORS_ORIGIN_ALLOW_ALL", default=False)
+CORS_ORIGIN_WHITELIST = env.list("CORS_ORIGIN_WHITELIST", default=[])
+
+
+# Historical API
+ENABLE_HISTORICAL_API = env.bool("ENABLE_HISTORICAL_API", default=False)
+
+# OpenID connect
+
+OIDC_USERINFO_ENDPOINT = env.str("OIDC_USERINFO_ENDPOINT", default=None)
+OIDC_VERIFY_SSL = env.bool("OIDC_VERIFY_SSL", default=True)
+OIDC_GROUPS_CLAIM = env.str("OIDC_GROUPS_CLAIM", default="caluma_groups")
+OIDC_BEARER_TOKEN_REVALIDATION_TIME = env.int(
+    "OIDC_BEARER_TOKEN_REVALIDATION_TIME", default=0
+)
+
+OIDC_INTROSPECT_ENDPOINT = env.str("OIDC_INTROSPECT_ENDPOINT", default=None)
+OIDC_INTROSPECT_CLIENT_ID = env.str("OIDC_INTROSPECT_CLIENT_ID", default="camac-admin")
+OIDC_INTROSPECT_CLIENT_SECRET = KEYCLOAK_CAMAC_ADMIN_CLIENT_SECRET
