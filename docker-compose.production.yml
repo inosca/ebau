@@ -53,9 +53,6 @@ services:
             cache_from:
                 - acr.run/camac-ng/camac-ng/ember-caluma-portal:${CI_COMMIT_REF_SLUG}-${APPLICATION}
         restart: always
-        build:
-            args:
-                KEYCLOAK_URL_ARG: ${KEYCLOAK_URL}
 
     php:
         image: acr.run/camac-ng/camac-ng/php:${CI_COMMIT_REF_SLUG}-${APPLICATION}
