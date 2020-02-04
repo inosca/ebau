@@ -9,6 +9,11 @@ from django.utils import timezone
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
+from camac.core.models import Journal
+from camac.notification.serializers import (
+    PermissionlessNotificationTemplateSendmailSerializer,
+)
+
 
 @pytest.mark.parametrize(
     "role__name,num_queries,size,notification_template__type,notification_template__service",
@@ -461,3 +466,37 @@ def test_notification_caluma_placeholders(
             f"CURRENT_SERVICE: {service_name}",
         ]
     ]
+
+
+def test_notification_template_merge_without_context(
+    db, instance, notification_template, mocker, system_operation_user
+):
+    """Test sendmail without request context.
+
+    When sending a notification through a batch job we can't provide a
+    request context to the serializer. The request context is required to
+    determine the user of the related journal entry which gets automatically
+    created.
+
+    In this case the journal entry should be sent in the name of the system
+    operation user.
+    """
+
+    data = {
+        "recipient_types": ["activation_deadline_today"],
+        "notification_template": {
+            "type": "notification-templates",
+            "id": notification_template.pk,
+        },
+        "instance": {"id": instance.pk, "type": "instances"},
+    }
+
+    sendmail_serializer = PermissionlessNotificationTemplateSendmailSerializer(
+        data=data
+    )
+    sendmail_serializer.is_valid(raise_exception=True)
+    sendmail_serializer.save()
+
+    entry = Journal.objects.latest("created")
+    assert entry.instance == instance
+    assert entry.user == system_operation_user
