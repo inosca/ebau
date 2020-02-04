@@ -515,3 +515,42 @@ def test_generate_and_store_pdf(
 
     assert attachment_section_paper.attachments.count() == 1 if paper else 0
     assert attachment_section_default.attachments.count() == 0 if paper else 1
+
+
+@pytest.mark.parametrize("role__name", ["Applicant"])
+@pytest.mark.parametrize("is_paper,expected_count", [("1", 1), ("0", 2), ("", 3)])
+def test_caluma_instance_list_filter(
+    admin_client,
+    instance_factory,
+    is_paper,
+    expected_count,
+    role,
+    admin_user,
+    mock_public_status,
+    use_caluma_form,
+    mock_nfd_permissions,
+    caluma_forms,
+):
+    # not paper instances
+    instance_factory(user=admin_user)
+    instance_factory(user=admin_user)
+
+    # paper instance
+    paper_instance = instance_factory(user=admin_user)
+    main_document = caluma_form_models.Document.objects.create(
+        form_id="main-form", meta={"camac-instance-id": paper_instance.pk}
+    )
+    caluma_form_models.Answer.objects.create(
+        question_id="papierdossier",
+        value="papierdossier-ja",
+        document_id=main_document.pk,
+    )
+
+    url = reverse("instance-list")
+    response = admin_client.get(url, data={"is_paper": is_paper})
+
+    assert response.status_code == status.HTTP_200_OK
+
+    json = response.json()
+
+    assert len(json["data"]) == expected_count

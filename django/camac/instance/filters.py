@@ -1,9 +1,11 @@
 import re
 
+from caluma.caluma_form.models import Document
 from django.conf import settings
 from django.core.validators import EMPTY_VALUES
-from django.db.models import OuterRef, Subquery
+from django.db.models import F, Func, OuterRef, PositiveIntegerField, Subquery, Value
 from django.db.models.constants import LOOKUP_SEP
+from django.db.models.functions import Cast
 from django_filters.rest_framework import (
     BooleanFilter,
     CharFilter,
@@ -140,6 +142,40 @@ class InstanceFilterSet(FilterSet):
             "responsible_service_user",
             "is_applicant",
         )
+
+
+class CalumaInstanceFilterSet(InstanceFilterSet):
+    is_paper = BooleanFilter(method="filter_is_paper")
+
+    def filter_is_paper(self, queryset, name, value):
+        _filter = {
+            "pk__in": Document.objects.filter(
+                **{
+                    "form__meta__is-main-form": True,
+                    "answers__question_id": "papierdossier",
+                    "answers__value": "papierdossier-ja",
+                }
+            )
+            .annotate(
+                instance_id=Cast(
+                    Func(
+                        F("meta"),
+                        Value("camac-instance-id"),
+                        function="jsonb_extract_path_text",
+                    ),
+                    output_field=PositiveIntegerField(),
+                )
+            )
+            .values_list("instance_id", flat=True)
+        }
+
+        if value:
+            return queryset.filter(**_filter)
+
+        return queryset.exclude(**_filter)
+
+    class Meta(InstanceFilterSet.Meta):
+        fields = InstanceFilterSet.Meta.fields + ("is_paper",)
 
 
 class InstanceResponsibilityFilterSet(FilterSet):
