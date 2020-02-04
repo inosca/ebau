@@ -14206,19 +14206,3 @@ full_document = {
 document_form = {
     "data": {"allDocuments": {"edges": [{"node": {"form": {"slug": "baugesuch"}}}]}}
 }
-
-document_validity = {
-    "data": {
-        "documentValidity": {
-            "edges": [
-                {
-                    "node": {
-                        "id": "ade01883-ddd0-4c8a-8ded-632814f29bf9",
-                        "isValid": True,
-                        "errors": [],
-                    }
-                }
-            ]
-        }
-    }
-}
