@@ -37,8 +37,12 @@ def caluma_forms():
     caluma_form_models.Form.objects.create(slug="nfd")
 
     # questions
-    caluma_form_models.Question.objects.create(slug="gemeinde")
-    caluma_form_models.Question.objects.create(slug="papierdossier")
+    caluma_form_models.Question.objects.create(
+        slug="gemeinde", type=caluma_form_models.Question.TYPE_INTEGER
+    )
+    caluma_form_models.Question.objects.create(
+        slug="papierdossier", type=caluma_form_models.Question.TYPE_TEXT
+    )
 
     # link questions with forms
     caluma_form_models.FormQuestion.objects.create(
