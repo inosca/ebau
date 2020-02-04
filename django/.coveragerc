@@ -29,6 +29,8 @@ omit=
     camac/core/management/commands/importservices.py
     camac/core/management/commands/sequencenamespace.py
     # Temporary entries for landing !2391 into master
-    camac/caluma/extensions/*
+    camac/caluma/extensions/permissions.py
+    camac/caluma/extensions/validations.py
+    camac/caluma/extensions/visibilities.py
 
 show_missing = True
