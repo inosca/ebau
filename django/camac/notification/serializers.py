@@ -7,7 +7,7 @@ import inflection
 import jinja2
 from django.conf import settings
 from django.core.mail import EmailMessage
-from django.db.models import Sum
+from django.db.models import Q, Sum
 from django.utils import timezone
 from django.utils.translation import gettext_noop
 from rest_framework import exceptions
@@ -27,7 +27,7 @@ from camac.core.translations import get_translations
 from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
 from camac.instance.validators import transform_coordinates
-from camac.user.models import Service
+from camac.user.models import Role, Service
 from camac.utils import flatten
 
 from ..core import models as core_models
@@ -393,6 +393,7 @@ class NotificationTemplateMergeSerializer(
 class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer):
     recipient_types = serializers.MultipleChoiceField(
         choices=(
+            "activation_deadline_today",
             "applicant",
             "municipality",
             "caluma_municipality",
@@ -418,6 +419,19 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             for applicant in instance.involved_applicants.all()
             if applicant.invitee
         ]
+
+    def _get_recipients_activation_deadline_today(self, instance):
+        """Return recipients of activations for an instance which  deadline expires exactly today."""
+        activations = Activation.objects.filter(
+            ~Q(circulation_state__name="DONE"),
+            deadline_date__date=date.today(),
+            circulation__instance__instance_state__name="circulation",
+            circulation__instance=instance,
+        )
+        services = {a.service for a in activations}
+        return flatten(
+            [self._get_responsible(instance, service) for service in services]
+        )
 
     def _get_responsible(self, instance, service):
         responsible_old = instance.responsible_services.filter(
@@ -511,13 +525,30 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
                     f'Sent email "{subject}" to {self._recipient_log(recipient)}'
                 )
 
-            if settings.APPLICATION_NAME == "kt_bern":  # pragma: no cover
+            # If no request context was provided to the serializer we assume the
+            # mail delivery is part of a batch job initalized by the system
+            # operation user.
+
+            if self.context:
+                user = self.context["request"].user
+            else:
+                user = (
+                    Role.objects.get(name="support")
+                    .groups.order_by("group_id")
+                    .first()
+                    .users.first()
+                )
+
+            if (
+                settings.APPLICATION_NAME == "kt_bern"
+                or settings.APPLICATION_NAME == "demo"
+            ):  # pragma: no cover
                 journal_entry = Journal.objects.create(
                     instance=instance,
                     mode="auto",
                     additional_text=body,
                     created=timezone.now(),
-                    user=self.context["request"].user,
+                    user=user,
                 )
                 for (lang, text) in get_translations(
                     gettext_noop("Notification sent to %(receiver)s (%(subject)s)")
