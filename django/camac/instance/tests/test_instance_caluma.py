@@ -295,12 +295,12 @@ def test_instance_submit(
     instance_state_factory(name=new_instance_state_name)
 
     requests_mock.post(
-        "http://caluma:8000/graphql/",
+        "http://camac-ng.local/graphql/",
         additional_matcher=lambda rq: b"allDocuments" in rq.body,
         json=full_document,
     )
     requests_mock.post(
-        "http://caluma:8000/graphql/",
+        "http://camac-ng.local/graphql/",
         additional_matcher=lambda rq: b"documentValidity" in rq.body,
         json=document_validity,
     )
