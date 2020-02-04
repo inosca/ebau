@@ -8,7 +8,7 @@ from rest_framework import status
 from camac.core.models import Chapter, Question, QuestionType
 from camac.echbern import data_preparation
 from camac.echbern.data_preparation import DocumentParser
-from camac.echbern.tests.caluma_responses import document_validity, full_document
+from camac.echbern.tests.caluma_responses import full_document
 from camac.instance.serializers import (
     SUBMIT_DATE_CHAPTER,
     SUBMIT_DATE_QUESTION_ID,
@@ -299,11 +299,6 @@ def test_instance_submit(
         additional_matcher=lambda rq: b"allDocuments" in rq.body,
         json=full_document,
     )
-    requests_mock.post(
-        "http://camac-ng.local/graphql/",
-        additional_matcher=lambda rq: b"documentValidity" in rq.body,
-        json=document_validity,
-    )
 
     mocker.patch.object(data_preparation, "get_admin_token", return_value="token")
 
@@ -342,7 +337,7 @@ def test_responsible_user(admin_client, instance, user, service, multilang):
 
 
 @pytest.mark.parametrize(
-    "instance_state__name,document_validity,expected_status",
+    "instance_state__name,document_valid,expected_status",
     [
         ("sb1", True, status.HTTP_200_OK),
         ("new", True, status.HTTP_403_FORBIDDEN),
@@ -369,8 +364,8 @@ def test_instance_report(
     multilang,
     mock_nfd_permissions,
     mock_generate_and_store_pdf,
-    document_validity,
     caluma_forms,
+    document_valid,
 ):
     application_settings["NOTIFICATIONS"]["REPORT"] = [
         {
@@ -378,6 +373,12 @@ def test_instance_report(
             "recipient_types": ["applicant", "construction_control"],
         }
     ]
+
+    # we make the document invalid by requiring a non-existing question
+    # (if document_valid is set to False)
+    q_papierdossier = caluma_form_models.Question.objects.get(slug="papierdossier")
+    q_papierdossier.is_required = str(not document_valid).lower()
+    q_papierdossier.save()
 
     caluma_form_models.Document.objects.create(
         form_id="sb1", meta={"camac-instance-id": instance.pk}
