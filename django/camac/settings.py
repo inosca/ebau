@@ -28,6 +28,7 @@ def default(default_dev=env.NOTSET, default_prod=env.NOTSET):
 SECRET_KEY = env.str("DJANGO_SECRET_KEY", default=default("uuuuuuuuuu"))
 DEBUG = env.bool("DJANGO_DEBUG", default=default(True, False))
 ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=default(["*"]))
+ENABLE_SILK = env.bool("DJANGO_ENABLE_SILK", default=False)
 
 DEMO_MODE = env.bool("DEMO_MODE", default=False)
 
@@ -646,3 +647,17 @@ OIDC_BEARER_TOKEN_REVALIDATION_TIME = env.int(
 OIDC_INTROSPECT_ENDPOINT = env.str("OIDC_INTROSPECT_ENDPOINT", default=None)
 OIDC_INTROSPECT_CLIENT_ID = env.str("OIDC_INTROSPECT_CLIENT_ID", default="camac-admin")
 OIDC_INTROSPECT_CLIENT_SECRET = KEYCLOAK_CAMAC_ADMIN_CLIENT_SECRET
+
+
+if ENABLE_SILK:  # pragma: no cover
+    INSTALLED_APPS.append("silk")
+    MIDDLEWARE.extend(
+        [
+            "django.contrib.sessions.middleware.SessionMiddleware",
+            "silk.middleware.SilkyMiddleware",
+        ]
+    )
+
+    SILKY_AUTHENTICATION = False
+    SILKY_AUTHORISATION = False
+    SILKY_META = True
