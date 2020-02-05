@@ -64,7 +64,6 @@ class InstanceView(
     """
     instance_editable_permission = "instance"
 
-    filterset_class = filters.InstanceFilterSet
     queryset = models.Instance.objects.all()
     prefetch_for_includes = {
         "circulations": ["circulations__activations"],
@@ -98,6 +97,13 @@ class InstanceView(
             filters.InstanceFormFieldFilterBackend,
             filters.FormFieldOrdering,
         ]
+
+    @property
+    def filterset_class(self):
+        if settings.APPLICATION["FORM_BACKEND"] == "caluma":
+            return filters.CalumaInstanceFilterSet
+
+        return filters.InstanceFilterSet
 
     def get_serializer_class(self):
         backend = settings.APPLICATION["FORM_BACKEND"]
