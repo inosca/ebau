@@ -16,7 +16,7 @@ from rest_framework import exceptions
 from rest_framework.authentication import get_authorization_header
 from rest_framework_json_api import relations, serializers
 
-from camac.caluma.api import CalumaApi, get_paper_settings
+from camac.caluma.api import CalumaApi, CalumaInfo, get_paper_settings
 from camac.constants import kt_bern as constants
 from camac.core.models import (
     Answer,
@@ -545,7 +545,9 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
     def _validate_document_validity(self, document_id):
         caluma_doc = caluma_form_models.Document.objects.get(pk=document_id)
         validator = caluma_form_validators.DocumentValidator()
-        validator.validate(caluma_doc, info=self)
+
+        caluma_info = CalumaInfo(self.context["request"])
+        validator.validate(caluma_doc, info=caluma_info)
 
     def validate(self, data):
         data["caluma_document"] = CalumaApi().get_main_document(self.instance)
