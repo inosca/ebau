@@ -6,6 +6,13 @@ from rest_framework import permissions
 from camac.request import get_request
 
 
+def get_group(obj):
+    request = get_request(obj)
+    if request:
+        return request.group
+    return getattr(obj, "group", None)
+
+
 def permission_aware(func):
     """
     Decorate view methods to be permission aware.
@@ -28,8 +35,8 @@ def permission_aware(func):
     @wraps(func)
     def wrapper(self, *args, **kwargs):
         # on view request is directly on instance
-        request = get_request(self)
-        permission_func = get_permission_func(self, func.__name__, request.group)
+        group = get_group(self)
+        permission_func = get_permission_func(self, func.__name__, group)
         if permission_func:
             return permission_func(*args, **kwargs)
 
