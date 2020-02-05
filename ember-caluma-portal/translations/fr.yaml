@@ -94,7 +94,6 @@ documents:
     weitere-unterlagen: "Autres documents"
 
 freigabequittung:
-  noFiles: "Il n'y a aucun document à signer."
   downloadError: "Un problème est survenu lors de l'exportation. Veuillez réessayer."
 
 gis:
@@ -211,9 +210,6 @@ instances:
     sb2: "Déclaration spontanée 2"
     nfd: "Demandes de complément d'information"
 
-  noDocument: "Le formulaire \"{form}\" n'a pas encore été rempli"
-  createDocument: "Remplissez le formulaire maintenant"
-
   applicants:
     invitee: "Utilisateur"
     created: "Enregistré sur"
@@ -232,7 +228,6 @@ be-submit-instance:
   loading: "Votre dossier sera examiné. Veuillez patienter un instant."
   success: "Le dossier a été soumise avec succès."
   failed-camac: "Erreur d'écriture sur le serveur."
-  failed-archive: "Erreur lors du dépôt du dossier."
   failed-message: "Oups, quelque chose s'est mal passé. Veuillez vérifier vos données d'entrée à nouveau. {reasons}"
 
 claims:

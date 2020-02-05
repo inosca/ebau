@@ -94,7 +94,6 @@ documents:
     weitere-unterlagen: "Weitere Unterlagen"
 
 freigabequittung:
-  noFiles: "Es sind keine Dokumente zu unterschreiben."
   downloadError: "Beim Export ist ein Problem aufgetreten. Bitte versuchen Sie es erneut."
 
 gis:
@@ -208,9 +207,6 @@ instances:
     sb1: "Selbstdeklaration 1"
     sb2: "Selbstdeklaration 2"
 
-  noDocument: "Das Formular \"{form}\" wurde noch nicht ausgefüllt."
-  createDocument: "Formular jetzt ausfüllen"
-
   applicants:
     invitee: "Benutzer"
     created: "Erfasst am"
@@ -229,7 +225,6 @@ be-submit-instance:
   loading: "Ihr Dossier wird geprüft. Bitte haben Sie einen Moment Geduld."
   success: "Das Gesuch wurde erfolgreich eingereicht."
   failed-camac: "Fehler beim Schreiben auf Schnittstelle."
-  failed-archive: "Fehler beim Ablegen des Gesuchs."
   failed-message: "Hoppla, etwas ist schief gelaufen. Bitte überprüfen Sie Ihre Eingabedaten nochmals. {reasons}"
 
 claims:
