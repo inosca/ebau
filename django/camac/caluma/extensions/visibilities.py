@@ -1,29 +1,32 @@
-import json.decoder
-
-import requests
 from caluma.caluma_core.visibilities import BaseVisibility, filter_queryset_for
 from caluma.caluma_form import models as form_models, schema as form_schema
-from django.conf import settings
+from caluma.caluma_user.models import AnonymousUser
 from django.db.models import Exists, F, OuterRef, Q
 
 from camac.constants.kt_bern import DASHBOARD_FORM_SLUG
-from camac.utils import build_url, filters, headers
+from camac.instance.mixins import InstanceQuerysetMixin
+from camac.instance.models import Instance
+from camac.user.models import Group, User, UserGroup
 
 
-class CustomVisibility(BaseVisibility):
+class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
     """Custom visibility for Kanton Bern.
-
-    This defers the visibility to CAMAC-NG, by querying the NG API for all
-    visible instances for the given user.
 
     Note: This expects that each document has a meta property that stores the
     CAMAC instance identifier, named "camac-instance-id". Each node is
     filtered by indirectly looking for the value of said property.
 
-    To avoid multiple lookups to the Camac-NG API, the result is cached in the
-    request object, and resused if the need arises. Caching beyond a request is
+    To avoid multiple db lookups, the result is cached in the
+    request object, and reused if the need arises. Caching beyond a request is
     not done but might become a future optimisation.
     """
+
+    instance_field = None
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.group = None
+        self.user = None
 
     @filter_queryset_for(form_schema.Document)
     def filter_queryset_for_document(self, node, queryset, info):
@@ -55,12 +58,22 @@ class CustomVisibility(BaseVisibility):
             )
         )
 
-    def _all_visible_instances(self, info):
-        """Fetch visible camac instances from NG API, caches the result.
+    def _get_group_from_query_params(self, info):
+        group_pk = info.context.META.get("HTTP_X_CAMAC_GROUP", None)
+        if not group_pk:
+            return None
+        return Group.objects.get(pk=group_pk)
 
-        Take user's group from a custom HTTP header named `X-CAMAC-GROUP`
-        which is then forwarded as a filter to the NG API to retrieve all
-        Camac instance IDs that are accessible.
+    def get_base_queryset(self):
+        """Overridden from InstanceQuerysetMixin to avoid the super().get_queryset() call."""
+        instance_state_expr = self._get_instance_filter_expr("instance_state")
+        return Instance.objects.all().select_related(instance_state_expr)
+
+    def _all_visible_instances(self, info):
+        """Fetch visible camac instances and cache the result.
+
+        Take user's group from a custom HTTP header named `X-CAMAC-GROUP` or use
+        default group  to retrieve all Camac instance IDs that are accessible.
 
         Return a list of instance identifiers.
         """
@@ -68,29 +81,18 @@ class CustomVisibility(BaseVisibility):
         if result is not None:
             return result
 
-        resp = requests.get(
-            build_url(settings.INTERNAL_BASE_URL, "/api/v1/instances"),
-            # forward filters via query params
-            {**filters(info), "fields[instances]": "id"},
-            headers=headers(info),
-        )
+        user = info.context.user
+        if isinstance(user, AnonymousUser):
+            return Instance.queryset.none()
 
-        try:
-            jsondata = resp.json()
-            if "error" in jsondata:
-                # forward Instance API error to client
-                raise RuntimeError("Error from NG API: %s" % jsondata["error"])
+        user = User.objects.get(username=user.username)
+        self.user = user.pk
 
-            instance_ids = [int(rec["id"]) for rec in jsondata["data"]]
+        self.group = self._get_group_from_query_params(info)
+        if not self.group:
+            self.group = UserGroup.objects.get(user=user, default_group=True).group
 
-            setattr(info.context, "_visibility_instances_cache", instance_ids)
-
-            return instance_ids
-
-        except json.decoder.JSONDecodeError:
-            raise RuntimeError("NG API returned non-JSON response, check configuration")
-
-        except KeyError:
-            raise RuntimeError(
-                f"NG API returned unexpected data structure (no data key): {jsondata}"
-            )
+        qs = self.get_queryset(self.group)
+        instance_ids = list(qs.values_list("pk", flat=True))
+        setattr(info.context, "_visibility_instances_cache", instance_ids)
+        return instance_ids
