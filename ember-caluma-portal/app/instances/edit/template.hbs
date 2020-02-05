@@ -48,17 +48,6 @@
         <a href="#">{{t "nav.applicants"}}</a>
       </LinkTo>
     {{/if}}
-
-    {{#if (and this.session.isInternal (not embedded))}}
-      <li class="uk-position-absolute uk-position-right">
-        <a
-          href="{{internalURL}}/index/redirect-to-instance-resource/instance-id/{{this.instance.id}}"
-          class="uk-text-small"
-        >
-          {{t "nav.internal"}} <UkIcon @icon="arrow-right" />
-        </a>
-      </li>
-    {{/if}}
   </ul>
 {{/if}}
 
