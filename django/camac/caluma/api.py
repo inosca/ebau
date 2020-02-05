@@ -56,7 +56,7 @@ class CalumaApi:
 
     def get_ebau_number(self, instance):
         document = caluma_form_models.Document.objects.filter(
-            **{"meta__camac-instance-id": instance.pk}
+            **{"meta__camac-instance-id": instance.pk, "form__meta__is-main-form": True}
         ).first()
         return document.meta.get("ebau-number", "-") if document else None
 
