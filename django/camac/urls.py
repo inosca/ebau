@@ -42,3 +42,6 @@ urlpatterns = [
     # url(r'^api/docs/$', schema_view),
     # url(r'^api/auth/$', include('keycloak_adapter.urls')),
 ]
+
+if settings.ENABLE_SILK:  # pragma: no cover
+    urlpatterns.append(url(r"^api/silk/", include("silk.urls", namespace="silk")))
