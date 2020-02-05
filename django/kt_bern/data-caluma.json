@@ -106,9 +106,7 @@
       "meta": {},
       "modified_at": "2019-07-04T06:46:38.610Z",
       "question": "verpflichtung-bei-handaenderung",
-      "value": [
-        "verpflichtung-bei-handaenderung-ja"
-      ]
+      "value": ["verpflichtung-bei-handaenderung-ja"]
     },
     "model": "caluma_form.answer",
     "pk": "0ca6f012-0bdd-483d-8bf9-604a84a4352e"
@@ -124,9 +122,7 @@
       "meta": {},
       "modified_at": "2019-12-18T14:20:16.528Z",
       "question": "bestaetigung-gis",
-      "value": [
-        "bestaetigung-gis-ja"
-      ]
+      "value": ["bestaetigung-gis-ja"]
     },
     "model": "caluma_form.answer",
     "pk": "115ad01e-78b2-4b45-a8ef-17ba8f67a2a7"
@@ -174,9 +170,7 @@
       "meta": {},
       "modified_at": "2019-07-04T06:46:36.876Z",
       "question": "verzicht-schadensersatz-naturereignisse",
-      "value": [
-        "verzicht-schadensersatz-naturereignisse-ja"
-      ]
+      "value": ["verzicht-schadensersatz-naturereignisse-ja"]
     },
     "model": "caluma_form.answer",
     "pk": "1417f3f7-6f64-45df-b9f4-2f4474dcc24f"
@@ -192,9 +186,7 @@
       "meta": {},
       "modified_at": "2019-07-04T06:46:39.151Z",
       "question": "einhaltung-radonvorgaben",
-      "value": [
-        "einhaltung-radonvorgaben-ja"
-      ]
+      "value": ["einhaltung-radonvorgaben-ja"]
     },
     "model": "caluma_form.answer",
     "pk": "151cbd1a-39b9-4967-8bef-744e4f8e3445"
@@ -210,9 +202,7 @@
       "meta": {},
       "modified_at": "2019-07-04T06:46:13.074Z",
       "question": "gefahrenstufe",
-      "value": [
-        "gefahrenstufe-unbestimmt"
-      ]
+      "value": ["gefahrenstufe-unbestimmt"]
     },
     "model": "caluma_form.answer",
     "pk": "17a4f12c-efc2-4f55-9636-79eabac847a9"
@@ -228,9 +218,7 @@
       "meta": {},
       "modified_at": "2019-07-04T06:45:59.888Z",
       "question": "qss-stufe",
-      "value": [
-        "qss-stufe-1"
-      ]
+      "value": ["qss-stufe-1"]
     },
     "model": "caluma_form.answer",
     "pk": "1e2679f0-a44c-4fdd-85d8-bfb70e30d2f2"
@@ -262,9 +250,7 @@
       "meta": {},
       "modified_at": "2019-07-04T06:46:33.062Z",
       "question": "grundriss-angabe-bodenflaeche-dokument",
-      "value": [
-        "grundriss-angabe-bodenflaeche-dokument-ja"
-      ]
+      "value": ["grundriss-angabe-bodenflaeche-dokument-ja"]
     },
     "model": "caluma_form.answer",
     "pk": "2491231a-b753-49fb-ae9f-c97906538d92"
@@ -328,9 +314,7 @@
       "meta": {},
       "modified_at": "2019-12-18T14:23:52.637Z",
       "question": "bestaetigung-gis",
-      "value": [
-        "bestaetigung-gis-ja"
-      ]
+      "value": ["bestaetigung-gis-ja"]
     },
     "model": "caluma_form.answer",
     "pk": "386f82a4-7f31-4518-b699-dcaefd3e6c9c"
@@ -522,9 +506,7 @@
       "meta": {},
       "modified_at": "2019-07-04T06:45:51.874Z",
       "question": "grundwasserschutzzonen",
-      "value": [
-        "grundwasserschutzzonen-s1"
-      ]
+      "value": ["grundwasserschutzzonen-s1"]
     },
     "model": "caluma_form.answer",
     "pk": "60c4aa3c-3a54-41dc-8b27-82b6ec95f475"
@@ -572,9 +554,7 @@
       "meta": {},
       "modified_at": "2019-11-05T06:59:54.086Z",
       "question": "einreichen-button",
-      "value": [
-        "einreichen-button-eingereicht"
-      ]
+      "value": ["einreichen-button-eingereicht"]
     },
     "model": "caluma_form.answer",
     "pk": "688fe6f8-a3d5-4a3a-8c4d-59d50b137a09"
@@ -606,9 +586,7 @@
       "meta": {},
       "modified_at": "2019-07-04T06:46:41.080Z",
       "question": "bestaetigung-mit-unterschrift",
-      "value": [
-        "bestaetigung-mit-unterschrift-ja"
-      ]
+      "value": ["bestaetigung-mit-unterschrift-ja"]
     },
     "model": "caluma_form.answer",
     "pk": "69f321ad-1fda-48a3-9a6c-4ca5df8f334c"
@@ -656,9 +634,7 @@
       "meta": {},
       "modified_at": "2019-07-04T06:46:33.038Z",
       "question": "grundriss-dokument",
-      "value": [
-        "grundriss-dokument-ja"
-      ]
+      "value": ["grundriss-dokument-ja"]
     },
     "model": "caluma_form.answer",
     "pk": "6e99af45-aa9b-4f9a-985b-46a2324bca44"
@@ -754,9 +730,7 @@
       "meta": {},
       "modified_at": "2019-07-04T06:46:37.361Z",
       "question": "anforderungen-eingehalten",
-      "value": [
-        "anforderungen-eingehalten-ja"
-      ]
+      "value": ["anforderungen-eingehalten-ja"]
     },
     "model": "caluma_form.answer",
     "pk": "7bb1578e-8cce-43c1-bb7b-630c93a92545"
@@ -884,9 +858,7 @@
       "meta": {},
       "modified_at": "2019-07-04T06:46:40.640Z",
       "question": "keine-tangierung-natur-wild-vogelschutz",
-      "value": [
-        "keine-tangierung-natur-wild-vogelschutz--ja"
-      ]
+      "value": ["keine-tangierung-natur-wild-vogelschutz--ja"]
     },
     "model": "caluma_form.answer",
     "pk": "9040cc61-b125-448f-83d9-ddc7c6d22d9b"
@@ -966,9 +938,7 @@
       "meta": {},
       "modified_at": "2019-07-04T06:44:41.162Z",
       "question": "um-was-fuer-ein-gebaeude-handelt-es-sich",
-      "value": [
-        "um-was-fuer-ein-gebaeude-handelt-es-sich-efh"
-      ]
+      "value": ["um-was-fuer-ein-gebaeude-handelt-es-sich-efh"]
     },
     "model": "caluma_form.answer",
     "pk": "a2b8e5d7-9ab1-4214-98ae-148e895e98b9"
@@ -1096,9 +1066,7 @@
       "meta": {},
       "modified_at": "2019-07-04T06:44:21.496Z",
       "question": "baubeschrieb",
-      "value": [
-        "baubeschrieb-um-ausbau"
-      ]
+      "value": ["baubeschrieb-um-ausbau"]
     },
     "model": "caluma_form.answer",
     "pk": "d40fc9f6-39b1-44af-9898-8f3631269f4b"
@@ -1114,9 +1082,7 @@
       "meta": {},
       "modified_at": "2019-07-04T06:46:32.935Z",
       "question": "situationsplan-dokument",
-      "value": [
-        "situationsplan-dokument-ja"
-      ]
+      "value": ["situationsplan-dokument-ja"]
     },
     "model": "caluma_form.answer",
     "pk": "d7bd6458-e5e9-4cf7-bfc0-ba087a033ad0"
@@ -1164,9 +1130,7 @@
       "meta": {},
       "modified_at": "2019-07-04T06:46:40.116Z",
       "question": "bestaetigung-liegenschaftsentwaesserung",
-      "value": [
-        "bestaetigung-liegenschaftsentwaesserung-ja"
-      ]
+      "value": ["bestaetigung-liegenschaftsentwaesserung-ja"]
     },
     "model": "caluma_form.answer",
     "pk": "e0620854-1fa7-4fc2-b864-aaacdb378e0a"
@@ -1198,9 +1162,7 @@
       "meta": {},
       "modified_at": "2019-07-04T06:46:32.928Z",
       "question": "schnitt-dokument",
-      "value": [
-        "schnitt-dokument-ja"
-      ]
+      "value": ["schnitt-dokument-ja"]
     },
     "model": "caluma_form.answer",
     "pk": "e57c44dc-6e94-4893-b545-3860717112a9"
@@ -1264,9 +1226,7 @@
       "meta": {},
       "modified_at": "2019-07-04T06:45:24.392Z",
       "question": "gewaesserschutzbereich",
-      "value": [
-        "gewaesserschutzbereich-au"
-      ]
+      "value": ["gewaesserschutzbereich-au"]
     },
     "model": "caluma_form.answer",
     "pk": "eedbb6bd-564f-4ae1-a6eb-11544e0bc39e"
@@ -1298,9 +1258,7 @@
       "meta": {},
       "modified_at": "2019-07-04T06:44:39.371Z",
       "question": "nutzungsart",
-      "value": [
-        "nutzungsart-wohnen"
-      ]
+      "value": ["nutzungsart-wohnen"]
     },
     "model": "caluma_form.answer",
     "pk": "f79cf4cf-2eff-4bda-82c9-549ebbd7509b"
@@ -1380,9 +1338,7 @@
       "meta": {},
       "modified_at": "2019-07-04T06:46:39.560Z",
       "question": "einhaltung-asbestvorgaben",
-      "value": [
-        "einhaltung-asbestvorgaben-ja"
-      ]
+      "value": ["einhaltung-asbestvorgaben-ja"]
     },
     "model": "caluma_form.answer",
     "pk": "ffefb064-0fb0-4d67-a5a7-b10c6c6726f7"

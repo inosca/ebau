@@ -4,11 +4,8 @@ import { next } from "@ember/runloop";
 import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
 import InViewportComponent from "ember-caluma-portal/components/in-viewport/component";
-import config from "ember-caluma-portal/config/environment";
-import { task, timeout } from "ember-concurrency";
+import { task } from "ember-concurrency";
 import { all } from "rsvp";
-
-const { environment } = config;
 
 export default InViewportComponent.extend({
   intl: service(),
@@ -67,13 +64,6 @@ export default InViewportComponent.extend({
       const action = this.get("field.question.meta.action");
 
       assert("Field must have a meta property `action`", action);
-
-      // Simulate between 4 and 6 seconds waiting, until actual backend
-      // implementation has landed. This will result in ~17 seconds loading time
-      // until this action is completed (~12s real, ~5s faked).
-      if (environment === "production") {
-        yield timeout(4000 + Math.random() * 2000);
-      }
 
       // submit instance in CAMAC
       const camacResponse = yield this.fetch.fetch(
