@@ -131,7 +131,8 @@ def mock_generate_and_store_pdf(mocker):
 
 
 @pytest.mark.freeze_time("2019-05-02")
-@pytest.mark.parametrize("paper,instance_state__name", [(True, "new"), (False, "new")])
+@pytest.mark.parametrize("instance_state__name", ["new"])
+@pytest.mark.parametrize("paper,copy", [(True, False), (False, False), (False, True)])
 def test_create_instance(
     db,
     admin_client,
@@ -139,10 +140,11 @@ def test_create_instance(
     form,
     use_caluma_form,
     mock_nfd_permissions,
-    paper,
     group,
     caluma_forms,
     application_settings,
+    paper,
+    copy,
 ):
     headers = {}
 
@@ -160,13 +162,7 @@ def test_create_instance(
                 "type": "instances",
                 "attributes": {"caluma-form": "main-form"},
                 "relationships": {
-                    "form": {"data": {"id": form.form_id, "type": "forms"}},
-                    "instance-state": {
-                        "data": {
-                            "id": instance_state.instance_state_id,
-                            "type": "instance-states",
-                        }
-                    },
+                    "form": {"data": {"id": form.form_id, "type": "forms"}}
                 },
             }
         },
