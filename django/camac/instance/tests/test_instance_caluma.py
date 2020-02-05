@@ -1,6 +1,7 @@
 import pytest
 from caluma.caluma_form import models as caluma_form_models
 from django.core import mail
+from django.core.cache import cache
 from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
@@ -27,7 +28,7 @@ MAIN_FORMS = [
 
 
 @pytest.fixture
-def caluma_forms():
+def caluma_forms(settings):
     # forms
     caluma_form_models.Form.objects.create(
         slug="main-form", meta={"is-main-form": True}
@@ -36,13 +37,33 @@ def caluma_forms():
     caluma_form_models.Form.objects.create(slug="sb2")
     caluma_form_models.Form.objects.create(slug="nfd")
 
+    # dynamic choice options get cached, so we clear them
+    # to ensure the new "gemeinde" options will be valid
+    cache.clear()
+
     # questions
     caluma_form_models.Question.objects.create(
-        slug="gemeinde", type=caluma_form_models.Question.TYPE_INTEGER
+        slug="gemeinde",
+        type=caluma_form_models.Question.TYPE_DYNAMIC_CHOICE,
+        data_source="Municipalities",
     )
-    caluma_form_models.Question.objects.create(
-        slug="papierdossier", type=caluma_form_models.Question.TYPE_TEXT
+    settings.DATA_SOURCE_CLASSES = [
+        "camac.caluma.extensions.data_sources.Municipalities"
+    ]
+
+    q_papierdossier = caluma_form_models.Question.objects.create(
+        slug="papierdossier", type=caluma_form_models.Question.TYPE_CHOICE
     )
+    options = [
+        caluma_form_models.Option.objects.create(slug="papierdossier-ja", label="Ja"),
+        caluma_form_models.Option.objects.create(
+            slug="papierdossier-nein", label="Nein"
+        ),
+    ]
+    for option in options:
+        caluma_form_models.QuestionOption.objects.create(
+            question=q_papierdossier, option=option
+        )
 
     # link questions with forms
     caluma_form_models.FormQuestion.objects.create(
@@ -273,6 +294,10 @@ def test_instance_submit(
     caluma_forms,
 ):
 
+    mocker.patch(
+        "camac.caluma.extensions.data_sources.SERVICE_GROUP_MUNICIPALITY",
+        service.service_group.pk,
+    )
     application_settings["NOTIFICATIONS"]["SUBMIT"] = [
         {"template_id": notification_template.pk, "recipient_types": ["applicant"]}
     ]
@@ -281,7 +306,7 @@ def test_instance_submit(
         form_id="main-form", meta={"camac-instance-id": instance.pk}
     )
     caluma_form_models.Answer.objects.create(
-        document=document, value=service.pk, question_id="gemeinde"
+        document=document, value=str(service.pk), question_id="gemeinde"
     )
 
     group_factory(role=role_factory(name="support"))

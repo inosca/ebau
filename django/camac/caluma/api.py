@@ -3,6 +3,7 @@ from hashlib import sha256
 
 import requests
 from caluma.caluma_form import models as caluma_form_models
+from caluma.caluma_user import models as caluma_user_models
 from django.conf import settings
 from django.core.cache import cache
 from django.urls import reverse
@@ -235,3 +236,32 @@ def get_paper_settings(key=None):
             key, service_groups.get("DEFAULT", [])
         ),
     }
+
+
+class CalumaInfo:
+    """A caluma info object built from the given camac request.
+
+    Caluma requires an "info" object in various places, representing
+    the GraphQL request, user, etc; similar to the context in
+    DRF views.
+
+    This info object is limited and only contains what's actually needed.
+    It may need to be expanded in the future.
+    """
+
+    def __init__(self, camac_request):
+        self._camac_request = camac_request
+        self.context = CalumaInfo.Context(self)
+
+    class Context:
+        def __init__(self, info):
+            self._info = info
+
+        @property
+        def user(self):
+            camac_user = self._info._camac_request.user
+
+            user = caluma_user_models.OIDCUser(
+                token=None, userinfo={"sub": camac_user.username, "group": None}
+            )
+            return user
