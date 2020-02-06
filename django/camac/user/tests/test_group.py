@@ -31,6 +31,20 @@ def test_group_detail(admin_client, group, multilang, application_settings):
     assert json["data"]["attributes"]["name"] == group.get_name()
 
 
+def test_group_detail_include(
+    admin_client, group, user_group_factory, multilang, application_settings
+):
+    user_group_factory(user__disabled=1, group=group)
+    url = reverse("group-detail", args=[group.pk])
+
+    response = admin_client.get(url + "?include=users")
+
+    assert response.status_code == status.HTTP_200_OK
+    json = response.json()
+    assert json["data"]["attributes"]["name"] == group.get_name()
+    assert len(json["included"]) == 1
+
+
 @pytest.mark.parametrize(
     "role__name,instance__user,count",
     [

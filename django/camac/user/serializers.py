@@ -57,7 +57,7 @@ class CurrentUserSerializer(UserSerializer):
     )
 
     def get_groups(self, obj):
-        return obj.groups.filter(disabled=0)
+        return obj.groups.filter(disabled=False)
 
     included_serializers = {"groups": "camac.user.serializers.GroupSerializer"}
 
@@ -98,6 +98,12 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
 
 class GroupSerializer(MultilingualSerializer, serializers.ModelSerializer):
     included_serializers = {"users": UserSerializer, "service": ServiceSerializer}
+    users = relations.SerializerMethodResourceRelatedField(
+        source="get_users", model=models.User, read_only=True, many=True
+    )
+
+    def get_users(self, obj):
+        return obj.users.filter(disabled=False)
 
     class Meta:
         model = models.Group
