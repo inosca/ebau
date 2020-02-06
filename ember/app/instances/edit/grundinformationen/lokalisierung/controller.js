@@ -4,8 +4,6 @@ import { task } from "ember-concurrency";
 import { computed } from "@ember/object";
 import ENV from "citizen-portal/config/environment";
 
-import ENV from "citizen-portal/config/environment";
-
 export default Controller.extend({
   questionStore: service(),
   ajax: service(),
