@@ -18,7 +18,7 @@ export default class CustomApolloService extends ApolloService.extend(
     }));
 
     const afterware = onError(error => {
-      if (error.networkError.statusCode === 401) {
+      if (error.networkError && error.networkError.statusCode === 401) {
         this.session.handleUnauthorized();
       }
     });
