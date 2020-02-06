@@ -4,9 +4,11 @@ from caluma.caluma_user.models import AnonymousUser
 from django.db.models import F, OuterRef, Q, Subquery
 
 from camac.constants.kt_bern import DASHBOARD_FORM_SLUG
+from camac.instance.filters import CalumaInstanceFilterSet
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.instance.models import Instance
 from camac.user.models import Group, User, UserGroup
+from camac.utils import filters
 
 
 class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
@@ -89,6 +91,11 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
             self.group = UserGroup.objects.get(user=user, default_group=True).group
 
         qs = self.get_queryset(self.group)
+
+        filtered = CalumaInstanceFilterSet(data=filters(info), queryset=qs)
+
+        qs = filtered.qs
+
         instance_ids = list(qs.values_list("pk", flat=True))
         setattr(info.context, "_visibility_instances_cache", instance_ids)
         return instance_ids
