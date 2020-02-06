@@ -4,7 +4,6 @@ import logging
 import pytest
 from caluma.caluma_core.faker import MultilangProvider
 from caluma.caluma_form import factories as caluma_form_factories
-from caluma.conftest import admin_info, admin_request, anonymous_request, info  # noqa
 from factory import Faker
 from factory.base import FactoryMetaClass
 from pytest_factoryboy import register
