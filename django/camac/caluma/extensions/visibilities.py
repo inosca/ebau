@@ -1,7 +1,7 @@
 from caluma.caluma_core.visibilities import BaseVisibility, filter_queryset_for
 from caluma.caluma_form import models as form_models, schema as form_schema
 from caluma.caluma_user.models import AnonymousUser
-from django.db.models import Exists, F, OuterRef, Q
+from django.db.models import F, OuterRef, Q, Subquery
 
 from camac.constants.kt_bern import DASHBOARD_FORM_SLUG
 from camac.instance.mixins import InstanceQuerysetMixin
@@ -31,23 +31,19 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
     @filter_queryset_for(form_schema.Document)
     def filter_queryset_for_document(self, node, queryset, info):
         return queryset.annotate(
-            # This subquery checks if the family document (root document) is
-            # accessible by rules of the CAMAC ACLs
-            accessible=Exists(
-                form_models.Document.objects.filter(
-                    **{
-                        "pk": OuterRef("family"),
-                        "meta__camac-instance-id__in": self._all_visible_instances(
-                            info
-                        ),
-                    }
-                )
+            # This subquery selects the meta property "camac-instance-id" which
+            # holds the ID of the camac instance. This will be used to make
+            # sure the CAMAC ACLs allow visibility of this document
+            instance_id=Subquery(
+                form_models.Document.objects.filter(pk=OuterRef("family")).values(
+                    "meta__camac-instance-id"
+                )[:1]
             )
         ).filter(
             # document is accessible through CAMAC ACLs
-            Q(accessible=True)
+            Q(instance_id__in=self._all_visible_instances(info))
             # OR dashboard documents
-            | Q(form__slug=DASHBOARD_FORM_SLUG)
+            | Q(form_id=DASHBOARD_FORM_SLUG)
             # OR unlinked table documents created by the requesting user
             | Q(
                 **{
