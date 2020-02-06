@@ -12378,6 +12378,51 @@
   },
   {
     "fields": {
+      "communal_cantonal_number": null,
+      "communal_federal_number": "KAPO",
+      "commune_name": "Kantonspolizei Schwyz",
+      "district_name": null,
+      "district_number": null,
+      "name": "Kantonspolizei Schwyz",
+      "section_name": null,
+      "section_number": null,
+      "zip": null
+    },
+    "model": "user.location",
+    "pk": 31
+  },
+  {
+    "fields": {
+      "communal_cantonal_number": null,
+      "communal_federal_number": "AWB",
+      "commune_name": "Amt f\u00fcr Wasserbau",
+      "district_name": null,
+      "district_number": null,
+      "name": "Amt f\u00fcr Wasserbau",
+      "section_name": null,
+      "section_number": null,
+      "zip": null
+    },
+    "model": "user.location",
+    "pk": 32
+  },
+  {
+    "fields": {
+      "communal_cantonal_number": null,
+      "communal_federal_number": "TBA",
+      "commune_name": "Tiefbauamt des Kantons Schwyz",
+      "district_name": null,
+      "district_number": null,
+      "name": "Tiefbauamt des Kantons Schwyz",
+      "section_name": null,
+      "section_number": null,
+      "zip": null
+    },
+    "model": "user.location",
+    "pk": 33
+  },
+  {
+    "fields": {
       "name": "Admin",
       "role_parent": null
     },
