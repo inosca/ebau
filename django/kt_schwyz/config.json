@@ -264,6 +264,20 @@
   {
     "fields": {
       "available_action": "formtransition",
+      "button": 38,
+      "description": null,
+      "error_message": "Dossier konnte nicht abgeschrieben werden",
+      "execute_always": 0,
+      "name": "instance state to stopped",
+      "sort": 0,
+      "success_message": "Dossier erfolgreich abgeschrieben"
+    },
+    "model": "core.action",
+    "pk": 40
+  },
+  {
+    "fields": {
+      "available_action": "formtransition",
       "button": 21,
       "description": null,
       "error_message": "Dossier konnte nicht archiviert werden",
@@ -726,6 +740,14 @@
     },
     "model": "core.aformtransition",
     "pk": 39
+  },
+  {
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 13
+    },
+    "model": "core.aformtransition",
+    "pk": 40
   },
   {
     "fields": {
@@ -1646,6 +1668,14 @@
   },
   {
     "fields": {
+      "description": "Generate Journal Entry",
+      "module_name": "journal"
+    },
+    "model": "core.availableaction",
+    "pk": "journal"
+  },
+  {
+    "fields": {
       "description": "Set location of instance",
       "module_name": "default"
     },
@@ -1723,14 +1753,6 @@
     },
     "model": "core.availableaction",
     "pk": "workflow"
-  },
-  {
-    "fields": {
-      "description": "Generate Journal Entry",
-      "module_name": "journal"
-    },
-    "model": "core.availableaction",
-    "pk": "journal"
   },
   {
     "fields": {
@@ -2363,6 +2385,42 @@
   },
   {
     "fields": {
+      "button": 38,
+      "instance_state": 3,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 55
+  },
+  {
+    "fields": {
+      "button": 38,
+      "instance_state": 5,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 56
+  },
+  {
+    "fields": {
+      "button": 38,
+      "instance_state": 6,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 57
+  },
+  {
+    "fields": {
+      "button": 38,
+      "instance_state": 7,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 58
+  },
+  {
+    "fields": {
       "name": "Ordentliches Verfahren"
     },
     "model": "core.buildingauthoritysection",
@@ -2676,6 +2734,18 @@
     },
     "model": "core.button",
     "pk": 37
+  },
+  {
+    "fields": {
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 33,
+      "name": "Abschreiben",
+      "sort": 4
+    },
+    "model": "core.button",
+    "pk": 38
   },
   {
     "fields": {
@@ -8628,6 +8698,240 @@
   },
   {
     "fields": {
+      "instance_resource": 3,
+      "instance_state": 13,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 503
+  },
+  {
+    "fields": {
+      "instance_resource": 3,
+      "instance_state": 13,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 504
+  },
+  {
+    "fields": {
+      "instance_resource": 1,
+      "instance_state": 13,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 505
+  },
+  {
+    "fields": {
+      "instance_resource": 1,
+      "instance_state": 13,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 506
+  },
+  {
+    "fields": {
+      "instance_resource": 33,
+      "instance_state": 13,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 507
+  },
+  {
+    "fields": {
+      "instance_resource": 33,
+      "instance_state": 13,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 508
+  },
+  {
+    "fields": {
+      "instance_resource": 4,
+      "instance_state": 13,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 509
+  },
+  {
+    "fields": {
+      "instance_resource": 4,
+      "instance_state": 13,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 510
+  },
+  {
+    "fields": {
+      "instance_resource": 21,
+      "instance_state": 13,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 511
+  },
+  {
+    "fields": {
+      "instance_resource": 21,
+      "instance_state": 13,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 512
+  },
+  {
+    "fields": {
+      "instance_resource": 10,
+      "instance_state": 13,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 513
+  },
+  {
+    "fields": {
+      "instance_resource": 10,
+      "instance_state": 13,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 514
+  },
+  {
+    "fields": {
+      "instance_resource": 25,
+      "instance_state": 13,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 515
+  },
+  {
+    "fields": {
+      "instance_resource": 25,
+      "instance_state": 13,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 516
+  },
+  {
+    "fields": {
+      "instance_resource": 5,
+      "instance_state": 13,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 517
+  },
+  {
+    "fields": {
+      "instance_resource": 5,
+      "instance_state": 13,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 518
+  },
+  {
+    "fields": {
+      "instance_resource": 8,
+      "instance_state": 13,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 519
+  },
+  {
+    "fields": {
+      "instance_resource": 8,
+      "instance_state": 13,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 520
+  },
+  {
+    "fields": {
+      "instance_resource": 23,
+      "instance_state": 13,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 521
+  },
+  {
+    "fields": {
+      "instance_resource": 23,
+      "instance_state": 13,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 522
+  },
+  {
+    "fields": {
+      "instance_resource": 26,
+      "instance_state": 13,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 523
+  },
+  {
+    "fields": {
+      "instance_resource": 26,
+      "instance_state": 13,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 524
+  },
+  {
+    "fields": {
+      "instance_resource": 30,
+      "instance_state": 13,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 525
+  },
+  {
+    "fields": {
+      "instance_resource": 30,
+      "instance_state": 13,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 526
+  },
+  {
+    "fields": {
+      "instance_resource": 27,
+      "instance_state": 13,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 527
+  },
+  {
+    "fields": {
+      "instance_resource": 27,
+      "instance_state": 13,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 528
+  },
+  {
+    "fields": {
       "instance_resource": 43,
       "instance_state": 5,
       "service": 7
@@ -9267,14 +9571,6 @@
   {
     "fields": {
       "circulation_type": 1,
-      "resource": 5
-    },
-    "model": "core.rapilistcirculationtype",
-    "pk": 8
-  },
-  {
-    "fields": {
-      "circulation_type": 1,
       "resource": 7
     },
     "model": "core.rapilistcirculationtype",
@@ -9306,6 +9602,14 @@
   },
   {
     "fields": {
+      "circulation_type": 1,
+      "resource": 5
+    },
+    "model": "core.rapilistcirculationtype",
+    "pk": 14
+  },
+  {
+    "fields": {
       "instance_state": 3,
       "resource": 2
     },
@@ -9327,30 +9631,6 @@
     },
     "model": "core.rapilistinstancestate",
     "pk": 8
-  },
-  {
-    "fields": {
-      "instance_state": 6,
-      "resource": 5
-    },
-    "model": "core.rapilistinstancestate",
-    "pk": 17
-  },
-  {
-    "fields": {
-      "instance_state": 8,
-      "resource": 5
-    },
-    "model": "core.rapilistinstancestate",
-    "pk": 18
-  },
-  {
-    "fields": {
-      "instance_state": 9,
-      "resource": 5
-    },
-    "model": "core.rapilistinstancestate",
-    "pk": 19
   },
   {
     "fields": {
@@ -9639,6 +9919,38 @@
     },
     "model": "core.rapilistinstancestate",
     "pk": 67
+  },
+  {
+    "fields": {
+      "instance_state": 6,
+      "resource": 5
+    },
+    "model": "core.rapilistinstancestate",
+    "pk": 72
+  },
+  {
+    "fields": {
+      "instance_state": 8,
+      "resource": 5
+    },
+    "model": "core.rapilistinstancestate",
+    "pk": 73
+  },
+  {
+    "fields": {
+      "instance_state": 13,
+      "resource": 5
+    },
+    "model": "core.rapilistinstancestate",
+    "pk": 74
+  },
+  {
+    "fields": {
+      "instance_state": 9,
+      "resource": 5
+    },
+    "model": "core.rapilistinstancestate",
+    "pk": 75
   },
   {
     "fields": {
@@ -11465,7 +11777,7 @@
     "fields": {
       "description": "Bewilligt",
       "name": "done",
-      "sort": 8
+      "sort": 9
     },
     "model": "instance.instancestate",
     "pk": 8
@@ -11474,7 +11786,7 @@
     "fields": {
       "description": "Abgelehnt",
       "name": "denied",
-      "sort": 9
+      "sort": 11
     },
     "model": "instance.instancestate",
     "pk": 9
@@ -11483,7 +11795,7 @@
     "fields": {
       "description": "Archiviert",
       "name": "arch",
-      "sort": 10
+      "sort": 12
     },
     "model": "instance.instancestate",
     "pk": 10
@@ -11492,7 +11804,7 @@
     "fields": {
       "description": "Gel\u00f6scht",
       "name": "del",
-      "sort": 11
+      "sort": 13
     },
     "model": "instance.instancestate",
     "pk": 11
@@ -11505,6 +11817,15 @@
     },
     "model": "instance.instancestate",
     "pk": 12
+  },
+  {
+    "fields": {
+      "description": "Abgeschrieben",
+      "name": "stopped",
+      "sort": 8
+    },
+    "model": "instance.instancestate",
+    "pk": 13
   },
   {
     "fields": {
