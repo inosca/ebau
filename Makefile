@@ -171,3 +171,6 @@ release: ## Draft a new release
 	@echo $(version) > VERSION.txt
 	@sed -i -e 's/"version": ".*",/"version": "$(version)",/g' ember-caluma-portal/package.json
 	@sed -i -e 's/appVersion = ".*"/appVersion = "$(version)"/g' php/kt_bern/configs/application.ini
+
+clear-silk:
+	@docker-compose exec django python manage.py silk_clear_request_log
