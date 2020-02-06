@@ -6,6 +6,8 @@ from django.core.management import call_command
 
 def test_cleanup_tempfiles(mocker, tmp_path, settings):
     settings.TEMPFILE_DOWNLOAD_PATH = str(tmp_path)
+    zip_path = tmp_path / settings.TEMPFILE_DOWNLOAD_URL.strip("/")
+    zip_path.mkdir()
     threshold = time.time() - settings.TEMPFILE_RETENTION_TIME
 
     # create some files and directories
@@ -20,19 +22,19 @@ def test_cleanup_tempfiles(mocker, tmp_path, settings):
     # | - file1.zip (old)
     # | - file2.zip
 
-    file1 = tmp_path / "file1.zip"
-    file2 = tmp_path / "file2.zip"
-    file3 = tmp_path / "file3.zip"
+    file1 = zip_path / "file1.zip"
+    file2 = zip_path / "file2.zip"
+    file3 = zip_path / "file3.zip"
     file1.touch()
     file2.touch()
     file3.touch()
 
-    subdir1 = tmp_path / "subfolder"
+    subdir1 = zip_path / "subfolder"
     subdir1.mkdir()
     file1_1 = subdir1 / "file1.pdf"
     file1_1.touch()
 
-    subdir2 = tmp_path / "another-folder"
+    subdir2 = zip_path / "another-folder"
     subdir2.mkdir()
     file2_1 = subdir2 / "file1.zip"
     file2_2 = subdir2 / "file2.zip"

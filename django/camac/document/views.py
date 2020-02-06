@@ -2,12 +2,10 @@ import io
 import mimetypes
 import os
 import zipfile
-from uuid import uuid4
 
 from django.conf import settings
 from django.db.models import Q
 from django.http import HttpResponse
-from django.utils.encoding import escape_uri_path, smart_bytes
 from django.utils.translation import gettext as _
 from docxtpl import DocxTemplate
 from drf_yasg import openapi
@@ -22,6 +20,7 @@ from rest_framework.viewsets import ReadOnlyModelViewSet
 from rest_framework_json_api import views
 from sorl.thumbnail import delete, get_thumbnail
 
+from camac.core.views import SendfileHttpResponse
 from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.models import Instance
 from camac.notification.serializers import InstanceMergeSerializer
@@ -309,14 +308,12 @@ class AttachmentDownloadView(InstanceQuerysetMixin, ReadOnlyModelViewSet):
             group=request.group,
         )
 
-        response = HttpResponse(content_type=attachment.mime_type)
-        response["Content-Disposition"] = 'attachment; filename="%s"' % escape_uri_path(
-            attachment.name
+        response = SendfileHttpResponse(
+            content_type=attachment.mime_type,
+            filename=attachment.name,
+            base_path=settings.MEDIA_ROOT,
+            file_path=f"/{download_path}",
         )
-        response["X-Sendfile"] = smart_bytes(
-            os.path.join(settings.MEDIA_ROOT, download_path)
-        )
-        response["X-Accel-Redirect"] = "/%s" % escape_uri_path(download_path)
         return response
 
     @swagger_auto_schema(
@@ -346,37 +343,37 @@ class AttachmentDownloadView(InstanceQuerysetMixin, ReadOnlyModelViewSet):
             )
 
         attachment = filtered_qs.first()
-        response = HttpResponse(content_type=attachment.mime_type)
-        response["Content-Disposition"] = 'attachment; filename="%s"' % escape_uri_path(
-            attachment.name
-        )
         download_path = str(attachment.path)
-        response["X-Accel-Redirect"] = "/%s" % escape_uri_path(download_path)
-        response["X-Sendfile"] = smart_bytes(
-            os.path.join(settings.MEDIA_ROOT, download_path)
+
+        response = SendfileHttpResponse(
+            content_type=attachment.mime_type,
+            filename=attachment.name,
+            base_path=settings.MEDIA_ROOT,
+            file_path=f"/{download_path}",
         )
-
         if filtered_qs.count() > 1:
-            response = HttpResponse(content_type="application/zip")
+            folder_path = os.path.join(
+                settings.TEMPFILE_DOWNLOAD_PATH,
+                settings.TEMPFILE_DOWNLOAD_URL.strip("/"),
+            )
+            if not os.path.exists(folder_path):  # pragma: no cover
+                os.makedirs(folder_path)
 
-            if not os.path.exists(settings.TEMPFILE_DOWNLOAD_PATH):
-                os.makedirs(settings.TEMPFILE_DOWNLOAD_PATH)
+            file_obj = io.BytesIO()
 
-            file_name = f"attachments-{str(uuid4())[:7]}.zip"
-            file_path = os.path.join(settings.TEMPFILE_DOWNLOAD_PATH, file_name)
-
-            with zipfile.ZipFile(file_path, "w", zipfile.ZIP_DEFLATED) as zipf:
+            with zipfile.ZipFile(file_obj, "w", zipfile.ZIP_DEFLATED) as zipf:
                 for attachment in filtered_qs:
                     zipf.write(
                         os.path.join(settings.MEDIA_ROOT, str(attachment.path)),
                         arcname=attachment.name,
                     )
+            file_obj.seek(0)
 
-            response[
-                "Content-Disposition"
-            ] = 'attachment; filename="%s"' % escape_uri_path("attachments.zip")
-            response["X-Accel-Redirect"] = "%s" % escape_uri_path(f"/zips/{file_name}")
-            response["X-Sendfile"] = smart_bytes(file_path)
+            response = SendfileHttpResponse(
+                content_type="application/zip",
+                filename="attachments.zip",
+                file_obj=file_obj,
+            )
 
         return response
 
