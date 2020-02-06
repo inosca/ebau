@@ -9,6 +9,7 @@ global:
   delete: "Löschen"
   cancel: "Abbrechen"
   back: "Zurück"
+  save: "Speichern"
 
 nav:
   form: "Formular"
@@ -267,3 +268,9 @@ paper:
   eingereicht wurde (Papierdossier). Falls Sie ein normales Dossier als
   Gesuchsteller erstellen wollen, wählen Sie \"Gesuchsteller/in\" im
   Gruppenmenu am rechten oberen Rand der Seite."
+
+dashboard:
+  edit: "bearbeiten"
+  no-content: "Es wurde noch kein Inhalt erfasst. Klicken Sie auf \"bearbeiten\" um neuen Inhalt zu erfassen."
+  load-error: "Fehler beim Laden des Inhaltes"
+  save-error: "Fehler beim Speichern des Inhaltes"
