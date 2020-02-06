@@ -29,15 +29,21 @@ class UserView(viewsets.ReadOnlyModelViewSet):
 
     def get_queryset_for_service(self):
         queryset = super().get_queryset()
-        return queryset.filter(groups__service=self.request.group.service)
+        return queryset.filter(
+            groups__service=self.request.group.service, disabled=False
+        )
 
     def get_queryset_for_canton(self):
         queryset = super().get_queryset()
-        return queryset.filter(groups__service=self.request.group.service)
+        return queryset.filter(
+            groups__service=self.request.group.service, disabled=False
+        )
 
     def get_queryset_for_municipality(self):
         queryset = super().get_queryset()
-        return queryset.filter(groups__service=self.request.group.service)
+        return queryset.filter(
+            groups__service=self.request.group.service, disabled=False
+        )
 
 
 class ServiceView(viewsets.ModelViewSet):
