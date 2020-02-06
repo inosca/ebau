@@ -153498,7 +153498,7 @@
   },
   {
     "fields": {
-      "default_group": 0,
+      "default_group": 1,
       "group": 20003,
       "user": 8
     },
@@ -153516,7 +153516,7 @@
   },
   {
     "fields": {
-      "default_group": 1,
+      "default_group": 0,
       "group": 1,
       "user": 8
     },
@@ -153585,6 +153585,15 @@
     },
     "model": "user.usergroup",
     "pk": 20128
+  },
+  {
+    "fields": {
+      "default_group": 0,
+      "group": 20365,
+      "user": 8
+    },
+    "model": "user.usergroup",
+    "pk": 20129
   },
   {
     "fields": {
