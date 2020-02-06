@@ -18,7 +18,11 @@ class InstanceQuerysetMixin(object):
     """
     Mixin to filter queryset by instances which may be read by given role.
 
-    Define `instance_field` where instance is located on model (dot annotation)
+    Define `instance_field` where instance is located on model (dot annotation).
+
+    This mixin was written for usage in views. Meanwhile we also use it in different
+    places. To make it work outside of a view, make sure you set the `user` and `group`
+    attributes.
     """
 
     instance_field = "instance"
@@ -36,8 +40,11 @@ class InstanceQuerysetMixin(object):
 
         return result
 
-    def _get_group(self, group):
-        return group or self.request.group
+    def _get_group(self, group=None):
+        return group or getattr(self, "group", None) or self.request.group
+
+    def _get_user(self):
+        return getattr(self, "user", None) or self.request.user
 
     def get_base_queryset(self):
         """Get base query queryset for role specific filters.
@@ -68,11 +75,13 @@ class InstanceQuerysetMixin(object):
             "publication_entries__is_published"
         )
 
+        user = self._get_user()
+
         return queryset.filter(
-            Q(**{applicants_expr: self.request.user})
+            Q(**{applicants_expr: user})
             | (
                 Q(**{publication_user_permission_status_expr: "accepted"})
-                & Q(**{publication_user_permission_expr: self.request.user})
+                & Q(**{publication_user_permission_expr: user})
                 & Q(
                     **{
                         publication_date_gte: timezone.now()
@@ -90,7 +99,7 @@ class InstanceQuerysetMixin(object):
 
         # instances from municipality in publication period
         instances = models.Instance.objects.filter(
-            location__in=self.request.group.locations.all(),
+            location__in=self._get_group().locations.all(),
             publication_entries__publication_date__gte=timezone.now()
             - settings.APPLICATION.get("PUBLICATION_DURATION"),
             publication_entries__publication_date__lt=timezone.now(),
