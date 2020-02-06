@@ -100,6 +100,35 @@ class CalumaApi:
     def create_document(self, form_slug, **kwargs):
         return caluma_form_models.Document.objects.create(form_id=form_slug, **kwargs)
 
+    def copy_document(self, source_pk, exclude_slugs=[], additional_meta={}):
+        """Use to `copy()` function on a document and do some clean-up.
+
+        Caution: The `exclude_slugs` is only applied to top-level form
+        questions and doesn't do additional clean-up on nested documents from
+        table questions. That's based on the assumption that there are no table
+        questions in the excluded form.
+        """
+        source = caluma_form_models.Document.objects.get(pk=source_pk)
+        document = source.copy()
+
+        if additional_meta:
+            document.meta.update(additional_meta)
+
+        if exclude_slugs:
+            document.answers.filter(
+                question__type=caluma_form_models.Question.TYPE_FORM,
+                question__slug__in=exclude_slugs,
+            ).delete()
+
+        # prevent creating a historical record
+        document.skip_history_when_saving = True
+        try:
+            document.save()
+        finally:
+            del document.skip_history_when_saving
+
+        return document
+
     def update_or_create_answer(self, document_id, question_slug, value):
         return caluma_form_models.Answer.objects.update_or_create(
             document_id=document_id,
