@@ -17,8 +17,7 @@ def build_url(*fragments, **options):
     return url
 
 
-def filters(info):  # pragma: todo cover
-    # TODO: Will be included in coverage again in refactoring of caluma extensions.
+def filters(info):
     """Extract Camac NG filters from request.
 
     The filters are expected to be a URLencoded string (foo=bar&baz=blah).
