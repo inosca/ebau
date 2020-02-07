@@ -54,7 +54,7 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
                 **{
                     "meta__camac-instance-id__isnull": True,
                     "family": F("pk"),
-                    "created_by_user": info.context.user.username,
+                    "created_by_user": info.context.oidc_user.username,
                 }
             )
         )
@@ -70,30 +70,32 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
 
         return loads(b64decode(data))
 
-    def _get_camac_user(self, info):
+    def _get_camac_user(self, oidc_user):
         # TODO: This is an ugly hack. It needs to be changed as soon as
         #  https://github.com/projectcaluma/caluma/issues/912 is fixed or we finally
         #  get rid of the request here.
         for username in [
-            info.context.user.username,
-            info.context.user.userinfo.get("preferred_username"),
+            oidc_user.username,
+            oidc_user.userinfo.get("preferred_username"),
         ]:
             try:
                 return User.objects.get(username=username)
             except User.DoesNotExist:
                 continue
 
-    def _get_camac_group(self, info):
+    def _enrich_request(self, info):
         oidc_user = info.context.user
+        camac_user = self._get_camac_user(oidc_user)
 
-        info.context.user = self.user
+        info.context.user = camac_user
         info.context.auth = self._parse_token(oidc_user.token)
 
-        group = get_group(info.context)
+        camac_group = get_group(info.context)
+        info.context.group = camac_group
+        info.context.oidc_user = oidc_user
 
-        info.context.user = oidc_user
-
-        return group
+        self.user = camac_user
+        self.group = camac_group
 
     def _all_visible_instances(self, info):
         """Fetch visible camac instances and cache the result.
@@ -107,15 +109,15 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
         if result is not None:  # pragma: no cover
             return result
 
-        self.user = self._get_camac_user(info)
+        self._enrich_request(info)
 
         if not self.user:
             return Instance.objects.none()
 
-        self.group = self._get_camac_group(info)
-
         filtered = CalumaInstanceFilterSet(
-            data=filters(info), queryset=self.get_queryset(self.group)
+            data=filters(info),
+            queryset=self.get_queryset(self.group),
+            request=info.context,
         )
 
         instance_ids = list(filtered.qs.values_list("pk", flat=True))
