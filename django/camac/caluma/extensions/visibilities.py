@@ -71,10 +71,17 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
         return loads(b64decode(data))
 
     def _get_camac_user(self, info):
-        try:
-            return User.objects.get(username=info.context.user.username)
-        except User.DoesNotExist:
-            return None
+        # TODO: This is an ugly hack. It needs to be changed as soon as
+        #  https://github.com/projectcaluma/caluma/issues/912 is fixed or we finally
+        #  get rid of the request here.
+        for username in [
+            info.context.user.username,
+            info.context.user.userinfo.get("preferred_username"),
+        ]:
+            try:
+                return User.objects.get(username=username)
+            except User.DoesNotExist:
+                continue
 
     def _get_camac_group(self, info):
         oidc_user = info.context.user
