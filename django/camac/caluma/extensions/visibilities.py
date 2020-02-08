@@ -35,6 +35,8 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
 
     @filter_queryset_for(form_schema.Document)
     def filter_queryset_for_document(self, node, queryset, info):
+        instance_ids = self._all_visible_instances(info)
+
         return queryset.annotate(
             # This subquery selects the meta property "camac-instance-id" which
             # holds the ID of the camac instance. This will be used to make
@@ -46,7 +48,7 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
             )
         ).filter(
             # document is accessible through CAMAC ACLs
-            Q(instance_id__in=self._all_visible_instances(info))
+            Q(instance_id__in=instance_ids)
             # OR dashboard documents
             | Q(form_id=DASHBOARD_FORM_SLUG)
             # OR unlinked table documents created by the requesting user
@@ -54,7 +56,7 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
                 **{
                     "meta__camac-instance-id__isnull": True,
                     "family": F("pk"),
-                    "created_by_user": info.context.oidc_user.username,
+                    "created_by_user": info.context.user.username,
                 }
             )
         )
@@ -97,6 +99,13 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
         self.user = camac_user
         self.group = camac_group
 
+    def _reset_request(self, info):
+        info.context.user = info.context.oidc_user
+
+        del info.context.auth
+        del info.context.group
+        del info.context.oidc_user
+
     def _all_visible_instances(self, info):
         """Fetch visible camac instances and cache the result.
 
@@ -112,6 +121,7 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
         self._enrich_request(info)
 
         if not self.user:
+            self._reset_request(info)
             return Instance.objects.none()
 
         filtered = CalumaInstanceFilterSet(
@@ -121,5 +131,7 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
         )
 
         instance_ids = list(filtered.qs.values_list("pk", flat=True))
+
+        self._reset_request(info)
         setattr(info.context, "_visibility_instances_cache", instance_ids)
         return instance_ids
