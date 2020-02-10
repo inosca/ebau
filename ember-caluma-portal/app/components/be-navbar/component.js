@@ -1,5 +1,5 @@
 import Component from "@ember/component";
-import { computed, action } from "@ember/object";
+import { computed, action, get } from "@ember/object";
 import { alias, reads } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
 import config from "ember-caluma-portal/config/environment";
@@ -8,10 +8,23 @@ import { dropTask, lastValue } from "ember-concurrency-decorators";
 const {
   languages,
   environment,
-  ebau: { selectableGroups }
+  ebau: { selectableGroups, internalURL }
 } = config;
 
-export default class NavbarComponent extends Component {
+const getInstanceParam = route => {
+  const instance = get(route, "params.instance");
+  const parent = get(route, "parent");
+
+  if (!instance) {
+    if (!parent) return null;
+
+    return getInstanceParam(parent);
+  }
+
+  return instance;
+};
+
+export default class BeNavbarComponent extends Component {
   @service session;
   @service router;
   @service intl;
@@ -26,6 +39,21 @@ export default class NavbarComponent extends Component {
 
   languages = languages;
   environment = environment;
+
+  @computed("router.currentRoute.{name,parent,params}")
+  get internalLink() {
+    const currentRoute = this.get("router.currentRoute");
+
+    if (/^instances\.edit/.test(currentRoute.name)) {
+      const instanceId = getInstanceParam(currentRoute);
+
+      if (!instanceId) return internalURL;
+
+      return `${internalURL}/index/redirect-to-instance-resource/instance-id/${instanceId}`;
+    }
+
+    return internalURL;
+  }
 
   @computed
   get embedded() {
