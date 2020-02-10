@@ -106,3 +106,6 @@ DECISIONS_ABGESCHRIEBEN = "writtenOff"
 # 2 = Positiv mit Bedingungen
 # 3 = Nicht eintreten
 # 4 = abgelehnt
+
+# Notification template slugs
+NOTIFICATION_ECH = "03-verfahrensablauf-fachstelle"

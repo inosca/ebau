@@ -12,8 +12,8 @@ CLAIM_STATUS_QUESTION = "nfd-tabelle-status"
 CLAIM_STATUS_IN_PROGRESS = "nfd-tabelle-status-in-bearbeitung"
 CLAIM_STATUS_ANSWERED = "nfd-tabelle-status-beantwortet"
 
-NOTIFICATION_CLAIM_IN_PROGRESS = 31
-NOTIFICATION_CLAIM_ANSWERED = 32
+NOTIFICATION_CLAIM_IN_PROGRESS = "03-zusatzliche-unterlagen-notwendig-gesuchsteller"
+NOTIFICATION_CLAIM_ANSWERED = "03-nachforderung-beantwortet-leitbehorde"
 
 
 class CustomValidation(BaseValidation):
