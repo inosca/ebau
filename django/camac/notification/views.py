@@ -1,4 +1,5 @@
 from django.db.models import Q
+from django.shortcuts import get_object_or_404
 from rest_framework import response, status, viewsets
 from rest_framework.decorators import action
 
@@ -102,13 +103,21 @@ class NotificationTemplateView(viewsets.ModelViewSet):
         return {"request": self.request}
 
     @action(
-        detail=True,
+        detail=False,
         methods=["post"],
         serializer_class=serializers.NotificationTemplateSendmailSerializer,
     )
-    def sendmail(self, request, pk=None):
+    def sendmail(self, request):
         data = request.data
-        data["notification_template"] = {"type": "notification-templates", "id": pk}
+
+        notification_template = get_object_or_404(
+            models.NotificationTemplate, slug=data["template_slug"]
+        )
+
+        data["notification_template"] = {
+            "type": "notification-templates",
+            "id": notification_template.pk,
+        }
         serializer = self.get_serializer(data=data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
