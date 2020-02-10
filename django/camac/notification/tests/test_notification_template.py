@@ -143,7 +143,7 @@ def test_notification_template_merge(
         assert json["data"]["attributes"]["subject"] == instance.identifier
         assert json["data"]["attributes"]["body"] == "identifier 21.01.2017"
         assert json["data"]["id"] == "{0}-{1}".format(
-            notification_template.pk, instance.pk
+            notification_template.slug, instance.pk
         )
         assert json["data"]["type"] == "notification-template-merges"
 
@@ -178,7 +178,7 @@ def test_notification_template_sendmail(
     new_responsible_model,
     settings,
 ):
-    url = reverse("notificationtemplate-sendmail", args=[notification_template.pk])
+    url = reverse("notificationtemplate-sendmail")
     if new_responsible_model:
         responsible = instance_responsibility_factory(
             instance=instance_service.instance, service=instance_service.service
@@ -195,6 +195,7 @@ def test_notification_template_sendmail(
             "type": "notification-template-sendmails",
             "id": None,
             "attributes": {
+                "template-slug": notification_template.slug,
                 "body": "Test body",
                 "recipient-types": [
                     "applicant",
@@ -288,12 +289,15 @@ def test_notification_placeholders(
         instance=instance, organization="cantonal"
     ).final_rate
 
-    url = reverse("notificationtemplate-sendmail", args=[notification_template.pk])
+    url = reverse("notificationtemplate-sendmail")
 
     data = {
         "data": {
             "type": "notification-template-sendmails",
-            "attributes": {"recipient-types": ["applicant"]},
+            "attributes": {
+                "template-slug": notification_template.slug,
+                "recipient-types": ["applicant"],
+            },
             "relationships": {
                 "instance": {"data": {"type": "instances", "id": instance.pk}}
             },
@@ -368,7 +372,7 @@ def test_notification_caluma_placeholders(
     circulation_state_factory,
     mocker,
 ):
-    url = reverse("notificationtemplate-sendmail", args=[notification_template.pk])
+    url = reverse("notificationtemplate-sendmail")
 
     STATE_DONE, STATE_WORKING = circulation_state_factory.create_batch(2)
     mocker.patch("camac.constants.kt_bern.CIRCULATION_STATE_DONE", STATE_DONE.pk)
@@ -409,7 +413,10 @@ def test_notification_caluma_placeholders(
     data = {
         "data": {
             "type": "notification-template-sendmails",
-            "attributes": {"recipient-types": ["applicant"]},
+            "attributes": {
+                "template-slug": notification_template.slug,
+                "recipient-types": ["applicant"],
+            },
             "relationships": {
                 "instance": {"data": {"type": "instances", "id": instance.pk}}
             },
