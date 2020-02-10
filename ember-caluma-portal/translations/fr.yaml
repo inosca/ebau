@@ -22,7 +22,7 @@ nav:
   instances: "Dossiers"
   applicant: "Requérant/e"
   group: "Groupe"
-  internal: "Section interne"
+  internal: "à la domaine interne"
 
   canNotChangeLanguage: "La langue ne peut pas être modifiée, car il y a déjà une langue dans l'URL"
   canNotChangeGroup: "Le groupe ne peut pas être modifiée, car il y a déjà un groupe dans l'URL"
