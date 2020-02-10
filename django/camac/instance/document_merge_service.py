@@ -1,4 +1,5 @@
 import re
+from importlib import import_module
 from logging import getLogger
 
 import requests
@@ -11,7 +12,6 @@ from django.utils.translation import gettext as _
 from rest_framework import exceptions
 from rest_framework.authentication import get_authorization_header
 
-from camac.user.models import Service
 from camac.utils import build_url
 
 request_logger = getLogger("django.request")
@@ -248,27 +248,37 @@ class DMSVisitor:
             ][:limit]
         }
 
+    def _matching_dynamic_options(self, answer, document, question):
+        data_source = getattr(
+            import_module("camac.caluma.extensions.data_sources"), question.data_source
+        )()
+        if not isinstance(answer, list):
+            answer = [answer]
+
+        for ans in answer:
+            value = data_source.validate_answer_value(ans, document, question, None)
+            if value:
+                yield value
+
     def _visit_dynamic_choice_question(self, node, parent_doc=None, answer=None, **_):
         answer = answer.value if answer else None
-        options = self._get_dynamic_options(node)
+        ret = {"type": "TextQuestion", "value": None}
 
-        return {
-            "type": "TextQuestion",
-            "value": next(
-                (str(option[1]) for option in options if option[0] == answer), None
-            ),
-        }
+        value = next(self._matching_dynamic_options(answer, parent_doc, node))
+        if value:
+            ret["value"] = str(value)
+
+        return ret
 
     def _visit_dynamic_multiple_choice_question(
         self, node, parent_doc=None, answer=None, **_
     ):  # pragma: no cover
         answers = answer.value if answer else []
-        options = self._get_dynamic_options(node)
 
         return {
             "type": "TextQuestion",
             "value": ", ".join(
-                [str(option[1]) for option in options if option[0] in answers]
+                self._matching_dynamic_options(answers, parent_doc, node)
             ),
         }
 
@@ -277,39 +287,6 @@ class DMSVisitor:
 
     def _visit_simple_question(self, node, parent_doc=None, answer=None, **_):
         return {"value": answer.value if answer else None}
-
-    def _get_dynamic_options(self, question, **_):
-        """Replicate the data_sources.py caluma-extension."""
-
-        is_service = False
-        _filter = {"disabled": False}
-
-        if question.data_source == "Service":  # pragma: no cover
-            is_service = True
-            _filter["service_group"] = 1
-        elif question.data_source == "Municipalities":
-            _filter["service_group"] = 2
-            _filter["service_parent__isnull"] = True
-        else:  # pragma: no cover
-            raise ValueError(
-                "Unknown data_source encountered in question {question.slug}: {question.data_source}"
-            )
-
-        options = [
-            (str(service.pk), service.get_name())
-            for service in Service.objects.filter(**_filter).prefetch_related("groups")
-        ]
-
-        if not is_service:
-            options = [
-                (option[0], option[1].replace("Leitbehörde ", "")) for option in options
-            ]
-
-        options.sort(key=lambda entry: entry[1].casefold())
-        if is_service:  # pragma: no cover
-            options.append((-1, "Andere"))
-
-        return options
 
     def _visit_question(self, node, parent_doc=None, flatten=False):
 
