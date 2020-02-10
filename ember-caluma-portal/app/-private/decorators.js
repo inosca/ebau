@@ -1,6 +1,7 @@
 import { decoratorWithRequiredParams } from "@ember-decorators/utils/decorator";
 import { getOwner } from "@ember/application";
 import { assert } from "@ember/debug";
+// eslint-disable-next-line ember/no-observers
 import { computed, observer } from "@ember/object";
 import { reads } from "@ember/object/computed";
 import { classify } from "@ember/string";
