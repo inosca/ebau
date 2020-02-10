@@ -23249,7 +23249,7 @@
       "format_validators": "[]",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "is_archived": false,
-      "is_hidden": "false",
+      "is_hidden": "'papierdossier'|answer == 'papierdossier-ja'",
       "is_required": "false",
       "label": "{\"de\": \"Best\\u00e4tigung\", \"fr\": \"Attestation\"}",
       "meta": {},
@@ -27076,7 +27076,7 @@
       "format_validators": "[]",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
       "is_archived": false,
-      "is_hidden": "false",
+      "is_hidden": "'papierdossier'|answer == 'papierdossier-ja'",
       "is_required": "!('vorabklaerung' in form || 'papierdossier'|answer == 'papierdossier-ja')",
       "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt, dass die vom GIS-System \\u00fcbernommen Daten mit den baurechtlichen Grundlagen \\u00fcbereinstimmen.\", \"fr\": \"Le/la requ\\u00e9rant/e confirme que les donn\\u00e9es reprises du SIG sont conformes \\u00e0 la r\\u00e9glementation fondamentale en mati\\u00e8re de construction.\"}",
       "meta": {
@@ -29014,7 +29014,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "is_archived": false,
       "is_hidden": "false",
-      "is_required": "true",
+      "is_required": "!('papierdossier'|answer == 'papierdossier-ja')",
       "label": "{\"de\": \"E-Mail\", \"fr\": \"Courriel\"}",
       "meta": {
         "formatValidators": ["email"]
@@ -30968,7 +30968,7 @@
       "format_validators": "[]",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
       "is_archived": false,
-      "is_hidden": "false",
+      "is_hidden": "'papierdossier'|answer == 'papierdossier-ja'",
       "is_required": "false",
       "label": "{\"de\": \"freigabequittung-text\", \"fr\": \"Declaration de validation\"}",
       "meta": {},
