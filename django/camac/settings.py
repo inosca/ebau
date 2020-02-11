@@ -300,8 +300,12 @@ REQUEST_LOGGING_CONTENT_TYPES = env.list(
 # Managing files
 
 MEDIA_ROOT = env.str("DJANGO_MEDIA_ROOT", default=default(ROOT_DIR("media")))
-ATTACHMENT_ZIP_PATH = env.str(
-    "DJANGO_ATTACHMENT_ZIP_PATH", default="/tmp/camac/tmpfiles/zips/"
+TEMPFILE_DOWNLOAD_PATH = env.str(
+    "DJANGO_TEMPFILE_DOWNLOAD_PATH", default="/tmp/camac/tmpfiles/zips/"
+)
+# in seconds
+TEMPFILE_RETENTION_TIME = env.int(
+    "DJANGO_TEMPFILE_RETENTION_TIME", default=(60 * 60 * 24)
 )
 
 STATIC_ROOT = ROOT_DIR("staticfiles")
