@@ -17,12 +17,12 @@ def build_url(*fragments, **options):
     return url
 
 
-def filters(info):
+def filters(request):
     """Extract Camac NG filters from request.
 
     The filters are expected to be a URLencoded string (foo=bar&baz=blah).
     """
-    return dict(parse_qsl(info.context.META.get("HTTP_X_CAMAC_FILTERS", "")))
+    return dict(parse_qsl(request.META.get("HTTP_X_CAMAC_FILTERS", "")))
 
 
 def headers(info):  # pragma: todo cover
