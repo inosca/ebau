@@ -289,17 +289,7 @@ class CamacRequest:
         self.request.oidc_user = oidc_user
 
     def _get_camac_user(self, oidc_user):
-        # TODO: This is an ugly hack. It needs to be changed as soon as
-        #  https://github.com/projectcaluma/caluma/issues/912 is fixed or we finally
-        #  get rid of the request here.
-        for username in [
-            oidc_user.username,
-            oidc_user.userinfo.get("preferred_username"),
-        ]:
-            try:
-                return User.objects.get(username=username)
-            except User.DoesNotExist:
-                continue
+        return User.objects.get(username=oidc_user.username)
 
     def _parse_token(self, token):
         data = token.split(b".")[1]
