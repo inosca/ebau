@@ -92,8 +92,8 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
 
     class Meta:
         model = models.Service
-        fields = ("name", "email", "notification", "zip", "city", "address")
-        read_only_fields = ("name", "zip", "city", "address")
+        fields = ("name", "email", "notification", "zip", "city", "address", "phone")
+        read_only_fields = ("name", "zip", "city", "address", "phone")
 
 
 class GroupSerializer(MultilingualSerializer, serializers.ModelSerializer):
