@@ -143,6 +143,7 @@ class GroupView(viewsets.ReadOnlyModelViewSet):
 
 
 class PublicGroupView(viewsets.ReadOnlyModelViewSet):
+    swagger_schema = None
     group_required = False
     filterset_class = filters.PublicGroupFilterSet
     serializer_class = serializers.PublicGroupSerializer
