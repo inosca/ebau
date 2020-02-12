@@ -69,3 +69,33 @@ def test_group_instance_filter(
     data = response.json()["data"]
     assert len(data) == count
     assert str(group_with_access.pk) in [e["id"] for e in data]
+
+
+def test_public_group_list(
+    admin_client, admin_user, group, user_group_factory, group_factory
+):
+    user_group = user_group_factory(
+        user=admin_user, group__disabled=False, default_group=False
+    )
+    group_factory(disabled=True)  # new group which may not appear in result
+    url = reverse("publicgroup-list")
+
+    response = admin_client.get(url)
+    assert response.status_code == status.HTTP_200_OK
+
+    json = response.json()
+    assert len(json["data"]) == 2
+    assert {int(entry["id"]) for entry in json["data"]} == {
+        group.pk,
+        user_group.group.pk,
+    }
+
+
+def test_public_group_detail(admin_client, group, multilang, application_settings):
+    url = reverse("publicgroup-detail", args=[group.pk])
+
+    response = admin_client.get(url)
+
+    assert response.status_code == status.HTTP_200_OK
+    json = response.json()
+    assert json["data"]["attributes"]["name"] == group.get_name()
