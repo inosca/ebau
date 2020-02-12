@@ -1,5 +1,7 @@
-from base64 import urlsafe_b64encode
+from base64 import b64decode, urlsafe_b64encode
+from copy import copy
 from hashlib import sha256
+from json import loads
 
 import requests
 from caluma.caluma_form import models as caluma_form_models
@@ -13,6 +15,8 @@ from oauthlib.oauth2 import BackendApplicationClient
 from requests_oauthlib import OAuth2Session
 from rest_framework import exceptions
 
+from camac.user.middleware import get_group
+from camac.user.models import User
 from camac.utils import build_url
 
 APPLICANT_GROUP_ID = 6
@@ -265,3 +269,40 @@ class CalumaInfo:
                 token=None, userinfo={"sub": camac_user.username, "group": None}
             )
             return user
+
+
+class CamacRequest:
+    """
+    A camac request object built from the given caluma info object.
+
+    The request attribute holds a shallow copy of `info.context` with translated
+    values where needed (user, group, etc.).
+    """
+
+    def __init__(self, info):
+        self.request = copy(info.context)
+        oidc_user = self.request.user
+        self.request.user = self._get_camac_user(oidc_user)
+        self.request.auth = self._parse_token(oidc_user.token)
+        camac_group = get_group(self.request)
+        self.request.group = camac_group
+        self.request.oidc_user = oidc_user
+
+    def _get_camac_user(self, oidc_user):
+        # TODO: This is an ugly hack. It needs to be changed as soon as
+        #  https://github.com/projectcaluma/caluma/issues/912 is fixed or we finally
+        #  get rid of the request here.
+        for username in [
+            oidc_user.username,
+            oidc_user.userinfo.get("preferred_username"),
+        ]:
+            try:
+                return User.objects.get(username=username)
+            except User.DoesNotExist:
+                continue
+
+    def _parse_token(self, token):
+        data = token.split(b".")[1]
+        data += b"=" * (-len(data) % 4)
+
+        return loads(b64decode(data))
