@@ -71,29 +71,6 @@ def test_document_visibility(
     assert len(result.data["allDocuments"]["edges"]) == expected_count
 
 
-def test_document_visibility_no_camac_user(
-    db, caluma_admin_request, caluma_admin_schema_executor, token
-):
-    caluma_admin_request.user = OIDCUser(token, {"sub": "inexistentusername"})
-
-    result = caluma_admin_schema_executor(
-        """
-        query {
-            allDocuments {
-                edges {
-                    node {
-                        id
-                    }
-                }
-            }
-        }
-    """
-    )
-
-    assert not result.errors
-    assert len(result.data["allDocuments"]["edges"]) == 0
-
-
 @pytest.mark.parametrize("role__name", ["Support"])
 def test_document_visibility_filter(
     db,

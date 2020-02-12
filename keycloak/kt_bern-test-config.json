@@ -2958,7 +2958,7 @@
           "user.attribute": "username",
           "id.token.claim": "true",
           "access.token.claim": "true",
-          "claim.name": "preferred_username",
+          "claim.name": "sub",
           "jsonType.label": "String"
         }
       }
@@ -3100,7 +3100,7 @@
             "user.attribute": "username",
             "id.token.claim": "true",
             "access.token.claim": "true",
-            "claim.name": "preferred_username",
+            "claim.name": "sub",
             "jsonType.label": "String"
           }
         },

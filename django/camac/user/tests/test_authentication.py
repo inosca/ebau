@@ -52,9 +52,8 @@ def test_authenticate_disabled_user(rf, admin_user, mocker):
         ),
         (
             {
-                "sub": "fa0eef42-2cce-48c6-b6c8-08541016b10b",
+                "sub": "service-account-gemeinde",
                 "email": "new-guy@example.com",
-                "preferred_username": "service-account-gemeinde",
                 "clientId": "testClient",
             },
             "service-account-gemeinde",
