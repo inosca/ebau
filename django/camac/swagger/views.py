@@ -160,7 +160,7 @@ POST_TABLE_DATA = [
         "NoticeRuling",
         "Entscheid zurückweisen fällen",
         "3.1",
-        "5100018",
+        "5200113",
         f"[notice_ruling]({static('xml/post/notice_ruling.xml')})",
     ],
     [
