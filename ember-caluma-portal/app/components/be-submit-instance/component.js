@@ -12,7 +12,6 @@ export default InViewportComponent.extend({
   notification: service(),
   router: service(),
   fetch: service(),
-  documentExport: service(),
 
   apollo: queryManager(),
 

@@ -264,7 +264,6 @@ def test_attachment_create(
     mime_type,
     filename,
     status_code,
-    settings,
     mailoutbox,
 ):
     url = reverse("attachment-list")
@@ -327,8 +326,9 @@ def test_attachment_download(
     attachment1 = attachment_factory(
         instance=instance, service=service, path=django_file("multiple-pages.pdf")
     )
-    test_path = "/" + "/".join(str(attachment1.path).split("/")[3:])
+    test_path = "/".join(str(attachment1.path).split("/")[3:])
     attachment1.path = test_path
+    attachment1.path.name = test_path
     attachment1.name = "multiple-pages.pdf"
     attachment1.save()
     attachments = [attachment1]
@@ -337,7 +337,8 @@ def test_attachment_download(
         instance=instance, service=service, path=django_file("multiple-pages.pdf")
     )
     attachment2.path = test_path
-    attachment2.name = "multiple-pages.pdf"
+    attachment2.path.name = test_path
+    attachment2.name = "multiple-pages-2.pdf"
     attachment2.save()
 
     if multi:
