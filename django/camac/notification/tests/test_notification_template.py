@@ -70,6 +70,7 @@ def test_notification_template_create(admin_client, notification_template, statu
             "type": "notification-templates",
             "id": None,
             "attributes": {
+                "slug": "test",
                 "body": "Test",
                 "purpose": "Test",
                 "type": "textcomponent",
@@ -507,3 +508,50 @@ def test_notification_template_merge_without_context(
     entry = Journal.objects.latest("created")
     assert entry.instance == instance
     assert entry.user == system_operation_user
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_notification_validate_slug_update(admin_client, notification_template):
+    url = reverse("notificationtemplate-detail", args=[notification_template.pk])
+    data = {
+        "data": {
+            "type": "notification-templates",
+            "id": notification_template.pk,
+            "attributes": {
+                "slug": "test",
+                "body": "Test",
+                "purpose": "Test",
+                "type": "textcomponent",
+                "subject": "Test",
+            },
+        }
+    }
+
+    response = admin_client.patch(url, data=data)
+    assert response.status_code == status.HTTP_400_BAD_REQUEST
+    assert response.data[0]["detail"] == "Updating a slug is not allowed!"
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_notification_validate_slug_create(admin_client, notification_template):
+    url = reverse("notificationtemplate-list")
+    data = {
+        "data": {
+            "type": "notification-templates",
+            "id": None,
+            "attributes": {
+                "slug": notification_template.slug,
+                "body": "Test",
+                "purpose": "Test",
+                "type": "textcomponent",
+                "subject": "Test",
+            },
+        }
+    }
+
+    response = admin_client.post(url, data=data)
+    assert response.status_code == status.HTTP_400_BAD_REQUEST
+    assert (
+        response.data[0]["detail"]
+        == "notification template mit diesem slug existiert bereits."
+    )
