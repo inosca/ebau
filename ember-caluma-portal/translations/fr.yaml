@@ -24,9 +24,6 @@ nav:
   group: "Groupe"
   internal: "à la domaine interne"
 
-  canNotChangeLanguage: "La langue ne peut pas être modifiée, car il y a déjà une langue dans l'URL"
-  canNotChangeGroup: "Le groupe ne peut pas être modifiée, car il y a déjà un groupe dans l'URL"
-
 feedback:
   info: "Vous n'avez pas de commentaires pour le moment. Dès que le dossier aura été soumis, les réactions éventuelles de l'autorité chef de file ou des agences spécialisées seront affichées ici."
 

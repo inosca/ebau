@@ -1,6 +1,6 @@
 import Component from "@ember/component";
 import { computed, action, get } from "@ember/object";
-import { alias, reads } from "@ember/object/computed";
+import { alias } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
 import config from "ember-caluma-portal/config/environment";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
@@ -30,9 +30,6 @@ export default class BeNavbarComponent extends Component {
   @service intl;
   @service notification;
   @service store;
-
-  @reads("router.currentRoute.queryParams.language") languageQP;
-  @reads("router.currentRoute.queryParams.group") groupQP;
 
   // in preparation of glimmer components (outer HTML)
   tagName = "";
@@ -99,11 +96,9 @@ export default class BeNavbarComponent extends Component {
   }
 
   @action
-  setGroup(group) {
-    if (this.groupQP) {
-      this.notification.warning(this.intl.t("nav.canNotChangeGroup"));
-
-      return;
+  async setGroup(group) {
+    if (this.get("router.currentRoute.queryParams.group")) {
+      await this.router.replaceWith({ queryParams: { group: null } });
     }
 
     // This needs to be set directly on session.data since ember simple auths
@@ -117,11 +112,9 @@ export default class BeNavbarComponent extends Component {
   }
 
   @action
-  setLanguage(language) {
-    if (this.languageQP) {
-      this.notification.warning(this.intl.t("nav.canNotChangeLanguage"));
-
-      return;
+  async setLanguage(language) {
+    if (this.get("router.currentRoute.queryParams.language")) {
+      await this.router.replaceWith({ queryParams: { language: null } });
     }
 
     this.set("language", language);
