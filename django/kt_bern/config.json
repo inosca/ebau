@@ -117656,7 +117656,7 @@
       "description": null,
       "instance_state": 1,
       "language": "fr",
-      "name": "Nouvelle"
+      "name": "Nouveau"
     },
     "model": "instance.instancestatet",
     "pk": 120001
