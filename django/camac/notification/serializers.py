@@ -330,14 +330,19 @@ class IssueMergeSerializer(serializers.Serializer):
 
 class NotificationTemplateSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
-        validated_data["service"] = self.context["request"].group.service
-        validated_data["slug"] = slugify(validated_data["purpose"])
+        service = self.context["request"].group.service
+        validated_data["service"] = service
+        validated_data["slug"] = slugify(validated_data["slug"])
         return super().create(validated_data)
+
+    def validate_slug(self, value):
+        if self.instance:
+            raise serializers.ValidationError("Updating a slug is not allowed!")
+        return value
 
     class Meta:
         model = models.NotificationTemplate
         fields = ("slug", "purpose", "subject", "body", "type")
-        read_only_fields = ("slug",)
 
 
 class NotificationTemplateMergeSerializer(
