@@ -2,7 +2,6 @@ import Component from "@ember/component";
 import { inject as service } from "@ember/service";
 import { task } from "ember-concurrency";
 import { saveAs } from "file-saver";
-import slugify from "slugify";
 
 export default Component.extend({
   notification: service(),
@@ -10,27 +9,21 @@ export default Component.extend({
   fetch: service(),
 
   export: task(function*() {
-    const { instanceId } = this.context;
-
     try {
-      // Generate the PDF and prepare a filename.
-      const formName = this.get("field.document.rootForm.name");
-      const fileName = slugify(`${instanceId}-${formName}.pdf`.toLowerCase());
-      const formSlug = this.get("field.document.rootForm.slug");
-
-      let url = `/api/v1/instances/${instanceId}/generate_pdf`;
-
-      if (["sb1", "sb2"].includes(formSlug)) {
-        url += `?form-slug=${formSlug}`;
-      }
+      const query = this.get("field.document.rootForm.meta.is-main-form")
+        ? `?form-slug=${this.get("field.document.rootForm.slug")}`
+        : "";
 
       // generate document in CAMAC
-      const response = yield this.fetch.fetch(url);
+      const response = yield this.fetch.fetch(
+        `/api/v1/instances/${this.context.instanceId}/generate-pdf${query}`
+      );
 
-      const blob = yield response.blob();
+      const filename = response.headers
+        .get("content-disposition")
+        .match(/filename="(.*)"/)[1];
 
-      // Initialize PDF download in client.
-      saveAs(blob, fileName);
+      saveAs(yield response.blob(), filename);
     } catch (error) {
       this.notification.danger(this.intl.t("freigabequittung.downloadError"));
     }
