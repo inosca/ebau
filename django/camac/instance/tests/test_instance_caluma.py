@@ -480,8 +480,8 @@ def test_instance_finalize(
 @pytest.mark.parametrize(
     "has_template,matching_documents,raise_error,form_slug",
     [
-        (False, 1, True, None),
         (False, 0, True, None),
+        (False, 1, True, None),
         (False, 2, True, None),
         (True, 1, False, None),
         (True, 1, False, "some-form"),
@@ -594,3 +594,66 @@ def test_caluma_instance_list_filter(
     json = response.json()
 
     assert len(json["data"]) == expected_count
+
+
+@pytest.mark.parametrize(
+    "form_slug,requested_slug,expected",
+    [
+        ("some-slug", None, True),
+        ("sb1", "sb1", True),
+        ("sb2", "sb2", True),
+        ("some-slug", "another-slug", False),
+    ],
+)
+@pytest.mark.parametrize("role__name,instance__user", [("Canton", LazyFixture("user"))])
+def test_generate_pdf_action(
+    db,
+    mocker,
+    admin_client,
+    user,
+    group,
+    instance,
+    caluma_form,
+    document_factory,
+    form_slug,
+    requested_slug,
+    expected,
+):
+    content = b"some binary data"
+
+    client = mocker.patch(
+        "camac.instance.document_merge_service.DMSClient"
+    ).return_value
+    client.merge.return_value = content
+    mocker.patch("camac.instance.document_merge_service.DMSVisitor.visit")
+    context = mocker.patch(
+        "camac.instance.serializers.CalumaInstanceSubmitSerializer.context"
+    )
+    context["request"].user = user
+    context["request"].group = group
+    mocker.patch("rest_framework.authentication.get_authorization_header")
+
+    # prepare form and document
+    form = caluma_form_models.Form.objects.create(slug=form_slug, meta={})
+    if not requested_slug:
+        form.meta["is-main-form"] = True
+    form.meta["template"] = "some-template"
+
+    form.save()
+
+    document = document_factory(form=form)
+    document.meta = {"camac-instance-id": instance.pk}
+    document.save()
+
+    url = reverse("instance-generate-pdf", args=[instance.pk])
+    data = {"form-slug": requested_slug} if requested_slug else {}
+
+    response = admin_client.get(url, data)
+
+    if expected:
+        assert response.status_code == status.HTTP_200_OK
+        assert "X-Sendfile" in response
+        with open(response["X-Sendfile"]) as fh:
+            assert fh.read() == content.decode("utf-8")
+    else:
+        assert response.status_code == status.HTTP_400_BAD_REQUEST
