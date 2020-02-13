@@ -57,15 +57,4 @@ export default class Instance extends Model {
 
     return raw.allDocuments.edges.map(({ node }) => node);
   }
-
-  findCalumaField(slug, form = null) {
-    const documents = form
-      ? [this.calumaDocuments.find(doc => doc.rootForm.slug === form)]
-      : this.calumaDocuments;
-
-    return documents
-      .filter(Boolean)
-      .map(document => document.findField(slug))
-      .find(Boolean);
-  }
 }
