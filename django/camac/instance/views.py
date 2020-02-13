@@ -350,7 +350,7 @@ class InstanceView(
     def finalize(self, request, pk=None):
         return self._custom_serializer_action(request, pk)
 
-    @action(methods=["get"], detail=True)
+    @action(methods=["get"], detail=True, url_path="generate-pdf")
     def generate_pdf(self, request, pk=None):
         form_slug = self.request.query_params.get("form-slug")
         instance = self.get_object()
