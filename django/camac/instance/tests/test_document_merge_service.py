@@ -3,6 +3,7 @@ from pathlib import Path
 import pytest
 from caluma.caluma_form.models import Document
 from django.conf import settings
+from django.core.cache import cache
 from django.core.management import call_command
 
 from camac.utils import build_url
@@ -33,7 +34,7 @@ def test_document_merge_service_snapshot(
     instance_id,
     form_slug,
 ):
-
+    cache.clear()
     service_group = service_group_factory(pk=2)
     service_factory(pk=2, service_group=service_group, name="Leitbehörde Burgdorf")
 
@@ -53,7 +54,7 @@ def test_document_merge_service_snapshot(
 
 def test_document_merge_service_client(db, requests_mock):
     template = "some-template"
-    faked_result = b"foo\nNot a pdf"
+    expected = b"foo\nNot a pdf"
 
     requests_mock.register_uri(
         "POST",
@@ -62,10 +63,10 @@ def test_document_merge_service_client(db, requests_mock):
             f"/template/{template}/merge",
             trailing=True,
         ),
-        content=faked_result,
+        content=expected,
     )
 
     client = DMSClient("some token")
     result = client.merge({"foo": "some data"}, template)
 
-    assert result == faked_result
+    assert result == expected
