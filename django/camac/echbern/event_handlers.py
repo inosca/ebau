@@ -52,6 +52,7 @@ from .models import Message
 from .signals import (
     accompanying_report_send,
     circulation_started,
+    file_subsequently,
     finished,
     instance_submitted,
     ruling,
@@ -416,3 +417,12 @@ def accompanying_report_callback(
             instance, user_pk=user_pk, group_pk=group_pk, context=context
         )
         handler.run(attachments)
+
+
+@receiver(file_subsequently)
+def file_subsequently_callback(sender, instance, user_pk, group_pk, **kwargs):
+    if settings.ECH_API:
+        handler = FileSubsequentlyEventHandler(
+            instance, user_pk=user_pk, group_pk=group_pk
+        )
+        handler.run()

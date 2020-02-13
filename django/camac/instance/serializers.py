@@ -13,7 +13,7 @@ from django.utils.translation import gettext as _, gettext_noop
 from rest_framework import exceptions
 from rest_framework_json_api import relations, serializers
 
-from camac.caluma.api import CalumaApi, CalumaInfo, get_paper_settings
+from camac.caluma.api import CalumaApi, CalumaInfo
 from camac.constants import kt_bern as constants
 from camac.core.models import (
     Answer,
@@ -38,6 +38,7 @@ from camac.user.relations import (
 )
 from camac.user.serializers import CurrentGroupDefault, CurrentServiceDefault
 
+from ..utils import get_paper_settings
 from . import document_merge_service, models, validators
 
 SUBMIT_DATE_CHAPTER = 100001

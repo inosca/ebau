@@ -41,9 +41,9 @@ def list_to_string(data, key, delimiter=", "):
 
 
 def handle_ja_nein_bool(value):
-    if value in ["Ja", "ja"]:  # pragma: todo cover
+    if value in ["Ja", "ja"]:
         return True
-    elif value in ["Nein", "nein"]:
+    elif value in ["Nein", "nein"]:  # pragma: no cover
         return False
 
 
@@ -251,6 +251,23 @@ def get_realestateinformation(answers):
                         number=answers.get("parzellennummer", "0")
                     ),
                     realestateType="8",
+                    coordinates=ns_objektwesen.coordinatesType(
+                        LV95=pyxb.BIND(
+                            east=answers["lagekoordinaten-ost-einfache-vorabklaerung"],
+                            north=answers[
+                                "lagekoordinaten-nord-einfache-vorabklaerung"
+                            ],
+                            originOfCoordinates=904,
+                        )
+                    )
+                    if all(
+                        k in answers
+                        for k in (
+                            "lagekoordinaten-ost-einfache-vorabklaerung",
+                            "lagekoordinaten-nord-einfache-vorabklaerung",
+                        )
+                    )
+                    else None,
                 ),
                 municipality=ech_0007_6_0.swissMunicipalityType(
                     municipalityName=answers.get(

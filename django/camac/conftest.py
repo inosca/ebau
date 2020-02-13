@@ -4,6 +4,8 @@ import logging
 import pytest
 from caluma.caluma_core.faker import MultilangProvider
 from caluma.caluma_form import factories as caluma_form_factories
+from django.conf import settings
+from django.core.management import call_command
 from factory import Faker
 from factory.base import FactoryMetaClass
 from pytest_factoryboy import register
@@ -144,6 +146,16 @@ def ech_mandatory_answers_vollstaendige_vorabklaerung():
             }
         ],
     }
+
+
+@pytest.fixture
+def caluma_config_bern(db):
+    """
+    Load the caluma config for kt_bern.
+
+    Execution of this fixture takes some time. Only use if really necessary.
+    """
+    call_command("loaddata", settings.ROOT_DIR("kt_bern/config-caluma.json"))
 
 
 @pytest.fixture
