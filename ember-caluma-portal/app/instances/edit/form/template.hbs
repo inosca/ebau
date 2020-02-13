@@ -7,17 +7,6 @@
       instanceId=instance.id
     )
   as |content|}}
-    <div class="uk-text-center">
-      {{be-download-pdf
-        size="small"
-        field=pdfField
-        context=(hash
-          instance=instance
-          instanceId=instance.id
-        )
-      }}
-    </div>
-    <hr>
     {{#if (gt content.document.fieldsets.length 1)}}
       <div uk-grid>
         <div class="uk-width-1-1 uk-width-1-3@s">{{content.navigation}}</div>
