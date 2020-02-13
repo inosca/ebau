@@ -38946,7 +38946,7 @@
       "info_text": "{\"de\": null, \"fr\": null}",
       "is_archived": false,
       "is_hidden": "false",
-      "is_required": "!('vorabklaerung' in form || 'papierdossier'|answer == 'papierdossier-ja')",
+      "is_required": "true",
       "label": "{\"de\": \"Parzelle\", \"fr\": \"parcelle\"}",
       "meta": {
         "columnsToDisplay": [
