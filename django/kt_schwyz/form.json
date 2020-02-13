@@ -4360,7 +4360,7 @@
       }
     },
     "datenverschnitt-denkmalpflege": {
-      "label": "Gemäss Lokalisierung Ihres Vorhabens ergibt sich, dass ein KIGBO, die Umgebung eines KIGBO oder ein Ortsbildschutzgebiet (ISOS A) tangiert wird. Falls im Rahmen des vorliegenden Vorhabens noch kein Kontakt mit der kantonalen Denkmalpflege stattgefunden hat, ist dies umgehend nachzuholen.",
+      "label": "Gemäss Lokalisierung Ihres Vorhabens ergibt sich, dass der Fachbereich der Denkmalpflege (Kantonales Schutzinventar (KSI), Bauernhausinventar, Ortsbildschutzgebiet (ISOS A) resp. ICOMOS-Garten) tangiert wird. Falls im Rahmen des vorliegenden Vorhabens noch kein Kontakt mit der kantonalen Denkmalpflege stattgefunden hat, ist dies umgehend nachzuholen.",
       "hint": "Dieser Hinweis erfolgt, damit Sie schon vor Einreichen des Gesuchs auf diese Anforderungen aufmerksam gemacht worden sind. Ohne vorgängige Berücksichtigung dieser Anforderungen ist davon auszugehen, dass für Ihr Vorhaben eine Projektanpassung erforderlich sein wird.",
       "type": "checkbox",
       "required": false,
