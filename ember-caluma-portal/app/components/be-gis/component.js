@@ -174,7 +174,10 @@ export default Component.extend({
   }),
 
   confirmFieldUnchecked: computed("confirmField.value.[]", function() {
-    return this.get("confirmField.value.length") !== 1;
+    return (
+      !this.get("confirmField.hidden") &&
+      this.get("confirmField.value.length") !== 1
+    );
   }),
 
   link: computed(function() {
