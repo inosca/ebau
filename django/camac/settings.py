@@ -301,8 +301,9 @@ REQUEST_LOGGING_CONTENT_TYPES = env.list(
 
 MEDIA_ROOT = env.str("DJANGO_MEDIA_ROOT", default=default(ROOT_DIR("media")))
 TEMPFILE_DOWNLOAD_PATH = env.str(
-    "DJANGO_TEMPFILE_DOWNLOAD_PATH", default="/tmp/camac/tmpfiles/zips/"
+    "DJANGO_TEMPFILE_DOWNLOAD_PATH", default="/tmp/camac/tmpfiles"
 )
+TEMPFILE_DOWNLOAD_URL = env.str("DJANGO_TEMPFILE_DOWNLOAD_URL", default="/zips")
 # in seconds
 TEMPFILE_RETENTION_TIME = env.int(
     "DJANGO_TEMPFILE_RETENTION_TIME", default=(60 * 60 * 24)
