@@ -79,9 +79,6 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
         self.user = camac_request.request.user
         self.group = camac_request.request.group
 
-        if not self.user:
-            return Instance.objects.none()
-
         filtered = CalumaInstanceFilterSet(
             data=filters(camac_request.request),
             queryset=self.get_queryset(self.group),
