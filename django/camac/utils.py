@@ -1,6 +1,8 @@
 import itertools
 from urllib.parse import parse_qsl
 
+from django.conf import settings
+
 
 def flatten(data):
     return list(itertools.chain(*data))
@@ -31,4 +33,21 @@ def headers(info):  # pragma: todo cover
     return {
         "x-camac-group": info.context.META.get("HTTP_X_CAMAC_GROUP", None),
         "authorization": info.context.META.get("HTTP_AUTHORIZATION", None),
+    }
+
+
+def get_paper_settings(key=None):
+    roles = settings.APPLICATION.get("PAPER", {}).get("ALLOWED_ROLES", {})
+    service_groups = settings.APPLICATION.get("PAPER", {}).get(
+        "ALLOWED_SERVICE_GROUPS", {}
+    )
+
+    if isinstance(key, str):
+        key = key.upper()
+
+    return {
+        "ALLOWED_ROLES": roles.get(key, roles.get("DEFAULT", [])),
+        "ALLOWED_SERVICE_GROUPS": service_groups.get(
+            key, service_groups.get("DEFAULT", [])
+        ),
     }
