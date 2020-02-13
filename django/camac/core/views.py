@@ -269,6 +269,7 @@ class SendfileHttpResponse(HttpResponse):
         if base_path and file_path:
             base_path = Path(base_path)
             file_path = Path(file_path)
+            abs_path = base_path / file_path.relative_to("/")
 
         if file_obj:
             base_path = Path(settings.TEMPFILE_DOWNLOAD_PATH)
@@ -277,10 +278,15 @@ class SendfileHttpResponse(HttpResponse):
                 / f"{filename.stem}-{str(uuid4())[:7]}{filename.suffix}"
             )
 
-            (base_path / file_path.relative_to("/")).open("wb").write(file_obj.read())
+            abs_path = base_path / file_path.relative_to("/")
+
+            if not abs_path.parent.exists():  # pragma: no cover
+                abs_path.parent.mkdir(parents=True)
+
+            abs_path.open("wb").write(file_obj.read())
 
         self["Content-Disposition"] = 'attachment; filename="%s"' % escape_uri_path(
             str(filename)
         )
         self["X-Accel-Redirect"] = "%s" % escape_uri_path(str(file_path))
-        self["X-Sendfile"] = smart_bytes(str(base_path / file_path.relative_to("/")))
+        self["X-Sendfile"] = smart_bytes(str(abs_path))

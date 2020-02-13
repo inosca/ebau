@@ -352,13 +352,6 @@ class AttachmentDownloadView(InstanceQuerysetMixin, ReadOnlyModelViewSet):
             file_path=f"/{download_path}",
         )
         if filtered_qs.count() > 1:
-            folder_path = os.path.join(
-                settings.TEMPFILE_DOWNLOAD_PATH,
-                settings.TEMPFILE_DOWNLOAD_URL.strip("/"),
-            )
-            if not os.path.exists(folder_path):  # pragma: no cover
-                os.makedirs(folder_path)
-
             file_obj = io.BytesIO()
 
             with zipfile.ZipFile(file_obj, "w", zipfile.ZIP_DEFLATED) as zipf:
