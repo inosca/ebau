@@ -6,19 +6,17 @@ from camac.constants.kt_bern import (
     NOTICE_TYPE_NEBENBESTIMMUNG,
     NOTICE_TYPE_STELLUNGNAHME,
 )
-from camac.echbern import data_preparation
-from camac.echbern.signals import instance_submitted
+from camac.echbern.signals import file_subsequently, instance_submitted
 
 from ...core.models import InstanceService
 from .. import event_handlers
 from ..models import Message
-from .caluma_responses import full_document
+from .caluma_document_data import baugesuch_data
 
 
-def test_submit_event(ech_instance, role_factory, group_factory, requests_mock, mocker):
+def test_submit_event(ech_instance, role_factory, group_factory, mocker):
     group_factory(role=role_factory(name="support"))
-    requests_mock.post("http://camac-ng.local/graphql/", json=full_document)
-    mocker.patch.object(data_preparation, "get_admin_token", return_value="token")
+    mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
     instance_submitted.send(
         sender=None,
         instance=ech_instance,
@@ -49,13 +47,11 @@ def test_event_handlers(
     instance_service_factory,
     instance_state_factory,
     group_factory,
-    requests_mock,
     mocker,
 ):
     if event_type == "FileSubsequently":
         group_factory(role=role_factory(name="support"))
-        requests_mock.post("http://camac-ng.local/graphql/", json=full_document)
-        mocker.patch.object(data_preparation, "get_admin_token", return_value="token")
+        mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
 
     if event_type == "StatusNotification":
         ech_instance.previous_instance_state = instance_state_factory(pk=20000)
@@ -149,3 +145,13 @@ def test_task_event_handler(
     assert Message.objects.filter(receiver=s1)
     assert Message.objects.filter(receiver=s2)
     assert not Message.objects.filter(receiver=s3)
+
+
+def test_file_subsequently_signal(ech_instance, mocker):
+    mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
+    file_subsequently.send(
+        sender=None, instance=ech_instance, user_pk=None, group_pk=None
+    )
+    assert Message.objects.count() == 1
+    message = Message.objects.first()
+    assert message.receiver.name == "Leitbehörde Burgdorf"

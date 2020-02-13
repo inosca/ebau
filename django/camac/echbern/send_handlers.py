@@ -2,6 +2,7 @@ from django.urls import reverse
 from django.utils import timezone
 from rest_framework.test import APIClient
 
+from camac.caluma.api import CalumaApi
 from camac.constants.kt_bern import (
     INSTANCE_STATE_DOSSIERPRUEFUNG,
     INSTANCE_STATE_FINISHED,
@@ -27,7 +28,6 @@ from camac.document.models import Attachment
 from camac.instance.models import Instance, InstanceState
 from camac.user.models import Service
 
-from .data_preparation import get_form_slug
 from .signals import (
     accompanying_report_send,
     circulation_started,
@@ -85,7 +85,7 @@ class NoticeRulingSendHandler(BaseSendHandler):
             4: INSTANCE_STATE_REJECTED,
         }
         decision = {1: "accepted", 3: "writtenOff", 4: "denied"}
-        form_slug = get_form_slug(self.instance, self.group.pk, self.auth_header)
+        form_slug = CalumaApi().get_form_slug(self.instance)
         if form_slug.startswith("vorabklaerung"):
             decision = {1: "positive", 2: "conditionallyPositive", 4: "negative"}
 

@@ -14,7 +14,8 @@ from caluma.caluma_form.models import Answer, Document
 from caluma.caluma_form.schema import SaveDocumentStringAnswer, SaveDocumentTableAnswer
 from django.conf import settings
 
-from camac.caluma.api import get_admin_token
+from camac.echbern.signals import file_subsequently
+from camac.instance.models import Instance
 from camac.utils import build_url, headers
 
 CLAIM_QUESTION = "nfd-tabelle-table"
@@ -24,7 +25,6 @@ CLAIM_STATUS_ANSWERED = "nfd-tabelle-status-beantwortet"
 
 NOTIFICATION_CLAIM_IN_PROGRESS = 31
 NOTIFICATION_CLAIM_ANSWERED = 32
-ECH_EVENT_CLAIM_ANSWERED = "FileSubsequently"
 
 
 class CustomValidation(BaseValidation):
@@ -50,16 +50,14 @@ class CustomValidation(BaseValidation):
             ),
         )
 
-    def _send_claim_ech_event(self, info, instance_id, event):
-        if settings.ECH_API:
-            requests.post(
-                build_url(
-                    settings.INTERNAL_BASE_URL,
-                    f"/ech/v1/event/{instance_id}/{event}",
-                    trailing=True,
-                ),
-                headers={"authorization": f"Bearer {get_admin_token()}"},
-            )
+    def _send_claim_ech_event(self, info, instance_id):
+        instance = Instance.objects.get(pk=instance_id)
+        file_subsequently.send(
+            sender=self.__class__,
+            instance=instance,
+            user_pk=None,  # Not needed, hence not querying for it
+            group_pk=None,  # Not needed, hence not querying for it
+        )
 
     def _validate_claim_status(self, info, instance_id, status, old_status=None):
         if old_status and status == old_status:
@@ -75,7 +73,7 @@ class CustomValidation(BaseValidation):
             self._send_claim_notification(
                 info, instance_id, NOTIFICATION_CLAIM_ANSWERED, ["leitbehoerde"]
             )
-            self._send_claim_ech_event(info, instance_id, ECH_EVENT_CLAIM_ANSWERED)
+            self._send_claim_ech_event(info, instance_id)
 
     @validation_for(SaveDocumentTableAnswer)
     def validate_save_document_table_answer(self, mutation, data, info):

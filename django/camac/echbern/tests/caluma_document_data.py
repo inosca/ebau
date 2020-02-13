@@ -1,0 +1,61 @@
+baugesuch_data = {
+    "anzahl-abstellplaetze-fur-motorfahrzeuge": 23,
+    "baukosten-in-chf": 232323,
+    "bemerkungen": "Foo bar",
+    "beschreibung-bauvorhaben": "Beschreibung&#10;Mehr Beschreibung",
+    "beschreibung-der-prozessart-tabelle": [{"prozessart": "Fliesslawine"}],
+    "dauer-in-monaten": 23,
+    "ech-subject": "Generelles Baugesuch",
+    "effektive-geschosszahl": 23,
+    "gemeinde": "2",
+    "geplanter-baustart": "2019-09-15",
+    "gwr-egid": "23",
+    "nr": "23",
+    "nutzungsart": ["Wohnen"],
+    "nutzungszone": "Testnutzungszone",
+    "ort-grundstueck": "Burgdorf",
+    "ort-parzelle": "Burgdorf",
+    "parzelle": [
+        {
+            "e-grid-nr": "23",
+            "lagekoordinaten-nord": "1070500.000",
+            "lagekoordinaten-ost": "2480034.0",
+            "parzellennummer": "1586",
+        },
+        {
+            "e-grid-nr": "24",
+            "lagekoordinaten-nord": "1070600.000",
+            "lagekoordinaten-ost": "2480035.0",
+            "parzellennummer": "1587",
+        },
+    ],
+    "personalien-gesuchstellerin": [
+        {
+            "name-gesuchstellerin": "Smith",
+            "nummer-gesuchstellerin": "23",
+            "ort-gesuchstellerin": "Burgdorf",
+            "plz-gesuchstellerin": 2323,
+            "strasse-gesuchstellerin": "Teststrasse",
+            "vorname-gesuchstellerin": "Winston",
+        }
+    ],
+    "sammelschutzraum": "Ja",
+    "strasse-flurname": "Teststrasse",
+}
+
+vorabklaerung_data = {
+    "anfrage-zur-vorabklaerung": "lorem ipsum",
+    "e-grid-nr": "23",
+    "ech-subject": "Einfache Vorabklärung",
+    "gemeinde": "2",
+    "gwr-egid": "23",
+    "lagekoordinaten-nord-einfache-vorabklaerung": "1070500.000",
+    "lagekoordinaten-ost-einfache-vorabklaerung": "2480034.0",
+    "name-gesuchstellerin-vorabklaerung": "Smith",
+    "nummer-gesuchstellerin": "23",
+    "ort-gesuchstellerin": "Burgdorf",
+    "parzellennummer": "23",
+    "plz-gesuchstellerin": 2323,
+    "strasse-gesuchstellerin": "Teststrasse",
+    "vorname-gesuchstellerin-vorabklaerung": "Winston",
+}
