@@ -76,7 +76,9 @@ class ApplicationsView(InstanceQuerysetMixin, ListModelMixin, GenericViewSet):
         return super().get_queryset()
 
     @swagger_auto_schema(
-        tags=["ECH"], operation_summary="Get list of accessible instances"
+        tags=["ECH"],
+        manual_parameters=[group_param],
+        operation_summary="Get list of accessible instances",
     )
     def list(self, request, *args, **kwargs):
         return super().list(request, *args, **kwargs)
