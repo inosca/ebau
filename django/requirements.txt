@@ -29,4 +29,4 @@ tabulate==0.8.6
 xmlschema==1.0.14
 requests==2.22.0
 PyXB==1.2.6
-https://github.com/projectcaluma/caluma/archive/v5.1.0.tar.gz#egg_name=caluma
+git+git://github.com/projectcaluma/caluma@v5.1.0#egg_name=caluma
