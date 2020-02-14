@@ -126,6 +126,8 @@ class GroupView(viewsets.ReadOnlyModelViewSet):
     queryset = models.Group.objects.all()
 
     def get_queryset(self):
+        if getattr(self, "swagger_fake_view", False):  # pragma: no cover
+            return models.Group.objects.none()
         queryset = super().get_queryset()
         return queryset.filter(
             service__in=self.request.user.groups.values("service"), disabled=False
