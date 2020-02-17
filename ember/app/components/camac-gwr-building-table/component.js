@@ -4,7 +4,7 @@ import v4 from "uuid/v4";
 
 export default Component.extend({
   addRow: task(function*() {
-    let row = {
+    const row = {
       uuid: v4(),
       ...this.get("config.columns").reduce(
         (obj, { name }) => ({ ...obj, [name]: "" }),
@@ -19,10 +19,10 @@ export default Component.extend({
   }).drop(),
 
   saveRow: task(function*(row) {
-    yield this.getWithDefault(
-      "attrs.on-change",
-      () => {}
-    )([...this.getWithDefault("value", []).filter(r => r.uuid !== row.uuid), row]);
+    yield this.getWithDefault("attrs.on-change", () => {})([
+      ...this.getWithDefault("value", []).filter(r => r.uuid !== row.uuid),
+      row
+    ]);
 
     this.setProperties({
       editedRow: null,
@@ -38,10 +38,9 @@ export default Component.extend({
   }).restartable(),
 
   deleteRow: task(function*(row) {
-    yield this.getWithDefault(
-      "attrs.on-change",
-      () => {}
-    )(this.getWithDefault("value", []).filter(r => r.uuid !== row.uuid));
+    yield this.getWithDefault("attrs.on-change", () => {})(
+      this.getWithDefault("value", []).filter(r => r.uuid !== row.uuid)
+    );
 
     this.setProperties({
       editedRow: null,

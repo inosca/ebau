@@ -1,4 +1,4 @@
-{{#camac-form instance=model.instance meta=model.meta as |form|}}
-  {{form.input 'pa-gesuchsnr'}}
-  {{form.input 'pa-datum'}}
-{{/camac-form}}
+<CamacForm @instance={{@model.instance}} @meta={{@model.meta}} as |form|>
+  {{form.input "pa-gesuchsnr"}}
+  {{form.input "pa-datum"}}
+</CamacForm>

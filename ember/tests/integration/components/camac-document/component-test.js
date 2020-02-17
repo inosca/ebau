@@ -1,16 +1,16 @@
-import { module, test } from "qunit";
-import { setupRenderingTest } from "ember-qunit";
 import { render, triggerEvent, click } from "@ember/test-helpers";
-import hbs from "htmlbars-inline-precompile";
-import setupMirage from "ember-cli-mirage/test-support/setup-mirage";
 import loadQuestions from "citizen-portal/tests/helpers/load-questions";
+import setupMirage from "ember-cli-mirage/test-support/setup-mirage";
+import { setupRenderingTest } from "ember-qunit";
+import hbs from "htmlbars-inline-precompile";
+import { module, test } from "qunit";
 
 module("Integration | Component | camac-document", function(hooks) {
   setupRenderingTest(hooks);
   setupMirage(hooks);
 
   hooks.beforeEach(async function() {
-    let instance = this.server.create("instance", "unsubmitted");
+    const instance = this.server.create("instance", "unsubmitted");
 
     this.set("instance", instance);
 
@@ -62,7 +62,9 @@ module("Integration | Component | camac-document", function(hooks) {
 
     await render(hbs`{{camac-document 'test-document'instance=instance}}`);
 
-    let files = [new File([new Blob()], "testfile.png", { type: "image/png" })];
+    const files = {
+      files: [new File([new Blob()], "testfile.png", { type: "image/png" })]
+    };
 
     await triggerEvent(
       "[data-test-upload-document] + input[type=file]",
@@ -89,7 +91,9 @@ module("Integration | Component | camac-document", function(hooks) {
 
     await render(hbs`{{camac-document 'test-document'instance=instance}}`);
 
-    let files = [new File([new Blob()], "testfile.png", { type: "image/png" })];
+    const files = {
+      files: [new File([new Blob()], "testfile.png", { type: "image/png" })]
+    };
 
     await triggerEvent(
       "[data-test-replace-document] + input[type=file]",
@@ -119,11 +123,15 @@ module("Integration | Component | camac-document", function(hooks) {
   test("it can delete a document", async function(assert) {
     assert.expect(2);
 
-    this.server.delete("/api/v1/attachments/:id", () => {
-      assert.step("delete-document");
+    this.server.delete(
+      "/api/v1/attachments/:id",
+      () => {
+        assert.step("delete-document");
 
-      return {};
-    });
+        return "";
+      },
+      204
+    );
 
     await render(hbs`{{camac-document 'test-document' instance=instance}}`);
 
@@ -137,9 +145,9 @@ module("Integration | Component | camac-document", function(hooks) {
   test("delete document button is not visible", async function(assert) {
     const instanceState = this.server.create("instance-state", { name: "new" });
 
-    let n = String(this.instance.location.communalFederalNumber).substr(2, 4);
-    let y = String(new Date().getFullYear()).substr(2, 4);
-    let i = String(this.instance.id).padStart(3, 0);
+    const n = String(this.instance.location.communalFederalNumber).substr(2, 4);
+    const y = String(new Date().getFullYear()).substr(2, 4);
+    const i = String(this.instance.id).padStart(3, 0);
 
     // Set instance to submitted
     this.set("instance.identifier", `${n}-${y}-${i}`);

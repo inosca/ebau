@@ -1,11 +1,12 @@
 <div class="uk-text-center">
-  {{download-instance instance=model.instance group=params.group}}
-    <p class="uk-text-left">
+  <DownloadInstance @instance={{@model.instance}} @group={{this.params.group}} />
+  <p class="uk-text-left">
     WICHTIG: Bis die rechtlichen Grundlagen für eine rein elektronische
     Gesuchseingabe geschaffen sind, müssen zwei vollständige Gesuchsdossiers (inkl. Gesuchsformular in Papierform)
     erstellt, unterschrieben und der Gemeinde zugestellt werden.
     Die Vorgaben des jeweiligen Baureglementes sind einzuhalten.
-    {{camac-hint-dialog "Konkrete Schritte zur Einreichung:
+    {{camac-hint-dialog
+      "Konkrete Schritte zur Einreichung:
 1. Gesuchsformular ausfüllen, Gesuchsunterlagen hochladen
       und elektronisch einreichen. (Falls die Einreichung erfolgreich war,
       wird unter «Ihre Gesuche» das Gesuch mit einer Gesuchsnummer
@@ -21,24 +22,37 @@
       WICHTIG: Die Gemeinde bearbeitet Ihr Gesuch erst,
       wenn die Papierunterlagen vorliegen."
     }}
-    </p>
-  <p class="uk-text-left">Mit Klick auf die Schaltfläche "Einreichen"...</p>
+  </p>
+  <p class="uk-text-left">
+    Mit Klick auf die Schaltfläche "Einreichen"...
+  </p>
   <p class="uk-text-left uk-margin-left">
-    ...bestätigen Sie, dass das Formular vollständig und wahrheitsgetreu ausgefüllt wurde,<br>
-    ...wird Ihr Gesuch bei der zuständigen Behörde zur Kontrolle eingereicht,<br>
+    ...bestätigen Sie, dass das Formular vollständig und wahrheitsgetreu ausgefüllt wurde,
+    <br />
+    ...wird Ihr Gesuch bei der zuständigen Behörde zur Kontrolle eingereicht,
+    <br />
     ...können Sie an den Formulareinträgen keine Veränderungen mehr vornehmen.
   </p>
 
-  {{#uk-button size='large' color='primary' loading=submit.isRunning disabled=(not canSubmit.lastSuccessful.value) on-click=(perform submit)}}Einreichen{{/uk-button}}
+  <UkButton
+    @size="large"
+    @color="primary"
+    @loading={{this.submit.isRunning}}
+    @disabled={{not this.canSubmit.lastSuccessful.value}}
+    @on-click={{perform this.submit}}
+  >
+    Einreichen
+  </UkButton>
 
-  {{!-- Temporary message to show that the selected municipality is not active --}}
-  {{#unless checkMunicipality}}
+  {{! Temporary message to show that the selected municipality is not active }}
+  {{#unless this.checkMunicipality}}
     <div class="uk-alert uk-alert-danger">
-      Die Ausgewählte Gemeinde {{model.instance.location.name}} ist noch nicht aktiv im neuen Gesuchsforumlar.
+      Die Ausgewählte Gemeinde {{@model.instance.location.name}}
+      ist noch nicht aktiv im neuen Gesuchsforumlar.
     </div>
   {{/unless}}
 
-  {{#unless canSubmit.lastSuccessful.value}}
+  {{#unless this.canSubmit.lastSuccessful.value}}
     <div class="uk-alert uk-alert-danger">
       Das Gesuch ist noch nicht vollständig ausgefüllt, oder enthält noch
       fehlerhafte Daten. Bitte überprüfen Sie Ihre Angaben und versuchen Sie

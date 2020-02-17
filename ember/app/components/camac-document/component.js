@@ -1,15 +1,14 @@
 /* global Dropzone */
-import CamacInputComponent from "citizen-portal/components/camac-input/component";
+/* eslint-disable ember/no-observers */
 import { computed, observer } from "@ember/object";
 import { reads } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
+import CamacInputComponent from "citizen-portal/components/camac-input/component";
+import ENV from "citizen-portal/config/environment";
+import download from "downloadjs";
+import Ember from "ember";
 import { task } from "ember-concurrency";
 import fetch from "fetch";
-import Ember from "ember";
-import download from "downloadjs";
-import ENV from "citizen-portal/config/environment";
-
-const { testing } = Ember;
 
 const ALLOWED_MIME_TYPES = ["application/pdf", "image/png", "image/jpeg"];
 const MAX_FILE_SIZE = 60 * 1024 * 1024;
@@ -48,8 +47,8 @@ export default CamacInputComponent.extend({
 
   mimeTypes: ALLOWED_MIME_TYPES.join(","),
 
-  didInsertElement() {
-    this._super(...arguments);
+  didInsertElement(...args) {
+    this._super(...args);
     if (!this.readonly) {
       this.set(
         "dropzone",
@@ -103,18 +102,18 @@ export default CamacInputComponent.extend({
         return;
       }
 
-      const url = this.get("group")
-        ? `${document.get("path")}?group=${this.get("group")}`
+      const url = this.group
+        ? `${document.get("path")}?group=${this.group}`
         : document.get("path");
 
-      let response = yield fetch(url, {
+      const response = yield fetch(url, {
         mode: "cors",
         headers: this.headers
       });
 
-      let file = yield response.blob();
+      const file = yield response.blob();
 
-      if (!testing) {
+      if (!Ember.testing) {
         download(file, document.get("name"), file.type);
       }
 
@@ -126,14 +125,15 @@ export default CamacInputComponent.extend({
     }
   }),
 
-  upload: task(function*(existingFile = null, files) {
+  upload: task(function*(existingFile = null, event) {
     if (this.readonly) {
       return;
     }
 
+    const files = event.target.files;
     try {
       for (let i = 0; i < files.length; i++) {
-        let file = files.item(i);
+        const file = files.item(i);
 
         if (file.size > MAX_FILE_SIZE) {
           this.notification.danger(
@@ -153,9 +153,9 @@ export default CamacInputComponent.extend({
           return;
         }
 
-        let question = this.question;
+        const question = this.question;
 
-        let formData = new FormData();
+        const formData = new FormData();
         formData.append("instance", this.instance.id);
         formData.append("question", this.identifier);
         formData.append(
@@ -174,8 +174,8 @@ export default CamacInputComponent.extend({
           url = `/api/v1/attachments/${existingFile.id}`;
           method = "PATCH";
         }
-        let response = yield this.ajax.request(url, {
-          method: method,
+        const response = yield this.ajax.request(url, {
+          method,
           cache: false,
           contentType: false,
           processData: false,
@@ -210,7 +210,7 @@ export default CamacInputComponent.extend({
 
   delete: task(function*(file) {
     try {
-      let deleted = yield file.destroyRecord();
+      const deleted = yield file.destroyRecord();
       this.question.set(
         "model",
         this.question.model.filter(f => f.id !== deleted.id)

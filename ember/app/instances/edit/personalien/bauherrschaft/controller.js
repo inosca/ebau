@@ -1,31 +1,31 @@
 import Controller from "@ember/controller";
+import { action, computed } from "@ember/object";
 import { inject as service } from "@ember/service";
-import { computed } from "@ember/object";
 
-export default Controller.extend({
-  questionStore: service("question-store"),
+export default class InstancesEditPersonalienBauherrschaftController extends Controller {
+  @service("question-store") questionStore;
 
-  questionActive: computed("model.instance.fields.@each", function() {
+  @computed("model.instance.fields.@each")
+  get questionActive() {
     return (
-      this.get("model.meta.editable").includes("form") &&
-      this.get("model.instance.fields").findBy("name", "grundeigentumerschaft")
+      this.model.meta.editable.includes("form") &&
+      this.model.instance.fields.findBy("name", "grundeigentumerschaft")
     );
-  }),
-
-  actions: {
-    async copyQuestionValue() {
-      let question = await this.questionStore.peek(
-        "bauherrschaft",
-        this.get("model.instance.id")
-      );
-      question.set(
-        "model.value",
-        question
-          .getWithDefault("model.value", [])
-          .pushObjects(this.grundeigentumerschaftValue)
-          .uniqBy("uuid")
-      );
-      await this.get("questionStore.saveQuestion").perform(question);
-    }
   }
-});
+
+  @action
+  async copyQuestionValue() {
+    const question = await this.questionStore.peek(
+      "bauherrschaft",
+      this.model.instance.id
+    );
+    question.set(
+      "model.value",
+      question
+        .getWithDefault("model.value", [])
+        .pushObjects(this.grundeigentumerschaftValue)
+        .uniqBy("uuid")
+    );
+    await this.questionStore.saveQuestion.perform(question);
+  }
+}

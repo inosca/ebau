@@ -1,15 +1,16 @@
 "use strict";
 
 const EmberApp = require("ember-cli/lib/broccoli/ember-app");
+const nodeSass = require("node-sass");
 const env = EmberApp.env();
 
 module.exports = function(defaults) {
-  let app = new EmberApp(defaults, {
+  const app = new EmberApp(defaults, {
     jquery: {
       slim: true
     },
     babel: {
-      plugins: ["transform-object-rest-spread"]
+      plugins: ["@babel/plugin-proposal-object-rest-spread"]
     },
     "ember-cli-babel": {
       includePolyfill: true
@@ -61,6 +62,9 @@ module.exports = function(defaults) {
         minifyCSS: false,
         ignoreCustomComments: [/^\s*EMBER_APP_SHELL_PLACEHOLDER/]
       }
+    },
+    sassOptions: {
+      implementation: nodeSass
     }
   });
 

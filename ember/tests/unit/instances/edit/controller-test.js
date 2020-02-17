@@ -1,17 +1,17 @@
-import { module, test } from "qunit";
-import { setupTest } from "ember-qunit";
-import setupMirage from "ember-cli-mirage/test-support/setup-mirage";
-import loadQuestions from "citizen-portal/tests/helpers/load-questions";
 import { run } from "@ember/runloop";
+import loadQuestions from "citizen-portal/tests/helpers/load-questions";
+import setupMirage from "ember-cli-mirage/test-support/setup-mirage";
+import { setupTest } from "ember-qunit";
+import { module, test } from "qunit";
 
 module("Unit | Controller | instances/edit", function(hooks) {
   setupTest(hooks);
   setupMirage(hooks);
 
   hooks.beforeEach(async function() {
-    let form = server.create("form", { name: "test" });
-    let instance = server.create("instance", { formId: form.id });
-    let store = this.owner.lookup("service:store");
+    const form = this.server.create("form", { name: "test" });
+    const instance = this.server.create("instance", { formId: form.id });
+    const store = this.owner.lookup("service:store");
 
     this.model = {
       instance: await run(async () =>
@@ -89,12 +89,12 @@ module("Unit | Controller | instances/edit", function(hooks) {
   test("it computes the modules", async function(assert) {
     assert.expect(1);
 
-    let controller = this.owner.lookup("controller:instances/edit");
+    const controller = this.owner.lookup("controller:instances/edit");
 
     controller.set("model", this.model);
     controller.set("router", this.router);
 
-    let modules = await run(async () => controller.get("modules").perform());
+    const modules = await run(async () => controller.get("modules").perform());
 
     assert.equal(modules.length, 7);
   });
@@ -102,7 +102,7 @@ module("Unit | Controller | instances/edit", function(hooks) {
   test("it computes the active links", async function(assert) {
     assert.expect(1);
 
-    let controller = this.owner.lookup("controller:instances/edit");
+    const controller = this.owner.lookup("controller:instances/edit");
 
     controller.set("model", this.model);
     controller.set("router", this.router);
@@ -122,31 +122,33 @@ module("Unit | Controller | instances/edit", function(hooks) {
   test("it computes a hierarchical navigation", async function(assert) {
     assert.expect(5);
 
-    let controller = this.owner.lookup("controller:instances/edit");
+    const controller = this.owner.lookup("controller:instances/edit");
 
     controller.set("model", this.model);
     controller.set("router", this.router);
 
     await run(async () => controller.get("modules").perform());
 
-    let navigation = controller.get("navigation");
+    const navigation = controller.get("navigation");
 
     assert.equal(navigation.length, 3);
-    assert.deepEqual(navigation.map(({ name }) => name), [
-      "module1",
-      "module2",
-      "module3"
-    ]);
+    assert.deepEqual(
+      navigation.map(({ name }) => name),
+      ["module1", "module2", "module3"]
+    );
 
-    assert.deepEqual(navigation[0].submodules.map(({ name }) => name), [
-      "module1.test1",
-      "module1.test2"
-    ]);
-    assert.deepEqual(navigation[1].submodules.map(({ name }) => name), [
-      "module2.test1",
-      "module2.test2"
-    ]);
-    assert.deepEqual(navigation[2].submodules.map(({ name }) => name), []);
+    assert.deepEqual(
+      navigation[0].submodules.map(({ name }) => name),
+      ["module1.test1", "module1.test2"]
+    );
+    assert.deepEqual(
+      navigation[1].submodules.map(({ name }) => name),
+      ["module2.test1", "module2.test2"]
+    );
+    assert.deepEqual(
+      navigation[2].submodules.map(({ name }) => name),
+      []
+    );
   });
 
   test("it computes if a module is editable", async function(assert) {
@@ -187,7 +189,7 @@ module("Unit | Controller | instances/edit", function(hooks) {
       this.model.instance.id
     );
 
-    let controller = this.owner.lookup("controller:instances/edit");
+    const controller = this.owner.lookup("controller:instances/edit");
 
     controller.set("model", {
       ...this.model,
@@ -195,7 +197,7 @@ module("Unit | Controller | instances/edit", function(hooks) {
     });
     controller.set("router", this.router);
 
-    let modules = await run(async () => controller.get("modules").perform());
+    const modules = await run(async () => controller.get("modules").perform());
 
     assert.equal(modules[0].get("editableTypes.length"), 1);
 

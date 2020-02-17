@@ -1,24 +1,39 @@
-{{#if data.lastSuccessful}}
-  {{#if (or identifier data.lastSuccessful.value data.isRunning)}}
-    <h1>Ihre Gesuche</h1>
+{{#if this.data.lastSuccessful}}
+  {{#if (or this.identifier this.data.lastSuccessful.value this.data.isRunning)}}
+    <h1>
+      Ihre Gesuche
+    </h1>
 
     <div class="uk-search uk-search-default uk-width-1-1 uk-hidden@m">
-      <span uk-search-icon></span>
-      <input class="uk-search-input" type="search" placeholder="Gesuchsnummer suchen..." value={{identifier}} oninput={{action (perform search) value='target.value'}}>
+      <span uk-search-icon=""></span>
+      <input
+        class="uk-search-input"
+        type="search"
+        placeholder="Gesuchsnummer suchen..."
+        value={{this.identifier}}
+        {{on "input" (fn (perform this.search) value="target.value")}}
+      />
     </div>
 
     <table class="uk-table uk-table-striped uk-table-hover uk-table-responsive">
       <thead>
-      <tr class="uk-child-width-auto">
+        <tr class="uk-child-width-auto">
           <th class="uk-width-expand">
-            <div class="uk-flex-inline uk-width-1-1 uk-flex-between" data-toggle-search='identifier-search'>
+            <div
+              class="uk-flex-inline uk-width-1-1 uk-flex-between"
+              data-toggle-search="identifier-search"
+            >
               <span class="white-space-nowrap">
                 Gesuchsnummer
-                {{camac-sort-icon key='identifier' sort=sort on-click=(action (mut sort))}}
+                <CamacSortIcon
+                  @key="identifier"
+                  @sort={{this.sort}}
+                  @on-click={{fn (mut this.sort)}}
+                />
               </span>
               <div class="uk-margin-small-left">
                 <a
-                  uk-search-icon
+                  uk-search-icon=""
                   uk-toggle="target: [data-toggle-search='identifier-search']; animation: uk-animation-slide-left-small uk-animation-fast"
                   class="uk-toggle"
                   href="#"
@@ -26,64 +41,98 @@
                 </a>
               </div>
             </div>
-            <div class="uk-flex-inline uk-width-1-1 uk-flex-between" data-toggle-search='identifier-search' hidden>
+            <div
+              class="uk-flex-inline uk-width-1-1 uk-flex-between"
+              data-toggle-search="identifier-search"
+              hidden=""
+            >
               <input
-                autofocus
+                autofocus=""
                 class="uk-search-input uk-width-auto uk-padding-remove"
                 type="search"
                 placeholder="Suchen..."
-                value={{identifier}}
-                oninput={{action (perform search) value='target.value'}}
-              >
+                value={{this.identifier}}
+                {{on "input" (fn (perform this.search) value="target.value")}}
+              />
               <a
-                uk-close
+                uk-close=""
                 uk-toggle="target: [data-toggle-search='identifier-search']; animation: uk-animation-slide-right-small uk-animation-fast"
                 class="uk-toggle uk-flex-inline uk-flex-middle"
                 href="#"
-                {{action (mut identifier) ''}}
+                {{on "click" (fn (mut this.identifier) "")}}
               >
               </a>
             </div>
           </th>
           <th class="white-space-nowrap">
             Projektnummer
-            {{camac-sort-icon key='projektnummer' sort=sort_form_field on-click=(action (mut sort_form_field))}}
+            <CamacSortIcon
+              @key="projektnummer"
+              @sort={{this.sort_form_field}}
+              @on-click={{fn (mut this.sort_form_field)}}
+            />
           </th>
           <th class="white-space-nowrap">
             Gemeinde
-            {{camac-sort-icon key='location__name' sort=sort on-click=(action (mut sort))}}
+            <CamacSortIcon
+              @key="location__name"
+              @sort={{this.sort}}
+              @on-click={{fn (mut this.sort)}}
+            />
           </th>
           <th class="white-space-nowrap">
             Vorhaben
-            {{camac-sort-icon key='bezeichnung' sort=sort_form_field on-click=(action (mut sort_form_field))}}
+            <CamacSortIcon
+              @key="bezeichnung"
+              @sort={{this.sort_form_field}}
+              @on-click={{fn (mut this.sort_form_field)}}
+            />
           </th>
           <th>
             Bauherrschaft
           </th>
           <th class="white-space-nowrap">
             Status
-            {{camac-sort-icon key='instance_state__description' sort=sort on-click=(action (mut sort))}}
+            <CamacSortIcon
+              @key="instance_state__description"
+              @sort={{this.sort}}
+              @on-click={{fn (mut this.sort)}}
+            />
           </th>
           <th class="white-space-nowrap">
             Erstelldatum
-            {{camac-sort-icon key='creation_date' sort=sort on-click=(action (mut sort))}}
+            <CamacSortIcon
+              @key="creation_date"
+              @sort={{this.sort}}
+              @on-click={{fn (mut this.sort)}}
+            />
           </th>
           <th></th>
         </tr>
       </thead>
       <tbody>
-        {{#if data.isRunning}}
+        {{#if this.data.isRunning}}
           <tr>
-            <td class="uk-text-center" colspan="5">{{uk-spinner}}</td>
+            <td class="uk-text-center" colspan="5">
+              <UkSpinner />
+            </td>
           </tr>
         {{else}}
-          {{#each data.lastSuccessful.value as |instance|}}
+          {{#each this.data.lastSuccessful.value as |instance|}}
             <tr>
               <td>
-                {{#link-to "instances.edit" instance.id title="Klicken Sie um das Gesuch zu bearbeiten"}}{{instance.identifier}}{{/link-to}}
+                <LinkTo
+                  @route="instances.edit"
+                  @model={{instance.id}}
+                  @title="Klicken Sie um das Gesuch zu bearbeiten"
+                >
+                  {{instance.identifier}}
+                </LinkTo>
               </td>
               <td>
-                {{#with (find-by "name" "projektnummer" instance.fields) as |field|}}
+                {{#with
+                  (find-by "name" "projektnummer" instance.fields) as |field|
+                }}
                   {{field.value}}
                 {{/with}}
               </td>
@@ -93,22 +142,34 @@
                 {{/if}}
               </td>
               <td>
-                {{#with (find-by "name" "bezeichnung" instance.fields) as |field|}}
+                {{#with
+                  (find-by "name" "bezeichnung" instance.fields) as |field|
+                }}
                   {{field.value}}
                 {{/with}}
               </td>
               <td>
-                {{#with (find-by "name" "bauherrschaft" instance.fields) as |field|}}
+                {{#with
+                  (find-by "name" "bauherrschaft" instance.fields) as |field|
+                }}
                   {{#each (slice 0 3 field.value) as |person|}}
-                    {{person.vorname}}&nbsp;{{person.name}}<br>
+                    {{person.vorname}}&nbsp;{{person.name}}<br />
                   {{/each}}
                   {{#if (gt field.value.length 3)}}
-                    <span title="Weitere Bauherrschaften im Gesuch zu sehen">...</span>
+                    <span title="Weitere Bauherrschaften im Gesuch zu sehen">
+                      ...
+                    </span>
                   {{/if}}
                 {{/with}}
               </td>
               <td>
-                {{#link-to "instances.edit" instance.id title="Klicken Sie um das Gesuch zu bearbeiten"}}{{instance.instanceState.description}}{{/link-to}}
+                <LinkTo
+                  @route="instances.edit"
+                  @model={{instance.id}}
+                  @title="Klicken Sie um das Gesuch zu bearbeiten"
+                >
+                  {{instance.instanceState.description}}
+                </LinkTo>
               </td>
               <td class="uk-text-nowrap">
                 {{format-date instance.creationDate}}
@@ -120,54 +181,79 @@
                     title="Gesuch löschen"
                     uk-icon="trash"
                     uk-toggle="target: .confirm-delete-{{instance.id}}; animation: uk-animation-slide-bottom uk-animation-fast;"
+                    type="button"
                   ></button>
-                  <span class="uk-text-danger confirm-delete-{{instance.id}}" hidden>
-                    Löschen?<br>
+                  <span
+                    class="uk-text-danger confirm-delete-{{instance.id}}"
+                    hidden=""
+                  >
+                    Löschen?
+                    <br />
                     <button
                       class="uk-icon-button uk-text-danger"
                       uk-icon="check"
-                      {{action (perform delete) instance on='click' bubbles=false}}
+                      {{on "click" (fn (perform this.delete) instance)}}
+                      type="button"
                     ></button>
                     <button
                       class="uk-icon-button uk-text-danger"
                       uk-icon="close"
                       uk-toggle="target: .confirm-delete-{{instance.id}}; animation: uk-animation-slide-bottom uk-animation-fast;"
+                      type="button"
                     ></button>
                   </span>
                 {{/unless}}
               </td>
             </tr>
-          {{^}}
+          {{else}}
             <tr>
               <td class="uk-text-center" colspan="8">
-                <i>Kein Gesuch mit dieser Gesuchsnummer gefunden</i>
+                <i>
+                  Kein Gesuch mit dieser Gesuchsnummer gefunden
+                </i>
               </td>
             </tr>
           {{/each}}
         {{/if}}
-        <tr role="link" title="Klicken Sie um ein neues Gesuch zu erstellen" class="pointer" {{action (transition-to 'instances.new') on='click'}}>
+        <tr
+          role="link"
+          title="Klicken Sie um ein neues Gesuch zu erstellen"
+          class="pointer"
+          {{on "click" (transition-to "instances.new")}}
+        >
           <td class="uk-text-center" colspan="8">
-            {{uk-icon 'plus' scale=2}}
+            {{uk-icon "plus" scale=2}}
           </td>
         </tr>
       </tbody>
     </table>
   {{else}}
-    {{#uk-flex horizontal='center' vertical='middle' direction='column'}}
+    <UkFlex @horizontal="center" @vertical="middle" @direction="column">
       <div class="uk-text-center uk-width-large">
-        <object data="/assets/images/stamp-document.svg" class="uk-width-medium"></object>
-        <h4 class="uk-margin-remove-top">Sie haben noch keine Gesuche!</h4>
+        <object
+          data="/assets/images/stamp-document.svg"
+          class="uk-width-medium"
+          aria-label="Keine Gesuche"
+        ></object>
+        <h4 class="uk-margin-remove-top">
+          Sie haben noch keine Gesuche!
+        </h4>
         <p>
           Erstellen Sie jetzt schnell und bequem Ihr erstes Gesuch. Sie
           können es jederzeit schliessen und problemlos ein andermal weiter
           ausfüllen.
         </p>
-        {{#link-to 'instances.new' class='uk-button uk-button-primary uk-button-large'}}Gesuch erstellen{{/link-to}}
+        <LinkTo
+          @route="instances.new"
+          class="uk-button uk-button-primary uk-button-large"
+        >
+          Gesuch erstellen
+        </LinkTo>
       </div>
-    {{/uk-flex}}
+    </UkFlex>
   {{/if}}
-{{else if data.isRunning}}
-  {{#uk-flex horizontal='center' class='uk-padding uk-animation-fade'}}
-    {{uk-spinner ratio=3}}
-  {{/uk-flex}}
+{{else if this.data.isRunning}}
+  <UkFlex @horizontal="center" class="uk-padding uk-animation-fade">
+    <UkSpinner @ratio={{3}} />
+  </UkFlex>
 {{/if}}

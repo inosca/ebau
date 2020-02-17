@@ -1,10 +1,10 @@
-import Mixin from "@ember/object/mixin";
 import { computed } from "@ember/object";
+import Mixin from "@ember/object/mixin";
 import { capitalize } from "@ember/string";
+import _validations from "citizen-portal/questions/validations";
 import Changeset from "ember-changeset";
 import { task } from "ember-concurrency";
 import { resolve } from "rsvp";
-import _validations from "citizen-portal/questions/validations";
 
 export default Mixin.create({
   _validations,
@@ -21,11 +21,11 @@ export default Mixin.create({
 
   _validate({ key, newValue }) {
     try {
-      let { type, required: isRequired, config } = this.columns.find(
+      const { type, required: isRequired, config } = this.columns.find(
         f => f.name === key
       );
 
-      let validations = [
+      const validations = [
         isRequired
           ? this.getWithDefault("_validations.validateRequired", () => true)
           : () => true,
@@ -39,7 +39,7 @@ export default Mixin.create({
         )
       ];
 
-      let isValid = validations.map(fn => fn(config, newValue));
+      const isValid = validations.map(fn => fn(config, newValue));
 
       return (
         isValid.every(v => v === true) ||
@@ -51,7 +51,7 @@ export default Mixin.create({
   },
 
   save: task(function*() {
-    let changeset = this._value;
+    const changeset = this._value;
 
     yield changeset.validate();
 

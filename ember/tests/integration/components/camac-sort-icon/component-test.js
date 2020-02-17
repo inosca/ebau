@@ -1,7 +1,7 @@
-import { module, test } from "qunit";
-import { setupRenderingTest } from "ember-qunit";
 import { render, click } from "@ember/test-helpers";
+import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
+import { module, test } from "qunit";
 
 module("Integration | Component | camac-sort-icon", function(hooks) {
   setupRenderingTest(hooks);

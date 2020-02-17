@@ -1,170 +1,265 @@
-{{#unless readonly}}
+{{#unless @readonly}}
   <div class="uk-margin">
     <label class="uk-form-label uk-text-bolder">
       Lokalisierung Ihres Vorhabens:
-      <span class="uk-text-primary"> *</span>
-      {{camac-hint-dialog "Mit Lokalisierung bezeichnen wir die räumliche Anordnung und Ausdehnung eines Vorhabens. Dabei kann eine Lokalisierung mehrere Standorte umfassen, wobei jeder Standort, unabhängig von den anderen, durch ein eigenes Geometrieelement dargestellt wird. Die Lokalisierung ist ein wichtiger Schritt beim Ausfüllen des Formulars. Versuchen Sie die räumliche Ausdehnung und Lage Ihres Vorhabens treffend darzustellen. Dadurch liefert der automatisch ausgeführte Datenverschnitt die besseren Ergebnisse und kann die nötigen Fragen auslösen. Eine ungenaue Lokalisierung führt hingegen dazu, dass Informationen, Nachweise oder andere Unterlagen fehlen und während des Beurteilungsprozesses nachgefordert werden müssen. Dies hat unweigerlich eine Verlängerung des Verfahrens zur Folge. Grundvoraussetzung für eine treffende Lokalisierung ist die passende Wahl des Geometrieelements. So soll beispielsweise für eine einzelne Reklametafel das Punktelement gewählt werden. Gehört die Reklametafel jedoch zu einer geplanten Autowerkstatt, ist das Flächenelement geeignet, um Gebäude und Reklame aufzunehmen. Und falls Reklametafel und Autowerkstatt nicht unmittelbar beieinander sind, soll die Lokalisierung in zwei Standorte aufgeteilt werden: ein Standort als Flächenelement für die Autowerkstatt und ein weiterer Standort als Punktelement für die Reklametafel. Das Linienelement dürfte eher selten die richtige Wahl sein, weil damit nur Vorhaben lokalisiert werden können, die geradlinig, lang und schmal sind (z. B. Leitungen, Wege u. ä.)."}}
+      <span class="uk-text-primary">
+        *
+      </span>
+      {{camac-hint-dialog
+        "Mit Lokalisierung bezeichnen wir die räumliche Anordnung und Ausdehnung eines Vorhabens. Dabei kann eine Lokalisierung mehrere Standorte umfassen, wobei jeder Standort, unabhängig von den anderen, durch ein eigenes Geometrieelement dargestellt wird. Die Lokalisierung ist ein wichtiger Schritt beim Ausfüllen des Formulars. Versuchen Sie die räumliche Ausdehnung und Lage Ihres Vorhabens treffend darzustellen. Dadurch liefert der automatisch ausgeführte Datenverschnitt die besseren Ergebnisse und kann die nötigen Fragen auslösen. Eine ungenaue Lokalisierung führt hingegen dazu, dass Informationen, Nachweise oder andere Unterlagen fehlen und während des Beurteilungsprozesses nachgefordert werden müssen. Dies hat unweigerlich eine Verlängerung des Verfahrens zur Folge. Grundvoraussetzung für eine treffende Lokalisierung ist die passende Wahl des Geometrieelements. So soll beispielsweise für eine einzelne Reklametafel das Punktelement gewählt werden. Gehört die Reklametafel jedoch zu einer geplanten Autowerkstatt, ist das Flächenelement geeignet, um Gebäude und Reklame aufzunehmen. Und falls Reklametafel und Autowerkstatt nicht unmittelbar beieinander sind, soll die Lokalisierung in zwei Standorte aufgeteilt werden: ein Standort als Flächenelement für die Autowerkstatt und ein weiterer Standort als Punktelement für die Reklametafel. Das Linienelement dürfte eher selten die richtige Wahl sein, weil damit nur Vorhaben lokalisiert werden können, die geradlinig, lang und schmal sind (z. B. Leitungen, Wege u. ä.)."
+      }}
     </label>
     <p>
-    Folgende Arbeitsschritte sind nötig:
-    <ol class="uk-margin-top">
-      <li>Grobe Eingrenzung/Suche des Standortes Ihres Vorhabens im Kartenfenster (entweder mit Suchthemen über das Eingabefeld oder direkt im Kartenfenster per Maus).</li>
-      <li>
-        Die räumliche Ausdehnung des Vorhabens kann über folgende Geometrieelemente festgehalten werden:
-        <ol type="a">
-          <li>Punktelement: für sehr kleinräumige Vorhaben kann mit einem Mausklick ein einzelner Punkt abgesetzt werden.</li>
-          <li>Linienelement: für einfache Linienelemente (Geraden), die mit Anfangs - und Endpunkt (ohne Zwischenpunkte) definiert werden können.</li>
-          <li>Flächenelement (Polygon): für alle Vorhaben, die nicht mit einem einzelnen Punkt oder einer Geraden lokalisiert werden können .</li>
-        </ol>
-      </li>
-      <li>Falls Ihr Vorhaben räumlich verteilt ist, können Sie mit der Lokalisierung mehrere separate Standorte erfassen. Für jeden zusätzlichen Standort auf «ZUSÄTZLICHER STANDORT» klicken und Punkt(e) absetzen.</li>
-      <li>Falls nötig können die gesetzten Punkte noch verschoben werden. Danach auf „LOKALISIERUNG ABFRAGEN“ klicken.</li>
-      <li>Lokalisierung wird bestätigt durch Mausklick auf „BESTÄTIGEN“.</li>
-    </ol>
+      Folgende Arbeitsschritte sind nötig:
+      <ol class="uk-margin-top">
+        <li>
+          Grobe Eingrenzung/Suche des Standortes Ihres Vorhabens im Kartenfenster (entweder mit Suchthemen über das Eingabefeld oder direkt im Kartenfenster per Maus).
+        </li>
+        <li>
+          Die räumliche Ausdehnung des Vorhabens kann über folgende Geometrieelemente festgehalten werden:
+          <ol type="a">
+            <li>
+              Punktelement: für sehr kleinräumige Vorhaben kann mit einem Mausklick ein einzelner Punkt abgesetzt werden.
+            </li>
+            <li>
+              Linienelement: für einfache Linienelemente (Geraden), die mit Anfangs - und Endpunkt (ohne Zwischenpunkte) definiert werden können.
+            </li>
+            <li>
+              Flächenelement (Polygon): für alle Vorhaben, die nicht mit einem einzelnen Punkt oder einer Geraden lokalisiert werden können .
+            </li>
+          </ol>
+        </li>
+        <li>
+          Falls Ihr Vorhaben räumlich verteilt ist, können Sie mit der Lokalisierung mehrere separate Standorte erfassen. Für jeden zusätzlichen Standort auf «ZUSÄTZLICHER STANDORT» klicken und Punkt(e) absetzen.
+        </li>
+        <li>
+          Falls nötig können die gesetzten Punkte noch verschoben werden. Danach auf „LOKALISIERUNG ABFRAGEN“ klicken.
+        </li>
+        <li>
+          Lokalisierung wird bestätigt durch Mausklick auf „BESTÄTIGEN“.
+        </li>
+      </ol>
     </p>
   </div>
 
   <div class="uk-alert uk-alert-warning">
     <p>
-      <strong>Mit folgenden Themen kann gesucht werden:</strong>
+      <strong>
+        Mit folgenden Themen kann gesucht werden:
+      </strong>
       <ul>
-        <li>Adresse: Strasse Hausnummer Ort</li>
-        <li>Liegenschaft, Selbstrecht: Grundstücknummer Gemeindenamen</li>
-        <li>Flurname: Flurname Gemeindename</li>
-        <li>eidg. Grundstück-ID: EGRID</li>
-        <li>Gebäudenummer: Gebäudenummer Gemeindename</li>
+        <li>
+          Adresse: Strasse Hausnummer Ort
+        </li>
+        <li>
+          Liegenschaft, Selbstrecht: Grundstücknummer Gemeindenamen
+        </li>
+        <li>
+          Flurname: Flurname Gemeindename
+        </li>
+        <li>
+          eidg. Grundstück-ID: EGRID
+        </li>
+        <li>
+          Gebäudenummer: Gebäudenummer Gemeindename
+        </li>
       </ul>
     </p>
   </div>
 
   <div class="uk-margin">
-    {{#power-select
-      placeholder = 'Adresse oder Grundstück suchen...'
-      search      = (perform handleSearch)
-      selected    = selectedSearchResult
-      allowClear  = true
-      onchange    = (perform handleSearchSelection)
-    as |result|}}
+    <PowerSelect
+      @placeholder="Adresse oder Grundstück suchen..."
+      @search={{perform this.handleSearch}}
+      @searchEnabled={{true}}
+      @selected={{this.selectedSearchResult}}
+      @allowClear={{true}}
+      @onchange={{perform this.handleSearchSelection}} as |result|
+    >
       {{result.properties.label}}
-    {{/power-select}}
+    </PowerSelect>
   </div>
 {{/unless}}
 
 <div class="uk-position-relative">
-  {{#if (or getLayers.isRunning submit.isRunning reset.isRunning initSelection.isRunning)}}
+  {{#if
+    (or
+      this.getLayers.isRunning
+      this.submit.isRunning
+      this.reset.isRunning
+      this.initSelection.isRunning
+    )
+  }}
     <div class="uk-overlay-primary uk-position-cover">
       <div class="uk-position-center">
-        {{uk-spinner ratio=2}}
+        <UkSpinner @ratio={{2}} />
       </div>
     </div>
   {{/if}}
 
-  {{#if initSelection.isRunning}}
+  {{#if this.initSelection.isRunning}}
     <div class="uk-width-1-1 uk-height-large uk-margin"></div>
   {{else}}
-    {{#leaflet-map
-      crs       = crs
-      lat       = lat
-      lng       = lng
-      zoom      = zoom
-      minZoom   = minZoom
-      maxZoom   = maxZoom
-      onClick   = (perform addPoint)
-      onLoad    = (perform handleLoad)
-      class     = 'uk-width-1-1 uk-height-large uk-margin'
-    as |map|}}
-      {{map.tile url=tileURL zoomOffset=3}}
+    <LeafletMap
+      @crs={{this.crs}}
+      @lat={{this.lat}}
+      @lng={{this.lng}}
+      @zoom={{this.zoom}}
+      @minZoom={{this.minZoom}}
+      @maxZoom={{this.maxZoom}}
+      @onClick={{perform this.addPoint}}
+      @onLoad={{perform this.handleLoad}}
+      class="uk-width-1-1 uk-height-large uk-margin" as |map|
+    >
+      <map.tile @url={{this.tileURL}} @zoomOffset={{3}} />
 
-      {{map.wms-tile
-        transparent = true
-        format      = 'image/png'
-        version     = '1.1.1'
-        layers      = layers
-        url         = gisURL
-      }}
-      {{#each parcels key='egrid' as |parcel|}}
-        {{#map.polygon locations=parcel.coordinates clickable=false color='red' as |polygon|}}
-          {{#tooltip-layer sticky=true}}
-            <strong>{{parcel.number}} {{parcel.municipality}}</strong> <i>({{parcel.egrid}})</i>
-          {{/tooltip-layer}}
-        {{/map.polygon}}
+      <map.wms-tile
+        @transparent={{true}}
+        @format="image/png"
+        @version="1.1.1"
+        @layers={{this.layers}}
+        @url={{this.gisURL}}
+      />
+      {{#each this.parcels key="egrid" as |parcel|}}
+        <map.polygon
+          @locations={{parcel.coordinates}}
+          @clickable={{false}}
+          @color="red"
+        >
+          <TooltipLayer @sticky={{true}}>
+            <strong>
+              {{parcel.number}} {{parcel.municipality}}
+            </strong>
+
+            <i>
+              ({{parcel.egrid}})
+            </i>
+          </TooltipLayer>
+        </map.polygon>
       {{/each}}
 
-      {{#if (gt searchObject.length 2)}}
-        {{map.polygon locations=searchObject color="green"}}
-      {{else if searchObject}}
-        {{map.circle-marker location=searchObject radius=4 color="green"}}
+      {{#if (gt this.searchObject.length 2)}}
+        <map.polygon @locations={{this.searchObject}} @color="green" />
+      {{else if this.searchObject}}
+        <map.circle-marker
+          @location={{this.searchObject}}
+          @radius={{4}}
+          @color="green"
+        />
       {{/if}}
 
-
-      {{#each coordinates.points as |pointSet index|}}
+      {{#each this.coordinates.points as |pointSet index|}}
         {{#each pointSet as |point|}}
-          {{map.marker lat=point.lat lng=point.lng draggable=(eq (sub coordinates.points.length 1) index) interactive=(not readonly) onDragend=(action (perform updatePoint point))}}
+          <map.marker
+            @lat={{point.lat}}
+            @lng={{point.lng}}
+            @draggable={{eq (sub this.coordinates.points.length 1) index}}
+            @interactive={{not @readonly}}
+            @onDragend={{fn (perform this.updatePoint point)}}
+          />
         {{/each}}
 
         {{#if (eq pointSet.length 2)}}
-          {{map.polyline locations=pointSet color="blue"}}
+          <map.polyline @locations={{pointSet}} @color="blue" />
         {{/if}}
 
         {{#if (gt pointSet.length 2)}}
-          {{#map.polygon locations=pointSet color="blue"}}
-            {{#tooltip-layer sticky=true}}
+          <map.polygon @locations={{pointSet}} @color="blue">
+            <TooltipLayer @sticky={{true}}>
               Grundriss
-            {{/tooltip-layer}}
-          {{/map.polygon}}
+            </TooltipLayer>
+          </map.polygon>
         {{/if}}
       {{/each}}
-      {{#if parcels.length}}
-        {{!--
+      {{#if this.parcels.length}}
+        {{!
           We misuse a hidden marker here to trigger the task "focusOnParcels" when
           everything else is loaded
-        --}}
-        {{map.marker opacity=0 lat=0 lng=0 onAdd=(perform focusOnParcels)}}
+        }}
+        <map.marker
+          @opacity={{0}}
+          @lat={{0}}
+          @lng={{0}}
+          @onAdd={{perform this.focusOnParcels}}
+        />
       {{/if}}
-    {{/leaflet-map}}
+    </LeafletMap>
   {{/if}}
 </div>
 
-{{#unless readonly}}
+{{#unless @readonly}}
   <div class="uk-text-right">
-    {{#if selected.parcels.length}}
-      {{#uk-button class="uk-margin-small-bottom" on-click=(perform reset)}}Gespeicherte Lokalisierung laden{{/uk-button}}
+    {{#if this.selected.parcels.length}}
+      <UkButton class="uk-margin-small-bottom" @on-click={{perform this.reset}}>
+        Gespeicherte Lokalisierung laden
+      </UkButton>
     {{/if}}
-    {{#if points.firstObject.length}}
-      {{#uk-button class="uk-margin-small-bottom" on-click=(perform addPointSet)}}Zusätzlicher Standort{{/uk-button}}
-      {{#uk-button class="uk-margin-small-bottom" on-click=(perform clear)}}Lokalisierung löschen{{/uk-button}}
-      {{#uk-button class="uk-margin-small-bottom" color='secondary' on-click=(perform getLayers)}}Lokalisierung abfragen{{/uk-button}}
+    {{#if this.points.firstObject.length}}
+      <UkButton
+        class="uk-margin-small-bottom"
+        @on-click={{perform this.addPointSet}}
+      >
+        Zusätzlicher Standort
+      </UkButton>
+      <UkButton class="uk-margin-small-bottom" @on-click={{perform this.clear}}>
+        Lokalisierung löschen
+      </UkButton>
+      <UkButton
+        class="uk-margin-small-bottom"
+        @color="secondary"
+        @on-click={{perform this.getLayers}}
+      >
+        Lokalisierung abfragen
+      </UkButton>
     {{/if}}
   </div>
   <div class="uk-text-right uk-margin-small-top">
-    {{#if parcels.length}}
-      {{camac-hint-dialog "Falls mehrere Gemeinden betroffen sind, wählen Sie bitte jene Gemeinde aus, deren Gebiet durch Ihr Vorhaben am stärksten betroffen ist. Diese Gemeinde ist dann die Leitbehörde, welche die Koordinationsaufgaben übernimmt."}}
+    {{#if this.parcels.length}}
+      {{camac-hint-dialog
+        "Falls mehrere Gemeinden betroffen sind, wählen Sie bitte jene Gemeinde aus, deren Gebiet durch Ihr Vorhaben am stärksten betroffen ist. Diese Gemeinde ist dann die Leitbehörde, welche die Koordinationsaufgaben übernimmt."
+      }}
       Auswahl Leitbehörde
-      <select class="uk-select uk-form-width-medium" onchange={{perform setMunicipality value="target.value"}} disabled={{specialForm}}>
-        {{#each municipalities as |municipality|}}
-        <option value="{{municipality}}" selected={{eq selectedMunicipality municipality}}>{{municipality}}</option>
+      <select
+        class="uk-select uk-form-width-medium"
+        onchange={{perform this.setMunicipality value="target.value"}}
+        disabled={{this.specialForm}}
+      >
+        {{#each this.municipalities as |municipality|}}
+          <option
+            value="{{municipality}}"
+            selected={{eq this.selectedMunicipality municipality}}
+          >
+            {{municipality}}
+          </option>
         {{/each}}
       </select>
-      {{#uk-button color='primary' disabled=submit.isRunning on-click=(perform submit)}}
+      <UkButton
+        @color="primary"
+        @disabled={{this.submit.isRunning}}
+        @on-click={{perform this.submit}}
+      >
         bestätigen
-      {{/uk-button}}
+      </UkButton>
     {{/if}}
   </div>
 
-  {{!-- Temporary message to show that the selected municipality is not active --}}
-  {{#unless checkMunicipality}}
+  {{! Temporary message to show that the selected municipality is not active }}
+  {{#unless this.checkMunicipality}}
     <div class="uk-alert uk-alert-danger">
-      Die Ausgewählte Gemeinde {{municipality}} ist noch nicht aktiv im neuen Gesuchsforumlar.
+      Die Ausgewählte Gemeinde {{this.selectedMunicipality
+      }} ist noch nicht aktiv im neuen Gesuchsforumlar.
     </div>
   {{/unless}}
 
-  {{#if parcels.length}}
+  {{#if this.parcels.length}}
     <div class="uk-margin-top">
       <p>
         Gemäss Lokalisierung betrifft Ihr Vorhaben die Grundstücknummer(n):
         <ul class="uk-list uk-margin-small-top multiple-column-list">
-          {{#each parcels as |parcel|}}
-          <li>{{parcel.number}} {{parcel.municipality}}</li>
+          {{#each this.parcels as |parcel|}}
+            <li>
+              {{parcel.number}} {{parcel.municipality}}
+            </li>
           {{/each}}
         </ul>
       </p>
@@ -172,10 +267,17 @@
   {{/if}}
 {{/unless}}
 
-{{#if readonly}}
+{{#if @readonly}}
   <div class="uk-alert uk-alert-danger">
     <p>
-      <strong>Achtung:</strong> Nach dem Einreichen des Gesuchs kann diese Auswahl <u>nicht mehr verändert</u> werden!
+      <strong>
+        Achtung:
+      </strong>
+      Nach dem Einreichen des Gesuchs kann diese Auswahl
+      <u>
+        nicht mehr verändert
+      </u>
+      werden!
     </p>
   </div>
 {{/if}}

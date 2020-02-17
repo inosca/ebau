@@ -1,10 +1,10 @@
+import { getOwner } from "@ember/application";
 import Controller from "@ember/controller";
 import EmberObject, { computed, get, getWithDefault } from "@ember/object";
 import { gt } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
-import { task } from "ember-concurrency";
-import { getOwner } from "@ember/application";
 import computedTask from "citizen-portal/lib/computed-task";
+import { task } from "ember-concurrency";
 
 const Module = EmberObject.extend({
   questionStore: service(),
@@ -22,17 +22,17 @@ const Module = EmberObject.extend({
   }),
 
   editable: computed("editableTypes.[]", "isApplicant", function() {
-    if (!this.get("isApplicant")) {
+    if (!this.isApplicant) {
       return false;
     }
 
-    let questions = this.questionStore.peekSet(
+    const questions = this.questionStore.peekSet(
       this.getWithDefault("allQuestions", []),
       this.instance
     );
-    let editable = this.getWithDefault("editableTypes", []);
+    const editable = this.getWithDefault("editableTypes", []);
 
-    let editableFieldTypes = [
+    const editableFieldTypes = [
       ...(editable.includes("form")
         ? ["text", "number", "radio", "checkbox", "table", "gwr"]
         : []),
@@ -47,9 +47,9 @@ const Module = EmberObject.extend({
   state: computed(
     "questionStore._store.@each.{value,hidden,isNew}",
     function() {
-      let names = this.getWithDefault("allQuestions", []);
+      const names = this.getWithDefault("allQuestions", []);
 
-      let questions = this.questionStore
+      const questions = this.questionStore
         .peekSet(names, this.instance)
         .filter(q => !q.hidden);
 
@@ -61,7 +61,7 @@ const Module = EmberObject.extend({
         return "untouched";
       }
 
-      let relevantQuestions = questions.filter(q => q.get("field.required"));
+      const relevantQuestions = questions.filter(q => q.get("field.required"));
 
       if (relevantQuestions.some(q => q.get("isNew"))) {
         return "unfinished";
@@ -81,9 +81,9 @@ export default Controller.extend({
 
   modules: computedTask("_modules", "model.instance.form.name"),
   _modules: task(function*() {
-    let { forms, modules } = yield this.get("questionStore.config");
+    const { forms, modules } = yield this.get("questionStore.config");
 
-    let usedModules = getWithDefault(
+    const usedModules = getWithDefault(
       forms,
       this.get("model.instance.form.name"),
       []
@@ -122,7 +122,7 @@ export default Controller.extend({
     return this.getWithDefault("modules.lastSuccessful.value", []).reduce(
       (nav, mod) => {
         if (mod.get("parent")) {
-          let parent = nav.find(n => n.get("name") === mod.get("parent"));
+          const parent = nav.find(n => n.get("name") === mod.get("parent"));
 
           parent.set("submodules", [
             ...parent
@@ -192,8 +192,8 @@ export default Controller.extend({
   prev: task(function*() {
     yield this.get("questionStore.saveQuestion.last");
 
-    let links = this.links;
-    let i = this.currentIndex;
+    const links = this.links;
+    const i = this.currentIndex;
 
     yield this.transitionToRoute(
       get(links, (i + links.length - 1) % links.length)
@@ -203,8 +203,8 @@ export default Controller.extend({
   next: task(function*() {
     yield this.get("questionStore.saveQuestion.last");
 
-    let links = this.links;
-    let i = this.currentIndex;
+    const links = this.links;
+    const i = this.currentIndex;
 
     yield this.transitionToRoute(get(links, (i + 1) % links.length));
   })

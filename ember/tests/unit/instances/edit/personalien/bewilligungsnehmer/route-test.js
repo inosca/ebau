@@ -1,5 +1,5 @@
-import { module, test } from "qunit";
 import { setupTest } from "ember-qunit";
+import { module, test } from "qunit";
 
 module("Unit | Route | instances/edit/personalien/bewilligungsnehmer", function(
   hooks
@@ -7,7 +7,7 @@ module("Unit | Route | instances/edit/personalien/bewilligungsnehmer", function(
   setupTest(hooks);
 
   test("it exists", function(assert) {
-    let route = this.owner.lookup(
+    const route = this.owner.lookup(
       "route:instances/edit/personalien/bewilligungsnehmer"
     );
     assert.ok(route);

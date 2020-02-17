@@ -1,17 +1,24 @@
-{{#camac-form instance=model.instance meta=model.meta as |form|}}
-  {{#form.input 'bezeichnung'}}
-    <h4>Bezeichnung und Lokalisierung des Vorhabens</h4>
+<CamacForm @instance={{@model.instance}} @meta={{@model.meta}} as |form|>
+  {{#form.input "bezeichnung"}}
+    <h4>
+      Bezeichnung und Lokalisierung des Vorhabens
+    </h4>
   {{/form.input}}
-  {{form.input 'projektnummer'}}
-{{/camac-form}}
+  {{form.input "projektnummer"}}
+</CamacForm>
 
-{{camac-property-selector
-  readonly  = (not (or (eq model.instance.instanceState.name "new") (eq model.instance.instanceState.name "rejected")))
-  selected  = (hash
-    points  = points.value
-    parcels = parcels.value
-    municipality = model.instance.location.name
-  )
-  on-submit = (perform saveLocation)
-  specialForm  = specialForm
-}}
+<CamacPropertySelector
+  @readonly={{not
+    (or
+      (eq @model.instance.instanceState.name "new")
+      (eq @model.instance.instanceState.name "rejected")
+    )
+  }}
+  @selected={{hash
+    points=this.points.value
+    parcels=this.parcels.value
+    municipality=@model.instance.location.name
+  }}
+  @on-submit={{perform this.saveLocation}}
+  @specialForm={{this.specialForm}}
+/>

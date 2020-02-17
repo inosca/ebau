@@ -4,9 +4,9 @@ import v4 from "uuid/v4";
 
 export default Mixin.create({
   addRow: task(function*() {
-    let question = yield this.question;
+    const question = yield this.question;
 
-    let row = {
+    const row = {
       uuid: v4(),
       ...question
         .get("field.config.columns")
@@ -20,7 +20,7 @@ export default Mixin.create({
   }).drop(),
 
   saveRow: task(function*(row) {
-    let question = yield this.question;
+    const question = yield this.question;
 
     yield this.save.perform([
       ...question
@@ -43,7 +43,7 @@ export default Mixin.create({
   }).restartable(),
 
   deleteRow: task(function*(row) {
-    let question = yield this.question;
+    const question = yield this.question;
 
     yield this.save.perform(
       question
