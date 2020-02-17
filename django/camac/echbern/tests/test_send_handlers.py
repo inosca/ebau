@@ -1,7 +1,6 @@
 import pytest
-import requests
+from caluma.caluma_form.models import Document, Form
 
-from camac.caluma.api import CalumaSession
 from camac.constants.kt_bern import (
     INSTANCE_STATE_DOSSIERPRUEFUNG,
     INSTANCE_STATE_EBAU_NUMMER_VERGEBEN,
@@ -24,7 +23,6 @@ from camac.core.models import (
 from camac.echbern.tests.utils import xml_data
 from camac.instance.models import Instance
 
-from .. import views
 from ..models import Message
 from ..schema.ech_0211_2_0 import CreateFromDocument
 from ..send_handlers import (
@@ -37,7 +35,6 @@ from ..send_handlers import (
     TaskSendHandler,
     resolve_send_handler,
 )
-from .caluma_responses import document_form
 
 
 @pytest.mark.parametrize(
@@ -79,9 +76,10 @@ def test_notice_ruling_send_handler(
     admin_user,
     ech_instance,
     instance_state_factory,
-    mocker,
-    requests_mock,
 ):
+    form = Form.objects.create(slug="baugesuch", meta={"is-main-form": True})
+    Document.objects.create(form=form, meta={"camac-instance-id": ech_instance.pk})
+
     data = CreateFromDocument(xml_data("notice_ruling"))
 
     data.eventNotice.decisionRuling.judgement = judgement
@@ -105,11 +103,6 @@ def test_notice_ruling_send_handler(
 
     if has_permission:
         expected_state = instance_state_factory(pk=expected_state_pk)
-        mocker.patch.object(views, "get_authorization_header", return_value="token")
-        mocker.patch.object(CalumaSession, "__init__", return_value=None)
-        mocker.patch.object(CalumaSession, "__enter__", return_value=requests.session())
-        mocker.patch.object(CalumaSession, "__exit__", return_value=None)
-        requests_mock.post("http://camac-ng.local/graphql/", json=document_form)
         handler.apply()
         ech_instance.refresh_from_db()
         assert ech_instance.instance_state == expected_state

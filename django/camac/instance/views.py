@@ -16,7 +16,7 @@ from rest_framework.generics import RetrieveAPIView
 from rest_framework.settings import api_settings
 from rest_framework_json_api import views
 
-from camac.caluma.api import CalumaApi, get_paper_settings
+from camac.caluma.api import CalumaApi
 from camac.core.models import InstanceService, WorkflowEntry
 from camac.core.views import SendfileHttpResponse
 from camac.document.models import Attachment, AttachmentSection
@@ -25,6 +25,7 @@ from camac.unoconv import convert
 from camac.user.permissions import permission_aware
 
 from ..jinja import get_jinja_env
+from ..utils import get_paper_settings
 from . import document_merge_service, filters, mixins, models, serializers, validators
 
 
