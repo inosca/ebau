@@ -40,11 +40,9 @@ class ApplicationView(InstanceQuerysetMixin, RetrieveModelMixin, GenericViewSet)
         responses={"200": "eCH-0211 baseDelivery"},
     )
     def retrieve(self, request, instance_id=None, **kwargs):
-        document = get_document(
-            instance_id, request.group.pk, auth_header=get_authorization_header(request)
-        )
         qs = self.get_queryset()
         instance = get_object_or_404(qs, pk=instance_id)
+        document = get_document(instance.pk)
         try:
             xml_data = formatters.delivery(
                 instance,
@@ -70,7 +68,7 @@ class ApplicationsView(InstanceQuerysetMixin, ListModelMixin, GenericViewSet):
     instance_field = None
     filter_backends = []
 
-    def get_queryset(self):
+    def get_queryset(self, group=None):
         if getattr(self, "swagger_fake_view", False):  # pragma: no cover
             return Instance.objects.none()
         return super().get_queryset()

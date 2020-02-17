@@ -7,9 +7,9 @@ from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
 from camac.core.models import Chapter, Question, QuestionType
-from camac.echbern import data_preparation
+from camac.echbern import event_handlers
 from camac.echbern.data_preparation import DocumentParser
-from camac.echbern.tests.caluma_responses import full_document
+from camac.echbern.tests.caluma_document_data import baugesuch_data
 from camac.instance.serializers import (
     SUBMIT_DATE_CHAPTER,
     SUBMIT_DATE_QUESTION_ID,
@@ -290,7 +290,6 @@ def test_instance_submit(
     mock_nfd_permissions,
     mock_generate_and_store_pdf,
     ech_mandatory_answers_einfache_vorabklaerung,
-    requests_mock,
     caluma_forms,
 ):
 
@@ -315,17 +314,9 @@ def test_instance_submit(
         "parse_answers",
         return_value=ech_mandatory_answers_einfache_vorabklaerung,
     )
-    mocker.patch.object(data_preparation, "get_admin_token", return_value="token")
-
     instance_state_factory(name=new_instance_state_name)
 
-    requests_mock.post(
-        "http://camac-ng.local/graphql/",
-        additional_matcher=lambda rq: b"allDocuments" in rq.body,
-        json=full_document,
-    )
-
-    mocker.patch.object(data_preparation, "get_admin_token", return_value="token")
+    mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
 
     response = admin_client.post(reverse("instance-submit", args=[instance.pk]))
 
