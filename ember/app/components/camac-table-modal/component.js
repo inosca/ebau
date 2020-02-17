@@ -1,15 +1,16 @@
 import Component from "@ember/component";
-import UIkit from "uikit";
+import { set } from "@ember/object";
 import { scheduleOnce } from "@ember/runloop";
 import CamacMultipleQuestionRowMixin from "citizen-portal/mixins/camac-multiple-question-row";
+import UIkit from "uikit";
+
 import config from "../../config/environment";
-import { set } from "@ember/object";
 
 export default Component.extend(CamacMultipleQuestionRowMixin, {
   modal: null,
 
-  init() {
-    this._super(...arguments);
+  init(...args) {
+    this._super(...args);
 
     this.set(
       "container",
@@ -18,7 +19,7 @@ export default Component.extend(CamacMultipleQuestionRowMixin, {
   },
 
   _show() {
-    if (!this.get("isDestroyed")) {
+    if (!this.isDestroyed) {
       this.set("visible", true);
     }
   },
@@ -26,13 +27,13 @@ export default Component.extend(CamacMultipleQuestionRowMixin, {
   _hide() {
     this._value.rollback();
 
-    if (!this.get("isDestroyed")) {
+    if (!this.isDestroyed) {
       this.set("visible", false);
     }
   },
 
   didInsertElement() {
-    let id = `#modal-${this.elementId}`;
+    const id = `#modal-${this.elementId}`;
 
     this.set("modal", UIkit.modal(id, { container: false }));
 
@@ -41,19 +42,21 @@ export default Component.extend(CamacMultipleQuestionRowMixin, {
   },
 
   didReceiveAttrs() {
-    scheduleOnce("afterRender", () => {
-      if (this.visible) {
-        this.modal.show();
-      } else {
-        this.modal.hide();
-      }
-    });
+    scheduleOnce("afterRender", this, this.toggleVisibility);
 
     this.send("checkRequired", "firma", this.get("_value.firma"));
   },
 
   willDestroyElement() {
     this.modal.hide();
+  },
+
+  toggleVisibility() {
+    if (this.visible) {
+      this.modal.show();
+    } else {
+      this.modal.hide();
+    }
   },
 
   /*

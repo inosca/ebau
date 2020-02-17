@@ -2,12 +2,10 @@ import Component from "@ember/component";
 import { computed } from "@ember/object";
 import { reads } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
+import download from "downloadjs";
+import Ember from "ember";
 import { task } from "ember-concurrency";
 import fetch from "fetch";
-import Ember from "ember";
-import download from "downloadjs";
-
-const { testing } = Ember;
 
 export default Component.extend({
   session: service(),
@@ -33,22 +31,20 @@ export default Component.extend({
     try {
       const url = `/api/v1/instances/${
         this.instance.id
-      }/export_detail?type=pdf${
-        this.get("group") ? `&group=${this.get("group")}` : ""
-      }
+      }/export_detail?type=pdf${this.group ? `&group=${this.group}` : ""}
       `;
 
-      let response = yield fetch(url, {
+      const response = yield fetch(url, {
         mode: "cors",
         headers: this.headers
       });
 
-      let file = yield response.blob();
+      const file = yield response.blob();
 
-      if (!testing) {
+      if (!Ember.testing) {
         download(
           file,
-          this.get("instance.form.description") + ".pdf",
+          `${this.get("instance.form.description")}.pdf`,
           file.type
         );
       }

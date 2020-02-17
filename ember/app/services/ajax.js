@@ -1,8 +1,8 @@
-import AjaxService from "ember-ajax/services/ajax";
-import { inject as service } from "@ember/service";
 import { computed } from "@ember/object";
 import { reads } from "@ember/object/computed";
+import { inject as service } from "@ember/service";
 import { UnauthorizedError } from "ember-ajax/errors";
+import AjaxService from "ember-ajax/services/ajax";
 
 export default AjaxService.extend({
   session: service(),
@@ -12,16 +12,16 @@ export default AjaxService.extend({
   token: reads("session.data.authenticated.access_token"),
 
   headers: computed("token", function() {
-    let token = this.token;
+    const token = this.token;
 
     return token ? { Authorization: `Bearer ${token}` } : {};
   }),
 
-  handleResponse() {
-    let res = this._super(...arguments);
+  handleResponse(...args) {
+    const res = this._super(...args);
 
     if (res instanceof UnauthorizedError) {
-      this.get("router").transitionTo("logout");
+      this.router.transitionTo("logout");
     }
 
     return res;

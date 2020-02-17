@@ -1,34 +1,39 @@
 import Controller from "@ember/controller";
-import { task } from "ember-concurrency";
-import { computed } from "@ember/object";
-import Changeset from "ember-changeset";
+import { action, computed } from "@ember/object";
 import { isBlank } from "@ember/utils";
+import { tracked } from "@glimmer/tracking";
+import Changeset from "ember-changeset";
+import { task } from "ember-concurrency-decorators";
 import UIkit from "uikit";
 
-export default Controller.extend({
-  applicants: null,
+export default class InstancesEditInvolviertePersonenController extends Controller {
+  @tracked applicants = null;
+  @tracked saveErrors = [];
+  @tracked newRow;
 
-  addRow: task(function*() {
+  @task({ drop: true })
+  *addRow() {
     yield this.set("newRow", { email: undefined });
-  }).drop(),
+  }
 
-  saveRow: task(function*() {
-    let changeset = this._value;
+  @task({ restartable: true })
+  *saveRow() {
+    const changeset = this._value;
 
     yield changeset.validate();
 
     if (changeset.get("isValid")) {
       changeset.execute();
 
-      let applicant = this.store.createRecord("applicant", {
-        email: this.get("newRow.email"),
-        instance: this.get("model.instance")
+      const applicant = this.store.createRecord("applicant", {
+        email: this.newRow.email,
+        instance: this.model.instance
       });
 
       try {
         yield applicant.save();
       } catch (exception) {
-        this.set("saveErrors", exception.errors.map(e => e.detail));
+        this.saveErrors = exception.errors.map(e => e.detail);
         return;
       }
 
@@ -37,12 +42,13 @@ export default Controller.extend({
       this.set("newRow", null);
       UIkit.modal("#modal-applicants").hide();
     }
-  }).restartable(),
+  }
 
-  deleteRow: task(function*(row) {
+  @task
+  *deleteRow(row) {
     yield this.applicants.find(a => a.email === row.email).destroyRecord();
     yield this.refreshList();
-  }),
+  }
 
   async refreshList() {
     this.set(
@@ -52,19 +58,20 @@ export default Controller.extend({
         .filterBy("id")
         .filterBy("instance.id", this.get("model.instance.id"))
     );
-  },
+  }
 
-  _value: computed("newRow", function() {
+  @computed("newRow")
+  get _value() {
     return new Changeset(
       this.newRow || {},
       (...args) => this._validate(...args),
       { email: () => this._validate }
     );
-  }),
+  }
 
   _validate({ newValue }) {
     try {
-      let validations = [
+      const validations = [
         value =>
           !isBlank(value) || "Dieses Feld darf nicht leer gelassen werden",
         value =>
@@ -72,7 +79,7 @@ export default Controller.extend({
           "Die Person mit dieser E-Mailadresse wurde schon eingeladen"
       ];
 
-      let isValid = validations.map(fn => fn(newValue));
+      const isValid = validations.map(fn => fn(newValue));
 
       return (
         isValid.every(v => v === true) ||
@@ -81,11 +88,10 @@ export default Controller.extend({
     } catch (e) {
       return false;
     }
-  },
-
-  actions: {
-    change(name, value) {
-      this.set(`_value.${name}`, value);
-    }
   }
-});
+
+  @action
+  change(name, { target: { value } }) {
+    this.set(`newRow.${name}`, value);
+  }
+}

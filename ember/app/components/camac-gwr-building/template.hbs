@@ -1,45 +1,74 @@
-{{#uk-card hover=true class='uk-animation-slide-bottom-small' as |card|}}
-  {{#card.header}}
-    {{#uk-flex vertical='middle' horizontal='between'}}
-      {{#card.title class='uk-margin-remove'}}
+<UkCard @hover={{true}} class="uk-animation-slide-bottom-small" as |card|>
+  <card.header>
+    <UkFlex @vertical="middle" @horizontal="between">
+      <card.title class="uk-margin-remove">
         {{#if isNew}}
           Gebäude hinzufügen
         {{else}}
-          Gebäude "{{_value.adresse}}" {{if readonly 'ansehen' 'bearbeiten'}}
+          Gebäude "{{_value.adresse}}" {{if readonly "ansehen" "bearbeiten"}}
         {{/if}}
-      {{/card.title}}
-      <button type="button" uk-close {{action (optional on-close)}}></button>
-    {{/uk-flex}}
-  {{/card.header}}
-  {{#card.body}}
+      </card.title>
+      <button type="button" uk-close="" {{action (optional on-close)}}></button>
+    </UkFlex>
+  </card.header>
+  <card.body>
     {{#each columns as |column|}}
       <div class="uk-margin">
-        <label class="uk-form-label uk-text-bolder {{if (get this (concat '_value.error.' column.name)) 'uk-text-danger'}}">
+        <label
+          class="uk-form-label uk-text-bolder
+            {{if
+              (get this (concat "_value.error." column.name))
+              "uk-text-danger"
+            }}"
+        >
           {{column.label}}
           {{#if column.required}}
-            <span class="uk-text-danger">*</span>
+            <span class="uk-text-danger">
+              *
+            </span>
           {{/if}}
           {{#if column.hint}}
             {{camac-hint-dialog column.hint}}
           {{/if}}
         </label>
-        {{#if (eq column.type 'table')}}
-          {{camac-gwr-building-table parentName=(concat parentName '/' column.name) on-change=(action 'change' column.name) config=column.config value=(get _value column.name) readonly=readonly}}
+        {{#if (eq column.type "table")}}
+          <CamacGwrBuildingTable
+            @parentName={{concat parentName "/" column.name}}
+            @on-change={{action "change" column.name}}
+            @config={{column.config}}
+            @value={{get _value column.name}}
+            @readonly={{readonly}}
+          />
         {{else}}
-          {{component (concat 'camac-input-' column.type) config=column.config on-change=(action 'change' column.name) model=(hash value=(get _value column.name)) readonly=readonly}}
+          {{component
+            (concat "camac-input-" column.type)
+            config=column.config
+            on-change=(action "change" column.name)
+            model=(hash value=(get _value column.name))
+            readonly=readonly
+          }}
         {{/if}}
-        {{#with (get this (concat '_value.error.' column.name)) as |error|}}
+        {{#with (get this (concat "_value.error." column.name)) as |error|}}
           {{camac-input-error error.validation}}
         {{/with}}
       </div>
     {{/each}}
-  {{/card.body}}
+  </card.body>
   {{#unless readonly}}
-    {{#card.footer class='uk-text-right'}}
+    <card.footer class="uk-text-right">
       {{#unless isNew}}
-        {{#uk-button on-click=(action (optional on-delete) value)}}Löschen{{/uk-button}}
+        <UkButton @on-click={{action (optional on-delete) value}}>
+          Löschen
+        </UkButton>
       {{/unless}}
-      {{#uk-button loading=save.isRunning disabled=(not _value.isValid) color='primary' on-click=(perform save)}}Speichern{{/uk-button}}
-    {{/card.footer}}
+      <UkButton
+        @loading={{save.isRunning}}
+        @disabled={{not _value.isValid}}
+        @color="primary"
+        @on-click={{perform save}}
+      >
+        Speichern
+      </UkButton>
+    </card.footer>
   {{/unless}}
-{{/uk-card}}
+</UkCard>

@@ -1,37 +1,71 @@
 {{#-in-element container}}
   <div id="modal-{{elementId}}">
     <div class="uk-modal-dialog uk-modal-body">
-      <form {{action (perform save) on='submit'}}>
-        <button type="button" class="uk-modal-close-default" uk-close {{action (toggle 'visible' this)}}></button>
+      <form {{action (perform save) on="submit"}}>
+        <button
+          type="button"
+          class="uk-modal-close-default"
+          uk-close=""
+          {{action (toggle "visible" this)}}
+        ></button>
 
-        <h2 class="uk-modal-title">Eintrag hinzufügen</h2>
+        <h2 class="uk-modal-title">
+          Eintrag hinzufügen
+        </h2>
 
         {{#each columns as |column|}}
-          <div class={{if column.config.otherField "uk-margin uk-margin-left" "uk-margin"}}>
-            <label class="uk-form-label uk-text-bolder {{if (get this (concat '_value.error.' column.name)) 'uk-text-danger'}}">
+          <div
+            class={{if
+              column.config.otherField
+              "uk-margin uk-margin-left"
+              "uk-margin"
+            }}
+          >
+            <label
+              class="uk-form-label uk-text-bolder
+                {{if
+                  (get this (concat "_value.error." column.name))
+                  "uk-text-danger"
+                }}"
+            >
               {{column.label}}
               {{#if column.required}}
-                <span class="uk-text-danger">*</span>
+                <span class="uk-text-danger">
+                  *
+                </span>
               {{/if}}
               {{#if column.hint}}
                 {{camac-hint-dialog column.hint}}
               {{/if}}
             </label>
-            {{component (concat 'camac-input-' column.type)
+            {{component
+              (concat "camac-input-" column.type)
               renderInPlace=true
               config=column.config
-              on-change=(queue (action 'change' column.name) (action 'checkRequired' column.name))
+              on-change=(queue
+                (action "change" column.name)
+                (action "checkRequired" column.name)
+              )
               model=(hash value=(get _value column.name))
             }}
-            {{#with (get this (concat '_value.error.' column.name)) as |error|}}
+            {{#with (get this (concat "_value.error." column.name)) as |error|}}
               {{camac-input-error error.validation}}
             {{/with}}
           </div>
         {{/each}}
 
         <div class="uk-text-right">
-          {{#uk-button on-click=(action (mut visible) false)}}Abbrechen{{/uk-button}}
-          {{#uk-button loading=save.isRunning disabled=(not _value.isValid) color='primary' type='submit'}}Speichern{{/uk-button}}
+          <UkButton @on-click={{action (mut visible) false}}>
+            Abbrechen
+          </UkButton>
+          <UkButton
+            @loading={{save.isRunning}}
+            @disabled={{not _value.isValid}}
+            @color="primary"
+            @type="submit"
+          >
+            Speichern
+          </UkButton>
         </div>
       </form>
     </div>

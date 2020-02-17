@@ -1,4 +1,4 @@
-FROM danlynn/ember-cli:3.3.0 as build
+FROM danlynn/ember-cli:latest as build
 
 COPY package.json yarn.lock /myapp/
 

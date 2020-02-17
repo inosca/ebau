@@ -1,8 +1,8 @@
-import { module, test } from "qunit";
-import { setupRenderingTest } from "ember-qunit";
-import { render, fillIn, focus, blur } from "@ember/test-helpers";
-import hbs from "htmlbars-inline-precompile";
 import EmberObject from "@ember/object";
+import { render, fillIn, focus, blur } from "@ember/test-helpers";
+import { setupRenderingTest } from "ember-qunit";
+import hbs from "htmlbars-inline-precompile";
+import { module, test } from "qunit";
 
 module("Integration | Component | camac-input-number-separator", function(
   hooks

@@ -1,4 +1,11 @@
 import Route from "@ember/routing/route";
-import OIDCEndSessionRouteMixin from "ember-simple-auth-oidc/mixins/oidc-end-session-route-mixin";
+import { inject as service } from "@ember/service";
 
-export default Route.extend(OIDCEndSessionRouteMixin, {});
+export default class LogoutRoute extends Route {
+  @service session;
+
+  constructor(...args) {
+    super(...args);
+    this.session.invalidate();
+  }
+}

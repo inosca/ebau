@@ -1,13 +1,13 @@
 /* global L */
-import Component from "@ember/component";
-import { inject as service } from "@ember/service";
-import { task, timeout } from "ember-concurrency";
-import { Promise, resolve, all } from "rsvp";
-import { computed, setProperties } from "@ember/object";
 import { A } from "@ember/array";
-import html2canvas from "html2canvas";
-import { xml2js } from "xml-js";
+import Component from "@ember/component";
+import { computed, setProperties } from "@ember/object";
+import { inject as service } from "@ember/service";
 import ENV from "citizen-portal/config/environment";
+import { task, timeout } from "ember-concurrency";
+import html2canvas from "html2canvas";
+import { Promise, resolve, all } from "rsvp";
+import { xml2js } from "xml-js";
 
 const LAYERS = [
   "ch.sz.a055a.kantonsgrenze",
@@ -106,17 +106,17 @@ export default Component.extend({
 
   _map: null,
 
-  init() {
-    this._super(...arguments);
+  init(...args) {
+    this._super(...args);
     this.points = [[]];
     this.initSelection.perform();
   },
 
   initSelection: task(function*() {
     if (this.selected.parcels) {
-      let parcels = yield all(
+      const parcels = yield all(
         this.selected.parcels.map(async parcel => {
-          let {
+          const {
             features: [
               {
                 geometry: {
@@ -158,16 +158,17 @@ export default Component.extend({
   }).restartable(),
 
   parcelBounds: computed("parcels.[]", function() {
-    if (this.get("parcels")) {
+    if (this.parcels) {
       return L.featureGroup(
-        this.get("parcels").map(p => L.polyline(p.coordinates))
+        this.parcels.map(p => L.polyline(p.coordinates))
       ).getBounds();
     }
+    return [];
   }),
 
   pointsFlat: computed("points.@each.length", function() {
     // We use this instead of array.flat() to ensure support of older browsers
-    return [].concat.apply([], this.points);
+    return [].concat([], ...this.points);
   }),
 
   coordinates: computed("pointsFlat.@each.{lat,lng}", function() {
@@ -180,7 +181,7 @@ export default Component.extend({
   municipalities: computed("parcels.[],specialForm", function() {
     return this.specialForm
       ? [this.specialForm]
-      : [...new Set(this.get("parcels").map(p => p.municipality))];
+      : [...new Set(this.parcels.map(p => p.municipality))];
   }),
 
   setMunicipality: task(function*(municipality) {
@@ -191,7 +192,7 @@ export default Component.extend({
     yield timeout(500);
 
     try {
-      let { features } = yield this.ajax.request(
+      const { features } = yield this.ajax.request(
         "/maps/main/wsgi/fulltextsearch",
         {
           method: "GET",
@@ -328,7 +329,7 @@ export default Component.extend({
     const parcels = A();
 
     wfsResponse["wfs:FeatureCollection"]["gml:featureMember"].forEach(fm => {
-      if (!fm.hasOwnProperty(`ms:${PARCEL_LAYER}`)) {
+      if (!Object.prototype.hasOwnProperty.call(fm, `ms:${PARCEL_LAYER}`)) {
         return;
       }
 
@@ -407,12 +408,12 @@ export default Component.extend({
 
     yield timeout(500); // wait for the pan animation to finish
 
-    let canvas = yield html2canvas(this._map._container, {
+    const canvas = yield html2canvas(this._map._container, {
       logging: false,
       useCORS: true
     });
 
-    let image = yield new Promise(resolve => canvas.toBlob(resolve));
+    const image = yield new Promise(resolve => canvas.toBlob(resolve));
 
     // If no municipality is selected, choose the first possible one
     const municipality = this.selectedMunicipality

@@ -1,11 +1,11 @@
 "use strict";
 
 module.exports = function(environment) {
-  let oidcHost =
+  const oidcHost =
     process.env.KEYCLOAK_URL ||
     "http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect";
 
-  let ENV = {
+  const ENV = {
     modulePrefix: "citizen-portal",
     environment,
     rootURL: "/",
@@ -15,7 +15,7 @@ module.exports = function(environment) {
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
-        // e.g. 'with-controller': true
+        // e.g. EMBER_NATIVE_DECORATOR_SUPPORT: true
       },
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.

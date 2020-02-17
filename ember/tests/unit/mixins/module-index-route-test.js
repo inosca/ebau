@@ -1,8 +1,8 @@
 import EmberObject, { computed } from "@ember/object";
-import ModuleIndexRouteMixin from "citizen-portal/mixins/module-index-route";
-import { module, test } from "qunit";
-import { setupTest } from "ember-qunit";
 import { later } from "@ember/runloop";
+import ModuleIndexRouteMixin from "citizen-portal/mixins/module-index-route";
+import { setupTest } from "ember-qunit";
+import { module, test } from "qunit";
 
 module("Unit | Mixin | module-index-route", function(hooks) {
   setupTest(hooks);
@@ -32,7 +32,7 @@ module("Unit | Mixin | module-index-route", function(hooks) {
       })
     });
 
-    let subject = ModuleIndexRouteObject.create({
+    const subject = ModuleIndexRouteObject.create({
       questionStore: SERVICE.create({}),
       router: EmberObject.create({}),
       controllerFor() {
@@ -44,8 +44,8 @@ module("Unit | Mixin | module-index-route", function(hooks) {
     const transition = EmberObject.extend({
       target: "test2.index",
 
-      init() {
-        this._super(...arguments);
+      init(...args) {
+        this._super(...args);
 
         this.set(
           "promise",

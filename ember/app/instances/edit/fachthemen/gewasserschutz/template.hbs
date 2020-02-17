@@ -1,7 +1,7 @@
-{{#camac-form instance=model.instance meta=model.meta as |form|}}
-  {{form.input 'gewasserschutz-menge'}}
-  {{form.input 'datenverschnitt-gewasserschutz'}}
-  {{form.input 'datenverschnitt-grundwasserschutz-zone'}}
-  {{form.input 'datenverschnitt-grundwasserschutz-areal'}}
-  {{form.input 'datenverschnitt-grundwasserschutz-bereich-au'}}
-{{/camac-form}}
+<CamacForm @instance={{@model.instance}} @meta={{@model.meta}} as |form|>
+  {{form.input "gewasserschutz-menge"}}
+  {{form.input "datenverschnitt-gewasserschutz"}}
+  {{form.input "datenverschnitt-grundwasserschutz-zone"}}
+  {{form.input "datenverschnitt-grundwasserschutz-areal"}}
+  {{form.input "datenverschnitt-grundwasserschutz-bereich-au"}}
+</CamacForm>

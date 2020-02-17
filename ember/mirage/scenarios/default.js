@@ -1,5 +1,5 @@
 export default function(server) {
-  let forms = server.createList("form", 5);
+  const forms = server.createList("form", 5);
 
   server.create("instance", { formId: forms[0].id });
   server.create("instance", { formId: forms[1].id });

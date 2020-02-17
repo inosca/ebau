@@ -1,16 +1,16 @@
-import { module, test } from "qunit";
-import { setupRenderingTest } from "ember-qunit";
 import { render, click, fillIn } from "@ember/test-helpers";
-import hbs from "htmlbars-inline-precompile";
-import setupMirage from "ember-cli-mirage/test-support/setup-mirage";
 import loadQuestions from "citizen-portal/tests/helpers/load-questions";
+import setupMirage from "ember-cli-mirage/test-support/setup-mirage";
+import { setupRenderingTest } from "ember-qunit";
+import hbs from "htmlbars-inline-precompile";
+import { module, test } from "qunit";
 
 module("Integration | Component | camac-table", function(hooks) {
   setupRenderingTest(hooks);
   setupMirage(hooks);
 
   hooks.beforeEach(async function() {
-    let instance = this.server.create("instance");
+    const instance = this.server.create("instance");
 
     this.set("instance", instance);
 

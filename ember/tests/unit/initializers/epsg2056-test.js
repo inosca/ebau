@@ -1,9 +1,9 @@
 /* global L */
 import Application from "@ember/application";
 import { run } from "@ember/runloop";
-
 import { initialize } from "citizen-portal/initializers/epsg2056";
 import { module, test } from "qunit";
+
 import destroyApp from "../../helpers/destroy-app";
 
 module("Unit | Initializer | epsg2056", function(hooks) {

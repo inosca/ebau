@@ -1,21 +1,22 @@
-import Service, { inject as service } from "@ember/service";
+import { getOwner } from "@ember/application";
+import { A } from "@ember/array";
 import EmberObject, {
   computed,
   getWithDefault,
   defineProperty
 } from "@ember/object";
 import { reads, equal } from "@ember/object/computed";
-import { getOwner } from "@ember/application";
-import { A } from "@ember/array";
+import Service, { inject as service } from "@ember/service";
 import { classify } from "@ember/string";
-import { task, timeout } from "ember-concurrency";
-import _validations from "citizen-portal/questions/validations";
 import computedTask from "citizen-portal/lib/computed-task";
+import _validations from "citizen-portal/questions/validations";
+import { task, timeout } from "ember-concurrency";
 import jexl from "jexl";
+import Lexer from "jexl/lib/Lexer";
 import Parser from "jexl/lib/parser/Parser";
 
 const traverseTransforms = function*(tree) {
-  for (let node of Object.values(tree)) {
+  for (const node of Object.values(tree)) {
     if (typeof node === "object") {
       yield* traverseTransforms(node);
     }
@@ -26,9 +27,9 @@ const traverseTransforms = function*(tree) {
 };
 
 const getTransforms = tree => {
-  let iterator = traverseTransforms(tree);
+  const iterator = traverseTransforms(tree);
   let result = iterator.next();
-  let transforms = [];
+  const transforms = [];
 
   while (!result.done) {
     transforms.push(result.value);
@@ -42,8 +43,8 @@ const getTransforms = tree => {
 const Question = EmberObject.extend({
   _questions: service("question-store"),
 
-  init() {
-    this._super(...arguments);
+  init(...args) {
+    this._super(...args);
 
     this.set("instanceId", this.get("instance.id"));
 
@@ -64,7 +65,7 @@ const Question = EmberObject.extend({
     this.set("jexl", new jexl.Jexl());
 
     this.jexl.addTransform("value", question => {
-      let q = this._questions.peek(question, this.get("instance.id"));
+      const q = this._questions.peek(question, this.get("instance.id"));
 
       return q && q.value;
     });
@@ -76,16 +77,15 @@ const Question = EmberObject.extend({
   },
 
   _expressionAST: computed("field.active-expression", function() {
-    let expression = this.get("field.active-expression");
+    const expression = this.get("field.active-expression");
 
     if (!expression) {
       return [];
     }
 
-    let grammar = this.jexl._getGrammar();
-    let parser = new Parser(grammar);
+    const parser = new Parser(this.jexl._grammar);
 
-    parser.addTokens(this.jexl._getLexer().tokenize(expression));
+    parser.addTokens(new Lexer(this.jexl._grammar).tokenize(expression));
 
     return parser.complete();
   }),
@@ -120,10 +120,10 @@ const Question = EmberObject.extend({
   }),
 
   validate() {
-    let name = this.name;
-    let { type, required: isRequired = false, config = {} } = this.field;
+    const name = this.name;
+    const { type, required: isRequired = false, config = {} } = this.field;
 
-    let validations = [
+    const validations = [
       isRequired
         ? this.getWithDefault(
             "_questions._validations.validateRequired",
@@ -137,7 +137,7 @@ const Question = EmberObject.extend({
       this.getWithDefault(`_questions._validations.${name}`, () => true)
     ];
 
-    let isValid = validations.map(fn => fn(config, this.value));
+    const isValid = validations.map(fn => fn(config, this.value));
 
     return (
       isValid.every(v => v === true) ||
@@ -154,7 +154,7 @@ const Question = EmberObject.extend({
   _hiddenTask: task(function*() {
     yield timeout(100);
 
-    let expression = this.get("field.active-expression");
+    const expression = this.get("field.active-expression");
 
     return expression
       ? this._relatedHidden ||
@@ -173,8 +173,8 @@ export default Service.extend({
   store: service(),
   router: service(),
 
-  init() {
-    this._super(...arguments);
+  init(...args) {
+    this._super(...args);
 
     this.clear();
   },
@@ -190,7 +190,7 @@ export default Service.extend({
   saveQuestion: task(function*(question) {
     yield question;
 
-    let validity = question.validate();
+    const validity = question.validate();
 
     if (validity === true) {
       yield question.get("model").save();
@@ -232,10 +232,10 @@ export default Service.extend({
   },
 
   async buildQuestion(name, instance) {
-    let field = getWithDefault(await this.config, `questions.${name}`, {});
-    let type = field.type === "document" ? "attachment" : "form-field";
+    const field = getWithDefault(await this.config, `questions.${name}`, {});
+    const type = field.type === "document" ? "attachment" : "form-field";
 
-    let model =
+    const model =
       type === "attachment"
         ? this._getModelForAttachment(name, instance)
         : this._getModelForFormField(name, instance);
