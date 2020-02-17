@@ -1,22 +1,92 @@
-from django.conf import settings
-
-from camac.caluma.api import CalumaClient, get_admin_token
-from camac.user.models import Role
+from caluma.caluma_form.models import Answer, Document, DynamicOption, Option
 
 from .utils import xml_encode_newlines
 
+# Dicts with all questions we need from caluma. Questions under the "top" key, are
+# directly accessible. Other keys refer to tableQuestions with their corresponding
+# sub-questions. The second tuple element is an example value and also used for tests.
+slugs_baugesuch = {
+    "top": [
+        ("anzahl-abstellplaetze-fur-motorfahrzeuge", 23),
+        ("baukosten-in-chf", 232323),
+        ("bemerkungen", " Foo bar "),
+        ("beschreibung-bauvorhaben", "Beschreibung\nMehr Beschreibung"),
+        ("dauer-in-monaten", 23),
+        ("effektive-geschosszahl", 23),
+        ("gemeinde", "2"),
+        ("geplanter-baustart", "2019-09-15"),
+        ("gwr-egid", "23"),
+        ("nr", "23"),
+        ("nutzungsart", ["nutzungsart-wohnen"]),
+        ("nutzungszone", "Testnutzungszone"),
+        ("ort-grundstueck", "Burgdorf"),
+        ("ort-parzelle", "Burgdorf"),
+        ("sammelschutzraum", "sammelschutzraum-ja"),
+        ("strasse-flurname", "Teststrasse"),
+    ],
+    "beschreibung-der-prozessart-tabelle": [
+        [("prozessart", "prozessart-fliesslawine")]
+    ],
+    "parzelle": [
+        [
+            ("e-grid-nr", "23"),
+            ("lagekoordinaten-nord", "1070500.000"),
+            ("lagekoordinaten-ost", "2480034.0"),
+            ("parzellennummer", "1586"),
+        ],
+        [
+            ("e-grid-nr", "24"),
+            ("lagekoordinaten-nord", "1070600.000"),
+            ("lagekoordinaten-ost", "2480035.0"),
+            ("parzellennummer", "1587"),
+        ],
+    ],
+    "personalien-gesuchstellerin": [
+        [
+            ("name-gesuchstellerin", "Smith"),
+            ("nummer-gesuchstellerin", "23"),
+            ("ort-gesuchstellerin", "Burgdorf"),
+            ("plz-gesuchstellerin", 2323),
+            ("strasse-gesuchstellerin", "Teststrasse"),
+            ("vorname-gesuchstellerin", "Winston"),
+        ]
+    ],
+}
 
-def query_from_file(file_name):
-    with open(file_name, "r") as myfile:
-        data = myfile.read()
-    return data
+slugs_vorabklaerung_einfach = {
+    "top": [
+        ("anfrage-zur-vorabklaerung", "lorem ipsum"),
+        ("e-grid-nr", "23"),
+        ("gemeinde", "2"),
+        ("gwr-egid", "23"),
+        ("lagekoordinaten-nord-einfache-vorabklaerung", "1070500.000"),
+        ("lagekoordinaten-ost-einfache-vorabklaerung", "2480034.0"),
+        ("name-gesuchstellerin-vorabklaerung", "Smith"),
+        ("nummer-gesuchstellerin", "23"),
+        ("ort-gesuchstellerin", "Burgdorf"),
+        ("parzellennummer", "23"),
+        ("plz-gesuchstellerin", 2323),
+        ("strasse-gesuchstellerin", "Teststrasse"),
+        ("vorname-gesuchstellerin-vorabklaerung", "Winston"),
+    ]
+}
 
 
 class DocumentParser:
-    def __init__(self, document: dict):
+    simple_questions = ["integer", "float", "text", "textarea", "date"]
+
+    def __init__(self, document: Document):
         self.document = document
-        self.answers = self.parse_answers(self.document)
-        self.answers["ech-subject"] = document["form"]["name"]
+        self.slugs_table = slugs_baugesuch
+        if document.form.slug == "vorabklaerung-einfach":
+            self.slugs_table = slugs_vorabklaerung_einfach
+
+        # main slugs are all questions under the "top" key combined with all the other keys
+        main_slugs = [slug for slug, _ in self.slugs_table["top"]] + [
+            key for key in self.slugs_table if not key == "top"
+        ]
+        self.answers = {"ech-subject": document.form.name["de"]}
+        self.answers.update(self.parse_answers(self.document, main_slugs))
 
     def handle_string_values(self, value):
         value = self.strip_whitespace(value)
@@ -29,108 +99,64 @@ class DocumentParser:
             return value.strip(" ")
         return value
 
-    def parse_answers(self, data):
+    def _get_option_label(self, slug):
+        option = Option.objects.get(pk=slug)
+        return self.handle_string_values(option.label["de"])
+
+    def _choice(self, answer, document):
+        return self._get_option_label(answer.value)
+
+    def _multiple_choice(self, answer, document):
+        return [self._get_option_label(slug) for slug in answer.value]
+
+    def _get_dynamic_option_label(self, slug, document, question):
+        option = DynamicOption.objects.filter(
+            slug=slug, document=document, question=question
+        ).first()
+        return self.handle_string_values(option.label["de"])
+
+    def _dynamic_choice(self, answer, document):
+        return self._get_dynamic_option_label(answer.value, document, answer.question)
+
+    def _dynamic_multiple_choice(self, answer, document):  # pragma: no cover
+        return [
+            self._get_dynamic_option_label(slug, document, answer.question)
+            for slug in answer.value
+        ]
+
+    def _table(self, answer, document):
+        rows = []
+        # the relevant question slugs for this subform
+        slugs = [slug for slug, _ in self.slugs_table[answer.question.slug][0]]
+
+        for row_doc in answer.documents.all():
+            rows.append(self.parse_answers(row_doc, slugs))
+        return rows
+
+    def parse_answers(self, document, slugs):
+        caluma_answers = Answer.objects.filter(
+            document=document, question__slug__in=slugs
+        )
+
         answers = {}
-        simple_questions = {
-            "IntegerQuestion": "integerValue",
-            "FloatQuestion": "floatValue",
-            "TextQuestion": "stringValue",
-            "TextareaQuestion": "stringValue",
-            "DateQuestion": "dateValue",
-        }
-        choice_questions = {
-            "ChoiceQuestion": "choiceOptions",
-            "MultipleChoiceQuestion": "multipleChoiceOptions",
-            "DynamicChoiceQuestion": "dynamicChoiceOptions",
-            "DynamicMultipleChoiceQuestion": "dynamicMultipleChoiceOptions",
-        }
 
-        for answer in data["answers"]["edges"]:
-            question_type_name = answer["node"]["question"]["__typename"]
+        for answer in caluma_answers:
+            question_type_name = answer.question.type
 
-            if question_type_name in simple_questions:
-                answers[answer["node"]["question"]["slug"]] = self.handle_string_values(
-                    answer["node"][simple_questions[question_type_name]]
-                )
+            if question_type_name in self.simple_questions:
+                answers[answer.question.slug] = self.handle_string_values(answer.value)
+                continue
 
-            elif question_type_name in choice_questions:
-                options = {
-                    option["node"]["slug"]: self.handle_string_values(
-                        option["node"]["label"]
-                    )
-                    for option in answer["node"]["question"][
-                        choice_questions[question_type_name]
-                    ]["edges"]
-                }
-
-                if question_type_name in ["ChoiceQuestion", "DynamicChoiceQuestion"]:
-                    answers[
-                        answer["node"]["question"]["slug"]
-                    ] = self.handle_string_values(
-                        options[answer["node"]["stringValue"]]
-                    )
-
-                elif question_type_name in [
-                    "MultipleChoiceQuestion",
-                    "DynamicMultipleChoiceQuestion",
-                ]:
-                    answers[answer["node"]["question"]["slug"]] = [
-                        self.handle_string_values(options[slug])
-                        for slug in answer["node"]["listValue"]
-                    ]
-            elif question_type_name == "TableQuestion":
-                rows = []
-                for table_value in answer["node"]["tableValue"]:
-                    rows.append(self.parse_answers(table_value))
-                answers[answer["node"]["question"]["slug"]] = rows
+            answers[answer.question.slug] = getattr(self, f"_{question_type_name}")(
+                answer, document
+            )
 
         return answers
 
 
-def get_document(instance_id, group_pk=None, auth_header=None):
-    """
-    Get a document from caluma.
-
-    To access the document from a user's context, pass both group_pk and auth_header.
-    Otherwise, the document will be retrieved using the "support" role.
-    """
-    assert bool(group_pk) == bool(
-        auth_header
-    ), "get_document should be called with group_pk and auth_header or without both"
-
-    if not auth_header:
-        auth_header = f"Bearer {get_admin_token()}"
-        group_pk = (
-            Role.objects.get(name="support")
-            .groups.order_by("group_id")
-            .first()
-            .group_id
-        )
-
-    caluma = CalumaClient(auth_header)
-    filter = {"filter": [{"key": "camac-instance-id", "value": instance_id}]}
-
-    resp = caluma.query_caluma(
-        query_from_file(
-            str(settings.ROOT_DIR("camac/echbern/gql/get_document.graphql"))
-        ),
-        variables=filter,
-        add_headers={"X-CAMAC-GROUP": str(group_pk)},
+def get_document(instance_id):
+    document = Document.objects.get(
+        **{"form__meta__is-main-form": True, "meta__camac-instance-id": instance_id}
     )
-    dp = DocumentParser(resp["data"]["allDocuments"]["edges"][0]["node"])
+    dp = DocumentParser(document)
     return dp.answers
-
-
-def get_form_slug(instance, group_pk, auth_header):
-    caluma = CalumaClient(auth_header)
-    filter = {"filter": [{"key": "camac-instance-id", "value": instance.pk}]}
-
-    resp = caluma.query_caluma(
-        query_from_file(
-            str(settings.ROOT_DIR("camac/echbern/gql/get_document_form_slug.graphql"))
-        ),
-        variables=filter,
-        add_headers={"X-CAMAC-GROUP": str(group_pk)},
-    )
-
-    return resp["data"]["allDocuments"]["edges"][0]["node"]["form"]["slug"]
