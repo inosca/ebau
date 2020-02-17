@@ -233,6 +233,63 @@ APPLICATIONS = {
             },
             "ALLOWED_SERVICE_GROUPS": {"SB1": [3], "SB2": [3], "DEFAULT": [2]},
         },
+        "DOCUMENT_MERGE_SERVICE": {
+            "baugesuch": {
+                "forms": [
+                    "baugesuch",
+                    "baugesuch-mit-uvp",
+                    "baugesuch-generell",
+                    "vollstaendige-vorabklaerung",
+                ],
+                "template": "2-level",
+                "allgemeine_info": "1-allgemeine-informationen",
+                "personalien": "personalien",
+                "people_sources": {
+                    "personalien-gesuchstellerin": {
+                        "familyName": "name-gesuchstellerin",
+                        "givenName": "vorname-gesuchstellerin",
+                    },
+                    "personalien-vertreterin-mit-vollmacht": {
+                        "familyName": "name-vertreterin",
+                        "givenName": "vorname-vertreterin",
+                    },
+                    "personalien-grundeigentumerin": {
+                        "familyName": "name-grundeigentuemerin",
+                        "givenName": "vorname-grundeigentuemerin",
+                    },
+                    "personalien-gebaudeeigentumerin": {
+                        "familyName": "name-gebaeudeeigentuemerin",
+                        "givenName": "vorname-gebaeudeeigentuemerin",
+                    },
+                    "personalien-projektverfasserin": {
+                        "familyName": "name-projektverfasserin",
+                        "givenName": "vorname-projektverfasserin",
+                    },
+                },
+                "exclude_slugs": ["8-freigabequittung"],
+            },
+            "vorabklaerung-einfach": {
+                "forms": ["vorabklaerung-einfach"],
+                "template": "1-level",
+                "allgemeine_info": "allgemeine-informationen-vorabklaerung-form",
+                "givenName": "vorname-gesuchstellerin-vorabklaerung",
+                "familyName": "name-gesuchstellerin-vorabklaerung",
+                "exclude_slugs": [
+                    "freigabequittung-vorabklaerung-form",
+                    "dokumente-vorabklaerung-form",
+                ],
+            },
+            "selbstdeklaration": {
+                "forms": ["sb1", "sb2"],
+                "template": "1-level",
+                "exclude_slugs": [
+                    "freigabequittung-sb1",
+                    "freigabequittung-sb2",
+                    "dokumente-sb1",
+                    "dokumente-sb2",
+                ],
+            },
+        },
     },
     "kt_uri": {"FORM_BACKEND": "camac"},
 }
