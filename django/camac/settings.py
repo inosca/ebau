@@ -466,9 +466,6 @@ KEYCLOAK_CAMAC_ADMIN_CLIENT_SECRET = env.str(
 KEYCLOAK_OIDC_TOKEN_URL = build_url(
     KEYCLOAK_URL, f"/realms/{KEYCLOAK_REALM}/protocol/openid-connect/token"
 )
-KEYCLOAK_OIDC_LOGIN_URL = build_url(
-    KEYCLOAK_URL, f"/realms/{KEYCLOAK_REALM}/protocol/openid-connect/auth"
-)
 
 OIDC_BEARER_TOKEN_REVALIDATION_TIME = env.int(
     "OIDC_BEARER_TOKEN_REVALIDATION_TIME", default=120
@@ -558,7 +555,6 @@ SWAGGER_SETTINGS = {
         "oauth2": {
             "type": "oauth2",
             "tokenUrl": KEYCLOAK_OIDC_TOKEN_URL,
-            "authorizationUrl": KEYCLOAK_OIDC_LOGIN_URL,
             "flow": "application",
             "scopes": {},
         }
