@@ -96,6 +96,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     billing_total_kommunal = serializers.SerializerMethodField()
     billing_total_kanton = serializers.SerializerMethodField()
     billing_total = serializers.SerializerMethodField()
+    my_activations = serializers.SerializerMethodField()
 
     # TODO: these is currently bern specific, as it depends on instance state
     # identifiers. This will likely need some client-specific switch logic
@@ -267,6 +268,14 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return BillingV2Entry.objects.filter(instance=instance).aggregate(
             total=Sum("final_rate")
         )["total"]
+
+    def get_my_activations(self, instance):
+        if "request" not in self.context:
+            return instance.activations.none()
+        return ActivationMergeSerializer(
+            instance.activations.filter(service=self.context["request"].group.service),
+            many=True,
+        ).data
 
     def get_total_activations(self, instance):
         return instance.activations.count()
