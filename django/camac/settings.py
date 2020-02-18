@@ -239,7 +239,7 @@ APPLICATIONS = {
                     "baugesuch",
                     "baugesuch-mit-uvp",
                     "baugesuch-generell",
-                    "vollstaendige-vorabklaerung",
+                    "vorabklaerung-vollstaendig",
                 ],
                 "template": "2-level",
                 "allgemeine_info": "1-allgemeine-informationen",
