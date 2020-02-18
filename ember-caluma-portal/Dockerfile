@@ -1,38 +1,14 @@
-FROM node:lts
+FROM danlynn/ember-cli:latest as build
 
-# Install nginx
-RUN \
- apt-get update && \
- apt-get install -y --no-install-recommends nginx && \
- rm -rf /var/lib/apt/lists/* && \
- rm /var/www/html/index.nginx-debian.html && \
- ln -sf /dev/stdout /var/log/nginx/access.log && \
- ln -sf /dev/stderr /var/log/nginx/error.log && \
- mkdir /app
+COPY package.json yarn.lock /myapp/
 
-# Install chrome for testing
-# TODO: run tests in a chromium container
-# https://hub.docker.com/r/markadams/chromium-xvfb/
-RUN \
-  wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
-  echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list && \
-  apt-get update && \
-  apt-get install -y --no-install-recommends google-chrome-stable && \
-  rm -rf /var/lib/apt/lists/*
+RUN yarn install
 
-COPY package.json yarn.lock /app/
+COPY . /myapp/
 
-WORKDIR /app
-
-RUN yarn
-
-COPY . /app
-COPY ./nginx.conf /etc/nginx/sites-enabled/default
-
-ARG KEYCLOAK_URL_ARG
-ENV KEYCLOAK_URL=$KEYCLOAK_URL_ARG
 RUN yarn deploy production
 
-EXPOSE 80
+FROM nginx:alpine
 
-CMD ["nginx", "-g", "daemon off;"]
+COPY --from=build /myapp/build /usr/share/nginx/html
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf

@@ -7,6 +7,7 @@ services:
     image: nginx:1.13-alpine
     depends_on:
       - ember
+      - ember-caluma-portal
       - php
       - django
       - keycloak
@@ -67,21 +68,12 @@ services:
       context: ember
       cache_from:
         - acr.run/camac-ng/camac-ng/ember:master
-    depends_on:
-      - django
-    environment:
-      - ENV=docker
 
   ember-caluma-portal:
     build:
       context: ember-caluma-portal
       cache_from:
         - acr.run/camac-ng/camac-ng/ember-caluma-portal:master
-    depends_on:
-      - keycloak
-      - django
-    environment:
-      - ENV=docker
 
   php:
     build:

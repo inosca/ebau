@@ -6,8 +6,6 @@ module.exports = {
   browser_args: {
     Chrome: {
       ci: [
-        // --no-sandbox is needed when running Chrome inside a container
-        process.env.ENV === "docker" ? "--no-sandbox" : null,
         "--headless",
         "--disable-gpu",
         "--disable-dev-shm-usage",
@@ -15,7 +13,7 @@ module.exports = {
         "--mute-audio",
         "--remote-debugging-port=0",
         "--window-size=1440,900"
-      ].filter(Boolean)
+      ]
     }
   }
 };
