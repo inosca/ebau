@@ -67,29 +67,15 @@ services:
 
   ember:
     image: acr.run/camac-ng/camac-ng/ember:master
-    volumes:
-      - ./ember/nginx.conf:/etc/nginx/sites-enabled/default:ro
-      - ./ember:/app
-      - /app/node_modules/
-      - /app/tmp/
-      - /app/dist/
-      - /app/build/
-    networks:
-      - camac-ng.local
     build:
       args:
         KEYCLOAK_URL_ARG: http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect
         DEPLOY_TARGET: staging
+    networks:
+      - camac-ng.local
 
   ember-caluma-portal:
     image: acr.run/camac-ng/camac-ng/ember-caluma-portal:master
-    volumes:
-      - ./ember-caluma-portal/nginx.conf:/etc/nginx/sites-enabled/default:ro
-      - ./ember-caluma-portal:/app
-      - /app/node_modules/
-      - /app/tmp/
-      - /app/dist/
-      - /app/build/
     networks:
       - camac-ng.local
 
