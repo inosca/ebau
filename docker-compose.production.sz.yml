@@ -99,6 +99,11 @@ services:
       - POSTFIX_myhostname=ebau-sz.ch
       - POSTFIX_mail_name=noreply@ebau-sz.ch
 
+  metabase:
+    environment:
+      - MB_DB_PASS=${METABASE_DB_PASS_PROD}
+    restart: always
+
 volumes:
   djangomedia:
     external:
