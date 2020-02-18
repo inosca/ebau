@@ -168,7 +168,8 @@ release: ## Draft a new release
 	@if [ -z $(version) ]; then echo "Please pass a version: make release version=x.x.x"; exit 1; fi
 	@mkdir -p "releases/$(version)"
 	@echo "# Neu\n-\n# Korrekturen\n-" >> "releases/$(version)/CHANGELOG.md"
-	@prettier --loglevel=silent --write "releases/$(version)/CHANGELOG.md"
+	@echo "# Änderungen\n# Ansible (Rolle / Variablen)\n-\n# Keycloak\n-\n# DB\n-\n# Apache" >> "releases/$(version)/MANUAL.md"
+	@prettier --loglevel=silent --write "releases/$(version)/*.md"
 	@echo $(version) > VERSION.txt
 	@sed -i -e 's/"version": ".*",/"version": "$(version)",/g' ember-caluma-portal/package.json
 	@sed -i -e 's/appVersion = ".*"/appVersion = "$(version)"/g' php/kt_bern/configs/application.ini
