@@ -528,7 +528,9 @@ def test_generate_and_store_pdf(
     if not form_slug:
         form.meta["is-main-form"] = True
     if has_template:
-        form.meta["template"] = "some-template"
+        application_settings["DOCUMENT_MERGE_SERVICE"] = {
+            form_slug or form.slug: {"template": "some-template"}
+        }
 
     form.save()
 
@@ -589,12 +591,7 @@ def test_caluma_instance_list_filter(
 
 @pytest.mark.parametrize(
     "form_slug,requested_slug,expected",
-    [
-        ("some-slug", None, True),
-        ("sb1", "sb1", True),
-        ("sb2", "sb2", True),
-        ("some-slug", "another-slug", False),
-    ],
+    [("form-1", None, True), ("form-2", "form-2", True), ("form-3", "form-4", False)],
 )
 @pytest.mark.parametrize("role__name,instance__user", [("Canton", LazyFixture("user"))])
 def test_generate_pdf_action(
@@ -609,6 +606,7 @@ def test_generate_pdf_action(
     form_slug,
     requested_slug,
     expected,
+    application_settings,
 ):
     content = b"some binary data"
 
@@ -628,7 +626,9 @@ def test_generate_pdf_action(
     form = caluma_form_models.Form.objects.create(slug=form_slug, meta={})
     if not requested_slug:
         form.meta["is-main-form"] = True
-    form.meta["template"] = "some-template"
+    application_settings["DOCUMENT_MERGE_SERVICE"] = {
+        requested_slug or form.slug: {"template": "some-template"}
+    }
 
     form.save()
 

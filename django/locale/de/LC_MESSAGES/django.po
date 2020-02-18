@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-11 15:34+0100\n"
-"PO-Revision-Date: 2020-02-11 15:39+0100\n"
+"POT-Creation-Date: 2020-02-17 14:59+0100\n"
+"PO-Revision-Date: 2020-02-17 14:59+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #: camac/applicants/serializers.py:32
 #, python-format
@@ -30,7 +30,7 @@ msgstr ""
 "Der Benutzer mit der Email '%(email)s' hat bereits Zugriff auf das Dossier "
 "%(instance)s"
 
-#: camac/caluma/api.py:184
+#: camac/caluma/api.py:188
 #, python-format
 msgid "Error while querying caluma: %(errors)s"
 msgstr "Fehler beim Abfragen von Caluma: %(errors)s"
@@ -66,36 +66,38 @@ msgstr ""
 "Der aktuelle Dateityp kann nicht als Vorlage hochgeladen werden. Erlaubte "
 "Dateitypen sind: docx"
 
-#: camac/document/views.py:328
+#: camac/document/views.py:327
 msgid "Specifying an \"attachments\" filter is mandatory!"
 msgstr "Der \"attachments\" Filter ist obligatorisch!"
 
-#: camac/instance/document_merge_service.py:76
+#: camac/instance/document_merge_service.py:53
 #, python-format
 msgid "None or multiple caluma Documents found for instance: %(instance)s"
 msgstr ""
 "Keines oder mehrere Caluma Dokumente für das Dossier %(instance)s gefunden"
 
-#: camac/instance/document_merge_service.py:84
-msgid "Meta field for form '%(form_slug)' specifies no template."
-msgstr ""
-"Meta-Feld des Caluma Formulars %(form_slug)s spezifiziert keine Druckvorlage."
+#: camac/instance/document_merge_service.py:66
+#, python-format
+msgid "No template specified for form '%(form_slug)s'."
+msgstr "Keine Druckvorlage für das Caluma Formular %(form_slug)s spezifiziert."
 
-#: camac/instance/document_merge_service.py:96
+#: camac/instance/document_merge_service.py:74
+#: camac/instance/document_merge_service.py:381
+msgid "Signatures"
+msgstr "Unterschriften"
+
+#: camac/instance/document_merge_service.py:75
 msgid "Signature"
 msgstr "Unterschrift"
 
-#: camac/instance/document_merge_service.py:97
+#: camac/instance/document_merge_service.py:76
 msgid "Place and date"
 msgstr "Ort und Datum"
 
-#: camac/instance/document_merge_service.py:369
+#: camac/instance/document_merge_service.py:328
+#: camac/instance/document_merge_service.py:391
 msgid "Applicant"
 msgstr "Gesuchsteller/in"
-
-#: camac/instance/document_merge_service.py:420
-msgid "Signatures"
-msgstr "Unterschriften"
 
 #: camac/instance/mixins.py:238
 #, python-format
@@ -244,6 +246,6 @@ msgstr "Ungültiges Token."
 msgid "User session not found or doesn't have client attached on it"
 msgstr ""
 
-#: camac/user/authentication.py:126
+#: camac/user/authentication.py:119
 msgid "User is deactivated."
 msgstr "Benutzer ist deaktiviert."
