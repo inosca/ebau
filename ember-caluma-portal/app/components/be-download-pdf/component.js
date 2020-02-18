@@ -11,8 +11,8 @@ export default Component.extend({
   export: task(function*() {
     try {
       const query = this.get("field.document.rootForm.meta.is-main-form")
-        ? `?form-slug=${this.get("field.document.rootForm.slug")}`
-        : "";
+        ? ""
+        : `?form-slug=${this.get("field.document.rootForm.slug")}`;
 
       // generate document in CAMAC
       const response = yield this.fetch.fetch(

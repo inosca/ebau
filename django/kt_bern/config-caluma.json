@@ -232,8 +232,7 @@
       "is_archived": false,
       "is_published": true,
       "meta": {
-        "is-main-form": true,
-        "template": "export-1"
+        "is-main-form": true
       },
       "modified_at": "2019-04-01T15:25:51.743Z",
       "name": "{\"de\": \"Baugesuch\", \"fr\": \"Demande de permis de construire\"}",
@@ -251,8 +250,7 @@
       "is_archived": false,
       "is_published": true,
       "meta": {
-        "is-main-form": true,
-        "template": "export-1"
+        "is-main-form": true
       },
       "modified_at": "2019-06-18T07:19:42.781Z",
       "name": "{\"de\": \"Generelles Baugesuch\", \"fr\": \"Demande de permis de construire g\\u00e9n\\u00e9ral\"}",
@@ -270,8 +268,7 @@
       "is_archived": false,
       "is_published": true,
       "meta": {
-        "is-main-form": true,
-        "template": "export-1"
+        "is-main-form": true
       },
       "modified_at": "2019-06-18T07:19:59.155Z",
       "name": "{\"de\": \"Baugesuch mit UVP\", \"fr\": \"Demande de permis de construire avec EIE\"}",
@@ -1027,11 +1024,9 @@
       "description": "{\"de\": \"\", \"fr\": null}",
       "is_archived": false,
       "is_published": true,
-      "meta": {
-        "template": "selbstdeklaration"
-      },
+      "meta": {},
       "modified_at": "2019-06-17T10:53:08.243Z",
-      "name": "{\"de\": \"SB1\", \"fr\": \"DC1 \"}",
+      "name": "{\"de\": \"Selbstdeklaration Baukontrolle 1\", \"fr\": \"D\\u00e9claration spontan\\u00e9e en mati\\u00e8re de contr\\u00f4le des constructions 1\"}",
       "source": null
     },
     "model": "caluma_form.form",
@@ -1045,11 +1040,9 @@
       "description": "{\"de\": \"\", \"fr\": null}",
       "is_archived": false,
       "is_published": true,
-      "meta": {
-        "template": "selbstdeklaration"
-      },
+      "meta": {},
       "modified_at": "2019-06-17T10:53:32.170Z",
-      "name": "{\"de\": \"SB2\", \"fr\": \"DC2\"}",
+      "name": "{\"de\": \"Selbstdeklaration Baukontrolle 2\", \"fr\": \"D\\u00e9claration spontan\\u00e9e en mati\\u00e8re de contr\\u00f4le des constructions 2\"}",
       "source": null
     },
     "model": "caluma_form.form",
@@ -1144,8 +1137,7 @@
       "is_archived": false,
       "is_published": true,
       "meta": {
-        "is-main-form": true,
-        "template": "vorabklaerung"
+        "is-main-form": true
       },
       "modified_at": "2019-04-18T07:53:31.841Z",
       "name": "{\"de\": \"Einfache Vorabkl\\u00e4rung\", \"fr\": \"Demandes pr\\u00e9alables simples\"}",
@@ -1163,8 +1155,7 @@
       "is_archived": false,
       "is_published": true,
       "meta": {
-        "is-main-form": true,
-        "template": "export-1"
+        "is-main-form": true
       },
       "modified_at": "2019-04-18T07:53:08.979Z",
       "name": "{\"de\": \"Vollst\\u00e4ndige Vorabkl\\u00e4rung\", \"fr\": \"Demandes pr\\u00e9alables compl\\u00e8tes\"}",
@@ -5946,11 +5937,11 @@
       "created_by_user": null,
       "form": "freigabequittung-sb1",
       "modified_at": "2019-09-25T10:19:39.258Z",
-      "question": "formulardownload-pdf-selbstdeklaration",
+      "question": "formulardownload-pdf",
       "sort": 3
     },
     "model": "caluma_form.formquestion",
-    "pk": "freigabequittung-sb1.formulardownload-pdf-selbstdeklaration"
+    "pk": "freigabequittung-sb1.formulardownload-pdf"
   },
   {
     "fields": {
@@ -5998,11 +5989,11 @@
       "created_by_user": null,
       "form": "freigabequittung-sb2",
       "modified_at": "2019-09-25T10:19:38.964Z",
-      "question": "formulardownload-pdf-selbstdeklaration",
+      "question": "formulardownload-pdf",
       "sort": 3
     },
     "model": "caluma_form.formquestion",
-    "pk": "freigabequittung-sb2.formulardownload-pdf-selbstdeklaration"
+    "pk": "freigabequittung-sb2.formulardownload-pdf"
   },
   {
     "fields": {
@@ -6050,11 +6041,11 @@
       "created_by_user": null,
       "form": "freigabequittung-vorabklaerung",
       "modified_at": "2019-10-08T12:23:47.541Z",
-      "question": "formulardownload-pdf-vorabklaerung",
+      "question": "formulardownload-pdf",
       "sort": 2
     },
     "model": "caluma_form.formquestion",
-    "pk": "freigabequittung-vorabklaerung.formulardownload-pdf-vorabklaerung"
+    "pk": "freigabequittung-vorabklaerung.formulardownload-pdf"
   },
   {
     "fields": {
@@ -28646,7 +28637,6 @@
       "label": "{\"de\": \"Dokumente\", \"fr\": \"Documents\"}",
       "meta": {
         "attachment-section": "'papierdossier'|answer == 'papierdossier-ja'? 10 : 6",
-        "exportHidden": true,
         "widgetOverride": "be-documents-form"
       },
       "modified_at": "2019-06-17T10:57:29.422Z",
@@ -28675,7 +28665,6 @@
       "label": "{\"de\": \"Dokumente\", \"fr\": \"Documents\"}",
       "meta": {
         "attachment-section": "'papierdossier'|answer == 'papierdossier-ja'? 11 : 5",
-        "exportHidden": true,
         "widgetOverride": "be-documents-form"
       },
       "modified_at": "2019-06-17T10:57:29.422Z",
@@ -28704,7 +28693,6 @@
       "label": "{\"de\": \"Dokumente\", \"fr\": \"Documents\"}",
       "meta": {
         "attachment-section": "'papierdossier'|answer == 'papierdossier-ja'? 13 : 1",
-        "exportHidden": true,
         "widgetOverride": "be-documents-form"
       },
       "modified_at": "2019-10-09T08:15:06.232Z",
@@ -30761,7 +30749,6 @@
       "is_required": "false",
       "label": "{\"de\": \"Formulardownload (PDF)\", \"fr\": \"t\\u00e9l\\u00e9charger le formulaire (pdf)\"}",
       "meta": {
-        "template": "export-1",
         "widgetOverride": "be-download-pdf"
       },
       "modified_at": "2019-06-12T08:11:33.972Z",
@@ -30774,62 +30761,6 @@
     },
     "model": "caluma_form.question",
     "pk": "formulardownload-pdf"
-  },
-  {
-    "fields": {
-      "configuration": {},
-      "created_at": "2019-06-12T08:11:33.972Z",
-      "created_by_group": "[]",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "data_source": null,
-      "format_validators": "[]",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "is_archived": false,
-      "is_hidden": "false",
-      "is_required": "false",
-      "label": "{\"de\": \"Formulardownload (PDF)\", \"fr\": \"t\\u00e9l\\u00e9charger le formulaire (pdf)\"}",
-      "meta": {
-        "template": "selbstdeklaration",
-        "widgetOverride": "be-download-pdf"
-      },
-      "modified_at": "2019-06-12T08:11:33.972Z",
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "row_form": null,
-      "source": null,
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "sub_form": null,
-      "type": "static"
-    },
-    "model": "caluma_form.question",
-    "pk": "formulardownload-pdf-selbstdeklaration"
-  },
-  {
-    "fields": {
-      "configuration": {},
-      "created_at": "2019-06-12T08:11:33.972Z",
-      "created_by_group": "[]",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "data_source": null,
-      "format_validators": "[]",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "is_archived": false,
-      "is_hidden": "false",
-      "is_required": "false",
-      "label": "{\"de\": \"Formulardownload (PDF)\", \"fr\": \"t\\u00e9l\\u00e9charger le formulaire (pdf)\"}",
-      "meta": {
-        "template": "vorabklaerung",
-        "widgetOverride": "be-download-pdf"
-      },
-      "modified_at": "2019-06-12T08:11:33.972Z",
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "row_form": null,
-      "source": null,
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "sub_form": null,
-      "type": "static"
-    },
-    "model": "caluma_form.question",
-    "pk": "formulardownload-pdf-vorabklaerung"
   },
   {
     "fields": {
@@ -30996,9 +30927,7 @@
       "is_hidden": "false",
       "is_required": "false",
       "label": "{\"de\": \"Einreichen\", \"fr\": \"Envoyer\"}",
-      "meta": {
-        "exportHidden": true
-      },
+      "meta": {},
       "modified_at": "2019-10-09T08:16:03.459Z",
       "placeholder": "{\"de\": null, \"fr\": null}",
       "row_form": null,
@@ -40857,56 +40786,6 @@
     },
     "model": "caluma_form.question",
     "pk": "sanitaertechnische-anpassungen-liegenschaft"
-  },
-  {
-    "fields": {
-      "configuration": {},
-      "created_at": "2019-06-17T10:02:45.627Z",
-      "created_by_group": "[]",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "data_source": null,
-      "format_validators": "[]",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "is_archived": false,
-      "is_hidden": "false",
-      "is_required": "false",
-      "label": "{\"de\": \"SB1\", \"fr\": \"DC1 \"}",
-      "meta": {},
-      "modified_at": "2019-06-17T10:02:45.627Z",
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "row_form": null,
-      "source": null,
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "sub_form": "sb1",
-      "type": "form"
-    },
-    "model": "caluma_form.question",
-    "pk": "sb1"
-  },
-  {
-    "fields": {
-      "configuration": {},
-      "created_at": "2019-06-17T11:00:37.015Z",
-      "created_by_group": "[]",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "data_source": null,
-      "format_validators": "[]",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "is_archived": false,
-      "is_hidden": "false",
-      "is_required": "false",
-      "label": "{\"de\": \"SB2\", \"fr\": \"DC2\"}",
-      "meta": {},
-      "modified_at": "2019-06-17T11:00:37.015Z",
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "row_form": null,
-      "source": null,
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "sub_form": "sb2",
-      "type": "form"
-    },
-    "model": "caluma_form.question",
-    "pk": "sb2"
   },
   {
     "fields": {

@@ -22,6 +22,13 @@ def caluma_form_fixture(db):
     call_command("loaddata", path)
 
 
+@pytest.fixture
+def dms_settings(application_settings):
+    application_settings["DOCUMENT_MERGE_SERVICE"] = settings.APPLICATIONS["kt_bern"][
+        "DOCUMENT_MERGE_SERVICE"
+    ]
+
+
 @pytest.mark.parametrize(
     "instance_id,form_slug", [(1, "baugesuch"), (1, "sb1"), (1, "sb2"), (3, None)]
 )
@@ -33,6 +40,7 @@ def test_document_merge_service_snapshot(
     caluma_form_fixture,
     instance_id,
     form_slug,
+    dms_settings,
 ):
     cache.clear()
     service_group = service_group_factory(pk=2)
@@ -45,11 +53,7 @@ def test_document_merge_service_snapshot(
     root_document = Document.objects.get(**_filter)
 
     visitor = DMSVisitor()
-    snapshot.assert_match(
-        visitor.visit(
-            root_document, append_receipt_page=(form_slug not in ["sb1", "sb2"])
-        )
-    )
+    snapshot.assert_match(visitor.visit(root_document))
 
 
 def test_document_merge_service_client(db, requests_mock):
