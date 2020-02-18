@@ -16,44 +16,15 @@ from camac.utils import build_url
 
 request_logger = getLogger("django.request")
 
-SLUGS = {
-    "baugesuch": {
-        "allgemeine_info": "1-allgemeine-informationen",
-        "personalien": "personalien",
-        "people_sources": {
-            "personalien-gesuchstellerin": {
-                "familyName": "name-gesuchstellerin",
-                "givenName": "vorname-gesuchstellerin",
-            },
-            "personalien-vertreterin-mit-vollmacht": {
-                "familyName": "name-vertreterin",
-                "givenName": "vorname-vertreterin",
-            },
-            "personalien-grundeigentumerin": {
-                "familyName": "name-grundeigentuemerin",
-                "givenName": "vorname-grundeigentuemerin",
-            },
-            "personalien-gebaudeeigentumerin": {
-                "familyName": "name-gebaeudeeigentuemerin",
-                "givenName": "vorname-gebaeudeeigentuemerin",
-            },
-            "personalien-projektverfasserin": {
-                "familyName": "name-projektverfasserin",
-                "givenName": "vorname-projektverfasserin",
-            },
-        },
-        "exclude_slugs": ["8-freigabequittung"],
-    },
-    "vorabklaerung-einfach": {
-        "allgemeine_info": "allgemeine-informationen-vorabklaerung-form",
-        "givenName": "vorname-gesuchstellerin-vorabklaerung",
-        "familyName": "name-gesuchstellerin-vorabklaerung",
-        "exclude_slugs": ["freigabequittung-vorabklaerung-form"],
-    },
-    "selbstdeklaration": {
-        "exclude_slugs": ["freigabequittung-sb1", "freigabequittung-sb2"]
-    },
-}
+
+def form_type(form_slug):
+    configs = settings.APPLICATION.get("DOCUMENT_MERGE_SERVICE", {})
+
+    for key, config in configs.items():
+        if form_slug in config.get("forms", []):
+            return key
+
+    return form_slug
 
 
 class DMSHandler:
@@ -78,21 +49,23 @@ class DMSHandler:
             request_logger.error(message)
             raise exceptions.ValidationError(message)
 
-        template = doc.form.meta.get("template")
+        template = (
+            settings.APPLICATION.get("DOCUMENT_MERGE_SERVICE", {})
+            .get(form_type(doc.form.slug), {})
+            .get("template")
+        )
+
         if template is None:
             raise exceptions.ValidationError(
-                _("Meta field for form '%(form_slug)' specifies no template.")
+                _("No template specified for form '%(form_slug)s'.")
                 % {"form_slug": doc.form.slug}
             )
-
-        sections = self.visitor.visit(
-            doc, append_receipt_page=(form_slug not in ["sb1", "sb2"])
-        )
 
         data = {
             "caseId": instance.pk,
             "caseType": str(doc.form.name),
-            "sections": sections,
+            "sections": self.visitor.visit(doc),
+            "signatureSectionTitle": _("Signatures"),
             "signatureTitle": _("Signature"),
             "signatureMetadata": _("Place and date"),
         }
@@ -135,14 +108,7 @@ class DMSVisitor:
     @property
     def template_type(self):
         """Group similar forms as they use the same template."""
-        form_slug = self.root_document.form.slug
-
-        if form_slug in ["baugesuch", "vorabklaerung-vollstaendig"]:
-            return "baugesuch"
-        elif form_slug == "vorabklaerung-einfach":
-            return form_slug
-        elif form_slug in ["sb1", "sb2"]:
-            return "selbstdeklaration"
+        return form_type(self.root_document.form.slug)
 
     @property
     def exclude_slugs(self):
@@ -151,15 +117,22 @@ class DMSVisitor:
         if not self.template_type:  # pragma: no cover
             return []
 
-        return SLUGS[self.template_type]["exclude_slugs"]
+        return (
+            settings.APPLICATION.get("DOCUMENT_MERGE_SERVICE", {})
+            .get(self.template_type, {})
+            .get("exclude_slugs", [])
+        )
 
-    def visit(self, node, append_receipt_page=False):
+    def visit(self, node):
         cls_name = type(node).__name__.lower()
         visit_func = getattr(self, f"_visit_{cls_name}")
         result = visit_func(node)
 
-        if append_receipt_page:
-            result.append(self.prepare_receipt_page())
+        receipt_page = self.prepare_receipt_page()
+
+        if receipt_page:
+            result.append(receipt_page)
+
         return result
 
     def _is_visible_question(self, node):
@@ -180,15 +153,19 @@ class DMSVisitor:
 
         visited_children = []
         for child in children:
-            if child.slug in self.exclude_slugs:
+            if child.slug in self.exclude_slugs or not self._is_visible_question(child):
                 continue
 
             result = self._visit_question(
                 child, parent_doc=node, flatten=flatten, **kwargs
             )
 
-            if not result["hidden"]:
-                visited_children.append(result)
+            if child.type == Question.TYPE_FORM and not len(
+                result.get("children", [])
+            ):  # pragma: no cover
+                continue
+
+            visited_children.append(result)
 
         return visited_children
 
@@ -261,12 +238,13 @@ class DMSVisitor:
                 yield value
 
     def _visit_dynamic_choice_question(self, node, parent_doc=None, answer=None, **_):
-        answer = answer.value if answer else None
         ret = {"type": "TextQuestion", "value": None}
 
-        value = next(self._matching_dynamic_options(answer, parent_doc, node))
-        if value:
-            ret["value"] = str(value)
+        if answer:
+            value = next(self._matching_dynamic_options(answer.value, parent_doc, node))
+
+            if value:
+                ret["value"] = str(value)
 
         return ret
 
@@ -296,12 +274,7 @@ class DMSVisitor:
             "type": "".join(
                 word.capitalize() for word in f"{node.type}_question".split("_")
             ),
-            "hidden": not self._is_visible_question(node),
         }
-
-        if ret["hidden"]:
-            ret["value"] = None
-            return ret
 
         answer = parent_doc.answers.filter(question=node).first()
 
@@ -324,11 +297,14 @@ class DMSVisitor:
         return ret
 
     def prepare_receipt_page(self):
-        slugs = SLUGS[self.template_type]
+        if self.template_type in ["vorabklaerung-einfach", "baugesuch"]:
+            slugs = settings.APPLICATION.get("DOCUMENT_MERGE_SERVICE", {}).get(
+                self.template_type, {}
+            )
 
-        allgemeine_info = self.root_document.form.questions.get(
-            slug=slugs["allgemeine_info"]
-        ).sub_form
+            allgemeine_info = self.root_document.form.questions.get(
+                slug=slugs["allgemeine_info"]
+            ).sub_form
 
         if self.template_type == "vorabklaerung-einfach":
 
@@ -355,10 +331,13 @@ class DMSVisitor:
 
             children = []
             for question in personalien.questions.all():
+                if not self._is_visible_question(question):  # pragma: no cover
+                    continue
+
                 table = self._visit_question(question, parent_doc=self.root_document)
+
                 if (
-                    table["hidden"]
-                    or table["slug"] not in slugs["people_sources"]
+                    table["slug"] not in slugs["people_sources"]
                     or "rows" in table
                     and not table["rows"]
                 ):  # pragma: no cover
@@ -399,5 +378,14 @@ class DMSVisitor:
                 "type": "FormQuestion",
             }
 
-        else:  # pragma: no cover
-            raise ValueError("No matching form found for receipt page")
+        if self.template_type == "selbstdeklaration":
+            # TODO: Soon we'll have a responsible person for this form. The
+            # people will then be computed from that table instead of this
+            # static empty person.
+            return {
+                "label": _("Applicant"),
+                "people": [{"firstName": "", "lastName": ""}],
+                "type": "SignatureQuestion",
+            }
+
+        return None  # pragma: no cover
