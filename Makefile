@@ -104,6 +104,7 @@ format:
 	@yarn --cwd=ember install
 	@yarn --cwd=ember lint:js --fix
 	@black django
+	@prettier --write *.yml
 
 .PHONY: makemigrations
 makemigrations: ## Create schema migrations
