@@ -112,11 +112,10 @@ class CustomPermission(BasePermission):
         return len(admin_groups) > 0
 
     def has_camac_edit_permission(
-        self, document_family, info, required_permission="write"
+        self, family_document, info, required_permission="write"
     ):
         # find corresponding document
-        document = Document.objects.get(id=document_family)
-        instance_id = document.meta.get("camac-instance-id")
+        instance_id = family_document.meta.get("camac-instance-id")
 
         if not instance_id:
             # if the document is unlinked, allow changing it
@@ -135,10 +134,10 @@ class CustomPermission(BasePermission):
             if "error" in jsondata:
                 raise RuntimeError("Error from NG API: %s" % jsondata["error"])
 
-            is_main_form = document.form.meta.get("is-main-form", False)
+            is_main_form = family_document.form.meta.get("is-main-form", False)
 
             return required_permission in jsondata["data"]["meta"]["permissions"].get(
-                "main" if is_main_form else document.form.slug, []
+                "main" if is_main_form else family_document.form.slug, []
             )
 
         except KeyError:
