@@ -161,7 +161,7 @@ build-kt_uri-production:
     - mkdir -p tarball/ember-caluma-portal/dist
     - docker cp $(eval $COMPOSE ps -q document-merge-service):/tmp/document-merge-service/dump.json tarball/document-merge-service/fixtures/
     - docker cp $(eval $COMPOSE ps -q document-merge-service):/var/lib/document-merge-service/media tarball/document-merge-service/templates
-    - docker cp $(eval $COMPOSE ps -q ember-caluma-portal):/app tarball/ember-caluma-portal/dist
+    - docker cp $(eval $COMPOSE ps -q ember-caluma-portal):/usr/share/nginx/html tarball/ember-caluma-portal/dist
     - cd tarball
     - tar cfz "../camac-be-$(cat ../VERSION.txt)+${CI_COMMIT_SHORT_SHA}.tar.gz" .
     - cd ..
