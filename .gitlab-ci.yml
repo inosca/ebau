@@ -185,6 +185,9 @@ build-kt_uri-production:
 
 build-kt_bern-production:
   extends: .build-tarball
+  variables:
+    APPLICATION: kt_bern
+    COMPOSE: docker-compose -f compose/kt_bern.yml -f compose/kt_bern-prod.yml
   only:
     - production-be
 
