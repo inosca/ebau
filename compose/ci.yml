@@ -7,7 +7,6 @@ services:
     image: nginx:1.13-alpine
     depends_on:
       - ember
-      - ember-caluma-portal
       - php
       - django
       - keycloak
@@ -18,19 +17,22 @@ services:
       - djangotmpmedia:/tmp/camac/tmpfiles:ro
 
   db:
+    image: acr.run/camac-ng/camac-ng/db:${CI_COMMIT_REF_SLUG}
     build:
-      context: db
+      context: ../db
       cache_from:
         - acr.run/camac-ng/camac-ng/db:master
     environment:
       - POSTGRES_USER=camac
+      - POSTGRES_PASSWORD=camac
       - POSTGRES_DATABASE=${APPLICATION}
     volumes:
       - pgdata:/var/lib/postgresql/data
 
   django:
+    image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_REF_SLUG}
     build:
-      context: django
+      context: ../django
       cache_from:
         - acr.run/camac-ng/camac-ng/django:master
     depends_on:
@@ -41,6 +43,8 @@ services:
       - mailhog
       - unoconv
     environment:
+      - KEYCLOAK_URL=http://keycloak:8080/auth/
+      - OAUTHLIB_INSECURE_TRANSPORT=1
       - DATABASE_HOST=db
       - DATABASE_NAME=${APPLICATION}
       - DJANGO_CACHE_LOCATION=cache:11211
@@ -56,7 +60,7 @@ services:
       - DATA_SOURCE_CLASSES=camac.caluma.extensions.data_sources.Municipalities,camac.caluma.extensions.data_sources.Services
       - LANGUAGE_CODE=de
       - LANGUAGES=de,fr
-      - OIDC_BEARER_TOKEN_REVALIDATION_TIME=10
+      - OIDC_BEARER_TOKEN_REVALIDATION_TIME=300
       - META_FIELDS=camac-instance-id,ebau-number,submit-date
       - ENABLE_HISTORICAL_API=true
     volumes:
@@ -64,20 +68,36 @@ services:
       - djangotmpmedia:/tmp/camac/tmpfiles
 
   ember:
+    image: acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG}
     build:
-      context: ember
+      target: build
+      context: ../ember
       cache_from:
         - acr.run/camac-ng/camac-ng/ember:master
+      args:
+        DEPLOY_TARGET: staging
+    depends_on:
+      - django
+    environment:
+      - ENV=docker
 
   ember-caluma-portal:
+    image: acr.run/camac-ng/camac-ng/ember-caluma-portal:${CI_COMMIT_REF_SLUG}
     build:
-      context: ember-caluma-portal
+      target: build
+      context: ../ember-caluma-portal
       cache_from:
         - acr.run/camac-ng/camac-ng/ember-caluma-portal:master
+    depends_on:
+      - keycloak
+      - django
+    environment:
+      - ENV=docker
 
   php:
+    image: acr.run/camac-ng/camac-ng/php:${CI_COMMIT_REF_SLUG}
     build:
-      context: php
+      context: ../php
       cache_from:
         - acr.run/camac-ng/camac-ng/php:master
     depends_on:
@@ -113,18 +133,30 @@ services:
     environment:
       - POSTGRES_PORT_5432_TCP_ADDR=db
       - POSTGRES_USER=camac
+      - POSTGRES_PASSWORD=camac
+      - KEYCLOAK_PASSWORD=camac
       - POSTGRES_DATABASE=${APPLICATION}
       - KEYCLOAK_USER=admin
+    volumes:
+      - ../keycloak:/etc/keycloak:ro
+    command:
+      [
+        "-Dkeycloak.migration.action=import",
+        "-Dkeycloak.migration.provider=singleFile",
+        "-Dkeycloak.migration.file=/etc/keycloak/test-config.json",
+        "-b",
+        "0.0.0.0",
+      ]
 
   document-merge-service:
-    image: adfinissygroup/document-merge-service:v4.0.1
+    image: adfinissygroup/document-merge-service:v2.0.0
     depends_on:
       - db
       - unoconv
     volumes:
-      - ./document-merge-service/uwsgi.ini:/app/uwsgi.ini:ro
-      - ./document-merge-service/templatefiles:/var/lib/document-merge-service/media
-      - ./document-merge-service/dump.json:/tmp/document-merge-service/dump.json
+      - ../document-merge-service/uwsgi.ini:/app/uwsgi.ini:ro
+      - ../document-merge-service/templatefiles:/var/lib/document-merge-service/media
+      - ../document-merge-service/dump.json:/tmp/document-merge-service/dump.json
     environment:
       - DATABASE_ENGINE=django.db.backends.postgresql
       - DATABASE_HOST=db
