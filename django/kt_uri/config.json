@@ -49333,32 +49333,32 @@
   },
   {
     "fields": {
-      "address": "",
-      "city": "",
+      "address": null,
+      "city": null,
       "disabled": 0,
-      "email": "",
-      "name": "ARE - Abteilung Natur- und Heimatschutz - Fachstelle Arch\u00e4ologie",
-      "phone": "",
+      "email": null,
+      "name": "ARE - Abteilung Denkmalpflege und Arch\u00e4ologie - Fachstelle Arch\u00e4ologie",
+      "phone": null,
       "role": 4,
       "service": 91,
-      "website": "",
-      "zip": ""
+      "website": null,
+      "zip": null
     },
     "model": "user.group",
     "pk": 165
   },
   {
     "fields": {
-      "address": "",
-      "city": "",
+      "address": null,
+      "city": null,
       "disabled": 0,
-      "email": "",
-      "name": "ARE - Abteilung Natur- und Heimatschutz - Fachstelle Natur- und -Landschaftsschutz",
-      "phone": "",
+      "email": null,
+      "name": "ARE - Abteilung Natur und Landschaft",
+      "phone": null,
       "role": 4,
       "service": 98,
-      "website": "",
-      "zip": ""
+      "website": null,
+      "zip": null
     },
     "model": "user.group",
     "pk": 166
@@ -49381,16 +49381,16 @@
   },
   {
     "fields": {
-      "address": "",
-      "city": "",
+      "address": null,
+      "city": null,
       "disabled": 0,
-      "email": "",
-      "name": "ARE - Abteilung Natur- und Heimatschutz - Wanderweg- und Bikefachstelle",
-      "phone": "",
+      "email": null,
+      "name": "ARE - Wanderweg- und Bikefachstelle",
+      "phone": null,
       "role": 4,
       "service": 100,
-      "website": "",
-      "zip": ""
+      "website": null,
+      "zip": null
     },
     "model": "user.group",
     "pk": 168
@@ -50149,16 +50149,16 @@
   },
   {
     "fields": {
-      "address": "",
-      "city": "",
+      "address": null,
+      "city": null,
       "disabled": 0,
-      "email": "",
-      "name": "ARE - Abteilung Natur- und Heimatschutz - Fachstelle Heimatschutz und Denkmalpflege",
-      "phone": "",
+      "email": null,
+      "name": "ARE - Abteilung Denkmalpflege und Arch\u00e4ologie - Fachstelle Denkmalpflege",
+      "phone": null,
       "role": 4,
       "service": 241,
-      "website": "",
-      "zip": ""
+      "website": null,
+      "zip": null
     },
     "model": "user.group",
     "pk": 342
@@ -54607,19 +54607,19 @@
   },
   {
     "fields": {
-      "address": "",
-      "city": "",
-      "description": "Amt f\u00fcr Raumentwicklung Abteilung Natur- und Heimatschutz Fachbereich Arch\u00e4ologie",
+      "address": null,
+      "city": null,
+      "description": "ARE - Abteilung Denkmalpflege und Arch\u00e4ologie - Fachstelle Arch\u00e4ologie",
       "disabled": 0,
       "email": "artur.bucher@ur.ch",
-      "name": "ARE NHS A",
+      "name": "ARE Arch\u00e4ologie",
       "notification": 1,
-      "phone": "",
+      "phone": null,
       "service_group": 61,
       "service_parent": null,
       "sort": 54,
-      "website": "",
-      "zip": ""
+      "website": null,
+      "zip": null
     },
     "model": "user.service",
     "pk": 91
@@ -54740,19 +54740,19 @@
   },
   {
     "fields": {
-      "address": "",
-      "city": "",
-      "description": "Amt f\u00fcr Raumentwicklung Abteilung Natur- und Heimatschutz",
+      "address": null,
+      "city": null,
+      "description": "ARE - Abteilung Natur und Landschaft",
       "disabled": 0,
       "email": "georges.eich@ur.ch",
-      "name": "ARE NHS L",
+      "name": "ARE Natur und Landschaft",
       "notification": 1,
-      "phone": "",
+      "phone": null,
       "service_group": 61,
       "service_parent": null,
       "sort": 56,
-      "website": "",
-      "zip": ""
+      "website": null,
+      "zip": null
     },
     "model": "user.service",
     "pk": 98
@@ -55065,10 +55065,10 @@
     "fields": {
       "address": null,
       "city": null,
-      "description": "Amt f\u00fcr Raumentwicklung Heimatschutz und Denkmalpflege",
+      "description": "ARE - Abteilung Denkmalpflege und Arch\u00e4ologie - Fachstelle Denkmalpflege",
       "disabled": 0,
       "email": "thomas.brunner@ur.ch",
-      "name": "ARE NHS D",
+      "name": "ARE Denkmalpflege",
       "notification": 1,
       "phone": null,
       "service_group": 61,
