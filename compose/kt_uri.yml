@@ -1,0 +1,92 @@
+version: "3.4"
+services:
+  cache:
+    image: memcached:1.5-alpine
+
+  proxy:
+    image: nginx:1.13-alpine
+    depends_on:
+      - php
+      - django
+      - mailhog
+    volumes:
+      - djangomedia:/var/lib/camac/media:ro
+      - djangotmpmedia:/tmp/camac/tmpfiles:ro
+
+  db:
+    build:
+      context: ../db
+      cache_from:
+        - acr.run/camac-ng/camac-ng/db:master
+    environment:
+      - POSTGRES_USER=camac
+      - POSTGRES_DATABASE=${APPLICATION}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  django:
+    build:
+      context: ../django
+      cache_from:
+        - acr.run/camac-ng/camac-ng/django:master
+    depends_on:
+      - db
+      - cache
+      - clamav
+      - mailhog
+    environment:
+      - DATABASE_HOST=db
+      - DATABASE_NAME=${APPLICATION}
+      - DJANGO_CACHE_LOCATION=cache:11211
+      - DJANGO_MEDIA_ROOT=/var/lib/camac/media
+      - DJANGO_UNOCONV_URL=http://unoconv:3000
+      - DJANGO_CLAMD_TCP_ADDR=clamav
+      - APPLICATION=${APPLICATION}
+      - CACHE_BACKEND=django.core.cache.backends.memcached.MemcachedCache
+      - CACHE_LOCATION=cache:11211
+      - VISIBILITY_CLASSES=camac.caluma.extensions.visibilities.CustomVisibility
+      - PERMISSION_CLASSES=camac.caluma.extensions.permissions.CustomPermission
+      - VALIDATION_CLASSES=camac.caluma.extensions.validations.CustomValidation
+      - DATA_SOURCE_CLASSES=camac.caluma.extensions.data_sources.Municipalities,camac.caluma.extensions.data_sources.Services
+      - LANGUAGE_CODE=de
+      - LANGUAGES=de,fr
+      - OIDC_BEARER_TOKEN_REVALIDATION_TIME=300
+      - META_FIELDS=camac-instance-id,ebau-number,submit-date
+      - ENABLE_HISTORICAL_API=true
+    volumes:
+      - djangomedia:/var/lib/camac/media
+      - djangotmpmedia:/tmp/camac/tmpfiles
+
+  php:
+    build:
+      context: ../php
+      cache_from:
+        - acr.run/camac-ng/camac-ng/php:master
+    depends_on:
+      - db
+      - django
+      - cache
+      - mailhog
+    environment:
+      - APPLICATION=${APPLICATION}
+    volumes:
+      - djangomedia:/var/www/camac/media
+      - phpsessions:/var/www/camac/sessions
+      - /var/www/camac/vendor
+      - /var/www/camac/public/public-kt_bern/css
+      - /var/www/camac/public/public-kt_bern/js
+      - /var/www/camac/public/node_modules
+      - /var/www/camac/public/bower_components
+
+  mailhog:
+    image: mailhog/mailhog
+
+  clamav:
+    image: dinkel/clamavd
+
+volumes:
+  pgdata:
+  djangomedia:
+  djangotmpmedia:
+  phpsessions:
+  templatefiles:
