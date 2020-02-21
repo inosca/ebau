@@ -57,10 +57,16 @@ dumpconfig: ## Dump the current camac and caluma configuration
 dumpdata: ## Dump the current camac and caluma data
 	docker-compose exec django /app/manage.py dumpcamacdata
 
-.PHONY: loadconfig
-loadconfig: ## Load the camac and caluma configuration and test data
+.PHONY: loadconfig-camac
+loadconfig-camac: ## Load the camac configuration
 	@docker-compose exec django ./wait-for-it.sh -t 300 0.0.0.0:80 -- python manage.py loadconfig --user $(GIT_USER)
+
+.PHONY: loadconfig-dms
+loadconfig-dms: ## Load the DMS configuration
 	@docker-compose exec document-merge-service python manage.py loaddata /tmp/document-merge-service/dump.json
+
+.PHONY: loadconfig
+loadconfig: loadconfig-camac loadconfig-dms ## Load the DMS and camac configuration
 
 .PHONY: dbshell
 dbshell: ## Start a psql shell
