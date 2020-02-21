@@ -4,6 +4,7 @@ import re
 from datetime import timedelta
 
 import environ
+from caluma.settings.caluma import *  # noqa
 
 from camac.utils import build_url
 
@@ -640,66 +641,6 @@ PUBLICATION_API_URL = build_url(
 )
 PUBLICATION_API_USER = env.str("PUBLICATION_API_USER", "")
 PUBLICATION_API_PASSWORD = env.str("PUBLICATION_API_PASSWORD", "")
-
-# Caluma settings
-
-VISIBILITY_CLASSES = env.list(
-    "VISIBILITY_CLASSES", default=["caluma.caluma_core.visibilities.Any"]
-)
-
-PERMISSION_CLASSES = env.list(
-    "PERMISSION_CLASSES", default=["caluma.caluma_core.permissions.AllowAny"]
-)
-
-VALIDATION_CLASSES = env.list("VALIDATION_CLASSES", default=[])
-
-DATA_SOURCE_CLASSES = env.list("DATA_SOURCE_CLASSES", default=[])
-
-FORMAT_VALIDATOR_CLASSES = env.list("FORMAT_VALIDATOR_CLASSES", default=[])
-
-SIMPLE_HISTORY_HISTORY_ID_USE_UUID = True
-
-MEDIA_STORAGE_SERVICE = env.str("MEDIA_STORAGE_SERVICE", default="minio")
-MINIO_STORAGE_ENDPOINT = env.str("MINIO_STORAGE_ENDPOINT", default="minio:9000")
-MINIO_STORAGE_ACCESS_KEY = env.str("MINIO_STORAGE_ACCESS_KEY", default="minio")
-MINIO_STORAGE_SECRET_KEY = env.str("MINIO_STORAGE_SECRET_KEY", default="minio123")
-MINIO_STORAGE_USE_HTTPS = env.str("MINIO_STORAGE_USE_HTTPS", default=False)
-MINIO_STORAGE_MEDIA_BUCKET_NAME = env.str(
-    "MINIO_STORAGE_MEDIA_BUCKET_NAME", default="caluma-media"
-)
-MINIO_STORAGE_AUTO_CREATE_MEDIA_BUCKET = env.str(
-    "MINIO_STORAGE_AUTO_CREATE_MEDIA_BUCKET", default=True
-)
-MINIO_PRESIGNED_TTL_MINUTES = env.str("MINIO_PRESIGNED_TTL_MINUTES", default=15)
-
-# GraphQL
-
-GRAPHENE = {"SCHEMA": "caluma.schema.schema", "MIDDLEWARE": []}
-
-if DEBUG:
-    GRAPHENE["MIDDLEWARE"].append("graphene_django.debug.DjangoDebugMiddleware")
-
-# Configure the fields you intend to use in the "meta" fields. This will
-# provide corresponding constants in the ordreBy filter.
-META_FIELDS = env.list("META_FIELDS", default=[])
-
-# Cors headers
-CORS_ORIGIN_ALLOW_ALL = env.bool("CORS_ORIGIN_ALLOW_ALL", default=False)
-CORS_ORIGIN_WHITELIST = env.list("CORS_ORIGIN_WHITELIST", default=[])
-
-
-# Historical API
-ENABLE_HISTORICAL_API = env.bool("ENABLE_HISTORICAL_API", default=False)
-
-# OpenID connect
-
-OIDC_USERINFO_ENDPOINT = env.str("OIDC_USERINFO_ENDPOINT", default=None)
-OIDC_VERIFY_SSL = env.bool("OIDC_VERIFY_SSL", default=True)
-OIDC_GROUPS_CLAIM = env.str("OIDC_GROUPS_CLAIM", default="caluma_groups")
-OIDC_USERNAME_CLAIM = env.str("OIDC_USERNAME_CLAIM", default="sub")
-OIDC_BEARER_TOKEN_REVALIDATION_TIME = env.int(
-    "OIDC_BEARER_TOKEN_REVALIDATION_TIME", default=0
-)
 
 if ENABLE_SILK:  # pragma: no cover
     INSTALLED_APPS.append("silk")

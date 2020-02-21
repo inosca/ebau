@@ -241,9 +241,9 @@ def document_with_all_rows(empty_document, row_form, nfd_table_question):
     doc = empty_document
     table_answer = doc.answers.create(question=nfd_table_question)
     # row 1
-    row_1 = caluma_form_factories.DocumentFactory(form=row_form, family=doc.pk)
-    row_2 = caluma_form_factories.DocumentFactory(form=row_form, family=doc.pk)
-    row_3 = caluma_form_factories.DocumentFactory(form=row_form, family=doc.pk)
+    row_1 = caluma_form_factories.DocumentFactory(form=row_form, family=doc)
+    row_2 = caluma_form_factories.DocumentFactory(form=row_form, family=doc)
+    row_3 = caluma_form_factories.DocumentFactory(form=row_form, family=doc)
     table_answer.documents.add(row_1)
     table_answer.documents.add(row_2)
     table_answer.documents.add(row_3)
@@ -264,7 +264,7 @@ def document_with_all_rows(empty_document, row_form, nfd_table_question):
 def document_with_row_and_erledigt(empty_document, row_form, nfd_table_question):
     doc = empty_document
     table_answer = doc.answers.create(question=nfd_table_question)
-    row_1 = caluma_form_factories.DocumentFactory(form=row_form, family=doc.pk)
+    row_1 = caluma_form_factories.DocumentFactory(form=row_form, family=doc)
     table_answer.documents.add(row_1)
     row_1.answers.create(
         question_id="nfd-tabelle-status", value="nfd-tabelle-status-erledigt"
