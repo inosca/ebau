@@ -125,7 +125,7 @@ services:
       - KEYCLOAK_USER=admin
 
   document-merge-service:
-    image: adfinissygroup/document-merge-service:v2.0.0
+    image: adfinissygroup/document-merge-service:v3.0.0
     depends_on:
       - db
       - unoconv
