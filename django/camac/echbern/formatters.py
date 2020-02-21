@@ -112,7 +112,7 @@ def get_documents(attachments):
     documents = [
         ns_document.documentType(
             uuid=str(attachment.uuid),
-            titles=pyxb.BIND(title=[attachment.name]),
+            titles=pyxb.BIND(title=[attachment.display_name]),
             status="signed",  # ech0039 documentStatusType
             documentKind=get_document_sections(attachment),
             keywords=get_keywords(attachment),
