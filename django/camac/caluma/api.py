@@ -84,7 +84,7 @@ class CalumaApi:
                 **{"form_id": "nfd", "meta__camac-instance-id": instance.pk}
             )
             answers = caluma_form_models.Answer.objects.filter(
-                question_id="nfd-tabelle-status", document__family=nfd_document.pk
+                question_id="nfd-tabelle-status", document__family=nfd_document
             )
         except caluma_form_models.Document.DoesNotExist:
             return permissions
