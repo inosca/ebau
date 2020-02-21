@@ -126,8 +126,9 @@ build-kt_uri-stage:
   extends: .build-image
   variables:
     APPLICATION: kt_uri
-    COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.production.yml -f docker-compose.uri-stage.yml
-    CONTAINERS: ember django php db iweb_mock
+    # TODO: Can be removed once all customer compose files have been refactored
+    CONTAINERS: django php db iweb_mock
+    COMPOSE: docker-compose -f compose/kt_uri.yml -f compose/kt_uri-stage.yml
   only:
     - stage-ur
 
@@ -135,7 +136,9 @@ build-kt_uri-production:
   extends: .build-image
   variables:
     APPLICATION: kt_uri
-    COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.production.yml
+    # TODO: Can be removed once all customer compose files have been refactored
+    CONTAINERS: django php db
+    COMPOSE: docker-compose -f compose/kt_uri.yml -f compose/kt_uri-prod.yml
   only:
     - production-ur
 
@@ -192,12 +195,13 @@ build-kt_bern-production:
     DOCKER_TLS_VERIFY: 1
     # because of https://github.com/docker/compose/issues/2668 tls certs
     # need to be assigned as parameters - once fixed such params can be removed.
-    COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.production.yml --tlsverify --tlscert /root/.docker/cert.pem --tlskey /root/.docker/key.pem --tlscacert /root/.docker/ca.pem
+    TLSOPTS: --tlsverify --tlscert /root/.docker/cert.pem --tlskey /root/.docker/key.pem --tlscacert /root/.docker/ca.pem
+    COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.production.yml
   stage: deploy
   script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
-    - eval $COMPOSE pull
-    - eval $COMPOSE up -d
+    - eval $COMPOSE $TLSOPTS pull
+    - eval $COMPOSE $TLSOPTS up -d
   when: manual
 
 deploy-kt_schwyz-stage:
@@ -230,9 +234,7 @@ deploy-kt_uri-stage:
   variables:
     APPLICATION: kt_uri
     DOCKER_HOST: vm-camac-webapp-stage-01.cust.adfinis-sygroup.ch:2376
-    COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.production.yml -f docker-compose.uri-stage.yml --tlsverify --tlscert /root/.docker/cert.pem --tlskey /root/.docker/key.pem --tlscacert /root/.docker/ca.pem
-  after_script:
-    - eval $COMPOSE stop keycloak
+    COMPOSE: docker-compose -f compose/kt_uri.yml -f compose/kt_uri-stage.yml
   only:
     - stage-ur
 
