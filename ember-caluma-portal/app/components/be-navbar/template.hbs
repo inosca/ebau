@@ -2,8 +2,15 @@
   <nav class="be-navbar" {{did-insert (perform this.fetchGroups)}}>
     <div class="uk-container uk-flex uk-flex-column">
       <div class="uk-width-1-1 uk-position-relative">
-        <LinkTo @route="index" class="be-logo">
+        <LinkTo @route="index" class="be-logo uk-link-reset">
           <img class="uk-height-1-1" src="/assets/images/logo-ebau-bern-1-{{this.language}}.svg" alt={{t "global.title"}}>
+
+          {{#if (not-eq this.environment "production")}}
+            <div class="uk-margin-small-top">
+              <span class="uk-text-small">{{t "global.versionPrefix"}}{{app-version hideSha=true}}</span>
+              <UkLabel @label={{this.environment}} class="uk-margin-small-left" />
+            </div>
+          {{/if}}
         </LinkTo>
 
         {{#if this.session.isInternal}}
@@ -55,7 +62,12 @@
             {{#each this.languages as |lang|}}
               <li class={{if (eq lang this.language) "uk-active"}}><a href="#" {{on "click" (fn this.setLanguage lang)}}>{{lang}}</a></li>
             {{/each}}
-            <li><a href="#" {{on "click" this.logout}}><UkIcon @icon="sign-out" /></a></li>
+            <li>
+              <a href="#" {{on "click" this.logout}} title={{t "nav.logout"}}>
+                <UkIcon @icon="sign-out" />
+                <span class="uk-hidden">{{t "nav.logout"}}</span>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
