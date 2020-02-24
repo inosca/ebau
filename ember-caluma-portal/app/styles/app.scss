@@ -1,24 +1,15 @@
-$global-primary-background: #f00;
-$modal-z-index: 1;
-$global-font-family: Arial, Helvetica, sans-serif;
-$global-font-size: 14px;
+@import "variables";
 
 @import "ember-uikit";
 @import "ember-caluma";
 @import "ember-power-select";
 
 @import "embedded";
-@import "gis";
+@import "be-gis";
 @import "be-navbar";
+@import "pikaday";
 
-// Make help-icons more eye-catchy as requested by the client.
-button.uk-icon[uk-icon="info"] {
-  background-color: transparent;
-
-  svg {
-    color: $global-primary-background;
-  }
-}
+@import "a11y";
 
 $badge-in-tab-ratio: 0.85;
 

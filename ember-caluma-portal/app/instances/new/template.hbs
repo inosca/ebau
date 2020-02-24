@@ -1,4 +1,6 @@
-<h3 class="uk-text-center">{{t "instances.new.kind"}}</h3>
+<h1 class="uk-text-center">{{t "instances.new.title"}}</h1>
+
+<p class="uk-text-center uk-text-large">{{t "instances.new.kind"}}</p>
 
 {{#let (can "create paper instance") as |isPaper|}}
   {{#if isPaper}}
@@ -11,10 +13,10 @@
 
   <div uk-grid class="uk-grid-small uk-child-width-1-1 uk-child-width-1-2@s uk-margin-bottom uk-margin-large-top">
     <div class="uk-text-center">
-      <h4 class="uk-flex-inline uk-flex-middle">
+      <p class="uk-flex-inline uk-text-large uk-flex-middle">
         {{t "instances.new.preClarification"}}
         <CfField::info @text={{t "instances.new.preClarificationInfo"}} />
-      </h4>
+      </p>
       <div>
         {{#each forms.lastSuccessful.value.column1 as |form|}}
           <UkButton
@@ -29,10 +31,10 @@
       </div>
     </div>
     <div class="uk-text-center">
-      <h4 class="uk-flex-inline uk-flex-middle">
+      <p class="uk-flex-inline uk-text-large uk-flex-middle">
         {{t "instances.new.application"}}
         <CfField::info @text={{t "instances.new.applicationInfo"}} />
-      </h4>
+      </p>
       <div>
         {{#each forms.lastSuccessful.value.column2 as |form|}}
           <UkButton

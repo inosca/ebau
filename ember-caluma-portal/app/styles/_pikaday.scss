@@ -1,0 +1,28 @@
+.pika-single {
+  font-family: $global-font-family;
+}
+
+.pika-label {
+  font-weight: $base-strong-font-weight;
+}
+
+.pika-row {
+  .pika-day {
+    color: $global-color;
+    background-color: $global-muted-background;
+  }
+
+  .is-today > .pika-day {
+    color: $global-primary-background;
+  }
+
+  .is-selected > .pika-day,
+  .pika-day:hover {
+    background-color: $global-primary-background;
+    color: #ffffff;
+  }
+
+  .is-selected > .pika-day {
+    box-shadow: inset 0 1px 3px darken($global-primary-background, 20%);
+  }
+}

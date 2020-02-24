@@ -97,6 +97,7 @@ freigabequittung:
 gis:
   title: "Carte"
   apply-button: "Reprendre les données"
+  attention: "Achtung"
   no-map:
     message: "La carte ne s'affiche pas correctement?"
     link: "Recharger"
@@ -131,6 +132,8 @@ instances:
   ebau: "Numéro eBau"
   type: "Type de demande"
   submitDate: "Date de soumission"
+  submitDateFrom: "Date de soumission de"
+  submitDateTo: "Date de soumission à"
   description: "Affectation visée par le projet de construction"
   municipality: "Commune"
   address: "Adresse"
@@ -248,12 +251,6 @@ claims:
   filter:
     pending: "Pendante"
     answered: "Répondu"
-
-pdf:
-  signatures: "Signatures"
-  personalities: "Données personnelles"
-  signature: "Signature"
-  signatureMetadata: "Lieu et date"
 
 notfound:
   title: "404"
