@@ -43,7 +43,7 @@ from . import document_merge_service, models, validators
 
 SUBMIT_DATE_CHAPTER = 100001
 SUBMIT_DATE_QUESTION_ID = 20036
-SUBMIT_DATE_FORMAT = "%Y-%m-%dT%H:%M:%S"
+SUBMIT_DATE_FORMAT = "%Y-%m-%dT%H:%M:%S%z"
 
 request_logger = getLogger("django.request")
 
