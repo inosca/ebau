@@ -50004,7 +50004,7 @@
       "hidden": 0,
       "name": null,
       "resource": 20007,
-      "sort": 7,
+      "sort": 8,
       "template": "/circulation/list-notice.phtml"
     },
     "model": "core.instanceresource",
@@ -50019,7 +50019,7 @@
       "hidden": 0,
       "name": null,
       "resource": 20007,
-      "sort": 4,
+      "sort": 5,
       "template": "/circulation/edit-circulation.phtml"
     },
     "model": "core.instanceresource",
@@ -50034,7 +50034,7 @@
       "hidden": 0,
       "name": null,
       "resource": 20007,
-      "sort": 5,
+      "sort": 6,
       "template": "/circulation/index.phtml"
     },
     "model": "core.instanceresource",
@@ -50184,7 +50184,7 @@
       "hidden": 0,
       "name": null,
       "resource": 20007,
-      "sort": 6,
+      "sort": 7,
       "template": "/circulation/index.phtml"
     },
     "model": "core.instanceresource",
@@ -50429,6 +50429,21 @@
     },
     "model": "core.instanceresource",
     "pk": 40008
+  },
+  {
+    "fields": {
+      "available_instance_resource": "formparent",
+      "class_field": "menu-category-process",
+      "description": null,
+      "form_group": 20001,
+      "hidden": 0,
+      "name": null,
+      "resource": 20007,
+      "sort": 4,
+      "template": "/form/read-pages.phtml"
+    },
+    "model": "core.instanceresource",
+    "pk": 120000
   },
   {
     "fields": {
@@ -54073,6 +54088,26 @@
   {
     "fields": {
       "description": null,
+      "instance_resource": 120000,
+      "language": "de",
+      "name": "Dossierpr\u00fcfung"
+    },
+    "model": "core.instanceresourcet",
+    "pk": 120083
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_resource": 120000,
+      "language": "fr",
+      "name": "Examen du dossier"
+    },
+    "model": "core.instanceresourcet",
+    "pk": 120084
+  },
+  {
+    "fields": {
+      "description": null,
       "instance_resource": 150000,
       "language": "de",
       "name": "Nachforderungen"
@@ -54496,6 +54531,14 @@
     },
     "model": "core.irformpages",
     "pk": 20028
+  },
+  {
+    "fields": {
+      "page_form_group": 40003,
+      "pdf_class": null
+    },
+    "model": "core.irformpages",
+    "pk": 120000
   },
   {
     "fields": {
@@ -57652,6 +57695,78 @@
     },
     "model": "core.irroleacl",
     "pk": 120026
+  },
+  {
+    "fields": {
+      "instance_resource": 120000,
+      "instance_state": 20004,
+      "role": 4
+    },
+    "model": "core.irroleacl",
+    "pk": 120028
+  },
+  {
+    "fields": {
+      "instance_resource": 120000,
+      "instance_state": 20005,
+      "role": 4
+    },
+    "model": "core.irroleacl",
+    "pk": 120029
+  },
+  {
+    "fields": {
+      "instance_resource": 120000,
+      "instance_state": 20004,
+      "role": 20002
+    },
+    "model": "core.irroleacl",
+    "pk": 120032
+  },
+  {
+    "fields": {
+      "instance_resource": 120000,
+      "instance_state": 20005,
+      "role": 20002
+    },
+    "model": "core.irroleacl",
+    "pk": 120033
+  },
+  {
+    "fields": {
+      "instance_resource": 120000,
+      "instance_state": 20004,
+      "role": 20001
+    },
+    "model": "core.irroleacl",
+    "pk": 120036
+  },
+  {
+    "fields": {
+      "instance_resource": 120000,
+      "instance_state": 20005,
+      "role": 20001
+    },
+    "model": "core.irroleacl",
+    "pk": 120037
+  },
+  {
+    "fields": {
+      "instance_resource": 120000,
+      "instance_state": 20004,
+      "role": 20000
+    },
+    "model": "core.irroleacl",
+    "pk": 120040
+  },
+  {
+    "fields": {
+      "instance_resource": 120000,
+      "instance_state": 20005,
+      "role": 20000
+    },
+    "model": "core.irroleacl",
+    "pk": 120041
   },
   {
     "fields": {
