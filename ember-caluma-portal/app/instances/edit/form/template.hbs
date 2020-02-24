@@ -1,32 +1,36 @@
-{{#if embedded}}
-  {{#cf-content
-    documentId=(decode-id document.id)
-    disabled=(cannot "write form of instance" instance form=document.form)
-    context=(hash
-      instance=instance
-      instanceId=instance.id
-    )
-  as |content|}}
+{{#if this.embedded}}
+  <CfContent
+    @documentId={{decode-id this.document.id}}
+    @disabled={{cannot "write form of instance" this.instance form=this.document.form}}
+    @useAsHeading={{true}}
+    @headingBaseLevel={{2}}
+    @context={{hash
+      instance=this.instance
+      instanceId=this.instance.id
+    }}
+  as |content|>
     {{#if (gt content.document.fieldsets.length 1)}}
       <div uk-grid>
-        <div class="uk-width-1-1 uk-width-1-3@s">{{content.navigation}}</div>
+        <div class="uk-width-1-1 uk-width-1-3@s"><content.navigation /></div>
         <div class="uk-width-1-1 uk-width-2-3@s">
-          {{content.form}}
+          <content.form />
           <hr>
-          {{content.pagination}}
+          <content.pagination />
         </div>
       </div>
     {{else}}
-      <div class="embedded-content">{{content.form}}</div>
+      <div class="embedded-content"><content.form /></div>
     {{/if}}
-  {{/cf-content}}
+  </CfContent>
 {{else}}
-  {{cf-content
-    documentId=(decode-id document.id)
-    disabled=(cannot "write form of instance" instance form=document.form)
-    context=(hash
-      instance=instance
-      instanceId=instance.id
-    )
-  }}
+  <CfContent
+    @documentId={{decode-id this.document.id}}
+    @disabled={{cannot "write form of instance" this.instance form=this.document.form}}
+    @useAsHeading={{true}}
+    @headingBaseLevel={{2}}
+    @context={{hash
+      instance=this.instance
+      instanceId=this.instance.id
+    }}
+  />
 {{/if}}
