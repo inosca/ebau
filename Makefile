@@ -166,13 +166,17 @@ clean: ## Remove temporary files / build artefacts etc
 .PHONY: release
 release: ## Draft a new release
 	@if [ -z $(version) ]; then echo "Please pass a version: make release version=x.x.x"; exit 1; fi
+	@echo $(version) > VERSION.txt
+	@sed -i -e 's/"version": ".*",/"version": "$(version)",/g' ember-caluma-portal/package.json
+	@sed -i -e 's/appVersion = ".*"/appVersion = "$(version)"/g' php/kt_bern/configs/application.ini
+
+.PHONY: release-folder
+release-folder: ## Add a template for a release folder
+	@if [ -z $(version) ]; then echo "Please pass a version: make release-folder version=x.x.x"; exit 1; fi
 	@mkdir -p "releases/$(version)"
 	@echo "# Neu\n-\n# Korrekturen\n-" >> "releases/$(version)/CHANGELOG.md"
 	@echo "# Änderungen\n# Ansible (Rolle / Variablen)\n-\n# Keycloak\n-\n# DB\n-\n# Apache" >> "releases/$(version)/MANUAL.md"
 	@prettier --loglevel=silent --write "releases/$(version)/*.md"
-	@echo $(version) > VERSION.txt
-	@sed -i -e 's/"version": ".*",/"version": "$(version)",/g' ember-caluma-portal/package.json
-	@sed -i -e 's/appVersion = ".*"/appVersion = "$(version)"/g' php/kt_bern/configs/application.ini
 
 clear-silk:
 	@docker-compose exec django python manage.py silk_clear_request_log
