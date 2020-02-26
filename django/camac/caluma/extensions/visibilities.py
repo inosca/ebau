@@ -1,6 +1,6 @@
 from caluma.caluma_core.visibilities import BaseVisibility, filter_queryset_for
-from caluma.caluma_form import models as form_models, schema as form_schema
-from django.db.models import F, OuterRef, Q, Subquery
+from caluma.caluma_form import schema as form_schema
+from django.db.models import F, Q
 
 from camac.caluma.api import CamacRequest
 from camac.constants.kt_bern import DASHBOARD_FORM_SLUG
@@ -33,18 +33,9 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
     def filter_queryset_for_document(self, node, queryset, info):
         instance_ids = self._all_visible_instances(info)
 
-        return queryset.annotate(
-            # This subquery selects the meta property "camac-instance-id" which
-            # holds the ID of the camac instance. This will be used to make
-            # sure the CAMAC ACLs allow visibility of this document
-            instance_id=Subquery(
-                form_models.Document.objects.filter(pk=OuterRef("family")).values(
-                    "meta__camac-instance-id"
-                )[:1]
-            )
-        ).filter(
+        return queryset.filter(
             # document is accessible through CAMAC ACLs
-            Q(instance_id__in=instance_ids)
+            Q(**{"family__meta__camac-instance-id__in": instance_ids})
             # OR dashboard documents
             | Q(form_id=DASHBOARD_FORM_SLUG)
             # OR unlinked table documents created by the requesting user
