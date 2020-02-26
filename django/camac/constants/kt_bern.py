@@ -101,6 +101,9 @@ DECISIONS_BEWILLIGT = "accepted"
 DECISIONS_ABGELEHNT = "denied"
 DECISIONS_ABGESCHRIEBEN = "writtenOff"
 
+# Attachment sections
+ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN = 2
+
 # eCH judgements
 # 1 = Positiv
 # 2 = Positiv mit Bedingungen
