@@ -17,7 +17,7 @@ from camac.utils import build_url
 request_logger = getLogger("django.request")
 
 
-def form_type(form_slug):
+def get_form_type_key(form_slug):
     configs = settings.APPLICATION.get("DOCUMENT_MERGE_SERVICE", {})
 
     for key, config in configs.items():
@@ -25,6 +25,12 @@ def form_type(form_slug):
             return key
 
     return form_slug
+
+
+def get_form_type_config(form_slug):
+    return settings.APPLICATION.get("DOCUMENT_MERGE_SERVICE", {}).get(
+        get_form_type_key(form_slug), {}
+    )
 
 
 class DMSHandler:
@@ -49,11 +55,7 @@ class DMSHandler:
             request_logger.error(message)
             raise exceptions.ValidationError(message)
 
-        template = (
-            settings.APPLICATION.get("DOCUMENT_MERGE_SERVICE", {})
-            .get(form_type(doc.form.slug), {})
-            .get("template")
-        )
+        template = get_form_type_config(doc.form.slug).get("template")
 
         if template is None:
             raise exceptions.ValidationError(
@@ -108,7 +110,7 @@ class DMSVisitor:
     @property
     def template_type(self):
         """Group similar forms as they use the same template."""
-        return form_type(self.root_document.form.slug)
+        return get_form_type_key(self.root_document.form.slug)
 
     @property
     def exclude_slugs(self):
@@ -117,11 +119,7 @@ class DMSVisitor:
         if not self.template_type:  # pragma: no cover
             return []
 
-        return (
-            settings.APPLICATION.get("DOCUMENT_MERGE_SERVICE", {})
-            .get(self.template_type, {})
-            .get("exclude_slugs", [])
-        )
+        return get_form_type_config(self.template_type).get("exclude_slugs", [])
 
     def visit(self, node):
         cls_name = type(node).__name__.lower()
