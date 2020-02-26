@@ -4,7 +4,6 @@ import re
 from datetime import timedelta
 
 import environ
-from caluma.settings.caluma import *  # noqa
 
 from camac.utils import build_url
 
@@ -14,6 +13,12 @@ ROOT_DIR = environ.Path(__file__) - 2
 ENV_FILE = env.str("DJANGO_ENV_FILE", default=ROOT_DIR(".env"))
 if os.path.exists(ENV_FILE):  # pragma: no cover
     environ.Env.read_env(ENV_FILE)
+
+# We need to import the caluma settings after we merge os.environ with our
+# local .env file otherwise caluma tries to get it's settings from it's own env
+# file (which doesn't exist)
+
+from caluma.settings.caluma import *  # noqa
 
 ENV = env.str("APPLICATION_ENV", default="production")
 APPLICATION_NAME = env.str("APPLICATION")
