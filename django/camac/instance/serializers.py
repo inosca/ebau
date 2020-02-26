@@ -1,4 +1,5 @@
 from logging import getLogger
+from uuid import uuid4
 
 from caluma.caluma_form import (
     models as caluma_form_models,
@@ -6,6 +7,7 @@ from caluma.caluma_form import (
 )
 from django.conf import settings
 from django.contrib.auth import get_user_model
+from django.core.files.base import ContentFile
 from django.db import transaction
 from django.db.models import Max
 from django.utils import timezone
@@ -193,8 +195,9 @@ class CalumaInstanceSerializer(InstanceSerializer):
         default=NewInstanceStateDefault(),
     )
 
-    caluma_form = serializers.CharField(required=True, write_only=True)
+    caluma_form = serializers.CharField(required=False, write_only=True)
     is_paper = serializers.SerializerMethodField()
+    copy_source = serializers.CharField(required=False, write_only=True)
 
     public_status = serializers.SerializerMethodField()
 
@@ -412,7 +415,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
     def validate(self, data):
         form_slug = data.get("caluma_form")
 
-        if not CalumaApi().is_main_form(form_slug):  # pragma: no cover
+        if form_slug and not CalumaApi().is_main_form(form_slug):  # pragma: no cover
             raise exceptions.ValidationError(
                 _("Passed caluma form is not a main form: %(form)s")
                 % {"form": form_slug}
@@ -421,8 +424,39 @@ class CalumaInstanceSerializer(InstanceSerializer):
         return data
 
     def create(self, validated_data):
-        form = validated_data.pop("caluma_form")
+        caluma_api = CalumaApi()
+
+        if "copy_source" in validated_data:
+            source_pk = validated_data.pop("copy_source")
+            source_instance = models.Instance.objects.get(pk=source_pk)
+            caluma_form = caluma_api.get_form_slug(source_instance)
+            validated_data["form"] = source_instance.form
+
+        else:
+            source_pk = None
+            caluma_form = validated_data.pop("caluma_form")
+
         instance = super().create(validated_data)
+
+        if source_pk:
+            # copy original attachments
+            for attachment in source_instance.attachments.all():
+                # store sections first
+                sections = attachment.attachment_sections.all()
+
+                attachment.attachment_id = None
+                attachment.instance = instance
+
+                # copy the file
+                new_file = ContentFile(attachment.path.file.read())
+                new_file.name = attachment.path.name
+                attachment.path = new_file
+
+                attachment.uuid = uuid4()
+                attachment.save()
+
+                attachment.attachment_sections.set(sections)
+                attachment.save()
 
         group = self.context["request"].group
         is_paper = (
@@ -434,12 +468,25 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
         caluma_documents = {}
 
-        for form_slug in [form, "sb1", "sb2", "nfd"]:
-            document = CalumaApi().create_document(
-                form_slug, meta={"camac-instance-id": instance.pk}
-            )
+        for form_slug in [caluma_form, "sb1", "sb2", "nfd"]:
+            # copy the caluma document of provided instance
+            if source_pk and form_slug == caluma_form:
+                source_document_pk = caluma_api.get_document_by_form_slug(
+                    source_instance, form_slug
+                )
 
-            CalumaApi().update_or_create_answer(
+                document = caluma_api.copy_document(
+                    source_document_pk,
+                    exclude_slugs=["6-dokumente", "7-bestaetigen"],
+                    additional_meta={"camac-instance-id": instance.pk},
+                )
+
+            else:
+                document = caluma_api.create_document(
+                    form_slug, meta={"camac-instance-id": instance.pk}
+                )
+
+            caluma_api.update_or_create_answer(
                 document.pk,
                 "papierdossier",
                 "papierdossier-ja" if is_paper else "papierdossier-nein",
@@ -452,8 +499,8 @@ class CalumaInstanceSerializer(InstanceSerializer):
             instance.involved_applicants.all().delete()
 
             # prefill municipality question
-            CalumaApi().update_or_create_answer(
-                caluma_documents[form].pk, "gemeinde", str(group.service.pk)
+            caluma_api.update_or_create_answer(
+                caluma_documents[caluma_form].pk, "gemeinde", str(group.service.pk)
             )
 
             # create instance service for permissions
@@ -470,6 +517,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
         fields = InstanceSerializer.Meta.fields + (
             "caluma_form",
             "is_paper",
+            "copy_source",
             "public_status",
             "active_service",
             "responsible_service_users",
