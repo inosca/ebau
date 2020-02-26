@@ -158,7 +158,13 @@ services:
       - camac-ng.local
     environment:
       - ENV=dev
-    user: "${UID:?Set UID env variable to your user id}"
+    # There appears to be bug where libreoffice can only be started as the root
+    # user. The workaround of fixing owner and permissions of ~/.config did not
+    # work in our case.
+    #
+    # https://github.com/unoconv/unoconv/issues/241#issuecomment-549434601
+    # https://superuser.com/questions/564534/only-root-user-is-able-to-open-libreoffice
+    #user: "${UID:?Set UID env variable to your user id}"
     command:
       [
         "/bin/sh",
