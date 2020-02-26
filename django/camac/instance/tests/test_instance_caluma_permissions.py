@@ -216,6 +216,10 @@ def no_document():
 @pytest.fixture
 def root_doc(nfd_form):
     doc = caluma_form_factories.DocumentFactory(form=nfd_form)
+
+    doc.family = doc
+    doc.save()
+
     return doc
 
 
