@@ -93,6 +93,20 @@ class Attachment(models.Model):
 
     context = JSONField(default=dict)
 
+    @property
+    def display_name(self):
+        """
+        Get displayName from context; fall back to name without extension.
+
+        This is only used by eCH at the moment.
+
+        :return: str
+        """
+        display_name = self.context.get("displayName")
+        if not display_name:
+            display_name = ".".join(self.name.split(".")[:-1])
+        return display_name
+
     class Meta:
         managed = True
         db_table = "ATTACHMENT"

@@ -2,9 +2,14 @@ import inspect
 import logging
 
 import pytest
+from caluma.caluma_core.faker import MultilangProvider
+from caluma.caluma_form import factories as caluma_form_factories
+from django.conf import settings
+from django.core.management import call_command
 from factory import Faker
 from factory.base import FactoryMetaClass
 from pytest_factoryboy import register
+from pytest_factoryboy.fixture import get_model_name
 from rest_framework.test import APIClient, APIRequestFactory
 
 from camac.applicants import factories as applicant_factories
@@ -14,14 +19,20 @@ from camac.echbern import factories as ech_factories
 from camac.faker import FreezegunAwareDatetimeProvider
 from camac.instance import factories as instance_factories
 from camac.notification import factories as notification_factories
+from camac.objection import factories as objection_factories
 from camac.responsible import factories as responsible_factories
 from camac.user import factories as user_factories
 
 
-def register_module(module):
+def register_module(module, prefix=""):
     for name, obj in inspect.getmembers(module):
         if isinstance(obj, FactoryMetaClass) and not obj._meta.abstract:
-            register(obj)
+            if prefix:
+                # This prefixes only the model fixtures, not the factories
+                model_name = get_model_name(obj)
+                register(obj, _name=f"{prefix}_{model_name}")
+            else:
+                register(obj)
 
 
 factory_logger = logging.getLogger("factory")
@@ -38,8 +49,16 @@ register_module(notification_factories)
 register_module(applicant_factories)
 register_module(responsible_factories)
 register_module(ech_factories)
+register_module(objection_factories)
 
+# caluma factories
+register_module(caluma_form_factories, prefix="caluma")
 
+# TODO: Somehow the ordering of those two calls is relevant.
+# Need to figure out why exactly (FreezegunAwareDatetimeProvider's
+# methods aren't invoked if it's added first). This is some weird
+# bug that I couldn't track down yet.
+Faker.add_provider(MultilangProvider)
 Faker.add_provider(FreezegunAwareDatetimeProvider)
 
 
@@ -127,3 +146,36 @@ def ech_mandatory_answers_vollstaendige_vorabklaerung():
             }
         ],
     }
+
+
+@pytest.fixture
+def caluma_config_bern(db):
+    """
+    Load the caluma config for kt_bern.
+
+    Execution of this fixture takes some time. Only use if really necessary.
+    """
+    call_command("loaddata", settings.ROOT_DIR("kt_bern/config-caluma.json"))
+
+
+@pytest.fixture
+def support_role(role):
+    role.name = "support"
+    role.save()
+    return role
+
+
+@pytest.fixture
+def system_operation_group(support_role, group):
+    group.role = support_role
+    group.name = "System-Betrieb"
+    group.save()
+    return group
+
+
+@pytest.fixture
+def system_operation_user(system_operation_group, user, user_group_factory):
+    user_group_factory(group=system_operation_group, user=user, default_group=1)
+    user.username = "System-Betrieb"
+    user.save()
+    return user

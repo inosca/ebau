@@ -19,12 +19,12 @@ from camac.instance import serializers
 @pytest.mark.parametrize(
     "role__name,instance__user,num_queries,editable",
     [
-        ("Applicant", LazyFixture("admin_user"), 10, {"instance", "form", "document"}),
+        ("Applicant", LazyFixture("admin_user"), 11, {"instance", "form", "document"}),
         # reader should see instances from other users but has no editables
-        ("Reader", LazyFixture("user"), 10, set()),
-        ("Canton", LazyFixture("user"), 10, {"form", "document"}),
-        ("Municipality", LazyFixture("user"), 10, {"form", "document"}),
-        ("Service", LazyFixture("user"), 10, {"document"}),
+        ("Reader", LazyFixture("user"), 11, set()),
+        ("Canton", LazyFixture("user"), 11, {"form", "document"}),
+        ("Municipality", LazyFixture("user"), 11, {"form", "document"}),
+        ("Service", LazyFixture("user"), 11, {"document"}),
     ],
 )
 def test_instance_list(
@@ -295,7 +295,7 @@ def test_instance_submit(
 ):
 
     settings.APPLICATION["NOTIFICATIONS"]["SUBMIT"] = notification_template.pk
-    settings.APPLICATION["SUBMIT"]["WORKFLOW_ITEM"] = workflow_item.pk
+    settings.APPLICATION["WORKFLOW_ITEMS"]["SUBMIT"] = workflow_item.pk
 
     # only create group in a successful run
     if status_code == status.HTTP_200_OK:
@@ -406,8 +406,17 @@ def test_instance_export_list(
     ],
 )
 def test_instance_export_detail(
-    admin_client, form, instance, form_field_factory, status_code, to_type, attachment
+    application_settings,
+    admin_client,
+    form,
+    instance,
+    form_field_factory,
+    status_code,
+    to_type,
+    attachment,
 ):
+    application_settings["COORDINATE_QUESTION"] = "punkte"
+
     url = reverse("instance-export-detail", args=[instance.pk])
 
     add_field = functools.partial(form_field_factory, instance=instance)

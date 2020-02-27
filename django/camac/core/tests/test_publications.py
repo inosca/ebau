@@ -41,7 +41,7 @@ def test_publication_update(
     activation,
     status_code,
 ):
-    application_settings["PUBLICATION"]["WORKFLOW_ITEM"] = workflow_item.pk
+    application_settings["WORKFLOW_ITEMS"]["PUBLICATION"] = workflow_item.pk
 
     url = reverse("publication-detail", args=[publication_entry.pk])
     data = {
@@ -150,6 +150,7 @@ def test_publication_publish(
     add_field(name="bauherrschaft", value=persons)
     add_field(name="projektverfasser-planer", value=persons)
     add_field(name="grundeigentumerschaft", value=persons)
+    add_field(name="grundeigentumerschaft-override", value=persons)
     add_field(name="bezeichnung", value="Ein Auto")
     add_field(name="bezeichnung-override", value="Ein Haus")
     add_field(name="parzellen", value=[{"number": 6}])

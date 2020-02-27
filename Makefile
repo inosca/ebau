@@ -49,57 +49,24 @@ generate-api-doc: ## generates documentation for the i-web portal API
 clear-cache: ## Clear the memcache
 	@docker-compose exec php php -d xdebug.remote_enable=off /var/www/camac/cronjob/clear-cache.php
 
-.PHONY: dumpconfig-camac
-dumpconfig-camac:
+.PHONY: dumpconfig
+dumpconfig: ## Dump the current camac and caluma configuration
 	docker-compose exec django python manage.py dumpconfig
 
-.PHONY: dumpconfig-caluma
-dumpconfig-caluma:
-	docker-compose exec caluma python manage.py dumpdata \
-		form.form \
-		form.formquestion \
-		form.question \
-		form.questionoption \
-		form.option \
-		> caluma/fixtures/config.json && prettier --write caluma/fixtures/config.json
-
-.PHONY: dumpconfig
-dumpconfig: dumpconfig-caluma dumpconfig-camac
-
-.PHONY: dumpdata-camac
-dumpdata-camac: ## Dump the data tables
+.PHONY: dumpdata
+dumpdata: ## Dump the current camac and caluma data
 	docker-compose exec django /app/manage.py dumpcamacdata
 
-.PHONY: dumpdata-caluma
-dumpdata-caluma:
-	docker-compose exec caluma python manage.py dumpdata \
-		form.document \
-		form.answer \
-		form.answerdocument \
-		> caluma/fixtures/data.json && prettier --write caluma/fixtures/data.json
-
-
-.PHONY: dumpdata
-dumpdata: dumpdata-caluma dumpdata-camac
-
 .PHONY: loadconfig-camac
-loadconfig-camac:
-	@docker-compose exec django python manage.py loadconfig --user $(GIT_USER)
-
-.PHONY: loadconfig-caluma
-loadconfig-caluma:
-	@docker-compose exec caluma python manage.py loaddata caluma/fixtures/config.json
+loadconfig-camac: ## Load the camac configuration
+	@docker-compose exec django ./wait-for-it.sh -t 300 0.0.0.0:80 -- python manage.py loadconfig --user $(GIT_USER)
 
 .PHONY: loadconfig-dms
-loadconfig-dms:
+loadconfig-dms: ## Load the DMS configuration
 	@docker-compose exec document-merge-service python manage.py loaddata /tmp/document-merge-service/dump.json
 
-.PHONY: loaddata-caluma
-loaddata-caluma:
-	@docker-compose exec caluma python manage.py loaddata caluma/fixtures/data.json
-
 .PHONY: loadconfig
-loadconfig: loadconfig-caluma loadconfig-camac loadconfig-dms
+loadconfig: loadconfig-camac loadconfig-dms ## Load the DMS and camac configuration
 
 .PHONY: dbshell
 dbshell: ## Start a psql shell
@@ -133,24 +100,25 @@ grunt-build-sz: ## Grunt build
 grunt-watch-sz: ## Grunt watch
 	docker-compose exec php sh -c "cd ../camac/public && npm run build-sz && npm run watch-sz"
 
-.PHONY: prettier-format
-prettier-format:
-	docker-compose exec php sh -c "cd ../camac/public && npm run prettier-format"
+.PHONY: format
+format:
+	@yarn --cwd=php install
+	@yarn --cwd=php lint --fix
+	@yarn --cwd=php prettier-format
+	@yarn --cwd=ember-caluma-portal install
+	@yarn --cwd=ember-caluma-portal lint:js --fix
+	@yarn --cwd=ember install
+	@yarn --cwd=ember lint:js --fix
+	@black django
+	@prettier --write *.yml
 
 .PHONY: makemigrations
 makemigrations: ## Create schema migrations
 	docker-compose exec django /app/manage.py makemigrations
 
-.PHONY: flush-camac
-flush-camac:
-	@docker-compose exec django /app/manage.py flush --no-input
-
-.PHONY: flush-caluma
-flush-caluma:
-	@docker-compose exec caluma python manage.py flush --no-input
-
 .PHONY: flush
-flush: flush-caluma flush-camac
+flush:
+	@docker-compose exec django /app/manage.py flush --no-input
 
 # Directory for DB snapshots
 .PHONY: _db_snapshots_dir
@@ -204,9 +172,17 @@ clean: ## Remove temporary files / build artefacts etc
 .PHONY: release
 release: ## Draft a new release
 	@if [ -z $(version) ]; then echo "Please pass a version: make release version=x.x.x"; exit 1; fi
-	@mkdir -p "releases/$(version)"
-	@echo "# Neu\n-\n# Korrekturen\n-" >> "releases/$(version)/CHANGELOG.md"
-	@prettier --loglevel=silent --write "releases/$(version)/CHANGELOG.md"
 	@echo $(version) > VERSION.txt
 	@sed -i -e 's/"version": ".*",/"version": "$(version)",/g' ember-caluma-portal/package.json
 	@sed -i -e 's/appVersion = ".*"/appVersion = "$(version)"/g' php/kt_bern/configs/application.ini
+
+.PHONY: release-folder
+release-folder: ## Add a template for a release folder
+	@if [ -z $(version) ]; then echo "Please pass a version: make release-folder version=x.x.x"; exit 1; fi
+	@mkdir -p "releases/$(version)"
+	@echo "# Neu\n-\n# Korrekturen\n-" >> "releases/$(version)/CHANGELOG.md"
+	@echo "# Änderungen\n# Ansible (Rolle / Variablen)\n-\n# Keycloak\n-\n# DB\n-\n# Apache" >> "releases/$(version)/MANUAL.md"
+	@prettier --loglevel=silent --write "releases/$(version)/*.md"
+
+clear-silk:
+	@docker-compose exec django python manage.py silk_clear_request_log

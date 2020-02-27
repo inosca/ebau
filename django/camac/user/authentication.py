@@ -90,16 +90,9 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
         # always overwrite values of users
         defaults = {"language": language[:2], "email": data["email"]}
         username = data["sub"]
-        if "preferred_username" in data and data["preferred_username"].startswith(
-            "service-account-"
-        ):
-            defaults["name"] = data["preferred_username"]
-            defaults["surname"] = data["preferred_username"]
-            username = data["preferred_username"]
-        else:
-            defaults.update(
-                {"name": data["family_name"], "surname": data["given_name"]}
-            )
+        defaults["name"] = data.get("family_name", username)
+        defaults["surname"] = data.get("given_name", username)
+
         user, created = get_user_model().objects.update_or_create(
             username=username, defaults=defaults
         )

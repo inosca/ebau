@@ -29,15 +29,21 @@ class UserView(viewsets.ReadOnlyModelViewSet):
 
     def get_queryset_for_service(self):
         queryset = super().get_queryset()
-        return queryset.filter(groups__service=self.request.group.service)
+        return queryset.filter(
+            groups__service=self.request.group.service, disabled=False
+        )
 
     def get_queryset_for_canton(self):
         queryset = super().get_queryset()
-        return queryset.filter(groups__service=self.request.group.service)
+        return queryset.filter(
+            groups__service=self.request.group.service, disabled=False
+        )
 
     def get_queryset_for_municipality(self):
         queryset = super().get_queryset()
-        return queryset.filter(groups__service=self.request.group.service)
+        return queryset.filter(
+            groups__service=self.request.group.service, disabled=False
+        )
 
 
 class ServiceView(viewsets.ModelViewSet):
@@ -115,15 +121,16 @@ class RoleView(viewsets.ReadOnlyModelViewSet):
 
 
 class GroupView(viewsets.ReadOnlyModelViewSet):
-    group_required = False
     filterset_class = filters.GroupFilterSet
     serializer_class = serializers.GroupSerializer
     queryset = models.Group.objects.all()
 
     def get_queryset(self):
+        if getattr(self, "swagger_fake_view", False):  # pragma: no cover
+            return models.Group.objects.none()
         queryset = super().get_queryset()
         return queryset.filter(
-            pk__in=self.request.user.groups.values("pk"), disabled=False
+            service__in=self.request.user.groups.values("service"), disabled=False
         )
 
     @swagger_auto_schema(tags=["User"], operation_summary="Get group information")
@@ -135,3 +142,14 @@ class GroupView(viewsets.ReadOnlyModelViewSet):
     )
     def list(self, request, *args, **kwargs):
         return super().list(request, *args, **kwargs)
+
+
+class PublicGroupView(viewsets.ReadOnlyModelViewSet):
+    swagger_schema = None
+    group_required = False
+    filterset_class = filters.PublicGroupFilterSet
+    serializer_class = serializers.PublicGroupSerializer
+    queryset = models.Group.objects.all()
+
+    def get_queryset(self):
+        return self.request.user.groups.filter(disabled=False)

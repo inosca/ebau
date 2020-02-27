@@ -1,17 +1,17 @@
-import EmberRouter from "@ember/routing/router";
-import RouterScroll from "ember-router-scroll";
+import EmberRouterScroll from "ember-router-scroll";
+
 import config from "./config/environment";
 
-const Router = EmberRouter.extend(RouterScroll, {
-  location: config.locationType,
-  rootURL: config.rootURL
-});
+class Router extends EmberRouterScroll {
+  location = config.locationType;
+  rootURL = config.rootURL;
+}
 
 const resetNamespace = true;
 
+/* eslint-disable-next-line array-callback-return */
 Router.map(function() {
   this.route("login");
-  this.route("logout");
 
   this.route("protected", { path: "/" }, function() {
     this.route("index", { path: "/", resetNamespace });

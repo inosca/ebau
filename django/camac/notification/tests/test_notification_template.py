@@ -1,9 +1,18 @@
-import json
+import functools
+from datetime import date, datetime
+from time import mktime
 
 import pytest
+from caluma.caluma_form import models as caluma_form_models
 from django.urls import reverse
+from django.utils import timezone
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
+
+from camac.core.models import Journal
+from camac.notification.serializers import (
+    PermissionlessNotificationTemplateSendmailSerializer,
+)
 
 
 @pytest.mark.parametrize(
@@ -112,8 +121,19 @@ def test_notification_template_merge(
     status_code,
     activation,
     billing_entry,
-    settings,
+    application_settings,
+    form_field_factory,
 ):
+    application_settings["COORDINATE_QUESTION"] = "punkte"
+    application_settings["QUESTIONS_WITH_OVERRIDE"] = ["bezeichnung"]
+
+    add_field = functools.partial(form_field_factory, instance=instance)
+    add_field(
+        name="punkte", value=[{"lat": 47.02433179952733, "lng": 8.634144559228435}]
+    )
+    add_field(name="bezeichnung", value="abc")
+    add_field(name="bezeichnung-override", value="abc")
+
     url = reverse("notificationtemplate-merge", args=[notification_template.pk])
 
     response = admin_client.get(url, data={"instance": instance.pk})
@@ -228,6 +248,12 @@ def test_notification_template_sendmail(
             "Municipality",
             """
                 REGISTRATION_LINK: {{registration_link}}
+                DATE_DOSSIERVOLLSTANDIG: {{date_dossiervollstandig}}
+                DATE_DOSSIEREINGANG: {{date_dossiereingang}}
+                DATE_START_ZIRKULATION: {{date_start_zirkulation}}
+                BILLING_TOTAL_KOMMUNAL: {{billing_total_kommunal}}
+                BILLING_TOTAL_KANTON: {{billing_total_kanton}}
+                BILLING_TOTAL: {{billing_total}}
             """,
         )
     ],
@@ -240,7 +266,28 @@ def test_notification_placeholders(
     mailoutbox,
     activation,
     settings,
+    workflow_entry_factory,
+    billing_v2_entry_factory,
 ):
+    settings.APPLICATION["WORKFLOW_ITEMS"]["SUBMIT"] = workflow_entry_factory(
+        instance=instance, workflow_date=timezone.make_aware(datetime(2019, 7, 22, 10))
+    ).workflow_item.pk
+    settings.APPLICATION["WORKFLOW_ITEMS"][
+        "INSTANCE_COMPLETE"
+    ] = workflow_entry_factory(
+        instance=instance, workflow_date=timezone.make_aware(datetime(2019, 8, 23, 10))
+    ).workflow_item.pk
+    settings.APPLICATION["WORKFLOW_ITEMS"]["START_CIRC"] = workflow_entry_factory(
+        instance=instance, workflow_date=timezone.make_aware(datetime(2019, 9, 24, 10))
+    ).workflow_item.pk
+
+    kommunal_amount = billing_v2_entry_factory(
+        instance=instance, organization="municipal"
+    ).final_rate
+    kanton_amount = billing_v2_entry_factory(
+        instance=instance, organization="cantonal"
+    ).final_rate
+
     url = reverse("notificationtemplate-sendmail", args=[notification_template.pk])
 
     data = {
@@ -261,10 +308,20 @@ def test_notification_placeholders(
 
     mail = mailoutbox[0]
 
-    assert (
-        mail.body.replace(settings.EMAIL_PREFIX_BODY, "").strip()
-        == f"REGISTRATION_LINK: {settings.KEYCLOAK_URL}realms/ebau/login-actions/registration?client_id=camac"
-    )
+    assert [
+        placeholder.strip()
+        for placeholder in mail.body.replace(settings.EMAIL_PREFIX_BODY, "")
+        .strip()
+        .split("\n")
+    ] == [
+        f"REGISTRATION_LINK: {settings.REGISTRATION_URL}",
+        "DATE_DOSSIERVOLLSTANDIG: 23.08.2019",
+        "DATE_DOSSIEREINGANG: 22.07.2019",
+        "DATE_START_ZIRKULATION: 24.09.2019",
+        f"BILLING_TOTAL_KOMMUNAL: {kommunal_amount}",
+        f"BILLING_TOTAL_KANTON: {kanton_amount}",
+        f"BILLING_TOTAL: {round(kommunal_amount + kanton_amount, 2)}",
+    ]
 
 
 @pytest.mark.parametrize(
@@ -291,7 +348,8 @@ def test_notification_placeholders(
         )
     ],
 )
-@pytest.mark.parametrize("total_activations,done_activations", [(2, 2), (2, 1), (0, 0)])
+@pytest.mark.parametrize("total_activations,done_activations", [(2, 2), (2, 1)])
+@pytest.mark.parametrize("with_activation", [True, False])
 def test_notification_caluma_placeholders(
     admin_client,
     admin_user,
@@ -304,7 +362,8 @@ def test_notification_caluma_placeholders(
     requests_mock,
     use_caluma_form,
     total_activations,
-    circulation,
+    with_activation,
+    circulation_factory,
     done_activations,
     circulation_state_factory,
     mocker,
@@ -317,40 +376,34 @@ def test_notification_caluma_placeholders(
 
     assert not len(mailoutbox)
 
+    circulation = circulation_factory(
+        instance=instance, name=int(mktime(date(2020, 1, 2).timetuple()))
+    )
+
     activations = [
-        activation_factory(circulation=circulation, circulation_state=STATE_WORKING)
+        activation_factory(
+            circulation=circulation,
+            circulation_state=STATE_WORKING,
+            service_parent=circulation.service,
+        )
         for _ in range(total_activations)
     ]
     for i in range(done_activations):
         activations[i].circulation_state = STATE_DONE
         activations[i].save()
 
-    requests_mock.post(
-        "http://caluma:8000/graphql/",
-        text=json.dumps(
-            {
-                "data": {
-                    "allDocuments": {
-                        "edges": [
-                            {
-                                "node": {
-                                    "id": "RG9jdW1lbnQ6NjYxOGU5YmQtYjViZi00MTU2LWI0NWMtZTg0M2Y2MTFiZDI2",
-                                    "meta": {
-                                        "camac-instance-id": instance.pk,
-                                        "ebau-number": "2019-01",
-                                    },
-                                    "form": {
-                                        "slug": "baugesuch",
-                                        "name": "Baugesuch",
-                                        "meta": {"is-main-form": True},
-                                    },
-                                }
-                            }
-                        ]
-                    }
-                }
-            }
-        ),
+    # create "sub activation", which should not be counted
+    activation_factory(
+        circulation=circulation,
+        circulation_state=STATE_WORKING,
+        service_parent=activations[0].service,
+    )
+
+    form = caluma_form_models.Form.objects.create(
+        slug="baugesuch", name="Baugesuch", meta={"is-main-form": True}
+    )
+    caluma_form_models.Document.objects.create(
+        form=form, meta={"camac-instance-id": instance.pk, "ebau-number": "2019-01"}
     )
 
     data = {
@@ -363,30 +416,29 @@ def test_notification_caluma_placeholders(
         }
     }
 
+    if with_activation:
+        data["data"]["relationships"]["activation"] = {
+            "data": {"type": "activations", "id": activations[0].pk}
+        }
+
+        if done_activations == total_activations:
+            activation_statement_de = f"Alle {total_activations} Stellungnahmen der Zirkulation vom 02.01.2020 sind nun eingegangen."
+            activation_statement_fr = f"Tous les {total_activations} prises de position de la circulation du 02.01.2020 ont été reçues."
+        else:
+            pending_activations = total_activations - done_activations
+            activation_statement_de = f"{pending_activations} von {total_activations} Stellungnahmen der Zirkulation vom 02.01.2020 stehen noch aus."
+            activation_statement_fr = f"{pending_activations} de {total_activations} prises de position de la circulation du 02.01.2020 sont toujours en attente."
+
+    else:
+        activation_statement_de = ""
+        activation_statement_fr = ""
+        total_activations += 1
+
     response = admin_client.post(url, data=data)
 
     assert response.status_code == status.HTTP_204_NO_CONTENT
 
     assert len(mailoutbox) == 1
-
-    if total_activations == 0:
-        activation_statement_de = (
-            "Keine offenen Stellungnahmen oder keine aktive Zirkulation"
-        )
-        activation_statement_fr = (
-            "Aucun rapports officiels ouvert ou pas de circulation active"
-        )
-    elif done_activations == 1:
-        pending_activations = total_activations - done_activations
-        activation_statement_de = f"{pending_activations} von {total_activations} Stellungnahmen stehen noch aus"
-        activation_statement_fr = f"{pending_activations} des {total_activations} rapports officiels sont toujours en attente"
-    else:
-        activation_statement_de = (
-            f"Alle {total_activations} Stellungnahmen sind nun eingegangen"
-        )
-        activation_statement_fr = (
-            f"Tout les {total_activations} rapports officiels ont maintenant été reçus"
-        )
 
     service_name = admin_user.groups.first().service.get_name()
 
@@ -397,17 +449,54 @@ def test_notification_caluma_placeholders(
         .strip()
         .split("\n")
     ] == [
-        "BASE_URL: http://camac-ng.local",
-        "EBAU_NUMBER: 2019-01",
-        "FORM_NAME: Baugesuch",
-        f"INSTANCE_ID: {instance.pk}",
-        f"LEITBEHOERDE_NAME: {instance_service.service.get_name()}",
-        f"INTERNAL_DOSSIER_LINK: http://camac-ng.local/index/redirect-to-instance-resource/instance-id/{instance.pk}",
-        f"PUBLIC_DOSSIER_LINK: http://caluma-portal.local/instances/{instance.pk}",
-        f"COMPLETED_ACTIVATIONS: {done_activations}",
-        f"TOTAL_ACTIVATIONS: {total_activations}",
-        f"PENDING_ACTIVATIONS: {total_activations-done_activations}",
-        f"ACTIVATION_STATEMENT_DE: {activation_statement_de}",
-        f"ACTIVATION_STATEMENT_FR: {activation_statement_fr}",
-        f"CURRENT_SERVICE: {service_name}",
+        l.strip()
+        for l in [
+            "BASE_URL: http://camac-ng.local",
+            "EBAU_NUMBER: 2019-01",
+            "FORM_NAME: Baugesuch",
+            f"INSTANCE_ID: {instance.pk}",
+            f"LEITBEHOERDE_NAME: {instance_service.service.get_name()}",
+            f"INTERNAL_DOSSIER_LINK: http://camac-ng.local/index/redirect-to-instance-resource/instance-id/{instance.pk}",
+            f"PUBLIC_DOSSIER_LINK: http://caluma-portal.local/instances/{instance.pk}",
+            f"COMPLETED_ACTIVATIONS: {done_activations}",
+            f"TOTAL_ACTIVATIONS: {total_activations}",
+            f"PENDING_ACTIVATIONS: {total_activations-done_activations}",
+            f"ACTIVATION_STATEMENT_DE: {activation_statement_de}",
+            f"ACTIVATION_STATEMENT_FR: {activation_statement_fr}",
+            f"CURRENT_SERVICE: {service_name}",
+        ]
     ]
+
+
+def test_notification_template_merge_without_context(
+    db, instance, notification_template, mocker, system_operation_user
+):
+    """Test sendmail without request context.
+
+    When sending a notification through a batch job we can't provide a
+    request context to the serializer. The request context is required to
+    determine the user of the related journal entry which gets automatically
+    created.
+
+    In this case the journal entry should be sent in the name of the system
+    operation user.
+    """
+
+    data = {
+        "recipient_types": ["activation_deadline_today"],
+        "notification_template": {
+            "type": "notification-templates",
+            "id": notification_template.pk,
+        },
+        "instance": {"id": instance.pk, "type": "instances"},
+    }
+
+    sendmail_serializer = PermissionlessNotificationTemplateSendmailSerializer(
+        data=data
+    )
+    sendmail_serializer.is_valid(raise_exception=True)
+    sendmail_serializer.save()
+
+    entry = Journal.objects.latest("created")
+    assert entry.instance == instance
+    assert entry.user == system_operation_user

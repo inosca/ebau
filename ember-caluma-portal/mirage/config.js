@@ -1,5 +1,6 @@
-import config from "../config/environment";
 import graphqlHandler from "ember-caluma/mirage-graphql";
+
+import config from "../config/environment";
 
 export default function() {
   this.urlPrefix = "";
@@ -10,7 +11,7 @@ export default function() {
     return users.first();
   });
 
-  this.get("/api/v1/groups");
+  this.get("/api/v1/public-groups");
 
   this.get("/api/v1/attachments");
 

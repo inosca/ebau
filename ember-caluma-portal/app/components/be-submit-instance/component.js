@@ -1,19 +1,17 @@
+import { assert } from "@ember/debug";
+import { computed } from "@ember/object";
+import { next } from "@ember/runloop";
+import { inject as service } from "@ember/service";
+import { queryManager } from "ember-apollo-client";
 import InViewportComponent from "ember-caluma-portal/components/in-viewport/component";
 import { task } from "ember-concurrency";
-import { inject as service } from "@ember/service";
-import { computed } from "@ember/object";
 import { all } from "rsvp";
-import { next } from "@ember/runloop";
-import { assert } from "@ember/debug";
-import { queryManager } from "ember-apollo-client";
-import slugify from "slugify";
 
 export default InViewportComponent.extend({
   intl: service(),
   notification: service(),
   router: service(),
   fetch: service(),
-  documentExport: service(),
 
   apollo: queryManager(),
 
@@ -75,43 +73,6 @@ export default InViewportComponent.extend({
       if (!camacResponse.ok) {
         throw {
           errors: [new Error(this.intl.t("be-submit-instance.failed-camac"))]
-        };
-      }
-
-      // Try to save/archive a document export as attachment.
-      try {
-        // Generate the PDF and prepare a filename.
-        const blob = yield this.documentExport.merge(
-          instanceId,
-          this.field.document
-        );
-        const formName = this.field.document.rootForm.name;
-        const fileName = slugify(`${instanceId}-${formName}.pdf`.toLowerCase());
-
-        // Prepare the request data.
-        const formData = new FormData();
-        formData.append("instance", instanceId);
-        formData.append("attachment_sections", "1");
-        formData.append("path", blob, fileName);
-
-        // Send the export to the backend.
-        // The Content-Type must be `undefined` as we need multipart with
-        // the correct delimiter the browser sets automatically when missing.
-        const response = yield this.fetch.fetch("/api/v1/attachments", {
-          method: "post",
-          body: formData,
-          headers: { "content-type": undefined }
-        });
-
-        if (!response.ok) {
-          const {
-            errors: [{ detail: error }]
-          } = yield response.json();
-          throw new Error(error);
-        }
-      } catch (error) {
-        throw {
-          errors: [new Error(this.intl.t("be-submit-instance.failed-archive"))]
         };
       }
 

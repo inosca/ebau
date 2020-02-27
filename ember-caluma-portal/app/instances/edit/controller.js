@@ -1,16 +1,17 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
-import { computed } from "@ember/object";
-import { dropTask, lastValue } from "ember-concurrency-decorators";
-import { withParachute } from "ember-parachute/decorators";
 import { queryManager } from "ember-apollo-client";
+import { dropTask, lastValue } from "ember-concurrency-decorators";
+import QueryParams from "ember-parachute";
 
 const FEEDBACK_ATTACHMENT_SECTION = 3;
 
-@withParachute
-class InstancesEditController extends Controller {
+export default class InstancesEditController extends Controller.extend(
+  new QueryParams().Mixin
+) {
   @service fetch;
   @service can;
+  @service session;
 
   @queryManager apollo;
 
@@ -24,15 +25,6 @@ class InstancesEditController extends Controller {
     this.feedbackTask.cancelAll({ resetState: true });
 
     this.resetQueryParams();
-  }
-
-  @computed("instance.meta.permissions")
-  get additionalForms() {
-    return ["nfd", "sb1", "sb2"].filter(form =>
-      this.can.can("read form of instance", this.instance, {
-        form: { slug: form }
-      })
-    );
   }
 
   @lastValue("instanceTask") instance;
@@ -57,5 +49,3 @@ class InstancesEditController extends Controller {
     });
   }
 }
-
-export default InstancesEditController;

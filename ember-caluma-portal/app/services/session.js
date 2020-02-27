@@ -1,12 +1,16 @@
-import Session from "ember-simple-auth/services/session";
-import { inject as service } from "@ember/service";
 import { computed } from "@ember/object";
 import { alias, notEmpty } from "@ember/object/computed";
+import { inject as service } from "@ember/service";
 import { lastValue, restartableTask } from "ember-concurrency-decorators";
-import config from "../config/environment";
+import { handleUnauthorized } from "ember-simple-auth-oidc";
+import oidcConfig from "ember-simple-auth-oidc/config";
+import Session from "ember-simple-auth/services/session";
 import { getUserLocales } from "get-user-locale";
 
+import config from "../config/environment";
+
 const { languages, fallbackLanguage } = config;
+const { authHeaderName, authPrefix, tokenPropertyName } = oidcConfig;
 
 const validateLanguage = language => languages.find(lang => lang === language);
 
@@ -60,5 +64,23 @@ export default class CustomSession extends Session {
     this.moment.setLocale(value);
 
     return value;
+  }
+
+  @computed("data.authenticated", "group", "language")
+  get headers() {
+    if (!this.isAuthenticated) return {};
+
+    const token = this.get(`data.authenticated.${tokenPropertyName}`);
+    const tokenKey = authHeaderName.toLowerCase();
+
+    return {
+      ...(token ? { [tokenKey]: `${authPrefix} ${token}` } : {}),
+      ...(this.language ? { "accept-language": this.language } : {}),
+      ...(this.group ? { "x-camac-group": this.group } : {})
+    };
+  }
+
+  handleUnauthorized() {
+    if (this.isAuthenticated) handleUnauthorized(this);
   }
 }

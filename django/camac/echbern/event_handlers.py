@@ -52,6 +52,7 @@ from .models import Message
 from .signals import (
     accompanying_report_send,
     circulation_started,
+    file_subsequently,
     finished,
     instance_submitted,
     ruling,
@@ -78,13 +79,10 @@ class BaseEventHandler:
         self.message_date = timezone.now()
         self.message_id = uuid4()
 
-    def get_url(self, **kwargs):
-        return f"{settings.INTERNAL_BASE_URL}/page/index/instance-id/{self.instance.pk}/instance-resource-id/20074"
-
     def get_data(self):
         return get_document(self.instance.pk)
 
-    def get_xml(self, data, url, **kwargs):  # pragma: no cover
+    def get_xml(self, data, **kwargs):  # pragma: no cover
         raise NotImplementedError()
 
     def create_message(self, xml, receiver=None):
@@ -99,7 +97,7 @@ class BaseEventHandler:
 
     def run(self):
         data = self.get_data()
-        xml = self.get_xml(data, self.get_url())
+        xml = self.get_xml(data)
         return self.create_message(xml)
 
 
@@ -108,10 +106,7 @@ class SubmitEventHandler(BaseEventHandler):
     uri_instance_resource_id = 20014
     message_type = ECH_SUBMIT
 
-    def get_url(self):
-        return f"{settings.INTERNAL_BASE_URL}/form/edit-page/instance-resource-id/{self.uri_instance_resource_id}/instance-id/{self.instance.pk}"
-
-    def get_xml(self, data, url):
+    def get_xml(self, data):
         try:
             return delivery(
                 self.instance,
@@ -119,7 +114,6 @@ class SubmitEventHandler(BaseEventHandler):
                 message_type=self.message_type,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
-                url=url,
                 eventSubmitPlanningPermissionApplication=submit(
                     self.instance, data, self.event_type
                 ),
@@ -138,10 +132,7 @@ class FileSubsequentlyEventHandler(BaseEventHandler):
     uri_instance_resource_id = 150000
     message_type = ECH_FILE_SUBSEQUENTLY
 
-    def get_url(self):
-        return f"{settings.INTERNAL_BASE_URL}/claim/claim/index/instance-resource-id/{self.uri_instance_resource_id}/instance-id/{self.instance.pk}"
-
-    def get_xml(self, data, url):
+    def get_xml(self, data):
         try:
             return delivery(
                 self.instance,
@@ -149,7 +140,6 @@ class FileSubsequentlyEventHandler(BaseEventHandler):
                 message_type=self.message_type,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
-                url=url,
                 eventSubmitPlanningPermissionApplication=submit(
                     self.instance, data, self.event_type
                 ),
@@ -167,17 +157,13 @@ class StatusNotificationEventHandler(BaseEventHandler):
     def get_data(self):
         return {"ech-subject": "status notification"}
 
-    def get_url_and_message_type(self):
-        # TODO: handle more states and corresponding urls
-        url = f"{settings.INTERNAL_BASE_URL}/page/index/instance-id/{self.instance.pk}/instance-resource-id/20074"
+    def get_message_type(self):
         message_type = "unkown"  # this should never be used
 
         if (
             self.instance.previous_instance_state.pk
             == INSTANCE_STATE_EBAU_NUMMER_VERGEBEN
         ):
-            # send link to Dossierprüfung
-            url = f"{settings.INTERNAL_BASE_URL}/form/edit-pages/instance-resource-id/40008/instance-id/{self.instance.pk}"
             message_type = ECH_STATUS_NOTIFICATION_EBAU_NR_VERGEBEN
         elif (
             self.instance.previous_instance_state.pk == INSTANCE_STATE_DOSSIERPRUEFUNG
@@ -185,8 +171,6 @@ class StatusNotificationEventHandler(BaseEventHandler):
         ):  # pragma: no cover
             message_type = ECH_STATUS_NOTIFICATION_PRUEFUNG_ABGESCHLOSSEN
         elif self.instance.instance_state.pk == INSTANCE_STATE_ZIRKULATION:
-            # send link to Zirkulation
-            url = f"{settings.INTERNAL_BASE_URL}/circulation/edit/instance-resource-id/20004/instance-id/{self.instance.pk}"
             message_type = ECH_STATUS_NOTIFICATION_ZIRKULATION_GESTARTET
         elif self.instance.instance_state.pk == INSTANCE_STATE_SB1:  # pragma: no cover
             message_type = ECH_STATUS_NOTIFICATION_SB1_AUSSTEHEND
@@ -205,9 +189,9 @@ class StatusNotificationEventHandler(BaseEventHandler):
         ):  # pragma: no cover
             message_type = ECH_STATUS_NOTIFICATION_ZURUECKGEWIESEN
 
-        return url, message_type
+        return message_type
 
-    def get_xml(self, data, url, message_type):
+    def get_xml(self, data, message_type):
         try:
             return delivery(
                 self.instance,
@@ -215,7 +199,6 @@ class StatusNotificationEventHandler(BaseEventHandler):
                 message_type=message_type,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
-                url=url,
                 eventStatusNotification=status_notification(self.instance),
             ).toxml()
         except (
@@ -228,7 +211,7 @@ class StatusNotificationEventHandler(BaseEventHandler):
 
     def run(self):
         data = self.get_data()
-        xml = self.get_xml(data, *self.get_url_and_message_type())
+        xml = self.get_xml(data, self.get_message_type())
         return self.create_message(xml)
 
 
@@ -239,7 +222,7 @@ class WithdrawPlanningPermissionApplicationEventHandler(BaseEventHandler):
     def get_data(self):
         return {"ech-subject": self.event_type}
 
-    def get_xml(self, data, url):
+    def get_xml(self, data):
         try:
             return delivery(
                 self.instance,
@@ -247,7 +230,6 @@ class WithdrawPlanningPermissionApplicationEventHandler(BaseEventHandler):
                 message_type=self.message_type,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
-                url=url,
                 eventRequest=request(self.instance, self.event_type),
             ).toxml()
         except (
@@ -263,10 +245,6 @@ class TaskEventHandler(WithdrawPlanningPermissionApplicationEventHandler):
     event_type = "task"
     message_type = ECH_TASK
 
-    def get_url(self, activation_id):
-        # send link to Stellungnahme abgeben
-        return f"{settings.INTERNAL_BASE_URL}/circulation/edit-notice/instance-resource-id/20039/instance-id/{self.instance.pk}/activation-id/{activation_id}"
-
     def run(self):
         msgs = []
         data = self.get_data()
@@ -274,7 +252,7 @@ class TaskEventHandler(WithdrawPlanningPermissionApplicationEventHandler):
             circulation__instance=self.instance, ech_msg_created=False
         ):
             self.message_id = uuid4()
-            xml = self.get_xml(data, self.get_url(a.pk))
+            xml = self.get_xml(data)
             msgs.append(self.create_message(xml, a.service))
             a.ech_msg_created = True
             a.save()
@@ -286,13 +264,10 @@ class ClaimEventHandler(BaseEventHandler):
     event_type = "claim"
     message_type = ECH_CLAIM
 
-    def get_url(self):
-        return f"{settings.INTERNAL_BASE_URL}/claim/claim/index/instance-resource-id/150000/instance-id/{self.instance.pk}"
-
     def get_data(self):
         return {"ech-subject": self.event_type}
 
-    def get_xml(self, data, url):
+    def get_xml(self, data):
         try:
             return delivery(
                 self.instance,
@@ -300,7 +275,6 @@ class ClaimEventHandler(BaseEventHandler):
                 message_type=self.message_type,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
-                url=url,
                 eventRequest=request(self.instance, self.event_type),
             ).toxml()
         except (
@@ -345,7 +319,7 @@ class AccompanyingReportEventHandler(BaseEventHandler):
 
         return stellungnahme, nebenbestimmung
 
-    def get_xml(self, data, url, attachments, stellungnahme, nebenbestimmung):
+    def get_xml(self, data, attachments, stellungnahme, nebenbestimmung):
         attachments = (
             attachments
             if attachments
@@ -358,7 +332,6 @@ class AccompanyingReportEventHandler(BaseEventHandler):
                 message_type=self.message_type,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
-                url=url,
                 eventAccompanyingReport=accompanying_report(
                     self.instance,
                     self.event_type,
@@ -378,7 +351,7 @@ class AccompanyingReportEventHandler(BaseEventHandler):
 
     def run(self, attachments=None):
         data = self.get_data()
-        xml = self.get_xml(data, self.get_url(), attachments, *self._get_notices())
+        xml = self.get_xml(data, attachments, *self._get_notices())
         return self.create_message(xml)
 
 
@@ -389,7 +362,7 @@ class ChangeResponsibilityEventHandler(BaseEventHandler):
     def get_data(self):
         return {"ech-subject": self.event_type}
 
-    def get_xml(self, data, url):
+    def get_xml(self, data):
         try:
             return delivery(
                 self.instance,
@@ -397,7 +370,6 @@ class ChangeResponsibilityEventHandler(BaseEventHandler):
                 message_type=self.message_type,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
-                url=url,
                 eventChangeResponsibility=change_responsibility(self.instance),
             ).toxml()
         except (
@@ -445,3 +417,12 @@ def accompanying_report_callback(
             instance, user_pk=user_pk, group_pk=group_pk, context=context
         )
         handler.run(attachments)
+
+
+@receiver(file_subsequently)
+def file_subsequently_callback(sender, instance, user_pk, group_pk, **kwargs):
+    if settings.ECH_API:
+        handler = FileSubsequentlyEventHandler(
+            instance, user_pk=user_pk, group_pk=group_pk
+        )
+        handler.run()

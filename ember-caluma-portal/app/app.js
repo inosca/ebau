@@ -1,7 +1,8 @@
 import Application from "@ember/application";
-import Resolver from "./resolver";
 import loadInitializers from "ember-load-initializers";
+
 import config from "./config/environment";
+import Resolver from "./resolver";
 
 /* eslint-disable ember/avoid-leaking-state-in-ember-objects */
 const App = Application.extend({

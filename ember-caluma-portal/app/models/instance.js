@@ -1,13 +1,11 @@
 import Model, { attr, belongsTo, hasMany } from "@ember-data/model";
-import { inject as service } from "@ember/service";
 import { computed, get } from "@ember/object";
 import { reads } from "@ember/object/computed";
-import { dropTask } from "ember-concurrency-decorators";
-import { decodeId } from "ember-caluma/helpers/decode-id";
+import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
-
 import getInstanceDocumentsQuery from "ember-caluma-portal/gql/queries/get-instance-documents";
-import saveDocumentMutation from "ember-caluma-portal/gql/mutations/save-document";
+import { decodeId } from "ember-caluma/helpers/decode-id";
+import { dropTask } from "ember-concurrency-decorators";
 
 export default class Instance extends Model {
   @service intl;
@@ -19,6 +17,7 @@ export default class Instance extends Model {
   @attr("date") creationDate;
   @attr("date") modificationDate;
   @attr("string") publicStatus;
+  @attr("boolean") isPaper;
   @belongsTo("instance-state") instanceState;
   @hasMany("applicant", { inverse: "instance" }) involvedApplicants;
 
@@ -57,31 +56,5 @@ export default class Instance extends Model {
     });
 
     return raw.allDocuments.edges.map(({ node }) => node);
-  }
-
-  @dropTask
-  *createDocument(form) {
-    yield this.apollo.mutate({
-      mutation: saveDocumentMutation,
-      variables: {
-        input: {
-          form,
-          meta: JSON.stringify({ "camac-instance-id": parseInt(this.id) })
-        }
-      }
-    });
-
-    yield this.getDocuments.perform();
-  }
-
-  findCalumaField(slug, form = null) {
-    const documents = form
-      ? [this.calumaDocuments.find(doc => doc.rootForm.slug === form)]
-      : this.calumaDocuments;
-
-    return documents
-      .filter(Boolean)
-      .map(document => document.findField(slug))
-      .find(Boolean);
   }
 }

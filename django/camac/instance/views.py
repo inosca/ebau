@@ -16,14 +16,17 @@ from rest_framework.generics import RetrieveAPIView
 from rest_framework.settings import api_settings
 from rest_framework_json_api import views
 
-from camac.core.models import WorkflowEntry
+from camac.caluma.api import CalumaApi
+from camac.core.models import InstanceService, WorkflowEntry
+from camac.core.views import SendfileHttpResponse
 from camac.document.models import Attachment, AttachmentSection
 from camac.notification.serializers import NotificationTemplateSendmailSerializer
 from camac.unoconv import convert
 from camac.user.permissions import permission_aware
 
 from ..jinja import get_jinja_env
-from . import filters, mixins, models, serializers, validators
+from ..utils import get_paper_settings
+from . import document_merge_service, filters, mixins, models, serializers, validators
 
 
 class InstanceStateView(viewsets.ReadOnlyModelViewSet):
@@ -63,7 +66,6 @@ class InstanceView(
     """
     instance_editable_permission = "instance"
 
-    filterset_class = filters.InstanceFilterSet
     queryset = models.Instance.objects.all()
     prefetch_for_includes = {
         "circulations": ["circulations__activations"],
@@ -98,6 +100,13 @@ class InstanceView(
             filters.FormFieldOrdering,
         ]
 
+    @property
+    def filterset_class(self):
+        if settings.APPLICATION["FORM_BACKEND"] == "caluma":
+            return filters.CalumaInstanceFilterSet
+
+        return filters.InstanceFilterSet
+
     def get_serializer_class(self):
         backend = settings.APPLICATION["FORM_BACKEND"]
 
@@ -118,8 +127,23 @@ class InstanceView(
             self.action, SERIALIZER_CLASS[backend]["default"]
         )
 
+    @permission_aware
     def has_base_permission(self, instance):
         return instance.involved_applicants.filter(invitee=self.request.user).exists()
+
+    def has_base_permission_for_municipality(self, instance):
+        state = instance.instance_state.name
+        group = self.request.group
+
+        return (
+            CalumaApi().is_paper(instance)
+            and group.service.service_group.pk
+            in get_paper_settings(state)["ALLOWED_SERVICE_GROUPS"]
+            and group.role.pk in get_paper_settings(state)["ALLOWED_ROLES"]
+            and InstanceService.objects.filter(
+                active=1, instance=instance, service=group.service
+            ).exists()
+        )
 
     def has_object_destroy_permission(self, instance):
         return (
@@ -234,8 +258,7 @@ class InstanceView(
     @transaction.atomic
     def submit(self, request, pk=None):
         if settings.APPLICATION["FORM_BACKEND"] == "caluma":
-            return self._submit_caluma(request, pk)
-
+            return self._custom_serializer_action(request, pk)
         return self._submit_camac_ng(request, pk)
 
     def _submit_camac_ng(self, request, pk=None):
@@ -263,7 +286,7 @@ class InstanceView(
         camac_now = timezone.now().replace(microsecond=0)
 
         # create workflow item when configured
-        workflow_item = settings.APPLICATION["SUBMIT"].get("WORKFLOW_ITEM")
+        workflow_item = settings.APPLICATION.get("WORKFLOW_ITEMS", {}).get("SUBMIT")
         if workflow_item:
             WorkflowEntry.objects.create(
                 group=1,
@@ -290,7 +313,9 @@ class InstanceView(
             sendmail_serializer.is_valid(raise_exception=True)
             sendmail_serializer.save()
 
-        filename = "{0}.pdf".format(instance.form.description)
+        filename = "{0}_{1:%d.%m.%Y}.pdf".format(
+            instance.form.description, timezone.now()
+        )
         file = File(self.get_export_detail_data(instance, "pdf"))
 
         attachment = Attachment(
@@ -318,9 +343,6 @@ class InstanceView(
 
         return response.Response(data=serializer.data)
 
-    def _submit_caluma(self, request, pk=None):
-        return self._custom_serializer_action(request, pk)
-
     @action(methods=["post"], detail=True)
     def report(self, request, pk=None):
         return self._custom_serializer_action(request, pk)
@@ -328,6 +350,20 @@ class InstanceView(
     @action(methods=["post"], detail=True)
     def finalize(self, request, pk=None):
         return self._custom_serializer_action(request, pk)
+
+    @action(methods=["get"], detail=True, url_path="generate-pdf")
+    def generate_pdf(self, request, pk=None):
+        form_slug = self.request.query_params.get("form-slug")
+        instance = self.get_object()
+
+        pdf = document_merge_service.DMSHandler().generate_pdf(
+            instance, form_slug, request
+        )
+
+        response = SendfileHttpResponse(
+            content_type="application/pdf", filename=pdf.name, file_obj=pdf.file
+        )
+        return response
 
 
 class InstanceResponsibilityView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
