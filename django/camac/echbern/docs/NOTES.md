@@ -31,7 +31,7 @@ curl -X GET "https://ebau-test.sycloud.ch/ech/v1/application/XYZ?group=123" -H "
 
 Bei den meisten Endpunkten, lässt sich über den `group` Parameter angeben, im Namen welcher Gruppe ein Request gemacht werden soll.
 
-Dies ist notwendig, um die verschiedenen Stellen innerhalb einer Gemeinde zu unterscheiden.
+Dies ist notwendig, um die verschiedenen Stellen innerhalb einer Gemeinde zu unterscheiden. Alle Meldungen nach Erteilung eines positiven Bauentscheids werden an die Baukontrolle adressiert.
 
 ### Beispiel
 
@@ -47,6 +47,15 @@ Unter dem Tag [User](#/User) sind die Endpunkte zusammengefasst, die eine Abfrag
  - [/me](#/User/api_v1_me_read) zeigt Informationen zum aktuellen User, inklusive Gruppenmitgliedschaften, an
  - [/groups](#/User/api_v1_groups_list) zeigt alle Gruppen an, für welche eine Mitgliedschaft besteht
  - [/groups/{group_id}](#/User/api_v1_groups_read) zeigt Informationen zu einer spezifischen Gruppe an
+
+### Direktlinks in eBau
+
+Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unterstützt werden folgende Links:
+
+- `/ech/v1/instance/<instance_id>/`: Allgemeiner Link auf ein Dossier, Einstieg für Dossierkorrektur (Kap. 3.1)
+- `/ech/v1/ebau-number/<instance_id>/`: eBau-Nummer vergeben (Kap. 3.1)
+- `/ech/v1/claim/<instance_id>/`: Nachforderungsseite (Kap. 3.1, 3.3.2)
+- `/ech/v1/dossier-check/<instance_id>/`: Dossierprüfung (formelle und materielle Prüfung, Kap. 3.1)
 
 ## Abweichungen und Besonderheiten
 
@@ -96,5 +105,7 @@ Unter dem Tag [User](#/User) sind die Endpunkte zusammengefasst, die eine Abfrag
 {get_messages}
 
 ### POST
+
+Der Parameter `messageType` wird bei der Auswertung ignoriert - entscheidend ist der `event type` sowie, falls nötig, zusätzliche Parameter (z.B. `judgement` bei `NoticeRuling`).
 
 {post_messages}

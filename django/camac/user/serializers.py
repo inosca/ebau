@@ -48,7 +48,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = get_user_model()
-        fields = ("name", "surname", "username", "language", "service")
+        fields = ("name", "surname", "username", "language", "service", "email")
 
 
 class CurrentUserSerializer(UserSerializer):
@@ -57,19 +57,13 @@ class CurrentUserSerializer(UserSerializer):
     )
 
     def get_groups(self, obj):
-        return obj.groups.filter(disabled=0)
+        return obj.groups.filter(disabled=False)
 
     included_serializers = {"groups": "camac.user.serializers.GroupSerializer"}
 
     class Meta(UserSerializer.Meta):
         fields = UserSerializer.Meta.fields + ("groups", "phone", "email")
         read_only_fields = ("groups", "phone", "email")
-
-
-class GroupSerializer(MultilingualSerializer, serializers.ModelSerializer):
-    class Meta:
-        model = models.Group
-        fields = ("name",)
 
 
 class RoleSerializer(MultilingualSerializer, serializers.ModelSerializer):
@@ -91,14 +85,61 @@ class LocationSerializer(serializers.ModelSerializer):
 
 
 class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
+    city = serializers.SerializerMethodField()
+
+    def get_city(self, obj):
+        return obj.get_trans_attr("city")
+
     class Meta:
         model = models.Service
-        fields = ("name", "email", "notification")
-        read_only_fields = ("name",)
+        fields = ("name", "email", "notification", "zip", "city", "address", "phone")
+        read_only_fields = ("name", "zip", "city", "address", "phone")
+
+
+class GroupSerializer(MultilingualSerializer, serializers.ModelSerializer):
+    included_serializers = {"users": UserSerializer, "service": ServiceSerializer}
+    users = relations.SerializerMethodResourceRelatedField(
+        source="get_users", model=models.User, read_only=True, many=True
+    )
+
+    def get_users(self, obj):
+        return obj.users.filter(disabled=False)
+
+    class Meta:
+        model = models.Group
+        fields = ("name", "users", "service")
+
+
+class PublicRoleSerializer(MultilingualSerializer, serializers.ModelSerializer):
+    class Meta:
+        model = models.Role
+        fields = ("name",)
+        resource_name = "public-role"
+
+
+class PublicServiceGroupSerializer(MultilingualSerializer, serializers.ModelSerializer):
+    class Meta:
+        model = models.ServiceGroup
+        fields = ("name",)
+        resource_name = "public-service-groups"
 
 
 class PublicServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
+    included_serializers = {"service_group": PublicServiceGroupSerializer}
+
     class Meta:
         model = models.Service
-        fields = ("name",)
+        fields = ("name", "service_group")
         resource_name = "public-services"
+
+
+class PublicGroupSerializer(MultilingualSerializer, serializers.ModelSerializer):
+    included_serializers = {
+        "service": PublicServiceSerializer,
+        "role": PublicRoleSerializer,
+    }
+
+    class Meta:
+        model = models.Group
+        fields = ("name", "service", "role")
+        resource_name = "public-groups"

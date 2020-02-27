@@ -20,6 +20,7 @@ def get_group(request):
     4. user's default group
     """
     group_id = request.GET.get("group", request.META.get("HTTP_X_CAMAC_GROUP"))
+
     if group_id:
         group = (
             request.user.groups.filter(pk=group_id)

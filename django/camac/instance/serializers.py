@@ -1,8 +1,13 @@
-import json
 from logging import getLogger
+from uuid import uuid4
 
+from caluma.caluma_form import (
+    models as caluma_form_models,
+    validators as caluma_form_validators,
+)
 from django.conf import settings
 from django.contrib.auth import get_user_model
+from django.core.files.base import ContentFile
 from django.db import transaction
 from django.db.models import Max
 from django.utils import timezone
@@ -10,7 +15,7 @@ from django.utils.translation import gettext as _, gettext_noop
 from rest_framework import exceptions
 from rest_framework_json_api import relations, serializers
 
-from camac.caluma import CalumaSerializerMixin
+from camac.caluma.api import CalumaApi, CalumaInfo
 from camac.constants import kt_bern as constants
 from camac.core.models import (
     Answer,
@@ -21,6 +26,7 @@ from camac.core.models import (
 )
 from camac.core.serializers import MultilingualSerializer
 from camac.core.translations import get_translations
+from camac.document.models import AttachmentSection
 from camac.echbern.signals import instance_submitted, sb1_submitted, sb2_submitted
 from camac.instance.mixins import InstanceEditableMixin
 from camac.notification.serializers import NotificationTemplateSendmailSerializer
@@ -34,11 +40,12 @@ from camac.user.relations import (
 )
 from camac.user.serializers import CurrentGroupDefault, CurrentServiceDefault
 
-from . import models, validators
+from ..utils import get_paper_settings
+from . import document_merge_service, models, validators
 
 SUBMIT_DATE_CHAPTER = 100001
 SUBMIT_DATE_QUESTION_ID = 20036
-SUBMIT_DATE_FORMAT = "%Y-%m-%dT%H:%M:%S"
+SUBMIT_DATE_FORMAT = "%Y-%m-%dT%H:%M:%S%z"
 
 request_logger = getLogger("django.request")
 
@@ -60,9 +67,7 @@ class FormSerializer(serializers.ModelSerializer):
         fields = ("name", "description")
 
 
-class InstanceSerializer(
-    InstanceEditableMixin, serializers.ModelSerializer, CalumaSerializerMixin
-):
+class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
     editable = serializers.SerializerMethodField()
     is_applicant = serializers.SerializerMethodField()
     user = CurrentUserResourceRelatedField()
@@ -190,7 +195,9 @@ class CalumaInstanceSerializer(InstanceSerializer):
         default=NewInstanceStateDefault(),
     )
 
-    caluma_form = serializers.CharField(required=True, write_only=True)
+    caluma_form = serializers.CharField(required=False, write_only=True)
+    is_paper = serializers.SerializerMethodField()
+    copy_source = serializers.CharField(required=False, write_only=True)
 
     public_status = serializers.SerializerMethodField()
 
@@ -204,6 +211,9 @@ class CalumaInstanceSerializer(InstanceSerializer):
         many=True,
         read_only=True,
     )
+
+    def get_is_paper(self, instance):
+        return CalumaApi().is_paper(instance)
 
     def get_active_service(self, instance):
         return instance.active_service
@@ -248,61 +258,87 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
     @permission_aware
     def _get_main_form_permissions(self, instance):
-        permissions = ["read"]
+        permissions = set(["read"])
 
         if instance.instance_state.name in ["new", "rejected"]:
-            permissions += ["write", "write-meta"]
+            permissions.update(["write", "write-meta"])
 
         return permissions
 
     def _get_main_form_permissions_for_service(self, instance):
         if instance.instance_state.name == "new":
-            return []
+            return set()
 
-        return ["read"]
+        return set(["read"])
 
     def _get_main_form_permissions_for_municipality(self, instance):
         state = instance.instance_state.name
-        permissions = []
+        is_paper = CalumaApi().is_paper(instance)
+        service_group = self.context["request"].group.service.service_group.pk
+        role = self.context["request"].group.role.pk
+        permissions = set()
 
         if state != "new":
-            permissions += ["read"]
+            permissions.add("read")
 
         if state == "subm":
-            permissions += ["write-meta"]
+            permissions.add("write-meta")
 
         if state == "correction":
-            permissions += ["write"]
+            permissions.add("write")
+
+        if (
+            is_paper
+            and service_group in get_paper_settings()["ALLOWED_SERVICE_GROUPS"]
+            and role in get_paper_settings()["ALLOWED_ROLES"]
+            and state in ["new", "rejected"]
+        ):
+            permissions.update(["read", "write", "write-meta"])
 
         return permissions
 
     def _get_main_form_permissions_for_support(self, instance):
-        return ["read", "write", "write-meta"]
+        return set(["read", "write", "write-meta"])
 
     @permission_aware
     def _get_sb1_form_permissions(self, instance):
         state = instance.instance_state.name
-        permissions = []
+        permissions = set()
 
         if state in ["sb1", "sb2", "conclusion"]:
-            permissions += ["read"]
+            permissions.add("read")
 
         if state == "sb1":
-            permissions += ["write", "write-meta"]
+            permissions.update(["write", "write-meta"])
 
         return permissions
 
     def _get_sb1_form_permissions_for_service(self, instance):
         if instance.instance_state.name in ["sb2", "conclusion"]:
-            return ["read"]
+            return set(["read"])
 
-        return []
+        return set()
 
     def _get_sb1_form_permissions_for_municipality(self, instance):
-        if instance.instance_state.name in ["sb2", "conclusion"]:
-            return ["read"]
+        state = instance.instance_state.name
+        is_paper = CalumaApi().is_paper(instance)
+        service_group = self.context["request"].group.service.service_group.pk
+        role = self.context["request"].group.role.pk
 
-        return []
+        permissions = set()
+
+        if state in ["sb2", "conclusion"]:
+            permissions.add("read")
+
+        if (
+            state == "sb1"
+            and is_paper
+            and service_group in get_paper_settings("sb1")["ALLOWED_SERVICE_GROUPS"]
+            and role in get_paper_settings("sb1")["ALLOWED_ROLES"]
+        ):
+            permissions.update(["read", "write", "write-meta"])
+
+        return permissions
 
     def _get_sb1_form_permissions_for_support(self, instance):
         return ["read", "write", "write-meta"]
@@ -310,163 +346,185 @@ class CalumaInstanceSerializer(InstanceSerializer):
     @permission_aware
     def _get_sb2_form_permissions(self, instance):
         state = instance.instance_state.name
-        permissions = []
+        permissions = set()
 
         if state in ["sb2", "conclusion"]:
-            permissions += ["read"]
+            permissions.add("read")
 
         if state == "sb2":
-            permissions += ["write", "write-meta"]
+            permissions.update(["write", "write-meta"])
 
         return permissions
 
     def _get_sb2_form_permissions_for_service(self, instance):
         if instance.instance_state.name == "conclusion":
-            return ["read"]
+            return set(["read"])
 
-        return []
+        return set()
 
     def _get_sb2_form_permissions_for_municipality(self, instance):
-        if instance.instance_state.name == "conclusion":
-            return ["read"]
+        state = instance.instance_state.name
+        is_paper = CalumaApi().is_paper(instance)
+        service_group = self.context["request"].group.service.service_group.pk
+        role = self.context["request"].group.role.pk
 
-        return []
+        permissions = set()
+
+        if state == "conclusion":
+            permissions.add("read")
+
+        if (
+            state == "sb2"
+            and is_paper
+            and service_group in get_paper_settings("sb2")["ALLOWED_SERVICE_GROUPS"]
+            and role in get_paper_settings("sb2")["ALLOWED_ROLES"]
+        ):
+            permissions.update(["read", "write", "write-meta"])
+
+        return permissions
 
     def _get_sb2_form_permissions_for_support(self, instance):
         return ["read", "write", "write-meta"]
 
     @permission_aware
     def _get_nfd_form_permissions(self, instance):
-        resp = self.query_caluma(
-            """
-                query GetNfdDocument($instanceId: GenericScalar!) {
-                    allDocuments(metaValue: [{key: "camac-instance-id", value: $instanceId}], form: "nfd") {
-                        edges {
-                            node {
-                                id
-                                answers {
-                                    edges {
-                                        node {
-                                            id
-                                            ...on TableAnswer {
-                                                value {
-                                                    id
-                                                    answers(question: "nfd-tabelle-status") {
-                                                        edges {
-                                                            node {
-                                                                ...on StringAnswer {
-                                                                    value
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            """,
-            {"instanceId": instance.pk},
-        )
-
-        permissions = []
-
-        try:
-
-            status = [
-                row["answers"]["edges"][0]["node"]["value"]
-                for row in resp["data"]["allDocuments"]["edges"][0]["node"]["answers"][
-                    "edges"
-                ][0]["node"]["value"]
-            ]
-
-            if any(map(lambda s: s != "nfd-tabelle-status-entwurf", status)):
-                permissions += ["read"]
-
-            if any(map(lambda s: s == "nfd-tabelle-status-in-bearbeitung", status)):
-                permissions += ["write"]
-
-            return permissions
-        except (IndexError, KeyError):
-            return []
+        return CalumaApi().get_nfd_form_permissions(instance)
 
     def _get_nfd_form_permissions_for_service(self, instance):
-        return []
+        return set()
 
     def _get_nfd_form_permissions_for_municipality(self, instance):
-        return ["write", "write-meta"]
+        permissions = set(["write", "write-meta"])
+
+        if CalumaApi().is_paper(instance):
+            permissions.update(CalumaApi().get_nfd_form_permissions(instance))
+
+        return permissions
 
     def _get_nfd_form_permissions_for_support(self, instance):
-        return ["read", "write", "write-meta"]
+        return set(["read", "write", "write-meta"])
 
     def get_permissions(self, instance):
         return {
-            form: getattr(self, f"_get_{form}_form_permissions")(instance)
+            form: sorted(getattr(self, f"_get_{form}_form_permissions")(instance))
             for form in settings.APPLICATION.get("CALUMA", {}).get(
-                "FORM_PERMISSIONS", []
+                "FORM_PERMISSIONS", set()
             )
         }
 
     def validate(self, data):
-        form = data.get("caluma_form")
-        caluma_resp = self.query_caluma(
-            """
-                query GetMainForm($slug: String!) {
-                    allForms(slug: $slug, metaValue: [{key: "is-main-form", value: true}]) {
-                        edges {
-                            node {
-                                slug
-                                meta
-                            }
-                        }
-                    }
-                }
-            """,
-            {"slug": form},
-        )
+        form_slug = data.get("caluma_form")
 
-        if len(caluma_resp["data"]["allForms"]["edges"]) != 1:  # pragma: no cover
+        if form_slug and not CalumaApi().is_main_form(form_slug):  # pragma: no cover
             raise exceptions.ValidationError(
-                _("Passed caluma form is not a main form: %(form)s") % {"form": form}
+                _("Passed caluma form is not a main form: %(form)s")
+                % {"form": form_slug}
             )
 
         return data
 
     def create(self, validated_data):
-        form = validated_data.pop("caluma_form")
+        caluma_api = CalumaApi()
+
+        if "copy_source" in validated_data:
+            source_pk = validated_data.pop("copy_source")
+            source_instance = models.Instance.objects.get(pk=source_pk)
+            caluma_form = caluma_api.get_form_slug(source_instance)
+            validated_data["form"] = source_instance.form
+
+        else:
+            source_pk = None
+            caluma_form = validated_data.pop("caluma_form")
+
         instance = super().create(validated_data)
 
-        self.query_caluma(
-            """
-            mutation CreateDocument($input: SaveDocumentInput!) {
-                saveDocument(input: $input) {
-                    clientMutationId
-                }
-            }
-            """,
-            {
-                "input": {
-                    "form": form,
-                    "meta": json.dumps({"camac-instance-id": instance.pk}),
-                }
-            },
+        if source_pk:
+            # copy original attachments
+            for attachment in source_instance.attachments.all():
+                # store sections first
+                sections = attachment.attachment_sections.all()
+
+                attachment.attachment_id = None
+                attachment.instance = instance
+
+                # copy the file
+                new_file = ContentFile(attachment.path.file.read())
+                new_file.name = attachment.path.name
+                attachment.path = new_file
+
+                attachment.uuid = uuid4()
+                attachment.save()
+
+                attachment.attachment_sections.set(sections)
+                attachment.save()
+
+        group = self.context["request"].group
+        is_paper = (
+            group.service  # group needs to have a service
+            and group.service.service_group.pk
+            in get_paper_settings()["ALLOWED_SERVICE_GROUPS"]
+            and group.role.pk in get_paper_settings()["ALLOWED_ROLES"]
         )
+
+        caluma_documents = {}
+
+        for form_slug in [caluma_form, "sb1", "sb2", "nfd"]:
+            # copy the caluma document of provided instance
+            if source_pk and form_slug == caluma_form:
+                source_document_pk = caluma_api.get_document_by_form_slug(
+                    source_instance, form_slug
+                )
+
+                document = caluma_api.copy_document(
+                    source_document_pk,
+                    exclude_slugs=["6-dokumente", "7-bestaetigen"],
+                    additional_meta={"camac-instance-id": instance.pk},
+                )
+
+            else:
+                document = caluma_api.create_document(
+                    form_slug, meta={"camac-instance-id": instance.pk}
+                )
+
+            caluma_api.update_or_create_answer(
+                document.pk,
+                "papierdossier",
+                "papierdossier-ja" if is_paper else "papierdossier-nein",
+            )
+
+            caluma_documents[form_slug] = document
+
+        if is_paper:
+            # remove the previously created applicants
+            instance.involved_applicants.all().delete()
+
+            # prefill municipality question
+            caluma_api.update_or_create_answer(
+                caluma_documents[caluma_form].pk, "gemeinde", str(group.service.pk)
+            )
+
+            # create instance service for permissions
+            InstanceService.objects.create(
+                instance=instance,
+                service_id=group.service.pk,
+                active=1,
+                activation_date=None,
+            )
 
         return instance
 
     class Meta(InstanceSerializer.Meta):
         fields = InstanceSerializer.Meta.fields + (
             "caluma_form",
+            "is_paper",
+            "copy_source",
             "public_status",
             "active_service",
             "responsible_service_users",
             "involved_applicants",
         )
         read_only_fields = InstanceSerializer.Meta.read_only_fields + (
+            "is_paper",
             "public_status",
             "active_service",
             "responsible_service_users",
@@ -514,120 +572,31 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         mail_serializer.create(mail_serializer.validated_data)
 
     def _set_submit_date(self, validated_data):
-        document = validated_data["caluma_document"]
+        document_pk = validated_data["caluma_document"]
+        submit_date = timezone.now().strftime(SUBMIT_DATE_FORMAT)
+        changed = CalumaApi().set_submit_date(document_pk, submit_date)
 
-        if "submit-date" in document["meta"]:  # pragma: no cover
-            # instance was already submitted, this is probably a re-submit
-            # after correction.
-            return
-
-        # Set submit date in Camac first...
-        # TODO drop this after this is not used anymore in Camac
-        Answer.objects.get_or_create(
-            instance=self.instance,
-            question_id=SUBMIT_DATE_QUESTION_ID,
-            item=1,
-            chapter_id=SUBMIT_DATE_CHAPTER,
-            # CAMAC date is formatted in "dd.mm.yyyy"
-            defaults={"answer": timezone.now().strftime(SUBMIT_DATE_FORMAT)},
-        )
-
-        new_meta = {
-            **document["meta"],
-            # Caluma date is formatted yyyy-mm-dd so it can be sorted
-            "submit-date": timezone.now().strftime(SUBMIT_DATE_FORMAT),
-        }
-
-        self.query_caluma(
-            """
-                mutation SaveDocumentMeta($input: SaveDocumentInput!) {
-                    saveDocument(input: $input) {
-                        clientMutationId
-                    }
-                }
-            """,
-            {
-                "input": {
-                    "id": document["id"],
-                    "form": document["form"]["slug"],
-                    "meta": json.dumps(new_meta),
-                }
-            },
-        )
-
-    def _validate_document_validity(self, document_id):
-        validity = self.query_caluma(
-            """
-                query GetDocumentValidity($id: ID!) {
-                    documentValidity(id: $id) {
-                        edges {
-                            node {
-                                id
-                                isValid
-                                errors {
-                                    slug
-                                    errorMsg
-                                }
-                            }
-                        }
-                    }
-                }
-            """,
-            {"id": document_id},
-        )
-
-        data = validity["data"]["documentValidity"]["edges"][0]["node"]
-
-        if not data["isValid"]:
-            raise exceptions.ValidationError(
-                _("Error while validating caluma document: %(errors)s")
-                % {"errors": ", ".join([e["errorMsg"] for e in data["errors"]])}
+        if changed:
+            # Set submit date in Camac first...
+            # TODO drop this after this is not used anymore in Camac
+            Answer.objects.get_or_create(
+                instance=self.instance,
+                question_id=SUBMIT_DATE_QUESTION_ID,
+                item=1,
+                chapter_id=SUBMIT_DATE_CHAPTER,
+                # CAMAC date is formatted in "dd.mm.yyyy"
+                defaults={"answer": submit_date},
             )
 
+    def _validate_document_validity(self, document_id):
+        caluma_doc = caluma_form_models.Document.objects.get(pk=document_id)
+        validator = caluma_form_validators.DocumentValidator()
+
+        caluma_info = CalumaInfo(self.context["request"])
+        validator.validate(caluma_doc, info=caluma_info)
+
     def validate(self, data):
-        caluma_resp = self.query_caluma(
-            """
-            query GetDocument($instanceId: GenericScalar!) {
-                allDocuments(metaValue: [{key: "camac-instance-id", value: $instanceId}]) {
-                    edges {
-                        node {
-                            id
-                            meta
-                            form {
-                                slug
-                                meta
-                            }
-                            answers(questions: ["gemeinde"]) {
-                                edges {
-                                    node {
-                                        id
-                                        question {
-                                            slug
-                                        }
-                                        ...on StringAnswer {
-                                            value
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            """,
-            {"instanceId": self.instance.pk},
-        )
-
-        documents = caluma_resp["data"]["allDocuments"]["edges"]
-
-        data["caluma_document"] = next(
-            (
-                document["node"]
-                for document in documents
-                if document["node"]["form"]["meta"].get("is-main-form", False)
-            ),
-            None,
-        )
+        data["caluma_document"] = CalumaApi().get_main_document(self.instance)
 
         if not data["caluma_document"]:  # pragma: no cover
             raise exceptions.ValidationError(
@@ -635,15 +604,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 % {"instance": self.instance.pk}
             )
 
-        data["caluma_municipality"] = next(
-            (
-                answer["node"]["value"]
-                for answer in data["caluma_document"]["answers"]["edges"]
-                if answer["node"]["question"]["slug"] == "gemeinde"
-            ),
-            None,
-        )
-
+        data["caluma_municipality"] = CalumaApi().get_municipality(self.instance)
         if not data["caluma_municipality"]:  # pragma: no cover
             raise exceptions.ValidationError(
                 _(
@@ -652,9 +613,35 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 % {"instance": self.instance.pk}
             )
 
-        self._validate_document_validity(data["caluma_document"]["id"])
+        self._validate_document_validity(data["caluma_document"])
 
         return data
+
+    def _get_pdf_section(self, instance, form_slug):
+        form_name = form_slug.upper() if form_slug else "MAIN"
+        section_type = "PAPER" if CalumaApi().is_paper(instance) else "DEFAULT"
+
+        return AttachmentSection.objects.get(
+            pk=settings.APPLICATION["PDF"]["SECTION"][form_name][section_type]
+        )
+
+    def _generate_and_store_pdf(self, instance, form_slug=None):
+        request = self.context["request"]
+
+        pdf = document_merge_service.DMSHandler().generate_pdf(
+            instance, form_slug, request
+        )
+
+        attachment_section = self._get_pdf_section(instance, form_slug)
+        attachment_section.attachments.create(
+            instance=instance,
+            path=pdf,
+            name=pdf.name,
+            size=pdf.size,
+            mime_type=pdf.content_type,
+            user=request.user,
+            group=request.group,
+        )
 
     @transaction.atomic
     def update(self, instance, validated_data):
@@ -680,6 +667,9 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 activation_date=None,
             )
 
+        # generate and submit pdf
+        self._generate_and_store_pdf(instance)
+
         self._set_submit_date(validated_data)
 
         self._create_journal_entry(get_translations(gettext_noop("Dossier submitted")))
@@ -702,36 +692,8 @@ class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
     """Handle submission of "SB1" form."""
 
     def validate(self, data):
-        caluma_resp = self.query_caluma(
-            """
-            query GetDocument($instanceId: GenericScalar!) {
-                allDocuments(
-                    metaValue: [{key: "camac-instance-id", value: $instanceId}]
-                    form: "sb1"
-                ) {
-                    edges {
-                        node {
-                            id
-                            meta
-                            form {
-                                slug
-                                meta
-                            }
-                        }
-                    }
-                }
-            }
-            """,
-            {"instanceId": self.instance.pk},
-        )
-
-        data["caluma_document"] = next(
-            (
-                document["node"]
-                for document in caluma_resp["data"]["allDocuments"]["edges"]
-                if document["node"]["form"]["slug"] == "sb1"
-            ),
-            None,
+        data["caluma_document"] = CalumaApi().get_document_by_form_slug(
+            self.instance, "sb1"
         )
 
         if not data["caluma_document"]:  # pragma: no cover
@@ -740,7 +702,7 @@ class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
                 % {"instance": self.instance.pk}
             )
 
-        self._validate_document_validity(data["caluma_document"]["id"])
+        self._validate_document_validity(data["caluma_document"])
 
         return data
 
@@ -750,6 +712,9 @@ class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
         instance.instance_state = models.InstanceState.objects.get(name="sb2")
 
         instance.save()
+
+        # generate and submit pdf
+        self._generate_and_store_pdf(instance, "sb1")
 
         self._create_journal_entry(get_translations(gettext_noop("SB1 submitted")))
 
@@ -771,36 +736,8 @@ class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
     """Handle submission of "SB2" form."""
 
     def validate(self, data):
-        caluma_resp = self.query_caluma(
-            """
-            query GetDocument($instanceId: GenericScalar!) {
-                allDocuments(
-                    metaValue: [{key: "camac-instance-id", value: $instanceId}]
-                    form: "sb2"
-                ) {
-                    edges {
-                        node {
-                            id
-                            meta
-                            form {
-                                slug
-                                meta
-                            }
-                        }
-                    }
-                }
-            }
-            """,
-            {"instanceId": self.instance.pk},
-        )
-
-        data["caluma_document"] = next(
-            (
-                document["node"]
-                for document in caluma_resp["data"]["allDocuments"]["edges"]
-                if document["node"]["form"]["slug"] == "sb2"
-            ),
-            None,
+        data["caluma_document"] = CalumaApi().get_document_by_form_slug(
+            self.instance, "sb2"
         )
 
         if not data["caluma_document"]:  # pragma: no cover
@@ -809,7 +746,7 @@ class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
                 % {"instance": self.instance.pk}
             )
 
-        self._validate_document_validity(data["caluma_document"]["id"])
+        self._validate_document_validity(data["caluma_document"])
 
         return data
 
@@ -819,6 +756,9 @@ class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
         instance.instance_state = models.InstanceState.objects.get(name="conclusion")
 
         instance.save()
+
+        # generate and submit pdf
+        self._generate_and_store_pdf(instance, "sb2")
 
         self._create_journal_entry(get_translations(gettext_noop("SB2 submitted")))
 

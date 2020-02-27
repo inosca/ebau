@@ -1,14 +1,14 @@
+import { getOwner } from "@ember/application";
+import { A } from "@ember/array";
 import Component from "@ember/component";
 import { computed } from "@ember/object";
-import { A } from "@ember/array";
 import { inject as service } from "@ember/service";
-import { all } from "rsvp";
-import { task } from "ember-concurrency";
+import { queryManager } from "ember-apollo-client";
 import saveDocumentMutation from "ember-caluma/gql/mutations/save-document";
 import Document from "ember-caluma/lib/document";
 import { parseDocument } from "ember-caluma/lib/parsers";
-import { getOwner } from "@ember/application";
-import { queryManager } from "ember-apollo-client";
+import { task } from "ember-concurrency";
+import { all } from "rsvp";
 
 const KEY_TABLE_FORM = "parzelle-tabelle";
 const KEY_TABLE_QUESTION = "parzelle";
@@ -174,7 +174,10 @@ export default Component.extend({
   }),
 
   confirmFieldUnchecked: computed("confirmField.value.[]", function() {
-    return this.get("confirmField.value.length") !== 1;
+    return (
+      !this.get("confirmField.hidden") &&
+      this.get("confirmField.value.length") !== 1
+    );
   }),
 
   link: computed(function() {
@@ -195,28 +198,32 @@ export default Component.extend({
       const selection = field && field.answer.value;
       const egrid = selection ? selection : "EGRID";
 
-      return (
-        "https://www.map.apps.be.ch/pub/client_mapwidget/default.jsp" +
-        "?baseURL=https://www.map.apps.be.ch/pub" +
-        "&project=a42pub_ebau_cl" +
-        "&map_adv=true" +
-        "&useXD=true" +
-        "&linked_view=true" +
-        "&view=Grundstuecke / Parcelles 1:6000" +
-        "&basemapview=HK_Hintergrund_bunt" +
-        "&activetools=NAVIGATION%20VIEW" +
-        (!this.disabled ? "%20ADDREMOVE%20FTS" : "") +
-        (!this.disabled && !selection ? "&startmode=FTS" : "") +
-        "&callback_active_tool=activeToolResult" +
-        "&query=Suche_EBAU_DIPANU" +
-        "&keyname=EGRID" +
-        "&keyvalue=" +
-        egrid +
-        "&returnkey=EGRID;GSTBEZ;PROJSTAT" +
-        "&callback_addremove_mw=addremoveResult" +
-        "&retainSelection=true" +
-        (!this.disabled ? "&callback_fts_mw=ftsResult&fts_search=true" : "")
-      );
+      const search = [
+        "baseURL=https://www.map.apps.be.ch/pub",
+        "project=a42pub_ebau_cl",
+        "map_adv=true",
+        "useXD=true",
+        "linked_view=true",
+        "view=Grundstuecke / Parcelles 1:6000",
+        "basemapview=HK_Hintergrund_bunt",
+        "callback_active_tool=activeToolResult",
+        "query=Suche_EBAU_DIPANU",
+        "keyname=EGRID",
+        `keyvalue=${egrid}`,
+        "returnkey=EGRID;GSTBEZ;PROJSTAT",
+        "callback_addremove_mw=addremoveResult",
+        "retainSelection=true",
+        ...(this.disabled
+          ? ["activetools=NAVIGATION VIEW"]
+          : [
+              "activetools=NAVIGATION VIEW ADDREMOVE FTS",
+              "callback_fts_mw=ftsResult",
+              "fts_search=true",
+              ...(selection ? [] : ["startmode=FTS"])
+            ])
+      ].join("&");
+
+      return `https://www.map.apps.be.ch/pub/client_mapwidget/default.jsp?${search}`;
     } catch (error) {
       /* eslint-disable-next-line no-console */
       console.log(error);
@@ -273,8 +280,8 @@ export default Component.extend({
     const prop = isSearchResult ? "FEATURES" : "COORDS";
     // Return if there aren't values
     if (
-      features == null ||
-      features[prop] == null ||
+      features === null ||
+      features[prop] === null ||
       features[prop].length === 0
     ) {
       return;
@@ -305,10 +312,10 @@ export default Component.extend({
     });
 
     // Temporary object to store results, will be converted to an array at the end
-    let parcels = {};
+    const parcels = {};
 
     features[prop].forEach(coords => {
-      let projectStatus = coords.keyvalue[project_status_index];
+      const projectStatus = coords.keyvalue[project_status_index];
 
       // Keep the value only if the status is "valid"
       if (["0", "gültig", "valable"].includes(projectStatus)) {
@@ -326,7 +333,7 @@ export default Component.extend({
         const yProp = isSearchResult ? "coord_y" : "ygeo";
 
         // Create the parcel object
-        let parcel = {
+        const parcel = {
           [KEY_TABLE_PARCEL]: parcel_number,
           [KEY_TABLE_BAURECHT]: baurecht_number,
           [KEY_TABLE_EGRID]: coords.keyvalue[egrid_feature_index],
@@ -334,10 +341,10 @@ export default Component.extend({
           [KEY_TABLE_COORD_NORTH]: parseInt(coords[yProp])
         };
 
-        let parcel_key = `${coords[xProp]}.${coords[yProp]}`;
+        const parcel_key = `${coords[xProp]}.${coords[yProp]}`;
 
         if (parcel_key in parcels) {
-          let oldParcel = parcels[parcel_key];
+          const oldParcel = parcels[parcel_key];
 
           if (parcel_number !== "") {
             // We are currently handling the "Baurecht" parcel, so take only that value
@@ -431,7 +438,7 @@ export default Component.extend({
 
         await all(
           fields.map(async field => {
-            const slug = field.question.slug;
+            const { slug } = field.question;
             const value = String(parcel[slug]);
 
             if (value !== null && value.length > 0) {
@@ -507,19 +514,19 @@ export default Component.extend({
     }
   }),
 
-  init() {
-    this._super(...arguments);
+  init(...args) {
+    this._super(...args);
     this.receiveMessage = this.receiveMessage.bind(this);
   },
 
-  didInsertElement() {
-    this._super(...arguments);
+  didInsertElement(...args) {
+    this._super(...args);
     window.addEventListener("message", this.receiveMessage);
   },
 
-  willDestroyElement() {
+  willDestroyElement(...args) {
     window.removeEventListener("message", this.receiveMessage);
-    this._super(...arguments);
+    this._super(...args);
   },
 
   saveAdditionalData: task(function*() {

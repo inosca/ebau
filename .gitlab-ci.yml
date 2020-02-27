@@ -1,25 +1,32 @@
 ---
-
 image: tmaier/docker-compose:latest
 
 variables:
-    LANG: C.UTF-8
-    LC_ALL: C.UTF-8
-    COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.ci.yml
-    APPLICATION: demo
-    COMPOSE_HTTP_TIMEOUT: 300
+  LANG: C.UTF-8
+  LC_ALL: C.UTF-8
+  COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.ci.yml
+  APPLICATION: demo
+  COMPOSE_HTTP_TIMEOUT: 300
 
 before_script:
-    - mkdir /root/.docker
-    - echo "$RUNNER_DOCKER_CAPEM" > /root/.docker/ca.pem
-    - echo "$RUNNER_DOCKER_CERTPEM" > /root/.docker/cert.pem
-    - echo "$RUNNER_DOCKER_KEYPEM" > /root/.docker/key.pem
+  - mkdir /root/.docker
+  - echo "$RUNNER_DOCKER_CAPEM" > /root/.docker/ca.pem
+  - echo "$RUNNER_DOCKER_CERTPEM" > /root/.docker/cert.pem
+  - echo "$RUNNER_DOCKER_KEYPEM" > /root/.docker/key.pem
 
 stages:
-    - lint
-    - test
-    - build
-    - deploy
+  - lint
+  - test
+  - build
+  - deploy
+
+lint-yml:
+  stage: lint
+  image: node:lts
+  before_script:
+    - yarn global add prettier
+  script:
+    - prettier -c *.yml
 
 lint-ember-caluma-portal:
   stage: lint
@@ -38,208 +45,196 @@ lint-php:
     name: node:lts
   script:
     - if git grep -I -e ä  -e ö  -e ü   -- './*' ':!.gitlab-ci.yml'; then exit 1; else echo "No composite umlaute found"; fi
-    - cd php/public
-    - npm install
-    - npm run lint
+    - yarn --cwd=php install
+    - yarn --cwd=php lint
+    - yarn --cwd=php prettier-check
 
 test-ember:
-    stage: test
-    services:
-        - docker:dind
-    script:
-        - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
-        - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --ignore-pull-failures --quiet ember"
-        - eval $COMPOSE build --pull ember
-        - eval $COMPOSE run --rm --no-deps ember yarn test
+  stage: test
+  services:
+    - docker:dind
+  script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
+    - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --ignore-pull-failures --quiet ember"
+    - eval $COMPOSE build --pull ember
+    - eval $COMPOSE run --rm --no-deps ember yarn test
 
 test-ember-caluma-portal:
-    stage: test
-    services:
-        - docker:dind
-    script:
-        - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
-        - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --ignore-pull-failures --quiet ember-caluma-portal"
-        - eval $COMPOSE build --pull ember-caluma-portal
-        - eval $COMPOSE run --rm --no-deps ember-caluma-portal yarn test
+  stage: test
+  services:
+    - docker:dind
+  script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
+    - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --ignore-pull-failures --quiet ember-caluma-portal"
+    - eval $COMPOSE build --pull ember-caluma-portal
+    - eval $COMPOSE run --rm --no-deps ember-caluma-portal yarn test
 
 test-django:
-    stage: test
-    services:
-        - docker:dind
-    script:
-        - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
-        - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --ignore-pull-failures --quiet django db"
-        - eval $COMPOSE up -d --build db clamav unoconv
-        - eval $COMPOSE build --pull django
-        - eval $COMPOSE run --rm --no-deps django make install-dev test
+  stage: test
+  services:
+    - docker:dind
+  script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
+    - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --ignore-pull-failures --quiet django db"
+    - eval $COMPOSE up -d --build db clamav unoconv
+    - eval $COMPOSE build --pull django
+    - eval $COMPOSE run --rm --no-deps django make install-dev test
 
 symfony-security-checker:
-    stage: test
-    image:
-        name: jakzal/phpqa:php7.3-alpine
-    script: security-checker security:check ./php/composer.lock
-
+  stage: test
+  image:
+    name: jakzal/phpqa:php7.3-alpine
+  script: security-checker security:check ./php/composer.lock
 
 .build-image:
-    stage: build
-    variables:
-      CONTAINERS: ember django php db
-    services:
-        - docker:dind
-    script:
-        - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
-        - eval $COMPOSE pull --ignore-pull-failures --quiet $CONTAINERS
-        - eval $COMPOSE build --pull
-        - eval $COMPOSE push
+  stage: build
+  variables:
+    CONTAINERS: ember django php db
+  services:
+    - docker:dind
+  script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
+    - eval $COMPOSE pull --ignore-pull-failures --quiet $CONTAINERS
+    - eval $COMPOSE build --pull
+    - eval $COMPOSE push
 
 build:
-    extends: .build-image
-    only:
-        - master
-
+  extends: .build-image
+  only:
+    - master
 
 build-kt_schwyz-stage:
-    extends: .build-image
-    variables:
-        KEYCLOAK_URL: https://camac-schwyz.sycloud.ch/auth/realms/ebau/protocol/openid-connect
-        APPLICATION: kt_schwyz
-        COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.production.yml
-    only:
-        - stage-sz
-
+  extends: .build-image
+  variables:
+    KEYCLOAK_URL: https://camac-schwyz.sycloud.ch/auth/realms/ebau/protocol/openid-connect
+    APPLICATION: kt_schwyz
+    COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.production.yml
+  only:
+    - stage-sz
 
 build-kt_schwyz-production:
-    extends: .build-image
-    variables:
-        KEYCLOAK_URL: https://ebau-sz.ch/auth/realms/ebau/protocol/openid-connect
-        APPLICATION: kt_schwyz
-        COMPOSE: docker-compose -f docker-compose.production.sz.yml
-        CONTAINERS: ember django php
-    only:
-        - production-sz
-
+  extends: .build-image
+  variables:
+    KEYCLOAK_URL: https://ebau-sz.ch/auth/realms/ebau/protocol/openid-connect
+    APPLICATION: kt_schwyz
+    COMPOSE: docker-compose -f docker-compose.production.sz.yml
+    CONTAINERS: ember django php
+  only:
+    - production-sz
 
 build-kt_uri-stage:
-    extends: .build-image
-    variables:
-        APPLICATION: kt_uri
-        COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.production.yml -f docker-compose.uri-stage.yml
-        CONTAINERS: ember django php db iweb_mock
-    only:
-        - stage-ur
-
+  extends: .build-image
+  variables:
+    APPLICATION: kt_uri
+    # TODO: Can be removed once all customer compose files have been refactored
+    CONTAINERS: django php db iweb_mock
+    COMPOSE: docker-compose -f compose/kt_uri.yml -f compose/kt_uri-stage.yml
+  only:
+    - stage-ur
 
 build-kt_uri-production:
-    extends: .build-image
-    variables:
-        APPLICATION: kt_uri
-        COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.production.yml
-    only:
-        - production-ur
-
+  extends: .build-image
+  variables:
+    APPLICATION: kt_uri
+    # TODO: Can be removed once all customer compose files have been refactored
+    CONTAINERS: django php db
+    COMPOSE: docker-compose -f compose/kt_uri.yml -f compose/kt_uri-prod.yml
+  only:
+    - production-ur
 
 # Create a minimal tarball which is deployable by
 # https://github.com/camac-suisse/ansible-role-camac
 .build-tarball:
-    stage: build
-    services:
-        - docker:dind
-    script:
-        - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
-        - eval $COMPOSE pull --ignore-pull-failures --quiet ember django php db caluma ember-caluma-portal document-merge-service
-        - eval $COMPOSE build --pull
-        - eval $COMPOSE up -d php django caluma ember-caluma-portal document-merge-service
-        - mkdir tarball
-        - docker cp $(eval $COMPOSE ps -q php):/var/www/camac tarball/camac
-        - cd tarball/camac
-        - rm -rf kt_uri kt_schwyz demo media configuration php.* sessions 000-default.conf .prettier* .eslintrc.js .dockerignore Dockerfile docker-compose* .git .gitignore
-        - cd ../..
-        - docker cp $(eval $COMPOSE ps -q django):/app tarball/django
-        - rm -rf tarball/django/kt_uri tarball/django/kt_schwyz tarball/django/demo
-        - docker cp $(eval $COMPOSE ps -q caluma):/app tarball/caluma
-        - mkdir -p tarball/document-merge-service/fixtures
-        - docker cp $(eval $COMPOSE ps -q document-merge-service):/tmp/document-merge-service/dump.json tarball/document-merge-service/fixtures/
-        - docker cp $(eval $COMPOSE ps -q document-merge-service):/var/lib/document-merge-service/media tarball/document-merge-service/templates
-        - docker cp $(eval $COMPOSE ps -q ember-caluma-portal):/app tarball/ember-caluma-portal
-        - cd tarball
-        - tar cfz "../camac-be-$(cat ../VERSION.txt)+${CI_COMMIT_SHORT_SHA}.tar.gz" .
-        - cd ..
-    artifacts:
-        paths:
-          - "camac-be-*.tar.gz"
-        expire_in: 1 month
-
-
-build-kt_bern-master:
-  extends: .build-tarball
-  only:
-    - master
-
-
-build-kt_bern-stage:
-  extends: .build-tarball
-  only:
-    - stage-be
-
+  stage: build
+  services:
+    - docker:dind
+  script:
+    # pull and build needed containers: php, ember-caluma-portal and document-merge-service (with db)
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
+    - eval $COMPOSE pull --ignore-pull-failures --quiet php ember-caluma-portal document-merge-service
+    - eval $COMPOSE build --pull
+    - eval $COMPOSE up -d php django ember-caluma-portal document-merge-service
+    - mkdir tarball
+    # copy php to tarball
+    - docker cp $(eval $COMPOSE ps -q php):/var/www/camac tarball/camac
+    - cd tarball/camac
+    # remove unused files for php
+    - rm -rf kt_uri kt_schwyz demo media configuration php.* sessions 000-default.conf .prettier* .eslint* Dockerfile package.json yarn.lock RELEASE-NOTES.md
+    - cd ../..
+    # copy django to tarball
+    - cp -r django tarball/django
+    - cd tarball/django
+    # remove unused files for django
+    - rm -rf kt_uri kt_schwyz demo .coverage* .dockerignore Dockerfile
+    - cd ../..
+    # copy document-merge-service to tarball
+    - mkdir -p tarball/document-merge-service/fixtures
+    - docker cp $(eval $COMPOSE ps -q document-merge-service):/tmp/document-merge-service/dump.json tarball/document-merge-service/fixtures/
+    - docker cp $(eval $COMPOSE ps -q document-merge-service):/var/lib/document-merge-service/media tarball/document-merge-service/templates
+    # copy portal to tarball
+    - mkdir -p tarball/ember-caluma-portal/dist
+    - docker cp $(eval $COMPOSE ps -q ember-caluma-portal):/myapp/build/. tarball/ember-caluma-portal/dist
+    # build tarball
+    - cd tarball
+    - tar cfz "../camac-be-$(cat ../VERSION.txt)+${CI_COMMIT_SHORT_SHA}.tar.gz" .
+    - cd ..
+  artifacts:
+    paths:
+      - "camac-be-*.tar.gz"
+    expire_in: 1 month
 
 build-kt_bern-production:
   extends: .build-tarball
   only:
     - production-be
 
-
 .deploy:
-    variables:
-        DOCKER_TLS_VERIFY: 1
-        # because of https://github.com/docker/compose/issues/2668 tls certs
-        # need to be assigned as parameters - once fixed such params can be removed.
-        COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.production.yml --tlsverify --tlscert /root/.docker/cert.pem --tlskey /root/.docker/key.pem --tlscacert /root/.docker/ca.pem
-    stage: deploy
-    script:
-        - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
-        - eval $COMPOSE pull
-        - eval $COMPOSE up -d
-    when: manual
-
+  variables:
+    DOCKER_TLS_VERIFY: 1
+    # because of https://github.com/docker/compose/issues/2668 tls certs
+    # need to be assigned as parameters - once fixed such params can be removed.
+    TLSOPTS: --tlsverify --tlscert /root/.docker/cert.pem --tlskey /root/.docker/key.pem --tlscacert /root/.docker/ca.pem
+    COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.production.yml
+  stage: deploy
+  script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
+    - eval $COMPOSE $TLSOPTS pull
+    - eval $COMPOSE $TLSOPTS up -d
+  when: manual
 
 deploy-kt_schwyz-stage:
-    extends: .deploy
-    environment:
-        name: stage-kt_schwyz
-        url: https://camac-schwyz.sycloud.ch/
-    variables:
-        APPLICATION: kt_schwyz
-        DOCKER_HOST: vm-camac-webapp-stage-02.cust.adfinis-sygroup.ch:2376
-    only:
-        - stage-sz
-
+  extends: .deploy
+  environment:
+    name: stage-kt_schwyz
+    url: https://camac-schwyz.sycloud.ch/
+  variables:
+    APPLICATION: kt_schwyz
+    DOCKER_HOST: vm-camac-webapp-stage-02.cust.adfinis-sygroup.ch:2376
+  only:
+    - stage-sz
 
 deploy-kt_schwyz-production:
-    extends: deploy-kt_schwyz-stage
-    environment:
-        name: production-kt_schwyz
-        url: https://behoerden.ebau-sz.ch/
-    variables:
-        COMPOSE: docker-compose -f docker-compose.production.sz.yml --tlsverify --tlscert /root/.docker/cert.pem --tlskey /root/.docker/key.pem --tlscacert /root/.docker/ca.pem
-        DOCKER_HOST: vm-kantonsz-web-01.cust.adfinis-sygroup.ch:2376
-    only:
-        - production-sz
-
+  extends: deploy-kt_schwyz-stage
+  environment:
+    name: production-kt_schwyz
+    url: https://behoerden.ebau-sz.ch/
+  variables:
+    COMPOSE: docker-compose -f docker-compose.production.sz.yml --tlsverify --tlscert /root/.docker/cert.pem --tlskey /root/.docker/key.pem --tlscacert /root/.docker/ca.pem
+    DOCKER_HOST: vm-kantonsz-web-01.cust.adfinis-sygroup.ch:2376
+  only:
+    - production-sz
 
 deploy-kt_uri-stage:
-    extends: .deploy
-    environment:
-        name: stage-kt_uri
-        url: https://camac-uri.sycloud.ch/
-    variables:
-        APPLICATION: kt_uri
-        DOCKER_HOST: vm-camac-webapp-stage-01.cust.adfinis-sygroup.ch:2376
-        COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.production.yml -f docker-compose.uri-stage.yml --tlsverify --tlscert /root/.docker/cert.pem --tlskey /root/.docker/key.pem --tlscacert /root/.docker/ca.pem
-    after_script:
-        - eval $COMPOSE stop keycloak
-    only:
-        - stage-ur
-
+  extends: .deploy
+  environment:
+    name: stage-kt_uri
+    url: https://camac-uri.sycloud.ch/
+  variables:
+    APPLICATION: kt_uri
+    DOCKER_HOST: vm-camac-webapp-stage-01.cust.adfinis-sygroup.ch:2376
+    COMPOSE: docker-compose -f compose/kt_uri.yml -f compose/kt_uri-stage.yml
+  only:
+    - stage-ur
 
 deploy-kt_bern-production:
   stage: deploy

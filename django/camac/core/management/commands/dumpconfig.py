@@ -12,7 +12,7 @@ from django.core.management.base import BaseCommand
 # Configuration models that do not have any foreign key relationships
 # to non-config models (direct or indirect).
 # These models can be safely deleted and re-imported anytime.
-pure_config_models = (
+pure_config_models = [
     "core.ACheckquery",
     "core.ACirculationEmail",
     "core.ACirculationEmailT",
@@ -183,12 +183,12 @@ pure_config_models = (
     "responsible.IrEditresponsiblegroup",
     "responsible.ASetresponsiblegroup",
     "responsible.ResponsibleServiceAllocation",
-)
+]
 
 # List of models that have foreign keys referencing non-config tables
 # (directly or indirectly). All models which are not in this list can
 # be safely flushed and re-imported.
-models_referencing_data = (
+models_referencing_data = [
     "core.AnswerQuery",
     "core.BGroupAcl",
     "core.BuildingAuthoritySection",
@@ -230,7 +230,16 @@ models_referencing_data = (
     "user.ServiceT",
     "user.ServiceGroup",
     "user.ServiceGroupT",
-)
+]
+
+pure_config_models_caluma = []
+models_referencing_data_caluma = [
+    "caluma_form.Option",
+    "caluma_form.Question",
+    "caluma_form.Form",
+    "caluma_form.QuestionOption",
+    "caluma_form.FormQuestion",
+]
 
 # exclude models which are managed by the customer alone from sync
 models_managed_by_customer = {
@@ -260,22 +269,39 @@ class Command(BaseCommand):
         " given format."
     )
 
-    def handle(self, *app_labels, **options):
-        options["indent"] = 2
+    def add_arguments(self, parser):
+        parser.add_argument(
+            "--output",
+            type=str,
+            default=settings.APPLICATION_DIR("config.json"),
+            help="Output file for camac config",
+        )
+        parser.add_argument(
+            "--output-caluma",
+            dest="output_caluma",
+            type=str,
+            default=settings.APPLICATION_DIR("config-caluma.json"),
+            help="Output file for caluma config",
+        )
 
-        export_models = [
-            m
-            for m in [*pure_config_models, *models_referencing_data]
-            if m not in models_managed_by_customer[settings.APPLICATION_NAME]
-        ]
+        parser.add_argument(
+            "--caluma",
+            dest="caluma",
+            action="store_true",
+            help="Dump caluma config as well",
+        )
+        parser.add_argument(
+            "--no-caluma",
+            dest="caluma",
+            action="store_false",
+            help="Don't dump caluma config",
+        )
 
-        try:
-            output = options.pop("output")
-        except KeyError:  # pragma: no cover
-            output = settings.APPLICATION_DIR("config.json")
+        parser.set_defaults(caluma=settings.APPLICATION.get("FORM_BACKEND") == "caluma")
+
+    def dump_config(self, export_models, output):
         tmp_output = io.StringIO()
-        options["stdout"] = tmp_output
-        call_command("dumpdata", *export_models, **options)
+        call_command("dumpdata", *export_models, indent=2, stdout=tmp_output)
         tmp_output.seek(0)
         data = json.load(tmp_output)
         data = sorted(data, key=lambda k: (k["model"], k["pk"]))
@@ -283,3 +309,19 @@ class Command(BaseCommand):
         with open(output, "w") as f:
             json.dump(data, f, indent=2, sort_keys=True)
             f.flush()
+
+    def handle(self, *app_labels, **options):
+        self.dump_config(
+            [
+                m
+                for m in pure_config_models + models_referencing_data
+                if m not in models_managed_by_customer[settings.APPLICATION_NAME]
+            ],
+            options["output"],
+        )
+
+        if options["caluma"]:
+            self.dump_config(
+                pure_config_models_caluma + models_referencing_data_caluma,
+                options["output_caluma"],
+            )

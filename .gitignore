@@ -1,16 +1,10 @@
-*.css.map
 *.orig
-*.swo
-*.swp
 *.vpp~*
 .cache
-.directory
 .env
 .python-version
-.sass-cache/
 .vagrant
 .venv/
-.vscode
 .~lock*
 cache/
 camac.vpp.*
@@ -22,7 +16,6 @@ export.log
 FINJA
 form-export.csv
 geckodriver.log
-nbproject
 php/cache
 php/data
 php/logs/mails/
@@ -31,3 +24,19 @@ staticfiles/
 tmp
 tools/software/
 /db_snapshots
+
+# System
+.directory
+
+# Editors
+/nbproject/
+/.vscode/*
+!/.vscode/launch.json
+*.swp
+*.swo
+
+# CSS
+.sass-cache/
+*.css.map
+
+node_modules

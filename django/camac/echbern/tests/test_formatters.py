@@ -1,5 +1,6 @@
 import logging
 import os.path
+import xml.dom.minidom as minidom
 
 import pytest
 import xmlschema
@@ -55,3 +56,33 @@ def test_base_delivery(
 def test_office(ech_instance, snapshot):
     off = formatters.office(ech_instance.active_service)
     snapshot.assert_match(off.toxml(element_name="office"))
+
+
+@pytest.mark.parametrize("amount", [0, 1, 2])
+@pytest.mark.parametrize("with_display_name", [True, False])
+def test_get_documents(db, attachment_factory, amount, with_display_name, snapshot):
+    context = {}
+    if with_display_name:
+        context = {"displayName": "baz"}
+    attachments = [
+        attachment_factory(name="foo.bar", context=context, attachment_id=count)
+        for count in range(1, amount + 1)
+    ]
+    xml = formatters.get_documents(attachments)
+
+    assert xml
+
+    xml_documents = []
+
+    for doc in xml:
+        try:
+            xml_data = doc.toxml(element_name="doc")
+            pretty = minidom.parseString(xml_data).toprettyxml()
+            xml_documents.append(pretty)
+        except (
+            IncompleteElementContentError,
+            UnprocessedElementContentError,
+        ) as e:  # pragma: no cover
+            logger.error(e.details())
+            raise
+    snapshot.assert_match(xml_documents)

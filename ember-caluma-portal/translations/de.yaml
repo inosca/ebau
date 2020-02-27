@@ -1,4 +1,6 @@
-"caluma.form.optional": "falls nötig"
+caluma:
+  form:
+    optional: "falls nötig"
 
 global:
   title: "eBau Bern"
@@ -7,6 +9,7 @@ global:
   delete: "Löschen"
   cancel: "Abbrechen"
   back: "Zurück"
+  save: "Speichern"
 
 nav:
   form: "Formular"
@@ -19,9 +22,7 @@ nav:
   instances: "Dossiers"
   applicant: "Gesuchsteller/in"
   group: "Gruppe"
-
-  canNotChangeLanguage: "Die Sprache kann nicht geändert werden, da bereits eine Sprache in der URL vorgegeben ist"
-  canNotChangeGroup: "Die Gruppe kann nicht geändert werden, da bereits eine Gruppe in der URL vorgegeben ist"
+  internal: "zum internen Bereich"
 
 feedback:
   info: "Sie haben momentan keine Rückmeldungen. Sobald das Dossier eingereicht wurde, werden Ihnen hier mögliche Rückmeldungen der Leitbehörde oder Fachstellen angezeigt."
@@ -91,10 +92,10 @@ documents:
     weitere-unterlagen: "Weitere Unterlagen"
 
 freigabequittung:
-  noFiles: "Es sind keine Dokumente zu unterschreiben."
   downloadError: "Beim Export ist ein Problem aufgetreten. Bitte versuchen Sie es erneut."
 
 gis:
+  title: "Karte"
   apply-button: "Daten übernehmen"
   no-map:
     message: "Wird die Karte nicht richtig dargestellt?"
@@ -204,9 +205,6 @@ instances:
     sb1: "Selbstdeklaration 1"
     sb2: "Selbstdeklaration 2"
 
-  noDocument: "Das Formular \"{form}\" wurde noch nicht ausgefüllt."
-  createDocument: "Formular jetzt ausfüllen"
-
   applicants:
     invitee: "Benutzer"
     created: "Erfasst am"
@@ -225,7 +223,6 @@ be-submit-instance:
   loading: "Ihr Dossier wird geprüft. Bitte haben Sie einen Moment Geduld."
   success: "Das Gesuch wurde erfolgreich eingereicht."
   failed-camac: "Fehler beim Schreiben auf Schnittstelle."
-  failed-archive: "Fehler beim Ablegen des Gesuchs."
   failed-message: "Hoppla, etwas ist schief gelaufen. Bitte überprüfen Sie Ihre Eingabedaten nochmals. {reasons}"
 
 claims:
@@ -260,3 +257,17 @@ notfound:
   subtitle: "Die Seite wurde nicht gefunden"
   link: "Zurück zur"
   home: "Startseite"
+
+paper:
+  type: "(Papier)"
+  noteTitle: "Hinweis:"
+  noteBody: "Sie erstellen ein Dossier, welches in Ihrer Gemeinde in Papierform
+  eingereicht wurde (Papierdossier). Falls Sie ein normales Dossier als
+  Gesuchsteller erstellen wollen, wählen Sie \"Gesuchsteller/in\" im
+  Gruppenmenu am rechten oberen Rand der Seite."
+
+dashboard:
+  edit: "bearbeiten"
+  no-content: "Es wurde noch kein Inhalt erfasst. Klicken Sie auf \"bearbeiten\" um neuen Inhalt zu erfassen."
+  load-error: "Fehler beim Laden des Inhaltes"
+  save-error: "Fehler beim Speichern des Inhaltes"
