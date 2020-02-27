@@ -118,7 +118,7 @@
 
         <hr class="uk-margin uk-margin-medium-bottom" />
 
-        {{outlet}}
+        <FocusingOutlet @outletState={{-get-dynamic-var "outletState"}}/>
 
         <hr class="uk-margin uk-margin-medium-top" />
 
@@ -146,6 +146,6 @@
       </div>
     </div>
   {{else}}
-    {{outlet}}
+    <FocusingOutlet @outletState={{-get-dynamic-var "outletState"}}/>
   {{/if}}
 {{/with}}
