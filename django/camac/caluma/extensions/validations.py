@@ -1,22 +1,11 @@
-#!/usr/bin/env python3
-
-# This file will contain custom validations for CALUMA-BE.
-#
-# Currently, this is only a sketch of what needs to be done, and is only here
-# so it doesn't get forgotten.
-
-
-import json
-
-import requests
 from caluma.caluma_core.validations import BaseValidation, validation_for
-from caluma.caluma_form.models import Answer, Document
-from caluma.caluma_form.schema import SaveDocumentStringAnswer, SaveDocumentTableAnswer
-from django.conf import settings
+from caluma.caluma_form.models import Answer
+from caluma.caluma_form.schema import SaveDocumentStringAnswer
 
+from camac.caluma.api import CamacRequest
 from camac.echbern.signals import file_subsequently
 from camac.instance.models import Instance
-from camac.utils import build_url, headers
+from camac.notification.serializers import NotificationTemplateSendmailSerializer
 
 CLAIM_QUESTION = "nfd-tabelle-table"
 CLAIM_STATUS_QUESTION = "nfd-tabelle-status"
@@ -28,30 +17,26 @@ NOTIFICATION_CLAIM_ANSWERED = 32
 
 
 class CustomValidation(BaseValidation):
-    def _send_claim_notification(self, info, instance_id, template_id, recipient_types):
-        requests.post(
-            build_url(
-                settings.INTERNAL_BASE_URL,
-                f"/api/v1/notification-templates/{template_id}/sendmail",
-            ),
-            headers={"content-type": "application/vnd.api+json", **headers(info)},
-            data=json.dumps(
-                {
-                    "data": {
-                        "type": "notification-template-sendmails",
-                        "attributes": {"recipient_types": recipient_types},
-                        "relationships": {
-                            "instance": {
-                                "data": {"type": "instances", "id": instance_id}
-                            }
-                        },
-                    }
-                }
-            ),
+    def _send_claim_notification(self, info, instance, template_id, recipient_types):
+        mail_data = {
+            "instance": {"type": "instances", "id": instance.pk},
+            "notification_template": {
+                "type": "notification-templates",
+                "id": template_id,
+            },
+            "recipient_types": recipient_types,
+        }
+
+        mail_serializer = NotificationTemplateSendmailSerializer(
+            instance, mail_data, context={"request": CamacRequest(info).request}
         )
 
-    def _send_claim_ech_event(self, info, instance_id):
-        instance = Instance.objects.get(pk=instance_id)
+        if not mail_serializer.is_valid():
+            raise Exception()
+
+        mail_serializer.create(mail_serializer.validated_data)
+
+    def _send_claim_ech_event(self, info, instance):
         file_subsequently.send(
             sender=self.__class__,
             instance=instance,
@@ -59,65 +44,36 @@ class CustomValidation(BaseValidation):
             group_pk=None,  # Not needed, hence not querying for it
         )
 
-    def _validate_claim_status(self, info, instance_id, status, old_status=None):
-        if old_status and status == old_status:
-            # the status did not change, no further action
-            return
-
-        if status == CLAIM_STATUS_IN_PROGRESS:
-            self._send_claim_notification(
-                info, instance_id, NOTIFICATION_CLAIM_IN_PROGRESS, ["applicant"]
-            )
-
-        if status == CLAIM_STATUS_ANSWERED:
-            self._send_claim_notification(
-                info, instance_id, NOTIFICATION_CLAIM_ANSWERED, ["leitbehoerde"]
-            )
-            self._send_claim_ech_event(info, instance_id)
-
-    @validation_for(SaveDocumentTableAnswer)
-    def validate_save_document_table_answer(self, mutation, data, info):
-        if data["question"].slug == CLAIM_QUESTION:
-            try:
-                instance_id = data["document"].meta["camac-instance-id"]
-
-                try:
-                    old_documents = (
-                        data["document"]
-                        .answers.get(question=CLAIM_QUESTION)
-                        .documents.all()
-                    )
-                except Answer.DoesNotExist:
-                    # this is the first added document
-                    old_documents = []
-
-                new_document = (set(data["documents"]) - set(old_documents)).pop()
-
-                self._validate_claim_status(
-                    info,
-                    instance_id,
-                    new_document.answers.get(question=CLAIM_STATUS_QUESTION).value,
-                )
-            except KeyError:
-                # no new documents added
-                pass
-
-        return data
-
     @validation_for(SaveDocumentStringAnswer)
     def validate_save_document_string_answer(self, mutation, data, info):
         if data["question"].slug == CLAIM_STATUS_QUESTION:
+            instance_id = data["document"].family.meta["camac-instance-id"]
+            instance = Instance.objects.get(pk=instance_id)
+            new_status = data["value"]
+
             try:
-                self._validate_claim_status(
-                    info,
-                    Document.objects.get(pk=data["document"].family).meta[
-                        "camac-instance-id"
-                    ],
-                    data["value"],
-                    data["document"].answers.get(question=CLAIM_STATUS_QUESTION).value,
+                old_status = (
+                    data["document"].answers.get(question=CLAIM_STATUS_QUESTION).value
                 )
-            except KeyError:
-                # the document is not linked yet (no camac-instance-id)
-                pass
+            except Answer.DoesNotExist:
+                old_status = None
+
+            if old_status and new_status == old_status:
+                # the status did not change, no further action
+                return data
+
+            if new_status == CLAIM_STATUS_IN_PROGRESS:
+                # claim is now in progress, inform the applicant
+                self._send_claim_notification(
+                    info, instance, NOTIFICATION_CLAIM_IN_PROGRESS, ["applicant"]
+                )
+
+            if new_status == CLAIM_STATUS_ANSWERED:
+                # claim is answered, inform the active service and create an
+                # eCH event
+                self._send_claim_notification(
+                    info, instance, NOTIFICATION_CLAIM_ANSWERED, ["leitbehoerde"]
+                )
+                self._send_claim_ech_event(info, instance)
 
         return data
