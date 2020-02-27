@@ -2103,7 +2103,7 @@
     "fields": {
       "action": 110003,
       "description": null,
-      "error_message": "Die angegebene eBau-Nummer existiert nicht",
+      "error_message": "Die angegebene eBau-Nummer existiert nicht oder wurde durch eine andere Leitbeh\u00f6rde bereits vergeben",
       "language": "de",
       "name": "Check eBau-Nr exists",
       "success_message": null
@@ -2115,7 +2115,7 @@
     "fields": {
       "action": 110004,
       "description": null,
-      "error_message": "Die angegebene eBau-Nummer existiert nicht",
+      "error_message": "Die angegebene eBau-Nummer existiert nicht oder wurde durch eine andere Leitbeh\u00f6rde bereits vergeben",
       "language": "de",
       "name": "Check eBau-Nr exists",
       "success_message": null
