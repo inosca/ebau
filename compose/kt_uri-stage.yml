@@ -64,7 +64,7 @@ services:
   iweb_mock:
     image: acr.run/camac-ng/camac-ng/iweb_mock:${CI_COMMIT_REF_SLUG}-${APPLICATION}
     build:
-      context: iweb_mock
+      context: ../iweb_mock
       cache_from:
         - acr.run/camac-ng/camac-ng/iweb_mock:${CI_COMMIT_REF_SLUG}-${APPLICATION}
     depends_on:
