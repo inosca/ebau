@@ -123,7 +123,9 @@ def test_notification_template_merge(
     billing_entry,
     application_settings,
     form_field_factory,
+    notice_factory,
 ):
+    notice_factory.create_batch(size=3, activation=activation)
     application_settings["COORDINATE_QUESTION"] = "punkte"
     application_settings["QUESTIONS_WITH_OVERRIDE"] = ["bezeichnung"]
 
