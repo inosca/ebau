@@ -39,6 +39,7 @@ request_logger = getLogger("django.request")
 class NoticeMergeSerializer(serializers.Serializer):
     service = serializers.StringRelatedField(source="activation.service")
     notice_type = serializers.StringRelatedField()
+    notice_type_id = serializers.IntegerField(source="notice_type.pk")
     content = serializers.CharField()
 
 
@@ -272,10 +273,18 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     def get_my_activations(self, instance):
         if "request" not in self.context:
             return instance.activations.none()
-        return ActivationMergeSerializer(
+
+        activations = ActivationMergeSerializer(
             instance.activations.filter(service=self.context["request"].group.service),
             many=True,
         ).data
+
+        for activation in activations:
+            activation["notices"] = sorted(
+                activation["notices"], key=lambda k: k["notice_type_id"]
+            )
+
+        return activations
 
     def get_total_activations(self, instance):
         return instance.activations.count()
