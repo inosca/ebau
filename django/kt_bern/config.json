@@ -1165,6 +1165,62 @@
   },
   {
     "fields": {
+      "available_action": "addjournal",
+      "button": 1200000,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 0,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1200000
+  },
+  {
+    "fields": {
+      "available_action": "addjournal",
+      "button": 1200001,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 0,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1200001
+  },
+  {
+    "fields": {
+      "available_action": "formtransition",
+      "button": 1200000,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1200002
+  },
+  {
+    "fields": {
+      "available_action": "formtransition",
+      "button": 1200001,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1200003
+  },
+  {
+    "fields": {
       "action": 10013,
       "description": null,
       "error_message": null,
@@ -2281,6 +2337,78 @@
   },
   {
     "fields": {
+      "action": 1200000,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Journaleintrag: SB1 manuell abgeschlossen",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 1200000
+  },
+  {
+    "fields": {
+      "action": 1200000,
+      "description": null,
+      "error_message": null,
+      "language": "fr",
+      "name": "Entr\u00e9e de journal: DC1 compl\u00e9t\u00e9e manuellement",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 1200001
+  },
+  {
+    "fields": {
+      "action": 1200001,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Journaleintrag: SB2 manuell abgeschlossen",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 1200002
+  },
+  {
+    "fields": {
+      "action": 1200001,
+      "description": null,
+      "error_message": null,
+      "language": "fr",
+      "name": "Entr\u00e9e de journal: DC2 compl\u00e9t\u00e9e manuellement",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 1200003
+  },
+  {
+    "fields": {
+      "action": 1200002,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Go to state \"Abschluss (SB2)\"",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 1200004
+  },
+  {
+    "fields": {
+      "action": 1200003,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Go to state \"zum Abschluss\"",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 1200005
+  },
+  {
+    "fields": {
       "current_instance_state": null,
       "next_instance_state": 20006
     },
@@ -2390,6 +2518,22 @@
     },
     "model": "core.aformtransition",
     "pk": 150003
+  },
+  {
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 20013
+    },
+    "model": "core.aformtransition",
+    "pk": 1200002
+  },
+  {
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 20014
+    },
+    "model": "core.aformtransition",
+    "pk": 1200003
   },
   {
     "fields": {
@@ -41770,6 +41914,24 @@
   },
   {
     "fields": {
+      "button": 1200000,
+      "instance_state": 20011,
+      "role": 5
+    },
+    "model": "core.broleacl",
+    "pk": 1200001
+  },
+  {
+    "fields": {
+      "button": 1200001,
+      "instance_state": 20013,
+      "role": 5
+    },
+    "model": "core.broleacl",
+    "pk": 1200002
+  },
+  {
+    "fields": {
       "class_field": "next-arrows",
       "description": null,
       "hidden": 0,
@@ -42127,6 +42289,30 @@
     },
     "model": "core.button",
     "pk": 150000
+  },
+  {
+    "fields": {
+      "class_field": "active_baukontrolle_only sb1_modal",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 20070,
+      "name": null,
+      "sort": 1
+    },
+    "model": "core.button",
+    "pk": 1200000
+  },
+  {
+    "fields": {
+      "class_field": "active_baukontrolle_only sb2_modal",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 20070,
+      "name": null,
+      "sort": 2
+    },
+    "model": "core.button",
+    "pk": 1200001
   },
   {
     "fields": {
@@ -42727,6 +42913,46 @@
     },
     "model": "core.buttont",
     "pk": 150003
+  },
+  {
+    "fields": {
+      "button": 1200000,
+      "description": null,
+      "language": "de",
+      "name": "Selbstdeklaration 1 abschliessen"
+    },
+    "model": "core.buttont",
+    "pk": 1200000
+  },
+  {
+    "fields": {
+      "button": 1200000,
+      "description": null,
+      "language": "fr",
+      "name": "D\u00e9claration spontan\u00e9e 1 compl\u00e8te"
+    },
+    "model": "core.buttont",
+    "pk": 1200001
+  },
+  {
+    "fields": {
+      "button": 1200001,
+      "description": null,
+      "language": "de",
+      "name": "Selbstdeklaration 2 abschliessen"
+    },
+    "model": "core.buttont",
+    "pk": 1200002
+  },
+  {
+    "fields": {
+      "button": 1200001,
+      "description": null,
+      "language": "fr",
+      "name": "D\u00e9claration spontan\u00e9e 2 compl\u00e8te"
+    },
+    "model": "core.buttont",
+    "pk": 1200003
   },
   {
     "fields": {
@@ -59238,6 +59464,20 @@
   },
   {
     "fields": {
+      "text": null
+    },
+    "model": "core.journalactionconfig",
+    "pk": 1200000
+  },
+  {
+    "fields": {
+      "text": null
+    },
+    "model": "core.journalactionconfig",
+    "pk": 1200001
+  },
+  {
+    "fields": {
       "action": 20027,
       "language": "de",
       "text": "Dossier eingereicht"
@@ -59451,6 +59691,42 @@
     },
     "model": "core.journalactionconfigt",
     "pk": 150005
+  },
+  {
+    "fields": {
+      "action": 1200000,
+      "language": "de",
+      "text": "SB1 manuell abgeschlossen"
+    },
+    "model": "core.journalactionconfigt",
+    "pk": 1200000
+  },
+  {
+    "fields": {
+      "action": 1200000,
+      "language": "fr",
+      "text": "DC1 compl\u00e9t\u00e9e manuellement"
+    },
+    "model": "core.journalactionconfigt",
+    "pk": 1200001
+  },
+  {
+    "fields": {
+      "action": 1200001,
+      "language": "de",
+      "text": "SB2 manuell abgeschlossen"
+    },
+    "model": "core.journalactionconfigt",
+    "pk": 1200002
+  },
+  {
+    "fields": {
+      "action": 1200001,
+      "language": "fr",
+      "text": "DC2 compl\u00e9t\u00e9e manuellement"
+    },
+    "model": "core.journalactionconfigt",
+    "pk": 1200003
   },
   {
     "fields": {
