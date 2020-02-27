@@ -29002,7 +29002,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "is_archived": false,
       "is_hidden": "false",
-      "is_required": "true",
+      "is_required": "!('papierdossier'|answer == 'papierdossier-ja')",
       "label": "{\"de\": \"E-Mail\", \"fr\": \"Courriel\"}",
       "meta": {
         "formatValidators": ["email"]
