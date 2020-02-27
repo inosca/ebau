@@ -19,6 +19,7 @@ from camac.constants.kt_bern import (
 )
 from camac.core.models import Answer, DocxDecision, InstanceService
 from camac.instance.models import Instance
+from camac.utils import build_url
 
 from .schema import (
     ech_0007_6_0,
@@ -40,9 +41,9 @@ def list_to_string(data, key, delimiter=", "):
 
 
 def handle_ja_nein_bool(value):
-    if value in ["Ja", "ja"]:  # pragma: todo cover
+    if value in ["Ja", "ja"]:
         return True
-    elif value in ["Nein", "nein"]:
+    elif value in ["Nein", "nein"]:  # pragma: no cover
         return False
 
 
@@ -111,14 +112,17 @@ def get_documents(attachments):
     documents = [
         ns_document.documentType(
             uuid=str(attachment.uuid),
-            titles=pyxb.BIND(title=[attachment.name]),
+            titles=pyxb.BIND(title=[attachment.display_name]),
             status="signed",  # ech0039 documentStatusType
             documentKind=get_document_sections(attachment),
             keywords=get_keywords(attachment),
             files=ns_document.filesType(
                 file=[
                     ns_document.fileType(
-                        pathFileName=f"{settings.INTERNAL_BASE_URL}{reverse('multi-attachment-download')}?attachments={attachment.pk}",
+                        pathFileName=build_url(
+                            settings.INTERNAL_BASE_URL,
+                            f"{reverse('multi-attachment-download')}?attachments={attachment.pk}",
+                        ),
                         mimeType=attachment.mime_type,
                         # internalSortOrder minOccurs=0
                         # version minOccurs=0
@@ -247,6 +251,23 @@ def get_realestateinformation(answers):
                         number=answers.get("parzellennummer", "0")
                     ),
                     realestateType="8",
+                    coordinates=ns_objektwesen.coordinatesType(
+                        LV95=pyxb.BIND(
+                            east=answers["lagekoordinaten-ost-einfache-vorabklaerung"],
+                            north=answers[
+                                "lagekoordinaten-nord-einfache-vorabklaerung"
+                            ],
+                            originOfCoordinates=904,
+                        )
+                    )
+                    if all(
+                        k in answers
+                        for k in (
+                            "lagekoordinaten-ost-einfache-vorabklaerung",
+                            "lagekoordinaten-nord-einfache-vorabklaerung",
+                        )
+                    )
+                    else None,
                 ),
                 municipality=ech_0007_6_0.swissMunicipalityType(
                     municipalityName=answers.get(
@@ -434,7 +455,7 @@ def base_delivery(instance: Instance, answers: dict):
                     planningPermissionApplication=application(instance, answers),
                     relationshipToPerson=[
                         ns_application.relationshipToPersonType(
-                            role="applicant", person=requestor(instance)
+                            role="applicant", person=requestor(answers)
                         )
                     ],
                     decisionAuthority=decision_authority(instance.active_service),
@@ -451,7 +472,7 @@ def submit(instance: Instance, answers: dict, event_type: str):
         planningPermissionApplication=application(instance, answers),
         relationshipToPerson=[
             ns_application.relationshipToPersonType(
-                role="applicant", person=requestor(instance)
+                role="applicant", person=requestor(answers)
             )
         ],
     )
@@ -550,7 +571,6 @@ def delivery(
                 messageDate=message_date or timezone.now(),
                 action="1",
                 testDeliveryFlag=settings.ENV != "production",
-                extension=url or settings.INTERNAL_BASE_URL,
             ),
             **args,
         )
@@ -580,14 +600,18 @@ def decision_authority(service):
     )
 
 
-def requestor(instance: Instance):
+def requestor(answers: dict):
+    first_name = answers.get("vorname-gesuchstellerin-vorabklaerung")
+    last_name = answers.get("name-gesuchstellerin-vorabklaerung")
+    if "personalien-gesuchstellerin" in answers:
+        first_name = answers["personalien-gesuchstellerin"][0][
+            "vorname-gesuchstellerin"
+        ]
+        last_name = answers["personalien-gesuchstellerin"][0]["name-gesuchstellerin"]
     return ns_objektwesen.personType(
         identification=pyxb.BIND(
             personIdentification=ech_0044_4_1.personIdentificationLightType(
-                officialName=instance.user.surname
-                if instance.user.surname
-                else "unknown",
-                firstName=instance.user.name if instance.user.name else "unknown",
+                officialName=last_name, firstName=first_name
             )
         )
     )

@@ -15,7 +15,7 @@ WORKDIR /app
 
 ENV DJANGO_SETTINGS_MODULE camac.settings
 ENV UWSGI_INI /app/uwsgi.ini
-ENV DJANGO_DATABASE_PORT 5432
+ENV DATABASE_PORT 5432
 
 ARG REQUIREMENTS=requirements.txt
 COPY requirements.txt requirements-dev.txt /app/
@@ -26,4 +26,4 @@ COPY . /app
 
 EXPOSE 80
 
-CMD /bin/sh -c "./wait-for-it.sh $DJANGO_DATABASE_HOST:$DJANGO_DATABASE_PORT -- ./manage.py migrate && ./manage.py loadconfig && uwsgi"
+CMD /bin/sh -c "./wait-for-it.sh $DATABASE_HOST:$DATABASE_PORT -- ./manage.py migrate && ./manage.py loadconfig && uwsgi"

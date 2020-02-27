@@ -61,5 +61,6 @@ export default EmberObject.extend({
       this.findAnswer("anfrage-zur-vorabklaerung") ||
       this.findAnswer("beschreibung-bauvorhaben")
     );
-  })
+  }),
+  isPaper: reads("instance.isPaper")
 });

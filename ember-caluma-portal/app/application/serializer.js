@@ -8,10 +8,12 @@ export default JSONAPISerializer.extend({
     }
   },
 
-  normalizeSingleResponse(store, primaryModelClass, payload) {
+  normalizeSingleResponse(...args) {
+    const [, , payload] = args;
+
     // write the object's meta field to attributes
     payload.data.attributes.meta = payload.data.meta || {};
 
-    return this._super(...arguments);
+    return this._super(...args);
   }
 });

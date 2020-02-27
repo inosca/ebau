@@ -5,12 +5,20 @@ from datetime import timedelta
 
 import environ
 
+from camac.utils import build_url
+
 env = environ.Env()
 ROOT_DIR = environ.Path(__file__) - 2
 
 ENV_FILE = env.str("DJANGO_ENV_FILE", default=ROOT_DIR(".env"))
 if os.path.exists(ENV_FILE):  # pragma: no cover
     environ.Env.read_env(ENV_FILE)
+
+# We need to import the caluma settings after we merge os.environ with our
+# local .env file otherwise caluma tries to get it's settings from it's own env
+# file (which doesn't exist)
+
+from caluma.settings.caluma import *  # noqa
 
 ENV = env.str("APPLICATION_ENV", default="production")
 APPLICATION_NAME = env.str("APPLICATION")
@@ -26,6 +34,7 @@ def default(default_dev=env.NOTSET, default_prod=env.NOTSET):
 SECRET_KEY = env.str("DJANGO_SECRET_KEY", default=default("uuuuuuuuuu"))
 DEBUG = env.bool("DJANGO_DEBUG", default=default(True, False))
 ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=default(["*"]))
+ENABLE_SILK = env.bool("DJANGO_ENABLE_SILK", default=False)
 
 DEMO_MODE = env.bool("DEMO_MODE", default=False)
 
@@ -37,10 +46,20 @@ SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 INSTALLED_APPS = [
     "django.contrib.auth",
-    "django.contrib.admin",
     "django.contrib.postgres",
     "django.contrib.contenttypes",
     "django.contrib.staticfiles",
+    # Caluma and it's dependencies:
+    "caluma.caluma_core.apps.DefaultConfig",
+    "caluma.caluma_user.apps.DefaultConfig",
+    "caluma.caluma_form.apps.DefaultConfig",
+    "caluma.caluma_workflow.apps.DefaultConfig",
+    "caluma.caluma_data_source.apps.DefaultConfig",
+    "graphene_django",
+    "localized_fields",
+    "psqlextra",
+    "simple_history",
+    # Camac and it's dependencies
     "drf_yasg",
     "camac.core.apps.DefaultConfig",
     "camac.user.apps.DefaultConfig",
@@ -53,6 +72,7 @@ INSTALLED_APPS = [
     "camac.applicants.apps.DefaultConfig",
     "camac.auditlog.apps.DefaultConfig",
     "camac.tags.apps.DefaultConfig",
+    "camac.objection.apps.DefaultConfig",
     "camac.echbern.apps.EchbernConfig",
     "sorl.thumbnail",
     "django_clamd",
@@ -71,6 +91,7 @@ MIDDLEWARE = [
     "camac.middleware.LoggingMiddleware",
     "reversion.middleware.RevisionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
+    "simple_history.middleware.HistoryRequestMiddleware",
 ]
 
 
@@ -110,11 +131,19 @@ APPLICATIONS = {
             "Support": "support",
         },
         "IS_MULTILINGUAL": False,
-        "SUBMIT": {"WORKFLOW_ITEM": None},
         "NOTIFICATIONS": {"SUBMIT": None, "APPLICANT": {"NEW": None, "EXISTING": None}},
         "PUBLICATION_DURATION": timedelta(days=30),
-        "PUBLICATION": {"WORKFLOW_ITEM": None},
         "FORM_BACKEND": "camac-ng",
+        "WORKFLOW_ITEMS": {
+            "SUBMIT": None,
+            "INSTANCE_COMPLETE": None,
+            "PUBLICATION": None,
+            "START_CIRC": None,
+        },
+        "PAPER": {
+            "ALLOWED_ROLES": {"DEFAULT": []},
+            "ALLOWED_SERVICE_GROUPS": {"DEFAULT": []},
+        },
     },
     "kt_schwyz": {
         "ROLE_PERMISSIONS": {
@@ -131,11 +160,22 @@ APPLICATIONS = {
             "APPLICANT": {"NEW": 19, "EXISTING": 20},
             "PUBLICATION_PERMISSION": 21,
         },
-        "SUBMIT": {"WORKFLOW_ITEM": 10},
         "PUBLICATION_DURATION": timedelta(days=30),
-        "PUBLICATION": {"WORKFLOW_ITEM": 15},
         "IS_MULTILINGUAL": False,
         "FORM_BACKEND": "camac-ng",
+        "COORDINATE_QUESTION": "punkte",
+        "WORKFLOW_ITEMS": {
+            "SUBMIT": 10,
+            "INSTANCE_COMPLETE": 14,
+            "PUBLICATION": 15,
+            "START_CIRC": 44,
+        },
+        "QUESTIONS_WITH_OVERRIDE": [
+            "bezeichnung",
+            "bauherrschaft",
+            "projektverfasser-planer",
+            "grundeigentumerschaft",
+        ],
     },
     "kt_bern": {
         "ROLE_PERMISSIONS": {
@@ -171,27 +211,115 @@ APPLICATIONS = {
         "IS_MULTILINGUAL": True,
         "FORM_BACKEND": "caluma",
         "CALUMA": {"FORM_PERMISSIONS": ["main", "sb1", "sb2", "nfd"]},
-        "DEMO_MODE_GROUPS": [20003, 20006, 20096, 20144, 20069],  # DE
-        # "DEMO_MODE_GROUPS": [22274, 22271, 20099, 20078],  # FR
+        "DEMO_MODE_GROUPS": [
+            20003,
+            20006,
+            20096,
+            20144,
+            20069,
+            22648,
+            20165,
+            22642,
+            20291,
+        ],  # DE
+        # "DEMO_MODE_GROUPS": [22274, 22271, 20099, 20078, 23248],  # FR
         "ACTIVE_SERVICE_FILTERS": {"service__service_group__pk__in": [2, 20000]},
+        "PDF": {
+            "SECTION": {
+                "MAIN": {"DEFAULT": 1, "PAPER": 13},
+                "SB1": {"DEFAULT": 6, "PAPER": 10},
+                "SB2": {"DEFAULT": 5, "PAPER": 11},
+            }
+        },
+        "PAPER": {
+            "ALLOWED_ROLES": {
+                "SB1": [5, 20005],
+                "SB2": [5, 20005],
+                "DEFAULT": [3, 20004],
+            },
+            "ALLOWED_SERVICE_GROUPS": {"SB1": [3], "SB2": [3], "DEFAULT": [2]},
+        },
+        "DOCUMENT_MERGE_SERVICE": {
+            "baugesuch": {
+                "forms": [
+                    "baugesuch",
+                    "baugesuch-mit-uvp",
+                    "baugesuch-generell",
+                    "vorabklaerung-vollstaendig",
+                ],
+                "template": "2-level",
+                "allgemeine_info": "1-allgemeine-informationen",
+                "personalien": "personalien",
+                "people_sources": {
+                    "personalien-gesuchstellerin": {
+                        "familyName": "name-gesuchstellerin",
+                        "givenName": "vorname-gesuchstellerin",
+                    },
+                    "personalien-vertreterin-mit-vollmacht": {
+                        "familyName": "name-vertreterin",
+                        "givenName": "vorname-vertreterin",
+                    },
+                    "personalien-grundeigentumerin": {
+                        "familyName": "name-grundeigentuemerin",
+                        "givenName": "vorname-grundeigentuemerin",
+                    },
+                    "personalien-gebaudeeigentumerin": {
+                        "familyName": "name-gebaeudeeigentuemerin",
+                        "givenName": "vorname-gebaeudeeigentuemerin",
+                    },
+                    "personalien-projektverfasserin": {
+                        "familyName": "name-projektverfasserin",
+                        "givenName": "vorname-projektverfasserin",
+                    },
+                },
+                "exclude_slugs": ["8-freigabequittung"],
+            },
+            "vorabklaerung-einfach": {
+                "forms": ["vorabklaerung-einfach"],
+                "template": "1-level",
+                "allgemeine_info": "allgemeine-informationen-vorabklaerung-form",
+                "givenName": "vorname-gesuchstellerin-vorabklaerung",
+                "familyName": "name-gesuchstellerin-vorabklaerung",
+                "exclude_slugs": [
+                    "freigabequittung-vorabklaerung-form",
+                    "dokumente-vorabklaerung-form",
+                ],
+            },
+            "selbstdeklaration": {
+                "forms": ["sb1", "sb2"],
+                "template": "1-level",
+                "exclude_slugs": [
+                    "freigabequittung-sb1",
+                    "freigabequittung-sb2",
+                    "dokumente-sb1",
+                    "dokumente-sb2",
+                ],
+            },
+        },
     },
     "kt_uri": {"FORM_BACKEND": "camac"},
 }
 
 APPLICATION = APPLICATIONS.get(APPLICATION_NAME, {})
 
-PUBLIC_BASE_URL = env.str(
-    "DJANGO_PUBLIC_BASE_URL", default="http://caluma-portal.local"
+PUBLIC_BASE_URL = build_url(
+    env.str("DJANGO_PUBLIC_BASE_URL", default="http://caluma-portal.local")
 )
 
-INTERNAL_BASE_URL = env.str("DJANGO_INTERNAL_BASE_URL", default="http://camac-ng.local")
+INTERNAL_BASE_URL = build_url(
+    env.str("DJANGO_INTERNAL_BASE_URL", default="http://camac-ng.local")
+)
 
 PUBLIC_INSTANCE_URL_TEMPLATE = env.str(
     "DJANGO_PUBLIC_INSTANCE_URL_TEMPLATE",
-    default="{public_base_url}/instances/{instance_id}",
+    default=build_url(PUBLIC_BASE_URL, "/instances/{instance_id}"),
 )
-INTERNAL_INSTANCE_URL_TEMPLATE = (
-    "{internal_base_url}/index/redirect-to-instance-resource/instance-id/{instance_id}"
+INTERNAL_INSTANCE_URL_TEMPLATE = env.str(
+    "DJANGO_INTERNAL_INSTANCE_URL_TEMPLATE",
+    default=build_url(
+        INTERNAL_BASE_URL,
+        "/index/redirect-to-instance-resource/instance-id/{instance_id}",
+    ),
 )
 
 # Logging
@@ -206,7 +334,7 @@ LOGGING = {
     "formatters": {
         "django.server": {
             "()": "django.utils.log.ServerFormatter",
-            "format": "[%(server_time)s] %(message)s",
+            "format": "[%(asctime)s] %(message)s",
         }
     },
     "handlers": {
@@ -235,8 +363,13 @@ REQUEST_LOGGING_CONTENT_TYPES = env.list(
 # Managing files
 
 MEDIA_ROOT = env.str("DJANGO_MEDIA_ROOT", default=default(ROOT_DIR("media")))
-ATTACHMENT_ZIP_PATH = env.str(
-    "DJANGO_ATTACHMENT_ZIP_PATH", default="/tmp/camac/tmpfiles/zips/"
+TEMPFILE_DOWNLOAD_PATH = env.str(
+    "DJANGO_TEMPFILE_DOWNLOAD_PATH", default="/tmp/camac/tmpfiles"
+)
+TEMPFILE_DOWNLOAD_URL = env.str("DJANGO_TEMPFILE_DOWNLOAD_URL", default="/zips")
+# in seconds
+TEMPFILE_RETENTION_TIME = env.int(
+    "DJANGO_TEMPFILE_RETENTION_TIME", default=(60 * 60 * 24)
 )
 
 STATIC_ROOT = ROOT_DIR("staticfiles")
@@ -276,12 +409,12 @@ UNOCONV_URL = env.str("DJANGO_UNOCONV_URL", default="http://localhost:3000")
 
 DATABASES = {
     "default": {
-        "ENGINE": "camac.core.postgresql_dbdefaults",
-        "NAME": env.str("DJANGO_DATABASE_NAME", default=APPLICATION_NAME),
-        "USER": env.str("DJANGO_DATABASE_USER", default="camac"),
-        "PASSWORD": env.str("DJANGO_DATABASE_PASSWORD", default=default("camac")),
-        "HOST": env.str("DJANGO_DATABASE_HOST", default="localhost"),
-        "PORT": env.str("DJANGO_DATABASE_PORT", default=""),
+        "ENGINE": "camac.core.postgresql_dbdefaults.psqlextra",
+        "NAME": env.str("DATABASE_NAME", default=APPLICATION_NAME),
+        "USER": env.str("DATABASE_USER", default="camac"),
+        "PASSWORD": env.str("DATABASE_PASSWORD", default=default("camac")),
+        "HOST": env.str("DATABASE_HOST", default="localhost"),
+        "PORT": env.str("DATABASE_PORT", default=""),
     }
 }
 
@@ -384,22 +517,26 @@ CLAMD_ENABLED = env.bool("DJANGO_CLAMD_ENABLED", default=True)
 
 # Keycloak service
 
-KEYCLOAK_URL = env.str("KEYCLOAK_URL", default="http://camac-ng-keycloak.local/auth/")
+KEYCLOAK_URL = build_url(
+    env.str("KEYCLOAK_URL", default="http://camac-ng-keycloak.local/auth/"),
+    trailing=True,
+)
 KEYCLOAK_REALM = env.str("KEYCLOAK_REALM", default="ebau")
 KEYCLOAK_CLIENT = env.str("KEYCLOAK_CLIENT", default="camac")
-KEYCLOAK_CAMAC_ADMIN_CLIENT_SECRET = env.str(
-    "KEYCLOAK_CAMAC_ADMIN_CLIENT_SECRET", default="a7d2be1b-6a7a-4f28-a978-10a63b1e9850"
-)
-KEYCLOAK_OIDC_TOKEN_URL = (
-    f"{KEYCLOAK_URL}realms/{KEYCLOAK_REALM}/protocol/openid-connect/token"
+
+KEYCLOAK_OIDC_TOKEN_URL = build_url(
+    KEYCLOAK_URL, f"/realms/{KEYCLOAK_REALM}/protocol/openid-connect/token"
 )
 
 OIDC_BEARER_TOKEN_REVALIDATION_TIME = env.int(
-    "OIDC_BEARER_TOKEN_REVALIDATION_TIME", default=120
+    "OIDC_BEARER_TOKEN_REVALIDATION_TIME", default=10
 )
 REGISTRATION_URL = env.str(
     "DJANGO_REGISTRATION_URL",
-    default=f"{KEYCLOAK_URL}realms/{KEYCLOAK_REALM}/login-actions/registration?client_id={KEYCLOAK_CLIENT}",
+    default=build_url(
+        KEYCLOAK_URL,
+        f"/realms/{KEYCLOAK_REALM}/login-actions/registration?client_id={KEYCLOAK_CLIENT}",
+    ),
 )
 
 # Email definition
@@ -457,7 +594,7 @@ def parse_admins(admins):
 ADMINS = parse_admins(env.list("DJANGO_ADMINS", default=[]))
 
 # GIS API (Kt. BE)
-GIS_BASE_URL = env.str("GIS_BASE_URL", "https://www.geoservice.apps.be.ch")
+GIS_BASE_URL = build_url(env.str("GIS_BASE_URL", "https://www.geoservice.apps.be.ch"))
 GIS_API_USER = env.str("GIS_API_USER", "")
 GIS_API_PASSWORD = env.str("GIS_API_PASSWORD", "")
 
@@ -465,7 +602,9 @@ GIS_SKIP_BOOLEAN_LAYERS = env.list("GIS_SKIP_BOOLEAN_LAYERS", default=[])
 
 GIS_SKIP_SPECIAL_LAYERS = env.list("GIS_SKIP_SPECIAL_LAYERS", default=[])
 
-CALUMA_URL = env.str("CALUMA_URL", "http://caluma:8000/graphql/")
+DOCUMENT_MERGE_SERVICE_URL = build_url(
+    env.str("DOCUMENT_MERGE_SERVICE_URL", "http://document-merge-service:8000/api/v1/")
+)
 
 ECH_API = env.bool("ECH_API", default=ENV != "production")
 
@@ -476,8 +615,7 @@ SWAGGER_SETTINGS = {
     "SECURITY_DEFINITIONS": {
         "oauth2": {
             "type": "oauth2",
-            "tokenUrl": f"{KEYCLOAK_URL}realms/{KEYCLOAK_REALM}/protocol/openid-connect/token",
-            "authorizationUrl": f"{KEYCLOAK_URL}realms/{KEYCLOAK_REALM}/protocol/openid-connect/auth",
+            "tokenUrl": KEYCLOAK_OIDC_TOKEN_URL,
             "flow": "application",
             "scopes": {},
         }
@@ -503,8 +641,21 @@ SWAGGER_SETTINGS = {
 }
 
 # Schwyz Publication
-PUBLICATION_API_URL = env.str(
-    "PUBLICATION_API_URL", "https://amtsblatt-test.webtech.ch/api/v1/baugesuch"
+PUBLICATION_API_URL = build_url(
+    env.str("PUBLICATION_API_URL", "https://amtsblatt-test.webtech.ch/api/v1/baugesuch")
 )
 PUBLICATION_API_USER = env.str("PUBLICATION_API_USER", "")
 PUBLICATION_API_PASSWORD = env.str("PUBLICATION_API_PASSWORD", "")
+
+if ENABLE_SILK:  # pragma: no cover
+    INSTALLED_APPS.append("silk")
+    MIDDLEWARE.extend(
+        [
+            "django.contrib.sessions.middleware.SessionMiddleware",
+            "silk.middleware.SilkyMiddleware",
+        ]
+    )
+
+    SILKY_AUTHENTICATION = False
+    SILKY_AUTHORISATION = False
+    SILKY_META = True

@@ -1,6 +1,5 @@
-import Controller from "@ember/controller";
+import Controller, { inject as controller } from "@ember/controller";
 import { reads } from "@ember/object/computed";
-import { inject as controller } from "@ember/controller";
 
 export default class InstancesEditFeedbackController extends Controller {
   @controller("instances.edit") editController;

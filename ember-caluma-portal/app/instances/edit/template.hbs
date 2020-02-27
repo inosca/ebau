@@ -1,34 +1,54 @@
-<ul class="uk-tab">
-  {{#if instance.mainForm}}
-    {{#link-to "instances.edit.form" instance.mainForm.slug tagName="li" activeClass="uk-active"}}
-      <a href="#">
-        {{instance.mainForm.name}} <span class="uk-text-meta">({{t "instances.instanceId"}} {{model}})</span>
-      </a>
-    {{/link-to}}
-  {{/if}}
+{{#if (can "read instance" this.instance)}}
+  <ul class="uk-tab">
+    {{#if this.instance.mainForm}}
+      <LinkTo
+        @route="instances.edit.form"
+        @model={{this.instance.mainForm.slug}}
+        @tagName="li"
+        @activeClass="uk-active"
+      >
+        <a href="#">
+          {{this.instance.mainForm.name}} {{if this.instance.isPaper (t "paper.type")}} <span class="uk-text-meta">({{t "instances.instanceId"}} {{this.model}})</span>
+        </a>
+      </LinkTo>
+    {{/if}}
 
-  {{#each additionalForms as |form|}}
-    {{#link-to "instances.edit.form" form tagName="li" activeClass="uk-active"}}
-      <a href="#">
-        {{t (concat "instances.forms." form)}}
-      </a>
-    {{/link-to}}
-  {{/each}}
+    {{#each (array "nfd" "sb1" "sb2") as |form|}}
+      {{#if (can "read form of instance" this.instance form=(hash slug=form))}}
+        <LinkTo
+          @route="instances.edit.form"
+          @model={{form}}
+          @tagName="li"
+          @activeClass="uk-active"
+        >
+          <a href="#">{{t (concat "instances.forms." form)}}</a>
+        </LinkTo>
+      {{/if}}
+    {{/each}}
 
-  {{#if (can "read feedback of instance" instance)}}
-    {{#link-to "instances.edit.feedback" tagName="li" activeClass="uk-active"}}
-      <a href="#">
-        {{t "nav.feedback"}} {{#if feedback}}{{uk-badge label=feedback.length class="uk-margin-small-left"}}{{/if}}
-      </a>
-    {{/link-to}}
-  {{/if}}
-  {{#if (can "manage applicants of instance" instance)}}
-    {{#link-to "instances.edit.applicants" tagName="li" activeClass="uk-active"}}
-      <a href="#">
-        {{t "nav.applicants"}}
-      </a>
-    {{/link-to}}
-  {{/if}}
-</ul>
+    {{#if (can "read feedback of instance" this.instance)}}
+      <LinkTo
+        @route="instances.edit.feedback"
+        @tagName="li"
+        @activeClass="uk-active"
+      >
+        <a href="#">
+          {{t "nav.feedback"}}
+          {{#if this.feedback}}<UkBadge @label={{this.feedback.length}} class="uk-margin-small-left" />{{/if}}
+        </a>
+      </LinkTo>
+    {{/if}}
+
+    {{#if (can "manage applicants of instance" this.instance)}}
+      <LinkTo
+        @route="instances.edit.applicants"
+        @tagName="li"
+        @activeClass="uk-active"
+      >
+        <a href="#">{{t "nav.applicants"}}</a>
+      </LinkTo>
+    {{/if}}
+  </ul>
+{{/if}}
 
 {{outlet}}

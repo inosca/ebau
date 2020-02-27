@@ -16,7 +16,7 @@
         <ns2:extension>http://camac-ng.local</ns2:extension>
     </ns1:deliveryHeader>
     <ns1:eventChangeResponsibility>
-        <ns1:eventType>change responsibility</ns1:eventType>
+        <ns1:eventType>change responsibility</ns1:eventType><!-- wird ignoriert -->
         <ns1:planningPermissionApplicationIdentification>
             <ns1:localID>
                 <ns3:IdCategory>instanceID</ns3:IdCategory>

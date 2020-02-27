@@ -1,6 +1,11 @@
+from pathlib import Path
+from uuid import uuid4
+
 import requests
 from django.conf import settings
+from django.http import HttpResponse
 from django.utils import timezone
+from django.utils.encoding import escape_uri_path, smart_bytes
 from pyproj import CRS, Transformer
 from rest_framework.decorators import action
 from rest_framework.response import Response
@@ -73,8 +78,9 @@ class PublicationEntryView(views.ModelViewSet):
             person["adresse"] = person["strasse"]
             del person["strasse"]
 
-            person["nachname"] = person["name"]
-            del person["name"]
+            if "name" in person:
+                person["nachname"] = person["name"]
+                del person["name"]
 
             person.pop("email", None)
             person.pop("tel", None)
@@ -97,14 +103,26 @@ class PublicationEntryView(views.ModelViewSet):
             payload["bauzone"] = bauzone if bauzone != "beides" else "ausserhalb"
 
         bauherrschaften = formFieldQuery.filter(name="bauherrschaft").first()
+        bauherrschaften_override = formFieldQuery.filter(
+            name="bauherrschaft-override"
+        ).first()
+        bauherrschaften = bauherrschaften_override or bauherrschaften
         if bauherrschaften:
             payload["bauherrschaften"] = self._clean_persons(bauherrschaften.value)
 
         projektverfasser = formFieldQuery.filter(name="projektverfasser-planer").first()
+        projektverfasser_override = formFieldQuery.filter(
+            name="projektverfasser-planer-override"
+        ).first()
+        projektverfasser = projektverfasser_override or projektverfasser
         if projektverfasser:
             payload["projektverfasser"] = self._clean_persons(projektverfasser.value)
 
         grundeigentuemer = formFieldQuery.filter(name="grundeigentumerschaft").first()
+        grundeigentuemer_override = formFieldQuery.filter(
+            name="grundeigentumerschaft-override"
+        ).first()
+        grundeigentuemer = grundeigentuemer_override or grundeigentuemer
         if grundeigentuemer:
             payload["grundeigentuemer"] = self._clean_persons(
                 grundeigentuemer.value, "grundeigentuemer"
@@ -209,3 +227,66 @@ class PublicationEntryUserPermissionView(views.ModelViewSet):
 
     def has_destroy_permission(self):
         return False
+
+
+class SendfileHttpResponse(HttpResponse):
+    """
+    Special HttpResponse for x-sendfile with nginx.
+
+    Wraps the django.http.HttpResponse and augments it with the necessary
+    headers for x-sendfile with nginx.
+    Accepts either `file_path` to a static file (probably from a `FileField`)
+    or `file_obj` which represents a temporary download (to be stored with a random
+    filename).
+
+    :param content_type: Same as in the parent class
+    :param filename: Content-Disposition header filename
+    :param location: Base path which will be mapped with the nginx location
+    :param base_path: Path to where nginx looks for files for given location
+    :param file_path: Path to file inside `base_path`
+    :param file_obj: File-like object for temporary downloads
+    """
+
+    def __init__(
+        self,
+        content_type: str,
+        filename: str,
+        base_path: str = None,
+        file_path: str = None,
+        file_obj: bytes = None,
+    ):
+        super().__init__(content_type=content_type)
+
+        filename = Path(filename)
+
+        if (base_path or file_path) and file_obj:
+            raise ValueError(
+                "Takes either `base_path` and `file_path` or a `file_obj` but not both."
+            )
+        if bool(base_path) != bool(file_path):
+            raise ValueError("Both `base_path` and `file_path` are needed.")
+
+        if base_path and file_path:
+            base_path = Path(base_path)
+            file_path = Path(file_path)
+            abs_path = base_path / file_path.relative_to("/")
+
+        if file_obj:
+            base_path = Path(settings.TEMPFILE_DOWNLOAD_PATH)
+            file_path = (
+                Path(settings.TEMPFILE_DOWNLOAD_URL)
+                / f"{filename.stem}-{str(uuid4())[:7]}{filename.suffix}"
+            )
+
+            abs_path = base_path / file_path.relative_to("/")
+
+            if not abs_path.parent.exists():  # pragma: no cover
+                abs_path.parent.mkdir(parents=True)
+
+            abs_path.open("wb").write(file_obj.read())
+
+        self["Content-Disposition"] = 'attachment; filename="%s"' % escape_uri_path(
+            str(filename)
+        )
+        self["X-Accel-Redirect"] = "%s" % escape_uri_path(str(file_path))
+        self["X-Sendfile"] = smart_bytes(str(abs_path))
