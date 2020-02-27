@@ -118687,7 +118687,7 @@
   },
   {
     "fields": {
-      "body": "Guten Tag\r\n\r\nEine Nachforderung zum Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) wurde beantwortet. \r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLe compl\u00e9ment d'information sollicit\u00e9 au sujet de la demande de permis de construire portant le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) a \u00e9t\u00e9 fourni. \r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{LEITBEHOERDE_NAME}}\r\n",
+      "body": "Guten Tag\r\n\r\nEine Nachforderung zum Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) wurde beantwortet. \r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLe compl\u00e9ment d'information sollicit\u00e9 au sujet de la demande de permis de construire portant le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) a \u00e9t\u00e9 fourni. \r\n\r\n{{INTERNAL_DOSSIER_LINK}}",
       "language": "de",
       "purpose": "03 Nachforderung beantwortet (Leitbeh\u00f6rde)",
       "subject": "Nachforderung beantwortet (eBau Nr. {{EBAU_NUMBER}}) / Compl\u00e9ment d'information fourni (n\u00b0 eBau {{EBAU_NUMBER}})",
