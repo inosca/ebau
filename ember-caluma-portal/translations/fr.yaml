@@ -1,4 +1,6 @@
-"caluma.form.optional": "si nécessaire"
+caluma:
+  form:
+    optional: "si nécessaire"
 
 global:
   title: "eBau Berne"
@@ -6,6 +8,8 @@ global:
   continue: "Suivante"
   delete: "Effacer"
   cancel: "Casser"
+  back: "Retour"
+  save: "Enregistrer"
 
 nav:
   form: "Formulaire"
@@ -18,9 +22,7 @@ nav:
   instances: "Dossiers"
   applicant: "Requérant/e"
   group: "Groupe"
-
-  canNotChangeLanguage: "La langue ne peut pas être modifiée, car il y a déjà une langue dans l'URL"
-  canNotChangeGroup: "Le groupe ne peut pas être modifiée, car il y a déjà un groupe dans l'URL"
+  internal: "à la domaine interne"
 
 feedback:
   info: "Vous n'avez pas de commentaires pour le moment. Dès que le dossier aura été soumis, les réactions éventuelles de l'autorité chef de file ou des agences spécialisées seront affichées ici."
@@ -90,10 +92,10 @@ documents:
     weitere-unterlagen: "Autres documents"
 
 freigabequittung:
-  noFiles: "Il n'y a aucun document à signer."
   downloadError: "Un problème est survenu lors de l'exportation. Veuillez réessayer."
 
 gis:
+  title: "Carte"
   apply-button: "Reprendre les données"
   no-map:
     message: "La carte ne s'affiche pas correctement?"
@@ -206,9 +208,6 @@ instances:
     sb2: "Déclaration spontanée 2"
     nfd: "Demandes de complément d'information"
 
-  noDocument: "Le formulaire \"{form}\" n'a pas encore été rempli"
-  createDocument: "Remplissez le formulaire maintenant"
-
   applicants:
     invitee: "Utilisateur"
     created: "Enregistré sur"
@@ -227,7 +226,6 @@ be-submit-instance:
   loading: "Votre dossier sera examiné. Veuillez patienter un instant."
   success: "Le dossier a été soumise avec succès."
   failed-camac: "Erreur d'écriture sur le serveur."
-  failed-archive: "Erreur lors du dépôt du dossier."
   failed-message: "Oups, quelque chose s'est mal passé. Veuillez vérifier vos données d'entrée à nouveau. {reasons}"
 
 claims:
@@ -263,3 +261,16 @@ notfound:
   link: "Retour à"
   home: "la page principale"
 
+paper:
+  type: "(papier)"
+  noteTitle: "Remarque :"
+  noteBody: "Vous créez un dossier qui a été déposé dans votre commune sous
+  forme papier (dossier papier). Si vous souhaitez créer un dossier normal en
+  tant que requérant/e, sélectionnez \"Requérant/e\" dans le menu de groupe
+  en haut à droite de la page."
+
+dashboard:
+  edit: "modifier"
+  no-content: "Aucun contenu n'a encore été enregistré. Cliquez sur \"modifier\" pour entrer un nouveau contenu."
+  load-error: "Erreur lors du chargement du contenu"
+  save-error: "Erreur lors de la sauvegarde du contenu"

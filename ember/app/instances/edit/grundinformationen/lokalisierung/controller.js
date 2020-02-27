@@ -2,6 +2,7 @@ import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { task } from "ember-concurrency";
 import { computed } from "@ember/object";
+import ENV from "citizen-portal/config/environment";
 
 export default Controller.extend({
   questionStore: service(),
@@ -28,6 +29,10 @@ export default Controller.extend({
     );
   }),
 
+  specialForm: computed("model.instance.form.id", function() {
+    return ENV.APP.formLocations[this.get("model.instance.form.id")];
+  }),
+
   _saveImage: task(function*(image) {
     let attachment = this.attachment;
     let filename = `${attachment.get("name")}.${image.type.split("/").pop()}`;
@@ -41,6 +46,10 @@ export default Controller.extend({
 
     formData.append("instance", attachment.get("instanceId"));
     formData.append("question", attachment.get("name"));
+    formData.append(
+      "attachment_sections",
+      ENV.APP.attachmentSections.applicant
+    );
     formData.append("path", image, filename);
 
     let response = yield this.ajax.request("/api/v1/attachments", {
@@ -89,11 +98,14 @@ export default Controller.extend({
     yield this.get("questionStore.saveQuestion").perform(this.points);
   }),
 
-  _saveLocation: task(function*(municipality) {
-    let location = yield this.store.query("location", {
-      name: municipality
-    });
+  _saveLocation: task(function*(name) {
     let instance = this.get("model.instance");
+
+    name = this.specialForm || name;
+
+    let location = yield this.store.query("location", {
+      name
+    });
 
     instance.set("location", location.get("firstObject"));
 

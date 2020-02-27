@@ -1,6 +1,7 @@
 import json
 
 import pytest
+from caluma.caluma_form import factories as caluma_form_factories
 from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
@@ -16,7 +17,7 @@ FULL_PERMISSIONS = {
 @pytest.fixture
 def mock_nfd_permissions(requests_mock):
     requests_mock.post(
-        "http://caluma:8000/graphql/",
+        "http://camac-ng.local/graphql/",
         text=json.dumps({"data": {"allDocuments": {"edges": []}}}),
     )
 
@@ -174,185 +175,210 @@ def test_instance_permissions(
     assert permissions == expected_permissions
 
 
+@pytest.fixture
+def nfd_form(nfd_table_question):
+
+    form = caluma_form_factories.FormFactory(slug="nfd")
+    caluma_form_factories.FormQuestionFactory(form=form, question=nfd_table_question)
+    return form
+
+
+@pytest.fixture
+def nfd_status_question():
+    return caluma_form_factories.QuestionFactory(
+        slug="nfd-tabelle-status",
+        # not entirely correct: it's actually an option,
+        # but it's easier to mock this way
+        type="text",
+    )
+
+
+@pytest.fixture
+def row_form(nfd_status_question):
+    form = caluma_form_factories.FormFactory()
+    caluma_form_factories.FormQuestionFactory(form=form, question=nfd_status_question)
+    return form
+
+
+@pytest.fixture
+def nfd_table_question(row_form):
+    table_question = caluma_form_factories.QuestionFactory(
+        slug="nfd-tabelle-table", type="table", row_form=row_form
+    )
+    return table_question
+
+
+@pytest.fixture
+def no_document():
+    return None
+
+
+@pytest.fixture
+def root_doc(nfd_form):
+    doc = caluma_form_factories.DocumentFactory(form=nfd_form)
+
+    doc.family = doc
+    doc.save()
+
+    return doc
+
+
+@pytest.fixture
+def empty_document(root_doc, instance):
+
+    root_doc.meta = {"camac-instance-id": instance.pk}
+    root_doc.save()
+
+    return root_doc
+
+
+@pytest.fixture
+def document_with_row_but_wrong_status(empty_document, instance, nfd_table_question):
+    doc = empty_document
+    doc.answers.create(question=nfd_table_question)
+
+    return doc
+
+
+@pytest.fixture
+def document_with_all_rows(empty_document, row_form, nfd_table_question):
+    doc = empty_document
+    table_answer = doc.answers.create(question=nfd_table_question)
+    # row 1
+    row_1 = caluma_form_factories.DocumentFactory(form=row_form, family=doc)
+    row_2 = caluma_form_factories.DocumentFactory(form=row_form, family=doc)
+    row_3 = caluma_form_factories.DocumentFactory(form=row_form, family=doc)
+    table_answer.documents.add(row_1)
+    table_answer.documents.add(row_2)
+    table_answer.documents.add(row_3)
+    row_1.answers.create(
+        question_id="nfd-tabelle-status", value="nfd-tabelle-status-entwurf"
+    )
+    row_2.answers.create(
+        question_id="nfd-tabelle-status", value="nfd-tabelle-status-in-bearbeitung"
+    )
+    row_3.answers.create(
+        question_id="nfd-tabelle-status", value="nfd-tabelle-status-erledigt"
+    )
+
+    return doc
+
+
+@pytest.fixture
+def document_with_row_and_erledigt(empty_document, row_form, nfd_table_question):
+    doc = empty_document
+    table_answer = doc.answers.create(question=nfd_table_question)
+    row_1 = caluma_form_factories.DocumentFactory(form=row_form, family=doc)
+    table_answer.documents.add(row_1)
+    row_1.answers.create(
+        question_id="nfd-tabelle-status", value="nfd-tabelle-status-erledigt"
+    )
+
+    return doc
+
+
 @pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
 @pytest.mark.parametrize(
-    "role__name,caluma_response,expected_nfd_permissions",
+    "role__name,expected_nfd_permissions,caluma_doc",
     [
-        ("Applicant", {"data": {"allDocuments": {"edges": []}}}, []),
+        ("Applicant", [], pytest.lazy_fixture("no_document")),
+        ("Applicant", [], pytest.lazy_fixture("empty_document")),
+        ("Applicant", [], pytest.lazy_fixture("document_with_row_but_wrong_status")),
+        ("Applicant", ["read"], pytest.lazy_fixture("document_with_row_and_erledigt")),
+        ("Applicant", ["read", "write"], pytest.lazy_fixture("document_with_all_rows")),
+        ("Service", [], pytest.lazy_fixture("no_document")),
+        ("Municipality", ["write", "write-meta"], pytest.lazy_fixture("no_document")),
         (
-            "Applicant",
-            {
-                "data": {
-                    "allDocuments": {"edges": [{"node": {"answers": {"edges": []}}}]}
-                }
-            },
-            [],
+            "Support",
+            ["read", "write", "write-meta"],
+            pytest.lazy_fixture("no_document"),
         ),
-        (
-            "Applicant",
-            {
-                "data": {
-                    "allDocuments": {
-                        "edges": [
-                            {
-                                "node": {
-                                    "answers": {
-                                        "edges": [
-                                            {
-                                                "node": {
-                                                    "question": {
-                                                        "slug": "nfd-tabelle-table"
-                                                    },
-                                                    "value": [],
-                                                }
-                                            }
-                                        ]
-                                    }
-                                }
-                            }
-                        ]
-                    }
-                }
-            },
-            [],
-        ),
-        (
-            "Applicant",
-            {
-                "data": {
-                    "allDocuments": {
-                        "edges": [
-                            {
-                                "node": {
-                                    "answers": {
-                                        "edges": [
-                                            {
-                                                "node": {
-                                                    "question": {
-                                                        "slug": "nfd-tabelle-table"
-                                                    },
-                                                    "value": [
-                                                        {
-                                                            "answers": {
-                                                                "edges": [
-                                                                    {
-                                                                        "node": {
-                                                                            "question": {
-                                                                                "slug": "nfd-tabelle-status"
-                                                                            },
-                                                                            "value": "nfd-tabelle-status-entwurf",
-                                                                        }
-                                                                    }
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                }
-                                            }
-                                        ]
-                                    }
-                                }
-                            }
-                        ]
-                    }
-                }
-            },
-            [],
-        ),
-        (
-            "Applicant",
-            {
-                "data": {
-                    "allDocuments": {
-                        "edges": [
-                            {
-                                "node": {
-                                    "answers": {
-                                        "edges": [
-                                            {
-                                                "node": {
-                                                    "question": {
-                                                        "slug": "nfd-tabelle-table"
-                                                    },
-                                                    "value": [
-                                                        {
-                                                            "answers": {
-                                                                "edges": [
-                                                                    {
-                                                                        "node": {
-                                                                            "question": {
-                                                                                "slug": "nfd-tabelle-status"
-                                                                            },
-                                                                            "value": "nfd-tabelle-status-entwurf",
-                                                                        }
-                                                                    }
-                                                                ]
-                                                            }
-                                                        },
-                                                        {
-                                                            "answers": {
-                                                                "edges": [
-                                                                    {
-                                                                        "node": {
-                                                                            "question": {
-                                                                                "slug": "nfd-tabelle-status"
-                                                                            },
-                                                                            "value": "nfd-tabelle-status-in-bearbeitung",
-                                                                        }
-                                                                    }
-                                                                ]
-                                                            }
-                                                        },
-                                                        {
-                                                            "answers": {
-                                                                "edges": [
-                                                                    {
-                                                                        "node": {
-                                                                            "question": {
-                                                                                "slug": "nfd-tabelle-status"
-                                                                            },
-                                                                            "value": "nfd-tabelle-status-erledigt",
-                                                                        }
-                                                                    }
-                                                                ]
-                                                            }
-                                                        },
-                                                    ],
-                                                }
-                                            }
-                                        ]
-                                    }
-                                }
-                            }
-                        ]
-                    }
-                }
-            },
-            ["read", "write"],
-        ),
-        ("Service", {}, []),
-        ("Municipality", {}, ["write", "write-meta"]),
-        ("Support", {}, ["read", "write", "write-meta"]),
     ],
 )
 def test_instance_nfd_permissions(
     admin_client,
     activation,
     instance,
-    caluma_response,
     expected_nfd_permissions,
     use_caluma_form,
     requests_mock,
+    caluma_doc,
 ):
-    requests_mock.post("http://caluma:8000/graphql/", text=json.dumps(caluma_response))
-
     url = reverse("instance-detail", args=[instance.pk])
-
     response = admin_client.get(url)
 
     assert response.status_code == status.HTTP_200_OK
-
     assert (
         response.json()["data"]["meta"]["permissions"]["nfd"]
         == expected_nfd_permissions
+    )
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize(
+    "instance_state__name,group_name,form_slug,expected_permissions",
+    [
+        ("new", "municipality", "main", ["read", "write", "write-meta"]),
+        ("new", "construction-control", "main", []),
+        ("rejected", "municipality", "main", ["read", "write", "write-meta"]),
+        ("rejected", "construction-control", "main", ["read"]),
+        ("sb1", "municipality", "sb1", []),
+        ("sb1", "construction-control", "sb1", ["read", "write", "write-meta"]),
+        ("sb2", "municipality", "sb2", []),
+        ("sb2", "construction-control", "sb2", ["read", "write", "write-meta"]),
+    ],
+)
+def test_instance_paper_permissions(
+    admin_client,
+    admin_user,
+    role,
+    instance,
+    instance_state,
+    group_name,
+    form_slug,
+    expected_permissions,
+    use_caluma_form,
+    mocker,
+    group_factory,
+    service_factory,
+    user_group_factory,
+    application_settings,
+    instance_service_factory,
+):
+    mocker.patch("camac.caluma.api.CalumaApi.is_paper", lambda s, i: True)
+
+    groups = {
+        "municipality": group_factory(role=role),
+        "construction-control": group_factory(role=role),
+    }
+
+    municipality_group = groups["municipality"]
+    construction_control_group = groups["construction-control"]
+
+    for name, group in groups.items():
+        user_group_factory(group=group, user=admin_user)
+        instance_service_factory(instance=instance, service=group.service)
+
+    application_settings["PAPER"] = {
+        "ALLOWED_ROLES": {
+            "SB1": [construction_control_group.role.pk],
+            "SB2": [construction_control_group.role.pk],
+            "DEFAULT": [municipality_group.role.pk],
+        },
+        "ALLOWED_SERVICE_GROUPS": {
+            "SB1": [construction_control_group.service.service_group.pk],
+            "SB2": [construction_control_group.service.service_group.pk],
+            "DEFAULT": [municipality_group.service.service_group.pk],
+        },
+    }
+
+    response = admin_client.get(
+        reverse("instance-detail", args=[instance.pk]),
+        data={"group": groups.get(group_name).pk},
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+    assert (
+        response.json()["data"]["meta"]["permissions"][form_slug]
+        == expected_permissions
     )

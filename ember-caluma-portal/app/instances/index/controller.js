@@ -1,19 +1,18 @@
-import Controller from "@ember/controller";
-import { inject as service } from "@ember/service";
-import { task } from "ember-concurrency";
-import QueryParams from "ember-parachute";
-import Document from "ember-caluma-portal/lib/document";
 import { getOwner } from "@ember/application";
+import Controller from "@ember/controller";
 import { computed, set } from "@ember/object";
 import { reads } from "@ember/object/computed";
-import moment from "moment";
+import { inject as service } from "@ember/service";
 import { isEmpty } from "@ember/utils";
-import formDataEntries from "form-data-entries";
 import { queryManager } from "ember-apollo-client";
-
 import getDocumentsQuery from "ember-caluma-portal/gql/queries/get-documents";
 import getMunicipalitiesQuery from "ember-caluma-portal/gql/queries/get-municipalities";
 import getRootFormsQuery from "ember-caluma-portal/gql/queries/get-root-forms";
+import Document from "ember-caluma-portal/lib/document";
+import { task } from "ember-concurrency";
+import QueryParams from "ember-parachute";
+import formDataEntries from "form-data-entries";
+import moment from "moment";
 
 const getHasAnswerFilters = ({ parcel: value }) =>
   [
@@ -209,24 +208,28 @@ export default Controller.extend(queryParams.Mixin, {
       );
       const rawDocuments = raw.edges.map(({ node }) => node);
 
-      const municipalities = yield this.getMunicipalities.last;
+      if (rawDocuments.length) {
+        const municipalities = yield this.getMunicipalities.last;
 
-      yield this.store.query("instance", {
-        instance_id: rawDocuments.map(({ meta }) => meta["camac-instance-id"])
-      });
-
-      const documents = rawDocuments.map(raw => {
-        return Document.create(getOwner(this).ownerInjection(), {
-          raw,
-          instance: this.store.peekRecord(
-            "instance",
-            raw.meta["camac-instance-id"]
-          ),
-          municipalities
+        yield this.store.query("instance", {
+          instance_id: rawDocuments
+            .map(({ meta }) => meta["camac-instance-id"])
+            .join(",")
         });
-      });
 
-      this.set("documents", [...this.documents, ...documents]);
+        const documents = rawDocuments.map(raw => {
+          return Document.create(getOwner(this).ownerInjection(), {
+            raw,
+            instance: this.store.peekRecord(
+              "instance",
+              raw.meta["camac-instance-id"]
+            ),
+            municipalities
+          });
+        });
+
+        this.set("documents", [...this.documents, ...documents]);
+      }
 
       set(raw, "pageInfo", { ...raw.pageInfo, totalCount: raw.totalCount });
 

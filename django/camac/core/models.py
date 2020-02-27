@@ -3224,6 +3224,15 @@ class Publication(models.Model):
     start = models.DateField(db_column="START_DATE")
     end = models.DateField(db_column="END_DATE")
     text = models.TextField(db_column="TEXT")
+    publication_anzeiger_1 = models.DateField(
+        db_column="PUBLICATION_DATE_1_ANZEIGER", null=True, blank=True
+    )
+    publication_anzeiger_2 = models.DateField(
+        db_column="PUBLICATION_DATE_2_ANZEIGER", null=True, blank=True
+    )
+    publication_amtsblatt = models.DateField(
+        db_column="PUBLICATION_DATE_AMTSBLATT", null=True, blank=True
+    )
 
     class Meta:
         managed = True
@@ -3915,7 +3924,9 @@ class BillingV2Entry(models.Model):
         ("hourly", "Hourly"),
     )
 
-    ORGANIZATION_CHOICES = (("municipal", "Municipal"), ("cantonal", "Cantonal"))
+    MUNICIPAL = "municipal"
+    CANTONAL = "cantonal"
+    ORGANIZATION_CHOICES = ((MUNICIPAL, "Municipal"), (CANTONAL, "Cantonal"))
 
     DECIMAL_FORMAT = {"max_digits": 10, "decimal_places": 2, "null": True}
 

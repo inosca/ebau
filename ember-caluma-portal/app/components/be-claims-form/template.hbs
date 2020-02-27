@@ -19,6 +19,8 @@
   <div class="uk-width-expand">
     {{#if this.editedClaim}}
       <BeClaimsForm::edit
+        @document={{this.document}}
+        @form={{this.fieldset.form}}
         @claim={{this.editedClaim}}
         @tags={{this.tags}}
         @instanceId={{this.context.instanceId}}

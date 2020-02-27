@@ -24,3 +24,7 @@ task_send = django.dispatch.Signal(providing_args=["instance", "user_pk", "group
 accompanying_report_send = django.dispatch.Signal(
     providing_args=["instance", "user_pk", "group_pk", "context", "attachments"]
 )
+
+file_subsequently = django.dispatch.Signal(
+    providing_args=["instance", "user_pk", "group_pk"]
+)

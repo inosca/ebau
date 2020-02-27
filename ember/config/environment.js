@@ -24,17 +24,24 @@ module.exports = function(environment) {
     },
 
     APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
-
       // special attachment section mapping
-      attachmentSections: { readOnly: "9", publication: "4" },
+      attachmentSections: { applicant: "1", readOnly: "9", publication: "4" },
 
       // array of active municipality names,
       // used in submit and camac-property-selector
       municipalityNames: [],
 
-      gisHost: "map-t.geo.sz.ch"
+      gisHost: "map-t.geo.sz.ch",
+
+      // Form location mapping in order of definition
+      // konzession-fur-wasserentnahme = Amt für Wasserbau
+      // projektgenehmigungsgesuch-gemass-ss15-strag = Tiefbauamt
+      // anlassbewilligungen-verkehrsbewilligungen = Kantons Polizei
+      formLocations: {
+        7: "Amt für Wasserbau",
+        9: "Tiefbauamt des Kantons Schwyz",
+        10: "Kantonspolizei Schwyz"
+      }
     },
 
     exportApplicationGlobal: true,
@@ -72,6 +79,41 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.APP.municipalityNames = [
+      "Alpthal",
+      "Altendorf",
+      "Arth",
+      "Einsiedeln",
+      "Feusisberg",
+      "Freienbach",
+      "Galgenen",
+      "Gersau",
+      "Illgau",
+      "Ingenbohl",
+      "Innerthal",
+      "Küssnacht",
+      "Lachen",
+      "Lauerz",
+      "Morschach",
+      "Muotathal",
+      "Oberiberg",
+      "Rechenburg",
+      "Riemenstalden",
+      "Rothenthurm",
+      "Sattel",
+      "Schwyz",
+      "Schübelbach",
+      "Steinen",
+      "Steinerberg",
+      "Tuggen",
+      "Unteriberg",
+      "Vorderthal",
+      "Wangen",
+      "Wollerau",
+      "Amt für Wasserbau",
+      "Tiefbauamt des Kantons Schwyz",
+      "Kantonspolizei Schwyz"
+    ];
   }
 
   if (environment === "test") {
@@ -127,7 +169,10 @@ module.exports = function(environment) {
       "Unteriberg",
       "Vorderthal",
       "Wangen",
-      "Wollerau"
+      "Wollerau",
+      "Amt für Wasserbau",
+      "Tiefbauamt des Kantons Schwyz",
+      "Kantonspolizei Schwyz"
     ];
   }
 

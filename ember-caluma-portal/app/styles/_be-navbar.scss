@@ -1,0 +1,29 @@
+.be-navbar {
+  border-bottom: 1px solid $global-border;
+
+  .be-navbar-internal-link {
+    color: $navbar-nav-item-color;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    transition: 300ms ease color;
+
+    &:hover {
+      color: $navbar-nav-item-hover-color;
+      text-decoration: none;
+    }
+  }
+
+  .be-logo {
+    display: block;
+    height: 2rem;
+    margin: 2rem 0;
+  }
+
+  .uk-navbar-left ul > li > a {
+    transition: 300ms ease box-shadow, 300ms ease color;
+  }
+
+  .uk-navbar-left ul > li.uk-active > a {
+    box-shadow: 0 1px 0 0 $global-primary-background;
+  }
+}

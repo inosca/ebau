@@ -1,17 +1,19 @@
-import Route from "@ember/routing/route";
-import OIDCApplicationRouteMixin from "ember-simple-auth-oidc/mixins/oidc-application-route-mixin";
-import { get } from "@ember/object";
-import { inject as service } from "@ember/service";
 import { getOwner } from "@ember/application";
+import { get } from "@ember/object";
+import Route from "@ember/routing/route";
+import { inject as service } from "@ember/service";
+import OIDCApplicationRouteMixin from "ember-simple-auth-oidc/mixins/oidc-application-route-mixin";
 
-const RouteClass = Route.extend(OIDCApplicationRouteMixin);
-
-export default class ApplicationRouter extends RouteClass {
+export default class ApplicationRouter extends Route.extend(
+  OIDCApplicationRouteMixin
+) {
   @service session;
   @service router;
   @service calumaOptions;
 
   beforeModel(transition) {
+    super.beforeModel(transition);
+
     const { language, group } = get(transition, "to.queryParams") || {};
 
     this.session.set("language", language || this.session.language);
@@ -52,6 +54,10 @@ export default class ApplicationRouter extends RouteClass {
       label: "Nachforderungen Formular",
       component: "be-claims-form",
       type: "Form"
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Versteckt",
+      component: "be-hidden-input"
     });
   }
 }

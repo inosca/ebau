@@ -1,10 +1,25 @@
-import { Ability } from "ember-can";
-import { computed } from "@ember/object";
+import { computed, get } from "@ember/object";
+import { not, or } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
-import { not } from "@ember/object/computed";
+import { Ability } from "ember-can";
+
+import config from "../config/environment";
+
+const canCreatePaper = group => {
+  const roleId = parseInt(get(group, "role.id"));
+  const serviceGroupId = parseInt(get(group, "service.serviceGroup.id"));
+
+  return (
+    config.ebau.paperInstances.allowedGroups.roles.includes(roleId) &&
+    config.ebau.paperInstances.allowedGroups.serviceGroups.includes(
+      serviceGroupId
+    )
+  );
+};
 
 export default class InstanceAbility extends Ability {
   @service session;
+  @service store;
 
   @computed("form.{meta.is-main-form,slug}")
   get formName() {
@@ -26,7 +41,24 @@ export default class InstanceAbility extends Ability {
     return this.formPermissions.includes("read");
   }
 
-  @not("session.isInternal") canCreate;
+  @computed
+  get _allGroups() {
+    return this.store.peekAll("public-group");
+  }
+
+  @computed("session.group", "_allGroups.[]")
+  get canCreatePaper() {
+    return !!(
+      this.session.group &&
+      this._allGroups
+        .filter(canCreatePaper)
+        .find(({ id }) => id === this.session.group)
+    );
+  }
+
+  @not("session.isInternal") canCreateExternal;
+  @or("canCreateExternal", "canCreatePaper") canCreate;
+
   @not("session.isInternal") canReadFeedback;
 
   @computed("session.{isInternal,user.id}", "model.applicants.@each.invitee")
@@ -38,5 +70,12 @@ export default class InstanceAbility extends Ability {
         applicant => applicant.get("invitee.id") === this.get("session.user.id")
       )
     );
+  }
+
+  @computed("model.meta.permissions")
+  get canRead() {
+    return Object.values(this.get("model.meta.permissions") || {})
+      .reduce((items, flat) => [...flat, ...items], [])
+      .includes("read");
   }
 }

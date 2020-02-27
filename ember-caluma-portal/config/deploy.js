@@ -2,9 +2,9 @@
 "use strict";
 
 module.exports = function(deployTarget) {
-  let ENV = {
+  const ENV = {
     build: {
-      outputPath: "dist"
+      outputPath: "build"
     },
     compress: {
       keep: true,

@@ -1,4 +1,7 @@
 import pytest
+from caluma.caluma_form import models as caluma_form_models
+
+from camac.echbern.data_preparation import slugs_baugesuch, slugs_vorabklaerung_einfach
 
 
 @pytest.fixture
@@ -15,3 +18,52 @@ def ech_instance(db, admin_user, instance_service_factory):
         active=1,
     )
     return inst_serv.instance
+
+
+def fill_document_ech(document, data):
+    for question_slug, value in data:
+        question = caluma_form_models.Question.objects.get(slug=question_slug)
+        if question.type == "dynamic_choice":
+            caluma_form_models.DynamicOption.objects.create(
+                document=document, question=question, slug=value, label=value
+            )
+        if question.type == "dynamic_multiple_choice":  # pragma: no cover
+            for v in value:
+                caluma_form_models.DynamicOption.objects.create(
+                    document=document, question=question, slug=v, label=v
+                )
+        caluma_form_models.Answer.objects.create(
+            document=document, value=value, question=question
+        )
+
+
+@pytest.fixture
+def vorabklaerung_einfach_filled(caluma_config_bern, document_factory, answer_factory):
+    form = caluma_form_models.Form.objects.get(slug="vorabklaerung-einfach")
+    document = document_factory(form=form)
+    fill_document_ech(document, slugs_vorabklaerung_einfach["top"])
+    document.meta = {"camac-instance-id": 2}
+    document.save()
+    return document
+
+
+@pytest.fixture
+def baugesuch_filled(
+    caluma_config_bern, document_factory, answer_factory, answer_document_factory
+):
+    form = caluma_form_models.Form.objects.get(slug="baugesuch-generell")
+    document = document_factory(form=form)
+
+    for key, data in slugs_baugesuch.items():
+        if key == "top":
+            fill_document_ech(document, data)
+            continue
+        t_question = caluma_form_models.Question.objects.get(slug=key)
+        t_answer = answer_factory(document=document, question=t_question)
+        for row in data:
+            row_answer_doc = answer_document_factory(answer=t_answer)
+            fill_document_ech(row_answer_doc.document, row)
+
+    document.meta = {"camac-instance-id": 1}
+    document.save()
+    return document

@@ -21,7 +21,7 @@ from camac.core.models import (
 from .. import send_handlers, views
 from ..event_handlers import EventHandlerException, StatusNotificationEventHandler
 from ..models import Message
-from .caluma_responses import document_form, full_document
+from .caluma_document_data import baugesuch_data
 from .utils import xml_data
 
 
@@ -31,7 +31,6 @@ def test_application_retrieve_full(
     ech_instance,
     instance_factory,
     docx_decision_factory,
-    requests_mock,
     attachment,
     attachment_section,
 ):
@@ -57,8 +56,7 @@ def test_application_retrieve_full(
 
     url = reverse("application", args=[ech_instance.pk])
 
-    mocker.patch.object(views, "get_authorization_header", return_value="token")
-    requests_mock.post("http://caluma:8000/graphql/", json=full_document)
+    mocker.patch.object(views, "get_document", return_value=baugesuch_data)
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
@@ -166,7 +164,6 @@ def test_send(
     admin_user,
     ech_instance,
     mocker,
-    requests_mock,
     instance_state_factory,
     role_factory,
 ):
@@ -181,8 +178,9 @@ def test_send(
     ech_instance.instance_state = state
     ech_instance.save()
 
-    mocker.patch.object(views, "get_authorization_header", return_value="token")
-    requests_mock.post("http://caluma:8000/graphql/", json=document_form)
+    mocker.patch.object(
+        send_handlers.CalumaApi, "get_form_slug", return_value="baugesuch"
+    )
 
     url = reverse("send")
     response = admin_client.post(
@@ -213,7 +211,6 @@ def test_send_400_invalid_judgement(
     admin_user,
     ech_instance,
     mocker,
-    requests_mock,
     instance_state_factory,
     role_factory,
 ):
@@ -226,13 +223,12 @@ def test_send_400_invalid_judgement(
     ech_instance.instance_state = state
     ech_instance.save()
 
-    mocker.patch.object(views, "get_authorization_header", return_value="token")
-    requests_mock.post("http://caluma:8000/graphql/", json=document_form)
+    form_name_mock = mocker.patch.object(
+        send_handlers.CalumaApi, "get_form_slug", return_value="baugesuch"
+    )
 
     if is_vorabklaerung:
-        mocker.patch.object(
-            send_handlers, "get_form_slug", return_value="vorabklaerung"
-        )
+        form_name_mock.return_value = "vorabklaerung"
 
     url = reverse("send")
     response = admin_client.post(
@@ -275,7 +271,7 @@ def test_send_unparseable_message(admin_client, admin_user, ech_instance):
     assert response.status_code == 400
 
 
-def test_send_unknown_instance(admin_client, admin_user):
+def test_send_unknown_instance(admin_client):
     url = reverse("send")
     response = admin_client.post(
         url, data=xml_data("notice_ruling"), content_type="application/xml"

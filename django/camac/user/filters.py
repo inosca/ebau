@@ -87,8 +87,19 @@ class AccessibleInstanceFilter(NumberFilter):
 
 class GroupFilterSet(FilterSet):
     accessible_instance = AccessibleInstanceFilter()
+    service = NumberMultiValueFilter()
     role = NumberMultiValueFilter()
 
     class Meta:
         model = models.Group
-        fields = ("accessible_instance", "service__service_group", "role")
+        fields = ("accessible_instance", "service", "role")
+
+
+class PublicGroupFilterSet(FilterSet):
+    service_group = NumberMultiValueFilter(field_name="service__service_group")
+    role = NumberMultiValueFilter()
+    service = NumberMultiValueFilter()
+
+    class Meta:
+        model = models.Group
+        fields = ("service_group", "role", "service")

@@ -10,7 +10,10 @@
 
         <div class="uk-margin">
           {{#if allRequiredTags.length}}
-            <label class="uk-text-bold uk-margin">{{t "documents.requiredContent"}}</label>
+            <label class="uk-text-bold uk-margin">
+              {{t "documents.requiredContent"}}
+            </label>
+
             {{#each-in requiredTags as |title fields|}}
               <div class="uk-margin">
                 <label>{{t (concat "documents.tags." title)}}</label>
@@ -34,7 +37,10 @@
 
           {{#if allOptionalTags.length}}
             <div class="uk-margin">
-              <label class="uk-text-bold">{{t "documents.optionalContent"}}</label>
+              <label class="uk-text-bold">
+                {{t "documents.optionalContent"}}
+              </label>
+
               {{#power-select-multiple
                 multiple=true
                 selected=selectedOptionalTags
@@ -49,8 +55,8 @@
         </div>
       {{/if}}
       <div class="uk-margin uk-text-right">
-        <button class="uk-button uk-button-default" {{action "reset"}}>{{t "documents.cancel"}}</button>
-        <button class="uk-button uk-button-primary" {{action (perform save)}}>{{t "documents.upload"}}</button>
+        <button type="button" class="uk-button uk-button-default" {{action "reset"}}>{{t "documents.cancel"}}</button>
+        <button type="button" class="uk-button uk-button-primary" {{action (perform save)}}>{{t "documents.upload"}}</button>
       </div>
     {{/if}}
     <hr>
@@ -58,9 +64,9 @@
     {{#if showHint}}
       <p>
         {{t "documents.hint1"}}
-        <a target="_blank" rel="noopener" href={{t "documents.linkEarthquake"}}>{{t "documents.hintEarthquake"}}</a>
+        <a target="_blank" rel="noopener noreferrer" href={{t "documents.linkEarthquake"}}>{{t "documents.hintEarthquake"}}</a>
         {{t "documents.hint2"}}
-        <a target="_blank" rel="noopener" href={{t "documents.linkMunicipalityForms"}}>{{t "documents.hintMunicipalityForms"}}</a>
+        <a target="_blank" rel="noopener noreferrer" href={{t "documents.linkMunicipalityForms"}}>{{t "documents.hintMunicipalityForms"}}</a>
         {{t "documents.hint3"}}
       </p>
     {{/if}}

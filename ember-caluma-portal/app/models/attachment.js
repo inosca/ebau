@@ -1,11 +1,11 @@
 import Model, { attr, belongsTo, hasMany } from "@ember-data/model";
 import { computed } from "@ember/object";
 import { inject as service } from "@ember/service";
-import filesize from "filesize";
+import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 import { saveAs } from "file-saver";
+import filesize from "filesize";
 import gql from "graphql-tag";
-import { queryManager } from "ember-apollo-client";
 
 export default class Attachment extends Model {
   @service fetch;

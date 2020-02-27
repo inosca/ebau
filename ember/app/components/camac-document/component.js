@@ -7,6 +7,7 @@ import { task } from "ember-concurrency";
 import fetch from "fetch";
 import Ember from "ember";
 import download from "downloadjs";
+import ENV from "citizen-portal/config/environment";
 
 const { testing } = Ember;
 
@@ -62,7 +63,11 @@ export default CamacInputComponent.extend({
             "Cache-Control": "no-cache"
           },
           paramName: "path",
-          params: { instance: this.instance.id, question: this.identifier },
+          params: {
+            instance: this.instance.id,
+            question: this.identifier,
+            attachment_sections: ENV.APP.attachmentSections.applicant
+          },
           createImageThumbnails: false,
           previewsContainer: false,
           clickable: false,
@@ -153,6 +158,10 @@ export default CamacInputComponent.extend({
         let formData = new FormData();
         formData.append("instance", this.instance.id);
         formData.append("question", this.identifier);
+        formData.append(
+          "attachment_sections",
+          ENV.APP.attachmentSections.applicant
+        );
         formData.append(
           "path",
           file,

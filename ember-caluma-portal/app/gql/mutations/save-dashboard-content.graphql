@@ -1,0 +1,7 @@
+mutation SaveDashboardContent($document: ID!, $page: ID!, $content: String!) {
+  saveDocumentStringAnswer(
+    input: { document: $document, question: $page, value: $content }
+  ) {
+    clientMutationId
+  }
+}
