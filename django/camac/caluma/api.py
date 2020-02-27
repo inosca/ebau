@@ -79,15 +79,13 @@ class CalumaApi:
     def get_nfd_form_permissions(self, instance):
         permissions = set()
 
-        try:
-            nfd_document = caluma_form_models.Document.objects.get(
-                **{"form_id": "nfd", "meta__camac-instance-id": instance.pk}
-            )
-            answers = caluma_form_models.Answer.objects.filter(
-                question_id="nfd-tabelle-status", document__family=nfd_document
-            )
-        except caluma_form_models.Document.DoesNotExist:
-            return permissions
+        answers = caluma_form_models.Answer.objects.filter(
+            **{
+                "question_id": "nfd-tabelle-status",
+                "document__family__form_id": "nfd",
+                "document__family__meta__camac-instance-id": instance.pk,
+            }
+        )
 
         if answers.exclude(value="nfd-tabelle-status-entwurf").exists():
             permissions.add("read")
