@@ -74,7 +74,7 @@
     {{/unless}}
 
     <div class="uk-padding uk-padding-remove-horizontal uk-animation-fade">
-      {{outlet}}
+      <FocusingOutlet @outletState={{-get-dynamic-var "outletState"}}/>
     </div>
   </div>
 </A11yLandmark>
