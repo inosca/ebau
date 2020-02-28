@@ -116271,6 +116271,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "",
       "notification_template": null,
       "recipient_types": "[]",
@@ -116281,6 +116282,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "",
       "notification_template": null,
       "recipient_types": "[]",
@@ -116291,6 +116293,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "",
       "notification_template": null,
       "recipient_types": "[]",
@@ -116301,6 +116304,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[]",
       "name": "",
       "notification_template": null,
       "recipient_types": "[]",
@@ -116311,6 +116315,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "",
       "notification_template": null,
       "recipient_types": "[]",
@@ -116321,6 +116326,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "",
       "notification_template": null,
       "recipient_types": "[]",
@@ -116331,6 +116337,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "",
       "notification_template": null,
       "recipient_types": "[]",
@@ -116341,6 +116348,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "",
       "notification_template": null,
       "recipient_types": "[]",
@@ -116351,6 +116359,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "",
       "notification_template": null,
       "recipient_types": "[]",
@@ -116361,6 +116370,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "",
       "notification_template": null,
       "recipient_types": "[]",
@@ -116371,6 +116381,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "",
       "notification_template": null,
       "recipient_types": "[]",
@@ -116381,6 +116392,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "",
       "notification_template": null,
       "recipient_types": "[]",
