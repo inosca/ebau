@@ -99,7 +99,7 @@ def test_notice_ruling_send_handler(
         group=admin_user.groups.first(),
         auth_header=None,
     )
-    assert handler.has_permission() == has_permission
+    assert handler.has_permission()[0] == has_permission
 
     if has_permission:
         expected_state = instance_state_factory(pk=expected_state_pk)
@@ -129,7 +129,7 @@ def test_change_responsibility_send_handler(
     handler = ChangeResponsibilitySendHandler(
         data=data, queryset=Instance.objects, user=None, group=group, auth_header=None
     )
-    assert handler.has_permission() is True
+    assert handler.has_permission()[0] is True
 
     if not fail:
         handler.apply()
@@ -191,7 +191,7 @@ def test_close_dossier_send_handler(
         auth_header=None,
     )
 
-    assert handler.has_permission() is success
+    assert handler.has_permission()[0] is success
 
     if success:
         handler.apply()
@@ -261,7 +261,7 @@ def test_task_send_handler(
         group=group,
         auth_header="Bearer: some token",
     )
-    assert handler.has_permission() is True
+    assert handler.has_permission()[0] is True
 
     if success:
         handler.apply()
@@ -294,17 +294,24 @@ def test_task_send_handler_no_permission(admin_user, ech_instance):
     handler = TaskSendHandler(
         data=data, queryset=Instance.objects, user=None, group=group, auth_header=None
     )
-    assert handler.has_permission() is False
+    assert handler.has_permission()[0] is False
 
 
+@pytest.mark.parametrize("has_permission", [True, False])
 def test_notice_kind_of_proceedings_send_handler(
-    admin_user, ech_instance, instance_state_factory, instance_resource_factory
+    has_permission,
+    admin_user,
+    ech_instance,
+    instance_state_factory,
+    instance_resource_factory,
 ):
     group = admin_user.groups.first()
     group.service = ech_instance.services.first()
     group.save()
 
-    state = instance_state_factory(pk=INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT)
+    state = instance_state_factory(pk=INSTANCE_STATE_DOSSIERPRUEFUNG)
+    if has_permission:
+        state = instance_state_factory(pk=INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT)
     ech_instance.instance_state = state
     ech_instance.save()
 
@@ -320,16 +327,17 @@ def test_notice_kind_of_proceedings_send_handler(
         group=group,
         auth_header=None,
     )
-    assert handler.has_permission() is True
+    assert handler.has_permission()[0] is has_permission
 
-    handler.apply()
-    assert Circulation.objects.count() == 1
-    ech_instance.refresh_from_db()
-    assert ech_instance.instance_state.pk == INSTANCE_STATE_ZIRKULATION
+    if has_permission:
+        handler.apply()
+        assert Circulation.objects.count() == 1
+        ech_instance.refresh_from_db()
+        assert ech_instance.instance_state.pk == INSTANCE_STATE_ZIRKULATION
 
-    assert Message.objects.count() == 1
-    message = Message.objects.first()
-    assert message.receiver == ech_instance.active_service
+        assert Message.objects.count() == 1
+        message = Message.objects.first()
+        assert message.receiver == ech_instance.active_service
 
 
 @pytest.mark.parametrize("has_attachment", [True, False])
@@ -387,10 +395,10 @@ def test_accompanying_report_send_handler(
         auth_header=None,
     )
     if not has_activation:
-        assert handler.has_permission() is False
+        assert handler.has_permission()[0] is False
         return
 
-    assert handler.has_permission() is True
+    assert handler.has_permission()[0] is True
 
     if has_attachment:
         handler.apply()
