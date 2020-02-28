@@ -2,6 +2,8 @@ import pytest
 from caluma.caluma_form.models import Document, Form
 
 from camac.constants.kt_bern import (
+    ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
+    ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
     INSTANCE_STATE_DOSSIERPRUEFUNG,
     INSTANCE_STATE_EBAU_NUMMER_VERGEBEN,
     INSTANCE_STATE_FINISHED,
@@ -76,7 +78,20 @@ def test_notice_ruling_send_handler(
     admin_user,
     ech_instance,
     instance_state_factory,
+    attachment_factory,
+    attachment_section_factory,
 ):
+    attachment_section_beteiligte_behoerden = attachment_section_factory(
+        pk=ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN
+    )
+    attachment_section_factory(pk=ATTACHMENT_SECTION_ALLE_BETEILIGTEN)
+    attachment = attachment_factory(
+        uuid="00000000-0000-0000-0000-000000000000",
+        name="myFile.pdf",
+        instance=ech_instance,
+    )
+    attachment.attachment_sections.add(attachment_section_beteiligte_behoerden)
+
     form = Form.objects.create(slug="baugesuch", meta={"is-main-form": True})
     Document.objects.create(form=form, meta={"camac-instance-id": ech_instance.pk})
 
@@ -109,6 +124,10 @@ def test_notice_ruling_send_handler(
         assert DocxDecision.objects.get(instance=ech_instance.pk)
         assert Message.objects.count() == 1
         assert Message.objects.first().receiver == group.service
+        attachment.refresh_from_db()
+        assert attachment.attachment_sections.get(
+            pk=ATTACHMENT_SECTION_ALLE_BETEILIGTEN
+        )
 
 
 @pytest.mark.parametrize("fail", [False, True])
@@ -300,11 +319,24 @@ def test_task_send_handler_no_permission(admin_user, ech_instance):
 @pytest.mark.parametrize("has_permission", [True, False])
 def test_notice_kind_of_proceedings_send_handler(
     has_permission,
+    attachment_section_factory,
+    attachment_factory,
     admin_user,
     ech_instance,
     instance_state_factory,
     instance_resource_factory,
 ):
+    attachment_section_beteiligte_behoerden = attachment_section_factory(
+        pk=ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN
+    )
+    attachment_section_factory(pk=ATTACHMENT_SECTION_ALLE_BETEILIGTEN)
+    attachment = attachment_factory(
+        uuid="00000000-0000-0000-0000-000000000000",
+        name="myFile.pdf",
+        instance=ech_instance,
+    )
+    attachment.attachment_sections.add(attachment_section_beteiligte_behoerden)
+
     group = admin_user.groups.first()
     group.service = ech_instance.services.first()
     group.save()
@@ -338,6 +370,11 @@ def test_notice_kind_of_proceedings_send_handler(
         assert Message.objects.count() == 1
         message = Message.objects.first()
         assert message.receiver == ech_instance.active_service
+
+        attachment.refresh_from_db()
+        assert attachment.attachment_sections.get(
+            pk=ATTACHMENT_SECTION_ALLE_BETEILIGTEN
+        )
 
 
 @pytest.mark.parametrize("has_attachment", [True, False])
@@ -381,7 +418,7 @@ def test_accompanying_report_send_handler(
 
     if has_attachment:
         attachment = attachment_factory(
-            name="MyFile.pdf", uuid="b9ec16fc-cdde-49dd-81f9-43fc6629f2a9"
+            name="MyFile.pdf", uuid="00000000-0000-0000-0000-000000000000"
         )
         attachment.attachment_sections.add(attachment_section_factory(pk=7))
 
