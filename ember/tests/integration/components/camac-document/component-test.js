@@ -1,6 +1,6 @@
 import { render, triggerEvent, click } from "@ember/test-helpers";
 import loadQuestions from "citizen-portal/tests/helpers/load-questions";
-import setupMirage from "ember-cli-mirage/test-support/setup-mirage";
+import { setupMirage } from "ember-cli-mirage/test-support";
 import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
@@ -10,7 +10,11 @@ module("Integration | Component | camac-document", function(hooks) {
   setupMirage(hooks);
 
   hooks.beforeEach(async function() {
-    const instance = this.server.create("instance", "unsubmitted");
+    const instance = this.server.create("instance", "unsubmitted", {
+      instanceState: this.server.create("instance-state", {
+        name: "new"
+      })
+    });
 
     this.set("instance", instance);
 
@@ -89,7 +93,7 @@ module("Integration | Component | camac-document", function(hooks) {
       }
     );
 
-    await render(hbs`{{camac-document 'test-document'instance=instance}}`);
+    await render(hbs`{{camac-document 'test-document' instance=instance}}`);
 
     const files = {
       files: [new File([new Blob()], "testfile.png", { type: "image/png" })]
