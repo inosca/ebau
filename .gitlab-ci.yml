@@ -203,7 +203,6 @@ build-kt_bern-production:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
     - eval $COMPOSE $TLSOPTS pull
     - eval $COMPOSE $TLSOPTS up -d
-  when: manual
 
 deploy-kt_schwyz-stage:
   extends: .deploy
@@ -257,4 +256,3 @@ deploy-kt_bern-production:
     - sha256sum ./camac-be-$(cat VERSION.txt)+${CI_COMMIT_SHORT_SHA}.tar.gz
   only:
     - production-be
-  when: manual
