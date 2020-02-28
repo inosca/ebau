@@ -1,6 +1,5 @@
 import mimetypes
 
-from django.conf import settings
 from django.utils.translation import gettext as _
 from django_clamd.validators import validate_file_infection
 from rest_framework import exceptions
@@ -52,12 +51,14 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         "service": "camac.user.serializers.ServiceSerializer",
     }
 
+    def _get_default_attachment_sections(self, group):
+        return models.AttachmentSection.objects.filter_group(group)[:1]
+
     def validate_attachment_sections(self, attachment_sections):
+        group = self.context["request"].group
+
         if not attachment_sections:
-            # Set default attachment_sections value.
-            attachment_sections = models.AttachmentSection.objects.filter_group(
-                self.context["request"].group
-            )[:1]
+            attachment_sections = self._get_default_attachment_sections(group)
 
         existing_section_ids = set()
         if self.instance:
@@ -70,7 +71,7 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
                 # document already assigned, so even if it's forbidden,
                 # it's not a violation
                 continue
-            mode = attachment_section.get_mode(self.context["request"].group)
+            mode = attachment_section.get_mode(group)
             if mode not in [
                 models.WRITE_PERMISSION,
                 models.ADMIN_PERMISSION,
@@ -87,29 +88,47 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
 
         return attachment_sections
 
-    def validate_path(self, path):
-        if path.content_type not in settings.ALLOWED_DOCUMENT_MIMETYPES:
+    def _validate_path_allowed_mime_types(self, path, attachment_sections):
+        for section in attachment_sections:
+            # empty allowed_mime_types -> any mime type allowed
+            if (
+                not section.allowed_mime_types
+                or path.content_type in section.allowed_mime_types
+            ):
+                continue
+
             raise exceptions.ParseError(
                 _(
-                    "Invalid mime type for attachment. Allowed types are: %(allowed_mime_types)s"
+                    "Invalid mime type for attachment. "
+                    "Allowed types for section %(section_name)s are: %(allowed_mime_types)s"
                 )
                 % {
+                    "section_name": section.get_trans_attr("name"),
                     "allowed_mime_types": ", ".join(
                         [
                             mime_type.split("/")[1]
-                            for mime_type in settings.ALLOWED_DOCUMENT_MIMETYPES
+                            for mime_type in section.allowed_mime_types
                         ]
-                    )
+                    ),
                 }
             )
-
         validate_file_infection(path)
-
         return path
 
     def validate(self, data):
         if "path" in data:
             path = data["path"]
+
+            attachment_sections = (
+                data["attachment_sections"]
+                if "attachment_sections" in data
+                else self._get_default_attachment_sections(
+                    self.context["request"].group
+                )
+            )
+
+            self._validate_path_allowed_mime_types(path, attachment_sections)
+
             data["size"] = path.size
             data["mime_type"] = path.content_type
             data["name"] = path.name

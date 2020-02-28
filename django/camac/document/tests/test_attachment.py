@@ -548,3 +548,46 @@ def test_attachment_delete(
     )
     response = admin_client.delete(url)
     assert response.status_code == status_code
+
+
+@pytest.mark.parametrize(
+    "instance_state__name,role__name,instance__user,instance__location,activation__service,instance__group,attachment_section_group_acl__mode",
+    [
+        (
+            "nfd",
+            "Applicant",  # role__name
+            LazyFixture("admin_user"),  # instance__user
+            LazyFixture("location"),  # instance__location
+            LazyFixture("service"),  # activation__service
+            LazyFixture("group"),  # instance__group
+            models.ADMIN_PERMISSION,  # attachment_section_group_acl__mode
+        )
+    ],
+)
+@pytest.mark.parametrize(
+    "attachment_section__allowed_mime_types,filename,status_code",
+    [
+        ([], "invalid-attachment.gif", status.HTTP_201_CREATED),
+        (["application/pdf"], "invalid-attachment.gif", status.HTTP_400_BAD_REQUEST),
+        (
+            ["application/pdf", "image/jpeg"],
+            "test-thumbnail.jpg",
+            status.HTTP_201_CREATED,
+        ),
+    ],
+)
+def test_attachment_mime_type(
+    admin_client,
+    instance,
+    attachment_section,
+    activation,
+    attachment_section_group_acl,
+    filename,
+    status_code,
+):
+    url = reverse("attachment-list")
+
+    path = django_file(filename)
+    data = {"instance": instance.pk, "path": path.file, "group": instance.group.pk}
+    response = admin_client.post(url, data=data, format="multipart")
+    assert response.status_code == status_code
