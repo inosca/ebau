@@ -393,9 +393,24 @@ FILE_UPLOAD_PERMISSIONS = env.int("FILE_UPLOAD_PERMISSIONS", default=0o644)
 
 THUMBNAIL_ENGINE = "sorl.thumbnail.engines.convert_engine.Engine"
 
+DEFAULT_DOCUMENT_MIMETYPES = env.list(
+    "DJANGO_DEFAULT_DOCUMENT_MIMETYPES",
+    default=["image/png", "image/jpeg", "application/pdf"],
+)
 ALLOWED_DOCUMENT_MIMETYPES = env.list(
     "DJANGO_ALLOWED_DOCUMENT_MIMETYPES",
-    default=["image/png", "image/jpeg", "application/pdf"],
+    default=[
+        "application/pdf",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+        "application/xml",
+        "image/gif",
+        "image/jpeg",
+        "image/png",
+        "image/tiff",
+        "text/plain",
+    ],
 )
 
 # Unoconv webservice
