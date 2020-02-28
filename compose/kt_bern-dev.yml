@@ -95,12 +95,6 @@ services:
         && apache2-foreground",
       ]
 
-  unoconv:
-    ports:
-      - "3000:3000"
-    networks:
-      - camac-ng.local
-
   keycloak:
     ports:
       - "8080:8080"
