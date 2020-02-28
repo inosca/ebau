@@ -46735,6 +46735,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "Interne Dokumente BaB (nur f\u00fcr BaB Fachstellen sichtbar)",
       "notification_template": null,
       "recipient_types": null,
@@ -46745,6 +46746,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "Publikationsordner",
       "notification_template": null,
       "recipient_types": null,
@@ -46755,6 +46757,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "Interne Dokumente ABM BS (nur f\u00fcr ABM BS sichtbar)",
       "notification_template": null,
       "recipient_types": null,
@@ -46765,6 +46768,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "Dokumente Fachstellen (R\u00fcckmeldungen Vernehmlassungsstellen)",
       "notification_template": null,
       "recipient_types": null,
@@ -46775,6 +46779,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "Dokumente Leitbeh\u00f6rden (Baubewilligungen, Verf\u00fcgungen usw.)",
       "notification_template": null,
       "recipient_types": null,
@@ -46785,6 +46790,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "Lisag (Nutzungsplandokumente, ITF Dateien)",
       "notification_template": null,
       "recipient_types": null,
@@ -46795,6 +46801,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "Rechtsmitteldokumente (nur eingeschr\u00e4nkt sichtbar)",
       "notification_template": null,
       "recipient_types": null,
@@ -46805,6 +46812,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "Interne Dokumente ARE NHS D (nur f\u00fcr ARE NHS D sichtbar)",
       "notification_template": null,
       "recipient_types": null,
@@ -46815,6 +46823,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "Interne Dokumente ARE SU (nur f\u00fcr Fachstelle ARE SU sichtbar)",
       "notification_template": null,
       "recipient_types": null,
@@ -46825,6 +46834,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "Geb\u00fchren",
       "notification_template": null,
       "recipient_types": null,
@@ -46835,6 +46845,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "Dokumente Gesuchsteller",
       "notification_template": null,
       "recipient_types": null,
@@ -46845,6 +46856,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "Dokumente UVP sichtbar f\u00fcr AfE WB ARENHSL AFJ ALA AfUGS AfUIS",
       "notification_template": null,
       "recipient_types": null,
@@ -46855,6 +46867,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "Unterlagen Land- und Rechtswerb (nur f\u00fcr BD DS sichtbar)",
       "notification_template": null,
       "recipient_types": null,
@@ -46865,6 +46878,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "Interne Dokumente ARE NP (nur f\u00fcr Fachstelle ARE NP sichtbar)",
       "notification_template": null,
       "recipient_types": null,
@@ -46875,6 +46889,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "Dokumente Gemeindeservice",
       "notification_template": null,
       "recipient_types": null,
@@ -46885,6 +46900,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "Bau- und Einsprache - Entscheid (Bewilligungsdokumente)",
       "notification_template": null,
       "recipient_types": null,
