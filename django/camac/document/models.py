@@ -1,6 +1,7 @@
 from uuid import uuid4
 
 import reversion
+from django.conf import settings
 from django.contrib.postgres.fields import ArrayField, JSONField
 from django.core.validators import MaxValueValidator
 from django.db import models
@@ -134,11 +135,19 @@ class AttachmentSectionQuerySet(models.QuerySet):
         )
 
 
+def _get_allowed_mime_types():
+    """Make sure the default of allowed_mime_types is a callable."""
+    return settings.ALLOWED_DOCUMENT_MIMETYPES
+
+
 class AttachmentSection(core_models.MultilingualModel, models.Model):
     RECIPIENT_TYPE_CHOICES = (
         ("applicant", "applicant"),
         ("municipality", "municipality"),
         ("service", "service"),
+    )
+    MIME_TYPE_CHOICES = (
+        (entry, entry) for entry in settings.ALLOWED_DOCUMENT_MIMETYPES
     )
     objects = AttachmentSectionQuerySet.as_manager()
     attachment_section_id = models.AutoField(
@@ -158,6 +167,10 @@ class AttachmentSection(core_models.MultilingualModel, models.Model):
         models.CharField(max_length=12, choices=RECIPIENT_TYPE_CHOICES),
         null=True,
         blank=True,
+    )
+    allowed_mime_types = ArrayField(
+        models.CharField(max_length=255, choices=MIME_TYPE_CHOICES),
+        default=_get_allowed_mime_types,
     )
 
     def get_mode(self, group):
