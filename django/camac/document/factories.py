@@ -15,7 +15,7 @@ class AttachmentSectionFactory(DjangoModelFactory):
     sort = Faker("pyint")
     notification_template = SubFactory(NotificationTemplateFactory)
     recipient_types = ["municipality"]
-    allowed_mime_types = settings.ALLOWED_DOCUMENT_MIMETYPES
+    allowed_mime_types = settings.DEFAULT_DOCUMENT_MIMETYPES
 
     class Meta:
         model = models.AttachmentSection
