@@ -61,9 +61,7 @@ class BaseSendHandler:
         )
 
     def has_permission(self):
-        if not self.instance.active_service == self.group.service:
-            return False
-        return True
+        return self.instance.active_service == self.group.service, None
 
     def apply(self):  # pragma: no cover
         raise NotImplementedError()
@@ -71,11 +69,22 @@ class BaseSendHandler:
 
 class NoticeRulingSendHandler(BaseSendHandler):
     def has_permission(self):
-        if not super().has_permission():
-            return False
+        if not super().has_permission()[0]:
+            return False, None
+
         if self.instance.instance_state.pk == INSTANCE_STATE_DOSSIERPRUEFUNG:
-            return self.data.eventNotice.decisionRuling.judgement == 4
-        return self.instance.instance_state.pk == INSTANCE_STATE_KOORDINATION
+            if self.data.eventNotice.decisionRuling.judgement == 4:
+                return True, None
+            return (
+                False,
+                'For instances in the state "Dossierprüfung", only a NoticeRuling with judgement "4" is allowed.',
+            )
+        if self.instance.instance_state.pk == INSTANCE_STATE_KOORDINATION:
+            return True, None
+        return (
+            False,
+            'NoticeRuling is only allowed for instances in the state "Dossierprüfung" or "In Koordination".',
+        )
 
     def apply(self):
         status = {
@@ -151,7 +160,9 @@ class AccompanyingReportSendHandler(BaseSendHandler):
         self.activation = self._get_activation()
 
     def has_permission(self):
-        return bool(self.activation)
+        if bool(self.activation):
+            return True, None
+        return False, "There is no running activation for your service."
 
     def get_instance_id(self):
         return (
@@ -206,11 +217,15 @@ class AccompanyingReportSendHandler(BaseSendHandler):
 
 class CloseArchiveDossierSendHandler(BaseSendHandler):
     def has_permission(self):
+        if not InstanceService.objects.filter(
+            instance=self.instance, active=True, service=self.group.service
+        ).exists():
+            return False, None
+        if self.instance.instance_state.pk == INSTANCE_STATE_TO_BE_FINISHED:
+            return True, None
         return (
-            InstanceService.objects.filter(
-                instance=self.instance, active=True, service=self.group.service
-            ).exists()
-            and self.instance.instance_state.pk == INSTANCE_STATE_TO_BE_FINISHED
+            False,
+            '"CloseDossier" is only allowed for instances in the state "Zum Abschluss".',
         )
 
     def get_instance_id(self):
@@ -237,11 +252,14 @@ class TaskSendHandler(BaseSendHandler):
         )
 
     def has_permission(self):
-        if not super().has_permission():  # pragma: no cover
-            return False
+        if not super().has_permission()[0]:  # pragma: no cover
+            return False, None
         if not self.instance.instance_state.pk == INSTANCE_STATE_ZIRKULATION:
-            return False
-        return True
+            return (
+                False,
+                'You can only send a "Task" for instances in the state "In Zirkulation".',
+            )
+        return True, None
 
     def _get_circulation(self):
         # we add the Activation to the most recent Circulation or start a new one
@@ -329,8 +347,13 @@ class NoticeKindOfProceedingsSendHandler(TaskSendHandler):
 
     def has_permission(self):
         if not self.instance.active_service == self.group.service:  # pragma: no cover
-            return False
-        return self.instance.instance_state.pk == INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT
+            return False, None
+        if self.instance.instance_state.pk == INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT:
+            return True, None
+        return (
+            False,
+            'You can only send a "NoticeKindOfProceedings" for instances in the state "Zirkulation initialisieren".',
+        )
 
     def apply(self):
         circulation = self._get_circulation()
