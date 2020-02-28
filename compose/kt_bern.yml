@@ -108,7 +108,6 @@ services:
     image: adfinissygroup/document-merge-service:v3.0.0
     depends_on:
       - db
-      - unoconv
     volumes:
       - ../document-merge-service/uwsgi.ini:/app/uwsgi.ini:ro
       - ../document-merge-service/templatefiles:/var/lib/document-merge-service/media
