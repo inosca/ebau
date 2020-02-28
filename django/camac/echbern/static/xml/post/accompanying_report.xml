@@ -29,7 +29,7 @@
       </ns2:planningPermissionApplicationIdentification>
       <ns2:document>
         <!-- muss auf dem Dossier existieren -->
-        <ns11:uuid>b9ec16fc-cdde-49dd-81f9-43fc6629f2a9</ns11:uuid>
+        <ns11:uuid>00000000-0000-0000-0000-000000000000</ns11:uuid>
         <ns11:titles>
           <ns10:title ns10:lang="de">myFile.pdf</ns10:title>
         </ns11:titles>

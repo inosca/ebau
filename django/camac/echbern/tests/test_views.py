@@ -5,6 +5,8 @@ from django.urls import reverse
 from rest_framework import status
 
 from camac.constants.kt_bern import (
+    ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
+    ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
     INSTANCE_STATE_DOSSIERPRUEFUNG,
     INSTANCE_STATE_KOORDINATION,
     INSTANCE_STATE_REJECTED,
@@ -21,6 +23,7 @@ from camac.core.models import (
 from .. import send_handlers, views
 from ..event_handlers import EventHandlerException, StatusNotificationEventHandler
 from ..models import Message
+from ..send_handlers import NoticeKindOfProceedingsSendHandler, NoticeRulingSendHandler
 from .caluma_document_data import baugesuch_data
 from .utils import xml_data
 
@@ -166,12 +169,24 @@ def test_send(
     mocker,
     instance_state_factory,
     role_factory,
+    attachment_section_factory,
+    attachment_factory,
 ):
     if has_permission:
         group = admin_user.groups.first()
         group.service = ech_instance.services.first()
         group.role = role_factory(name="support")
         group.save()
+        attachment_section_beteiligte_behoerden = attachment_section_factory(
+            pk=ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN
+        )
+        attachment_section_factory(pk=ATTACHMENT_SECTION_ALLE_BETEILIGTEN)
+        attachment = attachment_factory(
+            uuid="00000000-0000-0000-0000-000000000000",
+            name="myFile.pdf",
+            instance=ech_instance,
+        )
+        attachment.attachment_sections.add(attachment_section_beteiligte_behoerden)
 
     state = instance_state_factory(pk=INSTANCE_STATE_DOSSIERPRUEFUNG)
     expected_state = instance_state_factory(pk=INSTANCE_STATE_REJECTED)
@@ -213,7 +228,20 @@ def test_send_400_invalid_judgement(
     mocker,
     instance_state_factory,
     role_factory,
+    attachment_section_factory,
+    attachment_factory,
 ):
+    attachment_section_beteiligte_behoerden = attachment_section_factory(
+        pk=ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN
+    )
+    attachment_section_factory(pk=ATTACHMENT_SECTION_ALLE_BETEILIGTEN)
+    attachment = attachment_factory(
+        uuid="00000000-0000-0000-0000-000000000000",
+        name="myFile.pdf",
+        instance=ech_instance,
+    )
+    attachment.attachment_sections.add(attachment_section_beteiligte_behoerden)
+
     group = admin_user.groups.first()
     group.service = ech_instance.services.first()
     group.role = role_factory(name="support")
@@ -254,6 +282,66 @@ def test_send_403(admin_client, admin_user, ech_instance):
     )
 
     assert response.status_code == 403
+
+
+@pytest.mark.parametrize("ech_message", ["notice_ruling", "kind_of_proceedings"])
+def test_send_403_attachment_permissions(
+    ech_message,
+    admin_client,
+    ech_instance,
+    instance_factory,
+    attachment_section_factory,
+    attachment_factory,
+    mocker,
+):
+    mocker.patch.object(
+        NoticeRulingSendHandler, "has_permission", return_value=(True, None)
+    )
+    mocker.patch.object(
+        NoticeKindOfProceedingsSendHandler, "has_permission", return_value=(True, None)
+    )
+
+    attachment_section_beteiligte_behoerden = attachment_section_factory(
+        pk=ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN
+    )
+    attachment_section_factory(pk=ATTACHMENT_SECTION_ALLE_BETEILIGTEN)
+    attachment = attachment_factory(
+        uuid="00000000-0000-0000-0000-000000000000",
+        name="myFile.pdf",
+        instance=instance_factory(),
+    )
+    attachment.attachment_sections.add(attachment_section_beteiligte_behoerden)
+
+    url = reverse("send")
+    response = admin_client.post(
+        url, data=xml_data(ech_message), content_type="application/xml"
+    )
+
+    assert response.status_code == 403
+
+
+def test_send_404_attachment_missing(
+    admin_client, admin_user, ech_instance, instance_state_factory, role_factory
+):
+    group = admin_user.groups.first()
+    group.service = ech_instance.services.first()
+    group.role = role_factory(name="support")
+    group.save()
+
+    state = instance_state_factory(pk=INSTANCE_STATE_DOSSIERPRUEFUNG)
+    ech_instance.instance_state = state
+    ech_instance.save()
+
+    url = reverse("send")
+    response = admin_client.post(
+        url, data=xml_data("notice_ruling"), content_type="application/xml"
+    )
+
+    assert response.status_code == 404
+    assert (
+        response.content
+        == b"No document found for uuids: 00000000-0000-0000-0000-000000000000."
+    )
 
 
 def test_send_unparseable_message(admin_client, admin_user, ech_instance):
