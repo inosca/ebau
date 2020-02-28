@@ -135,9 +135,9 @@ class AttachmentSectionQuerySet(models.QuerySet):
         )
 
 
-def _get_allowed_mime_types():
+def _get_default_mime_types():
     """Make sure the default of allowed_mime_types is a callable."""
-    return settings.ALLOWED_DOCUMENT_MIMETYPES
+    return settings.DEFAULT_DOCUMENT_MIMETYPES
 
 
 class AttachmentSection(core_models.MultilingualModel, models.Model):
@@ -170,7 +170,7 @@ class AttachmentSection(core_models.MultilingualModel, models.Model):
     )
     allowed_mime_types = ArrayField(
         models.CharField(max_length=255, choices=MIME_TYPE_CHOICES),
-        default=_get_allowed_mime_types,
+        default=_get_default_mime_types,
     )
 
     def get_mode(self, group):
