@@ -167,7 +167,7 @@ POST_TABLE_DATA = [
         "NoticeRuling",
         "Entscheid verfügen",
         "3.2",
-        "5100010",
+        "5100039",
         f"[notice_ruling]({static('xml/post/notice_ruling_2.xml')})",
     ],
     [
