@@ -11076,6 +11076,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "Dokumente des Gesuchstellers",
       "notification_template": null,
       "recipient_types": "[]",
@@ -11086,6 +11087,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "Dokumente Fachstellen (interne Ablage)",
       "notification_template": null,
       "recipient_types": null,
@@ -11096,6 +11098,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "Auflagedokumente",
       "notification_template": null,
       "recipient_types": "[]",
@@ -11106,6 +11109,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "Einsprachen",
       "notification_template": null,
       "recipient_types": "[]",
@@ -11116,6 +11120,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "Bauentscheid und Merkbl\u00e4tter",
       "notification_template": null,
       "recipient_types": "[]",
@@ -11126,6 +11131,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "Dokumente Gemeinde (interne Ablage)",
       "notification_template": null,
       "recipient_types": "[]",
@@ -11136,6 +11142,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "Schriftenverkehr",
       "notification_template": null,
       "recipient_types": "[]",
@@ -11146,6 +11153,7 @@
   },
   {
     "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "name": "Dokumente f\u00fcr Gesuchsteller",
       "notification_template": null,
       "recipient_types": "[]",
