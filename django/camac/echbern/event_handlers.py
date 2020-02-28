@@ -11,6 +11,7 @@ from pyxb import (
 )
 
 from camac.constants.kt_bern import (
+    ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
     ECH_ACCOMPANYING_REPORT,
     ECH_CHANGE_RESPONSIBILITY,
     ECH_CLAIM,
@@ -323,7 +324,9 @@ class AccompanyingReportEventHandler(BaseEventHandler):
         attachments = (
             attachments
             if attachments
-            else self.instance.attachments.filter(attachment_sections__pk=7)
+            else self.instance.attachments.filter(
+                attachment_sections__pk=ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN
+            )
         )
         try:
             return delivery(
