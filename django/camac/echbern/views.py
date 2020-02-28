@@ -192,8 +192,10 @@ class SendView(GenericViewSet):
         except SendHandlerException as e:
             return HttpResponse(str(e), status=404)
 
-        if not send_handler.has_permission():
-            return HttpResponse(status=403)
+        has_perm, msg = send_handler.has_permission()
+
+        if not has_perm:
+            return HttpResponse(msg, status=403)
 
         try:
             send_handler.apply()
