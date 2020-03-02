@@ -16,7 +16,7 @@ def test_sendreminders(
 
     mocker.patch(
         "camac.notification.management.commands.sendreminders.TEMPLATE_REMINDER_CIRCULATION",
-        notification_template.pk,
+        notification_template.slug,
     )
 
     today = date.today()
