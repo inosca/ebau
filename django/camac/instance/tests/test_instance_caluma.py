@@ -325,7 +325,7 @@ def test_instance_submit(
         service.service_group.pk,
     )
     application_settings["NOTIFICATIONS"]["SUBMIT"] = [
-        {"template_id": notification_template.pk, "recipient_types": ["applicant"]}
+        {"template_slug": notification_template.slug, "recipient_types": ["applicant"]}
     ]
 
     document = caluma_form_models.Document.objects.create(
@@ -412,7 +412,7 @@ def test_instance_report(
 ):
     application_settings["NOTIFICATIONS"]["REPORT"] = [
         {
-            "template_id": notification_template.pk,
+            "template_slug": notification_template.slug,
             "recipient_types": ["applicant", "construction_control"],
         }
     ]
@@ -470,7 +470,7 @@ def test_instance_finalize(
 ):
     application_settings["NOTIFICATIONS"]["FINALIZE"] = [
         {
-            "template_id": notification_template.pk,
+            "template_slug": notification_template.slug,
             "recipient_types": ["applicant", "construction_control"],
         }
     ]
