@@ -5,6 +5,7 @@ from caluma.caluma_form.schema import SaveDocumentStringAnswer
 from camac.caluma.api import CamacRequest
 from camac.echbern.signals import file_subsequently
 from camac.instance.models import Instance
+from camac.notification.models import NotificationTemplate
 from camac.notification.serializers import NotificationTemplateSendmailSerializer
 
 CLAIM_QUESTION = "nfd-tabelle-table"
@@ -17,12 +18,14 @@ NOTIFICATION_CLAIM_ANSWERED = "03-nachforderung-beantwortet-leitbehorde"
 
 
 class CustomValidation(BaseValidation):
-    def _send_claim_notification(self, info, instance, template_id, recipient_types):
+    def _send_claim_notification(self, info, instance, template_slug, recipient_types):
+        notification_template = NotificationTemplate.objects.get(slug=template_slug)
+
         mail_data = {
             "instance": {"type": "instances", "id": instance.pk},
             "notification_template": {
                 "type": "notification-templates",
-                "id": template_id,
+                "id": notification_template.id,
             },
             "recipient_types": recipient_types,
         }
@@ -32,7 +35,9 @@ class CustomValidation(BaseValidation):
         )
 
         if not mail_serializer.is_valid():
-            raise Exception()
+            raise Exception(
+                f"Validation in SendmailSerializer failed: {mail_serializer.errors}"
+            )
 
         mail_serializer.create(mail_serializer.validated_data)
 
