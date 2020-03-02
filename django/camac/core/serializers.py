@@ -10,6 +10,7 @@ from camac.instance.models import Instance
 from camac.notification.serializers import (
     PermissionlessNotificationTemplateSendmailSerializer,
 )
+from camac.notification.views import send_mail
 from camac.user.models import User
 
 from . import models
@@ -83,22 +84,16 @@ class PublicationEntryUserPermissionSerializer(serializers.ModelSerializer):
         )
 
         if notification_template:
-            sendmail_data = {
-                "recipient_types": ["municipality"],
-                "notification_template": {
-                    "type": "notification-templates",
-                    "id": notification_template,
-                },
-                "instance": {
+            send_mail(
+                notification_template,
+                self.context,
+                PermissionlessNotificationTemplateSendmailSerializer,
+                recipient_types=["municipality"],
+                instance={
                     "id": validated_data["publication_entry"].instance.pk,
                     "type": "instances",
                 },
-            }
-            sendmail_serializer = PermissionlessNotificationTemplateSendmailSerializer(
-                data=sendmail_data, context=self.context
             )
-            sendmail_serializer.is_valid(raise_exception=True)
-            sendmail_serializer.save()
 
         return permission
 

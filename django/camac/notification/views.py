@@ -8,6 +8,30 @@ from camac.user.permissions import permission_aware
 from . import filters, models, serializers
 
 
+def send_mail(
+    slug,
+    context,
+    serializer=serializers.NotificationTemplateSendmailSerializer,
+    **kwargs,
+):
+    """Call a SendmailSerializer based on a NotificationTemplate Slug."""
+    notification_template = get_object_or_404(models.NotificationTemplate, slug=slug)
+
+    data = {
+        "notification_template": {
+            "type": "notification-templates",
+            "id": notification_template.pk,
+        },
+        **kwargs,
+    }
+
+    serializer = serializer(data=data, context=context)
+    serializer.is_valid(raise_exception=True)
+    serializer.save()
+
+    return serializer
+
+
 class NotificationTemplateView(viewsets.ModelViewSet):
     swagger_schema = None
     queryset = models.NotificationTemplate.objects.all()
@@ -108,18 +132,6 @@ class NotificationTemplateView(viewsets.ModelViewSet):
         serializer_class=serializers.NotificationTemplateSendmailSerializer,
     )
     def sendmail(self, request):
-        data = request.data
-
-        notification_template = get_object_or_404(
-            models.NotificationTemplate, slug=data["template_slug"]
-        )
-
-        data["notification_template"] = {
-            "type": "notification-templates",
-            "id": notification_template.pk,
-        }
-        serializer = self.get_serializer(data=data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
+        send_mail(request.data["template_slug"], {"request": request}, **request.data)
 
         return response.Response(status=status.HTTP_204_NO_CONTENT)

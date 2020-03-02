@@ -294,7 +294,7 @@ def test_instance_submit(
     attachment_section_group_acl_factory,
 ):
 
-    settings.APPLICATION["NOTIFICATIONS"]["SUBMIT"] = notification_template.pk
+    settings.APPLICATION["NOTIFICATIONS"]["SUBMIT"] = notification_template.slug
     settings.APPLICATION["WORKFLOW_ITEMS"]["SUBMIT"] = workflow_item.pk
 
     # only create group in a successful run
