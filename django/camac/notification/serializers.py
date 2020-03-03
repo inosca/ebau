@@ -598,7 +598,5 @@ class PermissionlessNotificationTemplateSendmailSerializer(
     disable permission checking the instance and allow anyone to send a email.
     """
 
-    # Temporary pragma no cover, remove when publication permission endpoint is reenabled
-    # revert !2353 to remove
-    def validate_instance(self, instance):  # pragma: no cover
+    def validate_instance(self, instance):
         return instance
