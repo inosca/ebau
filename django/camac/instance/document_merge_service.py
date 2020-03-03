@@ -35,7 +35,7 @@ def get_form_type_config(form_slug):
 
 class DMSHandler:
     def __init__(self):
-        self.visitor = DMSVisitor(exclude_slugs=["papierdossier", "projektaenderung"])
+        self.visitor = DMSVisitor()
 
     def generate_pdf(self, instance, form_slug, request):
         # get caluma document and generate data for document merge service
