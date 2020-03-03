@@ -1,10 +1,18 @@
 <h1 class="uk-flex uk-flex-between">
   {{t "instances.title"}}
-  {{#if (can "create instance")}}
-    <span>
-      <LinkTo @route="instances.new" class="uk-button uk-button-secondary">{{t "instances.new.title"}}</LinkTo>
-    </span>
-  {{/if}}
+  <div>
+    <UkButton
+      @label={{t "instances.createModification"}}
+      @color={{if isInstanceModifification "primary" "default"}}
+      @on-click={{perform toggleInstanceModification}}
+      />
+
+    {{#if (can "create instance")}}
+      <span>
+        <LinkTo @route="instances.new" class="uk-button uk-button-secondary">{{t "instances.new.title"}}</LinkTo>
+      </span>
+    {{/if}}
+  </div>
 </h1>
 
 <form onsubmit={{perform applyFilters}}>
@@ -12,46 +20,49 @@
     <div>
       <label class="uk-form-label">{{t "instances.type"}}</label>
       <div class="uk-form-controls">
-        <select class="uk-select" name="type">
-          <option></option>
-          {{#each getRootForms.lastSuccessful.value as |form|}}
-            <option value={{form.slug}} selected={{eq type form.slug}}>{{form.name}}</option>
-          {{/each}}
-        </select>
+        {{#power-select-multiple
+          multiple=true
+          selected=selectedTypes
+          options=rootForms
+          searchField="name"
+          onchange=(action (mut selectedTypes))
+          as |form|}}
+          {{form.name}}
+        {{/power-select-multiple}}
       </div>
     </div>
     <div>
       <label class="uk-form-label">{{t "instances.instanceId"}}</label>
       <div class="uk-form-controls">
-        <input type="text" class="uk-input" name="instanceId" value={{instanceId}}>
+        <input type="text" class="uk-input" name="instanceId" value={{this.instanceId}} onchange={{action "updateFilter"}} />
       </div>
     </div>
     <div>
       <label class="uk-form-label">{{t "instances.ebau"}}</label>
       <div class="uk-form-controls">
-        <input type="text" class="uk-input" name="ebau" value={{ebau}}>
+        <input type="text" class="uk-input" name="ebau" value={{ebau}} onchange={{action "updateFilter"}}>
       </div>
     </div>
     <div>
       <label class="uk-form-label">{{t "instances.parcel"}}</label>
       <div class="uk-form-controls">
-        <input type="text" class="uk-input" name="parcel" value={{parcel}}>
+        <input type="text" class="uk-input" name="parcel" value={{parcel}} onchange={{action "updateFilter"}}>
       </div>
     </div>
     <div>
       <label class="uk-form-label">{{t "instances.address"}}</label>
       <div class="uk-form-controls">
-        <input type="text" class="uk-input" name="address" value={{parcel}}>
+        <input type="text" class="uk-input" name="address" value={{parcel}} onchange={{action "updateFilter"}}>
       </div>
     </div>
     <div>
       <label class="uk-form-label">{{t "instances.submitDate"}}</label>
       <div class="uk-form-controls uk-grid-small uk-child-width-1-2" uk-grid>
         <div>
-          {{pikaday-input class="uk-input" name="submitFrom" value=submitFrom useUTC=true}}
+          <PikadayInput class="uk-input" @name="submitFrom" @value={{submitFrom}} @onSelection={{action "updateDate" "submitFrom"}} />
         </div>
         <div>
-          {{pikaday-input class="uk-input" name="submitTo" value=submitTo useUTC=true}}
+          <PikadayInput class="uk-input" @name="submitFrom" @value={{submitTo}} @onSelection={{action "updateDate" "submitTo"}} />
         </div>
       </div>
     </div>
@@ -96,6 +107,9 @@
         <th class="uk-text-nowrap">{{t "instances.submitDate"}}</th>
         <th class="uk-text-nowrap">{{t "instances.status.title"}}</th>
         <th class="uk-text-nowrap">{{t "instances.description"}}</th>
+        {{#if isInstanceModifification}}
+          <td></td>
+        {{/if}}
       </tr>
     </thead>
     <tbody>
@@ -113,6 +127,11 @@
           <td>{{if document.submitDate (moment-format document.submitDate "DD.MM.YYYY")}}</td>
           <td>{{document.status}}</td>
           <td class="uk-text-truncate" title={{document.description}}>{{document.description}}</td>
+          {{#if isInstanceModifification}}
+            <td>
+              <button type="button" class="uk-icon-button" uk-icon="file-edit" title={{t "instances.createModification"}} {{action (perform createInstanceModification) document.instanceId}}></button>
+            </td>
+          {{/if}}
         </tr>
       {{/each}}
       {{#if pageInfo.hasNextPage}}
@@ -130,9 +149,11 @@
   {{#uk-flex horizontal="center" vertical="middle" direction="column"}}
     <div class="uk-text-center uk-width-large">
       <object data="/assets/images/stamp-document.svg" class="uk-width-medium">{{t "instances.new.title"}}</object>
-      <h4 class="uk-margin-remove-top">{{t "instances.emptyTitle"}}</h4>
-      <p>{{t "instances.emptyText"}}</p>
-      {{#link-to "instances.new" class="uk-button uk-button-primary uk-button-large"}}{{t "instances.new.title"}}{{/link-to}}
+      <h4 class="uk-margin-remove-top">{{if isInstanceModifification (t "instances.noModificationTitle") (t "instances.emptyTitle")}}</h4>
+      <p>{{if isInstanceModifification (t "instances.noModificationText") (t "instances.emptyText")}}</p>
+      {{#unless isInstanceModifification}}
+        {{#link-to "instances.new" class="uk-button uk-button-primary uk-button-large"}}{{t "instances.new.title"}}{{/link-to}}
+      {{/unless}}
     </div>
   {{/uk-flex}}
 {{/if}}
