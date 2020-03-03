@@ -18,8 +18,6 @@ from camac.instance.serializers import (
 )
 from camac.utils import flatten
 
-from ..models import Instance
-
 MAIN_FORMS = [
     "baugesuch",
     "baugesuch-generell",

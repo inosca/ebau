@@ -124,7 +124,7 @@ const queryParams = new QueryParams({
     defaultValue: "META_CAMAC_INSTANCE_ID_DESC",
     replace: true
   },
-  isInstanceModifification: {
+  isModifification: {
     defaultValue: false,
     replace: true
   }
@@ -284,12 +284,12 @@ export default Controller.extend(queryParams.Mixin, {
     yield this.fetchData.perform();
   }),
 
-  toggleInstanceModification: task(function*() {
-    this.set("isInstanceModifification", !this.isInstanceModifification);
-    this.set("submitTo", this.isInstanceModifification ? moment() : null);
+  toggleModification: task(function*() {
+    this.set("isModifification", !this.isModifification);
+    this.set("submitTo", this.isModifification ? moment() : null);
     this.set(
       "types",
-      this.isInstanceModifification
+      this.isModifification
         ? ["baugesuch", "baugesuch-generell", "baugesuch-mit-uvp"]
         : []
     );
@@ -298,7 +298,7 @@ export default Controller.extend(queryParams.Mixin, {
     yield this.fetchData.perform();
   }),
 
-  createInstanceModification: task(function*(instanceId) {
+  createModification: task(function*(instanceId) {
     const response = yield this.fetch.fetch(`/api/v1/instances`, {
       method: "POST",
       body: JSON.stringify({
