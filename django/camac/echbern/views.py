@@ -200,6 +200,6 @@ class SendView(GenericViewSet):
         try:
             send_handler.apply()
         except SendHandlerException as e:
-            return HttpResponse(str(e), status=400)
+            return HttpResponse(str(e), status=e.status)
 
         return HttpResponse(status=201)
