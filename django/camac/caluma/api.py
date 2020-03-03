@@ -159,6 +159,16 @@ class CalumaApi:
             }
         ).exists()
 
+    def is_modification(self, instance):
+        return caluma_form_models.Answer.objects.filter(
+            **{
+                "document__meta__camac-instance-id": instance.pk,
+                "document__form__meta__is-main-form": True,
+                "question_id": "projektaenderung",
+                "value": "projektaenderung-ja",
+            }
+        ).exists()
+
 
 class CalumaInfo:
     """A caluma info object built from the given camac request.

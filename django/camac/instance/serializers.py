@@ -194,7 +194,9 @@ class CalumaInstanceSerializer(InstanceSerializer):
     )
 
     caluma_form = serializers.CharField(required=False, write_only=True)
-    is_paper = serializers.SerializerMethodField()
+
+    is_paper = serializers.SerializerMethodField()  # "Papierdossier
+    is_modification = serializers.SerializerMethodField()  # "Projektänderung"
     copy_source = serializers.CharField(required=False, write_only=True)
 
     public_status = serializers.SerializerMethodField()
@@ -212,6 +214,9 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
     def get_is_paper(self, instance):
         return CalumaApi().is_paper(instance)
+
+    def get_is_modification(self, instance):
+        return CalumaApi().is_modification(instance)
 
     def get_active_service(self, instance):
         return instance.active_service
