@@ -4,6 +4,7 @@ from rest_framework.test import APIClient
 
 from camac.caluma.api import CalumaApi
 from camac.constants.kt_bern import (
+    ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
     INSTANCE_STATE_DOSSIERPRUEFUNG,
     INSTANCE_STATE_FINISHED,
     INSTANCE_STATE_KOORDINATION,
@@ -24,7 +25,7 @@ from camac.core.models import (
     Notice,
     NoticeType,
 )
-from camac.document.models import Attachment
+from camac.document.models import Attachment, AttachmentSection
 from camac.instance.models import Instance, InstanceState
 from camac.user.models import Service
 
@@ -38,7 +39,37 @@ from .signals import (
 
 
 class SendHandlerException(Exception):
-    pass
+    def __init__(self, message, status=400):
+        super().__init__(message)
+        self.status = status
+
+
+class DocumentAccessibilityMixin:
+    def get_attachments(self, ech_documents):
+        uuids = set([doc.uuid for doc in ech_documents])
+        attachments = Attachment.objects.filter(uuid__in=uuids).distinct()
+        if attachments.count() != len(uuids):
+            attachment_uuids = set(attachments.values_list("uuid", flat=True))
+            missing = ", ".join(uuids - attachment_uuids)
+            raise SendHandlerException(
+                f"No document found for uuids: {missing}.", status=404
+            )
+        return attachments
+
+    def has_attachment_permissions(self, attachments):
+        for attachment in attachments:
+            if (
+                self.instance != attachment.instance
+                or attachment.instance.active_service != self.group.service
+            ):
+                return False
+        return True
+
+    def link_to_section(self, attachments, target=ATTACHMENT_SECTION_ALLE_BETEILIGTEN):
+        section_alle_beteiligten = AttachmentSection.objects.get(pk=target)
+        for attachment in attachments:
+            if not attachment.attachment_sections.filter(pk=target).exists():
+                attachment.attachment_sections.add(section_alle_beteiligten)
 
 
 class BaseSendHandler:
@@ -67,26 +98,34 @@ class BaseSendHandler:
         raise NotImplementedError()
 
 
-class NoticeRulingSendHandler(BaseSendHandler):
+class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
     def has_permission(self):
         if not super().has_permission()[0]:
             return False, None
 
         if self.instance.instance_state.pk == INSTANCE_STATE_DOSSIERPRUEFUNG:
-            if self.data.eventNotice.decisionRuling.judgement == 4:
-                return True, None
+            if self.data.eventNotice.decisionRuling.judgement != 4:
+                return (
+                    False,
+                    'For instances in the state "Dossierprüfung", only a NoticeRuling with judgement "4" is allowed.',
+                )
+            return True, None
+        if self.instance.instance_state.pk != INSTANCE_STATE_KOORDINATION:
             return (
                 False,
-                'For instances in the state "Dossierprüfung", only a NoticeRuling with judgement "4" is allowed.',
+                'NoticeRuling is only allowed for instances in the state "Dossierprüfung" or "In Koordination".',
             )
-        if self.instance.instance_state.pk == INSTANCE_STATE_KOORDINATION:
-            return True, None
-        return (
-            False,
-            'NoticeRuling is only allowed for instances in the state "Dossierprüfung" or "In Koordination".',
-        )
+
+        return True, None
 
     def apply(self):
+        attachments = self.get_attachments(self.data.eventNotice.document)
+        if not self.has_attachment_permissions(attachments):
+            raise SendHandlerException(
+                "You don't have permission for at least one document you provided.",
+                status=403,
+            )
+
         status = {
             1: INSTANCE_STATE_FINISHED,
             2: INSTANCE_STATE_FINISHED,
@@ -122,6 +161,8 @@ class NoticeRulingSendHandler(BaseSendHandler):
             user_pk=self.user.pk,
             group_pk=self.group.pk,
         )
+
+        self.link_to_section(attachments)
 
 
 class ChangeResponsibilitySendHandler(BaseSendHandler):
@@ -339,7 +380,13 @@ class TaskSendHandler(BaseSendHandler):
             a.save()
 
 
-class NoticeKindOfProceedingsSendHandler(TaskSendHandler):
+class NoticeKindOfProceedingsSendHandler(DocumentAccessibilityMixin, TaskSendHandler):
+    def __init__(self, data, queryset, user, group, auth_header):
+        super().__init__(data, queryset, user, group, auth_header)
+        self.attachments = self.get_attachments(
+            self.data.eventKindOfProceedings.document
+        )
+
     def get_instance_id(self):
         return (
             self.data.eventKindOfProceedings.planningPermissionApplicationIdentification.dossierIdentification
@@ -348,14 +395,24 @@ class NoticeKindOfProceedingsSendHandler(TaskSendHandler):
     def has_permission(self):
         if not self.instance.active_service == self.group.service:  # pragma: no cover
             return False, None
-        if self.instance.instance_state.pk == INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT:
-            return True, None
-        return (
-            False,
-            'You can only send a "NoticeKindOfProceedings" for instances in the state "Zirkulation initialisieren".',
-        )
+
+        if self.instance.instance_state.pk != INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT:
+            return (
+                False,
+                'You can only send a "NoticeKindOfProceedings" for instances in the state "Zirkulation initialisieren".',
+            )
+
+        return True, None
 
     def apply(self):
+        attachments = self.get_attachments(self.data.eventKindOfProceedings.document)
+
+        if not self.has_attachment_permissions(attachments):
+            raise SendHandlerException(
+                "You don't have permission for at least one document you provided.",
+                status=403,
+            )
+
         circulation = self._get_circulation()
         instance_state = InstanceState.objects.get(pk=INSTANCE_STATE_ZIRKULATION)
         self.instance.instance_state = instance_state
@@ -367,6 +424,8 @@ class NoticeKindOfProceedingsSendHandler(TaskSendHandler):
             user_pk=self.user.pk,
             group_pk=self.group.pk,
         )
+
+        self.link_to_section(attachments)
 
         return circulation
 
