@@ -28,7 +28,7 @@
         <ns2:dossierIdentification>2323</ns2:dossierIdentification>
       </ns2:planningPermissionApplicationIdentification>
       <ns2:document>
-        <ns11:uuid>1111-111111-1111-11111111</ns11:uuid>
+        <ns11:uuid>00000000-0000-0000-0000-000000000000</ns11:uuid>
         <ns11:titles>
           <ns10:title ns10:lang="de">myFile.pdf</ns10:title>
         </ns11:titles>
