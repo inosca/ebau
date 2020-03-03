@@ -780,6 +780,21 @@ snapshots['test_document_merge_service_snapshot[1-baugesuch] 1'] = [
                         'label': 'Papierdossier',
                         'slug': 'papierdossier',
                         'type': 'ChoiceQuestion'
+                    },
+                    {
+                        'choices': [
+                            {
+                                'checked': False,
+                                'label': 'Ja'
+                            },
+                            {
+                                'checked': False,
+                                'label': 'Nein'
+                            }
+                        ],
+                        'label': 'Projektänderung',
+                        'slug': 'projektaenderung',
+                        'type': 'ChoiceQuestion'
                     }
                 ],
                 'label': 'Allgemeine Angaben',
@@ -2708,6 +2723,21 @@ snapshots['test_document_merge_service_snapshot[3-None] 1'] = [
                 ],
                 'label': 'Papierdossier',
                 'slug': 'papierdossier',
+                'type': 'ChoiceQuestion'
+            },
+            {
+                'choices': [
+                    {
+                        'checked': False,
+                        'label': 'Ja'
+                    },
+                    {
+                        'checked': False,
+                        'label': 'Nein'
+                    }
+                ],
+                'label': 'Projektänderung',
+                'slug': 'projektaenderung',
                 'type': 'ChoiceQuestion'
             }
         ],
