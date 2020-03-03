@@ -3,8 +3,8 @@
   <div>
     <UkButton
       @label={{t "instances.createModification"}}
-      @color={{if isInstanceModifification "primary" "default"}}
-      @on-click={{perform toggleInstanceModification}}
+      @color={{if this.isModifification "primary" "default"}}
+      @on-click={{perform this.toggleModification}}
       />
 
     {{#if (can "create instance")}}
@@ -107,7 +107,7 @@
         <th class="uk-text-nowrap">{{t "instances.submitDate"}}</th>
         <th class="uk-text-nowrap">{{t "instances.status.title"}}</th>
         <th class="uk-text-nowrap">{{t "instances.description"}}</th>
-        {{#if isInstanceModifification}}
+        {{#if this.isModifification}}
           <td></td>
         {{/if}}
       </tr>
@@ -121,15 +121,17 @@
             {{/link-to}}
           </td>
           <td class="uk-text-nowrap">{{document.ebau}}</td>
-          <td class="uk-text-nowrap">{{document.type}} {{if document.isPaper (t "paper.type")}}</td>
+          <td class="uk-text-nowrap">{{document.type}} {{document.instance.typeDetail}}</td>
           <td>{{document.municipality}}</td>
           <td class="uk-text-truncate" title={{document.address}}>{{document.address}}</td>
           <td>{{if document.submitDate (moment-format document.submitDate "DD.MM.YYYY")}}</td>
           <td>{{document.status}}</td>
           <td class="uk-text-truncate" title={{document.description}}>{{document.description}}</td>
-          {{#if isInstanceModifification}}
+          {{#if this.isModifification}}
             <td>
-              <button type="button" class="uk-icon-button" uk-icon="file-edit" title={{t "instances.createModification"}} {{action (perform createInstanceModification) document.instanceId}}></button>
+              <button type="button" class="uk-icon-button" uk-icon="file-edit" title={{t "instances.createModification"}} {{action (perform this.createModification) document.instanceId}}>
+                <span class="uk-hidden">{{t "instances.createModification"}}</span>
+              </button>
             </td>
           {{/if}}
         </tr>
@@ -149,9 +151,9 @@
   {{#uk-flex horizontal="center" vertical="middle" direction="column"}}
     <div class="uk-text-center uk-width-large">
       <object data="/assets/images/stamp-document.svg" class="uk-width-medium">{{t "instances.new.title"}}</object>
-      <h4 class="uk-margin-remove-top">{{if isInstanceModifification (t "instances.noModificationTitle") (t "instances.emptyTitle")}}</h4>
-      <p>{{if isInstanceModifification (t "instances.noModificationText") (t "instances.emptyText")}}</p>
-      {{#unless isInstanceModifification}}
+      <h4 class="uk-margin-remove-top">{{if this.isModifification (t "instances.noModificationTitle") (t "instances.emptyTitle")}}</h4>
+      <p>{{if this.isModifification (t "instances.noModificationText") (t "instances.emptyText")}}</p>
+      {{#unless this.isModifification}}
         {{#link-to "instances.new" class="uk-button uk-button-primary uk-button-large"}}{{t "instances.new.title"}}{{/link-to}}
       {{/unless}}
     </div>

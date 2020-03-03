@@ -468,12 +468,6 @@ class CalumaInstanceSerializer(InstanceSerializer):
                     meta={"camac-instance-id": instance.pk},
                 )
 
-                caluma_api.update_or_create_answer(
-                    document.pk,
-                    "projektaenderung",
-                    "projektaenderung-ja" if source_pk else "projektaenderung-nein",
-                )
-
             else:
                 document = caluma_api.create_document(
                     form_slug, meta={"camac-instance-id": instance.pk}
@@ -484,6 +478,13 @@ class CalumaInstanceSerializer(InstanceSerializer):
                 "papierdossier",
                 "papierdossier-ja" if is_paper else "papierdossier-nein",
             )
+
+            if form_slug == caluma_form:
+                caluma_api.update_or_create_answer(
+                    document.pk,
+                    "projektaenderung",
+                    "projektaenderung-ja" if source_pk else "projektaenderung-nein",
+                )
 
             caluma_documents[form_slug] = document
 
@@ -510,6 +511,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
         fields = InstanceSerializer.Meta.fields + (
             "caluma_form",
             "is_paper",
+            "is_modification",
             "copy_source",
             "public_status",
             "active_service",
@@ -518,6 +520,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
         )
         read_only_fields = InstanceSerializer.Meta.read_only_fields + (
             "is_paper",
+            "is_modification",
             "public_status",
             "active_service",
             "responsible_service_users",
