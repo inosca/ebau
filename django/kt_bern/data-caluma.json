@@ -1635,5 +1635,33 @@
     },
     "model": "caluma_form.document",
     "pk": "d6bc70b6-8598-4dda-8ae8-078280a34fc5"
+  },
+  {
+    "fields": {
+      "created_at": "2020-03-02T12:07:11.930Z",
+      "created_by_group": "[]",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "document": "ade01883-ddd0-4c8a-8ded-632814f29bf9",
+      "label": "{\"de\": \"Burgdorf\", \"fr\": null}",
+      "modified_at": "2020-03-02T12:07:11.930Z",
+      "question": "gemeinde",
+      "slug": "2"
+    },
+    "model": "caluma_form.dynamicoption",
+    "pk": "2ba35bce-15b8-4881-b166-feb2e66c492c"
+  },
+  {
+    "fields": {
+      "created_at": "2020-03-02T12:07:11.937Z",
+      "created_by_group": null,
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "document": "d6bc70b6-8598-4dda-8ae8-078280a34fc5",
+      "label": "{\"de\": \"Burgdorf\", \"fr\": null}",
+      "modified_at": "2020-03-02T12:07:11.937Z",
+      "question": "gemeinde",
+      "slug": "2"
+    },
+    "model": "caluma_form.dynamicoption",
+    "pk": "c2c0d410-dc30-4d7c-bc05-4544a6beddec"
   }
 ]
