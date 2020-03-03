@@ -145,6 +145,9 @@ instances:
   orderBy: "Sortieren nach"
   desc: "absteigend"
   asc: "aufsteigend"
+  createModification: "Neue Projektänderung"
+  noModificationTitle: "Kein eingereichtes Baugesuch gefunden"
+  noModificationText: "Projektänderungen können nur für Baugesuche erfasst werden, welche bereichts eingereicht wurden."
 
   new:
     title: "Neues Dossier"
