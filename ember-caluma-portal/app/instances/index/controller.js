@@ -44,30 +44,29 @@ const getMetaValueFilters = ({ instanceId, ebau, submitFrom, submitTo }) =>
     { key: "ebau-number", value: ebau },
     {
       key: "submit-date",
-      value: toDateTime(moment(submitFrom, DATE_FORMAT).startOf("day")),
+      value: toDateTime(moment(submitFrom).startOf("day")),
       lookup: "GTE"
     },
     {
       key: "submit-date",
-      value: toDateTime(moment(submitTo, DATE_FORMAT).endOf("day")),
+      value: toDateTime(moment(submitTo).endOf("day")),
       lookup: "LTE"
     }
   ].filter(({ value }) => !isEmpty(value));
 
 const DATE_URL_FORMAT = "YYYY-MM-DD";
-const DATE_FORMAT = "DD.MM.YYYY";
 
-const toDateTime = date =>
-  date.isValid() ? date.format(moment.HTML5_FMT.DATETIME_LOCAL_SECONDS) : null;
+const toDateTime = date => (date.isValid() ? date.utc().format() : null);
 
 const dateQueryParam = {
-  serialize(date) {
-    return moment.isMoment(date) && date.isValid()
-      ? date.format(DATE_URL_FORMAT)
+  serialize(value) {
+    const date = moment.utc(value);
+    return date.isValid()
+      ? date.utc().format(DATE_URL_FORMAT)
       : this.defaultValue;
   },
   deserialize(value) {
-    const date = moment(value, DATE_URL_FORMAT);
+    const date = moment.utc(value, DATE_URL_FORMAT);
 
     return date.isValid() ? date.toDate() : this.defaultValue;
   }
@@ -286,7 +285,7 @@ export default Controller.extend(queryParams.Mixin, {
 
   toggleModification: task(function*() {
     this.set("isModifification", !this.isModifification);
-    this.set("submitTo", this.isModifification ? moment() : null);
+    this.set("submitTo", this.isModifification ? moment.utc().toDate() : null);
     this.set(
       "types",
       this.isModifification

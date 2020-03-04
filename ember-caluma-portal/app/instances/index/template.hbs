@@ -20,15 +20,13 @@
     <div>
       <label class="uk-form-label">{{t "instances.type"}}</label>
       <div class="uk-form-controls">
-        {{#power-select-multiple
-          multiple=true
-          selected=selectedTypes
-          options=rootForms
-          searchField="name"
-          onchange=(action (mut selectedTypes))
-          as |form|}}
+        <PowerSelectMultiple
+          @selected={{selectedTypes}}
+          @options={{rootForms}}
+          @searchField="name"
+          @onchange={{fn (mut selectedTypes)}} as |form|>
           {{form.name}}
-        {{/power-select-multiple}}
+        </PowerSelectMultiple>
       </div>
     </div>
     <div>
@@ -59,10 +57,10 @@
       <label class="uk-form-label">{{t "instances.submitDate"}}</label>
       <div class="uk-form-controls uk-grid-small uk-child-width-1-2" uk-grid>
         <div>
-          <PikadayInput class="uk-input" @name="submitFrom" @value={{submitFrom}} @onSelection={{action "updateDate" "submitFrom"}} />
+          <PikadayInput class="uk-input" @name="submitFrom" @useUTC={{true}} @value={{submitFrom}} @onSelection={{action "updateDate" "submitFrom"}} />
         </div>
         <div>
-          <PikadayInput class="uk-input" @name="submitFrom" @value={{submitTo}} @onSelection={{action "updateDate" "submitTo"}} />
+          <PikadayInput class="uk-input" @name="submitFrom" @useUTC={{true}} @value={{submitTo}} @onSelection={{action "updateDate" "submitTo"}} />
         </div>
       </div>
     </div>
@@ -154,7 +152,7 @@
       <h4 class="uk-margin-remove-top">{{if this.isModifification (t "instances.noModificationTitle") (t "instances.emptyTitle")}}</h4>
       <p>{{if this.isModifification (t "instances.noModificationText") (t "instances.emptyText")}}</p>
       {{#unless this.isModifification}}
-        {{#link-to "instances.new" class="uk-button uk-button-primary uk-button-large"}}{{t "instances.new.title"}}{{/link-to}}
+        <LinkTo @route="instances.new" class="uk-button uk-button-primary uk-button-large">{{t "instances.new.title"}}</LinkTo>
       {{/unless}}
     </div>
   {{/uk-flex}}
