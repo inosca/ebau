@@ -17,7 +17,10 @@
       type="button"
       uk-icon="warning"
       class="uk-margin-small-left"
-      {{action (mut showInstructions) true}}>
+      title={{t "gis.attention"}}
+      {{action (mut showInstructions) true}}
+    >
+      <span class="uk-hidden">{{t "gis.attention"}}</span>
     </button>
   </div>
 
