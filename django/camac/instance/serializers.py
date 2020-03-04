@@ -1,5 +1,4 @@
 from logging import getLogger
-from uuid import uuid4
 
 from caluma.caluma_form import (
     models as caluma_form_models,
@@ -7,7 +6,6 @@ from caluma.caluma_form import (
 )
 from django.conf import settings
 from django.contrib.auth import get_user_model
-from django.core.files.base import ContentFile
 from django.db import transaction
 from django.db.models import Max
 from django.utils import timezone
@@ -196,7 +194,9 @@ class CalumaInstanceSerializer(InstanceSerializer):
     )
 
     caluma_form = serializers.CharField(required=False, write_only=True)
-    is_paper = serializers.SerializerMethodField()
+
+    is_paper = serializers.SerializerMethodField()  # "Papierdossier
+    is_modification = serializers.SerializerMethodField()  # "Projektänderung"
     copy_source = serializers.CharField(required=False, write_only=True)
 
     public_status = serializers.SerializerMethodField()
@@ -214,6 +214,9 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
     def get_is_paper(self, instance):
         return CalumaApi().is_paper(instance)
+
+    def get_is_modification(self, instance):
+        return CalumaApi().is_modification(instance)
 
     def get_active_service(self, instance):
         return instance.active_service
@@ -438,26 +441,6 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
         instance = super().create(validated_data)
 
-        if source_pk:
-            # copy original attachments
-            for attachment in source_instance.attachments.all():
-                # store sections first
-                sections = attachment.attachment_sections.all()
-
-                attachment.attachment_id = None
-                attachment.instance = instance
-
-                # copy the file
-                new_file = ContentFile(attachment.path.file.read())
-                new_file.name = attachment.path.name
-                attachment.path = new_file
-
-                attachment.uuid = uuid4()
-                attachment.save()
-
-                attachment.attachment_sections.set(sections)
-                attachment.save()
-
         group = self.context["request"].group
         is_paper = (
             group.service  # group needs to have a service
@@ -477,8 +460,12 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
                 document = caluma_api.copy_document(
                     source_document_pk,
-                    exclude_slugs=["6-dokumente", "7-bestaetigen"],
-                    additional_meta={"camac-instance-id": instance.pk},
+                    exclude_form_slugs=[
+                        "6-dokumente",
+                        "7-bestaetigung",
+                        "8-freigabequittung",
+                    ],
+                    meta={"camac-instance-id": instance.pk},
                 )
 
             else:
@@ -491,6 +478,13 @@ class CalumaInstanceSerializer(InstanceSerializer):
                 "papierdossier",
                 "papierdossier-ja" if is_paper else "papierdossier-nein",
             )
+
+            if form_slug == caluma_form:
+                caluma_api.update_or_create_answer(
+                    document.pk,
+                    "projektaenderung",
+                    "projektaenderung-ja" if source_pk else "projektaenderung-nein",
+                )
 
             caluma_documents[form_slug] = document
 
@@ -517,6 +511,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
         fields = InstanceSerializer.Meta.fields + (
             "caluma_form",
             "is_paper",
+            "is_modification",
             "copy_source",
             "public_status",
             "active_service",
@@ -525,6 +520,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
         )
         read_only_fields = InstanceSerializer.Meta.read_only_fields + (
             "is_paper",
+            "is_modification",
             "public_status",
             "active_service",
             "responsible_service_users",

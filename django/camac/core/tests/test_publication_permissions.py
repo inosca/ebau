@@ -3,10 +3,6 @@ from django.urls import reverse
 from django.utils import timezone
 from rest_framework import status
 
-# This test file is being skipped because the endpoint is disabled
-# revert !2353 to remove
-pytest.skip(allow_module_level=True)
-
 
 @pytest.mark.parametrize(
     "role__name,size", [("Applicant", 1), ("Municipality", 2), ("Service", 0)]

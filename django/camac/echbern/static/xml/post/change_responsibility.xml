@@ -29,14 +29,13 @@
             <ns1:dossierIdentification>2323</ns1:dossierIdentification>
         </ns1:planningPermissionApplicationIdentification>
         <ns1:entryOffice>
-            <ns1:entryOfficeIdentification>
+            <ns1:entryOfficeIdentification><!-- wird ignoriert, da in eBau bereits bekannt -->
                 <ns4:uid>
                     <ns4:uidOrganisationIdCategorie>CHE</ns4:uidOrganisationIdCategorie>
                     <ns4:uidOrganisationId>123123123</ns4:uidOrganisationId>
                 </ns4:uid>
                 <ns4:localOrganisationId>
                     <ns4:organisationIdCategory>ebaube</ns4:organisationIdCategory>
-                    <!-- ID der bisherigen Leitbehörde -->
                     <ns4:organisationId>2</ns4:organisationId>
                 </ns4:localOrganisationId>
                 <ns4:organisationName>Leitbehörde Burgdorf</ns4:organisationName>

@@ -35,8 +35,9 @@
           <ns4:uidOrganisationId>123123123</ns4:uidOrganisationId>
         </ns4:uid>
         <ns4:localOrganisationId>
-          <ns4:organisationIdCategory>CHE</ns4:organisationIdCategory>
-          <ns4:organisationId>123123123</ns4:organisationId>
+          <ns4:organisationIdCategory>ebaube</ns4:organisationIdCategory>
+          <!-- ID der bisherigen Leitbehörde -->
+          <ns4:organisationId>2</ns4:organisationId>
         </ns4:localOrganisationId>
         <ns4:organisationName>Leitbeh&#xF6;rde Burgdorf</ns4:organisationName>
         <ns4:legalForm>0223</ns4:legalForm>
@@ -54,8 +55,9 @@
             <ns4:uidOrganisationId>123123123</ns4:uidOrganisationId>
           </ns4:uid>
           <ns4:localOrganisationId>
-            <ns4:organisationIdCategory>CHE</ns4:organisationIdCategory>
-            <ns4:organisationId>123123123</ns4:organisationId>
+            <ns4:organisationIdCategory>ebaube</ns4:organisationIdCategory>
+            <!-- ID der neuen Leitbehörde -->
+            <ns4:organisationId>20023</ns4:organisationId>
           </ns4:localOrganisationId>
           <ns4:organisationName>Regierungsstatthalteramt Emmental</ns4:organisationName>
           <ns4:legalForm>0223</ns4:legalForm>
