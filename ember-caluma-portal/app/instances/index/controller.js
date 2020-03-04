@@ -11,7 +11,6 @@ import getRootFormsQuery from "ember-caluma-portal/gql/queries/get-root-forms";
 import Document from "ember-caluma-portal/lib/document";
 import { task } from "ember-concurrency";
 import QueryParams from "ember-parachute";
-import formDataEntries from "form-data-entries";
 import moment from "moment";
 
 const getHasAnswerFilters = ({ parcel: value }) =>
@@ -43,34 +42,50 @@ const getMetaValueFilters = ({ instanceId, ebau, submitFrom, submitTo }) =>
   [
     { key: "camac-instance-id", value: instanceId },
     { key: "ebau-number", value: ebau },
-    { key: "submit-date", value: submitFrom, lookup: "GTE" },
-    { key: "submit-date", value: submitTo, lookup: "LTE" }
+    {
+      key: "submit-date",
+      value: toDateTime(moment(submitFrom).startOf("day")),
+      lookup: "GTE"
+    },
+    {
+      key: "submit-date",
+      value: toDateTime(moment(submitTo).endOf("day")),
+      lookup: "LTE"
+    }
   ].filter(({ value }) => !isEmpty(value));
 
 const DATE_URL_FORMAT = "YYYY-MM-DD";
-const DATE_FORMAT = "DD.MM.YYYY";
+
+const toDateTime = date => (date.isValid() ? date.utc().format() : null);
 
 const dateQueryParam = {
   serialize(value) {
-    const date = moment(value, DATE_FORMAT);
-
-    return date.isValid() ? date.format(DATE_URL_FORMAT) : this.defaultValue;
+    const date = moment.utc(value);
+    return date.isValid()
+      ? date.utc().format(DATE_URL_FORMAT)
+      : this.defaultValue;
   },
   deserialize(value) {
-    const date = moment(value, DATE_URL_FORMAT);
+    const date = moment.utc(value, DATE_URL_FORMAT);
 
-    return date.isValid() ? date.format(DATE_URL_FORMAT) : this.defaultValue;
+    return date.isValid() ? date.toDate() : this.defaultValue;
   }
 };
 
 const queryParams = new QueryParams({
-  type: {
-    defaultValue: "",
-    refresh: true
+  types: {
+    defaultValue: [],
+    replace: true,
+    serialize(value) {
+      return value.toString();
+    },
+    deserialize(value) {
+      return value.split(",");
+    }
   },
   instanceId: {
     defaultValue: "",
-    refresh: true,
+    replace: true,
     serialize(value) {
       const int = parseInt(value);
 
@@ -84,29 +99,33 @@ const queryParams = new QueryParams({
   },
   ebau: {
     defaultValue: "",
-    refresh: true
+    replace: true
   },
   parcel: {
     defaultValue: "",
-    refresh: true
+    replace: true
   },
   address: {
     defaultValue: "",
-    refresh: true
+    replace: true
   },
   submitFrom: {
     defaultValue: "",
-    refresh: true,
+    replace: true,
     ...dateQueryParam
   },
   submitTo: {
     defaultValue: "",
-    refresh: true,
+    replace: true,
     ...dateQueryParam
   },
   order: {
     defaultValue: "META_CAMAC_INSTANCE_ID_DESC",
-    refresh: true
+    replace: true
+  },
+  isModifification: {
+    defaultValue: false,
+    replace: true
   }
 });
 
@@ -165,17 +184,27 @@ export default Controller.extend(queryParams.Mixin, {
     }
   },
 
-  reset() {
-    this.fetchData.cancelAll({ resetState: true });
-
-    this.resetQueryParams();
-  },
-
   getRootForms: task(function*() {
     return (yield this.apollo.query(
       { query: getRootFormsQuery },
       "allForms.edges"
     )).map(({ node }) => node);
+  }),
+
+  rootForms: reads("getRootForms.lastSuccessful.value"),
+  selectedTypes: computed("rootForms", "types", {
+    get() {
+      return (this.rootForms || []).filter(form =>
+        this.types.includes(form.slug)
+      );
+    },
+    set(key, value) {
+      this.set(
+        "types",
+        value.map(form => form.slug)
+      );
+      return value;
+    }
   }),
 
   getMunicipalities: task(function*() {
@@ -196,8 +225,9 @@ export default Controller.extend(queryParams.Mixin, {
           variables: {
             cursor,
             order: this.order,
-            form: this.type,
-            forms: forms.map(({ slug }) => slug),
+            forms: this.types.length
+              ? this.types
+              : forms.map(({ slug }) => slug),
             metaValueFilters: getMetaValueFilters(this.allQueryParams),
             hasAnswerFilters: getHasAnswerFilters(this.allQueryParams),
             searchAnswersFilters: getSearchAnswersFilters(this.allQueryParams)
@@ -243,15 +273,59 @@ export default Controller.extend(queryParams.Mixin, {
   applyFilters: task(function*(e) {
     e.preventDefault();
 
-    const data = formDataEntries(e.srcElement).reduce(
-      (obj, [k, v]) => ({ ...obj, [k]: v }),
-      {}
-    );
-
-    yield this.setProperties(data);
+    this.set("documents", []);
+    yield this.fetchData.perform();
   }).drop(),
 
   resetFilters: task(function*() {
     yield this.resetQueryParams();
-  })
+    this.set("documents", []);
+    yield this.fetchData.perform();
+  }),
+
+  toggleModification: task(function*() {
+    this.set("isModifification", !this.isModifification);
+    this.set("submitTo", this.isModifification ? moment.utc().toDate() : null);
+    this.set(
+      "types",
+      this.isModifification
+        ? ["baugesuch", "baugesuch-generell", "baugesuch-mit-uvp"]
+        : []
+    );
+
+    this.set("documents", []);
+    yield this.fetchData.perform();
+  }),
+
+  createModification: task(function*(instanceId) {
+    const response = yield this.fetch.fetch(`/api/v1/instances`, {
+      method: "POST",
+      body: JSON.stringify({
+        data: {
+          attributes: { "copy-source": instanceId },
+          type: "instances",
+          relationships: {
+            form: {
+              data: { id: 1, type: "forms" }
+            }
+          }
+        }
+      })
+    });
+
+    const {
+      data: { id: newInstanceId }
+    } = yield response.json();
+
+    yield this.transitionToRoute("instances.edit", newInstanceId);
+  }),
+
+  actions: {
+    updateDate(prop, value) {
+      this.set(prop, moment(value));
+    },
+    updateFilter(e) {
+      this.set(e.target.name, e.target.value);
+    }
+  }
 });
