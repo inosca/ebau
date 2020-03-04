@@ -55,7 +55,7 @@ def authority(service):
             uidOrganisationId="123123123",
         ),
         localOrganisationId=ns_company_identification.namedOrganisationIdType(
-            organisationIdCategory="CHE", organisationId="123123123"
+            organisationIdCategory="ebaube", organisationId=str(service.pk)
         ),
         organisationName=service.get_name(),
         legalForm="0223",
