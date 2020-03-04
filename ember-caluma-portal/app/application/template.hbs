@@ -1,8 +1,1 @@
 {{outlet}}
-
-{{#if (not-eq environment "production")}}
-  <div class="uk-position-fixed uk-position-bottom-left uk-padding-small">
-    <UkLabel @color="success">{{t "global.versionPrefix"}}{{app-version hideSha=true}}</UkLabel>
-    <UkLabel @label={{environment}} class="uk-margin-small-left" />
-  </div>
-{{/if}}
