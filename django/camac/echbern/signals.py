@@ -28,3 +28,7 @@ accompanying_report_send = django.dispatch.Signal(
 file_subsequently = django.dispatch.Signal(
     providing_args=["instance", "user_pk", "group_pk"]
 )
+
+change_responsibility = django.dispatch.Signal(
+    providing_args=["instance", "user_pk", "group_pk"]
+)
