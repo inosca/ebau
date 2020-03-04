@@ -523,6 +523,7 @@ def change_responsibility(instance: Instance):
             instance=instance,
             **settings.APPLICATION.get("ACTIVE_SERVICE_FILTERS", {}),
         )
+        .order_by("-activation_date")
         .first()
         .service
     )
