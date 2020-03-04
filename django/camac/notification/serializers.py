@@ -472,8 +472,13 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         return self._get_responsible(instance, instance.group.service)
 
     def _get_recipients_unnotified_service(self, instance):
+
+        service = self.context["request"].group.service
+
+        # Circulation and subcirculation share the same circulation object.
+        # They can only be distinguished by there SERVICE_PARENT_ID.
         activations = Activation.objects.filter(
-            circulation__instance_id=instance.pk, email_sent=0
+            circulation__instance_id=instance.pk, email_sent=0, service_parent=service
         )
         services = {a.service for a in activations}
 
@@ -598,7 +603,5 @@ class PermissionlessNotificationTemplateSendmailSerializer(
     disable permission checking the instance and allow anyone to send a email.
     """
 
-    # Temporary pragma no cover, remove when publication permission endpoint is reenabled
-    # revert !2353 to remove
-    def validate_instance(self, instance):  # pragma: no cover
+    def validate_instance(self, instance):
         return instance
