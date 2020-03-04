@@ -10,13 +10,16 @@ logger = getLogger()
 
 def migrate(apps, schema):
     Document = apps.get_model("caluma_form", "Document")
+    HistoricalDocument = apps.get_model("caluma_form", "HistoricalDocument")
 
     for document in Document.objects.filter(meta__has_key="submit-date"):
         # get the historical document which was created because the submit date
         # was first set
         submit_historical_document = (
-            document.history.filter(
-                Q(meta__has_key="submit-date") & ~Q(meta__has_key="ebau-number")
+            HistoricalDocument.objects.filter(
+                Q(id=document.id)
+                & Q(meta__has_key="submit-date")
+                & ~Q(meta__has_key="ebau-number")
             )
             .order_by("history_date")
             .first()
@@ -39,7 +42,9 @@ def migrate(apps, schema):
         document.meta.update({"submit-date": submit_date})
         document.save()
 
-        for historical_doc in document.history.filter(meta__has_key="submit-date"):
+        for historical_doc in HistoricalDocument.objects.filter(
+            id=document.id, meta__has_key="submit-date"
+        ):
             # update the existing historical documents with the new submit date
             historical_doc.meta.update({"submit-date": submit_date})
             historical_doc.save()
