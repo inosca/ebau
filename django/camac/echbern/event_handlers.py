@@ -52,6 +52,7 @@ from .formatters import (
 from .models import Message
 from .signals import (
     accompanying_report_send,
+    change_responsibility as change_responsibility_signal,
     circulation_started,
     file_subsequently,
     finished,
@@ -426,6 +427,15 @@ def accompanying_report_callback(
 def file_subsequently_callback(sender, instance, user_pk, group_pk, **kwargs):
     if settings.ECH_API:
         handler = FileSubsequentlyEventHandler(
+            instance, user_pk=user_pk, group_pk=group_pk
+        )
+        handler.run()
+
+
+@receiver(change_responsibility_signal)
+def change_responsibility_callback(sender, instance, user_pk, group_pk, **kwargs):
+    if settings.ECH_API:
+        handler = ChangeResponsibilityEventHandler(
             instance, user_pk=user_pk, group_pk=group_pk
         )
         handler.run()

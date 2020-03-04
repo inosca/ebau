@@ -134,7 +134,7 @@ instances:
   submitDate: "Date de soumission"
   submitDateFrom: "Date de soumission de"
   submitDateTo: "Date de soumission à"
-  description: "Affectation visée par le projet de construction"
+  description: "Description"
   municipality: "Commune"
   address: "Adresse"
   parcel: "N° de parcelle / de bien-fonds"
@@ -259,12 +259,15 @@ notfound:
   home: "la page principale"
 
 paper:
-  type: "(papier)"
+  type: "papier"
   noteTitle: "Remarque :"
   noteBody: "Vous créez un dossier qui a été déposé dans votre commune sous
   forme papier (dossier papier). Si vous souhaitez créer un dossier normal en
   tant que requérant/e, sélectionnez \"Requérant/e\" dans le menu de groupe
   en haut à droite de la page."
+
+modification:
+  type: "modification du projet"
 
 dashboard:
   edit: "modifier"
