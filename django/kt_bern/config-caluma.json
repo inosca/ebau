@@ -3520,7 +3520,7 @@
       "form": "allgemeine-angaben",
       "modified_at": "2019-09-25T10:19:37.820Z",
       "question": "ausnuetzung",
-      "sort": 6
+      "sort": 7
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben.ausnuetzung"
@@ -3533,7 +3533,7 @@
       "form": "allgemeine-angaben",
       "modified_at": "2019-09-25T10:19:36.766Z",
       "question": "be-gid",
-      "sort": 8
+      "sort": 9
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben.be-gid"
@@ -3546,7 +3546,7 @@
       "form": "allgemeine-angaben",
       "modified_at": "2019-09-25T10:19:36.225Z",
       "question": "gemeinde",
-      "sort": 10
+      "sort": 11
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben.gemeinde"
@@ -3559,7 +3559,7 @@
       "form": "allgemeine-angaben",
       "modified_at": "2019-09-25T10:19:38.956Z",
       "question": "geschossflaeche-in-quadratmeter",
-      "sort": 3
+      "sort": 4
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben.geschossflaeche-in-quadratmeter"
@@ -3572,7 +3572,7 @@
       "form": "allgemeine-angaben",
       "modified_at": "2019-09-25T10:19:38.053Z",
       "question": "gruenflache-in-quadratmeter",
-      "sort": 5
+      "sort": 6
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben.gruenflache-in-quadratmeter"
@@ -3585,7 +3585,7 @@
       "form": "allgemeine-angaben",
       "modified_at": "2019-09-25T10:19:37.275Z",
       "question": "gwr-egid",
-      "sort": 7
+      "sort": 8
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben.gwr-egid"
@@ -3598,7 +3598,7 @@
       "form": "allgemeine-angaben",
       "modified_at": "2019-09-25T10:19:35.343Z",
       "question": "karte",
-      "sort": 14
+      "sort": 15
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben.karte"
@@ -3611,7 +3611,7 @@
       "form": "allgemeine-angaben",
       "modified_at": "2019-09-25T10:19:35.839Z",
       "question": "nr",
-      "sort": 12
+      "sort": 13
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben.nr"
@@ -3624,7 +3624,7 @@
       "form": "allgemeine-angaben",
       "modified_at": "2019-09-25T10:19:35.933Z",
       "question": "ort-grundstueck",
-      "sort": 11
+      "sort": 12
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben.ort-grundstueck"
@@ -3637,7 +3637,7 @@
       "form": "allgemeine-angaben",
       "modified_at": "2020-01-14T07:42:27.106Z",
       "question": "papierdossier",
-      "sort": 1
+      "sort": 2
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben.papierdossier"
@@ -3650,10 +3650,23 @@
       "form": "allgemeine-angaben",
       "modified_at": "2019-09-25T10:19:36.640Z",
       "question": "parzelle",
-      "sort": 9
+      "sort": 10
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben.parzelle"
+  },
+  {
+    "fields": {
+      "created_at": "2020-03-03T13:26:47.990Z",
+      "created_by_group": null,
+      "created_by_user": null,
+      "form": "allgemeine-angaben",
+      "modified_at": "2020-03-03T13:26:47.990Z",
+      "question": "projektaenderung",
+      "sort": 1
+    },
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben.projektaenderung"
   },
   {
     "fields": {
@@ -3663,7 +3676,7 @@
       "form": "allgemeine-angaben",
       "modified_at": "2019-09-25T10:19:39.778Z",
       "question": "rechtliche-sicherung-fremden-bodens",
-      "sort": 2
+      "sort": 3
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben.rechtliche-sicherung-fremden-bodens"
@@ -3676,7 +3689,7 @@
       "form": "allgemeine-angaben",
       "modified_at": "2019-09-25T10:19:35.600Z",
       "question": "strasse-flurname",
-      "sort": 13
+      "sort": 14
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben.strasse-flurname"
@@ -3689,7 +3702,7 @@
       "form": "allgemeine-angaben",
       "modified_at": "2019-09-25T10:19:38.815Z",
       "question": "ueberbauung-in-prozent",
-      "sort": 4
+      "sort": 5
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben.ueberbauung-in-prozent"
@@ -3702,7 +3715,7 @@
       "form": "allgemeine-informationen-vorabklaerung",
       "modified_at": "2019-09-25T10:19:39.072Z",
       "question": "anfrage-zur-vorabklaerung",
-      "sort": 3
+      "sort": 4
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-informationen-vorabklaerung.anfrage-zur-vorabklaerung"
@@ -3715,7 +3728,7 @@
       "form": "allgemeine-informationen-vorabklaerung",
       "modified_at": "2019-09-25T10:19:37.742Z",
       "question": "be-gid",
-      "sort": 6
+      "sort": 7
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-informationen-vorabklaerung.be-gid"
@@ -3728,7 +3741,7 @@
       "form": "allgemeine-informationen-vorabklaerung",
       "modified_at": "2019-12-16T16:28:26.501Z",
       "question": "bestaetigung-gis",
-      "sort": 2
+      "sort": 3
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-informationen-vorabklaerung.bestaetigung-gis"
@@ -3741,7 +3754,7 @@
       "form": "allgemeine-informationen-vorabklaerung",
       "modified_at": "2019-09-25T10:19:38.374Z",
       "question": "e-grid-nr",
-      "sort": 4
+      "sort": 5
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-informationen-vorabklaerung.e-grid-nr"
@@ -3754,7 +3767,7 @@
       "form": "allgemeine-informationen-vorabklaerung",
       "modified_at": "2019-09-25T10:19:35.817Z",
       "question": "gemeinde",
-      "sort": 12
+      "sort": 13
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-informationen-vorabklaerung.gemeinde"
@@ -3767,7 +3780,7 @@
       "form": "allgemeine-informationen-vorabklaerung",
       "modified_at": "2019-09-25T10:19:38.102Z",
       "question": "gwr-egid",
-      "sort": 5
+      "sort": 6
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-informationen-vorabklaerung.gwr-egid"
@@ -3780,7 +3793,7 @@
       "form": "allgemeine-informationen-vorabklaerung",
       "modified_at": "2019-09-25T10:19:36.100Z",
       "question": "karte-einfache-vorabklaerung",
-      "sort": 11
+      "sort": 12
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-informationen-vorabklaerung.karte-einfache-vorabklaerung"
@@ -3793,7 +3806,7 @@
       "form": "allgemeine-informationen-vorabklaerung",
       "modified_at": "2019-09-25T10:19:36.543Z",
       "question": "lagekoordinaten-nord-einfache-vorabklaerung",
-      "sort": 9
+      "sort": 10
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-informationen-vorabklaerung.lagekoordinaten-nord-einfache-vorabklaerung"
@@ -3806,7 +3819,7 @@
       "form": "allgemeine-informationen-vorabklaerung",
       "modified_at": "2019-09-25T10:19:36.293Z",
       "question": "lagekoordinaten-ost-einfache-vorabklaerung",
-      "sort": 10
+      "sort": 11
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-informationen-vorabklaerung.lagekoordinaten-ost-einfache-vorabklaerung"
@@ -3819,7 +3832,7 @@
       "form": "allgemeine-informationen-vorabklaerung",
       "modified_at": "2019-09-25T10:19:37.134Z",
       "question": "liegenschaftsnummer",
-      "sort": 7
+      "sort": 8
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-informationen-vorabklaerung.liegenschaftsnummer"
@@ -3832,7 +3845,7 @@
       "form": "allgemeine-informationen-vorabklaerung",
       "modified_at": "2019-09-25T10:19:34.863Z",
       "question": "name-gesuchstellerin-vorabklaerung",
-      "sort": 18
+      "sort": 19
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-informationen-vorabklaerung.name-gesuchstellerin-vorabklaerung"
@@ -3845,7 +3858,7 @@
       "form": "allgemeine-informationen-vorabklaerung",
       "modified_at": "2019-09-25T10:19:35.227Z",
       "question": "nummer-gesuchstellerin",
-      "sort": 15
+      "sort": 16
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-informationen-vorabklaerung.nummer-gesuchstellerin"
@@ -3858,7 +3871,7 @@
       "form": "allgemeine-informationen-vorabklaerung",
       "modified_at": "2019-09-25T10:19:35.519Z",
       "question": "ort-gesuchstellerin",
-      "sort": 13
+      "sort": 14
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-informationen-vorabklaerung.ort-gesuchstellerin"
@@ -3871,7 +3884,7 @@
       "form": "allgemeine-informationen-vorabklaerung",
       "modified_at": "2020-01-14T07:42:46.726Z",
       "question": "papierdossier",
-      "sort": 1
+      "sort": 2
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-informationen-vorabklaerung.papierdossier"
@@ -3884,7 +3897,7 @@
       "form": "allgemeine-informationen-vorabklaerung",
       "modified_at": "2019-09-25T10:19:36.957Z",
       "question": "parzellennummer",
-      "sort": 8
+      "sort": 9
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-informationen-vorabklaerung.parzellennummer"
@@ -3897,10 +3910,23 @@
       "form": "allgemeine-informationen-vorabklaerung",
       "modified_at": "2019-09-25T10:19:35.392Z",
       "question": "plz-gesuchstellerin",
-      "sort": 14
+      "sort": 15
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-informationen-vorabklaerung.plz-gesuchstellerin"
+  },
+  {
+    "fields": {
+      "created_at": "2020-03-03T13:46:34.022Z",
+      "created_by_group": null,
+      "created_by_user": null,
+      "form": "allgemeine-informationen-vorabklaerung",
+      "modified_at": "2020-03-03T13:46:34.022Z",
+      "question": "projektaenderung",
+      "sort": 1
+    },
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-informationen-vorabklaerung.projektaenderung"
   },
   {
     "fields": {
@@ -3910,7 +3936,7 @@
       "form": "allgemeine-informationen-vorabklaerung",
       "modified_at": "2019-09-25T10:19:35.208Z",
       "question": "strasse-gesuchstellerin",
-      "sort": 16
+      "sort": 17
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-informationen-vorabklaerung.strasse-gesuchstellerin"
@@ -3923,7 +3949,7 @@
       "form": "allgemeine-informationen-vorabklaerung",
       "modified_at": "2019-09-25T10:19:34.986Z",
       "question": "vorname-gesuchstellerin-vorabklaerung",
-      "sort": 17
+      "sort": 18
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-informationen-vorabklaerung.vorname-gesuchstellerin-vorabklaerung"
@@ -18778,6 +18804,34 @@
     },
     "model": "caluma_form.option",
     "pk": "produkteleitung-vakuum-magnetventil"
+  },
+  {
+    "fields": {
+      "created_at": "2020-03-03T13:26:47.713Z",
+      "created_by_group": null,
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "is_archived": false,
+      "label": "{\"de\": \"Ja\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-03-03T13:32:39.497Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "projektaenderung-ja"
+  },
+  {
+    "fields": {
+      "created_at": "2020-03-03T13:26:47.710Z",
+      "created_by_group": null,
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "is_archived": false,
+      "label": "{\"de\": \"Nein\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-03-03T13:32:39.511Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "projektaenderung-nein"
   },
   {
     "fields": {
@@ -40034,6 +40088,34 @@
   {
     "fields": {
       "configuration": {},
+      "created_at": "2020-03-03T13:26:47.870Z",
+      "created_by_group": null,
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "data_source": null,
+      "format_validators": "[]",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "is_archived": false,
+      "is_hidden": "false",
+      "is_required": "true",
+      "label": "{\"de\": \"Projekt\\u00e4nderung\", \"fr\": null}",
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": "be-hidden-input"
+      },
+      "modified_at": "2020-03-03T13:32:39.798Z",
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "row_form": null,
+      "source": null,
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "sub_form": null,
+      "type": "choice"
+    },
+    "model": "caluma_form.question",
+    "pk": "projektaenderung"
+  },
+  {
+    "fields": {
+      "configuration": {},
       "created_at": "2019-04-01T12:29:02.720Z",
       "created_by_group": null,
       "created_by_user": null,
@@ -52927,6 +53009,32 @@
     },
     "model": "caluma_form.questionoption",
     "pk": "produkteleitung.produkteleitung-vakuum-magnetventil"
+  },
+  {
+    "fields": {
+      "created_at": "2020-03-03T13:32:39.806Z",
+      "created_by_group": null,
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_at": "2020-03-03T13:32:39.806Z",
+      "option": "projektaenderung-ja",
+      "question": "projektaenderung",
+      "sort": 2
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "projektaenderung.projektaenderung-ja"
+  },
+  {
+    "fields": {
+      "created_at": "2020-03-03T13:32:39.803Z",
+      "created_by_group": null,
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_at": "2020-03-03T13:32:39.803Z",
+      "option": "projektaenderung-nein",
+      "question": "projektaenderung",
+      "sort": 1
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "projektaenderung.projektaenderung-nein"
   },
   {
     "fields": {

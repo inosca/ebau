@@ -8,7 +8,7 @@
         @activeClass="uk-active"
       >
         <a href="#">
-          {{this.instance.mainForm.name}} {{if this.instance.isPaper (t "paper.type")}} <span class="uk-text-meta">({{t "instances.instanceId"}} {{this.model}})</span>
+          {{this.instance.mainForm.name}} {{this.instance.typeDetail}} <span class="uk-text-meta">({{t "instances.instanceId"}} {{this.model}})</span>
         </a>
       </LinkTo>
     {{/if}}

@@ -62,5 +62,6 @@ export default EmberObject.extend({
       this.findAnswer("beschreibung-bauvorhaben")
     );
   }),
-  isPaper: reads("instance.isPaper")
+  isPaper: reads("instance.isPaper"),
+  isModification: reads("instance.isModification")
 });

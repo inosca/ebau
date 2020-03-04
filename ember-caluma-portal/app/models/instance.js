@@ -18,12 +18,28 @@ export default class Instance extends Model {
   @attr("date") modificationDate;
   @attr("string") publicStatus;
   @attr("boolean") isPaper;
+  @attr("boolean") isModification;
   @belongsTo("instance-state") instanceState;
   @hasMany("applicant", { inverse: "instance" }) involvedApplicants;
 
   @computed("intl.locale", "publicStatus")
   get status() {
     return this.intl.t(`instances.status.${this.publicStatus}`);
+  }
+
+  @computed("isPaper", "isModification", "intl.locale")
+  get typeDetail() {
+    if (!this.isPaper && !this.isModification) {
+      return "";
+    }
+    const parts = [
+      this.isPaper && this.intl.t("paper.type"),
+      this.isModification && this.intl.t("modification.type")
+    ]
+      .filter(Boolean)
+      .join(", ");
+
+    return `(${parts})`;
   }
 
   @computed("documents.[]")
