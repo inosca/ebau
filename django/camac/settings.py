@@ -272,7 +272,11 @@ APPLICATIONS = {
                         "givenName": "vorname-projektverfasserin",
                     },
                 },
-                "exclude_slugs": ["8-freigabequittung"],
+                "exclude_slugs": [
+                    "papierdossier",
+                    "projektaenderung",
+                    "8-freigabequittung",
+                ],
             },
             "vorabklaerung-einfach": {
                 "forms": ["vorabklaerung-einfach"],
@@ -281,6 +285,8 @@ APPLICATIONS = {
                 "givenName": "vorname-gesuchstellerin-vorabklaerung",
                 "familyName": "name-gesuchstellerin-vorabklaerung",
                 "exclude_slugs": [
+                    "papierdossier",
+                    "projektaenderung",
                     "freigabequittung-vorabklaerung-form",
                     "dokumente-vorabklaerung-form",
                 ],
@@ -289,6 +295,7 @@ APPLICATIONS = {
                 "forms": ["sb1", "sb2"],
                 "template": "1-level",
                 "exclude_slugs": [
+                    "papierdossier",
                     "freigabequittung-sb1",
                     "freigabequittung-sb2",
                     "dokumente-sb1",
