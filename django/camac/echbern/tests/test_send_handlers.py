@@ -141,12 +141,16 @@ def test_change_responsibility_send_handler(
     group.save()
 
     if not fail:
-        madiswil = service_factory(pk=20351)
+        madiswil = service_factory(pk=20351, name="Madiswil")
 
     data = CreateFromDocument(xml_data("change_responsibility"))
 
     handler = ChangeResponsibilitySendHandler(
-        data=data, queryset=Instance.objects, user=None, group=group, auth_header=None
+        data=data,
+        queryset=Instance.objects,
+        user=admin_user,
+        group=group,
+        auth_header=None,
     )
     assert handler.has_permission()[0] is True
 
@@ -159,6 +163,8 @@ def test_change_responsibility_send_handler(
         assert InstanceService.objects.get(
             instance=ech_instance, service=madiswil, active=1
         )
+        assert Message.objects.count() == 1
+        assert Message.objects.first().receiver == madiswil
     else:
         with pytest.raises(SendHandlerException):
             handler.apply()
