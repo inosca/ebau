@@ -20152,7 +20152,7 @@
     "fields": {
       "circulation_answer_type": 1,
       "circulation_type": 61,
-      "name": "Pr\u00fcfung noch nicht abgeschlossen",
+      "name": "-",
       "sort": 0
     },
     "model": "core.circulationanswer",
@@ -20162,7 +20162,7 @@
     "fields": {
       "circulation_answer_type": 1,
       "circulation_type": 41,
-      "name": "Pr\u00fcfung noch nicht abgeschlossen",
+      "name": "-",
       "sort": 6
     },
     "model": "core.circulationanswer",
@@ -20272,7 +20272,7 @@
     "fields": {
       "circulation_answer_type": 1,
       "circulation_type": 62,
-      "name": "Pr\u00fcfung noch nicht abgeschlossen",
+      "name": "-",
       "sort": 1
     },
     "model": "core.circulationanswer",
