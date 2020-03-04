@@ -31,6 +31,7 @@ from camac.user.models import Service
 
 from .signals import (
     accompanying_report_send,
+    change_responsibility,
     circulation_started,
     finished,
     ruling,
@@ -172,26 +173,33 @@ class ChangeResponsibilitySendHandler(BaseSendHandler):
         )
 
     def apply(self):
-        old_id = (
-            self.data.eventChangeResponsibility.entryOffice.entryOfficeIdentification.localOrganisationId.organisationId
-        )
-        new_id = (
+        new_service_id = (
             self.data.eventChangeResponsibility.responsibleDecisionAuthority.decisionAuthority.buildingAuthorityIdentificationType.localOrganisationId.organisationId
         )
 
         try:
-            new_service = Service.objects.get(pk=new_id)
-            old_instance_service = InstanceService.objects.get(
-                instance=self.instance, service__pk=old_id
-            )
-        except (Service.DoesNotExist, InstanceService.DoesNotExist):
-            raise SendHandlerException("Unknown service!")
+            new_service = Service.objects.get(pk=new_service_id)
+        except Service.DoesNotExist:
+            raise SendHandlerException("Unknown target service!")
+
+        # no need for try/except here, as existence has already been assured
+        # by `has_permission()`
+        old_instance_service = InstanceService.objects.get(
+            instance=self.instance, service=self.group.service
+        )
 
         old_instance_service.active = 0
         old_instance_service.save()
 
         InstanceService.objects.create(
             instance=self.instance, service=new_service, active=1
+        )
+
+        change_responsibility.send(
+            sender=self.__class__,
+            instance=self.instance,
+            user_pk=self.user.pk,
+            group_pk=self.group.pk,
         )
 
 
