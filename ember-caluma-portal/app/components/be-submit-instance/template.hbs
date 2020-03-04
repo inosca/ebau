@@ -1,19 +1,22 @@
-{{#if invalidFields.length}}
-  <div class="uk-alert uk-alert-warning">
-    <strong>{{t "submit.warning"}}</strong>
-    <br>
-    <ul class="uk-list uk-list-bullet">
-      {{#each invalidFields as |field|}}
-        <li>
-          {{#link-to (query-params displayedForm=field.fieldset.form.slug)}}{{field.question.label}}{{/link-to}}
-        </li>
-      {{/each}}
-    </ul>
-  </div>
+{{#if this.invalidFields.length}}
+  <strong>{{t "submit.warning"}}</strong>
+  <br>
+  <ul class="uk-list uk-list-bullet">
+    {{#each this.invalidFields as |invalidField|}}
+      <li>
+        <LinkTo @query={{hash displayedForm=invalidField.fieldset.form.slug}}>{{invalidField.question.label}}</LinkTo>
+      </li>
+    {{/each}}
+  </ul>
 {{/if}}
 
-{{uk-button disabled=buttonDisabled label=field.question.label loading=submit.isRunning on-click=(perform submit)}}
+<UkButton
+  @disabled={{this.buttonDisabled}}
+  @label={{@field.question.label}}
+  @loading={{this.submit.isRunning}}
+  @on-click={{perform submit}}
+/>
 
-{{#if submit.isRunning}}
+{{#if this.submit.isRunning}}
   <span class="uk-text-muted uk-margin-small-left uk-animation-fade">{{t "be-submit-instance.loading"}}</span>
 {{/if}}

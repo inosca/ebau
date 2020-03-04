@@ -1,52 +1,33 @@
 {{#if (can "read instance" this.instance)}}
   <ul class="uk-tab">
     {{#if this.instance.mainForm}}
-      <LinkTo
+      <BeSubnavLink
         @route="instances.edit.form"
         @model={{this.instance.mainForm.slug}}
-        @tagName="li"
-        @activeClass="uk-active"
       >
-        <a href="#">
-          {{this.instance.mainForm.name}} {{this.instance.typeDetail}} <span class="uk-text-meta">({{t "instances.instanceId"}} {{this.model}})</span>
-        </a>
-      </LinkTo>
+        {{this.instance.mainForm.name}} {{this.instance.typeDetail}} <span class="uk-text-meta">({{t "instances.instanceId"}} {{this.model}})</span>
+      </BeSubnavLink>
     {{/if}}
 
     {{#each (array "nfd" "sb1" "sb2") as |form|}}
       {{#if (can "read form of instance" this.instance form=(hash slug=form))}}
-        <LinkTo
-          @route="instances.edit.form"
-          @model={{form}}
-          @tagName="li"
-          @activeClass="uk-active"
-        >
+        <BeSubnavLink @route="instances.edit.form" @model={{form}}>
           <a href="#">{{t (concat "instances.forms." form)}}</a>
-        </LinkTo>
+        </BeSubnavLink>
       {{/if}}
     {{/each}}
 
     {{#if (can "read feedback of instance" this.instance)}}
-      <LinkTo
-        @route="instances.edit.feedback"
-        @tagName="li"
-        @activeClass="uk-active"
-      >
-        <a href="#">
-          {{t "nav.feedback"}}
-          {{#if this.feedback}}<UkBadge @label={{this.feedback.length}} class="uk-margin-small-left" />{{/if}}
-        </a>
-      </LinkTo>
+      <BeSubnavLink @route="instances.edit.feedback">
+        {{t "nav.feedback"}}
+        {{#if this.feedback}}<UkBadge @label={{this.feedback.length}} class="uk-margin-small-left" />{{/if}}
+      </BeSubnavLink>
     {{/if}}
 
     {{#if (can "manage applicants of instance" this.instance)}}
-      <LinkTo
-        @route="instances.edit.applicants"
-        @tagName="li"
-        @activeClass="uk-active"
-      >
-        <a href="#">{{t "nav.applicants"}}</a>
-      </LinkTo>
+      <BeSubnavLink @route="instances.edit.applicants">
+        {{t "nav.applicants"}}
+      </BeSubnavLink>
     {{/if}}
   </ul>
 {{/if}}
