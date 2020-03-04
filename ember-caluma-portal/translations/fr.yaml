@@ -148,6 +148,9 @@ instances:
   orderBy: "Trier par"
   desc: "ascendant"
   asc: "descendant"
+  createModification: "Nouveau changement de projet"
+  noModificationTitle: "Pas de demande de permis de construire trouvée"
+  noModificationText: "Les modifications de projet ne peuvent être introduites que pour les demandes de permis de construire déjà présentées."
 
   new:
     title: "Nouveau dossier"
