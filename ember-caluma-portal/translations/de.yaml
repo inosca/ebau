@@ -145,6 +145,9 @@ instances:
   orderBy: "Sortieren nach"
   desc: "absteigend"
   asc: "aufsteigend"
+  createModification: "Neue Projektänderung"
+  noModificationTitle: "Kein eingereichtes Baugesuch gefunden"
+  noModificationText: "Projektänderungen können nur für Baugesuche erfasst werden, welche bereits eingereicht wurden."
 
   new:
     title: "Neues Dossier"
@@ -259,12 +262,15 @@ notfound:
   home: "Startseite"
 
 paper:
-  type: "(Papier)"
+  type: "Papier"
   noteTitle: "Hinweis:"
   noteBody: "Sie erstellen ein Dossier, welches in Ihrer Gemeinde in Papierform
   eingereicht wurde (Papierdossier). Falls Sie ein normales Dossier als
   Gesuchsteller erstellen wollen, wählen Sie \"Gesuchsteller/in\" im
   Gruppenmenu am rechten oberen Rand der Seite."
+
+modification:
+  type: "Projektänderung"
 
 dashboard:
   edit: "bearbeiten"

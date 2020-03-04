@@ -18,8 +18,6 @@ from camac.instance.serializers import (
 )
 from camac.utils import flatten
 
-from ..models import Instance
-
 MAIN_FORMS = [
     "baugesuch",
     "baugesuch-generell",
@@ -53,19 +51,18 @@ def caluma_forms(settings):
         "camac.caluma.extensions.data_sources.Municipalities"
     ]
 
-    q_papierdossier = caluma_form_models.Question.objects.create(
-        slug="papierdossier", type=caluma_form_models.Question.TYPE_CHOICE
-    )
-    options = [
-        caluma_form_models.Option.objects.create(slug="papierdossier-ja", label="Ja"),
-        caluma_form_models.Option.objects.create(
-            slug="papierdossier-nein", label="Nein"
-        ),
-    ]
-    for option in options:
-        caluma_form_models.QuestionOption.objects.create(
-            question=q_papierdossier, option=option
+    for slug in ["papierdossier", "projektaenderung"]:
+        question = caluma_form_models.Question.objects.create(
+            slug=slug, type=caluma_form_models.Question.TYPE_CHOICE
         )
+        options = [
+            caluma_form_models.Option.objects.create(slug=f"{slug}-ja", label="Ja"),
+            caluma_form_models.Option.objects.create(slug=f"{slug}-nein", label="Nein"),
+        ]
+        for option in options:
+            caluma_form_models.QuestionOption.objects.create(
+                question=question, option=option
+            )
 
     # link questions with forms
     caluma_form_models.FormQuestion.objects.create(
@@ -187,34 +184,25 @@ def test_create_instance(
 
     # do a second request including pk, copying the existing instance
     if copy:
-        # link attachment to old instance
-        old_attachment = attachment_attachment_sections.attachment
-        old_attachment.instance_id = instance_id
-        old_attachment.save()
-
         data["data"]["attributes"] = {"copy-source": str(instance_id)}
 
         copy_resp = admin_client.post(reverse("instance-list"), data, **headers)
 
         assert copy_resp.status_code == status.HTTP_201_CREATED, create_resp.content
         new_instance_id = int(copy_resp.json()["data"]["id"])
-        new_instance = Instance.objects.get(pk=new_instance_id)
 
         new_documents = caluma_form_models.Document.objects.filter(
             **{"meta__camac-instance-id": new_instance_id}
         )
 
-        assert set([doc.form_id for doc in new_documents]) == set(
-            ["main-form", "sb1", "sb2", "nfd"]
+        assert (
+            new_documents.get(form_id="main-form")
+            .answers.filter(question_id="projektaenderung", value="projektaenderung-ja")
+            .exists()
         )
 
-        new_attachment = new_instance.attachments.first()
-        assert old_attachment.name == new_attachment.name
-        assert old_attachment.uuid != new_attachment.uuid
-        assert old_attachment.path.name != new_attachment.path.name
-        assert (
-            new_attachment
-            in old_attachment.attachment_sections.first().attachments.all()
+        assert set([doc.form_id for doc in new_documents]) == set(
+            ["main-form", "sb1", "sb2", "nfd"]
         )
 
 

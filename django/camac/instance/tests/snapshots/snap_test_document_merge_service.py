@@ -765,21 +765,6 @@ snapshots['test_document_merge_service_snapshot[1-baugesuch] 1'] = [
                         'label': 'Rechtliche Sicherung fremden Bodens?',
                         'slug': 'rechtliche-sicherung-fremden-bodens',
                         'type': 'ChoiceQuestion'
-                    },
-                    {
-                        'choices': [
-                            {
-                                'checked': False,
-                                'label': 'Ja'
-                            },
-                            {
-                                'checked': False,
-                                'label': 'Nein'
-                            }
-                        ],
-                        'label': 'Papierdossier',
-                        'slug': 'papierdossier',
-                        'type': 'ChoiceQuestion'
                     }
                 ],
                 'label': 'Allgemeine Angaben',
@@ -2694,21 +2679,6 @@ snapshots['test_document_merge_service_snapshot[3-None] 1'] = [
                 'label': 'Der/die Gesuchsteller/in bestätigt, dass die vom GIS-System übernommen Daten mit den baurechtlichen Grundlagen übereinstimmen.',
                 'slug': 'bestaetigung-gis',
                 'type': 'MultipleChoiceQuestion'
-            },
-            {
-                'choices': [
-                    {
-                        'checked': False,
-                        'label': 'Ja'
-                    },
-                    {
-                        'checked': False,
-                        'label': 'Nein'
-                    }
-                ],
-                'label': 'Papierdossier',
-                'slug': 'papierdossier',
-                'type': 'ChoiceQuestion'
             }
         ],
         'label': 'Allgemeine Informationen',
