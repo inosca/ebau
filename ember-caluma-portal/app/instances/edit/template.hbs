@@ -12,7 +12,7 @@
     {{#each (array "nfd" "sb1" "sb2") as |form|}}
       {{#if (can "read form of instance" this.instance form=(hash slug=form))}}
         <BeSubnavLink @route="instances.edit.form" @model={{form}}>
-          <a href="#">{{t (concat "instances.forms." form)}}</a>
+          {{t (concat "instances.forms." form)}}
         </BeSubnavLink>
       {{/if}}
     {{/each}}
