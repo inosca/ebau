@@ -37,7 +37,7 @@
       <td colspan="2" class="uk-text-center">
         <div uk-toggle="target: #modal-applicants">
           <UkButton @size="small" @on-click={{perform this.addRow}}>
-            {{uk-icon "plus"}}
+            <UkIcon @icon="plus"/>
           </UkButton>
         </div>
       </td>
@@ -45,9 +45,9 @@
   </tfoot>
 </table>
 
-<div id="modal-applicants" uk-modal="">
+<div id="modal-applicants" uk-modal>
   <div class="uk-modal-dialog uk-modal-body">
-    <button type="button" class="uk-modal-close-default" uk-close=""></button>
+    <button type="button" class="uk-modal-close-default" uk-close></button>
 
     <h2 class="uk-modal-title">
       Eintrag hinzufügen

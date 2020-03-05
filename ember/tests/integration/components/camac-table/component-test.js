@@ -93,7 +93,7 @@ module("Integration | Component | camac-table", function(hooks) {
     await click("button[data-test-edit-row]");
     await fillIn("input[type=text]", "shimmyshimmyya");
     await fillIn("input[type=number]", "123");
-    await click("button[type=submit]");
+    await click(".uk-button-primary");
 
     assert.dom("tbody > tr > td:first-child").hasText("shimmyshimmyya");
   });
@@ -106,7 +106,7 @@ module("Integration | Component | camac-table", function(hooks) {
     assert.dom("tbody > tr").exists({ count: 1 });
 
     await click("tfoot > tr > td:first-child > button");
-    await click("button[type=submit]");
+    await click(".uk-button-primary");
 
     assert.dom("tbody > tr").exists({ count: 2 });
   });

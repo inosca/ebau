@@ -65,7 +65,7 @@
               title="Ausloggen"
               class="uk-icon-button uk-animation-fade uk-margin-left"
               uk-icon="sign-out"
-              {{action (transition-to "logout")}}
+              {{on "click" (transition-to "logout")}}
               type="button"
             ></button>
           {{/if}}

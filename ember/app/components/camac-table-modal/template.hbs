@@ -1,12 +1,12 @@
 {{#-in-element container}}
   <div id="modal-{{elementId}}">
     <div class="uk-modal-dialog uk-modal-body">
-      <form {{action (perform save) on="submit"}}>
+      <form>
         <button
           type="button"
           class="uk-modal-close-default"
-          uk-close=""
-          {{action (toggle "visible" this)}}
+          uk-close
+          {{on "click" (toggle "visible" this)}}
         ></button>
 
         <h2 class="uk-modal-title">
@@ -22,11 +22,7 @@
             }}
           >
             <label
-              class="uk-form-label uk-text-bolder
-                {{if
-                  (get this (concat "_value.error." column.name))
-                  "uk-text-danger"
-                }}"
+              class="uk-form-label uk-text-bolder {{if (get this (concat "_value.error." column.name)) "uk-text-danger"}}"
             >
               {{column.label}}
               {{#if column.required}}
@@ -55,14 +51,15 @@
         {{/each}}
 
         <div class="uk-text-right">
-          <UkButton @on-click={{action (mut visible) false}}>
+          <UkButton @on-click={{fn (mut visible) false}}>
             Abbrechen
           </UkButton>
           <UkButton
             @loading={{save.isRunning}}
             @disabled={{not _value.isValid}}
             @color="primary"
-            @type="submit"
+            @type="button"
+            @on-click={{perform save}}
           >
             Speichern
           </UkButton>
