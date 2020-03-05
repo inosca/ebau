@@ -1,15 +1,15 @@
 {{#unless question.hidden}}
-  <div uk-grid="" class="uk-margin">
+  <div uk-grid class="uk-margin">
     {{#each (sort-by "adresse" question.model.value) as |row|}}
       <div
         data-test-gwr-building={{row.uuid}}
         role="button"
         class="pointer"
-        {{action (perform editRow) row}}
+        {{on "click" (perform editRow row)}}
       >
         <UkCard @width="small" @hover={{true}} as |card|>
           <card.header class="uk-flex uk-flex-center">
-            {{uk-icon "home" ratio=3}}
+            <UkIcon @icon="home" @ratio={{3}}/>
           </card.header>
           <div class="uk-text-bolder uk-text-center uk-padding-small">
             {{row.adresse}}
@@ -22,7 +22,7 @@
         data-test-gwr-building-add
         role="button"
         class="pointer"
-        {{action (perform addRow)}}
+        {{on "click" (perform addRow)}}
       >
         <UkCard
           @width="small"
@@ -30,7 +30,7 @@
           @hover={{true}} as |card|
         >
           <card.body>
-            {{uk-icon "plus" ratio=2}}
+            <UkIcon @icon="plus" @ratio={{2}}/>
           </card.body>
         </UkCard>
       </div>

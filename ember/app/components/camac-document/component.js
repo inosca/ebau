@@ -6,7 +6,6 @@ import { inject as service } from "@ember/service";
 import CamacInputComponent from "citizen-portal/components/camac-input/component";
 import ENV from "citizen-portal/config/environment";
 import download from "downloadjs";
-import Ember from "ember";
 import { task } from "ember-concurrency";
 import fetch from "fetch";
 
@@ -113,7 +112,7 @@ export default CamacInputComponent.extend({
 
       const file = yield response.blob();
 
-      if (!Ember.testing) {
+      if (ENV.environment !== "test") {
         download(file, document.get("name"), file.type);
       }
 

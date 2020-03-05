@@ -168,7 +168,7 @@ export default Component.extend({
 
   pointsFlat: computed("points.@each.length", function() {
     // We use this instead of array.flat() to ensure support of older browsers
-    return [].concat([], ...this.points);
+    return [].concat(...this.points);
   }),
 
   coordinates: computed("pointsFlat.@each.{lat,lng}", function() {

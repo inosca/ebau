@@ -16,7 +16,7 @@
         {{camac-hint-dialog question.field.hint}}
       {{/if}}
     </label>
-    <div uk-grid="" class="uk-margin-small-top">
+    <div uk-grid class="uk-margin-small-top">
       <div class="uk-width-expand">
         {{component
           (concat "camac-input-" question.field.type)
@@ -33,25 +33,25 @@
             <UkSpinner class="uk-animation-fade" />
           {{else}}
             {{#if error}}
-              {{uk-icon
-                "close"
-                ratio=1.25
+              <UkIcon
+                @icon="close"
+                @ratio={{1.25}}
                 class="uk-text-danger uk-animation-slide-bottom-small"
-              }}
+              />
             {{else}}
-              {{uk-icon
-                "check"
-                ratio=1.25
+              <UkIcon
+                @icon="check"
+                @ratio={{1.25}}
                 class="uk-text-success uk-animation-slide-top-small"
-              }}
+              />
             {{/if}}
           {{/if}}
         {{else if (not question.model.isNew)}}
-          {{uk-icon
-            "check"
-            ratio=1.25
+          <UkIcon
+            @icon="check"
+            @ratio={{1.25}}
             class="uk-text-success uk-animation-slide-top-small"
-          }}
+          />
         {{/if}}
       </div>
     </div>

@@ -5,6 +5,10 @@ import { scheduleOnce } from "@ember/runloop";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 
+/*
+ * This component has been copied form ember-a11y to be ember-octane compatible
+ * https://github.com/ember-a11y/ember-a11y/blob/v0.2.2/addon/components/focusing-inner.js
+ */
 export default class FocusingOutletComponent extends Component {
   @tracked shouldFocus = false;
   @tracked element;

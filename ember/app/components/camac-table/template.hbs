@@ -47,7 +47,7 @@
                     data-test-edit-row
                     class="uk-icon-button"
                     uk-icon="pencil"
-                    {{action (perform editRow) row}}
+                    {{on "click" (perform this.editRow row)}}
                   ></button>
                   <button
                     type="button"
@@ -55,7 +55,7 @@
                     data-test-delete-row
                     class="uk-icon-button"
                     uk-icon="trash"
-                    {{action (perform deleteRow) row}}
+                    {{on "click" (perform this.deleteRow row)}}
                   ></button>
                 </td>
               {{/unless}}
@@ -75,8 +75,8 @@
           <tfoot>
             <tr>
               <td colspan={{add (count-keys columns) 1}} class="uk-text-center">
-                <UkButton @size="small" @on-click={{perform addRow}}>
-                  {{uk-icon "plus"}}
+                <UkButton @size="small" @on-click={{perform this.addRow}}>
+                  <UkIcon @icon="plus"/>
                 </UkButton>
               </td>
             </tr>
@@ -92,7 +92,7 @@
           @columns={{columns}}
           @visible={{showEdit}}
           @value={{editedRow}}
-          @on-save={{perform saveRow}}
+          @on-save={{perform this.saveRow}}
         />
       {{/unless}}
     </div>

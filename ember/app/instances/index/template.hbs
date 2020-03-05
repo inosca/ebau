@@ -5,7 +5,7 @@
     </h1>
 
     <div class="uk-search uk-search-default uk-width-1-1 uk-hidden@m">
-      <span uk-search-icon=""></span>
+      <span uk-search-icon></span>
       <input
         class="uk-search-input"
         type="search"
@@ -33,7 +33,7 @@
               </span>
               <div class="uk-margin-small-left">
                 <a
-                  uk-search-icon=""
+                  uk-search-icon
                   uk-toggle="target: [data-toggle-search='identifier-search']; animation: uk-animation-slide-left-small uk-animation-fast"
                   class="uk-toggle"
                   href="#"
@@ -44,10 +44,10 @@
             <div
               class="uk-flex-inline uk-width-1-1 uk-flex-between"
               data-toggle-search="identifier-search"
-              hidden=""
+              hidden
             >
               <input
-                autofocus=""
+                autofocus
                 class="uk-search-input uk-width-auto uk-padding-remove"
                 type="search"
                 placeholder="Suchen..."
@@ -55,7 +55,7 @@
                 {{on "input" (fn (perform this.search) value="target.value")}}
               />
               <a
-                uk-close=""
+                uk-close
                 uk-toggle="target: [data-toggle-search='identifier-search']; animation: uk-animation-slide-right-small uk-animation-fast"
                 class="uk-toggle uk-flex-inline uk-flex-middle"
                 href="#"
@@ -185,7 +185,7 @@
                   ></button>
                   <span
                     class="uk-text-danger confirm-delete-{{instance.id}}"
-                    hidden=""
+                    hidden
                   >
                     Löschen?
                     <br />
@@ -222,7 +222,7 @@
           {{on "click" (transition-to "instances.new")}}
         >
           <td class="uk-text-center" colspan="8">
-            {{uk-icon "plus" scale=2}}
+            <UkIcon @icon="plus" @scale={{2}}/>
           </td>
         </tr>
       </tbody>
