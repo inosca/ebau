@@ -1,6 +1,6 @@
 import { getOwner } from "@ember/application";
 import Controller from "@ember/controller";
-import { computed, set } from "@ember/object";
+import { computed, set, action } from "@ember/object";
 import { reads } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
 import { isEmpty } from "@ember/utils";
@@ -9,9 +9,19 @@ import getDocumentsQuery from "ember-caluma-portal/gql/queries/get-documents";
 import getMunicipalitiesQuery from "ember-caluma-portal/gql/queries/get-municipalities";
 import getRootFormsQuery from "ember-caluma-portal/gql/queries/get-root-forms";
 import Document from "ember-caluma-portal/lib/document";
-import { task } from "ember-concurrency";
+import {
+  restartableTask,
+  dropTask,
+  lastValue
+} from "ember-concurrency-decorators";
 import QueryParams from "ember-parachute";
 import moment from "moment";
+
+const MODIFICATION_FORMS = [
+  "baugesuch",
+  "baugesuch-generell",
+  "baugesuch-mit-uvp"
+];
 
 const getHasAnswerFilters = ({ parcel: value }) =>
   [
@@ -61,6 +71,7 @@ const toDateTime = date => (date.isValid() ? date.utc().format() : null);
 const dateQueryParam = {
   serialize(value) {
     const date = moment.utc(value);
+
     return date.isValid()
       ? date.utc().format(DATE_URL_FORMAT)
       : this.defaultValue;
@@ -84,7 +95,7 @@ const queryParams = new QueryParams({
     }
   },
   instanceId: {
-    defaultValue: "",
+    defaultValue: null,
     replace: true,
     serialize(value) {
       const int = parseInt(value);
@@ -110,12 +121,12 @@ const queryParams = new QueryParams({
     replace: true
   },
   submitFrom: {
-    defaultValue: "",
+    defaultValue: null,
     replace: true,
     ...dateQueryParam
   },
   submitTo: {
-    defaultValue: "",
+    defaultValue: null,
     replace: true,
     ...dateQueryParam
   },
@@ -123,18 +134,19 @@ const queryParams = new QueryParams({
     defaultValue: "META_CAMAC_INSTANCE_ID_DESC",
     replace: true
   },
-  isModifification: {
+  modify: {
     defaultValue: false,
     replace: true
   }
 });
 
-export default Controller.extend(queryParams.Mixin, {
-  fetch: service(),
+export default class InstancesIndexController extends Controller.extend(
+  queryParams.Mixin
+) {
+  @service fetch;
+  @queryManager apollo;
 
-  apollo: queryManager(),
-
-  orderOptions: computed(function() {
+  get orderOptions() {
     return [
       {
         value: "META_CAMAC_INSTANCE_ID_DESC",
@@ -167,7 +179,7 @@ export default Controller.extend(queryParams.Mixin, {
         direction: "instances.asc"
       }
     ];
-  }),
+  }
 
   setup() {
     this.getMunicipalities.perform();
@@ -175,47 +187,62 @@ export default Controller.extend(queryParams.Mixin, {
 
     this.set("documents", []);
     this.fetchData.perform();
-  },
+  }
 
-  queryParamsDidChange({ shouldRefresh }) {
-    if (shouldRefresh) {
-      this.set("documents", []);
-      this.fetchData.perform();
-    }
-  },
+  reset() {
+    this.resetQueryParams();
+    this.set("documents", []);
 
-  getRootForms: task(function*() {
+    this.getMunicipalities.cancelAll({ reset: true });
+    this.getRootForms.cancelAll({ reset: true });
+    this.fetchData.cancelAll({ reset: true });
+  }
+
+  @lastValue("getRootForms") _rootForms;
+  @computed("_rootForms.[]", "modify")
+  get rootForms() {
+    return (this._rootForms || []).map(form => {
+      return {
+        ...form,
+        disabled: this.modify ? !MODIFICATION_FORMS.includes(form.slug) : false
+      };
+    });
+  }
+
+  @computed("rootForms.@each.slug", "types.[]")
+  get selectedTypes() {
+    return this.rootForms.filter(form => this.types.includes(form.slug));
+  }
+
+  set selectedTypes(value) {
+    this.set(
+      "types",
+      value.map(form => form.slug)
+    );
+
+    return value;
+  }
+
+  @dropTask
+  *getRootForms() {
     return (yield this.apollo.query(
       { query: getRootFormsQuery },
       "allForms.edges"
     )).map(({ node }) => node);
-  }),
+  }
 
-  rootForms: reads("getRootForms.lastSuccessful.value"),
-  selectedTypes: computed("rootForms", "types", {
-    get() {
-      return (this.rootForms || []).filter(form =>
-        this.types.includes(form.slug)
-      );
-    },
-    set(key, value) {
-      this.set(
-        "types",
-        value.map(form => form.slug)
-      );
-      return value;
-    }
-  }),
-
-  getMunicipalities: task(function*() {
+  @dropTask
+  *getMunicipalities() {
     return (yield this.apollo.query(
       { query: getMunicipalitiesQuery },
       "allQuestions.edges.firstObject.node.options.edges"
     )).map(({ node }) => node);
-  }),
+  }
 
-  pageInfo: reads("fetchData.lastSuccessful.value.pageInfo"),
-  fetchData: task(function*(cursor = null) {
+  @reads("fetchData.lastSuccessful.value.pageInfo") pageInfo;
+
+  @restartableTask
+  *fetchData(cursor = null) {
     try {
       const forms = yield this.getRootForms.last;
 
@@ -268,36 +295,58 @@ export default Controller.extend(queryParams.Mixin, {
       // eslint-disable-next-line no-console
       console.error(e);
     }
-  }).restartable(),
+  }
 
-  applyFilters: task(function*(e) {
-    e.preventDefault();
-
-    this.set("documents", []);
-    yield this.fetchData.perform();
-  }).drop(),
-
-  resetFilters: task(function*() {
-    yield this.resetQueryParams();
-    this.set("documents", []);
-    yield this.fetchData.perform();
-  }),
-
-  toggleModification: task(function*() {
-    this.set("isModifification", !this.isModifification);
-    this.set("submitTo", this.isModifification ? moment.utc().toDate() : null);
-    this.set(
-      "types",
-      this.isModifification
-        ? ["baugesuch", "baugesuch-generell", "baugesuch-mit-uvp"]
-        : []
-    );
+  @dropTask
+  *applyFilters(event) {
+    event.preventDefault();
 
     this.set("documents", []);
     yield this.fetchData.perform();
-  }),
+  }
 
-  createModification: task(function*(instanceId) {
+  @dropTask
+  *resetFilters(event) {
+    event.preventDefault();
+
+    if (this.modify) {
+      yield this.startModification.perform();
+    } else {
+      yield this.resetQueryParams();
+
+      this.set("documents", []);
+      yield this.fetchData.perform();
+    }
+  }
+
+  @dropTask
+  *startModification() {
+    this.resetQueryParams();
+
+    this.setProperties({
+      modify: true,
+      submitTo: moment.utc().toDate(),
+      types: [...MODIFICATION_FORMS],
+      documents: []
+    });
+
+    yield this.fetchData.perform();
+  }
+
+  @dropTask
+  *endModification() {
+    this.resetQueryParams();
+
+    this.setProperties({
+      modify: false,
+      documents: []
+    });
+
+    yield this.fetchData.perform();
+  }
+
+  @dropTask
+  *createModification(instanceId) {
     const response = yield this.fetch.fetch(`/api/v1/instances`, {
       method: "POST",
       body: JSON.stringify({
@@ -318,14 +367,15 @@ export default Controller.extend(queryParams.Mixin, {
     } = yield response.json();
 
     yield this.transitionToRoute("instances.edit", newInstanceId);
-  }),
-
-  actions: {
-    updateDate(prop, value) {
-      this.set(prop, moment(value));
-    },
-    updateFilter(e) {
-      this.set(e.target.name, e.target.value);
-    }
   }
-});
+
+  @action
+  updateFilter(event) {
+    this.set(event.target.name, event.target.value);
+  }
+
+  @action
+  updateDate(prop, value) {
+    this.set(prop, moment(value));
+  }
+}
