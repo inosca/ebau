@@ -1,5 +1,5 @@
 <CamacForm @instance={{@model.instance}} @meta={{@model.meta}} as |form|>
-  {{form.table "bauherrschaft"}}
+  <form.table @identifier="bauherrschaft"/>
   {{#if this.questionActive}}
     <UkButton
       @on-click={{fn this.copyQuestionValue}}

@@ -1,15 +1,15 @@
 <CamacForm @instance={{@model.instance}} @meta={{@model.meta}} as |form|>
-  {{form.input "landwirtschaft-betriebs-nr"}}
-  {{form.input "landwirtschaft-sak-wert"}}
-  {{form.input "landwirtschaft-einstufung"}}
-  {{form.input "landwirtschaft-nutzflache"}}
-  {{form.input "landwirtschaft-bereiche-baute"}}
-  {{form.input "landwirtschaft-bereiche-anlage"}}
-  {{form.input "landwirtschaft-gebietskategorie"}}
-  {{form.table "landwirtschaft-wohnbauten"}}
-  {{form.table "landwirtschaft-stallgebaude"}}
-  {{form.input "landwirtschaft-veranderung-tierbestand"}}
-  {{form.table "landwirtschaft-okonomiebauten"}}
-  {{form.table "landwirtschaft-gullenlager"}}
-  {{form.table "landwirtschaft-mistplatte"}}
+  <form.input @identifier="landwirtschaft-betriebs-nr"/>
+  <form.input @identifier="landwirtschaft-sak-wert"/>
+  <form.input @identifier="landwirtschaft-einstufung"/>
+  <form.input @identifier="landwirtschaft-nutzflache"/>
+  <form.input @identifier="landwirtschaft-bereiche-baute"/>
+  <form.input @identifier="landwirtschaft-bereiche-anlage"/>
+  <form.input @identifier="landwirtschaft-gebietskategorie"/>
+  <form.table @identifier="landwirtschaft-wohnbauten"/>
+  <form.table @identifier="landwirtschaft-stallgebaude"/>
+  <form.input @identifier="landwirtschaft-veranderung-tierbestand"/>
+  <form.table @identifier="landwirtschaft-okonomiebauten"/>
+  <form.table @identifier="landwirtschaft-gullenlager"/>
+  <form.table @identifier="landwirtschaft-mistplatte"/>
 </CamacForm>

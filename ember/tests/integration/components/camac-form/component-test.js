@@ -60,10 +60,10 @@ module("Integration | Component | camac-form", function(hooks) {
     assert.expect(4);
 
     await render(hbs`
-      {{#camac-form instance=(hash id=id) meta=(hash editable=(array 'form' 'document')) as |form|}}
-        {{form.input 'test-input'}}
-        {{form.table 'test-table'}}
-      {{/camac-form}}
+      <CamacForm @instance={{hash id=id}} @meta={{hash editable=(array 'form' 'document')}} as |form|>
+        <form.input @identifier='test-input'/>
+        <form.table @identifier='test-table'/>
+      </CamacForm>
     `);
 
     assert.dom("form").exists();
@@ -76,10 +76,10 @@ module("Integration | Component | camac-form", function(hooks) {
     assert.expect(4);
 
     await render(hbs`
-      {{#camac-form instance=(hash id=id) meta=(hash editable=(array)) as |form|}}
-        {{form.input 'test-input'}}
-        {{form.table 'test-table'}}
-      {{/camac-form}}
+      <CamacForm @instance={{hash id=id}} @meta={{hash editable=(array)}} as |form|>
+        <form.input @identifier='test-input'/>
+        <form.table @identifier='test-table'/>
+      </CamacForm>
     `);
 
     assert.dom("form").exists();
