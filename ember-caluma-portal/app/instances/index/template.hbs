@@ -1,30 +1,44 @@
 <h1 class="uk-flex uk-flex-between">
-  {{t "instances.title"}}
-  <div>
-    <UkButton
-      @label={{t "instances.createModification"}}
-      @color={{if this.isModifification "primary" "default"}}
-      @on-click={{perform this.toggleModification}}
+  {{#if this.modify}}
+    {{t "instances.createModification"}}
+
+    <div>
+      <UkButton
+        @label={{t "global.cancel"}}
+        @color="default"
+        @on-click={{perform this.endModification}}
+      />
+    </div>
+  {{else}}
+    {{t "instances.title"}}
+
+    <div>
+      <UkButton
+        @label={{t "instances.createModification"}}
+        @color="default"
+        @on-click={{perform this.startModification}}
       />
 
-    {{#if (can "create instance")}}
-      <span>
-        <LinkTo @route="instances.new" class="uk-button uk-button-secondary">{{t "instances.new.title"}}</LinkTo>
-      </span>
-    {{/if}}
-  </div>
+      {{#if (can "create instance")}}
+        <span>
+          <LinkTo @route="instances.new" class="uk-button uk-button-secondary">{{t "instances.new.title"}}</LinkTo>
+        </span>
+      {{/if}}
+    </div>
+  {{/if}}
 </h1>
 
-<form onsubmit={{perform applyFilters}}>
+<form {{on "submit" (perform this.applyFilters)}}>
   <div uk-grid class="uk-grid-small uk-margin uk-child-width-1-1 uk-child-width-1-3@l">
     <div>
       <label class="uk-form-label" for="type">{{t "instances.type"}}</label>
       <div class="uk-form-controls">
         <PowerSelectMultiple
-          @selected={{selectedTypes}}
-          @options={{rootForms}}
+          @selected={{this.selectedTypes}}
+          @options={{this.rootForms}}
           @searchField="name"
-          @onchange={{fn (mut selectedTypes)}} as |form|>
+          @onchange={{fn (mut this.selectedTypes)}}
+        as |form|>
           {{form.name}}
         </PowerSelectMultiple>
       </div>
@@ -32,25 +46,54 @@
     <div>
       <label class="uk-form-label" for="instanceId">{{t "instances.instanceId"}}</label>
       <div class="uk-form-controls">
-        <input type="text" class="uk-input" name="instanceId" id="instanceId" value={{this.instanceId}} onchange={{action "updateFilter"}} />
+        <input
+          type="number"
+          step="1"
+          class="uk-input"
+          name="instanceId"
+          id="instanceId"
+          value={{this.instanceId}}
+          {{on "change" this.updateFilter}}
+        >
       </div>
     </div>
     <div>
       <label class="uk-form-label" for="ebau">{{t "instances.ebau"}}</label>
       <div class="uk-form-controls">
-        <input type="text" class="uk-input" name="ebau" id="ebau" value={{ebau}} onchange={{action "updateFilter"}}>
+        <input
+          type="text"
+          class="uk-input"
+          name="ebau"
+          id="ebau"
+          value={{this.ebau}}
+          {{on "change" this.updateFilter}}
+        >
       </div>
     </div>
     <div>
       <label class="uk-form-label" for="parcel">{{t "instances.parcel"}}</label>
       <div class="uk-form-controls">
-        <input type="text" class="uk-input" name="parcel" id="parcel" value={{parcel}} onchange={{action "updateFilter"}}>
+        <input
+          type="text"
+          class="uk-input"
+          name="parcel"
+          id="parcel"
+          value={{this.parcel}}
+          {{on "change" this.updateFilter}}
+        >
       </div>
     </div>
     <div>
       <label class="uk-form-label" for="address">{{t "instances.address"}}</label>
       <div class="uk-form-controls">
-        <input type="text" class="uk-input" name="address" id="address" value={{parcel}} onchange={{action "updateFilter"}}>
+        <input
+          type="text"
+          class="uk-input"
+          name="address"
+          id="address"
+          value={{this.address}}
+          {{on "change" this.updateFilter}}
+        >
       </div>
     </div>
     <div>
@@ -59,11 +102,12 @@
         <div>
           <PikadayInput
             class="uk-input"
+            aria-label={{t "instances.submitDateFrom"}}
             @name="submitFrom"
             @useUTC={{true}}
-            aria-label={{t "instances.submitDateFrom"}}
-            @value={{submitFrom}}
-            @onSelection={{action "updateDate" "submitFrom"}} />
+            @value={{this.submitFrom}}
+            @onSelection={{fn this.updateDate "submitFrom"}}
+          />
         </div>
         <div>
           <PikadayInput
@@ -71,14 +115,27 @@
             @name="submitTo"
             @useUTC={{true}}
             aria-label={{t "instances.submitDateTo"}}
-            @value={{submitTo}}
-            @onSelection={{action "updateDate" "submitTo"}} />
+            @value={{this.submitTo}}
+            @onSelection={{fn this.updateDate "submitTo"}}
+          />
         </div>
       </div>
     </div>
     <div class="uk-width-1-1 uk-flex uk-flex-right uk-flex-bottom">
-      {{uk-button color="default" type="reset" disabled=fetchData.isRunning label=(t "instances.reset") on-click=(perform resetFilters) class="uk-margin-small-right"}}
-      {{uk-button color="primary" type="submit" disabled=fetchData.isRunning label=(t "instances.filter")}}
+      <UkButton
+        class="uk-margin-small-right"
+        @color="default"
+        @type="reset"
+        @disabled={{this.fetchData.isRunning}}
+        @label={{t "instances.reset"}}
+        @on-click={{perform this.resetFilters}}
+       />
+      <UkButton
+        @color="primary"
+        @type="submit"
+        @disabled={{this.fetchData.isRunning}}
+        @label={{t "instances.filter"}}
+       />
     </div>
   </div>
 </form>
@@ -87,7 +144,7 @@
 
 {{#if (and fetchData.isRunning (eq documents.length 0))}}
   <div class="uk-text-center uk-padding">
-    {{uk-spinner ratio=2}}
+    <UkSpinner @ratio={{2}} />
   </div>
 {{else if documents.length}}
   <div uk-grid>
@@ -117,14 +174,14 @@
         <th class="uk-text-nowrap">{{t "instances.submitDate"}}</th>
         <th class="uk-text-nowrap">{{t "instances.status.title"}}</th>
         <th class="uk-text-nowrap">{{t "instances.description"}}</th>
-        {{#if this.isModifification}}
+        {{#if this.modify}}
           <td></td>
         {{/if}}
       </tr>
     </thead>
     <tbody>
       {{#each documents as |document|}}
-        <tr>
+        <tr class="uk-table-middle">
           <td>
             <LinkTo @route="instances.edit" @model={{document.instanceId}} class="uk-text-bold">{{document.instanceId}}</LinkTo>
           </td>
@@ -135,7 +192,7 @@
           <td>{{if document.submitDate (moment-format document.submitDate "DD.MM.YYYY")}}</td>
           <td>{{document.status}}</td>
           <td class="uk-text-truncate" title={{document.description}}>{{document.description}}</td>
-          {{#if this.isModifification}}
+          {{#if this.modify}}
             <td>
               <button type="button" class="uk-icon-button" uk-icon="file-edit" title={{t "instances.createModification"}} {{action (perform this.createModification) document.instanceId}}>
                 <span class="uk-hidden">{{t "instances.createModification"}}</span>
@@ -159,9 +216,9 @@
   {{#uk-flex horizontal="center" vertical="middle" direction="column"}}
     <div class="uk-text-center uk-width-large">
       <object data="/assets/images/stamp-document.svg" class="uk-width-medium">{{t "instances.new.title"}}</object>
-      <p class="uk-margin-remove-top uk-text-large">{{if this.isModifification (t "instances.noModificationTitle") (t "instances.emptyTitle")}}</p>
-      <p>{{if this.isModifification (t "instances.noModificationText") (t "instances.emptyText")}}</p>
-      {{#unless this.isModifification}}
+      <p class="uk-margin-remove-top uk-text-large">{{if this.modify (t "instances.noModificationTitle") (t "instances.emptyTitle")}}</p>
+      <p>{{if this.modify (t "instances.noModificationText") (t "instances.emptyText")}}</p>
+      {{#unless this.modify}}
         <LinkTo @route="instances.new" class="uk-button uk-button-primary uk-button-large">{{t "instances.new.title"}}</LinkTo>
       {{/unless}}
     </div>
