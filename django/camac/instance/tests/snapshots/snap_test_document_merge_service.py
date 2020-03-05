@@ -36,16 +36,16 @@ snapshots['test_document_merge_service_snapshot[1-baugesuch] 1'] = [
                 'children': [
                     {
                         'columns': [
-                            'E-Mail',
                             'Handelt es sich um eine juristische Person?',
-                            'Name',
                             'Name juristische Person',
-                            'Nummer',
-                            'Ort',
-                            'PLZ',
+                            'Name',
+                            'Vorname',
                             'Strasse',
+                            'Nummer',
+                            'PLZ',
+                            'Ort',
                             'Telefon oder Mobile',
-                            'Vorname'
+                            'E-Mail'
                         ],
                         'label': 'Personalien - Gesuchsteller/in',
                         'rows': [
@@ -636,16 +636,16 @@ snapshots['test_document_merge_service_snapshot[1-baugesuch] 1'] = [
                     },
                     {
                         'columns': [
+                            'Parzellennummer',
+                            'Liegenschaftsnummer',
                             'Baurecht-Nummer',
                             'E-GRID-Nr.',
-                            'Lagekoordinaten - Nord',
-                            'Lagekoordinaten - Ost',
-                            'Liegenschaftsnummer',
+                            'Strasse',
                             'Nummer',
-                            'Ort',
-                            'Parzellennummer',
                             'PLZ',
-                            'Strasse'
+                            'Ort',
+                            'Lagekoordinaten - Ost',
+                            'Lagekoordinaten - Nord'
                         ],
                         'label': 'Parzelle',
                         'rows': [
@@ -1079,9 +1079,9 @@ snapshots['test_document_merge_service_snapshot[1-baugesuch] 1'] = [
                     },
                     {
                         'columns': [
+                            'Wohnungsgrösse (Anzahl Zimmer)',
                             'Anzahl bestehender Wohnungen dieser Grösse',
-                            'Anzahl neuer Wohnungen dieser Grösse',
-                            'Wohnungsgrösse (Anzahl Zimmer)'
+                            'Anzahl neuer Wohnungen dieser Grösse'
                         ],
                         'label': 'Wohnungskategorie',
                         'rows': [
@@ -1248,9 +1248,9 @@ snapshots['test_document_merge_service_snapshot[1-baugesuch] 1'] = [
                     },
                     {
                         'columns': [
-                            'Beschreibung der Gefährdung',
                             'Hauptprozessart',
-                            'Prozessart'
+                            'Prozessart',
+                            'Beschreibung der Gefährdung'
                         ],
                         'label': 'Beschreibung der Prozessart',
                         'rows': [
