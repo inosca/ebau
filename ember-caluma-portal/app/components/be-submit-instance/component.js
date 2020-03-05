@@ -78,7 +78,7 @@ export default InViewportComponent.extend({
 
       this.notification.success(this.intl.t("be-submit-instance.success"));
 
-      yield this.router.transitionTo("instances");
+      yield this.router.transitionTo("instances.index");
     } catch (e) {
       // eslint-disable-next-line no-console
       console.error(e);
