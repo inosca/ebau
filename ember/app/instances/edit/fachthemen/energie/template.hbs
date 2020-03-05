@@ -1,25 +1,25 @@
 <CamacForm @instance={{@model.instance}} @meta={{@model.meta}} as |form|>
-  {{form.input "energie-art"}}
-  {{form.input "energie-dachaufstellung"}}
-  {{form.input "energie-uberragt-rechter-winkel"}}
-  {{form.input "energie-uberragt"}}
-  {{form.input "energie-reflexionsarm"}}
-  {{form.input "energie-kompakt"}}
-  {{#form.input "energie-thermisch-kollektorenart"}}
+  <form.input @identifier="energie-art"/>
+  <form.input @identifier="energie-dachaufstellung"/>
+  <form.input @identifier="energie-uberragt-rechter-winkel"/>
+  <form.input @identifier="energie-uberragt"/>
+  <form.input @identifier="energie-reflexionsarm"/>
+  <form.input @identifier="energie-kompakt"/>
+  <form.input @identifier="energie-thermisch-kollektorenart">
     <h4>
       Thermische Solaranlage
     </h4>
-  {{/form.input}}
-  {{form.input "energie-thermisch-aufbereitung"}}
-  {{form.input "energie-thermisch-grosse"}}
-  {{#form.input "energie-photovoltaik-technologie"}}
+  </form.input>
+  <form.input @identifier="energie-thermisch-aufbereitung"/>
+  <form.input @identifier="energie-thermisch-grosse"/>
+  <form.input @identifier="energie-photovoltaik-technologie">
     <h4>
       Photovoltaikanlage
     </h4>
-  {{/form.input}}
-  {{form.input "energie-photovoltaik-gesamtleistung"}}
-  {{form.input "energie-photovoltaik-jahresertrag"}}
-  {{form.input "energie-photovoltaik-flache"}}
-  {{form.input "energie-inbetriebnahme"}}
-  {{form.input "datenverschnitt-energie"}}
+  </form.input>
+  <form.input @identifier="energie-photovoltaik-gesamtleistung"/>
+  <form.input @identifier="energie-photovoltaik-jahresertrag"/>
+  <form.input @identifier="energie-photovoltaik-flache"/>
+  <form.input @identifier="energie-inbetriebnahme"/>
+  <form.input @identifier="datenverschnitt-energie"/>
 </CamacForm>

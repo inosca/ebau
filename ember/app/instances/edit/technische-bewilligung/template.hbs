@@ -1,6 +1,6 @@
 <CamacForm @instance={{@model.instance}} @meta={{@model.meta}} as |form|>
-  {{form.input "tb-gesuchsnr"}}
-  {{form.input "tb-datum"}}
-  {{form.input "tb-zweck"}}
-  {{form.input "tb-zweck-andere"}}
+  <form.input @identifier="tb-gesuchsnr"/>
+  <form.input @identifier="tb-datum"/>
+  <form.input @identifier="tb-zweck"/>
+  <form.input @identifier="tb-zweck-andere"/>
 </CamacForm>

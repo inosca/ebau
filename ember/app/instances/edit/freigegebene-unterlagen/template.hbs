@@ -1,3 +1,3 @@
 <CamacForm @instance={{@model.instance}} @meta={{@model.meta}} as |form|>
-  {{form.document "dokument-freigegeben" readonly=true question=question}}
+  <form.document @identifier="dokument-freigegeben" readonly={{true}} question={{this.question}}/>
 </CamacForm>

@@ -1,15 +1,15 @@
 <CamacForm @instance={{@model.instance}} @meta={{@model.meta}} as |form|>
-  {{form.table "verkehr-strasse"}}
-  {{form.input "verkehr-einfahrt"}}
-  {{form.input "verkehr-parkplatze"}}
-  {{form.input "verkehr-mehrverkehr"}}
-  {{form.table "verkehr-strasse-indirekt"}}
-  {{form.input "verkehr-ursache-unterschreitung"}}
-  {{form.input "verkehr-ursache-unterschreitung-andere"}}
-  {{form.input "verkehr-grenzt-an-strasse"}}
-  {{form.input "verkehr-neugestaltung-trottoir"}}
-  {{form.input "verkehr-einschrankungen-trottoir"}}
-  {{form.input "verkehr-baugrube-tangieren"}}
-  {{form.input "datenverschnitt-eisenbahn"}}
-  {{form.input "datenverschnitt-wanderweg"}}
+  <form.table @identifier="verkehr-strasse"/>
+  <form.input @identifier="verkehr-einfahrt"/>
+  <form.input @identifier="verkehr-parkplatze"/>
+  <form.input @identifier="verkehr-mehrverkehr"/>
+  <form.table @identifier="verkehr-strasse-indirekt"/>
+  <form.input @identifier="verkehr-ursache-unterschreitung"/>
+  <form.input @identifier="verkehr-ursache-unterschreitung-andere"/>
+  <form.input @identifier="verkehr-grenzt-an-strasse"/>
+  <form.input @identifier="verkehr-neugestaltung-trottoir"/>
+  <form.input @identifier="verkehr-einschrankungen-trottoir"/>
+  <form.input @identifier="verkehr-baugrube-tangieren"/>
+  <form.input @identifier="datenverschnitt-eisenbahn"/>
+  <form.input @identifier="datenverschnitt-wanderweg"/>
 </CamacForm>

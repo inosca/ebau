@@ -1,10 +1,10 @@
 <CamacForm @instance={{@model.instance}} @meta={{@model.meta}} as |form|>
-  {{#form.input "bezeichnung"}}
+  <form.input @identifier="bezeichnung">
     <h4>
       Bezeichnung und Lokalisierung des Vorhabens
     </h4>
-  {{/form.input}}
-  {{form.input "projektnummer"}}
+  </form.input>
+  <form.input @identifier="projektnummer"/>
 </CamacForm>
 
 <CamacPropertySelector

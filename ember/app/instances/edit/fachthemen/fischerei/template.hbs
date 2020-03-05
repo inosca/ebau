@@ -1,5 +1,5 @@
 <CamacForm @instance={{@model.instance}} @meta={{@model.meta}} as |form|>
-  {{form.input "fischerei-ufervegetation-beeintrachtigt"}}
-  {{form.input "fischerei-ufervegetation-beeintrachtigt-info"}}
-  {{form.input "datenverschnitt-fisch"}}
+  <form.input @identifier="fischerei-ufervegetation-beeintrachtigt"/>
+  <form.input @identifier="fischerei-ufervegetation-beeintrachtigt-info"/>
+  <form.input @identifier="datenverschnitt-fisch"/>
 </CamacForm>
