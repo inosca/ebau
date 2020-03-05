@@ -172,7 +172,12 @@ class DMSVisitor:
 
     def _visit_table_question(self, node, parent_doc=None, answer=None, **_):
         return {
-            "columns": [str(column.label) for column in node.row_form.questions.all()],
+            "columns": [
+                str(column.label)
+                for column in node.row_form.questions.all().order_by(
+                    "-formquestion__sort"
+                )
+            ],
             "rows": [
                 self._visit_document(doc, flatten=True)
                 for doc in answer.documents.all()
