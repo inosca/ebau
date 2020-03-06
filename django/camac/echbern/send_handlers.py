@@ -14,6 +14,7 @@ from camac.constants.kt_bern import (
     INSTANCE_STATE_ZIRKULATION,
     NOTICE_TYPE_NEBENBESTIMMUNG,
     NOTICE_TYPE_STELLUNGNAHME,
+    NOTIFICATION_ECH,
 )
 from camac.core.models import (
     Activation,
@@ -365,13 +366,16 @@ class TaskSendHandler(BaseSendHandler):
             "data": {
                 "type": "notification-template-sendmails",
                 "id": None,
-                "attributes": {"recipient-types": ["unnotified_service"]},
+                "attributes": {
+                    "template-slug": NOTIFICATION_ECH,
+                    "recipient-types": ["unnotified_service"],
+                },
                 "relationships": {
                     "instance": {"data": {"type": "instances", "id": self.instance.pk}}
                 },
             }
         }
-        url = reverse("notificationtemplate-sendmail", args=[11])
+        url = reverse("notificationtemplate-sendmail")
         client = APIClient()
         client.credentials(HTTP_AUTHORIZATION=self.auth_header)
         client.force_authenticate(user=self.user)

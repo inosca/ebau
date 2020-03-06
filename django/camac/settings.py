@@ -156,9 +156,12 @@ APPLICATIONS = {
             "Publikation": "public_reader",
         },
         "NOTIFICATIONS": {
-            "SUBMIT": 16,
-            "APPLICANT": {"NEW": 19, "EXISTING": 20},
-            "PUBLICATION_PERMISSION": 21,
+            "SUBMIT": "gesuchseingang",
+            "APPLICANT": {
+                "NEW": "gesuchsbearbeitungs-einladung-neu",
+                "EXISTING": "gesuchsbearbeitungs-einladung-bestehend",
+            },
+            "PUBLICATION_PERMISSION": "publikation-einsehen",
         },
         "PUBLICATION_DURATION": timedelta(days=30),
         "IS_MULTILINGUAL": False,
@@ -193,19 +196,35 @@ APPLICATIONS = {
         },
         "NOTIFICATIONS": {
             "SUBMIT": [
-                {"template_id": 1, "recipient_types": ["applicant"]},
-                {"template_id": 2, "recipient_types": ["leitbehoerde"]},
+                {
+                    "template_slug": "00-empfang-anfragebaugesuch-gesuchsteller",
+                    "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "00-empfang-anfragebaugesuch-behorden",
+                    "recipient_types": ["leitbehoerde"],
+                },
             ],
             "REPORT": [
-                {"template_id": 26, "recipient_types": ["applicant"]},
-                {"template_id": 36, "recipient_types": ["construction_control"]},
+                {
+                    "template_slug": "11-meldung-selbstdeklaration-gesuchsteller",
+                    "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "11-meldung-selbstdeklaration-baukontrolle",
+                    "recipient_types": ["construction_control"],
+                },
             ],
             "FINALIZE": [
-                {"template_id": 37, "recipient_types": ["construction_control"]}
+                {
+                    "template_slug": "13-meldung-termine-pflichtkontrollen-baukontrolle",
+                    "recipient_types": ["construction_control"],
+                }
             ],
-            "START_CLAIM": [{"template_id": 13, "recipient_types": ["applicant"]}],
-            "END_CLAIM": [{"template_id": 32, "recipient_types": ["leitbehoerde"]}],
-            "APPLICANT": {"NEW": 40, "EXISTING": 39},
+            "APPLICANT": {
+                "NEW": "gesuchsbearbeitungs-einladung-neu",
+                "EXISTING": "gesuchsbearbeitungs-einladung-bestehend",
+            },
         },
         "PUBLICATION_DURATION": timedelta(),
         "IS_MULTILINGUAL": True,
