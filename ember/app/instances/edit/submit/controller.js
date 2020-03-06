@@ -1,5 +1,5 @@
 import Controller, { inject as controller } from "@ember/controller";
-import { computed, defineProperty } from "@ember/object";
+import { computed } from "@ember/object";
 import { inject as service } from "@ember/service";
 import ENV from "citizen-portal/config/environment";
 import computedTask from "citizen-portal/lib/computed-task";
@@ -14,18 +14,12 @@ export default class InstancesEditSubmitController extends Controller {
 
   @controller("instances.edit") editController;
 
-  constructor(...args) {
-    super(...args);
-    defineProperty(
-      this,
-      "canSubmit",
-      computedTask(
-        "_canSubmit",
-        "editController.modules.lastSuccessful.value.[]",
-        "questionStore._store.@each.{value,hidden,isNew}"
-      )
-    );
-  }
+  @computedTask(
+    "_canSubmit",
+    "editController.modules.lastSuccessful.value.[]",
+    "questionStore._store.@each.{value,hidden,isNew}"
+  )
+  canSubmit;
 
   @task
   *_canSubmit() {

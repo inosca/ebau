@@ -2,7 +2,7 @@
   <form.table @identifier="bauherrschaft"/>
   {{#if this.questionActive}}
     <UkButton
-      @on-click={{fn this.copyQuestionValue}}
+      @on-click={{this.copyQuestionValue}}
       class="uk-align-center uk-margin-remove-vertical"
       @disabled={{unless this.grundeigentumerschaftValue "true"}}
     >
