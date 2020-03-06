@@ -15,7 +15,7 @@ def anotification_slug(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ("core", "0048_auto_20200123_1053"),
+        ("core", "0049_add_missing_dynamic_options"),
         ("notification", "0006_notificationtemplate_slug"),
     ]
 
@@ -32,7 +32,7 @@ class Migration(migrations.Migration):
                 null=True,
             ),
         ),
-        migrations.RunPython(anotification_slug),
+        migrations.RunPython(anotification_slug, migrations.RunPython.noop),
         migrations.RemoveField(model_name="anotification", name="template",),
         migrations.RenameField(
             model_name="anotification", old_name="template_slug", new_name="template",
