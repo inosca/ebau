@@ -10,6 +10,7 @@ redirects = {
     "ebau-number/<int:instance_id>/": "/form/edit-page/instance-resource-id/20014/instance-id/%(instance_id)i",
     "claim/<int:instance_id>/": "/claim/claim/index/instance-resource-id/150000/instance-id/%(instance_id)i",
     "dossier-check/<int:instance_id>/": "/form/edit-pages/instance-resource-id/40008/instance-id/%(instance_id)i",
+    "revision-history/<int:instance_id>/": "/revisionhistory/revisionhistory/index/instance-resource-id/150004/instance-id/%(instance_id)i",
 }
 
 urlpatterns = []
