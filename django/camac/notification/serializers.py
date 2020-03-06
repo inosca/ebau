@@ -9,6 +9,7 @@ from django.conf import settings
 from django.core.mail import EmailMessage
 from django.db.models import Q, Sum
 from django.utils import timezone
+from django.utils.text import slugify
 from django.utils.translation import gettext_noop
 from rest_framework import exceptions
 from rest_framework_json_api import serializers
@@ -338,12 +339,19 @@ class IssueMergeSerializer(serializers.Serializer):
 
 class NotificationTemplateSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
-        validated_data["service"] = self.context["request"].group.service
+        service = self.context["request"].group.service
+        validated_data["service"] = service
+        validated_data["slug"] = slugify(validated_data["slug"])
         return super().create(validated_data)
+
+    def validate_slug(self, value):
+        if self.instance:
+            raise serializers.ValidationError("Updating a slug is not allowed!")
+        return value
 
     class Meta:
         model = models.NotificationTemplate
-        fields = ("purpose", "subject", "body", "type")
+        fields = ("slug", "purpose", "subject", "body", "type")
 
 
 class NotificationTemplateMergeSerializer(
@@ -392,7 +400,7 @@ class NotificationTemplateMergeSerializer(
             instance,
             activation=activation,
         )
-        data["pk"] = "{0}-{1}".format(notification_template.pk, instance.pk)
+        data["pk"] = "{0}-{1}".format(notification_template.slug, instance.pk)
 
         return data
 

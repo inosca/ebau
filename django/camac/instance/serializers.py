@@ -27,7 +27,7 @@ from camac.core.translations import get_translations
 from camac.document.models import AttachmentSection
 from camac.echbern.signals import instance_submitted, sb1_submitted, sb2_submitted
 from camac.instance.mixins import InstanceEditableMixin
-from camac.notification.serializers import NotificationTemplateSendmailSerializer
+from camac.notification.views import send_mail
 from camac.user.models import Group, Service
 from camac.user.permissions import permission_aware
 from camac.user.relations import (
@@ -540,32 +540,14 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         for (language, text) in texts:
             JournalT.objects.create(journal=journal, text=text, language=language)
 
-    def _notify_submit(self, template_id, recipient_types):
+    def _notify_submit(self, template_slug, recipient_types):
         """Send notification email."""
-
-        # fake jsonapi request for notification serializer
-        mail_data = {
-            "instance": {"type": "instances", "id": self.instance.pk},
-            "notification_template": {
-                "type": "notification-templates",
-                "id": template_id,
-            },
-            "recipient_types": recipient_types,
-        }
-
-        mail_serializer = NotificationTemplateSendmailSerializer(
-            self.instance, mail_data, context=self.context
+        send_mail(
+            template_slug,
+            self.context,
+            recipient_types=recipient_types,
+            instance={"type": "instances", "id": self.instance.pk},
         )
-
-        if not mail_serializer.is_valid():  # pragma: no cover
-            errors = "; ".join(
-                [f"{field}: {msg}" for field, msg in mail_serializer.errors.items()]
-            )
-            message = _("Cannot send email: %(errors)s") % {"errors": errors}
-            request_logger.error(message)
-            raise exceptions.ValidationError(message)
-
-        mail_serializer.create(mail_serializer.validated_data)
 
     def _set_submit_date(self, validated_data):
         document_pk = validated_data["caluma_document"]
