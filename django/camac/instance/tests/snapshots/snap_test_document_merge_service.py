@@ -126,6 +126,10 @@ snapshots['test_document_merge_service_snapshot[1-baugesuch] 1'] = [
                             {
                                 'checked': False,
                                 'label': 'Gebäudeeigentümer/in'
+                            },
+                            {
+                                'checked': False,
+                                'label': 'Verantwortliche Person Selbstdeklaration Baukontrolle'
                             }
                         ],
                         'label': 'Sind neben den Gesuchstellenden weitere Personen beteiligt?',
@@ -2396,6 +2400,25 @@ snapshots['test_document_merge_service_snapshot[1-sb1] 1'] = [
     {
         'children': [
             {
+                'columns': [
+                    'Handelt es sich um eine juristische Person?',
+                    'Name juristische Person',
+                    'Name',
+                    'Vorname',
+                    'Strasse',
+                    'Nummer',
+                    'PLZ',
+                    'Ort',
+                    'Telefon oder Mobile',
+                    'E-Mail'
+                ],
+                'label': 'Personalien - Verantwortliche Person Selbstdeklaration Baukontrolle',
+                'rows': [
+                ],
+                'slug': 'personalien-sb1-sb2',
+                'type': 'TableQuestion'
+            },
+            {
                 'choices': [
                     {
                         'checked': True,
@@ -2457,6 +2480,25 @@ snapshots['test_document_merge_service_snapshot[1-sb1] 1'] = [
 snapshots['test_document_merge_service_snapshot[1-sb2] 1'] = [
     {
         'children': [
+            {
+                'columns': [
+                    'Handelt es sich um eine juristische Person?',
+                    'Name juristische Person',
+                    'Name',
+                    'Vorname',
+                    'Strasse',
+                    'Nummer',
+                    'PLZ',
+                    'Ort',
+                    'Telefon oder Mobile',
+                    'E-Mail'
+                ],
+                'label': 'Personalien - Verantwortliche Person Selbstdeklaration Baukontrolle',
+                'rows': [
+                ],
+                'slug': 'personalien-sb1-sb2',
+                'type': 'TableQuestion'
+            },
             {
                 'choices': [
                     {
