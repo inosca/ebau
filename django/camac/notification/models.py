@@ -4,6 +4,7 @@ from ..core import models as core_models
 
 
 class NotificationTemplate(core_models.MultilingualModel, models.Model):
+    slug = models.SlugField(max_length=100, unique=True, db_index=False)
     purpose = models.CharField(
         db_column="PURPOSE", max_length=100, db_index=True, blank=True, null=True
     )
@@ -33,6 +34,9 @@ class NotificationTemplateT(models.Model):
         models.CASCADE,
         db_column="TEMPLATE_ID",
         related_name="trans",
+    )
+    template_slug = models.ForeignKey(
+        NotificationTemplate, models.CASCADE, to_field="slug"
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     purpose = models.CharField(db_column="PURPOSE", max_length=100)

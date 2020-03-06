@@ -14,6 +14,7 @@ from camac.constants.kt_bern import (
     INSTANCE_STATE_ZIRKULATION,
     NOTICE_TYPE_NEBENBESTIMMUNG,
     NOTICE_TYPE_STELLUNGNAHME,
+    NOTIFICATION_ECH,
 )
 from camac.core.models import (
     Activation,
@@ -254,7 +255,7 @@ def test_task_send_handler(
     mailoutbox,
 ):
     if has_template:
-        notification_template_factory(pk=11)
+        notification_template_factory(slug=NOTIFICATION_ECH)
 
     instance_resource_factory(pk=INSTANCE_STATE_ZIRKULATION)
     circulation_state_factory(pk=1, name="RUN")

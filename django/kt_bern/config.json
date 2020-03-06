@@ -3583,7 +3583,7 @@
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedService",
-      "template": 11
+      "template": "03-verfahrensablauf-fachstelle"
     },
     "model": "core.anotification",
     "pk": 10013
@@ -3592,7 +3592,7 @@
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedService",
-      "template": 11
+      "template": "03-verfahrensablauf-fachstelle"
     },
     "model": "core.anotification",
     "pk": 10035
@@ -3601,7 +3601,7 @@
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Custom_Plugin_Notification_Recipient_Applicant",
-      "template": 9
+      "template": "02-baugesuch-aufgrund-mangel-abweisen-oder-nicht-eintreten-art-18-bewd"
     },
     "model": "core.anotification",
     "pk": 10036
@@ -3610,7 +3610,7 @@
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Custom_Plugin_Notification_Recipient_Applicant",
-      "template": 10
+      "template": "03-verfahrensablauf-gesuchsteller"
     },
     "model": "core.anotification",
     "pk": 10037
@@ -3619,7 +3619,7 @@
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Custom_Plugin_Notification_Recipient_Applicant",
-      "template": 21
+      "template": "08-entscheid-gesuchsteller"
     },
     "model": "core.anotification",
     "pk": 10038
@@ -3628,7 +3628,7 @@
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Custom_Plugin_Notification_Recipient_CalumaMunicipality",
-      "template": 34
+      "template": "08-entscheid-gemeindeleitbehorde"
     },
     "model": "core.anotification",
     "pk": 10039
@@ -3637,7 +3637,7 @@
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Custom_Plugin_Notification_Recipient_Leitbehoerde",
-      "template": 33
+      "template": "05-bericht-erstellt"
     },
     "model": "core.anotification",
     "pk": 10040
@@ -3646,7 +3646,7 @@
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Custom_Plugin_Notification_Recipient_Service",
-      "template": 35
+      "template": "08-entscheid-amts-und-fachstellen"
     },
     "model": "core.anotification",
     "pk": 10041
@@ -3655,7 +3655,7 @@
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Custom_Plugin_Notification_Recipient_Leitbehoerde",
-      "template": 33
+      "template": "05-bericht-erstellt"
     },
     "model": "core.anotification",
     "pk": 10058
@@ -3664,7 +3664,7 @@
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedService",
-      "template": 11
+      "template": "03-verfahrensablauf-fachstelle"
     },
     "model": "core.anotification",
     "pk": 20090
@@ -3673,7 +3673,7 @@
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Custom_Plugin_Notification_Recipient_Applicant",
-      "template": 38
+      "template": "08-stellungnahme-zu-voranfrage-gesuchsteller"
     },
     "model": "core.anotification",
     "pk": 130000
@@ -3682,7 +3682,7 @@
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedService",
-      "template": 11
+      "template": "03-verfahrensablauf-fachstelle"
     },
     "model": "core.anotification",
     "pk": 130001
@@ -3691,7 +3691,7 @@
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Custom_Plugin_Notification_Recipient_Applicant",
-      "template": 30
+      "template": "03-dossierkorrektur-gesuchsteller"
     },
     "model": "core.anotification",
     "pk": 150000
@@ -3700,7 +3700,7 @@
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Custom_Plugin_Notification_Recipient_Leitbehoerde",
-      "template": 33
+      "template": "05-bericht-erstellt"
     },
     "model": "core.anotification",
     "pk": 150006
@@ -118219,6 +118219,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "00-empfang-anfragebaugesuch-gesuchsteller",
       "subject": null,
       "type": "email"
     },
@@ -118230,6 +118231,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "00-empfang-anfragebaugesuch-behorden",
       "subject": null,
       "type": "email"
     },
@@ -118241,6 +118243,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "00-empfang-stellungnahme-zu-voranfrage",
       "subject": null,
       "type": "email"
     },
@@ -118252,6 +118255,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "01-empfang-baugesuch-gemeinde",
       "subject": null,
       "type": "email"
     },
@@ -118263,6 +118267,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "02-empfangsbestatigung-baugesuch-gesuchsteller",
       "subject": null,
       "type": "email"
     },
@@ -118274,6 +118279,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "02-aufforderung-bereinigung-baugesuch",
       "subject": null,
       "type": "email"
     },
@@ -118285,6 +118291,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "02-benachrichtigung-baubewilligungsbehorde",
       "subject": null,
       "type": "email"
     },
@@ -118296,6 +118303,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "02-erklarung-zustandigkeit-gemeinde",
       "subject": null,
       "type": "email"
     },
@@ -118307,6 +118315,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "02-baugesuch-aufgrund-mangel-abweisen-oder-nicht-eintreten-art-18-bewd",
       "subject": null,
       "type": "email"
     },
@@ -118318,6 +118327,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "03-verfahrensablauf-gesuchsteller",
       "subject": null,
       "type": "email"
     },
@@ -118329,6 +118339,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "03-verfahrensablauf-fachstelle",
       "subject": null,
       "type": "email"
     },
@@ -118340,6 +118351,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "03-meldung-fristuberschreitung-fachstelle",
       "subject": null,
       "type": "email"
     },
@@ -118351,6 +118363,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "04-baugesuch-zur-auflage-gemeinde",
       "subject": null,
       "type": "email"
     },
@@ -118362,6 +118375,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "04-elektronischer-versand-fur-anzeigeramtsblatt",
       "subject": null,
       "type": "email"
     },
@@ -118373,6 +118387,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "05-zusatzliche-infos-notwendig-behorden",
       "subject": null,
       "type": "email"
     },
@@ -118384,6 +118399,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "05-meldung-fristuberschreitung-fachstelle",
       "subject": null,
       "type": "email"
     },
@@ -118395,6 +118411,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "06-information-uber-eingabe-einsprecher",
       "subject": null,
       "type": "email"
     },
@@ -118406,6 +118423,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "07-eingaben-gesuchsteller-gemeinden-fachstellen",
       "subject": null,
       "type": "email"
     },
@@ -118417,6 +118435,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "07-protokoll-amts-und-fachstellen-gesuchsteller-einsprecher",
       "subject": null,
       "type": "email"
     },
@@ -118428,6 +118447,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "08-entscheid-gesuchsteller",
       "subject": null,
       "type": "email"
     },
@@ -118439,6 +118459,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "08-zustellung-baubewilligung-an-nachfuhrungsgeometer",
       "subject": null,
       "type": "email"
     },
@@ -118450,6 +118471,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "10-zugriffsanfrage",
       "subject": null,
       "type": "email"
     },
@@ -118461,6 +118483,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "10-zugriffsmeldung",
       "subject": null,
       "type": "email"
     },
@@ -118472,6 +118495,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "10-entscheid-gesuchsteller-gemeinde-baubewilligungsbehorde-amts-und-fachstellen-einsprecher",
       "subject": null,
       "type": "email"
     },
@@ -118483,6 +118507,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "11-meldung-selbstdeklaration-gesuchsteller",
       "subject": null,
       "type": "email"
     },
@@ -118494,6 +118519,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "12-meldung-termin-baukontrolle",
       "subject": null,
       "type": "email"
     },
@@ -118505,6 +118531,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "12-meldung-pendenzen",
       "subject": null,
       "type": "email"
     },
@@ -118516,6 +118543,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "13-meldung-termine-pflichtkontrollen-gesuchsteller",
       "subject": null,
       "type": "email"
     },
@@ -118527,6 +118555,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "03-dossierkorrektur-gesuchsteller",
       "subject": null,
       "type": "email"
     },
@@ -118538,6 +118567,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "03-zusatzliche-unterlagen-notwendig-gesuchsteller",
       "subject": null,
       "type": "email"
     },
@@ -118549,6 +118579,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "03-nachforderung-beantwortet-leitbehorde",
       "subject": null,
       "type": "email"
     },
@@ -118560,6 +118591,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "05-bericht-erstellt",
       "subject": null,
       "type": "email"
     },
@@ -118571,6 +118603,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "08-entscheid-gemeindeleitbehorde",
       "subject": null,
       "type": "email"
     },
@@ -118582,6 +118615,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "08-entscheid-amts-und-fachstellen",
       "subject": null,
       "type": "email"
     },
@@ -118593,6 +118627,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "11-meldung-selbstdeklaration-baukontrolle",
       "subject": null,
       "type": "email"
     },
@@ -118604,6 +118639,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "13-meldung-termine-pflichtkontrollen-baukontrolle",
       "subject": null,
       "type": "email"
     },
@@ -118615,6 +118651,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "08-stellungnahme-zu-voranfrage-gesuchsteller",
       "subject": null,
       "type": "email"
     },
@@ -118626,6 +118663,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "gesuchsbearbeitungs-einladung-bestehend",
       "subject": null,
       "type": "email"
     },
@@ -118637,6 +118675,7 @@
       "body": null,
       "purpose": null,
       "service": null,
+      "slug": "gesuchsbearbeitungs-einladung-neu",
       "subject": null,
       "type": "email"
     },
@@ -118649,7 +118688,8 @@
       "language": "de",
       "purpose": "00 Empfang Anfrage/Baugesuch (Gesuchsteller)",
       "subject": "Erfolgreiche Einreichung / Formulaire d\u00e9pos\u00e9 avec succ\u00e8s",
-      "template": 1
+      "template": 1,
+      "template_slug": "00-empfang-anfragebaugesuch-gesuchsteller"
     },
     "model": "notification.notificationtemplatet",
     "pk": 1
@@ -118660,7 +118700,8 @@
       "language": "de",
       "purpose": "00 Empfang Anfrage/Baugesuch - (Beh\u00f6rden)",
       "subject": "Neu eingegangen / Nouvelle entr\u00e9e",
-      "template": 2
+      "template": 2,
+      "template_slug": "00-empfang-anfragebaugesuch-behorden"
     },
     "model": "notification.notificationtemplatet",
     "pk": 3
@@ -118671,7 +118712,8 @@
       "language": "de",
       "purpose": "00 Empfang Stellungnahme zu Voranfrage",
       "subject": "Voranfrage wurde \u00fcbermittelt (eBau-Nr. {{EBAU_NUMBER}}) / Demande pr\u00e9alable transmise (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "template": 3
+      "template": 3,
+      "template_slug": "00-empfang-stellungnahme-zu-voranfrage"
     },
     "model": "notification.notificationtemplatet",
     "pk": 5
@@ -118682,7 +118724,8 @@
       "language": "de",
       "purpose": "01 Empfang Baugesuch (Gemeinde)",
       "subject": "Empfang Baugesuch eBau-Nr. {{EBAU_NUMBER}} / R\u00e9ception de la demande de permis de construire portant le num\u00e9ro eBau {{EBAU_NUMBER}}",
-      "template": 4
+      "template": 4,
+      "template_slug": "01-empfang-baugesuch-gemeinde"
     },
     "model": "notification.notificationtemplatet",
     "pk": 7
@@ -118693,7 +118736,8 @@
       "language": "de",
       "purpose": "02 Empfangsbest\u00e4tigung Baugesuch (Gesuchsteller)",
       "subject": "Empfangsbest\u00e4tigung Baugesuch (eBau-Nr. {{EBAU_NUMBER}}) / Accus\u00e9 de r\u00e9ception de la demande de permis de construire (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "template": 5
+      "template": 5,
+      "template_slug": "02-empfangsbestatigung-baugesuch-gesuchsteller"
     },
     "model": "notification.notificationtemplatet",
     "pk": 9
@@ -118704,7 +118748,8 @@
       "language": "de",
       "purpose": "02 Aufforderung Bereinigung Baugesuch",
       "subject": "Aufforderung Bereinigung Baugesuch (eBau-Nr. {{EBAU_NUMBER}}) / Invitation \u00e0 corriger la demande de permis de construire (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "template": 6
+      "template": 6,
+      "template_slug": "02-aufforderung-bereinigung-baugesuch"
     },
     "model": "notification.notificationtemplatet",
     "pk": 11
@@ -118715,7 +118760,8 @@
       "language": "de",
       "purpose": "02 Benachrichtigung Baubewilligungsbeh\u00f6rde",
       "subject": "Fortsetzung Baugesuch (eBau-Nr. {{EBAU_NUMBER}}) / Poursuite du traitement de la demande de permis de construire (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "template": 7
+      "template": 7,
+      "template_slug": "02-benachrichtigung-baubewilligungsbehorde"
     },
     "model": "notification.notificationtemplatet",
     "pk": 13
@@ -118726,7 +118772,8 @@
       "language": "de",
       "purpose": "02 Erkl\u00e4rung Zust\u00e4ndigkeit  (Gemeinde)",
       "subject": "Erkl\u00e4rung Zust\u00e4ndigkeit (eBau Nr. {{EBAU_NUMBER}}) / D\u00e9claration relative \u00e0 la comp\u00e9tence (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "template": 8
+      "template": 8,
+      "template_slug": "02-erklarung-zustandigkeit-gemeinde"
     },
     "model": "notification.notificationtemplatet",
     "pk": 15
@@ -118737,7 +118784,8 @@
       "language": "de",
       "purpose": "02 Baugesuch aufgrund M\u00e4ngel abweisen oder nicht eintreten (Art. 18 BewD)",
       "subject": "Baugesuch aufgrund von M\u00e4ngeln abgewiesen oder nicht darauf eingetreten (eBau Nr. {{EBAU_NUMBER}}) / Demande de permis de construire rejet\u00e9e en raison de d\u00e9fauts ou non satisfaite (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "template": 9
+      "template": 9,
+      "template_slug": "02-baugesuch-aufgrund-mangel-abweisen-oder-nicht-eintreten-art-18-bewd"
     },
     "model": "notification.notificationtemplatet",
     "pk": 17
@@ -118748,7 +118796,8 @@
       "language": "de",
       "purpose": "03 Verfahrensablauf (Gesuchsteller)",
       "subject": "Hinweis zum Verfahrensablauf (eBau Nr. {{EBAU_NUMBER}}) / Pr\u00e9cision sur le d\u00e9roulement de la proc\u00e9dure (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "template": 10
+      "template": 10,
+      "template_slug": "03-verfahrensablauf-gesuchsteller"
     },
     "model": "notification.notificationtemplatet",
     "pk": 19
@@ -118759,7 +118808,8 @@
       "language": "de",
       "purpose": "03 Verfahrensablauf (Fachstelle)",
       "subject": "Hinweis zum Verfahrensablauf (eBau Nr. {{EBAU_NUMBER}}) / Pr\u00e9cision sur le d\u00e9roulement de la proc\u00e9dure (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "template": 11
+      "template": 11,
+      "template_slug": "03-verfahrensablauf-fachstelle"
     },
     "model": "notification.notificationtemplatet",
     "pk": 21
@@ -118770,7 +118820,8 @@
       "language": "de",
       "purpose": "03 Meldung Frist\u00fcberschreitung (Fachstelle)",
       "subject": "Meldung Frist\u00fcberschreitung (eBau Nr. {{EBAU_NUMBER}}) / Avis concernant le d\u00e9passement du d\u00e9lai (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "template": 12
+      "template": 12,
+      "template_slug": "03-meldung-fristuberschreitung-fachstelle"
     },
     "model": "notification.notificationtemplatet",
     "pk": 23
@@ -118781,7 +118832,8 @@
       "language": "de",
       "purpose": "04 Baugesuch zur Auflage (Gemeinde)",
       "subject": "Baugesuch zur Auflage (eBau Nr. {{EBAU_NUMBER}}) / Demande de permis de construire \u00e0 d\u00e9poser publiquement (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "template": 14
+      "template": 14,
+      "template_slug": "04-baugesuch-zur-auflage-gemeinde"
     },
     "model": "notification.notificationtemplatet",
     "pk": 27
@@ -118792,7 +118844,8 @@
       "language": "de",
       "purpose": "04 Elektronischer Versand f\u00fcr Anzeiger/Amtsblatt",
       "subject": "Elektronischer Versand f\u00fcr Anzeiger/Amtsblatt (eBau Nr. {{EBAU_NUMBER}}) / Envoi \u00e9lectronique \u00e0 la Feuille officielle/feuille officielle d'avis (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "template": 15
+      "template": 15,
+      "template_slug": "04-elektronischer-versand-fur-anzeigeramtsblatt"
     },
     "model": "notification.notificationtemplatet",
     "pk": 29
@@ -118803,7 +118856,8 @@
       "language": "de",
       "purpose": "05 Zus\u00e4tzliche Infos notwendig (Beh\u00f6rden)",
       "subject": "Zus\u00e4tzliche Infos notwendig (eBau Nr. {{EBAU_NUMBER}}) / Compl\u00e9ment d'information requis (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "template": 16
+      "template": 16,
+      "template_slug": "05-zusatzliche-infos-notwendig-behorden"
     },
     "model": "notification.notificationtemplatet",
     "pk": 31
@@ -118814,7 +118868,8 @@
       "language": "de",
       "purpose": "05 Meldung Frist\u00fcberschreitung (Fachstelle)",
       "subject": "Frist\u00fcberschreitung (eBau Nr. {{EBAU_NUMBER}}) / non-respect d'un d\u00e9lai (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "template": 17
+      "template": 17,
+      "template_slug": "05-meldung-fristuberschreitung-fachstelle"
     },
     "model": "notification.notificationtemplatet",
     "pk": 33
@@ -118825,7 +118880,8 @@
       "language": "de",
       "purpose": "06 Information \u00fcber Eingabe (Einsprecher)",
       "subject": "Information \u00fcber Ihre Eingabe (eBau Nr. {{EBAU_NUMBER}}) / Information relative \u00e0 votre envoi (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "template": 18
+      "template": 18,
+      "template_slug": "06-information-uber-eingabe-einsprecher"
     },
     "model": "notification.notificationtemplatet",
     "pk": 35
@@ -118836,7 +118892,8 @@
       "language": "de",
       "purpose": "07 Eingaben (Gesuchsteller, Gemeinden, Fachstellen)",
       "subject": "Information \u00fcber eingegangene Eingaben (eBau Nr. {{EBAU_NUMBER}}) / Information sur la r\u00e9ception d'envois (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "template": 19
+      "template": 19,
+      "template_slug": "07-eingaben-gesuchsteller-gemeinden-fachstellen"
     },
     "model": "notification.notificationtemplatet",
     "pk": 37
@@ -118847,7 +118904,8 @@
       "language": "de",
       "purpose": "07 Protokoll (Amts- und Fachstellen, Gesuchsteller, Einsprecher)",
       "subject": "Protokoll Einigungsverhandlung (eBau Nr. {{EBAU_NUMBER}}) / Proc\u00e8s-verbal des pourparlers de conciliation (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "template": 20
+      "template": 20,
+      "template_slug": "07-protokoll-amts-und-fachstellen-gesuchsteller-einsprecher"
     },
     "model": "notification.notificationtemplatet",
     "pk": 39
@@ -118858,7 +118916,8 @@
       "language": "de",
       "purpose": "08 Entscheid (Gesuchsteller)",
       "subject": "Information \u00fcber Entscheid (eBau Nr. {{EBAU_NUMBER}}) / Information sur le prononc\u00e9 de la d\u00e9cision (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "template": 21
+      "template": 21,
+      "template_slug": "08-entscheid-gesuchsteller"
     },
     "model": "notification.notificationtemplatet",
     "pk": 41
@@ -118869,7 +118928,8 @@
       "language": "de",
       "purpose": "08 Zustellung Baubewilligung an Nachf\u00fchrungsgeometer",
       "subject": "Aufforderung Nachf\u00fchrung Situationsplan (eBau Nr. {{EBAU_NUMBER}}) / Demande de mise \u00e0 jour du plan de situation (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "template": 22
+      "template": 22,
+      "template_slug": "08-zustellung-baubewilligung-an-nachfuhrungsgeometer"
     },
     "model": "notification.notificationtemplatet",
     "pk": 43
@@ -118880,7 +118940,8 @@
       "language": "de",
       "purpose": "10 Zugriffsanfrage",
       "subject": "Zugriffsanfrage (eBau Nr. {{EBAU_NUMBER}}) / Question relative \u00e0 l'acc\u00e8s (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "template": 23
+      "template": 23,
+      "template_slug": "10-zugriffsanfrage"
     },
     "model": "notification.notificationtemplatet",
     "pk": 45
@@ -118891,7 +118952,8 @@
       "language": "de",
       "purpose": "10 Zugriffsmeldung",
       "subject": "Zugriffsmeldung (eBau Nr. {{EBAU_NUMBER}}) / Avis concernant l'acc\u00e8s (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "template": 24
+      "template": 24,
+      "template_slug": "10-zugriffsmeldung"
     },
     "model": "notification.notificationtemplatet",
     "pk": 47
@@ -118902,7 +118964,8 @@
       "language": "de",
       "purpose": "10 Entscheid (Gesuchsteller, Gemeinde, Baubewilligungsbeh\u00f6rde, Amts- und Fachstellen, Einsprecher)",
       "subject": "Information \u00fcber Entscheid (eBau Nr. {{EBAU_NUMBER}}) / Information sur le prononc\u00e9 de la d\u00e9cision (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "template": 25
+      "template": 25,
+      "template_slug": "10-entscheid-gesuchsteller-gemeinde-baubewilligungsbehorde-amts-und-fachstellen-einsprecher"
     },
     "model": "notification.notificationtemplatet",
     "pk": 49
@@ -118913,7 +118976,8 @@
       "language": "de",
       "purpose": "11 Meldung Selbstdeklaration (Gesuchsteller)",
       "subject": "Meldung Selbstdeklaration (eBau Nr. {{EBAU_NUMBER}}) / Avis concernant la d\u00e9claration spontan\u00e9e (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "template": 26
+      "template": 26,
+      "template_slug": "11-meldung-selbstdeklaration-gesuchsteller"
     },
     "model": "notification.notificationtemplatet",
     "pk": 51
@@ -118924,7 +118988,8 @@
       "language": "de",
       "purpose": "12 Meldung Termin Baukontrolle",
       "subject": "Meldung der Baukontrolle eingetroffen (eBau Nr. {{EBAU_NUMBER}}) / Avis de r\u00e9ception du contr\u00f4le des constructions (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "template": 27
+      "template": 27,
+      "template_slug": "12-meldung-termin-baukontrolle"
     },
     "model": "notification.notificationtemplatet",
     "pk": 53
@@ -118935,7 +119000,8 @@
       "language": "de",
       "purpose": "12\tMeldung Pendenzen",
       "subject": "Pendenzen aus Baukontrolle (eBau Nr. {{EBAU_NUMBER}}) / Points en suspens selon le contr\u00f4le des constructions (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "template": 28
+      "template": 28,
+      "template_slug": "12-meldung-pendenzen"
     },
     "model": "notification.notificationtemplatet",
     "pk": 55
@@ -118946,7 +119012,8 @@
       "language": "de",
       "purpose": "13 Meldung Termine Pflichtkontrollen (Gesuchsteller)",
       "subject": "Termine Pflichtkontrollen (eBau Nr. {{EBAU_NUMBER}}) / Dates des contr\u00f4les obligatoires (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "template": 29
+      "template": 29,
+      "template_slug": "13-meldung-termine-pflichtkontrollen-gesuchsteller"
     },
     "model": "notification.notificationtemplatet",
     "pk": 57
@@ -118957,7 +119024,8 @@
       "language": "de",
       "purpose": "03 Dossierkorrektur (Gesuchsteller)",
       "subject": "Dossierkorrektur (eBau Nr. {{EBAU_NUMBER}}) / Correction du dossier (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "template": 30
+      "template": 30,
+      "template_slug": "03-dossierkorrektur-gesuchsteller"
     },
     "model": "notification.notificationtemplatet",
     "pk": 59
@@ -118968,7 +119036,8 @@
       "language": "de",
       "purpose": "03 Zus\u00e4tzliche Unterlagen notwendig (Gesuchsteller)",
       "subject": "Zus\u00e4tzliche Unterlagen notwendig (eBau Nr. {{EBAU_NUMBER}}) / Documents compl\u00e9mentaires requis (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "template": 31
+      "template": 31,
+      "template_slug": "03-zusatzliche-unterlagen-notwendig-gesuchsteller"
     },
     "model": "notification.notificationtemplatet",
     "pk": 61
@@ -118979,7 +119048,8 @@
       "language": "de",
       "purpose": "03 Nachforderung beantwortet (Leitbeh\u00f6rde)",
       "subject": "Nachforderung beantwortet (eBau Nr. {{EBAU_NUMBER}}) / Compl\u00e9ment d'information fourni (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "template": 32
+      "template": 32,
+      "template_slug": "03-nachforderung-beantwortet-leitbehorde"
     },
     "model": "notification.notificationtemplatet",
     "pk": 63
@@ -118990,7 +119060,8 @@
       "language": "de",
       "purpose": "05 Bericht Erstellt",
       "subject": "Bericht erstellt (eBau-Nr. {{EBAU_NUMBER}}) / Rapport cr\u00e9\u00e9 (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "template": 33
+      "template": 33,
+      "template_slug": "05-bericht-erstellt"
     },
     "model": "notification.notificationtemplatet",
     "pk": 65
@@ -119001,7 +119072,8 @@
       "language": "de",
       "purpose": "08 Entscheid (Gemeinde/Leitbeh\u00f6rde)",
       "subject": "Information \u00fcber Entscheid (eBau Nr. {{EBAU_NUMBER}}) / Information sur le prononc\u00e9 de la d\u00e9cision (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "template": 34
+      "template": 34,
+      "template_slug": "08-entscheid-gemeindeleitbehorde"
     },
     "model": "notification.notificationtemplatet",
     "pk": 67
@@ -119012,7 +119084,8 @@
       "language": "de",
       "purpose": "08 Entscheid (Amts- und Fachstellen)",
       "subject": "Information \u00fcber Entscheid (eBau Nr. {{EBAU_NUMBER}}) / Information sur le prononc\u00e9 de la d\u00e9cision (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "template": 35
+      "template": 35,
+      "template_slug": "08-entscheid-amts-und-fachstellen"
     },
     "model": "notification.notificationtemplatet",
     "pk": 69
@@ -119023,7 +119096,8 @@
       "language": "de",
       "purpose": "11 Meldung Selbstdeklaration (Baukontrolle)",
       "subject": "Meldung Selbstdeklaration - eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) / Avis concernant la d\u00e9claration spontan\u00e9e (n\u00b0 eBau {{EBAU_NUMBER}}) ({{INSTANCE_ID}})",
-      "template": 36
+      "template": 36,
+      "template_slug": "11-meldung-selbstdeklaration-baukontrolle"
     },
     "model": "notification.notificationtemplatet",
     "pk": 71
@@ -119034,7 +119108,8 @@
       "language": "de",
       "purpose": "13 Meldung Termine Pflichtkontrollen (Baukontrolle)",
       "subject": "Meldung zur Baukontrolle Selbstdeklaration Baukontrolle 2 - eBau Nr.  {{EBAU_NUMBER}} ({{INSTANCE_ID}}) / Avis de r\u00e9ception du contr\u00f4le des constructions DC1  la d\u00e9claration spontan\u00e9e la contr\u00f4le des constructions DC2  (n\u00b0 eBau {{EBAU_NUMBER}}) ({{INSTANCE_ID}})",
-      "template": 37
+      "template": 37,
+      "template_slug": "13-meldung-termine-pflichtkontrollen-baukontrolle"
     },
     "model": "notification.notificationtemplatet",
     "pk": 73
@@ -119045,7 +119120,8 @@
       "language": "de",
       "purpose": "08 Stellungnahme zu Voranfrage (Gesuchsteller)",
       "subject": "Stellungnahme zu Voranfrage (eBau Nr. {{EBAU_NUMBER}}) / Observations sur l'enqu\u00eate pr\u00e9liminaire (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "template": 38
+      "template": 38,
+      "template_slug": "08-stellungnahme-zu-voranfrage-gesuchsteller"
     },
     "model": "notification.notificationtemplatet",
     "pk": 75
@@ -119056,7 +119132,8 @@
       "language": "de",
       "purpose": "Gesuchsbearbeitungs Einladung, Bestehend",
       "subject": "Einsicht respektive Mitarbeit in Dossier (Nr. {{ INSTANCE_ID }}) / Consultation du ou participation au dossier (n\u00b0 {{ INSTANCE_ID }})",
-      "template": 39
+      "template": 39,
+      "template_slug": "gesuchsbearbeitungs-einladung-bestehend"
     },
     "model": "notification.notificationtemplatet",
     "pk": 76
@@ -119067,7 +119144,8 @@
       "language": "de",
       "purpose": "Gesuchsbearbeitungs Einladung, Neu",
       "subject": "Einsicht respektive Mitarbeit in Dossier (Nr. {{ INSTANCE_ID }}) / Consultation du ou participation au dossier (n\u00b0 {{ INSTANCE_ID }})",
-      "template": 40
+      "template": 40,
+      "template_slug": "gesuchsbearbeitungs-einladung-neu"
     },
     "model": "notification.notificationtemplatet",
     "pk": 78

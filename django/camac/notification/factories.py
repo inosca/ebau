@@ -7,6 +7,7 @@ from . import models
 
 
 class NotificationTemplateFactory(DjangoModelFactory):
+    slug = Faker("slug")
     purpose = Faker("name")
     subject = Faker("sentence")
     body = Faker("text")

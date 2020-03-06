@@ -1,10 +1,35 @@
 from django.db.models import Q
+from django.shortcuts import get_object_or_404
 from rest_framework import response, status, viewsets
 from rest_framework.decorators import action
 
 from camac.user.permissions import permission_aware
 
 from . import filters, models, serializers
+
+
+def send_mail(
+    slug,
+    context,
+    serializer=serializers.NotificationTemplateSendmailSerializer,
+    **kwargs,
+):
+    """Call a SendmailSerializer based on a NotificationTemplate Slug."""
+    notification_template = get_object_or_404(models.NotificationTemplate, slug=slug)
+
+    data = {
+        "notification_template": {
+            "type": "notification-templates",
+            "id": notification_template.pk,
+        },
+        **kwargs,
+    }
+
+    serializer = serializer(data=data, context=context)
+    serializer.is_valid(raise_exception=True)
+    serializer.save()
+
+    return serializer
 
 
 class NotificationTemplateView(viewsets.ModelViewSet):
@@ -102,15 +127,11 @@ class NotificationTemplateView(viewsets.ModelViewSet):
         return {"request": self.request}
 
     @action(
-        detail=True,
+        detail=False,
         methods=["post"],
         serializer_class=serializers.NotificationTemplateSendmailSerializer,
     )
-    def sendmail(self, request, pk=None):
-        data = request.data
-        data["notification_template"] = {"type": "notification-templates", "id": pk}
-        serializer = self.get_serializer(data=data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
+    def sendmail(self, request):
+        send_mail(request.data["template_slug"], {"request": request}, **request.data)
 
         return response.Response(status=status.HTTP_204_NO_CONTENT)
