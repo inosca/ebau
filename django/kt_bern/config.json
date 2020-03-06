@@ -2337,6 +2337,30 @@
   },
   {
     "fields": {
+      "action": 110003,
+      "description": null,
+      "error_message": "Le num\u00e9ro eBau sp\u00e9cifi\u00e9 n'existe pas ou a d\u00e9j\u00e0 \u00e9t\u00e9 attribu\u00e9 par une autre autorit\u00e9 directrice",
+      "language": "fr",
+      "name": "Check eBau-Nr exists",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150009
+  },
+  {
+    "fields": {
+      "action": 110004,
+      "description": null,
+      "error_message": "Le num\u00e9ro eBau sp\u00e9cifi\u00e9 n'existe pas ou a d\u00e9j\u00e0 \u00e9t\u00e9 attribu\u00e9 par une autre autorit\u00e9 directrice",
+      "language": "fr",
+      "name": "Check eBau-Nr exists",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150010
+  },
+  {
+    "fields": {
       "action": 1200000,
       "description": null,
       "error_message": null,
