@@ -1,31 +1,33 @@
 import Controller from "@ember/controller";
+import { tracked } from "@glimmer/tracking";
 import { info1, info2, info3 } from "citizen-portal/instances/new/info";
-import { task } from "ember-concurrency-decorators";
+import { dropTask, restartableTask } from "ember-concurrency-decorators";
 
-export default Controller.extend({
-  infoCol1: info1,
-  infoCol2: info2,
-  infoCol3: info3,
+export default class InstancesNewController extends Controller {
+  infoCol1 = info1;
+  infoCol2 = info2;
+  infoCol3 = info3;
 
-  queryParams: ["group"],
-  group: null,
+  queryParams = ["group"];
+  @tracked group = null;
 
-  groupData: task(function*() {
+  @restartableTask
+  *groupData() {
     if (this.get("group")) {
       return yield this.store.findRecord("group", this.get("group"), {
         include: "role,locations"
       });
     }
-  }).restartable(),
+  }
 
-  @task({ restartable: true })
+  @restartableTask
   *forms() {
     return yield this.store.query("form", { group: this.get("group") });
   }
 
-  @task({ drop: true })
+  @dropTask
   *save() {
-    yield this.model.save();
+    const model = this.model;
 
     const group = this.get("groupData.lastSuccessful.value");
 
@@ -33,6 +35,9 @@ export default Controller.extend({
       model.set("location", group.hasMany("locations").value().firstObject);
       model.set("group", group);
     }
-    yield this.transitionToRoute("instances.edit", this.model.id);
+
+    yield model.save();
+
+    yield this.transitionToRoute("instances.edit", model.id);
   }
 }

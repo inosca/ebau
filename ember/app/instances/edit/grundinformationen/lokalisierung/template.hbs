@@ -8,12 +8,7 @@
 </CamacForm>
 
 <CamacPropertySelector
-  @readonly={{not
-    (or
-      (eq @model.instance.instanceState.name "new")
-      (eq @model.instance.instanceState.name "rejected")
-    )
-  }}
+  @readonly={{not (contains @model.instance.instanceState.name (array "new" "rejected"))}}
   @selected={{hash
     points=this.points.value
     parcels=this.parcels.value

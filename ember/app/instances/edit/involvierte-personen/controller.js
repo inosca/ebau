@@ -3,7 +3,7 @@ import { action, computed } from "@ember/object";
 import { isBlank } from "@ember/utils";
 import { tracked } from "@glimmer/tracking";
 import Changeset from "ember-changeset";
-import { task } from "ember-concurrency-decorators";
+import { dropTask, restartableTask } from "ember-concurrency-decorators";
 import UIkit from "uikit";
 
 export default class InstancesEditInvolviertePersonenController extends Controller {
@@ -11,12 +11,12 @@ export default class InstancesEditInvolviertePersonenController extends Controll
   @tracked saveErrors = [];
   @tracked newRow;
 
-  @task({ drop: true })
+  @dropTask
   *addRow() {
     yield this.set("newRow", { email: undefined });
   }
 
-  @task({ restartable: true })
+  @restartableTask
   *saveRow() {
     const changeset = this._value;
 
@@ -44,7 +44,7 @@ export default class InstancesEditInvolviertePersonenController extends Controll
     }
   }
 
-  @task
+  @dropTask
   *deleteRow(row) {
     yield this.applicants.find(a => a.email === row.email).destroyRecord();
     yield this.refreshList();
