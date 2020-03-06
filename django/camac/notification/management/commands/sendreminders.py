@@ -7,8 +7,9 @@ from camac.core.models import Activation
 from camac.notification.serializers import (
     PermissionlessNotificationTemplateSendmailSerializer,
 )
+from camac.notification.views import send_mail
 
-TEMPLATE_REMINDER_CIRCULATION = 17
+TEMPLATE_REMINDER_CIRCULATION = "05-meldung-fristuberschreitung-fachstelle"
 
 
 class Command(BaseCommand):
@@ -25,16 +26,10 @@ class Command(BaseCommand):
         instances = {a.circulation.instance for a in activations}
         for instance in instances:
             print(f"Sending reminders for instance {instance.pk}")
-            sendmail_data = {
-                "recipient_types": ["activation_deadline_today"],
-                "notification_template": {
-                    "type": "notification-templates",
-                    "id": TEMPLATE_REMINDER_CIRCULATION,
-                },
-                "instance": {"id": instance.pk, "type": "instances"},
-            }
-            sendmail_serializer = PermissionlessNotificationTemplateSendmailSerializer(
-                data=sendmail_data
+            send_mail(
+                TEMPLATE_REMINDER_CIRCULATION,
+                {},
+                PermissionlessNotificationTemplateSendmailSerializer,
+                recipient_types=["activation_deadline_today"],
+                instance={"id": instance.pk, "type": "instances"},
             )
-            sendmail_serializer.is_valid(raise_exception=True)
-            sendmail_serializer.save()

@@ -304,6 +304,7 @@ class ANotification(models.Model):
         models.CASCADE,
         db_column="TEMPLATE_ID",
         related_name="+",
+        to_field="slug",
     )
     recipient_type = models.CharField(db_column="RECIPIENT_TYPE", max_length=160)
     processor = models.CharField(db_column="PROCESSOR", max_length=160)

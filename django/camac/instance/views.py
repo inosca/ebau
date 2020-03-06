@@ -20,7 +20,7 @@ from camac.caluma.api import CalumaApi
 from camac.core.models import InstanceService, WorkflowEntry
 from camac.core.views import SendfileHttpResponse
 from camac.document.models import Attachment, AttachmentSection
-from camac.notification.serializers import NotificationTemplateSendmailSerializer
+from camac.notification.views import send_mail
 from camac.unoconv import convert
 from camac.user.permissions import permission_aware
 
@@ -298,20 +298,12 @@ class InstanceView(
         # send notification email when configured
         notification_template = settings.APPLICATION["NOTIFICATIONS"].get("SUBMIT")
         if notification_template and instance.group.service.notification:
-            context = self.get_serializer_context()
-            sendmail_data = {
-                "recipient_types": ["municipality"],
-                "notification_template": {
-                    "type": "notification-templates",
-                    "id": notification_template,
-                },
-                "instance": {"id": pk, "type": "instances"},
-            }
-            sendmail_serializer = NotificationTemplateSendmailSerializer(
-                data=sendmail_data, context=context
+            send_mail(
+                notification_template,
+                self.get_serializer_context(),
+                recipient_types=["municipality"],
+                instance={"id": pk, "type": "instances"},
             )
-            sendmail_serializer.is_valid(raise_exception=True)
-            sendmail_serializer.save()
 
         filename = "{0}_{1:%d.%m.%Y}.pdf".format(
             instance.form.description, timezone.now()
