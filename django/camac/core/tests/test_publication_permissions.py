@@ -49,7 +49,7 @@ def test_publication_permission_create(
 ):
     application_settings["NOTIFICATIONS"][
         "PUBLICATION_PERMISSION"
-    ] = notification_template.pk
+    ] = notification_template.slug
 
     url = reverse("publication-permissions-list")
 
