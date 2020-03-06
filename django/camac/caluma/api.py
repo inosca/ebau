@@ -98,7 +98,7 @@ class CalumaApi:
     def create_document(self, form_slug, **kwargs):
         return caluma_form_models.Document.objects.create(form_id=form_slug, **kwargs)
 
-    def copy_document(self, source_pk, exclude_form_slugs=None, meta=None):
+    def copy_document(self, source_pk, exclude_form_slugs=None, meta=None, **kwargs):
         """Use to `copy()` function on a document and do some clean-up.
 
         Caution: `exclude_form_slugs` is only excluding top-level questions
@@ -107,7 +107,7 @@ class CalumaApi:
         questions in the excluded form.
         """
         source = caluma_form_models.Document.objects.get(pk=source_pk)
-        document = source.copy()
+        document = source.copy(**kwargs)
 
         if meta is not None:
             document.meta = meta
