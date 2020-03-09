@@ -28,7 +28,8 @@ from .schema import (
     ech_0058_5_0,
     ech_0097_2_0 as ns_company_identification,
     ech_0129_5_0 as ns_objektwesen,
-    ech_0147_t0_1 as ns_document,
+    ech_0147_t0_1 as ns_nachrichten_t0,
+    ech_0147_t2_1 as ns_nachrichten_t2,
     ech_0211_2_0 as ns_application,
 )
 
@@ -110,15 +111,15 @@ def get_keywords(attachment):
 
 def get_documents(attachments):
     documents = [
-        ns_document.documentType(
+        ns_nachrichten_t0.documentType(
             uuid=str(attachment.uuid),
             titles=pyxb.BIND(title=[attachment.display_name]),
             status="signed",  # ech0039 documentStatusType
             documentKind=get_document_sections(attachment),
             keywords=get_keywords(attachment),
-            files=ns_document.filesType(
+            files=ns_nachrichten_t0.filesType(
                 file=[
-                    ns_document.fileType(
+                    ns_nachrichten_t0.fileType(
                         pathFileName=build_url(
                             settings.INTERNAL_BASE_URL,
                             f"{reverse('multi-attachment-download')}?attachments={attachment.pk}",
@@ -136,13 +137,15 @@ def get_documents(attachments):
     ]
     if not documents:
         documents = [
-            ns_document.documentType(
+            ns_nachrichten_t0.documentType(
                 uuid="00000000-0000-0000-0000-000000000000",
                 titles=pyxb.BIND(title=["dummy"]),
                 status="signed",
-                files=ns_document.filesType(
+                files=ns_nachrichten_t0.filesType(
                     file=[
-                        ns_document.fileType(pathFileName="unknown", mimeType="unknown")
+                        ns_nachrichten_t0.fileType(
+                            pathFileName="unknown", mimeType="unknown"
+                        )
                     ]
                 ),
             )
@@ -478,12 +481,32 @@ def submit(instance: Instance, answers: dict, event_type: str):
     )
 
 
-def request(instance: Instance, event_type: str):
+def directive(activation):
+    # Instruction can be one of
+    #  - "process"
+    #  - "external_process"
+    #  - "information"
+    #  - "comment"
+    #  - "approve"
+    #  - "sign"
+    #  - "send"
+    #  - "complete"
+    return ns_nachrichten_t2.directiveType(
+        uuid="00000000-0000-0000-0000-000000000000",
+        instruction="process",
+        priority="undefined",
+        comments="Anforderung einer Stellungnahme",
+        deadline=activation.deadline_date.date(),
+    )
+
+
+def request(instance: Instance, event_type: str, activation=None):
     return ns_application.eventRequestType(
         eventType=ns_application.eventTypeType(event_type),
         planningPermissionApplicationIdentification=permission_application_identification(
             instance
         ),
+        directive=directive(activation) if activation else None,
     )
 
 
