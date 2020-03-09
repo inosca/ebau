@@ -243,21 +243,44 @@ class WithdrawPlanningPermissionApplicationEventHandler(BaseEventHandler):
             raise
 
 
-class TaskEventHandler(WithdrawPlanningPermissionApplicationEventHandler):
+class TaskEventHandler(BaseEventHandler):
     event_type = "task"
     message_type = ECH_TASK
+
+    def get_data(self):
+        return {"ech-subject": self.event_type}
+
+    def get_xml(self, data, activation):
+        try:
+            return delivery(
+                self.instance,
+                data,
+                message_type=self.message_type,
+                message_date=self.message_date,
+                message_id=str(self.message_id),
+                eventRequest=request(
+                    self.instance, self.event_type, activation=activation
+                ),
+            ).toxml()
+        except (
+            IncompleteElementContentError,
+            UnprocessedElementContentError,
+            UnprocessedKeywordContentError,
+        ) as e:  # pragma: no cover
+            logger.error(e.details())
+            raise
 
     def run(self):
         msgs = []
         data = self.get_data()
-        for a in Activation.objects.filter(
+        for activation in Activation.objects.filter(
             circulation__instance=self.instance, ech_msg_created=False
         ):
             self.message_id = uuid4()
-            xml = self.get_xml(data)
-            msgs.append(self.create_message(xml, a.service))
-            a.ech_msg_created = True
-            a.save()
+            xml = self.get_xml(data, activation)
+            msgs.append(self.create_message(xml, activation.service))
+            activation.ech_msg_created = True
+            activation.save()
 
         return msgs
 
