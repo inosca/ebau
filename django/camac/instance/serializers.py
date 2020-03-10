@@ -529,6 +529,35 @@ class CalumaInstanceSerializer(InstanceSerializer):
         meta_fields = InstanceSerializer.Meta.meta_fields + ("permissions",)
 
 
+def copy_table_answer(
+    instance, source_question, target_form, target_answer, source_form=None
+):
+    if source_form is None:
+        source_form_id = CalumaApi().get_main_document(instance)
+    else:
+        source_form_id = CalumaApi().get_document_by_form_slug(instance, source_form)
+
+    target_document_id = CalumaApi().get_document_by_form_slug(instance, target_form)
+    table_answers = caluma_form_models.Answer.objects.filter(
+        document_id=source_form_id, question_id=source_question
+    )
+    if not table_answers:
+        return
+
+    sb_table_answer = caluma_form_models.Answer.objects.create(
+        document_id=target_document_id, question_id=target_answer
+    )
+
+    for row in table_answers[0].documents.all():
+        sb_row = CalumaApi().copy_document(
+            row.id,
+            family=caluma_form_models.Document.objects.get(
+                id=target_document_id
+            ).family,
+        )
+        sb_table_answer.documents.add(sb_row)
+
+
 class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
     def _create_journal_entry(self, texts):
         journal = Journal.objects.create(
@@ -652,6 +681,8 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
         self._create_journal_entry(get_translations(gettext_noop("Dossier submitted")))
 
+        copy_table_answer(instance, "personalien-sb", "sb1", "personalien-sb1-sb2")
+
         # send out emails upon submission
         for notification_config in settings.APPLICATION["NOTIFICATIONS"]["SUBMIT"]:
             self._notify_submit(**notification_config)
@@ -695,6 +726,10 @@ class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
         self._generate_and_store_pdf(instance, "sb1")
 
         self._create_journal_entry(get_translations(gettext_noop("SB1 submitted")))
+
+        copy_table_answer(
+            instance, "personalien-sb", "sb2", "personalien-sb1-sb2", "sb1"
+        )
 
         # send out emails upon submission
         for notification_config in settings.APPLICATION["NOTIFICATIONS"]["REPORT"]:
