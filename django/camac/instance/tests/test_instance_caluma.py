@@ -64,6 +64,24 @@ def caluma_forms(settings):
                 question=question, option=option
             )
 
+    # sb1 and sb2
+    sb1_table = caluma_form_models.Form.objects.create(
+        slug="verantwortliche-person-sb-tabelle"
+    )
+    caluma_form_models.Question.objects.create(
+        slug="personalien-sb",
+        type=caluma_form_models.Question.TYPE_TABLE,
+        row_form=sb1_table,
+    )
+    caluma_form_models.Question.objects.create(
+        slug="personalien-sb1-sb2",
+        type=caluma_form_models.Question.TYPE_TABLE,
+        row_form=sb1_table,
+    )
+    caluma_form_models.Question.objects.create(
+        slug="name-sb", type=caluma_form_models.Question.TYPE_TEXT
+    )
+
     # link questions with forms
     caluma_form_models.FormQuestion.objects.create(
         form_id="main-form", question_id="gemeinde"
@@ -79,6 +97,12 @@ def caluma_forms(settings):
     )
     caluma_form_models.FormQuestion.objects.create(
         form_id="nfd", question_id="papierdossier"
+    )
+    caluma_form_models.FormQuestion.objects.create(
+        form_id="main-form", question_id="personalien-sb"
+    )
+    caluma_form_models.FormQuestion.objects.create(
+        form_id="sb1", question_id="personalien-sb1-sb2"
     )
 
 
@@ -256,6 +280,7 @@ def test_instance_list(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
 @pytest.mark.parametrize("new_instance_state_name", ["subm"])
+@pytest.mark.parametrize("has_personalien_sb1", [True, False])
 @pytest.mark.parametrize(
     "notification_template__body",
     [
@@ -306,6 +331,7 @@ def test_instance_submit(
     mock_generate_and_store_pdf,
     ech_mandatory_answers_einfache_vorabklaerung,
     caluma_forms,
+    has_personalien_sb1,
 ):
 
     mocker.patch(
@@ -322,6 +348,23 @@ def test_instance_submit(
     caluma_form_models.Answer.objects.create(
         document=document, value=str(service.pk), question_id="gemeinde"
     )
+
+    if has_personalien_sb1:
+        caluma_form_models.Document.objects.create(
+            form_id="sb1", meta={"camac-instance-id": instance.pk}
+        )
+        sb_table_answer = caluma_form_models.Answer.objects.create(
+            document=document, question_id="personalien-sb"
+        )
+        sb_row = caluma_form_models.Document.objects.create(
+            form_id="verantwortliche-person-sb-tabelle"
+        )
+        caluma_form_models.Answer.objects.create(
+            document=sb_row, question_id="name-sb", value="Test123"
+        )
+        caluma_form_models.AnswerDocument.objects.create(
+            document=sb_row, answer=sb_table_answer
+        )
 
     group_factory(role=role_factory(name="support"))
     mocker.patch.object(
@@ -341,6 +384,14 @@ def test_instance_submit(
     assert instance.user.email in mail.outbox[0].recipients()
 
     assert mail.outbox[0].subject.startswith("[eBau Test]: ")
+    if has_personalien_sb1:
+        sb1_document = caluma_form_models.Document.objects.get(
+            **{"form_id": "sb1", "meta__camac-instance-id": instance.pk}
+        )
+        assert (
+            sb1_document.answers.first().documents.first().answers.first().value
+            == sb_row.answers.get(question_id="name-sb").value
+        )
 
 
 @pytest.mark.parametrize("role__name,instance__user", [("Canton", LazyFixture("user"))])
@@ -368,11 +419,12 @@ def test_responsible_user(admin_client, instance, user, service, multilang):
 
 
 @pytest.mark.parametrize(
-    "instance_state__name,document_valid,expected_status",
+    "instance_state__name,document_valid,has_personalien_sb2,expected_status",
     [
-        ("sb1", True, status.HTTP_200_OK),
-        ("new", True, status.HTTP_403_FORBIDDEN),
-        ("sb1", False, status.HTTP_400_BAD_REQUEST),
+        ("sb1", True, False, status.HTTP_200_OK),
+        ("sb1", True, True, status.HTTP_200_OK),
+        ("new", True, False, status.HTTP_403_FORBIDDEN),
+        ("sb1", False, False, status.HTTP_400_BAD_REQUEST),
     ],
 )
 @pytest.mark.parametrize("new_instance_state_name", ["sb2"])
@@ -397,6 +449,7 @@ def test_instance_report(
     mock_generate_and_store_pdf,
     caluma_forms,
     document_valid,
+    has_personalien_sb2,
 ):
     application_settings["NOTIFICATIONS"]["REPORT"] = [
         {
@@ -415,6 +468,24 @@ def test_instance_report(
         form_id="sb1", meta={"camac-instance-id": instance.pk}
     )
 
+    if has_personalien_sb2:
+
+        sb2_document = caluma_form_models.Document.objects.create(
+            form_id="sb2", meta={"camac-instance-id": instance.pk}
+        )
+        sb_table_answer = caluma_form_models.Answer.objects.create(
+            document=sb2_document, question_id="personalien-sb1-sb2"
+        )
+        sb_row = caluma_form_models.Document.objects.create(
+            form_id="verantwortliche-person-sb-tabelle"
+        )
+        caluma_form_models.Answer.objects.create(
+            document=sb_row, question_id="name-sb", value="Test123"
+        )
+        caluma_form_models.AnswerDocument.objects.create(
+            document=sb_row, answer=sb_table_answer
+        )
+
     instance_state_factory(name=new_instance_state_name)
 
     response = admin_client.post(reverse("instance-report", args=[instance.pk]))
@@ -428,6 +499,15 @@ def test_instance_report(
 
         assert instance.user.email in recipients
         assert instance_service_construction_control.service.email in recipients
+
+    if has_personalien_sb2:
+        sb2_document = caluma_form_models.Document.objects.get(
+            **{"form_id": "sb2", "meta__camac-instance-id": instance.pk}
+        )
+        assert (
+            sb2_document.answers.first().documents.first().answers.first().value
+            == sb_row.answers.get(question_id="name-sb").value
+        )
 
 
 @pytest.mark.parametrize(
