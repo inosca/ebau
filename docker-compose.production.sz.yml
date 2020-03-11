@@ -109,7 +109,7 @@ services:
       - MB_DB_PORT=5432
       - MB_DB_USER=metabase
       - MB_DB_PASS=${METABASE_DB_PASS_PROD}
-      - MB_DB_HOST=db
+      - MB_DB_HOST=vm-kantonsz-db-vip.cust.adfinis-sygroup.ch
     restart: always
 
 volumes:
