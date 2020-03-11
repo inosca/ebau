@@ -3234,6 +3234,9 @@ class Publication(models.Model):
     publication_amtsblatt = models.DateField(
         db_column="PUBLICATION_DATE_AMTSBLATT", null=True, blank=True
     )
+    anzeiger = models.CharField(
+        db_column="ANZEIGER", max_length=255, null=True, blank=True
+    )
 
     class Meta:
         managed = True
