@@ -101,8 +101,6 @@ services:
 
   metabase:
     image: metabase/metabase:v0.34.2
-    depends_on:
-      - db
     ports:
       - "666:3000"
     environment:
