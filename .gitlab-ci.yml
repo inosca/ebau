@@ -221,10 +221,12 @@ deploy-kt_schwyz-production:
     name: production-kt_schwyz
     url: https://behoerden.ebau-sz.ch/
   variables:
-    COMPOSE: docker-compose -f docker-compose.production.sz.yml --tlsverify --tlscert /root/.docker/cert.pem --tlskey /root/.docker/key.pem --tlscacert /root/.docker/ca.pem
+    TLSOPTS: --tlsverify --tlscert /root/.docker/cert.pem --tlskey /root/.docker/key.pem --tlscacert /root/.docker/ca.pem
+    COMPOSE: docker-compose -f docker-compose.production.sz.yml
     DOCKER_HOST: vm-kantonsz-web-01.cust.adfinis-sygroup.ch:2376
   only:
     - production-sz
+  when: manual
 
 deploy-kt_uri-stage:
   extends: .deploy
