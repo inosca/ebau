@@ -728,7 +728,7 @@ class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
         self._create_journal_entry(get_translations(gettext_noop("SB1 submitted")))
 
         copy_table_answer(
-            instance, "personalien-sb", "sb2", "personalien-sb1-sb2", "sb1"
+            instance, "personalien-sb1-sb2", "sb2", "personalien-sb1-sb2", "sb1"
         )
 
         # send out emails upon submission
