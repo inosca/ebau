@@ -56,6 +56,7 @@ Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unte
 - `/ech/v1/ebau-number/<instance_id>/`: eBau-Nummer vergeben (Kap. 3.1)
 - `/ech/v1/claim/<instance_id>/`: Nachforderungsseite (Kap. 3.1, 3.3.2)
 - `/ech/v1/dossier-check/<instance_id>/`: Dossierprüfung (formelle und materielle Prüfung, Kap. 3.1)
+- `/ech/v1/revision-history/<instance_id>/`: Änderungsverlauf von Dossier
 
 ## Abweichungen und Besonderheiten
 
