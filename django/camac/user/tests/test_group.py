@@ -4,20 +4,31 @@ from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
 
-def test_group_list(admin_client, group, group_factory):
+def test_group_list(admin_client, group, group_factory, service_factory):
+    service_parent = service_factory()
+    group.service.service_parent = service_parent
+    group.service.save()
+
     group_factory()  # new group which may not appear in result
-    other_group = group_factory(
+
+    group_same_service = group_factory(
         service=group.service
     )  # new group of same service, which should appear in list
+    group_parent_service = group_factory(
+        service=service_parent
+    )  # new group of parent service, which should appear in list
+    group_factory(
+        service__service_parent=service_parent
+    )  # new group of sibling service, which should not appear in list
     url = reverse("group-list")
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
 
     json = response.json()
-    assert len(json["data"]) == 2
+    assert len(json["data"]) == 3
     assert {int(entry["id"]) for entry in json["data"]} == set(
-        [group.pk, other_group.pk]
+        [group.pk, group_same_service.pk, group_parent_service.pk]
     )
 
 
