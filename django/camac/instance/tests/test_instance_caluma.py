@@ -464,17 +464,16 @@ def test_instance_report(
     q_papierdossier.is_required = str(not document_valid).lower()
     q_papierdossier.save()
 
-    caluma_form_models.Document.objects.create(
+    sb1_document = caluma_form_models.Document.objects.create(
         form_id="sb1", meta={"camac-instance-id": instance.pk}
     )
 
     if has_personalien_sb2:
-
         sb2_document = caluma_form_models.Document.objects.create(
             form_id="sb2", meta={"camac-instance-id": instance.pk}
         )
         sb_table_answer = caluma_form_models.Answer.objects.create(
-            document=sb2_document, question_id="personalien-sb1-sb2"
+            document=sb1_document, question_id="personalien-sb1-sb2"
         )
         sb_row = caluma_form_models.Document.objects.create(
             form_id="verantwortliche-person-sb-tabelle"
