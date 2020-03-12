@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.db.models import Q
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import viewsets
 from rest_framework.mixins import RetrieveModelMixin
@@ -130,7 +131,9 @@ class GroupView(viewsets.ReadOnlyModelViewSet):
             return models.Group.objects.none()
         queryset = super().get_queryset()
         return queryset.filter(
-            service__in=self.request.user.groups.values("service"), disabled=False
+            Q(service__in=self.request.user.groups.values("service"))
+            | Q(service__in=self.request.user.groups.values("service__service_parent")),
+            disabled=False,
         )
 
     @swagger_auto_schema(tags=["User"], operation_summary="Get group information")
