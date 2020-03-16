@@ -136,6 +136,18 @@ class PublicationEntryView(views.ModelViewSet):
             bezeichnung = bezeichnung_override.value
         payload["bauobjekte"] = [{"bezeichnung": bezeichnung}]
 
+        payload["standorte"] = [
+            {
+                "adresse": formFieldQuery.get(
+                    name="ortsbezeichnung-des-vorhabens"
+                ).value,
+                "spezialbezeichnung": formFieldQuery.get(
+                    name="standort-spezialbezeichnung"
+                ).value,
+                "ort": formFieldQuery.get(name="standort-ort").value,
+            }
+        ]
+
         grundstuecknummern = []
         for parcel in formFieldQuery.get(name="parzellen").value:
             grundstuecknummern.append({"type": "KTN", "nummer": parcel["number"]})
