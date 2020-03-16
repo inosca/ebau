@@ -344,7 +344,12 @@ def test_send_404_attachment_missing(
     )
 
 
-def test_send_unparseable_message(admin_client, admin_user, ech_instance):
+@pytest.mark.parametrize(
+    "match,replace", [("eventNotice", "blablabla"), ("xmlns:ns2=", "xmlns:ns4=")]
+)
+def test_send_unparseable_message(
+    admin_client, admin_user, ech_instance, match, replace
+):
     group = admin_user.groups.first()
     group.service = ech_instance.services.first()
     group.save()
@@ -352,7 +357,7 @@ def test_send_unparseable_message(admin_client, admin_user, ech_instance):
     url = reverse("send")
     response = admin_client.post(
         url,
-        data=xml_data("notice_ruling").replace("eventNotice", "blablabla"),
+        data=xml_data("notice_ruling").replace(match, replace),
         content_type="application/xml",
     )
 
