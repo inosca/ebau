@@ -156,8 +156,6 @@ class InstanceView(
         return self.has_base_permission(instance) and instance.instance_state.name in (
             "new",
             "nfd",  # kt. schwyz
-            # kt. bern (TODO: rejected instances should be copied and resubmitted from "new" state)
-            "rejected",
         )
 
     def has_object_report_permission(self, instance):
