@@ -47,15 +47,7 @@ export default class InstancesNewController extends Controller.extend(
       body: JSON.stringify({
         data: {
           attributes: { "caluma-form": this.selectedForm },
-          type: "instances",
-          relationships: {
-            form: {
-              data: { id: 1, type: "forms" }
-            },
-            "instance-state": {
-              data: { id: 1, type: "instance-states" }
-            }
-          }
+          type: "instances"
         }
       })
     });
