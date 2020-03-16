@@ -58083,15 +58083,6 @@
   },
   {
     "fields": {
-      "instance_resource": 150000,
-      "instance_state": 10000,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 150016
-  },
-  {
-    "fields": {
       "instance_resource": 150001,
       "instance_state": 1,
       "role": 10000
