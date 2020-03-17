@@ -23,6 +23,7 @@ nav:
   applicant: "Requérant/e"
   group: "Groupe"
   internal: "à la domaine interne"
+  overview: "Aperçu"
 
 feedback:
   info: "Vous n'avez pas de commentaires pour le moment. Dès que le dossier aura été soumis, les réactions éventuelles de l'autorité chef de file ou des agences spécialisées seront affichées ici."
@@ -151,6 +152,13 @@ instances:
   createModification: "Nouveau changement de projet"
   noModificationTitle: "Pas de demande de permis de construire trouvée"
   noModificationText: "Les modifications de projet ne peuvent être introduites que pour les demandes de permis de construire déjà présentées."
+  masterData: "Donées de base"
+  lead: "l'autorité directrice"
+  buildingSpecification: "Spécifications du bâtiment"
+  actions: "Actions"
+  activateFurtherPersons: "Activer d'autres personnes"
+  activateFurtherPersonsText: "Dans le menu Autorisations, vous pouvez permettre à d'autres personnes de modifier ce dossier."
+  managePermissions: "Gérer les autorisations"
 
   new:
     title: "Nouveau dossier"
