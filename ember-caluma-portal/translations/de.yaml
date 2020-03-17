@@ -23,6 +23,8 @@ nav:
   applicant: "Gesuchsteller/in"
   group: "Gruppe"
   internal: "zum internen Bereich"
+  overview: "Übersicht"
+
 
 feedback:
   info: "Sie haben momentan keine Rückmeldungen. Sobald das Dossier eingereicht wurde, werden Ihnen hier mögliche Rückmeldungen der Leitbehörde oder Fachstellen angezeigt."
@@ -151,6 +153,14 @@ instances:
   createModification: "Neue Projektänderung"
   noModificationTitle: "Kein eingereichtes Baugesuch gefunden"
   noModificationText: "Projektänderungen können nur für Baugesuche erfasst werden, welche bereits eingereicht wurden."
+  masterData: "Stammdaten"
+  lead: "Leitbehörde"
+  buildingSpecification: "Baubeschrieb"
+  actions: "Aktionen"
+  activateFurtherPersons: "Weitere Personen freischalten"
+  activateFurtherPersonsText: "Im Menü Berechtigungen können weitere Personen für die Bearbeitung dieses Dossiers freigeschalten werde."
+  managePermissions: "Berechtigungen verwalten"
+
 
   new:
     title: "Neues Dossier"
