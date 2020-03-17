@@ -31,7 +31,12 @@ export default class InstancesEditController extends Controller.extend(
   @dropTask
   *instanceTask() {
     const instance = yield this.store.findRecord("instance", this.model, {
-      include: "instance_state,involved_applicants,involved_applicants.invitee"
+      include: [
+        "instance_state",
+        "involved_applicants",
+        "involved_applicants.invitee",
+        "active_service"
+      ].join(",")
     });
 
     yield instance.getDocuments.perform();

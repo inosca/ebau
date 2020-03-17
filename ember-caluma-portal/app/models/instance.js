@@ -20,6 +20,7 @@ export default class Instance extends Model {
   @attr("boolean") isPaper;
   @attr("boolean") isModification;
   @belongsTo("instance-state") instanceState;
+  @belongsTo("public-service") activeService;
   @hasMany("applicant", { inverse: "instance" }) involvedApplicants;
 
   @computed("intl.locale", "publicStatus")
