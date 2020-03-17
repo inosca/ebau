@@ -46,16 +46,7 @@ def mock_nfd_permissions(requests_mock):
             "correction",
             {"main": ["read"], "sb1": [], "sb2": [], "nfd": []},
         ),
-        (
-            "Applicant",
-            "rejected",
-            {
-                "main": ["read", "write", "write-meta"],  # write-meta: submit-date
-                "sb1": [],
-                "sb2": [],
-                "nfd": [],
-            },
-        ),
+        ("Applicant", "rejected", {"main": ["read"], "sb1": [], "sb2": [], "nfd": []}),
         (
             "Applicant",
             "sb1",
@@ -320,7 +311,7 @@ def test_instance_nfd_permissions(
     [
         ("new", "municipality", "main", ["read", "write", "write-meta"]),
         ("new", "construction-control", "main", []),
-        ("rejected", "municipality", "main", ["read", "write", "write-meta"]),
+        ("rejected", "municipality", "main", ["read"]),
         ("rejected", "construction-control", "main", ["read"]),
         ("sb1", "municipality", "sb1", []),
         ("sb1", "construction-control", "sb1", ["read", "write", "write-meta"]),
