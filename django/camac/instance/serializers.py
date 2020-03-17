@@ -1,4 +1,5 @@
 from logging import getLogger
+from uuid import uuid4
 
 from caluma.caluma_form import (
     models as caluma_form_models,
@@ -6,6 +7,7 @@ from caluma.caluma_form import (
 )
 from django.conf import settings
 from django.contrib.auth import get_user_model
+from django.core.files.base import ContentFile
 from django.db import transaction
 from django.db.models import Max
 from django.utils import timezone
@@ -193,6 +195,10 @@ class CalumaInstanceSerializer(InstanceSerializer):
         default=NewInstanceStateDefault(),
     )
 
+    form = serializers.ResourceRelatedField(
+        queryset=models.Form.objects.all(), default=lambda: models.Form.objects.first()
+    )
+
     caluma_form = serializers.CharField(required=False, write_only=True)
 
     is_paper = serializers.SerializerMethodField()  # "Papierdossier
@@ -263,7 +269,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
     def _get_main_form_permissions(self, instance):
         permissions = set(["read"])
 
-        if instance.instance_state.name in ["new", "rejected"]:
+        if instance.instance_state.name == "new":
             permissions.update(["write", "write-meta"])
 
         return permissions
@@ -294,7 +300,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
             is_paper
             and service_group in get_paper_settings()["ALLOWED_SERVICE_GROUPS"]
             and role in get_paper_settings()["ALLOWED_ROLES"]
-            and state in ["new", "rejected"]
+            and state == "new"
         ):
             permissions.update(["read", "write", "write-meta"])
 
@@ -426,48 +432,80 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
         return data
 
+    def _copy_applicants(self, source, target):
+        for applicant in source.involved_applicants.all():
+            target.involved_applicants.update_or_create(
+                user=applicant.user,
+                email=applicant.email,
+                defaults={"created": timezone.now(), "invitee": applicant.invitee},
+            )
+
+    def _copy_attachments(self, source, target):
+        for attachment in source.attachments.all():
+            try:
+                new_file = ContentFile(attachment.path.read())
+            except FileNotFoundError:  # pragma: no cover
+                # file does not exist so use the old file
+                new_file = attachment.path
+
+            # store sections first
+            sections = attachment.attachment_sections.all()
+
+            # copy the file
+            new_file.name = attachment.path.name
+            attachment.path = new_file
+
+            attachment.attachment_id = None
+            attachment.instance = target
+            attachment.uuid = uuid4()
+            attachment.save()
+
+            attachment.attachment_sections.set(sections)
+            attachment.save()
+
     def create(self, validated_data):
         caluma_api = CalumaApi()
 
-        if "copy_source" in validated_data:
-            source_pk = validated_data.pop("copy_source")
-            source_instance = models.Instance.objects.get(pk=source_pk)
-            caluma_form = caluma_api.get_form_slug(source_instance)
-            validated_data["form"] = source_instance.form
-
-        else:
-            source_pk = None
-            caluma_form = validated_data.pop("caluma_form")
-
-        instance = super().create(validated_data)
+        copy_source = validated_data.pop("copy_source", None)
+        source_instance = copy_source and models.Instance.objects.get(pk=copy_source)
 
         group = self.context["request"].group
-        is_paper = (
-            group.service  # group needs to have a service
-            and group.service.service_group.pk
-            in get_paper_settings()["ALLOWED_SERVICE_GROUPS"]
-            and group.role.pk in get_paper_settings()["ALLOWED_ROLES"]
-        )
+
+        if source_instance:
+            caluma_form = caluma_api.get_form_slug(source_instance)
+            is_rejected = source_instance.instance_state.name == "rejected"
+            is_paper = caluma_api.is_paper(source_instance)
+        else:
+            caluma_form = validated_data.pop("caluma_form")
+            is_rejected = False
+            is_paper = (
+                group.service  # group needs to have a service
+                and group.service.service_group.pk
+                in get_paper_settings()["ALLOWED_SERVICE_GROUPS"]
+                and group.role.pk in get_paper_settings()["ALLOWED_ROLES"]
+            )
+
+        instance = super().create(validated_data)
 
         caluma_documents = {}
 
         for form_slug in [caluma_form, "sb1", "sb2", "nfd"]:
             # copy the caluma document of provided instance
-            if source_pk and form_slug == caluma_form:
+            if source_instance and form_slug == caluma_form:
                 source_document_pk = caluma_api.get_document_by_form_slug(
                     source_instance, form_slug
                 )
 
                 document = caluma_api.copy_document(
                     source_document_pk,
-                    exclude_form_slugs=[
-                        "6-dokumente",
-                        "7-bestaetigung",
-                        "8-freigabequittung",
-                    ],
+                    exclude_form_slugs=(
+                        ["8-freigabequittung"]
+                        if is_rejected
+                        else ["6-dokumente", "7-bestaetigung", "8-freigabequittung"]
+                    ),
                     meta={"camac-instance-id": instance.pk},
                 )
-
+            # or create a new document if no source instance is provided
             else:
                 document = caluma_api.create_document(
                     form_slug, meta={"camac-instance-id": instance.pk}
@@ -483,7 +521,9 @@ class CalumaInstanceSerializer(InstanceSerializer):
                 caluma_api.update_or_create_answer(
                     document.pk,
                     "projektaenderung",
-                    "projektaenderung-ja" if source_pk else "projektaenderung-nein",
+                    "projektaenderung-ja"
+                    if source_instance and not is_rejected
+                    else "projektaenderung-nein",
                 )
 
             caluma_documents[form_slug] = document
@@ -504,6 +544,10 @@ class CalumaInstanceSerializer(InstanceSerializer):
                 active=1,
                 activation_date=None,
             )
+
+        if is_rejected:
+            self._copy_applicants(source_instance, instance)
+            self._copy_attachments(source_instance, instance)
 
         return instance
 
@@ -654,15 +698,8 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
     def update(self, instance, validated_data):
         request_logger.info(f"Submitting instance {instance.pk}")
 
-        previous_instance_state = instance.previous_instance_state
-
         instance.previous_instance_state = instance.instance_state
-        instance.instance_state = (
-            models.InstanceState.objects.get(name="subm")
-            if instance.instance_state.name == "new"
-            # BE: If a rejected instancere is resubmitted, the process continues where it left off
-            else previous_instance_state
-        )
+        instance.instance_state = models.InstanceState.objects.get(name="subm")
 
         instance.save()
 
