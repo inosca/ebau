@@ -1,5 +1,12 @@
+<h2>
+  {{this.instance.mainForm.name}} {{this.instance.typeDetail}}
+  ({{t "instances.instanceId"}} {{this.model}})
+</h2>
 {{#if (can "read instance" this.instance)}}
   <ul class="uk-tab">
+    <BeSubnavLink @route="instances.edit.index">
+      {{t "nav.overview"}}
+    </BeSubnavLink>
     {{#if this.instance.mainForm}}
       <BeSubnavLink
         @route="instances.edit.form"
@@ -16,13 +23,6 @@
         </BeSubnavLink>
       {{/if}}
     {{/each}}
-
-    {{#if (can "read feedback of instance" this.instance)}}
-      <BeSubnavLink @route="instances.edit.feedback">
-        {{t "nav.feedback"}}
-        {{#if this.feedback}}<UkBadge @label={{this.feedback.length}} class="uk-margin-small-left" />{{/if}}
-      </BeSubnavLink>
-    {{/if}}
 
     {{#if (can "manage applicants of instance" this.instance)}}
       <BeSubnavLink @route="instances.edit.applicants">
