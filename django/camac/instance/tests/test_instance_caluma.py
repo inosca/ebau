@@ -10,6 +10,7 @@ from camac.core.models import Chapter, Question, QuestionType
 from camac.echbern import event_handlers
 from camac.echbern.data_preparation import DocumentParser
 from camac.echbern.tests.caluma_document_data import baugesuch_data
+from camac.instance.models import Instance
 from camac.instance.serializers import (
     SUBMIT_DATE_CHAPTER,
     SUBMIT_DATE_QUESTION_ID,
@@ -155,20 +156,30 @@ def mock_generate_and_store_pdf(mocker):
 
 @pytest.mark.freeze_time("2019-05-02")
 @pytest.mark.parametrize("instance_state__name", ["new"])
-@pytest.mark.parametrize("paper,copy", [(True, False), (False, False), (False, True)])
+@pytest.mark.parametrize(
+    "paper,copy,rejected",
+    [
+        (True, False, False),
+        (False, False, False),
+        (False, True, False),
+        (False, True, True),
+    ],
+)
 def test_create_instance(
     db,
     admin_client,
     instance_state,
+    instance_state_factory,
     form,
     use_caluma_form,
     mock_nfd_permissions,
     group,
     caluma_forms,
     application_settings,
-    attachment_attachment_sections,
+    attachment,
     paper,
     copy,
+    rejected,
 ):
     headers = {}
 
@@ -179,13 +190,7 @@ def test_create_instance(
         }
         headers.update({"x-camac-group": group.pk})
 
-    data = {
-        "data": {
-            "type": "instances",
-            "attributes": {"caluma-form": "main-form"},
-            "relationships": {"form": {"data": {"id": form.form_id, "type": "forms"}}},
-        }
-    }
+    data = {"data": {"type": "instances", "attributes": {"caluma-form": "main-form"}}}
 
     create_resp = admin_client.post(reverse("instance-list"), data, **headers)
 
@@ -207,27 +212,46 @@ def test_create_instance(
             ).exists()
 
     # do a second request including pk, copying the existing instance
-    if copy:
+    if copy or rejected:
+        if rejected:
+            # link attachment to old instance
+            attachment.instance_id = instance_id
+            attachment.save()
+
+            old_instance = Instance.objects.get(pk=instance_id)
+            old_instance.instance_state = instance_state_factory(name="rejected")
+            old_instance.save()
+
         data["data"]["attributes"] = {"copy-source": str(instance_id)}
 
         copy_resp = admin_client.post(reverse("instance-list"), data, **headers)
 
         assert copy_resp.status_code == status.HTTP_201_CREATED, create_resp.content
         new_instance_id = int(copy_resp.json()["data"]["id"])
+        new_instance = Instance.objects.get(pk=new_instance_id)
 
         new_documents = caluma_form_models.Document.objects.filter(
             **{"meta__camac-instance-id": new_instance_id}
         )
 
-        assert (
-            new_documents.get(form_id="main-form")
-            .answers.filter(question_id="projektaenderung", value="projektaenderung-ja")
-            .exists()
-        )
-
         assert set([doc.form_id for doc in new_documents]) == set(
             ["main-form", "sb1", "sb2", "nfd"]
         )
+
+        if rejected:
+            new_attachment = new_instance.attachments.first()
+
+            assert attachment.name == new_attachment.name
+            assert attachment.uuid != new_attachment.uuid
+            assert attachment.path.name != new_attachment.path.name
+        else:
+            assert (
+                new_documents.get(form_id="main-form")
+                .answers.filter(
+                    question_id="projektaenderung", value="projektaenderung-ja"
+                )
+                .exists()
+            )
 
 
 @pytest.mark.parametrize(
@@ -275,7 +299,7 @@ def test_instance_list(
     assert set(json["data"][0]["meta"]["editable"]) == set(editable)
 
 
-@pytest.mark.parametrize("instance_state__name", ["new", "rejected"])
+@pytest.mark.parametrize("instance_state__name", ["new"])
 @pytest.mark.parametrize(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
