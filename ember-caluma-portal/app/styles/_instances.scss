@@ -1,0 +1,9 @@
+.instance-overview__title {
+  text-transform: uppercase;
+  font-size: $global-font-size;
+  font-weight: $base-body-font-weight;
+}
+
+.instance-overview__info-table {
+  margin-top: -1 * $global-small-gutter;
+}
