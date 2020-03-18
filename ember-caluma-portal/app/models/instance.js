@@ -17,6 +17,7 @@ export default class Instance extends Model {
   @attr("date") creationDate;
   @attr("date") modificationDate;
   @attr("string") publicStatus;
+  @attr("string") calumaForm;
   @attr("boolean") isPaper;
   @attr("boolean") isModification;
   @belongsTo("instance-state") instanceState;

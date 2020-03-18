@@ -71,6 +71,12 @@ module.exports = function(environment) {
             2 // Gemeinde
           ]
         }
+      },
+      instanceStates: {
+        new: 1,
+        rejected: 10000,
+        archived: 20009,
+        finished: 120000
       }
     }
   };

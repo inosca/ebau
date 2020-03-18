@@ -149,9 +149,6 @@ instances:
   orderBy: "Trier par"
   desc: "ascendant"
   asc: "descendant"
-  createModification: "Nouveau changement de projet"
-  noModificationTitle: "Pas de demande de permis de construire trouvée"
-  noModificationText: "Les modifications de projet ne peuvent être introduites que pour les demandes de permis de construire déjà présentées."
   masterData: "Donées de base"
   lead: "l'autorité directrice"
   buildingSpecification: "Spécifications du bâtiment"
@@ -159,6 +156,17 @@ instances:
   activateFurtherPersons: "Activer d'autres personnes"
   activateFurtherPersonsText: "Dans le menu Autorisations, vous pouvez permettre à d'autres personnes de modifier ce dossier."
   managePermissions: "Gérer les autorisations"
+
+
+  modificationTitle: "Nouveau changement de projet"
+  modificationText: "Y a-t-il eu des changements dans votre projet de
+  construction ? Ici, vous pouvez modifier le projet sans avoir à saisir à
+  nouveau les données existantes."
+
+  rejectionTitle: "Soumettre à nouveau le dossier"
+  rejectionText: "Vous pouvez traiter et soumettre à nouveau le dossier
+  initialement soumis conformément au retour d'information de l'autorité
+  directrice. Un nouveau numéro de dossier sera créé pour la correction."
 
   new:
     title: "Nouveau dossier"
