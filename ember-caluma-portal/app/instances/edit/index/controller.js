@@ -93,4 +93,21 @@ export default class InstancesEditIndexController extends Controller {
       buildingSpecification: getBuildingSpecification(answers)
     };
   }
+
+  @dropTask
+  *copy() {
+    const response = yield this.fetch.fetch(`/api/v1/instances`, {
+      method: "POST",
+      body: JSON.stringify({
+        data: {
+          attributes: { "copy-source": this.model },
+          type: "instances"
+        }
+      })
+    });
+
+    const { data } = yield response.json();
+
+    yield this.transitionToRoute("instances.edit", data.id);
+  }
 }

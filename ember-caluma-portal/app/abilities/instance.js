@@ -78,4 +78,29 @@ export default class InstanceAbility extends Ability {
       .reduce((items, flat) => [...flat, ...items], [])
       .includes("read");
   }
+
+  @computed("model.instanceState.id")
+  get canCreateModification() {
+    const state = parseInt(this.get("model.instanceState.id"));
+    const form = this.get("model.calumaForm");
+
+    return (
+      state &&
+      form &&
+      !["vorabklaerung-einfach", "vorabklaerung-vollstaendig"].includes(form) &&
+      ![
+        config.ebau.instanceStates.new,
+        config.ebau.instanceStates.finished,
+        config.ebau.instanceStates.archived
+      ].includes(state)
+    );
+  }
+
+  @computed("model.instanceState.id")
+  get canCreateCopy() {
+    return (
+      parseInt(this.get("model.instanceState.id")) ===
+      config.ebau.instanceStates.rejected
+    );
+  }
 }
