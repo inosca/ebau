@@ -1067,6 +1067,20 @@
   },
   {
     "fields": {
+      "available_action": "php",
+      "button": 130001,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 0,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 130003
+  },
+  {
+    "fields": {
       "available_action": "notification",
       "button": 20047,
       "description": null,
@@ -2226,6 +2240,30 @@
     },
     "model": "core.actiont",
     "pk": 130002
+  },
+  {
+    "fields": {
+      "action": 130003,
+      "description": null,
+      "error_message": "Zirkulation konnte nicht gel\u00f6scht werden. Eine Zirkulation kann nur gel\u00f6scht werden, solange noch keine Amts- oder Fachstellen eingeladen wurde.",
+      "language": "de",
+      "name": "DeleteCirculation",
+      "success_message": "Zirkulation wurde erfolgreich gel\u00f6scht."
+    },
+    "model": "core.actiont",
+    "pk": 130003
+  },
+  {
+    "fields": {
+      "action": 130003,
+      "description": null,
+      "error_message": "La circulation n'a pas pu \u00eatre supprim\u00e9e. La diffusion ne peut \u00eatre supprim\u00e9e que tant qu'aucune ligne interurbaine ou d'abonn\u00e9 n'a \u00e9t\u00e9 invit\u00e9e.",
+      "language": "fr",
+      "name": "DeleteCirculation",
+      "success_message": "La circulation a \u00e9t\u00e9 supprim\u00e9e avec succ\u00e8s."
+    },
+    "model": "core.actiont",
+    "pk": 130004
   },
   {
     "fields": {
@@ -40651,6 +40689,13 @@
   },
   {
     "fields": {
+      "php_class": "DeleteCirculation"
+    },
+    "model": "core.aphp",
+    "pk": 130003
+  },
+  {
+    "fields": {
       "action_name": "template",
       "available_resource": "page",
       "hidden": 0
@@ -42009,7 +42054,7 @@
       "hidden": 0,
       "instance_resource": 20004,
       "name": null,
-      "sort": 4
+      "sort": 6
     },
     "model": "core.button",
     "pk": 20008
@@ -42069,7 +42114,7 @@
       "hidden": 0,
       "instance_resource": 20004,
       "name": null,
-      "sort": 6
+      "sort": 8
     },
     "model": "core.button",
     "pk": 20016
@@ -42081,7 +42126,7 @@
       "hidden": 0,
       "instance_resource": 20004,
       "name": null,
-      "sort": 7
+      "sort": 9
     },
     "model": "core.button",
     "pk": 20018
@@ -42237,7 +42282,7 @@
       "hidden": 0,
       "instance_resource": 20004,
       "name": null,
-      "sort": 2
+      "sort": 3
     },
     "model": "core.button",
     "pk": 20049
@@ -42249,7 +42294,7 @@
       "hidden": 0,
       "instance_resource": 20004,
       "name": null,
-      "sort": 3
+      "sort": 5
     },
     "model": "core.button",
     "pk": 20050
@@ -42297,10 +42342,22 @@
       "hidden": 0,
       "instance_resource": 20004,
       "name": null,
-      "sort": 5
+      "sort": 7
     },
     "model": "core.button",
     "pk": 130000
+  },
+  {
+    "fields": {
+      "class_field": "circ_delete",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 20004,
+      "name": null,
+      "sort": 4
+    },
+    "model": "core.button",
+    "pk": 130001
   },
   {
     "fields": {
@@ -42897,6 +42954,26 @@
     },
     "model": "core.buttont",
     "pk": 130001
+  },
+  {
+    "fields": {
+      "button": 130001,
+      "description": "Zirkulationen k\u00f6nnen gel\u00f6scht werden solange noch keine Amts- oder Fachstellen ausgew\u00e4hlt wurde.",
+      "language": "de",
+      "name": "Zirkulation l\u00f6schen"
+    },
+    "model": "core.buttont",
+    "pk": 130002
+  },
+  {
+    "fields": {
+      "button": 130001,
+      "description": "Les circulations peuvent \u00eatre supprim\u00e9es tant qu'aucun coffre ou compartiment n'a \u00e9t\u00e9 s\u00e9lectionn\u00e9.",
+      "language": "fr",
+      "name": "Supprimer la circulation"
+    },
+    "model": "core.buttont",
+    "pk": 130003
   },
   {
     "fields": {
