@@ -1,9 +1,10 @@
 import Controller, { inject as controller } from "@ember/controller";
+import { get } from "@ember/object";
 import { reads } from "@ember/object/computed";
+import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
 import getOverviewDocumentsQuery from "ember-caluma-portal/gql/queries/get-overview-documents";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
-import QueryParams from "ember-parachute";
 
 const findAnswer = (answers, slug) => {
   const answer = answers.find(answer => answer.question.slug === slug);
@@ -18,10 +19,20 @@ const findAnswer = (answers, slug) => {
 };
 
 function getAddress(answers) {
-  const street = findAnswer(answers, "strasse-flurname");
-  const number = findAnswer(answers, "nr");
-  const city = findAnswer(answers, "ort-grundstueck");
-  return `${street} ${number}, ${city}`;
+  const street =
+    findAnswer(answers, "strasse-flurname") ||
+    findAnswer(answers, "strasse-gesuchstellerin");
+
+  const number =
+    findAnswer(answers, "nr") || findAnswer(answers, "nummer-gesuchstellerin");
+
+  const city =
+    findAnswer(answers, "ort-grundstueck") ||
+    findAnswer(answers, "ort-gesuchstellerin");
+
+  return [[street, number].filter(Boolean).join(" "), city]
+    .filter(Boolean)
+    .join(", ");
 }
 
 function getEbauNr(document) {
@@ -32,36 +43,29 @@ function getType(document) {
   return document.node.form.name;
 }
 
-function getMunicipality(document) {
-  const answer = document.node.answers.edges.find(
-    answer => answer.node.question.slug === "gemeinde"
-  );
-  return (
+function getMunicipality(answers) {
+  const answer = answers.find(answer => answer.question.slug === "gemeinde");
+  const selectedOption =
     answer &&
-    answer.node.question.options.edges.find(({ node: { slug } }) => {
-      return answer.node.stringValue === slug;
-    }).node.label
-  );
+    answer.question.options.edges.find(option => {
+      return answer.stringValue === option.node.slug;
+    });
+
+  return selectedOption && selectedOption.node.label;
 }
 
 function getBuildingSpecification(answers) {
   return findAnswer(answers, "beschreibung-bauvorhaben");
 }
 
-export default class InstancesEditIndexController extends Controller.extend(
-  new QueryParams().Mixin
-) {
+export default class InstancesEditIndexController extends Controller {
   @queryManager apollo;
+  @service fetch;
 
   @controller("instances.edit") editController;
   @reads("editController.feedbackTask.isRunning") feedbackLoading;
   @reads("editController.feedback") feedback;
-  @reads("editController.instance.instanceState.name") instanceState;
-  @reads("editController.instance.activeService.name") activeService;
-
-  setup() {
-    this.dataTask.perform(this.model);
-  }
+  @reads("editController.instance") instance;
 
   @lastValue("dataTask") data;
   @dropTask
@@ -76,8 +80,8 @@ export default class InstancesEditIndexController extends Controller.extend(
       },
       "allDocuments.edges"
     );
-    const document = allDocuments.find(
-      doc => doc.node.form.meta["is-main-form"]
+    const document = allDocuments.find(doc =>
+      get(doc, "node.form.meta.is-main-form")
     );
     const answers = document.node.answers.edges.map(answer => answer.node);
 
@@ -85,7 +89,7 @@ export default class InstancesEditIndexController extends Controller.extend(
       address: getAddress(answers),
       ebauNr: getEbauNr(document),
       type: getType(document),
-      municipality: getMunicipality(document),
+      municipality: getMunicipality(answers),
       buildingSpecification: getBuildingSpecification(answers)
     };
   }
