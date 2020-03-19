@@ -317,7 +317,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 2,
       "success_message": null
     },
     "model": "core.action",
@@ -1162,6 +1162,20 @@
     },
     "model": "core.action",
     "pk": 150006
+  },
+  {
+    "fields": {
+      "available_action": "addjournal",
+      "button": 20048,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150007
   },
   {
     "fields": {
@@ -2358,6 +2372,30 @@
     },
     "model": "core.actiont",
     "pk": 150010
+  },
+  {
+    "fields": {
+      "action": 150007,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Journaleintrag: Baugesuchsverfahren abgeschlossen",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150011
+  },
+  {
+    "fields": {
+      "action": 150007,
+      "description": null,
+      "error_message": null,
+      "language": "fr",
+      "name": "Entr\u00e9e de journal: Proc\u00e9dure compl\u00e9t\u00e9e",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150012
   },
   {
     "fields": {
@@ -42225,7 +42263,7 @@
       "hidden": 0,
       "instance_resource": 20070,
       "name": null,
-      "sort": 0
+      "sort": 3
     },
     "model": "core.button",
     "pk": 20048
@@ -59482,6 +59520,13 @@
       "text": null
     },
     "model": "core.journalactionconfig",
+    "pk": 150007
+  },
+  {
+    "fields": {
+      "text": null
+    },
+    "model": "core.journalactionconfig",
     "pk": 1200000
   },
   {
@@ -59706,6 +59751,24 @@
     },
     "model": "core.journalactionconfigt",
     "pk": 150005
+  },
+  {
+    "fields": {
+      "action": 150007,
+      "language": "de",
+      "text": "Baugesuchsverfahren abgeschlossen"
+    },
+    "model": "core.journalactionconfigt",
+    "pk": 150006
+  },
+  {
+    "fields": {
+      "action": 150007,
+      "language": "fr",
+      "text": "Proc\u00e9dure compl\u00e9t\u00e9e"
+    },
+    "model": "core.journalactionconfigt",
+    "pk": 150007
   },
   {
     "fields": {
