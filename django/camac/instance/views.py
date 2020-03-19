@@ -168,6 +168,16 @@ class InstanceView(
             self.has_base_permission(instance) and instance.instance_state.name == "sb2"
         )
 
+    @transaction.atomic
+    def destroy(self, request, pk=None):
+        instance_id = self.get_object().pk
+        response = super().destroy(request, pk=pk)
+
+        if settings.APPLICATION["FORM_BACKEND"] == "caluma":
+            CalumaApi().delete_instance_documents(instance_id)
+
+        return response
+
     @action(methods=["get"], detail=False)
     def export_list(self, request):
         """Export filtered instances to given file format."""
