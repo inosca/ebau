@@ -1,18 +1,24 @@
-<h2>
-  {{this.instance.mainForm.name}} {{this.instance.typeDetail}}
-  <span class="uk-text-light">({{t "instances.instanceId"}} {{this.model}})</span>
-</h2>
+{{#unless embedded}}
+  <h2>
+    {{this.instance.mainForm.name}} {{this.instance.typeDetail}}
+    <span class="uk-text-light">({{t "instances.instanceId"}} {{this.model}})</span>
+  </h2>
+{{/unless}}
+
 {{#if (can "read instance" this.instance)}}
   <ul class="uk-tab">
-    <BeSubnavLink @route="instances.edit.index">
-      {{t "nav.overview"}}
-    </BeSubnavLink>
+    {{#unless embedded}}
+      <BeSubnavLink @route="instances.edit.index">
+        {{t "nav.overview"}}
+      </BeSubnavLink>
+    {{/unless}}
+
     {{#if this.instance.mainForm}}
       <BeSubnavLink
         @route="instances.edit.form"
         @model={{this.instance.mainForm.slug}}
       >
-        {{this.instance.mainForm.name}} {{this.instance.typeDetail}} <span class="uk-text-meta">({{t "instances.instanceId"}} {{this.model}})</span>
+        {{this.instance.mainForm.name}}
       </BeSubnavLink>
     {{/if}}
 

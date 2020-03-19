@@ -21,7 +21,7 @@
         {{#each forms.lastSuccessful.value.column1 as |form|}}
           <UkButton
             @width="1-1"
-            @label={{concat form.name " " (if isPaper (t "paper.type"))}}
+            @label={{concat form.name " " (if isPaper (concat "(" (t "paper.type") ")"))}}
             @color={{if (eq form.slug this.selectedForm) "secondary" "default"}}
             @on-click={{fn (mut this.selectedForm) form.slug}}
 
@@ -39,7 +39,7 @@
         {{#each forms.lastSuccessful.value.column2 as |form|}}
           <UkButton
             @width="1-1"
-            @label={{concat form.name " " (if isPaper (t "paper.type"))}}
+            @label={{concat form.name " " (if isPaper (concat "(" (t "paper.type") ")"))}}
             @color={{if (eq form.slug this.selectedForm) "secondary" "default"}}
             @on-click={{fn (mut this.selectedForm) form.slug}}
 

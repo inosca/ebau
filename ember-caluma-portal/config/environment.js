@@ -68,7 +68,8 @@ module.exports = function(environment) {
             20004 // Sachbearbeiter Leitbehörde
           ],
           serviceGroups: [
-            2 // Gemeinde
+            2, // Gemeinde
+            20000 // Regierungsstatthalteramt
           ]
         }
       },
