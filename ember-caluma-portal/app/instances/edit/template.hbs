@@ -1,6 +1,6 @@
 <h2>
   {{this.instance.mainForm.name}} {{this.instance.typeDetail}}
-  ({{t "instances.instanceId"}} {{this.model}})
+  <span class="uk-text-light">({{t "instances.instanceId"}} {{this.model}})</span>
 </h2>
 {{#if (can "read instance" this.instance)}}
   <ul class="uk-tab">

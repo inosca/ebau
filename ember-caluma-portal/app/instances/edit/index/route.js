@@ -4,6 +4,12 @@ export default class InstancesEditIndexRoute extends Route {
   model() {
     return this.modelFor("instances.edit");
   }
+
+  setupController(controller, model) {
+    super.setupController(controller, model);
+
+    controller.dataTask.perform();
+  }
 }
 
 // import Route from "@ember/routing/route";
