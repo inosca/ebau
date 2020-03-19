@@ -6200,7 +6200,7 @@ ember-text-measurer@^0.5.0:
   dependencies:
     ember-cli-babel "^7.1.0"
 
-ember-toggle@^6.0.0:
+ember-toggle@^6.0.0, ember-toggle@^6.0.2:
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/ember-toggle/-/ember-toggle-6.0.2.tgz#6978f2253f9b4dd7f6b90ac40905b9c9b789b85c"
   integrity sha512-rsuB58s0v1SMPsHi6bgHVzrETpUGVGuOHSpXcjDyaYZ8Jdjvj3rtALX9VbZk4czZnxi6RWi9aT9JBtURv8RD+g==
@@ -6232,6 +6232,22 @@ ember-uikit@^2.0.1:
     ember-get-config "^0.2.4"
     ember-toggle "^6.0.0"
     uikit "^3.2.4"
+
+ember-uikit@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/ember-uikit/-/ember-uikit-2.1.0.tgz#0595e27c26a47d1ffd9f8b7efffc8abc0c8f822d"
+  integrity sha512-p/EQ27D2EP+trz0QaE+m+scXMcYCkWaTTpNi6NeNbuWUde/LtwlNN+F08uTJV901Rt+CXyDC4LtwzFRTnxSiPg==
+  dependencies:
+    broccoli-funnel "^2.0.2"
+    broccoli-merge-trees "^3.0.0"
+    broccoli-stew "^3.0.0"
+    chalk "^3.0.0"
+    ember-auto-import "^1.5.3"
+    ember-cli-babel "^7.18.0"
+    ember-cli-htmlbars "^4.2.2"
+    ember-get-config "^0.2.4"
+    ember-toggle "^6.0.2"
+    uikit "^3.3.2"
 
 ember-validated-form@^2.0.0:
   version "2.0.0"
@@ -12251,7 +12267,7 @@ uglify-to-browserify@~1.0.0:
   resolved "https://registry.yarnpkg.com/uglify-to-browserify/-/uglify-to-browserify-1.0.2.tgz#6e0924d6bda6b5afe349e39a6d632850a0f882b7"
   integrity sha1-bgkk1r2mta/jSeOabWMoUKD4grc=
 
-uikit@^3.2.4:
+uikit@3.3.3, uikit@^3.2.4, uikit@^3.3.2:
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/uikit/-/uikit-3.3.3.tgz#756f6dae476657a72155515d74099a3f30db8818"
   integrity sha512-YCrjTpti3cVTNjCXo0zeu7Kd/1nWJwIo4YRmLSVJ+MC/FdzWQgmfvby5rXR5TxEETnPamazrFtclPWJQya8W1g==
