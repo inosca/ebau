@@ -1,4 +1,5 @@
 import Controller from "@ember/controller";
+import { computed } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
@@ -25,6 +26,11 @@ export default class InstancesEditController extends Controller.extend(
     this.feedbackTask.cancelAll({ resetState: true });
 
     this.resetQueryParams();
+  }
+
+  @computed
+  get embedded() {
+    return window !== window.top;
   }
 
   @lastValue("instanceTask") instance;
