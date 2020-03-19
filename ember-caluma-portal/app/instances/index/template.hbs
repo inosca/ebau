@@ -1,30 +1,10 @@
 <h1 class="uk-flex uk-flex-between">
-  {{#if this.modify}}
-    {{t "instances.createModification"}}
+  {{t "instances.title"}}
 
-    <div>
-      <UkButton
-        @label={{t "global.cancel"}}
-        @color="default"
-        @on-click={{perform this.endModification}}
-      />
-    </div>
-  {{else}}
-    {{t "instances.title"}}
-
-    <div>
-      <UkButton
-        @label={{t "instances.createModification"}}
-        @color="default"
-        @on-click={{perform this.startModification}}
-      />
-
-      {{#if (can "create instance")}}
-        <span>
-          <LinkTo @route="instances.new" class="uk-button uk-button-secondary">{{t "instances.new.title"}}</LinkTo>
-        </span>
-      {{/if}}
-    </div>
+  {{#if (can "create instance")}}
+    <span>
+      <LinkTo @route="instances.new" class="uk-button uk-button-secondary">{{t "instances.new.title"}}</LinkTo>
+    </span>
   {{/if}}
 </h1>
 
@@ -174,9 +154,6 @@
         <th class="uk-text-nowrap">{{t "instances.submitDate"}}</th>
         <th class="uk-text-nowrap">{{t "instances.status.title"}}</th>
         <th class="uk-text-nowrap">{{t "instances.description"}}</th>
-        {{#if this.modify}}
-          <td></td>
-        {{/if}}
       </tr>
     </thead>
     <tbody>
@@ -192,13 +169,6 @@
           <td>{{if document.submitDate (moment-format document.submitDate "DD.MM.YYYY")}}</td>
           <td>{{document.status}}</td>
           <td class="uk-text-truncate" title={{document.description}}>{{document.description}}</td>
-          {{#if this.modify}}
-            <td>
-              <button type="button" class="uk-icon-button" uk-icon="file-edit" title={{t "instances.createModification"}} {{action (perform this.createModification) document.instanceId}}>
-                <span class="uk-hidden">{{t "instances.createModification"}}</span>
-              </button>
-            </td>
-          {{/if}}
         </tr>
       {{/each}}
       {{#if pageInfo.hasNextPage}}
@@ -216,11 +186,9 @@
   {{#uk-flex horizontal="center" vertical="middle" direction="column"}}
     <div class="uk-text-center uk-width-large">
       <object data="/assets/images/stamp-document.svg" class="uk-width-medium">{{t "instances.new.title"}}</object>
-      <p class="uk-margin-remove-top uk-text-large">{{if this.modify (t "instances.noModificationTitle") (t "instances.emptyTitle")}}</p>
-      <p>{{if this.modify (t "instances.noModificationText") (t "instances.emptyText")}}</p>
-      {{#unless this.modify}}
-        <LinkTo @route="instances.new" class="uk-button uk-button-primary uk-button-large">{{t "instances.new.title"}}</LinkTo>
-      {{/unless}}
+      <p class="uk-margin-remove-top uk-text-large">{{t "instances.emptyTitle"}}</p>
+      <p>{{t "instances.emptyText"}}</p>
+      <LinkTo @route="instances.new" class="uk-button uk-button-primary uk-button-large">{{t "instances.new.title"}}</LinkTo>
     </div>
   {{/uk-flex}}
 {{/if}}
