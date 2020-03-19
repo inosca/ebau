@@ -4,12 +4,12 @@
 @import "ember-caluma";
 @import "ember-power-select";
 
-@import "embedded";
+@import "a11y";
 @import "be-gis";
 @import "be-navbar";
+@import "embedded";
+@import "instances";
 @import "pikaday";
-
-@import "a11y";
 
 $badge-in-tab-ratio: 0.85;
 
