@@ -156,6 +156,7 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
             instance=self.instance.pk,
             decision=decision,
             decision_date=self.data.eventNotice.decisionRuling.date,
+            decision_type="UNKNOWN_ECH",
         )
         ruling.send(
             sender=self.__class__,
