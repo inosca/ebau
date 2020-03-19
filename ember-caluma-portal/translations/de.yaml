@@ -157,6 +157,14 @@ instances:
   activateFurtherPersons: "Weitere Personen freischalten"
   activateFurtherPersonsText: "Im Menü Berechtigungen können weitere Personen für die Bearbeitung dieses Dossiers freigeschalten werden."
   managePermissions: "Berechtigungen verwalten"
+  furtherProcessingOfForm: "Formular weiterbearbeiten"
+  furtherProcessingOfFormText: "Hier kann ihr Formular weiter bearbeitet und eingereicht werden."
+  processingOfForm: "Formular bearbeiten"
+  processingOfFormSb1: "Selbstdeklaration 1 weiterbearbeiten"
+  processingOfFormSb1Text: "Hier kann die Selbstdeklaration 1 weiter bearbeitet und eingereicht werden."
+  processingOfFormSb2: "Selbstdeklaration 2 weiterbearbeiten"
+  processingOfFormSb2Text: "Hier kann die Selbstdeklaration 2 weiter bearbeitet und eingereicht werden."
+
 
   modificationTitle: "Neue Projektänderung"
   modificationText: "Hat sich an Ihrem Bauvorhaben etwas geändert? Hier

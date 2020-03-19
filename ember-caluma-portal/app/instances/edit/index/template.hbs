@@ -80,6 +80,30 @@
       <UkButton @on-click={{perform this.copy}} @loading={{this.copy.isRunning}}>{{t "instances.rejectionTitle"}}</UkButton>
     {{/if}}
 
+    {{#if (can "write form of instance" this.instance form=(hash slug="main"))}}
+      <h4>{{t "instances.furtherProcessingOfForm"}}</h4>
+      <p>{{t "instances.furtherProcessingOfFormText"}}</p>
+      <LinkTo @route="instances.edit.form" @model={{this.instance.mainForm.slug}} class="uk-button uk-button-default">
+        {{t "instances.processingOfForm"}}
+      </LinkTo>
+    {{/if}}
+
+    {{#if (can "write form of instance" this.instance form=(hash slug="sb1"))}}
+      <h4>{{t "instances.processingOfFormSb1"}}</h4>
+      <p>{{t "instances.processingOfFormSb1Text"}}</p>
+      <LinkTo @route="instances.edit.form" @model="sb1" class="uk-button uk-button-default">
+        {{t "instances.processingOfFormSb1"}}
+      </LinkTo>
+    {{/if}}
+
+    {{#if (can "write form of instance" this.instance form=(hash slug="sb2"))}}
+      <h4>{{t "instances.processingOfFormSb2"}}</h4>
+      <p>{{t "instances.processingOfFormSb2Text"}}</p>
+      <LinkTo @route="instances.edit.form" @model="sb2" class="uk-button uk-button-default">
+        {{t "instances.processingOfFormSb2"}}
+      </LinkTo>
+    {{/if}}
+
     <h4>{{t "instances.activateFurtherPersons"}}</h4>
     <p>{{t "instances.activateFurtherPersonsText"}}</p>
     <LinkTo @route="instances.edit.applicants" class="uk-button uk-button-default">{{t "instances.managePermissions"}}</LinkTo>
