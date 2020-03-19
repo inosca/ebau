@@ -17,12 +17,6 @@ import {
 import QueryParams from "ember-parachute";
 import moment from "moment";
 
-const MODIFICATION_FORMS = [
-  "baugesuch",
-  "baugesuch-generell",
-  "baugesuch-mit-uvp"
-];
-
 const getHasAnswerFilters = ({ parcel: value }) =>
   [
     {
@@ -133,10 +127,6 @@ const queryParams = new QueryParams({
   order: {
     defaultValue: "META_CAMAC_INSTANCE_ID_DESC",
     replace: true
-  },
-  modify: {
-    defaultValue: false,
-    replace: true
   }
 });
 
@@ -198,20 +188,13 @@ export default class InstancesIndexController extends Controller.extend(
     this.fetchData.cancelAll({ reset: true });
   }
 
-  @lastValue("getRootForms") _rootForms;
-  @computed("_rootForms.[]", "modify")
-  get rootForms() {
-    return (this._rootForms || []).map(form => {
-      return {
-        ...form,
-        disabled: this.modify ? !MODIFICATION_FORMS.includes(form.slug) : false
-      };
-    });
-  }
+  @lastValue("getRootForms") rootForms;
 
   @computed("rootForms.@each.slug", "types.[]")
   get selectedTypes() {
-    return this.rootForms.filter(form => this.types.includes(form.slug));
+    return (this.rootForms || []).filter(form =>
+      this.types.includes(form.slug)
+    );
   }
 
   set selectedTypes(value) {
@@ -309,64 +292,10 @@ export default class InstancesIndexController extends Controller.extend(
   *resetFilters(event) {
     event.preventDefault();
 
-    if (this.modify) {
-      yield this.startModification.perform();
-    } else {
-      yield this.resetQueryParams();
+    yield this.resetQueryParams();
 
-      this.set("documents", []);
-      yield this.fetchData.perform();
-    }
-  }
-
-  @dropTask
-  *startModification() {
-    this.resetQueryParams();
-
-    this.setProperties({
-      modify: true,
-      submitTo: moment.utc().toDate(),
-      types: [...MODIFICATION_FORMS],
-      documents: []
-    });
-
+    this.set("documents", []);
     yield this.fetchData.perform();
-  }
-
-  @dropTask
-  *endModification() {
-    this.resetQueryParams();
-
-    this.setProperties({
-      modify: false,
-      documents: []
-    });
-
-    yield this.fetchData.perform();
-  }
-
-  @dropTask
-  *createModification(instanceId) {
-    const response = yield this.fetch.fetch(`/api/v1/instances`, {
-      method: "POST",
-      body: JSON.stringify({
-        data: {
-          attributes: { "copy-source": instanceId },
-          type: "instances",
-          relationships: {
-            form: {
-              data: { id: 1, type: "forms" }
-            }
-          }
-        }
-      })
-    });
-
-    const {
-      data: { id: newInstanceId }
-    } = yield response.json();
-
-    yield this.transitionToRoute("instances.edit", newInstanceId);
   }
 
   @action
