@@ -180,16 +180,16 @@ def test_instance_update_location(admin_client, instance, location_factory):
     ).exists()
 
 
-@pytest.mark.parametrize("instance_state__name", ["new"])
 @pytest.mark.parametrize(
-    "role__name,instance__user,status_code",
+    "role__name,instance__user,instance_state__name,status_code",
     [
-        ("Applicant", LazyFixture("admin_user"), status.HTTP_204_NO_CONTENT),
-        ("Reader", LazyFixture("admin_user"), status.HTTP_204_NO_CONTENT),
-        ("Canton", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
-        ("Municipality", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
-        ("Service", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
-        ("Unknown", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
+        ("Applicant", LazyFixture("admin_user"), "new", status.HTTP_204_NO_CONTENT),
+        ("Applicant", LazyFixture("admin_user"), "subm", status.HTTP_403_FORBIDDEN),
+        ("Reader", LazyFixture("admin_user"), "new", status.HTTP_204_NO_CONTENT),
+        ("Canton", LazyFixture("user"), "new", status.HTTP_403_FORBIDDEN),
+        ("Municipality", LazyFixture("user"), "new", status.HTTP_403_FORBIDDEN),
+        ("Service", LazyFixture("user"), "new", status.HTTP_404_NOT_FOUND),
+        ("Unknown", LazyFixture("user"), "new", status.HTTP_404_NOT_FOUND),
     ],
 )
 def test_instance_destroy(admin_client, instance, status_code, location_factory):
