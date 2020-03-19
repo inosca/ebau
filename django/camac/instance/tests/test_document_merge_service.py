@@ -43,8 +43,11 @@ def test_document_merge_service_snapshot(
     dms_settings,
 ):
     cache.clear()
-    service_group = service_group_factory(pk=2)
-    service_factory(pk=2, service_group=service_group, name="Leitbehörde Burgdorf")
+    service_factory(
+        pk=2,
+        service_group=service_group_factory(name="municipality"),
+        name="Leitbehörde Burgdorf",
+    )
 
     _filter = {"meta__camac-instance-id": instance_id}
     if form_slug:

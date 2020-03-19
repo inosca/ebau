@@ -12,7 +12,11 @@ from django.db.migrations.executor import MigrationExecutor
 
 def test_migrate_add_missing_dynamic_options(transactional_db, service_factory):
     service = service_factory(
-        service_parent=None, service_group__pk=2, disabled=False, pk=1, name="Burgdorf"
+        service_parent=None,
+        service_group__name="municipality",
+        disabled=False,
+        pk=1,
+        name="Burgdorf",
     )
 
     service_factory(

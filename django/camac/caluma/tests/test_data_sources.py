@@ -1,31 +1,18 @@
 import pytest
 
-from ..extensions.data_sources import (
-    SERVICE_GROUP_MUNICIPALITY,
-    SERVICE_GROUP_SERVICE,
-    Municipalities,
-    Services,
-)
+from ..extensions.data_sources import Municipalities, Services
 
 
 @pytest.mark.parametrize(
-    "test_class,service_group_pk,expected",
+    "test_class,service_group_name,expected",
     [
-        (
-            Municipalities,
-            SERVICE_GROUP_MUNICIPALITY,
-            [[1, "service1"], [2, "service2"]],
-        ),
-        (
-            Services,
-            SERVICE_GROUP_SERVICE,
-            [["1", "service1"], ["2", "service2"], ["-1", "Andere"]],
-        ),
+        (Municipalities, "municipality", [[1, "service1"], [2, "service2"]]),
+        (Services, "service", [["1", "service1"], ["2", "service2"], ["-1", "Andere"]]),
     ],
 )
-def test_data_sources(db, service_factory, test_class, service_group_pk, expected):
+def test_data_sources(db, service_factory, test_class, service_group_name, expected):
     service1 = service_factory(
-        pk=1, name="service1", disabled=False, service_group__pk=service_group_pk
+        pk=1, name="service1", disabled=False, service_group__name=service_group_name
     )
     service_factory(
         pk=2, name="service2", disabled=False, service_group=service1.service_group
