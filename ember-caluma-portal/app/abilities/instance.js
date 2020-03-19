@@ -79,6 +79,13 @@ export default class InstanceAbility extends Ability {
       .includes("read");
   }
 
+  @computed("model.meta.permissions")
+  get canWrite() {
+    return Object.values(this.get("model.meta.permissions") || {})
+      .reduce((items, flat) => [...flat, ...items], [])
+      .includes("write");
+  }
+
   @computed("model.instanceState.id")
   get canCreateModification() {
     const state = parseInt(this.get("model.instanceState.id"));
