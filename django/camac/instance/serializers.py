@@ -199,7 +199,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
         queryset=models.Form.objects.all(), default=lambda: models.Form.objects.first()
     )
 
-    caluma_form = serializers.CharField(required=False, write_only=True)
+    caluma_form = serializers.SerializerMethodField()
 
     is_paper = serializers.SerializerMethodField()  # "Papierdossier
     is_modification = serializers.SerializerMethodField()  # "Projektänderung"
@@ -223,6 +223,9 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
     def get_is_modification(self, instance):
         return CalumaApi().is_modification(instance)
+
+    def get_caluma_form(self, instance):
+        return CalumaApi().get_form_slug(instance)
 
     def get_active_service(self, instance):
         return instance.active_service
@@ -422,7 +425,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
         }
 
     def validate(self, data):
-        form_slug = data.get("caluma_form")
+        form_slug = self.initial_data.get("caluma_form")
 
         if form_slug and not CalumaApi().is_main_form(form_slug):  # pragma: no cover
             raise exceptions.ValidationError(
@@ -476,7 +479,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
             is_rejected = source_instance.instance_state.name == "rejected"
             is_paper = caluma_api.is_paper(source_instance)
         else:
-            caluma_form = validated_data.pop("caluma_form")
+            caluma_form = self.initial_data.get("caluma_form")
             is_rejected = False
             is_paper = (
                 group.service  # group needs to have a service
@@ -563,6 +566,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
             "involved_applicants",
         )
         read_only_fields = InstanceSerializer.Meta.read_only_fields + (
+            "caluma_form",
             "is_paper",
             "is_modification",
             "public_status",
