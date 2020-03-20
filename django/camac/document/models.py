@@ -1,3 +1,4 @@
+from functools import reduce
 from uuid import uuid4
 
 import reversion
@@ -8,6 +9,8 @@ from django.db import models
 from django.utils import timezone
 
 from camac.core import models as core_models
+
+from . import permissions
 
 
 def attachment_path_directory_path(attachment, filename):
@@ -115,24 +118,10 @@ class Attachment(models.Model):
 
 class AttachmentSectionQuerySet(models.QuerySet):
     def filter_group(self, group):
+        permission_info = permissions.section_permissions_for_role(group.role)
+        visible_section_ids = reduce(lambda a, b: a + b, permission_info.values(), [])
 
-        role_sections = AttachmentSectionRoleAcl.objects.filter(
-            role=group.role_id
-        ).values("attachment_section")
-
-        group_sections = AttachmentSectionGroupAcl.objects.filter(group=group).values(
-            "attachment_section"
-        )
-
-        service_sections = AttachmentSectionServiceAcl.objects.filter(
-            service=group.service_id
-        ).values("attachment_section")
-
-        return self.filter(
-            models.Q(pk__in=role_sections)
-            | models.Q(pk__in=group_sections)
-            | models.Q(pk__in=service_sections)
-        )
+        return self.filter(pk__in=visible_section_ids)
 
 
 def _get_default_mime_types():
@@ -174,21 +163,11 @@ class AttachmentSection(core_models.MultilingualModel, models.Model):
     )
 
     def get_mode(self, group):
-        group_modes = AttachmentSectionGroupAcl.objects.filter(
-            attachment_section=self, group=group
-        ).values("mode")
-        role_modes = AttachmentSectionRoleAcl.objects.filter(
-            attachment_section=self, role=group.role_id
-        ).values("mode")
-        service_nodes = AttachmentSectionServiceAcl.objects.filter(
-            attachment_section=self, service=group.service_id
-        ).values("mode")
+        permission_info = permissions.section_permissions_for_role(group.role)
 
-        mode = (
-            group_modes.union(role_modes).union(service_nodes).order_by("mode").first()
-        )
-
-        return None if mode is None else mode["mode"]
+        for mode, section_ids in permission_info.items():
+            if self.pk in section_ids:
+                return mode
 
     class Meta:
         managed = True
