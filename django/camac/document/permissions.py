@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.db.models import Q
 
 # Permissions configuration:
 # Top-Level keys are the internal role names. The second-level keys are
@@ -71,6 +72,20 @@ PERMISSIONS = {
         "lesezugriff": {"read": [1, 8, 4, 5, 6]},
     },
     "demo": {"applicant": {"admin": [250, 251]}},
+}
+
+# Loosen filters allow additional visibility. They are used as an "OR"
+# to the other filters, and as such can be used to allow additional
+# access to attachments.
+# Don't set a filter for your application (and don't set it to None)
+# if this feature not used!
+LOOSEN_FILTERS = {
+    "kt_bern": lambda request: Q(
+        context__isDecision=True, instance__involved_applicants__invitee=request.user
+    ),
+    # in test mode, we don't want to complicate the setup, so we don't enforce
+    # user to be invitee
+    "demo": lambda request: Q(context__isDecision=True),
 }
 
 
