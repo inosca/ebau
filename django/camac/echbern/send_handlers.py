@@ -9,6 +9,7 @@ from camac.constants.kt_bern import (
     INSTANCE_STATE_FINISHED,
     INSTANCE_STATE_KOORDINATION,
     INSTANCE_STATE_REJECTED,
+    INSTANCE_STATE_SB1,
     INSTANCE_STATE_TO_BE_FINISHED,
     INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT,
     INSTANCE_STATE_ZIRKULATION,
@@ -129,8 +130,8 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
             )
 
         status = {
-            1: INSTANCE_STATE_FINISHED,
-            2: INSTANCE_STATE_FINISHED,
+            1: INSTANCE_STATE_SB1,
+            2: INSTANCE_STATE_SB1,
             3: INSTANCE_STATE_REJECTED,
             4: INSTANCE_STATE_REJECTED,
         }
