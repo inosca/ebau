@@ -292,6 +292,8 @@ def test_instance_submit(
     mailoutbox,
     attachment_section,
     attachment_section_group_acl_factory,
+    role,
+    mocker,
 ):
 
     settings.APPLICATION["NOTIFICATIONS"]["SUBMIT"] = notification_template.slug
@@ -299,8 +301,7 @@ def test_instance_submit(
 
     # only create group in a successful run
     if status_code == status.HTTP_200_OK:
-        role = role_factory(name="Municipality")
-        group = group_factory(role=role)
+        group = group_factory(role=role_factory(name="Municipality"))
         group_location_factory(group=group, location=instance.location)
         attachment_section_group_acl_factory(
             group=admin_user.groups.first(), attachment_section=attachment_section
@@ -328,6 +329,12 @@ def test_instance_submit(
     add_field(name="gwr", value=[{"name": "Name", "wohnungen": [{"stockwerk": "1OG"}]}])
     add_field(
         name="punkte", value=[[{"lat": 47.02433179952733, "lng": 8.634144559228435}]]
+    )
+
+    # fix permissions
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {"demo": {role.name.lower(): {"admin": [attachment_section.pk]}}},
     )
 
     response = admin_client.post(url)

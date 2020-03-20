@@ -2,6 +2,7 @@ import io
 import mimetypes
 import os
 import zipfile
+from functools import reduce
 
 from django.conf import settings
 from django.db.models import Q
@@ -28,7 +29,7 @@ from camac.swagger.utils import group_param
 from camac.unoconv import convert
 from camac.user.permissions import permission_aware
 
-from . import filters, models, serializers
+from . import filters, models, serializers, permissions
 
 NOTICE_TYPE_ORDER = {
     "Antrag": 0,
@@ -75,7 +76,65 @@ class FileUploadSwaggerAutoSchema(SwaggerAutoSchema):
         return natural_parameters + serializer_parameters
 
 
-class AttachmentView(InstanceEditableMixin, InstanceQuerysetMixin, views.ModelViewSet):
+class AttachmentQueryserMixin:
+    def get_base_queryset(self, loosen_filter=None):
+        if getattr(self, "swagger_fake_view", False):
+            return models.Attachment.objects.none()
+        queryset = super().get_base_queryset()
+
+        permission_info = permissions.section_permissions_for_role(
+            self.request.group.role
+        )
+        readable_sections = reduce(
+            lambda a, b: a + b,
+            [
+                sec
+                for perm, sec in permission_info.items()
+                if perm not in ("adminint", "applicant")
+            ],
+            [],
+        )
+
+        if not readable_sections:
+            readable_sections = []
+        # adminint must be special-cased to also include the section in the filter
+        # so it cannot be used with the other sections
+        adminint_sections = permission_info.get("adminint", [])
+
+        # applicant is a role relative to the instance, so must be specialcased
+        applicant_sections = permission_info.get("applicant", [])
+
+        if not loosen_filter:
+            # loosen_filter can be used by callers to allow more
+            # results than we'd allow by default. Since this is used
+            # in an OR fashion with the rest of the query, we need
+            # this to not add any results
+            loosen_filter = Q(pk=0)
+
+        return queryset.filter(
+            # first: directly readable sections
+            Q(attachment_sections__in=readable_sections)
+            # second: sections where only documents from my own service are readable
+            | Q(
+                attachment_sections__in=adminint_sections,
+                service=self.request.group.service,
+            )
+            # third: documents where i'm invitee
+            | Q(
+                Q(attachment_sections__in=applicant_sections),
+                Q(instance__involved_applicants__invitee=self.request.user)
+                | Q(instance__user=self.request.user),
+            )
+            | loosen_filter
+        ).distinct()
+
+
+class AttachmentView(
+    AttachmentQueryserMixin,
+    InstanceEditableMixin,
+    InstanceQuerysetMixin,
+    views.ModelViewSet,
+):
     queryset = models.Attachment.objects.all()
     serializer_class = serializers.AttachmentSerializer
     filterset_class = filters.AttachmentFilterSet
@@ -88,72 +147,17 @@ class AttachmentView(InstanceEditableMixin, InstanceQuerysetMixin, views.ModelVi
 
     @permission_aware
     def get_queryset(self):
-        if getattr(self, "swagger_fake_view", False):
-            return models.Attachment.objects.none()
-        queryset = self.get_base_queryset()
-
-        sections_all = models.AttachmentSection.objects.filter(
-            Q(group_acls__group=self.request.group)
-            & ~Q(group_acls__mode=models.PUBLIC_PERMISSION)
-            | Q(service_acls__service=self.request.group.service)
-            & ~Q(service_acls__mode=models.PUBLIC_PERMISSION)
-            | Q(role_acls__role=self.request.group.role)
-            & ~Q(role_acls__mode=models.PUBLIC_PERMISSION)
-        )
-
-        sections_public = models.AttachmentSection.objects.filter(
-            Q(group_acls__group=self.request.group)
-            & Q(group_acls__mode=models.PUBLIC_PERMISSION)
-            | Q(service_acls__service=self.request.group.service)
-            & Q(service_acls__mode=models.PUBLIC_PERMISSION)
-            | Q(role_acls__role=self.request.group.role)
-            & Q(role_acls__mode=models.PUBLIC_PERMISSION)
-        )
-
-        return queryset.filter(
-            Q(attachment_sections__in=sections_public)
-            | Q(
-                attachment_sections__in=sections_all,
-                instance__involved_applicants__invitee=self.request.user,
-            )
-        )
-
-    def get_base_queryset(self):
-        queryset = super().get_base_queryset()
-        group = self.request.group
-
-        # attachments section where user may read all attachments
-        sections_all = models.AttachmentSection.objects.filter(
-            Q(group_acls__group=group)
-            & ~Q(group_acls__mode=models.ADMININTERNAL_PERMISSION)
-            | Q(service_acls__service=group.service)
-            & ~Q(service_acls__mode=models.ADMININTERNAL_PERMISSION)
-            | Q(role_acls__role=group.role)
-            & ~Q(role_acls__mode=models.ADMININTERNAL_PERMISSION)
-        )
-
-        # attachments section where user may only read attachments of service
-        sections_only_service = models.AttachmentSection.objects.filter(
-            Q(group_acls__group=group)
-            & Q(group_acls__mode=models.ADMININTERNAL_PERMISSION)
-            | Q(service_acls__service=group.service)
-            & Q(service_acls__mode=models.ADMININTERNAL_PERMISSION)
-            | Q(role_acls__role=group.role)
-            & Q(role_acls__mode=models.ADMININTERNAL_PERMISSION)
-        )
-
-        queryset = queryset.filter(
-            Q(attachment_sections__in=sections_all)
-            | Q(attachment_sections__in=sections_only_service, service=group.service)
-        )
-
-        return queryset.distinct()
+        return self.get_base_queryset()
 
     def has_object_destroy_base_permission(self, obj):
         section_modes = {
             attachment_section.get_mode(self.request.group)
             for attachment_section in obj.attachment_sections.all()
         }
+        # get_mode() can return None if no access mode configured.
+        # This must be removed again to avoid false positives when
+        # checking if there are any section modes
+        section_modes.discard(None)
 
         attachment_admin_permissions = section_modes - {
             models.READ_PERMISSION,
@@ -251,7 +255,9 @@ attachments_param = openapi.Parameter(
 )
 
 
-class AttachmentDownloadView(InstanceQuerysetMixin, ReadOnlyModelViewSet):
+class AttachmentDownloadView(
+    AttachmentQueryserMixin, InstanceQuerysetMixin, ReadOnlyModelViewSet
+):
     """Attachment view to download attachment."""
 
     queryset = models.Attachment.objects
@@ -267,38 +273,11 @@ class AttachmentDownloadView(InstanceQuerysetMixin, ReadOnlyModelViewSet):
 
     @permission_aware
     def get_queryset(self):
-        queryset = self.get_base_queryset()
-
-        sections_all = models.AttachmentSection.objects.filter(
-            Q(group_acls__group=self.request.group)
-            & ~Q(group_acls__mode=models.PUBLIC_PERMISSION)
-            | Q(service_acls__service=self.request.group.service)
-            & ~Q(service_acls__mode=models.PUBLIC_PERMISSION)
-            | Q(role_acls__role=self.request.group.role)
-            & ~Q(role_acls__mode=models.PUBLIC_PERMISSION)
-        )
-
-        sections_public = models.AttachmentSection.objects.filter(
-            Q(group_acls__group=self.request.group)
-            & Q(group_acls__mode=models.PUBLIC_PERMISSION)
-            | Q(service_acls__service=self.request.group.service)
-            & Q(service_acls__mode=models.PUBLIC_PERMISSION)
-            | Q(role_acls__role=self.request.group.role)
-            & Q(role_acls__mode=models.PUBLIC_PERMISSION)
-        )
-
-        return queryset.filter(
-            Q(attachment_sections__in=sections_public)
-            | Q(
-                attachment_sections__in=sections_all,
-                instance__involved_applicants__invitee=self.request.user,
-            )
-        )
+        return self.get_base_queryset()
 
     @swagger_auto_schema(auto_schema=None)
     def retrieve(self, request, **kwargs):
         attachment = self.get_object()
-
         download_path = kwargs.get(self.lookup_field)
 
         models.AttachmentDownloadHistory.objects.create(

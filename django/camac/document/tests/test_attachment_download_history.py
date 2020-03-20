@@ -23,12 +23,24 @@ def test_attachment_download_history_list(
 
 
 @pytest.mark.parametrize(
-    "instance__user,attachment__path",
-    [(LazyFixture("admin_user"), django_file("multiple-pages.pdf"))],
+    "instance__user,attachment__path,role__name",
+    [(LazyFixture("admin_user"), django_file("multiple-pages.pdf"), "Applicant")],
 )
 def test_attachment_download_history_create(
-    admin_client, attachment_attachment_sections, attachment_section_group_acl
+    admin_client, attachment_attachment_sections, role, mocker
 ):
+    # fix permissions
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {
+            "demo": {
+                role.name.lower(): {
+                    "admin": [attachment_attachment_sections.attachmentsection_id]
+                }
+            }
+        },
+    )
+
     download_url = reverse(
         "attachment-download", args=[attachment_attachment_sections.attachment.path]
     )
