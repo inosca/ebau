@@ -29,7 +29,7 @@ from camac.swagger.utils import group_param
 from camac.unoconv import convert
 from camac.user.permissions import permission_aware
 
-from . import filters, models, serializers, permissions
+from . import filters, models, permissions, serializers
 
 NOTICE_TYPE_ORDER = {
     "Antrag": 0,
@@ -77,7 +77,7 @@ class FileUploadSwaggerAutoSchema(SwaggerAutoSchema):
 
 
 class AttachmentQueryserMixin:
-    def get_base_queryset(self, loosen_filter=None):
+    def get_base_queryset(self):
         if getattr(self, "swagger_fake_view", False):
             return models.Attachment.objects.none()
         queryset = super().get_base_queryset()
@@ -104,12 +104,13 @@ class AttachmentQueryserMixin:
         # applicant is a role relative to the instance, so must be specialcased
         applicant_sections = permission_info.get("applicant", [])
 
-        if not loosen_filter:
-            # loosen_filter can be used by callers to allow more
-            # results than we'd allow by default. Since this is used
-            # in an OR fashion with the rest of the query, we need
-            # this to not add any results
-            loosen_filter = Q(pk=0)
+        # loosen_filter can be used to allow more
+        # results than we'd allow by default. Since this is used
+        # in an OR fashion with the rest of the query, we need
+        # this to not add any results
+        loosen_filter = permissions.LOOSEN_FILTERS.get(
+            settings.APPLICATION_NAME, lambda _: Q(pk=0)
+        )
 
         return queryset.filter(
             # first: directly readable sections
@@ -125,7 +126,7 @@ class AttachmentQueryserMixin:
                 Q(instance__involved_applicants__invitee=self.request.user)
                 | Q(instance__user=self.request.user),
             )
-            | loosen_filter
+            | loosen_filter(self.request)
         ).distinct()
 
 
