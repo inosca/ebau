@@ -9,7 +9,7 @@ from .data import django_file
 
 
 @pytest.mark.parametrize(
-    "instance__user,attachment__path,attachment__service,attachment_section_group_acl__mode",
+    "instance__user,attachment__path,attachment__service,acl_mode",
     [
         (
             LazyFixture("admin_user"),
@@ -41,10 +41,27 @@ def test_attachment_delete(
     attachment_attachment_sections,
     attachment_section_group_acl,
     status_code,
+    role,
+    acl_mode,
     use_caluma_form,
+    mocker,
 ):
     url = reverse(
         "attachment-detail", args=[attachment_attachment_sections.attachment.pk]
+    )
+
+    # fix permissions
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {
+            "demo": {
+                role.name.lower(): {
+                    acl_mode: [
+                        section.pk for section in models.AttachmentSection.objects.all()
+                    ]
+                }
+            }
+        },
     )
     response = admin_client.delete(url)
     assert response.status_code == status_code
