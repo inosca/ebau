@@ -13,14 +13,13 @@
         <ns2:messageDate>2019-11-07T07:45:04.292204Z</ns2:messageDate>
         <ns2:action>1</ns2:action>
         <ns2:testDeliveryFlag>true</ns2:testDeliveryFlag>
-        <ns2:extension>http://camac-ng.local</ns2:extension>
     </ns1:deliveryHeader>
     <ns1:eventChangeResponsibility>
         <ns1:eventType>change responsibility</ns1:eventType><!-- wird ignoriert -->
         <ns1:planningPermissionApplicationIdentification>
             <ns1:localID>
-                <ns3:IdCategory>instanceID</ns3:IdCategory>
-                <ns3:Id>unkown</ns3:Id>
+                <ns3:IdCategory>eBauNr</ns3:IdCategory>
+                <ns3:Id>2019-001</ns3:Id>
             </ns1:localID>
             <ns1:otherID>
                 <ns3:IdCategory>instanceID</ns3:IdCategory>
@@ -38,7 +37,7 @@
                     <ns4:organisationIdCategory>ebaube</ns4:organisationIdCategory>
                     <ns4:organisationId>2</ns4:organisationId>
                 </ns4:localOrganisationId>
-                <ns4:organisationName>Leitbehörde Burgdorf</ns4:organisationName>
+                <ns4:organisationName>Leitbeh&#xF6;rde Burgdorf</ns4:organisationName>
                 <ns4:legalForm>0223</ns4:legalForm>
             </ns1:entryOfficeIdentification>
             <ns1:municipality>
