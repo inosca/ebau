@@ -18,7 +18,7 @@
       <ns2:eventType>notice kind of proceedings</ns2:eventType><!-- wird ignoriert -->
       <ns2:planningPermissionApplicationIdentification>
         <ns2:localID>
-          <ns3:IdCategory>Category</ns3:IdCategory>
+          <ns3:IdCategory>eBauNr</ns3:IdCategory>
           <ns3:Id>2019-001</ns3:Id>
         </ns2:localID>
         <ns2:otherID>

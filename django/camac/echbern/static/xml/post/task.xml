@@ -9,7 +9,7 @@
         <ns9:product>eBaugesucheZH</ns9:product>
         <ns9:productVersion>1.2.0</ns9:productVersion>
       </ns9:sendingApplication>
-      <ns9:subject>Bauprojekttitel</ns9:subject>
+      <ns9:subject>Bauprojekttitel</ns9:subject><!-- wird ignoriert -->
       <ns9:messageDate>2019-11-11T00:00:00.000Z</ns9:messageDate>
       <ns9:action>1</ns9:action>
       <ns9:testDeliveryFlag>true</ns9:testDeliveryFlag>
@@ -18,37 +18,24 @@
       <ns2:eventType>task</ns2:eventType><!-- wird ignoriert -->
       <ns2:planningPermissionApplicationIdentification>
         <ns2:localID>
-          <ns3:IdCategory>Category</ns3:IdCategory>
+          <ns3:IdCategory>eBauNr</ns3:IdCategory>
           <ns3:Id>2019-001</ns3:Id>
         </ns2:localID>
         <ns2:otherID>
-          <ns3:IdCategory>Category</ns3:IdCategory>
-          <ns3:Id>2019-001</ns3:Id>
+          <ns3:IdCategory>eBauNr</ns3:IdCategory><!-- wird ignoriert -->
+          <ns3:Id>2019-001</ns3:Id><!-- wird ignoriert -->
         </ns2:otherID>
         <ns2:dossierIdentification>2323</ns2:dossierIdentification>
       </ns2:planningPermissionApplicationIdentification>
-      <ns2:document>
-        <ns11:uuid>00000000-0000-0000-0000-000000000000</ns11:uuid>
-        <ns11:titles>
-          <ns10:title ns10:lang="de">myFile.pdf</ns10:title>
-        </ns11:titles>
-        <ns11:status>created</ns11:status>
-        <ns11:files>
-          <ns11:file>
-            <ns11:pathFileName>https://dev.ebpzh.ch/this/is/a/temporary/download/link/myFile.pdf</ns11:pathFileName>
-            <ns11:mimeType>application/pdf</ns11:mimeType>
-            <ns11:version>1.0.0</ns11:version>
-          </ns11:file>
-        </ns11:files>
-        <ns11:comments>
-          <ns10:comment ns10:lang="DE">Dokumentkommentar</ns10:comment>
-        </ns11:comments>
-        <ns11:keywords>
-          <ns10:keyword ns10:lang="DE">Gesuchsunterlagen vom: dd.mm.yyyy</ns10:keyword>
-        </ns11:keywords>
-        <ns11:documentKind>Weitere Dokumente</ns11:documentKind>
-      </ns2:document>
-      <ns2:remark>Wird ignoriert.</ns2:remark>
+      <ns2:directive>
+        <uuid>00000000-0000-0000-0000-000000000000</uuid><!-- wird ignoriert -->
+        <instruction>process</instruction><!-- wird ignoriert -->
+        <priority>undefined</priority><!-- wird ignoriert -->
+        <deadline>2020-03-23</deadline>
+        <comments>
+          <ns10:comment>Anforderung einer Stellungnahme</ns10:comment><!-- wird ignoriert -->
+        </comments>
+      </ns2:directive>
       <ns2:extension>
         <!-- ID der eingeladenen Organisation. -->
         <serviceId>23</serviceId>
