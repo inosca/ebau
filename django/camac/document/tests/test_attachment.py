@@ -14,22 +14,35 @@ from .data import django_file
 @pytest.mark.parametrize(
     "role__name,instance__user,num_queries",
     [
-        ("Applicant", LazyFixture("admin_user"), 10),
-        ("Reader", LazyFixture("user"), 10),
-        ("Canton", LazyFixture("user"), 10),
-        ("Municipality", LazyFixture("user"), 10),
-        ("Service", LazyFixture("user"), 10),
+        ("Applicant", LazyFixture("admin_user"), 9),
+        ("Reader", LazyFixture("user"), 9),
+        ("Canton", LazyFixture("user"), 9),
+        ("Municipality", LazyFixture("user"), 9),
+        ("Service", LazyFixture("user"), 9),
     ],
 )
 def test_attachment_list(
     admin_client,
     attachment_attachment_sections,
     num_queries,
-    attachment_section_group_acl,
     activation,
     django_assert_num_queries,
+    role,
+    mocker,
 ):
     url = reverse("attachment-list")
+
+    # fix permissions
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {
+            "demo": {
+                role.name.lower(): {
+                    "admin": [attachment_attachment_sections.attachmentsection_id]
+                }
+            }
+        },
+    )
 
     included = serializers.AttachmentSerializer.included_serializers
     with django_assert_num_queries(num_queries):
@@ -49,7 +62,7 @@ def test_attachment_list(
 
 @pytest.mark.parametrize("instance_state__name", ["nfd"])
 @pytest.mark.parametrize(
-    "filename,mime_type,role__name,instance__user,instance__location,activation__service,instance__group,attachment_section_group_acl__mode,status_code",
+    "filename,mime_type,role__name,instance__user,instance__location,activation__service,instance__group,acl_mode,status_code",
     [
         # applicant creates valid pdf attachment on a instance of its own in a
         # attachment section with admin permissions
@@ -260,13 +273,21 @@ def test_attachment_create(
     instance,
     attachment_section,
     activation,
-    attachment_section_group_acl,
     mime_type,
     filename,
     status_code,
     mailoutbox,
+    acl_mode,
+    role,
+    mocker,
 ):
     url = reverse("attachment-list")
+
+    # fix permissions
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {"demo": {role.name.lower(): {acl_mode: [attachment_section.pk]}}},
+    )
 
     path = django_file(filename)
     data = {"instance": instance.pk, "path": path.file, "group": instance.group.pk}
@@ -307,7 +328,7 @@ def test_attachment_download_404(admin_client, attachment):
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user,instance_state__name,attachment_section_group_acl__mode",
+    "role__name,instance__user,instance_state__name,acl_mode",
     [("Applicant", LazyFixture("admin_user"), "new", models.ADMIN_PERMISSION)],
 )
 @pytest.mark.parametrize(
@@ -319,13 +340,21 @@ def test_attachment_download(
     instance,
     attachment_factory,
     attachment_section,
-    attachment_section_group_acl,
+    acl_mode,
     multi,
     expected_name,
+    mocker,
 ):
     attachment1 = attachment_factory(
         instance=instance, service=service, path=django_file("multiple-pages.pdf")
     )
+
+    # fix permissions
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {"demo": {"applicant": {acl_mode: [attachment_section.pk]}}},
+    )
+
     test_path = "/".join(str(attachment1.path).split("/")[3:])
     attachment1.path = test_path
     attachment1.path.name = test_path
@@ -390,10 +419,26 @@ def test_attachment_thumbnail(
     attachment_attachment_section_factory,
     attachment_section_group_acl,
     status_code,
+    mocker,
 ):
     aasa = attachment_attachment_sections.attachment
     attachment_attachment_section_factory(attachment=aasa)
     url = reverse("attachment-thumbnail", args=[aasa.pk])
+
+    # fix permissions
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {
+            "demo": {
+                "applicant": {
+                    "admin": [
+                        section.pk for section in models.AttachmentSection.objects.all()
+                    ]
+                }
+            }
+        },
+    )
+
     response = admin_client.get(url)
     assert response.status_code == status_code
     if status_code == status.HTTP_200_OK:
@@ -417,10 +462,24 @@ def test_attachment_update(
     attachment_section_group_acl,
     status_code,
     send_path,
+    mocker,
 ):
     aasa = attachment_attachment_sections.attachment
     attachment_attachment_section_factory(attachment=aasa)
     url = reverse("attachment-detail", args=[aasa.pk])
+    # fix permissions
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {
+            "demo": {
+                "canton": {
+                    "admin": [
+                        section.pk for section in models.AttachmentSection.objects.all()
+                    ]
+                }
+            }
+        },
+    )
 
     format = ""
     data = {
@@ -449,10 +508,25 @@ def test_attachment_update(
     [("Applicant", LazyFixture("admin_user")), ("Reader", LazyFixture("admin_user"))],
 )
 def test_attachment_detail(
-    admin_client, attachment_attachment_sections, attachment_section_group_acl
+    admin_client,
+    attachment_attachment_sections,
+    attachment_section_group_acl,
+    role,
+    mocker,
 ):
     url = reverse(
         "attachment-detail", args=[attachment_attachment_sections.attachment.pk]
+    )
+    # fix permissions
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {
+            "demo": {
+                role.name.lower(): {
+                    "admin": [attachment_attachment_sections.attachmentsection_id]
+                }
+            }
+        },
     )
 
     response = admin_client.get(url)
@@ -463,7 +537,7 @@ def test_attachment_detail(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
 @pytest.mark.parametrize(
-    "instance_state__name,attachment__path,attachment__service,attachment_section_group_acl__mode,status_code",
+    "instance_state__name,attachment__path,attachment__service,acl_mode,status_code",
     [
         (
             "new",
@@ -538,20 +612,31 @@ def test_attachment_detail(
     ],
 )
 def test_attachment_delete(
-    admin_client,
-    attachment_attachment_sections,
-    attachment_section_group_acl,
-    status_code,
+    admin_client, attachment_attachment_sections, status_code, mocker, acl_mode
 ):
     url = reverse(
         "attachment-detail", args=[attachment_attachment_sections.attachment.pk]
     )
+    # fix permissions
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {
+            "demo": {
+                "applicant": {
+                    acl_mode: [
+                        section.pk for section in models.AttachmentSection.objects.all()
+                    ]
+                }
+            }
+        },
+    )
+
     response = admin_client.delete(url)
     assert response.status_code == status_code
 
 
 @pytest.mark.parametrize(
-    "instance_state__name,role__name,instance__user,instance__location,activation__service,instance__group,attachment_section_group_acl__mode",
+    "instance_state__name,role__name,instance__user,instance__location,activation__service,instance__group,acl_mode",
     [
         (
             "nfd",
@@ -581,11 +666,19 @@ def test_attachment_mime_type(
     instance,
     attachment_section,
     activation,
-    attachment_section_group_acl,
     filename,
     status_code,
+    acl_mode,
+    role,
+    mocker,
 ):
     url = reverse("attachment-list")
+
+    # fix permissions
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {"demo": {role.name.lower(): {"admin": [attachment_section.pk]}}},
+    )
 
     path = django_file(filename)
     data = {"instance": instance.pk, "path": path.file, "group": instance.group.pk}

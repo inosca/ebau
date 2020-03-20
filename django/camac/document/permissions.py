@@ -58,17 +58,17 @@ PERMISSIONS = {
     },
     "kt_schwyz": {
         "municipality": {"admin": [1, 4, 5, 6, 7, 8, 9]},
-        "Portal": {"admin": [1], "read": [5, 9, 4]},
-        "Fachstelle": {"read": [1, 5, 4, 6, 9], "adminint": [2], "adminsvc": [8]},
-        "Kanton": {"read": [1, 2], "admin": [8, 6, 9]},
-        "Publikation": {"read": [4]},
-        "Gemeinde Sachbearbeiter": {"admin": [6, 7, 1, 4, 5, 8, 9]},
-        "Fachstelle Sachbearbeiter": {
+        "portal": {"admin": [1], "read": [5, 9, 4]},
+        "fachstelle": {"read": [1, 5, 4, 6, 9], "adminint": [2], "adminsvc": [8]},
+        "kanton": {"read": [1, 2], "admin": [8, 6, 9]},
+        "publikation": {"read": [4]},
+        "gemeinde sachbearbeiter": {"admin": [6, 7, 1, 4, 5, 8, 9]},
+        "fachstelle sachbearbeiter": {
             "read": [1, 4, 5, 6, 9],
             "adminint": [2],
             "adminsvc": [8],
         },
-        "Lesezugriff": {"read": [1, 8, 4, 5, 6]},
+        "lesezugriff": {"read": [1, 8, 4, 5, 6]},
     },
     "demo": {"applicant": {"admin": [250, 251]}},
 }
@@ -76,6 +76,10 @@ PERMISSIONS = {
 
 def section_permissions_for_role(role):
     app_name = settings.APPLICATION_NAME
+    app_permissions = PERMISSIONS[app_name]
     role_perms = settings.APPLICATIONS[app_name].get("ROLE_PERMISSIONS", {})
-    role_name_int = role_perms.get(role.name)
-    return PERMISSIONS[app_name].get(role_name_int, {})
+    role_name_int = role_perms.get(role.name, role.name).lower()
+    if role_name_int not in app_permissions:
+        # fallback
+        role_name_int = role.name.lower()
+    return app_permissions.get(role_name_int, {})
