@@ -297,6 +297,7 @@ def test_task_send_handler(
         assert Activation.objects.count() == 1
         activation = Activation.objects.first()
         assert activation.service == service
+        assert activation.deadline_date.strftime("%Y-%m-%d") == "2020-03-23"
         if has_circulation:
             assert activation.circulation == circulation
 
