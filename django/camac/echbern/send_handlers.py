@@ -340,11 +340,20 @@ class TaskSendHandler(BaseSendHandler):
 
     def _create_activation(self, circulation, service):
         circulation_state = CirculationState.objects.get(pk=1)
+        try:
+            deadline_date_raw = self.data.eventRequest.directive.deadline
+            deadline_date = deadline_date_raw + timezone.timedelta(
+                hours=4
+            )  # add 4 hours to prevent timezone problems
+        # Fallback for messages with missing `directive`
+        except AttributeError:  # pragma: no cover
+            deadline_date = timezone.now() + timezone.timedelta(weeks=4)
+
         return Activation.objects.create(
             circulation=circulation,
             service=service,
             start_date=timezone.now(),
-            deadline_date=timezone.now() + timezone.timedelta(weeks=4),
+            deadline_date=deadline_date,
             version=1,
             circulation_state=circulation_state,
             service_parent=self.instance.active_service,
