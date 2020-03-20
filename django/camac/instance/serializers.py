@@ -334,19 +334,22 @@ class CalumaInstanceSerializer(InstanceSerializer):
     def _get_sb1_form_permissions_for_municipality(self, instance):
         state = instance.instance_state.name
         is_paper = CalumaApi().is_paper(instance)
-        service_group = self.context["request"].group.service.service_group.pk
-        role = self.context["request"].group.role.pk
+        service_group = self.context["request"].group.service.service_group
+        role = self.context["request"].group.role
 
         permissions = set()
 
-        if state in ["sb2", "conclusion"]:
+        if (
+            state in ["sb2", "conclusion"]
+            and service_group.name == "construction-control"
+        ):
             permissions.add("read")
 
         if (
             state == "sb1"
             and is_paper
-            and service_group in get_paper_settings("sb1")["ALLOWED_SERVICE_GROUPS"]
-            and role in get_paper_settings("sb1")["ALLOWED_ROLES"]
+            and service_group.pk in get_paper_settings("sb1")["ALLOWED_SERVICE_GROUPS"]
+            and role.pk in get_paper_settings("sb1")["ALLOWED_ROLES"]
         ):
             permissions.update(["read", "write", "write-meta"])
 
@@ -377,18 +380,18 @@ class CalumaInstanceSerializer(InstanceSerializer):
     def _get_sb2_form_permissions_for_municipality(self, instance):
         state = instance.instance_state.name
         is_paper = CalumaApi().is_paper(instance)
-        service_group = self.context["request"].group.service.service_group.pk
+        service_group = self.context["request"].group.service.service_group
         role = self.context["request"].group.role.pk
 
         permissions = set()
 
-        if state == "conclusion":
+        if state == "conclusion" and service_group.name == "construction-control":
             permissions.add("read")
 
         if (
             state == "sb2"
             and is_paper
-            and service_group in get_paper_settings("sb2")["ALLOWED_SERVICE_GROUPS"]
+            and service_group.pk in get_paper_settings("sb2")["ALLOWED_SERVICE_GROUPS"]
             and role in get_paper_settings("sb2")["ALLOWED_ROLES"]
         ):
             permissions.update(["read", "write", "write-meta"])

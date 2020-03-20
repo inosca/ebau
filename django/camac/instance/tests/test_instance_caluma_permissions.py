@@ -22,7 +22,10 @@ def mock_nfd_permissions(requests_mock):
     )
 
 
-@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize(
+    "instance__user,service_group__name",
+    [(LazyFixture("admin_user"), "construction-control")],
+)
 @pytest.mark.parametrize(
     "role__name,instance_state__name,expected_permissions",
     [
