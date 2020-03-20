@@ -1114,22 +1114,6 @@
   },
   {
     "fields": {
-      "created_at": "2020-02-28T08:24:59.107Z",
-      "created_by_group": null,
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "description": "{\"de\": \"\", \"fr\": null}",
-      "is_archived": false,
-      "is_published": true,
-      "meta": {},
-      "modified_at": "2020-02-28T08:24:59.107Z",
-      "name": "{\"de\": \"Verantwortliche Person Selbstdeklaration Baukontrolle Tabelle\", \"fr\": null}",
-      "source": null
-    },
-    "model": "caluma_form.form",
-    "pk": "verantwortliche-person-sb-tabelle"
-  },
-  {
-    "fields": {
       "created_at": "2019-03-15T08:28:16.014Z",
       "created_by_group": null,
       "created_by_user": null,
@@ -10459,136 +10443,6 @@
   },
   {
     "fields": {
-      "created_at": "2020-02-28T08:33:37.917Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "form": "verantwortliche-person-sb-tabelle",
-      "modified_at": "2020-02-28T08:33:37.917Z",
-      "question": "e-mail-sb",
-      "sort": 1
-    },
-    "model": "caluma_form.formquestion",
-    "pk": "verantwortliche-person-sb-tabelle.e-mail-sb"
-  },
-  {
-    "fields": {
-      "created_at": "2020-02-28T08:26:38.343Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "form": "verantwortliche-person-sb-tabelle",
-      "modified_at": "2020-02-28T08:26:38.343Z",
-      "question": "juristische-person-sb",
-      "sort": 10
-    },
-    "model": "caluma_form.formquestion",
-    "pk": "verantwortliche-person-sb-tabelle.juristische-person-sb"
-  },
-  {
-    "fields": {
-      "created_at": "2020-02-28T08:28:48.093Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "form": "verantwortliche-person-sb-tabelle",
-      "modified_at": "2020-02-28T08:28:48.093Z",
-      "question": "name-juristische-person-sb",
-      "sort": 9
-    },
-    "model": "caluma_form.formquestion",
-    "pk": "verantwortliche-person-sb-tabelle.name-juristische-person-sb"
-  },
-  {
-    "fields": {
-      "created_at": "2020-02-28T08:29:27.633Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "form": "verantwortliche-person-sb-tabelle",
-      "modified_at": "2020-02-28T08:29:27.633Z",
-      "question": "name-sb",
-      "sort": 8
-    },
-    "model": "caluma_form.formquestion",
-    "pk": "verantwortliche-person-sb-tabelle.name-sb"
-  },
-  {
-    "fields": {
-      "created_at": "2020-02-28T08:31:15.672Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "form": "verantwortliche-person-sb-tabelle",
-      "modified_at": "2020-02-28T08:31:15.672Z",
-      "question": "nummer-sb",
-      "sort": 5
-    },
-    "model": "caluma_form.formquestion",
-    "pk": "verantwortliche-person-sb-tabelle.nummer-sb"
-  },
-  {
-    "fields": {
-      "created_at": "2020-02-28T08:32:31.624Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "form": "verantwortliche-person-sb-tabelle",
-      "modified_at": "2020-02-28T08:32:31.624Z",
-      "question": "ort-sb",
-      "sort": 3
-    },
-    "model": "caluma_form.formquestion",
-    "pk": "verantwortliche-person-sb-tabelle.ort-sb"
-  },
-  {
-    "fields": {
-      "created_at": "2020-02-28T08:31:47.373Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "form": "verantwortliche-person-sb-tabelle",
-      "modified_at": "2020-02-28T08:31:47.373Z",
-      "question": "plz-sb",
-      "sort": 4
-    },
-    "model": "caluma_form.formquestion",
-    "pk": "verantwortliche-person-sb-tabelle.plz-sb"
-  },
-  {
-    "fields": {
-      "created_at": "2020-02-28T08:30:29.538Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "form": "verantwortliche-person-sb-tabelle",
-      "modified_at": "2020-02-28T08:30:29.538Z",
-      "question": "strasse-sb",
-      "sort": 6
-    },
-    "model": "caluma_form.formquestion",
-    "pk": "verantwortliche-person-sb-tabelle.strasse-sb"
-  },
-  {
-    "fields": {
-      "created_at": "2020-02-28T08:33:02.394Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "form": "verantwortliche-person-sb-tabelle",
-      "modified_at": "2020-02-28T08:33:02.394Z",
-      "question": "telefon-oder-mobile-sb",
-      "sort": 2
-    },
-    "model": "caluma_form.formquestion",
-    "pk": "verantwortliche-person-sb-tabelle.telefon-oder-mobile-sb"
-  },
-  {
-    "fields": {
-      "created_at": "2020-02-28T08:30:01.662Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "form": "verantwortliche-person-sb-tabelle",
-      "modified_at": "2020-02-28T08:30:01.662Z",
-      "question": "vorname-sb",
-      "sort": 7
-    },
-    "model": "caluma_form.formquestion",
-    "pk": "verantwortliche-person-sb-tabelle.vorname-sb"
-  },
-  {
-    "fields": {
       "created_at": "2019-09-25T10:19:39.265Z",
       "created_by_group": null,
       "created_by_user": null,
@@ -16986,34 +16840,6 @@
     },
     "model": "caluma_form.option",
     "pk": "juristische-person-projektverfasserin-nein"
-  },
-  {
-    "fields": {
-      "created_at": "2020-02-28T08:26:38.055Z",
-      "created_by_group": null,
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "is_archived": false,
-      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\"}",
-      "meta": {},
-      "modified_at": "2020-02-28T08:26:38.055Z",
-      "source": null
-    },
-    "model": "caluma_form.option",
-    "pk": "juristische-person-sb-ja"
-  },
-  {
-    "fields": {
-      "created_at": "2020-02-28T08:26:38.068Z",
-      "created_by_group": null,
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "is_archived": false,
-      "label": "{\"de\": \"Nein\", \"fr\": \"Non\"}",
-      "meta": {},
-      "modified_at": "2020-02-28T08:26:38.068Z",
-      "source": null
-    },
-    "model": "caluma_form.option",
-    "pk": "juristische-person-sb-nein"
   },
   {
     "fields": {
@@ -29489,35 +29315,6 @@
       "configuration": {
         "max_length": null
       },
-      "created_at": "2020-02-28T08:33:37.745Z",
-      "created_by_group": null,
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "data_source": null,
-      "format_validators": "[]",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "is_archived": false,
-      "is_hidden": "false",
-      "is_required": "true",
-      "label": "{\"de\": \"E-Mail\", \"fr\": \"Courriel\"}",
-      "meta": {
-        "formatValidators": ["email"]
-      },
-      "modified_at": "2020-02-28T08:33:37.746Z",
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "row_form": null,
-      "source": null,
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "sub_form": null,
-      "type": "text"
-    },
-    "model": "caluma_form.question",
-    "pk": "e-mail-sb"
-  },
-  {
-    "fields": {
-      "configuration": {
-        "max_length": null
-      },
       "created_at": "2019-04-04T09:08:14.859Z",
       "created_by_group": null,
       "created_by_user": null,
@@ -34194,31 +33991,6 @@
   {
     "fields": {
       "configuration": {},
-      "created_at": "2020-02-28T08:26:38.199Z",
-      "created_by_group": null,
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "data_source": null,
-      "format_validators": "[]",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "is_archived": false,
-      "is_hidden": "false",
-      "is_required": "true",
-      "label": "{\"de\": \"Handelt es sich um eine juristische Person?\", \"fr\": \"S'agit-il d'une personne morale?\"}",
-      "meta": {},
-      "modified_at": "2020-02-28T08:26:38.199Z",
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "row_form": null,
-      "source": null,
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "sub_form": null,
-      "type": "choice"
-    },
-    "model": "caluma_form.question",
-    "pk": "juristische-person-sb"
-  },
-  {
-    "fields": {
-      "configuration": {},
       "created_at": "2019-04-01T09:12:21.191Z",
       "created_by_group": null,
       "created_by_user": null,
@@ -37520,33 +37292,6 @@
       "configuration": {
         "max_length": null
       },
-      "created_at": "2020-02-28T08:28:47.967Z",
-      "created_by_group": null,
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "data_source": null,
-      "format_validators": "[]",
-      "info_text": "{\"de\": \"\", \"fr\": null}",
-      "is_archived": false,
-      "is_hidden": "!(\n  'juristische-person-sb-ja' == 'juristische-person-sb'|answer\n)",
-      "is_required": "true",
-      "label": "{\"de\": \"Name juristische Person\", \"fr\": \"Nom de la personne morale\"}",
-      "meta": {},
-      "modified_at": "2020-03-06T12:04:20.032Z",
-      "placeholder": "{\"de\": \"\", \"fr\": null}",
-      "row_form": null,
-      "source": null,
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "sub_form": null,
-      "type": "text"
-    },
-    "model": "caluma_form.question",
-    "pk": "name-juristische-person-sb"
-  },
-  {
-    "fields": {
-      "configuration": {
-        "max_length": null
-      },
       "created_at": "2019-04-04T07:29:19.196Z",
       "created_by_group": null,
       "created_by_user": null,
@@ -37626,33 +37371,6 @@
     },
     "model": "caluma_form.question",
     "pk": "name-projektverfasserin"
-  },
-  {
-    "fields": {
-      "configuration": {
-        "max_length": null
-      },
-      "created_at": "2020-02-28T08:29:27.507Z",
-      "created_by_group": null,
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "data_source": null,
-      "format_validators": "[]",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "is_archived": false,
-      "is_hidden": "false",
-      "is_required": "true",
-      "label": "{\"de\": \"Name\", \"fr\": \"Nom\"}",
-      "meta": {},
-      "modified_at": "2020-02-28T08:29:27.507Z",
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "row_form": null,
-      "source": null,
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "sub_form": null,
-      "type": "text"
-    },
-    "model": "caluma_form.question",
-    "pk": "name-sb"
   },
   {
     "fields": {
@@ -38477,33 +38195,6 @@
       "configuration": {
         "max_length": null
       },
-      "created_at": "2020-02-28T08:31:15.522Z",
-      "created_by_group": null,
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "data_source": null,
-      "format_validators": "[]",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "is_archived": false,
-      "is_hidden": "false",
-      "is_required": "false",
-      "label": "{\"de\": \"Nummer\", \"fr\": \"Num\\u00e9ro\"}",
-      "meta": {},
-      "modified_at": "2020-02-28T08:31:15.523Z",
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "row_form": null,
-      "source": null,
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "sub_form": null,
-      "type": "text"
-    },
-    "model": "caluma_form.question",
-    "pk": "nummer-sb"
-  },
-  {
-    "fields": {
-      "configuration": {
-        "max_length": null
-      },
       "created_at": "2019-04-04T09:03:04.923Z",
       "created_by_group": null,
       "created_by_user": null,
@@ -39187,33 +38878,6 @@
       "configuration": {
         "max_length": null
       },
-      "created_at": "2020-02-28T08:32:31.464Z",
-      "created_by_group": null,
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "data_source": null,
-      "format_validators": "[]",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "is_archived": false,
-      "is_hidden": "false",
-      "is_required": "true",
-      "label": "{\"de\": \"Ort\", \"fr\": \"Localit\\u00e9\"}",
-      "meta": {},
-      "modified_at": "2020-02-28T08:32:31.464Z",
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "row_form": null,
-      "source": null,
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "sub_form": null,
-      "type": "text"
-    },
-    "model": "caluma_form.question",
-    "pk": "ort-sb"
-  },
-  {
-    "fields": {
-      "configuration": {
-        "max_length": null
-      },
       "created_at": "2019-04-04T09:04:36.066Z",
       "created_by_group": null,
       "created_by_user": null,
@@ -39794,15 +39458,15 @@
       "label": "{\"de\": \"Personalien - Verantwortliche Person Selbstdeklaration Baukontrolle\", \"fr\": \"Donn\\u00e9es personnelles - Personne responsable d\\u00e9claration spontan\\u00e9e en mati\\u00e8re de contr\\u00f4le des constructions\"}",
       "meta": {
         "columnsToDisplay": [
-          "name-sb",
-          "vorname-sb",
-          "telefon-oder-mobile-sb",
-          "e-mail-sb"
+          "name-gesuchstellerin",
+          "vorname-gesuchstellerin",
+          "telefon-oder-mobile-gesuchstellerin",
+          "e-mail-gesuchstellerin"
         ]
       },
-      "modified_at": "2020-03-06T11:41:41.664Z",
+      "modified_at": "2020-03-20T11:27:26.799Z",
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "row_form": "verantwortliche-person-sb-tabelle",
+      "row_form": "personalien-tabelle",
       "source": null,
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "sub_form": null,
@@ -39826,15 +39490,15 @@
       "label": "{\"de\": \"Personalien - Verantwortliche Person Selbstdeklaration Baukontrolle\", \"fr\": \"Donn\\u00e9es personnelles - Personne responsable d\\u00e9claration spontan\\u00e9e en mati\\u00e8re de contr\\u00f4le des constructions\"}",
       "meta": {
         "columnsToDisplay": [
-          "name-sb",
-          "vorname-sb",
-          "telefon-oder-mobile-sb",
-          "e-mail-sb"
+          "name-gesuchstellerin",
+          "vorname-gesuchstellerin",
+          "telefon-oder-mobile-gesuchstellerin",
+          "e-mail-gesuchstellerin"
         ]
       },
-      "modified_at": "2020-03-06T14:03:16.174Z",
+      "modified_at": "2020-03-20T11:28:06.719Z",
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "row_form": "verantwortliche-person-sb-tabelle",
+      "row_form": "personalien-tabelle",
       "source": null,
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "sub_form": null,
@@ -40382,34 +40046,6 @@
     },
     "model": "caluma_form.question",
     "pk": "plz-projektverfasserin-personalien"
-  },
-  {
-    "fields": {
-      "configuration": {
-        "max_value": null,
-        "min_value": null
-      },
-      "created_at": "2020-02-28T08:31:47.235Z",
-      "created_by_group": null,
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "data_source": null,
-      "format_validators": "[]",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "is_archived": false,
-      "is_hidden": "false",
-      "is_required": "true",
-      "label": "{\"de\": \"PLZ\", \"fr\": \"NPA\"}",
-      "meta": {},
-      "modified_at": "2020-02-28T08:31:47.235Z",
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "row_form": null,
-      "source": null,
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "sub_form": null,
-      "type": "integer"
-    },
-    "model": "caluma_form.question",
-    "pk": "plz-sb"
   },
   {
     "fields": {
@@ -43168,33 +42804,6 @@
       "configuration": {
         "max_length": null
       },
-      "created_at": "2020-02-28T08:30:29.400Z",
-      "created_by_group": null,
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "data_source": null,
-      "format_validators": "[]",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "is_archived": false,
-      "is_hidden": "false",
-      "is_required": "true",
-      "label": "{\"de\": \"Strasse\", \"fr\": \"Rue\"}",
-      "meta": {},
-      "modified_at": "2020-02-28T08:30:29.400Z",
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "row_form": null,
-      "source": null,
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "sub_form": null,
-      "type": "text"
-    },
-    "model": "caluma_form.question",
-    "pk": "strasse-sb"
-  },
-  {
-    "fields": {
-      "configuration": {
-        "max_length": null
-      },
       "created_at": "2019-04-04T09:02:15.816Z",
       "created_by_group": null,
       "created_by_user": null,
@@ -43968,35 +43577,6 @@
     },
     "model": "caluma_form.question",
     "pk": "telefon-oder-mobile-projektverfasserin-personalien"
-  },
-  {
-    "fields": {
-      "configuration": {
-        "max_length": null
-      },
-      "created_at": "2020-02-28T08:33:02.230Z",
-      "created_by_group": null,
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "data_source": null,
-      "format_validators": "[]",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "is_archived": false,
-      "is_hidden": "false",
-      "is_required": "true",
-      "label": "{\"de\": \"Telefon oder Mobile\", \"fr\": \"T\\u00e9l\\u00e9phone fixe ou mobile\"}",
-      "meta": {
-        "formatValidators": ["phone-number"]
-      },
-      "modified_at": "2020-02-28T08:33:02.230Z",
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "row_form": null,
-      "source": null,
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "sub_form": null,
-      "type": "text"
-    },
-    "model": "caluma_form.question",
-    "pk": "telefon-oder-mobile-sb"
   },
   {
     "fields": {
@@ -45844,33 +45424,6 @@
     },
     "model": "caluma_form.question",
     "pk": "vorname-projektverfasserin"
-  },
-  {
-    "fields": {
-      "configuration": {
-        "max_length": null
-      },
-      "created_at": "2020-02-28T08:30:01.526Z",
-      "created_by_group": null,
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "data_source": null,
-      "format_validators": "[]",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "is_archived": false,
-      "is_hidden": "false",
-      "is_required": "true",
-      "label": "{\"de\": \"Vorname\", \"fr\": \"Pr\\u00e9nom\"}",
-      "meta": {},
-      "modified_at": "2020-02-28T08:30:01.526Z",
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "row_form": null,
-      "source": null,
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "sub_form": null,
-      "type": "text"
-    },
-    "model": "caluma_form.question",
-    "pk": "vorname-sb"
   },
   {
     "fields": {
@@ -51780,32 +51333,6 @@
     },
     "model": "caluma_form.questionoption",
     "pk": "juristische-person-projektverfasserin.juristische-person-projektverfasserin-nein"
-  },
-  {
-    "fields": {
-      "created_at": "2020-02-28T08:26:38.208Z",
-      "created_by_group": null,
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_at": "2020-02-28T08:26:38.208Z",
-      "option": "juristische-person-sb-ja",
-      "question": "juristische-person-sb",
-      "sort": 2
-    },
-    "model": "caluma_form.questionoption",
-    "pk": "juristische-person-sb.juristische-person-sb-ja"
-  },
-  {
-    "fields": {
-      "created_at": "2020-02-28T08:26:38.204Z",
-      "created_by_group": null,
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_at": "2020-02-28T08:26:38.204Z",
-      "option": "juristische-person-sb-nein",
-      "question": "juristische-person-sb",
-      "sort": 1
-    },
-    "model": "caluma_form.questionoption",
-    "pk": "juristische-person-sb.juristische-person-sb-nein"
   },
   {
     "fields": {
