@@ -66,21 +66,27 @@ def caluma_forms(settings):
             )
 
     # sb1 and sb2
-    sb1_table = caluma_form_models.Form.objects.create(
-        slug="verantwortliche-person-sb-tabelle"
-    )
+    applicant_table = caluma_form_models.Form.objects.create(slug="personalien-tabelle")
     caluma_form_models.Question.objects.create(
         slug="personalien-sb",
         type=caluma_form_models.Question.TYPE_TABLE,
-        row_form=sb1_table,
+        row_form=applicant_table,
+    )
+    caluma_form_models.Question.objects.create(
+        slug="personalien-gesuchstellerin",
+        type=caluma_form_models.Question.TYPE_TABLE,
+        row_form=applicant_table,
     )
     caluma_form_models.Question.objects.create(
         slug="personalien-sb1-sb2",
         type=caluma_form_models.Question.TYPE_TABLE,
-        row_form=sb1_table,
+        row_form=applicant_table,
     )
     caluma_form_models.Question.objects.create(
         slug="name-sb", type=caluma_form_models.Question.TYPE_TEXT
+    )
+    caluma_form_models.Question.objects.create(
+        slug="name-applicant", type=caluma_form_models.Question.TYPE_TEXT
     )
 
     # link questions with forms
@@ -101,6 +107,9 @@ def caluma_forms(settings):
     )
     caluma_form_models.FormQuestion.objects.create(
         form_id="main-form", question_id="personalien-sb"
+    )
+    caluma_form_models.FormQuestion.objects.create(
+        form_id="main-form", question_id="personalien-gesuchstellerin"
     )
     caluma_form_models.FormQuestion.objects.create(
         form_id="sb1", question_id="personalien-sb1-sb2"
@@ -381,10 +390,27 @@ def test_instance_submit(
             document=document, question_id="personalien-sb"
         )
         sb_row = caluma_form_models.Document.objects.create(
-            form_id="verantwortliche-person-sb-tabelle"
+            form_id="personalien-tabelle"
         )
         caluma_form_models.Answer.objects.create(
             document=sb_row, question_id="name-sb", value="Test123"
+        )
+        caluma_form_models.AnswerDocument.objects.create(
+            document=sb_row, answer=sb_table_answer
+        )
+
+    if not has_personalien_sb1:
+        caluma_form_models.Document.objects.create(
+            form_id="sb1", meta={"camac-instance-id": instance.pk}
+        )
+        sb_table_answer = caluma_form_models.Answer.objects.create(
+            document=document, question_id="personalien-gesuchstellerin"
+        )
+        sb_row = caluma_form_models.Document.objects.create(
+            form_id="personalien-tabelle"
+        )
+        caluma_form_models.Answer.objects.create(
+            document=sb_row, question_id="name-applicant", value="Foobar"
         )
         caluma_form_models.AnswerDocument.objects.create(
             document=sb_row, answer=sb_table_answer
@@ -415,6 +441,15 @@ def test_instance_submit(
         assert (
             sb1_document.answers.first().documents.first().answers.first().value
             == sb_row.answers.get(question_id="name-sb").value
+        )
+
+    if not has_personalien_sb1:
+        sb1_document = caluma_form_models.Document.objects.get(
+            **{"form_id": "sb1", "meta__camac-instance-id": instance.pk}
+        )
+        assert (
+            sb1_document.answers.first().documents.first().answers.first().value
+            == sb_row.answers.get(question_id="name-applicant").value
         )
 
 
@@ -500,7 +535,7 @@ def test_instance_report(
             document=sb1_document, question_id="personalien-sb1-sb2"
         )
         sb_row = caluma_form_models.Document.objects.create(
-            form_id="verantwortliche-person-sb-tabelle"
+            form_id="personalien-tabelle"
         )
         caluma_form_models.Answer.objects.create(
             document=sb_row, question_id="name-sb", value="Test123"
