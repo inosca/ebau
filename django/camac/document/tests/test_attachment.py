@@ -534,6 +534,40 @@ def test_attachment_detail(
 
 
 @pytest.mark.parametrize(
+    "role__name,instance__user", [("Applicant", LazyFixture("user"))]
+)
+def test_attachment_loosen_filter(
+    admin_client, role, mocker, instance, attachment_section, attachment
+):
+    url = reverse("attachment-list")
+
+    # permissons: Our user has no permission
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {"demo": {role.name.lower(): {"admin": []}}},
+    )
+
+    # First test in here: attachment was not marked and thus not visible
+    response = admin_client.get(url)
+    assert response.status_code == status.HTTP_200_OK
+    json = response.json()
+    assert response.status_code == status.HTTP_200_OK
+    assert len(json["data"]) == 0
+
+    # Now, mark the attachment as decision
+    attachment.context["isDecision"] = True
+    attachment.save()
+
+    # After marking the attachment, it should be visible to the applicant
+    response = admin_client.get(url)
+    assert response.status_code == status.HTTP_200_OK
+    json = response.json()
+    assert response.status_code == status.HTTP_200_OK
+    assert len(json["data"]) == 1
+    assert json["data"][0]["id"] == str(attachment.pk)
+
+
+@pytest.mark.parametrize(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
 @pytest.mark.parametrize(
