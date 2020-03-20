@@ -9,7 +9,7 @@
         <ns9:product>eBaugesucheZH</ns9:product>
         <ns9:productVersion>1.2.0</ns9:productVersion>
       </ns9:sendingApplication>
-      <ns9:subject>Bauprojekttitel</ns9:subject>
+      <ns9:subject>Bauprojekttitel</ns9:subject><!-- wird ignoriert -->
       <ns9:messageDate>2019-11-11T00:00:00.000Z</ns9:messageDate>
       <ns9:action>1</ns9:action>
       <ns9:testDeliveryFlag>true</ns9:testDeliveryFlag>

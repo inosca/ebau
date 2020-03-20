@@ -13,7 +13,6 @@
     <ns2:messageDate>2019-11-28T06:42:50.830281Z</ns2:messageDate>
     <ns2:action>1</ns2:action>
     <ns2:testDeliveryFlag>true</ns2:testDeliveryFlag>
-    <ns2:extension>http://camac-ng.local/page/index/instance-id/1/instance-resource-id/20074</ns2:extension>
   </ns1:deliveryHeader>
   <ns1:eventAccompanyingReport>
     <ns1:eventType>accompanying report</ns1:eventType>

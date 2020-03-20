@@ -13,7 +13,6 @@
     <ns2:messageDate>2019-11-28T06:45:55.188657Z</ns2:messageDate>
     <ns2:action>1</ns2:action>
     <ns2:testDeliveryFlag>true</ns2:testDeliveryFlag>
-    <ns2:extension>http://camac-ng.local/page/index/instance-id/1/instance-resource-id/20074</ns2:extension>
   </ns1:deliveryHeader>
   <ns1:eventStatusNotification>
     <ns1:eventType>status notification</ns1:eventType>
@@ -28,7 +27,7 @@
       </ns1:otherID>
       <ns1:dossierIdentification>2323</ns1:dossierIdentification>
     </ns1:planningPermissionApplicationIdentification>
-    <ns1:status>status</ns1:status>
-    <ns1:remark>Dossierprüfung</ns1:remark>
+    <ns1:status>in progress</ns1:status>
+    <ns1:remark>In Korrektur</ns1:remark>
   </ns1:eventStatusNotification>
 </ns1:delivery>
