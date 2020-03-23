@@ -10,6 +10,9 @@ from . import models
 
 class AttachmentFilterSet(FilterSet):
     name = CharMultiValueFilter(lookup_expr="startswith")
+    exclude_sections = CharMultiValueFilter(
+        exclude=True, field_name="attachment_sections"
+    )
 
     class Meta:
         model = models.Attachment
