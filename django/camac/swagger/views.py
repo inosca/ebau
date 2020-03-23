@@ -13,6 +13,7 @@ from camac.constants.kt_bern import (
     ECH_STATUS_NOTIFICATION_ABGESCHLOSSEN,
     ECH_STATUS_NOTIFICATION_ABSCHLUSS_AUSSTEHEND,
     ECH_STATUS_NOTIFICATION_EBAU_NR_VERGEBEN,
+    ECH_STATUS_NOTIFICATION_IN_KOORDINATION,
     ECH_STATUS_NOTIFICATION_PRUEFUNG_ABGESCHLOSSEN,
     ECH_STATUS_NOTIFICATION_SB1_AUSSTEHEND,
     ECH_STATUS_NOTIFICATION_SB2_AUSSTEHEND,
@@ -143,7 +144,14 @@ GET_TABLE_DATA = [
         "Zurückgewiesen melden",
         "3.1",
         ECH_STATUS_NOTIFICATION_ZURUECKGEWIESEN,
-        f"[status_notification_zurueckgewiesen]({static('xml/get/status_notification_zurückgewiesen.xml')})",
+        f"[status_notification_zurueckgewiesen]({static('xml/get/status_notification_zurueckgewiesen.xml')})",
+    ],
+    [
+        "StatusNotification",
+        "In Koordination melden",
+        "3.1",
+        ECH_STATUS_NOTIFICATION_IN_KOORDINATION,
+        f"[status_notification_in_koordination]({static('xml/get/status_notification_in_koordination.xml')})",
     ],
 ]
 
