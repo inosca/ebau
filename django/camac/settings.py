@@ -256,7 +256,7 @@ APPLICATIONS = {
                 "SB2": [5, 20005],
                 "DEFAULT": [3, 20004],
             },
-            "ALLOWED_SERVICE_GROUPS": {"SB1": [3], "SB2": [3], "DEFAULT": [2]},
+            "ALLOWED_SERVICE_GROUPS": {"SB1": [3], "SB2": [3], "DEFAULT": [2, 20000]},
         },
         "DOCUMENT_MERGE_SERVICE": {
             "baugesuch": {
