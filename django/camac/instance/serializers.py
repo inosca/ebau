@@ -16,6 +16,7 @@ from rest_framework import exceptions
 from rest_framework_json_api import relations, serializers
 
 from camac.caluma.api import CalumaApi, CalumaInfo
+from camac.caluma.extensions.data_sources import Municipalities
 from camac.constants import kt_bern as constants
 from camac.core.models import (
     Answer,
@@ -535,10 +536,13 @@ class CalumaInstanceSerializer(InstanceSerializer):
             # remove the previously created applicants
             instance.involved_applicants.all().delete()
 
-            # prefill municipality question
-            caluma_api.update_or_create_answer(
-                caluma_documents[caluma_form].pk, "gemeinde", str(group.service.pk)
-            )
+            # prefill municipality question if possible
+            value = str(group.service.pk)
+            source = Municipalities()
+            main_document = caluma_documents[caluma_form]
+
+            if source.validate_answer_value(value, main_document, "gemeinde", None):
+                caluma_api.update_or_create_answer(main_document.pk, "gemeinde", value)
 
             # create instance service for permissions
             InstanceService.objects.create(

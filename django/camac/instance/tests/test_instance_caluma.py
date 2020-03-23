@@ -154,6 +154,7 @@ def mock_generate_and_store_pdf(mocker):
     )
 
 
+@pytest.mark.parametrize("service_group__name", ["municipality"])
 @pytest.mark.freeze_time("2019-05-02")
 @pytest.mark.parametrize("instance_state__name", ["new"])
 @pytest.mark.parametrize(
@@ -299,6 +300,7 @@ def test_instance_list(
     assert set(json["data"][0]["meta"]["editable"]) == set(editable)
 
 
+@pytest.mark.parametrize("service_group__name", ["municipality"])
 @pytest.mark.parametrize("instance_state__name", ["new"])
 @pytest.mark.parametrize(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
@@ -357,11 +359,6 @@ def test_instance_submit(
     caluma_forms,
     has_personalien_sb1,
 ):
-
-    mocker.patch(
-        "camac.caluma.extensions.data_sources.SERVICE_GROUP_MUNICIPALITY",
-        service.service_group.pk,
-    )
     application_settings["NOTIFICATIONS"]["SUBMIT"] = [
         {"template_slug": notification_template.slug, "recipient_types": ["applicant"]}
     ]
