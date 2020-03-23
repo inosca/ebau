@@ -348,12 +348,14 @@ class TaskSendHandler(BaseSendHandler):
             )  # add 4 hours to prevent timezone problems
         # Fallback for messages with missing `directive`
         except AttributeError:  # pragma: no cover
-            deadline_date = timezone.now() + timezone.timedelta(weeks=4)
+            deadline_date = timezone.now().date() + timezone.timedelta(weeks=4, hours=4)
+
+        start_date = timezone.now().date() + timezone.timedelta(hours=4)
 
         return Activation.objects.create(
             circulation=circulation,
             service=service,
-            start_date=timezone.now(),
+            start_date=start_date,
             deadline_date=deadline_date,
             version=1,
             circulation_state=circulation_state,
