@@ -2977,7 +2977,7 @@
       "form": "7-bestaetigung",
       "modified_at": "2019-09-25T10:19:35.578Z",
       "question": "anforderungen-eingehalten",
-      "sort": 12
+      "sort": 13
     },
     "model": "caluma_form.formquestion",
     "pk": "7-bestaetigung.anforderungen-eingehalten"
@@ -2990,7 +2990,7 @@
       "form": "7-bestaetigung",
       "modified_at": "2019-09-25T10:19:36.038Z",
       "question": "bauprofile-bleiben-bis-bauentscheid-stehen",
-      "sort": 11
+      "sort": 12
     },
     "model": "caluma_form.formquestion",
     "pk": "7-bestaetigung.bauprofile-bleiben-bis-bauentscheid-stehen"
@@ -3049,6 +3049,45 @@
   },
   {
     "fields": {
+      "created_at": "2020-03-23T16:07:57.101Z",
+      "created_by_group": null,
+      "created_by_user": null,
+      "form": "7-bestaetigung",
+      "modified_at": "2020-03-23T16:07:57.101Z",
+      "question": "bestaetigung-naturgefahren",
+      "sort": 9
+    },
+    "model": "caluma_form.formquestion",
+    "pk": "7-bestaetigung.bestaetigung-naturgefahren"
+  },
+  {
+    "fields": {
+      "created_at": "2020-03-23T15:49:30.743Z",
+      "created_by_group": null,
+      "created_by_user": null,
+      "form": "7-bestaetigung",
+      "modified_at": "2020-03-23T15:49:30.743Z",
+      "question": "bestaetigung-wald",
+      "sort": 11
+    },
+    "model": "caluma_form.formquestion",
+    "pk": "7-bestaetigung.bestaetigung-wald"
+  },
+  {
+    "fields": {
+      "created_at": "2020-03-23T15:54:06.315Z",
+      "created_by_group": null,
+      "created_by_user": null,
+      "form": "7-bestaetigung",
+      "modified_at": "2020-03-23T15:54:06.315Z",
+      "question": "bestaetigung-wald-text",
+      "sort": 10
+    },
+    "model": "caluma_form.formquestion",
+    "pk": "7-bestaetigung.bestaetigung-wald-text"
+  },
+  {
+    "fields": {
       "created_at": "2019-09-25T10:19:37.493Z",
       "created_by_group": null,
       "created_by_user": null,
@@ -3075,19 +3114,6 @@
   },
   {
     "fields": {
-      "created_at": "2019-09-25T10:19:36.599Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "form": "7-bestaetigung",
-      "modified_at": "2019-09-25T10:19:36.599Z",
-      "question": "keine-rueckhiebe-oder-aushiebe",
-      "sort": 9
-    },
-    "model": "caluma_form.formquestion",
-    "pk": "7-bestaetigung.keine-rueckhiebe-oder-aushiebe"
-  },
-  {
-    "fields": {
       "created_at": "2019-09-25T10:19:38.337Z",
       "created_by_group": null,
       "created_by_user": null,
@@ -3098,32 +3124,6 @@
     },
     "model": "caluma_form.formquestion",
     "pk": "7-bestaetigung.keine-tangierung-natur-wild-vogelschutz"
-  },
-  {
-    "fields": {
-      "created_at": "2019-09-25T10:19:36.967Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "form": "7-bestaetigung",
-      "modified_at": "2019-09-25T10:19:36.967Z",
-      "question": "verpflichtung-bei-handaenderung",
-      "sort": 8
-    },
-    "model": "caluma_form.formquestion",
-    "pk": "7-bestaetigung.verpflichtung-bei-handaenderung"
-  },
-  {
-    "fields": {
-      "created_at": "2019-09-25T10:19:36.138Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "form": "7-bestaetigung",
-      "modified_at": "2019-09-25T10:19:36.138Z",
-      "question": "verzicht-schadensersatz-naturereignisse",
-      "sort": 10
-    },
-    "model": "caluma_form.formquestion",
-    "pk": "7-bestaetigung.verzicht-schadensersatz-naturereignisse"
   },
   {
     "fields": {
@@ -13299,7 +13299,7 @@
       "is_archived": false,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\"}",
       "meta": {},
-      "modified_at": "2019-05-02T15:29:34.388Z",
+      "modified_at": "2020-03-23T15:01:13.324Z",
       "source": null
     },
     "model": "caluma_form.option",
@@ -13313,7 +13313,7 @@
       "is_archived": false,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\"}",
       "meta": {},
-      "modified_at": "2019-05-02T15:29:34.395Z",
+      "modified_at": "2020-03-23T15:01:13.331Z",
       "source": null
     },
     "model": "caluma_form.option",
@@ -14074,6 +14074,34 @@
     },
     "model": "caluma_form.option",
     "pk": "bestaetigung-mit-unterschrift-ja"
+  },
+  {
+    "fields": {
+      "created_at": "2020-03-23T16:07:56.850Z",
+      "created_by_group": null,
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "is_archived": false,
+      "label": "{\"de\": \"Naturgefahren: Der/die Gesuchsteller/in verzichtet f\\u00fcr sich und seine/ihre Rechtsnachfolger ausdr\\u00fccklich auf jeden Ersatz von Schaden, der durch den Forstbetrieb oder durch Naturereignisse, wie Schneedruck, Windfall usw. an der zu erstellenden Baute, bzw. \\u00e4hnlichen Anlage verursacht werden k\\u00f6nnte. Vorbehalten bleiben jedoch die Bestimmungen der Art. 41 ff. OR.\", \"fr\": \"Dangers naturels: Le ma\\u00eetre d\\u2019\\u0153uvre renonce express\\u00e9ment, pour lui-m\\u00eame et ses ayants-cause, \\u00e0 toute indemnit\\u00e9 pour des d\\u00e9g\\u00e2ts qui pourraient \\u00eatre provoqu\\u00e9s par l\\u2019exploitation foresti\\u00e8re ou par un ph\\u00e9nom\\u00e8ne naturel, tels que neige lourde, coups de vent, etc., aux b\\u00e2timents ou installations analogues \\u00e0 construire. Demeurent r\\u00e9serv\\u00e9es, les prescriptions selon art. 41 ss CO.\"}",
+      "meta": {},
+      "modified_at": "2020-03-24T15:01:11.213Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "bestaetigung-naturgefahren-ja"
+  },
+  {
+    "fields": {
+      "created_at": "2020-03-23T15:49:30.520Z",
+      "created_by_group": null,
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "is_archived": false,
+      "label": "{\"de\": \"Wald - Haftungsverzichtserkl\\u00e4rung nach Art. 27 KWaG zur Unterschreitung des Waldabstandes (Ausnahmebewilligung):\", \"fr\": \"For\\u00eat - D\\u00e9claration de suppression de la responsabilit\\u00e9 selon art. 27 LCFo en lien avec une r\\u00e9duction de la distance par rapport \\u00e0 la for\\u00eat (d\\u00e9rogation):\"}",
+      "meta": {},
+      "modified_at": "2020-03-24T14:41:11.809Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "bestaetigung-wald-ja"
   },
   {
     "fields": {
@@ -25672,13 +25700,13 @@
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "data_source": null,
       "format_validators": "[]",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
       "is_archived": false,
       "is_hidden": "false",
       "is_required": "!('vorabklaerung' in form || 'papierdossier'|answer == 'papierdossier-ja')",
-      "label": "{\"de\": \"Ist der Bau im Wald oder innerhalb von 30 m Abstand zum Wald?\", \"fr\": \"La construction est-elle situ\\u00e9e en for\\u00eat ou distante de moins de 30 m\\u00e8tres de la for\\u00eat?\"}",
+      "label": "{\"de\": \"Ist der Bau im Wald / Wytweide oder innerhalb von 30 m Abstand zum Wald / Wytweide?\", \"fr\": \"La construction est-elle situ\\u00e9e en for\\u00eat / p\\u00e2turage bois\\u00e9 ou distante de moins de 30 m\\u00e8tres de la for\\u00eat / p\\u00e2turage bois\\u00e9 ?\"}",
       "meta": {},
-      "modified_at": "2019-05-02T15:29:34.609Z",
+      "modified_at": "2020-03-23T15:01:13.456Z",
       "placeholder": "{\"de\": null, \"fr\": null}",
       "row_form": null,
       "source": null,
@@ -27516,6 +27544,110 @@
     },
     "model": "caluma_form.question",
     "pk": "bestaetigung-mit-unterschrift"
+  },
+  {
+    "fields": {
+      "configuration": {},
+      "created_at": "2020-03-23T16:07:56.970Z",
+      "created_by_group": null,
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "data_source": null,
+      "format_validators": "[]",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "is_archived": false,
+      "is_hidden": "!('gebiet-mit-naturgefahren-ja' == 'gebiet-mit-naturgefahren'|answer)",
+      "is_required": "!('vorabklaerung' in form || 'papierdossier'|answer == 'papierdossier-ja')",
+      "label": "{\"de\": \"Naturgefahren\", \"fr\": \"Dangers naturels\"}",
+      "meta": {
+        "hideLabel": true
+      },
+      "modified_at": "2020-03-24T15:01:11.321Z",
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "row_form": null,
+      "source": null,
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "sub_form": null,
+      "type": "multiple_choice"
+    },
+    "model": "caluma_form.question",
+    "pk": "bestaetigung-naturgefahren"
+  },
+  {
+    "fields": {
+      "configuration": {},
+      "created_at": "2020-03-23T16:11:13.374Z",
+      "created_by_group": null,
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "data_source": null,
+      "format_validators": "[]",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "is_archived": false,
+      "is_hidden": "!('gebiet-mit-naturgefahren-ja' == 'gebiet-mit-naturgefahren'|answer)",
+      "is_required": "false",
+      "label": "{\"de\": \"\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-03-23T16:11:13.374Z",
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "row_form": null,
+      "source": null,
+      "static_content": "{\"de\": \"Der/die Gesuchsteller/in verzichtet f\\u00fcr sich und seine/ihre Rechtsnachfolger ausdr\\u00fccklich auf jeden Ersatz von Schaden, der durch den Forstbetrieb oder durch Naturereignisse, wie Schneedruck, Windfall usw. an der zu erstellenden Baute, bzw. \\u00e4hnlichen Anlage verursacht werden k\\u00f6nnte. Vorbehalten bleiben jedoch die Bestimmungen der Art. 41 ff. OR.\", \"fr\": \"\"}",
+      "sub_form": null,
+      "type": "static"
+    },
+    "model": "caluma_form.question",
+    "pk": "bestaetigung-naturgefahren-text"
+  },
+  {
+    "fields": {
+      "configuration": {},
+      "created_at": "2020-03-23T15:49:30.612Z",
+      "created_by_group": null,
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "data_source": null,
+      "format_validators": "[]",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "is_archived": false,
+      "is_hidden": "!(\n  'bau-im-wald-oder-innerhalb-von-30-m-abstand-ja' == 'bau-im-wald-oder-innerhalb-von-30-m-abstand'|answer\n)",
+      "is_required": "!('vorabklaerung' in form || 'papierdossier'|answer == 'papierdossier-ja')",
+      "label": "{\"de\": \"Wald\", \"fr\": \"For\\u00eat\"}",
+      "meta": {
+        "hideLabel": true
+      },
+      "modified_at": "2020-03-24T14:41:11.948Z",
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "row_form": null,
+      "source": null,
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "sub_form": null,
+      "type": "multiple_choice"
+    },
+    "model": "caluma_form.question",
+    "pk": "bestaetigung-wald"
+  },
+  {
+    "fields": {
+      "configuration": {},
+      "created_at": "2020-03-23T15:54:06.196Z",
+      "created_by_group": null,
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "data_source": null,
+      "format_validators": "[]",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "is_archived": false,
+      "is_hidden": "!(\n  'bau-im-wald-oder-innerhalb-von-30-m-abstand-ja' == 'bau-im-wald-oder-innerhalb-von-30-m-abstand'|answer\n)",
+      "is_required": "false",
+      "label": "{\"de\": \"\", \"fr\": \"\"}",
+      "meta": {},
+      "modified_at": "2020-03-24T14:58:31.435Z",
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "row_form": null,
+      "source": null,
+      "static_content": "{\"de\": \"1. Die Bauherrschaft verzichtet f\\u00fcr sich und ihre Rechtsnachfolger ausdr\\u00fccklich auf den Ersatz von Schaden, der durch den Forstbetrieb oder durch Naturereignisse, wie Schneedruck, Windfall usw. an der zu erstellenden Baute, bzw. \\u00e4hnlichen Anlage verursacht werden k\\u00f6nnte. Vorbehalten bleiben die Bestimmungen der Art. 41 ff. OR.\\n\\n2. Die Bauherrschaft nimmt f\\u00fcr sich und ihre Rechtsnachfolge zur Kenntnis, dass keine R\\u00fcckhiebe oder andere \\u00fcber das Kapprecht hinausgehenden Aushiebe an dem vom N\\u00e4herbau tangierten Wald bewilligt werden; es ist verboten, auch wenn der Wald ihr geh\\u00f6rt, solche Hiebe zwecks Verminderung des Schattenwurfes, zur Verbesserung der Aussicht oder aus anderen Gr\\u00fcnden vorzunehmen.\\n\\n3. Bei einer allf\\u00e4lligen Hand\\u00e4nderung verpflichten sich die Bauherrschaft und Grundeigent\\u00fcmerin/Grundeigent\\u00fcmer, bzw. Baurechtsnehmerin/Baurechtsnehmer, diese Erkl\\u00e4rung einer allf\\u00e4lligen Rechtsnachfolge zu \\u00fcberbinden.\", \"fr\": \"1. Le ma\\u00eetre d\\u2019\\u0153uvre renonce express\\u00e9ment, pour lui-m\\u00eame et ses ayants-cause, \\u00e0 toute indemnit\\u00e9 pour des d\\u00e9g\\u00e2ts qui pourraient \\u00eatre provoqu\\u00e9s par l\\u2019exploitation foresti\\u00e8re ou par un ph\\u00e9nom\\u00e8ne naturel, tels que neige lourde, coups de vent, etc., aux b\\u00e2timents ou installations analogues \\u00e0 construire. Demeurent r\\u00e9serv\\u00e9es, les prescriptions selon art. 41 ss CO.\\n\\n2. Pour lui et ses ayants-cause, le ma\\u00eetre d\\u2019\\u0153uvre prend acte qu\\u2019aucun d\\u00e9frichement de lisi\\u00e8re de la for\\u00eat limitrophe ou autre coupe d\\u2019\\u00e9claircie allant au-del\\u00e0 du droit de couper les branches qui empi\\u00e8tent sur le fonds voisin ne sera autoris\\u00e9\\u00a0; si la for\\u00eat lui appartient, il lui est interdit de proc\\u00e9der \\u00e0 des coupes en vue de diminuer l\\u2019ombre projet\\u00e9e, de favoriser la vue ou \\u00e0 tout autre dessein.\\n\\n3. En cas de changement de propri\\u00e9t\\u00e9, le ma\\u00eetre d\\u2019\\u0153uvre et propri\\u00e9taire, ou le b\\u00e9n\\u00e9ficiaire du droit de superficie, s\\u2019engage \\u00e0 transf\\u00e9rer \\u00e0 son successeur les obligations d\\u00e9coulant de la pr\\u00e9sente d\\u00e9claration.\"}",
+      "sub_form": null,
+      "type": "static"
+    },
+    "model": "caluma_form.question",
+    "pk": "bestaetigung-wald-text"
   },
   {
     "fields": {
@@ -46075,7 +46207,7 @@
       "created_by_user": null,
       "data_source": null,
       "format_validators": "[]",
-      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
       "is_archived": false,
       "is_hidden": "!(\n  'bau-im-wald-oder-innerhalb-von-30-m-abstand-ja' == 'bau-im-wald-oder-innerhalb-von-30-m-abstand'|answer\n)",
       "is_required": "false",
@@ -46083,7 +46215,7 @@
       "meta": {
         "widgetOverride": null
       },
-      "modified_at": "2019-05-03T07:59:50.865Z",
+      "modified_at": "2020-03-23T15:14:17.908Z",
       "placeholder": "{\"de\": null, \"fr\": null}",
       "row_form": null,
       "source": null,
@@ -48455,10 +48587,10 @@
   },
   {
     "fields": {
-      "created_at": "2019-05-10T16:45:59.132Z",
-      "created_by_group": "[]",
+      "created_at": "2020-03-23T15:01:13.466Z",
+      "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_at": "2019-05-10T16:45:59.133Z",
+      "modified_at": "2020-03-23T15:01:13.466Z",
       "option": "bau-im-wald-oder-innerhalb-von-30-m-abstand-ja",
       "question": "bau-im-wald-oder-innerhalb-von-30-m-abstand",
       "sort": 2
@@ -48468,10 +48600,10 @@
   },
   {
     "fields": {
-      "created_at": "2019-05-10T16:46:01.387Z",
-      "created_by_group": "[]",
+      "created_at": "2020-03-23T15:01:13.463Z",
+      "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_at": "2019-05-10T16:46:01.387Z",
+      "modified_at": "2020-03-23T15:01:13.463Z",
       "option": "bau-im-wald-oder-innerhalb-von-30-m-abstand-nein",
       "question": "bau-im-wald-oder-innerhalb-von-30-m-abstand",
       "sort": 1
@@ -49128,6 +49260,32 @@
     },
     "model": "caluma_form.questionoption",
     "pk": "bestaetigung-mit-unterschrift.bestaetigung-mit-unterschrift-ja"
+  },
+  {
+    "fields": {
+      "created_at": "2020-03-24T15:01:11.327Z",
+      "created_by_group": null,
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_at": "2020-03-24T15:01:11.327Z",
+      "option": "bestaetigung-naturgefahren-ja",
+      "question": "bestaetigung-naturgefahren",
+      "sort": 1
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "bestaetigung-naturgefahren.bestaetigung-naturgefahren-ja"
+  },
+  {
+    "fields": {
+      "created_at": "2020-03-24T14:41:11.953Z",
+      "created_by_group": null,
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_at": "2020-03-24T14:41:11.953Z",
+      "option": "bestaetigung-wald-ja",
+      "question": "bestaetigung-wald",
+      "sort": 1
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "bestaetigung-wald.bestaetigung-wald-ja"
   },
   {
     "fields": {
