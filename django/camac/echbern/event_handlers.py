@@ -19,6 +19,7 @@ from camac.constants.kt_bern import (
     ECH_STATUS_NOTIFICATION_ABGESCHLOSSEN,
     ECH_STATUS_NOTIFICATION_ABSCHLUSS_AUSSTEHEND,
     ECH_STATUS_NOTIFICATION_EBAU_NR_VERGEBEN,
+    ECH_STATUS_NOTIFICATION_IN_KOORDINATION,
     ECH_STATUS_NOTIFICATION_PRUEFUNG_ABGESCHLOSSEN,
     ECH_STATUS_NOTIFICATION_SB1_AUSSTEHEND,
     ECH_STATUS_NOTIFICATION_SB2_AUSSTEHEND,
@@ -30,6 +31,7 @@ from camac.constants.kt_bern import (
     INSTANCE_STATE_DOSSIERPRUEFUNG,
     INSTANCE_STATE_EBAU_NUMMER_VERGEBEN,
     INSTANCE_STATE_FINISHED,
+    INSTANCE_STATE_KOORDINATION,
     INSTANCE_STATE_REJECTED,
     INSTANCE_STATE_SB1,
     INSTANCE_STATE_SB2,
@@ -190,6 +192,10 @@ class StatusNotificationEventHandler(BaseEventHandler):
             self.instance.instance_state.pk == INSTANCE_STATE_REJECTED
         ):  # pragma: no cover
             message_type = ECH_STATUS_NOTIFICATION_ZURUECKGEWIESEN
+        elif (
+            self.instance.instance_state.pk == INSTANCE_STATE_KOORDINATION
+        ):  # pragma: no cover
+            message_type = ECH_STATUS_NOTIFICATION_IN_KOORDINATION
 
         return message_type
 
