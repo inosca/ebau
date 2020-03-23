@@ -718,3 +718,81 @@ def test_attachment_mime_type(
     data = {"instance": instance.pk, "path": path.file, "group": instance.group.pk}
     response = admin_client.post(url, data=data, format="multipart")
     assert response.status_code == status_code
+
+
+@pytest.mark.parametrize(
+    "role__name,instance__user", [("Applicant", LazyFixture("user"))]
+)
+def test_attachment_section_filters(
+    admin_client, role, mocker, instance, attachment_section_factory, attachment_factory
+):
+    url = reverse("attachment-list")
+
+    section_visible_1 = attachment_section_factory(name="visible_1")
+    section_visible_2 = attachment_section_factory(name="visible_2")
+    section_forbidden = attachment_section_factory(name="forbidden")
+
+    docs = attachment_factory.create_batch(3, instance=instance)
+    for doc, section in zip(
+        docs, [section_visible_1, section_visible_2, section_forbidden]
+    ):
+        doc.attachment_sections.add(section)
+
+    # permissons: visible sections are visible
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {
+            "demo": {
+                role.name.lower(): {
+                    "admin": [section_visible_1.pk, section_visible_2.pk]
+                }
+            }
+        },
+    )
+
+    # First test in here: first, no filtering. should return two documents,
+    # one for each visible section.
+    response = admin_client.get(url)
+    assert response.status_code == status.HTTP_200_OK
+    json = response.json()
+    assert response.status_code == status.HTTP_200_OK
+    assert len(json["data"]) == 2
+    assert set([docs[0].pk, docs[1].pk]) == set(
+        int(result["id"]) for result in json["data"]
+    )
+
+    # Second test: include filter. Include the forbidden seciton,
+    # but its corresponding document should not be returned
+    response = admin_client.get(
+        url, data={"attachment_sections": [section_visible_2.pk, section_forbidden.pk]}
+    )
+    assert response.status_code == status.HTTP_200_OK
+    json = response.json()
+    assert response.status_code == status.HTTP_200_OK
+    assert len(json["data"]) == 1
+    assert json["data"][0]["id"] == str(docs[1].pk)
+
+    # Third test: exclude filter. exclude a visible seciton.
+    # Expect the other visible section's doument, but not the
+    # forbidden section's document
+    response = admin_client.get(url, data={"exclude_sections": [section_visible_2.pk]})
+    assert response.status_code == status.HTTP_200_OK
+    json = response.json()
+    assert response.status_code == status.HTTP_200_OK
+    assert len(json["data"]) == 1
+    assert json["data"][0]["id"] == str(docs[0].pk)
+
+    # Final test: exclude filter. exclude both visible secitons.
+    # Expecting zero results
+    response = admin_client.get(
+        url,
+        data={
+            "exclude_sections": ",".join(
+                [str(section_visible_2.pk), str(section_visible_1.pk)]
+            )
+        },
+    )
+    assert response.status_code == status.HTTP_200_OK
+    json = response.json()
+    assert response.status_code == status.HTTP_200_OK
+    assert len(json["data"]) == 0
