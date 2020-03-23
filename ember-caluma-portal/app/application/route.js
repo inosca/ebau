@@ -19,6 +19,14 @@ export default class ApplicationRouter extends Route.extend(
     this.session.set("language", language || this.session.language);
     this.session.set("data.group", group || this.session.group);
 
+    if (language || group) {
+      // after the transition remove the query params so we don't persist the
+      // language and group info twice (in the URL and in the session)
+      transition.then(() => {
+        this.replaceWith({ queryParams: { language: null, group: null } });
+      });
+    }
+
     if (window.top !== window) {
       getOwner(this)
         .lookup("service:-document")

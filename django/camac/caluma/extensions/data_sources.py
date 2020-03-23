@@ -3,9 +3,6 @@ from caluma.caluma_data_source.utils import data_source_cache
 
 from camac.user.models import Service
 
-SERVICE_GROUP_MUNICIPALITY = 2
-SERVICE_GROUP_SERVICE = 1
-
 
 class Municipalities(BaseDataSource):
     info = "List of municipalities from Camac"
@@ -14,7 +11,7 @@ class Municipalities(BaseDataSource):
     def get_data(self, info):
         services = Service.objects.filter(
             service_parent__isnull=True,
-            service_group__pk=SERVICE_GROUP_MUNICIPALITY,
+            service_group__name="municipality",
             disabled=False,
         )
         data = sorted(
@@ -32,9 +29,7 @@ class Services(BaseDataSource):
 
     @data_source_cache(timeout=3600)
     def get_data(self, info):
-        services = Service.objects.filter(
-            service_group__pk=SERVICE_GROUP_SERVICE, disabled=False
-        )
+        services = Service.objects.filter(service_group__name="service", disabled=False)
 
         data = sorted(
             [
