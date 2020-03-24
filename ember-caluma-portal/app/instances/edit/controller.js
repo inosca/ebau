@@ -19,11 +19,13 @@ export default class InstancesEditController extends Controller.extend(
   setup() {
     this.instanceTask.perform();
     this.feedbackTask.perform();
+    this.decisionTask.perform();
   }
 
   reset() {
     this.instanceTask.cancelAll({ resetState: true });
     this.feedbackTask.cancelAll({ resetState: true });
+    this.decisionTask.cancelAll({ resetState: true });
 
     this.resetQueryParams();
   }
@@ -56,6 +58,19 @@ export default class InstancesEditController extends Controller.extend(
     return yield this.store.query("attachment", {
       instance: this.model,
       attachment_sections: FEEDBACK_ATTACHMENT_SECTION,
+      include: "attachment_sections"
+    });
+  }
+
+  @lastValue("decisionTask") decision;
+  @dropTask
+  *decisionTask() {
+    return yield this.store.query("attachment", {
+      instance: this.model,
+      context: JSON.stringify({
+        key: "isDecision",
+        value: true
+      }),
       include: "attachment_sections"
     });
   }
