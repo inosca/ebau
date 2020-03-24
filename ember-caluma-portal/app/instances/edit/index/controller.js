@@ -64,7 +64,9 @@ export default class InstancesEditIndexController extends Controller {
 
   @controller("instances.edit") editController;
   @reads("editController.feedbackTask.isRunning") feedbackLoading;
+  @reads("editController.decisionTask.isRunning") decisionLoading;
   @reads("editController.feedback") feedback;
+  @reads("editController.decision") decision;
   @reads("editController.instance") instance;
 
   @lastValue("dataTask") data;
