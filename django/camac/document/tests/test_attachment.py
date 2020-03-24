@@ -1,4 +1,5 @@
 import io
+import json
 
 import pytest
 from django.urls import reverse
@@ -58,6 +59,65 @@ def test_attachment_list(
     json = response.json()
     assert len(json["data"]) == 1
     assert json["data"][0]["id"] == str(attachment_attachment_sections.attachment.pk)
+
+
+@pytest.mark.parametrize(
+    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+)
+@pytest.mark.parametrize(
+    "filter,attachment__context,expect_count",
+    [
+        ({"key": "isDecision", "value": True}, {"isDecision": True}, 1),
+        ({"key": "isDecision", "value": True}, {}, 0),
+        (
+            {"key": "foobar", "value": "blah", "lookup": "STARTSWITH"},
+            {"foobar": "hello blah"},
+            0,
+        ),
+        (
+            {"key": "foobar", "value": "blah", "lookup": "CONTAINS"},
+            {"foobar": "hello blah"},
+            1,
+        ),
+        (
+            [
+                {"key": "foobar", "value": "blah", "lookup": "CONTAINS"},
+                {"key": "isDecision", "value": True},
+            ],
+            {"foobar": "hello blah"},
+            0,
+        ),
+        (
+            [
+                {"key": "foobar", "value": "blah", "lookup": "CONTAINS"},
+                {"key": "isDecision", "value": True},
+            ],
+            {"foobar": "hello blah", "isDecision": True},
+            1,
+        ),
+    ],
+)
+def test_attachment_context_filter(
+    admin_client, attachment_attachment_sections, filter, expect_count, mocker
+):
+    # fix permissions
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {
+            "demo": {
+                "applicant": {
+                    "admin": [attachment_attachment_sections.attachmentsection_id]
+                }
+            }
+        },
+    )
+
+    url = reverse("attachment-list")
+    response = admin_client.get(url, data={"context": json.dumps(filter)})
+    assert response.status_code == status.HTTP_200_OK
+
+    data = response.json()
+    assert len(data["data"]) == expect_count
 
 
 @pytest.mark.parametrize("instance_state__name", ["nfd"])
@@ -737,6 +797,10 @@ def test_attachment_section_filters(
         docs, [section_visible_1, section_visible_2, section_forbidden]
     ):
         doc.attachment_sections.add(section)
+
+    # Verify assumptions
+    assert models.AttachmentSection.objects.count() == 3
+    assert models.Attachment.objects.count() == 3
 
     # permissons: visible sections are visible
     mocker.patch(

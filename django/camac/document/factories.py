@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.utils import timezone
-from factory import Faker, SubFactory
+from factory import Faker, LazyFunction, SubFactory
 from factory.django import DjangoModelFactory, ImageField
 
 from camac.instance.factories import InstanceFactory
@@ -31,6 +31,7 @@ class AttachmentFactory(DjangoModelFactory):
     user = SubFactory(UserFactory)
     mime_type = Faker("mime_type")
     uuid = Faker("uuid4")
+    context = LazyFunction(lambda: {})
 
     class Meta:
         model = models.Attachment
