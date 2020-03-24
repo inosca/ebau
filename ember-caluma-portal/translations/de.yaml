@@ -14,6 +14,7 @@ global:
 nav:
   form: "Formular"
   feedback: "Rückmeldungen"
+  decision: "Entscheiddokumente"
   index: "Startseite"
   support: "Support"
   logout: "Ausloggen"
