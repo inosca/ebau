@@ -585,19 +585,32 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
 
 def copy_table_answer(
-    instance, source_question, target_form, target_answer, source_form=None
+    instance,
+    source_question,
+    target_form,
+    target_answer,
+    source_form=None,
+    source_question_fallback=None,
 ):
     if source_form is None:
-        source_form_id = CalumaApi().get_main_document(instance)
+        source_document_id = CalumaApi().get_main_document(instance)
     else:
-        source_form_id = CalumaApi().get_document_by_form_slug(instance, source_form)
+        source_document_id = CalumaApi().get_document_by_form_slug(
+            instance, source_form
+        )
 
     target_document_id = CalumaApi().get_document_by_form_slug(instance, target_form)
     table_answers = caluma_form_models.Answer.objects.filter(
-        document_id=source_form_id, question_id=source_question
+        document_id=source_document_id, question_id=source_question
     )
-    if not table_answers:
+
+    if not target_document_id:
         return
+
+    if not table_answers:
+        table_answers = caluma_form_models.Answer.objects.filter(
+            document_id=source_document_id, question_id=source_question_fallback
+        )
 
     sb_table_answer = caluma_form_models.Answer.objects.create(
         document_id=target_document_id, question_id=target_answer
@@ -729,7 +742,13 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
         self._create_journal_entry(get_translations(gettext_noop("Dossier submitted")))
 
-        copy_table_answer(instance, "personalien-sb", "sb1", "personalien-sb1-sb2")
+        copy_table_answer(
+            instance,
+            source_question="personalien-sb",
+            target_form="sb1",
+            target_answer="personalien-sb1-sb2",
+            source_question_fallback="personalien-gesuchstellerin",
+        )
 
         # send out emails upon submission
         for notification_config in settings.APPLICATION["NOTIFICATIONS"]["SUBMIT"]:
@@ -776,7 +795,11 @@ class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
         self._create_journal_entry(get_translations(gettext_noop("SB1 submitted")))
 
         copy_table_answer(
-            instance, "personalien-sb1-sb2", "sb2", "personalien-sb1-sb2", "sb1"
+            instance,
+            source_question="personalien-sb1-sb2",
+            target_form="sb2",
+            target_answer="personalien-sb1-sb2",
+            source_form="sb1",
         )
 
         # send out emails upon submission
