@@ -2271,7 +2271,7 @@
     "fields": {
       "action": 130003,
       "description": null,
-      "error_message": "La circulation n'a pas pu \u00eatre supprim\u00e9e. La diffusion ne peut \u00eatre supprim\u00e9e que tant qu'aucune ligne interurbaine ou d'abonn\u00e9 n'a \u00e9t\u00e9 invit\u00e9e.",
+      "error_message": "La circulation n'a pas pu \u00eatre supprim\u00e9e. La circulation ne peut \u00eatre supprim\u00e9e que si aucun office ou service sp\u00e9cialis\u00e9 n'a \u00e9t\u00e9 invit\u00e9e.",
       "language": "fr",
       "name": "DeleteCirculation",
       "success_message": "La circulation a \u00e9t\u00e9 supprim\u00e9e avec succ\u00e8s."
@@ -43006,7 +43006,7 @@
   {
     "fields": {
       "button": 130001,
-      "description": "Les circulations peuvent \u00eatre supprim\u00e9es tant qu'aucun coffre ou compartiment n'a \u00e9t\u00e9 s\u00e9lectionn\u00e9.",
+      "description": "Les circulations peuvent \u00eatre supprim\u00e9es tant qu'aucun office ou service sp\u00e9cialis\u00e9 n'a \u00e9t\u00e9 s\u00e9lectionn\u00e9.",
       "language": "fr",
       "name": "Supprimer la circulation"
     },
