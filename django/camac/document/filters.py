@@ -1,3 +1,7 @@
+import json
+
+from caluma.caluma_core.filters import JSONValueFilter
+from django.core.validators import EMPTY_VALUES
 from django.utils.translation import gettext as _
 from django_filters.filters import BaseCSVFilter
 from django_filters.rest_framework import DateTimeFilter, FilterSet
@@ -8,8 +12,46 @@ from camac.filters import CharMultiValueFilter, NumberFilter
 from . import models
 
 
+class RESTJSONFilter(JSONValueFilter):
+    def __init__(self, **kwargs):
+        kwargs.setdefault(
+            "help_text",
+            _(
+                """A JSON-encoded dict of the following form:
+                `{
+                    "key": "key_in_context_json",
+                    "value": "value to be searched for",
+                    "lookup": "any of EXACT,STARTSWITH,CONTAINS,ICONTAINS,GTE,GT,LTE,LT (defaults to EXACT)"
+                }`
+                \nOptionally, you may also pass a list of such dicts to combine lookups
+            """
+            ),
+        )
+        super().__init__(**kwargs)
+
+    def filter(self, queryset, value):
+        if value in EMPTY_VALUES:
+            return queryset
+        value = json.loads(value)
+
+        if isinstance(value, dict):
+            # simplify calling conventions: allow plain-dict
+            # as well
+            value = [value]
+
+        # make lookup lowercase, as JSONValueFilter expects (Allow clients
+        # to use uppercase to keep similarity with the GraphQL interface)
+        value = [
+            {**filt, "lookup": filt["lookup"].lower()} if "lookup" in filt else filt
+            for filt in value
+        ]
+        return super().filter(queryset, value)
+
+
 class AttachmentFilterSet(FilterSet):
     name = CharMultiValueFilter(lookup_expr="startswith")
+    context = RESTJSONFilter()
+
     exclude_sections = CharMultiValueFilter(
         exclude=True, field_name="attachment_sections"
     )
