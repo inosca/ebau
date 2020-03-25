@@ -69,6 +69,7 @@ def test_resolve_send_handler(xml_file, expected_send_handler):
         (4, INSTANCE_STATE_DOSSIERPRUEFUNG, True, INSTANCE_STATE_REJECTED),
         (3, INSTANCE_STATE_DOSSIERPRUEFUNG, False, None),
         (1, INSTANCE_STATE_KOORDINATION, True, INSTANCE_STATE_SB1),
+        (1, INSTANCE_STATE_ZIRKULATION, True, INSTANCE_STATE_SB1),
         (4, INSTANCE_STATE_EBAU_NUMMER_VERGEBEN, False, None),
     ],
 )

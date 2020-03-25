@@ -113,10 +113,13 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
                     'For instances in the state "Dossierprüfung", only a NoticeRuling with judgement "4" is allowed.',
                 )
             return True, None
-        if self.instance.instance_state.pk != INSTANCE_STATE_KOORDINATION:
+        if self.instance.instance_state.pk not in [
+            INSTANCE_STATE_KOORDINATION,
+            INSTANCE_STATE_ZIRKULATION,
+        ]:
             return (
                 False,
-                'NoticeRuling is only allowed for instances in the state "Dossierprüfung" or "In Koordination".',
+                'NoticeRuling is only allowed for instances in the state "Dossierprüfung", "In Koordination" or "In Zirkulation".',
             )
 
         return True, None
