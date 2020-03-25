@@ -5050,10 +5050,10 @@ ember-basic-dropdown@^1.1.0:
     ember-cli-htmlbars "^3.0.1"
     ember-maybe-in-element "^0.2.0"
 
-ember-caluma@^5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/ember-caluma/-/ember-caluma-5.1.0.tgz#7a969e78b63a934bdd4ee3783039bd5625ee61f5"
-  integrity sha512-z3Z2Z5X0wUDi7b9b/ny96/z2ebx+mxM1i+6eO2ANllAEFSC2YBWWXepVEI0YAbz/SFO10qCBuPBXLmxemUKVGg==
+ember-caluma@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/ember-caluma/-/ember-caluma-6.1.0.tgz#05314b66436dee58259dd84c102510ce888388cb"
+  integrity sha512-PytIMlrjde/+gHPHHb07ooObcjnck+2P3S5BV2XSAlkKv0TslxRFlpT2/Hk5B8iAgx414aMSCace3ax+o/mklw==
   dependencies:
     apollo-cache-inmemory "^1.6.5"
     apollo-link-context "^1.0.18"
@@ -5068,14 +5068,14 @@ ember-caluma@^5.1.0:
     ember-cli-sass "^10.0.0"
     ember-cli-showdown "^4.4.4"
     ember-cli-string-helpers "^4.0.6"
-    ember-composable-helpers "^2.2.0"
+    ember-composable-helpers "^3.1.1"
     ember-concurrency "^1.1.6"
     ember-fetch "^7.0.1"
-    ember-intl "^4.2.4"
-    ember-math-helpers "^2.13.0"
+    ember-intl "^4.3.0"
+    ember-math-helpers "^2.14.0"
     ember-power-select "^2.3.5"
     ember-test-selectors "^4.0.0"
-    ember-uikit "^2.0.1"
+    ember-uikit "^2.1.2"
     ember-validated-form "^2.0.0"
     faker "4.1.0"
     graphql "^14.6.0"
@@ -5083,9 +5083,10 @@ ember-caluma@^5.1.0:
     graphql-tag "^2.10.3"
     graphql-tools "^4.0.7"
     jexl "^2.2.0"
-    sass "^1.26.2"
+    lodash.clonedeep "^4.5.0"
+    sass "^1.26.3"
     slugify "^1.4.0"
-    uuid "^7.0.1"
+    uuid "^7.0.2"
 
 ember-can@^3.0.0:
   version "3.0.0"
@@ -5163,7 +5164,7 @@ ember-cli-babel@^6.0.0-beta.4, ember-cli-babel@^6.12.0, ember-cli-babel@^6.16.0,
     ember-cli-version-checker "^2.1.2"
     semver "^5.5.0"
 
-ember-cli-babel@^7.1.0, ember-cli-babel@^7.1.2, ember-cli-babel@^7.1.3, ember-cli-babel@^7.10.0, ember-cli-babel@^7.11.0, ember-cli-babel@^7.11.1, ember-cli-babel@^7.12.0, ember-cli-babel@^7.13.0, ember-cli-babel@^7.13.2, ember-cli-babel@^7.18.0, ember-cli-babel@^7.2.0, ember-cli-babel@^7.5.0, ember-cli-babel@^7.7.0, ember-cli-babel@^7.7.3, ember-cli-babel@^7.8.0, ember-cli-babel@^7.9.0:
+ember-cli-babel@^7.1.0, ember-cli-babel@^7.1.2, ember-cli-babel@^7.1.3, ember-cli-babel@^7.10.0, ember-cli-babel@^7.11.0, ember-cli-babel@^7.11.1, ember-cli-babel@^7.12.0, ember-cli-babel@^7.13.0, ember-cli-babel@^7.13.2, ember-cli-babel@^7.17.2, ember-cli-babel@^7.18.0, ember-cli-babel@^7.2.0, ember-cli-babel@^7.5.0, ember-cli-babel@^7.7.0, ember-cli-babel@^7.7.3, ember-cli-babel@^7.8.0, ember-cli-babel@^7.9.0:
   version "7.18.0"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-7.18.0.tgz#e979b73eee00cd93f63452c6170d045e8832f29c"
   integrity sha512-OLPfYD8wSfCrmGHcUf8zEfySSvbAL+5Qp2RWLycJIMaBZhg+SncKj5kVkL3cPJR5n2hVHPdfmKTQIYjOYl6FnQ==
@@ -5304,7 +5305,7 @@ ember-cli-htmlbars@^3.0.0, ember-cli-htmlbars@^3.0.1:
     json-stable-stringify "^1.0.1"
     strip-bom "^3.0.0"
 
-ember-cli-htmlbars@^4.0.0, ember-cli-htmlbars@^4.0.8, ember-cli-htmlbars@^4.2.0, ember-cli-htmlbars@^4.2.1, ember-cli-htmlbars@^4.2.2, ember-cli-htmlbars@^4.2.3:
+ember-cli-htmlbars@^4.0.0, ember-cli-htmlbars@^4.2.0, ember-cli-htmlbars@^4.2.1, ember-cli-htmlbars@^4.2.2, ember-cli-htmlbars@^4.2.3:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-4.2.3.tgz#ca1a4ce3806594f0a69a1ada3eed749a125cc2bf"
   integrity sha512-AA5N5a7T+9Bc3m+5X076WFYIN4EQL0o/g8acPBZnEolFJhc3TmnSlWay4JwEuvszA1MLFKmZET/VD9CfRw8+EQ==
@@ -5704,6 +5705,16 @@ ember-composable-helpers@^2.2.0:
     ember-cli-babel "^7.1.0"
     resolve "^1.10.0"
 
+ember-composable-helpers@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/ember-composable-helpers/-/ember-composable-helpers-3.1.1.tgz#9d663f4359fd54fd369ea60aa1915bf59113bcec"
+  integrity sha512-lPmPhk4wIg1JDnuOfzcDzrCZoaDoTvZrYVaBi4Eia2SdEEfcDNipQTXTk0yHFCvKfSjXjuNlTtNP9UANH58TzQ==
+  dependencies:
+    "@babel/core" "^7.0.0"
+    broccoli-funnel "2.0.1"
+    ember-cli-babel "^7.1.0"
+    resolve "^1.10.0"
+
 ember-concurrency-decorators@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/ember-concurrency-decorators/-/ember-concurrency-decorators-1.0.0.tgz#b327e9e487650f0670870a8233c35bd0b5a7452b"
@@ -5842,6 +5853,16 @@ ember-file-upload@^2.7.1:
     ember-cli-babel "^7.7.3"
     ember-cli-htmlbars "^3.0.1"
 
+ember-focus-trap@0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/ember-focus-trap/-/ember-focus-trap-0.4.0.tgz#b69a3a65a49784e2b3a19082655a585cfdaad473"
+  integrity sha512-NHKjTS1xoSS+fURDhAp5oyR7ZTTBnC4KVGw/VlUbFolx7jdLCePHuQdhnrhT02B1VP1dlX2RxnNvNiT2IcoA1w==
+  dependencies:
+    ember-auto-import "^1.5.3"
+    ember-cli-babel "^7.18.0"
+    ember-modifier-manager-polyfill "^1.2.0"
+    focus-trap "^5.1.0"
+
 ember-gestures@^1.1.1:
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/ember-gestures/-/ember-gestures-1.1.5.tgz#0d82f721c8606694f113f1cc7eb04e28d448989d"
@@ -5915,6 +5936,39 @@ ember-intl@^4.2.4:
     silent-error "^1.1.1"
     walk-sync "^2.0.1"
 
+ember-intl@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/ember-intl/-/ember-intl-4.3.0.tgz#ff5081e5a2cd861f066658998cedbf5fa5307fe1"
+  integrity sha512-H55yim6LhEXm8lxEzinI2DKuiWSMZM7DXeUxuN216pcvxIze81kkcSD2UpPO50jn31xc4VcEkVSA8zPDRO4nzw==
+  dependencies:
+    "@ember-intl/broccoli-cldr-data" "^3.1.0"
+    "@ember-intl/intl-messageformat" "^2.5.0"
+    "@ember-intl/intl-messageformat-parser" "^1.5.0"
+    "@ember-intl/intl-relativeformat" "^2.1.0"
+    broccoli-caching-writer "^3.0.3"
+    broccoli-funnel "^2.0.2"
+    broccoli-merge-trees "^3.0.2"
+    broccoli-source "^3.0.0"
+    broccoli-stew "^3.0.0"
+    calculate-cache-key-for-tree "^2.0.0"
+    cldr-core "^35.1.0"
+    ember-auto-import "^1.5.2"
+    ember-cli-babel "^7.10.0"
+    extend "^3.0.2"
+    fast-memoize "^2.5.1"
+    has-unicode "^2.0.1"
+    intl "^1.2.5"
+    js-yaml "^3.12.2"
+    json-stable-stringify "^1.0.1"
+    locale-emoji "^0.3.0"
+    lodash.castarray "^4.4.0"
+    lodash.get "^4.4.2"
+    lodash.last "^3.0.0"
+    lodash.omit "^4.5.0"
+    mkdirp "^0.5.1"
+    silent-error "^1.1.1"
+    walk-sync "^2.0.1"
+
 ember-invoke-action@^1.5.0:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/ember-invoke-action/-/ember-invoke-action-1.5.1.tgz#b6cad51ee729fc227cdbdba83b2b5486f0fa5834"
@@ -5947,6 +6001,15 @@ ember-math-helpers@^2.13.0:
     broccoli-funnel "^3.0.1"
     ember-cli-babel "^7.13.0"
     ember-cli-htmlbars "^4.2.0"
+
+ember-math-helpers@^2.14.0:
+  version "2.14.0"
+  resolved "https://registry.yarnpkg.com/ember-math-helpers/-/ember-math-helpers-2.14.0.tgz#5845eaa52f3d258aa1369e9cf614b4b9bcf45d8f"
+  integrity sha512-ZgDnTx1Za//qRtWpDM6ZAKjG2jhR1pQuo/txA2BZKIiKudJ4CWeXnKDOb498s7tQDsr2UNgo4+5bVG3EHmfazw==
+  dependencies:
+    broccoli-funnel "^3.0.1"
+    ember-cli-babel "^7.17.2"
+    ember-cli-htmlbars "^4.2.2"
 
 ember-maybe-import-regenerator@^0.1.6:
   version "0.1.6"
@@ -6200,7 +6263,7 @@ ember-text-measurer@^0.5.0:
   dependencies:
     ember-cli-babel "^7.1.0"
 
-ember-toggle@^6.0.0, ember-toggle@^6.0.2:
+ember-toggle@^6.0.2:
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/ember-toggle/-/ember-toggle-6.0.2.tgz#6978f2253f9b4dd7f6b90ac40905b9c9b789b85c"
   integrity sha512-rsuB58s0v1SMPsHi6bgHVzrETpUGVGuOHSpXcjDyaYZ8Jdjvj3rtALX9VbZk4czZnxi6RWi9aT9JBtURv8RD+g==
@@ -6217,37 +6280,22 @@ ember-truth-helpers@^2.0.0, ember-truth-helpers@^2.1.0:
   dependencies:
     ember-cli-babel "^6.6.0"
 
-ember-uikit@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/ember-uikit/-/ember-uikit-2.0.1.tgz#5f5b1ba321c71930604ec0c32cc77b567ca37785"
-  integrity sha512-raBw2XSYpq9ZGwJzsr3gpBZpXNRG7XQu0StJx2oCrhyyUmawLPHH4g5pRWA66w7IP8D7CaKxOnZgVtUmAI9eGg==
+ember-uikit@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/ember-uikit/-/ember-uikit-2.1.2.tgz#91585168cdfe4018e2aaedadc5ae5147933d3146"
+  integrity sha512-/BUt5Af3v8UP19MRNBq/+FwnQKyTpg6kQLp6fIvC5SyJ9OThtmWkMZjM2ED/OWfcT3k1lPuleeC5/XudbUNzoQ==
   dependencies:
     broccoli-funnel "^2.0.2"
-    broccoli-merge-trees "^3.0.0"
-    broccoli-stew "^3.0.0"
-    chalk "^3.0.0"
-    ember-auto-import "^1.5.3"
-    ember-cli-babel "^7.13.0"
-    ember-cli-htmlbars "^4.0.8"
-    ember-get-config "^0.2.4"
-    ember-toggle "^6.0.0"
-    uikit "^3.2.4"
-
-ember-uikit@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/ember-uikit/-/ember-uikit-2.1.0.tgz#0595e27c26a47d1ffd9f8b7efffc8abc0c8f822d"
-  integrity sha512-p/EQ27D2EP+trz0QaE+m+scXMcYCkWaTTpNi6NeNbuWUde/LtwlNN+F08uTJV901Rt+CXyDC4LtwzFRTnxSiPg==
-  dependencies:
-    broccoli-funnel "^2.0.2"
-    broccoli-merge-trees "^3.0.0"
+    broccoli-merge-trees "^4.1.0"
     broccoli-stew "^3.0.0"
     chalk "^3.0.0"
     ember-auto-import "^1.5.3"
     ember-cli-babel "^7.18.0"
-    ember-cli-htmlbars "^4.2.2"
+    ember-cli-htmlbars "^4.2.3"
+    ember-focus-trap "0.4.0"
     ember-get-config "^0.2.4"
     ember-toggle "^6.0.2"
-    uikit "^3.3.2"
+    uikit "^3.3.7"
 
 ember-validated-form@^2.0.0:
   version "2.0.0"
@@ -7156,6 +7204,14 @@ flush-write-stream@^1.0.0:
   dependencies:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
+
+focus-trap@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/focus-trap/-/focus-trap-5.1.0.tgz#64a0bfabd95c382103397dbc96bfef3a3cf8e5ad"
+  integrity sha512-CkB/nrO55069QAUjWFBpX6oc+9V90Qhgpe6fBWApzruMq5gnlh90Oo7iSSDK7pKiV5ugG6OY2AXM5mxcmL3lwQ==
+  dependencies:
+    tabbable "^4.0.0"
+    xtend "^4.0.1"
 
 follow-redirects@^1.0.0:
   version "1.10.0"
@@ -11142,6 +11198,13 @@ sass@^1.26.2:
   dependencies:
     chokidar ">=2.0.0 <4.0.0"
 
+sass@^1.26.3:
+  version "1.26.3"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.26.3.tgz#412df54486143b76b5a65cdf7569e86f44659f46"
+  integrity sha512-5NMHI1+YFYw4sN3yfKjpLuV9B5l7MqQ6FlkTcC4FT+oHbBRUZoSjHrrt/mE0nFXJyY2kQtU9ou9HxvFVjLFuuw==
+  dependencies:
+    chokidar ">=2.0.0 <4.0.0"
+
 saxes@^3.1.3:
   version "3.1.11"
   resolved "https://registry.yarnpkg.com/saxes/-/saxes-3.1.11.tgz#d59d1fd332ec92ad98a2e0b2ee644702384b1c5b"
@@ -11878,6 +11941,11 @@ sync-disk-cache@^1.3.3:
     rimraf "^2.2.8"
     username-sync "^1.0.2"
 
+tabbable@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/tabbable/-/tabbable-4.0.0.tgz#5bff1d1135df1482cf0f0206434f15eadbeb9261"
+  integrity sha512-H1XoH1URcBOa/rZZWxLxHCtOdVUEev+9vo5YdYhC9tCY4wnybX+VQrCYuy9ubkg69fCBxCONJOSLGfw0DWMffQ==
+
 table@^5.2.3:
   version "5.4.6"
   resolved "https://registry.yarnpkg.com/table/-/table-5.4.6.tgz#1292d19500ce3f86053b05f0e8e7e4a3bb21079e"
@@ -12267,10 +12335,10 @@ uglify-to-browserify@~1.0.0:
   resolved "https://registry.yarnpkg.com/uglify-to-browserify/-/uglify-to-browserify-1.0.2.tgz#6e0924d6bda6b5afe349e39a6d632850a0f882b7"
   integrity sha1-bgkk1r2mta/jSeOabWMoUKD4grc=
 
-uikit@3.3.3, uikit@^3.2.4, uikit@^3.3.2:
-  version "3.3.3"
-  resolved "https://registry.yarnpkg.com/uikit/-/uikit-3.3.3.tgz#756f6dae476657a72155515d74099a3f30db8818"
-  integrity sha512-YCrjTpti3cVTNjCXo0zeu7Kd/1nWJwIo4YRmLSVJ+MC/FdzWQgmfvby5rXR5TxEETnPamazrFtclPWJQya8W1g==
+uikit@^3.3.7:
+  version "3.3.7"
+  resolved "https://registry.yarnpkg.com/uikit/-/uikit-3.3.7.tgz#0f7fd0be9f4583c55c0bf8d1ac0f715bc42cb573"
+  integrity sha512-vY7chSjBpu3hgFHFbl/Cr2cUodoEew69uPPQl2E0WcK6UkG2DYhgV0XNDMNLpeGGfrw6C+H9cW89I7Gq7N8Ylw==
 
 underscore.string@^3.2.2, underscore.string@~3.3.4:
   version "3.3.5"
@@ -12450,10 +12518,10 @@ uuid@^3.1.0, uuid@^3.3.2, uuid@^3.4.0:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
 
-uuid@^7.0.1:
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/uuid/-/uuid-7.0.1.tgz#95ed6ff3d8c881cbf85f0f05cc3915ef994818ef"
-  integrity sha512-yqjRXZzSJm9Dbl84H2VDHpM3zMjzSJQ+hn6C4zqd5ilW+7P4ZmLEEqwho9LjP+tGuZlF4xrHQXT0h9QZUS/pWA==
+uuid@^7.0.2:
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-7.0.2.tgz#7ff5c203467e91f5e0d85cfcbaaf7d2ebbca9be6"
+  integrity sha512-vy9V/+pKG+5ZTYKf+VcphF5Oc6EFiu3W8Nv3P3zIh0EqVI80ZxOzuPfe9EHjkFNvf8+xuTHVeei4Drydlx4zjw==
 
 v8-compile-cache@^2.0.3:
   version "2.1.0"
@@ -12815,7 +12883,7 @@ xmlhttprequest-ssl@~1.5.4:
   resolved "https://registry.yarnpkg.com/xmlhttprequest-ssl/-/xmlhttprequest-ssl-1.5.5.tgz#c2876b06168aadc40e57d97e81191ac8f4398b3e"
   integrity sha1-wodrBhaKrcQOV9l+gRkayPQ5iz4=
 
-xtend@^4.0.0, xtend@~4.0.1:
+xtend@^4.0.0, xtend@^4.0.1, xtend@~4.0.1:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.2.tgz#bb72779f5fa465186b1f438f674fa347fdb5db54"
   integrity sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==
