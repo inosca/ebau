@@ -7,6 +7,349 @@ from snapshottest import Snapshot
 
 snapshots = Snapshot()
 
+snapshots['test_document_merge_service_snapshot[1-sb1] 1'] = [
+    {
+        'children': [
+            {
+                'columns': [
+                    'Handelt es sich um eine juristische Person?',
+                    'Name juristische Person',
+                    'Name',
+                    'Vorname',
+                    'Strasse',
+                    'Nummer',
+                    'PLZ',
+                    'Ort',
+                    'Telefon oder Mobile',
+                    'E-Mail'
+                ],
+                'label': 'Personalien - Verantwortliche Person Selbstdeklaration Baukontrolle',
+                'rows': [
+                ],
+                'slug': 'personalien-sb1-sb2',
+                'type': 'TableQuestion'
+            },
+            {
+                'choices': [
+                    {
+                        'checked': True,
+                        'label': 'Ja'
+                    },
+                    {
+                        'checked': False,
+                        'label': 'Nein'
+                    }
+                ],
+                'label': 'Sind die Bedingungen und Auflagen der Baubewilligung (vor Baubeginn) erfüllt?',
+                'slug': 'bedingungen-und-auflagen-erfuellt',
+                'type': 'ChoiceQuestion'
+            },
+            {
+                'choices': [
+                    {
+                        'checked': False,
+                        'label': 'Ja'
+                    },
+                    {
+                        'checked': True,
+                        'label': 'Nein'
+                    }
+                ],
+                'label': 'Ist eine Schnurgerüstabnahme erforderlich?',
+                'slug': 'ist-eine-schnurgerustabnahme-erforderlich',
+                'type': 'ChoiceQuestion'
+            },
+            {
+                'label': 'Beginn Bauarbeiten',
+                'slug': 'beginn-bauarbeiten',
+                'type': 'DateQuestion',
+                'value': None
+            },
+            {
+                'label': 'Bemerkungen',
+                'slug': 'bemerkungen-sb1',
+                'type': 'TextareaQuestion',
+                'value': None
+            }
+        ],
+        'label': 'Selbstdeklaration',
+        'slug': 'selbstdeklaration-sb1',
+        'type': 'FormQuestion'
+    },
+    {
+        'label': 'Gesuchsteller/in',
+        'people': [
+            {
+                'firstName': '',
+                'lastName': ''
+            }
+        ],
+        'type': 'SignatureQuestion'
+    }
+]
+
+snapshots['test_document_merge_service_snapshot[1-sb2] 1'] = [
+    {
+        'children': [
+            {
+                'columns': [
+                    'Handelt es sich um eine juristische Person?',
+                    'Name juristische Person',
+                    'Name',
+                    'Vorname',
+                    'Strasse',
+                    'Nummer',
+                    'PLZ',
+                    'Ort',
+                    'Telefon oder Mobile',
+                    'E-Mail'
+                ],
+                'label': 'Personalien - Verantwortliche Person Selbstdeklaration Baukontrolle',
+                'rows': [
+                ],
+                'slug': 'personalien-sb1-sb2',
+                'type': 'TableQuestion'
+            },
+            {
+                'choices': [
+                    {
+                        'checked': True,
+                        'label': 'Ja'
+                    },
+                    {
+                        'checked': False,
+                        'label': 'Nein'
+                    }
+                ],
+                'label': 'Ist das Bauvorhaben nach der Baubewilligung und evtl. Projektänderungsbewilligung ausgeführt?',
+                'slug': 'bauvorhaben-nach-baubewilligung-ausgefuehrt',
+                'type': 'ChoiceQuestion'
+            },
+            {
+                'choices': [
+                    {
+                        'checked': True,
+                        'label': 'Ja'
+                    },
+                    {
+                        'checked': False,
+                        'label': 'Nein'
+                    }
+                ],
+                'label': 'Sind die Bedingungen und Auflagen der Baubewilligung eingehalten?',
+                'slug': 'bedingungen-auflagen-eingehalten',
+                'type': 'ChoiceQuestion'
+            },
+            {
+                'choices': [
+                    {
+                        'checked': True,
+                        'label': 'Ja'
+                    },
+                    {
+                        'checked': False,
+                        'label': 'Nein'
+                    }
+                ],
+                'label': 'Sind die Sicherheitsvorschriften eingehalten?',
+                'slug': 'sicherheitsvorschriften-eingehalten',
+                'type': 'ChoiceQuestion'
+            },
+            {
+                'choices': [
+                    {
+                        'checked': True,
+                        'label': 'Ja'
+                    },
+                    {
+                        'checked': False,
+                        'label': 'Nein'
+                    }
+                ],
+                'label': 'Sind die Nebengebäude fertiggestellt?',
+                'slug': 'sind-die-nebengebaeude-fertiggestellt',
+                'type': 'ChoiceQuestion'
+            },
+            {
+                'choices': [
+                    {
+                        'checked': True,
+                        'label': 'Ja'
+                    },
+                    {
+                        'checked': False,
+                        'label': 'Nein'
+                    }
+                ],
+                'label': 'Sind die Umgebungsarbeiten fertiggestellt?',
+                'slug': 'sind-die-umgebungsarbeiten-fertiggestellt',
+                'type': 'ChoiceQuestion'
+            },
+            {
+                'choices': [
+                    {
+                        'checked': False,
+                        'label': 'Ja'
+                    },
+                    {
+                        'checked': True,
+                        'label': 'Nein'
+                    }
+                ],
+                'label': 'Meldung Tankanlage',
+                'slug': 'meldung-tankanlage',
+                'type': 'ChoiceQuestion'
+            },
+            {
+                'label': 'Bemerkungen',
+                'slug': 'bemerkungen-abschluss-sb2',
+                'type': 'TextareaQuestion',
+                'value': None
+            }
+        ],
+        'label': 'Abschluss',
+        'slug': 'abschluss-sb2',
+        'type': 'FormQuestion'
+    },
+    {
+        'label': 'Gesuchsteller/in',
+        'people': [
+            {
+                'firstName': '',
+                'lastName': ''
+            }
+        ],
+        'type': 'SignatureQuestion'
+    }
+]
+
+snapshots['test_document_merge_service_snapshot[3-None] 1'] = [
+    {
+        'children': [
+            {
+                'label': 'Name',
+                'slug': 'name-gesuchstellerin-vorabklaerung',
+                'type': 'TextQuestion',
+                'value': 'Muster'
+            },
+            {
+                'label': 'Vorname',
+                'slug': 'vorname-gesuchstellerin-vorabklaerung',
+                'type': 'TextQuestion',
+                'value': 'Max'
+            },
+            {
+                'label': 'Strasse',
+                'slug': 'strasse-gesuchstellerin',
+                'type': 'TextQuestion',
+                'value': 'asdfstr.'
+            },
+            {
+                'label': 'Nummer',
+                'slug': 'nummer-gesuchstellerin',
+                'type': 'TextQuestion',
+                'value': '1'
+            },
+            {
+                'label': 'PLZ',
+                'slug': 'plz-gesuchstellerin',
+                'type': 'IntegerQuestion',
+                'value': 3000
+            },
+            {
+                'label': 'Ort',
+                'slug': 'ort-gesuchstellerin',
+                'type': 'TextQuestion',
+                'value': 'Bern'
+            },
+            {
+                'label': 'Zuständige Gemeinde',
+                'slug': 'gemeinde',
+                'type': 'TextQuestion',
+                'value': 'Burgdorf'
+            },
+            {
+                'label': 'Karte',
+                'slug': 'karte-einfache-vorabklaerung',
+                'type': 'TextQuestion',
+                'value': 'undefined'
+            },
+            {
+                'label': 'Lagekoordinaten - Ost',
+                'slug': 'lagekoordinaten-ost-einfache-vorabklaerung',
+                'type': 'FloatQuestion',
+                'value': '2614314'
+            },
+            {
+                'label': 'Lagekoordinaten – Nord',
+                'slug': 'lagekoordinaten-nord-einfache-vorabklaerung',
+                'type': 'FloatQuestion',
+                'value': '1211926'
+            },
+            {
+                'label': 'Parzellennummer',
+                'slug': 'parzellennummer',
+                'type': 'TextQuestion',
+                'value': '1'
+            },
+            {
+                'label': 'Liegenschaftsnummer',
+                'slug': 'liegenschaftsnummer',
+                'type': 'IntegerQuestion',
+                'value': None
+            },
+            {
+                'label': 'BE-GID',
+                'slug': 'be-gid',
+                'type': 'TextQuestion',
+                'value': None
+            },
+            {
+                'label': 'GWR-EGID',
+                'slug': 'gwr-egid',
+                'type': 'IntegerQuestion',
+                'value': None
+            },
+            {
+                'label': 'E-GRID-Nr.',
+                'slug': 'e-grid-nr',
+                'type': 'TextQuestion',
+                'value': 'CH273589324696'
+            },
+            {
+                'label': 'Anfrage zur Vorabklärung',
+                'slug': 'anfrage-zur-vorabklaerung',
+                'type': 'TextareaQuestion',
+                'value': 'bitte abklaeren'
+            },
+            {
+                'choices': [
+                    {
+                        'checked': True,
+                        'label': 'Der/die Gesuchsteller/in bestätigt, dass die vom GIS-System übernommen Daten mit den baurechtlichen Grundlagen übereinstimmen.'
+                    }
+                ],
+                'label': 'Der/die Gesuchsteller/in bestätigt, dass die vom GIS-System übernommen Daten mit den baurechtlichen Grundlagen übereinstimmen.',
+                'slug': 'bestaetigung-gis',
+                'type': 'MultipleChoiceQuestion'
+            }
+        ],
+        'label': 'Allgemeine Informationen',
+        'slug': 'allgemeine-informationen-vorabklaerung-form',
+        'type': 'FormQuestion'
+    },
+    {
+        'label': 'Gesuchsteller/in',
+        'people': [
+            {
+                'familyName': 'Muster',
+                'givenName': 'Max'
+            }
+        ],
+        'type': 'SignatureQuestion'
+    }
+]
+
 snapshots['test_document_merge_service_snapshot[1-baugesuch] 1'] = [
     {
         'children': [
@@ -2382,348 +2725,5 @@ snapshots['test_document_merge_service_snapshot[1-baugesuch] 1'] = [
         'label': 'Unterschriften',
         'slug': '8-unterschriften',
         'type': 'FormQuestion'
-    }
-]
-
-snapshots['test_document_merge_service_snapshot[1-sb1] 1'] = [
-    {
-        'children': [
-            {
-                'columns': [
-                    'Handelt es sich um eine juristische Person?',
-                    'Name juristische Person',
-                    'Name',
-                    'Vorname',
-                    'Strasse',
-                    'Nummer',
-                    'PLZ',
-                    'Ort',
-                    'Telefon oder Mobile',
-                    'E-Mail'
-                ],
-                'label': 'Personalien - Verantwortliche Person Selbstdeklaration Baukontrolle',
-                'rows': [
-                ],
-                'slug': 'personalien-sb1-sb2',
-                'type': 'TableQuestion'
-            },
-            {
-                'choices': [
-                    {
-                        'checked': True,
-                        'label': 'Ja'
-                    },
-                    {
-                        'checked': False,
-                        'label': 'Nein'
-                    }
-                ],
-                'label': 'Sind die Bedingungen und Auflagen der Baubewilligung (vor Baubeginn) erfüllt?',
-                'slug': 'bedingungen-und-auflagen-erfuellt',
-                'type': 'ChoiceQuestion'
-            },
-            {
-                'choices': [
-                    {
-                        'checked': False,
-                        'label': 'Ja'
-                    },
-                    {
-                        'checked': True,
-                        'label': 'Nein'
-                    }
-                ],
-                'label': 'Ist eine Schnurgerüstabnahme erforderlich?',
-                'slug': 'ist-eine-schnurgerustabnahme-erforderlich',
-                'type': 'ChoiceQuestion'
-            },
-            {
-                'label': 'Beginn Bauarbeiten',
-                'slug': 'beginn-bauarbeiten',
-                'type': 'DateQuestion',
-                'value': None
-            },
-            {
-                'label': 'Bemerkungen',
-                'slug': 'bemerkungen-sb1',
-                'type': 'TextareaQuestion',
-                'value': None
-            }
-        ],
-        'label': 'Selbstdeklaration',
-        'slug': 'selbstdeklaration-sb1',
-        'type': 'FormQuestion'
-    },
-    {
-        'label': 'Gesuchsteller/in',
-        'people': [
-            {
-                'firstName': '',
-                'lastName': ''
-            }
-        ],
-        'type': 'SignatureQuestion'
-    }
-]
-
-snapshots['test_document_merge_service_snapshot[1-sb2] 1'] = [
-    {
-        'children': [
-            {
-                'columns': [
-                    'Handelt es sich um eine juristische Person?',
-                    'Name juristische Person',
-                    'Name',
-                    'Vorname',
-                    'Strasse',
-                    'Nummer',
-                    'PLZ',
-                    'Ort',
-                    'Telefon oder Mobile',
-                    'E-Mail'
-                ],
-                'label': 'Personalien - Verantwortliche Person Selbstdeklaration Baukontrolle',
-                'rows': [
-                ],
-                'slug': 'personalien-sb1-sb2',
-                'type': 'TableQuestion'
-            },
-            {
-                'choices': [
-                    {
-                        'checked': True,
-                        'label': 'Ja'
-                    },
-                    {
-                        'checked': False,
-                        'label': 'Nein'
-                    }
-                ],
-                'label': 'Ist das Bauvorhaben nach der Baubewilligung und evtl. Projektänderungsbewilligung ausgeführt?',
-                'slug': 'bauvorhaben-nach-baubewilligung-ausgefuehrt',
-                'type': 'ChoiceQuestion'
-            },
-            {
-                'choices': [
-                    {
-                        'checked': True,
-                        'label': 'Ja'
-                    },
-                    {
-                        'checked': False,
-                        'label': 'Nein'
-                    }
-                ],
-                'label': 'Sind die Bedingungen und Auflagen der Baubewilligung eingehalten?',
-                'slug': 'bedingungen-auflagen-eingehalten',
-                'type': 'ChoiceQuestion'
-            },
-            {
-                'choices': [
-                    {
-                        'checked': True,
-                        'label': 'Ja'
-                    },
-                    {
-                        'checked': False,
-                        'label': 'Nein'
-                    }
-                ],
-                'label': 'Sind die Sicherheitsvorschriften eingehalten?',
-                'slug': 'sicherheitsvorschriften-eingehalten',
-                'type': 'ChoiceQuestion'
-            },
-            {
-                'choices': [
-                    {
-                        'checked': True,
-                        'label': 'Ja'
-                    },
-                    {
-                        'checked': False,
-                        'label': 'Nein'
-                    }
-                ],
-                'label': 'Sind die Nebengebäude fertiggestellt?',
-                'slug': 'sind-die-nebengebaeude-fertiggestellt',
-                'type': 'ChoiceQuestion'
-            },
-            {
-                'choices': [
-                    {
-                        'checked': True,
-                        'label': 'Ja'
-                    },
-                    {
-                        'checked': False,
-                        'label': 'Nein'
-                    }
-                ],
-                'label': 'Sind die Umgebungsarbeiten fertiggestellt?',
-                'slug': 'sind-die-umgebungsarbeiten-fertiggestellt',
-                'type': 'ChoiceQuestion'
-            },
-            {
-                'choices': [
-                    {
-                        'checked': False,
-                        'label': 'Ja'
-                    },
-                    {
-                        'checked': True,
-                        'label': 'Nein'
-                    }
-                ],
-                'label': 'Meldung Tankanlage',
-                'slug': 'meldung-tankanlage',
-                'type': 'ChoiceQuestion'
-            },
-            {
-                'label': 'Bemerkungen',
-                'slug': 'bemerkungen-abschluss-sb2',
-                'type': 'TextareaQuestion',
-                'value': None
-            }
-        ],
-        'label': 'Abschluss',
-        'slug': 'abschluss-sb2',
-        'type': 'FormQuestion'
-    },
-    {
-        'label': 'Gesuchsteller/in',
-        'people': [
-            {
-                'firstName': '',
-                'lastName': ''
-            }
-        ],
-        'type': 'SignatureQuestion'
-    }
-]
-
-snapshots['test_document_merge_service_snapshot[3-None] 1'] = [
-    {
-        'children': [
-            {
-                'label': 'Name',
-                'slug': 'name-gesuchstellerin-vorabklaerung',
-                'type': 'TextQuestion',
-                'value': 'Muster'
-            },
-            {
-                'label': 'Vorname',
-                'slug': 'vorname-gesuchstellerin-vorabklaerung',
-                'type': 'TextQuestion',
-                'value': 'Max'
-            },
-            {
-                'label': 'Strasse',
-                'slug': 'strasse-gesuchstellerin',
-                'type': 'TextQuestion',
-                'value': 'asdfstr.'
-            },
-            {
-                'label': 'Nummer',
-                'slug': 'nummer-gesuchstellerin',
-                'type': 'TextQuestion',
-                'value': '1'
-            },
-            {
-                'label': 'PLZ',
-                'slug': 'plz-gesuchstellerin',
-                'type': 'IntegerQuestion',
-                'value': 3000
-            },
-            {
-                'label': 'Ort',
-                'slug': 'ort-gesuchstellerin',
-                'type': 'TextQuestion',
-                'value': 'Bern'
-            },
-            {
-                'label': 'Zuständige Gemeinde',
-                'slug': 'gemeinde',
-                'type': 'TextQuestion',
-                'value': 'Burgdorf'
-            },
-            {
-                'label': 'Karte',
-                'slug': 'karte-einfache-vorabklaerung',
-                'type': 'TextQuestion',
-                'value': 'undefined'
-            },
-            {
-                'label': 'Lagekoordinaten - Ost',
-                'slug': 'lagekoordinaten-ost-einfache-vorabklaerung',
-                'type': 'FloatQuestion',
-                'value': '2614314'
-            },
-            {
-                'label': 'Lagekoordinaten – Nord',
-                'slug': 'lagekoordinaten-nord-einfache-vorabklaerung',
-                'type': 'FloatQuestion',
-                'value': '1211926'
-            },
-            {
-                'label': 'Parzellennummer',
-                'slug': 'parzellennummer',
-                'type': 'TextQuestion',
-                'value': '1'
-            },
-            {
-                'label': 'Liegenschaftsnummer',
-                'slug': 'liegenschaftsnummer',
-                'type': 'IntegerQuestion',
-                'value': None
-            },
-            {
-                'label': 'BE-GID',
-                'slug': 'be-gid',
-                'type': 'TextQuestion',
-                'value': None
-            },
-            {
-                'label': 'GWR-EGID',
-                'slug': 'gwr-egid',
-                'type': 'IntegerQuestion',
-                'value': None
-            },
-            {
-                'label': 'E-GRID-Nr.',
-                'slug': 'e-grid-nr',
-                'type': 'TextQuestion',
-                'value': 'CH273589324696'
-            },
-            {
-                'label': 'Anfrage zur Vorabklärung',
-                'slug': 'anfrage-zur-vorabklaerung',
-                'type': 'TextareaQuestion',
-                'value': 'bitte abklaeren'
-            },
-            {
-                'choices': [
-                    {
-                        'checked': True,
-                        'label': 'Der/die Gesuchsteller/in bestätigt, dass die vom GIS-System übernommen Daten mit den baurechtlichen Grundlagen übereinstimmen.'
-                    }
-                ],
-                'label': 'Der/die Gesuchsteller/in bestätigt, dass die vom GIS-System übernommen Daten mit den baurechtlichen Grundlagen übereinstimmen.',
-                'slug': 'bestaetigung-gis',
-                'type': 'MultipleChoiceQuestion'
-            }
-        ],
-        'label': 'Allgemeine Informationen',
-        'slug': 'allgemeine-informationen-vorabklaerung-form',
-        'type': 'FormQuestion'
-    },
-    {
-        'label': 'Gesuchsteller/in',
-        'people': [
-            {
-                'familyName': 'Muster',
-                'givenName': 'Max'
-            }
-        ],
-        'type': 'SignatureQuestion'
     }
 ]
