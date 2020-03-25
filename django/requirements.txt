@@ -1,5 +1,5 @@
 babel==2.7.0
-django==2.2.10
+django==2.2.11
 django-clamd==0.4.0
 django-environ==0.4.5
 django-filter==2.2.0
@@ -27,4 +27,6 @@ tabulate==0.8.6
 xmlschema==1.0.14
 requests==2.23.0
 PyXB==1.2.6
-caluma==5.3.1
+# TODO: use proper versioning from PyPI as soon as
+# https://github.com/projectcaluma/caluma/runs/536076676 worked
+git+git://github.com/projectcaluma/caluma@v5.5.0#egg_name=caluma
