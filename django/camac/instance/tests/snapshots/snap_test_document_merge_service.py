@@ -481,7 +481,7 @@ snapshots['test_document_merge_service_snapshot[1-baugesuch] 1'] = [
                                 'label': 'Nein'
                             }
                         ],
-                        'label': 'Ist der Bau im Wald oder innerhalb von 30 m Abstand zum Wald?',
+                        'label': 'Ist der Bau im Wald / Wytweide oder innerhalb von 30 m Abstand zum Wald / Wytweide?',
                         'slug': 'bau-im-wald-oder-innerhalb-von-30-m-abstand',
                         'type': 'ChoiceQuestion'
                     },
@@ -2287,23 +2287,12 @@ snapshots['test_document_merge_service_snapshot[1-baugesuch] 1'] = [
             {
                 'choices': [
                     {
-                        'checked': True,
-                        'label': 'Der/die Gesuchsteller/in verzichtet für sich und seine/ihre Rechtsnachfolger ausdrücklich auf jeden Ersatz von Schaden, der durch den Forstbetrieb oder durch Naturereignisse, wie Schneedruck, Windfall usw. an der zu erstellenden Baute, bzw. ähnlichen Anlage verursacht werden könnte. Vorbehalten bleiben jedoch die Bestimmungen der Art. 41 ff. OR.'
+                        'checked': False,
+                        'label': 'Naturgefahren: Der/die Gesuchsteller/in verzichtet für sich und seine/ihre Rechtsnachfolger ausdrücklich auf jeden Ersatz von Schaden, der durch den Forstbetrieb oder durch Naturereignisse, wie Schneedruck, Windfall usw. an der zu erstellenden Baute, bzw. ähnlichen Anlage verursacht werden könnte. Vorbehalten bleiben jedoch die Bestimmungen der Art. 41 ff. OR.'
                     }
                 ],
-                'label': 'Der/die Gesuchsteller/in verzichtet für sich und seine/ihre Rechtsnachfolger ausdrücklich auf jeden Ersatz von Schaden, der durch den Forstbetrieb oder durch Naturereignisse, wie Schneedruck, Windfall usw. an der zu erstellenden Baute, bzw. ähnlichen Anlage verursacht werden könnte. Vorbehalten bleiben jedoch die Bestimmungen der Art. 41 ff. OR.',
-                'slug': 'verzicht-schadensersatz-naturereignisse',
-                'type': 'MultipleChoiceQuestion'
-            },
-            {
-                'choices': [
-                    {
-                        'checked': True,
-                        'label': 'Bei einer allfälligen Handänderung verpflichten sich die Bauherrschaft und Grundeigentümerin/Grundeigentümer, bzw. Baurechtsnehmerin/Baurechtsnehmer, diese Erklärung einer allfälligen Rechtsnachfolge zu überbinden.'
-                    }
-                ],
-                'label': 'Bei einer allfälligen Handänderung verpflichten sich die Bauherrschaft und Grundeigentümerin/Grundeigentümer, bzw. Baurechtsnehmerin/Baurechtsnehmer, diese Erklärung einer allfälligen Rechtsnachfolge zu überbinden.',
-                'slug': 'verpflichtung-bei-handaenderung',
+                'label': 'Naturgefahren',
+                'slug': 'bestaetigung-naturgefahren',
                 'type': 'MultipleChoiceQuestion'
             },
             {
