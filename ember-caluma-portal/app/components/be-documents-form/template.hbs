@@ -1,20 +1,20 @@
-{{#unless disabled}}
-  {{#if file}}
-    {{#if save.isRunning}}
+{{#unless @disabled}}
+  {{#if this.file}}
+    {{#if this.save.isRunning}}
       <div class="uk-padding uk-text-center">
         <UkSpinner @ratio={{2}} />
       </div>
     {{else}}
-      {{#if allVisibleTags.length}}
+      {{#if this.allVisibleTags.length}}
         <h3>{{t "documents.contents"}}</h3>
 
         <div class="uk-margin">
-          {{#if allRequiredTags.length}}
+          {{#if this.allRequiredTags.length}}
             <label class="uk-text-bold uk-margin">
               {{t "documents.requiredContent"}}
             </label>
 
-            {{#each-in requiredTags as |title fields|}}
+            {{#each-in this.requiredTags as |title fields|}}
               <div class="uk-margin">
                 <label>{{t (concat "documents.tags." title)}}</label>
                 <div class="uk-margin-left">
@@ -23,7 +23,7 @@
                       <input
                         type="checkbox"
                         class="uk-checkbox"
-                        checked={{if (contains field selectedRequiredTags) "checked"}}
+                        checked={{if (contains field this.selectedRequiredTags) "checked"}}
                         onchange={{action "updateSelectedRequiredTags" field}}
                       >
                       {{field.question.label}}
@@ -35,13 +35,19 @@
             {{/each-in}}
           {{/if}}
 
-          {{#if allOptionalTags.length}}
+          {{#if this.allOptionalTags.length}}
             <div class="uk-margin">
               <label class="uk-text-bold">
                 {{t "documents.optionalContent"}}
               </label>
 
-              <PowerSelectMultiple @multiple={{true}} @selected={{selectedOptionalTags}} @options={{optionalTags}} @searchField="question.label" @onchange={{action (mut selectedOptionalTags)}} as |field|>
+              <PowerSelectMultiple
+                @multiple={{true}}
+                @selected={{this.selectedOptionalTags}}
+                @options={{this.optionalTags}}
+                @searchField="question.label"
+                @onchange={{action (mut this.selectedOptionalTags)}}
+              as |field|>
                 {{field.question.label}}
               </PowerSelectMultiple>
             </div>
@@ -50,12 +56,12 @@
       {{/if}}
       <div class="uk-margin uk-text-right">
         <button type="button" class="uk-button uk-button-default" {{action "reset"}}>{{t "documents.cancel"}}</button>
-        <button type="button" class="uk-button uk-button-primary" {{action (perform save)}}>{{t "documents.upload"}}</button>
+        <button type="button" class="uk-button uk-button-primary" {{action (perform this.save)}}>{{t "documents.upload"}}</button>
       </div>
     {{/if}}
     <hr>
   {{else}}
-    {{#if showHint}}
+    {{#if this.showHint}}
       <p>
         {{t "documents.hint1"}}
         <a target="_blank" rel="noopener noreferrer" href={{t "documents.linkEarthquake"}}>{{t "documents.hintEarthquake"}}</a>
@@ -71,16 +77,16 @@
           {{#if dropzone.supported}}
             {{t "documents.drag"}}
           {{/if}}
-          <FileUpload @name="documents" @accept={{allowedMimetypes}} @onfileadd={{perform selectFile}}>
+          <FileUpload @name="documents" @accept={{this.allowedMimetypes}} @onfileadd={{perform this.selectFile}}>
             <span class="uk-link">{{t "documents.click"}}</span>
           </FileUpload>
         </div>
         <div class="uk-inline uk-margin-top">
-          <span class="uk-text-meta">{{t "documents.missingTags" count=allRequiredTags.length}}</span>
-          {{#if allRequiredTags.length}}
+          <span class="uk-text-meta">{{t "documents.missingTags" count=this.allRequiredTags.length}}</span>
+          {{#if this.allRequiredTags.length}}
             <div uk-drop="pos: bottom; animation: uk-animation-slide-top-small; delay-hide: 0;">
               <div class="uk-card uk-card-body uk-card-default uk-padding-small uk-box-shadow-medium uk-text-left uk-text-small">
-                {{#each-in requiredTags as |title fields|}}
+                {{#each-in this.requiredTags as |title fields|}}
                   <span class="uk-text-bold">{{t (concat "documents.tags." title)}}</span>
                   <ul class="uk-list uk-list-bullet">
                     {{#each fields as |field|}}
@@ -97,15 +103,15 @@
   {{/if}}
 {{/unless}}
 
-<BeAttachmentList @loading={{data.isRunning}} @attachments={{data.lastSuccessful.value}} @deletable={{deletable}} @onDelete={{perform delete false}} />
+<BeAttachmentList @loading={{this.data.isRunning}} @attachments={{this.data.lastSuccessful.value}} @deletable={{this.deletable}} @onDelete={{perform this.delete false}} />
 
-<UkModal @visible={{attachmentToDelete}} @on-hide={{fn (mut attachmentToDelete) null}} as |Modal|>
+<UkModal @visible={{this.attachmentToDelete}} @on-hide={{fn (mut this.attachmentToDelete) null}} as |Modal|>
   <Modal.body>
-    <h3>{{t "documents.deleteInfo" filename=attachmentToDelete.name}}</h3>
+    <h3>{{t "documents.deleteInfo" filename=this.attachmentToDelete.name}}</h3>
   </Modal.body>
 
   <Modal.footer class="uk-text-right">
-    <UkButton @color="default" @label={{t "global.cancel"}} @on-click={{fn (mut attachmentToDelete) null}} />
-    <UkButton @color="primary" @label={{t "global.delete"}} @loading={{delete.isRunning}} @on-click={{perform delete true attachmentToDelete}} />
+    <UkButton @color="default" @label={{t "global.cancel"}} @on-click={{fn (mut this.attachmentToDelete) null}} />
+    <UkButton @color="primary" @label={{t "global.delete"}} @loading={{this.delete.isRunning}} @on-click={{perform this.delete true this.attachmentToDelete}} />
   </Modal.footer>
 </UkModal>
