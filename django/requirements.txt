@@ -27,6 +27,4 @@ tabulate==0.8.6
 xmlschema==1.0.14
 requests==2.23.0
 PyXB==1.2.6
-# TODO: use proper versioning from PyPI as soon as
-# https://github.com/projectcaluma/caluma/runs/536076676 worked
-git+git://github.com/projectcaluma/caluma@v5.5.0#egg_name=caluma
+caluma==5.5.0
