@@ -67,6 +67,36 @@ module("Unit | Ability | instance", function(hooks) {
     assert.ok(ability.canRead);
   });
 
+  test("it computes write permissions", function(assert) {
+    assert.expect(2);
+
+    const ability = this.owner.lookup("ability:instance");
+
+    ability.set("model", {
+      meta: {
+        permissions: {
+          main: [],
+          sb1: [],
+          sb2: []
+        }
+      }
+    });
+
+    assert.notOk(ability.canWrite);
+
+    ability.set("model", {
+      meta: {
+        permissions: {
+          main: ["write"],
+          sb1: [],
+          sb2: []
+        }
+      }
+    });
+
+    assert.ok(ability.canWrite);
+  });
+
   test("it computes create permissions", function(assert) {
     assert.expect(6);
 
