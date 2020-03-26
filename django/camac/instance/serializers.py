@@ -480,11 +480,11 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
         if source_instance:
             caluma_form = caluma_api.get_form_slug(source_instance)
-            is_rejected = source_instance.instance_state.name == "rejected"
+            is_modification = self.initial_data.get("is_modification", False)
             is_paper = caluma_api.is_paper(source_instance)
         else:
             caluma_form = self.initial_data.get("caluma_form")
-            is_rejected = False
+            is_modification = False
             is_paper = (
                 group.service  # group needs to have a service
                 and group.service.service_group.pk
@@ -506,9 +506,9 @@ class CalumaInstanceSerializer(InstanceSerializer):
                 document = caluma_api.copy_document(
                     source_document_pk,
                     exclude_form_slugs=(
-                        ["8-freigabequittung"]
-                        if is_rejected
-                        else ["6-dokumente", "7-bestaetigung", "8-freigabequittung"]
+                        ["6-dokumente", "7-bestaetigung", "8-freigabequittung"]
+                        if is_modification
+                        else ["8-freigabequittung"]
                     ),
                     meta={"camac-instance-id": instance.pk},
                 )
@@ -529,7 +529,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
                     document.pk,
                     "projektaenderung",
                     "projektaenderung-ja"
-                    if source_instance and not is_rejected
+                    if is_modification
                     else "projektaenderung-nein",
                 )
 
@@ -555,7 +555,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
                 activation_date=None,
             )
 
-        if is_rejected:
+        if source_instance and not is_modification:
             self._copy_applicants(source_instance, instance)
             self._copy_attachments(source_instance, instance)
 
