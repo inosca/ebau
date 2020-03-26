@@ -4,6 +4,7 @@ from datetime import datetime
 from io import BytesIO
 
 import pytest
+import pytz
 from django.urls import reverse
 from docxtpl import DocxTemplate
 from lxml import etree
@@ -90,11 +91,21 @@ def test_template_destroy(admin_client, template, status_code):
 
 
 @pytest.mark.freeze_time("2018-05-28")
-@pytest.mark.parametrize("publication_entry__publication_date", [datetime(2018, 5, 28)])
-@pytest.mark.parametrize("billing_entry__created", [datetime(2018, 5, 28)])
-@pytest.mark.parametrize("activation__start_date", [datetime(2018, 3, 15)])
-@pytest.mark.parametrize("activation__end_date", [datetime(2018, 4, 15)])
-@pytest.mark.parametrize("activation__deadline_date", [datetime(2018, 4, 30)])
+@pytest.mark.parametrize(
+    "publication_entry__publication_date", [datetime(2018, 5, 28, tzinfo=pytz.UTC)]
+)
+@pytest.mark.parametrize(
+    "billing_entry__created", [datetime(2018, 5, 28, tzinfo=pytz.UTC)]
+)
+@pytest.mark.parametrize(
+    "activation__start_date", [datetime(2018, 3, 15, tzinfo=pytz.UTC)]
+)
+@pytest.mark.parametrize(
+    "activation__end_date", [datetime(2018, 4, 15, tzinfo=pytz.UTC)]
+)
+@pytest.mark.parametrize(
+    "activation__deadline_date", [datetime(2018, 4, 30, tzinfo=pytz.UTC)]
+)
 @pytest.mark.parametrize("billing_entry__amount", ["99.66"])
 @pytest.mark.parametrize(
     "role__name,template__path,instance__user,status_code,to_type",
