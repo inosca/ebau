@@ -157,7 +157,7 @@
       </tr>
     </thead>
     <tbody>
-      {{#each documents as |document|}}
+      {{#each this.documents as |document|}}
         <tr class="uk-table-middle">
           <td>
             <LinkTo @route="instances.edit" @model={{document.instanceId}} class="uk-text-bold">{{document.instanceId}}</LinkTo>
@@ -171,10 +171,10 @@
           <td class="uk-text-truncate" title={{document.description}}>{{document.description}}</td>
         </tr>
       {{/each}}
-      {{#if pageInfo.hasNextPage}}
+      {{#if this.pageInfo.hasNextPage}}
         <tr>
           <td colspan="8" class="uk-text-center">
-            <InViewport @onEnter={{perform fetchData pageInfo.endCursor}}>
+            <InViewport @onEnter={{perform this.fetchData this.pageInfo.endCursor}}>
               <UkSpinner />
             </InViewport>
           </td>
