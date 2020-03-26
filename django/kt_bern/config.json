@@ -1193,6 +1193,20 @@
   },
   {
     "fields": {
+      "available_action": "pageredirect",
+      "button": 130001,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150008
+  },
+  {
+    "fields": {
       "available_action": "addjournal",
       "button": 1200000,
       "description": null,
@@ -2434,6 +2448,18 @@
     },
     "model": "core.actiont",
     "pk": 150012
+  },
+  {
+    "fields": {
+      "action": 150008,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Redirect back to circulation",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150013
   },
   {
     "fields": {
@@ -40584,6 +40610,15 @@
     },
     "model": "core.apageredirect",
     "pk": 20114
+  },
+  {
+    "fields": {
+      "air_action_name": "edit",
+      "instance_resource": 20004,
+      "resource": 20006
+    },
+    "model": "core.apageredirect",
+    "pk": 150008
   },
   {
     "fields": {
