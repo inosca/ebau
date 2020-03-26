@@ -157,6 +157,13 @@ instances:
   activateFurtherPersons: "Activer d'autres personnes"
   activateFurtherPersonsText: "Dans le menu Autorisations, vous pouvez permettre à d'autres personnes de modifier ce dossier."
   managePermissions: "Gérer les autorisations"
+  furtherProcessingOfForm: "Modifier le formulaire"
+  furtherProcessingOfFormText: "Votre formulaire peut être modifié et envoyé ici."
+  processingOfForm: "Modifier le formulaire"
+  processingOfFormSb1: "Modifier la déclaration spontanée 1"
+  processingOfFormSb1Text: "La déclaration spontanée 1 peut être modifié et envoyé ici."
+  processingOfFormSb2: "Modifier la déclaration spontanée 2"
+  processingOfFormSb2Text: "La déclaration spontanée 2 peut être modifié et envoyé ici."
 
 
   modificationTitle: "Nouveau changement de projet"
