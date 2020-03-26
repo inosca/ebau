@@ -34,7 +34,7 @@ export default Component.extend({
 
   rootFormSlug: reads("fieldset.document.rootForm.slug"),
   showHint: computed("rootFormSlug", function() {
-    return this.get("rootFormSlug").includes("baugesuch");
+    return this.rootFormSlug.includes("baugesuch");
   }),
 
   section: computed(

@@ -174,21 +174,21 @@
       {{#if pageInfo.hasNextPage}}
         <tr>
           <td colspan="8" class="uk-text-center">
-            {{#in-viewport onEnter=(perform fetchData pageInfo.endCursor)}}
-              {{uk-spinner}}
-            {{/in-viewport}}
+            <InViewport @onEnter={{perform fetchData pageInfo.endCursor}}>
+              <UkSpinner />
+            </InViewport>
           </td>
         </tr>
       {{/if}}
     </tbody>
   </table>
 {{else}}
-  {{#uk-flex horizontal="center" vertical="middle" direction="column"}}
+  <UkFlex @horizontal="center" @vertical="middle" @direction="column">
     <div class="uk-text-center uk-width-large">
       <object data="/assets/images/stamp-document.svg" class="uk-width-medium">{{t "instances.new.title"}}</object>
       <p class="uk-margin-remove-top uk-text-large">{{t "instances.emptyTitle"}}</p>
       <p>{{t "instances.emptyText"}}</p>
       <LinkTo @route="instances.new" class="uk-button uk-button-primary uk-button-large">{{t "instances.new.title"}}</LinkTo>
     </div>
-  {{/uk-flex}}
+  </UkFlex>
 {{/if}}
