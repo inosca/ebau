@@ -1,6 +1,5 @@
-from datetime import date
-
 from django.core.management import call_command
+from django.utils import timezone
 
 
 def test_sendreminders(
@@ -19,8 +18,6 @@ def test_sendreminders(
         notification_template.slug,
     )
 
-    today = date.today()
-
     instance_state = circulation.instance.instance_state
     instance_state.name = "circulation"
     instance_state.save()
@@ -30,7 +27,7 @@ def test_sendreminders(
 
     activation.circulation = circulation
     activation.circulation_state = circulation_state
-    activation.deadline_date = today
+    activation.deadline_date = timezone.now()
     activation.save()
 
     call_command("sendreminders")
