@@ -357,6 +357,8 @@ class AttachmentSectionView(viewsets.ReadOnlyModelViewSet):
     serializer_class = serializers.AttachmentSectionSerializer
 
     def get_queryset(self):
+        if getattr(self, "swagger_fake_view", False):
+            return models.AttachmentSection.objects.none()
         queryset = super().get_queryset()
         return queryset.filter_group(self.request.group)
 
