@@ -1,5 +1,5 @@
-{{#if feedback}}
-  <BeAttachmentList @loading={{loading}} @attachments={{feedback}} />
+{{#if this.feedback}}
+  <BeAttachmentList @loading={{this.loading}} @attachments={{this.feedback}} />
 {{else}}
   <div class="uk-text-center">{{t "feedback.info"}}</div>
 {{/if}}
