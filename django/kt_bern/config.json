@@ -43068,7 +43068,7 @@
       "button": 1200000,
       "description": null,
       "language": "fr",
-      "name": "D\u00e9claration spontan\u00e9e 1 compl\u00e8te"
+      "name": "Compl\u00e9ter d\u00e9claration spontan\u00e9e 1"
     },
     "model": "core.buttont",
     "pk": 1200001
@@ -43088,7 +43088,7 @@
       "button": 1200001,
       "description": null,
       "language": "fr",
-      "name": "D\u00e9claration spontan\u00e9e 2 compl\u00e8te"
+      "name": "Compl\u00e9ter d\u00e9claration spontan\u00e9e 2"
     },
     "model": "core.buttont",
     "pk": 1200003
@@ -118334,7 +118334,7 @@
       "description": null,
       "instance_state": 20011,
       "language": "fr",
-      "name": " D\u00e9claration spontan\u00e9e (SB1)"
+      "name": " D\u00e9claration spontan\u00e9e (DC1)"
     },
     "model": "instance.instancestatet",
     "pk": 120022
@@ -118344,7 +118344,7 @@
       "description": null,
       "instance_state": 20013,
       "language": "fr",
-      "name": "Cl\u00f4ture (SB2)"
+      "name": "Cl\u00f4ture (DC2)"
     },
     "model": "instance.instancestatet",
     "pk": 120023
