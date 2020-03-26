@@ -13,7 +13,7 @@ Pillow==6.1.0
 pyexcel-webio==0.1.4
 pyexcel-io==0.5.20
 django-excel==0.0.10
-pyexcel-xlsx==0.5.7
+pyexcel-xlsx==0.5.8
 psycopg2-binary==2.8.4
 python-dateutil==2.8.0
 python-keycloak==0.17.4
