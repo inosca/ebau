@@ -71,13 +71,21 @@
     {{#if (can "create modification of instance" this.instance)}}
       <h4>{{t "instances.modificationTitle"}}</h4>
       <p>{{t "instances.modificationText"}}</p>
-      <UkButton @on-click={{perform this.copy}} @loading={{this.copy.isRunning}}>{{t "instances.modificationTitle"}}</UkButton>
+      <UkButton
+        @on-click={{perform this.createModification}}
+        @disabled={{this.createModification.isRunning}}
+        @loading={{this.createModification.isRunning}}
+      >{{t "instances.modificationTitle"}}</UkButton>
     {{/if}}
 
     {{#if (can "create copy of instance" this.instance)}}
       <h4>{{t "instances.rejectionTitle"}}</h4>
       <p>{{t "instances.rejectionText"}}</p>
-      <UkButton @on-click={{perform this.copy}} @loading={{this.copy.isRunning}}>{{t "instances.rejectionTitle"}}</UkButton>
+      <UkButton
+        @on-click={{perform this.createCopy}}
+        @disabled={{this.createCopy.isRunning}}
+        @loading={{this.createCopy.isRunning}}
+      >{{t "instances.rejectionTitle"}}</UkButton>
     {{/if}}
 
     {{#if (can "write form of instance" this.instance form=(hash slug="main"))}}
