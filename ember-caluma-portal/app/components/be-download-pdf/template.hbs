@@ -1,6 +1,1 @@
-{{uk-button
-  size=(or size "")
-  loading=export.isRunning
-  label=field.question.label
-  on-click=(perform export)
-}}
+<UkButton @size={{or size ""}} @loading={{export.isRunning}} @label={{field.question.label}} @on-click={{perform export}} />

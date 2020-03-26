@@ -2,7 +2,7 @@
   {{#if file}}
     {{#if save.isRunning}}
       <div class="uk-padding uk-text-center">
-        {{uk-spinner ratio=2}}
+        <UkSpinner @ratio={{2}} />
       </div>
     {{else}}
       {{#if allVisibleTags.length}}
@@ -41,15 +41,9 @@
                 {{t "documents.optionalContent"}}
               </label>
 
-              {{#power-select-multiple
-                multiple=true
-                selected=selectedOptionalTags
-                options=optionalTags
-                searchField="question.label"
-                onchange=(action (mut selectedOptionalTags))
-              as |field|}}
+              <PowerSelectMultiple @multiple={{true}} @selected={{selectedOptionalTags}} @options={{optionalTags}} @searchField="question.label" @onchange={{action (mut selectedOptionalTags)}} as |field|>
                 {{field.question.label}}
-              {{/power-select-multiple}}
+              </PowerSelectMultiple>
             </div>
           {{/if}}
         </div>
@@ -70,16 +64,16 @@
         {{t "documents.hint3"}}
       </p>
     {{/if}}
-    {{#file-dropzone name="documents" as |dropzone|}}
+    <FileDropzone @name="documents" as |dropzone|>
       <div class="uk-animation-fade uk-placeholder uk-text-center uk-padding-medium uk-flex uk-flex-middle uk-flex-center uk-flex-column {{if dropzone.active "uk-box-shadow-medium"}}">
         {{uk-icon "cloud-upload" ratio=3 class="uk-margin-bottom"}}
         <div>
           {{#if dropzone.supported}}
             {{t "documents.drag"}}
           {{/if}}
-          {{#file-upload name="documents" accept=allowedMimetypes onfileadd=(perform selectFile)}}
+          <FileUpload @name="documents" @accept={{allowedMimetypes}} @onfileadd={{perform selectFile}}>
             <span class="uk-link">{{t "documents.click"}}</span>
-          {{/file-upload}}
+          </FileUpload>
         </div>
         <div class="uk-inline uk-margin-top">
           <span class="uk-text-meta">{{t "documents.missingTags" count=allRequiredTags.length}}</span>
@@ -99,16 +93,11 @@
           {{/if}}
         </div>
       </div>
-    {{/file-dropzone}}
+    </FileDropzone>
   {{/if}}
 {{/unless}}
 
-{{be-attachment-list
-  loading=data.isRunning
-  attachments=data.lastSuccessful.value
-  deletable=deletable
-  onDelete=(perform delete false)
-}}
+<BeAttachmentList @loading={{data.isRunning}} @attachments={{data.lastSuccessful.value}} @deletable={{deletable}} @onDelete={{perform delete false}} />
 
 <UkModal @visible={{attachmentToDelete}} @on-hide={{fn (mut attachmentToDelete) null}} as |Modal|>
   <Modal.body>
