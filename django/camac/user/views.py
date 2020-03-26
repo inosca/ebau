@@ -5,7 +5,7 @@ from rest_framework import viewsets
 from rest_framework.mixins import RetrieveModelMixin
 from rest_framework.viewsets import GenericViewSet
 
-from camac.swagger.utils import group_param
+from camac.swagger.utils import get_operation_description, group_param
 from camac.user.permissions import permission_aware
 
 from . import filters, models, serializers
@@ -89,6 +89,7 @@ class PublicServiceView(viewsets.ReadOnlyModelViewSet):
         tags=["Service"],
         manual_parameters=[group_param],
         operation_summary="Get service information",
+        operation_description=get_operation_description(["GemDat", "CMI"]),
     )
     def retrieve(self, request, *args, **kwargs):  # pragma: no cover
         return super().retrieve(request, *args, **kwargs)
