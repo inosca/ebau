@@ -102,7 +102,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
         <w:szCs w:val="24"/>
         <w:lang w:val="de-CH" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
       </w:rPr>
-      <w:t>Publikationsdatum: 27.05.2018</w:t>
+      <w:t>Publikationsdatum: 28.05.2018</w:t>
     </w:r>
   </w:p>
   <w:p>
