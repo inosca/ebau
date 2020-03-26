@@ -1,3 +1,4 @@
+import pytz
 from django.urls import reverse
 from django.utils import timezone
 from rest_framework.test import APIClient
@@ -346,14 +347,16 @@ class TaskSendHandler(BaseSendHandler):
         circulation_state = CirculationState.objects.get(pk=1)
         try:
             deadline_date_raw = self.data.eventRequest.directive.deadline
-            deadline_date = deadline_date_raw + timezone.timedelta(
+            deadline_date = deadline_date_raw.astimezone(pytz.UTC) + timezone.timedelta(
                 hours=4
             )  # add 4 hours to prevent timezone problems
         # Fallback for messages with missing `directive`
         except AttributeError:  # pragma: no cover
-            deadline_date = timezone.now().date() + timezone.timedelta(weeks=4, hours=4)
+            deadline_date = timezone.now().replace(
+                hour=4, minute=0, second=0, microsecond=0
+            ) + timezone.timedelta(weeks=4)
 
-        start_date = timezone.now().date() + timezone.timedelta(hours=4)
+        start_date = timezone.now().replace(hour=4, minute=0, second=0, microsecond=0)
 
         return Activation.objects.create(
             circulation=circulation,
