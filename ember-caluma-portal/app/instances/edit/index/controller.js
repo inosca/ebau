@@ -97,12 +97,25 @@ export default class InstancesEditIndexController extends Controller {
   }
 
   @dropTask
-  *copy() {
+  *createModification() {
+    yield this.copy.perform(true);
+  }
+
+  @dropTask
+  *createCopy() {
+    yield this.copy.perform();
+  }
+
+  @dropTask
+  *copy(isModification = false) {
     const response = yield this.fetch.fetch(`/api/v1/instances`, {
       method: "POST",
       body: JSON.stringify({
         data: {
-          attributes: { "copy-source": this.model },
+          attributes: {
+            "copy-source": this.model,
+            "is-modification": isModification
+          },
           type: "instances"
         }
       })
