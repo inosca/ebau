@@ -2,16 +2,7 @@
 
 <div class="uk-flex uk-flex-between uk-margin-small-top">
   <div>
-    {{uk-button
-      label=(t "gis.apply-button")
-      on-click=(action "applySelection")
-      loading=(or
-        populateFields.isRunning
-        populateTable.isRunning
-        fetchAdditionalData.isRunning
-      )
-      size="small"
-    }}
+    <UkButton @label={{t "gis.apply-button"}} @on-click={{action "applySelection"}} @loading={{or populateFields.isRunning populateTable.isRunning fetchAdditionalData.isRunning}} @size="small" />
 
     <button
       type="button"
