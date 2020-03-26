@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.contrib.auth import get_user_model
+from django.contrib.auth.models import AnonymousUser
 from rest_framework_json_api import relations, serializers
 
 from camac.core.serializers import MultilingualSerializer
@@ -27,7 +28,10 @@ class CurrentServiceDefault(object):
         # When generating the schema with our custom FileUploadSwaggerAutoSchema
         # we don't have access to the request object
         self.service = None
-        if "request" in serializer_field.context:
+        request = serializer_field.context.get("request")
+        if not request or isinstance(request.user, AnonymousUser):
+            return models.Service.objects.none()
+        if request:
             self.service = serializer_field.context["request"].group.service
 
     def __call__(self):
