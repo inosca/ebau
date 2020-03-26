@@ -163,19 +163,14 @@ def mock_generate_and_store_pdf(mocker):
     )
 
 
-@pytest.mark.parametrize("service_group__name", ["municipality"])
 @pytest.mark.freeze_time("2019-05-02")
+@pytest.mark.parametrize("service_group__name", ["municipality"])
 @pytest.mark.parametrize("instance_state__name", ["new"])
+@pytest.mark.parametrize("paper", [False, True])
 @pytest.mark.parametrize(
-    "paper,copy,rejected",
-    [
-        (True, False, False),
-        (False, False, False),
-        (False, True, False),
-        (False, True, True),
-    ],
+    "copy,modification", [(False, False), (True, False), (True, True)]
 )
-def test_create_instance(
+def test_create_instance_caluma(
     db,
     admin_client,
     instance_state,
@@ -189,7 +184,7 @@ def test_create_instance(
     attachment,
     paper,
     copy,
-    rejected,
+    modification,
 ):
     headers = {}
 
@@ -222,17 +217,19 @@ def test_create_instance(
             ).exists()
 
     # do a second request including pk, copying the existing instance
-    if copy or rejected:
-        if rejected:
-            # link attachment to old instance
-            attachment.instance_id = instance_id
-            attachment.save()
+    if copy:
+        # link attachment to old instance
+        attachment.instance_id = instance_id
+        attachment.save()
 
+        if not modification:
             old_instance = Instance.objects.get(pk=instance_id)
             old_instance.instance_state = instance_state_factory(name="rejected")
             old_instance.save()
 
-        data["data"]["attributes"] = {"copy-source": str(instance_id)}
+        data["data"]["attributes"].update(
+            {"copy-source": str(instance_id), "is-modification": modification}
+        )
 
         copy_resp = admin_client.post(reverse("instance-list"), data, **headers)
 
@@ -248,13 +245,8 @@ def test_create_instance(
             ["main-form", "sb1", "sb2", "nfd"]
         )
 
-        if rejected:
-            new_attachment = new_instance.attachments.first()
-
-            assert attachment.name == new_attachment.name
-            assert attachment.uuid != new_attachment.uuid
-            assert attachment.path.name != new_attachment.path.name
-        else:
+        if modification:
+            assert new_instance.attachments.count() == 0
             assert (
                 new_documents.get(form_id="main-form")
                 .answers.filter(
@@ -262,6 +254,12 @@ def test_create_instance(
                 )
                 .exists()
             )
+        else:
+            new_attachment = new_instance.attachments.first()
+
+            assert attachment.name == new_attachment.name
+            assert attachment.uuid != new_attachment.uuid
+            assert attachment.path.name != new_attachment.path.name
 
 
 @pytest.mark.parametrize(
