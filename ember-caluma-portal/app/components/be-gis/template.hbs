@@ -1,10 +1,14 @@
 <iframe title={{t "gis.title"}} name="map" src={{this.link}}></iframe>
 
-<div class="uk-flex uk-flex-between uk-margin-small-top">
+<div
+  {{did-insert (fn this.addMessageListener)}}
+  {{will-destroy (fn this.removeMessageListener)}}
+  class="uk-flex uk-flex-between uk-margin-small-top"
+>
   <div>
     <UkButton
       @label={{t "gis.apply-button"}}
-      @on-click={{action "applySelection"}}
+      @on-click={{this.applySelection}}
       @loading={{or
         this.populateFields.isRunning
         this.populateTable.isRunning
@@ -18,7 +22,7 @@
       uk-icon="warning"
       class="uk-margin-small-left"
       title={{t "gis.attention"}}
-      {{action (mut this.showInstructions) true}}
+      {{on "click" (fn (mut this.showInstructions) true)}}
     >
       <span class="uk-hidden">{{t "gis.attention"}}</span>
     </button>
