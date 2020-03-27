@@ -56,6 +56,10 @@ export default class InstancesNewController extends Controller.extend(
       data: { id: instanceId }
     } = yield response.json();
 
-    yield this.transitionToRoute("instances.edit", instanceId);
+    yield this.transitionToRoute(
+      "instances.edit.form",
+      instanceId,
+      this.selectedForm
+    );
   }
 }
