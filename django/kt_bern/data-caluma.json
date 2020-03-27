@@ -281,8 +281,8 @@
       "file": null,
       "meta": {},
       "modified_at": "2020-03-06T11:13:19.494Z",
-      "question": "verpflichtung-bei-handaenderung",
-      "value": ["verpflichtung-bei-handaenderung-ja"]
+      "question": "bestaetigung-naturgefahren",
+      "value": ["bestaetigung-naturgefahren-ja"]
     },
     "model": "caluma_form.answer",
     "pk": "2fa667e0-8ebe-4c82-b1ea-53ed11d984a7"
@@ -1502,22 +1502,6 @@
     },
     "model": "caluma_form.answer",
     "pk": "e4567b3c-f18d-4fd1-a410-29c72851c221"
-  },
-  {
-    "fields": {
-      "created_at": "2020-03-06T11:13:19.897Z",
-      "created_by_group": null,
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "date": null,
-      "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
-      "meta": {},
-      "modified_at": "2020-03-06T11:13:19.897Z",
-      "question": "verzicht-schadensersatz-naturereignisse",
-      "value": ["verzicht-schadensersatz-naturereignisse-ja"]
-    },
-    "model": "caluma_form.answer",
-    "pk": "ea7ec039-379b-4476-91e8-b1322cc45a71"
   },
   {
     "fields": {
@@ -3142,8 +3126,8 @@
       "id": "2fa667e0-8ebe-4c82-b1ea-53ed11d984a7",
       "meta": {},
       "modified_at": "2020-03-06T11:13:19.494Z",
-      "question": "verpflichtung-bei-handaenderung",
-      "value": ["verpflichtung-bei-handaenderung-ja"]
+      "question": "bestaetigung-naturgefahren",
+      "value": ["bestaetigung-naturgefahren-ja"]
     },
     "model": "caluma_form.historicalanswer",
     "pk": "a4a64c65-9435-467a-a6e2-1c1352043a91"
@@ -3483,27 +3467,6 @@
     },
     "model": "caluma_form.historicalanswer",
     "pk": "c3522abb-636f-4916-b5e9-7999a5b4c1bb"
-  },
-  {
-    "fields": {
-      "created_at": "2020-03-06T11:13:19.897Z",
-      "created_by_group": null,
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "date": null,
-      "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
-      "history_change_reason": null,
-      "history_date": "2020-03-06T11:13:19.898Z",
-      "history_type": "+",
-      "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "id": "ea7ec039-379b-4476-91e8-b1322cc45a71",
-      "meta": {},
-      "modified_at": "2020-03-06T11:13:19.897Z",
-      "question": "verzicht-schadensersatz-naturereignisse",
-      "value": ["verzicht-schadensersatz-naturereignisse-ja"]
-    },
-    "model": "caluma_form.historicalanswer",
-    "pk": "c4994884-cda3-4d52-9cd6-d5d77a53dfc4"
   },
   {
     "fields": {
