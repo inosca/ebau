@@ -5,6 +5,7 @@ from rest_framework import viewsets
 from rest_framework.mixins import RetrieveModelMixin
 from rest_framework.viewsets import GenericViewSet
 
+from camac.swagger.utils import group_param
 from camac.user.permissions import permission_aware
 
 from . import filters, models, serializers
@@ -84,12 +85,18 @@ class PublicServiceView(viewsets.ReadOnlyModelViewSet):
             return models.Service.objects.none()
         return models.Service.objects.filter(disabled=False).prefetch_related("groups")
 
-    @swagger_auto_schema(tags=["Service"], operation_summary="Get service information")
+    @swagger_auto_schema(
+        tags=["Service"],
+        manual_parameters=[group_param],
+        operation_summary="Get service information",
+    )
     def retrieve(self, request, *args, **kwargs):  # pragma: no cover
         return super().retrieve(request, *args, **kwargs)
 
     @swagger_auto_schema(
-        tags=["Service"], operation_summary="Get list of service information"
+        tags=["Service"],
+        manual_parameters=[group_param],
+        operation_summary="Get list of service information",
     )
     def list(self, request, *args, **kwargs):
         return super().list(request, *args, **kwargs)
@@ -136,12 +143,18 @@ class GroupView(viewsets.ReadOnlyModelViewSet):
             disabled=False,
         )
 
-    @swagger_auto_schema(tags=["User"], operation_summary="Get group information")
+    @swagger_auto_schema(
+        tags=["User"],
+        manual_parameters=[group_param],
+        operation_summary="Get group information",
+    )
     def retrieve(self, request, *args, **kwargs):
         return super().retrieve(request, *args, **kwargs)
 
     @swagger_auto_schema(
-        tags=["User"], operation_summary="Get list of group information"
+        tags=["User"],
+        manual_parameters=[group_param],
+        operation_summary="Get list of group information",
     )
     def list(self, request, *args, **kwargs):
         return super().list(request, *args, **kwargs)
