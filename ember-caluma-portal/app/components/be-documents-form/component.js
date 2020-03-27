@@ -1,69 +1,61 @@
 import { A } from "@ember/array";
 import Component from "@ember/component";
 import { assert } from "@ember/debug";
-import { computed, getWithDefault } from "@ember/object";
+import { computed, getWithDefault, action } from "@ember/object";
 import { reads } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
 import config from "ember-caluma-portal/config/environment";
-import { task } from "ember-concurrency";
+import { dropTask } from "ember-concurrency-decorators";
 import { all } from "rsvp";
 
 const DEFAULT_CATEGORY = "weitere-unterlagen";
 
-export default Component.extend({
-  intl: service(),
-  fetch: service(),
-  notification: service(),
-  store: service(),
+export default class BeDocumentsFormComponent extends Component {
+  @service intl;
+  @service fetch;
+  @service notification;
+  @service store;
 
-  apollo: queryManager(),
+  apollo = queryManager();
 
-  /* eslint-disable-next-line ember/no-attrs-snapshot */
-  didReceiveAttrs(...args) {
-    this._super(...args);
-
-    this.data.perform();
-  },
-
-  init(...args) {
-    this._super(...args);
+  constructor(...args) {
+    super(...args);
 
     this.set("allowedMimetypes", config.ebau.attachments.allowedMimetypes);
-  },
+  }
 
-  rootFormSlug: reads("fieldset.document.rootForm.slug"),
-  showHint: computed("rootFormSlug", function() {
+  @reads("fieldset.document.rootForm.slug") rootFormSlug;
+  @computed("rootFormSlug")
+  get showHint() {
     return this.rootFormSlug.includes("baugesuch");
-  }),
+  }
 
-  section: computed(
+  @computed(
     "document.{jexl,jexlContext}",
-    "fieldset.field.question.meta.attachment-section",
-    function() {
-      return this.document.jexl.evalSync(
-        this.get("fieldset.field.question.meta.attachment-section"),
-        this.document.jexlContext
-      );
-    }
-  ),
+    "fieldset.field.question.meta.attachment-section"
+  )
+  get section() {
+    return this.document.jexl.evalSync(
+      this.get("fieldset.field.question.meta.attachment-section"),
+      this.document.jexlContext
+    );
+  }
 
-  deletable: computed(
-    "disabled",
-    "context.instance.instanceState.id",
-    function() {
-      const state = this.get("context.instance.instanceState.id");
+  @computed("disabled", "context.instance.instanceState.id")
+  get deletable() {
+    const state = this.get("context.instance.instanceState.id");
 
-      // In certain states the form will be editable but deleting is disallowed.
-      //   State IDs according to /admin/resource_instance-state
-      //   10000: Zurückgewiesen
-      //   20007: In Korrektur
+    // In certain states the form will be editable but deleting is disallowed.
+    //   State IDs according to /admin/resource_instance-state
+    //   10000: Zurückgewiesen
+    //   20007: In Korrektur
 
-      return !this.disabled && !["10000", "20007"].includes(state);
-    }
-  ),
+    return !this.disabled && !["10000", "20007"].includes(state);
+  }
 
-  data: task(function*() {
+  @dropTask
+  *data() {
     assert(
       "An attachment section must be passed to the question's meta",
       this.section
@@ -73,19 +65,17 @@ export default Component.extend({
       instance: this.context.instanceId,
       attachment_sections: this.section
     });
-  }),
+  }
 
-  allVisibleTags: computed(
-    "fieldset.fields.@each.{hidden,value,questionType}",
-    function() {
-      return this.fieldset.fields.filter(
-        field =>
-          !field.hidden && field.questionType === "MultipleChoiceQuestion"
-      );
-    }
-  ),
+  @computed("fieldset.fields.@each.{hidden,value,questionType}")
+  get allVisibleTags() {
+    return this.fieldset.fields.filter(
+      field => !field.hidden && field.questionType === "MultipleChoiceQuestion"
+    );
+  }
 
-  savedTags: computed("data.lastSuccessful.value.content", function() {
+  @computed("data.lastSuccessful.value.content")
+  get savedTags() {
     return [
       ...new Set(
         this.getWithDefault("data.lastSuccessful.value", [])
@@ -93,21 +83,24 @@ export default Component.extend({
           .reduce((tags, tag) => tags.concat(tag), [])
       )
     ];
-  }),
+  }
 
-  allRequiredTags: computed("allVisibleTags.[]", "savedTags.[]", function() {
+  @computed("allVisibleTags.[]", "savedTags.[]")
+  get allRequiredTags() {
     return this.allVisibleTags.filter(
       tag => !tag.optional && !this.savedTags.includes(tag.question.slug)
     );
-  }),
+  }
 
-  allOptionalTags: computed("allVisibleTags.[]", "savedTags.[]", function() {
+  @computed("allVisibleTags.[]", "savedTags.[]")
+  get allOptionalTags() {
     return this.allVisibleTags.filter(
       tag => tag.optional || this.savedTags.includes(tag.question.slug)
     );
-  }),
+  }
 
-  requiredTags: computed("allRequiredTags.[]", function() {
+  @computed("allRequiredTags.[]")
+  get requiredTags() {
     return this.allRequiredTags.reduce((tree, tag) => {
       const category = tag.question.meta.documentCategory || DEFAULT_CATEGORY;
 
@@ -115,9 +108,10 @@ export default Component.extend({
         [category]: [...(tree[category] || []), tag]
       });
     }, {});
-  }),
+  }
 
-  optionalTags: computed("allOptionalTags.[]", "intl.locale", function() {
+  @computed("allOptionalTags.[]", "intl.locale")
+  get optionalTags() {
     return this.allOptionalTags.reduce((grouped, tag) => {
       const category = this.intl.t(
         `documents.tags.${tag.question.meta.documentCategory ||
@@ -139,29 +133,28 @@ export default Component.extend({
 
       return grouped;
     }, []);
-  }),
+  }
 
-  selectedRequiredTags: A([]),
-  selectedOptionalTags: A([]),
-  allSelectedTags: computed(
-    "selectedRequiredTags.[]",
-    "selectedOptionalTags.[]",
-    function() {
-      return [
-        ...new Set([...this.selectedRequiredTags, ...this.selectedOptionalTags])
-      ];
-    }
-  ),
+  selectedRequiredTags = A([]);
+  selectedOptionalTags = A([]);
+  @computed("selectedRequiredTags.[]", "selectedOptionalTags.[]")
+  get allSelectedTags() {
+    return [
+      ...new Set([...this.selectedRequiredTags, ...this.selectedOptionalTags])
+    ];
+  }
 
-  selectFile: task(function*(file) {
+  @dropTask
+  *selectFile(file) {
     this.set("file", file);
 
     if (!this.allVisibleTags.length) {
       yield this.save.perform();
     }
-  }),
+  }
 
-  saveFile: task(function*() {
+  @dropTask
+  *saveFile() {
     if (
       !config.ebau.attachments.allowedMimetypes.includes(this.file.blob.type)
     ) {
@@ -199,9 +192,10 @@ export default Component.extend({
 
       throw new Error(error);
     }
-  }),
+  }
 
-  saveFields: task(function*(clear = false) {
+  @dropTask
+  *saveFields(clear = false) {
     const fields = this.allSelectedTags.filter(
       tag =>
         tag.question.slug &&
@@ -227,9 +221,10 @@ export default Component.extend({
           await field.validate.perform();
         })
     );
-  }),
+  }
 
-  save: task(function*() {
+  @dropTask
+  *save() {
     try {
       yield this.saveFile.perform();
       yield this.saveFields.perform();
@@ -246,9 +241,10 @@ export default Component.extend({
 
       yield this.saveFields.perform(true);
     }
-  }),
+  }
 
-  delete: task(function*(confirmed = false, attachment) {
+  @dropTask
+  *delete(confirmed = false, attachment) {
     try {
       if (!this.deletable) {
         return;
@@ -282,7 +278,7 @@ export default Component.extend({
       console.error(error);
       this.notification.danger(this.intl.t("documents.deleteError"));
     }
-  }),
+  }
 
   _reset() {
     this.setProperties({
@@ -290,19 +286,19 @@ export default Component.extend({
       selectedOptionalTags: A([]),
       selectedRequiredTags: A([])
     });
-  },
-
-  actions: {
-    reset() {
-      this._reset();
-    },
-
-    updateSelectedRequiredTags(tag) {
-      const selectedRequiredTags = new Set(this.selectedRequiredTags);
-
-      selectedRequiredTags.delete(tag) || selectedRequiredTags.add(tag);
-
-      this.set("selectedRequiredTags", [...selectedRequiredTags]);
-    }
   }
-});
+
+  @action
+  reset() {
+    this._reset();
+  }
+
+  @action
+  updateSelectedRequiredTags(tag) {
+    const selectedRequiredTags = new Set(this.selectedRequiredTags);
+
+    selectedRequiredTags.delete(tag) || selectedRequiredTags.add(tag);
+
+    this.set("selectedRequiredTags", [...selectedRequiredTags]);
+  }
+}
