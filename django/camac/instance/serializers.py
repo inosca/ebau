@@ -612,6 +612,9 @@ def copy_table_answer(
             document_id=source_document_id, question_id=source_question_fallback
         )
 
+    if not table_answers:
+        return
+
     sb_table_answer = caluma_form_models.Answer.objects.create(
         document_id=target_document_id, question_id=target_answer
     )
