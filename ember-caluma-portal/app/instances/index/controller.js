@@ -85,6 +85,9 @@ const queryParams = new QueryParams({
       return value.toString();
     },
     deserialize(value) {
+      if (!value) {
+        return [];
+      }
       return value.split(",");
     }
   },
