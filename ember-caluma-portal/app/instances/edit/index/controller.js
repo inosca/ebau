@@ -123,6 +123,10 @@ export default class InstancesEditIndexController extends Controller {
 
     const { data } = yield response.json();
 
-    yield this.transitionToRoute("instances.edit", data.id);
+    yield this.transitionToRoute(
+      "instances.edit.form",
+      data.id,
+      this.instance.calumaForm
+    );
   }
 }

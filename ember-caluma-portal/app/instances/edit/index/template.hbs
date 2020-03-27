@@ -68,16 +68,6 @@
     <h3 class="instance-overview__title">{{t "instances.actions"}}</h3>
   </div>
   <div class="uk-width-2-3">
-    {{#if (can "create modification of instance" this.instance)}}
-      <h4>{{t "instances.modificationTitle"}}</h4>
-      <p>{{t "instances.modificationText"}}</p>
-      <UkButton
-        @on-click={{perform this.createModification}}
-        @disabled={{this.createModification.isRunning}}
-        @loading={{this.createModification.isRunning}}
-      >{{t "instances.modificationTitle"}}</UkButton>
-    {{/if}}
-
     {{#if (can "create copy of instance" this.instance)}}
       <h4>{{t "instances.rejectionTitle"}}</h4>
       <p>{{t "instances.rejectionText"}}</p>
@@ -86,6 +76,16 @@
         @disabled={{this.createCopy.isRunning}}
         @loading={{this.createCopy.isRunning}}
       >{{t "instances.rejectionTitle"}}</UkButton>
+    {{/if}}
+
+    {{#if (can "create modification of instance" this.instance)}}
+      <h4>{{t "instances.modificationTitle"}}</h4>
+      <p>{{t "instances.modificationText"}}</p>
+      <UkButton
+        @on-click={{perform this.createModification}}
+        @disabled={{this.createModification.isRunning}}
+        @loading={{this.createModification.isRunning}}
+      >{{t "instances.modificationTitle"}}</UkButton>
     {{/if}}
 
     {{#if (can "write form of instance" this.instance form=(hash slug="main"))}}
