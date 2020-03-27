@@ -24,7 +24,7 @@
                         type="checkbox"
                         class="uk-checkbox"
                         checked={{if (contains field this.selectedRequiredTags) "checked"}}
-                        onchange={{action "updateSelectedRequiredTags" field}}
+                        {{on "change" (fn this.updateSelectedRequiredTags field)}}
                       >
                       {{field.question.label}}
                     </label>
@@ -46,7 +46,7 @@
                 @selected={{this.selectedOptionalTags}}
                 @options={{this.optionalTags}}
                 @searchField="question.label"
-                @onchange={{action (mut this.selectedOptionalTags)}}
+                @onchange={{fn (mut this.selectedOptionalTags)}}
               as |field|>
                 {{field.question.label}}
               </PowerSelectMultiple>
@@ -55,8 +55,8 @@
         </div>
       {{/if}}
       <div class="uk-margin uk-text-right">
-        <button type="button" class="uk-button uk-button-default" {{action "reset"}}>{{t "documents.cancel"}}</button>
-        <button type="button" class="uk-button uk-button-primary" {{action (perform this.save)}}>{{t "documents.upload"}}</button>
+        <button type="button" class="uk-button uk-button-default" {{on "click" this.reset}}>{{t "documents.cancel"}}</button>
+        <button type="button" class="uk-button uk-button-primary" {{on "click" (perform this.save)}}>{{t "documents.upload"}}</button>
       </div>
     {{/if}}
     <hr>
@@ -103,7 +103,13 @@
   {{/if}}
 {{/unless}}
 
-<BeAttachmentList @loading={{this.data.isRunning}} @attachments={{this.data.lastSuccessful.value}} @deletable={{this.deletable}} @onDelete={{perform this.delete false}} />
+<BeAttachmentList 
+  {{did-insert (perform this.data)}}
+  @loading={{this.data.isRunning}}
+  @attachments={{this.data.lastSuccessful.value}}
+  @deletable={{this.deletable}}
+  @onDelete={{perform this.delete false}}
+/>
 
 <UkModal @visible={{this.attachmentToDelete}} @on-hide={{fn (mut this.attachmentToDelete) null}} as |Modal|>
   <Modal.body>
