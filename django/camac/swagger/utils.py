@@ -6,3 +6,15 @@ group_param = openapi.Parameter(
     description="Group ID the request should be made for.",
     type=openapi.TYPE_INTEGER,
 )
+
+
+def get_operation_description(companies: list):
+    if not len(companies):  # pragma: no cover
+        return ""
+
+    sep = "\n - "
+    return (
+        "This endpoint will not change without prior notice.\n\n"
+        "It is used by the implementations of following companies:\n\n"
+        f" - {sep.join(companies)}"
+    )
