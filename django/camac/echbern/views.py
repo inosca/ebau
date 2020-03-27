@@ -15,7 +15,7 @@ from rest_framework_xml.renderers import XMLRenderer
 from camac.constants.kt_bern import ECH_BASE_DELIVERY
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.instance.models import Instance
-from camac.swagger.utils import group_param
+from camac.swagger.utils import get_operation_description, group_param
 
 from . import event_handlers, formatters
 from .data_preparation import get_document
@@ -37,6 +37,7 @@ class ApplicationView(InstanceQuerysetMixin, RetrieveModelMixin, GenericViewSet)
         tags=["ECH"],
         manual_parameters=[group_param],
         operation_summary="Get baseDelivery for instance",
+        operation_description=get_operation_description(["GemDat", "CMI"]),
         responses={"200": "eCH-0211 baseDelivery"},
     )
     def retrieve(self, request, instance_id=None, **kwargs):
@@ -77,6 +78,7 @@ class ApplicationsView(InstanceQuerysetMixin, ListModelMixin, GenericViewSet):
         tags=["ECH"],
         manual_parameters=[group_param],
         operation_summary="Get list of accessible instances",
+        operation_description=get_operation_description(["GemDat", "CMI"]),
     )
     def list(self, request, *args, **kwargs):
         return super().list(request, *args, **kwargs)
@@ -124,6 +126,7 @@ class MessageView(RetrieveModelMixin, GenericViewSet):
         tags=["ECH"],
         manual_parameters=[group_param, last_param],
         operation_summary="Get message",
+        operation_description=get_operation_description(["GemDat", "CMI"]),
         responses={"200": "eCH-0211 message"},
     )
     def retrieve(self, request, *args, **kwargs):
@@ -171,6 +174,7 @@ class SendView(GenericViewSet):
         tags=["ECH"],
         manual_parameters=[group_param],
         operation_summary="Send message",
+        operation_description=get_operation_description(["GemDat", "CMI"]),
         request_body=openapi.Schema(
             type=openapi.TYPE_STRING,
             description="An event wrapped in a [eCH-0211-Delivery](https://www.ech.ch/standards/43552).",

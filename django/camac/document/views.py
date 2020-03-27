@@ -25,7 +25,7 @@ from camac.core.views import SendfileHttpResponse
 from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.models import Instance
 from camac.notification.serializers import InstanceMergeSerializer
-from camac.swagger.utils import group_param
+from camac.swagger.utils import get_operation_description, group_param
 from camac.unoconv import convert
 from camac.user.permissions import permission_aware
 
@@ -216,6 +216,7 @@ class AttachmentView(
         tags=["File upload service"],
         manual_parameters=[group_param],
         operation_summary="Upload a file",
+        operation_description=get_operation_description(["GemDat", "CMI"]),
         auto_schema=FileUploadSwaggerAutoSchema,
     )
     def create(self, request, *args, **kwargs):
@@ -300,7 +301,10 @@ class AttachmentDownloadView(
         tags=["File download service"],
         manual_parameters=[attachments_param, group_param],
         operation_summary="Download one or multiple files",
-        operation_description="If multiple files are requested, they are served together in a *.zip file.",
+        operation_description=(
+            "If multiple files are requested, they are served together in a *.zip file."
+            f"\n\n{get_operation_description(['GemDat', 'CMI'])}"
+        ),
     )
     def list(self, request, **kwargs):
         if not request.query_params.get("attachments"):
@@ -357,6 +361,8 @@ class AttachmentSectionView(viewsets.ReadOnlyModelViewSet):
     serializer_class = serializers.AttachmentSectionSerializer
 
     def get_queryset(self):
+        if getattr(self, "swagger_fake_view", False):
+            return models.AttachmentSection.objects.none()
         queryset = super().get_queryset()
         return queryset.filter_group(self.request.group)
 
