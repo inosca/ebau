@@ -69,7 +69,7 @@
     "ember-simple-auth-oidc": "^1.1.0",
     "ember-source": "~3.12.0",
     "ember-truth-helpers": "^2.1.0",
-    "ember-uikit": "^2.1.2",
+    "ember-uikit": "2.0.1",
     "eslint": "^6.8.0",
     "eslint-plugin-ember": "^7.9.0",
     "eslint-plugin-import": "^2.20.1",
@@ -85,6 +85,10 @@
     "qunit-dom": "^1.0.0",
     "sass": "^1.26.2",
     "slugify": "^1.4.0"
+  },
+  "//": "https://github.com/adfinis-sygroup/ember-uikit/issues/419",
+  "resolutions": {
+    "ember-caluma/ember-uikit": "2.0.1"
   },
   "engines": {
     "node": "10.* || >= 12.*"
