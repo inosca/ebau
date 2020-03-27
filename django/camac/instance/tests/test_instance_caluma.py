@@ -316,6 +316,7 @@ def test_instance_list(
 )
 @pytest.mark.parametrize("new_instance_state_name", ["subm"])
 @pytest.mark.parametrize("has_personalien_sb1", [True, False])
+@pytest.mark.parametrize("has_personalien_gesuchstellerin", [True, False])
 @pytest.mark.parametrize(
     "notification_template__body",
     [
@@ -367,6 +368,7 @@ def test_instance_submit(
     ech_mandatory_answers_einfache_vorabklaerung,
     caluma_forms,
     has_personalien_sb1,
+    has_personalien_gesuchstellerin,
 ):
     application_settings["NOTIFICATIONS"]["SUBMIT"] = [
         {"template_slug": notification_template.slug, "recipient_types": ["applicant"]}
@@ -378,11 +380,11 @@ def test_instance_submit(
     caluma_form_models.Answer.objects.create(
         document=document, value=str(service.pk), question_id="gemeinde"
     )
+    caluma_form_models.Document.objects.create(
+        form_id="sb1", meta={"camac-instance-id": instance.pk}
+    )
 
     if has_personalien_sb1:
-        caluma_form_models.Document.objects.create(
-            form_id="sb1", meta={"camac-instance-id": instance.pk}
-        )
         sb_table_answer = caluma_form_models.Answer.objects.create(
             document=document, question_id="personalien-sb"
         )
@@ -396,21 +398,18 @@ def test_instance_submit(
             document=sb_row, answer=sb_table_answer
         )
 
-    if not has_personalien_sb1:
-        caluma_form_models.Document.objects.create(
-            form_id="sb1", meta={"camac-instance-id": instance.pk}
-        )
+    if has_personalien_gesuchstellerin:
         sb_table_answer = caluma_form_models.Answer.objects.create(
             document=document, question_id="personalien-gesuchstellerin"
         )
-        sb_row = caluma_form_models.Document.objects.create(
+        applicant_row = caluma_form_models.Document.objects.create(
             form_id="personalien-tabelle"
         )
         caluma_form_models.Answer.objects.create(
-            document=sb_row, question_id="name-applicant", value="Foobar"
+            document=applicant_row, question_id="name-applicant", value="Foobar"
         )
         caluma_form_models.AnswerDocument.objects.create(
-            document=sb_row, answer=sb_table_answer
+            document=applicant_row, answer=sb_table_answer
         )
 
     group_factory(role=role_factory(name="support"))
@@ -440,13 +439,13 @@ def test_instance_submit(
             == sb_row.answers.get(question_id="name-sb").value
         )
 
-    if not has_personalien_sb1:
+    elif has_personalien_gesuchstellerin:
         sb1_document = caluma_form_models.Document.objects.get(
             **{"form_id": "sb1", "meta__camac-instance-id": instance.pk}
         )
         assert (
             sb1_document.answers.first().documents.first().answers.first().value
-            == sb_row.answers.get(question_id="name-applicant").value
+            == applicant_row.answers.get(question_id="name-applicant").value
         )
 
 
