@@ -46,6 +46,8 @@ def permission_aware(func):
 
 
 def get_permission_func(cls, name, group):
+    if getattr(cls, "swagger_fake_view", False):
+        return None
     role = group.role
     perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
     perm = perms.get(role.name)
