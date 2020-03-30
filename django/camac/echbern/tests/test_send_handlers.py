@@ -135,7 +135,7 @@ def test_notice_ruling_send_handler(
 
 @pytest.mark.parametrize("fail", [False, True])
 def test_change_responsibility_send_handler(
-    fail, admin_user, service_factory, ech_instance
+    fail, admin_user, service_factory, ech_instance, multilang
 ):
     burgdorf = ech_instance.active_service
 
