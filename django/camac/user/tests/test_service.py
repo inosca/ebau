@@ -20,17 +20,103 @@ def test_service_list(admin_client, service, size):
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    "role__name,role_t__name,status_code",
     [
-        ("Applicant", status.HTTP_404_NOT_FOUND),
-        ("Municipality", status.HTTP_200_OK),
-        ("Canton", status.HTTP_200_OK),
-        ("Service", status.HTTP_200_OK),
+        ("Applicant", "Applicant", status.HTTP_404_NOT_FOUND),
+        ("Municipality", "Municipality", status.HTTP_403_FORBIDDEN),
+        (
+            "Administration Leitbehörde",
+            "Administration Leitbehörde",
+            status.HTTP_200_OK,
+        ),
     ],
 )
-def test_service_update(admin_client, service, status_code):
+@pytest.mark.parametrize(
+    "service_t__name,service_t__description,service_t__city",
+    [("service name", "service name", "city name")],
+)
+@pytest.mark.parametrize(
+    "service_t__language,role_t__language,group_t__language", [("de",) * 3, ("fr",) * 3]
+)
+@pytest.mark.parametrize("service__name,group__name", [(None, None)])
+@pytest.mark.parametrize("multilang", [True, False])
+def test_service_update(
+    admin_client,
+    service,
+    service_t,
+    group,
+    group_t,
+    role,
+    role_t,
+    status_code,
+    multilang,
+    application_settings,
+):
+    if multilang:
+        application_settings["IS_MULTILINGUAL"] = True
+        group_t.name = f"{role_t.name} {service_t.name}"
+        group_t.save()
+    else:
+        group.name = f"{role_t.name} {service_t.name}"
+        group.save()
+    service.groups.add(group)
+    url = reverse("service-detail", args=[service.pk])
+    data = {
+        "data": {
+            "type": "services",
+            "id": service.pk,
+            "attributes": {
+                "name": "new service name",
+                "description": "new service name",
+                "city": "new city name",
+            },
+        }
+    }
+    response = admin_client.patch(
+        url, data=data, HTTP_ACCEPT_LANGUAGE=service_t.language
+    )
+    assert response.status_code == status_code
+    if status_code == status.HTTP_200_OK:
+        service.refresh_from_db()
+        assert service.get_name() == "new service name"
+        assert service.groups.first().get_name() == f"{role_t.name} new service name"
+        if multilang:
+            service_t.refresh_from_db()
+            assert service_t.description == service_t.name == "new service name"
+            assert service_t.city == "new city name"
+        else:
+            assert service.name == "new service name"
+            assert service.city == "new city name"
+
+
+@pytest.mark.parametrize(
+    "role__name,allowed_roles,same_service,status_code",
+    [
+        ("Municipality", None, False, status.HTTP_403_FORBIDDEN),
+        ("Municipality", ["Municipality"], True, status.HTTP_200_OK),
+        ("Municipality", ["some other role"], True, status.HTTP_403_FORBIDDEN),
+        ("Municipality", None, True, status.HTTP_200_OK),
+    ],
+)
+def test_service_update_permissions(
+    admin_client,
+    service,
+    service_factory,
+    status_code,
+    application_settings,
+    allowed_roles,
+    same_service,
+):
+    application_settings.pop("SERVICE_UPDATE_ALLOWED_ROLES", None)
+    if allowed_roles:
+        application_settings["SERVICE_UPDATE_ALLOWED_ROLES"] = allowed_roles
+
+    if not same_service:
+        service = service_factory()
+
     url = reverse("service-detail", args=[service.pk])
     response = admin_client.patch(url)
+
     assert response.status_code == status_code
 
 

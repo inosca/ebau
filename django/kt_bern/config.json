@@ -119484,7 +119484,7 @@
   },
   {
     "fields": {
-      "name": null,
+      "name": "municipality-admin",
       "role_parent": null
     },
     "model": "user.role",
@@ -119492,7 +119492,7 @@
   },
   {
     "fields": {
-      "name": null,
+      "name": "service-admin",
       "role_parent": null
     },
     "model": "user.role",
@@ -119500,7 +119500,7 @@
   },
   {
     "fields": {
-      "name": null,
+      "name": "construction-control-admin",
       "role_parent": null
     },
     "model": "user.role",
