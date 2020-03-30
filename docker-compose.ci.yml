@@ -11,6 +11,11 @@ services:
       - KEYCLOAK_URL=http://keycloak:8080/auth/
       - OAUTHLIB_INSECURE_TRANSPORT=1
 
+  ember-camac-ng:
+    image: acr.run/camac-ng/camac-ng/ember-camac-ng:${CI_COMMIT_REF_SLUG}
+    build:
+      target: build
+
   ember:
     image: acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG}
     build:
