@@ -34,6 +34,7 @@ class ServiceFactory(DjangoModelFactory):
 
 class ServiceTFactory(DjangoModelFactory):
     name = Faker("name")
+    description = Faker("name")
     city = Faker("city")
     service = SubFactory(ServiceFactory)
     language = "de"

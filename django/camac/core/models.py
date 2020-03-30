@@ -7,25 +7,23 @@ class MultilingualModel:
     """Mixin for models that have a multilingual "name" property."""
 
     def get_name(self):
-        if not settings.APPLICATION.get("IS_MULTILINGUAL", False):
-            return self.name
-
-        lang = translation.get_language()
-        match = self.trans.filter(language=lang).first()
-        if not match:
-            match = self.trans.filter(language=settings.LANGUAGE_CODE).first()
-        if not match:
-            return self.name
-        return match.name
+        return self.get_trans_attr("name")
 
     def get_trans_attr(self, name):
+        if not settings.APPLICATION.get("IS_MULTILINGUAL", False):
+            return getattr(self, name)
+
+        match = self.get_trans_obj()
+        if not match:
+            return getattr(self, name)
+        return getattr(match, name)
+
+    def get_trans_obj(self):
         lang = translation.get_language()
         match = self.trans.filter(language=lang).first()
         if not match:
             match = self.trans.filter(language=settings.LANGUAGE_CODE).first()
-        if not match:
-            return getattr(self, name)
-        return getattr(match, name)  # pragma: no cover
+        return match
 
     def __str__(self):
         return self.get_name()

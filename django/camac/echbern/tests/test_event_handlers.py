@@ -14,7 +14,7 @@ from ..models import Message
 from .caluma_document_data import baugesuch_data
 
 
-def test_submit_event(ech_instance, role_factory, group_factory, mocker):
+def test_submit_event(ech_instance, role_factory, group_factory, mocker, multilang):
     group_factory(role=role_factory(name="support"))
     mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
     instance_submitted.send(
@@ -26,7 +26,7 @@ def test_submit_event(ech_instance, role_factory, group_factory, mocker):
     )
     assert Message.objects.count() == 1
     message = Message.objects.first()
-    assert message.receiver.name == "Leitbehörde Burgdorf"
+    assert message.receiver.get_name() == "Leitbehörde Burgdorf"
 
 
 @pytest.mark.parametrize(
@@ -45,9 +45,11 @@ def test_event_handlers(
     ech_instance,
     role_factory,
     instance_service_factory,
+    service_t_factory,
     instance_state_factory,
     group_factory,
     mocker,
+    multilang,
 ):
     if event_type == "FileSubsequently":
         group_factory(role=role_factory(name="support"))
@@ -65,20 +67,27 @@ def test_event_handlers(
         ).first()
         instance_service.active = 0
         instance_service.save()
-        instance_service_factory(
+        inst_serv = instance_service_factory(
             instance=ech_instance,
-            service__name="Leitbehörde Madiswil",
-            service__city="Madiswil",
+            service__name=None,
+            service__city=None,
             service__zip="3500",
             service__address="Testweg 5",
+            service__trans=None,
             active=1,
+        )
+        service_t_factory(
+            service=inst_serv.service,
+            language="de",
+            name="Leitbehörde Madiswil",
+            city="Madiswil",
         )
 
     eh = getattr(event_handlers, f"{event_type}EventHandler")(ech_instance)
     eh.run()
     assert Message.objects.count() == 1
     message = Message.objects.first()
-    assert message.receiver.name == expected_receiver
+    assert message.receiver.get_name() == expected_receiver
 
 
 @pytest.mark.parametrize("notices_exists", [True, False])
@@ -93,6 +102,7 @@ def test_accompanying_report_event_handler(
     notice_factory,
     notice_type_factory,
     circulation_answer_factory,
+    multilang,
 ):
     attachment.instance = ech_instance
     attachment.save()
@@ -123,7 +133,7 @@ def test_accompanying_report_event_handler(
     eh.run()
     assert Message.objects.count() == 1
     message = Message.objects.first()
-    assert message.receiver.name == "Leitbehörde Burgdorf"
+    assert message.receiver.get_name() == "Leitbehörde Burgdorf"
 
 
 def test_task_event_handler(
@@ -147,11 +157,11 @@ def test_task_event_handler(
     assert not Message.objects.filter(receiver=s3)
 
 
-def test_file_subsequently_signal(ech_instance, mocker):
+def test_file_subsequently_signal(ech_instance, mocker, multilang):
     mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
     file_subsequently.send(
         sender=None, instance=ech_instance, user_pk=None, group_pk=None
     )
     assert Message.objects.count() == 1
     message = Message.objects.first()
-    assert message.receiver.name == "Leitbehörde Burgdorf"
+    assert message.receiver.get_name() == "Leitbehörde Burgdorf"
