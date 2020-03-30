@@ -5,17 +5,25 @@ from camac.echbern.data_preparation import slugs_baugesuch, slugs_vorabklaerung_
 
 
 @pytest.fixture
-def ech_instance(db, admin_user, instance_service_factory):
+def ech_instance(db, admin_user, instance_service_factory, service_t_factory):
     inst_serv = instance_service_factory(
         instance__user=admin_user,
         instance__pk=2323,
-        service__name="Leitbehörde Burgdorf",
-        service__city="Burgdorf",
+        service__name=None,
+        service__city=None,
         service__zip="3400",
         service__address="Teststrasse 23",
         service__email="burgdorf@example.com",
         service__pk=2,
+        service__trans=None,
         active=1,
+    )
+
+    service_t_factory(
+        service=inst_serv.service,
+        language="de",
+        name="Leitbehörde Burgdorf",
+        city="Burgdorf",
     )
     return inst_serv.instance
 

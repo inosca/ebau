@@ -18,7 +18,7 @@ if os.path.exists(ENV_FILE):  # pragma: no cover
 # local .env file otherwise caluma tries to get it's settings from it's own env
 # file (which doesn't exist)
 
-from caluma.settings.caluma import *  # noqa
+from caluma.settings.caluma import *  # noqa isort:skip
 
 ENV = env.str("APPLICATION_ENV", default="production")
 APPLICATION_NAME = env.str("APPLICATION")
@@ -124,6 +124,7 @@ APPLICATIONS = {
             # Commonly used roles
             "Applicant": "applicant",
             "Municipality": "municipality",
+            "Administration Leitbehörde": "municipality",
             "Service": "service",
             "Reader": "reader",
             "Canton": "canton",
@@ -144,6 +145,10 @@ APPLICATIONS = {
             "ALLOWED_ROLES": {"DEFAULT": []},
             "ALLOWED_SERVICE_GROUPS": {"DEFAULT": []},
         },
+        "GROUP_RENAME_ON_SERVICE_RENAME": True,
+        "SERVICE_UPDATE_ALLOWED_ROLES": [
+            "Administration Leitbehörde"
+        ],  # if unset, all are allowed
     },
     "kt_schwyz": {
         "ROLE_PERMISSIONS": {
@@ -322,6 +327,12 @@ APPLICATIONS = {
                 ],
             },
         },
+        "GROUP_RENAME_ON_SERVICE_RENAME": True,
+        "SERVICE_UPDATE_ALLOWED_ROLES": [
+            "municipality-admin",
+            "service-admin",
+            "construction-control-admin",
+        ],
     },
     "kt_uri": {"FORM_BACKEND": "camac"},
 }
