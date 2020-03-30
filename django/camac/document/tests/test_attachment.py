@@ -563,6 +563,64 @@ def test_attachment_update(
     assert response.status_code == status_code
 
 
+@pytest.mark.parametrize("role__name", [("Canton")])
+@pytest.mark.parametrize(
+    "attachment__context,new_context,status_code,is_active_service",
+    [
+        # change context, but not active service: fail
+        ({"foo": "bar"}, {"asdf": "xyz"}, status.HTTP_400_BAD_REQUEST, False),
+        # change context as active service: ok
+        ({"foo": "bar"}, {"asdf": "xyz"}, status.HTTP_200_OK, True),
+        # no change (field not filled): ok
+        ({"foo": "bar"}, None, status.HTTP_200_OK, False),
+        # no change (field filled but with same value): ok
+        ({"foo": "bar"}, {"foo": "bar"}, status.HTTP_200_OK, False),
+    ],
+)
+def test_attachment_update_context(
+    admin_client,
+    admin_user,
+    attachment_section,
+    attachment_attachment_sections,
+    attachment_section_group_acl,
+    instance_service,
+    status_code,
+    is_active_service,
+    new_context,
+    mocker,
+):
+    aasa = attachment_attachment_sections.attachment
+    url = reverse("attachment-detail", args=[aasa.pk])
+
+    if not is_active_service:
+        instance_service.delete()
+
+    # fix permissions
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {"demo": {"canton": {"admin": [attachment_section.pk]}}},
+    )
+
+    data = {
+        "data": {
+            "type": "attachments",
+            "id": aasa.pk,
+            "relationships": {
+                "attachment-sections": {
+                    "data": [
+                        {"type": "attachment-sections", "id": attachment_section.pk}
+                    ]
+                }
+            },
+        }
+    }
+    if new_context:
+        data["data"]["attributes"] = {"context": new_context}
+
+    response = admin_client.patch(url, data=data)
+    assert response.status_code == status_code
+
+
 @pytest.mark.parametrize(
     "role__name,instance__user",
     [("Applicant", LazyFixture("admin_user")), ("Reader", LazyFixture("admin_user"))],
