@@ -41,6 +41,7 @@ from camac.constants.kt_bern import (
     NOTICE_TYPE_STELLUNGNAHME,
 )
 from camac.core.models import Activation, Notice
+from camac.user.models import Service
 
 from .data_preparation import get_document
 from .formatters import (
@@ -355,7 +356,11 @@ class AccompanyingReportEventHandler(BaseEventHandler):
             attachments
             if attachments
             else self.instance.attachments.filter(
-                attachment_sections__pk=ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN
+                attachment_sections__pk=ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
+                group__service__in=[
+                    self.activation.service,
+                    *Service.objects.filter(service_parent=self.activation.service),
+                ],
             )
         )
         try:
