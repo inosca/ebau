@@ -159,7 +159,7 @@ export default class BeGisComponent extends Component {
   @service intl;
   @service calumaStore;
 
-  apollo = queryManager();
+  @queryManager apollo;
 
   classNames = ["gis-map"];
 
