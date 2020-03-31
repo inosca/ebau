@@ -10,11 +10,11 @@ export default class ApplicationRoute extends ApplicationRouteBase {
   @service session;
   @service shoebox;
 
-  beforeModel(...args) {
+  async beforeModel(...args) {
     super.beforeModel(...args);
 
     if (!this.session.isAuthenticated) {
-      this.session.authenticate("authenticator:camac");
+      await this.session.authenticate("authenticator:camac");
     }
 
     this.intl.setLocale(this.shoebox.content.language);
