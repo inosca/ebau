@@ -1,13 +1,13 @@
 import { getOwner } from "@ember/application";
 import { A } from "@ember/array";
 import Component from "@ember/component";
-import { computed } from "@ember/object";
+import { computed, action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
 import saveDocumentMutation from "ember-caluma/gql/mutations/save-document";
 import Document from "ember-caluma/lib/document";
 import { parseDocument } from "ember-caluma/lib/parsers";
-import { task } from "ember-concurrency";
+import { dropTask } from "ember-concurrency-decorators";
 import { all } from "rsvp";
 
 const KEY_TABLE_FORM = "parzelle-tabelle";
@@ -153,34 +153,37 @@ function reduceArrayValues(data) {
 // Tools
 // Tools- Add/Remove
 
-export default Component.extend({
-  notification: service(),
-  fetch: service(),
-  intl: service(),
-  calumaStore: service(),
+export default class BeGisComponent extends Component {
+  @service notification;
+  @service fetch;
+  @service intl;
+  @service calumaStore;
 
-  apollo: queryManager(),
+  @queryManager apollo;
 
-  classNames: ["gis-map"],
+  classNames = ["gis-map"];
 
-  disabled: false,
-  parcels: null,
-  gisData: null,
-  showInstructions: false,
-  showConfirmation: false,
+  disabled = false;
+  parcels = null;
+  gisData = null;
+  showInstructions = false;
+  showConfirmation = false;
 
-  confirmField: computed("field", function() {
+  @computed("field")
+  get confirmField() {
     return this.field.document.findField("bestaetigung-gis");
-  }),
+  }
 
-  confirmFieldUnchecked: computed("confirmField.value.[]", function() {
+  @computed("confirmField.value.[]")
+  get confirmFieldUnchecked() {
     return (
       !this.get("confirmField.hidden") &&
       this.get("confirmField.value.length") !== 1
     );
-  }),
+  }
 
-  link: computed(function() {
+  @computed()
+  get link() {
     // This try/catch block is necessary as long as we don't have a mock
     // backend for the integration tests.
     try {
@@ -229,13 +232,14 @@ export default Component.extend({
       console.log(error);
       return null;
     }
-  }),
+  }
 
-  origin: computed("link", function() {
+  @computed("link")
+  get origin() {
     // The regular expression extracts the scheme and hostname from the link.
     // We need this to check if the "message" events were sent by the iframe.
     return REGEXP_ORIGIN.test(this.link) && this.link.match(REGEXP_ORIGIN)[1];
-  }),
+  }
 
   /**
    * The message event handler which invokes
@@ -263,7 +267,7 @@ export default Component.extend({
     const [action, , features] = event.data;
 
     return this.parseResult(action, features);
-  },
+  }
 
   /**
    * Filter and parses the event response
@@ -363,7 +367,7 @@ export default Component.extend({
     });
 
     this.set("parcels", Object.values(parcels));
-  },
+  }
 
   /**
    * Saves the parcel values in their corresponding fields from the
@@ -373,7 +377,8 @@ export default Component.extend({
    * @method populateFields
    * @param {Array} parcels The parcels prepared by `addremoveResult`.
    */
-  populateFields: task(function*(parcels) {
+  @dropTask
+  *populateFields(parcels) {
     const [parcel] = parcels;
     const fields = this.field.document.fields.filter(field =>
       KEYS_SIMPLE.includes(field.question.slug)
@@ -393,7 +398,7 @@ export default Component.extend({
         }
       })
     );
-  }),
+  }
 
   /**
    * Creates a new document for each parcel and saves the parcel values
@@ -403,7 +408,8 @@ export default Component.extend({
    * @method populateTable
    * @param {Array} parcels The parcels prepared by `addremoveResult`.
    */
-  populateTable: task(function*(parcels) {
+  @dropTask
+  *populateTable(parcels) {
     // Locate the target table for the parcel data.
     const table = this.field.document.fields.find(
       field => field.question.slug === KEY_TABLE_QUESTION
@@ -458,9 +464,10 @@ export default Component.extend({
 
     yield table.save.perform();
     yield table.validate.perform();
-  }),
+  }
 
-  fetchAdditionalData: task(function*(parcels) {
+  @dropTask
+  *fetchAdditionalData(parcels) {
     this.set("gisData", A());
 
     const responses = yield all(
@@ -512,24 +519,25 @@ export default Component.extend({
         this.intl.t("gis.notifications.error-additional")
       );
     }
-  }),
+  }
 
-  init(...args) {
-    this._super(...args);
+  constructor(...args) {
+    super(...args);
     this.receiveMessage = this.receiveMessage.bind(this);
-  },
+  }
 
-  didInsertElement(...args) {
-    this._super(...args);
+  @action
+  addMessageListener() {
     window.addEventListener("message", this.receiveMessage);
-  },
+  }
 
-  willDestroyElement(...args) {
+  @action
+  removeMessageListener() {
     window.removeEventListener("message", this.receiveMessage);
-    this._super(...args);
-  },
+  }
 
-  saveAdditionalData: task(function*() {
+  @dropTask
+  *saveAdditionalData() {
     yield all(
       this.gisData.map(async ({ field, value }) => {
         field.answer.set("value", value);
@@ -540,30 +548,27 @@ export default Component.extend({
     );
 
     this.set("showConfirmation", false);
-  }),
+  }
 
-  actions: {
-    applySelection() {
-      if (this.parcels && this.parcels.length) {
-        if (this.field.question.slug === KEY_SIMPLE_MAP) {
-          if (this.parcels.length > 1) {
-            this.notification.danger(this.intl.t("gis.notifications.max-one"));
-          } else {
-            this.populateFields.perform(this.parcels);
-          }
+  @action
+  applySelection() {
+    if (this.parcels && this.parcels.length) {
+      if (this.field.question.slug === KEY_SIMPLE_MAP) {
+        if (this.parcels.length > 1) {
+          this.notification.danger(this.intl.t("gis.notifications.max-one"));
         } else {
-          if (this.parcels.length > 20) {
-            this.notification.danger(
-              this.intl.t("gis.notifications.max-twenty")
-            );
-          } else {
-            this.populateTable.perform(this.parcels);
-            this.fetchAdditionalData.perform(this.parcels);
-          }
+          this.populateFields.perform(this.parcels);
         }
       } else {
-        this.notification.danger(this.intl.t("gis.notifications.min-one"));
+        if (this.parcels.length > 20) {
+          this.notification.danger(this.intl.t("gis.notifications.max-twenty"));
+        } else {
+          this.populateTable.perform(this.parcels);
+          this.fetchAdditionalData.perform(this.parcels);
+        }
       }
+    } else {
+      this.notification.danger(this.intl.t("gis.notifications.min-one"));
     }
   }
-});
+}
