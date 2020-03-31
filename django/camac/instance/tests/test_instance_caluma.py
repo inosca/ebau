@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pytest
 from caluma.caluma_form import models as caluma_form_models
 from django.core import mail
@@ -839,6 +841,9 @@ def test_instance_delete(
     response = admin_client.get(url, **headers)
     assert response.status_code == status.HTTP_200_OK
 
+    path = Path(attachment.path.path)
+    assert path.is_file()
+
     response = admin_client.delete(url, **headers)
 
     assert response.status_code == status.HTTP_204_NO_CONTENT
@@ -846,3 +851,5 @@ def test_instance_delete(
 
     with pytest.raises(attachment.DoesNotExist):
         attachment.refresh_from_db()
+
+    assert not path.is_file()
