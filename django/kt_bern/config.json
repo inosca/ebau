@@ -41182,6 +41182,15 @@
   },
   {
     "fields": {
+      "action_name": "index",
+      "available_resource": "organisation",
+      "hidden": 0
+    },
+    "model": "core.araction",
+    "pk": 150000
+  },
+  {
+    "fields": {
       "description": "Add a journal entry",
       "module_name": "journal"
     },
@@ -41775,6 +41784,15 @@
     },
     "model": "core.availableresource",
     "pk": "list"
+  },
+  {
+    "fields": {
+      "controller_name": "organisation",
+      "description": "Edit own organisation",
+      "module_name": "organisation"
+    },
+    "model": "core.availableresource",
+    "pk": "organisation"
   },
   {
     "fields": {
@@ -115053,7 +115071,7 @@
       "description": null,
       "hidden": 0,
       "name": null,
-      "sort": 7,
+      "sort": 8,
       "template": "/dashboard/help.phtml"
     },
     "model": "core.resource",
@@ -115084,6 +115102,19 @@
     },
     "model": "core.resource",
     "pk": 150001
+  },
+  {
+    "fields": {
+      "available_resource": "organisation",
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "name": null,
+      "sort": 7,
+      "template": null
+    },
+    "model": "core.resource",
+    "pk": 150002
   },
   {
     "fields": {
@@ -115284,6 +115315,26 @@
     },
     "model": "core.resourcet",
     "pk": 150004
+  },
+  {
+    "fields": {
+      "description": null,
+      "language": "de",
+      "name": "Organisation",
+      "resource": 150002
+    },
+    "model": "core.resourcet",
+    "pk": 150005
+  },
+  {
+    "fields": {
+      "description": null,
+      "language": "fr",
+      "name": "Organisation",
+      "resource": 150002
+    },
+    "model": "core.resourcet",
+    "pk": 150006
   },
   {
     "fields": {
@@ -115586,6 +115637,30 @@
     },
     "model": "core.rroleacl",
     "pk": 150020
+  },
+  {
+    "fields": {
+      "resource": 150002,
+      "role": 20009
+    },
+    "model": "core.rroleacl",
+    "pk": 150021
+  },
+  {
+    "fields": {
+      "resource": 150002,
+      "role": 20008
+    },
+    "model": "core.rroleacl",
+    "pk": 150022
+  },
+  {
+    "fields": {
+      "resource": 150002,
+      "role": 20007
+    },
+    "model": "core.rroleacl",
+    "pk": 150023
   },
   {
     "fields": {
