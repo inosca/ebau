@@ -176,7 +176,7 @@ def test_change_responsibility_send_handler(
 @pytest.mark.parametrize(
     "requesting_service,state_pk,success",
     [
-        ("leitbehörde", INSTANCE_STATE_TO_BE_FINISHED, True),
+        ("leitbehörde", INSTANCE_STATE_SB1, True),
         ("baukontrolle", INSTANCE_STATE_TO_BE_FINISHED, True),
         ("leitbehörde", INSTANCE_STATE_KOORDINATION, False),
         ("nobody", INSTANCE_STATE_TO_BE_FINISHED, False),
