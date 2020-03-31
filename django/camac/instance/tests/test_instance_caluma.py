@@ -795,3 +795,54 @@ def test_generate_pdf_action(
             assert fh.read() == content.decode("utf-8")
     else:
         assert response.status_code == status.HTTP_400_BAD_REQUEST
+
+
+@pytest.mark.freeze_time("2020-03-19")
+@pytest.mark.parametrize("instance_state__name", ["new"])
+@pytest.mark.parametrize(
+    "role__name,paper", [("Applicant", False), ("Municipality", True)]
+)
+def test_instance_delete(
+    db,
+    admin_client,
+    admin_user,
+    group,
+    instance_state,
+    instance_state_factory,
+    form,
+    use_caluma_form,
+    mock_nfd_permissions,
+    caluma_forms,
+    application_settings,
+    attachment,
+    paper,
+):
+    # first create instance with all documents
+    headers = {}
+
+    if paper:
+        application_settings["PAPER"] = {
+            "ALLOWED_ROLES": {"DEFAULT": [group.role.pk]},
+            "ALLOWED_SERVICE_GROUPS": {"DEFAULT": [group.service.service_group.pk]},
+        }
+        headers.update({"x-camac-group": group.pk})
+
+    data = {"data": {"type": "instances", "attributes": {"caluma-form": "main-form"}}}
+
+    create_resp = admin_client.post(reverse("instance-list"), data, **headers)
+
+    instance_id = int(create_resp.json()["data"]["id"])
+    instance = Instance.objects.get(pk=instance_id)
+    instance.attachments.set([attachment])
+
+    url = reverse("instance-detail", args=[instance_id])
+    response = admin_client.get(url, **headers)
+    assert response.status_code == status.HTTP_200_OK
+
+    response = admin_client.delete(url, **headers)
+
+    assert response.status_code == status.HTTP_204_NO_CONTENT
+    assert not Instance.objects.filter(pk=instance_id).exists()
+
+    with pytest.raises(attachment.DoesNotExist):
+        attachment.refresh_from_db()
