@@ -1,0 +1,110 @@
+<Notifications />
+
+<form
+  class="form form-edit no-dialog"
+  {{on "submit" (perform this.save)}}
+  {{did-insert (perform this.fetchService)}}
+>
+  <fieldset>
+    <legend>{{t "organisation.edit"}}</legend>
+
+    <div class="row first">
+      <div class="label">{{t "organisation.name"}} *</div>
+      <div class="column-2">
+        <Input
+          class="text"
+          @type="text"
+          @value={{this.service.name}}
+          @required={{true}}
+          @name="name"
+          @maxlength={{100}}
+        />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="label">{{t "organisation.phone"}}</div>
+      <div class="column-2">
+        <Input
+          class="text"
+          @type="text"
+          @value={{this.service.phone}}
+          @required={{false}}
+          @name="phone"
+          @maxlength={{16}}
+        />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="label">{{t "organisation.zip"}}</div>
+      <div class="column-2">
+        <Input
+          class="text"
+          @type="number"
+          @value={{this.service.zip}}
+          @required={{false}}
+          @name="zip"
+          @minlength={{4}}
+          @maxlength={{4}}
+        />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="label">{{t "organisation.city"}} *</div>
+      <div class="column-2">
+        <Input
+          class="text"
+          @type="text"
+          @value={{this.service.city}}
+          @required={{true}}
+          @name="city"
+        />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="label">{{t "organisation.address"}}</div>
+      <div class="column-2">
+        <Input
+          class="text"
+          @type="text"
+          @value={{this.service.address}}
+          @required={{false}}
+          @name="address"
+        />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="label">{{t "organisation.email"}} *</div>
+      <div class="column-2">
+        <Input
+          class="text"
+          @type="email"
+          @value={{this.service.email}}
+          @required={{true}}
+          @name="email"
+        />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="label">{{t "organisation.website"}}</div>
+      <div class="column-2">
+        <Input
+          class="text"
+          @type="url"
+          @value={{this.service.website}}
+          @required={{false}}
+          @name="website"
+        />
+      </div>
+    </div>
+  </fieldset>
+
+  <div class="row buttons-container">
+    <button type="submit" class="buttonstyle btn success no-loading">{{t "global.save"}}</button>
+  </div>
+</form>
