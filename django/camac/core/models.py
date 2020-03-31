@@ -3869,10 +3869,7 @@ class ServiceAnswerActivation(models.Model):
 
 class InstanceService(models.Model):
     instance = models.ForeignKey(
-        "instance.Instance",
-        models.DO_NOTHING,
-        db_column="INSTANCE_ID",
-        related_name="+",
+        "instance.Instance", models.CASCADE, db_column="INSTANCE_ID", related_name="+"
     )
     service = models.ForeignKey(
         "user.Service", models.DO_NOTHING, db_column="SERVICE_ID", related_name="+"
