@@ -9,6 +9,6 @@ module("Integration | Component | be-documents-to-sign", function(hooks) {
   skip("it renders", async function(assert) {
     await render(hbs`{{be-documents-to-sign}}`);
 
-    assert.equal(this.element.textContent.trim(), "");
+    assert.dom(this.element).hasText("");
   });
 });
