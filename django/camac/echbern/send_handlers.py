@@ -11,6 +11,7 @@ from camac.constants.kt_bern import (
     INSTANCE_STATE_KOORDINATION,
     INSTANCE_STATE_REJECTED,
     INSTANCE_STATE_SB1,
+    INSTANCE_STATE_SB2,
     INSTANCE_STATE_TO_BE_FINISHED,
     INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT,
     INSTANCE_STATE_ZIRKULATION,
@@ -277,7 +278,11 @@ class CloseArchiveDossierSendHandler(BaseSendHandler):
             instance=self.instance, active=True, service=self.group.service
         ).exists():
             return False, None
-        if self.instance.instance_state.pk == INSTANCE_STATE_TO_BE_FINISHED:
+        if self.instance.instance_state.pk in [
+            INSTANCE_STATE_SB1,
+            INSTANCE_STATE_SB2,
+            INSTANCE_STATE_TO_BE_FINISHED,
+        ]:
             return True, None
         return (
             False,
