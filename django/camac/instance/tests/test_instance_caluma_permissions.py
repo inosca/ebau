@@ -105,7 +105,7 @@ def mock_nfd_permissions(requests_mock):
             "Municipality",
             "correction",
             {
-                "main": ["read", "write"],
+                "main": ["read", "write", "write-meta"],
                 "sb1": [],
                 "sb2": [],
                 "nfd": ["write", "write-meta"],
@@ -114,18 +114,28 @@ def mock_nfd_permissions(requests_mock):
         (
             "Municipality",
             "rejected",
-            {"main": ["read"], "sb1": [], "sb2": [], "nfd": ["write", "write-meta"]},
+            {
+                "main": ["read", "write-meta"],
+                "sb1": [],
+                "sb2": [],
+                "nfd": ["write", "write-meta"],
+            },
         ),
         (
             "Municipality",
             "sb1",
-            {"main": ["read"], "sb1": [], "sb2": [], "nfd": ["write", "write-meta"]},
+            {
+                "main": ["read", "write-meta"],
+                "sb1": [],
+                "sb2": [],
+                "nfd": ["write", "write-meta"],
+            },
         ),
         (
             "Municipality",
             "sb2",
             {
-                "main": ["read"],
+                "main": ["read", "write-meta"],
                 "sb1": ["read"],
                 "sb2": [],
                 "nfd": ["write", "write-meta"],
@@ -135,7 +145,7 @@ def mock_nfd_permissions(requests_mock):
             "Municipality",
             "conclusion",
             {
-                "main": ["read"],
+                "main": ["read", "write-meta"],
                 "sb1": ["read"],
                 "sb2": ["read"],
                 "nfd": ["write", "write-meta"],
@@ -314,8 +324,8 @@ def test_instance_nfd_permissions(
     [
         ("new", "municipality", "main", ["read", "write", "write-meta"]),
         ("new", "construction-control", "main", []),
-        ("rejected", "municipality", "main", ["read"]),
-        ("rejected", "construction-control", "main", ["read"]),
+        ("rejected", "municipality", "main", ["read", "write-meta"]),
+        ("rejected", "construction-control", "main", ["read", "write-meta"]),
         ("sb1", "municipality", "sb1", []),
         ("sb1", "construction-control", "sb1", ["read", "write", "write-meta"]),
         ("sb2", "municipality", "sb2", []),
