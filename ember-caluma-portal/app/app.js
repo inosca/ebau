@@ -5,11 +5,11 @@ import config from "./config/environment";
 import Resolver from "./resolver";
 
 /* eslint-disable ember/avoid-leaking-state-in-ember-objects */
-const App = Application.extend({
-  modulePrefix: config.modulePrefix,
-  podModulePrefix: config.podModulePrefix,
-  Resolver,
-  engines: {
+export default class App extends Application {
+  modulePrefix = config.modulePrefix;
+  podModulePrefix = config.podModulePrefix;
+  Resolver = Resolver;
+  engines = {
     emberCaluma: {
       dependencies: {
         services: [
@@ -22,9 +22,7 @@ const App = Application.extend({
         ]
       }
     }
-  }
-});
+  };
+}
 
 loadInitializers(App, config.modulePrefix);
-
-export default App;
