@@ -57,6 +57,14 @@ class CalumaApi:
         ).first()
         return document.pk if document else None
 
+    def _get_instance_documents(self, instance_id):
+        return caluma_form_models.Document.objects.filter(
+            **{"meta__camac-instance-id": instance_id}
+        )
+
+    def delete_instance_documents(self, instance_id):
+        self._get_instance_documents(instance_id).delete()
+
     def get_ebau_number(self, instance):
         document = caluma_form_models.Document.objects.filter(
             **{"meta__camac-instance-id": instance.pk, "form__meta__is-main-form": True}
