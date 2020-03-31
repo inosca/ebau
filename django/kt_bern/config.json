@@ -16983,6 +16983,26 @@
   },
   {
     "fields": {
+      "name": null,
+      "question": 120001,
+      "sort": 0,
+      "value": "JAA"
+    },
+    "model": "core.answerlist",
+    "pk": 120001
+  },
+  {
+    "fields": {
+      "name": null,
+      "question": 120001,
+      "sort": 1,
+      "value": "NEI"
+    },
+    "model": "core.answerlist",
+    "pk": 120002
+  },
+  {
+    "fields": {
       "answer_list": 1,
       "language": "de",
       "name": "Vertreter/in mit Vollmacht"
@@ -40542,6 +40562,42 @@
     },
     "model": "core.answerlistt",
     "pk": 121303
+  },
+  {
+    "fields": {
+      "answer_list": 120001,
+      "language": "fr",
+      "name": "Oui"
+    },
+    "model": "core.answerlistt",
+    "pk": 121304
+  },
+  {
+    "fields": {
+      "answer_list": 120002,
+      "language": "de",
+      "name": "Nein"
+    },
+    "model": "core.answerlistt",
+    "pk": 121305
+  },
+  {
+    "fields": {
+      "answer_list": 120001,
+      "language": "de",
+      "name": "Ja"
+    },
+    "model": "core.answerlistt",
+    "pk": 121306
+  },
+  {
+    "fields": {
+      "answer_list": 120002,
+      "language": "fr",
+      "name": "Non"
+    },
+    "model": "core.answerlistt",
+    "pk": 121307
   },
   {
     "fields": {
@@ -81910,6 +81966,38 @@
   },
   {
     "fields": {
+      "answer_query": null,
+      "class_field": null,
+      "default_answer": null,
+      "description": null,
+      "javascript": null,
+      "mapping": 1,
+      "name": null,
+      "question_type": 5,
+      "regex": null,
+      "validation": null
+    },
+    "model": "core.question",
+    "pk": 120001
+  },
+  {
+    "fields": {
+      "answer_query": null,
+      "class_field": null,
+      "default_answer": null,
+      "description": null,
+      "javascript": null,
+      "mapping": null,
+      "name": null,
+      "question_type": 9,
+      "regex": null,
+      "validation": null
+    },
+    "model": "core.question",
+    "pk": 120002
+  },
+  {
+    "fields": {
       "chapter": 1,
       "item": 1,
       "question": 20000,
@@ -88327,7 +88415,7 @@
       "item": 1,
       "question": 40526,
       "required": 0,
-      "sort": 7
+      "sort": 9
     },
     "model": "core.questionchapter",
     "pk": 40531
@@ -88338,7 +88426,7 @@
       "item": 1,
       "question": 40527,
       "required": 0,
-      "sort": 8
+      "sort": 10
     },
     "model": "core.questionchapter",
     "pk": 40532
@@ -93248,6 +93336,17 @@
     },
     "model": "core.questionchapter",
     "pk": 120000
+  },
+  {
+    "fields": {
+      "chapter": 40095,
+      "item": 1,
+      "question": 120001,
+      "required": 0,
+      "sort": 7
+    },
+    "model": "core.questionchapter",
+    "pk": 120001
   },
   {
     "fields": {
@@ -114500,6 +114599,39 @@
     },
     "model": "core.questiont",
     "pk": 120955
+  },
+  {
+    "fields": {
+      "default_answer": null,
+      "description": null,
+      "language": "de",
+      "name": "Liegt das Bauvorhaben in unmittelbarer N\u00e4he von erhaltens- und / oder sch\u00fctzenswerten Geb\u00e4uden?",
+      "question": 120001
+    },
+    "model": "core.questiont",
+    "pk": 120956
+  },
+  {
+    "fields": {
+      "default_answer": null,
+      "description": null,
+      "language": "fr",
+      "name": "La construction projet\u00e9e se situe-t-elle \u00e0 proximit\u00e9 imm\u00e9diate de b\u00e2timents dignes de conservation ou de protection?",
+      "question": 120001
+    },
+    "model": "core.questiont",
+    "pk": 120957
+  },
+  {
+    "fields": {
+      "default_answer": null,
+      "description": null,
+      "language": "fr",
+      "name": "Le projet concerne-t-il le p\u00e9rim\u00e8tre de protection d'un site?",
+      "question": 40526
+    },
+    "model": "core.questiont",
+    "pk": 120960
   },
   {
     "fields": {
