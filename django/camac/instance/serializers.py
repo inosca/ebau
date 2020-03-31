@@ -24,6 +24,7 @@ from camac.core.models import (
     InstanceService,
     Journal,
     JournalT,
+    ProposalActivation,
 )
 from camac.core.serializers import MultilingualSerializer
 from camac.core.translations import get_translations
@@ -721,6 +722,33 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             group=request.group,
         )
 
+    def _create_answer_proposals(self, instance):
+        """Create service proposal based on answers.
+
+        Create "action proposals" given some answer values for specific questions:
+        (question, answer, config) -> AProposal
+        """
+
+        # get suggested services
+        service_suggestions = CalumaApi().get_circulation_proposals(instance)
+
+        # create answer proposals
+        today = timezone.now().replace(hour=0, minute=0, second=0, microsecond=0)
+
+        proposals = [
+            ProposalActivation(
+                instance=instance,
+                circulation_type_id=constants.CIRCULATION_TYPE_STANDARD,
+                service_id=service_id,
+                circulation_state_id=constants.CIRCULATION_STATE_WORKING,
+                deadline_date=today,
+                reason="",
+            )
+            for service_id in service_suggestions
+        ]
+
+        ProposalActivation.objects.bulk_create(proposals)
+
     @transaction.atomic
     def update(self, instance, validated_data):
         request_logger.info(f"Submitting instance {instance.pk}")
@@ -738,12 +766,10 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 activation_date=None,
             )
 
-        # generate and submit pdf
         self._generate_and_store_pdf(instance)
-
         self._set_submit_date(validated_data)
-
         self._create_journal_entry(get_translations(gettext_noop("Dossier submitted")))
+        self._create_answer_proposals(instance)
 
         copy_table_answer(
             instance,

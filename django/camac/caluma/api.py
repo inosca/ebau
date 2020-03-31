@@ -1,9 +1,12 @@
 from base64 import b64decode
 from copy import copy
+from functools import reduce
 from json import loads
 
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_user import models as caluma_user_models
+from django.conf import settings
+from django.db.models import Q
 
 from camac.user.middleware import get_group
 from camac.user.models import User
@@ -50,11 +53,14 @@ class CalumaApi:
         ).first()
         return document.pk if document else None
 
-    def get_main_document(self, instance):
-        document = caluma_form_models.Document.objects.filter(
+    def _get_main_document(self, instance):
+        return caluma_form_models.Document.objects.filter(
             **{"meta__camac-instance-id": instance.pk},
             **{"form__meta__is-main-form": True},
         ).first()
+
+    def get_main_document(self, instance):
+        document = self._get_main_document(instance)
         return document.pk if document else None
 
     def _get_instance_documents(self, instance_id):
@@ -176,6 +182,57 @@ class CalumaApi:
                 "value": "projektaenderung-ja",
             }
         ).exists()
+
+    def get_circulation_proposals(self, instance):
+        # [(question_id, option, suggested service), ... ]
+        suggestions = settings.APPLICATION.get("SUGGESTIONS", [])
+
+        document = self._get_main_document(instance)
+        answers = caluma_form_models.Answer.objects.filter(
+            document__family=document.family
+        )
+
+        _filter = reduce(
+            lambda a, b: a | b,
+            [
+                Q(question_id=q_slug, value=answer)
+                | Q(question_id=q_slug, value__contains=answer)
+                for q_slug, answer, _ in suggestions
+            ],
+            Q(pk=None),
+        )
+        suggestion_map = {
+            (q_slug, answer): services for q_slug, answer, services in suggestions
+        }
+        if not suggestion_map:
+            return set()
+
+        suggestions_out = set()
+        for ans in answers.filter(_filter):
+            # skip empty config
+            # if not suggestion_map or (ans.question_id, ans.value) not in suggestion_map:
+            #     continue
+
+            # look up multiple choice answers separately
+            if ans.question.type == caluma_form_models.Question.TYPE_MULTIPLE_CHOICE:
+                suggestions_out.update(
+                    {
+                        service
+                        for choice in ans.value
+                        for service in suggestion_map.get((ans.question_id, choice), [])
+                    }
+                )
+            else:
+                suggestions_out.update(
+                    {
+                        service
+                        for service in suggestion_map.get(
+                            (ans.question_id, ans.value), []
+                        )
+                    }
+                )
+
+        return suggestions_out
 
 
 class CalumaInfo:
