@@ -17,7 +17,7 @@ export default class BeDocumentsFormComponent extends Component {
   @service notification;
   @service store;
 
-  apollo = queryManager();
+  @queryManager apollo;
 
   constructor(...args) {
     super(...args);
