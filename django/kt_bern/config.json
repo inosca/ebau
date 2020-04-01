@@ -1081,6 +1081,62 @@
   },
   {
     "fields": {
+      "available_action": "formtransition",
+      "button": 140000,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 0,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 140000
+  },
+  {
+    "fields": {
+      "available_action": "addjournal",
+      "button": 140000,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 140001
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 140000,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 3,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 140005
+  },
+  {
+    "fields": {
+      "available_action": "notification",
+      "button": 140000,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 140008
+  },
+  {
+    "fields": {
       "available_action": "notification",
       "button": 20047,
       "description": null,
@@ -2295,6 +2351,66 @@
   },
   {
     "fields": {
+      "action": 140000,
+      "description": null,
+      "error_message": "Bei der \u00c4nderung vom Dossierstatus ist ein Fehler aufgetreten",
+      "language": "de",
+      "name": "Reset state \"Zur\u00fcckgewiesen\" to previous state",
+      "success_message": "Dossier Zur\u00fcckweisung wurde erfolgreich aufgehoben"
+    },
+    "model": "core.actiont",
+    "pk": 140000
+  },
+  {
+    "fields": {
+      "action": 140001,
+      "description": null,
+      "error_message": "Beim Erfassen vom Journal-Eintrag ist ein Fehler aufgetreten",
+      "language": "de",
+      "name": "Dossier R\u00fcckweisung aufheben",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 140001
+  },
+  {
+    "fields": {
+      "action": 140005,
+      "description": "Notify ECH0211 clients about status change",
+      "error_message": null,
+      "language": "de",
+      "name": "ECH0211 - Status Notification",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 140005
+  },
+  {
+    "fields": {
+      "action": 140008,
+      "description": null,
+      "error_message": "Beim Senden der E-Mail Notifikation an die Gesuchstellenden ist ein Fehler aufgetreten",
+      "language": "de",
+      "name": "Email: R\u00fcckweisung aufgehoben",
+      "success_message": "E-Mail an Gesuchstellende gesendet"
+    },
+    "model": "core.actiont",
+    "pk": 140008
+  },
+  {
+    "fields": {
+      "action": 140001,
+      "description": null,
+      "error_message": null,
+      "language": "fr",
+      "name": "Dossier R\u00fcckweisung aufheben",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 140009
+  },
+  {
+    "fields": {
       "action": 150000,
       "description": null,
       "error_message": null,
@@ -2636,6 +2752,14 @@
     },
     "model": "core.aformtransition",
     "pk": 130002
+  },
+  {
+    "fields": {
+      "current_instance_state": 10000,
+      "next_instance_state": null
+    },
+    "model": "core.aformtransition",
+    "pk": 140000
   },
   {
     "fields": {
@@ -3812,6 +3936,15 @@
     },
     "model": "core.anotification",
     "pk": 130001
+  },
+  {
+    "fields": {
+      "processor": "Notification_Processor_SendEmailAPI",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_Applicant",
+      "template": "dossier-rckweisung-aufgehoben"
+    },
+    "model": "core.anotification",
+    "pk": 140008
   },
   {
     "fields": {
@@ -40825,6 +40958,13 @@
   },
   {
     "fields": {
+      "php_class": "TriggerECH0211StatusNotification"
+    },
+    "model": "core.aphp",
+    "pk": 140005
+  },
+  {
+    "fields": {
       "action_name": "template",
       "available_resource": "page",
       "hidden": 0
@@ -41986,6 +42126,51 @@
   },
   {
     "fields": {
+      "button": 140000,
+      "instance_state": 10000,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 140000
+  },
+  {
+    "fields": {
+      "button": 20021,
+      "instance_state": 20006,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 140007
+  },
+  {
+    "fields": {
+      "button": 20021,
+      "instance_state": 20003,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 140008
+  },
+  {
+    "fields": {
+      "button": 20022,
+      "instance_state": 20006,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 140009
+  },
+  {
+    "fields": {
+      "button": 20022,
+      "instance_state": 20003,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 140010
+  },
+  {
+    "fields": {
       "button": 150000,
       "instance_state": 1,
       "role": 10000
@@ -42487,6 +42672,18 @@
     },
     "model": "core.button",
     "pk": 130001
+  },
+  {
+    "fields": {
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 20029,
+      "name": null,
+      "sort": 2
+    },
+    "model": "core.button",
+    "pk": 140000
   },
   {
     "fields": {
@@ -43103,6 +43300,16 @@
     },
     "model": "core.buttont",
     "pk": 130003
+  },
+  {
+    "fields": {
+      "button": 140000,
+      "description": null,
+      "language": "de",
+      "name": "R\u00fcckweisung aufheben"
+    },
+    "model": "core.buttont",
+    "pk": 140000
   },
   {
     "fields": {
@@ -58226,6 +58433,15 @@
   },
   {
     "fields": {
+      "instance_resource": 20029,
+      "instance_state": 10000,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 140000
+  },
+  {
+    "fields": {
       "instance_resource": 150000,
       "instance_state": 20006,
       "role": 3
@@ -59667,6 +59883,13 @@
       "text": null
     },
     "model": "core.journalactionconfig",
+    "pk": 140001
+  },
+  {
+    "fields": {
+      "text": null
+    },
+    "model": "core.journalactionconfig",
     "pk": 150002
   },
   {
@@ -59865,6 +60088,24 @@
     },
     "model": "core.journalactionconfigt",
     "pk": 20025
+  },
+  {
+    "fields": {
+      "action": 140001,
+      "language": "de",
+      "text": "Dossier zur\u00fcckweisung aufgehoben"
+    },
+    "model": "core.journalactionconfigt",
+    "pk": 140000
+  },
+  {
+    "fields": {
+      "action": 140001,
+      "language": "fr",
+      "text": "Annulation du renvoy\u00e9 du dossier"
+    },
+    "model": "core.journalactionconfigt",
+    "pk": 140001
   },
   {
     "fields": {
@@ -119006,6 +119247,18 @@
   },
   {
     "fields": {
+      "body": null,
+      "purpose": null,
+      "service": null,
+      "slug": "dossier-rckweisung-aufgehoben",
+      "subject": null,
+      "type": "email"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 41
+  },
+  {
+    "fields": {
       "body": "Guten Tag\r\n\r\nIhr Dossier mit der Dossier-Nr. {{INSTANCE_ID}} wurde erfolgreich \u00fcbermittelt. Alle auf eBau hochgeladenen Pl\u00e4ne und Dokumente m\u00fcssen unterschrieben, datiert und in mindestens zweifacher Ausfertigung mit dem Gesuchsformular bei der zust\u00e4ndigen Gemeinde eingereicht werden. Das Gesuch wird erst bearbeitet, wenn die Gemeinde das Papierdossier erhalten hat.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nGerne m\u00f6chten wir erfahren wie einfach die elektronische Eingabe eines Gesuches war. Wir bitten Sie daher, sich 2 - 3 Minuten Zeit zu nehmen und den folgenden Fragebogen zu beantworten. Besten Dank.\r\n\r\nhttps://www.onlineumfragen.com/login.cfm?umfrage=87201\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nVotre dossier portant le num\u00e9ro de dossier {{INSTANCE_ID}} a \u00e9t\u00e9 d\u00e9pos\u00e9/e avec succ\u00e8s. Tous les plans et documents t\u00e9l\u00e9charg\u00e9s sur eBau doivent \u00eatre sign\u00e9s, dat\u00e9s et envoy\u00e9s en au moins deux exemplaires avec le formulaire de demande de permis de construire \u00e0 la commune responsable. La demande ne sera trait\u00e9e que lorsque la commune aura re\u00e7u le dossier papier.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n",
       "language": "de",
       "purpose": "00 Empfang Anfrage/Baugesuch (Gesuchsteller)",
@@ -119471,6 +119724,30 @@
     },
     "model": "notification.notificationtemplatet",
     "pk": 78
+  },
+  {
+    "fields": {
+      "body": "Dossier R\u00fcckweisung aufgehoben",
+      "language": "de",
+      "purpose": "Dossier R\u00fcckweisung aufgehoben",
+      "subject": "Dossier R\u00fcckweisung aufgehoben",
+      "template": 41,
+      "template_slug": "dossier-rckweisung-aufgehoben"
+    },
+    "model": "notification.notificationtemplatet",
+    "pk": 79
+  },
+  {
+    "fields": {
+      "body": "",
+      "language": "fr",
+      "purpose": "",
+      "subject": "",
+      "template": 41,
+      "template_slug": "dossier-rckweisung-aufgehoben"
+    },
+    "model": "notification.notificationtemplatet",
+    "pk": 80
   },
   {
     "fields": {
