@@ -1,5 +1,6 @@
 import mimetypes
 
+from django.conf import settings
 from django.utils.translation import gettext as _
 from django_clamd.validators import validate_file_infection
 from rest_framework import exceptions
@@ -17,7 +18,7 @@ from camac.user.relations import (
 )
 from camac.user.serializers import CurrentGroupDefault, CurrentServiceDefault
 
-from . import models
+from . import models, permissions
 
 
 class AttachmentSectionSerializer(
@@ -116,6 +117,11 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         return path
 
     def validate(self, data):
+        custom_validate = permissions.VALIDATE_ATTACHMENTS.get(
+            settings.APPLICATION_NAME, lambda _, data: data
+        )
+        data = custom_validate(self, data)
+
         if "path" in data:
             path = data["path"]
 
