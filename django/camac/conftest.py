@@ -179,3 +179,13 @@ def system_operation_user(system_operation_group, user, user_group_factory):
     user.username = "System-Betrieb"
     user.save()
     return user
+
+
+@pytest.fixture(autouse=True)
+def media_root(tmpdir_factory, settings):
+    """Set django's MEDIA_ROOT setting to a temporary directory.
+
+    Otherwise all files that get stored through File- and ImageFields would
+    get stored in the project root and pollute it.
+    """
+    settings.MEDIA_ROOT = tmpdir_factory.mktemp("media_root")
