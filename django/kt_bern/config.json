@@ -1081,6 +1081,48 @@
   },
   {
     "fields": {
+      "available_action": "formtransition",
+      "button": 140000,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 0,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 140000
+  },
+  {
+    "fields": {
+      "available_action": "addjournal",
+      "button": 140000,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 140001
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 140000,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 3,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 140005
+  },
+  {
+    "fields": {
       "available_action": "notification",
       "button": 20047,
       "description": null,
@@ -2295,6 +2337,54 @@
   },
   {
     "fields": {
+      "action": 140000,
+      "description": null,
+      "error_message": "Bei der \u00c4nderung vom Dossierstatus ist ein Fehler aufgetreten",
+      "language": "de",
+      "name": "Reset state \"Zur\u00fcckgewiesen\" to previous state",
+      "success_message": "Dossier Zur\u00fcckweisung wurde erfolgreich aufgehoben"
+    },
+    "model": "core.actiont",
+    "pk": 140000
+  },
+  {
+    "fields": {
+      "action": 140001,
+      "description": null,
+      "error_message": "Beim Erfassen vom Journal-Eintrag ist ein Fehler aufgetreten",
+      "language": "de",
+      "name": "Dossier R\u00fcckweisung aufheben",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 140001
+  },
+  {
+    "fields": {
+      "action": 140005,
+      "description": "Notify ECH0211 clients about status change",
+      "error_message": null,
+      "language": "de",
+      "name": "ECH0211 - Status Notification",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 140005
+  },
+  {
+    "fields": {
+      "action": 140001,
+      "description": null,
+      "error_message": null,
+      "language": "fr",
+      "name": "Dossier R\u00fcckweisung aufheben",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 140009
+  },
+  {
+    "fields": {
       "action": 150000,
       "description": null,
       "error_message": null,
@@ -2636,6 +2726,14 @@
     },
     "model": "core.aformtransition",
     "pk": 130002
+  },
+  {
+    "fields": {
+      "current_instance_state": 10000,
+      "next_instance_state": null
+    },
+    "model": "core.aformtransition",
+    "pk": 140000
   },
   {
     "fields": {
@@ -40825,6 +40923,13 @@
   },
   {
     "fields": {
+      "php_class": "TriggerECH0211StatusNotification"
+    },
+    "model": "core.aphp",
+    "pk": 140005
+  },
+  {
+    "fields": {
       "action_name": "template",
       "available_resource": "page",
       "hidden": 0
@@ -41986,6 +42091,51 @@
   },
   {
     "fields": {
+      "button": 140000,
+      "instance_state": 10000,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 140000
+  },
+  {
+    "fields": {
+      "button": 20021,
+      "instance_state": 20006,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 140007
+  },
+  {
+    "fields": {
+      "button": 20021,
+      "instance_state": 20003,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 140008
+  },
+  {
+    "fields": {
+      "button": 20022,
+      "instance_state": 20006,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 140009
+  },
+  {
+    "fields": {
+      "button": 20022,
+      "instance_state": 20003,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 140010
+  },
+  {
+    "fields": {
       "button": 150000,
       "instance_state": 1,
       "role": 10000
@@ -42487,6 +42637,18 @@
     },
     "model": "core.button",
     "pk": 130001
+  },
+  {
+    "fields": {
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 20029,
+      "name": null,
+      "sort": 2
+    },
+    "model": "core.button",
+    "pk": 140000
   },
   {
     "fields": {
@@ -43103,6 +43265,16 @@
     },
     "model": "core.buttont",
     "pk": 130003
+  },
+  {
+    "fields": {
+      "button": 140000,
+      "description": null,
+      "language": "de",
+      "name": "R\u00fcckweisung aufheben"
+    },
+    "model": "core.buttont",
+    "pk": 140000
   },
   {
     "fields": {
@@ -58226,6 +58398,15 @@
   },
   {
     "fields": {
+      "instance_resource": 20029,
+      "instance_state": 10000,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 140000
+  },
+  {
+    "fields": {
       "instance_resource": 150000,
       "instance_state": 20006,
       "role": 3
@@ -59667,6 +59848,13 @@
       "text": null
     },
     "model": "core.journalactionconfig",
+    "pk": 140001
+  },
+  {
+    "fields": {
+      "text": null
+    },
+    "model": "core.journalactionconfig",
     "pk": 150002
   },
   {
@@ -59865,6 +60053,24 @@
     },
     "model": "core.journalactionconfigt",
     "pk": 20025
+  },
+  {
+    "fields": {
+      "action": 140001,
+      "language": "de",
+      "text": "Dossier zur\u00fcckweisung aufgehoben"
+    },
+    "model": "core.journalactionconfigt",
+    "pk": 140000
+  },
+  {
+    "fields": {
+      "action": 140001,
+      "language": "fr",
+      "text": "Annulation du renvoy\u00e9 du dossier"
+    },
+    "model": "core.journalactionconfigt",
+    "pk": 140001
   },
   {
     "fields": {
