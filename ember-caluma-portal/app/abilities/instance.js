@@ -110,4 +110,12 @@ export default class InstanceAbility extends Ability {
       config.ebau.instanceStates.rejected
     );
   }
+
+  @computed("model.instanceState.id")
+  get canDelete() {
+    return (
+      config.ebau.instanceStates.new ===
+      parseInt(this.get("model.instanceState.id"))
+    );
+  }
 }

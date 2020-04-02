@@ -5,6 +5,7 @@ import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
 import getOverviewDocumentsQuery from "ember-caluma-portal/gql/queries/get-overview-documents";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
+import UIkit from "uikit";
 
 const findAnswer = (answers, slug) => {
   const answer = answers.find(answer => answer.question.slug === slug);
@@ -61,6 +62,8 @@ function getBuildingSpecification(answers) {
 export default class InstancesEditIndexController extends Controller {
   @queryManager apollo;
   @service fetch;
+  @service notification;
+  @service intl;
 
   @controller("instances.edit") editController;
   @reads("editController.feedbackTask.isRunning") feedbackLoading;
@@ -128,5 +131,27 @@ export default class InstancesEditIndexController extends Controller {
       data.id,
       this.instance.calumaForm
     );
+  }
+
+  @dropTask
+  *deleteInstance() {
+    try {
+      yield UIkit.modal.confirm(this.intl.t("instances.deleteInstanceModal"), {
+        labels: {
+          ok: this.intl.t("global.ok"),
+          cancel: this.intl.t("global.cancel")
+        }
+      });
+    } catch (error) {
+      return;
+    }
+
+    try {
+      yield this.instance.destroyRecord();
+      this.notification.success(this.intl.t("instances.deleteInstanceSuccess"));
+      yield this.transitionToRoute("instances");
+    } catch (error) {
+      this.notification.danger(this.intl.t("instances.deleteInstanceError"));
+    }
   }
 }
