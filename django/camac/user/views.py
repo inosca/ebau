@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db.models import Q
 from drf_yasg.utils import swagger_auto_schema
@@ -58,7 +59,13 @@ class ServiceView(viewsets.ModelViewSet):
         return False
 
     def has_object_update_permission(self, obj):
-        return obj == self.request.group.service
+        if not obj == self.request.group.service:
+            return False
+        allowed_roles = settings.APPLICATION.get("SERVICE_UPDATE_ALLOWED_ROLES")
+        if not allowed_roles:
+            return True
+
+        return self.request.group.role.name in allowed_roles
 
     @permission_aware
     def get_queryset(self):

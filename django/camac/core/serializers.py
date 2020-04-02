@@ -16,11 +16,26 @@ from camac.user.models import User
 from . import models
 
 
-class MultilingualSerializer(serializers.Serializer):
-    name = serializers.SerializerMethodField()
+class MultilingualField(serializers.Field):
+    """
+    Custom field for our legacy multilingual model fields.
 
-    def get_name(self, obj):
-        return obj.get_name()
+    Make sure you pop the value from `validated_data` and handle any modifications to
+    the translation table.
+    """
+
+    def get_attribute(self, instance):
+        return instance
+
+    def to_representation(self, value):
+        return value.get_trans_attr(self.source or self.field_name)
+
+    def to_internal_value(self, data):
+        return data
+
+
+class MultilingualSerializer(serializers.Serializer):
+    name = MultilingualField()
 
 
 class PublicationEntrySerializer(serializers.ModelSerializer):
