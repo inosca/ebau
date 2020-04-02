@@ -101,6 +101,28 @@ CIRCULATION_STATE_DONE = 2
 DECISIONS_BEWILLIGT = "accepted"
 DECISIONS_ABGELEHNT = "denied"
 DECISIONS_ABGESCHRIEBEN = "writtenOff"
+VORABKLAERUNG_DECISIONS_BEWILLIGT = "positive"
+VORABKLAERUNG_DECISIONS_BEWILLIGT_MIT_VORBEHALT = "conditionallyPositive"
+VORABKLAERUNG_DECISIONS_NEGATIVE = "negative"
+
+# ECH 211 judgementType
+# Grundsätzliche Beurteilung.
+# 1 = Positiv
+# 2 = Positiv mit Bedingungen
+# 3 = Nicht eintreten
+# 4 = abgelehnt
+DECISION_JUDGEMENT_MAP = {
+    "baugesuch": {
+        DECISIONS_BEWILLIGT: 1,
+        DECISIONS_ABGESCHRIEBEN: 3,
+        DECISIONS_ABGELEHNT: 4,
+    },
+    "vorabklaerung": {
+        VORABKLAERUNG_DECISIONS_BEWILLIGT: 1,
+        VORABKLAERUNG_DECISIONS_BEWILLIGT_MIT_VORBEHALT: 2,
+        VORABKLAERUNG_DECISIONS_NEGATIVE: 4,
+    },
+}
 
 # Attachment sections
 ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN = 2
