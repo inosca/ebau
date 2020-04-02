@@ -21,6 +21,7 @@ def test_base_delivery(
     ech_mandatory_answers_einfache_vorabklaerung,
     ech_mandatory_answers_vollstaendige_vorabklaerung,
     ech_instance,
+    multilang,
 ):
     ech_mandatory_answers = ech_mandatory_answers_baugesuch
     if form == "baugesuch":
@@ -53,7 +54,7 @@ def test_base_delivery(
     my_schema.validate(xml_data)
 
 
-def test_office(ech_instance, snapshot):
+def test_office(ech_instance, snapshot, multilang):
     off = formatters.office(ech_instance.active_service)
     snapshot.assert_match(off.toxml(element_name="office"))
 
@@ -64,8 +65,18 @@ def test_get_documents(db, attachment_factory, amount, with_display_name, snapsh
     context = {}
     if with_display_name:
         context = {"displayName": "baz"}
+    uuids = [
+        "7604864d-fada-4431-b63b-fc9f4915233d",
+        "23daf554-c2f5-4aa2-b5f2-734a96ed84d8",
+    ]
     attachments = [
-        attachment_factory(name="foo.bar", context=context, attachment_id=count)
+        attachment_factory(
+            name="foo.bar",
+            context=context,
+            attachment_id=count,
+            uuid=uuids[count - 1],
+            mime_type="application/pdf",
+        )
         for count in range(1, amount + 1)
     ]
     xml = formatters.get_documents(attachments)

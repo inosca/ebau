@@ -8,7 +8,7 @@ snapshots = Snapshot()
 
 snapshots[
     "test_office 1"
-] = '<?xml version="1.0" ?><office xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0097/2" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0007/6"><ns1:entryOfficeIdentification><ns2:uid><ns2:uidOrganisationIdCategorie>CHE</ns2:uidOrganisationIdCategorie><ns2:uidOrganisationId>123123123</ns2:uidOrganisationId></ns2:uid><ns2:localOrganisationId><ns2:organisationIdCategory>ebaube</ns2:organisationIdCategory><ns2:organisationId>2</ns2:organisationId></ns2:localOrganisationId><ns2:organisationName>Leitbehörde Burgdorf</ns2:organisationName><ns2:legalForm>0223</ns2:legalForm></ns1:entryOfficeIdentification><ns1:municipality><ns3:municipalityName>Brandontown</ns3:municipalityName><ns3:cantonAbbreviation>BE</ns3:cantonAbbreviation></ns1:municipality></office>'
+] = '<?xml version="1.0" ?><office xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0097/2" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0007/6"><ns1:entryOfficeIdentification><ns2:uid><ns2:uidOrganisationIdCategorie>CHE</ns2:uidOrganisationIdCategorie><ns2:uidOrganisationId>123123123</ns2:uidOrganisationId></ns2:uid><ns2:localOrganisationId><ns2:organisationIdCategory>ebaube</ns2:organisationIdCategory><ns2:organisationId>2</ns2:organisationId></ns2:localOrganisationId><ns2:organisationName>Leitbehörde Burgdorf</ns2:organisationName><ns2:legalForm>0223</ns2:legalForm></ns1:entryOfficeIdentification><ns1:municipality><ns3:municipalityName>Burgdorf</ns3:municipalityName><ns3:cantonAbbreviation>BE</ns3:cantonAbbreviation></ns1:municipality></office>'
 
 snapshots["test_get_documents[True-0] 1"] = [
     """<?xml version="1.0" ?>
@@ -39,7 +39,7 @@ snapshots["test_get_documents[True-1] 1"] = [
 \t<ns1:files>
 \t\t<ns1:file>
 \t\t\t<ns1:pathFileName>http://camac-ng.local/api/v1/attachments/files/?attachments=1</ns1:pathFileName>
-\t\t\t<ns1:mimeType>message/partial</ns1:mimeType>
+\t\t\t<ns1:mimeType>application/pdf</ns1:mimeType>
 \t\t</ns1:file>
 \t</ns1:files>
 \t<ns1:documentKind/>
@@ -58,7 +58,7 @@ snapshots["test_get_documents[True-2] 1"] = [
 \t<ns1:files>
 \t\t<ns1:file>
 \t\t\t<ns1:pathFileName>http://camac-ng.local/api/v1/attachments/files/?attachments=1</ns1:pathFileName>
-\t\t\t<ns1:mimeType>message/partial</ns1:mimeType>
+\t\t\t<ns1:mimeType>application/pdf</ns1:mimeType>
 \t\t</ns1:file>
 \t</ns1:files>
 \t<ns1:documentKind/>
@@ -74,7 +74,7 @@ snapshots["test_get_documents[True-2] 1"] = [
 \t<ns1:files>
 \t\t<ns1:file>
 \t\t\t<ns1:pathFileName>http://camac-ng.local/api/v1/attachments/files/?attachments=2</ns1:pathFileName>
-\t\t\t<ns1:mimeType>text/vcard</ns1:mimeType>
+\t\t\t<ns1:mimeType>application/pdf</ns1:mimeType>
 \t\t</ns1:file>
 \t</ns1:files>
 \t<ns1:documentKind/>
@@ -111,7 +111,7 @@ snapshots["test_get_documents[False-1] 1"] = [
 \t<ns1:files>
 \t\t<ns1:file>
 \t\t\t<ns1:pathFileName>http://camac-ng.local/api/v1/attachments/files/?attachments=1</ns1:pathFileName>
-\t\t\t<ns1:mimeType>message/partial</ns1:mimeType>
+\t\t\t<ns1:mimeType>application/pdf</ns1:mimeType>
 \t\t</ns1:file>
 \t</ns1:files>
 \t<ns1:documentKind/>
@@ -130,7 +130,7 @@ snapshots["test_get_documents[False-2] 1"] = [
 \t<ns1:files>
 \t\t<ns1:file>
 \t\t\t<ns1:pathFileName>http://camac-ng.local/api/v1/attachments/files/?attachments=1</ns1:pathFileName>
-\t\t\t<ns1:mimeType>message/partial</ns1:mimeType>
+\t\t\t<ns1:mimeType>application/pdf</ns1:mimeType>
 \t\t</ns1:file>
 \t</ns1:files>
 \t<ns1:documentKind/>
@@ -146,7 +146,7 @@ snapshots["test_get_documents[False-2] 1"] = [
 \t<ns1:files>
 \t\t<ns1:file>
 \t\t\t<ns1:pathFileName>http://camac-ng.local/api/v1/attachments/files/?attachments=2</ns1:pathFileName>
-\t\t\t<ns1:mimeType>text/vcard</ns1:mimeType>
+\t\t\t<ns1:mimeType>application/pdf</ns1:mimeType>
 \t\t</ns1:file>
 \t</ns1:files>
 \t<ns1:documentKind/>

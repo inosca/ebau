@@ -6,7 +6,9 @@ from camac.constants.kt_bern import ECH_BASE_DELIVERY
 from camac.echbern import formatters
 
 
-def test_generate_delivery(ech_mandatory_answers_einfache_vorabklaerung, ech_instance):
+def test_generate_delivery(
+    ech_mandatory_answers_einfache_vorabklaerung, ech_instance, multilang
+):
     xml_data = formatters.delivery(
         ech_instance,
         ech_mandatory_answers_einfache_vorabklaerung,
