@@ -7,9 +7,12 @@ from rest_framework import status
 from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
     ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
+    DECISION_JUDGEMENT_MAP,
+    DECISIONS_ABGESCHRIEBEN,
     INSTANCE_STATE_DOSSIERPRUEFUNG,
     INSTANCE_STATE_KOORDINATION,
     INSTANCE_STATE_REJECTED,
+    VORABKLAERUNG_DECISIONS_BEWILLIGT_MIT_VORBEHALT,
 )
 from camac.core.models import (
     Answer,
@@ -19,16 +22,19 @@ from camac.core.models import (
     QuestionT,
     QuestionType,
 )
+from camac.echbern.schema.ech_0211_2_0 import CreateFromDocument
 
 from .. import send_handlers, views
 from ..event_handlers import EventHandlerException, StatusNotificationEventHandler
 from ..models import Message
 from ..send_handlers import NoticeKindOfProceedingsSendHandler, NoticeRulingSendHandler
-from .caluma_document_data import baugesuch_data
+from .caluma_document_data import baugesuch_data, vorabklaerung_data
 from .utils import xml_data
 
 
+@pytest.mark.parametrize("is_vorabklaerung", [False, True])
 def test_application_retrieve_full(
+    is_vorabklaerung,
     admin_client,
     mocker,
     ech_instance,
@@ -38,7 +44,10 @@ def test_application_retrieve_full(
     attachment_section,
     multilang,
 ):
-    docx_decision_factory(instance=ech_instance.pk)
+    decision = DECISIONS_ABGESCHRIEBEN
+    if is_vorabklaerung:
+        decision = VORABKLAERUNG_DECISIONS_BEWILLIGT_MIT_VORBEHALT
+    docx_decision_factory(instance=ech_instance.pk, decision=decision)
 
     i = instance_factory()
 
@@ -60,10 +69,23 @@ def test_application_retrieve_full(
 
     url = reverse("application", args=[ech_instance.pk])
 
-    mocker.patch.object(views, "get_document", return_value=baugesuch_data)
+    if is_vorabklaerung:
+        mocker.patch.object(views, "get_document", return_value=vorabklaerung_data)
+    else:
+        mocker.patch.object(views, "get_document", return_value=baugesuch_data)
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
+
+    xml = CreateFromDocument(response.content)
+    assert (
+        xml.eventBaseDelivery.planningPermissionApplicationInformation[0]
+        .planningPermissionApplication.decisionRuling[0]
+        .judgement
+        == DECISION_JUDGEMENT_MAP["vorabklaerung" if is_vorabklaerung else "baugesuch"][
+            decision
+        ]
+    )
 
 
 def test_applications_list(admin_client, admin_user, instance, instance_factory):
