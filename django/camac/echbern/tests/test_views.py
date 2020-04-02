@@ -36,6 +36,7 @@ def test_application_retrieve_full(
     docx_decision_factory,
     attachment,
     attachment_section,
+    multilang,
 ):
     docx_decision_factory(instance=ech_instance.pk)
 
