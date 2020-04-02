@@ -56,6 +56,7 @@ class UserFactory(DjangoModelFactory):
 
 class RoleFactory(DjangoModelFactory):
     name = Faker("name")
+    group_prefix = None
     trans = RelatedFactory("camac.user.factories.RoleTFactory", "role")
 
     class Meta:
@@ -64,6 +65,7 @@ class RoleFactory(DjangoModelFactory):
 
 class RoleTFactory(DjangoModelFactory):
     name = Faker("name")
+    group_prefix = None
     role = SubFactory(RoleFactory)
     language = "de"
 
