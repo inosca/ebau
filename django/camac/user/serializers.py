@@ -130,7 +130,10 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
             "GROUP_RENAME_ON_SERVICE_RENAME", False
         ):
             for group in instance.groups.iterator():
-                new_group_name = f"{group.role.get_name()} {new_name}"
+                group_prefix = group.role.get_trans_attr("group_prefix")
+                if not group_prefix:
+                    group_prefix = group.role.get_name()
+                new_group_name = f"{group_prefix} {new_name}"
                 if settings.APPLICATION.get("IS_MULTILINGUAL", False):
                     group = group.get_trans_obj()
                     if not group:  # pragma: no cover
