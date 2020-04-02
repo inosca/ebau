@@ -1010,3 +1010,87 @@ def test_instance_submit_suggestions(
         list(ProposalActivation.objects.values_list("service_id", flat=True))
         == expected_services
     )
+
+
+@pytest.mark.parametrize("service_group__name", ["municipality"])
+def test_rejection(
+    db,
+    admin_client,
+    instance_state_factory,
+    form,
+    service,
+    service_group,
+    use_caluma_form,
+    mock_nfd_permissions,
+    caluma_forms,
+    mock_generate_and_store_pdf,
+    application_settings,
+    ech_mandatory_answers_einfache_vorabklaerung,
+    mocker,
+    submit_date_question,
+):
+    application_settings["NOTIFICATIONS"]["SUBMIT"] = []
+
+    new_state = instance_state_factory(name="new")
+    subm_state = instance_state_factory(name="subm")
+    rejected_state = instance_state_factory(name="rejected")
+    finished_state = instance_state_factory(name="finished")
+
+    create_response = admin_client.post(
+        reverse("instance-list"),
+        {"data": {"type": "instances", "attributes": {"caluma-form": "main-form"}}},
+    )
+
+    assert (
+        create_response.status_code == status.HTTP_201_CREATED
+    ), create_response.content
+
+    source_instance_id = int(create_response.json()["data"]["id"])
+    source_instance = Instance.objects.get(pk=source_instance_id)
+    source_instance.instance_state = rejected_state
+    source_instance.save()
+
+    copy_response = admin_client.post(
+        reverse("instance-list"),
+        {
+            "data": {
+                "type": "instances",
+                "attributes": {
+                    "copy-source": str(source_instance_id),
+                    "is-modification": False,
+                },
+            }
+        },
+    )
+
+    assert copy_response.status_code == status.HTTP_201_CREATED, copy_response.content
+
+    new_instance_id = int(copy_response.json()["data"]["id"])
+    new_instance = Instance.objects.get(pk=new_instance_id)
+
+    assert new_instance.instance_state == new_state
+
+    document = caluma_form_models.Document.objects.get(
+        form_id="main-form", meta={"camac-instance-id": new_instance.pk}
+    )
+    caluma_form_models.Answer.objects.create(
+        document=document, value=str(service.pk), question_id="gemeinde"
+    )
+    mocker.patch.object(
+        DocumentParser,
+        "parse_answers",
+        return_value=ech_mandatory_answers_einfache_vorabklaerung,
+    )
+    mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
+
+    submit_response = admin_client.post(
+        reverse("instance-submit", args=[new_instance.pk])
+    )
+
+    assert submit_response.status_code == status.HTTP_200_OK
+
+    new_instance.refresh_from_db()
+    source_instance.refresh_from_db()
+
+    assert new_instance.instance_state == subm_state
+    assert source_instance.instance_state == finished_state

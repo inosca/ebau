@@ -118456,7 +118456,7 @@
   {
     "fields": {
       "description": null,
-      "name": null,
+      "name": "archived",
       "sort": 27
     },
     "model": "instance.instancestate",
@@ -118465,7 +118465,7 @@
   {
     "fields": {
       "description": null,
-      "name": null,
+      "name": "evaluated",
       "sort": 16
     },
     "model": "instance.instancestate",
@@ -118501,7 +118501,7 @@
   {
     "fields": {
       "description": null,
-      "name": null,
+      "name": "finished",
       "sort": 28
     },
     "model": "instance.instancestate",
