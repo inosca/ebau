@@ -247,6 +247,9 @@ class Role(core_models.MultilingualModel, models.Model):
         null=True,
     )
     name = models.CharField(db_column="NAME", max_length=100, blank=True, null=True)
+    group_prefix = models.CharField(
+        db_column="GROUP_PREFIX", max_length=100, blank=True, null=True
+    )
 
     class Meta:
         managed = True
@@ -259,6 +262,9 @@ class RoleT(models.Model):
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     name = models.CharField(db_column="NAME", max_length=100, blank=True, null=True)
+    group_prefix = models.CharField(
+        db_column="GROUP_PREFIX", max_length=100, blank=True, null=True
+    )
 
     class Meta:
         managed = True

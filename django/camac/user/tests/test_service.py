@@ -20,13 +20,28 @@ def test_service_list(admin_client, service, size):
 
 
 @pytest.mark.parametrize(
-    "role__name,role_t__name,status_code",
+    "role__name,role_t__name,role__group_prefix,role_t__group_prefix,status_code",
     [
-        ("Applicant", "Applicant", status.HTTP_404_NOT_FOUND),
-        ("Municipality", "Municipality", status.HTTP_403_FORBIDDEN),
+        ("Applicant", "Applicant", None, None, status.HTTP_404_NOT_FOUND),
+        (
+            "Municipality",
+            "Municipality",
+            "Leitung",
+            "Leitung",
+            status.HTTP_403_FORBIDDEN,
+        ),
         (
             "Administration Leitbehörde",
             "Administration Leitbehörde",
+            None,
+            None,
+            status.HTTP_200_OK,
+        ),
+        (
+            "Administration Leitbehörde",
+            "Administration Leitbehörde",
+            "Administration",
+            "Administration",
             status.HTTP_200_OK,
         ),
     ],
@@ -79,7 +94,10 @@ def test_service_update(
     if status_code == status.HTTP_200_OK:
         service.refresh_from_db()
         assert service.get_name() == "new service name"
-        assert service.groups.first().get_name() == f"{role_t.name} new service name"
+        assert (
+            service.groups.first().get_name()
+            == f"{role_t.group_prefix if role_t.group_prefix else role_t.name} new service name"
+        )
         if multilang:
             service_t.refresh_from_db()
             assert service_t.description == service_t.name == "new service name"
