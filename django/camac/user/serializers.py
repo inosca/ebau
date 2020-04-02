@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AnonymousUser
 from rest_framework_json_api import relations, serializers
 
-from camac.core.serializers import MultilingualSerializer
+from camac.core.serializers import MultilingualField, MultilingualSerializer
 
 from . import models
 
@@ -89,15 +89,69 @@ class LocationSerializer(serializers.ModelSerializer):
 
 
 class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
-    city = serializers.SerializerMethodField()
+    city = MultilingualField()
+    description = MultilingualField()
 
-    def get_city(self, obj):
-        return obj.get_trans_attr("city")
+    def update(self, instance, validated_data):
+        old_name = instance.get_name()
+        new_name = validated_data.get("name", old_name)
+
+        old_description = instance.get_trans_attr("description")
+        new_description = validated_data.get("description", old_description)
+
+        old_city = instance.get_trans_attr("city")
+        new_city = validated_data.get("city", old_city)
+
+        if settings.APPLICATION.get("IS_MULTILINGUAL", False):
+            validated_data.pop("name", None)
+            validated_data.pop("description", None)
+            validated_data.pop("city", None)
+
+        instance = super().update(instance, validated_data)
+
+        if all(
+            (
+                old_name == new_name,
+                old_description == new_description,
+                old_city == new_city,
+            )
+        ):  # pragma: no cover
+            return instance
+
+        if settings.APPLICATION.get("IS_MULTILINGUAL", False):
+            service_t = instance.get_trans_obj()
+            if service_t:
+                service_t.name = new_name
+                service_t.description = new_description
+                service_t.city = new_city
+                service_t.save()
+
+        if old_name != new_name and settings.APPLICATION.get(
+            "GROUP_RENAME_ON_SERVICE_RENAME", False
+        ):
+            for group in instance.groups.iterator():
+                new_group_name = f"{group.role.get_name()} {new_name}"
+                if settings.APPLICATION.get("IS_MULTILINGUAL", False):
+                    group = group.get_trans_obj()
+                    if not group:  # pragma: no cover
+                        continue
+                group.name = new_group_name
+                group.save()
+
+        return instance
 
     class Meta:
         model = models.Service
-        fields = ("name", "email", "notification", "zip", "city", "address", "phone")
-        read_only_fields = ("name", "zip", "city", "address", "phone")
+        fields = (
+            "name",
+            "description",
+            "email",
+            "notification",
+            "zip",
+            "city",
+            "address",
+            "phone",
+        )
 
 
 class GroupSerializer(MultilingualSerializer, serializers.ModelSerializer):
