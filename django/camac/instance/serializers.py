@@ -746,6 +746,29 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
         ProposalActivation.objects.bulk_create(proposals)
 
+    def _update_rejected_instance(self, instance):
+        caluma_api = CalumaApi()
+
+        source_meta = caluma_api.get_source_document_value(
+            caluma_api.get_main_document(instance), "meta"
+        )
+        source_instance = (
+            models.Instance.objects.get(pk=source_meta.get("camac-instance-id", None))
+            if source_meta
+            else None
+        )
+
+        if (
+            source_instance
+            and source_instance.instance_state.name == "rejected"
+            and not caluma_api.is_modification(instance)
+        ):
+            source_instance.previous_instance_state = source_instance.instance_state
+            source_instance.instance_state = models.InstanceState.objects.get(
+                name="finished"
+            )
+            source_instance.save()
+
     @transaction.atomic
     def update(self, instance, validated_data):
         request_logger.info(f"Submitting instance {instance.pk}")
@@ -767,6 +790,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         self._set_submit_date(validated_data)
         self._create_journal_entry(get_translations(gettext_noop("Dossier submitted")))
         self._create_answer_proposals(instance)
+        self._update_rejected_instance(instance)
 
         copy_table_answer(
             instance,
