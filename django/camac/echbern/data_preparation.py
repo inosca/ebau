@@ -85,7 +85,10 @@ class DocumentParser:
         main_slugs = [slug for slug, _ in self.slugs_table["top"]] + [
             key for key in self.slugs_table if not key == "top"
         ]
-        self.answers = {"ech-subject": document.form.name["de"]}
+        self.answers = {
+            "ech-subject": document.form.name["de"],
+            "caluma-form-slug": document.form.slug,
+        }
         self.answers.update(self.parse_answers(self.document, main_slugs))
 
     def handle_string_values(self, value):
