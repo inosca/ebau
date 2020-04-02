@@ -17512,21 +17512,21 @@
   },
   {
     "fields": {
-      "label": "Versand Baubewilligung per Post"
+      "label": "Versand Entscheiddokumente per Post"
     },
     "model": "core.buildingauthoritybutton",
     "pk": 12
   },
   {
     "fields": {
-      "label": "Versand Baubewilligung per Portal"
+      "label": "Versand Entscheiddokumente per Portal"
     },
     "model": "core.buildingauthoritybutton",
     "pk": 13
   },
   {
     "fields": {
-      "label": "Versand Baubewilligung per Mail"
+      "label": "Versand Entscheiddokumente per Mail"
     },
     "model": "core.buildingauthoritybutton",
     "pk": 14
@@ -47888,6 +47888,15 @@
   },
   {
     "fields": {
+      "attachment_section": 62,
+      "mode": "read",
+      "role": 6
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 326
+  },
+  {
+    "fields": {
       "attachment_section": 1,
       "mode": "write",
       "service": 88
@@ -52348,6 +52357,22 @@
   },
   {
     "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Inventar Historische Verkehrswege IVS",
+      "phone": null,
+      "role": 1081,
+      "service": null,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 1066
+  },
+  {
+    "fields": {
       "group": 22,
       "location": 1
     },
@@ -54653,7 +54678,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 87,
+      "sort": 10,
       "website": "",
       "zip": ""
     },
@@ -54672,7 +54697,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 90,
+      "sort": 13,
       "website": "",
       "zip": ""
     },
@@ -54691,7 +54716,7 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 92,
+      "sort": 14,
       "website": null,
       "zip": null
     },
@@ -54710,7 +54735,7 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 95,
+      "sort": 15,
       "website": null,
       "zip": null
     },
@@ -54729,7 +54754,7 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 97,
+      "sort": 17,
       "website": null,
       "zip": null
     },
@@ -54938,7 +54963,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 101,
+      "sort": 19,
       "website": "",
       "zip": ""
     },
@@ -55204,7 +55229,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 79,
+      "sort": 8,
       "website": "",
       "zip": ""
     },
@@ -55223,7 +55248,7 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 85,
+      "sort": 9,
       "website": null,
       "zip": null
     },
@@ -55242,7 +55267,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 73,
+      "sort": 6,
       "website": "",
       "zip": ""
     },
@@ -55261,7 +55286,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 75,
+      "sort": 7,
       "website": "",
       "zip": ""
     },
@@ -55907,7 +55932,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 67,
+      "sort": 3,
       "website": "",
       "zip": ""
     },
@@ -55926,7 +55951,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 62,
+      "sort": 2,
       "website": "",
       "zip": ""
     },
@@ -56401,7 +56426,7 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 48,
+      "sort": 1,
       "website": null,
       "zip": null
     },
@@ -56648,7 +56673,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 45,
+      "sort": 0,
       "website": "",
       "zip": ""
     },
@@ -56762,7 +56787,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 68,
+      "sort": 5,
       "website": "",
       "zip": ""
     },
@@ -56990,7 +57015,7 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 96,
+      "sort": 16,
       "website": null,
       "zip": null
     },
@@ -57009,7 +57034,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 88,
+      "sort": 11,
       "website": "",
       "zip": ""
     },
@@ -57028,7 +57053,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 89,
+      "sort": 12,
       "website": "",
       "zip": ""
     },
@@ -57123,7 +57148,7 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 98,
+      "sort": 18,
       "website": null,
       "zip": null
     },
@@ -57927,6 +57952,25 @@
     },
     "model": "user.service",
     "pk": 631
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "description": "IVS",
+      "disabled": 0,
+      "email": null,
+      "name": "Inventar Historische Verkehrswege IVS (Dossierzuweisung via Fachstelle)",
+      "notification": 1,
+      "phone": null,
+      "service_group": 21,
+      "service_parent": null,
+      "sort": 4,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.service",
+    "pk": 632
   },
   {
     "fields": {
