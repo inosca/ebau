@@ -131,4 +131,26 @@ module("Unit | Ability | instance", function(hooks) {
     assert.notOk(ability.canCreatePaper);
     assert.ok(ability.canCreate);
   });
+
+  test("it computes delete permissions", function(assert) {
+    assert.expect(2);
+
+    const ability = this.owner.lookup("ability:instance");
+
+    ability.set("model", {
+      instanceState: {
+        id: 1
+      }
+    });
+
+    assert.ok(ability.canDelete);
+
+    ability.set("model", {
+      instanceState: {
+        id: 10000
+      }
+    });
+
+    assert.notOk(ability.canDelete);
+  });
 });

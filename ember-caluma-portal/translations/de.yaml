@@ -10,6 +10,7 @@ global:
   cancel: "Abbrechen"
   back: "Zurück"
   save: "Speichern"
+  ok: "Ok"
 
 nav:
   form: "Formular"
@@ -165,6 +166,11 @@ instances:
   processingOfFormSb1Text: "Hier kann die Selbstdeklaration 1 weiter bearbeitet und eingereicht werden."
   processingOfFormSb2: "Selbstdeklaration 2 weiterbearbeiten"
   processingOfFormSb2Text: "Hier kann die Selbstdeklaration 2 weiter bearbeitet und eingereicht werden."
+  deleteInstance: "Dossier löschen"
+  deleteInstanceText: "Wenn Sie das Gesuch nicht mehr benötigen, können Sie es hier löschen."
+  deleteInstanceModal: "Sind Sie sicher, dass Sie das Dossier löschen möchten?"
+  deleteInstanceError: "Das Dossier konnte nicht gelöscht werden"
+  deleteInstanceSuccess: "Das Dossier wurde erfolgreich gelöscht"
 
 
   modificationTitle: "Neue Projektänderung"

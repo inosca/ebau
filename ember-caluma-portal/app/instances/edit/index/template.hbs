@@ -115,6 +115,16 @@
     <h4>{{t "instances.activateFurtherPersons"}}</h4>
     <p>{{t "instances.activateFurtherPersonsText"}}</p>
     <LinkTo @route="instances.edit.applicants" class="uk-button uk-button-default">{{t "instances.managePermissions"}}</LinkTo>
+
+    {{#if (can "delete instance" this.instance)}}
+      <h4>{{t "instances.deleteInstance"}}</h4>
+      <p>{{t "instances.deleteInstanceText"}}</p>
+      <UkButton
+        @on-click={{perform this.deleteInstance this.instance}}
+        @disabled={{this.deleteInstance.isRunning}}
+        @loading={{this.deleteInstance.isRunning}}
+      >{{t "instances.deleteInstance"}}</UkButton>
+    {{/if}}
   </div>
 </div>
 
