@@ -186,6 +186,12 @@ class CalumaApi:
     def get_circulation_proposals(self, instance):
         # [(question_id, option, suggested service), ... ]
         suggestions = settings.APPLICATION.get("SUGGESTIONS", [])
+        if not suggestions:  # pragma: no cover
+            return set()
+
+        suggestion_map = {
+            (q_slug, answer): services for q_slug, answer, services in suggestions
+        }
 
         document = self._get_main_document(instance)
         answers = caluma_form_models.Answer.objects.filter(
@@ -201,37 +207,25 @@ class CalumaApi:
             ],
             Q(pk=None),
         )
-        suggestion_map = {
-            (q_slug, answer): services for q_slug, answer, services in suggestions
+        answers = answers.filter(_filter)
+
+        suggestions_out = {
+            service
+            for ans in answers.filter(
+                question__type=caluma_form_models.Question.TYPE_MULTIPLE_CHOICE
+            )
+            for choice in ans.value
+            for service in suggestion_map.get((ans.question_id, choice), [])
         }
-        if not suggestion_map:
-            return set()
-
-        suggestions_out = set()
-        for ans in answers.filter(_filter):
-            # skip empty config
-            # if not suggestion_map or (ans.question_id, ans.value) not in suggestion_map:
-            #     continue
-
-            # look up multiple choice answers separately
-            if ans.question.type == caluma_form_models.Question.TYPE_MULTIPLE_CHOICE:
-                suggestions_out.update(
-                    {
-                        service
-                        for choice in ans.value
-                        for service in suggestion_map.get((ans.question_id, choice), [])
-                    }
+        suggestions_out.update(
+            {
+                service
+                for ans in answers.exclude(
+                    question__type=caluma_form_models.Question.TYPE_MULTIPLE_CHOICE
                 )
-            else:
-                suggestions_out.update(
-                    {
-                        service
-                        for service in suggestion_map.get(
-                            (ans.question_id, ans.value), []
-                        )
-                    }
-                )
-
+                for service in suggestion_map.get((ans.question_id, ans.value), [])
+            }
+        )
         return suggestions_out
 
 
