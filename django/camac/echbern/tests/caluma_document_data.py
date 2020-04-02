@@ -1,5 +1,6 @@
 baugesuch_data = {
     "anzahl-abstellplaetze-fur-motorfahrzeuge": 23,
+    "caluma-form-slug": "baugesuch-generell",
     "baukosten-in-chf": 232323,
     "bemerkungen": "Foo bar",
     "beschreibung-bauvorhaben": "Beschreibung&#10;Mehr Beschreibung",
@@ -45,6 +46,7 @@ baugesuch_data = {
 
 vorabklaerung_data = {
     "anfrage-zur-vorabklaerung": "lorem ipsum",
+    "caluma-form-slug": "vorabklaerung-einfach",
     "e-grid-nr": "23",
     "ech-subject": "Einfache Vorabklärung",
     "gemeinde": "2",
