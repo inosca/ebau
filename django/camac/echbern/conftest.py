@@ -1,11 +1,14 @@
 import pytest
 from caluma.caluma_form import models as caluma_form_models
 
+from camac.constants.kt_bern import QUESTION_EBAU_NR
 from camac.echbern.data_preparation import slugs_baugesuch, slugs_vorabklaerung_einfach
 
 
 @pytest.fixture
-def ech_instance(db, admin_user, instance_service_factory, service_t_factory):
+def ech_instance(
+    db, admin_user, instance_service_factory, service_t_factory, camac_answer_factory
+):
     inst_serv = instance_service_factory(
         instance__user=admin_user,
         instance__pk=2323,
@@ -24,6 +27,9 @@ def ech_instance(db, admin_user, instance_service_factory, service_t_factory):
         language="de",
         name="Leitbehörde Burgdorf",
         city="Burgdorf",
+    )
+    camac_answer_factory(
+        instance=inst_serv.instance, question__pk=QUESTION_EBAU_NR, answer="2020-1"
     )
     return inst_serv.instance
 
