@@ -54368,6 +54368,7 @@
   {
     "fields": {
       "name": "Admin",
+      "group_prefix": null,
       "role_parent": null
     },
     "model": "user.role",
@@ -54376,6 +54377,7 @@
   {
     "fields": {
       "name": "Guest",
+      "group_prefix": null,
       "role_parent": null
     },
     "model": "user.role",
@@ -54384,6 +54386,7 @@
   {
     "fields": {
       "name": "Koordinationsstelle Baugesuche BG",
+      "group_prefix": null,
       "role_parent": null
     },
     "model": "user.role",
@@ -54392,6 +54395,7 @@
   {
     "fields": {
       "name": "Vernehmlassungsstelle mit Koordinationsaufgaben",
+      "group_prefix": null,
       "role_parent": null
     },
     "model": "user.role",
@@ -54400,6 +54404,7 @@
   {
     "fields": {
       "name": "Architect",
+      "group_prefix": null,
       "role_parent": null
     },
     "model": "user.role",
@@ -54408,6 +54413,7 @@
   {
     "fields": {
       "name": "Sekretariat der Gemeindebaubeh\u00f6rde",
+      "group_prefix": null,
       "role_parent": null
     },
     "model": "user.role",
@@ -54416,6 +54422,7 @@
   {
     "fields": {
       "name": "Mitglied der Gemeindebaubeh\u00f6rde",
+      "group_prefix": null,
       "role_parent": null
     },
     "model": "user.role",
@@ -54424,6 +54431,7 @@
   {
     "fields": {
       "name": "Vernehmlassungsstelle ohne Koordinationsaufgaben",
+      "group_prefix": null,
       "role_parent": null
     },
     "model": "user.role",
@@ -54432,6 +54440,7 @@
   {
     "fields": {
       "name": "Koordinationsstelle Nutzungsplanung NP",
+      "group_prefix": null,
       "role_parent": null
     },
     "model": "user.role",
@@ -54440,6 +54449,7 @@
   {
     "fields": {
       "name": "Mitglied einer Kommission oder Fachgruppe",
+      "group_prefix": null,
       "role_parent": null
     },
     "model": "user.role",
@@ -54448,6 +54458,7 @@
   {
     "fields": {
       "name": "Koordinationsstelle Baudirektion BD",
+      "group_prefix": null,
       "role_parent": null
     },
     "model": "user.role",
@@ -54456,6 +54467,7 @@
   {
     "fields": {
       "name": "Gemeinde als Vernehmlassungsstelle",
+      "group_prefix": null,
       "role_parent": null
     },
     "model": "user.role",
@@ -54464,6 +54476,7 @@
   {
     "fields": {
       "name": "Portal User",
+      "group_prefix": null,
       "role_parent": null
     },
     "model": "user.role",
@@ -54472,6 +54485,7 @@
   {
     "fields": {
       "name": "Vernehmlassungsstelle Gemeindezirkulation",
+      "group_prefix": null,
       "role_parent": null
     },
     "model": "user.role",
@@ -54480,6 +54494,7 @@
   {
     "fields": {
       "name": "Organisation mit Leseberechtigung",
+      "group_prefix": null,
       "role_parent": null
     },
     "model": "user.role",
@@ -54488,6 +54503,7 @@
   {
     "fields": {
       "name": "Koordinationsstelle Umweltschutz AfU",
+      "group_prefix": null,
       "role_parent": null
     },
     "model": "user.role",
@@ -54496,6 +54512,7 @@
   {
     "fields": {
       "name": "Koordinationsstelle Landwirtschaft ALA",
+      "group_prefix": null,
       "role_parent": null
     },
     "model": "user.role",
@@ -54504,6 +54521,7 @@
   {
     "fields": {
       "name": "Koordinationsstelle Energie AfE",
+      "group_prefix": null,
       "role_parent": null
     },
     "model": "user.role",
@@ -54512,6 +54530,7 @@
   {
     "fields": {
       "name": "Koordinationsstelle Forst und Jagd AFJ",
+      "group_prefix": null,
       "role_parent": null
     },
     "model": "user.role",
@@ -54520,6 +54539,7 @@
   {
     "fields": {
       "name": "Koordinationsstelle Sicherheitsdirektion SD",
+      "group_prefix": null,
       "role_parent": null
     },
     "model": "user.role",
@@ -54528,6 +54548,7 @@
   {
     "fields": {
       "name": "Bundesstelle",
+      "group_prefix": null,
       "role_parent": null
     },
     "model": "user.role",
