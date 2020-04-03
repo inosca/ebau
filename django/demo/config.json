@@ -878,6 +878,7 @@
   {
     "fields": {
       "name": "Admin",
+      "group_prefix": null,
       "role_parent": null
     },
     "model": "user.role",
@@ -886,6 +887,7 @@
   {
     "fields": {
       "name": "Guest",
+      "group_prefix": null,
       "role_parent": null
     },
     "model": "user.role",
