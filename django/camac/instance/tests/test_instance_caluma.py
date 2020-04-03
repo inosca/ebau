@@ -8,7 +8,8 @@ from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
-from camac.core.models import Chapter, Question, QuestionType
+from camac.constants import kt_bern as constants
+from camac.core.models import Chapter, ProposalActivation, Question, QuestionType
 from camac.echbern import event_handlers
 from camac.echbern.data_preparation import DocumentParser
 from camac.echbern.tests.caluma_document_data import baugesuch_data
@@ -67,6 +68,26 @@ def caluma_forms(settings):
                 question=question, option=option
             )
 
+    # some question for suggestions
+    question = caluma_form_models.Question.objects.create(
+        slug="baubeschrieb", type=caluma_form_models.Question.TYPE_MULTIPLE_CHOICE
+    )
+    caluma_form_models.QuestionOption.objects.create(
+        question=question,
+        option=caluma_form_models.Option.objects.create(
+            slug=f"baubeschrieb-erweiterung-anbau", label="Erweiterung Anbau"
+        ),
+    )
+    caluma_form_models.QuestionOption.objects.create(
+        question=question,
+        option=caluma_form_models.Option.objects.create(
+            slug=f"baubeschrieb-um-ausbau", label="Um- oder Ausbau"
+        ),
+    )
+    question = caluma_form_models.Question.objects.create(
+        slug="art-versickerung-dach", type=caluma_form_models.Question.TYPE_TEXT
+    )
+
     # sb1 and sb2
     applicant_table = caluma_form_models.Form.objects.create(slug="personalien-tabelle")
     caluma_form_models.Question.objects.create(
@@ -97,6 +118,9 @@ def caluma_forms(settings):
     )
     caluma_form_models.FormQuestion.objects.create(
         form_id="main-form", question_id="papierdossier"
+    )
+    caluma_form_models.FormQuestion.objects.create(
+        form_id="main-form", question_id="baubeschrieb"
     )
     caluma_form_models.FormQuestion.objects.create(
         form_id="sb1", question_id="papierdossier"
@@ -853,3 +877,136 @@ def test_instance_delete(
         attachment.refresh_from_db()
 
     assert not path.is_file()
+
+
+@pytest.mark.parametrize("service_group__name", ["municipality"])
+@pytest.mark.parametrize("instance_state__name", ["new"])
+@pytest.mark.parametrize(
+    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+)
+@pytest.mark.parametrize("new_instance_state_name", ["subm"])
+@pytest.mark.parametrize(
+    "sugg_config,sugg_answer_values,expected_services",
+    [
+        ([], [], []),
+        (
+            [("non-existing-question", "foo", [0])],
+            [("baubeschrieb", ["baubeschrieb-erweiterung-anbau"])],
+            [],
+        ),
+        (
+            [("baubeschrieb", "baubeschrieb-erweiterung-anbau", [1234])],
+            [("baubeschrieb", ["baubeschrieb-um-ausbau"])],
+            [],
+        ),
+        (
+            [
+                ("baubeschrieb", "baubeschrieb-erweiterung-anbau", [1234]),
+                ("baubeschrieb", "baubeschrieb-um-ausbau", [5678]),
+                ("non-existing-question", "foo", [0]),
+            ],
+            [("baubeschrieb", ["baubeschrieb-erweiterung-anbau"])],
+            [1234],
+        ),
+        (
+            [
+                ("baubeschrieb", "baubeschrieb-erweiterung-anbau", [1234]),
+                ("art-versickerung-dach", "oberflaechengewaesser", [5678]),
+            ],
+            [
+                ("baubeschrieb", ["baubeschrieb-erweiterung-anbau"]),
+                ("art-versickerung-dach", "oberflaechengewaesser"),
+            ],
+            [1234, 5678],
+        ),
+        (
+            [
+                ("baubeschrieb", "baubeschrieb-erweiterung-anbau", [1234, 5678]),
+                ("art-versickerung-dach", "some value", [999]),
+                ("non-existing-question", "foo", [0]),
+            ],
+            [
+                (
+                    "baubeschrieb",
+                    ["baubeschrieb-erweiterung-anbau", "baubeschrieb-um-ausbau"],
+                ),
+                ("art-versickerung-dach", "some value"),
+            ],
+            [1234, 5678, 999],
+        ),
+    ],
+)
+def test_instance_submit_suggestions(
+    mocker,
+    admin_client,
+    role,
+    role_factory,
+    group_factory,
+    instance,
+    instance_state_factory,
+    service,
+    service_factory,
+    admin_user,
+    new_instance_state_name,
+    notification_template,
+    submit_date_question,
+    settings,
+    mock_public_status,
+    use_caluma_form,
+    multilang,
+    application_settings,
+    mock_nfd_permissions,
+    mock_generate_and_store_pdf,
+    ech_mandatory_answers_einfache_vorabklaerung,
+    caluma_forms,
+    circulation_state_factory,
+    circulation_type_factory,
+    sugg_config,
+    sugg_answer_values,
+    expected_services,
+):
+    circulation_state_factory(circulation_state_id=constants.CIRCULATION_STATE_WORKING)
+    circulation_type_factory(circulation_type_id=constants.CIRCULATION_TYPE_STANDARD)
+    application_settings["NOTIFICATIONS"]["SUBMIT"] = [
+        {"template_slug": notification_template.slug, "recipient_types": ["applicant"]}
+    ]
+
+    document = caluma_form_models.Document.objects.create(
+        form_id="main-form", meta={"camac-instance-id": instance.pk}
+    )
+    caluma_form_models.Answer.objects.create(
+        document=document, value=str(service.pk), question_id="gemeinde"
+    )
+    caluma_form_models.Document.objects.create(
+        form_id="sb1", meta={"camac-instance-id": instance.pk}
+    )
+
+    if sugg_config:
+        application_settings["SUGGESTIONS"] = sugg_config
+        for config in sugg_config:
+            for service_id in config[2]:
+                service_factory(pk=service_id)
+
+        for ans in sugg_answer_values:
+            caluma_form_models.Answer.objects.create(
+                document=document, question_id=ans[0], value=ans[1]
+            )
+
+    group_factory(role=role_factory(name="support"))
+    mocker.patch.object(
+        DocumentParser,
+        "parse_answers",
+        return_value=ech_mandatory_answers_einfache_vorabklaerung,
+    )
+    instance_state_factory(name=new_instance_state_name)
+
+    mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
+
+    response = admin_client.post(reverse("instance-submit", args=[instance.pk]))
+
+    assert response.status_code == status.HTTP_200_OK
+
+    assert (
+        list(ProposalActivation.objects.values_list("service_id", flat=True))
+        == expected_services
+    )
