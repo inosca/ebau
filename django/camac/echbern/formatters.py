@@ -15,7 +15,6 @@ from camac.constants.kt_bern import (
     CIRCULATION_ANSWER_NEGATIV,
     CIRCULATION_ANSWER_NICHT_BETROFFEN,
     CIRCULATION_ANSWER_POSITIV,
-    DECISIONS_BEWILLIGT,
 )
 from camac.core.models import Answer, DocxDecision, InstanceService
 from camac.instance.models import Instance
@@ -32,6 +31,7 @@ from .schema import (
     ech_0147_t2_1 as ns_nachrichten_t2,
     ech_0211_2_0 as ns_application,
 )
+from .utils import decision_to_judgement
 
 logger = logging.getLogger(__name__)
 
@@ -400,12 +400,7 @@ def application(instance: Instance, answers: dict):
         ),
         # directive  minOccurs=0
         decisionRuling=[
-            ns_application.decisionRulingType(
-                judgement=1 if decision.decision == DECISIONS_BEWILLIGT else 4,
-                date=decision.decision_date,
-                ruling=decision.decision_type,
-                rulingAuthority=authority(instance.active_service),
-            )
+            decision_ruling(instance, decision, answers)
             for decision in DocxDecision.objects.filter(instance=instance.pk)
         ],
         document=get_documents(instance.attachments.all()),
@@ -415,6 +410,15 @@ def application(instance: Instance, answers: dict):
         planningPermissionApplicationIdentification=permission_application_identification(
             instance
         ),
+    )
+
+
+def decision_ruling(instance, decision, answers):
+    return ns_application.decisionRulingType(
+        judgement=decision_to_judgement(decision.decision, answers["caluma-form-slug"]),
+        date=decision.decision_date,
+        ruling=decision.decision_type,
+        rulingAuthority=authority(instance.active_service),
     )
 
 
