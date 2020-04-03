@@ -45934,7 +45934,7 @@
       "different_color": 0,
       "is_building_authority": 1,
       "is_workflow": 1,
-      "name": "Versand Baubewilligung per Post",
+      "name": "Versand Entscheiddokumente per Post",
       "position": 17,
       "workflow_section": 3
     },
@@ -46051,7 +46051,7 @@
       "different_color": 0,
       "is_building_authority": 1,
       "is_workflow": 1,
-      "name": "Versand Baubewilligung per Portal",
+      "name": "Versand Entscheiddokumente per Portal",
       "position": 18,
       "workflow_section": 3
     },
@@ -46064,7 +46064,7 @@
       "different_color": 0,
       "is_building_authority": 1,
       "is_workflow": 1,
-      "name": "Versand Baubewilligung per Mail",
+      "name": "Versand Entscheiddokumente per Mail",
       "position": 19,
       "workflow_section": 3
     },
@@ -46077,7 +46077,7 @@
       "different_color": 0,
       "is_building_authority": 0,
       "is_workflow": 1,
-      "name": "Empfangsbest\u00e4tigung Baubewilligung",
+      "name": "Empfangsbest\u00e4tigung Entscheiddokumente",
       "position": 51,
       "workflow_section": 1
     },
