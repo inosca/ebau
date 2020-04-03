@@ -15668,34 +15668,6 @@
   },
   {
     "fields": {
-      "created_at": "2019-03-15T13:23:59.669Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "is_archived": false,
-      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\"}",
-      "meta": {},
-      "modified_at": "2019-03-28T08:35:54.405Z",
-      "source": null
-    },
-    "model": "caluma_form.option",
-    "pk": "gefahrliche-stoffe-ja"
-  },
-  {
-    "fields": {
-      "created_at": "2019-03-15T13:23:59.684Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "is_archived": false,
-      "label": "{\"de\": \"Nein\", \"fr\": \"Non\"}",
-      "meta": {},
-      "modified_at": "2019-03-28T08:35:54.406Z",
-      "source": null
-    },
-    "model": "caluma_form.option",
-    "pk": "gefahrliche-stoffe-nein"
-  },
-  {
-    "fields": {
       "created_at": "2019-11-06T07:22:06.302Z",
       "created_by_group": null,
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -17275,20 +17247,6 @@
     },
     "model": "caluma_form.option",
     "pk": "lagergut--"
-  },
-  {
-    "fields": {
-      "created_at": "2019-03-28T09:49:51.729Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "is_archived": false,
-      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\"}",
-      "meta": {},
-      "modified_at": "2019-03-28T09:49:51.729Z",
-      "source": null
-    },
-    "model": "caluma_form.option",
-    "pk": "landwirtschaftliches-bauvorhaben-mit-ableitung-ja"
   },
   {
     "fields": {
@@ -31781,31 +31739,6 @@
   {
     "fields": {
       "configuration": {},
-      "created_at": "2019-03-15T13:23:59.864Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "data_source": null,
-      "format_validators": "[]",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "is_archived": false,
-      "is_hidden": "!('nutzungsart-industrie' in 'nutzungsart'|answer || 'nutzungsart-gewerbe' in 'nutzungsart'|answer || 'nutzungsart-gastgewerbe' in 'nutzungsart'|answer || 'nutzungsart-lager' in 'nutzungsart'|answer)",
-      "is_required": "!('vorabklaerung' in form || 'papierdossier'|answer == 'papierdossier-ja')",
-      "label": "{\"de\": \"Werden nach der Bauabnahme gesundheitssch\\u00e4dliche, giftige, brandgef\\u00e4hrliche oder explosive Stoffe gelagert oder verwendet?\", \"fr\": \"Des substances nocives, toxiques, inflammables ou explosives seront-elles entrepos\\u00e9es ou utilis\\u00e9es apr\\u00e8s la r\\u00e9ception des travaux?\"}",
-      "meta": {},
-      "modified_at": "2019-03-28T08:35:54.540Z",
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "row_form": null,
-      "source": null,
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "sub_form": null,
-      "type": "choice"
-    },
-    "model": "caluma_form.question",
-    "pk": "gefahrliche-stoffe"
-  },
-  {
-    "fields": {
-      "configuration": {},
       "created_at": "2019-05-05T12:48:17.169Z",
       "created_by_group": "[]",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -35828,31 +35761,6 @@
     },
     "model": "caluma_form.question",
     "pk": "lagerung-wassergefahrdender-flussigkeiten-titel"
-  },
-  {
-    "fields": {
-      "configuration": {},
-      "created_at": "2019-03-28T09:49:51.860Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "data_source": null,
-      "format_validators": "[]",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "is_archived": false,
-      "is_hidden": "!('nutzungsart-landwirtschaft' in 'nutzungsart'|answer)",
-      "is_required": "!('vorabklaerung' in form || 'papierdossier'|answer == 'papierdossier-ja')",
-      "label": "{\"de\": \"Landwirtschaftliches Bauvorhaben mit Ableitung?\", \"fr\": \"Construction agricole avec d\\u00e9versement dans la fosse \\u00e0 purin\"}",
-      "meta": {},
-      "modified_at": "2019-03-28T09:49:51.860Z",
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "row_form": null,
-      "source": null,
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "sub_form": null,
-      "type": "choice"
-    },
-    "model": "caluma_form.question",
-    "pk": "landwirtschaftliches-bauvorhaben-mit-ableitung"
   },
   {
     "fields": {
