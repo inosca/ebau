@@ -10,6 +10,7 @@ global:
   cancel: "Casser"
   back: "Retour"
   save: "Enregistrer"
+  ok: "Ok"
 
 nav:
   form: "Formulaire"
@@ -164,6 +165,11 @@ instances:
   processingOfFormSb1Text: "La déclaration spontanée 1 peut être modifié et envoyé ici."
   processingOfFormSb2: "Modifier la déclaration spontanée 2"
   processingOfFormSb2Text: "La déclaration spontanée 2 peut être modifié et envoyé ici."
+  deleteInstance: "Supprimer le dossier"
+  deleteInstanceText: "Si vous n'avez plus besoin de la demande, vous pouvez la supprimer ici."
+  deleteInstanceModal: "Êtes-vous sûr de vouloir supprimer le dossier ?"
+  deleteInstanceError: "Le dossier n'a pas pu être supprimé"
+  deleteInstanceSuccess: "Le dossier a été supprimé avec succès"
 
 
   modificationTitle: "Nouveau changement de projet"
