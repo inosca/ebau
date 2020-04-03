@@ -1,0 +1,18 @@
+global:
+  save: "Speichern"
+  loading: "Laden"
+  wait: "Bitte warten"
+
+organisation:
+  edit: "Eigene Organisation bearbeiten"
+
+  name: "Name"
+  phone: "Telefon"
+  zip: "PLZ"
+  city: "Ort"
+  address: "Adresse"
+  email: "Email"
+  website: "Webseite"
+
+  saveSuccess: "Die Organisation wurde gespeichert."
+  saveError: "Die Organisation konnte nicht gespeichert werden."
