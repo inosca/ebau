@@ -41,6 +41,7 @@ from .signals import (
     ruling,
     task_send,
 )
+from .utils import judgement_to_decision
 
 
 class SendHandlerException(Exception):
@@ -140,16 +141,14 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
             3: INSTANCE_STATE_REJECTED,
             4: INSTANCE_STATE_REJECTED,
         }
-        decision = {1: "accepted", 3: "writtenOff", 4: "denied"}
+
         form_slug = CalumaApi().get_form_slug(self.instance)
-        if form_slug.startswith("vorabklaerung"):
-            decision = {1: "positive", 2: "conditionallyPositive", 4: "negative"}
 
         judgement = self.data.eventNotice.decisionRuling.judgement
 
         state_id = status[judgement]
         try:
-            decision = decision[judgement]
+            decision = judgement_to_decision(judgement, form_slug)
         except KeyError:
             raise SendHandlerException(
                 f'"{judgement}" is not a valid judgement for "{form_slug}"'
