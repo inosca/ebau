@@ -11431,19 +11431,6 @@
   },
   {
     "fields": {
-      "created_at": "2019-09-25T10:19:37.926Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "form": "wald",
-      "modified_at": "2019-09-25T10:19:37.926Z",
-      "question": "liegt-die-baute-im-waldabstandsbereich",
-      "sort": 4
-    },
-    "model": "caluma_form.formquestion",
-    "pk": "wald.liegt-die-baute-im-waldabstandsbereich"
-  },
-  {
-    "fields": {
       "created_at": "2019-09-25T10:19:37.408Z",
       "created_by_group": null,
       "created_by_user": null,
@@ -13153,7 +13140,7 @@
       "is_archived": false,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\"}",
       "meta": {},
-      "modified_at": "2020-03-23T15:01:13.324Z",
+      "modified_at": "2020-04-01T06:59:18.474Z",
       "source": null
     },
     "model": "caluma_form.option",
@@ -13167,7 +13154,7 @@
       "is_archived": false,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\"}",
       "meta": {},
-      "modified_at": "2020-03-23T15:01:13.331Z",
+      "modified_at": "2020-04-01T06:59:18.478Z",
       "source": null
     },
     "model": "caluma_form.option",
@@ -15295,7 +15282,7 @@
       "is_archived": false,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\"}",
       "meta": {},
-      "modified_at": "2019-05-03T10:33:21.646Z",
+      "modified_at": "2020-04-01T07:05:43.648Z",
       "source": null
     },
     "model": "caluma_form.option",
@@ -15309,7 +15296,7 @@
       "is_archived": false,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\"}",
       "meta": {},
-      "modified_at": "2019-05-03T10:33:21.655Z",
+      "modified_at": "2020-04-01T07:05:43.649Z",
       "source": null
     },
     "model": "caluma_form.option",
@@ -16255,13 +16242,41 @@
   },
   {
     "fields": {
+      "created_at": "2020-04-01T07:01:08.036Z",
+      "created_by_group": null,
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "is_archived": false,
+      "label": "{\"de\": \"im Wald / in einer Wytweide\", \"fr\": \"en for\\u00eat / en p\\u00e2turage bois\\u00e9\"}",
+      "meta": {},
+      "modified_at": "2020-04-01T07:02:13.799Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "handelt-es-sich-um-eine-baute-im-wald-im-wald"
+  },
+  {
+    "fields": {
+      "created_at": "2020-04-01T07:01:08.038Z",
+      "created_by_group": null,
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "is_archived": false,
+      "label": "{\"de\": \"innerhalb von 30 m Abstand zum Wald / Wytweide\", \"fr\": \"\\u00e0 une distance de moins de 30 m de la for\\u00eat / du p\\u00e2turage bois\\u00e9\"}",
+      "meta": {},
+      "modified_at": "2020-04-01T07:02:13.805Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "handelt-es-sich-um-eine-baute-im-wald-innert-30m"
+  },
+  {
+    "fields": {
       "created_at": "2019-04-08T13:17:01.191Z",
       "created_by_group": null,
       "created_by_user": null,
-      "is_archived": false,
+      "is_archived": true,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\"}",
       "meta": {},
-      "modified_at": "2019-04-25T09:37:29.966Z",
+      "modified_at": "2020-04-01T07:02:13.806Z",
       "source": null
     },
     "model": "caluma_form.option",
@@ -16272,10 +16287,10 @@
       "created_at": "2019-04-08T13:17:01.206Z",
       "created_by_group": null,
       "created_by_user": null,
-      "is_archived": false,
+      "is_archived": true,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\"}",
       "meta": {},
-      "modified_at": "2019-04-25T09:37:29.981Z",
+      "modified_at": "2020-04-01T07:02:13.775Z",
       "source": null
     },
     "model": "caluma_form.option",
@@ -16709,7 +16724,7 @@
       "is_archived": false,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\"}",
       "meta": {},
-      "modified_at": "2019-05-03T10:32:46.817Z",
+      "modified_at": "2020-04-01T07:03:24.518Z",
       "source": null
     },
     "model": "caluma_form.option",
@@ -16723,7 +16738,7 @@
       "is_archived": false,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\"}",
       "meta": {},
-      "modified_at": "2019-05-03T10:32:46.811Z",
+      "modified_at": "2020-04-01T07:03:24.524Z",
       "source": null
     },
     "model": "caluma_form.option",
@@ -17372,34 +17387,6 @@
     },
     "model": "caluma_form.option",
     "pk": "leitungsbau-auf-landwirtschaftlichem-boden-nein"
-  },
-  {
-    "fields": {
-      "created_at": "2019-04-08T13:25:55.919Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "is_archived": false,
-      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\"}",
-      "meta": {},
-      "modified_at": "2019-04-25T09:38:32.100Z",
-      "source": null
-    },
-    "model": "caluma_form.option",
-    "pk": "liegt-die-baute-im-waldabstandsbereich-ja"
-  },
-  {
-    "fields": {
-      "created_at": "2019-04-08T13:25:55.933Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "is_archived": false,
-      "label": "{\"de\": \"Nein\", \"fr\": \"Non\"}",
-      "meta": {},
-      "modified_at": "2019-04-25T09:38:32.103Z",
-      "source": null
-    },
-    "model": "caluma_form.option",
-    "pk": "liegt-die-baute-im-waldabstandsbereich-nein"
   },
   {
     "fields": {
@@ -18165,7 +18152,7 @@
       "is_archived": false,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\"}",
       "meta": {},
-      "modified_at": "2019-05-03T15:17:25.744Z",
+      "modified_at": "2020-04-01T07:04:37.778Z",
       "source": null
     },
     "model": "caluma_form.option",
@@ -18179,7 +18166,7 @@
       "is_archived": false,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\"}",
       "meta": {},
-      "modified_at": "2019-05-03T15:17:25.751Z",
+      "modified_at": "2020-04-01T07:04:37.783Z",
       "source": null
     },
     "model": "caluma_form.option",
@@ -25526,13 +25513,13 @@
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "data_source": null,
       "format_validators": "[]",
-      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "info_text": "{\"de\": \"Im Kanton Bern sind Bauten und Anlagen, welche sich im Wald oder in einer Wytweide sowie in einem Abstand von weniger als 30 m von diesen Fl\\u00e4chen befinden grunds\\u00e4tzlich bewilligungspflichtig (Art. 7 Abs. 2 BewD). Die Ausnahmen von dieser Bewilligungspflicht sind im Art. 34 der Kantonalen Waldverordnung festgehalten. Im Zweifelsfall \\u2013 ob ein Vorhaben waldrechtlich bewilligungspflichtig ist oder nicht - kann die zust\\u00e4ndige Waldabteilung f\\u00fcr eine kostenlose Beratung beigezogen werden.\", \"fr\": \"Dans le canton de Berne, les constructions et installations situ\\u00e9es en for\\u00eat ou en p\\u00e2turage bois\\u00e9 sont soumises \\u00e0 autorisation (art. 7 al. 2 DPC). C\\u2019est aussi le cas si elles sont situ\\u00e9es \\u00e0 une distance de moins de 30 m de la for\\u00eat / du p\\u00e2turage bois\\u00e9. Les exceptions \\u00e0 cette derni\\u00e8re r\\u00e8gle sont \\u00e9num\\u00e9r\\u00e9es \\u00e0 l\\u2019art. 34 OCFo. En cas de doute si la construction est soumise ou non \\u00e0 une autorisation foresti\\u00e8re, pri\\u00e8re de s\\u2019adresser \\u00e0 la division foresti\\u00e8re comp\\u00e9tente. Ce conseil est gratuit.\"}",
       "is_archived": false,
       "is_hidden": "false",
       "is_required": "!('vorabklaerung' in form || 'papierdossier'|answer == 'papierdossier-ja')",
-      "label": "{\"de\": \"Ist der Bau im Wald / Wytweide oder innerhalb von 30 m Abstand zum Wald / Wytweide?\", \"fr\": \"La construction est-elle situ\\u00e9e en for\\u00eat / p\\u00e2turage bois\\u00e9 ou distante de moins de 30 m\\u00e8tres de la for\\u00eat / p\\u00e2turage bois\\u00e9 ?\"}",
+      "label": "{\"de\": \"Befindet sich das Bauvorhaben im Wald / Wytweide oder innerhalb von 30 m Abstand zum Wald / Wytweide?\", \"fr\": \"Le projet de construction est-il situ\\u00e9 en for\\u00eat / en p\\u00e2turage bois\\u00e9 ou distant de moins de 30 m de la for\\u00eat / du p\\u00e2turage bois\\u00e9 ?\"}",
       "meta": {},
-      "modified_at": "2020-03-23T15:01:13.456Z",
+      "modified_at": "2020-04-01T06:59:18.607Z",
       "placeholder": "{\"de\": null, \"fr\": null}",
       "row_form": null,
       "source": null,
@@ -26292,23 +26279,24 @@
   {
     "fields": {
       "configuration": {
-        "max_length": null
+        "max_length": null,
+        "min_length": null
       },
       "created_at": "2019-04-08T13:28:41.417Z",
       "created_by_group": null,
       "created_by_user": null,
       "data_source": null,
       "format_validators": "[]",
-      "info_text": "{\"de\": \"Der Waldabstandbereich stellt den vorgeschriebenen Mindestabstand zum Wald f\\u00fcr Bauten und Anlagen dar. Grunds\\u00e4tzlich gilt der gesetzliche Waldabstand von 30m (Art. 25 KWaG). Davon ausgenommen sind Bauten und Anlagen nach Art. 34 KWaV oder solche, die Wald-Baulinien / Waldabstandslinien aus der kommunalen Nutzungsplanung einhalten. In begr\\u00fcndeten F\\u00e4llen kann die zust\\u00e4ndige Stelle der Volkswirtschaftsdirektion weitere Ausnahmen bewilligen (Art. 26 KWaG). Im Zweifelsfall kann die zust\\u00e4ndige Waldabteilung beigezogen werden. Diese Beratung ist kostenlos.\", \"fr\": null}",
+      "info_text": "{\"de\": \"Hier soll begr\\u00fcndet werden, weshalb das Vorhaben auf seinen Standort angewiesen ist und ob Alternativen gepr\\u00fcft wurden (und weshalb diese verworfen wurden).\", \"fr\": \"Indiquer ici les raisons imp\\u00e9ratives pour lesquelles le projet doit \\u00eatre r\\u00e9alis\\u00e9 \\u00e0 l\\u2019endroit pr\\u00e9vu\\u00a0; des alternatives ont-elles \\u00e9t\\u00e9 examin\\u00e9es\\u00a0? pour quelles raisons n\\u2019ont-elles pas \\u00e9t\\u00e9 retenues\\u00a0?\"}",
       "is_archived": false,
-      "is_hidden": "!(\n  'liegt-die-baute-im-waldabstandsbereich-ja' == 'liegt-die-baute-im-waldabstandsbereich'|answer\n)",
+      "is_hidden": "false",
       "is_required": "!('vorabklaerung' in form || 'papierdossier'|answer == 'papierdossier-ja')",
-      "label": "{\"de\": \"Begr\\u00fcndung, weshalb der gesetzliche Waldabstand unterschritten werden soll\", \"fr\": \"Justification de la n\\u00e9cessit\\u00e9 de d\\u00e9roger \\u00e0 la distance l\\u00e9gale par rapport \\u00e0 la for\\u00eat\"}",
+      "label": "{\"de\": \"Begr\\u00fcndung, weshalb das Bauvorhaben im Wald / Wytweide oder im verringerten Abstand zu Wald / Wytweide errichtet werden soll\", \"fr\": \"Justification pour laquelle le projet de construction doit \\u00eatre r\\u00e9alis\\u00e9 en for\\u00eat / en p\\u00e2turage bois\\u00e9 ou \\u00e0 une distance r\\u00e9duite par rapport \\u00e0 la for\\u00eat / au p\\u00e2turage bois\\u00e9.\"}",
       "meta": {
         "widgetOverride": null
       },
-      "modified_at": "2019-05-03T10:33:50.023Z",
-      "placeholder": "{\"de\": \"\", \"fr\": null}",
+      "modified_at": "2020-04-01T07:08:19.518Z",
+      "placeholder": "{\"de\": \"\", \"fr\": \"\"}",
       "row_form": null,
       "source": null,
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
@@ -29645,15 +29633,15 @@
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "data_source": null,
       "format_validators": "[]",
-      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
       "is_archived": false,
       "is_hidden": "false",
       "is_required": "false",
-      "label": "{\"de\": \"Aufz\\u00e4hlung der Eigent\\u00fcmer/innen, welche im Umkreis von 30 m von der Baute Wald besitzen\", \"fr\": \"Liste des propri\\u00e9taires de for\\u00eat dans un rayon de 30 m autour du b\\u00e2timent\"}",
+      "label": "{\"de\": \"Aufz\\u00e4hlung der Eigent\\u00fcmer/innen, welche im Umkreis von 30 m zum Bauvorhaben Wald oder Wytweide besitzen.\", \"fr\": \"Liste des propri\\u00e9taires de for\\u00eat ou de p\\u00e2turage bois\\u00e9 dans un rayon de 30 m autour du projet de construction.\"}",
       "meta": {
         "widgetOverride": null
       },
-      "modified_at": "2019-05-04T12:56:53.266Z",
+      "modified_at": "2020-04-01T07:09:10.534Z",
       "placeholder": "{\"de\": null, \"fr\": null}",
       "row_form": null,
       "source": null,
@@ -31051,13 +31039,13 @@
       "format_validators": "[]",
       "info_text": "{\"de\": \"Dient das Bauvorhaben einem forstlichen Zweck (Waldstrasse, Holzlagerplatz, Energieholzlager, Forstwerkhof) so stellt es eine forstliche Baute nach Art. 13a WaV dar. \\u00dcbrige Bauten sind als nichtforstliche Kleinbauten oder Rodungen zu beurteilen. Im Zweifelsfall kann die zust\\u00e4ndige Waldabteilung beigezogen werden. Diese Beratung ist kostenlos.\", \"fr\": \"Si l\\u2019ouvrage poursuit un but forestier (route foresti\\u00e8re, place de stockage de bois, stockage de bois-\\u00e9nergie, hangar forestier), l\\u2019ouvrage repr\\u00e9sente une construction foresti\\u00e8re au sens de l\\u2019art. 13a OFo. Tout autre ouvrage est \\u00e0 consid\\u00e9rer comme une petite construction non foresti\\u00e8re ou un d\\u00e9frichement. En cas de doute, pri\\u00e8re de s\\u2019adresser \\u00e0 la division foresti\\u00e8re comp\\u00e9tente. Ce conseil est gratuit.\"}",
       "is_archived": false,
-      "is_hidden": "!(\n  'handelt-es-sich-um-eine-baute-im-wald-ja' == 'handelt-es-sich-um-eine-baute-im-wald'|answer\n)",
+      "is_hidden": "!(\n  'handelt-es-sich-um-eine-baute-im-wald-im-wald' == 'handelt-es-sich-um-eine-baute-im-wald'|answer\n)",
       "is_required": "!('vorabklaerung' in form || 'papierdossier'|answer == 'papierdossier-ja')",
-      "label": "{\"de\": \"Forstliche Baute?\", \"fr\": \"Construction foresti\\u00e8re?\"}",
+      "label": "{\"de\": \"Forstliche Baute?\", \"fr\": \"S\\u2019agit-il d\\u2019une construction ou installation foresti\\u00e8re\\u00a0?\"}",
       "meta": {
         "widgetOverride": null
       },
-      "modified_at": "2019-05-03T10:33:21.853Z",
+      "modified_at": "2020-04-01T07:05:43.772Z",
       "placeholder": "{\"de\": null, \"fr\": null}",
       "row_form": null,
       "source": null,
@@ -32999,15 +32987,15 @@
       "created_by_user": null,
       "data_source": null,
       "format_validators": "[]",
-      "info_text": "{\"de\": \"Ob sich die Baute oder Anlage im Wald befindet l\\u00e4sst sich mit einem Blick in den Grundbuchplan (Amtliche Vermessung) beantworten. In Zweifelsf\\u00e4llen kann die zust\\u00e4ndige Waldabteilung f\\u00fcr eine Feststellung beigezogen werden. Diese informelle Waldfeststellung (ohne schriftliche Verf\\u00fcgung mit Rechtsmitteln) ist kostenlos.\", \"fr\": \"Pour savoir si un ouvrage ou une installation est situ\\u00e9 en for\\u00eat, il suffit de consulter le plan cadastral (mensuration officielle). En cas de doute, la division foresti\\u00e8re comp\\u00e9tente peut \\u00eatre consult\\u00e9e pour proc\\u00e9der \\u00e0 une d\\u00e9termination de l\\u2019aire foresti\\u00e8re. Cette constatation de la nature foresti\\u00e8re informelle (sans ordonnance \\u00e9crite contenant des voies de droit) est gratuite.\"}",
+      "info_text": "{\"de\": \"Ob sich die Baute oder Anlage im Wald, in einer Wytweide oder in der N\\u00e4he befindet l\\u00e4sst sich mit einem Blick in den Grundbuchplan (Amtliche Vermessung) beantworten. In Zweifelsf\\u00e4llen kann die zust\\u00e4ndige Waldabteilung f\\u00fcr eine Feststellung beigezogen werden. Diese informelle Waldfeststellung (ohne schriftliche Verf\\u00fcgung mit Rechtsmitteln) ist kostenlos.\\n\\nDer Waldabstand stellt den vorgeschriebenen Mindestabstand zum Wald / Wytweiden f\\u00fcr Bauten und Anlagen dar. Grunds\\u00e4tzlich gilt der gesetzliche Waldabstand von 30 m (Art. 25 KWaG). Davon ausgenommen sind Bauten und Anlagen nach Art. 34 KWaV oder solche, die Wald-Baulinien / Waldabstandslinien aus der kommunalen Nutzungsplanung einhalten. In begr\\u00fcndeten F\\u00e4llen kann die zust\\u00e4ndige Stelle der Wirtschafts-, Energie- und Umweltdirektion weitere Ausnahmen bewilligen (Art. 26 KWaG). Die zust\\u00e4ndige Waldabteilung kann im Zweifelsfall f\\u00fcr eine kostenlose Beratung beigezogen werden.\", \"fr\": \"Pour savoir si un ouvrage ou une installation est situ\\u00e9 en for\\u00eat, en p\\u00e2turage bois\\u00e9 ou en proximit\\u00e9, il suffit de consulter le plan cadastral (mensuration officielle). En cas de doute, la division foresti\\u00e8re comp\\u00e9tente peut \\u00eatre consult\\u00e9e pour proc\\u00e9der \\u00e0 une constatation de la nature foresti\\u00e8re. Cette constatation \\u00e0 titre informel (sans ordonnance \\u00e9crite contenant des voies de droit) est gratuite.\\n\\nLa distance \\u00e0 la for\\u00eat repr\\u00e9sente la distance minimale l\\u00e9gale \\u00e0 respecter entre la for\\u00eat / le p\\u00e2turage bois\\u00e9 et un ouvrage ou installation. En principe, la distance l\\u00e9gale \\u00e0 la for\\u00eat de 30 m s\\u2019applique (art. 25 OCFo). Les ouvrages / installations selon art. 34 OCFo, ainsi que ceux qui respectent les alignements forestiers des plans d\\u2019affectation communaux, font exception. Dans certains cas, le service comp\\u00e9tent de la Direction de l\\u2019\\u00e9conomie, de l\\u2019\\u00e9nergie et de l\\u2019environnement peut autoriser d\\u2019autres exceptions (art. 26 LCFo). En cas de doute, pri\\u00e8re de s\\u2019adresser \\u00e0 la division foresti\\u00e8re comp\\u00e9tente. Ce conseil est gratuit.\"}",
       "is_archived": false,
       "is_hidden": "false",
       "is_required": "!('vorabklaerung' in form || 'papierdossier'|answer == 'papierdossier-ja')",
-      "label": "{\"de\": \"Handelt es sich um eine Baute im Wald?\", \"fr\": \"S'agit-il d'une construction en for\\u00eat?\"}",
+      "label": "{\"de\": \"Das Bauvorhaben befindet sich\", \"fr\": \"Le projet de construction est situ\\u00e9\"}",
       "meta": {
         "widgetOverride": null
       },
-      "modified_at": "2019-04-25T09:37:30.116Z",
+      "modified_at": "2020-04-01T07:02:14.071Z",
       "placeholder": "{\"de\": null, \"fr\": null}",
       "row_form": null,
       "source": null,
@@ -33976,15 +33964,15 @@
       "created_by_user": null,
       "data_source": null,
       "format_validators": "[]",
-      "info_text": "{\"de\": \"Beansprucht das Bauvorhaben mehr als 70m\\u00b2 Waldboden und stellt es weder eine nichtforstliche Kleinbaute nach Art. 35 KWaV, noch eine forstliche Baute nach Art. 13a WaV dar, so ist ein Rodungsgesuch einzureichen. Dies gilt sowohl f\\u00fcr die tempor\\u00e4re, wie auch f\\u00fcr die definitive Beanspruchung des Bodens. Im Zweifelsfall kann die zust\\u00e4ndige Waldabteilung beigezogen werden. Diese Beratung ist kostenlos.\", \"fr\": \"Si le projet de construction impacte plus de 70 m\\u00b2 de sol forestier et qu\\u2019il ne s\\u2019agit ni d\\u2019une petite construction non foresti\\u00e8re selon art. 35 OCFo, ni d\\u2019une construction foresti\\u00e8re au sens de l\\u2019art. 13a OFo, une demande de d\\u00e9frichement est alors requise. Ceci est valable autant pour un impact temporaire que d\\u00e9finitif. En cas de doute, pri\\u00e8re de s\\u2019adresser \\u00e0 la division foresti\\u00e8re comp\\u00e9tente. Ce conseil est gratuit.\"}",
+      "info_text": "{\"de\": \"Beansprucht das Bauvorhaben mehr als 70m2 Waldboden oder Wytweide und stellt es weder eine nichtforstliche Kleinbaute nach Art. 35 KWaV, noch eine forstliche Baute nach Art. 13a WaV dar, so ist ein Rodungsgesuch einzureichen. Dies gilt sowohl f\\u00fcr die tempor\\u00e4re, wie auch f\\u00fcr die definitive Beanspruchung des Bodens. Im Zweifelsfall kann die zust\\u00e4ndige Waldabteilung beigezogen werden. Diese Beratung ist kostenlos.\", \"fr\": \"Si le projet de construction impacte plus de 70 m2 de sol forestier / de p\\u00e2turage bois\\u00e9 et qu\\u2019il ne s\\u2019agit ni d\\u2019une petite construction non foresti\\u00e8re selon art. 35 OCFo, ni d\\u2019une construction foresti\\u00e8re au sens de l\\u2019art. 13a OFo, une demande de d\\u00e9frichement est alors requise. Ceci est valable autant pour un impact temporaire que d\\u00e9finitif. En cas de doute, pri\\u00e8re de s\\u2019adresser \\u00e0 la division foresti\\u00e8re comp\\u00e9tente. Ce conseil est gratuit.\"}",
       "is_archived": false,
-      "is_hidden": "!(\n  'handelt-es-sich-um-eine-baute-im-wald-ja' == 'handelt-es-sich-um-eine-baute-im-wald'|answer\n)",
+      "is_hidden": "!(\n  'handelt-es-sich-um-eine-baute-im-wald-im-wald' == 'handelt-es-sich-um-eine-baute-im-wald'|answer\n)",
       "is_required": "!('vorabklaerung' in form || 'papierdossier'|answer == 'papierdossier-ja')",
-      "label": "{\"de\": \"Ist f\\u00fcr das Vorhaben eine Rodung notwendig (Gr\\u00f6ssere Zweckentfremdung von Waldboden)?\", \"fr\": \"Le projet implique-t-il un d\\u00e9frichement (d\\u00e9saffectation d'une relativement grande surface de sol forestier)?\"}",
+      "label": "{\"de\": \"Handelt es sich um eine Rodung (Zweckentfremdung von Waldboden / Wytweide) ?\", \"fr\": \"S\\u2019agit-il d\\u2019un d\\u00e9frichement (d\\u00e9saffectation du sol forestier / du p\\u00e2turage bois\\u00e9) ?\"}",
       "meta": {
         "widgetOverride": null
       },
-      "modified_at": "2019-05-03T10:32:47.167Z",
+      "modified_at": "2020-04-01T07:03:24.650Z",
       "placeholder": "{\"de\": null, \"fr\": null}",
       "row_form": null,
       "source": null,
@@ -36003,33 +35991,6 @@
   {
     "fields": {
       "configuration": {},
-      "created_at": "2019-04-08T13:25:56.198Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "data_source": null,
-      "format_validators": "[]",
-      "info_text": "{\"de\": \"Der Waldabstandbereich stellt den vorgeschriebenen Mindestabstand zum Wald f\\u00fcr Bauten und Anlagen dar. Grunds\\u00e4tzlich gilt der gesetzliche Waldabstand von 30m (Art. 25 KWaG). Davon ausgenommen sind Bauten und Anlagen nach Art. 34 KWaV oder solche, die Wald-Baulinien / Waldabstandslinien aus der kommunalen Nutzungsplanung einhalten. In begr\\u00fcndeten F\\u00e4llen kann die zust\\u00e4ndige Stelle der Volkswirtschaftsdirektion weitere Ausnahmen bewilligen (Art. 26 KWaG). Im Zweifelsfall kann die zust\\u00e4ndige Waldabteilung beigezogen werden. Diese Beratung ist kostenlos.\", \"fr\": \"La zone tampon \\u00e0 la for\\u00eat repr\\u00e9sente la distance minimale l\\u00e9gale entre la for\\u00eat et un ouvrage ou installation. En principe, la distance l\\u00e9gale \\u00e0 la for\\u00eat de 30 m s\\u2019applique (art. 25 LCFo). Les ouvrages / installations selon art. 34 OCFo, ainsi que ceux qui respectent les alignements forestiers des plans d\\u2019affectation communaux, font exception. Dans certains cas, le service comp\\u00e9tent de la Direction de l\\u2019\\u00e9conomie publique peut autoriser des exceptions (art. 26 LCFo). En cas de doute, pri\\u00e8re de s\\u2019adresser \\u00e0 la division foresti\\u00e8re comp\\u00e9tente. Ce conseil est gratuit.\"}",
-      "is_archived": false,
-      "is_hidden": "false",
-      "is_required": "!('vorabklaerung' in form || 'papierdossier'|answer == 'papierdossier-ja')",
-      "label": "{\"de\": \"Liegt die Baute im Waldabstandsbereich?\", \"fr\": \"Construction distante de moins de 30 m\\u00e8tres de la for\\u00eat?\"}",
-      "meta": {
-        "widgetOverride": null
-      },
-      "modified_at": "2019-04-25T09:38:32.256Z",
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "row_form": null,
-      "source": null,
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "sub_form": null,
-      "type": "choice"
-    },
-    "model": "caluma_form.question",
-    "pk": "liegt-die-baute-im-waldabstandsbereich"
-  },
-  {
-    "fields": {
-      "configuration": {},
       "created_at": "2019-04-02T14:16:13.188Z",
       "created_by_group": null,
       "created_by_user": null,
@@ -37977,15 +37938,15 @@
       "created_by_user": null,
       "data_source": null,
       "format_validators": "[]",
-      "info_text": "{\"de\": \"Handelt es sich um eine nichtforstliche Kleinbaute nach Art. 35 KWaV oder beansprucht die Baute eine Waldfl\\u00e4che von weniger als 70m\\u00b2, dann stellt das Vorhaben eine nachteilige Nutzung von Wald (Art. 16 WaG) dar. Im Zweifelsfall kann die zust\\u00e4ndige Waldabteilung beigezogen werden. Diese Beratung ist kostenlos.\", \"fr\": \"S\\u2019il s\\u2019agit d\\u2019une petite construction non foresti\\u00e8re au sens de l\\u2019art. 35 OCFo ou que la construction impacte une surface foresti\\u00e8re de moins de 70 m\\u00b2, l\\u2019ouvrage repr\\u00e9sente alors une exploitation pr\\u00e9judiciable de la for\\u00eat (art. 16 LFo). En cas de doute, pri\\u00e8re de s\\u2019adresser \\u00e0 la division foresti\\u00e8re comp\\u00e9tente. Ce conseil est gratuit.\"}",
+      "info_text": "{\"de\": \"Handelt es sich um eine nichtforstliche Kleinbaute nach Art. 35 KWaV oder beansprucht die Baute eine Wald- oder Wytweidenfl\\u00e4che von weniger als 70m2, dann stellt das Vorhaben eine nachteilige Nutzung von Wald (Art. 16 WaG) dar. Im Zweifelsfall kann die zust\\u00e4ndige Waldabteilung beigezogen werden. Diese Beratung ist kostenlos.\", \"fr\": \"S\\u2019il s\\u2019agit d\\u2019une petite construction non foresti\\u00e8re au sens de l\\u2019art. 35 OCFo ou que la construction impacte une surface foresti\\u00e8re / surface de p\\u00e2turage bois\\u00e9 inf\\u00e9rieure \\u00e0 70 m2, l\\u2019ouvrage repr\\u00e9sente alors une exploitation pr\\u00e9judiciable de la for\\u00eat (art. 16 LFo). En cas de doute, pri\\u00e8re de s\\u2019adresser \\u00e0 la division foresti\\u00e8re comp\\u00e9tente. Ce conseil est gratuit.\"}",
       "is_archived": false,
-      "is_hidden": "!(\n  'handelt-es-sich-um-eine-baute-im-wald-ja' == 'handelt-es-sich-um-eine-baute-im-wald'|answer\n)",
+      "is_hidden": "!(\n  'handelt-es-sich-um-eine-baute-im-wald-im-wald' == 'handelt-es-sich-um-eine-baute-im-wald'|answer\n)",
       "is_required": "!('vorabklaerung' in form || 'papierdossier'|answer == 'papierdossier-ja')",
-      "label": "{\"de\": \"Nicht forstliche Kleinbaute?\", \"fr\": \"Petite construction non foresti\\u00e8re?\"}",
+      "label": "{\"de\": \"Handelt es sich um eine nichtforstliche Kleinbaute oder \\u2013anlage?\", \"fr\": \"S\\u2019agit-il d\\u2019une petite construction ou installation non foresti\\u00e8re\\u00a0?\"}",
       "meta": {
         "widgetOverride": null
       },
-      "modified_at": "2019-05-03T15:17:26Z",
+      "modified_at": "2020-04-01T07:04:37.903Z",
       "placeholder": "{\"de\": null, \"fr\": null}",
       "row_form": null,
       "source": null,
@@ -48140,10 +48101,10 @@
   },
   {
     "fields": {
-      "created_at": "2020-03-23T15:01:13.466Z",
+      "created_at": "2020-04-01T06:59:18.615Z",
       "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_at": "2020-03-23T15:01:13.466Z",
+      "modified_at": "2020-04-01T06:59:18.615Z",
       "option": "bau-im-wald-oder-innerhalb-von-30-m-abstand-ja",
       "question": "bau-im-wald-oder-innerhalb-von-30-m-abstand",
       "sort": 2
@@ -48153,10 +48114,10 @@
   },
   {
     "fields": {
-      "created_at": "2020-03-23T15:01:13.463Z",
+      "created_at": "2020-04-01T06:59:18.612Z",
       "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_at": "2020-03-23T15:01:13.463Z",
+      "modified_at": "2020-04-01T06:59:18.612Z",
       "option": "bau-im-wald-oder-innerhalb-von-30-m-abstand-nein",
       "question": "bau-im-wald-oder-innerhalb-von-30-m-abstand",
       "sort": 1
@@ -50064,10 +50025,10 @@
   },
   {
     "fields": {
-      "created_at": "2019-05-10T16:46:00.334Z",
-      "created_by_group": "[]",
+      "created_at": "2020-04-01T07:05:43.783Z",
+      "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_at": "2019-05-10T16:46:00.334Z",
+      "modified_at": "2020-04-01T07:05:43.783Z",
       "option": "forstliche-baute-ja",
       "question": "forstliche-baute",
       "sort": 2
@@ -50077,10 +50038,10 @@
   },
   {
     "fields": {
-      "created_at": "2019-05-10T16:46:03.114Z",
-      "created_by_group": "[]",
+      "created_at": "2020-04-01T07:05:43.780Z",
+      "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_at": "2019-05-10T16:46:03.114Z",
+      "modified_at": "2020-04-01T07:05:43.780Z",
       "option": "forstliche-baute-nein",
       "question": "forstliche-baute",
       "sort": 1
@@ -50922,26 +50883,52 @@
   },
   {
     "fields": {
-      "created_at": "2019-05-10T16:46:00.777Z",
-      "created_by_group": "[]",
+      "created_at": "2020-04-01T07:02:14.080Z",
+      "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_at": "2019-05-10T16:46:00.777Z",
-      "option": "handelt-es-sich-um-eine-baute-im-wald-ja",
+      "modified_at": "2020-04-01T07:02:14.080Z",
+      "option": "handelt-es-sich-um-eine-baute-im-wald-im-wald",
       "question": "handelt-es-sich-um-eine-baute-im-wald",
       "sort": 2
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "handelt-es-sich-um-eine-baute-im-wald.handelt-es-sich-um-eine-baute-im-wald-im-wald"
+  },
+  {
+    "fields": {
+      "created_at": "2020-04-01T07:02:14.078Z",
+      "created_by_group": null,
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_at": "2020-04-01T07:02:14.078Z",
+      "option": "handelt-es-sich-um-eine-baute-im-wald-innert-30m",
+      "question": "handelt-es-sich-um-eine-baute-im-wald",
+      "sort": 1
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "handelt-es-sich-um-eine-baute-im-wald.handelt-es-sich-um-eine-baute-im-wald-innert-30m"
+  },
+  {
+    "fields": {
+      "created_at": "2020-04-01T07:02:14.086Z",
+      "created_by_group": null,
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_at": "2020-04-01T07:02:14.086Z",
+      "option": "handelt-es-sich-um-eine-baute-im-wald-ja",
+      "question": "handelt-es-sich-um-eine-baute-im-wald",
+      "sort": 4
     },
     "model": "caluma_form.questionoption",
     "pk": "handelt-es-sich-um-eine-baute-im-wald.handelt-es-sich-um-eine-baute-im-wald-ja"
   },
   {
     "fields": {
-      "created_at": "2019-05-10T16:46:02.749Z",
-      "created_by_group": "[]",
+      "created_at": "2020-04-01T07:02:14.083Z",
+      "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_at": "2019-05-10T16:46:02.749Z",
+      "modified_at": "2020-04-01T07:02:14.083Z",
       "option": "handelt-es-sich-um-eine-baute-im-wald-nein",
       "question": "handelt-es-sich-um-eine-baute-im-wald",
-      "sort": 1
+      "sort": 3
     },
     "model": "caluma_form.questionoption",
     "pk": "handelt-es-sich-um-eine-baute-im-wald.handelt-es-sich-um-eine-baute-im-wald-nein"
@@ -51338,10 +51325,10 @@
   },
   {
     "fields": {
-      "created_at": "2019-05-10T16:46:00.931Z",
-      "created_by_group": "[]",
+      "created_at": "2020-04-01T07:03:24.658Z",
+      "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_at": "2019-05-10T16:46:00.931Z",
+      "modified_at": "2020-04-01T07:03:24.658Z",
       "option": "ist-fuer-das-vorhaben-eine-rodung-notwendig-ja",
       "question": "ist-fuer-das-vorhaben-eine-rodung-notwendig",
       "sort": 2
@@ -51351,10 +51338,10 @@
   },
   {
     "fields": {
-      "created_at": "2019-05-10T16:46:01.521Z",
-      "created_by_group": "[]",
+      "created_at": "2020-04-01T07:03:24.656Z",
+      "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_at": "2019-05-10T16:46:01.521Z",
+      "modified_at": "2020-04-01T07:03:24.656Z",
       "option": "ist-fuer-das-vorhaben-eine-rodung-notwendig-nein",
       "question": "ist-fuer-das-vorhaben-eine-rodung-notwendig",
       "sort": 1
@@ -51946,32 +51933,6 @@
     },
     "model": "caluma_form.questionoption",
     "pk": "leitungsbau-auf-landwirtschaftlichem-boden.leitungsbau-auf-landwirtschaftlichem-boden-nein"
-  },
-  {
-    "fields": {
-      "created_at": "2019-05-10T16:45:59.389Z",
-      "created_by_group": "[]",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_at": "2019-05-10T16:45:59.389Z",
-      "option": "liegt-die-baute-im-waldabstandsbereich-ja",
-      "question": "liegt-die-baute-im-waldabstandsbereich",
-      "sort": 2
-    },
-    "model": "caluma_form.questionoption",
-    "pk": "liegt-die-baute-im-waldabstandsbereich.liegt-die-baute-im-waldabstandsbereich-ja"
-  },
-  {
-    "fields": {
-      "created_at": "2019-05-10T16:46:01.466Z",
-      "created_by_group": "[]",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_at": "2019-05-10T16:46:01.466Z",
-      "option": "liegt-die-baute-im-waldabstandsbereich-nein",
-      "question": "liegt-die-baute-im-waldabstandsbereich",
-      "sort": 1
-    },
-    "model": "caluma_form.questionoption",
-    "pk": "liegt-die-baute-im-waldabstandsbereich.liegt-die-baute-im-waldabstandsbereich-nein"
   },
   {
     "fields": {
@@ -52664,10 +52625,10 @@
   },
   {
     "fields": {
-      "created_at": "2019-05-10T16:45:59.152Z",
-      "created_by_group": "[]",
+      "created_at": "2020-04-01T07:04:37.911Z",
+      "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_at": "2019-05-10T16:45:59.152Z",
+      "modified_at": "2020-04-01T07:04:37.911Z",
       "option": "nicht-forstliche-kleinbaute-ja",
       "question": "nicht-forstliche-kleinbaute",
       "sort": 2
@@ -52677,10 +52638,10 @@
   },
   {
     "fields": {
-      "created_at": "2019-05-10T16:46:01.216Z",
-      "created_by_group": "[]",
+      "created_at": "2020-04-01T07:04:37.908Z",
+      "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_at": "2019-05-10T16:46:01.216Z",
+      "modified_at": "2020-04-01T07:04:37.908Z",
       "option": "nicht-forstliche-kleinbaute-nein",
       "question": "nicht-forstliche-kleinbaute",
       "sort": 1
