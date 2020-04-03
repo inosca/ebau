@@ -186,14 +186,13 @@ def test_accompanying_report_event_handler(
     xml = CreateFromDocument(message.body)
 
     assert len(xml.eventAccompanyingReport.document) == 2
-    assert (
-        xml.eventAccompanyingReport.document[0].titles.title[0].value()
-        == attachment_child.display_name
+    names = sorted(
+        [
+            xml.eventAccompanyingReport.document[0].titles.title[0].value(),
+            xml.eventAccompanyingReport.document[1].titles.title[0].value(),
+        ]
     )
-    assert (
-        xml.eventAccompanyingReport.document[1].titles.title[0].value()
-        == attachment_parent.display_name
-    )
+    assert names == [attachment_child.display_name, attachment_parent.display_name]
 
 
 def test_task_event_handler(
