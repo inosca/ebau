@@ -1,0 +1,7 @@
+<div {{will-destroy this.clear}}>
+  {{#each this.notifications.all as |notification|}}
+    <div class="hinweisbox buttonstyle {{notification.type}}">
+      <span class="text">{{notification.message}}</span>
+    </div>
+  {{/each}}
+</div>

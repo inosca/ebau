@@ -1,0 +1,18 @@
+global:
+  save: "Enregistrer"
+  loading: "Télécharger"
+  wait: "Veuillez patienter"
+
+organisation:
+  edit: "Modifiez votre organisation"
+
+  name: "Nom"
+  phone: "Téléphone"
+  zip: "Code postal"
+  city: "Lieu"
+  address: "Adresse"
+  email: "Courriel"
+  website: "Site Internet"
+
+  saveSuccess: "L'organisation a été enregistrée."
+  saveError: "L'organisation n'a pas pu être enregistrée."
