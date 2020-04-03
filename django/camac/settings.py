@@ -406,7 +406,7 @@ APPLICATIONS = {
             ("gefahrenstufe", "gefahrenstufe-blau", [20049]),
             ("gefahrenstufe", "gefahrenstufe-rot", [20049]),
             ("gefahrenstufe", "gefahrenstufe-unbestimmt", [20049]),
-            ("gefahrliche-stoffe", "gefahrliche-stoffe-ja", [20055]),
+            ("gefaehrliche-stoffe", "gefaehrliche-stoffe-ja", [20055]),
             (
                 "gentechnisch-veraenderte-organismen",
                 "gentechnisch-veraenderte-organismen-ja",
@@ -448,8 +448,8 @@ APPLICATIONS = {
                 [20055],
             ),
             (
-                "landwirtschaftliches-bauvorhaben-mit-ableitung",
-                "landwirtschaftliches-bauvorhaben-mit-ableitung-ja",
+                "landwirtschaftliches-vorhaben-mit-ableitung",
+                "landwirtschaftliches-vorhaben-mit-ableitung-ja",
                 [20050],
             ),
             ("maschinelle-arbeitsmittel", "maschinelle-arbeitsmittel-ja", [20055]),
