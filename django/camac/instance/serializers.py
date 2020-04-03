@@ -292,10 +292,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
         permissions = set()
 
         if state != "new":
-            permissions.add("read")
-
-        if state == "subm":
-            permissions.add("write-meta")
+            permissions.update(["read", "write-meta"])
 
         if state == "correction":
             permissions.add("write")
