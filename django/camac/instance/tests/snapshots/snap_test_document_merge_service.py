@@ -824,7 +824,7 @@ snapshots['test_document_merge_service_snapshot[1-baugesuch] 1'] = [
                                 'label': 'Nein'
                             }
                         ],
-                        'label': 'Ist der Bau im Wald / Wytweide oder innerhalb von 30 m Abstand zum Wald / Wytweide?',
+                        'label': 'Befindet sich das Bauvorhaben im Wald / Wytweide oder innerhalb von 30 m Abstand zum Wald / Wytweide?',
                         'slug': 'bau-im-wald-oder-innerhalb-von-30-m-abstand',
                         'type': 'ChoiceQuestion'
                     },
