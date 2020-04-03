@@ -64,12 +64,6 @@ services:
       - djangomedia:/var/lib/camac/media
       - djangotmpmedia:/tmp/camac/tmpfiles
 
-  ember-camac-ng:
-    build:
-      context: ember-camac-ng
-      cache_from:
-        - acr.run/camac-ng/camac-ng/ember-camac-ng:master
-
   ember:
     build:
       context: ember
