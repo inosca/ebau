@@ -12441,6 +12441,7 @@
   {
     "fields": {
       "name": "Admin",
+      "group_prefix":null,
       "role_parent": null
     },
     "model": "user.role",
@@ -12449,6 +12450,7 @@
   {
     "fields": {
       "name": "Guest",
+      "group_prefix": null,
       "role_parent": null
     },
     "model": "user.role",
@@ -12457,6 +12459,7 @@
   {
     "fields": {
       "name": "Gemeinde",
+      "group_prefix": null,
       "role_parent": null
     },
     "model": "user.role",
@@ -12465,6 +12468,7 @@
   {
     "fields": {
       "name": "Portal",
+      "group_prefix": null,
       "role_parent": null
     },
     "model": "user.role",
@@ -12473,6 +12477,7 @@
   {
     "fields": {
       "name": "Fachstelle",
+      "group_prefix": null,
       "role_parent": null
     },
     "model": "user.role",
@@ -12481,6 +12486,7 @@
   {
     "fields": {
       "name": "Kanton",
+      "group_prefix": null,
       "role_parent": null
     },
     "model": "user.role",
@@ -12489,6 +12495,7 @@
   {
     "fields": {
       "name": "Fachstelle Sachbearbeiter",
+      "group_prefix": null,
       "role_parent": null
     },
     "model": "user.role",
@@ -12497,6 +12504,7 @@
   {
     "fields": {
       "name": "Gemeinde Sachbearbeiter",
+      "group_prefix": null,
       "role_parent": null
     },
     "model": "user.role",
@@ -12505,6 +12513,7 @@
   {
     "fields": {
       "name": "Publikation",
+      "group_prefix": null,
       "role_parent": null
     },
     "model": "user.role",
@@ -12513,6 +12522,7 @@
   {
     "fields": {
       "name": "Lesezugriff",
+      "group_prefix": null,
       "role_parent": null
     },
     "model": "user.role",
