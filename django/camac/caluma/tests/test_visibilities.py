@@ -1,16 +1,16 @@
 import functools
-from base64 import b64encode
-from json import dumps
 
 import pytest
 from caluma.caluma_user.models import OIDCUser
 from caluma.schema import schema
+from jwt import encode as jwt_encode
 
 
 @pytest.fixture
 def token(admin_user):
-    token_body = b64encode(dumps({"aud": admin_user.groups.first().name}).encode())
-    return b".".join([b"some", token_body, b"token"])
+    return jwt_encode(
+        {"aud": admin_user.groups.first().name, "username": "joël-tester"}, "secret"
+    )
 
 
 @pytest.fixture

@@ -1,12 +1,11 @@
-from base64 import b64decode
 from copy import copy
 from functools import reduce
-from json import loads
 
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_user import models as caluma_user_models
 from django.conf import settings
 from django.db.models import Q
+from jwt import decode as jwt_decode
 
 from camac.user.middleware import get_group
 from camac.user.models import User
@@ -274,16 +273,10 @@ class CamacRequest:
         self.request = copy(info.context)
         oidc_user = self.request.user
         self.request.user = self._get_camac_user(oidc_user)
-        self.request.auth = self._parse_token(oidc_user.token)
+        self.request.auth = jwt_decode(oidc_user.token, verify=False)
         camac_group = get_group(self.request)
         self.request.group = camac_group
         self.request.oidc_user = oidc_user
 
     def _get_camac_user(self, oidc_user):
         return User.objects.get(username=oidc_user.username)
-
-    def _parse_token(self, token):
-        data = token.split(b".")[1]
-        data += b"=" * (-len(data) % 4)
-
-        return loads(b64decode(data))

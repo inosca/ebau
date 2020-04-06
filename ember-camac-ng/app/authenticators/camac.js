@@ -3,6 +3,7 @@ import { later, cancel } from "@ember/runloop";
 import { inject as service } from "@ember/service";
 import BaseAuthenticator from "ember-simple-auth/authenticators/base";
 import fetch from "fetch";
+import decodeJWT from "jwt-decode";
 
 const TOKEN_REFRESH_LEEWAY = 30 * 1000; // 30 seconds
 
@@ -32,8 +33,7 @@ export default class CamacAuthenticator extends BaseAuthenticator {
   }
 
   handleToken(token) {
-    const [, body] = token.split(".");
-    const { exp } = JSON.parse(decodeURIComponent(escape(atob(body))));
+    const { exp } = decodeJWT(token);
 
     const diff = new Date(exp * 1000) - new Date() - TOKEN_REFRESH_LEEWAY;
 
