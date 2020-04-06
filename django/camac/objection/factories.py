@@ -5,6 +5,14 @@ from factory.django import DjangoModelFactory
 from . import models
 
 
+class ObjectionTimeframeFactory(DjangoModelFactory):
+    instance = SubFactory("camac.instance.factories.InstanceFactory")
+    end_date = Faker("future_datetime", tzinfo=pytz.UTC)
+
+    class Meta:
+        model = models.ObjectionTimeframe
+
+
 class ObjectionFactory(DjangoModelFactory):
     instance = SubFactory("camac.instance.factories.InstanceFactory")
     creation_date = Faker("future_datetime", tzinfo=pytz.UTC)
