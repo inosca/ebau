@@ -2,6 +2,14 @@ from django.core.validators import MaxValueValidator
 from django.db import models
 
 
+class ObjectionTimeframe(models.Model):
+    instance = models.ForeignKey(
+        "instance.Instance", models.CASCADE, related_name="objection_timeframes"
+    )
+    start_date = models.DateTimeField(null=True, blank=True)
+    end_date = models.DateTimeField()
+
+
 class Objection(models.Model):
     instance = models.ForeignKey(
         "instance.Instance", models.CASCADE, related_name="objections"
