@@ -171,9 +171,9 @@ build-kt_uri-production:
   script:
     # pull and build needed containers: php, ember-caluma-portal and document-merge-service (with db)
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
-    - eval $COMPOSE pull --ignore-pull-failures --quiet php ember-caluma-portal document-merge-service
+    - eval $COMPOSE pull --ignore-pull-failures --quiet php ember-caluma-portal ember-camac-ng document-merge-service
     - eval $COMPOSE build --pull
-    - eval $COMPOSE up -d php django ember-caluma-portal document-merge-service
+    - eval $COMPOSE up -d php django ember-caluma-portal ember-camac-ng document-merge-service
     - mkdir tarball
     # copy php to tarball
     - docker cp $(eval $COMPOSE ps -q php):/var/www/camac tarball/camac
@@ -194,6 +194,9 @@ build-kt_uri-production:
     # copy portal to tarball
     - mkdir -p tarball/ember-caluma-portal/dist
     - docker cp $(eval $COMPOSE ps -q ember-caluma-portal):/myapp/build/. tarball/ember-caluma-portal/dist
+    # copy ember camac ng to tarball
+    - mkdir -p tarball/camac/public/ember
+    - docker cp $(eval $COMPOSE ps -q ember-camac-ng):/myapp/build/. tarball/camac/public/ember
     # build tarball
     - cd tarball
     - tar cfz "../camac-be-$(cat ../VERSION.txt)+${CI_COMMIT_SHORT_SHA}.tar.gz" .
