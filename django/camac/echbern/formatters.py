@@ -15,6 +15,7 @@ from camac.constants.kt_bern import (
     CIRCULATION_ANSWER_NEGATIV,
     CIRCULATION_ANSWER_NICHT_BETROFFEN,
     CIRCULATION_ANSWER_POSITIV,
+    QUESTION_EBAU_NR,
 )
 from camac.core.models import Answer, DocxDecision, InstanceService
 from camac.instance.models import Instance
@@ -65,7 +66,7 @@ def authority(service):
 
 def get_ebau_nr(instance):
     ebau_answer = Answer.objects.filter(
-        question__trans__name="eBau-Nummer", instance=instance
+        question__pk=QUESTION_EBAU_NR, instance=instance
     ).first()
     if ebau_answer:
         return ebau_answer.answer
@@ -485,7 +486,7 @@ def submit(instance: Instance, answers: dict, event_type: str):
     )
 
 
-def directive(activation):
+def directive(comment, deadline=None):
     # Instruction can be one of
     #  - "process"
     #  - "external_process"
@@ -499,18 +500,21 @@ def directive(activation):
         uuid="00000000-0000-0000-0000-000000000000",
         instruction="process",
         priority="undefined",
-        comments="Anforderung einer Stellungnahme",
-        deadline=activation.deadline_date.date(),
+        comments=comment,
+        deadline=deadline.date() if deadline else None,
     )
 
 
-def request(instance: Instance, event_type: str, activation=None):
+def request(
+    instance: Instance, event_type: str, comment=None, deadline=None, attachments=None
+):
     return ns_application.eventRequestType(
         eventType=ns_application.eventTypeType(event_type),
         planningPermissionApplicationIdentification=permission_application_identification(
             instance
         ),
-        directive=directive(activation) if activation else None,
+        directive=directive(comment, deadline) if comment else None,
+        document=get_documents(attachments) if attachments else None,
     )
 
 

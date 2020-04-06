@@ -26,6 +26,35 @@ class FormGroupFactory(DjangoModelFactory):
         model = models.FormGroup
 
 
+class CamacQuestionTypeFactory(DjangoModelFactory):
+    name = Faker("name")
+
+    class Meta:
+        model = models.QuestionType
+
+
+class CamacQuestionFactory(DjangoModelFactory):
+    question_type = SubFactory(CamacQuestionTypeFactory)
+
+    class Meta:
+        model = models.Question
+
+
+class CamacChapterFactory(DjangoModelFactory):
+    class Meta:
+        model = models.Chapter
+
+
+class CamacAnswerFactory(DjangoModelFactory):
+    answer = None
+    question = SubFactory(CamacQuestionFactory)
+    item = 1
+    chapter = SubFactory(CamacChapterFactory)
+
+    class Meta:
+        model = models.Answer
+
+
 class AvailableResourceFactory(DjangoModelFactory):
     available_resource_id = Faker("slug")
 

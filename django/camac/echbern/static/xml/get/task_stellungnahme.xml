@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0039/2">
+    <ns1:deliveryHeader>
+        <ns2:senderId>https://ebau.apps.be.ch</ns2:senderId>
+        <ns2:messageId>f2bc921f-e9c2-46fa-9bff-bd47d851ec53</ns2:messageId>
+        <ns2:messageType>5200007</ns2:messageType>
+        <ns2:sendingApplication>
+            <ns2:manufacturer>Adfinis Sygroup AG</ns2:manufacturer>
+            <ns2:product>camac</ns2:product>
+            <ns2:productVersion>0.0.0</ns2:productVersion>
+        </ns2:sendingApplication>
+        <ns2:subject>task</ns2:subject>
+        <ns2:messageDate>2020-04-03T10:18:58.771808Z</ns2:messageDate>
+        <ns2:action>1</ns2:action>
+        <ns2:testDeliveryFlag>true</ns2:testDeliveryFlag>
+    </ns1:deliveryHeader>
+    <ns1:eventRequest>
+        <ns1:eventType>task</ns1:eventType>
+        <ns1:planningPermissionApplicationIdentification>
+            <ns1:localID>
+                <ns3:IdCategory>eBauNr</ns3:IdCategory>
+                <ns3:Id>2020-1</ns3:Id>
+            </ns1:localID>
+            <ns1:otherID>
+                <ns3:IdCategory>eBauNr</ns3:IdCategory>
+                <ns3:Id>2020-1</ns3:Id>
+            </ns1:otherID>
+            <ns1:dossierIdentification>2323</ns1:dossierIdentification>
+        </ns1:planningPermissionApplicationIdentification>
+        <ns1:directive>
+            <uuid>00000000-0000-0000-0000-000000000000</uuid>
+            <instruction>process</instruction>
+            <priority>undefined</priority>
+            <deadline>2020-04-23</deadline>
+            <comments>
+                <ns4:comment>Anforderung einer Stellungnahme</ns4:comment>
+            </comments>
+        </ns1:directive>
+    </ns1:eventRequest>
+</ns1:delivery>
