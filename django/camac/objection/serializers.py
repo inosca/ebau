@@ -62,3 +62,13 @@ class ObjectionSerializer(serializers.ModelSerializer, InstanceEditableMixin):
     class Meta:
         model = models.Objection
         fields = ("instance", "creation_date", "objection_participants")
+
+
+class ObjectionTimeframeSerializer(serializers.ModelSerializer, InstanceEditableMixin):
+    start_date = serializers.DateTimeField(required=False)
+
+    included_serializers = {"instance": "camac.instance.serializers.InstanceSerializer"}
+
+    class Meta:
+        model = models.ObjectionTimeframe
+        fields = ("instance", "start_date", "end_date")
