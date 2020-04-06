@@ -9,6 +9,12 @@ from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
 from camac.constants import kt_bern as constants
+from camac.constants.kt_bern import (
+    INSTANCE_STATE_NEW,
+    INSTANCE_STATE_SB1,
+    INSTANCE_STATE_SB2,
+    INSTANCE_STATE_TO_BE_FINISHED,
+)
 from camac.core.models import Chapter, ProposalActivation, Question, QuestionType
 from camac.echbern import event_handlers
 from camac.echbern.data_preparation import DocumentParser
@@ -498,15 +504,17 @@ def test_responsible_user(admin_client, instance, user, service, multilang):
 
 
 @pytest.mark.parametrize(
-    "instance_state__name,document_valid,has_personalien_sb2,expected_status",
+    "instance_state__name,instance_state_pk,document_valid,has_personalien_sb2,expected_status",
     [
-        ("sb1", True, False, status.HTTP_200_OK),
-        ("sb1", True, True, status.HTTP_200_OK),
-        ("new", True, False, status.HTTP_403_FORBIDDEN),
-        ("sb1", False, False, status.HTTP_400_BAD_REQUEST),
+        ("sb1", INSTANCE_STATE_SB1, True, False, status.HTTP_200_OK),
+        ("sb1", INSTANCE_STATE_SB1, True, True, status.HTTP_200_OK),
+        ("new", INSTANCE_STATE_NEW, True, False, status.HTTP_403_FORBIDDEN),
+        ("sb1", INSTANCE_STATE_SB1, False, False, status.HTTP_400_BAD_REQUEST),
     ],
 )
-@pytest.mark.parametrize("new_instance_state_name", ["sb2"])
+@pytest.mark.parametrize(
+    "new_instance_state_name,new_instance_state_pk", [("sb2", INSTANCE_STATE_SB2)]
+)
 @pytest.mark.parametrize(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
@@ -514,10 +522,13 @@ def test_instance_report(
     admin_client,
     role,
     instance,
+    instance_state,
+    instance_state_pk,
     instance_state_factory,
     instance_service_construction_control,
     expected_status,
     new_instance_state_name,
+    new_instance_state_pk,
     notification_template,
     application_settings,
     service,
@@ -530,6 +541,9 @@ def test_instance_report(
     document_valid,
     has_personalien_sb2,
 ):
+    instance_state.pk = instance_state_pk
+    instance_state.save()
+
     application_settings["NOTIFICATIONS"]["REPORT"] = [
         {
             "template_slug": notification_template.slug,
@@ -564,7 +578,7 @@ def test_instance_report(
             document=sb_row, answer=sb_table_answer
         )
 
-    instance_state_factory(name=new_instance_state_name)
+    instance_state_factory(name=new_instance_state_name, pk=new_instance_state_pk)
 
     response = admin_client.post(reverse("instance-report", args=[instance.pk]))
 
@@ -589,10 +603,16 @@ def test_instance_report(
 
 
 @pytest.mark.parametrize(
-    "instance_state__name,expected_status",
-    [("sb2", status.HTTP_200_OK), ("new", status.HTTP_403_FORBIDDEN)],
+    "instance_state__name,instance_state_pk,expected_status",
+    [
+        ("sb2", INSTANCE_STATE_SB2, status.HTTP_200_OK),
+        ("new", INSTANCE_STATE_NEW, status.HTTP_403_FORBIDDEN),
+    ],
 )
-@pytest.mark.parametrize("new_instance_state_name", ["conclusion"])
+@pytest.mark.parametrize(
+    "new_instance_state_name,new_instance_state_pk",
+    [("conclusion", INSTANCE_STATE_TO_BE_FINISHED)],
+)
 @pytest.mark.parametrize(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
@@ -600,10 +620,13 @@ def test_instance_finalize(
     admin_client,
     role,
     instance,
+    instance_state,
+    instance_state_pk,
     instance_state_factory,
     instance_service_construction_control,
     expected_status,
     new_instance_state_name,
+    new_instance_state_pk,
     notification_template,
     application_settings,
     service,
@@ -614,6 +637,9 @@ def test_instance_finalize(
     mock_generate_and_store_pdf,
     caluma_forms,
 ):
+    instance_state.pk = instance_state_pk
+    instance_state.save()
+
     application_settings["NOTIFICATIONS"]["FINALIZE"] = [
         {
             "template_slug": notification_template.slug,
@@ -625,7 +651,7 @@ def test_instance_finalize(
         form_id="sb2", meta={"camac-instance-id": instance.pk}
     )
 
-    instance_state_factory(name=new_instance_state_name)
+    instance_state_factory(name=new_instance_state_name, pk=new_instance_state_pk)
 
     response = admin_client.post(reverse("instance-finalize", args=[instance.pk]))
 

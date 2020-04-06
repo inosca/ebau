@@ -3,8 +3,13 @@ from django.conf import settings
 
 from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
+    ATTACHMENT_SECTION_BEILAGEN_SB1,
+    ATTACHMENT_SECTION_BEILAGEN_SB2,
     ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
     CIRCULATION_ANSWER_POSITIV,
+    INSTANCE_STATE_SB2,
+    INSTANCE_STATE_TO_BE_FINISHED,
+    INSTANCE_STATE_ZIRKULATION,
     NOTICE_TYPE_NEBENBESTIMMUNG,
     NOTICE_TYPE_STELLUNGNAHME,
 )
@@ -195,9 +200,16 @@ def test_accompanying_report_event_handler(
     assert names == [attachment_child.display_name, attachment_parent.display_name]
 
 
-def test_task_event_handler(
-    ech_instance, service_factory, circulation_factory, activation_factory, admin_user
+def test_task_event_handler_stellungnahme(
+    ech_instance,
+    service_factory,
+    circulation_factory,
+    activation_factory,
+    instance_state_factory,
+    admin_user,
 ):
+    ech_instance.instance_state = instance_state_factory(pk=INSTANCE_STATE_ZIRKULATION)
+    ech_instance.save()
     s1 = service_factory(email="s1@example.com")
     s2 = service_factory(email="s2@example.com")
     s3 = service_factory(email="s3@example.com")
@@ -214,6 +226,44 @@ def test_task_event_handler(
     assert Message.objects.filter(receiver=s1)
     assert Message.objects.filter(receiver=s2)
     assert not Message.objects.filter(receiver=s3)
+
+
+@pytest.mark.parametrize(
+    "instance_state_pk", [INSTANCE_STATE_SB2, INSTANCE_STATE_TO_BE_FINISHED]
+)
+def test_task_event_handler_SBs(
+    instance_state_pk,
+    ech_instance,
+    instance_state_factory,
+    admin_user,
+    attachment_attachment_section_factory,
+    attachment_section_factory,
+):
+    asection_sb1 = attachment_section_factory(pk=ATTACHMENT_SECTION_BEILAGEN_SB1)
+    aas_sb1 = attachment_attachment_section_factory(
+        attachment__instance=ech_instance, attachmentsection=asection_sb1
+    )
+    asection_sb2 = attachment_section_factory(pk=ATTACHMENT_SECTION_BEILAGEN_SB2)
+    aas_sb2 = attachment_attachment_section_factory(
+        attachment__instance=ech_instance, attachmentsection=asection_sb2
+    )
+
+    expected_name = aas_sb1.attachment.display_name
+    if instance_state_pk == INSTANCE_STATE_TO_BE_FINISHED:
+        expected_name = aas_sb2.attachment.display_name
+
+    ech_instance.instance_state = instance_state_factory(pk=instance_state_pk)
+    ech_instance.save()
+
+    eh = event_handlers.TaskEventHandler(ech_instance, user_pk=admin_user.pk)
+
+    assert len(eh.run()) == 1
+    assert Message.objects.count() == 1
+    message = Message.objects.first()
+    xml = CreateFromDocument(message.body)
+
+    assert len(xml.eventRequest.document) == 1
+    assert xml.eventRequest.document[0].titles.title[0].value() == expected_name
 
 
 def test_file_subsequently_signal(ech_instance, mocker, multilang):
