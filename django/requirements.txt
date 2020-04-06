@@ -28,3 +28,4 @@ xmlschema==1.0.14
 requests==2.23.0
 PyXB==1.2.6
 caluma==5.5.1
+pyjwt==1.7.1
