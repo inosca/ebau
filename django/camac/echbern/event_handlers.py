@@ -11,22 +11,24 @@ from pyxb import (
 )
 
 from camac.constants.kt_bern import (
+    ATTACHMENT_SECTION_BEILAGEN_SB1,
+    ATTACHMENT_SECTION_BEILAGEN_SB2,
     ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
     ECH_ACCOMPANYING_REPORT,
     ECH_CHANGE_RESPONSIBILITY,
     ECH_CLAIM,
     ECH_FILE_SUBSEQUENTLY,
     ECH_STATUS_NOTIFICATION_ABGESCHLOSSEN,
-    ECH_STATUS_NOTIFICATION_ABSCHLUSS_AUSSTEHEND,
     ECH_STATUS_NOTIFICATION_EBAU_NR_VERGEBEN,
     ECH_STATUS_NOTIFICATION_IN_KOORDINATION,
     ECH_STATUS_NOTIFICATION_PRUEFUNG_ABGESCHLOSSEN,
     ECH_STATUS_NOTIFICATION_SB1_AUSSTEHEND,
-    ECH_STATUS_NOTIFICATION_SB2_AUSSTEHEND,
     ECH_STATUS_NOTIFICATION_ZIRKULATION_GESTARTET,
     ECH_STATUS_NOTIFICATION_ZURUECKGEWIESEN,
     ECH_SUBMIT,
-    ECH_TASK,
+    ECH_TASK_SB1_SUBMITTED,
+    ECH_TASK_SB2_SUBMITTED,
+    ECH_TASK_STELLUNGNAHME,
     ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION,
     INSTANCE_STATE_DOSSIERPRUEFUNG,
     INSTANCE_STATE_EBAU_NUMMER_VERGEBEN,
@@ -41,6 +43,7 @@ from camac.constants.kt_bern import (
     NOTICE_TYPE_STELLUNGNAHME,
 )
 from camac.core.models import Activation, Notice
+from camac.document.models import Attachment
 from camac.user.models import Service
 
 from .data_preparation import get_document
@@ -179,12 +182,6 @@ class StatusNotificationEventHandler(BaseEventHandler):
             message_type = ECH_STATUS_NOTIFICATION_ZIRKULATION_GESTARTET
         elif self.instance.instance_state.pk == INSTANCE_STATE_SB1:  # pragma: no cover
             message_type = ECH_STATUS_NOTIFICATION_SB1_AUSSTEHEND
-        elif self.instance.instance_state.pk == INSTANCE_STATE_SB2:  # pragma: no cover
-            message_type = ECH_STATUS_NOTIFICATION_SB2_AUSSTEHEND
-        elif (
-            self.instance.instance_state.pk == INSTANCE_STATE_TO_BE_FINISHED
-        ):  # pragma: no cover
-            message_type = ECH_STATUS_NOTIFICATION_ABSCHLUSS_AUSSTEHEND
         elif (
             self.instance.instance_state.pk == INSTANCE_STATE_FINISHED
         ):  # pragma: no cover
@@ -252,21 +249,38 @@ class WithdrawPlanningPermissionApplicationEventHandler(BaseEventHandler):
 
 class TaskEventHandler(BaseEventHandler):
     event_type = "task"
-    message_type = ECH_TASK
+    task_map = {
+        INSTANCE_STATE_ZIRKULATION: {
+            "message_type": ECH_TASK_STELLUNGNAHME,
+            "comment": "Anforderung einer Stellungnahme",
+        },
+        INSTANCE_STATE_SB2: {
+            "message_type": ECH_TASK_SB1_SUBMITTED,
+            "comment": "SB1 eingereicht",
+        },
+        INSTANCE_STATE_TO_BE_FINISHED: {
+            "message_type": ECH_TASK_SB2_SUBMITTED,
+            "comment": "SB2 eingereicht",
+        },
+    }
 
     def get_data(self):
         return {"ech-subject": self.event_type}
 
-    def get_xml(self, data, activation):
+    def get_xml(self, data, message_type, comment, deadline=None, attachments=None):
         try:
             return delivery(
                 self.instance,
                 data,
-                message_type=self.message_type,
+                message_type=message_type,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
                 eventRequest=request(
-                    self.instance, self.event_type, activation=activation
+                    self.instance,
+                    self.event_type,
+                    comment=comment,
+                    deadline=deadline,
+                    attachments=attachments,
                 ),
             ).toxml()
         except (
@@ -277,19 +291,48 @@ class TaskEventHandler(BaseEventHandler):
             logger.error(e.details())
             raise
 
-    def run(self):
+    def _handle_activations(self, context, data):
         msgs = []
-        data = self.get_data()
         for activation in Activation.objects.filter(
             circulation__instance=self.instance, ech_msg_created=False
         ):
             self.message_id = uuid4()
-            xml = self.get_xml(data, activation)
+            xml = self.get_xml(
+                data,
+                message_type=context["message_type"],
+                comment=context["comment"],
+                deadline=activation.deadline_date,
+            )
             msgs.append(self.create_message(xml, activation.service))
             activation.ech_msg_created = True
             activation.save()
 
         return msgs
+
+    def _get_attachments(self):
+        section = ATTACHMENT_SECTION_BEILAGEN_SB1
+        if self.instance.instance_state.pk == INSTANCE_STATE_TO_BE_FINISHED:
+            section = ATTACHMENT_SECTION_BEILAGEN_SB2
+        return Attachment.objects.filter(
+            instance=self.instance, attachment_sections__pk=section
+        )
+
+    def run(self):
+        data = self.get_data()
+        context = self.task_map[self.instance.instance_state.pk]
+        if self.instance.instance_state.pk == INSTANCE_STATE_ZIRKULATION:
+            return self._handle_activations(context, data)
+
+        attachments = self._get_attachments()
+
+        xml = self.get_xml(
+            data,
+            message_type=context["message_type"],
+            comment=context["comment"],
+            attachments=attachments,
+        )
+        msg = self.create_message(xml)
+        return [msg]
 
 
 class ClaimEventHandler(BaseEventHandler):
@@ -426,8 +469,6 @@ def submit_callback(sender, instance, user_pk, group_pk, **kwargs):
         handler.run()
 
 
-@receiver(sb1_submitted)
-@receiver(sb2_submitted)
 @receiver(circulation_started)
 @receiver(ruling)
 @receiver(finished)
@@ -440,6 +481,8 @@ def send_status_notification(sender, instance, user_pk, group_pk, **kwargs):
 
 
 @receiver(task_send)
+@receiver(sb1_submitted)
+@receiver(sb2_submitted)
 def task_callback(sender, instance, user_pk, group_pk, **kwargs):
     if settings.ECH_API:
         handler = TaskEventHandler(instance, user_pk=user_pk, group_pk=group_pk)
