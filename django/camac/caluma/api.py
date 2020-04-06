@@ -63,6 +63,10 @@ class CalumaApi:
         document = self._get_main_document(instance)
         return document.pk if document else None
 
+    def get_source_document_value(self, document_id, field):
+        source = caluma_form_models.Document.objects.get(pk=document_id).source
+        return getattr(source, field, None) if source else None
+
     def _get_instance_documents(self, instance_id):
         return caluma_form_models.Document.objects.filter(
             **{"meta__camac-instance-id": instance_id}
