@@ -2421,6 +2421,15 @@
   },
   {
     "fields": {
+      "button": 21,
+      "instance_state": 12,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 59
+  },
+  {
+    "fields": {
       "name": "Ordentliches Verfahren"
     },
     "model": "core.buildingauthoritysection",
@@ -13187,8 +13196,8 @@
   },
   {
     "fields": {
+      "group_prefix": null,
       "name": "Admin",
-      "group_prefix":null,
       "role_parent": null
     },
     "model": "user.role",
@@ -13196,8 +13205,8 @@
   },
   {
     "fields": {
-      "name": "Guest",
       "group_prefix": null,
+      "name": "Guest",
       "role_parent": null
     },
     "model": "user.role",
@@ -13205,8 +13214,8 @@
   },
   {
     "fields": {
-      "name": "Gemeinde",
       "group_prefix": null,
+      "name": "Gemeinde",
       "role_parent": null
     },
     "model": "user.role",
@@ -13214,8 +13223,8 @@
   },
   {
     "fields": {
-      "name": "Portal",
       "group_prefix": null,
+      "name": "Portal",
       "role_parent": null
     },
     "model": "user.role",
@@ -13223,8 +13232,8 @@
   },
   {
     "fields": {
-      "name": "Fachstelle",
       "group_prefix": null,
+      "name": "Fachstelle",
       "role_parent": null
     },
     "model": "user.role",
@@ -13232,8 +13241,8 @@
   },
   {
     "fields": {
-      "name": "Kanton",
       "group_prefix": null,
+      "name": "Kanton",
       "role_parent": null
     },
     "model": "user.role",
@@ -13241,8 +13250,8 @@
   },
   {
     "fields": {
-      "name": "Fachstelle Sachbearbeiter",
       "group_prefix": null,
+      "name": "Fachstelle Sachbearbeiter",
       "role_parent": null
     },
     "model": "user.role",
@@ -13250,8 +13259,8 @@
   },
   {
     "fields": {
-      "name": "Gemeinde Sachbearbeiter",
       "group_prefix": null,
+      "name": "Gemeinde Sachbearbeiter",
       "role_parent": null
     },
     "model": "user.role",
@@ -13259,8 +13268,8 @@
   },
   {
     "fields": {
-      "name": "Publikation",
       "group_prefix": null,
+      "name": "Publikation",
       "role_parent": null
     },
     "model": "user.role",
@@ -13268,8 +13277,8 @@
   },
   {
     "fields": {
-      "name": "Lesezugriff",
       "group_prefix": null,
+      "name": "Lesezugriff",
       "role_parent": null
     },
     "model": "user.role",
