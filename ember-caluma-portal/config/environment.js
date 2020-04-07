@@ -15,7 +15,7 @@ module.exports = function(environment) {
       tokenEndpoint: "/token",
       endSessionEndpoint: "/logout",
       userinfoEndpoint: "/userinfo",
-      afterLogoutUri: "/",
+      afterLogoutUri: "/login",
       forwardParams: ["kc_idp_hint"]
     },
     apollo: {
