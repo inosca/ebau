@@ -285,7 +285,10 @@ class CloseArchiveDossierSendHandler(BaseSendHandler):
             return True, None
         return (
             False,
-            '"CloseDossier" is only allowed for instances in the state "Zum Abschluss".',
+            (
+                '"CloseDossier" is only allowed for instances in the states '
+                '"Selbstdeklaration (SB1)", "Abschluss (SB2)" and "Zum Abschluss".'
+            ),
         )
 
     def get_instance_id(self):
