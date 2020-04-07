@@ -34,6 +34,7 @@ from camac.core.models import (
 from camac.document.models import Attachment, AttachmentSection
 from camac.instance.models import Instance, InstanceState
 from camac.user.models import Service
+from camac.user.utils import set_baukontrolle
 
 from .signals import (
     accompanying_report_send,
@@ -175,6 +176,9 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
         )
 
         self.link_to_section(attachments)
+
+        if state_id == INSTANCE_STATE_SB1:
+            set_baukontrolle(self.instance)
 
 
 class ChangeResponsibilitySendHandler(BaseSendHandler):
