@@ -297,7 +297,7 @@ class ANotification(models.Model):
         primary_key=True,
         related_name="+",
     )
-    template = models.CharField(db_column="TEMPLATE_ID", max_length=100)
+    template = models.SlugField(db_column="TEMPLATE_ID", max_length=100, unique=False)
     recipient_type = models.CharField(db_column="RECIPIENT_TYPE", max_length=160)
     processor = models.CharField(db_column="PROCESSOR", max_length=160)
 
