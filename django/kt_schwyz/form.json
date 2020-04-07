@@ -5962,8 +5962,28 @@
         "municipality",
         "service"
       ],
-      "label": "Ortsbezeichnung des Vorhabens (Adresse, Flurname, o. ä.):",
-      "type": "textarea",
+      "label": "Adresse",
+      "type": "text",
+      "required": false,
+      "config": {}
+    },
+    "standort-spezialbezeichnung": {
+      "restrict": [
+        "municipality",
+        "service"
+      ],
+      "label": "Spezialbezeichnung",
+      "type": "text",
+      "required": false,
+      "config": {}
+    },
+    "standort-ort": {
+      "restrict": [
+        "municipality",
+        "service"
+      ],
+      "label": "Ort",
+      "type": "text",
       "required": false,
       "config": {}
     },
