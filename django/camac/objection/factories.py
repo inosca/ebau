@@ -1,13 +1,19 @@
+from datetime import timedelta
+
 import pytz
-from factory import Faker, SubFactory
+from django.utils import timezone
+from factory import Faker, LazyFunction, SubFactory
 from factory.django import DjangoModelFactory
+from psycopg2.extras import DateTimeTZRange
 
 from . import models
 
 
 class ObjectionTimeframeFactory(DjangoModelFactory):
     instance = SubFactory("camac.instance.factories.InstanceFactory")
-    end_date = Faker("future_datetime", tzinfo=pytz.UTC)
+    timeframe = LazyFunction(
+        lambda: DateTimeTZRange(None, timezone.now() + timedelta(days=10))
+    )
 
     class Meta:
         model = models.ObjectionTimeframe
