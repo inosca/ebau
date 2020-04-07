@@ -145,10 +145,12 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
         }
 
         form_slug = CalumaApi().get_form_slug(self.instance)
-
         judgement = self.data.eventNotice.decisionRuling.judgement
 
         state_id = status[judgement]
+        if form_slug.startswith("vorabklaerung"):
+            state_id = INSTANCE_STATE_FINISHED
+
         try:
             decision = judgement_to_decision(judgement, form_slug)
         except KeyError:

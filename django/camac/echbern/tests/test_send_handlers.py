@@ -64,19 +64,21 @@ def test_resolve_send_handler(xml_file, expected_send_handler):
 
 
 @pytest.mark.parametrize(
-    "judgement,instance_state_pk,has_permission,expected_state_pk",
+    "judgement,instance_state_pk,has_permission,is_vorabklaerung,expected_state_pk",
     [
-        (4, INSTANCE_STATE_DOSSIERPRUEFUNG, True, INSTANCE_STATE_REJECTED),
-        (3, INSTANCE_STATE_DOSSIERPRUEFUNG, False, None),
-        (1, INSTANCE_STATE_KOORDINATION, True, INSTANCE_STATE_SB1),
-        (1, INSTANCE_STATE_ZIRKULATION, True, INSTANCE_STATE_SB1),
-        (4, INSTANCE_STATE_EBAU_NUMMER_VERGEBEN, False, None),
+        (4, INSTANCE_STATE_DOSSIERPRUEFUNG, True, False, INSTANCE_STATE_REJECTED),
+        (3, INSTANCE_STATE_DOSSIERPRUEFUNG, False, False, None),
+        (1, INSTANCE_STATE_KOORDINATION, True, False, INSTANCE_STATE_SB1),
+        (1, INSTANCE_STATE_ZIRKULATION, True, False, INSTANCE_STATE_SB1),
+        (1, INSTANCE_STATE_ZIRKULATION, True, True, INSTANCE_STATE_FINISHED),
+        (4, INSTANCE_STATE_EBAU_NUMMER_VERGEBEN, False, False, None),
     ],
 )
 def test_notice_ruling_send_handler(
     judgement,
     instance_state_pk,
     has_permission,
+    is_vorabklaerung,
     expected_state_pk,
     admin_user,
     ech_instance,
@@ -95,7 +97,11 @@ def test_notice_ruling_send_handler(
     )
     attachment.attachment_sections.add(attachment_section_beteiligte_behoerden)
 
-    form = Form.objects.create(slug="baugesuch", meta={"is-main-form": True})
+    form_slug = "baugesuch"
+    if is_vorabklaerung:
+        form_slug = "vorabklaerung"
+
+    form = Form.objects.create(slug=form_slug, meta={"is-main-form": True})
     Document.objects.create(form=form, meta={"camac-instance-id": ech_instance.pk})
 
     data = CreateFromDocument(xml_data("notice_ruling"))
