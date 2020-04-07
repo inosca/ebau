@@ -250,6 +250,8 @@ models_managed_by_customer = {
         "user.GroupLocation",
         "user.Service",
         "user.ServiceT",
+        "notification.NotificationTemplate",
+        "notification.NotificationTemplateT",
     ],
     "kt_bern": [
         "user.Group",
