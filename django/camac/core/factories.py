@@ -1,3 +1,5 @@
+from math import trunc
+
 import pytz
 from django.utils import timezone
 from factory import Faker, SubFactory, fuzzy
@@ -145,7 +147,7 @@ class CirculationStateFactory(DjangoModelFactory):
 
 
 class CirculationFactory(DjangoModelFactory):
-    name = Faker("name")
+    name = trunc(timezone.now().timestamp())
     instance_resource_id = 0
     instance = SubFactory(InstanceFactory)
     service = SubFactory(ServiceFactory)

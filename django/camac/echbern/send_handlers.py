@@ -1,3 +1,5 @@
+from math import trunc
+
 import pytz
 from django.urls import reverse
 from django.utils import timezone
@@ -331,7 +333,9 @@ class TaskSendHandler(BaseSendHandler):
                 pk=INSTANCE_STATE_ZIRKULATION
             )
             circulation = Circulation.objects.create(
-                instance=self.instance, instance_resource_id=instance_resource.pk
+                instance=self.instance,
+                instance_resource_id=instance_resource.pk,
+                name=trunc(timezone.now().timestamp()),
             )
         return circulation
 
@@ -376,7 +380,7 @@ class TaskSendHandler(BaseSendHandler):
     def apply(self):
         circulation = self._get_circulation()
         service = self._get_service()
-        self._create_activation(circulation, service)
+        activation = self._create_activation(circulation, service)
 
         task_send.send(
             sender=self.__class__,
@@ -394,7 +398,10 @@ class TaskSendHandler(BaseSendHandler):
                     "recipient-types": ["unnotified_service"],
                 },
                 "relationships": {
-                    "instance": {"data": {"type": "instances", "id": self.instance.pk}}
+                    "instance": {"data": {"type": "instances", "id": self.instance.pk}},
+                    "activation": {
+                        "data": {"type": "activations", "id": activation.pk}
+                    },
                 },
             }
         }
