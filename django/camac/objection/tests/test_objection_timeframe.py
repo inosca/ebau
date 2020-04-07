@@ -1,8 +1,10 @@
+import json
 from datetime import date, datetime, timedelta
 
 import pytest
 from django.urls import reverse
 from django.utils import timezone
+from psycopg2.extras import DateTimeTZRange
 from rest_framework import status
 
 
@@ -25,7 +27,7 @@ def test_objection_timeframe_list(admin_client, objection_timeframe, size):
     "role__name,status_code",
     [
         ("Applicant", status.HTTP_403_FORBIDDEN),
-        ("Service", status.HTTP_400_BAD_REQUEST),
+        ("Service", status.HTTP_403_FORBIDDEN),
         ("Municipality", status.HTTP_201_CREATED),
     ],
 )
@@ -49,9 +51,11 @@ def test_objection_timeframe_create(admin_client, group, instance, status_code):
     response = admin_client.post(url, data=data)
     assert response.status_code == status_code
     if status_code == status.HTTP_201_CREATED:
-        json = response.json()
+        data = response.json()
         assert (
-            datetime.fromisoformat(json["data"]["attributes"]["start-date"])
+            datetime.fromisoformat(
+                json.loads(data["data"]["attributes"]["timeframe"])["lower"]
+            )
             == start_date
         )
 
@@ -60,28 +64,34 @@ def test_objection_timeframe_create(admin_client, group, instance, status_code):
     "role__name,status_code",
     [
         ("Municipality", status.HTTP_200_OK),
-        ("Service", status.HTTP_200_OK),
+        ("Service", status.HTTP_403_FORBIDDEN),
         ("Applicant", status.HTTP_403_FORBIDDEN),
     ],
 )
-@pytest.mark.parametrize("objection_timeframe__end_date", (timezone.now(),))
+@pytest.mark.parametrize(
+    "objection_timeframe__timeframe", (DateTimeTZRange(timezone.now(), None),)
+)
 def test_objection_timeframe_update(admin_client, objection_timeframe, status_code):
     url = reverse("objectiontimeframe-detail", args=[objection_timeframe.pk])
 
+    start_date = timezone.now() - timedelta(days=5)
     end_date = timezone.now() + timedelta(days=3)
     data = {
         "data": {
             "type": "objection-timeframes",
             "id": objection_timeframe.pk,
-            "attributes": {"end_date": end_date},
+            "attributes": {"start_date": start_date, "end_date": end_date},
         }
     }
     response = admin_client.patch(url, data=data)
     assert response.status_code == status_code
     if status_code == status.HTTP_200_OK:
-        json = response.json()
+        data = response.json()
         assert (
-            datetime.fromisoformat(json["data"]["attributes"]["end-date"]) == end_date
+            datetime.fromisoformat(
+                json.loads(data["data"]["attributes"]["timeframe"])["upper"]
+            )
+            == end_date
         )
 
 
@@ -93,11 +103,11 @@ def test_objection_timeframe_destroy(admin_client, objection_timeframe):
     assert response.status_code == status.HTTP_403_FORBIDDEN
 
 
-@pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "objection_timeframe__end_date", (timezone.now() - timedelta(days=3),)
+    "role__name,objection_timeframe__timeframe",
+    [("Municipality", DateTimeTZRange(None, (timezone.now() - timedelta(days=30))))],
 )
-def test_objection_timeframe_resriction(admin_client, instance, objection_timeframe):
+def test_objection_timeframe_restriction(admin_client, objection_timeframe):
     url = reverse("objection-list")
 
     data = {

@@ -1,4 +1,5 @@
 from django.utils import timezone
+from psycopg2.extras import DateTimeTZRange
 from rest_framework import viewsets
 
 from camac.instance.mixins import InstanceQuerysetMixin
@@ -31,17 +32,11 @@ class ObjectionTimeframeView(viewsets.ModelViewSet):
     def has_create_permission_for_municipality(self):
         return True
 
-    def has_create_permission_for_service(self):
-        return True
-
     @permission_aware
     def has_update_permission(self):
         return False
 
     def has_update_permission_for_municipality(self):
-        return True
-
-    def has_update_permission_for_service(self):
         return True
 
     def has_destroy_permission(self):
@@ -73,16 +68,17 @@ class ObjectionView(viewsets.ModelViewSet, InstanceQuerysetMixin):
 
     def has_create_permission_for_municipality(self):
         objection_timeframe = models.ObjectionTimeframe.objects.filter(
-            instance=self.request.data["instance"]["id"]
+            instance=self.request.data["instance"]["id"],
+            timeframe__gt=DateTimeTZRange(None, timezone.now()),
         ).first()
 
         if not objection_timeframe:
-            return True
+            return False
 
-        return objection_timeframe.end_date > timezone.now()
+        return True
 
     def has_create_permission_for_service(self):
-        return True
+        return self.has_create_permission_for_municipality()
 
     @permission_aware
     def has_update_permission(self):
