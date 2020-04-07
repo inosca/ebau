@@ -155,6 +155,9 @@ def test_publication_publish(
     add_field(name="bezeichnung-override", value="Ein Haus")
     add_field(name="parzellen", value=[{"number": 6}])
     add_field(name="punkte", value=[{"lat": 47.024328, "lng": 8.653836}])
+    add_field(name="ortsbezeichnung-des-vorhabens", value="Musterstrasse 12")
+    add_field(name="standort-spezialbezeichnung", value="Ein grosses Haus")
+    add_field(name="standort-ort", value="Schwyz")
     add_field(name="publikation-bemerkung", value="Ein grosses Haus")
 
     response = admin_client.post(url)
