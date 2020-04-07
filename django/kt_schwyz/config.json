@@ -11837,114 +11837,6 @@
   },
   {
     "fields": {
-      "body": "Ihr Gesuch ({{identifier}}, {{location}}) weist formelle M\u00e4ngel auf. Bitte bereinigen Sie diese und reichen das Gesuch wieder ein.",
-      "purpose": "R\u00fcckweisung",
-      "service": null,
-      "slug": "ruckweisung",
-      "subject": "Gesuch {{identifier}}: R\u00fcckweisung zur Erg\u00e4nzung / Bereinigung",
-      "type": "email"
-    },
-    "model": "notification.notificationtemplate",
-    "pk": 13
-  },
-  {
-    "fields": {
-      "body": "Die bisherige materielle Pr\u00fcfung Ihres Gesuchs ({{identifier}}, {{location}}) hat ergeben, dass erg\u00e4nzende Unterlagen und/oder eine Projektanpassung n\u00f6tig sind. Details k\u00f6nnen Sie dem Schreiben in der Dokumentenablage \u00abFreigegebene Unterlagen\u00bb entnehmen. Einen Direktlink erhalten Sie mit separater E-Mail Nachricht.",
-      "purpose": "Nachforderung",
-      "service": null,
-      "slug": "nachforderung",
-      "subject": "Gesuch {{identifier}}: Nachforderung",
-      "type": "email"
-    },
-    "model": "notification.notificationtemplate",
-    "pk": 14
-  },
-  {
-    "fields": {
-      "body": "Ihr Gesuch ({{identifier}}, {{location}}) wurde formell gepr\u00fcft und wird nun der materiellen Beurteilung zugef\u00fchrt.",
-      "purpose": "Bewilligungsprozess gestartet",
-      "service": null,
-      "slug": "bewilligungsprozess-gestartet",
-      "subject": "Gesuch {{identifier}}: Bewilligungsprozess gestartet",
-      "type": "email"
-    },
-    "model": "notification.notificationtemplate",
-    "pk": 15
-  },
-  {
-    "fields": {
-      "body": "Ein neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachtr\u00e4glich Unterlagen hochgeladen ({{identifier}}, {{location}}).\r\n\r\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
-      "purpose": "Gesuchseingang",
-      "service": null,
-      "slug": "gesuchseingang",
-      "subject": "Gesuch {{identifier}}: neues Gesuch oder Aktion in laufendem Gesuch",
-      "type": "email"
-    },
-    "model": "notification.notificationtemplate",
-    "pk": 16
-  },
-  {
-    "fields": {
-      "body": "Geben Sie bitte zum Gesuch {{identifier}}, {{location}} eine materielle Beurteilung / Stellungnahme ab. ",
-      "purpose": "Einladung zur Stellungnahme",
-      "service": null,
-      "slug": "einladung-zur-stellungnahme",
-      "subject": "Gesuch {{identifier}}: Einladung zur materiellen Beurteilung",
-      "type": "email"
-    },
-    "model": "notification.notificationtemplate",
-    "pk": 17
-  },
-  {
-    "fields": {
-      "body": "Zu Ihrem Gesuch {{identifier}}, {{location}} wurden Ihnen Dokumente freigegeben. Sie k\u00f6nnen diese \u00fcber das eBau Portal einsehen.\r\n",
-      "purpose": "Bereitstellung von Dokumenten",
-      "service": null,
-      "slug": "bereitstellung-von-dokumenten",
-      "subject": "Gesuch {{identifier}}: Dokumente zum Download bereit",
-      "type": "email"
-    },
-    "model": "notification.notificationtemplate",
-    "pk": 18
-  },
-  {
-    "fields": {
-      "body": "Sie wurden eingeladen am Baugesuch {{ public_dossier_link }} mitzuarbeiten.\r\n\r\nUm das Baugesuch einsehen und bearbeiten zu k\u00f6nnen, ist eine Registration auf dem eBau Portal des Kanton Schwyz erforderlich.\r\nUnter folgendem Link k\u00f6nnen Sie sich registrieren: {{ registration_link }}",
-      "purpose": "Gesuchsbearbeitungs Einladung, Neu",
-      "service": null,
-      "slug": "gesuchsbearbeitungs-einladung-neu",
-      "subject": "Sie wurden Eingeladen ein Baugesuch mitzubearbeiten",
-      "type": "email"
-    },
-    "model": "notification.notificationtemplate",
-    "pk": 19
-  },
-  {
-    "fields": {
-      "body": "Sie wurden eingeladen am Baugesuch {{ public_dossier_link }} mitzuarbeiten.\r\n",
-      "purpose": "Gesuchsbearbeitungs Einladung, Bestehend",
-      "service": null,
-      "slug": "gesuchsbearbeitungs-einladung-bestehend",
-      "subject": "Sie wurden Eingeladen ein Baugesuch mitzubearbeiten",
-      "type": "email"
-    },
-    "model": "notification.notificationtemplate",
-    "pk": 20
-  },
-  {
-    "fields": {
-      "body": "Bewilligen oder weisen Sie diese Anfrage ab.",
-      "purpose": "Publikation Einsehen",
-      "service": null,
-      "slug": "publikation-einsehen",
-      "subject": "Zur Publiaktion vom Gesuch {{identifier}} wurde Zugriff angefordert",
-      "type": "email"
-    },
-    "model": "notification.notificationtemplate",
-    "pk": 21
-  },
-  {
-    "fields": {
       "communal_cantonal_number": null,
       "communal_federal_number": "1311",
       "commune_name": "Gersau",
@@ -12440,8 +12332,8 @@
   },
   {
     "fields": {
+      "group_prefix": null,
       "name": "Admin",
-      "group_prefix":null,
       "role_parent": null
     },
     "model": "user.role",
@@ -12449,8 +12341,8 @@
   },
   {
     "fields": {
-      "name": "Guest",
       "group_prefix": null,
+      "name": "Guest",
       "role_parent": null
     },
     "model": "user.role",
@@ -12458,8 +12350,8 @@
   },
   {
     "fields": {
-      "name": "Gemeinde",
       "group_prefix": null,
+      "name": "Gemeinde",
       "role_parent": null
     },
     "model": "user.role",
@@ -12467,8 +12359,8 @@
   },
   {
     "fields": {
-      "name": "Portal",
       "group_prefix": null,
+      "name": "Portal",
       "role_parent": null
     },
     "model": "user.role",
@@ -12476,8 +12368,8 @@
   },
   {
     "fields": {
-      "name": "Fachstelle",
       "group_prefix": null,
+      "name": "Fachstelle",
       "role_parent": null
     },
     "model": "user.role",
@@ -12485,8 +12377,8 @@
   },
   {
     "fields": {
-      "name": "Kanton",
       "group_prefix": null,
+      "name": "Kanton",
       "role_parent": null
     },
     "model": "user.role",
@@ -12494,8 +12386,8 @@
   },
   {
     "fields": {
-      "name": "Fachstelle Sachbearbeiter",
       "group_prefix": null,
+      "name": "Fachstelle Sachbearbeiter",
       "role_parent": null
     },
     "model": "user.role",
@@ -12503,8 +12395,8 @@
   },
   {
     "fields": {
-      "name": "Gemeinde Sachbearbeiter",
       "group_prefix": null,
+      "name": "Gemeinde Sachbearbeiter",
       "role_parent": null
     },
     "model": "user.role",
@@ -12512,8 +12404,8 @@
   },
   {
     "fields": {
-      "name": "Publikation",
       "group_prefix": null,
+      "name": "Publikation",
       "role_parent": null
     },
     "model": "user.role",
@@ -12521,8 +12413,8 @@
   },
   {
     "fields": {
-      "name": "Lesezugriff",
       "group_prefix": null,
+      "name": "Lesezugriff",
       "role_parent": null
     },
     "model": "user.role",
