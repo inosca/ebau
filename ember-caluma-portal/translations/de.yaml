@@ -27,7 +27,6 @@ nav:
   internal: "zum internen Bereich"
   overview: "Übersicht"
 
-
 feedback:
   info: "Sie haben momentan keine Rückmeldungen. Sobald das Dossier eingereicht wurde, werden Ihnen hier mögliche Rückmeldungen der Leitbehörde oder Fachstellen angezeigt."
 
@@ -57,7 +56,7 @@ documents:
   downloadSuccess: "Die Datei wurde erfolgreich heruntergeladen"
   downloadError: "Beim Herunterladen der Datei ist etwas schief gelaufen"
 
-  deleteInfo: "Wollen Sie die Datei \"{filename}\" wirklich löschen?"
+  deleteInfo: 'Wollen Sie die Datei "{filename}" wirklich löschen?'
   deleteSuccess: "Die Datei wurde erfolgreich gelöscht"
   deleteError: "Beim Löschen der Datei ist etwas schief gelaufen"
 
@@ -172,16 +171,15 @@ instances:
   deleteInstanceError: "Das Dossier konnte nicht gelöscht werden"
   deleteInstanceSuccess: "Das Dossier wurde erfolgreich gelöscht"
 
-
   modificationTitle: "Neue Projektänderung"
   modificationText: "Hat sich an Ihrem Bauvorhaben etwas geändert? Hier
-  können Sie eine Projektänderung erfassen, ohne die bestehenden Daten neu
-  erfassen zu müssen."
+    können Sie eine Projektänderung erfassen, ohne die bestehenden Daten neu
+    erfassen zu müssen."
 
   rejectionTitle: "Dossier neu einreichen"
   rejectionText: "Sie können das ursprünglich eingereichte Dossier
-  entsprechend den Rückmeldungen der Leitbehörde bearbeiten und erneut
-  einreichen. Für die Korrektur wird eine neue Dossiernummer erstellt."
+    entsprechend den Rückmeldungen der Leitbehörde bearbeiten und erneut
+    einreichen. Für die Korrektur wird eine neue Dossiernummer erstellt."
 
   new:
     title: "Neues Dossier"
@@ -189,38 +187,47 @@ instances:
     preClarification: "Vorabklärung"
     application: "Gesuch"
     preClarificationInfo: "Bei unklaren Ausgangslagen (insbesondere bei
-    komplizierten und komplexen Bauvorhaben oder bei unklarer Rechtslage) ist
-    es empfehlenswert, vor Eingabe eines Baugesuchs die baurechtlichen
-    Rahmenbedingungen mittels einer Vorabklärung prüfen zu lassen. Je früher
-    die Interessen der betroffenen Beteiligten untereinander abgestimmt
-    werden, umso reibungsloser gestaltet sich in der Regel die Durchführung
-    eines Baubewilligungsverfahrens.
+      komplizierten und komplexen Bauvorhaben oder bei unklarer Rechtslage) ist
+      es empfehlenswert, vor Eingabe eines Baugesuchs die baurechtlichen
+      Rahmenbedingungen mittels einer Vorabklärung prüfen zu lassen. Je früher
+      die Interessen der betroffenen Beteiligten untereinander abgestimmt
+      werden, umso reibungsloser gestaltet sich in der Regel die Durchführung
+      eines Baubewilligungsverfahrens.
 
-    Die einfache Vorabklärung ist ein Instrument für jegliche Fragen welche
-    insbesondere die Standortgemeinde als zuständige Behörde direkt
-    beurteilen und beantworten kann (Beispiel: Neubau Carport, Ausbau
-    Dachgeschoss, Grenzabstände). Mit der vollständigen Vorabklärung können
-    auch umfassende Bauvorhaben, in welchen auch kantonale, bundes- oder
-    andere externe Stellen betroffen sind, einbezogen und koordiniert werden
-    (Beispiel: Bauvorhaben in der Landwirtschaftszone, Bauvorhaben mit einem
-    Neuanschluss an eine Kantonsstrasse)."
-    applicationInfo: "Der häufigste Fall ist die Eingabe eines Baugesuchs
-    (Beispiel: Anbau Garage, Neubau Einfamilienhaus, Einbau
-    Dachflächenfenster). Generelle Baugesuche oder Baugesuche mit einer
-    Umweltverträglichkeitsprüfung (UVP) sind in den allermeisten Fällen mit
-    den Behörden vorbesprochen und waren idealerweise bereits Gegenstand
-    einer vollständigen Vorabklärung. Das generelle Baugesuch wird bei
-    Grossprojekten gewählt, wenn noch nicht alle Details ausgearbeitet sind
-    und vorab geklärt werden soll, ob überhaupt eine Bewilligung erreicht
-    werden kann (Beispiel: Einkaufszentrum bei dem z.B. die Lüftung und der
-    Brandschutz erst später erarbeitet werden und vorab das Volumen, die
-    Nutzung und die Parkplätze geklärt werden sollen). Das Baugesuch mit UVP
-    ist zu wählen, wenn das Bauvorhaben eine Umweltverträglichkeitsprüfung
-    benötigt. Eine Auflistung der pflichtigen Bauten ist im Anhang zur
-    eidgenössischen UVP-Verordnung (UVPV) abschliessend festgelegt (Beispiel:
-    Neubau eines Logistikzentrums mit einer Lagerfläche von mehr als 20'000
-    m² oder ein Bauvorhaben das mehr als 500 Autoabstellplätze beinhaltet)."
 
+      Die **einfache Vorabklärung** ist ein Instrument für jegliche Fragen welche
+      insbesondere die Standortgemeinde als zuständige Behörde direkt
+      beurteilen und beantworten kann (Beispiel: Neubau Carport, Ausbau
+      Dachgeschoss, Grenzabstände).
+
+
+      Mit der **vollständigen Vorabklärung** können auch umfassende Bauvorhaben, in
+      welchen auch kantonale, bundes- oder andere externe Stellen betroffen sind,
+      einbezogen und koordiniert werden (Beispiel: Bauvorhaben in der
+      Landwirtschaftszone, Bauvorhaben mit einem Neuanschluss an eine Kantonsstrasse)."
+    applicationInfo: "Der häufigste Fall ist die Eingabe eines **Baugesuchs**
+      (Beispiel: Anbau Garage, Neubau Einfamilienhaus, Einbau
+      Dachflächenfenster).
+
+
+      Generelle Baugesuche oder Baugesuche mit einer Umweltverträglichkeitsprüfung
+      (UVP) sind in den allermeisten Fällen mit den Behörden vorbesprochen und
+      waren idealerweise bereits Gegenstand einer vollständigen Vorabklärung.
+
+
+      Das **generelle Baugesuch** wird bei Grossprojekten gewählt, wenn noch nicht
+      alle Details ausgearbeitet sind und vorab geklärt werden soll, ob überhaupt
+      eine Bewilligung erreicht werden kann (Beispiel: Einkaufszentrum bei dem
+      z.B. die Lüftung und der Brandschutz erst später erarbeitet werden und vorab
+      das Volumen, die Nutzung und die Parkplätze geklärt werden sollen).
+
+
+      Das **Baugesuch mit UVP** ist zu wählen, wenn das Bauvorhaben eine
+      Umweltverträglichkeitsprüfung benötigt. Eine Auflistung der pflichtigen
+      Bauten ist im Anhang zur eidgenössischen UVP-Verordnung (UVPV) abschliessend
+      festgelegt (Beispiel: Neubau eines Logistikzentrums mit einer Lagerfläche
+      von mehr als 20'000 m² oder ein Bauvorhaben das mehr als 500 Autoabstellplätze
+      beinhaltet)."
 
   status:
     title: "Status"
@@ -292,16 +299,16 @@ notfound:
 paper:
   type: "Papier"
   noteTitle: "Hinweis:"
-  noteBody: "Sie erstellen ein Dossier, welches in Ihrer Gemeinde in Papierform
-  eingereicht wurde (Papierdossier). Falls Sie ein normales Dossier als
-  Gesuchsteller erstellen wollen, wählen Sie \"Gesuchsteller/in\" im
-  Gruppenmenu am rechten oberen Rand der Seite."
+  noteBody: 'Sie erstellen ein Dossier, welches in Ihrer Gemeinde in Papierform
+    eingereicht wurde (Papierdossier). Falls Sie ein normales Dossier als
+    Gesuchsteller erstellen wollen, wählen Sie "Gesuchsteller/in" im
+    Gruppenmenu am rechten oberen Rand der Seite.'
 
 modification:
   type: "Projektänderung"
 
 dashboard:
   edit: "bearbeiten"
-  no-content: "Es wurde noch kein Inhalt erfasst. Klicken Sie auf \"bearbeiten\" um neuen Inhalt zu erfassen."
+  no-content: 'Es wurde noch kein Inhalt erfasst. Klicken Sie auf "bearbeiten" um neuen Inhalt zu erfassen.'
   load-error: "Fehler beim Laden des Inhaltes"
   save-error: "Fehler beim Speichern des Inhaltes"
