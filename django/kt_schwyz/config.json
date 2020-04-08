@@ -1596,6 +1596,24 @@
   },
   {
     "fields": {
+      "action_name": "indexCreate",
+      "available_resource": "businesscontrolcreate",
+      "hidden": 0
+    },
+    "model": "core.araction",
+    "pk": 17
+  },
+  {
+    "fields": {
+      "action_name": "indexList",
+      "available_resource": "businesscontrollist",
+      "hidden": 0
+    },
+    "model": "core.araction",
+    "pk": 18
+  },
+  {
+    "fields": {
       "description": "Check with a SQL query",
       "module_name": "default"
     },
@@ -1996,6 +2014,24 @@
     },
     "model": "core.availableresource",
     "pk": "apilistinstance"
+  },
+  {
+    "fields": {
+      "controller_name": "businesscontrol",
+      "description": "Page to create business control form",
+      "module_name": "businesscontrol"
+    },
+    "model": "core.availableresource",
+    "pk": "businesscontrolcreate"
+  },
+  {
+    "fields": {
+      "controller_name": "businesscontrol",
+      "description": "Page to list business control forms",
+      "module_name": "businesscontrol"
+    },
+    "model": "core.availableresource",
+    "pk": "businesscontrollist"
   },
   {
     "fields": {
@@ -3845,6 +3881,21 @@
   },
   {
     "fields": {
+      "available_instance_resource": "editformpage",
+      "class_field": null,
+      "description": "Forumlar ansicht f\u00fcr Gesch\u00e4ftskontrolle",
+      "form_group": 1,
+      "hidden": 0,
+      "name": "Formular",
+      "resource": 18,
+      "sort": 0,
+      "template": "/ember/instance.phtml"
+    },
+    "model": "core.instanceresource",
+    "pk": 44
+  },
+  {
+    "fields": {
       "available_action": "checkquery",
       "available_instance_resource": "allformpages"
     },
@@ -5473,6 +5524,14 @@
     },
     "model": "core.ireditformpage",
     "pk": 34
+  },
+  {
+    "fields": {
+      "page": 1,
+      "pdf_class": null
+    },
+    "model": "core.ireditformpage",
+    "pk": 44
   },
   {
     "fields": {
@@ -9643,6 +9702,24 @@
   },
   {
     "fields": {
+      "instance_resource": 44,
+      "instance_state": 1,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 616
+  },
+  {
+    "fields": {
+      "instance_resource": 44,
+      "instance_state": 1,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 617
+  },
+  {
+    "fields": {
       "instance_resource": 43,
       "instance_state": 5,
       "service": 7
@@ -10892,6 +10969,32 @@
   },
   {
     "fields": {
+      "available_resource": "businesscontrolcreate",
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "name": "Gesch\u00e4ftskontrolle erstellen",
+      "sort": 14,
+      "template": null
+    },
+    "model": "core.resource",
+    "pk": 17
+  },
+  {
+    "fields": {
+      "available_resource": "businesscontrollist",
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "name": "Gesch\u00e4ftskontrollenliste",
+      "sort": 15,
+      "template": null
+    },
+    "model": "core.resource",
+    "pk": 18
+  },
+  {
+    "fields": {
       "resource": 1,
       "role": 3
     },
@@ -11145,6 +11248,38 @@
     },
     "model": "core.rroleacl",
     "pk": 40
+  },
+  {
+    "fields": {
+      "resource": 17,
+      "role": 3
+    },
+    "model": "core.rroleacl",
+    "pk": 41
+  },
+  {
+    "fields": {
+      "resource": 17,
+      "role": 8
+    },
+    "model": "core.rroleacl",
+    "pk": 42
+  },
+  {
+    "fields": {
+      "resource": 18,
+      "role": 3
+    },
+    "model": "core.rroleacl",
+    "pk": 43
+  },
+  {
+    "fields": {
+      "resource": 18,
+      "role": 8
+    },
+    "model": "core.rroleacl",
+    "pk": 44
   },
   {
     "fields": {
@@ -12469,10 +12604,26 @@
   },
   {
     "fields": {
+      "description": "Gesch\u00e4ftskontrolle",
+      "form_state": 2,
+      "name": "geschaeftskontrolle"
+    },
+    "model": "instance.form",
+    "pk": 11
+  },
+  {
+    "fields": {
       "name": "Published"
     },
     "model": "instance.formstate",
     "pk": 1
+  },
+  {
+    "fields": {
+      "name": "Internal"
+    },
+    "model": "instance.formstate",
+    "pk": 2
   },
   {
     "fields": {
