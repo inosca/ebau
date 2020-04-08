@@ -1,6 +1,5 @@
-from django.db import transaction
 from django.utils.translation import gettext as _
-from psycopg2.extras import DateTimeTZRange
+from drf_extra_fields.fields import DateTimeRangeField
 from rest_framework.exceptions import ValidationError
 from rest_framework_json_api import serializers
 
@@ -67,38 +66,10 @@ class ObjectionSerializer(serializers.ModelSerializer, InstanceEditableMixin):
 
 
 class ObjectionTimeframeSerializer(serializers.ModelSerializer, InstanceEditableMixin):
-    start_date = serializers.DateTimeField(required=False, write_only=True)
-    end_date = serializers.DateTimeField(write_only=True)
+    timeframe = DateTimeRangeField()
 
     included_serializers = {"instance": "camac.instance.serializers.InstanceSerializer"}
 
-    @transaction.atomic
-    def create(self, validated_data):
-        validated_data["timeframe"] = DateTimeTZRange(
-            validated_data.get("start_date", None), validated_data["end_date"]
-        )
-        del validated_data["end_date"]
-        if "start_date" in validated_data:
-            del validated_data["start_date"]
-
-        timeframe = super().create(validated_data)
-
-        return timeframe
-
-    @transaction.atomic
-    def update(self, timeframe, validated_data):
-        validated_data["timeframe"] = DateTimeTZRange(
-            validated_data.get("start_date", None), validated_data["end_date"]
-        )
-        del validated_data["end_date"]
-        if "start_date" in validated_data:
-            del validated_data["start_date"]
-
-        timeframe = super().update(timeframe, validated_data)
-
-        return timeframe
-
     class Meta:
         model = models.ObjectionTimeframe
-        fields = ("instance", "start_date", "end_date", "timeframe")
-        read_only_fields = ("timeframe",)
+        fields = ("instance", "timeframe")
