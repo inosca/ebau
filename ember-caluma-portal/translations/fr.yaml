@@ -56,7 +56,7 @@ documents:
   downloadSuccess: "Le fichier a été téléchargé avec succès"
   downloadError: "Quelque chose a mal tourné lors du téléchargement du fichier"
 
-  deleteInfo: "Voulez-vous vraiment supprimer le fichier \"{filename}\" ?"
+  deleteInfo: 'Voulez-vous vraiment supprimer le fichier "{filename}" ?'
   deleteSuccess: "Le fichier a été supprimé avec succès"
   deleteError: "Quelque chose a mal tourné lors de la suppression du fichier"
 
@@ -171,58 +171,60 @@ instances:
   deleteInstanceError: "Le dossier n'a pas pu être supprimé"
   deleteInstanceSuccess: "Le dossier a été supprimé avec succès"
 
-
   modificationTitle: "Nouveau changement de projet"
   modificationText: "Y a-t-il eu des changements dans votre projet de
-  construction ? Ici, vous pouvez modifier le projet sans avoir à saisir à
-  nouveau les données existantes."
+    construction ? Ici, vous pouvez modifier le projet sans avoir à saisir à
+    nouveau les données existantes."
 
   rejectionTitle: "Soumettre à nouveau le dossier"
   rejectionText: "Vous pouvez traiter et soumettre à nouveau le dossier
-  initialement soumis conformément au retour d'information de l'autorité
-  directrice. Un nouveau numéro de dossier sera créé pour la correction."
+    initialement soumis conformément au retour d'information de l'autorité
+    directrice. Un nouveau numéro de dossier sera créé pour la correction."
 
   new:
     title: "Nouveau dossier"
     kind: "De quel type de dossier s'agit-il?"
     preClarification: "Demande préalable"
     application: "Requête"
-    preClarificationInfo: "Si la situation de départ n'est pas claire
-    (en particulier dans le cas de projets de construction complexes et
-    complexes ou si la situation juridique n'est pas claire), il est
-    conseillé de faire vérifier le cadre du droit de la construction au
-    moyen d'une clarification préalable avant de soumettre une demande de
-    permis de construire. Plus les intérêts des parties concernées sont
-    coordonnés tôt, plus la procédure d'obtention d'un permis de construire
-    sera généralement aisée.
+    preClarificationInfo:
+      "Si la situation initiale n'est pas claire (notamment dans le cas de projets de construction
+      complexes et compliqués ou si la situation juridique n'est pas clarifiée), il est conseillé de
+      faire vérifier les conditions générales du droit de la construction au moyen d'une demande préalable
+      avant de déposer une demande de permis de construire. Plus tôt les intérêts des parties concernées
+      sont coordonnés, plus la procédure d'octroi du permis de construire sera généralement aisée.
 
-    La simple clarification préalable est un instrument pour toutes les
-    questions que la collectivité locale, en particulier l'autorité
-    compétente, peut directement évaluer et auxquelles elle peut répondre
-    (exemple : construction d'un abri pour voitures, extension d'un grenier,
-    distances aux frontières). La clarification préliminaire complète permet
-    également d'inclure et de coordonner des projets de construction globaux
-    dans lesquels des organismes cantonaux, fédéraux ou d'autres organismes
-    extérieurs sont également concernés (par exemple : projets de construction
-    dans la zone agricole, projets de construction avec un nouveau raccordement
-    à une route cantonale)."
-    applicationInfo: "Le cas le plus courant est la présentation d'une demande de permis de construire
-    (Exemple : Agrandissement d'un garage, construction d'une maison unifamiliale neuve, installation
-    fenêtres de toit). Applications générales de bâtiment ou applications de bâtiment avec un
-    Les études d'impact sur l'environnement (EIE) sont, dans la grande majorité des cas, réalisées à l'aide d'études d'impact sur l'environnement (EIE).
-    les autorités et, idéalement, avait déjà fait l'objet d'une enquête de l
-    d'une enquête préliminaire complète. La demande générale de permis de construire est soumise à
-    Projets majeurs sélectionnés si tous les détails n'ont pas encore été réglés
-    et il faudrait préciser à l'avance si un permis a été obtenu.
-    (exemple : centre commercial où, par exemple, la ventilation et l'aération des locaux
-    de protection contre l'incendie ne sont élaborés que plus tard et le volume, le volume, le type et l'intensité de l'incendie
-    et les espaces de stationnement devraient être clarifiés). L'application bâtiment avec UVP
-    est choisi si le projet de construction fait l'objet d'une étude d'impact sur l'environnement
-    est nécessaire. Une liste des bâtiments obligatoires figure dans l'annexe à la Loi sur les bâtiments publics.
-    L'Ordonnance fédérale sur l'évaluation des incidences sur l'environnement (UVPV) a été finalisée (exemple :
-    Construction d'un nouveau centre logistique d'une surface de stockage de plus de 20.000 m².
-    m² ou un projet de construction de plus de 500 places de parking)."
 
+      La **demande préalable simple** est un instrument pour toutes les questions que la commune concernée,
+      en particulier l'autorité compétente, peut directement évaluer et auxquelles elle peut répondre
+      (exemple : construction d'un abri pour voitures, extension d'un grenier, distances aux limites).
+
+
+      La **demande préalable complète** permet également d'inclure et de coordonner des projets de construction
+      de grande ampleur dans lesquels des services cantonaux, fédéraux ou d'autres organismes extérieurs sont
+      également concernés (par exemple : projets de construction dans la zone agricole, projets de construction
+      avec un nouveau raccordement à une route cantonale)."
+    applicationInfo:
+      "Le cas le plus courant est la présentation d'une **demande de permis de construire**
+      (exemple : agrandissement d'un garage, construction d'une maison individuelle neuve, installation
+      de fenêtres en pente).
+
+
+      Les demandes de permis de construire générales ou avec étude d'impact sur
+      l'environnement (EIE) sont, dans la plupart des cas, discutées au préalable avec les autorités et,
+      idéalement, ont déjà fait l'objet d'une enquête préliminaire complète.
+
+
+      La **demande de permis de construire générale** est choisie pour les vastes projets lorsque tous les
+      détails n'ont pas été réglés et qu'il convient de préciser à l'avance si un permis peut être obtenu
+      (exemple : centre commercial où, par exemple, la ventilation et la protection contre l'incendie seront
+      déterminées ultérieurement et où le volume, l'utilisation et les places de parking doivent être clarifiés à l'avance).
+
+
+      La **demande de permis de construire avec EIE** doit être choisie si le projet de construction nécessite
+      une étude d'impact sur l'environnement. Une liste des installations soumises à l’EIE est présentée de manière
+      concluante dans l'annexe de l’Ordonnance fédérale relative à l’étude de l’impact sur l’environnement (OEIE) -
+      (exemple : construction d'un nouveau centre logistique d'une surface de stockage de plus de 20.000 m² ou un
+      projet de construction comprenant plus de 500 places de stationnement)."
 
   status:
     title: "État"
@@ -294,16 +296,16 @@ notfound:
 paper:
   type: "papier"
   noteTitle: "Remarque :"
-  noteBody: "Vous créez un dossier qui a été déposé dans votre commune sous
-  forme papier (dossier papier). Si vous souhaitez créer un dossier normal en
-  tant que requérant/e, sélectionnez \"Requérant/e\" dans le menu de groupe
-  en haut à droite de la page."
+  noteBody: 'Vous créez un dossier qui a été déposé dans votre commune sous
+    forme papier (dossier papier). Si vous souhaitez créer un dossier normal en
+    tant que requérant/e, sélectionnez "Requérant/e" dans le menu de groupe
+    en haut à droite de la page.'
 
 modification:
   type: "modification du projet"
 
 dashboard:
   edit: "modifier"
-  no-content: "Aucun contenu n'a encore été enregistré. Cliquez sur \"modifier\" pour entrer un nouveau contenu."
+  no-content: 'Aucun contenu n''a encore été enregistré. Cliquez sur "modifier" pour entrer un nouveau contenu.'
   load-error: "Erreur lors du chargement du contenu"
   save-error: "Erreur lors de la sauvegarde du contenu"
