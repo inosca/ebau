@@ -29,9 +29,7 @@ def test_objection_list(admin_client, objection, size):
         ("Municipality", status.HTTP_201_CREATED),
     ],
 )
-def test_objection_create(
-    admin_client, group, instance, objection_timeframe, status_code
-):
+def test_objection_create(admin_client, group, instance, status_code):
     url = reverse("objection-list")
 
     data = {

@@ -1,4 +1,3 @@
-import json
 from datetime import date, datetime, timedelta
 
 import pytest
@@ -40,8 +39,10 @@ def test_objection_timeframe_create(admin_client, group, instance, status_code):
             "type": "objection-timeframes",
             "id": None,
             "attributes": {
-                "start_date": start_date,
-                "end_date": timezone.now() + timedelta(days=3),
+                "timeframe": {
+                    "lower": start_date,
+                    "upper": timezone.now() + timedelta(days=3),
+                }
             },
             "relationships": {
                 "instance": {"data": {"id": instance.pk, "type": "instances"}}
@@ -53,9 +54,7 @@ def test_objection_timeframe_create(admin_client, group, instance, status_code):
     if status_code == status.HTTP_201_CREATED:
         data = response.json()
         assert (
-            datetime.fromisoformat(
-                json.loads(data["data"]["attributes"]["timeframe"])["lower"]
-            )
+            datetime.fromisoformat(data["data"]["attributes"]["timeframe"]["lower"])
             == start_date
         )
 
@@ -80,7 +79,7 @@ def test_objection_timeframe_update(admin_client, objection_timeframe, status_co
         "data": {
             "type": "objection-timeframes",
             "id": objection_timeframe.pk,
-            "attributes": {"start_date": start_date, "end_date": end_date},
+            "attributes": {"timeframe": {"lower": start_date, "upper": end_date}},
         }
     }
     response = admin_client.patch(url, data=data)
@@ -88,9 +87,7 @@ def test_objection_timeframe_update(admin_client, objection_timeframe, status_co
     if status_code == status.HTTP_200_OK:
         data = response.json()
         assert (
-            datetime.fromisoformat(
-                json.loads(data["data"]["attributes"]["timeframe"])["upper"]
-            )
+            datetime.fromisoformat(data["data"]["attributes"]["timeframe"]["upper"])
             == end_date
         )
 

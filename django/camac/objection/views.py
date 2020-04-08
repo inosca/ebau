@@ -67,15 +67,10 @@ class ObjectionView(viewsets.ModelViewSet, InstanceQuerysetMixin):
         return False
 
     def has_create_permission_for_municipality(self):
-        objection_timeframe = models.ObjectionTimeframe.objects.filter(
+        return not models.ObjectionTimeframe.objects.filter(
             instance=self.request.data["instance"]["id"],
-            timeframe__gt=DateTimeTZRange(None, timezone.now()),
-        ).first()
-
-        if not objection_timeframe:
-            return False
-
-        return True
+            timeframe__lt=DateTimeTZRange(timezone.now(), None),
+        ).exists()
 
     def has_create_permission_for_service(self):
         return self.has_create_permission_for_municipality()
