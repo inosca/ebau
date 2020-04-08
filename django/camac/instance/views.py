@@ -42,7 +42,11 @@ class FormView(viewsets.ReadOnlyModelViewSet):
     swagger_schema = None
     serializer_class = serializers.FormSerializer
 
+    @permission_aware
     def get_queryset(self):
+        return models.Form.objects.filter(form_state__name="Published")
+
+    def get_queryset_for_municipality(self):
         return models.Form.objects.all()
 
 

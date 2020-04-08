@@ -57,6 +57,7 @@ Router.map(function() {
           this.route("lebensmittel-und-hygienesicherheit");
           this.route("fischerei");
         });
+        this.route("geschaeftskontrolle");
         this.route("gesuchsunterlagen");
         this.route("gesuchsunterlagen-ve-va");
         this.route("anlassbewilligungen-verkehrsbewilligungen");
