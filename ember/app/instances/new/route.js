@@ -8,6 +8,7 @@ export default Route.extend({
   setupController(controller) {
     this._super(...arguments);
 
+    controller.groupData.perform();
     controller.forms.perform();
   }
 });
