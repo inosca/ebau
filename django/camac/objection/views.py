@@ -1,9 +1,45 @@
+from django.utils import timezone
 from rest_framework import viewsets
 
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.user.permissions import permission_aware
 
 from . import filters, models, serializers
+
+
+class ObjectionTimeframeView(viewsets.ModelViewSet):
+    swagger_schema = None
+    serializer_class = serializers.ObjectionTimeframeSerializer
+    filterset_class = filters.ObjectionTimeframeFilterSet
+    queryset = models.ObjectionTimeframe.objects
+
+    @permission_aware
+    def get_queryset(self):
+        """Return no result when user has no specific permission."""
+        return models.ObjectionTimeframe.objects.none()
+
+    def get_queryset_for_municipality(self):
+        return models.ObjectionTimeframe.objects.all()
+
+    def get_queryset_for_service(self):
+        return models.ObjectionTimeframe.objects.all()
+
+    @permission_aware
+    def has_create_permission(self):
+        return False
+
+    def has_create_permission_for_municipality(self):
+        return True
+
+    @permission_aware
+    def has_update_permission(self):
+        return False
+
+    def has_update_permission_for_municipality(self):
+        return True
+
+    def has_destroy_permission(self):
+        return False
 
 
 class ObjectionView(viewsets.ModelViewSet, InstanceQuerysetMixin):
@@ -30,10 +66,17 @@ class ObjectionView(viewsets.ModelViewSet, InstanceQuerysetMixin):
         return False
 
     def has_create_permission_for_municipality(self):
-        return True
+        objection_timeframe = models.ObjectionTimeframe.objects.filter(
+            instance=self.request.data["instance"]["id"]
+        ).first()
+
+        if not objection_timeframe:
+            return True
+
+        return objection_timeframe.timeframe.upper > timezone.now()
 
     def has_create_permission_for_service(self):
-        return True
+        return self.has_create_permission_for_municipality()
 
     @permission_aware
     def has_update_permission(self):
