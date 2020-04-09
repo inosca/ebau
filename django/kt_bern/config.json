@@ -119683,7 +119683,7 @@
   },
   {
     "fields": {
-      "body": "Guten Tag\r\n\r\nDer Bauentscheid zum Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} wurde gef\u00e4llt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\r\n\r\n{{BASE_URL}}/file/index/list/instance-resource-id/20038/instance-id/{{INSTANCE_ID}}\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa d\u00e9cision relative \u00e0 l'affaire portant le num\u00e9ro eBau {{EBAU_NUMBER}} a \u00e9t\u00e9 rendue et vous la trouverez en annexe.\r\n\r\n{{BASE_URL}}/file/index/list/instance-resource-id/20038/instance-id/{{INSTANCE_ID}}\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n",
+      "body": "Guten Tag\r\n\r\nDer Bauentscheid zum Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} wurde gef\u00e4llt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\r\n\r\n{{BASE_URL}}/apidocuments/list/list/instance-resource-id/20069/instance-id/{{INSTANCE_ID}}\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa d\u00e9cision relative \u00e0 l'affaire portant le num\u00e9ro eBau {{EBAU_NUMBER}} a \u00e9t\u00e9 rendue et vous la trouverez en annexe.\r\n\r\n{{BASE_URL}}/apidocuments/list/list/instance-resource-id/20069/instance-id/{{INSTANCE_ID}}\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n",
       "language": "de",
       "purpose": "08 Entscheid (Amts- und Fachstellen)",
       "subject": "Information \u00fcber Entscheid (eBau Nr. {{EBAU_NUMBER}}) / Information sur le prononc\u00e9 de la d\u00e9cision (n\u00b0 eBau {{EBAU_NUMBER}})",
@@ -119785,8 +119785,8 @@
   },
   {
     "fields": {
-      "name": "admin",
       "group_prefix": null,
+      "name": "admin",
       "role_parent": null
     },
     "model": "user.role",
@@ -119794,8 +119794,8 @@
   },
   {
     "fields": {
-      "name": "guest",
       "group_prefix": null,
+      "name": "guest",
       "role_parent": null
     },
     "model": "user.role",
@@ -119803,8 +119803,8 @@
   },
   {
     "fields": {
-      "name": "municipality-lead",
       "group_prefix": null,
+      "name": "municipality-lead",
       "role_parent": null
     },
     "model": "user.role",
@@ -119812,8 +119812,8 @@
   },
   {
     "fields": {
-      "name": "service-lead",
       "group_prefix": null,
+      "name": "service-lead",
       "role_parent": null
     },
     "model": "user.role",
@@ -119821,8 +119821,8 @@
   },
   {
     "fields": {
-      "name": "construction-control-lead",
       "group_prefix": null,
+      "name": "construction-control-lead",
       "role_parent": null
     },
     "model": "user.role",
@@ -119830,8 +119830,8 @@
   },
   {
     "fields": {
-      "name": "applicant",
       "group_prefix": null,
+      "name": "applicant",
       "role_parent": null
     },
     "model": "user.role",
@@ -119839,8 +119839,8 @@
   },
   {
     "fields": {
-      "name": "support",
       "group_prefix": null,
+      "name": "support",
       "role_parent": null
     },
     "model": "user.role",
@@ -119848,8 +119848,8 @@
   },
   {
     "fields": {
-      "name": "subservice",
       "group_prefix": null,
+      "name": "subservice",
       "role_parent": null
     },
     "model": "user.role",
@@ -119857,8 +119857,8 @@
   },
   {
     "fields": {
-      "name": "service-clerk",
       "group_prefix": null,
+      "name": "service-clerk",
       "role_parent": 4
     },
     "model": "user.role",
@@ -119866,8 +119866,8 @@
   },
   {
     "fields": {
-      "name": "service-readonly",
       "group_prefix": null,
+      "name": "service-readonly",
       "role_parent": null
     },
     "model": "user.role",
@@ -119875,8 +119875,8 @@
   },
   {
     "fields": {
-      "name": "municipality-readonly",
       "group_prefix": null,
+      "name": "municipality-readonly",
       "role_parent": null
     },
     "model": "user.role",
@@ -119884,8 +119884,8 @@
   },
   {
     "fields": {
-      "name": "municipality-clerk",
       "group_prefix": null,
+      "name": "municipality-clerk",
       "role_parent": 3
     },
     "model": "user.role",
@@ -119893,8 +119893,8 @@
   },
   {
     "fields": {
-      "name": "construction-control-clerk",
       "group_prefix": null,
+      "name": "construction-control-clerk",
       "role_parent": 5
     },
     "model": "user.role",
@@ -119902,8 +119902,8 @@
   },
   {
     "fields": {
-      "name": "construction-control-readonly",
       "group_prefix": null,
+      "name": "construction-control-readonly",
       "role_parent": null
     },
     "model": "user.role",
@@ -119911,8 +119911,8 @@
   },
   {
     "fields": {
-      "name": "municipality-admin",
       "group_prefix": null,
+      "name": "municipality-admin",
       "role_parent": null
     },
     "model": "user.role",
@@ -119920,8 +119920,8 @@
   },
   {
     "fields": {
-      "name": "service-admin",
       "group_prefix": null,
+      "name": "service-admin",
       "role_parent": null
     },
     "model": "user.role",
@@ -119929,8 +119929,8 @@
   },
   {
     "fields": {
-      "name": "construction-control-admin",
       "group_prefix": null,
+      "name": "construction-control-admin",
       "role_parent": null
     },
     "model": "user.role",
@@ -119938,9 +119938,9 @@
   },
   {
     "fields": {
+      "group_prefix": null,
       "language": "de",
       "name": "Admin",
-      "group_prefix": null,
       "role": 1
     },
     "model": "user.rolet",
@@ -119948,9 +119948,9 @@
   },
   {
     "fields": {
+      "group_prefix": null,
       "language": "de",
       "name": "Guest",
-      "group_prefix": null,
       "role": 2
     },
     "model": "user.rolet",
@@ -119958,9 +119958,9 @@
   },
   {
     "fields": {
+      "group_prefix": null,
       "language": "fr",
       "name": "Administrateur",
-      "group_prefix": null,
       "role": 1
     },
     "model": "user.rolet",
@@ -119968,9 +119968,9 @@
   },
   {
     "fields": {
+      "group_prefix": null,
       "language": "fr",
       "name": "Guest (FR)",
-      "group_prefix": null,
       "role": 2
     },
     "model": "user.rolet",
@@ -119978,9 +119978,9 @@
   },
   {
     "fields": {
+      "group_prefix": "Leitung",
       "language": "de",
       "name": "Leitung Leitbeh\u00f6rde",
-      "group_prefix": "Leitung",
       "role": 3
     },
     "model": "user.rolet",
@@ -119988,9 +119988,9 @@
   },
   {
     "fields": {
+      "group_prefix": "Leitung",
       "language": "de",
       "name": "Leitung Fachstelle",
-      "group_prefix": "Leitung",
       "role": 4
     },
     "model": "user.rolet",
@@ -119998,9 +119998,9 @@
   },
   {
     "fields": {
+      "group_prefix": "Leitung",
       "language": "de",
       "name": "Leitung Baukontrolle",
-      "group_prefix": "Leitung",
       "role": 5
     },
     "model": "user.rolet",
@@ -120008,9 +120008,9 @@
   },
   {
     "fields": {
+      "group_prefix": null,
       "language": "de",
       "name": "Gesuchsteller",
-      "group_prefix": null,
       "role": 6
     },
     "model": "user.rolet",
@@ -120018,9 +120018,9 @@
   },
   {
     "fields": {
+      "group_prefix": null,
       "language": "de",
       "name": "System-Betrieb",
-      "group_prefix": null,
       "role": 10000
     },
     "model": "user.rolet",
@@ -120028,9 +120028,9 @@
   },
   {
     "fields": {
+      "group_prefix": null,
       "language": "de",
       "name": "Unterfachstelle",
-      "group_prefix": null,
       "role": 20000
     },
     "model": "user.rolet",
@@ -120038,9 +120038,9 @@
   },
   {
     "fields": {
+      "group_prefix": "Sachbearbeiter",
       "language": "de",
       "name": "Sachbearbeiter Fachstelle",
-      "group_prefix": "Sachbearbeiter",
       "role": 20001
     },
     "model": "user.rolet",
@@ -120048,9 +120048,9 @@
   },
   {
     "fields": {
+      "group_prefix": "Einsichtsberechtigte",
       "language": "de",
       "name": "Einsichtsberechtigte Fachstelle",
-      "group_prefix": "Einsichtsberechtigte",
       "role": 20002
     },
     "model": "user.rolet",
@@ -120058,9 +120058,9 @@
   },
   {
     "fields": {
+      "group_prefix": "Einsichtsberechtigte",
       "language": "de",
       "name": "Einsichtsberechtigte Leitbeh\u00f6rde",
-      "group_prefix": "Einsichtsberechtigte",
       "role": 20003
     },
     "model": "user.rolet",
@@ -120068,9 +120068,9 @@
   },
   {
     "fields": {
+      "group_prefix": "Sachbearbeiter",
       "language": "de",
       "name": "Sachbearbeiter Leitbeh\u00f6rde",
-      "group_prefix": "Sachbearbeiter",
       "role": 20004
     },
     "model": "user.rolet",
@@ -120078,9 +120078,9 @@
   },
   {
     "fields": {
+      "group_prefix": "Sachbearbeiter",
       "language": "de",
       "name": "Sachbearbeiter Baukontrolle",
-      "group_prefix": "Sachbearbeiter",
       "role": 20005
     },
     "model": "user.rolet",
@@ -120088,9 +120088,9 @@
   },
   {
     "fields": {
+      "group_prefix": "Einsichtsberechtigte",
       "language": "de",
       "name": "Einsichtsberechtigte Baukontrolle",
-      "group_prefix": "Einsichtsberechtigte",
       "role": 20006
     },
     "model": "user.rolet",
@@ -120098,9 +120098,9 @@
   },
   {
     "fields": {
+      "group_prefix": null,
       "language": "fr",
       "name": "Admin",
-      "group_prefix": null,
       "role": 1
     },
     "model": "user.rolet",
@@ -120108,9 +120108,9 @@
   },
   {
     "fields": {
+      "group_prefix": null,
       "language": "fr",
       "name": "Guest",
-      "group_prefix": null,
       "role": 2
     },
     "model": "user.rolet",
@@ -120118,9 +120118,9 @@
   },
   {
     "fields": {
+      "group_prefix": "Direction:",
       "language": "fr",
       "name": "Direction: autorit\u00e9 directrice",
-      "group_prefix": "Direction:",
       "role": 3
     },
     "model": "user.rolet",
@@ -120128,9 +120128,9 @@
   },
   {
     "fields": {
+      "group_prefix": "Direction:",
       "language": "fr",
       "name": "Direction: service",
-      "group_prefix": "Direction:",
       "role": 4
     },
     "model": "user.rolet",
@@ -120138,9 +120138,9 @@
   },
   {
     "fields": {
+      "group_prefix": "Direction:",
       "language": "fr",
       "name": "Direction: contr\u00f4le des constructions",
-      "group_prefix": "Direction:",
       "role": 5
     },
     "model": "user.rolet",
@@ -120148,9 +120148,9 @@
   },
   {
     "fields": {
+      "group_prefix": null,
       "language": "fr",
       "name": "Requ\u00e9rant/e",
-      "group_prefix": null,
       "role": 6
     },
     "model": "user.rolet",
@@ -120158,9 +120158,9 @@
   },
   {
     "fields": {
+      "group_prefix": null,
       "language": "fr",
       "name": "Exploitation du syst\u00e8me",
-      "group_prefix": null,
       "role": 10000
     },
     "model": "user.rolet",
@@ -120168,9 +120168,9 @@
   },
   {
     "fields": {
+      "group_prefix": null,
       "language": "fr",
       "name": "Unit\u00e9 d'un service sp\u00e9cialis\u00e9",
-      "group_prefix": null,
       "role": 20000
     },
     "model": "user.rolet",
@@ -120178,9 +120178,9 @@
   },
   {
     "fields": {
+      "group_prefix": "Collaborateur/collaboratrice:",
       "language": "fr",
       "name": "Collaborateur/collaboratrice d'un service sp\u00e9cialis\u00e9",
-      "group_prefix": "Collaborateur/collaboratrice:",
       "role": 20001
     },
     "model": "user.rolet",
@@ -120188,9 +120188,9 @@
   },
   {
     "fields": {
+      "group_prefix": "Droit de consulter le dossier:",
       "language": "fr",
       "name": "Droit de consulter le dossier: service",
-      "group_prefix": "Droit de consulter le dossier:",
       "role": 20002
     },
     "model": "user.rolet",
@@ -120198,9 +120198,9 @@
   },
   {
     "fields": {
+      "group_prefix": "Droit de consulter le dossier:",
       "language": "fr",
       "name": "Droit de consulter le dossier: autorit\u00e9 directrice",
-      "group_prefix": "Droit de consulter le dossier:",
       "role": 20003
     },
     "model": "user.rolet",
@@ -120208,9 +120208,9 @@
   },
   {
     "fields": {
+      "group_prefix": "Collaborateur/collaboratrice:",
       "language": "fr",
       "name": "Collaborateur/collaboratrice de l'autorit\u00e9 directrice",
-      "group_prefix": "Collaborateur/collaboratrice:",
       "role": 20004
     },
     "model": "user.rolet",
@@ -120218,9 +120218,9 @@
   },
   {
     "fields": {
+      "group_prefix": "Collaborateur/collaboratrice:",
       "language": "fr",
       "name": "Collaborateur/collaboratrice du contr\u00f4le des constructions",
-      "group_prefix": "Collaborateur/collaboratrice:",
       "role": 20005
     },
     "model": "user.rolet",
@@ -120228,9 +120228,9 @@
   },
   {
     "fields": {
+      "group_prefix": "Droit de consulter le dossier:",
       "language": "fr",
       "name": "Droit de consulter le dossier: contr\u00f4le des constructions",
-      "group_prefix": "Droit de consulter le dossier:",
       "role": 20006
     },
     "model": "user.rolet",
@@ -120238,9 +120238,9 @@
   },
   {
     "fields": {
+      "group_prefix": "Administration",
       "language": "de",
       "name": "Administration Leitbeh\u00f6rde",
-      "group_prefix":"Administration",
       "role": 20007
     },
     "model": "user.rolet",
@@ -120248,9 +120248,9 @@
   },
   {
     "fields": {
+      "group_prefix": "Administration",
       "language": "de",
       "name": "Administration Fachstelle",
-      "group_prefix": "Administration",
       "role": 20008
     },
     "model": "user.rolet",
@@ -120258,9 +120258,9 @@
   },
   {
     "fields": {
+      "group_prefix": "Administration",
       "language": "de",
       "name": "Administration Baukontrolle",
-      "group_prefix": "Administration",
       "role": 20009
     },
     "model": "user.rolet",
@@ -120268,9 +120268,9 @@
   },
   {
     "fields": {
+      "group_prefix": "Administration:",
       "language": "fr",
       "name": "Administration: contr\u00f4le des constructions",
-      "group_prefix": "Administration:",
       "role": 20009
     },
     "model": "user.rolet",
@@ -120278,9 +120278,9 @@
   },
   {
     "fields": {
+      "group_prefix": "Administration:",
       "language": "fr",
       "name": "Administration: service",
-      "group_prefix": "Administration:",
       "role": 20008
     },
     "model": "user.rolet",
@@ -120288,9 +120288,9 @@
   },
   {
     "fields": {
+      "group_prefix": "Administration:",
       "language": "fr",
       "name": "Administration: autorit\u00e9 directrice",
-      "group_prefix": "Administration:",
       "role": 20007
     },
     "model": "user.rolet",
