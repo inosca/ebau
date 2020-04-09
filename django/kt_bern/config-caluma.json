@@ -3033,19 +3033,6 @@
   },
   {
     "fields": {
-      "created_at": "2020-03-23T16:07:57.101Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "form": "7-bestaetigung",
-      "modified_at": "2020-03-23T16:07:57.101Z",
-      "question": "bestaetigung-naturgefahren",
-      "sort": 9
-    },
-    "model": "caluma_form.formquestion",
-    "pk": "7-bestaetigung.bestaetigung-naturgefahren"
-  },
-  {
-    "fields": {
       "created_at": "2020-03-23T15:49:30.743Z",
       "created_by_group": null,
       "created_by_user": null,
@@ -27410,11 +27397,11 @@
       "is_required": "false",
       "label": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {},
-      "modified_at": "2020-03-24T14:58:31.435Z",
+      "modified_at": "2020-04-09T09:12:09.762Z",
       "placeholder": "{\"de\": null, \"fr\": null}",
       "row_form": null,
       "source": null,
-      "static_content": "{\"de\": \"1. Die Bauherrschaft verzichtet f\\u00fcr sich und ihre Rechtsnachfolger ausdr\\u00fccklich auf den Ersatz von Schaden, der durch den Forstbetrieb oder durch Naturereignisse, wie Schneedruck, Windfall usw. an der zu erstellenden Baute, bzw. \\u00e4hnlichen Anlage verursacht werden k\\u00f6nnte. Vorbehalten bleiben die Bestimmungen der Art. 41 ff. OR.\\n\\n2. Die Bauherrschaft nimmt f\\u00fcr sich und ihre Rechtsnachfolge zur Kenntnis, dass keine R\\u00fcckhiebe oder andere \\u00fcber das Kapprecht hinausgehenden Aushiebe an dem vom N\\u00e4herbau tangierten Wald bewilligt werden; es ist verboten, auch wenn der Wald ihr geh\\u00f6rt, solche Hiebe zwecks Verminderung des Schattenwurfes, zur Verbesserung der Aussicht oder aus anderen Gr\\u00fcnden vorzunehmen.\\n\\n3. Bei einer allf\\u00e4lligen Hand\\u00e4nderung verpflichten sich die Bauherrschaft und Grundeigent\\u00fcmerin/Grundeigent\\u00fcmer, bzw. Baurechtsnehmerin/Baurechtsnehmer, diese Erkl\\u00e4rung einer allf\\u00e4lligen Rechtsnachfolge zu \\u00fcberbinden.\", \"fr\": \"1. Le ma\\u00eetre d\\u2019\\u0153uvre renonce express\\u00e9ment, pour lui-m\\u00eame et ses ayants-cause, \\u00e0 toute indemnit\\u00e9 pour des d\\u00e9g\\u00e2ts qui pourraient \\u00eatre provoqu\\u00e9s par l\\u2019exploitation foresti\\u00e8re ou par un ph\\u00e9nom\\u00e8ne naturel, tels que neige lourde, coups de vent, etc., aux b\\u00e2timents ou installations analogues \\u00e0 construire. Demeurent r\\u00e9serv\\u00e9es, les prescriptions selon art. 41 ss CO.\\n\\n2. Pour lui et ses ayants-cause, le ma\\u00eetre d\\u2019\\u0153uvre prend acte qu\\u2019aucun d\\u00e9frichement de lisi\\u00e8re de la for\\u00eat limitrophe ou autre coupe d\\u2019\\u00e9claircie allant au-del\\u00e0 du droit de couper les branches qui empi\\u00e8tent sur le fonds voisin ne sera autoris\\u00e9\\u00a0; si la for\\u00eat lui appartient, il lui est interdit de proc\\u00e9der \\u00e0 des coupes en vue de diminuer l\\u2019ombre projet\\u00e9e, de favoriser la vue ou \\u00e0 tout autre dessein.\\n\\n3. En cas de changement de propri\\u00e9t\\u00e9, le ma\\u00eetre d\\u2019\\u0153uvre et propri\\u00e9taire, ou le b\\u00e9n\\u00e9ficiaire du droit de superficie, s\\u2019engage \\u00e0 transf\\u00e9rer \\u00e0 son successeur les obligations d\\u00e9coulant de la pr\\u00e9sente d\\u00e9claration.\"}",
+      "static_content": "{\"de\": \"1. Der/die Gesuchsteller/in verzichtet f\\u00fcr sich und seine/ihre Rechtsnachfolger ausdr\\u00fccklich auf jeden Ersatz von Schaden, der durch den Forstbetrieb oder durch Naturereignisse, wie Schneedruck, Windfall usw. an der zu erstellenden Baute, bzw. \\u00e4hnlichen Anlage verursacht werden k\\u00f6nnte. Vorbehalten bleiben jedoch die Bestimmungen der Art. 41 ff. OR.\\n\\n2. Der/die Gesuchsteller/in nimmt f\\u00fcr sich und seine/ihre Rechtsnachfolger zur Kenntnis, dass keine R\\u00fcckhiebe oder andere \\u00fcber das Kapprecht hinausgehenden Aushiebe an dem vom N\\u00e4herbau tangierten Wald bewilligt werden; es ist verboten, auch wenn der Wald ihr geh\\u00f6rt, solche Hiebe zwecks Verminderung des Schattenwurfes, zur Verbesserung der Aussicht oder aus anderen Gr\\u00fcnden vorzunehmen.\\n\\n3. Bei einer allf\\u00e4lligen Hand\\u00e4nderung verpflichtet sich der/die Gesuchsteller/in und Grundeigent\\u00fcmer/in, bzw. Baurechtsnehmer/in, diese Erkl\\u00e4rung einer allf\\u00e4lligen Rechtsnachfolge zu \\u00fcberbinden.\", \"fr\": \"1. Le ma\\u00eetre d\\u2019\\u0153uvre renonce express\\u00e9ment, pour lui-m\\u00eame et ses ayants-cause, \\u00e0 toute indemnit\\u00e9 pour des d\\u00e9g\\u00e2ts qui pourraient \\u00eatre provoqu\\u00e9s par l\\u2019exploitation foresti\\u00e8re ou par un ph\\u00e9nom\\u00e8ne naturel, tels que neige lourde, coups de vent, etc., aux b\\u00e2timents ou installations analogues \\u00e0 construire. Demeurent r\\u00e9serv\\u00e9es, les prescriptions selon art. 41 ss CO.\\n\\n2. Pour lui et ses ayants-cause, le ma\\u00eetre d\\u2019\\u0153uvre prend acte qu\\u2019aucun d\\u00e9frichement de lisi\\u00e8re de la for\\u00eat limitrophe ou autre coupe d\\u2019\\u00e9claircie allant au-del\\u00e0 du droit de couper les branches qui empi\\u00e8tent sur le fonds voisin ne sera autoris\\u00e9\\u00a0; si la for\\u00eat lui appartient, il lui est interdit de proc\\u00e9der \\u00e0 des coupes en vue de diminuer l\\u2019ombre projet\\u00e9e, de favoriser la vue ou \\u00e0 tout autre dessein.\\n\\n3. En cas de changement de propri\\u00e9t\\u00e9, le ma\\u00eetre d\\u2019\\u0153uvre et propri\\u00e9taire, ou le b\\u00e9n\\u00e9ficiaire du droit de superficie, s\\u2019engage \\u00e0 transf\\u00e9rer \\u00e0 son successeur les obligations d\\u00e9coulant de la pr\\u00e9sente d\\u00e9claration.\"}",
       "sub_form": null,
       "type": "static"
     },
