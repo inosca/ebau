@@ -177,8 +177,6 @@ pure_config_models = [
     "core.WorkflowRole",
     "document.AttachmentSectionRoleAcl",
     "document.AttachmentSectionServiceAcl",
-    "notification.NotificationTemplate",
-    "notification.NotificationTemplateT",
     "responsible.IrEditresponsibleuser",
     "responsible.IrEditresponsiblegroup",
     "responsible.ASetresponsiblegroup",
@@ -230,6 +228,8 @@ models_referencing_data = [
     "user.ServiceT",
     "user.ServiceGroup",
     "user.ServiceGroupT",
+    "notification.NotificationTemplate",
+    "notification.NotificationTemplateT",
 ]
 
 pure_config_models_caluma = []
@@ -250,6 +250,8 @@ models_managed_by_customer = {
         "user.GroupLocation",
         "user.Service",
         "user.ServiceT",
+        "notification.NotificationTemplate",
+        "notification.NotificationTemplateT",
     ],
     "kt_bern": [
         "user.Group",
