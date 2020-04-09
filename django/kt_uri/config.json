@@ -10803,6 +10803,24 @@
   },
   {
     "fields": {
+      "attachment_extension": 45,
+      "mode": null,
+      "role": 1101
+    },
+    "model": "core.attachmentextensionrole",
+    "pk": 188
+  },
+  {
+    "fields": {
+      "attachment_extension": 45,
+      "mode": null,
+      "role": 3
+    },
+    "model": "core.attachmentextensionrole",
+    "pk": 189
+  },
+  {
+    "fields": {
       "attachment_extension": 43,
       "mode": "",
       "service": 201
