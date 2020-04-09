@@ -142,11 +142,5 @@ ATTACHMENT_SECTION_ALLE_BETEILIGTEN = 3
 ATTACHMENT_SECTION_BEILAGEN_SB1 = 6
 ATTACHMENT_SECTION_BEILAGEN_SB2 = 5
 
-# eCH judgements
-# 1 = Positiv
-# 2 = Positiv mit Bedingungen
-# 3 = Nicht eintreten
-# 4 = abgelehnt
-
 # Notification template slugs
 NOTIFICATION_ECH = "03-verfahrensablauf-fachstelle"
