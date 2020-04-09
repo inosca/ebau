@@ -4,7 +4,7 @@ from django.db import models
 
 
 class ObjectionTimeframe(models.Model):
-    instance = models.ForeignKey(
+    instance = models.OneToOneField(
         "instance.Instance", models.CASCADE, related_name="objection_timeframes"
     )
     timeframe = DateTimeRangeField(null=True)
