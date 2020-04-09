@@ -99,6 +99,15 @@ Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unte
 
 - 5.3.5 Rückzug des Baugesuchs: Diese Funktion ist nicht in eBau implementiert, darum kann diese Message nicht ausgeliefert werden.
 
+- Judgements in `NoticeRuling` werden in eBau wie folgt gemappt:
+
+    | Judgement | Descision               | Besonderheiten                     |
+    |-----------|-------------------------|------------------------------------|
+    | 1         | Bewilligt               |                                    |
+    | 2         | Bewilligt mit Vorbehalt | Nicht verfügbar für Baugesuche     |
+    | 3         | Abgeschrieben           | Nicht verfügbar für Vorabklärungen |
+    | 4         | Abgelehnt               |                                    |
+
 ## Message Typen
 
 ### GET
