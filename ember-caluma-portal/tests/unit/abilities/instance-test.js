@@ -102,21 +102,21 @@ module("Unit | Ability | instance", function(hooks) {
 
     const ability = this.owner.lookup("ability:instance");
 
-    ability.set("_allGroups", [
-      {
-        id: 1,
-        service: {
-          serviceGroup: {
-            id: config.ebau.paperInstances.allowedGroups.serviceGroups[0]
-          }
-        },
-        role: { id: config.ebau.paperInstances.allowedGroups.roles[0] }
-      }
-    ]);
-
     ability.set("session", {
       isInternal: true,
-      group: 1
+      group: 1,
+      groups: [
+        {
+          id: 1,
+          service: {
+            serviceGroup: {
+              id: config.ebau.paperInstances.allowedGroups.serviceGroups[0]
+            }
+          },
+          role: { id: config.ebau.paperInstances.allowedGroups.roles[0] },
+          canCreatePaper: true
+        }
+      ]
     });
 
     assert.notOk(ability.canCreateExternal);
