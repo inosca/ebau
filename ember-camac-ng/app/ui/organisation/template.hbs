@@ -8,20 +8,6 @@
   <fieldset>
     <legend>{{t "organisation.edit"}}</legend>
 
-    <div class="row first">
-      <div class="label">{{t "organisation.name"}} *</div>
-      <div class="column-2">
-        <Input
-          class="text"
-          @type="text"
-          @value={{this.service.name}}
-          @required={{true}}
-          @name="name"
-          @maxlength={{100}}
-        />
-      </div>
-    </div>
-
     <div class="row">
       <div class="label">{{t "organisation.phone"}}</div>
       <div class="column-2">

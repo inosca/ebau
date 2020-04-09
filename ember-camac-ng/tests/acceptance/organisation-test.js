@@ -35,7 +35,7 @@ module("Acceptance | organisation", function(hooks) {
   hooks.beforeEach(async function() {
     this.owner.register("service:shoebox", FakeShoebox);
 
-    this.server.create("service", { id: SERVICE_ID });
+    this.server.create("service", { id: SERVICE_ID, name: DATA.name });
 
     await authenticateSession();
   });
@@ -43,7 +43,6 @@ module("Acceptance | organisation", function(hooks) {
   test("can edit the own organisation", async function(assert) {
     await visit("/organisation");
 
-    await fillIn("input[name=name]", DATA.name);
     await fillIn("input[name=phone]", DATA.phone);
     await fillIn("input[name=zip]", DATA.zip);
     await fillIn("input[name=city]", DATA.city);
