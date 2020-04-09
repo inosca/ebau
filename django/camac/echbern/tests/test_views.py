@@ -12,6 +12,7 @@ from camac.constants.kt_bern import (
     INSTANCE_STATE_DOSSIERPRUEFUNG,
     INSTANCE_STATE_KOORDINATION,
     INSTANCE_STATE_REJECTED,
+    SERVICE_GROUP_BAUKONTROLLE,
     VORABKLAERUNG_DECISIONS_BEWILLIGT_MIT_VORBEHALT,
 )
 from camac.core.models import (
@@ -194,8 +195,21 @@ def test_send(
     role_factory,
     attachment_section_factory,
     attachment_factory,
+    service_group_factory,
+    service_factory,
 ):
     if has_permission:
+        service_group_baukontrolle = service_group_factory(
+            pk=SERVICE_GROUP_BAUKONTROLLE
+        )
+
+        service_factory(
+            service_group=service_group_baukontrolle,
+            name=None,
+            trans__name="Baukontrolle Burgdorf",
+            trans__city="Burgdorf",
+            trans__language="de",
+        )
         group = admin_user.groups.first()
         group.service = ech_instance.services.first()
         group.role = role_factory(name="support")
