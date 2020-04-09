@@ -2630,17 +2630,6 @@ snapshots['test_document_merge_service_snapshot[1-baugesuch] 1'] = [
             {
                 'choices': [
                     {
-                        'checked': False,
-                        'label': 'Naturgefahren: Der/die Gesuchsteller/in verzichtet für sich und seine/ihre Rechtsnachfolger ausdrücklich auf jeden Ersatz von Schaden, der durch den Forstbetrieb oder durch Naturereignisse, wie Schneedruck, Windfall usw. an der zu erstellenden Baute, bzw. ähnlichen Anlage verursacht werden könnte. Vorbehalten bleiben jedoch die Bestimmungen der Art. 41 ff. OR.'
-                    }
-                ],
-                'label': 'Naturgefahren',
-                'slug': 'bestaetigung-naturgefahren',
-                'type': 'MultipleChoiceQuestion'
-            },
-            {
-                'choices': [
-                    {
                         'checked': True,
                         'label': 'Der/die Gesuchsteller/in ist verantwortlich für die Einhaltung der Radonvorgaben gemäss Strahlenschutzverordnung des Bundes.'
                     }
