@@ -10,12 +10,7 @@ module.exports = function(defaults) {
     storeConfigInMeta: false,
     // disable fingerprinting completely
     SRI: { enabled: false },
-    fingerprint: { enabled: false },
-
-    // babel configuration
-    "ember-cli-babel": {
-      includePolyfill: true
-    }
+    fingerprint: { enabled: false }
   });
 
   return app.toTree();
