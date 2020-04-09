@@ -1,25 +1,12 @@
-import { computed, get } from "@ember/object";
+import { computed } from "@ember/object";
 import { not, or } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
 import { Ability } from "ember-can";
 
 import config from "../config/environment";
 
-const canCreatePaper = group => {
-  const roleId = parseInt(get(group, "role.id"));
-  const serviceGroupId = parseInt(get(group, "service.serviceGroup.id"));
-
-  return (
-    config.ebau.paperInstances.allowedGroups.roles.includes(roleId) &&
-    config.ebau.paperInstances.allowedGroups.serviceGroups.includes(
-      serviceGroupId
-    )
-  );
-};
-
 export default class InstanceAbility extends Ability {
   @service session;
-  @service store;
 
   @computed("form.{meta.is-main-form,slug}")
   get formName() {
@@ -41,18 +28,13 @@ export default class InstanceAbility extends Ability {
     return this.formPermissions.includes("read");
   }
 
-  @computed
-  get _allGroups() {
-    return this.store.peekAll("public-group");
-  }
-
-  @computed("session.group", "_allGroups.[]")
+  @computed("session.{group,groups.[]}")
   get canCreatePaper() {
     return !!(
       this.session.group &&
-      this._allGroups
-        .filter(canCreatePaper)
-        .find(({ id }) => id === this.session.group)
+      (this.session.groups || []).find(
+        group => group.canCreatePaper && group.id === this.session.group
+      )
     );
   }
 
