@@ -15,11 +15,12 @@ APPLICANT_GROUP_ID = 6
 
 class CalumaApi:
     """
-    Class with methods to interact with the caluma apps.
+    Class with helper methods to interact with Caluma.
 
-    We try to not use caluma components (models, etc.) outside of this module.
-    For some usecases this is too cumbersome
-    (e.g. PDF generation, ech data_preparation).
+    Initially this was meant as a wrapper for all interactions with Caluma (including
+    the models). This is not the case anymore. Instead this class is meant to contain
+    convenience methods for more involved caluma interactions or project specific
+    meta lookups.
     """
 
     def is_main_form(self, form_slug):
