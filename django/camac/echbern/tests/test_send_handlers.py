@@ -16,6 +16,9 @@ from camac.constants.kt_bern import (
     NOTICE_TYPE_NEBENBESTIMMUNG,
     NOTICE_TYPE_STELLUNGNAHME,
     NOTIFICATION_ECH,
+    SERVICE_GROUP_BAUKONTROLLE,
+    SERVICE_GROUP_LEITBEHOERDE_GEMEINDE,
+    SERVICE_GROUP_RSTA,
 )
 from camac.core.models import (
     Activation,
@@ -64,14 +67,51 @@ def test_resolve_send_handler(xml_file, expected_send_handler):
 
 
 @pytest.mark.parametrize(
-    "judgement,instance_state_pk,has_permission,is_vorabklaerung,expected_state_pk",
+    "judgement,instance_state_pk,has_permission,is_vorabklaerung,active,expected_state_pk",
     [
-        (4, INSTANCE_STATE_DOSSIERPRUEFUNG, True, False, INSTANCE_STATE_REJECTED),
-        (3, INSTANCE_STATE_DOSSIERPRUEFUNG, False, False, None),
-        (1, INSTANCE_STATE_KOORDINATION, True, False, INSTANCE_STATE_SB1),
-        (1, INSTANCE_STATE_ZIRKULATION, True, False, INSTANCE_STATE_SB1),
-        (1, INSTANCE_STATE_ZIRKULATION, True, True, INSTANCE_STATE_FINISHED),
-        (4, INSTANCE_STATE_EBAU_NUMMER_VERGEBEN, False, False, None),
+        (
+            4,
+            INSTANCE_STATE_DOSSIERPRUEFUNG,
+            True,
+            False,
+            "leitbehoerde",
+            INSTANCE_STATE_REJECTED,
+        ),
+        (3, INSTANCE_STATE_DOSSIERPRUEFUNG, False, False, "leitbehoerde", None),
+        (
+            1,
+            INSTANCE_STATE_KOORDINATION,
+            True,
+            False,
+            "leitbehoerde",
+            INSTANCE_STATE_SB1,
+        ),
+        (
+            1,
+            INSTANCE_STATE_ZIRKULATION,
+            True,
+            False,
+            "leitbehoerde",
+            INSTANCE_STATE_SB1,
+        ),
+        (
+            1,
+            INSTANCE_STATE_ZIRKULATION,
+            True,
+            False,
+            "baukontrolle",
+            INSTANCE_STATE_SB1,
+        ),
+        (1, INSTANCE_STATE_ZIRKULATION, True, False, "rsta", INSTANCE_STATE_SB1),
+        (
+            1,
+            INSTANCE_STATE_ZIRKULATION,
+            True,
+            True,
+            "leitbehoerde",
+            INSTANCE_STATE_FINISHED,
+        ),
+        (4, INSTANCE_STATE_EBAU_NUMMER_VERGEBEN, False, "leitbehoerde", False, None),
     ],
 )
 def test_notice_ruling_send_handler(
@@ -79,13 +119,58 @@ def test_notice_ruling_send_handler(
     instance_state_pk,
     has_permission,
     is_vorabklaerung,
+    active,
     expected_state_pk,
     admin_user,
     ech_instance,
     instance_state_factory,
     attachment_factory,
     attachment_section_factory,
+    service_factory,
+    service_group_factory,
+    instance_service_factory,
+    multilang,
 ):
+    service_group_gemeinde = service_group_factory(
+        pk=SERVICE_GROUP_LEITBEHOERDE_GEMEINDE
+    )
+    service_group_baukontrolle = service_group_factory(pk=SERVICE_GROUP_BAUKONTROLLE)
+    service_group_rsta = service_group_factory(pk=SERVICE_GROUP_RSTA)
+
+    service_gemeinde = service_factory(
+        service_group=service_group_gemeinde,
+        name=None,
+        trans__name="Leitbehörde Burgdorf",
+        trans__city="Burgdorf",
+        trans__language="de",
+    )
+    service_baukontrolle = service_factory(
+        service_group=service_group_baukontrolle,
+        name=None,
+        trans__name="Baukontrolle Burgdorf",
+        trans__city="Burgdorf",
+        trans__language="de",
+    )
+    service_rsta = service_factory(
+        service_group=service_group_rsta,
+        name=None,
+        trans__name="Regierungsstatthalteramt Emmenthal",
+        trans__city="Emmenthal",
+        trans__language="de",
+    )
+    active_service = service_gemeinde
+    if active == "baukontrolle":
+        active_service = service_baukontrolle
+    elif active == "rsta":
+        active_service = service_rsta
+        instance_service_factory(
+            active=0, service=service_gemeinde, instance=ech_instance
+        )
+
+    ech_instance_service = InstanceService.objects.get(instance=ech_instance, active=1)
+    ech_instance_service.service = active_service
+    ech_instance_service.save()
+
     attachment_section_beteiligte_behoerden = attachment_section_factory(
         pk=ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN
     )
@@ -113,7 +198,7 @@ def test_notice_ruling_send_handler(
     ech_instance.save()
 
     group = admin_user.groups.first()
-    group.service = ech_instance.services.first()
+    group.service = ech_instance.active_service
     group.save()
 
     handler = NoticeRulingSendHandler(
@@ -137,6 +222,13 @@ def test_notice_ruling_send_handler(
         assert attachment.attachment_sections.get(
             pk=ATTACHMENT_SECTION_ALLE_BETEILIGTEN
         )
+
+        expected_service = (
+            active_service
+            if is_vorabklaerung or expected_state_pk == INSTANCE_STATE_REJECTED
+            else service_baukontrolle
+        )
+        assert ech_instance.active_service == expected_service
 
 
 @pytest.mark.parametrize("fail", [False, True])
