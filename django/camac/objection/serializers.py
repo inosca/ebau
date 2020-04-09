@@ -1,4 +1,5 @@
 from django.utils.translation import gettext as _
+from drf_extra_fields.fields import DateTimeRangeField
 from rest_framework.exceptions import ValidationError
 from rest_framework_json_api import serializers
 
@@ -62,3 +63,13 @@ class ObjectionSerializer(serializers.ModelSerializer, InstanceEditableMixin):
     class Meta:
         model = models.Objection
         fields = ("instance", "creation_date", "objection_participants")
+
+
+class ObjectionTimeframeSerializer(serializers.ModelSerializer, InstanceEditableMixin):
+    timeframe = DateTimeRangeField()
+
+    included_serializers = {"instance": "camac.instance.serializers.InstanceSerializer"}
+
+    class Meta:
+        model = models.ObjectionTimeframe
+        fields = ("instance", "timeframe")

@@ -1,5 +1,13 @@
+from django.contrib.postgres.fields import DateTimeRangeField
 from django.core.validators import MaxValueValidator
 from django.db import models
+
+
+class ObjectionTimeframe(models.Model):
+    instance = models.OneToOneField(
+        "instance.Instance", models.CASCADE, related_name="objection_timeframes"
+    )
+    timeframe = DateTimeRangeField(null=True)
 
 
 class Objection(models.Model):
