@@ -87,6 +87,8 @@ export default class BeNavbarComponent extends Component {
         this.setGroup(null);
       }
 
+      this.session.set("groups", groups);
+
       return groups;
     } catch (e) {
       if (this.session.group) {
