@@ -273,22 +273,6 @@
   },
   {
     "fields": {
-      "created_at": "2020-03-06T11:13:19.494Z",
-      "created_by_group": null,
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "date": null,
-      "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
-      "meta": {},
-      "modified_at": "2020-03-06T11:13:19.494Z",
-      "question": "bestaetigung-naturgefahren",
-      "value": ["bestaetigung-naturgefahren-ja"]
-    },
-    "model": "caluma_form.answer",
-    "pk": "2fa667e0-8ebe-4c82-b1ea-53ed11d984a7"
-  },
-  {
-    "fields": {
       "created_at": "2020-03-06T11:12:36.825Z",
       "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -3110,27 +3094,6 @@
     },
     "model": "caluma_form.historicalanswer",
     "pk": "a385e5e4-14b6-4e8e-ba3a-6d99bfc8d4c7"
-  },
-  {
-    "fields": {
-      "created_at": "2020-03-06T11:13:19.494Z",
-      "created_by_group": null,
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "date": null,
-      "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
-      "history_change_reason": null,
-      "history_date": "2020-03-06T11:13:19.494Z",
-      "history_type": "+",
-      "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "id": "2fa667e0-8ebe-4c82-b1ea-53ed11d984a7",
-      "meta": {},
-      "modified_at": "2020-03-06T11:13:19.494Z",
-      "question": "bestaetigung-naturgefahren",
-      "value": ["bestaetigung-naturgefahren-ja"]
-    },
-    "model": "caluma_form.historicalanswer",
-    "pk": "a4a64c65-9435-467a-a6e2-1c1352043a91"
   },
   {
     "fields": {
