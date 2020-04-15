@@ -32,19 +32,41 @@ feedback:
   info: "Sie haben momentan keine Rückmeldungen. Sobald das Dossier eingereicht wurde, werden Ihnen hier mögliche Rückmeldungen der Leitbehörde oder Fachstellen angezeigt."
 
 documents:
-  contents: "Was ist in diesem Dokument enthalten?"
-  requiredContent: "Pflichtinhalte"
-  optionalContent: "Optionale Inhalte"
-  search: "Kategorien durchsuchen..."
+  confirm: "Hiermit bestätige ich, dass ich {count, plural, =1 {den folgenden Pflichtinhalt} other {die folgenden # Pflichtinhalte}} hochgeladen habe:"
+  buckets:
+    dokument-grundstucksangaben: "Grundstücksangaben"
+    dokument-gutachten-nachweise-begrundungen: "Gutachten, Nachweise, Begründungen"
+    dokument-projektplane-projektbeschrieb: "Projektpläne und Projektbeschrieb"
+    dokument-weitere-gesuchsunterlagen: "Weitere Gesuchsunterlagen"
+
+    descriptions:
+      prefix: "## Zusätzliche Informationen\n Die Unterlagen sind als
+      pdf-Dokumente hochzuladen. Der Dateiname soll kurz und aussagekräftig
+      sein. Lassen Sie Projektnummern resp. -bezeichnungen, welche Sie für
+      Ihre interne Dokumentablage benötigen, bitte weg.\n\n\n"
+      dokument-grundstucksangaben: "Unter den Begriff *Grundstücksangaben*
+      fallen Gesuchsunterlagen wie z. B. Katasterplan, Grundbuchauszug,
+      Dienstbarkeiten."
+      dokument-gutachten-nachweise-begrundungen: "Unter die Begriffe
+      *Gutachten, Nachweise, Begründungen* fallen Gesuchsunterlagen wie z. B.
+      Vollmachten, Einverständnis Nachbarn, Nutzungsberechnungen,
+      energetische Nachweise, Lärmschutznachweise, Brandschutznachweise,
+      Durchflussnachweise."
+      dokument-projektplane-projektbeschrieb: "Unter die Begriffe
+      *Projektpläne und Projektbeschrieb* fallen Gesuchsunterlagen wie z. B.
+      Situationspläne, Grundrisse, Schnitt- und Fassadenpläne,
+      Kanalisationspläne, Siedlungsentwässerungspläne, Umgebungspläne,
+      Projektbeschrieb, Planverzeichnis."
+      dokument-weitere-gesuchsunterlagen: "Unter den Begriff *Weitere
+      Gesuchsunterlagen* fallen Gesuchsunterlagen wie z. B. Anschlussgesuch
+      Elektrizitätswerk, Anschlussgesuch Gas, Anschlussgesuch Wasser, andere
+      Gesuchsunterlagen."
 
   download: "Datei herunterladen"
-  upload: "Hochladen"
-  cancel: "Abbrechen"
 
   drag: "Ziehen Sie eine Datei in diesen Bereich oder"
   click: "drücken sie hier um eine Datei hochzuladen"
 
-  missingTags: "Es {count, plural, =0 {fehlen keine Pflichtinhalte mehr} =1 {fehlt noch ein Pflichtinhalt} other {fehlen noch # Pflichtinhalte}}"
   noTags: "Keine Inhalte"
   showTags: "Inhalte anzeigen"
   date: "Hochgeladen am {date} um {time}"
