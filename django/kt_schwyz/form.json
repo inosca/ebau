@@ -854,7 +854,8 @@
       "title": "Geschäftskontrolle",
       "parent": null,
       "questions": [
-        "geschaeftskontrolle"
+        "geschaeftskontrolle-arbeitsschritt",
+        "geschaeftskontrolle-bemerkung"
       ]
     }
   },

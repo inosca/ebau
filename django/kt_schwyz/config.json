@@ -3044,6 +3044,14 @@
   },
   {
     "fields": {
+      "form": 11,
+      "form_group": 1
+    },
+    "model": "core.formgroupform",
+    "pk": 11
+  },
+  {
+    "fields": {
       "group": 1,
       "permission_id": "menu_account"
     },
@@ -3363,7 +3371,7 @@
       "hidden": 0,
       "name": "Dokumente",
       "resource": 1,
-      "sort": 1,
+      "sort": 2,
       "template": null
     },
     "model": "core.instanceresource",
@@ -3378,7 +3386,7 @@
       "hidden": 0,
       "name": "Formular",
       "resource": 1,
-      "sort": 0,
+      "sort": 1,
       "template": "/ember/instance.phtml"
     },
     "model": "core.instanceresource",
@@ -3883,16 +3891,16 @@
     "fields": {
       "available_instance_resource": "editformpage",
       "class_field": null,
-      "description": "Forumlar ansicht f\u00fcr Gesch\u00e4ftskontrolle",
+      "description": "Formular der Gesch\u00e4ftskontrollen",
       "form_group": 1,
       "hidden": 0,
       "name": "Formular",
-      "resource": 18,
+      "resource": 22,
       "sort": 0,
       "template": "/ember/instance.phtml"
     },
     "model": "core.instanceresource",
-    "pk": 44
+    "pk": 46
   },
   {
     "fields": {
@@ -5531,7 +5539,7 @@
       "pdf_class": null
     },
     "model": "core.ireditformpage",
-    "pk": 44
+    "pk": 46
   },
   {
     "fields": {
@@ -9702,21 +9710,21 @@
   },
   {
     "fields": {
-      "instance_resource": 44,
+      "instance_resource": 46,
       "instance_state": 1,
       "role": 3
     },
     "model": "core.irroleacl",
-    "pk": 616
+    "pk": 649
   },
   {
     "fields": {
-      "instance_resource": 44,
+      "instance_resource": 46,
       "instance_state": 1,
       "role": 8
     },
     "model": "core.irroleacl",
-    "pk": 617
+    "pk": 650
   },
   {
     "fields": {
@@ -10787,6 +10795,14 @@
   },
   {
     "fields": {
+      "instance_state": 1,
+      "resource": 22
+    },
+    "model": "core.rapilistinstancestate",
+    "pk": 77
+  },
+  {
+    "fields": {
       "available_resource": "apilistinstance",
       "class_field": null,
       "description": "Eingereichte Dossiers f\u00fcr die Gemeinde",
@@ -10991,7 +11007,7 @@
       "template": null
     },
     "model": "core.resource",
-    "pk": 18
+    "pk": 22
   },
   {
     "fields": {
@@ -11267,19 +11283,19 @@
   },
   {
     "fields": {
-      "resource": 18,
+      "resource": 22,
       "role": 3
     },
     "model": "core.rroleacl",
-    "pk": 43
+    "pk": 45
   },
   {
     "fields": {
-      "resource": 18,
+      "resource": 22,
       "role": 8
     },
     "model": "core.rroleacl",
-    "pk": 44
+    "pk": 46
   },
   {
     "fields": {
