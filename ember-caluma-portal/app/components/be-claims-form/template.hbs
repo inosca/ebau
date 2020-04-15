@@ -16,7 +16,7 @@
     </ul>
   </div>
 
-  <div class="uk-width-expand">
+  <div class="uk-width-expand" {{did-insert (perform this.fetchServices)}}>
     {{#if this.editedClaim}}
       <BeClaimsForm::edit
         @document={{this.document}}
@@ -24,13 +24,13 @@
         @claim={{this.editedClaim}}
         @tags={{this.tags}}
         @instanceId={{this.context.instanceId}}
-        @onCancel={{fn (mut this.editedClaim) null}}
+        @onCancel={{fn this.setEditedClaim null}}
       />
     {{else}}
       <BeClaimsForm::list
         @claims={{get this.claims this.activeClaimType}}
         @editedClaim={{this.editedClaim}}
-        @onEdit={{fn (mut this.editedClaim)}}
+        @onEdit={{this.setEditedClaim}}
       >
         <p class="uk-text-italic">{{t (concat "claims.empty." this.activeClaimType)}}</p>
       </BeClaimsForm::list>

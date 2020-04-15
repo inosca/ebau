@@ -1,66 +1,104 @@
-import Component from "@ember/component";
-import { computed, action } from "@ember/object";
 import { inject as service } from "@ember/service";
-import { task, dropTask } from "ember-concurrency-decorators";
+import Component from "@glimmer/component";
+import { tracked } from "@glimmer/tracking";
+import config from "ember-caluma-portal/config/environment";
+import { dropTask, restartableTask } from "ember-concurrency-decorators";
 import moment from "moment";
 import { all } from "rsvp";
 
-import config from "../../../config/environment";
-
 export default class BeClaimsFormEditComponent extends Component {
   @service notification;
+  @service store;
   @service intl;
   @service fetch;
-  @service store;
 
-  init(...args) {
-    super.init(...args);
+  @tracked queue = [];
 
-    this.setProperties({
-      files: [],
-      file: null,
-      selectedTags: [],
-      allowedMimetypes: config.ebau.attachments.allowedMimetypes
-    });
+  get buckets() {
+    return config.ebau.attachments.buckets;
   }
 
-  @computed("claim.comment.answer.value.length", "files.length")
   get canSubmit() {
-    return this.get("claim.comment.answer.value.length") || this.files.length;
+    return this.args.claim.comment.answer.value || this.allAttachments.length;
   }
 
-  @computed("document.{jexl,jexlContext}", "form.meta.attachment-section")
-  get attachmentSection() {
-    return this.document.jexl.evalSync(
-      this.get("form.meta.attachment-section"),
-      this.document.jexlContext
+  get section() {
+    return this.args.document.jexl.evalSync(
+      this.args.form.meta["attachment-section"],
+      this.args.document.jexlContext
     );
   }
 
-  @action
-  addFile(file) {
-    if (!config.ebau.attachments.allowedMimetypes.includes(file.blob.type)) {
-      this.notification.danger(this.intl.t("documents.wrongMimeType"));
+  get allAttachments() {
+    const byInstance = attachment =>
+      parseInt(attachment.belongsTo("instance").id()) ===
+      parseInt(this.args.instanceId);
 
-      return;
-    }
+    const bySection = attachment =>
+      attachment
+        .hasMany("attachmentSections")
+        .ids()
+        .map(id => parseInt(id))
+        .includes(parseInt(this.section));
 
-    this.set("file", file);
+    const byClaim = attachment =>
+      attachment.context.claimId === this.args.claim.id;
+
+    return this.store
+      .peekAll("attachment")
+      .filter(byInstance)
+      .filter(bySection)
+      .filter(byClaim);
   }
 
-  @action
-  confirmFile() {
-    this.setProperties({
-      files: [
-        ...this.files,
-        {
-          file: this.file,
-          tags: this.selectedTags
-        }
-      ],
-      file: null,
-      selectedTags: []
+  get attachments() {
+    return this.buckets.reduce((obj, bucket) => {
+      return {
+        ...obj,
+        [bucket]: this.allAttachments.filter(
+          attachment => attachment.question === bucket
+        )
+      };
+    }, {});
+  }
+
+  @restartableTask
+  *fetchAttachments() {
+    return yield this.store.query("attachment", {
+      instance: this.args.instanceId,
+      attachment_sections: this.section,
+      context: JSON.stringify({ key: "claimId", value: this.args.claim.id }),
+      include: "attachment_sections"
     });
+  }
+
+  @dropTask
+  *add({ file, bucket }) {
+    const section =
+      this.store.peekRecord("attachment-section", this.section) ||
+      (yield this.store.findRecord("attachment-section", this.section));
+
+    // Create a new attachment record which is not yet saved to the backend and
+    // add it to the file queue.
+    this.queue.push(
+      this.store.createRecord("attachment", {
+        instance: this.store.peekRecord("instance", this.args.instanceId),
+        name: file.name,
+        size: file.size,
+        attachmentSections: [section],
+        question: bucket,
+        context: { claimId: this.args.claim.id },
+        date: new Date(),
+
+        // not relevant for the model
+        blob: file.blob
+      })
+    );
+  }
+
+  @dropTask
+  *remove({ attachment }) {
+    yield attachment.destroyRecord();
   }
 
   @dropTask
@@ -68,66 +106,65 @@ export default class BeClaimsFormEditComponent extends Component {
     if (!this.canSubmit) return;
 
     try {
-      yield all(
-        this.files.map(async ({ file, tags }) => {
-          await this.uploadFile.perform(file, tags);
-        })
-      );
-
+      yield this.uploadAttachments.perform();
       yield this.updateClaim.perform();
 
-      this.onCancel();
+      this.args.onCancel();
     } catch (error) {
       this.notification.danger(this.intl.t("claims.error"));
     }
   }
 
-  @task
-  *uploadFile(file, tags) {
-    const formData = new FormData();
+  @dropTask
+  *uploadAttachments() {
+    yield all(
+      this.queue.map(async attachment => {
+        const formData = new FormData();
 
-    formData.append("instance", this.instanceId);
-    formData.append("attachment_sections", this.attachmentSection);
-    formData.append("path", file.blob, file.name);
-    formData.append(
-      "context",
-      JSON.stringify({
-        tags: tags.map(({ slug }) => slug),
-        claimId: this.claim.id
+        formData.append("instance", attachment.belongsTo("instance").id());
+        formData.append(
+          "attachment_sections",
+          attachment.hasMany("attachmentSections").ids()
+        );
+        formData.append("question", attachment.question);
+        formData.append("path", attachment.blob, attachment.name);
+        formData.append("context", JSON.stringify(attachment.context));
+
+        const response = await this.fetch.fetch("/api/v1/attachments", {
+          method: "POST",
+          body: formData,
+          headers: { "content-type": undefined }
+        });
+
+        if (!response.ok) throw new Error();
+
+        // remove client-only attachment
+        await attachment.destroyRecord();
+        // push newly created attachment to client store
+        this.store.pushPayload(await response.json());
       })
     );
 
-    const response = yield this.fetch.fetch("/api/v1/attachments", {
-      method: "post",
-      body: formData,
-      headers: {
-        "content-type": undefined
-      }
-    });
-
-    if (!response.ok) {
-      throw new Error(yield response.json());
-    }
-
-    const { data } = yield response.json();
-
-    this.store.push(this.store.normalize("attachment", data));
-
-    this.claim.notifyPropertyChange("attachments");
+    this.queue = [];
   }
 
-  @task
+  @dropTask
   *updateClaim() {
-    this.set("claim.status.answer.value", "nfd-tabelle-status-beantwortet");
-    this.set("claim.answered.answer.value", moment().format("YYYY-MM-DD"));
+    this.args.claim.set(
+      "status.answer.value",
+      "nfd-tabelle-status-beantwortet"
+    );
+    this.args.claim.set("answered.answer.value", moment().format("YYYY-MM-DD"));
 
     yield all(
-      [this.claim.answered, this.claim.status, this.claim.comment].map(
-        async field => {
-          await field.validate.perform();
-          await field.save.perform();
-        }
-      )
+      [
+        this.args.claim.answered,
+        this.args.claim.status,
+        this.args.claim.comment
+      ].map(async field => {
+        await field.validate.perform();
+        await field.save.perform();
+      })
     );
   }
 }
