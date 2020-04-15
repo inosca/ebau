@@ -29,6 +29,7 @@ export default Controller.extend({
 
     if (group.get("role.permission") === "municipality") {
       model.set("location", group.hasMany("locations").value().firstObject);
+      model.set("group", group);
     }
 
     yield model.save();
