@@ -31,21 +31,25 @@ feedback:
   info: "Vous n'avez pas de commentaires pour le moment. Dès que le dossier aura été soumis, les réactions éventuelles de l'autorité chef de file ou des agences spécialisées seront affichées ici."
 
 documents:
-  contents: "Qu'est-ce qui est inclus dans ce document?"
-  requiredContent: "Contenus obligatoires"
-  optionalContent: "Contenu facultatif"
-  search: "Parcourir les catégories..."
+  confirm: ""
+  buckets:
+    dokument-grundstucksangaben: ""
+    dokument-gutachten-nachweise-begrundungen: ""
+    dokument-projektplane-projektbeschrieb: ""
+    dokument-weitere-gesuchsunterlagen: ""
+
+    descriptions:
+      prefix: ""
+      dokument-grundstucksangaben: ""
+      dokument-gutachten-nachweise-begrundungen: ""
+      dokument-projektplane-projektbeschrieb: ""
+      dokument-weitere-gesuchsunterlagen: ""
 
   download: "Télécharger le fichier"
-  upload: "Télécharger"
-  cancel: "Annuler"
 
   drag: "Glisser un fichier dans cette zone, ou"
   click: "cliquez ici pour télécharger un fichier"
 
-  missingTags: "{count, plural, =0 { Il n'y a plus de contenu obligatoire manquant} =1 {Il manque encore un contenu obligatoire} other {# contenus obligatoires sont toujours manquants}}"
-  noTags: "Pas de contenu"
-  showTags: "Afficher le contenu"
   date: "Téléchargé le {date} à {time}"
 
   wrongMimeType: "Ce type de fichier n'est pas autorisé. Les types de fichiers autorisés sont PDF, PNG et JPEG."

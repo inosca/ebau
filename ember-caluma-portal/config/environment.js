@@ -49,7 +49,13 @@ module.exports = function(environment) {
         notificationTemplateId: 32
       },
       attachments: {
-        allowedMimetypes: ["image/png", "image/jpeg", "application/pdf"]
+        allowedMimetypes: ["image/png", "image/jpeg", "application/pdf"],
+        buckets: [
+          "dokument-grundstucksangaben",
+          "dokument-gutachten-nachweise-begrundungen",
+          "dokument-projektplane-projektbeschrieb",
+          "dokument-weitere-gesuchsunterlagen"
+        ]
       },
       supportGroups: [10000],
       selectableGroups: {
@@ -77,6 +83,7 @@ module.exports = function(environment) {
         new: 1,
         rejected: 10000,
         archived: 20009,
+        inCorrection: 20007,
         finished: 120000
       }
     }
