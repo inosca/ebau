@@ -27,7 +27,7 @@ export default Controller.extend({
 
     const group = this.get("groupData.lastSuccessful.value");
 
-    if (group.get("role.permission") === "municipality") {
+    if (group && group.get("role.permission") === "municipality") {
       model.set("location", group.hasMany("locations").value().firstObject);
       model.set("group", group);
     }
