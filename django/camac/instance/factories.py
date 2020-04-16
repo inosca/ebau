@@ -17,7 +17,7 @@ from . import models
 
 
 class FormStateFactory(DjangoModelFactory):
-    name = Faker("name")
+    name = "Published"
 
     class Meta:
         model = models.FormState
