@@ -10077,6 +10077,17 @@
   },
   {
     "fields": {
+      "form": 11,
+      "page": 1,
+      "page_form_group": 1,
+      "page_form_mode": 1,
+      "sort": 0
+    },
+    "model": "core.pageform",
+    "pk": 25
+  },
+  {
+    "fields": {
       "name": "default"
     },
     "model": "core.pageformgroup",
@@ -10451,6 +10462,14 @@
   },
   {
     "fields": {
+      "circulation_type": 1,
+      "resource": 22
+    },
+    "model": "core.rapilistcirculationtype",
+    "pk": 16
+  },
+  {
+    "fields": {
       "instance_state": 3,
       "resource": 2
     },
@@ -10799,7 +10818,7 @@
       "resource": 22
     },
     "model": "core.rapilistinstancestate",
-    "pk": 77
+    "pk": 79
   },
   {
     "fields": {
@@ -11002,7 +11021,7 @@
       "class_field": null,
       "description": null,
       "hidden": 0,
-      "name": "Gesch\u00e4ftskontrollenliste",
+      "name": "Gesch\u00e4ftskontrollen",
       "sort": 15,
       "template": null
     },
