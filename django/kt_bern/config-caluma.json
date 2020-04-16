@@ -30986,7 +30986,7 @@
       "is_archived": false,
       "is_hidden": "!(\n  'handelt-es-sich-um-eine-baute-im-wald-im-wald' == 'handelt-es-sich-um-eine-baute-im-wald'|answer\n)",
       "is_required": "!('vorabklaerung' in form || 'papierdossier'|answer == 'papierdossier-ja')",
-      "label": "{\"de\": \"Forstliche Baute?\", \"fr\": \"S\\u2019agit-il d\\u2019une construction ou installation foresti\\u00e8re\\u00a0?\"}",
+      "label": "{\"de\": \"Handelt es sich um eine forstliche Baute oder Anlage?\", \"fr\": \"S\\u2019agit-il d\\u2019une construction ou installation foresti\\u00e8re\\u00a0?\"}",
       "meta": {
         "widgetOverride": null
       },
