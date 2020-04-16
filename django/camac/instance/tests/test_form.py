@@ -1,7 +1,9 @@
+import pytest
 from django.urls import reverse
 from rest_framework import status
 
 
+@pytest.mark.parametrize("role__name", [("Applicant"), ("Municipality")])
 def test_form_list(admin_client, form):
     url = reverse("form-list")
 
