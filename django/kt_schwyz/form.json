@@ -188,6 +188,9 @@
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
       "gesuchsunterlagen"
+    ],
+    "geschaeftskontrolle": [
+      "geschaeftskontrolle"
     ]
   },
   "modules": {
@@ -845,6 +848,14 @@
       "parent": null,
       "questions": [
         "ve-verbindlich"
+      ]
+    },
+    "geschaeftskontrolle" : {
+      "title": "Geschäftskontrolle",
+      "parent": null,
+      "questions": [
+        "geschaeftskontrolle-arbeitsschritt",
+        "geschaeftskontrolle-bemerkung"
       ]
     }
   },
@@ -6848,6 +6859,21 @@
         "options": [
           "Vorhanden"
         ]
+      }
+    },
+    "geschaeftskontrolle-arbeitsschritt": {
+      "label": "Arbeitsschritt",
+      "type": "text",
+      "required": true,
+      "config": {}
+    },
+    "geschaeftskontrolle-bemerkung": {
+      "label": "Bemerkung",
+      "type": "textarea",
+      "required": true,
+      "config": {
+        "cols": 20,
+        "rows": 5
       }
     }
   }
