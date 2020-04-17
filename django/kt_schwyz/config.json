@@ -1596,6 +1596,24 @@
   },
   {
     "fields": {
+      "action_name": "indexCreate",
+      "available_resource": "businesscontrolcreate",
+      "hidden": 0
+    },
+    "model": "core.araction",
+    "pk": 17
+  },
+  {
+    "fields": {
+      "action_name": "indexList",
+      "available_resource": "businesscontrollist",
+      "hidden": 0
+    },
+    "model": "core.araction",
+    "pk": 18
+  },
+  {
+    "fields": {
       "description": "Check with a SQL query",
       "module_name": "default"
     },
@@ -1996,6 +2014,24 @@
     },
     "model": "core.availableresource",
     "pk": "apilistinstance"
+  },
+  {
+    "fields": {
+      "controller_name": "businesscontrol",
+      "description": "Page to create business control form",
+      "module_name": "businesscontrol"
+    },
+    "model": "core.availableresource",
+    "pk": "businesscontrolcreate"
+  },
+  {
+    "fields": {
+      "controller_name": "businesscontrol",
+      "description": "Page to list business control forms",
+      "module_name": "businesscontrol"
+    },
+    "model": "core.availableresource",
+    "pk": "businesscontrollist"
   },
   {
     "fields": {
@@ -3008,6 +3044,14 @@
   },
   {
     "fields": {
+      "form": 11,
+      "form_group": 1
+    },
+    "model": "core.formgroupform",
+    "pk": 11
+  },
+  {
+    "fields": {
       "group": 1,
       "permission_id": "menu_account"
     },
@@ -3327,7 +3371,7 @@
       "hidden": 0,
       "name": "Dokumente",
       "resource": 1,
-      "sort": 1,
+      "sort": 2,
       "template": null
     },
     "model": "core.instanceresource",
@@ -3342,7 +3386,7 @@
       "hidden": 0,
       "name": "Formular",
       "resource": 1,
-      "sort": 0,
+      "sort": 1,
       "template": "/ember/instance.phtml"
     },
     "model": "core.instanceresource",
@@ -3842,6 +3886,21 @@
     },
     "model": "core.instanceresource",
     "pk": 43
+  },
+  {
+    "fields": {
+      "available_instance_resource": "editformpage",
+      "class_field": null,
+      "description": "Formular der Gesch\u00e4ftskontrollen",
+      "form_group": 1,
+      "hidden": 0,
+      "name": "Formular",
+      "resource": 22,
+      "sort": 0,
+      "template": "/ember/instance.phtml"
+    },
+    "model": "core.instanceresource",
+    "pk": 46
   },
   {
     "fields": {
@@ -5473,6 +5532,14 @@
     },
     "model": "core.ireditformpage",
     "pk": 34
+  },
+  {
+    "fields": {
+      "page": 1,
+      "pdf_class": null
+    },
+    "model": "core.ireditformpage",
+    "pk": 46
   },
   {
     "fields": {
@@ -9643,6 +9710,24 @@
   },
   {
     "fields": {
+      "instance_resource": 46,
+      "instance_state": 1,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 649
+  },
+  {
+    "fields": {
+      "instance_resource": 46,
+      "instance_state": 1,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 650
+  },
+  {
+    "fields": {
       "instance_resource": 43,
       "instance_state": 5,
       "service": 7
@@ -9989,6 +10074,17 @@
     },
     "model": "core.pageform",
     "pk": 24
+  },
+  {
+    "fields": {
+      "form": 11,
+      "page": 1,
+      "page_form_group": 1,
+      "page_form_mode": 1,
+      "sort": 0
+    },
+    "model": "core.pageform",
+    "pk": 25
   },
   {
     "fields": {
@@ -10366,6 +10462,14 @@
   },
   {
     "fields": {
+      "circulation_type": 1,
+      "resource": 22
+    },
+    "model": "core.rapilistcirculationtype",
+    "pk": 16
+  },
+  {
+    "fields": {
       "instance_state": 3,
       "resource": 2
     },
@@ -10710,6 +10814,14 @@
   },
   {
     "fields": {
+      "instance_state": 1,
+      "resource": 22
+    },
+    "model": "core.rapilistinstancestate",
+    "pk": 79
+  },
+  {
+    "fields": {
       "available_resource": "apilistinstance",
       "class_field": null,
       "description": "Eingereichte Dossiers f\u00fcr die Gemeinde",
@@ -10889,6 +11001,32 @@
     },
     "model": "core.resource",
     "pk": 16
+  },
+  {
+    "fields": {
+      "available_resource": "businesscontrolcreate",
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "name": "Gesch\u00e4ftskontrolle erstellen",
+      "sort": 14,
+      "template": null
+    },
+    "model": "core.resource",
+    "pk": 17
+  },
+  {
+    "fields": {
+      "available_resource": "businesscontrollist",
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "name": "Gesch\u00e4ftskontrollen",
+      "sort": 15,
+      "template": null
+    },
+    "model": "core.resource",
+    "pk": 22
   },
   {
     "fields": {
@@ -11145,6 +11283,38 @@
     },
     "model": "core.rroleacl",
     "pk": 40
+  },
+  {
+    "fields": {
+      "resource": 17,
+      "role": 3
+    },
+    "model": "core.rroleacl",
+    "pk": 41
+  },
+  {
+    "fields": {
+      "resource": 17,
+      "role": 8
+    },
+    "model": "core.rroleacl",
+    "pk": 42
+  },
+  {
+    "fields": {
+      "resource": 22,
+      "role": 3
+    },
+    "model": "core.rroleacl",
+    "pk": 45
+  },
+  {
+    "fields": {
+      "resource": 22,
+      "role": 8
+    },
+    "model": "core.rroleacl",
+    "pk": 46
   },
   {
     "fields": {
@@ -12469,10 +12639,26 @@
   },
   {
     "fields": {
+      "description": "Gesch\u00e4ftskontrolle",
+      "form_state": 2,
+      "name": "geschaeftskontrolle"
+    },
+    "model": "instance.form",
+    "pk": 11
+  },
+  {
+    "fields": {
       "name": "Published"
     },
     "model": "instance.formstate",
     "pk": 1
+  },
+  {
+    "fields": {
+      "name": "Internal"
+    },
+    "model": "instance.formstate",
+    "pk": 2
   },
   {
     "fields": {

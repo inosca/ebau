@@ -10,5 +10,6 @@ export default Model.extend({
   fields: hasMany("form-field"),
   attachments: hasMany("attachment"),
   instanceState: belongsTo("instance-state"),
-  previousInstanceState: belongsTo("instance-state")
+  previousInstanceState: belongsTo("instance-state"),
+  group: belongsTo("group")
 });
