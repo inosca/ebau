@@ -1,9 +1,9 @@
 import Model from "ember-data/model";
 import attr from "ember-data/attr";
-import { hasMany } from "ember-data/relationships";
+import { belongsTo, hasMany } from "ember-data/relationships";
 
 export default Model.extend({
   name: attr("string"),
-  communalFederalNumber: attr("number"),
-  groups: hasMany("group")
+  role: belongsTo("role"),
+  locations: hasMany("location")
 });

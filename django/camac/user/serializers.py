@@ -158,7 +158,12 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
 
 
 class GroupSerializer(MultilingualSerializer, serializers.ModelSerializer):
-    included_serializers = {"users": UserSerializer, "service": ServiceSerializer}
+    included_serializers = {
+        "users": UserSerializer,
+        "service": ServiceSerializer,
+        "role": RoleSerializer,
+        "locations": LocationSerializer,
+    }
     users = relations.SerializerMethodResourceRelatedField(
         source="get_users", model=models.User, read_only=True, many=True
     )
@@ -168,7 +173,7 @@ class GroupSerializer(MultilingualSerializer, serializers.ModelSerializer):
 
     class Meta:
         model = models.Group
-        fields = ("name", "users", "service")
+        fields = ("name", "users", "service", "role", "locations")
 
 
 class PublicRoleSerializer(MultilingualSerializer, serializers.ModelSerializer):

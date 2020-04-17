@@ -19,12 +19,12 @@ from camac.instance import serializers
 @pytest.mark.parametrize(
     "role__name,instance__user,num_queries,editable",
     [
-        ("Applicant", LazyFixture("admin_user"), 11, {"instance", "form", "document"}),
+        ("Applicant", LazyFixture("admin_user"), 12, {"instance", "form", "document"}),
         # reader should see instances from other users but has no editables
-        ("Reader", LazyFixture("user"), 11, set()),
-        ("Canton", LazyFixture("user"), 11, {"form", "document"}),
-        ("Municipality", LazyFixture("user"), 11, {"form", "document"}),
-        ("Service", LazyFixture("user"), 11, {"document"}),
+        ("Reader", LazyFixture("user"), 12, set()),
+        ("Canton", LazyFixture("user"), 12, {"form", "document"}),
+        ("Municipality", LazyFixture("user"), 12, {"form", "document"}),
+        ("Service", LazyFixture("user"), 12, {"document"}),
     ],
 )
 def test_instance_list(
