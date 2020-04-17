@@ -118,6 +118,7 @@ class InstanceFilterSet(FilterSet):
     is_applicant = BooleanFilter(
         field_name="involved_applicants__invitee", method="filter_is_applicant"
     )
+    form_name = CharFilter(field_name="form__name")
 
     def filter_is_applicant(self, queryset, name, value):
         if value:
@@ -141,6 +142,7 @@ class InstanceFilterSet(FilterSet):
             "responsible_service",
             "responsible_service_user",
             "is_applicant",
+            "form_name",
         )
 
 
