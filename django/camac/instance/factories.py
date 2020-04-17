@@ -17,6 +17,8 @@ from . import models
 
 
 class FormStateFactory(DjangoModelFactory):
+    # Set to Published because it is the default FormState
+    # other FormStates are usually not accessible outside from the admin
     name = "Published"
 
     class Meta:
