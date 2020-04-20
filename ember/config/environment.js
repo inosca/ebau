@@ -191,7 +191,10 @@ module.exports = function(environment) {
       "Riemenstalden",
       "Rothenthurm",
       "Steinen",
-      "Steinerberg"
+      "Steinerberg",
+      "Amt für Wasserbau",
+      "Tiefbauamt des Kantons Schwyz",
+      "Kantonspolizei Schwyz"
     ];
 
     ENV.APP.gisHost = "map.geo.sz.ch";
