@@ -17551,6 +17551,20 @@
   },
   {
     "fields": {
+      "label": "Versand Stellungnahme Vorentscheid per Mail"
+    },
+    "model": "core.buildingauthoritybutton",
+    "pk": 15
+  },
+  {
+    "fields": {
+      "label": "Versand Stellungnahme Vorentscheid per Post"
+    },
+    "model": "core.buildingauthoritybutton",
+    "pk": 16
+  },
+  {
+    "fields": {
       "building_authority_button": 2,
       "template": 101,
       "template_class": 102
@@ -17593,7 +17607,8 @@
       "email_text": "CAMAC Info\r\n\r\n(automatisch generierte E-Mail von CAMAC, bitte nicht darauf  antworten)\r\n\r\nMeldung Baubewilligung erteilt\r\n\r\nDie zust\u00e4ndige Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] hat betreffend das Dossier ID [INSTANCE_ID] mit der CAMAC Dossier Nr. [@c2q6i1] die Baubewilligung erteilt. Die Baubewilligung wurde unter \u201eDokumente\u201c im CAMAC hochgeladen.\r\n\r\n[INSTANCE_LOCATION], [DATE]",
       "from_email": "camac@ur.ch",
       "from_name": "Camac Info",
-      "receiver_query": "camac.ur@achtgradost.ch"
+      "receiver_query": "camac.ur@achtgradost.ch",
+      "workflow_item": null
     },
     "model": "core.buildingauthorityemail",
     "pk": 2
@@ -17606,7 +17621,8 @@
       "email_text": "CAMAC Info\r\n\r\n(automatisch generierte E-Mail von CAMAC, bitte nicht darauf  antworten)\r\n\r\nMeldung Bau beendet\r\n\r\nDas Bauvorhaben mit der Dossier ID [INSTANCE_ID] / CAMAC Dossier Nr. [@c2q6i1] ist fertiggestellt. Wir bitten Sie, das Bauobjekt zu vermessen und die Vermarkung zu \u00fcberpr\u00fcfen. Allf\u00e4llige Kosten gehen zu Lasten der Bauherrschaft. Die Bauherrschaft wurde im Rahmen der Baubewilligung \u00fcber die Vermessungspflicht und daraus allf\u00e4llig entstehenden Kosten in Kenntnis gesetzt.\r\n\r\nEGID Nr.   \u2026\u2026\u2026\u2026...\r\n\r\nEWID Nr.  \u2026\u2026\u2026\u2026\u2026\r\n\r\nDie EGID Nr. bzw. die EWID Nummern gem\u00e4ss GWR werden mitgeteilt sobald das Objekt im GWR erfasst wurde und die entsprechenden Nummern bekannt sind. \r\n\r\n(bitte nichtzutreffendes l\u00f6schen, entweder Angabe der Nummern oder Hinweis).\r\n\r\n[INSTANCE_LOCATION], [DATE]",
       "from_email": "camac@ur.ch",
       "from_name": "Camac Info",
-      "receiver_query": "camac.ur@achtgradost.ch"
+      "receiver_query": "camac.ur@achtgradost.ch",
+      "workflow_item": null
     },
     "model": "core.buildingauthorityemail",
     "pk": 22
@@ -17619,7 +17635,8 @@
       "email_text": "CAMAC Info\r\n\r\n(automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nMeldung Fertigstellung Bauvorhaben gest\u00fctzt auf Artikel 2 Absatz 3 der Verordnung \u00fcber die steueramtliche Sch\u00e4tzung der Grundst\u00fccke.\r\n\r\nDas Bauvorhaben mit der Dossier ID [INSTANCE_ID] / CAMAC Dossier Nr. [@c2q6i1] ist fertiggestellt.\r\n\r\nGem\u00e4ss Sch\u00e4tzungsverordnung sind Zwischensch\u00e4tzungen vorzunehmen, wenn der Bestand der Baute oder Anlage ver\u00e4ndert wird. Dies ist insbesondere dann der Fall, wenn sich der Umfang des Grundst\u00fcckes ver\u00e4ndert hat, wenn Neubauten oder wesentliche Um,- Aus- oder Anbauten verwirklicht werden, wenn Geb\u00e4ulichkeiten abgebrochen werden oder wenn andere Gr\u00fcnde zu einer wesentlichen Wertver\u00e4nderung beitragen. Weiter sind Zwischensch\u00e4tzungen notwendig bei wesentlichen \u00c4nderungen der Ben\u00fctzungsart und \u00c4nderungen der Beschaffenheit des Grundst\u00fcckes.\r\n\r\nWir bitten Sie, das Erfordernis der Zwischensch\u00e4tzung zu pr\u00fcfen und gegebenenfalls die notwendigen Schritte einzuleiten.\r\n\r\n[INSTANCE_LOCATION], [DATE]",
       "from_email": "camac@ur.ch",
       "from_name": "Camac Info",
-      "receiver_query": "grundstueckschaetzung@ur.ch"
+      "receiver_query": "grundstueckschaetzung@ur.ch",
+      "workflow_item": null
     },
     "model": "core.buildingauthorityemail",
     "pk": 42
@@ -17632,7 +17649,8 @@
       "email_text": "CAMAC Info\r\n\r\n(automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nMeldung Fertigstellung Bauvorhaben\r\n\r\nDas Bauvorhaben mit der Dossier ID [INSTANCE_ID] / CAMAC Dossier Nr. [@c2q6i1] ist fertiggestellt und zur Endabnahme bereit.\r\n\r\n[INSTANCE_LOCATION], [DATE]",
       "from_email": "camac@ur.ch",
       "from_name": "Camac Info",
-      "receiver_query": "info@abwasser-uri.ch"
+      "receiver_query": "info@abwasser-uri.ch",
+      "workflow_item": null
     },
     "model": "core.buildingauthorityemail",
     "pk": 43
@@ -17645,7 +17663,8 @@
       "email_text": "CAMAC Info\r\n\r\n(automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nMeldung Abnahme Schnurger\u00fcst\r\n\r\nBeim Bauvorhaben mit der Dossier ID [INSTANCE_ID] / CAMAC Dossier Nr. [@c2q6i1] ist die Abnahme Schnurger\u00fcst erfolgt.\r\n\r\n[INSTANCE_LOCATION], [DATE]",
       "from_email": "camac@ur.ch",
       "from_name": "Camac Info",
-      "receiver_query": "gisler.martin@ur.ch"
+      "receiver_query": "gisler.martin@ur.ch",
+      "workflow_item": null
     },
     "model": "core.buildingauthorityemail",
     "pk": 44
@@ -17658,7 +17677,8 @@
       "email_text": "CAMAC Info\r\n\r\n(automatisch generierte E-Mail von CAMAC, bitte nicht darauf  antworten)\r\n\r\nMeldung Baubewilligung erteilt\r\n\r\nDie zust\u00e4ndige Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] hat betreffend das Dossier ID [INSTANCE_ID] mit der CAMAC Dossier Nr. [@c2q6i1] die Baubewilligung erteilt. Die Baubewilligung wurde unter \u201eDokumente\u201c im CAMAC hochgeladen.\r\n\r\n[INSTANCE_LOCATION], [DATE]",
       "from_email": "camac@ur.ch",
       "from_name": "Camac Info",
-      "receiver_query": "ds@fgs-ur.ch"
+      "receiver_query": "ds@fgs-ur.ch",
+      "workflow_item": null
     },
     "model": "core.buildingauthorityemail",
     "pk": 45
@@ -17671,7 +17691,8 @@
       "email_text": "CAMAC Info\r\n(automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nBAU- UND EINSPRACHE-ENTSCHEID\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID Nr. [INSTANCE_ID] bzw. der CAMAC Nr. [@c2q6i1] wurde der Bau- und Einsprache-Entscheid von der zust\u00e4ndigen Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] erteilt und dem Gesuchsteller zugestellt.\r\n\r\nBitte kontaktieren Sie die zust\u00e4ndige Gemeindebaubeh\u00f6rde falls diese den Bauentscheid im CAMAC noch nicht hochgeladen hat.\r\n\r\nAmt f\u00fcr Raumentwicklung \r\nKoordinationsstelle f\u00fcr Baueingaben\r\nRathausplatz 5\r\n6460 Altdorf\r\n\r\nTel. 041 875 24 29\r\nE-Mail: raumplanung@ur.ch",
       "from_email": "camac@ur.ch",
       "from_name": "Camac Info",
-      "receiver_query": "[fachstellen]"
+      "receiver_query": "[fachstellen]",
+      "workflow_item": null
     },
     "model": "core.buildingauthorityemail",
     "pk": 46
@@ -17684,7 +17705,8 @@
       "email_text": "CAMAC Info\r\n(automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nStatusmeldung zum Stand des Bewilligungsverfahrens\r\nBAU- UND EINSPRACHEENTSCHEID\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDer Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] zum Dossiers mit der ID Nr. [INSTANCE_ID] (CAMAC Dossiernummer [@c2q6i1]) wurde verschickt.\r\n\r\nMit freundlichen Gr\u00fcssen\r\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]",
       "from_email": "camac@ur.ch",
       "from_name": "Camac Info",
-      "receiver_query": "[gesuchsteller]"
+      "receiver_query": "[gesuchsteller]",
+      "workflow_item": null
     },
     "model": "core.buildingauthorityemail",
     "pk": 66
@@ -17697,7 +17719,8 @@
       "email_text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nStatusmeldung zum Stand des Verfahrens\r\nER\u00d6FFNUNG BAU- UND EINSPRACHEENTSCHEID\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDer Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] zum Dossiers mit der ID Nr. [INSTANCE_ID], (CAMAC Dossiernummer [@c2q6i1]) samt den dazu geh\u00f6renden Stellungnahmen und Verf\u00fcgungen der kantonalen Fachstellen wird Ihnen hiermit offiziell zugestellt. Die Originaldokumente bleiben bei der ausstellenden Beh\u00f6rde und k\u00f6nnen bei Bedarf angefordert werden.\r\n\r\nSie k\u00f6nnen die relevanten Dokumente \u00fcber den folgenden Link herunterladen:\r\n[ARCHIVE_DOWNLOAD_URL]\r\n\r\nMit dem \u00d6ffnen des Links beginnt gleichzeitig die 20 t\u00e4gige Beschwerdefrist. Das aktuelle Datum wurde im System gespeichert und gilt als Er\u00f6ffnungsdatum.\r\n\r\nMit freundlichen Gr\u00fcssen\r\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]\r\n",
       "from_email": "camac@ur.ch",
       "from_name": "Camac Info",
-      "receiver_query": "[gesuchsteller]"
+      "receiver_query": "[gesuchsteller]",
+      "workflow_item": 87
     },
     "model": "core.buildingauthorityemail",
     "pk": 67
@@ -17710,10 +17733,53 @@
       "email_text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nStatusmeldung zum Stand des Verfahrens\r\nER\u00d6FFNUNG BAU- UND EINSPRACHEENTSCHEID\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDer Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] zum Dossiers mit der ID Nr. [INSTANCE_ID], (CAMAC Dossiernummer [@c2q6i1]) samt den dazu geh\u00f6renden Stellungnahmen und Verf\u00fcgungen der kantonalen Fachstellen wird Ihnen hiermit offiziell zugestellt. Die Originaldokumente bleiben bei der ausstellenden Beh\u00f6rde und k\u00f6nnen bei Bedarf angefordert werden.\r\n\r\nSie k\u00f6nnen die relevanten Dokumente \u00fcber den folgenden Link herunterladen:\r\n[ARCHIVE_DOWNLOAD_URL]\r\n\r\nMit dem \u00d6ffnen des Links beginnt gleichzeitig die 20 t\u00e4gige Beschwerdefrist. Das aktuelle Datum wurde im System gespeichert und gilt als Er\u00f6ffnungsdatum.\r\n\r\nMit freundlichen Gr\u00fcssen\r\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]\r\n",
       "from_email": "camac@ur.ch",
       "from_name": "Camac Info",
-      "receiver_query": "[gesuchsteller]"
+      "receiver_query": "[gesuchsteller]",
+      "workflow_item": 87
     },
     "model": "core.buildingauthorityemail",
     "pk": 68
+  },
+  {
+    "fields": {
+      "attachment_section": 104,
+      "building_authority_button": 15,
+      "email_subject": "CAMAC Dossier Nr. [@c2q6i1]: Bau- und Einsprache-Entscheid",
+      "email_text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nStatusmeldung zum Stand des Verfahrens\r\nER\u00d6FFNUNG BAU- UND EINSPRACHEENTSCHEID\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDer Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] zum Dossiers mit der ID Nr. [INSTANCE_ID], (CAMAC Dossiernummer [@c2q6i1]) samt den dazu geh\u00f6renden Stellungnahmen und Verf\u00fcgungen der kantonalen Fachstellen wird Ihnen hiermit offiziell zugestellt. Die Originaldokumente bleiben bei der ausstellenden Beh\u00f6rde und k\u00f6nnen bei Bedarf angefordert werden.\r\n\r\nSie k\u00f6nnen die relevanten Dokumente \u00fcber den folgenden Link herunterladen:\r\n[ARCHIVE_DOWNLOAD_URL]\r\n\r\nMit dem \u00d6ffnen des Links beginnt gleichzeitig die 20 t\u00e4gige Beschwerdefrist. Das aktuelle Datum wurde im System gespeichert und gilt als Er\u00f6ffnungsdatum.\r\n\r\nMit freundlichen Gr\u00fcssen\r\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]\r\n",
+      "from_email": "camac@ur.ch",
+      "from_name": "Camac Info",
+      "receiver_query": "[gesuchsteller]",
+      "workflow_item": 130000
+    },
+    "model": "core.buildingauthorityemail",
+    "pk": 69
+  },
+  {
+    "fields": {
+      "attachment_section": null,
+      "building_authority_button": 16,
+      "email_subject": "CAMAC Dossier Nr. [@c2q6i1]: Bau- und Einsprache-Entscheid",
+      "email_text": "CAMAC Info\r\n(automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nBAU- UND EINSPRACHE-ENTSCHEID\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID Nr. [INSTANCE_ID] bzw. der CAMAC Nr. [@c2q6i1] wurde der Bau- und Einsprache-Entscheid von der zust\u00e4ndigen Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] erteilt und dem Gesuchsteller zugestellt.\r\n\r\nBitte kontaktieren Sie die zust\u00e4ndige Gemeindebaubeh\u00f6rde falls diese den Bauentscheid im CAMAC noch nicht hochgeladen hat.\r\n\r\nAmt f\u00fcr Raumentwicklung \r\nKoordinationsstelle f\u00fcr Baueingaben\r\nRathausplatz 5\r\n6460 Altdorf\r\n\r\nTel. 041 875 24 29\r\nE-Mail: raumplanung@ur.ch",
+      "from_email": "camac@ur.ch",
+      "from_name": "Camac Info",
+      "receiver_query": "[fachstellen]",
+      "workflow_item": null
+    },
+    "model": "core.buildingauthorityemail",
+    "pk": 70
+  },
+  {
+    "fields": {
+      "attachment_section": null,
+      "building_authority_button": 16,
+      "email_subject": "CAMAC Dossier Nr. [@c2q6i1]: Bau- und Einsprache-Entscheid",
+      "email_text": "CAMAC Info\r\n(automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nStatusmeldung zum Stand des Bewilligungsverfahrens\r\nBAU- UND EINSPRACHEENTSCHEID\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDer Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] zum Dossiers mit der ID Nr. [INSTANCE_ID] (CAMAC Dossiernummer [@c2q6i1]) wurde verschickt.\r\n\r\nMit freundlichen Gr\u00fcssen\r\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]",
+      "from_email": "camac@ur.ch",
+      "from_name": "Camac Info",
+      "receiver_query": "[gesuchsteller]",
+      "workflow_item": null
+    },
+    "model": "core.buildingauthorityemail",
+    "pk": 71
   },
   {
     "fields": {
@@ -46140,6 +46206,19 @@
     },
     "model": "core.workflowitem",
     "pk": 90
+  },
+  {
+    "fields": {
+      "automatical": 1,
+      "different_color": 0,
+      "is_building_authority": 0,
+      "is_workflow": 1,
+      "name": "Empfangsbest\u00e4tigung Vorentscheid",
+      "position": 55,
+      "workflow_section": 1
+    },
+    "model": "core.workflowitem",
+    "pk": 130000
   },
   {
     "fields": {
