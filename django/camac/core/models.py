@@ -1237,6 +1237,14 @@ class BuildingAuthorityEmail(models.Model):
         null=True,
         related_name="+",
     )
+    workflow_item = models.ForeignKey(
+        "WorkflowItem",
+        models.DO_NOTHING,
+        db_column="WORKFLOW_ITEM_ID",
+        blank=True,
+        null=True,
+        related_name="+"
+    )
 
     class Meta:
         managed = True
@@ -4242,6 +4250,12 @@ class Archive(models.Model):
         models.DO_NOTHING,
         db_column="ATTACHMENT_SECTION_ID",
         related_name="+",
+    )
+    workflow_item = models.ForeignKey(
+        "WorkflowItem",
+        models.DO_NOTHING,
+        db_column="WORKFLOW_ITEM_ID",
+        related_name="+"
     )
 
     class Meta:
