@@ -1243,7 +1243,7 @@ class BuildingAuthorityEmail(models.Model):
         db_column="WORKFLOW_ITEM_ID",
         blank=True,
         null=True,
-        related_name="+"
+        related_name="+",
     )
 
     class Meta:
@@ -4255,7 +4255,7 @@ class Archive(models.Model):
         "WorkflowItem",
         models.DO_NOTHING,
         db_column="WORKFLOW_ITEM_ID",
-        related_name="+"
+        related_name="+",
     )
 
     class Meta:
