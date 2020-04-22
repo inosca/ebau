@@ -217,6 +217,7 @@ def test_create_instance_caluma(
     paper,
     copy,
     modification,
+    user_factory,
 ):
     headers = {}
 
@@ -253,6 +254,11 @@ def test_create_instance_caluma(
         # link attachment to old instance
         attachment.instance_id = instance_id
         attachment.save()
+
+        # assume invitees were created by someone else (bug EBAUBE-2081)
+        Instance.objects.get(pk=instance_id).involved_applicants.update(
+            user_id=user_factory()
+        )
 
         if not modification:
             old_instance = Instance.objects.get(pk=instance_id)
