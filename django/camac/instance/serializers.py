@@ -440,9 +440,12 @@ class CalumaInstanceSerializer(InstanceSerializer):
     def _copy_applicants(self, source, target):
         for applicant in source.involved_applicants.all():
             target.involved_applicants.update_or_create(
-                user=applicant.user,
-                email=applicant.email,
-                defaults={"created": timezone.now(), "invitee": applicant.invitee},
+                invitee=applicant.invitee,
+                defaults={
+                    "created": timezone.now(),
+                    "user": applicant.user,
+                    "email": applicant.email,
+                },
             )
 
     def _copy_attachments(self, source, target):
