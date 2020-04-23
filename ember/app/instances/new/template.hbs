@@ -11,7 +11,7 @@
         Beratung und Vorentscheid {{camac-hint-dialog this.infoCol1}}
       </h4>
       <NewFormGridEntry
-        @form={{find-by "name" "vorabklarung" this.forms.lastSuccessful.value}}
+        @form={{find-by "name" "vorabklarung-v2" this.forms.lastSuccessful.value}}
         @onSetForm={{fn (mut @model.form)}}
         @selectedForm={{@model.form}}
       />
@@ -55,7 +55,7 @@
       <NewFormGridEntry
         @form={{find-by
           "name"
-          "baumeldung-fur-geringfugiges-vorhaben"
+          "baumeldung-fur-geringfugiges-vorhaben-v2"
           this.forms.lastSuccessful.value
         }}
         @onSetForm={{fn (mut @model.form)}}
@@ -69,7 +69,7 @@
       <NewFormGridEntry
         @form={{find-by
           "name"
-          "anlassbewilligungen-verkehrsbewilligungen"
+          "anlassbewilligungen-verkehrsbewilligungen-v2"
           this.forms.lastSuccessful.value
         }}
         @onSetForm={{fn (mut @model.form)}}
@@ -78,7 +78,7 @@
       <NewFormGridEntry
         @form={{find-by
           "name"
-          "konzession-fur-wasserentnahme"
+          "konzession-fur-wasserentnahme-v2"
           this.forms.lastSuccessful.value
         }}
         @onSetForm={{fn (mut @model.form)}}
@@ -87,7 +87,7 @@
       <NewFormGridEntry
         @form={{find-by
           "name"
-          "projektgenehmigungsgesuch-gemass-ss15-strag"
+          "projektgenehmigungsgesuch-gemass-ss15-strag-v2"
           this.forms.lastSuccessful.value
         }}
         @onSetForm={{fn (mut @model.form)}}
@@ -96,7 +96,7 @@
       <NewFormGridEntry
         @form={{find-by
           "name"
-          "plangenehmigungsgesuch"
+          "plangenehmigungsgesuch-v2"
           this.forms.lastSuccessful.value
         }}
         @onSetForm={{fn (mut @model.form)}}
