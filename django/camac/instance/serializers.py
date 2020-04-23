@@ -953,28 +953,39 @@ class InstanceSubmitSerializer(InstanceSerializer):
         """
         Build identifier for instance.
 
-        Format:
+        Format for normal forms:
         two last digits of communal location number
         year in two digits
         unique sequence
-
         Example: 11-18-001
+
+        Format for special forms:
+        two letter abbreviation of form
+        year in two digits
+        unique sequence
+        Example: AV-20-014
         """
         identifier = self.instance.identifier
         if not identifier:
-            location_nr = self.instance.location.communal_federal_number[-2:]
+            identifier_start = self.instance.location.communal_federal_number[-2:]
             year = timezone.now().strftime("%y")
+
+            for abbr in settings.APPLICATION.get("INSTANCE_IDENTIFIER_FORM_ABBR", []):
+                if self.instance.form.name == abbr["form"]:
+                    identifier_start = abbr["abbreviation"]
 
             max_identifier = (
                 models.Instance.objects.filter(
-                    identifier__startswith="{0}-{1}-".format(location_nr, year)
+                    identifier__startswith="{0}-{1}-".format(identifier_start, year)
                 ).aggregate(max_identifier=Max("identifier"))["max_identifier"]
                 or "00-00-000"
             )
             sequence = int(max_identifier[-3:])
 
             identifier = "{0}-{1}-{2}".format(
-                location_nr, timezone.now().strftime("%y"), str(sequence + 1).zfill(3)
+                identifier_start,
+                timezone.now().strftime("%y"),
+                str(sequence + 1).zfill(3),
             )
 
         return identifier

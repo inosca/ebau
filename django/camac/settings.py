@@ -184,6 +184,9 @@ APPLICATIONS = {
             "projektverfasser-planer",
             "grundeigentumerschaft",
         ],
+        "INSTANCE_IDENTIFIER_FORM_ABBR": [
+            {"form": "geschaeftskontrolle", "abbreviation": "GK"}
+        ],
     },
     "kt_bern": {
         "ROLE_PERMISSIONS": {

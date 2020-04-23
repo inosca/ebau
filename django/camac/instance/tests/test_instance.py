@@ -271,6 +271,12 @@ def test_instance_create(admin_client, admin_user, form, instance_state, instanc
             "baugesuch",
             status.HTTP_400_BAD_REQUEST,
         ),
+        (
+            "Applicant",
+            LazyFixture("location"),
+            "geschaeftskontrolle",
+            status.HTTP_200_OK,
+        ),
     ],
 )
 def test_instance_submit(
@@ -298,6 +304,9 @@ def test_instance_submit(
 
     settings.APPLICATION["NOTIFICATIONS"]["SUBMIT"] = notification_template.slug
     settings.APPLICATION["WORKFLOW_ITEMS"]["SUBMIT"] = workflow_item.pk
+    settings.APPLICATION["INSTANCE_IDENTIFIER_FORM_ABBR"] = [
+        {"form": "geschaeftskontrolle", "abbreviation": "GK"}
+    ]
 
     # only create group in a successful run
     if status_code == status.HTTP_200_OK:
@@ -342,7 +351,12 @@ def test_instance_submit(
 
     if status_code == status.HTTP_200_OK:
         json = response.json()
-        assert json["data"]["attributes"]["identifier"] == "11-17-001"
+
+        identifier = "11-17-001"
+        if form.name == "geschaeftskontrolle":
+            identifier = "GK-17-001"
+
+        assert json["data"]["attributes"]["identifier"] == identifier
         assert set(json["data"]["meta"]["editable"]) == set()
 
         instance.refresh_from_db()
