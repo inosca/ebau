@@ -1,6 +1,7 @@
 from datetime import date, datetime, timedelta
 
 import pytest
+from django.core.exceptions import ObjectDoesNotExist
 from django.urls import reverse
 from django.utils import timezone
 from psycopg2.extras import DateTimeTZRange
@@ -92,12 +93,22 @@ def test_objection_timeframe_update(admin_client, objection_timeframe, status_co
         )
 
 
-@pytest.mark.parametrize("role__name", ["Municipality", "Service", "Applicant"])
-def test_objection_timeframe_destroy(admin_client, objection_timeframe):
+@pytest.mark.parametrize(
+    "role__name,status_code",
+    [
+        ("Municipality", status.HTTP_204_NO_CONTENT),
+        ("Service", status.HTTP_403_FORBIDDEN),
+        ("Applicant", status.HTTP_403_FORBIDDEN),
+    ],
+)
+def test_objection_timeframe_destroy(admin_client, objection_timeframe, status_code):
     url = reverse("objectiontimeframe-detail", args=[objection_timeframe.pk])
 
     response = admin_client.delete(url)
-    assert response.status_code == status.HTTP_403_FORBIDDEN
+    assert response.status_code == status_code
+    if status_code == status.HTTP_204_NO_CONTENT:
+        with pytest.raises(ObjectDoesNotExist):
+            objection_timeframe.refresh_from_db()
 
 
 @pytest.mark.parametrize(
