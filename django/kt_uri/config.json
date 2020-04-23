@@ -48940,7 +48940,7 @@
     "fields": {
       "description": "",
       "name": "arch",
-      "sort": 7
+      "sort": 8
     },
     "model": "instance.instancestate",
     "pk": 26
@@ -48949,7 +48949,7 @@
     "fields": {
       "description": "",
       "name": "del",
-      "sort": 8
+      "sort": 9
     },
     "model": "instance.instancestate",
     "pk": 27
@@ -48958,7 +48958,7 @@
     "fields": {
       "description": "",
       "name": "new_portal",
-      "sort": 9
+      "sort": 10
     },
     "model": "instance.instancestate",
     "pk": 28
@@ -48967,7 +48967,7 @@
     "fields": {
       "description": "",
       "name": "nfd",
-      "sort": 10
+      "sort": 11
     },
     "model": "instance.instancestate",
     "pk": 29
@@ -48976,7 +48976,7 @@
     "fields": {
       "description": "",
       "name": "subm",
-      "sort": 11
+      "sort": 12
     },
     "model": "instance.instancestate",
     "pk": 30
@@ -48985,7 +48985,7 @@
     "fields": {
       "description": "",
       "name": "rej",
-      "sort": 12
+      "sort": 13
     },
     "model": "instance.instancestate",
     "pk": 31
@@ -49003,10 +49003,19 @@
     "fields": {
       "description": "Archivdossier",
       "name": "old",
-      "sort": 13
+      "sort": 14
     },
     "model": "instance.instancestate",
     "pk": 33
+  },
+  {
+    "fields": {
+      "description": null,
+      "name": "control",
+      "sort": 7
+    },
+    "model": "instance.instancestate",
+    "pk": 34
   },
   {
     "fields": {
