@@ -22,9 +22,25 @@ from ..models import Message
 from .caluma_document_data import baugesuch_data
 
 
-def test_submit_event(ech_instance, role_factory, group_factory, mocker, multilang):
+@pytest.mark.parametrize("has_active_service", [True, False])
+def test_submit_event(
+    ech_instance,
+    role_factory,
+    group_factory,
+    mocker,
+    multilang,
+    has_active_service,
+    caplog,
+):
+
+    if not has_active_service:
+        InstanceService.objects.filter(instance_id=ech_instance).update(active=False)
+
     group_factory(role=role_factory(name="support"))
     mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
+
+    caplog.clear()
+
     instance_submitted.send(
         sender=None,
         instance=ech_instance,
@@ -32,9 +48,14 @@ def test_submit_event(ech_instance, role_factory, group_factory, mocker, multila
         user_pk=None,
         group_pk=20003,
     )
-    assert Message.objects.count() == 1
-    message = Message.objects.first()
-    assert message.receiver.get_name() == "Leitbehörde Burgdorf"
+    if has_active_service:
+        assert Message.objects.count() == 1
+        message = Message.objects.first()
+        assert message.receiver.get_name() == "Leitbehörde Burgdorf"
+
+    else:
+        assert not Message.objects.exists()
+        assert len(caplog.messages) == 3
 
 
 @pytest.mark.parametrize(
