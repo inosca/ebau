@@ -38,8 +38,12 @@ class ObjectionTimeframeView(viewsets.ModelViewSet):
     def has_update_permission_for_municipality(self):
         return True
 
+    @permission_aware
     def has_destroy_permission(self):
         return False
+
+    def has_destroy_permission_for_municipality(self):
+        return True
 
 
 class ObjectionView(viewsets.ModelViewSet, InstanceQuerysetMixin):
