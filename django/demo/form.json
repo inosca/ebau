@@ -6,6 +6,13 @@
       "personalien",
       "personalien.grundeigentumerschaft",
       "freigegebene-unterlagen"
+    ],
+    "geschaeftskontrolle": [
+      "grundinformationen",
+      "grundinformationen.kategorisierung",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "freigegebene-unterlagen"
     ]
   },
   "modules": {
