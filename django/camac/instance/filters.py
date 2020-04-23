@@ -119,6 +119,7 @@ class InstanceFilterSet(FilterSet):
         field_name="involved_applicants__invitee", method="filter_is_applicant"
     )
     form_name = CharFilter(field_name="form__name")
+    location = NumberMultiValueFilter()
 
     def filter_is_applicant(self, queryset, name, value):
         if value:
