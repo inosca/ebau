@@ -5656,7 +5656,7 @@
   },
   {
     "fields": {
-      "current_instance_state": 25,
+      "current_instance_state": 34,
       "next_instance_state": 21
     },
     "model": "core.aformtransition",
@@ -46943,7 +46943,7 @@
   },
   {
     "fields": {
-      "instance_states": "21,32,25"
+      "instance_states": "34"
     },
     "model": "core.rsimplelist",
     "pk": 300
