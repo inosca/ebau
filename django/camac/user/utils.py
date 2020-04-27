@@ -42,12 +42,11 @@ def set_baukontrolle(instance):
     baukontrolle = get_baukontrolle(instance, active_service)
 
     if baukontrolle != active_service:
-        old_inst_serv = InstanceService.objects.get(
-            service=active_service, instance=instance
-        )
-        old_inst_serv.active = 0
-        old_inst_serv.save()
-
+        # Note: In this special case, we DO NOT deactive the previously
+        # active service. "Baukontrolle" is a separate instance service
+        # and from now on, there will be two active entries.
+        # The `Instance.active_service` is filtering out the "Baukontrolle"
+        # service.
         InstanceService.objects.get_or_create(
             service=baukontrolle, instance=instance, defaults={"active": 1}
         )
