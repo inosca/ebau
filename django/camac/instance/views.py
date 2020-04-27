@@ -159,7 +159,9 @@ class InstanceView(
     def has_object_submit_permission(self, instance):
         return self.has_base_permission(instance) and instance.instance_state.name in (
             "new",
-            "nfd",  # kt. schwyz
+            # kt. schwyz
+            "nfd",
+            "rejected",
         )
 
     def has_object_report_permission(self, instance):
