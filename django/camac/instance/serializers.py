@@ -720,6 +720,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             mime_type=pdf.content_type,
             user=request.user,
             group=request.group,
+            question="dokument-weitere-gesuchsunterlagen",
         )
 
     def _create_answer_proposals(self, instance):
