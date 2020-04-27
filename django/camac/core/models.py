@@ -719,10 +719,7 @@ class AirAction(models.Model):
 class Answer(models.Model):
     id = models.AutoField(db_column="ID", primary_key=True)
     instance = models.ForeignKey(
-        "instance.Instance",
-        models.DO_NOTHING,
-        db_column="INSTANCE_ID",
-        related_name="+",
+        "instance.Instance", models.CASCADE, db_column="INSTANCE_ID", related_name="+"
     )
     question = models.ForeignKey(
         "Question", models.DO_NOTHING, db_column="QUESTION_ID", related_name="+"
@@ -3983,10 +3980,7 @@ class Journal(models.Model):
     ENTRY_MODE_CHOICES = (("automatic", "Automatic"), ("user", "Manual entry by user"))
 
     instance = models.ForeignKey(
-        "instance.Instance",
-        models.DO_NOTHING,
-        db_column="INSTANCE_ID",
-        related_name="+",
+        "instance.Instance", models.CASCADE, db_column="INSTANCE_ID", related_name="+"
     )
 
     # Created automatically or by user?
