@@ -1,104 +1,49 @@
 {{#if this.submit.isRunning}}
   <div class="uk-text-center"><UkSpinner ratio="2" /></div>
 {{else}}
-  <BeClaimsForm::list::item
-    @claim={{@claim}}
-    @onEdit={{fn (mut @claim)}}
-  />
+  <BeClaimsForm::list::item @claim={{@claim}} @onCancel={{@onCancel}} />
 
   <hr>
 
-  {{#if @claim.isAnswered}}
-    <BeAttachmentList @attachments={{@claim.attachments}} />
-    <CfFieldValue @field={{@claim.comment}} @tagName="p" class="uk-text-italic" />
-  {{else}}
-    {{#if file}}
-      <div class="uk-margin">
-        <label class="uk-form-label">
-          <span class="uk-text-bold">{{t "claims.contents"}}</span>
-          <span class="uk-margin-small-left uk-text-muted uk-text-lowercase">({{t "caluma.form.optional"}})</span>
-        </label>
-        <div class="uk-form-controls">
-          <div class="uk-grid-small" uk-grid>
-            <div class="uk-width-expand">
-              <PowerSelectMultiple
-                @multiple={{true}}
-                @selected={{this.selectedTags}}
-                @options={{@tags}}
-                @searchField="label"
-                @onchange={{fn (mut selectedTags)}}
-              as |tag|>
-                {{tag.label}}
-              </PowerSelectMultiple>
-            </div>
-            <div>
-              <UkButton
-                @on-click={{fn this.confirmFile}}
-                @label={{t "claims.confirm"}}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    {{else}}
-      <div class="uk-margin">
-        <label class="uk-form-label uk-text-bold">{{t "claims.documents"}}</label>
-        <div class="uk-form-controls">
-          <div uk-grid class="uk-grid-small">
-            <div class="uk-width-{{if this.files.length "3-4" "1-1"}}">
-              <FileDropzone @name="documents" as |dropzone|>
-                <div class="uk-placeholder uk-text-center uk-padding-medium uk-flex uk-flex-middle uk-flex-center uk-flex-column {{if dropzone.active "uk-box-shadow-medium"}}">
-                  <UkIcon @icon="cloud-upload" @ratio="3" class="uk-margin-bottom" />
-                  <div>
-                    {{#if dropzone.supported}}{{t "documents.drag"}}{{/if}}
-                    <FileUpload @accept={{this.allowedMimetypes}} @name="documents" @onfileadd={{fn this.addFile}}>
-                      <span class="uk-link">{{t "documents.click"}}</span>
-                    </FileUpload>
-                  </div>
-                </div>
-              </FileDropzone>
-            </div>
-            {{#if this.files.length}}
-              <div class="uk-width-1-4">
-                <ul>
-                  {{#each this.files as |f|}}
-                    <li>
-                      <strong>{{f.file.name}}</strong>
-                      {{#if f.tags.length}}
-                        <ul>
-                          {{#each f.tags as |t|}}
-                            <li>{{t.label}}</li>
-                          {{/each}}
-                        </ul>
-                      {{/if}}
-                    </li>
-                  {{/each}}
-                </ul>
-              </div>
-            {{/if}}
-          </div>
-        </div>
-        <BeAttachmentList @attachments={{@claim.attachments}} />
-      </div>
-    {{/if}}
+  <label class="uk-form-label uk-text-bold">{{t "claims.documents"}}</label>
+  <div
+    uk-grid
+    masonry="true"
+    class="uk-grid-small uk-child-width-1-1 uk-child-width-1-2@m"
+    {{did-insert (perform this.fetchAttachments)}}
+  >
+    {{#each this.buckets as |bucket|}}
+      <BeDocumentBucket
+        @slug={{bucket}}
+        @disabled={{@claim.isAnswered}}
+        @deletable={{not @claim.isAnswered}}
+        @loading={{this.fetchAttachments.isRunning}}
+        @attachments={{get this.attachments bucket}}
+        @onUpload={{perform this.add}}
+        @onDelete={{perform this.remove}}
+      />
+    {{/each}}
+  </div>
 
-    <div class="uk-margin">
-      <label class="uk-form-label uk-text-bold" for="comment">{{t "claims.comment"}}</label>
+  <div class="uk-margin">
+    <label class="uk-form-label uk-text-bold" for="comment">{{t "claims.comment"}}</label>
+    {{#if @claim.isAnswered}}
+      <CfFieldValue @field={{@claim.comment}} @tagName="p" class="uk-text-italic uk-margin-remove-vertical" />
+    {{else}}
       <div class="uk-form-controls">
         <Textarea @value={{@claim.comment.answer.value}} @class="uk-textarea" @name="comment" @rows="6" />
       </div>
-    </div>
-  {{/if}}
+    {{/if}}
+  </div>
 
-  <div class="uk-text-right">
-    <UkButton @label={{t (if @claim.isAnswered "global.back" "global.cancel")}} @on-click={{fn @onCancel}} />
-    {{#unless @claim.isAnswered}}
+  {{#unless @claim.isAnswered}}
+    <div class="uk-text-right">
       <UkButton
         @color="primary"
         @disabled={{not this.canSubmit}}
         @label={{t "claims.submit"}}
-        @on-click={{fn (perform this.submit)}}
+        @on-click={{perform this.submit}}
       />
-    {{/unless}}
-  </div>
+    </div>
+  {{/unless}}
 {{/if}}

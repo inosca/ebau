@@ -1,16 +1,20 @@
-{{#if loading}}
+{{#if @loading}}
   <div class="uk-text-center uk-padding">
     <UkSpinner @ratio={{2}} />
   </div>
 {{else}}
-  <ul class="uk-list uk-list-divider">
-    {{#each attachments as |attachment|}}
+  <ul class="uk-list uk-list-divider uk-margin-remove-bottom">
+    {{#each @attachments as |attachment|}}
       <li>
         <div uk-grid class="uk-grid-small">
           <div class="uk-width-expand">
-            <a href="#" title={{t "documents.download"}} class="uk-text-bold uk-text-link" {{action (perform attachment.download)}}>
-              {{attachment.name}}
-            </a>
+            {{#if attachment.path}}
+              <a href="#" title={{t "documents.download"}} class="uk-text-bold uk-text-link" {{on "click" (perform attachment.download)}}>
+                {{attachment.name}}
+              </a>
+            {{else}}
+              <span class="uk-text-bold">{{attachment.name}}</span>
+            {{/if}}
             <span class="uk-text-meta uk-text-small">
               {{attachment.filesize}}
             </span>
@@ -22,27 +26,9 @@
               }}
             </span>
           </div>
-          <div class="uk-flex uk-flex-middle uk-text-meta uk-inline">
-            {{#if attachment.tags.length}}
-              <span class="uk-link">
-                {{t "documents.showTags"}}
-              </span>
-              <div uk-drop="pos: bottom; animation: uk-animation-slide-top-small; delay-hide: 0;">
-                <div class="uk-card uk-card-body uk-card-default uk-padding-small uk-box-shadow-medium uk-text-left uk-text-small">
-                  <ul class="uk-list uk-list-bullet uk-padding-remove-left">
-                    {{#each attachment.tags as |tag|}}
-                      <li>{{tag.label}}</li>
-                    {{/each}}
-                  </ul>
-                </div>
-              </div>
-            {{else}}
-              {{t "documents.noTags"}}
-            {{/if}}
-          </div>
-          {{#if deletable}}
+          {{#if @deletable}}
             <div class="uk-flex uk-flex-middle">
-              <button type="button" class="uk-icon-button" uk-icon="trash" title={{t "global.delete"}} {{action "delete" attachment}}></button>
+              <button type="button" class="uk-icon-button" uk-icon="trash" title={{t "global.delete"}} {{on "click" (fn @onDelete attachment)}}></button>
             </div>
           {{/if}}
         </div>

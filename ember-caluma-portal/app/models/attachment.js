@@ -1,73 +1,27 @@
 import Model, { attr, belongsTo, hasMany } from "@ember-data/model";
-import { computed } from "@ember/object";
 import { inject as service } from "@ember/service";
-import { queryManager } from "ember-apollo-client";
-import { dropTask, lastValue } from "ember-concurrency-decorators";
+import { dropTask } from "ember-concurrency-decorators";
 import { saveAs } from "file-saver";
 import filesize from "filesize";
-import gql from "graphql-tag";
 
 export default class Attachment extends Model {
   @service fetch;
   @service intl;
   @service notification;
 
-  @queryManager apollo;
-
   @attr("date") date;
   @attr("string") mimeType;
   @attr("string") name;
   @attr("string") path;
   @attr("string") size;
+  @attr("string") question;
   @attr() context;
+
   @hasMany("attachment-section") attachmentSections;
   @belongsTo("instance", { async: false }) instance;
 
-  @computed("size")
   get filesize() {
     return filesize(this.size);
-  }
-
-  @lastValue("_tags") tags;
-  @computed("context.tags.[]")
-  get _tags() {
-    const task = this.fetchTags;
-
-    task.perform();
-
-    return task;
-  }
-
-  @dropTask
-  *fetchTags() {
-    if (!this.context.tags) return [];
-
-    const raw = yield this.apollo.query(
-      {
-        query: gql`
-          query($slugs: [String]!) {
-            allQuestions(slugs: $slugs) {
-              edges {
-                node {
-                  slug
-                  label
-                }
-              }
-            }
-          }
-        `,
-        variables: { slugs: this.context.tags }
-      },
-      "allQuestions.edges"
-    );
-
-    return this.context.tags
-      .map(slug => {
-        const tag = raw.find(({ node }) => node.slug === slug);
-
-        return tag && tag.node;
-      })
-      .filter(Boolean);
   }
 
   @dropTask

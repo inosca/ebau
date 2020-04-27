@@ -1,123 +1,45 @@
-{{#unless @disabled}}
-  {{#if this.file}}
-    {{#if this.save.isRunning}}
-      <div class="uk-padding uk-text-center">
-        <UkSpinner @ratio={{2}} />
-      </div>
-    {{else}}
-      {{#if this.allVisibleTags.length}}
-        <h3>{{t "documents.contents"}}</h3>
+{{#if this.showHint}}
+  <p>
+    {{t "documents.hint1"}}
+    <a target="_blank" rel="noopener noreferrer" href={{t "documents.linkEarthquake"}}>{{t "documents.hintEarthquake"}}</a>
+    {{t "documents.hint2"}}
+    <a target="_blank" rel="noopener noreferrer" href={{t "documents.linkMunicipalityForms"}}>{{t "documents.hintMunicipalityForms"}}</a>
+    {{t "documents.hint3"}}
+  </p>
 
-        <div class="uk-margin">
-          {{#if this.allRequiredTags.length}}
-            <label class="uk-text-bold uk-margin">
-              {{t "documents.requiredContent"}}
-            </label>
+  <hr>
+{{/if}}
 
-            {{#each-in this.requiredTags as |title fields|}}
-              <div class="uk-margin">
-                <label>{{t (concat "documents.tags." title)}}</label>
-                <div class="uk-margin-left">
-                  {{#each fields as |field|}}
-                    <label>
-                      <input
-                        type="checkbox"
-                        class="uk-checkbox"
-                        checked={{if (contains field this.selectedRequiredTags) "checked"}}
-                        {{on "change" (fn this.updateSelectedRequiredTags field)}}
-                      >
-                      {{field.question.label}}
-                    </label>
-                    <br>
-                  {{/each}}
-                </div>
-              </div>
-            {{/each-in}}
-          {{/if}}
+{{#if this.allRequiredTags.length}}
+  <p class="uk-text-bold">{{t "documents.confirm" count=this.allRequiredTags.length}}</p>
 
-          {{#if this.allOptionalTags.length}}
-            <div class="uk-margin">
-              <label class="uk-text-bold">
-                {{t "documents.optionalContent"}}
-              </label>
+  {{#each-in this.requiredTags as |title fields|}}
+    <p class="uk-margin">{{t (concat "documents.tags." title)}}</p>
+    <div class="uk-margin-left">
+      {{#each fields as |field|}}
+        <CfField/input @field={{field}} />
+      {{/each}}
+    </div>
+  {{/each-in}}
 
-              <PowerSelectMultiple
-                @multiple={{true}}
-                @selected={{this.selectedOptionalTags}}
-                @options={{this.optionalTags}}
-                @searchField="question.label"
-                @onchange={{fn (mut this.selectedOptionalTags)}}
-              as |field|>
-                {{field.question.label}}
-              </PowerSelectMultiple>
-            </div>
-          {{/if}}
-        </div>
-      {{/if}}
-      <div class="uk-margin uk-text-right">
-        <button type="button" class="uk-button uk-button-default" {{on "click" this.reset}}>{{t "documents.cancel"}}</button>
-        <button type="button" class="uk-button uk-button-primary" {{on "click" (perform this.save)}}>{{t "documents.upload"}}</button>
-      </div>
-    {{/if}}
-    <hr>
-  {{else}}
-    {{#if this.showHint}}
-      <p>
-        {{t "documents.hint1"}}
-        <a target="_blank" rel="noopener noreferrer" href={{t "documents.linkEarthquake"}}>{{t "documents.hintEarthquake"}}</a>
-        {{t "documents.hint2"}}
-        <a target="_blank" rel="noopener noreferrer" href={{t "documents.linkMunicipalityForms"}}>{{t "documents.hintMunicipalityForms"}}</a>
-        {{t "documents.hint3"}}
-      </p>
-    {{/if}}
-    <FileDropzone @name="documents" as |dropzone|>
-      <div class="uk-animation-fade uk-placeholder uk-text-center uk-padding-medium uk-flex uk-flex-middle uk-flex-center uk-flex-column {{if dropzone.active "uk-box-shadow-medium"}}">
-        {{uk-icon "cloud-upload" ratio=3 class="uk-margin-bottom"}}
-        <div>
-          {{#if dropzone.supported}}
-            {{t "documents.drag"}}
-          {{/if}}
-          <FileUpload @name="documents" @accept={{this.allowedMimetypes}} @onfileadd={{perform this.selectFile}}>
-            <span class="uk-link">{{t "documents.click"}}</span>
-          </FileUpload>
-        </div>
-        <div class="uk-inline uk-margin-top">
-          <span class="uk-text-meta">{{t "documents.missingTags" count=this.allRequiredTags.length}}</span>
-          {{#if this.allRequiredTags.length}}
-            <div uk-drop="pos: bottom; animation: uk-animation-slide-top-small; delay-hide: 0;">
-              <div class="uk-card uk-card-body uk-card-default uk-padding-small uk-box-shadow-medium uk-text-left uk-text-small">
-                {{#each-in this.requiredTags as |title fields|}}
-                  <span class="uk-text-bold">{{t (concat "documents.tags." title)}}</span>
-                  <ul class="uk-list uk-list-bullet">
-                    {{#each fields as |field|}}
-                      <li>{{field.question.label}}</li>
-                    {{/each}}
-                  </ul>
-                {{/each-in}}
-              </div>
-            </div>
-          {{/if}}
-        </div>
-      </div>
-    </FileDropzone>
-  {{/if}}
-{{/unless}}
+  <hr>
+{{/if}}
 
-<BeAttachmentList 
-  {{did-insert (perform this.data)}}
-  @loading={{this.data.isRunning}}
-  @attachments={{this.data.lastSuccessful.value}}
-  @deletable={{this.deletable}}
-  @onDelete={{perform this.delete false}}
-/>
-
-<UkModal @visible={{this.attachmentToDelete}} @on-hide={{fn (mut this.attachmentToDelete) null}} as |Modal|>
-  <Modal.body>
-    <h3>{{t "documents.deleteInfo" filename=this.attachmentToDelete.name}}</h3>
-  </Modal.body>
-
-  <Modal.footer class="uk-text-right">
-    <UkButton @color="default" @label={{t "global.cancel"}} @on-click={{fn (mut this.attachmentToDelete) null}} />
-    <UkButton @color="primary" @label={{t "global.delete"}} @loading={{this.delete.isRunning}} @on-click={{perform this.delete true this.attachmentToDelete}} />
-  </Modal.footer>
-</UkModal>
+<div
+  uk-grid
+  masonry="true"
+  class="uk-grid-small uk-child-width-1-1 uk-child-width-1-2@m"
+  {{did-insert (perform this.fetchAttachments)}}
+>
+  {{#each this.buckets as |bucket|}}
+    <BeDocumentBucket
+      @slug={{bucket}}
+      @disabled={{@disabled}}
+      @deletable={{this.deletable}}
+      @loading={{this.fetchAttachments.isRunning}}
+      @attachments={{get this.attachments bucket}}
+      @onUpload={{perform this.upload}}
+      @onDelete={{perform this.delete}}
+    />
+  {{/each}}
+</div>
