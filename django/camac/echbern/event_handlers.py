@@ -95,6 +95,16 @@ class BaseEventHandler:
 
     def create_message(self, xml, receiver=None):
         receiver = receiver if receiver else self.instance.active_service
+
+        if not receiver:
+            # Due to possible misconfiguration of the instance, the
+            # fallback to active_service might not work (and return
+            # None). This needs to be caught
+            logger.error(f"Instance {self.instance.pk} has no active_service and")
+            logger.error(f"no receiver given. Cannot store eCH message!")
+            logger.error(f"eCH Message content: {xml}")
+            return
+
         message = Message.objects.create(
             body=xml,
             receiver=receiver,
