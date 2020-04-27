@@ -1,9 +1,13 @@
+import logging
+
 import reversion
 from django.conf import settings
 from django.contrib.postgres.fields import JSONField
 from django.db import models
 
 from ..core import models as core_models
+
+log = logging.getLogger(__name__)
 
 
 class FormState(models.Model):
@@ -144,11 +148,17 @@ class Instance(models.Model):
 
     @property
     def active_service(self):
-        instance_service = core_models.InstanceService.objects.filter(
+        instance_services = core_models.InstanceService.objects.filter(
             active=1,
             instance=self,
             **settings.APPLICATION.get("ACTIVE_SERVICE_FILTERS", {}),
-        ).first()
+        ).order_by("-pk")
+        instance_service = instance_services.first()
+
+        if instance_services.count() > 1:
+            log.warning(
+                f"Instance {self.pk}: Multiple active services, picking most recent one: {instance_service.service}!"
+            )
 
         return instance_service.service if instance_service else None
 
