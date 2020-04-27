@@ -1,18 +1,21 @@
 import { getOwner } from "@ember/application";
-import EmberObject, { computed } from "@ember/object";
+import EmberObject, { action } from "@ember/object";
 import { reads } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
-import { queryManager } from "ember-apollo-client";
-import config from "ember-caluma-portal/config/environment";
+import { tracked } from "@glimmer/tracking";
 import CfFormComponent from "ember-caluma/components/cf-form";
 import { dropTask } from "ember-concurrency-decorators";
-import gql from "graphql-tag";
 import moment from "moment";
 
-const field = fieldName =>
-  computed("document", function() {
-    return this.document.findField(fieldName);
-  });
+function field(fieldName) {
+  return function() {
+    return {
+      get() {
+        return this.document.findField(fieldName);
+      }
+    };
+  };
+}
 
 class Claim extends EmberObject {
   @service store;
@@ -27,7 +30,6 @@ class Claim extends EmberObject {
   @field("nfd-tabelle-datum-antwort") answered;
   @field("nfd-tabelle-behoerde") authority;
 
-  @computed("statusSlug")
   get isAnswered() {
     return [
       "nfd-tabelle-status-beantwortet",
@@ -35,31 +37,20 @@ class Claim extends EmberObject {
     ].includes(this.statusSlug);
   }
 
-  @computed("deadline.answer.value")
   get deadlineDate() {
     return moment(this.deadline.answer.value);
   }
 
-  @computed("answered.answer.value")
   get answeredDate() {
     return moment(this.answered.answer.value);
   }
 
-  @computed("deadlineDate")
   get isOverdue() {
     return moment(this.deadlineDate) < moment();
   }
 
-  @computed("authority.answer.value")
   get service() {
     return this.store.peekRecord("public-service", this.authority.answer.value);
-  }
-
-  @computed("id")
-  get attachments() {
-    return this.store
-      .peekAll("attachment")
-      .filter(attachment => attachment.get("context.claimId") === this.id);
   }
 }
 
@@ -67,22 +58,12 @@ export default class BeClaimsFormComponent extends CfFormComponent {
   @service intl;
   @service store;
 
-  @queryManager apollo;
+  @tracked activeClaimType = "pending";
 
-  init(...args) {
-    super.init(...args);
-
-    this.setProperties({
-      claimTypes: ["pending", "answered"],
-      activeClaimType: "pending"
-    });
-
-    this.fetchTags.perform();
-    this.fetchAttachments.perform();
-    this.fetchServices.perform();
+  get claimTypes() {
+    return ["pending", "answered"];
   }
 
-  @computed
   get allClaims() {
     const table = this.fieldset.document.findField("nfd-tabelle-table");
 
@@ -91,7 +72,6 @@ export default class BeClaimsFormComponent extends CfFormComponent {
     });
   }
 
-  @computed("allClaims.@each.statusSlug")
   get claims() {
     return {
       pending: this.allClaims.filter(claim =>
@@ -107,71 +87,18 @@ export default class BeClaimsFormComponent extends CfFormComponent {
   }
 
   @dropTask
-  *fetchAttachments() {
-    yield this.store.query("attachment", {
-      instance: this.context.instanceId,
-      attachment_sections: config.ebau.claims.attachmentSectionId
-    });
-  }
-
-  @dropTask
   *fetchServices() {
     yield this.store.query("public-service", {
       service_id: [
         ...new Set(this.allClaims.map(claim => claim.authority.answer.value))
       ].join(",")
     });
-
-    this.allClaims.forEach(claim => claim.notifyPropertyChange("service"));
   }
 
-  @computed("fetchTags.lastSuccessful.value", "intl.locale")
-  get tags() {
-    const raw = this.getWithDefault("fetchTags.lastSuccessful.value", []);
+  @action
+  setEditedClaim(claim, event) {
+    if (event) event.preventDefault();
 
-    return raw.reduce((grouped, tag) => {
-      const category = this.intl.t(
-        `documents.tags.${tag.meta.documentCategory}`
-      );
-
-      let group = grouped.find(g => g.groupName === category);
-
-      if (!group) {
-        group = {
-          groupName: category,
-          options: []
-        };
-
-        grouped.push(group);
-      }
-
-      group.options.push(tag);
-
-      return grouped;
-    }, []);
-  }
-
-  @dropTask
-  *fetchTags() {
-    const raw = yield this.apollo.query(
-      {
-        query: gql`
-          query {
-            allQuestions(metaHasKey: "documentCategory") {
-              edges {
-                node {
-                  slug
-                  label
-                  meta
-                }
-              }
-            }
-          }
-        `
-      },
-      "allQuestions.edges"
-    );
-
-    return raw.map(({ node }) => node);
+    this.set("editedClaim", claim);
   }
 }

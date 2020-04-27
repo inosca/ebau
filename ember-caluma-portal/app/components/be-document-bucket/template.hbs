@@ -1,0 +1,46 @@
+<div class="uk-position-relative">
+  <CfField::info
+    @text={{concat (t "documents.buckets.descriptions.prefix") (t (concat "documents.buckets.descriptions." this.slug))}}
+    class="uk-position-top-right uk-margin-small-right uk-margin-small-top"
+  />
+
+  {{#if @disabled}}
+    <div class="uk-placeholder uk-margin-remove-bottom uk-padding-medium">
+      <p class="uk-text-center uk-margin-remove-bottom">{{t (concat "documents.buckets." this.slug)}}</p>
+
+      {{#if (or @loading @attachments.length)}}
+        <div class="uk-margin uk-width-1-1">
+          <BeAttachmentList
+            @loading={{@loading}}
+            @attachments={{@attachments}}
+            @deletable={{false}}
+          />
+        </div>
+      {{/if}}
+    </div>
+  {{else}}
+    <FileDropzone @name={{this.slug}} as |dropzone|>
+      <div class="uk-placeholder uk-margin-remove-bottom uk-text-center uk-padding-medium uk-flex uk-flex-middle uk-flex-center uk-flex-column {{if dropzone.active "uk-box-shadow-medium"}}">
+        <p>{{t (concat "documents.buckets." this.slug)}}</p>
+        <UkIcon @icon="cloud-upload" @ratio={{3}} class="uk-margin-bottom" />
+        <div class="uk-text-small uk-text-muted">
+          {{#if dropzone.supported}}{{t "documents.drag"}}{{/if}}
+          <FileUpload @name={{this.slug}} @accept={{this.allowedMimetypes}} @onfileadd={{perform this.upload}}>
+            <span class="uk-link">{{t "documents.click"}}</span>
+          </FileUpload>
+        </div>
+
+        {{#if (or @loading @attachments.length)}}
+          <div class="uk-text-left uk-margin uk-width-1-1">
+            <BeAttachmentList
+              @loading={{loading}}
+              @attachments={{@attachments}}
+              @deletable={{@deletable}}
+              @onDelete={{perform this.delete}}
+            />
+          </div>
+        {{/if}}
+      </div>
+    </FileDropzone>
+  {{/if}}
+</div>
