@@ -24,13 +24,6 @@
               {{t "claims.answered"}} {{moment-format @claim.answeredDate "DD.MM.YYYY"}}
             </a>
           </li>
-          {{#if (or @claim.attachments.length @claim.comment.answer.value.length)}}
-            <li>
-              <a href="#" {{on "click" (fn @onEdit @claim)}}>
-                {{t "claims.showAnswer"}}
-              </a>
-            </li>
-          {{/if}}
         {{else}}
           <li>
             <a
@@ -44,9 +37,18 @@
               {{t "claims.deadline"}} {{moment-from-now @claim.deadlineDate}}
             </a>
           </li>
+        {{/if}}
+        {{#if @onEdit}}
           <li>
             <a href="#" {{on "click" (fn @onEdit @claim)}}>
-              {{t "claims.answer"}}
+              {{t (if @claim.isAnswered "claims.showAnswer" "claims.answer")}}
+            </a>
+          </li>
+        {{/if}}
+        {{#if @onCancel}}
+          <li>
+            <a href="#" {{on "click" @onCancel}}>
+              {{t (if @claim.isAnswered "global.back" "global.cancel")}}
             </a>
           </li>
         {{/if}}
