@@ -94,7 +94,7 @@ class BaseEventHandler:
         raise NotImplementedError()
 
     def create_message(self, xml, receiver=None):
-        receiver = receiver if receiver else self.instance.active_service
+        receiver = receiver if receiver else self.instance.responsible_service()
 
         if not receiver:
             # Due to possible misconfiguration of the instance, the
