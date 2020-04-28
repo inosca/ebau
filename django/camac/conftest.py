@@ -155,7 +155,8 @@ def caluma_config_bern(db):
 
     Execution of this fixture takes some time. Only use if really necessary.
     """
-    call_command("loaddata", settings.ROOT_DIR("kt_bern/config-caluma.json"))
+    call_command("loaddata", settings.ROOT_DIR("kt_bern/config-caluma-form.json"))
+    call_command("loaddata", settings.ROOT_DIR("kt_bern/config-caluma-workflow.json"))
 
 
 @pytest.fixture
