@@ -5,6 +5,14 @@ from django.conf import settings
 from django.contrib.postgres.fields import JSONField
 from django.db import models
 
+from camac.constants.kt_bern import (
+    INSTANCE_STATE_DONE,
+    INSTANCE_STATE_SB1,
+    INSTANCE_STATE_SB2,
+    INSTANCE_STATE_TO_BE_FINISHED,
+)
+from camac.core.models import InstanceService
+
 from ..core import models as core_models
 
 log = logging.getLogger(__name__)
@@ -146,12 +154,14 @@ class Instance(models.Model):
     )
     services = models.ManyToManyField("user.Service", through="core.InstanceService")
 
-    @property
-    def active_service(self):
-        instance_services = core_models.InstanceService.objects.filter(
-            active=1,
-            instance=self,
-            **settings.APPLICATION.get("ACTIVE_SERVICE_FILTERS", {}),
+    def active_service(self, service_filters=None):
+        service_filters = (
+            service_filters
+            if service_filters
+            else settings.APPLICATION.get("ACTIVE_SERVICE_FILTERS", {})
+        )
+        instance_services = InstanceService.objects.filter(
+            active=1, instance=self, **service_filters
         ).order_by("-pk")
         instance_service = instance_services.first()
 
@@ -161,6 +171,31 @@ class Instance(models.Model):
             )
 
         return instance_service.service if instance_service else None
+
+    def _responsible_service_kt_bern(self):
+        service_filters = settings.APPLICATION.get("ACTIVE_SERVICE_FILTERS", {})
+        if self.instance_state.pk in [
+            INSTANCE_STATE_SB1,
+            INSTANCE_STATE_SB2,
+            INSTANCE_STATE_TO_BE_FINISHED,
+            INSTANCE_STATE_DONE,
+        ]:
+            service_filters = settings.APPLICATION.get(
+                "ACTIVE_BAUKONTROLLE_FILTERS", {}
+            )
+        return self.active_service(service_filters)
+
+    def responsible_service(self):
+        """
+        Call application specific method and fallback to active_service.
+
+        Application specific methods have to be named like this:
+        _responsible_service_{application_name}
+        """
+        func = f"_responsible_service_{settings.APPLICATION_NAME}"
+        if hasattr(self, func):
+            return getattr(self, func)()
+        return self.active_service()
 
     class Meta:
         managed = True

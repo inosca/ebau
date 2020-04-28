@@ -419,7 +419,7 @@ def decision_ruling(instance, decision, answers):
         judgement=decision_to_judgement(decision.decision, answers["caluma-form-slug"]),
         date=decision.decision_date,
         ruling=decision.decision_type,
-        rulingAuthority=authority(instance.active_service),
+        rulingAuthority=authority(instance.active_service()),
     )
 
 
@@ -466,8 +466,8 @@ def base_delivery(instance: Instance, answers: dict):
                             role="applicant", person=requestor(answers)
                         )
                     ],
-                    decisionAuthority=decision_authority(instance.active_service),
-                    entryOffice=office(instance.active_service),
+                    decisionAuthority=decision_authority(instance.active_service()),
+                    entryOffice=office(instance.active_service()),
                 )
             )
         ]
@@ -554,7 +554,7 @@ def change_responsibility(instance: Instance):
             instance=instance,
             **settings.APPLICATION.get("ACTIVE_SERVICE_FILTERS", {}),
         )
-        .order_by("-activation_date")
+        .order_by("-pk")
         .first()
         .service
     )
@@ -564,7 +564,7 @@ def change_responsibility(instance: Instance):
             instance
         ),
         entryOffice=office(prev_service),
-        responsibleDecisionAuthority=decision_authority(instance.active_service),
+        responsibleDecisionAuthority=decision_authority(instance.active_service()),
     )
 
 

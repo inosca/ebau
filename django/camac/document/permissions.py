@@ -88,7 +88,7 @@ def ensure_active_service_for_context_update(serializer, data):
 
     user_service = serializer.context["request"].group.service
     attachment = serializer.instance
-    active_service = attachment.instance.active_service
+    active_service = attachment.instance.active_service()
 
     if not user_service or (
         active_service != user_service

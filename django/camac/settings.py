@@ -251,6 +251,7 @@ APPLICATIONS = {
         ],  # DE
         # "DEMO_MODE_GROUPS": [22274, 22271, 20099, 20078, 23248],  # FR
         "ACTIVE_SERVICE_FILTERS": {"service__service_group__pk__in": [2, 20000]},
+        "ACTIVE_BAUKONTROLLE_FILTERS": {"service__service_group__pk": 3},
         "PDF": {
             "SECTION": {
                 "MAIN": {"DEFAULT": 1, "PAPER": 13},
