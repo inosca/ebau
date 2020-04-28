@@ -12,6 +12,7 @@ from camac.constants.kt_bern import (
     INSTANCE_STATE_ZIRKULATION,
     NOTICE_TYPE_NEBENBESTIMMUNG,
     NOTICE_TYPE_STELLUNGNAHME,
+    SERVICE_GROUP_BAUKONTROLLE,
 )
 from camac.echbern.schema.ech_0211_2_0 import CreateFromDocument
 from camac.echbern.signals import file_subsequently, instance_submitted
@@ -103,6 +104,7 @@ def test_event_handlers(
             service__zip="3500",
             service__address="Testweg 5",
             service__trans=None,
+            service__service_group=instance_service.service.service_group,
             active=1,
         )
         service_t_factory(
@@ -259,7 +261,20 @@ def test_task_event_handler_SBs(
     admin_user,
     attachment_attachment_section_factory,
     attachment_section_factory,
+    service_factory,
+    instance_service_factory,
 ):
+    service_baukontrolle = service_factory(
+        service_group__pk=SERVICE_GROUP_BAUKONTROLLE,
+        name=None,
+        trans__name="Baukontrolle Burgdorf",
+        trans__city="Burgdorf",
+        trans__language="de",
+    )
+    instance_service_factory(
+        instance=ech_instance, service=service_baukontrolle, active=1
+    )
+
     asection_sb1 = attachment_section_factory(pk=ATTACHMENT_SECTION_BEILAGEN_SB1)
     aas_sb1 = attachment_attachment_section_factory(
         attachment__instance=ech_instance, attachmentsection=asection_sb1
