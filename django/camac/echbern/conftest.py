@@ -1,8 +1,13 @@
 import pytest
 from caluma.caluma_form import models as caluma_form_models
+from django.conf import settings
 
-from camac.constants.kt_bern import QUESTION_EBAU_NR
+from camac.constants.kt_bern import (
+    QUESTION_EBAU_NR,
+    SERVICE_GROUP_LEITBEHOERDE_GEMEINDE,
+)
 from camac.echbern.data_preparation import slugs_baugesuch, slugs_vorabklaerung_einfach
+from camac.instance.models import Instance
 
 
 @pytest.fixture
@@ -19,6 +24,7 @@ def ech_instance(
         service__email="burgdorf@example.com",
         service__pk=2,
         service__trans=None,
+        service__service_group__pk=SERVICE_GROUP_LEITBEHOERDE_GEMEINDE,
         active=1,
     )
 
@@ -81,3 +87,23 @@ def baugesuch_filled(
     document.meta = {"camac-instance-id": 1}
     document.save()
     return document
+
+
+@pytest.fixture(autouse=True)
+def service_filter_settings(application_settings, mocker):
+    application_settings["ACTIVE_SERVICE_FILTERS"] = settings.APPLICATIONS["kt_bern"][
+        "ACTIVE_SERVICE_FILTERS"
+    ]
+    application_settings["ACTIVE_BAUKONTROLLE_FILTERS"] = settings.APPLICATIONS[
+        "kt_bern"
+    ]["ACTIVE_BAUKONTROLLE_FILTERS"]
+
+    def responsible_service_demo_side_effects(self):
+        return self._responsible_service_kt_bern()
+
+    mocker.patch.object(
+        Instance,
+        "_responsible_service_demo",
+        responsible_service_demo_side_effects,
+        create=True,
+    )
