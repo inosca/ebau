@@ -1193,12 +1193,12 @@
     "fields": {
       "available_action": "formtransition",
       "button": 488,
-      "description": "",
-      "error_message": "",
+      "description": null,
+      "error_message": null,
       "execute_always": 0,
-      "name": "Wiederer\u00f6ffnen done - comm",
+      "name": "Wiederer\u00f6ffnen DONE/CONTROL - COMM",
       "sort": 0,
-      "success_message": ""
+      "success_message": null
     },
     "model": "core.action",
     "pk": 730
@@ -5656,7 +5656,7 @@
   },
   {
     "fields": {
-      "current_instance_state": 34,
+      "current_instance_state": null,
       "next_instance_state": 21
     },
     "model": "core.aformtransition",
