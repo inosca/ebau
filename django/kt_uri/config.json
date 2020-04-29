@@ -18328,7 +18328,7 @@
       "attachment_section": 104,
       "building_authority_button": 14,
       "email_subject": "CAMAC Dossier Nr. [@c2q6i1]: Bau- und Einsprache-Entscheid",
-      "email_text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nStatusmeldung zum Stand des Verfahrens\r\nER\u00d6FFNUNG BAU- UND EINSPRACHEENTSCHEID\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDer Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] zum Dossiers mit der ID Nr. [INSTANCE_ID], (CAMAC Dossiernummer [@c2q6i1]) samt den dazu geh\u00f6renden Stellungnahmen und Verf\u00fcgungen der kantonalen Fachstellen wird Ihnen hiermit offiziell zugestellt. Die Originaldokumente bleiben bei der ausstellenden Beh\u00f6rde und k\u00f6nnen bei Bedarf angefordert werden.\r\n\r\nSie k\u00f6nnen die relevanten Dokumente \u00fcber den folgenden Link herunterladen:\r\n[ARCHIVE_DOWNLOAD_URL]\r\n\r\nMit dem \u00d6ffnen des Links beginnt gleichzeitig die 20 t\u00e4gige Beschwerdefrist. Das aktuelle Datum wurde im System gespeichert und gilt als Er\u00f6ffnungsdatum.\r\n\r\nMit freundlichen Gr\u00fcssen\r\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]\r\n",
+      "email_text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten) Statusmeldung zum Stand des Verfahrens\r\n\r\nER\u00d6FFNUNG STELLUNGNAHME / VORENTSCHEID\r\n\r\nSehr geehrte Dame Sehr geehrter Herr\r\n\r\nZum Dossiers mit der ID Nr. [INSTANCE_ID], (CAMAC Dossiernummer [@c2q6i1]) wird Ihnen hiermit eine Stellungnahme / Vorentscheid via Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] zugestellt. Die Originaldokumente bleiben bei der ausstellenden Beh\u00f6rde und k\u00f6nnen bei Bedarf angefordert werden. Sie k\u00f6nnen die relevanten Dokumente \u00fcber den folgenden Link herunterladen:\r\n\r\n[ARCHIVE_DOWNLOAD_URL]\r\n\r\nMit dem \u00d6ffnen des Links beginnt gleichzeitig die in der Stellungnahme / Vorentscheid erw\u00e4hnte Frist f\u00fcr das rechtliche Geh\u00f6r. Das aktuelle Datum beim Anklicken des Links wurde im System gespeichert und gilt als Er\u00f6ffnungsdatum.\r\n\r\nMit freundlichen Gr\u00fcssen\r\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]\r\n",
       "from_email": "camac@ur.ch",
       "from_name": "Camac Info",
       "receiver_query": "[gesuchsteller]",
@@ -18342,7 +18342,7 @@
       "attachment_section": 104,
       "building_authority_button": 13,
       "email_subject": "CAMAC Dossier Nr. [@c2q6i1]: Bau- und Einsprache-Entscheid",
-      "email_text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nStatusmeldung zum Stand des Verfahrens\r\nER\u00d6FFNUNG BAU- UND EINSPRACHEENTSCHEID\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDer Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] zum Dossiers mit der ID Nr. [INSTANCE_ID], (CAMAC Dossiernummer [@c2q6i1]) samt den dazu geh\u00f6renden Stellungnahmen und Verf\u00fcgungen der kantonalen Fachstellen wird Ihnen hiermit offiziell zugestellt. Die Originaldokumente bleiben bei der ausstellenden Beh\u00f6rde und k\u00f6nnen bei Bedarf angefordert werden.\r\n\r\nSie k\u00f6nnen die relevanten Dokumente \u00fcber den folgenden Link herunterladen:\r\n[ARCHIVE_DOWNLOAD_URL]\r\n\r\nMit dem \u00d6ffnen des Links beginnt gleichzeitig die 20 t\u00e4gige Beschwerdefrist. Das aktuelle Datum wurde im System gespeichert und gilt als Er\u00f6ffnungsdatum.\r\n\r\nMit freundlichen Gr\u00fcssen\r\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]\r\n",
+      "email_text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten) Statusmeldung zum Stand des Verfahrens\r\n\r\nER\u00d6FFNUNG STELLUNGNAHME / VORENTSCHEID\r\n\r\nSehr geehrte Dame Sehr geehrter Herr\r\n\r\nZum Dossiers mit der ID Nr. [INSTANCE_ID], (CAMAC Dossiernummer [@c2q6i1]) wird Ihnen hiermit eine Stellungnahme / Vorentscheid via Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] zugestellt. Die Originaldokumente bleiben bei der ausstellenden Beh\u00f6rde und k\u00f6nnen bei Bedarf angefordert werden. Sie k\u00f6nnen die relevanten Dokumente \u00fcber den folgenden Link herunterladen:\r\n\r\n[ARCHIVE_DOWNLOAD_URL]\r\n\r\nMit dem \u00d6ffnen des Links beginnt gleichzeitig die in der Stellungnahme / Vorentscheid erw\u00e4hnte Frist f\u00fcr das rechtliche Geh\u00f6r. Das aktuelle Datum beim Anklicken des Links wurde im System gespeichert und gilt als Er\u00f6ffnungsdatum.\r\n\r\nMit freundlichen Gr\u00fcssen\r\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]\r\n",
       "from_email": "camac@ur.ch",
       "from_name": "Camac Info",
       "receiver_query": "[gesuchsteller]",
@@ -18356,7 +18356,7 @@
       "attachment_section": 104,
       "building_authority_button": 15,
       "email_subject": "CAMAC Dossier Nr. [@c2q6i1]: Bau- und Einsprache-Entscheid",
-      "email_text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nStatusmeldung zum Stand des Verfahrens\r\nER\u00d6FFNUNG BAU- UND EINSPRACHEENTSCHEID\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDer Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] zum Dossiers mit der ID Nr. [INSTANCE_ID], (CAMAC Dossiernummer [@c2q6i1]) samt den dazu geh\u00f6renden Stellungnahmen und Verf\u00fcgungen der kantonalen Fachstellen wird Ihnen hiermit offiziell zugestellt. Die Originaldokumente bleiben bei der ausstellenden Beh\u00f6rde und k\u00f6nnen bei Bedarf angefordert werden.\r\n\r\nSie k\u00f6nnen die relevanten Dokumente \u00fcber den folgenden Link herunterladen:\r\n[ARCHIVE_DOWNLOAD_URL]\r\n\r\nMit dem \u00d6ffnen des Links beginnt gleichzeitig die 20 t\u00e4gige Beschwerdefrist. Das aktuelle Datum wurde im System gespeichert und gilt als Er\u00f6ffnungsdatum.\r\n\r\nMit freundlichen Gr\u00fcssen\r\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]\r\n",
+      "email_text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten) Statusmeldung zum Stand des Verfahrens\r\n\r\nER\u00d6FFNUNG STELLUNGNAHME / VORENTSCHEID\r\n\r\nSehr geehrte Dame Sehr geehrter Herr\r\n\r\nZum Dossiers mit der ID Nr. [INSTANCE_ID], (CAMAC Dossiernummer [@c2q6i1]) wird Ihnen hiermit eine Stellungnahme / Vorentscheid via Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] zugestellt. Die Originaldokumente bleiben bei der ausstellenden Beh\u00f6rde und k\u00f6nnen bei Bedarf angefordert werden. Sie k\u00f6nnen die relevanten Dokumente \u00fcber den folgenden Link herunterladen:\r\n\r\n[ARCHIVE_DOWNLOAD_URL]\r\n\r\nMit dem \u00d6ffnen des Links beginnt gleichzeitig die in der Stellungnahme / Vorentscheid erw\u00e4hnte Frist f\u00fcr das rechtliche Geh\u00f6r. Das aktuelle Datum beim Anklicken des Links wurde im System gespeichert und gilt als Er\u00f6ffnungsdatum.\r\n\r\nMit freundlichen Gr\u00fcssen\r\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]\r\n",
       "from_email": "camac@ur.ch",
       "from_name": "Camac Info",
       "receiver_query": "[gesuchsteller]",
@@ -49139,7 +49139,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
-      "name": "Bau- und Einsprache - Entscheid (Bewilligungsdokumente)",
+      "name": "Entscheiddokumente (Stellungnahmen / Bewilligungen)",
       "notification_template": null,
       "recipient_types": null,
       "sort": 0
@@ -54453,6 +54453,22 @@
   },
   {
     "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Armasuisse Wissenschaft und Technologie",
+      "phone": null,
+      "role": 4,
+      "service": 633,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 1067
+  },
+  {
+    "fields": {
       "group": 22,
       "location": 1
     },
@@ -56646,7 +56662,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 120,
+      "sort": 122,
       "website": "",
       "zip": ""
     },
@@ -56665,7 +56681,7 @@
       "phone": "",
       "service_group": 63,
       "service_parent": null,
-      "sort": 28,
+      "sort": 49,
       "website": "",
       "zip": ""
     },
@@ -56684,7 +56700,7 @@
       "phone": "",
       "service_group": 64,
       "service_parent": null,
-      "sort": 122,
+      "sort": 124,
       "website": "",
       "zip": ""
     },
@@ -56703,7 +56719,7 @@
       "phone": "",
       "service_group": 62,
       "service_parent": null,
-      "sort": 124,
+      "sort": 126,
       "website": "",
       "zip": ""
     },
@@ -56722,7 +56738,7 @@
       "phone": "",
       "service_group": 2,
       "service_parent": null,
-      "sort": 26,
+      "sort": 47,
       "website": "",
       "zip": ""
     },
@@ -56741,7 +56757,7 @@
       "phone": "",
       "service_group": 63,
       "service_parent": null,
-      "sort": 70,
+      "sort": 86,
       "website": "",
       "zip": ""
     },
@@ -56760,7 +56776,7 @@
       "phone": "",
       "service_group": 63,
       "service_parent": null,
-      "sort": 69,
+      "sort": 85,
       "website": "",
       "zip": ""
     },
@@ -56779,7 +56795,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 10,
+      "sort": 21,
       "website": "",
       "zip": ""
     },
@@ -56798,7 +56814,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 13,
+      "sort": 26,
       "website": "",
       "zip": ""
     },
@@ -56817,7 +56833,7 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 14,
+      "sort": 29,
       "website": null,
       "zip": null
     },
@@ -56836,7 +56852,7 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 15,
+      "sort": 30,
       "website": null,
       "zip": null
     },
@@ -56855,7 +56871,7 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 17,
+      "sort": 35,
       "website": null,
       "zip": null
     },
@@ -56874,7 +56890,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 169,
+      "sort": 171,
       "website": "",
       "zip": ""
     },
@@ -56893,7 +56909,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 43,
+      "sort": 64,
       "website": "",
       "zip": ""
     },
@@ -56912,7 +56928,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 54,
+      "sort": 73,
       "website": "",
       "zip": ""
     },
@@ -56931,7 +56947,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 49,
+      "sort": 68,
       "website": "",
       "zip": ""
     },
@@ -56950,7 +56966,7 @@
       "phone": null,
       "service_group": 61,
       "service_parent": null,
-      "sort": 55,
+      "sort": 74,
       "website": null,
       "zip": null
     },
@@ -56969,7 +56985,7 @@
       "phone": "",
       "service_group": 66,
       "service_parent": null,
-      "sort": 39,
+      "sort": 60,
       "website": "",
       "zip": ""
     },
@@ -56988,7 +57004,7 @@
       "phone": "",
       "service_group": 63,
       "service_parent": null,
-      "sort": 77,
+      "sort": 91,
       "website": "",
       "zip": ""
     },
@@ -57007,7 +57023,7 @@
       "phone": "",
       "service_group": 65,
       "service_parent": null,
-      "sort": 36,
+      "sort": 57,
       "website": "",
       "zip": ""
     },
@@ -57026,7 +57042,7 @@
       "phone": "",
       "service_group": 64,
       "service_parent": null,
-      "sort": 168,
+      "sort": 170,
       "website": "",
       "zip": ""
     },
@@ -57045,7 +57061,7 @@
       "phone": "",
       "service_group": 64,
       "service_parent": null,
-      "sort": 170,
+      "sort": 172,
       "website": "",
       "zip": ""
     },
@@ -57064,7 +57080,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 19,
+      "sort": 39,
       "website": "",
       "zip": ""
     },
@@ -57083,7 +57099,7 @@
       "phone": null,
       "service_group": 61,
       "service_parent": null,
-      "sort": 57,
+      "sort": 76,
       "website": null,
       "zip": null
     },
@@ -57102,7 +57118,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 50,
+      "sort": 69,
       "website": "",
       "zip": ""
     },
@@ -57121,7 +57137,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 53,
+      "sort": 72,
       "website": "",
       "zip": ""
     },
@@ -57140,7 +57156,7 @@
       "phone": "",
       "service_group": 63,
       "service_parent": null,
-      "sort": 76,
+      "sort": 90,
       "website": "",
       "zip": ""
     },
@@ -57159,7 +57175,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 179,
+      "sort": 181,
       "website": "",
       "zip": ""
     },
@@ -57178,7 +57194,7 @@
       "phone": null,
       "service_group": 71,
       "service_parent": null,
-      "sort": 8,
+      "sort": 17,
       "website": null,
       "zip": null
     },
@@ -57197,7 +57213,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 64,
+      "sort": 82,
       "website": "",
       "zip": ""
     },
@@ -57216,7 +57232,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 63,
+      "sort": 81,
       "website": "",
       "zip": ""
     },
@@ -57235,7 +57251,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 30,
+      "sort": 51,
       "website": "",
       "zip": ""
     },
@@ -57254,7 +57270,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 61,
+      "sort": 80,
       "website": "",
       "zip": ""
     },
@@ -57273,7 +57289,7 @@
       "phone": null,
       "service_group": 74,
       "service_parent": null,
-      "sort": 1,
+      "sort": 3,
       "website": null,
       "zip": null
     },
@@ -57292,7 +57308,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 178,
+      "sort": 180,
       "website": "",
       "zip": ""
     },
@@ -57311,7 +57327,7 @@
       "phone": "",
       "service_group": 70,
       "service_parent": null,
-      "sort": 9,
+      "sort": 18,
       "website": "",
       "zip": ""
     },
@@ -57330,7 +57346,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 8,
+      "sort": 16,
       "website": "",
       "zip": ""
     },
@@ -57349,7 +57365,7 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 9,
+      "sort": 19,
       "website": null,
       "zip": null
     },
@@ -57368,7 +57384,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 6,
+      "sort": 13,
       "website": "",
       "zip": ""
     },
@@ -57387,7 +57403,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 7,
+      "sort": 15,
       "website": "",
       "zip": ""
     },
@@ -57406,7 +57422,7 @@
       "phone": null,
       "service_group": 61,
       "service_parent": null,
-      "sort": 60,
+      "sort": 79,
       "website": null,
       "zip": null
     },
@@ -57425,7 +57441,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 46,
+      "sort": 66,
       "website": "",
       "zip": ""
     },
@@ -57444,7 +57460,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 47,
+      "sort": 67,
       "website": "",
       "zip": ""
     },
@@ -57463,7 +57479,7 @@
       "phone": null,
       "service_group": 41,
       "service_parent": null,
-      "sort": 130,
+      "sort": 132,
       "website": null,
       "zip": null
     },
@@ -57482,7 +57498,7 @@
       "phone": null,
       "service_group": 41,
       "service_parent": null,
-      "sort": 118,
+      "sort": 120,
       "website": null,
       "zip": null
     },
@@ -57501,7 +57517,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 172,
+      "sort": 174,
       "website": "",
       "zip": ""
     },
@@ -57520,7 +57536,7 @@
       "phone": null,
       "service_group": 2,
       "service_parent": null,
-      "sort": 29,
+      "sort": 50,
       "website": null,
       "zip": null
     },
@@ -57539,7 +57555,7 @@
       "phone": null,
       "service_group": 2,
       "service_parent": null,
-      "sort": 32,
+      "sort": 53,
       "website": null,
       "zip": null
     },
@@ -57558,7 +57574,7 @@
       "phone": "",
       "service_group": 2,
       "service_parent": null,
-      "sort": 33,
+      "sort": 54,
       "website": "",
       "zip": ""
     },
@@ -57577,7 +57593,7 @@
       "phone": "",
       "service_group": 2,
       "service_parent": null,
-      "sort": 35,
+      "sort": 56,
       "website": "",
       "zip": ""
     },
@@ -57596,7 +57612,7 @@
       "phone": "",
       "service_group": 2,
       "service_parent": null,
-      "sort": 37,
+      "sort": 58,
       "website": "",
       "zip": ""
     },
@@ -57615,7 +57631,7 @@
       "phone": "",
       "service_group": 2,
       "service_parent": null,
-      "sort": 41,
+      "sort": 62,
       "website": "",
       "zip": ""
     },
@@ -57634,7 +57650,7 @@
       "phone": "",
       "service_group": 70,
       "service_parent": null,
-      "sort": 0,
+      "sort": 1,
       "website": "",
       "zip": ""
     },
@@ -57653,7 +57669,7 @@
       "phone": "",
       "service_group": 63,
       "service_parent": null,
-      "sort": 52,
+      "sort": 71,
       "website": "",
       "zip": ""
     },
@@ -57672,7 +57688,7 @@
       "phone": "",
       "service_group": 64,
       "service_parent": null,
-      "sort": 171,
+      "sort": 173,
       "website": "",
       "zip": ""
     },
@@ -57691,7 +57707,7 @@
       "phone": null,
       "service_group": 41,
       "service_parent": null,
-      "sort": 132,
+      "sort": 134,
       "website": null,
       "zip": null
     },
@@ -57710,7 +57726,7 @@
       "phone": null,
       "service_group": 41,
       "service_parent": null,
-      "sort": 135,
+      "sort": 137,
       "website": null,
       "zip": null
     },
@@ -57729,7 +57745,7 @@
       "phone": null,
       "service_group": 41,
       "service_parent": null,
-      "sort": 136,
+      "sort": 138,
       "website": null,
       "zip": null
     },
@@ -57748,7 +57764,7 @@
       "phone": null,
       "service_group": 41,
       "service_parent": null,
-      "sort": 139,
+      "sort": 141,
       "website": null,
       "zip": null
     },
@@ -57767,7 +57783,7 @@
       "phone": null,
       "service_group": 41,
       "service_parent": null,
-      "sort": 141,
+      "sort": 143,
       "website": null,
       "zip": null
     },
@@ -57786,7 +57802,7 @@
       "phone": null,
       "service_group": 41,
       "service_parent": null,
-      "sort": 142,
+      "sort": 144,
       "website": null,
       "zip": null
     },
@@ -57805,7 +57821,7 @@
       "phone": null,
       "service_group": 41,
       "service_parent": null,
-      "sort": 144,
+      "sort": 146,
       "website": null,
       "zip": null
     },
@@ -57824,7 +57840,7 @@
       "phone": null,
       "service_group": 41,
       "service_parent": null,
-      "sort": 147,
+      "sort": 149,
       "website": null,
       "zip": null
     },
@@ -57843,7 +57859,7 @@
       "phone": null,
       "service_group": 41,
       "service_parent": null,
-      "sort": 148,
+      "sort": 150,
       "website": null,
       "zip": null
     },
@@ -57862,7 +57878,7 @@
       "phone": null,
       "service_group": 41,
       "service_parent": null,
-      "sort": 150,
+      "sort": 152,
       "website": null,
       "zip": null
     },
@@ -57881,7 +57897,7 @@
       "phone": null,
       "service_group": 41,
       "service_parent": null,
-      "sort": 153,
+      "sort": 155,
       "website": null,
       "zip": null
     },
@@ -57900,7 +57916,7 @@
       "phone": null,
       "service_group": 41,
       "service_parent": null,
-      "sort": 154,
+      "sort": 156,
       "website": null,
       "zip": null
     },
@@ -57919,7 +57935,7 @@
       "phone": null,
       "service_group": 41,
       "service_parent": null,
-      "sort": 157,
+      "sort": 159,
       "website": null,
       "zip": null
     },
@@ -57938,7 +57954,7 @@
       "phone": null,
       "service_group": 41,
       "service_parent": null,
-      "sort": 159,
+      "sort": 161,
       "website": null,
       "zip": null
     },
@@ -57957,7 +57973,7 @@
       "phone": null,
       "service_group": 41,
       "service_parent": null,
-      "sort": 161,
+      "sort": 163,
       "website": null,
       "zip": null
     },
@@ -57976,7 +57992,7 @@
       "phone": null,
       "service_group": 41,
       "service_parent": null,
-      "sort": 162,
+      "sort": 164,
       "website": null,
       "zip": null
     },
@@ -57995,7 +58011,7 @@
       "phone": null,
       "service_group": 41,
       "service_parent": null,
-      "sort": 165,
+      "sort": 167,
       "website": null,
       "zip": null
     },
@@ -58014,7 +58030,7 @@
       "phone": null,
       "service_group": 41,
       "service_parent": null,
-      "sort": 166,
+      "sort": 168,
       "website": null,
       "zip": null
     },
@@ -58033,7 +58049,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 3,
+      "sort": 7,
       "website": "",
       "zip": ""
     },
@@ -58052,7 +58068,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 2,
+      "sort": 5,
       "website": "",
       "zip": ""
     },
@@ -58071,7 +58087,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 44,
+      "sort": 65,
       "website": "",
       "zip": ""
     },
@@ -58090,7 +58106,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 81,
+      "sort": 94,
       "website": "",
       "zip": ""
     },
@@ -58109,7 +58125,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 51,
+      "sort": 70,
       "website": "",
       "zip": ""
     },
@@ -58128,7 +58144,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 59,
+      "sort": 78,
       "website": "",
       "zip": ""
     },
@@ -58147,7 +58163,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 58,
+      "sort": 77,
       "website": "",
       "zip": ""
     },
@@ -58166,7 +58182,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 71,
+      "sort": 87,
       "website": "",
       "zip": ""
     },
@@ -58185,7 +58201,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 80,
+      "sort": 93,
       "website": "",
       "zip": ""
     },
@@ -58204,7 +58220,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 83,
+      "sort": 96,
       "website": "",
       "zip": ""
     },
@@ -58223,7 +58239,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 102,
+      "sort": 104,
       "website": "",
       "zip": ""
     },
@@ -58242,7 +58258,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 103,
+      "sort": 105,
       "website": "",
       "zip": ""
     },
@@ -58261,7 +58277,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 106,
+      "sort": 108,
       "website": "",
       "zip": ""
     },
@@ -58280,7 +58296,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 107,
+      "sort": 109,
       "website": "",
       "zip": ""
     },
@@ -58299,7 +58315,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 108,
+      "sort": 110,
       "website": "",
       "zip": ""
     },
@@ -58318,7 +58334,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 109,
+      "sort": 111,
       "website": "",
       "zip": ""
     },
@@ -58337,7 +58353,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 110,
+      "sort": 112,
       "website": "",
       "zip": ""
     },
@@ -58356,7 +58372,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 111,
+      "sort": 113,
       "website": "",
       "zip": ""
     },
@@ -58375,7 +58391,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 112,
+      "sort": 114,
       "website": "",
       "zip": ""
     },
@@ -58394,7 +58410,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 113,
+      "sort": 115,
       "website": "",
       "zip": ""
     },
@@ -58413,7 +58429,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 114,
+      "sort": 116,
       "website": "",
       "zip": ""
     },
@@ -58432,7 +58448,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 115,
+      "sort": 117,
       "website": "",
       "zip": ""
     },
@@ -58451,7 +58467,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 116,
+      "sort": 118,
       "website": "",
       "zip": ""
     },
@@ -58470,7 +58486,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 117,
+      "sort": 119,
       "website": "",
       "zip": ""
     },
@@ -58489,7 +58505,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 74,
+      "sort": 89,
       "website": "",
       "zip": ""
     },
@@ -58508,7 +58524,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 91,
+      "sort": 99,
       "website": "",
       "zip": ""
     },
@@ -58527,7 +58543,7 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 1,
+      "sort": 2,
       "website": null,
       "zip": null
     },
@@ -58546,7 +58562,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 65,
+      "sort": 83,
       "website": "",
       "zip": ""
     },
@@ -58565,7 +58581,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 72,
+      "sort": 88,
       "website": "",
       "zip": ""
     },
@@ -58584,7 +58600,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 78,
+      "sort": 92,
       "website": "",
       "zip": ""
     },
@@ -58603,7 +58619,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 93,
+      "sort": 100,
       "website": "",
       "zip": ""
     },
@@ -58622,7 +58638,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 94,
+      "sort": 101,
       "website": "",
       "zip": ""
     },
@@ -58641,7 +58657,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 99,
+      "sort": 102,
       "website": "",
       "zip": ""
     },
@@ -58660,7 +58676,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 100,
+      "sort": 103,
       "website": "",
       "zip": ""
     },
@@ -58679,7 +58695,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 86,
+      "sort": 98,
       "website": "",
       "zip": ""
     },
@@ -58698,7 +58714,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 82,
+      "sort": 95,
       "website": "",
       "zip": ""
     },
@@ -58717,7 +58733,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 84,
+      "sort": 97,
       "website": "",
       "zip": ""
     },
@@ -58736,7 +58752,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 104,
+      "sort": 106,
       "website": "",
       "zip": ""
     },
@@ -58755,7 +58771,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 105,
+      "sort": 107,
       "website": "",
       "zip": ""
     },
@@ -58793,7 +58809,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 66,
+      "sort": 84,
       "website": "",
       "zip": ""
     },
@@ -58812,7 +58828,7 @@
       "phone": "",
       "service_group": 63,
       "service_parent": null,
-      "sort": 56,
+      "sort": 75,
       "website": "",
       "zip": ""
     },
@@ -58831,7 +58847,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 40,
+      "sort": 61,
       "website": "",
       "zip": ""
     },
@@ -58850,7 +58866,7 @@
       "phone": "",
       "service_group": 70,
       "service_parent": null,
-      "sort": 20,
+      "sort": 40,
       "website": "",
       "zip": ""
     },
@@ -58869,7 +58885,7 @@
       "phone": "",
       "service_group": 70,
       "service_parent": null,
-      "sort": 23,
+      "sort": 44,
       "website": "",
       "zip": ""
     },
@@ -58888,7 +58904,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 5,
+      "sort": 10,
       "website": "",
       "zip": ""
     },
@@ -58907,7 +58923,7 @@
       "phone": "",
       "service_group": 65,
       "service_parent": null,
-      "sort": 31,
+      "sort": 52,
       "website": "",
       "zip": ""
     },
@@ -58926,7 +58942,7 @@
       "phone": "",
       "service_group": 66,
       "service_parent": null,
-      "sort": 42,
+      "sort": 63,
       "website": "",
       "zip": ""
     },
@@ -58945,7 +58961,7 @@
       "phone": "",
       "service_group": 66,
       "service_parent": null,
-      "sort": 34,
+      "sort": 55,
       "website": "",
       "zip": ""
     },
@@ -58964,7 +58980,7 @@
       "phone": "",
       "service_group": 62,
       "service_parent": null,
-      "sort": 128,
+      "sort": 130,
       "website": "",
       "zip": ""
     },
@@ -58983,7 +58999,7 @@
       "phone": "",
       "service_group": 62,
       "service_parent": null,
-      "sort": 123,
+      "sort": 125,
       "website": "",
       "zip": ""
     },
@@ -59002,7 +59018,7 @@
       "phone": "",
       "service_group": 63,
       "service_parent": null,
-      "sort": 16,
+      "sort": 33,
       "website": "",
       "zip": ""
     },
@@ -59021,7 +59037,7 @@
       "phone": "",
       "service_group": 64,
       "service_parent": null,
-      "sort": 121,
+      "sort": 123,
       "website": "",
       "zip": ""
     },
@@ -59040,7 +59056,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 173,
+      "sort": 175,
       "website": "",
       "zip": ""
     },
@@ -59059,7 +59075,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 174,
+      "sort": 176,
       "website": "",
       "zip": ""
     },
@@ -59078,7 +59094,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 175,
+      "sort": 177,
       "website": "",
       "zip": ""
     },
@@ -59097,7 +59113,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 176,
+      "sort": 178,
       "website": "",
       "zip": ""
     },
@@ -59116,7 +59132,7 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 16,
+      "sort": 32,
       "website": null,
       "zip": null
     },
@@ -59135,7 +59151,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 11,
+      "sort": 23,
       "website": "",
       "zip": ""
     },
@@ -59154,7 +59170,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 12,
+      "sort": 25,
       "website": "",
       "zip": ""
     },
@@ -59173,7 +59189,7 @@
       "phone": "",
       "service_group": 62,
       "service_parent": null,
-      "sort": 125,
+      "sort": 127,
       "website": "",
       "zip": ""
     },
@@ -59192,7 +59208,7 @@
       "phone": "",
       "service_group": 62,
       "service_parent": null,
-      "sort": 127,
+      "sort": 129,
       "website": "",
       "zip": ""
     },
@@ -59211,7 +59227,7 @@
       "phone": "",
       "service_group": 2,
       "service_parent": null,
-      "sort": 38,
+      "sort": 59,
       "website": "",
       "zip": ""
     },
@@ -59230,7 +59246,7 @@
       "phone": null,
       "service_group": 62,
       "service_parent": null,
-      "sort": 126,
+      "sort": 128,
       "website": null,
       "zip": null
     },
@@ -59249,7 +59265,7 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 18,
+      "sort": 36,
       "website": null,
       "zip": null
     },
@@ -59268,7 +59284,7 @@
       "phone": null,
       "service_group": 1,
       "service_parent": null,
-      "sort": 177,
+      "sort": 179,
       "website": null,
       "zip": null
     },
@@ -59287,7 +59303,7 @@
       "phone": null,
       "service_group": 70,
       "service_parent": null,
-      "sort": 21,
+      "sort": 41,
       "website": null,
       "zip": null
     },
@@ -59306,7 +59322,7 @@
       "phone": null,
       "service_group": 71,
       "service_parent": null,
-      "sort": 24,
+      "sort": 45,
       "website": null,
       "zip": null
     },
@@ -59325,7 +59341,7 @@
       "phone": null,
       "service_group": 69,
       "service_parent": null,
-      "sort": 17,
+      "sort": 34,
       "website": null,
       "zip": null
     },
@@ -59344,7 +59360,7 @@
       "phone": null,
       "service_group": 2,
       "service_parent": null,
-      "sort": 27,
+      "sort": 48,
       "website": null,
       "zip": null
     },
@@ -59363,7 +59379,7 @@
       "phone": null,
       "service_group": 69,
       "service_parent": null,
-      "sort": 11,
+      "sort": 22,
       "website": null,
       "zip": null
     },
@@ -59382,7 +59398,7 @@
       "phone": null,
       "service_group": 71,
       "service_parent": null,
-      "sort": 10,
+      "sort": 20,
       "website": null,
       "zip": null
     },
@@ -59401,7 +59417,7 @@
       "phone": null,
       "service_group": 69,
       "service_parent": null,
-      "sort": 12,
+      "sort": 24,
       "website": null,
       "zip": null
     },
@@ -59420,7 +59436,7 @@
       "phone": null,
       "service_group": 69,
       "service_parent": null,
-      "sort": 13,
+      "sort": 27,
       "website": null,
       "zip": null
     },
@@ -59439,7 +59455,7 @@
       "phone": null,
       "service_group": 69,
       "service_parent": null,
-      "sort": 14,
+      "sort": 28,
       "website": null,
       "zip": null
     },
@@ -59458,7 +59474,7 @@
       "phone": null,
       "service_group": 69,
       "service_parent": null,
-      "sort": 15,
+      "sort": 31,
       "website": null,
       "zip": null
     },
@@ -59477,7 +59493,7 @@
       "phone": null,
       "service_group": 70,
       "service_parent": null,
-      "sort": 22,
+      "sort": 42,
       "website": null,
       "zip": null
     },
@@ -59496,7 +59512,7 @@
       "phone": null,
       "service_group": 70,
       "service_parent": null,
-      "sort": 25,
+      "sort": 46,
       "website": null,
       "zip": null
     },
@@ -59515,7 +59531,7 @@
       "phone": null,
       "service_group": 74,
       "service_parent": null,
-      "sort": 2,
+      "sort": 4,
       "website": null,
       "zip": null
     },
@@ -59534,7 +59550,7 @@
       "phone": null,
       "service_group": 72,
       "service_parent": null,
-      "sort": 6,
+      "sort": 12,
       "website": null,
       "zip": null
     },
@@ -59553,7 +59569,7 @@
       "phone": null,
       "service_group": 72,
       "service_parent": null,
-      "sort": 7,
+      "sort": 14,
       "website": null,
       "zip": null
     },
@@ -59572,7 +59588,7 @@
       "phone": null,
       "service_group": 73,
       "service_parent": null,
-      "sort": 131,
+      "sort": 133,
       "website": null,
       "zip": null
     },
@@ -59591,7 +59607,7 @@
       "phone": null,
       "service_group": 73,
       "service_parent": null,
-      "sort": 119,
+      "sort": 121,
       "website": null,
       "zip": null
     },
@@ -59610,7 +59626,7 @@
       "phone": null,
       "service_group": 73,
       "service_parent": null,
-      "sort": 133,
+      "sort": 135,
       "website": null,
       "zip": null
     },
@@ -59629,7 +59645,7 @@
       "phone": null,
       "service_group": 73,
       "service_parent": null,
-      "sort": 134,
+      "sort": 136,
       "website": null,
       "zip": null
     },
@@ -59648,7 +59664,7 @@
       "phone": null,
       "service_group": 73,
       "service_parent": null,
-      "sort": 137,
+      "sort": 139,
       "website": null,
       "zip": null
     },
@@ -59667,7 +59683,7 @@
       "phone": null,
       "service_group": 73,
       "service_parent": null,
-      "sort": 138,
+      "sort": 140,
       "website": null,
       "zip": null
     },
@@ -59686,7 +59702,7 @@
       "phone": null,
       "service_group": 73,
       "service_parent": null,
-      "sort": 140,
+      "sort": 142,
       "website": null,
       "zip": null
     },
@@ -59705,7 +59721,7 @@
       "phone": null,
       "service_group": 73,
       "service_parent": null,
-      "sort": 143,
+      "sort": 145,
       "website": null,
       "zip": null
     },
@@ -59724,7 +59740,7 @@
       "phone": null,
       "service_group": 73,
       "service_parent": null,
-      "sort": 145,
+      "sort": 147,
       "website": null,
       "zip": null
     },
@@ -59743,7 +59759,7 @@
       "phone": null,
       "service_group": 73,
       "service_parent": null,
-      "sort": 146,
+      "sort": 148,
       "website": null,
       "zip": null
     },
@@ -59762,7 +59778,7 @@
       "phone": null,
       "service_group": 73,
       "service_parent": null,
-      "sort": 149,
+      "sort": 151,
       "website": null,
       "zip": null
     },
@@ -59781,7 +59797,7 @@
       "phone": null,
       "service_group": 73,
       "service_parent": null,
-      "sort": 151,
+      "sort": 153,
       "website": null,
       "zip": null
     },
@@ -59800,7 +59816,7 @@
       "phone": null,
       "service_group": 73,
       "service_parent": null,
-      "sort": 152,
+      "sort": 154,
       "website": null,
       "zip": null
     },
@@ -59819,7 +59835,7 @@
       "phone": null,
       "service_group": 73,
       "service_parent": null,
-      "sort": 155,
+      "sort": 157,
       "website": null,
       "zip": null
     },
@@ -59838,7 +59854,7 @@
       "phone": null,
       "service_group": 73,
       "service_parent": null,
-      "sort": 156,
+      "sort": 158,
       "website": null,
       "zip": null
     },
@@ -59857,7 +59873,7 @@
       "phone": null,
       "service_group": 73,
       "service_parent": null,
-      "sort": 158,
+      "sort": 160,
       "website": null,
       "zip": null
     },
@@ -59876,7 +59892,7 @@
       "phone": null,
       "service_group": 73,
       "service_parent": null,
-      "sort": 160,
+      "sort": 162,
       "website": null,
       "zip": null
     },
@@ -59895,7 +59911,7 @@
       "phone": null,
       "service_group": 73,
       "service_parent": null,
-      "sort": 163,
+      "sort": 165,
       "website": null,
       "zip": null
     },
@@ -59914,7 +59930,7 @@
       "phone": null,
       "service_group": 73,
       "service_parent": null,
-      "sort": 164,
+      "sort": 166,
       "website": null,
       "zip": null
     },
@@ -59933,7 +59949,7 @@
       "phone": null,
       "service_group": 73,
       "service_parent": null,
-      "sort": 167,
+      "sort": 169,
       "website": null,
       "zip": null
     },
@@ -59952,7 +59968,7 @@
       "phone": null,
       "service_group": 72,
       "service_parent": null,
-      "sort": 5,
+      "sort": 11,
       "website": null,
       "zip": null
     },
@@ -59971,7 +59987,7 @@
       "phone": null,
       "service_group": 74,
       "service_parent": null,
-      "sort": 3,
+      "sort": 6,
       "website": null,
       "zip": null
     },
@@ -59990,7 +60006,7 @@
       "phone": null,
       "service_group": 74,
       "service_parent": null,
-      "sort": 4,
+      "sort": 9,
       "website": null,
       "zip": null
     },
@@ -60009,7 +60025,7 @@
       "phone": null,
       "service_group": 69,
       "service_parent": null,
-      "sort": 18,
+      "sort": 37,
       "website": null,
       "zip": null
     },
@@ -60028,7 +60044,7 @@
       "phone": null,
       "service_group": 62,
       "service_parent": null,
-      "sort": 129,
+      "sort": 131,
       "website": null,
       "zip": null
     },
@@ -60047,7 +60063,7 @@
       "phone": null,
       "service_group": 69,
       "service_parent": null,
-      "sort": 19,
+      "sort": 38,
       "website": null,
       "zip": null
     },
@@ -60066,12 +60082,31 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 4,
+      "sort": 8,
       "website": null,
       "zip": null
     },
     "model": "user.service",
     "pk": 632
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "description": "Armasuisse Wissenschaft und Technologie",
+      "disabled": 0,
+      "email": null,
+      "name": "Armasuisse Wissenschaft und Technologie",
+      "notification": 1,
+      "phone": null,
+      "service_group": 70,
+      "service_parent": null,
+      "sort": 43,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.service",
+    "pk": 633
   },
   {
     "fields": {
