@@ -218,17 +218,50 @@ def test_notice_ruling_send_handler(
         assert ech_instance.responsible_service() == expected_service
 
 
-@pytest.mark.parametrize("fail", [False, True])
+@pytest.mark.parametrize(
+    "service_exists,instance_state_pk,has_permission,success",
+    [
+        (True, INSTANCE_STATE_DOSSIERPRUEFUNG, True, True),
+        (True, INSTANCE_STATE_SB1, False, False),
+        (False, INSTANCE_STATE_DOSSIERPRUEFUNG, True, False),
+    ],
+)
 def test_change_responsibility_send_handler(
-    fail, admin_user, service_factory, ech_instance, multilang
+    service_exists,
+    instance_state_pk,
+    has_permission,
+    success,
+    admin_user,
+    instance_state_factory,
+    service_factory,
+    instance_service_factory,
+    ech_instance,
+    multilang,
 ):
+    instance_state = instance_state_factory(pk=instance_state_pk)
+    ech_instance.instance_state = instance_state
+    ech_instance.save()
     burgdorf = ech_instance.active_service()
 
     group = admin_user.groups.first()
     group.service = ech_instance.services.first()
     group.save()
 
-    if not fail:
+    if instance_state_pk == INSTANCE_STATE_SB1:
+        service_baukontrolle = service_factory(
+            service_group__pk=SERVICE_GROUP_BAUKONTROLLE,
+            name=None,
+            trans__name="Baukontrolle Burgdorf",
+            trans__city="Burgdorf",
+            trans__language="de",
+        )
+        instance_service_factory(
+            instance=ech_instance, service=service_baukontrolle, active=1
+        )
+        group.service = service_baukontrolle
+        group.save()
+
+    if service_exists:
         madiswil = service_factory(
             pk=20351,
             name="Madiswil",
@@ -244,9 +277,12 @@ def test_change_responsibility_send_handler(
         group=group,
         auth_header=None,
     )
-    assert handler.has_permission()[0] is True
+    assert handler.has_permission()[0] is has_permission
 
-    if not fail:
+    if not has_permission:
+        return
+
+    if success:
         handler.apply()
         assert ech_instance.active_service() == madiswil
         assert InstanceService.objects.get(
