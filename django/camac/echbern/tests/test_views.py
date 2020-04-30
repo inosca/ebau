@@ -126,7 +126,7 @@ def test_message_retrieve(
 
 
 @pytest.mark.parametrize("invalid_last", [False, True])
-def test_message_retrieve_404(db, invalid_last, service, admin_client, message_factory):
+def test_message_retrieve_204(db, invalid_last, service, admin_client, message_factory):
     m = message_factory(body="first xml", receiver=service)
 
     pk = m.pk
@@ -136,7 +136,7 @@ def test_message_retrieve_404(db, invalid_last, service, admin_client, message_f
     url = f"{reverse('message')}?last={pk}"
     response = admin_client.get(f"{url}")
 
-    assert response.status_code == status.HTTP_404_NOT_FOUND
+    assert response.status_code == status.HTTP_204_NO_CONTENT
 
 
 @pytest.mark.parametrize("support", [True, False])
