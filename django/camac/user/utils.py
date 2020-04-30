@@ -20,7 +20,9 @@ def get_baukontrolle(instance, active_service):
         defining_leitbehoerde = instance.services.filter(
             service_group_id=SERVICE_GROUP_LEITBEHOERDE_GEMEINDE
         ).first()
-    elif active_service.service_group.pk == SERVICE_GROUP_BAUKONTROLLE:
+    elif (
+        active_service.service_group.pk == SERVICE_GROUP_BAUKONTROLLE
+    ):  # pragma: no cover
         return active_service
 
     service_t = ServiceT.objects.get(
@@ -38,7 +40,7 @@ def set_baukontrolle(instance):
 
     When switching to SB1, it's necessary to set baukontrolle as active service.
     """
-    active_service = instance.active_service
+    active_service = instance.responsible_service()
     baukontrolle = get_baukontrolle(instance, active_service)
 
     if baukontrolle != active_service:
