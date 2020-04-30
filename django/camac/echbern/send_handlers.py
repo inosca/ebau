@@ -8,6 +8,7 @@ from rest_framework.test import APIClient
 from camac.caluma.api import CalumaApi
 from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
+    INSTANCE_STATE_DONE,
     INSTANCE_STATE_DOSSIERPRUEFUNG,
     INSTANCE_STATE_FINISHED,
     INSTANCE_STATE_KOORDINATION,
@@ -183,6 +184,23 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
 
 
 class ChangeResponsibilitySendHandler(BaseSendHandler):
+    def has_permission(self):
+        if not super().has_permission()[0]:  # pragma: no cover
+            return False, None
+        if self.instance.instance_state.pk in [
+            INSTANCE_STATE_SB1,
+            INSTANCE_STATE_SB2,
+            INSTANCE_STATE_TO_BE_FINISHED,
+            INSTANCE_STATE_DONE,
+        ]:
+            return (
+                False,
+                (
+                    "Changing responsibility is not possible after the building permit has been issued.",
+                ),
+            )
+        return True, None
+
     def get_instance_id(self):
         return (
             self.data.eventChangeResponsibility.planningPermissionApplicationIdentification.dossierIdentification
