@@ -1,9 +1,10 @@
 import logging
 
-from django.http import Http404, HttpResponse
+from django.http import HttpResponse
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
 from pyxb import IncompleteElementContentError, UnprocessedElementContentError
+from rest_framework import status
 from rest_framework.authentication import get_authorization_header
 from rest_framework.generics import get_object_or_404
 from rest_framework.mixins import ListModelMixin, RetrieveModelMixin
@@ -111,14 +112,11 @@ class MessageView(RetrieveModelMixin, GenericViewSet):
             try:
                 last_message = queryset.get(pk=last)
             except Message.DoesNotExist:
-                raise Http404
+                return
 
             next_message = queryset.filter(
                 created_at__gt=last_message.created_at
             ).first()
-
-        if not next_message:
-            raise Http404
 
         return next_message
 
@@ -131,6 +129,8 @@ class MessageView(RetrieveModelMixin, GenericViewSet):
     )
     def retrieve(self, request, *args, **kwargs):
         message = self.get_object(request.query_params.get("last"))
+        if not message:
+            return HttpResponse(status=status.HTTP_204_NO_CONTENT)
         response = HttpResponse(message.body)
         response["Content-Type"] = "application/xml"
         return response
