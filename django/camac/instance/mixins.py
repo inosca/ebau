@@ -1,3 +1,5 @@
+import logging
+
 from django.conf import settings
 from django.db.models import Q
 from django.db.models.constants import LOOKUP_SEP
@@ -12,6 +14,8 @@ from camac.request import get_request
 from camac.user.permissions import permission_aware
 
 from . import models
+
+log = logging.getLogger(__name__)
 
 
 class InstanceQuerysetMixin(object):
