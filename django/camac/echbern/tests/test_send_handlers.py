@@ -17,7 +17,6 @@ from camac.constants.kt_bern import (
     NOTICE_TYPE_STELLUNGNAHME,
     NOTIFICATION_ECH,
     SERVICE_GROUP_BAUKONTROLLE,
-    SERVICE_GROUP_LEITBEHOERDE_GEMEINDE,
     SERVICE_GROUP_RSTA,
 )
 from camac.core.models import (
@@ -94,14 +93,6 @@ def test_resolve_send_handler(xml_file, expected_send_handler):
             "leitbehoerde",
             INSTANCE_STATE_SB1,
         ),
-        (
-            1,
-            INSTANCE_STATE_ZIRKULATION,
-            True,
-            False,
-            "baukontrolle",
-            INSTANCE_STATE_SB1,
-        ),
         (1, INSTANCE_STATE_ZIRKULATION, True, False, "rsta", INSTANCE_STATE_SB1),
         (
             1,
@@ -131,9 +122,7 @@ def test_notice_ruling_send_handler(
     instance_service_factory,
     multilang,
 ):
-    service_group_gemeinde = service_group_factory(
-        pk=SERVICE_GROUP_LEITBEHOERDE_GEMEINDE
-    )
+    service_group_gemeinde = ech_instance.active_service().service_group
     service_group_baukontrolle = service_group_factory(pk=SERVICE_GROUP_BAUKONTROLLE)
     service_group_rsta = service_group_factory(pk=SERVICE_GROUP_RSTA)
 
@@ -159,9 +148,7 @@ def test_notice_ruling_send_handler(
         trans__language="de",
     )
     active_service = service_gemeinde
-    if active == "baukontrolle":
-        active_service = service_baukontrolle
-    elif active == "rsta":
+    if active == "rsta":
         active_service = service_rsta
         instance_service_factory(
             active=0, service=service_gemeinde, instance=ech_instance
@@ -198,7 +185,7 @@ def test_notice_ruling_send_handler(
     ech_instance.save()
 
     group = admin_user.groups.first()
-    group.service = ech_instance.active_service
+    group.service = ech_instance.responsible_service()
     group.save()
 
     handler = NoticeRulingSendHandler(
@@ -217,7 +204,7 @@ def test_notice_ruling_send_handler(
         assert ech_instance.instance_state == expected_state
         assert DocxDecision.objects.get(instance=ech_instance.pk)
         assert Message.objects.count() == 1
-        assert Message.objects.first().receiver == group.service
+        assert Message.objects.first().receiver == ech_instance.responsible_service()
         attachment.refresh_from_db()
         assert attachment.attachment_sections.get(
             pk=ATTACHMENT_SECTION_ALLE_BETEILIGTEN
@@ -228,21 +215,25 @@ def test_notice_ruling_send_handler(
             if is_vorabklaerung or expected_state_pk == INSTANCE_STATE_REJECTED
             else service_baukontrolle
         )
-        assert ech_instance.active_service == expected_service
+        assert ech_instance.responsible_service() == expected_service
 
 
 @pytest.mark.parametrize("fail", [False, True])
 def test_change_responsibility_send_handler(
     fail, admin_user, service_factory, ech_instance, multilang
 ):
-    burgdorf = ech_instance.active_service
+    burgdorf = ech_instance.active_service()
 
     group = admin_user.groups.first()
     group.service = ech_instance.services.first()
     group.save()
 
     if not fail:
-        madiswil = service_factory(pk=20351, name="Madiswil")
+        madiswil = service_factory(
+            pk=20351,
+            name="Madiswil",
+            service_group=ech_instance.active_service().service_group,
+        )
 
     data = CreateFromDocument(xml_data("change_responsibility"))
 
@@ -257,7 +248,7 @@ def test_change_responsibility_send_handler(
 
     if not fail:
         handler.apply()
-        assert ech_instance.active_service == madiswil
+        assert ech_instance.active_service() == madiswil
         assert InstanceService.objects.get(
             instance=ech_instance, service=burgdorf, active=0
         )
@@ -325,7 +316,7 @@ def test_close_dossier_send_handler(
 
         assert ech_instance.instance_state.pk == INSTANCE_STATE_FINISHED
         assert Message.objects.count() == 1
-        assert Message.objects.first().receiver == ech_instance.active_service
+        assert Message.objects.first().receiver == ech_instance.active_service()
 
 
 @pytest.mark.parametrize(
@@ -477,7 +468,7 @@ def test_notice_kind_of_proceedings_send_handler(
 
         assert Message.objects.count() == 1
         message = Message.objects.first()
-        assert message.receiver == ech_instance.active_service
+        assert message.receiver == ech_instance.active_service()
 
         attachment.refresh_from_db()
         assert attachment.attachment_sections.get(
