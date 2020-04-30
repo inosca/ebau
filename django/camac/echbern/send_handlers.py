@@ -69,7 +69,7 @@ class DocumentAccessibilityMixin:
         for attachment in attachments:
             if (
                 self.instance != attachment.instance
-                or attachment.instance.active_service != self.group.service
+                or attachment.instance.responsible_service() != self.group.service
             ):
                 return False
         return True
@@ -101,7 +101,7 @@ class BaseSendHandler:
         )
 
     def has_permission(self):
-        return self.instance.active_service == self.group.service, None
+        return self.instance.responsible_service() == self.group.service, None
 
     def apply(self):  # pragma: no cover
         raise NotImplementedError()
@@ -159,6 +159,9 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
                 f'"{judgement}" is not a valid judgement for "{form_slug}"'
             )
 
+        if state_id == INSTANCE_STATE_SB1:
+            set_baukontrolle(self.instance)
+
         self.instance.instance_state = InstanceState.objects.get(pk=state_id)
         self.instance.save()
         # TODO: where should we write self.data.eventNotice.decisionRuling.ruling ?
@@ -168,17 +171,15 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
             decision_date=self.data.eventNotice.decisionRuling.date,
             decision_type="UNKNOWN_ECH",
         )
+
+        self.link_to_section(attachments)
+
         ruling.send(
             sender=self.__class__,
             instance=self.instance,
             user_pk=self.user.pk,
             group_pk=self.group.pk,
         )
-
-        self.link_to_section(attachments)
-
-        if state_id == INSTANCE_STATE_SB1:
-            set_baukontrolle(self.instance)
 
 
 class ChangeResponsibilitySendHandler(BaseSendHandler):
@@ -382,7 +383,7 @@ class TaskSendHandler(BaseSendHandler):
             deadline_date=deadline_date,
             version=1,
             circulation_state=circulation_state,
-            service_parent=self.instance.active_service,
+            service_parent=self.instance.active_service(),
             email_sent=0,
         )
 
@@ -444,7 +445,7 @@ class NoticeKindOfProceedingsSendHandler(DocumentAccessibilityMixin, TaskSendHan
         )
 
     def has_permission(self):
-        if not self.instance.active_service == self.group.service:  # pragma: no cover
+        if not super().has_permission():  # pragma: no cover
             return False, None
 
         if self.instance.instance_state.pk != INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT:

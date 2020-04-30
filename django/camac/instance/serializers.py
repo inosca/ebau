@@ -230,7 +230,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
         return CalumaApi().get_form_slug(instance)
 
     def get_active_service(self, instance):
-        return instance.active_service
+        return instance.active_service()
 
     def get_responsible_service_users(self, instance):
         return get_user_model().objects.filter(
@@ -782,7 +782,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
         instance.save()
 
-        if not instance.active_service:
+        if not instance.active_service():
             InstanceService.objects.create(
                 instance=self.instance,
                 service_id=int(validated_data.get("caluma_municipality")),
