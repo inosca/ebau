@@ -154,7 +154,33 @@ def get_documents(attachments):
     return documents
 
 
+def get_owners(answers):
+    """
+    Get owners of the building.
+
+    We use "personalien-gebaudeeigentumerin" if available and fallback to
+    "personalien-gesuchstellerin" if not.
+
+    Then we normalize all the keys.
+    :param answers: dict
+    :return: dict
+    """
+    raw_owners = answers.get(
+        "personalien-grundeigentumerin", answers.get("personalien-gesuchstellerin", [])
+    )
+    owners = []
+    for raw_owner in raw_owners:
+        owner = {}
+        for key, value in raw_owner.items():
+            owner[key.split("-")[0]] = value
+        owners.append(owner)
+
+    return owners
+
+
 def get_realestateinformation(answers):
+    owners = get_owners(answers)
+
     re_info = [
         ns_application.realestateInformationType(
             realestate=ns_objektwesen.realestateType(
@@ -221,8 +247,8 @@ def get_realestateinformation(answers):
                         person=ns_address.personMailAddressInfoType(
                             # mrMrs="1",  # mapping?
                             # title="Dr Med",
-                            firstName=owner["vorname-gesuchstellerin"],
-                            lastName=owner["name-gesuchstellerin"],
+                            firstName=owner["vorname"],
+                            lastName=owner["name"],
                         ),
                         addressInformation=ns_address.addressInformationType(
                             # not the same as swissAddressInformationType (obv..)
@@ -231,16 +257,16 @@ def get_realestateinformation(answers):
                             # (street, houseNumber, dwellingNumber) minOccurs=0
                             # (postOfficeBoxNumber, postOfficeBoxText) minOccurs=0
                             # locality minOccurs=0
-                            street=owner.get("strasse-gesuchstellerin"),
-                            houseNumber=owner.get("nummer-gesuchstellerin"),
-                            town=ns_address.townType(owner["ort-gesuchstellerin"]),
-                            swissZipCode=get_plz(owner["plz-gesuchstellerin"]),
+                            street=owner.get("strasse"),
+                            houseNumber=owner.get("nummer"),
+                            town=ns_address.townType(owner["ort"]),
+                            swissZipCode=get_plz(owner["plz"]),
                             # foreignZipCode minOccurs=0
                             country="CH",
                         ),
                     )
                 )
-                for owner in answers.get("personalien-gesuchstellerin", [])
+                for owner in owners
             ],
         )
         for parzelle in answers.get("parzelle", [])
@@ -290,37 +316,13 @@ def get_realestateinformation(answers):
                     pyxb.BIND(
                         ownerAdress=ns_address.mailAddressType(
                             person=ns_address.personMailAddressInfoType(
-                                firstName=owner["vorname-gesuchstellerin"],
-                                lastName=owner["name-gesuchstellerin"],
+                                firstName="unknown", lastName="unknown"
                             ),
                             addressInformation=ns_address.addressInformationType(
-                                street=owner.get("strasse-gesuchstellerin"),
-                                houseNumber=owner.get("nummer-gesuchstellerin"),
-                                town=ns_address.townType(owner["ort-gesuchstellerin"]),
-                                swissZipCode=get_plz(owner["plz-gesuchstellerin"]),
-                                country="CH",
-                            ),
-                        )
-                    )
-                    for owner in answers.get("personalien-gesuchstellerin", [])
-                ]
-                if "personalien-gesuchstellerin" in answers
-                else [
-                    pyxb.BIND(
-                        ownerAdress=ns_address.mailAddressType(
-                            person=ns_address.personMailAddressInfoType(
-                                firstName=answers[
-                                    "vorname-gesuchstellerin-vorabklaerung"
-                                ],
-                                lastName=answers["name-gesuchstellerin-vorabklaerung"],
-                            ),
-                            addressInformation=ns_address.addressInformationType(
-                                street=answers.get("strasse-gesuchstellerin"),
-                                houseNumber=answers.get("nummer-gesuchstellerin"),
-                                town=ns_address.townType(
-                                    answers["ort-gesuchstellerin"]
-                                ),
-                                swissZipCode=get_plz(answers["plz-gesuchstellerin"]),
+                                street="unknown",
+                                houseNumber="0",
+                                town=ns_address.townType("unknown"),
+                                swissZipCode=9999,
                                 country="CH",
                             ),
                         )
@@ -633,17 +635,36 @@ def decision_authority(service):
 
 
 def requestor(answers: dict):
+    # Values for Vorabklaerung
     first_name = answers.get("vorname-gesuchstellerin-vorabklaerung")
     last_name = answers.get("name-gesuchstellerin-vorabklaerung")
+    street = answers.get("strasse-gesuchstellerin")
+    house_number = answers.get("nummer-gesuchstellerin")
+    town = answers.get("ort-gesuchstellerin")
+    swiss_zip_code = answers.get("plz-gesuchstellerin")
+
     if "personalien-gesuchstellerin" in answers:
-        first_name = answers["personalien-gesuchstellerin"][0][
-            "vorname-gesuchstellerin"
-        ]
-        last_name = answers["personalien-gesuchstellerin"][0]["name-gesuchstellerin"]
+        # Values for Baugesuch
+        pers_infos = answers["personalien-gesuchstellerin"][0]
+
+        first_name = pers_infos["vorname-gesuchstellerin"]
+        last_name = pers_infos["name-gesuchstellerin"]
+        street = pers_infos["strasse-gesuchstellerin"]
+        house_number = pers_infos.get("nummer-gesuchstellerin")
+        town = pers_infos["ort-gesuchstellerin"]
+        swiss_zip_code = pers_infos["plz-gesuchstellerin"]
+
     return ns_objektwesen.personType(
         identification=pyxb.BIND(
             personIdentification=ech_0044_4_1.personIdentificationLightType(
                 officialName=last_name, firstName=first_name
             )
-        )
+        ),
+        address=ns_address.addressInformationType(
+            street=street,
+            houseNumber=house_number,
+            town=ns_address.townType(town),
+            swissZipCode=get_plz(swiss_zip_code),
+            country="CH",
+        ),
     )
