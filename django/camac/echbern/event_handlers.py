@@ -346,30 +346,12 @@ class TaskEventHandler(BaseEventHandler):
         return [msg]
 
 
-class ClaimEventHandler(BaseEventHandler):
+class ClaimEventHandler(WithdrawPlanningPermissionApplicationEventHandler):
     event_type = "claim"
     message_type = ECH_CLAIM
 
     def get_data(self):
         return {"ech-subject": self.event_type}
-
-    def get_xml(self, data):
-        try:
-            return delivery(
-                self.instance,
-                data,
-                message_type=self.message_type,
-                message_date=self.message_date,
-                message_id=str(self.message_id),
-                eventRequest=request(self.instance, self.event_type),
-            ).toxml()
-        except (
-            IncompleteElementContentError,
-            UnprocessedElementContentError,
-            UnprocessedKeywordContentError,
-        ) as e:  # pragma: no cover
-            logger.error(e.details())
-            raise
 
 
 class AccompanyingReportEventHandler(BaseEventHandler):
