@@ -114,6 +114,7 @@ def ech_mandatory_answers_baugesuch():
                 "name-gesuchstellerin": "Testname",
                 "ort-gesuchstellerin": "Testort",
                 "plz-gesuchstellerin": 2323,
+                "strasse-gesuchstellerin": "Teststrasse",
                 "vorname-gesuchstellerin": "Testvorname",
             }
         ],
@@ -128,6 +129,7 @@ def ech_mandatory_answers_einfache_vorabklaerung():
         "name-gesuchstellerin-vorabklaerung": "Testname",
         "ort-gesuchstellerin": "Testort",
         "plz-gesuchstellerin": 23235,  # non standard swiss zip
+        "strasse-gesuchstellerin": "Teststrasse",
         "vorname-gesuchstellerin-vorabklaerung": "Testvorname",
     }
 
@@ -142,6 +144,7 @@ def ech_mandatory_answers_vollstaendige_vorabklaerung():
                 "name-gesuchstellerin": "Testname",
                 "ort-gesuchstellerin": "Testort",
                 "plz-gesuchstellerin": 232,  # non standard swiss zip
+                "strasse-gesuchstellerin": "Teststrasse",
                 "vorname-gesuchstellerin": "Testvorname",
             }
         ],
