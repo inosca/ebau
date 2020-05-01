@@ -3,6 +3,7 @@ from django.conf import settings
 
 from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
+    ATTACHMENT_SECTION_BEILAGEN_GESUCH,
     ATTACHMENT_SECTION_BEILAGEN_SB1,
     ATTACHMENT_SECTION_BEILAGEN_SB2,
     ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
@@ -229,8 +230,21 @@ def test_task_event_handler_stellungnahme(
     circulation_factory,
     activation_factory,
     instance_state_factory,
+    attachment_attachment_section_factory,
+    attachment_section_factory,
     admin_user,
 ):
+    asection_gesuch = attachment_section_factory(pk=ATTACHMENT_SECTION_BEILAGEN_GESUCH)
+    aas_gesuch = attachment_attachment_section_factory(
+        attachment__instance=ech_instance, attachmentsection=asection_gesuch
+    )
+    asection_sb1 = attachment_section_factory(pk=ATTACHMENT_SECTION_BEILAGEN_SB1)
+    attachment_attachment_section_factory(
+        attachment__instance=ech_instance, attachmentsection=asection_sb1
+    )
+
+    expected_name = aas_gesuch.attachment.display_name
+
     ech_instance.instance_state = instance_state_factory(pk=INSTANCE_STATE_ZIRKULATION)
     ech_instance.save()
     s1 = service_factory(email="s1@example.com")
@@ -249,6 +263,10 @@ def test_task_event_handler_stellungnahme(
     assert Message.objects.filter(receiver=s1)
     assert Message.objects.filter(receiver=s2)
     assert not Message.objects.filter(receiver=s3)
+    for message in Message.objects.iterator():
+        xml = CreateFromDocument(message.body)
+        assert len(xml.eventRequest.document) == 1
+        assert xml.eventRequest.document[0].titles.title[0].value() == expected_name
 
 
 @pytest.mark.parametrize(
