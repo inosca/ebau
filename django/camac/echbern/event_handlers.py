@@ -11,6 +11,7 @@ from pyxb import (
 )
 
 from camac.constants.kt_bern import (
+    ATTACHMENT_SECTION_BEILAGEN_GESUCH,
     ATTACHMENT_SECTION_BEILAGEN_SB1,
     ATTACHMENT_SECTION_BEILAGEN_SB2,
     ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
@@ -263,14 +264,17 @@ class TaskEventHandler(BaseEventHandler):
         INSTANCE_STATE_ZIRKULATION: {
             "message_type": ECH_TASK_STELLUNGNAHME,
             "comment": "Anforderung einer Stellungnahme",
+            "attachment_section": ATTACHMENT_SECTION_BEILAGEN_GESUCH,
         },
         INSTANCE_STATE_SB2: {
             "message_type": ECH_TASK_SB1_SUBMITTED,
             "comment": "SB1 eingereicht",
+            "attachment_section": ATTACHMENT_SECTION_BEILAGEN_SB1,
         },
         INSTANCE_STATE_TO_BE_FINISHED: {
             "message_type": ECH_TASK_SB2_SUBMITTED,
             "comment": "SB2 eingereicht",
+            "attachment_section": ATTACHMENT_SECTION_BEILAGEN_SB2,
         },
     }
 
@@ -301,7 +305,7 @@ class TaskEventHandler(BaseEventHandler):
             logger.error(e.details())
             raise
 
-    def _handle_activations(self, context, data):
+    def _handle_activations(self, context, data, attachments):
         msgs = []
         for activation in Activation.objects.filter(
             circulation__instance=self.instance, ech_msg_created=False
@@ -312,6 +316,7 @@ class TaskEventHandler(BaseEventHandler):
                 message_type=context["message_type"],
                 comment=context["comment"],
                 deadline=activation.deadline_date,
+                attachments=attachments,
             )
             msgs.append(self.create_message(xml, activation.service))
             activation.ech_msg_created = True
@@ -319,21 +324,17 @@ class TaskEventHandler(BaseEventHandler):
 
         return msgs
 
-    def _get_attachments(self):
-        section = ATTACHMENT_SECTION_BEILAGEN_SB1
-        if self.instance.instance_state.pk == INSTANCE_STATE_TO_BE_FINISHED:
-            section = ATTACHMENT_SECTION_BEILAGEN_SB2
-        return Attachment.objects.filter(
-            instance=self.instance, attachment_sections__pk=section
-        )
-
     def run(self):
         data = self.get_data()
         context = self.task_map[self.instance.instance_state.pk]
-        if self.instance.instance_state.pk == INSTANCE_STATE_ZIRKULATION:
-            return self._handle_activations(context, data)
 
-        attachments = self._get_attachments()
+        attachments = Attachment.objects.filter(
+            instance=self.instance,
+            attachment_sections__pk=context["attachment_section"],
+        )
+
+        if self.instance.instance_state.pk == INSTANCE_STATE_ZIRKULATION:
+            return self._handle_activations(context, data, attachments)
 
         xml = self.get_xml(
             data,
