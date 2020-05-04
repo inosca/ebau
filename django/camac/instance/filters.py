@@ -230,6 +230,12 @@ class InstanceFormFieldFilterBackend(BaseFilterBackend):
         return queryset
 
 
+class FormFilterSet(FilterSet):
+    class Meta:
+        model = models.Form
+        fields = ["name"]
+
+
 class FormFieldFilterSet(FilterSet):
 
     instance = NumberMultiValueFilter()

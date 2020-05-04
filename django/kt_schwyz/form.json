@@ -218,7 +218,8 @@
       "personalien",
       "personalien.bewilligungsnehmer",
       "plangenehmigungsverfahren",
-      "gesuchsunterlagen"
+      "gesuchsunterlagen",
+      "meta"
     ],
     "plangenehmigungsgesuch-v2": [
       "grundinformationen",
@@ -254,7 +255,8 @@
       "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
-      "gesuchsunterlagen"
+      "gesuchsunterlagen",
+      "meta"
     ],
     "projektgenehmigungsgesuch-gemass-ss15-strag-v2": [
       "grundinformationen",
@@ -951,6 +953,13 @@
       "questions": [
         "geschaeftskontrolle-arbeitsschritt",
         "geschaeftskontrolle-bemerkung"
+      ]
+    },
+    "meta" : {
+      "title": "Meta",
+      "parent": null,
+      "questions": [
+        "meta"
       ]
     }
   },
@@ -6970,6 +6979,12 @@
         "cols": 20,
         "rows": 5
       }
+    },
+    "meta": {
+      "label": "Meta",
+      "type": "text",
+      "required": false,
+      "config": {}
     }
   }
 }
