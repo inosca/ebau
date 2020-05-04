@@ -304,9 +304,9 @@ def test_instance_submit(
 
     settings.APPLICATION["NOTIFICATIONS"]["SUBMIT"] = notification_template.slug
     settings.APPLICATION["WORKFLOW_ITEMS"]["SUBMIT"] = workflow_item.pk
-    settings.APPLICATION["INSTANCE_IDENTIFIER_FORM_ABBR"] = [
-        {"form": "geschaeftskontrolle", "abbreviation": "GK"}
-    ]
+    settings.APPLICATION["INSTANCE_IDENTIFIER_FORM_ABBR"] = {
+        "geschaeftskontrolle": "GK"
+    }
 
     # only create group in a successful run
     if status_code == status.HTTP_200_OK:

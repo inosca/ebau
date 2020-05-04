@@ -1,3 +1,4 @@
+import json
 from logging import getLogger
 from uuid import uuid4
 
@@ -970,9 +971,19 @@ class InstanceSubmitSerializer(InstanceSerializer):
             identifier_start = self.instance.location.communal_federal_number[-2:]
             year = timezone.now().strftime("%y")
 
-            for abbr in settings.APPLICATION.get("INSTANCE_IDENTIFIER_FORM_ABBR", []):
-                if self.instance.form.name == abbr["form"]:
-                    identifier_start = abbr["abbreviation"]
+            name = self.instance.form.name
+            abbreviations = settings.APPLICATION.get(
+                "INSTANCE_IDENTIFIER_FORM_ABBR", {}
+            )
+            meta = models.FormField.objects.filter(
+                instance=self.instance, name="meta"
+            ).first()
+            if meta:
+                meta_value = json.loads(meta.value)
+                name = meta_value["formType"]
+
+            if name in abbreviations.keys():
+                identifier_start = abbreviations[name]
 
             max_identifier = (
                 models.Instance.objects.filter(
