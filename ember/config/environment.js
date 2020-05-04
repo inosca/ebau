@@ -35,12 +35,20 @@ module.exports = function(environment) {
 
       // Form location mapping in order of definition
       // konzession-fur-wasserentnahme = Amt für Wasserbau
-      // projektgenehmigungsgesuch-gemass-ss15-strag = Tiefbauamt
       // anlassbewilligungen-verkehrsbewilligungen = Kantons Polizei
+      // plangenehmigungsgesuch astra = Tiefbauamt
+      // plangenehmigungsgesuch esti = Energiefachstelle
+      // plangenehmigungsgesuch bav = ?
+      // plangenehmigungsgesuch vbs = Raumentwicklung
+      // projektgenehmigungsgesuch-gemass-ss15-strag kanton = Tiefbauamt
       formLocations: {
         7: "Amt für Wasserbau",
-        9: "Tiefbauamt des Kantons Schwyz",
-        10: "Kantonspolizei Schwyz"
+        10: "Kantonspolizei Schwyz",
+        "8-astra": "Tiefbauamt des Kantons Schwyz",
+        "8-esti": "Energiefachstelle",
+        "8-bav": "OEV",
+        "8-vbs": "Amt für Raumentwicklung",
+        "9-canton": "Tiefbauamt des Kantons Schwyz"
       }
     },
 
@@ -112,7 +120,10 @@ module.exports = function(environment) {
       "Wollerau",
       "Amt für Wasserbau",
       "Tiefbauamt des Kantons Schwyz",
-      "Kantonspolizei Schwyz"
+      "Kantonspolizei Schwyz",
+      "Energiefachstelle",
+      "OEV",
+      "Amt für Raumentwicklung"
     ];
   }
 

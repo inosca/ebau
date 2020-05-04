@@ -3,7 +3,8 @@
     <UkSpinner @ratio={{3}} />
   </UkFlex>
 {{else}}
-  <h4 class="uk-text-center uk-margin-large-bottom">Um welche Art von Gesuch handelt es sich?</h4>
+  {{#if (not specialFormType)}}
+    <h4 class="uk-text-center uk-margin-large-bottom">Um welche Art von Gesuch handelt es sich?</h4>
 
   <div uk-grid class="uk-grid-small">
     <div uk-margin class="uk-width-1-1 uk-width-1-3@s uk-flex-column">
@@ -112,6 +113,14 @@
           @selectedForm={{@model.form}}
         />
       </div>
+    </div>
+  {{/if}}
+
+  {{#uk-flex horizontal=(if specialForm 'between' 'right') class='uk-margin-top'}}
+    {{#if specialForm}}
+      {{#uk-button disabled=(or (not model.form.id) save.isRunning) loading=save.isRunning on-click=(action "prev")}}
+        Zurück
+      {{/uk-button}}
     {{/if}}
   </div>
 

@@ -41,6 +41,7 @@ class InstanceStateView(viewsets.ReadOnlyModelViewSet):
 class FormView(viewsets.ReadOnlyModelViewSet):
     swagger_schema = None
     serializer_class = serializers.FormSerializer
+    filterset_class = filters.FormFilterSet
 
     @permission_aware
     def get_queryset(self):

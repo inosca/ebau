@@ -8,6 +8,7 @@ export default class InstancesNewRoute extends Route {
   setupController(controller, model) {
     super.setupController(controller, model);
 
+    controller.set("specialFormType", "");
     controller.groupData.perform();
     controller.forms.perform();
   }

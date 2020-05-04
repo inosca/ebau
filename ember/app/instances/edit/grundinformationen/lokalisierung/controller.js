@@ -30,7 +30,18 @@ export default Controller.extend({
   }),
 
   specialForm: computed("model.instance.form.id", function() {
-    return ENV.APP.formLocations[this.get("model.instance.form.id")];
+    let form = this.get("model.instance.form.id");
+    const meta = this.questionStore.peek("meta", this.model.instance.id);
+    if (meta) {
+      let formType = JSON.parse(meta.value).formType;
+      if (form == 9 && formType != "canton") {
+        return "";
+      } else {
+        form = `${form}-${formType}`;
+      }
+    }
+
+    return ENV.APP.formLocations[form];
   }),
 
   _saveImage: task(function*(image) {
