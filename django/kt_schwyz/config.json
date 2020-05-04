@@ -13533,6 +13533,51 @@
   },
   {
     "fields": {
+      "communal_cantonal_number": null,
+      "communal_federal_number": "EF",
+      "commune_name": "Energiefachstelle",
+      "district_name": null,
+      "district_number": null,
+      "name": "Energiefachstelle",
+      "section_name": null,
+      "section_number": null,
+      "zip": null
+    },
+    "model": "user.location",
+    "pk": 34
+  },
+  {
+    "fields": {
+      "communal_cantonal_number": null,
+      "communal_federal_number": "OEV",
+      "commune_name": "OEV",
+      "district_name": null,
+      "district_number": null,
+      "name": "OEV",
+      "section_name": null,
+      "section_number": null,
+      "zip": null
+    },
+    "model": "user.location",
+    "pk": 35
+  },
+  {
+    "fields": {
+      "communal_cantonal_number": null,
+      "communal_federal_number": "ARE",
+      "commune_name": "Amt für Raumentwicklung",
+      "district_name": null,
+      "district_number": null,
+      "name": "Amt für Raumentwicklung",
+      "section_name": null,
+      "section_number": null,
+      "zip": null
+    },
+    "model": "user.location",
+    "pk": 36
+  },
+  {
+    "fields": {
       "group_prefix": null,
       "name": "Admin",
       "role_parent": null
