@@ -14,7 +14,7 @@ from ..document_merge_service import DMSClient, DMSVisitor
 @pytest.fixture
 def caluma_form_fixture(db):
     # load caluma config
-    path = Path(settings.ROOT_DIR) / "kt_bern" / "config-caluma.json"
+    path = Path(settings.ROOT_DIR) / "kt_bern" / "config-caluma-form.json"
     call_command("loaddata", path)
 
     # load custom caluma data (includes sb1 and sb2)
