@@ -232,13 +232,21 @@ models_referencing_data = [
     "notification.NotificationTemplateT",
 ]
 
-pure_config_models_caluma = []
-models_referencing_data_caluma = [
+pure_config_models_caluma_form = []
+models_referencing_data_caluma_form = [
     "caluma_form.Option",
     "caluma_form.Question",
     "caluma_form.Form",
     "caluma_form.QuestionOption",
     "caluma_form.FormQuestion",
+]
+
+pure_config_models_caluma_workflow = []
+models_referencing_data_caluma_workflow = [
+    "caluma_workflow.Workflow",
+    "caluma_workflow.Task",
+    "caluma_workflow.TaskFlow",
+    "caluma_workflow.Flow",
 ]
 
 # exclude models which are managed by the customer alone from sync
@@ -279,11 +287,18 @@ class Command(BaseCommand):
             help="Output file for camac config",
         )
         parser.add_argument(
-            "--output-caluma",
-            dest="output_caluma",
+            "--output-caluma-form",
+            dest="output_caluma_form",
             type=str,
-            default=settings.APPLICATION_DIR("config-caluma.json"),
-            help="Output file for caluma config",
+            default=settings.APPLICATION_DIR("config-caluma-form.json"),
+            help="Output file for caluma form config",
+        )
+        parser.add_argument(
+            "--output-caluma-workflow",
+            dest="output_caluma_workflow",
+            type=str,
+            default=settings.APPLICATION_DIR("config-caluma-workflow.json"),
+            help="Output file for caluma workflow config",
         )
 
         parser.add_argument(
@@ -324,6 +339,11 @@ class Command(BaseCommand):
 
         if options["caluma"]:
             self.dump_config(
-                pure_config_models_caluma + models_referencing_data_caluma,
-                options["output_caluma"],
+                pure_config_models_caluma_form + models_referencing_data_caluma_form,
+                options["output_caluma_form"],
+            )
+            self.dump_config(
+                pure_config_models_caluma_workflow
+                + models_referencing_data_caluma_workflow,
+                options["output_caluma_workflow"],
             )

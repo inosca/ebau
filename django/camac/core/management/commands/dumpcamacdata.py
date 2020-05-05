@@ -8,9 +8,11 @@ from django.core.management.base import BaseCommand
 from .dumpconfig import (
     models_managed_by_customer,
     models_referencing_data,
-    models_referencing_data_caluma,
+    models_referencing_data_caluma_form,
+    models_referencing_data_caluma_workflow,
     pure_config_models,
-    pure_config_models_caluma,
+    pure_config_models_caluma_form,
+    pure_config_models_caluma_workflow,
 )
 
 
@@ -25,11 +27,19 @@ class Command(BaseCommand):
             help="Output file for camac data",
         )
         parser.add_argument(
-            "--output-caluma",
-            dest="output_caluma",
+            "--output-caluma-form",
+            dest="output_caluma_form",
             type=str,
-            default=settings.APPLICATION_DIR("data-caluma.json"),
-            help="Output file for caluma data",
+            default=settings.APPLICATION_DIR("data-caluma-form.json"),
+            help="Output file for caluma form data",
+        )
+
+        parser.add_argument(
+            "--output-caluma-workflow",
+            dest="output_caluma_workflow",
+            type=str,
+            default=settings.APPLICATION_DIR("data-caluma-workflow.json"),
+            help="Output file for caluma workflow data",
         )
 
         parser.add_argument(
@@ -81,8 +91,13 @@ class Command(BaseCommand):
 
         if options["caluma"]:
             self.dump_data(
-                # apps which include data models
                 ("caluma_form",),
-                pure_config_models_caluma + models_referencing_data_caluma,
-                options["output_caluma"],
+                pure_config_models_caluma_form + models_referencing_data_caluma_form,
+                options["output_caluma_form"],
+            )
+            self.dump_data(
+                ("caluma_workflow",),
+                pure_config_models_caluma_workflow
+                + models_referencing_data_caluma_workflow,
+                options["output_caluma_workflow"],
             )

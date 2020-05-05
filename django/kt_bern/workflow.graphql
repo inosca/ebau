@@ -1,0 +1,51 @@
+mutation CreateEBauNumberTask {
+  saveSimpleTask(
+    input: {
+      slug: "ebau-number"
+      name: "eBau-Nummer vergeben"
+      addressGroups: ""
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateSubmitTask {
+  saveCompleteWorkflowFormTask(
+    input: { slug: "submit", name: "Gesuch einreichen", addressGroups: "" }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateBuildingPermitWorkflow {
+  saveWorkflow(
+    input: {
+      slug: "building-permit"
+      name: "Baugesuch"
+      startTasks: ["submit"]
+      allowForms: [
+        "baugesuch"
+        "baugesuch-generell"
+        "baugesuch-mit-uvp"
+        "vorabklaerung-einfach"
+        "vorabklaerung-vollstaendig"
+      ]
+      isPublished: true
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow1 {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["submit"]
+      next: "'ebau-number'|task"
+    }
+  ) {
+    clientMutationId
+  }
+}

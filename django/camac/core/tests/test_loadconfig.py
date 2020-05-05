@@ -19,23 +19,27 @@ def test_loadconfig(db, settings, application, tmpdir):
     call_command("loadconfig", caluma=caluma, stdout=open(os.devnull, "w"))
 
     dumped_config = tmpdir.join("config.json")
-    dumped_config_caluma = tmpdir.join("config-caluma.json")
+    dumped_config_caluma_form = tmpdir.join("config-caluma-form.json")
+    dumped_config_caluma_workflow = tmpdir.join("config-caluma-workflow.json")
 
     call_command(
         "dumpconfig",
         caluma=caluma,
-        output_caluma=str(dumped_config_caluma),
+        output_caluma_form=str(dumped_config_caluma_form),
+        output_caluma_workflow=str(dumped_config_caluma_workflow),
         output=str(dumped_config),
         stdout=open(os.devnull, "w"),
     )
 
     dumped_data = tmpdir.join("data.json")
-    dumped_data_caluma = tmpdir.join("data-caluma.json")
+    dumped_data_caluma_form = tmpdir.join("data-caluma-form.json")
+    dumped_data_caluma_workflow = tmpdir.join("data-caluma-workflow.json")
 
     call_command(
         "dumpcamacdata",
         caluma=caluma,
-        output_caluma=str(dumped_data_caluma),
+        output_caluma_form=str(dumped_data_caluma_form),
+        output_caluma_workflow=str(dumped_data_caluma_workflow),
         output=str(dumped_data),
         stdout=open(os.devnull, "w"),
     )
@@ -56,16 +60,39 @@ def test_loadconfig(db, settings, application, tmpdir):
     assert sort_fixture(dumped_data_json) == sort_fixture(data_json)
 
     if caluma:
-        config_caluma = settings.APPLICATION_DIR.file("config-caluma.json")
-        dumped_config_caluma_json = json.loads(dumped_config_caluma.read())
-        config_caluma_json = json.loads(config_caluma.read())
+        config_caluma_form = settings.APPLICATION_DIR.file("config-caluma-form.json")
+        config_caluma_workflow = settings.APPLICATION_DIR.file(
+            "config-caluma-workflow.json"
+        )
+        dumped_config_caluma_form_json = json.loads(dumped_config_caluma_form.read())
+        dumped_config_caluma_workflow_json = json.loads(
+            dumped_config_caluma_workflow.read()
+        )
+        config_caluma_form_json = json.loads(config_caluma_form.read())
+        config_caluma_workflow_json = json.loads(config_caluma_workflow.read())
         # verify that caluma config is still the same
-        assert sort_fixture(dumped_config_caluma_json) == sort_fixture(
-            config_caluma_json
+        assert sort_fixture(dumped_config_caluma_form_json) == sort_fixture(
+            config_caluma_form_json
+        )
+        assert sort_fixture(dumped_config_caluma_workflow_json) == sort_fixture(
+            config_caluma_workflow_json
         )
 
-        data_caluma = settings.APPLICATION_DIR.file("data-caluma.json")
-        dumped_data_caluma_json = json.loads(dumped_data_caluma.read())
-        data_caluma_json = json.loads(data_caluma.read())
+        data_caluma_form = settings.APPLICATION_DIR.file("data-caluma-form.json")
+        dumped_data_caluma_form_json = json.loads(dumped_data_caluma_form.read())
+        data_caluma_form_json = json.loads(data_caluma_form.read())
         # verify that caluma data is still the same
-        assert sort_fixture(dumped_data_caluma_json) == sort_fixture(data_caluma_json)
+        assert sort_fixture(dumped_data_caluma_form_json) == sort_fixture(
+            data_caluma_form_json
+        )
+        data_caluma_workflow = settings.APPLICATION_DIR.file(
+            "data-caluma-workflow.json"
+        )
+        dumped_data_caluma_workflow_json = json.loads(
+            dumped_data_caluma_workflow.read()
+        )
+        data_caluma_workflow_json = json.loads(data_caluma_workflow.read())
+        # verify that caluma data is still the same
+        assert sort_fixture(dumped_data_caluma_workflow_json) == sort_fixture(
+            data_caluma_workflow_json
+        )

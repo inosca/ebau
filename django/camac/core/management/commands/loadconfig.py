@@ -6,7 +6,8 @@ from django.core.management.base import BaseCommand
 
 from camac.core.management.commands.dumpconfig import (
     pure_config_models,
-    pure_config_models_caluma,
+    pure_config_models_caluma_form,
+    pure_config_models_caluma_workflow,
 )
 
 
@@ -51,15 +52,23 @@ class Command(BaseCommand):
                 # load test data in dev setup
                 fixtures.append(settings.APPLICATION_DIR("data.json"))
                 if options["caluma"]:
-                    fixtures.append(settings.APPLICATION_DIR("data-caluma.json"))
+                    fixtures.append(settings.APPLICATION_DIR("data-caluma-form.json"))
+                    fixtures.append(
+                        settings.APPLICATION_DIR("data-caluma-workflow.json")
+                    )
 
         # default application config
         fixtures.append(settings.APPLICATION_DIR("config.json"))
         if options["caluma"]:
-            fixtures.append(settings.APPLICATION_DIR("config-caluma.json"))
+            fixtures.append(settings.APPLICATION_DIR("config-caluma-form.json"))
+            fixtures.append(settings.APPLICATION_DIR("config-caluma-workflow.json"))
 
         self.stdout.write("Flushing 'pure' config models")
-        for model_name in pure_config_models + pure_config_models_caluma:
+        for model_name in (
+            pure_config_models
+            + pure_config_models_caluma_form
+            + pure_config_models_caluma_workflow
+        ):
             self.stdout.write("Deleting config table {0}".format(model_name))
             (app_label, model_name) = model_name.split(".")
             model = apps.get_model(app_label=app_label, model_name=model_name)
