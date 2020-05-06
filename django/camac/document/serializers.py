@@ -25,6 +25,7 @@ class AttachmentSectionSerializer(
     core_serializers.MultilingualSerializer, serializers.ModelSerializer
 ):
     mode = serializers.SerializerMethodField()
+    description = core_serializers.MultilingualField()
 
     def get_mode(self, instance):
         request = self.context["request"]
@@ -33,7 +34,7 @@ class AttachmentSectionSerializer(
     class Meta:
         model = models.AttachmentSection
         meta_fields = ("mode",)
-        fields = ("name",)
+        fields = ("name", "description")
 
 
 class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
