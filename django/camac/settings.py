@@ -897,7 +897,7 @@ DOCUMENT_MERGE_SERVICE_URL = build_url(
     env.str("DOCUMENT_MERGE_SERVICE_URL", "http://document-merge-service:8000/api/v1/")
 )
 
-ECH_API = env.bool("ECH_API", default=ENV != "production")
+ECH_API = env.bool("ECH_API", default=True)
 
 # Swagger settings
 SWAGGER_SETTINGS = {
