@@ -12012,6 +12012,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "Dokumente des Gesuchstellers",
       "notification_template": null,
       "recipient_types": "[]",
@@ -12023,6 +12024,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "Dokumente Fachstellen (interne Ablage)",
       "notification_template": null,
       "recipient_types": null,
@@ -12034,6 +12036,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "Auflagedokumente",
       "notification_template": null,
       "recipient_types": "[]",
@@ -12045,6 +12048,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "Einsprachen",
       "notification_template": null,
       "recipient_types": "[]",
@@ -12056,6 +12060,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "Bauentscheid und Merkbl\u00e4tter",
       "notification_template": null,
       "recipient_types": "[]",
@@ -12067,6 +12072,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "Dokumente Gemeinde (interne Ablage)",
       "notification_template": null,
       "recipient_types": "[]",
@@ -12078,6 +12084,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "Schriftenverkehr",
       "notification_template": null,
       "recipient_types": "[]",
@@ -12089,6 +12096,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "Dokumente f\u00fcr Gesuchsteller",
       "notification_template": null,
       "recipient_types": "[]",
@@ -12487,6 +12495,7 @@
   {
     "fields": {
       "attachment_section": 1,
+      "description": null,
       "language": "de",
       "name": "Dokumente des Gesuchstellers"
     },
@@ -12496,6 +12505,7 @@
   {
     "fields": {
       "attachment_section": 2,
+      "description": null,
       "language": "de",
       "name": "Dokumente Fachstellen"
     },
@@ -12505,6 +12515,7 @@
   {
     "fields": {
       "attachment_section": 4,
+      "description": null,
       "language": "de",
       "name": "Auflagedokumente"
     },
@@ -12514,6 +12525,7 @@
   {
     "fields": {
       "attachment_section": 5,
+      "description": null,
       "language": "de",
       "name": "Einsprachen"
     },
@@ -12523,6 +12535,7 @@
   {
     "fields": {
       "attachment_section": 6,
+      "description": null,
       "language": "de",
       "name": "Bauentscheid und Merkbl\u00e4tter"
     },
@@ -12532,6 +12545,7 @@
   {
     "fields": {
       "attachment_section": 7,
+      "description": null,
       "language": "de",
       "name": "Dokumente Gemeinde (intern)"
     },
@@ -12541,6 +12555,7 @@
   {
     "fields": {
       "attachment_section": 8,
+      "description": null,
       "language": "de",
       "name": "Schriftenverkehr"
     },
@@ -12550,6 +12565,7 @@
   {
     "fields": {
       "attachment_section": 9,
+      "description": null,
       "language": "de",
       "name": "Dokumente f\u00fcr Gesuchsteller"
     },
