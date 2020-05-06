@@ -48974,6 +48974,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "Interne Dokumente BaB (nur f\u00fcr BaB Fachstellen sichtbar)",
       "notification_template": null,
       "recipient_types": null,
@@ -48985,6 +48986,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "Publikationsordner",
       "notification_template": null,
       "recipient_types": null,
@@ -48996,6 +48998,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "Interne Dokumente ABM BS (nur f\u00fcr ABM BS sichtbar)",
       "notification_template": null,
       "recipient_types": null,
@@ -49007,6 +49010,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "Dokumente Fachstellen (R\u00fcckmeldungen Vernehmlassungsstellen)",
       "notification_template": null,
       "recipient_types": null,
@@ -49018,6 +49022,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "Dokumente Leitbeh\u00f6rden (Baubewilligungen, Verf\u00fcgungen usw.)",
       "notification_template": null,
       "recipient_types": null,
@@ -49029,6 +49034,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "Lisag (Nutzungsplandokumente, ITF Dateien)",
       "notification_template": null,
       "recipient_types": null,
@@ -49040,6 +49046,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "Rechtsmitteldokumente (nur eingeschr\u00e4nkt sichtbar)",
       "notification_template": null,
       "recipient_types": null,
@@ -49051,6 +49058,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "Interne Dokumente ARE NHS D (nur f\u00fcr ARE NHS D sichtbar)",
       "notification_template": null,
       "recipient_types": null,
@@ -49062,6 +49070,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "Interne Dokumente ARE SU (nur f\u00fcr Fachstelle ARE SU sichtbar)",
       "notification_template": null,
       "recipient_types": null,
@@ -49073,6 +49082,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "Geb\u00fchren",
       "notification_template": null,
       "recipient_types": null,
@@ -49084,6 +49094,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "Dokumente Gesuchsteller",
       "notification_template": null,
       "recipient_types": null,
@@ -49095,6 +49106,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "Dokumente UVP sichtbar f\u00fcr AfE WB ARENHSL AFJ ALA AfUGS AfUIS",
       "notification_template": null,
       "recipient_types": null,
@@ -49106,6 +49118,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "Unterlagen Land- und Rechtswerb (nur f\u00fcr BD DS sichtbar)",
       "notification_template": null,
       "recipient_types": null,
@@ -49117,6 +49130,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "Interne Dokumente ARE NP (nur f\u00fcr Fachstelle ARE NP sichtbar)",
       "notification_template": null,
       "recipient_types": null,
@@ -49128,6 +49142,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "Dokumente Gemeindeservice",
       "notification_template": null,
       "recipient_types": null,
@@ -49139,6 +49154,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "Entscheiddokumente (Stellungnahmen / Bewilligungen)",
       "notification_template": null,
       "recipient_types": null,
@@ -50131,6 +50147,7 @@
   {
     "fields": {
       "attachment_section": 1,
+      "description": null,
       "language": "de",
       "name": "Interne Dokumente BaB (nur f\u00fcr BaB Fachstellen sichtbar)"
     },
@@ -50140,6 +50157,7 @@
   {
     "fields": {
       "attachment_section": 21,
+      "description": null,
       "language": "de",
       "name": "Publikationsordner"
     },
@@ -50149,6 +50167,7 @@
   {
     "fields": {
       "attachment_section": 22,
+      "description": null,
       "language": "de",
       "name": "Interne Dokumente ABM BS (nur f\u00fcr ABM BS sichtbar)"
     },
@@ -50158,6 +50177,7 @@
   {
     "fields": {
       "attachment_section": 23,
+      "description": null,
       "language": "de",
       "name": "Dokumente Fachstellen (R\u00fcckmeldungen Vernehmlassungsstellen)"
     },
@@ -50167,6 +50187,7 @@
   {
     "fields": {
       "attachment_section": 24,
+      "description": null,
       "language": "de",
       "name": "Dokumente Leitbeh\u00f6rden (Baubewilligungen, Verf\u00fcgungen usw.)"
     },
@@ -50176,6 +50197,7 @@
   {
     "fields": {
       "attachment_section": 25,
+      "description": null,
       "language": "de",
       "name": "Lisag (Nutzungsplandokumente, ITF Dateien)"
     },
@@ -50185,6 +50207,7 @@
   {
     "fields": {
       "attachment_section": 41,
+      "description": null,
       "language": "de",
       "name": "Rechtsmitteldokumente (nur eingeschr\u00e4nkt sichtbar)"
     },
@@ -50194,6 +50217,7 @@
   {
     "fields": {
       "attachment_section": 42,
+      "description": null,
       "language": "de",
       "name": "Interne Dokumente ARE NHS D (nur f\u00fcr ARE NHS D sichtbar)"
     },
@@ -50203,6 +50227,7 @@
   {
     "fields": {
       "attachment_section": 61,
+      "description": null,
       "language": "de",
       "name": "Interne Dokumente ARE SU (nur f\u00fcr Fachstelle ARE SU sichtbar)"
     },
@@ -50212,6 +50237,7 @@
   {
     "fields": {
       "attachment_section": 62,
+      "description": null,
       "language": "de",
       "name": "Geb\u00fchren"
     },
@@ -50221,6 +50247,7 @@
   {
     "fields": {
       "attachment_section": 63,
+      "description": null,
       "language": "de",
       "name": "Dokumente Gesuchsteller"
     },
@@ -50230,6 +50257,7 @@
   {
     "fields": {
       "attachment_section": 81,
+      "description": null,
       "language": "de",
       "name": "Dokumente UVP sichtbar f\u00fcr AfE WB ARENHSL AFJ ALA AfUGS AfUIS"
     },
@@ -50239,6 +50267,7 @@
   {
     "fields": {
       "attachment_section": 101,
+      "description": null,
       "language": "de",
       "name": "Unterlagen Land- und Rechtswerb (nur f\u00fcr BD DS sichtbar)"
     },
@@ -50248,6 +50277,7 @@
   {
     "fields": {
       "attachment_section": 102,
+      "description": null,
       "language": "de",
       "name": "Interne Dokumente ARE NP (nur f\u00fcr Fachstelle ARE NP sichtbar)"
     },
@@ -50257,6 +50287,7 @@
   {
     "fields": {
       "attachment_section": 103,
+      "description": null,
       "language": "de",
       "name": "Dokumente Gemeindeservice"
     },
