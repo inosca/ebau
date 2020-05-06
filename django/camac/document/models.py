@@ -143,6 +143,9 @@ class AttachmentSection(core_models.MultilingualModel, models.Model):
         db_column="ATTACHMENT_SECTION_ID", primary_key=True
     )
     name = models.CharField(db_column="NAME", max_length=100)
+    description = models.CharField(
+        db_column="DESCRIPTION", max_length=2000, blank=True, null=True
+    )
     sort = models.IntegerField(db_column="SORT", db_index=True, default=0)
     notification_template = models.ForeignKey(
         "notification.NotificationTemplate",
@@ -183,6 +186,9 @@ class AttachmentSectionT(models.Model):
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     name = models.CharField(db_column="NAME", max_length=100, blank=True, null=True)
+    description = models.CharField(
+        db_column="DESCRIPTION", max_length=2000, blank=True, null=True
+    )
 
     class Meta:
         managed = True
