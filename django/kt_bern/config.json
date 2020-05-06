@@ -116875,6 +116875,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "",
       "notification_template": null,
       "recipient_types": "[]",
@@ -116886,6 +116887,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "",
       "notification_template": null,
       "recipient_types": "[]",
@@ -116897,6 +116899,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "",
       "notification_template": null,
       "recipient_types": "[]",
@@ -116908,6 +116911,7 @@
   {
     "fields": {
       "allowed_mime_types": "[]",
+      "description": null,
       "name": "",
       "notification_template": null,
       "recipient_types": "[]",
@@ -116919,6 +116923,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "",
       "notification_template": null,
       "recipient_types": "[]",
@@ -116930,6 +116935,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "",
       "notification_template": null,
       "recipient_types": "[]",
@@ -116941,6 +116947,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "",
       "notification_template": null,
       "recipient_types": "[]",
@@ -116952,6 +116959,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "",
       "notification_template": null,
       "recipient_types": "[]",
@@ -116963,6 +116971,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "",
       "notification_template": null,
       "recipient_types": "[]",
@@ -116974,6 +116983,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "",
       "notification_template": null,
       "recipient_types": "[]",
@@ -116985,6 +116995,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "",
       "notification_template": null,
       "recipient_types": "[]",
@@ -116996,6 +117007,7 @@
   {
     "fields": {
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
       "name": "",
       "notification_template": null,
       "recipient_types": "[]",
@@ -118024,6 +118036,7 @@
   {
     "fields": {
       "attachment_section": 1,
+      "description": "Diese Dokumente wurden vom Gesuchstellenden hochgeladen und sind f\u00fcr alle am Verfahren beteiligten Beh\u00f6rden einsehbar.",
       "language": "de",
       "name": "Beilagen zum Gesuch"
     },
@@ -118033,6 +118046,7 @@
   {
     "fields": {
       "attachment_section": 2,
+      "description": "Hier werden die von den beteiligten Beh\u00f6rden erfassten Dokumente (z.B. Verf\u00fcgungen, Amts- und Fachberichte, Stellungnahmen) hochgeladen. Diese Dokumente sind nur f\u00fcr die am Verfahren beteiligten Beh\u00f6rden sichtbar, nicht aber f\u00fcr die Gesuchstellenden.",
       "language": "de",
       "name": "Beteiligte Beh\u00f6rden"
     },
@@ -118042,6 +118056,7 @@
   {
     "fields": {
       "attachment_section": 3,
+      "description": "Hier werden von der Leitbeh\u00f6rde Dokumente hochgeladen, welche f\u00fcr alle am Verfahren beteiligten Rollen einsehbar sein sollen (z.B. Verfahrensprogramm, Bauentscheid). Gesuchstellenden werden diese Dokumente im eBau-Portal unter \"R\u00fcckmeldungen\" angezeigt.",
       "language": "de",
       "name": "Alle Beteiligten"
     },
@@ -118051,6 +118066,7 @@
   {
     "fields": {
       "attachment_section": 4,
+      "description": "Hier werden Dokumente hochgeladen, welche nur innerhalb der eigenen Organisation sichtbar sein sollen. In diesem Ordner bestehen keine Einschr\u00e4nkungen hinsichtlich der erlaubten Dateiformate.",
       "language": "de",
       "name": "Intern"
     },
@@ -118060,6 +118076,7 @@
   {
     "fields": {
       "attachment_section": 5,
+      "description": "Diese Dokumente wurden vom Gesuchstellenden im Rahmen der Selbstdeklaration (SB2) hochgeladen.",
       "language": "de",
       "name": "Beilagen SB2"
     },
@@ -118069,6 +118086,7 @@
   {
     "fields": {
       "attachment_section": 6,
+      "description": "Diese Dokumente wurden vom Gesuchstellenden im Rahmen der Selbstdeklaration (SB1) hochgeladen.",
       "language": "de",
       "name": "Beilagen SB1"
     },
@@ -118078,6 +118096,7 @@
   {
     "fields": {
       "attachment_section": 7,
+      "description": "Diese Dokumente wurden im Rahmen einer Nachforderung vom Gesuchstellenden hochgeladen und sind f\u00fcr alle beteiligten Beh\u00f6rden einsehbar.",
       "language": "de",
       "name": "Nachforderungen"
     },
@@ -118087,6 +118106,7 @@
   {
     "fields": {
       "attachment_section": 8,
+      "description": null,
       "language": "de",
       "name": "Entscheiddokumente"
     },
@@ -118096,6 +118116,7 @@
   {
     "fields": {
       "attachment_section": 1,
+      "description": "Ces documents ont \u00e9t\u00e9 t\u00e9l\u00e9charg\u00e9s par la personne requ\u00e9rante et peuvent \u00eatre consult\u00e9s par toutes les autorit\u00e9s impliqu\u00e9es dans la proc\u00e9dure.",
       "language": "fr",
       "name": "Pi\u00e8ces jointes \u00e0 la demande"
     },
@@ -118105,8 +118126,9 @@
   {
     "fields": {
       "attachment_section": 7,
+      "description": "Ces documents ont \u00e9t\u00e9 t\u00e9l\u00e9charg\u00e9s par la personne requ\u00e9rante dans le cadre d'une demande de compl\u00e9ment d\u2019information et peuvent \u00eatre consult\u00e9s par toutes les autorit\u00e9s concern\u00e9es.",
       "language": "fr",
-      "name": "Demandes suppl\u00e9mentaires"
+      "name": "Demandes de compl\u00e9ment d\u2019information"
     },
     "model": "document.attachmentsectiont",
     "pk": 10
@@ -118114,6 +118136,7 @@
   {
     "fields": {
       "attachment_section": 2,
+      "description": "C'est l\u00e0 que les documents enregistr\u00e9s par les autorit\u00e9s participantes sont t\u00e9l\u00e9charg\u00e9s (par exemple, les d\u00e9cisions, les rapports officiels et techniques, prises de position). Ces documents ne sont visibles que par les autorit\u00e9s impliqu\u00e9es dans la proc\u00e9dure, mais pas par les personnes requ\u00e9rantes.",
       "language": "fr",
       "name": "Autorit\u00e9s participantes"
     },
@@ -118123,6 +118146,7 @@
   {
     "fields": {
       "attachment_section": 3,
+      "description": "C'est l\u00e0 que les documents visibles par toutes les parties impliqu\u00e9es dans la proc\u00e9dure sont t\u00e9l\u00e9charg\u00e9s par l'autorit\u00e9 directrice (par exemple, programme de proc\u00e9dure, permis de construire). Les personnes requ\u00e9rantes peuvent consulter ces documents sur le portail eBau, sous la rubrique \"Remarques\".",
       "language": "fr",
       "name": "Toutes les parties"
     },
@@ -118132,6 +118156,7 @@
   {
     "fields": {
       "attachment_section": 4,
+      "description": "Ici sont t\u00e9l\u00e9charg\u00e9s des documents qui ne doivent \u00eatre visibles qu'au sein de la propre organisation. Dans ce dossier, il n'y a aucune restriction concernant les formats de fichiers autoris\u00e9s.",
       "language": "fr",
       "name": "Interne"
     },
@@ -118141,6 +118166,7 @@
   {
     "fields": {
       "attachment_section": 8,
+      "description": null,
       "language": "fr",
       "name": "Documents de d\u00e9cision"
     },
@@ -118150,8 +118176,9 @@
   {
     "fields": {
       "attachment_section": 6,
+      "description": "Ces documents ont \u00e9t\u00e9 t\u00e9l\u00e9charg\u00e9s par la personne requ\u00e9rante dans le cadre de d\u00e9claration spontan\u00e9e en mati\u00e8re de contr\u00f4le des constructions 1 (DC1).",
       "language": "fr",
-      "name": "Pi\u00e8ces jointes DC1"
+      "name": "Suppl\u00e9ments DC1"
     },
     "model": "document.attachmentsectiont",
     "pk": 15
@@ -118159,8 +118186,9 @@
   {
     "fields": {
       "attachment_section": 5,
+      "description": "Ces documents ont \u00e9t\u00e9 t\u00e9l\u00e9charg\u00e9s par la personne requ\u00e9rante dans le cadre de la d\u00e9claration spontan\u00e9e en mati\u00e8re de contr\u00f4le des constructions 2 (DC2).",
       "language": "fr",
-      "name": "Pi\u00e8ces jointes DC2"
+      "name": "Suppl\u00e9ments DC2"
     },
     "model": "document.attachmentsectiont",
     "pk": 17
@@ -118168,6 +118196,7 @@
   {
     "fields": {
       "attachment_section": 13,
+      "description": "Hier k\u00f6nnen Dokumente hochgeladen werden, welche durch die Gesuchstellenden in Papierform (oder ausserhalb des Systems, z.B. per Mail) eingereicht wurden sind. Die Dokumente sind f\u00fcr alle am Verfahren beteiligten Beh\u00f6rden einsehbar.",
       "language": "de",
       "name": "Beilagen zum Gesuch (Papier)"
     },
@@ -118177,6 +118206,7 @@
   {
     "fields": {
       "attachment_section": 13,
+      "description": "vous pouvez t\u00e9l\u00e9charger ici les documents qui ont \u00e9t\u00e9 soumis par la personne requ\u00e9rante sous forme papier (ou en dehors du syst\u00e8me eBau, par exemple par courrier \u00e9lectronique). Les documents peuvent \u00eatre consult\u00e9s par toutes les autorit\u00e9s impliqu\u00e9es dans la proc\u00e9dure.",
       "language": "fr",
       "name": "Pi\u00e8ces jointes \u00e0 la demande (papier)"
     },
@@ -118186,6 +118216,7 @@
   {
     "fields": {
       "attachment_section": 10,
+      "description": "Hier k\u00f6nnen Dokumente hochgeladen werden, welche durch die Gesuchstellenden in Papierform (oder ausserhalb des Systems, z.B. per Mail) im Rahmen der Selbstdeklaration (SB1) eingereicht wurden sind. Die Dokumente sind f\u00fcr alle am Verfahren beteiligten Beh\u00f6rden einsehbar.",
       "language": "de",
       "name": "Beilagen SB1 (Papier)"
     },
@@ -118195,8 +118226,9 @@
   {
     "fields": {
       "attachment_section": 10,
+      "description": "Il est possible de t\u00e9l\u00e9charger ici des documents qui ont \u00e9t\u00e9 soumis par la personne requ\u00e9rante sur papier (ou en dehors du syst\u00e8me eBau, par exemple par courrier \u00e9lectronique) dans le cadre de la d\u00e9claration spontan\u00e9e en mati\u00e8re de contr\u00f4le des constructions 1 (DC1). Les documents peuvent \u00eatre consult\u00e9s par toutes les autorit\u00e9s impliqu\u00e9es dans la proc\u00e9dure.",
       "language": "fr",
-      "name": "Pi\u00e8ces jointes DC1 (papier)"
+      "name": "Suppl\u00e9ments DC1 (papier)"
     },
     "model": "document.attachmentsectiont",
     "pk": 21
@@ -118204,6 +118236,7 @@
   {
     "fields": {
       "attachment_section": 11,
+      "description": "Hier k\u00f6nnen Dokumente hochgeladen werden, welche durch die Gesuchstellenden in Papierform (oder ausserhalb des Systems, z.B. per Mail) im Rahmen der Selbstdeklaration (SB2) eingereicht wurden sind. Die Dokumente sind f\u00fcr alle am Verfahren beteiligten Beh\u00f6rden einsehbar.",
       "language": "de",
       "name": "Beilagen SB2 (Papier)"
     },
@@ -118213,8 +118246,9 @@
   {
     "fields": {
       "attachment_section": 11,
+      "description": "Il est possible de t\u00e9l\u00e9charger ici des documents qui ont \u00e9t\u00e9 soumis par la personne requ\u00e9rante sur papier (ou en dehors du syst\u00e8me eBau, par exemple par courrier \u00e9lectronique) dans le cadre de la d\u00e9claration spontan\u00e9e en mati\u00e8re de contr\u00f4le des constructions 2 (DC2). Les documents peuvent \u00eatre consult\u00e9s par toutes les autorit\u00e9s impliqu\u00e9es dans la proc\u00e9dure.",
       "language": "fr",
-      "name": "Pi\u00e8ces jointes DC2 (papier)"
+      "name": "Suppl\u00e9ments DC2 (papier)"
     },
     "model": "document.attachmentsectiont",
     "pk": 23
@@ -118222,6 +118256,7 @@
   {
     "fields": {
       "attachment_section": 12,
+      "description": "Hier k\u00f6nnen Dokumente hochgeladen werden, welche durch die Gesuchstellenden in Papierform (oder ausserhalb des Systems, z.B. per Mail) im Rahmen einer Nachforderung eingereicht wurden sind. Die Dokumente sind f\u00fcr alle beteiligten am Verfahren Beh\u00f6rden einsehbar.",
       "language": "de",
       "name": "Nachforderungen (Papier)"
     },
@@ -118231,8 +118266,9 @@
   {
     "fields": {
       "attachment_section": 12,
+      "description": "Il est possible de t\u00e9l\u00e9charger ici des documents qui ont \u00e9t\u00e9 soumis par la personne requ\u00e9rante sur papier (ou en dehors du syst\u00e8me eBau, par exemple par courrier \u00e9lectronique) dans le cadre d'une demande de compl\u00e9ment d\u2019information. Les documents peuvent \u00eatre consult\u00e9s par toutes les autorit\u00e9s impliqu\u00e9es dans la proc\u00e9dure.",
       "language": "fr",
-      "name": "Demandes suppl\u00e9mentaires (papier)"
+      "name": "Demandes de compl\u00e9ment d\u2019information (papier)"
     },
     "model": "document.attachmentsectiont",
     "pk": 25
