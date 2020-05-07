@@ -45,8 +45,8 @@ module.exports = function(environment) {
         7: "Amt für Wasserbau",
         10: "Kantonspolizei Schwyz",
         "8-astra": "Tiefbauamt des Kantons Schwyz",
-        "8-esti": "Energiefachstelle",
-        "8-bav": "OEV",
+        "8-esti": "Eidg. Starkstrominspektorat",
+        "8-bav": "Amt für öffentlichen Verkehr",
         "8-vbs": "Amt für Raumentwicklung",
         "9-canton": "Tiefbauamt des Kantons Schwyz"
       }

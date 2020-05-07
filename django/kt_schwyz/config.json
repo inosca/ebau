@@ -13534,11 +13534,11 @@
   {
     "fields": {
       "communal_cantonal_number": null,
-      "communal_federal_number": "EF",
-      "commune_name": "Energiefachstelle",
+      "communal_federal_number": "ESTI",
+      "commune_name": "Eidg. Starkstrominspektorat",
       "district_name": null,
       "district_number": null,
-      "name": "Energiefachstelle",
+      "name": "Eidg. Starkstrominspektorat",
       "section_name": null,
       "section_number": null,
       "zip": null
@@ -13550,10 +13550,10 @@
     "fields": {
       "communal_cantonal_number": null,
       "communal_federal_number": "OEV",
-      "commune_name": "OEV",
+      "commune_name": "Amt für öffentlichen Verkehr",
       "district_name": null,
       "district_number": null,
-      "name": "OEV",
+      "name": "Amt für öffentlichen Verkehr",
       "section_name": null,
       "section_number": null,
       "zip": null

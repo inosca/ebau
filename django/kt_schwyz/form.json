@@ -217,7 +217,6 @@
       "grundinformationen.lokalisierung",
       "personalien",
       "personalien.bewilligungsnehmer",
-      "plangenehmigungsverfahren",
       "gesuchsunterlagen",
       "meta"
     ],
@@ -921,13 +920,6 @@
       "questions": [
         "pa-gesuchsnr",
         "pa-datum"
-      ]
-    },
-    "plangenehmigungsverfahren": {
-      "title": "Plangenehmigungsverfahren",
-      "parent": null,
-      "questions": [
-        "pgv-bewilligungsbehorde"
       ]
     },
     "technische-bewilligung": {
@@ -5930,20 +5922,6 @@
       "type": "date",
       "required": true,
       "config": {}
-    },
-    "pgv-bewilligungsbehorde": {
-      "label": "Zuständige Bewilligungsbehörde:",
-      "hint": "Eine der vier aufgeführten Stellen ist die zuständige Bewilligungsbehörde und damit die Leitbehörde in diesem Plangenehmigungsverfahren.",
-      "type": "radio",
-      "required": true,
-      "config": {
-        "options": [
-          "Bundesamt für Verkehr (BAV)",
-          "Bundesamt für Strassen (ASTRA)",
-          "Eidg. Starkstrominspektorat (ESTI)",
-          "Eidg. Departement für Verteidigung, Bevölkerungsschutz und Sport (VBS)"
-        ]
-      }
     },
     "tb-gesuchsnr": {
       "label": "Gesuchs-Nr.:",
