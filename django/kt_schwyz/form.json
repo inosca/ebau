@@ -83,12 +83,50 @@
       "grundinformationen.lokalisierung",
       "gesuchsunterlagen"
     ],
+    "vorabklarung-v2": [
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft",
+      "personalien.projektverfasser-planer",
+      "gesuchsunterlagen"
+    ],
     "baumeldung-fur-geringfugiges-vorhaben": [
       "grundinformationen",
       "grundinformationen.lokalisierung",
       "baumeldung-fur-geringfugige-vorhaben",
       "personalien",
       "personalien.bauherrschaft",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "gesuchsunterlagen"
+    ],
+    "baumeldung-fur-geringfugiges-vorhaben-v2": [
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "baumeldung-fur-geringfugige-vorhaben",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft",
+      "personalien.projektverfasser-planer",
       "fachthemen",
       "fachthemen.landwirtschaft",
       "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
@@ -147,12 +185,31 @@
       "personalien.konzessionsnehmer",
       "gesuchsunterlagen"
     ],
+    "konzession-fur-wasserentnahme-v2": [
+      "konzession-fur-wasserentnahme",
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft",
+      "personalien.projektverfasser-planer",
+      "gesuchsunterlagen"
+    ],
     "anlassbewilligungen-verkehrsbewilligungen": [
       "anlassbewilligungen-verkehrsbewilligungen",
       "grundinformationen",
       "grundinformationen.lokalisierung",
       "personalien",
       "personalien.gesuchsteller",
+      "gesuchsunterlagen"
+    ],
+    "anlassbewilligungen-verkehrsbewilligungen-v2": [
+      "anlassbewilligungen-verkehrsbewilligungen",
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "personalien",
+      "personalien.bauherrschaft",
+      "personalien.projektverfasser-planer",
       "gesuchsunterlagen"
     ],
     "plangenehmigungsgesuch": [
@@ -163,11 +220,49 @@
       "plangenehmigungsverfahren",
       "gesuchsunterlagen"
     ],
+    "plangenehmigungsgesuch-v2": [
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft",
+      "personalien.projektverfasser-planer",
+      "plangenehmigungsverfahren",
+      "gesuchsunterlagen"
+    ],
     "projektgenehmigungsgesuch-gemass-ss15-strag": [
       "grundinformationen",
       "grundinformationen.lokalisierung",
       "personalien",
       "personalien.bewilligungsnehmer",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "gesuchsunterlagen"
+    ],
+    "projektgenehmigungsgesuch-gemass-ss15-strag-v2": [
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft",
+      "personalien.projektverfasser-planer",
       "fachthemen",
       "fachthemen.landwirtschaft",
       "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
@@ -300,7 +395,7 @@
       ]
     },
     "personalien.bauherrschaft": {
-      "title": "Bauherrschaft",
+      "title": "Bauherrschaft / Bewilligungsnehmer",
       "parent": "personalien",
       "questions": [
         "bauherrschaft"
@@ -1862,8 +1957,8 @@
       }
     },
     "bauherrschaft": {
-      "label": "Bauherrschaft:",
-      "hint": "Die Bauherrschaft (BH) bezeichnet eine oder mehrere natürliche oder juristische Person(en). Die BH ist für die Finanzierung und Umsetzung des Vorhabens verantwortlich. Die Bewilligung wird auf den Namen der BH ausgestellt. Die BH ist oft, aber nicht immer, identisch mit der Grundeigentümerschaft.\n**Hinweis:** Falls die Bauherrschaft aus mehreren natürlichen oder juristischen Personen besteht, sind diese einzeln zu erfassen.",
+      "label": "Bauherrschaft / Bewilligungsnehmer:",
+      "hint": "Die Bauherrschaft (BH) bezeichnet eine oder mehrere natürliche oder juristische Person(en). Die BH ist für die Finanzierung und Umsetzung des Vorhabens verantwortlich. Die Bewilligung wird auf den Namen der BH ausgestellt. Die BH ist oft, aber nicht immer, identisch mit der Grundeigentümerschaft.\n**Hinweis:** Falls die Bauherrschaft aus mehreren natürlichen oder juristischen Personen besteht, sind diese einzeln zu erfassen.\nDer Bewilligungsnehmer ist die natürliche oder juristische Person, welcher die Bewilligung erteilt wird.",
       "type": "table",
       "required": true,
       "config": {
