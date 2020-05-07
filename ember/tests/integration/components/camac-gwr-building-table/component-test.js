@@ -1,7 +1,7 @@
-import { module, test } from "qunit";
-import { setupRenderingTest } from "ember-qunit";
 import { render, click, fillIn } from "@ember/test-helpers";
+import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
+import { module, test } from "qunit";
 
 module("Integration | Component | camac-gwr-building-table", function(hooks) {
   setupRenderingTest(hooks);
@@ -51,7 +51,7 @@ module("Integration | Component | camac-gwr-building-table", function(hooks) {
 
     await click("button[data-test-edit-row]");
     await fillIn("input", "shimmyshimmyya");
-    await click("button[type=submit]");
+    await click(".uk-button-primary");
 
     assert.dom("tbody > tr > td:first-child").hasText("shimmyshimmyya");
   });
@@ -67,7 +67,7 @@ module("Integration | Component | camac-gwr-building-table", function(hooks) {
 
     await click("tfoot > tr > td:first-child > button");
     await fillIn("input", "test");
-    await click("button[type=submit]");
+    await click(".uk-button-primary");
 
     assert.dom("tbody > tr").exists({ count: 2 });
   });

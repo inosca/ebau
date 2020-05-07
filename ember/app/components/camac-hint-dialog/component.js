@@ -1,6 +1,6 @@
+import { getOwner } from "@ember/application";
 import Component from "@ember/component";
 import { computed } from "@ember/object";
-import { getOwner } from "@ember/application";
 
 const CamacHintDialogComponent = Component.extend({
   tagName: "span",
@@ -15,8 +15,8 @@ const CamacHintDialogComponent = Component.extend({
     return `target: #${this.modalId}`;
   }),
 
-  didInsertElement() {
-    this._super(...arguments);
+  didInsertElement(...args) {
+    this._super(...args);
 
     this.set(
       "modalContainer",

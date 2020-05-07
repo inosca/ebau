@@ -1,16 +1,16 @@
-import { module, test } from "qunit";
-import { setupRenderingTest } from "ember-qunit";
 import { render, click, fillIn } from "@ember/test-helpers";
-import hbs from "htmlbars-inline-precompile";
-import setupMirage from "ember-cli-mirage/test-support/setup-mirage";
 import loadQuestions from "citizen-portal/tests/helpers/load-questions";
+import { setupMirage } from "ember-cli-mirage/test-support";
+import { setupRenderingTest } from "ember-qunit";
+import hbs from "htmlbars-inline-precompile";
+import { module, test } from "qunit";
 
 module("Integration | Component | camac-table", function(hooks) {
   setupRenderingTest(hooks);
   setupMirage(hooks);
 
   hooks.beforeEach(async function() {
-    let instance = this.server.create("instance");
+    const instance = this.server.create("instance");
 
     this.set("instance", instance);
 
@@ -93,7 +93,7 @@ module("Integration | Component | camac-table", function(hooks) {
     await click("button[data-test-edit-row]");
     await fillIn("input[type=text]", "shimmyshimmyya");
     await fillIn("input[type=number]", "123");
-    await click("button[type=submit]");
+    await click(".uk-button-primary");
 
     assert.dom("tbody > tr > td:first-child").hasText("shimmyshimmyya");
   });
@@ -106,7 +106,7 @@ module("Integration | Component | camac-table", function(hooks) {
     assert.dom("tbody > tr").exists({ count: 1 });
 
     await click("tfoot > tr > td:first-child > button");
-    await click("button[type=submit]");
+    await click(".uk-button-primary");
 
     assert.dom("tbody > tr").exists({ count: 2 });
   });

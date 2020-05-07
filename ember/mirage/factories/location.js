@@ -1,4 +1,4 @@
-import { Factory, faker } from "ember-cli-mirage";
+import { Factory } from "ember-cli-mirage";
 
 const locations = [
   {
@@ -121,8 +121,12 @@ const locations = [
 ];
 
 export default Factory.extend({
-  communalFederalNumber: faker.list.cycle(
-    ...locations.map(({ communalFederalNumber }) => communalFederalNumber)
-  ),
-  name: faker.list.cycle(...locations.map(({ name }) => name))
+  communalFederalNumber(i) {
+    return [
+      i % locations.map(({ communalFederalNumber }) => communalFederalNumber)
+    ];
+  },
+  name(i) {
+    return [i % locations.map(({ name }) => name)];
+  }
 });

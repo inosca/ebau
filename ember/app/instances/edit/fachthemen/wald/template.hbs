@@ -1,5 +1,5 @@
-{{#camac-form instance=model.instance meta=model.meta as |form|}}
-  {{form.input 'wald-forstlich'}}
-  {{form.input 'wald-auswirkungen'}}
-  {{form.input 'datenverschnitt-reptilien'}}
-{{/camac-form}}
+<CamacForm @instance={{@model.instance}} @meta={{@model.meta}} as |form|>
+  <form.input @identifier="wald-forstlich"/>
+  <form.input @identifier="wald-auswirkungen"/>
+  <form.input @identifier="datenverschnitt-reptilien"/>
+</CamacForm>

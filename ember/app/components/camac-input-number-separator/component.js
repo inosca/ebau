@@ -20,7 +20,6 @@ export default Component.extend({
   displayValue: "",
 
   didReceiveAttrs() {
-    this._super(...arguments);
     this.set(
       "displayValue",
       Number(

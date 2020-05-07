@@ -1,13 +1,15 @@
 import EmberRouter from "@ember/routing/router";
+
 import config from "./config/environment";
 
-const Router = EmberRouter.extend({
-  location: config.locationType,
-  rootURL: config.rootURL
-});
+export default class Router extends EmberRouter {
+  location = config.locationType;
+  rootURL = config.rootURL;
+}
 
 const resetNamespace = true;
 
+/* eslint-disable-next-line array-callback-return */
 Router.map(function() {
   this.route("login");
   this.route("logout");
@@ -78,5 +80,3 @@ Router.map(function() {
     });
   });
 });
-
-export default Router;

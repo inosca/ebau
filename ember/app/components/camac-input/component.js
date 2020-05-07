@@ -1,6 +1,6 @@
 import Component from "@ember/component";
-import { inject as service } from "@ember/service";
 import { computed } from "@ember/object";
+import { inject as service } from "@ember/service";
 import { task } from "ember-concurrency";
 
 const CamacInputComponent = Component.extend({

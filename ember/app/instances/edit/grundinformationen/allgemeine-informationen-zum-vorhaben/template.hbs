@@ -1,10 +1,10 @@
-{{#camac-form instance=model.instance meta=model.meta as |form|}}
-  {{form.input 'geometer'}}
-  {{form.input 'geometer-name'}}
-  {{form.input 'baugespann-errichtet'}}
-  {{form.input 'baugespann-errichtet-wann'}}
-  {{form.input 'kein-baugespann-begrundung'}}
-  {{form.input 'baukosten'}}
-  {{form.input 'gebaudevolumen-sia-116'}}
-  {{form.input 'gebaudevolumen-sia-416'}}
-{{/camac-form}}
+<CamacForm @instance={{@model.instance}} @meta={{@model.meta}} as |form|>
+  <form.input @identifier="geometer"/>
+  <form.input @identifier="geometer-name"/>
+  <form.input @identifier="baugespann-errichtet"/>
+  <form.input @identifier="baugespann-errichtet-wann"/>
+  <form.input @identifier="kein-baugespann-begrundung"/>
+  <form.input @identifier="baukosten"/>
+  <form.input @identifier="gebaudevolumen-sia-116"/>
+  <form.input @identifier="gebaudevolumen-sia-416"/>
+</CamacForm>

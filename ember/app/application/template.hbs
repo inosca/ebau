@@ -1,47 +1,82 @@
-{{#a11y-landmark tagName='main'}}
-  {{#offline-notify}}
+<A11yLandmark @tagName="main">
+  <OfflineNotify>
     <div class="uk-text-center uk-padding-small uk-background-primary uk-light">
       Sie sind nicht mit dem Internet verbunden. Bitte verbinden Sie sich
       wieder, damit die Anwendung funktioniert!
     </div>
-  {{/offline-notify}}
+  </OfflineNotify>
 
-  {{#service-worker-update-notify}}
-    <div class="uk-text-center uk-padding-small uk-background-secondary uk-light">
+  <ServiceWorkerUpdateNotify>
+    <div
+      class="uk-text-center uk-padding-small uk-background-secondary uk-light"
+    >
       <a class="service-worker-update-notify" href="">
         Es existiert eine neue Version der Anwendung, klicken Sie hier um sie zu laden.
       </a>
     </div>
-  {{/service-worker-update-notify}}
+  </ServiceWorkerUpdateNotify>
 
   <div class="uk-container">
     {{#unless isEmbedded}}
-      {{#uk-flex horizontal='center' vertical='middle' direction='column' class='uk-padding'}}
-        {{#link-to 'index' class='uk-padding uk-link-reset uk-width-1-1 uk-width-large@m'}}
+      <UkFlex
+        @horizontal="center"
+        @vertical="middle"
+        @direction="column"
+        class="uk-padding"
+      >
+        <LinkTo
+          @route="index"
+          class="uk-padding uk-link-reset uk-width-1-1 uk-width-large@m"
+        >
           <div class="uk-width-1-1 uk-position-relative">
-            <img class="uk-width-1-1" src="/assets/images/logo-kanton-schwyz.svg" alt="Kanton Schwyz">
+            <img
+              class="uk-width-1-1"
+              src="/assets/images/logo-kanton-schwyz.svg"
+              alt="Kanton Schwyz"
+            />
             <span class="uk-position-bottom-left uk-margin-medium-bottom">
               v{{app-version hideSha=true}}
             </span>
-            {{#unless (eq environment 'production')}}
-              {{uk-label label=environment class='uk-position-bottom-left uk-margin-small-bottom'}}
+            {{#unless (eq environment "production")}}
+              <UkLabel
+                @label={{environment}}
+                class="uk-position-bottom-left uk-margin-small-bottom"
+              />
             {{/unless}}
           </div>
-        {{/link-to}}
+        </LinkTo>
         <div>
-          <a title="Startseite" class="uk-icon-button uk-animation-fade" uk-icon="home" {{action (transition-to 'index')}}></a>
-          <a title="Profil" class="uk-icon-button uk-animation-fade uk-margin-left" uk-icon="user" href="{{profileURL}}" target="_blank"></a>
+          <LinkTo
+            @route="index"
+            title="Startseite"
+            class="uk-icon-button uk-animation-fade"
+            uk-icon="home"
+          ></LinkTo>
+          <a
+            title="Profil"
+            class="uk-icon-button uk-animation-fade uk-margin-left"
+            uk-icon="user"
+            href="{{profileURL}}"
+            target="_blank"
+            rel="noopener noreferrer"
+          ></a>
           {{#if session.isAuthenticated}}
-            <a title="Ausloggen" class="uk-icon-button uk-animation-fade uk-margin-left" uk-icon="sign-out" {{action (transition-to 'logout')}}></a>
+            <button
+              title="Ausloggen"
+              class="uk-icon-button uk-animation-fade uk-margin-left"
+              uk-icon="sign-out"
+              {{on "click" (transition-to "logout")}}
+              type="button"
+            ></button>
           {{/if}}
         </div>
-      {{/uk-flex}}
+      </UkFlex>
     {{/unless}}
 
     <div class="uk-padding uk-padding-remove-horizontal uk-animation-fade">
-      {{focusing-outlet}}
+      <FocusingOutlet @outletState={{-get-dynamic-var "outletState"}}/>
     </div>
   </div>
-{{/a11y-landmark}}
+</A11yLandmark>
 
 <div id="modal-container"></div>

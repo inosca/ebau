@@ -1,16 +1,16 @@
-import { module, test } from "qunit";
-import { setupRenderingTest } from "ember-qunit";
 import { render } from "@ember/test-helpers";
-import hbs from "htmlbars-inline-precompile";
-import setupMirage from "ember-cli-mirage/test-support/setup-mirage";
 import loadQuestions from "citizen-portal/tests/helpers/load-questions";
+import { setupMirage } from "ember-cli-mirage/test-support";
+import { setupRenderingTest } from "ember-qunit";
+import hbs from "htmlbars-inline-precompile";
+import { module, test } from "qunit";
 
 module("Integration | Component | camac-form", function(hooks) {
   setupRenderingTest(hooks);
   setupMirage(hooks);
 
   hooks.beforeEach(async function() {
-    let instance = this.server.create("instance");
+    const instance = this.server.create("instance");
 
     this.set("id", instance.id);
 
@@ -60,10 +60,10 @@ module("Integration | Component | camac-form", function(hooks) {
     assert.expect(4);
 
     await render(hbs`
-      {{#camac-form instance=(hash id=id) meta=(hash editable=(array 'form' 'document')) as |form|}}
-        {{form.input 'test-input'}}
-        {{form.table 'test-table'}}
-      {{/camac-form}}
+      <CamacForm @instance={{hash id=id}} @meta={{hash editable=(array 'form' 'document')}} as |form|>
+        <form.input @identifier='test-input'/>
+        <form.table @identifier='test-table'/>
+      </CamacForm>
     `);
 
     assert.dom("form").exists();
@@ -76,10 +76,10 @@ module("Integration | Component | camac-form", function(hooks) {
     assert.expect(4);
 
     await render(hbs`
-      {{#camac-form instance=(hash id=id) meta=(hash editable=(array)) as |form|}}
-        {{form.input 'test-input'}}
-        {{form.table 'test-table'}}
-      {{/camac-form}}
+      <CamacForm @instance={{hash id=id}} @meta={{hash editable=(array)}} as |form|>
+        <form.input @identifier='test-input'/>
+        <form.table @identifier='test-table'/>
+      </CamacForm>
     `);
 
     assert.dom("form").exists();

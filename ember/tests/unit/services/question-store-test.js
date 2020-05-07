@@ -1,16 +1,16 @@
-import { module, test } from "qunit";
-import { setupTest } from "ember-qunit";
-import { settled } from "@ember/test-helpers";
-import setupMirage from "ember-cli-mirage/test-support/setup-mirage";
-import loadQuestions from "citizen-portal/tests/helpers/load-questions";
 import { run } from "@ember/runloop";
+import { settled } from "@ember/test-helpers";
+import loadQuestions from "citizen-portal/tests/helpers/load-questions";
+import { setupMirage } from "ember-cli-mirage/test-support";
+import { setupTest } from "ember-qunit";
+import { module, test } from "qunit";
 
 module("Unit | Service | question-store", function(hooks) {
   setupTest(hooks);
   setupMirage(hooks);
 
   hooks.beforeEach(function() {
-    let { id } = this.server.create("instance");
+    const { id } = this.server.create("instance");
 
     this.instanceId = id;
 
@@ -22,9 +22,9 @@ module("Unit | Service | question-store", function(hooks) {
   test("can build a question without model", async function(assert) {
     assert.expect(4);
 
-    let service = this.owner.lookup("service:question-store");
+    const service = this.owner.lookup("service:question-store");
 
-    let question = await service.buildQuestion("test", this.instanceId);
+    const question = await service.buildQuestion("test", this.instanceId);
 
     assert.ok(question.get("name"));
     assert.ok(question.get("field"));
@@ -40,15 +40,15 @@ module("Unit | Service | question-store", function(hooks) {
       instanceId: this.instanceId
     });
 
-    let service = this.owner.lookup("service:question-store");
-    let store = this.owner.lookup("service:store");
+    const service = this.owner.lookup("service:question-store");
+    const store = this.owner.lookup("service:store");
 
-    let model = await run(
+    const model = await run(
       async () =>
         await store.query("form-field", { name: "test", include: "instance" })
     );
 
-    let question = await service.buildQuestion(
+    const question = await service.buildQuestion(
       "test",
       this.instanceId,
       model.firstObject
@@ -76,11 +76,11 @@ module("Unit | Service | question-store", function(hooks) {
       }
     }));
 
-    let service = this.owner.lookup("service:question-store");
+    const service = this.owner.lookup("service:question-store");
 
     await loadQuestions(["test1", "test2"], this.instanceId);
 
-    let validations = {
+    const validations = {
       test1(_, value) {
         return `${value} is an invalid value!`;
       },
@@ -91,8 +91,8 @@ module("Unit | Service | question-store", function(hooks) {
 
     service.set("_validations", validations);
 
-    let test1 = await service.peek("test1", this.instanceId);
-    let test2 = await service.peek("test2", this.instanceId);
+    const test1 = await service.peek("test1", this.instanceId);
+    const test2 = await service.peek("test2", this.instanceId);
 
     test1.set("model.value", "somevalue");
     test2.set("model.value", "somevalue");
@@ -117,13 +117,13 @@ module("Unit | Service | question-store", function(hooks) {
 
     await loadQuestions(["test", "test-map", "foo", "bar"], this.instanceId);
 
-    let service = this.owner.lookup("service:question-store");
+    const service = this.owner.lookup("service:question-store");
 
-    let test = await service.peek("test", this.instanceId);
-    let foo = await service.peek("foo", this.instanceId);
-    let bar = await service.peek("bar", this.instanceId);
+    const test = await service.peek("test", this.instanceId);
+    const foo = await service.peek("foo", this.instanceId);
+    const bar = await service.peek("bar", this.instanceId);
 
-    let testMap = await service.peek("test-map", this.instanceId);
+    const testMap = await service.peek("test-map", this.instanceId);
     await testMap.get("_hiddenTask").perform();
     assert.equal(testMap.get("hidden"), false);
 
@@ -165,11 +165,11 @@ module("Unit | Service | question-store", function(hooks) {
       }
     });
 
-    let service = this.owner.lookup("service:question-store");
+    const service = this.owner.lookup("service:question-store");
 
     await loadQuestions(["test"], this.instanceId);
 
-    let question = service.peek("test", this.instanceId);
+    const question = service.peek("test", this.instanceId);
 
     assert.deepEqual(await service.get("saveQuestion").perform(question), [
       "Diese Frage darf nicht leer gelassen werden"
@@ -204,11 +204,11 @@ module("Unit | Service | question-store", function(hooks) {
 
     await loadQuestions(["test1", "test2", "test3"], this.instanceId);
 
-    let service = this.owner.lookup("service:question-store");
+    const service = this.owner.lookup("service:question-store");
 
-    let test1 = await service.peek("test1", this.instanceId);
-    let test2 = await service.peek("test2", this.instanceId);
-    let test3 = await service.peek("test3", this.instanceId);
+    const test1 = await service.peek("test1", this.instanceId);
+    const test2 = await service.peek("test2", this.instanceId);
+    const test3 = await service.peek("test3", this.instanceId);
 
     test1.set("model.value", "xyz");
     test2.set("model.value", "xyz");

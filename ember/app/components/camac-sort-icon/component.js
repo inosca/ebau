@@ -17,7 +17,7 @@ export default Component.extend({
   },
 
   direction: computed("key", "sort", function() {
-    let match = (this.sort || "").match(new RegExp(`^(-)?${this.key}$`));
+    const match = (this.sort || "").match(new RegExp(`^(-)?${this.key}$`));
 
     if (!match) {
       return 0;

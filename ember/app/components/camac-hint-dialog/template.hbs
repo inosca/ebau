@@ -1,17 +1,26 @@
 {{#if hasBlock}}
   {{yield target}}
 {{else}}
-  <span uk-toggle={{target}} uk-icon="info" class="pointer" title="Zusätzliche Informationen"></span>
+  <span
+    uk-toggle={{target}}
+    uk-icon="info"
+    class="pointer"
+    title="Zusätzliche Informationen"
+  ></span>
 {{/if}}
 
 {{#-in-element modalContainer}}
   <div id="{{modalId}}" uk-modal>
     <div class="uk-modal-dialog uk-modal-body">
       <button class="uk-modal-close-default" type="button" uk-close></button>
-      <h2 class="uk-modal-title">Zusätzliche Informationen</h2>
+      <h2 class="uk-modal-title">
+        Zusätzliche Informationen
+      </h2>
       {{markdown-to-html text}}
       <div class="uk-text-right">
-        <button class="uk-button uk-button-default uk-modal-close">Schliessen</button>
+        <button class="uk-button uk-button-default uk-modal-close" type="button">
+          Schliessen
+        </button>
       </div>
     </div>
   </div>

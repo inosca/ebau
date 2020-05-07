@@ -1,5 +1,5 @@
-{{#camac-form instance=model.instance meta=model.meta as |form|}}
-  {{form.input 'zivilschutz-schutzraum'}}
-  {{form.input 'zivilschutz-elementarschaden'}}
-  {{form.input 'zivilschutz-dispens-schutzraumbau'}}
-{{/camac-form}}
+<CamacForm @instance={{@model.instance}} @meta={{@model.meta}} as |form|>
+  <form.input @identifier="zivilschutz-schutzraum"/>
+  <form.input @identifier="zivilschutz-elementarschaden"/>
+  <form.input @identifier="zivilschutz-dispens-schutzraumbau"/>
+</CamacForm>

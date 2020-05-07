@@ -1,8 +1,8 @@
-import { module, test } from "qunit";
-import { setupRenderingTest } from "ember-qunit";
-import { render } from "@ember/test-helpers";
-import hbs from "htmlbars-inline-precompile";
 import EmberObject from "@ember/object";
+import { render } from "@ember/test-helpers";
+import { setupRenderingTest } from "ember-qunit";
+import hbs from "htmlbars-inline-precompile";
+import { module, test } from "qunit";
 
 module("Integration | Component | camac-input-date", function(hooks) {
   setupRenderingTest(hooks);

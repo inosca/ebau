@@ -1,7 +1,7 @@
-import { module, test } from "qunit";
-import { setupRenderingTest } from "ember-qunit";
 import { render, waitFor, click, fillIn } from "@ember/test-helpers";
+import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
+import { module, test } from "qunit";
 
 module("Integration | Component | camac-table-modal", function(hooks) {
   setupRenderingTest(hooks);
@@ -36,7 +36,7 @@ module("Integration | Component | camac-table-modal", function(hooks) {
     );
 
     await fillIn(".uk-modal input[type=text]", "foobar");
-    await click("button[type=submit]");
+    await click(".uk-button-primary");
 
     assert.equal(this.get("value.f1"), "foobar");
   });
@@ -71,13 +71,13 @@ module("Integration | Component | camac-table-modal", function(hooks) {
 
     await fillIn(".uk-modal input[type=text]", "");
 
-    await click("button[type=submit]");
+    await click(".uk-button-primary");
 
     assert.dom(".uk-modal ul li:first-child").includesText("darf nicht leer");
 
     await fillIn(".uk-modal input[type=text]", "test");
 
-    await click("button[type=submit]");
+    await click(".uk-button-primary");
 
     assert.dom(".uk-modal ul li:first-child").doesNotExist();
   });

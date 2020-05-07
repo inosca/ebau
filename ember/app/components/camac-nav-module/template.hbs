@@ -1,37 +1,43 @@
-{{#link-to module.link class='uk-padding-right'}}
+<LinkTo @route={{@module.link}} class="uk-padding-right">
   <div class="uk-flex uk-flex-between uk-flex-middle">
-    <div class={{unless module.parent 'uk-text-bolder'}}>{{module.title}}</div>
-    {{#with module.state as |s|}}
-      {{#if (eq s 'untouched')}}
+    <div class={{unless @module.parent "uk-text-bolder"}}>
+      {{@module.title}}
+    </div>
+    {{#with @module.state as |s|}}
+      {{#if (eq s "untouched")}}
         <span
           title="Der Abschnitt wurde noch nicht angefangen"
-          class="uk-flex-none camac-nav-module-icon camac-nav-module-icon-{{s}} {{unless (await module.editable) 'camac-nav-module-icon-readonly'}}">
+          class="uk-flex-none camac-nav-module-icon camac-nav-module-icon-{{s}} {{unless (await @module.editable) "camac-nav-module-icon-readonly"}}"
+        >
         </span>
-      {{else if (eq s 'unfinished')}}
+      {{else if (eq s "unfinished")}}
         <span
           title="Der Abschnitt enthält noch unbeantwortete Fragen"
-          class="uk-flex-none camac-nav-module-icon camac-nav-module-icon-{{s}} {{unless (await module.editable) 'camac-nav-module-icon-readonly'}}">
+          class="uk-flex-none camac-nav-module-icon camac-nav-module-icon-{{s}} {{unless (await @module.editable) "camac-nav-module-icon-readonly"}}"
+        >
         </span>
-      {{else if (eq s 'invalid')}}
+      {{else if (eq s "invalid")}}
         <span
           title="Dieser Abschnitt enthält noch inkorrekte Antworten"
-          class="uk-flex-none camac-nav-module-icon camac-nav-module-icon-{{s}} {{unless (await module.editable) 'camac-nav-module-icon-readonly'}}">
+          class="uk-flex-none camac-nav-module-icon camac-nav-module-icon-{{s}} {{unless (await @module.editable) "camac-nav-module-icon-readonly"}}"
+        >
         </span>
-      {{else if (eq s 'valid')}}
+      {{else if (eq s "valid")}}
         <span
           title="Alle Fragen des Abschnitts sind korrekt beantwortet"
-          class="uk-flex-none camac-nav-module-icon camac-nav-module-icon-{{s}} {{unless (await module.editable) 'camac-nav-module-icon-readonly'}}">
+          class="uk-flex-none camac-nav-module-icon camac-nav-module-icon-{{s}} {{unless (await @module.editable) "camac-nav-module-icon-readonly"}}"
+        >
         </span>
       {{/if}}
     {{/with}}
   </div>
-{{/link-to}}
+</LinkTo>
 
-{{#if module.submodules}}
+{{#if @module.submodules}}
   <ul class="uk-tab uk-tab-left uk-margin-left uk-margin-remove-vertical">
-    {{#each module.submodules as |submodule|}}
+    {{#each @module.submodules as |submodule|}}
       {{#if submodule.state}}
-        {{camac-nav-module module=submodule}}
+        <CamacNavModule @module={{submodule}} />
       {{/if}}
     {{/each}}
   </ul>

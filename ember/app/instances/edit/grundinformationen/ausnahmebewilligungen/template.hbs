@@ -1,5 +1,5 @@
-{{#camac-form instance=model.instance meta=model.meta as |form|}}
-  {{form.input 'ausnahmen'}}
-  {{form.input 'ausnahmen-andere'}}
-  {{form.input 'ausnahmen-begrundung'}}
-{{/camac-form}}
+<CamacForm @instance={{@model.instance}} @meta={{@model.meta}} as |form|>
+  <form.input @identifier="ausnahmen"/>
+  <form.input @identifier="ausnahmen-andere"/>
+  <form.input @identifier="ausnahmen-begrundung"/>
+</CamacForm>

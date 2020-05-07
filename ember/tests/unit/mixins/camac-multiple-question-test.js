@@ -5,10 +5,10 @@ import { module, test } from "qunit";
 module("Unit | Mixin | camac-multiple-question", function() {
   // Replace this with your real tests.
   test("it works", function(assert) {
-    let CamacMultipleQuestionObject = EmberObject.extend(
+    const CamacMultipleQuestionObject = EmberObject.extend(
       CamacMultipleQuestionMixin
     );
-    let subject = CamacMultipleQuestionObject.create();
+    const subject = CamacMultipleQuestionObject.create();
     assert.ok(subject);
   });
 });

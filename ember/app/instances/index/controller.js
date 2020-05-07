@@ -62,10 +62,10 @@ export default Controller.extend(queryParams.Mixin, {
     return instances;
   }).restartable(),
 
-  search: task(function*(term) {
+  search: task(function*(event) {
     yield timeout(500);
 
-    this.set("identifier", term);
+    this.set("identifier", event.target.value);
   }).restartable(),
 
   delete: task(function*(instance) {

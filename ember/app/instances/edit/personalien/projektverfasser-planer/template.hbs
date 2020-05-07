@@ -1,12 +1,12 @@
-{{#camac-form instance=model.instance meta=model.meta as |form|}}
-  {{form.table 'projektverfasser-planer'}}
-  {{#if questionActive}}
-    {{#uk-button
-      on-click=(action 'copyQuestionValue')
-      class='uk-align-center uk-margin-remove-vertical'
-      disabled=(unless bauherrschaftValue 'true')
-    }}
+<CamacForm @instance={{@model.instance}} @meta={{@model.meta}} as |form|>
+  <form.table @identifier="projektverfasser-planer"/>
+  {{#if this.questionActive}}
+    <UkButton
+      @on-click={{fn this.copyQuestionValue}}
+      class="uk-align-center uk-margin-remove-vertical"
+      @disabled={{unless this.bauherrschaftValue "true"}}
+    >
       Bauherrschafts Personalien Übernehmen
-    {{/uk-button}}
+    </UkButton>
   {{/if}}
-{{/camac-form}}
+</CamacForm>

@@ -1,66 +1,71 @@
 import Controller, { inject as controller } from "@ember/controller";
-import { inject as service } from "@ember/service";
-import computedTask from "citizen-portal/lib/computed-task";
-import { task } from "ember-concurrency";
-import { all } from "rsvp";
 import { computed } from "@ember/object";
-import Ember from "ember";
+import { inject as service } from "@ember/service";
 import ENV from "citizen-portal/config/environment";
+import computedTask from "citizen-portal/lib/computed-task";
+import Ember from "ember";
+import { task } from "ember-concurrency-decorators";
+import { all } from "rsvp";
 
-export default Controller.extend({
-  ajax: service(),
-  questionStore: service(),
-  notification: service(),
+export default class InstancesEditSubmitController extends Controller {
+  @service ajax;
+  @service questionStore;
+  @service notification;
 
-  editController: controller("instances.edit"),
+  @controller("instances.edit") editController;
 
-  canSubmit: computedTask(
+  @computedTask(
     "_canSubmit",
     "editController.modules.lastSuccessful.value.[]",
     "questionStore._store.@each.{value,hidden,isNew}"
-  ),
-  _canSubmit: task(function*() {
+  )
+  canSubmit;
+
+  @task
+  *_canSubmit() {
     // Calls temporary function to check if municipality is active
     if (!this.checkMunicipality) {
       return false;
     }
 
-    let modules = this.get("editController.modules.lastSuccessful.value");
+    const modules = this.editController.modules.lastSuccessful.value;
 
     if (!modules) {
       return false;
     }
 
-    let questions = (yield all(
+    const questions = (yield all(
       this.questionStore
         .peekSet(
-          modules.reduce((flat, m) => [...flat, ...m.get("allQuestions")], []),
-          this.get("model.instance.id")
+          modules.reduce((flat, m) => [...flat, ...m.allQuestions], []),
+          this.model.instance.id
         )
-        .map(async q => ((await q.get("hidden")) ? null : q))
+        .map(async q => ((await q.hidden) ? null : q))
     )).filter(Boolean);
 
     return questions.every(q => q.validate() === true);
-  }),
+  }
 
   // Temporary function to check if the selected municipality is active,
   // otherwise prevent submission.
-  checkMunicipality: computed("model.instance.location", function() {
-    if (Ember.testing || !this.get("model.instance.location.name")) {
+  @computed("model.instance.location.name")
+  get checkMunicipality() {
+    if (Ember.testing || !this.model.instance.location.get("name")) {
       return true;
     }
 
     return (
       ENV.APP.municipalityNames.indexOf(
-        this.get("model.instance.location.name")
+        this.model.instance.location.get("name")
       ) >= 0
     );
-  }),
+  }
 
-  submit: task(function*() {
+  @task
+  *submit() {
     try {
       yield this.ajax.request(
-        `/api/v1/instances/${this.get("model.instance.id")}/submit`,
+        `/api/v1/instances/${this.model.instance.id}/submit`,
         { method: "POST" }
       );
 
@@ -72,5 +77,5 @@ export default Controller.extend({
         "Hoppla, etwas ist schief gelaufen. Bitte überprüfen Sie Ihre Eingabedaten nochmals."
       );
     }
-  })
-});
+  }
+}

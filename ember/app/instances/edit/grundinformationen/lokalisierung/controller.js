@@ -1,8 +1,8 @@
 import Controller from "@ember/controller";
-import { inject as service } from "@ember/service";
-import { task } from "ember-concurrency";
 import { computed } from "@ember/object";
+import { inject as service } from "@ember/service";
 import ENV from "citizen-portal/config/environment";
+import { task } from "ember-concurrency";
 
 export default Controller.extend({
   questionStore: service(),
@@ -34,9 +34,9 @@ export default Controller.extend({
   }),
 
   _saveImage: task(function*(image) {
-    let attachment = this.attachment;
-    let filename = `${attachment.get("name")}.${image.type.split("/").pop()}`;
-    let formData = new FormData();
+    const attachment = this.attachment;
+    const filename = `${attachment.get("name")}.${image.type.split("/").pop()}`;
+    const formData = new FormData();
 
     // Delete all previous images
     this.store
@@ -52,7 +52,7 @@ export default Controller.extend({
     );
     formData.append("path", image, filename);
 
-    let response = yield this.ajax.request("/api/v1/attachments", {
+    const response = yield this.ajax.request("/api/v1/attachments", {
       method: "POST",
       cache: false,
       contentType: false,
@@ -99,11 +99,11 @@ export default Controller.extend({
   }),
 
   _saveLocation: task(function*(name) {
-    let instance = this.get("model.instance");
+    const instance = this.get("model.instance");
 
     name = this.specialForm || name;
 
-    let location = yield this.store.query("location", {
+    const location = yield this.store.query("location", {
       name
     });
 

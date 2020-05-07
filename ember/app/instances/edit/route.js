@@ -11,7 +11,7 @@ export default Route.extend({
   },
 
   async model({ instance_id: id, group }) {
-    let response = await this.ajax.request(`/api/v1/instances/${id}`, {
+    const response = await this.ajax.request(`/api/v1/instances/${id}`, {
       data: {
         group,
         include: "form,instance_state,location"
@@ -28,7 +28,7 @@ export default Route.extend({
       include: "attachment-sections"
     });
 
-    let {
+    const {
       data: { meta }
     } = response;
 
@@ -41,9 +41,9 @@ export default Route.extend({
   },
 
   async afterModel(model) {
-    let { forms, modules } = await this.questionStore.config;
+    const { forms, modules } = await this.questionStore.config;
 
-    let questions = [
+    const questions = [
       ...new Set(
         forms[model.instance.get("form.name")].reduce((qs, mod) => {
           return [...qs, ...modules[mod].questions];
@@ -51,10 +51,10 @@ export default Route.extend({
       )
     ];
 
-    let build = name =>
+    const build = name =>
       this.questionStore.buildQuestion(name, model.instance.id);
 
-    let questionObjects = await all(questions.map(await build));
+    const questionObjects = await all(questions.map(await build));
 
     this.questionStore._store.pushObjects(questionObjects);
   },
