@@ -33,9 +33,9 @@ feedback:
 documents:
   confirm: "Hiermit bestätige ich, dass ich {count, plural, =1 {den folgenden Pflichtinhalt} other {die folgenden # Pflichtinhalte}} hochgeladen habe:"
   buckets:
-    dokument-grundstucksangaben: "Grundstücksangaben"
-    dokument-gutachten-nachweise-begrundungen: "Gutachten, Nachweise, Begründungen"
-    dokument-projektplane-projektbeschrieb: "Projektpläne und Projektbeschrieb"
+    dokument-grundstucksangaben: "Grundstücksangaben und Projektbeschrieb"
+    dokument-gutachten-nachweise-begrundungen: "Gutachten, Nachweise, Begründungen, Ausnahmebegehren"
+    dokument-projektplane-projektbeschrieb: "Projektpläne"
     dokument-weitere-gesuchsunterlagen: "Weitere Gesuchsunterlagen"
 
     descriptions:
@@ -43,22 +43,24 @@ documents:
       pdf-Dokumente hochzuladen. Der Dateiname soll kurz und aussagekräftig
       sein. Lassen Sie Projektnummern resp. -bezeichnungen, welche Sie für
       Ihre interne Dokumentablage benötigen, bitte weg.\n\n\n"
-      dokument-grundstucksangaben: "Unter den Begriff *Grundstücksangaben*
-      fallen Gesuchsunterlagen wie z. B. Katasterplan, Grundbuchauszug,
-      Dienstbarkeiten."
+      dokument-grundstucksangaben: "Unter die Begriffe *Grundstücksangaben
+      und Projektbeschrieb* fallen Gesuchsunterlagen wie z. B. Katasterplan
+      (z. B. ÖREB-Kataster), Grundbuchauszug, Dienstbarkeiten,
+      Projektbeschrieb."
       dokument-gutachten-nachweise-begrundungen: "Unter die Begriffe
-      *Gutachten, Nachweise, Begründungen* fallen Gesuchsunterlagen wie z. B.
-      Vollmachten, Einverständnis Nachbarn, Nutzungsberechnungen,
-      energetische Nachweise, Lärmschutznachweise, Brandschutznachweise,
-      Durchflussnachweise."
-      dokument-projektplane-projektbeschrieb: "Unter die Begriffe
-      *Projektpläne und Projektbeschrieb* fallen Gesuchsunterlagen wie z. B.
-      Situationspläne, Grundrisse, Schnitt- und Fassadenpläne,
-      Kanalisationspläne, Siedlungsentwässerungspläne, Umgebungspläne,
-      Projektbeschrieb, Planverzeichnis."
+      *Gutachten, Nachweise, Begründungen, Ausnahmebegehren* fallen
+      Gesuchsunterlagen wie z. B. Vollmachten, Einverständnis Nachbarn,
+      Nutzungsberechnungen, Energietechnische Massnahmennachweis (EMN),
+      Lärmschutznachweise, Brandschutznachweise."
+      dokument-projektplane-projektbeschrieb: "Unter den Begriff
+      *Projektpläne* fallen Gesuchsunterlagen wie z. B. Situationsplan (Art.
+      12 und 13 BewD), Projektpläne (Art. 14 BewD) wie Grundrisse, Schnitt-
+      und Fassadenpläne, Umgebungsgestaltungspläne, Kanalisationspläne,
+      Siedlungsentwässerungspläne."
       dokument-weitere-gesuchsunterlagen: "Unter den Begriff *Weitere
-      Gesuchsunterlagen* fallen Gesuchsunterlagen wie z. B. Anschlussgesuch
-      Elektrizitätswerk, Anschlussgesuch Gas, Anschlussgesuch Wasser, andere
+      Gesuchsunterlagen* fallen Dokumentunterlagen wie z. B. Formulare -
+      Anschluss Elektrizität, Anschluss Gemeinschaftsantenne, Anschluss Gas,
+      Anschluss Wasser, Wasser- / Abwasserinstallationen und andere
       Gesuchsunterlagen."
 
   download: "Datei herunterladen"
@@ -66,8 +68,6 @@ documents:
   drag: "Ziehen Sie eine Datei in diesen Bereich oder"
   click: "drücken sie hier um eine Datei hochzuladen"
 
-  noTags: "Keine Inhalte"
-  showTags: "Inhalte anzeigen"
   date: "Hochgeladen am {date} um {time}"
 
   wrongMimeType: "Dieser Dateityp ist nicht erlaubt. Erlaubte Dateitypen sind PDF, PNG und JPEG."
