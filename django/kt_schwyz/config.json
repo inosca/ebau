@@ -3061,6 +3061,54 @@
   },
   {
     "fields": {
+      "form": 17,
+      "form_group": 1
+    },
+    "model": "core.formgroupform",
+    "pk": 12
+  },
+  {
+    "fields": {
+      "form": 13,
+      "form_group": 1
+    },
+    "model": "core.formgroupform",
+    "pk": 13
+  },
+  {
+    "fields": {
+      "form": 14,
+      "form_group": 1
+    },
+    "model": "core.formgroupform",
+    "pk": 14
+  },
+  {
+    "fields": {
+      "form": 15,
+      "form_group": 1
+    },
+    "model": "core.formgroupform",
+    "pk": 15
+  },
+  {
+    "fields": {
+      "form": 16,
+      "form_group": 1
+    },
+    "model": "core.formgroupform",
+    "pk": 16
+  },
+  {
+    "fields": {
+      "form": 12,
+      "form_group": 1
+    },
+    "model": "core.formgroupform",
+    "pk": 17
+  },
+  {
+    "fields": {
       "group": 1,
       "permission_id": "menu_account"
     },
@@ -10097,6 +10145,138 @@
   },
   {
     "fields": {
+      "form": 12,
+      "page": 2,
+      "page_form_group": 1,
+      "page_form_mode": 1,
+      "sort": 0
+    },
+    "model": "core.pageform",
+    "pk": 26
+  },
+  {
+    "fields": {
+      "form": 12,
+      "page": 1,
+      "page_form_group": 1,
+      "page_form_mode": 1,
+      "sort": 1
+    },
+    "model": "core.pageform",
+    "pk": 27
+  },
+  {
+    "fields": {
+      "form": 13,
+      "page": 2,
+      "page_form_group": 1,
+      "page_form_mode": 1,
+      "sort": 0
+    },
+    "model": "core.pageform",
+    "pk": 28
+  },
+  {
+    "fields": {
+      "form": 13,
+      "page": 1,
+      "page_form_group": 1,
+      "page_form_mode": 1,
+      "sort": 1
+    },
+    "model": "core.pageform",
+    "pk": 29
+  },
+  {
+    "fields": {
+      "form": 14,
+      "page": 2,
+      "page_form_group": 1,
+      "page_form_mode": 1,
+      "sort": 0
+    },
+    "model": "core.pageform",
+    "pk": 30
+  },
+  {
+    "fields": {
+      "form": 14,
+      "page": 1,
+      "page_form_group": 1,
+      "page_form_mode": 1,
+      "sort": 1
+    },
+    "model": "core.pageform",
+    "pk": 31
+  },
+  {
+    "fields": {
+      "form": 15,
+      "page": 2,
+      "page_form_group": 1,
+      "page_form_mode": 1,
+      "sort": 0
+    },
+    "model": "core.pageform",
+    "pk": 32
+  },
+  {
+    "fields": {
+      "form": 15,
+      "page": 1,
+      "page_form_group": 1,
+      "page_form_mode": 1,
+      "sort": 1
+    },
+    "model": "core.pageform",
+    "pk": 33
+  },
+  {
+    "fields": {
+      "form": 16,
+      "page": 2,
+      "page_form_group": 1,
+      "page_form_mode": 1,
+      "sort": 0
+    },
+    "model": "core.pageform",
+    "pk": 34
+  },
+  {
+    "fields": {
+      "form": 16,
+      "page": 1,
+      "page_form_group": 1,
+      "page_form_mode": 1,
+      "sort": 1
+    },
+    "model": "core.pageform",
+    "pk": 35
+  },
+  {
+    "fields": {
+      "form": 17,
+      "page": 2,
+      "page_form_group": 1,
+      "page_form_mode": 1,
+      "sort": 0
+    },
+    "model": "core.pageform",
+    "pk": 36
+  },
+  {
+    "fields": {
+      "form": 17,
+      "page": 1,
+      "page_form_group": 1,
+      "page_form_mode": 1,
+      "sort": 1
+    },
+    "model": "core.pageform",
+    "pk": 37
+  },
+  {
+    "fields": {
       "name": "default"
     },
     "model": "core.pageformgroup",
@@ -12670,6 +12850,60 @@
     },
     "model": "instance.form",
     "pk": 11
+  },
+  {
+    "fields": {
+      "description": "Vorabkl\u00e4rung",
+      "form_state": 1,
+      "name": "vorabklarung-v2"
+    },
+    "model": "instance.form",
+    "pk": 12
+  },
+  {
+    "fields": {
+      "description": "Baumeldung f\u00fcr geringf\u00fcgiges Vorhaben",
+      "form_state": 1,
+      "name": "baumeldung-fur-geringfugiges-vorhaben-v2"
+    },
+    "model": "instance.form",
+    "pk": 13
+  },
+  {
+    "fields": {
+      "description": "Konzession f\u00fcr Wasserentnahme",
+      "form_state": 1,
+      "name": "konzession-fur-wasserentnahme-v2"
+    },
+    "model": "instance.form",
+    "pk": 14
+  },
+  {
+    "fields": {
+      "description": "Plangenehmigungsgesuch",
+      "form_state": 1,
+      "name": "plangenehmigungsgesuch-v2"
+    },
+    "model": "instance.form",
+    "pk": 15
+  },
+  {
+    "fields": {
+      "description": "Projektgenehmigungsgesuch gem\u00e4ss \u00a7 15 StraG",
+      "form_state": 1,
+      "name": "projektgenehmigungsgesuch-gemass-ss15-strag-v2"
+    },
+    "model": "instance.form",
+    "pk": 16
+  },
+  {
+    "fields": {
+      "description": "Anlassbewilligungen / Verkehrsbewilligungen",
+      "form_state": 1,
+      "name": "anlassbewilligungen-verkehrsbewilligungen-v2"
+    },
+    "model": "instance.form",
+    "pk": 17
   },
   {
     "fields": {
