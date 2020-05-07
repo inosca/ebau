@@ -121,8 +121,8 @@ module.exports = function(environment) {
       "Amt für Wasserbau",
       "Tiefbauamt des Kantons Schwyz",
       "Kantonspolizei Schwyz",
-      "Energiefachstelle",
-      "OEV",
+      "Eidg. Starkstrominspektorat",
+      "Amt für öffentlichen Verkehr",
       "Amt für Raumentwicklung"
     ];
   }
@@ -183,7 +183,10 @@ module.exports = function(environment) {
       "Wollerau",
       "Amt für Wasserbau",
       "Tiefbauamt des Kantons Schwyz",
-      "Kantonspolizei Schwyz"
+      "Kantonspolizei Schwyz",
+      "Eidg. Starkstrominspektorat",
+      "Amt für öffentlichen Verkehr",
+      "Amt für Raumentwicklung"
     ];
   }
 
@@ -205,7 +208,10 @@ module.exports = function(environment) {
       "Steinerberg",
       "Amt für Wasserbau",
       "Tiefbauamt des Kantons Schwyz",
-      "Kantonspolizei Schwyz"
+      "Kantonspolizei Schwyz",
+      "Eidg. Starkstrominspektorat",
+      "Amt für öffentlichen Verkehr",
+      "Amt für Raumentwicklung"
     ];
 
     ENV.APP.gisHost = "map.geo.sz.ch";
