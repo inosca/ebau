@@ -5,8 +5,8 @@
   />
 
   {{#if @disabled}}
-    <div class="uk-placeholder uk-margin-remove-bottom uk-padding-medium">
-      <p class="uk-text-center uk-margin-remove-bottom">{{t (concat "documents.buckets." this.slug)}}</p>
+    <div class="uk-placeholder uk-margin-remove uk-padding-medium">
+      <p class="uk-text-center uk-margin-left uk-margin-right uk-margin-remove-bottom">{{t (concat "documents.buckets." this.slug)}}</p>
 
       {{#if (or @loading @attachments.length)}}
         <div class="uk-margin uk-width-1-1">
@@ -20,8 +20,8 @@
     </div>
   {{else}}
     <FileDropzone @name={{this.slug}} as |dropzone|>
-      <div class="uk-placeholder uk-margin-remove-bottom uk-text-center uk-padding-medium uk-flex uk-flex-middle uk-flex-center uk-flex-column {{if dropzone.active "uk-box-shadow-medium"}}">
-        <p>{{t (concat "documents.buckets." this.slug)}}</p>
+      <div class="uk-placeholder uk-margin-remove uk-text-center uk-padding-medium uk-flex uk-flex-middle uk-flex-center uk-flex-column {{if dropzone.active "uk-box-shadow-medium"}}">
+        <p class="uk-margin-right uk-margin-left">{{t (concat "documents.buckets." this.slug)}}</p>
         <UkIcon @icon="cloud-upload" @ratio={{3}} class="uk-margin-bottom" />
         <div class="uk-text-small uk-text-muted">
           {{#if dropzone.supported}}{{t "documents.drag"}}{{/if}}
