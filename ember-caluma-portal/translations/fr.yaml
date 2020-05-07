@@ -31,19 +31,42 @@ feedback:
   info: "Vous n'avez pas de commentaires pour le moment. Dès que le dossier aura été soumis, les réactions éventuelles de l'autorité chef de file ou des agences spécialisées seront affichées ici."
 
 documents:
-  confirm: ""
+  confirm: "Je confirme par la présente que j'ai téléchargé {count, plural, =1 {le contenu obligatoire} other {les # contenus obligatoires}} suivants."
   buckets:
-    dokument-grundstucksangaben: ""
-    dokument-gutachten-nachweise-begrundungen: ""
-    dokument-projektplane-projektbeschrieb: ""
-    dokument-weitere-gesuchsunterlagen: ""
+    dokument-grundstucksangaben: "Indications relatives à l'immeuble et description du projet"
+    dokument-gutachten-nachweise-begrundungen: "Expertises, preuves, justifications, demande de dérogation"
+    dokument-projektplane-projektbeschrieb: "Plans du projet"
+    dokument-weitere-gesuchsunterlagen: "Autres documents de la demande"
 
     descriptions:
-      prefix: ""
-      dokument-grundstucksangaben: ""
-      dokument-gutachten-nachweise-begrundungen: ""
-      dokument-projektplane-projektbeschrieb: ""
-      dokument-weitere-gesuchsunterlagen: ""
+      prefix: "## Informations complémentaires\n Les documents doivent être
+      téléchargés sous forme de documents pdf. Le nom du fichier doit être
+      court et significatif. Veuillez omettre les numéros ou noms de projets
+      dont vous avez besoin pour le classement de vos documents
+      internes.\n\n\n"
+      dokument-grundstucksangaben: "Les termes *indications relatives à
+      l'immeuble et description du projet* comprennent les documents de
+      demande tels que le plan cadastral (par exemple, le cadastre RDPPF),
+      l'extrait du registre foncier, les servitudes, la description du
+      projet."
+      dokument-gutachten-nachweise-begrundungen: " Les termes *expertises,
+      preuves, justifications et demande de dérogation* comprennent les
+      documents de demande tels que les procurations, le consentement du
+      voisin, les calculs d'utilisation, les justificatifs énergétiques,
+      l'expertise acoustique, la déclaration de conformité en protection
+      incendie."
+      dokument-projektplane-projektbeschrieb: "Le terme *plans du projet*
+      comprend les documents de demande tels que le plan de situation (art.
+      12 et 13 DPC), les plans du projet (art. 14 DPC) tels que les plans
+      d'étage, les plans des coupes et des façades, les plans d'aménagement
+      des abords, les plans des canalisations, les plans d'évacuation des
+      eaux urbaines."
+      dokument-weitere-gesuchsunterlagen: "Le terme *autres documents de la
+      demande* comprend les documents de demande tels que les formulaires -
+      raccordement au réseau électrique, raccordement au téléréseau,
+      raccordement au réseau de gaz, raccordement au réseau d'eau,
+      installations d'eau et d'eaux usées et des autres pièces de la
+      demande."
 
   download: "Télécharger le fichier"
 
