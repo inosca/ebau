@@ -29,7 +29,13 @@ def get_baukontrolle(instance, active_service):
         language="de", service=defining_leitbehoerde, service__disabled=0
     )
     city = service_t.name.replace("Leitbehörde ", "")
-    return ServiceT.objects.get(language="de", name=f"Baukontrolle {city}").service
+    return (
+        ServiceT.objects.filter(
+            language="de", name=f"Baukontrolle {city}", service__disabled=False
+        )
+        .first()
+        .service
+    )
 
 
 def set_baukontrolle(instance):
