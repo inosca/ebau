@@ -1,11 +1,10 @@
 import Application from "@ember/application";
 import { run } from "@ember/runloop";
-
 import { initialize } from "citizen-portal/initializers/promise";
 import { module, test } from "qunit";
-import destroyApp from "../../helpers/destroy-app";
-
 import { Promise } from "rsvp";
+
+import destroyApp from "../../helpers/destroy-app";
 
 module("Unit | Initializer | promise", function(hooks) {
   hooks.beforeEach(function() {

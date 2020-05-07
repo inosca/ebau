@@ -1,14 +1,14 @@
-import { module, test } from "qunit";
-import { setupTest } from "ember-qunit";
-import setupMirage from "ember-cli-mirage/test-support/setup-mirage";
 import loadQuestions from "citizen-portal/tests/helpers/load-questions";
+import { setupMirage } from "ember-cli-mirage/test-support";
+import { setupTest } from "ember-qunit";
+import { module, test } from "qunit";
 
 module("Unit | Controller | instances/edit/submit", function(hooks) {
   setupTest(hooks);
   setupMirage(hooks);
 
   hooks.beforeEach(async function() {
-    let form = this.server.create("form", { name: "test" });
+    const form = this.server.create("form", { name: "test" });
 
     this.instance = this.server.create("instance", {
       formId: form.id
@@ -52,16 +52,16 @@ module("Unit | Controller | instances/edit/submit", function(hooks) {
   test("it computes if the instance can be submitted", async function(assert) {
     assert.expect(2);
 
-    let editController = this.owner.lookup("controller:instances/edit");
-    let controller = this.owner.lookup("controller:instances/edit/submit");
-    let store = this.owner.lookup("service:question-store");
+    const editController = this.owner.lookup("controller:instances/edit");
+    const controller = this.owner.lookup("controller:instances/edit/submit");
+    const store = this.owner.lookup("service:question-store");
 
     editController.setProperties({ model: this.model, router: this.router });
     controller.setProperties({ model: this.model, router: this.router });
 
-    let q1 = await store.peek("question-1", this.instance.id);
-    let q2 = await store.peek("question-2", this.instance.id);
-    let q3 = await store.peek("question-3", this.instance.id);
+    const q1 = await store.peek("question-1", this.instance.id);
+    const q2 = await store.peek("question-2", this.instance.id);
+    const q3 = await store.peek("question-3", this.instance.id);
 
     await editController.get("modules").perform();
 

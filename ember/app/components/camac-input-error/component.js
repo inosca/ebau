@@ -1,5 +1,5 @@
-import Component from "@ember/component";
 import { A } from "@ember/array";
+import Component from "@ember/component";
 
 const CamacInputErrorComponent = Component.extend({
   error: A()

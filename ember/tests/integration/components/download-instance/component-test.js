@@ -1,7 +1,7 @@
-import { module, test } from "qunit";
-import { setupRenderingTest } from "ember-qunit";
 import { render } from "@ember/test-helpers";
+import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
+import { module, test } from "qunit";
 
 module("Integration | Component | download-instance", function(hooks) {
   setupRenderingTest(hooks);
@@ -12,6 +12,6 @@ module("Integration | Component | download-instance", function(hooks) {
 
     await render(hbs`{{download-instance}}`);
 
-    assert.equal(this.element.textContent.trim(), "PDF Generieren");
+    assert.dom(this.element).hasText("PDF Generieren");
   });
 });

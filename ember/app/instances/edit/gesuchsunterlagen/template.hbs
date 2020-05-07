@@ -1,119 +1,225 @@
-{{#camac-form instance=model.instance meta=model.meta as |form|}}
-  {{form.input 'info-vorhaben-mit-baute'}}
-  {{form.input 'info-pfahlfundation-vorgesehen'}}
-  {{form.input 'info-baugrubenumschliessung-vorgesehen'}}
-  {{form.input 'info-anlagen-mit-erheblichen-larmemissionen'}}
-  {{form.input 'info-bodenbelastungen'}}
-  {{form.input 'info-200m3-bauabfalle'}}
-  {{form.input 'info-landwirtschaft-veranderung-tierbestand'}}
-  {{form.input 'info-landwirtschaft-grundriss-stall'}}
-  {{form.input 'info-nlbuaab'}}
-  {{form.input 'info-nlbuaab-anlage'}}
-  {{form.input 'info-nlbuaab-nutzflache-berechnungsschema'}}
-  {{form.input 'info-nlbuaab-nutzflache-fotos'}}
-  {{form.input 'info-art-der-warmepumpe'}}
-  {{form.input 'info-larmbelastetes-gebiet'}}
-  {{form.input 'info-umweltschutz-abfallbehandlungsanlage'}}
-  {{form.input 'info-boden-5000m2'}}
-  {{form.input 'info-aussenbeleuchtung'}}
-  {{form.input 'info-wald-forstlich' class="wrap-text"}}
-  {{form.input 'info-wald-auswirkungen' class="wrap-text"}}
-  {{form.input 'info-wald-auswirkungen-roden'}}
-  {{form.input 'info-energie-dachaufstellung'}}
-  {{form.input 'info-arbeitssicherheit-sicherheitsdatenblatter'}}
-  {{form.input 'info-zivilschutz-elementarschaden'}}
-  {{form.input 'info-brandschutz-gefahrengut'}}
-  {{form.input 'info-liegenschaftsentwasserung' class="wrap-text"}}
-  {{form.input 'info-liegenschaftsentwasserung-wassergefahrdende-stoffe-ja' class="wrap-text"}}
-  {{form.input 'info-liegenschaftsentwasserung-wassergefahrdende-stoffe-nein' class="wrap-text"}}
-  {{form.input 'info-liegenschaftsentwasserung-ausserhalb-bauzone' class="wrap-text"}}
-  {{form.input 'info-gewasserschutz'}}
-  {{form.input 'info-grundwasser-warmeentnahme-art-sonden'}}
-  {{form.input 'info-grundwasser-warmeentnahme-art-pfahle'}}
-  {{form.input 'info-grundwasser-warmeentnahme-art-kollektoren'}}
-  {{form.input 'info-sondierbohrung'}}
-  {{form.input 'info-grundwasser-sondierbohrung-zweck'}}
-  {{form.input 'info-belastete-standorte'}}
-  {{form.input 'info-invasive-neophyten'}}
-  {{form.input 'info-reklamen-fassade'}}
-  {{form.input 'info-reklamen-frei'}}
-  {{form.input 'info-natur-landschaftschutz'}}
-  {{form.input 'info-av-art-wald'}}
-  {{form.input 'info-av-art-anlass'}}
-  {{form.input 'info-av-art-verkehr'}}
-  {{form.input 'info-bm-solaranlage'}}
-  {{form.input 'info-projektanderung'}}
-  {{form.input 'info-plangenehmigung'}}
-  {{form.input 'info-projektgenehmigung'}}
-  {{form.input 'info-technische-bewilligung'}}
-  {{form.input 'info-vorabklarung'}}
-  {{form.input 'info-vorentscheid'}}
+<CamacForm @instance={{@model.instance}} @meta={{@model.meta}} as |form|>
+  <form.input @identifier="info-vorhaben-mit-baute"/>
+  <form.input @identifier="info-pfahlfundation-vorgesehen"/>
+  <form.input @identifier="info-baugrubenumschliessung-vorgesehen"/>
+  <form.input @identifier="info-anlagen-mit-erheblichen-larmemissionen"/>
+  <form.input @identifier="info-bodenbelastungen"/>
+  <form.input @identifier="info-200m3-bauabfalle"/>
+  <form.input @identifier="info-landwirtschaft-veranderung-tierbestand"/>
+  <form.input @identifier="info-landwirtschaft-grundriss-stall"/>
+  <form.input @identifier="info-nlbuaab"/>
+  <form.input @identifier="info-nlbuaab-anlage"/>
+  <form.input @identifier="info-nlbuaab-nutzflache-berechnungsschema"/>
+  <form.input @identifier="info-nlbuaab-nutzflache-fotos"/>
+  <form.input @identifier="info-art-der-warmepumpe"/>
+  <form.input @identifier="info-larmbelastetes-gebiet"/>
+  <form.input @identifier="info-umweltschutz-abfallbehandlungsanlage"/>
+  <form.input @identifier="info-boden-5000m2"/>
+  <form.input @identifier="info-aussenbeleuchtung"/>
+  <form.input @identifier="info-wald-forstlich" class="wrap-text"/>
+  <form.input @identifier="info-wald-auswirkungen" class="wrap-text"/>
+  <form.input @identifier="info-wald-auswirkungen-roden"/>
+  <form.input @identifier="info-energie-dachaufstellung"/>
+  <form.input @identifier="info-arbeitssicherheit-sicherheitsdatenblatter"/>
+  <form.input @identifier="info-zivilschutz-elementarschaden"/>
+  <form.input @identifier="info-brandschutz-gefahrengut"/>
+  <form.input @identifier="info-liegenschaftsentwasserung" class="wrap-text"/>
+  <form.input @identifier="info-liegenschaftsentwasserung-wassergefahrdende-stoffe-ja" class="wrap-text"/>
+  <form.input @identifier="info-liegenschaftsentwasserung-wassergefahrdende-stoffe-nein" class="wrap-text"/>
+  <form.input @identifier="info-liegenschaftsentwasserung-ausserhalb-bauzone" class="wrap-text"/>
+  <form.input @identifier="info-gewasserschutz"/>
+  <form.input @identifier="info-grundwasser-warmeentnahme-art-sonden"/>
+  <form.input @identifier="info-grundwasser-warmeentnahme-art-pfahle"/>
+  <form.input @identifier="info-grundwasser-warmeentnahme-art-kollektoren"/>
+  <form.input @identifier="info-sondierbohrung"/>
+  <form.input @identifier="info-grundwasser-sondierbohrung-zweck"/>
+  <form.input @identifier="info-belastete-standorte"/>
+  <form.input @identifier="info-invasive-neophyten"/>
+  <form.input @identifier="info-reklamen-fassade"/>
+  <form.input @identifier="info-reklamen-frei"/>
+  <form.input @identifier="info-natur-landschaftschutz"/>
+  <form.input @identifier="info-av-art-wald"/>
+  <form.input @identifier="info-av-art-anlass"/>
+  <form.input @identifier="info-av-art-verkehr"/>
+  <form.input @identifier="info-bm-solaranlage"/>
+  <form.input @identifier="info-projektanderung"/>
+  <form.input @identifier="info-plangenehmigung"/>
+  <form.input @identifier="info-projektgenehmigung"/>
+  <form.input @identifier="info-technische-bewilligung"/>
+  <form.input @identifier="info-vorabklarung"/>
+  <form.input @identifier="info-vorentscheid"/>
   <div uk-grid class="uk-child-width-1-1 uk-child-width-1-2@m">
-    {{form.document 'dokument-grundstucksangaben' group=params.group}}
-    {{form.document 'dokument-gutachten-nachweise-begrundungen' group=params.group}}
-    {{form.document 'dokument-projektplane-projektbeschrieb' group=params.group}}
-    {{form.document 'dokument-weitere-gesuchsunterlagen' group=params.group}}
+    <form.document @identifier="dokument-grundstucksangaben" group={{this.params.group}}/>
+    <form.document @identifier="dokument-gutachten-nachweise-begrundungen" group={{this.params.group}}/>
+    <form.document @identifier="dokument-projektplane-projektbeschrieb" group={{this.params.group}}/>
+    <form.document @identifier="dokument-weitere-gesuchsunterlagen" group={{this.params.group}}/>
   </div>
-{{/camac-form}}
+</CamacForm>
 
-{{uk-button label="Informationen zu Gesuchsunterlagen" on-click=(action (queue (action (mut visible) false) (action (mut visible) true)))}}
+<UkButton
+  @label="Informationen zu Gesuchsunterlagen"
+  @on-click={{action
+    (queue (action (mut visible) false) (action (mut visible) true))
+  }}
+/>
 
-{{#uk-modal visible=visible on-hide=(action (mut visible) false) as |modal|}}
-  {{#modal.header}}
-    <h2 class="uk-modal-title">Informationen zu Gesuchsunterlagen</h2>
-  {{/modal.header}}
+<UkModal
+  @visible={{visible}}
+  @on-hide={{action (mut visible) false}} as |modal|
+>
+  <modal.header>
+    <h2 class="uk-modal-title">
+      Informationen zu Gesuchsunterlagen
+    </h2>
+  </modal.header>
   <div class="uk-modal-body" uk-overflow-auto>
     <ul>
-      <li>Die Unterlagen sind als pdf-Dokumente hochzuladen.</li>
-      <li>Der Dateiname soll folgende Struktur entsprechen: <span class="uk-text-bolder">Titel_Datum.pdf</span></li>
-      <li>Zusätzliche Informationen können über die Infobuttons der 4 Dokumentenkategorien bezogen werden.</li>
+      <li>
+        Die Unterlagen sind als pdf-Dokumente hochzuladen.
+      </li>
+      <li>
+        Der Dateiname soll folgende Struktur entsprechen:
+        <span class="uk-text-bolder">
+          Titel_Datum.pdf
+        </span>
+      </li>
+      <li>
+        Zusätzliche Informationen können über die Infobuttons der 4 Dokumentenkategorien bezogen werden.
+      </li>
     </ul>
-    <h3 class="uk-margin-small-top uk-margin-small-bottom">Titel Vorschläge</h3>
-    <h4 class="uk-margin-remove-top">Grundstücksangaben</h4>
+    <h3 class="uk-margin-small-top uk-margin-small-bottom">
+      Titel Vorschläge
+    </h3>
+    <h4 class="uk-margin-remove-top">
+      Grundstücksangaben
+    </h4>
     <ul>
-      <li>Dienstbarkeitsvertrag</li>
-      <li>Grundbuchauszug</li>
-      <li>Katasterplan</li>
+      <li>
+        Dienstbarkeitsvertrag
+      </li>
+      <li>
+        Grundbuchauszug
+      </li>
+      <li>
+        Katasterplan
+      </li>
     </ul>
-    <h4 class="uk-margin-remove-top">Projektpläne und Projektbeschrieb</h4>
+    <h4 class="uk-margin-remove-top">
+      Projektpläne und Projektbeschrieb
+    </h4>
     <ul>
-      <li>Ansichten</li>
-      <li>Attikageschoss</li>
-      <li>Dachaufsicht</li>
-      <li>Dachgeschoss</li>
-      <li>Detailplan</li>
-      <li>Erdgeschoss</li>
-      <li>Farb-_und_Materialkonzept</li>
-      <li>Fassaden</li>
-      <li>Grundrisse</li>
-      <li>Kanalisationsplan</li>
-      <li>Obergeschoss</li>
-      <li>Pfählungsplan</li>
-      <li>Fotomontage</li>
-      <li>Projektbeschrieb</li>
-      <li>Projektplan</li>
-      <li>Querprofile</li>
-      <li>Schnitte</li>
-      <li>Situation</li>
-      <li>Situation_Sondenstandorte</li>
-      <li>Untergeschoss</li>
+      <li>
+        Ansichten
+      </li>
+      <li>
+        Attikageschoss
+      </li>
+      <li>
+        Dachaufsicht
+      </li>
+      <li>
+        Dachgeschoss
+      </li>
+      <li>
+        Detailplan
+      </li>
+      <li>
+        Erdgeschoss
+      </li>
+      <li>
+        Farb-_und_Materialkonzept
+      </li>
+      <li>
+        Fassaden
+      </li>
+      <li>
+        Grundrisse
+      </li>
+      <li>
+        Kanalisationsplan
+      </li>
+      <li>
+        Obergeschoss
+      </li>
+      <li>
+        Pfählungsplan
+      </li>
+      <li>
+        Fotomontage
+      </li>
+      <li>
+        Projektbeschrieb
+      </li>
+      <li>
+        Projektplan
+      </li>
+      <li>
+        Querprofile
+      </li>
+      <li>
+        Schnitte
+      </li>
+      <li>
+        Situation
+      </li>
+      <li>
+        Situation_Sondenstandorte
+      </li>
+      <li>
+        Untergeschoss
+      </li>
     </ul>
-    <h4 class="uk-margin-remove-top">Gutachten, Nachweise, Begründungen</h4>
+    <h4 class="uk-margin-remove-top">
+      Gutachten, Nachweise, Begründungen
+    </h4>
     <ul>
-      <li>Ausnahme_Unterschreitung</li>
-      <li>AZ-Berechnung</li>
-      <li>Geologischer_Bericht</li>
-      <li>Kubische_Berechnungen</li>
-      <li>Lärmschutznachweis</li>
-      <li>Parkplatzberechnung</li>
-      <li>Technische_Angaben_Heizung</li>
-      <li>Technischer_Bericht</li>
+      <li>
+        Ausnahme_Unterschreitung
+      </li>
+      <li>
+        AZ-Berechnung
+      </li>
+      <li>
+        Geologischer_Bericht
+      </li>
+      <li>
+        Kubische_Berechnungen
+      </li>
+      <li>
+        Lärmschutznachweis
+      </li>
+      <li>
+        Parkplatzberechnung
+      </li>
+      <li>
+        Technische_Angaben_Heizung
+      </li>
+      <li>
+        Technischer_Bericht
+      </li>
     </ul>
-    <h4 class="uk-margin-remove-top">Weitere Gesuchsunterlagen</h4>
-    <p>Keine Vorgaben</p>
+    <h4 class="uk-margin-remove-top">
+      Weitere Gesuchsunterlagen
+    </h4>
+    <p>
+      Keine Vorgaben
+    </p>
   </div>
-  {{#modal.footer class="uk-text-right"}}
-    <label class="uk-margin-small-right">{{input type="checkbox" checked=hideDocumentInfo class="uk-checkbox"}} Dieses Fenster nicht mehr Anzeigen</label>
-    {{uk-button color="primary" label="Schliessen" on-click=(action (queue (action (mut visible) false) (action "hideModal")))}}
-  {{/modal.footer}}
-{{/uk-modal}}
+  <modal.footer class="uk-text-right">
+    <label class="uk-margin-small-right">
+      <Input
+        @type="checkbox"
+        @checked={{hideDocumentInfo}}
+        class="uk-checkbox"
+      />
+      Dieses Fenster nicht mehr Anzeigen
+    </label>
+    <UkButton
+      @color="primary"
+      @label="Schliessen"
+      @on-click={{action
+        (queue (action (mut visible) false) (action "hideModal"))
+      }}
+    />
+  </modal.footer>
+</UkModal>

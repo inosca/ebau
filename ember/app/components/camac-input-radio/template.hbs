@@ -1,14 +1,14 @@
-{{#each config.options as |option index|}}
+{{#each config.options as |option|}}
   <label class="uk-form-label uk-margin-right">
     <input
       type="radio"
       class="uk-radio uk-margin-small-right"
       name={{elementId}}
       value={{option}}
-      disabled={{if readonly 'disabled'}}
-      checked={{eq option model.value}}
-      onchange={{action (optional on-change) option}}
-    >
+      disabled={{if @readonly "disabled"}}
+      checked={{eq option @model.value}}
+      onchange={{fn (optional @on-change) option}}
+    />
     {{option}}
   </label>
 {{/each}}

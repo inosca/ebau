@@ -1,5 +1,6 @@
-import config from "../config/environment";
 import { Response } from "ember-cli-mirage";
+
+import config from "../config/environment";
 
 const { tokenEndpoint, logoutEndpoint } = config["ember-simple-auth-oidc"];
 
@@ -12,7 +13,7 @@ export default function() {
   this.passthrough("https://map.geo.sz.ch/**");
 
   this.post(tokenEndpoint, () => {
-    let tokenBody = btoa(
+    const tokenBody = btoa(
       JSON.stringify({
         exp: Math.round(new Date().getTime() + (30 * 60 * 1000) / 1000)
       })

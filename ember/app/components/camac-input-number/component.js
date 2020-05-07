@@ -16,7 +16,7 @@ export default Component.extend({
 
   type: "number",
 
-  init() {
+  init(...args) {
     /**
      * If no step is set, decimal numbers are not allowed.
      * So if not a specific step is defined, fallback to 0.01,
@@ -25,7 +25,7 @@ export default Component.extend({
     if (!this.get("config.step")) {
       this.set("config.step", 0.01);
     }
-    this._super(...arguments);
+    this._super(...args);
   },
 
   change(e) {

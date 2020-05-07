@@ -1,4 +1,4 @@
-import { Factory, faker } from "ember-cli-mirage";
+import { Factory } from "ember-cli-mirage";
 
 const instanceStates = [
   {
@@ -44,8 +44,10 @@ const instanceStates = [
 ];
 
 export default Factory.extend({
-  name: faker.list.cycle(...instanceStates.map(({ name }) => name)),
-  description: faker.list.cycle(
-    ...instanceStates.map(({ description }) => description)
-  )
+  name(i) {
+    return [i % instanceStates.map(({ name }) => name)];
+  },
+  description(i) {
+    return [i % instanceStates.map(({ description }) => description)];
+  }
 });

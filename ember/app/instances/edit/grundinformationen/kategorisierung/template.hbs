@@ -1,48 +1,54 @@
-{{#camac-form instance=model.instance meta=model.meta as |form|}}
-  {{#form.input 'kategorie-des-vorhabens'}}
-    <h4>Kategorisierung des Vorhabens</h4>
-  {{/form.input}}
-  {{#form.input 'art-der-nutzung'}}
-    <h4>Vorgesehene Nutzung</h4>
-  {{/form.input}}
-  {{form.input 'vorhaben-mit-baute'}}
-  {{form.input 'vorhaben-mit-baute-bisherige-nutzung'}}
-  {{form.input 'vorhaben-mit-baute-geplante-nutzung'}}
-  {{form.input 'vorhaben-mit-anlage'}}
-  {{form.input 'vorhaben-mit-anlage-bisherige-nutzung'}}
-  {{form.input 'vorhaben-mit-anlage-geplante-nutzung'}}
-  {{form.input 'art-der-anlage'}}
-  {{form.input 'art-der-anlage-andere'}}
-  {{form.input 'art-der-befestigten-flache'}}
-  {{form.input 'art-der-befestigten-flache-andere'}}
-  {{form.input 'zweck-der-leitungen'}}
-  {{form.input 'zweck-der-leitungen-andere'}}
-  {{form.input 'art-der-warmepumpe'}}
-  {{#form.input 'ordendliche-mindestabstande'}}
-    <h4>Kategorisierung des Vorhabens</h4>
-  {{/form.input}}
-  {{form.input 'tangiert-vorhaben-strasse'}}
-  {{form.input 'anlagen-mit-erheblichen-schadstoffemissionen'}}
-  {{form.input 'anlagen-mit-erheblichen-schadstoffemissionen-welche'}}
-  {{form.input 'anlagen-mit-erheblichen-strahlungsemissionen'}}
-  {{form.input 'anlagen-mit-erheblichen-strahlungsemissionen-welche'}}
-  {{form.input 'anlagen-mit-erheblichen-larmemissionen'}}
-  {{form.input 'larmbelastetes-gebiet'}}
-  {{form.input 'aussenbeleuchtung'}}
-  {{form.input 'boden-5000m2'}}
-  {{form.input 'bodenbelastungen'}}
-  {{form.input 'lebensmittel-umgehen'}}
-  {{form.input 'trinkwasser-abgeben'}}
-  {{form.input 'offentlich-duschanlage-oder-bad'}}
-  {{form.input 'wassergefahrdende-stoffe'}}
-  {{form.input 'brandschutztechnisch-gefahrliche-stoffe'}}
-  {{form.input 'pfahlfundation-vorgesehen'}}
-  {{form.input 'baugrubenumschliessung-vorgesehen'}}
-  {{form.input '200m3-bauabfalle'}}
-  {{form.input 'temporare-grundwasserabsenkung-notig'}}
-  {{form.input 'gewerbliche-nutzflachen'}}
-  {{form.input 'gewerbliche-nutzflachen-grosse'}}
-  {{form.input 'alarmierungseinrichtung-tangiert'}}
-  {{form.input 'auswirkungen-auf-arbeitnehmer'}}
-  {{form.input 'hohe-der-anlage'}}
-{{/camac-form}}
+<CamacForm @instance={{@model.instance}} @meta={{@model.meta}} as |form|>
+  <form.input @identifier="kategorie-des-vorhabens">
+    <h4>
+      Kategorisierung des Vorhabens
+    </h4>
+  </form.input>
+  <form.input @identifier="art-der-nutzung">
+    <h4>
+      Vorgesehene Nutzung
+    </h4>
+  </form.input>
+  <form.input @identifier="vorhaben-mit-baute"/>
+  <form.input @identifier="vorhaben-mit-baute-bisherige-nutzung"/>
+  <form.input @identifier="vorhaben-mit-baute-geplante-nutzung"/>
+  <form.input @identifier="vorhaben-mit-anlage"/>
+  <form.input @identifier="vorhaben-mit-anlage-bisherige-nutzung"/>
+  <form.input @identifier="vorhaben-mit-anlage-geplante-nutzung"/>
+  <form.input @identifier="art-der-anlage"/>
+  <form.input @identifier="art-der-anlage-andere"/>
+  <form.input @identifier="art-der-befestigten-flache"/>
+  <form.input @identifier="art-der-befestigten-flache-andere"/>
+  <form.input @identifier="zweck-der-leitungen"/>
+  <form.input @identifier="zweck-der-leitungen-andere"/>
+  <form.input @identifier="art-der-warmepumpe"/>
+  <form.input @identifier="ordendliche-mindestabstande">
+    <h4>
+      Kategorisierung des Vorhabens
+    </h4>
+  </form.input>
+  <form.input @identifier="tangiert-vorhaben-strasse"/>
+  <form.input @identifier="anlagen-mit-erheblichen-schadstoffemissionen"/>
+  <form.input @identifier="anlagen-mit-erheblichen-schadstoffemissionen-welche"/>
+  <form.input @identifier="anlagen-mit-erheblichen-strahlungsemissionen"/>
+  <form.input @identifier="anlagen-mit-erheblichen-strahlungsemissionen-welche"/>
+  <form.input @identifier="anlagen-mit-erheblichen-larmemissionen"/>
+  <form.input @identifier="larmbelastetes-gebiet"/>
+  <form.input @identifier="aussenbeleuchtung"/>
+  <form.input @identifier="boden-5000m2"/>
+  <form.input @identifier="bodenbelastungen"/>
+  <form.input @identifier="lebensmittel-umgehen"/>
+  <form.input @identifier="trinkwasser-abgeben"/>
+  <form.input @identifier="offentlich-duschanlage-oder-bad"/>
+  <form.input @identifier="wassergefahrdende-stoffe"/>
+  <form.input @identifier="brandschutztechnisch-gefahrliche-stoffe"/>
+  <form.input @identifier="pfahlfundation-vorgesehen"/>
+  <form.input @identifier="baugrubenumschliessung-vorgesehen"/>
+  <form.input @identifier="200m3-bauabfalle"/>
+  <form.input @identifier="temporare-grundwasserabsenkung-notig"/>
+  <form.input @identifier="gewerbliche-nutzflachen"/>
+  <form.input @identifier="gewerbliche-nutzflachen-grosse"/>
+  <form.input @identifier="alarmierungseinrichtung-tangiert"/>
+  <form.input @identifier="auswirkungen-auf-arbeitnehmer"/>
+  <form.input @identifier="hohe-der-anlage"/>
+</CamacForm>

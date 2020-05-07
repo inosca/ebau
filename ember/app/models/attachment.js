@@ -1,6 +1,4 @@
-import Model from "ember-data/model";
-import attr from "ember-data/attr";
-import { belongsTo, hasMany } from "ember-data/relationships";
+import Model, { attr, belongsTo, hasMany } from "@ember-data/model";
 import { inject as service } from "@ember/service";
 import computedTask from "citizen-portal/lib/computed-task";
 import { task } from "ember-concurrency";
@@ -23,7 +21,7 @@ export default Model.extend({
       return;
     }
 
-    let response = yield fetch(`/api/v1/attachments/${this.id}/thumbnail`, {
+    const response = yield fetch(`/api/v1/attachments/${this.id}/thumbnail`, {
       headers: {
         Authorization: `Bearer ${this.get(
           "session.data.authenticated.access_token"
@@ -32,7 +30,7 @@ export default Model.extend({
     });
 
     return yield new Promise(resolve => {
-      let fr = new FileReader();
+      const fr = new FileReader();
 
       fr.onload = () => resolve(fr.result);
 

@@ -1,4 +1,4 @@
-import { Factory, faker } from "ember-cli-mirage";
+import { Factory } from "ember-cli-mirage";
 
 const forms = [
   { name: "baugesuch-reklamegesuch", description: "Baugesuch, Reklamegesuch" },
@@ -29,6 +29,10 @@ const forms = [
 ];
 
 export default Factory.extend({
-  name: faker.list.cycle(...forms.map(({ name }) => name)),
-  description: faker.list.cycle(...forms.map(({ description }) => description))
+  name(i) {
+    return [i % forms.map(({ name }) => name)];
+  },
+  description(i) {
+    return [i % forms.map(({ description }) => description)];
+  }
 });

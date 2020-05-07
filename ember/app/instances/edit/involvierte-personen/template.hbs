@@ -1,19 +1,32 @@
 <h2>Involvierte Personen</h2>
 
-<table class="uk-table uk-table-striped uk-margin-remove uk-table-small uk-table-responsive uk-table-middle">
+<table
+  class="uk-table uk-table-striped uk-margin-remove uk-table-small uk-table-responsive uk-table-middle"
+>
   <thead>
     <tr>
-      <th title="E-Mail">E-Mail</th>
+      <th title="E-Mail">
+        E-Mail
+      </th>
       <th></th>
     </tr>
   </thead>
   <tbody>
-    {{#each applicants as |row|}}
+    {{#each this.applicants as |row|}}
       <tr>
-        <td>{{get row "email"}}</td>
+        <td>
+          {{get row "email"}}
+        </td>
         <td class="uk-text-right">
-          {{#if (gt applicants.length 1)}}
-            <button type="button" title="Eintrag Löschen" data-test-delete-row class="uk-icon-button" uk-icon="trash" {{action (perform deleteRow) row}}></button>
+          {{#if (gt this.applicants.length 1)}}
+            <button
+              type="button"
+              title="Eintrag Löschen"
+              data-test-delete-row
+              class="uk-icon-button"
+              uk-icon="trash"
+              {{on "click" (fn (perform this.deleteRow) row)}}
+            ></button>
           {{/if}}
         </td>
       </tr>
@@ -22,7 +35,11 @@
   <tfoot>
     <tr>
       <td colspan="2" class="uk-text-center">
-        <div uk-toggle="target: #modal-applicants">{{#uk-button size='small' on-click=(perform addRow)}}{{uk-icon 'plus'}}{{/uk-button}}</div>
+        <div uk-toggle="target: #modal-applicants">
+          <UkButton @size="small" @on-click={{perform this.addRow}}>
+            <UkIcon @icon="plus"/>
+          </UkButton>
+        </div>
       </td>
     </tr>
   </tfoot>
@@ -30,27 +47,46 @@
 
 <div id="modal-applicants" uk-modal>
   <div class="uk-modal-dialog uk-modal-body">
-    <form {{action (perform saveRow) on='submit'}}>
-      <button type="button" class="uk-modal-close-default" uk-close></button>
+    <button type="button" class="uk-modal-close-default" uk-close></button>
 
-      <h2 class="uk-modal-title">Eintrag hinzufügen</h2>
+    <h2 class="uk-modal-title">
+      Eintrag hinzufügen
+    </h2>
 
-      <div class="uk-margin">
-        <label class="uk-form-label uk-text-bolder {{if (get this (concat '_value.error.' 'email')) 'uk-text-danger'}}">
-          E-Mail
-          <span class="uk-text-danger">*</span>
-        </label>
-        {{input type="email" on-change=(action 'change' 'email') value=(get _value 'email') class="uk-input"}}
-        {{#with (get this (concat '_value.error.' 'email')) as |error|}}
-          {{camac-input-error error.validation}}
-        {{/with}}
-      </div>
-      {{camac-input-error saveErrors}}
+    <div class="uk-margin">
+      <label
+        class="uk-form-label uk-text-bolder {{if (get this (concat "_value.error." "email")) "uk-text-danger"}}"
+      >
+        E-Mail
+        <span class="uk-text-danger">
+          *
+        </span>
+      </label>
+      <Input
+        @type="email"
+        @value={{get this._value "email"}}
+        {{on "change" (fn this.change "email")}}
+        class="uk-input"
+      />
+      {{#with (get this (concat "_value.error." "email")) as |error|}}
+        {{camac-input-error error.validation}}
+      {{/with}}
+    </div>
+    {{camac-input-error this.saveErrors}}
 
-      <div class="uk-text-right">
-        {{#uk-button class="uk-modal-close"}}Abbrechen{{/uk-button}}
-        {{#uk-button loading=saveRow.isRunning disabled=(not _value.isValid) color='primary' type='submit'}}Speichern{{/uk-button}}
-      </div>
-    </form>
+    <div class="uk-text-right">
+      <UkButton class="uk-modal-close">
+        Abbrechen
+      </UkButton>
+      <UkButton
+        @loading={{this.saveRow.isRunning}}
+        @disabled={{not this._value.isValid}}
+        @color="primary"
+        @type="button"
+        {{on "click" (perform this.saveRow)}}
+      >
+        Speichern
+      </UkButton>
+    </div>
   </div>
 </div>

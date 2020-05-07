@@ -1,22 +1,39 @@
-<div id={{question.name}} class="uk-card uk-card-default uk-card-hover uk-card-small uk-width-1-1 uk-margin-bottom">
+<div
+  id="{{this.question.name}}"
+  class="uk-card uk-card-default uk-card-hover uk-card-small uk-width-1-1 uk-margin-bottom"
+>
   <div class="uk-card-header uk-flex uk-flex-between">
     <span class="uk-text-bolder">
-      {{question.field.label}}{{#if question.field.required}} <span class="uk-text-danger">*</span>{{/if}}
+      {{this.question.field.label}}
+      {{#if this.question.field.required}}
+        <span class="uk-text-danger">
+          *
+        </span>
+      {{/if}}
     </span>
-    {{camac-hint-dialog question.field.hint}}
+    {{camac-hint-dialog this.question.field.hint}}
   </div>
   <div class="uk-card-body uk-text-small uk-padding-remove">
     <table class="uk-table uk-table-divider uk-table-small uk-table-middle">
       <tbody>
-        {{#each question.model as |doc|}}
+        {{#each this.question.model as |doc|}}
           <tr>
             <td class="uk-table-expand uk-text-truncate">
-              <span class="uk-link" title={{doc.name}}>{{doc.name}}</span>
-              {{#unless isEmbedded}}
-                <div uk-drop="pos: left-center; animation: uk-animation-slide-left-small" class="uk-height-small uk-width-small uk-box-shadow-large uk-z-index">
+              <span class="uk-link" title={{doc.name}}>
+                {{doc.name}}
+              </span>
+              {{#unless this.isEmbedded}}
+                <div
+                  uk-drop="pos: left-center; animation: uk-animation-slide-left-small"
+                  class="uk-height-small uk-width-small uk-box-shadow-large uk-z-index"
+                >
                   <div class="uk-width-1-1 uk-height-1-1 uk-cover-container">
                     {{#with doc.thumbnail.lastSuccessful.value as |thumbnail|}}
-                      <img uk-cover src={{thumbnail}} alt="Dokumentenvorschau">
+                      <img
+                        uk-cover
+                        src={{thumbnail}}
+                        alt="Dokumentenvorschau"
+                      />
                     {{/with}}
                   </div>
                 </div>
@@ -29,9 +46,9 @@
                 uk-icon="cloud-download"
                 class="uk-icon-button"
                 title="Dokument herunterladen"
-                {{action (perform download) doc}}
+                {{on "click" (perform this.download doc)}}
               ></button>
-              {{#unless readonly}}
+              {{#unless @readonly}}
                 <div uk-form-custom>
                   <button
                     data-test-replace-document
@@ -41,41 +58,48 @@
                   ></button>
                   <input
                     type="file"
-                    accept={{mimeTypes}}
+                    accept={{this.mimeTypes}}
                     title="Dokument ersetzen"
-                    onchange={{action (action (perform upload) doc) value='target.files'}}
-                  >
+                    {{on "change" (fn (perform this.upload doc) value="target.files")}}
+                  />
                 </div>
               {{/unless}}
-              {{#if (or (eq instance.instanceState.name "new") (eq instance.instanceState.name "rejected"))}}
+              {{#if (contains @instance.instanceState.name (array "new" "rejected"))}}
                 <button
                   data-test-delete-document
                   class="uk-icon-button confirm-delete-{{doc.id}}"
                   title="Dokument löschen"
                   uk-icon="trash"
                   uk-toggle="target: .confirm-delete-{{doc.id}}; animation: uk-animation-slide-bottom uk-animation-fast;"
+                  type="button"
                 ></button>
-                <span class="uk-text-danger confirm-delete-{{doc.id}}" hidden>
-                  Löschen?<br>
+                <span
+                  class="uk-text-danger confirm-delete-{{doc.id}}"
+                  hidden
+                >
+                  Löschen?
+                  <br />
                   <button
                     data-test-delete-document-confirm
                     class="uk-icon-button uk-text-danger"
                     uk-icon="check"
                     title="Ja"
-                    {{action (perform delete) doc on='click' bubbles=false}}
+                    {{on "click" (perform this.delete doc)}}
+                    type="button"
                   ></button>
                   <button
                     class="uk-icon-button uk-text-danger"
                     uk-icon="close"
                     title="Nein"
                     uk-toggle="target: .confirm-delete-{{doc.id}}; animation: uk-animation-slide-bottom uk-animation-fast;"
+                    type="button"
                   ></button>
                 </span>
               {{/if}}
             </td>
           </tr>
         {{/each}}
-        {{#if (not readonly)}}
+        {{#if (not @readonly)}}
           <tr>
             <td colspan="2" class="uk-text-center">
               <div uk-form-custom class="uk-width-1-1 uk-height-1-1">
@@ -87,14 +111,14 @@
                 <input
                   type="file"
                   multiple="true"
-                  accept={{mimeTypes}}
+                  accept={{this.mimeTypes}}
                   title="Neue Dokumente hochladen"
-                  onchange={{action (action (perform upload) null) value='target.files'}}
-                >
+                  {{on "change" (fn (perform this.upload null) value="target.files")}}
+                />
               </div>
             </td>
           </tr>
-        {{else if (and readonly (not question.model.length))}}
+        {{else if (and @readonly (not this.question.model.length))}}
           <tr>
             <td colspan="2" class="uk-text-center">
               Kein Eintrag vorhanden

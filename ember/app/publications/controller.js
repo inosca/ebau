@@ -1,7 +1,7 @@
 import Controller from "@ember/controller";
-import { task } from "ember-concurrency";
-import { inject as service } from "@ember/service";
 import { computed } from "@ember/object";
+import { inject as service } from "@ember/service";
+import { task } from "ember-concurrency";
 
 export default Controller.extend({
   store: service(),
