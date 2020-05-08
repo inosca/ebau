@@ -1,22 +1,27 @@
 version: "3.4"
 services:
   proxy:
-    image: nginx:1.13-alpine
-    depends_on:
-      - ember
-      - php
-      - django
-      - keycloak
     restart: always
     ports:
       - "80:80"
       - "443:443"
     volumes:
-      - /etc/certbot:/etc/certbot:ro
-      - /srv/www/htdocs:/var/www/letsencrypt:ro
+      - /etc/letsencrypt:/etc/letsencrypt:ro
       - /etc/camac/nginx:/etc/nginx/conf.d:ro
-      - djangomedia:/var/lib/camac/media:ro
-      - djangotmpmedia:/tmp/camac/tmpfiles:ro
+
+  db:
+    image: acr.run/camac-ng/camac-ng/db:${CI_COMMIT_REF_SLUG}-${APPLICATION}
+    build:
+      context: ../db
+      cache_from:
+        - acr.run/camac-ng/camac-ng/db:${CI_COMMIT_REF_SLUG}-${APPLICATION}
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD_FILE=/run/secrets/postgres-passwd
+    volumes:
+      - /etc/camac/postgres_password.conf:/run/secrets/postgres-passwd:ro
 
   django:
     image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_REF_SLUG}-${APPLICATION}
@@ -24,18 +29,11 @@ services:
       context: ../django
       cache_from:
         - acr.run/camac-ng/camac-ng/django:${CI_COMMIT_REF_SLUG}-${APPLICATION}
-    depends_on:
-      - cache
-      - clamav
-      - keycloak
     restart: always
     environment:
-      - DJANGO_DATABASE_HOST=vm-kantonsz-db-vip.cust.adfinis-sygroup.ch
       - DJANGO_ENV_FILE=/run/secrets/django.env
     volumes:
       - /etc/camac/django.env:/run/secrets/django.env:ro
-      - djangomedia:/var/lib/camac/media
-      - djangotmpmedia:/tmp/camac/tmpfiles
 
   ember:
     image: acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG}-${APPLICATION}
@@ -45,9 +43,7 @@ services:
         - acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG}-${APPLICATION}
       args:
         KEYCLOAK_URL_ARG: ${KEYCLOAK_URL}
-        DEPLOY_TARGET: production
-    depends_on:
-      - django
+        DEPLOY_TARGET: staging
     restart: always
 
   php:
@@ -56,48 +52,33 @@ services:
       context: ../php
       cache_from:
         - acr.run/camac-ng/camac-ng/php:${CI_COMMIT_REF_SLUG}-${APPLICATION}
-    depends_on:
-      - django
-      - cache
-      - keycloak
     restart: always
     environment:
-      - APPLICATION=${APPLICATION}
       - APPLICATION_ENV=production
     volumes:
-      - djangomedia:/var/www/camac/media
-      - phpsessions:/var/www/camac/sessions
       - /etc/camac/php.ini:/usr/local/etc/php/php.ini:ro
       - /etc/camac/application.ini:/var/www/camac/${APPLICATION}/configs/application.local.ini:ro
       # TODO: Implement resource fallback in document module, so this can be removed
       - phpresources:/var/www/camac/kt_uri/resources
 
   cache:
-    image: memcached:1.5-alpine
     restart: always
 
   unoconv:
-    image: zrrrzzt/docker-unoconv-webservice:8.9.4
     restart: always
 
   clamav:
-    image: dinkel/clamavd
     restart: always
 
   keycloak:
-    image: acr.run/camac-ng/keycloak:3.4.3.Final_theme-v0.2.0-SNAPSHOT
     volumes:
       - /etc/camac/keycloak.env:/run/secrets/keycloak.env:ro
     environment:
       - ENV_FILE=/run/secrets/keycloak.env
     restart: always
 
-  postfix:
-    image: mwader/postfix-relay
+  mailhog:
     restart: always
-    environment:
-      - POSTFIX_myhostname=ebau-sz.ch
-      - POSTFIX_mail_name=noreply@ebau-sz.ch
 
   metabase:
     environment:
@@ -105,13 +86,13 @@ services:
     restart: always
 
 volumes:
+  pgdata:
+    external:
+      name: camacpgdata
+
   djangomedia:
     external:
       name: camacdjangomedia
-
-  djangotmpmedia:
-    external:
-      name: camacdjangotmpmedia
 
   phpsessions:
     external:
