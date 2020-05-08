@@ -94,6 +94,14 @@ services:
     environment:
       - ENV=docker
 
+  ember-camac-ng:
+    image: acr.run/camac-ng/camac-ng/ember-camac-ng:${CI_COMMIT_REF_SLUG}
+    build:
+      context: ../ember-camac-ng
+      cache_from:
+        - acr.run/camac-ng/camac-ng/ember-camac-ng:master
+      target: build
+
   php:
     image: acr.run/camac-ng/camac-ng/php:${CI_COMMIT_REF_SLUG}
     build:
