@@ -3,133 +3,149 @@
     <UkSpinner @ratio={{3}} />
   </UkFlex>
 {{else}}
-  {{#if (not specialFormType)}}
+  {{#if specialForm}}
+    <h4 class="uk-text-center uk-margin-large-bottom">Um welchen Typ von {{model.form.description}} handelt es sich?</h4>
+
+    <div class="uk-flex uk-flex-center">
+      <div uk-margin class="uk-width-1-1 uk-width-1-3@s uk-flex-column">
+        {{#each-in options as |name value|}}
+          <div>
+            {{#uk-button on-click=(action (mut specialFormType) value) color=(if (eq specialFormType value) 'secondary' 'default') width='1-1' class='uk-flex uk-flex-center uk-flex-middle uk-text-center uk-padding-remove'}}
+              {{name}}
+            {{/uk-button}}
+          </div>
+        {{/each-in}}
+      </div>
+    </div>
+  {{else}}
     <h4 class="uk-text-center uk-margin-large-bottom">Um welche Art von Gesuch handelt es sich?</h4>
 
-  <div uk-grid class="uk-grid-small">
-    <div uk-margin class="uk-width-1-1 uk-width-1-3@s uk-flex-column">
-      <h4 class="uk-text-center">
-        Beratung und Vorentscheid {{camac-hint-dialog this.infoCol1}}
-      </h4>
-      <NewFormGridEntry
-        @form={{find-by "name" "vorabklarung-v2" this.forms.lastSuccessful.value}}
-        @onSetForm={{fn (mut @model.form)}}
-        @selectedForm={{@model.form}}
-      />
-      <NewFormGridEntry
-        @form={{find-by
-          "name"
-          "vorentscheid-gemass-ss84-pbg"
-          this.forms.lastSuccessful.value
-        }}
-        @onSetForm={{fn (mut @model.form)}}
-        @selectedForm={{@model.form}}
-      />
-    </div>
-    <div uk-margin class="uk-width-1-1 uk-width-1-3@s uk-flex-column">
-      <h4 class="uk-text-center">
-        Baubewilligung {{camac-hint-dialog this.infoCol2}}
-      </h4>
-      <NewFormGridEntry
-        @form={{find-by
-          "name"
-          "baugesuch-reklamegesuch"
-          this.forms.lastSuccessful.value
-        }}
-        @onSetForm={{fn (mut @model.form)}}
-        @selectedForm={{@model.form}}
-      />
-      <NewFormGridEntry
-        @form={{find-by "name" "projektanderung" this.forms.lastSuccessful.value}}
-        @onSetForm={{fn (mut @model.form)}}
-        @selectedForm={{@model.form}}
-      />
-      <NewFormGridEntry
-        @form={{find-by
-          "name"
-          "technische-bewilligung"
-          this.forms.lastSuccessful.value
-        }}
-        @onSetForm={{fn (mut @model.form)}}
-        @selectedForm={{@model.form}}
-      />
-      <NewFormGridEntry
-        @form={{find-by
-          "name"
-          "baumeldung-fur-geringfugiges-vorhaben-v2"
-          this.forms.lastSuccessful.value
-        }}
-        @onSetForm={{fn (mut @model.form)}}
-        @selectedForm={{@model.form}}
-      />
-    </div>
-    <div uk-margin class="uk-width-1-1 uk-width-1-3@s uk-flex-column">
-      <h4 class="uk-text-center">
-        Spezielle Gesuche {{camac-hint-dialog this.infoCol3}}
-      </h4>
-      <NewFormGridEntry
-        @form={{find-by
-          "name"
-          "anlassbewilligungen-verkehrsbewilligungen-v2"
-          this.forms.lastSuccessful.value
-        }}
-        @onSetForm={{fn (mut @model.form)}}
-        @selectedForm={{@model.form}}
-      />
-      <NewFormGridEntry
-        @form={{find-by
-          "name"
-          "konzession-fur-wasserentnahme-v2"
-          this.forms.lastSuccessful.value
-        }}
-        @onSetForm={{fn (mut @model.form)}}
-        @selectedForm={{@model.form}}
-      />
-      <NewFormGridEntry
-        @form={{find-by
-          "name"
-          "projektgenehmigungsgesuch-gemass-ss15-strag-v2"
-          this.forms.lastSuccessful.value
-        }}
-        @onSetForm={{fn (mut @model.form)}}
-        @selectedForm={{@model.form}}
-      />
-      <NewFormGridEntry
-        @form={{find-by
-          "name"
-          "plangenehmigungsgesuch-v2"
-          this.forms.lastSuccessful.value
-        }}
-        @onSetForm={{fn (mut @model.form)}}
-        @selectedForm={{@model.form}}
-      />
-    </div>
-    {{#if (eq "municipality" this.groupData.lastSuccessful.value.role.permission)}}
-      <div uk-margin class="uk-flex-center uk-width-1-1 uk-width-1-3@s uk-flex-column">
-        <h4 class="uk-text-center">Interne Gesuche</h4>
+    <div uk-grid class="uk-grid-small">
+      <div uk-margin class="uk-width-1-1 uk-width-1-3@s uk-flex-column">
+        <h4 class="uk-text-center">
+          Beratung und Vorentscheid {{camac-hint-dialog this.infoCol1}}
+        </h4>
         <NewFormGridEntry
-          @form={{find-by "name" "geschaeftskontrolle" this.forms.lastSuccessful.value}}
+          @form={{find-by "name" "vorabklarung-v2" this.forms.lastSuccessful.value}}
+          @onSetForm={{fn (mut @model.form)}}
+          @selectedForm={{@model.form}}
+        />
+        <NewFormGridEntry
+          @form={{find-by
+            "name"
+            "vorentscheid-gemass-ss84-pbg"
+            this.forms.lastSuccessful.value
+          }}
           @onSetForm={{fn (mut @model.form)}}
           @selectedForm={{@model.form}}
         />
       </div>
+      <div uk-margin class="uk-width-1-1 uk-width-1-3@s uk-flex-column">
+        <h4 class="uk-text-center">
+          Baubewilligung {{camac-hint-dialog this.infoCol2}}
+        </h4>
+        <NewFormGridEntry
+          @form={{find-by
+            "name"
+            "baugesuch-reklamegesuch"
+            this.forms.lastSuccessful.value
+          }}
+          @onSetForm={{fn (mut @model.form)}}
+          @selectedForm={{@model.form}}
+        />
+        <NewFormGridEntry
+          @form={{find-by "name" "projektanderung" this.forms.lastSuccessful.value}}
+          @onSetForm={{fn (mut @model.form)}}
+          @selectedForm={{@model.form}}
+        />
+        <NewFormGridEntry
+          @form={{find-by
+            "name"
+            "technische-bewilligung"
+            this.forms.lastSuccessful.value
+          }}
+          @onSetForm={{fn (mut @model.form)}}
+          @selectedForm={{@model.form}}
+        />
+        <NewFormGridEntry
+          @form={{find-by
+            "name"
+            "baumeldung-fur-geringfugiges-vorhaben-v2"
+            this.forms.lastSuccessful.value
+          }}
+          @onSetForm={{fn (mut @model.form)}}
+          @selectedForm={{@model.form}}
+        />
+      </div>
+      <div uk-margin class="uk-width-1-1 uk-width-1-3@s uk-flex-column">
+        <h4 class="uk-text-center">
+          Spezielle Gesuche {{camac-hint-dialog this.infoCol3}}
+        </h4>
+        <NewFormGridEntry
+          @form={{find-by
+            "name"
+            "anlassbewilligungen-verkehrsbewilligungen-v2"
+            this.forms.lastSuccessful.value
+          }}
+          @onSetForm={{fn (mut @model.form)}}
+          @selectedForm={{@model.form}}
+        />
+        <NewFormGridEntry
+          @form={{find-by
+            "name"
+            "konzession-fur-wasserentnahme-v2"
+            this.forms.lastSuccessful.value
+          }}
+          @onSetForm={{fn (mut @model.form)}}
+          @selectedForm={{@model.form}}
+        />
+        <NewFormGridEntry
+          @form={{find-by
+            "name"
+            "projektgenehmigungsgesuch-gemass-ss15-strag-v2"
+            this.forms.lastSuccessful.value
+          }}
+          @onSetForm={{fn (mut @model.form)}}
+          @selectedForm={{@model.form}}
+        />
+        <NewFormGridEntry
+          @form={{find-by
+            "name"
+            "plangenehmigungsgesuch-v2"
+            this.forms.lastSuccessful.value
+          }}
+          @onSetForm={{fn (mut @model.form)}}
+          @selectedForm={{@model.form}}
+        />
+      </div>
+      {{#if (eq "municipality" this.groupData.lastSuccessful.value.role.permission)}}
+        <div uk-margin class="uk-flex-center uk-width-1-1 uk-width-1-3@s uk-flex-column">
+          <h4 class="uk-text-center">Interne Gesuche</h4>
+          <NewFormGridEntry
+            @form={{find-by "name" "geschaeftskontrolle" this.forms.lastSuccessful.value}}
+            @onSetForm={{fn (mut @model.form)}}
+            @selectedForm={{@model.form}}
+          />
+        </div>
+      {{/if}}
     </div>
   {{/if}}
 
-  {{#uk-flex horizontal=(if specialForm 'between' 'right') class='uk-margin-top'}}
-    {{#if specialForm}}
-      {{#uk-button disabled=(or (not model.form.id) save.isRunning) loading=save.isRunning on-click=(action "prev")}}
+  <UkFlex @horizontal={{if this.specialForm 'between' 'right'}} class="uk-margin-top">
+    {{#if this.specialForm}}
+      <UkButton
+        @disabled={{or (not @model.form.id) this.save.isRunning}}
+        @color="primary"
+        @on-click={{fn this.prev}}
+      >
         Zurück
-      {{/uk-button}}
+      </UkButton>
     {{/if}}
-  </div>
-
-  <UkFlex @horizontal="right" class="uk-margin-top">
     <UkButton
       @disabled={{or (not @model.form.id) this.save.isRunning}}
       @loading={{this.save.isRunning}}
       @color="primary"
-      @on-click={{perform this.save}}
+      @on-click={{fn this.next}}
     >
       Weiter
     </UkButton>

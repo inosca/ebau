@@ -1,14 +1,15 @@
 import Controller from "@ember/controller";
+import { computed, action } from "@ember/object";
 import { tracked } from "@glimmer/tracking";
 import { info1, info2, info3 } from "citizen-portal/instances/new/info";
 import { dropTask, restartableTask } from "ember-concurrency-decorators";
 
 const specialFormTypes = {
-  "projektgenehmigungsgesuch-gemass-ss15-strag": {
+  "projektgenehmigungsgesuch-gemass-ss15-strag-v2": {
     Gemeindestrassen: "municipality",
     Kantonsstrassen: "canton"
   },
-  plangenehmigungsgesuch: {
+  "plangenehmigungsgesuch-v2": {
     ASTRA: "astra",
     ESTI: "esti",
     BAV: "bav",
@@ -24,12 +25,12 @@ export default class InstancesNewController extends Controller {
   queryParams = ["group"];
   @tracked group = null;
 
+  @tracked specialFormType = "";
 
-  specialFormType = "";
-
-  options = computed("model.form.name", function() {
+  @computed("model.form.name")
+  get options() {
     return specialFormTypes[this.get("model.form.name")];
-  });
+  }
 
   @restartableTask
   *groupData() {
@@ -47,7 +48,7 @@ export default class InstancesNewController extends Controller {
 
   @dropTask
   *save() {
-    let model = this.model;
+    const model = this.model;
 
     const group = this.get("groupData.lastSuccessful.value");
 
@@ -59,7 +60,7 @@ export default class InstancesNewController extends Controller {
     yield model.save();
 
     if (this.specialFormType) {
-      let meta = this.store.createRecord("form-field", {
+      const meta = this.store.createRecord("form-field", {
         instance: model
       });
       meta.set("name", "meta");
@@ -70,23 +71,23 @@ export default class InstancesNewController extends Controller {
     yield this.transitionToRoute("instances.edit", model.id);
   }
 
-  actions = {
-    next() {
-      if (
-        [
-          "projektgenehmigungsgesuch-gemass-ss15-strag",
-          "plangenehmigungsgesuch"
-        ].includes(this.get("model.form.name")) &&
-        !this.specialFormType
-      ) {
-        return this.set("specialForm", true);
-      }
-
-      this.save.perform();
-    },
-
-    prev() {
-      this.set("specialForm", false);
+  @action
+  next() {
+    if (
+      [
+        "projektgenehmigungsgesuch-gemass-ss15-strag-v2",
+        "plangenehmigungsgesuch-v2"
+      ].includes(this.get("model.form.name")) &&
+      !this.specialFormType
+    ) {
+      return this.set("specialForm", true);
     }
+
+    this.save.perform();
   }
-});
+
+  @action
+  prev() {
+    this.set("specialForm", false);
+  }
+}

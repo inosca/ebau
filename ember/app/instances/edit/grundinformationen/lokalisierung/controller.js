@@ -33,12 +33,11 @@ export default Controller.extend({
     let form = this.get("model.instance.form.id");
     const meta = this.questionStore.peek("meta", this.model.instance.id);
     if (meta) {
-      let formType = JSON.parse(meta.value).formType;
-      if (form == 9 && formType != "canton") {
+      const formType = JSON.parse(meta.value).formType;
+      if (form === 9 && formType !== "canton") {
         return "";
-      } else {
-        form = `${form}-${formType}`;
       }
+      form = `${form}-${formType}`;
     }
 
     return ENV.APP.formLocations[form];
