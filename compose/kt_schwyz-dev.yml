@@ -8,11 +8,9 @@ services:
 
   proxy:
     volumes:
-      - ./proxy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ../proxy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
     ports:
       - "80:80"
-    depends_on:
-      - iweb_mock
     networks:
       camac-ng.local:
         aliases:
@@ -38,7 +36,7 @@ services:
     environment:
       - POSTGRES_PASSWORD=camac
     volumes:
-      - ./db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
+      - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
     networks:
       - camac-ng.local
 
@@ -50,7 +48,7 @@ services:
     ports:
       - "5555:5555"
     volumes:
-      - ./django:/app
+      - ../django:/app
     environment:
       - ENV=development
       - APPLICATION_ENV=development
@@ -74,17 +72,12 @@ services:
     networks:
       - camac-ng.local
 
-  ember-caluma-portal:
-    image: acr.run/camac-ng/camac-ng/ember-caluma-portal:master
-    networks:
-      - camac-ng.local
-
   php:
     image: acr.run/camac-ng/camac-ng/php:master
     volumes:
-      - ./php/php.ini-development:/usr/local/etc/php/php.ini:ro
-      - ./php/000-default.conf:/etc/apache2/sites-enabled/000-default.conf:ro
-      - ./php:/var/www/camac
+      - ../php/php.ini-development:/usr/local/etc/php/php.ini:ro
+      - ../php/000-default.conf:/etc/apache2/sites-enabled/000-default.conf:ro
+      - ../php:/var/www/camac
       - /var/www/camac/vendor
       - /var/www/camac/configuration
       - /var/www/camac/public/node_modules
@@ -116,7 +109,7 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./keycloak/${APPLICATION}-test-config.json:/etc/keycloak/test-config.json:ro
+      - ../keycloak/${APPLICATION}-test-config.json:/etc/keycloak/test-config.json:ro
     environment:
       - POSTGRES_PASSWORD=camac
       - KEYCLOAK_PASSWORD=camac
@@ -140,37 +133,6 @@ services:
       - camac-ng.local
     environment:
       - MH_UI_WEB_PATH=mailhog
-
-  iweb_mock:
-    image: node:6
-    volumes:
-      - ./iweb_mock:/usr/src/app
-    command: bash /usr/src/app/run_mock
-    environment:
-      - NODE_ENV=development
-    depends_on:
-      - php
-    networks:
-      - camac-ng.local
-
-  document-merge-service:
-    networks:
-      - camac-ng.local
-    environment:
-      - ENV=dev
-    # There appears to be bug where libreoffice can only be started as the root
-    # user. The workaround of fixing owner and permissions of ~/.config did not
-    # work in our case.
-    #
-    # https://github.com/unoconv/unoconv/issues/241#issuecomment-549434601
-    # https://superuser.com/questions/564534/only-root-user-is-able-to-open-libreoffice
-    #user: "${UID:?Set UID env variable to your user id}"
-    command:
-      [
-        "/bin/sh",
-        "-c",
-        "wait-for-it.sh db:5432 -- ./manage.py migrate && uwsgi",
-      ]
 
   metabase:
     environment:
