@@ -134,25 +134,6 @@ services:
     environment:
       - MH_UI_WEB_PATH=mailhog
 
-  document-merge-service:
-    networks:
-      - camac-ng.local
-    environment:
-      - ENV=dev
-    # There appears to be bug where libreoffice can only be started as the root
-    # user. The workaround of fixing owner and permissions of ~/.config did not
-    # work in our case.
-    #
-    # https://github.com/unoconv/unoconv/issues/241#issuecomment-549434601
-    # https://superuser.com/questions/564534/only-root-user-is-able-to-open-libreoffice
-    #user: "${UID:?Set UID env variable to your user id}"
-    command:
-      [
-        "/bin/sh",
-        "-c",
-        "wait-for-it.sh db:5432 -- ./manage.py migrate && uwsgi",
-      ]
-
   metabase:
     environment:
       - MB_DB_PASS=camac
