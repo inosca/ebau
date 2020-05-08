@@ -21,7 +21,7 @@ services:
   django:
     image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_REF_SLUG}-${APPLICATION}
     build:
-      context: django
+      context: ../django
       cache_from:
         - acr.run/camac-ng/camac-ng/django:${CI_COMMIT_REF_SLUG}-${APPLICATION}
     depends_on:
@@ -40,7 +40,7 @@ services:
   ember:
     image: acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG}-${APPLICATION}
     build:
-      context: ember
+      context: ../ember
       cache_from:
         - acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG}-${APPLICATION}
       args:
@@ -53,7 +53,7 @@ services:
   php:
     image: acr.run/camac-ng/camac-ng/php:${CI_COMMIT_REF_SLUG}-${APPLICATION}
     build:
-      context: php
+      context: ../php
       cache_from:
         - acr.run/camac-ng/camac-ng/php:${CI_COMMIT_REF_SLUG}-${APPLICATION}
     depends_on:

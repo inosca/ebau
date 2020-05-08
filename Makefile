@@ -8,6 +8,7 @@ GIT_USER=$(shell git config user.email)
 
 define set_env
 	sed 's/^\(APPLICATION=\).*$//\1$(1)/' -i .env django/.env
+	sed 's/^\(COMPOSE_FILE=\).*$//\1compose\/$(1).yml:compose\/$(1)-dev.yml/' -i .env django/.env
 endef
 
 .PHONY: help

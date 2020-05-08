@@ -12,7 +12,7 @@ services:
   db:
     image: acr.run/camac-ng/camac-ng/db:${CI_COMMIT_REF_SLUG}-${APPLICATION}
     build:
-      context: db
+      context: ../db
       cache_from:
         - acr.run/camac-ng/camac-ng/db:${CI_COMMIT_REF_SLUG}-${APPLICATION}
     restart: always
@@ -26,7 +26,7 @@ services:
   django:
     image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_REF_SLUG}-${APPLICATION}
     build:
-      context: django
+      context: ../django
       cache_from:
         - acr.run/camac-ng/camac-ng/django:${CI_COMMIT_REF_SLUG}-${APPLICATION}
     restart: always
@@ -38,7 +38,7 @@ services:
   ember:
     image: acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG}-${APPLICATION}
     build:
-      context: ember
+      context: ../ember
       cache_from:
         - acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG}-${APPLICATION}
       args:
@@ -46,18 +46,10 @@ services:
         DEPLOY_TARGET: staging
     restart: always
 
-  ember-caluma-portal:
-    image: acr.run/camac-ng/camac-ng/ember-caluma-portal:${CI_COMMIT_REF_SLUG}-${APPLICATION}
-    build:
-      context: ember-caluma-portal
-      cache_from:
-        - acr.run/camac-ng/camac-ng/ember-caluma-portal:${CI_COMMIT_REF_SLUG}-${APPLICATION}
-    restart: always
-
   php:
     image: acr.run/camac-ng/camac-ng/php:${CI_COMMIT_REF_SLUG}-${APPLICATION}
     build:
-      context: php
+      context: ../php
       cache_from:
         - acr.run/camac-ng/camac-ng/php:${CI_COMMIT_REF_SLUG}-${APPLICATION}
     restart: always
