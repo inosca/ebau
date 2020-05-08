@@ -7,19 +7,17 @@ services:
     image: nginx:1.13-alpine
     depends_on:
       - ember
-      - ember-caluma-portal
       - php
       - django
       - keycloak
       - mailhog
-      - document-merge-service
     volumes:
       - djangomedia:/var/lib/camac/media:ro
       - djangotmpmedia:/tmp/camac/tmpfiles:ro
 
   db:
     build:
-      context: db
+      context: ../db
       cache_from:
         - acr.run/camac-ng/camac-ng/db:master
     environment:
@@ -30,7 +28,7 @@ services:
 
   django:
     build:
-      context: django
+      context: ../django
       cache_from:
         - acr.run/camac-ng/camac-ng/django:master
     depends_on:
@@ -65,19 +63,13 @@ services:
 
   ember:
     build:
-      context: ember
+      context: ../ember
       cache_from:
         - acr.run/camac-ng/camac-ng/ember:master
 
-  ember-caluma-portal:
-    build:
-      context: ember-caluma-portal
-      cache_from:
-        - acr.run/camac-ng/camac-ng/ember-caluma-portal:master
-
   php:
     build:
-      context: php
+      context: ../php
       cache_from:
         - acr.run/camac-ng/camac-ng/php:master
     depends_on:
@@ -115,30 +107,6 @@ services:
       - POSTGRES_USER=camac
       - POSTGRES_DATABASE=${APPLICATION}
       - KEYCLOAK_USER=admin
-
-  document-merge-service:
-    image: adfinissygroup/document-merge-service:v4.0.1
-    depends_on:
-      - db
-      - unoconv
-    volumes:
-      - ./document-merge-service/uwsgi.ini:/app/uwsgi.ini:ro
-      - ./document-merge-service/templatefiles:/var/lib/document-merge-service/media
-      - ./document-merge-service/dump.json:/tmp/document-merge-service/dump.json
-    environment:
-      - DATABASE_ENGINE=django.db.backends.postgresql
-      - DATABASE_HOST=db
-      - DATABASE_NAME=kt_bern
-      - DATABASE_USER=camac
-      - DATABASE_PASSWORD=camac
-      - UNOCONV_URL=http://unoconv:3000
-      - REQUIRE_AUTHENTICATION=True
-      - GROUP_ACCESS_ONLY=True
-      - OIDC_USERINFO_ENDPOINT=http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
-      - OIDC_BEARER_TOKEN_REVALIDATION_TIME=5
-      - OIDC_GROUPS_API=http://camac-ng.local/api/v1/me
-      - OIDC_GROUPS_API_JSONPATH=$$.data.relationships.service.data.id
-      - OIDC_GROUPS_API_HEADERS=AUTHORIZATION,X-CAMAC-GROUP
 
   metabase:
     image: metabase/metabase:v0.34.2
