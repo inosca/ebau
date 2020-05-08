@@ -111,13 +111,28 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
         language = translation.get_language()
 
         # always overwrite values of users
-        defaults = {"language": language[:2], "email": data["email"]}
         username = data["sub"]
-        defaults["name"] = data.get("family_name", username)
-        defaults["surname"] = data.get("given_name", username)
+        defaults = {
+            "language": language[:2],
+            "email": data["email"],
+            "username": username,
+            "name": data.get("family_name", username),
+            "username": data.get("given_name", username)
+        }
+
+        # By default we check if a user with certain username exists
+        lookup_attr = {
+            "username": username
+        }
+
+        # Map a user to an existing camac user through their email address.
+        if settings.OIDC_BOOTSTRAP_BY_EMAIL:
+            lookup_attr = {
+                "email": defaults["email"]
+            }
 
         user, created = get_user_model().objects.update_or_create(
-            username=username, defaults=defaults
+            **lookup_attr, defaults=defaults
         )
 
         demo_groups = settings.APPLICATION.get("DEMO_MODE_GROUPS")
