@@ -968,7 +968,6 @@ class InstanceSubmitSerializer(InstanceSerializer):
         """
         identifier = self.instance.identifier
         if not identifier:
-            identifier_start = self.instance.location.communal_federal_number[-2:]
             year = timezone.now().strftime("%y")
 
             name = self.instance.form.name
@@ -984,6 +983,8 @@ class InstanceSubmitSerializer(InstanceSerializer):
 
             if name in abbreviations.keys():
                 identifier_start = abbreviations[name]
+            else:
+                identifier_start = self.instance.location.communal_federal_number[-2:]
 
             max_identifier = (
                 models.Instance.objects.filter(

@@ -42,13 +42,13 @@ module.exports = function(environment) {
       // plangenehmigungsgesuch vbs = Raumentwicklung
       // projektgenehmigungsgesuch-gemass-ss15-strag kanton = Tiefbauamt
       formLocations: {
-        7: "Amt für Wasserbau",
-        10: "Kantonspolizei Schwyz",
-        "8-astra": "Tiefbauamt des Kantons Schwyz",
-        "8-esti": "Eidg. Starkstrominspektorat",
-        "8-bav": "Amt für öffentlichen Verkehr",
-        "8-vbs": "Amt für Raumentwicklung",
-        "9-canton": "Tiefbauamt des Kantons Schwyz"
+        14: "Amt für Wasserbau",
+        17: "Kantonspolizei Schwyz",
+        "15-astra": "Tiefbauamt des Kantons Schwyz",
+        "15-esti": "Eidg. Starkstrominspektorat",
+        "15-bav": "Amt für öffentlichen Verkehr",
+        "15-vbs": "Amt für Raumentwicklung",
+        "16-canton": "Tiefbauamt des Kantons Schwyz"
       }
     },
 

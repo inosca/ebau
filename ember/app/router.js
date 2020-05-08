@@ -67,6 +67,7 @@ Router.map(function() {
         this.route("konzession-fur-wasserentnahme");
         this.route("projektanderung");
         this.route("projektgenehmigungsgesuch");
+        this.route("plangenehmigungsverfahren");
         this.route("technische-bewilligung");
         this.route("vorentscheid");
         this.route("submit");
