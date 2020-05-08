@@ -4,7 +4,7 @@ image: tmaier/docker-compose:latest
 variables:
   LANG: C.UTF-8
   LC_ALL: C.UTF-8
-  COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.ci.yml
+  COMPOSE: docker-compose -f compose/ci.yml
   APPLICATION: demo
   COMPOSE_HTTP_TIMEOUT: 300
 
@@ -128,7 +128,7 @@ build-kt_schwyz-stage:
   variables:
     KEYCLOAK_URL: https://camac-schwyz.sycloud.ch/auth/realms/ebau/protocol/openid-connect
     APPLICATION: kt_schwyz
-    COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.production.yml
+    COMPOSE: docker-compose -f compose/kt_schwyz.yml -f compose/kt_schwyz-stage.yml
   only:
     - stage-sz
 
@@ -137,7 +137,8 @@ build-kt_schwyz-production:
   variables:
     KEYCLOAK_URL: https://ebau-sz.ch/auth/realms/ebau/protocol/openid-connect
     APPLICATION: kt_schwyz
-    COMPOSE: docker-compose -f docker-compose.production.sz.yml
+    # TODO We should make kt_schwyz-prod.yml base on kt_schwyz.yml
+    COMPOSE: docker-compose -f compose/kt_schwyz-prod.yml
     CONTAINERS: ember django php
   only:
     - production-sz
@@ -235,6 +236,7 @@ deploy-kt_schwyz-stage:
   variables:
     APPLICATION: kt_schwyz
     DOCKER_HOST: vm-camac-webapp-stage-02.cust.adfinis-sygroup.ch:2376
+    COMPOSE: docker-compose -f compose/kt_schwyz.yml -f compose/kt_schwyz-stage.yml
   only:
     - stage-sz
 
@@ -244,9 +246,9 @@ deploy-kt_schwyz-production:
     name: production-kt_schwyz
     url: https://behoerden.ebau-sz.ch/
   variables:
-    TLSOPTS: --tlsverify --tlscert /root/.docker/cert.pem --tlskey /root/.docker/key.pem --tlscacert /root/.docker/ca.pem
-    COMPOSE: docker-compose -f docker-compose.production.sz.yml
     DOCKER_HOST: vm-kantonsz-web-01.cust.adfinis-sygroup.ch:2376
+    # TODO We should make kt_schwyz-prod.yml base on kt_schwyz.yml
+    COMPOSE: docker-compose -f compose/kt_schwyz-prod.yml
   only:
     - production-sz
   when: manual
