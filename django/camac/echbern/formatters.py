@@ -154,11 +154,21 @@ def get_documents(attachments):
     return documents
 
 
+def normalize_personalien(pers: dict):
+    new_pers = {}
+    for key, value in pers.items():
+        new_key = key
+        if "-" in key:
+            new_key = "-".join(key.split("-")[:-1])
+        new_pers[new_key] = value
+    return new_pers
+
+
 def get_owners(answers):
     """
     Get owners of the building.
 
-    We use "personalien-gebaudeeigentumerin" if available and fallback to
+    We use "personalien-grundeigentumerin" if available and fallback to
     "personalien-gesuchstellerin" if not.
 
     Then we normalize all the keys.
@@ -168,12 +178,7 @@ def get_owners(answers):
     raw_owners = answers.get(
         "personalien-grundeigentumerin", answers.get("personalien-gesuchstellerin", [])
     )
-    owners = []
-    for raw_owner in raw_owners:
-        owner = {}
-        for key, value in raw_owner.items():
-            owner[key.split("-")[0]] = value
-        owners.append(owner)
+    owners = [normalize_personalien(o) for o in raw_owners]
 
     return owners
 
@@ -457,17 +462,12 @@ def status_notification(instance: Instance):
 
 
 def base_delivery(instance: Instance, answers: dict):
-
     return ns_application.eventBaseDeliveryType(
         planningPermissionApplicationInformation=[
             (
                 pyxb.BIND(
                     planningPermissionApplication=application(instance, answers),
-                    relationshipToPerson=[
-                        ns_application.relationshipToPersonType(
-                            role="applicant", person=requestor(answers)
-                        )
-                    ],
+                    relationshipToPerson=get_relationship_to_person(answers),
                     decisionAuthority=decision_authority(instance.active_service()),
                     entryOffice=office(instance.active_service()),
                 )
@@ -480,12 +480,92 @@ def submit(instance: Instance, answers: dict, event_type: str):
     return ns_application.eventSubmitPlanningPermissionApplicationType(
         eventType=ns_application.eventTypeType(event_type),
         planningPermissionApplication=application(instance, answers),
-        relationshipToPerson=[
-            ns_application.relationshipToPersonType(
-                role="applicant", person=requestor(answers)
-            )
-        ],
+        relationshipToPerson=get_relationship_to_person(answers),
     )
+
+
+def get_relationship_to_person(answers: dict):
+    people = {"applicant": get_applicant_data(answers)}
+
+    slug_map = [
+        ("personalien-vertreterin-mit-vollmacht", "contact"),
+        ("personalien-projektverfasserin", "project author"),
+        ("personalien-grundeigentumerin", "landowner"),
+    ]
+
+    for slug, role in slug_map:
+        form = answers.get(slug)
+        if form:
+            people[role] = normalize_personalien(form[0])
+
+    return [
+        ns_application.relationshipToPersonType(role=role, person=person_type(pers))
+        for role, pers in people.items()
+    ]
+
+
+def person_type(person):
+    pers_identification = ech_0044_4_1.personIdentificationLightType(
+        officialName=person["name"], firstName=person["vorname"]
+    )
+    org_identification = None
+    if handle_ja_nein_bool(person["juristische-person"]):
+        pers_identification = None
+        org_identification = ns_company_identification.organisationIdentificationType(
+            organisationName=person["name-juristische-person"],
+            organisationAdditionalName=f'{person["vorname"]} {person["name"]}',
+            uid=ns_company_identification.uidStructureType(
+                # We don't bother with UIDs
+                uidOrganisationIdCategorie="CHE",
+                uidOrganisationId="123123123",
+            ),
+            localOrganisationId=ns_company_identification.namedOrganisationIdType(
+                organisationIdCategory="unknown", organisationId="unknown"
+            ),
+            legalForm="0223",
+        )
+
+    return ns_objektwesen.personType(
+        identification=pyxb.BIND(
+            personIdentification=pers_identification,
+            organisationIdentification=org_identification,
+        ),
+        address=ns_address.addressInformationType(
+            street=person["strasse"],
+            houseNumber=person.get("nummer"),
+            town=ns_address.townType(person["ort"]),
+            swissZipCode=get_plz(person["plz"]),
+            country="CH",
+        ),
+    )
+
+
+def get_applicant_data(answers):
+    if "personalien-gesuchstellerin" in answers:
+        pers_infos = answers["personalien-gesuchstellerin"][0]
+        # Values for Baugesuch
+        return {
+            "vorname": pers_infos["vorname-gesuchstellerin"],
+            "name": pers_infos["name-gesuchstellerin"],
+            "strasse": pers_infos["strasse-gesuchstellerin"],
+            "nummer": pers_infos.get("nummer-gesuchstellerin"),
+            "ort": pers_infos["ort-gesuchstellerin"],
+            "plz": pers_infos["plz-gesuchstellerin"],
+            "juristische-person": pers_infos["juristische-person-gesuchstellerin"],
+            "name-juristische-person": pers_infos.get(
+                "name-juristische-person-gesuchstellerin"
+            ),
+        }
+    # Values for Vorabklaerung
+    return {
+        "vorname": answers.get("vorname-gesuchstellerin-vorabklaerung"),
+        "name": answers.get("name-gesuchstellerin-vorabklaerung"),
+        "strasse": answers.get("strasse-gesuchstellerin"),
+        "nummer": answers.get("nummer-gesuchstellerin"),
+        "ort": answers.get("ort-gesuchstellerin"),
+        "plz": answers.get("plz-gesuchstellerin"),
+        "juristische-person": "Nein",
+    }
 
 
 def directive(comment, deadline=None):
@@ -631,40 +711,4 @@ def decision_authority(service):
                 country="CH",
             ),
         )
-    )
-
-
-def requestor(answers: dict):
-    # Values for Vorabklaerung
-    first_name = answers.get("vorname-gesuchstellerin-vorabklaerung")
-    last_name = answers.get("name-gesuchstellerin-vorabklaerung")
-    street = answers.get("strasse-gesuchstellerin")
-    house_number = answers.get("nummer-gesuchstellerin")
-    town = answers.get("ort-gesuchstellerin")
-    swiss_zip_code = answers.get("plz-gesuchstellerin")
-
-    if "personalien-gesuchstellerin" in answers:
-        # Values for Baugesuch
-        pers_infos = answers["personalien-gesuchstellerin"][0]
-
-        first_name = pers_infos["vorname-gesuchstellerin"]
-        last_name = pers_infos["name-gesuchstellerin"]
-        street = pers_infos["strasse-gesuchstellerin"]
-        house_number = pers_infos.get("nummer-gesuchstellerin")
-        town = pers_infos["ort-gesuchstellerin"]
-        swiss_zip_code = pers_infos["plz-gesuchstellerin"]
-
-    return ns_objektwesen.personType(
-        identification=pyxb.BIND(
-            personIdentification=ech_0044_4_1.personIdentificationLightType(
-                officialName=last_name, firstName=first_name
-            )
-        ),
-        address=ns_address.addressInformationType(
-            street=street,
-            houseNumber=house_number,
-            town=ns_address.townType(town),
-            swissZipCode=get_plz(swiss_zip_code),
-            country="CH",
-        ),
     )
