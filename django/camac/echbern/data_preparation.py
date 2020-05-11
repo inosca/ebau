@@ -5,6 +5,11 @@ from .utils import xml_encode_newlines
 # Dicts with all questions we need from caluma. Questions under the "top" key, are
 # directly accessible. Other keys refer to tableQuestions with their corresponding
 # sub-questions. The second tuple element is an example value and also used for tests.
+# In contrast to
+# `ech_bern.tests.caluma_document_data.{baugesuch_data,vorabklaerung_data}`, these
+# dicts contain the slugs of *Choices.
+# If you find yourself editing these slugs, you might also want to edit
+# `baugesuch_data`.
 slugs_baugesuch = {
     "top": [
         ("anzahl-abstellplaetze-fur-motorfahrzeuge", 23),
@@ -49,6 +54,54 @@ slugs_baugesuch = {
             ("plz-gesuchstellerin", 2323),
             ("strasse-gesuchstellerin", "Teststrasse"),
             ("vorname-gesuchstellerin", "Winston"),
+            (
+                "juristische-person-gesuchstellerin",
+                "juristische-person-gesuchstellerin-nein",
+            ),
+            ("name-juristische-person-gesuchstellerin", None),
+        ]
+    ],
+    "personalien-grundeigentumerin": [
+        [
+            ("name-grundeigentuemerin", "Smith"),
+            ("nummer-grundeigentuemerin", "23"),
+            ("ort-grundeigentuemerin", "Burgdorf"),
+            ("plz-grundeigentuemerin", 2323),
+            ("strasse-grundeigentuemerin", "Teststrasse"),
+            ("vorname-grundeigentuemerin", "Winston"),
+            (
+                "juristische-person-grundeigentuemerin",
+                "juristische-person-grundeigentuemerin-nein",
+            ),
+            ("name-juristische-person-grundeigentuemerin", None),
+        ]
+    ],
+    "personalien-projektverfasserin": [
+        [
+            ("name-projektverfasserin", "Smith"),
+            ("nummer-projektverfasserin", "23"),
+            ("ort-projektverfasserin", "Burgdorf"),
+            ("plz-projektverfasserin", 2323),
+            ("strasse-projektverfasserin", "Teststrasse"),
+            ("vorname-projektverfasserin", "Winston"),
+            (
+                "juristische-person-projektverfasserin",
+                "juristische-person-projektverfasserin-nein",
+            ),
+            ("name-juristische-person-projektverfasserin", None),
+        ]
+    ],
+    "personalien-vertreterin-mit-vollmacht": [
+        [
+            ("name-vertreterin", "Smith"),
+            ("nummer-vertreterin", "23"),
+            ("ort-vertreterin", "Burgdorf"),
+            ("plz-vertreterin", 2323),
+            ("strasse-vertreterin", "Teststrasse"),
+            ("vorname-vertreterin", "Winston"),
+            ("vorname-gesuchstellerin-vorabklaerung", "Winston"),
+            ("juristische-person-vertreterin", "juristische-person-vertreterin-ja"),
+            ("name-juristische-person-vertreterin", "Firma XY AG"),
         ]
     ],
 }
