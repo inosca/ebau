@@ -108,6 +108,20 @@ Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unte
     | 3         | Abgeschrieben           | Nicht verfügbar für Vorabklärungen |
     | 4         | Abgelehnt               |                                    |
 
+ - `relationshipToPerson`: Hier füllen wir folgende Personalien ab:
+
+    | eBau form              | ech role       |
+    |------------------------|----------------|
+    | Gesuchsteller          | applicant      |
+    | Vertreter mit Vollmacht| contact        |
+    | Projektverfasser       | project author |
+    | Grundeigentümer        | landowner      |
+
+    Sollte es sich bei einem Eintrag um eine juristische Person handeln, sieht eCH keine
+    Felder vor für Vor- und Nachname der Kontaktperson. Wir füllen diese Namen daher in das Feld
+    `organisationAdditionalName` im Format: "Vorname Name".
+
+
 ## Message Typen
 
 ### GET
