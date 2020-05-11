@@ -1,3 +1,9 @@
+# These dicts contain a parsed example Document. In contrast to
+# `ech_bern.data_preparation.{slugs_baugesuch,slugs_vorabklaerung_einfach}`, these
+# dicts contain the german label of *Choices.
+# If you find yourself editing this file, you might also want to edit
+# `slugs_baugesuch`.
+
 baugesuch_data = {
     "anzahl-abstellplaetze-fur-motorfahrzeuge": 23,
     "caluma-form-slug": "baugesuch-generell",
@@ -38,6 +44,45 @@ baugesuch_data = {
             "plz-gesuchstellerin": 2323,
             "strasse-gesuchstellerin": "Teststrasse",
             "vorname-gesuchstellerin": "Winston",
+            "juristische-person-gesuchstellerin": "Nein",
+            "name-juristische-person-gesuchstellerin": None,
+        }
+    ],
+    "personalien-grundeigentumerin": [
+        {
+            "name-grundeigentuemerin": "Smith",
+            "nummer-grundeigentuemerin": "23",
+            "ort-grundeigentuemerin": "Burgdorf",
+            "plz-grundeigentuemerin": 2323,
+            "strasse-grundeigentuemerin": "Teststrasse",
+            "vorname-grundeigentuemerin": "Winston",
+            "juristische-person-grundeigentuemerin": "Nein",
+            "name-juristische-person-grundeigentuemerin": None,
+        }
+    ],
+    "personalien-projektverfasserin": [
+        {
+            "name-projektverfasserin": "Smith",
+            "nummer-projektverfasserin": "23",
+            "ort-projektverfasserin": "Burgdorf",
+            "plz-projektverfasserin": 2323,
+            "strasse-projektverfasserin": "Teststrasse",
+            "vorname-projektverfasserin": "Winston",
+            "juristische-person-projektverfasserin": "Nein",
+            "name-juristische-person-projektverfasserin": None,
+        }
+    ],
+    "personalien-vertreterin-mit-vollmacht": [
+        {
+            "name-vertreterin": "Smith",
+            "nummer-vertreterin": "23",
+            "ort-vertreterin": "Burgdorf",
+            "plz-vertreterin": 2323,
+            "strasse-vertreterin": "Teststrasse",
+            "vorname-vertreterin": "Winston",
+            "juristische-person-vertreterin": "Ja",
+            "vorname-gesuchstellerin-vorabklaerung": "Winston",
+            "name-juristische-person-vertreterin": "Firma XY AG",
         }
     ],
     "sammelschutzraum": "Ja",
