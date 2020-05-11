@@ -16,7 +16,7 @@ from django.utils.translation import gettext as _, gettext_noop
 from rest_framework import exceptions
 from rest_framework_json_api import relations, serializers
 
-from camac.caluma.api import CalumaApi, CalumaInfo
+from camac.caluma.api import CalumaApi
 from camac.caluma.extensions.data_sources import Municipalities
 from camac.constants import kt_bern as constants
 from camac.core.models import (
@@ -672,8 +672,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         caluma_doc = caluma_form_models.Document.objects.get(pk=document_id)
         validator = caluma_form_validators.DocumentValidator()
 
-        caluma_info = CalumaInfo(self.context["request"])
-        validator.validate(caluma_doc, info=caluma_info)
+        validator.validate(caluma_doc, info=self.context["request"].caluma_info)
 
     def validate(self, data):
         data["caluma_document"] = CalumaApi().get_main_document(self.instance)
