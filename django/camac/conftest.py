@@ -116,6 +116,7 @@ def ech_mandatory_answers_baugesuch():
                 "plz-gesuchstellerin": 2323,
                 "strasse-gesuchstellerin": "Teststrasse",
                 "vorname-gesuchstellerin": "Testvorname",
+                "juristische-person-gesuchstellerin": "Nein",
             }
         ],
     }
@@ -146,6 +147,7 @@ def ech_mandatory_answers_vollstaendige_vorabklaerung():
                 "plz-gesuchstellerin": 232,  # non standard swiss zip
                 "strasse-gesuchstellerin": "Teststrasse",
                 "vorname-gesuchstellerin": "Testvorname",
+                "juristische-person-gesuchstellerin": "Nein",
             }
         ],
     }
