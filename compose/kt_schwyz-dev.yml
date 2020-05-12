@@ -8,7 +8,7 @@ services:
 
   proxy:
     volumes:
-      - ../proxy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ../proxy/kt_schwyz.conf:/etc/nginx/conf.d/default.conf:ro
     ports:
       - "80:80"
     networks:
