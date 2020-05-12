@@ -34,9 +34,6 @@ export default Controller.extend({
     const meta = this.questionStore.peek("meta", this.model.instance.id);
     if (meta) {
       const formType = JSON.parse(meta.value).formType;
-      if (form === 9 && formType !== "canton") {
-        return "";
-      }
       form = `${form}-${formType}`;
     }
 

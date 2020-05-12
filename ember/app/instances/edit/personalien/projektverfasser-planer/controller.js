@@ -23,7 +23,7 @@ export default class InstancesEditPersonalienProjektverfasserPlanerController ex
       "model.value",
       question
         .getWithDefault("model.value", [])
-        .pushObjects(this.grundeigentumerschaftValue)
+        .pushObjects(this.bauherrschaftValue)
         .uniqBy("uuid")
     );
     await this.questionStore.saveQuestion.perform(question);
