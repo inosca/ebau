@@ -184,6 +184,16 @@ APPLICATIONS = {
             "projektverfasser-planer",
             "grundeigentumerschaft",
         ],
+        "INSTANCE_IDENTIFIER_FORM_ABBR": {
+            "geschaeftskontrolle": "GK",
+            "municipality": "GS",
+            "bezirk": "BS",
+            "canton": "KS",
+            "astra": "PA",
+            "esti": "PE",
+            "bav": "PB",
+            "vbs": "PV",
+        },
     },
     "kt_bern": {
         "ROLE_PERMISSIONS": {
