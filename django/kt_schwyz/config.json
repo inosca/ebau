@@ -13489,7 +13489,7 @@
   {
     "fields": {
       "communal_cantonal_number": null,
-      "communal_federal_number": "KAPO",
+      "communal_federal_number": "AV",
       "commune_name": "Kantonspolizei Schwyz",
       "district_name": null,
       "district_number": null,
@@ -13504,7 +13504,7 @@
   {
     "fields": {
       "communal_cantonal_number": null,
-      "communal_federal_number": "AWB",
+      "communal_federal_number": "KW",
       "commune_name": "Amt f\u00fcr Wasserbau",
       "district_name": null,
       "district_number": null,
@@ -13530,6 +13530,51 @@
     },
     "model": "user.location",
     "pk": 33
+  },
+  {
+    "fields": {
+      "communal_cantonal_number": null,
+      "communal_federal_number": "ESTI",
+      "commune_name": "Eidg. Starkstrominspektorat",
+      "district_name": null,
+      "district_number": null,
+      "name": "Eidg. Starkstrominspektorat",
+      "section_name": null,
+      "section_number": null,
+      "zip": null
+    },
+    "model": "user.location",
+    "pk": 34
+  },
+  {
+    "fields": {
+      "communal_cantonal_number": null,
+      "communal_federal_number": "OEV",
+      "commune_name": "Amt für öffentlichen Verkehr",
+      "district_name": null,
+      "district_number": null,
+      "name": "Amt für öffentlichen Verkehr",
+      "section_name": null,
+      "section_number": null,
+      "zip": null
+    },
+    "model": "user.location",
+    "pk": 35
+  },
+  {
+    "fields": {
+      "communal_cantonal_number": null,
+      "communal_federal_number": "ARE",
+      "commune_name": "Amt für Raumentwicklung",
+      "district_name": null,
+      "district_number": null,
+      "name": "Amt für Raumentwicklung",
+      "section_name": null,
+      "section_number": null,
+      "zip": null
+    },
+    "model": "user.location",
+    "pk": 36
   },
   {
     "fields": {
