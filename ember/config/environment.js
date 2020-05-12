@@ -35,12 +35,20 @@ module.exports = function(environment) {
 
       // Form location mapping in order of definition
       // konzession-fur-wasserentnahme = Amt für Wasserbau
-      // projektgenehmigungsgesuch-gemass-ss15-strag = Tiefbauamt
       // anlassbewilligungen-verkehrsbewilligungen = Kantons Polizei
+      // plangenehmigungsgesuch astra = Tiefbauamt
+      // plangenehmigungsgesuch esti = Energiefachstelle
+      // plangenehmigungsgesuch bav = ?
+      // plangenehmigungsgesuch vbs = Raumentwicklung
+      // projektgenehmigungsgesuch-gemass-ss15-strag kanton = Tiefbauamt
       formLocations: {
-        7: "Amt für Wasserbau",
-        9: "Tiefbauamt des Kantons Schwyz",
-        10: "Kantonspolizei Schwyz"
+        14: "Amt für Wasserbau",
+        17: "Kantonspolizei Schwyz",
+        "15-astra": "Tiefbauamt des Kantons Schwyz",
+        "15-esti": "Eidg. Starkstrominspektorat",
+        "15-bav": "Amt für öffentlichen Verkehr",
+        "15-vbs": "Amt für Raumentwicklung",
+        "16-canton": "Tiefbauamt des Kantons Schwyz"
       }
     },
 
@@ -112,7 +120,10 @@ module.exports = function(environment) {
       "Wollerau",
       "Amt für Wasserbau",
       "Tiefbauamt des Kantons Schwyz",
-      "Kantonspolizei Schwyz"
+      "Kantonspolizei Schwyz",
+      "Eidg. Starkstrominspektorat",
+      "Amt für öffentlichen Verkehr",
+      "Amt für Raumentwicklung"
     ];
   }
 
@@ -172,7 +183,10 @@ module.exports = function(environment) {
       "Wollerau",
       "Amt für Wasserbau",
       "Tiefbauamt des Kantons Schwyz",
-      "Kantonspolizei Schwyz"
+      "Kantonspolizei Schwyz",
+      "Eidg. Starkstrominspektorat",
+      "Amt für öffentlichen Verkehr",
+      "Amt für Raumentwicklung"
     ];
   }
 
@@ -194,7 +208,10 @@ module.exports = function(environment) {
       "Steinerberg",
       "Amt für Wasserbau",
       "Tiefbauamt des Kantons Schwyz",
-      "Kantonspolizei Schwyz"
+      "Kantonspolizei Schwyz",
+      "Eidg. Starkstrominspektorat",
+      "Amt für öffentlichen Verkehr",
+      "Amt für Raumentwicklung"
     ];
 
     ENV.APP.gisHost = "map.geo.sz.ch";

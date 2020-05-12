@@ -1,7 +1,21 @@
 import Controller from "@ember/controller";
+import { computed, action } from "@ember/object";
 import { tracked } from "@glimmer/tracking";
 import { info1, info2, info3 } from "citizen-portal/instances/new/info";
 import { dropTask, restartableTask } from "ember-concurrency-decorators";
+
+const specialFormTypes = {
+  "projektgenehmigungsgesuch-gemass-ss15-strag-v2": {
+    Gemeindestrassen: "municipality",
+    Kantonsstrassen: "canton"
+  },
+  "plangenehmigungsgesuch-v2": {
+    ASTRA: "astra",
+    ESTI: "esti",
+    BAV: "bav",
+    VBS: "vbs"
+  }
+};
 
 export default class InstancesNewController extends Controller {
   infoCol1 = info1;
@@ -10,6 +24,13 @@ export default class InstancesNewController extends Controller {
 
   queryParams = ["group"];
   @tracked group = null;
+
+  @tracked specialFormType = "";
+
+  @computed("model.form.name")
+  get options() {
+    return specialFormTypes[this.get("model.form.name")];
+  }
 
   @restartableTask
   *groupData() {
@@ -38,6 +59,35 @@ export default class InstancesNewController extends Controller {
 
     yield model.save();
 
+    if (this.specialFormType) {
+      const meta = this.store.createRecord("form-field", {
+        instance: model
+      });
+      meta.set("name", "meta");
+      meta.set("value", JSON.stringify({ formType: this.specialFormType }));
+      meta.save();
+    }
+
     yield this.transitionToRoute("instances.edit", model.id);
+  }
+
+  @action
+  next() {
+    if (
+      [
+        "projektgenehmigungsgesuch-gemass-ss15-strag-v2",
+        "plangenehmigungsgesuch-v2"
+      ].includes(this.get("model.form.name")) &&
+      !this.specialFormType
+    ) {
+      return this.set("specialForm", true);
+    }
+
+    this.save.perform();
+  }
+
+  @action
+  prev() {
+    this.set("specialForm", false);
   }
 }

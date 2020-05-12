@@ -6,6 +6,13 @@
       "personalien",
       "personalien.grundeigentumerschaft",
       "freigegebene-unterlagen"
+    ],
+    "geschaeftskontrolle": [
+      "grundinformationen",
+      "grundinformationen.kategorisierung",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "freigegebene-unterlagen"
     ]
   },
   "modules": {
@@ -40,7 +47,8 @@
         "gwr",
         "zweck-der-warmepumpe",
         "standort-der-warmepumpe",
-        "punkte"
+        "punkte",
+        "meta"
       ]
     },
     "personalien": {
@@ -414,6 +422,12 @@
           }
         ]
       }
+    },
+    "meta": {
+      "label": "Meta",
+      "type": "text",
+      "required": false,
+      "config": {}
     }
   }
 }
