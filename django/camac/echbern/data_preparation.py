@@ -1,6 +1,6 @@
 from caluma.caluma_form.models import Answer, Document, DynamicOption, Option
 
-from .utils import xml_encode_newlines
+from .utils import xml_encode_strings
 
 # Dicts with all questions we need from caluma. Questions under the "top" key, are
 # directly accessible. Other keys refer to tableQuestions with their corresponding
@@ -108,7 +108,7 @@ slugs_baugesuch = {
 
 slugs_vorabklaerung_einfach = {
     "top": [
-        ("anfrage-zur-vorabklaerung", "lorem ipsum"),
+        ("anfrage-zur-vorabklaerung", "lorem ipsum\tmit tab"),
         ("e-grid-nr", "23"),
         ("gemeinde", "2"),
         ("gwr-egid", "23"),
@@ -119,7 +119,7 @@ slugs_vorabklaerung_einfach = {
         ("ort-gesuchstellerin", "Burgdorf"),
         ("parzellennummer", "23"),
         ("plz-gesuchstellerin", 2323),
-        ("strasse-gesuchstellerin", "Teststrasse"),
+        ("strasse-gesuchstellerin", "Teststrasse mit   Leerzeichen"),
         ("vorname-gesuchstellerin-vorabklaerung", "Winston"),
     ]
 }
@@ -145,15 +145,16 @@ class DocumentParser:
         self.answers.update(self.parse_answers(self.document, main_slugs))
 
     def handle_string_values(self, value):
+        if not isinstance(value, str):
+            return value
+        value = xml_encode_strings(value)
+        # It's important to call strip_whitespace last, as it would also strip away any newlines
         value = self.strip_whitespace(value)
-        value = xml_encode_newlines(value)
         return value
 
     @staticmethod
     def strip_whitespace(value):
-        if isinstance(value, str):
-            return value.strip(" ")
-        return value
+        return " ".join(value.split())
 
     def _get_option_label(self, slug):
         option = Option.objects.get(pk=slug)
