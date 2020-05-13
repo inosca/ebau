@@ -90,7 +90,7 @@ baugesuch_data = {
 }
 
 vorabklaerung_data = {
-    "anfrage-zur-vorabklaerung": "lorem ipsum",
+    "anfrage-zur-vorabklaerung": "lorem ipsum mit tab",
     "caluma-form-slug": "vorabklaerung-einfach",
     "e-grid-nr": "23",
     "ech-subject": "Einfache Vorabklärung",
@@ -103,6 +103,6 @@ vorabklaerung_data = {
     "ort-gesuchstellerin": "Burgdorf",
     "parzellennummer": "23",
     "plz-gesuchstellerin": 2323,
-    "strasse-gesuchstellerin": "Teststrasse",
+    "strasse-gesuchstellerin": "Teststrasse mit Leerzeichen",
     "vorname-gesuchstellerin-vorabklaerung": "Winston",
 }

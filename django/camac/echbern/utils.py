@@ -1,11 +1,8 @@
 from camac.constants.kt_bern import DECISION_JUDGEMENT_MAP
 
 
-def xml_encode_newlines(value):
-    if not isinstance(value, str):
-        return value
-
-    replace_map = (("\n", "&#10;"), ("\r", "&#13;"))
+def xml_encode_strings(value):
+    replace_map = (("\n", "&#10;"), ("\r", "&#13;"), ("\t", " "))
     for old, new in replace_map:
         value = value.replace(old, new)
 
