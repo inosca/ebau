@@ -15,9 +15,11 @@ services:
     volumes:
       - djangomedia:/var/lib/camac/media:ro
       - djangotmpmedia:/tmp/camac/tmpfiles:ro
+    networks:
+      - camac-ng.local
 
   db:
-    image: acr.run/camac-ng/camac-ng/db:${CI_COMMIT_REF_SLUG}
+    image: acr.run/camac-ng/camac-ng/db:${CI_COMMIT_REF_SLUG:-master}
     build:
       context: ../db
       cache_from:
@@ -28,9 +30,11 @@ services:
       - POSTGRES_DATABASE=${APPLICATION}
     volumes:
       - pgdata:/var/lib/postgresql/data
+    networks:
+      - camac-ng.local
 
   django:
-    image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_REF_SLUG}
+    image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_REF_SLUG:-master}
     build:
       context: ../django
       cache_from:
@@ -66,9 +70,11 @@ services:
     volumes:
       - djangomedia:/var/lib/camac/media
       - djangotmpmedia:/tmp/camac/tmpfiles
+    networks:
+      - camac-ng.local
 
   ember:
-    image: acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG}
+    image: acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG:-master}
     build:
       target: build
       context: ../ember
@@ -78,11 +84,13 @@ services:
         DEPLOY_TARGET: staging
     depends_on:
       - django
+    networks:
+      - camac-ng.local
     environment:
       - ENV=docker
 
   ember-caluma-portal:
-    image: acr.run/camac-ng/camac-ng/ember-caluma-portal:${CI_COMMIT_REF_SLUG}
+    image: acr.run/camac-ng/camac-ng/ember-caluma-portal:${CI_COMMIT_REF_SLUG:-master}
     build:
       target: build
       context: ../ember-caluma-portal
@@ -91,19 +99,23 @@ services:
     depends_on:
       - keycloak
       - django
+    networks:
+      - camac-ng.local
     environment:
       - ENV=docker
 
   ember-camac-ng:
-    image: acr.run/camac-ng/camac-ng/ember-camac-ng:${CI_COMMIT_REF_SLUG}
+    image: acr.run/camac-ng/camac-ng/ember-camac-ng:${CI_COMMIT_REF_SLUG:-master}
     build:
       context: ../ember-camac-ng
       cache_from:
         - acr.run/camac-ng/camac-ng/ember-camac-ng:master
       target: build
+    networks:
+      - camac-ng.local
 
   php:
-    image: acr.run/camac-ng/camac-ng/php:${CI_COMMIT_REF_SLUG}
+    image: acr.run/camac-ng/camac-ng/php:${CI_COMMIT_REF_SLUG:-master}
     build:
       context: ../php
       cache_from:
@@ -124,15 +136,23 @@ services:
       - /var/www/camac/public/public-kt_bern/js
       - /var/www/camac/public/node_modules
       - /var/www/camac/public/bower_components
+    networks:
+      - camac-ng.local
 
   mailhog:
     image: mailhog/mailhog
+    networks:
+      - camac-ng.local
 
   unoconv:
     image: zrrrzzt/docker-unoconv-webservice:8.9.4
+    networks:
+      - camac-ng.local
 
   clamav:
     image: dinkel/clamavd
+    networks:
+      - camac-ng.local
 
   keycloak:
     depends_on:
@@ -147,6 +167,8 @@ services:
       - KEYCLOAK_USER=admin
     volumes:
       - ../keycloak:/etc/keycloak:ro
+    networks:
+      - camac-ng.local
     command:
       [
         "-Dkeycloak.migration.action=import",
@@ -165,6 +187,8 @@ services:
       - ../document-merge-service/uwsgi.ini:/app/uwsgi.ini:ro
       - ../document-merge-service/templatefiles:/var/lib/document-merge-service/media
       - ../document-merge-service/dump.json:/tmp/document-merge-service/dump.json
+    networks:
+      - camac-ng.local
     environment:
       - DATABASE_ENGINE=django.db.backends.postgresql
       - DATABASE_HOST=db
@@ -186,6 +210,8 @@ services:
       - db
     ports:
       - "666:3000"
+    networks:
+      - camac-ng.local
     environment:
       - MB_DB_TYPE=postgres
       - MB_DB_DBNAME=metabase
@@ -199,3 +225,6 @@ volumes:
   djangotmpmedia:
   phpsessions:
   templatefiles:
+
+networks:
+  camac-ng.local:
