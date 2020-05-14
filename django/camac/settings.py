@@ -159,6 +159,7 @@ APPLICATIONS = {
             "Kanton": "canton",
             "Lesezugriff": "reader",
             "Publikation": "public_reader",
+            "Fachstelle Leitbehörde": "municipality",
         },
         "NOTIFICATIONS": {
             "SUBMIT": "gesuchseingang",
