@@ -22,6 +22,7 @@ from camac.notification import factories as notification_factories
 from camac.objection import factories as objection_factories
 from camac.responsible import factories as responsible_factories
 from camac.user import factories as user_factories
+from camac.user.authentication import CalumaInfo
 
 
 def register_module(module, prefix=""):
@@ -63,6 +64,18 @@ Faker.add_provider(FreezegunAwareDatetimeProvider)
 
 
 @pytest.fixture
+def request_mock(mocker):
+    request_mock = mocker.patch(
+        "django.test.client.WSGIRequest.caluma_info",
+        new_callable=mocker.PropertyMock,
+        create=True,
+    )
+    request_mock.return_value = CalumaInfo(
+        {"sub": "462afaba-aeb7-494a-8596-3497b81ed701"}
+    )
+
+
+@pytest.fixture
 def rf(db):
     return APIRequestFactory()
 
@@ -76,7 +89,7 @@ def admin_user(admin_user, group, group_location, user_group_factory):
 
 
 @pytest.fixture
-def admin_client(db, admin_user):
+def admin_client(db, admin_user, request_mock):
     """Return instance of a JSONAPIClient that is logged in as test user."""
     client = APIClient()
     client.force_authenticate(user=admin_user)
