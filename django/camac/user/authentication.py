@@ -117,7 +117,7 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
             "email": data["email"],
             "username": username,
             "name": data.get("family_name", username),
-            "username": data.get("given_name", username)
+            "surname": data.get("given_name", username)
         }
 
         # By default we check if a user with certain username exists
