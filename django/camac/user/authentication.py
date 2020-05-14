@@ -1,6 +1,7 @@
 import hashlib
 import logging
 
+from caluma.caluma_user import models as caluma_user_models
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core.cache import cache
@@ -18,6 +19,25 @@ from camac.applicants.models import Applicant
 from camac.user.models import Group, UserGroup
 
 request_logger = logging.getLogger("django.request")
+
+
+class CalumaInfo:
+    """A caluma info object built from the given camac request.
+
+    Caluma requires an "info" object in various places, representing
+    the GraphQL request, user, etc; similar to the context in
+    DRF views.
+
+    This info object is limited and only contains what's actually needed.
+    It may need to be expanded in the future.
+    """
+
+    def __init__(self, userinfo, token=None):
+        self.context = CalumaInfo._Context(userinfo, token)
+
+    class _Context:
+        def __init__(self, userinfo, token):
+            self.user = caluma_user_models.OIDCUser(token=token, userinfo=userinfo)
 
 
 class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
@@ -53,6 +73,9 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
             lambda: self._verify_token(jwt_value),
             timeout=settings.OIDC_BEARER_TOKEN_REVALIDATION_TIME,
         )
+        # attach caluma info to request, as it's possible to do in middleware
+        # (requires token info)
+        request.caluma_info = CalumaInfo(userinfo[1], jwt_value)
 
         return userinfo
 

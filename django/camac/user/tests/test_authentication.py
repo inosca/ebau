@@ -89,7 +89,7 @@ def test_authenticate_new_user(
     request = rf.request(HTTP_AUTHORIZATION="Bearer some_token")
     user, token = JSONWebTokenKeycloakAuthentication().authenticate(request)
 
-    assert user.username == username
+    assert user.username == request.caluma_info.context.user.username == username
     if demo_mode:
         assert user.groups.count() == 1
         assert user.groups.first() == admin_group
