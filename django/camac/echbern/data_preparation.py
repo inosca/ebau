@@ -2,6 +2,23 @@ from caluma.caluma_form.models import Answer, Document, DynamicOption, Option
 
 from .utils import xml_encode_strings
 
+
+class AnswersDict(dict):
+    """Dict with special get capabilities."""
+
+    def get(self, key, default=None):
+        """
+        Get `key` and fallback to `default` if not available or value is None.
+
+        The vanilla `dict.get()` would only fallback to the default if the key is
+        missing.
+        """
+        if key in self:
+            value = self[key]
+            return value if value is not None else default
+        return default
+
+
 # Dicts with all questions we need from caluma. Questions under the "top" key, are
 # directly accessible. Other keys refer to tableQuestions with their corresponding
 # sub-questions. The second tuple element is an example value and also used for tests.
@@ -79,7 +96,7 @@ slugs_baugesuch = {
     "personalien-projektverfasserin": [
         [
             ("name-projektverfasserin", "Smith"),
-            ("nummer-projektverfasserin", "23"),
+            ("nummer-projektverfasserin", None),
             ("ort-projektverfasserin", "Burgdorf"),
             ("plz-projektverfasserin", 2323),
             ("strasse-projektverfasserin", "Teststrasse"),
@@ -138,10 +155,12 @@ class DocumentParser:
         main_slugs = [slug for slug, _ in self.slugs_table["top"]] + [
             key for key in self.slugs_table if not key == "top"
         ]
-        self.answers = {
-            "ech-subject": document.form.name["de"],
-            "caluma-form-slug": document.form.slug,
-        }
+        self.answers = AnswersDict(
+            **{
+                "ech-subject": document.form.name["de"],
+                "caluma-form-slug": document.form.slug,
+            }
+        )
         self.answers.update(self.parse_answers(self.document, main_slugs))
 
     def handle_string_values(self, value):
@@ -195,7 +214,7 @@ class DocumentParser:
             document=document, question__slug__in=slugs
         )
 
-        answers = {}
+        answers = AnswersDict()
 
         for answer in caluma_answers:
             question_type_name = answer.question.type
