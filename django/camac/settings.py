@@ -584,7 +584,10 @@ APPLICATIONS = {
             ("wildtierschutz", "wildtierschutz-ja", [20064]),
         ],
     },
-    "kt_uri": {"FORM_BACKEND": "camac"},
+    "kt_uri": {
+        "FORM_BACKEND": "camac",
+        "PORTAL_USER_ID": 1209
+    },
 }
 
 APPLICATION = APPLICATIONS.get(APPLICATION_NAME, {})
