@@ -346,7 +346,7 @@ def application(instance: Instance, answers: dict):
             ns_application.natureRiskType(
                 riskDesignation=row["prozessart"], riskExists=True
             )
-            for row in answers["beschreibung-der-prozessart-tabelle"]
+            for row in answers.get("beschreibung-der-prozessart-tabelle")
         ]
 
     ebau_nr = get_ebau_nr(instance)
@@ -387,7 +387,7 @@ def application(instance: Instance, answers: dict):
                 zoneDesignation=answers["nutzungszone"][:255].strip()
             )
         ]  # eCH allows for max 225 chars
-        if "nutzungszone" in answers
+        if "nutzungszone" in answers and answers["nutzungszone"] is not None
         else [],
         constructionProjectInformation=ns_application.constructionProjectInformationType(
             constructionProject=ns_objektwesen.constructionProject(
