@@ -21,6 +21,7 @@ from camac.core.models import Answer, DocxDecision, InstanceService
 from camac.instance.models import Instance
 from camac.utils import build_url
 
+from .data_preparation import AnswersDict
 from .schema import (
     ech_0007_6_0,
     ech_0010_6_0 as ns_address,
@@ -172,7 +173,7 @@ def get_owners(answers):
     "personalien-gesuchstellerin" if not.
 
     Then we normalize all the keys.
-    :param answers: dict
+    :param answers: AnswersDict
     :return: dict
     """
     raw_owners = answers.get(
@@ -339,7 +340,7 @@ def get_realestateinformation(answers):
     return re_info
 
 
-def application(instance: Instance, answers: dict):
+def application(instance: Instance, answers: AnswersDict):
     nature_risk = []
     if "beschreibung-der-prozessart-tabelle" in answers:
         nature_risk = [
@@ -461,7 +462,7 @@ def status_notification(instance: Instance):
     )
 
 
-def base_delivery(instance: Instance, answers: dict):
+def base_delivery(instance: Instance, answers: AnswersDict):
     return ns_application.eventBaseDeliveryType(
         planningPermissionApplicationInformation=[
             (
@@ -476,7 +477,7 @@ def base_delivery(instance: Instance, answers: dict):
     )
 
 
-def submit(instance: Instance, answers: dict, event_type: str):
+def submit(instance: Instance, answers: AnswersDict, event_type: str):
     return ns_application.eventSubmitPlanningPermissionApplicationType(
         eventType=ns_application.eventTypeType(event_type),
         planningPermissionApplication=application(instance, answers),
@@ -484,7 +485,7 @@ def submit(instance: Instance, answers: dict, event_type: str):
     )
 
 
-def get_relationship_to_person(answers: dict):
+def get_relationship_to_person(answers: AnswersDict):
     people = {"applicant": get_applicant_data(answers)}
 
     slug_map = [
@@ -652,7 +653,7 @@ def change_responsibility(instance: Instance):
 
 def delivery(
     instance: Instance,
-    answers: dict,
+    answers: AnswersDict,
     message_type: str,
     message_date=None,
     message_id=None,
