@@ -2062,8 +2062,11 @@ class InstanceLog(models.Model):
 
 
 class InstancePortal(models.Model):
+    # TODO Why isn't this a foreign key?
     instance_id = models.AutoField(db_column="INSTANCE_ID", primary_key=True)
     portal_identifier = models.CharField(db_column="PORTAL_IDENTIFIER", max_length=256)
+    # Once all rows have been migrated this model can be deleted.
+    migrated = models.BooleanField(default=False)
 
     class Meta:
         managed = True

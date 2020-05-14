@@ -1,11 +1,13 @@
 import hashlib
 import logging
+import re
 
 from caluma.caluma_user import models as caluma_user_models
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core.cache import cache
 from django.core.exceptions import ObjectDoesNotExist
+from django.db import transaction
 from django.utils import translation
 from django.utils.encoding import force_bytes, smart_text
 from django.utils.translation import ugettext as _
@@ -17,6 +19,8 @@ from rest_framework.exceptions import AuthenticationFailed
 
 from camac.applicants.models import Applicant
 from camac.user.models import Group, UserGroup
+from camac.instance.models import Instance
+from camac.core.models import InstancePortal
 
 request_logger = logging.getLogger("django.request")
 
@@ -120,6 +124,7 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
             "surname": data.get("given_name", username)
         }
 
+
         # By default we check if a user with certain username exists
         lookup_attr = {
             "username": username
@@ -137,6 +142,10 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
 
         demo_groups = settings.APPLICATION.get("DEMO_MODE_GROUPS")
         if created:
+
+            if is_uri_portal_user(username):
+                migrate_portal_instances(user)
+
             Applicant.objects.filter(email=user.email, invitee=None).update(
                 invitee=user
             )
@@ -161,3 +170,25 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
 
     def authenticate_header(self, request):
         return 'JWT realm="{0}"'.format(settings.KEYCLOAK_REALM)
+
+
+def is_uri_portal_user(username):
+    """Check if username is valid i-web portal user identifier."""
+    return re.match("^d12_\d+$", username) 
+
+
+@transaction.atomic
+def migrate_portal_instances(user):
+    """Assign instance to portal user on first login.
+
+    In Uri instances which are submitted through the portal are all owned by a
+    single portal user. The mapping of which user created which instance is stored
+    in the "INSTANCE_PORTAL" table.
+    
+    If a portal user signs in for the first time he automatically becomes owner
+    of his submitted instances.
+    """
+    portal_instances = InstancePortal.objects.filter(portal_identifier=user.username)
+    portal_instance_ids = [instance.pk for instance in portal_instances]
+    instances = Instance.objects.filter(pk__in=portal_instance_ids).update(user=user)
+    portal_instances.update(migrated=True)
