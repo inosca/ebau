@@ -971,3 +971,7 @@ if ENABLE_SILK:  # pragma: no cover
     SILKY_AUTHENTICATION = False
     SILKY_AUTHORISATION = False
     SILKY_META = True
+
+# Whether to migrate Portal users on first login. See authentication.py for
+# detailed description of what the migrations does.
+URI_MIGRATE_PORTAL_USER = env.bool("URI_MIGRATE_PORTAL_USER", default=False)
