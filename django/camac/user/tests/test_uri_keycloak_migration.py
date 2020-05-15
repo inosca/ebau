@@ -14,9 +14,11 @@ from ..models import User
 def test_authenticate_bootstrap_by_mail(
     rf,
     mocker,
-    application_settings,
+    settings,
     user_factory
 ):
+    settings.OIDC_BOOTSTRAP_BY_EMAIL = True
+
     token_value = {
         "sub": "existing-already",
         "email": "existing-guy@example.com",
@@ -25,9 +27,7 @@ def test_authenticate_bootstrap_by_mail(
     }
 
     # The user with the same email should be updated with keycloak information
-    user_factory(email=token_value['email'])
-
-    application_settings['OIDC_BOOTSTRAP_BY_EMAIL'] = True
+    user = user_factory(email=token_value['email'])
 
     decode_token = mocker.patch("keycloak.KeycloakOpenID.decode_token")
     decode_token.return_value = token_value
@@ -62,14 +62,13 @@ def test_migrate_portal_user(
     camac user stub.
     """
 
-
+    settings.OIDC_CAMAC_USERNAME_CLAIM = "preferred_username"
     application_settings['URI_MIGRATE_PORTAL_USER'] = True
 
     applicant_group = group_factory()
     application_settings['APPLICANT_GROUP_ID'] = applicant_group.pk
 
     iweb_profile_id = "d12_1023"
-    username = "somelongid"
 
     instance = instance_factory()
     instance_portal = instance_portal_factory(instance_id=instance.pk, portal_identifier=iweb_profile_id)
@@ -77,7 +76,7 @@ def test_migrate_portal_user(
     # TODO(patrickw): Revisit this and add additionally required attributes once
     # we knew the attribute mapping of the iweb idp.
     token_value = {
-        "sub": username,
+        "sub": "somelongkeycloakid",
         "preferred_username": iweb_profile_id,
         "email": "other-guy@example.com",
         "family_name": "Other",
@@ -102,7 +101,7 @@ def test_migrate_portal_user(
     assert instance_portal.migrated == True
 
     # Ensure the user object attrubtes were updated
-    assert user.username == token['sub']
+    assert user.username == iweb_profile_id
     assert user.name == token['family_name']
     assert user.surname == token['given_name']
 
