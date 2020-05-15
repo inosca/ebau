@@ -114,7 +114,7 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
     def _build_user(self, data):
         language = translation.get_language()
 
-        # always overwrite values of users
+        # We used the keycloak user id as the username in camac
         username = data["sub"]
         defaults = {
             "language": language[:2],
@@ -140,15 +140,16 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
             **lookup_attr, defaults=defaults
         )
 
-        demo_groups = settings.APPLICATION.get("DEMO_MODE_GROUPS")
         if created:
-
-            if settings.URI_MIGRATE_PORTAL_USER and is_uri_portal_user(username):
-                migrate_portal_user(user)
+            keycloak_username = data["preferred_username"]
+            if settings.URI_MIGRATE_PORTAL_USER and is_uri_portal_user(keycloak_username):
+                migrate_portal_user(user, keycloak_username)
 
             Applicant.objects.filter(email=user.email, invitee=None).update(
                 invitee=user
             )
+
+            demo_groups = settings.APPLICATION.get("DEMO_MODE_GROUPS")
             if settings.DEMO_MODE and demo_groups:
                 for i, group_id in enumerate(demo_groups):
                     default_group = 1 if i == 0 else 0
@@ -178,7 +179,7 @@ def is_uri_portal_user(username):
 
 
 @transaction.atomic
-def migrate_portal_user(user):
+def migrate_portal_user(user, keycloak_username):
     """Assign instance to portal user on first login.
 
     In Uri instances which are submitted through the portal are all owned by a
@@ -190,7 +191,7 @@ def migrate_portal_user(user):
     to the applicant user group.
     """
 
-    portal_instances = InstancePortal.objects.filter(portal_identifier=user.username)
+    portal_instances = InstancePortal.objects.filter(portal_identifier=keycloak_username)
     portal_instance_ids = [instance.pk for instance in portal_instances]
     instances = Instance.objects.filter(pk__in=portal_instance_ids).update(user=user)
     portal_instances.update(migrated=True)

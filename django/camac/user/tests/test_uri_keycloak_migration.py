@@ -67,6 +67,7 @@ def test_migrate_portal_user(
     application_settings['APPLICANT_GROUP_ID'] = applicant_group.pk
 
     iweb_profile_id = "d12_1023"
+    username = "somelongid"
 
     instance = instance_factory()
     instance_portal = instance_portal_factory(instance_id=instance.pk, portal_identifier=iweb_profile_id)
@@ -74,7 +75,8 @@ def test_migrate_portal_user(
     # TODO(patrickw): Revisit this and add additionally required attributes once
     # we knew the attribute mapping of the iweb idp.
     token_value = {
-        "sub": iweb_profile_id,
+        "sub": username,
+        "preferred_username": iweb_profile_id,
         "email": "other-guy@example.com",
         "family_name": "Other",
         "given_name": "Guy",
