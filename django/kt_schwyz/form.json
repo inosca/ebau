@@ -78,6 +78,84 @@
       "fachthemen.fischerei",
       "gesuchsunterlagen"
     ],
+    "baugesuch-reklamegesuch-v2": [
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung",
+      "grundinformationen.allgemeine-informationen-zum-vorhaben-v2",
+      "grundinformationen.ausnahmebewilligungen",
+      "grundinformationen.gwr",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft",
+      "personalien.projektverfasser-planer",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "gesuchsunterlagen"
+    ],
+    "projektanderung-v2": [
+      "projektanderung",
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung",
+      "grundinformationen.allgemeine-informationen-zum-vorhaben-v2",
+      "grundinformationen.ausnahmebewilligungen",
+      "grundinformationen.gwr",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft",
+      "personalien.projektverfasser-planer",
+      "gesuchsunterlagen"
+    ],
+    "vorentscheid-gemass-ss84-pbg-v2": [
+      "vorentscheid",
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung",
+      "grundinformationen.allgemeine-informationen-zum-vorhaben-v2",
+      "grundinformationen.gwr",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft",
+      "personalien.projektverfasser-planer",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "gesuchsunterlagen"
+    ],
     "vorabklarung": [
       "grundinformationen",
       "grundinformationen.lokalisierung",
@@ -365,6 +443,20 @@
       "parent": "grundinformationen",
       "questions": [
         "geometer",
+        "geometer-name",
+        "baugespann-errichtet",
+        "baugespann-errichtet-wann",
+        "kein-baugespann-begrundung",
+        "baukosten",
+        "gebaudevolumen-sia-116",
+        "gebaudevolumen-sia-416"
+      ]
+    },
+    "grundinformationen.allgemeine-informationen-zum-vorhaben-v2": {
+      "title": "Allgemeine Informationen zum Vorhaben",
+      "parent": "grundinformationen",
+      "questions": [
+        "geometer-v2",
         "geometer-name",
         "baugespann-errichtet",
         "baugespann-errichtet-wann",
@@ -1278,7 +1370,7 @@
     },
     "kategorie-des-vorhabens": {
       "label": "Handelt es sich beim Vorhaben um eine Baute oder / und Anlage?",
-      "hint": "**Vorbemerkung:** Wenn Ihr Vorhaben *Baute(n)* und *Anlage(n)* beinhaltet, müssen Sie beides ankreuzen. Nur so werden jene Fragen ausgelöst, welche für die Eingabe Ihres Vorhabens beantwortet werden müssen.\nBeispiel: Falls Sie ein Baugesuch für ein Einfamilienhaus eingeben möchten und Sie eine Wärmepumpe oder eine Photovoltaikanlage vorgesehen haben, müssen Sie *Baute(n)* __und__ *Anlage(n)* ankreuzen.\n\n**Baute(n):** Als Baute wird ein Gebäude oder eine überdachte bauliche Einrichtung qualifiziert, welche Menschen, Tieren oder Sachen gegen äussere Einflüsse zu schützen vermag und mehr oder weniger abgeschlossen ist. Wände sind nicht Voraussetzung, doch muss in jedem Fall zumindest ein schutzbietendes Dach vorhanden sein, selbst wenn es nur auf Pfosten steht. So gilt eine Pergola mit festem Dach als Baute.\n\n**Anlage(n):** Als Anlagen gelten demgegenüber befestigte Flächen, offene Materiallagerplätze, Geländeveränderungen, Stützmauern, klassische Pergolen, Leitungen, offene Schwimmbäder, Silos, ortsfeste Krananlagen und auch technische Geräte wie Wärmepumpen. Diese Aufzählung ist nicht abschliessend.",
+      "hint": "**Vorbemerkung:** Wenn Ihr Vorhaben *Baute(n)* und *Anlage(n)* beinhaltet, müssen Sie beides ankreuzen. Nur so werden jene Fragen ausgelöst, welche für die Eingabe Ihres Vorhabens beantwortet werden müssen.\nBeispiel: Falls Sie ein Baugesuch für ein Einfamilienhaus eingeben möchten und Sie eine Wärmepumpe oder eine Photovoltaikanlage vorgesehen haben, müssen Sie *Baute(n)* __und__ *Anlage(n)* ankreuzen.\n\n**Baute(n):** Als Baute wird ein Gebäude oder eine überdachte bauliche Einrichtung qualifiziert, welche Menschen, Tieren oder Sachen gegen äussere Einflüsse zu schützen vermag und mehr oder weniger abgeschlossen ist. Wände sind nicht Voraussetzung, doch muss in jedem Fall zumindest ein schutzbietendes Dach vorhanden sein, selbst wenn es nur auf Pfosten steht. So gilt eine Pergola mit festem Dach als Baute.\n\n**Anlage(n):** Als Anlagen gelten demgegenüber Reklamen, befestigte Flächen, offene Materiallagerplätze, Geländeveränderungen, Stützmauern, klassische Pergolen, Leitungen, offene Schwimmbäder, Silos, ortsfeste Krananlagen und auch technische Geräte wie Wärmepumpen. Diese Aufzählung ist nicht abschliessend.",
       "type": "checkbox",
       "required": true,
       "config": {
@@ -1774,6 +1866,21 @@
       "config": {
         "options": [
           "Trigonet AG (Stans)",
+          "Geoterra AG (Siebnen, Pfäffikon, Einsiedeln)",
+          "GEO Netz AG (Schwyz, Lachen)",
+          "HSK Ingenieur AG (Goldau, Küssnacht, Brunnen)",
+          "geometrie plus ag (Freienbach, Einsiedeln)",
+          "Wild Ingenieure AG (Küssnacht)"
+        ]
+      }
+    },
+    "geometer-v2": {
+      "label": "Bitte wählen Sie zur Nachführung der amtlichen Vermessung einen Geometer aus.",
+      "hint": "Die Kosten für die Nachführung der amtlichen Vermessung infolge Umsetzung eines Bauvorhabens trägt die Bauherrschaft. Deshalb kann die Bauherrschaft bestimmen, welches Geometerbüro die besagten Arbeiten ausführen soll.",
+      "type": "radio",
+      "required": true,
+      "config": {
+        "options": [
           "Geoterra AG (Siebnen, Pfäffikon, Einsiedeln)",
           "GEO Netz AG (Schwyz, Lachen)",
           "HSK Ingenieur AG (Goldau, Küssnacht, Brunnen)",
