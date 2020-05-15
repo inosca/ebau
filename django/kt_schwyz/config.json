@@ -3764,6 +3764,30 @@
   },
   {
     "fields": {
+      "form": 18,
+      "form_group": 1
+    },
+    "model": "core.formgroupform",
+    "pk": 18
+  },
+  {
+    "fields": {
+      "form": 19,
+      "form_group": 1
+    },
+    "model": "core.formgroupform",
+    "pk": 19
+  },
+  {
+    "fields": {
+      "form": 20,
+      "form_group": 1
+    },
+    "model": "core.formgroupform",
+    "pk": 20
+  },
+  {
+    "fields": {
       "group": 1,
       "permission_id": "menu_account"
     },
@@ -12063,6 +12087,72 @@
   },
   {
     "fields": {
+      "form": 18,
+      "page": 2,
+      "page_form_group": 1,
+      "page_form_mode": 1,
+      "sort": 0
+    },
+    "model": "core.pageform",
+    "pk": 38
+  },
+  {
+    "fields": {
+      "form": 18,
+      "page": 1,
+      "page_form_group": 1,
+      "page_form_mode": 1,
+      "sort": 1
+    },
+    "model": "core.pageform",
+    "pk": 39
+  },
+  {
+    "fields": {
+      "form": 19,
+      "page": 2,
+      "page_form_group": 1,
+      "page_form_mode": 1,
+      "sort": 0
+    },
+    "model": "core.pageform",
+    "pk": 40
+  },
+  {
+    "fields": {
+      "form": 19,
+      "page": 1,
+      "page_form_group": 1,
+      "page_form_mode": 1,
+      "sort": 1
+    },
+    "model": "core.pageform",
+    "pk": 41
+  },
+  {
+    "fields": {
+      "form": 20,
+      "page": 2,
+      "page_form_group": 1,
+      "page_form_mode": 1,
+      "sort": 0
+    },
+    "model": "core.pageform",
+    "pk": 42
+  },
+  {
+    "fields": {
+      "form": 20,
+      "page": 1,
+      "page_form_group": 1,
+      "page_form_mode": 1,
+      "sort": 1
+    },
+    "model": "core.pageform",
+    "pk": 43
+  },
+  {
+    "fields": {
       "name": "default"
     },
     "model": "core.pageformgroup",
@@ -14778,6 +14868,33 @@
     },
     "model": "instance.form",
     "pk": 17
+  },
+  {
+    "fields": {
+      "description": "Baugesuch",
+      "form_state": 1,
+      "name": "baugesuch-reklamegesuch-v2"
+    },
+    "model": "instance.form",
+    "pk": 18
+  },
+  {
+    "fields": {
+      "description": "Projekt\u00e4nderung zu bewilligtem Baugesuch",
+      "form_state": 1,
+      "name": "projektanderung-v2"
+    },
+    "model": "instance.form",
+    "pk": 19
+  },
+  {
+    "fields": {
+      "description": "Vorentscheid gem\u00e4ss \u00a7 84 PBG",
+      "form_state": 1,
+      "name": "vorentscheid-gemass-ss84-pbg-v2"
+    },
+    "model": "instance.form",
+    "pk": 20
   },
   {
     "fields": {
