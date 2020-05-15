@@ -143,8 +143,8 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
         demo_groups = settings.APPLICATION.get("DEMO_MODE_GROUPS")
         if created:
 
-            if is_uri_portal_user(username):
-                migrate_portal_instances(user)
+            if settings.URI_MIGRATE_PORTAL_USER and is_uri_portal_user(username):
+                migrate_portal_user(user)
 
             Applicant.objects.filter(email=user.email, invitee=None).update(
                 invitee=user
@@ -178,7 +178,7 @@ def is_uri_portal_user(username):
 
 
 @transaction.atomic
-def migrate_portal_instances(user):
+def migrate_portal_user(user):
     """Assign instance to portal user on first login.
 
     In Uri instances which are submitted through the portal are all owned by a
