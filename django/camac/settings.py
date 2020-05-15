@@ -845,6 +845,11 @@ REGISTRATION_URL = env.str(
     ),
 )
 
+# JWT token claim used as the username for newly created Camac users
+OIDC_CAMAC_USERNAME_CLAIM = env.str(
+    "OIDC_CAMAC_USERNAME_CLAIM",
+    default="sub"
+)
 
 # Map existing users to OIDC identities by their mail address
 OIDC_BOOTSTRAP_BY_EMAIL = env.str(
