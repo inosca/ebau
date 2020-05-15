@@ -122,17 +122,17 @@ services:
     networks:
       - camac-ng.local
     # export is a bit tricky: We need to _start_ keycloak with specific arguments to perform an export
-    # command: ["-Dkeycloak.migration.action=export", "-Dkeycloak.migration.provider=singleFile", "-Dkeycloak.migration.file=/etc/keycloak/test-config.json", "-b", "0.0.0.0"]
+    # command: ["-Dkeycloak.migration.action=export", "-Dkeycloak.migration.provider=singleFile", "-Dkeycloak.migration.file=/tmp/test-config.json", "-b", "0.0.0.0"]
     #
     # http://www.keycloak.org/docs/3.3/server_admin/topics/export-import.html
-    # command:
-    #   [
-    #     "-Dkeycloak.migration.action=import",
-    #     "-Dkeycloak.migration.provider=singleFile",
-    #     "-Dkeycloak.migration.file=/etc/keycloak/test-config.json",
-    #     "-b",
-    #     "0.0.0.0",
-    #   ]
+    command:
+      [
+        "-Dkeycloak.migration.action=import",
+        "-Dkeycloak.migration.provider=singleFile",
+        "-Dkeycloak.migration.file=/etc/keycloak/test-config.json",
+        "-b",
+        "0.0.0.0",
+      ]
 
 networks:
   camac-ng.local:
