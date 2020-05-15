@@ -16,7 +16,7 @@ module.exports = function(defaults) {
       includePolyfill: true
     },
     fingerprint: {
-      extensions: ["ico", "js", "css", "png", "jpg", "svg", "pdf"],
+      extensions: ["ico", "js", "css", "png", "jpg", "svg"],
       exclude: [
         "images/layers-2x.png",
         "images/layers.png",
