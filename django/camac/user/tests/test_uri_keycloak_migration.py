@@ -65,7 +65,7 @@ def test_migrate_portal_user(
     """
 
     settings.OIDC_CAMAC_USERNAME_CLAIM = "preferred_username"
-    application_settings['URI_MIGRATE_PORTAL_USER'] = True
+    settings.URI_MIGRATE_PORTAL_USER = True
 
     applicant_group = group_factory()
     application_settings['APPLICANT_GROUP_ID'] = applicant_group.pk
