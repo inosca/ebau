@@ -185,10 +185,18 @@ def migrate_portal_user(user):
     single portal user. The mapping of which user created which instance is stored
     in the "INSTANCE_PORTAL" table.
     
-    If a portal user signs in for the first time he automatically becomes owner
-    of his submitted instances.
+    If a portal user signs in for the first time through keycloak he
+    automatically becomes owner of his submitted instances. He also gets added
+    to the applicant user group.
     """
+
     portal_instances = InstancePortal.objects.filter(portal_identifier=user.username)
     portal_instance_ids = [instance.pk for instance in portal_instances]
     instances = Instance.objects.filter(pk__in=portal_instance_ids).update(user=user)
     portal_instances.update(migrated=True)
+
+    applicant_group_id = settings.APPLICATION['APPLICANT_GROUP_ID']
+    group = Group.objects.get(pk=applicant_group_id)
+    UserGroup.objects.create(
+        user=user, group=group, default_group=1
+    )
