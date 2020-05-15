@@ -50,6 +50,14 @@ services:
       # TODO: Implement resource fallback in document module, so this can be removed
       - phpresources:/var/www/camac/kt_uri/resources
 
+  keycloak:
+    image: acr.run/camac-ng/keycloak:3.4.3.Final_theme-v0.2.0-SNAPSHOT
+    volumes:
+      - /etc/camac/keycloak.env:/run/secrets/keycloak.env:ro
+    environment:
+      - ENV_FILE=/run/secrets/keycloak.env
+    restart: always
+
   cache:
     restart: always
 
