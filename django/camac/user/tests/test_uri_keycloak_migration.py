@@ -15,7 +15,8 @@ def test_authenticate_bootstrap_by_mail(
     rf,
     mocker,
     settings,
-    user_factory
+    user_factory,
+    clear_cache
 ):
     settings.OIDC_BOOTSTRAP_BY_EMAIL = True
 
@@ -55,7 +56,8 @@ def test_migrate_portal_user(
     application_settings,
     instance_portal_factory,
     instance_factory,
-    group_factory
+    group_factory,
+    clear_cache
 ):
     """When an existing applicant logs in for the first time via keycloak all their
     instances should be transfered from the portal user to their newly created
