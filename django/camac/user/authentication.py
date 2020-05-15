@@ -114,8 +114,11 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
     def _build_user(self, data):
         language = translation.get_language()
 
+        # Different customers use different claims as their username
+        username_claim = settings.OIDC_CAMAC_USERNAME_CLAIM
+
         # We used the keycloak user id as the username in camac
-        username = data["sub"]
+        username = data[username_claim]
         defaults = {
             "language": language[:2],
             "email": data["email"],
@@ -141,9 +144,8 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
         )
 
         if created:
-            keycloak_username = data["preferred_username"]
-            if settings.URI_MIGRATE_PORTAL_USER and is_uri_portal_user(keycloak_username):
-                migrate_portal_user(user, keycloak_username)
+            if settings.URI_MIGRATE_PORTAL_USER and is_uri_portal_user(username):
+                migrate_portal_user(user)
 
             Applicant.objects.filter(email=user.email, invitee=None).update(
                 invitee=user
@@ -175,23 +177,23 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
 
 def is_uri_portal_user(username):
     """Check if username is valid i-web portal user identifier."""
-    return re.match("^d12_\d+$", username) 
+    return re.match("^d12_\d+$", username)
 
 
 @transaction.atomic
-def migrate_portal_user(user, keycloak_username):
+def migrate_portal_user(user):
     """Assign instance to portal user on first login.
 
     In Uri instances which are submitted through the portal are all owned by a
     single portal user. The mapping of which user created which instance is stored
     in the "INSTANCE_PORTAL" table.
-    
+
     If a portal user signs in for the first time through keycloak he
     automatically becomes owner of his submitted instances. He also gets added
     to the applicant user group.
     """
 
-    portal_instances = InstancePortal.objects.filter(portal_identifier=keycloak_username)
+    portal_instances = InstancePortal.objects.filter(portal_identifier=user.username)
     portal_instance_ids = [instance.pk for instance in portal_instances]
     instances = Instance.objects.filter(pk__in=portal_instance_ids).update(user=user)
     portal_instances.update(migrated=True)
