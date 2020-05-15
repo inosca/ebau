@@ -586,7 +586,8 @@ APPLICATIONS = {
     },
     "kt_uri": {
         "FORM_BACKEND": "camac",
-        "PORTAL_USER_ID": 1209
+        "PORTAL_USER_ID": 1209,
+        "APPLICANT_GROUP_ID": 1070
     },
 }
 
