@@ -5,6 +5,7 @@ import pytest
 from caluma.caluma_core.faker import MultilangProvider
 from caluma.caluma_form import factories as caluma_form_factories
 from django.conf import settings
+from django.core.cache import cache
 from django.core.management import call_command
 from factory import Faker
 from factory.base import FactoryMetaClass
@@ -208,3 +209,8 @@ def media_root(tmpdir_factory, settings):
     get stored in the project root and pollute it.
     """
     settings.MEDIA_ROOT = tmpdir_factory.mktemp("media_root")
+
+@pytest.fixture
+def clear_cache():
+    cache.clear()
+
