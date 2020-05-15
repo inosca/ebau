@@ -37,7 +37,9 @@ def test_authenticate_bootstrap_by_mail(
     userinfo.return_value = token_value
 
     request = rf.request(HTTP_AUTHORIZATION="Bearer some_token")
-    user, token = JSONWebTokenKeycloakAuthentication().authenticate(request)
+    _, token = JSONWebTokenKeycloakAuthentication().authenticate(request)
+
+    user.refresh_from_db()
 
     assert user.username == token['sub']
     assert user.name == token['family_name']
