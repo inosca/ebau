@@ -47507,7 +47507,7 @@
   },
   {
     "fields": {
-      "automatical": 1,
+      "automatical": 0,
       "different_color": 0,
       "is_building_authority": 1,
       "is_workflow": 1,
@@ -47858,7 +47858,7 @@
   },
   {
     "fields": {
-      "automatical": 1,
+      "automatical": 0,
       "different_color": 0,
       "is_building_authority": 1,
       "is_workflow": 1,
@@ -48938,6 +48938,22 @@
     },
     "model": "core.workflowrole",
     "pk": 100
+  },
+  {
+    "fields": {
+      "role": 3,
+      "workflow_item": 65
+    },
+    "model": "core.workflowrole",
+    "pk": 103
+  },
+  {
+    "fields": {
+      "role": 3,
+      "workflow_item": 15
+    },
+    "model": "core.workflowrole",
+    "pk": 104
   },
   {
     "fields": {
