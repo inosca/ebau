@@ -408,11 +408,19 @@ export default Component.extend({
 
     yield timeout(500); // wait for the pan animation to finish
 
+    /**
+     * Important note for html2canvas usage!
+     * When the element you want to "screenshot" is not in the viewport when
+     * you are a the top of the page, it will not find the element and create
+     * an empty image. To fix this, manually add the x and y positions with
+     * the `window.scrollX|Y` offset.
+     */
     const canvas = yield html2canvas(this._map._container, {
       logging: false,
-      useCORS: true
+      useCORS: true,
+      x: window.scrollX + this._map._container.getBoundingClientRect().left,
+      y: window.scrollY + this._map._container.getBoundingClientRect().top
     });
-
     const image = yield new Promise(resolve => canvas.toBlob(resolve));
 
     // If no municipality is selected, choose the first possible one
