@@ -1,7 +1,7 @@
-from caluma.caluma_user.views import AuthenticationGraphQLView
 from django.conf import settings
 from django.conf.urls import include, url
 
+from camac.caluma.views import CamacAuthenticatedGraphQLView
 from camac.swagger.views import SCHEMA_VIEW
 
 # TODO: Ensure that only the necessary routes are registered dependening on
@@ -36,7 +36,7 @@ urlpatterns = [
     ),
     url(
         r"^graphql",
-        AuthenticationGraphQLView.as_view(graphiql=settings.DEBUG),
+        CamacAuthenticatedGraphQLView.as_view(graphiql=settings.DEBUG),
         name="graphql",
     )
     # url(r'^api/docs/$', schema_view),
