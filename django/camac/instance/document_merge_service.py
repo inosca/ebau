@@ -237,8 +237,7 @@ class DMSVisitor:
 
         for ans in answer:
             value = data_source.validate_answer_value(ans, document, question, None)
-            if value:
-                yield value
+            yield value
 
     def _visit_dynamic_choice_question(self, node, parent_doc=None, answer=None, **_):
         ret = {"type": "TextQuestion", "value": None}
@@ -255,13 +254,12 @@ class DMSVisitor:
         self, node, parent_doc=None, answer=None, **_
     ):  # pragma: no cover
         answers = answer.value if answer else []
-
-        return {
-            "type": "TextQuestion",
-            "value": ", ".join(
-                self._matching_dynamic_options(answers, parent_doc, node)
-            ),
-        }
+        dynamic_options = [
+            do
+            for do in self._matching_dynamic_options(answers, parent_doc, node)
+            if do is not False
+        ]
+        return {"type": "TextQuestion", "value": ", ".join(dynamic_options)}
 
     def _visit_static_question(self, node, parent_doc=None, answer=None, **_):
         return {"content": str(answer.static_content) if answer else None}
