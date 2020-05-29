@@ -210,7 +210,7 @@ def media_root(tmpdir_factory, settings):
     """
     settings.MEDIA_ROOT = tmpdir_factory.mktemp("media_root")
 
+
 @pytest.fixture
 def clear_cache():
     cache.clear()
-

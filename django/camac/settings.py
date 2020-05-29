@@ -587,7 +587,7 @@ APPLICATIONS = {
     "kt_uri": {
         "FORM_BACKEND": "camac",
         "PORTAL_USER_ID": 1209,
-        "APPLICANT_GROUP_ID": 685 # We reuse the Portal User group
+        "APPLICANT_GROUP_ID": 685,  # We reuse the Portal User group
     },
 }
 
@@ -846,16 +846,10 @@ REGISTRATION_URL = env.str(
 )
 
 # JWT token claim used as the username for newly created Camac users
-OIDC_CAMAC_USERNAME_CLAIM = env.str(
-    "OIDC_CAMAC_USERNAME_CLAIM",
-    default="sub"
-)
+OIDC_CAMAC_USERNAME_CLAIM = env.str("OIDC_CAMAC_USERNAME_CLAIM", default="sub")
 
 # Map existing users to OIDC identities by their mail address
-OIDC_BOOTSTRAP_BY_EMAIL = env.str(
-    "OIDC_BOOTSTRAP_BY_EMAIL",
-    default=False,
-)
+OIDC_BOOTSTRAP_BY_EMAIL = env.str("OIDC_BOOTSTRAP_BY_EMAIL", default=False)
 
 # Email definition
 
