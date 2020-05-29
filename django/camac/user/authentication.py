@@ -18,9 +18,9 @@ from rest_framework.authentication import BaseAuthentication, get_authorization_
 from rest_framework.exceptions import AuthenticationFailed
 
 from camac.applicants.models import Applicant
-from camac.user.models import Group, UserGroup
-from camac.instance.models import Instance
 from camac.core.models import InstancePortal
+from camac.instance.models import Instance
+from camac.user.models import Group, UserGroup
 
 request_logger = logging.getLogger("django.request")
 
@@ -124,20 +124,15 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
             "email": data["email"],
             "username": username,
             "name": data.get("family_name", username),
-            "surname": data.get("given_name", username)
+            "surname": data.get("given_name", username),
         }
-
 
         # By default we check if a user with certain username exists
-        lookup_attr = {
-            "username": username
-        }
+        lookup_attr = {"username": username}
 
         # Map a user to an existing camac user through their email address.
         if settings.OIDC_BOOTSTRAP_BY_EMAIL:
-            lookup_attr = {
-                "email": defaults["email"]
-            }
+            lookup_attr = {"email": defaults["email"]}
 
         user, created = get_user_model().objects.update_or_create(
             **lookup_attr, defaults=defaults
@@ -195,11 +190,10 @@ def migrate_portal_user(user):
 
     portal_instances = InstancePortal.objects.filter(portal_identifier=user.username)
     portal_instance_ids = [instance.pk for instance in portal_instances]
-    instances = Instance.objects.filter(pk__in=portal_instance_ids).update(user=user)
+
+    Instance.objects.filter(pk__in=portal_instance_ids).update(user=user)
     portal_instances.update(migrated=True)
 
-    applicant_group_id = settings.APPLICATION['APPLICANT_GROUP_ID']
+    applicant_group_id = settings.APPLICATION["APPLICANT_GROUP_ID"]
     group = Group.objects.get(pk=applicant_group_id)
-    UserGroup.objects.create(
-        user=user, group=group, default_group=1
-    )
+    UserGroup.objects.create(user=user, group=group, default_group=1)

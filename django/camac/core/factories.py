@@ -271,7 +271,7 @@ class BillingV2EntryFactory(DjangoModelFactory):
 
 class InstancePortalFactory(DjangoModelFactory):
     instance_id = Faker("pyint", min_value=1000, max_value=9999)
-    portal_identifier = Faker("name") 
+    portal_identifier = Faker("name")
 
     class Meta:
         model = models.InstancePortal

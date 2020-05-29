@@ -64,7 +64,7 @@ def test_authenticate_new_user(
     token_value,
     username,
     applicant_factory,
-    clear_cache
+    clear_cache,
 ):
     applicant_factory(email=token_value["email"], invitee=None)
 
