@@ -69,7 +69,7 @@ from .signals import (
     sb2_submitted,
     task_send,
 )
-from .utils import xml_encode_strings
+from .utils import handle_string_values
 
 logger = logging.getLogger(__name__)
 
@@ -371,7 +371,7 @@ class AccompanyingReportEventHandler(BaseEventHandler):
     def _get_notices(self):
         def prepare(notice):
             if notice:
-                return xml_encode_strings(notice.content)
+                return handle_string_values(notice.content)
             return notice
 
         stellungnahme = prepare(
