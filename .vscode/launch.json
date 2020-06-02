@@ -9,6 +9,19 @@
       "pathMappings": {
         "/var/www/camac": "${workspaceRoot}/php"
       }
+    },
+    {
+      "name": "Django",
+      "type": "python",
+      "request": "attach",
+      "port": 5678,
+      "host": "localhost",
+      "pathMappings": [
+        {
+          "localRoot": "${workspaceFolder}/django",
+          "remoteRoot": "."
+        }
+      ]
     }
   ]
 }

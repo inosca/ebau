@@ -8,5 +8,14 @@ import sys
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "camac.settings")
     from django.core.management import execute_from_command_line
+    from django.conf import settings
+
+    run_main = os.environ.get("RUN_MAIN") or os.environ.get("WERKZEUG_RUN_MAIN")
+
+    if settings.DEBUG and run_main:
+        import ptvsd
+
+        ptvsd.enable_attach(address=("0.0.0.0", 5678))
+        print("Attached remote debugger")
 
     execute_from_command_line(sys.argv)
