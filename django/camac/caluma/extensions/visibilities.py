@@ -34,6 +34,7 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
         self.user = None
 
     @filter_queryset_for(form_schema.Document)
+    @filter_queryset_for(historical_form_schema.HistoricalDocument)
     def filter_queryset_for_document(self, node, queryset, info):
         instance_ids = self._all_visible_instances(info)
 
@@ -51,13 +52,6 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
                 }
             )
         )
-
-    @filter_queryset_for(historical_form_schema.HistoricalDocument)
-    def filter_queryset_for_historicaldocument(
-        self, node, queryset, info
-    ):  # pragma: no cover
-        # TODO remove this method and apply chained decorator to `filter_queryset_for_document`
-        return self.filter_queryset_for_document(node, queryset, info)
 
     def get_base_queryset(self):
         """Overridden from InstanceQuerysetMixin to avoid the super().get_queryset() call."""
