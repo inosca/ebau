@@ -1,6 +1,6 @@
 from caluma.caluma_form.models import Answer, Document, DynamicOption, Option
 
-from .utils import xml_encode_strings
+from .utils import handle_string_values
 
 
 class AnswersDict(dict):
@@ -163,21 +163,9 @@ class DocumentParser:
         )
         self.answers.update(self.parse_answers(self.document, main_slugs))
 
-    def handle_string_values(self, value):
-        if not isinstance(value, str):
-            return value
-        value = xml_encode_strings(value)
-        # It's important to call strip_whitespace last, as it would also strip away any newlines
-        value = self.strip_whitespace(value)
-        return value
-
-    @staticmethod
-    def strip_whitespace(value):
-        return " ".join(value.split())
-
     def _get_option_label(self, slug):
         option = Option.objects.get(pk=slug)
-        return self.handle_string_values(option.label["de"])
+        return handle_string_values(option.label["de"])
 
     def _choice(self, answer, document):
         return self._get_option_label(answer.value)
@@ -189,7 +177,7 @@ class DocumentParser:
         option = DynamicOption.objects.filter(
             slug=slug, document=document, question=question
         ).first()
-        return self.handle_string_values(option.label["de"])
+        return handle_string_values(option.label["de"])
 
     def _dynamic_choice(self, answer, document):
         return self._get_dynamic_option_label(answer.value, document, answer.question)
@@ -220,7 +208,7 @@ class DocumentParser:
             question_type_name = answer.question.type
 
             if question_type_name in self.simple_questions:
-                answers[answer.question.slug] = self.handle_string_values(answer.value)
+                answers[answer.question.slug] = handle_string_values(answer.value)
                 continue
 
             answers[answer.question.slug] = getattr(self, f"_{question_type_name}")(
