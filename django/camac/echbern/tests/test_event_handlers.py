@@ -192,12 +192,12 @@ def test_accompanying_report_event_handler(
         notice_factory(
             activation=activation,
             notice_type=notice_type_factory(pk=NOTICE_TYPE_STELLUNGNAHME),
-            content="stellungnahme\r\nblablabla\r\nblu",
+            content="lorem ipsum " * 100,  # 1200 characters
         )
         notice_factory(
             activation=activation,
             notice_type=notice_type_factory(pk=NOTICE_TYPE_NEBENBESTIMMUNG),
-            content="nebenbestimmung\r\nblablabla\r\nblu; yeah",
+            content="nebenbestimmung\r\nblablabla\r\nblu; yeah ",
         )
 
     if circulation_answer_exists:
