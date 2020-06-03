@@ -50,6 +50,12 @@ def handle_ja_nein_bool(value):
         return False
 
 
+def limit_string_length(value, limit=950):
+    if len(value) > limit:
+        value = f"{value[:limit-1]}…"
+    return value
+
+
 def authority(service):
     return ns_company_identification.organisationIdentificationType(
         uid=ns_company_identification.uidStructureType(
@@ -359,7 +365,9 @@ def application(instance: Instance, answers: AnswersDict):
             answers.get("anfrage-zur-vorabklaerung", "unknown"),
         ),
         applicationType=answers["ech-subject"],
-        remark=[answers["bemerkungen"]] if "bemerkungen" in answers else [],
+        remark=[limit_string_length(answers["bemerkungen"])]
+        if "bemerkungen" in answers
+        else [],
         # proceedingType minOccurs=0
         # profilingYesNo minOccurs=0
         # profilingDate minOccurs=0
@@ -458,7 +466,7 @@ def status_notification(instance: Instance):
             instance
         ),
         status="in progress",  # real status is in remark
-        remark=[str(instance.instance_state.get_name())],
+        remark=[limit_string_length(str(instance.instance_state.get_name()))],
     )
 
 
@@ -622,8 +630,10 @@ def accompanying_report(
             instance
         ),
         document=get_documents(attachments),
-        remark=[stellungnahme] if stellungnahme else [],
-        ancillaryClauses=[nebenbestimmung] if nebenbestimmung else [],
+        remark=[limit_string_length(stellungnahme)] if stellungnahme else [],
+        ancillaryClauses=[limit_string_length(nebenbestimmung)]
+        if nebenbestimmung
+        else [],
         judgement=judgement_mapping[circulation_answer.pk]
         if circulation_answer
         else None,
