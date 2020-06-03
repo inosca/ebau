@@ -1,4 +1,5 @@
 from caluma.caluma_form.models import Answer, Document, DynamicOption, Option
+from django.utils.translation import get_language
 
 from .utils import handle_string_values
 
@@ -147,6 +148,7 @@ class DocumentParser:
 
     def __init__(self, document: Document):
         self.document = document
+        self.lang = get_language()
         self.slugs_table = slugs_baugesuch
         if document.form.slug == "vorabklaerung-einfach":
             self.slugs_table = slugs_vorabklaerung_einfach
@@ -157,7 +159,7 @@ class DocumentParser:
         ]
         self.answers = AnswersDict(
             **{
-                "ech-subject": document.form.name["de"],
+                "ech-subject": document.form.name[self.lang],
                 "caluma-form-slug": document.form.slug,
             }
         )
@@ -165,7 +167,7 @@ class DocumentParser:
 
     def _get_option_label(self, slug):
         option = Option.objects.get(pk=slug)
-        return handle_string_values(option.label["de"])
+        return handle_string_values(option.label[self.lang])
 
     def _choice(self, answer, document):
         return self._get_option_label(answer.value)
@@ -177,7 +179,9 @@ class DocumentParser:
         option = DynamicOption.objects.filter(
             slug=slug, document=document, question=question
         ).first()
-        return handle_string_values(option.label["de"])
+        for v in option.label.values():
+            if v:
+                return handle_string_values(v)
 
     def _dynamic_choice(self, answer, document):
         return self._get_dynamic_option_label(answer.value, document, answer.question)
