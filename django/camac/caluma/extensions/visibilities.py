@@ -1,5 +1,9 @@
-from caluma.caluma_core.visibilities import BaseVisibility, filter_queryset_for
-from caluma.caluma_form import schema as form_schema
+from caluma.caluma_core.visibilities import filter_queryset_for
+from caluma.caluma_form import (
+    historical_schema as historical_form_schema,
+    schema as form_schema,
+)
+from caluma.caluma_user.visibilities import Authenticated
 from django.db.models import F, Q
 
 from camac.caluma.api import CamacRequest
@@ -10,7 +14,7 @@ from camac.instance.models import Instance
 from camac.utils import filters
 
 
-class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
+class CustomVisibility(Authenticated, InstanceQuerysetMixin):
     """Custom visibility for Kanton Bern.
 
     Note: This expects that each document has a meta property that stores the
@@ -47,6 +51,13 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
                 }
             )
         )
+
+    @filter_queryset_for(historical_form_schema.HistoricalDocument)
+    def filter_queryset_for_historicaldocument(
+        self, node, queryset, info
+    ):  # pragma: no cover
+        # TODO remove this method and apply chained decorator to `filter_queryset_for_document`
+        return self.filter_queryset_for_document(node, queryset, info)
 
     def get_base_queryset(self):
         """Overridden from InstanceQuerysetMixin to avoid the super().get_queryset() call."""
