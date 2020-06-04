@@ -25,6 +25,7 @@ module("Unit | Service | fetch", function(hooks) {
       assert.deepEqual(requestHeaders, {
         authorization: "changed",
         "accept-language": "de",
+        language: "de",
         "x-camac-group": "5",
         accept: "application/vnd.api+json",
         "content-type": "application/vnd.api+json",

@@ -23,6 +23,7 @@ module("Unit | Service | session", function(hooks) {
     assert.deepEqual(service.headers, {
       authorization: "Bearer opensesame",
       "accept-language": "de",
+      language: "de",
       "x-camac-group": 5
     });
   });
