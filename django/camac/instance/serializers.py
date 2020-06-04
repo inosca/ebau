@@ -672,7 +672,9 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         caluma_doc = caluma_form_models.Document.objects.get(pk=document_id)
         validator = caluma_form_validators.DocumentValidator()
 
-        validator.validate(caluma_doc, info=self.context["request"].caluma_info)
+        validator.validate(
+            caluma_doc, user=self.context["request"].caluma_info.context.user
+        )
 
     def validate(self, data):
         data["caluma_document"] = CalumaApi().get_main_document(self.instance)
