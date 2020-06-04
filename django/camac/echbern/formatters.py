@@ -50,9 +50,14 @@ def handle_ja_nein_bool(value):
         return False
 
 
-def limit_string_length(value, limit=950):
-    if len(value) > limit:
-        value = f"{value[:limit-1]}…"
+def assure_string_length(value, min_length=1, max_length=0):
+    value = str(value)  # Handle None and bool
+    if len(value) > max_length:
+        return f"{value[:max_length - 1]}…"
+    elif len(value) < min_length:
+        return (
+            "." if not len(value) else f"{value} {'.' * (min_length - len(value) - 1)}"
+        )
     return value
 
 
@@ -228,7 +233,9 @@ def get_realestateinformation(answers):
             ),
             municipality=ech_0007_6_0.swissMunicipalityType(
                 # municipalityId minOccurs 0
-                municipalityName=answers["gemeinde"],
+                municipalityName=assure_string_length(
+                    answers["gemeinde"], max_length=40
+                ),
                 cantonAbbreviation="BE",
             ),
             buildingInformation=[
@@ -259,8 +266,10 @@ def get_realestateinformation(answers):
                         person=ns_address.personMailAddressInfoType(
                             # mrMrs="1",  # mapping?
                             # title="Dr Med",
-                            firstName=owner["vorname"],
-                            lastName=owner["name"],
+                            firstName=assure_string_length(
+                                owner["vorname"], max_length=30
+                            ),
+                            lastName=assure_string_length(owner["name"], max_length=30),
                         ),
                         addressInformation=ns_address.addressInformationType(
                             # not the same as swissAddressInformationType (obv..)
@@ -269,9 +278,15 @@ def get_realestateinformation(answers):
                             # (street, houseNumber, dwellingNumber) minOccurs=0
                             # (postOfficeBoxNumber, postOfficeBoxText) minOccurs=0
                             # locality minOccurs=0
-                            street=owner.get("strasse"),
-                            houseNumber=owner.get("nummer"),
-                            town=ns_address.townType(owner["ort"]),
+                            street=assure_string_length(
+                                owner.get("strasse"), max_length=60
+                            ),
+                            houseNumber=assure_string_length(
+                                owner.get("nummer"), max_length=12
+                            ),
+                            town=assure_string_length(
+                                ns_address.townType(owner["ort"]), max_length=40
+                            ),
                             swissZipCode=get_plz(owner["plz"]),
                             # foreignZipCode minOccurs=0
                             country="CH",
@@ -312,8 +327,9 @@ def get_realestateinformation(answers):
                     else None,
                 ),
                 municipality=ech_0007_6_0.swissMunicipalityType(
-                    municipalityName=answers.get(
-                        "ort-gesuchstellerin", answers["gemeinde"]
+                    municipalityName=assure_string_length(
+                        answers.get("ort-gesuchstellerin", answers["gemeinde"]),
+                        max_length=40,
                     ),
                     cantonAbbreviation="BE",
                 ),
@@ -351,7 +367,8 @@ def application(instance: Instance, answers: AnswersDict):
     if "beschreibung-der-prozessart-tabelle" in answers:
         nature_risk = [
             ns_application.natureRiskType(
-                riskDesignation=row["prozessart"], riskExists=True
+                riskDesignation=assure_string_length(row["prozessart"], max_length=255),
+                riskExists=True,
             )
             for row in answers.get("beschreibung-der-prozessart-tabelle")
         ]
@@ -360,18 +377,23 @@ def application(instance: Instance, answers: AnswersDict):
     related_instances = get_related_instances(instance, ebau_nr)
 
     return ns_application.planningPermissionApplicationType(
-        description=answers.get(
-            "beschreibung-bauvorhaben",
-            answers.get("anfrage-zur-vorabklaerung", "unknown"),
+        description=assure_string_length(
+            answers.get(
+                "beschreibung-bauvorhaben",
+                answers.get("anfrage-zur-vorabklaerung", "unknown"),
+            ),
+            max_length=950,
         ),
-        applicationType=answers["ech-subject"],
-        remark=[limit_string_length(answers["bemerkungen"])]
+        applicationType=assure_string_length(answers["ech-subject"], max_length=100),
+        remark=[assure_string_length(answers["bemerkungen"], max_length=950)]
         if "bemerkungen" in answers
         else [],
         # proceedingType minOccurs=0
         # profilingYesNo minOccurs=0
         # profilingDate minOccurs=0
-        intendedPurpose=list_to_string(answers, "nutzungsart"),
+        intendedPurpose=assure_string_length(
+            list_to_string(answers, "nutzungsart"), max_length=255
+        ),
         parkingLotsYesNo=answers.get("anzahl-abstellplaetze-fur-motorfahrzeuge", 0) > 0,
         natureRisk=nature_risk,
         constructionCost=get_cost(answers.get("baukosten-in-chf")),
@@ -384,16 +406,22 @@ def application(instance: Instance, answers: AnswersDict):
         locationAddress=ns_address.swissAddressInformationType(
             # addressLine1 minOccurs=0
             # addressLine2 minOccurs=0
-            houseNumber=answers.get("nr", "0"),
-            street=answers.get("strasse-flurname", "unknown"),
-            town=answers.get("ort-grundstueck", "unknown"),
+            houseNumber=assure_string_length(answers.get("nr", "0"), max_length=12),
+            street=assure_string_length(
+                answers.get("strasse-flurname", "unknown"), max_length=60
+            ),
+            town=assure_string_length(
+                answers.get("ort-grundstueck", "unknown"), max_length=40
+            ),
             swissZipCode=get_plz(answers.get("plz")),
             country="CH",
         ),
         realestateInformation=get_realestateinformation(answers),
         zone=[
             ns_application.zoneType(
-                zoneDesignation=answers["nutzungszone"][:255].strip()
+                zoneDesignation=assure_string_length(
+                    answers["nutzungszone"], max_length=255
+                )
             )
         ]  # eCH allows for max 225 chars
         if "nutzungszone" in answers and answers["nutzungszone"] is not None
@@ -401,14 +429,19 @@ def application(instance: Instance, answers: AnswersDict):
         constructionProjectInformation=ns_application.constructionProjectInformationType(
             constructionProject=ns_objektwesen.constructionProject(
                 status=6701,  # we always send this. The real status is in namedMetaData
-                description=answers.get("beschreibung-bauvorhaben", "unknown"),
+                description=assure_string_length(
+                    answers.get("beschreibung-bauvorhaben", "unknown"),
+                    min_length=3,
+                    max_length=1000,
+                ),
                 projectStartDate=answers.get("geplanter-baustart"),
                 durationOfConstructionPhase=answers.get("dauer-in-monaten"),
                 totalCostsOfProject=get_cost(answers.get("baukosten-in-chf")),
             ),
             municipality=ech_0007_6_0.swissMunicipalityType(
-                municipalityName=answers["parzelle"][0].get(
-                    "ort-parzelle", answers["gemeinde"]
+                municipalityName=assure_string_length(
+                    answers["parzelle"][0].get("ort-parzelle", answers["gemeinde"]),
+                    max_length=40,
                 ),
                 cantonAbbreviation="BE",
             )
@@ -466,7 +499,11 @@ def status_notification(instance: Instance):
             instance
         ),
         status="in progress",  # real status is in remark
-        remark=[limit_string_length(str(instance.instance_state.get_name()))],
+        remark=[
+            assure_string_length(
+                str(instance.instance_state.get_name()), max_length=950
+            )
+        ],
     )
 
 
@@ -515,14 +552,17 @@ def get_relationship_to_person(answers: AnswersDict):
 
 def person_type(person):
     pers_identification = ech_0044_4_1.personIdentificationLightType(
-        officialName=person["name"], firstName=person["vorname"]
+        officialName=assure_string_length(person["name"], max_length=30),
+        firstName=assure_string_length(person["vorname"], max_length=30),
     )
     org_identification = None
     if handle_ja_nein_bool(person["juristische-person"]):
         pers_identification = None
         org_identification = ns_company_identification.organisationIdentificationType(
             organisationName=person["name-juristische-person"],
-            organisationAdditionalName=f'{person["vorname"]} {person["name"]}',
+            organisationAdditionalName=assure_string_length(
+                f'{person["vorname"]} {person["name"]}', max_length=255
+            ),
             uid=ns_company_identification.uidStructureType(
                 # We don't bother with UIDs
                 uidOrganisationIdCategorie="CHE",
@@ -540,9 +580,11 @@ def person_type(person):
             organisationIdentification=org_identification,
         ),
         address=ns_address.addressInformationType(
-            street=person["strasse"],
-            houseNumber=person.get("nummer"),
-            town=ns_address.townType(person["ort"]),
+            street=assure_string_length(person["strasse"], max_length=60),
+            houseNumber=assure_string_length(person.get("nummer"), max_length=12),
+            town=assure_string_length(
+                ns_address.townType(person["ort"]), max_length=40
+            ),
             swissZipCode=get_plz(person["plz"]),
             country="CH",
         ),
@@ -630,8 +672,10 @@ def accompanying_report(
             instance
         ),
         document=get_documents(attachments),
-        remark=[limit_string_length(stellungnahme)] if stellungnahme else [],
-        ancillaryClauses=[limit_string_length(nebenbestimmung)]
+        remark=[assure_string_length(stellungnahme, max_length=950)]
+        if stellungnahme
+        else [],
+        ancillaryClauses=[assure_string_length(nebenbestimmung, max_length=950)]
         if nebenbestimmung
         else [],
         judgement=judgement_mapping[circulation_answer.pk]
@@ -716,9 +760,11 @@ def decision_authority(service):
             # contactPerson minOccurs=0
             # contact minOccurs=0
             address=ns_address.addressInformationType(
-                town=service.get_trans_attr("city") or "unknown",
+                town=assure_string_length(
+                    service.get_trans_attr("city") or "unknown", max_length=40
+                ),
                 swissZipCode=service.zip,
-                street=service.address,
+                street=assure_string_length(service.address, max_length=60),
                 country="CH",
             ),
         )
