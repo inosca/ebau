@@ -66,8 +66,8 @@ export default class CustomSession extends Session {
     return value;
   }
 
-  @computed("data.authenticated", "group", "language")
-  get headers() {
+  @computed("isAuthenticated", "data.authenticated", "group")
+  get authHeaders() {
     if (!this.isAuthenticated) return {};
 
     const token = this.get(`data.authenticated.${tokenPropertyName}`);
@@ -75,9 +75,23 @@ export default class CustomSession extends Session {
 
     return {
       ...(token ? { [tokenKey]: `${authPrefix} ${token}` } : {}),
-      ...(this.language ? { "accept-language": this.language } : {}),
       ...(this.group ? { "x-camac-group": this.group } : {})
     };
+  }
+
+  @computed("language")
+  get languageHeaders() {
+    if (!this.language) return {};
+
+    return {
+      "accept-language": this.language,
+      language: this.language
+    };
+  }
+
+  @computed("authHeaders", "languageHeaders")
+  get headers() {
+    return { ...this.authHeaders, ...this.languageHeaders };
   }
 
   handleUnauthorized() {
