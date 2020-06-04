@@ -806,16 +806,16 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             source_question_fallback="personalien-gesuchstellerin",
         )
 
-        # send out emails upon submission
-        for notification_config in settings.APPLICATION["NOTIFICATIONS"]["SUBMIT"]:
-            self._notify_submit(**notification_config)
-
         instance_submitted.send(
             sender=self.__class__,
             instance=instance,
             user_pk=self.context["request"].user.pk,
             group_pk=self.context["request"].group.pk,
         )
+
+        # send out emails upon submission
+        for notification_config in settings.APPLICATION["NOTIFICATIONS"]["SUBMIT"]:
+            self._notify_submit(**notification_config)
 
         return instance
 
@@ -858,16 +858,16 @@ class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
             source_form="sb1",
         )
 
-        # send out emails upon submission
-        for notification_config in settings.APPLICATION["NOTIFICATIONS"]["REPORT"]:
-            self._notify_submit(**notification_config)
-
         sb1_submitted.send(
             sender=self.__class__,
             instance=instance,
             user_pk=self.context["request"].user.pk,
             group_pk=self.context["request"].group.pk,
         )
+
+        # send out emails upon submission
+        for notification_config in settings.APPLICATION["NOTIFICATIONS"]["REPORT"]:
+            self._notify_submit(**notification_config)
 
         return instance
 
@@ -902,16 +902,16 @@ class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
 
         self._create_journal_entry(get_translations(gettext_noop("SB2 submitted")))
 
-        # send out emails upon submission
-        for notification_config in settings.APPLICATION["NOTIFICATIONS"]["FINALIZE"]:
-            self._notify_submit(**notification_config)
-
         sb2_submitted.send(
             sender=self.__class__,
             instance=instance,
             user_pk=self.context["request"].user.pk,
             group_pk=self.context["request"].group.pk,
         )
+
+        # send out emails upon submission
+        for notification_config in settings.APPLICATION["NOTIFICATIONS"]["FINALIZE"]:
+            self._notify_submit(**notification_config)
 
         return instance
 
