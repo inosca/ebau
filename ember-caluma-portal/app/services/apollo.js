@@ -14,7 +14,7 @@ export default class CustomApolloService extends ApolloService.extend(
 
     const middleware = setContext(async (_, context) => ({
       ...context,
-      headers: { ...context.headers, ...this.session.headers }
+      headers: { ...context.headers, ...this.session.authHeaders }
     }));
 
     const afterware = onError(error => {
