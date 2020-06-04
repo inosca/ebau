@@ -28,6 +28,9 @@ def test_base_delivery(
         ech_mandatory_answers_baugesuch["baukosten-in-chf"] = 999  # too cheap
     elif form == "einfache vorabklaerung":
         ech_mandatory_answers = ech_mandatory_answers_einfache_vorabklaerung
+        ech_mandatory_answers[
+            "ort-gesuchstellerin"
+        ] = ""  # implicitly test filling up strings to min_length
     elif form == "vollstaendige vorabklaerung":
         ech_mandatory_answers = ech_mandatory_answers_vollstaendige_vorabklaerung
 
