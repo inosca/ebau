@@ -55037,7 +55037,7 @@
       "pdf_class": null,
       "read_notice_template": null,
       "show_notice": 0,
-      "single_circulation": 1
+      "single_circulation": 0
     },
     "model": "core.ireditcirculation",
     "pk": 20009
@@ -55055,7 +55055,7 @@
       "pdf_class": null,
       "read_notice_template": null,
       "show_notice": 0,
-      "single_circulation": 1
+      "single_circulation": 0
     },
     "model": "core.ireditcirculation",
     "pk": 20040
