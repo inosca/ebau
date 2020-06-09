@@ -225,7 +225,7 @@ def get_realestateinformation(answers):
                     )
                 )
                 if all(
-                    k in parzelle
+                    k in parzelle and parzelle[k]
                     for k in ("lagekoordinaten-ost", "lagekoordinaten-nord")
                 )
                 else None
@@ -318,7 +318,7 @@ def get_realestateinformation(answers):
                         )
                     )
                     if all(
-                        k in answers
+                        k in answers and answers[k]
                         for k in (
                             "lagekoordinaten-ost-einfache-vorabklaerung",
                             "lagekoordinaten-nord-einfache-vorabklaerung",
