@@ -59,7 +59,7 @@ def test_migrate_portal_user(
     camac user stub.
     """
 
-    settings.OIDC_CAMAC_USERNAME_CLAIM = "preferred_username"
+    settings.OIDC_USERNAME_CLAIM = "preferred_username"
     settings.URI_MIGRATE_PORTAL_USER = True
 
     applicant_group = group_factory()
