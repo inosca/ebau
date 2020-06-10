@@ -845,8 +845,9 @@ REGISTRATION_URL = env.str(
     ),
 )
 
-# JWT token claim used as the username for newly created Camac users
-OIDC_CAMAC_USERNAME_CLAIM = env.str("OIDC_CAMAC_USERNAME_CLAIM", default="sub")
+# JWT token claim used as the username for newly created Camac users. (This is
+# also used in the caluma settings.py, we redefine it here so it is explicit)
+OIDC_USERNAME_CLAIM = env.str("OIDC_USERNAME_CLAIM", default="sub")
 
 # Map existing users to OIDC identities by their mail address
 OIDC_BOOTSTRAP_BY_EMAIL = env.str("OIDC_BOOTSTRAP_BY_EMAIL", default=False)
