@@ -33,7 +33,7 @@ from .schema import (
     ech_0147_t2_1 as ns_nachrichten_t2,
     ech_0211_2_0 as ns_application,
 )
-from .utils import decision_to_judgement
+from .utils import decision_to_judgement, strip_whitespace
 
 logger = logging.getLogger(__name__)
 
@@ -51,7 +51,9 @@ def handle_ja_nein_bool(value):
 
 
 def assure_string_length(value, min_length=1, max_length=0):
-    value = str(value)  # Handle None and bool
+    value = strip_whitespace(
+        str(value)
+    )  # Handle None and bool and also computed values
     if len(value) > max_length:
         return f"{value[:max_length - 1]}…"
     elif len(value) < min_length:
