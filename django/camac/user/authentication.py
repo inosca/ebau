@@ -115,7 +115,7 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
         language = translation.get_language()
 
         # Different customers use different claims as their username
-        username_claim = settings.OIDC_CAMAC_USERNAME_CLAIM
+        username_claim = settings.OIDC_USERNAME_CLAIM
 
         # We used the keycloak user id as the username in camac
         username = data[username_claim]
