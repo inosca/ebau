@@ -850,7 +850,9 @@ REGISTRATION_URL = env.str(
 OIDC_USERNAME_CLAIM = env.str("OIDC_USERNAME_CLAIM", default="sub")
 
 # Map existing users to OIDC identities by their mail address
-OIDC_BOOTSTRAP_BY_EMAIL = env.str("OIDC_BOOTSTRAP_BY_EMAIL", default=False)
+OIDC_BOOTSTRAP_BY_EMAIL_FALLBACK = env.str(
+    "OIDC_BOOTSTRAP_BY_EMAIL_FALLBACK", default=False
+)
 
 # Email definition
 

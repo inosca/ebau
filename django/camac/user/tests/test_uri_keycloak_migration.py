@@ -5,23 +5,42 @@ The tests in this module cover the migration logic required to migrate
 Kanton Uri's identity management from camac to keycloak.
 """
 
+import pytest
+
 from camac.user.authentication import JSONWebTokenKeycloakAuthentication
 
 
+@pytest.mark.parametrize(
+    "token_value, user__username, user__email",
+    [
+        # Ensure that username lookup is still first priority
+        (
+            {
+                "sub": "existing-guy",
+                "email": "existing-guy@example.com",
+                "family_name": "Existing",
+                "given_name": "Guy",
+            },
+            "existing-guy",
+            "other-email@example.com",
+        ),
+        # Check that users get looked up by email as fallback
+        (
+            {
+                "sub": "other-username",
+                "email": "existing-guy@example.com",
+                "family_name": "Existing",
+                "given_name": "Guy",
+            },
+            "existing-guy",
+            "existing-guy@example.com",
+        ),
+    ],
+)
 def test_authenticate_bootstrap_by_mail(
-    rf, mocker, settings, user_factory, clear_cache
+    rf, mocker, settings, clear_cache, user, token_value
 ):
-    settings.OIDC_BOOTSTRAP_BY_EMAIL = True
-
-    token_value = {
-        "sub": "existing-already",
-        "email": "existing-guy@example.com",
-        "family_name": "Existing",
-        "given_name": "Guy",
-    }
-
-    # The user with the same email should be updated with keycloak information
-    user = user_factory(email=token_value["email"])
+    settings.OIDC_BOOTSTRAP_BY_EMAIL_FALLBACK = True
 
     decode_token = mocker.patch("keycloak.KeycloakOpenID.decode_token")
     decode_token.return_value = token_value
