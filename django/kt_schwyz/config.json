@@ -15569,6 +15569,96 @@
   },
   {
     "fields": {
+      "communal_cantonal_number": null,
+      "communal_federal_number": "BE",
+      "commune_name": "Bezirk Einsiedeln",
+      "district_name": null,
+      "district_number": null,
+      "name": "Bezirk Einsiedeln",
+      "section_name": null,
+      "section_number": null,
+      "zip": null
+    },
+    "model": "user.location",
+    "pk": 37
+  },
+  {
+    "fields": {
+      "communal_cantonal_number": null,
+      "communal_federal_number": "BG",
+      "commune_name": "Bezirk Gersau",
+      "district_name": null,
+      "district_number": null,
+      "name": "Bezirk Gersau",
+      "section_name": null,
+      "section_number": null,
+      "zip": null
+    },
+    "model": "user.location",
+    "pk": 38
+  },
+  {
+    "fields": {
+      "communal_cantonal_number": null,
+      "communal_federal_number": "BK",
+      "commune_name": "Bezirk Küssnacht",
+      "district_name": null,
+      "district_number": null,
+      "name": "Bezirk Küssnacht",
+      "section_name": null,
+      "section_number": null,
+      "zip": null
+    },
+    "model": "user.location",
+    "pk": 39
+  },
+  {
+    "fields": {
+      "communal_cantonal_number": null,
+      "communal_federal_number": "BH",
+      "commune_name": "Bezirk Höfe",
+      "district_name": null,
+      "district_number": null,
+      "name": "Bezirk Höfe",
+      "section_name": null,
+      "section_number": null,
+      "zip": null
+    },
+    "model": "user.location",
+    "pk": 40
+  },
+  {
+    "fields": {
+      "communal_cantonal_number": null,
+      "communal_federal_number": "BM",
+      "commune_name": "Bezirk March",
+      "district_name": null,
+      "district_number": null,
+      "name": "Bezirk March",
+      "section_name": null,
+      "section_number": null,
+      "zip": null
+    },
+    "model": "user.location",
+    "pk": 41
+  },
+  {
+    "fields": {
+      "communal_cantonal_number": null,
+      "communal_federal_number": "BS",
+      "commune_name": "Bezirk Schwyz",
+      "district_name": null,
+      "district_number": null,
+      "name": "Bezirk Schwyz",
+      "section_name": null,
+      "section_number": null,
+      "zip": null
+    },
+    "model": "user.location",
+    "pk": 42
+  },
+  {
+    "fields": {
       "group_prefix": null,
       "name": "Admin",
       "role_parent": null
