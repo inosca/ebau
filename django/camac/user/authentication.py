@@ -8,6 +8,7 @@ from django.contrib.auth import get_user_model
 from django.core.cache import cache
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import transaction
+from django.db.models import Q
 from django.utils import translation
 from django.utils.encoding import force_bytes, smart_text
 from django.utils.translation import ugettext as _
@@ -111,6 +112,17 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
         # TODO: don't use jwt token at all, once Middleware is refactored
         return self._build_user(resp), jwt_decoded
 
+    def _update_or_create_user(self, defaults):
+        user_model = get_user_model()
+        filter_condition = Q(username=defaults["username"])
+
+        # If enabled we also consider the email address
+        if settings.OIDC_BOOTSTRAP_BY_EMAIL_FALLBACK:
+            filter_condition |= Q(email=defaults["email"])
+
+        existing_users = user_model.objects.filter(filter_condition)
+        return existing_users.update_or_create(defaults=defaults)
+
     def _build_user(self, data):
         language = translation.get_language()
 
@@ -119,24 +131,16 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
 
         # We used the keycloak user id as the username in camac
         username = data[username_claim]
+        email = data["email"]
         defaults = {
             "language": language[:2],
-            "email": data["email"],
+            "email": email,
             "username": username,
             "name": data.get("family_name", username),
             "surname": data.get("given_name", username),
         }
 
-        # By default we check if a user with certain username exists
-        lookup_attr = {"username": username}
-
-        # Map a user to an existing camac user through their email address.
-        if settings.OIDC_BOOTSTRAP_BY_EMAIL:
-            lookup_attr = {"email": defaults["email"]}
-
-        user, created = get_user_model().objects.update_or_create(
-            **lookup_attr, defaults=defaults
-        )
+        user, created = self._update_or_create_user(defaults)
 
         if created:
             if settings.URI_MIGRATE_PORTAL_USER and is_uri_portal_user(username):
@@ -189,7 +193,7 @@ def migrate_portal_user(user):
     """
 
     portal_instances = InstancePortal.objects.filter(portal_identifier=user.username)
-    portal_instance_ids = [instance.pk for instance in portal_instances]
+    portal_instance_ids = portal_instances.values_list("instance_id")
 
     Instance.objects.filter(pk__in=portal_instance_ids).update(user=user)
     portal_instances.update(migrated=True)
