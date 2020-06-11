@@ -188,7 +188,7 @@ APPLICATIONS = {
         "INSTANCE_IDENTIFIER_FORM_ABBR": {
             "geschaeftskontrolle": "GK",
             "municipality": "GS",
-            "bezirk": "BS",
+            "district": "BS",
             "canton": "KS",
             "astra": "PA",
             "esti": "PE",
