@@ -7,6 +7,7 @@ import { dropTask, restartableTask } from "ember-concurrency-decorators";
 const specialFormTypes = {
   "projektgenehmigungsgesuch-gemass-ss15-strag-v2": {
     Gemeindestrassen: "municipality",
+    Bezirksstrassen: "district",
     Kantonsstrassen: "canton"
   },
   "plangenehmigungsgesuch-v2": {

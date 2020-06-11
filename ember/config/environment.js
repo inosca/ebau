@@ -38,8 +38,9 @@ module.exports = function(environment) {
       // anlassbewilligungen-verkehrsbewilligungen = Kantons Polizei
       // plangenehmigungsgesuch astra = Tiefbauamt
       // plangenehmigungsgesuch esti = Energiefachstelle
-      // plangenehmigungsgesuch bav = ?
+      // plangenehmigungsgesuch bav = Amt für Öffentlichenverkehr
       // plangenehmigungsgesuch vbs = Raumentwicklung
+      // projektgenehmigungsgesuch-gemass-ss15-strag bezirk = Bezirksfachstelle
       // projektgenehmigungsgesuch-gemass-ss15-strag kanton = Tiefbauamt
       formLocations: {
         14: "Amt für Wasserbau",
@@ -48,7 +49,43 @@ module.exports = function(environment) {
         "15-esti": "Eidg. Starkstrominspektorat",
         "15-bav": "Amt für öffentlichen Verkehr",
         "15-vbs": "Amt für Raumentwicklung",
+        "16-district": "district",
         "16-canton": "Tiefbauamt des Kantons Schwyz"
+      },
+
+      // Mapping used for identifying the district of a given municipality
+      // used for form location 16-district
+      districtMapping: {
+        Einsiedeln: "Bezirk Einsiedeln",
+        Gersau: "Bezirk Gersau",
+        Küssnacht: "Bezirk Küssnacht",
+        Feusisberg: "Bezirk Höfe",
+        Freienbach: "Bezirk Höfe",
+        Wollerau: "Bezirk Höfe",
+        Altendorf: "Bezirk March",
+        Galgenen: "Bezirk March",
+        Innerthal: "Bezirk March",
+        Lachen: "Bezirk March",
+        Reichenburg: "Bezirk March",
+        Schübelbach: "Bezirk March",
+        Tuggen: "Bezirk March",
+        Vorderthal: "Bezirk March",
+        Wangen: "Bezirk March",
+        Alpthal: "Bezirk Schwyz",
+        Arth: "Bezirk Schwyz",
+        Illgau: "Bezirk Schwyz",
+        Ingenbohl: "Bezirk Schwyz",
+        Lauerz: "Bezirk Schwyz",
+        Morschach: "Bezirk Schwyz",
+        Muotathal: "Bezirk Schwyz",
+        Oberiberg: "Bezirk Schwyz",
+        Riemenstalden: "Bezirk Schwyz",
+        Rothenthrum: "Bezirk Schwyz",
+        Sattel: "Bezirk Schwyz",
+        Schwyz: "Bezirk Schwyz",
+        Steinen: "Bezirk Schwyz",
+        Steinerberg: "Bezirk Schwyz",
+        Unteriberg: "Bezirk Schwyz"
       }
     },
 
@@ -123,7 +160,13 @@ module.exports = function(environment) {
       "Kantonspolizei Schwyz",
       "Eidg. Starkstrominspektorat",
       "Amt für öffentlichen Verkehr",
-      "Amt für Raumentwicklung"
+      "Amt für Raumentwicklung",
+      "Bezirk Einsiedeln",
+      "Bezirk Gersau",
+      "Bezirk Küssnacht",
+      "Bezirk Höfe",
+      "Bezirk March",
+      "Bezirk Schwyz"
     ];
   }
 
@@ -186,7 +229,13 @@ module.exports = function(environment) {
       "Kantonspolizei Schwyz",
       "Eidg. Starkstrominspektorat",
       "Amt für öffentlichen Verkehr",
-      "Amt für Raumentwicklung"
+      "Amt für Raumentwicklung",
+      "Bezirk Einsiedeln",
+      "Bezirk Gersau",
+      "Bezirk Küssnacht",
+      "Bezirk Höfe",
+      "Bezirk March",
+      "Bezirk Schwyz"
     ];
   }
 
@@ -211,7 +260,13 @@ module.exports = function(environment) {
       "Kantonspolizei Schwyz",
       "Eidg. Starkstrominspektorat",
       "Amt für öffentlichen Verkehr",
-      "Amt für Raumentwicklung"
+      "Amt für Raumentwicklung",
+      "Bezirk Einsiedeln",
+      "Bezirk Gersau",
+      "Bezirk Küssnacht",
+      "Bezirk Höfe",
+      "Bezirk March",
+      "Bezirk Schwyz"
     ];
 
     ENV.APP.gisHost = "map.geo.sz.ch";
