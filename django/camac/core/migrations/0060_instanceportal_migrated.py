@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0058_auto_20200427_1302'),
+        ("core", "0059_dynamic_options_cleanup"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='instanceportal',
-            name='migrated',
+            model_name="instanceportal",
+            name="migrated",
             field=models.BooleanField(default=False),
         ),
     ]
