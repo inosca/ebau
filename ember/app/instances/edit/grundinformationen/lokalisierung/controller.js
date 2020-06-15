@@ -108,7 +108,9 @@ export default Controller.extend({
   _saveLocation: task(function*(name) {
     const instance = this.get("model.instance");
 
-    name = this.specialForm || name;
+    if (this.specialForm !== "district") {
+      name = this.specialForm || name;
+    }
 
     const location = yield this.store.query("location", {
       name
