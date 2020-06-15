@@ -179,9 +179,14 @@ export default Component.extend({
   }),
 
   municipalities: computed("parcels.[],specialForm", function() {
-    return this.specialForm
-      ? [this.specialForm]
-      : [...new Set(this.parcels.map(p => p.municipality))];
+    const municipalities = [...new Set(this.parcels.map(p => p.municipality))];
+    let location = this.specialForm;
+
+    if (this.specialForm === "district") {
+      location = ENV.APP.districtMapping[municipalities.get("firstObject")];
+    }
+
+    return this.specialForm ? [location] : municipalities;
   }),
 
   setMunicipality: task(function*(municipality) {
