@@ -15570,7 +15570,7 @@
   {
     "fields": {
       "communal_cantonal_number": null,
-      "communal_federal_number": "BE",
+      "communal_federal_number": "BzEin",
       "commune_name": "Bezirk Einsiedeln",
       "district_name": null,
       "district_number": null,
@@ -15585,7 +15585,7 @@
   {
     "fields": {
       "communal_cantonal_number": null,
-      "communal_federal_number": "BG",
+      "communal_federal_number": "BzGer",
       "commune_name": "Bezirk Gersau",
       "district_name": null,
       "district_number": null,
@@ -15600,7 +15600,7 @@
   {
     "fields": {
       "communal_cantonal_number": null,
-      "communal_federal_number": "BK",
+      "communal_federal_number": "BzKüs",
       "commune_name": "Bezirk Küssnacht",
       "district_name": null,
       "district_number": null,
@@ -15615,7 +15615,7 @@
   {
     "fields": {
       "communal_cantonal_number": null,
-      "communal_federal_number": "BH",
+      "communal_federal_number": "BzHöf",
       "commune_name": "Bezirk Höfe",
       "district_name": null,
       "district_number": null,
@@ -15630,7 +15630,7 @@
   {
     "fields": {
       "communal_cantonal_number": null,
-      "communal_federal_number": "BM",
+      "communal_federal_number": "BzMar",
       "commune_name": "Bezirk March",
       "district_name": null,
       "district_number": null,
@@ -15645,7 +15645,7 @@
   {
     "fields": {
       "communal_cantonal_number": null,
-      "communal_federal_number": "BS",
+      "communal_federal_number": "BzSch",
       "commune_name": "Bezirk Schwyz",
       "district_name": null,
       "district_number": null,

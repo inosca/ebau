@@ -183,9 +183,7 @@ export default Component.extend({
     let location = this.specialForm;
 
     if (this.specialForm === "district") {
-      location =
-        ENV.APP.districtMapping[municipalities.get("firstObject")] ||
-        this.specialForm;
+      location = ENV.APP.districtMapping[municipalities.get("firstObject")];
     }
 
     return this.specialForm ? [location] : municipalities;
