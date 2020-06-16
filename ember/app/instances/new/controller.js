@@ -12,9 +12,12 @@ const specialFormTypes = {
   },
   "plangenehmigungsgesuch-v2": {
     ASTRA: "astra",
+    "BAV (Bahnanlagen)": "bavb",
+    "BAV (Schffsanlagen)": "bavs",
+    BAZL: "bazl",
     ESTI: "esti",
-    BAV: "bav",
-    VBS: "vbs"
+    VBS: "vbs",
+    ÜBRIGE: "uebrige"
   }
 };
 
