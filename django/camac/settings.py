@@ -192,8 +192,11 @@ APPLICATIONS = {
             "canton": "KS",
             "astra": "PA",
             "esti": "PE",
-            "bav": "PB",
+            "bavb": "PB",
+            "bavs": "PS",
+            "bazl": "PL",
             "vbs": "PV",
+            "uebrige": "PU",
         },
     },
     "kt_bern": {
