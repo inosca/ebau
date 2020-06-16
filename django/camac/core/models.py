@@ -601,7 +601,9 @@ class Activation(models.Model):
     )
     end_date = models.DateTimeField(db_column="END_DATE", blank=True, null=True)
     version = models.IntegerField(db_column="VERSION")
-    reason = models.CharField(db_column="REASON", max_length=50, blank=True, null=True)
+    reason = models.CharField(
+        db_column="REASON", max_length=4000, blank=True, null=True
+    )
     activation_parent = models.ForeignKey(
         "self",
         models.DO_NOTHING,
