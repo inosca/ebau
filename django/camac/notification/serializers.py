@@ -528,6 +528,13 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             f" (CC: {recipient['cc']})" if "cc" in recipient else ""
         )
 
+    def _post_send_unnotified_service(self, instance):
+        Activation.objects.filter(
+            circulation__instance_id=instance.pk,
+            email_sent=0,
+            service_parent=self.context["request"].group.service,
+        ).update(email_sent=1)
+
     def create(self, validated_data):
         subj_prefix = settings.EMAIL_PREFIX_SUBJECT
         body_prefix = settings.EMAIL_PREFIX_BODY
@@ -559,6 +566,8 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
                 request_logger.info(
                     f'Sent email "{subject}" to {self._recipient_log(recipient)}'
                 )
+
+            getattr(self, f"_post_send_{recipient_type}", lambda i: None)(instance)
 
             # If no request context was provided to the serializer we assume the
             # mail delivery is part of a batch job initalized by the system
