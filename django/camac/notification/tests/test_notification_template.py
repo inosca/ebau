@@ -206,12 +206,14 @@ def test_notification_template_sendmail(
                     "leitbehoerde",
                     "service",
                     "unnotified_service",
+                    "activation_service_parent",
                 ],
             },
             "relationships": {
                 "instance": {
                     "data": {"type": "instances", "id": instance_service.instance.pk}
-                }
+                },
+                "activation": {"data": {"type": "activations", "id": activation.pk}},
             },
         }
     }
@@ -219,10 +221,14 @@ def test_notification_template_sendmail(
     response = admin_client.post(url, data=data)
     assert response.status_code == status_code
     if status_code == status.HTTP_204_NO_CONTENT:
-        assert len(mailoutbox) == 4
+        assert len(mailoutbox) == 5
 
         # recipient types are sorted alphabetically
         assert [(m.to, m.cc) for m in mailoutbox] == [
+            (
+                [responsible_email],
+                ["service@example.com", "service2@example.com"],
+            ),  # activation parent service
             (["user@example.com"], []),  # applicant
             (
                 [responsible_email],
