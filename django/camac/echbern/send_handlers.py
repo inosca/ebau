@@ -441,14 +441,6 @@ class TaskSendHandler(BaseSendHandler):
         if not resp.status_code == 204:
             raise SendHandlerException("Failed to send mails!")
 
-        # This doesn't happen in the NotificationTemplateSendmailSerializer but in php (ffs!). So we do it here.
-        activations = Activation.objects.filter(
-            circulation__instance_id=self.instance.pk, email_sent=0
-        )
-        for a in activations:
-            a.email_sent = 1
-            a.save()
-
 
 class NoticeKindOfProceedingsSendHandler(DocumentAccessibilityMixin, TaskSendHandler):
     def __init__(self, data, queryset, user, group, auth_header):
