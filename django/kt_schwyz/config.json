@@ -15659,6 +15659,21 @@
   },
   {
     "fields": {
+      "communal_cantonal_number": null,
+      "communal_federal_number": "VASZ",
+      "commune_name": "Verkehrsamt Schwyz",
+      "district_name": null,
+      "district_number": null,
+      "name": "Verkehrsamt Schwyz",
+      "section_name": null,
+      "section_number": null,
+      "zip": null
+    },
+    "model": "user.location",
+    "pk": 43
+  },
+  {
+    "fields": {
       "group_prefix": null,
       "name": "Admin",
       "role_parent": null
