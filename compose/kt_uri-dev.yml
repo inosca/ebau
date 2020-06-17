@@ -61,7 +61,7 @@ services:
       - DJANGO_EMAIL_HOST=mailhog
       - DJANGO_EMAIL_PORT=1025
       - OAUTHLIB_INSECURE_TRANSPORT=1
-      - OIDC_USERINFO_ENDPOINT=http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
+      - OIDC_USERINFO_ENDPOINT=http://camac-ng-keycloak.local/auth/realms/urec/protocol/openid-connect/userinfo
     networks:
       - camac-ng.local
     command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py collectstatic --noinput && ./manage.py runserver 0.0.0.0:80 --pythonpath /app/$APPLICATION"
@@ -110,6 +110,29 @@ services:
       - php
     networks:
       - camac-ng.local
+
+  keycloak:
+    ports:
+      - "8080:8080"
+    volumes:
+      - ../keycloak/${APPLICATION}-test-config.json:/etc/keycloak/test-config.json:ro
+    environment:
+      - POSTGRES_PASSWORD=camac
+      - KEYCLOAK_PASSWORD=camac
+    networks:
+      - camac-ng.local
+    # export is a bit tricky: We need to _start_ keycloak with specific arguments to perform an export
+    # command: ["-Dkeycloak.migration.action=export", "-Dkeycloak.migration.provider=singleFile", "-Dkeycloak.migration.file=/tmp/test-config.json", "-b", "0.0.0.0"]
+    #
+    # http://www.keycloak.org/docs/3.3/server_admin/topics/export-import.html
+    command:
+      [
+        "-Dkeycloak.migration.action=import",
+        "-Dkeycloak.migration.provider=singleFile",
+        "-Dkeycloak.migration.file=/etc/keycloak/test-config.json",
+        "-b",
+        "0.0.0.0",
+      ]
 
 networks:
   camac-ng.local:

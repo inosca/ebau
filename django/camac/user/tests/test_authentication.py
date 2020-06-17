@@ -1,14 +1,8 @@
 import pytest
-from django.core.cache import cache
 from jose.exceptions import ExpiredSignatureError, JOSEError
 from rest_framework.exceptions import AuthenticationFailed
 
 from camac.user.authentication import JSONWebTokenKeycloakAuthentication
-
-
-@pytest.fixture(scope="function", autouse=True)
-def clear_cache():
-    cache.clear()
 
 
 def test_authenticate_no_headers(rf):
@@ -16,7 +10,7 @@ def test_authenticate_no_headers(rf):
     assert JSONWebTokenKeycloakAuthentication().authenticate(request) is None
 
 
-def test_authenticate_disabled_user(rf, admin_user, mocker):
+def test_authenticate_disabled_user(rf, admin_user, mocker, clear_cache):
     token_dict = {
         "sub": admin_user.username,
         "email": admin_user.email,
@@ -70,6 +64,7 @@ def test_authenticate_new_user(
     token_value,
     username,
     applicant_factory,
+    clear_cache,
 ):
     applicant_factory(email=token_value["email"], invitee=None)
 
@@ -98,7 +93,7 @@ def test_authenticate_new_user(
     assert decode_token.return_value == token
 
 
-def test_authenticate_ok(rf, admin_user, mocker):
+def test_authenticate_ok(rf, admin_user, mocker, clear_cache):
     token_value = {
         "sub": admin_user.username,
         "email": admin_user.email,
@@ -120,7 +115,7 @@ def test_authenticate_ok(rf, admin_user, mocker):
 
 
 @pytest.mark.parametrize("side_effect", [ExpiredSignatureError(), JOSEError()])
-def test_authenticate_side_effect(rf, mocker, side_effect):
+def test_authenticate_side_effect(rf, mocker, side_effect, clear_cache):
     decode_token = mocker.patch("keycloak.KeycloakOpenID.decode_token")
     decode_token.side_effect = side_effect
     mocker.patch("keycloak.KeycloakOpenID.certs")
