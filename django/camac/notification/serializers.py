@@ -428,6 +428,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             "leitbehoerde",
             "construction_control",
             "email_list",
+            "activation_service_parent",
         )
     )
     email_list = serializers.CharField(required=False)
@@ -484,13 +485,12 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         return self._get_responsible(instance, instance.group.service)
 
     def _get_recipients_unnotified_service(self, instance):
-
-        service = self.context["request"].group.service
-
         # Circulation and subcirculation share the same circulation object.
         # They can only be distinguished by there SERVICE_PARENT_ID.
         activations = Activation.objects.filter(
-            circulation__instance_id=instance.pk, email_sent=0, service_parent=service
+            circulation__instance_id=instance.pk,
+            email_sent=0,
+            service_parent=self.context["request"].group.service,
         )
         services = {a.service for a in activations}
 
@@ -522,6 +522,14 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
 
     def _get_recipients_email_list(self, instance):
         return [{"to": to} for to in self.validated_data["email_list"].split(",")]
+
+    def _get_recipients_activation_service_parent(self, instance):
+        activation = self.validated_data.get("activation")
+
+        if not activation or not activation.service_parent:  # pragma: no cover
+            return []
+
+        return self._get_responsible(instance, activation.service_parent)
 
     def _recipient_log(self, recipient):
         return recipient["to"] + (
