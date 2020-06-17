@@ -584,7 +584,11 @@ APPLICATIONS = {
             ("wildtierschutz", "wildtierschutz-ja", [20064]),
         ],
     },
-    "kt_uri": {"FORM_BACKEND": "camac"},
+    "kt_uri": {
+        "FORM_BACKEND": "camac",
+        "PORTAL_USER_ID": 1209,
+        "APPLICANT_GROUP_ID": 685,  # We reuse the Portal User group
+    },
 }
 
 APPLICATION = APPLICATIONS.get(APPLICATION_NAME, {})
@@ -841,6 +845,15 @@ REGISTRATION_URL = env.str(
     ),
 )
 
+# JWT token claim used as the username for newly created Camac users. (This is
+# also used in the caluma settings.py, we redefine it here so it is explicit)
+OIDC_USERNAME_CLAIM = env.str("OIDC_USERNAME_CLAIM", default="sub")
+
+# Map existing users to OIDC identities by their mail address
+OIDC_BOOTSTRAP_BY_EMAIL_FALLBACK = env.str(
+    "OIDC_BOOTSTRAP_BY_EMAIL_FALLBACK", default=False
+)
+
 # Email definition
 
 DEFAULT_FROM_EMAIL = env.str(
@@ -961,3 +974,7 @@ if ENABLE_SILK:  # pragma: no cover
     SILKY_AUTHENTICATION = False
     SILKY_AUTHORISATION = False
     SILKY_META = True
+
+# Whether to migrate Portal users on first login. See authentication.py for
+# detailed description of what the migrations does.
+URI_MIGRATE_PORTAL_USER = env.bool("URI_MIGRATE_PORTAL_USER", default=False)
