@@ -1,11 +1,14 @@
 import hashlib
 import logging
+import re
 
 from caluma.caluma_user import models as caluma_user_models
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core.cache import cache
 from django.core.exceptions import ObjectDoesNotExist
+from django.db import transaction
+from django.db.models import Q
 from django.utils import translation
 from django.utils.encoding import force_bytes, smart_text
 from django.utils.translation import ugettext as _
@@ -16,6 +19,8 @@ from rest_framework.authentication import BaseAuthentication, get_authorization_
 from rest_framework.exceptions import AuthenticationFailed
 
 from camac.applicants.models import Applicant
+from camac.core.models import InstancePortal
+from camac.instance.models import Instance
 from camac.user.models import Group, UserGroup
 
 request_logger = logging.getLogger("django.request")
@@ -107,24 +112,45 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
         # TODO: don't use jwt token at all, once Middleware is refactored
         return self._build_user(resp), jwt_decoded
 
+    def _update_or_create_user(self, defaults):
+        user_model = get_user_model()
+        filter_condition = Q(username=defaults["username"])
+
+        # If enabled we also consider the email address
+        if settings.OIDC_BOOTSTRAP_BY_EMAIL_FALLBACK:
+            filter_condition |= Q(email=defaults["email"])
+
+        existing_users = user_model.objects.filter(filter_condition)
+        return existing_users.update_or_create(defaults=defaults)
+
     def _build_user(self, data):
         language = translation.get_language()
 
-        # always overwrite values of users
-        defaults = {"language": language[:2], "email": data["email"]}
-        username = data["sub"]
-        defaults["name"] = data.get("family_name", username)
-        defaults["surname"] = data.get("given_name", username)
+        # Different customers use different claims as their username
+        username_claim = settings.OIDC_USERNAME_CLAIM
 
-        user, created = get_user_model().objects.update_or_create(
-            username=username, defaults=defaults
-        )
+        # We used the keycloak user id as the username in camac
+        username = data[username_claim]
+        email = data["email"]
+        defaults = {
+            "language": language[:2],
+            "email": email,
+            "username": username,
+            "name": data.get("family_name", username),
+            "surname": data.get("given_name", username),
+        }
 
-        demo_groups = settings.APPLICATION.get("DEMO_MODE_GROUPS")
+        user, created = self._update_or_create_user(defaults)
+
         if created:
+            if settings.URI_MIGRATE_PORTAL_USER and is_uri_portal_user(username):
+                migrate_portal_user(user)
+
             Applicant.objects.filter(email=user.email, invitee=None).update(
                 invitee=user
             )
+
+            demo_groups = settings.APPLICATION.get("DEMO_MODE_GROUPS")
             if settings.DEMO_MODE and demo_groups:
                 for i, group_id in enumerate(demo_groups):
                     default_group = 1 if i == 0 else 0
@@ -146,3 +172,32 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
 
     def authenticate_header(self, request):
         return 'JWT realm="{0}"'.format(settings.KEYCLOAK_REALM)
+
+
+def is_uri_portal_user(username):
+    """Check if username is valid i-web portal user identifier."""
+    return re.match("^d12_\d+$", username)
+
+
+@transaction.atomic
+def migrate_portal_user(user):
+    """Assign instance to portal user on first login.
+
+    In Uri instances which are submitted through the portal are all owned by a
+    single portal user. The mapping of which user created which instance is stored
+    in the "INSTANCE_PORTAL" table.
+
+    If a portal user signs in for the first time through keycloak he
+    automatically becomes owner of his submitted instances. He also gets added
+    to the applicant user group.
+    """
+
+    portal_instances = InstancePortal.objects.filter(portal_identifier=user.username)
+    portal_instance_ids = portal_instances.values_list("instance_id")
+
+    Instance.objects.filter(pk__in=portal_instance_ids).update(user=user)
+    portal_instances.update(migrated=True)
+
+    applicant_group_id = settings.APPLICATION["APPLICANT_GROUP_ID"]
+    group = Group.objects.get(pk=applicant_group_id)
+    UserGroup.objects.create(user=user, group=group, default_group=1)

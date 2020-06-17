@@ -72,6 +72,14 @@ services:
     environment:
       - NODE_ENV=stage
 
+  keycloak:
+    volumes:
+      - /etc/camac/keycloak.env:/run/secrets/keycloak.env:ro
+    environment:
+      - ENV_FILE=/run/secrets/keycloak.env
+    restart: always
+
+
 volumes:
   pgdata:
     external:
