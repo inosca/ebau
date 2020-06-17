@@ -3860,7 +3860,7 @@
   {
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_Leitbehoerde",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_ActivationServiceParent",
       "template": "05-bericht-erstellt"
     },
     "model": "core.anotification",
@@ -3923,7 +3923,7 @@
   {
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_Leitbehoerde",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_ActivationServiceParent",
       "template": "05-bericht-erstellt"
     },
     "model": "core.anotification",
