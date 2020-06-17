@@ -17,16 +17,8 @@ def attachment_path_directory_path(attachment, filename):
     return "attachments/files/{0}/{1}".format(attachment.instance.pk, filename)
 
 
-class AttachmentQuerySet(models.QuerySet):
-    def filter_group(self, group):
-        attachment_sections = AttachmentSection.objects.filter_group(group)
-        return self.filter(attachment_sections__in=attachment_sections)
-
-
 @reversion.register()
 class Attachment(models.Model):
-    objects = AttachmentQuerySet.as_manager()
-
     attachment_id = models.AutoField(db_column="ATTACHMENT_ID", primary_key=True)
     uuid = models.UUIDField(default=uuid4, unique=True)  # needed for ECH
     name = models.CharField(db_column="NAME", max_length=255)
