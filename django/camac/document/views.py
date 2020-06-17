@@ -76,7 +76,7 @@ class FileUploadSwaggerAutoSchema(SwaggerAutoSchema):
         return natural_parameters + serializer_parameters
 
 
-class AttachmentQueryserMixin:
+class AttachmentQuerysetMixin:
     def get_base_queryset(self):
         if getattr(self, "swagger_fake_view", False):
             return models.Attachment.objects.none()
@@ -131,7 +131,7 @@ class AttachmentQueryserMixin:
 
 
 class AttachmentView(
-    AttachmentQueryserMixin,
+    AttachmentQuerysetMixin,
     InstanceEditableMixin,
     InstanceQuerysetMixin,
     views.ModelViewSet,
@@ -258,7 +258,7 @@ attachments_param = openapi.Parameter(
 
 
 class AttachmentDownloadView(
-    AttachmentQueryserMixin, InstanceQuerysetMixin, ReadOnlyModelViewSet
+    AttachmentQuerysetMixin, InstanceQuerysetMixin, ReadOnlyModelViewSet
 ):
     """Attachment view to download attachment."""
 
@@ -268,10 +268,6 @@ class AttachmentDownloadView(
     pagination_class = None
     # use empty serializer to avoid an exception on schema generation
     serializer_class = Serializer
-
-    def get_base_queryset(self):
-        queryset = super().get_base_queryset()
-        return queryset.filter_group(self.request.group).distinct()
 
     @permission_aware
     def get_queryset(self):
