@@ -239,6 +239,11 @@ models_referencing_data_caluma_form = [
     "caluma_form.Form",
     "caluma_form.QuestionOption",
     "caluma_form.FormQuestion",
+    "caluma_form.HistoricalOption",
+    "caluma_form.HistoricalQuestion",
+    "caluma_form.HistoricalForm",
+    "caluma_form.HistoricalQuestionOption",
+    "caluma_form.HistoricalFormQuestion",
 ]
 
 pure_config_models_caluma_workflow = []
@@ -247,6 +252,10 @@ models_referencing_data_caluma_workflow = [
     "caluma_workflow.Task",
     "caluma_workflow.TaskFlow",
     "caluma_workflow.Flow",
+    "caluma_workflow.HistoricalWorkflow",
+    "caluma_workflow.HistoricalTask",
+    "caluma_workflow.HistoricalTaskFlow",
+    "caluma_workflow.HistoricalFlow",
 ]
 
 # exclude models which are managed by the customer alone from sync
