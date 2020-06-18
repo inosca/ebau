@@ -189,9 +189,9 @@ def get_owners(answers):
     :param answers: AnswersDict
     :return: dict
     """
-    raw_owners = answers.get(
-        "personalien-grundeigentumerin", answers.get("personalien-gesuchstellerin", [])
-    )
+    raw_owners = answers.get("personalien-grundeigentumerin")
+    if not raw_owners:  # answers.get could return []
+        raw_owners = answers.get("personalien-gesuchstellerin", [])
     owners = [normalize_personalien(o) for o in raw_owners]
 
     return owners
@@ -372,7 +372,7 @@ def application(instance: Instance, answers: AnswersDict):
                 riskDesignation=assure_string_length(row["prozessart"], max_length=255),
                 riskExists=True,
             )
-            for row in answers.get("beschreibung-der-prozessart-tabelle")
+            for row in answers.get("beschreibung-der-prozessart-tabelle", [])
         ]
 
     ebau_nr = get_ebau_nr(instance)
