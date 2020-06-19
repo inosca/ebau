@@ -2935,7 +2935,7 @@ abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
 
-abortcontroller-polyfill@^1.3.0, abortcontroller-polyfill@^1.4.0:
+abortcontroller-polyfill@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/abortcontroller-polyfill/-/abortcontroller-polyfill-1.4.0.tgz#0d5eb58e522a461774af8086414f68e1dda7a6c4"
   integrity sha512-3ZFfCRfDzx3GFjO6RAkYx81lPGpUS20ISxux9gLxuKnqafNcFQo59+IoZqpO2WvQlyc287B62HDnDdNYRmlvWA==
@@ -5126,26 +5126,6 @@ broccoli-stew@^1.5.0:
     symlink-or-copy "^1.2.0"
     walk-sync "^0.3.0"
 
-broccoli-stew@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/broccoli-stew/-/broccoli-stew-2.1.0.tgz#ba73add17fda3b9b01d8cfb343a8b613b7136a0a"
-  integrity sha512-tgCkuTWYl4uf7k7ib2D79KFEj2hCgnTUNPMnrCoAha0/4bywcNccmaZVWtL9Ex37yX5h5eAbnM/ak2ULoMwSSw==
-  dependencies:
-    broccoli-debug "^0.6.5"
-    broccoli-funnel "^2.0.0"
-    broccoli-merge-trees "^3.0.1"
-    broccoli-persistent-filter "^2.1.1"
-    broccoli-plugin "^1.3.1"
-    chalk "^2.4.1"
-    debug "^3.1.0"
-    ensure-posix-path "^1.0.1"
-    fs-extra "^6.0.1"
-    minimatch "^3.0.4"
-    resolve "^1.8.1"
-    rsvp "^4.8.4"
-    symlink-or-copy "^1.2.0"
-    walk-sync "^0.3.3"
-
 broccoli-stew@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/broccoli-stew/-/broccoli-stew-3.0.0.tgz#fd1d19d162ad9490b42e5c563b78c26eb1e80b95"
@@ -7261,7 +7241,7 @@ ember-cli-babel@7.18.0, ember-cli-babel@^7.1.0, ember-cli-babel@^7.1.3, ember-cl
     rimraf "^3.0.1"
     semver "^5.5.0"
 
-ember-cli-babel@^6.0.0, ember-cli-babel@^6.0.0-beta.4, ember-cli-babel@^6.12.0, ember-cli-babel@^6.16.0, ember-cli-babel@^6.3.0, ember-cli-babel@^6.6.0, ember-cli-babel@^6.8.1, ember-cli-babel@^6.8.2, ember-cli-babel@^6.9.0, ember-cli-babel@^6.9.2:
+ember-cli-babel@^6.0.0, ember-cli-babel@^6.0.0-beta.4, ember-cli-babel@^6.12.0, ember-cli-babel@^6.16.0, ember-cli-babel@^6.3.0, ember-cli-babel@^6.6.0, ember-cli-babel@^6.8.1, ember-cli-babel@^6.9.0, ember-cli-babel@^6.9.2:
   version "6.16.0"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-6.16.0.tgz#623b4a2764ece72b65f1572fc8aeb5714a450228"
   dependencies:
@@ -7524,7 +7504,7 @@ ember-cli-htmlbars@^3.1.0:
     json-stable-stringify "^1.0.1"
     strip-bom "^3.0.0"
 
-ember-cli-htmlbars@^4.0.0, ember-cli-htmlbars@^4.0.1, ember-cli-htmlbars@^4.2.0, ember-cli-htmlbars@^4.2.2:
+ember-cli-htmlbars@^4.0.0, ember-cli-htmlbars@^4.0.1, ember-cli-htmlbars@^4.2.0:
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-4.2.2.tgz#3db341a0c866b6e16919db071be9592b9702f014"
   integrity sha512-xhVYhdbS2H+XNHzSYfOZKRFIpZ8zOrNGMuAc7vJd6oUE8Aad2r5xjncIVQDioPp8sQfUpXt0uvkUZaOll/thXw==
@@ -7561,6 +7541,26 @@ ember-cli-htmlbars@^4.0.8:
     heimdalljs-logger "^0.1.10"
     json-stable-stringify "^1.0.1"
     mkdirp "^0.5.1"
+    semver "^6.3.0"
+    strip-bom "^4.0.0"
+    walk-sync "^2.0.2"
+
+ember-cli-htmlbars@^4.2.3:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-4.3.1.tgz#4af8adc21ab3c4953f768956b7f7d207782cb175"
+  integrity sha512-CW6AY/yzjeVqoRtItOKj3hcYzc5dWPRETmeCzr2Iqjt5vxiVtpl0z5VTqHqIlT5fsFx6sGWBQXNHIe+ivYsxXQ==
+  dependencies:
+    "@ember/edition-utils" "^1.2.0"
+    babel-plugin-htmlbars-inline-precompile "^3.0.1"
+    broccoli-debug "^0.6.5"
+    broccoli-persistent-filter "^2.3.1"
+    broccoli-plugin "^3.1.0"
+    common-tags "^1.8.0"
+    ember-cli-babel-plugin-helpers "^1.1.0"
+    fs-tree-diff "^2.0.1"
+    hash-for-dep "^1.5.1"
+    heimdalljs-logger "^0.1.10"
+    json-stable-stringify "^1.0.1"
     semver "^6.3.0"
     strip-bom "^4.0.0"
     walk-sync "^2.0.2"
@@ -8006,14 +8006,6 @@ ember-concurrency@1.1.6:
     ember-compatibility-helpers "^1.2.0"
     ember-maybe-import-regenerator "^0.1.6"
 
-"ember-cookies@^0.3.0 || ^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/ember-cookies/-/ember-cookies-0.4.0.tgz#472f405bedd47c7c6f6a4e76ac927b8e7a3605ef"
-  integrity sha512-KXFxmaxEMlSqYQdyAaM/Rs84PxBJCqBQEPkLqhBStC9LwEovUSTEXzhd3FHVbMHch/THI4JzjoYEsj4CrdxVgQ==
-  dependencies:
-    ember-cli-babel "^7.1.0"
-    ember-getowner-polyfill "^1.1.0 || ^2.0.0"
-
 ember-cookies@^0.5.0:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/ember-cookies/-/ember-cookies-0.5.2.tgz#06e33463f2f83254fefaf224cc944dec3fb9d3ba"
@@ -8076,24 +8068,6 @@ ember-fetch@7.0.1:
     caniuse-api "^3.0.0"
     ember-cli-babel "^7.13.2"
     ember-cli-typescript "^3.1.3"
-    node-fetch "^2.6.0"
-    whatwg-fetch "^3.0.0"
-
-"ember-fetch@^2.1.0 || ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0":
-  version "6.7.2"
-  resolved "https://registry.yarnpkg.com/ember-fetch/-/ember-fetch-6.7.2.tgz#82efce4a55a64863104347b71e598208b9acf518"
-  integrity sha512-+Dd++MJVkCXoqX2DPtFDjuoDMcLk+7fphLq7D8OoXwJq9KQMTff07sH18qhxWXV5Hqknvz3Uwy214g54vOboag==
-  dependencies:
-    abortcontroller-polyfill "^1.3.0"
-    broccoli-concat "^3.2.2"
-    broccoli-debug "^0.6.5"
-    broccoli-merge-trees "^3.0.0"
-    broccoli-rollup "^2.1.1"
-    broccoli-stew "^2.1.0"
-    broccoli-templater "^2.0.1"
-    calculate-cache-key-for-tree "^2.0.0"
-    caniuse-api "^3.0.0"
-    ember-cli-babel "^6.8.2"
     node-fetch "^2.6.0"
     whatwg-fetch "^3.0.0"
 
@@ -8430,20 +8404,20 @@ ember-service-worker@0.8.4:
     glob "^7.1.6"
     hash-for-dep "^1.5.1"
 
-ember-simple-auth-oidc@1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/ember-simple-auth-oidc/-/ember-simple-auth-oidc-1.1.1.tgz#7e10193d1271ecb1055f01bfe7010251d9545b26"
-  integrity sha512-k71ct0SmXsus199+TuwmvpLMg9zquy/Zu55QMsstR8W7O5VdLtQbq7y7eoJ/BENd6drzUgWj7Dg+1mFYF8qDjg==
+ember-simple-auth-oidc@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/ember-simple-auth-oidc/-/ember-simple-auth-oidc-2.0.0.tgz#3d61095f75fc6dc1bc84f0e0ba3ee4eb9c4b6a2d"
+  integrity sha512-yfvn1qks7n4c7M0t/+ECPwV1eIOtqT0HzTDGViACP2VewFl8XE8TMCwBKKy3xGFY8wG+5AgNPeRuiU4OUyzcIg==
   dependencies:
     ember-auto-import "^1.5.3"
-    ember-cli-babel "^7.13.0"
-    ember-cli-htmlbars "^4.2.2"
+    ember-cli-babel "^7.18.0"
+    ember-cli-htmlbars "^4.2.3"
     ember-fetch "^8.0.1"
     ember-get-config "^0.2.4"
-    ember-simple-auth "^2.1.1"
-    uuid "^3.4.0"
+    ember-simple-auth "^3.0.0"
+    uuid "^7.0.3"
 
-ember-simple-auth@3.0.0:
+ember-simple-auth@3.0.0, ember-simple-auth@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/ember-simple-auth/-/ember-simple-auth-3.0.0.tgz#d994f512cda1a8a5a6ef5a853fac60c0c0d6acd6"
   integrity sha512-JaEw5W/Z9+HIH9I2BmE/JD4KofH4rp79Y51zJpt3UQI1OwWFOzFa+ulN0rK/DVLpGOz7uL7hBIE/rtEcEN1eqA==
@@ -8455,22 +8429,6 @@ ember-simple-auth@3.0.0:
     ember-cli-babel "^7.12.0"
     ember-cli-is-package-missing "^1.0.0"
     ember-cookies "^0.5.0"
-    silent-error "^1.0.0"
-
-ember-simple-auth@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/ember-simple-auth/-/ember-simple-auth-2.1.1.tgz#c9624485193304f7767ce9a0c9353eae9a4f7325"
-  integrity sha512-VrX09hZGGk/PuDmaVDEfRf46tNBJF8FJR6nszvY3rmmB1+tGrzeyHOZTyY7+mcAQfsyZAS71gs6twjxYKCquGQ==
-  dependencies:
-    base-64 "^0.1.0"
-    broccoli-file-creator "^2.0.0"
-    broccoli-funnel "^1.2.0 || ^2.0.0"
-    broccoli-merge-trees "^2.0.0 || ^3.0.0"
-    ember-cli-babel "^6.8.2"
-    ember-cli-is-package-missing "^1.0.0"
-    ember-cookies "^0.3.0 || ^0.4.0"
-    ember-fetch "^2.1.0 || ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0"
-    ember-getowner-polyfill "^1.1.0 || ^2.0.0"
     silent-error "^1.0.0"
 
 ember-source-channel-url@^2.0.1:
@@ -17114,6 +17072,11 @@ uuid@^2.0.1:
 uuid@^3.0.1, uuid@^3.1.0, uuid@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
+
+uuid@^7.0.3:
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-7.0.3.tgz#c5c9f2c8cf25dc0a372c4df1441c41f5bd0c680b"
+  integrity sha512-DPSke0pXhTZgoF/d+WSt2QaKMCFSfx7QegxEWT+JOuHF5aWrKEn0G+ztjuJg/gG8/ItK+rbPCD/yNv8yyih6Cg==
 
 v8-compile-cache@^2.0.3:
   version "2.1.0"
