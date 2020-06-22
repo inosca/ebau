@@ -28,6 +28,7 @@ omit=
     camac/core/management/commands/importrsta.py
     camac/core/management/commands/importservices.py
     camac/core/management/commands/sequencenamespace.py
+    camac/core/management/commands/duplicate-instance.py
     # Temporary entries for landing !2391 into master
     camac/caluma/extensions/permissions.py
     camac/caluma/extensions/validations.py
