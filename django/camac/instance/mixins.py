@@ -8,7 +8,7 @@ from django.utils.translation import gettext as _
 from rest_framework import exceptions
 
 from camac.attrs import nested_getattr
-from camac.core.models import Circulation, InstanceService
+from camac.core.models import Circulation, InstanceLocation, InstanceService
 from camac.mixins import AttributeMixin
 from camac.request import get_request
 from camac.user.permissions import permission_aware
@@ -260,6 +260,9 @@ class InstanceEditableMixin(AttributeMixin):
         return self._validate_instance_editablity(
             instance,
             lambda: group.locations.filter(pk=instance.location_id).exists()
+            or InstanceLocation.objects.filter(
+                instance=instance, location__in=group.locations.all()
+            ).exists()
             or circulations.filter(activations__service=service).exists()
             or InstanceService.objects.filter(
                 service=service, instance=instance
