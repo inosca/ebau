@@ -1,5 +1,4 @@
 import Controller, { inject as controller } from "@ember/controller";
-import { get } from "@ember/object";
 import { reads } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
@@ -36,12 +35,12 @@ function getAddress(answers) {
     .join(", ");
 }
 
-function getEbauNr(document) {
-  return document.node.meta["ebau-number"];
+function getEbauNr(raw) {
+  return raw.meta["ebau-number"];
 }
 
-function getType(document) {
-  return document.node.form.name;
+function getType(raw) {
+  return raw.document.form.name;
 }
 
 function getMunicipality(answers) {
@@ -56,7 +55,10 @@ function getMunicipality(answers) {
 }
 
 function getBuildingSpecification(answers) {
-  return findAnswer(answers, "beschreibung-bauvorhaben");
+  return (
+    findAnswer(answers, "beschreibung-bauvorhaben") ||
+    findAnswer(answers, "anfrage-zur-vorabklaerung")
+  );
 }
 
 export default class InstancesEditIndexController extends Controller {
@@ -75,7 +77,7 @@ export default class InstancesEditIndexController extends Controller {
   @lastValue("dataTask") data;
   @dropTask
   *dataTask() {
-    const allDocuments = yield this.apollo.query(
+    const raw = yield this.apollo.query(
       {
         fetchPolicy: "network-only",
         query: getOverviewDocumentsQuery,
@@ -83,17 +85,14 @@ export default class InstancesEditIndexController extends Controller {
           instanceId: this.model
         }
       },
-      "allDocuments.edges"
+      "allCases.edges.firstObject.node"
     );
-    const document = allDocuments.find(doc =>
-      get(doc, "node.form.meta.is-main-form")
-    );
-    const answers = document.node.answers.edges.map(answer => answer.node);
+    const answers = raw.document.answers.edges.map(({ node }) => node);
 
     return {
       address: getAddress(answers),
-      ebauNr: getEbauNr(document),
-      type: getType(document),
+      ebauNr: getEbauNr(raw),
+      type: getType(raw),
       municipality: getMunicipality(answers),
       buildingSpecification: getBuildingSpecification(answers)
     };

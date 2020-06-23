@@ -1,0 +1,36 @@
+query GetDocument($instanceId: GenericScalar!) {
+  allCases(metaValue: [{ key: "camac-instance-id", value: $instanceId }]) {
+    edges {
+      node {
+        id
+        meta
+        document {
+          id
+          form {
+            slug
+            name
+            meta
+          }
+        }
+        workItems {
+          edges {
+            node {
+              id
+              task {
+                slug
+              }
+              document {
+                id
+                form {
+                  slug
+                  name
+                  meta
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
