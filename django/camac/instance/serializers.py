@@ -274,7 +274,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
         permissions = set(["read"])
 
         if instance.instance_state.name == "new":
-            permissions.update(["write", "write-meta"])
+            permissions.add("write")
 
         return permissions
 
@@ -292,7 +292,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
         permissions = set()
 
         if state != "new":
-            permissions.update(["read", "write-meta"])
+            permissions.add("read")
 
         if state == "correction":
             permissions.add("write")
@@ -303,12 +303,12 @@ class CalumaInstanceSerializer(InstanceSerializer):
             and role in get_paper_settings()["ALLOWED_ROLES"]
             and state == "new"
         ):
-            permissions.update(["read", "write", "write-meta"])
+            permissions.update(["read", "write"])
 
         return permissions
 
     def _get_main_form_permissions_for_support(self, instance):
-        return set(["read", "write", "write-meta"])
+        return set(["read", "write"])
 
     @permission_aware
     def _get_sb1_form_permissions(self, instance):
@@ -319,7 +319,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
             permissions.add("read")
 
         if state == "sb1":
-            permissions.update(["write", "write-meta"])
+            permissions.add("write")
 
         return permissions
 
@@ -349,12 +349,12 @@ class CalumaInstanceSerializer(InstanceSerializer):
             and service_group.pk in get_paper_settings("sb1")["ALLOWED_SERVICE_GROUPS"]
             and role.pk in get_paper_settings("sb1")["ALLOWED_ROLES"]
         ):
-            permissions.update(["read", "write", "write-meta"])
+            permissions.update(["read", "write"])
 
         return permissions
 
     def _get_sb1_form_permissions_for_support(self, instance):
-        return ["read", "write", "write-meta"]
+        return ["read", "write"]
 
     @permission_aware
     def _get_sb2_form_permissions(self, instance):
@@ -365,7 +365,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
             permissions.add("read")
 
         if state == "sb2":
-            permissions.update(["write", "write-meta"])
+            permissions.add("write")
 
         return permissions
 
@@ -392,12 +392,12 @@ class CalumaInstanceSerializer(InstanceSerializer):
             and service_group.pk in get_paper_settings("sb2")["ALLOWED_SERVICE_GROUPS"]
             and role in get_paper_settings("sb2")["ALLOWED_ROLES"]
         ):
-            permissions.update(["read", "write", "write-meta"])
+            permissions.update(["read", "write"])
 
         return permissions
 
     def _get_sb2_form_permissions_for_support(self, instance):
-        return ["read", "write", "write-meta"]
+        return ["read", "write"]
 
     @permission_aware
     def _get_nfd_form_permissions(self, instance):
@@ -407,7 +407,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
         return set()
 
     def _get_nfd_form_permissions_for_municipality(self, instance):
-        permissions = set(["write", "write-meta"])
+        permissions = set(["write"])
 
         if CalumaApi().is_paper(instance):
             permissions.update(CalumaApi().get_nfd_form_permissions(instance))
@@ -415,14 +415,35 @@ class CalumaInstanceSerializer(InstanceSerializer):
         return permissions
 
     def _get_nfd_form_permissions_for_support(self, instance):
-        return set(["read", "write", "write-meta"])
+        return set(["read", "write"])
+
+    @permission_aware
+    def _get_case_meta_permissions(self, instance):
+        return set(["read"])
+
+    def _get_case_meta_permissions_for_service(self, instance):
+        return set(["read"])
+
+    def _get_case_meta_permissions_for_municipality(self, instance):
+        permissions = set(["read"])
+
+        if instance.instance_state.name != "new":
+            permissions.add("write")
+
+        return permissions
+
+    def _get_case_meta_permissions_for_support(self, instance):
+        return set(["read", "write"])
 
     def get_permissions(self, instance):
         return {
-            form: sorted(getattr(self, f"_get_{form}_form_permissions")(instance))
-            for form in settings.APPLICATION.get("CALUMA", {}).get(
-                "FORM_PERMISSIONS", set()
-            )
+            "case-meta": self._get_case_meta_permissions(instance),
+            **{
+                form: sorted(getattr(self, f"_get_{form}_form_permissions")(instance))
+                for form in settings.APPLICATION.get("CALUMA", {}).get(
+                    "FORM_PERMISSIONS", set()
+                )
+            },
         }
 
     def _copy_applicants(self, source, target):

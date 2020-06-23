@@ -10,10 +10,11 @@ from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
 FULL_PERMISSIONS = {
-    "main": ["read", "write", "write-meta"],
-    "sb1": ["read", "write", "write-meta"],
-    "sb2": ["read", "write", "write-meta"],
-    "nfd": ["read", "write", "write-meta"],
+    "case-meta": ["read", "write"],
+    "main": ["read", "write"],
+    "sb1": ["read", "write"],
+    "sb2": ["read", "write"],
+    "nfd": ["read", "write"],
 }
 
 
@@ -28,29 +29,35 @@ FULL_PERMISSIONS = {
             "Applicant",
             "new",
             {
-                "main": [
-                    "read",
-                    "write",
-                    "write-meta",  # write-meta camac-instance-id, submit-date
-                ],
+                "case-meta": ["read"],
+                "main": ["read", "write"],
                 "sb1": [],
                 "sb2": [],
                 "nfd": [],
             },
         ),
-        ("Applicant", "subm", {"main": ["read"], "sb1": [], "sb2": [], "nfd": []}),
+        (
+            "Applicant",
+            "subm",
+            {"case-meta": ["read"], "main": ["read"], "sb1": [], "sb2": [], "nfd": []},
+        ),
         (
             "Applicant",
             "correction",
-            {"main": ["read"], "sb1": [], "sb2": [], "nfd": []},
+            {"case-meta": ["read"], "main": ["read"], "sb1": [], "sb2": [], "nfd": []},
         ),
-        ("Applicant", "rejected", {"main": ["read"], "sb1": [], "sb2": [], "nfd": []}),
+        (
+            "Applicant",
+            "rejected",
+            {"case-meta": ["read"], "main": ["read"], "sb1": [], "sb2": [], "nfd": []},
+        ),
         (
             "Applicant",
             "sb1",
             {
+                "case-meta": ["read"],
                 "main": ["read"],
-                "sb1": ["read", "write", "write-meta"],  # write-meta: submit-date
+                "sb1": ["read", "write"],
                 "sb2": [],
                 "nfd": [],
             },
@@ -59,91 +66,140 @@ FULL_PERMISSIONS = {
             "Applicant",
             "sb2",
             {
+                "case-meta": ["read"],
                 "main": ["read"],
                 "sb1": ["read"],
-                "sb2": ["read", "write", "write-meta"],  # write-meta: submit-date
+                "sb2": ["read", "write"],
                 "nfd": [],
             },
         ),
         (
             "Applicant",
             "conclusion",
-            {"main": ["read"], "sb1": ["read"], "sb2": ["read"], "nfd": []},
+            {
+                "case-meta": ["read"],
+                "main": ["read"],
+                "sb1": ["read"],
+                "sb2": ["read"],
+                "nfd": [],
+            },
         ),
-        ("Service", "new", {"main": [], "sb1": [], "sb2": [], "nfd": []}),
-        ("Service", "subm", {"main": ["read"], "sb1": [], "sb2": [], "nfd": []}),
-        ("Service", "correction", {"main": ["read"], "sb1": [], "sb2": [], "nfd": []}),
-        ("Service", "rejected", {"main": ["read"], "sb1": [], "sb2": [], "nfd": []}),
-        ("Service", "sb1", {"main": ["read"], "sb1": [], "sb2": [], "nfd": []}),
-        ("Service", "sb2", {"main": ["read"], "sb1": ["read"], "sb2": [], "nfd": []}),
+        (
+            "Service",
+            "new",
+            {"case-meta": ["read"], "main": [], "sb1": [], "sb2": [], "nfd": []},
+        ),
+        (
+            "Service",
+            "subm",
+            {"case-meta": ["read"], "main": ["read"], "sb1": [], "sb2": [], "nfd": []},
+        ),
+        (
+            "Service",
+            "correction",
+            {"case-meta": ["read"], "main": ["read"], "sb1": [], "sb2": [], "nfd": []},
+        ),
+        (
+            "Service",
+            "rejected",
+            {"case-meta": ["read"], "main": ["read"], "sb1": [], "sb2": [], "nfd": []},
+        ),
+        (
+            "Service",
+            "sb1",
+            {"case-meta": ["read"], "main": ["read"], "sb1": [], "sb2": [], "nfd": []},
+        ),
+        (
+            "Service",
+            "sb2",
+            {
+                "case-meta": ["read"],
+                "main": ["read"],
+                "sb1": ["read"],
+                "sb2": [],
+                "nfd": [],
+            },
+        ),
         (
             "Service",
             "conclusion",
-            {"main": ["read"], "sb1": ["read"], "sb2": ["read"], "nfd": []},
+            {
+                "case-meta": ["read"],
+                "main": ["read"],
+                "sb1": ["read"],
+                "sb2": ["read"],
+                "nfd": [],
+            },
         ),
         (
             "Municipality",
             "new",
-            {"main": [], "sb1": [], "sb2": [], "nfd": ["write", "write-meta"]},
+            {"case-meta": ["read"], "main": [], "sb1": [], "sb2": [], "nfd": ["write"]},
         ),
         (
             "Municipality",
             "subm",
             {
-                "main": ["read", "write-meta"],  # write-meta: ebau-number
+                "case-meta": ["read", "write"],
+                "main": ["read"],
                 "sb1": [],
                 "sb2": [],
-                "nfd": ["write", "write-meta"],
+                "nfd": ["write"],
             },
         ),
         (
             "Municipality",
             "correction",
             {
-                "main": ["read", "write", "write-meta"],
+                "case-meta": ["read", "write"],
+                "main": ["read", "write"],
                 "sb1": [],
                 "sb2": [],
-                "nfd": ["write", "write-meta"],
+                "nfd": ["write"],
             },
         ),
         (
             "Municipality",
             "rejected",
             {
-                "main": ["read", "write-meta"],
+                "case-meta": ["read", "write"],
+                "main": ["read"],
                 "sb1": [],
                 "sb2": [],
-                "nfd": ["write", "write-meta"],
+                "nfd": ["write"],
             },
         ),
         (
             "Municipality",
             "sb1",
             {
-                "main": ["read", "write-meta"],
+                "case-meta": ["read", "write"],
+                "main": ["read"],
                 "sb1": [],
                 "sb2": [],
-                "nfd": ["write", "write-meta"],
+                "nfd": ["write"],
             },
         ),
         (
             "Municipality",
             "sb2",
             {
-                "main": ["read", "write-meta"],
+                "case-meta": ["read", "write"],
+                "main": ["read"],
                 "sb1": ["read"],
                 "sb2": [],
-                "nfd": ["write", "write-meta"],
+                "nfd": ["write"],
             },
         ),
         (
             "Municipality",
             "conclusion",
             {
-                "main": ["read", "write-meta"],
+                "case-meta": ["read", "write"],
+                "main": ["read"],
                 "sb1": ["read"],
                 "sb2": ["read"],
-                "nfd": ["write", "write-meta"],
+                "nfd": ["write"],
             },
         ),
         ("Support", "new", FULL_PERMISSIONS),
@@ -276,16 +332,8 @@ def document_with_row_and_erledigt(empty_document, row_form, nfd_table_question)
         ("Applicant", ["read"], pytest.lazy_fixture("document_with_row_and_erledigt")),
         ("Applicant", ["read", "write"], pytest.lazy_fixture("document_with_all_rows")),
         ("Service", [], pytest.lazy_fixture("empty_document")),
-        (
-            "Municipality",
-            ["write", "write-meta"],
-            pytest.lazy_fixture("empty_document"),
-        ),
-        (
-            "Support",
-            ["read", "write", "write-meta"],
-            pytest.lazy_fixture("empty_document"),
-        ),
+        ("Municipality", ["write"], pytest.lazy_fixture("empty_document")),
+        ("Support", ["read", "write"], pytest.lazy_fixture("empty_document")),
     ],
 )
 def test_instance_nfd_permissions(
@@ -311,14 +359,14 @@ def test_instance_nfd_permissions(
 @pytest.mark.parametrize(
     "instance_state__name,group_name,form_slug,expected_permissions",
     [
-        ("new", "municipality", "main", ["read", "write", "write-meta"]),
+        ("new", "municipality", "main", ["read", "write"]),
         ("new", "construction-control", "main", []),
-        ("rejected", "municipality", "main", ["read", "write-meta"]),
-        ("rejected", "construction-control", "main", ["read", "write-meta"]),
+        ("rejected", "municipality", "main", ["read"]),
+        ("rejected", "construction-control", "main", ["read"]),
         ("sb1", "municipality", "sb1", []),
-        ("sb1", "construction-control", "sb1", ["read", "write", "write-meta"]),
+        ("sb1", "construction-control", "sb1", ["read", "write"]),
         ("sb2", "municipality", "sb2", []),
-        ("sb2", "construction-control", "sb2", ["read", "write", "write-meta"]),
+        ("sb2", "construction-control", "sb2", ["read", "write"]),
     ],
 )
 def test_instance_paper_permissions(

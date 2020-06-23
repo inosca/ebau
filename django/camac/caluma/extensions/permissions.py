@@ -10,8 +10,15 @@ from caluma.caluma_core.permissions import (
 )
 from caluma.caluma_form.models import Document
 from caluma.caluma_form.schema import RemoveAnswer, SaveDocument, SaveDocumentAnswer
-from caluma.caluma_workflow.schema import SaveCase
+from caluma.caluma_workflow.models import Case
+from caluma.caluma_workflow.schema import (
+    CancelCase,
+    CompleteWorkItem,
+    SaveCase,
+    SkipWorkItem,
+)
 from django.conf import settings
+from django.db.models import Q
 
 from camac.constants.kt_bern import (
     CAMAC_ADMIN_GROUP,
@@ -41,13 +48,24 @@ class CustomPermission(BasePermission):
 
         return self.has_camac_group_permission(info, CAMAC_ADMIN_GROUP)
 
+    # Case
     @permission_for(SaveCase)
     def has_permission_for_savecase(self, mutation, info):
         return True
 
     @object_permission_for(SaveCase)
-    def has_object_permission_for_savecase(self, mutation, info, instance):
-        return self.has_camac_edit_permission(instance.family, info, "write-meta")
+    def has_object_permission_for_savecase(self, mutation, info, case):
+        return self.has_camac_edit_permission(case.family, info, "write")
+
+    @permission_for(CompleteWorkItem)
+    @permission_for(SkipWorkItem)
+    @permission_for(CancelCase)
+    @object_permission_for(CompleteWorkItem)
+    @object_permission_for(SkipWorkItem)
+    @object_permission_for(CancelCase)
+    def has_permission_for_workflow(self, mutation, info, target=None):
+        # TODO: This must be addressed as soon as proper assigned groups / users are implemented
+        return True
 
     # Document
     @permission_for(SaveDocument)
@@ -63,11 +81,11 @@ class CustomPermission(BasePermission):
         return True
 
     @object_permission_for(SaveDocument)
-    def has_object_permission_for_savedocument(self, mutation, info, instance):
-        if instance.form.slug == DASHBOARD_FORM_SLUG:
+    def has_object_permission_for_savedocument(self, mutation, info, document):
+        if document.form.slug == DASHBOARD_FORM_SLUG:
             return self.has_camac_group_permission(info, CAMAC_SUPPORT_GROUP)
 
-        return self.has_camac_edit_permission(instance.family, info, "write-meta")
+        return self.has_camac_edit_permission(document.family, info, "write")
 
     # Answer
     @permission_for(SaveDocumentAnswer)
@@ -88,11 +106,11 @@ class CustomPermission(BasePermission):
         return self.has_camac_edit_permission(document.family, info)
 
     @object_permission_for(SaveDocumentAnswer)
-    def has_object_permission_for_savedocumentanswer(self, mutation, info, instance):
-        if instance.document.form.slug == DASHBOARD_FORM_SLUG:
+    def has_object_permission_for_savedocumentanswer(self, mutation, info, answer):
+        if answer.document.form.slug == DASHBOARD_FORM_SLUG:
             return self.has_camac_group_permission(info, CAMAC_SUPPORT_GROUP)
 
-        return self.has_camac_edit_permission(instance.document.family, info)
+        return self.has_camac_edit_permission(answer.document.family, info)
 
     @permission_for(RemoveAnswer)
     def has_permission_for_removeanswer(self, mutation, info):
@@ -102,8 +120,8 @@ class CustomPermission(BasePermission):
         return self.has_camac_edit_permission(document.family, info)
 
     @object_permission_for(RemoveAnswer)
-    def has_object_permission_for_removeanswer(self, mutation, info, instance):
-        return self.has_camac_edit_permission(instance.document.family, info)
+    def has_object_permission_for_removeanswer(self, mutation, info, answer):
+        return self.has_camac_edit_permission(answer.document.family, info)
 
     def has_camac_group_permission(self, info, required_group):
         response = requests.get(
@@ -120,17 +138,25 @@ class CustomPermission(BasePermission):
 
         return len(admin_groups) > 0
 
-    def has_camac_edit_permission(
-        self, family_document, info, required_permission="write"
-    ):
-        # Get the instance ID for the related case. It might happen that the
-        # document is not yet linked to a case (table)
-        try:
-            instance_id = family_document.case.meta.get("camac-instance-id")
-        except Document.case.RelatedObjectDoesNotExist:
-            # if the document is unlinked, allow changing it this is used for
-            # new table rows
-            return True
+    def has_camac_edit_permission(self, target, info, required_permission="write"):
+        if isinstance(target, Case):
+            case = target
+            permission_key = "case-meta"
+        elif isinstance(target, Document):
+            case = Case.objects.filter(
+                Q(work_items__document_id=target.pk) | Q(document_id=target.pk)
+            ).first()
+
+            if not case:
+                # if the document is unlinked, allow changing it this is used for
+                # new table rows
+                return True
+
+            permission_key = "main" if target == case.document else target.form.slug
+        else:
+            return False
+
+        instance_id = case.meta.get("camac-instance-id")
 
         resp = requests.get(
             build_url(settings.INTERNAL_BASE_URL, f"/api/v1/instances/{instance_id}"),
@@ -144,11 +170,9 @@ class CustomPermission(BasePermission):
             if "error" in jsondata:
                 raise RuntimeError("Error from NG API: %s" % jsondata["error"])
 
-            is_main_form = family_document.form.meta.get("is-main-form", False)
+            permissions = jsondata["data"]["meta"]["permissions"]
 
-            return required_permission in jsondata["data"]["meta"]["permissions"].get(
-                "main" if is_main_form else family_document.form.slug, []
-            )
+            return required_permission in permissions.get(permission_key, [])
 
         except KeyError:
             raise RuntimeError(
