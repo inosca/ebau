@@ -114,12 +114,13 @@ class CustomPermission(BasePermission):
     def has_camac_edit_permission(
         self, family_document, info, required_permission="write"
     ):
-        # find corresponding document
-        instance_id = family_document.meta.get("camac-instance-id")
-
-        if not instance_id:
-            # if the document is unlinked, allow changing it
-            # this is used for new table rows
+        # Get the instance ID for the related case. It might happen that the
+        # document is not yet linked to a case (table)
+        try:
+            instance_id = family_document.case.meta.get("camac-instance-id")
+        except Document.case.RelatedObjectDoesNotExist:
+            # if the document is unlinked, allow changing it this is used for
+            # new table rows
             return True
 
         resp = requests.get(
