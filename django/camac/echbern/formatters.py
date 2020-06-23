@@ -467,7 +467,9 @@ def application(instance: Instance, answers: AnswersDict):
 
 def decision_ruling(instance, decision, answers):
     return ns_application.decisionRulingType(
-        judgement=decision_to_judgement(decision.decision, answers["caluma-form-slug"]),
+        judgement=decision_to_judgement(
+            decision.decision, answers["caluma-workflow-slug"]
+        ),
         date=decision.decision_date,
         ruling=decision.decision_type,
         rulingAuthority=authority(instance.active_service()),

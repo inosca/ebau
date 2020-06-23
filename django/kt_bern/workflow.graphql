@@ -3,7 +3,45 @@ mutation CreateEBauNumberTask {
     input: {
       slug: "ebau-number"
       name: "eBau-Nummer vergeben"
-      addressGroups: ""
+      addressGroups: "['TODO']"
+    }
+  ) {
+    clientMutationId
+  }
+}
+mutation CreateClaimTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "nfd"
+      name: "Nachforderungen"
+      form: "nfd"
+      addressGroups: "['TODO']"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateSb1Task {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "sb1"
+      name: "Selbstdeklaration 1"
+      form: "sb1"
+      addressGroups: "['TODO']"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateSb2Task {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "sb2"
+      name: "Selbstdeklaration 2"
+      form: "sb2"
+      addressGroups: "['TODO']"
     }
   ) {
     clientMutationId
@@ -12,7 +50,11 @@ mutation CreateEBauNumberTask {
 
 mutation CreateSubmitTask {
   saveCompleteWorkflowFormTask(
-    input: { slug: "submit", name: "Gesuch einreichen", addressGroups: "" }
+    input: {
+      slug: "submit"
+      name: "Gesuch einreichen"
+      addressGroups: "['TODO']"
+    }
   ) {
     clientMutationId
   }
@@ -24,13 +66,21 @@ mutation CreateBuildingPermitWorkflow {
       slug: "building-permit"
       name: "Baugesuch"
       startTasks: ["submit"]
-      allowForms: [
-        "baugesuch"
-        "baugesuch-generell"
-        "baugesuch-mit-uvp"
-        "vorabklaerung-einfach"
-        "vorabklaerung-vollstaendig"
-      ]
+      allowForms: ["baugesuch", "baugesuch-generell", "baugesuch-mit-uvp"]
+      isPublished: true
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreatePreliminaryClarificationWorkflow {
+  saveWorkflow(
+    input: {
+      slug: "preliminary-clarification"
+      name: "Vorabklärung"
+      startTasks: ["submit"]
+      allowForms: ["vorabklaerung-einfach", "vorabklaerung-vollstaendig"]
       isPublished: true
     }
   ) {
@@ -43,7 +93,39 @@ mutation CreateFlow1 {
     input: {
       workflow: "building-permit"
       tasks: ["submit"]
-      next: "'ebau-number'|task"
+      next: "['ebau-number', 'nfd']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow2 {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["ebau-number", "nfd"]
+      next: "'sb1'|task"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow3 {
+  addWorkflowFlow(
+    input: { workflow: "building-permit", tasks: ["sb1"], next: "'sb2'|task" }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow4 {
+  addWorkflowFlow(
+    input: {
+      workflow: "preliminary-clarification"
+      tasks: ["submit"]
+      next: "['ebau-number', 'nfd']|tasks"
     }
   ) {
     clientMutationId

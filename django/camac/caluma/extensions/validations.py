@@ -36,7 +36,9 @@ class CustomValidation(BaseValidation):
     @validation_for(SaveDocumentStringAnswer)
     def validate_save_document_string_answer(self, mutation, data, info):
         if data["question"].slug == CLAIM_STATUS_QUESTION:
-            instance_id = data["document"].family.meta["camac-instance-id"]
+            instance_id = data["document"].family.work_item.case.family.meta[
+                "camac-instance-id"
+            ]
             instance = Instance.objects.get(pk=instance_id)
             new_status = data["value"]
 

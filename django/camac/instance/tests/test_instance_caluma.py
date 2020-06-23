@@ -2,8 +2,9 @@ from pathlib import Path
 
 import pytest
 from caluma.caluma_form import models as caluma_form_models
+from caluma.caluma_user.models import BaseUser
+from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.core import mail
-from django.core.cache import cache
 from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
@@ -27,125 +28,6 @@ from camac.instance.serializers import (
     CalumaInstanceSubmitSerializer,
 )
 from camac.utils import flatten
-
-MAIN_FORMS = [
-    "baugesuch",
-    "baugesuch-generell",
-    "baugesuch-mit-uvp",
-    "vorabklaerung-einfach",
-    "vorabklaerung-vollstaendig",
-]
-
-
-@pytest.fixture
-def caluma_forms(settings):
-    # forms
-    caluma_form_models.Form.objects.create(
-        slug="main-form", meta={"is-main-form": True}
-    )
-    caluma_form_models.Form.objects.create(slug="sb1")
-    caluma_form_models.Form.objects.create(slug="sb2")
-    caluma_form_models.Form.objects.create(slug="nfd")
-
-    # dynamic choice options get cached, so we clear them
-    # to ensure the new "gemeinde" options will be valid
-    cache.clear()
-
-    # questions
-    caluma_form_models.Question.objects.create(
-        slug="gemeinde",
-        type=caluma_form_models.Question.TYPE_DYNAMIC_CHOICE,
-        data_source="Municipalities",
-    )
-    settings.DATA_SOURCE_CLASSES = [
-        "camac.caluma.extensions.data_sources.Municipalities"
-    ]
-
-    for slug in ["papierdossier", "projektaenderung"]:
-        question = caluma_form_models.Question.objects.create(
-            slug=slug, type=caluma_form_models.Question.TYPE_CHOICE
-        )
-        options = [
-            caluma_form_models.Option.objects.create(slug=f"{slug}-ja", label="Ja"),
-            caluma_form_models.Option.objects.create(slug=f"{slug}-nein", label="Nein"),
-        ]
-        for option in options:
-            caluma_form_models.QuestionOption.objects.create(
-                question=question, option=option
-            )
-
-    # some question for suggestions
-    question = caluma_form_models.Question.objects.create(
-        slug="baubeschrieb", type=caluma_form_models.Question.TYPE_MULTIPLE_CHOICE
-    )
-    caluma_form_models.QuestionOption.objects.create(
-        question=question,
-        option=caluma_form_models.Option.objects.create(
-            slug=f"baubeschrieb-erweiterung-anbau", label="Erweiterung Anbau"
-        ),
-    )
-    caluma_form_models.QuestionOption.objects.create(
-        question=question,
-        option=caluma_form_models.Option.objects.create(
-            slug=f"baubeschrieb-um-ausbau", label="Um- oder Ausbau"
-        ),
-    )
-    question = caluma_form_models.Question.objects.create(
-        slug="art-versickerung-dach", type=caluma_form_models.Question.TYPE_TEXT
-    )
-
-    # sb1 and sb2
-    applicant_table = caluma_form_models.Form.objects.create(slug="personalien-tabelle")
-    caluma_form_models.Question.objects.create(
-        slug="personalien-sb",
-        type=caluma_form_models.Question.TYPE_TABLE,
-        row_form=applicant_table,
-    )
-    caluma_form_models.Question.objects.create(
-        slug="personalien-gesuchstellerin",
-        type=caluma_form_models.Question.TYPE_TABLE,
-        row_form=applicant_table,
-    )
-    caluma_form_models.Question.objects.create(
-        slug="personalien-sb1-sb2",
-        type=caluma_form_models.Question.TYPE_TABLE,
-        row_form=applicant_table,
-    )
-    caluma_form_models.Question.objects.create(
-        slug="name-sb", type=caluma_form_models.Question.TYPE_TEXT
-    )
-    caluma_form_models.Question.objects.create(
-        slug="name-applicant", type=caluma_form_models.Question.TYPE_TEXT
-    )
-
-    # link questions with forms
-    caluma_form_models.FormQuestion.objects.create(
-        form_id="main-form", question_id="gemeinde"
-    )
-    caluma_form_models.FormQuestion.objects.create(
-        form_id="main-form", question_id="papierdossier"
-    )
-    caluma_form_models.FormQuestion.objects.create(
-        form_id="main-form", question_id="baubeschrieb"
-    )
-    caluma_form_models.FormQuestion.objects.create(
-        form_id="sb1", question_id="papierdossier"
-    )
-    caluma_form_models.FormQuestion.objects.create(
-        form_id="sb2", question_id="papierdossier"
-    )
-    caluma_form_models.FormQuestion.objects.create(
-        form_id="nfd", question_id="papierdossier"
-    )
-    caluma_form_models.FormQuestion.objects.create(
-        form_id="main-form", question_id="personalien-sb"
-    )
-    caluma_form_models.FormQuestion.objects.create(
-        form_id="main-form", question_id="personalien-gesuchstellerin"
-    )
-    caluma_form_models.FormQuestion.objects.create(
-        form_id="sb1", question_id="personalien-sb1-sb2"
-    )
 
 
 @pytest.fixture
@@ -211,7 +93,7 @@ def test_create_instance_caluma(
     use_caluma_form,
     mock_nfd_permissions,
     group,
-    caluma_forms,
+    caluma_workflow,
     application_settings,
     attachment,
     paper,
@@ -235,19 +117,16 @@ def test_create_instance_caluma(
     assert create_resp.status_code == status.HTTP_201_CREATED, create_resp.content
 
     instance_id = int(create_resp.json()["data"]["id"])
-    documents = caluma_form_models.Document.objects.filter(
+    case = caluma_workflow_models.Case.objects.get(
         **{"meta__camac-instance-id": instance_id}
     )
 
-    assert set([doc.form_id for doc in documents]) == set(
-        ["main-form", "sb1", "sb2", "nfd"]
+    assert (
+        case.document.answers.filter(
+            question_id="papierdossier", value="papierdossier-ja"
+        ).exists()
+        == paper
     )
-
-    if paper:
-        for doc in documents:
-            assert doc.answers.filter(
-                question_id="papierdossier", value="papierdossier-ja"
-            ).exists()
 
     # do a second request including pk, copying the existing instance
     if copy:
@@ -275,23 +154,15 @@ def test_create_instance_caluma(
         new_instance_id = int(copy_resp.json()["data"]["id"])
         new_instance = Instance.objects.get(pk=new_instance_id)
 
-        new_documents = caluma_form_models.Document.objects.filter(
+        new_case = caluma_workflow_models.Case.objects.get(
             **{"meta__camac-instance-id": new_instance_id}
-        )
-
-        assert set([doc.form_id for doc in new_documents]) == set(
-            ["main-form", "sb1", "sb2", "nfd"]
         )
 
         if modification:
             assert new_instance.attachments.count() == 0
-            assert (
-                new_documents.get(form_id="main-form")
-                .answers.filter(
-                    question_id="projektaenderung", value="projektaenderung-ja"
-                )
-                .exists()
-            )
+            assert new_case.document.answers.filter(
+                question_id="projektaenderung", value="projektaenderung-ja"
+            ).exists()
         else:
             new_attachment = new_instance.attachments.first()
 
@@ -402,7 +273,7 @@ def test_instance_submit(
     mock_nfd_permissions,
     mock_generate_and_store_pdf,
     ech_mandatory_answers_einfache_vorabklaerung,
-    caluma_forms,
+    caluma_workflow,
     has_personalien_sb1,
     has_personalien_gesuchstellerin,
 ):
@@ -410,43 +281,42 @@ def test_instance_submit(
         {"template_slug": notification_template.slug, "recipient_types": ["applicant"]}
     ]
 
-    document = caluma_form_models.Document.objects.create(
-        form_id="main-form", meta={"camac-instance-id": instance.pk}
-    )
-    caluma_form_models.Answer.objects.create(
-        document=document, value=str(service.pk), question_id="gemeinde"
-    )
-    caluma_form_models.Document.objects.create(
-        form_id="sb1", meta={"camac-instance-id": instance.pk}
+    case = workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
+        form=caluma_form_models.Form.objects.get(pk="main-form"),
+        meta={"camac-instance-id": instance.pk},
+        user=BaseUser(),
     )
 
-    if has_personalien_sb1:
-        sb_table_answer = caluma_form_models.Answer.objects.create(
-            document=document, question_id="personalien-sb"
-        )
-        sb_row = caluma_form_models.Document.objects.create(
-            form_id="personalien-tabelle"
-        )
-        caluma_form_models.Answer.objects.create(
-            document=sb_row, question_id="name-sb", value="Test123"
-        )
-        caluma_form_models.AnswerDocument.objects.create(
-            document=sb_row, answer=sb_table_answer
-        )
+    case.document.answers.create(value=str(service.pk), question_id="gemeinde")
 
-    if has_personalien_gesuchstellerin:
-        sb_table_answer = caluma_form_models.Answer.objects.create(
-            document=document, question_id="personalien-gesuchstellerin"
-        )
-        applicant_row = caluma_form_models.Document.objects.create(
-            form_id="personalien-tabelle"
-        )
-        caluma_form_models.Answer.objects.create(
-            document=applicant_row, question_id="name-applicant", value="Foobar"
-        )
-        caluma_form_models.AnswerDocument.objects.create(
-            document=applicant_row, answer=sb_table_answer
-        )
+    # if has_personalien_sb1:
+    #     sb_table_answer = caluma_form_models.Answer.objects.create(
+    #         document=document, question_id="personalien-sb"
+    #     )
+    #     sb_row = caluma_form_models.Document.objects.create(
+    #         form_id="personalien-tabelle"
+    #     )
+    #     caluma_form_models.Answer.objects.create(
+    #         document=sb_row, question_id="name-sb", value="Test123"
+    #     )
+    #     caluma_form_models.AnswerDocument.objects.create(
+    #         document=sb_row, answer=sb_table_answer
+    #     )
+
+    # if has_personalien_gesuchstellerin:
+    #     sb_table_answer = caluma_form_models.Answer.objects.create(
+    #         document=document, question_id="personalien-gesuchstellerin"
+    #     )
+    #     applicant_row = caluma_form_models.Document.objects.create(
+    #         form_id="personalien-tabelle"
+    #     )
+    #     caluma_form_models.Answer.objects.create(
+    #         document=applicant_row, question_id="name-applicant", value="Foobar"
+    #     )
+    #     caluma_form_models.AnswerDocument.objects.create(
+    #         document=applicant_row, answer=sb_table_answer
+    #     )
 
     group_factory(role=role_factory(name="support"))
     mocker.patch.object(
@@ -466,23 +336,23 @@ def test_instance_submit(
     assert instance.user.email in mail.outbox[0].recipients()
 
     assert mail.outbox[0].subject.startswith("[eBau Test]: ")
-    if has_personalien_sb1:
-        sb1_document = caluma_form_models.Document.objects.get(
-            **{"form_id": "sb1", "meta__camac-instance-id": instance.pk}
-        )
-        assert (
-            sb1_document.answers.first().documents.first().answers.first().value
-            == sb_row.answers.get(question_id="name-sb").value
-        )
+    # if has_personalien_sb1:
+    #     sb1_document = caluma_form_models.Document.objects.get(
+    #         **{"form_id": "sb1", "meta__camac-instance-id": instance.pk}
+    #     )
+    #     assert (
+    #         sb1_document.answers.first().documents.first().answers.first().value
+    #         == sb_row.answers.get(question_id="name-sb").value
+    #     )
 
-    elif has_personalien_gesuchstellerin:
-        sb1_document = caluma_form_models.Document.objects.get(
-            **{"form_id": "sb1", "meta__camac-instance-id": instance.pk}
-        )
-        assert (
-            sb1_document.answers.first().documents.first().answers.first().value
-            == applicant_row.answers.get(question_id="name-applicant").value
-        )
+    # elif has_personalien_gesuchstellerin:
+    #     sb1_document = caluma_form_models.Document.objects.get(
+    #         **{"form_id": "sb1", "meta__camac-instance-id": instance.pk}
+    #     )
+    #     assert (
+    #         sb1_document.answers.first().documents.first().answers.first().value
+    #         == applicant_row.answers.get(question_id="name-applicant").value
+    #     )
 
 
 @pytest.mark.parametrize("role__name,instance__user", [("Canton", LazyFixture("user"))])
@@ -510,12 +380,11 @@ def test_responsible_user(admin_client, instance, user, service, multilang):
 
 
 @pytest.mark.parametrize(
-    "instance_state__name,instance_state_pk,document_valid,has_personalien_sb2,expected_status",
+    "instance_state__name,instance_state_pk,has_personalien_sb2,expected_status",
     [
-        ("sb1", INSTANCE_STATE_SB1, True, False, status.HTTP_200_OK),
-        ("sb1", INSTANCE_STATE_SB1, True, True, status.HTTP_200_OK),
-        ("new", INSTANCE_STATE_NEW, True, False, status.HTTP_403_FORBIDDEN),
-        ("sb1", INSTANCE_STATE_SB1, False, False, status.HTTP_400_BAD_REQUEST),
+        ("sb1", INSTANCE_STATE_SB1, False, status.HTTP_200_OK),
+        ("sb1", INSTANCE_STATE_SB1, True, status.HTTP_200_OK),
+        ("new", INSTANCE_STATE_NEW, False, status.HTTP_403_FORBIDDEN),
     ],
 )
 @pytest.mark.parametrize(
@@ -543,8 +412,7 @@ def test_instance_report(
     multilang,
     mock_nfd_permissions,
     mock_generate_and_store_pdf,
-    caluma_forms,
-    document_valid,
+    caluma_workflow,
     has_personalien_sb2,
 ):
     instance_state.pk = instance_state_pk
@@ -557,32 +425,40 @@ def test_instance_report(
         }
     ]
 
-    # we make the document invalid by requiring a non-existing question
-    # (if document_valid is set to False)
-    q_papierdossier = caluma_form_models.Question.objects.get(slug="papierdossier")
-    q_papierdossier.is_required = str(not document_valid).lower()
-    q_papierdossier.save()
-
-    sb1_document = caluma_form_models.Document.objects.create(
-        form_id="sb1", meta={"camac-instance-id": instance.pk}
+    case = workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
+        form=caluma_form_models.Form.objects.get(pk="main-form"),
+        meta={"camac-instance-id": instance.pk},
+        user=BaseUser(),
     )
 
-    if has_personalien_sb2:
-        sb2_document = caluma_form_models.Document.objects.create(
-            form_id="sb2", meta={"camac-instance-id": instance.pk}
-        )
-        sb_table_answer = caluma_form_models.Answer.objects.create(
-            document=sb1_document, question_id="personalien-sb1-sb2"
-        )
-        sb_row = caluma_form_models.Document.objects.create(
-            form_id="personalien-tabelle"
-        )
-        caluma_form_models.Answer.objects.create(
-            document=sb_row, question_id="name-sb", value="Test123"
-        )
-        caluma_form_models.AnswerDocument.objects.create(
-            document=sb_row, answer=sb_table_answer
-        )
+    case.document.answers.create(
+        question_id="papierdossier", value="papierdossier-nein"
+    )
+
+    workflow_api.complete_work_item(
+        work_item=case.work_items.get(task_id="submit"), user=BaseUser()
+    )
+
+    for work_item in case.work_items.filter(task_id__in=["nfd", "ebau-number"]):
+        workflow_api.complete_work_item(work_item=work_item, user=BaseUser())
+
+    # if has_personalien_sb2:
+    #     sb2_document = caluma_form_models.Document.objects.create(
+    #         form_id="sb2", meta={"camac-instance-id": instance.pk}
+    #     )
+    #     sb_table_answer = caluma_form_models.Answer.objects.create(
+    #         document=sb1_document, question_id="personalien-sb1-sb2"
+    #     )
+    #     sb_row = caluma_form_models.Document.objects.create(
+    #         form_id="personalien-tabelle"
+    #     )
+    #     caluma_form_models.Answer.objects.create(
+    #         document=sb_row, question_id="name-sb", value="Test123"
+    #     )
+    #     caluma_form_models.AnswerDocument.objects.create(
+    #         document=sb_row, answer=sb_table_answer
+    #     )
 
     instance_state_factory(name=new_instance_state_name, pk=new_instance_state_pk)
 
@@ -598,14 +474,18 @@ def test_instance_report(
         assert instance.user.email in recipients
         assert instance_service_construction_control.service.email in recipients
 
-    if has_personalien_sb2:
-        sb2_document = caluma_form_models.Document.objects.get(
-            **{"form_id": "sb2", "meta__camac-instance-id": instance.pk}
-        )
-        assert (
-            sb2_document.answers.first().documents.first().answers.first().value
-            == sb_row.answers.get(question_id="name-sb").value
-        )
+        case.refresh_from_db()
+        assert case.status == "running"
+        assert case.work_items.filter(task_id="sb2", status="ready").exists()
+
+    # if has_personalien_sb2:
+    #     sb2_document = caluma_form_models.Document.objects.get(
+    #         **{"form_id": "sb2", "meta__camac-instance-id": instance.pk}
+    #     )
+    #     assert (
+    #         sb2_document.answers.first().documents.first().answers.first().value
+    #         == sb_row.answers.get(question_id="name-sb").value
+    #     )
 
 
 @pytest.mark.parametrize(
@@ -641,7 +521,7 @@ def test_instance_finalize(
     multilang,
     mock_nfd_permissions,
     mock_generate_and_store_pdf,
-    caluma_forms,
+    caluma_workflow,
 ):
     instance_state.pk = instance_state_pk
     instance_state.save()
@@ -653,8 +533,26 @@ def test_instance_finalize(
         }
     ]
 
-    caluma_form_models.Document.objects.create(
-        form_id="sb2", meta={"camac-instance-id": instance.pk}
+    case = workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
+        form=caluma_form_models.Form.objects.get(pk="main-form"),
+        meta={"camac-instance-id": instance.pk},
+        user=BaseUser(),
+    )
+
+    case.document.answers.create(
+        question_id="papierdossier", value="papierdossier-nein"
+    )
+
+    workflow_api.complete_work_item(
+        work_item=case.work_items.get(task_id="submit"), user=BaseUser()
+    )
+
+    for work_item in case.work_items.filter(task_id__in=["nfd", "ebau-number"]):
+        workflow_api.complete_work_item(work_item=work_item, user=BaseUser())
+
+    workflow_api.complete_work_item(
+        work_item=case.work_items.get(task_id="sb1"), user=BaseUser()
     )
 
     instance_state_factory(name=new_instance_state_name, pk=new_instance_state_pk)
@@ -671,19 +569,12 @@ def test_instance_finalize(
         assert instance.user.email in recipients
         assert instance_service_construction_control.service.email in recipients
 
+        case.refresh_from_db()
+        assert case.status == "completed"
+
 
 @pytest.mark.parametrize("paper", [(True, False)])
-@pytest.mark.parametrize(
-    "has_template,matching_documents,raise_error,form_slug",
-    [
-        (False, 0, True, None),
-        (False, 1, True, None),
-        (False, 2, True, None),
-        (True, 1, False, None),
-        (True, 1, False, "some-form"),
-        (True, 1, True, "some-other-form"),
-    ],
-)
+@pytest.mark.parametrize("form_slug", [(None), ("nfd")])
 def test_generate_and_store_pdf(
     db,
     instance,
@@ -692,12 +583,10 @@ def test_generate_and_store_pdf(
     attachment_section_factory,
     document_factory,
     mocker,
-    has_template,
-    matching_documents,
-    raise_error,
     form_slug,
     paper,
     application_settings,
+    caluma_workflow,
 ):
     mocker.patch("camac.caluma.api.CalumaApi.is_paper", lambda s, i: paper)
 
@@ -729,25 +618,22 @@ def test_generate_and_store_pdf(
 
     serializer = CalumaInstanceSubmitSerializer()
 
-    form = caluma_form_models.Form.objects.create(slug="some-form", meta={})
-    if not form_slug:
-        form.meta["is-main-form"] = True
-    if has_template:
-        application_settings["DOCUMENT_MERGE_SERVICE"] = {
-            form_slug or form.slug: {"template": "some-template"}
-        }
+    application_settings["DOCUMENT_MERGE_SERVICE"] = {
+        "main-form": {"template": "some-template"},
+        "nfd": {"template": "some-template"},
+    }
 
-    form.save()
+    case = workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
+        form=caluma_form_models.Form.objects.get(pk="main-form"),
+        meta={"camac-instance-id": instance.pk},
+        user=BaseUser(),
+    )
 
-    for _ in range(matching_documents):
-        document = document_factory(form=form)
-        document.meta = {"camac-instance-id": instance.pk}
-        document.save()
-
-    if raise_error:
-        with pytest.raises(Exception):
-            serializer._generate_and_store_pdf(instance, form_slug=form_slug)
-        return
+    if form_slug:
+        workflow_api.complete_work_item(
+            work_item=case.work_items.get(task_id="submit"), user=BaseUser()
+        )
 
     serializer._generate_and_store_pdf(instance, form_slug=form_slug)
 
@@ -767,7 +653,7 @@ def test_caluma_instance_list_filter(
     mock_public_status,
     use_caluma_form,
     mock_nfd_permissions,
-    caluma_forms,
+    caluma_workflow,
 ):
     # not paper instances
     instance_factory(user=admin_user)
@@ -775,14 +661,13 @@ def test_caluma_instance_list_filter(
 
     # paper instance
     paper_instance = instance_factory(user=admin_user)
-    main_document = caluma_form_models.Document.objects.create(
-        form_id="main-form", meta={"camac-instance-id": paper_instance.pk}
+    case = workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
+        form=caluma_form_models.Form.objects.get(pk="main-form"),
+        meta={"camac-instance-id": paper_instance.pk},
+        user=BaseUser(),
     )
-    caluma_form_models.Answer.objects.create(
-        question_id="papierdossier",
-        value="papierdossier-ja",
-        document_id=main_document.pk,
-    )
+    case.document.answers.create(question_id="papierdossier", value="papierdossier-ja")
 
     url = reverse("instance-list")
     response = admin_client.get(url, data={"is_paper": is_paper})
@@ -795,8 +680,12 @@ def test_caluma_instance_list_filter(
 
 
 @pytest.mark.parametrize(
-    "form_slug,requested_slug,expected",
-    [("form-1", None, True), ("form-2", "form-2", True), ("form-3", "form-4", False)],
+    "form_slug,expected_status",
+    [
+        (None, status.HTTP_200_OK),
+        ("nfd", status.HTTP_200_OK),
+        ("something", status.HTTP_400_BAD_REQUEST),
+    ],
 )
 @pytest.mark.parametrize("role__name,instance__user", [("Canton", LazyFixture("user"))])
 def test_generate_pdf_action(
@@ -809,9 +698,9 @@ def test_generate_pdf_action(
     caluma_form,
     document_factory,
     form_slug,
-    requested_slug,
-    expected,
+    expected_status,
     application_settings,
+    caluma_workflow,
 ):
     content = b"some binary data"
 
@@ -827,32 +716,35 @@ def test_generate_pdf_action(
     context["request"].group = group
     mocker.patch("rest_framework.authentication.get_authorization_header")
 
-    # prepare form and document
-    form = caluma_form_models.Form.objects.create(slug=form_slug, meta={})
-    if not requested_slug:
-        form.meta["is-main-form"] = True
     application_settings["DOCUMENT_MERGE_SERVICE"] = {
-        requested_slug or form.slug: {"template": "some-template"}
+        "main-form": {"template": "some-template"},
+        "nfd": {"template": "some-template"},
     }
 
-    form.save()
+    case = workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
+        form=caluma_form_models.Form.objects.get(pk="main-form"),
+        meta={"camac-instance-id": instance.pk},
+        user=BaseUser(),
+    )
 
-    document = document_factory(form=form)
-    document.meta = {"camac-instance-id": instance.pk}
-    document.save()
+    if form_slug:
+        workflow_api.complete_work_item(
+            work_item=case.work_items.get(task_id="submit"), user=BaseUser()
+        )
 
     url = reverse("instance-generate-pdf", args=[instance.pk])
-    data = {"form-slug": requested_slug} if requested_slug else {}
+    data = {"form-slug": form_slug} if form_slug else {}
 
     response = admin_client.get(url, data)
 
-    if expected:
+    assert response.status_code == expected_status
+
+    if expected_status == status.HTTP_200_OK:
         assert response.status_code == status.HTTP_200_OK
         assert "X-Sendfile" in response
         with open(response["X-Sendfile"]) as fh:
             assert fh.read() == content.decode("utf-8")
-    else:
-        assert response.status_code == status.HTTP_400_BAD_REQUEST
 
 
 @pytest.mark.freeze_time("2020-03-19")
@@ -870,7 +762,7 @@ def test_instance_delete(
     form,
     use_caluma_form,
     mock_nfd_permissions,
-    caluma_forms,
+    caluma_workflow,
     application_settings,
     attachment,
     paper,
@@ -990,7 +882,7 @@ def test_instance_submit_suggestions(
     mock_nfd_permissions,
     mock_generate_and_store_pdf,
     ech_mandatory_answers_einfache_vorabklaerung,
-    caluma_forms,
+    caluma_workflow,
     circulation_state_factory,
     circulation_type_factory,
     sugg_config,
@@ -1003,15 +895,14 @@ def test_instance_submit_suggestions(
         {"template_slug": notification_template.slug, "recipient_types": ["applicant"]}
     ]
 
-    document = caluma_form_models.Document.objects.create(
-        form_id="main-form", meta={"camac-instance-id": instance.pk}
+    case = workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
+        form=caluma_form_models.Form.objects.get(pk="main-form"),
+        meta={"camac-instance-id": instance.pk},
+        user=BaseUser(),
     )
-    caluma_form_models.Answer.objects.create(
-        document=document, value=str(service.pk), question_id="gemeinde"
-    )
-    caluma_form_models.Document.objects.create(
-        form_id="sb1", meta={"camac-instance-id": instance.pk}
-    )
+
+    case.document.answers.create(value=str(service.pk), question_id="gemeinde")
 
     if sugg_config:
         application_settings["SUGGESTIONS"] = sugg_config
@@ -1020,9 +911,7 @@ def test_instance_submit_suggestions(
                 service_factory(pk=service_id)
 
         for ans in sugg_answer_values:
-            caluma_form_models.Answer.objects.create(
-                document=document, question_id=ans[0], value=ans[1]
-            )
+            case.document.answers.create(question_id=ans[0], value=ans[1])
 
     group_factory(role=role_factory(name="support"))
     mocker.patch.object(
@@ -1054,7 +943,7 @@ def test_rejection(
     service_group,
     use_caluma_form,
     mock_nfd_permissions,
-    caluma_forms,
+    caluma_workflow,
     mock_generate_and_store_pdf,
     application_settings,
     ech_mandatory_answers_einfache_vorabklaerung,
@@ -1102,12 +991,11 @@ def test_rejection(
 
     assert new_instance.instance_state == new_state
 
-    document = caluma_form_models.Document.objects.get(
-        form_id="main-form", meta={"camac-instance-id": new_instance.pk}
+    case = caluma_workflow_models.Case.objects.get(
+        **{"meta__camac-instance-id": new_instance.pk}
     )
-    caluma_form_models.Answer.objects.create(
-        document=document, value=str(service.pk), question_id="gemeinde"
-    )
+
+    case.document.answers.create(value=str(service.pk), question_id="gemeinde")
     mocker.patch.object(
         DocumentParser,
         "parse_answers",

@@ -1,11 +1,11 @@
 from math import trunc
 
 import pytz
+from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.urls import reverse
 from django.utils import timezone
 from rest_framework.test import APIClient
 
-from camac.caluma.api import CalumaApi
 from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
     INSTANCE_STATE_DONE,
@@ -83,11 +83,12 @@ class DocumentAccessibilityMixin:
 
 
 class BaseSendHandler:
-    def __init__(self, data, queryset, user, group, auth_header):
+    def __init__(self, data, queryset, user, group, auth_header, caluma_user):
         self.data = data
         self.user = user
         self.group = group
         self.auth_header = auth_header
+        self.caluma_user = caluma_user
         self.instance = self._get_instance(queryset)
 
     def _get_instance(self, queryset):
@@ -146,22 +147,30 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
             4: INSTANCE_STATE_REJECTED,
         }
 
-        form_slug = CalumaApi().get_form_slug(self.instance)
+        case = caluma_workflow_models.Case.objects.get(
+            **{"meta__camac-instance-id": self.instance.pk}
+        )
+        workflow_slug = case.workflow.slug
         judgement = self.data.eventNotice.decisionRuling.judgement
 
         state_id = status[judgement]
-        if form_slug.startswith("vorabklaerung"):
+        if workflow_slug == "preliminary-clarification":
             state_id = INSTANCE_STATE_FINISHED
 
         try:
-            decision = judgement_to_decision(judgement, form_slug)
+            decision = judgement_to_decision(judgement, workflow_slug)
         except KeyError:
             raise SendHandlerException(
-                f'"{judgement}" is not a valid judgement for "{form_slug}"'
+                f'"{judgement}" is not a valid judgement for "{workflow_slug}"'
             )
 
         if state_id == INSTANCE_STATE_SB1:
             set_baukontrolle(self.instance)
+
+        for work_item in case.work_items.filter(
+            status=caluma_workflow_models.WorkItem.STATUS_READY
+        ):
+            workflow_api.complete_work_item(work_item=work_item, user=self.caluma_user)
 
         self.instance.instance_state = InstanceState.objects.get(pk=state_id)
         self.instance.save()
@@ -238,8 +247,8 @@ class ChangeResponsibilitySendHandler(BaseSendHandler):
 
 
 class AccompanyingReportSendHandler(BaseSendHandler):
-    def __init__(self, data, queryset, user, group, auth_header):
-        super().__init__(data, queryset, user, group, auth_header)
+    def __init__(self, data, queryset, user, group, auth_header, caluma_user):
+        super().__init__(data, queryset, user, group, auth_header, caluma_user)
         self.activation = self._get_activation()
 
     def has_permission(self):
@@ -443,8 +452,8 @@ class TaskSendHandler(BaseSendHandler):
 
 
 class NoticeKindOfProceedingsSendHandler(DocumentAccessibilityMixin, TaskSendHandler):
-    def __init__(self, data, queryset, user, group, auth_header):
-        super().__init__(data, queryset, user, group, auth_header)
+    def __init__(self, data, queryset, user, group, auth_header, caluma_user):
+        super().__init__(data, queryset, user, group, auth_header, caluma_user)
         self.attachments = self.get_attachments(
             self.data.eventKindOfProceedings.document
         )
@@ -507,5 +516,7 @@ def resolve_send_handler(data):
     raise SendHandlerException("Message type not supported!")
 
 
-def get_send_handler(data, instance, user, group, auth_header):
-    return resolve_send_handler(data)(data, instance, user, group, auth_header)
+def get_send_handler(data, instance, user, group, auth_header, caluma_user):
+    return resolve_send_handler(data)(
+        data, instance, user, group, auth_header, caluma_user
+    )

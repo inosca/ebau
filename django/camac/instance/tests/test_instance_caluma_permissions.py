@@ -1,7 +1,10 @@
-import json
-
 import pytest
-from caluma.caluma_form import factories as caluma_form_factories
+from caluma.caluma_form import (
+    factories as caluma_form_factories,
+    models as caluma_form_models,
+)
+from caluma.caluma_user.models import BaseUser
+from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
@@ -12,14 +15,6 @@ FULL_PERMISSIONS = {
     "sb2": ["read", "write", "write-meta"],
     "nfd": ["read", "write", "write-meta"],
 }
-
-
-@pytest.fixture
-def mock_nfd_permissions(requests_mock):
-    requests_mock.post(
-        "http://camac-ng.local/graphql/",
-        text=json.dumps({"data": {"allDocuments": {"edges": []}}}),
-    )
 
 
 @pytest.mark.parametrize(
@@ -161,12 +156,7 @@ def mock_nfd_permissions(requests_mock):
     ],
 )
 def test_instance_permissions(
-    admin_client,
-    activation,
-    instance,
-    expected_permissions,
-    use_caluma_form,
-    mock_nfd_permissions,
+    admin_client, activation, instance, expected_permissions, use_caluma_form
 ):
     url = reverse("instance-detail", args=[instance.pk])
 
@@ -181,8 +171,7 @@ def test_instance_permissions(
 
 @pytest.fixture
 def nfd_form(nfd_table_question):
-
-    form = caluma_form_factories.FormFactory(slug="nfd")
+    form = caluma_form_models.Form.objects.get(slug="nfd")
     caluma_form_factories.FormQuestionFactory(form=form, question=nfd_table_question)
     return form
 
@@ -213,27 +202,24 @@ def nfd_table_question(row_form):
 
 
 @pytest.fixture
-def no_document():
-    return None
+def nfd_case(instance, caluma_workflow, nfd_form):
+    case = workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(slug="building-permit"),
+        form=caluma_form_models.Form.objects.get(slug="main-form"),
+        meta={"camac-instance-id": instance.pk},
+        user=BaseUser(),
+    )
+
+    return case
 
 
 @pytest.fixture
-def root_doc(nfd_form):
-    doc = caluma_form_factories.DocumentFactory(form=nfd_form)
+def empty_document(nfd_case):
+    workflow_api.complete_work_item(
+        work_item=nfd_case.work_items.get(task_id="submit"), user=BaseUser()
+    )
 
-    doc.family = doc
-    doc.save()
-
-    return doc
-
-
-@pytest.fixture
-def empty_document(root_doc, instance):
-
-    root_doc.meta = {"camac-instance-id": instance.pk}
-    root_doc.save()
-
-    return root_doc
+    return nfd_case.work_items.get(task_id="nfd").document
 
 
 @pytest.fixture
@@ -285,17 +271,20 @@ def document_with_row_and_erledigt(empty_document, row_form, nfd_table_question)
 @pytest.mark.parametrize(
     "role__name,expected_nfd_permissions,caluma_doc",
     [
-        ("Applicant", [], pytest.lazy_fixture("no_document")),
         ("Applicant", [], pytest.lazy_fixture("empty_document")),
         ("Applicant", [], pytest.lazy_fixture("document_with_row_but_wrong_status")),
         ("Applicant", ["read"], pytest.lazy_fixture("document_with_row_and_erledigt")),
         ("Applicant", ["read", "write"], pytest.lazy_fixture("document_with_all_rows")),
-        ("Service", [], pytest.lazy_fixture("no_document")),
-        ("Municipality", ["write", "write-meta"], pytest.lazy_fixture("no_document")),
+        ("Service", [], pytest.lazy_fixture("empty_document")),
+        (
+            "Municipality",
+            ["write", "write-meta"],
+            pytest.lazy_fixture("empty_document"),
+        ),
         (
             "Support",
             ["read", "write", "write-meta"],
-            pytest.lazy_fixture("no_document"),
+            pytest.lazy_fixture("empty_document"),
         ),
     ],
 )
