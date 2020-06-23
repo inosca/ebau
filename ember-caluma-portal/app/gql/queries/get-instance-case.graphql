@@ -1,5 +1,7 @@
 query GetDocument($instanceId: GenericScalar!) {
-  allCases(metaValue: [{ key: "camac-instance-id", value: $instanceId }]) {
+  allCases(
+    filter: [{ metaValue: [{ key: "camac-instance-id", value: $instanceId }] }]
+  ) {
     edges {
       node {
         id
