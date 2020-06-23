@@ -10,6 +10,7 @@ from caluma.caluma_core.permissions import (
 )
 from caluma.caluma_form.models import Document
 from caluma.caluma_form.schema import RemoveAnswer, SaveDocument, SaveDocumentAnswer
+from caluma.caluma_workflow.schema import SaveCase
 from django.conf import settings
 
 from camac.constants.kt_bern import (
@@ -39,6 +40,14 @@ class CustomPermission(BasePermission):
         )
 
         return self.has_camac_group_permission(info, CAMAC_ADMIN_GROUP)
+
+    @permission_for(SaveCase)
+    def has_permission_for_savecase(self, mutation, info):
+        return True
+
+    @object_permission_for(SaveCase)
+    def has_object_permission_for_savecase(self, mutation, info, instance):
+        return self.has_camac_edit_permission(instance.family, info, "write-meta")
 
     # Document
     @permission_for(SaveDocument)
