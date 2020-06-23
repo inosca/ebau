@@ -36,16 +36,6 @@
     "fields": {
       "activation_date": null,
       "active": 1,
-      "instance": 3,
-      "service": 2
-    },
-    "model": "core.instanceservice",
-    "pk": 20000
-  },
-  {
-    "fields": {
-      "activation_date": null,
-      "active": 1,
       "instance": 2,
       "service": 2
     },
@@ -153,9 +143,7 @@
   },
   {
     "fields": {
-      "attachment_sections": [
-        1
-      ],
+      "attachment_sections": [1],
       "context": {},
       "date": "2020-03-06T11:13:12.972Z",
       "digital_signature": 0,
@@ -178,9 +166,7 @@
   },
   {
     "fields": {
-      "attachment_sections": [
-        1
-      ],
+      "attachment_sections": [1],
       "context": {},
       "date": "2020-03-06T11:14:33.329Z",
       "digital_signature": 0,
@@ -230,21 +216,6 @@
     },
     "model": "instance.instance",
     "pk": 2
-  },
-  {
-    "fields": {
-      "creation_date": "2020-04-28T14:12:12.412Z",
-      "form": 1,
-      "group": 20003,
-      "identifier": null,
-      "instance_state": 1,
-      "location": null,
-      "modification_date": "2020-04-28T14:12:12.412Z",
-      "previous_instance_state": 1,
-      "user": 8
-    },
-    "model": "instance.instance",
-    "pk": 3
   },
   {
     "fields": {
