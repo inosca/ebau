@@ -198,14 +198,14 @@ def test_work_item_visibility(
     assert (
         caluma_workflow_models.WorkItem.objects.filter(
             **{"case__meta__camac-instance-id": not_visible_instance.pk}
-        ).count
+        ).count()
         == 3
     )
 
     assert (
         caluma_workflow_models.WorkItem.objects.filter(
             **{"case__meta__camac-instance-id": visible_instance.pk}
-        ).count
+        ).count()
         == 3
     )
 
