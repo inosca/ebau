@@ -2,7 +2,7 @@ import Controller, { inject as controller } from "@ember/controller";
 import { reads } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
-import getOverviewDocumentsQuery from "ember-caluma-portal/gql/queries/get-overview-documents";
+import getOverviewCaseQuery from "ember-caluma-portal/gql/queries/get-overview-cases";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 import UIkit from "uikit";
 
@@ -80,7 +80,7 @@ export default class InstancesEditIndexController extends Controller {
     const raw = yield this.apollo.query(
       {
         fetchPolicy: "network-only",
-        query: getOverviewDocumentsQuery,
+        query: getOverviewCaseQuery,
         variables: {
           instanceId: this.model
         }
