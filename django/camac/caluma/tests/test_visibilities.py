@@ -155,13 +155,14 @@ def test_work_item_visibility(
 ):
     group = admin_user.groups.first()
     visible_instance = instance_factory(group=group)
+    not_visible_instance = instance_factory()
     activation_factory(
         circulation__instance=visible_instance,
         service=group.service,
         circulation_state=circulation_state_factory(),
     )
 
-    for instance in [visible_instance, instance_factory()]:
+    for instance in [visible_instance, not_visible_instance]:
         case = workflow_api.start_case(
             workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
             form=caluma_form_models.Form.objects.get(pk="main-form"),
@@ -193,4 +194,20 @@ def test_work_item_visibility(
     )
 
     assert not result.errors
+
+    assert (
+        caluma_workflow_models.WorkItems.filter(
+            **{"case__meta__camac-instance-id": not_visible_instance.pk}
+        ).count
+        == 3
+    )
+
+    assert (
+        caluma_workflow_models.WorkItems.filter(
+            **{"case__meta__camac-instance-id": visible_instance.pk}
+        ).count
+        == 3
+    )
+
+    # same queryset as the assertion before
     assert len(result.data["allWorkItems"]["edges"]) == 3
