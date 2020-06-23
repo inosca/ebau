@@ -2,32 +2,40 @@ import EmberObject, { computed } from "@ember/object";
 import { reads } from "@ember/object/computed";
 import moment from "moment";
 
-export default EmberObject.extend({
+export default class Case extends EmberObject {
   findAnswer(slug) {
     const answer =
-      this.raw.answers.edges
-        .map(({ node }) => node)
-        .find(answer => answer.question.slug === slug) || {};
+      this.answers.find(answer => answer.question.slug === slug) || {};
 
     const key = Object.keys(answer).find(key => /Value$/.test(key));
 
     return answer && key ? answer[key] : null;
-  },
+  }
 
-  instanceId: reads("raw.meta.camac-instance-id"),
-  ebau: reads("raw.meta.ebau-number"),
-  type: reads("raw.form.name"),
-  municipality: computed(
-    "municipalities.[]",
-    "raw.answers.edges.[]",
-    function() {
-      const slug = this.findAnswer("gemeinde");
-      const node = this.municipalities.find(m => m.slug === slug);
+  @computed("raw.document.answers.edges.[]")
+  get answers() {
+    return this.raw.document.answers.edges.map(({ node }) => node);
+  }
 
-      return node && node.label;
-    }
-  ),
-  address: computed("raw.answers.edges.[]", function() {
+  @reads("raw.meta.camac-instance-id") instanceId;
+  @reads("raw.meta.ebau-number") ebau;
+
+  @reads("raw.document.form.name") type;
+
+  @reads("instance.status") status;
+  @reads("instance.isPaper") isPaper;
+  @reads("instance.isModification") isModification;
+
+  @computed("municipalities.[]", "answers.[]")
+  get municipality() {
+    const slug = this.findAnswer("gemeinde");
+    const node = this.municipalities.find(m => m.slug === slug);
+
+    return node && node.label;
+  }
+
+  @computed("answers.[]")
+  get address() {
     return [
       [
         this.findAnswer("strasse-gesuchstellerin") ||
@@ -49,19 +57,20 @@ export default EmberObject.extend({
       .filter(Boolean)
       .join(", ")
       .trim();
-  }),
-  submitDate: computed("raw.meta.submit-date", function() {
+  }
+
+  @computed("raw.meta.submit-date")
+  get submitDate() {
     const raw = this.get("raw.meta.submit-date");
 
     return raw ? moment(raw) : null;
-  }),
-  status: reads("instance.status"),
-  description: computed("raw.answers.edges.[]", function() {
+  }
+
+  @computed("answers.[]")
+  get description() {
     return (
       this.findAnswer("anfrage-zur-vorabklaerung") ||
       this.findAnswer("beschreibung-bauvorhaben")
     );
-  }),
-  isPaper: reads("instance.isPaper"),
-  isModification: reads("instance.isModification")
-});
+  }
+}
