@@ -79,7 +79,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 3,
+      "sort": 5,
       "success_message": null
     },
     "model": "core.action",
@@ -93,7 +93,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 4,
+      "sort": 6,
       "success_message": null
     },
     "model": "core.action",
@@ -121,7 +121,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 5,
+      "sort": 7,
       "success_message": null
     },
     "model": "core.action",
@@ -149,7 +149,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 6,
+      "sort": 8,
       "success_message": null
     },
     "model": "core.action",
@@ -1017,7 +1017,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 7,
+      "sort": 9,
       "success_message": null
     },
     "model": "core.action",
@@ -1031,7 +1031,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 2,
+      "sort": 5,
       "success_message": null
     },
     "model": "core.action",
@@ -1185,7 +1185,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 2,
       "success_message": null
     },
     "model": "core.action",
@@ -1302,6 +1302,76 @@
     },
     "model": "core.action",
     "pk": 1200003
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 20040,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 3,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1200004
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 1200001,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1200007
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 1200000,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1200008
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 20045,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1200010
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 150000,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1200011
   },
   {
     "fields": {
@@ -2622,6 +2692,66 @@
     },
     "model": "core.actiont",
     "pk": 1200005
+  },
+  {
+    "fields": {
+      "action": 1200004,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Complete ready work items",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 1200006
+  },
+  {
+    "fields": {
+      "action": 1200007,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Skip ready work items",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 1200009
+  },
+  {
+    "fields": {
+      "action": 1200008,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Skip ready work items",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 1200010
+  },
+  {
+    "fields": {
+      "action": 1200010,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Complete ready work items",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 1200012
+  },
+  {
+    "fields": {
+      "action": 1200011,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Cancel case",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 1200013
   },
   {
     "fields": {
@@ -40930,6 +41060,41 @@
   },
   {
     "fields": {
+      "php_class": "CompleteReadyWorkItems"
+    },
+    "model": "core.aphp",
+    "pk": 1200004
+  },
+  {
+    "fields": {
+      "php_class": "SkipReadyWorkItems"
+    },
+    "model": "core.aphp",
+    "pk": 1200007
+  },
+  {
+    "fields": {
+      "php_class": "SkipReadyWorkItems"
+    },
+    "model": "core.aphp",
+    "pk": 1200008
+  },
+  {
+    "fields": {
+      "php_class": "CompleteReadyWorkItems"
+    },
+    "model": "core.aphp",
+    "pk": 1200010
+  },
+  {
+    "fields": {
+      "php_class": "CancelCase"
+    },
+    "model": "core.aphp",
+    "pk": 1200011
+  },
+  {
+    "fields": {
       "action_name": "template",
       "available_resource": "page",
       "hidden": 0
@@ -58470,24 +58635,6 @@
   },
   {
     "fields": {
-      "instance_resource": 150000,
-      "instance_state": 20007,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 150014
-  },
-  {
-    "fields": {
-      "instance_resource": 150000,
-      "instance_state": 20008,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 150015
-  },
-  {
-    "fields": {
       "instance_resource": 150001,
       "instance_state": 1,
       "role": 10000
@@ -58984,24 +59131,6 @@
   {
     "fields": {
       "instance_resource": 150004,
-      "instance_state": 20007,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 150073
-  },
-  {
-    "fields": {
-      "instance_resource": 150004,
-      "instance_state": 20008,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 150074
-  },
-  {
-    "fields": {
-      "instance_resource": 150004,
       "instance_state": 20009,
       "role": 3
     },
@@ -59106,24 +59235,6 @@
     },
     "model": "core.irroleacl",
     "pk": 150086
-  },
-  {
-    "fields": {
-      "instance_resource": 150004,
-      "instance_state": 20007,
-      "role": 20003
-    },
-    "model": "core.irroleacl",
-    "pk": 150087
-  },
-  {
-    "fields": {
-      "instance_resource": 150004,
-      "instance_state": 20008,
-      "role": 20003
-    },
-    "model": "core.irroleacl",
-    "pk": 150088
   },
   {
     "fields": {
