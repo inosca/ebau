@@ -1,73 +1,78 @@
-query GetOverviewDocuments($instanceId: GenericScalar!) {
-  allDocuments(metaValue: [{ key: "camac-instance-id", value: $instanceId }]) {
+query GetOverviewCase($instanceId: GenericScalar!) {
+  allCases(
+    filter: { metaValue: [{ key: "camac-instance-id", value: $instanceId }] }
+  ) {
     edges {
       node {
         id
         meta
-        form {
-          slug
-          name
-          meta
-        }
-        answers(
-          questions: [
-            "name-gesuchstellerin-vorabklaerung"
-            "vorname-gesuchstellerin-vorabklaerung"
-            "anfrage-zur-vorabklaerung"
-            "strasse-gesuchstellerin"
-            "nummer-gesuchstellerin"
-            "plz-gesuchstellerin"
-            "ort-gesuchstellerin"
-            "strasse-flurname"
-            "nr"
-            "ort-grundstueck"
-            "beschreibung-bauvorhaben"
-            "beschreibung-projektaenderung"
-            "personalien-gesuchstellerin"
-            "gemeinde"
-            "parzelle"
-            "parzellennummer"
-          ]
-        ) {
-          edges {
-            node {
-              id
-              question {
-                slug
-                ... on DynamicChoiceQuestion {
-                  options {
-                    edges {
-                      node {
-                        slug
-                        label
+        document {
+          id
+          form {
+            slug
+            name
+            meta
+          }
+          answers(
+            questions: [
+              "name-gesuchstellerin-vorabklaerung"
+              "vorname-gesuchstellerin-vorabklaerung"
+              "anfrage-zur-vorabklaerung"
+              "strasse-gesuchstellerin"
+              "nummer-gesuchstellerin"
+              "plz-gesuchstellerin"
+              "ort-gesuchstellerin"
+              "strasse-flurname"
+              "nr"
+              "ort-grundstueck"
+              "beschreibung-bauvorhaben"
+              "beschreibung-projektaenderung"
+              "personalien-gesuchstellerin"
+              "gemeinde"
+              "parzelle"
+              "parzellennummer"
+            ]
+          ) {
+            edges {
+              node {
+                id
+                question {
+                  slug
+                  ... on DynamicChoiceQuestion {
+                    options {
+                      edges {
+                        node {
+                          slug
+                          label
+                        }
                       }
                     }
                   }
                 }
-              }
-              ... on StringAnswer {
-                stringValue: value
-              }
-              ... on IntegerAnswer {
-                integerValue: value
-              }
-              ... on TableAnswer {
-                tableValue: value {
-                  answers(
-                    questions: [
-                      "name-gesuchstellerin"
-                      "vorname-gesuchstellerin"
-                      "name-juristische-person-gesuchstellerin"
-                      "parzellennummer"
-                    ]
-                  ) {
-                    edges {
-                      node {
-                        question {
-                          slug
-                        }
-                        ... on StringAnswer {
-                          stringValue: value
+                ... on StringAnswer {
+                  stringValue: value
+                }
+                ... on IntegerAnswer {
+                  integerValue: value
+                }
+                ... on TableAnswer {
+                  tableValue: value {
+                    answers(
+                      questions: [
+                        "name-gesuchstellerin"
+                        "vorname-gesuchstellerin"
+                        "name-juristische-person-gesuchstellerin"
+                        "parzellennummer"
+                      ]
+                    ) {
+                      edges {
+                        node {
+                          question {
+                            slug
+                          }
+                          ... on StringAnswer {
+                            stringValue: value
+                          }
                         }
                       }
                     }

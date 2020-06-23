@@ -122,14 +122,14 @@
 
 <hr>
 
-{{#if (and fetchData.isRunning (eq documents.length 0))}}
+{{#if (and fetchData.isRunning (eq cases.length 0))}}
   <div class="uk-text-center uk-padding">
     <UkSpinner @ratio={{2}} />
   </div>
-{{else if documents.length}}
+{{else if cases.length}}
   <div uk-grid>
     <div class="uk-width-expand uk-flex uk-flex-middle uk-text-meta">
-      <span>{{t "instances.pageInfo" length=documents.length total=pageInfo.totalCount htmlSafe=true}}</span>
+      <span>{{t "instances.pageInfo" length=cases.length total=pageInfo.totalCount htmlSafe=true}}</span>
     </div>
 
     <div class="uk-width-auto uk-flex uk-flex-middle">
@@ -157,18 +157,18 @@
       </tr>
     </thead>
     <tbody>
-      {{#each this.documents as |document|}}
+      {{#each this.cases as |case|}}
         <tr class="uk-table-middle">
           <td>
-            <LinkTo @route="instances.edit" @model={{document.instanceId}} class="uk-text-bold">{{document.instanceId}}</LinkTo>
+            <LinkTo @route="instances.edit" @model={{case.instanceId}} class="uk-text-bold">{{case.instanceId}}</LinkTo>
           </td>
-          <td class="uk-text-nowrap">{{document.ebau}}</td>
-          <td class="uk-text-nowrap">{{document.type}} {{document.instance.typeDetail}}</td>
-          <td>{{document.municipality}}</td>
-          <td class="uk-text-truncate" title={{document.address}}>{{document.address}}</td>
-          <td>{{if document.submitDate (moment-format document.submitDate "DD.MM.YYYY")}}</td>
-          <td>{{document.status}}</td>
-          <td class="uk-text-truncate" title={{document.description}}>{{document.description}}</td>
+          <td class="uk-text-nowrap">{{case.ebau}}</td>
+          <td class="uk-text-nowrap">{{case.type}} {{case.instance.typeDetail}}</td>
+          <td>{{case.municipality}}</td>
+          <td class="uk-text-truncate" title={{case.address}}>{{case.address}}</td>
+          <td>{{if case.submitDate (moment-format case.submitDate "DD.MM.YYYY")}}</td>
+          <td>{{case.status}}</td>
+          <td class="uk-text-truncate" title={{case.description}}>{{case.description}}</td>
         </tr>
       {{/each}}
       {{#if this.pageInfo.hasNextPage}}
