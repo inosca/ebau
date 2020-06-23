@@ -21,6 +21,8 @@ INSTANCE_STATES = [
     constants.INSTANCE_STATE_ZIRKULATION,
     constants.INSTANCE_STATE_CORRECTION_IN_PROGRESS,
     constants.INSTANCE_STATE_CORRECTED,
+    # will be canceled later
+    constants.INSTANCE_STATE_REJECTED,
     # nfd and ebau-number complete
     constants.INSTANCE_STATE_SB1,
     # sb1 complete
@@ -30,8 +32,6 @@ INSTANCE_STATES = [
     constants.INSTANCE_STATE_FINISHED,
     constants.INSTANCE_STATE_ARCHIVED,
     constants.INSTANCE_STATE_DONE,
-    # case canceled
-    # constants.INSTANCE_STATE_REJECTED,
 ]
 
 
@@ -105,6 +105,9 @@ def skip_ebau_nr_and_nfd(case, documents, apps):
 
 
 def skip_sb1(case, documents, apps):
+    if is_vorabklaerung(case):
+        return
+
     Task = apps.get_model("caluma_workflow", "Task")
     WorkItem = apps.get_model("caluma_workflow", "WorkItem")
 
@@ -126,10 +129,10 @@ def skip_sb1(case, documents, apps):
 
 
 def skip_sb2(case, documents, apps):
-    skip_work_item(case.work_items.get(task_id="sb2"))
+    if is_vorabklaerung(case):
+        return
 
-    case.status = workflow_models.Case.STATUS_COMPLETED
-    case.save()
+    skip_work_item(case.work_items.get(task_id="sb2"))
 
 
 def document_to_case(apps, schema_editor):
@@ -142,6 +145,8 @@ def document_to_case(apps, schema_editor):
     Workflow = apps.get_model("caluma_workflow", "Workflow")
     Task = apps.get_model("caluma_workflow", "Task")
     WorkItem = apps.get_model("caluma_workflow", "WorkItem")
+
+    failed_instances = []
 
     for instance in Instance.objects.all():
         try:
@@ -203,10 +208,7 @@ def document_to_case(apps, schema_editor):
                 created_by_group=main_document.created_by_group,
             )
 
-            if instance.instance_state.pk in [
-                constants.INSTANCE_STATE_REJECTED,
-                constants.INSTANCE_STATE_ARCHIVED,
-            ]:
+            if instance.instance_state.pk == constants.INSTANCE_STATE_ARCHIVED:
                 submit_work_item.closed_at = timezone.now()
                 submit_work_item.status = workflow_models.WorkItem.STATUS_CANCELED
                 submit_work_item.save()
@@ -236,15 +238,47 @@ def document_to_case(apps, schema_editor):
                 instance.instance_state.pk, constants.INSTANCE_STATE_TO_BE_FINISHED
             ):
                 skip_sb2(case, documents, apps)
+
+            if instance.instance_state.pk == constants.INSTANCE_STATE_DONE:
+                # instance was rejected but a new instance was submitted which
+                # sets the old instance to done. In this case the old case must
+                # be cancelled. However, since we have no way to know at which
+                # step the instance was rejected, so we asume it was right
+                # after submitting
+                if (
+                    instance.previous_instance_state.pk
+                    == constants.INSTANCE_STATE_REJECTED
+                ):
+                    # delete sb1 and sb2
+                    case.work_items.exclude(task_id__in=["sb1", "sb2"]).delete()
+                    # cancel nfd and ebau-number
+                    case.work_items.filter(task_id__in=["nfd", "ebau-number"]).update(
+                        closed_at=timezone.now(),
+                        status=workflow_models.WorkItem.STATUS_CANCELED,
+                    )
+
+                    case.status = workflow_models.Case.STATUS_CANCELED
+                else:
+                    case.status = workflow_models.Case.STATUS_COMPLETED
+
+                case.save()
+
         except Exception as e:
+            failed_instances.append(instance.pk)
             log.error(f"Error while migrating instance {instance.pk}: {e}")
 
     # cleanup all unused nfd, sb1 and sb2 documents
     obsolete_documents = Document.objects.filter(
         **{"meta__camac-instance-id__isnull": False}
-    )
-    log.debug(f"Deleted {obsolete_documents.count()} obsolete documents")
+    ).exclude(**{"meta__camac-instance-id__in": failed_instances})
+
+    log.warn(f"Deleted {obsolete_documents.count()} obsolete documents")
     obsolete_documents.delete()
+
+    if len(failed_instances):
+        log.error(
+            f"The following instances could not be migrated: {', '.join(list(map(str, failed_instances)))}."
+        )
 
 
 class Migration(migrations.Migration):
