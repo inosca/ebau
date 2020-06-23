@@ -15,11 +15,12 @@ from rest_framework import exceptions
 from rest_framework_json_api import serializers
 
 from camac.caluma.api import CalumaApi
-from camac.constants import kt_bern as be_constants
+from camac.constants import kt_bern as be_constants, kt_uri as uri_constants
 from camac.core.models import (
     Activation,
     Answer,
     BillingV2Entry,
+    Circulation,
     HistoryActionConfig,
     WorkflowEntry,
 )
@@ -27,7 +28,7 @@ from camac.core.translations import get_translations
 from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import HistoryEntry, HistoryEntryT, Instance
 from camac.instance.validators import transform_coordinates
-from camac.user.models import Role, Service
+from camac.user.models import Group, Role, Service, User, UserGroup
 from camac.utils import flatten
 
 from ..core import models as core_models
@@ -85,6 +86,8 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     public_dossier_link = serializers.SerializerMethodField()
     internal_dossier_link = serializers.SerializerMethodField()
     registration_link = serializers.SerializerMethodField()
+    dossier_nr = serializers.SerializerMethodField()
+    portal_submission = serializers.SerializerMethodField()
     leitbehoerde_name = serializers.SerializerMethodField()
     form_name = serializers.SerializerMethodField()
     ebau_number = serializers.SerializerMethodField()
@@ -214,10 +217,30 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return CalumaApi().get_form_name(instance) or "-"
 
     def get_ebau_number(self, instance):
+        """Dossier number - Kanton Bern."""
         if settings.APPLICATION["FORM_BACKEND"] != "caluma":
             return "-"
 
         return CalumaApi().get_ebau_number(instance) or "-"
+
+    def get_portal_submission(self, instance):
+        """Return `True` if the given instance is a portal submission."""
+        try:
+            Answer.get_value_by_cqi(
+                instance, *self.SUBMITTER_TYPE_CQI, fail_on_not_found=True
+            )
+            return True
+        except Answer.DoesNotExist:
+            return False
+
+    def get_dossier_nr(self, instance):
+        """Dossier number - Kanton Uri."""
+        try:
+
+            ans = Answer.objects.get(instance=instance, question=6, chapter=2, item=1)
+            return ans.answer
+        except Answer.DoesNotExist:
+            return "-"
 
     def get_internal_dossier_link(self, instance):
         return settings.INTERNAL_INSTANCE_URL_TEMPLATE.format(instance_id=instance.pk)
@@ -365,6 +388,9 @@ class NotificationTemplateMergeSerializer(
     activation = serializers.ResourceRelatedField(
         queryset=Activation.objects.all(), required=False
     )
+    circulation = serializers.ResourceRelatedField(
+        queryset=Circulation.objects.all(), required=False
+    )
     notification_template = serializers.ResourceRelatedField(
         queryset=models.NotificationTemplate.objects.all()
     )
@@ -428,9 +454,75 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             "construction_control",
             "email_list",
             "activation_service_parent",
+            *settings.APPLICATION.get("CUSTOM_NOTIFICATION_TYPES", []),
         )
     )
     email_list = serializers.CharField(required=False)
+
+    def _get_recipients_submitter_list(self, instance):
+        # TODO: convert this to plain django query on the "original data",
+        # get rid of the nasty nasty viewses
+        return [
+            {"to": submitter.email}
+            for submitter in ProjectSubmitterData.objects.filter(instance=instance)
+        ]
+
+    def _get_recipients_municipality_users(self, instance):
+        groups = Group.objects.filter(locations__in=instance.location)
+        users = User.objects.filter(
+            pk__in=UserGroup.objects.filter(
+                group__in=groups,
+                default_group=1,
+                user__email__isnull=False,
+                user__disabled=0,
+            ).values("user")
+        )
+        return [{"to": user.email} for user in users]
+
+    def _get_recipients_unnotified_service_users(self, instance):
+        circulation = self.validated_data["circulation"]
+        activations = circulation.activations.filter(
+            circulation_state_id=uri_constants.CIRCULATION_STATE_IDLE
+        )
+
+        services = Service.objects.filter(pk__in=activations.values("service_id"))
+
+        groups = Group.objects.filter(service__in=services)
+        users = User.objects.filter(
+            pk__in=UserGroup.objects.filter(
+                group__in=groups,
+                default_group=1,
+                user__email__isnull=False,
+                user__disabled=0,
+            ).values("user")
+        )
+        return [{"to": user.email} for user in users]
+
+    def _get_recipients_koor_np_users(self, instance):
+
+        users = User.objects.filter(
+            pk__in=UserGroup.objects.filter(
+                default_group=1,
+                user__email__isnull=False,
+                user__disabled=0,
+                role_id=uri_constants.KOOR_NP_ROLE_ID,
+            ).values("user")
+        )
+        return [{"to": user.email} for user in users]
+
+    def _get_recipients_koor_bg_users(self, instance):
+        users = User.objects.filter(
+            email__isnull=False,
+            disabled=0,
+            pk__in=UserGroup.objects.filter(
+                default_group=1, group__role_id=uri_constants.KOOR_BG_ROLE_ID,
+            ).values("user"),
+        )
+        return [{"to": user.email} for user in users]
+
+    def _get_recipients_lisag(self, instance):
+        groups = Group.objects.filter(name="Lisag")
+        return [{"to": group.email} for group in groups]
 
     def _get_recipients_caluma_municipality(self, instance):
         municipality_service_id = CalumaApi().get_municipality(instance)
@@ -485,12 +577,13 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         return self._get_responsible(instance, instance.group.service)
 
     def _get_recipients_unnotified_service(self, instance):
+
+        service = self.context["request"].group.service
+
         # Circulation and subcirculation share the same circulation object.
         # They can only be distinguished by there SERVICE_PARENT_ID.
         activations = Activation.objects.filter(
-            circulation__instance_id=instance.pk,
-            email_sent=0,
-            service_parent=self.context["request"].group.service,
+            circulation__instance_id=instance.pk, email_sent=0, service_parent=service
         )
         services = {a.service for a in activations}
 

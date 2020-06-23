@@ -601,6 +601,19 @@ APPLICATIONS = {
         "PORTAL_USER_ID": 1209,
         "APPLICANT_GROUP_ID": 685,  # We reuse the Portal User group
         "SEQUENCE_NAMESPACE_APPS": ["core", "document", "responsible"],
+        "CUSTOM_NOTIFICATION_TYPES": [
+            "submitter_list",
+            "municipality_users",
+            "unnotified_service_users",
+            "lisag",
+            "koor_np_users",
+            "koor_bg_users",
+        ],
+        "ROLE_PERMISSIONS": {
+            "Sekretariat der Gemeindebaubehörde": "municipality",
+            "Koordinationsstelle Baugesuche BG": "municipality",
+            "Koordinationsstelle Baugesuche NP": "municipality",
+        },
     },
 }
 
