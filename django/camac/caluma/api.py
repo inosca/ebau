@@ -2,6 +2,7 @@ from copy import copy
 from functools import reduce
 
 from caluma.caluma_form import models as caluma_form_models
+from caluma.caluma_workflow import models as caluma_workflow_models
 from django.conf import settings
 from django.db.models import Q
 from jwt import decode as jwt_decode
@@ -22,21 +23,13 @@ class CalumaApi:
     meta lookups.
     """
 
-    def is_main_form(self, form_slug):
-        forms = caluma_form_models.Form.objects.filter(
-            slug=form_slug, **{"meta__is-main-form": True}
-        )
-        if not forms.count() == 1:  # pragma: no cover
-            return False
-
-        return True
-
     def _get_main_form(self, instance):
-        document = caluma_form_models.Document.objects.filter(
-            **{"meta__camac-instance-id": instance.pk},
-            **{"form__meta__is-main-form": True},
-        ).first()
-        return document.form if document else None
+        try:
+            return caluma_workflow_models.Case.objects.get(
+                **{"meta__camac-instance-id": instance.pk}
+            ).document.form
+        except caluma_workflow_models.Case.DoesNotExist:
+            return None
 
     def get_form_name(self, instance):
         form = self._get_main_form(instance)
@@ -46,17 +39,10 @@ class CalumaApi:
         form = self._get_main_form(instance)
         return form.slug if form else None
 
-    def get_document_by_form_slug(self, instance, form_slug: str):
-        document = caluma_form_models.Document.objects.filter(
-            **{"meta__camac-instance-id": instance.pk}, form__slug=form_slug
-        ).first()
-        return document.pk if document else None
-
     def _get_main_document(self, instance):
-        return caluma_form_models.Document.objects.filter(
-            **{"meta__camac-instance-id": instance.pk},
-            **{"form__meta__is-main-form": True},
-        ).first()
+        return caluma_workflow_models.Case.objects.get(
+            **{"meta__camac-instance-id": instance.pk}
+        ).document
 
     def get_main_document(self, instance):
         document = self._get_main_document(instance)
@@ -66,29 +52,23 @@ class CalumaApi:
         source = caluma_form_models.Document.objects.get(pk=document_id).source
         return getattr(source, field, None) if source else None
 
-    def _get_instance_documents(self, instance_id):
-        return caluma_form_models.Document.objects.filter(
-            **{"meta__camac-instance-id": instance_id}
-        )
-
-    def delete_instance_documents(self, instance_id):
-        self._get_instance_documents(instance_id).delete()
+    def delete_instance_case(self, instance_id):
+        return caluma_workflow_models.Case.objects.filter(
+            **{"family__meta__camac-instance-id": instance_id}
+        ).delete()
 
     def get_ebau_number(self, instance):
-        document = caluma_form_models.Document.objects.filter(
-            **{"meta__camac-instance-id": instance.pk, "form__meta__is-main-form": True}
+        case = caluma_workflow_models.Case.objects.filter(
+            **{"meta__camac-instance-id": instance.pk}
         ).first()
-        return document.meta.get("ebau-number", "-") if document else None
+        return case.meta.get("ebau-number", "-") if case else None
 
     def get_municipality(self, instance):
-        caluma_form_models.Document.objects.filter(
-            **{"meta__camac-instance-id": instance.pk},
-            **{"form__meta__is-main-form": True},
-        ).first()
-
         answer = caluma_form_models.Answer.objects.filter(
-            **{"document__meta__camac-instance-id": instance.pk},
-            question__slug="gemeinde",
+            **{
+                "document__case__meta__camac-instance-id": instance.pk,
+                "question_id": "gemeinde",
+            }
         ).first()
 
         return answer.value if answer else None
@@ -100,7 +80,7 @@ class CalumaApi:
             **{
                 "question_id": "nfd-tabelle-status",
                 "document__family__form_id": "nfd",
-                "document__family__meta__camac-instance-id": instance.pk,
+                "document__family__work_item__case__family__meta__camac-instance-id": instance.pk,
             }
         )
 
@@ -108,12 +88,10 @@ class CalumaApi:
             permissions.add("read")
 
         if answers.filter(value="nfd-tabelle-status-in-bearbeitung").exists():
+            permissions.add("read")
             permissions.add("write")
 
         return permissions
-
-    def create_document(self, form_slug, **kwargs):
-        return caluma_form_models.Document.objects.create(form_id=form_slug, **kwargs)
 
     def copy_document(self, source_pk, exclude_form_slugs=None, meta=None, **kwargs):
         """Use to `copy()` function on a document and do some clean-up.
@@ -125,9 +103,6 @@ class CalumaApi:
         """
         source = caluma_form_models.Document.objects.get(pk=source_pk)
         document = source.copy(**kwargs)
-
-        if meta is not None:
-            document.meta = meta
 
         if exclude_form_slugs:
             document.answers.filter(question__forms__in=exclude_form_slugs).delete()
@@ -148,29 +123,31 @@ class CalumaApi:
             defaults={"value": value},
         )
 
-    def set_submit_date(self, document_pk, submit_date):
-        document = caluma_form_models.Document.objects.get(pk=document_pk)
+    def set_submit_date(self, instance_id, submit_date):
+        case = caluma_workflow_models.Case.objects.get(
+            **{"meta__camac-instance-id": instance_id}
+        )
 
-        if "submit-date" in document.meta:  # pragma: no cover
+        if "submit-date" in case.meta:  # pragma: no cover
             # instance was already submitted, this is probably a re-submit
             # after correction.
             return False
 
         new_meta = {
-            **document.meta,
+            **case.meta,
             # Caluma date is formatted yyyy-mm-dd so it can be sorted
             "submit-date": submit_date,
         }
 
-        document.meta = new_meta
-        document.save()
+        case.meta = new_meta
+        case.save()
+
         return True
 
     def is_paper(self, instance):
         return caluma_form_models.Answer.objects.filter(
             **{
-                "document__meta__camac-instance-id": instance.pk,
-                "document__form__meta__is-main-form": True,
+                "document__case__meta__camac-instance-id": instance.pk,
                 "question_id": "papierdossier",
                 "value": "papierdossier-ja",
             }
@@ -179,8 +156,7 @@ class CalumaApi:
     def is_modification(self, instance):
         return caluma_form_models.Answer.objects.filter(
             **{
-                "document__meta__camac-instance-id": instance.pk,
-                "document__form__meta__is-main-form": True,
+                "document__case__meta__camac-instance-id": instance.pk,
                 "question_id": "projektaenderung",
                 "value": "projektaenderung-ja",
             }
@@ -230,6 +206,38 @@ class CalumaApi:
             }
         )
         return suggestions_out
+
+    def copy_table_answer(
+        self,
+        source_question,
+        target_question,
+        source_document,
+        target_document,
+        source_question_fallback=None,
+    ):
+        # get the source answer with a fallback
+        table_answer = source_document.answers.filter(
+            question_id=source_question
+        ).first()
+
+        if not table_answer or table_answer.documents.count() == 0:
+            table_answer = source_document.answers.filter(
+                question_id=source_question_fallback
+            ).first()
+
+        # nothing to copy
+        if not table_answer or table_answer.documents.count() == 0:  # pragma: no cover
+            return
+
+        # create a new table answer in the target document
+        new_table_answer = caluma_form_models.Answer.objects.create(
+            document_id=target_document.pk, question_id=target_question
+        )
+
+        # copy all rows into the new table answer
+        for row in table_answer.documents.all():
+            sb_row = self.copy_document(row.id, family=target_document.family)
+            new_table_answer.documents.add(sb_row)
 
 
 class CamacRequest:

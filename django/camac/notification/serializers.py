@@ -433,16 +433,17 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
     )
     email_list = serializers.CharField(required=False)
 
-    def _get_recipients_caluma_municipality(self, instance):  # pragma: no cover
+    def _get_recipients_caluma_municipality(self, instance):
         municipality_service_id = CalumaApi().get_municipality(instance)
 
-        if not municipality_service_id:
+        if not municipality_service_id:  # pragma: no cover
             raise exceptions.ValidationError(
                 f"Could not get Caluma municipality for instance {instance.pk}"
             )
 
-        service = Service.objects.filter(pk=municipality_service_id).first()
-        return [{"to": service.email}]
+        return self._get_responsible(
+            instance, Service.objects.filter(pk=municipality_service_id).first()
+        )
 
     def _get_recipients_applicant(self, instance):
         return [

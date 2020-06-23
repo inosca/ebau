@@ -1,4 +1,5 @@
 from caluma.caluma_form.models import Answer, Document, DynamicOption, Option
+from caluma.caluma_workflow.models import Case
 from django.utils.translation import get_language
 
 from .utils import handle_string_values
@@ -160,7 +161,7 @@ class DocumentParser:
         self.answers = AnswersDict(
             **{
                 "ech-subject": document.form.name[self.lang],
-                "caluma-form-slug": document.form.slug,
+                "caluma-workflow-slug": document.case.workflow.slug,
             }
         )
         self.answers.update(self.parse_answers(self.document, main_slugs))
@@ -223,8 +224,6 @@ class DocumentParser:
 
 
 def get_document(instance_id):
-    document = Document.objects.get(
-        **{"form__meta__is-main-form": True, "meta__camac-instance-id": instance_id}
-    )
-    dp = DocumentParser(document)
+    case = Case.objects.get(**{"meta__camac-instance-id": instance_id})
+    dp = DocumentParser(case.document)
     return dp.answers
