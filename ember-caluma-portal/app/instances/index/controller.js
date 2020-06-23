@@ -5,10 +5,10 @@ import { reads } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
 import { isEmpty } from "@ember/utils";
 import { queryManager } from "ember-apollo-client";
-import getDocumentsQuery from "ember-caluma-portal/gql/queries/get-documents";
+import getCasesQuery from "ember-caluma-portal/gql/queries/get-cases";
 import getMunicipalitiesQuery from "ember-caluma-portal/gql/queries/get-municipalities";
 import getRootFormsQuery from "ember-caluma-portal/gql/queries/get-root-forms";
-import Document from "ember-caluma-portal/lib/document";
+import Case from "ember-caluma-portal/lib/case";
 import {
   restartableTask,
   dropTask,
@@ -16,6 +16,13 @@ import {
 } from "ember-concurrency-decorators";
 import QueryParams from "ember-parachute";
 import moment from "moment";
+
+const getOrder = order => [
+  {
+    meta: order.split(":")[0],
+    direction: order.split(":")[1].toUpperCase()
+  }
+];
 
 const getHasAnswerFilters = ({ parcel: value }) =>
   [
@@ -128,7 +135,7 @@ const queryParams = new QueryParams({
     ...dateQueryParam
   },
   order: {
-    defaultValue: "META_CAMAC_INSTANCE_ID_DESC",
+    defaultValue: "camac-instance-id:desc",
     replace: true
   }
 });
@@ -142,32 +149,32 @@ export default class InstancesIndexController extends Controller.extend(
   get orderOptions() {
     return [
       {
-        value: "META_CAMAC_INSTANCE_ID_DESC",
+        value: "camac-instance-id:desc",
         label: "instances.instanceId",
         direction: "instances.desc"
       },
       {
-        value: "META_CAMAC_INSTANCE_ID_ASC",
+        value: "camac-instance-id:asc",
         label: "instances.instanceId",
         direction: "instances.asc"
       },
       {
-        value: "META_EBAU_NUMBER_DESC",
+        value: "ebau-number:desc",
         label: "instances.ebau",
         direction: "instances.desc"
       },
       {
-        value: "META_EBAU_NUMBER_ASC",
+        value: "ebau-number:asc",
         label: "instances.ebau",
         direction: "instances.asc"
       },
       {
-        value: "META_SUBMIT_DATE_DESC",
+        value: "submit-date:desc",
         label: "instances.submitDate",
         direction: "instances.desc"
       },
       {
-        value: "META_SUBMIT_DATE_ASC",
+        value: "submit-date:asc",
         label: "instances.submitDate",
         direction: "instances.asc"
       }
@@ -178,13 +185,13 @@ export default class InstancesIndexController extends Controller.extend(
     this.getMunicipalities.perform();
     this.getRootForms.perform();
 
-    this.set("documents", []);
+    this.set("cases", []);
     this.fetchData.perform();
   }
 
   reset() {
     this.resetQueryParams();
-    this.set("documents", []);
+    this.set("cases", []);
 
     this.getMunicipalities.cancelAll({ reset: true });
     this.getRootForms.cancelAll({ reset: true });
@@ -234,10 +241,10 @@ export default class InstancesIndexController extends Controller.extend(
 
       const raw = yield this.apollo.query(
         {
-          query: getDocumentsQuery,
+          query: getCasesQuery,
           variables: {
             cursor,
-            order: this.order,
+            order: getOrder(this.order),
             forms: this.types.length
               ? this.types
               : forms.map(({ slug }) => slug),
@@ -247,21 +254,21 @@ export default class InstancesIndexController extends Controller.extend(
           },
           fetchPolicy: "network-only"
         },
-        "allDocuments"
+        "allCases"
       );
-      const rawDocuments = raw.edges.map(({ node }) => node);
+      const rawCases = raw.edges.map(({ node }) => node);
 
-      if (rawDocuments.length) {
+      if (rawCases.length) {
         const municipalities = yield this.getMunicipalities.last;
 
         yield this.store.query("instance", {
-          instance_id: rawDocuments
+          instance_id: rawCases
             .map(({ meta }) => meta["camac-instance-id"])
             .join(",")
         });
 
-        const documents = rawDocuments.map(raw => {
-          return Document.create(getOwner(this).ownerInjection(), {
+        const cases = rawCases.map(raw => {
+          return Case.create(getOwner(this).ownerInjection(), {
             raw,
             instance: this.store.peekRecord(
               "instance",
@@ -271,7 +278,7 @@ export default class InstancesIndexController extends Controller.extend(
           });
         });
 
-        this.set("documents", [...this.documents, ...documents]);
+        this.set("cases", [...this.cases, ...cases]);
       }
 
       set(raw, "pageInfo", { ...raw.pageInfo, totalCount: raw.totalCount });
@@ -287,7 +294,7 @@ export default class InstancesIndexController extends Controller.extend(
   *applyFilters(event) {
     event.preventDefault();
 
-    this.set("documents", []);
+    this.set("cases", []);
     yield this.fetchData.perform();
   }
 
@@ -297,7 +304,7 @@ export default class InstancesIndexController extends Controller.extend(
 
     yield this.resetQueryParams();
 
-    this.set("documents", []);
+    this.set("cases", []);
     yield this.fetchData.perform();
   }
 
