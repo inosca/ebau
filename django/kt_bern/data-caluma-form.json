@@ -17,22 +17,6 @@
   },
   {
     "fields": {
-      "created_at": "2020-03-06T11:10:26.149Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "date": null,
-      "document": "82986e34-47b4-4793-aec9-49d7cbb5986d",
-      "file": null,
-      "meta": {},
-      "modified_at": "2020-03-06T11:10:26.149Z",
-      "question": "papierdossier",
-      "value": "papierdossier-nein"
-    },
-    "model": "caluma_form.answer",
-    "pk": "030b7841-4ae4-4e23-acf8-b95c8c397583"
-  },
-  {
-    "fields": {
       "created_at": "2020-03-06T11:11:34.109Z",
       "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -129,22 +113,6 @@
   },
   {
     "fields": {
-      "created_at": "2020-03-06T11:10:26.169Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "date": null,
-      "document": "6264eb71-3b70-452f-a95c-0f980da8253b",
-      "file": null,
-      "meta": {},
-      "modified_at": "2020-03-06T11:10:26.169Z",
-      "question": "papierdossier",
-      "value": "papierdossier-nein"
-    },
-    "model": "caluma_form.answer",
-    "pk": "117faa7f-691c-4300-a844-4aef6808ee21"
-  },
-  {
-    "fields": {
       "created_at": "2020-03-06T11:10:11.639Z",
       "created_by_group": null,
       "created_by_user": null,
@@ -190,22 +158,6 @@
     },
     "model": "caluma_form.answer",
     "pk": "1a75d46f-9adc-47c6-8986-9c3219c574b2"
-  },
-  {
-    "fields": {
-      "created_at": "2020-03-06T11:10:26.161Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "date": null,
-      "document": "f9f24236-ada9-4363-8ee2-522e58428836",
-      "file": null,
-      "meta": {},
-      "modified_at": "2020-03-06T11:10:26.161Z",
-      "question": "papierdossier",
-      "value": "papierdossier-nein"
-    },
-    "model": "caluma_form.answer",
-    "pk": "2013fa37-124b-43eb-9259-289f2785efd8"
   },
   {
     "fields": {
@@ -494,22 +446,6 @@
     },
     "model": "caluma_form.answer",
     "pk": "5bda52de-8dca-4980-b48f-b08942808a05"
-  },
-  {
-    "fields": {
-      "created_at": "2020-03-06T11:13:35.947Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "date": null,
-      "document": "dd645aba-6efa-4103-b23e-19b0ad1e9625",
-      "file": null,
-      "meta": {},
-      "modified_at": "2020-03-06T11:13:35.947Z",
-      "question": "papierdossier",
-      "value": "papierdossier-nein"
-    },
-    "model": "caluma_form.answer",
-    "pk": "5d808a09-1894-4a9c-bea5-334b2eee54a2"
   },
   {
     "fields": {
@@ -1169,22 +1105,6 @@
   },
   {
     "fields": {
-      "created_at": "2020-03-06T11:13:35.937Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "date": null,
-      "document": "9e66710f-31ad-4b40-8845-dca1586d9223",
-      "file": null,
-      "meta": {},
-      "modified_at": "2020-03-06T11:13:35.937Z",
-      "question": "papierdossier",
-      "value": "papierdossier-nein"
-    },
-    "model": "caluma_form.answer",
-    "pk": "bb3ef91e-2ad1-4e16-9c92-c104ac1677fd"
-  },
-  {
-    "fields": {
       "created_at": "2020-03-06T11:10:11.639Z",
       "created_by_group": null,
       "created_by_user": null,
@@ -1659,67 +1579,17 @@
   },
   {
     "fields": {
-      "created_at": "2020-03-06T11:10:26.164Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "family": "6264eb71-3b70-452f-a95c-0f980da8253b",
-      "form": "nfd",
-      "meta": {
-        "camac-instance-id": 1
-      },
-      "modified_at": "2020-03-06T11:10:26.164Z",
-      "source": null
-    },
-    "model": "caluma_form.document",
-    "pk": "6264eb71-3b70-452f-a95c-0f980da8253b"
-  },
-  {
-    "fields": {
-      "created_at": "2020-03-06T11:10:26.144Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "family": "82986e34-47b4-4793-aec9-49d7cbb5986d",
-      "form": "sb1",
-      "meta": {
-        "camac-instance-id": 1
-      },
-      "modified_at": "2020-03-06T11:10:26.144Z",
-      "source": null
-    },
-    "model": "caluma_form.document",
-    "pk": "82986e34-47b4-4793-aec9-49d7cbb5986d"
-  },
-  {
-    "fields": {
       "created_at": "2020-03-06T11:10:26.113Z",
       "created_by_group": null,
       "created_by_user": null,
       "family": "961f2def-a94a-435f-b8b4-93390c7b40e5",
       "form": "baugesuch",
-      "meta": {
-        "camac-instance-id": 1
-      },
-      "modified_at": "2020-03-06T11:10:26.113Z",
+      "meta": {},
+      "modified_at": "2020-06-22T10:17:20.838Z",
       "source": null
     },
     "model": "caluma_form.document",
     "pk": "961f2def-a94a-435f-b8b4-93390c7b40e5"
-  },
-  {
-    "fields": {
-      "created_at": "2020-03-06T11:13:35.930Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "family": "9e66710f-31ad-4b40-8845-dca1586d9223",
-      "form": "sb1",
-      "meta": {
-        "camac-instance-id": 2
-      },
-      "modified_at": "2020-03-06T11:13:35.930Z",
-      "source": null
-    },
-    "model": "caluma_form.document",
-    "pk": "9e66710f-31ad-4b40-8845-dca1586d9223"
   },
   {
     "fields": {
@@ -1728,11 +1598,8 @@
       "created_by_user": null,
       "family": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
       "form": "vorabklaerung-einfach",
-      "meta": {
-        "camac-instance-id": 2,
-        "submit-date": "2020-03-06T11:14:33+0000"
-      },
-      "modified_at": "2020-03-06T11:14:33.354Z",
+      "meta": {},
+      "modified_at": "2020-06-22T10:17:20.880Z",
       "source": null
     },
     "model": "caluma_form.document",
@@ -1759,30 +1626,12 @@
       "created_by_user": null,
       "family": "cb3d4d28-86a9-42f9-ba0b-f90876b61976",
       "form": "nfd",
-      "meta": {
-        "camac-instance-id": 2
-      },
-      "modified_at": "2020-03-06T11:13:35.952Z",
+      "meta": {},
+      "modified_at": "2020-06-22T10:17:20.891Z",
       "source": null
     },
     "model": "caluma_form.document",
     "pk": "cb3d4d28-86a9-42f9-ba0b-f90876b61976"
-  },
-  {
-    "fields": {
-      "created_at": "2020-03-06T11:13:35.941Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "family": "dd645aba-6efa-4103-b23e-19b0ad1e9625",
-      "form": "sb2",
-      "meta": {
-        "camac-instance-id": 2
-      },
-      "modified_at": "2020-03-06T11:13:35.941Z",
-      "source": null
-    },
-    "model": "caluma_form.document",
-    "pk": "dd645aba-6efa-4103-b23e-19b0ad1e9625"
   },
   {
     "fields": {
@@ -1811,22 +1660,6 @@
     },
     "model": "caluma_form.document",
     "pk": "f619bddb-8345-4e6f-89a8-f2305538ad5c"
-  },
-  {
-    "fields": {
-      "created_at": "2020-03-06T11:10:26.152Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "family": "f9f24236-ada9-4363-8ee2-522e58428836",
-      "form": "sb2",
-      "meta": {
-        "camac-instance-id": 1
-      },
-      "modified_at": "2020-03-06T11:10:26.152Z",
-      "source": null
-    },
-    "model": "caluma_form.document",
-    "pk": "f9f24236-ada9-4363-8ee2-522e58428836"
   },
   {
     "fields": {
