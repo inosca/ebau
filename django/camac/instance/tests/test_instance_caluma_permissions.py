@@ -18,6 +18,10 @@ FULL_PERMISSIONS = {
 }
 
 
+def sort_permissions(permissions):
+    return {key: sorted(value) for key, value in permissions.items()}
+
+
 @pytest.mark.parametrize(
     "instance__user,service_group__name",
     [(LazyFixture("admin_user"), "construction-control")],
@@ -222,7 +226,7 @@ def test_instance_permissions(
 
     permissions = response.json()["data"]["meta"]["permissions"]
 
-    assert permissions == expected_permissions
+    assert sort_permissions(permissions) == sort_permissions(expected_permissions)
 
 
 @pytest.fixture
@@ -349,9 +353,8 @@ def test_instance_nfd_permissions(
     response = admin_client.get(url)
 
     assert response.status_code == status.HTTP_200_OK
-    assert (
-        response.json()["data"]["meta"]["permissions"]["nfd"]
-        == expected_nfd_permissions
+    assert sorted(response.json()["data"]["meta"]["permissions"]["nfd"]) == sorted(
+        expected_nfd_permissions
     )
 
 
@@ -419,7 +422,6 @@ def test_instance_paper_permissions(
     )
 
     assert response.status_code == status.HTTP_200_OK
-    assert (
-        response.json()["data"]["meta"]["permissions"][form_slug]
-        == expected_permissions
+    assert sorted(response.json()["data"]["meta"]["permissions"][form_slug]) == sorted(
+        expected_permissions
     )
