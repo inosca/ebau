@@ -13,14 +13,21 @@ module("Acceptance | applicants", function(hooks) {
   hooks.beforeEach(async function() {
     // camac data
     const user = this.server.create("user");
-    const instance = this.server.create("instance");
+    const instance = this.server.create("instance", {
+      calumaForm: "main-form"
+    });
 
     this.server.create("applicant", { instance });
     this.server.create("applicant", { instance, invitee: user });
 
     // caluma data
-    this.server.create("document", {
-      form: this.server.create("form", { meta: { "is-main-form": true } })
+    this.server.create("case", {
+      document: this.server.create("document", {
+        form: this.server.create("form", {
+          slug: "main-form",
+          meta: { "is-main-form": true }
+        })
+      })
     });
 
     await authenticateSession({ access_token: "123qweasdyxc" });

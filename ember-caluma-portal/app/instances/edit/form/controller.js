@@ -1,7 +1,9 @@
 import Controller, { inject as controller } from "@ember/controller";
-import { computed } from "@ember/object";
 import { reads } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
+import { queryManager } from "ember-apollo-client";
+import getInstanceCaseQuery from "ember-caluma-portal/gql/queries/get-instance-case";
+import { dropTask, lastValue } from "ember-concurrency-decorators";
 import QueryParams from "ember-parachute";
 
 const queryParams = new QueryParams({
@@ -15,21 +17,43 @@ export default class InstancesEditFormController extends Controller.extend(
   queryParams.Mixin
 ) {
   @service calumaStore;
+  @queryManager apollo;
 
   @controller("instances.edit") editController;
   @reads("editController.embedded") embedded;
   @reads("editController.model") instanceId;
   @reads("editController.instance") instance;
-  @reads("editController.instanceTask") instanceTask;
+  @lastValue("getDocument") document;
+
+  setup() {
+    this.getDocument.perform();
+  }
 
   reset() {
     this.resetQueryParams();
   }
 
-  @computed("model", "instance.documents.[]")
-  get document() {
-    return this.getWithDefault("instance.documents", []).find(
-      document => document.form.slug === this.model
+  @dropTask()
+  *getDocument() {
+    yield this.editController.instanceTask.last;
+
+    const raw = yield this.apollo.query(
+      {
+        query: getInstanceCaseQuery,
+        fetchPolicy: "network-only",
+        variables: { instanceId: this.instanceId }
+      },
+      "allCases.edges.firstObject.node"
     );
+
+    if (this.instance.mainForm.slug === this.model) {
+      return raw.document;
+    }
+
+    const workItemEdge = raw.workItems.edges.find(
+      ({ node }) => node.document && node.document.form.slug === this.model
+    );
+
+    return workItemEdge && workItemEdge.node.document;
   }
 }

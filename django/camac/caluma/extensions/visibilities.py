@@ -4,6 +4,7 @@ from caluma.caluma_form import (
     schema as form_schema,
 )
 from caluma.caluma_user.visibilities import Authenticated
+from caluma.caluma_workflow import schema as workflow_schema
 from django.db.models import F, Q
 
 from camac.caluma.api import CamacRequest
@@ -40,17 +41,38 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
 
         return queryset.filter(
             # document is accessible through CAMAC ACLs
-            Q(**{"family__meta__camac-instance-id__in": instance_ids})
+            Q(**{"family__case__family__meta__camac-instance-id__in": instance_ids})
+            | Q(
+                **{
+                    "family__work_item__case__family__meta__camac-instance-id__in": instance_ids
+                }
+            )
             # OR dashboard documents
             | Q(form_id=DASHBOARD_FORM_SLUG)
             # OR unlinked table documents created by the requesting user
             | Q(
                 **{
-                    "meta__camac-instance-id__isnull": True,
+                    "case__meta__camac-instance-id__isnull": True,
                     "family": F("pk"),
                     "created_by_user": info.context.user.username,
                 }
             )
+        )
+
+    @filter_queryset_for(workflow_schema.Case)
+    def filter_queryset_for_case(self, node, queryset, info):
+        return queryset.filter(
+            **{"family__meta__camac-instance-id__in": self._all_visible_instances(info)}
+        )
+
+    @filter_queryset_for(workflow_schema.WorkItem)
+    def filter_queryset_for_work_items(self, node, queryset, info):
+        return queryset.filter(
+            **{
+                "case__family__meta__camac-instance-id__in": self._all_visible_instances(
+                    info
+                )
+            }
         )
 
     def get_base_queryset(self):
