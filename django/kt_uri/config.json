@@ -51600,6 +51600,54 @@
   },
   {
     "fields": {
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nREMINDER - AUTOMATISCHER PENDENZENRÜCKRUF\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Die Frist (3 Wochen) ist am {{ACTIVATION.deadline_date}} abgelaufen und die Rückmeldung ist seit zwei Wochen überfällig. Wir bitten Sie, das Dossier umgehend zu erledigen. Ohne Rückmeldung innert Wochenfrist wird die Pendenz mit dem Eintrag «Keine Rückmeldung» als erledigt eingetragen und das Dossier abgeschlossen. Die Funktion AKTENNACHFORDERUNG ist deaktiviert.\n\n\nBei Fragen stehen wir Ihnen gerne zur Verfügung.\n\nAmt für Raumentwicklung\nKoordinationsstelle für Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 29\nE-Mail: raumplanung@ur.ch\n",
+      "purpose": null,
+      "service": null,
+      "slug": "aktivierung-deadline-überzogen-fachstelle",
+      "subject": "Fristüberschreitung Pendenz auf Dossier {{DOSSIER_NR}}",
+      "type": "email"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 1448
+  },
+  {
+    "fields": {
+	  "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nREMINDER - AUTOMATISCHER PENDENZENRÜCKRUF\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Es wurden Unterlagen nachgefordert. Das Dossier ist seit dem {{ACTIVATION.nfd_completion_date}} vollständig und die neue Frist (2 Wochen) ist abgelaufen. Wir bitten Sie, das Dossier umgehend zu erledigen. Ohne Rückmeldung innert Wochenfrist wird die Pendenz mit dem Eintrag «Keine Rückmeldung» als erledigt eingetragen und das Dossier abgeschlossen. Die Funktion AKTENNACHFORDERUNG ist deaktiviert.\n\n\nBei Fragen stehen wir Ihnen gerne zur Verfügung.\n\nAmt für Raumentwicklung\nKoordinationsstelle für Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 29\nE-Mail: raumplanung@ur.ch\n",
+      "purpose": null,
+      "service": null,
+      "slug": "aktivierung-nfd-vollständig-überzogen-fachstelle",
+      "subject": "Fristüberschreitung Pendenz auf Dossier {{DOSSIER_NR}}",
+      "type": "email"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 1449
+  },
+  {
+    "fields": {
+	  "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nREMINDER - ÜEBERFÄLLIGE PENDENZ \n\nSehr geehrte Dame\nSehr geehrter Herr\n\nSie habe das Dosser mit Nr. {{DOSSIER_NR}} der Fachstelle {{ACTIVATION.service}} als Pendenz zugewiesen. Die Frist (3 Wochen) ist am {{ACTIVATION.deadline_date}} abgelaufen und die Rückmeldung ist seit drei Wochen überfällig. \n\n\nBei Fragen stehen wir Ihnen gerne zur Verfügung.\n\nAmt für Raumentwicklung\nKoordinationsstelle für Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 29\nE-Mail: raumplanung@ur.ch'\n",
+      "purpose": null,
+      "service": null,
+      "slug": "aktivierung-deadline-überzogen-leitbehoerde",
+      "subject": "Fristüberschreitung Pendenz auf Dossier {{DOSSIER_NR}}",
+      "type": "email"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 1450
+  },
+  {
+    "fields": {
+	  "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nREMINDER - AUTOMATISCHER PENDENZENRÜCKRUF\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nSie haben Dossier mit Nr. {{DOSSIER_NR}} der Fachstelle {{ACTIVATION.service}} als Pendenz zugewiesen. Es wurden Unterlagen nachgefordert. Das Dossier ist seit dem {{ACTIVATION.nfd_completion_date}} vollständig und die neue Frist ist seit 3 Wochen abgelaufen.\n\n\nBei Fragen stehen wir Ihnen gerne zur Verfügung.\n\nAmt für Raumentwicklung\nKoordinationsstelle für Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 29\nE-Mail: raumplanung@ur.ch\n",
+      "purpose": null,
+      "service": null,
+      "slug": "aktivierung-nfd-vollständig-überzogen-leitbehoerde",
+      "subject": "Fristüberschreitung Pendenz auf Dossier {{DOSSIER_NR}}",
+      "type": "email"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 1451
+  },
+  {
+    "fields": {
       "address": null,
       "city": null,
       "disabled": 0,

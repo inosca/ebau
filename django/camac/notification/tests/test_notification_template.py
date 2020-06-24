@@ -10,8 +10,9 @@ from caluma.caluma_workflow import api as workflow_api, models as caluma_workflo
 from django.urls import reverse
 from django.utils import timezone
 from pytest_factoryboy import LazyFixture
-from rest_framework import status
+from rest_framework import exceptions, status
 
+from camac.conftest import FakeRequest
 from camac.instance.models import HistoryEntry
 from camac.notification import serializers
 from camac.notification.serializers import (
@@ -734,10 +735,6 @@ def test_recipient_type_unnotified_service_users(
         "camac.constants.kt_uri.CIRCULATION_STATE_IDLE", activation.circulation_state_id
     )
 
-    class FakeRequest:
-        group = user_group.group
-        user = user_group.user
-
     # Setup the serializer fully, as the recipient type depends on
     # some of the request data
     serializer = serializers.NotificationTemplateSendmailSerializer(
@@ -752,7 +749,7 @@ def test_recipient_type_unnotified_service_users(
             },
             "instance": {"type": "instances", "id": instance.pk},
         },
-        context={"request": FakeRequest},
+        context={"request": FakeRequest(group=user_group.group, user=user_group.user)},
     )
     serializer.is_valid()
     assert not serializer.errors
@@ -792,6 +789,109 @@ def test_recipient_type_lisag(db, instance, group):
     serializer = serializers.NotificationTemplateSendmailSerializer()
     res = serializer._get_recipients_lisag(instance)
     assert res == [{"to": group.email}]
+
+
+@pytest.mark.parametrize("role__name", ["support"])
+@pytest.mark.parametrize("with_activation", [True, False])
+@pytest.mark.parametrize("service__email", [None, "user@camac.ch"])
+def test_recipient_type_activation_service(
+    db,
+    instance,
+    activation,
+    group,
+    user,
+    with_activation,
+    notification_template,
+    service,
+):
+    """Ensure that the recipient type returns all mail addresses of users which
+    have their default group set to the same group as the service which was
+    invited to a circulation through an actvation.
+
+    If the activation was not specified in the request, ensure an exception is
+    raised.
+    """
+
+    data = {
+        "recipient_types": ["activation_deadline_today"],
+        "notification_template": {
+            "type": "notification-templates",
+            "id": notification_template.pk,
+        },
+        "instance": {"id": instance.pk, "type": "instances"},
+        **(
+            {"activation": {"id": activation.pk, "type": "activations"}}
+            if with_activation
+            else {}
+        ),
+    }
+    context = {"request": FakeRequest(group=group, user=user)}
+
+    serializer = PermissionlessNotificationTemplateSendmailSerializer(
+        data=data, context=context
+    )
+    serializer.is_valid(raise_exception=True)
+    serializer.save()
+
+    if with_activation:
+        res = serializer._get_recipients_activation_service(instance)
+
+        if service.email is None:
+            assert res == []
+        else:
+            assert res == [{"to": service.email}]
+    else:
+        with pytest.raises(exceptions.ValidationError):
+            serializer._get_recipients_activation_service(instance)
+
+
+@pytest.mark.parametrize("with_activation", [True, False])
+@pytest.mark.parametrize("service__email", [None, "user@camac.ch"])
+def test_recipient_type_circulation_service(
+    db,
+    instance,
+    activation,
+    user_group_factory,
+    group,
+    user,
+    with_activation,
+    notification_template,
+    service,
+):
+    """Ensure that the recipient type returns the mail addresses of the service
+    which created the circulation.
+    """
+
+    data = {
+        "recipient_types": ["activation_deadline_today"],
+        "notification_template": {
+            "type": "notification-templates",
+            "id": notification_template.pk,
+        },
+        "instance": {"id": instance.pk, "type": "instances"},
+        **(
+            {"activation": {"id": activation.pk, "type": "activations"}}
+            if with_activation
+            else {}
+        ),
+    }
+    context = {"request": FakeRequest(group=group, user=user)}
+
+    serializer = PermissionlessNotificationTemplateSendmailSerializer(
+        data=data, context=context
+    )
+    serializer.is_valid(raise_exception=True)
+    serializer.save()
+
+    if with_activation:
+        res = serializer._get_recipients_circulation_service(instance)
+        if service.email is None:
+            assert res == []
+        else:
+            assert res == [{"to": service.email}]
+    else:
+        with pytest.raises(exceptions.ValidationError):
+            serializer._get_recipients_circulation_service(instance)
 
 
 @pytest.mark.parametrize(
@@ -886,8 +986,53 @@ def test_first_available_answer(
     sendmail_serializer.save()
 
     assert len(mailoutbox) == 1
-    # TODO assert mail message's body
+
     assert (
         mailoutbox[0].body
         == f"{settings.EMAIL_PREFIX_BODY}parz={ans_parzelle.answer}, gs=, vorhaben=foo; bar"
     )
+
+
+@pytest.mark.parametrize("service__email", ["test@example.com"])
+@pytest.mark.parametrize("role__name", ["support"])
+@pytest.mark.parametrize(
+    "notification_template__body",
+    ["nfd_completion_date={{ACTIVATION.nfd_completion_date}}"],
+)
+def test_notification_template_sendmail_activation(
+    db,
+    admin_client,
+    instance,
+    instance_service,
+    activation,
+    nfd_completion_date,
+    notification_template,
+    settings,
+    mailoutbox,
+):
+    """Ensure that if the template has access to the activation when specified in the request."""
+
+    nfd_completion_date.activation = activation
+    nfd_completion_date.activation.save()
+
+    # No need to test this here.
+    settings.EMAIL_PREFIX_BODY = ""
+
+    sendmail_serializer = PermissionlessNotificationTemplateSendmailSerializer(
+        data={
+            "recipient_types": ["leitbehoerde"],
+            "notification_template": {
+                "type": "notification-templates",
+                "id": notification_template.pk,
+            },
+            "instance": {"id": instance.pk, "type": "instances"},
+            "activation": {"id": activation.pk, "type": "activations"},
+        }
+    )
+    sendmail_serializer.is_valid(raise_exception=True)
+    sendmail_serializer.save()
+
+    assert len(mailoutbox) == 1
+
+    formatted_date = nfd_completion_date.answer.strftime(settings.MERGE_DATE_FORMAT)
+    assert mailoutbox[0].body == f"nfd_completion_date={formatted_date}"
