@@ -1,6 +1,9 @@
 import json
 
 import pytest
+from caluma.caluma_form import models as caluma_form_models
+from caluma.caluma_user.models import BaseUser
+from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.urls import reverse
 from rest_framework import status
 
@@ -25,7 +28,7 @@ from camac.core.models import (
 )
 from camac.echbern.schema.ech_0211_2_0 import CreateFromDocument
 
-from .. import send_handlers, views
+from .. import views
 from ..event_handlers import EventHandlerException, StatusNotificationEventHandler
 from ..models import Message
 from ..send_handlers import NoticeKindOfProceedingsSendHandler, NoticeRulingSendHandler
@@ -83,9 +86,9 @@ def test_application_retrieve_full(
         xml.eventBaseDelivery.planningPermissionApplicationInformation[0]
         .planningPermissionApplication.decisionRuling[0]
         .judgement
-        == DECISION_JUDGEMENT_MAP["vorabklaerung" if is_vorabklaerung else "baugesuch"][
-            decision
-        ]
+        == DECISION_JUDGEMENT_MAP[
+            "preliminary-clarification" if is_vorabklaerung else "building-permit"
+        ][decision]
     )
 
 
@@ -197,6 +200,7 @@ def test_send(
     attachment_factory,
     service_group_factory,
     service_factory,
+    caluma_workflow,
 ):
     if has_permission:
         service_group_baukontrolle = service_group_factory(
@@ -230,8 +234,15 @@ def test_send(
     ech_instance.instance_state = state
     ech_instance.save()
 
-    mocker.patch.object(
-        send_handlers.CalumaApi, "get_form_slug", return_value="baugesuch"
+    case = workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(slug="building-permit"),
+        form=caluma_form_models.Form.objects.get(slug="main-form"),
+        meta={"camac-instance-id": ech_instance.pk},
+        user=BaseUser(),
+    )
+
+    workflow_api.complete_work_item(
+        work_item=case.work_items.get(task_id="submit"), user=BaseUser()
     )
 
     url = reverse("send")
@@ -267,6 +278,7 @@ def test_send_400_invalid_judgement(
     role_factory,
     attachment_section_factory,
     attachment_factory,
+    caluma_workflow,
 ):
     attachment_section_beteiligte_behoerden = attachment_section_factory(
         pk=ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN
@@ -288,12 +300,20 @@ def test_send_400_invalid_judgement(
     ech_instance.instance_state = state
     ech_instance.save()
 
-    form_name_mock = mocker.patch.object(
-        send_handlers.CalumaApi, "get_form_slug", return_value="baugesuch"
+    case = workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(
+            slug=(
+                "preliminary-clarification" if is_vorabklaerung else "building-permit"
+            )
+        ),
+        form=caluma_form_models.Form.objects.get(slug="main-form"),
+        meta={"camac-instance-id": ech_instance.pk},
+        user=BaseUser(),
     )
 
-    if is_vorabklaerung:
-        form_name_mock.return_value = "vorabklaerung"
+    workflow_api.complete_work_item(
+        work_item=case.work_items.get(task_id="submit"), user=BaseUser()
+    )
 
     url = reverse("send")
     response = admin_client.post(

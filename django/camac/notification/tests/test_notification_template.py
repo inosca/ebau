@@ -4,6 +4,8 @@ from time import mktime
 
 import pytest
 from caluma.caluma_form import models as caluma_form_models
+from caluma.caluma_user.models import BaseUser
+from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.urls import reverse
 from django.utils import timezone
 from pytest_factoryboy import LazyFixture
@@ -180,6 +182,7 @@ def test_notification_template_sendmail(
     activation,
     new_responsible_model,
     settings,
+    caluma_workflow,
 ):
     url = reverse("notificationtemplate-sendmail")
     if new_responsible_model:
@@ -192,6 +195,17 @@ def test_notification_template_sendmail(
             instance=instance_service.instance, service=instance_service.service
         )
         responsible_email = responsible.responsible_user.email
+
+    case = workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(slug="building-permit"),
+        form=caluma_form_models.Form.objects.get(slug="main-form"),
+        meta={"camac-instance-id": instance_service.instance.pk},
+        user=BaseUser(),
+    )
+
+    case.document.answers.create(
+        question_id="gemeinde", value=str(instance_service.service.pk)
+    )
 
     data = {
         "data": {
@@ -207,6 +221,7 @@ def test_notification_template_sendmail(
                     "service",
                     "unnotified_service",
                     "activation_service_parent",
+                    "caluma_municipality",
                 ],
             },
             "relationships": {
@@ -221,7 +236,7 @@ def test_notification_template_sendmail(
     response = admin_client.post(url, data=data)
     assert response.status_code == status_code
     if status_code == status.HTTP_204_NO_CONTENT:
-        assert len(mailoutbox) == 5
+        assert len(mailoutbox) == 6
 
         # recipient types are sorted alphabetically
         assert [(m.to, m.cc) for m in mailoutbox] == [
@@ -230,6 +245,10 @@ def test_notification_template_sendmail(
                 ["service@example.com", "service2@example.com"],
             ),  # activation parent service
             (["user@example.com"], []),  # applicant
+            (
+                [responsible_email],
+                ["service@example.com", "service2@example.com"],
+            ),  # caluma municipality
             (
                 [responsible_email],
                 ["service@example.com", "service2@example.com"],
@@ -380,6 +399,7 @@ def test_notification_caluma_placeholders(
     done_activations,
     circulation_state_factory,
     mocker,
+    caluma_workflow,
 ):
     url = reverse("notificationtemplate-sendmail")
 
@@ -412,11 +432,11 @@ def test_notification_caluma_placeholders(
         service_parent=activations[0].service,
     )
 
-    form = caluma_form_models.Form.objects.create(
-        slug="baugesuch", name="Baugesuch", meta={"is-main-form": True}
-    )
-    caluma_form_models.Document.objects.create(
-        form=form, meta={"camac-instance-id": instance.pk, "ebau-number": "2019-01"}
+    workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(slug="building-permit"),
+        form=caluma_form_models.Form.objects.get(slug="main-form"),
+        meta={"camac-instance-id": instance.pk, "ebau-number": "2019-01"},
+        user=BaseUser(),
     )
 
     data = {
