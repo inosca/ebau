@@ -1,5 +1,7 @@
 import pytest
-from caluma.caluma_form.models import Document, Form
+from caluma.caluma_form.models import Form
+from caluma.caluma_user.models import BaseUser
+from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 
 from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
@@ -121,6 +123,7 @@ def test_notice_ruling_send_handler(
     service_group_factory,
     instance_service_factory,
     multilang,
+    caluma_workflow,
 ):
     service_group_gemeinde = ech_instance.active_service().service_group
     service_group_baukontrolle = service_group_factory(pk=SERVICE_GROUP_BAUKONTROLLE)
@@ -169,12 +172,16 @@ def test_notice_ruling_send_handler(
     )
     attachment.attachment_sections.add(attachment_section_beteiligte_behoerden)
 
-    form_slug = "baugesuch"
+    workflow_slug = "building-permit"
     if is_vorabklaerung:
-        form_slug = "vorabklaerung"
+        workflow_slug = "preliminary-clarification"
 
-    form = Form.objects.create(slug=form_slug, meta={"is-main-form": True})
-    Document.objects.create(form=form, meta={"camac-instance-id": ech_instance.pk})
+    workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(slug=workflow_slug),
+        form=Form.objects.get(slug="main-form"),
+        meta={"camac-instance-id": ech_instance.pk},
+        user=BaseUser(),
+    )
 
     data = CreateFromDocument(xml_data("notice_ruling"))
 
@@ -194,6 +201,7 @@ def test_notice_ruling_send_handler(
         user=admin_user,
         group=admin_user.groups.first(),
         auth_header=None,
+        caluma_user=BaseUser(),
     )
     assert handler.has_permission()[0] == has_permission
 
@@ -276,6 +284,7 @@ def test_change_responsibility_send_handler(
         user=admin_user,
         group=group,
         auth_header=None,
+        caluma_user=BaseUser(),
     )
     assert handler.has_permission()[0] is has_permission
 
@@ -342,6 +351,7 @@ def test_close_dossier_send_handler(
         user=admin_user,
         group=group,
         auth_header=None,
+        caluma_user=BaseUser(),
     )
 
     assert handler.has_permission()[0] is success
@@ -413,6 +423,7 @@ def test_task_send_handler(
         user=admin_user,
         group=group,
         auth_header="Bearer: some token",
+        caluma_user=BaseUser(),
     )
     assert handler.has_permission()[0] is True
 
@@ -446,7 +457,12 @@ def test_task_send_handler_no_permission(admin_user, ech_instance):
     data = CreateFromDocument(xml_data("task"))
 
     handler = TaskSendHandler(
-        data=data, queryset=Instance.objects, user=None, group=group, auth_header=None
+        data=data,
+        queryset=Instance.objects,
+        user=None,
+        group=group,
+        auth_header=None,
+        caluma_user=BaseUser(),
     )
     assert handler.has_permission()[0] is False
 
@@ -493,6 +509,7 @@ def test_notice_kind_of_proceedings_send_handler(
         user=admin_user,
         group=group,
         auth_header=None,
+        caluma_user=BaseUser(),
     )
     assert handler.has_permission()[0] is has_permission
 
@@ -565,6 +582,7 @@ def test_accompanying_report_send_handler(
         user=user_group.user,
         group=user_group.group,
         auth_header=None,
+        caluma_user=BaseUser(),
     )
     if not has_activation:
         assert handler.has_permission()[0] is False

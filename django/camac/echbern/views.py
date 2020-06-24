@@ -192,6 +192,7 @@ class SendView(GenericViewSet):
                 request.user,
                 request.group,
                 get_authorization_header(request),
+                request.caluma_info.context.user,
             )
         except SendHandlerException as e:
             return HttpResponse(str(e), status=404)

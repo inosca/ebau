@@ -9,7 +9,7 @@ from ..data_preparation import AnswersDict
 baugesuch_data = AnswersDict(
     **{
         "anzahl-abstellplaetze-fur-motorfahrzeuge": 23,
-        "caluma-form-slug": "baugesuch-generell",
+        "caluma-workflow-slug": "building-permit",
         "baukosten-in-chf": 232323,
         "bemerkungen": "Foo bar",
         "beschreibung-bauvorhaben": "Beschreibung&#10;Mehr Beschreibung",
@@ -107,7 +107,7 @@ baugesuch_data = AnswersDict(
 
 vorabklaerung_data = {
     "anfrage-zur-vorabklaerung": "lorem ipsum mit tab",
-    "caluma-form-slug": "vorabklaerung-einfach",
+    "caluma-workflow-slug": "preliminary-clarification",
     "e-grid-nr": "23",
     "ech-subject": "Einfache Vorabklärung",
     "gemeinde": "2",
