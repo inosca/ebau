@@ -1,5 +1,6 @@
 import inspect
 import logging
+from dataclasses import dataclass
 
 import pytest
 from caluma.caluma_core.faker import MultilangProvider
@@ -7,6 +8,7 @@ from caluma.caluma_form import factories as caluma_form_factories
 from django.conf import settings
 from django.core.cache import cache
 from django.core.management import call_command
+from django.utils import timezone
 from factory import Faker
 from factory.base import FactoryMetaClass
 from pytest_factoryboy import register
@@ -26,6 +28,7 @@ from camac.objection import factories as objection_factories
 from camac.responsible import factories as responsible_factories
 from camac.user import factories as user_factories
 from camac.user.authentication import CalumaInfo
+from camac.user.models import Group, User
 from camac.utils import build_url
 
 
@@ -65,6 +68,12 @@ register_module(caluma_form_factories, prefix="caluma")
 # bug that I couldn't track down yet.
 Faker.add_provider(MultilangProvider)
 Faker.add_provider(FreezegunAwareDatetimeProvider)
+
+
+@dataclass
+class FakeRequest:
+    group: Group
+    user: User
 
 
 @pytest.fixture
@@ -238,4 +247,22 @@ def unoconv_invalid_mock(requests_mock):
         "POST",
         build_url(settings.UNOCONV_URL, "/unoconv/invalid"),
         status_code=status.HTTP_400_BAD_REQUEST,
+    )
+
+
+@pytest.fixture
+def nfd_completion_date(
+    activation, camac_question_factory, camac_chapter_factory, activation_answer_factory
+):
+    """Return a sample nfd completion date.
+
+    In Uri the nfd completion date gets set after a service has completed the
+    "Nachforderung" process on an instance with an activation.
+    """
+    return activation_answer_factory(
+        chapter=camac_chapter_factory(pk=41),
+        question=camac_question_factory(pk=243),
+        item=1,
+        activation=activation,
+        answer=timezone.now(),
     )
