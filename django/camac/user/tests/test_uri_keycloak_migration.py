@@ -4,8 +4,8 @@ Test for the uri keycloak migration.
 The tests in this module cover the migration logic required to migrate
 Kanton Uri's identity management from camac to keycloak.
 """
-
 import pytest
+from django.conf import settings
 
 from camac.user.authentication import JSONWebTokenKeycloakAuthentication
 
@@ -20,6 +20,7 @@ from camac.user.authentication import JSONWebTokenKeycloakAuthentication
                 "email": "existing-guy@example.com",
                 "family_name": "Existing",
                 "given_name": "Guy",
+                settings.OIDC_USERNAME_CLAIM: "existing-guy",
             },
             "existing-guy",
             "other-email@example.com",
@@ -31,6 +32,7 @@ from camac.user.authentication import JSONWebTokenKeycloakAuthentication
                 "email": "existing-guy@example.com",
                 "family_name": "Existing",
                 "given_name": "Guy",
+                settings.OIDC_USERNAME_CLAIM: "other-username",
             },
             "existing-guy",
             "existing-guy@example.com",

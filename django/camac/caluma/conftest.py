@@ -20,7 +20,10 @@ def token(admin_user):
 
 @pytest.fixture
 def caluma_admin_user(settings, token, admin_user):
-    return OIDCUser(token, {"sub": admin_user.username})
+    return OIDCUser(
+        token,
+        {settings.OIDC_USERNAME_CLAIM: admin_user.username, "sub": admin_user.username},
+    )
 
 
 @pytest.fixture
