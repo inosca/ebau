@@ -2,10 +2,8 @@ import json
 from logging import getLogger
 from uuid import uuid4
 
-from caluma.caluma_form import (
-    models as caluma_form_models,
-    validators as caluma_form_validators,
-)
+from caluma.caluma_form.models import Form
+from caluma.caluma_workflow import api as workflow_api, models as workflow_models
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core.files.base import ContentFile
@@ -276,7 +274,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
         permissions = set(["read"])
 
         if instance.instance_state.name == "new":
-            permissions.update(["write", "write-meta"])
+            permissions.add("write")
 
         return permissions
 
@@ -294,7 +292,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
         permissions = set()
 
         if state != "new":
-            permissions.update(["read", "write-meta"])
+            permissions.add("read")
 
         if state == "correction":
             permissions.add("write")
@@ -305,12 +303,12 @@ class CalumaInstanceSerializer(InstanceSerializer):
             and role in get_paper_settings()["ALLOWED_ROLES"]
             and state == "new"
         ):
-            permissions.update(["read", "write", "write-meta"])
+            permissions.update(["read", "write"])
 
         return permissions
 
     def _get_main_form_permissions_for_support(self, instance):
-        return set(["read", "write", "write-meta"])
+        return set(["read", "write"])
 
     @permission_aware
     def _get_sb1_form_permissions(self, instance):
@@ -321,7 +319,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
             permissions.add("read")
 
         if state == "sb1":
-            permissions.update(["write", "write-meta"])
+            permissions.add("write")
 
         return permissions
 
@@ -351,12 +349,12 @@ class CalumaInstanceSerializer(InstanceSerializer):
             and service_group.pk in get_paper_settings("sb1")["ALLOWED_SERVICE_GROUPS"]
             and role.pk in get_paper_settings("sb1")["ALLOWED_ROLES"]
         ):
-            permissions.update(["read", "write", "write-meta"])
+            permissions.update(["read", "write"])
 
         return permissions
 
     def _get_sb1_form_permissions_for_support(self, instance):
-        return ["read", "write", "write-meta"]
+        return ["read", "write"]
 
     @permission_aware
     def _get_sb2_form_permissions(self, instance):
@@ -367,7 +365,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
             permissions.add("read")
 
         if state == "sb2":
-            permissions.update(["write", "write-meta"])
+            permissions.add("write")
 
         return permissions
 
@@ -394,12 +392,12 @@ class CalumaInstanceSerializer(InstanceSerializer):
             and service_group.pk in get_paper_settings("sb2")["ALLOWED_SERVICE_GROUPS"]
             and role in get_paper_settings("sb2")["ALLOWED_ROLES"]
         ):
-            permissions.update(["read", "write", "write-meta"])
+            permissions.update(["read", "write"])
 
         return permissions
 
     def _get_sb2_form_permissions_for_support(self, instance):
-        return ["read", "write", "write-meta"]
+        return ["read", "write"]
 
     @permission_aware
     def _get_nfd_form_permissions(self, instance):
@@ -409,7 +407,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
         return set()
 
     def _get_nfd_form_permissions_for_municipality(self, instance):
-        permissions = set(["write", "write-meta"])
+        permissions = set(["write"])
 
         if CalumaApi().is_paper(instance):
             permissions.update(CalumaApi().get_nfd_form_permissions(instance))
@@ -417,26 +415,36 @@ class CalumaInstanceSerializer(InstanceSerializer):
         return permissions
 
     def _get_nfd_form_permissions_for_support(self, instance):
-        return set(["read", "write", "write-meta"])
+        return set(["read", "write"])
+
+    @permission_aware
+    def _get_case_meta_permissions(self, instance):
+        return set(["read"])
+
+    def _get_case_meta_permissions_for_service(self, instance):
+        return set(["read"])
+
+    def _get_case_meta_permissions_for_municipality(self, instance):
+        permissions = set(["read"])
+
+        if instance.instance_state.name != "new":
+            permissions.add("write")
+
+        return permissions
+
+    def _get_case_meta_permissions_for_support(self, instance):
+        return set(["read", "write"])
 
     def get_permissions(self, instance):
         return {
-            form: sorted(getattr(self, f"_get_{form}_form_permissions")(instance))
-            for form in settings.APPLICATION.get("CALUMA", {}).get(
-                "FORM_PERMISSIONS", set()
-            )
+            "case-meta": self._get_case_meta_permissions(instance),
+            **{
+                form: sorted(getattr(self, f"_get_{form}_form_permissions")(instance))
+                for form in settings.APPLICATION.get("CALUMA", {}).get(
+                    "FORM_PERMISSIONS", set()
+                )
+            },
         }
-
-    def validate(self, data):
-        form_slug = self.initial_data.get("caluma_form")
-
-        if form_slug and not CalumaApi().is_main_form(form_slug):  # pragma: no cover
-            raise exceptions.ValidationError(
-                _("Passed caluma form is not a main form: %(form)s")
-                % {"form": form_slug}
-            )
-
-        return data
 
     def _copy_applicants(self, source, target):
         for applicant in source.involved_applicants.all():
@@ -496,46 +504,48 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
         instance = super().create(validated_data)
 
-        caluma_documents = {}
+        workflow_slug = (
+            "preliminary-clarification"
+            if "vorabklaerung" in caluma_form
+            else "building-permit"
+        )
 
-        for form_slug in [caluma_form, "sb1", "sb2", "nfd"]:
-            # copy the caluma document of provided instance
-            if source_instance and form_slug == caluma_form:
-                source_document_pk = caluma_api.get_document_by_form_slug(
-                    source_instance, form_slug
-                )
+        case = workflow_api.start_case(
+            workflow=workflow_models.Workflow.objects.get(pk=workflow_slug),
+            form=Form.objects.get(pk=caluma_form),
+            user=self.context["request"].caluma_info.context.user,
+            meta={"camac-instance-id": instance.pk},
+        )
 
-                document = caluma_api.copy_document(
-                    source_document_pk,
-                    exclude_form_slugs=(
-                        ["6-dokumente", "7-bestaetigung", "8-freigabequittung"]
-                        if is_modification
-                        else ["8-freigabequittung"]
-                    ),
-                    meta={"camac-instance-id": instance.pk},
-                )
-            # or create a new document if no source instance is provided
-            else:
-                document = caluma_api.create_document(
-                    form_slug, meta={"camac-instance-id": instance.pk}
-                )
+        if source_instance:
+            source_document_pk = workflow_models.Case.objects.get(
+                **{"meta__camac-instance-id": source_instance.pk}
+            ).document.pk
 
-            caluma_api.update_or_create_answer(
-                document.pk,
-                "papierdossier",
-                "papierdossier-ja" if is_paper else "papierdossier-nein",
-            )
-
-            if form_slug == caluma_form:
-                caluma_api.update_or_create_answer(
-                    document.pk,
-                    "projektaenderung",
-                    "projektaenderung-ja"
+            old_document = case.document
+            new_document = caluma_api.copy_document(
+                source_document_pk,
+                exclude_form_slugs=(
+                    ["6-dokumente", "7-bestaetigung", "8-freigabequittung"]
                     if is_modification
-                    else "projektaenderung-nein",
-                )
+                    else ["8-freigabequittung"]
+                ),
+            )
+            case.document = new_document
+            case.save()
+            old_document.delete()
 
-            caluma_documents[form_slug] = document
+        caluma_api.update_or_create_answer(
+            case.document.pk,
+            "papierdossier",
+            "papierdossier-ja" if is_paper else "papierdossier-nein",
+        )
+
+        caluma_api.update_or_create_answer(
+            case.document.pk,
+            "projektaenderung",
+            "projektaenderung-ja" if is_modification else "projektaenderung-nein",
+        )
 
         if is_paper:
             # remove the previously created applicants
@@ -544,10 +554,9 @@ class CalumaInstanceSerializer(InstanceSerializer):
             # prefill municipality question if possible
             value = str(group.service.pk)
             source = Municipalities()
-            main_document = caluma_documents[caluma_form]
 
-            if source.validate_answer_value(value, main_document, "gemeinde", None):
-                caluma_api.update_or_create_answer(main_document.pk, "gemeinde", value)
+            if source.validate_answer_value(value, case.document, "gemeinde", None):
+                caluma_api.update_or_create_answer(case.document.pk, "gemeinde", value)
 
             # create instance service for permissions
             InstanceService.objects.create(
@@ -586,51 +595,6 @@ class CalumaInstanceSerializer(InstanceSerializer):
         meta_fields = InstanceSerializer.Meta.meta_fields + ("permissions",)
 
 
-def copy_table_answer(
-    instance,
-    source_question,
-    target_form,
-    target_answer,
-    source_form=None,
-    source_question_fallback=None,
-):
-    if source_form is None:
-        source_document_id = CalumaApi().get_main_document(instance)
-    else:
-        source_document_id = CalumaApi().get_document_by_form_slug(
-            instance, source_form
-        )
-
-    target_document_id = CalumaApi().get_document_by_form_slug(instance, target_form)
-    table_answers = caluma_form_models.Answer.objects.filter(
-        document_id=source_document_id, question_id=source_question
-    )
-
-    if not target_document_id:
-        return
-
-    if not table_answers:
-        table_answers = caluma_form_models.Answer.objects.filter(
-            document_id=source_document_id, question_id=source_question_fallback
-        )
-
-    if not table_answers:
-        return
-
-    sb_table_answer = caluma_form_models.Answer.objects.create(
-        document_id=target_document_id, question_id=target_answer
-    )
-
-    for row in table_answers[0].documents.all():
-        sb_row = CalumaApi().copy_document(
-            row.id,
-            family=caluma_form_models.Document.objects.get(
-                id=target_document_id
-            ).family,
-        )
-        sb_table_answer.documents.add(sb_row)
-
-
 class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
     def _create_journal_entry(self, texts):
         journal = Journal.objects.create(
@@ -652,9 +616,8 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         )
 
     def _set_submit_date(self, validated_data):
-        document_pk = validated_data["caluma_document"]
         submit_date = timezone.now().strftime(SUBMIT_DATE_FORMAT)
-        changed = CalumaApi().set_submit_date(document_pk, submit_date)
+        changed = CalumaApi().set_submit_date(self.instance.pk, submit_date)
 
         if changed:
             # Set submit date in Camac first...
@@ -667,36 +630,6 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 # CAMAC date is formatted in "dd.mm.yyyy"
                 defaults={"answer": submit_date},
             )
-
-    def _validate_document_validity(self, document_id):
-        caluma_doc = caluma_form_models.Document.objects.get(pk=document_id)
-        validator = caluma_form_validators.DocumentValidator()
-
-        validator.validate(
-            caluma_doc, user=self.context["request"].caluma_info.context.user
-        )
-
-    def validate(self, data):
-        data["caluma_document"] = CalumaApi().get_main_document(self.instance)
-
-        if not data["caluma_document"]:  # pragma: no cover
-            raise exceptions.ValidationError(
-                _("Could not find caluma main document for instance %(instance)s")
-                % {"instance": self.instance.pk}
-            )
-
-        data["caluma_municipality"] = CalumaApi().get_municipality(self.instance)
-        if not data["caluma_municipality"]:  # pragma: no cover
-            raise exceptions.ValidationError(
-                _(
-                    "Could not find municipality in caluma document for instance %(instance)s"
-                )
-                % {"instance": self.instance.pk}
-            )
-
-        self._validate_document_validity(data["caluma_document"])
-
-        return data
 
     def _get_pdf_section(self, instance, form_slug):
         form_name = form_slug.upper() if form_slug else "MAIN"
@@ -755,12 +688,14 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
     def _update_rejected_instance(self, instance):
         caluma_api = CalumaApi()
 
-        source_meta = caluma_api.get_source_document_value(
-            caluma_api.get_main_document(instance), "meta"
+        source_case = caluma_api.get_source_document_value(
+            caluma_api.get_main_document(instance), "case"
         )
         source_instance = (
-            models.Instance.objects.get(pk=source_meta.get("camac-instance-id", None))
-            if source_meta
+            models.Instance.objects.get(
+                pk=source_case.meta.get("camac-instance-id", None)
+            )
+            if source_case
             else None
         )
 
@@ -775,9 +710,17 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             )
             source_instance.save()
 
+            workflow_api.cancel_case(
+                case=source_case, user=self.context["request"].caluma_info.context.user
+            )
+
     @transaction.atomic
     def update(self, instance, validated_data):
         request_logger.info(f"Submitting instance {instance.pk}")
+
+        case = workflow_models.Case.objects.get(
+            **{"meta__camac-instance-id": self.instance.pk}
+        )
 
         instance.previous_instance_state = instance.instance_state
         instance.instance_state = models.InstanceState.objects.get(name="subm")
@@ -785,9 +728,11 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         instance.save()
 
         if not instance.active_service():
+            municipality = case.document.answers.get(question_id="gemeinde").value
+
             InstanceService.objects.create(
                 instance=self.instance,
-                service_id=int(validated_data.get("caluma_municipality")),
+                service_id=int(municipality),
                 active=1,
                 activation_date=None,
             )
@@ -798,12 +743,9 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         self._create_answer_proposals(instance)
         self._update_rejected_instance(instance)
 
-        copy_table_answer(
-            instance,
-            source_question="personalien-sb",
-            target_form="sb1",
-            target_answer="personalien-sb1-sb2",
-            source_question_fallback="personalien-gesuchstellerin",
+        workflow_api.complete_work_item(
+            work_item=case.work_items.get(task_id="submit"),
+            user=self.context["request"].caluma_info.context.user,
         )
 
         instance_submitted.send(
@@ -823,21 +765,6 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
     """Handle submission of "SB1" form."""
 
-    def validate(self, data):
-        data["caluma_document"] = CalumaApi().get_document_by_form_slug(
-            self.instance, "sb1"
-        )
-
-        if not data["caluma_document"]:  # pragma: no cover
-            raise exceptions.ValidationError(
-                _("Could not find caluma `sb1` document for instance %(instance)s")
-                % {"instance": self.instance.pk}
-            )
-
-        self._validate_document_validity(data["caluma_document"])
-
-        return data
-
     @transaction.atomic
     def update(self, instance, validated_data):
         instance.previous_instance_state = instance.instance_state
@@ -845,18 +772,17 @@ class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
 
         instance.save()
 
+        workflow_api.complete_work_item(
+            work_item=workflow_models.WorkItem.objects.get(
+                **{"task_id": "sb1", "case__meta__camac-instance-id": self.instance.pk}
+            ),
+            user=self.context["request"].caluma_info.context.user,
+        )
+
         # generate and submit pdf
         self._generate_and_store_pdf(instance, "sb1")
 
         self._create_journal_entry(get_translations(gettext_noop("SB1 submitted")))
-
-        copy_table_answer(
-            instance,
-            source_question="personalien-sb1-sb2",
-            target_form="sb2",
-            target_answer="personalien-sb1-sb2",
-            source_form="sb1",
-        )
 
         sb1_submitted.send(
             sender=self.__class__,
@@ -875,27 +801,19 @@ class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
 class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
     """Handle submission of "SB2" form."""
 
-    def validate(self, data):
-        data["caluma_document"] = CalumaApi().get_document_by_form_slug(
-            self.instance, "sb2"
-        )
-
-        if not data["caluma_document"]:  # pragma: no cover
-            raise exceptions.ValidationError(
-                _("Could not find caluma `sb2` document for instance %(instance)s")
-                % {"instance": self.instance.pk}
-            )
-
-        self._validate_document_validity(data["caluma_document"])
-
-        return data
-
     @transaction.atomic
     def update(self, instance, validated_data):
         instance.previous_instance_state = instance.instance_state
         instance.instance_state = models.InstanceState.objects.get(name="conclusion")
 
         instance.save()
+
+        workflow_api.complete_work_item(
+            work_item=workflow_models.WorkItem.objects.get(
+                **{"task_id": "sb2", "case__meta__camac-instance-id": self.instance.pk}
+            ),
+            user=self.context["request"].caluma_info.context.user,
+        )
 
         # generate and submit pdf
         self._generate_and_store_pdf(instance, "sb2")

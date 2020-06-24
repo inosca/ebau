@@ -181,7 +181,7 @@ class InstanceView(
         response = super().destroy(request, pk=pk)
 
         if settings.APPLICATION["FORM_BACKEND"] == "caluma":
-            CalumaApi().delete_instance_documents(instance_id)
+            CalumaApi().delete_instance_case(instance_id)
 
         return response
 

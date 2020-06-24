@@ -1,5 +1,7 @@
 import pytest
 from caluma.caluma_form import models as caluma_form_models
+from caluma.caluma_user.models import BaseUser
+from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.conf import settings
 
 from camac.constants.kt_bern import (
@@ -8,6 +10,11 @@ from camac.constants.kt_bern import (
 )
 from camac.echbern.data_preparation import slugs_baugesuch, slugs_vorabklaerung_einfach
 from camac.instance.models import Instance
+
+from ..instance.conftest import (  # noqa: F401; pylint: disable=unused-variable
+    caluma_forms,
+    caluma_workflow,
+)
 
 
 @pytest.fixture
@@ -59,11 +66,17 @@ def fill_document_ech(document, data):
 
 @pytest.fixture
 def vorabklaerung_einfach_filled(caluma_config_bern, document_factory, answer_factory):
-    form = caluma_form_models.Form.objects.get(slug="vorabklaerung-einfach")
-    document = document_factory(form=form)
+    case = workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(
+            slug="preliminary-clarification"
+        ),
+        form=caluma_form_models.Form.objects.get(slug="vorabklaerung-einfach"),
+        meta={"camac-instance-id": 2},
+        user=BaseUser(),
+    )
+
+    document = case.document
     fill_document_ech(document, slugs_vorabklaerung_einfach["top"])
-    document.meta = {"camac-instance-id": 2}
-    document.save()
     return document
 
 
@@ -71,8 +84,14 @@ def vorabklaerung_einfach_filled(caluma_config_bern, document_factory, answer_fa
 def baugesuch_filled(
     caluma_config_bern, document_factory, answer_factory, answer_document_factory
 ):
-    form = caluma_form_models.Form.objects.get(slug="baugesuch-generell")
-    document = document_factory(form=form)
+    case = workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
+        form=caluma_form_models.Form.objects.get(slug="baugesuch-generell"),
+        meta={"camac-instance-id": 1},
+        user=BaseUser(),
+    )
+
+    document = case.document
 
     for key, data in slugs_baugesuch.items():
         if key == "top":
@@ -84,8 +103,6 @@ def baugesuch_filled(
             row_answer_doc = answer_document_factory(answer=t_answer)
             fill_document_ech(row_answer_doc.document, row)
 
-    document.meta = {"camac-instance-id": 1}
-    document.save()
     return document
 
 
