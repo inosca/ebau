@@ -4,6 +4,10 @@
   font-weight: $base-body-font-weight;
 }
 
+.instance-overview__action-title {
+  font-size: $global-medium-font-size;
+}
+
 .instance-overview__info-table {
   margin-top: -1 * $global-small-gutter;
 }

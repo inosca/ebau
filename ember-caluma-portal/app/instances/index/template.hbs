@@ -17,7 +17,7 @@
           @selected={{this.selectedTypes}}
           @options={{this.rootForms}}
           @searchField="name"
-          @onchange={{fn (mut this.selectedTypes)}}
+          @onChange={{fn (mut this.selectedTypes)}}
         as |form|>
           {{form.name}}
         </PowerSelectMultiple>
