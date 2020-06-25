@@ -481,7 +481,9 @@ def office(service):
         entryOfficeIdentification=authority(service),
         municipality=ech_0007_6_0.swissMunicipalityType(
             # municipalityId minOccurs 0
-            municipalityName=service.get_trans_attr("city") or "unknown",
+            municipalityName=assure_string_length(
+                service.get_trans_attr("city") or "unknown", max_length=40
+            ),
             cantonAbbreviation="BE",
         ),
     )
