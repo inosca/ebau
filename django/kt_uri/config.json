@@ -925,7 +925,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 432,
       "description": null,
       "error_message": "E-Mail zum Start der Zirkulation konnte nicht versendet werden",
@@ -1247,7 +1247,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 216,
       "description": "Versendet eine E-Mail an alle zum Start der Zirkulation involvierten Stellen.",
       "error_message": "E-Mail zum Start der Zirkulation konnte nicht versendet werden",
@@ -1443,7 +1443,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 568,
       "description": null,
       "error_message": null,
@@ -1471,7 +1471,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 570,
       "description": null,
       "error_message": null,
@@ -1723,7 +1723,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 689,
       "description": null,
       "error_message": "E-Mail zum Start der Zirkulation konnte nicht versendet werden",
@@ -1793,7 +1793,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 690,
       "description": null,
       "error_message": null,
@@ -2731,7 +2731,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 771,
       "description": "Versendet eine E-Mail an alle zum Start der Zirkulation involvierten Stellen.",
       "error_message": "E-Mail zum Start der Zirkulation konnte nicht versendet werden",
@@ -2927,7 +2927,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 782,
       "description": null,
       "error_message": null,
@@ -3123,7 +3123,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 795,
       "description": "Versendet eine E-Mail an alle zum Start der Zirkulation involvierten Stellen.",
       "error_message": "E-Mail zum Start der Zirkulation konnte nicht versendet werden",
@@ -3193,7 +3193,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 796,
       "description": null,
       "error_message": null,
@@ -3459,7 +3459,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 807,
       "description": "Versendet eine E-Mail an alle zum Start der Zirkulation involvierten Stellen.",
       "error_message": "E-Mail zum Start der Zirkulation konnte nicht versendet werden",
@@ -3529,7 +3529,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 808,
       "description": null,
       "error_message": null,
@@ -3795,7 +3795,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 827,
       "description": "Versendet eine E-Mail an alle zum Start der Zirkulation involvierten Stellen.",
       "error_message": "E-Mail zum Start der Zirkulation konnte nicht versendet werden",
@@ -3865,7 +3865,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 828,
       "description": null,
       "error_message": null,
@@ -4257,7 +4257,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 827,
       "description": "Versendet eine E-Mail an alle zum Start der Zirkulation involvierten Stellen.",
       "error_message": null,
@@ -4271,7 +4271,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 828,
       "description": null,
       "error_message": null,
@@ -4369,7 +4369,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 923,
       "description": "Versendet eine E-Mail an alle zum Start der Zirkulation involvierten Stellen.",
       "error_message": "E-Mail zum Start der Zirkulation konnte nicht versendet werden",
@@ -4411,7 +4411,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 924,
       "description": null,
       "error_message": null,
@@ -4635,7 +4635,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 935,
       "description": "Versendet eine E-Mail an alle zum Start der Zirkulation involvierten Stellen.",
       "error_message": "E-Mail zum Start der Zirkulation konnte nicht versendet werden",
@@ -4719,7 +4719,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 936,
       "description": null,
       "error_message": null,
@@ -26926,7 +26926,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "available_instance_resource": "circulation"
     },
     "model": "core.instanceresourceaction",
@@ -27038,7 +27038,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "available_instance_resource": "editcirculation"
     },
     "model": "core.instanceresourceaction",
