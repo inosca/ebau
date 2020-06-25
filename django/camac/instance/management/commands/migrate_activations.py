@@ -131,6 +131,66 @@ class Command(BaseCommand):
                     )
                 )
             )
+            self._create_bgz_circulation(current_instance, parent)
+
+    def _create_bgz_circulation(self, current_instance, target_service):
+        self.stdout.write("Checking for BGZ Ciculation")
+        bgz_circulation = None
+        bgz_circulation_is_active = False
+        try:
+            bgz_circulation = Circulation.objects.filter(
+                service=self._bgz_service, instance=current_instance
+            ).latest("circulation_id")
+            bgz_circulation_is_active = (
+                Activation.objects.filter(circulation=bgz_circulation).count() > 0
+            )
+        except ObjectDoesNotExist:
+            pass
+
+        if not bgz_circulation_is_active:
+            circulation_name = "Zirkulation vom %s aus migration" % (
+                datetime.today().strftime("%d.%m.%Y %H:%M")
+            )
+            bgz_circulation = Circulation(
+                name=circulation_name,
+                instance=current_instance,
+                service=self._bgz_service,
+                instance_resource_id=self._instance_resource_id,
+            )
+            bgz_circulation.save()
+            self.stdout.write(
+                "Created BGZ circulation '%s: %s (%s)'"
+                % (
+                    bgz_circulation.circulation_id,
+                    bgz_circulation.service,
+                    bgz_circulation.name,
+                )
+            )
+
+        bgz_activation = None
+        try:
+            bgz_activation = Activation.objects.filter(
+                service_parent=self._bgz_service, service=target_service
+            ).latest("activation_id")
+        except ObjectDoesNotExist:
+            pass
+
+        if bgz_activation is None:
+            bgz_activation = Activation(
+                circulation=bgz_circulation,
+                service=bgz_circulation.service,
+                service_parent=self._bgz_service,
+            )
+            bgz_activation.save()
+            self.stdout.write(
+                "Created BGZ Activation '%s' for Circulation '%s: %s (%s)'"
+                % (
+                    bgz_activation,
+                    bgz_circulation.circulation_id,
+                    bgz_circulation.service,
+                    bgz_circulation.name,
+                )
+            )
 
     def handle(self, *args, **options):
         self._circulation_states = CirculationState.objects.exclude(
@@ -140,6 +200,7 @@ class Command(BaseCommand):
             name=options["instance_resource_for_new_circulations"]
         ).instance_resource_id
         self.stdout.write("Starting migration...")
+        self._bgz_service = self._get_service(service_id=options["bgz_id"])
         service = self._get_service(service_id=options["old_id"])
         parent = self._get_service(service_id=options["new_parent"])
         old_parent = service.service_parent
