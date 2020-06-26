@@ -125,107 +125,7 @@
   },
   {
     "fields": {
-      "address_groups": "['TODO']",
-      "control_groups": null,
-      "created_at": "2020-06-22T10:00:46.147Z",
-      "created_by_group": null,
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "description": "{\"de\": null, \"fr\": null}",
-      "form": "sb2",
-      "history_change_reason": null,
-      "history_date": "2020-06-22T10:00:46.148Z",
-      "history_type": "+",
-      "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "is_archived": false,
-      "is_multiple_instance": false,
-      "lead_time": null,
-      "meta": {},
-      "modified_at": "2020-06-22T10:00:46.147Z",
-      "name": "{\"de\": \"Selbstdeklaration 2\", \"fr\": null}",
-      "slug": "sb2",
-      "type": "complete_task_form"
-    },
-    "model": "caluma_workflow.historicaltask",
-    "pk": "3ef90f3e-6897-4e82-854c-a1ebe8c3ca93"
-  },
-  {
-    "fields": {
-      "address_groups": "['TODO']",
-      "control_groups": null,
-      "created_at": "2020-06-22T10:00:44.583Z",
-      "created_by_group": null,
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "description": "{\"de\": null, \"fr\": null}",
-      "form": "sb1",
-      "history_change_reason": null,
-      "history_date": "2020-06-22T10:00:44.584Z",
-      "history_type": "+",
-      "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "is_archived": false,
-      "is_multiple_instance": false,
-      "lead_time": null,
-      "meta": {},
-      "modified_at": "2020-06-22T10:00:44.583Z",
-      "name": "{\"de\": \"Selbstdeklaration 1\", \"fr\": null}",
-      "slug": "sb1",
-      "type": "complete_task_form"
-    },
-    "model": "caluma_workflow.historicaltask",
-    "pk": "722d8acc-d999-4594-a0db-e09494e8c7ea"
-  },
-  {
-    "fields": {
-      "address_groups": "['TODO']",
-      "control_groups": null,
-      "created_at": "2020-04-28T13:39:08.481Z",
-      "created_by_group": null,
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "description": "{\"de\": null, \"fr\": null}",
-      "form": null,
-      "history_change_reason": null,
-      "history_date": "2020-06-22T10:00:42.832Z",
-      "history_type": "~",
-      "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "is_archived": false,
-      "is_multiple_instance": false,
-      "lead_time": null,
-      "meta": {},
-      "modified_at": "2020-06-22T10:00:42.830Z",
-      "name": "{\"de\": \"eBau-Nummer vergeben\", \"fr\": null}",
-      "slug": "ebau-number",
-      "type": "simple"
-    },
-    "model": "caluma_workflow.historicaltask",
-    "pk": "a936c363-8ecd-4f0e-81f8-a38fe9685f2e"
-  },
-  {
-    "fields": {
-      "address_groups": "['TODO']",
-      "control_groups": null,
-      "created_at": "2020-06-22T10:00:38.271Z",
-      "created_by_group": null,
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "description": "{\"de\": null, \"fr\": null}",
-      "form": "nfd",
-      "history_change_reason": null,
-      "history_date": "2020-06-22T10:00:38.273Z",
-      "history_type": "+",
-      "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "is_archived": false,
-      "is_multiple_instance": false,
-      "lead_time": null,
-      "meta": {},
-      "modified_at": "2020-06-22T10:00:38.271Z",
-      "name": "{\"de\": \"Nachforderungen\", \"fr\": null}",
-      "slug": "nfd",
-      "type": "complete_task_form"
-    },
-    "model": "caluma_workflow.historicaltask",
-    "pk": "b9c17625-2eca-45ab-a8d3-379ea5926725"
-  },
-  {
-    "fields": {
-      "address_groups": "['TODO']",
+      "address_groups": "[]",
       "control_groups": null,
       "created_at": "2020-04-28T13:39:34.583Z",
       "created_by_group": null,
@@ -233,20 +133,120 @@
       "description": "{\"de\": null, \"fr\": null}",
       "form": null,
       "history_change_reason": null,
-      "history_date": "2020-06-22T10:00:47.672Z",
+      "history_date": "2020-06-25T14:45:28.711Z",
       "history_type": "~",
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "is_archived": false,
       "is_multiple_instance": false,
       "lead_time": null,
       "meta": {},
-      "modified_at": "2020-06-22T10:00:47.670Z",
+      "modified_at": "2020-06-25T14:45:28.708Z",
       "name": "{\"de\": \"Gesuch einreichen\", \"fr\": null}",
       "slug": "submit",
       "type": "complete_workflow_form"
     },
     "model": "caluma_workflow.historicaltask",
-    "pk": "e7a8ef46-bdbd-4808-a0c6-0df91ef577d9"
+    "pk": "1d6db50b-5c45-45a2-9865-b9aefdb35d26"
+  },
+  {
+    "fields": {
+      "address_groups": "[]",
+      "control_groups": "['construction_control']|groups",
+      "created_at": "2020-06-22T10:00:46.147Z",
+      "created_by_group": null,
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "description": "{\"de\": null, \"fr\": null}",
+      "form": "sb2",
+      "history_change_reason": null,
+      "history_date": "2020-06-25T14:45:27.281Z",
+      "history_type": "~",
+      "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "is_archived": false,
+      "is_multiple_instance": false,
+      "lead_time": null,
+      "meta": {},
+      "modified_at": "2020-06-25T14:45:27.278Z",
+      "name": "{\"de\": \"Selbstdeklaration 2\", \"fr\": null}",
+      "slug": "sb2",
+      "type": "complete_task_form"
+    },
+    "model": "caluma_workflow.historicaltask",
+    "pk": "353906a4-d0f7-4541-93df-d02a5fa8666c"
+  },
+  {
+    "fields": {
+      "address_groups": "['municipality']|groups",
+      "control_groups": null,
+      "created_at": "2020-06-22T10:00:38.271Z",
+      "created_by_group": null,
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "description": "{\"de\": null, \"fr\": null}",
+      "form": "nfd",
+      "history_change_reason": null,
+      "history_date": "2020-06-25T14:45:23.208Z",
+      "history_type": "~",
+      "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "is_archived": false,
+      "is_multiple_instance": false,
+      "lead_time": null,
+      "meta": {},
+      "modified_at": "2020-06-25T14:45:23.205Z",
+      "name": "{\"de\": \"Nachforderungen\", \"fr\": null}",
+      "slug": "nfd",
+      "type": "complete_task_form"
+    },
+    "model": "caluma_workflow.historicaltask",
+    "pk": "ac1edff9-39b9-40a1-9e73-446342a9688a"
+  },
+  {
+    "fields": {
+      "address_groups": "['municipality']|groups",
+      "control_groups": null,
+      "created_at": "2020-04-28T13:39:08.481Z",
+      "created_by_group": null,
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "description": "{\"de\": null, \"fr\": null}",
+      "form": null,
+      "history_change_reason": null,
+      "history_date": "2020-06-25T14:45:21.437Z",
+      "history_type": "~",
+      "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "is_archived": false,
+      "is_multiple_instance": false,
+      "lead_time": null,
+      "meta": {},
+      "modified_at": "2020-06-25T14:45:21.434Z",
+      "name": "{\"de\": \"eBau-Nummer vergeben\", \"fr\": null}",
+      "slug": "ebau-number",
+      "type": "simple"
+    },
+    "model": "caluma_workflow.historicaltask",
+    "pk": "ef241747-8415-4a4f-9f6f-d4364802d3a6"
+  },
+  {
+    "fields": {
+      "address_groups": "[]",
+      "control_groups": "['construction_control']|groups",
+      "created_at": "2020-06-22T10:00:44.583Z",
+      "created_by_group": null,
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "description": "{\"de\": null, \"fr\": null}",
+      "form": "sb1",
+      "history_change_reason": null,
+      "history_date": "2020-06-25T14:45:25.706Z",
+      "history_type": "~",
+      "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "is_archived": false,
+      "is_multiple_instance": false,
+      "lead_time": null,
+      "meta": {},
+      "modified_at": "2020-06-25T14:45:25.704Z",
+      "name": "{\"de\": \"Selbstdeklaration 1\", \"fr\": null}",
+      "slug": "sb1",
+      "type": "complete_task_form"
+    },
+    "model": "caluma_workflow.historicaltask",
+    "pk": "f0d5cca0-8775-4d5b-93d7-08a6bb5e2537"
   },
   {
     "fields": {
@@ -400,7 +400,7 @@
   },
   {
     "fields": {
-      "address_groups": "['TODO']",
+      "address_groups": "['municipality']|groups",
       "control_groups": null,
       "created_at": "2020-04-28T13:39:08.481Z",
       "created_by_group": null,
@@ -411,7 +411,7 @@
       "is_multiple_instance": false,
       "lead_time": null,
       "meta": {},
-      "modified_at": "2020-06-22T10:00:42.830Z",
+      "modified_at": "2020-06-25T14:45:21.434Z",
       "name": "{\"de\": \"eBau-Nummer vergeben\", \"fr\": null}",
       "type": "simple"
     },
@@ -420,7 +420,7 @@
   },
   {
     "fields": {
-      "address_groups": "['TODO']",
+      "address_groups": "['municipality']|groups",
       "control_groups": null,
       "created_at": "2020-06-22T10:00:38.271Z",
       "created_by_group": null,
@@ -431,7 +431,7 @@
       "is_multiple_instance": false,
       "lead_time": null,
       "meta": {},
-      "modified_at": "2020-06-22T10:00:38.271Z",
+      "modified_at": "2020-06-25T14:45:23.205Z",
       "name": "{\"de\": \"Nachforderungen\", \"fr\": null}",
       "type": "complete_task_form"
     },
@@ -440,8 +440,8 @@
   },
   {
     "fields": {
-      "address_groups": "['TODO']",
-      "control_groups": null,
+      "address_groups": "[]",
+      "control_groups": "['construction_control']|groups",
       "created_at": "2020-06-22T10:00:44.583Z",
       "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -451,7 +451,7 @@
       "is_multiple_instance": false,
       "lead_time": null,
       "meta": {},
-      "modified_at": "2020-06-22T10:00:44.583Z",
+      "modified_at": "2020-06-25T14:45:25.704Z",
       "name": "{\"de\": \"Selbstdeklaration 1\", \"fr\": null}",
       "type": "complete_task_form"
     },
@@ -460,8 +460,8 @@
   },
   {
     "fields": {
-      "address_groups": "['TODO']",
-      "control_groups": null,
+      "address_groups": "[]",
+      "control_groups": "['construction_control']|groups",
       "created_at": "2020-06-22T10:00:46.147Z",
       "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -471,7 +471,7 @@
       "is_multiple_instance": false,
       "lead_time": null,
       "meta": {},
-      "modified_at": "2020-06-22T10:00:46.147Z",
+      "modified_at": "2020-06-25T14:45:27.278Z",
       "name": "{\"de\": \"Selbstdeklaration 2\", \"fr\": null}",
       "type": "complete_task_form"
     },
@@ -480,7 +480,7 @@
   },
   {
     "fields": {
-      "address_groups": "['TODO']",
+      "address_groups": "[]",
       "control_groups": null,
       "created_at": "2020-04-28T13:39:34.583Z",
       "created_by_group": null,
@@ -491,7 +491,7 @@
       "is_multiple_instance": false,
       "lead_time": null,
       "meta": {},
-      "modified_at": "2020-06-22T10:00:47.670Z",
+      "modified_at": "2020-06-25T14:45:28.708Z",
       "name": "{\"de\": \"Gesuch einreichen\", \"fr\": null}",
       "type": "complete_workflow_form"
     },
