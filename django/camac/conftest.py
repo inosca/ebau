@@ -72,7 +72,10 @@ def request_mock(mocker):
         create=True,
     )
     request_mock.return_value = CalumaInfo(
-        {"sub": "462afaba-aeb7-494a-8596-3497b81ed701"}
+        {
+            "sub": "462afaba-aeb7-494a-8596-3497b81ed701",
+            settings.OIDC_USERNAME_CLAIM: "foo",
+        }
     )
 
 
