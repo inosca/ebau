@@ -52,7 +52,7 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
             # OR unlinked table documents created by the requesting user
             | Q(
                 **{
-                    "case__meta__camac-instance-id__isnull": True,
+                    "family__case__meta__camac-instance-id__isnull": True,
                     "family": F("pk"),
                     "created_by_user": info.context.user.username,
                 }
