@@ -1308,8 +1308,8 @@ snapshots["test_document_merge_service_snapshot[1-baugesuch] 1"] = [
                 "type": "MultipleChoiceQuestion",
             },
             {
-                "choices": [{"checked": False, "label": "Überbauung"}],
-                "label": "Überbauung",
+                "choices": [{"checked": False, "label": "Überbauung in %"}],
+                "label": "Überbauung in %",
                 "slug": "ueberbauung-dokument",
                 "type": "MultipleChoiceQuestion",
             },
