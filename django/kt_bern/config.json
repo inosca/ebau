@@ -1375,6 +1375,34 @@
   },
   {
     "fields": {
+      "available_action": "deletecirculation",
+      "button": 1200002,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 0,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1200012
+  },
+  {
+    "fields": {
+      "available_action": "formtransition",
+      "button": 1200002,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1200013
+  },
+  {
+    "fields": {
       "action": 10013,
       "description": null,
       "error_message": null,
@@ -2755,6 +2783,39 @@
   },
   {
     "fields": {
+      "action": 1200012,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Alle Zirkulationen l\u00f6schen",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 1200014
+  },
+  {
+    "fields": {
+      "action": 1200013,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Status zur\u00fccksetzen",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 1200015
+  },
+  {
+    "fields": {
+      "circulation_to_be_interpreted": null,
+      "delete_level": 2,
+      "is_single_delete": false
+    },
+    "model": "core.adeletecirculation",
+    "pk": 1200012
+  },
+  {
+    "fields": {
       "current_instance_state": null,
       "next_instance_state": 20006
     },
@@ -2888,6 +2949,14 @@
     },
     "model": "core.aformtransition",
     "pk": 1200003
+  },
+  {
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 20006
+    },
+    "model": "core.aformtransition",
+    "pk": 1200013
   },
   {
     "fields": {
@@ -42463,6 +42532,33 @@
   },
   {
     "fields": {
+      "button": 1200002,
+      "instance_state": 20003,
+      "role": 10000
+    },
+    "model": "core.broleacl",
+    "pk": 1200003
+  },
+  {
+    "fields": {
+      "button": 1200002,
+      "instance_state": 20004,
+      "role": 10000
+    },
+    "model": "core.broleacl",
+    "pk": 1200004
+  },
+  {
+    "fields": {
+      "button": 1200002,
+      "instance_state": 20005,
+      "role": 10000
+    },
+    "model": "core.broleacl",
+    "pk": 1200005
+  },
+  {
+    "fields": {
       "class_field": "next-arrows",
       "description": null,
       "hidden": 0,
@@ -42868,6 +42964,18 @@
     },
     "model": "core.button",
     "pk": 1200001
+  },
+  {
+    "fields": {
+      "class_field": "warning",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 150001,
+      "name": null,
+      "sort": 1
+    },
+    "model": "core.button",
+    "pk": 1200002
   },
   {
     "fields": {
@@ -43538,6 +43646,16 @@
     },
     "model": "core.buttont",
     "pk": 1200003
+  },
+  {
+    "fields": {
+      "button": 1200002,
+      "description": null,
+      "language": "de",
+      "name": "Status Dossierpr\u00fcfung"
+    },
+    "model": "core.buttont",
+    "pk": 1200004
   },
   {
     "fields": {
