@@ -63,6 +63,10 @@ def assure_string_length(value, min_length=1, max_length=0):
     return value
 
 
+def handle_coordinate_value(value):
+    return round(float(value), 3)
+
+
 def authority(service):
     return ns_company_identification.organisationIdentificationType(
         uid=ns_company_identification.uidStructureType(
@@ -221,8 +225,8 @@ def get_realestateinformation(answers):
                 # realestateIncomplete minOccurs 0
                 coordinates=ns_objektwesen.coordinatesType(
                     LV95=pyxb.BIND(
-                        east=parzelle["lagekoordinaten-ost"],
-                        north=parzelle["lagekoordinaten-nord"],
+                        east=handle_coordinate_value(parzelle["lagekoordinaten-ost"]),
+                        north=handle_coordinate_value(parzelle["lagekoordinaten-nord"]),
                         originOfCoordinates=904,
                     )
                 )
@@ -312,10 +316,12 @@ def get_realestateinformation(answers):
                     realestateType="8",
                     coordinates=ns_objektwesen.coordinatesType(
                         LV95=pyxb.BIND(
-                            east=answers["lagekoordinaten-ost-einfache-vorabklaerung"],
-                            north=answers[
-                                "lagekoordinaten-nord-einfache-vorabklaerung"
-                            ],
+                            east=handle_coordinate_value(
+                                answers["lagekoordinaten-ost-einfache-vorabklaerung"]
+                            ),
+                            north=handle_coordinate_value(
+                                answers["lagekoordinaten-nord-einfache-vorabklaerung"]
+                            ),
                             originOfCoordinates=904,
                         )
                     )
