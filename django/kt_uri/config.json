@@ -10107,7 +10107,7 @@
     "fields": {
       "action_name": "overview",
       "available_resource": "portal",
-      "hidden": 1
+      "hidden": 0
     },
     "model": "core.araction",
     "pk": 14
@@ -44711,7 +44711,7 @@
       "description": "",
       "hidden": 0,
       "name": "Bauplanauflage",
-      "sort": 20,
+      "sort": 34,
       "template": null
     },
     "model": "core.resource",
