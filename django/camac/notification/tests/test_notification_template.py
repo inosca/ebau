@@ -11,7 +11,7 @@ from django.utils import timezone
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
-from camac.core.models import Journal
+from camac.instance.models import HistoryEntry
 from camac.notification.serializers import (
     PermissionlessNotificationTemplateSendmailSerializer,
 )
@@ -511,10 +511,10 @@ def test_notification_template_merge_without_context(
 
     When sending a notification through a batch job we can't provide a
     request context to the serializer. The request context is required to
-    determine the user of the related journal entry which gets automatically
+    determine the user of the related history entry which gets automatically
     created.
 
-    In this case the journal entry should be sent in the name of the system
+    In this case the history entry should be sent in the name of the system
     operation user.
     """
 
@@ -533,7 +533,7 @@ def test_notification_template_merge_without_context(
     sendmail_serializer.is_valid(raise_exception=True)
     sendmail_serializer.save()
 
-    entry = Journal.objects.latest("created")
+    entry = HistoryEntry.objects.latest("created_at")
     assert entry.instance == instance
     assert entry.user == system_operation_user
 
