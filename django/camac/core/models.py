@@ -3981,91 +3981,6 @@ class BillingV2Entry(models.Model):
         db_table = "BILLING_V2_ENTRY"
 
 
-class Journal(models.Model):
-    ENTRY_MODE_CHOICES = (("automatic", "Automatic"), ("user", "Manual entry by user"))
-
-    instance = models.ForeignKey(
-        "instance.Instance", models.CASCADE, db_column="INSTANCE_ID", related_name="+"
-    )
-
-    # Created automatically or by user?
-    mode = models.CharField(choices=ENTRY_MODE_CHOICES, max_length=20, db_column="MODE")
-
-    # Creator
-    user = models.ForeignKey(
-        "user.User", models.DO_NOTHING, related_name="+", db_column="USER_ID"
-    )
-
-    # Visible for this service only
-    service = models.ForeignKey(
-        "user.Service",
-        models.DO_NOTHING,
-        related_name="+",
-        db_column="SERVICE_ID",
-        blank=True,
-        null=True,
-    )
-
-    text = models.TextField(db_column="TEXT", blank=True, null=True)
-    additional_text = models.TextField(
-        db_column="ADDITIONAL_TEXT", blank=True, null=True
-    )
-    created = models.DateTimeField(db_column="CREATED")
-
-    class Meta:
-        managed = True
-        db_table = "JOURNAL"
-
-
-class JournalT(models.Model):
-    journal = models.ForeignKey(
-        Journal, models.CASCADE, db_column="JOURNAL_ID", related_name="trans"
-    )
-    language = models.CharField(db_column="LANGUAGE", max_length=2)
-    text = models.TextField(db_column="TEXT")
-    additional_text = models.TextField(
-        db_column="ADDITIONAL_TEXT", blank=True, null=True
-    )
-
-    class Meta:
-        managed = True
-        db_table = "JOURNAL_T"
-
-
-class JournalActionConfig(MultilingualModel, models.Model):
-    action = models.OneToOneField(
-        "Action",
-        models.CASCADE,
-        db_column="ACTION_ID",
-        primary_key=True,
-        related_name="+",
-    )
-    text = models.TextField(db_column="TEXT", blank=True, null=True)
-
-    def __str__(self):
-        return self.get_trans_attr("text")
-
-    class Meta:
-        managed = True
-        db_table = "JOURNAL_ACTION_CONFIG"
-
-
-class JournalActionConfigT(models.Model):
-    action = models.ForeignKey(
-        "JournalActionConfig",
-        models.CASCADE,
-        db_column="ACTION_ID",
-        related_name="trans",
-    )
-
-    text = models.TextField(db_column="TEXT")
-    language = models.CharField(db_column="LANGUAGE", max_length=2)
-
-    class Meta:
-        managed = True
-        db_table = "JOURNAL_ACTION_CONFIG_T"
-
-
 class DocxDecision(models.Model):
     instance = models.AutoField(
         "instance.Instance", db_column="INSTANCE_ID", primary_key=True
@@ -4260,3 +4175,44 @@ class Archive(models.Model):
     class Meta:
         managed = True
         db_table = "ARCHIVE"
+
+
+class HistoryActionConfig(models.Model):
+    HISTORY_TYPE_NOTIFICATION = "notification"
+    HISTORY_TYPE_STATUS = "status-change"
+    HISTORY_TYPES = (HISTORY_TYPE_NOTIFICATION, HISTORY_TYPE_STATUS)
+    HISTORY_TYPES_TUPLE = ((t, t) for t in HISTORY_TYPES)
+
+    action = models.OneToOneField(
+        "Action",
+        models.CASCADE,
+        db_column="ACTION_ID",
+        primary_key=True,
+        related_name="+",
+    )
+    title = models.TextField(db_column="TITLE", blank=True, null=True)
+    body = models.TextField(db_column="BODY", blank=True, null=True)
+    history_type = models.CharField(
+        db_column="HISTORY_TYPE", max_length=20, choices=HISTORY_TYPES_TUPLE
+    )
+
+    def __str__(self):
+        return self.get_trans_attr("title")
+
+    class Meta:
+        managed = True
+        db_table = "HISTORY_ACTION_CONFIG"
+
+
+class HistoryActionConfigT(models.Model):
+    action = models.ForeignKey(
+        HistoryActionConfig, models.CASCADE, db_column="ACTION_ID", related_name="trans"
+    )
+
+    title = models.TextField(db_column="TITLE")
+    body = models.TextField(db_column="BODY", blank=True, null=True)
+    language = models.CharField(db_column="LANGUAGE", max_length=2)
+
+    class Meta:
+        managed = True
+        db_table = "HISTORY_ACTION_CONFIG_T"

@@ -48,7 +48,7 @@ def test_journal_entry_update(admin_client, journal_entry, activation, status_co
         ("Municipality", status.HTTP_201_CREATED),
     ],
 )
-def test_journal_entry_create(admin_client, instance, group, activation, status_code):
+def test_journal_entry_create(admin_client, instance, service, activation, status_code):
     url = reverse("journal-entry-list")
 
     data = {
@@ -66,7 +66,9 @@ def test_journal_entry_create(admin_client, instance, group, activation, status_
     assert response.status_code == status_code
     if status_code == status.HTTP_201_CREATED:
         json = response.json()
-        assert json["data"]["relationships"]["group"]["data"]["id"] == (str(group.pk))
+        assert json["data"]["relationships"]["service"]["data"]["id"] == (
+            str(service.pk)
+        )
 
 
 @pytest.mark.parametrize("journal_entry__user", [LazyFixture("admin_user")])
