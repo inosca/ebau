@@ -28,20 +28,7 @@ def get_group(request):
             .first()
         )
     else:
-        # no specific group is definied, default group of client is used
-        # it is allowed that user may not be in this group
-        group = None
-        # TODO: make this more explicit, instead of magic group matching
-        if getattr(request, "auth", False):
-            client = request.auth["aud"]
-            filters = {"name": client.title()}
-            if settings.APPLICATION.get("IS_MULTILINGUAL", False):
-                filters = {"trans__name": client.title(), "trans__language": "de"}
-            group = (
-                models.Group.objects.filter(**filters)
-                .select_related("role", "service")
-                .first()
-            )
+        group = _get_group_for_portal(request)
 
         # fallback, default group of user
         if group is None:
@@ -55,6 +42,34 @@ def get_group(request):
 
     request_logger.debug(f"group: {group and group.get_name()}")
     return group
+
+
+def _get_group_for_portal(request):
+    """
+    Get group for portal users.
+
+    Users who log into the public-facing "portal" have no group assignment in
+    CAMAC. Instead, identify them based on the OIDC client given in the token's
+    "aud" (audience) claim, and programatically assign the correct group for
+    them.
+    """
+    if not getattr(request, "auth", False):
+        return None
+
+    portal_client = settings.KEYCLOAK_PORTAL_CLIENT
+    if not portal_client:  # pragma: no cover
+        return None
+
+    clients = request.auth["aud"]
+    if not isinstance(clients, list):
+        clients = [clients]
+
+    if portal_client not in clients:
+        return None
+
+    return models.Group.objects.select_related("role", "service").get(
+        pk=settings.APPLICATION["PORTAL_GROUP"]
+    )
 
 
 class GroupMiddleware(object):

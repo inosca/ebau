@@ -162,6 +162,7 @@ APPLICATIONS = {
             "Fachstelle Leitbehörde": "municipality",
             "System-Betrieb": "support",
         },
+        "PORTAL_GROUP": 4,
         "NOTIFICATIONS": {
             "SUBMIT": "gesuchseingang",
             "APPLICANT": {
@@ -253,6 +254,7 @@ APPLICATIONS = {
         "IS_MULTILINGUAL": True,
         "FORM_BACKEND": "caluma",
         "CALUMA": {"FORM_PERMISSIONS": ["main", "sb1", "sb2", "nfd"]},
+        "PORTAL_GROUP": 6,
         "DEMO_MODE_GROUPS": [
             20003,
             20006,
@@ -833,6 +835,7 @@ KEYCLOAK_URL = build_url(
 )
 KEYCLOAK_REALM = env.str("KEYCLOAK_REALM", default="ebau")
 KEYCLOAK_CLIENT = env.str("KEYCLOAK_CLIENT", default="camac")
+KEYCLOAK_PORTAL_CLIENT = env.str("KEYCLOAK_PORTAL_CLIENT", default="portal")
 
 KEYCLOAK_OIDC_TOKEN_URL = build_url(
     KEYCLOAK_URL, f"/realms/{KEYCLOAK_REALM}/protocol/openid-connect/token"
