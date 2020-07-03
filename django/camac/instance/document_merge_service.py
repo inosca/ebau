@@ -7,6 +7,7 @@ from caluma.caluma_form.models import Document, Question
 from caluma.caluma_form.validators import DocumentValidator
 from django.conf import settings
 from django.core.files.base import ContentFile
+from django.db.models import Q
 from django.utils.text import slugify
 from django.utils.translation import gettext as _
 from rest_framework import exceptions
@@ -39,12 +40,13 @@ class DMSHandler:
 
     def generate_pdf(self, instance, form_slug, request):
         # get caluma document and generate data for document merge service
-        _filter = {"meta__camac-instance-id": instance.pk}
-
         if form_slug:
-            _filter["form__slug"] = form_slug
+            _filter = {
+                "work_item__case__meta__camac-instance-id": instance.pk,
+                "form_id": form_slug,
+            }
         else:
-            _filter["form__meta__is-main-form"] = True
+            _filter = {"case__meta__camac-instance-id": instance.pk}
 
         try:
             doc = Document.objects.get(**_filter)
@@ -57,7 +59,7 @@ class DMSHandler:
 
         template = get_form_type_config(doc.form.slug).get("template")
 
-        if template is None:
+        if template is None:  # pragma: no cover
             raise exceptions.ValidationError(
                 _("No template specified for form '%(form_slug)s'.")
                 % {"form_slug": doc.form.slug}
@@ -157,6 +159,8 @@ class DMSVisitor:
             result = self._visit_question(
                 child, parent_doc=node, flatten=flatten, **kwargs
             )
+            if result is None:
+                continue
 
             if child.type == Question.TYPE_FORM and not len(
                 result.get("children", [])
@@ -190,7 +194,11 @@ class DMSVisitor:
         self, node, parent_doc=None, answer=None, flatten=False, limit=None, **_
     ):
         answer = answer.value if answer else None
-        options = node.options.all().order_by("-questionoption__sort")
+        options = (
+            node.options.all()
+            .filter(Q(is_archived=False) | Q(slug=answer))
+            .order_by("-questionoption__sort")
+        )
 
         if flatten:
             return {
@@ -211,7 +219,11 @@ class DMSVisitor:
         self, node, parent_doc=None, answer=None, flatten=False, limit=None, **_
     ):
         answers = answer.value if answer else []
-        options = node.options.all().order_by("-questionoption__sort")
+        options = (
+            node.options.all()
+            .filter(Q(is_archived=False) | Q(slug__in=answers))
+            .order_by("-questionoption__sort")
+        )
 
         if flatten:  # pragma: no cover
             return {
@@ -278,6 +290,9 @@ class DMSVisitor:
         }
 
         answer = parent_doc.answers.filter(question=node).first()
+
+        if not answer and node.is_archived:
+            return
 
         fns = {
             Question.TYPE_DATE: self._visit_simple_question,

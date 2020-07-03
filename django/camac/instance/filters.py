@@ -1,6 +1,6 @@
 import re
 
-from caluma.caluma_form.models import Document
+from caluma.caluma_workflow.models import Case
 from django.conf import settings
 from django.core.validators import EMPTY_VALUES
 from django.db.models import F, Func, OuterRef, PositiveIntegerField, Subquery, Value
@@ -152,11 +152,10 @@ class CalumaInstanceFilterSet(InstanceFilterSet):
 
     def filter_is_paper(self, queryset, name, value):
         _filter = {
-            "pk__in": Document.objects.filter(
+            "pk__in": Case.objects.filter(
                 **{
-                    "form__meta__is-main-form": True,
-                    "answers__question_id": "papierdossier",
-                    "answers__value": "papierdossier-ja",
+                    "document__answers__question_id": "papierdossier",
+                    "document__answers__value": "papierdossier-ja",
                 }
             )
             .annotate(
@@ -200,6 +199,12 @@ class JournalEntryFilterSet(FilterSet):
     class Meta:
         model = models.JournalEntry
         fields = ("instance", "user")
+
+
+class HistoryEntryFilterSet(FilterSet):
+    class Meta:
+        model = models.HistoryEntry
+        fields = ("instance", "user", "service", "history_type")
 
 
 class InstanceFormFieldFilterBackend(BaseFilterBackend):

@@ -4,7 +4,6 @@ from __future__ import unicode_literals
 
 from snapshottest import Snapshot
 
-
 snapshots = Snapshot()
 
 snapshots["test_document_merge_service_snapshot[1-sb1] 1"] = [
@@ -1145,7 +1144,6 @@ snapshots["test_document_merge_service_snapshot[1-baugesuch] 1"] = [
                         "choices": [
                             {"checked": False, "label": "Ja"},
                             {"checked": True, "label": "Nein"},
-                            {"checked": False, "label": "Nicht überprüft"},
                         ],
                         "label": "Werden die Planungs- oder Immissionsgrenzwerte der massgebenden Empfindlichkeitsstufe auf der bebaubaren Fläche überschritten?",
                         "slug": "grenzwerte-ueberschritten",
@@ -1310,8 +1308,8 @@ snapshots["test_document_merge_service_snapshot[1-baugesuch] 1"] = [
                 "type": "MultipleChoiceQuestion",
             },
             {
-                "choices": [{"checked": False, "label": "Überbauung"}],
-                "label": "Überbauung",
+                "choices": [{"checked": False, "label": "Überbauung in %"}],
+                "label": "Überbauung in %",
                 "slug": "ueberbauung-dokument",
                 "type": "MultipleChoiceQuestion",
             },

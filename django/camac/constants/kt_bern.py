@@ -124,12 +124,12 @@ VORABKLAERUNG_DECISIONS_NEGATIVE = "negative"
 # 3 = Nicht eintreten
 # 4 = abgelehnt
 DECISION_JUDGEMENT_MAP = {
-    "baugesuch": {
+    "building-permit": {
         DECISIONS_BEWILLIGT: 1,
         DECISIONS_ABGESCHRIEBEN: 3,
         DECISIONS_ABGELEHNT: 4,
     },
-    "vorabklaerung": {
+    "preliminary-clarification": {
         VORABKLAERUNG_DECISIONS_BEWILLIGT: 1,
         VORABKLAERUNG_DECISIONS_BEWILLIGT_MIT_VORBEHALT: 2,
         VORABKLAERUNG_DECISIONS_NEGATIVE: 4,

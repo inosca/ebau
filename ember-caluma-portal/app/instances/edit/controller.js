@@ -47,7 +47,7 @@ export default class InstancesEditController extends Controller.extend(
       ].join(",")
     });
 
-    yield instance.getDocuments.perform();
+    yield instance.getMainForm.perform();
 
     return instance;
   }
