@@ -1,0 +1,83 @@
+<h1>
+  {{t "history.title"}}
+</h1>
+
+<table class="history" {{did-insert (perform this.fetchEntries)}}>
+  <thead>
+    <tr>
+      <th></th>
+      <th>
+        {{t "history.event"}}
+      </th>
+      <th>
+        {{t "history.date"}}
+      </th>
+      <th>
+        {{t "history.user"}}
+      </th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#if this.fetchEntries.isRunning}}
+      <tr>
+        <td class="center" colspan="5">
+          <LoadingText />
+        </td>
+      </tr>
+    {{else if this.entries.length}}
+      {{#each this.entries as |entry|}}
+        <tr
+          class="history__row"
+          title={{t (concat "history.types." entry.historyType)}}
+        >
+          <td class="history__row__icon">
+            <FaIcon @icon={{entry.icon}} />
+          </td>
+          <td>
+            {{entry.title}}
+            {{#if (and entry.body entry.expand)}}
+              <div class="history__row__body">
+                {{entry.body}}
+              </div>
+            {{/if}}
+          </td>
+          <td class="history__row__date">
+            {{format-date
+              entry.createdAt
+              day="2-digit"
+              month="2-digit"
+              year="numeric"
+              hour="2-digit"
+              minute="2-digit"
+              hour12=false
+            }}
+          </td>
+          <td class="history__row__user">
+            {{entry.user.fullName}}
+          </td>
+          <td class="history__row__toggle">
+            {{#if entry.body}}
+              <button
+                class="history__row__toggle__button"
+                type="button"
+                title={{t
+                  (if entry.expand "history.collapse" "history.expand")
+                }}
+                {{on "click" (toggle "expand" entry)}}
+              >
+                <FaIcon @icon="arrow-{{if entry.expand "up" "down"}}" />
+              </button>
+            {{/if}}
+          </td>
+        </tr>
+      {{/each}}
+    {{else}}
+      <tr>
+        <td class="center" colspan="5">
+          {{t "global.empty"}}
+        </td>
+      </tr>
+    {{/if}}
+  </tbody>
+</table>

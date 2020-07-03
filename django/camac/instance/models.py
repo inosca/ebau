@@ -11,7 +11,7 @@ from camac.constants.kt_bern import (
     INSTANCE_STATE_SB2,
     INSTANCE_STATE_TO_BE_FINISHED,
 )
-from camac.core.models import InstanceService
+from camac.core.models import HistoryActionConfig, InstanceService
 
 from ..core import models as core_models
 
@@ -222,15 +222,36 @@ class InstanceResponsibility(models.Model):
 
 class JournalEntry(models.Model):
     instance = models.ForeignKey(Instance, models.CASCADE, related_name="journal")
-    group = models.ForeignKey("user.Group", models.DO_NOTHING, related_name="+")
     service = models.ForeignKey(
         "user.Service", models.DO_NOTHING, related_name="+", null=True
     )
     user = models.ForeignKey("user.User", models.DO_NOTHING, related_name="+")
-    duration = models.DurationField(null=True, blank=True)
-    text = models.TextField()
+    text = models.TextField(blank=True, null=True)
     creation_date = models.DateTimeField()
     modification_date = models.DateTimeField()
+
+
+class HistoryEntry(core_models.MultilingualModel, models.Model):
+    instance = models.ForeignKey(Instance, models.CASCADE, related_name="history")
+    service = models.ForeignKey(
+        "user.Service", models.DO_NOTHING, related_name="+", null=True
+    )
+    user = models.ForeignKey("user.User", models.DO_NOTHING, related_name="+")
+    created_at = models.DateTimeField(auto_now_add=True)
+    title = models.TextField(blank=True, null=True)
+    body = models.TextField(blank=True, null=True)
+    history_type = models.CharField(
+        max_length=20, choices=HistoryActionConfig.HISTORY_TYPES_TUPLE
+    )
+
+
+class HistoryEntryT(models.Model):
+    title = models.TextField()
+    body = models.TextField(blank=True, null=True)
+    history_entry = models.ForeignKey(
+        HistoryEntry, models.CASCADE, related_name="trans"
+    )
+    language = models.CharField(max_length=2)
 
 
 class Issue(models.Model):

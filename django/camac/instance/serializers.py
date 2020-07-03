@@ -21,11 +21,9 @@ from camac.core.models import (
     Answer,
     InstanceLocation,
     InstanceService,
-    Journal,
-    JournalT,
     ProposalActivation,
 )
-from camac.core.serializers import MultilingualSerializer
+from camac.core.serializers import MultilingualField, MultilingualSerializer
 from camac.core.translations import get_translations
 from camac.document.models import AttachmentSection
 from camac.echbern.signals import instance_submitted, sb1_submitted, sb2_submitted
@@ -596,15 +594,16 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
 
 class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
-    def _create_journal_entry(self, texts):
-        journal = Journal.objects.create(
+    def _create_history_entry(self, texts):
+        history = models.HistoryEntry.objects.create(
             instance=self.instance,
-            mode="auto",
-            created=timezone.now(),
+            created_at=timezone.now(),
             user=self.context["request"].user,
         )
         for (language, text) in texts:
-            JournalT.objects.create(journal=journal, text=text, language=language)
+            models.HistoryEntryT.objects.create(
+                history_entry=history, title=text, language=language
+            )
 
     def _notify_submit(self, template_slug, recipient_types):
         """Send notification email."""
@@ -739,7 +738,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
         self._generate_and_store_pdf(instance)
         self._set_submit_date(validated_data)
-        self._create_journal_entry(get_translations(gettext_noop("Dossier submitted")))
+        self._create_history_entry(get_translations(gettext_noop("Dossier submitted")))
         self._create_answer_proposals(instance)
         self._update_rejected_instance(instance)
 
@@ -782,7 +781,7 @@ class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
         # generate and submit pdf
         self._generate_and_store_pdf(instance, "sb1")
 
-        self._create_journal_entry(get_translations(gettext_noop("SB1 submitted")))
+        self._create_history_entry(get_translations(gettext_noop("SB1 submitted")))
 
         sb1_submitted.send(
             sender=self.__class__,
@@ -818,7 +817,7 @@ class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
         # generate and submit pdf
         self._generate_and_store_pdf(instance, "sb2")
 
-        self._create_journal_entry(get_translations(gettext_noop("SB2 submitted")))
+        self._create_history_entry(get_translations(gettext_noop("SB2 submitted")))
 
         sb2_submitted.send(
             sender=self.__class__,
@@ -994,7 +993,6 @@ class JournalEntrySerializer(InstanceEditableMixin, serializers.ModelSerializer)
         validated_data["modification_date"] = timezone.now()
         validated_data["creation_date"] = timezone.now()
         validated_data["user"] = self.context["request"].user
-        validated_data["group"] = self.context["request"].group
         validated_data["service"] = self.context["request"].group.service
         return super().create(validated_data)
 
@@ -1006,21 +1004,40 @@ class JournalEntrySerializer(InstanceEditableMixin, serializers.ModelSerializer)
         model = models.JournalEntry
         fields = (
             "instance",
-            "group",
             "service",
             "user",
-            "duration",
             "text",
             "creation_date",
             "modification_date",
         )
-        read_only_fields = (
-            "group",
+        read_only_fields = ("service", "user", "creation_date", "modification_date")
+
+
+class HistoryEntrySerializer(
+    MultilingualSerializer, InstanceEditableMixin, serializers.ModelSerializer
+):
+    user = CurrentUserResourceRelatedField()
+    service = ServiceResourceRelatedField(default=CurrentServiceDefault())
+    title = MultilingualField()
+    body = MultilingualField(required=False)
+
+    included_serializers = {
+        "instance": InstanceSerializer,
+        "user": "camac.user.serializers.UserSerializer",
+    }
+
+    class Meta:
+        model = models.HistoryEntry
+        fields = (
+            "instance",
             "service",
             "user",
-            "creation_date",
-            "modification_date",
+            "created_at",
+            "title",
+            "body",
+            "history_type",
         )
+        read_only_fields = ("service", "user", "created_at")
 
 
 class IssueSerializer(InstanceEditableMixin, serializers.ModelSerializer):
