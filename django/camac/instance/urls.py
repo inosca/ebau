@@ -16,6 +16,7 @@ r.register(
     "instance-responsibility",
 )
 r.register(r"journal-entries", views.JournalEntryView, "journal-entry")
+r.register(r"history-entries", views.HistoryEntryView, "history-entry")
 r.register(r"issues", views.IssueView)
 r.register(r"issue-templates", views.IssueTemplateView, "issue-template")
 r.register(r"issue-template-sets", views.IssueTemplateSetView, "issue-template-set")

@@ -2,6 +2,8 @@ global:
   save: "Enregistrer"
   loading: "Télécharger"
   wait: "Veuillez patienter"
+  empty: "Aucune entrée trouvée"
+  cancel: "Annuler"
 
 organisation:
   edit: "Modifiez votre organisation"
@@ -16,3 +18,22 @@ organisation:
 
   saveSuccess: "L'organisation a été enregistrée."
   saveError: "L'organisation n'a pas pu être enregistrée."
+
+history:
+  title: "Histoire"
+  event: "Événement"
+  date: "Date"
+  user: "De"
+
+  types:
+    notification: "Notification"
+    status-change: "Changement d'état"
+
+  expand: "Ouvrir les détails"
+  collapse: "Fermer les détails"
+
+journal:
+  title: "Journal"
+
+  create: "Créer une entrée"
+  edit: "Modifier l'entrée"
