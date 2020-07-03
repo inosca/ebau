@@ -2,6 +2,8 @@ global:
   save: "Speichern"
   loading: "Laden"
   wait: "Bitte warten"
+  empty: "Keine Einträge gefunden"
+  cancel: "Abbrechen"
 
 organisation:
   edit: "Eigene Organisation bearbeiten"
@@ -16,3 +18,22 @@ organisation:
 
   saveSuccess: "Die Organisation wurde gespeichert."
   saveError: "Die Organisation konnte nicht gespeichert werden."
+
+history:
+  title: "History"
+  event: "Ereignis"
+  date: "Datum"
+  user: "Von"
+
+  types:
+    notification: "Notifikation"
+    status-change: "Statuswechsel"
+
+  expand: "Details aufklappen"
+  collapse: "Details zuklappen"
+
+journal:
+  title: "Journal"
+
+  create: "Eintrag erstellen"
+  edit: "Eintrag bearbeiten"

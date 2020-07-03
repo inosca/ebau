@@ -201,6 +201,12 @@ class JournalEntryFilterSet(FilterSet):
         fields = ("instance", "user")
 
 
+class HistoryEntryFilterSet(FilterSet):
+    class Meta:
+        model = models.HistoryEntry
+        fields = ("instance", "user", "service", "history_type")
+
+
 class InstanceFormFieldFilterBackend(BaseFilterBackend):
     """
     Filter backend to filter any instance form field by its values.
