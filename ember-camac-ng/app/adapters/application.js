@@ -9,7 +9,7 @@ export default class ApplicationAdapter extends JSONAPIAdapter {
 
   get headers() {
     return {
-      authorization: `Bearer ${this.session.data.authenticated.token}`,
+      authorization: `Bearer ${this.session.data.authenticated.access_token}`,
       "accept-language": this.shoebox.content.language,
       "x-camac-group": this.shoebox.content.groupId
     };

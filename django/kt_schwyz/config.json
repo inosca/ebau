@@ -53,20 +53,6 @@
   },
   {
     "fields": {
-      "available_action": "journal",
-      "button": 3,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": "Journal Eintrag erstellen",
-      "sort": 3,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 3
-  },
-  {
-    "fields": {
       "available_action": "formtransition",
       "button": 3,
       "description": "Nachforderungen vorhanden, Dossier zur\u00fcck an den Gesuchsteller",
@@ -949,6 +935,20 @@
   },
   {
     "fields": {
+      "available_action": "addhistory",
+      "button": 3,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "History: Dossier zur\u00fcckgewiesen",
+      "sort": 4,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 99
+  },
+  {
+    "fields": {
       "current_instance_state": 2,
       "next_instance_state": 3
     },
@@ -1495,7 +1495,7 @@
   {
     "fields": {
       "action_name": "index",
-      "available_instance_resource": "journal",
+      "available_instance_resource": "emberjournal",
       "hidden": 0
     },
     "model": "core.airaction",
@@ -1536,6 +1536,15 @@
     },
     "model": "core.airaction",
     "pk": 10001
+  },
+  {
+    "fields": {
+      "action_name": "index",
+      "available_instance_resource": "history",
+      "hidden": 0
+    },
+    "model": "core.airaction",
+    "pk": 10002
   },
   {
     "fields": {
@@ -1948,6 +1957,14 @@
   },
   {
     "fields": {
+      "description": "Add a history entry",
+      "module_name": "history"
+    },
+    "model": "core.availableaction",
+    "pk": "addhistory"
+  },
+  {
+    "fields": {
       "description": "Check with a SQL query",
       "module_name": "default"
     },
@@ -2004,6 +2021,14 @@
   },
   {
     "fields": {
+      "description": "Generate Journal Entry",
+      "module_name": "emberjournal"
+    },
+    "model": "core.availableaction",
+    "pk": "emberjournal"
+  },
+  {
+    "fields": {
       "description": "Make a transition",
       "module_name": "default"
     },
@@ -2017,14 +2042,6 @@
     },
     "model": "core.availableaction",
     "pk": "generate"
-  },
-  {
-    "fields": {
-      "description": "Generate Journal Entry",
-      "module_name": "journal"
-    },
-    "model": "core.availableaction",
-    "pk": "journal"
   },
   {
     "fields": {
@@ -2198,6 +2215,15 @@
   },
   {
     "fields": {
+      "controller_name": "emberjournal",
+      "description": "emberjournal",
+      "module_name": "emberjournal"
+    },
+    "model": "core.availableinstanceresource",
+    "pk": "emberjournal"
+  },
+  {
+    "fields": {
       "controller_name": "form",
       "description": "Page with error list of the form",
       "module_name": "default"
@@ -2234,6 +2260,15 @@
   },
   {
     "fields": {
+      "controller_name": "history",
+      "description": "Show instance history",
+      "module_name": "history"
+    },
+    "model": "core.availableinstanceresource",
+    "pk": "history"
+  },
+  {
+    "fields": {
       "controller_name": "integritydashboard",
       "description": "IntegrityDashboard module",
       "module_name": "integritydashboard"
@@ -2249,15 +2284,6 @@
     },
     "model": "core.availableinstanceresource",
     "pk": "issue"
-  },
-  {
-    "fields": {
-      "controller_name": "journal",
-      "description": "journal",
-      "module_name": "journal"
-    },
-    "model": "core.availableinstanceresource",
-    "pk": "journal"
   },
   {
     "fields": {
@@ -4100,6 +4126,25 @@
   },
   {
     "fields": {
+      "body": null,
+      "history_type": "status-change",
+      "title": null
+    },
+    "model": "core.historyactionconfig",
+    "pk": 99
+  },
+  {
+    "fields": {
+      "action": 99,
+      "body": null,
+      "language": "de",
+      "title": "R\u00fcckweisung"
+    },
+    "model": "core.historyactionconfigt",
+    "pk": 1
+  },
+  {
+    "fields": {
       "available_instance_resource": "apidocuments",
       "class_field": null,
       "description": null,
@@ -4385,7 +4430,7 @@
   },
   {
     "fields": {
-      "available_instance_resource": "journal",
+      "available_instance_resource": "emberjournal",
       "class_field": null,
       "description": null,
       "form_group": 1,
@@ -4580,7 +4625,7 @@
   },
   {
     "fields": {
-      "available_instance_resource": "journal",
+      "available_instance_resource": "emberjournal",
       "class_field": null,
       "description": null,
       "form_group": 1,
@@ -4652,6 +4697,21 @@
     },
     "model": "core.instanceresource",
     "pk": 47
+  },
+  {
+    "fields": {
+      "available_instance_resource": "history",
+      "class_field": null,
+      "description": null,
+      "form_group": 1,
+      "hidden": 1,
+      "name": "History",
+      "resource": 1,
+      "sort": 12,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 48
   },
   {
     "fields": {
@@ -6108,6 +6168,214 @@
     },
     "model": "core.instanceresourceaction",
     "pk": 248
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "objection"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 327
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "billing"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 328
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "letter"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 329
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "integritydashboard"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 330
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "editnotice"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 331
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "circulation"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 332
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "editletter"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 333
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "issue"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 334
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "newform"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 335
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "editcirculation"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 336
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "apidocuments"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 337
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "publication"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 338
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "workflow"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 339
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "formerror"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 340
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "formpages"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 341
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "formwizard"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 342
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "history"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 343
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "templatecenter"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 344
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "editformpage"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 345
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "allformpages"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 346
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "responsibility"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 347
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "page"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 348
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "editformpages"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 349
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "emberjournal"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 350
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "formpage"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 351
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "buildingauthority"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 352
   },
   {
     "fields": {
@@ -11595,6 +11863,303 @@
   },
   {
     "fields": {
+      "instance_resource": 48,
+      "instance_state": 12,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 771
+  },
+  {
+    "fields": {
+      "instance_resource": 48,
+      "instance_state": 2,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 772
+  },
+  {
+    "fields": {
+      "instance_resource": 48,
+      "instance_state": 3,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 773
+  },
+  {
+    "fields": {
+      "instance_resource": 48,
+      "instance_state": 4,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 774
+  },
+  {
+    "fields": {
+      "instance_resource": 48,
+      "instance_state": 5,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 775
+  },
+  {
+    "fields": {
+      "instance_resource": 48,
+      "instance_state": 6,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 776
+  },
+  {
+    "fields": {
+      "instance_resource": 48,
+      "instance_state": 7,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 777
+  },
+  {
+    "fields": {
+      "instance_resource": 48,
+      "instance_state": 13,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 778
+  },
+  {
+    "fields": {
+      "instance_resource": 48,
+      "instance_state": 8,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 779
+  },
+  {
+    "fields": {
+      "instance_resource": 48,
+      "instance_state": 9,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 780
+  },
+  {
+    "fields": {
+      "instance_resource": 48,
+      "instance_state": 10,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 781
+  },
+  {
+    "fields": {
+      "instance_resource": 48,
+      "instance_state": 12,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 782
+  },
+  {
+    "fields": {
+      "instance_resource": 48,
+      "instance_state": 2,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 783
+  },
+  {
+    "fields": {
+      "instance_resource": 48,
+      "instance_state": 3,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 784
+  },
+  {
+    "fields": {
+      "instance_resource": 48,
+      "instance_state": 4,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 785
+  },
+  {
+    "fields": {
+      "instance_resource": 48,
+      "instance_state": 5,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 786
+  },
+  {
+    "fields": {
+      "instance_resource": 48,
+      "instance_state": 6,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 787
+  },
+  {
+    "fields": {
+      "instance_resource": 48,
+      "instance_state": 7,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 788
+  },
+  {
+    "fields": {
+      "instance_resource": 48,
+      "instance_state": 13,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 789
+  },
+  {
+    "fields": {
+      "instance_resource": 48,
+      "instance_state": 8,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 790
+  },
+  {
+    "fields": {
+      "instance_resource": 48,
+      "instance_state": 9,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 791
+  },
+  {
+    "fields": {
+      "instance_resource": 48,
+      "instance_state": 10,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 792
+  },
+  {
+    "fields": {
+      "instance_resource": 48,
+      "instance_state": 12,
+      "role": 7
+    },
+    "model": "core.irroleacl",
+    "pk": 793
+  },
+  {
+    "fields": {
+      "instance_resource": 48,
+      "instance_state": 2,
+      "role": 7
+    },
+    "model": "core.irroleacl",
+    "pk": 794
+  },
+  {
+    "fields": {
+      "instance_resource": 48,
+      "instance_state": 3,
+      "role": 7
+    },
+    "model": "core.irroleacl",
+    "pk": 795
+  },
+  {
+    "fields": {
+      "instance_resource": 48,
+      "instance_state": 4,
+      "role": 7
+    },
+    "model": "core.irroleacl",
+    "pk": 796
+  },
+  {
+    "fields": {
+      "instance_resource": 48,
+      "instance_state": 5,
+      "role": 7
+    },
+    "model": "core.irroleacl",
+    "pk": 797
+  },
+  {
+    "fields": {
+      "instance_resource": 48,
+      "instance_state": 6,
+      "role": 7
+    },
+    "model": "core.irroleacl",
+    "pk": 798
+  },
+  {
+    "fields": {
+      "instance_resource": 48,
+      "instance_state": 7,
+      "role": 7
+    },
+    "model": "core.irroleacl",
+    "pk": 799
+  },
+  {
+    "fields": {
+      "instance_resource": 48,
+      "instance_state": 13,
+      "role": 7
+    },
+    "model": "core.irroleacl",
+    "pk": 800
+  },
+  {
+    "fields": {
+      "instance_resource": 48,
+      "instance_state": 8,
+      "role": 7
+    },
+    "model": "core.irroleacl",
+    "pk": 801
+  },
+  {
+    "fields": {
+      "instance_resource": 48,
+      "instance_state": 9,
+      "role": 7
+    },
+    "model": "core.irroleacl",
+    "pk": 802
+  },
+  {
+    "fields": {
+      "instance_resource": 48,
+      "instance_state": 10,
+      "role": 7
+    },
+    "model": "core.irroleacl",
+    "pk": 803
+  },
+  {
+    "fields": {
       "instance_resource": 43,
       "instance_state": 5,
       "service": 7
@@ -15600,11 +16165,11 @@
   {
     "fields": {
       "communal_cantonal_number": null,
-      "communal_federal_number": "BzKüs",
-      "commune_name": "Bezirk Küssnacht",
+      "communal_federal_number": "BzK\u00fcs",
+      "commune_name": "Bezirk K\u00fcssnacht",
       "district_name": null,
       "district_number": null,
-      "name": "Bezirk Küssnacht",
+      "name": "Bezirk K\u00fcssnacht",
       "section_name": null,
       "section_number": null,
       "zip": null
@@ -15615,11 +16180,11 @@
   {
     "fields": {
       "communal_cantonal_number": null,
-      "communal_federal_number": "BzHöf",
-      "commune_name": "Bezirk Höfe",
+      "communal_federal_number": "BzH\u00f6f",
+      "commune_name": "Bezirk H\u00f6fe",
       "district_name": null,
       "district_number": null,
-      "name": "Bezirk Höfe",
+      "name": "Bezirk H\u00f6fe",
       "section_name": null,
       "section_number": null,
       "zip": null
@@ -15770,6 +16335,15 @@
     },
     "model": "user.role",
     "pk": 11
+  },
+  {
+    "fields": {
+      "group_prefix": null,
+      "name": "System-Betrieb",
+      "role_parent": null
+    },
+    "model": "user.role",
+    "pk": 12
   },
   {
     "fields": {

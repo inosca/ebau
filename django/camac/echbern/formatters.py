@@ -63,6 +63,10 @@ def assure_string_length(value, min_length=1, max_length=0):
     return value
 
 
+def handle_coordinate_value(value):
+    return round(float(value), 3)
+
+
 def authority(service):
     return ns_company_identification.organisationIdentificationType(
         uid=ns_company_identification.uidStructureType(
@@ -221,8 +225,8 @@ def get_realestateinformation(answers):
                 # realestateIncomplete minOccurs 0
                 coordinates=ns_objektwesen.coordinatesType(
                     LV95=pyxb.BIND(
-                        east=parzelle["lagekoordinaten-ost"],
-                        north=parzelle["lagekoordinaten-nord"],
+                        east=handle_coordinate_value(parzelle["lagekoordinaten-ost"]),
+                        north=handle_coordinate_value(parzelle["lagekoordinaten-nord"]),
                         originOfCoordinates=904,
                     )
                 )
@@ -312,10 +316,12 @@ def get_realestateinformation(answers):
                     realestateType="8",
                     coordinates=ns_objektwesen.coordinatesType(
                         LV95=pyxb.BIND(
-                            east=answers["lagekoordinaten-ost-einfache-vorabklaerung"],
-                            north=answers[
-                                "lagekoordinaten-nord-einfache-vorabklaerung"
-                            ],
+                            east=handle_coordinate_value(
+                                answers["lagekoordinaten-ost-einfache-vorabklaerung"]
+                            ),
+                            north=handle_coordinate_value(
+                                answers["lagekoordinaten-nord-einfache-vorabklaerung"]
+                            ),
                             originOfCoordinates=904,
                         )
                     )
@@ -467,7 +473,9 @@ def application(instance: Instance, answers: AnswersDict):
 
 def decision_ruling(instance, decision, answers):
     return ns_application.decisionRulingType(
-        judgement=decision_to_judgement(decision.decision, answers["caluma-form-slug"]),
+        judgement=decision_to_judgement(
+            decision.decision, answers["caluma-workflow-slug"]
+        ),
         date=decision.decision_date,
         ruling=decision.decision_type,
         rulingAuthority=authority(instance.active_service()),
@@ -479,7 +487,9 @@ def office(service):
         entryOfficeIdentification=authority(service),
         municipality=ech_0007_6_0.swissMunicipalityType(
             # municipalityId minOccurs 0
-            municipalityName=service.get_trans_attr("city") or "unknown",
+            municipalityName=assure_string_length(
+                service.get_trans_attr("city") or "unknown", max_length=40
+            ),
             cantonAbbreviation="BE",
         ),
     )

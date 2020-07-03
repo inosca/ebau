@@ -160,6 +160,7 @@ APPLICATIONS = {
             "Lesezugriff": "reader",
             "Publikation": "public_reader",
             "Fachstelle Leitbehörde": "municipality",
+            "System-Betrieb": "support",
         },
         "NOTIFICATIONS": {
             "SUBMIT": "gesuchseingang",

@@ -12,6 +12,7 @@ def test_authenticate_caluma(rf, settings, admin_user, mocker, request_headers):
         "email": admin_user.email,
         "family_name": admin_user.name,
         "given_name": admin_user.surname,
+        settings.OIDC_USERNAME_CLAIM: admin_user.username,
     }
     settings.OIDC_USERINFO_ENDPOINT = "http://fake-endpoint.local"
     userinfo = mocker.patch(

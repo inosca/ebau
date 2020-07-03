@@ -7,6 +7,7 @@ services:
     image: nginx:1.13-alpine
     depends_on:
       - ember
+      - ember-camac-ng
       - php
       - django
       - keycloak
@@ -48,6 +49,7 @@ services:
       - APPLICATION=${APPLICATION}
       - CACHE_BACKEND=django.core.cache.backends.memcached.MemcachedCache
       - CACHE_LOCATION=cache:11211
+      - EVENT_RECEIVER_MODULES=camac.caluma.extensions.events
       - VISIBILITY_CLASSES=camac.caluma.extensions.visibilities.CustomVisibility
       - PERMISSION_CLASSES=camac.caluma.extensions.permissions.CustomPermission
       - VALIDATION_CLASSES=camac.caluma.extensions.validations.CustomValidation
@@ -60,6 +62,12 @@ services:
     volumes:
       - djangomedia:/var/lib/camac/media
       - djangotmpmedia:/tmp/camac/tmpfiles
+
+  ember-camac-ng:
+    build:
+      context: ../ember-camac-ng
+      cache_from:
+        - acr.run/camac-ng/camac-ng/ember-camac-ng:master
 
   ember:
     build:

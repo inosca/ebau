@@ -1,11 +1,11 @@
-from datetime import timedelta
 from random import randrange
 
 import pytz
-from factory import Faker, SubFactory, post_generation
+from factory import Faker, SubFactory, fuzzy, post_generation
 from factory.django import DjangoModelFactory
 
 from camac.applicants.factories import ApplicantFactory
+from camac.core.models import HistoryActionConfig
 from camac.user.factories import (
     GroupFactory,
     LocationFactory,
@@ -84,15 +84,36 @@ class InstanceResponsibilityFactory(DjangoModelFactory):
 class JournalEntryFactory(DjangoModelFactory):
     instance = SubFactory(InstanceFactory)
     user = SubFactory(UserFactory)
-    group = SubFactory(GroupFactory)
     service = SubFactory(ServiceFactory)
     creation_date = Faker("past_datetime", tzinfo=pytz.UTC)
     modification_date = Faker("past_datetime", tzinfo=pytz.UTC)
     text = Faker("text")
-    duration = timedelta(0)
 
     class Meta:
         model = models.JournalEntry
+
+
+class HistoryEntryFactory(DjangoModelFactory):
+    instance = SubFactory(InstanceFactory)
+    user = SubFactory(UserFactory)
+    service = SubFactory(ServiceFactory)
+    created_at = Faker("past_datetime", tzinfo=pytz.UTC)
+    title = Faker("text")
+    body = Faker("text")
+    history_type = fuzzy.FuzzyChoice(HistoryActionConfig.HISTORY_TYPES)
+
+    class Meta:
+        model = models.HistoryEntry
+
+
+class HistoryEntryTFactory(DjangoModelFactory):
+    title = Faker("text")
+    body = Faker("text")
+    history_entry = SubFactory(HistoryEntryFactory)
+    language = "de"
+
+    class Meta:
+        model = models.HistoryEntryT
 
 
 class IssueFactory(DjangoModelFactory):

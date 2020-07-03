@@ -3,7 +3,6 @@ import { later, cancel } from "@ember/runloop";
 import { inject as service } from "@ember/service";
 import BaseAuthenticator from "ember-simple-auth/authenticators/base";
 import fetch from "fetch";
-import decodeJWT from "jwt-decode";
 
 const TOKEN_REFRESH_LEEWAY = 30 * 1000; // 30 seconds
 
@@ -19,7 +18,7 @@ export default class CamacAuthenticator extends BaseAuthenticator {
   async authenticate() {
     const token = this.shoebox.content.token;
 
-    assert("No token passed in shoebox", token);
+    assert("No token data passed in shoebox", token);
 
     return this.handleToken(token);
   }
@@ -27,15 +26,15 @@ export default class CamacAuthenticator extends BaseAuthenticator {
   async refresh() {
     const token = await fetch("/index/token", {
       credentials: "same-origin"
-    }).then(response => response.text());
+    }).then(response => response.json());
 
     return this.handleToken(token);
   }
 
   handleToken(token) {
-    const { exp } = decodeJWT(token);
+    const { expires } = token;
 
-    const diff = new Date(exp * 1000) - new Date() - TOKEN_REFRESH_LEEWAY;
+    const diff = new Date(expires * 1000) - new Date() - TOKEN_REFRESH_LEEWAY;
 
     if (diff > 0) {
       cancel(this._timer);
@@ -44,6 +43,6 @@ export default class CamacAuthenticator extends BaseAuthenticator {
       this.refresh();
     }
 
-    return { token, exp };
+    return token;
   }
 }
