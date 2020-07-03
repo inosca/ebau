@@ -1,25 +1,25 @@
-import json
-
 import pytest
-from caluma.caluma_form import factories as caluma_form_factories
+from caluma.caluma_form import (
+    factories as caluma_form_factories,
+    models as caluma_form_models,
+)
+from caluma.caluma_user.models import BaseUser
+from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
 FULL_PERMISSIONS = {
-    "main": ["read", "write", "write-meta"],
-    "sb1": ["read", "write", "write-meta"],
-    "sb2": ["read", "write", "write-meta"],
-    "nfd": ["read", "write", "write-meta"],
+    "case-meta": ["read", "write"],
+    "main": ["read", "write"],
+    "sb1": ["read", "write"],
+    "sb2": ["read", "write"],
+    "nfd": ["read", "write"],
 }
 
 
-@pytest.fixture
-def mock_nfd_permissions(requests_mock):
-    requests_mock.post(
-        "http://camac-ng.local/graphql/",
-        text=json.dumps({"data": {"allDocuments": {"edges": []}}}),
-    )
+def sort_permissions(permissions):
+    return {key: sorted(value) for key, value in permissions.items()}
 
 
 @pytest.mark.parametrize(
@@ -33,29 +33,35 @@ def mock_nfd_permissions(requests_mock):
             "Applicant",
             "new",
             {
-                "main": [
-                    "read",
-                    "write",
-                    "write-meta",  # write-meta camac-instance-id, submit-date
-                ],
+                "case-meta": ["read"],
+                "main": ["read", "write"],
                 "sb1": [],
                 "sb2": [],
                 "nfd": [],
             },
         ),
-        ("Applicant", "subm", {"main": ["read"], "sb1": [], "sb2": [], "nfd": []}),
+        (
+            "Applicant",
+            "subm",
+            {"case-meta": ["read"], "main": ["read"], "sb1": [], "sb2": [], "nfd": []},
+        ),
         (
             "Applicant",
             "correction",
-            {"main": ["read"], "sb1": [], "sb2": [], "nfd": []},
+            {"case-meta": ["read"], "main": ["read"], "sb1": [], "sb2": [], "nfd": []},
         ),
-        ("Applicant", "rejected", {"main": ["read"], "sb1": [], "sb2": [], "nfd": []}),
+        (
+            "Applicant",
+            "rejected",
+            {"case-meta": ["read"], "main": ["read"], "sb1": [], "sb2": [], "nfd": []},
+        ),
         (
             "Applicant",
             "sb1",
             {
+                "case-meta": ["read"],
                 "main": ["read"],
-                "sb1": ["read", "write", "write-meta"],  # write-meta: submit-date
+                "sb1": ["read", "write"],
                 "sb2": [],
                 "nfd": [],
             },
@@ -64,91 +70,140 @@ def mock_nfd_permissions(requests_mock):
             "Applicant",
             "sb2",
             {
+                "case-meta": ["read"],
                 "main": ["read"],
                 "sb1": ["read"],
-                "sb2": ["read", "write", "write-meta"],  # write-meta: submit-date
+                "sb2": ["read", "write"],
                 "nfd": [],
             },
         ),
         (
             "Applicant",
             "conclusion",
-            {"main": ["read"], "sb1": ["read"], "sb2": ["read"], "nfd": []},
+            {
+                "case-meta": ["read"],
+                "main": ["read"],
+                "sb1": ["read"],
+                "sb2": ["read"],
+                "nfd": [],
+            },
         ),
-        ("Service", "new", {"main": [], "sb1": [], "sb2": [], "nfd": []}),
-        ("Service", "subm", {"main": ["read"], "sb1": [], "sb2": [], "nfd": []}),
-        ("Service", "correction", {"main": ["read"], "sb1": [], "sb2": [], "nfd": []}),
-        ("Service", "rejected", {"main": ["read"], "sb1": [], "sb2": [], "nfd": []}),
-        ("Service", "sb1", {"main": ["read"], "sb1": [], "sb2": [], "nfd": []}),
-        ("Service", "sb2", {"main": ["read"], "sb1": ["read"], "sb2": [], "nfd": []}),
+        (
+            "Service",
+            "new",
+            {"case-meta": ["read"], "main": [], "sb1": [], "sb2": [], "nfd": []},
+        ),
+        (
+            "Service",
+            "subm",
+            {"case-meta": ["read"], "main": ["read"], "sb1": [], "sb2": [], "nfd": []},
+        ),
+        (
+            "Service",
+            "correction",
+            {"case-meta": ["read"], "main": ["read"], "sb1": [], "sb2": [], "nfd": []},
+        ),
+        (
+            "Service",
+            "rejected",
+            {"case-meta": ["read"], "main": ["read"], "sb1": [], "sb2": [], "nfd": []},
+        ),
+        (
+            "Service",
+            "sb1",
+            {"case-meta": ["read"], "main": ["read"], "sb1": [], "sb2": [], "nfd": []},
+        ),
+        (
+            "Service",
+            "sb2",
+            {
+                "case-meta": ["read"],
+                "main": ["read"],
+                "sb1": ["read"],
+                "sb2": [],
+                "nfd": [],
+            },
+        ),
         (
             "Service",
             "conclusion",
-            {"main": ["read"], "sb1": ["read"], "sb2": ["read"], "nfd": []},
+            {
+                "case-meta": ["read"],
+                "main": ["read"],
+                "sb1": ["read"],
+                "sb2": ["read"],
+                "nfd": [],
+            },
         ),
         (
             "Municipality",
             "new",
-            {"main": [], "sb1": [], "sb2": [], "nfd": ["write", "write-meta"]},
+            {"case-meta": ["read"], "main": [], "sb1": [], "sb2": [], "nfd": ["write"]},
         ),
         (
             "Municipality",
             "subm",
             {
-                "main": ["read", "write-meta"],  # write-meta: ebau-number
+                "case-meta": ["read", "write"],
+                "main": ["read"],
                 "sb1": [],
                 "sb2": [],
-                "nfd": ["write", "write-meta"],
+                "nfd": ["write"],
             },
         ),
         (
             "Municipality",
             "correction",
             {
-                "main": ["read", "write", "write-meta"],
+                "case-meta": ["read", "write"],
+                "main": ["read", "write"],
                 "sb1": [],
                 "sb2": [],
-                "nfd": ["write", "write-meta"],
+                "nfd": ["write"],
             },
         ),
         (
             "Municipality",
             "rejected",
             {
-                "main": ["read", "write-meta"],
+                "case-meta": ["read", "write"],
+                "main": ["read"],
                 "sb1": [],
                 "sb2": [],
-                "nfd": ["write", "write-meta"],
+                "nfd": ["write"],
             },
         ),
         (
             "Municipality",
             "sb1",
             {
-                "main": ["read", "write-meta"],
+                "case-meta": ["read", "write"],
+                "main": ["read"],
                 "sb1": [],
                 "sb2": [],
-                "nfd": ["write", "write-meta"],
+                "nfd": ["write"],
             },
         ),
         (
             "Municipality",
             "sb2",
             {
-                "main": ["read", "write-meta"],
+                "case-meta": ["read", "write"],
+                "main": ["read"],
                 "sb1": ["read"],
                 "sb2": [],
-                "nfd": ["write", "write-meta"],
+                "nfd": ["write"],
             },
         ),
         (
             "Municipality",
             "conclusion",
             {
-                "main": ["read", "write-meta"],
+                "case-meta": ["read", "write"],
+                "main": ["read"],
                 "sb1": ["read"],
                 "sb2": ["read"],
-                "nfd": ["write", "write-meta"],
+                "nfd": ["write"],
             },
         ),
         ("Support", "new", FULL_PERMISSIONS),
@@ -161,12 +216,7 @@ def mock_nfd_permissions(requests_mock):
     ],
 )
 def test_instance_permissions(
-    admin_client,
-    activation,
-    instance,
-    expected_permissions,
-    use_caluma_form,
-    mock_nfd_permissions,
+    admin_client, activation, instance, expected_permissions, use_caluma_form
 ):
     url = reverse("instance-detail", args=[instance.pk])
 
@@ -176,13 +226,12 @@ def test_instance_permissions(
 
     permissions = response.json()["data"]["meta"]["permissions"]
 
-    assert permissions == expected_permissions
+    assert sort_permissions(permissions) == sort_permissions(expected_permissions)
 
 
 @pytest.fixture
 def nfd_form(nfd_table_question):
-
-    form = caluma_form_factories.FormFactory(slug="nfd")
+    form = caluma_form_models.Form.objects.get(slug="nfd")
     caluma_form_factories.FormQuestionFactory(form=form, question=nfd_table_question)
     return form
 
@@ -213,27 +262,24 @@ def nfd_table_question(row_form):
 
 
 @pytest.fixture
-def no_document():
-    return None
+def nfd_case(instance, caluma_workflow, nfd_form):
+    case = workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(slug="building-permit"),
+        form=caluma_form_models.Form.objects.get(slug="main-form"),
+        meta={"camac-instance-id": instance.pk},
+        user=BaseUser(),
+    )
+
+    return case
 
 
 @pytest.fixture
-def root_doc(nfd_form):
-    doc = caluma_form_factories.DocumentFactory(form=nfd_form)
+def empty_document(nfd_case):
+    workflow_api.complete_work_item(
+        work_item=nfd_case.work_items.get(task_id="submit"), user=BaseUser()
+    )
 
-    doc.family = doc
-    doc.save()
-
-    return doc
-
-
-@pytest.fixture
-def empty_document(root_doc, instance):
-
-    root_doc.meta = {"camac-instance-id": instance.pk}
-    root_doc.save()
-
-    return root_doc
+    return nfd_case.work_items.get(task_id="nfd").document
 
 
 @pytest.fixture
@@ -285,18 +331,13 @@ def document_with_row_and_erledigt(empty_document, row_form, nfd_table_question)
 @pytest.mark.parametrize(
     "role__name,expected_nfd_permissions,caluma_doc",
     [
-        ("Applicant", [], pytest.lazy_fixture("no_document")),
         ("Applicant", [], pytest.lazy_fixture("empty_document")),
         ("Applicant", [], pytest.lazy_fixture("document_with_row_but_wrong_status")),
         ("Applicant", ["read"], pytest.lazy_fixture("document_with_row_and_erledigt")),
         ("Applicant", ["read", "write"], pytest.lazy_fixture("document_with_all_rows")),
-        ("Service", [], pytest.lazy_fixture("no_document")),
-        ("Municipality", ["write", "write-meta"], pytest.lazy_fixture("no_document")),
-        (
-            "Support",
-            ["read", "write", "write-meta"],
-            pytest.lazy_fixture("no_document"),
-        ),
+        ("Service", [], pytest.lazy_fixture("empty_document")),
+        ("Municipality", ["write"], pytest.lazy_fixture("empty_document")),
+        ("Support", ["read", "write"], pytest.lazy_fixture("empty_document")),
     ],
 )
 def test_instance_nfd_permissions(
@@ -312,9 +353,8 @@ def test_instance_nfd_permissions(
     response = admin_client.get(url)
 
     assert response.status_code == status.HTTP_200_OK
-    assert (
-        response.json()["data"]["meta"]["permissions"]["nfd"]
-        == expected_nfd_permissions
+    assert sorted(response.json()["data"]["meta"]["permissions"]["nfd"]) == sorted(
+        expected_nfd_permissions
     )
 
 
@@ -322,14 +362,14 @@ def test_instance_nfd_permissions(
 @pytest.mark.parametrize(
     "instance_state__name,group_name,form_slug,expected_permissions",
     [
-        ("new", "municipality", "main", ["read", "write", "write-meta"]),
+        ("new", "municipality", "main", ["read", "write"]),
         ("new", "construction-control", "main", []),
-        ("rejected", "municipality", "main", ["read", "write-meta"]),
-        ("rejected", "construction-control", "main", ["read", "write-meta"]),
+        ("rejected", "municipality", "main", ["read"]),
+        ("rejected", "construction-control", "main", ["read"]),
         ("sb1", "municipality", "sb1", []),
-        ("sb1", "construction-control", "sb1", ["read", "write", "write-meta"]),
+        ("sb1", "construction-control", "sb1", ["read", "write"]),
         ("sb2", "municipality", "sb2", []),
-        ("sb2", "construction-control", "sb2", ["read", "write", "write-meta"]),
+        ("sb2", "construction-control", "sb2", ["read", "write"]),
     ],
 )
 def test_instance_paper_permissions(
@@ -382,7 +422,6 @@ def test_instance_paper_permissions(
     )
 
     assert response.status_code == status.HTTP_200_OK
-    assert (
-        response.json()["data"]["meta"]["permissions"][form_slug]
-        == expected_permissions
+    assert sorted(response.json()["data"]["meta"]["permissions"][form_slug]) == sorted(
+        expected_permissions
     )

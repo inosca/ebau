@@ -26,6 +26,12 @@ def test_base_delivery(
     ech_mandatory_answers = ech_mandatory_answers_baugesuch
     if form == "baugesuch":
         ech_mandatory_answers_baugesuch["baukosten-in-chf"] = 999  # too cheap
+        ech_mandatory_answers_baugesuch["parzelle"][0][
+            "lagekoordinaten-nord"
+        ] = 1070500.0001  # too many decimal places
+        ech_mandatory_answers_baugesuch["parzelle"][0][
+            "lagekoordinaten-ost"
+        ] = 2480034.0
     elif form == "einfache vorabklaerung":
         ech_mandatory_answers = ech_mandatory_answers_einfache_vorabklaerung
         ech_mandatory_answers[

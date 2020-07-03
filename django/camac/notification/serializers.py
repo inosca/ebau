@@ -20,13 +20,12 @@ from camac.core.models import (
     Activation,
     Answer,
     BillingV2Entry,
-    Journal,
-    JournalT,
+    HistoryActionConfig,
     WorkflowEntry,
 )
 from camac.core.translations import get_translations
 from camac.instance.mixins import InstanceEditableMixin
-from camac.instance.models import Instance
+from camac.instance.models import HistoryEntry, HistoryEntryT, Instance
 from camac.instance.validators import transform_coordinates
 from camac.user.models import Role, Service
 from camac.utils import flatten
@@ -433,16 +432,17 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
     )
     email_list = serializers.CharField(required=False)
 
-    def _get_recipients_caluma_municipality(self, instance):  # pragma: no cover
+    def _get_recipients_caluma_municipality(self, instance):
         municipality_service_id = CalumaApi().get_municipality(instance)
 
-        if not municipality_service_id:
+        if not municipality_service_id:  # pragma: no cover
             raise exceptions.ValidationError(
                 f"Could not get Caluma municipality for instance {instance.pk}"
             )
 
-        service = Service.objects.filter(pk=municipality_service_id).first()
-        return [{"to": service.email}]
+        return self._get_responsible(
+            instance, Service.objects.filter(pk=municipality_service_id).first()
+        )
 
     def _get_recipients_applicant(self, instance):
         return [
@@ -591,16 +591,13 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
                     .users.first()
                 )
 
-            if (
-                settings.APPLICATION_NAME == "kt_bern"
-                or settings.APPLICATION_NAME == "demo"
-            ):  # pragma: no cover
-                journal_entry = Journal.objects.create(
+            if settings.APPLICATION_NAME in ("kt_bern", "demo"):  # pragma: no cover
+                history_entry = HistoryEntry.objects.create(
                     instance=instance,
-                    mode="auto",
-                    additional_text=body,
-                    created=timezone.now(),
+                    body=body,
+                    created_at=timezone.now(),
                     user=user,
+                    history_type=HistoryActionConfig.HISTORY_TYPE_NOTIFICATION,
                 )
                 for (lang, text) in get_translations(
                     gettext_noop("Notification sent to %(receiver)s (%(subject)s)")
@@ -608,10 +605,10 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
                     recipients_log = ", ".join(
                         [self._recipient_log(r) for r in recipients]
                     )
-                    JournalT.objects.create(
-                        journal=journal_entry,
-                        text=text % {"receiver": recipients_log, "subject": subject},
-                        additional_text=body,
+                    HistoryEntryT.objects.create(
+                        history_entry=history_entry,
+                        title=text % {"receiver": recipients_log, "subject": subject},
+                        body=body,
                         language=lang,
                     )
 

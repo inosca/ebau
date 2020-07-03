@@ -64,7 +64,9 @@ loadconfig-camac: ## Load the camac configuration
 
 .PHONY: loadconfig-dms
 loadconfig-dms: ## Load the DMS configuration
-	@docker-compose exec document-merge-service python manage.py loaddata /tmp/document-merge-service/dump.json
+	@if docker-compose config|grep -q document-merge-service; then \
+		docker-compose exec document-merge-service python manage.py loaddata /tmp/document-merge-service/dump.json; \
+	fi
 
 .PHONY: loadconfig
 loadconfig: loadconfig-camac loadconfig-dms ## Load the DMS and camac configuration
@@ -168,9 +170,12 @@ demo: ## Set APPLICATION to kt_uri
 .PHONY: clean
 clean: ## Remove temporary files / build artefacts etc
 	@find . -name node_modules -type d | xargs rm -rf
-	@rm -rf ./ember/dist ./ember-caluma-portal/dist ./php/kt_uri/public/js/dist ./php/kt_schwyz/public/js/dist
-	@rm -rf ./ember/tmp ./ember-caluma-portal/tmp
-	@rm -rf ./ember/build ./ember-caluma-portal/build
+	@find . -name .pytest_cache -type d | xargs rm -rf
+	@find . -name __pycache__ -type d | xargs rm -rf
+	@rm -rf ./django/staticfiles ./django/coverage
+	@rm -rf ./ember/dist ./ember-caluma-portal/dist ./ember-camac-ng/dist ./php/kt_uri/public/js/dist ./php/kt_schwyz/public/js/dist
+	@rm -rf ./ember/tmp ./ember-caluma-portal/tmp ./ember-camac-ng/tmp
+	@rm -rf ./ember/build ./ember-caluma-portal/build ./ember-camac-ng/build
 
 .PHONY: release
 release: ## Draft a new release
