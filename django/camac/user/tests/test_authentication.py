@@ -1,4 +1,5 @@
 import pytest
+from django.conf import settings
 from jose.exceptions import ExpiredSignatureError, JOSEError
 from rest_framework.exceptions import AuthenticationFailed
 
@@ -16,6 +17,7 @@ def test_authenticate_disabled_user(rf, admin_user, mocker, clear_cache):
         "email": admin_user.email,
         "family_name": admin_user.name,
         "given_name": admin_user.surname,
+        settings.OIDC_USERNAME_CLAIM: admin_user.username,
     }
     decode_token = mocker.patch("keycloak.KeycloakOpenID.decode_token")
     decode_token.return_value = token_dict
@@ -41,6 +43,7 @@ def test_authenticate_disabled_user(rf, admin_user, mocker, clear_cache):
                 "email": "new-guy@example.com",
                 "family_name": "New",
                 "given_name": "Guy",
+                settings.OIDC_USERNAME_CLAIM: "new-here",
             },
             "new-here",
         ),
@@ -49,6 +52,7 @@ def test_authenticate_disabled_user(rf, admin_user, mocker, clear_cache):
                 "sub": "service-account-gemeinde",
                 "email": "new-guy@example.com",
                 "clientId": "testClient",
+                settings.OIDC_USERNAME_CLAIM: "service-account-gemeinde",
             },
             "service-account-gemeinde",
         ),
@@ -99,6 +103,7 @@ def test_authenticate_ok(rf, admin_user, mocker, clear_cache):
         "email": admin_user.email,
         "family_name": admin_user.name,
         "given_name": admin_user.surname,
+        settings.OIDC_USERNAME_CLAIM: admin_user.username,
     }
     decode_token = mocker.patch("keycloak.KeycloakOpenID.decode_token")
     decode_token.return_value = token_value

@@ -1,1 +1,153 @@
-[]
+[
+  {
+    "fields": {
+      "closed_at": null,
+      "closed_by_group": null,
+      "closed_by_user": null,
+      "created_at": "2020-06-22T10:17:20.879Z",
+      "created_by_group": null,
+      "created_by_user": null,
+      "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
+      "family": "2f9f5d02-b5cf-4df0-aa9c-88a3f42bc774",
+      "meta": {
+        "camac-instance-id": 2,
+        "migrated": true,
+        "submit-date": "2020-03-06T11:14:33+0000"
+      },
+      "modified_at": "2020-06-22T10:17:20.880Z",
+      "status": "running",
+      "workflow": "preliminary-clarification"
+    },
+    "model": "caluma_workflow.case",
+    "pk": "2f9f5d02-b5cf-4df0-aa9c-88a3f42bc774"
+  },
+  {
+    "fields": {
+      "closed_at": null,
+      "closed_by_group": null,
+      "closed_by_user": null,
+      "created_at": "2020-06-22T10:17:20.836Z",
+      "created_by_group": null,
+      "created_by_user": null,
+      "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
+      "family": "b8abe7c4-668e-4843-9218-6b35ea2cec5a",
+      "meta": {
+        "camac-instance-id": 1,
+        "migrated": true
+      },
+      "modified_at": "2020-06-22T10:17:20.841Z",
+      "status": "running",
+      "workflow": "building-permit"
+    },
+    "model": "caluma_workflow.case",
+    "pk": "b8abe7c4-668e-4843-9218-6b35ea2cec5a"
+  },
+  {
+    "fields": {
+      "addressed_groups": "[\"TODO\"]",
+      "assigned_users": "[]",
+      "case": "b8abe7c4-668e-4843-9218-6b35ea2cec5a",
+      "child_case": null,
+      "closed_at": null,
+      "closed_by_group": null,
+      "closed_by_user": null,
+      "controlling_groups": "[]",
+      "created_at": "2020-06-22T10:17:20.873Z",
+      "created_by_group": null,
+      "created_by_user": null,
+      "deadline": null,
+      "description": "{\"de\": null, \"fr\": null}",
+      "document": null,
+      "meta": {
+        "migrated": true
+      },
+      "modified_at": "2020-06-22T10:17:20.873Z",
+      "name": "{\"de\": \"Gesuch einreichen\", \"fr\": null}",
+      "status": "ready",
+      "task": "submit"
+    },
+    "model": "caluma_workflow.workitem",
+    "pk": "1f803dcd-71e0-433f-9938-720b396c5d77"
+  },
+  {
+    "fields": {
+      "addressed_groups": "[\"TODO\"]",
+      "assigned_users": "[]",
+      "case": "2f9f5d02-b5cf-4df0-aa9c-88a3f42bc774",
+      "child_case": null,
+      "closed_at": null,
+      "closed_by_group": null,
+      "closed_by_user": null,
+      "controlling_groups": "[]",
+      "created_at": "2020-06-22T10:17:20.888Z",
+      "created_by_group": null,
+      "created_by_user": null,
+      "deadline": null,
+      "description": "{\"de\": null, \"fr\": null}",
+      "document": "cb3d4d28-86a9-42f9-ba0b-f90876b61976",
+      "meta": {
+        "migrated": true
+      },
+      "modified_at": "2020-06-22T10:17:20.890Z",
+      "name": "{\"de\": \"Nachforderungen\", \"fr\": null}",
+      "status": "ready",
+      "task": "nfd"
+    },
+    "model": "caluma_workflow.workitem",
+    "pk": "da5f68f4-c504-4f00-bee9-c5fcd020e594"
+  },
+  {
+    "fields": {
+      "addressed_groups": "[\"TODO\"]",
+      "assigned_users": "[]",
+      "case": "2f9f5d02-b5cf-4df0-aa9c-88a3f42bc774",
+      "child_case": null,
+      "closed_at": "2020-06-22T10:17:20.885Z",
+      "closed_by_group": null,
+      "closed_by_user": null,
+      "controlling_groups": "[]",
+      "created_at": "2020-06-22T10:17:20.882Z",
+      "created_by_group": null,
+      "created_by_user": null,
+      "deadline": null,
+      "description": "{\"de\": null, \"fr\": null}",
+      "document": null,
+      "meta": {
+        "migrated": true
+      },
+      "modified_at": "2020-06-22T10:17:20.885Z",
+      "name": "{\"de\": \"Gesuch einreichen\", \"fr\": null}",
+      "status": "skipped",
+      "task": "submit"
+    },
+    "model": "caluma_workflow.workitem",
+    "pk": "f4f1c346-1fc7-4679-a9fd-09d911c934e6"
+  },
+  {
+    "fields": {
+      "addressed_groups": "[\"TODO\"]",
+      "assigned_users": "[]",
+      "case": "2f9f5d02-b5cf-4df0-aa9c-88a3f42bc774",
+      "child_case": null,
+      "closed_at": null,
+      "closed_by_group": null,
+      "closed_by_user": null,
+      "controlling_groups": "[]",
+      "created_at": "2020-06-22T10:17:20.887Z",
+      "created_by_group": null,
+      "created_by_user": null,
+      "deadline": null,
+      "description": "{\"de\": null, \"fr\": null}",
+      "document": null,
+      "meta": {
+        "migrated": true
+      },
+      "modified_at": "2020-06-22T10:17:20.887Z",
+      "name": "{\"de\": \"eBau-Nummer vergeben\", \"fr\": null}",
+      "status": "ready",
+      "task": "ebau-number"
+    },
+    "model": "caluma_workflow.workitem",
+    "pk": "fc3197af-0c70-4dc9-ab7c-2883f0f3524a"
+  }
+]

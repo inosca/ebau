@@ -39,7 +39,8 @@ class Command(BaseCommand):
         parser.set_defaults(caluma=settings.APPLICATION.get("FORM_BACKEND") == "caluma")
 
     def handle(self, *args, **options):
-        fixtures = []
+        config_fixtures = []
+        data_fixtures = []
 
         model = get_user_model()
         try:
@@ -47,21 +48,25 @@ class Command(BaseCommand):
             # available in db
             model.objects.get(pk=1)
         except model.DoesNotExist:
-            fixtures.append(settings.APPLICATION_DIR("init.json"))
+            data_fixtures.append(settings.APPLICATION_DIR("init.json"))
             if settings.ENV != "production":
                 # load test data in dev setup
-                fixtures.append(settings.APPLICATION_DIR("data.json"))
+                data_fixtures.append(settings.APPLICATION_DIR("data.json"))
                 if options["caluma"]:
-                    fixtures.append(settings.APPLICATION_DIR("data-caluma-form.json"))
-                    fixtures.append(
+                    data_fixtures.append(
+                        settings.APPLICATION_DIR("data-caluma-form.json")
+                    )
+                    data_fixtures.append(
                         settings.APPLICATION_DIR("data-caluma-workflow.json")
                     )
 
         # default application config
-        fixtures.append(settings.APPLICATION_DIR("config.json"))
+        config_fixtures.append(settings.APPLICATION_DIR("config.json"))
         if options["caluma"]:
-            fixtures.append(settings.APPLICATION_DIR("config-caluma-form.json"))
-            fixtures.append(settings.APPLICATION_DIR("config-caluma-workflow.json"))
+            config_fixtures.append(settings.APPLICATION_DIR("config-caluma-form.json"))
+            config_fixtures.append(
+                settings.APPLICATION_DIR("config-caluma-workflow.json")
+            )
 
         self.stdout.write("Flushing 'pure' config models")
         for model_name in (
@@ -74,6 +79,7 @@ class Command(BaseCommand):
             model = apps.get_model(app_label=app_label, model_name=model_name)
             model.objects.all().delete()
 
+        fixtures = config_fixtures + data_fixtures
         self.stdout.write("Loading config {0}".format(", ".join(fixtures)))
         call_command("loaddata", *fixtures)
 

@@ -1,0 +1,62 @@
+# import * from 'ember-caluma/gql/fragments/field-answer'
+
+query GetCases(
+  $cursor: String
+  $order: [CaseOrderSetType]!
+  $forms: [String]!
+  $metaValueFilters: [JSONValueFilterType]
+  $hasAnswerFilters: [HasAnswerFilterType]
+  $searchAnswersFilters: [SearchAnswersFilterType]
+) {
+  allCases(
+    first: 15
+    after: $cursor
+    order: $order
+    filter: [
+      { documentForms: $forms }
+      { metaValue: $metaValueFilters }
+      { hasAnswer: $hasAnswerFilters }
+      { searchAnswers: $searchAnswersFilters }
+    ]
+  ) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    totalCount
+    edges {
+      node {
+        id
+        meta
+        document {
+          id
+          form {
+            slug
+            name
+          }
+          answers(
+            questions: [
+              "gemeinde"
+              "strasse-gesuchstellerin"
+              "nummer-gesuchstellerin"
+              "plz-gesuchstellerin"
+              "ort-gesuchstellerin"
+              "anfrage-zur-vorabklaerung"
+              "beschreibung-bauvorhaben"
+              "gemeinde"
+              "strasse-flurname"
+              "nr"
+              "ort-grundstueck"
+            ]
+          ) {
+            edges {
+              node {
+                ...FieldAnswer
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

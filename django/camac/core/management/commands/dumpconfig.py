@@ -169,9 +169,6 @@ pure_config_models = [
     "file.IrFileuploadCc",
     "file.IrFilevalidation",
     "file.IrFileAccessType",
-    # journal
-    "core.JournalActionConfig",
-    "core.JournalActionConfigT",
     "core.TemplateGenerateAction",
     "core.WorkflowAction",
     "core.WorkflowRole",
@@ -181,6 +178,9 @@ pure_config_models = [
     "responsible.IrEditresponsiblegroup",
     "responsible.ASetresponsiblegroup",
     "responsible.ResponsibleServiceAllocation",
+    # history
+    "core.HistoryActionConfig",
+    "core.HistoryActionConfigT",
 ]
 
 # List of models that have foreign keys referencing non-config tables

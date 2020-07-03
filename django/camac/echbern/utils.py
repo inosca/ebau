@@ -23,16 +23,9 @@ def handle_string_values(value):
     return value
 
 
-def decision_to_judgement(decision: str, form_slug: str):
-    key = "baugesuch"
-    if form_slug.startswith("vorabklaerung"):
-        key = "vorabklaerung"
-    return DECISION_JUDGEMENT_MAP[key][decision]
+def decision_to_judgement(decision: str, workflow_slug: str):
+    return DECISION_JUDGEMENT_MAP[workflow_slug][decision]
 
 
-def judgement_to_decision(judgement: int, form_slug: str):
-    key = "baugesuch"
-    if form_slug.startswith("vorabklaerung"):
-        key = "vorabklaerung"
-    judgement_map = {v: k for k, v in DECISION_JUDGEMENT_MAP[key].items()}
-    return judgement_map[judgement]
+def judgement_to_decision(judgement: int, workflow_slug: str):
+    return {v: k for k, v in DECISION_JUDGEMENT_MAP[workflow_slug].items()}[judgement]
