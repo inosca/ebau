@@ -46,6 +46,9 @@ services:
         DEPLOY_TARGET: staging
     restart: always
 
+  ember-camac-ng:
+    image: acr.run/camac-ng/camac-ng/ember-camac-ng:${CI_COMMIT_REF_SLUG}
+
   php:
     image: acr.run/camac-ng/camac-ng/php:${CI_COMMIT_REF_SLUG}-${APPLICATION}
     build:

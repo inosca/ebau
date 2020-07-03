@@ -566,7 +566,11 @@
   {
     "fields": {
       "allow_all_forms": false,
-      "allow_forms": ["baugesuch", "baugesuch-generell", "baugesuch-mit-uvp"],
+      "allow_forms": [
+        "baugesuch",
+        "baugesuch-generell",
+        "baugesuch-mit-uvp"
+      ],
       "created_at": "2020-04-28T13:41:26.483Z",
       "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -576,7 +580,9 @@
       "meta": {},
       "modified_at": "2020-06-22T10:00:49.330Z",
       "name": "{\"de\": \"Baugesuch\", \"fr\": null}",
-      "start_tasks": ["submit"]
+      "start_tasks": [
+        "submit"
+      ]
     },
     "model": "caluma_workflow.workflow",
     "pk": "building-permit"
@@ -584,7 +590,10 @@
   {
     "fields": {
       "allow_all_forms": false,
-      "allow_forms": ["vorabklaerung-einfach", "vorabklaerung-vollstaendig"],
+      "allow_forms": [
+        "vorabklaerung-einfach",
+        "vorabklaerung-vollstaendig"
+      ],
       "created_at": "2020-06-22T10:00:51.193Z",
       "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -594,7 +603,9 @@
       "meta": {},
       "modified_at": "2020-06-22T10:00:51.193Z",
       "name": "{\"de\": \"Vorabkl\\u00e4rung\", \"fr\": null}",
-      "start_tasks": ["submit"]
+      "start_tasks": [
+        "submit"
+      ]
     },
     "model": "caluma_workflow.workflow",
     "pk": "preliminary-clarification"
