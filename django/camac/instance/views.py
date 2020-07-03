@@ -6,7 +6,7 @@ import django_excel
 from django.conf import settings
 from django.core.files import File
 from django.db import transaction
-from django.db.models import OuterRef, Subquery
+from django.db.models import OuterRef, Q, Subquery
 from django.http import HttpResponse
 from django.utils import timezone
 from docxtpl import DocxTemplate
@@ -535,6 +535,55 @@ class JournalEntryView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
 
     def has_object_destroy_permission_for_municipality(self, obj):
         return self.has_object_update_permission_for_canton(obj)
+
+
+class HistoryEntryView(
+    mixins.InstanceQuerysetMixin, mixins.InstanceEditableMixin, views.ModelViewSet
+):
+    """History entries used for internal use and not viewable by applicant."""
+
+    swagger_schema = None
+    serializer_class = serializers.HistoryEntrySerializer
+    filterset_class = filters.HistoryEntryFilterSet
+    queryset = models.HistoryEntry.objects.all()
+    group_required = False
+
+    def get_base_queryset(self):
+        queryset = super().get_base_queryset()
+        return queryset.filter(
+            Q(service=self.request.group.service_id) | Q(service__isnull=True)
+        )
+
+    @permission_aware
+    def get_queryset(self):
+        """Return no result when user has no specific permission."""
+        queryset = super().get_base_queryset()
+        return queryset.none()
+
+    @permission_aware
+    def has_create_permission(self):
+        return False
+
+    def has_create_permission_for_support(self):
+        return True
+
+    @permission_aware
+    def has_object_update_permission(self, object):  # pragma: no cover
+        # only needed as entry for permission aware decorator
+        # but actually never executed as applicant may actually
+        # not read any history entries
+        return False
+
+    def has_object_update_permission_for_support(self, object):
+        return True
+
+    @permission_aware
+    def has_object_destroy_permission(self, object):  # pragma: no cover
+        # see comment has_object_update_permission
+        return False
+
+    def has_object_destroy_permission_for_support(self, object):
+        return True
 
 
 class IssueView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
