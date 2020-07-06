@@ -10,13 +10,26 @@ def test_get_group_default(rf, admin_user, group):
     assert request_group == group
 
 
-def test_get_group_default_multilang(rf, admin_user, group, multilang):
+def test_get_group_portal(rf, settings, admin_user, group, group_factory):
+    portal_group = group_factory(name="Portal")
+    settings.APPLICATION["PORTAL_GROUP"] = portal_group.pk
     request = rf.request()
     request.user = admin_user
-    request.auth = {"aud": "unknown"}
+    request.auth = {"aud": "portal"}
 
     request_group = middleware.get_group(request)
-    assert request_group == group
+    assert request_group == portal_group
+
+
+def test_get_group_portal_list(rf, settings, admin_user, group, group_factory):
+    portal_group = group_factory(name="Portal")
+    settings.APPLICATION["PORTAL_GROUP"] = portal_group.pk
+    request = rf.request()
+    request.user = admin_user
+    request.auth = {"aud": ["something", "portal", "else"]}
+
+    request_group = middleware.get_group(request)
+    assert request_group == portal_group
 
 
 def test_get_group_param(rf, admin_user, user_group_factory):
