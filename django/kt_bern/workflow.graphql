@@ -3,7 +3,7 @@ mutation CreateEBauNumberTask {
     input: {
       slug: "ebau-number"
       name: "eBau-Nummer vergeben"
-      addressGroups: "['TODO']"
+      addressGroups: "['municipality']|groups"
     }
   ) {
     clientMutationId
@@ -15,7 +15,7 @@ mutation CreateClaimTask {
       slug: "nfd"
       name: "Nachforderungen"
       form: "nfd"
-      addressGroups: "['TODO']"
+      addressGroups: "['municipality']|groups"
     }
   ) {
     clientMutationId
@@ -28,7 +28,8 @@ mutation CreateSb1Task {
       slug: "sb1"
       name: "Selbstdeklaration 1"
       form: "sb1"
-      addressGroups: "['TODO']"
+      addressGroups: "[]"
+      controlGroups: "['construction_control']|groups"
     }
   ) {
     clientMutationId
@@ -41,7 +42,8 @@ mutation CreateSb2Task {
       slug: "sb2"
       name: "Selbstdeklaration 2"
       form: "sb2"
-      addressGroups: "['TODO']"
+      addressGroups: "[]"
+      controlGroups: "['construction_control']|groups"
     }
   ) {
     clientMutationId
@@ -50,11 +52,7 @@ mutation CreateSb2Task {
 
 mutation CreateSubmitTask {
   saveCompleteWorkflowFormTask(
-    input: {
-      slug: "submit"
-      name: "Gesuch einreichen"
-      addressGroups: "['TODO']"
-    }
+    input: { slug: "submit", name: "Gesuch einreichen", addressGroups: "[]" }
   ) {
     clientMutationId
   }

@@ -5,6 +5,7 @@ from django.utils import timezone
 from django.db import migrations
 from django.conf import settings
 from camac.constants import kt_bern as constants
+from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow.utils import get_jexl_groups
 from caluma.caluma_workflow import models as workflow_models
 
@@ -71,8 +72,12 @@ def skip_submit(case, documents, apps):
             task=task,
             meta={"migrated": True},
             name=task.name,
-            addressed_groups=get_jexl_groups(task.address_groups, case, None, None),
-            controlling_groups=get_jexl_groups(task.control_groups, case, None, None),
+            addressed_groups=get_jexl_groups(
+                task.address_groups, task, case, BaseUser(), None
+            ),
+            controlling_groups=get_jexl_groups(
+                task.control_groups, task, case, BaseUser(), None
+            ),
             deadline=None,
             status=workflow_models.WorkItem.STATUS_READY,
         )
@@ -95,8 +100,12 @@ def skip_ebau_nr_and_nfd(case, documents, apps):
         task=task,
         meta={"migrated": True},
         name=task.name,
-        addressed_groups=get_jexl_groups(task.address_groups, case, None, None),
-        controlling_groups=get_jexl_groups(task.control_groups, case, None, None),
+        addressed_groups=get_jexl_groups(
+            task.address_groups, task, case, BaseUser(), None
+        ),
+        controlling_groups=get_jexl_groups(
+            task.control_groups, task, case, BaseUser(), None
+        ),
         deadline=None,
         status=workflow_models.WorkItem.STATUS_READY,
     )
@@ -119,8 +128,12 @@ def skip_sb1(case, documents, apps):
         task=task,
         meta={"migrated": True},
         name=task.name,
-        addressed_groups=get_jexl_groups(task.address_groups, case, None, None),
-        controlling_groups=get_jexl_groups(task.control_groups, case, None, None),
+        addressed_groups=get_jexl_groups(
+            task.address_groups, task, case, BaseUser(), None
+        ),
+        controlling_groups=get_jexl_groups(
+            task.control_groups, task, case, BaseUser(), None
+        ),
         deadline=None,
         status=workflow_models.WorkItem.STATUS_READY,
     )
@@ -182,9 +195,6 @@ def document_to_case(apps, schema_editor):
                 created_by_group=main_document.created_by_group,
             )
 
-            main_document.meta = {}
-            main_document.save()
-
             case.family = case
             case.save()
 
@@ -193,10 +203,10 @@ def document_to_case(apps, schema_editor):
                 case=case,
                 task=submit_task,
                 addressed_groups=get_jexl_groups(
-                    submit_task.address_groups, case, None, None
+                    submit_task.address_groups, submit_task, case, BaseUser(), None
                 ),
                 controlling_groups=get_jexl_groups(
-                    submit_task.control_groups, case, None, None
+                    submit_task.control_groups, submit_task, case, BaseUser(), None
                 ),
                 deadline=None,
                 meta={"migrated": True},
@@ -263,7 +273,13 @@ def document_to_case(apps, schema_editor):
 
                 case.save()
 
+            main_document.meta = {}
+            main_document.save()
+
         except Exception as e:
+            if case:
+                case.delete()
+
             failed_instances.append(instance.pk)
             log.error(f"Error while migrating instance {instance.pk}: {e}")
 

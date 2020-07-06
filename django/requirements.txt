@@ -28,5 +28,5 @@ xmlschema==1.0.14
 requests==2.23.0
 PyXB==1.2.6
 django-extra-fields==2.0.3
-caluma==5.8.1
+caluma==5.9.0
 pyjwt==1.7.1
