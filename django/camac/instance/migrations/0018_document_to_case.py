@@ -22,6 +22,7 @@ INSTANCE_STATES = [
     constants.INSTANCE_STATE_ZIRKULATION,
     constants.INSTANCE_STATE_CORRECTION_IN_PROGRESS,
     constants.INSTANCE_STATE_CORRECTED,
+    constants.INSTANCE_STATE_FINISHED,
     # will be canceled later
     constants.INSTANCE_STATE_REJECTED,
     # nfd and ebau-number complete
@@ -30,7 +31,6 @@ INSTANCE_STATES = [
     constants.INSTANCE_STATE_SB2,
     # sb2 complete, case complete
     constants.INSTANCE_STATE_TO_BE_FINISHED,
-    constants.INSTANCE_STATE_FINISHED,
     constants.INSTANCE_STATE_ARCHIVED,
     constants.INSTANCE_STATE_DONE,
 ]
@@ -93,6 +93,9 @@ def skip_ebau_nr_and_nfd(case, documents, apps):
 
     for work_item in case.work_items.filter(task_id__in=["ebau-number", "nfd"]):
         skip_work_item(work_item)
+
+    if is_vorabklaerung(case):
+        return
 
     task = Task.objects.get(pk="sb1")
     sb1_work_item = WorkItem.objects.create(
@@ -173,6 +176,8 @@ def document_to_case(apps, schema_editor):
                 )
                 main_document = documents.get(**{"form__meta__is-main-form": True})
             except Document.DoesNotExist:
+                failed_instances.append(instance.pk)
+
                 log.error(f"Main document not found for instance {instance.pk}")
                 continue
 
@@ -225,6 +230,9 @@ def document_to_case(apps, schema_editor):
 
                 case.status = workflow_models.Case.STATUS_CANCELED
                 case.save()
+
+                main_document.meta = {}
+                main_document.save()
 
                 continue
 
