@@ -1,0 +1,96 @@
+<Notifications />
+
+<div class="workitemlist-filters">
+  <div>
+    <p>{{t "workitemlist.responsible"}}</p>
+    <div class="filters-wrapper">
+      <input value="all" checked={{eq this.filters.responsible "all"}} type="radio" class="filter-button" name="verantwortlich" id="filter-all"/>
+      <label for="filter-all">{{t "workitemlist.filter.all"}} ()</label>
+      <input value="own" checked={{eq this.filters.responsible "own"}} type="radio" class="filter-button" name="verantwortlich" id="filter-own"/>
+      <label for="filter-own">{{t "workitemlist.filter.own"}} ()</label>
+    </div>
+  </div>
+  <div>
+    <p>{{t "workitemlist.filter.status"}}</p>
+    <div class="filters-wrapper">
+      <Input @value="open" checked={{eq this.filters.status "open"}} @type="radio" @class="filter-button" @name="status" @id="filter-open"/>
+      <label for="filter-open">{{t "workitemlist.filter.open"}}</label>
+      <Input @value="closed" checked={{eq this.filters.status "closed"}} @type="radio" @class="filter-button" @name="status" @id="filter-closed"/>
+      <label for="filter-closed">{{t "workitemlist.filter.closed"}}</label>
+    </div>
+  </div>
+  <div>
+    <p>{{t "workitemlist.filter.type"}}</p>
+    <div class="filters-wrapper">
+      <Input @value="active" checked={{eq this.filters.type "active"}} @type="radio" @class="filter-button" @name="type" @id="filter-active"/>
+      <label for="filter-active">{{t "workitemlist.filter.active"}}</label>
+      <Input @value="control" checked={{eq this.filters.type "control"}} @type="radio" @class="filter-button" @name="type" @id="filter-control"/>
+      <label for="filter-control">{{t "workitemlist.filter.control"}}</label>
+    </div>
+  </div>
+</div>
+
+<table {{did-insert (perform this.fetchWorkitems)}}>
+  <thead>
+    <tr>
+      <th>{{t "workitemlist.table.instance"}}</th>
+      <th>{{t "workitemlist.table.instanceType"}}</th>
+      <th>{{t "workitemlist.table.task"}}</th>
+      <th>{{t "workitemlist.table.deadline"}}</th>
+      <th>{{t "workitemlist.table.created"}}</th>
+      <th>{{t "workitemlist.responsible"}}</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#if this.workItemsQuery.isLoading}}
+      <LoadingText />
+    {{else}}
+      {{#each this.workItemsQuery.value as |workitem|}}
+        <tr class="workitem expired {{workitem.deadlineCss}}">
+          <td></td>
+          <td></td>
+          <td>{{workitem.name}}</td>
+          <td>{{moment-to workitem.deadline}}</td>
+          <td>
+            {{format-date
+              workitem.createdAt
+              day="2-digit"
+              month="2-digit"
+              year="numeric"
+              hour="2-digit"
+              minute="2-digit"
+              hour12=false
+            }}
+          </td>
+          <td>
+            {{#each workitem.assignedUserInformation as |user|}}
+              {{user.fullName}}
+            {{else}}
+              -
+            {{/each}}
+          </td>
+          <td {{on "mouseleave" (set this.menuOpen "")}} role="button">
+            <div>
+              <FaIcon @icon="ellipsis-v" {{on "click" (set this.menuOpen workitem.id)}}/>
+              {{#if (eq this.menuOpen workitem.id)}}
+                <div class="workitem-actions">
+                  {{!-- template-lint-disable no-nested-interactive --}}
+                  <ul>
+                    <li role="button">{{t "workitemlist.table.markRead"}}</li>
+                    <li {{on "click" (perform this.workItemAssignUser workitem)}} role="button">{{t "workitemlist.table.assignToMe"}}</li>
+                    <li role="button">{{t "workitemlist.table.editWorkitem"}}</li>
+                  </ul>
+                </div>
+              {{/if}}
+            </div>
+          </td>
+        </tr>
+      {{else}}
+        <tr>
+          <td colspan="7">{{t "workitemlist.table.empty"}}</td>
+        </tr>
+      {{/each}}
+    {{/if}}
+  </tbody>
+</table>
