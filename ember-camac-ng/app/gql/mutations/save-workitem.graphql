@@ -1,0 +1,7 @@
+mutation saveWorkItem($workitem: ID!, $name: String, $description: String, $assignedUsers: [String], $deadline: DateTime) {
+  saveWorkItem(
+    input: { workItem: $workitem, name: $name, description: $description, assignedUsers: $assignedUsers, deadline: $deadline }
+  ) {
+    clientMutationId
+  }
+}
