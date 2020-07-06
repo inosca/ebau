@@ -37,3 +37,32 @@ journal:
 
   create: "Eintrag erstellen"
   edit: "Eintrag bearbeiten"
+
+workitemlist:
+  saveError: "Fehler beim Speichern der Aufgabe"
+
+  responsible: "Verantwortlich"
+
+  filter:
+    status: "Status"
+    type: "Typ"
+
+    all: "Alle"
+    own: "Eigene"
+    open: "Offen"
+    closed: "Abgeschlossen"
+    active: "Aktiv"
+    control: "Controlling"
+
+  table:
+    instance: "Dossier"
+    instanceType: "Gesuchstyp"
+    task: "Aufgabe"
+    deadline: "Frist"
+    created: "Erstellt"
+
+    markRead: "Als gelesen markieren"
+    assignToMe: "Mir zuweisen"
+    editWorkitem: "Aufgabe bearbeiten"
+
+    empty: "Keine Aufgaben gefunden"

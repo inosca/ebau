@@ -12,4 +12,5 @@ Router.map(function() {
   this.route("organisation");
   this.route("history", { path: "/instances/:id/history" });
   this.route("journal", { path: "/instances/:id/journal" });
+  this.route("workitem-list");
 });
