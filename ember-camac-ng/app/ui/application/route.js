@@ -1,7 +1,8 @@
 import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
-// eslint-disable-next-line ember/no-mixins
 import ApplicationRouteMixin from "ember-simple-auth/mixins/application-route-mixin";
+import moment from "moment";
+// eslint-disable-next-line ember/no-mixins
 
 const ApplicationRouteBase = Route.extend(ApplicationRouteMixin);
 
@@ -18,6 +19,7 @@ export default class ApplicationRoute extends ApplicationRouteBase {
     }
 
     this.intl.setLocale(this.shoebox.content.language);
+    moment.locale(this.shoebox.content.language);
   }
 
   sessionInvalidated() {
