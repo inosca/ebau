@@ -1,16 +1,6 @@
 [
   {
     "model": "api.template",
-    "pk": "2-level",
-    "fields": {
-      "description": "",
-      "template": "2-level.docx",
-      "engine": "docx-template",
-      "group": null
-    }
-  },
-  {
-    "model": "api.template",
     "pk": "1-level",
     "fields": {
       "description": "",
@@ -21,9 +11,89 @@
   },
   {
     "model": "api.template",
+    "pk": "2-level",
+    "fields": {
+      "description": "",
+      "template": "2-level.docx",
+      "engine": "docx-template",
+      "group": null
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "fr-avis-de-construction",
+    "fields": {
+      "description": "FR Avis de construction",
+      "template": "fr-avis-de-construction.docx",
+      "engine": "docx-template",
+      "group": null
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "fr-demande-de-complement-dinformation",
+    "fields": {
+      "description": "FR Demande de compl\u00e9ment d'information",
+      "template": "fr-demande-de-complement-d-information.docx",
+      "engine": "docx-template",
+      "group": null
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "fr-notification-de-defauts-formel",
+    "fields": {
+      "description": "FR Notification de d\u00e9fauts formel",
+      "template": "fr-notification-de-defauts-formel.docx",
+      "engine": "docx-template",
+      "group": null
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "fr-notification-de-defauts-formel-materiel",
+    "fields": {
+      "description": "FR Notification de d\u00e9fauts formel mat\u00e9riel",
+      "template": "fr-notification-de-defauts-formel-materiel.docx",
+      "engine": "docx-template",
+      "group": null
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "fr-notification-de-defauts-materiel",
+    "fields": {
+      "description": "FR Notification de d\u00e9fauts mat\u00e9riel",
+      "template": "fr-notification-de-defauts-materiel.docx",
+      "engine": "docx-template",
+      "group": null
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "fr-programme-de-procedure-normal",
+    "fields": {
+      "description": "FR Programme de procedure normal",
+      "template": "fr-programme-de-procedure-normal.docx",
+      "engine": "docx-template",
+      "group": null
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "fr-rapport-officiel",
+    "fields": {
+      "description": "FR Rapport officiel",
+      "template": "fr-rapport-officiel.docx",
+      "engine": "docx-template",
+      "group": null
+    }
+  },
+  {
+    "model": "api.template",
     "pk": "de-amtsbericht",
     "fields": {
-      "description": "Amtsbericht",
+      "description": "DE Amtsbericht",
       "template": "de-amtsbericht.docx",
       "engine": "docx-template",
       "group": null
@@ -33,7 +103,7 @@
     "model": "api.template",
     "pk": "de-aufforderung-ergaenzung",
     "fields": {
-      "description": "Aufforderung Ergänzung",
+      "description": "DE Aufforderung Erg\u00e4nzung",
       "template": "de-aufforderung-ergaenzung.docx",
       "engine": "docx-template",
       "group": null
@@ -43,18 +113,8 @@
     "model": "api.template",
     "pk": "de-gesamtbauentscheid",
     "fields": {
-      "description": "Gesamtbauentscheid",
+      "description": "DE Gesamtbauentscheid",
       "template": "de-gesamtbauentscheid.docx",
-      "engine": "docx-template",
-      "group": null
-    }
-  },
-  {
-    "model": "api.template",
-    "pk": "de-maengelbrief-formell-materiell",
-    "fields": {
-      "description": "Mängelbrief Formell Materiell",
-      "template": "de-maengelbrief-formell-materiell.docx",
       "engine": "docx-template",
       "group": null
     }
@@ -63,8 +123,18 @@
     "model": "api.template",
     "pk": "de-maengelbrief-formell",
     "fields": {
-      "description": "Mängelbrief Formell",
+      "description": "DE M\u00e4ngelbrief Formell",
       "template": "de-maengelbrief-formell.docx",
+      "engine": "docx-template",
+      "group": null
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "de-maengelbrief-formell-materiell",
+    "fields": {
+      "description": "DE M\u00e4ngelbrief Formell Materiell",
+      "template": "de-maengelbrief-formell-materiell.docx",
       "engine": "docx-template",
       "group": null
     }
@@ -73,8 +143,18 @@
     "model": "api.template",
     "pk": "de-maengelbrief-materiell",
     "fields": {
-      "description": "Mängelbrief Materiell",
+      "description": "DE M\u00e4ngelbrief Materiell",
       "template": "de-maengelbrief-materiell.docx",
+      "engine": "docx-template",
+      "group": null
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "de-publikation",
+    "fields": {
+      "description": "DE Publikation",
+      "template": "de-publikation.docx",
       "engine": "docx-template",
       "group": null
     }
@@ -83,7 +163,7 @@
     "model": "api.template",
     "pk": "de-verfahrensprogramm-normal",
     "fields": {
-      "description": "Verfahrensprogramm Normal",
+      "description": "DE Verfahrensprogramm Normal",
       "template": "de-verfahrensprogramm-normal.docx",
       "engine": "docx-template",
       "group": null
@@ -93,18 +173,8 @@
     "model": "api.template",
     "pk": "de-verfahrensprogramm-voranfrage",
     "fields": {
-      "description": "Verfahrensprogramm Voranfrage",
+      "description": "DE Verfahrensprogramm Voranfrage",
       "template": "de-verfahrensprogramm-voranfrage.docx",
-      "engine": "docx-template",
-      "group": null
-    }
-  },
-  {
-    "model": "api.template",
-    "pk": "de-publikation",
-    "fields": {
-      "description": "Publikation",
-      "template": "de-publikation.docx",
       "engine": "docx-template",
       "group": null
     }
