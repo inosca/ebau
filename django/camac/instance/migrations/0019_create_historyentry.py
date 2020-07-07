@@ -31,6 +31,10 @@ def migrate_journal(apps, schema_editor):
                 new_entry.save()
 
         else:
+            history_type = HistoryActionConfig.HISTORY_TYPE_STATUS
+            if "Notifikation" in translations[0].text or "Notification" in translations[0].text:
+                history_type = HistoryActionConfig.HISTORY_TYPE_NOTIFICATION
+
             new_entry = HistoryEntry.objects.create(
                 instance=journal.instance,
                 service=journal.service,
@@ -38,7 +42,7 @@ def migrate_journal(apps, schema_editor):
                 created_at=journal.created,
                 title=journal.text,
                 body=journal.additional_text,
-                history_type=HistoryActionConfig.HISTORY_TYPE_NOTIFICATION,
+                history_type=history_type,
             )
             for translation in translations:
                 HistoryEntryT.objects.create(
@@ -47,6 +51,7 @@ def migrate_journal(apps, schema_editor):
                     history_entry=new_entry,
                     language=translation.language,
                 )
+
 
 
 class Migration(migrations.Migration):
