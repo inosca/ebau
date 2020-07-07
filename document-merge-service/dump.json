@@ -21,6 +21,16 @@
   },
   {
     "model": "api.template",
+    "pk": "fr-decision-globale",
+    "fields": {
+      "description": "FR D\u00e9cision globale",
+      "template": "fr-decision-globale.docx",
+      "engine": "docx-template",
+      "group": null
+    }
+  },
+  {
+    "model": "api.template",
     "pk": "fr-avis-de-construction",
     "fields": {
       "description": "FR Avis de construction",
