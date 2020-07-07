@@ -62,7 +62,7 @@
         "migrated": true
       },
       "modified_at": "2020-06-30T15:02:51.906Z",
-      "name": "{\"de\": \"Gesuch einreichen\", \"fr\": null}",
+      "name": "{\"de\": \"Gesuch einreichen\", \"fr\": \"Soumettre la demande\"}",
       "status": "skipped",
       "task": "submit"
     },
@@ -89,7 +89,7 @@
         "migrated": true
       },
       "modified_at": "2020-06-30T15:02:51.937Z",
-      "name": "{\"de\": \"Nachforderungen\", \"fr\": null}",
+      "name": "{\"de\": \"Nachforderungen\", \"fr\": \"Demandes de compl\\u00e9ment d'information\"}",
       "status": "ready",
       "task": "nfd"
     },
@@ -116,7 +116,7 @@
         "migrated": true
       },
       "modified_at": "2020-06-30T15:02:51.929Z",
-      "name": "{\"de\": \"eBau-Nummer vergeben\", \"fr\": null}",
+      "name": "{\"de\": \"eBau-Nummer vergeben\", \"fr\": \"Attribution d'un num\\u00e9ro eBau\"}",
       "status": "ready",
       "task": "ebau-number"
     },
@@ -143,7 +143,7 @@
         "migrated": true
       },
       "modified_at": "2020-06-30T15:02:51.893Z",
-      "name": "{\"de\": \"Gesuch einreichen\", \"fr\": null}",
+      "name": "{\"de\": \"Gesuch einreichen\", \"fr\": \"Soumettre la demande\"}",
       "status": "ready",
       "task": "submit"
     },
