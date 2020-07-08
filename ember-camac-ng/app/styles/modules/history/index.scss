@@ -1,4 +1,7 @@
 .history__row__body {
+  border-top: 1px solid #000000;
+  margin-top: 5px;
+  padding-top: 5px;
   font-style: italic;
   word-break: break-word;
 }
@@ -19,16 +22,4 @@
   padding: 0;
   margin: 0;
   color: rgba(0, 0, 0, 0.5);
-}
-
-hr {
-  position: initial;
-  left: initial;
-  top: initial;
-  width: initial;
-  height: initial;
-  overflow: initial;
-  display: block;
-  border: none;
-  border-top: 1px solid #000000;
 }
