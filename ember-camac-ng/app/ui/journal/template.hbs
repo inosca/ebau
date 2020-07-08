@@ -3,7 +3,7 @@
 </h1>
 
 {{#if this.newEntry}}
-  <div>
+  <div class="form journal__create">
     <Textarea
       class="journal__new"
       @value={{this.newEntry.text}}
@@ -38,90 +38,74 @@
   </button>
 {{/if}}
 
-<table class="journal" {{did-insert (perform this.fetchEntries)}}>
-  <tbody>
-    {{#if this.fetchEntries.isRunning}}
-      <tr>
-        <td class="center" colspan="5">
-          <LoadingText />
-        </td>
-      </tr>
-    {{else if this.entries.length}}
-      {{#each this.entries as |entry|}}
-        <tr class="journal__row">
-          <td class="journal__row__info">
-            <p>
-              {{entry.user.fullName}}
-            </p>
-            <p>
-              {{format-date
-                entry.creationDate
-                day="2-digit"
-                month="2-digit"
-                year="numeric"
-                hour="2-digit"
-                minute="2-digit"
-                hour12=false
-              }}
-            </p>
-          </td>
+<div class="journal"  {{did-insert (perform this.fetchEntries)}}>
+  {{#if this.fetchEntries.isRunning}}
+    <LoadingText />
+  {{else if this.entries.length}}
+    {{#each this.entries as |entry|}}
+      <fieldset>
+        <legend class="journal__info">
+          <span class="date">
+            {{format-date
+              entry.creationDate
+              day="2-digit"
+              month="2-digit"
+              year="numeric"
+              hour="2-digit"
+              minute="2-digit"
+              hour12=false
+            }}
+          </span> - 
+          <span class="name">{{entry.user.fullName}}</span>
           {{#if entry.edit}}
-            <td class="journal__row__body">
-              <Textarea @value={{entry.text}} data-test-edit />
-            </td>
-          {{else}}
-            <td class="journal__row__body">
-              {{entry.text}}
-            </td>
-          {{/if}}
-          <td class="journal__row__edit">
-            {{#if entry.edit}}
-              <div class="journal__row__edit__buttons">
-                <button
-                  class="journal__row__edit__button"
-                  type="button"
-                  title={{t "global.save"}}
-                  data-test-edit-save
-                  {{on
-                    "click"
-                    (queue (perform this.saveEntry entry) (toggle "edit" entry))
-                  }}
-                >
-                  <FaIcon @icon="save" />
-                </button>
-                <button
-                  class="journal__row__edit__button"
-                  type="button"
-                  title={{t "global.cancel"}}
-                  {{on
-                    "click"
-                    (queue
-                      (fn this.cancelEditEntry entry) (toggle "edit" entry)
-                    )
-                  }}
-                >
-                  <FaIcon @icon="ban" />
-                </button>
-              </div>
-            {{else}}
+            <div class="journal__edit__buttons">
               <button
-                class="journal__row__edit__button"
+                class="journal__edit__button"
                 type="button"
-                title={{t "journal.edit"}}
-                {{on "click" (toggle "edit" entry)}}
+                title={{t "global.cancel"}}
+                {{on
+                  "click"
+                  (queue
+                    (fn this.cancelEditEntry entry) (toggle "edit" entry)
+                  )
+                }}
               >
-                <FaIcon @icon="edit" />
+                <FaIcon @icon="ban" />
               </button>
-            {{/if}}
-          </td>
-        </tr>
-      {{/each}}
-    {{else}}
-      <tr>
-        <td class="center" colspan="5">
-          {{t "global.empty"}}
-        </td>
-      </tr>
-    {{/if}}
-  </tbody>
-</table>
+              <button
+                class="journal__edit__button"
+                type="button"
+                title={{t "global.save"}}
+                data-test-edit-save
+                {{on
+                  "click"
+                  (queue (perform this.saveEntry entry) (toggle "edit" entry))
+                }}
+              >
+                <FaIcon @icon="save" />
+              </button>
+            </div>
+          {{else}}
+            <button
+              class="journal__edit__button"
+              type="button"
+              title={{t "journal.edit"}}
+              {{on "click" (toggle "edit" entry)}}
+            >
+              <FaIcon @icon="edit" />
+            </button>
+          {{/if}}
+        </legend>
+        <div class="form journal__body">
+          {{#if entry.edit}}
+            <Textarea @value={{entry.text}} data-test-edit />
+          {{else}}
+            <span>{{entry.text}}</span>
+          {{/if}}
+        </div>
+      </fieldset>
+    {{/each}}
+  {{else}}
+    {{t "global.empty"}}
+  {{/if}}
+</div>
