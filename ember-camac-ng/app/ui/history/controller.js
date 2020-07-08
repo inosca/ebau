@@ -5,7 +5,11 @@ import { dropTask, lastValue } from "ember-concurrency-decorators";
 export default class HistoryController extends Controller {
   @service store;
 
-  @lastValue("fetchEntries") entries;
+  get entries() {
+    return (this.fetchedEntries || []).sortBy("creationDate").reverse();
+  }
+
+  @lastValue("fetchEntries") fetchedEntries;
   @dropTask
   *fetchEntries() {
     return yield this.store.query("history-entry", {
