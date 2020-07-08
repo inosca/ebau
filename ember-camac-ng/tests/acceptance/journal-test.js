@@ -23,14 +23,13 @@ module("Acceptance | journal", function(hooks) {
 
     await visit(`/instances/${this.instance.id}/journal`);
 
-    assert.dom("tbody > tr").exists({ count: 5 });
+    assert.dom("fieldset").exists({ count: 5 });
   });
 
   test("it handles empty state", async function(assert) {
     await visit(`/instances/${this.instance.id}/journal`);
 
-    assert.dom("tbody > tr").exists({ count: 1 });
-    assert.dom("tbody > tr > td").hasText("t:global.empty:()");
+    assert.dom(".journal").hasText("t:global.empty:()");
   });
 
   test("it can create a journal entry", async function(assert) {
@@ -40,8 +39,8 @@ module("Acceptance | journal", function(hooks) {
     await fillIn(".journal__new", "Lorem ipsum");
     await click("[data-test-new-save]");
 
-    assert.dom("tbody > tr").exists({ count: 1 });
-    assert.dom(".journal__row__body").hasText("Lorem ipsum");
+    assert.dom("fieldset").exists({ count: 1 });
+    assert.dom(".journal__body").hasText("Lorem ipsum");
   });
 
   test("it can edit a journal entry", async function(assert) {
@@ -51,11 +50,11 @@ module("Acceptance | journal", function(hooks) {
 
     await visit(`/instances/${this.instance.id}/journal`);
 
-    await click(".journal__row__edit__button");
+    await click(".journal__edit__button");
     await fillIn("[data-test-edit]", "Lorem ipsum");
     await click("[data-test-edit-save]");
 
-    assert.dom("tbody > tr").exists({ count: 1 });
-    assert.dom(".journal__row__body").hasText("Lorem ipsum");
+    assert.dom("fieldset").exists({ count: 1 });
+    assert.dom(".journal__body").hasText("Lorem ipsum");
   });
 });
