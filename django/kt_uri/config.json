@@ -5055,6 +5055,20 @@
   },
   {
     "fields": {
+      "available_action": "formtransition",
+      "button": 949,
+      "description": "\u00c4ndert den Statusdes Dossiers",
+      "error_message": "Staus\u00e4nderung konnte nicht ausgef\u00fchrt werden",
+      "execute_always": 0,
+      "name": "Status\u00e4nderung von CIRC in REDAC",
+      "sort": 0,
+      "success_message": "Staus\u00e4nderung erfolgreich ausgef\u00fchrt"
+    },
+    "model": "core.action",
+    "pk": 1456
+  },
+  {
+    "fields": {
       "current_instance_state": 21,
       "next_instance_state": 22
     },
@@ -5375,8 +5389,8 @@
   },
   {
     "fields": {
-      "current_instance_state": 21,
-      "next_instance_state": 34
+      "current_instance_state": 23,
+      "next_instance_state": 24
     },
     "model": "core.aformtransition",
     "pk": 1131
@@ -5415,8 +5429,8 @@
   },
   {
     "fields": {
-      "current_instance_state": 21,
-      "next_instance_state": 34
+      "current_instance_state": 23,
+      "next_instance_state": 24
     },
     "model": "core.aformtransition",
     "pk": 1185
@@ -5580,6 +5594,14 @@
     },
     "model": "core.aformtransition",
     "pk": 1449
+  },
+  {
+    "fields": {
+      "current_instance_state": 23,
+      "next_instance_state": 24
+    },
+    "model": "core.aformtransition",
+    "pk": 1456
   },
   {
     "fields": {
@@ -17976,6 +17998,51 @@
   },
   {
     "fields": {
+      "button": 762,
+      "instance_state": 23,
+      "role": 1061
+    },
+    "model": "core.broleacl",
+    "pk": 682
+  },
+  {
+    "fields": {
+      "button": 785,
+      "instance_state": 23,
+      "role": 1061
+    },
+    "model": "core.broleacl",
+    "pk": 683
+  },
+  {
+    "fields": {
+      "button": 762,
+      "instance_state": 23,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 684
+  },
+  {
+    "fields": {
+      "button": 785,
+      "instance_state": 23,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 685
+  },
+  {
+    "fields": {
+      "button": 949,
+      "instance_state": 23,
+      "role": 1061
+    },
+    "model": "core.broleacl",
+    "pk": 686
+  },
+  {
+    "fields": {
       "button": 5,
       "instance_state": 22,
       "service": 1
@@ -20406,6 +20473,18 @@
     },
     "model": "core.button",
     "pk": 948
+  },
+  {
+    "fields": {
+      "class_field": null,
+      "description": "\u00c4ndert den Status des Dossiers",
+      "hidden": 0,
+      "instance_resource": 445,
+      "name": "Status\u00e4nderung",
+      "sort": 5
+    },
+    "model": "core.button",
+    "pk": 949
   },
   {
     "fields": {
@@ -39741,6 +39820,24 @@
   },
   {
     "fields": {
+      "instance_resource": 145,
+      "instance_state": 32,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 1138
+  },
+  {
+    "fields": {
+      "instance_resource": 165,
+      "instance_state": 32,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 1139
+  },
+  {
+    "fields": {
       "instance_resource": 744,
       "instance_state": 21,
       "service": 261
@@ -47877,7 +47974,7 @@
       "is_workflow": 1,
       "name": "Versand Entscheiddokumente per Post",
       "position": 20,
-      "workflow_section": 3
+      "workflow_section": 1
     },
     "model": "core.workflowitem",
     "pk": 72
@@ -47994,7 +48091,7 @@
       "is_workflow": 1,
       "name": "Versand Entscheiddokumente per Portal",
       "position": 21,
-      "workflow_section": 3
+      "workflow_section": 1
     },
     "model": "core.workflowitem",
     "pk": 85
@@ -48007,7 +48104,7 @@
       "is_workflow": 1,
       "name": "Versand Entscheiddokumente per Mail",
       "position": 22,
-      "workflow_section": 3
+      "workflow_section": 1
     },
     "model": "core.workflowitem",
     "pk": 86
@@ -48046,7 +48143,7 @@
       "is_workflow": 1,
       "name": "Versand / Stellungnahme - Vorentscheid per Mail",
       "position": 19,
-      "workflow_section": 3
+      "workflow_section": 1
     },
     "model": "core.workflowitem",
     "pk": 89
@@ -48059,7 +48156,7 @@
       "is_workflow": 1,
       "name": "Versand / Stellungnahme - Vorentscheid per Post",
       "position": 18,
-      "workflow_section": 3
+      "workflow_section": 1
     },
     "model": "core.workflowitem",
     "pk": 90
@@ -48876,6 +48973,46 @@
     },
     "model": "core.workflowrole",
     "pk": 104
+  },
+  {
+    "fields": {
+      "role": 3,
+      "workflow_item": 72
+    },
+    "model": "core.workflowrole",
+    "pk": 105
+  },
+  {
+    "fields": {
+      "role": 3,
+      "workflow_item": 85
+    },
+    "model": "core.workflowrole",
+    "pk": 106
+  },
+  {
+    "fields": {
+      "role": 3,
+      "workflow_item": 86
+    },
+    "model": "core.workflowrole",
+    "pk": 107
+  },
+  {
+    "fields": {
+      "role": 3,
+      "workflow_item": 90
+    },
+    "model": "core.workflowrole",
+    "pk": 108
+  },
+  {
+    "fields": {
+      "role": 3,
+      "workflow_item": 89
+    },
+    "model": "core.workflowrole",
+    "pk": 109
   },
   {
     "fields": {
@@ -51422,7 +51559,7 @@
   },
   {
     "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nStatusmeldung zum Stand des Bewilligungsverfahrens\nZIRKULATION ABGESCHLOSSEN\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nDie Pr\u00fcfung Ihres Dossiers mit der ID Nr. [INSTANCE_ID] (CAMAC Dossiernummer [@c2q6i1]) durch die kantonalen Fachstellen ist abgeschlossen. Die verbleidende Bearbeitungszeit bis zum Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde betr\u00e4gt voraussichtlich 14 Tage.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 29\nE-Mail: raumplanung@ur.ch",
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nStatusmeldung zum Stand des Bewilligungsverfahrens\nZIRKULATION ABGESCHLOSSEN\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nDie Pr\u00fcfung Ihres Dossiers mit der ID Nr. [INSTANCE_ID] (CAMAC Dossiernummer [@c2q6i1]) durch die kantonalen Fachstellen ist abgeschlossen. \nDas Dossier wird nun von der Gemeindebaubeh\u00f6rde abschliessend bearbeitet. Bitte beachten Sie, dass die Ausarbeitung der Entscheiddokumente und die Protokollgenehmigung zus\u00e4tzlich Zeit beanspruchen. Der Versand der Entscheiddokumente erfolgt voraussichtlich innert 2 bis 4 Wochen.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 29\nE-Mail: raumplanung@ur.ch",
       "purpose": "Zirkulation abgeschlossen - Vernehmlassungsstelle mit Koordinationsaufgaben, Vernehmlassungsstell...",
       "service": null,
       "slug": "zirkulation-abgeschlossen",
