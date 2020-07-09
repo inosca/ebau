@@ -31,7 +31,9 @@ def test_history_entry_list(admin_client, history_entry, activation, size):
         ("Support", status.HTTP_201_CREATED),
     ],
 )
-def test_history_entry_create(admin_client, instance, service, activation, status_code):
+def test_history_entry_create(
+    admin_client, admin_user, instance, service, activation, status_code
+):
     url = reverse("history-entry-list")
 
     data = {
@@ -40,12 +42,13 @@ def test_history_entry_create(admin_client, instance, service, activation, statu
             "id": None,
             "attributes": {"title": "Test", "history-type": "notification"},
             "relationships": {
-                "instance": {"data": {"type": "instances", "id": instance.pk}}
+                "instance": {"data": {"type": "instances", "id": instance.pk}},
+                "user": {"data": {"type": "users", "id": admin_user.pk}},
             },
         }
     }
 
-    response = admin_client.post(url, data=data)
+    response = admin_client.post(url, data=data, HTTP_CONTENT_LANGUAGE="de")
     assert response.status_code == status_code
     if status_code == status.HTTP_201_CREATED:
         json = response.json()
@@ -81,7 +84,7 @@ def test_history_entry_update(admin_client, history_entry, activation, status_co
         }
     }
 
-    response = admin_client.patch(url, data=data)
+    response = admin_client.patch(url, data=data, HTTP_CONTENT_LANGUAGE="de")
     assert response.status_code == status_code
 
     data = {
@@ -97,7 +100,7 @@ def test_history_entry_update(admin_client, history_entry, activation, status_co
         }
     }
 
-    response = admin_client.patch(url, data=data)
+    response = admin_client.patch(url, data=data, HTTP_CONTENT_LANGUAGE="de")
     assert response.status_code == status_code
 
 
