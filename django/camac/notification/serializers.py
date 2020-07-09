@@ -22,6 +22,7 @@ from camac.core.models import (
     BillingV2Entry,
     Circulation,
     HistoryActionConfig,
+    InstanceLocation,
     WorkflowEntry,
 )
 from camac.core.translations import get_translations
@@ -142,12 +143,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return result
 
     def get_rejection_feedback(self, instance):  # pragma: no cover
-        feedback = Answer.objects.filter(
-            instance=instance, chapter=20001, question=20037, item=1
-        ).first()
-        if feedback:
-            return feedback.answer
-        return ""
+        return Answer.get_value_by_cqi(instance, 20001, 20037, 1, default="")
 
     def get_answer_period_date(self, instace):
         answer_period_date = date.today() + timedelta(days=settings.MERGE_ANSWER_PERIOD)
@@ -236,9 +232,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     def get_dossier_nr(self, instance):
         """Dossier number - Kanton Uri."""
         try:
-
-            ans = Answer.objects.get(instance=instance, question=6, chapter=2, item=1)
-            return ans.answer
+            return Answer.get_value_by_cqi(instance, 2, 6, 1, fail_on_not_found=True)
         except Answer.DoesNotExist:
             return "-"
 
@@ -460,22 +454,44 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
     email_list = serializers.CharField(required=False)
 
     def _get_recipients_submitter_list(self, instance):
-        # TODO: convert this to plain django query on the "original data",
-        # get rid of the nasty nasty viewses
-        return [
-            {"to": submitter.email}
-            for submitter in ProjectSubmitterData.objects.filter(instance=instance)
-        ]
+        SUBMITTER_APPLICANT = "0"
+        PROJECT_AUTHOR = "1"
+
+        submitter_type = str(
+            Answer.get_value_by_cqi(instance, 103, 257, 1, fail_on_not_found=False)
+        )
+
+        if submitter_type == SUBMITTER_APPLICANT:
+            ans = Answer.get_value_by_cqi(instance, 1, 66, 1, fail_on_not_found=False)
+        elif submitter_type == PROJECT_AUTHOR:
+            ans = Answer.get_value_by_cqi(instance, 1, 77, 1, fail_on_not_found=False)
+        else:
+            raise exceptions.ValidationError(
+                f"Instance {instance.pk}: Invalid submitter type: "
+                f"{submitter_type}. Cannot send notification email"
+            )
+
+        if not ans:
+            raise exceptions.ValidationError(
+                f"Instance {instance.pk}: Answer for submitter/applicant "
+                f"email not found. Cannot send notification email"
+            )
+
+        return [{"to": ans}]
 
     def _get_recipients_municipality_users(self, instance):
-        groups = Group.objects.filter(locations__in=instance.location)
+
+        location = InstanceLocation.objects.filter(instance=instance).values("location")
+
+        groups = Group.objects.filter(
+            locations__in=location, role=uri_constants.ROLE_MUNICIPALITY
+        )
         users = User.objects.filter(
-            pk__in=UserGroup.objects.filter(
-                group__in=groups,
-                default_group=1,
-                user__email__isnull=False,
-                user__disabled=0,
-            ).values("user")
+            email__isnull=False,
+            disabled=0,
+            pk__in=UserGroup.objects.filter(group__in=groups, default_group=1).values(
+                "user"
+            ),
         )
         return [{"to": user.email} for user in users]
 
@@ -515,7 +531,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             email__isnull=False,
             disabled=0,
             pk__in=UserGroup.objects.filter(
-                default_group=1, group__role_id=uri_constants.KOOR_BG_ROLE_ID,
+                default_group=1, group__role_id=uri_constants.KOOR_BG_ROLE_ID
             ).values("user"),
         )
         return [{"to": user.email} for user in users]

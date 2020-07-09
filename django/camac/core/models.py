@@ -732,6 +732,28 @@ class Answer(models.Model):
     item = models.IntegerField(db_column="ITEM")
     answer = models.CharField(db_column="ANSWER", max_length=4000)
 
+    @staticmethod
+    def get_value_by_cqi(
+        instance, chapter, question, item, *, default=None, fail_on_not_found=False
+    ):
+        """
+        Fetch CAMAC form answer specified by a CQI triplet for the given instance.
+
+        CQI is ChapterID, QuestionID, Item and is used a lot in "old" CAMAC
+
+        By default, returns `None` if the answer is not found, but can be told
+        to raise an exception by passing `fail_on_not_found=True`. You can also
+        pass in another fallback value by passing `default=your_value`.
+        """
+        try:
+            return Answer.objects.get(
+                instance=instance, question=question, chapter=chapter, item=item
+            ).answer
+        except Answer.DoesNotExist:
+            if fail_on_not_found:
+                raise
+            return default
+
     class Meta:
         managed = True
         db_table = "ANSWER"
