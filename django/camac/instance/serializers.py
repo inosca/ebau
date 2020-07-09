@@ -19,6 +19,7 @@ from camac.caluma.extensions.data_sources import Municipalities
 from camac.constants import kt_bern as constants
 from camac.core.models import (
     Answer,
+    HistoryActionConfig,
     InstanceLocation,
     InstanceService,
     ProposalActivation,
@@ -599,6 +600,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             instance=self.instance,
             created_at=timezone.now(),
             user=self.context["request"].user,
+            history_type=HistoryActionConfig.HISTORY_TYPE_STATUS,
         )
         for (language, text) in texts:
             models.HistoryEntryT.objects.create(
@@ -1016,7 +1018,6 @@ class JournalEntrySerializer(InstanceEditableMixin, serializers.ModelSerializer)
 class HistoryEntrySerializer(
     MultilingualSerializer, InstanceEditableMixin, serializers.ModelSerializer
 ):
-    user = CurrentUserResourceRelatedField()
     service = ServiceResourceRelatedField(default=CurrentServiceDefault())
     title = MultilingualField()
     body = MultilingualField(required=False)
@@ -1025,6 +1026,35 @@ class HistoryEntrySerializer(
         "instance": InstanceSerializer,
         "user": "camac.user.serializers.UserSerializer",
     }
+
+    def create(self, validated_data):
+        entry = super().create(validated_data)
+        models.HistoryEntryT.objects.create(
+            history_entry=entry,
+            title=entry.title,
+            body=entry.body,
+            language=self.context["request"].META["HTTP_CONTENT_LANGUAGE"],
+        )
+        return entry
+
+    def update(self, instance, validated_data):
+        entry = super().update(instance, validated_data)
+        translation = models.HistoryEntryT.objects.filter(
+            history_entry=instance,
+            language=self.context["request"].META["HTTP_CONTENT_LANGUAGE"],
+        ).first()
+        if not translation:
+            models.HistoryEntryT.objects.create(
+                history_entry=entry,
+                title=entry.title,
+                body=entry.body,
+                language=self.context["request"].META["HTTP_CONTENT_LANGUAGE"],
+            )
+        else:
+            translation.title = entry.title
+            translation.body = entry.body
+            translation.save()
+        return entry
 
     class Meta:
         model = models.HistoryEntry
@@ -1037,7 +1067,7 @@ class HistoryEntrySerializer(
             "body",
             "history_type",
         )
-        read_only_fields = ("service", "user", "created_at")
+        read_only_fields = ("service", "created_at")
 
 
 class IssueSerializer(InstanceEditableMixin, serializers.ModelSerializer):
