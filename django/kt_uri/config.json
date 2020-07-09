@@ -211,20 +211,6 @@
   },
   {
     "fields": {
-      "available_action": "notification",
-      "button": 4,
-      "description": "",
-      "error_message": "Das E-Mail an die Koordinationsstelle konnte nicht versandt werden.",
-      "execute_always": 0,
-      "name": "E-Mail an Koor wenn Dossier von Gemeinde",
-      "sort": 2,
-      "success_message": ""
-    },
-    "model": "core.action",
-    "pk": 189
-  },
-  {
-    "fields": {
       "available_action": "save",
       "button": 4,
       "description": "",
@@ -2372,7 +2358,7 @@
       "description": "",
       "error_message": "Das E-Mail an die Koordinationsstelle konnte nicht versandt werden.",
       "execute_always": 0,
-      "name": "E-Mail an Koord wenn Dossier von Portal",
+      "name": "E-Mail an Koord wenn Dossier von Portal / Gemeinde",
       "sort": 3,
       "success_message": "E-Mail wurde an die Koordinationsstelle versandt!"
     },
@@ -6468,15 +6454,6 @@
     },
     "model": "core.alocationqc",
     "pk": 13
-  },
-  {
-    "fields": {
-      "processor": "Notification_Processor_SendEmailAPI",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_KoorBgUsers",
-      "template": "dossier-instance_id-von-gemeinde-frei-geschalten"
-    },
-    "model": "core.anotification",
-    "pk": 189
   },
   {
     "fields": {
@@ -51140,18 +51117,6 @@
     },
     "model": "instance.instancestatedescription",
     "pk": 33
-  },
-  {
-    "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\n\nNEUES DOSSIER\nDie zust\u00e4ndige Gemeindebaubeh\u00f6rde hat das Dossier-ID {{INSTANCE_ID}} mit der Dossier Nr. {{DOSSIER_NR}} im CAMAC erfasst und zur Bearbeitung durch die kantonalen Fachstellen freigegeben.",
-      "purpose": "Dossier [ID] von Gemeinde frei geschalten - Sekretariat der Gemeindebaubeh\u00f6rde",
-      "service": null,
-      "slug": "dossier-id-von-gemeinde-frei-geschalten",
-      "subject": "Dossier {{ID}} von Gemeinde frei geschalten",
-      "type": "email"
-    },
-    "model": "notification.notificationtemplate",
-    "pk": 189
   },
   {
     "fields": {
