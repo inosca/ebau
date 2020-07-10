@@ -47955,10 +47955,10 @@
   },
   {
     "fields": {
-      "automatical": 0,
+      "automatical": 1,
       "different_color": 0,
       "is_building_authority": 1,
-      "is_workflow": 0,
+      "is_workflow": 1,
       "name": "Baubewilligung g\u00fcltig bis",
       "position": 46,
       "workflow_section": 3
