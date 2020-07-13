@@ -118,7 +118,7 @@ services:
       - KEYCLOAK_USER=admin
 
   metabase:
-    image: metabase/metabase:v0.34.2
+    image: metabase/metabase:v0.35.4
     depends_on:
       - db
     ports:
