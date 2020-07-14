@@ -1,5 +1,7 @@
 SHELL:=/bin/sh
 
+include .env
+
 # http://clarkgrubb.com/makefile-style-guide#phony-targets
 
 .DEFAULT_GOAL := help
@@ -73,7 +75,7 @@ loadconfig: loadconfig-camac loadconfig-dms ## Load the DMS and camac configurat
 
 .PHONY: dbshell
 dbshell: ## Start a psql shell
-	@docker-compose exec db psql -Ucamac
+	@docker-compose exec db psql -Ucamac ${APPLICATION}
 
 
 ######### Changes from eBau Bern #########
