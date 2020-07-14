@@ -1,7 +1,9 @@
 from camac.user import middleware
 
 
-def test_get_group_default(rf, admin_user, group):
+def test_get_group_default(rf, settings, admin_user, group, group_factory):
+    portal_group = group_factory(name="Portal")
+    settings.APPLICATION["PORTAL_GROUP"] = portal_group.pk
     request = rf.request()
     request.user = admin_user
     request.auth = {"aud": "unknown"}

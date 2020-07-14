@@ -53,6 +53,9 @@ def _get_group_for_portal(request):
     "aud" (audience) claim, and programatically assign the correct group for
     them.
     """
+    if not settings.APPLICATION.get("PORTAL_GROUP", None):
+        return None
+
     if not getattr(request, "auth", False):
         return None
 
