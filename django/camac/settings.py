@@ -149,6 +149,8 @@ APPLICATIONS = {
         "SERVICE_UPDATE_ALLOWED_ROLES": [
             "Administration Leitbehörde"
         ],  # if unset, all are allowed
+        # please also update django/Makefile command when changing apps here
+        "SEQUENCE_NAMESPACE_APPS": ["core", "responsible", "document"],
     },
     "kt_schwyz": {
         "ROLE_PERMISSIONS": {
@@ -200,6 +202,8 @@ APPLICATIONS = {
             "vbs": "PV",
             "uebrige": "PU",
         },
+        # please also update django/Makefile command when changing apps here
+        "SEQUENCE_NAMESPACE_APPS": [],
     },
     "kt_bern": {
         "ROLE_PERMISSIONS": {
@@ -354,6 +358,8 @@ APPLICATIONS = {
             "service-admin",
             "construction-control-admin",
         ],
+        # please also update django/Makefile command when changing apps here
+        "SEQUENCE_NAMESPACE_APPS": ["core", "responsible", "document"],
         "SUGGESTIONS": [
             (
                 "art-versickerung-dach",
@@ -594,6 +600,7 @@ APPLICATIONS = {
         "FORM_BACKEND": "camac",
         "PORTAL_USER_ID": 1209,
         "APPLICANT_GROUP_ID": 685,  # We reuse the Portal User group
+        "SEQUENCE_NAMESPACE_APPS": ["core", "document", "responsible"],
     },
 }
 
