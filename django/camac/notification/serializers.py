@@ -22,7 +22,6 @@ from camac.core.models import (
     BillingV2Entry,
     Circulation,
     HistoryActionConfig,
-    InstanceLocation,
     WorkflowEntry,
 )
 from camac.core.translations import get_translations
@@ -223,7 +222,9 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         """Return `True` if the given instance is a portal submission."""
         try:
             Answer.get_value_by_cqi(
-                instance, *self.SUBMITTER_TYPE_CQI, fail_on_not_found=True
+                instance,
+                *NotificationTemplateSendmailSerializer.SUBMITTER_TYPE_CQI,
+                fail_on_not_found=True,
             )
             return True
         except Answer.DoesNotExist:
@@ -436,6 +437,13 @@ class NotificationTemplateMergeSerializer(
 
 
 class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer):
+    SUBMITTER_TYPE_APPLICANT = "0"
+    SUBMITTER_TYPE_PROJECT_AUTHOR = "1"
+    SUBMITTER_LIST_CQI_BY_TYPE = {
+        SUBMITTER_TYPE_APPLICANT: (1, 66, 1),
+        SUBMITTER_TYPE_PROJECT_AUTHOR: (1, 77, 1),
+    }
+    SUBMITTER_TYPE_CQI = (103, 257, 1)
     recipient_types = serializers.MultipleChoiceField(
         choices=(
             "activation_deadline_today",
@@ -454,17 +462,16 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
     email_list = serializers.CharField(required=False)
 
     def _get_recipients_submitter_list(self, instance):
-        SUBMITTER_APPLICANT = "0"
-        PROJECT_AUTHOR = "1"
 
         submitter_type = str(
-            Answer.get_value_by_cqi(instance, 103, 257, 1, fail_on_not_found=False)
+            Answer.get_value_by_cqi(
+                instance, *self.SUBMITTER_TYPE_CQI, fail_on_not_found=False
+            )
         )
 
-        if submitter_type == SUBMITTER_APPLICANT:
-            ans = Answer.get_value_by_cqi(instance, 1, 66, 1, fail_on_not_found=False)
-        elif submitter_type == PROJECT_AUTHOR:
-            ans = Answer.get_value_by_cqi(instance, 1, 77, 1, fail_on_not_found=False)
+        ans_cqi = self.SUBMITTER_LIST_CQI_BY_TYPE.get(submitter_type)
+        if ans_cqi:
+            ans = Answer.get_value_by_cqi(instance, *ans_cqi, fail_on_not_found=False)
         else:
             raise exceptions.ValidationError(
                 f"Instance {instance.pk}: Invalid submitter type: "
@@ -481,13 +488,11 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
 
     def _get_recipients_municipality_users(self, instance):
 
-        location = InstanceLocation.objects.filter(instance=instance).values("location")
-
         groups = Group.objects.filter(
-            locations__in=location, role=uri_constants.ROLE_MUNICIPALITY
+            locations=instance.location, role=uri_constants.ROLE_MUNICIPALITY
         )
         users = User.objects.filter(
-            email__isnull=False,
+            email__contains="@",
             disabled=0,
             pk__in=UserGroup.objects.filter(group__in=groups, default_group=1).values(
                 "user"
@@ -505,30 +510,28 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
 
         groups = Group.objects.filter(service__in=services)
         users = User.objects.filter(
-            pk__in=UserGroup.objects.filter(
-                group__in=groups,
-                default_group=1,
-                user__email__isnull=False,
-                user__disabled=0,
-            ).values("user")
+            email__contains="@",
+            disabled=0,
+            pk__in=UserGroup.objects.filter(group__in=groups, default_group=1).values(
+                "user"
+            ),
         )
         return [{"to": user.email} for user in users]
 
     def _get_recipients_koor_np_users(self, instance):
 
         users = User.objects.filter(
+            email__contains="@",
+            disabled=0,
             pk__in=UserGroup.objects.filter(
-                default_group=1,
-                user__email__isnull=False,
-                user__disabled=0,
-                role_id=uri_constants.KOOR_NP_ROLE_ID,
-            ).values("user")
+                default_group=1, group__role_id=uri_constants.KOOR_NP_ROLE_ID
+            ).values("user"),
         )
         return [{"to": user.email} for user in users]
 
     def _get_recipients_koor_bg_users(self, instance):
         users = User.objects.filter(
-            email__isnull=False,
+            email__contains="@",
             disabled=0,
             pk__in=UserGroup.objects.filter(
                 default_group=1, group__role_id=uri_constants.KOOR_BG_ROLE_ID
