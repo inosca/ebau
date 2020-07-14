@@ -3814,6 +3814,14 @@
   },
   {
     "fields": {
+      "form": 21,
+      "form_group": 1
+    },
+    "model": "core.formgroupform",
+    "pk": 21
+  },
+  {
+    "fields": {
       "group": 1,
       "permission_id": "menu_account"
     },
@@ -12718,6 +12726,28 @@
   },
   {
     "fields": {
+      "form": 21,
+      "page": 2,
+      "page_form_group": 1,
+      "page_form_mode": 1,
+      "sort": 0
+    },
+    "model": "core.pageform",
+    "pk": 44
+  },
+  {
+    "fields": {
+      "form": 21,
+      "page": 1,
+      "page_form_group": 1,
+      "page_form_mode": 1,
+      "sort": 1
+    },
+    "model": "core.pageform",
+    "pk": 45
+  },
+  {
+    "fields": {
       "name": "default"
     },
     "model": "core.pageformgroup",
@@ -15460,6 +15490,15 @@
     },
     "model": "instance.form",
     "pk": 20
+  },
+  {
+    "fields": {
+      "description": "Vorabkl\u00e4rung",
+      "form_state": 1,
+      "name": "vorabklarung-v3"
+    },
+    "model": "instance.form",
+    "pk": 21
   },
   {
     "fields": {
