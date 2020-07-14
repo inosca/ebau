@@ -54,6 +54,9 @@ services:
       - LANGUAGE_CODE=de
       - LANGUAGES=de,fr
       - OIDC_BEARER_TOKEN_REVALIDATION_TIME=300
+      - OIDC_USERNAME_CLAIM=preferred_username
+      - OIDC_BOOTSTRAP_BY_EMAIL_FALLBACK=true
+      - URI_MIGRATE_PORTAL_USER=true
       - META_FIELDS=camac-instance-id,ebau-number,submit-date
       - ENABLE_HISTORICAL_API=true
       - KEYCLOAK_REALM=urec
