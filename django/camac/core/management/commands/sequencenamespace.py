@@ -143,12 +143,11 @@ class Command(AppCommand):
         statements = self.sequence_reset_sql(
             connection.ops, self.style, models, ns_start, ns_end
         )
-
         if options.get("execute"):
 
             print(
-                "Updating SEQUENCEs for user %s (range %d..%d)"
-                % (user, ns_start, ns_end)
+                "Updating SEQUENCEs for user %s (range %d..%d) in app %s"
+                % (user, ns_start, ns_end, app_config.verbose_name)
             )
             with connection.cursor() as cursor:
                 for stmt in statements:
