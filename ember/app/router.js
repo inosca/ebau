@@ -25,6 +25,7 @@ Router.map(function() {
         this.route("grundinformationen", function() {
           this.route("lokalisierung");
           this.route("kategorisierung");
+          this.route("kategorisierung-vorabklarung");
           this.route("gwr");
           this.route("allgemeine-informationen-zum-vorhaben");
           this.route("allgemeine-informationen-zum-vorhaben-v2");
