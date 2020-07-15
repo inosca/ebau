@@ -183,24 +183,25 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         total = self.get_total_activations(instance)
         pending = self.get_pending_activations(instance)
 
-        created = date.fromtimestamp(int(self.circulation.name)).strftime("%d.%m.%Y")
-
-        circulation_name = {
-            "de": f"Zirkulation vom {created}",
-            "fr": f"la circulation du {created}",
-        }
+        try:
+            created = date.fromtimestamp(int(self.circulation.name)).strftime(
+                "%d.%m.%Y"
+            )
+            circulation_name = {"de": f" vom {created}", "fr": f" du {created}"}
+        except ValueError:
+            circulation_name = {"de": "", "fr": ""}
 
         if total == 0:  # pragma: no cover (this should never happen)
             return ""
         elif pending == 0:
             message = {
-                "de": f"Alle {total} Stellungnahmen der {circulation_name.get('de')} sind nun eingegangen.",
-                "fr": f"Tous les {total} prises de position de {circulation_name.get('fr')} ont été reçues.",
+                "de": f"Alle {total} Stellungnahmen der Zirkulation{circulation_name.get('de')} sind nun eingegangen.",
+                "fr": f"Tous les {total} prises de position de la circulation{circulation_name.get('fr')} ont été reçues.",
             }
         else:  # pending > 0:
             message = {
-                "de": f"{pending} von {total} Stellungnahmen der {circulation_name.get('de')} stehen noch aus.",
-                "fr": f"{pending} de {total} prises de position de {circulation_name.get('fr')} sont toujours en attente.",
+                "de": f"{pending} von {total} Stellungnahmen der Zirkulation{circulation_name.get('de')} stehen noch aus.",
+                "fr": f"{pending} de {total} prises de position de la circulation{circulation_name.get('fr')} sont toujours en attente.",
             }
 
         return message.get(language)
@@ -465,7 +466,10 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
 
         submitter_type = str(
             Answer.get_value_by_cqi(
-                instance, *self.SUBMITTER_TYPE_CQI, fail_on_not_found=False
+                instance,
+                *self.SUBMITTER_TYPE_CQI,
+                # TODO confirm with patrick: is the fallback always the gesuchsteller?
+                default=self.SUBMITTER_TYPE_APPLICANT,
             )
         )
 
