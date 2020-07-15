@@ -21,8 +21,5 @@ INSTANCE_STATE_NEW = 1
 INSTANCE_STATE_NEW_PORTAL = 28
 INSTANCE_STATE_CONTROL = 34
 
-INSTANCE_STATES_HIDDEN_FOR_KOOR = [
-    INSTANCE_STATE_COMM,
-    INSTANCE_STATE_NEW,
-    INSTANCE_STATE_NEW_PORTAL,
-]
+# TODO ask patrick: theoretically, we'd like to hide COMM as well, but instances can be sent "back" into "COMM" if the canton didn't do a circulation which causes issues
+INSTANCE_STATES_HIDDEN_FOR_KOOR = [INSTANCE_STATE_NEW, INSTANCE_STATE_NEW_PORTAL]
