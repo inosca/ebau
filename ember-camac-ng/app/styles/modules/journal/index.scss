@@ -4,12 +4,16 @@
   fieldset {
     border-radius: 5px;
     margin-bottom: 1em;
-    border: 1px solid #c8d9e9;
+    border: 1px solid #000;
   }
 }
 
 .journal__create {
   text-align: end;
+
+  textarea {
+    width: 100%;
+  }
 }
 
 .journal__new {
@@ -32,7 +36,6 @@
 .journal__info {
   .name {
     font-weight: bold;
-    margin-right: 5px;
   }
 
   .date {
@@ -53,7 +56,24 @@
   background: none;
   border: none;
   padding: 0;
-  margin: 0;
+  margin: 0 0 0 5px;
   color: #000000;
   cursor: pointer;
+}
+
+.project-sz {
+  .journal {
+    fieldset {
+      border: 1px solid lightgrey;
+      padding: revert;
+    }
+  }
+}
+
+.project-be {
+  .journal {
+    fieldset {
+      border: 1px solid #c8d9e9;
+    }
+  }
 }
