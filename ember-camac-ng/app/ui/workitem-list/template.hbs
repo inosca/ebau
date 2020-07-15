@@ -4,27 +4,27 @@
   <div>
     <p>{{t "workitemlist.responsible"}}</p>
     <div class="filters-wrapper">
-      <input value="all" checked={{eq this.filters.responsible "all"}} type="radio" class="filter-button" name="verantwortlich" id="filter-all"/>
-      <label for="filter-all">{{t "workitemlist.filter.all"}} ()</label>
-      <input value="own" checked={{eq this.filters.responsible "own"}} type="radio" class="filter-button" name="verantwortlich" id="filter-own"/>
-      <label for="filter-own">{{t "workitemlist.filter.own"}} ()</label>
+      <input {{on "click" (fn this.updateFilter "responsible" "all")}} value="all" checked={{eq this.filters.responsible "all"}} type="radio" class="filter-button" name="verantwortlich" id="filter-all"/>
+      <label for="filter-all">{{t "workitemlist.filter.all"}}</label>
+      <input {{on "click" (fn this.updateFilter "responsible" "own")}} value="own" checked={{eq this.filters.responsible "own"}} type="radio" class="filter-button" name="verantwortlich" id="filter-own"/>
+      <label for="filter-own">{{t "workitemlist.filter.own"}}</label>
     </div>
   </div>
   <div>
     <p>{{t "workitemlist.filter.status"}}</p>
     <div class="filters-wrapper">
-      <Input @value="open" checked={{eq this.filters.status "open"}} @type="radio" @class="filter-button" @name="status" @id="filter-open"/>
+      <Input {{on "click" (fn this.updateFilter "status" "open")}} @value="open" checked={{eq this.filters.status "open"}} @type="radio" @class="filter-button" @name="status" @id="filter-open"/>
       <label for="filter-open">{{t "workitemlist.filter.open"}}</label>
-      <Input @value="closed" checked={{eq this.filters.status "closed"}} @type="radio" @class="filter-button" @name="status" @id="filter-closed"/>
+      <Input {{on "click" (fn this.updateFilter "status" "closed")}} @value="closed" checked={{eq this.filters.status "closed"}} @type="radio" @class="filter-button" @name="status" @id="filter-closed"/>
       <label for="filter-closed">{{t "workitemlist.filter.closed"}}</label>
     </div>
   </div>
   <div>
     <p>{{t "workitemlist.filter.type"}}</p>
     <div class="filters-wrapper">
-      <Input @value="active" checked={{eq this.filters.type "active"}} @type="radio" @class="filter-button" @name="type" @id="filter-active"/>
+      <Input {{on "click" (fn this.updateFilter "type" "active")}} @value="active" checked={{eq this.filters.type "active"}} @type="radio" @class="filter-button" @name="type" @id="filter-active"/>
       <label for="filter-active">{{t "workitemlist.filter.active"}}</label>
-      <Input @value="control" checked={{eq this.filters.type "control"}} @type="radio" @class="filter-button" @name="type" @id="filter-control"/>
+      <Input {{on "click" (fn this.updateFilter "type" "control")}} @value="control" checked={{eq this.filters.type "control"}} @type="radio" @class="filter-button" @name="type" @id="filter-control"/>
       <label for="filter-control">{{t "workitemlist.filter.control"}}</label>
     </div>
   </div>
@@ -47,9 +47,9 @@
       <LoadingText />
     {{else}}
       {{#each this.workItemsQuery.value as |workitem|}}
-        <tr class="workitem expired {{workitem.deadlineCss}}">
-          <td></td>
-          <td></td>
+        <tr class="workitem {{workitem.deadlineCss}}">
+          <td><a href="{{workitem.instanceLink}}">{{workitem.instanceIdentifier}}</a></td>
+          <td>{{workitem.instanceName}}</td>
           <td>{{workitem.name}}</td>
           <td>{{moment-to workitem.deadline}}</td>
           <td>
@@ -79,6 +79,7 @@
                   <ul>
                     <li role="button">{{t "workitemlist.table.markRead"}}</li>
                     <li {{on "click" (perform this.workItemAssignUser workitem)}} role="button">{{t "workitemlist.table.assignToMe"}}</li>
+                    {{!-- TODO: link to edit workitem view after its created --}}
                     <li role="button">{{t "workitemlist.table.editWorkitem"}}</li>
                   </ul>
                 </div>
