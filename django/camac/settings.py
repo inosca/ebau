@@ -610,9 +610,27 @@ APPLICATIONS = {
             "koor_bg_users",
         ],
         "ROLE_PERMISSIONS": {
+            "Admin": None,
+            "Architect": None,
+            "Bundesstelle": "coordination",
+            "Gemeinde als Vernehmlassungsstelle": "service",
+            "Guest": None,  # TODO AFAIK we don't grant unauthenticated users access to endpoints
+            "Koordinationsstelle Baudirektion BD": "coordination",
+            "Koordinationsstelle Baugesuche BG": "coordination",
+            "Koordinationsstelle Baugesuche NP": "coordination",
+            "Koordinationsstelle Energie AfE": "coordination",
+            "Koordinationsstelle Forst und Jagd AFJ": "coordination",
+            "Koordinationsstelle Landwirtschaft ALA": "coordination",
+            "Koordinationsstelle Sicherheitsdirektion SD": "coordination",
+            "Koordinationsstelle Umweltschutz AfU": "coordination",
+            "Mitglied der Gemeindebaubehörde": "municipality",  # TODO Maybe we should introduce a municipality_readonly role?
+            "Mitglied einer Kommission oder Fachgruppe": "commission",
+            "Organisation mit Leseberechtigung": "organization_readonly",
+            "Portal User": None,  # Uses the fallback permissions
             "Sekretariat der Gemeindebaubehörde": "municipality",
-            "Koordinationsstelle Baugesuche BG": "municipality",
-            "Koordinationsstelle Baugesuche NP": "municipality",
+            "Vernehmlassungsstelle Gemeindezirkulation": "service",
+            "Vernehmlassungsstelle mit Koordinationsaufgaben": "service",
+            "Vernehmlassungsstelle ohne Koordinationsaufgaben": "service",
         },
     },
 }
