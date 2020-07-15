@@ -5,13 +5,14 @@ from django.db.models import Q
 from django.db.models.constants import LOOKUP_SEP
 from django.utils import timezone
 from django.utils.translation import gettext as _
-from rest_framework import exceptions
 
 from camac.attrs import nested_getattr
-from camac.core.models import Circulation, InstanceService
+from camac.core.models import Circulation, CommissionAssignment, InstanceService
+from camac.instance.models import Instance
 from camac.mixins import AttributeMixin
 from camac.request import get_request
 from camac.user.permissions import permission_aware
+from rest_framework import exceptions
 
 from . import models
 
@@ -81,33 +82,37 @@ class InstanceQuerysetMixin(object):
 
         user = self._get_user()
 
-        return queryset.filter(
-            Q(**{applicants_expr: user})
-            | (
-                Q(**{publication_user_permission_status_expr: "accepted"})
-                & Q(**{publication_user_permission_expr: user})
-                & Q(
-                    **{
-                        publication_date_gte: timezone.now()
-                        - settings.APPLICATION.get("PUBLICATION_DURATION")
-                    }
-                )
-                & Q(**{publication_date_lt: timezone.now()})
-                & Q(**{publication_published: True})
+        # A user should see dossiers which he submitted or has been invited to.
+        applicant_filter = Q(**{applicants_expr: user})
+
+        # A user should see dossiers which are currenty published
+        publication_duration = settings.APPLICATION.get("PUBLICATION_DURATION")
+        publication_earliest_start = timezone.now() - publication_duration
+        publication_filter = (
+            Q(**{publication_user_permission_expr: user})
+            & Q(**{publication_date_gte: publication_earliest_start})
+            & Q(**{publication_date_lt: timezone.now()})
+            & Q(**{publication_published: True})
+        )
+
+        # In SZ users need to be granted access to a published dossier.
+        if settings.APPLICATION_NAME == "kt_schwyz":
+            publication_filter &= Q(
+                **{publication_user_permission_status_expr: "accepted"}
             )
-        ).distinct()
+
+        return queryset.filter(applicant_filter | publication_filter).distinct()
 
     def get_queryset_for_public_reader(self, group=None):
         queryset = self.get_base_queryset()
         instance_field = self._get_instance_filter_expr("pk", "in")
 
-        # instances from municipality in publication period
         instances = models.Instance.objects.filter(
-            location__in=self._get_group().locations.all(),
             publication_entries__publication_date__gte=timezone.now()
             - settings.APPLICATION.get("PUBLICATION_DURATION"),
             publication_entries__publication_date__lt=timezone.now(),
             publication_entries__is_published=True,
+            location__in=self._get_group().locations.all(),
         )
 
         return queryset.filter(**{instance_field: instances})
@@ -115,16 +120,27 @@ class InstanceQuerysetMixin(object):
     def get_queryset_for_reader(self, group=None):
         return self.get_queryset_for_municipality()
 
+    def get_queryset_for_coordination(self, group=None):
+        group = self._get_group(group)
+        queryset = self.get_base_queryset()
+        instance_field = self._get_instance_filter_expr("pk", "in")
+
+        instances_with_activation = self._instances_with_activation(group)
+        instances_created_by_group = self._instances_created_by(group)
+
+        return queryset.filter(
+            Q(**{instance_field: instances_with_activation})
+            | Q(**{instance_field: instances_created_by_group})
+        )
+
     def get_queryset_for_municipality(self, group=None):
         group = self._get_group(group)
-
         queryset = self.get_base_queryset()
         instance_field = self._get_instance_filter_expr("pk", "in")
 
         instances_for_location = models.Instance.objects.filter(
             location__in=group.locations.all()
         )
-
         instances_for_service = InstanceService.objects.filter(
             service=group.service
         ).values("instance_id")
@@ -151,10 +167,26 @@ class InstanceQuerysetMixin(object):
     def get_queryset_for_support(self, group=None):
         return self.get_base_queryset()
 
+    def get_queryset_for_organization_readonly(self, group=None):
+        # TODO We don't know what the rules are yet.
+        return set()
+
+    def get_queryset_for_commission(self, group=None):
+        group = self._get_group(group)
+        queryset = self.get_base_queryset()
+        instance_field = self._get_instance_filter_expr("pk", "in")
+        instances_with_invite = CommissionAssignment.objects.filter(group=group).values(
+            "instance"
+        )
+        return queryset.filter(**{instance_field: instances_with_invite})
+
     def _instances_with_activation(self, group):
         return Circulation.objects.filter(activations__service=group.service).values(
             "instance_id"
         )
+
+    def _instances_created_by(self, group):
+        return Instance.objects.filter(group=group).values("instance_id")
 
 
 class InstanceEditableMixin(AttributeMixin):
@@ -163,8 +195,6 @@ class InstanceEditableMixin(AttributeMixin):
     Define `instance_editable_permission` what permission is needed to edit.
     Currently there are `document` for attachments and `form` for form data.
     Set it to None if no specific permission is required.
-
-    Works both in views and serializers, see method "validate_instance".
     """
 
     def get_instance(self, obj):
@@ -249,11 +279,6 @@ class InstanceEditableMixin(AttributeMixin):
 
     @permission_aware
     def validate_instance(self, instance):
-        """
-        Validate "instance" field to check editability rules.
-
-        Considered both in views and serializers.
-        """
         user = get_request(self).user
         return self._validate_instance_editablity(
             instance, lambda: instance.involved_applicants.filter(invitee=user).exists()
@@ -266,11 +291,14 @@ class InstanceEditableMixin(AttributeMixin):
 
         return self._validate_instance_editablity(
             instance,
-            lambda: group.locations.filter(pk=instance.location_id).exists()
-            or circulations.filter(activations__service=service).exists()
-            or InstanceService.objects.filter(
-                service=service, instance=instance
-            ).exists(),
+            lambda: (
+                group.locations.filter(pk=instance.location_id).exists()
+                or instance.location_id is None  # can't match location if its not set
+                or circulations.filter(activations__service=service).exists()
+                or InstanceService.objects.filter(
+                    service=service, instance=instance
+                ).exists()
+            ),
         )
 
     def validate_instance_for_service(self, instance):
