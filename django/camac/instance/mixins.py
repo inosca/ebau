@@ -163,6 +163,8 @@ class InstanceEditableMixin(AttributeMixin):
     Define `instance_editable_permission` what permission is needed to edit.
     Currently there are `document` for attachments and `form` for form data.
     Set it to None if no specific permission is required.
+
+    Works both in views and serializers, see method "validate_instance".
     """
 
     def get_instance(self, obj):
@@ -247,6 +249,11 @@ class InstanceEditableMixin(AttributeMixin):
 
     @permission_aware
     def validate_instance(self, instance):
+        """
+        Validate "instance" field to check editability rules.
+
+        Considered both in views and serializers.
+        """
         user = get_request(self).user
         return self._validate_instance_editablity(
             instance, lambda: instance.involved_applicants.filter(invitee=user).exists()
