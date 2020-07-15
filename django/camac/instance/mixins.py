@@ -5,6 +5,7 @@ from django.db.models import Q
 from django.db.models.constants import LOOKUP_SEP
 from django.utils import timezone
 from django.utils.translation import gettext as _
+from rest_framework import exceptions
 
 from camac.attrs import nested_getattr
 from camac.core.models import Circulation, CommissionAssignment, InstanceService
@@ -12,7 +13,6 @@ from camac.instance.models import Instance
 from camac.mixins import AttributeMixin
 from camac.request import get_request
 from camac.user.permissions import permission_aware
-from rest_framework import exceptions
 
 from . import models
 
@@ -270,6 +270,7 @@ class InstanceEditableMixin(AttributeMixin):
         self, instance, is_editable_callable=lambda: True
     ):
         if not self.has_editable_permission(instance) or not is_editable_callable():
+            # TODO log user's current group's role
             raise exceptions.ValidationError(
                 _("Not allowed to add data to instance %(instance)s")
                 % {"instance": instance.pk}
@@ -293,7 +294,22 @@ class InstanceEditableMixin(AttributeMixin):
             instance,
             lambda: (
                 group.locations.filter(pk=instance.location_id).exists()
-                or instance.location_id is None  # can't match location if its not set
+                or circulations.filter(activations__service=service).exists()
+                or InstanceService.objects.filter(
+                    service=service, instance=instance
+                ).exists()
+            ),
+        )
+
+    def validate_instance_for_coordination(self, instance):
+        group = get_request(self).group
+        service = group.service
+        circulations = instance.circulations.all()
+
+        return self._validate_instance_editablity(
+            instance,
+            lambda: (
+                group.locations.filter(pk=instance.location_id).exists()
                 or circulations.filter(activations__service=service).exists()
                 or InstanceService.objects.filter(
                     service=service, instance=instance
