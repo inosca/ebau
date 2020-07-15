@@ -26,10 +26,37 @@ def migrate_instance_location(apps, schema_editor):
             instance.save()
 
 
+def migrate_instance_user(apps, schema_editor):
+    """Uri uses Instance.user to determine which user created an instance.
+
+    With the migration to keycloak, portal dossiers are no longer submitted as
+    the portal user. Instead each applicant has a camac user. They can see all
+    instances which they created themself.
+
+    Bern and Schwyz use a similar logic. However they want to grant multiple
+    users access to an instance. To do this they use a dedicated
+    involved_applicants table, to keep track of invitees.
+
+    For consistency reasons we want to do the same thing in Uri.
+    """
+
+    if settings.APPLICATION_NAME == "kt_uri":
+        Instance = apps.get_model("instance", "Instance")
+        instances = Instance.objects.all().iterator()
+        for instance in instances:
+            instance.involved_applicants.create(
+                user=instance.user,
+                invitee=instance.user,
+                created=timezone.now(),
+                email=instance.user.email,
+            )
+
+
 class Migration(migrations.Migration):
 
     dependencies = [("core", "0064_delete_journal")]
 
     operations = [
-        migrations.RunPython(migrate_instance_location, migrations.RunPython.noop)
+        migrations.RunPython(migrate_instance_location, migrations.RunPython.noop),
+        migrations.RunPython(migrate_instance_user, migrations.RunPython.noop),
     ]
