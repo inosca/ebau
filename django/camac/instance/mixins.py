@@ -13,6 +13,7 @@ from camac.instance.models import Instance
 from camac.mixins import AttributeMixin
 from camac.request import get_request
 from camac.user.permissions import permission_aware
+from camac.constants import kt_uri as uri_constants
 
 from . import models
 
@@ -125,12 +126,13 @@ class InstanceQuerysetMixin(object):
         queryset = self.get_base_queryset()
         instance_field = self._get_instance_filter_expr("pk", "in")
 
-        instances_with_activation = self._instances_with_activation(group)
         instances_created_by_group = self._instances_created_by(group)
 
         return queryset.filter(
-            Q(**{instance_field: instances_with_activation})
-            | Q(**{instance_field: instances_created_by_group})
+            Q(**{instance_field: instances_created_by_group})
+            | ~Q(
+                instance__instance_state__in=uri_constants.INSTANCE_STATES_HIDDEN_FOR_KOOR
+            )
         )
 
     def get_queryset_for_municipality(self, group=None):
@@ -302,20 +304,14 @@ class InstanceEditableMixin(AttributeMixin):
         )
 
     def validate_instance_for_coordination(self, instance):
-        group = get_request(self).group
-        service = group.service
-        circulations = instance.circulations.all()
+        # TODO: Map form types to responsible KOORS
+        if instance.instance_state_id in uri_constants.INSTANCE_STATES_HIDDEN_FOR_KOOR:
+            raise exceptions.ValidationError(
+                _("Not allowed to add data to instance %(instance)s as coordination")
+                % {"instance": instance.pk}
+            )
 
-        return self._validate_instance_editablity(
-            instance,
-            lambda: (
-                group.locations.filter(pk=instance.location_id).exists()
-                or circulations.filter(activations__service=service).exists()
-                or InstanceService.objects.filter(
-                    service=service, instance=instance
-                ).exists()
-            ),
-        )
+        return self._validate_instance_editablity(instance)
 
     def validate_instance_for_service(self, instance):
         service = get_request(self).group.service
