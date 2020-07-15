@@ -65,6 +65,8 @@ services:
     networks:
       - camac-ng.local
     command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py collectstatic --noinput && ./manage.py runserver 0.0.0.0:80 --pythonpath /app/$APPLICATION"
+    # Pro tip from 1337 backend devs: use this command and run `manage.py runserver 0:80 inside django container to enable pdb goodness
+    # command: /bin/sh -c "while true; do sleep 10; done"
 
   php:
     image: acr.run/camac-ng/camac-ng/php:master
