@@ -474,14 +474,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         )
 
         ans_cqi = self.SUBMITTER_LIST_CQI_BY_TYPE.get(submitter_type)
-        if ans_cqi:
-            ans = Answer.get_value_by_cqi(instance, *ans_cqi, fail_on_not_found=False)
-        else:
-            raise exceptions.ValidationError(
-                f"Instance {instance.pk}: Invalid submitter type: "
-                f"{submitter_type}. Cannot send notification email"
-            )
-
+        ans = Answer.get_value_by_cqi(instance, *ans_cqi, fail_on_not_found=False)
         if not ans:
             raise exceptions.ValidationError(
                 f"Instance {instance.pk}: Answer for submitter/applicant "
