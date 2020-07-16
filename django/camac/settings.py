@@ -152,6 +152,7 @@ APPLICATIONS = {
         ],  # if unset, all are allowed
         # please also update django/Makefile command when changing apps here
         "SEQUENCE_NAMESPACE_APPS": ["core", "responsible", "document"],
+        "PUBLICATION_INVITE_ONLY": True,
     },
     "kt_schwyz": {
         "ROLE_PERMISSIONS": {
@@ -205,6 +206,7 @@ APPLICATIONS = {
         },
         # please also update django/Makefile command when changing apps here
         "SEQUENCE_NAMESPACE_APPS": [],
+        "PUBLICATION_INVITE_ONLY": True,
     },
     "kt_bern": {
         "ROLE_PERMISSIONS": {
