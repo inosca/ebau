@@ -301,7 +301,7 @@ def test_instance_submit(
     attachment_section_group_acl_factory,
     role,
     mocker,
-    unoconv_pdf_mock
+    unoconv_pdf_mock,
 ):
 
     settings.APPLICATION["NOTIFICATIONS"]["SUBMIT"] = notification_template.slug
