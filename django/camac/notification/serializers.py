@@ -468,7 +468,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             Answer.get_value_by_cqi(
                 instance,
                 *self.SUBMITTER_TYPE_CQI,
-                # TODO confirm with patrick: is the fallback always the gesuchsteller?
+                # TODO needs to be confirmed with customer
                 default=self.SUBMITTER_TYPE_APPLICANT,
             )
         )
