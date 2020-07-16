@@ -175,6 +175,8 @@ def test_template_merge(
     notice_type_factory,
     snapshot,
     settings,
+    unoconv_pdf_mock,
+    unoconv_invalid_mock,
 ):
     notice_type_application = notice_type_factory(name="Antrag")
     notice_type_hint = notice_type_factory(name="Hinweis")
