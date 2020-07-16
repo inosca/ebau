@@ -1,4 +1,3 @@
-import io
 import mimetypes
 from datetime import timedelta
 
@@ -9,8 +8,7 @@ from django.db import transaction
 from django.db.models import OuterRef, Q, Subquery
 from django.http import HttpResponse
 from django.utils import timezone
-from docxtpl import DocxTemplate
-from rest_framework import exceptions, response, viewsets
+from rest_framework import response, viewsets
 from rest_framework.decorators import action
 from rest_framework.generics import RetrieveAPIView
 from rest_framework.settings import api_settings
@@ -21,10 +19,9 @@ from camac.core.models import InstanceService, WorkflowEntry
 from camac.core.views import SendfileHttpResponse
 from camac.document.models import Attachment, AttachmentSection
 from camac.notification.views import send_mail
-from camac.unoconv import convert
 from camac.user.permissions import permission_aware
+from camac.utils import DocxRenderer
 
-from ..jinja import get_jinja_env
 from ..utils import get_paper_settings
 from . import document_merge_service, filters, mixins, models, serializers, validators
 
@@ -240,19 +237,8 @@ class InstanceView(
             "modules": validator.get_active_modules_questions(),
         }
 
-        buf = io.BytesIO()
-        doc = DocxTemplate("camac/instance/templates/form-export.docx")
-        doc.render(data, get_jinja_env())
-        doc.save(buf)
-
-        buf.seek(0)
-        if type != "docx":
-            content = convert(buf, type)
-            if content is None:
-                raise exceptions.ParseError()
-            buf = io.BytesIO(content)
-
-        return buf
+        renderer = DocxRenderer("camac/instance/templates/form-export.docx", data)
+        return renderer.convert(type)
 
     @action(methods=["get"], detail=True)
     def export_detail(self, request, pk=None):
