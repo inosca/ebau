@@ -29,6 +29,13 @@ def test_migrate_add_missing_dynamic_options(transactional_db):
     Service = old_apps.get_model("user", "Service")
     ServiceGroup = old_apps.get_model("user", "ServiceGroup")
 
+    # make sure we start with a clean slate (db fixture may not give us
+    # a fully empty app in all cases)
+    Document.objects.all().delete()
+    Form.objects.all().delete()
+    Answer.objects.all().delete()
+    Question.objects.all().delete()
+
     service1 = Service.objects.create(
         service_parent=None,
         service_group=ServiceGroup.objects.create(name="municipality"),
