@@ -131,13 +131,13 @@ def test_authenticate_side_effect(rf, mocker, side_effect, clear_cache):
 
 
 @pytest.mark.parametrize("authorization", ["Bearer", "Bearer token token"])
-def test_get_jwt_value_invalid_authorization(rf, authorization):
+def test_get_jwt_value_invalid_authorization(db, rf, authorization):
     request = rf.request(HTTP_AUTHORIZATION=authorization)
     with pytest.raises(AuthenticationFailed):
         JSONWebTokenKeycloakAuthentication().get_jwt_value(request)
 
 
-def test_authenticate_header(rf, settings):
+def test_authenticate_header(db, rf, settings):
     request = rf.request()
     header = JSONWebTokenKeycloakAuthentication().authenticate_header(request)
     assert settings.KEYCLOAK_REALM in header

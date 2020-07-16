@@ -130,6 +130,7 @@ def test_instance_filter_fields(admin_client, instance, form_field_factory):
         ("Municipality", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
         ("Service", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
         ("Unknown", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
+        ("Coordination", LazyFixture("user"), status.HTTP_400_BAD_REQUEST),
     ],
 )
 def test_instance_update(
