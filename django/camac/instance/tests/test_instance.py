@@ -301,6 +301,7 @@ def test_instance_submit(
     attachment_section_group_acl_factory,
     role,
     mocker,
+    unoconv_pdf_mock
 ):
 
     settings.APPLICATION["NOTIFICATIONS"]["SUBMIT"] = notification_template.slug
@@ -436,6 +437,8 @@ def test_instance_export_detail(
     status_code,
     to_type,
     attachment,
+    unoconv_pdf_mock,
+    unoconv_invalid_mock,
 ):
     application_settings["COORDINATE_QUESTION"] = "punkte"
 
