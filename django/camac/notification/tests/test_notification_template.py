@@ -171,6 +171,7 @@ def test_notification_template_merge(
         ("Municipality", status.HTTP_204_NO_CONTENT),
         ("Service", status.HTTP_204_NO_CONTENT),
         ("Applicant", status.HTTP_400_BAD_REQUEST),
+        ("Coordination", status.HTTP_204_NO_CONTENT),
     ],
 )
 def test_notification_template_sendmail(
@@ -269,6 +270,61 @@ def test_notification_template_sendmail(
             == settings.EMAIL_PREFIX_SUBJECT + instance_service.instance.identifier
         )
         assert mailoutbox[0].body == settings.EMAIL_PREFIX_BODY + "Test body"
+
+
+@pytest.mark.parametrize(
+    "use_forbidden_state,status_code",
+    [(True, status.HTTP_400_BAD_REQUEST), (False, status.HTTP_204_NO_CONTENT)],
+)
+@pytest.mark.parametrize("role__name", [("Coordination")])
+def test_notification_template_sendmail_koor(
+    mocker,
+    admin_client,
+    notification_template,
+    status_code,
+    mailoutbox,
+    activation,
+    instance,
+    settings,
+    instance_state_factory,
+    use_forbidden_state,
+):
+    """Test notification permissions for KOOR roles.
+
+    KOOR is special in that they have more complicated rules than other
+    roles in Kanton Uri: Full access is granted for the following cases
+    * They've created an instance themselves
+    * The instance is not in a "forbidden" state (which mostly
+      excludes instances being edited before submission)
+    """
+    if use_forbidden_state:
+        use_forbidden_state = [instance.instance_state_id]
+    else:
+        use_forbidden_state = [instance_state_factory().pk]
+
+    mocker.patch(
+        "camac.constants.kt_uri.INSTANCE_STATES_HIDDEN_FOR_KOOR", use_forbidden_state
+    )
+
+    url = reverse("notificationtemplate-sendmail")
+    data = {
+        "data": {
+            "type": "notification-template-sendmails",
+            "id": None,
+            "attributes": {
+                "template-slug": notification_template.slug,
+                "body": "Test body",
+                "recipient-types": ["service"],
+            },
+            "relationships": {
+                "instance": {"data": {"type": "instances", "id": instance.pk}},
+                "activation": {"data": {"type": "activations", "id": activation.pk}},
+            },
+        }
+    }
+
+    response = admin_client.post(url, data=data)
+    assert response.status_code == status_code
 
 
 @pytest.mark.parametrize(

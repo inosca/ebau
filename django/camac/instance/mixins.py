@@ -9,7 +9,7 @@ from rest_framework import exceptions
 
 from camac.attrs import nested_getattr
 from camac.constants import kt_uri as uri_constants
-from camac.core.models import Circulation, CommissionAssignment, InstanceService
+from camac.core.models import Circulation, InstanceService
 from camac.instance.models import Instance
 from camac.mixins import AttributeMixin
 from camac.request import get_request

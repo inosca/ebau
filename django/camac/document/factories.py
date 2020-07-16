@@ -1,4 +1,3 @@
-from django.conf import settings
 from django.utils import timezone
 from factory import Faker, LazyFunction, SubFactory
 from factory.django import DjangoModelFactory, ImageField
