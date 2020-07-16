@@ -38,6 +38,10 @@
         background-color: #ffc75f;
     }
 
+    &.not-viewed {
+        background-color: #8df28d;
+    }
+
     td:last-child {
         text-align: center;
 
@@ -64,6 +68,30 @@
 
             li {
                 cursor: pointer;
+            }
+        }
+    }
+}
+
+.project-sz {
+    .workitemlist-filters {
+        .filter-button {
+            & + label {
+                border: 1px solid lightgray;
+            }
+        }
+    }
+}
+
+.project-be {
+    .workitemlist-filters {
+        .filter-button {
+            & + label {
+                border: 1px solid #c8d9e9;
+            }
+                    
+            &:checked + label {
+                background-color: #c8d9e9;
             }
         }
     }
