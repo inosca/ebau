@@ -97,7 +97,7 @@ class InstanceQuerysetMixin(object):
         )
 
         # In SZ users need to be granted access to a published dossier.
-        if settings.APPLICATION_NAME == "kt_schwyz":
+        if settings.APPLICATION.get("PUBLICATION_INVITE_ONLY", False):
             publication_filter &= Q(
                 **{publication_user_permission_status_expr: "accepted"}
             )
@@ -167,19 +167,6 @@ class InstanceQuerysetMixin(object):
 
     def get_queryset_for_support(self, group=None):
         return self.get_base_queryset()
-
-    def get_queryset_for_organization_readonly(self, group=None):
-        # TODO We don't know what the rules are yet.
-        return set()
-
-    def get_queryset_for_commission(self, group=None):
-        group = self._get_group(group)
-        queryset = self.get_base_queryset()
-        instance_field = self._get_instance_filter_expr("pk", "in")
-        instances_with_invite = CommissionAssignment.objects.filter(group=group).values(
-            "instance"
-        )
-        return queryset.filter(**{instance_field: instances_with_invite})
 
     def _instances_with_activation(self, group):
         return Circulation.objects.filter(activations__service=group.service).values(
