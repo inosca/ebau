@@ -13,10 +13,20 @@ def test_loadconfig(db, settings, application, tmpdir):
     caluma = settings.APPLICATIONS[application].get("FORM_BACKEND") == "caluma"
 
     # load data including test data
-    call_command("loadconfig", caluma=caluma, stdout=open(os.devnull, "w"))
+    call_command(
+        "loadconfig",
+        caluma=caluma,
+        user="test-dummy@adfinis.com",
+        stdout=open(os.devnull, "w"),
+    )
 
     # overwrite configuration
-    call_command("loadconfig", caluma=caluma, stdout=open(os.devnull, "w"))
+    call_command(
+        "loadconfig",
+        caluma=caluma,
+        user="test-dummy@adfinis.com",
+        stdout=open(os.devnull, "w"),
+    )
 
     dumped_config = tmpdir.join("config.json")
     dumped_config_caluma_form = tmpdir.join("config-caluma-form.json")
