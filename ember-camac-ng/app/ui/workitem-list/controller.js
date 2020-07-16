@@ -9,7 +9,7 @@ import { dropTask } from "ember-concurrency-decorators";
 import saveWorkItem from "../../gql/mutations/save-workitem";
 
 async function processAll(workitems) {
-  let users = [];
+  let users = [this.shoebox.content.userId];
   let instances = [];
 
   workitems.forEach(workitem => {
@@ -39,10 +39,12 @@ export default class WorkitemListController extends Controller {
   @tracked menuOpen = null;
   @tracked filters = {
     responsible: "all",
+    type: "all",
     status: "open",
-    type: "active"
+    role: "active"
   };
   order = [{ attribute: "DEADLINE", direction: "ASC" }];
+  userId = `${this.shoebox.content.userId}`;
 
   @calumaQuery({
     query: allWorkItems,
@@ -63,13 +65,17 @@ export default class WorkitemListController extends Controller {
       filter.push({ assignedUsers: [] });
     }
 
+    if (this.filters.type === "new") {
+      filter.push({ metaValue: [{ key: "not-viewed", value: true }] });
+    }
+
     if (this.filters.status === "closed") {
       filter.push({ status: "READY", invert: true });
     } else {
       filter.push({ status: "READY" });
     }
 
-    if (this.filters.type === "control") {
+    if (this.filters.role === "control") {
       filter.push({ controllingGroups: [this.shoebox.content.groupId] });
     } else {
       filter.push({ addressedGroups: [this.shoebox.content.groupId] });
@@ -87,8 +93,32 @@ export default class WorkitemListController extends Controller {
       yield this.apollo.mutate({
         mutation: saveWorkItem,
         variables: {
-          workitem: workitem.id,
-          assignedUsers: [this.shoebox.content.userId]
+          input: {
+            workItem: workitem.id,
+            assignedUsers: [this.shoebox.content.userId]
+          }
+        }
+      });
+
+      set(workitem, "assignedUsers", [this.shoebox.content.userId]);
+    } catch (error) {
+      this.notifications.error(this.intl.t("workitemlist.saveError"));
+    }
+  }
+
+  @dropTask
+  *workItemRead(workitem) {
+    set(workitem.meta, "not-viewed", false);
+    set(workitem, "notViewed", false);
+
+    try {
+      yield this.apollo.mutate({
+        mutation: saveWorkItem,
+        variables: {
+          input: {
+            workItem: workitem.id,
+            meta: JSON.stringify(workitem.meta)
+          }
         }
       });
     } catch (error) {
