@@ -12,8 +12,9 @@ from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
 from camac.instance.models import HistoryEntry
+from camac.notification import serializers
 from camac.notification.serializers import (
-    NotificationTemplateSendmailSerializer,
+    InstanceMergeSerializer,
     PermissionlessNotificationTemplateSendmailSerializer,
 )
 
@@ -592,19 +593,19 @@ def test_notification_validate_slug_create(admin_client, notification_template):
 @pytest.mark.parametrize(
     "submitter_type",
     [
-        NotificationTemplateSendmailSerializer.SUBMITTER_TYPE_APPLICANT,
-        NotificationTemplateSendmailSerializer.SUBMITTER_TYPE_PROJECT_AUTHOR,
+        serializers.NotificationTemplateSendmailSerializer.SUBMITTER_TYPE_APPLICANT,
+        serializers.NotificationTemplateSendmailSerializer.SUBMITTER_TYPE_PROJECT_AUTHOR,
     ],
 )
 def test_recipient_type_submitter_list(
     db,
     mocker,
     instance,
-    submitter_type,
     camac_answer_factory,
     misdirect_type,
     misdirect_email,
     submitter_email,
+    submitter_type,
 ):
     ans_email = camac_answer_factory(answer=submitter_email, instance=instance)
     ans_submitter_type = camac_answer_factory(answer=submitter_type, instance=instance)
@@ -621,15 +622,19 @@ def test_recipient_type_submitter_list(
         "camac.notification.serializers.NotificationTemplateSendmailSerializer.SUBMITTER_LIST_CQI_BY_TYPE",
         {
             # We only mock the type being tested
-            submitter_type: (
+            typ: (
                 ans_email.chapter_id,
                 ans_email.question_id + misdirect_email,
                 ans_email.item,
             )
+            for typ in [
+                serializers.NotificationTemplateSendmailSerializer.SUBMITTER_TYPE_APPLICANT,
+                serializers.NotificationTemplateSendmailSerializer.SUBMITTER_TYPE_PROJECT_AUTHOR,
+            ]
         },
     )
 
-    serializer = NotificationTemplateSendmailSerializer()
+    serializer = serializers.NotificationTemplateSendmailSerializer()
     has_raised = False
     res = []
 
@@ -638,7 +643,9 @@ def test_recipient_type_submitter_list(
     except Exception as exc:
         has_raised = exc
 
-    if misdirect_type or misdirect_email or not submitter_email:
+    if misdirect_email or not submitter_email:
+        # note: misdirect_type just causes the fallback to trigger, which
+        # won't cause an error per se
         assert bool(has_raised)
         assert res == []
     else:
@@ -665,7 +672,7 @@ def test_recipient_type_municipality_users(
         location if correct_municipality else location_factory()
     )
 
-    serializer = NotificationTemplateSendmailSerializer()
+    serializer = serializers.NotificationTemplateSendmailSerializer()
     res = serializer._get_recipients_municipality_users(instance)
 
     if correct_municipality and user_group.default_group and user_group.user.email:
@@ -689,7 +696,7 @@ def test_recipient_type_unnotified_service_users(
 
     # Setup the serializer fully, as the recipient type depends on
     # some of the request data
-    serializer = NotificationTemplateSendmailSerializer(
+    serializer = serializers.NotificationTemplateSendmailSerializer(
         data={
             "template_slug": notification_template.slug,
             "body": "Test body",
@@ -726,7 +733,7 @@ def test_recipient_type_koor_users(
     mocker.patch("camac.constants.kt_uri.KOOR_BG_ROLE_ID", role.pk)
     mocker.patch("camac.constants.kt_uri.KOOR_NP_ROLE_ID", role.pk)
 
-    serializer = NotificationTemplateSendmailSerializer()
+    serializer = serializers.NotificationTemplateSendmailSerializer()
     method = getattr(serializer, recipient_method)
     res = method(instance)
 
@@ -739,6 +746,35 @@ def test_recipient_type_koor_users(
 @pytest.mark.parametrize("group__name", ["Lisag"])
 def test_recipient_type_lisag(db, instance, group):
 
-    serializer = NotificationTemplateSendmailSerializer()
+    serializer = serializers.NotificationTemplateSendmailSerializer()
     res = serializer._get_recipients_lisag(instance)
     assert res == [{"to": group.email}]
+
+
+@pytest.mark.parametrize(
+    "submitter_type",
+    [
+        serializers.NotificationTemplateSendmailSerializer.SUBMITTER_TYPE_APPLICANT,
+        serializers.NotificationTemplateSendmailSerializer.SUBMITTER_TYPE_PROJECT_AUTHOR,
+        None,
+    ],
+)
+def test_portal_submission_placeholder(
+    db, instance, camac_answer_factory, mocker, submitter_type
+):
+    serializer = InstanceMergeSerializer(instance)
+    if submitter_type is not None:
+        ans_submitter_type = camac_answer_factory(
+            answer=submitter_type, instance=instance
+        )
+        mocker.patch(
+            "camac.notification.serializers.NotificationTemplateSendmailSerializer.SUBMITTER_TYPE_CQI",
+            (
+                ans_submitter_type.chapter_id,
+                # misdirect points us to an invalid answer to test missing data
+                ans_submitter_type.question_id,
+                ans_submitter_type.item,
+            ),
+        )
+    portal_submission = serializer.get_portal_submission(instance)
+    assert portal_submission == (submitter_type is not None)
