@@ -8,7 +8,6 @@ from django.conf import settings
 from django.db.models import Q
 from django.http import HttpResponse
 from django.utils.translation import gettext as _
-from docxtpl import DocxTemplate
 from drf_yasg import openapi
 from drf_yasg.errors import SwaggerGenerationError
 from drf_yasg.inspectors import SwaggerAutoSchema
@@ -26,8 +25,8 @@ from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.models import Instance
 from camac.notification.serializers import InstanceMergeSerializer
 from camac.swagger.utils import get_operation_description, group_param
-from camac.unoconv import convert
 from camac.user.permissions import permission_aware
+from camac.utils import DocxRenderer
 
 from . import filters, models, permissions, serializers
 
@@ -442,7 +441,6 @@ class TemplateView(views.ModelViewSet):
         response["Content-Disposition"] = 'attachment; filename="{0}"'.format(filename)
         response["Content-Type"] = mimetypes.guess_type(filename)[0]
 
-        buf = io.BytesIO()
         serializer = self.get_serializer(instance, escape=True)
         serializer.validate_instance(instance)
         data = serializer.data
@@ -452,16 +450,8 @@ class TemplateView(views.ModelViewSet):
                 key=lambda notice: NOTICE_TYPE_ORDER[notice["notice_type"]]
             )
 
-        doc = DocxTemplate(template.path)
-        doc.render(data)
-        doc.save(buf)
-
-        buf.seek(0)
-        if to_type != "docx":
-            content = convert(buf, to_type)
-            if content is None:
-                raise exceptions.ParseError()
-            buf = io.BytesIO(content)
+        renderer = DocxRenderer(template.path, data)
+        buf = renderer.convert(to_type)
 
         response.write(buf.read())
         return response
