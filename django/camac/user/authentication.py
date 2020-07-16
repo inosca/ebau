@@ -176,7 +176,7 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
 
 def is_uri_portal_user(username):
     """Check if username is valid i-web portal user identifier."""
-    return re.match("^d12_\d+$", username)
+    return re.match(r"^d12_\d+$", username)
 
 
 @transaction.atomic
