@@ -1,7 +1,12 @@
-mutation saveWorkItem($workitem: ID!, $name: String, $description: String, $assignedUsers: [String], $deadline: DateTime) {
+mutation saveWorkItem($input: SaveWorkItemInput!) {
   saveWorkItem(
-    input: { workItem: $workitem, name: $name, description: $description, assignedUsers: $assignedUsers, deadline: $deadline }
+    input: $input
   ) {
     clientMutationId
+    workItem {
+      id
+      assignedUsers
+      meta
+    }
   }
 }
