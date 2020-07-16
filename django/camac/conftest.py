@@ -11,11 +11,13 @@ from factory import Faker
 from factory.base import FactoryMetaClass
 from pytest_factoryboy import register
 from pytest_factoryboy.fixture import get_model_name
+from rest_framework import status
 from rest_framework.test import APIClient, APIRequestFactory
 
 from camac.applicants import factories as applicant_factories
 from camac.core import factories as core_factories
 from camac.document import factories as document_factories
+from camac.document.tests.data import django_file
 from camac.echbern import factories as ech_factories
 from camac.faker import FreezegunAwareDatetimeProvider
 from camac.instance import factories as instance_factories
@@ -24,6 +26,7 @@ from camac.objection import factories as objection_factories
 from camac.responsible import factories as responsible_factories
 from camac.user import factories as user_factories
 from camac.user.authentication import CalumaInfo
+from camac.utils import build_url
 
 
 def register_module(module, prefix=""):
@@ -217,3 +220,21 @@ def media_root(tmpdir_factory, settings):
 @pytest.fixture
 def clear_cache():
     cache.clear()
+
+
+@pytest.fixture
+def unoconv_pdf_mock(requests_mock):
+    requests_mock.register_uri(
+        "POST",
+        build_url(settings.UNOCONV_URL, f"/unoconv/pdf"),
+        content=django_file("multiple-pages.pdf").read(),
+    )
+
+
+@pytest.fixture
+def unoconv_invalid_mock(requests_mock):
+    requests_mock.register_uri(
+        "POST",
+        build_url(settings.UNOCONV_URL, f"/unoconv/invalid"),
+        status_code=status.HTTP_400_BAD_REQUEST,
+    )
