@@ -188,7 +188,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
                 "%d.%m.%Y"
             )
             circulation_name = {"de": f" vom {created}", "fr": f" du {created}"}
-        except ValueError:
+        except ValueError:  # pragma: no cover
             circulation_name = {"de": "", "fr": ""}
 
         if total == 0:  # pragma: no cover (this should never happen)

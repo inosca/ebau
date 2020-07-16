@@ -125,6 +125,7 @@ APPLICATIONS = {
             "Applicant": "applicant",
             "Municipality": "municipality",
             "Administration Leitbehörde": "municipality",
+            "Coordination": "coordination",
             "Service": "service",
             "Reader": "reader",
             "Canton": "canton",
