@@ -31,8 +31,9 @@ sqlsequencereset:
 	@python manage.py sqlsequencereset core | python manage.py dbshell
 
 .PHONY: sequencenamespace
-sequencenamespace:  ## Set the Sequence namespace for a given user.
-	@python manage.py sequencenamespace --user $(GIT_USER) core --execute
+sequencenamespace:  ## Set the Sequence namespace for a given user
+	@# please also update "SEQUENCE_NAMESPACE_APPS" in settings.py when changing apps here
+	@python manage.py sequencenamespace --user $(GIT_USER) core document responsible --execute
 
 .PHONY: import-help-text
 import-help-text: ## Import help texts into form.json from csv. First argument needs to be the path to the csv file (FILE=pahtToFile)
