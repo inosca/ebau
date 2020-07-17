@@ -63,7 +63,7 @@ def _get_group_for_portal(request):
     if not portal_client:  # pragma: no cover
         return None
 
-    clients = request.auth["aud"]
+    clients = request.auth.get("aud")
     if not isinstance(clients, list):
         clients = [clients]
 
