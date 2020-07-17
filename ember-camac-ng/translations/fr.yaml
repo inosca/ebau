@@ -37,3 +37,36 @@ journal:
 
   create: "Créer une entrée"
   edit: "Modifier l'entrée"
+
+workitemlist:
+  saveError: "La tâche n'a pas pu être enregistrée.tâche"
+
+  responsible: "Responsable"
+
+  filter:
+    status: "Ètat"
+    type: "Type"
+    role: "Rôle"
+
+    all: "Tous"
+    own: "Propre"
+    new: "Nouveau"
+    open: "Ouvert"
+    closed: "Terminé"
+    active: "Aktive"
+    control: "Contrôler"
+
+  table:
+    instance: "Dossier"
+    instanceType: "Type de demande"
+    task: "Tâche"
+    deadline: "Dû"
+    created: "Créé"
+
+    markRead: "Marquer comme lu"
+    assignToMe: "Se référer à moi"
+    editWorkitem: "Modifier la tâche"
+
+    empty: "Aucune tâche trouvée"
+
+    loadMore: "Récupérer plus de tâches"

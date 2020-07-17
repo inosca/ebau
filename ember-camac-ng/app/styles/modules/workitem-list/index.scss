@@ -1,10 +1,6 @@
 .workitemlist-filters {
     display: flex;
 
-    p {
-        margin: 0 !important;
-    }
-
     & > div {
         margin-right: 10px;
     }
@@ -70,6 +66,14 @@
                 cursor: pointer;
             }
         }
+    }
+}
+
+.load-more {
+    cursor: pointer;
+
+    td {
+        text-align: center;
     }
 }
 
