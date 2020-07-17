@@ -83,8 +83,8 @@ class Command(BaseCommand):
         self.stdout.write("Loading config {0}".format(", ".join(fixtures)))
         call_command("loaddata", *fixtures)
 
-        # only kt. BE is using sequence namespacing
-        if settings.APPLICATION_NAME == "kt_bern":
+        sequence_apps = settings.APPLICATION.get("SEQUENCE_NAMESPACE_APPS")
+        if sequence_apps:
             call_command(
-                "sequencenamespace", "core", user=options["user"], execute=True
+                "sequencenamespace", *sequence_apps, user=options["user"], execute=True
             )
