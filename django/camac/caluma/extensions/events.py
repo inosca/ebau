@@ -45,3 +45,10 @@ def copy_paper_answer(sender, work_item, **kwargs):
             log.warning(
                 f"Could not find answer for question `papierdossier` in document for instance {work_item.case.meta.get('camac-instance-id')}"
             )
+
+
+@on(created_work_item)
+def post_complete_work_item(sender, work_item, **kwargs):
+    if "not-viewed" not in work_item.meta:
+        work_item.meta["not-viewed"] = True
+        work_item.save()

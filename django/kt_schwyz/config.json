@@ -1957,6 +1957,15 @@
   },
   {
     "fields": {
+      "action_name": "index",
+      "available_resource": "workitemlist",
+      "hidden": 0
+    },
+    "model": "core.araction",
+    "pk": 19
+  },
+  {
+    "fields": {
       "description": "Add a history entry",
       "module_name": "history"
     },
@@ -2437,6 +2446,15 @@
     },
     "model": "core.availableresource",
     "pk": "useradmin"
+  },
+  {
+    "fields": {
+      "controller_name": "workitemlist",
+      "description": "Display work items",
+      "module_name": "workitemlist"
+    },
+    "model": "core.availableresource",
+    "pk": "workitemlist"
   },
   {
     "fields": {
@@ -13690,6 +13708,19 @@
   },
   {
     "fields": {
+      "available_resource": "workitemlist",
+      "class_field": null,
+      "description": null,
+      "hidden": 1,
+      "name": "Aufgabenliste",
+      "sort": 16,
+      "template": null
+    },
+    "model": "core.resource",
+    "pk": 23
+  },
+  {
+    "fields": {
       "resource": 1,
       "role": 3
     },
@@ -14047,6 +14078,22 @@
     },
     "model": "core.rroleacl",
     "pk": 55
+  },
+  {
+    "fields": {
+      "resource": 23,
+      "role": 3
+    },
+    "model": "core.rroleacl",
+    "pk": 56
+  },
+  {
+    "fields": {
+      "resource": 23,
+      "role": 8
+    },
+    "model": "core.rroleacl",
+    "pk": 57
   },
   {
     "fields": {
