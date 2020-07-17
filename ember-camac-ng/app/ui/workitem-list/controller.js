@@ -56,7 +56,7 @@ export default class WorkitemListController extends Controller {
   workItemsQuery;
 
   @dropTask
-  *fetchWorkitems() {
+  *fetchWorkItems() {
     const filter = [];
 
     if (this.filters.responsible === "own") {
@@ -88,6 +88,11 @@ export default class WorkitemListController extends Controller {
   }
 
   @dropTask
+  *fetchMoreWorkItems() {
+    yield this.workItemsQuery.fetchMore();
+  }
+
+  @dropTask
   *workItemAssignUser(workitem) {
     try {
       yield this.apollo.mutate({
@@ -95,12 +100,18 @@ export default class WorkitemListController extends Controller {
         variables: {
           input: {
             workItem: workitem.id,
-            assignedUsers: [this.shoebox.content.userId]
+            assignedUsers: [
+              ...workitem.assignedUsers,
+              this.shoebox.content.userId
+            ]
           }
         }
       });
 
-      set(workitem, "assignedUsers", [this.shoebox.content.userId]);
+      set(workitem, "assignedUsers", [
+        ...workitem.assignedUsers,
+        this.shoebox.content.userId
+      ]);
     } catch (error) {
       this.notifications.error(this.intl.t("workitemlist.saveError"));
     }
@@ -129,6 +140,6 @@ export default class WorkitemListController extends Controller {
   @action
   updateFilter(type, value) {
     set(this, `filters.${type}`, value);
-    this.fetchWorkitems.perform();
+    this.fetchWorkItems.perform();
   }
 }

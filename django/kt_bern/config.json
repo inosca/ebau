@@ -116257,7 +116257,7 @@
       "available_resource": "workitemlist",
       "class_field": null,
       "description": null,
-      "hidden": 0,
+      "hidden": 1,
       "name": null,
       "sort": 11,
       "template": null
