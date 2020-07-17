@@ -37,6 +37,8 @@ journal:
 
   create: "Créer une entrée"
   edit: "Modifier l'entrée"
+  textareaNew: "Zone de texte pour la nouvelle entrée"
+  textareaEdit: "Zone de texte pour l'édition de l'entrée"
 
 workitemlist:
   saveError: "La tâche n'a pas pu être enregistrée.tâche"
