@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   const ENV = {
     modulePrefix: "ember-caluma-portal",
     environment,
@@ -16,10 +16,10 @@ module.exports = function(environment) {
       endSessionEndpoint: "/logout",
       userinfoEndpoint: "/userinfo",
       afterLogoutUri: "/login",
-      forwardParams: ["kc_idp_hint"]
+      forwardParams: ["kc_idp_hint"],
     },
     apollo: {
-      apiURL: "/graphql/"
+      apiURL: "/graphql/",
     },
     EmberENV: {
       FEATURES: {
@@ -28,8 +28,8 @@ module.exports = function(environment) {
       },
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
-        Date: false
-      }
+        Date: false,
+      },
     },
 
     APP: {
@@ -37,7 +37,7 @@ module.exports = function(environment) {
       // when it is created
     },
     moment: {
-      includeLocales: ["de", "fr"]
+      includeLocales: ["de", "fr"],
     },
 
     languages: ["de", "fr"],
@@ -46,7 +46,7 @@ module.exports = function(environment) {
     ebau: {
       internalURL: "http://camac-ng.local",
       claims: {
-        notificationTemplateId: 32
+        notificationTemplateId: 32,
       },
       attachments: {
         allowedMimetypes: ["image/png", "image/jpeg", "application/pdf"],
@@ -54,8 +54,8 @@ module.exports = function(environment) {
           "dokument-grundstucksangaben",
           "dokument-gutachten-nachweise-begrundungen",
           "dokument-projektplane-projektbeschrieb",
-          "dokument-weitere-gesuchsunterlagen"
-        ]
+          "dokument-weitere-gesuchsunterlagen",
+        ],
       },
       supportGroups: [10000],
       selectableGroups: {
@@ -64,29 +64,29 @@ module.exports = function(environment) {
           5, // Leitung Baukontrolle
           20004, // Sachbearbeiter Leitbehörde
           20005, // Sachbearbeiter Baukontrolle
-          10000 // System-Betrieb
-        ]
+          10000, // System-Betrieb
+        ],
       },
       paperInstances: {
         allowedGroups: {
           roles: [
             3, // Leitung Leitbehörde
-            20004 // Sachbearbeiter Leitbehörde
+            20004, // Sachbearbeiter Leitbehörde
           ],
           serviceGroups: [
             2, // Gemeinde
-            20000 // Regierungsstatthalteramt
-          ]
-        }
+            20000, // Regierungsstatthalteramt
+          ],
+        },
       },
       instanceStates: {
         new: 1,
         rejected: 10000,
         archived: 20009,
         inCorrection: 20007,
-        finished: 120000
-      }
-    }
+        finished: 120000,
+      },
+    },
   };
 
   if (environment === "development") {

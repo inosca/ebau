@@ -3,15 +3,15 @@ import { setupMirage } from "ember-cli-mirage/test-support";
 import { setupTest } from "ember-qunit";
 import { module, test } from "qunit";
 
-module("Unit | Controller | instances/edit/submit", function(hooks) {
+module("Unit | Controller | instances/edit/submit", function (hooks) {
   setupTest(hooks);
   setupMirage(hooks);
 
-  hooks.beforeEach(async function() {
+  hooks.beforeEach(async function () {
     const form = this.server.create("form", { name: "test" });
 
     this.instance = this.server.create("instance", {
-      formId: form.id
+      formId: form.id,
     });
 
     this.model = { instance: this.instance, meta: { editable: ["form"] } };
@@ -20,27 +20,27 @@ module("Unit | Controller | instances/edit/submit", function(hooks) {
 
     this.server.get("/api/v1/form-config", () => ({
       forms: {
-        test: ["module"]
+        test: ["module"],
       },
       modules: {
         module: {
-          questions: ["question-1", "question-2", "question-3"]
-        }
+          questions: ["question-1", "question-2", "question-3"],
+        },
       },
       questions: {
         "question-1": {
           type: "text",
-          required: true
+          required: true,
         },
         "question-2": {
           type: "text",
-          required: true
+          required: true,
         },
         "question-3": {
           type: "text",
-          required: true
-        }
-      }
+          required: true,
+        },
+      },
     }));
 
     await loadQuestions(
@@ -49,7 +49,7 @@ module("Unit | Controller | instances/edit/submit", function(hooks) {
     );
   });
 
-  test("it computes if the instance can be submitted", async function(assert) {
+  test("it computes if the instance can be submitted", async function (assert) {
     assert.expect(2);
 
     const editController = this.owner.lookup("controller:instances/edit");

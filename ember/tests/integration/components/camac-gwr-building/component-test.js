@@ -3,10 +3,10 @@ import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
 
-module("Integration | Component | camac-gwr-building", function(hooks) {
+module("Integration | Component | camac-gwr-building", function (hooks) {
   setupRenderingTest(hooks);
 
-  hooks.beforeEach(function() {
+  hooks.beforeEach(function () {
     this.set("value", {
       uuid: "testuuid",
       f1: "test f1",
@@ -14,9 +14,9 @@ module("Integration | Component | camac-gwr-building", function(hooks) {
       f3: ["3", "2"],
       f4: [
         {
-          col1: "test"
-        }
-      ]
+          col1: "test",
+        },
+      ],
     });
     this.set("columns", [
       {
@@ -24,21 +24,21 @@ module("Integration | Component | camac-gwr-building", function(hooks) {
         label: "F1",
         required: true,
         type: "text",
-        config: {}
+        config: {},
       },
       {
         name: "f2",
         label: "F2",
         required: true,
         type: "number",
-        config: { max: 10 }
+        config: { max: 10 },
       },
       {
         name: "f3",
         label: "F3",
         required: false,
         type: "checkbox",
-        config: { options: ["1", "2", "3"] }
+        config: { options: ["1", "2", "3"] },
       },
       {
         name: "f4",
@@ -52,15 +52,15 @@ module("Integration | Component | camac-gwr-building", function(hooks) {
               label: "Col 1",
               type: "text",
               required: true,
-              config: {}
-            }
-          ]
-        }
-      }
+              config: {},
+            },
+          ],
+        },
+      },
     ]);
   });
 
-  test("validates input", async function(assert) {
+  test("validates input", async function (assert) {
     assert.expect(8);
 
     await render(hbs`{{camac-gwr-building value=value columns=columns}}`);
@@ -84,7 +84,7 @@ module("Integration | Component | camac-gwr-building", function(hooks) {
     assert.dom(".uk-margin:nth-child(4) ul.uk-text-danger").exists();
   });
 
-  test("it can delete", async function(assert) {
+  test("it can delete", async function (assert) {
     assert.expect(2);
 
     this.set("delete", () => {
@@ -100,7 +100,7 @@ module("Integration | Component | camac-gwr-building", function(hooks) {
     assert.verifySteps(["delete"]);
   });
 
-  test("it can save", async function(assert) {
+  test("it can save", async function (assert) {
     assert.expect(2);
 
     this.set("save", () => {
@@ -116,7 +116,7 @@ module("Integration | Component | camac-gwr-building", function(hooks) {
     assert.verifySteps(["save"]);
   });
 
-  test("it can close", async function(assert) {
+  test("it can close", async function (assert) {
     assert.expect(2);
 
     this.set("close", () => {

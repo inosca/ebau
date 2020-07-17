@@ -13,9 +13,9 @@ export default Component.extend({
 
   token: reads("session.data.authenticated.access_token"),
 
-  headers: computed("token", function() {
+  headers: computed("token", function () {
     return {
-      Authorization: `Bearer ${this.token}`
+      Authorization: `Bearer ${this.token}`,
     };
   }),
 
@@ -27,7 +27,7 @@ export default Component.extend({
     this.download.perform();
   },
 
-  download: task(function*() {
+  download: task(function* () {
     try {
       const url = `/api/v1/instances/${
         this.instance.id
@@ -36,7 +36,7 @@ export default Component.extend({
 
       const response = yield fetch(url, {
         mode: "cors",
-        headers: this.headers
+        headers: this.headers,
       });
 
       const file = yield response.blob();
@@ -55,5 +55,5 @@ export default Component.extend({
         "Hoppla, beim Herunterladen der Datei ist etwas schief gelaufen. Bitte versuchen Sie es nochmals"
       );
     }
-  }).drop()
+  }).drop(),
 });

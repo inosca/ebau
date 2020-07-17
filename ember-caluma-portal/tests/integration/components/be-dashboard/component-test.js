@@ -8,40 +8,40 @@ import { module, test } from "qunit";
 
 import config from "../../../../config/environment";
 
-module("Integration | Component | be-dashboard", function(hooks) {
+module("Integration | Component | be-dashboard", function (hooks) {
   setupRenderingTest(hooks);
   setupMirage(hooks);
   setupIntl(hooks);
 
-  hooks.beforeEach(function() {
+  hooks.beforeEach(function () {
     const question = this.server.create("question", {
       slug: "test-content-de",
-      type: "TEXT"
+      type: "TEXT",
     });
 
     this.server.create("document", {
       form: this.server.create("form", {
         slug: "dashboard",
-        questions: [question]
+        questions: [question],
       }),
       answers: [
         this.server.create("answer", {
           question,
-          value: "# TITLE\n\nCONTENT"
-        })
-      ]
+          value: "# TITLE\n\nCONTENT",
+        }),
+      ],
     });
 
     this.owner.register(
       "service:session",
       Service.extend({
         group: null,
-        language: "de"
+        language: "de",
       })
     );
   });
 
-  test("it renders readonly", async function(assert) {
+  test("it renders readonly", async function (assert) {
     assert.expect(2);
 
     await render(hbs`<BeDashboard class="content" @page="test-content" />`);
@@ -50,7 +50,7 @@ module("Integration | Component | be-dashboard", function(hooks) {
     assert.dom(".content p").hasText("CONTENT");
   });
 
-  test("it can be edited by support users", async function(assert) {
+  test("it can be edited by support users", async function (assert) {
     assert.expect(5);
 
     this.owner

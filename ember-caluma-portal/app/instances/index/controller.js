@@ -12,16 +12,16 @@ import Case from "ember-caluma-portal/lib/case";
 import {
   restartableTask,
   dropTask,
-  lastValue
+  lastValue,
 } from "ember-concurrency-decorators";
 import QueryParams from "ember-parachute";
 import moment from "moment";
 
-const getOrder = order => [
+const getOrder = (order) => [
   {
     meta: order.split(":")[0],
-    direction: order.split(":")[1].toUpperCase()
-  }
+    direction: order.split(":")[1].toUpperCase(),
+  },
 ];
 
 const getHasAnswerFilters = ({ parcel: value }) =>
@@ -29,8 +29,8 @@ const getHasAnswerFilters = ({ parcel: value }) =>
     {
       question: "parzellennummer",
       lookup: "CONTAINS",
-      value
-    }
+      value,
+    },
   ].filter(({ value }) => !isEmpty(value));
 
 const getSearchAnswersFilters = ({ address: value }) =>
@@ -43,10 +43,10 @@ const getSearchAnswersFilters = ({ address: value }) =>
         "nummer-gesuchstellerin",
         "plz-gesuchstellerin",
         "ort-grundstueck",
-        "ort-gesuchstellerin"
+        "ort-gesuchstellerin",
       ],
-      value
-    }
+      value,
+    },
   ].filter(({ value }) => !isEmpty(value));
 
 const getMetaValueFilters = ({ instanceId, ebau, submitFrom, submitTo }) =>
@@ -56,18 +56,18 @@ const getMetaValueFilters = ({ instanceId, ebau, submitFrom, submitTo }) =>
     {
       key: "submit-date",
       value: toDateTime(moment(submitFrom).startOf("day")),
-      lookup: "GTE"
+      lookup: "GTE",
     },
     {
       key: "submit-date",
       value: toDateTime(moment(submitTo).endOf("day")),
-      lookup: "LTE"
-    }
+      lookup: "LTE",
+    },
   ].filter(({ value }) => !isEmpty(value));
 
 const DATE_URL_FORMAT = "YYYY-MM-DD";
 
-const toDateTime = date => (date.isValid() ? date.utc().format() : null);
+const toDateTime = (date) => (date.isValid() ? date.utc().format() : null);
 
 const dateQueryParam = {
   serialize(value) {
@@ -81,7 +81,7 @@ const dateQueryParam = {
     const date = moment.utc(value, DATE_URL_FORMAT);
 
     return date.isValid() ? date.toDate() : this.defaultValue;
-  }
+  },
 };
 
 const queryParams = new QueryParams({
@@ -96,7 +96,7 @@ const queryParams = new QueryParams({
         return [];
       }
       return value.split(",");
-    }
+    },
   },
   instanceId: {
     defaultValue: null,
@@ -110,34 +110,34 @@ const queryParams = new QueryParams({
       const int = parseInt(value);
 
       return !isNaN(int) ? int : this.defaultValue;
-    }
+    },
   },
   ebau: {
     defaultValue: "",
-    replace: true
+    replace: true,
   },
   parcel: {
     defaultValue: "",
-    replace: true
+    replace: true,
   },
   address: {
     defaultValue: "",
-    replace: true
+    replace: true,
   },
   submitFrom: {
     defaultValue: null,
     replace: true,
-    ...dateQueryParam
+    ...dateQueryParam,
   },
   submitTo: {
     defaultValue: null,
     replace: true,
-    ...dateQueryParam
+    ...dateQueryParam,
   },
   order: {
     defaultValue: "camac-instance-id:desc",
-    replace: true
-  }
+    replace: true,
+  },
 });
 
 export default class InstancesIndexController extends Controller.extend(
@@ -151,33 +151,33 @@ export default class InstancesIndexController extends Controller.extend(
       {
         value: "camac-instance-id:desc",
         label: "instances.instanceId",
-        direction: "instances.desc"
+        direction: "instances.desc",
       },
       {
         value: "camac-instance-id:asc",
         label: "instances.instanceId",
-        direction: "instances.asc"
+        direction: "instances.asc",
       },
       {
         value: "ebau-number:desc",
         label: "instances.ebau",
-        direction: "instances.desc"
+        direction: "instances.desc",
       },
       {
         value: "ebau-number:asc",
         label: "instances.ebau",
-        direction: "instances.asc"
+        direction: "instances.asc",
       },
       {
         value: "submit-date:desc",
         label: "instances.submitDate",
-        direction: "instances.desc"
+        direction: "instances.desc",
       },
       {
         value: "submit-date:asc",
         label: "instances.submitDate",
-        direction: "instances.asc"
-      }
+        direction: "instances.asc",
+      },
     ];
   }
 
@@ -202,7 +202,7 @@ export default class InstancesIndexController extends Controller.extend(
 
   @computed("rootForms.@each.slug", "types.[]")
   get selectedTypes() {
-    return (this.rootForms || []).filter(form =>
+    return (this.rootForms || []).filter((form) =>
       this.types.includes(form.slug)
     );
   }
@@ -210,7 +210,7 @@ export default class InstancesIndexController extends Controller.extend(
   set selectedTypes(value) {
     this.set(
       "types",
-      value.map(form => form.slug)
+      value.map((form) => form.slug)
     );
 
     return value;
@@ -250,9 +250,9 @@ export default class InstancesIndexController extends Controller.extend(
               : forms.map(({ slug }) => slug),
             metaValueFilters: getMetaValueFilters(this.allQueryParams),
             hasAnswerFilters: getHasAnswerFilters(this.allQueryParams),
-            searchAnswersFilters: getSearchAnswersFilters(this.allQueryParams)
+            searchAnswersFilters: getSearchAnswersFilters(this.allQueryParams),
           },
-          fetchPolicy: "network-only"
+          fetchPolicy: "network-only",
         },
         "allCases"
       );
@@ -264,17 +264,17 @@ export default class InstancesIndexController extends Controller.extend(
         yield this.store.query("instance", {
           instance_id: rawCases
             .map(({ meta }) => meta["camac-instance-id"])
-            .join(",")
+            .join(","),
         });
 
-        const cases = rawCases.map(raw => {
+        const cases = rawCases.map((raw) => {
           return Case.create(getOwner(this).ownerInjection(), {
             raw,
             instance: this.store.peekRecord(
               "instance",
               raw.meta["camac-instance-id"]
             ),
-            municipalities
+            municipalities,
           });
         });
 

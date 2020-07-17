@@ -11,7 +11,7 @@ export default Component.extend({
     "readonly:disabled",
     "config.step:step",
     "config.max:max",
-    "config.min:min"
+    "config.min:min",
   ],
 
   type: "number",
@@ -32,5 +32,5 @@ export default Component.extend({
     e.preventDefault();
 
     this.getWithDefault("attrs.on-change", () => {})(Number(e.target.value));
-  }
+  },
 });

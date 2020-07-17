@@ -5,11 +5,11 @@ import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
 
-module("Integration | Component | camac-gwr", function(hooks) {
+module("Integration | Component | camac-gwr", function (hooks) {
   setupRenderingTest(hooks);
   setupMirage(hooks);
 
-  hooks.beforeEach(async function() {
+  hooks.beforeEach(async function () {
     const instance = this.server.create("instance");
 
     this.set("instance", instance);
@@ -28,11 +28,11 @@ module("Integration | Component | camac-gwr", function(hooks) {
           f6: ["1", "2"],
           f7: [
             {
-              col1: "test"
-            }
-          ]
-        }
-      ]
+              col1: "test",
+            },
+          ],
+        },
+      ],
     });
 
     this.server.get("/api/v1/form-config", () => {
@@ -48,28 +48,28 @@ module("Integration | Component | camac-gwr", function(hooks) {
                   label: "f1",
                   type: "text",
                   required: true,
-                  config: {}
+                  config: {},
                 },
                 {
                   name: "f2",
                   label: "f2",
                   type: "number",
                   required: true,
-                  config: {}
+                  config: {},
                 },
                 {
                   name: "f3",
                   label: "f3",
                   type: "radio",
                   required: true,
-                  config: { options: ["1", "2", "3"] }
+                  config: { options: ["1", "2", "3"] },
                 },
                 {
                   name: "f4",
                   label: "f4",
                   type: "checkbox",
                   required: true,
-                  config: { options: ["1", "2", "3"] }
+                  config: { options: ["1", "2", "3"] },
                 },
                 {
                   name: "f5",
@@ -82,22 +82,22 @@ module("Integration | Component | camac-gwr", function(hooks) {
                         name: "col1",
                         label: "col1",
                         type: "text",
-                        required: true
-                      }
-                    ]
-                  }
-                }
-              ]
-            }
-          }
-        }
+                        required: true,
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        },
       };
     });
 
     await loadQuestions(["test-gwr"], instance.id);
   });
 
-  test("it renders a GWR", async function(assert) {
+  test("it renders a GWR", async function (assert) {
     assert.expect(2);
 
     await render(
@@ -108,7 +108,7 @@ module("Integration | Component | camac-gwr", function(hooks) {
     assert.dom(".uk-card:first-child").hasText("test");
   });
 
-  test("it can edit a building", async function(assert) {
+  test("it can edit a building", async function (assert) {
     assert.expect(4);
 
     await render(
@@ -132,7 +132,7 @@ module("Integration | Component | camac-gwr", function(hooks) {
     assert.dom(".uk-card:first-child").hasText("address 123");
   });
 
-  test("it can add a building", async function(assert) {
+  test("it can add a building", async function (assert) {
     assert.expect(4);
 
     await render(
@@ -169,7 +169,7 @@ module("Integration | Component | camac-gwr", function(hooks) {
     assert.dom(".uk-card:first-child").hasText("address 123");
   });
 
-  test("it can delete a building", async function(assert) {
+  test("it can delete a building", async function (assert) {
     assert.expect(2);
 
     await render(

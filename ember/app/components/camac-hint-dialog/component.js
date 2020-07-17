@@ -7,11 +7,11 @@ const CamacHintDialogComponent = Component.extend({
 
   classNames: ["uk-margin-small-left"],
 
-  modalId: computed("elementId", function() {
+  modalId: computed("elementId", function () {
     return `${this.elementId}-hint-modal`;
   }),
 
-  target: computed("modalId", function() {
+  target: computed("modalId", function () {
     return `target: #${this.modalId}`;
   }),
 
@@ -24,11 +24,11 @@ const CamacHintDialogComponent = Component.extend({
         .lookup("service:-document")
         .querySelector("#modal-container")
     );
-  }
+  },
 });
 
 CamacHintDialogComponent.reopenClass({
-  positionalParams: ["text"]
+  positionalParams: ["text"],
 });
 
 export default CamacHintDialogComponent;

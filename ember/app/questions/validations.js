@@ -61,7 +61,7 @@ const validateCheckbox = ({ options }, value) => {
     return true;
   }
 
-  if (!value.every(v => options.includes(v))) {
+  if (!value.every((v) => options.includes(v))) {
     return "Die Werte müssen in den vorgegebenen Optionen vorhanden sein";
   }
 
@@ -81,27 +81,27 @@ const validateRadio = ({ options }, value) => {
 };
 
 const checkActiveConditionContainsAny = (value, conditionValues) => {
-  return value.some(v => conditionValues.includes(v));
+  return value.some((v) => conditionValues.includes(v));
 };
 
 const checkActiveConditionContainsNotAny = (value, conditionValues) => {
-  return value.every(v => !conditionValues.includes(v));
+  return value.every((v) => !conditionValues.includes(v));
 };
 
 const checkActiveConditionGreaterThan = (value, conditionValue) => {
-  return value.every(v => v > conditionValue);
+  return value.every((v) => v > conditionValue);
 };
 
 const checkActiveConditionGreaterThanEquals = (value, conditionValue) => {
-  return value.every(v => v >= conditionValue);
+  return value.every((v) => v >= conditionValue);
 };
 
 const checkActiveConditionLowerThan = (value, conditionValue) => {
-  return value.every(v => v < conditionValue);
+  return value.every((v) => v < conditionValue);
 };
 
 const checkActiveConditionLowerThanEquals = (value, conditionValue) => {
-  return value.every(v => v <= conditionValue);
+  return value.every((v) => v <= conditionValue);
 };
 
 export default {
@@ -117,5 +117,5 @@ export default {
   checkActiveConditionGreaterThan,
   checkActiveConditionGreaterThanEquals,
   checkActiveConditionLowerThan,
-  checkActiveConditionLowerThanEquals
+  checkActiveConditionLowerThanEquals,
 };

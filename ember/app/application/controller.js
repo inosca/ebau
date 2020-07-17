@@ -12,5 +12,5 @@ export default Controller.extend({
 
   profileURL,
 
-  isEmbedded: window !== window.top
+  isEmbedded: window !== window.top,
 });

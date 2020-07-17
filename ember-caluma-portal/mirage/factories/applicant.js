@@ -5,5 +5,5 @@ export default Factory.extend({
   user: association(),
   invitee: association(),
   instance: association(),
-  created: () => faker.date.recent()
+  created: () => faker.date.recent(),
 });

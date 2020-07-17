@@ -23,6 +23,6 @@ export default Factory.extend({
   unsubmitted: trait({
     afterCreate(instance) {
       instance.update({ identifier: null });
-    }
-  })
+    },
+  }),
 });

@@ -8,13 +8,13 @@ const {
   validateNumber,
   validateNumberSeparator,
   validateRadio,
-  validateCheckbox
+  validateCheckbox,
 } = validations;
 
-module("Unit | Validations | questions", function(hooks) {
+module("Unit | Validations | questions", function (hooks) {
   setupTest(hooks);
 
-  test("it validates required fields correctly", function(assert) {
+  test("it validates required fields correctly", function (assert) {
     assert.expect(3);
 
     assert.equal(validateRequired({}, "test"), true);
@@ -28,7 +28,7 @@ module("Unit | Validations | questions", function(hooks) {
     );
   });
 
-  test("it validates text fields correctly", function(assert) {
+  test("it validates text fields correctly", function (assert) {
     assert.expect(4);
 
     assert.equal(validateText({}, ""), true);
@@ -43,7 +43,7 @@ module("Unit | Validations | questions", function(hooks) {
     );
   });
 
-  test("it validates number fields correctly", function(assert) {
+  test("it validates number fields correctly", function (assert) {
     assert.expect(5);
 
     assert.equal(validateNumber({}, ""), true);
@@ -59,7 +59,7 @@ module("Unit | Validations | questions", function(hooks) {
     );
   });
 
-  test("it validates number separator fields correctly", function(assert) {
+  test("it validates number separator fields correctly", function (assert) {
     assert.expect(5);
 
     assert.equal(validateNumberSeparator({}, ""), true);
@@ -78,7 +78,7 @@ module("Unit | Validations | questions", function(hooks) {
     );
   });
 
-  test("it validates radio fields correctly", function(assert) {
+  test("it validates radio fields correctly", function (assert) {
     assert.expect(2);
 
     const options = ["option 1", "option 2", "option 3"];
@@ -90,7 +90,7 @@ module("Unit | Validations | questions", function(hooks) {
     );
   });
 
-  test("it validates checkbox fields correctly", function(assert) {
+  test("it validates checkbox fields correctly", function (assert) {
     assert.expect(4);
 
     const options = ["option 1", "option 2", "option 3"];

@@ -10,8 +10,10 @@ export default Component.extend({
       // TODO: Reject values which are not in the given options
 
       this.getWithDefault("attrs.on-change", () => {})([
-        ...new Set([...v, option].filter(value => value !== option || checked))
+        ...new Set(
+          [...v, option].filter((value) => value !== option || checked)
+        ),
       ]);
-    }
-  }
+    },
+  },
 });

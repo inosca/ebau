@@ -7,36 +7,36 @@ export default Route.extend({
   questionStore: service(),
 
   queryParams: {
-    group: { refreshModel: true }
+    group: { refreshModel: true },
   },
 
   async model({ instance_id: id, group }) {
     const response = await this.ajax.request(`/api/v1/instances/${id}`, {
       data: {
         group,
-        include: "form,instance_state,location"
+        include: "form,instance_state,location",
       },
       headers: {
-        Accept: "application/vnd.api+json"
-      }
+        Accept: "application/vnd.api+json",
+      },
     });
 
     await this.store.query("form-field", { instance: id, group });
     await this.store.query("attachment", {
       instance: id,
       group,
-      include: "attachment-sections"
+      include: "attachment-sections",
     });
 
     const {
-      data: { meta }
+      data: { meta },
     } = response;
 
     this.store.pushPayload(response);
 
     return {
       instance: this.store.peekRecord("instance", id),
-      meta
+      meta,
     };
   },
 
@@ -48,10 +48,10 @@ export default Route.extend({
         forms[model.instance.get("form.name")].reduce((qs, mod) => {
           return [...qs, ...modules[mod].questions];
         }, [])
-      )
+      ),
     ];
 
-    const build = name =>
+    const build = (name) =>
       this.questionStore.buildQuestion(name, model.instance.id);
 
     const questionObjects = await all(questions.map(await build));
@@ -66,5 +66,5 @@ export default Route.extend({
       this.store.unloadAll();
       this.questionStore.clear();
     }
-  }
+  },
 });

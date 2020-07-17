@@ -4,21 +4,21 @@ import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
 
-module("Integration | Component | camac-input-checkbox", function(hooks) {
+module("Integration | Component | camac-input-checkbox", function (hooks) {
   setupRenderingTest(hooks);
 
-  test("it renders checkboxes", async function(assert) {
+  test("it renders checkboxes", async function (assert) {
     assert.expect(2);
 
     this.set(
       "model",
       EmberObject.create({
-        value: ["option 1", "option 2"]
+        value: ["option 1", "option 2"],
       })
     );
 
     this.set("config", {
-      options: ["option 1", "option 2", "option 3"]
+      options: ["option 1", "option 2", "option 3"],
     });
 
     await render(hbs`{{camac-input-checkbox config=config model=model}}`);
@@ -27,18 +27,18 @@ module("Integration | Component | camac-input-checkbox", function(hooks) {
     assert.dom("input[type=checkbox]:checked").exists({ count: 2 });
   });
 
-  test("it can be rendered in readonly mode", async function(assert) {
+  test("it can be rendered in readonly mode", async function (assert) {
     assert.expect(2);
 
     this.set(
       "model",
       EmberObject.create({
-        value: ["option 1", "option 2"]
+        value: ["option 1", "option 2"],
       })
     );
 
     this.set("config", {
-      options: ["option 1", "option 2", "option 3"]
+      options: ["option 1", "option 2", "option 3"],
     });
 
     await render(hbs`{{camac-input-checkbox readonly=true config=config}}`);
@@ -47,18 +47,18 @@ module("Integration | Component | camac-input-checkbox", function(hooks) {
     assert.dom("input[type=checkbox]").isDisabled();
   });
 
-  test("it can change the value", async function(assert) {
+  test("it can change the value", async function (assert) {
     assert.expect(3);
 
     this.set(
       "model",
       EmberObject.create({
-        value: ["option 1"]
+        value: ["option 1"],
       })
     );
 
     this.set("config", {
-      options: ["option 1", "option 2", "option 3"]
+      options: ["option 1", "option 2", "option 3"],
     });
 
     await render(

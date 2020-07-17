@@ -3,10 +3,10 @@ import { module, test } from "qunit";
 
 import config from "../../../config/environment";
 
-module("Unit | Ability | instance", function(hooks) {
+module("Unit | Ability | instance", function (hooks) {
   setupTest(hooks);
 
-  test("it computes form read/write permissions", function(assert) {
+  test("it computes form read/write permissions", function (assert) {
     assert.expect(6);
 
     const ability = this.owner.lookup("ability:instance");
@@ -16,9 +16,9 @@ module("Unit | Ability | instance", function(hooks) {
         permissions: {
           main: ["read", "write"],
           sb1: ["read"],
-          sb2: []
-        }
-      }
+          sb2: [],
+        },
+      },
     });
 
     ability.set("form", { meta: { "is-main-form": true }, slug: "baugesuch" });
@@ -37,7 +37,7 @@ module("Unit | Ability | instance", function(hooks) {
     assert.notOk(ability.canReadForm);
   });
 
-  test("it computes read permissions", function(assert) {
+  test("it computes read permissions", function (assert) {
     assert.expect(2);
 
     const ability = this.owner.lookup("ability:instance");
@@ -47,9 +47,9 @@ module("Unit | Ability | instance", function(hooks) {
         permissions: {
           main: [],
           sb1: [],
-          sb2: []
-        }
-      }
+          sb2: [],
+        },
+      },
     });
 
     assert.notOk(ability.canRead);
@@ -59,15 +59,15 @@ module("Unit | Ability | instance", function(hooks) {
         permissions: {
           main: ["read"],
           sb1: [],
-          sb2: []
-        }
-      }
+          sb2: [],
+        },
+      },
     });
 
     assert.ok(ability.canRead);
   });
 
-  test("it computes write permissions", function(assert) {
+  test("it computes write permissions", function (assert) {
     assert.expect(2);
 
     const ability = this.owner.lookup("ability:instance");
@@ -77,9 +77,9 @@ module("Unit | Ability | instance", function(hooks) {
         permissions: {
           main: [],
           sb1: [],
-          sb2: []
-        }
-      }
+          sb2: [],
+        },
+      },
     });
 
     assert.notOk(ability.canWrite);
@@ -89,15 +89,15 @@ module("Unit | Ability | instance", function(hooks) {
         permissions: {
           main: ["write"],
           sb1: [],
-          sb2: []
-        }
-      }
+          sb2: [],
+        },
+      },
     });
 
     assert.ok(ability.canWrite);
   });
 
-  test("it computes create permissions", function(assert) {
+  test("it computes create permissions", function (assert) {
     assert.expect(6);
 
     const ability = this.owner.lookup("ability:instance");
@@ -110,13 +110,13 @@ module("Unit | Ability | instance", function(hooks) {
           id: 1,
           service: {
             serviceGroup: {
-              id: config.ebau.paperInstances.allowedGroups.serviceGroups[0]
-            }
+              id: config.ebau.paperInstances.allowedGroups.serviceGroups[0],
+            },
           },
           role: { id: config.ebau.paperInstances.allowedGroups.roles[0] },
-          canCreatePaper: true
-        }
-      ]
+          canCreatePaper: true,
+        },
+      ],
     });
 
     assert.notOk(ability.canCreateExternal);
@@ -124,7 +124,7 @@ module("Unit | Ability | instance", function(hooks) {
     assert.ok(ability.canCreate);
 
     ability.set("session", {
-      isInternal: false
+      isInternal: false,
     });
 
     assert.ok(ability.canCreateExternal);
@@ -132,23 +132,23 @@ module("Unit | Ability | instance", function(hooks) {
     assert.ok(ability.canCreate);
   });
 
-  test("it computes delete permissions", function(assert) {
+  test("it computes delete permissions", function (assert) {
     assert.expect(2);
 
     const ability = this.owner.lookup("ability:instance");
 
     ability.set("model", {
       instanceState: {
-        id: 1
-      }
+        id: 1,
+      },
     });
 
     assert.ok(ability.canDelete);
 
     ability.set("model", {
       instanceState: {
-        id: 10000
-      }
+        id: 10000,
+      },
     });
 
     assert.notOk(ability.canDelete);

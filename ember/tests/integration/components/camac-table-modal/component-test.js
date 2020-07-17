@@ -3,10 +3,10 @@ import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
 
-module("Integration | Component | camac-table-modal", function(hooks) {
+module("Integration | Component | camac-table-modal", function (hooks) {
   setupRenderingTest(hooks);
 
-  test("it renders", async function(assert) {
+  test("it renders", async function (assert) {
     this.set("columns", [{ name: "f1", type: "text", config: {} }]);
     this.set("value", { f1: "test" });
     this.set("visible", false);
@@ -27,7 +27,7 @@ module("Integration | Component | camac-table-modal", function(hooks) {
     assert.dom(".uk-modal input[type=text]").hasValue("test");
   });
 
-  test("it can handle changes", async function(assert) {
+  test("it can handle changes", async function (assert) {
     this.set("columns", [{ name: "f1", type: "text", config: {} }]);
     this.set("value", { f1: "test" });
 
@@ -41,7 +41,7 @@ module("Integration | Component | camac-table-modal", function(hooks) {
     assert.equal(this.get("value.f1"), "foobar");
   });
 
-  test("it rollbacks changes on close", async function(assert) {
+  test("it rollbacks changes on close", async function (assert) {
     this.set("columns", [{ name: "f1", type: "text", config: {} }]);
     this.set("value", { f1: "test" });
     this.set("visible", true);
@@ -58,9 +58,9 @@ module("Integration | Component | camac-table-modal", function(hooks) {
     assert.dom(".uk-modal input[type=text]").hasValue("test");
   });
 
-  test("it validates changes", async function(assert) {
+  test("it validates changes", async function (assert) {
     this.set("columns", [
-      { name: "f1", type: "text", required: true, config: {} }
+      { name: "f1", type: "text", required: true, config: {} },
     ]);
     this.set("value", { f1: "test" });
     this.set("visible", true);

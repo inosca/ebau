@@ -3,7 +3,7 @@ import { A } from "@ember/array";
 import EmberObject, {
   computed,
   getWithDefault,
-  defineProperty
+  defineProperty,
 } from "@ember/object";
 import { reads, equal } from "@ember/object/computed";
 import Service, { inject as service } from "@ember/service";
@@ -15,7 +15,7 @@ import jexl from "jexl";
 import Lexer from "jexl/lib/Lexer";
 import Parser from "jexl/lib/parser/Parser";
 
-const traverseTransforms = function*(tree) {
+const traverseTransforms = function* (tree) {
   for (const node of Object.values(tree)) {
     if (typeof node === "object") {
       yield* traverseTransforms(node);
@@ -26,7 +26,7 @@ const traverseTransforms = function*(tree) {
   }
 };
 
-const getTransforms = tree => {
+const getTransforms = (tree) => {
   const iterator = traverseTransforms(tree);
   let result = iterator.next();
   const transforms = [];
@@ -55,7 +55,7 @@ const Question = EmberObject.extend({
       defineProperty(
         this,
         "value",
-        computed("model.@each.path", function() {
+        computed("model.@each.path", function () {
           return this.model.mapBy("path");
         }).readOnly()
       );
@@ -64,7 +64,7 @@ const Question = EmberObject.extend({
 
     this.set("jexl", new jexl.Jexl());
 
-    this.jexl.addTransform("value", question => {
+    this.jexl.addTransform("value", (question) => {
       const q = this._questions.peek(question, this.get("instance.id"));
 
       return q && q.value;
@@ -72,11 +72,11 @@ const Question = EmberObject.extend({
 
     this.jexl.addTransform(
       "mapby",
-      (arr, key) => Array.isArray(arr) && arr.map(obj => obj[key])
+      (arr, key) => Array.isArray(arr) && arr.map((obj) => obj[key])
     );
   },
 
-  _expressionAST: computed("field.active-expression", function() {
+  _expressionAST: computed("field.active-expression", function () {
     const expression = this.get("field.active-expression");
 
     if (!expression) {
@@ -90,20 +90,20 @@ const Question = EmberObject.extend({
     return parser.complete();
   }),
 
-  _relatedQuestionNames: computed("_expressionAST", function() {
+  _relatedQuestionNames: computed("_expressionAST", function () {
     return [
       ...new Set(
         getTransforms(this._expressionAST)
           .filter(({ name }) => name === "value")
           .map(({ subject: { value } }) => value)
-      )
+      ),
     ];
   }),
 
   _relatedQuestions: computed(
     "_relatedQuestionNames.[]",
     "instanceId",
-    function() {
+    function () {
       return this._questions.peekSet(
         this._relatedQuestionNames,
         this.instanceId
@@ -111,12 +111,12 @@ const Question = EmberObject.extend({
     }
   ),
 
-  _relatedHidden: computed("_relatedQuestions.@each.hidden", function() {
+  _relatedHidden: computed("_relatedQuestions.@each.hidden", function () {
     if (!this._relatedQuestions.length) {
       return false;
     }
 
-    return this._relatedQuestions.every(q => q.hidden);
+    return this._relatedQuestions.every((q) => q.hidden);
   }),
 
   validate() {
@@ -134,14 +134,14 @@ const Question = EmberObject.extend({
         `_questions._validations.validate${classify(type)}`,
         () => true
       ),
-      this.getWithDefault(`_questions._validations.${name}`, () => true)
+      this.getWithDefault(`_questions._validations.${name}`, () => true),
     ];
 
-    const isValid = validations.map(fn => fn(config, this.value));
+    const isValid = validations.map((fn) => fn(config, this.value));
 
     return (
-      isValid.every(v => v === true) ||
-      isValid.filter(v => typeof v === "string")
+      isValid.every((v) => v === true) ||
+      isValid.filter((v) => typeof v === "string")
     );
   },
 
@@ -151,7 +151,7 @@ const Question = EmberObject.extend({
     "_relatedQuestions.@each.value",
     "_relatedHidden"
   ),
-  _hiddenTask: task(function*() {
+  _hiddenTask: task(function* () {
     yield timeout(100);
 
     const expression = this.get("field.active-expression");
@@ -160,10 +160,10 @@ const Question = EmberObject.extend({
       ? this._relatedHidden ||
           !(yield this.jexl.eval(expression, {
             form: this.get("instance.form.name"),
-            state: this.get("instance.instanceState.name")
+            state: this.get("instance.instanceState.name"),
           }))
       : false;
-  }).restartable()
+  }).restartable(),
 });
 
 export default Service.extend({
@@ -183,11 +183,11 @@ export default Service.extend({
     this.set("_store", A());
   },
 
-  config: computed(function() {
+  config: computed(function () {
     return this.ajax.request("/api/v1/form-config");
   }),
 
-  saveQuestion: task(function*(question) {
+  saveQuestion: task(function* (question) {
     yield question;
 
     const validity = question.validate();
@@ -226,7 +226,7 @@ export default Service.extend({
         .findBy("name", name) ||
       this.store.createRecord("form-field", {
         name,
-        instance: this.store.peekRecord("instance", instance)
+        instance: this.store.peekRecord("instance", instance),
       })
     );
   },
@@ -251,19 +251,19 @@ export default Service.extend({
       name,
       model,
       field,
-      type
+      type,
     });
   },
 
   peek(name, instance) {
     return this._store.find(
-      q => q.get("name") === name && q.get("instanceId") === instance
+      (q) => q.get("name") === name && q.get("instanceId") === instance
     );
   },
 
   peekSet(names, instance) {
     return this._store.filter(
-      q => names.includes(q.get("name")) && q.get("instanceId") === instance
+      (q) => names.includes(q.get("name")) && q.get("instanceId") === instance
     );
-  }
+  },
 });

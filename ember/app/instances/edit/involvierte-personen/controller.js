@@ -27,13 +27,13 @@ export default class InstancesEditInvolviertePersonenController extends Controll
 
       const applicant = this.store.createRecord("applicant", {
         email: this.newRow.email,
-        instance: this.model.instance
+        instance: this.model.instance,
       });
 
       try {
         yield applicant.save();
       } catch (exception) {
-        this.saveErrors = exception.errors.map(e => e.detail);
+        this.saveErrors = exception.errors.map((e) => e.detail);
         return;
       }
 
@@ -46,7 +46,7 @@ export default class InstancesEditInvolviertePersonenController extends Controll
 
   @dropTask
   *deleteRow(row) {
-    yield this.applicants.find(a => a.email === row.email).destroyRecord();
+    yield this.applicants.find((a) => a.email === row.email).destroyRecord();
     yield this.refreshList();
   }
 
@@ -72,18 +72,18 @@ export default class InstancesEditInvolviertePersonenController extends Controll
   _validate({ newValue }) {
     try {
       const validations = [
-        value =>
+        (value) =>
           !isBlank(value) || "Dieses Feld darf nicht leer gelassen werden",
-        value =>
+        (value) =>
           !this.applicants.filterBy("email", value).length ||
-          "Die Person mit dieser E-Mailadresse wurde schon eingeladen"
+          "Die Person mit dieser E-Mailadresse wurde schon eingeladen",
       ];
 
-      const isValid = validations.map(fn => fn(newValue));
+      const isValid = validations.map((fn) => fn(newValue));
 
       return (
-        isValid.every(v => v === true) ||
-        isValid.filter(v => typeof v === "string")
+        isValid.every((v) => v === true) ||
+        isValid.filter((v) => typeof v === "string")
       );
     } catch (e) {
       return false;

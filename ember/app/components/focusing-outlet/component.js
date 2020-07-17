@@ -97,7 +97,7 @@ export default class FocusingOutletComponent extends Component {
       parents.push({
         element: current,
         scrollTop: current.scrollTop,
-        scrollLeft: current.scrollLeft
+        scrollLeft: current.scrollLeft,
       });
     }
 

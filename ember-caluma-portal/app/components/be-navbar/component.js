@@ -8,10 +8,10 @@ import { dropTask, lastValue } from "ember-concurrency-decorators";
 const {
   languages,
   environment,
-  ebau: { selectableGroups, internalURL }
+  ebau: { selectableGroups, internalURL },
 } = config;
 
-const getInstanceParam = route => {
+const getInstanceParam = (route) => {
   const instance = get(route, "params.instance");
   const parent = get(route, "parent");
 
@@ -74,13 +74,13 @@ export default class BeNavbarComponent extends Component {
     try {
       const groups = yield this.store.query("public-group", {
         role: selectableGroups.roles.join(","),
-        include: ["service", "service.service_group", "role"].join(",")
+        include: ["service", "service.service_group", "role"].join(","),
       });
 
       if (
         this.session.group &&
         !groups.find(
-          group => parseInt(group.id) === parseInt(this.session.group)
+          (group) => parseInt(group.id) === parseInt(this.session.group)
         )
       ) {
         // if a group is set but is not selectable, reset to null

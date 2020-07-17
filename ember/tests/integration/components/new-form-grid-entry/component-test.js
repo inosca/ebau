@@ -4,10 +4,10 @@ import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
 
-module("Integration | Component | new-form-grid-entry", function(hooks) {
+module("Integration | Component | new-form-grid-entry", function (hooks) {
   setupRenderingTest(hooks);
 
-  test("it renders", async function(assert) {
+  test("it renders", async function (assert) {
     assert.expect(2);
 
     this.set(
@@ -15,7 +15,7 @@ module("Integration | Component | new-form-grid-entry", function(hooks) {
       EmberObject.create({
         id: 1,
         name: "baubewilligung",
-        description: "Baubewilligung"
+        description: "Baubewilligung",
       })
     );
 
@@ -26,7 +26,7 @@ module("Integration | Component | new-form-grid-entry", function(hooks) {
     assert.dom("button").hasText("Baubewilligung");
   });
 
-  test("it renders active", async function(assert) {
+  test("it renders active", async function (assert) {
     assert.expect(2);
 
     this.set(
@@ -34,7 +34,7 @@ module("Integration | Component | new-form-grid-entry", function(hooks) {
       EmberObject.create({
         id: 1,
         name: "baubewilligung",
-        description: "Baubewilligung"
+        description: "Baubewilligung",
       })
     );
 

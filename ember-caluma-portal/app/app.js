@@ -18,10 +18,10 @@ export default class App extends Application {
           "router",
           "intl",
           "caluma-options",
-          "validator"
-        ]
-      }
-    }
+          "validator",
+        ],
+      },
+    },
   };
 }
 

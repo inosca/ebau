@@ -9,5 +9,5 @@ export default Model.extend({
   attachments: hasMany("attachment"),
   instanceState: belongsTo("instance-state"),
   previousInstanceState: belongsTo("instance-state"),
-  group: belongsTo("group")
+  group: belongsTo("group"),
 });

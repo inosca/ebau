@@ -1,4 +1,4 @@
-export default function(server) {
+export default function (server) {
   const forms = server.createList("form", 5);
 
   server.create("instance", { formId: forms[0].id });

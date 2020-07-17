@@ -5,11 +5,11 @@ import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
 
-module("Integration | Component | camac-table", function(hooks) {
+module("Integration | Component | camac-table", function (hooks) {
   setupRenderingTest(hooks);
   setupMirage(hooks);
 
-  hooks.beforeEach(async function() {
+  hooks.beforeEach(async function () {
     const instance = this.server.create("instance");
 
     this.set("instance", instance);
@@ -24,9 +24,9 @@ module("Integration | Component | camac-table", function(hooks) {
           f3: "1",
           f4: ["1", "2"],
           f5: "1",
-          f6: ["1", "2"]
-        }
-      ]
+          f6: ["1", "2"],
+        },
+      ],
     });
 
     this.server.get("/api/v1/form-config", () => ({
@@ -43,24 +43,24 @@ module("Integration | Component | camac-table", function(hooks) {
                 name: "f3",
                 label: "field 3",
                 type: "radio",
-                config: { options: ["1", "2", "3"] }
+                config: { options: ["1", "2", "3"] },
               },
               {
                 name: "f4",
                 label: "field 4",
                 type: "checkbox",
-                config: { options: ["1", "2", "3"] }
-              }
-            ]
-          }
-        }
-      }
+                config: { options: ["1", "2", "3"] },
+              },
+            ],
+          },
+        },
+      },
     }));
 
     await loadQuestions(["test"], instance.id);
   });
 
-  test("it renders", async function(assert) {
+  test("it renders", async function (assert) {
     assert.expect(2);
 
     await render(hbs`{{camac-table 'test' instance=instance}}`);
@@ -69,7 +69,7 @@ module("Integration | Component | camac-table", function(hooks) {
     assert.dom("tbody > tr > td:first-child").hasText("test");
   });
 
-  test("it can delete a row", async function(assert) {
+  test("it can delete a row", async function (assert) {
     assert.expect(2);
 
     await render(hbs`{{camac-table 'test' instance=instance}}`);
@@ -83,7 +83,7 @@ module("Integration | Component | camac-table", function(hooks) {
       .hasText("Noch keine Einträge erfasst");
   });
 
-  test("it can edit a row", async function(assert) {
+  test("it can edit a row", async function (assert) {
     assert.expect(2);
 
     await render(hbs`{{camac-table 'test' instance=instance}}`);
@@ -98,7 +98,7 @@ module("Integration | Component | camac-table", function(hooks) {
     assert.dom("tbody > tr > td:first-child").hasText("shimmyshimmyya");
   });
 
-  test("it can add a row", async function(assert) {
+  test("it can add a row", async function (assert) {
     assert.expect(2);
 
     await render(hbs`{{camac-table 'test' instance=instance}}`);
