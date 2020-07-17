@@ -51588,6 +51588,30 @@
   },
   {
     "fields": {
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nEINGANGSBEST\u00c4TIGUNG\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nVielen Dank f\u00fcr Ihre Eingabe. Das Dossier mit der ID Nr. {{INSTANCE_ID}} wird umgehend von der zust\u00e4ndigen Gemeindebaubeh\u00f6rde auf Vollst\u00e4ndigkeit gepr\u00fcft. Falls zus\u00e4tzliche Unterlagen notwendig sind oder wenn das Pr\u00fcfverfahren / Bewilligungsverfahren gestartet wird, erhalten Sie eine entsprechende Statusmeldung.\n\nDossiers bei denen s\u00e4mtliche Unterlagen und Angaben fehlen, k\u00f6nnen zur\u00fcckgewiesen werden.\n\nMit freundlichen Gr\u00fcssen\nGemeindebaubeh\u00f6rde {{INSTANCE_LOCATION}}",
+      "purpose": "Dossier eingereicht - Gesuchsteller",
+      "service": null,
+      "slug": "dossier-eingereicht-gesuchsteller",
+      "subject": "Dossier eingereicht",
+      "type": "email"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 1446
+  },
+  {
+    "fields": {
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nNEUES ONLINE DOSSIER\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nVia Online Portal wurde ein neues Dossier mit der ID Nr. {{INSTANCE_ID}} eingereicht. Bitte pr\u00fcfen Sie das Dossier auf Vollst\u00e4ndigkeit. Falls zus\u00e4tzliche Unterlagen notwendig sind, schreiben Sie die entsprechende Nachricht in das daf\u00fcr vorgesehene Feld \u00abMitteilung an Gesuchsteller\u00bb und klicken Sie auf \u00abNachforderung\u00bb. Das Dossier wird blau hinterlegt und der Gesuchsteller erh\u00e4lt Ihre Mitteilung per E-Mail.\n\nFalls es sich offensichtlich um ein Fake-Gesuch handelt (z.B. wenn ein leeres Formular versehentlich abgeschickt wurde), k\u00f6nnen Sie dieses abweisen. Durch klicken auf \u00abAbweisen\u00bb wird das Dossier gel\u00f6scht.\n\nWenn das Dossier vollst\u00e4ndig ist, klicken Sie auf \u00abDossier annehmen\u00bb. Das Dossier wird in der Dossierbearbeitung starten angezeigt und erh\u00e4lt vom System die zugeh\u00f6rige CAMAC Nummer. Der Gesuchsteller erh\u00e4lt eine entsprechende Annahmebest\u00e4tigung per E-Mail.\n\nBei Bedarf wandeln Sie das Dossier um in ein entsprechendes Verfahren mit kantonaler Beteiligung.\n\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 29\nE-Mail: raumplanung@ur.ch",
+      "purpose": "Dossier eingereicht - Gesuchsteller",
+      "service": null,
+      "slug": "dossier-eingereicht-gemeinde",
+      "subject": "Dossier eingereicht",
+      "type": "email"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 1447
+  },
+  {
+    "fields": {
       "address": null,
       "city": null,
       "disabled": 0,
