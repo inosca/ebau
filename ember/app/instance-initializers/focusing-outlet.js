@@ -4,7 +4,7 @@ const stashedHandlerInfos = {};
 
 Router.reopen({
   init(...args) {
-    this.on("routeWillChange", transition => {
+    this.on("routeWillChange", (transition) => {
       const oldRoute = transition.from;
       const newRoute = transition.to;
 
@@ -18,7 +18,7 @@ Router.reopen({
       stashedHandlerInfos.pivotHandler = newRoute;
     });
     this._super(...args);
-  }
+  },
 });
 
 export function initialize(instance) {
@@ -29,5 +29,5 @@ export function initialize(instance) {
 }
 
 export default {
-  initialize
+  initialize,
 };

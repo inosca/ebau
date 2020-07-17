@@ -14,11 +14,11 @@ const CamacInputComponent = Component.extend({
 
   questionStore: service("question-store"),
 
-  question: computed("identifier", function() {
+  question: computed("identifier", function () {
     return this.questionStore.peek(this.identifier, this.instance.id);
   }),
 
-  save: task(function*(value) {
+  save: task(function* (value) {
     if (this.readonly) {
       return;
     }
@@ -29,11 +29,11 @@ const CamacInputComponent = Component.extend({
       "error",
       yield this.get("questionStore.saveQuestion").perform(this.question)
     );
-  }).restartable()
+  }).restartable(),
 });
 
 CamacInputComponent.reopenClass({
-  positionalParams: ["identifier"]
+  positionalParams: ["identifier"],
 });
 
 export default CamacInputComponent;

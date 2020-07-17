@@ -4,15 +4,15 @@ import { setupApplicationTest } from "ember-qunit";
 import { authenticateSession } from "ember-simple-auth/test-support";
 import { module, test } from "qunit";
 
-module("Acceptance | instance list", function(hooks) {
+module("Acceptance | instance list", function (hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
 
-  hooks.beforeEach(async function() {
+  hooks.beforeEach(async function () {
     await authenticateSession();
   });
 
-  test("has correct empty state", async function(assert) {
+  test("has correct empty state", async function (assert) {
     assert.expect(4);
 
     await visit("/gesuche");
@@ -26,7 +26,7 @@ module("Acceptance | instance list", function(hooks) {
     assert.equal(currentURL(), "/gesuche/new");
   });
 
-  test("has correct default state", async function(assert) {
+  test("has correct default state", async function (assert) {
     assert.expect(2);
 
     this.server.createList("instance", 5);
@@ -41,7 +41,7 @@ module("Acceptance | instance list", function(hooks) {
     assert.equal(currentURL(), "/gesuche/new");
   });
 
-  test("can sort and search for identifier", async function(assert) {
+  test("can sort and search for identifier", async function (assert) {
     assert.expect(3);
 
     this.server.createList("instance", 5);
@@ -60,7 +60,7 @@ module("Acceptance | instance list", function(hooks) {
     assert.ok(/(\?|&)sort=creation_date/.test(currentURL()));
   });
 
-  test("can delete non submitted instance", async function(assert) {
+  test("can delete non submitted instance", async function (assert) {
     assert.expect(3);
 
     this.server.createList("instance", 2, "unsubmitted");

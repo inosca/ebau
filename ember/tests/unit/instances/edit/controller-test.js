@@ -4,11 +4,11 @@ import { setupMirage } from "ember-cli-mirage/test-support";
 import { setupTest } from "ember-qunit";
 import { module, test } from "qunit";
 
-module("Unit | Controller | instances/edit", function(hooks) {
+module("Unit | Controller | instances/edit", function (hooks) {
   setupTest(hooks);
   setupMirage(hooks);
 
-  hooks.beforeEach(async function() {
+  hooks.beforeEach(async function () {
     const form = this.server.create("form", { name: "test" });
     const instance = this.server.create("instance", { formId: form.id });
     const store = this.owner.lookup("service:store");
@@ -17,7 +17,7 @@ module("Unit | Controller | instances/edit", function(hooks) {
       instance: await run(async () =>
         store.findRecord("instance", instance.id, { include: "form" })
       ),
-      meta: { editable: ["form", "document"] }
+      meta: { editable: ["form", "document"] },
     };
 
     this.router = { urlFor: () => true };
@@ -31,48 +31,48 @@ module("Unit | Controller | instances/edit", function(hooks) {
           "module2",
           "module2.test1",
           "module2.test2",
-          "module3"
-        ]
+          "module3",
+        ],
       },
       modules: {
         module1: { title: "Module 1", parent: null, questions: [] },
         "module1.test1": {
           title: "Module 1: Test 1",
           parent: "module1",
-          questions: []
+          questions: [],
         },
         "module1.test2": {
           title: "Module 1: Test 2",
           parent: "module1",
-          questions: ["test-question-1"]
+          questions: ["test-question-1"],
         },
         module2: {
           title: "Module 2",
           parent: null,
-          questions: ["test-question-2"]
+          questions: ["test-question-2"],
         },
         "module2.test1": {
           title: "Module 2: Test 1",
           parent: "module2",
-          questions: ["test-question-3"]
+          questions: ["test-question-3"],
         },
         "module2.test2": {
           title: "Module 2: Test 2",
           parent: "module2",
-          questions: ["test-question-4"]
+          questions: ["test-question-4"],
         },
         module3: {
           title: "Module 3",
           parent: null,
-          questions: []
-        }
+          questions: [],
+        },
       },
       questions: {
         "test-question-1": { required: true },
         "test-question-2": { required: true },
         "test-question-3": { required: true },
-        "test-question-4": { required: true }
-      }
+        "test-question-4": { required: true },
+      },
     }));
 
     await loadQuestions(
@@ -80,13 +80,13 @@ module("Unit | Controller | instances/edit", function(hooks) {
         "test-question-1",
         "test-question-2",
         "test-question-3",
-        "test-question-4"
+        "test-question-4",
       ],
       this.model.instance.id
     );
   });
 
-  test("it computes the modules", async function(assert) {
+  test("it computes the modules", async function (assert) {
     assert.expect(1);
 
     const controller = this.owner.lookup("controller:instances/edit");
@@ -99,7 +99,7 @@ module("Unit | Controller | instances/edit", function(hooks) {
     assert.equal(modules.length, 7);
   });
 
-  test("it computes the active links", async function(assert) {
+  test("it computes the active links", async function (assert) {
     assert.expect(1);
 
     const controller = this.owner.lookup("controller:instances/edit");
@@ -115,11 +115,11 @@ module("Unit | Controller | instances/edit", function(hooks) {
       "instances.edit.module2",
       "instances.edit.module2.test1",
       "instances.edit.module2.test2",
-      "instances.edit.submit" // submit page
+      "instances.edit.submit", // submit page
     ]);
   });
 
-  test("it computes a hierarchical navigation", async function(assert) {
+  test("it computes a hierarchical navigation", async function (assert) {
     assert.expect(5);
 
     const controller = this.owner.lookup("controller:instances/edit");
@@ -151,35 +151,35 @@ module("Unit | Controller | instances/edit", function(hooks) {
     );
   });
 
-  test("it computes if a module is editable", async function(assert) {
+  test("it computes if a module is editable", async function (assert) {
     assert.expect(3);
 
     this.server.get("/api/v1/form-config", () => ({
       forms: {
-        test: ["module1", "module2"]
+        test: ["module1", "module2"],
       },
       modules: {
         module1: {
           title: "Module 1",
           parent: null,
-          questions: ["form-question"]
+          questions: ["form-question"],
         },
         module2: {
           title: "Module 2",
           parent: null,
-          questions: ["document-question"]
-        }
+          questions: ["document-question"],
+        },
       },
       questions: {
         "form-question": {
           type: "text",
-          required: true
+          required: true,
         },
         "document-question": {
           type: "document",
-          required: true
-        }
-      }
+          required: true,
+        },
+      },
     }));
 
     this.owner.lookup("service:question-store").notifyPropertyChange("config");
@@ -193,7 +193,7 @@ module("Unit | Controller | instances/edit", function(hooks) {
 
     controller.set("model", {
       ...this.model,
-      meta: { editable: ["document"], "is-applicant": true }
+      meta: { editable: ["document"], "is-applicant": true },
     });
     controller.set("router", this.router);
 

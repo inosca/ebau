@@ -5,11 +5,11 @@ import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
 
-module("Integration | Component | camac-form", function(hooks) {
+module("Integration | Component | camac-form", function (hooks) {
   setupRenderingTest(hooks);
   setupMirage(hooks);
 
-  hooks.beforeEach(async function() {
+  hooks.beforeEach(async function () {
     const instance = this.server.create("instance");
 
     this.set("id", instance.id);
@@ -17,13 +17,13 @@ module("Integration | Component | camac-form", function(hooks) {
     this.server.create("form-field", {
       name: "test-input",
       instance,
-      value: "test"
+      value: "test",
     });
 
     this.server.create("form-field", {
       name: "test-table",
       instance,
-      value: [{ "test-input-in-table": 1 }]
+      value: [{ "test-input-in-table": 1 }],
     });
 
     this.server.get("/api/v1/form-config", () => ({
@@ -32,7 +32,7 @@ module("Integration | Component | camac-form", function(hooks) {
           label: "Test input",
           required: true,
           type: "text",
-          config: {}
+          config: {},
         },
         "test-table": {
           label: "Test table",
@@ -45,18 +45,18 @@ module("Integration | Component | camac-form", function(hooks) {
                 title: "Test input in a table",
                 type: "number",
                 required: true,
-                config: {}
-              }
-            ]
-          }
-        }
-      }
+                config: {},
+              },
+            ],
+          },
+        },
+      },
     }));
 
     await loadQuestions(["test-input", "test-table"], instance.id);
   });
 
-  test("it renders", async function(assert) {
+  test("it renders", async function (assert) {
     assert.expect(4);
 
     await render(hbs`
@@ -72,7 +72,7 @@ module("Integration | Component | camac-form", function(hooks) {
     assert.dom("tfoot").exists();
   });
 
-  test("it renders in readonly mode", async function(assert) {
+  test("it renders in readonly mode", async function (assert) {
     assert.expect(4);
 
     await render(hbs`

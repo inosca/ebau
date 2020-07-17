@@ -43,8 +43,8 @@ export default class InstancesEditController extends Controller.extend(
         "instance_state",
         "involved_applicants",
         "involved_applicants.invitee",
-        "active_service"
-      ].join(",")
+        "active_service",
+      ].join(","),
     });
 
     yield instance.getMainForm.perform();
@@ -58,7 +58,7 @@ export default class InstancesEditController extends Controller.extend(
     return yield this.store.query("attachment", {
       instance: this.model,
       attachment_sections: FEEDBACK_ATTACHMENT_SECTION,
-      include: "attachment_sections"
+      include: "attachment_sections",
     });
   }
 
@@ -69,9 +69,9 @@ export default class InstancesEditController extends Controller.extend(
       instance: this.model,
       context: JSON.stringify({
         key: "isDecision",
-        value: true
+        value: true,
       }),
-      include: "attachment_sections"
+      include: "attachment_sections",
     });
   }
 }

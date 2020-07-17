@@ -4,7 +4,7 @@ import { resolve } from "rsvp";
 import destroyApp from "../helpers/destroy-app";
 import startApp from "../helpers/start-app";
 
-export default function(name, options = {}) {
+export default function (name, options = {}) {
   module(name, {
     beforeEach(args) {
       this.application = startApp();
@@ -18,6 +18,6 @@ export default function(name, options = {}) {
       const afterEach =
         options.afterEach && options.afterEach.apply(this, args);
       return resolve(afterEach).then(() => destroyApp(this.application));
-    }
+    },
   });
 }

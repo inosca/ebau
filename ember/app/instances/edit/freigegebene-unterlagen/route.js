@@ -24,7 +24,7 @@ export default Route.extend({
 
     question.set(
       "model",
-      this.store.peekAll("attachment").filter(attachment => {
+      this.store.peekAll("attachment").filter((attachment) => {
         return attachment
           .hasMany("attachmentSections")
           .ids()
@@ -34,5 +34,5 @@ export default Route.extend({
 
     controller.set("question", question);
     controller.set("model", model);
-  }
+  },
 });

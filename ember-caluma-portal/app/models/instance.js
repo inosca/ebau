@@ -29,7 +29,7 @@ export default class Instance extends Model {
     }
     const parts = [
       this.isPaper && this.intl.t("paper.type"),
-      this.isModification && this.intl.t("modification.type")
+      this.isModification && this.intl.t("modification.type"),
     ]
       .filter(Boolean)
       .join(", ");
@@ -54,7 +54,7 @@ export default class Instance extends Model {
             }
           }
         `,
-        variables: { form: this.calumaForm }
+        variables: { form: this.calumaForm },
       },
       "allForms.edges.firstObject.node"
     );

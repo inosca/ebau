@@ -9,9 +9,9 @@ export default Component.extend({
 
   classNameBindings: ["active:uk-active"],
 
-  active: computed("module.link", "router.currentRouteName", function() {
+  active: computed("module.link", "router.currentRouteName", function () {
     return new RegExp(`^${this.get("module.link")}.*$`).test(
       this.router.currentRouteName
     );
-  })
+  }),
 });

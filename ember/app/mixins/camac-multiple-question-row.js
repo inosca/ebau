@@ -9,7 +9,7 @@ import { resolve } from "rsvp";
 export default Mixin.create({
   _validations,
 
-  _value: computed("value", "columns.[]", function() {
+  _value: computed("value", "columns.[]", function () {
     return new Changeset(
       this.value || {},
       (...args) => this._validate(...args),
@@ -22,7 +22,7 @@ export default Mixin.create({
   _validate({ key, newValue }) {
     try {
       const { type, required: isRequired, config } = this.columns.find(
-        f => f.name === key
+        (f) => f.name === key
       );
 
       const validations = [
@@ -36,21 +36,21 @@ export default Mixin.create({
         this.getWithDefault(
           `_validations.${this.parentName}/${key}`,
           () => true
-        )
+        ),
       ];
 
-      const isValid = validations.map(fn => fn(config, newValue));
+      const isValid = validations.map((fn) => fn(config, newValue));
 
       return (
-        isValid.every(v => v === true) ||
-        isValid.filter(v => typeof v === "string")
+        isValid.every((v) => v === true) ||
+        isValid.filter((v) => typeof v === "string")
       );
     } catch (e) {
       return true;
     }
   },
 
-  save: task(function*() {
+  save: task(function* () {
     const changeset = this._value;
 
     yield changeset.validate();
@@ -65,6 +65,6 @@ export default Mixin.create({
   actions: {
     change(name, value) {
       this.set(`_value.${name}`, value);
-    }
-  }
+    },
+  },
 });

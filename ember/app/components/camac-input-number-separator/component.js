@@ -11,7 +11,7 @@ export default Component.extend({
     "type",
     "displayValue:value",
     "readonly:disabled",
-    "title"
+    "title",
   ],
 
   type: "text",
@@ -47,5 +47,5 @@ export default Component.extend({
         Number(e.target.value.replace(/,/, ".")).toLocaleString("de-CH")
       );
     }
-  }
+  },
 });

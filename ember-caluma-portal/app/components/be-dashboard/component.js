@@ -43,8 +43,8 @@ export default class BeDashboardComponent extends Component {
         variables: {
           document: decodeId(this.documentId),
           page: this.slug,
-          content: this.content
-        }
+          content: this.content,
+        },
       });
 
       this.edit = false;
@@ -58,7 +58,7 @@ export default class BeDashboardComponent extends Component {
     try {
       const response = yield this.apollo.query({
         query: getDashboardContent,
-        variables: { page: this.slug }
+        variables: { page: this.slug },
       });
 
       this.documentId = response.allDocuments.edges[0].node.id;

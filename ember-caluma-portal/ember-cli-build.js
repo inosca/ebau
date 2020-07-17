@@ -2,16 +2,16 @@
 
 const EmberApp = require("ember-cli/lib/broccoli/ember-app");
 
-module.exports = function(defaults) {
+module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
     sourcemaps: { enabled: true },
     "ember-cli-babel": {
-      includePolyfill: true
+      includePolyfill: true,
     },
     babel: {
-      plugins: ["@babel/plugin-proposal-object-rest-spread"]
+      plugins: ["@babel/plugin-proposal-object-rest-spread"],
     },
-    SRI: { enabled: false }
+    SRI: { enabled: false },
   });
 
   // intersection observer polyfill

@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   const oidcHost =
     process.env.KEYCLOAK_URL ||
     "http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect";
@@ -19,8 +19,8 @@ module.exports = function(environment) {
       },
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
-        Date: false
-      }
+        Date: false,
+      },
     },
 
     APP: {
@@ -53,7 +53,7 @@ module.exports = function(environment) {
         "15-bazl": "Amt für Raumentwicklung",
         "15-uebrige": "Amt für Raumentwicklung",
         "16-district": "district",
-        "16-canton": "Tiefbauamt des Kantons Schwyz"
+        "16-canton": "Tiefbauamt des Kantons Schwyz",
       },
 
       // Mapping used for identifying the district of a given municipality
@@ -88,8 +88,8 @@ module.exports = function(environment) {
         Schwyz: "Bezirk Schwyz",
         Steinen: "Bezirk Schwyz",
         Steinerberg: "Bezirk Schwyz",
-        Unteriberg: "Bezirk Schwyz"
-      }
+        Unteriberg: "Bezirk Schwyz",
+      },
     },
 
     exportApplicationGlobal: true,
@@ -101,7 +101,7 @@ module.exports = function(environment) {
       tokenEndpoint: "/token",
       userinfoEndpoint: "/userinfo",
       endSessionEndpoint: "/logout",
-      afterLogoutUri: "/"
+      afterLogoutUri: "/",
     },
 
     "ember-validated-form": {
@@ -112,13 +112,13 @@ module.exports = function(environment) {
         checkbox: "uk-checkbox",
         radio: "uk-radio",
         button: "uk-button uk-button-default",
-        submit: "uk-button uk-button-primary"
-      }
+        submit: "uk-button uk-button-primary",
+      },
     },
 
     moment: {
-      includeLocales: ["de-ch"]
-    }
+      includeLocales: ["de-ch"],
+    },
   };
 
   if (environment === "development") {
@@ -170,7 +170,7 @@ module.exports = function(environment) {
       "Bezirk Küssnacht",
       "Bezirk Höfe",
       "Bezirk March",
-      "Bezirk Schwyz"
+      "Bezirk Schwyz",
     ];
   }
 
@@ -188,13 +188,13 @@ module.exports = function(environment) {
     ENV["ember-simple-auth-oidc"] = {
       authEndpoint: "/auth/realms/ebau/protocol/openid-connect/auth",
       tokenEndpoint: "/auth/realms/ebau/protocol/openid-connect/token",
-      logoutEndpoint: "/auth/realms/ebau/protocol/openid-connect/logout"
+      logoutEndpoint: "/auth/realms/ebau/protocol/openid-connect/logout",
     };
   }
 
   if (environment === "stage") {
     ENV["ember-cli-mirage"] = {
-      enabled: process.env.EMBER_CLI_MIRAGE || false
+      enabled: process.env.EMBER_CLI_MIRAGE || false,
     };
 
     ENV.APP.municipalityNames = [
@@ -240,13 +240,13 @@ module.exports = function(environment) {
       "Bezirk Küssnacht",
       "Bezirk Höfe",
       "Bezirk March",
-      "Bezirk Schwyz"
+      "Bezirk Schwyz",
     ];
   }
 
   if (environment === "production") {
     ENV["ember-cli-mirage"] = {
-      enabled: process.env.EMBER_CLI_MIRAGE || false
+      enabled: process.env.EMBER_CLI_MIRAGE || false,
     };
 
     ENV.APP.municipalityNames = [
@@ -272,7 +272,7 @@ module.exports = function(environment) {
       "Bezirk Küssnacht",
       "Bezirk Höfe",
       "Bezirk March",
-      "Bezirk Schwyz"
+      "Bezirk Schwyz",
     ];
 
     ENV.APP.gisHost = "map.geo.sz.ch";

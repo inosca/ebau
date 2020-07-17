@@ -10,33 +10,35 @@ export default Controller.extend({
   publicationList: computed(
     "publications.lastSuccessful.value.[]",
     "publicationPermissions.lastSuccessful.value.[]",
-    function() {
-      return this.get("publications.lastSuccessful.value").map(publication => {
-        this.getWithDefault(
-          "publicationPermissions.lastSuccessful.value",
-          []
-        ).forEach(permission => {
-          if (permission.get("publicationEntry.id") === publication.id) {
-            publication.set("status", permission.status);
-          }
-        });
+    function () {
+      return this.get("publications.lastSuccessful.value").map(
+        (publication) => {
+          this.getWithDefault(
+            "publicationPermissions.lastSuccessful.value",
+            []
+          ).forEach((permission) => {
+            if (permission.get("publicationEntry.id") === publication.id) {
+              publication.set("status", permission.status);
+            }
+          });
 
-        return publication;
-      });
+          return publication;
+        }
+      );
     }
   ),
 
-  publications: task(function*() {
+  publications: task(function* () {
     return yield this.store.query("publication-entry", {
-      include: "instance,instance.location"
+      include: "instance,instance.location",
     });
   }).restartable(),
 
-  publicationPermissions: task(function*() {
+  publicationPermissions: task(function* () {
     return yield this.store.findAll("publication-entry-user-permission");
   }).restartable(),
 
-  requestPermission: task(function*(publication) {
+  requestPermission: task(function* (publication) {
     const permission = this.store.createRecord(
       "publication-entry-user-permission",
       { status: "pending", publicationEntry: publication }
@@ -48,7 +50,7 @@ export default Controller.extend({
     }
   }),
 
-  navigate: task(function*(instance) {
+  navigate: task(function* (instance) {
     yield this.transitionToRoute("instances.edit", instance.get("id"));
-  })
+  }),
 });

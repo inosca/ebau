@@ -4,23 +4,23 @@ import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
 
-module("Integration | Component | camac-input-number", function(hooks) {
+module("Integration | Component | camac-input-number", function (hooks) {
   setupRenderingTest(hooks);
 
-  test("it renders a number input", async function(assert) {
+  test("it renders a number input", async function (assert) {
     assert.expect(4);
 
     this.set(
       "model",
       EmberObject.create({
-        value: 2
+        value: 2,
       })
     );
 
     this.set("config", {
       min: 0,
       max: 5,
-      step: 1
+      step: 1,
     });
 
     await render(hbs`{{camac-input-number config=config model=model}}`);
@@ -32,13 +32,13 @@ module("Integration | Component | camac-input-number", function(hooks) {
     assert.dom("input[type=number]").hasAttribute("step", "1");
   });
 
-  test("it renders in readonly mode", async function(assert) {
+  test("it renders in readonly mode", async function (assert) {
     assert.expect(1);
 
     this.set(
       "model",
       EmberObject.create({
-        value: 2
+        value: 2,
       })
     );
 
@@ -51,13 +51,13 @@ module("Integration | Component | camac-input-number", function(hooks) {
     assert.dom("input[type=number]").isDisabled();
   });
 
-  test("it can change the value", async function(assert) {
+  test("it can change the value", async function (assert) {
     assert.expect(1);
 
     this.set(
       "model",
       EmberObject.create({
-        value: 2
+        value: 2,
       })
     );
 

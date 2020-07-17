@@ -11,7 +11,7 @@ export default AjaxService.extend({
 
   token: reads("session.data.authenticated.access_token"),
 
-  headers: computed("token", function() {
+  headers: computed("token", function () {
     const token = this.token;
 
     return token ? { Authorization: `Bearer ${token}` } : {};
@@ -25,5 +25,5 @@ export default AjaxService.extend({
     }
 
     return res;
-  }
+  },
 });

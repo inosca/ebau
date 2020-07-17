@@ -4,22 +4,22 @@ import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
 
-module("Integration | Component | camac-input-number-separator", function(
+module("Integration | Component | camac-input-number-separator", function (
   hooks
 ) {
   setupRenderingTest(hooks);
 
-  test("it renders", async function(assert) {
+  test("it renders", async function (assert) {
     await render(hbs`{{camac-input-number-separator}}`);
 
     assert.dom("input[type=text]").exists();
   });
 
-  test("it shows thousand separators", async function(assert) {
+  test("it shows thousand separators", async function (assert) {
     this.set(
       "model",
       EmberObject.create({
-        value: 2
+        value: 2,
       })
     );
 

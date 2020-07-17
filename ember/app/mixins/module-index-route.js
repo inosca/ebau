@@ -34,5 +34,5 @@ export default Mixin.create({
     ) {
       return this.replaceWith(links[links.indexOf(parent) + direction]);
     }
-  }
+  },
 });

@@ -38,7 +38,7 @@ export default class BeDocumentsFormComponent extends Component {
 
   get allRequiredTags() {
     return this.args.fieldset.fields.filter(
-      field =>
+      (field) =>
         !field.hidden &&
         !field.optional &&
         field.questionType === "MultipleChoiceQuestion"
@@ -50,21 +50,21 @@ export default class BeDocumentsFormComponent extends Component {
       const category = tag.question.meta.documentCategory || DEFAULT_CATEGORY;
 
       return Object.assign(tree, {
-        [category]: [...(tree[category] || []), tag]
+        [category]: [...(tree[category] || []), tag],
       });
     }, {});
   }
 
   get allAttachments() {
-    const byInstance = attachment =>
+    const byInstance = (attachment) =>
       parseInt(attachment.belongsTo("instance").id()) ===
       parseInt(this.args.context.instanceId);
 
-    const bySection = attachment =>
+    const bySection = (attachment) =>
       attachment
         .hasMany("attachmentSections")
         .ids()
-        .map(id => parseInt(id))
+        .map((id) => parseInt(id))
         .includes(parseInt(this.section));
 
     return this.store
@@ -78,8 +78,8 @@ export default class BeDocumentsFormComponent extends Component {
       return {
         ...obj,
         [bucket]: this.allAttachments.filter(
-          attachment => attachment.question === bucket
-        )
+          (attachment) => attachment.question === bucket
+        ),
       };
     }, {});
   }
@@ -88,7 +88,7 @@ export default class BeDocumentsFormComponent extends Component {
   *fetchAttachments() {
     return yield this.store.query("attachment", {
       instance: this.args.context.instanceId,
-      attachment_sections: this.section
+      attachment_sections: this.section,
     });
   }
 
@@ -105,7 +105,7 @@ export default class BeDocumentsFormComponent extends Component {
       const response = yield this.fetch.fetch("/api/v1/attachments", {
         method: "POST",
         body: formData,
-        headers: { "content-type": undefined }
+        headers: { "content-type": undefined },
       });
 
       if (!response.ok) throw new Error();

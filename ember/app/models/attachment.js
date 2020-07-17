@@ -16,7 +16,7 @@ export default Model.extend({
   session: service(),
 
   thumbnail: computedTask("_thumbnail", "path"),
-  _thumbnail: task(function*() {
+  _thumbnail: task(function* () {
     if (!this.path) {
       return;
     }
@@ -25,16 +25,16 @@ export default Model.extend({
       headers: {
         Authorization: `Bearer ${this.get(
           "session.data.authenticated.access_token"
-        )}`
-      }
+        )}`,
+      },
     });
 
-    return yield new Promise(resolve => {
+    return yield new Promise((resolve) => {
       const fr = new FileReader();
 
       fr.onload = () => resolve(fr.result);
 
-      response.blob().then(blob => fr.readAsDataURL(blob));
+      response.blob().then((blob) => fr.readAsDataURL(blob));
     });
-  }).restartable()
+  }).restartable(),
 });

@@ -10,12 +10,12 @@ export default Component.extend({
     "config.maxlength:maxlength",
     "config.minlength:minlength",
     "config.cols:cols",
-    "config.rows:rows"
+    "config.rows:rows",
   ],
 
   change(e) {
     e.preventDefault();
 
     this.getWithDefault("attrs.on-change", () => {})(e.target.value);
-  }
+  },
 });

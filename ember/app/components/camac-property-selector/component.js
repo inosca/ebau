@@ -27,7 +27,7 @@ const LAYERS = [
   "ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft_projektiert",
   "ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft_projektiert.polygon",
   "ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaftnummer_projektiert.position",
-  "ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaftnummer_projektiert.hilfslinie"
+  "ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaftnummer_projektiert.hilfslinie",
 ];
 
 const QUERY_LAYERS = [
@@ -71,7 +71,7 @@ const QUERY_LAYERS = [
   "ch.sz.a049.fischgewaesser_bestehend",
   "ch.sz.a049.fischgewaesser_pot",
   "ch.sz.a049.fischregionen",
-  "ch.sz.a143a.reptiliengebiet"
+  "ch.sz.a143a.reptiliengebiet",
 ];
 
 const PARCEL_LAYER =
@@ -112,29 +112,29 @@ export default Component.extend({
     this.initSelection.perform();
   },
 
-  initSelection: task(function*() {
+  initSelection: task(function* () {
     if (this.selected.parcels) {
       const parcels = yield all(
-        this.selected.parcels.map(async parcel => {
+        this.selected.parcels.map(async (parcel) => {
           const {
             features: [
               {
                 geometry: {
-                  coordinates: [coordinates]
-                }
-              }
-            ]
+                  coordinates: [coordinates],
+                },
+              },
+            ],
           } = await this.ajax.request("/maps/main/wsgi/fulltextsearch", {
             method: "GET",
             data: {
               query: parcel.egrid,
-              limit: 1
-            }
+              limit: 1,
+            },
           });
 
           return {
             ...parcel,
-            coordinates: coordinates.map(xy => EPSG2056toLatLng(...xy))
+            coordinates: coordinates.map((xy) => EPSG2056toLatLng(...xy)),
           };
         })
       );
@@ -149,7 +149,7 @@ export default Component.extend({
 
     this.setProperties({
       parcels: this.selected.parcels || A(),
-      points: this.selected.points || [[]]
+      points: this.selected.points || [[]],
     });
 
     if (this.selected.municipality) {
@@ -157,29 +157,34 @@ export default Component.extend({
     }
   }).restartable(),
 
-  parcelBounds: computed("parcels.[]", function() {
+  parcelBounds: computed("parcels.[]", function () {
     if (this.parcels) {
       return L.featureGroup(
-        this.parcels.map(p => L.polyline(p.coordinates))
+        this.parcels.map((p) => L.polyline(p.coordinates))
       ).getBounds();
     }
     return [];
   }),
 
-  pointsFlat: computed("points.@each.length", function() {
+  pointsFlat: computed("points.@each.length", function () {
     // We use this instead of array.flat() to ensure support of older browsers
     return [].concat(...this.points);
   }),
 
-  coordinates: computed("pointsFlat.@each.{lat,lng}", function() {
+  coordinates: computed("pointsFlat.@each.{lat,lng}", function () {
     // This computed property is used to update the polygons when a point is moved
     // we return a object with the flat array, because otherwise the computed property
     // doesn't get recomputed if we only return the points.
-    return { points: this.points.map(p => p.toArray()), flat: this.pointsFlat };
+    return {
+      points: this.points.map((p) => p.toArray()),
+      flat: this.pointsFlat,
+    };
   }),
 
-  municipalities: computed("parcels.[],specialForm", function() {
-    const municipalities = [...new Set(this.parcels.map(p => p.municipality))];
+  municipalities: computed("parcels.[],specialForm", function () {
+    const municipalities = [
+      ...new Set(this.parcels.map((p) => p.municipality)),
+    ];
     let location = this.specialForm;
 
     if (this.specialForm === "district") {
@@ -189,11 +194,11 @@ export default Component.extend({
     return this.specialForm ? [location] : municipalities;
   }),
 
-  setMunicipality: task(function*(municipality) {
+  setMunicipality: task(function* (municipality) {
     yield this.set("selectedMunicipality", municipality);
   }),
 
-  handleSearch: task(function*(query) {
+  handleSearch: task(function* (query) {
     yield timeout(500);
 
     try {
@@ -203,8 +208,8 @@ export default Component.extend({
           method: "GET",
           data: {
             query,
-            limit: 50
-          }
+            limit: 50,
+          },
         }
       );
 
@@ -216,7 +221,7 @@ export default Component.extend({
     }
   }).restartable(),
 
-  handleSearchSelection: task(function*(result) {
+  handleSearchSelection: task(function* (result) {
     this.set("selectedSearchResult", result);
 
     if (!result) {
@@ -242,11 +247,11 @@ export default Component.extend({
     }
   }).restartable(),
 
-  handleLoad: task(function*({ target }) {
+  handleLoad: task(function* ({ target }) {
     yield this.set("_map", target);
   }),
 
-  addPoint: task(function*(e) {
+  addPoint: task(function* (e) {
     if (this.readonly) {
       return;
     }
@@ -254,16 +259,16 @@ export default Component.extend({
     yield this.get("points.lastObject").pushObject({ ...e.latlng });
   }).enqueue(),
 
-  getLayers: task(function*() {
+  getLayers: task(function* () {
     this.setProperties({ parcels: A(), layers: A() });
 
-    yield this.points.forEach(async pointSet => {
+    yield this.points.forEach(async (pointSet) => {
       if (!pointSet.length) {
         return;
       }
 
       const coordinates = pointSet
-        .map(p => {
+        .map((p) => {
           const coor = LatLngToEPSG3857(p.lat, p.lng);
           return `${coor.x},${coor.y}`;
         })
@@ -284,7 +289,7 @@ export default Component.extend({
 
       const exactFilter = `<ogc:Filter xmlns="http://www.opengis.net/ogc"><ogc:Intersects><ogc:PropertyName>*</ogc:PropertyName><gml:${type} srsName="urn:ogc:def:crs:EPSG::3857">${geometryFilter}</gml:${type}></ogc:Intersects></ogc:Filter>`;
 
-      const layers = QUERY_LAYERS.map(layer => {
+      const layers = QUERY_LAYERS.map((layer) => {
         const exact = layer === PARCEL_LAYER;
         return `<wfs:Query typeName="${layer}">${
           exact ? exactFilter : fuzzyFilter
@@ -297,12 +302,12 @@ export default Component.extend({
           method: "POST",
           dataType: "xml",
           contentType: "text/xml",
-          data: `<wfs:GetFeature version="1.1.0" service="wfs" srsName="EPSG:3857">${layers}</wfs:GetFeature>`
+          data: `<wfs:GetFeature version="1.1.0" service="wfs" srsName="EPSG:3857">${layers}</wfs:GetFeature>`,
         }
       );
       const serializer = new XMLSerializer();
       const responseObject = xml2js(serializer.serializeToString(response), {
-        compact: true
+        compact: true,
       });
 
       if (
@@ -311,7 +316,7 @@ export default Component.extend({
         )
       ) {
         responseObject["wfs:FeatureCollection"]["gml:featureMember"] = [
-          responseObject["wfs:FeatureCollection"]["gml:featureMember"]
+          responseObject["wfs:FeatureCollection"]["gml:featureMember"],
         ];
       }
 
@@ -323,7 +328,7 @@ export default Component.extend({
   _parseAffectedLayers(wfsResponse) {
     const layers = wfsResponse["wfs:FeatureCollection"][
       "gml:featureMember"
-    ].map(fm => {
+    ].map((fm) => {
       return Object.getOwnPropertyNames(fm).firstObject;
     });
     const layerSet = new Set([...this.affectedLayers, ...layers]);
@@ -333,7 +338,7 @@ export default Component.extend({
   _parseAffectedParcels(wfsResponse) {
     const parcels = A();
 
-    wfsResponse["wfs:FeatureCollection"]["gml:featureMember"].forEach(fm => {
+    wfsResponse["wfs:FeatureCollection"]["gml:featureMember"].forEach((fm) => {
       if (!Object.prototype.hasOwnProperty.call(fm, `ms:${PARCEL_LAYER}`)) {
         return;
       }
@@ -347,12 +352,12 @@ export default Component.extend({
             "gml:Polygon": {
               "gml:exterior": {
                 "gml:LinearRing": {
-                  "gml:posList": { _text: rawCoordinates }
-                }
-              }
-            }
-          }
-        }
+                  "gml:posList": { _text: rawCoordinates },
+                },
+              },
+            },
+          },
+        },
       } = fm;
 
       const coordinatesEPSG2056 = rawCoordinates
@@ -371,7 +376,7 @@ export default Component.extend({
         egrid,
         municipality,
         number,
-        coordinates: coordinatesLatLng
+        coordinates: coordinatesLatLng,
       });
     });
 
@@ -379,11 +384,11 @@ export default Component.extend({
     this.focusOnParcels.perform();
   },
 
-  focusOnParcels: task(function*() {
+  focusOnParcels: task(function* () {
     yield this._map.fitBounds(this.parcelBounds);
   }).enqueue(),
 
-  addPointSet: task(function*() {
+  addPointSet: task(function* () {
     if (this.get("points.lastObject.length")) {
       yield this.points.pushObject([]);
 
@@ -393,22 +398,22 @@ export default Component.extend({
     }
   }),
 
-  clear: task(function*() {
+  clear: task(function* () {
     yield this.setProperties({
       points: [[]],
       parcels: A(),
       affectedLayers: A(),
       selectedMunicipality: null,
-      searchObject: null
+      searchObject: null,
     });
   }).restartable(),
 
-  reset: task(function*() {
+  reset: task(function* () {
     yield this.clear.perform();
     yield this.initSelection.perform();
   }).restartable(),
 
-  submit: task(function*() {
+  submit: task(function* () {
     yield this.focusOnParcels.perform();
 
     yield timeout(500); // wait for the pan animation to finish
@@ -424,9 +429,9 @@ export default Component.extend({
       logging: false,
       useCORS: true,
       x: window.scrollX + this._map._container.getBoundingClientRect().left,
-      y: window.scrollY + this._map._container.getBoundingClientRect().top
+      y: window.scrollY + this._map._container.getBoundingClientRect().top,
     });
-    const image = yield new Promise(resolve => canvas.toBlob(resolve));
+    const image = yield new Promise((resolve) => canvas.toBlob(resolve));
 
     // If no municipality is selected, choose the first possible one
     const municipality = this.selectedMunicipality
@@ -436,7 +441,7 @@ export default Component.extend({
     yield resolve(
       this["on-submit"](
         this.parcels,
-        this.points.filter(p => p.length),
+        this.points.filter((p) => p.length),
         image,
         municipality,
         this.affectedLayers
@@ -444,16 +449,16 @@ export default Component.extend({
     );
   }).drop(),
 
-  updatePoint: task(function*(point, e) {
+  updatePoint: task(function* (point, e) {
     const location = e.target.getLatLng();
     yield setProperties(
-      this.get("points.lastObject").find(p => p === point),
+      this.get("points.lastObject").find((p) => p === point),
       location
     );
   }).enqueue(),
 
   // Temporary function to check if the selected municipality is active
-  checkMunicipality: computed("municipality", function() {
+  checkMunicipality: computed("municipality", function () {
     if (!this.municipality) {
       return true;
     }
@@ -461,9 +466,9 @@ export default Component.extend({
     return ENV.APP.municipalityNames.indexOf(this.municipality) >= 0;
   }),
 
-  municipality: computed("municipalities", "selectedMunicipality", function() {
+  municipality: computed("municipalities", "selectedMunicipality", function () {
     return this.selectedMunicipality
       ? this.selectedMunicipality
       : this.municipalities.get("firstObject");
-  })
+  }),
 });

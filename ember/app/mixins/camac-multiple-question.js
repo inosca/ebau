@@ -3,57 +3,57 @@ import { task } from "ember-concurrency";
 import v4 from "uuid/v4";
 
 export default Mixin.create({
-  addRow: task(function*() {
+  addRow: task(function* () {
     const question = yield this.question;
 
     const row = {
       uuid: v4(),
       ...question
         .get("field.config.columns")
-        .reduce((obj, { name }) => ({ ...obj, [name]: undefined }), {})
+        .reduce((obj, { name }) => ({ ...obj, [name]: undefined }), {}),
     };
 
     this.setProperties({
       editedRow: row,
-      showEdit: true
+      showEdit: true,
     });
   }).drop(),
 
-  saveRow: task(function*(row) {
+  saveRow: task(function* (row) {
     const question = yield this.question;
 
     yield this.save.perform([
       ...question
         .getWithDefault("model.value", [])
-        .filter(r => r.uuid !== row.uuid),
-      row
+        .filter((r) => r.uuid !== row.uuid),
+      row,
     ]);
 
     this.setProperties({
       editedRow: null,
-      showEdit: false
+      showEdit: false,
     });
   }).restartable(),
 
-  editRow: task(function*(row) {
+  editRow: task(function* (row) {
     yield this.setProperties({
       editedRow: row,
-      showEdit: true
+      showEdit: true,
     });
   }).restartable(),
 
-  deleteRow: task(function*(row) {
+  deleteRow: task(function* (row) {
     const question = yield this.question;
 
     yield this.save.perform(
       question
         .getWithDefault("model.value", [])
-        .filter(r => r.uuid !== row.uuid)
+        .filter((r) => r.uuid !== row.uuid)
     );
 
     this.setProperties({
       editedRow: null,
-      showEdit: false
+      showEdit: false,
     });
-  })
+  }),
 });

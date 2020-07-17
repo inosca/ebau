@@ -10,26 +10,26 @@ export default Controller.extend({
   notification: service(),
   store: service(),
 
-  parcels: computed("model.instance.id", function() {
+  parcels: computed("model.instance.id", function () {
     return this.questionStore.peek("parzellen", this.model.instance.id);
   }),
 
-  points: computed("model.instance.id", function() {
+  points: computed("model.instance.id", function () {
     return this.questionStore.peek("punkte", this.model.instance.id);
   }),
 
-  layers: computed("model.instance.id", function() {
+  layers: computed("model.instance.id", function () {
     return this.questionStore.peek("layer", this.model.instance.id);
   }),
 
-  attachment: computed("model.instance.id", function() {
+  attachment: computed("model.instance.id", function () {
     return this.questionStore.peek(
       "dokument-grundstucksangaben",
       this.model.instance.id
     );
   }),
 
-  specialForm: computed("model.instance.form.id", function() {
+  specialForm: computed("model.instance.form.id", function () {
     let form = this.get("model.instance.form.id");
     const meta = this.questionStore.peek("meta", this.model.instance.id);
     if (meta) {
@@ -40,7 +40,7 @@ export default Controller.extend({
     return ENV.APP.formLocations[form];
   }),
 
-  _saveImage: task(function*(image) {
+  _saveImage: task(function* (image) {
     const attachment = this.attachment;
     const filename = `${attachment.get("name")}.${image.type.split("/").pop()}`;
     const formData = new FormData();
@@ -49,7 +49,7 @@ export default Controller.extend({
     this.store
       .peekAll("attachment")
       .filterBy("name", filename)
-      .forEach(image => image.destroyRecord());
+      .forEach((image) => image.destroyRecord());
 
     formData.append("instance", attachment.get("instanceId"));
     formData.append("question", attachment.get("name"));
@@ -66,8 +66,8 @@ export default Controller.extend({
       processData: false,
       data: formData,
       headers: {
-        Accept: "application/vnd.api+json"
-      }
+        Accept: "application/vnd.api+json",
+      },
     });
 
     this.store.pushPayload(response);
@@ -81,31 +81,31 @@ export default Controller.extend({
     );
   }),
 
-  _saveParcels: task(function*(parcels) {
+  _saveParcels: task(function* (parcels) {
     this.set(
       "parcels.model.value",
       parcels.map(({ number, ...p }) => ({
         ...p,
         number: parseInt(number),
-        coordinates: undefined
+        coordinates: undefined,
       }))
     );
 
     yield this.get("questionStore.saveQuestion").perform(this.parcels);
   }),
 
-  _savePoints: task(function*(points) {
+  _savePoints: task(function* (points) {
     this.set(
       "points.model.value",
-      points.map(pointSet =>
-        pointSet.map(point => ({ ...point, layers: undefined }))
+      points.map((pointSet) =>
+        pointSet.map((point) => ({ ...point, layers: undefined }))
       )
     );
 
     yield this.get("questionStore.saveQuestion").perform(this.points);
   }),
 
-  _saveLocation: task(function*(name) {
+  _saveLocation: task(function* (name) {
     const instance = this.get("model.instance");
 
     if (this.specialForm !== "district") {
@@ -113,7 +113,7 @@ export default Controller.extend({
     }
 
     const location = yield this.store.query("location", {
-      name
+      name,
     });
 
     instance.set("location", location.get("firstObject"));
@@ -121,16 +121,16 @@ export default Controller.extend({
     yield instance.save();
   }),
 
-  _saveLayers: task(function*(affectedLayers) {
+  _saveLayers: task(function* (affectedLayers) {
     this.set(
       "layers.model.value",
-      affectedLayers.map(layer => ({ name: layer }))
+      affectedLayers.map((layer) => ({ name: layer }))
     );
 
     yield this.get("questionStore.saveQuestion").perform(this.layers);
   }),
 
-  saveLocation: task(function*(
+  saveLocation: task(function* (
     parcels,
     points,
     image,
@@ -150,12 +150,12 @@ export default Controller.extend({
       yield this._saveLayers.perform(affectedLayers);
 
       this.notification.success("Ihre Auswahl wurde erfolgreich gespeichert", {
-        status: "success"
+        status: "success",
       });
     } catch (e) {
       this.notification.danger(
         "Hoppla, etwas ist schief gelaufen. Bitte versuchen Sie es erneut."
       );
     }
-  })
+  }),
 });
