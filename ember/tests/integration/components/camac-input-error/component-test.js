@@ -3,10 +3,10 @@ import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
 
-module("Integration | Component | camac-input-error", function(hooks) {
+module("Integration | Component | camac-input-error", function (hooks) {
   setupRenderingTest(hooks);
 
-  test("it renders errors correctly", async function(assert) {
+  test("it renders errors correctly", async function (assert) {
     this.set("error", []);
 
     await render(hbs`{{camac-input-error error}}`);

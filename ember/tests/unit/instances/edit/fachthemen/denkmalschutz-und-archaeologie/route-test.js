@@ -3,10 +3,10 @@ import { module, test } from "qunit";
 
 module(
   "Unit | Route | instances/edit/fachthemen/denkmalschutz-und-archaeologie",
-  function(hooks) {
+  function (hooks) {
     setupTest(hooks);
 
-    test("it exists", function(assert) {
+    test("it exists", function (assert) {
       const route = this.owner.lookup(
         "route:instances/edit/fachthemen/denkmalschutz-und-archaeologie"
       );

@@ -5,18 +5,18 @@ import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
 
-module("Integration | Component | camac-input", function(hooks) {
+module("Integration | Component | camac-input", function (hooks) {
   setupRenderingTest(hooks);
   setupMirage(hooks);
 
-  hooks.beforeEach(async function() {
+  hooks.beforeEach(async function () {
     const instance = this.server.create("instance");
 
     this.set("instance", instance);
 
     this.server.create("form-field", {
       name: "test-input",
-      instance
+      instance,
     });
 
     this.server.get("/api/v1/form-config", () => {
@@ -27,16 +27,16 @@ module("Integration | Component | camac-input", function(hooks) {
             hint: "Hint hint hint",
             type: "text",
             required: true,
-            config: {}
-          }
-        }
+            config: {},
+          },
+        },
       };
     });
 
     await loadQuestions(["test-input"], instance.id);
   });
 
-  test("it renders", async function(assert) {
+  test("it renders", async function (assert) {
     await render(hbs`{{camac-input 'test-input' instance=instance}}`);
 
     assert.dom("input").exists();

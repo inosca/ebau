@@ -4,7 +4,7 @@ import config from "../config/environment";
 
 const { tokenEndpoint, logoutEndpoint } = config["ember-simple-auth-oidc"];
 
-export default function() {
+export default function () {
   this.urlPrefix = ""; // make this `http://localhost:8080`, for example, if your API is on a different server
   this.namespace = ""; // make this `/api`, for example, if your API is namespaced
   this.timing = 400; // delay for each request, automatically set to 0 during testing
@@ -15,13 +15,13 @@ export default function() {
   this.post(tokenEndpoint, () => {
     const tokenBody = btoa(
       JSON.stringify({
-        exp: Math.round(new Date().getTime() + (30 * 60 * 1000) / 1000)
+        exp: Math.round(new Date().getTime() + (30 * 60 * 1000) / 1000),
       })
     );
 
     return {
       access_token: `access.${tokenBody}.token`,
-      refresh_token: `refresh.${tokenBody}.token`
+      refresh_token: `refresh.${tokenBody}.token`,
     };
   });
 
@@ -39,11 +39,11 @@ export default function() {
   this.post("/api/v1/instances/:id/submit", () => new Response(200));
   this.get("/api/v1/instance-states/:id");
 
-  this.get("/api/v1/form-fields", function(
+  this.get("/api/v1/form-fields", function (
     { formFields },
     { queryParams: { instance, name } }
   ) {
-    return formFields.where(field => {
+    return formFields.where((field) => {
       return (
         (name ? name.split(",").includes(field.name) : true) &&
         (instance ? field.instanceId === instance : true)
@@ -55,14 +55,14 @@ export default function() {
   this.get("/api/v1/form-fields/:id");
   this.patch("/api/v1/form-fields/:id");
 
-  this.get("/api/v1/attachments", function(
+  this.get("/api/v1/attachments", function (
     { attachments },
     { queryParams: { instance, name } }
   ) {
-    return attachments.where(field => {
+    return attachments.where((field) => {
       return (
         (name
-          ? name.split(",").some(n => new RegExp(n).test(field.name))
+          ? name.split(",").some((n) => new RegExp(n).test(field.name))
           : true) && (instance ? field.instanceId === instance : true)
       );
     });

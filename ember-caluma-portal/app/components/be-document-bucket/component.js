@@ -11,7 +11,7 @@ function requiredArgument(_, name) {
       const value = this.args[name];
       assert(`@${name} must be passed to <BeDocumentBucket />`, value);
       return value;
-    }
+    },
   };
 }
 
@@ -50,8 +50,8 @@ export default class BeDocumentBucketComponent extends Component {
         {
           labels: {
             ok: this.intl.t("global.ok"),
-            cancel: this.intl.t("global.cancel")
-          }
+            cancel: this.intl.t("global.cancel"),
+          },
         }
       );
     } catch (error) {

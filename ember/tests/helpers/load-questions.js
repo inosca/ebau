@@ -21,13 +21,13 @@ export default async function loadQuestions(names, instanceId) {
 
   const qs = [
     ...store.peekAll("form-field").toArray(),
-    ...store.peekAll("attachment").toArray()
+    ...store.peekAll("attachment").toArray(),
   ];
 
   qstore._store.pushObjects(
     await all(
       names.map(
-        async n =>
+        async (n) =>
           await qstore.buildQuestion(
             n,
             instanceId,

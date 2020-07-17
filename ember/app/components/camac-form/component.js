@@ -5,5 +5,5 @@ export default Component.extend({
 
   submit(e) {
     e.preventDefault();
-  }
+  },
 });

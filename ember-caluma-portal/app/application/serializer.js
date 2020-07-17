@@ -15,5 +15,5 @@ export default JSONAPISerializer.extend({
     payload.data.attributes.meta = payload.data.meta || {};
 
     return this._super(...args);
-  }
+  },
 });

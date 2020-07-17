@@ -3,44 +3,44 @@ import { Factory } from "ember-cli-mirage";
 const instanceStates = [
   {
     name: "new",
-    description: "Neu"
+    description: "Neu",
   },
   {
     name: "subm",
-    description: "Eingereicht"
+    description: "Eingereicht",
   },
   {
     name: "comm",
-    description: "Von Gemeinde angenommenen"
+    description: "Von Gemeinde angenommenen",
   },
   {
     name: "circ",
-    description: "In Zirkulation"
+    description: "In Zirkulation",
   },
   {
     name: "redac",
-    description: "Bauentscheid ausstehend"
+    description: "Bauentscheid ausstehend",
   },
   {
     name: "nfd",
-    description: "Nachforderung"
+    description: "Nachforderung",
   },
   {
     name: "done",
-    description: "Bewilligt"
+    description: "Bewilligt",
   },
   {
     name: "rej",
-    description: "Abgelehnt"
+    description: "Abgelehnt",
   },
   {
     name: "arch",
-    description: "Archiviert"
+    description: "Archiviert",
   },
   {
     name: "del",
-    description: "Gel\u00f6scht"
-  }
+    description: "Gel\u00f6scht",
+  },
 ];
 
 export default Factory.extend({
@@ -49,5 +49,5 @@ export default Factory.extend({
   },
   description(i) {
     return [i % instanceStates.map(({ description }) => description)];
-  }
+  },
 });

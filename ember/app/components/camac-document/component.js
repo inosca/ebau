@@ -26,13 +26,13 @@ export default CamacInputComponent.extend({
 
   token: reads("session.data.authenticated.access_token"),
 
-  headers: computed("token", function() {
+  headers: computed("token", function () {
     return {
-      Authorization: `Bearer ${this.token}`
+      Authorization: `Bearer ${this.token}`,
     };
   }),
 
-  tokenChanged: observer("token", function() {
+  tokenChanged: observer("token", function () {
     if (this.dropzone) {
       this.dropzone.options.headers.Authorization = `Bearer ${this.token}`;
     }
@@ -40,7 +40,7 @@ export default CamacInputComponent.extend({
 
   classNameBindings: [
     "question.hidden:uk-hidden",
-    "question.field.required:uk-flex-first"
+    "question.field.required:uk-flex-first",
   ],
   classNames: ["uk-margin-remove", "uk-animation-fade"],
 
@@ -58,13 +58,13 @@ export default CamacInputComponent.extend({
           headers: {
             Accept: "application/vnd.api+json",
             Authorization: this.headers.Authorization,
-            "Cache-Control": "no-cache"
+            "Cache-Control": "no-cache",
           },
           paramName: "path",
           params: {
             instance: this.instance.id,
             question: this.identifier,
-            attachment_sections: ENV.APP.attachmentSections.applicant
+            attachment_sections: ENV.APP.attachmentSections.applicant,
           },
           createImageThumbnails: false,
           previewsContainer: false,
@@ -89,13 +89,13 @@ export default CamacInputComponent.extend({
             this.notification.danger(
               "Hoppla, beim Hochladen der Datei ist etwas schief gelaufen. Bitte versuchen Sie es nochmals"
             );
-          }
+          },
         })
       );
     }
   },
 
-  download: task(function*(document) {
+  download: task(function* (document) {
     try {
       if (!document.get("path")) {
         return;
@@ -107,7 +107,7 @@ export default CamacInputComponent.extend({
 
       const response = yield fetch(url, {
         mode: "cors",
-        headers: this.headers
+        headers: this.headers,
       });
 
       const file = yield response.blob();
@@ -124,7 +124,7 @@ export default CamacInputComponent.extend({
     }
   }),
 
-  upload: task(function*(existingFile = null, event) {
+  upload: task(function* (existingFile = null, event) {
     if (this.readonly) {
       return;
     }
@@ -136,9 +136,9 @@ export default CamacInputComponent.extend({
 
         if (file.size > MAX_FILE_SIZE) {
           this.notification.danger(
-            `Die Datei darf nicht grösser als ${MAX_FILE_SIZE /
-              1024 /
-              1024}MB sein.`
+            `Die Datei darf nicht grösser als ${
+              MAX_FILE_SIZE / 1024 / 1024
+            }MB sein.`
           );
 
           return;
@@ -180,8 +180,8 @@ export default CamacInputComponent.extend({
           processData: false,
           data: formData,
           headers: {
-            Accept: "application/vnd.api+json"
-          }
+            Accept: "application/vnd.api+json",
+          },
         });
 
         this.store.pushPayload(response);
@@ -207,12 +207,12 @@ export default CamacInputComponent.extend({
     }
   }),
 
-  delete: task(function*(file) {
+  delete: task(function* (file) {
     try {
       const deleted = yield file.destroyRecord();
       this.question.set(
         "model",
-        this.question.model.filter(f => f.id !== deleted.id)
+        this.question.model.filter((f) => f.id !== deleted.id)
       );
     } catch (e) {
       this.notification.danger(
@@ -224,6 +224,6 @@ export default CamacInputComponent.extend({
   actions: {
     triggerUpload() {
       this.element.querySelector("input[type=file").click();
-    }
-  }
+    },
+  },
 });

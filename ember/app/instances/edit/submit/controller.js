@@ -40,10 +40,10 @@ export default class InstancesEditSubmitController extends Controller {
           modules.reduce((flat, m) => [...flat, ...m.allQuestions], []),
           this.model.instance.id
         )
-        .map(async q => ((await q.hidden) ? null : q))
+        .map(async (q) => ((await q.hidden) ? null : q))
     )).filter(Boolean);
 
-    return questions.every(q => q.validate() === true);
+    return questions.every((q) => q.validate() === true);
   }
 
   // Temporary function to check if the selected municipality is active,

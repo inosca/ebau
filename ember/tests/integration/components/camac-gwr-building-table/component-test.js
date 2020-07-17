@@ -3,19 +3,19 @@ import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
 
-module("Integration | Component | camac-gwr-building-table", function(hooks) {
+module("Integration | Component | camac-gwr-building-table", function (hooks) {
   setupRenderingTest(hooks);
 
-  hooks.beforeEach(function() {
+  hooks.beforeEach(function () {
     this.set("value", [{ f1: "test" }]);
     this.set("config", {
       columns: [
-        { name: "f1", label: "f1", type: "text", required: true, config: {} }
-      ]
+        { name: "f1", label: "f1", type: "text", required: true, config: {} },
+      ],
     });
   });
 
-  test("it renders", async function(assert) {
+  test("it renders", async function (assert) {
     assert.expect(2);
 
     await render(hbs`{{camac-gwr-building-table value=value config=config}}`);
@@ -24,7 +24,7 @@ module("Integration | Component | camac-gwr-building-table", function(hooks) {
     assert.dom("tbody > tr > td:first-child").hasText("test");
   });
 
-  test("it can delete a row", async function(assert) {
+  test("it can delete a row", async function (assert) {
     assert.expect(2);
 
     await render(
@@ -40,7 +40,7 @@ module("Integration | Component | camac-gwr-building-table", function(hooks) {
       .hasText("Noch keine Einträge erfasst");
   });
 
-  test("it can edit a row", async function(assert) {
+  test("it can edit a row", async function (assert) {
     assert.expect(2);
 
     await render(
@@ -56,7 +56,7 @@ module("Integration | Component | camac-gwr-building-table", function(hooks) {
     assert.dom("tbody > tr > td:first-child").hasText("shimmyshimmyya");
   });
 
-  test("it can add a row", async function(assert) {
+  test("it can add a row", async function (assert) {
     assert.expect(2);
 
     await render(

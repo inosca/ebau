@@ -10,19 +10,19 @@ export default class Router extends EmberRouter {
 const resetNamespace = true;
 
 /* eslint-disable-next-line array-callback-return */
-Router.map(function() {
+Router.map(function () {
   this.route("login");
   this.route("logout");
   this.route("app-shell");
   this.route("notfound", { path: "/*path" });
 
-  this.route("protected", { path: "/" }, function() {
+  this.route("protected", { path: "/" }, function () {
     this.route("index", { path: "/", resetNamespace });
     this.route("publications", { path: "/publikationen", resetNamespace });
-    this.route("instances", { path: "/gesuche", resetNamespace }, function() {
+    this.route("instances", { path: "/gesuche", resetNamespace }, function () {
       this.route("new");
-      this.route("edit", { path: "/:instance_id" }, function() {
-        this.route("grundinformationen", function() {
+      this.route("edit", { path: "/:instance_id" }, function () {
+        this.route("grundinformationen", function () {
           this.route("lokalisierung");
           this.route("kategorisierung");
           this.route("kategorisierung-vorabklarung");
@@ -31,7 +31,7 @@ Router.map(function() {
           this.route("allgemeine-informationen-zum-vorhaben-v2");
           this.route("ausnahmebewilligungen");
         });
-        this.route("personalien", function() {
+        this.route("personalien", function () {
           this.route("grundeigentumerschaft");
           this.route("bauherrschaft");
           this.route("projektverfasser-planer");
@@ -39,7 +39,7 @@ Router.map(function() {
           this.route("konzessionsnehmer");
           this.route("bewilligungsnehmer");
         });
-        this.route("fachthemen", function() {
+        this.route("fachthemen", function () {
           this.route("landwirtschaft");
           this.route(
             "nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone"
