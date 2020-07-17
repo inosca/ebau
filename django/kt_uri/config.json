@@ -211,20 +211,6 @@
   },
   {
     "fields": {
-      "available_action": "notification",
-      "button": 4,
-      "description": "",
-      "error_message": "Das E-Mail an die Koordinationsstelle konnte nicht versandt werden.",
-      "execute_always": 0,
-      "name": "E-Mail an Koor wenn Dossier von Gemeinde",
-      "sort": 2,
-      "success_message": ""
-    },
-    "model": "core.action",
-    "pk": 189
-  },
-  {
-    "fields": {
       "available_action": "save",
       "button": 4,
       "description": "",
@@ -925,7 +911,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 432,
       "description": null,
       "error_message": "E-Mail zum Start der Zirkulation konnte nicht versendet werden",
@@ -1247,7 +1233,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 216,
       "description": "Versendet eine E-Mail an alle zum Start der Zirkulation involvierten Stellen.",
       "error_message": "E-Mail zum Start der Zirkulation konnte nicht versendet werden",
@@ -1443,7 +1429,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 568,
       "description": null,
       "error_message": null,
@@ -1471,7 +1457,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 570,
       "description": null,
       "error_message": null,
@@ -1723,7 +1709,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 689,
       "description": null,
       "error_message": "E-Mail zum Start der Zirkulation konnte nicht versendet werden",
@@ -1793,7 +1779,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 690,
       "description": null,
       "error_message": null,
@@ -2372,7 +2358,7 @@
       "description": "",
       "error_message": "Das E-Mail an die Koordinationsstelle konnte nicht versandt werden.",
       "execute_always": 0,
-      "name": "E-Mail an Koord wenn Dossier von Portal",
+      "name": "E-Mail an Koord wenn Dossier von Portal / Gemeinde",
       "sort": 3,
       "success_message": "E-Mail wurde an die Koordinationsstelle versandt!"
     },
@@ -2731,7 +2717,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 771,
       "description": "Versendet eine E-Mail an alle zum Start der Zirkulation involvierten Stellen.",
       "error_message": "E-Mail zum Start der Zirkulation konnte nicht versendet werden",
@@ -2927,7 +2913,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 782,
       "description": null,
       "error_message": null,
@@ -3123,7 +3109,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 795,
       "description": "Versendet eine E-Mail an alle zum Start der Zirkulation involvierten Stellen.",
       "error_message": "E-Mail zum Start der Zirkulation konnte nicht versendet werden",
@@ -3193,7 +3179,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 796,
       "description": null,
       "error_message": null,
@@ -3459,7 +3445,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 807,
       "description": "Versendet eine E-Mail an alle zum Start der Zirkulation involvierten Stellen.",
       "error_message": "E-Mail zum Start der Zirkulation konnte nicht versendet werden",
@@ -3529,7 +3515,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 808,
       "description": null,
       "error_message": null,
@@ -3795,7 +3781,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 827,
       "description": "Versendet eine E-Mail an alle zum Start der Zirkulation involvierten Stellen.",
       "error_message": "E-Mail zum Start der Zirkulation konnte nicht versendet werden",
@@ -3865,7 +3851,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 828,
       "description": null,
       "error_message": null,
@@ -4257,7 +4243,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 827,
       "description": "Versendet eine E-Mail an alle zum Start der Zirkulation involvierten Stellen.",
       "error_message": null,
@@ -4271,7 +4257,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 828,
       "description": null,
       "error_message": null,
@@ -4369,7 +4355,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 923,
       "description": "Versendet eine E-Mail an alle zum Start der Zirkulation involvierten Stellen.",
       "error_message": "E-Mail zum Start der Zirkulation konnte nicht versendet werden",
@@ -4411,7 +4397,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 924,
       "description": null,
       "error_message": null,
@@ -4635,7 +4621,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 935,
       "description": "Versendet eine E-Mail an alle zum Start der Zirkulation involvierten Stellen.",
       "error_message": "E-Mail zum Start der Zirkulation konnte nicht versendet werden",
@@ -4719,7 +4705,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "button": 936,
       "description": null,
       "error_message": null,
@@ -6472,15 +6458,6 @@
   {
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_KoorBgUsers",
-      "template": "dossier-id-von-gemeinde-frei-geschalten"
-    },
-    "model": "core.anotification",
-    "pk": 189
-  },
-  {
-    "fields": {
-      "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Custom_Plugin_Notification_Recipient_MunicipalityUsers",
       "template": "dossier-an-gemeinde-zuruck-geschickt"
     },
@@ -6707,7 +6684,7 @@
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "template": "zirkulation-gestartet13"
+      "template": "zirkulation-gestartet12"
     },
     "model": "core.anotification",
     "pk": 1286
@@ -6788,7 +6765,7 @@
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "template": "zirkulation-gestartet14"
+      "template": "zirkulation-gestartet12"
     },
     "model": "core.anotification",
     "pk": 1374
@@ -6797,7 +6774,7 @@
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "template": "zirkulation-gestartet15"
+      "template": "zirkulation-gestartet12"
     },
     "model": "core.anotification",
     "pk": 1375
@@ -6851,7 +6828,7 @@
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Custom_Plugin_Notification_Recipient_KoorBgUsers",
-      "template": "dossier-id-von-bundesstelle-frei-geschalten1"
+      "template": "dossier-id-von-bundesstelle-frei-geschalten"
     },
     "model": "core.anotification",
     "pk": 1445
@@ -12063,14 +12040,6 @@
     },
     "model": "core.availableaction",
     "pk": "deletecirculation"
-  },
-  {
-    "fields": {
-      "description": "Send e-mail when starting a circulation with a document attachment",
-      "module_name": "docgen"
-    },
-    "model": "core.availableaction",
-    "pk": "documentemail"
   },
   {
     "fields": {
@@ -26926,7 +26895,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "available_instance_resource": "circulation"
     },
     "model": "core.instanceresourceaction",
@@ -27038,7 +27007,7 @@
   },
   {
     "fields": {
-      "available_action": "documentemail",
+      "available_action": "notification",
       "available_instance_resource": "editcirculation"
     },
     "model": "core.instanceresourceaction",
@@ -51151,19 +51120,7 @@
   },
   {
     "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\n\nNEUES DOSSIER\nDie zust\u00e4ndige Gemeindebaubeh\u00f6rde hat das Dossier-ID [INSTANCE_ID] mit der Dossier Nr. [@c2q6i1] im CAMAC erfasst und zur Bearbeitung durch die kantonalen Fachstellen freigegeben.",
-      "purpose": "Dossier [ID] von Gemeinde frei geschalten - Sekretariat der Gemeindebaubeh\u00f6rde",
-      "service": null,
-      "slug": "dossier-id-von-gemeinde-frei-geschalten",
-      "subject": "Dossier [ID] von Gemeinde frei geschalten",
-      "type": "email"
-    },
-    "model": "notification.notificationtemplate",
-    "pk": 189
-  },
-  {
-    "fields": {
-      "body": "CAMAC Info (das ist eine automatisch generierte E-Mail von Camac, bitte nicht darauf antworten)\n\nR\u00fcckmeldung an Gemeinde, Dossier abgeschlossen\n\nDie Koordinationsstelle f\u00fcr Baueingaben hat das Dossier Nr. [@c2q6i1] im CAMAC abgeschlossen. Die Originaldokumente der Fachstellen und allf\u00e4llige Gesuchsunterlagen erhalten Sie in den n\u00e4chsten Tagen per Post.\n\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ABZUSCHLIESSEN\n\n(Upload Protokolle, Entscheiddokumente, Stellungnahme usw., Dossier archivieren).\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Raumentwicklung\n\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 24\nFax: 041 875 24 25\nE-Mail: paul.walker@ur.ch",
+      "body": "CAMAC Info (das ist eine automatisch generierte E-Mail von Camac, bitte nicht darauf antworten)\n\nR\u00fcckmeldung an Gemeinde, Dossier abgeschlossen\n\nDie Koordinationsstelle f\u00fcr Baueingaben hat das Dossier Nr. {{DOSSIER_NR}} im CAMAC abgeschlossen. Die Originaldokumente der Fachstellen und allf\u00e4llige Gesuchsunterlagen erhalten Sie in den n\u00e4chsten Tagen per Post.\n\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ABZUSCHLIESSEN\n\n(Upload Protokolle, Entscheiddokumente, Stellungnahme usw., Dossier archivieren).\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Raumentwicklung\n\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 24\nFax: 041 875 24 25\nE-Mail: paul.walker@ur.ch",
       "purpose": "Dossier an Gemeinde zur\u00fcck geschickt - Koordinationsstelle Baugesuche BG",
       "service": null,
       "slug": "dossier-an-gemeinde-zuruck-geschickt",
@@ -51175,7 +51132,7 @@
   },
   {
     "fields": {
-      "body": "CAMAC Info (das ist eine automatisch generierte E-Mail von Camac, bitte nicht darauf antworten)\n\nR\u00fcckmeldung an Gemeinde, Dossier abgeschlossen\nDie Koordinationsstelle f\u00fcr Baueingaben hat das Dossier Nr. [@c2q6i1] im CAMAC abgeschlossen. Die Originaldokumente der Fachstellen und die Gesuchsunterlagen erhalten Sie in den n\u00e4chsten Tagen per Post.\n\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ABZUSCHLIESSEN\n(Upload Protokolle, Entscheiddokumente, Stellungnahme, Endabnahmeprotokoll usw., Dossier archivieren).\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\nTel. 041 875 24 24\nFax: 041 875 24 25\nE-Mail: paul.walker@ur.ch",
+      "body": "CAMAC Info (das ist eine automatisch generierte E-Mail von Camac, bitte nicht darauf antworten)\n\nR\u00fcckmeldung an Gemeinde, Dossier abgeschlossen\nDie Koordinationsstelle f\u00fcr Baueingaben hat das Dossier Nr. {{DOSSIER_NR}} im CAMAC abgeschlossen. Die Originaldokumente der Fachstellen und die Gesuchsunterlagen erhalten Sie in den n\u00e4chsten Tagen per Post.\n\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ABZUSCHLIESSEN\n(Upload Protokolle, Entscheiddokumente, Stellungnahme, Endabnahmeprotokoll usw., Dossier archivieren).\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\nTel. 041 875 24 24\nFax: 041 875 24 25\nE-Mail: paul.walker@ur.ch",
       "purpose": "Dossier an Gemeinde zur\u00fcck geschickt - Koordinationsstelle Baugesuche BG",
       "service": null,
       "slug": "dossier-an-gemeinde-zuruck-geschickt1",
@@ -51187,7 +51144,7 @@
   },
   {
     "fields": {
-      "body": "Die Zirkulation der Instanz [INSTANCE_ID] wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. [@c2q6i1] eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN\r\n\r\n-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)\r\n-  Kurzantwort ausw\u00e4hlen (speichern)\r\n-  Art der Sachbearbeitung ausw\u00e4hlen (speichern)\r\n-  Senden\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern und uns gleichzeitig dar\u00fcber in Kenntnis zu setzen (mail).\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Raumentwicklung\r\nKoordinationsstelle f\u00fcr Nutzungsplanung\r\nRathausplatz 5\r\n6460 Altdorf\r\n\r\nTel.  041 875 24 36\r\nFax: 041 875 24 25\r\nE-Mail: pirmin.scheuber@ur.ch",
+      "body": "Die Zirkulation der Instanz {{INSTANCE_ID}} wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN\r\n\r\n-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)\r\n-  Kurzantwort ausw\u00e4hlen (speichern)\r\n-  Art der Sachbearbeitung ausw\u00e4hlen (speichern)\r\n-  Senden\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern und uns gleichzeitig dar\u00fcber in Kenntnis zu setzen (mail).\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Raumentwicklung\r\nKoordinationsstelle f\u00fcr Nutzungsplanung\r\nRathausplatz 5\r\n6460 Altdorf\r\n\r\nTel.  041 875 24 36\r\nFax: 041 875 24 25\r\nE-Mail: pirmin.scheuber@ur.ch",
       "purpose": "Zirkulation gestartet - Koordinationsstelle Nutzungsplanung NP",
       "service": null,
       "slug": "zirkulation-gestartet",
@@ -51199,11 +51156,11 @@
   },
   {
     "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\n\nMeldung an die Koordinationsstelle f\u00fcr Nutzungsplanung\n\nDie zust\u00e4ndige Gemeindebaubeh\u00f6rde hat das Dossier-ID [INSTANCE_ID] mit der Dossier Nr. [@c2q6i1] im CAMAC erfasst und zur Bearbeitung durch die kantonalen Fachstellen freigegeben.",
+      "body": "CAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\n\nMeldung an die Koordinationsstelle f\u00fcr Nutzungsplanung\n\nDie zust\u00e4ndige Gemeindebaubeh\u00f6rde hat das Dossier-ID {{INSTANCE_ID}} mit der Dossier Nr. {{DOSSIER_NR}} im CAMAC erfasst und zur Bearbeitung durch die kantonalen Fachstellen freigegeben.",
       "purpose": "Dossier [ID] von Gemeinde frei geschalten - Sekretariat der Gemeindebaubeh\u00f6rde",
       "service": null,
       "slug": "dossier-id-von-gemeinde-frei-geschalten1",
-      "subject": "Dossier [ID] von Gemeinde frei geschalten",
+      "subject": "Dossier {{ID}} von Gemeinde frei geschalten",
       "type": "email"
     },
     "model": "notification.notificationtemplate",
@@ -51211,7 +51168,7 @@
   },
   {
     "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nNEUE PENDENZ\nDie Zirkulation der Instanz [INSTANCE_ID] wurde gestartet\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nIm CAMAC wurde das Dossier Nr. [@c2q6i1] eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\n\nBEARBEITUNG IM CAMAC\n- Upload Verf\u00fcgung / Stellungnahme (bitte Scan - Dokument inkl. Unterschrift hochladen).\n- Kurzantwort ausw\u00e4hlen.\n- Art der Sachbearbeitung ausw\u00e4hlen.\n- Kurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde erfassen.\n- Geb\u00fchren erfassen.\n- Senden\n\nAKTENNACHFORDERUNG\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern. Dazu setzen Sie das Dossier in den Status NFD (Button \u00abNachforderung\u00bb). Im daf\u00fcr vorgesehenen Feld bitte eintragen, bei wem, welche Unterlagen nachgefordert wurden. Dossier im Status NFD (Pendenz beim Gesuchsteller) werden blau hinterlegt.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel.  041 875 24 29\nE-Mail: raumplanung@ur.ch",
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nNEUE PENDENZ\nDie Zirkulation der Instanz {{INSTANCE_ID}} wurde gestartet\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\n\nBEARBEITUNG IM CAMAC\n- Upload Verf\u00fcgung / Stellungnahme (bitte Scan - Dokument inkl. Unterschrift hochladen).\n- Kurzantwort ausw\u00e4hlen.\n- Art der Sachbearbeitung ausw\u00e4hlen.\n- Kurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde erfassen.\n- Geb\u00fchren erfassen.\n- Senden\n\nAKTENNACHFORDERUNG\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern. Dazu setzen Sie das Dossier in den Status NFD (Button \u00abNachforderung\u00bb). Im daf\u00fcr vorgesehenen Feld bitte eintragen, bei wem, welche Unterlagen nachgefordert wurden. Dossier im Status NFD (Pendenz beim Gesuchsteller) werden blau hinterlegt.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel.  041 875 24 29\nE-Mail: raumplanung@ur.ch",
       "purpose": "Zirkulation gestartet - Koordinationsstelle Baugesuche BG",
       "service": null,
       "slug": "zirkulation-gestartet1",
@@ -51223,7 +51180,7 @@
   },
   {
     "fields": {
-      "body": "Sehr geehrte Dame\nSehr geehrter Herr\n\nCAMAC Info (das ist eine automatisch generierte E-Mail von Camac, bitte nicht darauf antworten)\n\nR\u00fcckmeldung an Gemeinde, Dossier abgeschlossen\nDie Koordinationsstelle f\u00fcr Baueingaben hat das Dossier Nr. [@c2q6i1] im CAMAC abgeschlossen. Die Originaldokumente der Fachstellen und allf\u00e4llige Gesuchsunterlagen erhalten Sie in den n\u00e4chsten Tagen per Post.\n\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ABZUSCHLIESSEN\n(Upload Protokolle, Entscheiddokumente, Stellungnahme usw., Dossier archivieren).\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Nutzungsplanung\nRathausplatz 5\n6460 Altdorf\nTel. 041 875 24 36\nFax: 041 875 24 25\nE-Mail: pirmin.scheuber@ur.ch",
+      "body": "Sehr geehrte Dame\nSehr geehrter Herr\n\nCAMAC Info (das ist eine automatisch generierte E-Mail von Camac, bitte nicht darauf antworten)\n\nR\u00fcckmeldung an Gemeinde, Dossier abgeschlossen\nDie Koordinationsstelle f\u00fcr Baueingaben hat das Dossier Nr. {{DOSSIER_NR}} im CAMAC abgeschlossen. Die Originaldokumente der Fachstellen und allf\u00e4llige Gesuchsunterlagen erhalten Sie in den n\u00e4chsten Tagen per Post.\n\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ABZUSCHLIESSEN\n(Upload Protokolle, Entscheiddokumente, Stellungnahme usw., Dossier archivieren).\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Nutzungsplanung\nRathausplatz 5\n6460 Altdorf\nTel. 041 875 24 36\nFax: 041 875 24 25\nE-Mail: pirmin.scheuber@ur.ch",
       "purpose": "Dossier an Gemeinde zur\u00fcck geschickt - Koordinationsstelle Nutzungsplanung NP",
       "service": null,
       "slug": "dossier-an-gemeinde-zuruck-geschickt2",
@@ -51235,7 +51192,7 @@
   },
   {
     "fields": {
-      "body": "Die Zirkulation der Instanz [INSTANCE_ID] wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. [@c2q6i1] eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN\r\n\r\n-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)\r\n-  Kurzantwort ausw\u00e4hlen (speichern)\r\n-  Art der Sachbearbeitung ausw\u00e4hlen (speichern)\r\n-  Senden\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern und uns gleichzeitig dar\u00fcber in Kenntnis zu setzen (mail).\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Raumentwicklung\r\nKoordinationsstelle f\u00fcr Baueingaben\r\nRathausplatz 5\r\n6460 Altdorf\r\n\r\nTel.  041 875 24 24\r\nFax: 041 875 24 25\r\nE-Mail: paul.walker@ur.ch",
+      "body": "Die Zirkulation der Instanz {{INSTANCE_ID}} wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN\r\n\r\n-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)\r\n-  Kurzantwort ausw\u00e4hlen (speichern)\r\n-  Art der Sachbearbeitung ausw\u00e4hlen (speichern)\r\n-  Senden\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern und uns gleichzeitig dar\u00fcber in Kenntnis zu setzen (mail).\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Raumentwicklung\r\nKoordinationsstelle f\u00fcr Baueingaben\r\nRathausplatz 5\r\n6460 Altdorf\r\n\r\nTel.  041 875 24 24\r\nFax: 041 875 24 25\r\nE-Mail: paul.walker@ur.ch",
       "purpose": "Zirkulation gestartet - Koordinationsstelle Baugesuche BG",
       "service": null,
       "slug": "zirkulation-gestartet2",
@@ -51247,7 +51204,7 @@
   },
   {
     "fields": {
-      "body": "Die Zirkulation der Instanz [INSTANCE_ID] wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. [@c2q6i1] eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN\r\n\r\n-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)\r\n-  Kurzantwort ausw\u00e4hlen (speichern)\r\n-  Art der Sachbearbeitung ausw\u00e4hlen (speichern)\r\n-  Senden\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern und uns gleichzeitig dar\u00fcber in Kenntnis zu setzen (mail).\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Raumentwicklung\r\nKoordinationsstelle f\u00fcr Nutzungsplanung\r\nRathausplatz 5\r\n6460 Altdorf\r\n\r\nTel.  041 875 24 36\r\nFax: 041 875 24 25\r\nE-Mail: pirmin.scheuber@ur.ch",
+      "body": "Die Zirkulation der Instanz {{INSTANCE_ID}} wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN\r\n\r\n-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)\r\n-  Kurzantwort ausw\u00e4hlen (speichern)\r\n-  Art der Sachbearbeitung ausw\u00e4hlen (speichern)\r\n-  Senden\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern und uns gleichzeitig dar\u00fcber in Kenntnis zu setzen (mail).\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Raumentwicklung\r\nKoordinationsstelle f\u00fcr Nutzungsplanung\r\nRathausplatz 5\r\n6460 Altdorf\r\n\r\nTel.  041 875 24 36\r\nFax: 041 875 24 25\r\nE-Mail: pirmin.scheuber@ur.ch",
       "purpose": "Zirkulation gestartet - Koordinationsstelle Nutzungsplanung NP",
       "service": null,
       "slug": "zirkulation-gestartet3",
@@ -51259,7 +51216,7 @@
   },
   {
     "fields": {
-      "body": "Die Zirkulation der Instanz [INSTANCE_ID] wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. [@c2q6i1] eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN\r\n\r\n-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)\r\n-  Kurzantwort ausw\u00e4hlen (speichern)\r\n-  Art der Sachbearbeitung ausw\u00e4hlen (speichern)\r\n-  Senden\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nBaudirektion Uri\r\nKoordinationsstelle f\u00fcr Bewilligungs- und Plangenehmigungsverfahren (PGV)\r\nKlausenstrasse 2\r\n6460 Altdorf\r\n\r\nKontakt f\u00fcr Bewilligungsverfahren: Bruno Scheiber, Tel.  041 875 26 81, E-Mail: bruno.scheiber@ur.ch\r\nKontakt f\u00fcr Plangenehmigungsverfahren: Fredy Bissig, Tel. 041 875 26 09, E-Mail: fredy.bissig@ur.ch",
+      "body": "Die Zirkulation der Instanz {{INSTANCE_ID}} wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN\r\n\r\n-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)\r\n-  Kurzantwort ausw\u00e4hlen (speichern)\r\n-  Art der Sachbearbeitung ausw\u00e4hlen (speichern)\r\n-  Senden\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nBaudirektion Uri\r\nKoordinationsstelle f\u00fcr Bewilligungs- und Plangenehmigungsverfahren (PGV)\r\nKlausenstrasse 2\r\n6460 Altdorf\r\n\r\nKontakt f\u00fcr Bewilligungsverfahren: Bruno Scheiber, Tel.  041 875 26 81, E-Mail: bruno.scheiber@ur.ch\r\nKontakt f\u00fcr Plangenehmigungsverfahren: Fredy Bissig, Tel. 041 875 26 09, E-Mail: fredy.bissig@ur.ch",
       "purpose": "Zirkulation gestartet - Koordinationsstelle Baudirektion BD",
       "service": null,
       "slug": "zirkulation-gestartet4",
@@ -51271,7 +51228,7 @@
   },
   {
     "fields": {
-      "body": "Die Zirkulation der Instanz [INSTANCE_ID] wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. [@c2q6i1] eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN\r\n\r\n-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)\r\n-  Kurzantwort ausw\u00e4hlen (speichern)\r\n-  Art der Sachbearbeitung ausw\u00e4hlen (speichern)\r\n-  Senden\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nBaudirektion Uri\r\nKoordinationsstelle f\u00fcr Bewilligungsverfahren\r\nKlausenstrasse 2\r\n6460 Altdorf\r\n\r\nTel.  041 875 26 81\r\nE-Mail: viktor.arnold@ur.ch",
+      "body": "Die Zirkulation der Instanz {{INSTANCE_ID}} wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN\r\n\r\n-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)\r\n-  Kurzantwort ausw\u00e4hlen (speichern)\r\n-  Art der Sachbearbeitung ausw\u00e4hlen (speichern)\r\n-  Senden\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nBaudirektion Uri\r\nKoordinationsstelle f\u00fcr Bewilligungsverfahren\r\nKlausenstrasse 2\r\n6460 Altdorf\r\n\r\nTel.  041 875 26 81\r\nE-Mail: viktor.arnold@ur.ch",
       "purpose": "Zirkulation gestartet - Koordinationsstelle Baudirektion BD",
       "service": null,
       "slug": "zirkulation-gestartet5",
@@ -51283,7 +51240,7 @@
   },
   {
     "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nStatusmeldung zum Stand des Bewilligungsverfahrens\nNACHFORDERUNG\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nWir danken Ihnen f\u00fcr die Erfassung des Dossiers mit der ID [INSTANCE_ID]. Nach einer ersten Pr\u00fcfung der Unterlagen stellen wir fest, dass diverse Unterlagen / Angaben fehlen. Damit wir das Pr\u00fcfverfahren er\u00f6ffnen k\u00f6nnen, bitten wir Sie, die fehlenden Angaben gem\u00e4ss Angaben im Portal noch nachzuliefern. Bitte beachten Sie, dass das Dossier nach erfolgtem Upload der zus\u00e4tzlichen Angaben nochmals gesendet werden muss (Button \"Dossier Senden\" bet\u00e4tigen):\n\nMit freundlichen Gr\u00fcssen\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]",
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nStatusmeldung zum Stand des Bewilligungsverfahrens\nNACHFORDERUNG\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nWir danken Ihnen f\u00fcr die Erfassung des Dossiers mit der ID {{INSTANCE_ID}}. Nach einer ersten Pr\u00fcfung der Unterlagen stellen wir fest, dass diverse Unterlagen / Angaben fehlen. Damit wir das Pr\u00fcfverfahren er\u00f6ffnen k\u00f6nnen, bitten wir Sie, die fehlenden Angaben gem\u00e4ss Angaben im Portal noch nachzuliefern. Bitte beachten Sie, dass das Dossier nach erfolgtem Upload der zus\u00e4tzlichen Angaben nochmals gesendet werden muss (Button \"Dossier Senden\" bet\u00e4tigen):\n\nMit freundlichen Gr\u00fcssen\nGemeindebaubeh\u00f6rde {{INSTANCE_LOCATION}}",
       "purpose": "Nachforderung zus\u00e4tzlicher Unterlagen - Sekretariat der Gemeindebaubeh\u00f6rde",
       "service": null,
       "slug": "nachforderung-zusatzlicher-unterlagen",
@@ -51295,7 +51252,7 @@
   },
   {
     "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nStatus-Meldung zum Stand des Bewilligungsverfahrens\nDOSSIER WEITERGELEITET AN KOORDINATIONSSTELLE\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nDie Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] hat das Dossier Nr. [@c2q6i1] gepr\u00fcft. Es sind kantonale Bewilligungen / Pr\u00fcfungen notwendig. Das Dossier wurde zur Bearbeitung an die Koordinationsstelle f\u00fcr Baueingaben des Kantons Uri weitergeleitet.\n\nUnter dem Vorbehalt, dass das Dossier vollst\u00e4ndig ist und Seitens der kantonalen Fachstellen keine weiteren Angaben nachgefordert werden oder ein Augenschein vor Ort notwendig ist, betr\u00e4gt die verbleidende Bearbeitungszeit bis zum Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde voraussichtlich 6 bis 7 Wochen.\n\nMit freundlichen Gr\u00fcssen\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]",
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nStatus-Meldung zum Stand des Bewilligungsverfahrens\nDOSSIER WEITERGELEITET AN KOORDINATIONSSTELLE\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nDie Gemeindebaubeh\u00f6rde {{INSTANCE_LOCATION}} hat das Dossier Nr. {{DOSSIER_NR}} gepr\u00fcft. Es sind kantonale Bewilligungen / Pr\u00fcfungen notwendig. Das Dossier wurde zur Bearbeitung an die Koordinationsstelle f\u00fcr Baueingaben des Kantons Uri weitergeleitet.\n\nUnter dem Vorbehalt, dass das Dossier vollst\u00e4ndig ist und Seitens der kantonalen Fachstellen keine weiteren Angaben nachgefordert werden oder ein Augenschein vor Ort notwendig ist, betr\u00e4gt die verbleidende Bearbeitungszeit bis zum Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde voraussichtlich 6 bis 7 Wochen.\n\nMit freundlichen Gr\u00fcssen\nGemeindebaubeh\u00f6rde {{INSTANCE_LOCATION}}",
       "purpose": "Dossier weitergeleitet an Koordinationsstelle - Sekretariat der Gemeindebaubeh\u00f6rde",
       "service": null,
       "slug": "dossier-weitergeleitet-an-koordinationsstelle",
@@ -51307,7 +51264,7 @@
   },
   {
     "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nStatus-Meldung zum Stand des Bewilligungsverfahrens\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nDas Dossiers mit der ID Nr. [INSTANCE_ID] (CAMAC Dossiernummer [@c2q6i1]) wurde an die Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] zur\u00fcckgeschickt. Die verbleidende Bearbeitungszeit bis zum Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde betr\u00e4gt voraussichtlich 10 Tage.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 29\nE-Mail: raumplanung@ur.ch",
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nStatus-Meldung zum Stand des Bewilligungsverfahrens\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nDas Dossiers mit der ID Nr. {{INSTANCE_ID}} (CAMAC Dossiernummer {{DOSSIER_NR}}) wurde an die Gemeindebaubeh\u00f6rde {{INSTANCE_LOCATION}} zur\u00fcckgeschickt. Die verbleidende Bearbeitungszeit bis zum Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde betr\u00e4gt voraussichtlich 10 Tage.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 29\nE-Mail: raumplanung@ur.ch",
       "purpose": "Dossier von Koordinationsstelle f\u00fcr Baueingaben an die Gemeinde zur\u00fcckgeschickt - Koordinationsst...",
       "service": null,
       "slug": "dossier-von-koordinationsstelle-fur-baueingaben-an-die-gemeinde-zuruckgeschickt",
@@ -51319,11 +51276,11 @@
   },
   {
     "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nNEUES ONLINE DOSSIER\nDas Dossier Nr. [@c2q6i1] wurde vom Gesuchsteller bzw. vom Projektverfasser im CAMAC erfasst.\nDie zust\u00e4ndige Gemeindebaubeh\u00f6rde hat das Dossier zur Bearbeitung durch die kantonalen Fachstellen freigegeben.",
-      "purpose": "Dossier [INSTANCE_ID] von Gemeinde frei geschalten - Sekretariat der Gemeindebaubeh\u00f6rde",
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\n{%if PORTAL_SUBMISSION %}\nNEUES ONLINE DOSSIER\nDas Dossier Nr. {{DOSSIER_NR}} wurde vom Gesuchsteller bzw. vom Projektverfasser im CAMAC erfasst.\nDie zust\u00e4ndige Gemeindebaubeh\u00f6rde hat das Dossier zur Bearbeitung durch die kantonalen Fachstellen freigegeben.\n{% else %}\nNEUES DOSSIER\nDie zust\u00e4ndige Gemeindebaubeh\u00f6rde hat das Dossier-ID {{INSTANCE_ID}} mit der Dossier Nr. {{DOSSIER_NR}} im CAMAC erfasst und zur Bearbeitung durch die kantonalen Fachstellen freigegeben.\n{% endif %}",
+      "purpose": "Dossier von Gemeinde frei geschalten - Sekretariat der Gemeindebaubeh\u00f6rde",
       "service": null,
       "slug": "dossier-instance_id-von-gemeinde-frei-geschalten",
-      "subject": "Dossier [INSTANCE_ID] von Gemeinde frei geschalten",
+      "subject": "Dossier {{DOSSIER_NR}} von Gemeinde frei geschalten",
       "type": "email"
     },
     "model": "notification.notificationtemplate",
@@ -51331,7 +51288,7 @@
   },
   {
     "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nStatusmeldung zum Stand des Bewilligungsverfahrens\nDOSSIER ANGENOMMEN\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nDas Dossier mit der ID Nr. [INSTANCE_ID] wurde von der Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] als vollst\u00e4ndig angenommen. Das Pr\u00fcfverfahren / Bewilligungsverfahren wurde gestartet. Sie werden mit Statusmeldungen \u00fcber den weiteren Verlauf des Verfahrens informiert.\n\nUnter dem Vorbehalt, dass das Dossier vollst\u00e4ndig ist und Seitens der kantonalen Fachstellen keine weiteren Angaben nachgefordert werden oder ein Augenschein vor Ort notwendig ist, betr\u00e4gt die verbleidende Bearbeitungszeit bis zum Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde voraussichtlich 2 Monate.\n\n\nMit freundlichen Gr\u00fcssen\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]",
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nStatusmeldung zum Stand des Bewilligungsverfahrens\nDOSSIER ANGENOMMEN\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nDas Dossier mit der ID Nr. {{INSTANCE_ID}} wurde von der Gemeindebaubeh\u00f6rde {{INSTANCE_LOCATION}} als vollst\u00e4ndig angenommen. Das Pr\u00fcfverfahren / Bewilligungsverfahren wurde gestartet. Sie werden mit Statusmeldungen \u00fcber den weiteren Verlauf des Verfahrens informiert.\n\nUnter dem Vorbehalt, dass das Dossier vollst\u00e4ndig ist und Seitens der kantonalen Fachstellen keine weiteren Angaben nachgefordert werden oder ein Augenschein vor Ort notwendig ist, betr\u00e4gt die verbleidende Bearbeitungszeit bis zum Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde voraussichtlich 2 Monate.\n\n\nMit freundlichen Gr\u00fcssen\nGemeindebaubeh\u00f6rde {{INSTANCE_LOCATION}}",
       "purpose": "Dossier angenommen - Sekretariat der Gemeindebaubeh\u00f6rde",
       "service": null,
       "slug": "dossier-angenommen",
@@ -51343,7 +51300,7 @@
   },
   {
     "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nDOSSIER ABGEWIESEN \n\nSehr geehrte Dame\nSehr geehrter Herr\n\nSie haben via B\u00fcrgerportal des Kantons Uri das Dossier mit der ID [INSTANCE_ID] erfasst. Wir stellen fest, dass das Dossier keinerlei Unterlagen enth\u00e4lt und auch die erforderlichen Angaben zum Vorhaben wie Art, Lage, usw. fehlen. Das Dossier wird deshalb zur\u00fcckgewiesen bzw. gel\u00f6scht.\n\nFalls das Dossier allenfalls versehentlich ohne jegliche Angaben verschickt wurde, bitten wir Sie, dieses nochmals zu erfassen.\n\nMit freundliche Gr\u00fcssen\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]",
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nDOSSIER ABGEWIESEN \n\nSehr geehrte Dame\nSehr geehrter Herr\n\nSie haben via B\u00fcrgerportal des Kantons Uri das Dossier mit der ID {{INSTANCE_ID}} erfasst. Wir stellen fest, dass das Dossier keinerlei Unterlagen enth\u00e4lt und auch die erforderlichen Angaben zum Vorhaben wie Art, Lage, usw. fehlen. Das Dossier wird deshalb zur\u00fcckgewiesen bzw. gel\u00f6scht.\n\nFalls das Dossier allenfalls versehentlich ohne jegliche Angaben verschickt wurde, bitten wir Sie, dieses nochmals zu erfassen.\n\nMit freundliche Gr\u00fcssen\nGemeindebaubeh\u00f6rde {{INSTANCE_LOCATION}}",
       "purpose": "Dossier abgewiesen - Sekretariat der Gemeindebaubeh\u00f6rde",
       "service": null,
       "slug": "dossier-abgewiesen",
@@ -51355,7 +51312,7 @@
   },
   {
     "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nStatus-Meldung zum Stand des Bewilligungsverfahrens\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nDas Dossiers mit der ID Nr. [INSTANCE_ID] (CAMAC Dossiernummer [@c2q6i1]) wurde an die Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] zur\u00fcckgeschickt. Die verbleidende Bearbeitungszeit bis zum Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde betr\u00e4gt voraussichtlich 10 Tage.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 29\nE-Mail: raumplanung@ur.ch",
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nStatus-Meldung zum Stand des Bewilligungsverfahrens\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nDas Dossiers mit der ID Nr. {{INSTANCE_ID}} (CAMAC Dossiernummer {{DOSSIER_NR}}) wurde an die Gemeindebaubeh\u00f6rde {{INSTANCE_LOCATION}} zur\u00fcckgeschickt. Die verbleidende Bearbeitungszeit bis zum Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde betr\u00e4gt voraussichtlich 10 Tage.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 29\nE-Mail: raumplanung@ur.ch",
       "purpose": "Dossier von Koordinationsstelle f\u00fcr Baueingaben an die Gemeinde zur\u00fcckgeschickt - Koordinationsst...",
       "service": null,
       "slug": "dossier-von-koordinationsstelle-fur-baueingaben-an-die-gemeinde-zuruckgeschickt1",
@@ -51367,7 +51324,7 @@
   },
   {
     "fields": {
-      "body": "CAMAC Info(automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nNEUES ONLINE DOSSIER ERG\u00c4NZT\n\nDas Dossier mit der ID Nr. [INSTANCE_ID] wurde vom Gesuchsteller erg\u00e4nzt und wieder zur Pr\u00fcfung eingereicht. Bitte pr\u00fcfen Sie das Dossier auf Vollst\u00e4ndigkeit. Falls weiterhin zus\u00e4tzliche Unterlagen notwendig sind, schreiben Sie die entsprechende Nachricht in das daf\u00fcr vorgesehene Feld \u00abMitteilung an Gesuchsteller\u00bb und klicken Sie auf \u00abNachforderung\u00bb. Das Dossier wird blau hinterlegt und der Gesuchsteller erh\u00e4lt Ihre Mitteilung per E-Mail.\n\nWenn das Dossier vollst\u00e4ndig ist, klicken Sie auf \u00abDossier annehmen\u00bb. Das Dossier wird in der Pendenzenliste Start angezeigt und erh\u00e4lt vom System die zugeh\u00f6rige CAMAC Nummer. Der Gesuchsteller erh\u00e4lt eine entsprechende Annahmebest\u00e4tigung per E-Mail.\n\nBei Bedarf wandeln Sie das Dossier um in ein entsprechendes Verfahren mit kantonaler Beteiligung.\n\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 29\nE-Mail: raumplanung@ur.ch",
+      "body": "CAMAC Info(automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nNEUES ONLINE DOSSIER ERG\u00c4NZT\n\nDas Dossier mit der ID Nr. {{INSTANCE_ID}} wurde vom Gesuchsteller erg\u00e4nzt und wieder zur Pr\u00fcfung eingereicht. Bitte pr\u00fcfen Sie das Dossier auf Vollst\u00e4ndigkeit. Falls weiterhin zus\u00e4tzliche Unterlagen notwendig sind, schreiben Sie die entsprechende Nachricht in das daf\u00fcr vorgesehene Feld \u00abMitteilung an Gesuchsteller\u00bb und klicken Sie auf \u00abNachforderung\u00bb. Das Dossier wird blau hinterlegt und der Gesuchsteller erh\u00e4lt Ihre Mitteilung per E-Mail.\n\nWenn das Dossier vollst\u00e4ndig ist, klicken Sie auf \u00abDossier annehmen\u00bb. Das Dossier wird in der Pendenzenliste Start angezeigt und erh\u00e4lt vom System die zugeh\u00f6rige CAMAC Nummer. Der Gesuchsteller erh\u00e4lt eine entsprechende Annahmebest\u00e4tigung per E-Mail.\n\nBei Bedarf wandeln Sie das Dossier um in ein entsprechendes Verfahren mit kantonaler Beteiligung.\n\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 29\nE-Mail: raumplanung@ur.ch",
       "purpose": "Neues Online Dossier erg\u00e4nzt - Portal User",
       "service": null,
       "slug": "neues-online-dossier-erganzt",
@@ -51379,7 +51336,7 @@
   },
   {
     "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nNEUE PENDENZ\r\nDie Zirkulation der Instanz [INSTANCE_ID] wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm CAMAC wurde das Dossier Nr. [@c2q6i1] eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBEARBEITUNG IM CAMAC\r\n- Upload Verf\u00fcgung / Stellungnahme (bitte Scan - Dokument inkl. Unterschrift hochladen).\r\n- Kurzantwort ausw\u00e4hlen.\r\n- Art der Sachbearbeitung ausw\u00e4hlen.\r\n- Kurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde erfassen.\r\n- Geb\u00fchren erfassen.\r\n- Senden\r\n\r\nAKTENNACHFORDERUNG\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern. Dazu setzen Sie das Dossier in den Status NFD (Button \u00abNachforderung\u00bb). Im daf\u00fcr vorgesehenen Feld bitte eintragen, bei wem, welche Unterlagen nachgefordert wurden. Dossier im Status NFD (Pendenz beim Gesuchsteller) werden blau hinterlegt.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Umweltschutz\r\n\r\nKlausenstrasse 4 \r\n6460 Altdorf\r\n\r\nTelefon:   041 875 24 30\r\nTelefax:   041 875 20 88\r\nE-Mail:   afu@ur.ch",
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nNEUE PENDENZ\r\nDie Zirkulation der Instanz {{INSTANCE_ID}} wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBEARBEITUNG IM CAMAC\r\n- Upload Verf\u00fcgung / Stellungnahme (bitte Scan - Dokument inkl. Unterschrift hochladen).\r\n- Kurzantwort ausw\u00e4hlen.\r\n- Art der Sachbearbeitung ausw\u00e4hlen.\r\n- Kurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde erfassen.\r\n- Geb\u00fchren erfassen.\r\n- Senden\r\n\r\nAKTENNACHFORDERUNG\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern. Dazu setzen Sie das Dossier in den Status NFD (Button \u00abNachforderung\u00bb). Im daf\u00fcr vorgesehenen Feld bitte eintragen, bei wem, welche Unterlagen nachgefordert wurden. Dossier im Status NFD (Pendenz beim Gesuchsteller) werden blau hinterlegt.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Umweltschutz\r\n\r\nKlausenstrasse 4 \r\n6460 Altdorf\r\n\r\nTelefon:   041 875 24 30\r\nTelefax:   041 875 20 88\r\nE-Mail:   afu@ur.ch",
       "purpose": "Zirkulation gestartet - Koordinationsstelle Umweltschutz AfU",
       "service": null,
       "slug": "zirkulation-gestartet6",
@@ -51391,7 +51348,7 @@
   },
   {
     "fields": {
-      "body": "Die Zirkulation der Instanz [INSTANCE_ID] wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. [@c2q6i1] eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN\r\n\r\n-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)\r\n-  Kurzantwort ausw\u00e4hlen (speichern)\r\n-  Art der Sachbearbeitung ausw\u00e4hlen (speichern)\r\n-  Senden\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Umweltschutz\r\n\r\nKlausenstrasse 4 \r\n6460 Altdorf\r\n\r\nTelefon:   041 875 24 30\r\nTelefax:   041 875 20 88\r\nE-Mail:   afu@ur.ch",
+      "body": "Die Zirkulation der Instanz {{INSTANCE_ID}} wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN\r\n\r\n-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)\r\n-  Kurzantwort ausw\u00e4hlen (speichern)\r\n-  Art der Sachbearbeitung ausw\u00e4hlen (speichern)\r\n-  Senden\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Umweltschutz\r\n\r\nKlausenstrasse 4 \r\n6460 Altdorf\r\n\r\nTelefon:   041 875 24 30\r\nTelefax:   041 875 20 88\r\nE-Mail:   afu@ur.ch",
       "purpose": "Zirkulation gestartet - Koordinationsstelle Umweltschutz AfU",
       "service": null,
       "slug": "zirkulation-gestartet7",
@@ -51403,7 +51360,7 @@
   },
   {
     "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nNEUE PENDENZ\r\nDie Zirkulation der Instanz [INSTANCE_ID] wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm CAMAC wurde das Dossier Nr. [@c2q6i1] eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBEARBEITUNG IM CAMAC\r\n- Upload Verf\u00fcgung / Stellungnahme (bitte Scan - Dokument inkl. Unterschrift hochladen).\r\n- Kurzantwort ausw\u00e4hlen.\r\n- Art der Sachbearbeitung ausw\u00e4hlen.\r\n- Kurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde erfassen.\r\n- Geb\u00fchren erfassen.\r\n- Senden\r\n\r\nAKTENNACHFORDERUNG\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern. Dazu setzen Sie das Dossier in den Status NFD (Button \u00abNachforderung\u00bb). Im daf\u00fcr vorgesehenen Feld bitte eintragen, bei wem, welche Unterlagen nachgefordert wurden. Dossier im Status NFD (Pendenz beim Gesuchsteller) werden blau hinterlegt.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Landwirtschaft\r\n\r\nKlausenstrasse 4 \r\n6460 Altdorf\r\n\r\nTelefon:   041 875 23 00\r\nTelefax:   041 875 24 12\r\nE-Mail:   ala.vd@ur.ch",
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nNEUE PENDENZ\r\nDie Zirkulation der Instanz {{INSTANCE_ID}} wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBEARBEITUNG IM CAMAC\r\n- Upload Verf\u00fcgung / Stellungnahme (bitte Scan - Dokument inkl. Unterschrift hochladen).\r\n- Kurzantwort ausw\u00e4hlen.\r\n- Art der Sachbearbeitung ausw\u00e4hlen.\r\n- Kurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde erfassen.\r\n- Geb\u00fchren erfassen.\r\n- Senden\r\n\r\nAKTENNACHFORDERUNG\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern. Dazu setzen Sie das Dossier in den Status NFD (Button \u00abNachforderung\u00bb). Im daf\u00fcr vorgesehenen Feld bitte eintragen, bei wem, welche Unterlagen nachgefordert wurden. Dossier im Status NFD (Pendenz beim Gesuchsteller) werden blau hinterlegt.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Landwirtschaft\r\n\r\nKlausenstrasse 4 \r\n6460 Altdorf\r\n\r\nTelefon:   041 875 23 00\r\nTelefax:   041 875 24 12\r\nE-Mail:   ala.vd@ur.ch",
       "purpose": "Zirkulation gestartet - Koordinationsstelle Landwirtschaft ALA",
       "service": null,
       "slug": "zirkulation-gestartet8",
@@ -51415,7 +51372,7 @@
   },
   {
     "fields": {
-      "body": "Die Zirkulation der Instanz [INSTANCE_ID] wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. [@c2q6i1] eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN\r\n\r\n-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)\r\n-  Kurzantwort ausw\u00e4hlen (speichern)\r\n-  Art der Sachbearbeitung ausw\u00e4hlen (speichern)\r\n-  Senden\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Landwirtschaft\r\n\r\nKlausenstrasse 4 \r\n6460 Altdorf\r\n\r\nTelefon:   041 875 23 00\r\nTelefax:   041 875 24 12\r\nE-Mail:   ala.vd@ur.ch",
+      "body": "Die Zirkulation der Instanz {{INSTANCE_ID}} wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN\r\n\r\n-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)\r\n-  Kurzantwort ausw\u00e4hlen (speichern)\r\n-  Art der Sachbearbeitung ausw\u00e4hlen (speichern)\r\n-  Senden\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Landwirtschaft\r\n\r\nKlausenstrasse 4 \r\n6460 Altdorf\r\n\r\nTelefon:   041 875 23 00\r\nTelefax:   041 875 24 12\r\nE-Mail:   ala.vd@ur.ch",
       "purpose": "Zirkulation gestartet - Koordinationsstelle Landwirtschaft ALA",
       "service": null,
       "slug": "zirkulation-gestartet9",
@@ -51427,7 +51384,7 @@
   },
   {
     "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nNEUE PENDENZ\r\nDie Zirkulation der Instanz [INSTANCE_ID] wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm CAMAC wurde das Dossier Nr. [@c2q6i1] eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBEARBEITUNG IM CAMAC\r\n- Upload Verf\u00fcgung / Stellungnahme (bitte Scan - Dokument inkl. Unterschrift hochladen).\r\n- Kurzantwort ausw\u00e4hlen.\r\n- Art der Sachbearbeitung ausw\u00e4hlen.\r\n- Kurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde erfassen.\r\n- Geb\u00fchren erfassen.\r\n- Senden\r\n\r\nAKTENNACHFORDERUNG\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern. Dazu setzen Sie das Dossier in den Status NFD (Button \u00abNachforderung\u00bb). Im daf\u00fcr vorgesehenen Feld bitte eintragen, bei wem, welche Unterlagen nachgefordert wurden. Dossier im Status NFD (Pendenz beim Gesuchsteller) werden blau hinterlegt.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Energie\r\n\r\nKlausenstrasse 2\r\n6460 Altdorf\r\n\r\nTelefon:   041 875 26 88\r\nTelefax:   041 875 26 10\r\nE-Mail:   energie@ur.ch",
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nNEUE PENDENZ\r\nDie Zirkulation der Instanz {{INSTANCE_ID}} wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBEARBEITUNG IM CAMAC\r\n- Upload Verf\u00fcgung / Stellungnahme (bitte Scan - Dokument inkl. Unterschrift hochladen).\r\n- Kurzantwort ausw\u00e4hlen.\r\n- Art der Sachbearbeitung ausw\u00e4hlen.\r\n- Kurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde erfassen.\r\n- Geb\u00fchren erfassen.\r\n- Senden\r\n\r\nAKTENNACHFORDERUNG\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern. Dazu setzen Sie das Dossier in den Status NFD (Button \u00abNachforderung\u00bb). Im daf\u00fcr vorgesehenen Feld bitte eintragen, bei wem, welche Unterlagen nachgefordert wurden. Dossier im Status NFD (Pendenz beim Gesuchsteller) werden blau hinterlegt.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Energie\r\n\r\nKlausenstrasse 2\r\n6460 Altdorf\r\n\r\nTelefon:   041 875 26 88\r\nTelefax:   041 875 26 10\r\nE-Mail:   energie@ur.ch",
       "purpose": "Zirkulation gestartet - Koordinationsstelle Energie AfE",
       "service": null,
       "slug": "zirkulation-gestartet10",
@@ -51439,7 +51396,7 @@
   },
   {
     "fields": {
-      "body": "Die Zirkulation der Instanz [INSTANCE_ID] wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. [@c2q6i1] eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN\r\n\r\n-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)\r\n-  Kurzantwort ausw\u00e4hlen (speichern)\r\n-  Art der Sachbearbeitung ausw\u00e4hlen (speichern)\r\n-  Senden\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Energie\r\n\r\nKlausenstrasse 2\r\n6460 Altdorf\r\n\r\nTelefon:   041 875 26 88\r\nTelefax:   041 875 26 10\r\nE-Mail:   energie@ur.ch",
+      "body": "Die Zirkulation der Instanz {{INSTANCE_ID}} wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN\r\n\r\n-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)\r\n-  Kurzantwort ausw\u00e4hlen (speichern)\r\n-  Art der Sachbearbeitung ausw\u00e4hlen (speichern)\r\n-  Senden\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Energie\r\n\r\nKlausenstrasse 2\r\n6460 Altdorf\r\n\r\nTelefon:   041 875 26 88\r\nTelefax:   041 875 26 10\r\nE-Mail:   energie@ur.ch",
       "purpose": "Zirkulation gestartet - Koordinationsstelle Energie AfE",
       "service": null,
       "slug": "zirkulation-gestartet11",
@@ -51451,7 +51408,7 @@
   },
   {
     "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nNEUE PENDENZ\r\nDie Zirkulation der Instanz [INSTANCE_ID] wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm CAMAC wurde das Dossier Nr. [@c2q6i1] eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBEARBEITUNG IM CAMAC\r\n- Upload Verf\u00fcgung / Stellungnahme (bitte Scan - Dokument inkl. Unterschrift hochladen).\r\n- Kurzantwort ausw\u00e4hlen.\r\n- Art der Sachbearbeitung ausw\u00e4hlen.\r\n- Kurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde erfassen.\r\n- Geb\u00fchren erfassen.\r\n- Senden\r\n\r\nAKTENNACHFORDERUNG\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern. Dazu setzen Sie das Dossier in den Status NFD (Button \u00abNachforderung\u00bb). Im daf\u00fcr vorgesehenen Feld bitte eintragen, bei wem, welche Unterlagen nachgefordert wurden. Dossier im Status NFD (Pendenz beim Gesuchsteller) werden blau hinterlegt.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Forst und Jagd\r\n\r\nKlausenstrasse 2\r\n6460 Altdorf\r\n\r\nTelefon:   041 875 23 16\r\nTelefax:   041 875 23 28\r\nE-Mail:   sid.afj@ur.ch",
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\n\n\nSehr geehrte Dame\n\nSehr geehrter Herr\n\n\n\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\n\n\n\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN:\n\n- Upload Verf\u00fcgung / Stellungnahme / Entscheiddokumente (bitte Scan - Dokument inkl. Unterschrift hochladen).\n\n- Kurzantwort ausw\u00e4hlen\n\n- Art der Sachbearbeitung ausw\u00e4hlen\n\n- Allenfalls Kurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde erfassen.\n\n- Allf\u00e4llige Geb\u00fchren erfassen.\n\n- Senden\n\n\n\n\n\nKurzkommentare f\u00fcr die Koordinationsstelle k\u00f6nnen direkt im Camac erfasst werden.\n\n\n\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern.\n\nDazu setzen Sie das Dossier in den Status NFD (Button \u00abNachforderung\u00bb). Im daf\u00fcr vorgesehenen Feld bitte eintragen, bei wem, welche Unterlagen nachgefordert wurden. Dossier im Status NFD (Pendenz beim Gesuchsteller) werden blau hinterlegt.\n\n\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n",
       "purpose": "Zirkulation gestartet - Koordinationsstelle Forst und Jagd AFJ, Koordinationsstelle Sicherheitsdi...",
       "service": null,
       "slug": "zirkulation-gestartet12",
@@ -51463,19 +51420,7 @@
   },
   {
     "fields": {
-      "body": "Die Zirkulation der Instanz [INSTANCE_ID] wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. [@c2q6i1] eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN\r\n\r\n-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)\r\n-  Kurzantwort ausw\u00e4hlen (speichern)\r\n-  Art der Sachbearbeitung ausw\u00e4hlen (speichern)\r\n-  Senden\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Forst und Jagd\r\n\r\nKlausenstrasse 2\r\n6460 Altdorf\r\n\r\nTelefon:   041 875 23 16\r\nTelefax:   041 875 23 28\r\nE-Mail:   sid.afj@ur.ch",
-      "purpose": "Zirkulation gestartet - Koordinationsstelle Forst und Jagd AFJ, Koordinationsstelle Sicherheitsdi...",
-      "service": null,
-      "slug": "zirkulation-gestartet13",
-      "subject": "Zirkulation gestartet",
-      "type": "email"
-    },
-    "model": "notification.notificationtemplate",
-    "pk": 1286
-  },
-  {
-    "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\n\u00d6REB MELDUNG\nZugewiesen von einer Gemeinde\n\nSehr geehrte Dame \nSehr geehrter Herr\n\nBetreffend das CAMAC Dossier Nr. [@c2q6i1] hat die zust\u00e4ndige Stelle \u00d6REB relevante Daten erfasst und entsprechnede Dokumente hochgeladen. Wir bitten Sie, diese Daten im erw\u00e4hnten CAMAC Dossier einzusehen und die entsprechenden Eintr\u00e4ge im \u00d6REB vorzunehmen.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 29\nE-Mail: raumplanung@ur.ch",
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\n\u00d6REB MELDUNG\nZugewiesen von einer Gemeinde\n\nSehr geehrte Dame \nSehr geehrter Herr\n\nBetreffend das CAMAC Dossier Nr. {{DOSSIER_NR}} hat die zust\u00e4ndige Stelle \u00d6REB relevante Daten erfasst und entsprechnede Dokumente hochgeladen. Wir bitten Sie, diese Daten im erw\u00e4hnten CAMAC Dossier einzusehen und die entsprechenden Eintr\u00e4ge im \u00d6REB vorzunehmen.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 29\nE-Mail: raumplanung@ur.ch",
       "purpose": "\u00d6REB Meldung - Sekretariat der Gemeindebaubeh\u00f6rde",
       "service": null,
       "slug": "oreb-meldung",
@@ -51487,7 +51432,7 @@
   },
   {
     "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\n\u00d6REB MELDUNG\nZugewiesen von der Koordinationsstelle Nutzungsplanung\n\nSehr geehrte Dame \nSehr geehrter Herr\n\nBetreffend das CAMAC Dossier Nr. [@c2q6i1] hat die zust\u00e4ndige Stelle \u00d6REB relevante Daten erfasst und entsprechnede Dokumente hochgeladen. Wir bitten Sie, diese Daten im erw\u00e4hnten CAMAC Dossier einzusehen und die entsprechenden Eintr\u00e4ge im \u00d6REB vorzunehmen.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 36\nE-Mail: pirmin.scheuber@ur.ch",
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\n\u00d6REB MELDUNG\nZugewiesen von der Koordinationsstelle Nutzungsplanung\n\nSehr geehrte Dame \nSehr geehrter Herr\n\nBetreffend das CAMAC Dossier Nr. {{DOSSIER_NR}} hat die zust\u00e4ndige Stelle \u00d6REB relevante Daten erfasst und entsprechnede Dokumente hochgeladen. Wir bitten Sie, diese Daten im erw\u00e4hnten CAMAC Dossier einzusehen und die entsprechenden Eintr\u00e4ge im \u00d6REB vorzunehmen.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 36\nE-Mail: pirmin.scheuber@ur.ch",
       "purpose": "\u00d6REB Meldung - Sekretariat der Gemeindebaubeh\u00f6rde",
       "service": null,
       "slug": "oreb-meldung1",
@@ -51499,7 +51444,7 @@
   },
   {
     "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\n\u00d6REB MELDUNG\nZugewiesen von der Koordinationsstelle Nutzungsplanung\n\nSehr geehrte Dame \nSehr geehrter Herr\n\nBetreffend das CAMAC Dossier Nr. [@c2q6i1] hat die zust\u00e4ndige Stelle \u00d6REB relevante Daten erfasst und entsprechnede Dokumente hochgeladen. Wir bitten Sie, diese Daten im erw\u00e4hnten CAMAC Dossier einzusehen und die entsprechenden Eintr\u00e4ge im \u00d6REB vorzunehmen.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 36\nE-Mail: pirmin.scheuber@ur.ch",
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\n\u00d6REB MELDUNG\nZugewiesen von der Koordinationsstelle Nutzungsplanung\n\nSehr geehrte Dame \nSehr geehrter Herr\n\nBetreffend das CAMAC Dossier Nr. {{DOSSIER_NR}} hat die zust\u00e4ndige Stelle \u00d6REB relevante Daten erfasst und entsprechnede Dokumente hochgeladen. Wir bitten Sie, diese Daten im erw\u00e4hnten CAMAC Dossier einzusehen und die entsprechenden Eintr\u00e4ge im \u00d6REB vorzunehmen.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 36\nE-Mail: pirmin.scheuber@ur.ch",
       "purpose": "\u00d6REB Meldung - Koordinationsstelle Nutzungsplanung NP",
       "service": null,
       "slug": "oreb-meldung2",
@@ -51511,7 +51456,7 @@
   },
   {
     "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\n\u00d6REB MELDUNG\nZugewiesen von der Koordinationsstelle f\u00fcr Baueingaben\n\nSehr geehrte Dame \nSehr geehrter Herr\n\nBetreffend das CAMAC Dossier Nr. [@c2q6i1] hat die zust\u00e4ndige Stelle \u00d6REB relevante Daten erfasst und entsprechnede Dokumente hochgeladen. Wir bitten Sie, diese Daten im erw\u00e4hnten CAMAC Dossier einzusehen und die entsprechenden Eintr\u00e4ge im \u00d6REB vorzunehmen.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 29\nE-Mail: raumplanung@ur.ch",
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\n\u00d6REB MELDUNG\nZugewiesen von der Koordinationsstelle f\u00fcr Baueingaben\n\nSehr geehrte Dame \nSehr geehrter Herr\n\nBetreffend das CAMAC Dossier Nr. {{DOSSIER_NR}} hat die zust\u00e4ndige Stelle \u00d6REB relevante Daten erfasst und entsprechnede Dokumente hochgeladen. Wir bitten Sie, diese Daten im erw\u00e4hnten CAMAC Dossier einzusehen und die entsprechenden Eintr\u00e4ge im \u00d6REB vorzunehmen.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 29\nE-Mail: raumplanung@ur.ch",
       "purpose": "\u00d6REB Meldung - Koordinationsstelle Baugesuche BG",
       "service": null,
       "slug": "oreb-meldung3",
@@ -51523,7 +51468,7 @@
   },
   {
     "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\n\u00d6REB MELDUNG\nZugewiesen von der Koordinationsstelle Amt f\u00fcr Forst und Jagd\n\nSehr geehrte Dame \nSehr geehrter Herr\n\nBetreffend das CAMAC Dossier Nr. [@c2q6i1] hat die zust\u00e4ndige Stelle \u00d6REB relevante Daten erfasst und entsprechnede Dokumente hochgeladen. Wir bitten Sie, diese Daten im erw\u00e4hnten CAMAC Dossier einzusehen und die entsprechenden Eintr\u00e4ge im \u00d6REB vorzunehmen.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Forst und Jagd\nKlausenstrasse 2\n6460 Altdorf\n\nTel. 041 875 23 13\nE-Mail: michael.planzer@ur.ch",
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\n\u00d6REB MELDUNG\nZugewiesen von der Koordinationsstelle Amt f\u00fcr Forst und Jagd\n\nSehr geehrte Dame \nSehr geehrter Herr\n\nBetreffend das CAMAC Dossier Nr. {{DOSSIER_NR}} hat die zust\u00e4ndige Stelle \u00d6REB relevante Daten erfasst und entsprechnede Dokumente hochgeladen. Wir bitten Sie, diese Daten im erw\u00e4hnten CAMAC Dossier einzusehen und die entsprechenden Eintr\u00e4ge im \u00d6REB vorzunehmen.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Forst und Jagd\nKlausenstrasse 2\n6460 Altdorf\n\nTel. 041 875 23 13\nE-Mail: michael.planzer@ur.ch",
       "purpose": "\u00d6REB Meldung - Koordinationsstelle Forst und Jagd AFJ, Koordinationsstelle Sicherheitsdirektion SD",
       "service": null,
       "slug": "oreb-meldung4",
@@ -51535,7 +51480,7 @@
   },
   {
     "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\n\u00d6REB MELDUNG\nZugewiesen von der Koordinationsstelle Amt f\u00fcr Umweltschutz\n\nSehr geehrte Dame \nSehr geehrter Herr\n\nBetreffend das CAMAC Dossier Nr. [@c2q6i1] hat die zust\u00e4ndige Stelle \u00d6REB relevante Daten erfasst und entsprechnede Dokumente hochgeladen. Wir bitten Sie, diese Daten im erw\u00e4hnten CAMAC Dossier einzusehen und die entsprechenden Eintr\u00e4ge im \u00d6REB vorzunehmen.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Umweltschutz\nKlausenstrasse 4\n6460 Altdorf\n\nTel. 041 875 24 33\nE-Mail: bruno.gisler@ur.ch",
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\n\u00d6REB MELDUNG\nZugewiesen von der Koordinationsstelle Amt f\u00fcr Umweltschutz\n\nSehr geehrte Dame \nSehr geehrter Herr\n\nBetreffend das CAMAC Dossier Nr. {{DOSSIER_NR}} hat die zust\u00e4ndige Stelle \u00d6REB relevante Daten erfasst und entsprechnede Dokumente hochgeladen. Wir bitten Sie, diese Daten im erw\u00e4hnten CAMAC Dossier einzusehen und die entsprechenden Eintr\u00e4ge im \u00d6REB vorzunehmen.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Umweltschutz\nKlausenstrasse 4\n6460 Altdorf\n\nTel. 041 875 24 33\nE-Mail: bruno.gisler@ur.ch",
       "purpose": "\u00d6REB Meldung - Koordinationsstelle Umweltschutz AfU",
       "service": null,
       "slug": "oreb-meldung5",
@@ -51547,7 +51492,7 @@
   },
   {
     "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\n\u00d6REB MELDUNG\nZugewiesen von der Koordinationsstelle Baudirektion\n\nSehr geehrte Dame \nSehr geehrter Herr\n\nBetreffend das CAMAC Dossier Nr. [@c2q6i1] hat die zust\u00e4ndige Stelle \u00d6REB relevante Daten erfasst und entsprechnede Dokumente hochgeladen. Wir bitten Sie, diese Daten im erw\u00e4hnten CAMAC Dossier einzusehen und die entsprechenden Eintr\u00e4ge im \u00d6REB vorzunehmen.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nBaudirektion Uri\nKlausenstrasse 2\n6460 Altdorf\n\nTel. 041 875 26 81\nE-Mail: viktor.arnold@ur.ch",
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\n\u00d6REB MELDUNG\nZugewiesen von der Koordinationsstelle Baudirektion\n\nSehr geehrte Dame \nSehr geehrter Herr\n\nBetreffend das CAMAC Dossier Nr. {{DOSSIER_NR}} hat die zust\u00e4ndige Stelle \u00d6REB relevante Daten erfasst und entsprechnede Dokumente hochgeladen. Wir bitten Sie, diese Daten im erw\u00e4hnten CAMAC Dossier einzusehen und die entsprechenden Eintr\u00e4ge im \u00d6REB vorzunehmen.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nBaudirektion Uri\nKlausenstrasse 2\n6460 Altdorf\n\nTel. 041 875 26 81\nE-Mail: viktor.arnold@ur.ch",
       "purpose": "\u00d6REB Meldung - Koordinationsstelle Baudirektion BD",
       "service": null,
       "slug": "oreb-meldung6",
@@ -51559,7 +51504,7 @@
   },
   {
     "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nStatusmeldung zum Stand des Bewilligungsverfahrens\nZIRKULATION ABGESCHLOSSEN\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nDie Pr\u00fcfung Ihres Dossiers mit der ID Nr. [INSTANCE_ID] (CAMAC Dossiernummer [@c2q6i1]) durch die kantonalen Fachstellen ist abgeschlossen. \nDas Dossier wird nun von der Gemeindebaubeh\u00f6rde abschliessend bearbeitet. Bitte beachten Sie, dass die Ausarbeitung der Entscheiddokumente und die Protokollgenehmigung zus\u00e4tzlich Zeit beanspruchen. Der Versand der Entscheiddokumente erfolgt voraussichtlich innert 2 bis 4 Wochen.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 29\nE-Mail: raumplanung@ur.ch",
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nStatusmeldung zum Stand des Bewilligungsverfahrens\nZIRKULATION ABGESCHLOSSEN\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nDie Pr\u00fcfung Ihres Dossiers mit der ID Nr. {{INSTANCE_ID}} (CAMAC Dossiernummer {{DOSSIER_NR}}) durch die kantonalen Fachstellen ist abgeschlossen. \nDas Dossier wird nun von der Gemeindebaubeh\u00f6rde abschliessend bearbeitet. Bitte beachten Sie, dass die Ausarbeitung der Entscheiddokumente und die Protokollgenehmigung zus\u00e4tzlich Zeit beanspruchen. Der Versand der Entscheiddokumente erfolgt voraussichtlich innert 2 bis 4 Wochen.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 29\nE-Mail: raumplanung@ur.ch",
       "purpose": "Zirkulation abgeschlossen - Vernehmlassungsstelle mit Koordinationsaufgaben, Vernehmlassungsstell...",
       "service": null,
       "slug": "zirkulation-abgeschlossen",
@@ -51571,31 +51516,7 @@
   },
   {
     "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nNEUE PENDENZ\r\nDie Zirkulation der Instanz [INSTANCE_ID] wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm CAMAC wurde das Dossier Nr. [@c2q6i1] eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBEARBEITUNG IM CAMAC\r\n- Upload Verf\u00fcgung / Stellungnahme (bitte Scan - Dokument inkl. Unterschrift hochladen).\r\n- Kurzantwort ausw\u00e4hlen.\r\n- Art der Sachbearbeitung ausw\u00e4hlen.\r\n- Kurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde erfassen.\r\n- Geb\u00fchren erfassen.\r\n- Senden\r\n\r\nAKTENNACHFORDERUNG\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern. Dazu setzen Sie das Dossier in den Status NFD (Button \u00abNachforderung\u00bb). Im daf\u00fcr vorgesehenen Feld bitte eintragen, bei wem, welche Unterlagen nachgefordert wurden. Dossier im Status NFD (Pendenz beim Gesuchsteller) werden blau hinterlegt.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Kantonspolizei\r\n\r\nTODO",
-      "purpose": "Zirkulation gestartet - Koordinationsstelle Forst und Jagd AFJ, Koordinationsstelle Sicherheitsdi...",
-      "service": null,
-      "slug": "zirkulation-gestartet14",
-      "subject": "Zirkulation gestartet",
-      "type": "email"
-    },
-    "model": "notification.notificationtemplate",
-    "pk": 1374
-  },
-  {
-    "fields": {
-      "body": "Die Zirkulation der Instanz [INSTANCE_ID] wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. [@c2q6i1] eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN\r\n\r\n-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)\r\n-  Kurzantwort ausw\u00e4hlen (speichern)\r\n-  Art der Sachbearbeitung ausw\u00e4hlen (speichern)\r\n-  Senden\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Kantonspolizei\r\n\r\nTODO",
-      "purpose": "Zirkulation gestartet - Koordinationsstelle Forst und Jagd AFJ, Koordinationsstelle Sicherheitsdi...",
-      "service": null,
-      "slug": "zirkulation-gestartet15",
-      "subject": "Zirkulation gestartet",
-      "type": "email"
-    },
-    "model": "notification.notificationtemplate",
-    "pk": 1375
-  },
-  {
-    "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nNEUE PENDENZ\r\nDie Zirkulation der Instanz [INSTANCE_ID] wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm CAMAC wurde das Dossier Nr. [@c2q6i1] eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nAKTENNACHFORDERUNG\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern. Dazu setzen Sie das Dossier in den Status NFD (Button \u00abNachforderung\u00bb). Im daf\u00fcr vorgesehenen Feld bitte eintragen, bei wem, welche Unterlagen nachgefordert wurden. Dossier im Status NFD (Pendenz beim Gesuchsteller) werden blau hinterlegt.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Raumentwicklung\r\nKoordinationsstelle f\u00fcr Baueingaben\r\nRathausplatz 5\r\n6460 Altdorf\r\n\r\nTel.  041 875 24 29\r\nE-Mail: raumplanung@ur.ch",
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nNEUE PENDENZ\r\nDie Zirkulation der Instanz {{INSTANCE_ID}} wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nAKTENNACHFORDERUNG\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern. Dazu setzen Sie das Dossier in den Status NFD (Button \u00abNachforderung\u00bb). Im daf\u00fcr vorgesehenen Feld bitte eintragen, bei wem, welche Unterlagen nachgefordert wurden. Dossier im Status NFD (Pendenz beim Gesuchsteller) werden blau hinterlegt.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Raumentwicklung\r\nKoordinationsstelle f\u00fcr Baueingaben\r\nRathausplatz 5\r\n6460 Altdorf\r\n\r\nTel.  041 875 24 29\r\nE-Mail: raumplanung@ur.ch",
       "purpose": "Gemeindezirkulation gestartet - Sekretariat der Gemeindebaubeh\u00f6rde",
       "service": null,
       "slug": "gemeindezirkulation-gestartet",
@@ -51607,7 +51528,7 @@
   },
   {
     "fields": {
-      "body": "Die Zirkulation der Instanz [INSTANCE_ID] wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. [@c2q6i1] eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern und uns gleichzeitig dar\u00fcber in Kenntnis zu setzen (mail).\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Raumentwicklung\r\nKoordinationsstelle f\u00fcr Baueingaben\r\nRathausplatz 5\r\n6460 Altdorf\r\n\r\nTel.  041 875 24 24\r\nFax: 041 875 24 25\r\nE-Mail: paul.walker@ur.ch",
+      "body": "Die Zirkulation der Instanz {{INSTANCE_ID}} wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern und uns gleichzeitig dar\u00fcber in Kenntnis zu setzen (mail).\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Raumentwicklung\r\nKoordinationsstelle f\u00fcr Baueingaben\r\nRathausplatz 5\r\n6460 Altdorf\r\n\r\nTel.  041 875 24 24\r\nFax: 041 875 24 25\r\nE-Mail: paul.walker@ur.ch",
       "purpose": "Gemeindezirkulation - Sekretariat der Gemeindebaubeh\u00f6rde",
       "service": null,
       "slug": "gemeindezirkulation",
@@ -51619,7 +51540,7 @@
   },
   {
     "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nNEUE PENDENZ\r\nDie Zirkulation der Instanz [INSTANCE_ID] wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm CAMAC wurde das Dossier Nr. [@c2q6i1] eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBEARBEITUNG IM CAMAC\r\n- Upload Verf\u00fcgung / Stellungnahme (bitte Scan - Dokument inkl. Unterschrift hochladen).\r\n- Kurzantwort ausw\u00e4hlen.\r\n- Art der Sachbearbeitung ausw\u00e4hlen.\r\n- Kurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde erfassen.\r\n- Geb\u00fchren erfassen.\r\n- Senden\r\n\r\nAKTENNACHFORDERUNG\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern. Dazu setzen Sie das Dossier in den Status NFD (Button \u00abNachforderung\u00bb). Im daf\u00fcr vorgesehenen Feld bitte eintragen, bei wem, welche Unterlagen nachgefordert wurden. Dossier im Status NFD (Pendenz beim Gesuchsteller) werden blau hinterlegt.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Raumentwicklung\r\nKoordinationsstelle f\u00fcr Baueingaben\r\nRathausplatz 5\r\n6460 Altdorf\r\n\r\nTel.  041 875 24 29\r\nE-Mail: raumplanung@ur.ch",
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nNEUE PENDENZ\r\nDie Zirkulation der Instanz {{INSTANCE_ID}} wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBEARBEITUNG IM CAMAC\r\n- Upload Verf\u00fcgung / Stellungnahme (bitte Scan - Dokument inkl. Unterschrift hochladen).\r\n- Kurzantwort ausw\u00e4hlen.\r\n- Art der Sachbearbeitung ausw\u00e4hlen.\r\n- Kurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde erfassen.\r\n- Geb\u00fchren erfassen.\r\n- Senden\r\n\r\nAKTENNACHFORDERUNG\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern. Dazu setzen Sie das Dossier in den Status NFD (Button \u00abNachforderung\u00bb). Im daf\u00fcr vorgesehenen Feld bitte eintragen, bei wem, welche Unterlagen nachgefordert wurden. Dossier im Status NFD (Pendenz beim Gesuchsteller) werden blau hinterlegt.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Raumentwicklung\r\nKoordinationsstelle f\u00fcr Baueingaben\r\nRathausplatz 5\r\n6460 Altdorf\r\n\r\nTel.  041 875 24 29\r\nE-Mail: raumplanung@ur.ch",
       "purpose": "Zirkulation gestartet - Bundesstelle",
       "service": null,
       "slug": "zirkulation-gestartet16",
@@ -51631,7 +51552,7 @@
   },
   {
     "fields": {
-      "body": "Die Zirkulation der Instanz [INSTANCE_ID] wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. [@c2q6i1] eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN\r\n\r\n-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)\r\n-  Kurzantwort ausw\u00e4hlen (speichern)\r\n-  Art der Sachbearbeitung ausw\u00e4hlen (speichern)\r\n-  Senden\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern und uns gleichzeitig dar\u00fcber in Kenntnis zu setzen (mail).\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Raumentwicklung\r\nKoordinationsstelle f\u00fcr Baueingaben\r\nRathausplatz 5\r\n6460 Altdorf\r\n\r\nTel.  041 875 24 24\r\nFax: 041 875 24 25\r\nE-Mail: paul.walker@ur.ch",
+      "body": "Die Zirkulation der Instanz {{INSTANCE_ID}} wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN\r\n\r\n-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)\r\n-  Kurzantwort ausw\u00e4hlen (speichern)\r\n-  Art der Sachbearbeitung ausw\u00e4hlen (speichern)\r\n-  Senden\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern und uns gleichzeitig dar\u00fcber in Kenntnis zu setzen (mail).\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Raumentwicklung\r\nKoordinationsstelle f\u00fcr Baueingaben\r\nRathausplatz 5\r\n6460 Altdorf\r\n\r\nTel.  041 875 24 24\r\nFax: 041 875 24 25\r\nE-Mail: paul.walker@ur.ch",
       "purpose": "Zirkulation gestartet - Bundesstelle",
       "service": null,
       "slug": "zirkulation-gestartet17",
@@ -51643,11 +51564,11 @@
   },
   {
     "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nNEUES DOSSIER\r\nDie zust\u00e4ndige Bundesstelle hat das Dossier-ID [INSTANCE_ID] mit der Dossier Nr. [@c2q6i1] im CAMAC erfasst und zur Bearbeitung durch die kantonalen Fachstellen freigegeben.",
-      "purpose": "Dossier [ID] von Bundesstelle frei geschalten - Koordinationsstelle Baudirektion BD",
+      "body": "CAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nNEUES DOSSIER\r\nDie zust\u00e4ndige Bundesstelle hat das Dossier-ID {{INSTANCE_ID}} mit der Dossier Nr. {{DOSSIER_NR}} im CAMAC erfasst und zur Bearbeitung durch die kantonalen Fachstellen freigegeben.",
+      "purpose": "Dossier von Bundesstelle frei geschalten - Koordinationsstelle Baudirektion BD",
       "service": null,
       "slug": "dossier-id-von-bundesstelle-frei-geschalten",
-      "subject": "Dossier [ID] von Bundesstelle frei geschalten",
+      "subject": "Dossier {{ID}} von Bundesstelle frei geschalten",
       "type": "email"
     },
     "model": "notification.notificationtemplate",
@@ -51655,11 +51576,11 @@
   },
   {
     "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nNEUES DOSSIER\r\nDie zust\u00e4ndige Bundesstelle hat das Dossier-ID [INSTANCE_ID] mit der Dossier Nr. [@c2q6i1] im CAMAC erfasst und zur Bearbeitung durch die kantonalen Fachstellen freigegeben.",
+      "body": "CAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nNEUES DOSSIER\r\nDie zust\u00e4ndige Bundesstelle hat das Dossier-ID {{INSTANCE_ID}} mit der Dossier Nr. {{DOSSIER_NR}} im CAMAC erfasst und zur Bearbeitung durch die kantonalen Fachstellen freigegeben.",
       "purpose": "Dossier [ID] von Bundesstelle frei geschalten - Bundesstelle",
       "service": null,
       "slug": "dossier-id-von-bundesstelle-frei-geschalten1",
-      "subject": "Dossier [ID] von Bundesstelle frei geschalten",
+      "subject": "Dossier {{ID}} von Bundesstelle frei geschalten",
       "type": "email"
     },
     "model": "notification.notificationtemplate",
@@ -51667,32 +51588,32 @@
   },
   {
     "fields": {
-      "address": "",
-      "city": "",
+      "address": null,
+      "city": null,
       "disabled": 0,
-      "email": "",
+      "email": null,
       "name": "Admin",
-      "phone": "",
+      "phone": null,
       "role": 1,
       "service": null,
-      "website": "",
-      "zip": ""
+      "website": null,
+      "zip": null
     },
     "model": "user.group",
     "pk": 1
   },
   {
     "fields": {
-      "address": "",
-      "city": "",
+      "address": null,
+      "city": null,
       "disabled": 0,
-      "email": "",
+      "email": null,
       "name": "Guest",
-      "phone": "",
+      "phone": null,
       "role": 2,
       "service": null,
-      "website": "",
-      "zip": ""
+      "website": null,
+      "zip": null
     },
     "model": "user.group",
     "pk": 2

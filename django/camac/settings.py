@@ -125,6 +125,7 @@ APPLICATIONS = {
             "Applicant": "applicant",
             "Municipality": "municipality",
             "Administration Leitbehörde": "municipality",
+            "Coordination": "coordination",
             "Service": "service",
             "Reader": "reader",
             "Canton": "canton",
@@ -151,6 +152,7 @@ APPLICATIONS = {
         ],  # if unset, all are allowed
         # please also update django/Makefile command when changing apps here
         "SEQUENCE_NAMESPACE_APPS": ["core", "responsible", "document"],
+        "PUBLICATION_INVITE_ONLY": True,
     },
     "kt_schwyz": {
         "ROLE_PERMISSIONS": {
@@ -204,6 +206,7 @@ APPLICATIONS = {
         },
         # please also update django/Makefile command when changing apps here
         "SEQUENCE_NAMESPACE_APPS": [],
+        "PUBLICATION_INVITE_ONLY": True,
     },
     "kt_bern": {
         "ROLE_PERMISSIONS": {
@@ -601,6 +604,37 @@ APPLICATIONS = {
         "PORTAL_USER_ID": 1209,
         "APPLICANT_GROUP_ID": 685,  # We reuse the Portal User group
         "SEQUENCE_NAMESPACE_APPS": ["core", "document", "responsible"],
+        "CUSTOM_NOTIFICATION_TYPES": [
+            "submitter_list",
+            "municipality_users",
+            "unnotified_service_users",
+            "lisag",
+            "koor_np_users",
+            "koor_bg_users",
+        ],
+        "ROLE_PERMISSIONS": {
+            "Admin": None,
+            "Architect": None,
+            "Bundesstelle": "coordination",
+            "Gemeinde als Vernehmlassungsstelle": "service",
+            "Guest": None,  # TODO AFAIK we don't grant unauthenticated users access to endpoints
+            "Koordinationsstelle Baudirektion BD": "coordination",
+            "Koordinationsstelle Baugesuche BG": "coordination",
+            "Koordinationsstelle Baugesuche NP": "coordination",
+            "Koordinationsstelle Energie AfE": "coordination",
+            "Koordinationsstelle Forst und Jagd AFJ": "coordination",
+            "Koordinationsstelle Landwirtschaft ALA": "coordination",
+            "Koordinationsstelle Sicherheitsdirektion SD": "coordination",
+            "Koordinationsstelle Umweltschutz AfU": "coordination",
+            "Mitglied der Gemeindebaubehörde": "municipality",  # TODO Maybe we should introduce a municipality_readonly role?
+            "Mitglied einer Kommission oder Fachgruppe": "commission",
+            "Organisation mit Leseberechtigung": "organization_readonly",
+            "Portal User": None,  # Uses the fallback permissions
+            "Sekretariat der Gemeindebaubehörde": "municipality",
+            "Vernehmlassungsstelle Gemeindezirkulation": "service",
+            "Vernehmlassungsstelle mit Koordinationsaufgaben": "service",
+            "Vernehmlassungsstelle ohne Koordinationsaufgaben": "service",
+        },
     },
 }
 

@@ -25,6 +25,7 @@ from camac.instance import serializers
         ("Canton", LazyFixture("user"), 12, {"form", "document"}),
         ("Municipality", LazyFixture("user"), 12, {"form", "document"}),
         ("Service", LazyFixture("user"), 12, {"document"}),
+        ("Coordination", LazyFixture("user"), 12, {"instance", "form", "document"}),
     ],
 )
 def test_instance_list(
@@ -129,6 +130,7 @@ def test_instance_filter_fields(admin_client, instance, form_field_factory):
         ("Municipality", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
         ("Service", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
         ("Unknown", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
+        ("Coordination", LazyFixture("user"), status.HTTP_400_BAD_REQUEST),
     ],
 )
 def test_instance_update(
@@ -740,3 +742,48 @@ def test_instance_form_field_ordering(
     assert len(data) == 2
     assert data[0]["id"] == str(instances[1].pk)
     assert data[1]["id"] == str(instances[0].pk)
+
+
+@pytest.mark.parametrize("role__name", ["Coordination"])
+@pytest.mark.parametrize("is_creator", [True, False])
+@pytest.mark.parametrize("forbidden_states", [None, [9999999]])
+def test_instance_list_coordination_created(
+    db,
+    mocker,
+    admin_client,
+    instance_state,
+    instance,
+    is_creator,
+    group_factory,
+    forbidden_states,
+):
+    """Ensure that the coordination role sees their correct dossiers.
+
+    KOOR role can see dossiers which their group has created,
+    or which are not in a forbidden state. Note that this is a workaround,
+    as the acutal logic in PHP for this rule is rather more complicated,
+    but we're not replicating that rule here (yet).
+    """
+    if forbidden_states is None:
+        # unfortunately cannot parametrize this :(
+        forbidden_states = [instance_state.pk]
+
+    mocker.patch(
+        "camac.constants.kt_uri.INSTANCE_STATES_HIDDEN_FOR_KOOR", forbidden_states
+    )
+
+    if not is_creator:
+        other_group = group_factory()
+        instance.group = other_group
+        instance.save()
+
+    url = reverse("instance-list")
+    response = admin_client.get(url)
+    assert response.status_code == status.HTTP_200_OK
+
+    json = response.json()
+    if is_creator or forbidden_states == [9999999]:
+        assert len(json["data"]) == 1
+        assert json["data"][0]["id"] == str(instance.pk)
+    else:
+        assert len(json["data"]) == 0
