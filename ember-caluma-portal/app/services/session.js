@@ -12,7 +12,8 @@ import config from "../config/environment";
 const { languages, fallbackLanguage } = config;
 const { authHeaderName, authPrefix, tokenPropertyName } = oidcConfig;
 
-const validateLanguage = language => languages.find(lang => lang === language);
+const validateLanguage = (language) =>
+  languages.find((lang) => lang === language);
 
 export default class CustomSession extends Session {
   @service fetch;
@@ -25,7 +26,7 @@ export default class CustomSession extends Session {
   *fetchUser() {
     const response = yield this.fetch
       .fetch("/api/v1/me")
-      .then(res => res.json());
+      .then((res) => res.json());
 
     this.store.push(this.store.normalize("user", response.data));
 
@@ -48,8 +49,8 @@ export default class CustomSession extends Session {
     const sessionLanguage = validateLanguage(this.get("data.language"));
 
     const browserLanguage = getUserLocales()
-      .map(locale => locale.split("-")[0])
-      .find(lang => validateLanguage(lang));
+      .map((locale) => locale.split("-")[0])
+      .find((lang) => validateLanguage(lang));
 
     return sessionLanguage || browserLanguage || fallbackLanguage;
   }
@@ -75,7 +76,7 @@ export default class CustomSession extends Session {
 
     return {
       ...(token ? { [tokenKey]: `${authPrefix} ${token}` } : {}),
-      ...(this.group ? { "x-camac-group": this.group } : {})
+      ...(this.group ? { "x-camac-group": this.group } : {}),
     };
   }
 
@@ -85,7 +86,7 @@ export default class CustomSession extends Session {
 
     return {
       "accept-language": this.language,
-      language: this.language
+      language: this.language,
     };
   }
 

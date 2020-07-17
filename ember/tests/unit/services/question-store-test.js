@@ -5,21 +5,21 @@ import { setupMirage } from "ember-cli-mirage/test-support";
 import { setupTest } from "ember-qunit";
 import { module, test } from "qunit";
 
-module("Unit | Service | question-store", function(hooks) {
+module("Unit | Service | question-store", function (hooks) {
   setupTest(hooks);
   setupMirage(hooks);
 
-  hooks.beforeEach(function() {
+  hooks.beforeEach(function () {
     const { id } = this.server.create("instance");
 
     this.instanceId = id;
 
     this.server.get("/api/v1/form-config", () => ({
-      questions: {}
+      questions: {},
     }));
   });
 
-  test("can build a question without model", async function(assert) {
+  test("can build a question without model", async function (assert) {
     assert.expect(4);
 
     const service = this.owner.lookup("service:question-store");
@@ -32,12 +32,12 @@ module("Unit | Service | question-store", function(hooks) {
     assert.ok(question.get("model.isNew"));
   });
 
-  test("can build a question with model", async function(assert) {
+  test("can build a question with model", async function (assert) {
     assert.expect(4);
 
     this.server.create("form-field", {
       name: "test",
-      instanceId: this.instanceId
+      instanceId: this.instanceId,
     });
 
     const service = this.owner.lookup("service:question-store");
@@ -60,20 +60,20 @@ module("Unit | Service | question-store", function(hooks) {
     assert.notOk(question.get("model.isNew"));
   });
 
-  test("can validate question", async function(assert) {
+  test("can validate question", async function (assert) {
     assert.expect(2);
 
     this.server.get("/api/v1/form-config", () => ({
       questions: {
         test1: {
           type: "text",
-          required: true
+          required: true,
         },
         test2: {
           type: "text",
-          required: true
-        }
-      }
+          required: true,
+        },
+      },
     }));
 
     const service = this.owner.lookup("service:question-store");
@@ -86,7 +86,7 @@ module("Unit | Service | question-store", function(hooks) {
       },
       test2(_, value) {
         return value === "somevalue";
-      }
+      },
     };
 
     service.set("_validations", validations);
@@ -101,18 +101,18 @@ module("Unit | Service | question-store", function(hooks) {
     assert.equal(test2.validate(), true);
   });
 
-  test("can handle active expressions", async function(assert) {
+  test("can handle active expressions", async function (assert) {
     assert.expect(4);
 
     this.server.get("/api/v1/form-config", {
       questions: {
         test: {
-          "active-expression": "'foo'|value in [1,2] || !('bar'|value > 2)"
+          "active-expression": "'foo'|value in [1,2] || !('bar'|value > 2)",
         },
         "test-map": {
-          "active-expression": "'test' in [{name:'test'}]|mapby('name')"
-        }
-      }
+          "active-expression": "'test' in [{name:'test'}]|mapby('name')",
+        },
+      },
     });
 
     await loadQuestions(["test", "test-map", "foo", "bar"], this.instanceId);
@@ -153,16 +153,16 @@ module("Unit | Service | question-store", function(hooks) {
     );
   });
 
-  test("can save a question", async function(assert) {
+  test("can save a question", async function (assert) {
     assert.expect(6);
 
     this.server.get("/api/v1/form-config", {
       questions: {
         test: {
           type: "number",
-          required: true
-        }
-      }
+          required: true,
+        },
+      },
     });
 
     const service = this.owner.lookup("service:question-store");
@@ -172,13 +172,13 @@ module("Unit | Service | question-store", function(hooks) {
     const question = service.peek("test", this.instanceId);
 
     assert.deepEqual(await service.get("saveQuestion").perform(question), [
-      "Diese Frage darf nicht leer gelassen werden"
+      "Diese Frage darf nicht leer gelassen werden",
     ]);
     assert.equal(question.get("model.isNew"), true);
 
     question.set("model.value", "test");
     assert.deepEqual(await service.get("saveQuestion").perform(question), [
-      "Der Wert muss eine Zahl sein"
+      "Der Wert muss eine Zahl sein",
     ]);
     assert.equal(question.get("model.isNew"), true);
 
@@ -187,19 +187,19 @@ module("Unit | Service | question-store", function(hooks) {
     assert.equal(question.get("model.isNew"), false);
   });
 
-  test("can handle hierarchical active expressions", async function(assert) {
+  test("can handle hierarchical active expressions", async function (assert) {
     assert.expect(6);
 
     this.server.get("/api/v1/form-config", {
       questions: {
         test1: {},
         test2: {
-          "active-expression": "'test1'|value == 'test1'"
+          "active-expression": "'test1'|value == 'test1'",
         },
         test3: {
-          "active-expression": "'test2'|value == 'test2'"
-        }
-      }
+          "active-expression": "'test2'|value == 'test2'",
+        },
+      },
     });
 
     await loadQuestions(["test1", "test2", "test3"], this.instanceId);

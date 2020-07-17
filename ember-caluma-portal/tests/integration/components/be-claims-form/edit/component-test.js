@@ -3,10 +3,10 @@ import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import { module, skip } from "qunit";
 
-module("Integration | Component | be-claims-form/edit", function(hooks) {
+module("Integration | Component | be-claims-form/edit", function (hooks) {
   setupRenderingTest(hooks);
 
-  skip("it renders", async function(assert) {
+  skip("it renders", async function (assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 

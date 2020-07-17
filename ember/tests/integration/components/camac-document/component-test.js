@@ -5,15 +5,15 @@ import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
 
-module("Integration | Component | camac-document", function(hooks) {
+module("Integration | Component | camac-document", function (hooks) {
   setupRenderingTest(hooks);
   setupMirage(hooks);
 
-  hooks.beforeEach(async function() {
+  hooks.beforeEach(async function () {
     const instance = this.server.create("instance", "unsubmitted", {
       instanceState: this.server.create("instance-state", {
-        name: "new"
-      })
+        name: "new",
+      }),
     });
 
     this.set("instance", instance);
@@ -21,13 +21,13 @@ module("Integration | Component | camac-document", function(hooks) {
     this.server.createList("attachment", 2, {
       name: "foo",
       question: "test-document",
-      instance
+      instance,
     });
 
     this.server.create("attachment", {
       name: "bar",
       question: "test-document",
-      instance
+      instance,
     });
 
     this.server.get("/api/v1/form-config", () => {
@@ -38,16 +38,16 @@ module("Integration | Component | camac-document", function(hooks) {
             hint: "Hint hint hint",
             type: "document",
             required: true,
-            config: {}
-          }
-        }
+            config: {},
+          },
+        },
       };
     });
 
     await loadQuestions(["test-document"], instance.id);
   });
 
-  test("it renders", async function(assert) {
+  test("it renders", async function (assert) {
     assert.expect(1);
 
     await render(hbs`{{camac-document 'test-document' instance=instance}}`);
@@ -55,7 +55,7 @@ module("Integration | Component | camac-document", function(hooks) {
     assert.dom(".uk-card-header").hasText("Test Doc *");
   });
 
-  test("it can upload a document", async function(assert) {
+  test("it can upload a document", async function (assert) {
     assert.expect(2);
 
     this.server.post("/api/v1/attachments", ({ attachments }) => {
@@ -67,7 +67,7 @@ module("Integration | Component | camac-document", function(hooks) {
     await render(hbs`{{camac-document 'test-document'instance=instance}}`);
 
     const files = {
-      files: [new File([new Blob()], "testfile.png", { type: "image/png" })]
+      files: [new File([new Blob()], "testfile.png", { type: "image/png" })],
     };
 
     await triggerEvent(
@@ -79,7 +79,7 @@ module("Integration | Component | camac-document", function(hooks) {
     assert.verifySteps(["upload-document"]);
   });
 
-  test("it can replace a document", async function(assert) {
+  test("it can replace a document", async function (assert) {
     assert.expect(3);
 
     this.server.patch(
@@ -96,7 +96,7 @@ module("Integration | Component | camac-document", function(hooks) {
     await render(hbs`{{camac-document 'test-document' instance=instance}}`);
 
     const files = {
-      files: [new File([new Blob()], "testfile.png", { type: "image/png" })]
+      files: [new File([new Blob()], "testfile.png", { type: "image/png" })],
     };
 
     await triggerEvent(
@@ -108,7 +108,7 @@ module("Integration | Component | camac-document", function(hooks) {
     assert.verifySteps(["upload-document"]);
   });
 
-  test("it can download a document", async function(assert) {
+  test("it can download a document", async function (assert) {
     assert.expect(2);
 
     this.server.get("/api/v1/attachments/:id/files/:name", () => {
@@ -124,7 +124,7 @@ module("Integration | Component | camac-document", function(hooks) {
     assert.verifySteps(["download-document"]);
   });
 
-  test("it can delete a document", async function(assert) {
+  test("it can delete a document", async function (assert) {
     assert.expect(2);
 
     this.server.delete(
@@ -146,7 +146,7 @@ module("Integration | Component | camac-document", function(hooks) {
   });
 
   // If instance has never been submitted delete button is displayed
-  test("delete document button is not visible", async function(assert) {
+  test("delete document button is not visible", async function (assert) {
     const instanceState = this.server.create("instance-state", { name: "new" });
 
     const n = String(this.instance.location.communalFederalNumber).substr(2, 4);

@@ -16,7 +16,7 @@ export default Component.extend({
     this["on-click"](`${this.direction > 0 ? "-" : ""}${this.key}`);
   },
 
-  direction: computed("key", "sort", function() {
+  direction: computed("key", "sort", function () {
     const match = (this.sort || "").match(new RegExp(`^(-)?${this.key}$`));
 
     if (!match) {
@@ -26,7 +26,7 @@ export default Component.extend({
     return match.filter(Boolean).length > 1 ? -1 : 1;
   }),
 
-  directionClass: computed("direction", function() {
+  directionClass: computed("direction", function () {
     switch (this.direction) {
       case 1:
         return "sort-icon-asc";
@@ -38,7 +38,7 @@ export default Component.extend({
     }
   }),
 
-  icon: computed("direction", function() {
+  icon: computed("direction", function () {
     switch (this.direction) {
       case 1:
         return `${ICON_PATH_BASE}/sort-asc.svg`;
@@ -48,5 +48,5 @@ export default Component.extend({
       default:
         return `${ICON_PATH_BASE}/sort-neutral.svg`;
     }
-  })
+  }),
 });

@@ -11,5 +11,5 @@ export default {
   leistung: validatePresence(false),
   geschosse: validatePresence(true),
   wohnraume: validatePresence(true),
-  wohnungen: validatePresence(true)
+  wohnungen: validatePresence(true),
 };

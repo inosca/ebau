@@ -10,7 +10,7 @@ export default Component.extend({
     "model.value:value",
     "readonly:disabled",
     "config.maxlength:maxlength",
-    "config.minlength:minlength"
+    "config.minlength:minlength",
   ],
 
   type: "text",
@@ -19,5 +19,5 @@ export default Component.extend({
     e.preventDefault();
 
     this.getWithDefault("attrs.on-change", () => {})(e.target.value);
-  }
+  },
 });

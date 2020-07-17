@@ -8,7 +8,7 @@ const specialFormTypes = {
   "projektgenehmigungsgesuch-gemass-ss15-strag-v2": {
     Gemeindestrassen: "municipality",
     Bezirksstrassen: "district",
-    Kantonsstrassen: "canton"
+    Kantonsstrassen: "canton",
   },
   "plangenehmigungsgesuch-v2": {
     ASTRA: "astra",
@@ -17,8 +17,8 @@ const specialFormTypes = {
     BAZL: "bazl",
     ESTI: "esti",
     VBS: "vbs",
-    ÜBRIGE: "uebrige"
-  }
+    ÜBRIGE: "uebrige",
+  },
 };
 
 export default class InstancesNewController extends Controller {
@@ -40,7 +40,7 @@ export default class InstancesNewController extends Controller {
   *groupData() {
     if (this.get("group")) {
       return yield this.store.findRecord("group", this.get("group"), {
-        include: "role,locations"
+        include: "role,locations",
       });
     }
   }
@@ -65,7 +65,7 @@ export default class InstancesNewController extends Controller {
 
     if (this.specialFormType) {
       const meta = this.store.createRecord("form-field", {
-        instance: model
+        instance: model,
       });
       meta.set("name", "meta");
       meta.set("value", JSON.stringify({ formType: this.specialFormType }));
@@ -80,7 +80,7 @@ export default class InstancesNewController extends Controller {
     if (
       [
         "projektgenehmigungsgesuch-gemass-ss15-strag-v2",
-        "plangenehmigungsgesuch-v2"
+        "plangenehmigungsgesuch-v2",
       ].includes(this.get("model.form.name")) &&
       !this.specialFormType
     ) {

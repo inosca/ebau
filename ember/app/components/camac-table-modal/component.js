@@ -66,12 +66,12 @@ export default Component.extend(CamacMultipleQuestionRowMixin, {
   actions: {
     checkRequired(name, value) {
       if (name === "firma") {
-        this.columns.forEach(column => {
+        this.columns.forEach((column) => {
           if (column.name === "name" || column.name === "vorname") {
             set(column, "required", !value);
           }
         });
       }
-    }
-  }
+    },
+  },
 });

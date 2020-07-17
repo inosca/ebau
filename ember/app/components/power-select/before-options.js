@@ -14,5 +14,5 @@ export default PowerSelectBeforeOptions.extend({
     if (this.input) {
       run.next(this.input, "focus");
     }
-  }
+  },
 });

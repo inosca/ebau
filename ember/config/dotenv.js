@@ -1,7 +1,7 @@
 "use strict";
 
-module.exports = function(/* environment */) {
+module.exports = function (/* environment */) {
   return {
-    clientAllowedKeys: ["KEYCLOAK_URL"]
+    clientAllowedKeys: ["KEYCLOAK_URL"],
   };
 };

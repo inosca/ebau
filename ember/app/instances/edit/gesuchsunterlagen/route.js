@@ -19,5 +19,5 @@ export default Route.extend({
       "hideDocumentInfo",
       localStorage.getItem("hideDocumentInfo") === "true"
     );
-  }
+  },
 });

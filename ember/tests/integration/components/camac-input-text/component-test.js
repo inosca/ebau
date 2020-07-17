@@ -4,22 +4,22 @@ import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
 
-module("Integration | Component | camac-input-text", function(hooks) {
+module("Integration | Component | camac-input-text", function (hooks) {
   setupRenderingTest(hooks);
 
-  test("it renders a text input", async function(assert) {
+  test("it renders a text input", async function (assert) {
     assert.expect(3);
 
     this.set(
       "model",
       EmberObject.create({
-        value: "foo"
+        value: "foo",
       })
     );
 
     this.set("config", {
       minlength: 0,
-      maxlength: 20
+      maxlength: 20,
     });
 
     await render(hbs`{{camac-input-text config=config model=model}}`);
@@ -30,13 +30,13 @@ module("Integration | Component | camac-input-text", function(hooks) {
     assert.dom("input[type=text]").hasAttribute("maxlength", "20");
   });
 
-  test("it renders in readonly mode", async function(assert) {
+  test("it renders in readonly mode", async function (assert) {
     assert.expect(1);
 
     this.set(
       "model",
       EmberObject.create({
-        value: "foo"
+        value: "foo",
       })
     );
 
@@ -49,13 +49,13 @@ module("Integration | Component | camac-input-text", function(hooks) {
     assert.dom("input[type=text]").isDisabled();
   });
 
-  test("it can change the value", async function(assert) {
+  test("it can change the value", async function (assert) {
     assert.expect(1);
 
     this.set(
       "model",
       EmberObject.create({
-        value: "foo"
+        value: "foo",
       })
     );
 

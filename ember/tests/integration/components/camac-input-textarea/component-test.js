@@ -4,16 +4,16 @@ import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
 
-module("Integration | Component | camac-input-textarea", function(hooks) {
+module("Integration | Component | camac-input-textarea", function (hooks) {
   setupRenderingTest(hooks);
 
-  test("it renders a textarea", async function(assert) {
+  test("it renders a textarea", async function (assert) {
     assert.expect(6);
 
     this.set(
       "model",
       EmberObject.create({
-        value: "foo bar"
+        value: "foo bar",
       })
     );
 
@@ -21,7 +21,7 @@ module("Integration | Component | camac-input-textarea", function(hooks) {
       cols: 20,
       rows: 5,
       minlength: 0,
-      maxlength: 500
+      maxlength: 500,
     });
 
     await render(hbs`{{camac-input-textarea config=config model=model}}`);
@@ -36,13 +36,13 @@ module("Integration | Component | camac-input-textarea", function(hooks) {
     assert.dom("textarea").hasValue("foo bar");
   });
 
-  test("it renders in readonly mode", async function(assert) {
+  test("it renders in readonly mode", async function (assert) {
     assert.expect(1);
 
     this.set(
       "model",
       EmberObject.create({
-        value: "foo bar"
+        value: "foo bar",
       })
     );
 
@@ -55,13 +55,13 @@ module("Integration | Component | camac-input-textarea", function(hooks) {
     assert.dom("textarea").isDisabled();
   });
 
-  test("it can change the value", async function(assert) {
+  test("it can change the value", async function (assert) {
     assert.expect(1);
 
     this.set(
       "model",
       EmberObject.create({
-        value: "foo bar"
+        value: "foo bar",
       })
     );
 

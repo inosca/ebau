@@ -14,10 +14,10 @@ export default class CustomApolloService extends ApolloService.extend(
 
     const middleware = setContext(async (_, context) => ({
       ...context,
-      headers: { ...context.headers, ...this.session.authHeaders }
+      headers: { ...context.headers, ...this.session.authHeaders },
     }));
 
-    const afterware = onError(error => {
+    const afterware = onError((error) => {
       if (error.networkError && error.networkError.statusCode === 401) {
         this.session.handleUnauthorized();
       }

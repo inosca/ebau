@@ -3,10 +3,10 @@ import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
 
-module("Integration | Component | camac-hint-dialog", function(hooks) {
+module("Integration | Component | camac-hint-dialog", function (hooks) {
   setupRenderingTest(hooks);
 
-  test("it renders", async function(assert) {
+  test("it renders", async function (assert) {
     assert.expect(4);
 
     await render(hbs`
@@ -21,7 +21,7 @@ module("Integration | Component | camac-hint-dialog", function(hooks) {
     assert.dom("#modal-container .uk-modal-body p > em").hasText("italic");
   });
 
-  test("it renders in block style", async function(assert) {
+  test("it renders in block style", async function (assert) {
     assert.expect(3);
 
     await render(hbs`

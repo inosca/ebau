@@ -8,6 +8,6 @@ export default Component.extend({
   actions: {
     change(date) {
       this.getWithDefault("attrs.on-change", () => {})(date.toISOString());
-    }
-  }
+    },
+  },
 });

@@ -4,32 +4,32 @@ import ModuleIndexRouteMixin from "citizen-portal/mixins/module-index-route";
 import { setupTest } from "ember-qunit";
 import { module, test } from "qunit";
 
-module("Unit | Mixin | module-index-route", function(hooks) {
+module("Unit | Mixin | module-index-route", function (hooks) {
   setupTest(hooks);
 
-  test("it redirects to the right route", async function(assert) {
+  test("it redirects to the right route", async function (assert) {
     assert.expect(6);
 
     const ModuleIndexRouteObject = EmberObject.extend(ModuleIndexRouteMixin);
 
     const CONTROLLER = EmberObject.extend({
-      links: computed(function() {
+      links: computed(function () {
         return ["test1", "test2", "test2.testy", "test3", "test3.testy"];
-      })
+      }),
     });
 
     const SERVICE = EmberObject.extend({
-      config: computed(async function() {
+      config: computed(async function () {
         return {
           modules: {
             test1: { questions: [] },
             test2: { questions: [] },
             "test2.testy": { questions: [] },
             test3: { questions: ["test"] },
-            "test3.testy": { questions: [] }
-          }
+            "test3.testy": { questions: [] },
+          },
         };
-      })
+      }),
     });
 
     const subject = ModuleIndexRouteObject.create({
@@ -38,7 +38,7 @@ module("Unit | Mixin | module-index-route", function(hooks) {
       controllerFor() {
         return CONTROLLER.create();
       },
-      replaceWith: name => name
+      replaceWith: (name) => name,
     });
 
     const transition = EmberObject.extend({
@@ -49,7 +49,7 @@ module("Unit | Mixin | module-index-route", function(hooks) {
 
         this.set(
           "promise",
-          new Promise(resolve => {
+          new Promise((resolve) => {
             // We need some delay to resolve this, so the mixin can detect the
             // origin route
             later(() => {
@@ -58,7 +58,7 @@ module("Unit | Mixin | module-index-route", function(hooks) {
             });
           })
         );
-      }
+      },
     });
 
     subject.set("router.currentRouteName", "test1");

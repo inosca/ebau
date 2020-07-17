@@ -6,5 +6,5 @@ export default Route.extend({
 
     controller.publications.perform();
     controller.publicationPermissions.perform();
-  }
+  },
 });
