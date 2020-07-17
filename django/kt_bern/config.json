@@ -41410,6 +41410,15 @@
   {
     "fields": {
       "action_name": "index",
+      "available_resource": "workitemlist",
+      "hidden": 0
+    },
+    "model": "core.araction",
+    "pk": 140001
+  },
+  {
+    "fields": {
+      "action_name": "index",
       "available_resource": "organisation",
       "hidden": 0
     },
@@ -42083,6 +42092,15 @@
     },
     "model": "core.availableresource",
     "pk": "useradmin"
+  },
+  {
+    "fields": {
+      "controller_name": "workitemlist",
+      "description": "Display work items",
+      "module_name": "workitemlist"
+    },
+    "model": "core.availableresource",
+    "pk": "workitemlist"
   },
   {
     "fields": {
@@ -116236,6 +116254,19 @@
   },
   {
     "fields": {
+      "available_resource": "workitemlist",
+      "class_field": null,
+      "description": null,
+      "hidden": 1,
+      "name": null,
+      "sort": 11,
+      "template": null
+    },
+    "model": "core.resource",
+    "pk": 140000
+  },
+  {
+    "fields": {
       "available_resource": "calumalist",
       "class_field": null,
       "description": null,
@@ -116435,6 +116466,16 @@
     },
     "model": "core.resourcet",
     "pk": 120011
+  },
+  {
+    "fields": {
+      "description": null,
+      "language": "de",
+      "name": "Aufgabenliste",
+      "resource": 140000
+    },
+    "model": "core.resourcet",
+    "pk": 140000
   },
   {
     "fields": {
@@ -116659,6 +116700,14 @@
     },
     "model": "core.rroleacl",
     "pk": 20030
+  },
+  {
+    "fields": {
+      "resource": 140000,
+      "role": 3
+    },
+    "model": "core.rroleacl",
+    "pk": 140000
   },
   {
     "fields": {
