@@ -3,10 +3,10 @@ import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
 
-module("Integration | Component | be-hidden-input", function(hooks) {
+module("Integration | Component | be-hidden-input", function (hooks) {
   setupRenderingTest(hooks);
 
-  test("it renders", async function(assert) {
+  test("it renders", async function (assert) {
     await render(hbs`<BeHiddenInput />`);
 
     assert.dom("input").hasAttribute("type", "hidden");

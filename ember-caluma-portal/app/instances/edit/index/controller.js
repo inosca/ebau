@@ -7,13 +7,13 @@ import { dropTask, lastValue } from "ember-concurrency-decorators";
 import UIkit from "uikit";
 
 const findAnswer = (answers, slug) => {
-  const answer = answers.find(answer => answer.question.slug === slug);
+  const answer = answers.find((answer) => answer.question.slug === slug);
 
   if (!answer) {
     return null;
   }
 
-  const key = Object.keys(answer).find(key => /Value$/.test(key));
+  const key = Object.keys(answer).find((key) => /Value$/.test(key));
 
   return answer[key];
 };
@@ -44,10 +44,10 @@ function getType(raw) {
 }
 
 function getMunicipality(answers) {
-  const answer = answers.find(answer => answer.question.slug === "gemeinde");
+  const answer = answers.find((answer) => answer.question.slug === "gemeinde");
   const selectedOption =
     answer &&
-    answer.question.options.edges.find(option => {
+    answer.question.options.edges.find((option) => {
       return answer.stringValue === option.node.slug;
     });
 
@@ -82,8 +82,8 @@ export default class InstancesEditIndexController extends Controller {
         fetchPolicy: "network-only",
         query: getOverviewCaseQuery,
         variables: {
-          instanceId: this.model
-        }
+          instanceId: this.model,
+        },
       },
       "allCases.edges.firstObject.node"
     );
@@ -94,7 +94,7 @@ export default class InstancesEditIndexController extends Controller {
       ebauNr: getEbauNr(raw),
       type: getType(raw),
       municipality: getMunicipality(answers),
-      buildingSpecification: getBuildingSpecification(answers)
+      buildingSpecification: getBuildingSpecification(answers),
     };
   }
 
@@ -116,11 +116,11 @@ export default class InstancesEditIndexController extends Controller {
         data: {
           attributes: {
             "copy-source": this.model,
-            "is-modification": isModification
+            "is-modification": isModification,
           },
-          type: "instances"
-        }
-      })
+          type: "instances",
+        },
+      }),
     });
 
     const { data } = yield response.json();
@@ -138,8 +138,8 @@ export default class InstancesEditIndexController extends Controller {
       yield UIkit.modal.confirm(this.intl.t("instances.deleteInstanceModal"), {
         labels: {
           ok: this.intl.t("global.ok"),
-          cancel: this.intl.t("global.cancel")
-        }
+          cancel: this.intl.t("global.cancel"),
+        },
       });
     } catch (error) {
       return;

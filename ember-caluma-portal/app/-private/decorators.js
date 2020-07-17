@@ -97,14 +97,14 @@ export const can = decoratorWithRequiredParams(
         template = "notfound",
         loading = "controller.model.isPending",
         loadingTemplate = "loading",
-        additionalAttributes = {}
-      } = {}
+        additionalAttributes = {},
+      } = {},
     ]
   ) => {
     const { propertyName, abilityName } = normalizeAbilityString(permission);
 
     target.reopen({
-      _ability: computed(function() {
+      _ability: computed(function () {
         const Factory = getOwner(this).factoryFor(`ability:${abilityName}`);
 
         assert(`No ability type found for '${abilityName}'`, Factory);
@@ -116,7 +116,7 @@ export const can = decoratorWithRequiredParams(
 
           ...Object.entries(additionalAttributes).reduce((obj, [key, path]) => {
             return { ...obj, [key]: reads(`_target.${path}`) };
-          }, {})
+          }, {}),
         };
 
         // we need to inject the route into the ability so we can use the routes data
@@ -126,17 +126,17 @@ export const can = decoratorWithRequiredParams(
       _can: reads(`_ability.can${classify(propertyName)}`),
 
       // eslint-disable-next-line ember/no-observers
-      _rerenderTemplate: observer("templateName", function() {
+      _rerenderTemplate: observer("templateName", function () {
         this.renderTemplate();
       }),
 
-      templateName: computed("_can", loading, function() {
+      templateName: computed("_can", loading, function () {
         return this.get(loading)
           ? loadingTemplate // permission model is still loading - render custom template (loading)
           : !this._can
           ? template // permission is denied - render custom template (notfound)
           : target.templateName; // user has permission - render the default template
-      })
+      }),
     });
 
     return target;

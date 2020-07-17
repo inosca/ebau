@@ -3,10 +3,10 @@ import { module, test } from "qunit";
 
 import config from "../../../config/environment";
 
-module("Unit | Ability | dashboard", function(hooks) {
+module("Unit | Ability | dashboard", function (hooks) {
   setupTest(hooks);
 
-  test("computes edit permission", function(assert) {
+  test("computes edit permission", function (assert) {
     assert.expect(2);
 
     const ability = this.owner.lookup("ability:dashboard");

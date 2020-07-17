@@ -6,41 +6,41 @@ import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
 
-module("Integration | Component | be-navbar", function(hooks) {
+module("Integration | Component | be-navbar", function (hooks) {
   setupRenderingTest(hooks);
   setupMirage(hooks);
   setupIntl(hooks);
 
-  hooks.before(function() {
-    this.setLanguage = async function(language) {
+  hooks.before(function () {
+    this.setLanguage = async function (language) {
       this.owner.lookup("service:session").set("language", language);
       await settled();
     };
 
-    this.resetLanguage = async function() {
+    this.resetLanguage = async function () {
       this.owner.lookup("service:session").set("data.language", undefined);
       await settled();
       this.intl.setLocale();
     };
   });
 
-  hooks.beforeEach(async function() {
+  hooks.beforeEach(async function () {
     this.server.create("user", { name: "John", surname: "Doe" });
 
     this.owner.register(
       "service:router",
       Service.extend({
         // eslint-disable-next-line ember/avoid-leaking-state-in-ember-objects
-        currentRoute: { name: "dummy", parent: null, params: {} }
+        currentRoute: { name: "dummy", parent: null, params: {} },
       })
     );
   });
 
-  hooks.afterEach(async function() {
+  hooks.afterEach(async function () {
     await this.resetLanguage();
   });
 
-  test("it renders the logo dynamically", async function(assert) {
+  test("it renders the logo dynamically", async function (assert) {
     assert.expect(2);
 
     await render(hbs`<BeNavbar />`);
@@ -56,7 +56,7 @@ module("Integration | Component | be-navbar", function(hooks) {
       .hasAttribute("src", "/assets/images/logo-ebau-bern-1-fr.svg");
   });
 
-  test("it renders the static navigation", async function(assert) {
+  test("it renders the static navigation", async function (assert) {
     assert.expect(3);
 
     await render(hbs`<BeNavbar />`);
@@ -72,7 +72,7 @@ module("Integration | Component | be-navbar", function(hooks) {
       .hasText("t:nav.support:()");
   });
 
-  test("it renders a language switcher", async function(assert) {
+  test("it renders a language switcher", async function (assert) {
     assert.expect(4);
 
     await render(hbs`<BeNavbar />`);
@@ -86,7 +86,7 @@ module("Integration | Component | be-navbar", function(hooks) {
     assert.dom(".uk-navbar-right ul > li:nth-of-type(3)").hasClass("uk-active");
   });
 
-  test("it renders a group switcher", async function(assert) {
+  test("it renders a group switcher", async function (assert) {
     assert.expect(4);
 
     this.server.create("public-group", { name: "Test Group" });
@@ -114,14 +114,14 @@ module("Integration | Component | be-navbar", function(hooks) {
       .hasText("Doe John");
   });
 
-  test("it renders a link to the internal section", async function(assert) {
+  test("it renders a link to the internal section", async function (assert) {
     assert.expect(3);
 
     const { id: groupId } = this.server.create("public-group");
     const editRoute = {
       name: "instances.edit",
       parent: null,
-      params: { instance: 1 }
+      params: { instance: 1 },
     };
 
     this.owner.lookup("service:session").set("group", groupId);
@@ -145,7 +145,7 @@ module("Integration | Component | be-navbar", function(hooks) {
     this.owner.lookup("service:router").set("currentRoute", {
       name: "instances.edit.form",
       parent: editRoute,
-      params: { form: "baugesuch" }
+      params: { form: "baugesuch" },
     });
     await settled();
 

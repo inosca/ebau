@@ -4,9 +4,9 @@ const browsers = [
   "last 2 Chrome versions",
   "last 2 Firefox versions",
   "last 2 Safari versions",
-  "ie 11"
+  "ie 11",
 ];
 
 module.exports = {
-  browsers
+  browsers,
 };

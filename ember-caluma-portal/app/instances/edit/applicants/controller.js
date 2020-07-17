@@ -20,7 +20,7 @@ export default class InstancesEditApplicantsController extends Controller {
       instance: this.store.peekRecord(
         "instance",
         this.get("editController.instance.id")
-      )
+      ),
     });
 
     try {
