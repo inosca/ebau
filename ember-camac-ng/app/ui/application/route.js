@@ -2,7 +2,6 @@ import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
 import ApplicationRouteMixin from "ember-simple-auth/mixins/application-route-mixin";
 import moment from "moment";
-// eslint-disable-next-line ember/no-mixins
 
 const ApplicationRouteBase = Route.extend(ApplicationRouteMixin);
 

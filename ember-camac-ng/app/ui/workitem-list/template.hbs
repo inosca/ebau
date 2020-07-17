@@ -2,7 +2,7 @@
 
 <div class="workitemlist-filters">
   <div>
-    <p>{{t "workitemlist.responsible"}}</p>
+    <div>{{t "workitemlist.responsible"}}</div>
     <div class="filters-wrapper">
       <input {{on "click" (fn this.updateFilter "responsible" "all")}} value="all" checked={{eq this.filters.responsible "all"}} type="radio" class="filter-button" name="verantwortlich" id="filter-all"/>
       <label for="filter-all">{{t "workitemlist.filter.all"}}</label>
@@ -11,7 +11,7 @@
     </div>
   </div>
   <div>
-    <p>{{t "workitemlist.filter.type"}}</p>
+    <div>{{t "workitemlist.filter.type"}}</div>
     <div class="filters-wrapper">
       <input {{on "click" (fn this.updateFilter "type" "all")}} value="all" checked={{eq this.filters.type "all"}} type="radio" class="filter-button" name="type" id="filter-type-all"/>
       <label for="filter-type-all">{{t "workitemlist.filter.all"}}</label>
@@ -20,7 +20,7 @@
     </div>
   </div>
   <div>
-    <p>{{t "workitemlist.filter.status"}}</p>
+    <div>{{t "workitemlist.filter.status"}}</div>
     <div class="filters-wrapper">
       <input {{on "click" (fn this.updateFilter "status" "open")}} value="open" checked={{eq this.filters.status "open"}} type="radio" class="filter-button" name="status" id="filter-open"/>
       <label for="filter-open">{{t "workitemlist.filter.open"}}</label>
@@ -29,7 +29,7 @@
     </div>
   </div>
   <div>
-    <p>{{t "workitemlist.filter.role"}}</p>
+    <div>{{t "workitemlist.filter.role"}}</div>
     <div class="filters-wrapper">
       <input {{on "click" (fn this.updateFilter "role" "active")}} value="active" checked={{eq this.filters.role "active"}} type="radio" class="filter-button" name="role" id="filter-active"/>
       <label for="filter-active">{{t "workitemlist.filter.active"}}</label>
@@ -39,7 +39,7 @@
   </div>
 </div>
 
-<table {{did-insert (perform this.fetchWorkitems)}}>
+<table {{did-insert (perform this.fetchWorkItems)}}>
   <thead>
     <tr>
       <th>{{t "workitemlist.table.instance"}}</th>
@@ -105,6 +105,11 @@
           <td colspan="7">{{t "workitemlist.table.empty"}}</td>
         </tr>
       {{/each}}
+      {{#if (gt this.workItemsQuery.totalCount this.workItemsQuery.value.length)}}
+        <tr {{on "click" (perform this.fetchMoreWorkItems)}} role="button" class="load-more">
+          <td colspan="7">{{t "workitemlist.table.loadMore"}}</td>
+        </tr>
+      {{/if}}
     {{/if}}
   </tbody>
 </table>

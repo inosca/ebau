@@ -68,3 +68,5 @@ workitemlist:
     editWorkitem: "Aufgabe bearbeiten"
 
     empty: "Keine Aufgaben gefunden"
+    
+    loadMore: "Mehr Aufgaben abrufen"
