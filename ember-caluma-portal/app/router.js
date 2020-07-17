@@ -10,14 +10,14 @@ class Router extends EmberRouterScroll {
 const resetNamespace = true;
 
 /* eslint-disable-next-line array-callback-return */
-Router.map(function() {
+Router.map(function () {
   this.route("login");
 
-  this.route("protected", { path: "/" }, function() {
+  this.route("protected", { path: "/" }, function () {
     this.route("index", { path: "/", resetNamespace });
-    this.route("instances", { resetNamespace }, function() {
+    this.route("instances", { resetNamespace }, function () {
       this.route("new");
-      this.route("edit", { path: "/:instance" }, function() {
+      this.route("edit", { path: "/:instance" }, function () {
         this.route("form", { path: "/:form" });
         this.route("feedback");
         this.route("applicants");
@@ -27,7 +27,7 @@ Router.map(function() {
     this.mount("ember-caluma", {
       as: "form-builder",
       path: "/form-builder",
-      resetNamespace: true
+      resetNamespace: true,
     });
 
     this.route("support", { resetNamespace });

@@ -5,9 +5,9 @@ import moment from "moment";
 export default class Case extends EmberObject {
   findAnswer(slug) {
     const answer =
-      this.answers.find(answer => answer.question.slug === slug) || {};
+      this.answers.find((answer) => answer.question.slug === slug) || {};
 
-    const key = Object.keys(answer).find(key => /Value$/.test(key));
+    const key = Object.keys(answer).find((key) => /Value$/.test(key));
 
     return answer && key ? answer[key] : null;
   }
@@ -29,7 +29,7 @@ export default class Case extends EmberObject {
   @computed("municipalities.[]", "answers.[]")
   get municipality() {
     const slug = this.findAnswer("gemeinde");
-    const node = this.municipalities.find(m => m.slug === slug);
+    const node = this.municipalities.find((m) => m.slug === slug);
 
     return node && node.label;
   }
@@ -40,7 +40,7 @@ export default class Case extends EmberObject {
       [
         this.findAnswer("strasse-gesuchstellerin") ||
           this.findAnswer("strasse-flurname"),
-        this.findAnswer("nummer-gesuchstellerin") || this.findAnswer("nr")
+        this.findAnswer("nummer-gesuchstellerin") || this.findAnswer("nr"),
       ]
         .filter(Boolean)
         .join(" ")
@@ -48,11 +48,11 @@ export default class Case extends EmberObject {
       [
         this.findAnswer("plz-gesuchstellerin") || null,
         this.findAnswer("ort-gesuchstellerin") ||
-          this.findAnswer("ort-grundstueck")
+          this.findAnswer("ort-grundstueck"),
       ]
         .filter(Boolean)
         .join(" ")
-        .trim()
+        .trim(),
     ]
       .filter(Boolean)
       .join(", ")
