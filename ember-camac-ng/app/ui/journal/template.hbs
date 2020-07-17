@@ -9,6 +9,7 @@
       @value={{this.newEntry.text}}
       cols="50"
       rows="10"
+      aria-label="{{t "journal.textareaNew"}}"
     />
 
     <button
@@ -98,7 +99,7 @@
         </legend>
         <div class="form journal__body">
           {{#if entry.edit}}
-            <Textarea @value={{entry.text}} data-test-edit />
+            <Textarea @value={{entry.text}} aria-label={{t "journal.textareaEdit"}} data-test-edit />
           {{else}}
             <span>{{entry.text}}</span>
           {{/if}}
