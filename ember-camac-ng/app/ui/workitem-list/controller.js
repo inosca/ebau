@@ -76,9 +76,9 @@ export default class WorkitemListController extends Controller {
     }
 
     if (this.filters.role === "control") {
-      filter.push({ controllingGroups: [this.shoebox.content.groupId] });
+      filter.push({ controllingGroups: [this.shoebox.content.serviceId] });
     } else {
-      filter.push({ addressedGroups: [this.shoebox.content.groupId] });
+      filter.push({ addressedGroups: [this.shoebox.content.serviceId] });
     }
 
     yield this.workItemsQuery.fetch({
