@@ -1,4 +1,3 @@
-from django.conf import settings
 from django.utils import timezone
 from factory import Faker, LazyFunction, SubFactory
 from factory.django import DjangoModelFactory, ImageField
@@ -15,7 +14,7 @@ class AttachmentSectionFactory(DjangoModelFactory):
     sort = Faker("pyint")
     notification_template = SubFactory(NotificationTemplateFactory)
     recipient_types = ["municipality"]
-    allowed_mime_types = settings.DEFAULT_DOCUMENT_MIMETYPES
+    allowed_mime_types = models._get_default_mime_types()
 
     class Meta:
         model = models.AttachmentSection
