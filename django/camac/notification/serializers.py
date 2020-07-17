@@ -15,11 +15,12 @@ from rest_framework import exceptions
 from rest_framework_json_api import serializers
 
 from camac.caluma.api import CalumaApi
-from camac.constants import kt_bern as be_constants
+from camac.constants import kt_bern as be_constants, kt_uri as uri_constants
 from camac.core.models import (
     Activation,
     Answer,
     BillingV2Entry,
+    Circulation,
     HistoryActionConfig,
     WorkflowEntry,
 )
@@ -27,7 +28,7 @@ from camac.core.translations import get_translations
 from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import HistoryEntry, HistoryEntryT, Instance
 from camac.instance.validators import transform_coordinates
-from camac.user.models import Role, Service
+from camac.user.models import Group, Role, Service, User, UserGroup
 from camac.utils import flatten
 
 from ..core import models as core_models
@@ -85,6 +86,8 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     public_dossier_link = serializers.SerializerMethodField()
     internal_dossier_link = serializers.SerializerMethodField()
     registration_link = serializers.SerializerMethodField()
+    dossier_nr = serializers.SerializerMethodField()
+    portal_submission = serializers.SerializerMethodField()
     leitbehoerde_name = serializers.SerializerMethodField()
     form_name = serializers.SerializerMethodField()
     ebau_number = serializers.SerializerMethodField()
@@ -139,12 +142,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return result
 
     def get_rejection_feedback(self, instance):  # pragma: no cover
-        feedback = Answer.objects.filter(
-            instance=instance, chapter=20001, question=20037, item=1
-        ).first()
-        if feedback:
-            return feedback.answer
-        return ""
+        return Answer.get_value_by_cqi(instance, 20001, 20037, 1, default="")
 
     def get_answer_period_date(self, instace):
         answer_period_date = date.today() + timedelta(days=settings.MERGE_ANSWER_PERIOD)
@@ -185,24 +183,25 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         total = self.get_total_activations(instance)
         pending = self.get_pending_activations(instance)
 
-        created = date.fromtimestamp(int(self.circulation.name)).strftime("%d.%m.%Y")
-
-        circulation_name = {
-            "de": f"Zirkulation vom {created}",
-            "fr": f"la circulation du {created}",
-        }
+        try:
+            created = date.fromtimestamp(int(self.circulation.name)).strftime(
+                "%d.%m.%Y"
+            )
+            circulation_name = {"de": f" vom {created}", "fr": f" du {created}"}
+        except ValueError:  # pragma: no cover
+            circulation_name = {"de": "", "fr": ""}
 
         if total == 0:  # pragma: no cover (this should never happen)
             return ""
         elif pending == 0:
             message = {
-                "de": f"Alle {total} Stellungnahmen der {circulation_name.get('de')} sind nun eingegangen.",
-                "fr": f"Tous les {total} prises de position de {circulation_name.get('fr')} ont été reçues.",
+                "de": f"Alle {total} Stellungnahmen der Zirkulation{circulation_name.get('de')} sind nun eingegangen.",
+                "fr": f"Tous les {total} prises de position de la circulation{circulation_name.get('fr')} ont été reçues.",
             }
         else:  # pending > 0:
             message = {
-                "de": f"{pending} von {total} Stellungnahmen der {circulation_name.get('de')} stehen noch aus.",
-                "fr": f"{pending} de {total} prises de position de {circulation_name.get('fr')} sont toujours en attente.",
+                "de": f"{pending} von {total} Stellungnahmen der Zirkulation{circulation_name.get('de')} stehen noch aus.",
+                "fr": f"{pending} de {total} prises de position de la circulation{circulation_name.get('fr')} sont toujours en attente.",
             }
 
         return message.get(language)
@@ -214,10 +213,30 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return CalumaApi().get_form_name(instance) or "-"
 
     def get_ebau_number(self, instance):
+        """Dossier number - Kanton Bern."""
         if settings.APPLICATION["FORM_BACKEND"] != "caluma":
             return "-"
 
         return CalumaApi().get_ebau_number(instance) or "-"
+
+    def get_portal_submission(self, instance):
+        """Return `True` if the given instance is a portal submission."""
+        try:
+            Answer.get_value_by_cqi(
+                instance,
+                *NotificationTemplateSendmailSerializer.SUBMITTER_TYPE_CQI,
+                fail_on_not_found=True,
+            )
+            return True
+        except Answer.DoesNotExist:
+            return False
+
+    def get_dossier_nr(self, instance):
+        """Dossier number - Kanton Uri."""
+        try:
+            return Answer.get_value_by_cqi(instance, 2, 6, 1, fail_on_not_found=True)
+        except Answer.DoesNotExist:
+            return "-"
 
     def get_internal_dossier_link(self, instance):
         return settings.INTERNAL_INSTANCE_URL_TEMPLATE.format(instance_id=instance.pk)
@@ -365,6 +384,9 @@ class NotificationTemplateMergeSerializer(
     activation = serializers.ResourceRelatedField(
         queryset=Activation.objects.all(), required=False
     )
+    circulation = serializers.ResourceRelatedField(
+        queryset=Circulation.objects.all(), required=False
+    )
     notification_template = serializers.ResourceRelatedField(
         queryset=models.NotificationTemplate.objects.all()
     )
@@ -416,6 +438,13 @@ class NotificationTemplateMergeSerializer(
 
 
 class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer):
+    SUBMITTER_TYPE_APPLICANT = "0"
+    SUBMITTER_TYPE_PROJECT_AUTHOR = "1"
+    SUBMITTER_LIST_CQI_BY_TYPE = {
+        SUBMITTER_TYPE_APPLICANT: (1, 66, 1),
+        SUBMITTER_TYPE_PROJECT_AUTHOR: (1, 77, 1),
+    }
+    SUBMITTER_TYPE_CQI = (103, 257, 1)
     recipient_types = serializers.MultipleChoiceField(
         choices=(
             "activation_deadline_today",
@@ -428,9 +457,88 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             "construction_control",
             "email_list",
             "activation_service_parent",
+            *settings.APPLICATION.get("CUSTOM_NOTIFICATION_TYPES", []),
         )
     )
     email_list = serializers.CharField(required=False)
+
+    def _get_recipients_submitter_list(self, instance):
+
+        submitter_type = str(
+            Answer.get_value_by_cqi(
+                instance,
+                *self.SUBMITTER_TYPE_CQI,
+                # TODO needs to be confirmed with customer
+                default=self.SUBMITTER_TYPE_APPLICANT,
+            )
+        )
+
+        ans_cqi = self.SUBMITTER_LIST_CQI_BY_TYPE.get(submitter_type)
+        ans = Answer.get_value_by_cqi(instance, *ans_cqi, fail_on_not_found=False)
+        if not ans:
+            raise exceptions.ValidationError(
+                f"Instance {instance.pk}: Answer for submitter/applicant "
+                f"email not found. Cannot send notification email"
+            )
+
+        return [{"to": ans}]
+
+    def _get_recipients_municipality_users(self, instance):
+
+        groups = Group.objects.filter(
+            locations=instance.location, role=uri_constants.ROLE_MUNICIPALITY
+        )
+        users = User.objects.filter(
+            email__contains="@",
+            disabled=0,
+            pk__in=UserGroup.objects.filter(group__in=groups, default_group=1).values(
+                "user"
+            ),
+        )
+        return [{"to": user.email} for user in users]
+
+    def _get_recipients_unnotified_service_users(self, instance):
+        circulation = self.validated_data["circulation"]
+        activations = circulation.activations.filter(
+            circulation_state_id=uri_constants.CIRCULATION_STATE_IDLE
+        )
+
+        services = Service.objects.filter(pk__in=activations.values("service_id"))
+
+        groups = Group.objects.filter(service__in=services)
+        users = User.objects.filter(
+            email__contains="@",
+            disabled=0,
+            pk__in=UserGroup.objects.filter(group__in=groups, default_group=1).values(
+                "user"
+            ),
+        )
+        return [{"to": user.email} for user in users]
+
+    def _get_recipients_koor_np_users(self, instance):
+
+        users = User.objects.filter(
+            email__contains="@",
+            disabled=0,
+            pk__in=UserGroup.objects.filter(
+                default_group=1, group__role_id=uri_constants.KOOR_NP_ROLE_ID
+            ).values("user"),
+        )
+        return [{"to": user.email} for user in users]
+
+    def _get_recipients_koor_bg_users(self, instance):
+        users = User.objects.filter(
+            email__contains="@",
+            disabled=0,
+            pk__in=UserGroup.objects.filter(
+                default_group=1, group__role_id=uri_constants.KOOR_BG_ROLE_ID
+            ).values("user"),
+        )
+        return [{"to": user.email} for user in users]
+
+    def _get_recipients_lisag(self, instance):
+        groups = Group.objects.filter(name="Lisag")
+        return [{"to": group.email} for group in groups]
 
     def _get_recipients_caluma_municipality(self, instance):
         municipality_service_id = CalumaApi().get_municipality(instance)
@@ -485,12 +593,13 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         return self._get_responsible(instance, instance.group.service)
 
     def _get_recipients_unnotified_service(self, instance):
+
+        service = self.context["request"].group.service
+
         # Circulation and subcirculation share the same circulation object.
-        # They can only be distinguished by there SERVICE_PARENT_ID.
+        # They can only be distinguished by their SERVICE_PARENT_ID.
         activations = Activation.objects.filter(
-            circulation__instance_id=instance.pk,
-            email_sent=0,
-            service_parent=self.context["request"].group.service,
+            circulation__instance_id=instance.pk, email_sent=0, service_parent=service
         )
         services = {a.service for a in activations}
 

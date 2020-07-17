@@ -8,7 +8,9 @@ from django.utils.translation import gettext as _
 from rest_framework import exceptions
 
 from camac.attrs import nested_getattr
+from camac.constants import kt_uri as uri_constants
 from camac.core.models import Circulation, InstanceService
+from camac.instance.models import Instance
 from camac.mixins import AttributeMixin
 from camac.request import get_request
 from camac.user.permissions import permission_aware
@@ -81,33 +83,37 @@ class InstanceQuerysetMixin(object):
 
         user = self._get_user()
 
-        return queryset.filter(
-            Q(**{applicants_expr: user})
-            | (
-                Q(**{publication_user_permission_status_expr: "accepted"})
-                & Q(**{publication_user_permission_expr: user})
-                & Q(
-                    **{
-                        publication_date_gte: timezone.now()
-                        - settings.APPLICATION.get("PUBLICATION_DURATION")
-                    }
-                )
-                & Q(**{publication_date_lt: timezone.now()})
-                & Q(**{publication_published: True})
+        # A user should see dossiers which he submitted or has been invited to.
+        applicant_filter = Q(**{applicants_expr: user})
+
+        # A user should see dossiers which are currenty published
+        publication_duration = settings.APPLICATION.get("PUBLICATION_DURATION")
+        publication_earliest_start = timezone.now() - publication_duration
+        publication_filter = (
+            Q(**{publication_user_permission_expr: user})
+            & Q(**{publication_date_gte: publication_earliest_start})
+            & Q(**{publication_date_lt: timezone.now()})
+            & Q(**{publication_published: True})
+        )
+
+        # In SZ users need to be granted access to a published dossier.
+        if settings.APPLICATION.get("PUBLICATION_INVITE_ONLY", False):
+            publication_filter &= Q(
+                **{publication_user_permission_status_expr: "accepted"}
             )
-        ).distinct()
+
+        return queryset.filter(applicant_filter | publication_filter).distinct()
 
     def get_queryset_for_public_reader(self, group=None):
         queryset = self.get_base_queryset()
         instance_field = self._get_instance_filter_expr("pk", "in")
 
-        # instances from municipality in publication period
         instances = models.Instance.objects.filter(
-            location__in=self._get_group().locations.all(),
             publication_entries__publication_date__gte=timezone.now()
             - settings.APPLICATION.get("PUBLICATION_DURATION"),
             publication_entries__publication_date__lt=timezone.now(),
             publication_entries__is_published=True,
+            location__in=self._get_group().locations.all(),
         )
 
         return queryset.filter(**{instance_field: instances})
@@ -115,16 +121,27 @@ class InstanceQuerysetMixin(object):
     def get_queryset_for_reader(self, group=None):
         return self.get_queryset_for_municipality()
 
+    def get_queryset_for_coordination(self, group=None):
+        group = self._get_group(group)
+        queryset = self.get_base_queryset()
+        instance_field = self._get_instance_filter_expr("pk", "in")
+        state_field = self._get_instance_filter_expr("instance_state", "in")
+
+        instances_created_by_group = self._instances_created_by(group)
+
+        return queryset.filter(
+            Q(**{instance_field: instances_created_by_group})
+            | ~Q(**{state_field: uri_constants.INSTANCE_STATES_HIDDEN_FOR_KOOR})
+        )
+
     def get_queryset_for_municipality(self, group=None):
         group = self._get_group(group)
-
         queryset = self.get_base_queryset()
         instance_field = self._get_instance_filter_expr("pk", "in")
 
         instances_for_location = models.Instance.objects.filter(
             location__in=group.locations.all()
         )
-
         instances_for_service = InstanceService.objects.filter(
             service=group.service
         ).values("instance_id")
@@ -155,6 +172,9 @@ class InstanceQuerysetMixin(object):
         return Circulation.objects.filter(activations__service=group.service).values(
             "instance_id"
         )
+
+    def _instances_created_by(self, group):
+        return Instance.objects.filter(group=group).values("instance_id")
 
 
 class InstanceEditableMixin(AttributeMixin):
@@ -238,6 +258,7 @@ class InstanceEditableMixin(AttributeMixin):
         self, instance, is_editable_callable=lambda: True
     ):
         if not self.has_editable_permission(instance) or not is_editable_callable():
+            # TODO log user's current group's role
             raise exceptions.ValidationError(
                 _("Not allowed to add data to instance %(instance)s")
                 % {"instance": instance.pk}
@@ -259,12 +280,24 @@ class InstanceEditableMixin(AttributeMixin):
 
         return self._validate_instance_editablity(
             instance,
-            lambda: group.locations.filter(pk=instance.location_id).exists()
-            or circulations.filter(activations__service=service).exists()
-            or InstanceService.objects.filter(
-                service=service, instance=instance
-            ).exists(),
+            lambda: (
+                group.locations.filter(pk=instance.location_id).exists()
+                or circulations.filter(activations__service=service).exists()
+                or InstanceService.objects.filter(
+                    service=service, instance=instance
+                ).exists()
+            ),
         )
+
+    def validate_instance_for_coordination(self, instance):
+        # TODO: Map form types to responsible KOORS
+        if instance.instance_state_id in uri_constants.INSTANCE_STATES_HIDDEN_FOR_KOOR:
+            raise exceptions.ValidationError(
+                _("Not allowed to add data to instance %(instance)s as coordination")
+                % {"instance": instance.pk}
+            )
+
+        return self._validate_instance_editablity(instance)
 
     def validate_instance_for_service(self, instance):
         service = get_request(self).group.service
