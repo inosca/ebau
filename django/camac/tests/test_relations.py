@@ -23,7 +23,7 @@ def test_form_data_related_field_inexistent_pk(db):
 
 def test_form_data_related_field_invalid_pk(db):
     field = relations.FormDataResourceRelatedField(
-        queryset=get_user_model().objects.all()
+        queryset=get_user_model().objects.none()
     )
     with pytest.raises(exceptions.ValidationError):
         field.to_internal_value({"invalid"})

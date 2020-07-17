@@ -12,7 +12,9 @@ from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
 from camac.instance.models import HistoryEntry
+from camac.notification import serializers
 from camac.notification.serializers import (
+    InstanceMergeSerializer,
     PermissionlessNotificationTemplateSendmailSerializer,
 )
 
@@ -169,6 +171,7 @@ def test_notification_template_merge(
         ("Municipality", status.HTTP_204_NO_CONTENT),
         ("Service", status.HTTP_204_NO_CONTENT),
         ("Applicant", status.HTTP_400_BAD_REQUEST),
+        ("Coordination", status.HTTP_204_NO_CONTENT),
     ],
 )
 def test_notification_template_sendmail(
@@ -267,6 +270,61 @@ def test_notification_template_sendmail(
             == settings.EMAIL_PREFIX_SUBJECT + instance_service.instance.identifier
         )
         assert mailoutbox[0].body == settings.EMAIL_PREFIX_BODY + "Test body"
+
+
+@pytest.mark.parametrize(
+    "use_forbidden_state,status_code",
+    [(True, status.HTTP_400_BAD_REQUEST), (False, status.HTTP_204_NO_CONTENT)],
+)
+@pytest.mark.parametrize("role__name", [("Coordination")])
+def test_notification_template_sendmail_koor(
+    mocker,
+    admin_client,
+    notification_template,
+    status_code,
+    mailoutbox,
+    activation,
+    instance,
+    settings,
+    instance_state_factory,
+    use_forbidden_state,
+):
+    """Test notification permissions for KOOR roles.
+
+    KOOR is special in that they have more complicated rules than other
+    roles in Kanton Uri: Full access is granted for the following cases
+    * They've created an instance themselves
+    * The instance is not in a "forbidden" state (which mostly
+      excludes instances being edited before submission)
+    """
+    if use_forbidden_state:
+        use_forbidden_state = [instance.instance_state_id]
+    else:
+        use_forbidden_state = [instance_state_factory().pk]
+
+    mocker.patch(
+        "camac.constants.kt_uri.INSTANCE_STATES_HIDDEN_FOR_KOOR", use_forbidden_state
+    )
+
+    url = reverse("notificationtemplate-sendmail")
+    data = {
+        "data": {
+            "type": "notification-template-sendmails",
+            "id": None,
+            "attributes": {
+                "template-slug": notification_template.slug,
+                "body": "Test body",
+                "recipient-types": ["service"],
+            },
+            "relationships": {
+                "instance": {"data": {"type": "instances", "id": instance.pk}},
+                "activation": {"data": {"type": "activations", "id": activation.pk}},
+            },
+        }
+    }
+
+    response = admin_client.post(url, data=data)
+    assert response.status_code == status_code
 
 
 @pytest.mark.parametrize(
@@ -583,3 +641,196 @@ def test_notification_validate_slug_create(admin_client, notification_template):
         response.data[0]["detail"]
         == "notification template mit diesem slug existiert bereits."
     )
+
+
+@pytest.mark.parametrize("misdirect_type", [0, 99999])
+@pytest.mark.parametrize("misdirect_email", [0, 99999])
+@pytest.mark.parametrize("submitter_email", ["foo@example.org", ""])
+@pytest.mark.parametrize(
+    "submitter_type",
+    [
+        serializers.NotificationTemplateSendmailSerializer.SUBMITTER_TYPE_APPLICANT,
+        serializers.NotificationTemplateSendmailSerializer.SUBMITTER_TYPE_PROJECT_AUTHOR,
+    ],
+)
+def test_recipient_type_submitter_list(
+    db,
+    mocker,
+    instance,
+    camac_answer_factory,
+    misdirect_type,
+    misdirect_email,
+    submitter_email,
+    submitter_type,
+):
+    ans_email = camac_answer_factory(answer=submitter_email, instance=instance)
+    ans_submitter_type = camac_answer_factory(answer=submitter_type, instance=instance)
+    mocker.patch(
+        "camac.notification.serializers.NotificationTemplateSendmailSerializer.SUBMITTER_TYPE_CQI",
+        (
+            ans_submitter_type.chapter_id,
+            # misdirect points us to an invalid answer to test missing data
+            ans_submitter_type.question_id + misdirect_type,
+            ans_submitter_type.item,
+        ),
+    )
+    mocker.patch(
+        "camac.notification.serializers.NotificationTemplateSendmailSerializer.SUBMITTER_LIST_CQI_BY_TYPE",
+        {
+            # We only mock the type being tested
+            typ: (
+                ans_email.chapter_id,
+                ans_email.question_id + misdirect_email,
+                ans_email.item,
+            )
+            for typ in [
+                serializers.NotificationTemplateSendmailSerializer.SUBMITTER_TYPE_APPLICANT,
+                serializers.NotificationTemplateSendmailSerializer.SUBMITTER_TYPE_PROJECT_AUTHOR,
+            ]
+        },
+    )
+
+    serializer = serializers.NotificationTemplateSendmailSerializer()
+    has_raised = False
+    res = []
+
+    try:
+        res = serializer._get_recipients_submitter_list(instance)
+    except Exception as exc:
+        has_raised = exc
+
+    if misdirect_email or not submitter_email:
+        # note: misdirect_type just causes the fallback to trigger, which
+        # won't cause an error per se
+        assert bool(has_raised)
+        assert res == []
+    else:
+        assert res == [{"to": "foo@example.org"}]
+        assert not has_raised
+
+
+@pytest.mark.parametrize("correct_municipality", [True, False])
+@pytest.mark.parametrize("user_group__default_group", [True, False])
+@pytest.mark.parametrize("user__email", [None, "", "foo@example.org"])
+@pytest.mark.parametrize("instance__location", [LazyFixture("location")])
+def test_recipient_type_municipality_users(
+    db,
+    instance,
+    location,
+    location_factory,
+    user_group,
+    correct_municipality,
+    role,
+    mocker,
+):
+    mocker.patch("camac.constants.kt_uri.ROLE_MUNICIPALITY", role.pk)
+    user_group.group.locations.add(
+        location if correct_municipality else location_factory()
+    )
+
+    serializer = serializers.NotificationTemplateSendmailSerializer()
+    res = serializer._get_recipients_municipality_users(instance)
+
+    if correct_municipality and user_group.default_group and user_group.user.email:
+        assert res == [{"to": "foo@example.org"}]
+    else:
+        assert res == []
+
+
+@pytest.mark.parametrize("user_group__default_group", [True, False])
+@pytest.mark.parametrize("user__email", [None, "", "foo@example.org"])
+def test_recipient_type_unnotified_service_users(
+    db, instance, activation, user_group, mocker, notification_template
+):
+    mocker.patch(
+        "camac.constants.kt_uri.CIRCULATION_STATE_IDLE", activation.circulation_state_id
+    )
+
+    class FakeRequest:
+        group = user_group.group
+        user = user_group.user
+
+    # Setup the serializer fully, as the recipient type depends on
+    # some of the request data
+    serializer = serializers.NotificationTemplateSendmailSerializer(
+        data={
+            "template_slug": notification_template.slug,
+            "body": "Test body",
+            "recipient_types": [],
+            "circulation": {"type": "circulations", "id": activation.circulation.pk},
+            "notification_template": {
+                "type": "notification-templates",
+                "id": notification_template.pk,
+            },
+            "instance": {"type": "instances", "id": instance.pk},
+        },
+        context={"request": FakeRequest},
+    )
+    serializer.is_valid()
+    assert not serializer.errors
+    res = serializer._get_recipients_unnotified_service_users(instance)
+
+    if user_group.default_group and user_group.user.email:
+        assert res == [{"to": "foo@example.org"}]
+    else:
+        assert res == []
+
+
+@pytest.mark.parametrize(
+    "recipient_method",
+    ["_get_recipients_koor_np_users", "_get_recipients_koor_bg_users"],
+)
+@pytest.mark.parametrize("user_group__default_group", [True, False])
+@pytest.mark.parametrize("user__email", [None, "", "foo@example.org"])
+def test_recipient_type_koor_users(
+    db, instance, role, recipient_method, mocker, user_group
+):
+
+    mocker.patch("camac.constants.kt_uri.KOOR_BG_ROLE_ID", role.pk)
+    mocker.patch("camac.constants.kt_uri.KOOR_NP_ROLE_ID", role.pk)
+
+    serializer = serializers.NotificationTemplateSendmailSerializer()
+    method = getattr(serializer, recipient_method)
+    res = method(instance)
+
+    if user_group.default_group and user_group.user.email:
+        assert res == [{"to": "foo@example.org"}]
+    else:
+        assert res == []
+
+
+@pytest.mark.parametrize("group__name", ["Lisag"])
+def test_recipient_type_lisag(db, instance, group):
+
+    serializer = serializers.NotificationTemplateSendmailSerializer()
+    res = serializer._get_recipients_lisag(instance)
+    assert res == [{"to": group.email}]
+
+
+@pytest.mark.parametrize(
+    "submitter_type",
+    [
+        serializers.NotificationTemplateSendmailSerializer.SUBMITTER_TYPE_APPLICANT,
+        serializers.NotificationTemplateSendmailSerializer.SUBMITTER_TYPE_PROJECT_AUTHOR,
+        None,
+    ],
+)
+def test_portal_submission_placeholder(
+    db, instance, camac_answer_factory, mocker, submitter_type
+):
+    serializer = InstanceMergeSerializer(instance)
+    if submitter_type is not None:
+        ans_submitter_type = camac_answer_factory(
+            answer=submitter_type, instance=instance
+        )
+        mocker.patch(
+            "camac.notification.serializers.NotificationTemplateSendmailSerializer.SUBMITTER_TYPE_CQI",
+            (
+                ans_submitter_type.chapter_id,
+                # misdirect points us to an invalid answer to test missing data
+                ans_submitter_type.question_id,
+                ans_submitter_type.item,
+            ),
+        )
+    portal_submission = serializer.get_portal_submission(instance)
+    assert portal_submission == (submitter_type is not None)
