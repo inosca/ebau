@@ -8,7 +8,7 @@ export default Component.extend({
   intl: service(),
   fetch: service(),
 
-  export: task(function*() {
+  export: task(function* () {
     try {
       const query = this.get("field.document.rootForm.meta.is-main-form")
         ? ""
@@ -27,5 +27,5 @@ export default Component.extend({
     } catch (error) {
       this.notification.danger(this.intl.t("freigabequittung.downloadError"));
     }
-  })
+  }),
 });

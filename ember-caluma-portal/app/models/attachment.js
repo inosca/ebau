@@ -31,8 +31,8 @@ export default class Attachment extends Model {
         mode: "cors",
         headers: {
           accept: undefined,
-          "content-type": undefined
-        }
+          "content-type": undefined,
+        },
       });
 
       const file = yield response.blob();

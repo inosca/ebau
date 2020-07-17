@@ -4,11 +4,11 @@ import fetch from "fetch";
 
 const CONTENT_TYPE = "application/vnd.api+json";
 
-const cleanObject = obj => {
+const cleanObject = (obj) => {
   return Object.entries(obj).reduce((clean, [key, value]) => {
     return {
       ...clean,
-      ...(isEmpty(value) ? {} : { [key]: value })
+      ...(isEmpty(value) ? {} : { [key]: value }),
     };
   }, {});
 };
@@ -21,7 +21,7 @@ export default class FetchService extends Service {
       ...this.session.headers,
       accept: CONTENT_TYPE,
       "content-type": CONTENT_TYPE,
-      ...(init.headers || {})
+      ...(init.headers || {}),
     });
 
     const response = await fetch(resource, init);

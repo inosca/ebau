@@ -22,7 +22,7 @@ const KEYS_TABLE = [
   KEY_TABLE_BAURECHT,
   KEY_TABLE_EGRID,
   KEY_TABLE_COORD_NORTH,
-  KEY_TABLE_COORD_EAST
+  KEY_TABLE_COORD_EAST,
 ];
 
 const KEY_SIMPLE_MAP = "karte-einfache-vorabklaerung";
@@ -38,11 +38,11 @@ const KEYS_SIMPLE = [
   //KEY_SIMPLE_BAURECHT,
   KEY_SIMPLE_EGRID,
   KEY_SIMPLE_COORD_NORTH,
-  KEY_SIMPLE_COORD_EAST
+  KEY_SIMPLE_COORD_EAST,
 ];
 const KEYS_SIMPLE_HASH = {
   [KEY_SIMPLE_COORD_NORTH]: KEY_TABLE_COORD_NORTH,
-  [KEY_SIMPLE_COORD_EAST]: KEY_TABLE_COORD_EAST
+  [KEY_SIMPLE_COORD_EAST]: KEY_TABLE_COORD_EAST,
 };
 
 const REGEXP_ORIGIN = /^(https?:\/\/[^/]+)/i;
@@ -52,29 +52,29 @@ const FIELD_MAP = {
     path: "gebiet-mit-archaeologischen-objekten",
     values: {
       true: "gebiet-mit-archaeologischen-objekten-ja",
-      false: "gebiet-mit-archaeologischen-objekten-nein"
-    }
+      false: "gebiet-mit-archaeologischen-objekten-nein",
+    },
   },
   BALISKBS_KBS: {
     path: "belasteter-standort",
     values: {
       true: "belasteter-standort-ja",
-      false: "belasteter-standort-nein"
-    }
+      false: "belasteter-standort-nein",
+    },
   },
   BAUINV_BAUINV_VW: {
     path: "handelt-es-sich-um-ein-baudenkmal",
     values: {
       true: "handelt-es-sich-um-ein-baudenkmal-ja",
-      false: "handelt-es-sich-um-ein-baudenkmal-nein"
-    }
+      false: "handelt-es-sich-um-ein-baudenkmal-nein",
+    },
   },
   GK5_SY: {
     path: "gebiet-mit-naturgefahren",
     values: {
       true: "gebiet-mit-naturgefahren-ja",
-      false: "gebiet-mit-naturgefahren-nein"
-    }
+      false: "gebiet-mit-naturgefahren-nein",
+    },
   },
   // The question GSK25_GSK_VW is not present in our form.
   //GSK25_GSK_VW: {},
@@ -84,29 +84,29 @@ const FIELD_MAP = {
       "übriger Bereich üB": "gewaesserschutzbereich-ueb",
       "Gewässerschutzbereich Ao": "gewaesserschutzbereich-ao",
       "Gewässerschutzbereich Au": "gewaesserschutzbereich-au",
-      "Provisorischer Zuströmbereich Zu": "gewaesserschutzbereich-zu"
-    }
+      "Provisorischer Zuströmbereich Zu": "gewaesserschutzbereich-zu",
+    },
   },
   NSG_NSGP: {
     path: "naturschutz",
     values: {
       true: "naturschutz-ja",
-      false: "naturschutz-nein"
-    }
+      false: "naturschutz-nein",
+    },
   },
   UZP_BAU_VW: {
-    path: "nutzungszone"
+    path: "nutzungszone",
   },
   UZP_LSG_VW: {
     path: "objekt-des-besonderen-landschaftsschutzes",
     values: {
       true: "objekt-des-besonderen-landschaftsschutzes-ja",
-      false: "objekt-des-besonderen-landschaftsschutzes-nein"
-    }
+      false: "objekt-des-besonderen-landschaftsschutzes-nein",
+    },
   },
   UZP_UEO_VW: {
-    path: "ueberbauungsordnung"
-  }
+    path: "ueberbauungsordnung",
+  },
 };
 
 /**
@@ -119,7 +119,7 @@ const FIELD_MAP = {
 function reduceArrayValues(data) {
   return data.reduce((result, curr) => {
     [...new Set([...Object.keys(result), ...Object.keys(curr)])].forEach(
-      key => {
+      (key) => {
         if (!curr[key]) {
           curr[key] = result[key];
         } else if (!result[key]) {
@@ -190,13 +190,13 @@ export default class BeGisComponent extends Component {
       // GET FIRST E-GRID NUMBER FOR CURRENT PARCELS
       // Find the table with the parcels.
       const table = this.field.document.fields.find(
-        field => field.question.slug === KEY_TABLE_QUESTION
+        (field) => field.question.slug === KEY_TABLE_QUESTION
       );
       // Find the E-Grid field of the first parcel.
       const rows = table && table.answer.value;
       const field =
         rows &&
-        rows[0].fields.find(field => field.question.slug === KEY_TABLE_EGRID);
+        rows[0].fields.find((field) => field.question.slug === KEY_TABLE_EGRID);
       // Set the selection and egrid variables.
       const selection = field && field.answer.value;
       const egrid = selection ? selection : "EGRID";
@@ -222,8 +222,8 @@ export default class BeGisComponent extends Component {
               "activetools=NAVIGATION VIEW ADDREMOVE FTS",
               "callback_fts_mw=ftsResult",
               "fts_search=true",
-              ...(selection ? [] : ["startmode=FTS"])
-            ])
+              ...(selection ? [] : ["startmode=FTS"]),
+            ]),
       ].join("&");
 
       return `https://www.map.apps.be.ch/pub/client_mapwidget/default.jsp?${search}`;
@@ -318,7 +318,7 @@ export default class BeGisComponent extends Component {
     // Temporary object to store results, will be converted to an array at the end
     const parcels = {};
 
-    features[prop].forEach(coords => {
+    features[prop].forEach((coords) => {
       const projectStatus = coords.keyvalue[project_status_index];
 
       // Keep the value only if the status is "valid"
@@ -342,7 +342,7 @@ export default class BeGisComponent extends Component {
           [KEY_TABLE_BAURECHT]: baurecht_number,
           [KEY_TABLE_EGRID]: coords.keyvalue[egrid_feature_index],
           [KEY_TABLE_COORD_EAST]: parseInt(coords[xProp]),
-          [KEY_TABLE_COORD_NORTH]: parseInt(coords[yProp])
+          [KEY_TABLE_COORD_NORTH]: parseInt(coords[yProp]),
         };
 
         const parcel_key = `${coords[xProp]}.${coords[yProp]}`;
@@ -380,12 +380,12 @@ export default class BeGisComponent extends Component {
   @dropTask
   *populateFields(parcels) {
     const [parcel] = parcels;
-    const fields = this.field.document.fields.filter(field =>
+    const fields = this.field.document.fields.filter((field) =>
       KEYS_SIMPLE.includes(field.question.slug)
     );
 
     yield all(
-      fields.map(async field => {
+      fields.map(async (field) => {
         const slug =
           KEYS_SIMPLE_HASH[field.question.slug] || field.question.slug;
         const value = String(parcel[slug]);
@@ -412,13 +412,13 @@ export default class BeGisComponent extends Component {
   *populateTable(parcels) {
     // Locate the target table for the parcel data.
     const table = this.field.document.fields.find(
-      field => field.question.slug === KEY_TABLE_QUESTION
+      (field) => field.question.slug === KEY_TABLE_QUESTION
     );
 
     // Prepare the mutation to create a new row.
     const mutation = {
       mutation: saveDocumentMutation,
-      variables: { input: { form: KEY_TABLE_FORM } }
+      variables: { input: { form: KEY_TABLE_FORM } },
     };
 
     // Start with an empty set of rows as we currently overwrite previous rows.
@@ -426,7 +426,7 @@ export default class BeGisComponent extends Component {
 
     // Create, populate, and add a new row for each parcel.
     yield all(
-      parcels.map(async parcel => {
+      parcels.map(async (parcel) => {
         const newDocumentRaw = await this.apollo.mutate(
           mutation,
           "saveDocument.document"
@@ -434,16 +434,16 @@ export default class BeGisComponent extends Component {
 
         const newDocument = this.calumaStore.push(
           Document.create(getOwner(this).ownerInjection(), {
-            raw: parseDocument(newDocumentRaw)
+            raw: parseDocument(newDocumentRaw),
           })
         );
 
-        const fields = newDocument.fields.filter(field =>
+        const fields = newDocument.fields.filter((field) =>
           KEYS_TABLE.includes(field.question.slug)
         );
 
         await all(
-          fields.map(async field => {
+          fields.map(async (field) => {
             const { slug } = field.question;
             const value = String(parcel[slug]);
 
@@ -472,16 +472,16 @@ export default class BeGisComponent extends Component {
 
     const responses = yield all(
       parcels.map(
-        async parcel =>
+        async (parcel) =>
           await this.fetch.fetch(`/api/v1/egrid/${parcel[KEY_TABLE_EGRID]}`)
       )
     );
 
-    const success = responses.every(response => response.ok);
+    const success = responses.every((response) => response.ok);
 
     if (success) {
       const raw = yield all(
-        responses.map(res => res.json().then(({ data }) => data))
+        responses.map((res) => res.json().then(({ data }) => data))
       );
 
       Object.entries(FIELD_MAP).forEach(([key, { path, values }]) => {
@@ -497,14 +497,14 @@ export default class BeGisComponent extends Component {
         if (type === "ChoiceQuestion") {
           value = values[value];
           valuePretty = field.question.choiceOptions.edges.find(
-            edge => edge.node.slug === value
+            (edge) => edge.node.slug === value
           ).node.label;
         } else if (type === "MultipleChoiceQuestion") {
           value = Array.isArray(value) ? value : [value];
-          value = value.map(val => values[val]);
+          value = value.map((val) => values[val]);
           valuePretty = field.question.multipleChoiceOptions.edges
-            .filter(edge => edge.node.slug.includes(value))
-            .map(edge => edge.node.label);
+            .filter((edge) => edge.node.slug.includes(value))
+            .map((edge) => edge.node.label);
         } else if (Array.isArray(value)) {
           value = value.join(", ");
           valuePretty = value;

@@ -20,7 +20,7 @@ export default class InstancesNewController extends Controller.extend(
   *forms() {
     const forms = yield this.apollo.query(
       {
-        query: getRootFormsQuery
+        query: getRootFormsQuery,
       },
       "allForms.edges"
     );
@@ -35,7 +35,7 @@ export default class InstancesNewController extends Controller.extend(
       },
       {
         column1: [],
-        column2: []
+        column2: [],
       }
     );
   }
@@ -47,13 +47,13 @@ export default class InstancesNewController extends Controller.extend(
       body: JSON.stringify({
         data: {
           attributes: { "caluma-form": this.selectedForm },
-          type: "instances"
-        }
-      })
+          type: "instances",
+        },
+      }),
     });
 
     const {
-      data: { id: instanceId }
+      data: { id: instanceId },
     } = yield response.json();
 
     yield this.transitionToRoute(

@@ -5,16 +5,16 @@ import { setupApplicationTest } from "ember-qunit";
 import { authenticateSession } from "ember-simple-auth/test-support";
 import { module, test } from "qunit";
 
-module("Acceptance | applicants", function(hooks) {
+module("Acceptance | applicants", function (hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
   setupIntl(hooks);
 
-  hooks.beforeEach(async function() {
+  hooks.beforeEach(async function () {
     // camac data
     const user = this.server.create("user");
     const instance = this.server.create("instance", {
-      calumaForm: "main-form"
+      calumaForm: "main-form",
     });
 
     this.server.create("applicant", { instance });
@@ -25,9 +25,9 @@ module("Acceptance | applicants", function(hooks) {
       document: this.server.create("document", {
         form: this.server.create("form", {
           slug: "main-form",
-          meta: { "is-main-form": true }
-        })
-      })
+          meta: { "is-main-form": true },
+        }),
+      }),
     });
 
     await authenticateSession({ access_token: "123qweasdyxc" });
@@ -35,13 +35,13 @@ module("Acceptance | applicants", function(hooks) {
     await visit(`/instances/${instance.id}/applicants`);
   });
 
-  test("can list applicants", async function(assert) {
+  test("can list applicants", async function (assert) {
     assert.expect(1);
 
     assert.dom("tbody tr").exists({ count: 2 });
   });
 
-  test("can add an applicant", async function(assert) {
+  test("can add an applicant", async function (assert) {
     assert.expect(2);
 
     assert.dom("tbody tr").exists({ count: 2 });
@@ -52,7 +52,7 @@ module("Acceptance | applicants", function(hooks) {
     assert.dom("tbody tr").exists({ count: 3 });
   });
 
-  test("can delete an applicant", async function(assert) {
+  test("can delete an applicant", async function (assert) {
     assert.expect(4);
 
     assert.dom("tbody tr").exists({ count: 2 });
