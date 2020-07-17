@@ -3,8 +3,8 @@ export default function parseError({ errors }) {
 
   return errors
     .filter(
-      error => error.source.pointer.split("/").pop() === "non-field-errors"
+      (error) => error.source.pointer.split("/").pop() === "non-field-errors"
     )
-    .map(error => error.detail)
+    .map((error) => error.detail)
     .join(", ");
 }

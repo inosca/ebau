@@ -36,36 +36,36 @@ export default class ApplicationRouter extends Route.extend(
 
     this.calumaOptions.registerComponentOverride({
       label: "Karte",
-      component: "be-gis"
+      component: "be-gis",
     });
     this.calumaOptions.registerComponentOverride({
       label: "Einreichen Button",
       component: "be-submit-instance",
-      type: "CheckboxQuestion"
+      type: "CheckboxQuestion",
     });
     this.calumaOptions.registerComponentOverride({
       label: "Dokument Formular",
       component: "be-documents-form",
-      type: "FormQuestion"
+      type: "FormQuestion",
     });
     this.calumaOptions.registerComponentOverride({
       label: "Download (PDF)",
       component: "be-download-pdf",
-      type: "StaticQuestion"
+      type: "StaticQuestion",
     });
     this.calumaOptions.registerComponentOverride({
       label: "Nachforderungen Tabelle",
       component: "be-claims-table",
-      type: "TableQuestion"
+      type: "TableQuestion",
     });
     this.calumaOptions.registerComponentOverride({
       label: "Nachforderungen Formular",
       component: "be-claims-form",
-      type: "Form"
+      type: "Form",
     });
     this.calumaOptions.registerComponentOverride({
       label: "Versteckt",
-      component: "be-hidden-input"
+      component: "be-hidden-input",
     });
   }
 }

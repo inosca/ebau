@@ -4,7 +4,7 @@ export default Component.extend({
   didInsertElement(...args) {
     this._super(...args);
 
-    const observer = new IntersectionObserver(entries => {
+    const observer = new IntersectionObserver((entries) => {
       const action = this.getWithDefault("onEnter");
 
       if (action && typeof action === "function") {
@@ -27,5 +27,5 @@ export default Component.extend({
     this._super(...args);
 
     this.observer.disconnect();
-  }
+  },
 });

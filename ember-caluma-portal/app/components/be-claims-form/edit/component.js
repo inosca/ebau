@@ -30,18 +30,18 @@ export default class BeClaimsFormEditComponent extends Component {
   }
 
   get allAttachments() {
-    const byInstance = attachment =>
+    const byInstance = (attachment) =>
       parseInt(attachment.belongsTo("instance").id()) ===
       parseInt(this.args.instanceId);
 
-    const bySection = attachment =>
+    const bySection = (attachment) =>
       attachment
         .hasMany("attachmentSections")
         .ids()
-        .map(id => parseInt(id))
+        .map((id) => parseInt(id))
         .includes(parseInt(this.section));
 
-    const byClaim = attachment =>
+    const byClaim = (attachment) =>
       attachment.context.claimId === this.args.claim.id;
 
     return this.store
@@ -56,8 +56,8 @@ export default class BeClaimsFormEditComponent extends Component {
       return {
         ...obj,
         [bucket]: this.allAttachments.filter(
-          attachment => attachment.question === bucket
-        )
+          (attachment) => attachment.question === bucket
+        ),
       };
     }, {});
   }
@@ -68,7 +68,7 @@ export default class BeClaimsFormEditComponent extends Component {
       instance: this.args.instanceId,
       attachment_sections: this.section,
       context: JSON.stringify({ key: "claimId", value: this.args.claim.id }),
-      include: "attachment_sections"
+      include: "attachment_sections",
     });
   }
 
@@ -91,7 +91,7 @@ export default class BeClaimsFormEditComponent extends Component {
         date: new Date(),
 
         // not relevant for the model
-        blob: file.blob
+        blob: file.blob,
       })
     );
   }
@@ -118,7 +118,7 @@ export default class BeClaimsFormEditComponent extends Component {
   @dropTask
   *uploadAttachments() {
     yield all(
-      this.queue.map(async attachment => {
+      this.queue.map(async (attachment) => {
         const formData = new FormData();
 
         formData.append("instance", attachment.belongsTo("instance").id());
@@ -133,7 +133,7 @@ export default class BeClaimsFormEditComponent extends Component {
         const response = await this.fetch.fetch("/api/v1/attachments", {
           method: "POST",
           body: formData,
-          headers: { "content-type": undefined }
+          headers: { "content-type": undefined },
         });
 
         if (!response.ok) throw new Error();
@@ -160,8 +160,8 @@ export default class BeClaimsFormEditComponent extends Component {
       [
         this.args.claim.answered,
         this.args.claim.status,
-        this.args.claim.comment
-      ].map(async field => {
+        this.args.claim.comment,
+      ].map(async (field) => {
         await field.validate.perform();
         await field.save.perform();
       })

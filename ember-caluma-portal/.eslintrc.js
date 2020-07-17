@@ -1,3 +1,3 @@
 module.exports = {
-  extends: "@adfinis-sygroup/eslint-config/ember-app"
+  extends: "@adfinis-sygroup/eslint-config/ember-app",
 };

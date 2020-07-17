@@ -21,16 +21,16 @@ export default InViewportComponent.extend({
 
   invalidFields: computed(
     "field.document.fields.@each.{optional,hidden,isInvalid}",
-    function() {
+    function () {
       return this.field.document.fields.filter(
-        field => !field.hidden && !field.optional && field.isInvalid
+        (field) => !field.hidden && !field.optional && field.isInvalid
       );
     }
   ),
 
-  validate: task(function*() {
+  validate: task(function* () {
     yield all(
-      this.field.document.fields.map(field => field.validate.perform())
+      this.field.document.fields.map((field) => field.validate.perform())
     );
   }).restartable(),
 
@@ -38,7 +38,7 @@ export default InViewportComponent.extend({
     "disabled",
     "validate.{performCount,isRunning}",
     "invalidFields.length",
-    function() {
+    function () {
       return (
         this.disabled ||
         this.validate.performCount === 0 ||
@@ -48,7 +48,7 @@ export default InViewportComponent.extend({
     }
   ),
 
-  submit: task(function*() {
+  submit: task(function* () {
     // mark instance as submitted (optimistic) because after submitting, answer cannot be saved anymore
     this.field.set(
       "answer.value",
@@ -72,7 +72,7 @@ export default InViewportComponent.extend({
 
       if (!camacResponse.ok) {
         throw {
-          errors: [new Error(this.intl.t("be-submit-instance.failed-camac"))]
+          errors: [new Error(this.intl.t("be-submit-instance.failed-camac"))],
         };
       }
 
@@ -82,7 +82,7 @@ export default InViewportComponent.extend({
     } catch (e) {
       // eslint-disable-next-line no-console
       console.error(e);
-      const reasons = (e.errors || []).map(e => e.message).join("<br>\n");
+      const reasons = (e.errors || []).map((e) => e.message).join("<br>\n");
       this.notification.danger(
         this.intl.t("be-submit-instance.failed-message", { reasons })
       );
@@ -90,5 +90,5 @@ export default InViewportComponent.extend({
       this.field.set("answer.value", null);
       yield this.field.save.perform();
     }
-  }).drop()
+  }).drop(),
 });

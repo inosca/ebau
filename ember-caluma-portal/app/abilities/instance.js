@@ -33,7 +33,7 @@ export default class InstanceAbility extends Ability {
     return !!(
       this.session.group &&
       (this.session.groups || []).find(
-        group => group.canCreatePaper && group.id === this.session.group
+        (group) => group.canCreatePaper && group.id === this.session.group
       )
     );
   }
@@ -49,7 +49,8 @@ export default class InstanceAbility extends Ability {
       !this.session.isInternal &&
       // must be an applicant
       (this.get("model.involvedApplicants") || []).find(
-        applicant => applicant.get("invitee.id") === this.get("session.user.id")
+        (applicant) =>
+          applicant.get("invitee.id") === this.get("session.user.id")
       )
     );
   }
@@ -80,7 +81,7 @@ export default class InstanceAbility extends Ability {
       ![
         config.ebau.instanceStates.new,
         config.ebau.instanceStates.finished,
-        config.ebau.instanceStates.archived
+        config.ebau.instanceStates.archived,
       ].includes(state)
     );
   }

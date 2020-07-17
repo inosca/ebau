@@ -8,11 +8,11 @@ import { dropTask } from "ember-concurrency-decorators";
 import moment from "moment";
 
 function field(fieldName) {
-  return function() {
+  return function () {
     return {
       get() {
         return this.document.findField(fieldName);
-      }
+      },
     };
   };
 }
@@ -33,7 +33,7 @@ class Claim extends EmberObject {
   get isAnswered() {
     return [
       "nfd-tabelle-status-beantwortet",
-      "nfd-tabelle-status-erledigt"
+      "nfd-tabelle-status-erledigt",
     ].includes(this.statusSlug);
   }
 
@@ -67,22 +67,22 @@ export default class BeClaimsFormComponent extends CfFormComponent {
   get allClaims() {
     const table = this.fieldset.document.findField("nfd-tabelle-table");
 
-    return table.answer.value.map(document => {
+    return table.answer.value.map((document) => {
       return Claim.create(getOwner(this).ownerInjection(), { document });
     });
   }
 
   get claims() {
     return {
-      pending: this.allClaims.filter(claim =>
+      pending: this.allClaims.filter((claim) =>
         ["nfd-tabelle-status-in-bearbeitung"].includes(claim.statusSlug)
       ),
-      answered: this.allClaims.filter(claim =>
+      answered: this.allClaims.filter((claim) =>
         [
           "nfd-tabelle-status-beantwortet",
-          "nfd-tabelle-status-erledigt"
+          "nfd-tabelle-status-erledigt",
         ].includes(claim.statusSlug)
-      )
+      ),
     };
   }
 
@@ -90,8 +90,8 @@ export default class BeClaimsFormComponent extends CfFormComponent {
   *fetchServices() {
     yield this.store.query("public-service", {
       service_id: [
-        ...new Set(this.allClaims.map(claim => claim.authority.answer.value))
-      ].join(",")
+        ...new Set(this.allClaims.map((claim) => claim.authority.answer.value)),
+      ].join(","),
     });
   }
 

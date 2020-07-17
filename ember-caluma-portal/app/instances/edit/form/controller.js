@@ -9,8 +9,8 @@ import QueryParams from "ember-parachute";
 const queryParams = new QueryParams({
   displayedForm: {
     defaultValue: "",
-    refresh: true
-  }
+    refresh: true,
+  },
 });
 
 export default class InstancesEditFormController extends Controller.extend(
@@ -41,7 +41,7 @@ export default class InstancesEditFormController extends Controller.extend(
       {
         query: getInstanceCaseQuery,
         fetchPolicy: "network-only",
-        variables: { instanceId: this.instanceId }
+        variables: { instanceId: this.instanceId },
       },
       "allCases.edges.firstObject.node"
     );
