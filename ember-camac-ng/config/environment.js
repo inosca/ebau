@@ -8,6 +8,13 @@ module.exports = function(environment) {
     rootElement: "#ember-camac-ng",
     locationType: "hash",
     podModulePrefix: "camac-ng/ui",
+    apollo: {
+      apiURL: "/graphql/"
+    },
+    moment: {
+      includeLocales: ["de", "fr"],
+      allowEmpty: true
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

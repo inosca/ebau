@@ -1,0 +1,12 @@
+mutation saveWorkItem($input: SaveWorkItemInput!) {
+  saveWorkItem(
+    input: $input
+  ) {
+    clientMutationId
+    workItem {
+      id
+      assignedUsers
+      meta
+    }
+  }
+}
