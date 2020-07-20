@@ -141,7 +141,7 @@ services:
     #
     # https://github.com/unoconv/unoconv/issues/241#issuecomment-549434601
     # https://superuser.com/questions/564534/only-root-user-is-able-to-open-libreoffice
-    user: "${UID:?Set UID env variable to your user id}"
+    # user: "${UID:?Set UID env variable to your user id}"
     command:
       [
         "/bin/sh",
