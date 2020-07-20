@@ -1,6 +1,6 @@
 <div class="uk-grid-collapse" uk-grid>
   <div class="uk-width-1-3">
-    <h3 class="instance-overview__title">{{t "instances.masterData"}}</h3>
+    <h2 class="instance-overview__title">{{t "instances.masterData"}}</h2>
   </div>
   <div class="uk-width-2-3">
     <table class="uk-table uk-table-justify uk-table-small instance-overview__info-table">
@@ -49,7 +49,7 @@
         </tr>
         <tr>
           {{! TODO: Druckansicht }}
-          <th></th>
+          <td></td>
           <td></td>
           <th class="uk-text-bold">
             {{t "instances.buildingSpecification"}}
@@ -65,11 +65,11 @@
 
 <div class="uk-grid-collapse" uk-grid>
   <div class="uk-width-1-3">
-    <h3 class="instance-overview__title">{{t "instances.actions"}}</h3>
+    <h2 class="instance-overview__title">{{t "instances.actions"}}</h2>
   </div>
   <div class="uk-width-2-3">
     {{#if (can "create copy of instance" this.instance)}}
-      <h4>{{t "instances.rejectionTitle"}}</h4>
+      <h3 class="instance-overview__action-title">{{t "instances.rejectionTitle"}}</h3>
       <p>{{t "instances.rejectionText"}}</p>
       <UkButton
         @on-click={{perform this.createCopy}}
@@ -79,7 +79,7 @@
     {{/if}}
 
     {{#if (can "create modification of instance" this.instance)}}
-      <h4>{{t "instances.modificationTitle"}}</h4>
+      <h3 class="instance-overview__action-title">{{t "instances.modificationTitle"}}</h3>
       <p>{{t "instances.modificationText"}}</p>
       <UkButton
         @on-click={{perform this.createModification}}
@@ -89,7 +89,7 @@
     {{/if}}
 
     {{#if (can "write form of instance" this.instance form=(hash slug="main"))}}
-      <h4>{{t "instances.furtherProcessingOfForm"}}</h4>
+      <h3 class="instance-overview__action-title">{{t "instances.furtherProcessingOfForm"}}</h3>
       <p>{{t "instances.furtherProcessingOfFormText"}}</p>
       <LinkTo @route="instances.edit.form" @model={{this.instance.mainForm.slug}} class="uk-button uk-button-default">
         {{t "instances.processingOfForm"}}
@@ -97,7 +97,7 @@
     {{/if}}
 
     {{#if (can "write form of instance" this.instance form=(hash slug="sb1"))}}
-      <h4>{{t "instances.processingOfFormSb1"}}</h4>
+      <h3 class="instance-overview__action-title">{{t "instances.processingOfFormSb1"}}</h3>
       <p>{{t "instances.processingOfFormSb1Text"}}</p>
       <LinkTo @route="instances.edit.form" @model="sb1" class="uk-button uk-button-default">
         {{t "instances.processingOfFormSb1"}}
@@ -105,19 +105,19 @@
     {{/if}}
 
     {{#if (can "write form of instance" this.instance form=(hash slug="sb2"))}}
-      <h4>{{t "instances.processingOfFormSb2"}}</h4>
+      <h3 class="instance-overview__action-title">{{t "instances.processingOfFormSb2"}}</h3>
       <p>{{t "instances.processingOfFormSb2Text"}}</p>
       <LinkTo @route="instances.edit.form" @model="sb2" class="uk-button uk-button-default">
         {{t "instances.processingOfFormSb2"}}
       </LinkTo>
     {{/if}}
 
-    <h4>{{t "instances.activateFurtherPersons"}}</h4>
+    <h3 class="instance-overview__action-title">{{t "instances.activateFurtherPersons"}}</h3>
     <p>{{t "instances.activateFurtherPersonsText"}}</p>
     <LinkTo @route="instances.edit.applicants" class="uk-button uk-button-default">{{t "instances.managePermissions"}}</LinkTo>
 
     {{#if (can "delete instance" this.instance)}}
-      <h4>{{t "instances.deleteInstance"}}</h4>
+      <h3 class="instance-overview__action-title">{{t "instances.deleteInstance"}}</h3>
       <p>{{t "instances.deleteInstanceText"}}</p>
       <UkButton
         @on-click={{perform this.deleteInstance this.instance}}
@@ -132,10 +132,10 @@
 
 <div class="uk-grid-collapse" uk-grid>
   <div class="uk-width-1-3">
-    <h3 class="instance-overview__title">
+    <h2 class="instance-overview__title">
       {{t "nav.feedback"}}
       {{#if this.feedback}}<UkBadge @label={{this.feedback.length}} class="uk-margin-small-left" />{{/if}}
-    </h3>
+    </h2>
   </div>
   <div class="uk-width-2-3">
     {{#if this.feedback}}
@@ -151,10 +151,10 @@
 
 <div class="uk-grid-collapse" uk-grid>
   <div class="uk-width-1-3">
-    <h3 class="instance-overview__title">
+    <h2 class="instance-overview__title">
       {{t "nav.decision"}}
       {{#if this.decision}}<UkBadge @label={{this.decision.length}} class="uk-margin-small-left" />{{/if}}
-    </h3>
+    </h2>
   </div>
   <div class="uk-width-2-3">
     <BeAttachmentList @loading={{this.decisionLoading}} @attachments={{this.decision}} />
