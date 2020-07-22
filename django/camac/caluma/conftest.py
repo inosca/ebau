@@ -36,5 +36,5 @@ def caluma_admin_request(rf, caluma_admin_user):
 @pytest.fixture
 def caluma_admin_schema_executor(caluma_admin_request):
     return functools.partial(
-        schema.execute, context=caluma_admin_request, middleware=[]
+        schema.execute, context_value=caluma_admin_request, middleware=[]
     )
