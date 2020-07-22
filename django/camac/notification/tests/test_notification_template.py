@@ -543,8 +543,8 @@ def test_notification_caluma_placeholders(
         .strip()
         .split("\n")
     ] == [
-        l.strip()
-        for l in [
+        line.strip()
+        for line in [
             "BASE_URL: http://camac-ng.local",
             "EBAU_NUMBER: 2019-01",
             "FORM_NAME: Baugesuch",

@@ -75,10 +75,14 @@ def get_gis_data(multisurface):
     ]
 
     boolean_layers = [
-        l for l in all_boolean_layers if l not in settings.GIS_SKIP_BOOLEAN_LAYERS
+        layer
+        for layer in all_boolean_layers
+        if layer not in settings.GIS_SKIP_BOOLEAN_LAYERS
     ]
     special_layers = [
-        l for l in all_special_layers if l not in settings.GIS_SKIP_SPECIAL_LAYERS
+        layer
+        for layer in all_special_layers
+        if layer not in settings.GIS_SKIP_SPECIAL_LAYERS
     ]
     print(boolean_layers)
 
