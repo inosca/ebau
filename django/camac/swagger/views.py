@@ -224,7 +224,7 @@ POST_TABLE_DATA = [
 
 
 def get_swagger_description():
-    with open(str(settings.ROOT_DIR(f"camac/echbern/docs/NOTES.md")), "r") as myfile:
+    with open(str(settings.ROOT_DIR("camac/echbern/docs/NOTES.md")), "r") as myfile:
         desc = myfile.read()
 
     get_messages = tabulate(GET_TABLE_DATA, GET_TABLE_HEADERS, tablefmt="github")

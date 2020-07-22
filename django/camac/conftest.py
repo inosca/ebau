@@ -226,7 +226,7 @@ def clear_cache():
 def unoconv_pdf_mock(requests_mock):
     requests_mock.register_uri(
         "POST",
-        build_url(settings.UNOCONV_URL, f"/unoconv/pdf"),
+        build_url(settings.UNOCONV_URL, "/unoconv/pdf"),
         content=django_file("multiple-pages.pdf").read(),
     )
 
@@ -235,6 +235,6 @@ def unoconv_pdf_mock(requests_mock):
 def unoconv_invalid_mock(requests_mock):
     requests_mock.register_uri(
         "POST",
-        build_url(settings.UNOCONV_URL, f"/unoconv/invalid"),
+        build_url(settings.UNOCONV_URL, "/unoconv/invalid"),
         status_code=status.HTTP_400_BAD_REQUEST,
     )
