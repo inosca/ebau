@@ -119,7 +119,7 @@ def test_document_visibility_filter(
             }
         }
     """
-    result = schema.execute(query, context=request, middleware=[])
+    result = schema.execute(query, context_value=request, middleware=[])
 
     assert not result.errors
     assert len(result.data["allDocuments"]["edges"]) == 1
@@ -135,7 +135,7 @@ def test_document_visibility_filter(
             }
         }
     """
-    cases_result = schema.execute(cases_query, context=request, middleware=[])
+    cases_result = schema.execute(cases_query, context_value=request, middleware=[])
 
     assert not cases_result.errors
     assert len(cases_result.data["allCases"]["edges"]) == 1
