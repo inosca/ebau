@@ -54,8 +54,19 @@ def test_loadconfig(db, settings, application, tmpdir):
         stdout=open(os.devnull, "w"),
     )
 
-    def sort_fixture(fixture):
-        return sorted(fixture, key=lambda k: (k["model"], k["pk"]))
+    def sort_fixture(fixture, unordered_fields=[]):
+        fixture = sorted(fixture, key=lambda k: (k["model"], k["pk"]))
+
+        if not unordered_fields:
+            return fixture
+
+        # make lists insensitive to order
+        for entry in fixture:
+            for field in unordered_fields:
+                if field in entry["fields"]:
+                    entry["fields"][field] = set(entry["fields"][field])
+
+        return fixture
 
     config = settings.APPLICATION_DIR.file("config.json")
     dumped_config_json = json.loads(dumped_config.read())
@@ -84,9 +95,9 @@ def test_loadconfig(db, settings, application, tmpdir):
         assert sort_fixture(dumped_config_caluma_form_json) == sort_fixture(
             config_caluma_form_json
         )
-        assert sort_fixture(dumped_config_caluma_workflow_json) == sort_fixture(
-            config_caluma_workflow_json
-        )
+        assert sort_fixture(
+            dumped_config_caluma_workflow_json, unordered_fields=["allow_forms"]
+        ) == sort_fixture(config_caluma_workflow_json, unordered_fields=["allow_forms"])
 
         data_caluma_form = settings.APPLICATION_DIR.file("data-caluma-form.json")
         dumped_data_caluma_form_json = json.loads(dumped_data_caluma_form.read())
