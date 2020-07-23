@@ -12,6 +12,9 @@ module.exports = function (defaults) {
       plugins: ["@babel/plugin-proposal-object-rest-spread"],
     },
     SRI: { enabled: false },
+    emberApolloClient: {
+      keepGraphqlFileExtension: false,
+    },
   });
 
   // intersection observer polyfill
