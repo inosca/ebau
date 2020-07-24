@@ -181,6 +181,8 @@ pure_config_models = [
     # history
     "core.HistoryActionConfig",
     "core.HistoryActionConfigT",
+    # work item action
+    "core.ActionWorkitem",
 ]
 
 # List of models that have foreign keys referencing non-config tables

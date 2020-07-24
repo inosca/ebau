@@ -4238,3 +4238,28 @@ class HistoryActionConfigT(models.Model):
     class Meta:
         managed = True
         db_table = "HISTORY_ACTION_CONFIG_T"
+
+
+class ActionWorkitem(models.Model):
+    PROCESS_TYPE_COMPLETE = "complete"
+    PROCESS_TYPE_SKIP = "skip"
+
+    PROCESS_TYPES = tuple((t, t) for t in (PROCESS_TYPE_COMPLETE, PROCESS_TYPE_SKIP))
+
+    action = models.OneToOneField(
+        "Action",
+        models.CASCADE,
+        db_column="ACTION_ID",
+        primary_key=True,
+        related_name="+",
+    )
+    task = models.CharField(db_column="TASK", max_length=255)
+    process_type = models.CharField(
+        db_column="PROCESS_TYPE", max_length=10, choices=PROCESS_TYPES
+    )
+    process_all = models.BooleanField(db_column="PROCESS_ALL", default=False)
+    is_activation = models.BooleanField(db_column="IS_ACTIVATION", default=False)
+
+    class Meta:
+        managed = True
+        db_table = "ACTION_WORKITEM"
