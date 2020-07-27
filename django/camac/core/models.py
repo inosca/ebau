@@ -1,3 +1,5 @@
+import json
+
 from django.conf import settings
 from django.db import models
 from django.utils import translation
@@ -745,10 +747,30 @@ class Answer(models.Model):
         to raise an exception by passing `fail_on_not_found=True`. You can also
         pass in another fallback value by passing `default=your_value`.
         """
+
+        def _json_valid_or_none(data):
+            try:
+                return json.loads(data)
+            except json.decoder.JSONDecodeError:
+                return None
+
         try:
-            return Answer.objects.get(
+            ans = Answer.objects.get(
                 instance=instance, question=question, chapter=chapter, item=item
-            ).answer
+            )
+            option_values = _json_valid_or_none(ans.answer)
+            if option_values and ans.question.answerlist.exists():
+                # make the extra effort to get the correct ordering
+                option_labels = {
+                    vl.value: vl.get_name()
+                    for vl in ans.question.answerlist.all().filter(
+                        value__in=option_values
+                    )
+                }
+                return "; ".join(option_labels.get(val, "") for val in option_values)
+            else:
+                return ans.answer
+
         except Answer.DoesNotExist:
             if fail_on_not_found:
                 raise
