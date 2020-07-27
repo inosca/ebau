@@ -86,13 +86,13 @@ def caluma_forms(settings):
     caluma_form_models.QuestionOption.objects.create(
         question=question,
         option=caluma_form_models.Option.objects.create(
-            slug=f"baubeschrieb-erweiterung-anbau", label="Erweiterung Anbau"
+            slug="baubeschrieb-erweiterung-anbau", label="Erweiterung Anbau"
         ),
     )
     caluma_form_models.QuestionOption.objects.create(
         question=question,
         option=caluma_form_models.Option.objects.create(
-            slug=f"baubeschrieb-um-ausbau", label="Um- oder Ausbau"
+            slug="baubeschrieb-um-ausbau", label="Um- oder Ausbau"
         ),
     )
     question = caluma_form_models.Question.objects.create(
