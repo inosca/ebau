@@ -102,7 +102,7 @@ class BaseEventHandler:
             # fallback to active_service might not work (and return
             # None). This needs to be caught
             logger.error(f"Instance {self.instance.pk} has no active_service and")
-            logger.error(f"no receiver given. Cannot store eCH message!")
+            logger.error("no receiver given. Cannot store eCH message!")
             logger.error(f"eCH Message content: {xml}")
             return
 
