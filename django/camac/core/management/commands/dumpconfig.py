@@ -254,10 +254,6 @@ models_referencing_data_caluma_workflow = [
     "caluma_workflow.Task",
     "caluma_workflow.TaskFlow",
     "caluma_workflow.Flow",
-    "caluma_workflow.HistoricalWorkflow",
-    "caluma_workflow.HistoricalTask",
-    "caluma_workflow.HistoricalTaskFlow",
-    "caluma_workflow.HistoricalFlow",
 ]
 
 # exclude models which are managed by the customer alone from sync
