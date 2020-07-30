@@ -28,7 +28,7 @@ from camac.core.translations import get_translations
 from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import HistoryEntry, HistoryEntryT, Instance
 from camac.instance.validators import transform_coordinates
-from camac.user.models import Group, Role, Service, User, UserGroup
+from camac.user.models import Group, Role, Service, UserGroup
 from camac.utils import flatten
 
 from ..core import models as core_models
@@ -517,19 +517,19 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
 
         return [{"to": ans}]
 
-    def _get_recipients_municipality_users(self, instance):
+    def _group_service_recipients(self, groups):
+        def _extract():
+            for group in groups.filter(service__email__contains="@"):
+                yield from group.service.email.split(",")
 
+        return [{"to": email} for email in _extract()]
+
+    def _get_recipients_municipality_users(self, instance):
+        """Email addresses on the municipality's service email list."""
         groups = Group.objects.filter(
             locations=instance.location, role=uri_constants.ROLE_MUNICIPALITY
         )
-        users = User.objects.filter(
-            email__contains="@",
-            disabled=0,
-            pk__in=UserGroup.objects.filter(group__in=groups, default_group=1).values(
-                "user"
-            ),
-        )
-        return [{"to": user.email} for user in users]
+        return self._group_service_recipients(groups)
 
     def _get_recipients_unnotified_service_users(self, instance):
         circulation = self.validated_data["circulation"]
@@ -539,36 +539,30 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
 
         services = Service.objects.filter(pk__in=activations.values("service_id"))
 
-        groups = Group.objects.filter(service__in=services)
-        users = User.objects.filter(
-            email__contains="@",
-            disabled=0,
-            pk__in=UserGroup.objects.filter(group__in=groups, default_group=1).values(
-                "user"
-            ),
-        )
-        return [{"to": user.email} for user in users]
+        return [
+            {"to": email}
+            for value in services.values_list("email", flat=True)
+            if value
+            for email in value.split(",")
+        ]
 
     def _get_recipients_koor_np_users(self, instance):
-
-        users = User.objects.filter(
-            email__contains="@",
-            disabled=0,
-            pk__in=UserGroup.objects.filter(
-                default_group=1, group__role_id=uri_constants.KOOR_NP_ROLE_ID
-            ).values("user"),
+        return self._group_service_recipients(
+            Group.objects.filter(
+                pk__in=UserGroup.objects.filter(
+                    group__role_id=uri_constants.KOOR_NP_ROLE_ID
+                ).values("group")
+            )
         )
-        return [{"to": user.email} for user in users]
 
     def _get_recipients_koor_bg_users(self, instance):
-        users = User.objects.filter(
-            email__contains="@",
-            disabled=0,
-            pk__in=UserGroup.objects.filter(
-                default_group=1, group__role_id=uri_constants.KOOR_BG_ROLE_ID
-            ).values("user"),
+        return self._group_service_recipients(
+            Group.objects.filter(
+                pk__in=UserGroup.objects.filter(
+                    group__role_id=uri_constants.KOOR_BG_ROLE_ID
+                ).values("group")
+            )
         )
-        return [{"to": user.email} for user in users]
 
     def _get_recipients_lisag(self, instance):
         groups = Group.objects.filter(name="Lisag")
