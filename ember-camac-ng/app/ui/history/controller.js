@@ -5,16 +5,13 @@ import { dropTask, lastValue } from "ember-concurrency-decorators";
 export default class HistoryController extends Controller {
   @service store;
 
-  get entries() {
-    return (this.fetchedEntries || []).sortBy("creationDate").reverse();
-  }
-
-  @lastValue("fetchEntries") fetchedEntries;
+  @lastValue("fetchEntries") entries;
   @dropTask
   *fetchEntries() {
     return yield this.store.query("history-entry", {
       instance: this.model.id,
-      include: "user"
+      include: "user",
+      sort: "-created_at"
     });
   }
 }
