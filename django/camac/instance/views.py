@@ -533,6 +533,7 @@ class HistoryEntryView(
     filterset_class = filters.HistoryEntryFilterSet
     queryset = models.HistoryEntry.objects.all()
     group_required = False
+    ordering_fields = ("created_at",)
 
     def get_base_queryset(self):
         queryset = super().get_base_queryset()
