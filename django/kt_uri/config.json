@@ -6513,7 +6513,7 @@
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "template": "zirkulation-gestartet2"
+      "template": "zirkulation-gestartet1"
     },
     "model": "core.anotification",
     "pk": 835
@@ -51168,7 +51168,7 @@
   },
   {
     "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nNEUE PENDENZ\nDie Zirkulation der Instanz {{INSTANCE_ID}} wurde gestartet\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\n\nBEARBEITUNG IM CAMAC\n- Upload Verf\u00fcgung / Stellungnahme (bitte Scan - Dokument inkl. Unterschrift hochladen).\n- Kurzantwort ausw\u00e4hlen.\n- Art der Sachbearbeitung ausw\u00e4hlen.\n- Kurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde erfassen.\n- Geb\u00fchren erfassen.\n- Senden\n\nAKTENNACHFORDERUNG\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern. Dazu setzen Sie das Dossier in den Status NFD (Button \u00abNachforderung\u00bb). Im daf\u00fcr vorgesehenen Feld bitte eintragen, bei wem, welche Unterlagen nachgefordert wurden. Dossier im Status NFD (Pendenz beim Gesuchsteller) werden blau hinterlegt.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel.  041 875 24 29\nE-Mail: raumplanung@ur.ch",
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nNEUE PENDENZ\nEine Zirkulation des Dossiers {{DOSSIER_NR}} wurde gestartet.\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\n\nSie k\u00f6nnen das Dossier mit folgendem Link direkt \u00f6ffnen:\n{{INTERNAL_DOSSIER_LINK}}\n\nInformationen zum Gesuch:\n- Gesuchsteller: {{GESUCHSTELLER}}\n- Vorhaben: {{VORHABEN}}\n- Parzelle: {{PARZELLE}}\n\nBEARBEITUNG IM CAMAC\n- Upload Verf\u00fcgung / Stellungnahme (bitte Scan - Dokument inkl. Unterschrift hochladen).\n- Kurzantwort ausw\u00e4hlen.\n- Art der Sachbearbeitung ausw\u00e4hlen.\n- Kurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde erfassen.\n- Geb\u00fchren erfassen.\n- Senden\n\nAKTENNACHFORDERUNG\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern. Dazu setzen Sie das Dossier in den Status NFD (Button \u00abNachforderung\u00bb). Im daf\u00fcr vorgesehenen Feld bitte eintragen, bei wem, welche Unterlagen nachgefordert wurden. Dossier im Status NFD (Pendenz beim Gesuchsteller) werden blau hinterlegt.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel.  041 875 24 29\nE-Mail: raumplanung@ur.ch",
       "purpose": "Zirkulation gestartet - Koordinationsstelle Baugesuche BG",
       "service": null,
       "slug": "zirkulation-gestartet1",
@@ -51189,18 +51189,6 @@
     },
     "model": "notification.notificationtemplate",
     "pk": 792
-  },
-  {
-    "fields": {
-      "body": "Die Zirkulation der Instanz {{INSTANCE_ID}} wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN\r\n\r\n-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)\r\n-  Kurzantwort ausw\u00e4hlen (speichern)\r\n-  Art der Sachbearbeitung ausw\u00e4hlen (speichern)\r\n-  Senden\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern und uns gleichzeitig dar\u00fcber in Kenntnis zu setzen (mail).\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Raumentwicklung\r\nKoordinationsstelle f\u00fcr Baueingaben\r\nRathausplatz 5\r\n6460 Altdorf\r\n\r\nTel.  041 875 24 24\r\nFax: 041 875 24 25\r\nE-Mail: paul.walker@ur.ch",
-      "purpose": "Zirkulation gestartet - Koordinationsstelle Baugesuche BG",
-      "service": null,
-      "slug": "zirkulation-gestartet2",
-      "subject": "Zirkulation gestartet",
-      "type": "email"
-    },
-    "model": "notification.notificationtemplate",
-    "pk": 835
   },
   {
     "fields": {
