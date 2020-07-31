@@ -47,11 +47,12 @@ def migrate_instance_user(apps, schema_editor):
         Instance = apps.get_model("instance", "Instance")
         instances = Instance.objects.all().iterator()
         for instance in instances:
+            email = instance.user.email or ""
             instance.involved_applicants.create(
                 user=instance.user,
                 invitee=instance.user,
                 created=timezone.now(),
-                email=instance.user.email,
+                email=email,
             )
 
 
