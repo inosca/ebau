@@ -1,5 +1,4 @@
 from django.contrib.auth import get_user_model
-from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
 from django.utils.translation import gettext as _
 from rest_framework.exceptions import ValidationError
 from rest_framework_json_api import relations, serializers
@@ -21,17 +20,12 @@ class ApplicantSerializer(serializers.ModelSerializer, InstanceEditableMixin):
     included_serializers = {"invitee": UserSerializer, "user": UserSerializer}
 
     def validate(self, data):
-        try:
-            data["invitee"] = get_user_model().objects.get(
-                disabled=False, email=data["email"]
-            )
-        except ObjectDoesNotExist:
-            data["invitee"] = None
-        except MultipleObjectsReturned:
-            raise ValidationError(
-                _("There is more than one user with the email '%(email)s'")
-                % {"email": data["email"]}
-            )
+        User = get_user_model()
+        data["email"] = data["email"].lower()
+
+        data["invitee"] = User.objects.filter(
+            email=data["email"], disabled=False
+        ).first()
 
         if data["instance"].involved_applicants.filter(email=data["email"]).exists():
             raise ValidationError(
