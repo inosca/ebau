@@ -1,4 +1,5 @@
 import functools
+import random
 from datetime import date, datetime
 from time import mktime
 
@@ -834,3 +835,73 @@ def test_portal_submission_placeholder(
         )
     portal_submission = serializer.get_portal_submission(instance)
     assert portal_submission == (submitter_type is not None)
+
+
+@pytest.mark.parametrize("service__email", ["test@example.com"])
+@pytest.mark.parametrize("role__name", ["support"])
+@pytest.mark.parametrize(
+    "notification_template__body",
+    ["parz={{parzelle}}, gs={{GESUCHSTELLER}}, vorhaben={{vorhaben}}"],
+)
+def test_first_available_answer(
+    admin_client,
+    db,
+    instance,
+    camac_answer_factory,
+    instance_service,
+    mocker,
+    camac_question_factory,
+    notification_template,
+    mailoutbox,
+    settings,
+):
+    parzelle_questions = camac_question_factory.create_batch(3)
+    gesuchsteller_questions = camac_question_factory.create_batch(2)
+    q_vorhaben = camac_question_factory()
+    q_vorhaben.answerlist.create(name="foo", value=55, sort=1)
+    q_vorhaben.answerlist.create(name="bar", value=99, sort=2)
+
+    ans_vorhaben = camac_answer_factory(
+        answer='["55","99"]', instance=instance, question=q_vorhaben
+    )
+    ans_parzelle = camac_answer_factory(
+        answer="asdf", question=random.choice(parzelle_questions), instance=instance
+    )
+    # we don't do ans_gesuchsteller, just to see if "no-answer" fallback works
+
+    mocker.patch(
+        "camac.constants.kt_uri.CQI_FOR_VORHABEN",
+        [(ans_vorhaben.chapter_id, ans_vorhaben.question_id, ans_vorhaben.item)],
+    )
+    mocker.patch(
+        "camac.constants.kt_uri.CQI_FOR_PARZELLE",
+        [(ans_parzelle.chapter_id, question.pk, 1) for question in parzelle_questions],
+    )
+    mocker.patch(
+        "camac.constants.kt_uri.CQI_FOR_GESUCHSTELLER",
+        [
+            # fake chapter ID and item, we expect this not to be found
+            (9999, question.pk, 99)
+            for question in gesuchsteller_questions
+        ],
+    )
+
+    sendmail_serializer = PermissionlessNotificationTemplateSendmailSerializer(
+        data={
+            "recipient_types": ["leitbehoerde"],
+            "notification_template": {
+                "type": "notification-templates",
+                "id": notification_template.pk,
+            },
+            "instance": {"id": instance.pk, "type": "instances"},
+        }
+    )
+    sendmail_serializer.is_valid(raise_exception=True)
+    sendmail_serializer.save()
+
+    assert len(mailoutbox) == 1
+    # TODO assert mail message's body
+    assert (
+        mailoutbox[0].body
+        == f"{settings.EMAIL_PREFIX_BODY}parz={ans_parzelle.answer}, gs=, vorhaben=foo; bar"
+    )

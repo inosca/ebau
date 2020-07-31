@@ -34,3 +34,4 @@ requests-mock==1.8.0
 snapshottest==0.5.1
 web-pdb==1.5.3
 Werkzeug==1.0.1
+pytest-testmon==1.0.2
