@@ -22,8 +22,11 @@ def migrate_instance_location(apps, schema_editor):
 
         instances = Instance.objects.all().iterator()
         for instance in instances:
-            instance.location = InstanceLocation.objects.get(instance=instance).location
-            instance.save()
+            try:
+                instance.location = InstanceLocation.objects.get(instance=instance).location
+                instance.save()
+            except InstanceLocation.DoesNotExist:
+                print(f"Instance {instance.pk} does not have a INSTANCE_LOCATION entry.")
 
 
 def migrate_instance_user(apps, schema_editor):
