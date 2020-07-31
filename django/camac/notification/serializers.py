@@ -102,6 +102,10 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     billing_total = serializers.SerializerMethodField()
     my_activations = serializers.SerializerMethodField()
 
+    vorhaben = serializers.SerializerMethodField()
+    parzelle = serializers.SerializerMethodField()
+    gesuchsteller = serializers.SerializerMethodField()
+
     # TODO: these is currently bern specific, as it depends on instance state
     # identifiers. This will likely need some client-specific switch logic
     # some time in the future
@@ -140,6 +144,36 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             result = {key: self._escape(value) for key, value in data.items()}
 
         return result
+
+    def _get_first_available_answer(self, instance, cqi_list):
+        """Return the value of the first answer found in the given list.
+
+        The CQI list is a list of 3-tuples which represent a Camac
+        chapter, question, item. The first triplet to that results in
+        a matching answer for our instance is returned.
+        """
+        for cqi in cqi_list:
+            try:
+                return Answer.get_value_by_cqi(instance, *cqi, fail_on_not_found=True)
+
+            except Answer.DoesNotExist:
+                continue
+        return ""
+
+    def get_vorhaben(self, instance):
+        return self._get_first_available_answer(
+            instance, uri_constants.CQI_FOR_VORHABEN
+        )
+
+    def get_parzelle(self, instance):
+        return self._get_first_available_answer(
+            instance, uri_constants.CQI_FOR_PARZELLE
+        )
+
+    def get_gesuchsteller(self, instance):
+        return self._get_first_available_answer(
+            instance, uri_constants.CQI_FOR_GESUCHSTELLER
+        )
 
     def get_rejection_feedback(self, instance):  # pragma: no cover
         return Answer.get_value_by_cqi(instance, 20001, 20037, 1, default="")
