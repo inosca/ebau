@@ -1,4 +1,18 @@
 from django.db import models
+from django.db.models import EmailField
+
+
+def email_prep(self, value=None):
+    """Lower-cases the value returned by super."""
+    prep_value = super(EmailField, self).get_prep_value(value)
+    if prep_value is not None:
+        return prep_value.lower()
+    return prep_value
+
+
+# make EmailField case-insensitive
+# see: https://code.djangoproject.com/ticket/17561#comment:7
+EmailField.get_prep_value = email_prep
 
 
 class Applicant(models.Model):
@@ -22,7 +36,7 @@ class Applicant(models.Model):
         null=True,
     )
     created = models.DateTimeField(db_column="CREATED", auto_now=True)
-    email = models.EmailField()
+    email = EmailField()
 
     class Meta:
         managed = True
