@@ -183,6 +183,10 @@ class CalumaInstanceSerializer(InstanceSerializer):
     # TODO once more than one Camac-NG project uses Caluma as a form
     # this serializer needs to be split up into what is actually
     # Caluma and what is project specific
+    REJECTION_CHAPTER = 20001
+    REJECTION_QUESTION = 20037
+    REJECTION_ITEM = 1
+
     permissions = serializers.SerializerMethodField()
 
     instance_state = serializers.ResourceRelatedField(
@@ -217,6 +221,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
         many=True,
         read_only=True,
     )
+    rejection_feedback = serializers.SerializerMethodField()
 
     def get_is_paper(self, instance):
         return CalumaApi().is_paper(instance)
@@ -571,6 +576,15 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
         return instance
 
+    def get_rejection_feedback(self, instance):
+        return Answer.get_value_by_cqi(
+            instance,
+            self.REJECTION_CHAPTER,
+            self.REJECTION_QUESTION,
+            self.REJECTION_ITEM,
+            default="",
+        )
+
     class Meta(InstanceSerializer.Meta):
         fields = InstanceSerializer.Meta.fields + (
             "caluma_form",
@@ -581,6 +595,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
             "active_service",
             "responsible_service_users",
             "involved_applicants",
+            "rejection_feedback",
         )
         read_only_fields = InstanceSerializer.Meta.read_only_fields + (
             "caluma_form",
@@ -590,6 +605,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
             "active_service",
             "responsible_service_users",
             "involved_applicants",
+            "rejection_feedback",
         )
         meta_fields = InstanceSerializer.Meta.meta_fields + ("permissions",)
 
