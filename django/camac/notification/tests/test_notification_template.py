@@ -710,38 +710,25 @@ def test_recipient_type_submitter_list(
         assert not has_raised
 
 
-@pytest.mark.parametrize("correct_municipality", [True, False])
-@pytest.mark.parametrize("user_group__default_group", [True, False])
-@pytest.mark.parametrize("user__email", [None, "", "foo@example.org"])
+@pytest.mark.parametrize("service__email", [None, "", "foo@example.org"])
 @pytest.mark.parametrize("instance__location", [LazyFixture("location")])
 def test_recipient_type_municipality_users(
-    db,
-    instance,
-    location,
-    location_factory,
-    user_group,
-    correct_municipality,
-    role,
-    mocker,
+    db, instance, location, location_factory, service, role, mocker, group_location
 ):
     mocker.patch("camac.constants.kt_uri.ROLE_MUNICIPALITY", role.pk)
-    user_group.group.locations.add(
-        location if correct_municipality else location_factory()
-    )
 
     serializer = serializers.NotificationTemplateSendmailSerializer()
     res = serializer._get_recipients_municipality_users(instance)
 
-    if correct_municipality and user_group.default_group and user_group.user.email:
+    if service.email:
         assert res == [{"to": "foo@example.org"}]
     else:
         assert res == []
 
 
-@pytest.mark.parametrize("user_group__default_group", [True, False])
-@pytest.mark.parametrize("user__email", [None, "", "foo@example.org"])
+@pytest.mark.parametrize("service__email", [None, "", "foo@example.org"])
 def test_recipient_type_unnotified_service_users(
-    db, instance, activation, user_group, mocker, notification_template
+    db, instance, activation, user_group, mocker, notification_template, service
 ):
     mocker.patch(
         "camac.constants.kt_uri.CIRCULATION_STATE_IDLE", activation.circulation_state_id
@@ -771,7 +758,7 @@ def test_recipient_type_unnotified_service_users(
     assert not serializer.errors
     res = serializer._get_recipients_unnotified_service_users(instance)
 
-    if user_group.default_group and user_group.user.email:
+    if service.email:
         assert res == [{"to": "foo@example.org"}]
     else:
         assert res == []
@@ -781,10 +768,9 @@ def test_recipient_type_unnotified_service_users(
     "recipient_method",
     ["_get_recipients_koor_np_users", "_get_recipients_koor_bg_users"],
 )
-@pytest.mark.parametrize("user_group__default_group", [True, False])
-@pytest.mark.parametrize("user__email", [None, "", "foo@example.org"])
+@pytest.mark.parametrize("service__email", [None, "", "foo@example.org"])
 def test_recipient_type_koor_users(
-    db, instance, role, recipient_method, mocker, user_group
+    db, instance, role, recipient_method, mocker, user_group, service
 ):
 
     mocker.patch("camac.constants.kt_uri.KOOR_BG_ROLE_ID", role.pk)
@@ -794,7 +780,7 @@ def test_recipient_type_koor_users(
     method = getattr(serializer, recipient_method)
     res = method(instance)
 
-    if user_group.default_group and user_group.user.email:
+    if service.email:
         assert res == [{"to": "foo@example.org"}]
     else:
         assert res == []
