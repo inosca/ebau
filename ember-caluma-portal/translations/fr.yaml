@@ -197,6 +197,7 @@ instances:
   deleteInstanceModal: "Êtes-vous sûr de vouloir supprimer le dossier ?"
   deleteInstanceError: "Le dossier n'a pas pu être supprimé"
   deleteInstanceSuccess: "Le dossier a été supprimé avec succès"
+  reasonForRejection: "Motifs de rejet"
 
   modificationTitle: "Nouveau changement de projet"
   modificationText: "Y a-t-il eu des changements dans votre projet de
