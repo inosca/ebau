@@ -21,6 +21,10 @@ ignore =
     D107,
     # needed because of https://github.com/ambv/black/issues/144
     D202
+per-file-ignores =
+    # We don't want to enforce summary lines in docstrings for test cases.
+    # Often a more complex test case can't be summarised in a short sentence.
+    */*test*.py:D205,D400
 max-line-length = 80
 exclude = migrations snapshots camac/echbern/schema/*.py
 max-complexity = 10

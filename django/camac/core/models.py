@@ -1,8 +1,11 @@
 import json
 
+from dateutil.parser import parse
 from django.conf import settings
 from django.db import models
 from django.utils import translation
+
+from camac.constants import kt_uri as constants
 
 
 class MultilingualModel:
@@ -617,6 +620,28 @@ class Activation(models.Model):
     email_sent = models.PositiveSmallIntegerField(db_column="EMAIL_SENT", default=1)
     ech_msg_created = models.BooleanField(default=False)
 
+    @property
+    def nfd_completion_date(self):
+        """Return the nfd completion date.
+
+        In Uri if a dossier lacks the necessary information for a service to
+        give feedback, they can request "Nachforderungen" from the applicant.
+
+        During this period the activation tranistions in to the state "nfd".
+        Once the applicant has provided the necessary information, the service
+        will then mark the "Nachforderung" as completed which sets the
+        completion date.
+        """
+
+        chapter, question, item = constants.CQI_FOR_NFD_COMPLETION_DATE
+        answer = self.activationanswer_set.filter(
+            chapter__pk=chapter, question__pk=question, item=item
+        ).first()
+
+        if answer:
+            return parse(answer.answer)
+        return None
+
     class Meta:
         managed = True
         db_table = "ACTIVATION"
@@ -624,7 +649,7 @@ class Activation(models.Model):
 
 class ActivationAnswer(models.Model):
     activation = models.ForeignKey(
-        Activation, models.CASCADE, db_column="ACTIVATION_ID", related_name="+"
+        Activation, models.CASCADE, db_column="ACTIVATION_ID"
     )
     question = models.ForeignKey(
         "Question", models.DO_NOTHING, db_column="QUESTION_ID", related_name="+"
@@ -693,8 +718,12 @@ class ActivationCallbackNotice(models.Model):
     activation_callback_notice_id = models.AutoField(
         db_column="ACTIVATION_CALLBACK_NOTICE_ID", primary_key=True
     )
-    activation_id = models.IntegerField(db_column="ACTIVATION_ID")
-    circulation_id = models.IntegerField(db_column="CIRCULATION_ID")
+    activation = models.ForeignKey(
+        "Activation", on_delete=models.CASCADE, db_column="ACTIVATION_ID"
+    )
+    circulation = models.ForeignKey(
+        "Circulation", on_delete=models.CASCADE, db_column="CIRCULATION_ID"
+    )
     send_date = models.DateTimeField(db_column="SEND_DATE")
     reason = models.TextField(db_column="REASON")
 
