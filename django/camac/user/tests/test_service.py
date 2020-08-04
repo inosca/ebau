@@ -5,7 +5,13 @@ from rest_framework import status
 
 @pytest.mark.parametrize(
     "role__name,size",
-    [("Applicant", 0), ("Service", 1), ("Canton", 1), ("Municipality", 1)],
+    [
+        ("Applicant", 0),
+        ("Service", 1),
+        ("Canton", 1),
+        ("Municipality", 1),
+        ("Coordination", 1),
+    ],
 )
 def test_service_list(admin_client, service, size):
     url = reverse("service-list")
@@ -145,6 +151,7 @@ def test_service_update_permissions(
         ("Municipality", status.HTTP_403_FORBIDDEN),
         ("Canton", status.HTTP_403_FORBIDDEN),
         ("Service", status.HTTP_403_FORBIDDEN),
+        ("Coordination", status.HTTP_403_FORBIDDEN),
     ],
 )
 def test_service_delete(admin_client, service, status_code):
