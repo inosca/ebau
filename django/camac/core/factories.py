@@ -5,6 +5,7 @@ from django.utils import timezone
 from factory import Faker, SubFactory, fuzzy
 from factory.django import DjangoModelFactory
 
+from camac.constants import kt_uri as constants
 from camac.instance.factories import InstanceFactory
 from camac.user.factories import GroupFactory, ServiceFactory, UserFactory
 
@@ -36,6 +37,7 @@ class CamacQuestionTypeFactory(DjangoModelFactory):
 
 
 class CamacQuestionFactory(DjangoModelFactory):
+    question_id = Faker("pyint", min_value=1000, max_value=9999)
     question_type = SubFactory(CamacQuestionTypeFactory)
 
     class Meta:
@@ -43,6 +45,8 @@ class CamacQuestionFactory(DjangoModelFactory):
 
 
 class CamacChapterFactory(DjangoModelFactory):
+    chapter_id = Faker("pyint", min_value=1000, max_value=9999)
+
     class Meta:
         model = models.Chapter
 
@@ -173,6 +177,17 @@ class ActivationFactory(DjangoModelFactory):
         model = models.Activation
 
 
+class ActivationAnswerFactory(DjangoModelFactory):
+    activation = SubFactory(ActivationFactory)
+    question = SubFactory(CamacQuestionFactory)
+    chapter = SubFactory(CamacChapterFactory)
+    item = 1
+    answer = Faker("text")
+
+    class Meta:
+        model = models.ActivationAnswer
+
+
 class NoticeTypeFactory(DjangoModelFactory):
     name = Faker("name")
     circulation_type = SubFactory(CirculationTypeFactory)
@@ -275,3 +290,20 @@ class InstancePortalFactory(DjangoModelFactory):
 
     class Meta:
         model = models.InstancePortal
+
+
+class ActivationCallbackNoticeFactory(DjangoModelFactory):
+    activation = SubFactory(ActivationFactory)
+    circulation = SubFactory(CirculationFactory)
+    send_date = Faker("past_datetime", tzinfo=pytz.UTC)
+    reason = fuzzy.FuzzyChoice(
+        [
+            constants.NOTIFICATION_TEMPLATE_COMPLETION_DATE_FACHSTELLE,
+            constants.NOTIFICATION_TEMPLATE_COMPLETION_DATE_LEITBEHOERDE,
+            constants.NOTIFICATION_TEMPLATE_DEADLINE_DATE_FACHSTELLE,
+            constants.NOTIFICATION_TEMPLATE_DEADLINE_DATE_LEITBEHOERDE,
+        ]
+    )
+
+    class Meta:
+        model = models.ActivationCallbackNotice
