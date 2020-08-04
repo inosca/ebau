@@ -4,6 +4,16 @@ from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
 
+@pytest.fixture
+def app_settings_with_notif_templates(application_settings, notification_template):
+    application_settings["NOTIFICATIONS"]["APPLICANT"][
+        "NEW"
+    ] = notification_template.slug
+    application_settings["NOTIFICATIONS"]["APPLICANT"][
+        "EXISTING"
+    ] = notification_template.slug
+
+
 @pytest.mark.parametrize(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
@@ -48,51 +58,19 @@ def test_applicant_delete(
     assert response.status_code == expected_status
 
 
+@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
 @pytest.mark.parametrize(
-    "role__name,instance__user,created_email,passed_email,expected_status",
+    "role__name,passed_email,existing_user,expected_status",
     [
-        (
-            "Applicant",
-            LazyFixture("admin_user"),
-            "test@example.com",
-            "test@example.com",
-            status.HTTP_201_CREATED,
-        ),
-        (
-            "Applicant",
-            LazyFixture("admin_user"),
-            "test@example.com",
-            "exists@example.com",
-            status.HTTP_400_BAD_REQUEST,
-        ),
-        (
-            "Applicant",
-            LazyFixture("admin_user"),
-            "test@example.com",
-            "doesnotexist@example.com",
-            status.HTTP_201_CREATED,
-        ),
-        (
-            "Municipality",
-            LazyFixture("admin_user"),
-            "test@example.com",
-            "test@example.com",
-            status.HTTP_403_FORBIDDEN,
-        ),
-        (
-            "Service",
-            LazyFixture("admin_user"),
-            "test@example.com",
-            "test@example.com",
-            status.HTTP_403_FORBIDDEN,
-        ),
-        (
-            "Canton",
-            LazyFixture("admin_user"),
-            "test@example.com",
-            "test@example.com",
-            status.HTTP_403_FORBIDDEN,
-        ),
+        ("Applicant", "test@example.com", False, status.HTTP_201_CREATED),
+        ("Applicant", "user@example.com", True, status.HTTP_201_CREATED),
+        ("Applicant", "Test@example.com", False, status.HTTP_201_CREATED),
+        ("Applicant", "User@example.com", True, status.HTTP_201_CREATED),
+        ("Applicant", "exists@example.com", None, status.HTTP_400_BAD_REQUEST),
+        ("Applicant", "Exists@example.com", None, status.HTTP_400_BAD_REQUEST),
+        ("Municipality", "test@example.com", None, status.HTTP_403_FORBIDDEN),
+        ("Service", "test@example.com", None, status.HTTP_403_FORBIDDEN),
+        ("Canton", "test@example.com", None, status.HTTP_403_FORBIDDEN),
     ],
 )
 def test_applicant_create(
@@ -101,19 +79,11 @@ def test_applicant_create(
     role,
     instance,
     applicant_factory,
-    created_email,
     passed_email,
+    existing_user,
     expected_status,
-    application_settings,
-    notification_template,
+    app_settings_with_notif_templates,
 ):
-    application_settings["NOTIFICATIONS"]["APPLICANT"][
-        "NEW"
-    ] = notification_template.slug
-    application_settings["NOTIFICATIONS"]["APPLICANT"][
-        "EXISTING"
-    ] = notification_template.slug
-
     url = reverse("applicant-list")
 
     applicant_factory(
@@ -122,7 +92,7 @@ def test_applicant_create(
         email="exists@example.com",
     )
 
-    user_factory(email=created_email)
+    user_factory(email="user@example.com")
 
     response = admin_client.post(
         url,
@@ -140,11 +110,19 @@ def test_applicant_create(
     assert response.status_code == expected_status
 
     if response.status_code == status.HTTP_201_CREATED:
-        assert response.json()["data"]["relationships"]["user"]
+        assert response.json()["data"]["relationships"]["user"]["data"]["id"] == str(
+            admin_client.user.id
+        )
+        assert response.json()["data"]["attributes"]["email"] == passed_email.lower()
+
+    if existing_user:
+        assert response.json()["data"]["relationships"]["invitee"]["data"]
 
 
 @pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
-def test_applicant_create_multiple_users(admin_client, instance, user_factory):
+def test_applicant_create_multiple_users(
+    admin_client, instance, user_factory, app_settings_with_notif_templates
+):
     url = reverse("applicant-list")
 
     user_factory(email="test@example.com")
@@ -163,4 +141,4 @@ def test_applicant_create_multiple_users(admin_client, instance, user_factory):
         },
     )
 
-    assert response.status_code == status.HTTP_400_BAD_REQUEST
+    assert response.status_code == status.HTTP_201_CREATED
