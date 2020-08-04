@@ -30,3 +30,19 @@ INSTANCE_STATES_HIDDEN_FOR_KOOR = [INSTANCE_STATE_NEW, INSTANCE_STATE_NEW_PORTAL
 CQI_FOR_VORHABEN = [(21, 97, 1)]  # TODO is this the right answer?
 CQI_FOR_PARZELLE = [(21, 91, 1), (101, 91, 1), (102, 91, 1)]
 CQI_FOR_GESUCHSTELLER = [(1, 23, 1)]
+CQI_FOR_NFD_COMPLETION_DATE = (41, 243, 1)
+
+
+NOTIFICATION_TEMPLATE_DEADLINE_DATE_FACHSTELLE = (
+    "aktivierung-deadline-überzogen-fachstelle"  # 1448
+)
+NOTIFICATION_TEMPLATE_COMPLETION_DATE_FACHSTELLE = (
+    "aktivierung-nfd-vollständig-überzogen-fachstelle"  # 1449
+)
+NOTIFICATION_TEMPLATE_DEADLINE_DATE_LEITBEHOERDE = (
+    "aktivierung-deadline-überzogen-leitbehoerde"  # 1450
+)
+NOTIFICATION_TEMPLATE_COMPLETION_DATE_LEITBEHOERDE = (
+    "aktivierung-nfd-vollständig-überzogen-leitbehoerde"  # 1451
+)
+CQI_FOR_GESUCHSTELLER = [(1, 23, 1)]
