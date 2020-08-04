@@ -81,6 +81,9 @@ class ServiceView(viewsets.ModelViewSet):
     def get_queryset_for_municipality(self):
         return super().get_queryset()
 
+    def get_queryset_for_coordination(self):
+        return super().get_queryset()
+
 
 class PublicServiceView(viewsets.ReadOnlyModelViewSet):
     filterset_class = filters.PublicServiceFilterSet
