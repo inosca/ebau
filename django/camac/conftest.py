@@ -100,6 +100,7 @@ def admin_client(db, admin_user, request_mock):
     """Return instance of a JSONAPIClient that is logged in as test user."""
     client = APIClient()
     client.force_authenticate(user=admin_user)
+    client.user = admin_user
     return client
 
 
