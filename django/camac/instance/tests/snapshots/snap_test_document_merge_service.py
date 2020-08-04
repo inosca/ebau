@@ -208,12 +208,6 @@ snapshots["test_document_merge_service_snapshot[3-None] 1"] = [
                 "value": "Burgdorf",
             },
             {
-                "label": "Karte",
-                "slug": "karte-einfache-vorabklaerung",
-                "type": "TextQuestion",
-                "value": "undefined",
-            },
-            {
                 "label": "Lagekoordinaten - Ost",
                 "slug": "lagekoordinaten-ost-einfache-vorabklaerung",
                 "type": "FloatQuestion",
@@ -726,12 +720,6 @@ snapshots["test_document_merge_service_snapshot[1-baugesuch] 1"] = [
         "children": [
             {
                 "children": [
-                    {
-                        "label": "Karte",
-                        "slug": "karte",
-                        "type": "TextQuestion",
-                        "value": None,
-                    },
                     {
                         "label": "Strasse/Flurname",
                         "slug": "strasse-flurname",
