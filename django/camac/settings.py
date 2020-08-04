@@ -328,6 +328,7 @@ APPLICATIONS = {
                     "papierdossier",
                     "projektaenderung",
                     "8-freigabequittung",
+                    "karte",
                 ],
             },
             "vorabklaerung-einfach": {
@@ -341,6 +342,7 @@ APPLICATIONS = {
                     "projektaenderung",
                     "freigabequittung-vorabklaerung-form",
                     "dokumente-vorabklaerung-form",
+                    "karte-einfache-vorabklaerung",
                 ],
             },
             "selbstdeklaration": {
