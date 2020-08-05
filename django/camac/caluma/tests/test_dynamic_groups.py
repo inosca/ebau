@@ -42,15 +42,22 @@ def test_dynamic_group(
     )
 
     if has_group:
-        assert dynamic_groups.resolve("municipality")(None, case, None, None) == [
+        assert dynamic_groups.resolve("municipality")(None, case, None, None, None) == [
             str(municipality.pk)
         ]
         assert dynamic_groups.resolve("construction_control")(
-            None, case, None, None
+            None, case, None, None, None
         ) == [str(construction_control.pk)]
     else:
-        assert len(dynamic_groups.resolve("municipality")(None, case, None, None)) == 0
         assert (
-            len(dynamic_groups.resolve("construction_control")(None, case, None, None))
+            len(dynamic_groups.resolve("municipality")(None, case, None, None, None))
+            == 0
+        )
+        assert (
+            len(
+                dynamic_groups.resolve("construction_control")(
+                    None, case, None, None, None
+                )
+            )
             == 0
         )
