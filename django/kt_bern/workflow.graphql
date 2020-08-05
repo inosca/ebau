@@ -4,6 +4,7 @@ mutation CreateEBauNumberTask {
       slug: "ebau-number"
       name: "eBau-Nummer vergeben"
       addressGroups: "['municipality']|groups"
+      leadTime: 432000 # 5 days
     }
   ) {
     clientMutationId
