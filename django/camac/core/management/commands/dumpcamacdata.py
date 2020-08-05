@@ -55,7 +55,9 @@ class Command(BaseCommand):
             help="Don't dump caluma data",
         )
 
-        parser.set_defaults(caluma=settings.APPLICATION.get("FORM_BACKEND") == "caluma")
+        parser.set_defaults(
+            caluma=settings.APPLICATION_NAME in ["kt_bern", "kt_schwyz"]
+        )
 
     def dump_data(self, apps, exclude, output):
         tmp_output = io.StringIO()

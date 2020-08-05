@@ -179,6 +179,21 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         )
 
 
+class SchwyzInstanceSerializer(InstanceSerializer):
+    @transaction.atomic
+    def create(self, validated_data):
+        instance = super().create(validated_data)
+
+        workflow_api.start_case(
+            workflow=workflow_models.Workflow.objects.get(pk="building-permit"),
+            form=Form.objects.get(pk="baugesuch"),
+            user=self.context["request"].caluma_info.context.user,
+            meta={"camac-instance-id": instance.pk},
+        )
+
+        return instance
+
+
 class CalumaInstanceSerializer(InstanceSerializer):
     # TODO once more than one Camac-NG project uses Caluma as a form
     # this serializer needs to be split up into what is actually
