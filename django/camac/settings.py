@@ -107,7 +107,9 @@ TEMPLATES = [
                 "django.template.context_processors.debug",
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
-            ]
+            ],
+            # for rendering plain-text emails
+            "autoescape": False,
         },
     }
 ]
@@ -153,6 +155,7 @@ APPLICATIONS = {
         # please also update django/Makefile command when changing apps here
         "SEQUENCE_NAMESPACE_APPS": ["core", "responsible", "document"],
         "PUBLICATION_INVITE_ONLY": True,
+        "NOTIFICATIONS_EXCLUDED_TASKS": [],
     },
     "kt_schwyz": {
         "ROLE_PERMISSIONS": {
@@ -207,6 +210,7 @@ APPLICATIONS = {
         # please also update django/Makefile command when changing apps here
         "SEQUENCE_NAMESPACE_APPS": [],
         "PUBLICATION_INVITE_ONLY": True,
+        "NOTIFICATIONS_EXCLUDED_TASKS": [],
     },
     "kt_bern": {
         "ROLE_PERMISSIONS": {
@@ -600,6 +604,7 @@ APPLICATIONS = {
             ("werden-siloanlagen-erstellt", "werden-siloanlagen-erstellt-ja", [20055]),
             ("wildtierschutz", "wildtierschutz-ja", [20064]),
         ],
+        "NOTIFICATIONS_EXCLUDED_TASKS": [],
     },
     "kt_uri": {
         "FORM_BACKEND": "camac",
@@ -943,6 +948,9 @@ EMAIL_PREFIX_BODY = env.str(
 # Merge definition
 MERGE_DATE_FORMAT = env.str("DJANGO_MERGE_DATE_FORMAT", "%d.%m.%Y")
 MERGE_ANSWER_PERIOD = env.int("DJANGO_MERGE_ANSWER_PERIOD", 20)
+
+# override locale-based setting for template handling
+SHORT_DATE_FORMAT = MERGE_DATE_FORMAT
 
 
 def parse_admins(admins):
