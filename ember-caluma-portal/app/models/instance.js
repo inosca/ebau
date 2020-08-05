@@ -18,6 +18,7 @@ export default class Instance extends Model {
   @belongsTo("instance-state") instanceState;
   @belongsTo("public-service") activeService;
   @hasMany("applicant", { inverse: "instance" }) involvedApplicants;
+  @attr("string") rejectionFeedback;
 
   get status() {
     return this.intl.t(`instances.status.${this.publicStatus}`);
