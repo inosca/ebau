@@ -54,7 +54,7 @@
       "form": null,
       "is_archived": false,
       "is_multiple_instance": false,
-      "lead_time": null,
+      "lead_time": 432000,
       "meta": {},
       "modified_at": "2020-06-25T14:45:21.434Z",
       "name": "{\"de\": \"eBau-Nummer vergeben\", \"fr\": \"Attribution d'un num\\u00e9ro eBau\"}",
