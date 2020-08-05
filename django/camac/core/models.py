@@ -2,6 +2,7 @@ import json
 
 from dateutil.parser import parse
 from django.conf import settings
+from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.utils import translation
 
@@ -4304,7 +4305,9 @@ class ActionWorkitem(models.Model):
         primary_key=True,
         related_name="+",
     )
-    task = models.CharField(db_column="TASK", max_length=255)
+    tasks = ArrayField(
+        models.CharField(max_length=255), db_column="TASKS", default=list
+    )
     process_type = models.CharField(
         db_column="PROCESS_TYPE", max_length=10, choices=PROCESS_TYPES
     )
