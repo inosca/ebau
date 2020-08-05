@@ -16,7 +16,7 @@ class CustomDynamicGroups(BaseDynamicGroups):
         return Instance.objects.get(pk=case.meta.get("camac-instance-id"))
 
     @register_dynamic_group("municipality")
-    def resolve_municipality(self, task, case, user, prev_work_item):
+    def resolve_municipality(self, task, case, user, prev_work_item, context, **kwargs):
         instance = self._get_instance(case)
         service = instance.active_service()
 
@@ -28,7 +28,9 @@ class CustomDynamicGroups(BaseDynamicGroups):
         return [str(service.pk)]
 
     @register_dynamic_group("construction_control")
-    def resolve_construction_control(self, task, case, user, prev_work_item):
+    def resolve_construction_control(
+        self, task, case, user, prev_work_item, context, **kwargs
+    ):
         instance = self._get_instance(case)
         service = instance.active_service(
             settings.APPLICATION.get("ACTIVE_BAUKONTROLLE_FILTERS", {})
