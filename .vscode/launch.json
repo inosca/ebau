@@ -22,6 +22,26 @@
           "remoteRoot": "."
         }
       ]
+    },
+    {
+      "name": "BE Portal (Chrome)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:4200",
+      "webRoot": "${workspaceFolder}/ember-caluma-portal",
+      "sourceMapPathOverrides": {
+        "ember-caluma-portal/*": "${workspaceFolder}/ember-caluma-portal/app/*"
+      }
+    },
+    {
+      "name": "Ember Camac NG (Chrome)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:4201",
+      "webRoot": "${workspaceFolder}/ember-camac-ng",
+      "sourceMapPathOverrides": {
+        "camac-ng/*": "${workspaceFolder}/ember-camac-ng/app/*"
+      }
     }
   ]
 }
