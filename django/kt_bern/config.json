@@ -2836,7 +2836,7 @@
       "is_activation": false,
       "process_all": true,
       "process_type": "skip",
-      "task": "sb1"
+      "tasks": "[\"sb1\"]"
     },
     "model": "core.actionworkitem",
     "pk": 150009
@@ -2846,7 +2846,7 @@
       "is_activation": false,
       "process_all": true,
       "process_type": "skip",
-      "task": "sb2"
+      "tasks": "[\"sb2\"]"
     },
     "model": "core.actionworkitem",
     "pk": 150010
@@ -2856,7 +2856,7 @@
       "is_activation": false,
       "process_all": false,
       "process_type": "complete",
-      "task": "nfd"
+      "tasks": "[\"nfd\"]"
     },
     "model": "core.actionworkitem",
     "pk": 150011
@@ -2866,7 +2866,7 @@
       "is_activation": false,
       "process_all": false,
       "process_type": "complete",
-      "task": "nfd"
+      "tasks": "[\"nfd\"]"
     },
     "model": "core.actionworkitem",
     "pk": 150012
@@ -2876,7 +2876,7 @@
       "is_activation": false,
       "process_all": false,
       "process_type": "complete",
-      "task": "ebau-number"
+      "tasks": "[\"ebau-number\"]"
     },
     "model": "core.actionworkitem",
     "pk": 150013
