@@ -37,6 +37,8 @@ journal:
 
   create: "Eintrag erstellen"
   edit: "Eintrag bearbeiten"
+  textareaNew: "Textbereich für neuen Eintrag"
+  textareaEdit: "Textbereich zum editieren des Eintrages"
 
 workitemlist:
   saveError: "Fehler beim Speichern der Aufgabe"
