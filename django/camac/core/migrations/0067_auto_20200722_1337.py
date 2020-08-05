@@ -13,9 +13,7 @@ def cleanup_invalid_notices(apps, schema_editor):
     circulations = apps.get_model("core", "Circulation").objects.all()
 
     activation_callback_notice.objects.filter(
-        Q(activation_id=None) | Q(circulation_id=None)
-    ).exclude(
-        Q(activation_id__in=activations) | Q(circulation_id__in=circulations)
+        ~Q(activation_id__in=activations) | ~Q(circulation_id__in=circulations)
     ).delete()
 
 
