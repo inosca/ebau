@@ -6,6 +6,8 @@ import getOverviewCaseQuery from "ember-caluma-portal/gql/queries/get-overview-c
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 import UIkit from "uikit";
 
+import config from "../../../config/environment";
+
 const findAnswer = (answers, slug) => {
   const answer = answers.find((answer) => answer.question.slug === slug);
 
@@ -73,6 +75,13 @@ export default class InstancesEditIndexController extends Controller {
   @reads("editController.feedback") feedback;
   @reads("editController.decision") decision;
   @reads("editController.instance") instance;
+
+  get isRejection() {
+    return (
+      parseInt(this.get("instance.instanceState.id")) ===
+      config.ebau.instanceStates.rejected
+    );
+  }
 
   @lastValue("dataTask") data;
   @dropTask
