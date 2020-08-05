@@ -79,7 +79,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 4,
+      "sort": 5,
       "success_message": null
     },
     "model": "core.action",
@@ -93,7 +93,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 5,
+      "sort": 6,
       "success_message": null
     },
     "model": "core.action",
@@ -121,7 +121,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 6,
+      "sort": 7,
       "success_message": null
     },
     "model": "core.action",
@@ -135,7 +135,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 7,
+      "sort": 6,
       "success_message": null
     },
     "model": "core.action",
@@ -149,7 +149,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 7,
+      "sort": 8,
       "success_message": null
     },
     "model": "core.action",
@@ -205,7 +205,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 6,
+      "sort": 3,
       "success_message": null
     },
     "model": "core.action",
@@ -219,7 +219,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 8,
+      "sort": 7,
       "success_message": null
     },
     "model": "core.action",
@@ -471,7 +471,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 3,
+      "sort": 2,
       "success_message": null
     },
     "model": "core.action",
@@ -695,7 +695,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 3,
+      "sort": 1,
       "success_message": null
     },
     "model": "core.action",
@@ -723,7 +723,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 2,
+      "sort": 0,
       "success_message": null
     },
     "model": "core.action",
@@ -751,7 +751,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 0,
       "success_message": null
     },
     "model": "core.action",
@@ -905,7 +905,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 8,
+      "sort": 9,
       "success_message": null
     },
     "model": "core.action",
@@ -1067,13 +1067,83 @@
   },
   {
     "fields": {
-      "available_action": "formtransition",
+      "available_action": "workitem",
       "button": 1200000,
       "description": null,
       "error_message": null,
       "execute_always": 0,
       "name": null,
       "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150009
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 1200001,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150010
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 20045,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150011
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 20040,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150012
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 20002,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 4,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150013
+  },
+  {
+    "fields": {
+      "available_action": "formtransition",
+      "button": 1200000,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 0,
       "success_message": null
     },
     "model": "core.action",
@@ -1087,67 +1157,11 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 0,
       "success_message": null
     },
     "model": "core.action",
     "pk": 1200003
-  },
-  {
-    "fields": {
-      "available_action": "php",
-      "button": 20040,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": null,
-      "sort": 3,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 1200004
-  },
-  {
-    "fields": {
-      "available_action": "php",
-      "button": 1200001,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": null,
-      "sort": 2,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 1200007
-  },
-  {
-    "fields": {
-      "available_action": "php",
-      "button": 1200000,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": null,
-      "sort": 2,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 1200008
-  },
-  {
-    "fields": {
-      "available_action": "php",
-      "button": 20045,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": null,
-      "sort": 2,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 1200010
   },
   {
     "fields": {
@@ -1297,7 +1311,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 3,
       "success_message": null
     },
     "model": "core.action",
@@ -1311,7 +1325,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 2,
       "success_message": null
     },
     "model": "core.action",
@@ -1353,7 +1367,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 2,
       "success_message": null
     },
     "model": "core.action",
@@ -1367,7 +1381,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 2,
       "success_message": null
     },
     "model": "core.action",
@@ -2339,6 +2353,66 @@
   },
   {
     "fields": {
+      "action": 150009,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Aufgabe \u00fcberspringen: Selbstdeklaration 1",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150014
+  },
+  {
+    "fields": {
+      "action": 150010,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Aufgabe \u00fcberspringen: Selbstdeklaration 2",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150015
+  },
+  {
+    "fields": {
+      "action": 150011,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Aufgabe abschliessen: Nachforderungen",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150016
+  },
+  {
+    "fields": {
+      "action": 150012,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Aufgabe abschliessen: Nachforderungen",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150017
+  },
+  {
+    "fields": {
+      "action": 150013,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Aufgabe abschliessen: eBau-Nummer vergeben",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150018
+  },
+  {
+    "fields": {
       "action": 1200002,
       "description": null,
       "error_message": null,
@@ -2360,54 +2434,6 @@
     },
     "model": "core.actiont",
     "pk": 1200005
-  },
-  {
-    "fields": {
-      "action": 1200004,
-      "description": null,
-      "error_message": null,
-      "language": "de",
-      "name": "Complete ready work items",
-      "success_message": null
-    },
-    "model": "core.actiont",
-    "pk": 1200006
-  },
-  {
-    "fields": {
-      "action": 1200007,
-      "description": null,
-      "error_message": null,
-      "language": "de",
-      "name": "Skip ready work items",
-      "success_message": null
-    },
-    "model": "core.actiont",
-    "pk": 1200009
-  },
-  {
-    "fields": {
-      "action": 1200008,
-      "description": null,
-      "error_message": null,
-      "language": "de",
-      "name": "Skip ready work items",
-      "success_message": null
-    },
-    "model": "core.actiont",
-    "pk": 1200010
-  },
-  {
-    "fields": {
-      "action": 1200010,
-      "description": null,
-      "error_message": null,
-      "language": "de",
-      "name": "Complete ready work items",
-      "success_message": null
-    },
-    "model": "core.actiont",
-    "pk": 1200012
   },
   {
     "fields": {
@@ -2631,7 +2657,7 @@
       "description": null,
       "error_message": null,
       "language": "de",
-      "name": "Beurteilung abgeschlossen",
+      "name": "History: Beurteilung abgeschlossen",
       "success_message": null
     },
     "model": "core.actiont",
@@ -2804,6 +2830,56 @@
     },
     "model": "core.actiont",
     "pk": 12000121
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": true,
+      "process_type": "skip",
+      "task": "sb1"
+    },
+    "model": "core.actionworkitem",
+    "pk": 150009
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": true,
+      "process_type": "skip",
+      "task": "sb2"
+    },
+    "model": "core.actionworkitem",
+    "pk": 150010
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": false,
+      "process_type": "complete",
+      "task": "nfd"
+    },
+    "model": "core.actionworkitem",
+    "pk": 150011
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": false,
+      "process_type": "complete",
+      "task": "nfd"
+    },
+    "model": "core.actionworkitem",
+    "pk": 150012
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": false,
+      "process_type": "complete",
+      "task": "ebau-number"
+    },
+    "model": "core.actionworkitem",
+    "pk": 150013
   },
   {
     "fields": {
@@ -41113,34 +41189,6 @@
   },
   {
     "fields": {
-      "php_class": "CompleteReadyWorkItems"
-    },
-    "model": "core.aphp",
-    "pk": 1200004
-  },
-  {
-    "fields": {
-      "php_class": "SkipReadyWorkItems"
-    },
-    "model": "core.aphp",
-    "pk": 1200007
-  },
-  {
-    "fields": {
-      "php_class": "SkipReadyWorkItems"
-    },
-    "model": "core.aphp",
-    "pk": 1200008
-  },
-  {
-    "fields": {
-      "php_class": "CompleteReadyWorkItems"
-    },
-    "model": "core.aphp",
-    "pk": 1200010
-  },
-  {
-    "fields": {
       "php_class": "CancelCase"
     },
     "model": "core.aphp",
@@ -41633,6 +41681,14 @@
     },
     "model": "core.availableaction",
     "pk": "validate"
+  },
+  {
+    "fields": {
+      "description": "Process a work item",
+      "module_name": "workitemlist"
+    },
+    "model": "core.availableaction",
+    "pk": "workitem"
   },
   {
     "fields": {
@@ -54995,6 +55051,318 @@
     },
     "model": "core.instanceresourceaction",
     "pk": 40040
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "newform"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150000
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "apidocuments"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150001
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "gisapi"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150002
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "decisionnote"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150003
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "publication"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150004
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "editdecisionnote"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150005
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "claim"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150006
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "filecomplementrequest"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150007
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "formerror"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150008
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "service"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150009
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "filevalidation"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150010
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "history"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150011
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "editdecision"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150012
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "decision"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150013
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "formpages"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150014
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "allformpages"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150015
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "editformpages"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150016
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "editresponsibleuser"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150017
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "filecomplementlist"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150018
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "notification"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150019
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "formpage"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150020
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "auditlog"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150021
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "editcirculation"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150022
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "emberjournal"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150023
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "revisionhistory"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150024
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "filecomplementanswer"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150025
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "formwizard"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150026
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "fileupload"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150027
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "docxdecision"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150028
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "editresponsiblegroup"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150029
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "page"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150030
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "formparent"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150031
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "editletter"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150032
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "editnotice"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150033
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "billing"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150034
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "filelist"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150035
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "letter"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150036
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "circulation"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150037
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "editformpage"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150038
   },
   {
     "fields": {
