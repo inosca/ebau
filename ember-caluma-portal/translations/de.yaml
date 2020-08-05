@@ -192,6 +192,7 @@ instances:
   deleteInstanceModal: "Sind Sie sicher, dass Sie das Dossier löschen möchten?"
   deleteInstanceError: "Das Dossier konnte nicht gelöscht werden"
   deleteInstanceSuccess: "Das Dossier wurde erfolgreich gelöscht"
+  reasonForRejection: "Begründung Rückweisung"
 
   modificationTitle: "Neue Projektänderung"
   modificationText: "Hat sich an Ihrem Bauvorhaben etwas geändert? Hier
