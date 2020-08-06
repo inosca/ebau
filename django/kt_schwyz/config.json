@@ -1620,6 +1620,15 @@
   },
   {
     "fields": {
+      "action_name": "index",
+      "available_instance_resource": "workitemlistinstance",
+      "hidden": 0
+    },
+    "model": "core.airaction",
+    "pk": 10003
+  },
+  {
+    "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Notification_Manager_Applicant",
       "template": "ruckweisung"
@@ -2030,7 +2039,7 @@
   {
     "fields": {
       "action_name": "index",
-      "available_resource": "workitemlist",
+      "available_resource": "workitemlistall",
       "hidden": 0
     },
     "model": "core.araction",
@@ -2448,6 +2457,15 @@
   },
   {
     "fields": {
+      "controller_name": "workitemlistinstance",
+      "description": "Display work items of the instance",
+      "module_name": "workitem"
+    },
+    "model": "core.availableinstanceresource",
+    "pk": "workitemlistinstance"
+  },
+  {
+    "fields": {
       "controller_name": "apilist",
       "description": "Page with a list of activations received from an API backend",
       "module_name": "apilist"
@@ -2529,12 +2547,12 @@
   },
   {
     "fields": {
-      "controller_name": "workitemlist",
+      "controller_name": "workitemlistall",
       "description": "Display work items",
-      "module_name": "workitemlist"
+      "module_name": "workitem"
     },
     "model": "core.availableresource",
-    "pk": "workitemlist"
+    "pk": "workitemlistall"
   },
   {
     "fields": {
@@ -4558,7 +4576,7 @@
       "hidden": 0,
       "name": "Pendenzen",
       "resource": 1,
-      "sort": 13,
+      "sort": 14,
       "template": null
     },
     "model": "core.instanceresource",
@@ -4603,7 +4621,7 @@
       "hidden": 0,
       "name": "Geb\u00fchren",
       "resource": 1,
-      "sort": 14,
+      "sort": 15,
       "template": null
     },
     "model": "core.instanceresource",
@@ -4813,11 +4831,26 @@
       "hidden": 1,
       "name": "History",
       "resource": 1,
-      "sort": 12,
+      "sort": 13,
       "template": null
     },
     "model": "core.instanceresource",
     "pk": 48
+  },
+  {
+    "fields": {
+      "available_instance_resource": "workitemlistinstance",
+      "class_field": null,
+      "description": null,
+      "form_group": 1,
+      "hidden": 0,
+      "name": "Aufgabenliste",
+      "resource": 1,
+      "sort": 16,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 49
   },
   {
     "fields": {
@@ -12474,6 +12507,204 @@
   },
   {
     "fields": {
+      "instance_resource": 49,
+      "instance_state": 12,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 804
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 2,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 805
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 3,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 806
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 4,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 807
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 5,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 808
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 6,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 809
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 7,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 810
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 13,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 811
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 8,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 812
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 9,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 813
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 10,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 814
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 12,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 815
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 2,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 816
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 3,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 817
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 4,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 818
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 5,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 819
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 6,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 820
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 7,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 821
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 13,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 822
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 8,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 823
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 9,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 824
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 10,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 825
+  },
+  {
+    "fields": {
       "instance_resource": 43,
       "instance_state": 5,
       "service": 7
@@ -14004,7 +14235,7 @@
   },
   {
     "fields": {
-      "available_resource": "workitemlist",
+      "available_resource": "workitemlistall",
       "class_field": null,
       "description": null,
       "hidden": 1,
