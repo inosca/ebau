@@ -44671,7 +44671,7 @@
       "description": "Dossier erstellen-Seite",
       "hidden": 0,
       "name": "Neues Dossier erstellen",
-      "sort": 31,
+      "sort": 32,
       "template": "/global/home.phtml"
     },
     "model": "core.resource",
@@ -44684,7 +44684,7 @@
       "description": "Allgemeine Suche",
       "hidden": 0,
       "name": "Dossier suchen",
-      "sort": 28,
+      "sort": 29,
       "template": "/global/search.phtml"
     },
     "model": "core.resource",
@@ -44697,7 +44697,7 @@
       "description": "Dossiersuche BK eingeschr\u00e4nkt auf die Gemeinde",
       "hidden": 1,
       "name": "Dossiersuche",
-      "sort": 27,
+      "sort": 28,
       "template": "/buildom/search.phtml"
     },
     "model": "core.resource",
@@ -44723,7 +44723,7 @@
       "description": "Diese Resource stellt die API f\u00fcr das i-Web Portal bereit",
       "hidden": 0,
       "name": "Portal User Resource",
-      "sort": 32,
+      "sort": 33,
       "template": ""
     },
     "model": "core.resource",
@@ -44749,7 +44749,7 @@
       "description": "Base Resource zum w\u00e4hlen, welches Dossier kreiert werden soll",
       "hidden": 0,
       "name": "Portal Resource",
-      "sort": 33,
+      "sort": 34,
       "template": "/portal/create.phtml"
     },
     "model": "core.resource",
@@ -44762,7 +44762,7 @@
       "description": "Dossierzirkulation starten f\u00fcr die Koordinationsstelle Baudirektion BD",
       "hidden": 0,
       "name": "Dossierzirkulation starten",
-      "sort": 14,
+      "sort": 15,
       "template": null
     },
     "model": "core.resource",
@@ -44814,7 +44814,7 @@
       "description": "Dossierzirkulation starten f\u00fcr Koord NP",
       "hidden": 0,
       "name": "Dossierzirkulation starten",
-      "sort": 13,
+      "sort": 14,
       "template": null
     },
     "model": "core.resource",
@@ -44827,7 +44827,7 @@
       "description": "Dossierzirkulation starten f\u00fcr Koord Umweltschutz AfU",
       "hidden": 0,
       "name": "Dossierzirkulation starten",
-      "sort": 15,
+      "sort": 16,
       "template": null
     },
     "model": "core.resource",
@@ -44840,7 +44840,7 @@
       "description": null,
       "hidden": 0,
       "name": "Bauplanauflage",
-      "sort": 34,
+      "sort": 35,
       "template": "/list/index-portal.phtml"
     },
     "model": "core.resource",
@@ -44879,7 +44879,7 @@
       "description": "Dossierzirkulation starten f\u00fcr Koord Landwirtschaft ALA",
       "hidden": 0,
       "name": "Dossierzirkulation starten",
-      "sort": 16,
+      "sort": 17,
       "template": null
     },
     "model": "core.resource",
@@ -44892,7 +44892,7 @@
       "description": "Dossierzirkulation starten f\u00fcr Koord Energie AfE",
       "hidden": 0,
       "name": "Dossierzirkulation starten",
-      "sort": 17,
+      "sort": 18,
       "template": null
     },
     "model": "core.resource",
@@ -44905,7 +44905,7 @@
       "description": "Dossierzirkulation starten f\u00fcr Koord AFJ SD",
       "hidden": 0,
       "name": "Dossierzirkulation starten",
-      "sort": 18,
+      "sort": 19,
       "template": null
     },
     "model": "core.resource",
@@ -45048,7 +45048,7 @@
       "description": null,
       "hidden": 0,
       "name": "Erweiterte Suche",
-      "sort": 29,
+      "sort": 30,
       "template": null
     },
     "model": "core.resource",
@@ -45061,7 +45061,7 @@
       "description": "Erlaubt das Erstellen von Dossier \u00fcbergreifenden Auswertungen",
       "hidden": 0,
       "name": "Geb\u00fchren-Statistik",
-      "sort": 30,
+      "sort": 31,
       "template": null
     },
     "model": "core.resource",
@@ -45074,7 +45074,7 @@
       "description": null,
       "hidden": 0,
       "name": "Aufgaben Gemeindebaubeh\u00f6rde",
-      "sort": 19,
+      "sort": 20,
       "template": null
     },
     "model": "core.resource",
@@ -45113,7 +45113,7 @@
       "description": null,
       "hidden": 0,
       "name": "Einstellungen",
-      "sort": 12,
+      "sort": 27,
       "template": null
     },
     "model": "core.resource",
