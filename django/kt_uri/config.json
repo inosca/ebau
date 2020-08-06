@@ -44836,12 +44836,12 @@
   {
     "fields": {
       "available_resource": "simplelist",
-      "class_field": "",
-      "description": "",
+      "class_field": null,
+      "description": null,
       "hidden": 0,
       "name": "Bauplanauflage",
       "sort": 34,
-      "template": null
+      "template": "/list/index-portal.phtml"
     },
     "model": "core.resource",
     "pk": 293
