@@ -8,7 +8,7 @@ import { dropTask } from "ember-concurrency-decorators";
 
 import saveWorkItem from "../../gql/mutations/save-workitem";
 
-export default class WorkitemListController extends Controller {
+export default class WorkItemListController extends Controller {
   @service store;
   @service apollo;
   @service notifications;
