@@ -15,6 +15,7 @@ organisation:
   address: "Adresse"
   email: "Courriel"
   website: "Site Internet"
+  notification: "Recevoir des notifications"
 
   saveSuccess: "L'organisation a été enregistrée."
   saveError: "L'organisation n'a pas pu être enregistrée."
