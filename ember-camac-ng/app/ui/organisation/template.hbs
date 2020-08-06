@@ -9,7 +9,11 @@
     <legend>{{t "organisation.edit"}}</legend>
 
     <div class="row">
-      <div class="label">{{t "organisation.phone"}}</div>
+      <div class="label">
+        <label for="phone">
+          {{t "organisation.phone"}}
+        </label>
+        </div>
       <div class="column-2">
         <Input
           class="text"
@@ -18,12 +22,17 @@
           @required={{false}}
           @name="phone"
           @maxlength={{16}}
+          id="phone"
         />
       </div>
     </div>
 
     <div class="row">
-      <div class="label">{{t "organisation.zip"}}</div>
+      <div class="label">
+        <label for="zip">
+          {{t "organisation.zip"}}
+        </label>
+        </div>
       <div class="column-2">
         <Input
           class="text"
@@ -33,12 +42,17 @@
           @name="zip"
           @minlength={{4}}
           @maxlength={{4}}
+          id="zip"
         />
       </div>
     </div>
 
     <div class="row">
-      <div class="label">{{t "organisation.city"}} *</div>
+      <div class="label">
+        <label for="city">
+          {{t "organisation.city"}} *
+        </label>
+      </div>
       <div class="column-2">
         <Input
           class="text"
@@ -46,12 +60,17 @@
           @value={{this.service.city}}
           @required={{true}}
           @name="city"
+          id="city"
         />
       </div>
     </div>
 
     <div class="row">
-      <div class="label">{{t "organisation.address"}}</div>
+      <div class="label">
+        <label for="address">
+          {{t "organisation.address"}}
+        </label>
+        </div>
       <div class="column-2">
         <Input
           class="text"
@@ -59,12 +78,17 @@
           @value={{this.service.address}}
           @required={{false}}
           @name="address"
+          id="address"
         />
       </div>
     </div>
 
     <div class="row">
-      <div class="label">{{t "organisation.email"}} *</div>
+      <div class="label">
+        <label for="email">
+          {{t "organisation.email"}} *
+        </label>
+      </div>
       <div class="column-2">
         <Input
           class="text"
@@ -72,12 +96,17 @@
           @value={{this.service.email}}
           @required={{true}}
           @name="email"
+          id="email"
         />
       </div>
     </div>
 
     <div class="row">
-      <div class="label">{{t "organisation.website"}}</div>
+      <div class="label">
+        <label for="website">
+          {{t "organisation.website"}}
+        </label>
+      </div>
       <div class="column-2">
         <Input
           class="text"
@@ -85,6 +114,25 @@
           @value={{this.service.website}}
           @required={{false}}
           @name="website"
+          id="website"
+        />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="label">
+        <label for="notification">
+          {{t "organisation.notification"}}
+        </label>
+      </div>
+      <div class="column-2">
+        <Input
+          @type="checkbox"
+          @checked={{this.service.notification}}
+          @name="notification"
+          class="uk-checkbox"
+          {{on "change" (fn (mut this.service.notification) (not this.service.notification))}}
+          id="notification"
         />
       </div>
     </div>
