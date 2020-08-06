@@ -41988,7 +41988,7 @@
   {
     "fields": {
       "action_name": "index",
-      "available_resource": "workitemlist",
+      "available_resource": "workitemlistall",
       "hidden": 0
     },
     "model": "core.araction",
@@ -42215,7 +42215,7 @@
   {
     "fields": {
       "description": "Process a work item",
-      "module_name": "workitemlist"
+      "module_name": "workitem"
     },
     "model": "core.availableaction",
     "pk": "workitem"
@@ -42681,12 +42681,12 @@
   },
   {
     "fields": {
-      "controller_name": "workitemlist",
+      "controller_name": "workitemlistall",
       "description": "Display work items",
-      "module_name": "workitemlist"
+      "module_name": "workitem"
     },
     "model": "core.availableresource",
-    "pk": "workitemlist"
+    "pk": "workitemlistall"
   },
   {
     "fields": {
@@ -117181,7 +117181,7 @@
   },
   {
     "fields": {
-      "available_resource": "workitemlist",
+      "available_resource": "workitemlistall",
       "class_field": null,
       "description": null,
       "hidden": 0,
