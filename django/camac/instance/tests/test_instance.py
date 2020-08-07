@@ -4,6 +4,9 @@ import functools
 import pyexcel
 import pytest
 import pytz
+from caluma.caluma_form import models as caluma_form_models
+from caluma.caluma_user.models import BaseUser
+from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
@@ -218,7 +221,9 @@ def test_instance_destroy(admin_client, instance, status_code, location_factory)
     "instance_state__name,instance__location",
     [("new", None), ("new", LazyFixture("location"))],
 )
-def test_instance_create(admin_client, admin_user, form, instance_state, instance):
+def test_instance_create(
+    admin_client, admin_user, form, instance_state, instance, caluma_workflow_schwyz,
+):
     url = reverse("instance-list")
 
     location_data = (
@@ -304,11 +309,19 @@ def test_instance_submit(
     role,
     mocker,
     unoconv_pdf_mock,
+    caluma_workflow_schwyz,
 ):
 
     settings.APPLICATION["NOTIFICATIONS"]["SUBMIT"] = notification_template.slug
     settings.APPLICATION["WORKFLOW_ITEMS"]["SUBMIT"] = workflow_item.pk
     settings.APPLICATION["INSTANCE_IDENTIFIER_FORM_ABBR"] = {"vbs": "PV"}
+
+    case = workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
+        form=caluma_form_models.Form.objects.get(pk="baugesuch"),
+        meta={"camac-instance-id": instance.pk},
+        user=BaseUser(),
+    )
 
     # only create group in a successful run
     if status_code == status.HTTP_200_OK:
@@ -373,6 +386,8 @@ def test_instance_submit(
         assert WorkflowEntry.objects.filter(
             instance=instance, workflow_item=workflow_item
         ).exists()
+
+        assert case.work_items.filter(task_id="submit", status="completed").exists()
 
 
 @pytest.mark.parametrize("role__name", ["Canton"])
