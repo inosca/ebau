@@ -2,6 +2,7 @@ import mimetypes
 from datetime import timedelta
 
 import django_excel
+from caluma.caluma_workflow import api as workflow_api, models as workflow_models
 from django.conf import settings
 from django.core.files import File
 from django.db import transaction
@@ -121,7 +122,7 @@ class InstanceView(
             },
             "camac-ng": {
                 "submit": serializers.InstanceSubmitSerializer,
-                "default": serializers.InstanceSerializer,
+                "default": serializers.SchwyzInstanceSerializer,
             },
         }
 
@@ -326,6 +327,13 @@ class InstanceView(
             AttachmentSection.objects.filter_group(request.group)[0]
         )
         attachment.save()
+
+        workflow_api.complete_work_item(
+            work_item=workflow_models.WorkItem.objects.get(
+                **{"task_id": "submit", "case__meta__camac-instance-id": instance.pk}
+            ),
+            user=request.caluma_info.context.user,
+        )
 
         return response.Response(data=serializer.data)
 

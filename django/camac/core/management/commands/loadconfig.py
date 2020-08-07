@@ -36,7 +36,9 @@ class Command(BaseCommand):
             help="Don't load caluma config and data",
         )
 
-        parser.set_defaults(caluma=settings.APPLICATION.get("FORM_BACKEND") == "caluma")
+        parser.set_defaults(
+            caluma=settings.APPLICATION_NAME in ["kt_bern", "kt_schwyz"]
+        )
 
     def handle(self, *args, **options):
         config_fixtures = []
