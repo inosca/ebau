@@ -7,7 +7,7 @@ from camac.caluma.extensions.dynamic_groups import CustomDynamicGroups
 
 
 @pytest.mark.parametrize("has_group", [True, False])
-def test_dynamic_group(
+def test_dynamic_group_bern(
     db,
     caluma_workflow,
     instance,
@@ -61,3 +61,22 @@ def test_dynamic_group(
             )
             == 0
         )
+
+
+def test_dynamic_group_schwyz(
+    db, caluma_workflow, instance, caluma_admin_user, settings,
+):
+    settings.APPLICATION_NAME = "kt_schwyz"
+
+    dynamic_groups = CustomDynamicGroups()
+
+    case = start_case(
+        workflow=Workflow.objects.get(pk="building-permit"),
+        form=Form.objects.get(pk="main-form"),
+        user=caluma_admin_user,
+        meta={"camac-instance-id": instance.pk},
+    )
+
+    assert dynamic_groups.resolve("municipality")(None, case, None, None, None) == [
+        str(instance.group.service.pk)
+    ]

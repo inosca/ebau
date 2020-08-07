@@ -339,7 +339,7 @@
       "error_message": "Email konnte nicht versandt werden",
       "execute_always": 0,
       "name": "Email Stellungnahme",
-      "sort": 4,
+      "sort": 5,
       "success_message": "Email wurde erfolgreich versandt"
     },
     "model": "core.action",
@@ -353,7 +353,7 @@
       "error_message": "Email konnte nicht versandt werden",
       "execute_always": 0,
       "name": "Email Angenommen",
-      "sort": 2,
+      "sort": 5,
       "success_message": "Email wurde erfolgreich versandt"
     },
     "model": "core.action",
@@ -801,7 +801,7 @@
       "error_message": "Email konnte nicht versandt werden",
       "execute_always": 0,
       "name": "Email Stellungnahme",
-      "sort": 4,
+      "sort": 5,
       "success_message": "Email wurde erfolgreich versandt"
     },
     "model": "core.action",
@@ -946,6 +946,68 @@
     },
     "model": "core.action",
     "pk": 99
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 1,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Aufgabe abschliessen: Vollst\u00e4ndigkeitspr\u00fcfung",
+      "sort": 4,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 100
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 9,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Workitem abschliessen: Zirkulation starten",
+      "sort": 4,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 103
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 41,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Workitem abschliessen: Zirkulation starten",
+      "sort": 4,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 104
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": false,
+      "process_type": "complete",
+      "tasks": "[\"circulation-start\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 103
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": false,
+      "process_type": "complete",
+      "tasks": "[\"circulation-start\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 104
   },
   {
     "fields": {
@@ -2131,6 +2193,14 @@
     },
     "model": "core.availableaction",
     "pk": "workflow"
+  },
+  {
+    "fields": {
+      "description": "Process a work item",
+      "module_name": "workitemlist"
+    },
+    "model": "core.availableaction",
+    "pk": "workitem"
   },
   {
     "fields": {
@@ -6402,6 +6472,214 @@
     },
     "model": "core.instanceresourceaction",
     "pk": 352
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "emberjournal"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 353
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "formerror"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 354
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "formpages"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 355
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "billing"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 356
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "editletter"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 357
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "editformpage"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 358
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "formwizard"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 359
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "history"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 360
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "templatecenter"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 361
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "issue"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 362
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "workflow"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 363
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "editformpages"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 364
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "apidocuments"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 365
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "page"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 366
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "publication"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 367
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "circulation"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 368
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "objection"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 369
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "editcirculation"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 370
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "integritydashboard"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 371
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "newform"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 372
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "letter"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 373
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "formpage"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 374
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "buildingauthority"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 375
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "editnotice"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 376
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "allformpages"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 377
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "available_instance_resource": "responsibility"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 378
   },
   {
     "fields": {
