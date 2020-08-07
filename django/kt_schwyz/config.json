@@ -353,7 +353,7 @@
       "error_message": "Email konnte nicht versandt werden",
       "execute_always": 0,
       "name": "Email Angenommen",
-      "sort": 5,
+      "sort": 3,
       "success_message": "Email wurde erfolgreich versandt"
     },
     "model": "core.action",
@@ -950,25 +950,11 @@
   {
     "fields": {
       "available_action": "workitem",
-      "button": 1,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": "Aufgabe abschliessen: Vollst\u00e4ndigkeitspr\u00fcfung",
-      "sort": 4,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 100
-  },
-  {
-    "fields": {
-      "available_action": "workitem",
       "button": 9,
       "description": null,
       "error_message": null,
       "execute_always": 0,
-      "name": "Workitem abschliessen: Zirkulation starten",
+      "name": "Aufgabe abschliessen: Zirkulation starten",
       "sort": 4,
       "success_message": null
     },
@@ -982,12 +968,26 @@
       "description": null,
       "error_message": null,
       "execute_always": 0,
-      "name": "Workitem abschliessen: Zirkulation starten",
+      "name": "Aufgabe abschliessen: Zirkulation starten",
       "sort": 4,
       "success_message": null
     },
     "model": "core.action",
     "pk": 104
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 1,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Aufgabe abschliessen: Vollst\u00e4ndigkeitspr\u00fcfung",
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 105
   },
   {
     "fields": {
@@ -1008,6 +1008,16 @@
     },
     "model": "core.actionworkitem",
     "pk": 104
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": false,
+      "process_type": "complete",
+      "tasks": "[\"integritydashboard\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 105
   },
   {
     "fields": {

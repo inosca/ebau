@@ -1,3 +1,4 @@
+from caluma.caluma_workflow import api as workflow_api, models as workflow_models
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import transaction
@@ -66,6 +67,21 @@ class PublicationEntrySerializer(serializers.ModelSerializer):
                 instance_id=instance.instance.pk,
                 workflow_date=camac_now,
             )
+
+            work_item = workflow_models.WorkItem.objects.filter(
+                **{
+                    "task_id": "publication",
+                    "case__meta__camac-instance-id": self.instance.instance.pk,
+                    "status": workflow_models.WorkItem.STATUS_READY,
+                }
+            ).first()
+
+            # TODO: test this
+            if work_item:  # pragma: no cover
+                workflow_api.complete_work_item(
+                    work_item=work_item,
+                    user=self.context["request"].caluma_info.context.user,
+                )
 
         return super().update(instance, validated_data)
 
