@@ -43,6 +43,17 @@ def caluma_workflow(settings, caluma_forms):
 
 
 @pytest.fixture
+def caluma_workflow_schwyz(settings, caluma_forms):
+    caluma_form_models.Form.objects.create(slug="baugesuch"),
+
+    call_command("loaddata", settings.ROOT_DIR("kt_schwyz/config-caluma-workflow.json"))
+
+    workflows = caluma_workflow_models.Workflow.objects.all()
+
+    return workflows
+
+
+@pytest.fixture
 def caluma_forms(settings):
     # forms
     caluma_form_models.Form.objects.create(

@@ -323,7 +323,9 @@ class Command(BaseCommand):
             help="Don't dump caluma config",
         )
 
-        parser.set_defaults(caluma=settings.APPLICATION.get("FORM_BACKEND") == "caluma")
+        parser.set_defaults(
+            caluma=settings.APPLICATION_NAME in ["kt_bern", "kt_schwyz"]
+        )
 
     def dump_config(self, export_models, output):
         tmp_output = io.StringIO()
