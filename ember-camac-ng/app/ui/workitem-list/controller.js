@@ -71,7 +71,7 @@ export default class WorkitemListController extends Controller {
 
   @dropTask
   *fetchWorkItems() {
-    const filter = [];
+    const filter = [{ hasDeadline: true }];
 
     if (this.filters.responsible === "own") {
       filter.push({ assignedUsers: [this.userId] });

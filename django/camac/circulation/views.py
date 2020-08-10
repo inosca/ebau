@@ -1,22 +1,26 @@
 import django_excel
+from django.db import transaction
 from django.db.models import OuterRef, Subquery
 from rest_framework.decorators import action
+from rest_framework.response import Response
 from rest_framework.settings import api_settings
 from rest_framework_json_api import views
 
+from camac.caluma.api import CalumaApi
 from camac.core.models import Activation, Circulation
 from camac.instance.filters import FormFieldOrdering
-from camac.instance.mixins import InstanceQuerysetMixin
+from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.models import FormField
 
 from . import filters, serializers
 
 
-class CirculationView(InstanceQuerysetMixin, views.ReadOnlyModelViewSet):
+class CirculationView(InstanceQuerysetMixin, InstanceEditableMixin, views.ModelViewSet):
     swagger_schema = None
     queryset = Circulation.objects.select_related("instance")
     serializer_class = serializers.CirculationSerializer
     filterset_class = filters.CirculationFilterSet
+    http_method_names = ["get", "patch"]
     prefetch_for_includes = {
         "activations": [
             "activations__circulation",
@@ -24,6 +28,21 @@ class CirculationView(InstanceQuerysetMixin, views.ReadOnlyModelViewSet):
             "instance__circulations",
         ]
     }
+
+    def has_object_update_permission(self, instance):
+        return False
+
+    def has_object_sync_permission(self, instance):
+        return self.has_editable_permission(self.get_instance(instance))
+
+    @action(methods=["PATCH"], detail=True)
+    @transaction.atomic
+    def sync(self, request, pk=None):
+        CalumaApi().sync_circulation(
+            self.get_object(), request.caluma_info.context.user
+        )
+
+        return Response([], 204)
 
 
 class ActivationView(InstanceQuerysetMixin, views.ReadOnlyModelViewSet):
