@@ -775,10 +775,19 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         self._create_answer_proposals(instance)
         self._update_rejected_instance(instance)
 
-        workflow_api.complete_work_item(
-            work_item=case.work_items.get(task_id="submit"),
-            user=self.context["request"].caluma_info.context.user,
-        )
+        work_item = workflow_models.WorkItem.objects.filter(
+            **{
+                "task_id": settings.APPLICATION["CALUMA"]["SUBMIT_TASK"],
+                "status": workflow_models.WorkItem.STATUS_READY,
+                "case__meta__camac-instance-id": self.instance.pk,
+            }
+        ).first()
+
+        if work_item:
+            workflow_api.complete_work_item(
+                work_item=work_item,
+                user=self.context["request"].caluma_info.context.user,
+            )
 
         instance_submitted.send(
             sender=self.__class__,
@@ -804,12 +813,19 @@ class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
 
         instance.save()
 
-        workflow_api.complete_work_item(
-            work_item=workflow_models.WorkItem.objects.get(
-                **{"task_id": "sb1", "case__meta__camac-instance-id": self.instance.pk}
-            ),
-            user=self.context["request"].caluma_info.context.user,
-        )
+        work_item = workflow_models.WorkItem.objects.filter(
+            **{
+                "task_id": settings.APPLICATION["CALUMA"]["REPORT_TASK"],
+                "status": workflow_models.WorkItem.STATUS_READY,
+                "case__meta__camac-instance-id": self.instance.pk,
+            }
+        ).first()
+
+        if work_item:
+            workflow_api.complete_work_item(
+                work_item=work_item,
+                user=self.context["request"].caluma_info.context.user,
+            )
 
         # generate and submit pdf
         self._generate_and_store_pdf(instance, "sb1")
@@ -840,12 +856,19 @@ class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
 
         instance.save()
 
-        workflow_api.complete_work_item(
-            work_item=workflow_models.WorkItem.objects.get(
-                **{"task_id": "sb2", "case__meta__camac-instance-id": self.instance.pk}
-            ),
-            user=self.context["request"].caluma_info.context.user,
-        )
+        work_item = workflow_models.WorkItem.objects.filter(
+            **{
+                "task_id": settings.APPLICATION["CALUMA"]["FINALIZE_TASK"],
+                "status": workflow_models.WorkItem.STATUS_READY,
+                "case__meta__camac-instance-id": self.instance.pk,
+            }
+        ).first()
+
+        if work_item:
+            workflow_api.complete_work_item(
+                work_item=work_item,
+                user=self.context["request"].caluma_info.context.user,
+            )
 
         # generate and submit pdf
         self._generate_and_store_pdf(instance, "sb2")

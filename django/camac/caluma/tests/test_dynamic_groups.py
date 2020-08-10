@@ -2,6 +2,7 @@ import pytest
 from caluma.caluma_form.models import Form
 from caluma.caluma_workflow.api import start_case
 from caluma.caluma_workflow.models import Workflow
+from django.conf import settings
 
 from camac.caluma.extensions.dynamic_groups import CustomDynamicGroups
 
@@ -12,14 +13,19 @@ def test_dynamic_group_bern(
     caluma_workflow,
     instance,
     service_factory,
+    activation_factory,
     instance_service_factory,
     caluma_admin_user,
     application_settings,
     has_group,
 ):
+    settings.APPLICATION_NAME = "kt_bern"
 
     municipality = service_factory()
     construction_control = service_factory()
+    service = service_factory()
+
+    context = {}
 
     application_settings["ACTIVE_SERVICE_FILTERS"] = {"service__pk": municipality.pk}
     application_settings["ACTIVE_BAUKONTROLLE_FILTERS"] = {
@@ -32,6 +38,12 @@ def test_dynamic_group_bern(
             instance=instance, service=construction_control, active=1
         )
 
+        activation = activation_factory(
+            circulation__instance=instance, service=service, service_parent=municipality
+        )
+
+        context["activation-id"] = activation.pk
+
     dynamic_groups = CustomDynamicGroups()
 
     case = start_case(
@@ -41,30 +53,19 @@ def test_dynamic_group_bern(
         meta={"camac-instance-id": instance.pk},
     )
 
-    if has_group:
-        assert dynamic_groups.resolve("municipality")(None, case, None, None, None) == [
-            str(municipality.pk)
-        ]
-        assert dynamic_groups.resolve("construction_control")(
-            None, case, None, None, None
-        ) == [str(construction_control.pk)]
-    else:
-        assert (
-            len(dynamic_groups.resolve("municipality")(None, case, None, None, None))
-            == 0
-        )
-        assert (
-            len(
-                dynamic_groups.resolve("construction_control")(
-                    None, case, None, None, None
-                )
-            )
-            == 0
+    for (name, expected) in [
+        ("municipality", [str(municipality.pk)]),
+        ("construction_control", [str(construction_control.pk)]),
+        ("service", [str(service.pk)]),
+        ("service_parent", [str(municipality.pk)]),
+    ]:
+        assert dynamic_groups.resolve(name)(None, case, None, None, context) == (
+            expected if has_group else []
         )
 
 
 def test_dynamic_group_schwyz(
-    db, caluma_workflow, instance, caluma_admin_user, settings,
+    db, caluma_workflow, instance, caluma_admin_user, settings
 ):
     settings.APPLICATION_NAME = "kt_schwyz"
 

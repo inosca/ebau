@@ -432,33 +432,17 @@ def test_instance_report(
         user=BaseUser(),
     )
 
-    case.document.answers.create(
-        question_id="papierdossier", value="papierdossier-nein"
-    )
-
-    workflow_api.complete_work_item(
-        work_item=case.work_items.get(task_id="submit"), user=BaseUser()
-    )
-
-    for work_item in case.work_items.filter(task_id__in=["nfd", "ebau-number"]):
-        workflow_api.complete_work_item(work_item=work_item, user=BaseUser())
-
-    # if has_personalien_sb2:
-    #     sb2_document = caluma_form_models.Document.objects.create(
-    #         form_id="sb2", meta={"camac-instance-id": instance.pk}
-    #     )
-    #     sb_table_answer = caluma_form_models.Answer.objects.create(
-    #         document=sb1_document, question_id="personalien-sb1-sb2"
-    #     )
-    #     sb_row = caluma_form_models.Document.objects.create(
-    #         form_id="personalien-tabelle"
-    #     )
-    #     caluma_form_models.Answer.objects.create(
-    #         document=sb_row, question_id="name-sb", value="Test123"
-    #     )
-    #     caluma_form_models.AnswerDocument.objects.create(
-    #         document=sb_row, answer=sb_table_answer
-    #     )
+    for task_id in [
+        "submit",
+        "ebau-number",
+        "init-circulation",
+        "circulation",
+        "start-decision",
+        "decision",
+    ]:
+        workflow_api.complete_work_item(
+            work_item=case.work_items.get(task_id=task_id), user=BaseUser()
+        )
 
     instance_state_factory(name=new_instance_state_name, pk=new_instance_state_pk)
 
@@ -540,20 +524,18 @@ def test_instance_finalize(
         user=BaseUser(),
     )
 
-    case.document.answers.create(
-        question_id="papierdossier", value="papierdossier-nein"
-    )
-
-    workflow_api.complete_work_item(
-        work_item=case.work_items.get(task_id="submit"), user=BaseUser()
-    )
-
-    for work_item in case.work_items.filter(task_id__in=["nfd", "ebau-number"]):
-        workflow_api.complete_work_item(work_item=work_item, user=BaseUser())
-
-    workflow_api.complete_work_item(
-        work_item=case.work_items.get(task_id="sb1"), user=BaseUser()
-    )
+    for task_id in [
+        "submit",
+        "ebau-number",
+        "init-circulation",
+        "circulation",
+        "start-decision",
+        "decision",
+        "sb1",
+    ]:
+        workflow_api.complete_work_item(
+            work_item=case.work_items.get(task_id=task_id), user=BaseUser()
+        )
 
     instance_state_factory(name=new_instance_state_name, pk=new_instance_state_pk)
 
@@ -569,8 +551,9 @@ def test_instance_finalize(
         assert instance.user.email in recipients
         assert instance_service_construction_control.service.email in recipients
 
-        case.refresh_from_db()
-        assert case.status == "completed"
+        assert sorted(
+            case.work_items.filter(status="ready").values_list("task_id", flat=True)
+        ) == sorted(["check-sb1", "check-sb2", "complete"])
 
 
 @pytest.mark.parametrize("paper", [(True, False)])

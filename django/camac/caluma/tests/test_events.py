@@ -2,15 +2,16 @@ import faker
 import pytest
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
+from django.conf import settings
+from django.urls import reverse
 from django.utils import timezone
+from pytest_factoryboy import LazyFixture
 
 
 @pytest.mark.parametrize("expected_value", ["papierdossier-ja", "papierdossier-nein"])
 def test_copy_papierdossier(
-    db, instance_factory, caluma_admin_user, caluma_workflow, expected_value
+    db, instance, instance_service, caluma_admin_user, caluma_workflow, expected_value
 ):
-    instance = instance_factory()
-
     case = workflow_api.start_case(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
         form=caluma_form_models.Form.objects.get(pk="main-form"),
@@ -20,52 +21,35 @@ def test_copy_papierdossier(
 
     case.document.answers.create(question_id="papierdossier", value=expected_value)
 
-    # complete submit which creates nfd and ebau-number work items
-    workflow_api.complete_work_item(
-        work_item=case.work_items.get(task_id="submit"), user=caluma_admin_user
-    )
+    for task_id in [
+        "submit",
+        "ebau-number",
+        "publication",
+        "audit",
+        "init-circulation",
+        "circulation",
+        "start-decision",
+        "decision",
+        "sb1",
+    ]:
+        # skip case to sb2
+        workflow_api.skip_work_item(
+            work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user
+        )
 
-    assert (
-        case.work_items.get(task_id="nfd")
-        .document.answers.get(question_id="papierdossier")
-        .value
-        == expected_value
-    )
-
-    # complete nfd and ebau-number which creates the sb1 work item
-    workflow_api.complete_work_item(
-        work_item=case.work_items.get(task_id="ebau-number"), user=caluma_admin_user
-    )
-    workflow_api.complete_work_item(
-        work_item=case.work_items.get(task_id="nfd"), user=caluma_admin_user
-    )
-
-    assert (
-        case.work_items.get(task_id="sb1")
-        .document.answers.get(question_id="papierdossier")
-        .value
-        == expected_value
-    )
-
-    # complete sb1 which creates the sb2 work item
-    workflow_api.complete_work_item(
-        work_item=case.work_items.get(task_id="sb1"), user=caluma_admin_user
-    )
-
-    assert (
-        case.work_items.get(task_id="sb2")
-        .document.answers.get(question_id="papierdossier")
-        .value
-        == expected_value
-    )
+    for task_id in settings.APPLICATION["CALUMA"]["COPY_PAPER_ANSWER_TO"]:
+        assert (
+            case.work_items.get(task_id=task_id)
+            .document.answers.get(question_id="papierdossier")
+            .value
+            == expected_value
+        )
 
 
 @pytest.mark.parametrize("use_fallback", [True, False])
 def test_copy_sb_personalien(
-    db, instance_factory, caluma_admin_user, caluma_workflow, use_fallback
+    db, instance, instance_service, caluma_admin_user, caluma_workflow, use_fallback
 ):
-    instance = instance_factory()
-
     case = workflow_api.start_case(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
         form=caluma_form_models.Form.objects.get(pk="main-form"),
@@ -88,15 +72,19 @@ def test_copy_sb_personalien(
         row.answers.create(question_id="name-sb", value="Test123")
         table.documents.add(row)
 
-    workflow_api.complete_work_item(
-        work_item=case.work_items.get(task_id="submit"), user=caluma_admin_user
-    )
-    workflow_api.complete_work_item(
-        work_item=case.work_items.get(task_id="ebau-number"), user=caluma_admin_user
-    )
-    workflow_api.complete_work_item(
-        work_item=case.work_items.get(task_id="nfd"), user=caluma_admin_user
-    )
+    for task_id in [
+        "submit",
+        "ebau-number",
+        "publication",
+        "audit",
+        "init-circulation",
+        "circulation",
+        "start-decision",
+        "decision",
+    ]:
+        workflow_api.skip_work_item(
+            work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user
+        )
 
     sb1_row = (
         case.work_items.get(task_id="sb1")
@@ -180,3 +168,50 @@ def test_notify_completed_work_item(
         snapshot.assert_match(
             [(mail.subject, mail.body, mail.to, mail.cc) for mail in mailoutbox]
         )
+
+
+@pytest.mark.parametrize(
+    "role__name,instance__user", [("Municipality", LazyFixture("admin_user"))]
+)
+def test_complete_case(
+    caluma_admin_user,
+    admin_client,
+    instance_service,
+    circulation,
+    activation_factory,
+    caluma_workflow,
+):
+    case = workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
+        form=caluma_form_models.Form.objects.get(pk="main-form"),
+        user=caluma_admin_user,
+        meta={"camac-instance-id": circulation.instance.pk},
+    )
+
+    for task_id in ["submit", "ebau-number", "init-circulation"]:
+        workflow_api.skip_work_item(
+            case.work_items.get(task_id=task_id),
+            user=caluma_admin_user,
+            context={"circulation-id": circulation.pk},
+        )
+
+    circulation_work_item = case.work_items.get(
+        **{"task_id": "circulation", "meta__circulation-id": circulation.pk}
+    )
+
+    activation = activation_factory(circulation=circulation)
+
+    admin_client.patch(reverse("circulation-sync", args=[circulation.pk]))
+
+    circulation_work_item.refresh_from_db()
+    activation_work_item = circulation_work_item.child_case.work_items.get(
+        **{"task_id": "activation", "meta__activation-id": activation.pk}
+    )
+
+    workflow_api.complete_work_item(activation_work_item, caluma_admin_user)
+
+    circulation_work_item.child_case.refresh_from_db()
+    assert (
+        circulation_work_item.child_case.status
+        == caluma_workflow_models.Case.STATUS_COMPLETED
+    )

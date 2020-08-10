@@ -4295,8 +4295,11 @@ class HistoryActionConfigT(models.Model):
 class ActionWorkitem(models.Model):
     PROCESS_TYPE_COMPLETE = "complete"
     PROCESS_TYPE_SKIP = "skip"
+    PROCESS_TYPE_CANCEL = "cancel"
 
-    PROCESS_TYPES = tuple((t, t) for t in (PROCESS_TYPE_COMPLETE, PROCESS_TYPE_SKIP))
+    PROCESS_TYPES = tuple(
+        (t, t) for t in (PROCESS_TYPE_COMPLETE, PROCESS_TYPE_SKIP, PROCESS_TYPE_CANCEL)
+    )
 
     action = models.OneToOneField(
         "Action",
