@@ -18,14 +18,22 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   get instance() {
-    return this.store.peekRecord(
-      "instance",
-      this.raw.case.meta["camac-instance-id"]
-    );
+    return this.store.peekRecord("instance", this.instanceId);
   }
 
   get instanceIdentifier() {
-    return this.instance?.identifier || "-";
+    const szIdentifier = this.instance?.identifier;
+
+    const ebauNr = this.raw.case.meta["ebau-number"];
+    const beIdentifier = ebauNr
+      ? `${this.instanceId} (${ebauNr})`
+      : this.instanceId;
+
+    return szIdentifier || beIdentifier;
+  }
+
+  get instanceId() {
+    return this.raw.case.meta["camac-instance-id"];
   }
 
   get instanceName() {
