@@ -53,7 +53,9 @@
   </thead>
   <tbody>
     {{#if this.workItemsQuery.isLoading}}
-      <LoadingText />
+      <tr>
+        <td colspan="7" class="center"><LoadingText /></td>
+      </tr>
     {{else}}
       {{#each this.workItemsQuery.value as |workitem|}}
         <tr class="workitem {{workitem.workItemColor}}">
