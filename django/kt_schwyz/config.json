@@ -2216,7 +2216,7 @@
   {
     "fields": {
       "description": "Process a work item",
-      "module_name": "workitemlist"
+      "module_name": "workitem"
     },
     "model": "core.availableaction",
     "pk": "workitem"
