@@ -6,6 +6,7 @@ from django.urls import reverse
 from django.utils import timezone
 from rest_framework.test import APIClient
 
+from camac.caluma.api import CalumaApi
 from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
     INSTANCE_STATE_DONE,
@@ -102,6 +103,30 @@ class BaseSendHandler:
             self.data.eventNotice.planningPermissionApplicationIdentification.dossierIdentification
         )
 
+    def get_case(self):
+        return caluma_workflow_models.Case.objects.get(
+            **{"meta__camac-instance-id": int(self.get_instance_id())}
+        )
+
+    def complete_work_item(self, task, context=None):
+        return self._process_work_item("complete", task, context)
+
+    def skip_work_item(self, task, context=None):
+        return self._process_work_item("skip", task, context)
+
+    def _process_work_item(self, action, task, context):
+        fn = getattr(workflow_api, f"{action}_work_item")
+        work_item = (
+            self.get_case()
+            .work_items.filter(
+                task_id=task, status=caluma_workflow_models.WorkItem.STATUS_READY
+            )
+            .first()
+        )
+
+        if work_item and fn:
+            fn(work_item=work_item, user=self.caluma_user, context=context)
+
     def has_permission(self):
         return self.instance.responsible_service() == self.group.service, None
 
@@ -147,10 +172,7 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
             4: INSTANCE_STATE_REJECTED,
         }
 
-        case = caluma_workflow_models.Case.objects.get(
-            **{"meta__camac-instance-id": self.instance.pk}
-        )
-        workflow_slug = case.workflow.slug
+        workflow_slug = self.get_case().workflow_id
         judgement = self.data.eventNotice.decisionRuling.judgement
 
         state_id = status[judgement]
@@ -167,10 +189,7 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
         if state_id == INSTANCE_STATE_SB1:
             set_baukontrolle(self.instance)
 
-        for work_item in case.work_items.filter(
-            status=caluma_workflow_models.WorkItem.STATUS_READY
-        ):
-            workflow_api.complete_work_item(work_item=work_item, user=self.caluma_user)
+        self.complete_work_item("decision")
 
         self.instance.instance_state = InstanceState.objects.get(pk=state_id)
         self.instance.save()
@@ -282,8 +301,12 @@ class AccompanyingReportSendHandler(BaseSendHandler):
 
     def apply(self):
         documents = self._get_documents()
+
         self.activation.circulation_state = CirculationState.objects.get(name="DONE")
         self.activation.save()
+
+        CalumaApi().sync_circulation(self.activation.circulation, self.caluma_user)
+
         answer = "; ".join(self.data.eventAccompanyingReport.remark)
         clause = "; ".join(self.data.eventAccompanyingReport.ancillaryClauses)
         stellungnahme = NoticeType.objects.get(pk=NOTICE_TYPE_STELLUNGNAHME)
@@ -334,8 +357,13 @@ class CloseArchiveDossierSendHandler(BaseSendHandler):
 
     def apply(self):
         state = InstanceState.objects.get(pk=INSTANCE_STATE_FINISHED)
+
         self.instance.instance_state = state
         self.instance.save()
+
+        for task_id in ["sb1", "sb2", "complete"]:
+            self.skip_work_item(task_id)
+
         finished.send(
             sender=self.__class__,
             instance=self.instance,
@@ -373,6 +401,9 @@ class TaskSendHandler(BaseSendHandler):
                 instance=self.instance,
                 instance_resource_id=instance_resource.pk,
                 name=trunc(timezone.now().timestamp()),
+            )
+            self.complete_work_item(
+                "init-circulation", {"circulation-id": circulation.pk}
             )
         return circulation
 
@@ -418,6 +449,8 @@ class TaskSendHandler(BaseSendHandler):
         circulation = self._get_circulation()
         service = self._get_service()
         activation = self._create_activation(circulation, service)
+
+        CalumaApi().sync_circulation(circulation, self.caluma_user)
 
         task_send.send(
             sender=self.__class__,

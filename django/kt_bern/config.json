@@ -23,7 +23,7 @@
       "error_message": null,
       "execute_always": 1,
       "name": null,
-      "sort": 2,
+      "sort": 3,
       "success_message": null
     },
     "model": "core.action",
@@ -37,7 +37,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 2,
+      "sort": 3,
       "success_message": null
     },
     "model": "core.action",
@@ -65,7 +65,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 3,
+      "sort": 4,
       "success_message": null
     },
     "model": "core.action",
@@ -107,7 +107,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 2,
+      "sort": 3,
       "success_message": null
     },
     "model": "core.action",
@@ -233,7 +233,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 3,
+      "sort": 4,
       "success_message": null
     },
     "model": "core.action",
@@ -247,7 +247,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 3,
+      "sort": 4,
       "success_message": null
     },
     "model": "core.action",
@@ -275,7 +275,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 2,
       "success_message": null
     },
     "model": "core.action",
@@ -289,7 +289,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 3,
       "success_message": null
     },
     "model": "core.action",
@@ -583,7 +583,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 4,
+      "sort": 2,
       "success_message": null
     },
     "model": "core.action",
@@ -709,7 +709,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 2,
       "success_message": null
     },
     "model": "core.action",
@@ -807,7 +807,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 0,
+      "sort": 1,
       "success_message": null
     },
     "model": "core.action",
@@ -933,7 +933,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 2,
       "success_message": null
     },
     "model": "core.action",
@@ -1045,7 +1045,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 2,
+      "sort": 3,
       "success_message": null
     },
     "model": "core.action",
@@ -1134,6 +1134,216 @@
     },
     "model": "core.action",
     "pk": 150013
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 20048,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150014
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 20018,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150015
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 20016,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150016
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 20019,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 3,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150017
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 120001,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150018
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "button": 120001,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150019
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 130000,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150020
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 20005,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150021
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 20038,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150022
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 20039,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150023
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 20009,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150025
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 20007,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150026
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 20044,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150027
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 20044,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 3,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150028
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 20044,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150029
   },
   {
     "fields": {
@@ -1241,7 +1451,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 3,
+      "sort": 4,
       "success_message": null
     },
     "model": "core.action",
@@ -1255,7 +1465,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 2,
+      "sort": 4,
       "success_message": null
     },
     "model": "core.action",
@@ -1395,7 +1605,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 2,
       "success_message": null
     },
     "model": "core.action",
@@ -2117,7 +2327,7 @@
       "description": null,
       "error_message": "Zirkulation konnte nicht abgeschlossen werden",
       "language": "de",
-      "name": "circ state to DONE",
+      "name": "End circulation",
       "success_message": "Zirkulation abgeschlossen"
     },
     "model": "core.actiont",
@@ -2225,7 +2435,7 @@
       "description": null,
       "error_message": "Zirkulation konnte nicht gel\u00f6scht werden. Eine Zirkulation kann nur gel\u00f6scht werden, solange noch keine Amts- oder Fachstellen eingeladen wurde.",
       "language": "de",
-      "name": "DeleteCirculation",
+      "name": "Delete circulation",
       "success_message": "Zirkulation wurde erfolgreich gel\u00f6scht."
     },
     "model": "core.actiont",
@@ -2381,7 +2591,7 @@
       "description": null,
       "error_message": null,
       "language": "de",
-      "name": "Aufgabe abschliessen: Nachforderungen",
+      "name": "Aufgabe abschliessen: Entscheid verf\u00fcgen",
       "success_message": null
     },
     "model": "core.actiont",
@@ -2393,7 +2603,7 @@
       "description": null,
       "error_message": null,
       "language": "de",
-      "name": "Aufgabe abschliessen: Nachforderungen",
+      "name": "Aufgabe abschliessen: Entscheid verf\u00fcgen",
       "success_message": null
     },
     "model": "core.actiont",
@@ -2410,6 +2620,198 @@
     },
     "model": "core.actiont",
     "pk": 150018
+  },
+  {
+    "fields": {
+      "action": 150014,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Aufgabe abschliessen: Verfahren abschliessen",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150019
+  },
+  {
+    "fields": {
+      "action": 150015,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Aufgabe abschliessen: Zirkulation wiederer\u00f6ffnen",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150020
+  },
+  {
+    "fields": {
+      "action": 150016,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Aufgabe abschliessen: Entscheid starten",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150021
+  },
+  {
+    "fields": {
+      "action": 150017,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Aufgabe abschliessen: Dossier pr\u00fcfen",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150022
+  },
+  {
+    "fields": {
+      "action": 150018,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Aufgabe \u00fcberspringen: Dossier pr\u00fcfen",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150023
+  },
+  {
+    "fields": {
+      "action": 150019,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "History: Dossierpr\u00fcfung \u00fcbersprungen",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150024
+  },
+  {
+    "fields": {
+      "action": 150019,
+      "description": null,
+      "error_message": null,
+      "language": "fr",
+      "name": "History: Dossierpr\u00fcfung \u00fcbersprungen",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150025
+  },
+  {
+    "fields": {
+      "action": 150020,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Zirkulation mit Caluma synchronisieren",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150026
+  },
+  {
+    "fields": {
+      "action": 150021,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Zirkulation mit Caluma synchronisieren",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150027
+  },
+  {
+    "fields": {
+      "action": 150022,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Aufgabe abschliessen: Stellungnahme verfassen",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150028
+  },
+  {
+    "fields": {
+      "action": 150023,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Zirkulation mit Caluma synchronisieren",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150029
+  },
+  {
+    "fields": {
+      "action": 150025,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Zirkulation mit Caluma synchronisieren",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150031
+  },
+  {
+    "fields": {
+      "action": 150026,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Aufgabe abschliessen: Stellungnahme verfassen",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150032
+  },
+  {
+    "fields": {
+      "action": 150027,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Aufgabe \u00fcberspringen: Zirkulation",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150033
+  },
+  {
+    "fields": {
+      "action": 150028,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Aufgabe \u00fcberspringen: Entscheid starten",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150034
+  },
+  {
+    "fields": {
+      "action": 150029,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Aufgabe \u00fcberspringen: Zirkulation initialisieren",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150035
   },
   {
     "fields": {
@@ -2525,7 +2927,7 @@
       "description": null,
       "error_message": null,
       "language": "de",
-      "name": "History: Dossier gepr\u00fcft",
+      "name": "History: Dossierpr\u00fcfung abgeschlossen",
       "success_message": null
     },
     "model": "core.actiont",
@@ -2836,7 +3238,7 @@
       "is_activation": false,
       "process_all": true,
       "process_type": "skip",
-      "tasks": "[\"sb1\"]"
+      "tasks": "[\"sb1\", \"check-sb1\"]"
     },
     "model": "core.actionworkitem",
     "pk": 150009
@@ -2846,7 +3248,7 @@
       "is_activation": false,
       "process_all": true,
       "process_type": "skip",
-      "tasks": "[\"sb2\"]"
+      "tasks": "[\"sb2\", \"check-sb2\"]"
     },
     "model": "core.actionworkitem",
     "pk": 150010
@@ -2856,7 +3258,7 @@
       "is_activation": false,
       "process_all": false,
       "process_type": "complete",
-      "tasks": "[\"nfd\"]"
+      "tasks": "[\"decision\"]"
     },
     "model": "core.actionworkitem",
     "pk": 150011
@@ -2866,7 +3268,7 @@
       "is_activation": false,
       "process_all": false,
       "process_type": "complete",
-      "tasks": "[\"nfd\"]"
+      "tasks": "[\"decision\"]"
     },
     "model": "core.actionworkitem",
     "pk": 150012
@@ -2880,6 +3282,106 @@
     },
     "model": "core.actionworkitem",
     "pk": 150013
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": false,
+      "process_type": "complete",
+      "tasks": "[\"complete\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 150014
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": false,
+      "process_type": "complete",
+      "tasks": "[\"reopen-circulation\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 150015
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": false,
+      "process_type": "complete",
+      "tasks": "[\"start-decision\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 150016
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": false,
+      "process_type": "complete",
+      "tasks": "[\"audit\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 150017
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": false,
+      "process_type": "skip",
+      "tasks": "[\"audit\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 150018
+  },
+  {
+    "fields": {
+      "is_activation": true,
+      "process_all": false,
+      "process_type": "complete",
+      "tasks": "[\"activation\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 150022
+  },
+  {
+    "fields": {
+      "is_activation": true,
+      "process_all": false,
+      "process_type": "complete",
+      "tasks": "[\"activation\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 150026
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": false,
+      "process_type": "skip",
+      "tasks": "[\"circulation\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 150027
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": false,
+      "process_type": "skip",
+      "tasks": "[\"start-decision\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 150028
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": false,
+      "process_type": "skip",
+      "tasks": "[\"init-circulation\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 150029
   },
   {
     "fields": {
@@ -41140,14 +41642,14 @@
   },
   {
     "fields": {
-      "php_class": "CreateCirc"
+      "php_class": "CreateCirculation"
     },
     "model": "core.aphp",
     "pk": 20105
   },
   {
     "fields": {
-      "php_class": "CircEnd"
+      "php_class": "EndCirculation"
     },
     "model": "core.aphp",
     "pk": 20115
@@ -41186,6 +41688,34 @@
     },
     "model": "core.aphp",
     "pk": 140005
+  },
+  {
+    "fields": {
+      "php_class": "SyncCirculation"
+    },
+    "model": "core.aphp",
+    "pk": 150020
+  },
+  {
+    "fields": {
+      "php_class": "SyncCirculation"
+    },
+    "model": "core.aphp",
+    "pk": 150021
+  },
+  {
+    "fields": {
+      "php_class": "SyncCirculation"
+    },
+    "model": "core.aphp",
+    "pk": 150023
+  },
+  {
+    "fields": {
+      "php_class": "SyncCirculation"
+    },
+    "model": "core.aphp",
+    "pk": 150025
   },
   {
     "fields": {
@@ -50944,6 +51474,15 @@
       "title": null
     },
     "model": "core.historyactionconfig",
+    "pk": 150019
+  },
+  {
+    "fields": {
+      "body": null,
+      "history_type": "status-change",
+      "title": null
+    },
+    "model": "core.historyactionconfig",
     "pk": 1200107
   },
   {
@@ -51371,6 +51910,26 @@
     },
     "model": "core.historyactionconfigt",
     "pk": 30
+  },
+  {
+    "fields": {
+      "action": 150019,
+      "body": null,
+      "language": "de",
+      "title": "Dossierpr\u00fcfung \u00fcbersprungen"
+    },
+    "model": "core.historyactionconfigt",
+    "pk": 150000
+  },
+  {
+    "fields": {
+      "action": 150019,
+      "body": null,
+      "language": "fr",
+      "title": "Examen du dossier saut\u00e9"
+    },
+    "model": "core.historyactionconfigt",
+    "pk": 150001
   },
   {
     "fields": {
@@ -116625,7 +117184,7 @@
       "available_resource": "workitemlist",
       "class_field": null,
       "description": null,
-      "hidden": 1,
+      "hidden": 0,
       "name": null,
       "sort": 11,
       "template": null
@@ -117292,6 +117851,54 @@
     },
     "model": "core.rroleacl",
     "pk": 150026
+  },
+  {
+    "fields": {
+      "resource": 140000,
+      "role": 20005
+    },
+    "model": "core.rroleacl",
+    "pk": 150027
+  },
+  {
+    "fields": {
+      "resource": 140000,
+      "role": 5
+    },
+    "model": "core.rroleacl",
+    "pk": 150030
+  },
+  {
+    "fields": {
+      "resource": 140000,
+      "role": 4
+    },
+    "model": "core.rroleacl",
+    "pk": 150031
+  },
+  {
+    "fields": {
+      "resource": 140000,
+      "role": 20001
+    },
+    "model": "core.rroleacl",
+    "pk": 150032
+  },
+  {
+    "fields": {
+      "resource": 140000,
+      "role": 20004
+    },
+    "model": "core.rroleacl",
+    "pk": 150033
+  },
+  {
+    "fields": {
+      "resource": 140000,
+      "role": 20000
+    },
+    "model": "core.rroleacl",
+    "pk": 150034
   },
   {
     "fields": {
