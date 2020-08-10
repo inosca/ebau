@@ -23,13 +23,10 @@ export default class WorkItemListController extends Controller {
     role: "active"
   };
   @tracked order = [{ attribute: "DEADLINE", direction: "ASC" }];
+  @tracked user;
 
   @calumaQuery({ query: allWorkItems, options: "options" })
   workItemsQuery;
-
-  get userId() {
-    return this.shoebox.content.userId;
-  }
 
   get options() {
     return {
@@ -39,9 +36,8 @@ export default class WorkItemListController extends Controller {
   }
 
   async processAll(workItems) {
-    const users = [
+    const assignedUsers = [
       ...new Set([
-        this.userId,
         ...workItems.reduce(
           (ids, workItem) => [...ids, ...workItem.assignedUsers],
           []
@@ -55,6 +51,11 @@ export default class WorkItemListController extends Controller {
       )
     ];
 
+    this.user = await this.store.findRecord(
+      "user",
+      this.shoebox.content.userId
+    );
+
     if (instances.length) {
       await this.store.query("instance", {
         id: instances.join(","),
@@ -62,8 +63,8 @@ export default class WorkItemListController extends Controller {
       });
     }
 
-    if (users.length) {
-      await this.store.query("user", { id: users.join(",") });
+    if (assignedUsers.length) {
+      await this.store.query("user", { username: assignedUsers.join(",") });
     }
 
     return workItems;
@@ -74,7 +75,7 @@ export default class WorkItemListController extends Controller {
     const filter = [{ hasDeadline: true }];
 
     if (this.filters.responsible === "own") {
-      filter.push({ assignedUsers: [this.userId] });
+      filter.push({ assignedUsers: [this.user.username] });
     } else {
       filter.push({ assignedUsers: [] });
     }
@@ -114,12 +115,15 @@ export default class WorkItemListController extends Controller {
         variables: {
           input: {
             workItem: workitem.id,
-            assignedUsers: [...workitem.assignedUsers, this.userId]
+            assignedUsers: [...workitem.assignedUsers, this.user.username]
           }
         }
       });
 
-      set(workitem, "assignedUsers", [...workitem.assignedUsers, this.userId]);
+      set(workitem, "assignedUsers", [
+        ...workitem.assignedUsers,
+        this.user.username
+      ]);
     } catch (error) {
       this.notifications.error(this.intl.t("workitemlist.saveError"));
     }
