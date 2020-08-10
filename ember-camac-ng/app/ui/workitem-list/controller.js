@@ -8,27 +8,6 @@ import { dropTask } from "ember-concurrency-decorators";
 
 import saveWorkItem from "../../gql/mutations/save-workitem";
 
-async function processAll(workitems) {
-  let users = [this.shoebox.content.userId];
-  let instances = [];
-
-  workitems.forEach(workitem => {
-    users = [...new Set([...users, ...workitem.assignedUsers])];
-    instances = [
-      ...new Set([...instances, workitem.case.meta["camac-instance-id"]])
-    ];
-  });
-
-  if (instances.length) {
-    this.store.query("instance", { id: instances.join(","), include: "form" });
-  }
-  if (users.length) {
-    await this.store.query("user", { id: users.join(",") });
-  }
-
-  return workitems;
-}
-
 export default class WorkitemListController extends Controller {
   @service store;
   @service apollo;
@@ -43,24 +22,59 @@ export default class WorkitemListController extends Controller {
     status: "open",
     role: "active"
   };
-  order = [{ attribute: "DEADLINE", direction: "ASC" }];
-  userId = `${this.shoebox.content.userId}`;
+  @tracked order = [{ attribute: "DEADLINE", direction: "ASC" }];
 
-  @calumaQuery({
-    query: allWorkItems,
-    options: {
-      pageSize: 20,
-      processAll
-    }
-  })
+  @calumaQuery({ query: allWorkItems, options: "options" })
   workItemsQuery;
+
+  get userId() {
+    return this.shoebox.content.userId;
+  }
+
+  get options() {
+    return {
+      pageSize: 20,
+      processAll: workItems => this.processAll(workItems)
+    };
+  }
+
+  async processAll(workItems) {
+    const users = [
+      ...new Set([
+        this.userId,
+        ...workItems.reduce(
+          (ids, workItem) => [...ids, ...workItem.assignedUsers],
+          []
+        )
+      ])
+    ];
+
+    const instances = [
+      ...new Set(
+        workItems.map(workItem => workItem.case.meta["camac-instance-id"])
+      )
+    ];
+
+    if (instances.length) {
+      await this.store.query("instance", {
+        id: instances.join(","),
+        include: "form"
+      });
+    }
+
+    if (users.length) {
+      await this.store.query("user", { id: users.join(",") });
+    }
+
+    return workItems;
+  }
 
   @dropTask
   *fetchWorkItems() {
     const filter = [];
 
     if (this.filters.responsible === "own") {
-      filter.push({ assignedUsers: [this.shoebox.content.userId] });
+      filter.push({ assignedUsers: [this.userId] });
     } else {
       filter.push({ assignedUsers: [] });
     }
@@ -100,18 +114,12 @@ export default class WorkitemListController extends Controller {
         variables: {
           input: {
             workItem: workitem.id,
-            assignedUsers: [
-              ...workitem.assignedUsers,
-              this.shoebox.content.userId
-            ]
+            assignedUsers: [...workitem.assignedUsers, this.userId]
           }
         }
       });
 
-      set(workitem, "assignedUsers", [
-        ...workitem.assignedUsers,
-        this.shoebox.content.userId
-      ]);
+      set(workitem, "assignedUsers", [...workitem.assignedUsers, this.userId]);
     } catch (error) {
       this.notifications.error(this.intl.t("workitemlist.saveError"));
     }
