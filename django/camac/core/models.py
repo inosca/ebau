@@ -762,7 +762,7 @@ class Answer(models.Model):
         "Chapter", models.DO_NOTHING, db_column="CHAPTER_ID", related_name="+"
     )
     item = models.IntegerField(db_column="ITEM")
-    answer = models.CharField(db_column="ANSWER", max_length=4000)
+    answer = models.TextField(db_column="ANSWER")
 
     @staticmethod
     def get_value_by_cqi(
