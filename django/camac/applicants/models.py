@@ -1,18 +1,5 @@
+from django.contrib.postgres.fields import CIEmailField
 from django.db import models
-
-
-class CaseInsensitiveEmailField(models.EmailField):
-    """Case-insensitive EmailField.
-
-    https://code.djangoproject.com/ticket/17561#comment:7
-    """
-
-    def get_prep_value(self, value=None):
-        """Lower-cases the value returned by super."""
-        prep_value = super().get_prep_value(value)
-        if prep_value is not None:
-            return prep_value.lower()
-        return prep_value
 
 
 class Applicant(models.Model):
@@ -36,7 +23,7 @@ class Applicant(models.Model):
         null=True,
     )
     created = models.DateTimeField(db_column="CREATED", auto_now=True)
-    email = CaseInsensitiveEmailField()
+    email = CIEmailField()
 
     class Meta:
         managed = True
