@@ -131,10 +131,9 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
 
         # We used the keycloak user id as the username in camac
         username = data[username_claim]
-        email = data["email"]
         defaults = {
             "language": language[:2],
-            "email": email,
+            "email": data.get("email"),
             "username": username,
             "name": data.get("family_name", username),
             "surname": data.get("given_name", username),
