@@ -41,35 +41,45 @@ journal:
   textareaNew: "Zone de texte pour la nouvelle entrée"
   textareaEdit: "Zone de texte pour l'édition de l'entrée"
 
-workitemlist:
-  saveError: "La tâche n'a pas pu être enregistrée.tâche"
-
+workItemList:
+  task: "Tâche"
+  deadline: "Dû"
+  created: "Créé"
   responsible: "Responsable"
+  addressedGroups: "Service"
 
-  filter:
-    status: "Ètat"
-    type: "Type"
-    role: "Rôle"
+  empty: "Aucune tâche trouvée"
 
-    all: "Tous"
-    own: "Propre"
-    new: "Nouveau"
-    open: "Ouvert"
-    closed: "Terminé"
-    active: "Aktive"
-    control: "Contrôler"
+  all:
+    saveError: "La tâche n'a pas pu être enregistrée tâche"
 
-  table:
-    instance: "Dossier"
-    instanceType: "Type de demande"
-    task: "Tâche"
-    deadline: "Dû"
-    created: "Créé"
+    filter:
+      status: "Ètat"
+      type: "Type"
+      role: "Rôle"
 
-    markRead: "Marquer comme lu"
-    assignToMe: "Se référer à moi"
-    editWorkitem: "Modifier la tâche"
+      all: "Tous"
+      own: "Propre"
+      new: "Nouveau"
+      open: "Ouvert"
+      closed: "Terminé"
+      active: "Aktive"
+      control: "Contrôler"
 
-    empty: "Aucune tâche trouvée"
+    table:
+      instance: "Dossier"
+      instanceType: "Type de demande"
 
-    loadMore: "Récupérer plus de tâches"
+
+      markRead: "Marquer comme lu"
+      assignToMe: "Se référer à moi"
+      editWorkitem: "Modifier la tâche"
+
+      empty: "Aucune tâche trouvée"
+
+      loadMore: "Récupérer plus de tâches"
+
+  instance:
+    currentTasks: "Tâches actuelles"
+    newTask: "Nouvelle tâche"
+    finishedTasks: "Tâches terminées"
