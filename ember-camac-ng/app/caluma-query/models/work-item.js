@@ -8,11 +8,20 @@ export default class CustomWorkItemModel extends WorkItemModel {
 
   @tracked notViewed = this.raw.meta["not-viewed"];
   @tracked assignedUsers = this.raw.assignedUsers;
+  @tracked addressedGroups = this.raw.addressedGroups;
 
   get assignedUserInformation() {
     return this.store
       .peekAll("user")
       .filter(user => this.assignedUsers.includes(user.username));
+  }
+
+  get assignedServices() {
+    const services = [];
+    this.addressedGroups.forEach(serviceId => {
+      services.push(this.store.peekRecord("service", serviceId));
+    });
+    return services;
   }
 
   get instance() {
