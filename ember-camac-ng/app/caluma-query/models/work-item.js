@@ -22,6 +22,14 @@ export default class CustomWorkItemModel extends WorkItemModel {
       .filter(service => this.addressedGroups.includes(service.id));
   }
 
+  get assignedServices() {
+    const services = [];
+    this.addressedGroups.forEach(serviceId => {
+      services.push(this.store.peekRecord("service", serviceId));
+    });
+    return services;
+  }
+
   get instance() {
     return this.store.peekRecord("instance", this.instanceId);
   }
