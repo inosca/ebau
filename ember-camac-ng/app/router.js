@@ -17,4 +17,9 @@ Router.map(function() {
       path: "/instances/:id/work-items"
     });
   });
+
+  this.route('work-item', function() {
+    this.route('update', {path: "/work-item/:id"})
+    this.route("index", {path: "/work-item"})
+  });
 });
