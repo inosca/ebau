@@ -3384,7 +3384,7 @@
       "hint": "Geben Sie bitte an, welche Technologie hinsichtlich der Zellen zum Einsatz kommen soll (mono- oder polykristalline Zellen).",
       "type": "radio",
       "required": true,
-      "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Photovolatische Solaranlage (Stromproduktion)' in 'energie-art'|value",
+      "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Photovoltaische Solaranlage (Stromproduktion)' in 'energie-art'|value",
       "config": {
         "options": ["Monokristalline Zellen", "Polykristalline Zellen"]
       }
@@ -3394,7 +3394,7 @@
       "hint": "Kilowatt Peak ist eine im Bereich Photovoltaik gebräuchliche, aber nicht normgerechte Bezeichnung für die elektrische Leistung von Solarzellen.  Die Einheit dient dazu, unterschiedliche Solarzellen und Solarmodule unter genormten Testbedingungen vergleichen zu können. ",
       "type": "number",
       "required": true,
-      "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Photovolatische Solaranlage (Stromproduktion)' in 'energie-art'|value",
+      "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Photovoltaische Solaranlage (Stromproduktion)' in 'energie-art'|value",
       "config": {
         "min": 1
       }
@@ -3404,7 +3404,7 @@
       "hint": "Geben Sie bitte den erwarteten Jahresertrag in Kilowattstunden pro Jahr an.",
       "type": "number",
       "required": true,
-      "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Photovolatische Solaranlage (Stromproduktion)' in 'energie-art'|value",
+      "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Photovoltaische Solaranlage (Stromproduktion)' in 'energie-art'|value",
       "config": {
         "min": 1
       }
@@ -3414,7 +3414,7 @@
       "hint": "Geben Sie bitte die Gesamtfläche der Anlage ohne Blindfläche an, wobei mit Blindflächen inaktive Elementflächen gemeint sind.",
       "type": "number",
       "required": true,
-      "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Photovolatische Solaranlage (Stromproduktion)' in 'energie-art'|value",
+      "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Photovoltaische Solaranlage (Stromproduktion)' in 'energie-art'|value",
       "config": {
         "min": 1
       }
