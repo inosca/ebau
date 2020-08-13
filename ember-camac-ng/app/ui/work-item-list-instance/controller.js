@@ -7,13 +7,14 @@ import { allWorkItems } from "ember-caluma/caluma-query/queries";
 import { dropTask } from "ember-concurrency-decorators";
 
 export default class WorkItemListInstanceController extends Controller {
+  queryParams = ["role"];
+
   @service store;
   @service shoebox;
 
   @tracked order = [{ attribute: "DEADLINE", direction: "ASC" }];
-  @tracked filters = {
-    role: "active"
-  };
+  // Filters
+  @tracked role = "active";
 
   @calumaQuery({
     query: allWorkItems,
@@ -33,35 +34,33 @@ export default class WorkItemListInstanceController extends Controller {
   }
 
   async processAll(workItems) {
-    const users = [
-      ...new Set([
-        this.userId,
-        ...workItems.reduce(
-          (ids, workItem) => [...ids, ...workItem.assignedUsers],
-          []
-        )
-      ])
-    ];
+    let users = [];
+    let instances = [];
+    let services = [];
 
-    const usernames = [
-      ...new Set(
-        workItems.reduce(
-          (names, workItem) => [...names, workItem.closedByUser],
-          []
-        )
-      )
-    ];
+    workItems.forEach(workItem => {
+      users.push(...workItem.assignedUsers);
+      instances.push(workItem.case.meta["camac-instance-id"]);
+      services.push(...workItem.addressedGroups);
+    });
 
-    if (users.length) {
-      await this.store.query("user", {
-        id: users.join(",")
+    users = [...new Set(users)];
+    instances = [...new Set(instances)];
+    services = [...new Set(services)];
+
+    if (workItems.length) {
+      await this.store.query("user", { id: users.join(",") });
+    }
+
+    if (instances.length) {
+      await this.store.query("instance", {
+        instance_id: instances.join(","),
+        include: "form"
       });
     }
 
-    if (usernames.length) {
-      await this.store.query("user", {
-        username: usernames.join(",")
-      });
+    if (services.length) {
+      await this.store.query("service", { service_id: services.join(",") });
     }
 
     return workItems;
@@ -71,7 +70,7 @@ export default class WorkItemListInstanceController extends Controller {
   *fetchWorkItems() {
     const filter = [];
 
-    if (this.filters.role === "control") {
+    if (this.role === "control") {
       filter.push({ controllingGroups: [this.shoebox.content.serviceId] });
     } else {
       filter.push({ addressedGroups: [this.shoebox.content.serviceId] });
@@ -97,7 +96,7 @@ export default class WorkItemListInstanceController extends Controller {
 
   @action
   updateFilter(type, value) {
-    set(this, `filters.${type}`, value);
+    set(this, type, value);
     this.fetchWorkItems.perform();
   }
 }
