@@ -10,6 +10,7 @@ import { dropTask } from "ember-concurrency-decorators";
 
 export default class WorkItemsIndexController extends Controller {
   queryParams = ["responsible", "type", "status", "role"];
+
   @service store;
   @service apollo;
   @service notifications;

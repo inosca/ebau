@@ -3,9 +3,9 @@
 <div class="workitemlist-filters">
   <div>
     <div class="filters-wrapper">
-      <input {{on "click" (fn this.updateFilter "role" "active")}} value="active" checked={{eq this.filters.role "active"}} type="radio" class="filter-button" name="role" id="filter-active"/>
+      <input {{on "click" (fn this.updateFilter "role" "active")}} value="active" checked={{eq this.role "active"}} type="radio" class="filter-button" name="role" id="filter-active"/>
       <label for="filter-active">{{t "workItemList.all.filter.active"}}</label>
-      <input {{on "click" (fn this.updateFilter "role" "control")}} value="control" checked={{eq this.filters.role "control"}} type="radio" class="filter-button" name="role" id="filter-control"/>
+      <input {{on "click" (fn this.updateFilter "role" "control")}} value="control" checked={{eq this.role "control"}} type="radio" class="filter-button" name="role" id="filter-control"/>
       <label for="filter-control">{{t "workItemList.all.filter.control"}}</label>
     </div>
   </div>
@@ -17,20 +17,21 @@
     <th>{{t "workItemList.deadline"}}</th>
     <th>{{t "workItemList.created"}}</th>
     <th>{{t "workItemList.responsible"}}</th>
+    <th>{{t "workItemList.addressedGroups"}}</th>
   </thead>
   <tbody>
     {{#if this.workItemsQuery.isLoading}}
       <tr>
-        <td colspan="4"><LoadingText /></td>
+        <td colspan="5"><LoadingText /></td>
       </tr>
     {{else}}
-      {{#each this.activeWorkItems as |workitem|}}
+      {{#each this.activeWorkItems as |workItem|}}
         <tr>
-          <td>{{workitem.name}}</td>
-          <td>{{moment-from workitem.deadline}}</td>
+          <td>{{workItem.name}}</td>
+          <td>{{moment-from workItem.deadline}}</td>
           <td>
             {{format-date
-              workitem.createdAt
+              workItem.createdAt
               day="2-digit"
               month="2-digit"
               year="numeric"
@@ -40,8 +41,15 @@
             }}
           </td>
           <td>
-            {{#each workitem.assignedUserInformation as |user|}}
+            {{#each workItem.assignedUserInformation as |user|}}
               {{user.fullName}}
+            {{else}}
+              -
+            {{/each}}
+          </td>
+          <td>
+            {{#each workItem.assignedServices as |service|}}
+              {{service.name}}
             {{else}}
               -
             {{/each}}
@@ -49,7 +57,7 @@
         </tr>
       {{else}}
         <tr>
-          <td colspan="4">{{t "workItemList.empty"}}</td>
+          <td colspan="5">{{t "workItemList.empty"}}</td>
         </tr>
       {{/each}}
     {{/if}}
