@@ -59,6 +59,9 @@ class FormDataValidator(object):
         self.jexl = JEXL()
         self.jexl.add_transform("value", lambda name: self.fields.get(name))
         self.jexl.add_transform("mapby", lambda arr, key: [obj[key] for obj in arr])
+        self.jexl.add_binary_operator(
+            "in", 20, lambda value, arr: value in arr if arr else False
+        )
         self.active_question_cache = {}
 
     def _validate_question_radio(self, question, question_def, value):
@@ -142,21 +145,22 @@ class FormDataValidator(object):
 
     def _check_questions_active(self, questions):
         for question in questions:
-            if not self._check_question_active(
+            if self._check_question_active(
                 question, self.forms_def["questions"][question]
             ):
-                return False
+                return True
 
-        return True
+        return False
 
     def _check_question_active(self, question, question_def):
-        """Question is only active when all dependend questions are active as well."""
+        """Question is active when at least one dependend question is active as well."""
 
         if question in self.active_question_cache:
             return self.active_question_cache[question]
 
         expression = question_def.get("active-expression")
         if expression is None:
+            self.active_question_cache[question] = True
             return True
 
         dep_questions = self.jexl.analyze(
@@ -164,10 +168,8 @@ class FormDataValidator(object):
         )
         active = False
         try:
-            active = (
-                expression is None
-                or self._check_questions_active(dep_questions)
-                and self.jexl.evaluate(expression, {"form": self.instance.form.name})
+            active = self._check_questions_active(dep_questions) and self.jexl.evaluate(
+                expression, {"form": self.instance.form.name}
             )
         except TypeError:
             # A TypeError is raised if a question is not filled. It then tries
