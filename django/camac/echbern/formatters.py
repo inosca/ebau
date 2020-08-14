@@ -472,12 +472,15 @@ def application(instance: Instance, answers: AnswersDict):
 
 
 def decision_ruling(instance, decision, answers):
+    ruling = decision.decision_type
+    if answers["ech-subject"] in ["Einfache Vorabklärung", "Vollständige Vorabklärung"]:
+        ruling = "VORABKLAERUNG"
     return ns_application.decisionRulingType(
         judgement=decision_to_judgement(
             decision.decision, answers["caluma-workflow-slug"]
         ),
         date=decision.decision_date,
-        ruling=decision.decision_type,
+        ruling=ruling,
         rulingAuthority=authority(instance.active_service()),
     )
 
