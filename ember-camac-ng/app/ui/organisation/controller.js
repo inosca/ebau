@@ -1,4 +1,5 @@
 import Controller from "@ember/controller";
+import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { loadingTask } from "camac-ng/decorators";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
@@ -29,5 +30,10 @@ export default class OrganisationController extends Controller {
     } catch (error) {
       this.notifications.error(this.intl.t("organisation.saveError"));
     }
+  }
+
+  @action
+  toggleNotifications() {
+    this.service.set("notification", this.service.notification);
   }
 }
