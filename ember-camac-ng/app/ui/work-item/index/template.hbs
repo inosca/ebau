@@ -1,0 +1,54 @@
+<h2>{{t "workItem.createWorkitem"}}</h2>
+
+<form>
+  <label class="work-item-input">
+    {{t "workItem.responsible"}}
+    <PowerSelectMultiple
+      @searchEnabled={{true}}
+      @options={{this.responsibleChoices}}
+      @selected={{this.responsible}}
+      @onChange={{fn (mut this.responsible)}} as |responsibles|
+    >
+     {{responsibles}}
+    </PowerSelectMultiple>
+  </label>
+  {{#if true}}
+    <label class="work-item-input">
+      {{t "workItem.responsiblePerson"}}
+      <PowerSelectMultiple
+        @searchEnabled={{true}}
+        @options={{this.personChoices}}
+        @selected={{this.responsiblePersons}}
+        @onChange={{fn (mut this.responsiblePersons)}} as |responsiblePerson|
+      >
+        {{responsiblePerson}}
+      </PowerSelectMultiple>
+    </label>
+  {{/if}}
+  <label class="work-item-input">
+    {{t "workItem.title"}}
+    <Input @type="text"/>
+  </label>
+  <label class="work-item-input">
+    {{t "workItem.description"}}
+    <Textarea/>
+  </label>
+  <label class="work-item-input">
+    {{t "workItem.deadline"}}
+    <Input @type="date"/>
+  </label>
+
+  <div class="work-item-input">
+    {{t "workItem.notifications"}}
+    <label>
+      <Input @type="checkbox"/>
+      {{t "workItem.notifyCompleted"}}
+    </label>
+    <label>
+      <Input @type="checkbox"/>
+      {{t "workItem.notifyDeadline"}}
+    </label>
+  </div>
+
+  <button class="button" type="submit">{{t "workItem.saveWorkItem"}}</button>
+</form>

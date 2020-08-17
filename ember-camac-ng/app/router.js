@@ -18,8 +18,8 @@ Router.map(function() {
     });
   });
 
-  this.route('work-item', function() {
-    this.route('update', {path: "/work-item/:id"})
-    this.route("index", {path: "/work-item"})
+  this.route("work-item", function() {
+    this.route("edit", { path: "/work-item/:id" });
+    this.route("index", { path: "/work-item" });
   });
 });

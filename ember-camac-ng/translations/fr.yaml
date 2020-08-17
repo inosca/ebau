@@ -83,3 +83,15 @@ workItemList:
     currentTasks: "Tâches actuelles"
     newTask: "Nouvelle tâche"
     finishedTasks: "Tâches terminées"
+
+workItem:
+  createWorkitem: "Nouvelle tâche"
+  responsible: "Responsable"
+  responsiblePerson: "Personne responsable"
+  title: "Titre"
+  description: "Description"
+  deadline: "Date limite"
+  notifications: "Notifications"
+  notifyCompleted: "à l'issue"
+  notifyDeadline: "en cas de dépassement du délai"
+  saveWorkItem: "Enregistrée la tâche"

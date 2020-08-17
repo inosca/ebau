@@ -27,7 +27,7 @@
     {{else}}
       {{#each this.activeWorkItems as |workItem|}}
         <tr>
-          <td>{{workItem.name}}</td>
+          <td><LinkTo @route="work-item.edit" @model={{workItem}}>{{workItem.name}}</LinkTo></td>
           <td>{{moment-from workItem.deadline}}</td>
           <td>
             {{format-date
@@ -63,7 +63,7 @@
     {{/if}}
   </tbody>
 </table>
-<button {{on "click" this.newWorkItem}} class="button" type="button">{{t "workItemList.instance.newTask"}}</button>
+<button {{on "click" this.newWorkItem}} class="button buttonstyle btn" type="button">{{t "workItemList.instance.newTask"}}</button>
 
 <h2>{{t "workItemList.instance.finishedTasks"}}</h2>
 <table>
@@ -78,12 +78,12 @@
         <td colspan="3"><LoadingText /></td>
       </tr>
     {{else}}
-      {{#each this.doneWorkItems as |workitem|}}
+      {{#each this.doneWorkItems as |workItem|}}
           <tr>
-            <td>{{workitem.name}}</td>
+            <td><LinkTo @route="work-item.edit" @model={{workItem}}>{{workItem.name}}</LinkTo></td>
             <td>
               {{format-date
-                workitem.closedAt
+                workItem.closedAt
                 day="2-digit"
                 month="2-digit"
                 year="numeric"
@@ -92,7 +92,7 @@
                 hour12=false
               }}
             </td>
-            <td>{{workitem.closedByUser.fullName}}</td>
+            <td>{{workItem.closedByUser.fullName}}</td>
           </tr>
       {{else}}
         <tr>
