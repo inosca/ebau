@@ -81,6 +81,12 @@ export default class CustomWorkItemModel extends WorkItemModel {
     return this.store.peekAll("user").findBy("username", this.raw.closedByUser);
   }
 
+  get createdByUser() {
+    return this.store
+      .peekAll("user")
+      .findBy("username", this.raw.createdByUser);
+  }
+
   static fragment = `{
     createdAt
     createdByUser
