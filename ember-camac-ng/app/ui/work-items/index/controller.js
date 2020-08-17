@@ -118,7 +118,7 @@ export default class WorkItemsIndexController extends Controller {
         this.shoebox.content.username
       ]);
     } catch (error) {
-      this.notifications.error(this.intl.t("workitemlist.saveError"));
+      this.notifications.error(this.intl.t("workItemList.all.saveError"));
     }
   }
 
@@ -138,7 +138,7 @@ export default class WorkItemsIndexController extends Controller {
         }
       });
     } catch (error) {
-      this.notifications.error(this.intl.t("workitemlist.saveError"));
+      this.notifications.error(this.intl.t("workItemList.all.saveError"));
     }
   }
 

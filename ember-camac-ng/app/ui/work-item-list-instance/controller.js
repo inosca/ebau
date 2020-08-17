@@ -35,6 +35,7 @@ export default class WorkItemListInstanceController extends Controller {
 
   async processAll(workItems) {
     let users = [];
+    let usernames = [];
     let instances = [];
     let services = [];
 
@@ -42,14 +43,20 @@ export default class WorkItemListInstanceController extends Controller {
       users.push(...workItem.assignedUsers);
       instances.push(workItem.case.meta["camac-instance-id"]);
       services.push(...workItem.addressedGroups);
+      usernames.push(workItem.closedByUser, workItem.createdByUser);
     });
 
     users = [...new Set(users)];
+    usernames = [...new Set(usernames)];
     instances = [...new Set(instances)];
     services = [...new Set(services)];
 
-    if (workItems.length) {
+    if (users.length) {
       await this.store.query("user", { id: users.join(",") });
+    }
+
+    if (usernames.length) {
+      await this.store.query("user", { username: usernames.join(",") });
     }
 
     if (instances.length) {
@@ -102,6 +109,6 @@ export default class WorkItemListInstanceController extends Controller {
 
   @action
   newWorkItem() {
-    this.transitionToRoute("work-item")
+    this.transitionToRoute("work-item");
   }
 }
