@@ -16,7 +16,8 @@ const DATA = {
   city: "Bern",
   address: "Bahnhofstrasse 33",
   email: "info@acme.com",
-  website: "https://acme.com"
+  website: "https://acme.com",
+  notification: 1
 };
 
 DATA.description = DATA.name;
@@ -49,6 +50,7 @@ module("Acceptance | organisation", function(hooks) {
     await fillIn("input[name=address]", DATA.address);
     await fillIn("input[name=email]", DATA.email);
     await fillIn("input[name=website]", DATA.website);
+    await click("input[name=notification]");
 
     await click("button[type=submit]");
 
