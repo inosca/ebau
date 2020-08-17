@@ -64,7 +64,7 @@
         <tr class="workitem {{workItem.workItemColor}}">
           <td><a href="{{workItem.instanceLink}}">{{workItem.instanceIdentifier}}</a></td>
           <td>{{workItem.instanceName}}</td>
-          <td>{{workItem.name}}</td>
+          <td><LinkTo @route="work-item.edit" @model={{workItem}}>{{workItem.name}}</LinkTo></td>
           <td>{{moment-from workItem.deadline}}</td>
           <td>
             {{format-date

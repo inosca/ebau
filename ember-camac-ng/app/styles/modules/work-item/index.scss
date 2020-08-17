@@ -1,0 +1,75 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  
+  .work-item-input {
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0;
+    
+    input {
+      width: 50%;
+    }
+    
+    input[type="checkbox"] {
+      width: 0;
+    }
+    
+    input[type="date"] {
+      width: 10em;
+    }
+    
+    textarea {
+      height: 15em;
+    }
+    
+    .ember-power-select-trigger {
+      border-radius: 0;
+    }
+    
+    .ember-power-select-dropdown {
+      border-radius: 0;
+    }
+    
+    ul {
+      margin: 0 !important;
+      
+      li {
+        padding: initial !important;
+        margin: initial !important;
+        line-height: revert !important;
+        background-image: none !important;
+      }
+    }
+  }
+  
+  button {
+    margin-top: 10px;
+    width: 10em;
+  }
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.work-item-attributes {
+  display: flex;
+  
+  .work-item-attribute {
+    display: flex;
+    flex-direction: column;
+    margin: 1em 5em 1em 0;
+  }
+}
+
+.project-be {
+  .ember-power-select-trigger {
+    border: 1px solid #4a81b6;
+  }
+  
+  .ember-power-select-dropdown {
+    border: 1px solid #4a81b6;
+  }
+}

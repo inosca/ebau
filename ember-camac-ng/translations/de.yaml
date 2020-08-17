@@ -92,3 +92,12 @@ workItem:
   notifyCompleted: "bei Abschluss"
   notifyDeadline: "bei Fristüberschreitung"
   saveWorkItem: "Aufgabe speichern"
+
+  createdAt: "Erstellt am"
+  createdBy: "Erstellt durch"
+  updateWorkItem: "Aufgabe bearbeiten"
+  finishWorkItem: "Aufgabe abschliessen"
+  comment: "Kommentar"
+
+  closedBy: "Erledigt von"
+  closedAt: "Erledigt am"

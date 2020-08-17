@@ -47,7 +47,7 @@ def copy_paper_answer(sender, work_item, **kwargs):
         # copy answer to the papierdossier question in the case document to the
         # newly created work item document
         try:
-            work_item.document.answers.create(
+            work_item.document.answers.get_or_create(
                 question_id="papierdossier",
                 value=work_item.case.document.answers.get(
                     question_id="papierdossier"
