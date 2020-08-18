@@ -15877,7 +15877,7 @@
   },
   {
     "fields": {
-      "description": "Von Gemeinde angenommenen",
+      "description": "Von Leitbehörde angenommen",
       "name": "comm",
       "sort": 3
     },
