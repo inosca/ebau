@@ -29,6 +29,7 @@ from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import HistoryEntry, HistoryEntryT, Instance
 from camac.instance.validators import transform_coordinates
 from camac.user.models import Group, Role, Service, UserGroup
+from camac.user.utils import unpack_service_emails
 from camac.utils import flatten
 
 from ..core import models as core_models
@@ -533,11 +534,12 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         return [{"to": ans}]
 
     def _group_service_recipients(self, groups):
-        def _extract():
-            for group in groups.filter(service__email__contains="@"):
-                yield from group.service.email.split(",")
-
-        return [{"to": email} for email in _extract()]
+        return [
+            {"to": email}
+            for email in unpack_service_emails(
+                Service.objects.filter(groups__in=groups)
+            )
+        ]
 
     def _get_recipients_municipality_users(self, instance):
         """Email addresses on the municipality's service email list."""
