@@ -58,3 +58,17 @@ def set_baukontrolle(instance):
         InstanceService.objects.get_or_create(
             service=baukontrolle, instance=instance, defaults={"active": 1}
         )
+
+
+def unpack_service_emails(queryset):
+    """
+    In some cases (kt_schwyz) the email field is used as a comma-separated list.
+
+    This accessor returns the email addresses as a flat list.
+    """
+
+    for emails in queryset.values_list("email", flat=True):
+        if not emails:
+            return []
+
+        yield from emails.split(",")
