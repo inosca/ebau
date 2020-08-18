@@ -55244,6 +55244,22 @@
   },
   {
     "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Support",
+      "phone": null,
+      "role": 1131,
+      "service": null,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 1070
+  },
+  {
+    "fields": {
       "group": 22,
       "location": 1
     },
@@ -57424,6 +57440,15 @@
     },
     "model": "user.role",
     "pk": 1130
+  },
+  {
+    "fields": {
+      "group_prefix": null,
+      "name": "Support",
+      "role_parent": null
+    },
+    "model": "user.role",
+    "pk": 1131
   },
   {
     "fields": {
