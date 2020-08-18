@@ -5,6 +5,7 @@ from dataclasses import dataclass
 import pytest
 from caluma.caluma_core.faker import MultilangProvider
 from caluma.caluma_form import factories as caluma_form_factories
+from caluma.caluma_workflow import factories as caluma_workflow_factories
 from django.conf import settings
 from django.core.cache import cache
 from django.core.management import call_command
@@ -61,6 +62,7 @@ register_module(objection_factories)
 
 # caluma factories
 register_module(caluma_form_factories, prefix="caluma")
+register_module(caluma_workflow_factories, prefix="caluma")
 
 # TODO: Somehow the ordering of those two calls is relevant.
 # Need to figure out why exactly (FreezegunAwareDatetimeProvider's

@@ -1,5 +1,5 @@
 babel==2.8.0
-caluma==6.2.0
+caluma==6.3.2
 django==2.2.14
 django-clamd==0.4.0
 django-environ==0.4.5

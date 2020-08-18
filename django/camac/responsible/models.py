@@ -93,7 +93,7 @@ class ResponsibleService(models.Model):
         "user.User",
         models.DO_NOTHING,
         db_column="RESPONSIBLE_USER_ID",
-        related_name="+",
+        related_name="responsible_services",
     )
 
     class Meta:
