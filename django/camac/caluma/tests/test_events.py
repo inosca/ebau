@@ -1,6 +1,8 @@
+import faker
 import pytest
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
+from django.utils import timezone
 
 
 @pytest.mark.parametrize("expected_value", ["papierdossier-ja", "papierdossier-nein"])
@@ -121,3 +123,60 @@ def test_copy_sb_personalien(
         assert sb2_row.answers.get(question_id="name-applicant").value == "Foobar"
     else:
         assert sb2_row.answers.get(question_id="name-sb").value == "Test123"
+
+
+@pytest.mark.freeze_time("2020-08-11")
+@pytest.mark.parametrize("application_name", ["kt_bern", "kt_schwyz"])
+@pytest.mark.parametrize("notify_completed", [True, False])
+def test_notify_completed_work_item(
+    db,
+    caluma_admin_user,
+    service_factory,
+    user_factory,
+    work_item_factory,
+    mailoutbox,
+    snapshot,
+    application_name,
+    notify_completed,
+):
+    excluded = set()
+
+    if application_name == "kt_bern":
+        services = service_factory.create_batch(6)
+
+        for serv in services[:3]:
+            serv.notification = False
+            serv.save()
+            excluded.add(serv.email)
+
+    if application_name == "kt_schwyz":
+        services = service_factory.create_batch(2)
+        fake = faker.Faker()
+        for i, serv in enumerate(services):
+            emails = [fake.email() for _ in range(3)]
+            serv.email = ",".join(emails)
+
+            if i == 0:
+                serv.notification = False
+                excluded = set(emails)
+
+            serv.save()
+
+    work_item = work_item_factory(
+        status="ready",
+        controlling_groups=[str(service.pk) for service in services],
+        child_case=None,
+        deadline=timezone.now(),
+        meta={"notify-completed": notify_completed},
+    )
+
+    workflow_api.complete_work_item(work_item, user=caluma_admin_user)
+
+    if not notify_completed:
+        assert len(mailoutbox) == 0
+    else:
+        assert len(mailoutbox) == 3
+        assert not excluded.intersection(set(mail.to[0] for mail in mailoutbox))
+        snapshot.assert_match(
+            [(mail.subject, mail.body, mail.to, mail.cc) for mail in mailoutbox]
+        )

@@ -2,11 +2,19 @@ from logging import getLogger
 
 from caluma.caluma_core.events import on
 from caluma.caluma_form import models as caluma_form_models
-from caluma.caluma_workflow.events import created_work_item
+from caluma.caluma_workflow.events import completed_work_item, created_work_item
+from django.conf import settings
+from django.core import mail
+from django.template.loader import get_template
+from django.utils.translation import gettext as _
 
 from camac.caluma.api import CalumaApi
+from camac.user import models as user_models
+from camac.user.utils import unpack_service_emails
 
 log = getLogger()
+
+COMPLETE_WORKITEM_SUBJECT = _("Abgeschlossene Aufgabe")
 
 
 @on(created_work_item)
@@ -50,5 +58,36 @@ def copy_paper_answer(sender, work_item, **kwargs):
 @on(created_work_item)
 def post_complete_work_item(sender, work_item, **kwargs):
     if "not-viewed" not in work_item.meta:
-        work_item.meta["not-viewed"] = True
+        work_item.meta.update(
+            {"not-viewed": True, "notify-completed": True, "notify-deadline": True}
+        )
         work_item.save()
+
+
+@on(completed_work_item)
+def notify_completed_work_item(sender, work_item, **kwargs):
+    if not work_item.meta.get("notify-completed", True):
+        return
+
+    # controlling services are notified
+    services = user_models.Service.objects.filter(
+        pk__in=work_item.controlling_groups
+    ).filter(notification=True)
+
+    recipients = unpack_service_emails(services)
+
+    closed_by = user_models.User.objects.get(username=work_item.closed_by_user)
+    template = get_template("mails/notify_completed_workitem.txt")
+    body = template.render({"work_item": work_item, "closed_by": closed_by})
+
+    emails = [
+        mail.EmailMessage(
+            COMPLETE_WORKITEM_SUBJECT, body, settings.DEFAULT_FROM_EMAIL, to=[rec]
+        )
+        for rec in recipients
+    ]
+
+    connection = mail.get_connection()
+    connection.open()
+    connection.send_messages(emails)
+    connection.close()
