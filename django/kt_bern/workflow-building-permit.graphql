@@ -17,7 +17,7 @@ mutation CreateFlow1 {
     input: {
       workflow: "building-permit"
       tasks: ["submit"]
-      next: "['ebau-number', 'nfd']|tasks"
+      next: "['ebau-number', 'nfd', 'create-manual-workitems']|tasks"
     }
   ) {
     clientMutationId
