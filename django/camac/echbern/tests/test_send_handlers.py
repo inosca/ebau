@@ -1,7 +1,6 @@
 import pytest
-from caluma.caluma_form.models import Form
 from caluma.caluma_user.models import BaseUser
-from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
+from caluma.caluma_workflow import api as workflow_api
 
 from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
@@ -116,6 +115,7 @@ def test_notice_ruling_send_handler(
     expected_state_pk,
     admin_user,
     ech_instance,
+    ech_instance_case,
     instance_state_factory,
     attachment_factory,
     attachment_section_factory,
@@ -123,7 +123,6 @@ def test_notice_ruling_send_handler(
     service_group_factory,
     instance_service_factory,
     multilang,
-    caluma_workflow,
 ):
     service_group_gemeinde = ech_instance.active_service().service_group
     service_group_baukontrolle = service_group_factory(pk=SERVICE_GROUP_BAUKONTROLLE)
@@ -172,16 +171,7 @@ def test_notice_ruling_send_handler(
     )
     attachment.attachment_sections.add(attachment_section_beteiligte_behoerden)
 
-    workflow_slug = "building-permit"
-    if is_vorabklaerung:
-        workflow_slug = "preliminary-clarification"
-
-    workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(slug=workflow_slug),
-        form=Form.objects.get(slug="main-form"),
-        meta={"camac-instance-id": ech_instance.pk},
-        user=BaseUser(),
-    )
+    ech_instance_case(is_vorabklaerung)
 
     data = CreateFromDocument(xml_data("notice_ruling"))
 
@@ -321,6 +311,7 @@ def test_close_dossier_send_handler(
     state_pk,
     success,
     ech_instance,
+    ech_instance_case,
     admin_user,
     instance_service_factory,
     instance_state_factory,
@@ -333,6 +324,20 @@ def test_close_dossier_send_handler(
 
     ech_instance.instance_state = instance_state_factory(pk=state_pk)
     ech_instance.save()
+
+    case = ech_instance_case()
+
+    for task_id in [
+        "submit",
+        "ebau-number",
+        "init-circulation",
+        "circulation",
+        "start-decision",
+        "decision",
+    ]:
+        workflow_api.skip_work_item(
+            work_item=case.work_items.get(task_id=task_id), user=BaseUser()
+        )
 
     group = admin_user.groups.first()
 
@@ -384,6 +389,7 @@ def test_task_send_handler(
     admin_user,
     circulation_factory,
     ech_instance,
+    ech_instance_case,
     instance_state_factory,
     service_factory,
     circulation_state_factory,
@@ -399,6 +405,7 @@ def test_task_send_handler(
     state = instance_state_factory(pk=INSTANCE_STATE_ZIRKULATION)
     ech_instance.instance_state = state
     ech_instance.save()
+    ech_instance_case()
 
     group = admin_user.groups.first()
     group.service = ech_instance.services.first()
@@ -474,6 +481,7 @@ def test_notice_kind_of_proceedings_send_handler(
     attachment_factory,
     admin_user,
     ech_instance,
+    ech_instance_case,
     instance_state_factory,
     instance_resource_factory,
 ):
@@ -497,6 +505,7 @@ def test_notice_kind_of_proceedings_send_handler(
         state = instance_state_factory(pk=INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT)
     ech_instance.instance_state = state
     ech_instance.save()
+    ech_instance_case()
 
     instance_state_factory(pk=INSTANCE_STATE_ZIRKULATION)
     instance_resource_factory(pk=INSTANCE_STATE_ZIRKULATION)
@@ -536,6 +545,7 @@ def test_accompanying_report_send_handler(
     has_activation,
     admin_user,
     ech_instance,
+    ech_instance_case,
     attachment_factory,
     attachment_section_factory,
     circulation_state_factory,
@@ -567,6 +577,7 @@ def test_accompanying_report_send_handler(
     state = instance_state_factory(pk=INSTANCE_STATE_ZIRKULATION)
     ech_instance.instance_state = state
     ech_instance.save()
+    ech_instance_case()
 
     if has_attachment:
         attachment = attachment_factory(

@@ -1,0 +1,226 @@
+mutation CreateSubmitTask {
+  saveCompleteWorkflowFormTask(
+    input: { slug: "submit", name: "Gesuch einreichen", addressGroups: "[]" }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateClaimTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "nfd"
+      name: "Nachforderungen"
+      form: "nfd"
+      addressGroups: "['municipality']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateEBauNumberTask {
+  saveSimpleTask(
+    input: {
+      slug: "ebau-number"
+      name: "eBau-Nummer vergeben"
+      addressGroups: "['municipality']|groups"
+      leadTime: 432000 # 5 days
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateInitCirculationTask {
+  saveSimpleTask(
+    input: {
+      slug: "init-circulation"
+      name: "Zirkulation initialisieren"
+      addressGroups: "['municipality']|groups"
+      leadTime: 864000 # 10 days
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateAuditTask {
+  saveSimpleTask(
+    input: {
+      slug: "audit"
+      name: "Dossier prüfen"
+      addressGroups: "['municipality']|groups"
+      leadTime: 864000 # 10 days
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreatePublicationTask {
+  saveSimpleTask(
+    input: {
+      slug: "publication"
+      name: "Dossier publizieren"
+      addressGroups: "['municipality']|groups"
+      leadTime: 864000 # 10 days
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateCirculationTask {
+  saveSimpleTask(
+    input: {
+      slug: "circulation"
+      name: "Zirkulation"
+      addressGroups: "['municipality']|groups"
+      isMultipleInstance: true
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateActivationTask {
+  saveSimpleTask(
+    input: {
+      slug: "activation"
+      name: "Stellungnahme verfassen"
+      addressGroups: "['service']|groups"
+      controlGroups: "['service-parent']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateStartCirculationTask {
+  saveSimpleTask(
+    input: {
+      slug: "start-circulation"
+      name: "Weitere Zirkulation starten"
+      addressGroups: "['municipality']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateCheckActivationTask {
+  saveSimpleTask(
+    input: {
+      slug: "check-activation"
+      name: "Stellungnahmen prüfen"
+      addressGroups: "['municipality']|groups"
+      leadTime: 864000 # 10 days
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateStartDecisionTask {
+  saveSimpleTask(
+    input: {
+      slug: "start-decision"
+      name: "Entscheid starten"
+      addressGroups: "['municipality']|groups"
+      leadTime: 864000 # 10 days
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateDecisionTask {
+  saveSimpleTask(
+    input: {
+      slug: "decision"
+      name: "Entscheid verfügen"
+      addressGroups: "['municipality']|groups"
+      leadTime: 864000 # 10 days
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateReopenCirculationTask {
+  saveSimpleTask(
+    input: {
+      slug: "reopen-circulation"
+      name: "Zirkulation wiedereröffnen"
+      addressGroups: "['municipality']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateSb1Task {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "sb1"
+      name: "Selbstdeklaration 1 ausfüllen"
+      form: "sb1"
+      addressGroups: "[]"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateCheckSb1Task {
+  saveSimpleTask(
+    input: {
+      slug: "check-sb1"
+      name: "Selbstdeklaration 1 prüfen"
+      addressGroups: "['construction_control']|groups"
+      leadTime: 432000 # 5 days
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateSb2Task {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "sb2"
+      name: "Selbstdeklaration 2 ausfüllen"
+      form: "sb2"
+      addressGroups: "[]"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateCheckSb2Task {
+  saveSimpleTask(
+    input: {
+      slug: "check-sb2"
+      name: "Selbstdeklaration 2 prüfen"
+      addressGroups: "['construction_control']|groups"
+      leadTime: 432000 # 5 days
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateCompleteTask {
+  saveSimpleTask(
+    input: {
+      slug: "complete"
+      name: "Baugesuchsverfahren abschliessen"
+      addressGroups: "['construction_control']|groups"
+      leadTime: 864000 # 10 days
+    }
+  ) {
+    clientMutationId
+  }
+}
