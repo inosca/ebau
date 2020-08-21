@@ -24,7 +24,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
   get instanceIdentifier() {
     const szIdentifier = this.instance?.identifier;
 
-    const ebauNr = this.raw.case.meta["ebau-number"];
+    const ebauNr = this.case?.meta["ebau-number"];
     const beIdentifier = ebauNr
       ? `${this.instanceId} (${ebauNr})`
       : this.instanceId;
@@ -32,16 +32,20 @@ export default class CustomWorkItemModel extends WorkItemModel {
     return szIdentifier || beIdentifier;
   }
 
+  get case() {
+    return this.raw.case.parentWorkItem?.case || this.raw.case;
+  }
+
   get instanceId() {
-    return this.raw.case.meta["camac-instance-id"];
+    return this.case?.meta["camac-instance-id"];
   }
 
   get instanceName() {
-    return this.instance?.name || this.raw.case.document.form.name;
+    return this.instance?.name || this.case.document.form.name;
   }
 
   get instanceLink() {
-    return `/index/redirect-to-instance-resource/instance-id/${this.raw.case.meta["camac-instance-id"]}`;
+    return `/index/redirect-to-instance-resource/instance-id/${this.instanceId}`;
   }
 
   get workItemColor() {
@@ -79,6 +83,16 @@ export default class CustomWorkItemModel extends WorkItemModel {
       document {
         form {
           name
+        }
+      }
+      parentWorkItem {
+        case {
+          meta
+          document {
+            form {
+              name
+            }
+          }
         }
       }
     }

@@ -11,15 +11,15 @@ from camac.constants.kt_bern import (
 from camac.echbern.data_preparation import slugs_baugesuch, slugs_vorabklaerung_einfach
 from camac.instance.models import Instance
 
-from ..instance.conftest import (  # noqa: F401; pylint: disable=unused-variable
-    caluma_forms,
-    caluma_workflow,
-)
-
 
 @pytest.fixture
 def ech_instance(
-    db, admin_user, instance_service_factory, service_t_factory, camac_answer_factory
+    db,
+    admin_user,
+    instance_service_factory,
+    service_t_factory,
+    camac_answer_factory,
+    caluma_workflow,
 ):
     inst_serv = instance_service_factory(
         instance__user=admin_user,
@@ -41,10 +41,29 @@ def ech_instance(
         name="Leitbehörde Burgdorf",
         city="Burgdorf",
     )
+
     camac_answer_factory(
         instance=inst_serv.instance, question__pk=QUESTION_EBAU_NR, answer="2020-1"
     )
+
     return inst_serv.instance
+
+
+@pytest.fixture
+def ech_instance_case(ech_instance):
+    def wrapper(is_vorabklaerung=False):
+        workflow_slug = (
+            "preliminary-clarification" if is_vorabklaerung else "building-permit"
+        )
+
+        return workflow_api.start_case(
+            workflow=caluma_workflow_models.Workflow.objects.get(pk=workflow_slug),
+            form=caluma_form_models.Form.objects.get(slug="main-form"),
+            meta={"camac-instance-id": ech_instance.pk},
+            user=BaseUser(),
+        )
+
+    return wrapper
 
 
 def fill_document_ech(document, data):

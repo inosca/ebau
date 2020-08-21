@@ -264,7 +264,49 @@ APPLICATIONS = {
         "PUBLICATION_DURATION": timedelta(),
         "IS_MULTILINGUAL": True,
         "FORM_BACKEND": "caluma",
-        "CALUMA": {"FORM_PERMISSIONS": ["main", "sb1", "sb2", "nfd"]},
+        "CALUMA": {
+            "FORM_PERMISSIONS": ["main", "sb1", "sb2", "nfd"],
+            "CIRCULATION_WORKFLOW": "circulation",
+            "CIRCULATION_TASK": "circulation",
+            "CIRCULATION_FORM": "circulation",
+            "ACTIVATION_TASK": "activation",
+            "SUBMIT_TASK": "submit",
+            "REPORT_TASK": "sb1",
+            "FINALIZE_TASK": "sb2",
+            "COPY_PAPER_ANSWER_TO": ["nfd", "sb1", "sb2"],
+            "COPY_PERSONAL": [
+                {
+                    "TASK": "sb1",
+                    "DOCUMENT": lambda work_item: work_item.case.document,
+                    "SOURCE": "personalien-sb",
+                    "TARGET": "personalien-sb1-sb2",
+                    "FALLBACK": "personalien-gesuchstellerin",
+                },
+                {
+                    "TASK": "sb2",
+                    "DOCUMENT": lambda work_item: work_item.case.work_items.get(
+                        task_id="sb1"
+                    ).document,
+                    "SOURCE": "personalien-sb1-sb2",
+                    "TARGET": "personalien-sb1-sb2",
+                    "FALLBACK": None,
+                },
+            ],
+            "POST_COMPLETE": {
+                "start-decision": {
+                    "skip": ["check-activation"],
+                    "cancel": ["start-circulation"],
+                },
+                "start-circulation": {"cancel": ["check-activation", "start-decision"]},
+                "decision": {
+                    "skip": ["audit", "publication"],
+                    "cancel": ["reopen-circulation"],
+                    "complete": ["nfd"],
+                },
+                "reopen-circulation": {"cancel": ["decision"]},
+                "complete": {"skip": ["check-sb1", "check-sb2"]},
+            },
+        },
         "PORTAL_GROUP": 6,
         "DEMO_MODE_GROUPS": [
             20003,

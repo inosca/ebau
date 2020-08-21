@@ -1,0 +1,13 @@
+mutation CreateCirculationWorkflow {
+  saveWorkflow(
+    input: {
+      slug: "circulation"
+      name: "Zirkulation"
+      startTasks: ["activation"]
+      allowAllForms: true
+      isPublished: true
+    }
+  ) {
+    clientMutationId
+  }
+}

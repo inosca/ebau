@@ -1,0 +1,132 @@
+mutation CreateBuildingPermitWorkflow {
+  saveWorkflow(
+    input: {
+      slug: "building-permit"
+      name: "Baugesuch"
+      startTasks: ["submit"]
+      allowForms: ["baugesuch", "baugesuch-generell", "baugesuch-mit-uvp"]
+      isPublished: true
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow1 {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["submit"]
+      next: "['ebau-number', 'nfd']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow2 {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["ebau-number"]
+      next: "['init-circulation', 'audit', 'publication']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+mutation CreateFlow3 {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["init-circulation"]
+      next: "'circulation'|task"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow4 {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["circulation"]
+      next: "['start-circulation', 'check-activation', 'start-decision']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow5 {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["start-circulation"]
+      next: "'circulation'|task"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow6 {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["start-decision"]
+      next: "['decision', 'reopen-circulation']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow7 {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["reopen-circulation"]
+      next: "['start-circulation', 'start-decision']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow8 {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["decision"]
+      next: "'sb1'|task"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow9 {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["sb1"]
+      next: "['sb2', 'check-sb1']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow10 {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["sb2"]
+      next: "['complete', 'check-sb2']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
