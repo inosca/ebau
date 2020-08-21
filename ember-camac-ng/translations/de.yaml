@@ -6,6 +6,8 @@ global:
   cancel: "Abbrechen"
   date: "Datum"
   user: "Von"
+  back: "Zurück"
+  noMatch: "Keine Resultate gefunden"
 
 organisation:
   edit: "Eigene Organisation bearbeiten"
