@@ -1,3 +1,5 @@
+<button {{on "click" this.back}} class="button btn buttonstyle" type="button">{{t "global.back"}}</button>
+
 <h2>{{t "workItem.updateWorkItem"}}</h2>
 
 <div>
@@ -81,6 +83,7 @@
         @renderInPlace={{true}}
         @options={{this.userChoices}}
         @selected={{this.responsibleUsers}}
+        @noMatchesMessage={{t "global.noMatch"}}
         @onChange={{fn (mut this.responsibleUsers)}} as |responsibleUser|
       >
         {{responsibleUser.fullName}}
