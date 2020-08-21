@@ -101,6 +101,7 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         "instance_state": InstanceStateSerializer,
         "previous_instance_state": InstanceStateSerializer,
         "circulations": "camac.circulation.serializers.CirculationSerializer",
+        "services": "camac.user.serializers.ServiceSerializer",
     }
 
     def validate_location(self, location):
@@ -175,12 +176,14 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             "modification_date",
             "previous_instance_state",
             "circulations",
+            "services",
         )
         read_only_fields = (
             "circulations",
             "creation_date",
             "identifier",
             "modification_date",
+            "services",
         )
 
 

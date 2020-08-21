@@ -10,7 +10,10 @@ module.exports = function(defaults) {
     storeConfigInMeta: false,
     // disable fingerprinting completely
     SRI: { enabled: false },
-    fingerprint: { enabled: false }
+    fingerprint: { enabled: false },
+    flatpickr: {
+      locales: ["fr", "de"]
+    }
   });
 
   return app.toTree();
