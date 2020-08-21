@@ -91,4 +91,9 @@ export default class WorkItemEditController extends Controller {
   setComment(comment) {
     this.workItemComment = comment;
   }
+
+  @action
+  back() {
+    history.back();
+  }
 }

@@ -4,6 +4,11 @@ global:
   wait: "Veuillez patienter"
   empty: "Aucune entrée trouvée"
   cancel: "Annuler"
+  date: "Date"
+  user: "De"
+  back: "Retour"
+  noMatch: "Aucun résultat trouvé"
+
 
 organisation:
   edit: "Modifiez votre organisation"
@@ -95,3 +100,12 @@ workItem:
   notifyCompleted: "à l'issue"
   notifyDeadline: "en cas de dépassement du délai"
   saveWorkItem: "Enregistrée la tâche"
+
+  createdAt: "Créé le"
+  createdBy: "Créé par"
+  updateWorkItem: "Tâche d'édition"
+  finishWorkItem: "Terminer la tâche"
+  comment: "Commentaire"
+
+  closedBy: "Fait par"
+  closedAt: "Fait le"

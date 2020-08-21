@@ -1,54 +1,68 @@
+<button {{on "click" this.back}} class="button btn buttonstyle" type="button">{{t "global.back"}}</button>
+
 <h2>{{t "workItem.createWorkitem"}}</h2>
 
-<form>
+<form {{did-insert (perform this.getData)}} {{on "submit" (perform this.createWorkItem)}} class="form">
   <label class="work-item-input">
     {{t "workItem.responsible"}}
     <PowerSelectMultiple
       @searchEnabled={{true}}
-      @options={{this.responsibleChoices}}
-      @selected={{this.responsible}}
-      @onChange={{fn (mut this.responsible)}} as |responsibles|
+      @searchField="name"
+      @renderInPlace={{true}}
+      @options={{this.services}}
+      @selected={{this.responsibleServices}}
+      @noMatchesMessage={{t "global.noMatch"}}
+      @onChange={{fn (mut this.responsibleServices)}} as |responsibleService|
     >
-     {{responsibles}}
+     {{responsibleService.name}}
     </PowerSelectMultiple>
   </label>
-  {{#if true}}
+  {{#if this.selectedOwnService}}
     <label class="work-item-input">
       {{t "workItem.responsiblePerson"}}
       <PowerSelectMultiple
         @searchEnabled={{true}}
-        @options={{this.personChoices}}
-        @selected={{this.responsiblePersons}}
-        @onChange={{fn (mut this.responsiblePersons)}} as |responsiblePerson|
+        @searchField="fullName"
+        @renderInPlace={{true}}
+        @options={{this.ownServiceUsers}}
+        @selected={{this.responsibleUsers}}
+        @noMatchesMessage={{t "global.noMatch"}}
+        @onChange={{fn (mut this.responsibleUsers)}} as |responsibleUser|
       >
-        {{responsiblePerson}}
+        {{responsibleUser.fullName}}
       </PowerSelectMultiple>
     </label>
   {{/if}}
   <label class="work-item-input">
     {{t "workItem.title"}}
-    <Input @type="text"/>
+    <Input @type="text" @value={{mut this.title}}/>
   </label>
   <label class="work-item-input">
     {{t "workItem.description"}}
-    <Textarea/>
+    <Textarea @value={{mut this.description}}/>
   </label>
   <label class="work-item-input">
     {{t "workItem.deadline"}}
-    <Input @type="date"/>
+    <EmberFlatpickr
+      @locale={{this.shoebox.content.language}}
+      @date={{this.deadline}}
+      @onChange={{this.setDeadline}}
+      @dateFormat="d.m.Y"
+      class="deadline"
+    />
   </label>
 
   <div class="work-item-input">
     {{t "workItem.notifications"}}
-    <label>
-      <Input @type="checkbox"/>
+    <label class="checkbox-label">
+      <Input @type="checkbox" @checked={{mut this.notificationCompleted}}/>
       {{t "workItem.notifyCompleted"}}
     </label>
-    <label>
-      <Input @type="checkbox"/>
+    <label class="checkbox-label">
+      <Input @type="checkbox" @checked={{mut this.notificationDeadline}}/>
       {{t "workItem.notifyDeadline"}}
     </label>
   </div>
 
-  <button class="button" type="submit">{{t "workItem.saveWorkItem"}}</button>
+  <button class="button buttonstyle btn success" type="submit">{{t "workItem.saveWorkItem"}}</button>
 </form>

@@ -22,18 +22,18 @@ from camac.instance import serializers
 @pytest.mark.parametrize(
     "role__name,instance__user,num_queries,editable",
     [
-        ("Applicant", LazyFixture("admin_user"), 12, {"instance", "form", "document"}),
+        ("Applicant", LazyFixture("admin_user"), 13, {"instance", "form", "document"}),
         # reader should see instances from other users but has no editables
-        ("Reader", LazyFixture("user"), 12, set()),
-        ("Canton", LazyFixture("user"), 12, {"form", "document"}),
-        ("Municipality", LazyFixture("user"), 12, {"form", "document"}),
-        ("Service", LazyFixture("user"), 12, {"document"}),
-        ("Coordination", LazyFixture("user"), 12, {"instance", "form", "document"}),
+        ("Reader", LazyFixture("user"), 13, set()),
+        ("Canton", LazyFixture("user"), 13, {"form", "document"}),
+        ("Municipality", LazyFixture("user"), 13, {"form", "document"}),
+        ("Service", LazyFixture("user"), 13, {"document"}),
+        ("Coordination", LazyFixture("user"), 13, {"instance", "form", "document"}),
     ],
 )
 def test_instance_list(
     admin_client,
-    instance,
+    instance_service,
     activation,
     num_queries,
     group,
@@ -60,7 +60,7 @@ def test_instance_list(
 
     json = response.json()
     assert len(json["data"]) == 1
-    assert json["data"][0]["id"] == str(instance.pk)
+    assert json["data"][0]["id"] == str(instance_service.instance.pk)
     assert set(json["data"][0]["meta"]["editable"]) == set(editable)
     # included previous_instance_state and instance_state are the same
     assert len(json["included"]) == len(included) - 1
