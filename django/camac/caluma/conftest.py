@@ -5,11 +5,6 @@ from caluma.caluma_user.models import OIDCUser
 from caluma.schema import schema
 from jwt import encode as jwt_encode
 
-from ..instance.conftest import (  # noqa: F401; pylint: disable=unused-variable
-    caluma_forms,
-    caluma_workflow,
-)
-
 
 @pytest.fixture
 def token(admin_user):
