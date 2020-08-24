@@ -187,7 +187,7 @@ def test_notification_template_sendmail(
     activation,
     new_responsible_model,
     settings,
-    caluma_workflow,
+    caluma_workflow_config_be,
 ):
     url = reverse("notificationtemplate-sendmail")
     if new_responsible_model:
@@ -459,7 +459,7 @@ def test_notification_caluma_placeholders(
     done_activations,
     circulation_state_factory,
     mocker,
-    caluma_workflow,
+    caluma_workflow_config_be,
 ):
     url = reverse("notificationtemplate-sendmail")
 

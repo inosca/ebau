@@ -10,7 +10,12 @@ from pytest_factoryboy import LazyFixture
 
 @pytest.mark.parametrize("expected_value", ["papierdossier-ja", "papierdossier-nein"])
 def test_copy_papierdossier(
-    db, instance, instance_service, caluma_admin_user, caluma_workflow, expected_value
+    db,
+    instance,
+    instance_service,
+    caluma_admin_user,
+    caluma_workflow_config_be,
+    expected_value,
 ):
     case = workflow_api.start_case(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
@@ -48,7 +53,12 @@ def test_copy_papierdossier(
 
 @pytest.mark.parametrize("use_fallback", [True, False])
 def test_copy_sb_personalien(
-    db, instance, instance_service, caluma_admin_user, caluma_workflow, use_fallback
+    db,
+    instance,
+    instance_service,
+    caluma_admin_user,
+    caluma_workflow_config_be,
+    use_fallback,
 ):
     case = workflow_api.start_case(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
@@ -179,7 +189,7 @@ def test_complete_case(
     instance_service,
     circulation,
     activation_factory,
-    caluma_workflow,
+    caluma_workflow_config_be,
 ):
     case = workflow_api.start_case(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
