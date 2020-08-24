@@ -10,7 +10,7 @@ from camac.caluma.extensions.dynamic_groups import CustomDynamicGroups
 @pytest.mark.parametrize("has_group", [True, False])
 def test_dynamic_group_bern(
     db,
-    caluma_workflow,
+    caluma_workflow_config_be,
     instance,
     service_factory,
     activation_factory,
@@ -65,7 +65,7 @@ def test_dynamic_group_bern(
 
 
 def test_dynamic_group_schwyz(
-    db, caluma_workflow, instance, caluma_admin_user, settings
+    db, caluma_workflow_config_be, instance, caluma_admin_user, settings
 ):
     settings.APPLICATION_NAME = "kt_schwyz"
 
