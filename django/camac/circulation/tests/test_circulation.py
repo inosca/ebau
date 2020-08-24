@@ -91,7 +91,11 @@ def test_circulation_permissions(
     "role__name,instance__user", [("Municipality", LazyFixture("admin_user"))]
 )
 def test_sync_circulation(
-    admin_client, instance_service, circulation, activation_factory, caluma_workflow
+    admin_client,
+    instance_service,
+    circulation,
+    activation_factory,
+    caluma_workflow_config_be,
 ):
     user = BaseUser()
     case = start_case(

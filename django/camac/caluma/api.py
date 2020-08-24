@@ -17,7 +17,7 @@ from camac.user.models import User
 
 APPLICANT_GROUP_ID = 6
 
-log = getLogger()
+log = getLogger(__name__)
 
 
 class CalumaApi:
@@ -246,11 +246,79 @@ class CalumaApi:
             sb_row = self.copy_document(row.id, family=target_document.family)
             new_table_answer.documents.add(sb_row)
 
-    def sync_circulation(self, circulation, user):
+    def _sync_activations(self, child_case, activations, user):
         caluma_settings = settings.APPLICATION.get("CALUMA", {})
         activation_task = caluma_workflow_models.Task.objects.get(
             pk=caluma_settings.get("ACTIVATION_TASK")
         )
+
+        for activation in activations:
+            work_item = child_case.work_items.filter(
+                **{"task": activation_task, "meta__activation-id": activation.pk}
+            ).first()
+
+            update_data = {
+                "description": activation.reason,
+                "deadline": activation.deadline_date,
+                "addressed_groups": get_jexl_groups(
+                    activation_task.address_groups,
+                    activation_task,
+                    child_case,
+                    user,
+                    None,
+                    {"activation-id": activation.pk},
+                ),
+                "controlling_groups": get_jexl_groups(
+                    activation_task.control_groups,
+                    activation_task,
+                    child_case,
+                    user,
+                    None,
+                    {"activation-id": activation.pk},
+                ),
+            }
+
+            if work_item:
+                # Activation work item already exists, synchronize with activation
+                for key, value in update_data.items():
+                    setattr(work_item, key, value)
+
+                work_item.save()
+            else:
+                # Activation work item does not exist yet, create a new one
+                child_case.work_items.create(
+                    task=activation_task,
+                    status=caluma_workflow_models.WorkItem.STATUS_READY,
+                    created_by_user=user.username,
+                    created_by_group=user.group,
+                    name=activation_task.name,
+                    meta={"activation-id": activation.pk, "not-viewed": True},
+                    **update_data,
+                )
+
+        # Note: The activation_ids need to be strings in order for the
+        # query to filter correctly (jsonb type casting...)
+        activation_ids = list(activations.values_list("pk", flat=True))
+        for existing_work_item in child_case.work_items.filter(
+            task=activation_task, status=caluma_workflow_models.WorkItem.STATUS_READY
+        ):
+            # Cancel existing activation work items that don't have an
+            # activation anymore.
+            if existing_work_item.meta.get("activation-id") not in activation_ids:
+                caluma_workflow_api.cancel_work_item(existing_work_item, user)
+
+    def sync_circulation(self, circulation, user):
+        """Synchronize a CAMAC circulation with the Caluma workflow.
+
+        This method completely synchronizes the Caluma workflow with an
+        existing CAMAC circulation. If there are activations in the
+        circulation it creates work items in an existing (or newly created)
+        child case. If there are work items for non existing activations it
+        cancels them. And if there is a child case but no more activations
+        the whole child case will be canceled.
+        """
+
+        caluma_settings = settings.APPLICATION.get("CALUMA", {})
 
         work_item = caluma_workflow_models.WorkItem.objects.filter(
             **{
@@ -278,61 +346,7 @@ class CalumaApi:
                 context={"activation-id": circulation.activations.first().pk},
             )
 
-            for activation in circulation.activations.all():
-                work_item = child_case.work_items.filter(
-                    **{"task": activation_task, "meta__activation-id": activation.pk}
-                ).first()
-
-                update_data = {
-                    "description": activation.reason,
-                    "deadline": activation.deadline_date,
-                    "addressed_groups": get_jexl_groups(
-                        activation_task.address_groups,
-                        activation_task,
-                        child_case,
-                        user,
-                        None,
-                        {"activation-id": activation.pk},
-                    ),
-                    "controlling_groups": get_jexl_groups(
-                        activation_task.control_groups,
-                        activation_task,
-                        child_case,
-                        user,
-                        None,
-                        {"activation-id": activation.pk},
-                    ),
-                }
-
-                if work_item:
-                    # Activation work item already exists, synchronize with activation
-                    for key, value in update_data.items():
-                        setattr(work_item, key, value)
-
-                    work_item.save()
-                else:
-                    # Activation work item does not exist yet, create a new one
-                    child_case.work_items.create(
-                        task=activation_task,
-                        status=caluma_workflow_models.WorkItem.STATUS_READY,
-                        created_by_user=user.username,
-                        created_by_group=user.group,
-                        name=activation_task.name,
-                        meta={"activation-id": activation.pk, "not-viewed": True},
-                        **update_data,
-                    )
-
-            # Note: The activation_ids need to be strings in order for the
-            # query to filter correctly (jsonb type casting...)
-            activation_ids = list(circulation.activations.values_list("pk", flat=True))
-            for existing_work_item in child_case.work_items.filter(
-                task=activation_task,
-                status=caluma_workflow_models.WorkItem.STATUS_READY,
-            ):
-                # Cancel existing activation work items that don't have an
-                # activation anymore.
-                if existing_work_item.meta.get("activation-id") not in activation_ids:
-                    caluma_workflow_api.cancel_work_item(existing_work_item, user)
+            self._sync_activations(child_case, circulation.activations.all(), user)
 
         elif work_item.child_case:
             # Cancel existing child case since there are no more activations
