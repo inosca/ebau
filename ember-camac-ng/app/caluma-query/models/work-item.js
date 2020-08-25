@@ -10,11 +10,9 @@ export default class CustomWorkItemModel extends WorkItemModel {
   @tracked assignedUsers = this.raw.assignedUsers;
 
   get assignedUserInformation() {
-    const users = [];
-    this.assignedUsers.forEach(userId => {
-      users.push(this.store.peekRecord("user", userId));
-    });
-    return users;
+    return this.store
+      .peekAll("user")
+      .filter(user => this.assignedUsers.includes(user.username));
   }
 
   get instance() {
@@ -62,6 +60,10 @@ export default class CustomWorkItemModel extends WorkItemModel {
     }
 
     return "";
+  }
+
+  get closedByUser() {
+    return this.store.peekAll("user").findBy("username", this.raw.closedByUser);
   }
 
   static fragment = `{

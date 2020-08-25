@@ -4,6 +4,8 @@ global:
   wait: "Bitte warten"
   empty: "Keine Einträge gefunden"
   cancel: "Abbrechen"
+  date: "Datum"
+  user: "Von"
 
 organisation:
   edit: "Eigene Organisation bearbeiten"
@@ -23,8 +25,6 @@ organisation:
 history:
   title: "History"
   event: "Ereignis"
-  date: "Datum"
-  user: "Von"
 
   types:
     notification: "Notifikation"
@@ -41,35 +41,41 @@ journal:
   textareaNew: "Textbereich für neuen Eintrag"
   textareaEdit: "Textbereich zum editieren des Eintrages"
 
-workitemlist:
-  saveError: "Fehler beim Speichern der Aufgabe"
-
+workItemList:
+  task: "Aufgabe"
+  deadline: "Frist"
+  created: "Erstellt"
   responsible: "Verantwortlich"
 
-  filter:
-    status: "Status"
-    type: "Typ"
-    role: "Rolle"
+  empty: "Keine Aufgaben gefunden"
 
-    all: "Alle"
-    own: "Eigene"
-    new: "Neu"
-    open: "Offen"
-    closed: "Abgeschlossen"
-    active: "Aktiv"
-    control: "Controlling"
+  all:
+    saveError: "Fehler beim Speichern der Aufgabe"
 
-  table:
-    instance: "Dossier"
-    instanceType: "Gesuchstyp"
-    task: "Aufgabe"
-    deadline: "Frist"
-    created: "Erstellt"
+    filter:
+      status: "Status"
+      type: "Typ"
+      role: "Rolle"
 
-    markRead: "Als gelesen markieren"
-    assignToMe: "Mir zuweisen"
-    editWorkitem: "Aufgabe bearbeiten"
+      all: "Alle"
+      own: "Eigene"
+      new: "Neu"
+      open: "Offen"
+      closed: "Abgeschlossen"
+      active: "Aktiv"
+      control: "Controlling"
 
-    empty: "Keine Aufgaben gefunden"
-    
-    loadMore: "Mehr Aufgaben abrufen"
+    table:
+      instance: "Dossier"
+      instanceType: "Gesuchstyp"
+
+      markRead: "Als gelesen markieren"
+      assignToMe: "Mir zuweisen"
+      editWorkitem: "Aufgabe bearbeiten"
+      
+      loadMore: "Mehr Aufgaben abrufen"
+
+  instance:
+    currentTasks: "Aktuelle Aufgaben"
+    newTask: "Neue Aufgabe"
+    finishedTasks: "Abgeschlossene Aufgaben"
