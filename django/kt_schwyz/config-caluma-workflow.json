@@ -130,9 +130,7 @@
   {
     "fields": {
       "allow_all_forms": false,
-      "allow_forms": [
-        "baugesuch"
-      ],
+      "allow_forms": ["baugesuch"],
       "created_at": "2020-08-03T12:26:21.350Z",
       "created_by_group": null,
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -142,9 +140,7 @@
       "meta": {},
       "modified_at": "2020-08-03T12:26:21.350Z",
       "name": "{\"de\": \"Baugesuch\", \"fr\": null}",
-      "start_tasks": [
-        "submit"
-      ]
+      "start_tasks": ["submit"]
     },
     "model": "caluma_workflow.workflow",
     "pk": "building-permit"
