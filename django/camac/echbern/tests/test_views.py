@@ -200,7 +200,7 @@ def test_send(
     attachment_factory,
     service_group_factory,
     service_factory,
-    caluma_workflow,
+    caluma_workflow_config_be,
 ):
     if has_permission:
         service_group_baukontrolle = service_group_factory(
@@ -278,7 +278,7 @@ def test_send_400_invalid_judgement(
     role_factory,
     attachment_section_factory,
     attachment_factory,
-    caluma_workflow,
+    caluma_workflow_config_be,
 ):
     attachment_section_beteiligte_behoerden = attachment_section_factory(
         pk=ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN

@@ -15,7 +15,7 @@ def test_document_visibility(
     activation_factory,
     admin_user,
     caluma_admin_user,
-    caluma_workflow,
+    caluma_workflow_config_be,
     caluma_admin_schema_executor,
 ):
     group = admin_user.groups.first()
@@ -75,7 +75,7 @@ def test_document_visibility_filter(
     activation_factory,
     admin_user,
     caluma_admin_user,
-    caluma_workflow,
+    caluma_workflow_config_be,
     circulation_state,
     circulation_state_factory,
 ):
@@ -149,7 +149,7 @@ def test_work_item_visibility(
     admin_user,
     caluma_admin_schema_executor,
     caluma_admin_user,
-    caluma_workflow,
+    caluma_workflow_config_be,
     activation_factory,
     circulation_state_factory,
 ):

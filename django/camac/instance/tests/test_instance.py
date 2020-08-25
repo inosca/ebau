@@ -222,7 +222,7 @@ def test_instance_destroy(admin_client, instance, status_code, location_factory)
     [("new", None), ("new", LazyFixture("location"))],
 )
 def test_instance_create(
-    admin_client, admin_user, form, instance_state, instance, caluma_workflow_schwyz,
+    admin_client, admin_user, form, instance_state, instance, caluma_workflow_config_sz
 ):
     url = reverse("instance-list")
 
@@ -309,7 +309,7 @@ def test_instance_submit(
     role,
     mocker,
     unoconv_pdf_mock,
-    caluma_workflow_schwyz,
+    caluma_workflow_config_sz,
 ):
 
     settings.APPLICATION["NOTIFICATIONS"]["SUBMIT"] = notification_template.slug

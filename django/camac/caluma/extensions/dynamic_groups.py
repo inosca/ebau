@@ -25,10 +25,11 @@ class CustomDynamicGroups(BaseDynamicGroups):
     @register_dynamic_group("municipality")
     def resolve_municipality(self, task, case, user, prev_work_item, context, **kwargs):
         instance = self._get_instance(case)
-        service = instance.group.service
 
         if settings.APPLICATION_NAME == "kt_bern":
             service = instance.active_service()
+        else:
+            service = instance.group.service
 
         if not service:
             log.error(f"No municipality group found for instance {instance.pk}")
