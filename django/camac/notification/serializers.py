@@ -773,7 +773,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
                 user = self.context["request"].user
             else:
                 user = (
-                    Role.objects.get(name="support")
+                    Role.objects.get(name__iexact="support")
                     .groups.order_by("group_id")
                     .first()
                     .users.first()
