@@ -36,7 +36,8 @@ export default class WorkItemsIndexController extends Controller {
 
   async processAll(workItems) {
     const assignedUsers = [
-      ...new Set([this.shoebox.content.username,
+      ...new Set([
+        this.shoebox.content.username,
         ...workItems.reduce(
           (ids, workItem) => [...ids, ...workItem.assignedUsers],
           []
@@ -107,7 +108,10 @@ export default class WorkItemsIndexController extends Controller {
         variables: {
           input: {
             workItem: workitem.id,
-            assignedUsers: [...workitem.assignedUsers, this.shoebox.content.username]
+            assignedUsers: [
+              ...workitem.assignedUsers,
+              this.shoebox.content.username
+            ]
           }
         }
       });
