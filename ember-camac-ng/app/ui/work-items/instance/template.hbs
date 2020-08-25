@@ -1,0 +1,155 @@
+<h2 class="work-item-list-instance-title">
+  {{t "workItemList.instance.currentTasks"}}
+</h2>
+
+<div class="workitemlist-filters">
+  <div>
+    <div class="filters-wrapper">
+      <input
+        value="active"
+        checked={{eq this.filters.role "active"}}
+        type="radio"
+        class="filter-button"
+        name="role"
+        id="filter-active"
+        {{on "click" (fn this.updateFilter "role" "active")}}
+      />
+      <label for="filter-active">
+        {{t "workItemList.all.filter.active"}}
+      </label>
+      <input
+        value="control"
+        checked={{eq this.filters.role "control"}}
+        type="radio"
+        class="filter-button"
+        name="role"
+        id="filter-control"
+        {{on "click" (fn this.updateFilter "role" "control")}}
+      />
+      <label for="filter-control">
+        {{t "workItemList.all.filter.control"}}
+      </label>
+    </div>
+  </div>
+</div>
+
+<table
+  class="work-item-list-instance-table"
+  {{did-insert (perform this.fetchWorkItems)}}
+>
+  <thead>
+    <th>
+      {{t "workItemList.task"}}
+    </th>
+    <th>
+      {{t "workItemList.deadline"}}
+    </th>
+    <th>
+      {{t "workItemList.created"}}
+    </th>
+    <th>
+      {{t "workItemList.responsible"}}
+    </th>
+  </thead>
+  <tbody>
+    {{#if this.workItemsQuery.isLoading}}
+      <tr>
+        <td colspan="4">
+          <LoadingText />
+        </td>
+      </tr>
+    {{else}}
+      {{#each this.activeWorkItems as |workitem|}}
+        <tr>
+          <td>
+            {{workitem.name}}
+          </td>
+          <td>
+            {{moment-from workitem.deadline}}
+          </td>
+          <td>
+            {{format-date
+              workitem.createdAt
+              day="2-digit"
+              month="2-digit"
+              year="numeric"
+              hour="2-digit"
+              minute="2-digit"
+              hour12=false
+            }}
+          </td>
+          <td>
+            {{#each workitem.assignedUserInformation as |user|}}
+              {{user.fullName}}
+            {{else}}
+              -
+            {{/each}}
+          </td>
+        </tr>
+      {{else}}
+        <tr>
+          <td colspan="4">
+            {{t "workItemList.empty"}}
+          </td>
+        </tr>
+      {{/each}}
+    {{/if}}
+  </tbody>
+</table>
+<button class="button btn buttonstyle success" type="button">
+  {{t "workItemList.instance.newTask"}}
+</button>
+
+<h2 class="work-item-list-instance-title">
+  {{t "workItemList.instance.finishedTasks"}}
+</h2>
+<table class="work-item-list-instance-table">
+  <thead>
+    <th>
+      {{t "workItemList.task"}}
+    </th>
+    <th>
+      {{t "global.date"}}
+    </th>
+    <th>
+      {{t "global.user"}}
+    </th>
+  </thead>
+  <tbody>
+    {{#if this.workItemsQuery.isLoading}}
+      <tr>
+        <td colspan="3">
+          <LoadingText />
+        </td>
+      </tr>
+    {{else}}
+      {{#each this.doneWorkItems as |workitem|}}
+        <tr>
+          <td>
+            {{workitem.name}}
+          </td>
+          <td>
+            {{format-date
+              workitem.closedAt
+              day="2-digit"
+              month="2-digit"
+              year="numeric"
+              hour="2-digit"
+              minute="2-digit"
+              hour12=false
+            }}
+          </td>
+          <td>
+            {{workitem.closedByUser.fullName}}
+          </td>
+        </tr>
+      {{else}}
+        <tr>
+          <td colspan="3">
+            {{t "workItemList.empty"}}
+          </td>
+        </tr>
+      {{/each}}
+    {{/if}}
+  </tbody>
+</table>

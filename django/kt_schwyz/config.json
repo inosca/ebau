@@ -1620,6 +1620,15 @@
   },
   {
     "fields": {
+      "action_name": "index",
+      "available_instance_resource": "workitemlistinstance",
+      "hidden": 0
+    },
+    "model": "core.airaction",
+    "pk": 10003
+  },
+  {
+    "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Notification_Manager_Applicant",
       "template": "ruckweisung"
@@ -2030,7 +2039,7 @@
   {
     "fields": {
       "action_name": "index",
-      "available_resource": "workitemlist",
+      "available_resource": "workitemlistall",
       "hidden": 0
     },
     "model": "core.araction",
@@ -2102,14 +2111,6 @@
   },
   {
     "fields": {
-      "description": "Generate Journal Entry",
-      "module_name": "journal"
-    },
-    "model": "core.availableaction",
-    "pk": "journal"
-  },
-  {
-    "fields": {
       "description": "Make a transition",
       "module_name": "default"
     },
@@ -2123,6 +2124,14 @@
     },
     "model": "core.availableaction",
     "pk": "generate"
+  },
+  {
+    "fields": {
+      "description": "Generate Journal Entry",
+      "module_name": "journal"
+    },
+    "model": "core.availableaction",
+    "pk": "journal"
   },
   {
     "fields": {
@@ -2207,7 +2216,7 @@
   {
     "fields": {
       "description": "Process a work item",
-      "module_name": "workitemlist"
+      "module_name": "workitem"
     },
     "model": "core.availableaction",
     "pk": "workitem"
@@ -2304,15 +2313,6 @@
   },
   {
     "fields": {
-      "controller_name": "journal",
-      "description": "journal",
-      "module_name": "journal"
-    },
-    "model": "core.availableinstanceresource",
-    "pk": "journal"
-  },
-  {
-    "fields": {
       "controller_name": "form",
       "description": "Page with error list of the form",
       "module_name": "default"
@@ -2373,6 +2373,15 @@
     },
     "model": "core.availableinstanceresource",
     "pk": "issue"
+  },
+  {
+    "fields": {
+      "controller_name": "journal",
+      "description": "journal",
+      "module_name": "journal"
+    },
+    "model": "core.availableinstanceresource",
+    "pk": "journal"
   },
   {
     "fields": {
@@ -2445,6 +2454,15 @@
     },
     "model": "core.availableinstanceresource",
     "pk": "workflow"
+  },
+  {
+    "fields": {
+      "controller_name": "workitemlistinstance",
+      "description": "Display work items of the instance",
+      "module_name": "workitem"
+    },
+    "model": "core.availableinstanceresource",
+    "pk": "workitemlistinstance"
   },
   {
     "fields": {
@@ -2529,12 +2547,12 @@
   },
   {
     "fields": {
-      "controller_name": "workitemlist",
+      "controller_name": "workitemlistall",
       "description": "Display work items",
-      "module_name": "workitemlist"
+      "module_name": "workitem"
     },
     "model": "core.availableresource",
-    "pk": "workitemlist"
+    "pk": "workitemlistall"
   },
   {
     "fields": {
@@ -4258,7 +4276,7 @@
       "hidden": 0,
       "name": "Dokumente",
       "resource": 1,
-      "sort": 1,
+      "sort": 2,
       "template": null
     },
     "model": "core.instanceresource",
@@ -4273,7 +4291,7 @@
       "hidden": 0,
       "name": "Formular",
       "resource": 1,
-      "sort": 0,
+      "sort": 1,
       "template": "/ember/instance.phtml"
     },
     "model": "core.instanceresource",
@@ -4288,7 +4306,7 @@
       "hidden": 0,
       "name": "Publikation",
       "resource": 1,
-      "sort": 3,
+      "sort": 4,
       "template": null
     },
     "model": "core.instanceresource",
@@ -4303,7 +4321,7 @@
       "hidden": 0,
       "name": "Workflow",
       "resource": 1,
-      "sort": 9,
+      "sort": 10,
       "template": null
     },
     "model": "core.instanceresource",
@@ -4318,7 +4336,7 @@
       "hidden": 0,
       "name": "Zirkulation",
       "resource": 1,
-      "sort": 4,
+      "sort": 5,
       "template": null
     },
     "model": "core.instanceresource",
@@ -4333,7 +4351,7 @@
       "hidden": 0,
       "name": "Bauverwaltung",
       "resource": 1,
-      "sort": 10,
+      "sort": 11,
       "template": null
     },
     "model": "core.instanceresource",
@@ -4348,7 +4366,7 @@
       "hidden": 0,
       "name": "Stellungnahmen",
       "resource": 1,
-      "sort": 7,
+      "sort": 8,
       "template": null
     },
     "model": "core.instanceresource",
@@ -4363,7 +4381,7 @@
       "hidden": 0,
       "name": "Formular",
       "resource": 6,
-      "sort": 0,
+      "sort": 1,
       "template": "/ember/instance.phtml"
     },
     "model": "core.instanceresource",
@@ -4378,7 +4396,7 @@
       "hidden": 0,
       "name": "Dokumente",
       "resource": 6,
-      "sort": 1,
+      "sort": 2,
       "template": null
     },
     "model": "core.instanceresource",
@@ -4393,7 +4411,7 @@
       "hidden": 0,
       "name": "Eigener Fachbericht",
       "resource": 6,
-      "sort": 7,
+      "sort": 8,
       "template": null
     },
     "model": "core.instanceresource",
@@ -4438,7 +4456,7 @@
       "hidden": 0,
       "name": "Zirkulation BGZ",
       "resource": 6,
-      "sort": 3,
+      "sort": 4,
       "template": null
     },
     "model": "core.instanceresource",
@@ -4453,7 +4471,7 @@
       "hidden": 0,
       "name": "Stellungnahmen",
       "resource": 6,
-      "sort": 6,
+      "sort": 7,
       "template": null
     },
     "model": "core.instanceresource",
@@ -4468,7 +4486,7 @@
       "hidden": 0,
       "name": "Verantwortliche Person",
       "resource": 1,
-      "sort": 6,
+      "sort": 7,
       "template": null
     },
     "model": "core.instanceresource",
@@ -4483,7 +4501,7 @@
       "hidden": 0,
       "name": "Verantwortliche Person",
       "resource": 6,
-      "sort": 5,
+      "sort": 6,
       "template": null
     },
     "model": "core.instanceresource",
@@ -4498,7 +4516,7 @@
       "hidden": 0,
       "name": "Dokumente generieren",
       "resource": 1,
-      "sort": 11,
+      "sort": 12,
       "template": null
     },
     "model": "core.instanceresource",
@@ -4513,7 +4531,7 @@
       "hidden": 0,
       "name": "Dokumente generieren",
       "resource": 6,
-      "sort": 9,
+      "sort": 10,
       "template": null
     },
     "model": "core.instanceresource",
@@ -4528,7 +4546,7 @@
       "hidden": 0,
       "name": "Einsprecher",
       "resource": 1,
-      "sort": 8,
+      "sort": 9,
       "template": null
     },
     "model": "core.instanceresource",
@@ -4543,7 +4561,7 @@
       "hidden": 0,
       "name": "Journal",
       "resource": 1,
-      "sort": 12,
+      "sort": 13,
       "template": null
     },
     "model": "core.instanceresource",
@@ -4558,7 +4576,7 @@
       "hidden": 0,
       "name": "Pendenzen",
       "resource": 1,
-      "sort": 13,
+      "sort": 15,
       "template": null
     },
     "model": "core.instanceresource",
@@ -4603,7 +4621,7 @@
       "hidden": 0,
       "name": "Geb\u00fchren",
       "resource": 1,
-      "sort": 14,
+      "sort": 16,
       "template": null
     },
     "model": "core.instanceresource",
@@ -4618,7 +4636,7 @@
       "hidden": 0,
       "name": "Geb\u00fchren",
       "resource": 6,
-      "sort": 12,
+      "sort": 13,
       "template": null
     },
     "model": "core.instanceresource",
@@ -4633,7 +4651,7 @@
       "hidden": 0,
       "name": "Vollst\u00e4ndigkeitspr\u00fcfung",
       "resource": 1,
-      "sort": 2,
+      "sort": 3,
       "template": null
     },
     "model": "core.instanceresource",
@@ -4708,7 +4726,7 @@
       "hidden": 0,
       "name": "Zirkulation",
       "resource": 6,
-      "sort": 4,
+      "sort": 5,
       "template": null
     },
     "model": "core.instanceresource",
@@ -4723,7 +4741,7 @@
       "hidden": 0,
       "name": "Vollst\u00e4ndigkeitspr\u00fcfung",
       "resource": 6,
-      "sort": 2,
+      "sort": 3,
       "template": null
     },
     "model": "core.instanceresource",
@@ -4738,7 +4756,7 @@
       "hidden": 0,
       "name": "Journal",
       "resource": 6,
-      "sort": 10,
+      "sort": 11,
       "template": null
     },
     "model": "core.instanceresource",
@@ -4753,7 +4771,7 @@
       "hidden": 0,
       "name": "Pendenzen",
       "resource": 6,
-      "sort": 11,
+      "sort": 12,
       "template": null
     },
     "model": "core.instanceresource",
@@ -4768,7 +4786,7 @@
       "hidden": 0,
       "name": "Einsprecher",
       "resource": 6,
-      "sort": 8,
+      "sort": 9,
       "template": null
     },
     "model": "core.instanceresource",
@@ -4798,7 +4816,7 @@
       "hidden": 0,
       "name": "Zirkulation",
       "resource": 1,
-      "sort": 5,
+      "sort": 6,
       "template": null
     },
     "model": "core.instanceresource",
@@ -4813,11 +4831,41 @@
       "hidden": 1,
       "name": "History",
       "resource": 1,
-      "sort": 12,
+      "sort": 14,
       "template": null
     },
     "model": "core.instanceresource",
     "pk": 48
+  },
+  {
+    "fields": {
+      "available_instance_resource": "workitemlistinstance",
+      "class_field": null,
+      "description": null,
+      "form_group": 1,
+      "hidden": 0,
+      "name": "Aufgaben",
+      "resource": 1,
+      "sort": 0,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 49
+  },
+  {
+    "fields": {
+      "available_instance_resource": "workitemlistinstance",
+      "class_field": null,
+      "description": null,
+      "form_group": 1,
+      "hidden": 0,
+      "name": "Aufgaben",
+      "resource": 6,
+      "sort": 0,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 50
   },
   {
     "fields": {
@@ -12474,6 +12522,429 @@
   },
   {
     "fields": {
+      "instance_resource": 49,
+      "instance_state": 12,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 804
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 2,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 805
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 3,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 806
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 4,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 807
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 5,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 808
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 6,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 809
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 7,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 810
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 13,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 811
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 8,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 812
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 9,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 813
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 10,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 814
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 12,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 815
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 2,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 816
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 3,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 817
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 4,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 818
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 5,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 819
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 6,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 820
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 7,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 821
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 13,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 822
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 8,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 823
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 9,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 824
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 10,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 825
+  },
+  {
+    "fields": {
+      "instance_resource": 50,
+      "instance_state": 5,
+      "role": 5
+    },
+    "model": "core.irroleacl",
+    "pk": 826
+  },
+  {
+    "fields": {
+      "instance_resource": 50,
+      "instance_state": 6,
+      "role": 5
+    },
+    "model": "core.irroleacl",
+    "pk": 827
+  },
+  {
+    "fields": {
+      "instance_resource": 50,
+      "instance_state": 7,
+      "role": 5
+    },
+    "model": "core.irroleacl",
+    "pk": 828
+  },
+  {
+    "fields": {
+      "instance_resource": 50,
+      "instance_state": 13,
+      "role": 5
+    },
+    "model": "core.irroleacl",
+    "pk": 829
+  },
+  {
+    "fields": {
+      "instance_resource": 50,
+      "instance_state": 8,
+      "role": 5
+    },
+    "model": "core.irroleacl",
+    "pk": 830
+  },
+  {
+    "fields": {
+      "instance_resource": 50,
+      "instance_state": 9,
+      "role": 5
+    },
+    "model": "core.irroleacl",
+    "pk": 831
+  },
+  {
+    "fields": {
+      "instance_resource": 50,
+      "instance_state": 10,
+      "role": 5
+    },
+    "model": "core.irroleacl",
+    "pk": 832
+  },
+  {
+    "fields": {
+      "instance_resource": 50,
+      "instance_state": 5,
+      "role": 7
+    },
+    "model": "core.irroleacl",
+    "pk": 833
+  },
+  {
+    "fields": {
+      "instance_resource": 50,
+      "instance_state": 6,
+      "role": 7
+    },
+    "model": "core.irroleacl",
+    "pk": 834
+  },
+  {
+    "fields": {
+      "instance_resource": 50,
+      "instance_state": 7,
+      "role": 7
+    },
+    "model": "core.irroleacl",
+    "pk": 835
+  },
+  {
+    "fields": {
+      "instance_resource": 50,
+      "instance_state": 13,
+      "role": 7
+    },
+    "model": "core.irroleacl",
+    "pk": 836
+  },
+  {
+    "fields": {
+      "instance_resource": 50,
+      "instance_state": 8,
+      "role": 7
+    },
+    "model": "core.irroleacl",
+    "pk": 837
+  },
+  {
+    "fields": {
+      "instance_resource": 50,
+      "instance_state": 9,
+      "role": 7
+    },
+    "model": "core.irroleacl",
+    "pk": 838
+  },
+  {
+    "fields": {
+      "instance_resource": 50,
+      "instance_state": 10,
+      "role": 7
+    },
+    "model": "core.irroleacl",
+    "pk": 839
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 12,
+      "role": 11
+    },
+    "model": "core.irroleacl",
+    "pk": 840
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 2,
+      "role": 11
+    },
+    "model": "core.irroleacl",
+    "pk": 841
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 3,
+      "role": 11
+    },
+    "model": "core.irroleacl",
+    "pk": 842
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 4,
+      "role": 11
+    },
+    "model": "core.irroleacl",
+    "pk": 843
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 5,
+      "role": 11
+    },
+    "model": "core.irroleacl",
+    "pk": 844
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 6,
+      "role": 11
+    },
+    "model": "core.irroleacl",
+    "pk": 845
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 7,
+      "role": 11
+    },
+    "model": "core.irroleacl",
+    "pk": 846
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 13,
+      "role": 11
+    },
+    "model": "core.irroleacl",
+    "pk": 847
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 8,
+      "role": 11
+    },
+    "model": "core.irroleacl",
+    "pk": 848
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 9,
+      "role": 11
+    },
+    "model": "core.irroleacl",
+    "pk": 849
+  },
+  {
+    "fields": {
+      "instance_resource": 49,
+      "instance_state": 10,
+      "role": 11
+    },
+    "model": "core.irroleacl",
+    "pk": 850
+  },
+  {
+    "fields": {
       "instance_resource": 43,
       "instance_state": 5,
       "service": 7
@@ -13801,7 +14272,7 @@
       "description": "Eingereichte Dossiers f\u00fcr die Gemeinde",
       "hidden": 0,
       "name": "Neue Gesuche",
-      "sort": 0,
+      "sort": 1,
       "template": null
     },
     "model": "core.resource",
@@ -13814,7 +14285,7 @@
       "description": "Pendenzenliste der Gemeinde f\u00fcr neue Dossiers",
       "hidden": 0,
       "name": "Start Zirkulation",
-      "sort": 1,
+      "sort": 2,
       "template": null
     },
     "model": "core.resource",
@@ -13827,7 +14298,7 @@
       "description": "Zirkulation aus Sicht der Gemeinde",
       "hidden": 0,
       "name": "In Zirkulation",
-      "sort": 2,
+      "sort": 3,
       "template": null
     },
     "model": "core.resource",
@@ -13840,7 +14311,7 @@
       "description": "Abzuschliessende Dossiers f\u00fcr die Gemeinde",
       "hidden": 0,
       "name": "Entscheid",
-      "sort": 4,
+      "sort": 5,
       "template": null
     },
     "model": "core.resource",
@@ -13853,7 +14324,7 @@
       "description": "Zirkulation aus Sicht der Fachstellen",
       "hidden": 0,
       "name": "In Zirkulation",
-      "sort": 3,
+      "sort": 4,
       "template": null
     },
     "model": "core.resource",
@@ -13866,7 +14337,7 @@
       "description": "\u00dcbersicht aktiver Dossiers f\u00fcr den Kanton",
       "hidden": 0,
       "name": "\u00dcbersicht aktiver Dossiers",
-      "sort": 5,
+      "sort": 6,
       "template": null
     },
     "model": "core.resource",
@@ -13879,7 +14350,7 @@
       "description": null,
       "hidden": 0,
       "name": "Suche",
-      "sort": 6,
+      "sort": 7,
       "template": null
     },
     "model": "core.resource",
@@ -13892,7 +14363,7 @@
       "description": null,
       "hidden": 0,
       "name": "Vorlagenverwaltung",
-      "sort": 7,
+      "sort": 8,
       "template": null
     },
     "model": "core.resource",
@@ -13905,7 +14376,7 @@
       "description": null,
       "hidden": 0,
       "name": "Offene Punkte",
-      "sort": 9,
+      "sort": 10,
       "template": null
     },
     "model": "core.resource",
@@ -13918,7 +14389,7 @@
       "description": null,
       "hidden": 0,
       "name": "Pendenzenvorlagen",
-      "sort": 10,
+      "sort": 11,
       "template": null
     },
     "model": "core.resource",
@@ -13931,7 +14402,7 @@
       "description": null,
       "hidden": 0,
       "name": "Publikation",
-      "sort": 11,
+      "sort": 12,
       "template": null
     },
     "model": "core.resource",
@@ -13944,7 +14415,7 @@
       "description": null,
       "hidden": 0,
       "name": "Einstellungen",
-      "sort": 12,
+      "sort": 13,
       "template": null
     },
     "model": "core.resource",
@@ -13957,7 +14428,7 @@
       "description": "Gesuche der Leserolle",
       "hidden": 0,
       "name": "Gesuche",
-      "sort": 13,
+      "sort": 14,
       "template": null
     },
     "model": "core.resource",
@@ -13970,7 +14441,7 @@
       "description": null,
       "hidden": 0,
       "name": "Textbausteine",
-      "sort": 8,
+      "sort": 9,
       "template": null
     },
     "model": "core.resource",
@@ -13983,7 +14454,7 @@
       "description": null,
       "hidden": 1,
       "name": "Gesch\u00e4ftskontrolle erstellen",
-      "sort": 14,
+      "sort": 15,
       "template": null
     },
     "model": "core.resource",
@@ -13996,7 +14467,7 @@
       "description": null,
       "hidden": 1,
       "name": "Gesch\u00e4ftskontrollen",
-      "sort": 15,
+      "sort": 16,
       "template": null
     },
     "model": "core.resource",
@@ -14004,12 +14475,12 @@
   },
   {
     "fields": {
-      "available_resource": "workitemlist",
+      "available_resource": "workitemlistall",
       "class_field": null,
       "description": null,
-      "hidden": 1,
+      "hidden": 0,
       "name": "Aufgabenliste",
-      "sort": 16,
+      "sort": 0,
       "template": null
     },
     "model": "core.resource",
@@ -14390,6 +14861,22 @@
     },
     "model": "core.rroleacl",
     "pk": 57
+  },
+  {
+    "fields": {
+      "resource": 23,
+      "role": 5
+    },
+    "model": "core.rroleacl",
+    "pk": 58
+  },
+  {
+    "fields": {
+      "resource": 23,
+      "role": 7
+    },
+    "model": "core.rroleacl",
+    "pk": 59
   },
   {
     "fields": {
@@ -15877,7 +16364,7 @@
   },
   {
     "fields": {
-      "description": "Von Leitbehörde angenommen",
+      "description": "Von Leitbeh\u00f6rde angenommen",
       "name": "comm",
       "sort": 3
     },
