@@ -4538,7 +4538,7 @@
   {
     "fields": {
       "action_name": "index",
-      "available_instance_resource": "emberjournal",
+      "available_instance_resource": "journal",
       "hidden": 0
     },
     "model": "core.airaction",
@@ -42384,12 +42384,12 @@
   },
   {
     "fields": {
-      "controller_name": "emberjournal",
+      "controller_name": "journal",
       "description": "Show instance journal",
-      "module_name": "emberjournal"
+      "module_name": "journal"
     },
     "model": "core.availableinstanceresource",
-    "pk": "emberjournal"
+    "pk": "journal"
   },
   {
     "fields": {
@@ -52458,7 +52458,7 @@
   },
   {
     "fields": {
-      "available_instance_resource": "emberjournal",
+      "available_instance_resource": "journal",
       "class_field": null,
       "description": null,
       "form_group": 40000,
@@ -52473,7 +52473,7 @@
   },
   {
     "fields": {
-      "available_instance_resource": "emberjournal",
+      "available_instance_resource": "journal",
       "class_field": "menu-category-analysis",
       "description": null,
       "form_group": 40000,
@@ -55798,7 +55798,7 @@
   {
     "fields": {
       "available_action": "workitem",
-      "available_instance_resource": "emberjournal"
+      "available_instance_resource": "journal"
     },
     "model": "core.instanceresourceaction",
     "pk": 150023
