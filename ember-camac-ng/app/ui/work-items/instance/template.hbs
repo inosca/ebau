@@ -1,4 +1,4 @@
-<h2>{{t "workItemList.instance.currentTasks"}}</h2>
+<h2 class="work-item-list-instance-title">{{t "workItemList.instance.currentTasks"}}</h2>
 
 <div class="workitemlist-filters">
   <div>
@@ -11,7 +11,7 @@
   </div>
 </div>
 
-<table {{did-insert (perform this.fetchWorkItems)}}>
+<table {{did-insert (perform this.fetchWorkItems)}} class="work-item-list-instance-table">
   <thead>
     <th>{{t "workItemList.task"}}</th>
     <th>{{t "workItemList.deadline"}}</th>
@@ -57,8 +57,8 @@
 </table>
 <button class="button" type="button">{{t "workItemList.instance.newTask"}}</button>
 
-<h2>{{t "workItemList.instance.finishedTasks"}}</h2>
-<table>
+<h2 class="work-item-list-instance-title">{{t "workItemList.instance.finishedTasks"}}</h2>
+<table class="work-item-list-instance-table">
   <thead>
     <th>{{t "workItemList.task"}}</th>
     <th>{{t "global.date"}}</th>

@@ -6,9 +6,9 @@ import calumaQuery from "ember-caluma/caluma-query";
 import { allWorkItems } from "ember-caluma/caluma-query/queries";
 import { dropTask } from "ember-concurrency-decorators";
 
-import saveWorkItem from "../../gql/mutations/save-workitem";
+import saveWorkItem from "../../../gql/mutations/save-workitem";
 
-export default class WorkItemListController extends Controller {
+export default class WorkItemsIndexController extends Controller {
   @service store;
   @service apollo;
   @service notifications;
@@ -23,7 +23,6 @@ export default class WorkItemListController extends Controller {
     role: "active"
   };
   @tracked order = [{ attribute: "DEADLINE", direction: "ASC" }];
-  @tracked user;
 
   @calumaQuery({ query: allWorkItems, options: "options" })
   workItemsQuery;
@@ -37,7 +36,7 @@ export default class WorkItemListController extends Controller {
 
   async processAll(workItems) {
     const assignedUsers = [
-      ...new Set([
+      ...new Set([this.shoebox.content.username,
         ...workItems.reduce(
           (ids, workItem) => [...ids, ...workItem.assignedUsers],
           []
@@ -51,20 +50,13 @@ export default class WorkItemListController extends Controller {
       )
     ];
 
-    this.user = await this.store.findRecord(
-      "user",
-      this.shoebox.content.userId
-    );
+    await this.store.query("user", { username: assignedUsers.join(",") });
 
     if (instances.length) {
       await this.store.query("instance", {
         id: instances.join(","),
         include: "form"
       });
-    }
-
-    if (assignedUsers.length) {
-      await this.store.query("user", { username: assignedUsers.join(",") });
     }
 
     return workItems;
@@ -75,7 +67,7 @@ export default class WorkItemListController extends Controller {
     const filter = [{ hasDeadline: true }];
 
     if (this.filters.responsible === "own") {
-      filter.push({ assignedUsers: [this.user.username] });
+      filter.push({ assignedUsers: [this.shoebox.content.username] });
     } else {
       filter.push({ assignedUsers: [] });
     }
@@ -115,14 +107,14 @@ export default class WorkItemListController extends Controller {
         variables: {
           input: {
             workItem: workitem.id,
-            assignedUsers: [...workitem.assignedUsers, this.user.username]
+            assignedUsers: [...workitem.assignedUsers, this.shoebox.content.username]
           }
         }
       });
 
       set(workitem, "assignedUsers", [
         ...workitem.assignedUsers,
-        this.user.username
+        this.shoebox.content.username
       ]);
     } catch (error) {
       this.notifications.error(this.intl.t("workitemlist.saveError"));
