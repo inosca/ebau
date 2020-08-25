@@ -55,7 +55,10 @@ export default class WorkItemsInstanceController extends Controller {
   *fetchWorkItems() {
     const filterKey =
       this.filters.role === "control" ? "controllingGroups" : "addressedGroups";
-    const filter = [{ [filterKey]: [this.shoebox.content.serviceId] }];
+    const filter = [
+      { hasDeadline: true },
+      { [filterKey]: [this.shoebox.content.serviceId] }
+    ];
 
     yield this.workItemsQuery.fetch({
       filter,
