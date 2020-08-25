@@ -13,7 +13,6 @@ Router.map(function() {
   this.route("history", { path: "/instances/:id/history" });
   this.route("journal", { path: "/instances/:id/journal" });
   this.route("work-items", function() {
-    this.route("index");
     this.route("instance", {
       path: "/instances/:id/work-items"
     });
