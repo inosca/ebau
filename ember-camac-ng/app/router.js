@@ -17,5 +17,5 @@ Router.map(function() {
     this.route("instance", {
       path: "/instances/:id/work-items"
     });
-  })
+  });
 });
