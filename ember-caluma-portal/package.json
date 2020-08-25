@@ -68,7 +68,7 @@
     "ember-qunit": "^4.6.0",
     "ember-resolver": "^7.0.0",
     "ember-router-scroll": "^3.2.0",
-    "ember-simple-auth-oidc": "^1.1.0",
+    "ember-simple-auth-oidc": "^3.0.0",
     "ember-source": "~3.16.0",
     "ember-truth-helpers": "^2.1.0",
     "ember-uikit": "2.0.1",
@@ -90,7 +90,8 @@
   },
   "//": "https://github.com/adfinis-sygroup/ember-uikit/issues/419",
   "resolutions": {
-    "ember-caluma/ember-uikit": "2.0.1"
+    "ember-caluma/ember-uikit": "2.0.1",
+    "ember-caluma/uuid": "^7.0.0"
   },
   "engines": {
     "node": "10.* || >= 12"
