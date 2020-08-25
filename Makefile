@@ -55,10 +55,12 @@ clear-cache: ## Clear the memcache
 .PHONY: dumpconfig
 dumpconfig: ## Dump the current camac and caluma configuration
 	docker-compose exec django python manage.py dumpconfig
+	@prettier --loglevel silent --write "django/${APPLICATION}/config*.json"
 
 .PHONY: dumpdata
 dumpdata: ## Dump the current camac and caluma data
 	docker-compose exec django /app/manage.py dumpcamacdata
+	@prettier --loglevel silent --write "django/${APPLICATION}/data*.json"
 
 .PHONY: loadconfig-camac
 loadconfig-camac: ## Load the camac configuration
