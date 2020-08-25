@@ -45,7 +45,7 @@ Notification = namedtuple(
 )
 
 
-def notify_once(notification):
+def notify_once(notification, dryrun=False):
     """Send a notification if it has not been sent in the past."""
 
     already_sent = ActivationCallbackNotice.objects.filter(
@@ -54,6 +54,14 @@ def notify_once(notification):
 
     if already_sent:
         return False
+
+    if dryrun:
+        print(
+            f"activation_id={notification.activation.pk} "
+            f"template_slug={notification.template_slug} "
+            f"recipient_type={notification.recipient_type}"
+        )
+        return
 
     instance = notification.activation.circulation.instance
     activation = notification.activation
@@ -170,12 +178,4 @@ class Command(BaseCommand):
                 )
                 continue
 
-            if dryrun:
-                self.stdout.write(
-                    f"activation_id={notification.activation.pk} "
-                    f"template_slug={notification.template_slug} "
-                    f"recipient_type={notification.recipient_type}"
-                )
-                continue
-
-            notify_once(notification)
+            notify_once(notification, dryrun)
