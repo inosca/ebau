@@ -4,7 +4,7 @@ import { inject as service } from "@ember/service";
 import { lastValue, restartableTask } from "ember-concurrency-decorators";
 import { handleUnauthorized } from "ember-simple-auth-oidc";
 import oidcConfig from "ember-simple-auth-oidc/config";
-import Session from "ember-simple-auth/services/session";
+import Session from "ember-simple-auth-oidc/services/session";
 import { getUserLocales } from "get-user-locale";
 
 import config from "../config/environment";
