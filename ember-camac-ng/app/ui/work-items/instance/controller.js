@@ -6,7 +6,7 @@ import calumaQuery from "ember-caluma/caluma-query";
 import { allWorkItems } from "ember-caluma/caluma-query/queries";
 import { dropTask } from "ember-concurrency-decorators";
 
-export default class WorkItemListInstanceController extends Controller {
+export default class WorkItemsInstanceController extends Controller {
   @service store;
   @service shoebox;
 
