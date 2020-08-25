@@ -262,7 +262,7 @@ def nfd_table_question(row_form):
 
 
 @pytest.fixture
-def nfd_case(instance, caluma_workflow, nfd_form):
+def nfd_case(instance, caluma_workflow_config_be, nfd_form):
     case = workflow_api.start_case(
         workflow=caluma_workflow_models.Workflow.objects.get(slug="building-permit"),
         form=caluma_form_models.Form.objects.get(slug="main-form"),

@@ -93,7 +93,7 @@ def test_create_instance_caluma(
     use_caluma_form,
     mock_nfd_permissions,
     group,
-    caluma_workflow,
+    caluma_workflow_config_be,
     application_settings,
     attachment,
     paper,
@@ -273,7 +273,7 @@ def test_instance_submit(
     mock_nfd_permissions,
     mock_generate_and_store_pdf,
     ech_mandatory_answers_einfache_vorabklaerung,
-    caluma_workflow,
+    caluma_workflow_config_be,
     has_personalien_sb1,
     has_personalien_gesuchstellerin,
 ):
@@ -412,7 +412,7 @@ def test_instance_report(
     multilang,
     mock_nfd_permissions,
     mock_generate_and_store_pdf,
-    caluma_workflow,
+    caluma_workflow_config_be,
     has_personalien_sb2,
 ):
     instance_state.pk = instance_state_pk
@@ -505,7 +505,7 @@ def test_instance_finalize(
     multilang,
     mock_nfd_permissions,
     mock_generate_and_store_pdf,
-    caluma_workflow,
+    caluma_workflow_config_be,
 ):
     instance_state.pk = instance_state_pk
     instance_state.save()
@@ -569,7 +569,7 @@ def test_generate_and_store_pdf(
     form_slug,
     paper,
     application_settings,
-    caluma_workflow,
+    caluma_workflow_config_be,
 ):
     mocker.patch("camac.caluma.api.CalumaApi.is_paper", lambda s, i: paper)
 
@@ -636,7 +636,7 @@ def test_caluma_instance_list_filter(
     mock_public_status,
     use_caluma_form,
     mock_nfd_permissions,
-    caluma_workflow,
+    caluma_workflow_config_be,
 ):
     # not paper instances
     instance_factory(user=admin_user)
@@ -683,7 +683,7 @@ def test_generate_pdf_action(
     form_slug,
     expected_status,
     application_settings,
-    caluma_workflow,
+    caluma_workflow_config_be,
 ):
     content = b"some binary data"
 
@@ -745,7 +745,7 @@ def test_instance_delete(
     form,
     use_caluma_form,
     mock_nfd_permissions,
-    caluma_workflow,
+    caluma_workflow_config_be,
     application_settings,
     attachment,
     paper,
@@ -865,7 +865,7 @@ def test_instance_submit_suggestions(
     mock_nfd_permissions,
     mock_generate_and_store_pdf,
     ech_mandatory_answers_einfache_vorabklaerung,
-    caluma_workflow,
+    caluma_workflow_config_be,
     circulation_state_factory,
     circulation_type_factory,
     sugg_config,
@@ -926,7 +926,7 @@ def test_rejection(
     service_group,
     use_caluma_form,
     mock_nfd_permissions,
-    caluma_workflow,
+    caluma_workflow_config_be,
     mock_generate_and_store_pdf,
     application_settings,
     ech_mandatory_answers_einfache_vorabklaerung,

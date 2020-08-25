@@ -19,7 +19,7 @@ def ech_instance(
     instance_service_factory,
     service_t_factory,
     camac_answer_factory,
-    caluma_workflow,
+    caluma_workflow_config_be,
 ):
     inst_serv = instance_service_factory(
         instance__user=admin_user,
