@@ -1319,6 +1319,48 @@
   },
   {
     "fields": {
+      "available_action": "notification",
+      "button": 20045,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 4,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150030
+  },
+  {
+    "fields": {
+      "available_action": "notification",
+      "button": 20045,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 5,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150031
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 20045,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 6,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150032
+  },
+  {
+    "fields": {
       "available_action": "formtransition",
       "button": 1200000,
       "description": null,
@@ -2732,6 +2774,42 @@
     },
     "model": "core.actiont",
     "pk": 150035
+  },
+  {
+    "fields": {
+      "action": 150030,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Benachrichtigung Gemeinde",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150036
+  },
+  {
+    "fields": {
+      "action": 150031,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Benachrichtigung Amts- und Fachstellen",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150037
+  },
+  {
+    "fields": {
+      "action": 150032,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "ECH0211 - Status Notification",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150038
   },
   {
     "fields": {
@@ -4568,6 +4646,24 @@
     },
     "model": "core.anotification",
     "pk": 150006
+  },
+  {
+    "fields": {
+      "processor": "Notification_Processor_SendEmailAPI",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_CalumaMunicipality",
+      "template": "08-entscheid-gemeindeleitbehorde"
+    },
+    "model": "core.anotification",
+    "pk": 150030
+  },
+  {
+    "fields": {
+      "processor": "Notification_Processor_SendEmailAPI",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_Service",
+      "template": "08-entscheid-amts-und-fachstellen"
+    },
+    "model": "core.anotification",
+    "pk": 150031
   },
   {
     "fields": {
@@ -41588,6 +41684,13 @@
     },
     "model": "core.aphp",
     "pk": 150025
+  },
+  {
+    "fields": {
+      "php_class": "TriggerECH0211StatusNotification"
+    },
+    "model": "core.aphp",
+    "pk": 150032
   },
   {
     "fields": {
