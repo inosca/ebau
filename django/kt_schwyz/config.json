@@ -1567,7 +1567,7 @@
   {
     "fields": {
       "action_name": "index",
-      "available_instance_resource": "emberjournal",
+      "available_instance_resource": "journal",
       "hidden": 0
     },
     "model": "core.airaction",
@@ -2112,10 +2112,10 @@
   {
     "fields": {
       "description": "Generate Journal Entry",
-      "module_name": "emberjournal"
+      "module_name": "journal"
     },
     "model": "core.availableaction",
-    "pk": "emberjournal"
+    "pk": "journal"
   },
   {
     "fields": {
@@ -2313,12 +2313,12 @@
   },
   {
     "fields": {
-      "controller_name": "emberjournal",
-      "description": "emberjournal",
-      "module_name": "emberjournal"
+      "controller_name": "journal",
+      "description": "journal",
+      "module_name": "journal"
     },
     "model": "core.availableinstanceresource",
-    "pk": "emberjournal"
+    "pk": "journal"
   },
   {
     "fields": {
@@ -4554,7 +4554,7 @@
   },
   {
     "fields": {
-      "available_instance_resource": "emberjournal",
+      "available_instance_resource": "journal",
       "class_field": null,
       "description": null,
       "form_group": 1,
@@ -4749,7 +4749,7 @@
   },
   {
     "fields": {
-      "available_instance_resource": "emberjournal",
+      "available_instance_resource": "journal",
       "class_field": null,
       "description": null,
       "form_group": 1,
@@ -6495,7 +6495,7 @@
   {
     "fields": {
       "available_action": "addhistory",
-      "available_instance_resource": "emberjournal"
+      "available_instance_resource": "journal"
     },
     "model": "core.instanceresourceaction",
     "pk": 350
@@ -6519,7 +6519,7 @@
   {
     "fields": {
       "available_action": "workitem",
-      "available_instance_resource": "emberjournal"
+      "available_instance_resource": "journal"
     },
     "model": "core.instanceresourceaction",
     "pk": 353
