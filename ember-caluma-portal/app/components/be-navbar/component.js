@@ -129,6 +129,6 @@ export default class BeNavbarComponent extends Component {
 
   @action
   logout() {
-    this.session.invalidate();
+    this.session.singleLogout();
   }
 }
