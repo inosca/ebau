@@ -8397,10 +8397,10 @@ ember-service-worker@0.8.4:
     glob "^7.1.6"
     hash-for-dep "^1.5.1"
 
-ember-simple-auth-oidc@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/ember-simple-auth-oidc/-/ember-simple-auth-oidc-2.0.0.tgz#3d61095f75fc6dc1bc84f0e0ba3ee4eb9c4b6a2d"
-  integrity sha512-yfvn1qks7n4c7M0t/+ECPwV1eIOtqT0HzTDGViACP2VewFl8XE8TMCwBKKy3xGFY8wG+5AgNPeRuiU4OUyzcIg==
+ember-simple-auth-oidc@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/ember-simple-auth-oidc/-/ember-simple-auth-oidc-3.0.0.tgz#2dcc1c187697defed569599bb80b6cb4f3b13a38"
+  integrity sha512-jYrCogmYuc3WQ3vHAe3k76mB8obVX1TrUpj+xv5Ti83AKYXQu6bu5/uboWJkBuCnyXRm3PqYADnzA2TCLKBtXg==
   dependencies:
     ember-auto-import "^1.5.3"
     ember-cli-babel "^7.18.0"
