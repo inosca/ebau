@@ -553,7 +553,7 @@ def test_instance_finalize(
 
         assert sorted(
             case.work_items.filter(status="ready").values_list("task_id", flat=True)
-        ) == sorted(["check-sb1", "check-sb2", "complete"])
+        ) == sorted(["check-sb1", "check-sb2", "complete", "create-manual-workitems"])
 
 
 @pytest.mark.parametrize("paper", [(True, False)])
