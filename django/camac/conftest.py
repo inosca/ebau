@@ -297,7 +297,35 @@ def caluma_config_be(settings):
 
 
 @pytest.fixture
-def caluma_workflow_config_be(settings, caluma_forms, caluma_config_be):
+def use_instance_service(application_settings):
+    application_settings["USE_INSTANCE_SERVICE"] = True
+    application_settings["ACTIVE_SERVICES"] = settings.APPLICATIONS["kt_bern"][
+        "ACTIVE_SERVICES"
+    ]
+    application_settings["ACTIVE_SERVICES"]["MUNICIPALITY"]["FILTERS"] = {}
+    application_settings["ACTIVE_SERVICES"]["CONSTRUCTION_CONTROL"]["FILTERS"] = {}
+
+    def wrap(municipality_id=None, construction_control_id=None):
+        if municipality_id:
+            application_settings["ACTIVE_SERVICES"]["MUNICIPALITY"]["FILTERS"] = {
+                "service__pk": municipality_id
+            }
+        if construction_control_id:
+            application_settings["ACTIVE_SERVICES"]["CONSTRUCTION_CONTROL"][
+                "FILTERS"
+            ] = {"service__pk": construction_control_id}
+
+        return application_settings
+
+    yield wrap
+
+    application_settings["USE_INSTANCE_SERVICE"] = False
+
+
+@pytest.fixture
+def caluma_workflow_config_be(
+    settings, caluma_forms, caluma_config_be, use_instance_service
+):
     forms = [
         caluma_form_models.Form.objects.create(slug="baugesuch"),
         caluma_form_models.Form.objects.create(slug="baugesuch-generell"),

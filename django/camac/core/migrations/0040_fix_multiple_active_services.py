@@ -9,7 +9,11 @@ from django.conf import settings
 
 def migrate(apps, schema_editor):
     InstanceService = apps.get_model("core", "InstanceService")
-    filters = settings.APPLICATION.get("ACTIVE_SERVICE_FILTERS", {})
+    filters = (
+        settings.APPLICATION.get("ACTIVE_SERVICES", {})
+        .get("MUNICIPALITY", {})
+        .get("FILTERS", {})
+    )
 
     # get instances which have more than one active instance service
     duplicates = (

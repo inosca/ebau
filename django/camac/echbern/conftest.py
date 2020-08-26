@@ -2,14 +2,12 @@ import pytest
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
-from django.conf import settings
 
 from camac.constants.kt_bern import (
     QUESTION_EBAU_NR,
     SERVICE_GROUP_LEITBEHOERDE_GEMEINDE,
 )
 from camac.echbern.data_preparation import slugs_baugesuch, slugs_vorabklaerung_einfach
-from camac.instance.models import Instance
 
 
 @pytest.fixture
@@ -123,23 +121,3 @@ def baugesuch_filled(
             fill_document_ech(row_answer_doc.document, row)
 
     return document
-
-
-@pytest.fixture(autouse=True)
-def service_filter_settings(application_settings, mocker):
-    application_settings["ACTIVE_SERVICE_FILTERS"] = settings.APPLICATIONS["kt_bern"][
-        "ACTIVE_SERVICE_FILTERS"
-    ]
-    application_settings["ACTIVE_BAUKONTROLLE_FILTERS"] = settings.APPLICATIONS[
-        "kt_bern"
-    ]["ACTIVE_BAUKONTROLLE_FILTERS"]
-
-    def responsible_service_demo_side_effects(self):
-        return self._responsible_service_kt_bern()
-
-    mocker.patch.object(
-        Instance,
-        "_responsible_service_demo",
-        responsible_service_demo_side_effects,
-        create=True,
-    )
