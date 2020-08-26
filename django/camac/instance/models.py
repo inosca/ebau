@@ -5,13 +5,7 @@ from django.conf import settings
 from django.contrib.postgres.fields import JSONField
 from django.db import models
 
-from camac.constants.kt_bern import (
-    INSTANCE_STATE_DONE,
-    INSTANCE_STATE_SB1,
-    INSTANCE_STATE_SB2,
-    INSTANCE_STATE_TO_BE_FINISHED,
-)
-from camac.core.models import HistoryActionConfig, InstanceService
+from camac.core.models import HistoryActionConfig
 
 from ..core import models as core_models
 
@@ -154,48 +148,56 @@ class Instance(models.Model):
     )
     services = models.ManyToManyField("user.Service", through="core.InstanceService")
 
-    def active_service(self, service_filters=None):
-        service_filters = (
-            service_filters
-            if service_filters
-            else settings.APPLICATION.get("ACTIVE_SERVICE_FILTERS", {})
-        )
-        instance_services = InstanceService.objects.filter(
-            active=1, instance=self, **service_filters
-        ).order_by("-pk")
-        instance_service = instance_services.first()
+    def _responsible_service_instance_service(self, filter_type=None, **kwargs):
+        active_services_settings = settings.APPLICATION.get("ACTIVE_SERVICES", {})
+
+        if filter_type:
+            filter_type = filter_type.upper()
+
+            if filter_type not in active_services_settings.keys():  # pragma: no cover
+                raise Exception(
+                    f"Active service `filter_type` {filter_type} is not configured"
+                )
+
+            active_service_config = active_services_settings.get(filter_type)
+        else:
+            active_service_config = None
+            default_active_service_config = None
+
+            for config in active_services_settings.values():
+                if config.get("DEFAULT"):
+                    default_active_service_config = config
+
+                if self.instance_state.pk in config.get("INSTANCE_STATES", []):
+                    active_service_config = config
+
+            active_service_config = (
+                active_service_config or default_active_service_config
+            )
+
+        service_filters = active_service_config.get("FILTERS", {})
+
+        instance_services = self.instance_services.filter(active=1, **service_filters)
+        instance_service = instance_services.order_by("-pk").first()
 
         if instance_services.count() > 1:
             log.warning(
-                f"Instance {self.pk}: Multiple active services, picking most recent one: {instance_service.service}!"
+                f"Instance {self.pk}: Multiple active services, picking most recent one: {instance_service.service.get_name()}!"
             )
 
         return instance_service.service if instance_service else None
 
-    def _responsible_service_kt_bern(self):
-        service_filters = settings.APPLICATION.get("ACTIVE_SERVICE_FILTERS", {})
-        if self.instance_state.pk in [
-            INSTANCE_STATE_SB1,
-            INSTANCE_STATE_SB2,
-            INSTANCE_STATE_TO_BE_FINISHED,
-            INSTANCE_STATE_DONE,
-        ]:
-            service_filters = settings.APPLICATION.get(
-                "ACTIVE_BAUKONTROLLE_FILTERS", {}
-            )
-        return self.active_service(service_filters)
-
-    def responsible_service(self):
+    def responsible_service(self, **kwargs):
         """
         Call application specific method and fallback to active_service.
 
         Application specific methods have to be named like this:
         _responsible_service_{application_name}
         """
-        func = f"_responsible_service_{settings.APPLICATION_NAME}"
-        if hasattr(self, func):
-            return getattr(self, func)()
-        return self.active_service()
+        if settings.APPLICATION.get("USE_INSTANCE_SERVICE"):
+            return self._responsible_service_instance_service(**kwargs)
+
+        return self.group.service
 
     class Meta:
         managed = True

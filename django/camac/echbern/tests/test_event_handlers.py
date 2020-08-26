@@ -1,5 +1,4 @@
 import pytest
-from django.conf import settings
 
 from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
@@ -91,10 +90,9 @@ def test_event_handlers(
         ech_instance.save()
 
     if event_type == "ChangeResponsibility":
-        instance_service = InstanceService.objects.filter(
-            active=1,
-            instance=ech_instance,
-            **settings.APPLICATION.get("ACTIVE_SERVICE_FILTERS", {}),
+        service = ech_instance.responsible_service(filter_type="municipality")
+        instance_service = ech_instance.instance_services.filter(
+            active=1, service=service
         ).first()
         instance_service.active = 0
         instance_service.save()

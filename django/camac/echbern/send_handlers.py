@@ -441,7 +441,9 @@ class TaskSendHandler(BaseSendHandler):
             deadline_date=deadline_date,
             version=1,
             circulation_state=circulation_state,
-            service_parent=self.instance.active_service(),
+            service_parent=self.instance.responsible_service(
+                filter_type="municipality"
+            ),
             email_sent=0,
         )
 
