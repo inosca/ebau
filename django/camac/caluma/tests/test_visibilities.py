@@ -1,4 +1,5 @@
 import pytest
+from caluma.caluma_core.relay import extract_global_id
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from caluma.schema import schema
@@ -174,7 +175,7 @@ def test_work_item_visibility(
             question_id="papierdossier", value="papierdossier-nein"
         )
 
-        # complete submit work item, there should now be 3 work items
+        # complete submit work item, there should now be 4 work items
         workflow_api.complete_work_item(
             work_item=case.work_items.get(task_id="submit"), user=caluma_admin_user
         )
@@ -195,19 +196,33 @@ def test_work_item_visibility(
 
     assert not result.errors
 
-    assert (
-        caluma_workflow_models.WorkItem.objects.filter(
-            **{"case__meta__camac-instance-id": not_visible_instance.pk}
-        ).count()
-        == 3
+    visible_workitems = set(
+        [
+            extract_global_id(edge["node"]["id"])
+            for edge in result.data["allWorkItems"]["edges"]
+        ]
+    )
+    assert len(visible_workitems) == 4
+
+    # should be same as from graphql query
+    visible = caluma_workflow_models.WorkItem.objects.filter(
+        **{"case__meta__camac-instance-id": visible_instance.pk}
     )
 
+    assert visible.count() == 4
     assert (
-        caluma_workflow_models.WorkItem.objects.filter(
-            **{"case__meta__camac-instance-id": visible_instance.pk}
-        ).count()
-        == 3
+        set([str(_id) for _id in visible.values_list("id", flat=True)])
+        == visible_workitems
     )
 
-    # same queryset as the assertion before
-    assert len(result.data["allWorkItems"]["edges"]) == 3
+    # not so for not_visible_instance
+    not_visible = caluma_workflow_models.WorkItem.objects.filter(
+        **{"case__meta__camac-instance-id": not_visible_instance.pk}
+    )
+    assert not_visible.count() == 4
+    assert (
+        set(
+            [str(_id) for _id in not_visible.values_list("id", flat=True)]
+        ).intersection(visible_workitems)
+        == set()
+    )

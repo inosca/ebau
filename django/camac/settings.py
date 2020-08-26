@@ -304,7 +304,10 @@ APPLICATIONS = {
                     "complete": ["nfd"],
                 },
                 "reopen-circulation": {"cancel": ["decision"]},
-                "complete": {"skip": ["check-sb1", "check-sb2"]},
+                "complete": {
+                    "skip": ["check-sb1", "check-sb2"],
+                    "cancel": ["create-manual-workitems"],
+                },
             },
         },
         "PORTAL_GROUP": 6,

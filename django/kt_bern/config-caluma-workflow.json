@@ -56,14 +56,14 @@
   },
   {
     "fields": {
-      "created_at": "2020-08-10T14:29:31.629Z",
+      "created_at": "2020-08-25T11:13:51.882Z",
       "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_at": "2020-08-10T14:29:31.629Z",
-      "next": "['ebau-number', 'nfd']|tasks"
+      "modified_at": "2020-08-25T11:13:51.882Z",
+      "next": "['ebau-number', 'nfd', 'create-manual-workitems']|tasks"
     },
     "model": "caluma_workflow.flow",
-    "pk": "43c0a777-85d1-4adf-b8c9-a52703e12f68"
+    "pk": "46846c68-6d6d-4eb5-b2dd-296d62d31393"
   },
   {
     "fields": {
@@ -111,17 +111,6 @@
   },
   {
     "fields": {
-      "created_at": "2020-08-10T14:30:13.550Z",
-      "created_by_group": null,
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_at": "2020-08-10T14:30:13.550Z",
-      "next": "['ebau-number', 'nfd']|tasks"
-    },
-    "model": "caluma_workflow.flow",
-    "pk": "696b4d16-9e82-49fe-8ac3-0af465850632"
-  },
-  {
-    "fields": {
       "created_at": "2020-08-10T14:29:39.487Z",
       "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -141,6 +130,17 @@
     },
     "model": "caluma_workflow.flow",
     "pk": "944dc36e-68c6-498f-9fc3-fa47b1afa843"
+  },
+  {
+    "fields": {
+      "created_at": "2020-08-25T11:14:35.929Z",
+      "created_by_group": null,
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_at": "2020-08-25T11:14:35.929Z",
+      "next": "['ebau-number', 'nfd', 'create-manual-workitems']|tasks"
+    },
+    "model": "caluma_workflow.flow",
+    "pk": "a5dba546-a4fe-4670-8c85-6c3057deaa8f"
   },
   {
     "fields": {
@@ -325,6 +325,26 @@
     },
     "model": "caluma_workflow.task",
     "pk": "complete"
+  },
+  {
+    "fields": {
+      "address_groups": "[]",
+      "control_groups": null,
+      "created_at": "2020-08-25T09:07:28.245Z",
+      "created_by_group": null,
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "description": "{\"de\": null, \"fr\": null}",
+      "form": null,
+      "is_archived": false,
+      "is_multiple_instance": true,
+      "lead_time": null,
+      "meta": {},
+      "modified_at": "2020-08-25T11:13:09.588Z",
+      "name": "{\"de\": \"Manuelle Aufgaben erfassen\", \"fr\": null}",
+      "type": "simple"
+    },
+    "model": "caluma_workflow.task",
+    "pk": "create-manual-workitems"
   },
   {
     "fields": {
@@ -548,16 +568,16 @@
   },
   {
     "fields": {
-      "created_at": "2020-08-10T14:30:13.556Z",
+      "created_at": "2020-08-25T11:13:51.884Z",
       "created_by_group": null,
       "created_by_user": null,
-      "flow": "696b4d16-9e82-49fe-8ac3-0af465850632",
-      "modified_at": "2020-08-10T14:30:13.556Z",
+      "flow": "46846c68-6d6d-4eb5-b2dd-296d62d31393",
+      "modified_at": "2020-08-25T11:13:51.884Z",
       "task": "submit",
-      "workflow": "preliminary-clarification"
+      "workflow": "building-permit"
     },
     "model": "caluma_workflow.taskflow",
-    "pk": "0b75818a-0825-4aa5-93eb-9c2e1f9cf60d"
+    "pk": "0856938b-104a-4e4d-a1a5-637c22423566"
   },
   {
     "fields": {
@@ -623,19 +643,6 @@
     },
     "model": "caluma_workflow.taskflow",
     "pk": "404f80c2-9fa4-48d1-be07-14d4d80b63a3"
-  },
-  {
-    "fields": {
-      "created_at": "2020-08-10T14:29:31.636Z",
-      "created_by_group": null,
-      "created_by_user": null,
-      "flow": "43c0a777-85d1-4adf-b8c9-a52703e12f68",
-      "modified_at": "2020-08-10T14:29:31.636Z",
-      "task": "submit",
-      "workflow": "building-permit"
-    },
-    "model": "caluma_workflow.taskflow",
-    "pk": "630daaff-aa2a-4f89-bbe0-940fe8bbf7cf"
   },
   {
     "fields": {
@@ -769,8 +776,21 @@
   },
   {
     "fields": {
+      "created_at": "2020-08-25T11:14:35.931Z",
+      "created_by_group": null,
+      "created_by_user": null,
+      "flow": "a5dba546-a4fe-4670-8c85-6c3057deaa8f",
+      "modified_at": "2020-08-25T11:14:35.931Z",
+      "task": "submit",
+      "workflow": "preliminary-clarification"
+    },
+    "model": "caluma_workflow.taskflow",
+    "pk": "eec0ca4c-5939-4bbd-8a4a-a6fbac106cf3"
+  },
+  {
+    "fields": {
       "allow_all_forms": false,
-      "allow_forms": ["baugesuch-mit-uvp", "baugesuch", "baugesuch-generell"],
+      "allow_forms": ["baugesuch", "baugesuch-generell", "baugesuch-mit-uvp"],
       "created_at": "2020-08-10T14:29:29.158Z",
       "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
