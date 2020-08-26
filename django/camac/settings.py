@@ -323,8 +323,24 @@ APPLICATIONS = {
             20291,
         ],  # DE
         # "DEMO_MODE_GROUPS": [22274, 22271, 20099, 20078, 23248],  # FR
-        "ACTIVE_SERVICE_FILTERS": {"service__service_group__pk__in": [2, 20000]},
-        "ACTIVE_BAUKONTROLLE_FILTERS": {"service__service_group__pk": 3},
+        "USE_INSTANCE_SERVICE": True,
+        "ACTIVE_SERVICES": {
+            "MUNICIPALITY": {
+                "FILTERS": {"service__service_group__pk__in": [2, 20000]},
+                "DEFAULT": True,
+            },
+            "CONSTRUCTION_CONTROL": {
+                "FILTERS": {"service__service_group__pk": 3},
+                # TODO: migrate echbern to instance state names:
+                # "INSTANCE_STATES": ["sb1", "sb2", "conclusion", "finished"],
+                "INSTANCE_STATES": [
+                    20011,  # sb1
+                    20013,  # sb2
+                    20014,  # conclusion
+                    120000,  # finished
+                ],
+            },
+        },
         "PDF": {
             "SECTION": {
                 "MAIN": {"DEFAULT": 1, "PAPER": 13},

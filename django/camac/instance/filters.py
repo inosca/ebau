@@ -57,11 +57,15 @@ class ResponsibleServiceFilter(CharFilter):
 
         active_services = core_models.InstanceService.objects.filter(
             active=1,
-            **settings.APPLICATION.get("ACTIVE_SERVICE_FILTERS", {}),
             service=value,
+            **(
+                settings.APPLICATION.get("ACTIVE_SERVICES", {})
+                .get("MUNICIPALITY", {})
+                .get("FILTERS", {})
+            ),
         )
-        qs = qs.filter(pk__in=active_services.values("instance_id"))
-        return qs
+
+        return qs.filter(pk__in=active_services.values("instance_id"))
 
 
 class ResponsibleServiceUserFilter(CharFilter):
