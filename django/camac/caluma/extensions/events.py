@@ -65,7 +65,6 @@ def post_create_work_item(sender, work_item, user, context, **kwargs):
         work_item.meta.update(
             {"not-viewed": True, "notify-completed": True, "notify-deadline": True}
         )
-        work_item.save()
 
     if (
         context
@@ -77,7 +76,6 @@ def post_create_work_item(sender, work_item, user, context, **kwargs):
         # Write the circulation ID passed in the context down to the newly
         # created work items meta property
         work_item.meta["circulation-id"] = context["circulation-id"]
-        work_item.save()
 
     if (
         context
@@ -89,7 +87,8 @@ def post_create_work_item(sender, work_item, user, context, **kwargs):
         # Write the activation ID passed in the context down to the newly
         # created work items meta property
         work_item.meta["activation-id"] = context["activation-id"]
-        work_item.save()
+
+    work_item.save()
 
 
 @on(completed_work_item)
