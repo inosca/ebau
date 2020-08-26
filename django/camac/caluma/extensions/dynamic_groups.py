@@ -4,7 +4,6 @@ from caluma.caluma_workflow.dynamic_groups import (
     BaseDynamicGroups,
     register_dynamic_group,
 )
-from django.conf import settings
 
 from camac.core.models import Activation
 from camac.instance.models import Instance
@@ -22,37 +21,26 @@ class CustomDynamicGroups(BaseDynamicGroups):
 
         return Activation.objects.filter(pk=context.get("activation-id")).first()
 
-    @register_dynamic_group("municipality")
-    def resolve_municipality(self, task, case, user, prev_work_item, context, **kwargs):
+    def _get_responsible_service(self, case, filter_type):
         instance = self._get_instance(case)
-
-        if settings.APPLICATION_NAME == "kt_bern":
-            service = instance.active_service()
-        else:
-            service = instance.group.service
+        service = instance.responsible_service(filter_type=filter_type)
 
         if not service:
-            log.error(f"No municipality group found for instance {instance.pk}")
+            log.error(f"No {filter_type} group found for instance {instance.pk}")
 
             return []
 
         return [str(service.pk)]
+
+    @register_dynamic_group("municipality")
+    def resolve_municipality(self, task, case, user, prev_work_item, context, **kwargs):
+        return self._get_responsible_service(case, "municipality")
 
     @register_dynamic_group("construction_control")
     def resolve_construction_control(
         self, task, case, user, prev_work_item, context, **kwargs
     ):
-        instance = self._get_instance(case)
-        service = instance.active_service(
-            settings.APPLICATION.get("ACTIVE_BAUKONTROLLE_FILTERS", {})
-        )
-
-        if not service:
-            log.error(f"No construction_control group found for instance {instance.pk}")
-
-            return []
-
-        return [str(service.pk)]
+        return self._get_responsible_service(case, "construction_control")
 
     @register_dynamic_group("service")
     def resolve_service(self, task, case, user, prev_work_item, context, **kwargs):

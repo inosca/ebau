@@ -3945,10 +3945,16 @@ class ServiceAnswerActivation(models.Model):
 
 class InstanceService(models.Model):
     instance = models.ForeignKey(
-        "instance.Instance", models.CASCADE, db_column="INSTANCE_ID", related_name="+"
+        "instance.Instance",
+        models.CASCADE,
+        db_column="INSTANCE_ID",
+        related_name="instance_services",
     )
     service = models.ForeignKey(
-        "user.Service", models.DO_NOTHING, db_column="SERVICE_ID", related_name="+"
+        "user.Service",
+        models.DO_NOTHING,
+        db_column="SERVICE_ID",
+        related_name="instance_services",
     )
     active = models.PositiveSmallIntegerField(db_column="ACTIVE", default=0)
     activation_date = models.DateTimeField(
