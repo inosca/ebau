@@ -16,12 +16,10 @@ export default class CustomWorkItemModel extends WorkItemModel {
       .filter(user => this.assignedUsers.includes(user.username));
   }
 
-  get assignedServices() {
-    const services = [];
-    this.addressedGroups.forEach(serviceId => {
-      services.push(this.store.peekRecord("service", serviceId));
-    });
-    return services;
+  get addressedServices() {
+    return this.store
+      .peekAll("service")
+      .filter(service => this.addressedGroups.includes(service.id));
   }
 
   get instance() {
