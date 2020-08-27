@@ -4,36 +4,36 @@
   <div>
     <div>{{t "workItemList.responsible"}}</div>
     <div class="filters-wrapper">
-      <input {{on "click" (fn this.updateFilter "responsible" "all")}} value="all" checked={{eq this.filters.responsible "all"}} type="radio" class="filter-button" name="verantwortlich" id="filter-all"/>
+      <input {{on "click" (fn this.updateFilter "responsible" "all")}} value="all" checked={{eq this.responsible "all"}} type="radio" class="filter-button" name="verantwortlich" id="filter-all"/>
       <label for="filter-all">{{t "workItemList.all.filter.all"}}</label>
-      <input {{on "click" (fn this.updateFilter "responsible" "own")}} value="own" checked={{eq this.filters.responsible "own"}} type="radio" class="filter-button" name="verantwortlich" id="filter-own"/>
+      <input {{on "click" (fn this.updateFilter "responsible" "own")}} value="own" checked={{eq this.responsible "own"}} type="radio" class="filter-button" name="verantwortlich" id="filter-own"/>
       <label for="filter-own">{{t "workItemList.all.filter.own"}}</label>
     </div>
   </div>
   <div>
     <div>{{t "workItemList.all.filter.type"}}</div>
     <div class="filters-wrapper">
-      <input {{on "click" (fn this.updateFilter "type" "all")}} value="all" checked={{eq this.filters.type "all"}} type="radio" class="filter-button" name="type" id="filter-type-all"/>
+      <input {{on "click" (fn this.updateFilter "type" "all")}} value="all" checked={{eq this.type "all"}} type="radio" class="filter-button" name="type" id="filter-type-all"/>
       <label for="filter-type-all">{{t "workItemList.all.filter.all"}}</label>
-      <input {{on "click" (fn this.updateFilter "type" "new")}} value="new" checked={{eq this.filters.type "new"}} type="radio" class="filter-button" name="type" id="filter-type-new"/>
+      <input {{on "click" (fn this.updateFilter "type" "new")}} value="new" checked={{eq this.type "new"}} type="radio" class="filter-button" name="type" id="filter-type-new"/>
       <label for="filter-type-new">{{t "workItemList.all.filter.new"}}</label>
     </div>
   </div>
   <div>
     <div>{{t "workItemList.all.filter.status"}}</div>
     <div class="filters-wrapper">
-      <input {{on "click" (fn this.updateFilter "status" "open")}} value="open" checked={{eq this.filters.status "open"}} type="radio" class="filter-button" name="status" id="filter-open"/>
+      <input {{on "click" (fn this.updateFilter "status" "open")}} value="open" checked={{eq this.status "open"}} type="radio" class="filter-button" name="status" id="filter-open"/>
       <label for="filter-open">{{t "workItemList.all.filter.open"}}</label>
-      <input {{on "click" (fn this.updateFilter "status" "closed")}} value="closed" checked={{eq this.filters.status "closed"}} type="radio" class="filter-button" name="status" id="filter-closed"/>
+      <input {{on "click" (fn this.updateFilter "status" "closed")}} value="closed" checked={{eq this.status "closed"}} type="radio" class="filter-button" name="status" id="filter-closed"/>
       <label for="filter-closed">{{t "workItemList.all.filter.closed"}}</label>
     </div>
   </div>
   <div>
     <div>{{t "workItemList.all.filter.role"}}</div>
     <div class="filters-wrapper">
-      <input {{on "click" (fn this.updateFilter "role" "active")}} value="active" checked={{eq this.filters.role "active"}} type="radio" class="filter-button" name="role" id="filter-active"/>
+      <input {{on "click" (fn this.updateFilter "role" "active")}} value="active" checked={{eq this.role "active"}} type="radio" class="filter-button" name="role" id="filter-active"/>
       <label for="filter-active">{{t "workItemList.all.filter.active"}}</label>
-      <input {{on "click" (fn this.updateFilter "role" "control")}} value="control" checked={{eq this.filters.role "control"}} type="radio" class="filter-button" name="role" id="filter-control"/>
+      <input {{on "click" (fn this.updateFilter "role" "control")}} value="control" checked={{eq this.role "control"}} type="radio" class="filter-button" name="role" id="filter-control"/>
       <label for="filter-control">{{t "workItemList.all.filter.control"}}</label>
     </div>
   </div>
@@ -48,24 +48,25 @@
       <th>{{t "workItemList.deadline"}}</th>
       <th>{{t "workItemList.created"}}</th>
       <th>{{t "workItemList.responsible"}}</th>
+      <th>{{t "workItemList.addressedGroups"}}</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     {{#if this.workItemsQuery.isLoading}}
       <tr>
-        <td colspan="7" class="center"><LoadingText /></td>
+        <td colspan="8" class="center"><LoadingText /></td>
       </tr>
     {{else}}
-      {{#each this.workItemsQuery.value as |workitem|}}
-        <tr class="workitem {{workitem.workItemColor}}">
-          <td><a href="{{workitem.instanceLink}}">{{workitem.instanceIdentifier}}</a></td>
-          <td>{{workitem.instanceName}}</td>
-          <td>{{workitem.name}}</td>
-          <td>{{moment-from workitem.deadline}}</td>
+      {{#each this.workItemsQuery.value as |workItem|}}
+        <tr class="workitem {{workItem.workItemColor}}">
+          <td><a href="{{workItem.instanceLink}}">{{workItem.instanceIdentifier}}</a></td>
+          <td>{{workItem.instanceName}}</td>
+          <td>{{workItem.name}}</td>
+          <td>{{moment-from workItem.deadline}}</td>
           <td>
             {{format-date
-              workitem.createdAt
+              workItem.createdAt
               day="2-digit"
               month="2-digit"
               year="numeric"
@@ -75,24 +76,31 @@
             }}
           </td>
           <td>
-            {{#each workitem.assignedUserInformation as |user|}}
+            {{#each workItem.assignedUserInformation as |user|}}
               {{user.fullName}}
+            {{else}}
+              -
+            {{/each}}
+          </td>
+          <td>
+            {{#each workItem.addressedServices as |service|}}
+              {{service.name}}
             {{else}}
               -
             {{/each}}
           </td>
           <td {{on "mouseleave" (set this.menuOpen "")}} role="button">
             <div>
-              <FaIcon @icon="ellipsis-v" {{on "click" (set this.menuOpen workitem.id)}}/>
-              {{#if (eq this.menuOpen workitem.id)}}
+              <FaIcon @icon="ellipsis-v" {{on "click" (set this.menuOpen workItem.id)}}/>
+              {{#if (eq this.menuOpen workItem.id)}}
                 <div class="workitem-actions">
                   {{!-- template-lint-disable no-nested-interactive --}}
                   <ul>
-                    {{#if workitem.meta.not-viewed}}
-                      <li {{on "click" (perform this.workItemRead workitem)}} role="button">{{t "workItemList.all.table.markRead"}}</li>
+                    {{#if workItem.meta.not-viewed}}
+                      <li {{on "click" (perform this.workItemRead workItem)}} role="button">{{t "workItemList.all.table.markRead"}}</li>
                     {{/if}}
-                    {{#if (not (contains this.userId workitem.assignedUsers))}}
-                      <li {{on "click" (perform this.workItemAssignUser workitem)}} role="button">{{t "workItemList.all.table.assignToMe"}}</li>
+                    {{#if (not (contains this.userId workItem.assignedUsers))}}
+                      <li {{on "click" (perform this.workItemAssignUser workItem)}} role="button">{{t "workItemList.all.table.assignToMe"}}</li>
                     {{/if}}
                     {{!-- TODO: link to edit workitem view after its created --}}
                     <li role="button">{{t "workItemList.all.table.editWorkitem"}}</li>
@@ -104,12 +112,12 @@
         </tr>
       {{else}}
         <tr>
-          <td colspan="7">{{t "workItemList.empty"}}</td>
+          <td colspan="8">{{t "workItemList.empty"}}</td>
         </tr>
       {{/each}}
       {{#if (gt this.workItemsQuery.totalCount this.workItemsQuery.value.length)}}
         <tr {{on "click" (perform this.fetchMoreWorkItems)}} role="button" class="load-more">
-          <td colspan="7">{{t "workItemList.all.table.loadMore"}}</td>
+          <td colspan="8">{{t "workItemList.all.table.loadMore"}}</td>
         </tr>
       {{/if}}
     {{/if}}
