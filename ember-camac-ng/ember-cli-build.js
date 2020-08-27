@@ -10,11 +10,11 @@ module.exports = function(defaults) {
     storeConfigInMeta: false,
     // disable fingerprinting completely
     SRI: { enabled: false },
-    fingerprint: { enabled: false },
-    flatpickr: {
-      locales: ["fr", "de"]
-    }
+    fingerprint: { enabled: false }
   });
+
+  app.import("node_modules/moment/locale/de.js");
+  app.import("node_modules/moment/locale/fr.js");
 
   return app.toTree();
 };

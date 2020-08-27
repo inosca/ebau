@@ -790,23 +790,17 @@
   {
     "fields": {
       "allow_all_forms": false,
-      "allow_forms": [
-        "baugesuch",
-        "baugesuch-generell",
-        "baugesuch-mit-uvp"
-      ],
-      "created_at": "2020-04-28T13:41:26.483Z",
+      "allow_forms": ["baugesuch", "baugesuch-generell", "baugesuch-mit-uvp"],
+      "created_at": "2020-08-10T14:29:29.158Z",
       "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "description": "{\"de\": null, \"fr\": null}",
       "is_archived": false,
       "is_published": true,
       "meta": {},
-      "modified_at": "2020-06-22T10:00:49.330Z",
-      "name": "{\"de\": \"Baugesuch\", \"fr\": \"Demande de permis de construire\"}",
-      "start_tasks": [
-        "submit"
-      ]
+      "modified_at": "2020-08-10T14:29:29.158Z",
+      "name": "{\"de\": \"Baugesuch\", \"fr\": null}",
+      "start_tasks": ["submit"]
     },
     "model": "caluma_workflow.workflow",
     "pk": "building-permit"
@@ -832,22 +826,17 @@
   {
     "fields": {
       "allow_all_forms": false,
-      "allow_forms": [
-        "vorabklaerung-einfach",
-        "vorabklaerung-vollstaendig"
-      ],
-      "created_at": "2020-06-22T10:00:51.193Z",
+      "allow_forms": ["vorabklaerung-einfach", "vorabklaerung-vollstaendig"],
+      "created_at": "2020-08-10T14:30:11.892Z",
       "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "description": "{\"de\": null, \"fr\": null}",
       "is_archived": false,
       "is_published": true,
       "meta": {},
-      "modified_at": "2020-06-22T10:00:51.193Z",
-      "name": "{\"de\": \"Vorabkl\\u00e4rung\", \"fr\": \"Demande pr\\u00e9alable\"}",
-      "start_tasks": [
-        "submit"
-      ]
+      "modified_at": "2020-08-10T14:30:11.892Z",
+      "name": "{\"de\": \"Vorabkl\\u00e4rung\", \"fr\": null}",
+      "start_tasks": ["submit"]
     },
     "model": "caluma_workflow.workflow",
     "pk": "preliminary-clarification"
