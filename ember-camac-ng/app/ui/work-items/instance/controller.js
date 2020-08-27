@@ -82,6 +82,11 @@ export default class WorkItemsInstanceController extends Controller {
   }
 
   @action
+  newWorkItem() {
+    this.transitionToRoute("work-item");
+  }
+
+  @action
   updateFilter(type, value) {
     set(this, type, value);
     this.fetchWorkItems.perform();

@@ -63,7 +63,7 @@
       {{#each this.activeWorkItems as |workItem|}}
         <tr>
           <td>
-            {{workItem.name}}
+            <LinkTo @route="work-item.edit" @model={{workItem}}>{{workItem.name}}</LinkTo>
           </td>
           <td>
             {{moment-from workItem.deadline}}
@@ -104,7 +104,8 @@
     {{/if}}
   </tbody>
 </table>
-<button class="button btn buttonstyle success" type="button">
+
+<button {{on "click" this.newWorkItem}} class="button btn buttonstyle success" type="button">
   {{t "workItemList.instance.newTask"}}
 </button>
 
@@ -135,7 +136,7 @@
       {{#each this.doneWorkItems as |workItem|}}
         <tr>
           <td>
-            {{workItem.name}}
+            <LinkTo @route="work-item.edit" @model={{workItem}}>{{workItem.name}}</LinkTo>
           </td>
           <td>
             {{format-date
