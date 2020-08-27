@@ -46,6 +46,7 @@ workItemList:
   deadline: "Frist"
   created: "Erstellt"
   responsible: "Verantwortlich"
+  addressedGroups: "Service"
 
   empty: "Keine Aufgaben gefunden"
 
