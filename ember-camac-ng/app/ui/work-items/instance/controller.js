@@ -57,6 +57,7 @@ export default class WorkItemsInstanceController extends Controller {
       this.filters.role === "control" ? "controllingGroups" : "addressedGroups";
     const filter = [
       { hasDeadline: true },
+      { caseMetaValue: [{ key: "camac-instance-id", value: this.model.id }] },
       { [filterKey]: [this.shoebox.content.serviceId] }
     ];
 
