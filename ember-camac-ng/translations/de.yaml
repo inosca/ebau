@@ -9,6 +9,10 @@ global:
   back: "Zurück"
   noMatch: "Keine Resultate gefunden"
 
+  moment:
+    previousMonth: "Vorheriger Monat"
+    nextMonth: "Nächster Monat"
+
 organisation:
   edit: "Eigene Organisation bearbeiten"
 
