@@ -43,12 +43,12 @@
   </label>
   <label class="work-item-input">
     {{t "workItem.deadline"}}
-    <EmberFlatpickr
-      @locale={{this.shoebox.content.language}}
-      @date={{this.deadline}}
-      @onChange={{this.setDeadline}}
-      @dateFormat="d.m.Y"
+    <PikadayInput
       class="deadline"
+      @value={{this.deadline}}
+      @useUTC={{true}}
+      @onSelection={{this.setDeadline}}
+      @options={{hash i18n=this.pikadayTraslation}}
     />
   </label>
 

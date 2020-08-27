@@ -15,8 +15,6 @@ from camac.user.factories import (
 
 from . import models
 
-# from camac.core.factories import InstanceServiceFactory
-
 
 class FormStateFactory(DjangoModelFactory):
     # Set to Published because it is the default FormState
