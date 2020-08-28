@@ -68,7 +68,9 @@ def test_base_delivery(
 
 
 def test_office(ech_instance, snapshot, multilang):
-    off = formatters.office(ech_instance.active_service())
+    off = formatters.office(
+        ech_instance.responsible_service(filter_type="municipality")
+    )
     snapshot.assert_match(off.toxml(element_name="office"))
 
 

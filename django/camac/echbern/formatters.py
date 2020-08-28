@@ -17,7 +17,7 @@ from camac.constants.kt_bern import (
     CIRCULATION_ANSWER_POSITIV,
     QUESTION_EBAU_NR,
 )
-from camac.core.models import Answer, DocxDecision, InstanceService
+from camac.core.models import Answer, DocxDecision
 from camac.instance.models import Instance
 from camac.utils import build_url
 
@@ -481,7 +481,9 @@ def decision_ruling(instance, decision, answers):
         ),
         date=decision.decision_date,
         ruling=ruling,
-        rulingAuthority=authority(instance.active_service()),
+        rulingAuthority=authority(
+            instance.responsible_service(filter_type="municipality")
+        ),
     )
 
 
@@ -523,14 +525,16 @@ def status_notification(instance: Instance):
 
 
 def base_delivery(instance: Instance, answers: AnswersDict):
+    municipality = instance.responsible_service(filter_type="municipality")
+
     return ns_application.eventBaseDeliveryType(
         planningPermissionApplicationInformation=[
             (
                 pyxb.BIND(
                     planningPermissionApplication=application(instance, answers),
                     relationshipToPerson=get_relationship_to_person(answers),
-                    decisionAuthority=decision_authority(instance.active_service()),
-                    entryOffice=office(instance.active_service()),
+                    decisionAuthority=decision_authority(municipality),
+                    entryOffice=office(municipality),
                 )
             )
         ]
@@ -700,23 +704,27 @@ def accompanying_report(
 
 
 def change_responsibility(instance: Instance):
-    prev_service = (
-        InstanceService.objects.filter(
+    prev_municipality = (
+        instance.instance_services.filter(
             active=0,
-            instance=instance,
-            **settings.APPLICATION.get("ACTIVE_SERVICE_FILTERS", {}),
+            **(
+                settings.APPLICATION.get("ACTIVE_SERVICES", {})
+                .get("MUNICIPALITY", {})
+                .get("FILTERS", {})
+            ),
         )
         .order_by("-pk")
         .first()
         .service
     )
+    municipality = instance.responsible_service(filter_type="municipality")
     return ns_application.eventChangeResponsibilityType(
         eventType=ns_application.eventTypeType("change responsibility"),
         planningPermissionApplicationIdentification=permission_application_identification(
             instance
         ),
-        entryOffice=office(prev_service),
-        responsibleDecisionAuthority=decision_authority(instance.active_service()),
+        entryOffice=office(prev_municipality),
+        responsibleDecisionAuthority=decision_authority(municipality),
     )
 
 

@@ -207,7 +207,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
     def get_leitbehoerde_name(self, instance):
         """Return current active service of the instance."""
-        return instance.active_service() or "-"
+        return instance.responsible_service(filter_type="municipality") or "-"
 
     def get_current_service(self, instance):
         """Return current service of the active user."""
@@ -632,7 +632,9 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             return [{"to": service.email}]
 
     def _get_recipients_leitbehoerde(self, instance):  # pragma: no cover
-        return self._get_responsible(instance, instance.active_service())
+        return self._get_responsible(
+            instance, instance.responsible_service(filter_type="municipality")
+        )
 
     def _get_recipients_municipality(self, instance):
         return self._get_responsible(instance, instance.group.service)
