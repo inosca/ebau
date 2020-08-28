@@ -13,7 +13,7 @@ from django.db.models import Q
 from jwt import decode as jwt_decode
 
 from camac.user.middleware import get_group
-from camac.user.models import User
+from camac.user.models import Service, User
 
 APPLICANT_GROUP_ID = 6
 
@@ -351,6 +351,39 @@ class CalumaApi:
         elif work_item.child_case:
             # Cancel existing child case since there are no more activations
             caluma_workflow_api.cancel_case(work_item.child_case, user)
+
+    def reassign_work_items(self, instance_id, from_group_id, to_group_id):
+        from_group_id = str(from_group_id)
+        to_group_id = str(to_group_id)
+
+        for groups_type in ["addressed_groups", "controlling_groups"]:
+            for work_item in caluma_workflow_models.WorkItem.objects.filter(
+                **{
+                    f"{groups_type}__contains": [from_group_id],
+                    "status": caluma_workflow_models.WorkItem.STATUS_READY,
+                    "case__family__meta__camac-instance-id": instance_id,
+                }
+            ):
+                groups = set(getattr(work_item, groups_type))
+                groups.remove(from_group_id)
+                groups.add(to_group_id)
+
+                # If the addressed groups change, we need to filter out all
+                # assigned users that are not member of the new addressed group
+                if len(work_item.assigned_users) and groups_type == "addressed_groups":
+                    work_item.assigned_users = list(
+                        set(
+                            filter(
+                                lambda user: Service.objects.filter(
+                                    pk=int(to_group_id), groups__users__username=user
+                                ).exists(),
+                                work_item.assigned_users,
+                            )
+                        )
+                    )
+
+                setattr(work_item, groups_type, list(groups))
+                work_item.save()
 
 
 class CamacRequest:
