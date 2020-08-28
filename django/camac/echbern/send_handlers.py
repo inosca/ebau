@@ -1,3 +1,4 @@
+from collections import namedtuple
 from math import trunc
 
 import pytz
@@ -35,12 +36,12 @@ from camac.core.models import (
 )
 from camac.document.models import Attachment, AttachmentSection
 from camac.instance.models import Instance, InstanceState
+from camac.instance.serializers import CalumaInstanceChangeResponsibleServiceSerializer
 from camac.user.models import Service
 from camac.user.utils import set_baukontrolle
 
 from .signals import (
     accompanying_report_send,
-    change_responsibility,
     circulation_started,
     finished,
     ruling,
@@ -244,25 +245,19 @@ class ChangeResponsibilitySendHandler(BaseSendHandler):
         except Service.DoesNotExist:
             raise SendHandlerException("Unknown target service!")
 
-        # no need for try/except here, as existence has already been assured
-        # by `has_permission()`
-        old_instance_service = InstanceService.objects.get(
-            instance=self.instance, service=self.group.service
-        )
+        data = {
+            "service_type": "municipality",
+            "to": {"id": new_service.pk, "type": "services"},
+        }
+        request = namedtuple("Request", ["user", "group"])
+        request.user = self.user
+        request.group = self.group
 
-        old_instance_service.active = 0
-        old_instance_service.save()
-
-        InstanceService.objects.create(
-            instance=self.instance, service=new_service, active=1
+        serializer = CalumaInstanceChangeResponsibleServiceSerializer(
+            self.instance, data=data, context={"request": request}
         )
-
-        change_responsibility.send(
-            sender=self.__class__,
-            instance=self.instance,
-            user_pk=self.user.pk,
-            group_pk=self.group.pk,
-        )
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
 
 
 class AccompanyingReportSendHandler(BaseSendHandler):
