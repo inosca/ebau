@@ -7,7 +7,7 @@ import config from "./config/environment";
 export default class App extends Application {
   modulePrefix = config.modulePrefix;
   podModulePrefix = config.podModulePrefix;
-  rootElement = config.rootElement;
+  rootElement = config.APP.rootElement;
 
   Resolver = Resolver;
 
