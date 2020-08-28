@@ -7,7 +7,7 @@
     <div class="filters-wrapper">
       <input
         value="active"
-        checked={{eq this.filters.role "active"}}
+        checked={{eq this.role "active"}}
         type="radio"
         class="filter-button"
         name="role"
@@ -19,7 +19,7 @@
       </label>
       <input
         value="control"
-        checked={{eq this.filters.role "control"}}
+        checked={{eq this.role "control"}}
         type="radio"
         class="filter-button"
         name="role"
@@ -50,26 +50,27 @@
     <th>
       {{t "workItemList.responsible"}}
     </th>
+    {{#if (eq this.role "control")}}
+      <th>{{t "workItemList.addressedGroups"}}</th>
+    {{/if}}
   </thead>
   <tbody>
     {{#if this.workItemsQuery.isLoading}}
       <tr>
-        <td colspan="4">
-          <LoadingText />
-        </td>
+        <td class="center" colspan="{{if (eq this.role "control") 5 4}}"><LoadingText /></td>
       </tr>
     {{else}}
-      {{#each this.activeWorkItems as |workitem|}}
+      {{#each this.activeWorkItems as |workItem|}}
         <tr>
           <td>
-            {{workitem.name}}
+            {{workItem.name}}
           </td>
           <td>
-            {{moment-from workitem.deadline}}
+            {{moment-from workItem.deadline}}
           </td>
           <td>
             {{format-date
-              workitem.createdAt
+              workItem.createdAt
               day="2-digit"
               month="2-digit"
               year="numeric"
@@ -79,18 +80,25 @@
             }}
           </td>
           <td>
-            {{#each workitem.assignedUserInformation as |user|}}
+            {{#each workItem.assignedUserInformation as |user|}}
               {{user.fullName}}
             {{else}}
               -
             {{/each}}
           </td>
+          {{#if (eq this.role "control")}}
+            <td>
+              {{#each workItem.addressedServices as |service|}}
+                {{service.name}}
+              {{else}}
+                -
+              {{/each}}
+            </td>
+          {{/if}}
         </tr>
       {{else}}
         <tr>
-          <td colspan="4">
-            {{t "workItemList.empty"}}
-          </td>
+          <td class="center" colspan="{{if (eq this.role "control") 5 4}}">{{t "workItemList.empty"}}</td>
         </tr>
       {{/each}}
     {{/if}}
@@ -114,23 +122,24 @@
     <th>
       {{t "global.user"}}
     </th>
+    {{#if (eq this.role "control")}}
+      <th>{{t "workItemList.addressedGroups"}}</th>
+    {{/if}}
   </thead>
   <tbody>
     {{#if this.workItemsQuery.isLoading}}
       <tr>
-        <td colspan="3">
-          <LoadingText />
-        </td>
+        <td class="center" colspan="{{if (eq this.role "control") 4 3}}"><LoadingText /></td>
       </tr>
     {{else}}
-      {{#each this.doneWorkItems as |workitem|}}
+      {{#each this.doneWorkItems as |workItem|}}
         <tr>
           <td>
-            {{workitem.name}}
+            {{workItem.name}}
           </td>
           <td>
             {{format-date
-              workitem.closedAt
+              workItem.closedAt
               day="2-digit"
               month="2-digit"
               year="numeric"
@@ -140,14 +149,12 @@
             }}
           </td>
           <td>
-            {{workitem.closedByUser.fullName}}
+            {{workItem.closedByUser.fullName}}
           </td>
         </tr>
       {{else}}
         <tr>
-          <td colspan="3">
-            {{t "workItemList.empty"}}
-          </td>
+          <td class="center" colspan="{{if (eq this.role "control") 4 3}}">{{t "workItemList.empty"}}</td>
         </tr>
       {{/each}}
     {{/if}}
