@@ -124,7 +124,7 @@ def test_notice_ruling_send_handler(
     instance_service_factory,
     multilang,
 ):
-    service_group_gemeinde = ech_instance.active_service().service_group
+    service_group_gemeinde = ech_instance.responsible_service().service_group
     service_group_baukontrolle = service_group_factory(pk=SERVICE_GROUP_BAUKONTROLLE)
     service_group_rsta = service_group_factory(pk=SERVICE_GROUP_RSTA)
 
@@ -239,7 +239,7 @@ def test_change_responsibility_send_handler(
     instance_state = instance_state_factory(pk=instance_state_pk)
     ech_instance.instance_state = instance_state
     ech_instance.save()
-    burgdorf = ech_instance.active_service()
+    burgdorf = ech_instance.responsible_service()
 
     group = admin_user.groups.first()
     group.service = ech_instance.services.first()
@@ -263,7 +263,7 @@ def test_change_responsibility_send_handler(
         madiswil = service_factory(
             pk=20351,
             name="Madiswil",
-            service_group=ech_instance.active_service().service_group,
+            service_group=ech_instance.responsible_service().service_group,
         )
 
     data = CreateFromDocument(xml_data("change_responsibility"))
@@ -283,7 +283,7 @@ def test_change_responsibility_send_handler(
 
     if success:
         handler.apply()
-        assert ech_instance.active_service() == madiswil
+        assert ech_instance.responsible_service() == madiswil
         assert InstanceService.objects.get(
             instance=ech_instance, service=burgdorf, active=0
         )
@@ -367,7 +367,7 @@ def test_close_dossier_send_handler(
 
         assert ech_instance.instance_state.pk == INSTANCE_STATE_FINISHED
         assert Message.objects.count() == 1
-        assert Message.objects.first().receiver == ech_instance.active_service()
+        assert Message.objects.first().receiver == ech_instance.responsible_service()
 
 
 @pytest.mark.parametrize(
@@ -530,7 +530,7 @@ def test_notice_kind_of_proceedings_send_handler(
 
         assert Message.objects.count() == 1
         message = Message.objects.first()
-        assert message.receiver == ech_instance.active_service()
+        assert message.receiver == ech_instance.responsible_service()
 
         attachment.refresh_from_db()
         assert attachment.attachment_sections.get(
