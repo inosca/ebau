@@ -20,7 +20,7 @@ from camac.core.models import Chapter, ProposalActivation, Question, QuestionTyp
 from camac.echbern import event_handlers
 from camac.echbern.data_preparation import DocumentParser
 from camac.echbern.tests.caluma_document_data import baugesuch_data
-from camac.instance.models import Instance
+from camac.instance.models import HistoryEntry, Instance
 from camac.instance.serializers import (
     SUBMIT_DATE_CHAPTER,
     SUBMIT_DATE_QUESTION_ID,
@@ -290,34 +290,6 @@ def test_instance_submit(
 
     case.document.answers.create(value=str(service.pk), question_id="gemeinde")
 
-    # if has_personalien_sb1:
-    #     sb_table_answer = caluma_form_models.Answer.objects.create(
-    #         document=document, question_id="personalien-sb"
-    #     )
-    #     sb_row = caluma_form_models.Document.objects.create(
-    #         form_id="personalien-tabelle"
-    #     )
-    #     caluma_form_models.Answer.objects.create(
-    #         document=sb_row, question_id="name-sb", value="Test123"
-    #     )
-    #     caluma_form_models.AnswerDocument.objects.create(
-    #         document=sb_row, answer=sb_table_answer
-    #     )
-
-    # if has_personalien_gesuchstellerin:
-    #     sb_table_answer = caluma_form_models.Answer.objects.create(
-    #         document=document, question_id="personalien-gesuchstellerin"
-    #     )
-    #     applicant_row = caluma_form_models.Document.objects.create(
-    #         form_id="personalien-tabelle"
-    #     )
-    #     caluma_form_models.Answer.objects.create(
-    #         document=applicant_row, question_id="name-applicant", value="Foobar"
-    #     )
-    #     caluma_form_models.AnswerDocument.objects.create(
-    #         document=applicant_row, answer=sb_table_answer
-    #     )
-
     group_factory(role=role_factory(name="support"))
     mocker.patch.object(
         DocumentParser,
@@ -336,23 +308,6 @@ def test_instance_submit(
     assert instance.user.email in mail.outbox[0].recipients()
 
     assert mail.outbox[0].subject.startswith("[eBau Test]: ")
-    # if has_personalien_sb1:
-    #     sb1_document = caluma_form_models.Document.objects.get(
-    #         **{"form_id": "sb1", "meta__camac-instance-id": instance.pk}
-    #     )
-    #     assert (
-    #         sb1_document.answers.first().documents.first().answers.first().value
-    #         == sb_row.answers.get(question_id="name-sb").value
-    #     )
-
-    # elif has_personalien_gesuchstellerin:
-    #     sb1_document = caluma_form_models.Document.objects.get(
-    #         **{"form_id": "sb1", "meta__camac-instance-id": instance.pk}
-    #     )
-    #     assert (
-    #         sb1_document.answers.first().documents.first().answers.first().value
-    #         == applicant_row.answers.get(question_id="name-applicant").value
-    #     )
 
 
 @pytest.mark.parametrize("role__name,instance__user", [("Canton", LazyFixture("user"))])
@@ -461,15 +416,6 @@ def test_instance_report(
         case.refresh_from_db()
         assert case.status == "running"
         assert case.work_items.filter(task_id="sb2", status="ready").exists()
-
-    # if has_personalien_sb2:
-    #     sb2_document = caluma_form_models.Document.objects.get(
-    #         **{"form_id": "sb2", "meta__camac-instance-id": instance.pk}
-    #     )
-    #     assert (
-    #         sb2_document.answers.first().documents.first().answers.first().value
-    #         == sb_row.answers.get(question_id="name-sb").value
-    #     )
 
 
 @pytest.mark.parametrize(
@@ -997,3 +943,138 @@ def test_rejection(
 
     assert new_instance.instance_state == subm_state
     assert source_instance.instance_state == finished_state
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize(
+    "service_type,expected_status",
+    [
+        ("municipality", status.HTTP_204_NO_CONTENT),
+        ("construction_control", status.HTTP_204_NO_CONTENT),
+        ("invalidtype", status.HTTP_400_BAD_REQUEST),
+    ],
+)
+def test_change_responsible_service(
+    db,
+    admin_client,
+    admin_user,
+    instance,
+    instance_service,
+    notification_template,
+    role,
+    group,
+    service_factory,
+    user_factory,
+    user_group_factory,
+    use_caluma_form,
+    caluma_workflow_config_be,
+    application_settings,
+    service_type,
+    expected_status,
+):
+    application_settings["NOTIFICATIONS"]["CHANGE_RESPONSIBLE_SERVICE"] = {
+        "template_slug": notification_template.slug,
+        "recipient_types": ["leitbehoerde"],
+    }
+
+    case = workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
+        form=caluma_form_models.Form.objects.get(pk="main-form"),
+        meta={"camac-instance-id": instance.pk},
+        user=BaseUser(),
+    )
+
+    if expected_status == status.HTTP_400_BAD_REQUEST:
+        old_service = instance.responsible_service()
+    else:
+        old_service = instance.responsible_service(filter_type=service_type)
+    new_service = service_factory()
+
+    group.service = old_service
+    group.save()
+
+    for task_id in ["submit", "ebau-number"]:
+        workflow_api.complete_work_item(
+            work_item=case.work_items.get(task_id=task_id), user=BaseUser()
+        )
+
+    # other user is no member of the new service
+    other_user = user_factory()
+    # admin user is a member of the new service
+    user_group_factory(user=admin_user, group__service=new_service)
+
+    init_circulation = case.work_items.get(task_id="init-circulation")
+    init_circulation.assigned_users = [admin_user.username, other_user.username]
+    init_circulation.save()
+
+    assert (
+        case.work_items.filter(
+            status="ready", addressed_groups__contains=[str(old_service.pk)]
+        ).count()
+        == 4
+    )
+    assert (
+        case.work_items.filter(
+            status="ready", addressed_groups__contains=[str(new_service.pk)]
+        ).count()
+        == 0
+    )
+
+    response = admin_client.post(
+        reverse("instance-change-responsible-service", args=[instance.pk]),
+        {
+            "data": {
+                "type": "instance-change-responsible-services",
+                "attributes": {"service-type": service_type},
+                "relationships": {
+                    "to": {"data": {"id": new_service.pk, "type": "services"}}
+                },
+            }
+        },
+    )
+
+    assert response.status_code == expected_status
+
+    if expected_status == status.HTTP_204_NO_CONTENT:
+        instance.refresh_from_db()
+
+        # responsible service changed
+        assert not instance.instance_services.filter(
+            active=1, service=old_service
+        ).exists()
+        assert instance.responsible_service(filter_type=service_type) == new_service
+
+        # notification was sent
+        assert len(mail.outbox) == 1
+        assert new_service.email in mail.outbox[0].recipients()
+
+        # history entry was created
+        history = HistoryEntry.objects.filter(instance=instance).last()
+        assert (
+            history.trans.get(language="de").title
+            == f"Neue Leitbehörde: {new_service.trans.get(language='de').name}"
+        )
+
+        # caluma work items are reassigned
+        assert (
+            case.work_items.filter(
+                status="ready", addressed_groups__contains=[str(old_service.pk)]
+            ).count()
+            == 0
+        )
+        assert (
+            case.work_items.filter(
+                status="ready", addressed_groups__contains=[str(new_service.pk)]
+            ).count()
+            == 4
+        )
+
+        # assigned users are filtered
+        init_circulation.refresh_from_db()
+        assert admin_user.username in init_circulation.assigned_users
+        assert other_user.username not in init_circulation.assigned_users
+    elif expected_status == status.HTTP_400_BAD_REQUEST:
+        assert (
+            response.data[0]["detail"]
+            == f"{service_type} is not a valid service type - valid types are: municipality, construction_control"
+        )
