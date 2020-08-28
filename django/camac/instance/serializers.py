@@ -27,7 +27,12 @@ from camac.core.models import (
 from camac.core.serializers import MultilingualField, MultilingualSerializer
 from camac.core.translations import get_translations
 from camac.document.models import AttachmentSection
-from camac.echbern.signals import instance_submitted, sb1_submitted, sb2_submitted
+from camac.echbern.signals import (
+    change_responsibility,
+    instance_submitted,
+    sb1_submitted,
+    sb2_submitted,
+)
 from camac.instance.mixins import InstanceEditableMixin
 from camac.notification.views import send_mail
 from camac.user.models import Group, Service
@@ -844,6 +849,109 @@ class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
             self._notify_submit(**notification_config)
 
         return instance
+
+
+class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
+    """Handle changing of the responsible service."""
+
+    service_type = serializers.CharField()
+    to = serializers.ResourceRelatedField(queryset=Service.objects.all())
+
+    def validate_service_type(self, value):
+        expected = [
+            key.lower()
+            for key in settings.APPLICATION.get("ACTIVE_SERVICES", {}).keys()
+        ]
+
+        if value not in expected:
+            raise exceptions.ValidationError(
+                _(
+                    "%(value)s is not a valid service type - valid types are: %(expected)s"
+                    % {"value": value, "expected": ", ".join(expected)}
+                )
+            )
+
+        return value
+
+    def _sync_with_caluma(self, from_service, to_service):
+        CalumaApi().reassign_work_items(
+            self.instance.pk, from_service.pk, to_service.pk
+        )
+
+    def _send_notification(self):
+        config = settings.APPLICATION["NOTIFICATIONS"].get("CHANGE_RESPONSIBLE_SERVICE")
+
+        if config:
+            send_mail(
+                config["template_slug"],
+                self.context,
+                recipient_types=config["recipient_types"],
+                instance={"type": "instances", "id": self.instance.pk},
+            )
+
+    def _trigger_ech_message(self):
+        change_responsibility.send(
+            sender=self.__class__,
+            instance=self.instance,
+            user_pk=self.context["request"].user.pk,
+            group_pk=self.context["request"].group.pk,
+        )
+
+    def _add_history_entry(self, to_service):
+        texts = get_translations(
+            gettext_noop("Changed responsible service to: %(service)s")
+        )
+
+        history = models.HistoryEntry.objects.create(
+            instance=self.instance,
+            created_at=timezone.now(),
+            user=self.context["request"].user,
+            history_type=HistoryActionConfig.HISTORY_TYPE_STATUS,
+        )
+
+        for (language, text) in texts:
+            service_t = to_service.trans.filter(language=language).first()
+            name = service_t.name if service_t else to_service.name
+
+            models.HistoryEntryT.objects.create(
+                history_entry=history,
+                title=_(text % {"service": name}),
+                language=language,
+            )
+
+    @transaction.atomic
+    def update(self, instance, validated_data):
+        filter_type = validated_data["service_type"]
+
+        from_service = instance.responsible_service(filter_type=filter_type)
+        to_service = validated_data["to"]
+
+        instance.instance_services.filter(service=from_service).update(active=0)
+        instance.instance_services.update_or_create(
+            service=to_service,
+            defaults={"active": 1, "activation_date": timezone.now()},
+        )
+
+        if (
+            instance.responsible_service(filter_type=filter_type) != to_service
+        ):  # pragma: no cover
+            raise exceptions.ValidationError(
+                _(
+                    "Responsible service did not change for instance %(instance_id)s"
+                    % instance.pk
+                )
+            )
+
+        # Side effects
+        self._sync_with_caluma(from_service, to_service)
+        self._send_notification()
+        self._trigger_ech_message()
+        self._add_history_entry(to_service)
+
+        return instance
+
+    class Meta:
+        resource_name = "instance-change-responsible-services"
 
 
 class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):

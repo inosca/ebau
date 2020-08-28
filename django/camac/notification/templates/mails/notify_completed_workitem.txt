@@ -11,6 +11,6 @@
 
 {{ completed_work_item }}:
 {{ work_item_trans }} "{{ work_item.name }}"{% if work_item.deadline %} {{ done_by }} {{ work_item.deadline|date:"SHORT_DATE_FORMAT" }}{% endif %}
-{{ closed_by_trans }} {{ closed_by.get_full_name }} ({{ closed_by.email }})
+{% if closed_by %}{{ closed_by_trans }} {{ closed_by.get_full_name }} ({{ closed_by.email }}){% endif %}
 
 {{ greetings }}

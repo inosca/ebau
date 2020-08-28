@@ -103,7 +103,9 @@ def notify_completed_work_item(sender, work_item, **kwargs):
 
     recipients = unpack_service_emails(services)
 
-    closed_by = user_models.User.objects.get(username=work_item.closed_by_user)
+    closed_by = user_models.User.objects.filter(
+        username=work_item.closed_by_user
+    ).first()
     template = get_template("mails/notify_completed_workitem.txt")
     body = template.render({"work_item": work_item, "closed_by": closed_by})
 

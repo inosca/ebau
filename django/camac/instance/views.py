@@ -118,6 +118,7 @@ class InstanceView(
                 "submit": serializers.CalumaInstanceSubmitSerializer,
                 "report": serializers.CalumaInstanceReportSerializer,
                 "finalize": serializers.CalumaInstanceFinalizeSerializer,
+                "change_responsible_service": serializers.CalumaInstanceChangeResponsibleServiceSerializer,
                 "default": serializers.CalumaInstanceSerializer,
             },
             "camac-ng": {
@@ -172,6 +173,11 @@ class InstanceView(
         return (
             self.has_base_permission(instance) and instance.instance_state.name == "sb2"
         )
+
+    def has_object_change_responsible_service_permission(self, instance):
+        return instance.instance_services.filter(
+            active=1, service=self.request.group.service
+        ).exists()
 
     @transaction.atomic
     def destroy(self, request, pk=None):
@@ -351,6 +357,16 @@ class InstanceView(
     @action(methods=["post"], detail=True)
     def finalize(self, request, pk=None):
         return self._custom_serializer_action(request, pk)
+
+    @action(methods=["post"], detail=True, url_path="change-responsible-service")
+    def change_responsible_service(self, request, pk=None):
+        serializer = self.get_serializer(
+            self.get_object(), data=request.data, partial=True
+        )
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+
+        return response.Response(None, 204)
 
     @action(methods=["get"], detail=True, url_path="generate-pdf")
     def generate_pdf(self, request, pk=None):
