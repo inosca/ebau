@@ -3882,7 +3882,7 @@ class Sanction(models.Model):
         "instance.Instance",
         models.DO_NOTHING,
         db_column="INSTANCE_ID",
-        related_name="+",
+        related_name="sanctions",
     )
     service = models.ForeignKey(
         "user.Service", models.DO_NOTHING, db_column="SERVICE_ID", related_name="+"
