@@ -160,7 +160,7 @@ def test_event_post(support, admin_client, admin_user, ech_instance, role_factor
     assert response.status_code == status_code
 
     if support:
-        assert Message.objects.get(receiver=ech_instance.active_service())
+        assert Message.objects.get(receiver=ech_instance.responsible_service())
 
 
 def test_event_post_404(admin_client, admin_user, ech_instance, role_factory):
