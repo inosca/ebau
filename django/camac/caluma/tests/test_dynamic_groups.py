@@ -2,7 +2,6 @@ import pytest
 from caluma.caluma_form.models import Form
 from caluma.caluma_workflow.api import start_case
 from caluma.caluma_workflow.models import Workflow
-from django.conf import settings
 
 from camac.caluma.extensions.dynamic_groups import CustomDynamicGroups
 
@@ -16,21 +15,16 @@ def test_dynamic_group_bern(
     activation_factory,
     instance_service_factory,
     caluma_admin_user,
-    application_settings,
+    use_instance_service,
     has_group,
 ):
-    settings.APPLICATION_NAME = "kt_bern"
-
     municipality = service_factory()
     construction_control = service_factory()
     service = service_factory()
 
-    context = {}
+    use_instance_service(municipality.pk, construction_control.pk)
 
-    application_settings["ACTIVE_SERVICE_FILTERS"] = {"service__pk": municipality.pk}
-    application_settings["ACTIVE_BAUKONTROLLE_FILTERS"] = {
-        "service__pk": construction_control.pk
-    }
+    context = {}
 
     if has_group:
         instance_service_factory(instance=instance, service=municipality, active=1)
@@ -65,19 +59,15 @@ def test_dynamic_group_bern(
 
 
 def test_dynamic_group_schwyz(
-    db, caluma_workflow_config_be, instance, caluma_admin_user, settings
+    db, instance, caluma_admin_user, caluma_workflow_config_sz
 ):
-    settings.APPLICATION_NAME = "kt_schwyz"
-
-    dynamic_groups = CustomDynamicGroups()
-
     case = start_case(
         workflow=Workflow.objects.get(pk="building-permit"),
-        form=Form.objects.get(pk="main-form"),
+        form=Form.objects.get(pk="baugesuch"),
         user=caluma_admin_user,
         meta={"camac-instance-id": instance.pk},
     )
 
-    assert dynamic_groups.resolve("municipality")(None, case, None, None, None) == [
-        str(instance.group.service.pk)
-    ]
+    assert CustomDynamicGroups().resolve("municipality")(
+        None, case, None, None, None
+    ) == [str(instance.group.service.pk)]

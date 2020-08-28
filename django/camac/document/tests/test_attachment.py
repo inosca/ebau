@@ -583,7 +583,7 @@ def test_attachment_update_context(
     attachment_section,
     attachment_attachment_sections,
     attachment_section_group_acl,
-    instance_service,
+    group_factory,
     status_code,
     is_active_service,
     new_context,
@@ -592,8 +592,12 @@ def test_attachment_update_context(
     aasa = attachment_attachment_sections.attachment
     url = reverse("attachment-detail", args=[aasa.pk])
 
-    if not is_active_service:
-        instance_service.delete()
+    if is_active_service:
+        aasa.instance.group = admin_user.groups.first()
+    else:
+        aasa.instance.group = group_factory()
+
+    aasa.instance.save()
 
     # fix permissions
     mocker.patch(
