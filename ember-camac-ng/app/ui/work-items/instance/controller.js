@@ -65,7 +65,7 @@ export default class WorkItemsInstanceController extends Controller {
   @dropTask
   *fetchWorkItems() {
     const filterKey =
-      this.filters.role === "control" ? "controllingGroups" : "addressedGroups";
+      this.role === "control" ? "controllingGroups" : "addressedGroups";
     const filter = [
       { hasDeadline: true },
       { caseMetaValue: [{ key: "camac-instance-id", value: this.model.id }] },
