@@ -48,14 +48,16 @@
       <th>{{t "workItemList.deadline"}}</th>
       <th>{{t "workItemList.created"}}</th>
       <th>{{t "workItemList.responsible"}}</th>
-      <th>{{t "workItemList.addressedGroups"}}</th>
+      {{#if (eq this.role "control")}}
+        <th>{{t "workItemList.addressedGroups"}}</th>
+      {{/if}}
       <th></th>
     </tr>
   </thead>
   <tbody>
     {{#if this.workItemsQuery.isLoading}}
       <tr>
-        <td colspan="8" class="center"><LoadingText /></td>
+        <td class="center" colspan="{{if (eq this.role "control") 8 7}}"><LoadingText /></td>
       </tr>
     {{else}}
       {{#each this.workItemsQuery.value as |workItem|}}
@@ -82,13 +84,15 @@
               -
             {{/each}}
           </td>
-          <td>
-            {{#each workItem.addressedServices as |service|}}
-              {{service.name}}
-            {{else}}
-              -
-            {{/each}}
-          </td>
+          {{#if (eq this.role "control")}}
+            <td>
+              {{#each workItem.addressedServices as |service|}}
+                {{service.name}}
+              {{else}}
+                -
+              {{/each}}
+            </td>
+          {{/if}}
           <td {{on "mouseleave" (set this.menuOpen "")}} role="button">
             <div>
               <FaIcon @icon="ellipsis-v" {{on "click" (set this.menuOpen workItem.id)}}/>
@@ -112,12 +116,12 @@
         </tr>
       {{else}}
         <tr>
-          <td colspan="8">{{t "workItemList.empty"}}</td>
+          <td class="center" colspan="{{if (eq this.role "control") 8 7}}">{{t "workItemList.empty"}}</td>
         </tr>
       {{/each}}
       {{#if (gt this.workItemsQuery.totalCount this.workItemsQuery.value.length)}}
         <tr {{on "click" (perform this.fetchMoreWorkItems)}} role="button" class="load-more">
-          <td colspan="8">{{t "workItemList.all.table.loadMore"}}</td>
+          <td class="center" colspan="{{if (eq this.role "control") 8 7}}">{{t "workItemList.all.table.loadMore"}}</td>
         </tr>
       {{/if}}
     {{/if}}
