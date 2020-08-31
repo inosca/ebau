@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-28 14:50+0100\n"
-"PO-Revision-Date: 2020-02-28 15:24+0100\n"
+"POT-Creation-Date: 2020-08-28 12:08+0200\n"
+"PO-Revision-Date: 2020-08-28 12:08+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -16,34 +16,51 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #: camac/applicants/serializers.py:32
-#, python-format
-msgid "There is more than one user with the email '%(email)s'"
-msgstr "Es gibt mehr als einen Benutzer mit der Email '%(email)s'"
-
-#: camac/applicants/serializers.py:38
 #, python-format
 msgid "Email '%(email)s' has already access to instance %(instance)s"
 msgstr ""
 "Der Benutzer mit der Email '%(email)s' hat bereits Zugriff auf das Dossier "
 "%(instance)s"
 
-#: camac/document/filters.py:28
+#: camac/caluma/extensions/events.py:24
+msgid "Abgeschlossene Aufgabe"
+msgstr ""
+
+#: camac/document/filters.py:20
+msgid ""
+"A JSON-encoded dict of the following form:\n"
+"                `{\n"
+"                    \"key\": \"key_in_context_json\",\n"
+"                    \"value\": \"value to be searched for\",\n"
+"                    \"lookup\": \"any of EXACT,STARTSWITH,CONTAINS,ICONTAINS,"
+"GTE,GT,LTE,LT (defaults to EXACT)\"\n"
+"                }`\n"
+"                \n"
+"Optionally, you may also pass a list of such dicts to combine lookups\n"
+"            "
+msgstr ""
+
+#: camac/document/filters.py:73
 msgid ""
 "The \"attachments\" filter must consist of a comma delimited list of "
 "attachment PKs!"
 msgstr ""
 
-#: camac/document/serializers.py:83
+#: camac/document/permissions.py:98
+msgid "Only active service can change context"
+msgstr ""
+
+#: camac/document/serializers.py:85
 #, python-format
 msgid "Not sufficent permissions to add file to section %(section)s."
 msgstr ""
 "Nicht ausreichend Berechtigungen um eine Datei in den Ordner %(section)s "
 "hochzuladen."
 
-#: camac/document/serializers.py:102
+#: camac/document/serializers.py:104
 #, python-format
 msgid ""
 "Invalid mime type for attachment. Allowed types for section %(section_name)s "
@@ -52,146 +69,140 @@ msgstr ""
 "Der aktuelle Dateityp kann nicht als Dokument hochgeladen werden. Erlaubte "
 "Dateitypen für Abschnitt %(section_name)s sind: %(allowed_mime_types)s"
 
-#: camac/document/serializers.py:170
+#: camac/document/serializers.py:177
 msgid "Path may not be changed."
 msgstr "Der Pfad darf nicht geändert werden."
 
-#: camac/document/serializers.py:203
+#: camac/document/serializers.py:210
 msgid "Invalid mime type for template. Allowed types are: docx"
 msgstr ""
 "Der aktuelle Dateityp kann nicht als Vorlage hochgeladen werden. Erlaubte "
 "Dateitypen sind: docx"
 
-#: camac/document/views.py:327
+#: camac/document/views.py:306
 msgid "Specifying an \"attachments\" filter is mandatory!"
 msgstr "Der \"attachments\" Filter ist obligatorisch!"
 
-#: camac/instance/document_merge_service.py:53
+#: camac/instance/document_merge_service.py:55
 #, python-format
 msgid "None or multiple caluma Documents found for instance: %(instance)s"
 msgstr ""
 "Keines oder mehrere Caluma Dokumente für das Dossier %(instance)s gefunden"
 
-#: camac/instance/document_merge_service.py:62
+#: camac/instance/document_merge_service.py:64
 #, python-format
 msgid "No template specified for form '%(form_slug)s'."
 msgstr "Keine Druckvorlage für das Caluma Formular %(form_slug)s spezifiziert."
 
-#: camac/instance/document_merge_service.py:70
-#: camac/instance/document_merge_service.py:374
+#: camac/instance/document_merge_service.py:72
+#: camac/instance/document_merge_service.py:392
 msgid "Signatures"
 msgstr "Unterschriften"
 
-#: camac/instance/document_merge_service.py:71
+#: camac/instance/document_merge_service.py:73
 msgid "Signature"
 msgstr "Unterschrift"
 
-#: camac/instance/document_merge_service.py:72
+#: camac/instance/document_merge_service.py:74
 msgid "Place and date"
 msgstr "Ort und Datum"
 
-#: camac/instance/document_merge_service.py:320
-#: camac/instance/document_merge_service.py:384
+#: camac/instance/document_merge_service.py:338
+#: camac/instance/document_merge_service.py:402
 msgid "Applicant"
 msgstr "Gesuchsteller/in"
 
-#: camac/instance/mixins.py:238
+#: camac/instance/mixins.py:263
 #, python-format
 msgid "Not allowed to add data to instance %(instance)s"
 msgstr "Keine Berechtigung um Daten zum Dossier %(instance)s hinzuzufügen"
 
-#: camac/instance/serializers.py:104
+#: camac/instance/mixins.py:296
+#, fuzzy, python-format
+#| msgid "Not allowed to add data to instance %(instance)s"
+msgid "Not allowed to add data to instance %(instance)s as coordination"
+msgstr "Keine Berechtigung um Daten zum Dossier %(instance)s hinzuzufügen"
+
+#: camac/instance/serializers.py:109
 msgid "Location may not be changed."
 msgstr "Standort darf nicht geändert werden."
 
-#: camac/instance/serializers.py:111
+#: camac/instance/serializers.py:116
 msgid "Form may not be changed."
 msgstr "Formular darf nicht geändert werden."
 
-#: camac/instance/serializers.py:420
-#, python-format
-msgid "Passed caluma form is not a main form: %(form)s"
-msgstr "Mitgegebenes Caluma Formular ist kein Hauptformular: %(form)s"
-
-#: camac/instance/serializers.py:568
-#, python-format
-msgid "Cannot send email: %(errors)s"
-msgstr "Fehler beim Senden der Email: %(errors)s"
-
-#: camac/instance/serializers.py:603
-#, python-format
-msgid "Could not find caluma main document for instance %(instance)s"
-msgstr "Caluma Hauptdokument für Dossier %(instance)s nicht gefunden"
-
-#: camac/instance/serializers.py:611
-#, python-format
-msgid ""
-"Could not find municipality in caluma document for instance %(instance)s"
-msgstr ""
-"Keine Gemeinde im Caluma Dokument für das Dossier %(instance)s gefunden"
-
-#: camac/instance/serializers.py:675
+#: camac/instance/serializers.py:779
 msgid "Dossier submitted"
 msgstr "Dossier eingereicht"
 
-#: camac/instance/serializers.py:701
-#, python-format
-msgid "Could not find caluma `sb1` document for instance %(instance)s"
-msgstr "Caluma SB1 Dokument für Dossier %(instance)s nicht gefunden"
-
-#: camac/instance/serializers.py:719
+#: camac/instance/serializers.py:838
 msgid "SB1 submitted"
 msgstr "SB1 eingereicht"
 
-#: camac/instance/serializers.py:745
+#: camac/instance/serializers.py:869
 #, python-format
-msgid "Could not find caluma `sb2` document for instance %(instance)s"
-msgstr "Caluma SB2 Dokument für Dossier %(instance)s nicht gefunden"
+msgid "%(value)s is not a valid service type - valid types are: %(expected)s"
+msgstr ""
+"%(value)s ist kein korrekter Servicetyp - korrekte Typen sind: %(expected)s"
 
-#: camac/instance/serializers.py:763
+#: camac/instance/serializers.py:902
+#, python-format
+msgid "Changed responsible service to: %(service)s"
+msgstr "Neue Leitbehörde: %(service)s"
+
+#: camac/instance/serializers.py:918
+msgid "service"
+msgstr ""
+
+#: camac/instance/serializers.py:938
+#, python-format
+msgid "Responsible service did not change for instance %(instance_id)s"
+msgstr "Wechsel der Leitbehörde für Dossier %(instance_id)s ist fehlgeschlagen"
+
+#: camac/instance/serializers.py:981
 msgid "SB2 submitted"
 msgstr "SB2 eingereicht"
 
-#: camac/instance/serializers.py:791
+#: camac/instance/serializers.py:1009
 #, python-format
 msgid "User %(user)s does not belong to service %(service)s."
 msgstr "Der Benutzer %(user)s gehört nicht zum Service %(service)s."
 
-#: camac/instance/serializers.py:847
+#: camac/instance/serializers.py:1087
 msgid "No location assigned."
 msgstr "Kein Standort gesetzt."
 
-#: camac/instance/serializers.py:867
+#: camac/instance/serializers.py:1107
 #, python-format
 msgid "No group found for location %(name)s."
 msgstr "Keine Gruppe für den Standort %(name)s gefunden."
 
-#: camac/instance/serializers.py:889
+#: camac/instance/serializers.py:1129
 #, python-format
 msgid "invalid question %(question)s."
 msgstr "Ungültige Frage %(question)s."
 
-#: camac/instance/serializers.py:896
+#: camac/instance/serializers.py:1136
 #, python-format
 msgid "%(permission)s is not allowed to edit question %(question)s."
 msgstr "%(permission)s darf die Frage %(question)s nicht bearbeiten."
 
-#: camac/instance/validators.py:67
+#: camac/instance/validators.py:70
 #, python-format
 msgid "Invalid value `%(value)s` in field `%(field)s`"
 msgstr "Ungültiger Wert `%(value)s` im Feld `%(field)s`"
 
-#: camac/instance/validators.py:80
+#: camac/instance/validators.py:83
 #, python-format
 msgid "Invalid values `%(values)s` in field `%(field)s`"
 msgstr "Ungültige Werte `%(values)s` im Feld `%(field)s`"
 
-#: camac/instance/validators.py:87
+#: camac/instance/validators.py:90
 #, python-format
 msgid "Value of field `%(field)s` must be `str` and not empty"
 msgstr "Wert des Feldes `%(field)s` muss vom Typ `str` und nicht leer sein"
 
-#: camac/instance/validators.py:110
+#: camac/instance/validators.py:113
 #, python-format
 msgid ""
 "Value of field `%(field)s` needs to be a number between %(min_val)s and "
@@ -200,48 +211,119 @@ msgstr ""
 "Wert des Feldes `%(field)s` muss eine Nummer zwischen %(min_val)s und "
 "%(max_val)s) sein."
 
-#: camac/instance/validators.py:122
+#: camac/instance/validators.py:125
 #, python-format
 msgid "Document missing for question `%(field)s"
 msgstr "Dokument für die Frage `%(field)s fehlt"
 
-#: camac/instance/validators.py:218
+#: camac/instance/validators.py:220
 #, python-format
 msgid "Invalid form type %(form)s."
 msgstr "Ungültiger Formulartyp %(form)s."
 
-#: camac/notification/serializers.py:572
+#: camac/notification/management/commands/sendreminders.py:20
+msgid "Erinnerung an Aufgaben"
+msgstr ""
+
+#: camac/notification/serializers.py:793
 #, python-format
 msgid "Notification sent to %(receiver)s (%(subject)s)"
 msgstr "Notifikation gesendet an %(receiver)s (%(subject)s)"
 
-#: camac/objection/serializers.py:34
+#: camac/notification/templates/mails/list_workitems.txt:3
+msgid "Überfällige Aufgaben"
+msgstr ""
+
+#: camac/notification/templates/mails/list_workitems.txt:4
+msgid "Ungelesene Aufgaben"
+msgstr ""
+
+#: camac/notification/templates/mails/list_workitems.txt:5
+#: camac/notification/templates/mails/notify_completed_workitem.txt:6
+msgid "Aufgabe"
+msgstr ""
+
+#: camac/notification/templates/mails/list_workitems.txt:6
+#: camac/notification/templates/mails/notify_completed_workitem.txt:3
+msgid "zu erledigen bis"
+msgstr ""
+
+#: camac/notification/templates/mails/notify_completed_workitem.txt:4
+#: camac/notification/templates/mails/reminder_service.txt:3
+#: camac/notification/templates/mails/reminder_user.txt:3
+msgid "Guten Tag"
+msgstr ""
+
+#: camac/notification/templates/mails/notify_completed_workitem.txt:5
+msgid "Eine Ihrer verantwortlichen Aufgaben wurden abgeschlossen"
+msgstr ""
+
+#: camac/notification/templates/mails/notify_completed_workitem.txt:7
+msgid "Abgeschlossen von"
+msgstr ""
+
+#: camac/notification/templates/mails/notify_completed_workitem.txt:8
+#: camac/notification/templates/mails/reminder_service.txt:6
+#: camac/notification/templates/mails/reminder_user.txt:5
+msgid "Freundliche Grüsse"
+msgstr ""
+
+#: camac/notification/templates/mails/reminder_service.txt:4
+#: camac/notification/templates/mails/reminder_user.txt:4
+msgid "Dies ist eine Erinnerung an Ihre offenen Aufgaben."
+msgstr ""
+
+#: camac/notification/templates/mails/reminder_service.txt:5
+msgid "Diese Ihnen unterstehenden Aufgaben wurden noch nicht abgeschlossen."
+msgstr ""
+
+#: camac/objection/serializers.py:35
 msgid "Objection %(objection) already has a representative"
 msgstr ""
 
-#: camac/user/authentication.py:32
+#: camac/user/authentication.py:57
 msgid "Invalid Authorization header. No credentials provided"
 msgstr "Ungültiger Authorization Header. Keine Anmeldedaten geliefert"
 
-#: camac/user/authentication.py:36
+#: camac/user/authentication.py:61
 msgid ""
 "Invalid Authorization header. Credentials string should not contain spaces."
 msgstr ""
 "Ungültiger Authorization Header. Anmeldedaten sollten keine Leerzeichen "
 "enthalten."
 
-#: camac/user/authentication.py:72
+#: camac/user/authentication.py:100
 msgid "Signature has expired."
 msgstr "Signatur ist abgelaufen."
 
-#: camac/user/authentication.py:75
+#: camac/user/authentication.py:103
 msgid "Invalid token."
 msgstr "Ungültiges Token."
 
-#: camac/user/authentication.py:81
+#: camac/user/authentication.py:109
 msgid "User session not found or doesn't have client attached on it"
 msgstr ""
 
-#: camac/user/authentication.py:119
+#: camac/user/authentication.py:167
 msgid "User is deactivated."
 msgstr "Benutzer ist deaktiviert."
+
+#~ msgid "There is more than one user with the email '%(email)s'"
+#~ msgstr "Es gibt mehr als einen Benutzer mit der Email '%(email)s'"
+
+#~ msgid "Passed caluma form is not a main form: %(form)s"
+#~ msgstr "Mitgegebenes Caluma Formular ist kein Hauptformular: %(form)s"
+
+#~ msgid "Cannot send email: %(errors)s"
+#~ msgstr "Fehler beim Senden der Email: %(errors)s"
+
+#~ msgid ""
+#~ "Could not find municipality in caluma document for instance %(instance)s"
+#~ msgstr ""
+#~ "Keine Gemeinde im Caluma Dokument für das Dossier %(instance)s gefunden"
+
+#~ msgid "Could not find caluma `sb1` document for instance %(instance)s"
+#~ msgstr "Caluma SB1 Dokument für Dossier %(instance)s nicht gefunden"
+
+#~ msgid "Could not find caluma `sb2` document for instance %(instance)s"
+#~ msgstr "Caluma SB2 Dokument für Dossier %(instance)s nicht gefunden"
