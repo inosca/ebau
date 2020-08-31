@@ -16,9 +16,6 @@
     "start-proxy": "ember serve --proxy http://camac-ng.local",
     "deploy": "ember deploy"
   },
-  "dependencies": {
-    "@glimmer/tracking": "^1.0.0"
-  },
   "devDependencies": {
     "@adfinis-sygroup/eslint-config": "^1.2.0",
     "@ember/optional-features": "^1.3.0",
@@ -26,6 +23,7 @@
     "@fortawesome/ember-fontawesome": "^0.2.1",
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
     "@glimmer/component": "^1.0.0",
+    "@glimmer/tracking": "^1.0.0",
     "broccoli-asset-rev": "^3.0.0",
     "ember-apollo-client": "^2.1.0",
     "ember-auto-import": "^1.5.3",

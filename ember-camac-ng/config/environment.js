@@ -5,7 +5,6 @@ module.exports = function(environment) {
     modulePrefix: "camac-ng",
     environment,
     rootURL: "/",
-    rootElement: "#ember-camac-ng",
     locationType: "hash",
     podModulePrefix: "camac-ng/ui",
     apollo: {
@@ -27,8 +26,7 @@ module.exports = function(environment) {
     },
 
     APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
+      rootElement: "#ember-camac-ng"
     }
   };
 
