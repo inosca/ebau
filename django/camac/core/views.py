@@ -9,7 +9,7 @@ from django.utils.encoding import escape_uri_path, smart_bytes
 from pyproj import CRS, Transformer
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from rest_framework_json_api import views
+from rest_framework_json_api import django_filters, filters as json_api_filters, views
 
 from camac.instance.models import FormField
 from camac.user.permissions import permission_aware
@@ -23,6 +23,12 @@ class PublicationEntryView(views.ModelViewSet):
     serializer_class = serializers.PublicationEntrySerializer
     queryset = models.PublicationEntry.objects.all()
     prefetch_for_includes = {"instance": ["instance"]}
+    filter_backends = (
+        json_api_filters.OrderingFilter,
+        django_filters.DjangoFilterBackend,
+    )
+    ordering_fields = ["publication_date"]
+    ordering = ["publication_date"]
 
     @permission_aware
     def get_queryset(self):
