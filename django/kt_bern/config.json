@@ -1361,6 +1361,20 @@
   },
   {
     "fields": {
+      "available_action": "case",
+      "button": 150000,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150033
+  },
+  {
+    "fields": {
       "available_action": "formtransition",
       "button": 1200000,
       "description": null,
@@ -1386,20 +1400,6 @@
     },
     "model": "core.action",
     "pk": 1200003
-  },
-  {
-    "fields": {
-      "available_action": "php",
-      "button": 150000,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": null,
-      "sort": 1,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 1200011
   },
   {
     "fields": {
@@ -2813,6 +2813,18 @@
   },
   {
     "fields": {
+      "action": 150033,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Case abbrechen",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150039
+  },
+  {
+    "fields": {
       "action": 1200002,
       "description": null,
       "error_message": null,
@@ -2834,18 +2846,6 @@
     },
     "model": "core.actiont",
     "pk": 1200005
-  },
-  {
-    "fields": {
-      "action": 1200011,
-      "description": null,
-      "error_message": null,
-      "language": "de",
-      "name": "Cancel case",
-      "success_message": null
-    },
-    "model": "core.actiont",
-    "pk": 1200013
   },
   {
     "fields": {
@@ -41694,13 +41694,6 @@
   },
   {
     "fields": {
-      "php_class": "CancelCase"
-    },
-    "model": "core.aphp",
-    "pk": 1200011
-  },
-  {
-    "fields": {
       "action_name": "template",
       "available_resource": "page",
       "hidden": 0
@@ -41994,6 +41987,14 @@
     },
     "model": "core.availableaction",
     "pk": "addhistory"
+  },
+  {
+    "fields": {
+      "description": "Process a case",
+      "module_name": "workitem"
+    },
+    "model": "core.availableaction",
+    "pk": "case"
   },
   {
     "fields": {
@@ -55920,6 +55921,326 @@
     },
     "model": "core.instanceresourceaction",
     "pk": 150038
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "filelist"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150039
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "billing"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150040
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "letter"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150041
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "circulation"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150042
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "editformpage"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150043
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "editletter"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150044
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "editnotice"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150045
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "journal"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150046
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "editresponsiblegroup"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150047
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "page"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150048
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "formparent"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150049
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "editcirculation"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150050
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "revisionhistory"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150051
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "filecomplementanswer"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150052
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "formwizard"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150053
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "docxdecision"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150054
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "fileupload"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150055
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "editresponsibleuser"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150056
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "notification"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150057
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "filecomplementlist"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150058
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "formpage"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150059
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "auditlog"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150060
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "editdecision"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150061
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "decision"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150062
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "formpages"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150063
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "allformpages"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150064
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "editformpages"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150065
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "workitemlistinstance"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150066
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "claim"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150067
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "filecomplementrequest"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150068
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "formerror"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150069
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "service"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150070
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "history"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150071
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "filevalidation"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150072
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "newform"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150073
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "apidocuments"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150074
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "decisionnote"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150075
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "gisapi"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150076
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "publication"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150077
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "available_instance_resource": "editdecisionnote"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 150078
   },
   {
     "fields": {

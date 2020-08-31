@@ -4326,3 +4326,30 @@ class ActionWorkitem(models.Model):
     class Meta:
         managed = True
         db_table = "ACTION_WORKITEM"
+
+
+class ActionCase(models.Model):
+    PROCESS_TYPE_CANCEL = "cancel"
+    # TODO: uncomment when implemented in Caluma
+    # PROCESS_TYPE_SUSPEND = "suspend"
+    # PROCESS_TYPE_RESUME = "resume"
+
+    # PROCESS_TYPES = tuple(
+    #     (t, t) for t in (PROCESS_TYPE_CANCEL, PROCESS_TYPE_SUSPEND, PROCESS_TYPE_RESUME)
+    # )
+    PROCESS_TYPES = tuple((t, t) for t in (PROCESS_TYPE_CANCEL,))
+
+    action = models.OneToOneField(
+        "Action",
+        models.CASCADE,
+        db_column="ACTION_ID",
+        primary_key=True,
+        related_name="+",
+    )
+    process_type = models.CharField(
+        db_column="PROCESS_TYPE", max_length=10, choices=PROCESS_TYPES
+    )
+
+    class Meta:
+        managed = True
+        db_table = "ACTION_CASE"
