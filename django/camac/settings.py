@@ -260,6 +260,10 @@ APPLICATIONS = {
                 "NEW": "gesuchsbearbeitungs-einladung-neu",
                 "EXISTING": "gesuchsbearbeitungs-einladung-bestehend",
             },
+            "CHANGE_RESPONSIBLE_SERVICE": {
+                "template_slug": "02-benachrichtigung-baubewilligungsbehorde",
+                "recipient_types": ["leitbehoerde"],
+            },
         },
         "PUBLICATION_DURATION": timedelta(),
         "IS_MULTILINGUAL": True,
