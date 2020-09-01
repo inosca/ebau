@@ -4,9 +4,9 @@ import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency-decorators";
 
-import createWorkItem from "../../../gql/mutations/create-work-item";
+import createWorkItem from "../../../../../gql/mutations/create-work-item";
 
-export default class WorkItemIndexController extends Controller {
+export default class WorkItemNewController extends Controller {
   queryParams = ["case"];
 
   @service store;

@@ -7,7 +7,7 @@ import calumaQuery from "ember-caluma/caluma-query";
 import { allWorkItems } from "ember-caluma/caluma-query/queries";
 import { dropTask } from "ember-concurrency-decorators";
 
-export default class WorkItemsInstanceController extends Controller {
+export default class WorkItemsInstanceIndexController extends Controller {
   queryParams = ["role"];
 
   @service store;
@@ -88,7 +88,9 @@ export default class WorkItemsInstanceController extends Controller {
 
   @action
   newWorkItem() {
-    this.transitionToRoute("work-item", { queryParams: { case: this.caseId } });
+    this.transitionToRoute("work-item.instance.new", {
+      queryParams: { case: this.caseId }
+    });
   }
 
   @action
