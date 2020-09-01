@@ -13,13 +13,15 @@ Router.map(function() {
   this.route("history", { path: "/instances/:id/history" });
   this.route("journal", { path: "/instances/:id/journal" });
   this.route("work-items", function() {
-    this.route("instance", {
-      path: "/instances/:id/work-items"
-    });
-  });
-
-  this.route("work-item", function() {
-    this.route("edit", { path: "/work-item/:id" });
-    this.route("index", { path: "/work-item" });
+    this.route(
+      "instance",
+      {
+        path: "instances/:instance_id/work-items"
+      },
+      function() {
+        this.route("edit", { path: "/:work_item_id" });
+        this.route("new");
+      }
+    );
   });
 });
