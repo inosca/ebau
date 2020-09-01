@@ -15669,10 +15669,34 @@
       "name": "Dokumente f\u00fcr Gesuchsteller",
       "notification_template": null,
       "recipient_types": "[]",
-      "sort": 8
+      "sort": 10
     },
     "model": "document.attachmentsection",
     "pk": 9
+  },
+  {
+    "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
+      "name": "Rechtsmittel",
+      "notification_template": null,
+      "recipient_types": "[]",
+      "sort": 8
+    },
+    "model": "document.attachmentsection",
+    "pk": 10
+  },
+  {
+    "fields": {
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "description": null,
+      "name": "Baukontrolle und Bauabnahme",
+      "notification_template": null,
+      "recipient_types": "[]",
+      "sort": 9
+    },
+    "model": "document.attachmentsection",
+    "pk": 11
   },
   {
     "fields": {
@@ -16140,6 +16164,26 @@
     },
     "model": "document.attachmentsectiont",
     "pk": 8
+  },
+  {
+    "fields": {
+      "attachment_section": 10,
+      "description": null,
+      "language": "de",
+      "name": "Rechtsmittel"
+    },
+    "model": "document.attachmentsectiont",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "attachment_section": 11,
+      "description": null,
+      "language": "de",
+      "name": "Baukontrolle und Bauabnahme"
+    },
+    "model": "document.attachmentsectiont",
+    "pk": 10
   },
   {
     "fields": {
