@@ -4330,14 +4330,12 @@ class ActionWorkitem(models.Model):
 
 class ActionCase(models.Model):
     PROCESS_TYPE_CANCEL = "cancel"
-    # TODO: uncomment when implemented in Caluma
-    # PROCESS_TYPE_SUSPEND = "suspend"
-    # PROCESS_TYPE_RESUME = "resume"
+    PROCESS_TYPE_SUSPEND = "suspend"
+    PROCESS_TYPE_RESUME = "resume"
 
-    # PROCESS_TYPES = tuple(
-    #     (t, t) for t in (PROCESS_TYPE_CANCEL, PROCESS_TYPE_SUSPEND, PROCESS_TYPE_RESUME)
-    # )
-    PROCESS_TYPES = tuple((t, t) for t in (PROCESS_TYPE_CANCEL,))
+    PROCESS_TYPES = tuple(
+        (t, t) for t in (PROCESS_TYPE_CANCEL, PROCESS_TYPE_SUSPEND, PROCESS_TYPE_RESUME)
+    )
 
     action = models.OneToOneField(
         "Action",
