@@ -178,11 +178,11 @@ pure_config_models = [
     "responsible.IrEditresponsiblegroup",
     "responsible.ASetresponsiblegroup",
     "responsible.ResponsibleServiceAllocation",
-    # history
+    # action configurations
     "core.HistoryActionConfig",
     "core.HistoryActionConfigT",
-    # work item action
     "core.ActionWorkitem",
+    "core.ActionCase",
 ]
 
 # List of models that have foreign keys referencing non-config tables
