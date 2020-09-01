@@ -3316,7 +3316,7 @@
       "description": null,
       "hidden": 0,
       "instance_resource": 33,
-      "name": "Baubewilligung erteilen",
+      "name": "Bewilligung erteilen",
       "sort": 2
     },
     "model": "core.button",
