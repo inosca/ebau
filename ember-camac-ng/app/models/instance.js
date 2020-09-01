@@ -4,4 +4,5 @@ export default class InstanceModel extends Model {
   @attr("string") identifier;
   @belongsTo("form") form;
   @hasMany("service") services;
+  @hasMany("service") involvedServices;
 }
