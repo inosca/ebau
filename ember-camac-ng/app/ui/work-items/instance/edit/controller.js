@@ -1,21 +1,18 @@
 import Controller from "@ember/controller";
 import { action, set } from "@ember/object";
 import { inject as service } from "@ember/service";
-import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency-decorators";
 
-import completeWorkItem from "../../../gql/mutations/complete-workitem";
-import saveWorkItem from "../../../gql/mutations/save-workitem";
+import completeWorkItem from "../../../../gql/mutations/complete-workitem";
+import saveWorkItem from "../../../../gql/mutations/save-workitem";
 
-export default class WorkItemEditController extends Controller {
+export default class WorkItemsInstanceEditController extends Controller {
   @service store;
   @service apollo;
   @service notifications;
   @service intl;
   @service shoebox;
   @service moment;
-
-  @tracked workItemComment = "";
 
   get responsibleUsers() {
     return this.userChoices?.filter(user =>
@@ -61,8 +58,6 @@ export default class WorkItemEditController extends Controller {
   @dropTask
   *finishWorkItem() {
     try {
-      this.model.meta["completion-comment"] = this.workItemComment;
-
       yield this.apollo.mutate({
         mutation: saveWorkItem,
         variables: {
@@ -111,10 +106,5 @@ export default class WorkItemEditController extends Controller {
   @action
   setDeadline(value) {
     this.model.deadline = this.moment(value);
-  }
-
-  @action
-  setComment(comment) {
-    this.workItemComment = comment;
   }
 }
