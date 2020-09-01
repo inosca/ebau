@@ -28,7 +28,9 @@ export default class CamacAuthenticator extends BaseAuthenticator {
       credentials: "same-origin"
     }).then(response => response.json());
 
-    return this.handleToken(token);
+    const data = this.handleToken(token);
+
+    this.trigger("sessionDataUpdated", data);
   }
 
   handleToken(token) {
