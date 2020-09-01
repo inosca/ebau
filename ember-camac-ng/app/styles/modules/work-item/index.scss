@@ -28,6 +28,10 @@ form {
       border-radius: 0;
     }
 
+    .ember-power-select-search-input {
+      border: none !important;
+    }
+
     .checkbox-label {
       display: flex;
       align-items: center;

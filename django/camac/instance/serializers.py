@@ -88,10 +88,21 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         default=NewInstanceStateDefault(),
     )
 
+    involved_services = relations.SerializerMethodResourceRelatedField(
+        source="get_involved_services", model=Service, read_only=True, many=True
+    )
+
     def get_is_applicant(self, obj):
         return obj.involved_applicants.filter(
             invitee=self.context["request"].user
         ).exists()
+
+    def get_involved_services(self, obj):
+        services = list(obj.services.all())
+        for circulation in obj.circulations.all():
+            for activation in circulation.activations.all():
+                services.append(activation.service)
+        return services
 
     included_serializers = {
         "location": "camac.user.serializers.LocationSerializer",
@@ -102,6 +113,7 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         "previous_instance_state": InstanceStateSerializer,
         "circulations": "camac.circulation.serializers.CirculationSerializer",
         "services": "camac.user.serializers.ServiceSerializer",
+        "involved_services": "camac.user.serializers.ServiceSerializer",
     }
 
     def validate_location(self, location):
@@ -177,6 +189,7 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             "previous_instance_state",
             "circulations",
             "services",
+            "involved_services",
         )
         read_only_fields = (
             "circulations",
@@ -184,6 +197,7 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             "identifier",
             "modification_date",
             "services",
+            "involved_services",
         )
 
 
