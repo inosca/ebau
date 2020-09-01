@@ -2,7 +2,11 @@
 
 <h2>{{t "workItem.createWorkitem"}}</h2>
 
-<form {{did-insert (perform this.getData)}} {{on "submit" (perform this.createWorkItem)}} class="form">
+<form
+  {{did-insert (perform this.getData)}}
+  {{on "submit" (perform this.createWorkItem)}}
+  class="form work-item-form"
+>
   <label class="work-item-input">
     {{t "workItem.responsible"}}
     <PowerSelect
@@ -39,7 +43,7 @@
   </label>
   <label class="work-item-input">
     {{t "workItem.description"}}
-    <Textarea @value={{mut this.description}}/>
+    <Textarea @value={{this.description}}/>
   </label>
   <label class="work-item-input">
     {{t "workItem.deadline"}}
