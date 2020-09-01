@@ -5,13 +5,9 @@ global:
   empty: "Keine Einträge gefunden"
   cancel: "Abbrechen"
   date: "Datum"
-  user: "Von"
+  from: "Von"
   back: "Zurück"
   noMatch: "Keine Resultate gefunden"
-
-  moment:
-    previousMonth: "Vorheriger Monat"
-    nextMonth: "Nächster Monat"
 
 organisation:
   edit: "Eigene Organisation bearbeiten"
@@ -98,6 +94,8 @@ workItem:
   notifyCompleted: "bei Abschluss"
   notifyDeadline: "bei Fristüberschreitung"
   saveWorkItem: "Aufgabe speichern"
+  users: "Benutzer"
+  services: "Fachstellen"
 
   createdAt: "Erstellt am"
   createdBy: "Erstellt durch"
@@ -107,3 +105,5 @@ workItem:
 
   closedBy: "Erledigt von"
   closedAt: "Erledigt am"
+
+  saveSuccess: "Aufgabe erfolgreich gespeichert"

@@ -13,6 +13,7 @@ export default class WorkItemEditController extends Controller {
   @service notifications;
   @service intl;
   @service shoebox;
+  @service moment;
 
   @tracked workItemComment = "";
 
@@ -87,13 +88,33 @@ export default class WorkItemEditController extends Controller {
     }
   }
 
-  @action
-  setComment(comment) {
-    this.workItemComment = comment;
+  @dropTask
+  *saveManualWorkItem() {
+    try {
+      yield this.apollo.mutate({
+        mutation: saveWorkItem,
+        variables: {
+          input: {
+            workItem: this.model.id,
+            description: this.model.description,
+            deadline: this.model.deadline,
+            meta: JSON.stringify(this.model.meta)
+          }
+        }
+      });
+      this.notifications.success(this.intl.t("workItem.saveSuccess"));
+    } catch (error) {
+      this.notifications.error(this.intl.t("workItemList.all.saveError"));
+    }
   }
 
   @action
-  back() {
-    history.back();
+  setDeadline(value) {
+    this.model.deadline = this.moment(value);
+  }
+
+  @action
+  setComment(comment) {
+    this.workItemComment = comment;
   }
 }

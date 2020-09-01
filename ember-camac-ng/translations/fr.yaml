@@ -5,13 +5,9 @@ global:
   empty: "Aucune entrée trouvée"
   cancel: "Annuler"
   date: "Date"
-  user: "De"
+  from: "De"
   back: "Retour"
   noMatch: "Aucun résultat trouvé"
-
-  moment:
-    previousMonth: "Mois précédent"
-    nextMonth: "Mois prochain"
 
 organisation:
   edit: "Modifiez votre organisation"
@@ -103,6 +99,8 @@ workItem:
   notifyCompleted: "à l'issue"
   notifyDeadline: "en cas de dépassement du délai"
   saveWorkItem: "Enregistrée la tâche"
+  users: "Utilisateur"
+  services: "Bureaux"
 
   createdAt: "Créé le"
   createdBy: "Créé par"
@@ -112,3 +110,5 @@ workItem:
 
   closedBy: "Fait par"
   closedAt: "Fait le"
+
+  saveSuccess: "Tâche sauvée avec succès"
