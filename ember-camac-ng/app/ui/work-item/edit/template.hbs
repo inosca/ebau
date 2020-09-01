@@ -1,4 +1,4 @@
-<button {{on "click" this.back}} class="button btn buttonstyle" type="button">{{t "global.back"}}</button>
+<Notifications />
 
 <h2>{{t "workItem.updateWorkItem"}}</h2>
 
@@ -10,7 +10,7 @@
   <div class="work-item-attributes">
     <div class="work-item-attribute">
       <span>{{t "workItem.responsible"}}</span>
-      {{#each @model.assignedServices as |service|}}
+      {{#each @model.addressedServices as |service|}}
         {{service.name}}
       {{else}}
         -
@@ -47,7 +47,37 @@
   </div>
 </div>
 
-{{#if (eq @model.raw.status "COMPLETED")}}
+{{#if @model.raw.task.isMultipleInstance}}
+  <form {{on "submit" (perform this.saveManualWorkItem)}}>
+    <label class="work-item-input">
+      {{t "workItem.description"}}
+      <Textarea @value={{mut @model.description}}/>
+    </label>
+    <label class="work-item-input">
+      {{t "workItem.deadline"}}
+      <PikadayInput
+        class="deadline"
+        @value={{@model.deadline}}
+        @useUTC={{true}}
+        @onSelection={{this.setDeadline}}
+      />
+    </label>
+
+    <div class="work-item-input">
+      {{t "workItem.notifications"}}
+      <label class="checkbox-label">
+        <Input @type="checkbox" @checked={{mut @model.meta.notify-complete}}/>
+        {{t "workItem.notifyCompleted"}}
+      </label>
+      <label class="checkbox-label">
+        <Input @type="checkbox" @checked={{mut @model.meta.notify-deadline}}/>
+        {{t "workItem.notifyDeadline"}}
+      </label>
+    </div>
+
+    <button class="button buttonstyle btn success" type="submit">{{t "global.save"}}</button>
+  </form>
+{{else if (eq @model.raw.status "COMPLETED")}}
   <div class="work-item-attributes">
     <div class="work-item-attribute">
       <span>{{t "workItem.closedBy"}}</span>
@@ -92,7 +122,9 @@
 
     <button class="button buttonstyle btn success" type="submit">{{t "global.save"}}</button>
   </form>
+{{/if}}
 
+{{#if (not (eq @model.raw.status "COMPLETED"))}}
   <h2>{{t "workItem.finishWorkItem"}}</h2>
 
   <form {{on "submit" (perform this.finishWorkItem)}} class="form">

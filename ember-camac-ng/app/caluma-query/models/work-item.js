@@ -93,7 +93,9 @@ export default class CustomWorkItemModel extends WorkItemModel {
     assignedUsers
     name
     deadline
+    description
     case {
+      id
       meta
       document {
         form {
@@ -110,6 +112,9 @@ export default class CustomWorkItemModel extends WorkItemModel {
           }
         }
       }
+    }
+    task {
+      isMultipleInstance
     }
   }`;
 }

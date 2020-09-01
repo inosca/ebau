@@ -12,6 +12,7 @@ export default class WorkItemsInstanceController extends Controller {
 
   @service store;
   @service shoebox;
+  @service apollo;
 
   @tracked order = [{ attribute: "DEADLINE", direction: "ASC" }];
   // Filters
@@ -81,9 +82,13 @@ export default class WorkItemsInstanceController extends Controller {
     });
   }
 
+  get caseId() {
+    return this.workItemsQuery.value[0].raw.case.id;
+  }
+
   @action
   newWorkItem() {
-    this.transitionToRoute("work-item");
+    this.transitionToRoute("work-item", { queryParams: { case: this.caseId } });
   }
 
   @action
