@@ -1,0 +1,23 @@
+query AllCases(
+  $metaValueFilter: [JSONValueFilterType]
+) {
+  allCases(
+    first: 10
+    filter: [
+      { metaValue: $metaValueFilter }
+    ]
+  ) {
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
+    totalCount
+    edges {
+      node {
+        id
+        meta
+      }
+    }
+  }
+}
+    

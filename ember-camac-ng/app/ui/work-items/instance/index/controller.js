@@ -82,15 +82,9 @@ export default class WorkItemsInstanceIndexController extends Controller {
     });
   }
 
-  get caseId() {
-    return this.workItemsQuery.value[0].raw.case.id;
-  }
-
   @action
   newWorkItem() {
-    this.transitionToRoute("work-item.instance.new", {
-      queryParams: { case: this.caseId }
-    });
+    this.transitionToRoute("work-items.instance.new");
   }
 
   @action
