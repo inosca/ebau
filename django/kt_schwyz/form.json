@@ -3410,7 +3410,7 @@
       }
     },
     "energie-photovoltaik-flache": {
-      "label": "Gesamtflache der Anlage in m² (ohne Blindfläche):",
+      "label": "Gesamtfläche der Anlage in m² (ohne Blindfläche):",
       "hint": "Geben Sie bitte die Gesamtfläche der Anlage ohne Blindfläche an, wobei mit Blindflächen inaktive Elementflächen gemeint sind.",
       "type": "number",
       "required": true,
