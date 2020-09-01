@@ -52,7 +52,15 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = get_user_model()
-        fields = ("name", "surname", "username", "language", "service", "email")
+        fields = (
+            "name",
+            "surname",
+            "username",
+            "language",
+            "service",
+            "email",
+            "service",
+        )
 
 
 class CurrentUserSerializer(UserSerializer):

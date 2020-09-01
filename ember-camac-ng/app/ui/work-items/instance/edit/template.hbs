@@ -47,11 +47,11 @@
   </div>
 </div>
 
-{{#if @model.raw.task.isMultipleInstance}}
-  <form {{on "submit" (perform this.saveManualWorkItem)}}>
+{{#if this.isManualWorkItem}}
+  <form {{on "submit" (perform this.saveManualWorkItem)}} class="work-item-form">
     <label class="work-item-input">
       {{t "workItem.description"}}
-      <Textarea @value={{mut @model.description}}/>
+      <Textarea @value={{@model.description}}/>
     </label>
     <label class="work-item-input">
       {{t "workItem.deadline"}}
@@ -77,7 +77,7 @@
 
     <button class="button buttonstyle btn success" type="submit">{{t "global.save"}}</button>
   </form>
-{{else if (eq @model.raw.status "COMPLETED")}}
+{{else if this.isWorkItemCompleted}}
   <div class="work-item-attributes">
     <div class="work-item-attribute">
       <span>{{t "workItem.closedBy"}}</span>
@@ -103,7 +103,8 @@
 {{else}}
   <form
     {{did-insert (perform this.fetchUserChoices)}}
-    {{on "submit" (perform this.workItemAssignUsers)}} 
+    {{on "submit" (perform this.workItemAssignUsers)}}
+    class="work-item-form"
   >
     <label class="work-item-input">
       {{t "workItem.responsiblePerson"}}
@@ -124,10 +125,10 @@
   </form>
 {{/if}}
 
-{{#if (not (eq @model.raw.status "COMPLETED"))}}
+{{#unless this.isWorkItemCompleted}}
   <h2>{{t "workItem.finishWorkItem"}}</h2>
 
-  <form {{on "submit" (perform this.finishWorkItem)}} class="form">
+  <form {{on "submit" (perform this.finishWorkItem)}} class="form work-item-form">
     <label class="work-item-input">
       {{t "workItem.comment"}}
       <Textarea @value={{mut @model.meta.completion-comment}}/>
@@ -135,4 +136,4 @@
 
     <button class="button buttonstyle btn success" type="submit">{{t "workItem.finishWorkItem"}}</button>
   </form>
-{{/if}}
+{{/unless}}

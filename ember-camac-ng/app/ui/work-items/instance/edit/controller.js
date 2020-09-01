@@ -1,10 +1,10 @@
 import Controller from "@ember/controller";
 import { action, set } from "@ember/object";
 import { inject as service } from "@ember/service";
+import completeWorkItem from "camac-ng/gql/mutations/complete-workitem";
+import saveWorkItem from "camac-ng/gql/mutations/save-workitem";
 import { dropTask } from "ember-concurrency-decorators";
-
-import completeWorkItem from "../../../../gql/mutations/complete-workitem";
-import saveWorkItem from "../../../../gql/mutations/save-workitem";
+import moment from "moment";
 
 export default class WorkItemsInstanceEditController extends Controller {
   @service store;
@@ -22,6 +22,14 @@ export default class WorkItemsInstanceEditController extends Controller {
 
   get userChoices() {
     return this.fetchUserChoices.lastSuccessful?.value.toArray();
+  }
+
+  get isManualWorkItem() {
+    return this.model.raw.task.isMultipleInstance;
+  }
+
+  get isWorkItemCompleted() {
+    return this.model.raw.status === "COMPLETED";
   }
 
   @dropTask
@@ -105,6 +113,6 @@ export default class WorkItemsInstanceEditController extends Controller {
 
   @action
   setDeadline(value) {
-    this.model.deadline = this.moment(value);
+    this.model.deadline = moment(value);
   }
 }

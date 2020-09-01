@@ -2,13 +2,12 @@ import Controller from "@ember/controller";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
+import createWorkItem from "camac-ng/gql/mutations/create-work-item";
+import allCases from "camac-ng/gql/queries/all-cases";
 import { dropTask } from "ember-concurrency-decorators";
-
-import createWorkItem from "../../../../../gql/mutations/create-work-item";
+import moment from "moment";
 
 export default class WorkItemNewController extends Controller {
-  queryParams = ["case"];
-
   @service store;
   @service apollo;
   @service notifications;
@@ -23,23 +22,31 @@ export default class WorkItemNewController extends Controller {
   @tracked responsibleUser = "";
   @tracked title = "";
   @tracked description = "";
-  @tracked deadline = new Date();
+  @tracked deadline = moment();
   @tracked notificationCompleted = true;
   @tracked notificationDeadline = true;
 
   @dropTask
   *getData() {
-    const instance = yield this.store.findRecord(
-      "instance",
-      this.shoebox.content.entrypoint.models[0].id,
-      { include: "involved_services" }
-    );
-    const users = yield this.store.query("user", {
+    const instance = yield this.store.findRecord("instance", this.model.id, {
+      include: "involved_services"
+    });
+
+    this.users = yield this.store.query("user", {
       service: instance.involvedServices.map(service => service.id).join(",")
     });
 
+    this.case = yield this.apollo.query(
+      {
+        query: allCases,
+        variables: {
+          metaValueFilter: [{ key: "camac-instance-id", value: this.model.id }]
+        }
+      },
+      "allCases.edges.firstObject.node.id"
+    );
+
     this.services = instance.involvedServices;
-    this.users = users;
   }
 
   @dropTask
@@ -63,6 +70,8 @@ export default class WorkItemNewController extends Controller {
           }
         }
       });
+
+      this.notifications.success(this.intl.t("workItem.saveSuccess"));
     } catch (error) {
       this.notifications.error(this.intl.t("workItemList.all.saveError"));
     }
@@ -70,14 +79,14 @@ export default class WorkItemNewController extends Controller {
 
   get selectedOwnService() {
     return (
-      this.responsibleService.id === this.shoebox.content.serviceId.toString()
+      parseInt(this.responsibleService.id) === this.shoebox.content.serviceId
     );
   }
 
   get ownServiceUsers() {
     return this.users.filter(
       user =>
-        user.service.get("id") === this.shoebox.content.serviceId.toString()
+        parseInt(user.service.get("id")) === this.shoebox.content.serviceId
     );
   }
 
