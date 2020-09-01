@@ -792,6 +792,7 @@
         "info-bodenbelastungen",
         "info-200m3-bauabfalle",
         "info-landwirtschaft-veranderung-tierbestand",
+        "info-landwirtschaft-formular-tierbestand",
         "info-landwirtschaft-grundriss-stall",
         "info-nlbuaab",
         "info-nlbuaab-anlage",
@@ -2616,7 +2617,7 @@
     },
     "landwirtschaft-veranderung-tierbestand": {
       "label": "Führt das Vorhaben zu einer Veränderung des Tierbestandes (Art / Menge der Tiere)?",
-      "hint": "Wenn das Bauvorhaben zu einer Veränderung des Tierbestandes führt, ist die Frage mit \"Ja\" zu beantworten und die Zusammensetzung des Tierbestandes (Tierarten) und die Anzahl künftig auf dem Betrieb gehaltenen Tiere gesamthaft anzugeben. Für die Angabe des Tierbestandes ist vorerst noch die Seite 3 des alten [Formulars Z11] (https://www.sz.ch/public/upload/assets/9824/Z11_Landw_Bauvorhaben.pdf) auszufüllen und bei den Gesuchsunterlagen hochzuladen.",
+      "hint": "Wenn das Bauvorhaben zu einer Veränderung des Tierbestandes führt, ist die Frage mit \"Ja\" zu beantworten und die Zusammensetzung des Tierbestandes (Tierarten) und die Anzahl künftig auf dem Betrieb gehaltenen Tiere gesamthaft anzugeben. Für die Angabe des Tierbestandes ist das separate <a href='/assets/documents/Formular-Tierbestand.pdf' title='Herunterladen'>Formular Tierbestand</a> auszufüllen und bei den Gesuchsunterlagen hochzuladen.",
       "type": "radio",
       "required": true,
       "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && 'Stallgebäude' in 'landwirtschaft-bereiche-baute'|value",
@@ -6266,6 +6267,15 @@
     },
     "info-landwirtschaft-veranderung-tierbestand": {
       "label": "Tabelle Tierbestand ausfüllen und dem Gesuch beilegen.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'landwirtschaft-veranderung-tierbestand'|value == 'Ja'",
+      "config": {
+        "options": ["Vorhanden"]
+      }
+    },
+    "info-landwirtschaft-formular-tierbestand": {
+      "label": "Bitte füllen Sie das <a href='/assets/documents/Formular-Tierbestand.pdf' title='Herunterladen'>Formular Tierbestand</a> aus und legen Sie es den Gesuchsunterlagen bei.",
       "type": "checkbox",
       "required": false,
       "active-expression": "'landwirtschaft-veranderung-tierbestand'|value == 'Ja'",
