@@ -6531,7 +6531,7 @@
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "template": "zirkulation-gestartet4"
+      "template": "zirkulation-gestartet1"
     },
     "model": "core.anotification",
     "pk": 973
@@ -6540,7 +6540,7 @@
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "template": "zirkulation-gestartet5"
+      "template": "zirkulation-gestartet1"
     },
     "model": "core.anotification",
     "pk": 978
@@ -6621,7 +6621,7 @@
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "template": "zirkulation-gestartet6"
+      "template": "zirkulation-gestartet1"
     },
     "model": "core.anotification",
     "pk": 1149
@@ -6630,7 +6630,7 @@
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "template": "zirkulation-gestartet7"
+      "template": "zirkulation-gestartet1"
     },
     "model": "core.anotification",
     "pk": 1180
@@ -6639,7 +6639,7 @@
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "template": "zirkulation-gestartet8"
+      "template": "zirkulation-gestartet1"
     },
     "model": "core.anotification",
     "pk": 1207
@@ -6648,7 +6648,7 @@
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "template": "zirkulation-gestartet9"
+      "template": "zirkulation-gestartet1"
     },
     "model": "core.anotification",
     "pk": 1212
@@ -6657,7 +6657,7 @@
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "template": "zirkulation-gestartet10"
+      "template": "zirkulation-gestartet1"
     },
     "model": "core.anotification",
     "pk": 1231
@@ -6666,7 +6666,7 @@
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "template": "zirkulation-gestartet11"
+      "template": "zirkulation-gestartet1"
     },
     "model": "core.anotification",
     "pk": 1236
@@ -6675,7 +6675,7 @@
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "template": "zirkulation-gestartet12"
+      "template": "zirkulation-gestartet1"
     },
     "model": "core.anotification",
     "pk": 1281
@@ -6684,7 +6684,7 @@
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "template": "zirkulation-gestartet12"
+      "template": "zirkulation-gestartet1"
     },
     "model": "core.anotification",
     "pk": 1286
@@ -6765,7 +6765,7 @@
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "template": "zirkulation-gestartet12"
+      "template": "zirkulation-gestartet1"
     },
     "model": "core.anotification",
     "pk": 1374
@@ -6774,7 +6774,7 @@
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "template": "zirkulation-gestartet12"
+      "template": "zirkulation-gestartet1"
     },
     "model": "core.anotification",
     "pk": 1375
@@ -51344,30 +51344,6 @@
   },
   {
     "fields": {
-      "body": "Die Zirkulation der Instanz {{INSTANCE_ID}} wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN\r\n\r\n-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)\r\n-  Kurzantwort ausw\u00e4hlen (speichern)\r\n-  Art der Sachbearbeitung ausw\u00e4hlen (speichern)\r\n-  Senden\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nBaudirektion Uri\r\nKoordinationsstelle f\u00fcr Bewilligungs- und Plangenehmigungsverfahren (PGV)\r\nKlausenstrasse 2\r\n6460 Altdorf\r\n\r\nKontakt f\u00fcr Bewilligungsverfahren: Bruno Scheiber, Tel.  041 875 26 81, E-Mail: bruno.scheiber@ur.ch\r\nKontakt f\u00fcr Plangenehmigungsverfahren: Fredy Bissig, Tel. 041 875 26 09, E-Mail: fredy.bissig@ur.ch",
-      "purpose": "Zirkulation gestartet - Koordinationsstelle Baudirektion BD",
-      "service": null,
-      "slug": "zirkulation-gestartet4",
-      "subject": "Zirkulation gestartet",
-      "type": "email"
-    },
-    "model": "notification.notificationtemplate",
-    "pk": 973
-  },
-  {
-    "fields": {
-      "body": "Die Zirkulation der Instanz {{INSTANCE_ID}} wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN\r\n\r\n-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)\r\n-  Kurzantwort ausw\u00e4hlen (speichern)\r\n-  Art der Sachbearbeitung ausw\u00e4hlen (speichern)\r\n-  Senden\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nBaudirektion Uri\r\nKoordinationsstelle f\u00fcr Bewilligungsverfahren\r\nKlausenstrasse 2\r\n6460 Altdorf\r\n\r\nTel.  041 875 26 81\r\nE-Mail: viktor.arnold@ur.ch",
-      "purpose": "Zirkulation gestartet - Koordinationsstelle Baudirektion BD",
-      "service": null,
-      "slug": "zirkulation-gestartet5",
-      "subject": "Zirkulation gestartet",
-      "type": "email"
-    },
-    "model": "notification.notificationtemplate",
-    "pk": 978
-  },
-  {
-    "fields": {
       "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nStatusmeldung zum Stand des Bewilligungsverfahrens\nNACHFORDERUNG\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nWir danken Ihnen f\u00fcr die Erfassung des Dossiers mit der ID {{INSTANCE_ID}}. Nach einer ersten Pr\u00fcfung der Unterlagen stellen wir fest, dass diverse Unterlagen / Angaben fehlen. Damit wir das Pr\u00fcfverfahren er\u00f6ffnen k\u00f6nnen, bitten wir Sie, die fehlenden Angaben gem\u00e4ss Angaben im Portal noch nachzuliefern. Bitte beachten Sie, dass das Dossier nach erfolgtem Upload der zus\u00e4tzlichen Angaben nochmals gesendet werden muss (Button \"Dossier Senden\" bet\u00e4tigen):\n\nMit freundlichen Gr\u00fcssen\nGemeindebaubeh\u00f6rde {{INSTANCE_LOCATION}}",
       "purpose": "Nachforderung zus\u00e4tzlicher Unterlagen - Sekretariat der Gemeindebaubeh\u00f6rde",
       "service": null,
@@ -51461,90 +51437,6 @@
     },
     "model": "notification.notificationtemplate",
     "pk": 1132
-  },
-  {
-    "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nNEUE PENDENZ\r\nDie Zirkulation der Instanz {{INSTANCE_ID}} wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBEARBEITUNG IM CAMAC\r\n- Upload Verf\u00fcgung / Stellungnahme (bitte Scan - Dokument inkl. Unterschrift hochladen).\r\n- Kurzantwort ausw\u00e4hlen.\r\n- Art der Sachbearbeitung ausw\u00e4hlen.\r\n- Kurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde erfassen.\r\n- Geb\u00fchren erfassen.\r\n- Senden\r\n\r\nAKTENNACHFORDERUNG\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern. Dazu setzen Sie das Dossier in den Status NFD (Button \u00abNachforderung\u00bb). Im daf\u00fcr vorgesehenen Feld bitte eintragen, bei wem, welche Unterlagen nachgefordert wurden. Dossier im Status NFD (Pendenz beim Gesuchsteller) werden blau hinterlegt.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Umweltschutz\r\n\r\nKlausenstrasse 4 \r\n6460 Altdorf\r\n\r\nTelefon:   041 875 24 30\r\nTelefax:   041 875 20 88\r\nE-Mail:   afu@ur.ch",
-      "purpose": "Zirkulation gestartet - Koordinationsstelle Umweltschutz AfU",
-      "service": null,
-      "slug": "zirkulation-gestartet6",
-      "subject": "Zirkulation gestartet",
-      "type": "email"
-    },
-    "model": "notification.notificationtemplate",
-    "pk": 1149
-  },
-  {
-    "fields": {
-      "body": "Die Zirkulation der Instanz {{INSTANCE_ID}} wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN\r\n\r\n-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)\r\n-  Kurzantwort ausw\u00e4hlen (speichern)\r\n-  Art der Sachbearbeitung ausw\u00e4hlen (speichern)\r\n-  Senden\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Umweltschutz\r\n\r\nKlausenstrasse 4 \r\n6460 Altdorf\r\n\r\nTelefon:   041 875 24 30\r\nTelefax:   041 875 20 88\r\nE-Mail:   afu@ur.ch",
-      "purpose": "Zirkulation gestartet - Koordinationsstelle Umweltschutz AfU",
-      "service": null,
-      "slug": "zirkulation-gestartet7",
-      "subject": "Zirkulation gestartet",
-      "type": "email"
-    },
-    "model": "notification.notificationtemplate",
-    "pk": 1180
-  },
-  {
-    "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nNEUE PENDENZ\r\nDie Zirkulation der Instanz {{INSTANCE_ID}} wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBEARBEITUNG IM CAMAC\r\n- Upload Verf\u00fcgung / Stellungnahme (bitte Scan - Dokument inkl. Unterschrift hochladen).\r\n- Kurzantwort ausw\u00e4hlen.\r\n- Art der Sachbearbeitung ausw\u00e4hlen.\r\n- Kurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde erfassen.\r\n- Geb\u00fchren erfassen.\r\n- Senden\r\n\r\nAKTENNACHFORDERUNG\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern. Dazu setzen Sie das Dossier in den Status NFD (Button \u00abNachforderung\u00bb). Im daf\u00fcr vorgesehenen Feld bitte eintragen, bei wem, welche Unterlagen nachgefordert wurden. Dossier im Status NFD (Pendenz beim Gesuchsteller) werden blau hinterlegt.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Landwirtschaft\r\n\r\nKlausenstrasse 4 \r\n6460 Altdorf\r\n\r\nTelefon:   041 875 23 00\r\nTelefax:   041 875 24 12\r\nE-Mail:   ala.vd@ur.ch",
-      "purpose": "Zirkulation gestartet - Koordinationsstelle Landwirtschaft ALA",
-      "service": null,
-      "slug": "zirkulation-gestartet8",
-      "subject": "Zirkulation gestartet",
-      "type": "email"
-    },
-    "model": "notification.notificationtemplate",
-    "pk": 1207
-  },
-  {
-    "fields": {
-      "body": "Die Zirkulation der Instanz {{INSTANCE_ID}} wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN\r\n\r\n-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)\r\n-  Kurzantwort ausw\u00e4hlen (speichern)\r\n-  Art der Sachbearbeitung ausw\u00e4hlen (speichern)\r\n-  Senden\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Landwirtschaft\r\n\r\nKlausenstrasse 4 \r\n6460 Altdorf\r\n\r\nTelefon:   041 875 23 00\r\nTelefax:   041 875 24 12\r\nE-Mail:   ala.vd@ur.ch",
-      "purpose": "Zirkulation gestartet - Koordinationsstelle Landwirtschaft ALA",
-      "service": null,
-      "slug": "zirkulation-gestartet9",
-      "subject": "Zirkulation gestartet",
-      "type": "email"
-    },
-    "model": "notification.notificationtemplate",
-    "pk": 1212
-  },
-  {
-    "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nNEUE PENDENZ\r\nDie Zirkulation der Instanz {{INSTANCE_ID}} wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBEARBEITUNG IM CAMAC\r\n- Upload Verf\u00fcgung / Stellungnahme (bitte Scan - Dokument inkl. Unterschrift hochladen).\r\n- Kurzantwort ausw\u00e4hlen.\r\n- Art der Sachbearbeitung ausw\u00e4hlen.\r\n- Kurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde erfassen.\r\n- Geb\u00fchren erfassen.\r\n- Senden\r\n\r\nAKTENNACHFORDERUNG\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern. Dazu setzen Sie das Dossier in den Status NFD (Button \u00abNachforderung\u00bb). Im daf\u00fcr vorgesehenen Feld bitte eintragen, bei wem, welche Unterlagen nachgefordert wurden. Dossier im Status NFD (Pendenz beim Gesuchsteller) werden blau hinterlegt.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Energie\r\n\r\nKlausenstrasse 2\r\n6460 Altdorf\r\n\r\nTelefon:   041 875 26 88\r\nTelefax:   041 875 26 10\r\nE-Mail:   energie@ur.ch",
-      "purpose": "Zirkulation gestartet - Koordinationsstelle Energie AfE",
-      "service": null,
-      "slug": "zirkulation-gestartet10",
-      "subject": "Zirkulation gestartet",
-      "type": "email"
-    },
-    "model": "notification.notificationtemplate",
-    "pk": 1231
-  },
-  {
-    "fields": {
-      "body": "Die Zirkulation der Instanz {{INSTANCE_ID}} wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN\r\n\r\n-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)\r\n-  Kurzantwort ausw\u00e4hlen (speichern)\r\n-  Art der Sachbearbeitung ausw\u00e4hlen (speichern)\r\n-  Senden\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Energie\r\n\r\nKlausenstrasse 2\r\n6460 Altdorf\r\n\r\nTelefon:   041 875 26 88\r\nTelefax:   041 875 26 10\r\nE-Mail:   energie@ur.ch",
-      "purpose": "Zirkulation gestartet - Koordinationsstelle Energie AfE",
-      "service": null,
-      "slug": "zirkulation-gestartet11",
-      "subject": "Zirkulation gestartet",
-      "type": "email"
-    },
-    "model": "notification.notificationtemplate",
-    "pk": 1236
-  },
-  {
-    "fields": {
-      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\n\n\nSehr geehrte Dame\n\nSehr geehrter Herr\n\n\n\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\n\n\n\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN:\n\n- Upload Verf\u00fcgung / Stellungnahme / Entscheiddokumente (bitte Scan - Dokument inkl. Unterschrift hochladen).\n\n- Kurzantwort ausw\u00e4hlen\n\n- Art der Sachbearbeitung ausw\u00e4hlen\n\n- Allenfalls Kurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde erfassen.\n\n- Allf\u00e4llige Geb\u00fchren erfassen.\n\n- Senden\n\n\n\n\n\nKurzkommentare f\u00fcr die Koordinationsstelle k\u00f6nnen direkt im Camac erfasst werden.\n\n\n\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern.\n\nDazu setzen Sie das Dossier in den Status NFD (Button \u00abNachforderung\u00bb). Im daf\u00fcr vorgesehenen Feld bitte eintragen, bei wem, welche Unterlagen nachgefordert wurden. Dossier im Status NFD (Pendenz beim Gesuchsteller) werden blau hinterlegt.\n\n\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n",
-      "purpose": "Zirkulation gestartet - Koordinationsstelle Forst und Jagd AFJ, Koordinationsstelle Sicherheitsdi...",
-      "service": null,
-      "slug": "zirkulation-gestartet12",
-      "subject": "Zirkulation gestartet",
-      "type": "email"
-    },
-    "model": "notification.notificationtemplate",
-    "pk": 1281
   },
   {
     "fields": {
