@@ -73,6 +73,11 @@ class User(AbstractBaseUser):
     def is_active(self):
         return not self.disabled
 
+    def get_default_group(self):
+        user_group = UserGroup.objects.filter(user=self, default_group=True).first()
+        if user_group:
+            return user_group.group
+
     class Meta:
         managed = True
         db_table = "USER"
