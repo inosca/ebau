@@ -8,6 +8,7 @@ import jinja2
 from django.conf import settings
 from django.core.mail import EmailMessage
 from django.db.models import Q, Sum
+from django.forms.models import model_to_dict
 from django.utils import timezone
 from django.utils.text import slugify
 from django.utils.translation import gettext_noop
@@ -110,6 +111,8 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     billing_total_kanton = serializers.SerializerMethodField()
     billing_total = serializers.SerializerMethodField()
     my_activations = serializers.SerializerMethodField()
+
+    sender_service_address = serializers.SerializerMethodField()
 
     vorhaben = serializers.SerializerMethodField()
     parzelle = serializers.SerializerMethodField()
@@ -365,6 +368,17 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return instance.activations.filter(
             circulation_state_id=be_constants.CIRCULATION_STATE_WORKING
         ).count()
+
+    def get_sender_service_address(self, instance):
+        if "request" not in self.context:
+            # in some tests, the serializer is initialized
+            # with limited context
+            return ""
+        service = self.context["request"].group.service
+
+        address_template = "{{name}}\n{{address}}\n{{zip}} {{city}}\n"
+
+        return jinja2.Template(address_template).render(model_to_dict(service))
 
     def to_representation(self, instance):
         ret = super().to_representation(instance)
