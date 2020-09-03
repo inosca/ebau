@@ -106,7 +106,7 @@
 </table>
 
 <button {{on "click" this.newWorkItem}} class="button btn buttonstyle success" type="button">
-  {{t "workItemList.instance.newTask"}}
+  <LinkTo @route="work-items.instance.new">{{t "workItemList.instance.newTask"}}</LinkTo>
 </button>
 
 <h2 class="work-item-list-instance-title">

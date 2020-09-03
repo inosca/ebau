@@ -107,3 +107,4 @@ workItem:
   closedAt: "Erledigt am"
 
   saveSuccess: "Aufgabe erfolgreich gespeichert"
+  fetchError: "Fehler beim holen der Daten"
