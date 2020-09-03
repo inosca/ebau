@@ -1362,6 +1362,34 @@
   {
     "fields": {
       "available_action": "case",
+      "button": 20022,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150034
+  },
+  {
+    "fields": {
+      "available_action": "case",
+      "button": 140000,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150035
+  },
+  {
+    "fields": {
+      "available_action": "case",
       "button": 150000,
       "description": null,
       "error_message": null,
@@ -1371,7 +1399,7 @@
       "success_message": null
     },
     "model": "core.action",
-    "pk": 150033
+    "pk": 150036
   },
   {
     "fields": {
@@ -1610,6 +1638,27 @@
     },
     "model": "core.action",
     "pk": 1200121
+  },
+  {
+    "fields": {
+      "process_type": "suspend"
+    },
+    "model": "core.actioncase",
+    "pk": 150034
+  },
+  {
+    "fields": {
+      "process_type": "resume"
+    },
+    "model": "core.actioncase",
+    "pk": 150035
+  },
+  {
+    "fields": {
+      "process_type": "cancel"
+    },
+    "model": "core.actioncase",
+    "pk": 150036
   },
   {
     "fields": {
@@ -2813,15 +2862,39 @@
   },
   {
     "fields": {
-      "action": 150033,
+      "action": 150034,
       "description": null,
       "error_message": null,
       "language": "de",
-      "name": "Case abbrechen",
+      "name": "Suspend case",
       "success_message": null
     },
     "model": "core.actiont",
-    "pk": 150039
+    "pk": 150040
+  },
+  {
+    "fields": {
+      "action": 150035,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Resume case",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150041
+  },
+  {
+    "fields": {
+      "action": 150036,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Cancel case",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150042
   },
   {
     "fields": {

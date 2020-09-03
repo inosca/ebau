@@ -86,7 +86,7 @@ export default class WorkItemsInstanceController extends Controller {
 
   get doneWorkItems() {
     return this.workItemsQuery.value.filter(workItem => {
-      return workItem.raw.status.toLowerCase() !== "ready";
+      return workItem.raw.status.toLowerCase() === "completed";
     });
   }
 

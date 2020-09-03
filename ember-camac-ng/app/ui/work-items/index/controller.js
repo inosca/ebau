@@ -82,7 +82,7 @@ export default class WorkItemsIndexController extends Controller {
     }
 
     if (this.status === "closed") {
-      filter.push({ status: "READY", invert: true });
+      filter.push({ status: "COMPLETED" });
     } else {
       filter.push({ status: "READY" });
     }
