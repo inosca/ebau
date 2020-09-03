@@ -1,5 +1,5 @@
 import Controller from "@ember/controller";
-import { action, set } from "@ember/object";
+import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import completeWorkItem from "camac-ng/gql/mutations/complete-workitem";
 import saveWorkItem from "camac-ng/gql/mutations/save-workitem";
@@ -16,8 +16,11 @@ export default class WorkItemsInstanceEditController extends Controller {
 
   get responsibleUsers() {
     return this.userChoices?.filter(user =>
-      this.model.assignedUsers.includes(user.id)
+      this.model.assignedUsers.includes(user.username)
     );
+  }
+  set responsibleUsers(users) {
+    this.model.assignedUsers = users.map(user => user.username);
   }
 
   get userChoices() {
@@ -25,7 +28,7 @@ export default class WorkItemsInstanceEditController extends Controller {
   }
 
   get isManualWorkItem() {
-    return this.model.raw.task.isMultipleInstance;
+    return this.model.raw.task.slug === "create-manual-workitems";
   }
 
   get isWorkItemCompleted() {
@@ -39,25 +42,23 @@ export default class WorkItemsInstanceEditController extends Controller {
         service: this.shoebox.content.serviceId
       });
     } catch (error) {
-      this.notifications.error(this.intl.t("workitemlist.saveError"));
+      this.notifications.error(this.intl.t("workItem.fetchError"));
     }
   }
 
   @dropTask
   *workItemAssignUsers() {
     try {
-      const usernames = this.responsibleUsers.map(user => user.id);
       yield this.apollo.mutate({
         mutation: saveWorkItem,
         variables: {
           input: {
             workItem: this.model.id,
-            assignedUsers: usernames
+            assignedUsers: this.model.assignedUsers
           }
         }
       });
-
-      set(this.model, "assignedUsers", usernames);
+      this.notifications.success(this.intl.t("workItem.saveSuccess"));
     } catch (error) {
       this.notifications.error(this.intl.t("workItemList.all.saveError"));
     }
@@ -85,7 +86,7 @@ export default class WorkItemsInstanceEditController extends Controller {
         }
       });
 
-      set(this.model, "status", "completed");
+      this.transitionToRoute("work-items");
     } catch (error) {
       this.notifications.error(this.intl.t("workItemList.all.saveError"));
     }

@@ -14,9 +14,9 @@
       @searchField="name"
       @renderInPlace={{true}}
       @options={{this.services}}
-      @selected={{this.responsibleService}}
+      @selected={{this.workItem.responsibleService}}
       @noMatchesMessage={{t "global.noMatch"}}
-      @onChange={{fn (mut this.responsibleService)}} as |responsibleService|
+      @onChange={{fn (mut this.workItem.responsibleService)}} as |responsibleService|
     >
       {{responsibleService.name}}
     </PowerSelect>
@@ -28,10 +28,10 @@
         @searchEnabled={{true}}
         @searchField="fullName"
         @renderInPlace={{true}}
-        @options={{this.ownServiceUsers}}
-        @selected={{this.responsibleUser}}
+        @options={{this.users}}
+        @selected={{this.workItem.responsibleUser}}
         @noMatchesMessage={{t "global.noMatch"}}
-        @onChange={{fn (mut this.responsibleUser)}} as |responsibleUser|
+        @onChange={{fn (mut this.workItem.responsibleUser)}} as |responsibleUser|
       >
         {{responsibleUser.fullName}}
       </PowerSelect>
@@ -39,17 +39,17 @@
   {{/if}}
   <label class="work-item-input">
     {{t "workItem.title"}}
-    <Input @type="text" @value={{mut this.title}}/>
+    <Input @type="text" @value={{mut this.workItem.title}}/>
   </label>
   <label class="work-item-input">
     {{t "workItem.description"}}
-    <Textarea @value={{this.description}}/>
+    <Textarea @value={{this.workItem.description}}/>
   </label>
   <label class="work-item-input">
     {{t "workItem.deadline"}}
     <PikadayInput
       class="deadline"
-      @value={{this.deadline}}
+      @value={{this.workItem.deadline}}
       @useUTC={{true}}
       @onSelection={{this.setDeadline}}
     />
@@ -58,11 +58,11 @@
   <div class="work-item-input">
     {{t "workItem.notifications"}}
     <label class="checkbox-label">
-      <Input @type="checkbox" @checked={{mut this.notificationCompleted}}/>
+      <Input @type="checkbox" @checked={{mut this.workItem.notificationCompleted}}/>
       {{t "workItem.notifyCompleted"}}
     </label>
     <label class="checkbox-label">
-      <Input @type="checkbox" @checked={{mut this.notificationDeadline}}/>
+      <Input @type="checkbox" @checked={{mut this.workItem.notificationDeadline}}/>
       {{t "workItem.notifyDeadline"}}
     </label>
   </div>

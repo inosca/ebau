@@ -6,7 +6,9 @@ module("Unit | Controller | work-items.instance", function(hooks) {
 
   // Replace this with your real tests.
   test("it exists", function(assert) {
-    const controller = this.owner.lookup("controller:work-items.instance.index");
+    const controller = this.owner.lookup(
+      "controller:work-items.instance.index"
+    );
     assert.ok(controller);
   });
 });

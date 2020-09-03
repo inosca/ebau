@@ -131,7 +131,7 @@
   <form {{on "submit" (perform this.finishWorkItem)}} class="form work-item-form">
     <label class="work-item-input">
       {{t "workItem.comment"}}
-      <Textarea @value={{mut @model.meta.completion-comment}}/>
+      <Textarea @value={{@model.meta.completion-comment}}/>
     </label>
 
     <button class="button buttonstyle btn success" type="submit">{{t "workItem.finishWorkItem"}}</button>
