@@ -27,7 +27,7 @@
     "broccoli-asset-rev": "^3.0.0",
     "ember-apollo-client": "^2.1.0",
     "ember-auto-import": "^1.5.3",
-    "ember-caluma": "^6.2.0",
+    "ember-caluma": "^6.2.1",
     "ember-cli": "~3.16.1",
     "ember-cli-app-version": "^3.2.0",
     "ember-cli-babel": "^7.19.0",
