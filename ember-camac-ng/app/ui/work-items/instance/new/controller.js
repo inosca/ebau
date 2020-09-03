@@ -1,11 +1,22 @@
 import Controller from "@ember/controller";
-import { action } from "@ember/object";
+import EmberObject, { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import createWorkItem from "camac-ng/gql/mutations/create-work-item";
 import allCases from "camac-ng/gql/queries/all-cases";
 import { dropTask } from "ember-concurrency-decorators";
 import moment from "moment";
+
+class newWorkItem extends EmberObject {
+  @tracked case;
+  @tracked responsibleService = {};
+  @tracked responsibleUser = {};
+  @tracked title = "";
+  @tracked description = "";
+  @tracked deadline = moment();
+  @tracked notificationCompleted = true;
+  @tracked notificationDeadline = true;
+}
 
 export default class WorkItemNewController extends Controller {
   @service store;
@@ -16,15 +27,7 @@ export default class WorkItemNewController extends Controller {
 
   @tracked services = [];
   @tracked users = [];
-
-  @tracked case;
-  @tracked responsibleService = "";
-  @tracked responsibleUser = "";
-  @tracked title = "";
-  @tracked description = "";
-  @tracked deadline = moment();
-  @tracked notificationCompleted = true;
-  @tracked notificationDeadline = true;
+  @tracked workItem = newWorkItem.create();
 
   @dropTask
   *getData() {
@@ -32,9 +35,12 @@ export default class WorkItemNewController extends Controller {
       include: "involved_services"
     });
 
-    this.users = yield this.store.query("user", {
-      service: instance.involvedServices.map(service => service.id).join(",")
-    });
+    const service = yield this.store.findRecord(
+      "service",
+      this.shoebox.content.serviceId,
+      { include: "users" }
+    );
+    this.users = service.users;
 
     this.case = yield this.apollo.query(
       {
@@ -56,16 +62,16 @@ export default class WorkItemNewController extends Controller {
         mutation: createWorkItem,
         variables: {
           input: {
-            case: this.case,
+            case: this.workItem.case,
             multipleInstanceTask: "create-manual-workitems",
-            name: this.title,
-            description: this.description,
-            addressedGroups: [this.responsibleService.id],
-            assignedUsers: [this.responsibleUser.username],
-            deadline: this.deadline,
+            name: this.workItem.title,
+            description: this.workItem.description,
+            addressedGroups: [this.workItem.responsibleService.id],
+            assignedUsers: [this.workItem.responsibleUser.username],
+            deadline: this.workItem.deadline,
             meta: JSON.stringify({
-              "notify-complete": this.notificationCompleted,
-              "notify-deadline": this.notificationDeadline
+              "notify-complete": this.workItem.notificationCompleted,
+              "notify-deadline": this.workItem.notificationDeadline
             })
           }
         }
@@ -79,19 +85,13 @@ export default class WorkItemNewController extends Controller {
 
   get selectedOwnService() {
     return (
-      parseInt(this.responsibleService.id) === this.shoebox.content.serviceId
-    );
-  }
-
-  get ownServiceUsers() {
-    return this.users.filter(
-      user =>
-        parseInt(user.service.get("id")) === this.shoebox.content.serviceId
+      parseInt(this.workItem.responsibleService.id) ===
+      this.shoebox.content.serviceId
     );
   }
 
   @action
   setDeadline(value) {
-    this.deadline = value;
+    this.workItem.deadline = value;
   }
 }

@@ -49,9 +49,11 @@ def copy_paper_answer(sender, work_item, **kwargs):
         try:
             work_item.document.answers.update_or_create(
                 question_id="papierdossier",
-                value=work_item.case.document.answers.get(
-                    question_id="papierdossier"
-                ).value,
+                defaults={
+                    "value": work_item.case.document.answers.get(
+                        question_id="papierdossier"
+                    ).value,
+                },
             )
         except caluma_form_models.Answer.DoesNotExist:
             log.warning(
