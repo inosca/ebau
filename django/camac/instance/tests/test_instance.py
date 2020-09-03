@@ -22,29 +22,36 @@ from camac.instance import serializers
 @pytest.mark.parametrize(
     "role__name,instance__user,num_queries,editable",
     [
-        ("Applicant", LazyFixture("admin_user"), 14, {"instance", "form", "document"}),
+        ("Applicant", LazyFixture("admin_user"), 17, {"instance", "form", "document"}),
         # reader should see instances from other users but has no editables
-        ("Reader", LazyFixture("user"), 14, set()),
-        ("Canton", LazyFixture("user"), 14, {"form", "document"}),
-        ("Municipality", LazyFixture("user"), 14, {"form", "document"}),
-        ("Service", LazyFixture("user"), 14, {"document"}),
-        ("Coordination", LazyFixture("user"), 14, {"instance", "form", "document"}),
+        ("Reader", LazyFixture("user"), 17, set()),
+        ("Canton", LazyFixture("user"), 17, {"form", "document"}),
+        ("Municipality", LazyFixture("user"), 17, {"form", "document"}),
+        ("Service", LazyFixture("user"), 17, {"document"}),
+        ("Coordination", LazyFixture("user"), 17, {"instance", "form", "document"}),
     ],
 )
 def test_instance_list(
     admin_client,
-    instance_service,
+    instance,
     activation,
     num_queries,
     group,
     django_assert_num_queries,
     editable,
     group_location_factory,
+    instance_service_factory,
+    circulation_factory,
+    activation_factory,
 ):
     url = reverse("instance-list")
 
     # verify that two locations may be assigned to group
     group_location_factory(group=group)
+
+    service = instance_service_factory(instance=instance).service
+    circulation = circulation_factory(service=service)
+    activation_factory(service=service, circulation=circulation)
 
     included = serializers.InstanceSerializer.included_serializers
     with django_assert_num_queries(num_queries):
@@ -60,7 +67,7 @@ def test_instance_list(
 
     json = response.json()
     assert len(json["data"]) == 1
-    assert json["data"][0]["id"] == str(instance_service.instance.pk)
+    assert json["data"][0]["id"] == str(instance.pk)
     assert set(json["data"][0]["meta"]["editable"]) == set(editable)
     # included previous_instance_state and instance_state are the same
     assert len(json["included"]) == len(included) - 1

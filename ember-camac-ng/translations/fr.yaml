@@ -112,3 +112,4 @@ workItem:
   closedAt: "Fait le"
 
   saveSuccess: "Tâche sauvée avec succès"
+  fetchError: "Erreur lors de l'extraction de données"

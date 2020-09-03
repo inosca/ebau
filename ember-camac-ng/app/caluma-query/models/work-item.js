@@ -114,7 +114,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
       }
     }
     task {
-      isMultipleInstance
+      slug
     }
   }`;
 }
