@@ -2,11 +2,11 @@ import Controller from "@ember/controller";
 import { action, set } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
+import saveWorkItem from "camac-ng/gql/mutations/save-workitem";
+import getProcessData from "camac-ng/utils/work-item";
 import calumaQuery from "ember-caluma/caluma-query";
 import { allWorkItems } from "ember-caluma/caluma-query/queries";
 import { dropTask } from "ember-concurrency-decorators";
-
-import saveWorkItem from "../../../gql/mutations/save-workitem";
 
 export default class WorkItemsIndexController extends Controller {
   queryParams = ["responsible", "type", "status", "role"];
@@ -30,38 +30,28 @@ export default class WorkItemsIndexController extends Controller {
   get options() {
     return {
       pageSize: 20,
-      processAll: workItems => this.processAll(workItems)
+      processNew: workItems => this.processNew(workItems)
     };
   }
 
-  async processAll(workItems) {
-    let usernames = [this.shoebox.content.username];
-    let instances = [];
-    let services = [];
+  async processNew(workItems) {
+    const { usernames, instanceIds, serviceIds } = getProcessData(workItems);
 
-    workItems.forEach(workItem => {
-      usernames.push(...workItem.assignedUsers);
-      instances.push(workItem.case.meta["camac-instance-id"]);
-      services.push(...workItem.addressedGroups);
+    await this.store.query("user", {
+      username: [
+        ...new Set([...usernames, this.shoebox.content.username])
+      ].join(",")
     });
 
-    usernames = [...new Set(usernames)];
-    instances = [...new Set(instances)];
-    services = [...new Set(services)];
-
-    if (workItems.length) {
-      await this.store.query("user", { username: usernames.join(",") });
-    }
-
-    if (instances.length) {
+    if (instanceIds.length) {
       await this.store.query("instance", {
-        instance_id: instances.join(","),
+        instance_id: instanceIds.join(","),
         include: "form"
       });
     }
 
-    if (services.length) {
-      await this.store.query("service", { service_id: services.join(",") });
+    if (serviceIds.length) {
+      await this.store.query("service", { service_id: serviceIds.join(",") });
     }
 
     return workItems;
@@ -100,7 +90,9 @@ export default class WorkItemsIndexController extends Controller {
   }
 
   @dropTask
-  *fetchMoreWorkItems() {
+  *fetchMoreWorkItems(event) {
+    event.preventDefault();
+
     yield this.workItemsQuery.fetchMore();
   }
 
