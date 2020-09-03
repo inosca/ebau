@@ -55,7 +55,7 @@
     </tr>
   </thead>
   <tbody>
-    {{#if this.workItemsQuery.isLoading}}
+    {{#if (and this.workItemsQuery.isLoading (not this.workItemsQuery.value.length))}}
       <tr>
         <td class="center" colspan="{{if (eq this.role "control") 8 7}}"><LoadingText /></td>
       </tr>
@@ -119,9 +119,15 @@
           <td class="center" colspan="{{if (eq this.role "control") 8 7}}">{{t "workItemList.empty"}}</td>
         </tr>
       {{/each}}
-      {{#if (gt this.workItemsQuery.totalCount this.workItemsQuery.value.length)}}
-        <tr {{on "click" (perform this.fetchMoreWorkItems)}} role="button" class="load-more">
-          <td class="center" colspan="{{if (eq this.role "control") 8 7}}">{{t "workItemList.all.table.loadMore"}}</td>
+      {{#if (or this.workItemsQuery.hasNextPage this.workItemsQuery.isLoading)}}
+        <tr>
+          <td class="center" colspan="{{if (eq this.role "control") 8 7}}">
+            {{#if this.workItemsQuery.isLoading}}
+              <LoadingText />
+            {{else}}
+              <a href="" {{on "click" (perform this.fetchMoreWorkItems)}}>{{t "workItemList.all.table.loadMore"}}</a>
+            {{/if}}
+          </td>
         </tr>
       {{/if}}
     {{/if}}

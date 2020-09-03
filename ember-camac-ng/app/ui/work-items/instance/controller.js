@@ -2,6 +2,7 @@ import Controller from "@ember/controller";
 import { action, set } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
+import getProcessData from "camac-ng/utils/work-item";
 import calumaQuery from "ember-caluma/caluma-query";
 import { allWorkItems } from "ember-caluma/caluma-query/queries";
 import { dropTask } from "ember-concurrency-decorators";
@@ -25,38 +26,26 @@ export default class WorkItemsInstanceController extends Controller {
   get options() {
     return {
       pageSize: 20,
-      processAll: workItems => this.processAll(workItems)
+      processNew: workItems => this.processNew(workItems)
     };
   }
 
-  async processAll(workItems) {
-    let users = [];
-    let instances = [];
-    let services = [];
+  async processNew(workItems) {
+    const { usernames, instanceIds, serviceIds } = getProcessData(workItems);
 
-    workItems.forEach(workItem => {
-      users.push(...workItem.assignedUsers);
-      instances.push(workItem.case.meta["camac-instance-id"]);
-      services.push(...workItem.addressedGroups);
-    });
-
-    users = [...new Set(users)];
-    instances = [...new Set(instances)];
-    services = [...new Set(services)];
-
-    if (workItems.length) {
-      await this.store.query("user", { username: users.join(",") });
+    if (usernames.length) {
+      await this.store.query("user", { username: usernames.join(",") });
     }
 
-    if (instances.length) {
+    if (instanceIds.length) {
       await this.store.query("instance", {
-        instance_id: instances.join(","),
+        instance_id: instanceIds.join(","),
         include: "form"
       });
     }
 
-    if (services.length) {
-      await this.store.query("service", { service_id: services.join(",") });
+    if (serviceIds.length) {
+      await this.store.query("service", { service_id: serviceIds.join(",") });
     }
 
     return workItems;
@@ -68,7 +57,9 @@ export default class WorkItemsInstanceController extends Controller {
       this.role === "control" ? "controllingGroups" : "addressedGroups";
     const filter = [
       { hasDeadline: true },
-      { caseMetaValue: [{ key: "camac-instance-id", value: this.model.id }] },
+      {
+        rootCaseMetaValue: [{ key: "camac-instance-id", value: this.model.id }]
+      },
       { [filterKey]: [this.shoebox.content.serviceId] }
     ];
 
