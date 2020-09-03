@@ -1,0 +1,37 @@
+mutation CreateCirculationWorkflow {
+  saveWorkflow(
+    input: {
+      slug: "circulation"
+      name: "Zirkulation"
+      startTasks: ["write-statement"]
+      allowAllForms: true
+      isPublished: true
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow1 {
+  addWorkflowFlow(
+    input: {
+      workflow: "circulation"
+      tasks: ["write-statement"]
+      next: "['check-statement', 'revise-statement']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow2 {
+  addWorkflowFlow(
+    input: {
+      workflow: "circulation"
+      tasks: ["revise-statement"]
+      next: "['write-statement']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
