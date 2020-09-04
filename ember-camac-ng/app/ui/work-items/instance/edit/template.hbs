@@ -47,37 +47,7 @@
   </div>
 </div>
 
-{{#if this.isManualWorkItem}}
-  <form {{on "submit" (perform this.saveManualWorkItem)}} class="work-item-form">
-    <label class="work-item-input">
-      {{t "workItem.description"}}
-      <Textarea @value={{@model.description}}/>
-    </label>
-    <label class="work-item-input">
-      {{t "workItem.deadline"}}
-      <PikadayInput
-        class="deadline"
-        @value={{@model.deadline}}
-        @useUTC={{true}}
-        @onSelection={{this.setDeadline}}
-      />
-    </label>
-
-    <div class="work-item-input">
-      {{t "workItem.notifications"}}
-      <label class="checkbox-label">
-        <Input @type="checkbox" @checked={{mut @model.meta.notify-complete}}/>
-        {{t "workItem.notifyCompleted"}}
-      </label>
-      <label class="checkbox-label">
-        <Input @type="checkbox" @checked={{mut @model.meta.notify-deadline}}/>
-        {{t "workItem.notifyDeadline"}}
-      </label>
-    </div>
-
-    <button class="button buttonstyle btn success" type="submit">{{t "global.save"}}</button>
-  </form>
-{{else if this.isWorkItemCompleted}}
+{{#if this.isWorkItemCompleted}}
   <div class="work-item-attributes">
     <div class="work-item-attribute">
       <span>{{t "workItem.closedBy"}}</span>
@@ -100,6 +70,36 @@
       {{if @model.meta.completion-comment @model.meta.completion-comment "-"}}
     </div>
   </div>
+{{else if this.isManualWorkItem}}
+  <form {{on "submit" (perform this.saveManualWorkItem)}} class="work-item-form">
+    <label class="work-item-input">
+      {{t "workItem.description"}}
+      <Textarea @value={{@model.description}}/>
+    </label>
+    <label class="work-item-input">
+      {{t "workItem.deadline"}}
+      <PikadayInput
+        class="deadline"
+        @value={{@model.deadline}}
+        @useUTC={{true}}
+        @onSelection={{this.setDeadline}}
+      />
+    </label>
+
+    <div class="work-item-input">
+      {{t "workItem.notifications"}}
+      <label class="checkbox-label">
+        <Input @type="checkbox" @checked={{mut @model.meta.notify-completed}}/>
+        {{t "workItem.notifyCompleted"}}
+      </label>
+      <label class="checkbox-label">
+        <Input @type="checkbox" @checked={{mut @model.meta.notify-deadline}}/>
+        {{t "workItem.notifyDeadline"}}
+      </label>
+    </div>
+
+    <button class="button buttonstyle btn success" type="submit">{{t "global.save"}}</button>
+  </form>
 {{else}}
   <form
     {{did-insert (perform this.fetchUserChoices)}}
@@ -108,24 +108,24 @@
   >
     <label class="work-item-input">
       {{t "workItem.responsiblePerson"}}
-      <PowerSelectMultiple
+      <PowerSelect
         @searchEnabled={{true}}
         @searchField="fullName"
         @renderInPlace={{true}}
         @options={{this.userChoices}}
-        @selected={{this.responsibleUsers}}
+        @selected={{this.responsibleUser}}
         @noMatchesMessage={{t "global.noMatch"}}
-        @onChange={{fn (mut this.responsibleUsers)}} as |responsibleUser|
+        @onChange={{fn (mut this.responsibleUser)}} as |responsibleUser|
       >
         {{responsibleUser.fullName}}
-      </PowerSelectMultiple>
+      </PowerSelect>
     </label>
 
     <button class="button buttonstyle btn success" type="submit">{{t "global.save"}}</button>
   </form>
 {{/if}}
 
-{{#unless this.isWorkItemCompleted}}
+{{#if (and (not this.isWorkItemCompleted) this.isManualWorkItem)}}
   <h2>{{t "workItem.finishWorkItem"}}</h2>
 
   <form {{on "submit" (perform this.finishWorkItem)}} class="form work-item-form">
@@ -136,4 +136,4 @@
 
     <button class="button buttonstyle btn success" type="submit">{{t "workItem.finishWorkItem"}}</button>
   </form>
-{{/unless}}
+{{/if}}

@@ -75,7 +75,7 @@ workItemList:
       markRead: "Als gelesen markieren"
       assignToMe: "Mir zuweisen"
       editWorkitem: "Aufgabe bearbeiten"
-      
+
       loadMore: "Mehr Aufgaben abrufen"
 
   instance:
@@ -93,7 +93,6 @@ workItem:
   notifications: "Notifikationen"
   notifyCompleted: "bei Abschluss"
   notifyDeadline: "bei Fristüberschreitung"
-  saveWorkItem: "Aufgabe speichern"
   users: "Benutzer"
   services: "Fachstellen"
 
