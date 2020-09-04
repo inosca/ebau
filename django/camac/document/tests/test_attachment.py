@@ -15,11 +15,11 @@ from .data import django_file
 @pytest.mark.parametrize(
     "role__name,instance__user,num_queries",
     [
-        ("Applicant", LazyFixture("admin_user"), 8),
-        ("Reader", LazyFixture("user"), 8),
-        ("Canton", LazyFixture("user"), 8),
-        ("Municipality", LazyFixture("user"), 8),
-        ("Service", LazyFixture("user"), 8),
+        ("Applicant", LazyFixture("admin_user"), 13),
+        ("Reader", LazyFixture("user"), 13),
+        ("Canton", LazyFixture("user"), 13),
+        ("Municipality", LazyFixture("user"), 13),
+        ("Service", LazyFixture("user"), 13),
     ],
 )
 def test_attachment_list(
