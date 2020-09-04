@@ -64,7 +64,7 @@
         <tr class="workitem {{workItem.workItemColor}}">
           <td><a href="{{workItem.instanceLink}}">{{workItem.instanceIdentifier}}</a></td>
           <td>{{workItem.instanceName}}</td>
-          <td><LinkTo @route="work-items.instance.edit" @models={{array workItem.instance workItem}}>{{workItem.name}}</LinkTo></td>
+          <td>{{workItem.name}}</td>
           <td>{{moment-from workItem.deadline}}</td>
           <td>
             {{format-date
@@ -106,8 +106,10 @@
                     {{#if (not (contains this.userId workItem.assignedUsers))}}
                       <li {{on "click" (perform this.workItemAssignUser workItem)}} role="button">{{t "workItemList.all.table.assignToMe"}}</li>
                     {{/if}}
-                    {{!-- TODO: link to edit workitem view after its created --}}
-                    <li role="button">{{t "workItemList.all.table.editWorkitem"}}</li>
+                    {{!--
+                      TODO: link to edit workitem view after its created
+                      <li role="button">{{t "workItemList.all.table.editWorkitem"}}</li>
+                    --}}
                   </ul>
                 </div>
               {{/if}}

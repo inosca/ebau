@@ -14,11 +14,11 @@
       @searchField="name"
       @renderInPlace={{true}}
       @options={{this.services}}
-      @selected={{this.workItem.responsibleService}}
+      @selected={{this.responsibleService}}
       @noMatchesMessage={{t "global.noMatch"}}
-      @onChange={{fn (mut this.workItem.responsibleService)}} as |responsibleService|
+      @onChange={{fn (mut this.responsibleService)}} as |service|
     >
-      {{responsibleService.name}}
+      {{service.name}}
     </PowerSelect>
   </label>
   {{#if this.selectedOwnService}}
@@ -29,11 +29,11 @@
         @searchField="fullName"
         @renderInPlace={{true}}
         @options={{this.users}}
-        @selected={{this.workItem.responsibleUser}}
+        @selected={{this.responsibleUser}}
         @noMatchesMessage={{t "global.noMatch"}}
-        @onChange={{fn (mut this.workItem.responsibleUser)}} as |responsibleUser|
+        @onChange={{fn (mut this.responsibleUser)}} as |user|
       >
-        {{responsibleUser.fullName}}
+        {{user.fullName}}
       </PowerSelect>
     </label>
   {{/if}}
@@ -67,5 +67,5 @@
     </label>
   </div>
 
-  <button class="button buttonstyle btn success" type="submit">{{t "workItem.saveWorkItem"}}</button>
+  <button class="button buttonstyle btn success" type="submit">{{t "global.save"}}</button>
 </form>
