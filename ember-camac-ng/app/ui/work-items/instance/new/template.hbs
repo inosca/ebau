@@ -1,11 +1,13 @@
 <Notifications />
 
-<h2>{{t "workItem.createWorkitem"}}</h2>
+<h2>
+  {{t "workItem.createWorkitem"}}
+</h2>
 
 <form
+  class="form work-item-form"
   {{did-insert (perform this.getData)}}
   {{on "submit" (perform this.createWorkItem)}}
-  class="form work-item-form"
 >
   <label class="work-item-input">
     {{t "workItem.responsible"}}
@@ -39,11 +41,11 @@
   {{/if}}
   <label class="work-item-input">
     {{t "workItem.title"}}
-    <Input @type="text" @value={{mut this.workItem.title}}/>
+    <Input @type="text" @value={{mut this.workItem.title}} />
   </label>
   <label class="work-item-input">
     {{t "workItem.description"}}
-    <Textarea @value={{this.workItem.description}}/>
+    <Textarea @value={{this.workItem.description}} />
   </label>
   <label class="work-item-input">
     {{t "workItem.deadline"}}
@@ -58,14 +60,24 @@
   <div class="work-item-input">
     {{t "workItem.notifications"}}
     <label class="checkbox-label">
-      <Input @type="checkbox" @checked={{mut this.workItem.notificationCompleted}}/>
+      <Input
+        @type="checkbox"
+        @checked={{mut this.workItem.notificationCompleted}}
+      />
       {{t "workItem.notifyCompleted"}}
     </label>
     <label class="checkbox-label">
-      <Input @type="checkbox" @checked={{mut this.workItem.notificationDeadline}}/>
+      <Input
+        @type="checkbox"
+        @checked={{mut this.workItem.notificationDeadline}}
+      />
       {{t "workItem.notifyDeadline"}}
     </label>
   </div>
 
-  <button class="button buttonstyle btn success" type="submit">{{t "global.save"}}</button>
+  <div class="buttons">
+    <button class="button buttonstyle btn success" type="submit">
+      {{t "global.save"}}
+    </button>
+  </div>
 </form>
