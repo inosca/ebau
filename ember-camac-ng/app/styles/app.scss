@@ -5,3 +5,7 @@
 .center {
   text-align: center;
 }
+
+$ember-power-select-default-border-radius: 0;
+
+@import "ember-power-select";

@@ -106,8 +106,10 @@
                     {{#if (not (contains this.userId workItem.assignedUsers))}}
                       <li {{on "click" (perform this.workItemAssignUser workItem)}} role="button">{{t "workItemList.all.table.assignToMe"}}</li>
                     {{/if}}
-                    {{!-- TODO: link to edit workitem view after its created --}}
-                    <li role="button">{{t "workItemList.all.table.editWorkitem"}}</li>
+                    {{!--
+                      TODO: link to edit workitem view after its created
+                      <li role="button">{{t "workItemList.all.table.editWorkitem"}}</li>
+                    --}}
                   </ul>
                 </div>
               {{/if}}

@@ -5,7 +5,9 @@ global:
   empty: "Keine Einträge gefunden"
   cancel: "Abbrechen"
   date: "Datum"
-  user: "Von"
+  from: "Von"
+  back: "Zurück"
+  noMatch: "Keine Resultate gefunden"
 
 organisation:
   edit: "Eigene Organisation bearbeiten"
@@ -73,10 +75,35 @@ workItemList:
       markRead: "Als gelesen markieren"
       assignToMe: "Mir zuweisen"
       editWorkitem: "Aufgabe bearbeiten"
-      
+
       loadMore: "Mehr Aufgaben abrufen"
 
   instance:
     currentTasks: "Aktuelle Aufgaben"
     newTask: "Neue Aufgabe"
     finishedTasks: "Abgeschlossene Aufgaben"
+
+workItem:
+  createWorkitem: "Neue Aufgabe"
+  responsible: "Verantwortlich"
+  responsiblePerson: "Verantwortliche Person"
+  title: "Titel"
+  description: "Beschreibung"
+  deadline: "Frist"
+  notifications: "Notifikationen"
+  notifyCompleted: "bei Abschluss"
+  notifyDeadline: "bei Fristüberschreitung"
+  users: "Benutzer"
+  services: "Fachstellen"
+
+  createdAt: "Erstellt am"
+  createdBy: "Erstellt durch"
+  updateWorkItem: "Aufgabe bearbeiten"
+  finishWorkItem: "Aufgabe abschliessen"
+  comment: "Kommentar"
+
+  closedBy: "Erledigt von"
+  closedAt: "Erledigt am"
+
+  saveSuccess: "Aufgabe erfolgreich gespeichert"
+  fetchError: "Fehler beim holen der Daten"

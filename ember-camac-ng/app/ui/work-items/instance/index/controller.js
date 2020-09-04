@@ -7,11 +7,12 @@ import calumaQuery from "ember-caluma/caluma-query";
 import { allWorkItems } from "ember-caluma/caluma-query/queries";
 import { dropTask } from "ember-concurrency-decorators";
 
-export default class WorkItemsInstanceController extends Controller {
+export default class WorkItemsInstanceIndexController extends Controller {
   queryParams = ["role"];
 
   @service store;
   @service shoebox;
+  @service apollo;
 
   @tracked order = [{ attribute: "DEADLINE", direction: "ASC" }];
   // Filters
@@ -79,6 +80,11 @@ export default class WorkItemsInstanceController extends Controller {
     return this.workItemsQuery.value.filter(workItem => {
       return workItem.raw.status.toLowerCase() === "completed";
     });
+  }
+
+  @action
+  newWorkItem() {
+    this.transitionToRoute("work-items.instance.new");
   }
 
   @action
