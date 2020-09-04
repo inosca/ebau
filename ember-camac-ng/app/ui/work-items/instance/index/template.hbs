@@ -63,7 +63,7 @@
       {{#each this.activeWorkItems as |workItem|}}
         <tr>
           <td>
-            <LinkTo @route="work-item.edit" @model={{workItem}}>{{workItem.name}}</LinkTo>
+            <LinkTo @route="work-items.instance.edit" @models={{array workItem.instance workItem}}>{{workItem.name}}</LinkTo>
           </td>
           <td>
             {{moment-from workItem.deadline}}
@@ -136,7 +136,7 @@
       {{#each this.doneWorkItems as |workItem|}}
         <tr>
           <td>
-            <LinkTo @route="work-item.edit" @model={{workItem}}>{{workItem.name}}</LinkTo>
+            <LinkTo @route="work-items.instance.edit" @models={{array workItem.instance workItem}}>{{workItem.name}}</LinkTo>
           </td>
           <td>
             {{format-date

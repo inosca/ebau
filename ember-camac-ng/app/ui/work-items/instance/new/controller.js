@@ -1,5 +1,5 @@
 import Controller from "@ember/controller";
-import EmberObject, { action } from "@ember/object";
+import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import createWorkItem from "camac-ng/gql/mutations/create-work-item";
@@ -7,13 +7,13 @@ import allCases from "camac-ng/gql/queries/all-cases";
 import { dropTask } from "ember-concurrency-decorators";
 import moment from "moment";
 
-class newWorkItem extends EmberObject {
+class NewWorkItem {
   @tracked case;
-  @tracked responsibleService = {};
-  @tracked responsibleUser = {};
+  @tracked addressedGroups = [];
+  @tracked assignedUsers = [];
   @tracked title = "";
   @tracked description = "";
-  @tracked deadline = moment();
+  @tracked deadline = moment().add(10, "days");
   @tracked notificationCompleted = true;
   @tracked notificationDeadline = true;
 }
@@ -27,7 +27,33 @@ export default class WorkItemNewController extends Controller {
 
   @tracked services = [];
   @tracked users = [];
-  @tracked workItem = newWorkItem.create();
+  @tracked workItem = new NewWorkItem();
+
+  get responsibleService() {
+    return this.services.find(service =>
+      this.workItem.addressedGroups.includes(service.id)
+    );
+  }
+
+  set responsibleService(service) {
+    this.workItem.addressedGroups = [String(service.id)];
+  }
+
+  get responsibleUser() {
+    return this.users.find(user =>
+      this.workItem.assignedUsers.includes(user.username)
+    );
+  }
+
+  set responsibleUser(user) {
+    this.workItem.assignedUsers = [user.username];
+  }
+
+  get selectedOwnService() {
+    return (
+      parseInt(this.responsibleService?.id) === this.shoebox.content.serviceId
+    );
+  }
 
   @dropTask
   *getData() {
@@ -56,23 +82,27 @@ export default class WorkItemNewController extends Controller {
   }
 
   @dropTask
-  *createWorkItem() {
+  *createWorkItem(event) {
+    event.preventDefault();
+
     try {
       yield this.apollo.mutate({
         mutation: createWorkItem,
         variables: {
           input: {
-            case: this.workItem.case,
+            case: this.case,
             multipleInstanceTask: "create-manual-workitems",
             name: this.workItem.title,
             description: this.workItem.description,
-            addressedGroups: [this.workItem.responsibleService.id],
-            assignedUsers: [this.workItem.responsibleUser.username],
+            addressedGroups: this.workItem.addressedGroups,
             deadline: this.workItem.deadline,
             meta: JSON.stringify({
               "notify-complete": this.workItem.notificationCompleted,
               "notify-deadline": this.workItem.notificationDeadline
-            })
+            }),
+            ...(this.workItem.assignedUsers.length
+              ? { assignedUsers: this.workItem.assignedUsers }
+              : {})
           }
         }
       });
@@ -81,13 +111,6 @@ export default class WorkItemNewController extends Controller {
     } catch (error) {
       this.notifications.error(this.intl.t("workItemList.all.saveError"));
     }
-  }
-
-  get selectedOwnService() {
-    return (
-      parseInt(this.workItem.responsibleService.id) ===
-      this.shoebox.content.serviceId
-    );
   }
 
   @action
