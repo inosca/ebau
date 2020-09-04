@@ -14,13 +14,14 @@ export default class WorkItemsInstanceEditController extends Controller {
   @service shoebox;
   @service moment;
 
-  get responsibleUsers() {
-    return this.userChoices?.filter(user =>
+  get responsibleUser() {
+    return this.userChoices?.find(user =>
       this.model.assignedUsers.includes(user.username)
     );
   }
-  set responsibleUsers(users) {
-    this.model.assignedUsers = users.map(user => user.username);
+
+  set responsibleUser(user) {
+    this.model.assignedUsers = [user.username];
   }
 
   get userChoices() {
@@ -47,7 +48,9 @@ export default class WorkItemsInstanceEditController extends Controller {
   }
 
   @dropTask
-  *workItemAssignUsers() {
+  *workItemAssignUsers(event) {
+    event.preventDefault();
+
     try {
       yield this.apollo.mutate({
         mutation: saveWorkItem,
@@ -65,7 +68,9 @@ export default class WorkItemsInstanceEditController extends Controller {
   }
 
   @dropTask
-  *finishWorkItem() {
+  *finishWorkItem(event) {
+    event.preventDefault();
+
     try {
       yield this.apollo.mutate({
         mutation: saveWorkItem,
@@ -85,15 +90,15 @@ export default class WorkItemsInstanceEditController extends Controller {
           }
         }
       });
-
-      this.transitionToRoute("work-items");
     } catch (error) {
       this.notifications.error(this.intl.t("workItemList.all.saveError"));
     }
   }
 
   @dropTask
-  *saveManualWorkItem() {
+  *saveManualWorkItem(event) {
+    event.preventDefault();
+
     try {
       yield this.apollo.mutate({
         mutation: saveWorkItem,
