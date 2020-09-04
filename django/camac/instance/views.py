@@ -69,7 +69,7 @@ class InstanceView(
     """
     instance_editable_permission = "instance"
 
-    queryset = models.Instance.objects.all()
+    queryset = models.Instance.objects.select_related("group__service")
     prefetch_for_includes = {
         "circulations": ["circulations__activations"],
         "active_service": ["services"],
@@ -78,6 +78,12 @@ class InstanceView(
             "responsible_services__responsible_user",
         ],
         "location": ["location"],
+        "involved_services": [
+            "services",
+            "circulations",
+            "circulations__activations",
+            "circulations__activations__service",
+        ],
     }
     ordering_fields = (
         "instance_id",
