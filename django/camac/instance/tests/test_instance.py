@@ -22,13 +22,13 @@ from camac.instance import serializers
 @pytest.mark.parametrize(
     "role__name,instance__user,num_queries,editable",
     [
-        ("Applicant", LazyFixture("admin_user"), 12, {"instance", "form", "document"}),
+        ("Applicant", LazyFixture("admin_user"), 17, {"instance", "form", "document"}),
         # reader should see instances from other users but has no editables
-        ("Reader", LazyFixture("user"), 12, set()),
-        ("Canton", LazyFixture("user"), 12, {"form", "document"}),
-        ("Municipality", LazyFixture("user"), 12, {"form", "document"}),
-        ("Service", LazyFixture("user"), 12, {"document"}),
-        ("Coordination", LazyFixture("user"), 12, {"instance", "form", "document"}),
+        ("Reader", LazyFixture("user"), 17, set()),
+        ("Canton", LazyFixture("user"), 17, {"form", "document"}),
+        ("Municipality", LazyFixture("user"), 17, {"form", "document"}),
+        ("Service", LazyFixture("user"), 17, {"document"}),
+        ("Coordination", LazyFixture("user"), 17, {"instance", "form", "document"}),
     ],
 )
 def test_instance_list(
@@ -40,11 +40,18 @@ def test_instance_list(
     django_assert_num_queries,
     editable,
     group_location_factory,
+    instance_service_factory,
+    circulation_factory,
+    activation_factory,
 ):
     url = reverse("instance-list")
 
     # verify that two locations may be assigned to group
     group_location_factory(group=group)
+
+    service = instance_service_factory(instance=instance).service
+    circulation = circulation_factory(service=service)
+    activation_factory(service=service, circulation=circulation)
 
     included = serializers.InstanceSerializer.included_serializers
     with django_assert_num_queries(num_queries):
