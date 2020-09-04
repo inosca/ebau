@@ -37,6 +37,10 @@ export default class WorkItemNewController extends Controller {
 
   set responsibleService(service) {
     this.workItem.addressedGroups = [String(service.id)];
+
+    if (parseInt(service.id) !== this.shoebox.content.serviceId) {
+      this.workItem.assignedUsers = [];
+    }
   }
 
   get responsibleUser() {
