@@ -1,0 +1,139 @@
+<Notifications />
+
+<h2>{{t "workItem.updateWorkItem"}}</h2>
+
+<div>
+  <div>
+    <span class="bold">{{@model.name}}</span>
+    {{if @model.description @model.description "-"}}
+  </div>
+  <div class="work-item-attributes">
+    <div class="work-item-attribute">
+      <span>{{t "workItem.responsible"}}</span>
+      {{#each @model.addressedServices as |service|}}
+        {{service.name}}
+      {{else}}
+        -
+      {{/each}}
+    </div>
+    <div class="work-item-attribute">
+      <span>{{t "workItem.deadline"}}</span>
+      {{format-date
+        @model.deadline
+        day="2-digit"
+        month="2-digit"
+        year="numeric"
+        hour="2-digit"
+        minute="2-digit"
+        hour12=false
+      }}
+    </div>
+    <div class="work-item-attribute">
+      <span>{{t "workItem.createdBy"}}</span>
+      {{if @model.createdByUser @model.createdByUser.fullName "-"}}
+    </div>
+    <div class="work-item-attribute">
+      <span>{{t "workItem.createdAt"}}</span>
+      {{format-date
+        @model.createdAt
+        day="2-digit"
+        month="2-digit"
+        year="numeric"
+        hour="2-digit"
+        minute="2-digit"
+        hour12=false
+      }}
+    </div>
+  </div>
+</div>
+
+{{#if this.isWorkItemCompleted}}
+  <div class="work-item-attributes">
+    <div class="work-item-attribute">
+      <span>{{t "workItem.closedBy"}}</span>
+      {{@model.closedByUser.fullName}}
+    </div>
+    <div class="work-item-attribute">
+      <span>{{t "workItem.closedAt"}}</span>
+      {{format-date
+        @model.closedAt
+        day="2-digit"
+        month="2-digit"
+        year="numeric"
+        hour="2-digit"
+        minute="2-digit"
+        hour12=false
+      }}
+    </div>
+    <div class="work-item-attribute">
+      <span>{{t "workItem.comment"}}</span>
+      {{if @model.meta.completion-comment @model.meta.completion-comment "-"}}
+    </div>
+  </div>
+{{else if this.isManualWorkItem}}
+  <form {{on "submit" (perform this.saveManualWorkItem)}} class="work-item-form">
+    <label class="work-item-input">
+      {{t "workItem.description"}}
+      <Textarea @value={{@model.description}}/>
+    </label>
+    <label class="work-item-input">
+      {{t "workItem.deadline"}}
+      <PikadayInput
+        class="deadline"
+        @value={{@model.deadline}}
+        @useUTC={{true}}
+        @onSelection={{this.setDeadline}}
+      />
+    </label>
+
+    <div class="work-item-input">
+      {{t "workItem.notifications"}}
+      <label class="checkbox-label">
+        <Input @type="checkbox" @checked={{mut @model.meta.notify-completed}}/>
+        {{t "workItem.notifyCompleted"}}
+      </label>
+      <label class="checkbox-label">
+        <Input @type="checkbox" @checked={{mut @model.meta.notify-deadline}}/>
+        {{t "workItem.notifyDeadline"}}
+      </label>
+    </div>
+
+    <button class="button buttonstyle btn success" type="submit">{{t "global.save"}}</button>
+  </form>
+{{else}}
+  <form
+    {{did-insert (perform this.fetchUserChoices)}}
+    {{on "submit" (perform this.workItemAssignUsers)}}
+    class="work-item-form"
+  >
+    <label class="work-item-input">
+      {{t "workItem.responsiblePerson"}}
+      <PowerSelect
+        @searchEnabled={{true}}
+        @searchField="fullName"
+        @renderInPlace={{true}}
+        @options={{this.userChoices}}
+        @selected={{this.responsibleUser}}
+        @noMatchesMessage={{t "global.noMatch"}}
+        @onChange={{fn (mut this.responsibleUser)}} as |responsibleUser|
+      >
+        {{responsibleUser.fullName}}
+      </PowerSelect>
+    </label>
+
+    <button class="button buttonstyle btn success" type="submit">{{t "global.save"}}</button>
+  </form>
+{{/if}}
+
+{{#if (and (not this.isWorkItemCompleted) this.isManualWorkItem)}}
+  <h2>{{t "workItem.finishWorkItem"}}</h2>
+
+  <form {{on "submit" (perform this.finishWorkItem)}} class="form work-item-form">
+    <label class="work-item-input">
+      {{t "workItem.comment"}}
+      <Textarea @value={{@model.meta.completion-comment}}/>
+    </label>
+
+    <button class="button buttonstyle btn success" type="submit">{{t "workItem.finishWorkItem"}}</button>
+  </form>
+{{/if}}

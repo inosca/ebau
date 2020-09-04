@@ -52,7 +52,14 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = get_user_model()
-        fields = ("name", "surname", "username", "language", "service", "email")
+        fields = (
+            "name",
+            "surname",
+            "username",
+            "language",
+            "service",
+            "email",
+        )
 
 
 class CurrentUserSerializer(UserSerializer):
@@ -91,6 +98,16 @@ class LocationSerializer(serializers.ModelSerializer):
 class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
     city = MultilingualField()
     description = MultilingualField()
+    users = relations.SerializerMethodResourceRelatedField(
+        source="get_users", model=models.User, read_only=True, many=True
+    )
+
+    def get_users(self, obj):
+        return models.User.objects.filter(
+            user_groups__group_id__in=obj.groups.values("pk")
+        ).distinct()
+
+    included_serializers = {"users": "camac.user.serializers.UserSerializer"}
 
     def update(self, instance, validated_data):
         old_name = instance.get_name()
@@ -154,7 +171,9 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
             "city",
             "address",
             "phone",
+            "users",
         )
+        read_only_fields = ("users",)
 
 
 class GroupSerializer(MultilingualSerializer, serializers.ModelSerializer):

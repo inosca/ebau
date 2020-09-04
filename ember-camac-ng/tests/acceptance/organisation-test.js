@@ -17,7 +17,8 @@ const DATA = {
   address: "Bahnhofstrasse 33",
   email: "info@acme.com",
   website: "https://acme.com",
-  notification: 1
+  notification: 1,
+  userIds: []
 };
 
 DATA.description = DATA.name;

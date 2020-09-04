@@ -20,10 +20,10 @@ def get_activation_work_item(case, activation_id):
 @pytest.mark.parametrize(
     "role__name,instance__user,num_queries",
     [
-        ("Applicant", LazyFixture("admin_user"), 6),
-        ("Canton", LazyFixture("user"), 6),
-        ("Municipality", LazyFixture("user"), 6),
-        ("Service", LazyFixture("user"), 6),
+        ("Applicant", LazyFixture("admin_user"), 10),
+        ("Canton", LazyFixture("user"), 10),
+        ("Municipality", LazyFixture("user"), 10),
+        ("Service", LazyFixture("user"), 10),
     ],
 )
 def test_circulation_list(

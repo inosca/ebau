@@ -10,6 +10,7 @@ import { dropTask } from "ember-concurrency-decorators";
 
 export default class WorkItemsIndexController extends Controller {
   queryParams = ["responsible", "type", "status", "role"];
+
   @service store;
   @service apollo;
   @service notifications;
@@ -117,7 +118,7 @@ export default class WorkItemsIndexController extends Controller {
         this.shoebox.content.username
       ]);
     } catch (error) {
-      this.notifications.error(this.intl.t("workitemlist.saveError"));
+      this.notifications.error(this.intl.t("workItemList.all.saveError"));
     }
   }
 
@@ -137,7 +138,7 @@ export default class WorkItemsIndexController extends Controller {
         }
       });
     } catch (error) {
-      this.notifications.error(this.intl.t("workitemlist.saveError"));
+      this.notifications.error(this.intl.t("workItemList.all.saveError"));
     }
   }
 

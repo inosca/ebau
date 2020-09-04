@@ -73,6 +73,12 @@ export default class CustomWorkItemModel extends WorkItemModel {
     return this.store.peekAll("user").findBy("username", this.raw.closedByUser);
   }
 
+  get createdByUser() {
+    return this.store
+      .peekAll("user")
+      .findBy("username", this.raw.createdByUser);
+  }
+
   static fragment = `{
     createdAt
     createdByUser
@@ -87,7 +93,9 @@ export default class CustomWorkItemModel extends WorkItemModel {
     assignedUsers
     name
     deadline
+    description
     case {
+      id
       meta
       document {
         form {
@@ -104,6 +112,9 @@ export default class CustomWorkItemModel extends WorkItemModel {
           }
         }
       }
+    }
+    task {
+      slug
     }
   }`;
 }
