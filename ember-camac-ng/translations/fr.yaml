@@ -8,6 +8,8 @@ global:
   from: "De"
   back: "Retour"
   noMatch: "Aucun résultat trouvé"
+  loadMore: "Télécharger plus"
+  paginationInfo: "<strong>1 - {count}</strong> de {total}"
 
 organisation:
   edit: "Modifiez votre organisation"
@@ -52,8 +54,6 @@ workItemList:
   responsible: "Responsable"
   addressedGroups: "Service"
 
-  empty: "Aucune tâche trouvée"
-
   all:
     saveError: "La tâche n'a pas pu être enregistrée tâche"
 
@@ -77,10 +77,6 @@ workItemList:
       markRead: "Marquer comme lu"
       assignToMe: "Se référer à moi"
       editWorkitem: "Modifier la tâche"
-
-      empty: "Aucune tâche trouvée"
-
-      loadMore: "Récupérer plus de tâches"
 
   instance:
     currentTasks: "Tâches actuelles"
