@@ -1,3 +1,5 @@
+<Notifications />
+
 <h2 class="work-item-list-instance-title">
   {{t "workItemList.instance.currentTasks"}}
 </h2>
@@ -51,19 +53,28 @@
       {{t "workItemList.responsible"}}
     </th>
     {{#if (eq this.role "control")}}
-      <th>{{t "workItemList.addressedGroups"}}</th>
+      <th>
+        {{t "workItemList.addressedGroups"}}
+      </th>
     {{/if}}
   </thead>
   <tbody>
     {{#if this.workItemsQuery.isLoading}}
       <tr>
-        <td class="center" colspan="{{if (eq this.role "control") 5 4}}"><LoadingText /></td>
+        <td class="center" colspan="{{if (eq this.role "control") 5 4}}">
+          <LoadingText />
+        </td>
       </tr>
     {{else}}
       {{#each this.activeWorkItems as |workItem|}}
         <tr>
           <td>
-            <LinkTo @route="work-items.instance.edit" @models={{array workItem.instance workItem}}>{{workItem.name}}</LinkTo>
+            <LinkTo
+              @route="work-items.instance.edit"
+              @models={{array workItem.instance workItem}}
+            >
+              {{workItem.name}}
+            </LinkTo>
           </td>
           <td>
             {{moment-from workItem.deadline}}
@@ -98,16 +109,18 @@
         </tr>
       {{else}}
         <tr>
-          <td class="center" colspan="{{if (eq this.role "control") 5 4}}">{{t "global.empty"}}</td>
+          <td class="center" colspan="{{if (eq this.role "control") 5 4}}">
+            {{t "global.empty"}}
+          </td>
         </tr>
       {{/each}}
     {{/if}}
   </tbody>
 </table>
 
-<button {{on "click" this.newWorkItem}} class="button btn buttonstyle success new-work-item" type="button">
-  <LinkTo @route="work-items.instance.new">{{t "workItemList.instance.newTask"}}</LinkTo>
-</button>
+<LinkTo class="button btn buttonstyle success" @route="work-items.instance.new">
+  {{t "workItemList.instance.newTask"}}
+</LinkTo>
 
 <h2 class="work-item-list-instance-title">
   {{t "workItemList.instance.finishedTasks"}}
@@ -124,19 +137,28 @@
       {{t "global.from"}}
     </th>
     {{#if (eq this.role "control")}}
-      <th>{{t "workItemList.addressedGroups"}}</th>
+      <th>
+        {{t "workItemList.addressedGroups"}}
+      </th>
     {{/if}}
   </thead>
   <tbody>
     {{#if this.workItemsQuery.isLoading}}
       <tr>
-        <td class="center" colspan="{{if (eq this.role "control") 4 3}}"><LoadingText /></td>
+        <td class="center" colspan="{{if (eq this.role "control") 4 3}}">
+          <LoadingText />
+        </td>
       </tr>
     {{else}}
       {{#each this.doneWorkItems as |workItem|}}
         <tr>
           <td>
-            <LinkTo @route="work-items.instance.edit" @models={{array workItem.instance workItem}}>{{workItem.name}}</LinkTo>
+            <LinkTo
+              @route="work-items.instance.edit"
+              @models={{array workItem.instance workItem}}
+            >
+              {{workItem.name}}
+            </LinkTo>
           </td>
           <td>
             {{format-date
@@ -155,7 +177,9 @@
         </tr>
       {{else}}
         <tr>
-          <td class="center" colspan="{{if (eq this.role "control") 4 3}}">{{t "global.empty"}}</td>
+          <td class="center" colspan="{{if (eq this.role "control") 4 3}}">
+            {{t "global.empty"}}
+          </td>
         </tr>
       {{/each}}
     {{/if}}
