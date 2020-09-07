@@ -93,7 +93,7 @@
               {{/each}}
             </td>
           {{/if}}
-          <td {{on "mouseleave" (set this.menuOpen "")}} role="button">
+          <td {{on "mouseleave" (set this.menuOpen null)}} role="button">
             <div>
               <FaIcon @icon="ellipsis-v" {{on "click" (set this.menuOpen workItem.id)}}/>
               {{#if (eq this.menuOpen workItem.id)}}
@@ -118,20 +118,16 @@
         </tr>
       {{else}}
         <tr>
-          <td class="center" colspan="{{if (eq this.role "control") 8 7}}">{{t "workItemList.empty"}}</td>
+          <td class="center" colspan="{{if (eq this.role "control") 8 7}}">{{t "global.empty"}}</td>
         </tr>
       {{/each}}
-      {{#if (or this.workItemsQuery.hasNextPage this.workItemsQuery.isLoading)}}
+      {{#if this.workItemsQuery.isLoading}}
         <tr>
-          <td class="center" colspan="{{if (eq this.role "control") 8 7}}">
-            {{#if this.workItemsQuery.isLoading}}
-              <LoadingText />
-            {{else}}
-              <a href="" {{on "click" (perform this.fetchMoreWorkItems)}}>{{t "workItemList.all.table.loadMore"}}</a>
-            {{/if}}
-          </td>
+          <td class="center" colspan="{{if (eq this.role "control") 8 7}}"><LoadingText /></td>
         </tr>
       {{/if}}
     {{/if}}
   </tbody>
 </table>
+
+<Pagination @query={{this.workItemsQuery}} @onLoadMore={{perform this.fetchMoreWorkItems}} />
