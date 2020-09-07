@@ -8,6 +8,8 @@ global:
   from: "Von"
   back: "Zurück"
   noMatch: "Keine Resultate gefunden"
+  loadMore: "Mehr laden"
+  paginationInfo: "<strong>1 - {count}</strong> von {total}"
 
 organisation:
   edit: "Eigene Organisation bearbeiten"
@@ -50,8 +52,6 @@ workItemList:
   responsible: "Verantwortlich"
   addressedGroups: "Service"
 
-  empty: "Keine Aufgaben gefunden"
-
   all:
     saveError: "Fehler beim Speichern der Aufgabe"
 
@@ -75,8 +75,6 @@ workItemList:
       markRead: "Als gelesen markieren"
       assignToMe: "Mir zuweisen"
       editWorkitem: "Aufgabe bearbeiten"
-
-      loadMore: "Mehr Aufgaben abrufen"
 
   instance:
     currentTasks: "Aktuelle Aufgaben"
