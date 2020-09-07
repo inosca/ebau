@@ -8,7 +8,7 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core.files.base import ContentFile
 from django.db import transaction
-from django.db.models import Max
+from django.db.models import Max, Q
 from django.utils import timezone
 from django.utils.translation import gettext as _, gettext_noop
 from rest_framework import exceptions
@@ -98,11 +98,14 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         ).exists()
 
     def get_involved_services(self, obj):
-        services = list(obj.services.all())
-        for circulation in obj.circulations.all():
-            for activation in circulation.activations.all():
-                services.append(activation.service)
-        return services
+        filters = Q(pk__in=obj.circulations.values("activations__service__pk"))
+
+        if settings.APPLICATION.get("USE_INSTANCE_SERVICE"):
+            filters |= Q(pk__in=obj.services.values("pk"))
+        elif obj.group and obj.group.service:
+            filters |= Q(pk=obj.group.service.pk)
+
+        return Service.objects.filter(filters).distinct()
 
     included_serializers = {
         "location": "camac.user.serializers.LocationSerializer",
