@@ -6,7 +6,7 @@ export default class NotificationsComponent extends Component {
   @service notifications;
 
   @action
-  clear() {
-    this.notifications.clear();
+  remove(notification) {
+    this.notifications.remove(notification.id);
   }
 }
