@@ -1,7 +1,9 @@
 import faker
 import pytest
+from caluma.caluma_core.events import send_event
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
+from caluma.caluma_workflow.events import created_work_item
 from django.conf import settings
 from django.urls import reverse
 from django.utils import timezone
@@ -225,3 +227,73 @@ def test_complete_case(
         circulation_work_item.child_case.status
         == caluma_workflow_models.Case.STATUS_COMPLETED
     )
+
+
+@pytest.mark.parametrize(
+    "task_slug,existing_meta,context,expected_meta",
+    [
+        (
+            "some-slug",
+            {},
+            {},
+            {"not-viewed": True, "notify-deadline": True, "notify-completed": True},
+        ),
+        (
+            "some-slug",
+            {"not-viewed": False, "notify-deadline": False, "notify-completed": False},
+            {},
+            {"not-viewed": False, "notify-deadline": False, "notify-completed": False},
+        ),
+        (
+            "circulation",
+            {},
+            {"circulation-id": 123},
+            {
+                "not-viewed": True,
+                "notify-deadline": True,
+                "notify-completed": True,
+                "circulation-id": 123,
+            },
+        ),
+        (
+            "activation",
+            {},
+            {"activation-id": 123},
+            {
+                "not-viewed": True,
+                "notify-deadline": True,
+                "notify-completed": True,
+                "activation-id": 123,
+            },
+        ),
+        (
+            "activation",
+            {},
+            {},
+            {"not-viewed": True, "notify-deadline": True, "notify-completed": True},
+        ),
+    ],
+)
+def test_set_meta_attributes(
+    db,
+    caluma_admin_user,
+    task_factory,
+    work_item_factory,
+    task_slug,
+    existing_meta,
+    context,
+    expected_meta,
+):
+    work_item = work_item_factory(task__slug=task_slug, meta=existing_meta)
+
+    send_event(
+        created_work_item,
+        sender=test_set_meta_attributes,
+        work_item=work_item,
+        user=caluma_admin_user,
+        context=context,
+    )
+
+    work_item.refresh_from_db()
+
+    assert work_item.meta == expected_meta

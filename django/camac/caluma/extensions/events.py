@@ -52,7 +52,7 @@ def copy_paper_answer(sender, work_item, **kwargs):
                 defaults={
                     "value": work_item.case.document.answers.get(
                         question_id="papierdossier"
-                    ).value,
+                    ).value
                 },
             )
         except caluma_form_models.Answer.DoesNotExist:
@@ -62,33 +62,47 @@ def copy_paper_answer(sender, work_item, **kwargs):
 
 
 @on(created_work_item)
-def post_create_work_item(sender, work_item, user, context, **kwargs):
-    if "not-viewed" not in work_item.meta:
-        work_item.meta.update(
-            {"not-viewed": True, "notify-completed": True, "notify-deadline": True}
+def set_meta_attributes(sender, work_item, user, context, **kwargs):
+    """Set needed meta attributes on the newly created work item.
+
+    Some attributes just need a default value if they don't exist yet in the
+    meta of the work item. Others will be passed in the context.
+    """
+
+    META_CONFIG = {
+        "not-viewed": {"default": True},
+        "notify-completed": {"default": True},
+        "notify-deadline": {"default": True},
+        "circulation-id": {
+            "from_context": True,
+            "tasks": [get_caluma_setting("CIRCULATION_TASK")],
+        },
+        "activation-id": {
+            "from_context": True,
+            "tasks": [get_caluma_setting("ACTIVATION_TASK")],
+        },
+    }
+
+    for (attribute, config) in META_CONFIG.items():
+        tasks = config.get("tasks")
+        from_context = config.get("from_context")
+
+        if attribute in work_item.meta:
+            # attribute is already set on the meta
+            continue
+
+        if tasks and work_item.task_id not in tasks:
+            # incorrect task
+            continue
+
+        if from_context and not context.get(attribute):
+            # context does not contain attribute
+            log.warning(f"Attribute `{attribute}` is not passed in the context")
+            continue
+
+        work_item.meta[attribute] = (
+            context.get(attribute) if from_context else config.get("default")
         )
-
-    if (
-        context
-        and context.get("circulation-id")
-        and work_item.task_id == get_caluma_setting("CIRCULATION_TASK")
-        and "circulation-id" not in work_item.meta
-    ):
-        # Circulation work item was created by completing the work item before.
-        # Write the circulation ID passed in the context down to the newly
-        # created work items meta property
-        work_item.meta["circulation-id"] = context["circulation-id"]
-
-    if (
-        context
-        and context.get("activation-id")
-        and work_item.task_id == get_caluma_setting("ACTIVATION_TASK")
-        and "activation-id" not in work_item.meta
-    ):
-        # Activation work item was created by creating a circulation child case
-        # Write the activation ID passed in the context down to the newly
-        # created work items meta property
-        work_item.meta["activation-id"] = context["activation-id"]
 
     work_item.save()
 
