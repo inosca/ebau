@@ -3,7 +3,7 @@ import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import completeWorkItem from "camac-ng/gql/mutations/complete-workitem";
 import saveWorkItem from "camac-ng/gql/mutations/save-workitem";
-import { dropTask } from "ember-concurrency-decorators";
+import { dropTask, lastValue } from "ember-concurrency-decorators";
 import moment from "moment";
 
 export default class WorkItemsInstanceEditController extends Controller {
@@ -13,6 +13,12 @@ export default class WorkItemsInstanceEditController extends Controller {
   @service intl;
   @service shoebox;
   @service moment;
+
+  get isCreator() {
+    return (this.model.createdByGroup || []).includes(
+      this.shoebox.content.serviceId
+    );
+  }
 
   get responsibleUser() {
     return this.userChoices?.find(user =>
@@ -24,8 +30,10 @@ export default class WorkItemsInstanceEditController extends Controller {
     this.model.assignedUsers = [user.username];
   }
 
-  get userChoices() {
-    return this.fetchUserChoices.lastSuccessful?.value.toArray();
+  get isAddressed() {
+    return this.model.addressedServices
+      .map(s => parseInt(s.id))
+      .includes(this.shoebox.content.serviceId);
   }
 
   get isManualWorkItem() {
@@ -36,12 +44,14 @@ export default class WorkItemsInstanceEditController extends Controller {
     return this.model.raw.status === "COMPLETED";
   }
 
+  @lastValue("fetchUserChoices") userChoices;
+
   @dropTask
   *fetchUserChoices() {
     try {
-      return yield this.store.query("user", {
+      return (yield this.store.query("user", {
         service: this.shoebox.content.serviceId
-      });
+      })).toArray();
     } catch (error) {
       this.notifications.error(this.intl.t("workItem.fetchError"));
     }
@@ -61,7 +71,10 @@ export default class WorkItemsInstanceEditController extends Controller {
           }
         }
       });
+
       this.notifications.success(this.intl.t("workItem.saveSuccess"));
+
+      this.transitionToRoute("work-items.instance.index");
     } catch (error) {
       this.notifications.error(this.intl.t("workItemList.all.saveError"));
     }
@@ -90,6 +103,10 @@ export default class WorkItemsInstanceEditController extends Controller {
           }
         }
       });
+
+      this.notifications.success(this.intl.t("workItem.finishSuccess"));
+
+      this.transitionToRoute("work-items.instance.index");
     } catch (error) {
       this.notifications.error(this.intl.t("workItemList.all.saveError"));
     }
@@ -111,7 +128,10 @@ export default class WorkItemsInstanceEditController extends Controller {
           }
         }
       });
+
       this.notifications.success(this.intl.t("workItem.saveSuccess"));
+
+      this.transitionToRoute("work-items.instance.index");
     } catch (error) {
       this.notifications.error(this.intl.t("workItemList.all.saveError"));
     }
