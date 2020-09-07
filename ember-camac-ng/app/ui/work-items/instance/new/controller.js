@@ -25,8 +25,10 @@ export default class WorkItemNewController extends Controller {
   @service intl;
   @service shoebox;
 
-  @tracked services = [];
+  @tracked instance = null;
+  @tracked case = null;
   @tracked users = [];
+
   @tracked workItem = new NewWorkItem();
 
   get responsibleService() {
@@ -59,18 +61,20 @@ export default class WorkItemNewController extends Controller {
     );
   }
 
+  get services() {
+    return this.instance?.involvedServices || [];
+  }
+
   @dropTask
   *getData() {
-    const instance = yield this.store.findRecord("instance", this.model.id, {
-      include: "involved_services"
+    this.instance = yield this.store.findRecord("instance", this.model.id, {
+      include: "involved_services",
+      reload: true
     });
 
-    const service = yield this.store.findRecord(
-      "service",
-      this.shoebox.content.serviceId,
-      { include: "users" }
-    );
-    this.users = service.users;
+    this.users = yield this.store.query("user", {
+      service: this.shoebox.content.serviceId
+    });
 
     this.case = yield this.apollo.query(
       {
@@ -81,8 +85,6 @@ export default class WorkItemNewController extends Controller {
       },
       "allCases.edges.firstObject.node.id"
     );
-
-    this.services = instance.involvedServices;
   }
 
   @dropTask
@@ -99,6 +101,7 @@ export default class WorkItemNewController extends Controller {
             name: this.workItem.title,
             description: this.workItem.description,
             addressedGroups: this.workItem.addressedGroups,
+            controllingGroups: [this.shoebox.content.serviceId],
             deadline: this.workItem.deadline,
             meta: JSON.stringify({
               "notify-complete": this.workItem.notificationCompleted,
@@ -112,6 +115,8 @@ export default class WorkItemNewController extends Controller {
       });
 
       this.notifications.success(this.intl.t("workItem.saveSuccess"));
+
+      this.transitionToRoute("work-items.instance.index");
     } catch (error) {
       this.notifications.error(this.intl.t("workItemList.all.saveError"));
     }
