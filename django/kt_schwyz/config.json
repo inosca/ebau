@@ -45,7 +45,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": "Workflow Datum Dossier vollst\u00e4ndig setzen",
-      "sort": 1,
+      "sort": 2,
       "success_message": null
     },
     "model": "core.action",
@@ -73,7 +73,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": "Workflow Datum Nachforderung der Gemeinde",
-      "sort": 1,
+      "sort": 2,
       "success_message": null
     },
     "model": "core.action",
@@ -115,7 +115,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": "Weiterleitung zu Liste",
-      "sort": 2,
+      "sort": 3,
       "success_message": null
     },
     "model": "core.action",
@@ -171,7 +171,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": "Datum Zirkulation start",
-      "sort": 2,
+      "sort": 3,
       "success_message": null
     },
     "model": "core.action",
@@ -185,7 +185,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": "activation idle to run",
-      "sort": 3,
+      "sort": 4,
       "success_message": null
     },
     "model": "core.action",
@@ -325,7 +325,7 @@
       "error_message": "Email konnte nicht versandt werden",
       "execute_always": 0,
       "name": "Email Nachforderung",
-      "sort": 2,
+      "sort": 3,
       "success_message": "Email wurde erfolgreich versandt"
     },
     "model": "core.action",
@@ -339,7 +339,7 @@
       "error_message": "Email konnte nicht versandt werden",
       "execute_always": 0,
       "name": "Email Stellungnahme",
-      "sort": 5,
+      "sort": 6,
       "success_message": "Email wurde erfolgreich versandt"
     },
     "model": "core.action",
@@ -353,7 +353,7 @@
       "error_message": "Email konnte nicht versandt werden",
       "execute_always": 0,
       "name": "Email Angenommen",
-      "sort": 3,
+      "sort": 4,
       "success_message": "Email wurde erfolgreich versandt"
     },
     "model": "core.action",
@@ -591,7 +591,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": "Redirect to newest circulation page",
-      "sort": 1,
+      "sort": 3,
       "success_message": null
     },
     "model": "core.action",
@@ -731,7 +731,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": "Redirect to newest circulation page",
-      "sort": 1,
+      "sort": 3,
       "success_message": null
     },
     "model": "core.action",
@@ -941,7 +941,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": "History: Dossier zur\u00fcckgewiesen",
-      "sort": 4,
+      "sort": 5,
       "success_message": null
     },
     "model": "core.action",
@@ -950,40 +950,12 @@
   {
     "fields": {
       "available_action": "workitem",
-      "button": 9,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": "Aufgabe abschliessen: Zirkulation starten",
-      "sort": 4,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 103
-  },
-  {
-    "fields": {
-      "available_action": "workitem",
-      "button": 41,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": "Aufgabe abschliessen: Zirkulation starten",
-      "sort": 4,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 104
-  },
-  {
-    "fields": {
-      "available_action": "workitem",
       "button": 1,
       "description": null,
       "error_message": null,
       "execute_always": 0,
-      "name": "Aufgabe abschliessen: Vollst\u00e4ndigkeitspr\u00fcfung",
-      "sort": 2,
+      "name": "Aufgabe: complete complete-check",
+      "sort": 1,
       "success_message": null
     },
     "model": "core.action",
@@ -991,33 +963,469 @@
   },
   {
     "fields": {
-      "is_activation": false,
-      "process_all": false,
-      "process_type": "complete",
-      "tasks": "[\"circulation-start\"]"
+      "available_action": "workitem",
+      "button": 3,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Aufgabe: complete reject-form",
+      "sort": 1,
+      "success_message": null
     },
-    "model": "core.actionworkitem",
-    "pk": 103
+    "model": "core.action",
+    "pk": 106
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 18,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Aufgabe: complete check-statements",
+      "sort": 3,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 108
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 34,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Aufgabe: complete start-decision",
+      "sort": 3,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 109
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 37,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Aufgabe: complete reopen-circulation",
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 110
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 19,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Aufgabe: complete make-decision",
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 111
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 43,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Aufgabe: complete check-statements",
+      "sort": 3,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 114
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 45,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Aufgabe: complete start-decision",
+      "sort": 3,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 115
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 46,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Aufgabe: complete reopen-circulation",
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 116
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 24,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Aufgabe: complete write-statement",
+      "sort": 3,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 117
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 5,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Aufgabe: complete check-statement",
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 118
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 25,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Aufgabe: complete revise-statement",
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 119
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 34,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Aufgabe: skip start-circulation",
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 120
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 34,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Aufgabe: skip circulation",
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 121
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 45,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Aufgabe: skip start-circulation",
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 122
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 45,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Aufgabe: skip circulation",
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 123
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 18,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Aufgabe: skip write-statement",
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 124
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 18,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Aufgabe: skip check-statement",
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 125
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 43,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Aufgabe: skip write-statement",
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 126
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 43,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Aufgabe: skip check-statement",
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 127
   },
   {
     "fields": {
       "is_activation": false,
       "process_all": false,
       "process_type": "complete",
-      "tasks": "[\"circulation-start\"]"
-    },
-    "model": "core.actionworkitem",
-    "pk": 104
-  },
-  {
-    "fields": {
-      "is_activation": false,
-      "process_all": false,
-      "process_type": "complete",
-      "tasks": "[\"integritydashboard\"]"
+      "tasks": "[\"complete-check\"]"
     },
     "model": "core.actionworkitem",
     "pk": 105
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": false,
+      "process_type": "complete",
+      "tasks": "[\"reject-form\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 106
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": false,
+      "process_type": "complete",
+      "tasks": "[\"check-statements\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 108
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": false,
+      "process_type": "complete",
+      "tasks": "[\"start-decision\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 109
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": false,
+      "process_type": "complete",
+      "tasks": "[\"reopen-circulation\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 110
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": false,
+      "process_type": "complete",
+      "tasks": "[\"make-decision\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 111
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": false,
+      "process_type": "complete",
+      "tasks": "[\"check-statements\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 114
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": false,
+      "process_type": "complete",
+      "tasks": "[\"start-decision\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 115
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": false,
+      "process_type": "complete",
+      "tasks": "[\"reopen-circulation\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 116
+  },
+  {
+    "fields": {
+      "is_activation": true,
+      "process_all": false,
+      "process_type": "complete",
+      "tasks": "[\"write-statement\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 117
+  },
+  {
+    "fields": {
+      "is_activation": true,
+      "process_all": false,
+      "process_type": "complete",
+      "tasks": "[\"check-statement\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 118
+  },
+  {
+    "fields": {
+      "is_activation": true,
+      "process_all": false,
+      "process_type": "complete",
+      "tasks": "[\"revise-statement\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 119
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": false,
+      "process_type": "skip",
+      "tasks": "[\"start-circulation\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 120
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": false,
+      "process_type": "skip",
+      "tasks": "[\"circulation\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 121
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": false,
+      "process_type": "skip",
+      "tasks": "[\"start-circulation\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 122
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": false,
+      "process_type": "skip",
+      "tasks": "[\"circulation\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 123
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": true,
+      "process_type": "skip",
+      "tasks": "[\"write-statement\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 124
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": true,
+      "process_type": "skip",
+      "tasks": "[\"check-statement\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 125
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": true,
+      "process_type": "skip",
+      "tasks": "[\"write-statement\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 126
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": true,
+      "process_type": "skip",
+      "tasks": "[\"check-statement\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 127
   },
   {
     "fields": {

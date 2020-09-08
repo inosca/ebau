@@ -342,7 +342,11 @@ class InstanceView(
 
         workflow_api.complete_work_item(
             work_item=workflow_models.WorkItem.objects.get(
-                **{"task_id": "submit", "case__meta__camac-instance-id": instance.pk}
+                **{
+                    "task_id": settings.APPLICATION["CALUMA"].get("SUBMIT_TASK"),
+                    "status": workflow_models.WorkItem.STATUS_READY,
+                    "case__meta__camac-instance-id": instance.pk,
+                }
             ),
             user=request.caluma_info.context.user,
         )

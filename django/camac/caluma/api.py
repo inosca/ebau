@@ -249,7 +249,7 @@ class CalumaApi:
     def _sync_activations(self, child_case, activations, user):
         caluma_settings = settings.APPLICATION.get("CALUMA", {})
         activation_task = caluma_workflow_models.Task.objects.get(
-            pk=caluma_settings.get("ACTIVATION_TASK")
+            pk=caluma_settings.get("ACTIVATION_INIT_TASK")
         )
 
         for activation in activations:

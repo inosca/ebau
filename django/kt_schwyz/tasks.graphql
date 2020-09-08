@@ -1,0 +1,185 @@
+mutation CreateSubmitTask {
+  saveCompleteWorkflowFormTask(
+    input: { slug: "submit", name: "Gesuch einreichen", addressGroups: "[]" }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateManualWorkItemTask {
+  saveSimpleTask(
+    input: {
+      slug: "create-manual-workitems"
+      name: "Manuelle Aufgaben erfassen"
+      addressGroups: "[]"
+      isMultipleInstance: true
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateCompleteCheckTask {
+  saveSimpleTask(
+    input: {
+      slug: "complete-check"
+      name: "Vollständigkeitsprüfung durchführen"
+      addressGroups: "['municipality']|groups"
+      leadTime: 864000 # 10 days
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateRejectFormTask {
+  saveSimpleTask(
+    input: {
+      slug: "reject-form"
+      name: "Gesuch zurückweisen"
+      addressGroups: "['municipality']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateStartCirculationTask {
+  saveSimpleTask(
+    input: {
+      slug: "start-circulation"
+      name: "Zirkulation starten"
+      addressGroups: "['municipality']|groups"
+      leadTime: 864000 # 10 days
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreatePublicationTask {
+  saveSimpleTask(
+    input: {
+      slug: "publication"
+      name: "Gesuch publizieren"
+      addressGroups: "['municipality']|groups"
+      leadTime: 864000 # 10 days
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateCirculationTask {
+  saveSimpleTask(
+    input: {
+      slug: "circulation"
+      name: "Zirkulation"
+      addressGroups: "['municipality']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateWriteStatementTask {
+  saveSimpleTask(
+    input: {
+      slug: "write-statement"
+      name: "Stellungnahme verfassen"
+      addressGroups: "['service']|groups"
+      controlGroups: "['service_parent']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateCheckStatementTask {
+  saveSimpleTask(
+    input: {
+      slug: "check-statement"
+      name: "Stellungnahme prüfen"
+      addressGroups: "['service']|groups"
+      controlGroups: "['service_parent']|groups"
+      leadTime: 259200 # 3 days
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateReviseStatementTask {
+  saveSimpleTask(
+    input: {
+      slug: "revise-statement"
+      name: "Stellungnahme überarbeiten"
+      addressGroups: "['service']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateStartAdditionalCirculationTask {
+  saveSimpleTask(
+    input: {
+      slug: "start-additional-circulation"
+      name: "Weitere Zirkulation starten"
+      addressGroups: "['municipality']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateCheckStatementsTask {
+  saveSimpleTask(
+    input: {
+      slug: "check-statements"
+      name: "Stellungnahmen prüfen"
+      addressGroups: "['municipality']|groups"
+      leadTime: 864000 # 10 days
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateStartDecisionTask {
+  saveSimpleTask(
+    input: {
+      slug: "start-decision"
+      name: "Entscheid starten"
+      addressGroups: "['municipality']|groups"
+      leadTime: 864000 # 10 days
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateMakeDecisionTask {
+  saveSimpleTask(
+    input: {
+      slug: "make-decision"
+      name: "Entscheid verfügen"
+      addressGroups: "['municipality']|groups"
+      leadTime: 864000 # 10 days
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateReopenCirculationTask {
+  saveSimpleTask(
+    input: {
+      slug: "reopen-circulation"
+      name: "Zurück in Zirkulation"
+      addressGroups: "['municipality']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
