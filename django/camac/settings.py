@@ -211,6 +211,35 @@ APPLICATIONS = {
         "SEQUENCE_NAMESPACE_APPS": [],
         "PUBLICATION_INVITE_ONLY": True,
         "NOTIFICATIONS_EXCLUDED_TASKS": [],
+        "CALUMA": {
+            "CIRCULATION_WORKFLOW": "circulation",
+            "CIRCULATION_TASK": "circulation",
+            "CIRCULATION_FORM": "circulation",
+            "ACTIVATION_INIT_TASK": "write-statement",
+            "ACTIVATION_TASKS": [
+                "write-statement",
+                "check-statement",
+                "revise-statement",
+            ],
+            "SUBMIT_TASK": "submit",
+            "POST_COMPLETE": {
+                "complete-check": {"cancel": ["reject-form"]},
+                "reject-form": {"cancel": ["complete-check"]},
+                "start-additional-circulation": {
+                    "cancel": ["check-statements", "start-decision"]
+                },
+                "start-decision": {
+                    "skip": ["check-statements"],
+                    "cancel": ["start-additional-circulation"],
+                },
+                "reopen-circulation": {"cancel": ["make-decision"]},
+                "make-decision": {
+                    "cancel": ["create-manual-workitems", "reopen-circulation"]
+                },
+                "check-statement": {"cancel": ["revise-statement"]},
+                "revise-statement": {"cancel": ["check-statement"]},
+            },
+        },
     },
     "kt_bern": {
         "ROLE_PERMISSIONS": {
@@ -273,7 +302,8 @@ APPLICATIONS = {
             "CIRCULATION_WORKFLOW": "circulation",
             "CIRCULATION_TASK": "circulation",
             "CIRCULATION_FORM": "circulation",
-            "ACTIVATION_TASK": "activation",
+            "ACTIVATION_INIT_TASK": "activation",
+            "ACTIVATION_TASKS": ["activation"],
             "SUBMIT_TASK": "submit",
             "REPORT_TASK": "sb1",
             "FINALIZE_TASK": "sb2",
