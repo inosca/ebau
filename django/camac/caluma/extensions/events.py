@@ -79,7 +79,7 @@ def set_meta_attributes(sender, work_item, user, context, **kwargs):
         },
         "activation-id": {
             "from_context": True,
-            "tasks": [get_caluma_setting("ACTIVATION_TASK")],
+            "tasks": get_caluma_setting("ACTIVATION_TASKS"),
         },
     }
 
