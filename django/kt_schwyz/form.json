@@ -445,11 +445,13 @@
       "questions": [
         "innerhalb-oder-ausserhalb-bauzonen",
         "betrifft-landwirtschaftlichen-betrieb",
+        "betrifft-wohngebaeude",
         "vorabklaerung-hinweis-1",
         "landwirtschaft-sak-wert",
         "landwirtschaft-gebietskategorie",
         "vorabklaerung-hinweis-2",
-        "vorabklaerung-hinweis-3"
+        "vorabklaerung-hinweis-3",
+        "vorabklaerung-hinweis-4"
       ]
     },
     "grundinformationen.gwr": {
@@ -1342,7 +1344,7 @@
       }
     },
     "betrifft-landwirtschaftlichen-betrieb": {
-      "label": "Betrifft das Vorhaben einen landwirtschaftlichen Betrieb?",
+      "label": "Betrifft das Vorhaben einen landwirtschaftlichen Betrieb bzw. eine landwirtschaftliche Nutzung?",
       "hint": "",
       "type": "radio",
       "required": true,
@@ -1350,6 +1352,17 @@
       "config": {
         "options": ["Ja", "Nein"]
       }
+    },
+    "betrifft-wohngebaeude": {
+      "label": "Betrifft das Vorhaben ein Wohngebäude?",
+      "hint": "Beantworten Sie bitte die Frage unabhängig davon, ob Ihr Vorhaben weitere Bauten oder Anlagen beinhaltet. Dies spielt in dieser Frage keine Rolle.",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'Ja' in 'betrifft-landwirtschaftlichen-betrieb'|value",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+
     },
     "vorabklaerung-hinweis-1": {
       "label": "Für die Bearbeitung Ihrer Vorabklärung ist es wichtig, dass Sie Ihr geplantes Vorhaben gut beschreiben (z. B. mit Projektbeschrieb, Situationsplan, Skizzen, Visualisierungen, Fotos oder dgl.).<br> Wichtig: Formulieren Sie zusätzlich konkrete Fragen, welche Sie beantwortet haben möchten, damit Sie wissen, wie Sie Ihr Vorhaben weiterplanen können",
@@ -1368,7 +1381,15 @@
       "config": {}
     },
     "vorabklaerung-hinweis-3": {
-      "label": "Text wird vom Amt für Landwirtschaft noch geliefert",
+      "label": "Für die Bearbeitung von Vorabklärungen ausserhalb der Bauzonen, denen eine landwirtschaftliche Nutzung zugrunde liegt, werden im Allgemeinen folgende Dokumente und Informationen benötigt. Bitte laden Sie diese in der Rubrik GESUCHSUNTERLAGEN hoch.<br><br> <b>Bei Vorhaben im Bereich landwirtschaftlicher Ökonomiebauten:</b><br>- Übersicht/Angaben über sämtliche im Eigentum befindlichen Ökonomiebauten;<br>- Angaben über die aktuelle Nutzung der Ökonomiebauten;<br>- Beschreibung des Raumbedarfes (bei Stallbauten: Anzahl Tierplätze mit Angabe der Tierkategorie in geplanten und in bestehenden Stallbauten <a href='/assets/documents/Formular-Tierbestand.pdf' title='Herunterladen'>[Formular Tierbestand]</a>;<br> bei Lager-/Remisenbauten: Angaben zum Raumbedarf unter Einbezug der bestehenden Ökonomiebauten);</br>- Vorprojekt (bestehend aus Grundriss- , Schnitt- und Fassadenplänen im Massstab 1:100, Vorabzug Umgebungsplan mit projektierten Bodenbefestigungen).<br><br> <b>Bei Vorhaben im Bereich Tiefbau:</b><br>- Beschreibung des Zwecks der Anlage (Erschliessungszweck bei Weganlagen, landwirtschaftlicher Nutzen bei Bodenverbesserungsmassnahmen);<br>- Vorprojekt (Situationsplan, bei Weganlagen Normalprofil).",
+      "hint": "",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'Nein' in 'betrifft-wohngebaeude'|value",
+      "config": {}
+    },
+    "vorabklaerung-hinweis-4": {
+      "label": "Für die Bearbeitung von Vorabklärungen zu Wohnbauten ausserhalb der Bauzonen, denen eine landwirtschaftliche Nutzung zugrunde liegt, werden im Allgemeinen folgende Dokumente und Informationen benötigt. Bitte laden Sie diese in der Rubrik GESUCHSUNTERLAGEN hoch.<br><br> <b>Bei Vorhaben im Bereich landwirtschaftlichen Wohnens:</b><br>- Angaben über sämtliche im Eigentum befindlichen Wohnbauten;<br>- Angaben über die Nutzung der einzelnen Wohneinheiten (Wer bewohnt welche Wohnung? Funktion der Bewohner auf dem Landwirtschaftsbetrieb?);<br>- Fotodokumentation der Gebäude (an Stelle von Fassadenplänen);<br>- massstäbl. Grundrisspläne mit Raumnutzungen und Vermassung;<br>- massstäbl. Schnittplan;<br>- Vorprojekt (bestehend aus Grundriss- , Schnitt- und Fassadenplänen im Massstab 1:100, Vorabzug Umgebungsplan mit projektierten Bodenbefestigungen).",
       "hint": "",
       "type": "checkbox",
       "required": false,
@@ -2414,7 +2435,7 @@
       "hint": "Die Standardarbeitskraft (SAK) ist eine Einheit zur standardisierten Bemessung der Betriebsgrösse auf der Basis der Betriebsdaten. Die zur Berechnung verwendeten Faktoren basieren auf arbeitswirtschaftlichen Grundlagen. Der SAK-Wert kann auf der letzten Direktzahlungsabrechnung entnommen werden.",
       "type": "number",
       "required": true,
-      "active-expression": "('Landwirtschaft' in 'art-der-nutzung'|value || 'Ja' in 'betrifft-landwirtschaftlichen-betrieb'|value)",
+      "active-expression": "('Landwirtschaft' in 'art-der-nutzung'|value || 'Ja' in 'betrifft-wohngebaeude'|value)",
       "config": {
         "min": 0
       }
@@ -2476,7 +2497,7 @@
       "hint": "**Talgebiet:** Das Talgebiet umfasst die Hügelzone und die Talzone.\n\n**Berggebiet:** Das Berggebiet umfasst die Bergzone I bis IV.",
       "type": "radio",
       "required": true,
-      "active-expression": "('Landwirtschaft' in 'art-der-nutzung'|value && 'Wohnbaute(n)' in 'landwirtschaft-bereiche-baute'|value || 'Ja' in 'betrifft-landwirtschaftlichen-betrieb'|value )",
+      "active-expression": "('Landwirtschaft' in 'art-der-nutzung'|value && 'Wohnbaute(n)' in 'landwirtschaft-bereiche-baute'|value || 'Ja' in 'betrifft-wohngebaeude'|value )",
       "config": {
         "options": ["Berggebiet", "Talgebiet"]
       }
