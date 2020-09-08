@@ -343,12 +343,14 @@ def test_notification_template_sendmail_koor(
                 BILLING_TOTAL_KOMMUNAL: {{billing_total_kommunal}}
                 BILLING_TOTAL_KANTON: {{billing_total_kanton}}
                 BILLING_TOTAL: {{billing_total}}
+                SENDER_SERVICE_ADDRESS: {{sender_service_address}}
             """,
         )
     ],
 )
 def test_notification_placeholders(
     admin_client,
+    admin_user,
     instance,
     instance_service,
     notification_template,
@@ -400,6 +402,8 @@ def test_notification_placeholders(
 
     mail = mailoutbox[0]
 
+    admin_svc = admin_user.get_default_group().service
+
     assert [
         placeholder.strip()
         for placeholder in mail.body.replace(settings.EMAIL_PREFIX_BODY, "")
@@ -413,6 +417,9 @@ def test_notification_placeholders(
         f"BILLING_TOTAL_KOMMUNAL: {kommunal_amount}",
         f"BILLING_TOTAL_KANTON: {kanton_amount}",
         f"BILLING_TOTAL: {round(kommunal_amount + kanton_amount, 2)}",
+        f"SENDER_SERVICE_ADDRESS: {admin_svc.name}",
+        f"{admin_svc.address}",
+        f"{admin_svc.zip} {admin_svc.city}",
     ]
 
 
