@@ -64,7 +64,13 @@
         <tr class="workitem {{workItem.workItemColor}}">
           <td><a href="{{workItem.instanceLink}}">{{workItem.instanceIdentifier}}</a></td>
           <td>{{workItem.instanceName}}</td>
-          <td>{{workItem.name}}</td>
+          <td>
+            {{#if workItem.directLink}}
+              <a href="{{workItem.directLink}}">{{workItem.name}}</a>
+            {{else}}
+              {{workItem.name}}
+            {{/if}}
+          </td>
           <td>{{moment-from workItem.deadline}}</td>
           <td>
             {{format-date
