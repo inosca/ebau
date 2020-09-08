@@ -1403,6 +1403,34 @@
   },
   {
     "fields": {
+      "available_action": "workitem",
+      "button": 1200000,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150037
+  },
+  {
+    "fields": {
+      "available_action": "workitem",
+      "button": 1200001,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150038
+  },
+  {
+    "fields": {
       "available_action": "formtransition",
       "button": 1200000,
       "description": null,
@@ -1591,7 +1619,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 2,
+      "sort": 3,
       "success_message": null
     },
     "model": "core.action",
@@ -1605,7 +1633,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 2,
+      "sort": 3,
       "success_message": null
     },
     "model": "core.action",
@@ -2686,7 +2714,7 @@
       "description": null,
       "error_message": null,
       "language": "de",
-      "name": "Aufgabe \u00fcberspringen: Dossier pr\u00fcfen",
+      "name": "Aufgabe abschliessen: Dossier pr\u00fcfen",
       "success_message": null
     },
     "model": "core.actiont",
@@ -2806,7 +2834,7 @@
       "description": null,
       "error_message": null,
       "language": "de",
-      "name": "Aufgabe \u00fcberspringen: Entscheid starten",
+      "name": "Aufgabe abschliessen: Entscheid starten",
       "success_message": null
     },
     "model": "core.actiont",
@@ -2818,7 +2846,7 @@
       "description": null,
       "error_message": null,
       "language": "de",
-      "name": "Aufgabe \u00fcberspringen: Zirkulation initialisieren",
+      "name": "Aufgabe abschliessen: Zirkulation initialisieren",
       "success_message": null
     },
     "model": "core.actiont",
@@ -2895,6 +2923,30 @@
     },
     "model": "core.actiont",
     "pk": 150042
+  },
+  {
+    "fields": {
+      "action": 150037,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Aufgabe abschliessen: Selbstdeklaration 1 pr\u00fcfen",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150043
+  },
+  {
+    "fields": {
+      "action": 150038,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Aufgabe abschliessen: Selbstdeklaration 2 pr\u00fcfen",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150044
   },
   {
     "fields": {
@@ -3285,7 +3337,7 @@
       "is_activation": false,
       "process_all": true,
       "process_type": "skip",
-      "tasks": "[\"sb1\", \"check-sb1\"]"
+      "tasks": "[\"sb1\"]"
     },
     "model": "core.actionworkitem",
     "pk": 150009
@@ -3295,7 +3347,7 @@
       "is_activation": false,
       "process_all": true,
       "process_type": "skip",
-      "tasks": "[\"sb2\", \"check-sb2\"]"
+      "tasks": "[\"sb2\"]"
     },
     "model": "core.actionworkitem",
     "pk": 150010
@@ -3374,7 +3426,7 @@
     "fields": {
       "is_activation": false,
       "process_all": false,
-      "process_type": "skip",
+      "process_type": "complete",
       "tasks": "[\"audit\"]"
     },
     "model": "core.actionworkitem",
@@ -3414,7 +3466,7 @@
     "fields": {
       "is_activation": false,
       "process_all": false,
-      "process_type": "skip",
+      "process_type": "complete",
       "tasks": "[\"start-decision\"]"
     },
     "model": "core.actionworkitem",
@@ -3424,11 +3476,31 @@
     "fields": {
       "is_activation": false,
       "process_all": false,
-      "process_type": "skip",
+      "process_type": "complete",
       "tasks": "[\"init-circulation\"]"
     },
     "model": "core.actionworkitem",
     "pk": 150029
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": false,
+      "process_type": "complete",
+      "tasks": "[\"check-sb1\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 150037
+  },
+  {
+    "fields": {
+      "is_activation": false,
+      "process_all": false,
+      "process_type": "complete",
+      "tasks": "[\"check-sb2\"]"
+    },
+    "model": "core.actionworkitem",
+    "pk": 150038
   },
   {
     "fields": {
