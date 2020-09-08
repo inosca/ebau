@@ -5,6 +5,7 @@ import moment from "moment";
 
 export default class CustomWorkItemModel extends WorkItemModel {
   @service store;
+  @service shoebox;
 
   @tracked notViewed = this.raw.meta["not-viewed"];
   @tracked assignedUsers = this.raw.assignedUsers;
@@ -77,6 +78,36 @@ export default class CustomWorkItemModel extends WorkItemModel {
     return this.store
       .peekAll("user")
       .findBy("username", this.raw.createdByUser);
+  }
+
+  get isAddressedToCurrentService() {
+    return this.addressedGroups
+      .map(id => parseInt(id))
+      .includes(this.shoebox.content.serviceId);
+  }
+
+  get directLink() {
+    if (!this.isAddressedToCurrentService) return null;
+
+    const config = this.shoebox.content.config.directLink;
+    const role = this.shoebox.role;
+    const task = this.raw.task.slug;
+
+    try {
+      const template = config[task][role];
+      const data = {
+        INSTANCE_ID: this.instanceId,
+        CIRCULATION_ID: this.raw.meta["circulation-id"],
+        ACTIVATION_ID: this.raw.meta["activation-id"]
+      };
+
+      return Object.entries(data).reduce(
+        (str, [key, value]) => str.replace(new RegExp(`{{${key}}}`), value),
+        template
+      );
+    } catch (error) {
+      return null;
+    }
   }
 
   static fragment = `{
