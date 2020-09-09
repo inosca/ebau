@@ -52,7 +52,7 @@ def test_sendreminders_caluma(
     users = user_factory.create_batch(4)
     services = service_factory.create_batch(4)
 
-    work_item_factory.create_batch(
+    deadline_work_items = work_item_factory.create_batch(
         2,
         status="ready",
         deadline=timezone.now() - timedelta(days=1),
@@ -60,6 +60,9 @@ def test_sendreminders_caluma(
         addressed_groups=[str(s.pk) for s in services[:2]],
         controlling_groups=[str(s.pk) for s in [services[0], services[3]]],
     )
+    deadline_work_items[0].deadline = timezone.now() - timedelta(days=2)
+    deadline_work_items[0].save()
+
     work_item_factory.create_batch(
         3,
         status="ready",
@@ -73,4 +76,7 @@ def test_sendreminders_caluma(
 
     assert len(mailoutbox) == 7
     assert users[3].email not in [addr for mail in mailoutbox for addr in mail.to]
-    snapshot.assert_match(set((mail.subject, mail.body) for mail in mailoutbox))
+    mails = sorted(mailoutbox, key=lambda x: x.to)
+    snapshot.assert_match(
+        [{"to": mail.to, "subject": mail.subject, "body": mail.body} for mail in mails]
+    )
