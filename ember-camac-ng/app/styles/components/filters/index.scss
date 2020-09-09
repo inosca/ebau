@@ -1,0 +1,9 @@
+@import "radio-buttons";
+
+.filters {
+  display: flex;
+
+  & > div {
+    margin-right: 10px;
+  }
+}

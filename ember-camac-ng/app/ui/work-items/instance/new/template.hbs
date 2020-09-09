@@ -1,7 +1,7 @@
 <Notifications />
 
 <h2>
-  {{t "workItem.createWorkitem"}}
+  {{t "workItems.new"}}
 </h2>
 
 <form
@@ -10,7 +10,7 @@
   {{on "submit" (perform this.createWorkItem)}}
 >
   <label class="work-item-input">
-    {{t "workItem.responsible"}}
+    {{t "workItems.responsible"}}
     <PowerSelect
       @searchEnabled={{true}}
       @searchField="name"
@@ -25,7 +25,7 @@
   </label>
   {{#if this.selectedOwnService}}
     <label class="work-item-input">
-      {{t "workItem.responsiblePerson"}}
+      {{t "workItems.assignedUser"}}
       <PowerSelect
         @searchEnabled={{true}}
         @searchField="fullName"
@@ -40,15 +40,15 @@
     </label>
   {{/if}}
   <label class="work-item-input">
-    {{t "workItem.title"}}
+    {{t "workItems.title"}}
     <Input @type="text" @value={{mut this.workItem.title}} />
   </label>
   <label class="work-item-input">
-    {{t "workItem.description"}}
+    {{t "workItems.description"}}
     <Textarea @value={{this.workItem.description}} />
   </label>
   <label class="work-item-input">
-    {{t "workItem.deadline"}}
+    {{t "workItems.deadline"}}
     <PikadayInput
       class="deadline"
       @value={{this.workItem.deadline}}
@@ -58,20 +58,20 @@
   </label>
 
   <div class="work-item-input">
-    {{t "workItem.notifications"}}
+    {{t "workItems.notifications"}}
     <label class="checkbox-label">
       <Input
         @type="checkbox"
         @checked={{mut this.workItem.notificationCompleted}}
       />
-      {{t "workItem.notifyCompleted"}}
+      {{t "workItems.notifyCompleted"}}
     </label>
     <label class="checkbox-label">
       <Input
         @type="checkbox"
         @checked={{mut this.workItem.notificationDeadline}}
       />
-      {{t "workItem.notifyDeadline"}}
+      {{t "workItems.notifyDeadline"}}
     </label>
   </div>
 

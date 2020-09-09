@@ -1,0 +1,47 @@
+.radio-buttons {
+  display: flex;
+
+  &__button {
+    display: inline-flex;
+    margin-right: -1px;
+    border: 1px solid #000000;
+    color: #000000;
+
+    > label {
+      display: flex;
+      padding: 0.5em 1em;
+      cursor: pointer;
+    }
+
+    > input[type="radio"] {
+      opacity: 0;
+      width: 0;
+      padding: 0;
+      margin: 0;
+    }
+
+    > input:checked + label {
+      background-color: #dddddd;
+    }
+  }
+}
+
+.project-be {
+  .radio-buttons {
+    &__button {
+      border: 1px solid #c8d9e9;
+
+      > input:checked + label {
+        background-color: #c8d9e9;
+      }
+    }
+  }
+}
+
+.project-sz {
+  .radio-buttons {
+    &__button {
+      border: 1px solid lightgray;
+    }
+  }
+}
