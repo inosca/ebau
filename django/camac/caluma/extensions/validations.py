@@ -1,3 +1,4 @@
+from caluma.caluma_core.mutation import Mutation
 from caluma.caluma_core.validations import BaseValidation, validation_for
 from caluma.caluma_form.models import Answer
 from caluma.caluma_form.schema import SaveDocumentStringAnswer
@@ -32,6 +33,14 @@ class CustomValidation(BaseValidation):
             user_pk=None,  # Not needed, hence not querying for it
             group_pk=None,  # Not needed, hence not querying for it
         )
+
+    @validation_for(Mutation)
+    def validate_default(self, mutation, data, info):
+        """Set group on the request user for caluma internal processing."""
+        camac_request = CamacRequest(info)
+        info.context.user.group = camac_request.request.group.service_id
+
+        return data
 
     @validation_for(SaveDocumentStringAnswer)
     def validate_save_document_string_answer(self, mutation, data, info):
