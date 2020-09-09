@@ -1,7 +1,7 @@
 <Notifications />
 
 <h2>
-  {{t "workItem.updateWorkItem"}}
+  {{t "workItems.edit"}}
 </h2>
 
 <div>
@@ -14,7 +14,7 @@
   <div class="work-item-attributes">
     <div class="work-item-attribute">
       <span class="work-item-attribute__title">
-        {{t "workItem.responsible"}}
+        {{t "workItems.responsible"}}
       </span>
       {{#each @model.addressedServices as |service|}}
         {{service.name}}
@@ -24,9 +24,10 @@
     </div>
     <div class="work-item-attribute">
       <span class="work-item-attribute__title">
-        {{t "workItem.deadline"}}
+        {{t "workItems.deadline"}}
       </span>
-      {{format-date
+      {{
+        format-date
         @model.deadline
         day="2-digit"
         month="2-digit"
@@ -38,15 +39,16 @@
     </div>
     <div class="work-item-attribute">
       <span class="work-item-attribute__title">
-        {{t "workItem.createdBy"}}
+        {{t "workItems.createdBy"}}
       </span>
       {{if @model.createdByUser @model.createdByUser.fullName "-"}}
     </div>
     <div class="work-item-attribute">
       <span class="work-item-attribute__title">
-        {{t "workItem.createdAt"}}
+        {{t "workItems.createdAt"}}
       </span>
-      {{format-date
+      {{
+        format-date
         @model.createdAt
         day="2-digit"
         month="2-digit"
@@ -62,16 +64,17 @@
 {{#if this.isWorkItemCompleted}}
   <div class="work-item-attributes">
     <div class="work-item-attribute">
-      <span>
-        {{t "workItem.closedBy"}}
+      <span class="work-item-attribute__title">
+        {{t "workItems.closedBy"}}
       </span>
       {{@model.closedByUser.fullName}}
     </div>
     <div class="work-item-attribute">
-      <span>
-        {{t "workItem.closedAt"}}
+      <span class="work-item-attribute__title">
+        {{t "workItems.closedAt"}}
       </span>
-      {{format-date
+      {{
+        format-date
         @model.closedAt
         day="2-digit"
         month="2-digit"
@@ -82,8 +85,8 @@
       }}
     </div>
     <div class="work-item-attribute">
-      <span>
-        {{t "workItem.comment"}}
+      <span class="work-item-attribute__title">
+        {{t "workItems.comment"}}
       </span>
       {{if @model.meta.completion-comment @model.meta.completion-comment "-"}}
     </div>
@@ -94,11 +97,11 @@
     {{on "submit" (perform this.saveManualWorkItem)}}
   >
     <label class="work-item-input">
-      {{t "workItem.description"}}
+      {{t "workItems.description"}}
       <Textarea @value={{@model.description}} />
     </label>
     <label class="work-item-input">
-      {{t "workItem.deadline"}}
+      {{t "workItems.deadline"}}
       <PikadayInput
         class="deadline"
         @value={{@model.deadline}}
@@ -108,14 +111,14 @@
     </label>
 
     <div class="work-item-input">
-      {{t "workItem.notifications"}}
+      {{t "workItems.notifications"}}
       <label class="checkbox-label">
         <Input @type="checkbox" @checked={{mut @model.meta.notify-completed}} />
-        {{t "workItem.notifyCompleted"}}
+        {{t "workItems.notifyCompleted"}}
       </label>
       <label class="checkbox-label">
         <Input @type="checkbox" @checked={{mut @model.meta.notify-deadline}} />
-        {{t "workItem.notifyDeadline"}}
+        {{t "workItems.notifyDeadline"}}
       </label>
     </div>
 
@@ -132,7 +135,7 @@
     {{on "submit" (perform this.workItemAssignUsers)}}
   >
     <label class="work-item-input">
-      {{t "workItem.responsiblePerson"}}
+      {{t "workItems.assignedUser"}}
       <PowerSelect
         @searchEnabled={{true}}
         @searchField="fullName"
@@ -158,7 +161,7 @@
   (and (not this.isWorkItemCompleted) this.isManualWorkItem this.isAddressed)
 }}
   <h2>
-    {{t "workItem.finishWorkItem"}}
+    {{t "workItems.actions.finish"}}
   </h2>
 
   <form
@@ -166,13 +169,13 @@
     {{on "submit" (perform this.finishWorkItem)}}
   >
     <label class="work-item-input">
-      {{t "workItem.comment"}}
+      {{t "workItems.comment"}}
       <Textarea @value={{@model.meta.completion-comment}} />
     </label>
 
     <div class="buttons">
       <button class="button buttonstyle btn success" type="submit">
-        {{t "workItem.finishWorkItem"}}
+        {{t "workItems.actions.finish"}}
       </button>
     </div>
   </form>

@@ -1,139 +1,54 @@
 <Notifications />
 
-<div class="workitemlist-filters">
-  <div>
-    <div>{{t "workItemList.responsible"}}</div>
-    <div class="filters-wrapper">
-      <input {{on "click" (fn this.updateFilter "responsible" "all")}} value="all" checked={{eq this.responsible "all"}} type="radio" class="filter-button" name="verantwortlich" id="filter-all"/>
-      <label for="filter-all">{{t "workItemList.all.filter.all"}}</label>
-      <input {{on "click" (fn this.updateFilter "responsible" "own")}} value="own" checked={{eq this.responsible "own"}} type="radio" class="filter-button" name="verantwortlich" id="filter-own"/>
-      <label for="filter-own">{{t "workItemList.all.filter.own"}}</label>
-    </div>
-  </div>
-  <div>
-    <div>{{t "workItemList.all.filter.type"}}</div>
-    <div class="filters-wrapper">
-      <input {{on "click" (fn this.updateFilter "type" "all")}} value="all" checked={{eq this.type "all"}} type="radio" class="filter-button" name="type" id="filter-type-all"/>
-      <label for="filter-type-all">{{t "workItemList.all.filter.all"}}</label>
-      <input {{on "click" (fn this.updateFilter "type" "new")}} value="new" checked={{eq this.type "new"}} type="radio" class="filter-button" name="type" id="filter-type-new"/>
-      <label for="filter-type-new">{{t "workItemList.all.filter.new"}}</label>
-    </div>
-  </div>
-  <div>
-    <div>{{t "workItemList.all.filter.status"}}</div>
-    <div class="filters-wrapper">
-      <input {{on "click" (fn this.updateFilter "status" "open")}} value="open" checked={{eq this.status "open"}} type="radio" class="filter-button" name="status" id="filter-open"/>
-      <label for="filter-open">{{t "workItemList.all.filter.open"}}</label>
-      <input {{on "click" (fn this.updateFilter "status" "closed")}} value="closed" checked={{eq this.status "closed"}} type="radio" class="filter-button" name="status" id="filter-closed"/>
-      <label for="filter-closed">{{t "workItemList.all.filter.closed"}}</label>
-    </div>
-  </div>
-  <div>
-    <div>{{t "workItemList.all.filter.role"}}</div>
-    <div class="filters-wrapper">
-      <input {{on "click" (fn this.updateFilter "role" "active")}} value="active" checked={{eq this.role "active"}} type="radio" class="filter-button" name="role" id="filter-active"/>
-      <label for="filter-active">{{t "workItemList.all.filter.active"}}</label>
-      <input {{on "click" (fn this.updateFilter "role" "control")}} value="control" checked={{eq this.role "control"}} type="radio" class="filter-button" name="role" id="filter-control"/>
-      <label for="filter-control">{{t "workItemList.all.filter.control"}}</label>
-    </div>
-  </div>
-</div>
+<Filters {{did-insert (perform this.fetchWorkItems)}} as |Filter|>
+  <Filter.RadioButtons
+    @name="responsible"
+    @label={{t "workItems.filters.responsible"}}
+    @selected={{this.responsible}}
+    @options={{
+      array
+      (hash value="all" label=(t "workItems.filters.all"))
+      (hash value="own" label=(t "workItems.filters.own"))
+    }}
+    @onChange={{fn this.updateFilter "responsible"}}
+  />
+  <Filter.RadioButtons
+    @name="type"
+    @label={{t "workItems.filters.type"}}
+    @selected={{this.type}}
+    @options={{
+      array
+      (hash value="all" label=(t "workItems.filters.all"))
+      (hash value="new" label=(t "workItems.filters.new"))
+    }}
+    @onChange={{fn this.updateFilter "type"}}
+  />
+  <Filter.RadioButtons
+    @name="status"
+    @label={{t "workItems.filters.status"}}
+    @selected={{this.status}}
+    @options={{
+      array
+      (hash value="open" label=(t "workItems.filters.open"))
+      (hash value="closed" label=(t "workItems.filters.closed"))
+    }}
+    @onChange={{fn this.updateFilter "status"}}
+  />
+  <Filter.RadioButtons
+    @name="role"
+    @label={{t "workItems.filters.role"}}
+    @selected={{this.role}}
+    @options={{
+      array
+      (hash value="active" label=(t "workItems.filters.active"))
+      (hash value="control" label=(t "workItems.filters.control"))
+    }}
+    @onChange={{fn this.updateFilter "role"}}
+  />
+</Filters>
 
-<table {{did-insert (perform this.fetchWorkItems)}}>
-  <thead>
-    <tr>
-      <th>{{t "workItemList.all.table.instance"}}</th>
-      <th>{{t "workItemList.all.table.instanceType"}}</th>
-      <th>{{t "workItemList.task"}}</th>
-      <th>{{t "workItemList.deadline"}}</th>
-      <th>{{t "workItemList.created"}}</th>
-      <th>{{t "workItemList.responsible"}}</th>
-      {{#if (eq this.role "control")}}
-        <th>{{t "workItemList.addressedGroups"}}</th>
-      {{/if}}
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#if (and this.workItemsQuery.isLoading (not this.workItemsQuery.value.length))}}
-      <tr>
-        <td class="center" colspan="{{if (eq this.role "control") 8 7}}"><LoadingText /></td>
-      </tr>
-    {{else}}
-      {{#each this.workItemsQuery.value as |workItem|}}
-        <tr class="workitem {{workItem.workItemColor}}">
-          <td><a href="{{workItem.instanceLink}}">{{workItem.instanceIdentifier}}</a></td>
-          <td>{{workItem.instanceName}}</td>
-          <td>
-            {{#if workItem.directLink}}
-              <a href="{{workItem.directLink}}">{{workItem.name}}</a>
-            {{else}}
-              {{workItem.name}}
-            {{/if}}
-          </td>
-          <td>{{moment-from workItem.deadline}}</td>
-          <td>
-            {{format-date
-              workItem.createdAt
-              day="2-digit"
-              month="2-digit"
-              year="numeric"
-              hour="2-digit"
-              minute="2-digit"
-              hour12=false
-            }}
-          </td>
-          <td>
-            {{#each workItem.assignedUserInformation as |user|}}
-              {{user.fullName}}
-            {{else}}
-              -
-            {{/each}}
-          </td>
-          {{#if (eq this.role "control")}}
-            <td>
-              {{#each workItem.addressedServices as |service|}}
-                {{service.name}}
-              {{else}}
-                -
-              {{/each}}
-            </td>
-          {{/if}}
-          <td {{on "mouseleave" (set this.menuOpen null)}} role="button">
-            <div>
-              <FaIcon @icon="ellipsis-v" {{on "click" (set this.menuOpen workItem.id)}}/>
-              {{#if (eq this.menuOpen workItem.id)}}
-                <div class="workitem-actions">
-                  {{!-- template-lint-disable no-nested-interactive --}}
-                  <ul>
-                    {{#if workItem.meta.not-viewed}}
-                      <li {{on "click" (perform this.workItemRead workItem)}} role="button">{{t "workItemList.all.table.markRead"}}</li>
-                    {{/if}}
-                    {{#if (not (contains this.userId workItem.assignedUsers))}}
-                      <li {{on "click" (perform this.workItemAssignUser workItem)}} role="button">{{t "workItemList.all.table.assignToMe"}}</li>
-                    {{/if}}
-                    {{!--
-                      TODO: link to edit workitem view after its created
-                      <li role="button">{{t "workItemList.all.table.editWorkitem"}}</li>
-                    --}}
-                  </ul>
-                </div>
-              {{/if}}
-            </div>
-          </td>
-        </tr>
-      {{else}}
-        <tr>
-          <td class="center" colspan="{{if (eq this.role "control") 8 7}}">{{t "global.empty"}}</td>
-        </tr>
-      {{/each}}
-      {{#if this.workItemsQuery.isLoading}}
-        <tr>
-          <td class="center" colspan="{{if (eq this.role "control") 8 7}}"><LoadingText /></td>
-        </tr>
-      {{/if}}
-    {{/if}}
-  </tbody>
-</table>
-
-<Pagination @query={{this.workItemsQuery}} @onLoadMore={{perform this.fetchMoreWorkItems}} />
+<WorkItemList
+  @query={{this.workItemsQuery}}
+  @columns={{this.columns}}
+  @highlight={{not-eq this.status "closed"}}
+/>
