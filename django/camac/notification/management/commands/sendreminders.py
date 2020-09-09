@@ -68,6 +68,7 @@ class Command(BaseCommand):
                 task_id__in=settings.APPLICATION.get("NOTIFICATIONS_EXCLUDED_TASKS", [])
             )
             .filter(is_overdue | is_not_viewed)
+            .order_by("name")
         )
 
         emails = []
