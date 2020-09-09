@@ -45,64 +45,52 @@ journal:
   textareaNew: "Textbereich für neuen Eintrag"
   textareaEdit: "Textbereich zum editieren des Eintrages"
 
-workItemList:
+workItems:
+  identifier: "Dossier Nr."
+  type: "Gesuchstyp"
   task: "Aufgabe"
   deadline: "Frist"
   created: "Erstellt"
   responsible: "Verantwortlich"
-  addressedGroups: "Service"
-
-  all:
-    saveError: "Fehler beim Speichern der Aufgabe"
-
-    filter:
-      status: "Status"
-      type: "Typ"
-      role: "Rolle"
-
-      all: "Alle"
-      own: "Eigene"
-      new: "Neu"
-      open: "Offen"
-      closed: "Abgeschlossen"
-      active: "Aktiv"
-      control: "Controlling"
-
-    table:
-      instance: "Dossier"
-      instanceType: "Gesuchstyp"
-
-      markRead: "Als gelesen markieren"
-      assignToMe: "Mir zuweisen"
-      editWorkitem: "Aufgabe bearbeiten"
-
-  instance:
-    currentTasks: "Aktuelle Aufgaben"
-    newTask: "Neue Aufgabe"
-    finishedTasks: "Abgeschlossene Aufgaben"
-
-workItem:
-  createWorkitem: "Neue Aufgabe"
-  responsible: "Verantwortlich"
-  responsiblePerson: "Verantwortliche Person"
+  service: "Service"
+  closedBy: "Erledigt von"
+  closedAt: "Erledigt am"
+  createdAt: "Erstellt am"
+  createdBy: "Erstellt durch"
+  assignedUser: "Verantwortliche Person"
   title: "Titel"
   description: "Beschreibung"
-  deadline: "Frist"
   notifications: "Notifikationen"
   notifyCompleted: "bei Abschluss"
   notifyDeadline: "bei Fristüberschreitung"
-  users: "Benutzer"
-  services: "Fachstellen"
-
-  createdAt: "Erstellt am"
-  createdBy: "Erstellt durch"
-  updateWorkItem: "Aufgabe bearbeiten"
-  finishWorkItem: "Aufgabe abschliessen"
   comment: "Kommentar"
 
-  closedBy: "Erledigt von"
-  closedAt: "Erledigt am"
+  current: "Aktuelle Aufgaben"
+  new: "Neue Aufgabe"
+  finished: "Abgeschlossene Aufgaben"
+  edit: "Aufgabe bearbeiten"
 
   saveSuccess: "Aufgabe erfolgreich gespeichert"
   finishSuccess: "Aufgabe erfolgreich abgeschlossen"
-  fetchError: "Fehler beim holen der Daten"
+  fetchError: "Fehler beim Laden der Aufgaben"
+  saveError: "Fehler beim Speichern der Aufgabe"
+
+  actions:
+    markAsRead: "Als gelesen markieren"
+    assignToMe: "Mir zuweisen"
+    edit: "Aufgabe bearbeiten"
+    finish: "Aufgabe abschliessen"
+
+  filters:
+    responsible: "Verantwortlich"
+    status: "Status"
+    type: "Typ"
+    role: "Rolle"
+
+    all: "Alle"
+    own: "Eigene"
+    new: "Neu"
+    open: "Offen"
+    closed: "Abgeschlossen"
+    active: "Aktiv"
+    control: "Controlling"

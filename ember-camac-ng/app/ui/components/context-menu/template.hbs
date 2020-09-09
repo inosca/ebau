@@ -1,0 +1,19 @@
+{{!-- template-lint-disable no-invalid-interactive --}}
+<div class="context-menu-container" {{on "mouseleave" (set this.menuOpen false)}}>
+  <button type="button" class="context-menu-trigger" {{on "click" (set this.menuOpen true)}}>
+    <FaIcon @icon="ellipsis-v" />
+  </button>
+  {{#if this.menuOpen}}
+    <div class="context-menu">
+      <ul>
+        {{#each @actions as |action|}}
+          <li>
+            <button type="button" {{on "click" action.action}}>
+              {{action.title}}
+            </button>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  {{/if}}
+</div>

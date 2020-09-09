@@ -1,0 +1,30 @@
+.work-item-list {
+  .highlight + td,
+  .highlight + th {
+    border-left: none !important;
+  }
+
+  .highlight {
+    width: 2px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+    &--expired {
+      background-color: #ffafaf !important;
+    }
+
+    &--expiring {
+      background-color: #ffc75f !important;
+    }
+
+    &--not-viewed {
+      background-color: #8df28d !important;
+    }
+  }
+
+  td:last-child {
+    text-align: center;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}

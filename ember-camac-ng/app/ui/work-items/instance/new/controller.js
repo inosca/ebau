@@ -2,10 +2,11 @@ import Controller from "@ember/controller";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
-import createWorkItem from "camac-ng/gql/mutations/create-work-item";
-import allCases from "camac-ng/gql/queries/all-cases";
 import { dropTask } from "ember-concurrency-decorators";
 import moment from "moment";
+
+import createWorkItem from "camac-ng/gql/mutations/create-work-item";
+import allCases from "camac-ng/gql/queries/all-cases";
 
 class NewWorkItem {
   @tracked case;
@@ -114,11 +115,11 @@ export default class WorkItemNewController extends Controller {
         }
       });
 
-      this.notifications.success(this.intl.t("workItem.saveSuccess"));
+      this.notifications.success(this.intl.t("workItems.saveSuccess"));
 
       this.transitionToRoute("work-items.instance.index");
     } catch (error) {
-      this.notifications.error(this.intl.t("workItemList.all.saveError"));
+      this.notifications.error(this.intl.t("workItemLists.saveError"));
     }
   }
 
