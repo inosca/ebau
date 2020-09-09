@@ -181,7 +181,7 @@
       "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_at": "2020-08-10T14:29:42.341Z",
-      "next": "'sb1'|task"
+      "next": "['after-decision']|tasks"
     },
     "model": "caluma_workflow.flow",
     "pk": "d8dd513b-ea02-43ba-96cd-568457d21744"
