@@ -57297,6 +57297,36 @@
   },
   {
     "fields": {
+      "description": null,
+      "instance_resource": 20079,
+      "language": "fr",
+      "name": "T\u00e2ches"
+    },
+    "model": "core.instanceresourcet",
+    "pk": 150018
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_resource": 20080,
+      "language": "fr",
+      "name": "T\u00e2ches"
+    },
+    "model": "core.instanceresourcet",
+    "pk": 150019
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_resource": 20081,
+      "language": "fr",
+      "name": "T\u00e2ches"
+    },
+    "model": "core.instanceresourcet",
+    "pk": 150020
+  },
+  {
+    "fields": {
       "circulation_type": 20000,
       "draft_circulation_answer": null,
       "pdf_class": null,
@@ -117996,6 +118026,16 @@
     },
     "model": "core.resourcet",
     "pk": 150008
+  },
+  {
+    "fields": {
+      "description": null,
+      "language": "fr",
+      "name": "T\u00e2ches",
+      "resource": 140000
+    },
+    "model": "core.resourcet",
+    "pk": 150009
   },
   {
     "fields": {
