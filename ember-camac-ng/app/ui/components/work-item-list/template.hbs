@@ -1,0 +1,37 @@
+<table class="work-item-list" ...attributes>
+  <thead>
+    <tr>
+      {{#if this.highlight}}
+        <th class="highlight">
+          <span hidden>{{t "workItems.actions.highlight"}}</span>
+        </th>
+      {{/if}}
+      {{#each @columns as |column|}}
+        <th>{{t (concat "workItems." column)}}</th>
+      {{/each}}
+      <th>
+        <span hidden>{{t "workItems.actions.title"}}</span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each @query.value as |workItem|}}
+      <WorkItemList::Item @workItem={{workItem}} @columns={{@columns}} @highlight={{this.highlight}} />
+    {{else if (not @query.isLoading)}}
+      <tr>
+        <td class="center" colspan={{this.colspan}}>
+          {{t "global.empty"}}
+        </td>
+      </tr>
+    {{/each}}
+    {{#if @query.isLoading}}
+      <tr>
+        <td class="center" colspan={{this.colspan}}>
+          <LoadingText />
+        </td>
+      </tr>
+    {{/if}}
+  </tbody>
+</table>
+
+<Pagination @query={{@query}} @onLoadMore={{this.fetchMore}} />
