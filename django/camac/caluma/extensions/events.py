@@ -96,9 +96,11 @@ def set_meta_attributes(sender, work_item, user, context, **kwargs):
             # incorrect task
             continue
 
-        if from_context and not context.get(attribute):
+        if from_context and (not context or not context.get(attribute)):
             # context does not contain attribute
-            log.warning(f"Attribute `{attribute}` is not passed in the context")
+            log.warning(
+                f"Attribute `{attribute}` is not passed in the context: {context}"
+            )
             continue
 
         work_item.meta[attribute] = (
