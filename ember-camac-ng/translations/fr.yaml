@@ -29,8 +29,6 @@ organisation:
 history:
   title: "Histoire"
   event: "Événement"
-  date: "Date"
-  user: "De"
 
   types:
     notification: "Notification"
@@ -47,63 +45,52 @@ journal:
   textareaNew: "Zone de texte pour la nouvelle entrée"
   textareaEdit: "Zone de texte pour l'édition de l'entrée"
 
-workItemList:
+workItems:
+  identifier: "Numéro de dossier"
+  type: "Type de demande"
   task: "Tâche"
   deadline: "Dû"
   created: "Créé"
   responsible: "Responsable"
-  addressedGroups: "Service"
-
-  all:
-    saveError: "La tâche n'a pas pu être enregistrée tâche"
-
-    filter:
-      status: "Ètat"
-      type: "Type"
-      role: "Rôle"
-
-      all: "Tous"
-      own: "Propre"
-      new: "Nouveau"
-      open: "Ouvert"
-      closed: "Terminé"
-      active: "Aktive"
-      control: "Contrôler"
-
-    table:
-      instance: "Dossier"
-      instanceType: "Type de demande"
-
-      markRead: "Marquer comme lu"
-      assignToMe: "Se référer à moi"
-      editWorkitem: "Modifier la tâche"
-
-  instance:
-    currentTasks: "Tâches actuelles"
-    newTask: "Nouvelle tâche"
-    finishedTasks: "Tâches terminées"
-
-workItem:
-  createWorkitem: "Nouvelle tâche"
-  responsible: "Responsable"
-  responsiblePerson: "Personne responsable"
+  service: "Service"
+  closedBy: "Fait par"
+  closedAt: "Fait le"
+  createdAt: "Créé le"
+  createdBy: "Créé par"
+  assignedUser: "Personne responsable"
   title: "Titre"
   description: "Description"
-  deadline: "Date limite"
   notifications: "Notifications"
   notifyCompleted: "à l'issue"
   notifyDeadline: "en cas de dépassement du délai"
-  users: "Utilisateur"
-  services: "Bureaux"
-
-  createdAt: "Créé le"
-  createdBy: "Créé par"
-  updateWorkItem: "Tâche d'édition"
-  finishWorkItem: "Terminer la tâche"
   comment: "Commentaire"
 
-  closedBy: "Fait par"
-  closedAt: "Fait le"
+  current: "Tâches actuelles"
+  new: "Nouvelle tâche"
+  finished: "Tâches terminées"
+  edit: "Modifier la tâche"
 
   saveSuccess: "Tâche sauvée avec succès"
-  fetchError: "Erreur lors de l'extraction de données"
+  finishSuccess: "Tâche terminée avec succès"
+  fetchError: "Erreur lors du chargement des tâches"
+  saveError: "Erreur en sauvant la tâche"
+
+  actions:
+    markAsRead: "Marquer comme lu"
+    assignToMe: "Se référer à moi"
+    edit: "Modifier la tâche"
+    finish: "Terminer la tâche"
+
+  filters:
+    responsible: "Responsable"
+    status: "Ètat"
+    type: "Type"
+    role: "Rôle"
+
+    all: "Tous"
+    own: "Propre"
+    new: "Nouveau"
+    open: "Ouvert"
+    closed: "Terminé"
+    active: "Aktive"
+    control: "Contrôler"

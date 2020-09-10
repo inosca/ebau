@@ -49,10 +49,6 @@
   }
 }
 
-.bold {
-  font-weight: 700;
-}
-
 .work-item-attributes {
   display: flex;
 
@@ -65,20 +61,5 @@
     &__title {
       font-weight: bold;
     }
-  }
-}
-
-.project-be {
-  .ember-power-select-trigger {
-    border: 1px solid #4a81b6;
-  }
-
-  .ember-power-select-dropdown {
-    border: 1px solid #4a81b6 !important;
-    border-top: none !important;
-  }
-
-  .ember-power-select-trigger-multiple-input {
-    border: none !important;
   }
 }
