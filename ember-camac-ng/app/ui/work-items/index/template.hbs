@@ -19,7 +19,7 @@
     @options={{
       array
       (hash value="all" label=(t "workItems.filters.all"))
-      (hash value="new" label=(t "workItems.filters.new"))
+      (hash value="unread" label=(t "workItems.filters.unread"))
     }}
     @onChange={{fn this.updateFilter "type"}}
   />
@@ -49,6 +49,6 @@
 
 <WorkItemList
   @query={{this.workItemsQuery}}
-  @columns={{this.columns}}
+  @columns={{array "task" "instance" "deadline" "responsible"}}
   @highlight={{not-eq this.status "closed"}}
 />

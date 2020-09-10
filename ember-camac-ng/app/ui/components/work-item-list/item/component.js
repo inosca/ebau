@@ -33,40 +33,47 @@ export default class WorkItemListItemComponent extends Component {
     return actions;
   }
 
-  get highlightClass() {
-    const remainingDays = this.args.workItem.deadline.diff(moment(), "days");
+  get highlightClasses() {
+    if (!this.args.highlight) return "";
 
-    if (remainingDays <= 0) {
-      return "highlight--expired";
-    } else if (remainingDays <= 3) {
-      return "highlight--expiring";
-    }
+    const notViewed = this.args.workItem.notViewed;
+    const diff = this.args.workItem.deadline.diff(moment(), "days", true);
 
-    if (this.args.workItem.notViewed) {
-      return "highlight--not-viewed";
-    }
-
-    return "";
+    return [
+      "highlight",
+      ...(diff <= 0 ? ["highlight--expired"] : []),
+      ...(diff <= 3 && diff > 0 ? ["highlight--expiring"] : []),
+      ...(notViewed ? ["highlight--not-viewed"] : [])
+    ].join(" ");
   }
 
   @dropTask
-  *markAsRead() {
+  *markAsRead(event) {
+    event.preventDefault();
+
     yield this.args.workItem.markAsRead();
   }
 
   @dropTask
-  *assignToMe() {
+  *assignToMe(event) {
+    event.preventDefault();
+
     yield this.args.workItem.assignToMe();
   }
 
   @dropTask
-  *edit() {
+  *edit(event) {
+    event.preventDefault();
+
     if (this.router.currentRouteName === "work-items.instance.index") {
       return yield this.router.transitionTo(
         "work-items.instance.edit",
         this.args.workItem
       );
     }
-    // TODO: direct link from other locations
+
+    if (this.args.workItem.editLink) {
+      location.replace(this.args.workItem.editLink);
+    }
   }
 }
