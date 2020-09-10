@@ -3,7 +3,7 @@ import pytest
 from caluma.caluma_core.events import send_event
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
-from caluma.caluma_workflow.events import created_work_item
+from caluma.caluma_workflow.events import post_create_work_item
 from django.conf import settings
 from django.urls import reverse
 from django.utils import timezone
@@ -287,7 +287,7 @@ def test_set_meta_attributes(
     work_item = work_item_factory(task__slug=task_slug, meta=existing_meta)
 
     send_event(
-        created_work_item,
+        post_create_work_item,
         sender=test_set_meta_attributes,
         work_item=work_item,
         user=caluma_admin_user,
