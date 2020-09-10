@@ -31,12 +31,6 @@ export default class WorkItemsInstanceEditController extends Controller {
     this.model.assignedUsers = [user.username];
   }
 
-  get isAddressed() {
-    return this.model.addressedServices
-      .map(s => parseInt(s.id))
-      .includes(this.shoebox.content.serviceId);
-  }
-
   get isManualWorkItem() {
     return this.model.raw.task.slug === "create-manual-workitems";
   }

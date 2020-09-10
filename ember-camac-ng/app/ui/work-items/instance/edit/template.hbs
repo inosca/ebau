@@ -128,7 +128,7 @@
       </button>
     </div>
   </form>
-{{else if this.isAddressed}}
+{{else if this.model.isAddressed}}
   <form
     class="work-item-form"
     {{did-insert (perform this.fetchUserChoices)}}
@@ -158,7 +158,7 @@
 {{/if}}
 
 {{#if
-  (and (not this.isWorkItemCompleted) this.isManualWorkItem this.isAddressed)
+  (and (not this.isWorkItemCompleted) this.isManualWorkItem this.model.isAddressed)
 }}
   <h2>
     {{t "workItems.actions.finish"}}
