@@ -328,7 +328,7 @@ APPLICATIONS = {
             ],
             "POST_COMPLETE": {
                 "start-decision": {
-                    "skip": ["check-activation"],
+                    "complete": ["check-activation"],
                     "cancel": ["start-circulation"],
                 },
                 "start-circulation": {"cancel": ["check-activation", "start-decision"]},
