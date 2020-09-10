@@ -16,7 +16,8 @@ module("Integration | Component | pagination", function(hooks) {
     this.set("query", {
       value: [1, 2, 3, 4, 5],
       hasNextPage: true,
-      totalCount: 10
+      totalCount: 10,
+      pageSize: 5
     });
 
     this.set("loadMore", e => {

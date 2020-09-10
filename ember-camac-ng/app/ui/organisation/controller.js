@@ -1,8 +1,9 @@
 import Controller from "@ember/controller";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
-import { loadingTask } from "camac-ng/decorators";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
+
+import { loadingTask } from "camac-ng/decorators";
 
 export default class OrganisationController extends Controller {
   @service intl;

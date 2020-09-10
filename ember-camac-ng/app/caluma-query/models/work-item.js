@@ -1,11 +1,16 @@
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import WorkItemModel from "ember-caluma/caluma-query/models/work-item";
-import moment from "moment";
+
+import saveWorkItemMutation from "camac-ng/gql/mutations/save-workitem";
 
 export default class CustomWorkItemModel extends WorkItemModel {
   @service store;
   @service shoebox;
+  @service router;
+  @service apollo;
+  @service intl;
+  @service notifications;
 
   @tracked notViewed = this.raw.meta["not-viewed"];
   @tracked assignedUsers = this.raw.assignedUsers;
@@ -54,22 +59,6 @@ export default class CustomWorkItemModel extends WorkItemModel {
     return `/index/redirect-to-instance-resource/instance-id/${this.instanceId}`;
   }
 
-  get workItemColor() {
-    const remainingDays = moment(this.raw.deadline).diff(moment(), "days");
-
-    if (remainingDays <= 0) {
-      return "expired";
-    } else if (remainingDays <= 3) {
-      return "expiring";
-    }
-
-    if (this.notViewed) {
-      return "not-viewed";
-    }
-
-    return "";
-  }
-
   get closedByUser() {
     return this.store.peekAll("user").findBy("username", this.raw.closedByUser);
   }
@@ -86,8 +75,16 @@ export default class CustomWorkItemModel extends WorkItemModel {
       .includes(this.shoebox.content.serviceId);
   }
 
+  get isAssignedToCurrentUser() {
+    return this.assignedUsers.includes(this.shoebox.content.username);
+  }
+
+  get canEdit() {
+    return this.isAddressedToCurrentService && this.raw.status === "READY";
+  }
+
   get directLink() {
-    if (!this.isAddressedToCurrentService) return null;
+    if (!this.canEdit) return null;
 
     const config = this.shoebox.content.config.directLink;
     const role = this.shoebox.role;
@@ -107,6 +104,46 @@ export default class CustomWorkItemModel extends WorkItemModel {
       );
     } catch (error) {
       return null;
+    }
+  }
+
+  async markAsRead() {
+    try {
+      this.notViewed = false;
+
+      await this.apollo.mutate({
+        mutation: saveWorkItemMutation,
+        variables: {
+          input: {
+            workItem: this.id,
+            meta: JSON.stringify({ ...this.raw.meta, "not-viewed": false })
+          }
+        }
+      });
+    } catch (error) {
+      this.notifications.error(this.intl.t("workItems.saveError"));
+    }
+  }
+
+  async assignToMe() {
+    await this.assignToUser({ username: this.shoebox.content.username });
+  }
+
+  async assignToUser(user) {
+    try {
+      this.assignedUsers = [user.username];
+
+      await this.apollo.mutate({
+        mutation: saveWorkItemMutation,
+        variables: {
+          input: {
+            workItem: this.id,
+            assignedUsers: this.assignedUsers
+          }
+        }
+      });
+    } catch (error) {
+      this.notifications.error(this.intl.t("workItems.saveError"));
     }
   }
 
