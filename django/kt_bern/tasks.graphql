@@ -89,7 +89,7 @@ mutation CreateCirculationTask {
     input: {
       slug: "circulation"
       name: "Zirkulation"
-      addressGroups: "['municipality']|groups"
+      addressGroups: "['circulation_service']|groups"
       isMultipleInstance: true
     }
   ) {
@@ -102,8 +102,8 @@ mutation CreateActivationTask {
     input: {
       slug: "activation"
       name: "Stellungnahme verfassen"
-      addressGroups: "['service']|groups"
-      controlGroups: "['service-parent']|groups"
+      addressGroups: "['activation_service']|groups"
+      controlGroups: "['activation_service-parent']|groups"
     }
   ) {
     clientMutationId

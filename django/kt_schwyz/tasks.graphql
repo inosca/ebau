@@ -75,7 +75,8 @@ mutation CreateCirculationTask {
     input: {
       slug: "circulation"
       name: "Zirkulation"
-      addressGroups: "['municipality']|groups"
+      addressGroups: "['circulation_service']|groups"
+      isMultipleInstance: true
     }
   ) {
     clientMutationId
@@ -87,8 +88,8 @@ mutation CreateWriteStatementTask {
     input: {
       slug: "write-statement"
       name: "Stellungnahme verfassen"
-      addressGroups: "['service']|groups"
-      controlGroups: "['service_parent']|groups"
+      addressGroups: "['activation_service']|groups"
+      controlGroups: "['activation_service_parent']|groups"
     }
   ) {
     clientMutationId
@@ -100,8 +101,8 @@ mutation CreateCheckStatementTask {
     input: {
       slug: "check-statement"
       name: "Stellungnahme prüfen"
-      addressGroups: "['service']|groups"
-      controlGroups: "['service_parent']|groups"
+      addressGroups: "['activation_service']|groups"
+      controlGroups: "['activation_service_parent']|groups"
       leadTime: 259200 # 3 days
     }
   ) {
@@ -114,7 +115,7 @@ mutation CreateReviseStatementTask {
     input: {
       slug: "revise-statement"
       name: "Stellungnahme überarbeiten"
-      addressGroups: "['service']|groups"
+      addressGroups: "['activation_service']|groups"
     }
   ) {
     clientMutationId
