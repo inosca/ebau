@@ -35,18 +35,6 @@ export default class WorkItemsIndexController extends Controller {
     };
   }
 
-  get columns() {
-    return [
-      "identifier",
-      "type",
-      "task",
-      "deadline",
-      "created",
-      "responsible",
-      ...(this.role === "control" ? ["service"] : [])
-    ];
-  }
-
   async processNew(workItems) {
     const { usernames, instanceIds, serviceIds } = getProcessData(workItems);
 
@@ -80,7 +68,7 @@ export default class WorkItemsIndexController extends Controller {
       filter.push({ assignedUsers: [] });
     }
 
-    if (this.type === "new") {
+    if (this.type === "unread") {
       filter.push({ metaValue: [{ key: "not-viewed", value: true }] });
     }
 
