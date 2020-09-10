@@ -1,8 +1,8 @@
 <table class="work-item-list" ...attributes>
   <thead>
-    <tr>
+    <tr class={{if this.highlight "highlight"}}>
       {{#if this.highlight}}
-        <th class="highlight">
+        <th>
           <span hidden>{{t "workItems.actions.highlight"}}</span>
         </th>
       {{/if}}
