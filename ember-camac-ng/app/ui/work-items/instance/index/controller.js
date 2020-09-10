@@ -37,16 +37,6 @@ export default class WorkItemsInstanceIndexController extends Controller {
     };
   }
 
-  get columns() {
-    return [
-      "task",
-      "deadline",
-      "created",
-      "responsible",
-      ...(this.role === "control" ? ["service"] : [])
-    ];
-  }
-
   async processNew(workItems) {
     const { usernames, instanceIds, serviceIds } = getProcessData(workItems);
 

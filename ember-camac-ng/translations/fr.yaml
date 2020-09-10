@@ -46,7 +46,7 @@ journal:
   textareaEdit: "Zone de texte pour l'édition de l'entrée"
 
 workItems:
-  identifier: "Numéro de dossier"
+  instance: "Dossier"
   type: "Type de demande"
   task: "Tâche"
   deadline: "Dû"
@@ -89,8 +89,8 @@ workItems:
 
     all: "Tous"
     own: "Propre"
-    new: "Nouveau"
+    unread: "Non lu"
     open: "Ouvert"
     closed: "Terminé"
-    active: "Aktive"
+    active: "Active"
     control: "Contrôler"
