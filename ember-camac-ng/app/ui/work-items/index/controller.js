@@ -2,11 +2,11 @@ import Controller from "@ember/controller";
 import { action, set } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
-import saveWorkItem from "camac-ng/gql/mutations/save-workitem";
-import getProcessData from "camac-ng/utils/work-item";
 import calumaQuery from "ember-caluma/caluma-query";
 import { allWorkItems } from "ember-caluma/caluma-query/queries";
 import { dropTask } from "ember-concurrency-decorators";
+
+import getProcessData from "camac-ng/utils/work-item";
 
 export default class WorkItemsIndexController extends Controller {
   queryParams = ["responsible", "type", "status", "role"];
@@ -33,6 +33,18 @@ export default class WorkItemsIndexController extends Controller {
       pageSize: 20,
       processNew: workItems => this.processNew(workItems)
     };
+  }
+
+  get columns() {
+    return [
+      "identifier",
+      "type",
+      "task",
+      "deadline",
+      "created",
+      "responsible",
+      ...(this.role === "control" ? ["service"] : [])
+    ];
   }
 
   async processNew(workItems) {
@@ -95,51 +107,6 @@ export default class WorkItemsIndexController extends Controller {
     event.preventDefault();
 
     yield this.workItemsQuery.fetchMore();
-  }
-
-  @dropTask
-  *workItemAssignUser(workitem) {
-    try {
-      yield this.apollo.mutate({
-        mutation: saveWorkItem,
-        variables: {
-          input: {
-            workItem: workitem.id,
-            assignedUsers: [
-              ...workitem.assignedUsers,
-              this.shoebox.content.username
-            ]
-          }
-        }
-      });
-
-      set(workitem, "assignedUsers", [
-        ...workitem.assignedUsers,
-        this.shoebox.content.username
-      ]);
-    } catch (error) {
-      this.notifications.error(this.intl.t("workItemList.all.saveError"));
-    }
-  }
-
-  @dropTask
-  *workItemRead(workitem) {
-    set(workitem.meta, "not-viewed", false);
-    set(workitem, "notViewed", false);
-
-    try {
-      yield this.apollo.mutate({
-        mutation: saveWorkItem,
-        variables: {
-          input: {
-            workItem: workitem.id,
-            meta: JSON.stringify(workitem.meta)
-          }
-        }
-      });
-    } catch (error) {
-      this.notifications.error(this.intl.t("workItemList.all.saveError"));
-    }
   }
 
   @action

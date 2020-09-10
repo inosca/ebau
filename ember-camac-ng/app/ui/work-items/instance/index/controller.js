@@ -2,10 +2,11 @@ import Controller from "@ember/controller";
 import { action, set } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
-import getProcessData from "camac-ng/utils/work-item";
 import calumaQuery from "ember-caluma/caluma-query";
 import { allWorkItems } from "ember-caluma/caluma-query/queries";
 import { dropTask } from "ember-concurrency-decorators";
+
+import getProcessData from "camac-ng/utils/work-item";
 
 export default class WorkItemsInstanceIndexController extends Controller {
   queryParams = ["role"];
@@ -22,13 +23,28 @@ export default class WorkItemsInstanceIndexController extends Controller {
     query: allWorkItems,
     options: "options"
   })
-  workItemsQuery;
+  readyWorkItemsQuery;
+
+  @calumaQuery({
+    query: allWorkItems,
+    options: "options"
+  })
+  completedWorkItemsQuery;
 
   get options() {
     return {
-      pageSize: 20,
       processNew: workItems => this.processNew(workItems)
     };
+  }
+
+  get columns() {
+    return [
+      "task",
+      "deadline",
+      "created",
+      "responsible",
+      ...(this.role === "control" ? ["service"] : [])
+    ];
   }
 
   async processNew(workItems) {
@@ -56,6 +72,7 @@ export default class WorkItemsInstanceIndexController extends Controller {
   *fetchWorkItems() {
     const filterKey =
       this.role === "control" ? "controllingGroups" : "addressedGroups";
+
     const filter = [
       { hasDeadline: true },
       {
@@ -64,21 +81,14 @@ export default class WorkItemsInstanceIndexController extends Controller {
       { [filterKey]: [this.shoebox.content.serviceId] }
     ];
 
-    yield this.workItemsQuery.fetch({
-      filter,
+    yield this.readyWorkItemsQuery.fetch({
+      filter: [...filter, { status: "READY" }],
       order: this.order
     });
-  }
 
-  get activeWorkItems() {
-    return this.workItemsQuery.value.filter(workItem => {
-      return workItem.raw.status.toLowerCase() === "ready";
-    });
-  }
-
-  get doneWorkItems() {
-    return this.workItemsQuery.value.filter(workItem => {
-      return workItem.raw.status.toLowerCase() === "completed";
+    yield this.completedWorkItemsQuery.fetch({
+      filter: [...filter, { status: "COMPLETED" }],
+      order: this.order
     });
   }
 
