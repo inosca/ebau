@@ -1,10 +1,11 @@
 import Controller from "@ember/controller";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
-import completeWorkItem from "camac-ng/gql/mutations/complete-workitem";
-import saveWorkItem from "camac-ng/gql/mutations/save-workitem";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 import moment from "moment";
+
+import completeWorkItem from "camac-ng/gql/mutations/complete-workitem";
+import saveWorkItem from "camac-ng/gql/mutations/save-workitem";
 
 export default class WorkItemsInstanceEditController extends Controller {
   @service store;
@@ -53,7 +54,7 @@ export default class WorkItemsInstanceEditController extends Controller {
         service: this.shoebox.content.serviceId
       })).toArray();
     } catch (error) {
-      this.notifications.error(this.intl.t("workItem.fetchError"));
+      this.notifications.error(this.intl.t("workItems.fetchError"));
     }
   }
 
@@ -72,11 +73,11 @@ export default class WorkItemsInstanceEditController extends Controller {
         }
       });
 
-      this.notifications.success(this.intl.t("workItem.saveSuccess"));
+      this.notifications.success(this.intl.t("workItems.saveSuccess"));
 
       this.transitionToRoute("work-items.instance.index");
     } catch (error) {
-      this.notifications.error(this.intl.t("workItemList.all.saveError"));
+      this.notifications.error(this.intl.t("workItems.saveError"));
     }
   }
 
@@ -104,11 +105,11 @@ export default class WorkItemsInstanceEditController extends Controller {
         }
       });
 
-      this.notifications.success(this.intl.t("workItem.finishSuccess"));
+      this.notifications.success(this.intl.t("workItems.finishSuccess"));
 
       this.transitionToRoute("work-items.instance.index");
     } catch (error) {
-      this.notifications.error(this.intl.t("workItemList.all.saveError"));
+      this.notifications.error(this.intl.t("workItems.saveError"));
     }
   }
 
@@ -129,11 +130,11 @@ export default class WorkItemsInstanceEditController extends Controller {
         }
       });
 
-      this.notifications.success(this.intl.t("workItem.saveSuccess"));
+      this.notifications.success(this.intl.t("workItems.saveSuccess"));
 
       this.transitionToRoute("work-items.instance.index");
     } catch (error) {
-      this.notifications.error(this.intl.t("workItemList.all.saveError"));
+      this.notifications.error(this.intl.t("workItems.saveError"));
     }
   }
 

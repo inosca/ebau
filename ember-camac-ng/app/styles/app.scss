@@ -1,14 +1,21 @@
 @import "modules/history";
 @import "modules/journal";
 @import "modules/work-items";
-@import "modules/work-items";
 
+@import "components/context-menu";
+@import "components/filters";
 @import "components/pagination";
+@import "components/work-item-list";
 
 .center {
   text-align: center;
 }
 
+.bold {
+  font-weight: 700;
+}
+
 $ember-power-select-default-border-radius: 0;
 
+@import "power-select";
 @import "ember-power-select";

@@ -1,8 +1,9 @@
 import { later } from "@ember/runloop";
 import Service from "@ember/service";
 import { tracked } from "@glimmer/tracking";
-import config from "camac-ng/config/environment";
 import { v4 } from "uuid";
+
+import config from "camac-ng/config/environment";
 
 const TIMEOUT = 10000;
 
