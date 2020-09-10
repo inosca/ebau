@@ -16,31 +16,37 @@ export default class CustomWorkItemModel extends WorkItemModel {
   @tracked assignedUsers = this.raw.assignedUsers;
   @tracked addressedGroups = this.raw.addressedGroups;
 
-  get assignedUserInformation() {
+  get assignedUser() {
     return this.store
       .peekAll("user")
-      .filter(user => this.assignedUsers.includes(user.username));
+      .find(user => this.assignedUsers.includes(user.username));
   }
 
-  get addressedServices() {
+  get addressedService() {
     return this.store
       .peekAll("service")
-      .filter(service => this.addressedGroups.includes(service.id));
+      .find(service => this.addressedGroups.includes(service.id));
+  }
+
+  get isAddressed() {
+    return (
+      parseInt(this.addressedService?.id) === this.shoebox.content.serviceId
+    );
+  }
+
+  get responsible() {
+    if (this.isAddressed) {
+      return this.assignedUser?.fullName || "-";
+    }
+
+    return [
+      this.addressedService.name,
+      this.assignedUser ? `(${this.assignedUser.fullName})` : ""
+    ].join(" ");
   }
 
   get instance() {
     return this.store.peekRecord("instance", this.instanceId);
-  }
-
-  get instanceIdentifier() {
-    const szIdentifier = this.instance?.identifier;
-
-    const ebauNr = this.case?.meta["ebau-number"];
-    const beIdentifier = ebauNr
-      ? `${this.instanceId} (${ebauNr})`
-      : this.instanceId;
-
-    return szIdentifier || beIdentifier;
   }
 
   get case() {
@@ -52,11 +58,12 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   get instanceName() {
-    return this.instance?.name || this.case.document.form.name;
-  }
+    const identifier = this.instance?.identifier || this.instanceId;
+    const name = this.instance?.name || this.case?.document.form.name;
+    const ebauNr = this.case?.meta["ebau-number"];
+    const suffix = ebauNr ? `(${ebauNr})` : "";
 
-  get instanceLink() {
-    return `/index/redirect-to-instance-resource/instance-id/${this.instanceId}`;
+    return `${identifier} - ${name} ${suffix}`.trim();
   }
 
   get closedByUser() {
@@ -69,29 +76,40 @@ export default class CustomWorkItemModel extends WorkItemModel {
       .findBy("username", this.raw.createdByUser);
   }
 
-  get isAddressedToCurrentService() {
-    return this.addressedGroups
-      .map(id => parseInt(id))
-      .includes(this.shoebox.content.serviceId);
-  }
-
   get isAssignedToCurrentUser() {
     return this.assignedUsers.includes(this.shoebox.content.username);
   }
 
   get canEdit() {
-    return this.isAddressedToCurrentService && this.raw.status === "READY";
+    return this.isAddressed && this.raw.status === "READY";
   }
 
   get directLink() {
-    if (!this.canEdit) return null;
+    const link = this._getDirectLinkFor(this.raw.task.slug);
 
-    const config = this.shoebox.content.config.directLink;
-    const role = this.shoebox.role;
-    const task = this.raw.task.slug;
+    return (
+      (this.canEdit && link) ||
+      `/index/redirect-to-instance-resource/instance-id/${this.instanceId}`
+    );
+  }
 
+  get editLink() {
+    const url = this._getDirectLinkFor("edit");
+    const hash = this.router.urlFor(
+      "work-items.instance.edit",
+      this.instanceId,
+      this.id
+    );
+
+    return this.canEdit && url && `${url}${hash}`;
+  }
+
+  _getDirectLinkFor(configKey) {
     try {
-      const template = config[task][role];
+      const config = this.shoebox.content.config.directLink;
+      const role = this.shoebox.role;
+
+      const template = config[configKey][role];
       const data = {
         INSTANCE_ID: this.instanceId,
         CIRCULATION_ID: this.raw.meta["circulation-id"],
@@ -99,7 +117,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
       };
 
       return Object.entries(data).reduce(
-        (str, [key, value]) => str.replace(new RegExp(`{{${key}}}`), value),
+        (str, [key, value]) => str.replace(`{{${key}}}`, value),
         template
       );
     } catch (error) {

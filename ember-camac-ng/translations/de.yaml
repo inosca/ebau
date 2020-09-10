@@ -46,7 +46,7 @@ journal:
   textareaEdit: "Textbereich zum editieren des Eintrages"
 
 workItems:
-  identifier: "Dossier Nr."
+  instance: "Dossier"
   type: "Gesuchstyp"
   task: "Aufgabe"
   deadline: "Frist"
@@ -89,7 +89,7 @@ workItems:
 
     all: "Alle"
     own: "Eigene"
-    new: "Neu"
+    unread: "Ungelesene"
     open: "Offen"
     closed: "Abgeschlossen"
     active: "Aktiv"

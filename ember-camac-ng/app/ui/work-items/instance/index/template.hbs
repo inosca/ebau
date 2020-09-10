@@ -18,7 +18,10 @@
   />
 </Filters>
 
-<WorkItemList @query={{this.readyWorkItemsQuery}} @columns={{this.columns}} />
+<WorkItemList
+  @query={{this.readyWorkItemsQuery}}
+  @columns={{array "task" "deadline" "responsible"}}
+/>
 
 <LinkTo @route="work-items.instance.new" class="button btn buttonstyle success">
   {{t "workItems.new"}}
