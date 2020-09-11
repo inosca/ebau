@@ -7,15 +7,5 @@
 @import "components/pagination";
 @import "components/work-item-list";
 
-.center {
-  text-align: center;
-}
-
-.bold {
-  font-weight: 700;
-}
-
-$ember-power-select-default-border-radius: 0;
-
 @import "power-select";
-@import "ember-power-select";
+@import "misc";
