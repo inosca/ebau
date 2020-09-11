@@ -1,68 +1,68 @@
 <Notifications />
 
-<h2>
+<h3 class="hide-be">
   {{t "workItems.edit"}}
+</h3>
+
+<h2 class="hide-sz">
+  {{@model.name}}
 </h2>
+<h4 class="hide-be">
+  {{@model.name}}
+</h4>
 
-<div>
-  <div>
-    <h3>
-      {{@model.name}}
-    </h3>
-    {{if @model.description @model.description "-"}}
-  </div>
-  <div class="work-item-attributes">
-    <div class="work-item-attribute">
-      <span class="work-item-attribute__title">
-        {{t "workItems.responsible"}}
-      </span>
-      {{#each @model.addressedServices as |service|}}
-        {{service.name}}
-      {{else}}
-        -
-      {{/each}}
-    </div>
-    <div class="work-item-attribute">
-      <span class="work-item-attribute__title">
-        {{t "workItems.deadline"}}
-      </span>
-      {{
-        format-date
-        @model.deadline
-        day="2-digit"
-        month="2-digit"
-        year="numeric"
-        hour="2-digit"
-        minute="2-digit"
-        hour12=false
-      }}
-    </div>
-    <div class="work-item-attribute">
-      <span class="work-item-attribute__title">
-        {{t "workItems.createdBy"}}
-      </span>
-      {{if @model.createdByUser @model.createdByUser.fullName "-"}}
-    </div>
-    <div class="work-item-attribute">
-      <span class="work-item-attribute__title">
-        {{t "workItems.createdAt"}}
-      </span>
-      {{
-        format-date
-        @model.createdAt
-        day="2-digit"
-        month="2-digit"
-        year="numeric"
-        hour="2-digit"
-        minute="2-digit"
-        hour12=false
-      }}
-    </div>
-  </div>
-</div>
+<i>
+  {{if @model.description @model.description "-"}}
+</i>
 
-{{#if this.isWorkItemCompleted}}
-  <div class="work-item-attributes">
+<div class="work-item-attributes">
+  <div class="work-item-attribute">
+    <span class="work-item-attribute__title">
+      {{t "workItems.responsible"}}
+    </span>
+    {{#each @model.addressedServices as |service|}}
+      {{service.name}}
+    {{else}}
+      -
+    {{/each}}
+  </div>
+  <div class="work-item-attribute">
+    <span class="work-item-attribute__title">
+      {{t "workItems.deadline"}}
+    </span>
+    {{
+      format-date
+      @model.deadline
+      day="2-digit"
+      month="2-digit"
+      year="numeric"
+      hour="2-digit"
+      minute="2-digit"
+      hour12=false
+    }}
+  </div>
+  <div class="work-item-attribute">
+    <span class="work-item-attribute__title">
+      {{t "workItems.createdBy"}}
+    </span>
+    {{if @model.createdByUser @model.createdByUser.fullName "-"}}
+  </div>
+  <div class="work-item-attribute">
+    <span class="work-item-attribute__title">
+      {{t "workItems.createdAt"}}
+    </span>
+    {{
+      format-date
+      @model.createdAt
+      day="2-digit"
+      month="2-digit"
+      year="numeric"
+      hour="2-digit"
+      minute="2-digit"
+      hour12=false
+    }}
+  </div>
+  {{#if this.isWorkItemCompleted}}
     <div class="work-item-attribute">
       <span class="work-item-attribute__title">
         {{t "workItems.closedBy"}}
@@ -90,90 +90,154 @@
       </span>
       {{if @model.meta.completion-comment @model.meta.completion-comment "-"}}
     </div>
-  </div>
-{{else if (and this.isManualWorkItem this.isCreator)}}
-  <form
-    class="work-item-form form"
-    {{on "submit" (perform this.saveManualWorkItem)}}
-  >
-    <label class="work-item-input">
-      {{t "workItems.description"}}
-      <Textarea @value={{@model.description}} />
-    </label>
-    <label class="work-item-input">
-      {{t "workItems.deadline"}}
-      <PikadayInput
-        class="deadline"
-        @value={{@model.deadline}}
-        @useUTC={{true}}
-        @onSelection={{this.setDeadline}}
-      />
-    </label>
+  {{/if}}
+</div>
 
-    <div class="work-item-input">
-      {{t "workItems.notifications"}}
-      <label class="checkbox-label">
-        <Input @type="checkbox" @checked={{mut @model.meta.notify-completed}} />
-        {{t "workItems.notifyCompleted"}}
-      </label>
-      <label class="checkbox-label">
-        <Input @type="checkbox" @checked={{mut @model.meta.notify-deadline}} />
-        {{t "workItems.notifyDeadline"}}
-      </label>
-    </div>
+{{#unless this.isWorkItemCompleted}}
+  {{#if (and this.isManualWorkItem this.isCreator)}}
+    <form
+      class="form form-edit work-item-form"
+      {{on "submit" (perform this.saveManualWorkItem)}}
+    >
+      <fieldset>
+        <legend class="hide-sz">
+          {{t "workItems.actions.edit"}}
+        </legend>
 
-    <div class="buttons">
-      <button class="button buttonstyle btn success" type="submit">
-        {{t "global.save"}}
-      </button>
-    </div>
-  </form>
-{{else if this.model.isAddressed}}
-  <form
-    class="work-item-form"
-    {{did-insert (perform this.fetchUserChoices)}}
-    {{on "submit" (perform this.workItemAssignUsers)}}
-  >
-    <label class="work-item-input">
-      {{t "workItems.assignedUser"}}
-      <PowerSelect
-        @searchEnabled={{true}}
-        @searchField="fullName"
-        @renderInPlace={{true}}
-        @options={{this.userChoices}}
-        @selected={{this.responsibleUser}}
-        @noMatchesMessage={{t "global.noMatch"}}
-        @onChange={{fn (mut this.responsibleUser)}} as |responsibleUser|
-      >
-        {{responsibleUser.fullName}}
-      </PowerSelect>
-    </label>
+        <div class="row first">
+          <div class="label">
+            <label for="description">
+              {{t "workItems.description"}}
+            </label>
+          </div>
+          <div class="column-2">
+            <Textarea id="description" @value={{@model.description}} />
+          </div>
+        </div>
 
-    <div class="buttons">
-      <button class="button buttonstyle btn success" type="submit">
-        {{t "global.save"}}
-      </button>
-    </div>
-  </form>
-{{/if}}
+        <div class="row">
+          <div class="label">
+            <label for="deadline">
+              {{t "workItems.deadline"}}
+              <span class="mandatory">
+                *
+              </span>
+            </label>
+          </div>
+          <div class="column-2">
+            <PikadayInput
+              id="deadline"
+              @value={{@model.deadline}}
+              @useUTC={{true}}
+              @onSelection={{this.setDeadline}}
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="label">
+            <label>
+              {{t "workItems.notifications"}}
+            </label>
+          </div>
+          <div class="column-2">
+            <label class="checkbox-label">
+              <Input
+                @type="checkbox"
+                @checked={{mut @model.meta.notify-completed}}
+              />
+              {{t "workItems.notifyCompleted"}}
+            </label>
+            <br />
+            <label class="checkbox-label">
+              <Input
+                @type="checkbox"
+                @checked={{mut @model.meta.notify-deadline}}
+              />
+              {{t "workItems.notifyDeadline"}}
+            </label>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="row buttons-container">
+        <button class="button buttonstyle btn success" type="submit">
+          {{t "global.save"}}
+        </button>
+      </div>
+    </form>
+  {{else if this.model.isAddressed}}
+    <form
+      class="form form-edit work-item-form"
+      {{did-insert (perform this.fetchUserChoices)}}
+      {{on "submit" (perform this.workItemAssignUsers)}}
+    >
+      <fieldset>
+        <div class="row">
+          <div class="label">
+            <label>
+              {{t "workItems.assignedUser"}}
+              <span class="mandatory">
+                *
+              </span>
+            </label>
+          </div>
+          <div class="column-2">
+            <PowerSelect
+              @searchEnabled={{true}}
+              @searchField="fullName"
+              @renderInPlace={{true}}
+              @options={{this.userChoices}}
+              @selected={{this.responsibleUser}}
+              @noMatchesMessage={{t "global.noMatch"}}
+              @onChange={{fn (mut this.responsibleUser)}} as |responsibleUser|
+            >
+              {{responsibleUser.fullName}}
+            </PowerSelect>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="row buttons-container">
+        <button class="button buttonstyle btn success" type="submit">
+          {{t "global.save"}}
+        </button>
+      </div>
+    </form>
+  {{/if}}
+{{/unless}}
 
 {{#if
-  (and (not this.isWorkItemCompleted) this.isManualWorkItem this.model.isAddressed)
+  (and
+    (not this.isWorkItemCompleted) this.isManualWorkItem this.model.isAddressed
+  )
 }}
-  <h2>
+  <h3 class="hide-be">
     {{t "workItems.actions.finish"}}
-  </h2>
+  </h3>
 
   <form
-    class="form work-item-form"
+    class="form form-edit work-item-form"
     {{on "submit" (perform this.finishWorkItem)}}
   >
-    <label class="work-item-input">
-      {{t "workItems.comment"}}
-      <Textarea @value={{@model.meta.completion-comment}} />
-    </label>
+    <fieldset>
+      <legend class="hide-sz">
+        {{t "workItems.actions.finish"}}
+      </legend>
 
-    <div class="buttons">
+      <div class="row first">
+        <div class="label">
+          <label>
+            {{t "workItems.comment"}}
+          </label>
+        </div>
+        <div class="column-2">
+          <Textarea @value={{@model.meta.completion-comment}} />
+        </div>
+      </div>
+    </fieldset>
+
+    <div class="row buttons-container">
       <button class="button buttonstyle btn success" type="submit">
         {{t "workItems.actions.finish"}}
       </button>

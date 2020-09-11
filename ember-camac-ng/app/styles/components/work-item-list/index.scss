@@ -25,6 +25,7 @@ $expiring-color: #ff8800;
         border-radius: 50%;
         margin: 0 0 0 5px;
         padding: 0;
+        border: 1px solid lightgrey;
       }
     }
 
@@ -33,11 +34,13 @@ $expiring-color: #ff8800;
     }
 
     &--expired td:first-child::before {
-      background-color: $expired-color !important;
+      background-color: $expired-color;
+      border-color: darken($expired-color, 10%);
     }
 
     &--expiring td:first-child::before {
-      background-color: $expiring-color !important;
+      background-color: $expiring-color;
+      border-color: darken($expiring-color, 10%);
     }
   }
 
@@ -49,5 +52,18 @@ $expiring-color: #ff8800;
 
   td {
     white-space: nowrap;
+  }
+
+  td.task,
+  td.responsible {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 300px;
+  }
+}
+
+.project-sz {
+  .work-item-list {
+    margin: 10px 0;
   }
 }

@@ -1,7 +1,13 @@
 <div>
   {{#each this.notifications.all as |notification|}}
-    <div role="button" class="hinweisbox buttonstyle {{notification.type}}" {{on "click" (fn this.remove notification)}}>
-      <span class="text">{{notification.message}}</span>
+    <div
+      role="button"
+      class="alert hinweisbox buttonstyle {{notification.type}}"
+      {{on "click" (fn this.remove notification)}}
+    >
+      <p class="text">
+        {{notification.message}}
+      </p>
     </div>
   {{/each}}
 </div>
