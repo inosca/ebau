@@ -4,10 +4,11 @@ from caluma.caluma_core.events import on
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.events import (
-    completed_case,
-    completed_work_item,
-    created_work_item,
-    skipped_work_item,
+    post_complete_case,
+    post_complete_work_item,
+    post_create_work_item,
+    pre_complete_work_item,
+    pre_skip_work_item,
 )
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
@@ -28,7 +29,7 @@ def get_caluma_setting(key, default=None):
     return settings.APPLICATION.get("CALUMA", {}).get(key, default)
 
 
-@on(created_work_item)
+@on(post_create_work_item)
 def copy_sb_personal(sender, work_item, **kwargs):
     for config in get_caluma_setting("COPY_PERSONAL", []):
         if work_item.task_id == config["TASK"]:
@@ -41,7 +42,7 @@ def copy_sb_personal(sender, work_item, **kwargs):
             )
 
 
-@on(created_work_item)
+@on(post_create_work_item)
 def copy_paper_answer(sender, work_item, **kwargs):
     if work_item.task_id in get_caluma_setting("COPY_PAPER_ANSWER_TO", []):
         # copy answer to the papierdossier question in the case document to the
@@ -61,7 +62,7 @@ def copy_paper_answer(sender, work_item, **kwargs):
             )
 
 
-@on(created_work_item)
+@on(post_create_work_item)
 def set_meta_attributes(sender, work_item, user, context, **kwargs):
     """Set needed meta attributes on the newly created work item.
 
@@ -83,7 +84,7 @@ def set_meta_attributes(sender, work_item, user, context, **kwargs):
         },
     }
 
-    for (attribute, config) in META_CONFIG.items():
+    for attribute, config in META_CONFIG.items():
         tasks = config.get("tasks")
         from_context = config.get("from_context")
 
@@ -107,7 +108,7 @@ def set_meta_attributes(sender, work_item, user, context, **kwargs):
     work_item.save()
 
 
-@on(completed_work_item)
+@on(post_complete_work_item)
 def notify_completed_work_item(sender, work_item, **kwargs):
     if not work_item.meta.get("notify-completed", True):
         return
@@ -138,14 +139,14 @@ def notify_completed_work_item(sender, work_item, **kwargs):
     connection.close()
 
 
-@on(skipped_work_item)
-@on(completed_work_item)
-def post_complete_work_item(sender, work_item, user, **kwargs):
+@on(pre_skip_work_item)
+@on(pre_complete_work_item)
+def pre_complete_work_item(sender, work_item, user, **kwargs):
     # Completed work items should always be marked as read
     work_item.meta["not-viewed"] = False
     work_item.save()
 
-    config = get_caluma_setting("POST_COMPLETE", {}).get(work_item.task_id)
+    config = get_caluma_setting("PRE_COMPLETE", {}).get(work_item.task_id)
 
     if config:
         for action_name, tasks in config.items():
@@ -157,7 +158,7 @@ def post_complete_work_item(sender, work_item, user, **kwargs):
                 action(item, user)
 
 
-@on(completed_case)
+@on(post_complete_case)
 def post_complete_circulation(sender, case, user, **kwargs):
     if case.workflow_id == get_caluma_setting("CIRCULATION_WORKFLOW"):
         parent_work_item = WorkItem.objects.filter(
