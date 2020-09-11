@@ -1,81 +1,136 @@
 <Notifications />
 
-<h2>
+<h3 class="hide-be">
   {{t "workItems.new"}}
-</h2>
+</h3>
 
 <form
-  class="form work-item-form"
+  class="form form-edit work-item-form"
   {{did-insert (perform this.getData)}}
   {{on "submit" (perform this.createWorkItem)}}
 >
-  <label class="work-item-input">
-    {{t "workItems.responsible"}}
-    <PowerSelect
-      @searchEnabled={{true}}
-      @searchField="name"
-      @renderInPlace={{true}}
-      @options={{this.services}}
-      @selected={{this.responsibleService}}
-      @noMatchesMessage={{t "global.noMatch"}}
-      @onChange={{fn (mut this.responsibleService)}} as |service|
-    >
-      {{service.name}}
-    </PowerSelect>
-  </label>
-  {{#if this.selectedOwnService}}
-    <label class="work-item-input">
-      {{t "workItems.assignedUser"}}
-      <PowerSelect
-        @searchEnabled={{true}}
-        @searchField="fullName"
-        @renderInPlace={{true}}
-        @options={{this.users}}
-        @selected={{this.responsibleUser}}
-        @noMatchesMessage={{t "global.noMatch"}}
-        @onChange={{fn (mut this.responsibleUser)}} as |user|
-      >
-        {{user.fullName}}
-      </PowerSelect>
-    </label>
-  {{/if}}
-  <label class="work-item-input">
-    {{t "workItems.title"}}
-    <Input @type="text" @value={{mut this.workItem.title}} />
-  </label>
-  <label class="work-item-input">
-    {{t "workItems.description"}}
-    <Textarea @value={{this.workItem.description}} />
-  </label>
-  <label class="work-item-input">
-    {{t "workItems.deadline"}}
-    <PikadayInput
-      class="deadline"
-      @value={{this.workItem.deadline}}
-      @useUTC={{true}}
-      @onSelection={{this.setDeadline}}
-    />
-  </label>
+  <fieldset>
+    <legend class="hide-sz">
+      {{t "workItems.new"}}
+    </legend>
 
-  <div class="work-item-input">
-    {{t "workItems.notifications"}}
-    <label class="checkbox-label">
-      <Input
-        @type="checkbox"
-        @checked={{mut this.workItem.notificationCompleted}}
-      />
-      {{t "workItems.notifyCompleted"}}
-    </label>
-    <label class="checkbox-label">
-      <Input
-        @type="checkbox"
-        @checked={{mut this.workItem.notificationDeadline}}
-      />
-      {{t "workItems.notifyDeadline"}}
-    </label>
-  </div>
+    <div class="row first">
+      <div class="label">
+        <label>
+          {{t "workItems.responsible"}}
+          <span class="mandatory">
+            *
+          </span>
+        </label>
+      </div>
+      <div class="column-2">
+        <PowerSelect
+          @searchEnabled={{true}}
+          @searchField="name"
+          @renderInPlace={{true}}
+          @options={{this.services}}
+          @selected={{this.responsibleService}}
+          @noMatchesMessage={{t "global.noMatch"}}
+          @onChange={{fn (mut this.responsibleService)}} as |service|
+        >
+          {{service.name}}
+        </PowerSelect>
+      </div>
+    </div>
 
-  <div class="buttons">
+    {{#if this.selectedOwnService}}
+      <div class="row">
+        <div class="label">
+          <label>
+            {{t "workItems.assignedUser"}}
+          </label>
+        </div>
+        <div class="column-2">
+          <PowerSelect
+            @searchEnabled={{true}}
+            @searchField="fullName"
+            @renderInPlace={{true}}
+            @options={{this.users}}
+            @selected={{this.responsibleUser}}
+            @noMatchesMessage={{t "global.noMatch"}}
+            @onChange={{fn (mut this.responsibleUser)}} as |user|
+          >
+            {{user.fullName}}
+          </PowerSelect>
+        </div>
+      </div>
+    {{/if}}
+
+    <div class="row">
+      <div class="label">
+        <label>
+          {{t "workItems.title"}}
+          <span class="mandatory">
+            *
+          </span>
+        </label>
+      </div>
+      <div class="column-2">
+        <Input @type="text" @value={{mut this.workItem.title}} />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="label">
+        <label>
+          {{t "workItems.description"}}
+        </label>
+      </div>
+      <div class="column-2">
+        <Textarea @value={{this.workItem.description}} />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="label">
+        <label>
+          {{t "workItems.deadline"}}
+          <span class="mandatory">
+            *
+          </span>
+        </label>
+      </div>
+      <div class="column-2">
+        <PikadayInput
+          @value={{this.workItem.deadline}}
+          @useUTC={{true}}
+          @onSelection={{this.setDeadline}}
+        />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="label">
+        <label>
+          {{t "workItems.notifications"}}
+        </label>
+      </div>
+      <div class="column-2">
+        <label>
+          <Input
+            @type="checkbox"
+            @checked={{this.workItem.notificationCompleted}}
+          />
+          {{t "workItems.notifyCompleted"}}
+        </label>
+        <br />
+        <label>
+          <Input
+            @type="checkbox"
+            @checked={{this.workItem.notificationDeadline}}
+          />
+          {{t "workItems.notifyDeadline"}}
+        </label>
+      </div>
+    </div>
+  </fieldset>
+
+  <div class="row buttons-container">
     <button class="button buttonstyle btn success" type="submit">
       {{t "global.save"}}
     </button>
