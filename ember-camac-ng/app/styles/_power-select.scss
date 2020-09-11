@@ -1,3 +1,30 @@
+$ember-power-select-default-border-radius: 0;
+
+@import "ember-power-select";
+
+.ember-power-select-trigger {
+  min-height: 17px;
+  line-height: 17px;
+}
+
+.ember-power-select-dropdown {
+  border-top: none !important;
+}
+
+.ember-power-select-trigger-multiple-input {
+  border: none !important;
+}
+
+.ember-power-select-selected-item {
+  white-space: nowrap;
+  margin-left: 2px;
+}
+
+.ember-power-select-option {
+  padding: 2px 5px !important;
+  background-image: none !important;
+}
+
 .project-be {
   .ember-power-select-trigger {
     border: 1px solid #4a81b6;
@@ -5,10 +32,15 @@
 
   .ember-power-select-dropdown {
     border: 1px solid #4a81b6 !important;
-    border-top: none !important;
+  }
+}
+
+.project-sz {
+  .ember-power-select-trigger {
+    border: 1px solid lightgrey;
   }
 
-  .ember-power-select-trigger-multiple-input {
-    border: none !important;
+  .ember-power-select-dropdown {
+    border: 1px solid lightgrey !important;
   }
 }
