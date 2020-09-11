@@ -17,9 +17,8 @@ export default class WorkItemsIndexController extends Controller {
   @service intl;
   @service shoebox;
 
-  @tracked menuOpen = null;
-  @tracked order = [{ attribute: "DEADLINE", direction: "ASC" }];
   // Filters
+  @tracked order = "urgent";
   @tracked responsible = "all";
   @tracked type = "all";
   @tracked status = "open";
@@ -84,10 +83,12 @@ export default class WorkItemsIndexController extends Controller {
       filter.push({ addressedGroups: [this.shoebox.content.serviceId] });
     }
 
-    yield this.workItemsQuery.fetch({
-      filter,
-      order: this.order
-    });
+    const order =
+      this.order === "urgent"
+        ? [{ attribute: "DEADLINE", direction: "ASC" }]
+        : [{ attribute: "CREATED_AT", direction: "DESC" }];
+
+    yield this.workItemsQuery.fetch({ filter, order });
   }
 
   @dropTask

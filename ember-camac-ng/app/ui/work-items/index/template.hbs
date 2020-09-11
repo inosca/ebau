@@ -45,6 +45,17 @@
     }}
     @onChange={{fn this.updateFilter "role"}}
   />
+  <Filter.RadioButtons
+    @name="order"
+    @label={{t "workItems.filters.order"}}
+    @selected={{this.order}}
+    @options={{
+      array
+      (hash value="urgent" label=(t "workItems.filters.urgent"))
+      (hash value="new" label=(t "workItems.filters.new"))
+    }}
+    @onChange={{fn this.updateFilter "order"}}
+  />
 </Filters>
 
 <WorkItemList
