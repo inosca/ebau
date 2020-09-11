@@ -76,6 +76,9 @@ workItems:
   saveError: "Fehler beim Speichern der Aufgabe"
 
   actions:
+    title: "Aktionen"
+    highlight: "Markierung"
+
     markAsRead: "Als gelesen markieren"
     assignToMe: "Mir zuweisen"
     edit: "Aufgabe bearbeiten"
@@ -86,6 +89,7 @@ workItems:
     status: "Status"
     type: "Typ"
     role: "Rolle"
+    order: "Sortierung"
 
     all: "Alle"
     own: "Eigene"
@@ -94,3 +98,5 @@ workItems:
     closed: "Abgeschlossen"
     active: "Aktiv"
     control: "Controlling"
+    urgent: "Dringend"
+    new: "Neu"
