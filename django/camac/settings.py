@@ -222,7 +222,7 @@ APPLICATIONS = {
                 "revise-statement",
             ],
             "SUBMIT_TASK": "submit",
-            "POST_COMPLETE": {
+            "PRE_COMPLETE": {
                 "complete-check": {"cancel": ["reject-form"]},
                 "reject-form": {"cancel": ["complete-check"]},
                 "start-additional-circulation": {
@@ -326,7 +326,7 @@ APPLICATIONS = {
                     "FALLBACK": None,
                 },
             ],
-            "POST_COMPLETE": {
+            "PRE_COMPLETE": {
                 "start-decision": {
                     "complete": ["check-activation"],
                     "cancel": ["start-circulation"],
