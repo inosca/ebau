@@ -92,6 +92,15 @@ export default class WorkItemNewController extends Controller {
   *createWorkItem(event) {
     event.preventDefault();
 
+    const extra = {
+      ...(this.workItem.assignedUsers.length
+        ? { assignedUsers: this.workItem.assignedUsers }
+        : {}),
+      ...(!this.selectedOwnService
+        ? { controllingGroups: [String(this.shoebox.content.serviceId)] }
+        : {})
+    };
+
     try {
       yield this.apollo.mutate({
         mutation: createWorkItem,
@@ -102,15 +111,12 @@ export default class WorkItemNewController extends Controller {
             name: this.workItem.title,
             description: this.workItem.description,
             addressedGroups: this.workItem.addressedGroups,
-            controllingGroups: [this.shoebox.content.serviceId],
             deadline: this.workItem.deadline,
             meta: JSON.stringify({
               "notify-complete": this.workItem.notificationCompleted,
               "notify-deadline": this.workItem.notificationDeadline
             }),
-            ...(this.workItem.assignedUsers.length
-              ? { assignedUsers: this.workItem.assignedUsers }
-              : {})
+            ...extra
           }
         }
       });
@@ -119,7 +125,7 @@ export default class WorkItemNewController extends Controller {
 
       this.transitionToRoute("work-items.instance.index");
     } catch (error) {
-      this.notifications.error(this.intl.t("workItemLists.saveError"));
+      this.notifications.error(this.intl.t("workItems.saveError"));
     }
   }
 
