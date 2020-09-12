@@ -15,7 +15,6 @@ export default class WorkItemsInstanceIndexController extends Controller {
   @service shoebox;
   @service apollo;
 
-  @tracked order = [{ attribute: "DEADLINE", direction: "ASC" }];
   // Filters
   @tracked role = "active";
 
@@ -73,12 +72,12 @@ export default class WorkItemsInstanceIndexController extends Controller {
 
     yield this.readyWorkItemsQuery.fetch({
       filter: [...filter, { status: "READY" }],
-      order: this.order
+      order: [{ attribute: "DEADLINE", direction: "ASC" }]
     });
 
     yield this.completedWorkItemsQuery.fetch({
       filter: [...filter, { status: "COMPLETED" }],
-      order: this.order
+      order: [{ attribute: "CLOSED_AT", direction: "DESC" }]
     });
   }
 
