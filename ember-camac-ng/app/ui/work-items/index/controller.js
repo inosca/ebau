@@ -34,6 +34,16 @@ export default class WorkItemsIndexController extends Controller {
     };
   }
 
+  get columns() {
+    return [
+      "task",
+      "instance",
+      ...(this.status.open
+        ? ["deadline", "responsible"]
+        : ["closedAt", "closedBy"])
+    ];
+  }
+
   async processNew(workItems) {
     const { usernames, instanceIds, serviceIds } = getProcessData(workItems);
 
