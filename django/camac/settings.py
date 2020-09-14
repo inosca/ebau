@@ -334,7 +334,7 @@ APPLICATIONS = {
                 "start-circulation": {"cancel": ["check-activation", "start-decision"]},
                 "decision": {
                     "skip": ["audit", "publication"],
-                    "cancel": ["reopen-circulation"],
+                    "cancel": ["reopen-circulation", "create-manual-workitems"],
                     "complete": ["nfd"],
                 },
                 "reopen-circulation": {"cancel": ["decision"]},
