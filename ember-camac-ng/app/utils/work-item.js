@@ -7,11 +7,21 @@ function instanceReductor(all, workItem) {
 }
 
 function usernameReductor(all, workItem) {
-  return [...all, ...workItem.assignedUsers];
+  return [
+    ...all,
+    ...workItem.assignedUsers,
+    workItem.createdByUser,
+    workItem.closedByUser
+  ];
 }
 
 function serviceReductor(all, workItem) {
-  return [...all, ...workItem.addressedGroups];
+  return [
+    ...all,
+    ...workItem.addressedGroups,
+    workItem.createdByGroup,
+    workItem.closedByGroup
+  ];
 }
 
 export default function getProcessData(workItems) {
