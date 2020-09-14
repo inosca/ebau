@@ -68,7 +68,7 @@ export default class WorkItemListItemComponent extends Component {
     if (this.router.currentRouteName === "work-items.instance.index") {
       return yield this.router.transitionTo(
         "work-items.instance.edit",
-        this.args.workItem
+        this.args.workItem.id
       );
     }
 
