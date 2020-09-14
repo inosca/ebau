@@ -283,7 +283,13 @@ def test_set_meta_attributes(
     existing_meta,
     context,
     expected_meta,
+    application_settings,
 ):
+    application_settings["CALUMA"] = {
+        "CIRCULATION_TASK": "circulation",
+        "ACTIVATION_TASKS": ["activation"],
+    }
+
     work_item = work_item_factory(task__slug=task_slug, meta=existing_meta)
 
     send_event(
