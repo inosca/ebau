@@ -893,6 +893,47 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
 
         return value
 
+    def _sync_circulations(self, from_service, to_service):
+        if self.instance.instance_state.name not in [
+            "circulation_init",
+            "circulation",
+            "coordination",
+        ]:
+            return
+
+        for circulation in self.instance.circulations.all():
+            # Get all activations where the old responsible service invited
+            # it's own sub services or the invited service is the newly
+            # responsible service
+            deleted_activations = circulation.activations.filter(
+                Q(service_parent=from_service, service__service_parent=from_service)
+                | Q(service=to_service)
+            )
+
+            if deleted_activations.exists():
+                # Delete said activations
+                deleted_activations.delete()
+                # Sync circulation with caluma
+                CalumaApi().sync_circulation(
+                    circulation, self.context["request"].caluma_info.context.user
+                )
+
+            if not circulation.activations.exists():
+                # Delete empty circulation
+                circulation.delete()
+
+                continue
+
+            # Set service parent of remaining activations to the newly responsible service
+            circulation.activations.filter(service_parent=from_service).update(
+                service_parent=to_service
+            )
+
+        # Set service parent of circulations to the newly responsible service
+        self.instance.circulations.filter(service=from_service).update(
+            service=to_service
+        )
+
     def _sync_with_caluma(self, from_service, to_service):
         CalumaApi().reassign_work_items(
             self.instance.pk, from_service.pk, to_service.pk
@@ -963,6 +1004,7 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
             )
 
         # Side effects
+        self._sync_circulations(from_service, to_service)
         self._sync_with_caluma(from_service, to_service)
         self._send_notification()
         self._trigger_ech_message()
