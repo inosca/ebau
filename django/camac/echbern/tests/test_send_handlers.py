@@ -315,6 +315,7 @@ def test_close_dossier_send_handler(
     admin_user,
     instance_service_factory,
     instance_state_factory,
+    circulation_factory,
 ):
     instance_state_factory(pk=INSTANCE_STATE_FINISHED)
 
@@ -324,6 +325,8 @@ def test_close_dossier_send_handler(
 
     ech_instance.instance_state = instance_state_factory(pk=state_pk)
     ech_instance.save()
+
+    circulation_factory(instance=ech_instance)
 
     case = ech_instance_case()
 
