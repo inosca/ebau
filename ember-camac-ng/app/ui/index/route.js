@@ -8,6 +8,8 @@ export default class IndexRoute extends Route {
     const { entrypoint = {} } = this.shoebox.content;
     const { path = null, models = [], queryParams = {} } = entrypoint;
 
-    if (path) this.replaceWith(path, ...models, { queryParams });
+    if (!path) return;
+
+    return this.replaceWith(path, ...models, { queryParams });
   }
 }
