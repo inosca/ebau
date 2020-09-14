@@ -8,64 +8,98 @@ from caluma.caluma_core.permissions import (
     object_permission_for,
     permission_for,
 )
+from caluma.caluma_core.relay import extract_global_id
 from caluma.caluma_form.models import Document
 from caluma.caluma_form.schema import RemoveAnswer, SaveDocument, SaveDocumentAnswer
 from caluma.caluma_workflow.models import Case
 from caluma.caluma_workflow.schema import (
-    CancelCase,
+    CancelWorkItem,
     CompleteWorkItem,
+    CreateWorkItem,
     SaveCase,
+    SaveWorkItem,
     SkipWorkItem,
 )
 from django.conf import settings
 from django.db.models import Q
 
-from camac.constants.kt_bern import (
-    CAMAC_ADMIN_GROUP,
-    CAMAC_SUPPORT_GROUP,
-    DASHBOARD_FORM_SLUG,
-)
+from camac.caluma.api import CamacRequest
+from camac.constants.kt_bern import DASHBOARD_FORM_SLUG
 from camac.utils import build_url, headers
 
 log = getLogger()
 
 
+def is_addressed_to_service(work_item, service_id):
+    return str(service_id) in work_item.addressed_groups
+
+
+def is_created_by_service(work_item, service_id):
+    return work_item.created_by_group == str(service_id)
+
+
 class CustomPermission(BasePermission):
+    @permission_for(Mutation)
+    def has_permission_default(self, mutation, info):
+        log.debug(
+            f"ACL: fallback permission: allow mutation '{mutation.__name__}' for support users"
+        )
+
+        return self.has_camac_role(info, "support")
+
     @object_permission_for(Mutation)
     def has_object_permission_default(self, mutation, info, instance):
         log.debug(
             f"ACL: fallback object permission: allowing "
-            f"mutation '{mutation.__name__}' on {instance} for admin users"
+            f"mutation '{mutation.__name__}' on {instance} for support users"
         )
 
-        return self.has_camac_group_permission(info, CAMAC_ADMIN_GROUP)
-
-    @permission_for(Mutation)
-    def has_permission_default(self, mutation, info):
-        log.debug(
-            f"ACL: fallback permission: allow mutation '{mutation.__name__}' for admins"
-        )
-
-        return self.has_camac_group_permission(info, CAMAC_ADMIN_GROUP)
+        return self.has_camac_role(info, "support")
 
     # Case
     @permission_for(SaveCase)
-    def has_permission_for_savecase(self, mutation, info):
-        return True
-
     @object_permission_for(SaveCase)
-    def has_object_permission_for_savecase(self, mutation, info, case):
-        return self.has_camac_edit_permission(case.family, info, "write")
+    def has_permission_for_save_case(self, mutation, info, case=None):
+        return not case or self.has_camac_edit_permission(case.family, info)
 
+    # Work Item
+    @permission_for(CreateWorkItem)
+    def has_permission_for_create_work_item(self, mutation, info):
+        case_id = extract_global_id(mutation.get_params(info)["input"]["case"])
+
+        return self.has_camac_edit_permission(Case.objects.get(pk=case_id).family, info)
+
+    @permission_for(SaveWorkItem)
+    @object_permission_for(SaveWorkItem)
+    def has_permission_for_save_work_item(self, mutation, info, work_item=None):
+        if not work_item:
+            return True
+
+        if not self.has_camac_edit_permission(work_item.case.family, info):
+            return False
+
+        service_id = CamacRequest(info).request.group.service_id
+
+        return is_created_by_service(work_item, service_id) or is_addressed_to_service(
+            work_item, service_id
+        )
+
+    @permission_for(CancelWorkItem)
     @permission_for(CompleteWorkItem)
     @permission_for(SkipWorkItem)
-    @permission_for(CancelCase)
+    @object_permission_for(CancelWorkItem)
     @object_permission_for(CompleteWorkItem)
     @object_permission_for(SkipWorkItem)
-    @object_permission_for(CancelCase)
-    def has_permission_for_workflow(self, mutation, info, target=None):
-        # TODO: This must be addressed as soon as proper assigned groups / users are implemented
-        return True
+    def has_permission_for_process_work_item(self, mutation, info, work_item=None):
+        if not work_item or self.has_camac_role(info, "support"):
+            # Always allow for support group since our PHP action uses that group
+            return True
+
+        return self.has_camac_edit_permission(
+            work_item.case.family, info
+        ) and is_addressed_to_service(
+            work_item, CamacRequest(info).request.group.service_id
+        )
 
     # Document
     @permission_for(SaveDocument)
@@ -74,7 +108,7 @@ class CustomPermission(BasePermission):
             # There should only be one dashboard document which has to be
             # created by a support user
             return (
-                self.has_camac_group_permission(info, CAMAC_SUPPORT_GROUP)
+                self.has_camac_role(info, "support")
                 and Document.objects.filter(form__slug=DASHBOARD_FORM_SLUG).count() == 0
             )
 
@@ -83,9 +117,9 @@ class CustomPermission(BasePermission):
     @object_permission_for(SaveDocument)
     def has_object_permission_for_savedocument(self, mutation, info, document):
         if document.form.slug == DASHBOARD_FORM_SLUG:
-            return self.has_camac_group_permission(info, CAMAC_SUPPORT_GROUP)
+            return self.has_camac_role(info, "support")
 
-        return self.has_camac_edit_permission(document.family, info, "write")
+        return self.has_camac_edit_permission(document.family, info)
 
     # Answer
     @permission_for(SaveDocumentAnswer)
@@ -101,14 +135,14 @@ class CustomPermission(BasePermission):
             return False
 
         if document.form.slug == DASHBOARD_FORM_SLUG:
-            return self.has_camac_group_permission(info, CAMAC_SUPPORT_GROUP)
+            return self.has_camac_role(info, "support")
 
         return self.has_camac_edit_permission(document.family, info)
 
     @object_permission_for(SaveDocumentAnswer)
     def has_object_permission_for_savedocumentanswer(self, mutation, info, answer):
         if answer.document.form.slug == DASHBOARD_FORM_SLUG:
-            return self.has_camac_group_permission(info, CAMAC_SUPPORT_GROUP)
+            return self.has_camac_role(info, "support")
 
         return self.has_camac_edit_permission(answer.document.family, info)
 
@@ -123,20 +157,11 @@ class CustomPermission(BasePermission):
     def has_object_permission_for_removeanswer(self, mutation, info, answer):
         return self.has_camac_edit_permission(answer.document.family, info)
 
-    def has_camac_group_permission(self, info, required_group):
-        response = requests.get(
-            build_url(settings.INTERNAL_BASE_URL, "/api/v1/me"), headers=headers(info)
-        )
+    def has_camac_role(self, info, required_permission):
+        role_name = CamacRequest(info).request.group.role.name
+        role_permissions = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
 
-        response.raise_for_status()
-
-        admin_groups = [
-            group
-            for group in response.json()["data"]["relationships"]["groups"]["data"]
-            if int(group["id"]) == int(required_group)
-        ]
-
-        return len(admin_groups) > 0
+        return role_permissions.get(role_name) == required_permission
 
     def has_camac_edit_permission(self, target, info, required_permission="write"):
         if isinstance(target, Case):
