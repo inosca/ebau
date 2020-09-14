@@ -113,7 +113,7 @@ export default class WorkItemNewController extends Controller {
             addressedGroups: this.workItem.addressedGroups,
             deadline: this.workItem.deadline,
             meta: JSON.stringify({
-              "notify-complete": this.workItem.notificationCompleted,
+              "notify-completed": this.workItem.notificationCompleted,
               "notify-deadline": this.workItem.notificationDeadline
             }),
             ...extra
