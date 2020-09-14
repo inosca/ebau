@@ -1,9 +1,13 @@
 import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
 import ApplicationRouteMixin from "ember-simple-auth/mixins/application-route-mixin";
+import AuthenticatedRouteMixin from "ember-simple-auth/mixins/authenticated-route-mixin";
 import moment from "moment";
 
-const ApplicationRouteBase = Route.extend(ApplicationRouteMixin);
+const ApplicationRouteBase = Route.extend(
+  ApplicationRouteMixin,
+  AuthenticatedRouteMixin
+);
 
 export default class ApplicationRoute extends ApplicationRouteBase {
   @service intl;
@@ -13,15 +17,15 @@ export default class ApplicationRoute extends ApplicationRouteBase {
   async beforeModel(...args) {
     super.beforeModel(...args);
 
-    if (!this.session.isAuthenticated) {
-      await this.session.authenticate("authenticator:camac");
-    }
-
     this.intl.setLocale(this.shoebox.content.language);
     moment.locale(this.shoebox.content.language);
   }
 
   sessionInvalidated() {
     this.session.authenticate("authenticator:camac");
+  }
+
+  triggerAuthentication() {
+    return this.session.authenticate("authenticator:camac");
   }
 }
