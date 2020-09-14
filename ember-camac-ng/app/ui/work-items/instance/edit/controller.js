@@ -1,11 +1,15 @@
 import Controller from "@ember/controller";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
+import { tracked } from "@glimmer/tracking";
+import calumaQuery from "ember-caluma/caluma-query";
+import { allWorkItems } from "ember-caluma/caluma-query/queries";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 import moment from "moment";
 
 import completeWorkItem from "camac-ng/gql/mutations/complete-workitem";
 import saveWorkItem from "camac-ng/gql/mutations/save-workitem";
+import getProcessData from "camac-ng/utils/work-item";
 
 export default class WorkItemsInstanceEditController extends Controller {
   @service store;
@@ -15,28 +19,51 @@ export default class WorkItemsInstanceEditController extends Controller {
   @service shoebox;
   @service moment;
 
-  get isCreator() {
-    return (this.model.createdByGroup || []).includes(
-      this.shoebox.content.serviceId
-    );
+  @tracked workItem;
+
+  @calumaQuery({
+    query: allWorkItems,
+    options: "options"
+  })
+  workItemsQuery;
+
+  get options() {
+    return {
+      pageSize: 1,
+      processNew: workItems => this.processNew(workItems)
+    };
   }
 
-  get responsibleUser() {
-    return this.userChoices?.find(user =>
-      this.model.assignedUsers.includes(user.username)
-    );
+  async processNew(workItems) {
+    const { usernames, instanceIds, serviceIds } = getProcessData(workItems);
+
+    if (usernames.length) {
+      await this.store.query("user", { username: usernames.join(",") });
+    }
+
+    if (instanceIds.length) {
+      await this.store.query("instance", {
+        instance_id: instanceIds.join(","),
+        include: "form"
+      });
+    }
+
+    if (serviceIds.length) {
+      await this.store.query("service", { service_id: serviceIds.join(",") });
+    }
+
+    return workItems;
   }
 
-  set responsibleUser(user) {
-    this.model.assignedUsers = [user.username];
-  }
+  @dropTask()
+  *fetchWorkItems() {
+    try {
+      yield this.workItemsQuery.fetch({ filter: [{ id: this.model }] });
 
-  get isManualWorkItem() {
-    return this.model.raw.task.slug === "create-manual-workitems";
-  }
-
-  get isWorkItemCompleted() {
-    return this.model.raw.status === "COMPLETED";
+      this.workItem = this.workItemsQuery.value[0];
+    } catch (error) {
+      this.notifications.error(this.intl.t("workItems.fetchError"));
+    }
   }
 
   @lastValue("fetchUserChoices") userChoices;
@@ -56,22 +83,9 @@ export default class WorkItemsInstanceEditController extends Controller {
   *workItemAssignUsers(event) {
     event.preventDefault();
 
-    try {
-      yield this.apollo.mutate({
-        mutation: saveWorkItem,
-        variables: {
-          input: {
-            workItem: this.model.id,
-            assignedUsers: this.model.assignedUsers
-          }
-        }
-      });
-
+    if (yield this.workItem.assignToUser(this.workItem.assignedUser)) {
       this.notifications.success(this.intl.t("workItems.saveSuccess"));
-
       this.transitionToRoute("work-items.instance.index");
-    } catch (error) {
-      this.notifications.error(this.intl.t("workItems.saveError"));
     }
   }
 
@@ -84,8 +98,8 @@ export default class WorkItemsInstanceEditController extends Controller {
         mutation: saveWorkItem,
         variables: {
           input: {
-            workItem: this.model.id,
-            meta: JSON.stringify(this.model.meta)
+            workItem: this.workItem.id,
+            meta: JSON.stringify(this.workItem.meta)
           }
         }
       });
@@ -94,7 +108,7 @@ export default class WorkItemsInstanceEditController extends Controller {
         mutation: completeWorkItem,
         variables: {
           input: {
-            id: this.model.id
+            id: this.workItem.id
           }
         }
       });
@@ -116,10 +130,10 @@ export default class WorkItemsInstanceEditController extends Controller {
         mutation: saveWorkItem,
         variables: {
           input: {
-            workItem: this.model.id,
-            description: this.model.description,
-            deadline: this.model.deadline,
-            meta: JSON.stringify(this.model.meta)
+            workItem: this.workItem.id,
+            description: this.workItem.description,
+            deadline: this.workItem.deadline,
+            meta: JSON.stringify(this.workItem?.meta)
           }
         }
       });
@@ -134,6 +148,6 @@ export default class WorkItemsInstanceEditController extends Controller {
 
   @action
   setDeadline(value) {
-    this.model.deadline = moment(value);
+    this.workItem.deadline = moment(value);
   }
 }
