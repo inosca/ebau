@@ -12,6 +12,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
   @service intl;
   @service notifications;
 
+  @tracked meta = this.raw.meta;
   @tracked notViewed = this.raw.meta["not-viewed"];
   @tracked assignedUsers = this.raw.assignedUsers;
   @tracked addressedGroups = this.raw.addressedGroups;
@@ -22,48 +23,14 @@ export default class CustomWorkItemModel extends WorkItemModel {
       .find(user => this.assignedUsers.includes(user.username));
   }
 
+  set assignedUser(user) {
+    this.assignedUsers = [user.username];
+  }
+
   get addressedService() {
     return this.store
       .peekAll("service")
       .find(service => this.addressedGroups.includes(service.id));
-  }
-
-  get isAddressed() {
-    return (
-      parseInt(this.addressedService?.id) === this.shoebox.content.serviceId
-    );
-  }
-
-  get responsible() {
-    if (this.isAddressed) {
-      return this.assignedUser?.fullName || "-";
-    }
-
-    return [
-      this.addressedService.name,
-      this.assignedUser ? `(${this.assignedUser.fullName})` : ""
-    ].join(" ");
-  }
-
-  get instance() {
-    return this.store.peekRecord("instance", this.instanceId);
-  }
-
-  get case() {
-    return this.raw.case.parentWorkItem?.case || this.raw.case;
-  }
-
-  get instanceId() {
-    return this.case?.meta["camac-instance-id"];
-  }
-
-  get instanceName() {
-    const identifier = this.instance?.identifier || this.instanceId;
-    const name = this.instance?.name || this.case?.document.form.name;
-    const ebauNr = this.case?.meta["ebau-number"];
-    const suffix = ebauNr ? `(${ebauNr})` : "";
-
-    return `${identifier} - ${name} ${suffix}`.trim();
   }
 
   get closedByUser() {
@@ -76,12 +43,81 @@ export default class CustomWorkItemModel extends WorkItemModel {
       .findBy("username", this.raw.createdByUser);
   }
 
+  get createdByGroup() {
+    return (
+      this.raw.createdByGroup &&
+      this.store.peekRecord("service", this.raw.createdByGroup)
+    );
+  }
+
+  get isAddressedToCurrentService() {
+    return (
+      parseInt(this.addressedService?.id) === this.shoebox.content.serviceId
+    );
+  }
+
   get isAssignedToCurrentUser() {
     return this.assignedUsers.includes(this.shoebox.content.username);
   }
 
+  get isCreatedByCurrentService() {
+    return parseInt(this.createdByGroup?.id) === this.shoebox.content.serviceId;
+  }
+
+  get isManual() {
+    return this.raw.task.slug === "create-manual-workitems";
+  }
+
+  get isReady() {
+    return this.raw.status === "READY";
+  }
+
+  get isCompleted() {
+    return this.raw.status === "COMPLETED";
+  }
+
   get canEdit() {
-    return this.isAddressed && this.raw.status === "READY";
+    return this.isReady && this.isAddressedToCurrentService;
+  }
+
+  get canEditAsCreator() {
+    return this.isReady && this.isManual && this.isCreatedByCurrentService;
+  }
+
+  get canComplete() {
+    return this.isReady && this.isManual && this.isAddressedToCurrentService;
+  }
+
+  get responsible() {
+    if (this.isAddressedToCurrentService) {
+      return this.assignedUser?.fullName || "-";
+    }
+
+    return [
+      this.addressedService.name,
+      this.assignedUser ? `(${this.assignedUser.fullName})` : ""
+    ].join(" ");
+  }
+
+  get case() {
+    return this.raw.case.parentWorkItem?.case || this.raw.case;
+  }
+
+  get instanceId() {
+    return this.case?.meta["camac-instance-id"];
+  }
+
+  get instance() {
+    return this.store.peekRecord("instance", this.instanceId);
+  }
+
+  get instanceName() {
+    const identifier = this.instance?.identifier || this.instanceId;
+    const name = this.instance?.name || this.case?.document.form.name;
+    const ebauNr = this.case?.meta["ebau-number"];
+    const suffix = ebauNr ? `(${ebauNr})` : "";
+
+    return `${identifier} - ${name} ${suffix}`.trim();
   }
 
   get directLink() {
@@ -138,6 +174,8 @@ export default class CustomWorkItemModel extends WorkItemModel {
           }
         }
       });
+
+      return true;
     } catch (error) {
       this.notifications.error(this.intl.t("workItems.saveError"));
     }
@@ -160,6 +198,8 @@ export default class CustomWorkItemModel extends WorkItemModel {
           }
         }
       });
+
+      return true;
     } catch (error) {
       this.notifications.error(this.intl.t("workItems.saveError"));
     }
