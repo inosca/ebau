@@ -121,12 +121,9 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   get directLink() {
-    const link = this._getDirectLinkFor(this.raw.task.slug);
+    if (!this.canEdit) return null;
 
-    return (
-      (this.canEdit && link) ||
-      `/index/redirect-to-instance-resource/instance-id/${this.instanceId}`
-    );
+    return this._getDirectLinkFor(this.raw.task.slug) || this.editLink;
   }
 
   get editLink() {
