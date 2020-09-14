@@ -52,7 +52,7 @@ mutation CreateFlow4 {
     input: {
       workflow: "preliminary-clarification"
       tasks: ["circulation"]
-      next: "['start-circulation', 'check-activation', 'start-decision']|tasks"
+      next: "['after-circulation']|tasks"
     }
   ) {
     clientMutationId
