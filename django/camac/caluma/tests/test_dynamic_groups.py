@@ -13,6 +13,7 @@ def test_dynamic_group_bern(
     instance,
     service_factory,
     activation_factory,
+    circulation_factory,
     instance_service_factory,
     caluma_admin_user,
     use_instance_service,
@@ -21,6 +22,7 @@ def test_dynamic_group_bern(
     municipality = service_factory()
     construction_control = service_factory()
     service = service_factory()
+    circulation_service = service_factory()
 
     use_instance_service(municipality.pk, construction_control.pk)
 
@@ -32,11 +34,15 @@ def test_dynamic_group_bern(
             instance=instance, service=construction_control, active=1
         )
 
+        circulation = circulation_factory(
+            instance=instance, service=circulation_service
+        )
         activation = activation_factory(
-            circulation__instance=instance, service=service, service_parent=municipality
+            circulation=circulation, service=service, service_parent=municipality
         )
 
         context["activation-id"] = activation.pk
+        context["circulation-id"] = circulation.pk
 
     dynamic_groups = CustomDynamicGroups()
 
@@ -50,8 +56,9 @@ def test_dynamic_group_bern(
     for (name, expected) in [
         ("municipality", [str(municipality.pk)]),
         ("construction_control", [str(construction_control.pk)]),
-        ("service", [str(service.pk)]),
-        ("service_parent", [str(municipality.pk)]),
+        ("activation_service", [str(service.pk)]),
+        ("activation_service_parent", [str(municipality.pk)]),
+        ("circulation_service", [str(circulation_service.pk)]),
     ]:
         assert dynamic_groups.resolve(name)(None, case, None, None, context) == (
             expected if has_group else []

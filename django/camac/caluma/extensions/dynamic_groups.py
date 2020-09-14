@@ -5,7 +5,7 @@ from caluma.caluma_workflow.dynamic_groups import (
     register_dynamic_group,
 )
 
-from camac.core.models import Activation
+from camac.core.models import Activation, Circulation
 from camac.instance.models import Instance
 
 log = logging.getLogger()
@@ -20,6 +20,12 @@ class CustomDynamicGroups(BaseDynamicGroups):
             return Activation.objects.none()
 
         return Activation.objects.filter(pk=context.get("activation-id")).first()
+
+    def _get_circulation(self, context):
+        if not context:
+            return Circulation.objects.none()
+
+        return Circulation.objects.filter(pk=context.get("circulation-id")).first()
 
     def _get_responsible_service(self, case, filter_type):
         instance = self._get_instance(case)
@@ -42,8 +48,22 @@ class CustomDynamicGroups(BaseDynamicGroups):
     ):
         return self._get_responsible_service(case, "construction_control")
 
-    @register_dynamic_group("service")
-    def resolve_service(self, task, case, user, prev_work_item, context, **kwargs):
+    @register_dynamic_group("circulation_service")
+    def resolve_circulation_service(
+        self, task, case, user, prev_work_item, context, **kwargs
+    ):
+        circulation = self._get_circulation(context)
+
+        if not circulation:
+            log.error("No service group found with the given context")
+            return []
+
+        return [str(circulation.service.pk)]
+
+    @register_dynamic_group("activation_service")
+    def resolve_activation_service(
+        self, task, case, user, prev_work_item, context, **kwargs
+    ):
         activation = self._get_activation(context)
 
         if not activation:
@@ -53,8 +73,8 @@ class CustomDynamicGroups(BaseDynamicGroups):
 
         return [str(activation.service.pk)]
 
-    @register_dynamic_group("service_parent")
-    def resolve_service_parent(
+    @register_dynamic_group("activation_service_parent")
+    def resolve_activation_service_parent(
         self, task, case, user, prev_work_item, context, **kwargs
     ):
         activation = self._get_activation(context)
