@@ -1283,34 +1283,6 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 2,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 150027
-  },
-  {
-    "fields": {
-      "available_action": "workitem",
-      "button": 20044,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": null,
-      "sort": 3,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 150028
-  },
-  {
-    "fields": {
-      "available_action": "workitem",
-      "button": 20044,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": null,
       "sort": 1,
       "success_message": null
     },
@@ -2818,35 +2790,11 @@
   },
   {
     "fields": {
-      "action": 150027,
-      "description": null,
-      "error_message": null,
-      "language": "de",
-      "name": "Aufgabe \u00fcberspringen: Zirkulation",
-      "success_message": null
-    },
-    "model": "core.actiont",
-    "pk": 150033
-  },
-  {
-    "fields": {
-      "action": 150028,
-      "description": null,
-      "error_message": null,
-      "language": "de",
-      "name": "Aufgabe abschliessen: Entscheid starten",
-      "success_message": null
-    },
-    "model": "core.actiont",
-    "pk": 150034
-  },
-  {
-    "fields": {
       "action": 150029,
       "description": null,
       "error_message": null,
       "language": "de",
-      "name": "Aufgabe abschliessen: Zirkulation initialisieren",
+      "name": "Aufgabe abschliessen: Zirkulation \u00fcberspringen",
       "success_message": null
     },
     "model": "core.actiont",
@@ -3456,28 +3404,8 @@
     "fields": {
       "is_activation": false,
       "process_all": false,
-      "process_type": "skip",
-      "tasks": "[\"circulation\"]"
-    },
-    "model": "core.actionworkitem",
-    "pk": 150027
-  },
-  {
-    "fields": {
-      "is_activation": false,
-      "process_all": false,
       "process_type": "complete",
-      "tasks": "[\"start-decision\"]"
-    },
-    "model": "core.actionworkitem",
-    "pk": 150028
-  },
-  {
-    "fields": {
-      "is_activation": false,
-      "process_all": false,
-      "process_type": "complete",
-      "tasks": "[\"init-circulation\"]"
+      "tasks": "[\"skip-circulation\"]"
     },
     "model": "core.actionworkitem",
     "pk": 150029

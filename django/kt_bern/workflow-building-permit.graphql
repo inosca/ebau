@@ -29,7 +29,7 @@ mutation CreateFlow2 {
     input: {
       workflow: "building-permit"
       tasks: ["ebau-number"]
-      next: "['init-circulation', 'audit', 'publication']|tasks"
+      next: "['skip-circulation', 'init-circulation', 'audit', 'publication']|tasks"
     }
   ) {
     clientMutationId
@@ -125,6 +125,18 @@ mutation CreateFlow10 {
       workflow: "building-permit"
       tasks: ["sb2"]
       next: "['complete', 'check-sb2']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow11 {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["skip-circulation"]
+      next: "['decision', 'reopen-circulation']|tasks"
     }
   ) {
     clientMutationId
