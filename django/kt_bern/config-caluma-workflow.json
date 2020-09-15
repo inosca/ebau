@@ -38,7 +38,7 @@
       "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_at": "2020-08-10T14:29:36.182Z",
-      "next": "['start-circulation', 'check-activation', 'start-decision']|tasks"
+      "next": "['after-circulation']|tasks"
     },
     "model": "caluma_workflow.flow",
     "pk": "363f0977-a68b-4d3c-990b-39f2e747b19d"
@@ -148,7 +148,7 @@
       "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_at": "2020-08-10T14:30:17.331Z",
-      "next": "['start-circulation', 'check-activation', 'start-decision']|tasks"
+      "next": "['after-circulation']|tasks"
     },
     "model": "caluma_workflow.flow",
     "pk": "b37d20b3-38f9-4971-bdb9-bbf80f0b9f0b"

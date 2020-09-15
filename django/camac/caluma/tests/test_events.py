@@ -18,6 +18,7 @@ def test_copy_papierdossier(
     caluma_admin_user,
     caluma_workflow_config_be,
     expected_value,
+    circulation,
 ):
     case = workflow_api.start_case(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
@@ -61,6 +62,7 @@ def test_copy_sb_personalien(
     caluma_admin_user,
     caluma_workflow_config_be,
     use_fallback,
+    circulation,
 ):
     case = workflow_api.start_case(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
