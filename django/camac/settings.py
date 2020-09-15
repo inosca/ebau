@@ -331,6 +331,8 @@ APPLICATIONS = {
                     "complete": ["check-activation"],
                     "cancel": ["start-circulation"],
                 },
+                "skip-circulation": {"cancel": ["init-circulation"]},
+                "init-circulation": {"cancel": ["skip-circulation"]},
                 "start-circulation": {"cancel": ["check-activation", "start-decision"]},
                 "decision": {
                     "skip": ["audit", "publication"],
