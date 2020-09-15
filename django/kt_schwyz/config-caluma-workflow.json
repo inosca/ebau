@@ -201,7 +201,9 @@
       "is_archived": false,
       "is_multiple_instance": true,
       "lead_time": null,
-      "meta": {},
+      "meta": {
+        "is-manually-completable": true
+      },
       "modified_at": "2020-09-03T14:45:56.505Z",
       "name": "{\"de\": \"Manuelle Aufgaben erfassen\", \"fr\": null}",
       "type": "simple"
