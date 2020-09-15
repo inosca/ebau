@@ -4,88 +4,107 @@ from __future__ import unicode_literals
 
 from snapshottest import Snapshot
 
+
 snapshots = Snapshot()
 
-snapshots["test_notify_completed_work_item[True-kt_bern] 1"] = [
+snapshots['test_notify_completed_work_item[True-kt_bern] 1'] = [
     (
-        "Abgeschlossene Aufgabe",
-        """Guten Tag
+        'Aufgabe abgeschlossen (Dossier-Nr. None)',
+        '''Guten Tag
 
-Eine Ihrer verantwortlichen Aufgaben wurden abgeschlossen:
-Aufgabe "Univ.Prof. Janos Hartung B.Eng." zu erledigen bis 11.08.2020
-Abgeschlossen von User Admin (admin@example.com)
+Die Aufgabe Univ.Prof. Janos Hartung B.Eng. im Dossier None wurde von User Admin  abgeschlossen.
 
-Freundliche Grüsse
-""",
-        ["shannon92@yahoo.com"],
-        [],
+http://camac-ng.local/index/redirect-to-instance-resource/instance-id/None
+
+Sie erhalten diese Notifikation, weil Sie beim Erstellen der Aufgabe die Notifikationseinstellung "Bei Abschluss" gewählt haben.
+''',
+        [
+            'shannon92@yahoo.com'
+        ],
+        [
+        ]
     ),
     (
-        "Abgeschlossene Aufgabe",
-        """Guten Tag
+        'Aufgabe abgeschlossen (Dossier-Nr. None)',
+        '''Guten Tag
 
-Eine Ihrer verantwortlichen Aufgaben wurden abgeschlossen:
-Aufgabe "Univ.Prof. Janos Hartung B.Eng." zu erledigen bis 11.08.2020
-Abgeschlossen von User Admin (admin@example.com)
+Die Aufgabe Univ.Prof. Janos Hartung B.Eng. im Dossier None wurde von User Admin  abgeschlossen.
 
-Freundliche Grüsse
-""",
-        ["larrysmith@cortez.com"],
-        [],
+http://camac-ng.local/index/redirect-to-instance-resource/instance-id/None
+
+Sie erhalten diese Notifikation, weil Sie beim Erstellen der Aufgabe die Notifikationseinstellung "Bei Abschluss" gewählt haben.
+''',
+        [
+            'larrysmith@cortez.com'
+        ],
+        [
+        ]
     ),
     (
-        "Abgeschlossene Aufgabe",
-        """Guten Tag
+        'Aufgabe abgeschlossen (Dossier-Nr. None)',
+        '''Guten Tag
 
-Eine Ihrer verantwortlichen Aufgaben wurden abgeschlossen:
-Aufgabe "Univ.Prof. Janos Hartung B.Eng." zu erledigen bis 11.08.2020
-Abgeschlossen von User Admin (admin@example.com)
+Die Aufgabe Univ.Prof. Janos Hartung B.Eng. im Dossier None wurde von User Admin  abgeschlossen.
 
-Freundliche Grüsse
-""",
-        ["toddprice@yahoo.com"],
-        [],
-    ),
+http://camac-ng.local/index/redirect-to-instance-resource/instance-id/None
+
+Sie erhalten diese Notifikation, weil Sie beim Erstellen der Aufgabe die Notifikationseinstellung "Bei Abschluss" gewählt haben.
+''',
+        [
+            'toddprice@yahoo.com'
+        ],
+        [
+        ]
+    )
 ]
 
-snapshots["test_notify_completed_work_item[True-kt_schwyz] 1"] = [
+snapshots['test_notify_completed_work_item[True-kt_schwyz] 1'] = [
     (
-        "Abgeschlossene Aufgabe",
-        """Guten Tag
+        'Aufgabe abgeschlossen (Dossier-Nr. None)',
+        '''Guten Tag
 
-Eine Ihrer verantwortlichen Aufgaben wurden abgeschlossen:
-Aufgabe "Axel Roskoth" zu erledigen bis 11.08.2020
-Abgeschlossen von User Admin (admin@example.com)
+Die Aufgabe Axel Roskoth im Dossier None wurde von User Admin  abgeschlossen.
 
-Freundliche Grüsse
-""",
-        ["josephwagner@hotmail.com"],
-        [],
+http://camac-ng.local/index/redirect-to-instance-resource/instance-id/None
+
+Sie erhalten diese Notifikation, weil Sie beim Erstellen der Aufgabe die Notifikationseinstellung "Bei Abschluss" gewählt haben.
+''',
+        [
+            'josephwagner@hotmail.com'
+        ],
+        [
+        ]
     ),
     (
-        "Abgeschlossene Aufgabe",
-        """Guten Tag
+        'Aufgabe abgeschlossen (Dossier-Nr. None)',
+        '''Guten Tag
 
-Eine Ihrer verantwortlichen Aufgaben wurden abgeschlossen:
-Aufgabe "Axel Roskoth" zu erledigen bis 11.08.2020
-Abgeschlossen von User Admin (admin@example.com)
+Die Aufgabe Axel Roskoth im Dossier None wurde von User Admin  abgeschlossen.
 
-Freundliche Grüsse
-""",
-        ["carolyn82@davis.biz"],
-        [],
+http://camac-ng.local/index/redirect-to-instance-resource/instance-id/None
+
+Sie erhalten diese Notifikation, weil Sie beim Erstellen der Aufgabe die Notifikationseinstellung "Bei Abschluss" gewählt haben.
+''',
+        [
+            'carolyn82@davis.biz'
+        ],
+        [
+        ]
     ),
     (
-        "Abgeschlossene Aufgabe",
-        """Guten Tag
+        'Aufgabe abgeschlossen (Dossier-Nr. None)',
+        '''Guten Tag
 
-Eine Ihrer verantwortlichen Aufgaben wurden abgeschlossen:
-Aufgabe "Axel Roskoth" zu erledigen bis 11.08.2020
-Abgeschlossen von User Admin (admin@example.com)
+Die Aufgabe Axel Roskoth im Dossier None wurde von User Admin  abgeschlossen.
 
-Freundliche Grüsse
-""",
-        ["kpark@simmons.net"],
-        [],
-    ),
+http://camac-ng.local/index/redirect-to-instance-resource/instance-id/None
+
+Sie erhalten diese Notifikation, weil Sie beim Erstellen der Aufgabe die Notifikationseinstellung "Bei Abschluss" gewählt haben.
+''',
+        [
+            'kpark@simmons.net'
+        ],
+        [
+        ]
+    )
 ]
