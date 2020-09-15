@@ -7,15 +7,33 @@ from camac.constants.kt_bern import (
     DECISIONS_ABGELEHNT,
     DECISIONS_ABGESCHRIEBEN,
     DECISIONS_BEWILLIGT,
+    VORABKLAERUNG_DECISIONS_BEWILLIGT,
+    VORABKLAERUNG_DECISIONS_BEWILLIGT_MIT_VORBEHALT,
+    VORABKLAERUNG_DECISIONS_NEGATIVE,
 )
 
 
 @pytest.mark.parametrize(
-    "decision,expected_case_status",
+    "workflow_id,decision,expected_case_status",
     [
-        (DECISIONS_ABGELEHNT, Case.STATUS_COMPLETED),
-        (DECISIONS_ABGESCHRIEBEN, Case.STATUS_COMPLETED),
-        (DECISIONS_BEWILLIGT, Case.STATUS_RUNNING),
+        ("building-permit", DECISIONS_ABGELEHNT, Case.STATUS_COMPLETED),
+        ("building-permit", DECISIONS_ABGESCHRIEBEN, Case.STATUS_COMPLETED),
+        ("building-permit", DECISIONS_BEWILLIGT, Case.STATUS_RUNNING),
+        (
+            "preliminary-clarification",
+            VORABKLAERUNG_DECISIONS_BEWILLIGT,
+            Case.STATUS_COMPLETED,
+        ),
+        (
+            "preliminary-clarification",
+            VORABKLAERUNG_DECISIONS_BEWILLIGT_MIT_VORBEHALT,
+            Case.STATUS_COMPLETED,
+        ),
+        (
+            "preliminary-clarification",
+            VORABKLAERUNG_DECISIONS_NEGATIVE,
+            Case.STATUS_COMPLETED,
+        ),
     ],
 )
 def test_dynamic_task_after_decision(
@@ -24,6 +42,7 @@ def test_dynamic_task_after_decision(
     caluma_workflow_config_be,
     docx_decision_factory,
     instance,
+    workflow_id,
     decision,
     circulation,
     expected_case_status,
@@ -31,7 +50,7 @@ def test_dynamic_task_after_decision(
     docx_decision_factory(decision=decision, instance=instance.pk)
 
     case = start_case(
-        workflow=Workflow.objects.get(pk="building-permit"),
+        workflow=Workflow.objects.get(pk=workflow_id),
         form=Form.objects.get(pk="main-form"),
         user=caluma_admin_user,
         meta={"camac-instance-id": instance.pk},
