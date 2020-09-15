@@ -9,6 +9,8 @@ from django.urls import reverse
 from django.utils import timezone
 from pytest_factoryboy import LazyFixture
 
+from camac.constants.kt_bern import DECISIONS_BEWILLIGT
+
 
 @pytest.mark.parametrize("expected_value", ["papierdossier-ja", "papierdossier-nein"])
 def test_copy_papierdossier(
@@ -19,6 +21,7 @@ def test_copy_papierdossier(
     caluma_workflow_config_be,
     expected_value,
     circulation,
+    docx_decision_factory,
 ):
     case = workflow_api.start_case(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
@@ -26,6 +29,8 @@ def test_copy_papierdossier(
         meta={"camac-instance-id": instance.pk},
         user=caluma_admin_user,
     )
+
+    docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=instance.pk)
 
     case.document.answers.create(question_id="papierdossier", value=expected_value)
 
@@ -63,6 +68,7 @@ def test_copy_sb_personalien(
     caluma_workflow_config_be,
     use_fallback,
     circulation,
+    docx_decision_factory,
 ):
     case = workflow_api.start_case(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
@@ -70,6 +76,8 @@ def test_copy_sb_personalien(
         meta={"camac-instance-id": instance.pk},
         user=caluma_admin_user,
     )
+
+    docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=instance.pk)
 
     case.document.answers.create(
         question_id="papierdossier", value="papierdossier-nein"
