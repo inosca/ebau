@@ -1105,7 +1105,7 @@ def test_change_responsible_service(
         case.work_items.filter(
             status="ready", addressed_groups__contains=[str(old_service.pk)]
         ).count()
-        == 4
+        == 5
     )
     assert (
         case.work_items.filter(
@@ -1160,7 +1160,7 @@ def test_change_responsible_service(
             case.work_items.filter(
                 status="ready", addressed_groups__contains=[str(new_service.pk)]
             ).count()
-            == 4
+            == 5
         )
 
         # assigned users are filtered

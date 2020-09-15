@@ -77,7 +77,7 @@ def test_dynamic_task_after_decision(
 @pytest.mark.parametrize(
     "has_circulation,expected_tasks",
     [
-        (False, ["init-circulation"]),
+        (False, ["skip-circulation", "init-circulation"]),
         (True, ["start-circulation", "check-activation", "start-decision"]),
     ],
 )

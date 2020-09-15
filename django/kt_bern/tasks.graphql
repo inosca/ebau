@@ -46,6 +46,18 @@ mutation CreateEBauNumberTask {
   }
 }
 
+mutation CreateSkipCirculationTask {
+  saveSimpleTask(
+    input: {
+      slug: "skip-circulation"
+      name: "Zirkulation überspringen"
+      addressGroups: "['municipality']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
 mutation CreateInitCirculationTask {
   saveSimpleTask(
     input: {
