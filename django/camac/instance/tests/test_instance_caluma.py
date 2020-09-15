@@ -369,6 +369,7 @@ def test_instance_report(
     mock_generate_and_store_pdf,
     caluma_workflow_config_be,
     has_personalien_sb2,
+    circulation,
 ):
     instance_state.pk = instance_state_pk
     instance_state.save()
@@ -452,6 +453,7 @@ def test_instance_finalize(
     mock_nfd_permissions,
     mock_generate_and_store_pdf,
     caluma_workflow_config_be,
+    circulation,
 ):
     instance_state.pk = instance_state_pk
     instance_state.save()
@@ -943,6 +945,91 @@ def test_rejection(
 
     assert new_instance.instance_state == subm_state
     assert source_instance.instance_state == finished_state
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize(
+    "instance_state__name,should_sync", [("circulation", True), ("sb1", False)]
+)
+def test_change_responsible_service_circulations(
+    db,
+    admin_client,
+    admin_user,
+    role,
+    instance_state,
+    instance_service,
+    use_caluma_form,
+    caluma_workflow_config_be,
+    service_factory,
+    circulation_factory,
+    activation_factory,
+    should_sync,
+):
+    instance = instance_service.instance
+    instance.instance_state = instance_state
+    instance.save()
+
+    old_service = instance.responsible_service()
+    sub_service = service_factory(service_parent=old_service)
+    new_service = service_factory()
+    some_service = service_factory()
+
+    case = workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
+        form=caluma_form_models.Form.objects.get(pk="main-form"),
+        meta={"camac-instance-id": instance.pk},
+        user=BaseUser(),
+    )
+
+    c1 = circulation_factory(instance=instance, service=old_service)
+    c2 = circulation_factory(instance=instance, service=old_service)
+
+    # from the old service to some service, stays
+    a1 = activation_factory(circulation=c1, service_parent=old_service)
+    # from some other service to some other service, stays
+    a2 = activation_factory(circulation=c1, service_parent=some_service)
+    # should be deleted since the new service is now responsible
+    a3 = activation_factory(
+        circulation=c1, service_parent=old_service, service=new_service
+    )
+    # should be deleted since it's to a sub service of the old services
+    activation_factory(circulation=c2, service_parent=old_service, service=sub_service)
+
+    for task_id in ["submit", "ebau-number", "init-circulation"]:
+        workflow_api.complete_work_item(
+            work_item=case.work_items.get(task_id=task_id), user=BaseUser()
+        )
+
+    response = admin_client.post(
+        reverse("instance-change-responsible-service", args=[instance.pk]),
+        {
+            "data": {
+                "type": "instance-change-responsible-services",
+                "attributes": {"service-type": "municipality"},
+                "relationships": {
+                    "to": {"data": {"id": new_service.pk, "type": "services"}}
+                },
+            }
+        },
+    )
+
+    assert response.status_code == status.HTTP_204_NO_CONTENT
+
+    if should_sync:
+        assert instance.circulations.filter(pk=c1.pk).exists()
+        assert not instance.circulations.filter(pk=c2.pk).exists()
+
+        c1.refresh_from_db()
+
+        assert c1.activations.filter(pk=a1.pk).exists()
+        assert c1.activations.filter(pk=a2.pk).exists()
+        assert not c1.activations.filter(pk=a3.pk).exists()
+
+        a1.refresh_from_db()
+        a2.refresh_from_db()
+
+        assert a1.service_parent == new_service
+        assert a2.service_parent == some_service
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
