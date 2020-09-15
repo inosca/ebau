@@ -199,8 +199,8 @@
       "is_multiple_instance": false,
       "lead_time": null,
       "meta": {},
-      "modified_at": "2020-08-10T14:27:54.985Z",
-      "name": "{\"de\": \"Stellungnahme verfassen\", \"fr\": null}",
+      "modified_at": "2020-09-15T09:33:24.450Z",
+      "name": "{\"de\": \"Stellungnahme verfassen\", \"fr\": \"R\\u00e9diger une prise de position\"}",
       "type": "simple"
     },
     "model": "caluma_workflow.task",
@@ -219,8 +219,8 @@
       "is_multiple_instance": false,
       "lead_time": 864000,
       "meta": {},
-      "modified_at": "2020-08-10T14:27:49.526Z",
-      "name": "{\"de\": \"Dossier pr\\u00fcfen\", \"fr\": null}",
+      "modified_at": "2020-09-15T09:33:51.138Z",
+      "name": "{\"de\": \"Dossier pr\\u00fcfen\", \"fr\": \"V\\u00e9rifier le dossier\"}",
       "type": "simple"
     },
     "model": "caluma_workflow.task",
@@ -241,8 +241,8 @@
       "meta": {
         "is-manually-completable": true
       },
-      "modified_at": "2020-08-10T14:27:59Z",
-      "name": "{\"de\": \"Stellungnahmen pr\\u00fcfen\", \"fr\": null}",
+      "modified_at": "2020-09-15T09:34:12.007Z",
+      "name": "{\"de\": \"Stellungnahmen pr\\u00fcfen\", \"fr\": \"V\\u00e9rifier les prises de position\"}",
       "type": "simple"
     },
     "model": "caluma_workflow.task",
@@ -263,8 +263,8 @@
       "meta": {
         "is-manually-completable": true
       },
-      "modified_at": "2020-08-10T14:28:10.718Z",
-      "name": "{\"de\": \"Selbstdeklaration 1 pr\\u00fcfen\", \"fr\": null}",
+      "modified_at": "2020-09-15T09:34:35.044Z",
+      "name": "{\"de\": \"Selbstdeklaration 1 pr\\u00fcfen\", \"fr\": \"V\\u00e9rifier la d\\u00e9claration spontan\\u00e9e 1\"}",
       "type": "simple"
     },
     "model": "caluma_workflow.task",
@@ -285,8 +285,8 @@
       "meta": {
         "is-manually-completable": true
       },
-      "modified_at": "2020-08-10T14:28:13.749Z",
-      "name": "{\"de\": \"Selbstdeklaration 2 pr\\u00fcfen\", \"fr\": null}",
+      "modified_at": "2020-09-15T09:34:43.788Z",
+      "name": "{\"de\": \"Selbstdeklaration 2 pr\\u00fcfen\", \"fr\": \"V\\u00e9rifier la d\\u00e9claration spontan\\u00e9e 2\"}",
       "type": "simple"
     },
     "model": "caluma_workflow.task",
@@ -305,8 +305,8 @@
       "is_multiple_instance": true,
       "lead_time": null,
       "meta": {},
-      "modified_at": "2020-08-10T14:27:53.318Z",
-      "name": "{\"de\": \"Zirkulation\", \"fr\": null}",
+      "modified_at": "2020-09-15T09:35:02.383Z",
+      "name": "{\"de\": \"Zirkulation\", \"fr\": \"Circulation\"}",
       "type": "simple"
     },
     "model": "caluma_workflow.task",
@@ -325,8 +325,8 @@
       "is_multiple_instance": false,
       "lead_time": 864000,
       "meta": {},
-      "modified_at": "2020-08-10T14:28:15.491Z",
-      "name": "{\"de\": \"Baugesuchsverfahren abschliessen\", \"fr\": null}",
+      "modified_at": "2020-09-15T09:40:34.773Z",
+      "name": "{\"de\": \"Baugesuchsverfahren abschliessen\", \"fr\": \"Clore la proc\\u00e9dure\"}",
       "type": "simple"
     },
     "model": "caluma_workflow.task",
@@ -347,8 +347,8 @@
       "meta": {
         "is-manually-completable": true
       },
-      "modified_at": "2020-08-25T11:13:09.588Z",
-      "name": "{\"de\": \"Manuelle Aufgaben erfassen\", \"fr\": null}",
+      "modified_at": "2020-09-15T09:36:02.022Z",
+      "name": "{\"de\": \"Manuelle Aufgaben erfassen\", \"fr\": \"Saisie des t\\u00e2ches manuelles\"}",
       "type": "simple"
     },
     "model": "caluma_workflow.task",
@@ -367,8 +367,8 @@
       "is_multiple_instance": false,
       "lead_time": 864000,
       "meta": {},
-      "modified_at": "2020-08-10T14:28:04.731Z",
-      "name": "{\"de\": \"Entscheid verf\\u00fcgen\", \"fr\": null}",
+      "modified_at": "2020-09-15T09:36:21.022Z",
+      "name": "{\"de\": \"Entscheid verf\\u00fcgen\", \"fr\": \"Rendre la d\\u00e9cision\"}",
       "type": "simple"
     },
     "model": "caluma_workflow.task",
@@ -387,8 +387,8 @@
       "is_multiple_instance": false,
       "lead_time": 432000,
       "meta": {},
-      "modified_at": "2020-08-10T14:27:46.329Z",
-      "name": "{\"de\": \"eBau-Nummer vergeben\", \"fr\": null}",
+      "modified_at": "2020-09-15T09:36:45.991Z",
+      "name": "{\"de\": \"eBau-Nummer vergeben\", \"fr\": \"Attribution d'un num\\u00e9ro eBau\"}",
       "type": "simple"
     },
     "model": "caluma_workflow.task",
@@ -407,8 +407,8 @@
       "is_multiple_instance": false,
       "lead_time": 864000,
       "meta": {},
-      "modified_at": "2020-08-10T14:27:47.968Z",
-      "name": "{\"de\": \"Zirkulation initialisieren\", \"fr\": null}",
+      "modified_at": "2020-09-15T09:37:04.487Z",
+      "name": "{\"de\": \"Zirkulation initialisieren\", \"fr\": \"Initialiser la circulation\"}",
       "type": "simple"
     },
     "model": "caluma_workflow.task",
@@ -427,8 +427,8 @@
       "is_multiple_instance": false,
       "lead_time": null,
       "meta": {},
-      "modified_at": "2020-08-10T14:27:44.791Z",
-      "name": "{\"de\": \"Nachforderungen\", \"fr\": null}",
+      "modified_at": "2020-09-15T09:37:29.194Z",
+      "name": "{\"de\": \"Nachforderungen\", \"fr\": \"Demandes de compl\\u00e9ment d'information\"}",
       "type": "complete_task_form"
     },
     "model": "caluma_workflow.task",
@@ -447,8 +447,8 @@
       "is_multiple_instance": false,
       "lead_time": 864000,
       "meta": {},
-      "modified_at": "2020-08-10T14:27:51.005Z",
-      "name": "{\"de\": \"Dossier publizieren\", \"fr\": null}",
+      "modified_at": "2020-09-15T09:37:46.898Z",
+      "name": "{\"de\": \"Dossier publizieren\", \"fr\": \"Publier le dossier\"}",
       "type": "simple"
     },
     "model": "caluma_workflow.task",
@@ -467,8 +467,8 @@
       "is_multiple_instance": false,
       "lead_time": null,
       "meta": {},
-      "modified_at": "2020-08-10T14:28:06.447Z",
-      "name": "{\"de\": \"Zirkulation wiederer\\u00f6ffnen\", \"fr\": null}",
+      "modified_at": "2020-09-15T09:38:05.440Z",
+      "name": "{\"de\": \"Zirkulation wiederer\\u00f6ffnen\", \"fr\": \"Rouvrir la proc\\u00e9dure de circulation\"}",
       "type": "simple"
     },
     "model": "caluma_workflow.task",
@@ -487,8 +487,8 @@
       "is_multiple_instance": false,
       "lead_time": null,
       "meta": {},
-      "modified_at": "2020-08-10T14:28:08.104Z",
-      "name": "{\"de\": \"Selbstdeklaration 1 ausf\\u00fcllen\", \"fr\": null}",
+      "modified_at": "2020-09-15T09:38:45.400Z",
+      "name": "{\"de\": \"Selbstdeklaration 1 ausf\\u00fcllen\", \"fr\": \"Remplir la d\\u00e9claration spontan\\u00e9e 1\"}",
       "type": "complete_task_form"
     },
     "model": "caluma_workflow.task",
@@ -507,8 +507,8 @@
       "is_multiple_instance": false,
       "lead_time": null,
       "meta": {},
-      "modified_at": "2020-08-10T14:28:12.116Z",
-      "name": "{\"de\": \"Selbstdeklaration 2 ausf\\u00fcllen\", \"fr\": null}",
+      "modified_at": "2020-09-15T09:38:52.288Z",
+      "name": "{\"de\": \"Selbstdeklaration 2 ausf\\u00fcllen\", \"fr\": \"Remplir la d\\u00e9claration spontan\\u00e9e 2\"}",
       "type": "complete_task_form"
     },
     "model": "caluma_workflow.task",
@@ -527,8 +527,8 @@
       "is_multiple_instance": false,
       "lead_time": null,
       "meta": {},
-      "modified_at": "2020-08-10T14:27:57.215Z",
-      "name": "{\"de\": \"Weitere Zirkulation starten\", \"fr\": null}",
+      "modified_at": "2020-09-15T09:39:32.539Z",
+      "name": "{\"de\": \"Weitere Zirkulation starten\", \"fr\": \"Lancer une autre circulation\"}",
       "type": "simple"
     },
     "model": "caluma_workflow.task",
@@ -547,8 +547,8 @@
       "is_multiple_instance": false,
       "lead_time": 864000,
       "meta": {},
-      "modified_at": "2020-08-10T14:28:01.904Z",
-      "name": "{\"de\": \"Entscheid starten\", \"fr\": null}",
+      "modified_at": "2020-09-15T09:39:12.006Z",
+      "name": "{\"de\": \"Entscheid starten\", \"fr\": \"Clore la proc\\u00e9dure de circulation\"}",
       "type": "simple"
     },
     "model": "caluma_workflow.task",
@@ -567,8 +567,8 @@
       "is_multiple_instance": false,
       "lead_time": null,
       "meta": {},
-      "modified_at": "2020-08-10T14:27:37.866Z",
-      "name": "{\"de\": \"Gesuch einreichen\", \"fr\": null}",
+      "modified_at": "2020-09-15T09:39:50.638Z",
+      "name": "{\"de\": \"Gesuch einreichen\", \"fr\": \"Envoyer la demande\"}",
       "type": "complete_workflow_form"
     },
     "model": "caluma_workflow.task",
