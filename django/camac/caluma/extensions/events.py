@@ -17,6 +17,7 @@ from django.template.loader import get_template
 from django.utils.translation import gettext as _
 
 from camac.caluma.api import CalumaApi
+from camac.instance.models import Instance
 from camac.user import models as user_models
 from camac.user.utils import unpack_service_emails
 
@@ -107,6 +108,26 @@ def set_meta_attributes(sender, work_item, user, context, **kwargs):
             context.get(attribute) if from_context else config.get("default")
         )
 
+    work_item.save()
+
+
+@on(post_create_work_item)
+def set_assigned_user(sender, work_item, user, **kwargs):
+    instance = Instance.objects.get(pk=work_item.case.meta["camac-instance-id"])
+
+    try:
+        service = user_models.Service.objects.get(pk=work_item.addressed_groups[0])
+    except (IndexError, user_models.Service.DoesNotExist):
+        return
+
+    responsible_old = instance.responsible_services.filter(service=service).values_list(
+        "responsible_user__username", flat=True
+    )
+    responsible_new = instance.responsibilities.filter(service=service).values_list(
+        "user__username", flat=True
+    )
+
+    work_item.assigned_users = list(responsible_new.union(responsible_old))
     work_item.save()
 
 
