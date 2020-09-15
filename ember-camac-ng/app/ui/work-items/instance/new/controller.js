@@ -63,7 +63,12 @@ export default class WorkItemNewController extends Controller {
   }
 
   get services() {
-    return this.instance?.involvedServices || [];
+    const services = this.instance?.involvedServices || [];
+
+    return [
+      { id: "applicant", name: this.intl.t("global.applicant") },
+      ...services.toArray()
+    ];
   }
 
   @dropTask

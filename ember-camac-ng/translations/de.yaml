@@ -11,6 +11,7 @@ global:
   loadMore: "Mehr laden"
   paginationInfo: "<strong>1 - {count}</strong> von {total}"
   openMenu: "Menu öffnen"
+  applicant: "Gesuchsteller"
 
 organisation:
   edit: "Eigene Organisation bearbeiten"
