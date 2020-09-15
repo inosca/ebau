@@ -38,7 +38,7 @@ export default class WorkItemsIndexController extends Controller {
     return [
       "task",
       "instance",
-      ...(this.status.open
+      ...(this.status === "open"
         ? ["deadline", "responsible"]
         : ["closedAt", "closedBy"])
     ];
