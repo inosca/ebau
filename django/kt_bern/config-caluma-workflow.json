@@ -238,7 +238,9 @@
       "is_archived": false,
       "is_multiple_instance": false,
       "lead_time": 864000,
-      "meta": {},
+      "meta": {
+        "is-manually-completable": true
+      },
       "modified_at": "2020-08-10T14:27:59Z",
       "name": "{\"de\": \"Stellungnahmen pr\\u00fcfen\", \"fr\": null}",
       "type": "simple"
@@ -258,7 +260,9 @@
       "is_archived": false,
       "is_multiple_instance": false,
       "lead_time": 432000,
-      "meta": {},
+      "meta": {
+        "is-manually-completable": true
+      },
       "modified_at": "2020-08-10T14:28:10.718Z",
       "name": "{\"de\": \"Selbstdeklaration 1 pr\\u00fcfen\", \"fr\": null}",
       "type": "simple"
@@ -278,7 +282,9 @@
       "is_archived": false,
       "is_multiple_instance": false,
       "lead_time": 432000,
-      "meta": {},
+      "meta": {
+        "is-manually-completable": true
+      },
       "modified_at": "2020-08-10T14:28:13.749Z",
       "name": "{\"de\": \"Selbstdeklaration 2 pr\\u00fcfen\", \"fr\": null}",
       "type": "simple"
@@ -338,7 +344,9 @@
       "is_archived": false,
       "is_multiple_instance": true,
       "lead_time": null,
-      "meta": {},
+      "meta": {
+        "is-manually-completable": true
+      },
       "modified_at": "2020-08-25T11:13:09.588Z",
       "name": "{\"de\": \"Manuelle Aufgaben erfassen\", \"fr\": null}",
       "type": "simple"
