@@ -1,6 +1,6 @@
 import Mixin from "@ember/object/mixin";
 import { task } from "ember-concurrency";
-import v4 from "uuid/v4";
+import { v4 } from "uuid";
 
 export default Mixin.create({
   addRow: task(function* () {

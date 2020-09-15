@@ -1,3 +1,4 @@
+import graphqlHandler from "ember-caluma/mirage-graphql";
 import { Response } from "ember-cli-mirage";
 
 import config from "../config/environment";
@@ -73,4 +74,6 @@ export default function () {
   this.get("/api/v1/attachments/:id/thumbnail", () => new Blob());
   this.patch("/api/v1/attachments/:id");
   this.delete("/api/v1/attachments/:id");
+
+  this.post("/graphql", graphqlHandler(this), 200);
 }
