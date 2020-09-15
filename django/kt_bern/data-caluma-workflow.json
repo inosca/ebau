@@ -62,8 +62,8 @@
         "migrated": true,
         "not-viewed": true
       },
-      "modified_at": "2020-06-30T15:02:51.906Z",
-      "name": "{\"de\": \"Gesuch einreichen\", \"fr\": \"Soumettre la demande\"}",
+      "modified_at": "2020-09-15T09:42:07.423Z",
+      "name": "{\"de\": \"Gesuch einreichen\", \"fr\": \"Envoyer la demande\"}",
       "previous_work_item": null,
       "status": "skipped",
       "task": "submit"
@@ -91,7 +91,7 @@
         "migrated": true,
         "not-viewed": true
       },
-      "modified_at": "2020-06-30T15:02:51.937Z",
+      "modified_at": "2020-09-15T09:42:07.436Z",
       "name": "{\"de\": \"Nachforderungen\", \"fr\": \"Demandes de compl\\u00e9ment d'information\"}",
       "previous_work_item": "147e4eab-8666-43ac-9e17-fcd0e8f78de5",
       "status": "ready",
@@ -122,8 +122,8 @@
         "notify-completed": true,
         "notify-deadline": true
       },
-      "modified_at": "2020-09-04T06:08:46.219Z",
-      "name": "{\"de\": \"Manuelle Aufgaben erfassen\", \"fr\": null}",
+      "modified_at": "2020-09-15T09:42:07.444Z",
+      "name": "{\"de\": \"Manuelle Aufgaben erfassen\", \"fr\": \"Saisie des t\\u00e2ches manuelles\"}",
       "previous_work_item": null,
       "status": "ready",
       "task": "create-manual-workitems"
@@ -151,7 +151,7 @@
         "migrated": true,
         "not-viewed": true
       },
-      "modified_at": "2020-06-30T15:02:51.929Z",
+      "modified_at": "2020-09-15T09:42:07.452Z",
       "name": "{\"de\": \"eBau-Nummer vergeben\", \"fr\": \"Attribution d'un num\\u00e9ro eBau\"}",
       "previous_work_item": "147e4eab-8666-43ac-9e17-fcd0e8f78de5",
       "status": "ready",
@@ -179,8 +179,8 @@
       "meta": {
         "migrated": true
       },
-      "modified_at": "2020-06-30T15:02:51.893Z",
-      "name": "{\"de\": \"Gesuch einreichen\", \"fr\": \"Soumettre la demande\"}",
+      "modified_at": "2020-09-15T09:42:07.461Z",
+      "name": "{\"de\": \"Gesuch einreichen\", \"fr\": \"Envoyer la demande\"}",
       "previous_work_item": null,
       "status": "ready",
       "task": "submit"
