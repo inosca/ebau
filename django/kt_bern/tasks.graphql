@@ -26,6 +26,7 @@ mutation CreateManualWorkItemTask {
       name: "Manuelle Aufgaben erfassen"
       addressGroups: "[]"
       isMultipleInstance: true
+      meta: "{\"is-manually-completable\":true}"
     }
   ) {
     clientMutationId
@@ -129,6 +130,7 @@ mutation CreateCheckActivationTask {
       name: "Stellungnahmen prüfen"
       addressGroups: "['municipality']|groups"
       leadTime: 864000 # 10 days
+      meta: "{\"is-manually-completable\":true}"
     }
   ) {
     clientMutationId
@@ -193,6 +195,7 @@ mutation CreateCheckSb1Task {
       name: "Selbstdeklaration 1 prüfen"
       addressGroups: "['construction_control']|groups"
       leadTime: 432000 # 5 days
+      meta: "{\"is-manually-completable\":true}"
     }
   ) {
     clientMutationId
@@ -206,6 +209,7 @@ mutation CreateSb2Task {
       name: "Selbstdeklaration 2 ausfüllen"
       form: "sb2"
       addressGroups: "[]"
+      meta: "{\"is-manually-completable\":true}"
     }
   ) {
     clientMutationId
