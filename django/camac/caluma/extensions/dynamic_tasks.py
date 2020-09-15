@@ -23,6 +23,6 @@ class CustomDynamicTasks(BaseDynamicTasks):
         if not Circulation.objects.filter(
             instance=case.meta.get("camac-instance-id")
         ).exists():
-            return ["init-circulation"]
+            return ["skip-circulation", "init-circulation"]
 
         return ["start-circulation", "check-activation", "start-decision"]
