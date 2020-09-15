@@ -29,7 +29,7 @@ mutation CreateFlow2 {
     input: {
       workflow: "preliminary-clarification"
       tasks: ["ebau-number"]
-      next: "['init-circulation', 'audit', 'publication']|tasks"
+      next: "['skip-circulation', 'init-circulation', 'audit', 'publication']|tasks"
     }
   ) {
     clientMutationId
@@ -89,6 +89,18 @@ mutation CreateFlow7 {
       workflow: "preliminary-clarification"
       tasks: ["reopen-circulation"]
       next: "['start-circulation', 'start-decision']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow8 {
+  addWorkflowFlow(
+    input: {
+      workflow: "preliminary-clarification"
+      tasks: ["skip-circulation"]
+      next: "['decision', 'reopen-circulation']|tasks"
     }
   ) {
     clientMutationId
