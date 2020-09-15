@@ -240,6 +240,7 @@ APPLICATIONS = {
                 "revise-statement": {"cancel": ["check-statement"]},
             },
         },
+        "HAS_EBAU_NUMBER": False,
     },
     "kt_bern": {
         "ROLE_PERMISSIONS": {
@@ -464,6 +465,7 @@ APPLICATIONS = {
         ],
         # please also update django/Makefile command when changing apps here
         "SEQUENCE_NAMESPACE_APPS": ["core", "responsible", "document"],
+        "HAS_EBAU_NUMBER": True,
         "SUGGESTIONS": [
             (
                 "art-versickerung-dach",
@@ -745,6 +747,7 @@ APPLICATIONS = {
             262,  # ARE BaB Kreis 3
             90,  # ARE NP
         ],
+        "HAS_EBAU_NUMBER": False,
     },
 }
 
