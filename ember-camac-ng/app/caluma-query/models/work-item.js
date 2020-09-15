@@ -64,10 +64,6 @@ export default class CustomWorkItemModel extends WorkItemModel {
     return parseInt(this.createdByGroup?.id) === this.shoebox.content.serviceId;
   }
 
-  get isManual() {
-    return this.raw.task.slug === "create-manual-workitems";
-  }
-
   get isReady() {
     return this.raw.status === "READY";
   }
@@ -81,11 +77,19 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   get canEditAsCreator() {
-    return this.isReady && this.isManual && this.isCreatedByCurrentService;
+    return (
+      this.isReady &&
+      this.isCreatedByCurrentService &&
+      this.raw.task.slug === "create-manual-workitems"
+    );
   }
 
   get canComplete() {
-    return this.isReady && this.isManual && this.isAddressedToCurrentService;
+    return (
+      this.isReady &&
+      this.isAddressedToCurrentService &&
+      this.raw.task.meta["is-manually-completable"]
+    );
   }
 
   get responsible() {
@@ -238,6 +242,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
     }
     task {
       slug
+      meta
     }
   }`;
 }
