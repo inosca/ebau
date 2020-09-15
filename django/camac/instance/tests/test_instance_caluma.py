@@ -11,6 +11,7 @@ from rest_framework import status
 
 from camac.constants import kt_bern as constants
 from camac.constants.kt_bern import (
+    DECISIONS_BEWILLIGT,
     INSTANCE_STATE_NEW,
     INSTANCE_STATE_SB1,
     INSTANCE_STATE_SB2,
@@ -370,6 +371,7 @@ def test_instance_report(
     caluma_workflow_config_be,
     has_personalien_sb2,
     circulation,
+    docx_decision_factory,
 ):
     instance_state.pk = instance_state_pk
     instance_state.save()
@@ -387,6 +389,8 @@ def test_instance_report(
         meta={"camac-instance-id": instance.pk},
         user=BaseUser(),
     )
+
+    docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=instance.pk)
 
     for task_id in [
         "submit",
@@ -454,6 +458,7 @@ def test_instance_finalize(
     mock_generate_and_store_pdf,
     caluma_workflow_config_be,
     circulation,
+    docx_decision_factory,
 ):
     instance_state.pk = instance_state_pk
     instance_state.save()
@@ -471,6 +476,8 @@ def test_instance_finalize(
         meta={"camac-instance-id": instance.pk},
         user=BaseUser(),
     )
+
+    docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=instance.pk)
 
     for task_id in [
         "submit",
