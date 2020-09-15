@@ -5,7 +5,11 @@
   {{#each @columns as |column|}}
     <td class={{column}}>
       {{#if (eq column "task")}}
-        <a href="{{@workItem.directLink}}">{{@workItem.name}}</a>
+        {{#if @workItem.directLink}}
+          <a href="{{@workItem.directLink}}">{{@workItem.name}}</a>
+        {{else}}
+          {{@workItem.name}}
+        {{/if}}
       {{else if (eq column "instance")}}
         {{@workItem.instanceName}}
       {{else if (eq column "deadline")}}
