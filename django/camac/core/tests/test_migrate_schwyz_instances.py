@@ -8,7 +8,7 @@ from camac.core.models import Circulation
 from camac.instance.models import Instance
 
 
-def test_migrate_instance(
+def test_migrate_schwyz_instances(
     db,
     settings,
     issue,
@@ -31,18 +31,21 @@ def test_migrate_instance(
         stdout=open(os.devnull, "w"),
     )
 
-    instance_factory(instance_state=instance_state_factory(name="new"))
-    instance_factory(instance_state=instance_state_factory(name="subm"))
-    instance_factory(instance_state=instance_state_factory(name="comm"))
-    instance_factory(instance_state=instance_state_factory(name="circ"))
-    instance_factory(instance_state=instance_state_factory(name="redac"))
-    instance_factory(instance_state=instance_state_factory(name="nfd"))
-    instance_factory(instance_state=instance_state_factory(name="done"))
-    instance_factory(instance_state=instance_state_factory(name="denied"))
-    instance_factory(instance_state=instance_state_factory(name="arch"))
-    instance_factory(instance_state=instance_state_factory(name="del"))
-    instance_factory(instance_state=instance_state_factory(name="rejected"))
-    instance_factory(instance_state=instance_state_factory(name="stopped"))
+    for state in [
+        "new",
+        "subm",
+        "comm",
+        "circ",
+        "redac",
+        "nfd",
+        "done",
+        "denied",
+        "arch",
+        "del",
+        "rejected",
+        "stopped",
+    ]:
+        instance_factory(instance_state=instance_state_factory(name=state))
 
     instance = instance_factory(instance_state=instance_state_factory(name="circ"))
     circ = circulation_factory(instance=instance)
@@ -50,7 +53,7 @@ def test_migrate_instance(
         circulation=circ, circulation_state=circulation_state_factory(name="REVIEW")
     )
 
-    call_command("migrate_instance")
+    call_command("migrate_schwyz_instances")
 
     assert (
         Case.objects.all().count()
