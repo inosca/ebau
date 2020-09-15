@@ -60,6 +60,6 @@
 
 <WorkItemList
   @query={{this.workItemsQuery}}
-  @columns={{array "task" "instance" "deadline" "responsible"}}
+  @columns={{this.columns}}
   @highlight={{not-eq this.status "closed"}}
 />
