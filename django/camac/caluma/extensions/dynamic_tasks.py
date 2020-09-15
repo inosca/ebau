@@ -1,19 +1,22 @@
 from caluma.caluma_workflow.dynamic_tasks import BaseDynamicTasks, register_dynamic_task
 
-from camac.constants.kt_bern import DECISIONS_ABGELEHNT, DECISIONS_ABGESCHRIEBEN
+from camac.constants.kt_bern import DECISIONS_BEWILLIGT
 from camac.core.models import Circulation, DocxDecision
 
 
 class CustomDynamicTasks(BaseDynamicTasks):
     @register_dynamic_task("after-decision")
     def resolve_after_decision(self, case, user, prev_work_item, context):
-        if DocxDecision.objects.filter(
-            instance=case.meta.get("camac-instance-id"),
-            decision__in=[DECISIONS_ABGELEHNT, DECISIONS_ABGESCHRIEBEN],
-        ).exists():
-            return []
+        if (
+            case.workflow_id == "building-permit"
+            and DocxDecision.objects.filter(
+                instance=case.meta.get("camac-instance-id"),
+                decision=DECISIONS_BEWILLIGT,
+            ).exists()
+        ):
+            return ["sb1", "create-manual-workitems"]
 
-        return ["sb1", "create-manual-workitems"]
+        return []
 
     @register_dynamic_task("after-circulation")
     def resolve_after_circulation(self, case, user, prev_work_item, context):

@@ -5,6 +5,7 @@ from caluma.caluma_workflow import api as workflow_api
 from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
     ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
+    DECISIONS_BEWILLIGT,
     INSTANCE_STATE_DOSSIERPRUEFUNG,
     INSTANCE_STATE_EBAU_NUMMER_VERGEBEN,
     INSTANCE_STATE_FINISHED,
@@ -316,6 +317,7 @@ def test_close_dossier_send_handler(
     instance_service_factory,
     instance_state_factory,
     circulation_factory,
+    docx_decision_factory,
 ):
     instance_state_factory(pk=INSTANCE_STATE_FINISHED)
 
@@ -327,6 +329,7 @@ def test_close_dossier_send_handler(
     ech_instance.save()
 
     circulation_factory(instance=ech_instance)
+    docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=ech_instance.pk)
 
     case = ech_instance_case()
 
