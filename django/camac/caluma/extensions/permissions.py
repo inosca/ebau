@@ -8,7 +8,6 @@ from caluma.caluma_core.permissions import (
     object_permission_for,
     permission_for,
 )
-from caluma.caluma_core.relay import extract_global_id
 from caluma.caluma_form.models import Document
 from caluma.caluma_form.schema import RemoveAnswer, SaveDocument, SaveDocumentAnswer
 from caluma.caluma_workflow.models import Case
@@ -38,6 +37,10 @@ def is_created_by_service(work_item, service_id):
     return work_item.created_by_group == str(service_id)
 
 
+def get_current_service_id(info):
+    return CamacRequest(info).request.group.service_id
+
+
 class CustomPermission(BasePermission):
     @permission_for(Mutation)
     def has_permission_default(self, mutation, info):
@@ -60,28 +63,27 @@ class CustomPermission(BasePermission):
     @permission_for(SaveCase)
     @object_permission_for(SaveCase)
     def has_permission_for_save_case(self, mutation, info, case=None):
-        return not case or self.has_camac_edit_permission(case.family, info)
+        # Visibilty handles whether the user has access to the case
+        return True
 
     # Work Item
     @permission_for(CreateWorkItem)
     def has_permission_for_create_work_item(self, mutation, info):
-        case_id = extract_global_id(mutation.get_params(info)["input"]["case"])
-
-        return self.has_camac_edit_permission(Case.objects.get(pk=case_id).family, info)
+        # Visibilty handles whether the user has access to the case on which
+        # the work item is created
+        return True
 
     @permission_for(SaveWorkItem)
     @object_permission_for(SaveWorkItem)
     def has_permission_for_save_work_item(self, mutation, info, work_item=None):
         if not work_item:
+            # Same as has_permission_for_create_work_item
             return True
 
-        if not self.has_camac_edit_permission(work_item.case.family, info):
-            return False
+        service = get_current_service_id(info)
 
-        service_id = CamacRequest(info).request.group.service_id
-
-        return is_created_by_service(work_item, service_id) or is_addressed_to_service(
-            work_item, service_id
+        return is_created_by_service(work_item, service) or is_addressed_to_service(
+            work_item, service
         )
 
     @permission_for(CancelWorkItem)
@@ -95,11 +97,7 @@ class CustomPermission(BasePermission):
             # Always allow for support group since our PHP action uses that group
             return True
 
-        return self.has_camac_edit_permission(
-            work_item.case.family, info
-        ) and is_addressed_to_service(
-            work_item, CamacRequest(info).request.group.service_id
-        )
+        return is_addressed_to_service(work_item, get_current_service_id(info))
 
     # Document
     @permission_for(SaveDocument)
