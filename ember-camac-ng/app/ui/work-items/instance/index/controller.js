@@ -6,6 +6,7 @@ import calumaQuery from "ember-caluma/caluma-query";
 import { allWorkItems } from "ember-caluma/caluma-query/queries";
 import { dropTask } from "ember-concurrency-decorators";
 
+import getManualWorkItemsCount from "camac-ng/gql/queries/get-manual-work-items-count";
 import getProcessData from "camac-ng/utils/work-item";
 
 export default class WorkItemsInstanceIndexController extends Controller {
@@ -34,6 +35,10 @@ export default class WorkItemsInstanceIndexController extends Controller {
     return {
       processNew: workItems => this.processNew(workItems)
     };
+  }
+
+  get canCreateManualWorkItem() {
+    return this.fetchManualWorkItemsCount.lastSuccessful?.value > 0;
   }
 
   async processNew(workItems) {
@@ -65,7 +70,9 @@ export default class WorkItemsInstanceIndexController extends Controller {
     const filter = [
       { hasDeadline: true },
       {
-        rootCaseMetaValue: [{ key: "camac-instance-id", value: this.model.id }]
+        rootCaseMetaValue: [
+          { key: "camac-instance-id", value: parseInt(this.model.id) }
+        ]
       },
       { [filterKey]: [this.shoebox.content.serviceId] }
     ];
@@ -79,6 +86,18 @@ export default class WorkItemsInstanceIndexController extends Controller {
       filter: [...filter, { status: "COMPLETED" }],
       order: [{ attribute: "CLOSED_AT", direction: "DESC" }]
     });
+  }
+
+  @dropTask
+  *fetchManualWorkItemsCount() {
+    const response = yield this.apollo.query({
+      query: getManualWorkItemsCount,
+      variables: {
+        instanceId: parseInt(this.model.id)
+      }
+    });
+
+    return response.allWorkItems.totalCount;
   }
 
   @action
