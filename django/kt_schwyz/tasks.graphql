@@ -13,6 +13,7 @@ mutation CreateManualWorkItemTask {
       name: "Manuelle Aufgaben erfassen"
       addressGroups: "[]"
       isMultipleInstance: true
+      meta: "{\"is-manually-completable\":true}"
     }
   ) {
     clientMutationId
