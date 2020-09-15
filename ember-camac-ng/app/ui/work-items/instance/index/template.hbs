@@ -4,7 +4,7 @@
   {{t "workItems.current"}}
 </h3>
 
-<h2 class="hide-sz">
+<h2 class="hide-sz" {{did-insert (perform this.fetchManualWorkItemsCount)}}>
   {{t "workItems.current"}}
 </h2>
 
@@ -27,9 +27,11 @@
   @columns={{array "task" "deadline" "responsible"}}
 />
 
-<LinkTo @route="work-items.instance.new" class="button btn buttonstyle success">
-  {{t "workItems.new"}}
-</LinkTo>
+{{#if this.canCreateManualWorkItem}}
+  <LinkTo @route="work-items.instance.new" class="button btn buttonstyle success">
+    {{t "workItems.new"}}
+  </LinkTo>
+{{/if}}
 
 <h3 class="hide-be">
   {{t "workItems.finished"}}
