@@ -38,6 +38,17 @@ def test_sendreminders(
 
 
 @pytest.mark.freeze_time("2020-08-10")
+@pytest.mark.parametrize(
+    "is_overdue,is_not_viewed,is_assigned,has_controlling,outbox_count",
+    [
+        (True, True, True, True, 3),
+        (True, True, True, False, 2),
+        (True, False, True, False, 2),
+        (False, True, True, False, 2),
+        (False, True, False, False, 1),
+        (False, False, True, False, 0),
+    ],
+)
 def test_sendreminders_caluma(
     db,
     mailoutbox,
@@ -47,36 +58,31 @@ def test_sendreminders_caluma(
     snapshot,
     service_factory,
     user_factory,
+    is_overdue,
+    is_not_viewed,
+    is_assigned,
+    has_controlling,
+    outbox_count,
 ):
 
-    users = user_factory.create_batch(4)
-    services = service_factory.create_batch(4)
+    user = user_factory()
+    services = service_factory.create_batch(2)
 
-    deadline_work_items = work_item_factory.create_batch(
-        2,
-        status="ready",
-        deadline=timezone.now() - timedelta(days=1),
-        assigned_users=[user.username for user in users[:2]],
-        addressed_groups=[str(s.pk) for s in services[:2]],
-        controlling_groups=[str(s.pk) for s in [services[0], services[3]]],
+    deadline = (
+        timezone.now() - timedelta(days=1)
+        if is_overdue
+        else timezone.now() + timedelta(days=1)
     )
-    deadline_work_items[0].deadline = timezone.now() - timedelta(days=2)
-    deadline_work_items[0].save()
 
-    work_item_factory.create_batch(
-        3,
+    work_item_factory(
         status="ready",
-        meta={"not-viewed": True},
-        assigned_users=[user.username for user in users[1:3]],
-        addressed_groups=[str(s.pk) for s in services[1:3]],
-        controlling_groups=[str(s.pk) for s in [services[0], services[3]]],
+        meta={"not-viewed": is_not_viewed},
+        deadline=deadline,
+        assigned_users=[user.username] if is_assigned else [],
+        addressed_groups=[str(services[0].pk)],
+        controlling_groups=[str(services[1].pk)] if has_controlling else [],
     )
 
     call_command("sendreminders", "--caluma")
 
-    assert len(mailoutbox) == 7
-    assert users[3].email not in [addr for mail in mailoutbox for addr in mail.to]
-    mails = sorted(mailoutbox, key=lambda x: x.to)
-    snapshot.assert_match(
-        [{"to": mail.to, "subject": mail.subject, "body": mail.body} for mail in mails]
-    )
+    assert len(mailoutbox) == outbox_count
