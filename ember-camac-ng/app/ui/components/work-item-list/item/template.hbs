@@ -13,7 +13,9 @@
       {{else if (eq column "instance")}}
         {{@workItem.instanceName}}
       {{else if (eq column "deadline")}}
-        {{moment-from @workItem.deadline}}
+        <span title={{format-date @workItem.deadline day="2-digit" month="2-digit" year="numeric"}}>
+          {{moment-from @workItem.deadline}}
+        </span>
       {{else if (eq column "responsible")}}
         {{@workItem.responsible}}
       {{else if (eq column "closedAt")}}
