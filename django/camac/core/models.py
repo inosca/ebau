@@ -12,20 +12,20 @@ from camac.constants import kt_uri as constants
 class MultilingualModel:
     """Mixin for models that have a multilingual "name" property."""
 
-    def get_name(self):
-        return self.get_trans_attr("name")
+    def get_name(self, lang=None):
+        return self.get_trans_attr("name", lang)
 
-    def get_trans_attr(self, name):
+    def get_trans_attr(self, name, lang=None):
         if not settings.APPLICATION.get("IS_MULTILINGUAL", False):
             return getattr(self, name)
 
-        match = self.get_trans_obj()
+        match = self.get_trans_obj(lang)
         if not match:
             return getattr(self, name)
         return getattr(match, name)
 
-    def get_trans_obj(self):
-        lang = translation.get_language()
+    def get_trans_obj(self, lang=None):
+        lang = lang or translation.get_language()
         match = self.trans.filter(language=lang).first()
         if not match:
             match = self.trans.filter(language=settings.LANGUAGE_CODE).first()
