@@ -246,7 +246,7 @@ def test_complete_case(
             "some-slug",
             {},
             {},
-            {"not-viewed": True, "notify-deadline": True, "notify-completed": True},
+            {"not-viewed": True, "notify-deadline": True, "notify-completed": False},
         ),
         (
             "some-slug",
@@ -261,7 +261,7 @@ def test_complete_case(
             {
                 "not-viewed": True,
                 "notify-deadline": True,
-                "notify-completed": True,
+                "notify-completed": False,
                 "circulation-id": 123,
             },
         ),
@@ -272,7 +272,7 @@ def test_complete_case(
             {
                 "not-viewed": True,
                 "notify-deadline": True,
-                "notify-completed": True,
+                "notify-completed": False,
                 "activation-id": 123,
             },
         ),
@@ -280,7 +280,7 @@ def test_complete_case(
             "activation",
             {},
             {},
-            {"not-viewed": True, "notify-deadline": True, "notify-completed": True},
+            {"not-viewed": True, "notify-deadline": True, "notify-completed": False},
         ),
     ],
 )

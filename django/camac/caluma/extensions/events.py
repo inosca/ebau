@@ -13,8 +13,6 @@ from caluma.caluma_workflow.events import (
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.core import mail
-from django.template.loader import get_template
-from django.utils.translation import gettext as _
 
 from camac.caluma.api import CalumaApi
 from camac.instance.models import Instance
@@ -22,8 +20,6 @@ from camac.user import models as user_models
 from camac.user.utils import unpack_service_emails
 
 log = getLogger()
-
-COMPLETE_WORKITEM_SUBJECT = _("Abgeschlossene Aufgabe")
 
 
 def get_caluma_setting(key, default=None):
@@ -73,7 +69,7 @@ def set_meta_attributes(sender, work_item, user, context, **kwargs):
 
     META_CONFIG = {
         "not-viewed": {"default": True},
-        "notify-completed": {"default": True},
+        "notify-completed": {"default": False},
         "notify-deadline": {"default": True},
         "circulation-id": {
             "from_context": True,
@@ -132,7 +128,7 @@ def set_assigned_user(sender, work_item, user, **kwargs):
 
 
 @on(post_complete_work_item)
-def notify_completed_work_item(sender, work_item, **kwargs):
+def notify_completed_work_item(sender, work_item, user, **kwargs):
     if not work_item.meta.get("notify-completed", True):
         return
 
@@ -143,16 +139,50 @@ def notify_completed_work_item(sender, work_item, **kwargs):
 
     recipients = unpack_service_emails(services)
 
-    closed_by = user_models.User.objects.filter(
-        username=work_item.closed_by_user
-    ).first()
-    template = get_template("mails/notify_completed_workitem.txt")
-    body = template.render({"work_item": work_item, "closed_by": closed_by})
+    camac_user = user_models.User.objects.filter(username=user.username).first()
+
+    closed_by_service = user_models.Service.objects.filter(pk=user.group).first()
+    service_info_de = (
+        f"({closed_by_service.get_name('de')})" if closed_by_service else ""
+    )
+    # service_info_fr = (
+    #     f"({closed_by_service.get_name('fr')})" if closed_by_service else ""
+    # )
+
+    instance_id = work_item.case.meta.get("camac-instance-id")
+
+    dossier_identification = instance_id
+    title = f"Aufgabe abgeschlossen (Dossier-Nr. {dossier_identification})"
+
+    if settings.APPLICATION.get("HAS_EBAU_NUMBER", False) and settings.APPLICATION.get(
+        "IS_MULTILINGUAL", False
+    ):  # pragma: no cover
+        dossier_identification = (
+            f"{work_item.case.meta.get('ebau-number')} ({instance_id})"
+        )
+        title = f"Aufgabe abgeschlossen (eBau-Nr. {dossier_identification}) / tâche complétée (n° eBau {dossier_identification})"
+
+    body = f"""Guten Tag
+
+Die Aufgabe {work_item.name} im Dossier {dossier_identification} wurde von {camac_user.get_full_name()} {service_info_de} abgeschlossen.
+
+{settings.INTERNAL_INSTANCE_URL_TEMPLATE.format(instance_id=instance_id)}
+
+Sie erhalten diese Notifikation, weil Sie beim Erstellen der Aufgabe die Notifikationseinstellung "Bei Abschluss" gewählt haben.
+"""
+
+    if settings.APPLICATION.get("IS_MULTILINGUAL", False):  # pragma: no cover
+        body = (
+            body
+            + """
+*** version française ***
+
+TODO
+"""
+        )
 
     emails = [
-        mail.EmailMessage(
-            COMPLETE_WORKITEM_SUBJECT, body, settings.DEFAULT_FROM_EMAIL, to=[rec]
-        )
+        mail.EmailMessage(title, body, settings.DEFAULT_FROM_EMAIL, to=[rec])
         for rec in recipients
     ]
 
