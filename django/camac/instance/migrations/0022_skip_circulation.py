@@ -15,13 +15,20 @@ def initialize_skip_circulation(apps, schema_editor):
     )
 
     for work_item in work_items:
-        work_item.task = skip_task
-        work_item.name = skip_task.name
-        work_item.deadline = None
-        work_item.assigned_users = []
-        work_item.pk = None
-
-        work_item.save()
+        work_item.case.work_items.create(
+            task=skip_task,
+            name=skip_task.name,
+            created_at=work_item.created_at,
+            created_by_user=work_item.created_by_user,
+            created_by_group=work_item.created_by_group,
+            modified_at=work_item.modified_at,
+            status=WorkItem.STATUS_READY,
+            meta=work_item.meta,
+            addressed_groups=work_item.addressed_groups,
+            controlling_groups=work_item.controlling_groups,
+            assigned_users=work_item.assigned_users,
+            deadline=None,
+        )
 
 
 class Migration(migrations.Migration):
