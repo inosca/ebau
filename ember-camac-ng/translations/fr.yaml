@@ -10,6 +10,7 @@ global:
   noMatch: "Aucun résultat trouvé"
   loadMore: "Télécharger plus"
   paginationInfo: "<strong>1 - {count}</strong> de {total}"
+  openMenu: "Ouvrir le menu"
 
 organisation:
   edit: "Modifiez votre organisation"
