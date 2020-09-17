@@ -11,6 +11,6 @@ module("Integration | Component | context-menu", function(hooks) {
     // Handle any actions with this.set('myAction', function(val) { ... });
     await render(hbs`<ContextMenu />`);
 
-    assert.equal(this.element.textContent.trim(), "");
+    assert.dom("button.context-menu-trigger").exists();
   });
 });

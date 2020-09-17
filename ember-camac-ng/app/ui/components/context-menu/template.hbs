@@ -1,6 +1,12 @@
 {{!-- template-lint-disable no-invalid-interactive --}}
 <div class="context-menu-container" {{on "mouseleave" (set this.menuOpen false)}}>
-  <button type="button" class="context-menu-trigger" {{on "click" (set this.menuOpen true)}}>
+  <button
+    type="button"
+    class="context-menu-trigger"
+    title={{t "global.openMenu"}}
+    {{on "click" (set this.menuOpen true)}}
+  >
+    <span hidden>{{t "global.openMenu"}}</span>
     <FaIcon @icon="ellipsis-v" />
   </button>
   {{#if this.menuOpen}}
