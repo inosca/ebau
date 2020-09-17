@@ -9,28 +9,40 @@ export default class WorkItemListItemComponent extends Component {
   @service intl;
 
   get actions() {
-    const actions = [
-      {
-        action: performHelper([this.edit], {}),
-        title: this.intl.t("workItems.actions.edit")
-      }
-    ];
+    return [
+      this.editAction,
+      this.toggleReadAction,
+      this.assignToMeAction
+    ].filter(Boolean);
+  }
 
-    if (this.args.workItem.notViewed) {
-      actions.push({
-        action: performHelper([this.markAsRead], {}),
-        title: this.intl.t("workItems.actions.markAsRead")
-      });
+  get editAction() {
+    return {
+      action: performHelper([this.edit], {}),
+      title: this.intl.t("workItems.actions.edit")
+    };
+  }
+
+  get toggleReadAction() {
+    const key = this.args.workItem.notViewed
+      ? "workItems.actions.markAsRead"
+      : "workItems.actions.markAsUnread";
+
+    return {
+      action: performHelper([this.toggleRead], {}),
+      title: this.intl.t(key)
+    };
+  }
+
+  get assignToMeAction() {
+    if (this.args.workItem.isAssignedToCurrentUser) {
+      return null;
     }
 
-    if (!this.args.workItem.isAssignedToCurrentUser) {
-      actions.push({
-        action: performHelper([this.assignToMe], {}),
-        title: this.intl.t("workItems.actions.assignToMe")
-      });
-    }
-
-    return actions;
+    return {
+      action: performHelper([this.assignToMe], {}),
+      title: this.intl.t("workItems.actions.assignToMe")
+    };
   }
 
   get highlightClasses() {
@@ -48,10 +60,10 @@ export default class WorkItemListItemComponent extends Component {
   }
 
   @dropTask
-  *markAsRead(event) {
+  *toggleRead(event) {
     event.preventDefault();
 
-    yield this.args.workItem.markAsRead();
+    yield this.args.workItem.toggleRead();
   }
 
   @dropTask
