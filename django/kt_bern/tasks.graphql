@@ -78,6 +78,7 @@ mutation CreateAuditTask {
       name: "Dossier prüfen"
       addressGroups: "['municipality']|groups"
       leadTime: 864000 # 10 days
+      meta: "{\"is-manually-completable\":true}"
     }
   ) {
     clientMutationId
@@ -91,6 +92,7 @@ mutation CreatePublicationTask {
       name: "Dossier publizieren"
       addressGroups: "['municipality']|groups"
       leadTime: 864000 # 10 days
+      meta: "{\"is-manually-completable\":true}"
     }
   ) {
     clientMutationId

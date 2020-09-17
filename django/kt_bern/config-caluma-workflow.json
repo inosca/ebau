@@ -240,7 +240,9 @@
       "is_archived": false,
       "is_multiple_instance": false,
       "lead_time": 864000,
-      "meta": {},
+      "meta": {
+        "is-manually-completable": true
+      },
       "modified_at": "2020-09-15T09:33:51.138Z",
       "name": "{\"de\": \"Dossier pr\\u00fcfen\", \"fr\": \"V\\u00e9rifier le dossier\"}",
       "type": "simple"
@@ -468,7 +470,9 @@
       "is_archived": false,
       "is_multiple_instance": false,
       "lead_time": 864000,
-      "meta": {},
+      "meta": {
+        "is-manually-completable": true
+      },
       "modified_at": "2020-09-15T09:37:46.898Z",
       "name": "{\"de\": \"Dossier publizieren\", \"fr\": \"Publier le dossier\"}",
       "type": "simple"
