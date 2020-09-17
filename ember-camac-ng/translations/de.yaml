@@ -80,6 +80,7 @@ workItems:
     highlight: "Markierung"
 
     markAsRead: "Als gelesen markieren"
+    markAsUnread: "Als ungelesen markieren"
     assignToMe: "Mir zuweisen"
     edit: "Aufgabe bearbeiten"
     finish: "Aufgabe abschliessen"
