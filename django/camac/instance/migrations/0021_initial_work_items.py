@@ -137,19 +137,19 @@ def migrate_circulation(models, instance, case):
             models,
             case,
             "circulation",
-            meta={"circulation-id": circulation.pk},
             child_case=child_case,
+            meta={"circulation-id": circulation.pk},
+            context={"circulation-id": circulation.pk},
         )
 
         for activation in circulation.activations.all():
-            context_and_meta = {"activation-id": activation.pk}
             work_item = create_work_item_from_task(
                 models,
                 child_case,
                 "activation",
-                meta=context_and_meta,
-                context=context_and_meta,
                 deadline=activation.deadline_date,
+                meta={"activation-id": activation.pk},
+                context={"activation-id": activation.pk},
             )
 
             if activation.circulation_state.name == "DONE":
