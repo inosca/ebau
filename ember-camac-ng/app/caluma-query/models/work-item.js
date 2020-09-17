@@ -162,16 +162,19 @@ export default class CustomWorkItemModel extends WorkItemModel {
     }
   }
 
-  async markAsRead() {
+  async toggleRead() {
     try {
-      this.notViewed = false;
+      this.notViewed = !this.notViewed;
 
       await this.apollo.mutate({
         mutation: saveWorkItemMutation,
         variables: {
           input: {
             workItem: this.id,
-            meta: JSON.stringify({ ...this.raw.meta, "not-viewed": false })
+            meta: JSON.stringify({
+              ...this.raw.meta,
+              "not-viewed": this.notViewed
+            })
           }
         }
       });
