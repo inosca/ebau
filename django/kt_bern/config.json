@@ -284,34 +284,6 @@
   {
     "fields": {
       "available_action": "php",
-      "button": 120001,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": null,
-      "sort": 3,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 10058
-  },
-  {
-    "fields": {
-      "available_action": "php",
-      "button": 20019,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": null,
-      "sort": 5,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 10059
-  },
-  {
-    "fields": {
-      "available_action": "php",
       "button": 20048,
       "description": null,
       "error_message": null,
@@ -1165,34 +1137,6 @@
   },
   {
     "fields": {
-      "available_action": "workitem",
-      "button": 120001,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": null,
-      "sort": 1,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 150018
-  },
-  {
-    "fields": {
-      "available_action": "addhistory",
-      "button": 120001,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": null,
-      "sort": 2,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 150019
-  },
-  {
-    "fields": {
       "available_action": "php",
       "button": 130000,
       "description": null,
@@ -1887,30 +1831,6 @@
     },
     "model": "core.actiont",
     "pk": 10057
-  },
-  {
-    "fields": {
-      "action": 10058,
-      "description": null,
-      "error_message": null,
-      "language": "de",
-      "name": "ECH0211 - Status Notification",
-      "success_message": null
-    },
-    "model": "core.actiont",
-    "pk": 10058
-  },
-  {
-    "fields": {
-      "action": 10059,
-      "description": null,
-      "error_message": null,
-      "language": "de",
-      "name": "ECH0211 - Status Notification",
-      "success_message": null
-    },
-    "model": "core.actiont",
-    "pk": 10059
   },
   {
     "fields": {
@@ -2682,42 +2602,6 @@
   },
   {
     "fields": {
-      "action": 150018,
-      "description": null,
-      "error_message": null,
-      "language": "de",
-      "name": "Aufgabe abschliessen: Dossier pr\u00fcfen",
-      "success_message": null
-    },
-    "model": "core.actiont",
-    "pk": 150023
-  },
-  {
-    "fields": {
-      "action": 150019,
-      "description": null,
-      "error_message": null,
-      "language": "de",
-      "name": "History: Dossierpr\u00fcfung \u00fcbersprungen",
-      "success_message": null
-    },
-    "model": "core.actiont",
-    "pk": 150024
-  },
-  {
-    "fields": {
-      "action": 150019,
-      "description": null,
-      "error_message": null,
-      "language": "fr",
-      "name": "History: Dossierpr\u00fcfung \u00fcbersprungen",
-      "success_message": null
-    },
-    "model": "core.actiont",
-    "pk": 150025
-  },
-  {
-    "fields": {
       "action": 150020,
       "description": null,
       "error_message": null,
@@ -3369,16 +3253,6 @@
     },
     "model": "core.actionworkitem",
     "pk": 150017
-  },
-  {
-    "fields": {
-      "is_activation": false,
-      "process_all": false,
-      "process_type": "complete",
-      "tasks": "[\"audit\"]"
-    },
-    "model": "core.actionworkitem",
-    "pk": 150018
   },
   {
     "fields": {
@@ -4665,15 +4539,6 @@
     },
     "model": "core.anotification",
     "pk": 10041
-  },
-  {
-    "fields": {
-      "processor": "Notification_Processor_SendEmailAPI",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_Leitbehoerde",
-      "template": "05-bericht-erstellt"
-    },
-    "model": "core.anotification",
-    "pk": 10058
   },
   {
     "fields": {
@@ -41651,20 +41516,6 @@
       "php_class": "TriggerECH0211StatusNotification"
     },
     "model": "core.aphp",
-    "pk": 10058
-  },
-  {
-    "fields": {
-      "php_class": "TriggerECH0211StatusNotification"
-    },
-    "model": "core.aphp",
-    "pk": 10059
-  },
-  {
-    "fields": {
-      "php_class": "TriggerECH0211StatusNotification"
-    },
-    "model": "core.aphp",
     "pk": 10060
   },
   {
@@ -43034,33 +42885,6 @@
   },
   {
     "fields": {
-      "button": 120001,
-      "instance_state": 20003,
-      "role": 3
-    },
-    "model": "core.broleacl",
-    "pk": 20056
-  },
-  {
-    "fields": {
-      "button": 120001,
-      "instance_state": 20004,
-      "role": 3
-    },
-    "model": "core.broleacl",
-    "pk": 20057
-  },
-  {
-    "fields": {
-      "button": 120001,
-      "instance_state": 20005,
-      "role": 3
-    },
-    "model": "core.broleacl",
-    "pk": 20058
-  },
-  {
-    "fields": {
       "button": 20046,
       "instance_state": 20003,
       "role": 3
@@ -43565,18 +43389,6 @@
   },
   {
     "fields": {
-      "class_field": "active_leitbehoerde_only no-validation vorabklaerung_only",
-      "description": null,
-      "hidden": 0,
-      "instance_resource": 40008,
-      "name": null,
-      "sort": 2
-    },
-    "model": "core.button",
-    "pk": 120001
-  },
-  {
-    "fields": {
       "class_field": "btn buttonstyle leitung_only active_leitbehoerde_only send_circ",
       "description": null,
       "hidden": 0,
@@ -43959,16 +43771,6 @@
   },
   {
     "fields": {
-      "button": 120001,
-      "description": null,
-      "language": "de",
-      "name": "Pr\u00fcfung \u00fcberspringen"
-    },
-    "model": "core.buttont",
-    "pk": 120001
-  },
-  {
-    "fields": {
       "button": 20002,
       "description": null,
       "language": "fr",
@@ -44176,16 +43978,6 @@
     },
     "model": "core.buttont",
     "pk": 120043
-  },
-  {
-    "fields": {
-      "button": 120001,
-      "description": null,
-      "language": "fr",
-      "name": "Sauter l'examen"
-    },
-    "model": "core.buttont",
-    "pk": 120044
   },
   {
     "fields": {
@@ -51501,15 +51293,6 @@
       "title": null
     },
     "model": "core.historyactionconfig",
-    "pk": 150019
-  },
-  {
-    "fields": {
-      "body": null,
-      "history_type": "status-change",
-      "title": null
-    },
-    "model": "core.historyactionconfig",
     "pk": 1200107
   },
   {
@@ -51937,26 +51720,6 @@
     },
     "model": "core.historyactionconfigt",
     "pk": 30
-  },
-  {
-    "fields": {
-      "action": 150019,
-      "body": null,
-      "language": "de",
-      "title": "Dossierpr\u00fcfung \u00fcbersprungen"
-    },
-    "model": "core.historyactionconfigt",
-    "pk": 150000
-  },
-  {
-    "fields": {
-      "action": 150019,
-      "body": null,
-      "language": "fr",
-      "title": "Examen du dossier saut\u00e9"
-    },
-    "model": "core.historyactionconfigt",
-    "pk": 150001
   },
   {
     "fields": {
