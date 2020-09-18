@@ -4,12 +4,12 @@ import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import calumaQuery from "ember-caluma/caluma-query";
 import { allWorkItems } from "ember-caluma/caluma-query/queries";
-import { dropTask } from "ember-concurrency-decorators";
+import { dropTask, restartableTask } from "ember-concurrency-decorators";
 
 import getProcessData from "camac-ng/utils/work-item";
 
 export default class WorkItemsIndexController extends Controller {
-  queryParams = ["responsible", "type", "status", "role"];
+  queryParams = ["order", "responsible", "type", "status", "role"];
 
   @service store;
   @service apollo;
@@ -67,7 +67,7 @@ export default class WorkItemsIndexController extends Controller {
     return workItems;
   }
 
-  @dropTask
+  @restartableTask
   *fetchWorkItems() {
     const filter = [{ hasDeadline: true }];
 

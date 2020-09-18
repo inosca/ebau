@@ -4,7 +4,7 @@ import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import calumaQuery from "ember-caluma/caluma-query";
 import { allWorkItems } from "ember-caluma/caluma-query/queries";
-import { dropTask } from "ember-concurrency-decorators";
+import { dropTask, restartableTask } from "ember-concurrency-decorators";
 
 import getManualWorkItemsCount from "camac-ng/gql/queries/get-manual-work-items-count";
 import getProcessData from "camac-ng/utils/work-item";
@@ -62,7 +62,7 @@ export default class WorkItemsInstanceIndexController extends Controller {
     return workItems;
   }
 
-  @dropTask
+  @restartableTask
   *fetchWorkItems() {
     const filterKey =
       this.role === "control" ? "controllingGroups" : "addressedGroups";

@@ -186,12 +186,17 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   async assignToMe() {
-    await this.assignToUser({ username: this.shoebox.content.username });
+    const id = this.shoebox.content.userId;
+    const user =
+      (await this.store.peekRecord("user", id)) ||
+      (await this.store.findRecord("user", id, { reload: true }));
+
+    return await this.assignToUser(user);
   }
 
   async assignToUser(user) {
     try {
-      this.assignedUsers = [user.username];
+      this.assignedUser = user;
 
       await this.apollo.mutate({
         mutation: saveWorkItemMutation,
