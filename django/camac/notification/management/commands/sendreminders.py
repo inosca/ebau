@@ -15,7 +15,22 @@ from camac.user.models import Service, User
 
 TEMPLATE_REMINDER_CIRCULATION = "05-meldung-fristuberschreitung-fachstelle"
 
-CALUMA_SUBJECT = "Erinnerung an Aufgaben / TODO francais"
+CALUMA_SUBJECT = "Erinnerung an Aufgaben / Rappel des tâches"
+
+
+def get_task_trans(count, lang, controlling=False):
+    if controlling:
+        translations = {
+            "de": {"singular": "Controlling-Aufgabe", "plural": "Controlling-Aufgaben"},
+            "fr": {"singular": "tâche", "plural": "tâches"},
+        }
+    else:
+        translations = {
+            "de": {"singular": "Aufgabe", "plural": "Aufgaben"},
+            "fr": {"singular": "tâche de contrôle", "plural": "tâches de contrôle"},
+        }
+
+    return translations[lang]["singular" if count == 1 else "plural"]
 
 
 def render_service_template(
@@ -25,15 +40,23 @@ def render_service_template(
 
 Ihre Organisation hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
 
-- {addressed_overdue} überfällige Aufgaben
-- {addressed_not_viewed} ungelesene Aufgaben
-- {controlling_overdue} überfällige Controlling-Aufgaben
+- {addressed_overdue} überfällige {get_task_trans(addressed_overdue, "de")}
+- {addressed_not_viewed} ungelesene {get_task_trans(addressed_not_viewed, "de")}
+- {controlling_overdue} überfällige {get_task_trans(controlling_overdue, "de", True)}
 
 {settings.INTERNAL_BASE_URL}
 
 *** version française ***
 
-TODO
+Bonjour,
+
+Votre organisation a les tâches suivantes dans eBau qui requièrent une attention particulière :
+
+- {addressed_overdue} {get_task_trans(addressed_overdue, "fr")} en retard
+- {addressed_not_viewed} {get_task_trans(addressed_not_viewed, "fr")} non lue{"s" if addressed_not_viewed != 1 else ""}
+- {controlling_overdue} {get_task_trans(controlling_overdue, "fr", True)} en retard
+
+{settings.INTERNAL_BASE_URL}
 """
 
 
@@ -42,14 +65,21 @@ def render_user_template(addressed_overdue, addressed_not_viewed):
 
 Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 
-- {addressed_overdue} überfällige Aufgabe{"n" if addressed_overdue > 1 else ""}
-- {addressed_not_viewed} ungelesene Aufgabe{"n" if addressed_not_viewed > 1 else ""}
+- {addressed_overdue} überfällige {get_task_trans(addressed_overdue, "de")}
+- {addressed_not_viewed} ungelesene {get_task_trans(addressed_not_viewed, "de")}
 
 {settings.INTERNAL_BASE_URL}
 
 *** version française ***
 
-TODO
+Bonjour,
+
+Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
+
+- {addressed_overdue} {get_task_trans(addressed_overdue, "fr")} en retard
+- {addressed_not_viewed} {get_task_trans(addressed_not_viewed, "fr")} non lue{"s" if addressed_not_viewed != 1 else ""}
+
+{settings.INTERNAL_BASE_URL}
 """
 
 
