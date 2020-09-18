@@ -9,6 +9,10 @@ export default class WorkItemListItemComponent extends Component {
   @service intl;
 
   get actions() {
+    if (!this.args.workItem.isAddressedToCurrentService) {
+      return [];
+    }
+
     return [
       this.editAction,
       this.toggleReadAction,
