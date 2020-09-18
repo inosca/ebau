@@ -26,6 +26,10 @@ def get_caluma_setting(key, default=None):
     return settings.APPLICATION.get("CALUMA", {}).get(key, default)
 
 
+def get_instance_id(work_item):
+    return work_item.case.family.meta.get("camac-instance-id")
+
+
 @on(post_create_work_item)
 def copy_sb_personal(sender, work_item, **kwargs):
     for config in get_caluma_setting("COPY_PERSONAL", []):
@@ -55,7 +59,7 @@ def copy_paper_answer(sender, work_item, **kwargs):
             )
         except caluma_form_models.Answer.DoesNotExist:
             log.warning(
-                f"Could not find answer for question `papierdossier` in document for instance {work_item.case.meta.get('camac-instance-id')}"
+                f"Could not find answer for question `papierdossier` in document for instance {get_instance_id(work_item)}"
             )
 
 
@@ -109,7 +113,10 @@ def set_meta_attributes(sender, work_item, user, context, **kwargs):
 
 @on(post_create_work_item)
 def set_assigned_user(sender, work_item, user, **kwargs):
-    instance = Instance.objects.get(pk=work_item.case.meta["camac-instance-id"])
+    if len(work_item.assigned_users):
+        return
+
+    instance = Instance.objects.get(pk=get_instance_id(work_item))
 
     try:
         service = user_models.Service.objects.get(pk=work_item.addressed_groups[0])
@@ -149,7 +156,7 @@ def notify_completed_work_item(sender, work_item, user, **kwargs):
     #     f"({closed_by_service.get_name('fr')})" if closed_by_service else ""
     # )
 
-    instance_id = work_item.case.meta.get("camac-instance-id")
+    instance_id = get_instance_id(work_item)
 
     dossier_identification = instance_id
     title = f"Aufgabe abgeschlossen (Dossier-Nr. {dossier_identification})"

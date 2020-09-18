@@ -316,6 +316,7 @@ def test_set_meta_attributes(
 
 
 @pytest.mark.parametrize("application_name", ["kt_bern", "kt_schwyz"])
+@pytest.mark.parametrize("has_assigned_users", [True, False])
 @pytest.mark.parametrize(
     "has_addressed_groups,service_exists,expected_users",
     [(False, False, 0), (False, True, 0), (True, False, 0), (True, True, 1)],
@@ -325,9 +326,11 @@ def test_set_assigned_user(
     instance,
     caluma_admin_user,
     user,
+    user_factory,
     work_item_factory,
     instance_responsibility_factory,
     responsible_service_factory,
+    has_assigned_users,
     has_addressed_groups,
     service_exists,
     expected_users,
@@ -335,6 +338,7 @@ def test_set_assigned_user(
 ):
     service = None
     addressed_groups = []
+    assigned_users = [user_factory().username] if has_assigned_users else []
 
     if service_exists:
         if application_name == "kt_bern":
@@ -349,7 +353,9 @@ def test_set_assigned_user(
     if has_addressed_groups:
         addressed_groups = [service.pk] if service else [123]
 
-    work_item = work_item_factory(addressed_groups=addressed_groups)
+    work_item = work_item_factory(
+        addressed_groups=addressed_groups, assigned_users=assigned_users
+    )
     case = work_item.case
     case.meta["camac-instance-id"] = str(instance.pk)
     case.save()
@@ -363,6 +369,9 @@ def test_set_assigned_user(
 
     work_item.refresh_from_db()
 
-    assert len(work_item.assigned_users) == expected_users
-    if expected_users:
-        assert work_item.assigned_users[0] == str(user.username)
+    if has_assigned_users:
+        assert work_item.assigned_users == assigned_users
+    else:
+        assert len(work_item.assigned_users) == expected_users
+        if expected_users:
+            assert work_item.assigned_users == [user.username]
