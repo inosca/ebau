@@ -147,11 +147,15 @@ def test_notify_completed_work_item(
     mailoutbox,
     snapshot,
     application_name,
+    application_settings,
     notify_completed,
 ):
     excluded = set()
 
     if application_name == "kt_bern":
+        application_settings["IS_MULTILINGUAL"] = True
+        application_settings["HAS_EBAU_NUMBER"] = True
+
         services = service_factory.create_batch(6)
 
         for serv in services[:3]:
@@ -179,6 +183,15 @@ def test_notify_completed_work_item(
         deadline=timezone.now(),
         meta={"notify-completed": notify_completed},
     )
+
+    work_item.case.meta = {
+        **work_item.case.meta,
+        "camac-instance-id": 1,
+        "ebau-number": "2020-01",
+    }
+    work_item.case.save()
+
+    caluma_admin_user.group = str(services[0].pk)
 
     workflow_api.complete_work_item(work_item, user=caluma_admin_user)
 
