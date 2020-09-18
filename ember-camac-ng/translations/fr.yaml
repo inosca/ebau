@@ -50,7 +50,7 @@ workItems:
   instance: "Dossier"
   type: "Type de demande"
   task: "Tâche"
-  deadline: "Dû"
+  deadline: "Délai"
   created: "Créé"
   responsible: "Responsable"
   service: "Service"
@@ -62,7 +62,7 @@ workItems:
   title: "Titre"
   description: "Description"
   notifications: "Notifications"
-  notifyCompleted: "à l'issue"
+  notifyCompleted: "après achèvement"
   notifyDeadline: "en cas de dépassement du délai"
   comment: "Commentaire"
 
@@ -71,10 +71,10 @@ workItems:
   finished: "Tâches terminées"
   edit: "Modifier la tâche"
 
-  saveSuccess: "Tâche sauvée avec succès"
+  saveSuccess: "Tâche sauvegardée avec succès"
   finishSuccess: "Tâche terminée avec succès"
   fetchError: "Erreur lors du chargement des tâches"
-  saveError: "Erreur en sauvant la tâche"
+  saveError: "Erreur en sauvegarder la tâche"
 
   actions:
     title: "Actions"
@@ -101,4 +101,4 @@ workItems:
     active: "Active"
     control: "Contrôler"
     urgent: "Urgent"
-    new: "Nouveu"
+    new: "Nouveau"

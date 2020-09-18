@@ -150,11 +150,11 @@ def notify_completed_work_item(sender, work_item, user, **kwargs):
 
     closed_by_service = user_models.Service.objects.filter(pk=user.group).first()
     service_info_de = (
-        f"({closed_by_service.get_name('de')})" if closed_by_service else ""
+        f" ({closed_by_service.get_name('de')})" if closed_by_service else ""
     )
-    # service_info_fr = (
-    #     f"({closed_by_service.get_name('fr')})" if closed_by_service else ""
-    # )
+    service_info_fr = (
+        f" ({closed_by_service.get_name('fr')})" if closed_by_service else ""
+    )
 
     instance_id = get_instance_id(work_item)
 
@@ -163,28 +163,34 @@ def notify_completed_work_item(sender, work_item, user, **kwargs):
 
     if settings.APPLICATION.get("HAS_EBAU_NUMBER", False) and settings.APPLICATION.get(
         "IS_MULTILINGUAL", False
-    ):  # pragma: no cover
+    ):
         dossier_identification = (
-            f"{work_item.case.meta.get('ebau-number')} ({instance_id})"
+            f"{work_item.case.family.meta.get('ebau-number')} ({instance_id})"
         )
         title = f"Aufgabe abgeschlossen (eBau-Nr. {dossier_identification}) / tâche complétée (n° eBau {dossier_identification})"
 
     body = f"""Guten Tag
 
-Die Aufgabe {work_item.name} im Dossier {dossier_identification} wurde von {camac_user.get_full_name()} {service_info_de} abgeschlossen.
+Die Aufgabe "{work_item.name}" im Dossier {dossier_identification} wurde von {camac_user.get_full_name()}{service_info_de} abgeschlossen.
 
 {settings.INTERNAL_INSTANCE_URL_TEMPLATE.format(instance_id=instance_id)}
 
 Sie erhalten diese Notifikation, weil Sie beim Erstellen der Aufgabe die Notifikationseinstellung "Bei Abschluss" gewählt haben.
 """
 
-    if settings.APPLICATION.get("IS_MULTILINGUAL", False):  # pragma: no cover
+    if settings.APPLICATION.get("IS_MULTILINGUAL", False):
         body = (
             body
-            + """
+            + f"""
 *** version française ***
 
-TODO
+Bonjour,
+
+La tâche "{work_item.name}" dans le dossier {dossier_identification} a été terminée par {camac_user.get_full_name()}{service_info_fr}.
+
+{settings.INTERNAL_INSTANCE_URL_TEMPLATE.format(instance_id=instance_id)}
+
+Vous recevez cette notification parce que vous avez sélectionné le paramètre de notification "après achèvement" lorsque vous avez créé la tâche.
 """
         )
 
@@ -201,7 +207,7 @@ TODO
 
 @on(pre_skip_work_item)
 @on(pre_complete_work_item)
-def pre_complete_work_item(sender, work_item, user, **kwargs):
+def handle_pre_complete_work_item(sender, work_item, user, **kwargs):
     # Completed work items should always be marked as read
     work_item.meta["not-viewed"] = False
     work_item.save()
