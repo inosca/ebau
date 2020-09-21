@@ -292,8 +292,13 @@ def nfd_completion_date(
 
 
 @pytest.fixture
-def caluma_config_be(settings):
+def caluma_config_be(settings, use_caluma_form):
     settings.APPLICATION["CALUMA"] = settings.APPLICATIONS["kt_bern"]["CALUMA"]
+
+
+@pytest.fixture
+def caluma_config_sz(settings):
+    settings.APPLICATION["CALUMA"] = settings.APPLICATIONS["kt_schwyz"]["CALUMA"]
 
 
 @pytest.fixture
@@ -337,20 +342,26 @@ def caluma_workflow_config_be(
     call_command("loaddata", settings.ROOT_DIR("kt_bern/config-caluma-workflow.json"))
 
     workflows = caluma_workflow_models.Workflow.objects.all()
+    main_form = caluma_form_models.Form.objects.get(pk="main-form")
 
-    for workflow in workflows:
+    for workflow in workflows.filter(
+        pk__in=["building-permit", "preliminary-clarification"]
+    ):
         workflow.allow_forms.clear()
-        workflow.allow_forms.add(caluma_form_models.Form.objects.get(pk="main-form"))
+        workflow.allow_forms.add(main_form)
         workflow.save()
 
     for form in forms:
         form.delete()
 
-    return workflows
+    yield workflows
+
+    caluma_workflow_models.Case.objects.all().delete()
+    caluma_workflow_models.Workflow.objects.all().delete()
 
 
 @pytest.fixture
-def caluma_workflow_config_sz(settings, caluma_forms):
+def caluma_workflow_config_sz(settings, caluma_forms, caluma_config_sz):
     caluma_form_models.Form.objects.create(slug="baugesuch"),
 
     call_command("loaddata", settings.ROOT_DIR("kt_schwyz/config-caluma-workflow.json"))
@@ -370,6 +381,7 @@ def caluma_forms(settings):
     caluma_form_models.Form.objects.create(slug="sb2")
     caluma_form_models.Form.objects.create(slug="nfd")
     caluma_form_models.Form.objects.create(slug="circulation")
+    caluma_form_models.Form.objects.create(slug="migriertes-dossier")
 
     # dynamic choice options get cached, so we clear them
     # to ensure the new "gemeinde" options will be valid
@@ -440,6 +452,18 @@ def caluma_forms(settings):
     )
     caluma_form_models.Question.objects.create(
         slug="name-applicant", type=caluma_form_models.Question.TYPE_TEXT
+    )
+
+    # migrated
+    geschaeftstyp = caluma_form_models.Question.objects.create(
+        slug="geschaeftstyp", type=caluma_form_models.Question.TYPE_CHOICE
+    )
+    caluma_form_models.QuestionOption.objects.create(
+        question=geschaeftstyp,
+        option=caluma_form_models.Option.objects.create(
+            slug="geschaeftstyp-baupolizeiliches-verfahren",
+            label="Baupolizeiliches Verfahren",
+        ),
     )
 
     # link questions with forms

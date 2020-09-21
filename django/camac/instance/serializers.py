@@ -262,6 +262,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
         read_only=True,
     )
     rejection_feedback = serializers.SerializerMethodField()
+    name = serializers.SerializerMethodField()
 
     def get_is_paper(self, instance):
         return CalumaApi().is_paper(instance)
@@ -490,6 +491,29 @@ class CalumaInstanceSerializer(InstanceSerializer):
             },
         }
 
+    def get_name(self, instance):
+        api = CalumaApi()
+        name = api.get_form_name(instance)
+        parts = []
+
+        migrated = api.is_migrated(instance)
+        paper = api.is_paper(instance)
+        modification = api.is_modification(instance)
+
+        if migrated:
+            name = api.get_migration_type(instance)[1]
+            parts.append(_("migrated"))
+
+        if not migrated and paper:
+            parts.append(_("paper"))
+
+        if not migrated and modification:
+            parts.append(_("modification"))
+
+        parts = [f"({part})" for part in parts]
+
+        return " ".join([str(name), *parts])
+
     def _copy_applicants(self, source, target):
         for applicant in source.involved_applicants.all():
             target.involved_applicants.update_or_create(
@@ -636,6 +660,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
             "responsible_service_users",
             "involved_applicants",
             "rejection_feedback",
+            "name",
         )
         read_only_fields = InstanceSerializer.Meta.read_only_fields + (
             "caluma_form",
@@ -646,6 +671,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
             "responsible_service_users",
             "involved_applicants",
             "rejection_feedback",
+            "name",
         )
         meta_fields = InstanceSerializer.Meta.meta_fields + ("permissions",)
 
