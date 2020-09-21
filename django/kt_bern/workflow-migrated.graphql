@@ -1,0 +1,13 @@
+mutation CreateMigratedWorkflow {
+  saveWorkflow(
+    input: {
+      slug: "migrated"
+      name: "Migriertes Dossier"
+      startTasks: ["decision", "create-manual-workitems"]
+      allowForms: ["migriertes-dossier"]
+      isPublished: true
+    }
+  ) {
+    clientMutationId
+  }
+}
