@@ -219,11 +219,11 @@ class InstanceEditableMixin(AttributeMixin):
             "circulation_init",  # Zirkulation initialisieren
             "circulation",  # In Zirkulation
             "coordination",  # In Koordination
-            "audit",  # Dossierprüfung
             "correction",  # In Korrektur
             "corrected",  # Korrigiert von Leitbehörde
             "sb1",  # Selbstdeklaration 1
             "sb2",  # Selbstdeklaration 2
+            "in_progress",  # In Bearbeitung
         ]:
             return {"document"}
 

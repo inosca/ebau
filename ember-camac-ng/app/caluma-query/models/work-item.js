@@ -124,7 +124,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
 
   get instanceName() {
     const identifier = this.instance?.identifier || this.instanceId;
-    const name = this.instance?.name || this.case?.document.form.name;
+    const name = this.instance?.name;
     const ebauNr = this.case?.meta["ebau-number"];
     const suffix = ebauNr ? `(${ebauNr})` : "";
 

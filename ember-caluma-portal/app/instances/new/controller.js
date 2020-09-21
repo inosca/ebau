@@ -21,6 +21,7 @@ export default class InstancesNewController extends Controller.extend(
     const forms = yield this.apollo.query(
       {
         query: getRootFormsQuery,
+        variables: { onlyCreatable: true },
       },
       "allForms.edges"
     );
