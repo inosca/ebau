@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-28 12:08+0200\n"
-"PO-Revision-Date: 2020-08-28 12:09+0200\n"
+"POT-Creation-Date: 2020-09-21 15:45+0200\n"
+"PO-Revision-Date: 2020-09-21 15:47+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -23,10 +23,6 @@ msgstr ""
 msgid "Email '%(email)s' has already access to instance %(instance)s"
 msgstr ""
 "L'utilisateur avec l'email '%(email)s' a déjà accès au dossier %(instance)s"
-
-#: camac/caluma/extensions/events.py:24
-msgid "Abgeschlossene Aufgabe"
-msgstr ""
 
 #: camac/document/filters.py:20
 msgid ""
@@ -117,67 +113,79 @@ msgstr ""
 msgid "Not allowed to add data to instance %(instance)s as coordination"
 msgstr ""
 
-#: camac/instance/serializers.py:109
+#: camac/instance/serializers.py:125
 msgid "Location may not be changed."
 msgstr ""
 
-#: camac/instance/serializers.py:116
+#: camac/instance/serializers.py:132
 msgid "Form may not be changed."
 msgstr ""
 
-#: camac/instance/serializers.py:779
+#: camac/instance/serializers.py:500
+msgid "paper"
+msgstr "papier"
+
+#: camac/instance/serializers.py:503
+msgid "modification"
+msgstr "modification du projet"
+
+#: camac/instance/serializers.py:507
+msgid "migrated"
+msgstr "migré"
+
+#: camac/instance/serializers.py:821
 msgid "Dossier submitted"
 msgstr "Dossier envoyé"
 
-#: camac/instance/serializers.py:838
+#: camac/instance/serializers.py:880
 msgid "SB1 submitted"
 msgstr "DC1 envoyé"
 
-#: camac/instance/serializers.py:869
+#: camac/instance/serializers.py:911
 #, python-format
 msgid "%(value)s is not a valid service type - valid types are: %(expected)s"
 msgstr ""
 "%(value)s n'est pas un type de service correct - les types corrects sont "
 "%(expected)s"
 
-#: camac/instance/serializers.py:902
+#: camac/instance/serializers.py:985
 #, python-format
 msgid "Changed responsible service to: %(service)s"
 msgstr "Nouvelle autorité directrice: %(service)s"
 
-#: camac/instance/serializers.py:918
+#: camac/instance/serializers.py:1001
 msgid "service"
 msgstr ""
 
-#: camac/instance/serializers.py:938
+#: camac/instance/serializers.py:1023
 #, python-format
 msgid "Responsible service did not change for instance %(instance_id)s"
 msgstr "N'a pas changé d'autorité directrice pour le dossier %(instance_id)s"
 
-#: camac/instance/serializers.py:981
+#: camac/instance/serializers.py:1068
 msgid "SB2 submitted"
 msgstr "DC2 envoyé"
 
-#: camac/instance/serializers.py:1009
+#: camac/instance/serializers.py:1096
 #, python-format
 msgid "User %(user)s does not belong to service %(service)s."
 msgstr ""
 
-#: camac/instance/serializers.py:1087
+#: camac/instance/serializers.py:1174
 msgid "No location assigned."
 msgstr ""
 
-#: camac/instance/serializers.py:1107
+#: camac/instance/serializers.py:1194
 #, python-format
 msgid "No group found for location %(name)s."
 msgstr ""
 
-#: camac/instance/serializers.py:1129
+#: camac/instance/serializers.py:1216
 #, python-format
 msgid "invalid question %(question)s."
 msgstr ""
 
-#: camac/instance/serializers.py:1136
+#: camac/instance/serializers.py:1223
 #, python-format
 msgid "%(permission)s is not allowed to edit question %(question)s."
 msgstr ""
@@ -214,61 +222,10 @@ msgstr ""
 msgid "Invalid form type %(form)s."
 msgstr ""
 
-#: camac/notification/management/commands/sendreminders.py:20
-msgid "Erinnerung an Aufgaben"
-msgstr ""
-
-#: camac/notification/serializers.py:793
+#: camac/notification/serializers.py:811
 #, python-format
 msgid "Notification sent to %(receiver)s (%(subject)s)"
 msgstr "Notification envoyée à %(receiver)s (%(subject)s)"
-
-#: camac/notification/templates/mails/list_workitems.txt:3
-msgid "Überfällige Aufgaben"
-msgstr ""
-
-#: camac/notification/templates/mails/list_workitems.txt:4
-msgid "Ungelesene Aufgaben"
-msgstr ""
-
-#: camac/notification/templates/mails/list_workitems.txt:5
-#: camac/notification/templates/mails/notify_completed_workitem.txt:6
-msgid "Aufgabe"
-msgstr ""
-
-#: camac/notification/templates/mails/list_workitems.txt:6
-#: camac/notification/templates/mails/notify_completed_workitem.txt:3
-msgid "zu erledigen bis"
-msgstr ""
-
-#: camac/notification/templates/mails/notify_completed_workitem.txt:4
-#: camac/notification/templates/mails/reminder_service.txt:3
-#: camac/notification/templates/mails/reminder_user.txt:3
-msgid "Guten Tag"
-msgstr ""
-
-#: camac/notification/templates/mails/notify_completed_workitem.txt:5
-msgid "Eine Ihrer verantwortlichen Aufgaben wurden abgeschlossen"
-msgstr ""
-
-#: camac/notification/templates/mails/notify_completed_workitem.txt:7
-msgid "Abgeschlossen von"
-msgstr ""
-
-#: camac/notification/templates/mails/notify_completed_workitem.txt:8
-#: camac/notification/templates/mails/reminder_service.txt:6
-#: camac/notification/templates/mails/reminder_user.txt:5
-msgid "Freundliche Grüsse"
-msgstr ""
-
-#: camac/notification/templates/mails/reminder_service.txt:4
-#: camac/notification/templates/mails/reminder_user.txt:4
-msgid "Dies ist eine Erinnerung an Ihre offenen Aufgaben."
-msgstr ""
-
-#: camac/notification/templates/mails/reminder_service.txt:5
-msgid "Diese Ihnen unterstehenden Aufgaben wurden noch nicht abgeschlossen."
-msgstr ""
 
 #: camac/objection/serializers.py:35
 msgid "Objection %(objection) already has a representative"

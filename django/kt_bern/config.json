@@ -2222,7 +2222,7 @@
       "description": null,
       "error_message": null,
       "language": "de",
-      "name": "Go to state \"Zirkulation initialisieren\"",
+      "name": "Go to previous state",
       "success_message": null
     },
     "model": "core.actiont",
@@ -3378,8 +3378,8 @@
   },
   {
     "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 20003
+      "current_instance_state": 20007,
+      "next_instance_state": null
     },
     "model": "core.aformtransition",
     "pk": 20103
@@ -43047,6 +43047,33 @@
   },
   {
     "fields": {
+      "button": 20046,
+      "instance_state": 120001,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 150028
+  },
+  {
+    "fields": {
+      "button": 20047,
+      "instance_state": 120001,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 150029
+  },
+  {
+    "fields": {
+      "button": 20013,
+      "instance_state": 120001,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 150030
+  },
+  {
+    "fields": {
       "button": 1200000,
       "instance_state": 20011,
       "role": 5
@@ -43293,7 +43320,7 @@
   },
   {
     "fields": {
-      "class_field": "vorabklaerung_only",
+      "class_field": "reduced_only",
       "description": null,
       "hidden": 0,
       "instance_resource": 20023,
@@ -62936,6 +62963,141 @@
     },
     "model": "core.irroleacl",
     "pk": 150225
+  },
+  {
+    "fields": {
+      "instance_resource": 20019,
+      "instance_state": 120001,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 150226
+  },
+  {
+    "fields": {
+      "instance_resource": 20019,
+      "instance_state": 120001,
+      "role": 20003
+    },
+    "model": "core.irroleacl",
+    "pk": 150227
+  },
+  {
+    "fields": {
+      "instance_resource": 20079,
+      "instance_state": 120001,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 150228
+  },
+  {
+    "fields": {
+      "instance_resource": 20074,
+      "instance_state": 120001,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 150229
+  },
+  {
+    "fields": {
+      "instance_resource": 20068,
+      "instance_state": 120001,
+      "role": 20003
+    },
+    "model": "core.irroleacl",
+    "pk": 150230
+  },
+  {
+    "fields": {
+      "instance_resource": 20068,
+      "instance_state": 120001,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 150231
+  },
+  {
+    "fields": {
+      "instance_resource": 20075,
+      "instance_state": 120001,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 150232
+  },
+  {
+    "fields": {
+      "instance_resource": 140004,
+      "instance_state": 120001,
+      "role": 20003
+    },
+    "model": "core.irroleacl",
+    "pk": 150233
+  },
+  {
+    "fields": {
+      "instance_resource": 140004,
+      "instance_state": 120001,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 150234
+  },
+  {
+    "fields": {
+      "instance_resource": 140002,
+      "instance_state": 120001,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 150235
+  },
+  {
+    "fields": {
+      "instance_resource": 140002,
+      "instance_state": 120001,
+      "role": 20003
+    },
+    "model": "core.irroleacl",
+    "pk": 150236
+  },
+  {
+    "fields": {
+      "instance_resource": 150004,
+      "instance_state": 120001,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 150237
+  },
+  {
+    "fields": {
+      "instance_resource": 150004,
+      "instance_state": 120001,
+      "role": 20003
+    },
+    "model": "core.irroleacl",
+    "pk": 150238
+  },
+  {
+    "fields": {
+      "instance_resource": 10000,
+      "instance_state": 120001,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 150239
+  },
+  {
+    "fields": {
+      "instance_resource": 20023,
+      "instance_state": 120001,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 150240
   },
   {
     "fields": {
@@ -117686,7 +117848,7 @@
   },
   {
     "fields": {
-      "instance_states": "1,20000,20006,20003,20004,20005,20010,20011,20013,20014,10000,20007,20008,20009,120000"
+      "instance_states": "1,20000,20003,20004,20005,20010,20011,20013,20014,10000,20007,20008,20009,120000,120001"
     },
     "model": "core.rcalumalist",
     "pk": 20006
@@ -121306,7 +121468,7 @@
     "fields": {
       "description": null,
       "name": "rejected",
-      "sort": 23
+      "sort": 9
     },
     "model": "instance.instancestate",
     "pk": 10000
@@ -121315,7 +121477,7 @@
     "fields": {
       "description": null,
       "name": "subm",
-      "sort": 10
+      "sort": 1
     },
     "model": "instance.instancestate",
     "pk": 20000
@@ -121324,7 +121486,7 @@
     "fields": {
       "description": null,
       "name": "circulation_init",
-      "sort": 13
+      "sort": 2
     },
     "model": "instance.instancestate",
     "pk": 20003
@@ -121333,7 +121495,7 @@
     "fields": {
       "description": null,
       "name": "circulation",
-      "sort": 14
+      "sort": 3
     },
     "model": "instance.instancestate",
     "pk": 20004
@@ -121342,7 +121504,7 @@
     "fields": {
       "description": null,
       "name": "coordination",
-      "sort": 15
+      "sort": 4
     },
     "model": "instance.instancestate",
     "pk": 20005
@@ -121351,7 +121513,7 @@
     "fields": {
       "description": null,
       "name": "correction",
-      "sort": 24
+      "sort": 10
     },
     "model": "instance.instancestate",
     "pk": 20007
@@ -121360,7 +121522,7 @@
     "fields": {
       "description": null,
       "name": "corrected",
-      "sort": 26
+      "sort": 11
     },
     "model": "instance.instancestate",
     "pk": 20008
@@ -121369,7 +121531,7 @@
     "fields": {
       "description": null,
       "name": "archived",
-      "sort": 27
+      "sort": 12
     },
     "model": "instance.instancestate",
     "pk": 20009
@@ -121378,7 +121540,7 @@
     "fields": {
       "description": null,
       "name": "evaluated",
-      "sort": 16
+      "sort": 5
     },
     "model": "instance.instancestate",
     "pk": 20010
@@ -121387,7 +121549,7 @@
     "fields": {
       "description": null,
       "name": "sb1",
-      "sort": 17
+      "sort": 6
     },
     "model": "instance.instancestate",
     "pk": 20011
@@ -121396,7 +121558,7 @@
     "fields": {
       "description": null,
       "name": "sb2",
-      "sort": 19
+      "sort": 7
     },
     "model": "instance.instancestate",
     "pk": 20013
@@ -121405,7 +121567,7 @@
     "fields": {
       "description": null,
       "name": "conclusion",
-      "sort": 22
+      "sort": 8
     },
     "model": "instance.instancestate",
     "pk": 20014
@@ -121414,10 +121576,19 @@
     "fields": {
       "description": null,
       "name": "finished",
-      "sort": 28
+      "sort": 13
     },
     "model": "instance.instancestate",
     "pk": 120000
+  },
+  {
+    "fields": {
+      "description": null,
+      "name": "in_progress",
+      "sort": 14
+    },
+    "model": "instance.instancestate",
+    "pk": 120001
   },
   {
     "fields": {
@@ -121708,6 +121879,26 @@
     },
     "model": "instance.instancestatet",
     "pk": 120027
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_state": 120001,
+      "language": "de",
+      "name": "In Bearbeitung"
+    },
+    "model": "instance.instancestatet",
+    "pk": 120028
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_state": 120001,
+      "language": "fr",
+      "name": "En cours"
+    },
+    "model": "instance.instancestatet",
+    "pk": 120029
   },
   {
     "fields": {
