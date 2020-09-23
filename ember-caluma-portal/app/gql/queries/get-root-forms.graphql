@@ -1,13 +1,8 @@
-query GetRootForms($slug: String, $onlyCreatable: Boolean) {
+query GetRootForms($slug: String) {
   allForms(
     filter: [
       { slug: $slug }
-      {
-        metaValue: [
-          { key: "is-main-form", value: true }
-          { key: "is-creatable", value: $onlyCreatable }
-        ]
-      }
+      { metaValue: [{ key: "is-main-form", value: true }] }
     ]
     order: [{ attribute: NAME, direction: ASC }]
   ) {
@@ -15,6 +10,7 @@ query GetRootForms($slug: String, $onlyCreatable: Boolean) {
       node {
         slug
         name
+        meta
       }
     }
   }
