@@ -86,6 +86,7 @@ module.exports = function (environment) {
         inCorrection: 20007,
         finished: 120000,
       },
+      internalForms: ["migriertes-dossier"],
     },
   };
 
