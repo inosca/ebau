@@ -19,6 +19,7 @@ def test_migrate_schwyz_instances(
     circulation_factory,
     circulation_state_factory,
     activation_factory,
+    instance_responsibility_factory,
 ):
     settings.APPLICATION_DIR = settings.ROOT_DIR.path("kt_schwyz")
     settings.APPLICATION_NAME = "kt_schwyz"
@@ -52,6 +53,7 @@ def test_migrate_schwyz_instances(
     activation_factory(
         circulation=circ, circulation_state=circulation_state_factory(name="REVIEW")
     )
+    instance_responsibility_factory(instance=instance)
 
     call_command("migrate_schwyz_instances")
 
