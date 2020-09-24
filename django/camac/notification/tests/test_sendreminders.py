@@ -38,6 +38,7 @@ def test_sendreminders(
 
 
 @pytest.mark.freeze_time("2020-08-10")
+@pytest.mark.parametrize("multilingual", [True, False])
 @pytest.mark.parametrize(
     "is_overdue,is_not_viewed,is_assigned,has_controlling,outbox_count",
     [
@@ -50,6 +51,7 @@ def test_sendreminders(
     ],
 )
 def test_sendreminders_caluma(
+    application_settings,
     db,
     mailoutbox,
     instance,
@@ -63,7 +65,9 @@ def test_sendreminders_caluma(
     is_assigned,
     has_controlling,
     outbox_count,
+    multilingual,
 ):
+    application_settings["IS_MULTILINGUAL"] = multilingual
 
     user = user_factory()
     services = service_factory.create_batch(2)
@@ -86,3 +90,6 @@ def test_sendreminders_caluma(
     call_command("sendreminders", "--caluma")
 
     assert len(mailoutbox) == outbox_count
+    snapshot.assert_match(
+        [(mail.subject, mail.body, mail.to, mail.cc) for mail in mailoutbox]
+    )
