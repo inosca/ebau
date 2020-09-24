@@ -7,141 +7,526 @@ from snapshottest import Snapshot
 
 snapshots = Snapshot()
 
-snapshots["test_sendreminders_caluma 1"] = [
-    {
-        "body": """Guten Tag
+snapshots['test_sendreminders_caluma[True-True-True-True-3-True] 1'] = [
+    (
+        'Erinnerung an Aufgaben / Rappel des tâches',
+        '''Guten Tag
 
-Dies ist eine Erinnerung an Ihre offenen Aufgaben.
+Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 
-Überfällige Aufgaben:
- - Aufgabe "Hagen Dehmel-Pärtzelt" zu erledigen bis 08.08.2020
- - Aufgabe "Faruk Hoffmann B.Sc." zu erledigen bis 09.08.2020
+- 1 überfällige Aufgabe
+- 1 ungelesene Aufgabe
 
-Ungelesene Aufgaben:
- - Aufgabe "Cynthia Barth"
- - Aufgabe "Dipl.-Ing. Albrecht Schleich B.Sc."
- - Aufgabe "Prof. Brunhild Süßebier B.A."
+http://camac-ng.local
 
 
-Freundliche Grüsse
-""",
-        "subject": "Erinnerung an Aufgaben",
-        "to": ["andersonhoward@griffin.com"],
-    },
-    {
-        "body": """Guten Tag
+*** version française ***
 
-Dies ist eine Erinnerung an Ihre offenen Aufgaben.
+Bonjour,
 
-Überfällige Aufgaben:
- - Aufgabe "Hagen Dehmel-Pärtzelt" zu erledigen bis 08.08.2020
- - Aufgabe "Faruk Hoffmann B.Sc." zu erledigen bis 09.08.2020
+Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
 
+- 1 tâche de contrôle en retard
+- 1 tâche de contrôle non lue
 
-Freundliche Grüsse
-""",
-        "subject": "Erinnerung an Aufgaben",
-        "to": ["cmiller@hotmail.com"],
-    },
-    {
-        "body": """Guten Tag
+http://camac-ng.local
+''',
+        [
+            'cmiller@hotmail.com'
+        ],
+        [
+        ]
+    ),
+    (
+        'Erinnerung an Aufgaben / Rappel des tâches',
+        '''Guten Tag
 
-Dies ist eine Erinnerung an Ihre offenen Aufgaben.
+Ihre Organisation hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
 
-Ungelesene Aufgaben:
- - Aufgabe "Cynthia Barth"
- - Aufgabe "Dipl.-Ing. Albrecht Schleich B.Sc."
- - Aufgabe "Prof. Brunhild Süßebier B.A."
+- 1 überfällige Aufgabe
+- 1 ungelesene Aufgabe
+- 0 überfällige Controlling-Aufgaben
 
-
-Freundliche Grüsse
-""",
-        "subject": "Erinnerung an Aufgaben",
-        "to": ["craig69@hotmail.com"],
-    },
-    {
-        "body": """Guten Tag
-
-Dies ist eine Erinnerung an Ihre offenen Aufgaben.
-
-Ungelesene Aufgaben:
- - Aufgabe "Cynthia Barth"
- - Aufgabe "Dipl.-Ing. Albrecht Schleich B.Sc."
- - Aufgabe "Prof. Brunhild Süßebier B.A."
+http://camac-ng.local
 
 
-Freundliche Grüsse
-""",
-        "subject": "Erinnerung an Aufgaben",
-        "to": ["kingmelanie@yahoo.com"],
-    },
-    {
-        "body": """Guten Tag
+*** version française ***
+
+Bonjour,
+
+Votre organisation a les tâches suivantes dans eBau qui requièrent une attention particulière :
+
+- 1 tâche de contrôle en retard
+- 1 tâche de contrôle non lue
+- 0 tâches en retard
+
+http://camac-ng.local
+''',
+        [
+            'rfields@yahoo.com'
+        ],
+        [
+        ]
+    ),
+    (
+        'Erinnerung an Aufgaben / Rappel des tâches',
+        '''Guten Tag
+
+Ihre Organisation hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+
+- 0 überfällige Aufgaben
+- 0 ungelesene Aufgaben
+- 1 überfällige Controlling-Aufgabe
+
+http://camac-ng.local
 
 
-Diese Ihnen unterstehenden Aufgaben wurden noch nicht abgeschlossen.
+*** version française ***
 
-Überfällige Aufgaben:
- - Aufgabe "Hagen Dehmel-Pärtzelt" zu erledigen bis 08.08.2020
- - Aufgabe "Faruk Hoffmann B.Sc." zu erledigen bis 09.08.2020
+Bonjour,
 
-Ungelesene Aufgaben:
- - Aufgabe "Cynthia Barth"
- - Aufgabe "Dipl.-Ing. Albrecht Schleich B.Sc."
- - Aufgabe "Prof. Brunhild Süßebier B.A."
+Votre organisation a les tâches suivantes dans eBau qui requièrent une attention particulière :
+
+- 0 tâches de contrôle en retard
+- 0 tâches de contrôle non lues
+- 1 tâche en retard
+
+http://camac-ng.local
+''',
+        [
+            'stonecaleb@yahoo.com'
+        ],
+        [
+        ]
+    )
+]
+
+snapshots['test_sendreminders_caluma[True-True-True-True-3-False] 1'] = [
+    (
+        'Erinnerung an Aufgaben',
+        '''Guten Tag
+
+Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
+
+- 1 überfällige Aufgabe
+- 1 ungelesene Aufgabe
+
+http://camac-ng.local
+
+''',
+        [
+            'cmiller@hotmail.com'
+        ],
+        [
+        ]
+    ),
+    (
+        'Erinnerung an Aufgaben',
+        '''Guten Tag
+
+Ihre Organisation hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+
+- 1 überfällige Aufgabe
+- 1 ungelesene Aufgabe
+- 0 überfällige Controlling-Aufgaben
+
+http://camac-ng.local
+
+''',
+        [
+            'rfields@yahoo.com'
+        ],
+        [
+        ]
+    ),
+    (
+        'Erinnerung an Aufgaben',
+        '''Guten Tag
+
+Ihre Organisation hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+
+- 0 überfällige Aufgaben
+- 0 ungelesene Aufgaben
+- 1 überfällige Controlling-Aufgabe
+
+http://camac-ng.local
+
+''',
+        [
+            'stonecaleb@yahoo.com'
+        ],
+        [
+        ]
+    )
+]
+
+snapshots['test_sendreminders_caluma[True-True-True-False-2-True] 1'] = [
+    (
+        'Erinnerung an Aufgaben / Rappel des tâches',
+        '''Guten Tag
+
+Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
+
+- 1 überfällige Aufgabe
+- 1 ungelesene Aufgabe
+
+http://camac-ng.local
 
 
-Freundliche Grüsse
-""",
-        "subject": "Erinnerung an Aufgaben",
-        "to": ["nroberts@hotmail.com"],
-    },
-    {
-        "body": """Guten Tag
+*** version française ***
 
-Dies ist eine Erinnerung an Ihre offenen Aufgaben.
+Bonjour,
 
-Überfällige Aufgaben:
- - Aufgabe "Hagen Dehmel-Pärtzelt" zu erledigen bis 08.08.2020
- - Aufgabe "Faruk Hoffmann B.Sc." zu erledigen bis 09.08.2020
+Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
 
-Ungelesene Aufgaben:
- - Aufgabe "Cynthia Barth"
- - Aufgabe "Dipl.-Ing. Albrecht Schleich B.Sc."
- - Aufgabe "Prof. Brunhild Süßebier B.A."
+- 1 tâche de contrôle en retard
+- 1 tâche de contrôle non lue
 
+http://camac-ng.local
+''',
+        [
+            'cmiller@hotmail.com'
+        ],
+        [
+        ]
+    ),
+    (
+        'Erinnerung an Aufgaben / Rappel des tâches',
+        '''Guten Tag
 
-Freundliche Grüsse
-""",
-        "subject": "Erinnerung an Aufgaben",
-        "to": ["rfields@yahoo.com"],
-    },
-    {
-        "body": """Guten Tag
+Ihre Organisation hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
 
-Dies ist eine Erinnerung an Ihre offenen Aufgaben.
+- 1 überfällige Aufgabe
+- 1 ungelesene Aufgabe
+- 0 überfällige Controlling-Aufgaben
 
-Überfällige Aufgaben:
- - Aufgabe "Hagen Dehmel-Pärtzelt" zu erledigen bis 08.08.2020
- - Aufgabe "Faruk Hoffmann B.Sc." zu erledigen bis 09.08.2020
-
----
-
-Diese Ihnen unterstehenden Aufgaben wurden noch nicht abgeschlossen.
-
-Überfällige Aufgaben:
- - Aufgabe "Hagen Dehmel-Pärtzelt" zu erledigen bis 08.08.2020
- - Aufgabe "Faruk Hoffmann B.Sc." zu erledigen bis 09.08.2020
-
-Ungelesene Aufgaben:
- - Aufgabe "Cynthia Barth"
- - Aufgabe "Dipl.-Ing. Albrecht Schleich B.Sc."
- - Aufgabe "Prof. Brunhild Süßebier B.A."
+http://camac-ng.local
 
 
-Freundliche Grüsse
-""",
-        "subject": "Erinnerung an Aufgaben",
-        "to": ["william71@richardson.com"],
-    },
+*** version française ***
+
+Bonjour,
+
+Votre organisation a les tâches suivantes dans eBau qui requièrent une attention particulière :
+
+- 1 tâche de contrôle en retard
+- 1 tâche de contrôle non lue
+- 0 tâches en retard
+
+http://camac-ng.local
+''',
+        [
+            'rfields@yahoo.com'
+        ],
+        [
+        ]
+    )
+]
+
+snapshots['test_sendreminders_caluma[True-True-True-False-2-False] 1'] = [
+    (
+        'Erinnerung an Aufgaben',
+        '''Guten Tag
+
+Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
+
+- 1 überfällige Aufgabe
+- 1 ungelesene Aufgabe
+
+http://camac-ng.local
+
+''',
+        [
+            'cmiller@hotmail.com'
+        ],
+        [
+        ]
+    ),
+    (
+        'Erinnerung an Aufgaben',
+        '''Guten Tag
+
+Ihre Organisation hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+
+- 1 überfällige Aufgabe
+- 1 ungelesene Aufgabe
+- 0 überfällige Controlling-Aufgaben
+
+http://camac-ng.local
+
+''',
+        [
+            'rfields@yahoo.com'
+        ],
+        [
+        ]
+    )
+]
+
+snapshots['test_sendreminders_caluma[True-False-True-False-2-True] 1'] = [
+    (
+        'Erinnerung an Aufgaben / Rappel des tâches',
+        '''Guten Tag
+
+Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
+
+- 1 überfällige Aufgabe
+- 0 ungelesene Aufgaben
+
+http://camac-ng.local
+
+
+*** version française ***
+
+Bonjour,
+
+Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
+
+- 1 tâche de contrôle en retard
+- 0 tâches de contrôle non lues
+
+http://camac-ng.local
+''',
+        [
+            'cmiller@hotmail.com'
+        ],
+        [
+        ]
+    ),
+    (
+        'Erinnerung an Aufgaben / Rappel des tâches',
+        '''Guten Tag
+
+Ihre Organisation hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+
+- 1 überfällige Aufgabe
+- 0 ungelesene Aufgaben
+- 0 überfällige Controlling-Aufgaben
+
+http://camac-ng.local
+
+
+*** version française ***
+
+Bonjour,
+
+Votre organisation a les tâches suivantes dans eBau qui requièrent une attention particulière :
+
+- 1 tâche de contrôle en retard
+- 0 tâches de contrôle non lues
+- 0 tâches en retard
+
+http://camac-ng.local
+''',
+        [
+            'rfields@yahoo.com'
+        ],
+        [
+        ]
+    )
+]
+
+snapshots['test_sendreminders_caluma[True-False-True-False-2-False] 1'] = [
+    (
+        'Erinnerung an Aufgaben',
+        '''Guten Tag
+
+Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
+
+- 1 überfällige Aufgabe
+- 0 ungelesene Aufgaben
+
+http://camac-ng.local
+
+''',
+        [
+            'cmiller@hotmail.com'
+        ],
+        [
+        ]
+    ),
+    (
+        'Erinnerung an Aufgaben',
+        '''Guten Tag
+
+Ihre Organisation hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+
+- 1 überfällige Aufgabe
+- 0 ungelesene Aufgaben
+- 0 überfällige Controlling-Aufgaben
+
+http://camac-ng.local
+
+''',
+        [
+            'rfields@yahoo.com'
+        ],
+        [
+        ]
+    )
+]
+
+snapshots['test_sendreminders_caluma[False-True-True-False-2-True] 1'] = [
+    (
+        'Erinnerung an Aufgaben / Rappel des tâches',
+        '''Guten Tag
+
+Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
+
+- 0 überfällige Aufgaben
+- 1 ungelesene Aufgabe
+
+http://camac-ng.local
+
+
+*** version française ***
+
+Bonjour,
+
+Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
+
+- 0 tâches de contrôle en retard
+- 1 tâche de contrôle non lue
+
+http://camac-ng.local
+''',
+        [
+            'cmiller@hotmail.com'
+        ],
+        [
+        ]
+    ),
+    (
+        'Erinnerung an Aufgaben / Rappel des tâches',
+        '''Guten Tag
+
+Ihre Organisation hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+
+- 0 überfällige Aufgaben
+- 1 ungelesene Aufgabe
+- 0 überfällige Controlling-Aufgaben
+
+http://camac-ng.local
+
+
+*** version française ***
+
+Bonjour,
+
+Votre organisation a les tâches suivantes dans eBau qui requièrent une attention particulière :
+
+- 0 tâches de contrôle en retard
+- 1 tâche de contrôle non lue
+- 0 tâches en retard
+
+http://camac-ng.local
+''',
+        [
+            'rfields@yahoo.com'
+        ],
+        [
+        ]
+    )
+]
+
+snapshots['test_sendreminders_caluma[False-True-True-False-2-False] 1'] = [
+    (
+        'Erinnerung an Aufgaben',
+        '''Guten Tag
+
+Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
+
+- 0 überfällige Aufgaben
+- 1 ungelesene Aufgabe
+
+http://camac-ng.local
+
+''',
+        [
+            'cmiller@hotmail.com'
+        ],
+        [
+        ]
+    ),
+    (
+        'Erinnerung an Aufgaben',
+        '''Guten Tag
+
+Ihre Organisation hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+
+- 0 überfällige Aufgaben
+- 1 ungelesene Aufgabe
+- 0 überfällige Controlling-Aufgaben
+
+http://camac-ng.local
+
+''',
+        [
+            'rfields@yahoo.com'
+        ],
+        [
+        ]
+    )
+]
+
+snapshots['test_sendreminders_caluma[False-True-False-False-1-True] 1'] = [
+    (
+        'Erinnerung an Aufgaben / Rappel des tâches',
+        '''Guten Tag
+
+Ihre Organisation hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+
+- 0 überfällige Aufgaben
+- 1 ungelesene Aufgabe
+- 0 überfällige Controlling-Aufgaben
+
+http://camac-ng.local
+
+
+*** version française ***
+
+Bonjour,
+
+Votre organisation a les tâches suivantes dans eBau qui requièrent une attention particulière :
+
+- 0 tâches de contrôle en retard
+- 1 tâche de contrôle non lue
+- 0 tâches en retard
+
+http://camac-ng.local
+''',
+        [
+            'rfields@yahoo.com'
+        ],
+        [
+        ]
+    )
+]
+
+snapshots['test_sendreminders_caluma[False-True-False-False-1-False] 1'] = [
+    (
+        'Erinnerung an Aufgaben',
+        '''Guten Tag
+
+Ihre Organisation hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+
+- 0 überfällige Aufgaben
+- 1 ungelesene Aufgabe
+- 0 überfällige Controlling-Aufgaben
+
+http://camac-ng.local
+
+''',
+        [
+            'rfields@yahoo.com'
+        ],
+        [
+        ]
+    )
+]
+
+snapshots['test_sendreminders_caluma[False-False-True-False-0-True] 1'] = [
+]
+
+snapshots['test_sendreminders_caluma[False-False-True-False-0-False] 1'] = [
 ]

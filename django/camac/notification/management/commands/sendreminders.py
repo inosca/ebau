@@ -15,7 +15,8 @@ from camac.user.models import Service, User
 
 TEMPLATE_REMINDER_CIRCULATION = "05-meldung-fristuberschreitung-fachstelle"
 
-CALUMA_SUBJECT = "Erinnerung an Aufgaben / Rappel des tâches"
+CALUMA_SUBJECT_DE = "Erinnerung an Aufgaben"
+CALUMA_SUBJECT_FR = "Rappel des tâches"
 
 
 def get_task_trans(count, lang, controlling=False):
@@ -36,7 +37,7 @@ def get_task_trans(count, lang, controlling=False):
 def render_service_template(
     addressed_overdue, addressed_not_viewed, controlling_overdue
 ):
-    return f"""Guten Tag
+    text = f"""Guten Tag
 
 Ihre Organisation hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
 
@@ -46,6 +47,12 @@ Ihre Organisation hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötige
 
 {settings.INTERNAL_BASE_URL}
 
+"""
+
+    if settings.APPLICATION.get("IS_MULTILINGUAL", False):
+        text = (
+            text
+            + f"""
 *** version française ***
 
 Bonjour,
@@ -58,10 +65,13 @@ Votre organisation a les tâches suivantes dans eBau qui requièrent une attenti
 
 {settings.INTERNAL_BASE_URL}
 """
+        )
+
+    return text
 
 
 def render_user_template(addressed_overdue, addressed_not_viewed):
-    return f"""Guten Tag
+    text = f"""Guten Tag
 
 Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 
@@ -70,6 +80,11 @@ Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 
 {settings.INTERNAL_BASE_URL}
 
+"""
+    if settings.APPLICATION.get("IS_MULTILINGUAL", False):
+        text = (
+            text
+            + f"""
 *** version française ***
 
 Bonjour,
@@ -81,6 +96,9 @@ Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
 
 {settings.INTERNAL_BASE_URL}
 """
+        )
+
+    return text
 
 
 class Command(BaseCommand):
@@ -119,6 +137,10 @@ class Command(BaseCommand):
 
     def handle_caluma(self, *args, **options):
 
+        subject = CALUMA_SUBJECT_DE
+        if settings.APPLICATION.get("IS_MULTILINGUAL", False):
+            subject = subject + " / " + CALUMA_SUBJECT_FR
+
         is_overdue = Q(deadline__lte=date.today())
         is_not_viewed = Q(**{"meta__not-viewed": True})
 
@@ -151,7 +173,7 @@ class Command(BaseCommand):
             if not_viewed_items + overdue_items > 0:
                 emails.append(
                     mail.EmailMessage(
-                        CALUMA_SUBJECT,
+                        subject,
                         render_user_template(overdue_items, not_viewed_items),
                         settings.DEFAULT_FROM_EMAIL,
                         [user.email],
@@ -178,7 +200,7 @@ class Command(BaseCommand):
             if addressed_overdue + addressed_not_viewed + controlling_overdue > 0:
                 emails.append(
                     mail.EmailMessage(
-                        CALUMA_SUBJECT,
+                        subject,
                         render_service_template(
                             addressed_overdue, addressed_not_viewed, controlling_overdue
                         ),
