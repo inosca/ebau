@@ -105,7 +105,7 @@ export default Controller.extend({
           link: `instances.edit.${name}`,
           instance: this.get("model.instance.id"),
           editableTypes: this.get("model.meta.editable"),
-          isApplicant: this.get("model.meta.is-applicant"),
+          isApplicant: this.get("model.meta.access-type") === "applicant",
           name,
           title,
           questions,
@@ -136,10 +136,11 @@ export default Controller.extend({
               .filter((sub) => sub.get("name") !== mod.get("name")),
             mod,
           ]);
-        } else if (!this.get("model.meta.is-applicant")) {
-          if (mod.get("name") !== "gesuchsunterlagen") {
-            nav.push(mod);
-          }
+        } else if (
+          !this.get("model.meta.access-type") &&
+          mod.get("name") !== "gesuchsunterlagen"
+        ) {
+          nav.push(mod);
         } else {
           nav.push(mod);
         }
