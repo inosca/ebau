@@ -136,7 +136,7 @@ def set_assigned_user(sender, work_item, user, **kwargs):
 
 @on(post_complete_work_item)
 def notify_completed_work_item(sender, work_item, user, **kwargs):
-    if not work_item.meta.get("notify-completed", True):
+    if not work_item.meta.get("notify-completed", False):
         return
 
     # controlling services are notified
