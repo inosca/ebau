@@ -53,7 +53,7 @@ mutation CreateFlow4 {
     input: {
       workflow: "building-permit"
       tasks: ["start-circulation"]
-      next: "['circulation']|tasks"
+      next: "['circulation', 'additional-demand']|tasks"
     }
   ) {
     clientMutationId
@@ -102,6 +102,30 @@ mutation CreateFlow8 {
       workflow: "building-permit"
       tasks: ["reopen-circulation"]
       next: "['start-additional-circulation', 'start-decision']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow9 {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["additional-demand"]
+      next: "['submit-additional-demand']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow10 {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["submit-additional-demand"]
+      next: "['additional-demand']|tasks"
     }
   ) {
     clientMutationId
