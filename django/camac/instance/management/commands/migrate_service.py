@@ -70,6 +70,13 @@ class Command(BaseCommand):
             f'UPDATE "{table}" SET "{column}" = {target} WHERE "{column}" = {source};'
         )
 
+    def _get_workitem_queries(self, source, target):
+        return [
+            f"""UPDATE "caluma_workflow_workitem" SET "assigned_users" = '{{}}' WHERE "addressed_groups" = '{{{source}}}';""",
+            f"""UPDATE "caluma_workflow_workitem" SET "addressed_groups" = '{{{target}}}' WHERE "addressed_groups" = '{{{source}}}';""",
+            f"""UPDATE "caluma_workflow_workitem" SET "controlling_groups" = '{{{target}}}' WHERE "controlling_groups" = '{{{source}}}';""",
+        ]
+
     def _filter(self, data):
         """Only change tables that handle `data`, not `configuration`."""
         config_tables = [
@@ -88,6 +95,7 @@ class Command(BaseCommand):
                     queries.append(
                         self._get_query(table, column, source, options["target"])
                     )
+            queries.extend(self._get_workitem_queries(source, options["target"]))
 
         if options["disable"]:
             queries.append("\n-- disable old services and groups")
