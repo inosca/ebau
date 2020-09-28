@@ -32,6 +32,7 @@ from camac.instance import serializers
     ],
 )
 def test_instance_list(
+    application_settings,
     admin_client,
     instance,
     activation,
@@ -44,6 +45,11 @@ def test_instance_list(
     circulation_factory,
     activation_factory,
 ):
+    application_settings["INSTANCE_ACCESS_TYPE_ROLES"] = {
+        "municipality": ["Municipality"],
+        "service": ["Service"],
+    }
+
     url = reverse("instance-list")
 
     # verify that two locations may be assigned to group
