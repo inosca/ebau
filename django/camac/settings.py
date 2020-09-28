@@ -221,7 +221,7 @@ APPLICATIONS = {
                 "check-statement",
                 "revise-statement",
             ],
-            "SUBMIT_TASK": "submit",
+            "SUBMIT_TASKS": ["submit", "submit-additional-demand"],
             "PRE_COMPLETE": {
                 "complete-check": {"cancel": ["reject-form"]},
                 "reject-form": {"cancel": ["complete-check"]},
@@ -230,7 +230,7 @@ APPLICATIONS = {
                 },
                 "start-decision": {
                     "skip": ["check-statements"],
-                    "cancel": ["start-additional-circulation"],
+                    "cancel": ["start-additional-circulation", "additional-demand"],
                 },
                 "reopen-circulation": {"cancel": ["make-decision"]},
                 "make-decision": {
@@ -305,7 +305,7 @@ APPLICATIONS = {
             "CIRCULATION_FORM": "circulation",
             "ACTIVATION_INIT_TASK": "activation",
             "ACTIVATION_TASKS": ["activation"],
-            "SUBMIT_TASK": "submit",
+            "SUBMIT_TASKS": ["submit"],
             "REPORT_TASK": "sb1",
             "FINALIZE_TASK": "sb2",
             "COPY_PAPER_ANSWER_TO": ["nfd", "sb1", "sb2"],
