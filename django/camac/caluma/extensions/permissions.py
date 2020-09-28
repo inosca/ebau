@@ -37,6 +37,10 @@ def is_created_by_service(work_item, service_id):
     return work_item.created_by_group == str(service_id)
 
 
+def is_addressed_to_applicant(work_item):
+    return len(work_item.addressed_groups) == 0
+
+
 def get_current_service_id(info):
     return CamacRequest(info).request.group.service_id
 
@@ -97,7 +101,9 @@ class CustomPermission(BasePermission):
             # Always allow for support group since our PHP action uses that group
             return True
 
-        return is_addressed_to_service(work_item, get_current_service_id(info))
+        return is_addressed_to_service(
+            work_item, get_current_service_id(info)
+        ) or is_addressed_to_applicant(work_item)
 
     # Document
     @permission_for(SaveDocument)
