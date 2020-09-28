@@ -292,7 +292,12 @@ class CalumaApi:
                     created_by_user=user.username,
                     created_by_group=user.group,
                     name=activation_task.name,
-                    meta={"activation-id": activation.pk, "not-viewed": True},
+                    meta={
+                        "activation-id": activation.pk,
+                        "not-viewed": True,
+                        "notify-completed": False,
+                        "notify-deadline": True,
+                    },
                     **update_data,
                 )
 
