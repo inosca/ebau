@@ -15,9 +15,6 @@ from camac.user.models import Service, User
 
 TEMPLATE_REMINDER_CIRCULATION = "05-meldung-fristuberschreitung-fachstelle"
 
-CALUMA_SUBJECT_DE = "Erinnerung an Aufgaben"
-CALUMA_SUBJECT_FR = "Rappel des tâches"
-
 
 def get_task_trans(count, lang, controlling=False):
     if controlling:
@@ -46,7 +43,6 @@ Ihre Organisation hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötige
 - {controlling_overdue} überfällige {get_task_trans(controlling_overdue, "de", True)}
 
 {settings.INTERNAL_BASE_URL}
-
 """
 
     if settings.APPLICATION.get("IS_MULTILINGUAL", False):
@@ -79,7 +75,6 @@ Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 - {addressed_not_viewed} ungelesene {get_task_trans(addressed_not_viewed, "de")}
 
 {settings.INTERNAL_BASE_URL}
-
 """
     if settings.APPLICATION.get("IS_MULTILINGUAL", False):
         text = (
@@ -137,9 +132,9 @@ class Command(BaseCommand):
 
     def handle_caluma(self, *args, **options):
 
-        subject = CALUMA_SUBJECT_DE
+        subject = "Erinnerung an Aufgaben"
         if settings.APPLICATION.get("IS_MULTILINGUAL", False):
-            subject = subject + " / " + CALUMA_SUBJECT_FR
+            subject = subject + " / Rappel des tâches"
 
         is_overdue = Q(deadline__lte=date.today())
         is_not_viewed = Q(**{"meta__not-viewed": True})
