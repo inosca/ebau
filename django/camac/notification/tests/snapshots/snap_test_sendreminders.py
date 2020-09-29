@@ -19,7 +19,6 @@ Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 
 http://camac-ng.local
 
-
 *** version française ***
 
 Bonjour,
@@ -48,7 +47,6 @@ Ihre Organisation hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötige
 - 0 überfällige Controlling-Aufgaben
 
 http://camac-ng.local
-
 
 *** version française ***
 
@@ -79,7 +77,6 @@ Ihre Organisation hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötige
 - 1 überfällige Controlling-Aufgabe
 
 http://camac-ng.local
-
 
 *** version française ***
 
@@ -112,7 +109,6 @@ Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 - 1 ungelesene Aufgabe
 
 http://camac-ng.local
-
 ''',
         [
             'cmiller@hotmail.com'
@@ -131,7 +127,6 @@ Ihre Organisation hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötige
 - 0 überfällige Controlling-Aufgaben
 
 http://camac-ng.local
-
 ''',
         [
             'rfields@yahoo.com'
@@ -150,7 +145,6 @@ Ihre Organisation hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötige
 - 1 überfällige Controlling-Aufgabe
 
 http://camac-ng.local
-
 ''',
         [
             'stonecaleb@yahoo.com'
@@ -171,7 +165,6 @@ Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 - 1 ungelesene Aufgabe
 
 http://camac-ng.local
-
 
 *** version française ***
 
@@ -201,7 +194,6 @@ Ihre Organisation hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötige
 - 0 überfällige Controlling-Aufgaben
 
 http://camac-ng.local
-
 
 *** version française ***
 
@@ -234,7 +226,6 @@ Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 - 1 ungelesene Aufgabe
 
 http://camac-ng.local
-
 ''',
         [
             'cmiller@hotmail.com'
@@ -253,7 +244,6 @@ Ihre Organisation hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötige
 - 0 überfällige Controlling-Aufgaben
 
 http://camac-ng.local
-
 ''',
         [
             'rfields@yahoo.com'
@@ -274,7 +264,6 @@ Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 - 0 ungelesene Aufgaben
 
 http://camac-ng.local
-
 
 *** version française ***
 
@@ -304,7 +293,6 @@ Ihre Organisation hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötige
 - 0 überfällige Controlling-Aufgaben
 
 http://camac-ng.local
-
 
 *** version française ***
 
@@ -337,7 +325,6 @@ Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 - 0 ungelesene Aufgaben
 
 http://camac-ng.local
-
 ''',
         [
             'cmiller@hotmail.com'
@@ -356,7 +343,6 @@ Ihre Organisation hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötige
 - 0 überfällige Controlling-Aufgaben
 
 http://camac-ng.local
-
 ''',
         [
             'rfields@yahoo.com'
@@ -377,7 +363,6 @@ Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 - 1 ungelesene Aufgabe
 
 http://camac-ng.local
-
 
 *** version française ***
 
@@ -407,7 +392,6 @@ Ihre Organisation hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötige
 - 0 überfällige Controlling-Aufgaben
 
 http://camac-ng.local
-
 
 *** version française ***
 
@@ -440,7 +424,6 @@ Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 - 1 ungelesene Aufgabe
 
 http://camac-ng.local
-
 ''',
         [
             'cmiller@hotmail.com'
@@ -459,7 +442,6 @@ Ihre Organisation hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötige
 - 0 überfällige Controlling-Aufgaben
 
 http://camac-ng.local
-
 ''',
         [
             'rfields@yahoo.com'
@@ -481,7 +463,6 @@ Ihre Organisation hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötige
 - 0 überfällige Controlling-Aufgaben
 
 http://camac-ng.local
-
 
 *** version française ***
 
@@ -515,7 +496,6 @@ Ihre Organisation hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötige
 - 0 überfällige Controlling-Aufgaben
 
 http://camac-ng.local
-
 ''',
         [
             'rfields@yahoo.com'
