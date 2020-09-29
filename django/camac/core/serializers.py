@@ -2,7 +2,6 @@ from caluma.caluma_workflow import api as workflow_api, models as workflow_model
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import transaction
-from django.utils import timezone
 from rest_framework import exceptions
 from rest_framework.validators import UniqueTogetherValidator
 from rest_framework_json_api import relations, serializers
@@ -55,9 +54,6 @@ class PublicationEntrySerializer(serializers.ModelSerializer):
     @transaction.atomic
     def update(self, instance, validated_data):
         if not instance.is_published and validated_data["is_published"]:
-            # remove the microseconds because this date is displayed in camac and
-            # camac can't handle microseconds..
-            camac_now = timezone.now().replace(microsecond=0)
 
             models.WorkflowEntry.objects.create(
                 group=instance.instance.group.pk,
@@ -65,7 +61,9 @@ class PublicationEntrySerializer(serializers.ModelSerializer):
                     "PUBLICATION"
                 ),
                 instance_id=instance.instance.pk,
-                workflow_date=camac_now,
+                # remove the microseconds because this date is displayed in camac and
+                # camac can't handle microseconds..
+                workflow_date=instance.publication_date.replace(microsecond=0),
             )
 
             work_item = workflow_models.WorkItem.objects.filter(
