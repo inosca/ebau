@@ -97,12 +97,15 @@ services:
     depends_on:
       - db
       - mailhog
-    image: acr.run/camac-ng/keycloak-uri/keycloak:3.4.3.Final_theme-v0.2.0-SNAPSHOT-uri
+    image: acr.run/camac-ng/keycloak-uri/keycloak:11.0.2_theme-v0.3.0
     environment:
-      - POSTGRES_PORT_5432_TCP_ADDR=db
-      - POSTGRES_USER=camac
-      - POSTGRES_DATABASE=${APPLICATION}
+      - DB_VENDOR=postgres
+      - DB_ADDR=db
+      - DB_USER=camac
+      - DB_DATABASE=${APPLICATION}
+      - DB_SCHEMA=keycloak
       - KEYCLOAK_USER=admin
+      - PROXY_ADDRESS_FORWARDING=true
 
 volumes:
   pgdata:
