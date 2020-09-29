@@ -5,7 +5,7 @@
     <ns2:messageId>f973e261-8432-4b18-a52c-258750af1cd5</ns2:messageId>
     <ns2:messageType>5200030</ns2:messageType>
     <ns2:sendingApplication>
-      <ns2:manufacturer>Adfinis Sygroup AG</ns2:manufacturer>
+      <ns2:manufacturer>Adfinis AG</ns2:manufacturer>
       <ns2:product>camac</ns2:product>
       <ns2:productVersion>0.0.0</ns2:productVersion>
     </ns2:sendingApplication>
