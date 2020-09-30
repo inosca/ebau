@@ -22,7 +22,12 @@ def fix_cases(apps, schema_editor):
 
     for instance in instances:
         # this uses imported models because we need to use the caluma API
-        case = Case.objects.get(**{"meta__camac-instance-id": instance.pk})
+        try:
+            case = Case.objects.get(**{"meta__camac-instance-id": instance.pk})
+        except Case.DoesNotExist:
+            log.warning(f"No case for instance {instance.pk} found -- skipping")
+            continue
+
         user = BaseUser()
 
         instance_service = instance.instance_services.filter(
