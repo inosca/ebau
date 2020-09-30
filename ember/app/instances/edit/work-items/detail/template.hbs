@@ -21,8 +21,10 @@
   <dd>{{this.workItem.status}}</dd>
 </dl>
 
-<button 
-  {{on "click" (perform this.workItem.completeWorkItem)}}
-  class="uk-button uk-button-primary"
-  type="button"
->Aufgabe abschliessen</button>
+{{#if (eq this.workItem.task.slug "create-manual-workitems")}}
+  <button
+    {{on "click" (perform this.workItem.completeWorkItem)}}
+    class="uk-button uk-button-primary"
+    type="button"
+  >Aufgabe abschliessen</button>
+{{/if}}

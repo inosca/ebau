@@ -24,10 +24,12 @@
         </td>
         <td>{{workItem.status}}</td>
         <td>
-          <button class="uk-icon-button" uk-icon="more-vertical" type="button"></button>
-          <div uk-dropdown="mode: click">
-            <span {{on "click" (perform workItem.completeWorkItem)}} role="button" class="pointer">Aufgabe abschliessen</span>
-          </div>
+          {{#if (eq workItem.task.slug "create-manual-workitems")}}
+            <button class="uk-icon-button" uk-icon="more-vertical" type="button"></button>
+            <div uk-dropdown="mode: click">
+              <span {{on "click" (perform workItem.completeWorkItem)}} role="button" class="pointer">Aufgabe abschliessen</span>
+            </div>
+          {{/if}}
         </td>
       </tr>
     {{else}}
