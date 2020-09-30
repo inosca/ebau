@@ -15,15 +15,18 @@ from caluma.caluma_workflow.schema import (
     CancelWorkItem,
     CompleteWorkItem,
     CreateWorkItem,
+    ResumeCase,
     SaveCase,
     SaveWorkItem,
     SkipWorkItem,
+    SuspendCase,
 )
 from django.conf import settings
 from django.db.models import Q
 
 from camac.caluma.api import CamacRequest
 from camac.constants.kt_bern import DASHBOARD_FORM_SLUG
+from camac.instance.models import Instance
 from camac.utils import build_url, headers
 
 log = getLogger()
@@ -69,6 +72,20 @@ class CustomPermission(BasePermission):
     def has_permission_for_save_case(self, mutation, info, case=None):
         # Visibilty handles whether the user has access to the case
         return True
+
+    @permission_for(SuspendCase)
+    @permission_for(ResumeCase)
+    @object_permission_for(ResumeCase)
+    @object_permission_for(SuspendCase)
+    def has_permission_for_suspend_resume_case(self, mutation, info, case=None):
+        if not case:
+            return True
+
+        instance = Instance.objects.get(pk=case.family.meta.get("camac-instance-id"))
+
+        return instance.responsible_service(
+            filter_type="municipality"
+        ).pk == get_current_service_id(info)
 
     # Work Item
     @permission_for(CreateWorkItem)
