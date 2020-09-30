@@ -19,7 +19,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
         },
       });
 
-      this.notification.danger("Aufgabe wurde abgeschlossen")
+      this.notification.success("Aufgabe wurde abgeschlossen");
       return true;
     } catch (error) {
       this.notification.danger("Aufgabe konnte nicht abgeschlossen werden");

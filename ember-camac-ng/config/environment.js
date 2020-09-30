@@ -26,7 +26,9 @@ module.exports = function(environment) {
     },
 
     APP: {
-      rootElement: "#ember-camac-ng"
+      rootElement: "#ember-camac-ng",
+
+      allowApplicantManualWorkItem: ["kt_schwyz"]
     }
   };
 
