@@ -13,7 +13,6 @@ export default class InstancesEditWorkItemsIndexController extends Controller {
   @dropTask
   *fetchWorkItems() {
     const filter = [
-      /*
       { hasDeadline: true },
       {
         rootCaseMetaValue: [
@@ -21,7 +20,6 @@ export default class InstancesEditWorkItemsIndexController extends Controller {
         ],
       },
       { addressedGroups: ["applicant"] },
-      */
     ];
 
     yield this.workItemsQuery.fetch({

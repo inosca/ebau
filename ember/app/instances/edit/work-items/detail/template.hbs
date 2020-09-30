@@ -21,7 +21,7 @@
   <dd>{{this.workItem.status}}</dd>
 </dl>
 
-{{#if (eq this.workItem.task.slug "create-manual-workitems")}}
+{{#if this.workItem.meta.is-manually-completable}}
   <button
     {{on "click" (perform this.workItem.completeWorkItem)}}
     class="uk-button uk-button-primary"

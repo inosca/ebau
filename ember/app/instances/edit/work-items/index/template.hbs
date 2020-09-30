@@ -24,7 +24,7 @@
         </td>
         <td>{{workItem.status}}</td>
         <td>
-          {{#if (eq workItem.task.slug "create-manual-workitems")}}
+          {{#if this.workItem.meta.is-manually-completable}}
             <button class="uk-icon-button" uk-icon="more-vertical" type="button"></button>
             <div uk-dropdown="mode: click">
               <span {{on "click" (perform workItem.completeWorkItem)}} role="button" class="pointer">Aufgabe abschliessen</span>
