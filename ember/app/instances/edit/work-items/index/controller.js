@@ -13,13 +13,15 @@ export default class InstancesEditWorkItemsIndexController extends Controller {
   @dropTask
   *fetchWorkItems() {
     const filter = [
-      // { hasDeadline: true },
+      /*
+      { hasDeadline: true },
       {
         rootCaseMetaValue: [
           { key: "camac-instance-id", value: this.model.instance.id },
         ],
       },
       { addressedGroups: ["applicant"] },
+      */
     ];
 
     yield this.workItemsQuery.fetch({
