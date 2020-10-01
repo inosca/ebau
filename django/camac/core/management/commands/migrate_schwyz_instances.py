@@ -13,7 +13,14 @@ from camac.instance.models import Instance, InstanceResponsibility
 
 
 def create_work_item_from_task(
-    case, task_slug, meta={}, child_case=None, context={}, deadline=None, instance=None,
+    case,
+    task_slug,
+    meta={},
+    child_case=None,
+    context={},
+    deadline=None,
+    instance=None,
+    applicant=False,
 ):
     task = Task.objects.get(pk=task_slug)
 
@@ -25,11 +32,8 @@ def create_work_item_from_task(
         **meta,
     }
 
-    deadline = (
-        deadline
-        or task.lead_time
-        and (timezone.now() + timedelta(seconds=task.lead_time))
-    )
+    if not deadline and task.lead_time:
+        deadline = timezone.now() + timedelta(seconds=task.lead_time)
 
     addressed_groups = get_jexl_groups(
         task.address_groups, task, case, BaseUser(), None, context
@@ -44,6 +48,9 @@ def create_work_item_from_task(
             responsible_user = [responsibility.user.username]
             if responsibility.service.pk not in addressed_groups:
                 addressed_groups.append(responsibility.service.pk)
+
+    if applicant:
+        addressed_groups.append("applicant")
 
     return WorkItem.objects.create(
         case=case,
@@ -178,6 +185,11 @@ class Command(BaseCommand):
                 create_work_item_from_task(case, "make-decision", instance=instance)
                 create_work_item_from_task(
                     case, "reopen-circulation", instance=instance
+                )
+                create_work_item_from_task(case, "create-manual-workitems")
+            elif instance_state == "nfd":
+                create_work_item_from_task(
+                    case, "submit-additional-demand", applicant=True
                 )
                 create_work_item_from_task(case, "create-manual-workitems")
 
