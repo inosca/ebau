@@ -71,6 +71,31 @@ mutation CreatePublicationTask {
   }
 }
 
+mutation CreateAdditionalDemandTask {
+  saveSimpleTask(
+    input: {
+      slug: "additional-demand"
+      name: "Nachforderung"
+      addressGroups: "['municipality']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateSubmitAdditionalDemandTask {
+  saveSimpleTask(
+    input: {
+      slug: "submit-additional-demand"
+      name: "Nachforderung einreichen"
+      addressGroups: "['applicant']|groups"
+      controlGroups: "['municipality']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
 mutation CreateCirculationTask {
   saveSimpleTask(
     input: {
