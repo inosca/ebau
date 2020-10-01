@@ -226,8 +226,12 @@ APPLICATIONS = {
             "uebrige": "PU",
         },
         "INSTANCE_ACCESS_TYPE_ROLES": {
-            "municipaity": ["Gemeinde", "Gemeinde Sachbearbeiter"],
-            "service": ["Fachstelle Leitbehörde"],
+            "municipality": [
+                "Gemeinde",
+                "Gemeinde Sachbearbeiter",
+                "Fachstelle Leitbehörde",
+            ],
+            "service": ["Fachstelle", "Fachstelle Sachbearbeiter"],
         },
         # please also update django/Makefile command when changing apps here
         "SEQUENCE_NAMESPACE_APPS": [],
