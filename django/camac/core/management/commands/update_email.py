@@ -49,6 +49,8 @@ class Command(BaseCommand):
         for user, row in zip(users, rows):
             if row.email:
                 user.email = row.email
+                if row.disabled:
+                    user.email = "disabled-" + row.email
             user.disabled = row.disabled
             user.save()
             print(row.username)
