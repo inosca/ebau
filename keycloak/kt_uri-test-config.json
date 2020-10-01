@@ -1,6 +1,7 @@
 [ {
   "id" : "urec",
   "realm" : "urec",
+  "displayNameHtml" : "<div class=\"urec-logo\"></div><div class=\"ur-logo\"></div>",
   "notBefore" : 0,
   "revokeRefreshToken" : false,
   "refreshTokenMaxReuse" : 0,
