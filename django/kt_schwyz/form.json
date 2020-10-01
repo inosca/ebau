@@ -4477,8 +4477,8 @@
       "config": {}
     },
     "dokument-freigegeben": {
-      "label": "Freigegebene Unterlagen",
-      "hint": "Unter dem Titel *Freigegebene Unterlagen* finden Sie alle Dokumente, welche Ihnen durch die zuständige Behörde elektronisch zugestellt worden sind. Durch Klicken auf das \"Wolken-Symbol\" können Sie das jeweilige Dokument herunterladen.",
+      "label": "Postfach",
+      "hint": "Unter dem Titel *Postfach* finden Sie alle Dokumente, welche Ihnen durch die zuständige Behörde elektronisch zugestellt worden sind. Durch Klicken auf das \"Wolken-Symbol\" können Sie das jeweilige Dokument herunterladen.",
       "type": "document",
       "required": false,
       "active-expression": "state != 'new'",
