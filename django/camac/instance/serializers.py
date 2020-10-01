@@ -802,7 +802,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
         work_item = workflow_models.WorkItem.objects.filter(
             **{
-                "task_id": settings.APPLICATION["CALUMA"]["SUBMIT_TASK"],
+                "task_id__in": settings.APPLICATION["CALUMA"]["SUBMIT_TASKS"],
                 "status": workflow_models.WorkItem.STATUS_READY,
                 "case__meta__camac-instance-id": self.instance.pk,
             }
