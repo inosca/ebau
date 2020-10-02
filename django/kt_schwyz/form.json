@@ -793,7 +793,6 @@
         "info-anlagen-mit-erheblichen-larmemissionen",
         "info-bodenbelastungen",
         "info-200m3-bauabfalle",
-        "info-landwirtschaft-veranderung-tierbestand",
         "info-landwirtschaft-formular-tierbestand",
         "info-landwirtschaft-grundriss-stall",
         "info-nlbuaab",
@@ -6282,15 +6281,6 @@
       "type": "checkbox",
       "required": false,
       "active-expression": "'200m3-bauabfalle'|value == 'Ja'",
-      "config": {
-        "options": ["Vorhanden"]
-      }
-    },
-    "info-landwirtschaft-veranderung-tierbestand": {
-      "label": "Tabelle Tierbestand ausfüllen und dem Gesuch beilegen.",
-      "type": "checkbox",
-      "required": false,
-      "active-expression": "'landwirtschaft-veranderung-tierbestand'|value == 'Ja'",
       "config": {
         "options": ["Vorhanden"]
       }
