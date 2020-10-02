@@ -6,10 +6,15 @@ import { dropTask, lastValue } from "ember-concurrency-decorators";
 
 export default class JournalController extends Controller {
   @service store;
+  @service shoebox;
 
   @tracked newEntry;
   @tracked newEntries = [];
   editText = "";
+
+  get readOnly() {
+    return this.shoebox.content.readOnly || false;
+  }
 
   get entries() {
     return [...(this.fetchedEntries || []).toArray(), ...this.newEntries]
@@ -30,6 +35,9 @@ export default class JournalController extends Controller {
 
   @dropTask
   *saveEntry(entry) {
+    if (this.readOnly) {
+      return;
+    }
     yield entry.save();
 
     if (this.newEntry) {
@@ -42,6 +50,9 @@ export default class JournalController extends Controller {
 
   @action
   addNewEntry() {
+    if (this.readOnly) {
+      return;
+    }
     this.newEntry = this.store.createRecord("journal-entry", {
       instance: this.instance
     });
