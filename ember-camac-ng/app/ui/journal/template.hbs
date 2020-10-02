@@ -29,14 +29,16 @@
     </button>
   </div>
 {{else}}
-  <button
-    type="button"
-    class="button buttonstyle btn success"
-    data-test-new
-    {{on "click" this.addNewEntry}}
-  >
-    {{t "journal.create"}}
-  </button>
+  {{#unless this.readOnly}}
+    <button
+      type="button"
+      class="button buttonstyle btn success"
+      data-test-new
+      {{on "click" this.addNewEntry}}
+    >
+      {{t "journal.create"}}
+    </button>
+  {{/unless}}
 {{/if}}
 
 <div class="journal"  {{did-insert (perform this.fetchEntries)}}>
@@ -73,28 +75,32 @@
               >
                 <FaIcon @icon="ban" />
               </button>
+              {{#unless this.readOnly}}
+                <button
+                  class="journal__edit__button"
+                  type="button"
+                  title={{t "global.save"}}
+                  data-test-edit-save
+                  {{on
+                    "click"
+                    (queue (perform this.saveEntry entry) (toggle "edit" entry))
+                  }}
+                >
+                  <FaIcon @icon="save" />
+                </button>
+              {{/unless}}
+            </div>
+          {{else}}
+            {{#unless this.readOnly}}
               <button
                 class="journal__edit__button"
                 type="button"
-                title={{t "global.save"}}
-                data-test-edit-save
-                {{on
-                  "click"
-                  (queue (perform this.saveEntry entry) (toggle "edit" entry))
-                }}
+                title={{t "journal.edit"}}
+                {{on "click" (toggle "edit" entry)}}
               >
-                <FaIcon @icon="save" />
+                <FaIcon @icon="edit" />
               </button>
-            </div>
-          {{else}}
-            <button
-              class="journal__edit__button"
-              type="button"
-              title={{t "journal.edit"}}
-              {{on "click" (toggle "edit" entry)}}
-            >
-              <FaIcon @icon="edit" />
-            </button>
+            {{/unless}}
           {{/if}}
         </legend>
         <div class="form journal__body">
