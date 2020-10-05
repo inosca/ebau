@@ -21,13 +21,7 @@ from camac.constants.kt_bern import (
     SERVICE_GROUP_BAUKONTROLLE,
     SERVICE_GROUP_RSTA,
 )
-from camac.core.models import (
-    Activation,
-    Circulation,
-    DocxDecision,
-    InstanceService,
-    Notice,
-)
+from camac.core.models import Activation, DocxDecision, InstanceService, Notice
 from camac.echbern.tests.utils import xml_data
 from camac.instance.models import Instance
 
@@ -511,7 +505,13 @@ def test_notice_kind_of_proceedings_send_handler(
         state = instance_state_factory(pk=INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT)
     ech_instance.instance_state = state
     ech_instance.save()
-    ech_instance_case()
+
+    case = ech_instance_case()
+
+    for task_id in ["submit", "ebau-number"]:
+        workflow_api.skip_work_item(
+            work_item=case.work_items.get(task_id=task_id), user=BaseUser()
+        )
 
     instance_state_factory(pk=INSTANCE_STATE_ZIRKULATION)
     instance_resource_factory(pk=INSTANCE_STATE_ZIRKULATION)
@@ -530,7 +530,10 @@ def test_notice_kind_of_proceedings_send_handler(
 
     if has_permission:
         handler.apply()
-        assert Circulation.objects.count() == 1
+        assert ech_instance.circulations.exists()
+        assert ech_instance.circulations.first().service == ech_instance.responsible_service(
+            filter_type="municipality"
+        )
         ech_instance.refresh_from_db()
         assert ech_instance.instance_state.pk == INSTANCE_STATE_ZIRKULATION
 
