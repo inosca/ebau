@@ -951,11 +951,15 @@ def test_first_available_answer(
     parzelle_questions = camac_question_factory.create_batch(3)
     gesuchsteller_questions = camac_question_factory.create_batch(2)
     q_vorhaben = camac_question_factory()
+    q_proposal_description = camac_question_factory()
     q_vorhaben.answerlist.create(name="foo", value=55, sort=1)
     q_vorhaben.answerlist.create(name="bar", value=99, sort=2)
 
     ans_vorhaben = camac_answer_factory(
         answer='["55","99"]', instance=instance, question=q_vorhaben
+    )
+    ans_proposal_description = camac_answer_factory(
+        answer="description", instance=instance, question=q_proposal_description
     )
     ans_parzelle = camac_answer_factory(
         answer="asdf", question=random.choice(parzelle_questions), instance=instance
@@ -963,8 +967,18 @@ def test_first_available_answer(
     # we don't do ans_gesuchsteller, just to see if "no-answer" fallback works
 
     mocker.patch(
-        "camac.constants.kt_uri.CQI_FOR_VORHABEN",
+        "camac.constants.kt_uri.CQI_FOR_PROPOSAL",
         [(ans_vorhaben.chapter_id, ans_vorhaben.question_id, ans_vorhaben.item)],
+    )
+    mocker.patch(
+        "camac.constants.kt_uri.CQI_FOR_PROPOSAL_DESCRIPTION",
+        [
+            (
+                ans_proposal_description.chapter_id,
+                ans_proposal_description.question_id,
+                ans_proposal_description.item,
+            )
+        ],
     )
     mocker.patch(
         "camac.constants.kt_uri.CQI_FOR_PARZELLE",
@@ -996,7 +1010,7 @@ def test_first_available_answer(
 
     assert (
         mailoutbox[0].body
-        == f"{settings.EMAIL_PREFIX_BODY}parz={ans_parzelle.answer}, gs=, vorhaben=foo; bar"
+        == f"{settings.EMAIL_PREFIX_BODY}parz={ans_parzelle.answer}, gs=, vorhaben=foo, bar, description"
     )
 
 

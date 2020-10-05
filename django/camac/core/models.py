@@ -797,7 +797,7 @@ class Answer(models.Model):
                         value__in=option_values
                     )
                 }
-                return "; ".join(option_labels.get(val, "") for val in option_values)
+                return ", ".join(option_labels.get(val, "") for val in option_values)
             else:
                 return ans.answer
 
