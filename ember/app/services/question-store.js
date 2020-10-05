@@ -12,8 +12,6 @@ import computedTask from "citizen-portal/lib/computed-task";
 import _validations from "citizen-portal/questions/validations";
 import { task, timeout } from "ember-concurrency";
 import jexl from "jexl";
-import Lexer from "jexl/lib/Lexer";
-import Parser from "jexl/lib/parser/Parser";
 
 const traverseTransforms = function* (tree) {
   for (const node of Object.values(tree)) {
@@ -21,8 +19,8 @@ const traverseTransforms = function* (tree) {
       yield* traverseTransforms(node);
     }
   }
-  if (tree.type && tree.type === "Transform") {
-    yield { name: tree.name, subject: tree.subject, args: tree.args };
+  if (tree.type === "FunctionCall" && tree.pool === "transforms") {
+    yield { name: tree.name, args: tree.args };
   }
 };
 
@@ -83,11 +81,7 @@ const Question = EmberObject.extend({
       return [];
     }
 
-    const parser = new Parser(this.jexl._grammar);
-
-    parser.addTokens(new Lexer(this.jexl._grammar).tokenize(expression));
-
-    return parser.complete();
+    return this.jexl.createExpression(expression)._getAst();
   }),
 
   _relatedQuestionNames: computed("_expressionAST", function () {
@@ -95,7 +89,7 @@ const Question = EmberObject.extend({
       ...new Set(
         getTransforms(this._expressionAST)
           .filter(({ name }) => name === "value")
-          .map(({ subject: { value } }) => value)
+          .map((transform) => transform.args[0].value)
       ),
     ];
   }),
