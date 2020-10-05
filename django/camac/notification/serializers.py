@@ -115,6 +115,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
     vorhaben = serializers.SerializerMethodField()
     parzelle = serializers.SerializerMethodField()
+    street = serializers.SerializerMethodField()
     gesuchsteller = serializers.SerializerMethodField()
 
     # TODO: these is currently bern specific, as it depends on instance state
@@ -172,19 +173,37 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return ""
 
     def get_vorhaben(self, instance):
-        return self._get_first_available_answer(
-            instance, uri_constants.CQI_FOR_VORHABEN
+        proposal = self._get_first_available_answer(
+            instance, uri_constants.CQI_FOR_PROPOSAL
         )
+        description = self._get_first_available_answer(
+            instance, uri_constants.CQI_FOR_PROPOSAL_DESCRIPTION
+        )
+        return ", ".join(filter(None, [proposal, description]))
 
     def get_parzelle(self, instance):
         return self._get_first_available_answer(
             instance, uri_constants.CQI_FOR_PARZELLE
         )
 
+    def get_street(self, instance):
+        return self._get_first_available_answer(instance, uri_constants.CQI_FOR_STREET)
+
     def get_gesuchsteller(self, instance):
-        return self._get_first_available_answer(
-            instance, uri_constants.CQI_FOR_GESUCHSTELLER
+        organisation = self._get_first_available_answer(
+            instance, uri_constants.CQI_FOR_APPLICANT_ORGANISATION
         )
+        name = self._get_first_available_answer(
+            instance, uri_constants.CQI_FOR_APPLICANT_NAME
+        )
+        street = self._get_first_available_answer(
+            instance, uri_constants.CQI_FOR_APPLICANT_STREET
+        )
+        city = self._get_first_available_answer(
+            instance, uri_constants.CQI_FOR_APPLICANT_ZIP_CITY
+        )
+
+        return ", ".join(filter(None, [organisation, name, street, city]))
 
     def get_activation(self, instance):
         if not hasattr(self, "activation"):
