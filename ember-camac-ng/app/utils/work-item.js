@@ -32,6 +32,6 @@ export default function getProcessData(workItems) {
   return {
     instanceIds: instanceIds.filter(Boolean),
     usernames: usernames.filter(Boolean),
-    serviceIds: serviceIds.filter(Boolean)
+    serviceIds: serviceIds.filter(s => parseInt(s))
   };
 }
