@@ -398,6 +398,7 @@ class TaskSendHandler(BaseSendHandler):
                 pk=INSTANCE_STATE_ZIRKULATION
             )
             circulation = Circulation.objects.create(
+                service=self.instance.responsible_service(filter_type="municipality"),
                 instance=self.instance,
                 instance_resource_id=instance_resource.pk,
                 name=trunc(timezone.now().timestamp()),
