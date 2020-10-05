@@ -36,6 +36,22 @@ input[type="number"] {
   white-space: pre-line;
 }
 
+.title-card {
+  margin-top: 100px;
+
+  .title-card-text {
+    white-space: pre-line;
+    line-height: 1.5;
+    margin-top: 5px
+  }
+}
+
 .white-space-nowrap {
   white-space: nowrap;
 }
+
+.border-left-red {
+  border-left: 3px solid #e3001b;
+}
+
+@import "ember-power-select";
