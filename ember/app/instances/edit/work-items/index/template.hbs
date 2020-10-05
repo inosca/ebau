@@ -1,0 +1,39 @@
+<table {{did-insert (perform this.fetchWorkItems)}} class="uk-table uk-table-striped uk-margin-remove uk-table-small uk-table-responsive uk-table-middle">
+  <thead>
+    <th>Aufgabe</th>
+    <th>Frist</th>
+    <th>Status</th>
+    <th></th>
+  </thead>
+  <tbody>
+    {{#each this.workItemsQuery.value as |workItem|}}
+      <tr>
+        <td><LinkTo @route="instances.edit.work-items.detail" @model={{workItem}}>{{workItem.name}}</LinkTo></td>
+        <td>
+          {{if workItem.deadine 
+            (format-date
+              workItem.deadine
+              day="2-digit"
+              month="2-digit"
+              year="numeric"
+              hour="2-digit"
+              minute="2-digit"
+              hour12=false) 
+            "-"
+          }}
+        </td>
+        <td>{{workItem.status}}</td>
+        <td>
+          {{#if this.workItem.meta.is-manually-completable}}
+            <button class="uk-icon-button" uk-icon="more-vertical" type="button"></button>
+            <div uk-dropdown="mode: click">
+              <span {{on "click" (perform workItem.completeWorkItem)}} role="button" class="pointer">Aufgabe abschliessen</span>
+            </div>
+          {{/if}}
+        </td>
+      </tr>
+    {{else}}
+      <tr><td colspan="4">Keine Aufgaben gefunden</td></tr>
+    {{/each}}
+  </tbody>
+</table>

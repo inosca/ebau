@@ -78,6 +78,9 @@ Router.map(function () {
         this.route("involvierte-personen");
         this.route("freigegebene-unterlagen");
         this.route("publikationsdokumente");
+        this.route("work-items", { path: "/aufgaben" }, function () {
+          this.route("detail", { path: "/:work_item_id" });
+        });
       });
     });
   });

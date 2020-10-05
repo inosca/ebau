@@ -28,6 +28,13 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   get addressedService() {
+    if (!parseInt(this.addressedGroups[0])) {
+      return {
+        name: this.intl.t(`global.${this.addressedGroups[0]}`),
+        id: this.addressedGroups[0]
+      };
+    }
+
     return this.store
       .peekAll("service")
       .find(service => this.addressedGroups.includes(service.id));

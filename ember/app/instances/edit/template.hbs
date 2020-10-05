@@ -32,6 +32,19 @@
           Freigegebene Unterlagen
         </LinkTo>
       </li>
+      <li
+        class={{if
+          (contains this.router.currentRouteName (array "instances.edit.work-items.index" "instances.edit.work-items.detail"))
+          "uk-active"
+        }}
+      >
+        <LinkTo
+          @route="instances.edit.work-items"
+          class="uk-text-bolder"
+        >
+          Aufgaben
+        </LinkTo>
+      </li>
     {{else}}
       <li
         class={{if

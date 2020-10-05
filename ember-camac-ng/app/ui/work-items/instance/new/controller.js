@@ -5,6 +5,7 @@ import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency-decorators";
 import moment from "moment";
 
+import ENV from "camac-ng/config/environment";
 import createWorkItem from "camac-ng/gql/mutations/create-work-item";
 import allCases from "camac-ng/gql/queries/all-cases";
 
@@ -63,7 +64,20 @@ export default class WorkItemNewController extends Controller {
   }
 
   get services() {
-    return this.instance?.involvedServices || [];
+    const services = this.instance?.involvedServices.toArray() || [];
+
+    if (
+      ENV.APP.allowApplicantManualWorkItem.includes(
+        this.shoebox.content.application
+      )
+    ) {
+      services.unshift({
+        id: "applicant",
+        name: this.intl.t("global.applicant")
+      });
+    }
+
+    return services;
   }
 
   @dropTask

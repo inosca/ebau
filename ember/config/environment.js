@@ -12,6 +12,9 @@ module.exports = function (environment) {
     locationType: "auto",
     oidcHost,
     profileURL: oidcHost.replace("protocol/openid-connect", "account"),
+    apollo: {
+      apiURL: "/graphql/",
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

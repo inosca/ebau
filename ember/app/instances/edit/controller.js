@@ -192,6 +192,10 @@ export default Controller.extend({
         return "documents";
       case "instances.edit.publikationsdokumente":
         return "documents";
+      case "instances.edit.work-items.index":
+        return "work-items";
+      case "instances.edit.work-items.detail":
+        return "work-items";
       default:
         return "form";
     }
