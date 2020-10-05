@@ -1,6 +1,5 @@
 import hashlib
 import logging
-import re
 
 from caluma.caluma_user import models as caluma_user_models
 from django.conf import settings
@@ -142,8 +141,8 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
         user, created = self._update_or_create_user(defaults)
 
         if created:
-            if settings.URI_MIGRATE_PORTAL_USER and is_uri_portal_user(username):
-                migrate_portal_user(user)
+            if settings.URI_MIGRATE_PORTAL_USER and "portalid" in data:
+                migrate_portal_user(data.get("portalid"), user)
 
             Applicant.objects.filter(email=user.email, invitee=None).update(
                 invitee=user
@@ -173,13 +172,8 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
         return 'JWT realm="{0}"'.format(settings.KEYCLOAK_REALM)
 
 
-def is_uri_portal_user(username):
-    """Check if username is valid i-web portal user identifier."""
-    return re.match(r"^d12_\d+$", username)
-
-
 @transaction.atomic
-def migrate_portal_user(user):
+def migrate_portal_user(portal_identifier, user):
     """Assign instance to portal user on first login.
 
     In Uri instances which are submitted through the portal are all owned by a
@@ -191,7 +185,9 @@ def migrate_portal_user(user):
     to the applicant user group.
     """
 
-    portal_instances = InstancePortal.objects.filter(portal_identifier=user.username)
+    portal_instances = InstancePortal.objects.filter(
+        portal_identifier=portal_identifier
+    )
     portal_instance_ids = portal_instances.values_list("instance_id")
 
     Instance.objects.filter(pk__in=portal_instance_ids).update(user=user)
