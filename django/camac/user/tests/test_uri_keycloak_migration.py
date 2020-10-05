@@ -97,7 +97,8 @@ def test_migrate_portal_user(
     # we knew the attribute mapping of the iweb idp.
     token_value = {
         "sub": "somelongkeycloakid",
-        "preferred_username": iweb_profile_id,
+        "preferred_username": "other-guy@example.com",
+        "portalid": iweb_profile_id,
         "email": "other-guy@example.com",
         "family_name": "Other",
         "given_name": "Guy",
@@ -121,7 +122,7 @@ def test_migrate_portal_user(
     assert instance_portal.migrated
 
     # Ensure the user object attrubtes were updated
-    assert user.username == iweb_profile_id
+    assert user.username == "other-guy@example.com"
     assert user.name == token["family_name"]
     assert user.surname == token["given_name"]
 
