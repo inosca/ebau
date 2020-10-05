@@ -277,7 +277,13 @@ models_managed_by_customer = {
         "notification.NotificationTemplate",
         "notification.NotificationTemplateT",
     ],
-    "kt_uri": [],
+    "kt_uri": [
+        "user.Group",
+        "user.GroupT",
+        "user.GroupLocation",
+        "user.Service",
+        "user.ServiceT",
+    ],
     "demo": [],
 }
 
