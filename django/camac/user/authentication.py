@@ -130,12 +130,38 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
 
         # We used the keycloak user id as the username in camac
         username = data[username_claim]
-        defaults = {
+        all_defaults = {
             "language": language[:2],
             "email": data.get("email"),
             "username": username,
             "name": data.get("family_name", username),
             "surname": data.get("given_name", username),
+            "city": data.get("city", ""),
+            "zip": data.get("zip", ""),
+            "address": " ".join(
+                filter(
+                    None,
+                    [
+                        data.get("street"),
+                        data.get("streetNumber"),
+                        data.get("addressSupplement"),
+                    ],
+                )
+            ),
+            "phone": ", ".join(
+                filter(
+                    None,
+                    [
+                        data.get("phoneWork"),
+                        data.get("phonePrivate"),
+                        data.get("phoneMobile"),
+                    ],
+                )
+            ),
+        }
+        defaults = {
+            key: all_defaults[key]
+            for key in settings.APPLICATION.get("OIDC_SYNC_USER_ATTRIBUTES")
         }
 
         user, created = self._update_or_create_user(defaults)
