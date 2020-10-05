@@ -156,6 +156,13 @@ APPLICATIONS = {
         "SEQUENCE_NAMESPACE_APPS": ["core", "responsible", "document"],
         "PUBLICATION_INVITE_ONLY": True,
         "NOTIFICATIONS_EXCLUDED_TASKS": [],
+        "OIDC_SYNC_USER_ATTRIBUTES": [
+            "language",
+            "email",
+            "username",
+            "name",
+            "surname",
+        ],
     },
     "kt_schwyz": {
         "ROLE_PERMISSIONS": {
@@ -241,6 +248,13 @@ APPLICATIONS = {
             },
         },
         "HAS_EBAU_NUMBER": False,
+        "OIDC_SYNC_USER_ATTRIBUTES": [
+            "language",
+            "email",
+            "username",
+            "name",
+            "surname",
+        ],
     },
     "kt_bern": {
         "ROLE_PERMISSIONS": {
@@ -298,6 +312,13 @@ APPLICATIONS = {
         "PUBLICATION_DURATION": timedelta(),
         "IS_MULTILINGUAL": True,
         "FORM_BACKEND": "caluma",
+        "OIDC_SYNC_USER_ATTRIBUTES": [
+            "language",
+            "email",
+            "username",
+            "name",
+            "surname",
+        ],
         "CALUMA": {
             "FORM_PERMISSIONS": ["main", "sb1", "sb2", "nfd"],
             "CIRCULATION_WORKFLOW": "circulation",
@@ -750,6 +771,17 @@ APPLICATIONS = {
             90,  # ARE NP
         ],
         "HAS_EBAU_NUMBER": False,
+        "OIDC_SYNC_USER_ATTRIBUTES": [
+            "language",
+            "email",
+            "username",
+            "name",
+            "surname",
+            "city",
+            "zip",
+            "address",
+            "phone",
+        ],
     },
 }
 
