@@ -7,7 +7,7 @@ export default Route.extend({
   questionStore: service("question-store"),
 
   afterModel(model) {
-    if (model.meta["access-type"] === "applicant") {
+    if (model.meta["access-type"] !== "applicant") {
       this.transitionTo("instances.edit.index");
     }
   },

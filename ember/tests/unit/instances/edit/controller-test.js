@@ -17,7 +17,7 @@ module("Unit | Controller | instances/edit", function (hooks) {
       instance: await run(async () =>
         store.findRecord("instance", instance.id, { include: "form" })
       ),
-      meta: { editable: ["form", "document"] },
+      meta: { editable: ["form", "document"], "access-type": "applicant" },
     };
 
     this.router = { urlFor: () => true };
