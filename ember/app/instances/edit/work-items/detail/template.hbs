@@ -1,13 +1,13 @@
-<h3 {{did-insert (perform this.fetchWorkItems)}}>{{this.workItem.name}}</h3>
+<h3>{{@model.name}}</h3>
 
 <dl class="uk-description-list uk-description-list-divider">
   <dt>Beschreibung</dt>
-  <dd>{{if this.workItem.description this.workItem.description "-"}}</dd>
+  <dd>{{if @model.description @model.description "-"}}</dd>
   <dt>Frist</dt>
   <dd>
-    {{if this.workItem.deadine 
+    {{if @model.deadline
         (format-date
-          this.workItem.deadine
+          @model.deadline
           day="2-digit"
           month="2-digit"
           year="numeric"
@@ -18,12 +18,12 @@
       }}
   </dd>
   <dt>Status</dt>
-  <dd>{{this.workItem.status}}</dd>
+  <dd>{{@model.status}}</dd>
 </dl>
 
-{{#if this.workItem.meta.is-manually-completable}}
+{{#if @model.meta.is-manually-completable}}
   <button
-    {{on "click" (perform this.workItem.completeWorkItem)}}
+    {{on "click" (perform @model.completeWorkItem)}}
     class="uk-button uk-button-primary"
     type="button"
   >Aufgabe abschliessen</button>

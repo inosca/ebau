@@ -10,9 +10,9 @@
       <tr>
         <td><LinkTo @route="instances.edit.work-items.detail" @model={{workItem}}>{{workItem.name}}</LinkTo></td>
         <td>
-          {{if workItem.deadine 
+          {{if workItem.deadline
             (format-date
-              workItem.deadine
+              workItem.deadline
               day="2-digit"
               month="2-digit"
               year="numeric"
