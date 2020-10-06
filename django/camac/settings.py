@@ -225,14 +225,6 @@ APPLICATIONS = {
             "vbs": "PV",
             "uebrige": "PU",
         },
-        "INSTANCE_ACCESS_TYPE_ROLES": {
-            "municipality": [
-                "Gemeinde",
-                "Gemeinde Sachbearbeiter",
-                "Fachstelle Leitbehörde",
-            ],
-            "service": ["Fachstelle", "Fachstelle Sachbearbeiter"],
-        },
         # please also update django/Makefile command when changing apps here
         "SEQUENCE_NAMESPACE_APPS": [],
         "PUBLICATION_INVITE_ONLY": True,

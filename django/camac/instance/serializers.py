@@ -168,24 +168,22 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         source="get_involved_services", model=Service, read_only=True, many=True
     )
 
+    @permission_aware
     def get_access_type(self, obj):
-        access_type_config = settings.APPLICATION.get("INSTANCE_ACCESS_TYPE_ROLES", {})
         access_type = None
 
         if obj.involved_applicants.filter(
             invitee=self.context["request"].user
         ).exists():
             access_type = "applicant"
-        elif self.context["request"].group.role.name in access_type_config.get(
-            "municipality", []
-        ):
-            access_type = "municipality"
-        elif self.context["request"].group.role.name in access_type_config.get(
-            "service", []
-        ):
-            access_type = "service"
 
         return access_type
+
+    def get_access_type_for_municipality(self, obj):
+        return "municipality"
+
+    def get_access_type_for_service(self, obj):
+        return "service"
 
     def get_involved_services(self, obj):
         filters = Q(pk__in=obj.circulations.values("activations__service__pk"))
