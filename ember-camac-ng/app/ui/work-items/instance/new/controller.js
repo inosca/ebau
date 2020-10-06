@@ -135,6 +135,8 @@ export default class WorkItemNewController extends Controller {
         }
       });
 
+      this.workItem = new NewWorkItem();
+
       this.notifications.success(this.intl.t("workItems.saveSuccess"));
 
       this.transitionToRoute("work-items.instance.index");
