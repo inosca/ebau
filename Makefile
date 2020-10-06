@@ -55,12 +55,12 @@ clear-cache: ## Clear the memcache
 .PHONY: dumpconfig
 dumpconfig: ## Dump the current camac and caluma configuration
 	docker-compose exec django python manage.py dumpconfig
-	@prettier --loglevel silent --write "django/${APPLICATION}/config*.json"
+	@yarn --cwd php prettier --loglevel silent --write "../django/${APPLICATION}/config*.json"
 
 .PHONY: dumpdata
 dumpdata: ## Dump the current camac and caluma data
 	docker-compose exec django /app/manage.py dumpcamacdata
-	@prettier --loglevel silent --write "django/${APPLICATION}/data*.json"
+	@yarn --cwd php prettier --loglevel silent --write "../django/${APPLICATION}/data*.json"
 
 .PHONY: loadconfig-camac
 loadconfig-camac: ## Load the camac configuration
@@ -120,7 +120,7 @@ format:
 	@yarn --cwd=ember install
 	@yarn --cwd=ember lint:js --fix
 	@black django
-	@prettier --write *.yml
+	@yarn --cwd php prettier --write ../*.yml
 
 .PHONY: makemigrations
 makemigrations: ## Create schema migrations
@@ -196,7 +196,7 @@ release-folder: ## Add a template for a release folder
 	@mkdir -p "releases/$(version)"
 	@echo "# Neu\n-\n# Korrekturen\n-" >> "releases/$(version)/CHANGELOG.md"
 	@echo "# Änderungen\n## Ansible (Rolle / Variablen)\n-\n## DB\n-\n## Apache\n-" >> "releases/$(version)/MANUAL.md"
-	@prettier --loglevel=silent --write "releases/$(version)/*.md"
+	@yarn --cwd php prettier --loglevel=silent --write "../releases/$(version)/*.md"
 
 clear-silk:
 	@docker-compose exec django python manage.py silk_clear_request_log
