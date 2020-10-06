@@ -26,8 +26,8 @@ from camac.instance import serializers
         # reader should see instances from other users but has no editables
         ("Reader", LazyFixture("user"), 17, set()),
         ("Canton", LazyFixture("user"), 17, {"form", "document"}),
-        ("Municipality", LazyFixture("user"), 17, {"form", "document"}),
-        ("Service", LazyFixture("user"), 17, {"document"}),
+        ("Municipality", LazyFixture("user"), 16, {"form", "document"}),
+        ("Service", LazyFixture("user"), 16, {"document"}),
         ("Coordination", LazyFixture("user"), 17, {"form", "document"}),
     ],
 )
