@@ -140,9 +140,9 @@ export default class InstancesIndexController extends Controller.extend(
   get filteredInstances() {
     let instances = this.instances;
 
-    if (!this.showArchived) {
+    if (this.showArchived) {
       instances = instances.filter(
-        (instance) => instance.instanceState.get("name") !== "arch"
+        (instance) => instance.instanceState.get("name") === "arch"
       );
     }
 
