@@ -5,6 +5,7 @@ import { reads } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
 import { isEmpty } from "@ember/utils";
 import { queryManager } from "ember-apollo-client";
+import config from "ember-caluma-portal/config/environment";
 import getCasesQuery from "ember-caluma-portal/gql/queries/get-cases";
 import getMunicipalitiesQuery from "ember-caluma-portal/gql/queries/get-municipalities";
 import getRootFormsQuery from "ember-caluma-portal/gql/queries/get-root-forms";
@@ -144,6 +145,8 @@ export default class InstancesIndexController extends Controller.extend(
   queryParams.Mixin
 ) {
   @service fetch;
+  @service session;
+
   @queryManager apollo;
 
   get orderOptions() {
@@ -199,6 +202,14 @@ export default class InstancesIndexController extends Controller.extend(
   }
 
   @lastValue("getRootForms") rootForms;
+
+  get formFilterOptions() {
+    const forms = this.rootForms || [];
+
+    return this.session.isInternal
+      ? forms
+      : forms.filter((form) => !config.ebau.internalForms.includes(form.slug));
+  }
 
   @computed("rootForms.@each.slug", "types.[]")
   get selectedTypes() {
