@@ -19,25 +19,27 @@ export default class InstancesNewController extends Controller.extend(
   @restartableTask
   *forms() {
     const forms = yield this.apollo.query(
-      {
-        query: getRootFormsQuery,
-      },
+      { query: getRootFormsQuery },
       "allForms.edges"
     );
 
-    return forms.reduce(
-      (grouped, { node: form }) => {
-        const column = /^vorabklaerung/.test(form.slug) ? "column1" : "column2";
+    return forms
+      .filter(({ node: { meta } }) => meta["is-creatable"])
+      .reduce(
+        (grouped, { node: form }) => {
+          const column = /^vorabklaerung/.test(form.slug)
+            ? "column1"
+            : "column2";
 
-        grouped[column].push(form);
+          grouped[column].push(form);
 
-        return grouped;
-      },
-      {
-        column1: [],
-        column2: [],
-      }
-    );
+          return grouped;
+        },
+        {
+          column1: [],
+          column2: [],
+        }
+      );
   }
 
   @dropTask

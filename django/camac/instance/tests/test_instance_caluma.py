@@ -91,7 +91,6 @@ def test_create_instance_caluma(
     instance_state,
     instance_state_factory,
     form,
-    use_caluma_form,
     mock_nfd_permissions,
     group,
     caluma_workflow_config_be,
@@ -268,7 +267,6 @@ def test_instance_submit(
     submit_date_question,
     settings,
     mock_public_status,
-    use_caluma_form,
     multilang,
     application_settings,
     mock_nfd_permissions,
@@ -364,7 +362,6 @@ def test_instance_report(
     application_settings,
     service,
     admin_user,
-    use_caluma_form,
     multilang,
     mock_nfd_permissions,
     mock_generate_and_store_pdf,
@@ -452,7 +449,6 @@ def test_instance_finalize(
     application_settings,
     service,
     admin_user,
-    use_caluma_form,
     multilang,
     mock_nfd_permissions,
     mock_generate_and_store_pdf,
@@ -589,7 +585,6 @@ def test_caluma_instance_list_filter(
     role,
     admin_user,
     mock_public_status,
-    use_caluma_form,
     mock_nfd_permissions,
     caluma_workflow_config_be,
 ):
@@ -698,7 +693,6 @@ def test_instance_delete(
     instance_state,
     instance_state_factory,
     form,
-    use_caluma_form,
     mock_nfd_permissions,
     caluma_workflow_config_be,
     application_settings,
@@ -879,7 +873,6 @@ def test_rejection(
     form,
     service,
     service_group,
-    use_caluma_form,
     mock_nfd_permissions,
     caluma_workflow_config_be,
     mock_generate_and_store_pdf,
@@ -965,7 +958,6 @@ def test_change_responsible_service_circulations(
     role,
     instance_state,
     instance_service,
-    use_caluma_form,
     caluma_workflow_config_be,
     service_factory,
     circulation_factory,
@@ -1060,7 +1052,6 @@ def test_change_responsible_service(
     service_factory,
     user_factory,
     user_group_factory,
-    use_caluma_form,
     caluma_workflow_config_be,
     application_settings,
     service_type,
@@ -1172,3 +1163,68 @@ def test_change_responsible_service(
             response.data[0]["detail"]
             == f"{service_type} is not a valid service type - valid types are: municipality, construction_control"
         )
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("is_paper", [True, False])
+@pytest.mark.parametrize("is_modification", [True, False])
+@pytest.mark.parametrize("is_migrated", [True, False])
+def test_instance_name(
+    admin_client,
+    instance,
+    instance_service,
+    group,
+    role,
+    multilang,
+    caluma_workflow_config_be,
+    is_paper,
+    is_modification,
+    is_migrated,
+):
+    def yes_no(boolean):
+        return "ja" if boolean else "nein"
+
+    if is_migrated:
+        workflow = caluma_workflow_models.Workflow.objects.get(pk="migrated")
+        form = caluma_form_models.Form.objects.get(pk="migriertes-dossier")
+    else:
+        workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
+        form = caluma_form_models.Form.objects.get(pk="main-form")
+
+    case = workflow_api.start_case(
+        workflow=workflow,
+        form=form,
+        meta={"camac-instance-id": instance.pk},
+        user=BaseUser(),
+    )
+
+    if is_migrated:
+        case.document.answers.create(
+            question_id="geschaeftstyp",
+            value="geschaeftstyp-baupolizeiliches-verfahren",
+        )
+    else:
+        case.document.answers.create(
+            question_id="papierdossier", value=f"papierdossier-{yes_no(is_paper)}"
+        )
+        case.document.answers.create(
+            question_id="projektaenderung",
+            value=f"projektaenderung-{yes_no(is_modification)}",
+        )
+
+    url = reverse("instance-detail", args=[instance.pk])
+
+    response = admin_client.get(url, data={"fields[instances]": "name"})
+
+    assert response.status_code == status.HTTP_200_OK
+
+    name = response.json()["data"]["attributes"]["name"]
+
+    if is_migrated:
+        assert name == "Baupolizeiliches Verfahren (Migriert)"
+    else:
+        assert "Baugesuch" in name
+        if is_paper:
+            assert "(Papier)" in name
+        if is_modification:
+            assert "(Projektänderung)" in name

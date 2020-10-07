@@ -169,6 +169,26 @@ class CalumaApi:
             }
         ).exists()
 
+    def is_migrated(self, instance):
+        return caluma_workflow_models.Case.objects.filter(
+            **{"meta__camac-instance-id": instance.pk, "workflow_id": "migrated"}
+        ).exists()
+
+    def get_migration_type(self, instance):
+        answer = caluma_form_models.Answer.objects.filter(
+            **{
+                "document__case__meta__camac-instance-id": instance.pk,
+                "question_id": "geschaeftstyp",
+            }
+        ).first()
+
+        if not answer:  # pragma: no cover
+            return None
+
+        option = answer.question.options.get(slug=answer.value)
+
+        return (option.slug, option.label)
+
     def get_circulation_proposals(self, instance):
         # [(question_id, option, suggested service), ... ]
         suggestions = settings.APPLICATION.get("SUGGESTIONS", [])
