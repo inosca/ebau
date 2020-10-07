@@ -14,12 +14,12 @@ from rest_framework.viewsets import GenericViewSet
 from rest_framework_xml.renderers import XMLRenderer
 
 from camac.constants.kt_bern import ECH_BASE_DELIVERY
-from camac.instance.mixins import InstanceQuerysetMixin
 from camac.instance.models import Instance
 from camac.swagger.utils import get_operation_description, group_param
 
 from . import event_handlers, formatters
 from .data_preparation import get_document
+from .mixins import ECHInstanceQuerysetMixin
 from .models import Message
 from .parsers import ECHXMLParser
 from .send_handlers import SendHandlerException, get_send_handler
@@ -28,7 +28,8 @@ from .serializers import ApplicationsSerializer
 logger = logging.getLogger(__name__)
 
 
-class ApplicationView(InstanceQuerysetMixin, RetrieveModelMixin, GenericViewSet):
+class ApplicationView(ECHInstanceQuerysetMixin, RetrieveModelMixin, GenericViewSet):
+    instance_field = None
     serializer_class = Serializer
     renderer_classes = (XMLRenderer,)
     queryset = Instance.objects
@@ -64,7 +65,8 @@ class ApplicationView(InstanceQuerysetMixin, RetrieveModelMixin, GenericViewSet)
         return response
 
 
-class ApplicationsView(InstanceQuerysetMixin, ListModelMixin, GenericViewSet):
+class ApplicationsView(ECHInstanceQuerysetMixin, ListModelMixin, GenericViewSet):
+    instance_field = None
     serializer_class = ApplicationsSerializer
     queryset = Instance.objects
     instance_field = None
@@ -136,7 +138,9 @@ class MessageView(RetrieveModelMixin, GenericViewSet):
         return response
 
 
-class EventView(GenericViewSet):
+class EventView(ECHInstanceQuerysetMixin, GenericViewSet):
+    instance_field = None
+    queryset = Instance.objects
     swagger_schema = None
     parser_classes = (JSONParser,)
 
@@ -146,7 +150,7 @@ class EventView(GenericViewSet):
         return False
 
     def create(self, request, instance_id, event_type, *args, **kwargs):
-        instance = get_object_or_404(Instance.objects.all(), pk=instance_id)
+        instance = get_object_or_404(self.get_queryset(), pk=instance_id)
         try:
             EventHandler = getattr(event_handlers, f"{event_type}EventHandler")
         except AttributeError:
@@ -164,7 +168,8 @@ class EventView(GenericViewSet):
         return HttpResponse(status=201)
 
 
-class SendView(GenericViewSet):
+class SendView(ECHInstanceQuerysetMixin, GenericViewSet):
+    instance_field = None
     queryset = Instance.objects
     renderer_classes = (XMLRenderer,)
     parser_classes = (ECHXMLParser,)
