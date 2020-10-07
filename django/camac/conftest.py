@@ -337,6 +337,7 @@ def caluma_workflow_config_be(
         caluma_form_models.Form.objects.create(slug="baugesuch-mit-uvp"),
         caluma_form_models.Form.objects.create(slug="vorabklaerung-einfach"),
         caluma_form_models.Form.objects.create(slug="vorabklaerung-vollstaendig"),
+        caluma_form_models.Form.objects.create(slug="hecken-feldgehoelze-baeume"),
     ]
 
     call_command("loaddata", settings.ROOT_DIR("kt_bern/config-caluma-workflow.json"))
