@@ -15,7 +15,7 @@
       <div class="uk-form-controls">
         <PowerSelectMultiple
           @selected={{this.selectedTypes}}
-          @options={{this.rootForms}}
+          @options={{this.formFilterOptions}}
           @searchField="name"
           @onChange={{fn (mut this.selectedTypes)}}
         as |form|>

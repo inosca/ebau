@@ -1,13 +1,16 @@
 query GetRootForms($slug: String) {
   allForms(
-    orderBy: NAME_ASC
-    metaValue: [{ key: "is-main-form", value: true }]
-    slug: $slug
+    filter: [
+      { slug: $slug }
+      { metaValue: [{ key: "is-main-form", value: true }] }
+    ]
+    order: [{ attribute: NAME, direction: ASC }]
   ) {
     edges {
       node {
         slug
         name
+        meta
       }
     }
   }
