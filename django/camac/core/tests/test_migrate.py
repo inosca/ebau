@@ -1,10 +1,14 @@
 from uuid import uuid4
 
+import pytest
 from django.db import connection
 from django.db.migrations.executor import MigrationExecutor
 
 
-def test_migrate_add_missing_dynamic_options(transactional_db):
+@pytest.mark.skip(
+    reason="The migration already happened in all production environments"
+)
+def test_migrate_add_missing_dynamic_options(transactional_db):  # pragma: no cover
     executor = MigrationExecutor(connection)
     migrate_from = [
         ("core", "0048_auto_20200123_1053"),
