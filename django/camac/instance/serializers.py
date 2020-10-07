@@ -573,9 +573,9 @@ class CalumaInstanceSerializer(InstanceSerializer):
         instance = super().create(validated_data)
 
         workflow_slug = (
-            "preliminary-clarification"
-            if "vorabklaerung" in caluma_form
-            else "building-permit"
+            workflow_models.Workflow.objects.filter(allow_forms__in=[caluma_form])
+            .first()
+            .pk
         )
 
         case = workflow_api.start_case(

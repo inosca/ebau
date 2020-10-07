@@ -252,6 +252,7 @@ instances:
       concluante dans l'annexe de l’Ordonnance fédérale relative à l’étude de l’impact sur l’environnement (OEIE) -
       (exemple : construction d'un nouveau centre logistique d'une surface de stockage de plus de 20.000 m² ou un
       projet de construction comprenant plus de 500 places de stationnement)."
+    specialProcedure: "Procédure spéciale"
 
   status:
     title: "État"

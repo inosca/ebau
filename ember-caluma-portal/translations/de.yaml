@@ -250,6 +250,7 @@ instances:
       festgelegt (Beispiel: Neubau eines Logistikzentrums mit einer Lagerfläche
       von mehr als 20'000 m² oder ein Bauvorhaben das mehr als 500 Autoabstellplätze
       beinhaltet)."
+    specialProcedure: "Spezialverfahren"
 
   status:
     title: "Status"
