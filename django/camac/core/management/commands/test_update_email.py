@@ -18,7 +18,10 @@ def test_update_email(db, capsys, user, tmp_path, new_mail, new_active_state, di
     call_command("update_email", str(csv_file))
 
     user.refresh_from_db()
-    assert user.email == new_mail
+    if disabled:
+        assert user.email == "disabled-" + new_mail
+    else:
+        assert user.email == new_mail
     assert user.disabled == disabled
 
     captured = capsys.readouterr()
