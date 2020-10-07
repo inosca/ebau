@@ -29,7 +29,9 @@ export default class InstancesNewController extends Controller.extend(
         (grouped, { node: form }) => {
           const column = /^vorabklaerung/.test(form.slug)
             ? "column1"
-            : "column2";
+            : /^baugesuch/.test(form.slug)
+            ? "column2"
+            : "column3";
 
           grouped[column].push(form);
 
@@ -38,6 +40,7 @@ export default class InstancesNewController extends Controller.extend(
         {
           column1: [],
           column2: [],
+          column3: [],
         }
       );
   }
