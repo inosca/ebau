@@ -39,4 +39,7 @@ def test_user_email_to_service(
 
     call_command("user_email_to_service")
     service.refresh_from_db()
-    assert service.email == expect_service_email
+
+    expected_list = sorted(str(expect_service_email).split(","))
+    actual_list = sorted(str(service.email).split(","))
+    assert actual_list == expected_list
