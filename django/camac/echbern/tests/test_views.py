@@ -92,15 +92,23 @@ def test_application_retrieve_full(
     )
 
 
-def test_applications_list(admin_client, admin_user, instance, instance_factory):
-    i = instance_factory(user=admin_user)
+def test_applications_list(admin_client, admin_user, ech_instance, instance_factory):
+    # generate an instance that should not be accessible for eCH
+    migrated_instance = instance_factory(user=admin_user)
+    workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(slug="migrated"),
+        form=caluma_form_models.Form.objects.get(slug="migriertes-dossier"),
+        meta={"camac-instance-id": migrated_instance.pk},
+        user=BaseUser(),
+    )
+
     url = reverse("applications")
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
     json = response.json()
     assert len(json["data"]) == 1
-    assert json["data"][0]["id"] == str(i.instance_id)
+    assert json["data"][0]["id"] == str(ech_instance.pk)
 
 
 @pytest.mark.parametrize("give_last", [False, True])
