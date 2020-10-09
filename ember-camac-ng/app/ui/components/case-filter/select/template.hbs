@@ -1,0 +1,23 @@
+<CaseFilter::Base @filterName={{@filterName}}>
+  <select name={{@filterName}} class="uk-width-1" {{on "change" @updateFilter}}>
+    <option value="">
+      {{or
+        @placeholder
+        (t (concat "cases.filters." @filterName "-placeholder"))
+      }}
+    </option>
+
+    {{#each @filterOptions as |filterOption|}}
+      {{#let
+        (if @valueField (get filterOption @valueField) filterOption.slug)
+        (if
+          @labelField (get filterOption @labelField) filterOption.label
+        ) as |value label|
+      }}
+        <option value={{value}} selected={{eq value @value}}>
+          {{label}}
+        </option>
+      {{/let}}
+    {{/each}}
+  </select>
+</CaseFilter::Base>
