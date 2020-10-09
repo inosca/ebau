@@ -1,0 +1,50 @@
+<div class="uk-text-right">
+  {{this.paginationInfo}}
+</div>
+
+<table {{did-insert this.setup}} {{did-update this.setup @filter}}>
+  <thead>
+    <tr>
+      {{#each this.tableHeaders as |tHeader|}}
+        <th>
+          {{t (concat "cases.tableHeaders." tHeader)}}
+        </th>
+      {{/each}}
+    </tr>
+  </thead>
+  <tbody>
+    {{#each this.casesQuery.value as |node|}}
+      <tr role="link" {{on "click" (fn this.redirectToCase node)}}>
+        {{#each this.tableHeaders as |tHeader|}}
+          <td>
+            {{get node tHeader}}
+          </td>
+        {{/each}}
+      </tr>
+    {{else if (not this.casesQuery.isLoading)}}
+      <tr>
+        <td colspan={{this.tableHeaders.length}} class="uk-text-center">
+          {{t "global.empty"}}
+        </td>
+      </tr>
+    {{/each}}
+
+    <tr>
+      {{#if this.casesQuery.isLoading}}
+        <td colspan={{this.tableHeaders.length}} class="uk-text-center">
+          {{t "global.loading"}}
+        </td>
+      {{/if}}
+      {{#if (and this.casesQuery.hasNextPage (not this.casesQuery.isLoading))}}
+        <td colspan={{this.tableHeaders.length}} class="uk-text-center">
+          <button type="button" {{on "click" this.loadNextPage}}>
+            {{t "global.loadMore"}}
+          </button>
+        </td>
+      {{/if}}
+    </tr>
+  </tbody>
+</table>
+<div class="uk-text-right">
+  {{this.paginationInfo}}
+</div>
