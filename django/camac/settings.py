@@ -468,6 +468,36 @@ APPLICATIONS = {
                     "karte-einfache-vorabklaerung",
                 ],
             },
+            "hecken-feldgehoelze-baeume": {
+                "forms": ["hecken-feldgehoelze-baeume"],
+                "template": "2-level",
+                "allgemeine_info": "allgemeine-angaben-kurz-formular",
+                "personalien": "personalien-kurz-formular",
+                "people_sources": {
+                    "personalien-gesuchstellerin": {
+                        "familyName": "name-gesuchstellerin",
+                        "givenName": "vorname-gesuchstellerin",
+                    },
+                    "vertreterin-vollmacht-hecken-feldgehoelze-baeume": {
+                        "familyName": "name-vertreterin",
+                        "givenName": "vorname-vertreterin",
+                    },
+                    "grundeigentuemerin-hecken-feldgeholze-baume": {
+                        "familyName": "name-grundeigentuemerin",
+                        "givenName": "vorname-grundeigentuemerin",
+                    },
+                    "projektverfasserin-hecken-feldgehoelze-baeume": {
+                        "familyName": "name-projektverfasserin",
+                        "givenName": "vorname-projektverfasserin",
+                    },
+                },
+                "exclude_slugs": [
+                    "papierdossier",
+                    "projektaenderung",
+                    "8-freigabequittung",
+                    "karte",
+                ],
+            },
             "selbstdeklaration": {
                 "forms": ["sb1", "sb2"],
                 "template": "1-level",
