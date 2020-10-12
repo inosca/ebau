@@ -572,14 +572,12 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
         instance = super().create(validated_data)
 
-        workflow_slug = (
-            workflow_models.Workflow.objects.filter(allow_forms__in=[caluma_form])
-            .first()
-            .pk
-        )
+        workflow = workflow_models.Workflow.objects.filter(
+            allow_forms__in=[caluma_form]
+        ).first()
 
         case = workflow_api.start_case(
-            workflow=workflow_models.Workflow.objects.get(pk=workflow_slug),
+            workflow=workflow,
             form=Form.objects.get(pk=caluma_form),
             user=self.context["request"].caluma_info.context.user,
             meta={"camac-instance-id": instance.pk},
