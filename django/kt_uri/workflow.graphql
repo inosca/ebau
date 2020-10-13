@@ -1,0 +1,20 @@
+mutation CreatePlaceholderTask {
+  saveSimpleTask(
+    input: { slug: "placeholder", name: "Platzhalter", addressGroups: "[]" }
+  ) {
+    clientMutationId
+  }
+}
+mutation CreateBuildingPermitWorkflow {
+  saveWorkflow(
+    input: {
+      slug: "building-permit"
+      name: "Baugesuch"
+      startTasks: ["placeholder"]
+      allowAllForms: true
+      isPublished: true
+    }
+  ) {
+    clientMutationId
+  }
+}

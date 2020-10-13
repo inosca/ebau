@@ -292,6 +292,17 @@ class InstancePortalFactory(DjangoModelFactory):
         model = models.InstancePortal
 
 
+class CommissionAssignmentFactory(DjangoModelFactory):
+    group = SubFactory(GroupFactory)
+    instance = SubFactory(InstanceFactory)
+    creator_group = SubFactory(GroupFactory)
+    creator_user = Faker("pyfloat", left_digits=3, right_digits=2, positive=True)
+    date = Faker("past_datetime", tzinfo=pytz.UTC)
+
+    class Meta:
+        model = models.CommissionAssignment
+
+
 class ActivationCallbackNoticeFactory(DjangoModelFactory):
     activation = SubFactory(ActivationFactory)
     circulation = SubFactory(CirculationFactory)
@@ -307,3 +318,18 @@ class ActivationCallbackNoticeFactory(DjangoModelFactory):
 
     class Meta:
         model = models.ActivationCallbackNotice
+
+
+class SanctionFactory(DjangoModelFactory):
+    instance = SubFactory(InstanceFactory)
+    service = SubFactory(ServiceFactory)
+    user = SubFactory(UserFactory)
+    text = Faker("text")
+    start_date = Faker("past_datetime")
+    deadline_date = Faker("future_date")
+    control_instance = SubFactory(ServiceFactory)
+    notice = Faker("text")
+    is_finished = 0
+
+    class Meta:
+        model = models.Sanction

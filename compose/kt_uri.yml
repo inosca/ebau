@@ -10,6 +10,7 @@ services:
       - django
       - keycloak
       - mailhog
+      - ember-camac-ng
     volumes:
       - djangomedia:/var/lib/camac/media:ro
       - djangotmpmedia:/tmp/camac/tmpfiles:ro
@@ -24,6 +25,12 @@ services:
       - POSTGRES_DATABASE=${APPLICATION}
     volumes:
       - pgdata:/var/lib/postgresql/data
+
+  ember-camac-ng:
+    build:
+      context: ../ember-camac-ng
+      cache_from:
+        - acr.run/camac-ng/camac-ng/ember-camac-ng:master
 
   django:
     build:

@@ -55,6 +55,66 @@ SUBMIT_DATE_FORMAT = "%Y-%m-%dT%H:%M:%S%z"
 request_logger = getLogger("django.request")
 
 
+def get_caluma_form_from_camac(camac_form):
+    mapping = settings.APPLICATION.get("FORM_MAPPING", {})
+    for caluma_form, form_ids in mapping.items():
+        if camac_form in form_ids:
+            return caluma_form
+
+    raise exceptions.ValidationError(
+        _(f"No form mapping found for form ID {camac_form}.")
+    )
+
+
+def generate_identifier(instance):
+    """
+    Build identifier for instance.
+
+    Format for normal forms:
+    two last digits of communal location number
+    year in two digits
+    unique sequence
+    Example: 11-18-001
+
+    Format for special forms:
+    two letter abbreviation of form
+    year in two digits
+    unique sequence
+    Example: AV-20-014
+    """
+    identifier = instance.identifier
+    if not identifier:
+        year = timezone.now().strftime("%y")
+
+        name = instance.form.name
+        abbreviations = settings.APPLICATION.get("INSTANCE_IDENTIFIER_FORM_ABBR", {})
+        meta = models.FormField.objects.filter(instance=instance, name="meta").first()
+        if meta:
+            meta_value = json.loads(meta.value)
+            name = meta_value["formType"]
+
+        if name in abbreviations.keys():
+            identifier_start = abbreviations[name]
+        elif settings.APPLICATION.get("SHORT_DOSSIER_NUMBER", False):
+            identifier_start = instance.location.communal_federal_number[-2:]
+        else:
+            identifier_start = instance.location.communal_federal_number
+
+        max_identifier = (
+            models.Instance.objects.filter(
+                identifier__startswith="{0}-{1}-".format(identifier_start, year)
+            ).aggregate(max_identifier=Max("identifier"))["max_identifier"]
+            or "00-00-000"
+        )
+        sequence = int(max_identifier[-3:])
+
+        identifier = "{0}-{1}-{2}".format(
+            identifier_start, timezone.now().strftime("%y"), str(sequence + 1).zfill(3),
+        )
+
+    return identifier
+
+
 class NewInstanceStateDefault(object):
     def __call__(self):
         return models.InstanceState.objects.get(name="new")
@@ -239,6 +299,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
         default=NewInstanceStateDefault(),
     )
 
+    # TODO fix this for UR
     form = serializers.ResourceRelatedField(
         queryset=models.Form.objects.all(), default=lambda: models.Form.objects.first()
     )
@@ -339,7 +400,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
         if state != "new":
             permissions.add("read")
 
-        if state == "correction":
+        if state in ["correction", "comm"]:
             permissions.add("write")
 
         if (
@@ -548,6 +609,21 @@ class CalumaInstanceSerializer(InstanceSerializer):
             attachment.attachment_sections.set(sections)
             attachment.save()
 
+    @permission_aware
+    def validate(self, data):
+        return data
+
+    def validate_for_municipality(self, data):
+        group = self.context["request"].group
+
+        if settings.APPLICATION["CALUMA"]["CREATE_IN_PROCESS"]:
+            data["instance_state"] = models.InstanceState.objects.get(name="comm")
+
+        if settings.APPLICATION["CALUMA"]["USE_LOCATION"]:
+            data["location"] = group.locations.first()
+
+        return data
+
     def create(self, validated_data):
         caluma_api = CalumaApi()
 
@@ -562,6 +638,9 @@ class CalumaInstanceSerializer(InstanceSerializer):
             is_paper = caluma_api.is_paper(source_instance)
         else:
             caluma_form = self.initial_data.get("caluma_form")
+            if caluma_form is None:
+                caluma_form = get_caluma_form_from_camac(self.validated_data["form"].pk)
+
             is_modification = False
             is_paper = (
                 group.service  # group needs to have a service
@@ -572,8 +651,22 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
         instance = super().create(validated_data)
 
+        if settings.APPLICATION["CALUMA"]["GENERATE_DOSSIER_NR"]:  # pragma: no cover
+            # Give dossier a unique dossier number
+            # TODO move this to Caluma!
+            Answer.objects.create(
+                instance=instance,
+                question_id=6,
+                item=1,
+                chapter_id=2,
+                answer=generate_identifier(instance),
+            )
+
+        if settings.APPLICATION["CALUMA"]["USE_LOCATION"]:  # pragma: no cover
+            self._update_instance_location(instance)
+
         workflow = workflow_models.Workflow.objects.filter(
-            allow_forms__in=[caluma_form]
+            Q(allow_forms__in=[caluma_form]) | Q(allow_all_forms=True)
         ).first()
 
         case = workflow_api.start_case(
@@ -601,17 +694,17 @@ class CalumaInstanceSerializer(InstanceSerializer):
             case.save()
             old_document.delete()
 
+        # TODO migrate BE
         caluma_api.update_or_create_answer(
-            case.document.pk,
-            "papierdossier",
-            "papierdossier-ja" if is_paper else "papierdossier-nein",
+            case.document.pk, "is-paper", "is-paper-yes" if is_paper else "is-paper-no"
         )
 
-        caluma_api.update_or_create_answer(
-            case.document.pk,
-            "projektaenderung",
-            "projektaenderung-ja" if is_modification else "projektaenderung-nein",
-        )
+        if settings.APPLICATION["CALUMA"]["HAS_PROJECT_CHANGE"]:
+            caluma_api.update_or_create_answer(
+                case.document.pk,
+                "projektaenderung",
+                "projektaenderung-ja" if is_modification else "projektaenderung-nein",
+            )
 
         if is_paper:
             # remove the previously created applicants
@@ -1118,64 +1211,12 @@ class InstanceSubmitSerializer(InstanceSerializer):
         queryset=models.InstanceState.objects
     )
 
-    def generate_identifier(self):
-        """
-        Build identifier for instance.
-
-        Format for normal forms:
-        two last digits of communal location number
-        year in two digits
-        unique sequence
-        Example: 11-18-001
-
-        Format for special forms:
-        two letter abbreviation of form
-        year in two digits
-        unique sequence
-        Example: AV-20-014
-        """
-        identifier = self.instance.identifier
-        if not identifier:
-            year = timezone.now().strftime("%y")
-
-            name = self.instance.form.name
-            abbreviations = settings.APPLICATION.get(
-                "INSTANCE_IDENTIFIER_FORM_ABBR", {}
-            )
-            meta = models.FormField.objects.filter(
-                instance=self.instance, name="meta"
-            ).first()
-            if meta:
-                meta_value = json.loads(meta.value)
-                name = meta_value["formType"]
-
-            if name in abbreviations.keys():
-                identifier_start = abbreviations[name]
-            else:
-                identifier_start = self.instance.location.communal_federal_number[-2:]
-
-            max_identifier = (
-                models.Instance.objects.filter(
-                    identifier__startswith="{0}-{1}-".format(identifier_start, year)
-                ).aggregate(max_identifier=Max("identifier"))["max_identifier"]
-                or "00-00-000"
-            )
-            sequence = int(max_identifier[-3:])
-
-            identifier = "{0}-{1}-{2}".format(
-                identifier_start,
-                timezone.now().strftime("%y"),
-                str(sequence + 1).zfill(3),
-            )
-
-        return identifier
-
     def validate(self, data):
         location = self.instance.location
         if location is None:
             raise exceptions.ValidationError(_("No location assigned."))
 
-        data["identifier"] = self.generate_identifier()
+        data["identifier"] = generate_identifier(self.instance)
         form_validator = validators.FormDataValidator(self.instance)
         form_validator.validate()
 
@@ -1239,6 +1280,8 @@ class JournalEntrySerializer(InstanceEditableMixin, serializers.ModelSerializer)
         "user": "camac.user.serializers.UserSerializer",
     }
 
+    visibility = serializers.ChoiceField(choices=models.JournalEntry.VISIBILITIES)
+
     def create(self, validated_data):
         validated_data["modification_date"] = timezone.now()
         validated_data["creation_date"] = timezone.now()
@@ -1259,6 +1302,7 @@ class JournalEntrySerializer(InstanceEditableMixin, serializers.ModelSerializer)
             "text",
             "creation_date",
             "modification_date",
+            "visibility",
         )
         read_only_fields = ("service", "user", "creation_date", "modification_date")
 

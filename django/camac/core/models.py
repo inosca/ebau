@@ -3819,6 +3819,15 @@ class RCalumaList(models.Model):
         db_table = "R_CALUMA_LIST"
 
 
+class REmberList(models.Model):
+    resource_id = models.AutoField(db_column="RESOURCE_ID", primary_key=True)
+    instance_states = models.CharField(db_column="INSTANCE_STATES", max_length=400)
+
+    class Meta:
+        managed = True
+        db_table = "R_EMBER_LIST"
+
+
 class RUserAcl(models.Model):
     id = models.AutoField(db_column="ID", primary_key=True)
     resource = models.ForeignKey(

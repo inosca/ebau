@@ -1,11 +1,16 @@
-@import "modules/history";
-@import "modules/journal";
-@import "modules/work-items";
+#ember-camac-ng {
+  @import "variables";
+  @import "ember-uikit";
+  @import "ember-power-select";
+  @import "modules/history";
+  @import "modules/journal";
+  @import "modules/work-items";
 
-@import "components/context-menu";
-@import "components/filters";
-@import "components/pagination";
-@import "components/work-item-list";
+  @import "components/context-menu";
+  @import "components/filters";
+  @import "components/pagination";
+  @import "components/work-item-list";
 
-@import "power-select";
-@import "misc";
+  @import "power-select";
+  @import "misc";
+}

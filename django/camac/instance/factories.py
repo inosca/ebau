@@ -88,6 +88,7 @@ class JournalEntryFactory(DjangoModelFactory):
     creation_date = Faker("past_datetime", tzinfo=pytz.UTC)
     modification_date = Faker("past_datetime", tzinfo=pytz.UTC)
     text = Faker("text")
+    visibility = "own_organization"
 
     class Meta:
         model = models.JournalEntry

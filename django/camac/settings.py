@@ -133,6 +133,7 @@ APPLICATIONS = {
             "Canton": "canton",
             "PublicReader": "public_reader",
             "Support": "support",
+            "Commission": "commission",
         },
         "IS_MULTILINGUAL": False,
         "NOTIFICATIONS": {"SUBMIT": None, "APPLICANT": {"NEW": None, "EXISTING": None}},
@@ -163,6 +164,15 @@ APPLICATIONS = {
             "name",
             "surname",
         ],
+        "PORTAL_GROUP": None,
+        "FORM_MAPPING": {"building-permit": [1]},
+        "CALUMA": {
+            "FORM_PERMISSIONS": ["main"],
+            "HAS_PROJECT_CHANGE": False,
+            "CREATE_IN_PROCESS": True,
+            "USE_LOCATION": True,
+            "GENERATE_DOSSIER_NR": True,
+        },
     },
     "kt_schwyz": {
         "ROLE_PERMISSIONS": {
@@ -255,6 +265,7 @@ APPLICATIONS = {
             "name",
             "surname",
         ],
+        "SHORT_DOSSIER_NUMBER": True,
     },
     "kt_bern": {
         "ROLE_PERMISSIONS": {
@@ -367,6 +378,10 @@ APPLICATIONS = {
                     "cancel": ["create-manual-workitems"],
                 },
             },
+            "HAS_PROJECT_CHANGE": True,
+            "CREATE_IN_PROCESS": False,
+            "USE_LOCATION": False,
+            "GENERATE_DOSSIER_NR": False,
         },
         "PORTAL_GROUP": 6,
         "DEMO_MODE_GROUPS": [
@@ -448,7 +463,7 @@ APPLICATIONS = {
                     },
                 },
                 "exclude_slugs": [
-                    "papierdossier",
+                    "is-paper",
                     "projektaenderung",
                     "8-freigabequittung",
                     "karte",
@@ -461,7 +476,7 @@ APPLICATIONS = {
                 "givenName": "vorname-gesuchstellerin-vorabklaerung",
                 "familyName": "name-gesuchstellerin-vorabklaerung",
                 "exclude_slugs": [
-                    "papierdossier",
+                    "is-paper",
                     "projektaenderung",
                     "freigabequittung-vorabklaerung-form",
                     "dokumente-vorabklaerung-form",
@@ -502,7 +517,7 @@ APPLICATIONS = {
                 "forms": ["sb1", "sb2"],
                 "template": "1-level",
                 "exclude_slugs": [
-                    "papierdossier",
+                    "is-paper",
                     "freigabequittung-sb1",
                     "freigabequittung-sb2",
                     "dokumente-sb1",
@@ -757,7 +772,8 @@ APPLICATIONS = {
         "NOTIFICATIONS_EXCLUDED_TASKS": [],
     },
     "kt_uri": {
-        "FORM_BACKEND": "camac",
+        "FORM_BACKEND": "caluma",
+        "PUBLICATION_DURATION": timedelta(days=20),
         "PORTAL_USER_ID": 1209,
         "APPLICANT_GROUP_ID": 685,  # We reuse the Portal User group
         "SEQUENCE_NAMESPACE_APPS": ["core", "document", "responsible"],
@@ -769,6 +785,23 @@ APPLICATIONS = {
             "koor_np_users",
             "koor_bg_users",
         ],
+        "CALUMA": {
+            "FORM_PERMISSIONS": ["main"],
+            "HAS_PROJECT_CHANGE": False,
+            "CREATE_IN_PROCESS": True,
+            "USE_LOCATION": True,
+            "GENERATE_DOSSIER_NR": True,
+        },
+        "PAPER": {
+            "ALLOWED_ROLES": {"DEFAULT": [6]},  # Sekretariat Gemeindebaubehörde
+            "ALLOWED_SERVICE_GROUPS": {
+                "DEFAULT": [68]  # Sekretariate Gemeindebaubehörden
+            },
+        },
+        "FORM_MAPPING": {
+            "building-permit": [44, 47, 21, 61, 290, 141, 121],
+            "kantonsgebiet": [247, 291],
+        },
         "ROLE_PERMISSIONS": {
             "Admin": None,
             "Architect": None,
@@ -791,6 +824,7 @@ APPLICATIONS = {
             "Vernehmlassungsstelle Gemeindezirkulation": "service",
             "Vernehmlassungsstelle mit Koordinationsaufgaben": "service",
             "Vernehmlassungsstelle ohne Koordinationsaufgaben": "service",
+            "Support": "support",
         },
         # The following services don't receive notifications if they have
         # overdue circulation activations.
@@ -812,6 +846,8 @@ APPLICATIONS = {
             "address",
             "phone",
         ],
+        "PORTAL_GROUP": 685,
+        "INSTANCE_IDENTIFIER_FORM_ABBR": {},
     },
 }
 

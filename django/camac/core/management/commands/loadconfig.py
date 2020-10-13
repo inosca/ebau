@@ -27,6 +27,7 @@ class Command(BaseCommand):
             "--caluma",
             dest="caluma",
             action="store_true",
+            default=True,
             help="Load caluma config and data as well",
         )
         parser.add_argument(
@@ -34,10 +35,6 @@ class Command(BaseCommand):
             dest="caluma",
             action="store_false",
             help="Don't load caluma config and data",
-        )
-
-        parser.set_defaults(
-            caluma=settings.APPLICATION_NAME in ["kt_bern", "kt_schwyz"]
         )
 
     def handle(self, *args, **options):
