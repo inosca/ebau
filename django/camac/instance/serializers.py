@@ -6,6 +6,7 @@ from caluma.caluma_form.models import Form
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
 from django.conf import settings
 from django.contrib.auth import get_user_model
+from django.contrib.postgres.fields.jsonb import KeyTextTransform
 from django.core.files.base import ContentFile
 from django.db import transaction
 from django.db.models import Max, Q
@@ -16,7 +17,7 @@ from rest_framework_json_api import relations, serializers
 
 from camac.caluma.api import CalumaApi
 from camac.caluma.extensions.data_sources import Municipalities
-from camac.constants import kt_bern as constants
+from camac.constants import kt_bern as be_constants
 from camac.core.models import (
     Answer,
     HistoryActionConfig,
@@ -100,12 +101,25 @@ def generate_identifier(instance):
         else:
             identifier_start = instance.location.communal_federal_number
 
-        max_identifier = (
-            models.Instance.objects.filter(
-                identifier__startswith="{0}-{1}-".format(identifier_start, year)
-            ).aggregate(max_identifier=Max("identifier"))["max_identifier"]
-            or "00-00-000"
-        )
+        start = "{0}-{1}-".format(identifier_start, year)
+
+        if settings.APPLICATION["CALUMA"].get("SAVE_DOSSIER_NUMBER_IN_CALUMA"):
+            max_identifier = (
+                workflow_models.Case.objects.filter(
+                    **{"meta__dossier-number__startswith": start}
+                )
+                .annotate(dossier_nr=KeyTextTransform("dossier-number", "meta"))
+                .aggregate(max_identifier=Max("dossier_nr"))["max_identifier"]
+                or "00-00-000"
+            )
+        else:
+            max_identifier = (
+                models.Instance.objects.filter(identifier__startswith=start).aggregate(
+                    max_identifier=Max("identifier")
+                )["max_identifier"]
+                or "00-00-000"
+            )
+
         sequence = int(max_identifier[-3:])
 
         identifier = "{0}-{1}-{2}".format(
@@ -347,25 +361,25 @@ class CalumaInstanceSerializer(InstanceSerializer):
     def get_public_status(self, instance):
         # TODO Instead of a new field, we should actually modify the values of instance_state
         STATUS_MAP = {
-            constants.INSTANCE_STATE_NEW: constants.PUBLIC_INSTANCE_STATE_CREATING,
-            constants.INSTANCE_STATE_EBAU_NUMMER_VERGEBEN: constants.PUBLIC_INSTANCE_STATE_RECEIVING,
-            constants.INSTANCE_STATE_CORRECTION_IN_PROGRESS: constants.PUBLIC_INSTANCE_STATE_COMMUNAL,
-            constants.INSTANCE_STATE_IN_PROGRESS: constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
-            constants.INSTANCE_STATE_KOORDINATION: constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
-            constants.INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT: constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
-            constants.INSTANCE_STATE_ZIRKULATION: constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
-            constants.INSTANCE_STATE_REJECTED: constants.PUBLIC_INSTANCE_STATE_REJECTED,
-            constants.INSTANCE_STATE_CORRECTED: constants.PUBLIC_INSTANCE_STATE_CORRECTED,
-            constants.INSTANCE_STATE_SB1: constants.PUBLIC_INSTANCE_STATE_SB1,
-            constants.INSTANCE_STATE_SB2: constants.PUBLIC_INSTANCE_STATE_SB2,
-            constants.INSTANCE_STATE_TO_BE_FINISHED: constants.PUBLIC_INSTANCE_STATE_FINISHED,
-            constants.INSTANCE_STATE_FINISHED: constants.PUBLIC_INSTANCE_STATE_FINISHED,
-            constants.INSTANCE_STATE_ARCHIVED: constants.PUBLIC_INSTANCE_STATE_ARCHIVED,
-            constants.INSTANCE_STATE_DONE: constants.PUBLIC_INSTANCE_STATE_DONE,
+            be_constants.INSTANCE_STATE_NEW: be_constants.PUBLIC_INSTANCE_STATE_CREATING,
+            be_constants.INSTANCE_STATE_EBAU_NUMMER_VERGEBEN: be_constants.PUBLIC_INSTANCE_STATE_RECEIVING,
+            be_constants.INSTANCE_STATE_CORRECTION_IN_PROGRESS: be_constants.PUBLIC_INSTANCE_STATE_COMMUNAL,
+            be_constants.INSTANCE_STATE_IN_PROGRESS: be_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
+            be_constants.INSTANCE_STATE_KOORDINATION: be_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
+            be_constants.INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT: be_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
+            be_constants.INSTANCE_STATE_ZIRKULATION: be_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
+            be_constants.INSTANCE_STATE_REJECTED: be_constants.PUBLIC_INSTANCE_STATE_REJECTED,
+            be_constants.INSTANCE_STATE_CORRECTED: be_constants.PUBLIC_INSTANCE_STATE_CORRECTED,
+            be_constants.INSTANCE_STATE_SB1: be_constants.PUBLIC_INSTANCE_STATE_SB1,
+            be_constants.INSTANCE_STATE_SB2: be_constants.PUBLIC_INSTANCE_STATE_SB2,
+            be_constants.INSTANCE_STATE_TO_BE_FINISHED: be_constants.PUBLIC_INSTANCE_STATE_FINISHED,
+            be_constants.INSTANCE_STATE_FINISHED: be_constants.PUBLIC_INSTANCE_STATE_FINISHED,
+            be_constants.INSTANCE_STATE_ARCHIVED: be_constants.PUBLIC_INSTANCE_STATE_ARCHIVED,
+            be_constants.INSTANCE_STATE_DONE: be_constants.PUBLIC_INSTANCE_STATE_DONE,
         }
 
         return STATUS_MAP.get(
-            instance.instance_state_id, constants.PUBLIC_INSTANCE_STATE_CREATING
+            instance.instance_state_id, be_constants.PUBLIC_INSTANCE_STATE_CREATING
         )
 
     included_serializers = {
@@ -651,17 +665,6 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
         instance = super().create(validated_data)
 
-        if settings.APPLICATION["CALUMA"]["GENERATE_DOSSIER_NR"]:  # pragma: no cover
-            # Give dossier a unique dossier number
-            # TODO move this to Caluma!
-            Answer.objects.create(
-                instance=instance,
-                question_id=6,
-                item=1,
-                chapter_id=2,
-                answer=generate_identifier(instance),
-            )
-
         if settings.APPLICATION["CALUMA"]["USE_LOCATION"]:  # pragma: no cover
             self._update_instance_location(instance)
 
@@ -669,11 +672,17 @@ class CalumaInstanceSerializer(InstanceSerializer):
             Q(allow_forms__in=[caluma_form]) | Q(allow_all_forms=True)
         ).first()
 
+        case_meta = {"camac-instance-id": instance.pk}
+
+        if settings.APPLICATION["CALUMA"].get("GENERATE_DOSSIER_NR"):
+            # Give dossier a unique dossier number
+            case_meta["dossier-number"] = generate_identifier(instance)
+
         case = workflow_api.start_case(
             workflow=workflow,
             form=Form.objects.get(pk=caluma_form),
             user=self.context["request"].caluma_info.context.user,
-            meta={"camac-instance-id": instance.pk},
+            meta=case_meta,
         )
 
         if source_instance:
@@ -848,9 +857,9 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         proposals = [
             ProposalActivation(
                 instance=instance,
-                circulation_type_id=constants.CIRCULATION_TYPE_STANDARD,
+                circulation_type_id=be_constants.CIRCULATION_TYPE_STANDARD,
                 service_id=service_id,
-                circulation_state_id=constants.CIRCULATION_STATE_WORKING,
+                circulation_state_id=be_constants.CIRCULATION_STATE_WORKING,
                 deadline_date=today,
                 reason="",
             )
