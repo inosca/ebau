@@ -23,22 +23,4 @@
   }
 }
 
-.project-be {
-  .radio-buttons {
-    &__button {
-      border: 1px solid #c8d9e9;
-
-      > input:checked + label {
-        background-color: #c8d9e9;
-      }
-    }
-  }
-}
-
-.project-sz {
-  .radio-buttons {
-    &__button {
-      border: 1px solid lightgray;
-    }
-  }
-}
+@import "custom";
