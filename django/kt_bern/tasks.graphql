@@ -72,9 +72,10 @@ mutation CreateInitCirculationTask {
 }
 
 mutation CreateAuditTask {
-  saveSimpleTask(
+  saveCompleteTaskFormTask(
     input: {
       slug: "audit"
+      form: "dossierpruefung"
       name: "Dossier prüfen"
       addressGroups: "['municipality']|groups"
       leadTime: 864000 # 10 days

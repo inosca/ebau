@@ -7,15 +7,20 @@ from caluma.caluma_workflow.events import (
     post_complete_case,
     post_complete_work_item,
     post_create_work_item,
+    post_skip_work_item,
     pre_complete_work_item,
     pre_skip_work_item,
 )
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.core import mail
+from django.utils import timezone
+from django.utils.translation import gettext_noop
 
 from camac.caluma.api import CalumaApi
-from camac.instance.models import Instance
+from camac.core.models import HistoryActionConfig
+from camac.core.translations import get_translations
+from camac.instance.models import HistoryEntry, HistoryEntryT, Instance
 from camac.user import models as user_models
 from camac.user.utils import unpack_service_emails
 
@@ -235,3 +240,33 @@ def post_complete_circulation(sender, case, user, **kwargs):
 
         if parent_work_item:
             workflow_api.complete_work_item(parent_work_item, user)
+
+
+@on(post_skip_work_item)
+@on(post_complete_work_item)
+def post_complete_audit(sender, work_item, user, **kwargs):
+    if work_item.task_id == get_caluma_setting("AUDIT_TASK"):
+        try:
+            instance = Instance.objects.get(
+                pk=work_item.case.meta.get("camac-instance-id")
+            )
+            camac_user = user_models.User.objects.get(username=user.username)
+        except (Instance.DoesNotExist, user_models.User.DoesNotExist):
+            return
+
+        history = HistoryEntry.objects.create(
+            instance=instance,
+            created_at=timezone.now(),
+            user=camac_user,
+            history_type=HistoryActionConfig.HISTORY_TYPE_STATUS,
+        )
+
+        if sender == "post_skip_work_item":
+            texts = get_translations(gettext_noop("Exam skipped"))
+        else:
+            texts = get_translations(gettext_noop("Exam completed"))
+
+        for (language, text) in texts:
+            HistoryEntryT.objects.create(
+                history_entry=history, title=text, language=language
+            )

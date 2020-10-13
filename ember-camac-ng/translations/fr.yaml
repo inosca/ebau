@@ -12,6 +12,10 @@ global:
   paginationInfo: "<strong>1 - {count}</strong> de {total}"
   openMenu: "Ouvrir le menu"
   form: "Formulaire"
+  applicant: ""
+  search: ""
+  reset: ""
+  ok: "Ok"
 
 organisation:
   edit: "Modifiez votre organisation"

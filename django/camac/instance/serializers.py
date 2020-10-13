@@ -3,6 +3,7 @@ from logging import getLogger
 from uuid import uuid4
 
 from caluma.caluma_form.models import Form
+from caluma.caluma_form.validators import CustomValidationError
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
 from django.conf import settings
 from django.contrib.auth import get_user_model
@@ -544,6 +545,35 @@ class CalumaInstanceSerializer(InstanceSerializer):
         return set(["read", "write"])
 
     @permission_aware
+    def _get_dossierpruefung_form_permissions(self, instance):
+        return set()
+
+    def _get_dossierpruefung_form_permissions_for_service(self, instance):
+        if instance.instance_state.name in ["new", "subm", "correction"]:
+            return set()
+
+        return set(["read"])
+
+    def _get_dossierpruefung_form_permissions_for_municipality(self, instance):
+        permissions = set()
+
+        if instance.instance_state.name not in ["new", "subm", "correction"]:
+            permissions.add("read")
+
+        if instance.instance_state.name in [
+            "circulation_init",
+            "circulation",
+            "in_progress",
+            "in_progress_internal",
+        ]:
+            permissions.add("write")
+
+        return permissions
+
+    def _get_dossierpruefung_form_permissions_for_support(self, instance):
+        return set(["read", "write"])
+
+    @permission_aware
     def _get_case_meta_permissions(self, instance):
         return set(["read"])
 
@@ -1072,6 +1102,17 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
             )
 
         return value
+
+    def validate(self, data):
+        # validate audit documents
+        try:
+            CalumaApi().validate_existing_audit_documents(
+                self.instance.pk, self.context["request"].caluma_info.context.user
+            )
+        except CustomValidationError:
+            raise exceptions.ValidationError(_("Invalid audit"))
+
+        return super().validate(data)
 
     def _sync_circulations(self, from_service, to_service):
         if self.instance.instance_state.name not in [

@@ -1,18 +1,40 @@
-/* ember-uikit */
+// Base colors
+$global-primary-background: rgb(234, 22, 31);
+$global-secondary-background: rgb(30, 30, 30);
+$global-danger-background: $global-primary-background;
+$global-success-background: rgb(0, 153, 0);
+$global-muted-background: rgb(245, 245, 245);
+
+// Font
 $global-font-family: Arial, Helvetica, sans-serif;
+
+// Font colors
+$global-color: #161616;
+$global-emphasis-color: #161616;
+$global-muted-color: rgb(100, 100, 100);
+$global-link-color: #13226e;
+$global-link-hover-color: #0026e0;
+$alert-danger-color: $global-secondary-background;
+
+// Font sizes
 $global-font-size: 1em;
 $global-small-font-size: 0.875em;
 $global-medium-font-size: 1.25em;
-
+$form-label-font-size: $global-font-size;
 $base-h1-font-size: 1.6em;
 $base-h2-font-size: 1.3em;
 $base-h3-font-size: 1.1em;
 
-$global-link-color: #13226e;
-$global-link-hover-color: #0026e0;
-
+// Links
 $base-link-text-decoration: underline;
 $base-link-hover-text-decoration: none;
 
-/* ember-power-select */
+// Form
+$form-focus-border: $global-secondary-background;
+
+// Misc
+$modal-z-index: 1;
+$button-disabled-background: $global-muted-background;
+
+// Power select
 $ember-power-select-border-color: #4a81b6;
