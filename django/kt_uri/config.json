@@ -2073,20 +2073,6 @@
   },
   {
     "fields": {
-      "available_action": "php",
-      "button": 743,
-      "description": "",
-      "error_message": "",
-      "execute_always": 0,
-      "name": "Portal User setzen",
-      "sort": 2,
-      "success_message": ""
-    },
-    "model": "core.action",
-    "pk": 1012
-  },
-  {
-    "fields": {
       "available_action": "save",
       "button": 742,
       "description": "",
@@ -9734,13 +9720,6 @@
     },
     "model": "core.aphp",
     "pk": 1010
-  },
-  {
-    "fields": {
-      "php_class": "SetPortalUser"
-    },
-    "model": "core.aphp",
-    "pk": 1012
   },
   {
     "fields": {

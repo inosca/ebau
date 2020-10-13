@@ -148,7 +148,7 @@ build-kt_uri-stage:
   variables:
     APPLICATION: kt_uri
     # TODO: Can be removed once all customer compose files have been refactored
-    CONTAINERS: django php db iweb_mock
+    CONTAINERS: django php db
     COMPOSE: docker-compose -f compose/kt_uri.yml -f compose/kt_uri-stage.yml
   only:
     - stage-ur
