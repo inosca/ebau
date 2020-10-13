@@ -8650,10 +8650,10 @@
       "email": "admin@camac.ch",
       "language": "de",
       "last_login": null,
-      "name": "super",
+      "name": "Admin",
       "password": "0f10da7320c3fad6c1bd4e597992fb83",
       "phone": null,
-      "surname": "admin",
+      "surname": "Camac",
       "username": "admin",
       "zip": null
     },
@@ -8695,6 +8695,24 @@
     },
     "model": "user.user",
     "pk": 1209
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": "service-account-camac-admin@placeholder.org",
+      "language": "de",
+      "last_login": null,
+      "name": "service-account-camac-admin",
+      "password": null,
+      "phone": null,
+      "surname": "service-account-camac-admin",
+      "username": "service-account-camac-admin",
+      "zip": null
+    },
+    "model": "user.user",
+    "pk": 1210
   },
   {
     "fields": {
@@ -8740,5 +8758,65 @@
     },
     "model": "user.usergroup",
     "pk": 5
+  },
+  {
+    "fields": {
+      "default_group": 1,
+      "group": 1070,
+      "user": 1210
+    },
+    "model": "user.usergroup",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "default_group": 0,
+      "group": 1070,
+      "user": 1
+    },
+    "model": "user.usergroup",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "action": "i",
+      "data": "{\"USER_ID\":1210,\"GROUP_ID\":\"1070\",\"DEFAULT_GROUP\":0}",
+      "field1": "USER_ID",
+      "field2": "GROUP_ID",
+      "id1": 1210,
+      "id2": 1070,
+      "modification_date": "2020-07-14T11:48:58Z",
+      "user_id": 1
+    },
+    "model": "user.usergrouplog",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "action": "u",
+      "data": "{\"DEFAULT_GROUP\":1}",
+      "field1": "USER_ID",
+      "field2": "GROUP_ID",
+      "id1": 1210,
+      "id2": 1070,
+      "modification_date": "2020-07-14T11:49:07Z",
+      "user_id": 1
+    },
+    "model": "user.usergrouplog",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "action": "i",
+      "data": "{\"USER_ID\":1,\"GROUP_ID\":\"1070\",\"DEFAULT_GROUP\":0}",
+      "field1": "USER_ID",
+      "field2": "GROUP_ID",
+      "id1": 1,
+      "id2": 1070,
+      "modification_date": "2020-07-20T10:21:17Z",
+      "user_id": 1
+    },
+    "model": "user.usergrouplog",
+    "pk": 3
   }
 ]
