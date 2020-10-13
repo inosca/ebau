@@ -1,6 +1,0 @@
-{
-	"camacApi": "http://php",
-	"camacUrl": "http://camac-ng.local",
-	"base": "http://camac-ng-iweb-mock.local/",
-	"secret": "thisisjustatestsecretchangeitonprod!1337"
-}
