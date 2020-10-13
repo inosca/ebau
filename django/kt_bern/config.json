@@ -52365,7 +52365,7 @@
   },
   {
     "fields": {
-      "available_instance_resource": "history",
+      "available_instance_resource": "journal",
       "class_field": "menu-category-analysis",
       "description": null,
       "form_group": 40000,
@@ -61203,15 +61203,6 @@
   {
     "fields": {
       "instance_resource": 140007,
-      "instance_state": 20008,
-      "role": 20002
-    },
-    "model": "core.irroleacl",
-    "pk": 140103
-  },
-  {
-    "fields": {
-      "instance_resource": 140007,
       "instance_state": 20009,
       "role": 20002
     },
@@ -61244,15 +61235,6 @@
     },
     "model": "core.irroleacl",
     "pk": 140107
-  },
-  {
-    "fields": {
-      "instance_resource": 140007,
-      "instance_state": 20008,
-      "role": 4
-    },
-    "model": "core.irroleacl",
-    "pk": 140108
   },
   {
     "fields": {
@@ -61298,15 +61280,6 @@
     },
     "model": "core.irroleacl",
     "pk": 140113
-  },
-  {
-    "fields": {
-      "instance_resource": 140007,
-      "instance_state": 20008,
-      "role": 20000
-    },
-    "model": "core.irroleacl",
-    "pk": 140114
   },
   {
     "fields": {
@@ -63098,6 +63071,51 @@
     },
     "model": "core.irroleacl",
     "pk": 150240
+  },
+  {
+    "fields": {
+      "instance_resource": 140007,
+      "instance_state": 20010,
+      "role": 20002
+    },
+    "model": "core.irroleacl",
+    "pk": 150241
+  },
+  {
+    "fields": {
+      "instance_resource": 140007,
+      "instance_state": 120000,
+      "role": 20000
+    },
+    "model": "core.irroleacl",
+    "pk": 150243
+  },
+  {
+    "fields": {
+      "instance_resource": 140007,
+      "instance_state": 120000,
+      "role": 20002
+    },
+    "model": "core.irroleacl",
+    "pk": 150244
+  },
+  {
+    "fields": {
+      "instance_resource": 140007,
+      "instance_state": 20010,
+      "role": 4
+    },
+    "model": "core.irroleacl",
+    "pk": 150245
+  },
+  {
+    "fields": {
+      "instance_resource": 140007,
+      "instance_state": 120000,
+      "role": 4
+    },
+    "model": "core.irroleacl",
+    "pk": 150246
   },
   {
     "fields": {
