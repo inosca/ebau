@@ -171,9 +171,7 @@ def test_work_item_visibility(
             user=caluma_admin_user,
         )
 
-        case.document.answers.create(
-            question_id="papierdossier", value="papierdossier-nein"
-        )
+        case.document.answers.create(question_id="is-paper", value="is-paper-no")
 
         # complete submit work item, there should now be 4 work items
         workflow_api.complete_work_item(

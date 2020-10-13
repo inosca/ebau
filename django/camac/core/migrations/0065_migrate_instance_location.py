@@ -7,7 +7,10 @@ from django.utils import timezone
 
 
 def migrate_instance_location(apps, schema_editor):
-    """Uri uses the InstanceLocation table to keep track for which municipality a
+    """
+    Migrate instance locations.
+
+    Uri uses the InstanceLocation table to keep track for which municipality a
     dossier has been submitted. Schwyz on the other hand uses the location
     column on the Instance table.
 
