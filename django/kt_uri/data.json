@@ -12,6 +12,222 @@
   },
   {
     "fields": {
+      "body": "CAMAC Info (das ist eine automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nR\u00fcckmeldung an Gemeinde, Dossier unvollst\u00e4ndig\r\n\r\nDie Koordinationsstelle f\u00fcr Baueingaben hat das Dossier Nr. {{DOSSIER_NR}} zur\u00fcckgeschickt.\r\n\r\nWir bitten Sie, das Dossier zu bearbeiten und im CAMAC die erforderlichen Dokumente hochzuladen.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\n{{SENDER_SERVICE_ADDRESS}}",
+      "purpose": "Dossier an Gemeinde zur\u00fcck geschickt - Koordinationsstelle Baugesuche BG",
+      "service": null,
+      "slug": "dossier-an-gemeinde-zuruck-geschickt",
+      "subject": "Dossier an Gemeinde zur\u00fcck geschickt",
+      "type": "email"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 228
+  },
+  {
+    "fields": {
+      "body": "\nCAMAC Info (das ist eine automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nR\u00fcckmeldung an Gemeinde, Dossier abgeschlossen\n\nDie Koordinationsstelle {{CURRENT_SERVICE}} hat das Dossier Nr. {{DOSSIER_NR}} im CAMAC abgeschlossen.\n\nWir bitten Sie, das Dossier weiter zu bearbeiten.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\n{{SENDER_SERVICE_ADDRESS}}\n",
+      "purpose": "Dossier an Gemeinde zur\u00fcck geschickt - Koordinationsstelle Baugesuche BG",
+      "service": null,
+      "slug": "dossier-an-gemeinde-zuruck-geschickt1",
+      "subject": "Dossier an Gemeinde zur\u00fcck geschickt",
+      "type": "email"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 251
+  },
+  {
+    "fields": {
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nNEUE PENDENZ\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\n\nSie k\u00f6nnen das Dossier mit folgendem Link direkt \u00f6ffnen:\n{{INTERNAL_DOSSIER_LINK}}\n\nBEARBEITUNG IM CAMAC\n- Upload Verf\u00fcgung / Stellungnahme (bitte Scan - Dokument inkl. Unterschrift hochladen).\n- Kurzantwort ausw\u00e4hlen.\n- Art der Sachbearbeitung ausw\u00e4hlen.\n- Kurzkommentare erfassen.\n- Falls erforderlich, Geb\u00fchren erfassen.\n- Senden\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\n{{SENDER_SERVICE_ADDRESS}}",
+      "purpose": "Zirkulation gestartet - Koordinationsstelle Nutzungsplanung NP",
+      "service": null,
+      "slug": "zirkulation-gestartet",
+      "subject": "Zirkulation gestartet",
+      "type": "email"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 658
+  },
+  {
+    "fields": {
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf  antworten)\r\n\r\nMeldung an die Koordinationsstelle f\u00fcr Nutzungsplanung\r\n\r\nDie zust\u00e4ndige Gemeindebaubeh\u00f6rde hat das Dossier-ID {{INSTANCE_ID}} mit der Dossier Nr. {{DOSSIER_NR}} im CAMAC erfasst und zur Bearbeitung durch die kantonalen Fachstellen freigegeben.",
+      "purpose": "Dossier [ID] von Gemeinde frei geschalten - Sekretariat der Gemeindebaubeh\u00f6rde",
+      "service": null,
+      "slug": "dossier-id-von-gemeinde-frei-geschalten1",
+      "subject": "Dossier {{INSTANCE_ID}} von Gemeinde frei geschalten",
+      "type": "email"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 698
+  },
+  {
+    "fields": {
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nNEUE PENDENZ\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nIm CAMAC wurde das Dossier Nr. {{DOSSIER_NR}} Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\n\nSie k\u00f6nnen das Dossier mit folgendem Link direkt \u00f6ffnen:\n{{INTERNAL_DOSSIER_LINK}}\n\nInformationen zum Gesuch:\n- Gesuchsteller: {{GESUCHSTELLER}}\n- Vorhaben: {{VORHABEN}}\n- Parzelle: {{PARZELLE}}, {{STREET}}\n\nBEARBEITUNG IM CAMAC\n- Upload Verf\u00fcgung / Stellungnahme (bitte Scan - Dokument inkl. Unterschrift hochladen).\n- Kurzantwort ausw\u00e4hlen.\n- Art der Sachbearbeitung ausw\u00e4hlen.\n- Kurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde erfassen.\n- Geb\u00fchren erfassen.\n- Senden\n\nAKTENNACHFORDERUNG\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern. Dazu setzen Sie das Dossier in den Status NFD (Button \u00abNachforderung\u00bb). Im daf\u00fcr vorgesehenen Feld bitte eintragen, bei wem, welche Unterlagen nachgefordert wurden. Dossier im Status NFD (Pendenz beim Gesuchsteller) werden blau hinterlegt.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\n{{SENDER_SERVICE_ADDRESS}}",
+      "purpose": "Zirkulation gestartet - Koordinationsstelle Baugesuche BG",
+      "service": null,
+      "slug": "zirkulation-gestartet1",
+      "subject": "Zirkulation gestartet",
+      "type": "email"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 734
+  },
+  {
+    "fields": {
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nStatusmeldung zum Stand des Bewilligungsverfahrens\nNACHFORDERUNG\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nWir danken Ihnen f\u00fcr die Erfassung des Dossiers mit der ID {{INSTANCE_ID}}. Nach einer ersten Pr\u00fcfung der Unterlagen stellen wir fest, dass diverse Unterlagen / Angaben fehlen. Damit wir das Pr\u00fcfverfahren er\u00f6ffnen k\u00f6nnen, bitten wir Sie, die fehlenden Angaben gem\u00e4ss Angaben im Portal noch nachzuliefern. Bitte beachten Sie, dass das Dossier nach erfolgtem Upload der zus\u00e4tzlichen Angaben nochmals gesendet werden muss (Button \"Dossier Senden\" bet\u00e4tigen):\n\nMit freundlichen Gr\u00fcssen\nGemeindebaubeh\u00f6rde {{INSTANCE_LOCATION}}",
+      "purpose": "Nachforderung zus\u00e4tzlicher Unterlagen - Sekretariat der Gemeindebaubeh\u00f6rde",
+      "service": null,
+      "slug": "nachforderung-zusatzlicher-unterlagen",
+      "subject": "Nachforderung zus\u00e4tzlicher Unterlagen",
+      "type": "email"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 1066
+  },
+  {
+    "fields": {
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nStatus-Meldung zum Stand des Bewilligungsverfahrens\nDOSSIER WEITERGELEITET AN KOORDINATIONSSTELLE\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nDie Gemeindebaubeh\u00f6rde {{INSTANCE_LOCATION}} hat das Dossier Nr. {{DOSSIER_NR}} gepr\u00fcft. Es sind kantonale Bewilligungen / Pr\u00fcfungen notwendig. Das Dossier wurde zur Bearbeitung an die Koordinationsstelle f\u00fcr Baueingaben des Kantons Uri weitergeleitet.\n\nUnter dem Vorbehalt, dass das Dossier vollst\u00e4ndig ist und Seitens der kantonalen Fachstellen keine weiteren Angaben nachgefordert werden oder ein Augenschein vor Ort notwendig ist, betr\u00e4gt die verbleidende Bearbeitungszeit bis zum Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde voraussichtlich 6 bis 7 Wochen.\n\nMit freundlichen Gr\u00fcssen\nGemeindebaubeh\u00f6rde {{INSTANCE_LOCATION}}",
+      "purpose": "Dossier weitergeleitet an Koordinationsstelle - Sekretariat der Gemeindebaubeh\u00f6rde",
+      "service": null,
+      "slug": "dossier-weitergeleitet-an-koordinationsstelle",
+      "subject": "Dossier weitergeleitet an Koordinationsstelle",
+      "type": "email"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 1067
+  },
+  {
+    "fields": {
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nStatus-Meldung zum Stand des Bewilligungsverfahrens\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nDas Dossiers mit der ID Nr. {{INSTANCE_ID}} (CAMAC Dossiernummer {{DOSSIER_NR}}) wurde an die Gemeindebaubeh\u00f6rde {{INSTANCE_LOCATION}} zur\u00fcckgeschickt. Die verbleidende Bearbeitungszeit bis zum Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde betr\u00e4gt voraussichtlich 10 Tage.\n\n{{SENDER_SERVICE_ADDRESS}}",
+      "purpose": "Dossier von Koordinationsstelle f\u00fcr Baueingaben an die Gemeinde zur\u00fcckgeschickt - Koordinationsst...",
+      "service": null,
+      "slug": "dossier-von-koordinationsstelle-fur-baueingaben-an-die-gemeinde-zuruckgeschickt",
+      "subject": "Dossier von Koordinationsstelle f\u00fcr Baueingaben an die Gemeinde zur\u00fcckgeschickt",
+      "type": "email"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 1068
+  },
+  {
+    "fields": {
+      "body": "mit Dave besprechen, text ist teilweise doppelt erfasst",
+      "purpose": "Dossier von Gemeinde frei geschalten - Sekretariat der Gemeindebaubeh\u00f6rde",
+      "service": null,
+      "slug": "dossier-instance_id-von-gemeinde-frei-geschalten",
+      "subject": "Dossier {{DOSSIER_NR}} von Gemeinde frei geschalten",
+      "type": "email"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 1069
+  },
+  {
+    "fields": {
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nStatusmeldung zum Stand des Bewilligungsverfahrens\r\nDOSSIER ANGENOMMEN\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDas Dossier mit der ID Nr. {{INSTANCE_ID}} wurde von der Gemeindebaubeh\u00f6rde {{INSTANCE_LOCATION}} als vollst\u00e4ndig angenommen. Das Pr\u00fcfverfahren / Bewilligungsverfahren wurde gestartet. Sie werden mit Statusmeldungen \u00fcber den weiteren Verlauf des Verfahrens informiert.\r\n\r\nUnter dem Vorbehalt, dass das Dossier vollst\u00e4ndig ist und Seitens der kantonalen Fachstellen keine weiteren Angaben nachgefordert werden oder ein Augenschein vor Ort notwendig ist, betr\u00e4gt die verbleidende Bearbeitungszeit bis zum Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde voraussichtlich 2 Monate.\r\n\r\n\r\nMit freundlichen Gr\u00fcssen\r\nGemeindebaubeh\u00f6rde {{INSTANCE_LOCATION}}",
+      "purpose": "Dossier angenommen - Sekretariat der Gemeindebaubeh\u00f6rde",
+      "service": null,
+      "slug": "dossier-angenommen",
+      "subject": "Dossier angenommen",
+      "type": "email"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 1126
+  },
+  {
+    "fields": {
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nDOSSIER ABGEWIESEN \r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nSie haben via B\u00fcrgerportal des Kantons Uri das Dossier mit der ID {{INSTANCE_ID}} erfasst. Wir stellen fest, dass das Dossier keinerlei Unterlagen enth\u00e4lt und auch die erforderlichen Angaben zum Vorhaben wie Art, Lage, usw. fehlen. Das Dossier wird deshalb zur\u00fcckgewiesen bzw. gel\u00f6scht.\r\n\r\nFalls das Dossier allenfalls versehentlich ohne jegliche Angaben verschickt wurde, bitten wir Sie, dieses nochmals zu erfassen.\r\n\r\nMit freundliche Gr\u00fcssen\r\nGemeindebaubeh\u00f6rde {{INSTANCE_LOCATION}}",
+      "purpose": "Dossier abgewiesen - Sekretariat der Gemeindebaubeh\u00f6rde",
+      "service": null,
+      "slug": "dossier-abgewiesen",
+      "subject": "Dossier abgewiesen",
+      "type": "email"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 1129
+  },
+  {
+    "fields": {
+      "body": "CAMAC Info (das ist eine automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nR\u00fcckmeldung, Dossier unvollst\u00e4ndig\r\n\r\nDie Koordinationsstelle f\u00fcr Baueingaben hat das Dossier Nr. {{DOSSIER_NR}} an die Gemeinde zur\u00fcckgeschickt.\r\n\r\nDie Gemeindebaubeh\u00f6rde wird in den n\u00e4chsten Tagen mit Ihnen Kontakt aufnehmen.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\n{{SENDER_SERVICE_ADDRESS}}",
+      "purpose": "Dossier von Koordinationsstelle f\u00fcr Baueingaben an die Gemeinde zur\u00fcckgeschickt - Koordinationsst...",
+      "service": null,
+      "slug": "dossier-von-koordinationsstelle-fur-baueingaben-an-die-gemeinde-zuruckgeschickt1",
+      "subject": "Dossier von Koordinationsstelle f\u00fcr Baueingaben an die Gemeinde zur\u00fcckgeschickt",
+      "type": "email"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 1130
+  },
+  {
+    "fields": {
+      "body": "CAMAC Info(automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nNEUES ONLINE DOSSIER ERG\u00c4NZT\n\nDas Dossier mit der ID Nr. {{INSTANCE_ID}} wurde vom Gesuchsteller erg\u00e4nzt und wieder zur Pr\u00fcfung eingereicht. Bitte pr\u00fcfen Sie das Dossier auf Vollst\u00e4ndigkeit. Falls weiterhin zus\u00e4tzliche Unterlagen notwendig sind, schreiben Sie die entsprechende Nachricht in das daf\u00fcr vorgesehene Feld \u00abMitteilung an Gesuchsteller\u00bb und klicken Sie auf \u00abNachforderung\u00bb. Das Dossier wird blau hinterlegt und der Gesuchsteller erh\u00e4lt Ihre Mitteilung per E-Mail.\n\nWenn das Dossier vollst\u00e4ndig ist, klicken Sie auf \u00abDossier annehmen\u00bb. Das Dossier wird in der Pendenzenliste Start angezeigt und erh\u00e4lt vom System die zugeh\u00f6rige CAMAC Nummer. Der Gesuchsteller erh\u00e4lt eine entsprechende Annahmebest\u00e4tigung per E-Mail.\n\nBei Bedarf wandeln Sie das Dossier um in ein entsprechendes Verfahren mit kantonaler Beteiligung.\n\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 29\nE-Mail: raumplanung@ur.ch",
+      "purpose": "Neues Online Dossier erg\u00e4nzt - Portal User",
+      "service": null,
+      "slug": "neues-online-dossier-erganzt",
+      "subject": "Neues Online Dossier erg\u00e4nzt",
+      "type": "email"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 1132
+  },
+  {
+    "fields": {
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\n\u00d6REB MELDUNG\n\nSehr geehrte Dame \nSehr geehrter Herr\n\nBetreffend das CAMAC Dossier Nr. {{DOSSIER_NR}} hat die zust\u00e4ndige Stelle \u00d6REB relevante Daten erfasst und entsprechende Dokumente hochgeladen. Wir bitten Sie, diese Daten im erw\u00e4hnten CAMAC Dossier einzusehen und die entsprechenden Eintr\u00e4ge im \u00d6REB vorzunehmen.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\n{{SENDER_SERVICE_ADDRESS}}",
+      "purpose": "\u00d6REB Meldung - Sekretariat der Gemeindebaubeh\u00f6rde",
+      "service": null,
+      "slug": "oreb-meldung",
+      "subject": "\u00d6REB Meldung",
+      "type": "email"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 1297
+  },
+  {
+    "fields": {
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nStatusmeldung zum Stand des Bewilligungsverfahrens\nZIRKULATION ABGESCHLOSSEN\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nDie Pr\u00fcfung Ihres Dossiers mit der ID Nr. {{INSTANCE_ID}} (CAMAC Dossiernummer {{DOSSIER_NR}}) durch die kantonalen Fachstellen ist abgeschlossen. \nDas Dossier wird nun von der Gemeindebaubeh\u00f6rde abschliessend bearbeitet. Bitte beachten Sie, dass die Ausarbeitung der Entscheiddokumente und die Protokollgenehmigung zus\u00e4tzlich Zeit beanspruchen. Der Versand der Entscheiddokumente erfolgt voraussichtlich innert 2 bis 4 Wochen.\n\n{{SENDER_SERVICE_ADDRESS}}",
+      "purpose": "Zirkulation abgeschlossen - Vernehmlassungsstelle mit Koordinationsaufgaben, Vernehmlassungsstell...",
+      "service": null,
+      "slug": "zirkulation-abgeschlossen",
+      "subject": "Zirkulation abgeschlossen",
+      "type": "email"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 1369
+  },
+  {
+    "fields": {
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nNEUE PENDENZ\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nIm CAMAC wurde Ihnen das Dossier Nr. {{DOSSIER_NR}} als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\n\nAKTENNACHFORDERUNG\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese beim Bausekretariat anzufordern.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\n{{SENDER_SERVICE_ADDRESS}}",
+      "purpose": "Gemeindezirkulation gestartet - Sekretariat der Gemeindebaubeh\u00f6rde",
+      "service": null,
+      "slug": "gemeindezirkulation-gestartet",
+      "subject": "Gemeindezirkulation gestartet",
+      "type": "email"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 1382
+  },
+  {
+    "fields": {
+      "body": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nNEUE PENDENZ\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nIm CAMAC wurde Ihnen das Dossier Nr. {{DOSSIER_NR}} als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\n\nSie k\u00f6nnen das Dossier mit folgendem Link direkt \u00f6ffnen:\n{{INTERNAL_DOSSIER_LINK}}\n\nInformationen zum Gesuch:\n- Gesuchsteller: {{GESUCHSTELLER}}\n- Vorhaben: {{VORHABEN}}\n\nBEARBEITUNG IM CAMAC\n- Upload Verf\u00fcgung / Stellungnahme (bitte Scan - Dokument inkl. Unterschrift hochladen).\n- Kurzantwort ausw\u00e4hlen.\n- Art der Sachbearbeitung ausw\u00e4hlen.\n- Kurzkommentare erfassen.\n- Senden\n\nAKTENNACHFORDERUNG\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese BAV anzufordern.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\n{{SENDER_SERVICE_ADDRESS}}",
+      "purpose": "Zirkulation gestartet - Bundesstelle",
+      "service": null,
+      "slug": "zirkulation-gestartet16",
+      "subject": "Zirkulation gestartet",
+      "type": "email"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 1411
+  },
+  {
+    "fields": {
+      "body": "CAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nNEUES DOSSIER\r\nDie zust\u00e4ndige Bundesstelle hat das Dossier-ID {{INSTANCE_ID}} mit der Dossier Nr. {{DOSSIER_NR}} im CAMAC erfasst und zur Bearbeitung durch die kantonalen Fachstellen freigegeben.",
+      "purpose": "Dossier von Bundesstelle frei geschalten - Koordinationsstelle Baudirektion BD",
+      "service": null,
+      "slug": "dossier-id-von-bundesstelle-frei-geschalten",
+      "subject": "Dossier {{INSTANCE_ID}} von Bundesstelle frei geschalten",
+      "type": "email"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 1438
+  },
+  {
+    "fields": {
       "address": null,
       "city": null,
       "disabled": 0,
