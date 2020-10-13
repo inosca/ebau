@@ -518,17 +518,32 @@ def test_instance_export_detail(
 
 @pytest.mark.freeze_time("2017-7-27")
 @pytest.mark.parametrize("short_dossier_number", [True, False])
+@pytest.mark.parametrize("use_caluma", [True, False])
 @pytest.mark.parametrize("location__communal_federal_number", ["1311"])
 def test_instance_generate_identifier(
-    db, instance, instance_factory, settings, short_dossier_number
+    db,
+    instance,
+    instance_factory,
+    case_factory,
+    application_settings,
+    short_dossier_number,
+    use_caluma,
 ):
-    settings.APPLICATION["SHORT_DOSSIER_NUMBER"] = short_dossier_number
+    application_settings["CALUMA"]["SAVE_DOSSIER_NUMBER_IN_CALUMA"] = use_caluma
+    application_settings["SHORT_DOSSIER_NUMBER"] = short_dossier_number
 
     prefix = "" if short_dossier_number else "13"
-    instance_factory(identifier=prefix + "11-17-010")
-    identifier = serializers.generate_identifier(instance)
+    identifier = prefix + "11-17-010"
+    if use_caluma:
+        case_factory(
+            meta={"camac-instance-id": instance.pk, "dossier-number": identifier}
+        )
+    else:
+        instance_factory(identifier=identifier)
 
-    assert identifier == prefix + "11-17-011"
+    new_identifier = serializers.generate_identifier(instance)
+
+    assert new_identifier == prefix + "11-17-011"
 
 
 @pytest.mark.freeze_time("2017-7-27")
