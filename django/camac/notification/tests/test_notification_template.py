@@ -654,6 +654,7 @@ def test_notification_validate_slug_create(admin_client, notification_template):
 
 @pytest.mark.parametrize("misdirect_type", [0, 99999])
 @pytest.mark.parametrize("misdirect_email", [0, 99999])
+@pytest.mark.parametrize("is_portal_form", [True, False])
 @pytest.mark.parametrize("submitter_email", ["foo@example.org", ""])
 @pytest.mark.parametrize(
     "submitter_type",
@@ -671,7 +672,11 @@ def test_recipient_type_submitter_list(
     misdirect_email,
     submitter_email,
     submitter_type,
+    is_portal_form,
 ):
+    if is_portal_form:
+        mocker.patch("camac.constants.kt_uri.PORTAL_FORMS", [instance.form.pk])
+
     ans_email = camac_answer_factory(answer=submitter_email, instance=instance)
     ans_submitter_type = camac_answer_factory(answer=submitter_type, instance=instance)
     mocker.patch(
@@ -708,7 +713,10 @@ def test_recipient_type_submitter_list(
     except Exception as exc:
         has_raised = exc
 
-    if misdirect_email or not submitter_email:
+    if not is_portal_form:
+        assert res == []
+        assert not has_raised
+    elif misdirect_email or not submitter_email:
         # note: misdirect_type just causes the fallback to trigger, which
         # won't cause an error per se
         assert bool(has_raised)
