@@ -511,6 +511,10 @@ def test_instance_export_detail(
         name="grundeigentumerschaft",
         value=[{"name": "Muster Hans"}, {"name": "Beispiel Jean"}],
     )
+    add_field(
+        name="bauherrschaft",
+        value=[{"name": "Muster Hans"}, {"firma": "Firma AG", "name": "Beispiel Jean"}],
+    )
     add_field(name="bohrungsdaten", value="Bezeichnung")
     add_field(name="kategorie-des-vorhabens", value=["Anlage(n)", "Baute(n)"])
     add_field(name="baugeruest-errichtet-am", value="2019-20-19")
