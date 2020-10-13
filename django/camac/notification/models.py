@@ -46,3 +46,19 @@ class NotificationTemplateT(models.Model):
     class Meta:
         managed = True
         db_table = "NOTIFICATION_TEMPLATE_T"
+
+
+class ProjectSubmitterData(models.Model):
+    instance = models.ForeignKey(
+        "instance.Instance",
+        on_delete=models.DO_NOTHING,
+        db_column="INSTANCE_ID",
+        related_name="+",
+    )
+    name = models.CharField(max_length=250, null=True)
+    email = models.CharField(max_length=250, null=True)
+    answer = models.CharField(max_length=250, null=True)
+
+    class Meta:
+        managed = False
+        db_table = "PROJECT_SUBMITTER_DATA"

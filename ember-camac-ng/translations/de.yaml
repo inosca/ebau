@@ -11,6 +11,7 @@ global:
   loadMore: "Mehr laden"
   paginationInfo: "<strong>1 - {count}</strong> von {total}"
   openMenu: "Menu öffnen"
+  form: "Formular"
   applicant: "Gesuchsteller"
 
 organisation:
@@ -103,3 +104,26 @@ workItems:
     control: "Controlling"
     urgent: "Dringend"
     new: "Neu"
+
+cases:
+  tableHeaders:
+    instanceId: "ID"
+    dossierNr: "Dossier-Nr"
+    form: "Verfahren"
+    municipality: "Gemeinde"
+    user: "Ersteller"
+    applicant: "Gesuchsteller"
+    intent: "Vorhaben"
+    street: "Strasse/Flurname"
+    instanceState: "Status"
+    coordination: "Koordinationsstelle"
+    coordinationShort: "Kurzname Koordinationsstelle"
+    reason: "Grund"
+    caseStatus: "Status"
+    parcel: "Parzelle"
+
+gis:
+  parcelNumber: "Parzellennummer"
+  buildingLeaseNumber: "Baurechtsnummer"
+  findParcel: "Parzelle finden"
+  submitParcel: "Daten übernehmen"

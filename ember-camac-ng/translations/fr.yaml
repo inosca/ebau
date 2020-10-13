@@ -11,6 +11,7 @@ global:
   loadMore: "Télécharger plus"
   paginationInfo: "<strong>1 - {count}</strong> de {total}"
   openMenu: "Ouvrir le menu"
+  form: "Formulaire"
 
 organisation:
   edit: "Modifiez votre organisation"
@@ -101,4 +102,10 @@ workItems:
     active: "Active"
     control: "Contrôler"
     urgent: "Urgent"
-    new: "Nouveau"
+    new: "Nouveu"
+
+gis:
+  parcelNumber: "Numéro de lot"
+  buildingLeaseNumber: "Numéro du bail à construction"
+  findParcel: "Trouver un terrain"
+  submitParcel: "Reprendre une parcelle de terrain"

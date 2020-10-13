@@ -80,14 +80,14 @@ Faker.add_provider(FreezegunAwareDatetimeProvider)
 
 FORM_QUESTION_MAP = [
     ("main-form", "gemeinde"),
-    ("main-form", "papierdossier"),
+    ("main-form", "is-paper"),
     ("main-form", "baubeschrieb"),
     ("main-form", "personalien-sb"),
     ("main-form", "personalien-gesuchstellerin"),
-    ("sb1", "papierdossier"),
+    ("sb1", "is-paper"),
     ("sb1", "personalien-sb1-sb2"),
-    ("sb2", "papierdossier"),
-    ("nfd", "papierdossier"),
+    ("sb2", "is-paper"),
+    ("nfd", "is-paper"),
 ]
 
 
@@ -153,7 +153,13 @@ def multilang(application_settings):
 @pytest.fixture
 def use_caluma_form(application_settings):
     application_settings["FORM_BACKEND"] = "caluma"
-    application_settings["CALUMA"] = {"FORM_PERMISSIONS": ["main", "sb1", "sb2", "nfd"]}
+    application_settings["CALUMA"] = {
+        "FORM_PERMISSIONS": ["main", "sb1", "sb2", "nfd"],
+        "HAS_PROJECT_CHANGE": True,
+        "CREATE_IN_PROCESS": False,
+        "USE_LOCATION": True,
+        "GENERATE_DOSSIER_NR": False,
+    }
 
 
 @pytest.fixture
@@ -372,6 +378,14 @@ def caluma_workflow_config_sz(settings, caluma_forms, caluma_config_sz):
     return workflows
 
 
+def yes(lang):
+    return "ja" if lang == "de" else "yes"
+
+
+def no(lang):
+    return "nein" if lang == "de" else "no"
+
+
 @pytest.fixture
 def caluma_forms(settings):
     # forms
@@ -398,13 +412,17 @@ def caluma_forms(settings):
         "camac.caluma.extensions.data_sources.Municipalities"
     ]
 
-    for slug in ["papierdossier", "projektaenderung"]:
+    for slug, lang in [("is-paper", "en"), ("projektaenderung", "de")]:
         question = caluma_form_models.Question.objects.create(
             slug=slug, type=caluma_form_models.Question.TYPE_CHOICE
         )
         options = [
-            caluma_form_models.Option.objects.create(slug=f"{slug}-ja", label="Ja"),
-            caluma_form_models.Option.objects.create(slug=f"{slug}-nein", label="Nein"),
+            caluma_form_models.Option.objects.create(
+                slug=f"{slug}-{yes(lang)}", label="Ja"
+            ),
+            caluma_form_models.Option.objects.create(
+                slug=f"{slug}-{no(lang)}", label="Nein"
+            ),
         ]
         for option in options:
             caluma_form_models.QuestionOption.objects.create(
@@ -472,3 +490,17 @@ def caluma_forms(settings):
         caluma_form_models.FormQuestion.objects.create(
             form_id=form_id, question_id=question_id
         )
+
+
+@pytest.fixture
+def portal_group(application_settings, group_factory):
+    group = group_factory()
+    application_settings["PORTAL_GROUP"] = group.pk
+    return group
+
+
+@pytest.fixture
+def portal_user(portal_group, user_factory, user_group_factory):
+    user = user_factory()
+    user_group_factory(group=portal_group, user=user, default_group=1)
+    return user

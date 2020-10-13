@@ -46,20 +46,20 @@ def copy_sb_personal(sender, work_item, **kwargs):
 @on(post_create_work_item)
 def copy_paper_answer(sender, work_item, **kwargs):
     if work_item.task_id in get_caluma_setting("COPY_PAPER_ANSWER_TO", []):
-        # copy answer to the papierdossier question in the case document to the
+        # copy answer to the is-paper question in the case document to the
         # newly created work item document
         try:
             work_item.document.answers.update_or_create(
-                question_id="papierdossier",
+                question_id="is-paper",
                 defaults={
                     "value": work_item.case.document.answers.get(
-                        question_id="papierdossier"
+                        question_id="is-paper"
                     ).value
                 },
             )
         except caluma_form_models.Answer.DoesNotExist:
             log.warning(
-                f"Could not find answer for question `papierdossier` in document for instance {get_instance_id(work_item)}"
+                f"Could not find answer for question `is-paper` in document for instance {get_instance_id(work_item)}"
             )
 
 

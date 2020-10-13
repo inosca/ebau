@@ -54,7 +54,8 @@ export default class JournalController extends Controller {
       return;
     }
     this.newEntry = this.store.createRecord("journal-entry", {
-      instance: this.instance
+      instance: this.instance,
+      visibility: "own_organization"
     });
   }
 

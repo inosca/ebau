@@ -162,10 +162,14 @@ class InstanceView(
         )
 
     def has_object_destroy_permission(self, instance):
+        deletable_states = ["new"]
+        if settings.APPLICATION["CALUMA"].get("CREATE_IN_PROCESS", False):
+            deletable_states.append("comm")
+
         return (
             self.has_base_permission(instance)
-            and instance.instance_state.name == "new"
-            and instance.previous_instance_state.name == "new"
+            and instance.instance_state.name in deletable_states
+            and instance.previous_instance_state.name in deletable_states
         )
 
     def has_object_submit_permission(self, instance):
@@ -511,19 +515,37 @@ class JournalEntryView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
 
     def get_base_queryset(self):
         queryset = super().get_base_queryset()
-        return queryset.filter(service=self.request.group.service_id)
+        query_filter = Q(visibility="all")
+
+        if self.request.group != settings.APPLICATION["PORTAL_GROUP"]:
+            service = self.request.group.service
+            query_filter |= Q(visibility="own_organization", service=service)
+            query_filter |= Q(visibility="authorities")
+
+        return queryset.filter(query_filter)
 
     @permission_aware
     def get_queryset(self):
-        """Return no result when user has no specific permission."""
-        queryset = super().get_base_queryset()
-        return queryset.none()
+        """Return no result when user has no specific permission.
+
+        Specific permissions are defined in InstanceQuerysetMixin.
+        """
+
+        # TODO applicants currently don't have access to journal entries at all. Giving them access might
+        # require a dedicated "applicant" role in our permission layer?
+        return models.JournalEntry.objects.none()
 
     @permission_aware
     def has_create_permission(self):
         return False
 
     def has_create_permission_for_canton(self):
+        return True
+
+    def has_create_permission_for_commission(self):
+        return False
+
+    def has_create_permission_for_coordination(self):
         return True
 
     def has_create_permission_for_service(self):

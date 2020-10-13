@@ -1,0 +1,7 @@
+<h3 {{did-insert (perform this.getDocument)}}>
+  {{t "global.form"}} {{this.model.id}}
+</h3>
+
+{{#if this.document}}
+  <CfContent @documentId={{this.document.id}} />
+{{/if}}
