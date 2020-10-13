@@ -58,9 +58,7 @@ class Command(BaseCommand):
                 **settings.APPLICATION.get("DUMP_CONFIG_GROUPS", {}),
             }
             for filter_group, model_filters in filter_config.items():
-                if (
-                    model_identifier in model_filters
-                ):  # pragma: no cover, TODO: remove as soon as BE config is uncommented
+                if model_identifier in model_filters:
                     filtered_queryset = (
                         model.objects.exclude(pk__in=excluded_pks)
                         .filter(model_filters[model_identifier])

@@ -7,7 +7,7 @@ import { allWorkItems } from "ember-caluma/caluma-query/queries";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 import moment from "moment";
 
-import completeWorkItem from "camac-ng/gql/mutations/complete-workitem";
+import completeWorkItem from "camac-ng/gql/mutations/complete-work-item";
 import saveWorkItem from "camac-ng/gql/mutations/save-workitem";
 import getProcessData from "camac-ng/utils/work-item";
 
@@ -106,11 +106,7 @@ export default class WorkItemsInstanceEditController extends Controller {
 
       yield this.apollo.mutate({
         mutation: completeWorkItem,
-        variables: {
-          input: {
-            id: this.workItem.id,
-          },
-        },
+        variables: { id: this.workItem.id },
       });
 
       this.notifications.success(this.intl.t("workItems.finishSuccess"));

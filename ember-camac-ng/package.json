@@ -31,6 +31,7 @@
     "@glimmer/tracking": "^1.0.2",
     "broccoli-asset-rev": "^3.0.0",
     "broccoli-stew": "^3.0.0",
+    "core-js": "^3.6.5",
     "ember-apollo-client": "^2.1.0",
     "ember-auto-import": "^1.6.0",
     "ember-caluma": "^6.4.0",

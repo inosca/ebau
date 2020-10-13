@@ -4,6 +4,7 @@ import re
 from datetime import timedelta
 
 import environ
+from django.db.models.expressions import Q
 
 from camac.utils import build_url
 
@@ -118,7 +119,6 @@ WSGI_APPLICATION = "camac.wsgi.application"
 
 # Application specific settings
 # an application is defined by the customer e.g. uri, schwyz, etc.
-
 APPLICATIONS = {
     "demo": {
         # Mapping between camac role and instance permission.
@@ -364,7 +364,7 @@ APPLICATIONS = {
             "surname",
         ],
         "CALUMA": {
-            "FORM_PERMISSIONS": ["main", "sb1", "sb2", "nfd"],
+            "FORM_PERMISSIONS": ["main", "sb1", "sb2", "nfd", "dossierpruefung"],
             "CIRCULATION_WORKFLOW": "circulation",
             "CIRCULATION_TASK": "circulation",
             "CIRCULATION_FORM": "circulation",
@@ -373,6 +373,7 @@ APPLICATIONS = {
             "SUBMIT_TASKS": ["submit"],
             "REPORT_TASK": "sb1",
             "FINALIZE_TASK": "sb2",
+            "AUDIT_TASK": "audit",
             "COPY_PAPER_ANSWER_TO": ["nfd", "sb1", "sb2"],
             "COPY_PERSONAL": [
                 {
@@ -415,6 +416,27 @@ APPLICATIONS = {
             "CREATE_IN_PROCESS": False,
             "USE_LOCATION": False,
             "GENERATE_DOSSIER_NR": False,
+            "AUDIT_FORMS": [
+                "dossierpruefung",
+                "fp-form",
+                "bab-form",
+                "bab-beilagen",
+                "mp-form",
+                "mp-abschluss",
+                "mp-ausnahmen",
+                "mp-bauabstaende",
+                "mp-eigene-pruefgegenstaende",
+                "mp-erschliessung",
+                "mp-form",
+                "mp-gesundheit",
+                "mp-nutzungsvorschriften",
+                "mp-ortsbild-und-landschaftsschutz",
+                "mp-schutzinventare",
+                "mp-sicherheit",
+                "mp-umweltschutz",
+                "mp-weitere-gegenstaende",
+                "mp-weitere-vorschriften",
+            ],
         },
         "PORTAL_GROUP": 6,
         "DEMO_MODE_GROUPS": [
@@ -834,36 +856,7 @@ APPLICATIONS = {
             ("gesuchstyp", "gesuchstyp-hecke-feldgehoelz", [20065]),
         ],
         "NOTIFICATIONS_EXCLUDED_TASKS": [],
-        "DUMP_CONFIG_GROUPS": {
-            # TODO: uncomment this if relevant
-            # AUDIT_FORMS = [
-            #     "dossierpruefung",
-            #     "fp-form",
-            #     "bab-form",
-            #     "mp-form",
-            #     "mp-abschluss",
-            #     "mp-ausnahmen",
-            #     "mp-bauabstaende",
-            #     "mp-eigene-pruefgegenstaende",
-            #     "mp-erschliessung",
-            #     "mp-form",
-            #     "mp-gesundheit",
-            #     "mp-nutzungsvorschriften",
-            #     "mp-ortsbild-und-landschaftsschutz",
-            #     "mp-schutzinventare",
-            #     "mp-sicherheit",
-            #     "mp-umweltschutz",
-            #     "mp-weitere-gegenstaende",
-            #     "mp-weitere-vorschriften",
-            # ]
-            # "caluma_audit_form": {
-            #     "caluma_form.Option": Q(questions__forms__pk__in=AUDIT_FORMS),
-            #     "caluma_form.Question": Q(forms__pk__in=AUDIT_FORMS),
-            #     "caluma_form.Form": Q(pk__in=AUDIT_FORMS),
-            #     "caluma_form.QuestionOption": Q(question__forms__pk__in=AUDIT_FORMS),
-            #     "caluma_form.FormQuestion": Q(form__pk__in=AUDIT_FORMS),
-            # },
-        },
+        "DUMP_CONFIG_GROUPS": {},
         "DUMP_CONFIG_EXCLUDED_MODELS": [
             "user.Group",
             "user.GroupT",
@@ -973,6 +966,24 @@ APPLICATIONS = {
             "notification.NotificationTemplate",
             "notification.NotificationTemplateT",
         ],
+    },
+}
+
+APPLICATIONS["kt_bern"]["DUMP_CONFIG_GROUPS"] = {
+    "caluma_audit_form": {
+        "caluma_form.Option": Q(
+            questions__forms__pk__in=APPLICATIONS["kt_bern"]["CALUMA"]["AUDIT_FORMS"]
+        ),
+        "caluma_form.Question": Q(
+            forms__pk__in=APPLICATIONS["kt_bern"]["CALUMA"]["AUDIT_FORMS"]
+        ),
+        "caluma_form.Form": Q(pk__in=APPLICATIONS["kt_bern"]["CALUMA"]["AUDIT_FORMS"]),
+        "caluma_form.QuestionOption": Q(
+            question__forms__pk__in=APPLICATIONS["kt_bern"]["CALUMA"]["AUDIT_FORMS"]
+        ),
+        "caluma_form.FormQuestion": Q(
+            form__pk__in=APPLICATIONS["kt_bern"]["CALUMA"]["AUDIT_FORMS"]
+        ),
     },
 }
 
