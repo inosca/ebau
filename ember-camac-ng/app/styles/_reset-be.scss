@@ -11,11 +11,34 @@
 }
 
 .uk-list,
+.uk-tab,
 .uk-nav {
   margin: 0 !important;
   padding: 0 !important;
 
   li {
     background-image: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: normal !important;
   }
+}
+
+hr {
+  position: static;
+  width: auto;
+  display: block;
+}
+
+strong {
+  color: $global-emphasis-color;
+}
+
+a:focus {
+  background-color: transparent;
+}
+
+// all buttons should be small for now
+.uk-button {
+  @extend .uk-button-small;
 }

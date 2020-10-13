@@ -9,7 +9,12 @@ from caluma.caluma_core.permissions import (
     permission_for,
 )
 from caluma.caluma_form.models import Document
-from caluma.caluma_form.schema import RemoveAnswer, SaveDocument, SaveDocumentAnswer
+from caluma.caluma_form.schema import (
+    RemoveAnswer,
+    RemoveDocument,
+    SaveDocument,
+    SaveDocumentAnswer,
+)
 from caluma.caluma_workflow.models import Case
 from caluma.caluma_workflow.schema import (
     CancelWorkItem,
@@ -123,6 +128,7 @@ class CustomPermission(BasePermission):
         ) or is_addressed_to_applicant(work_item)
 
     # Document
+    @permission_for(RemoveDocument)
     @permission_for(SaveDocument)
     def has_permission_for_savedocument(self, mutation, info):
         if mutation.get_params(info).get("form") == DASHBOARD_FORM_SLUG:
@@ -135,6 +141,7 @@ class CustomPermission(BasePermission):
 
         return True
 
+    @object_permission_for(RemoveDocument)
     @object_permission_for(SaveDocument)
     def has_object_permission_for_savedocument(self, mutation, info, document):
         if document.form.slug == DASHBOARD_FORM_SLUG:

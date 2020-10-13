@@ -1,0 +1,13 @@
+query GetDocumentWorkItem($documentId: ID!) {
+  allDocuments(filter: { id: $documentId }, first: 1) {
+    edges {
+      node {
+        id
+        workItem {
+          id
+          status
+        }
+      }
+    }
+  }
+}

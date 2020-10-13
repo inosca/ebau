@@ -1,0 +1,7 @@
+mutation LinkAuditDocument($question: ID!, $document: ID!, $value: [ID]!) {
+  saveDocumentTableAnswer(
+    input: { question: $question, document: $document, value: $value }
+  ) {
+    clientMutationId
+  }
+}

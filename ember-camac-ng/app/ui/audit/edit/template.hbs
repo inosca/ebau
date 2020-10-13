@@ -1,0 +1,28 @@
+<div class="uk-flex uk-flex-between">
+  {{#if this.audit}}
+    <div>
+      <span class="uk-text-bold">
+        {{this.audit.type}}
+      </span>
+      -
+      <span class="uk-text-meta">
+        {{t
+          "audit.titleMeta"
+          creator=this.audit.createdBy.name
+          date=(moment-format this.audit.createdAt "MM.DD.YYYY HH:mm")
+        }}
+      </span>
+    </div>
+  {{/if}}
+
+  <div class="uk-text-right">
+    <LinkTo @route="audit.index">{{t "audit.back"}}</LinkTo>
+  </div>
+</div>
+
+<hr>
+
+<CfContent
+  @documentId={{this.model}}
+  @disabled={{this.disabled}}
+/>

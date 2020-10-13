@@ -1,13 +1,8 @@
 <div>
   {{#each this.notifications.all as |notification|}}
-    <div
-      role="button"
-      class="alert hinweisbox buttonstyle {{notification.type}}"
-      {{on "click" (fn this.remove notification)}}
-    >
-      <p class="text">
-        {{notification.message}}
-      </p>
-    </div>
+    {{component (concat "notifications/" this.style)
+      notification=notification
+      onClick=(fn this.remove notification)
+    }}
   {{/each}}
 </div>
