@@ -7,7 +7,7 @@ from caluma.caluma_workflow import api as workflow_api, models as caluma_workflo
 from django.core import mail
 from django.urls import reverse
 from pytest_factoryboy import LazyFixture
-from rest_framework import status
+from rest_framework import exceptions, status
 
 from camac.constants import kt_bern as constants
 from camac.constants.kt_bern import (
@@ -27,6 +27,7 @@ from camac.instance.serializers import (
     SUBMIT_DATE_QUESTION_ID,
     CalumaInstanceSerializer,
     CalumaInstanceSubmitSerializer,
+    get_caluma_form_from_camac,
 )
 from camac.utils import flatten
 
@@ -82,9 +83,13 @@ def mock_generate_and_store_pdf(mocker):
 @pytest.mark.parametrize("service_group__name", ["municipality"])
 @pytest.mark.parametrize("instance_state__name", ["new"])
 @pytest.mark.parametrize("paper", [False, True])
+@pytest.mark.parametrize("create_with_camac_form", [False, True])
+@pytest.mark.parametrize("create_in_process", [False, True])
+@pytest.mark.parametrize("use_location", [False, True])
 @pytest.mark.parametrize(
     "copy,modification", [(False, False), (True, False), (True, True)]
 )
+@pytest.mark.parametrize("role__name", ["Municipality"])
 def test_create_instance_caluma(
     db,
     admin_client,
@@ -97,6 +102,9 @@ def test_create_instance_caluma(
     application_settings,
     attachment,
     paper,
+    create_in_process,
+    use_location,
+    create_with_camac_form,
     copy,
     modification,
     user_factory,
@@ -110,7 +118,21 @@ def test_create_instance_caluma(
         }
         headers.update({"x-camac-group": group.pk})
 
-    data = {"data": {"type": "instances", "attributes": {"caluma-form": "main-form"}}}
+    instance_state_factory(name="comm")
+
+    application_settings["CALUMA"]["CREATE_IN_PROCESS"] = create_in_process
+    application_settings["CALUMA"]["USE_LOCATION"] = use_location
+
+    if create_with_camac_form:
+        application_settings["FORM_MAPPING"] = {"main-form": [form.pk]}
+        body = {
+            "attributes": {},
+            "relationships": {"form": {"data": {"type": "forms", "id": form.pk}}},
+        }
+    else:
+        body = {"attributes": {"caluma-form": "main-form"}}
+
+    data = {"data": {"type": "instances", **body}}
 
     create_resp = admin_client.post(reverse("instance-list"), data, **headers)
 
@@ -123,10 +145,16 @@ def test_create_instance_caluma(
 
     assert (
         case.document.answers.filter(
-            question_id="papierdossier", value="papierdossier-ja"
+            question_id="is-paper", value="is-paper-yes"
         ).exists()
         == paper
     )
+
+    if use_location:
+        assert (
+            Instance.objects.get(pk=instance_id).location
+            == admin_client.user.groups.first().locations.first()
+        )
 
     # do a second request including pk, copying the existing instance
     if copy:
@@ -600,7 +628,7 @@ def test_caluma_instance_list_filter(
         meta={"camac-instance-id": paper_instance.pk},
         user=BaseUser(),
     )
-    case.document.answers.create(question_id="papierdossier", value="papierdossier-ja")
+    case.document.answers.create(question_id="is-paper", value="is-paper-yes")
 
     url = reverse("instance-list")
     response = admin_client.get(url, data={"is_paper": is_paper})
@@ -681,7 +709,6 @@ def test_generate_pdf_action(
 
 
 @pytest.mark.freeze_time("2020-03-19")
-@pytest.mark.parametrize("instance_state__name", ["new"])
 @pytest.mark.parametrize(
     "role__name,paper", [("Applicant", False), ("Municipality", True)]
 )
@@ -699,6 +726,8 @@ def test_instance_delete(
     attachment,
     paper,
 ):
+    instance_state_factory(name="new")
+    instance_state_factory(name="comm")
     # first create instance with all documents
     headers = {}
 
@@ -863,6 +892,13 @@ def test_instance_submit_suggestions(
         list(ProposalActivation.objects.values_list("service_id", flat=True))
         == expected_services
     )
+
+
+def test_get_caluma_form_from_camac():
+    assert get_caluma_form_from_camac(1) == "building-permit"
+
+    with pytest.raises(exceptions.ValidationError):
+        get_caluma_form_from_camac(123)
 
 
 @pytest.mark.parametrize("service_group__name", ["municipality"])
@@ -1181,8 +1217,11 @@ def test_instance_name(
     is_modification,
     is_migrated,
 ):
-    def yes_no(boolean):
+    def yes_no_german(boolean):
         return "ja" if boolean else "nein"
+
+    def yes_no_english(boolean):
+        return "yes" if boolean else "no"
 
     if is_migrated:
         workflow = caluma_workflow_models.Workflow.objects.get(pk="migrated")
@@ -1205,11 +1244,11 @@ def test_instance_name(
         )
     else:
         case.document.answers.create(
-            question_id="papierdossier", value=f"papierdossier-{yes_no(is_paper)}"
+            question_id="is-paper", value=f"is-paper-{yes_no_english(is_paper)}"
         )
         case.document.answers.create(
             question_id="projektaenderung",
-            value=f"projektaenderung-{yes_no(is_modification)}",
+            value=f"projektaenderung-{yes_no_german(is_modification)}",
         )
 
     url = reverse("instance-detail", args=[instance.pk])
