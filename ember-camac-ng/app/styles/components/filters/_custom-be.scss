@@ -1,0 +1,9 @@
+.radio-buttons {
+  &__button {
+    border: 1px solid #c8d9e9;
+
+    > input:checked + label {
+      background-color: #c8d9e9;
+    }
+  }
+}
