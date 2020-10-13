@@ -153,8 +153,8 @@
       "file": null,
       "meta": {},
       "modified_at": "2020-03-06T11:13:35.958Z",
-      "question": "papierdossier",
-      "value": "papierdossier-nein"
+      "question": "is-paper",
+      "value": "is-paper-no"
     },
     "model": "caluma_form.answer",
     "pk": "1a75d46f-9adc-47c6-8986-9c3219c574b2"
@@ -1417,8 +1417,8 @@
       "file": null,
       "meta": {},
       "modified_at": "2020-03-06T11:13:35.920Z",
-      "question": "papierdossier",
-      "value": "papierdossier-nein"
+      "question": "is-paper",
+      "value": "is-paper-no"
     },
     "model": "caluma_form.answer",
     "pk": "ee73c962-dc43-49aa-8922-08858ce5fcf4"
@@ -1513,8 +1513,8 @@
       "file": null,
       "meta": {},
       "modified_at": "2020-03-06T11:10:26.126Z",
-      "question": "papierdossier",
-      "value": "papierdossier-nein"
+      "question": "is-paper",
+      "value": "is-paper-no"
     },
     "model": "caluma_form.answer",
     "pk": "fb8026a9-24fa-4a7f-b3d4-85437a7937dd"
@@ -1837,8 +1837,8 @@
       "id": "030b7841-4ae4-4e23-acf8-b95c8c397583",
       "meta": {},
       "modified_at": "2020-03-06T11:10:26.149Z",
-      "question": "papierdossier",
-      "value": "papierdossier-nein"
+      "question": "is-paper",
+      "value": "is-paper-no"
     },
     "model": "caluma_form.historicalanswer",
     "pk": "1412dbc4-6c48-4b47-a2fa-314673159554"
@@ -2167,8 +2167,8 @@
       "id": "2013fa37-124b-43eb-9259-289f2785efd8",
       "meta": {},
       "modified_at": "2020-03-06T11:10:26.161Z",
-      "question": "papierdossier",
-      "value": "papierdossier-nein"
+      "question": "is-paper",
+      "value": "is-paper-no"
     },
     "model": "caluma_form.historicalanswer",
     "pk": "3f1755cb-1070-42a3-9d2b-f13d0018100c"
@@ -2189,8 +2189,8 @@
       "id": "fb8026a9-24fa-4a7f-b3d4-85437a7937dd",
       "meta": {},
       "modified_at": "2020-03-06T11:10:26.126Z",
-      "question": "papierdossier",
-      "value": "papierdossier-nein"
+      "question": "is-paper",
+      "value": "is-paper-no"
     },
     "model": "caluma_form.historicalanswer",
     "pk": "405022b6-e451-4f23-a220-792f4e1ef9b2"
@@ -2893,8 +2893,8 @@
       "id": "ee73c962-dc43-49aa-8922-08858ce5fcf4",
       "meta": {},
       "modified_at": "2020-03-06T11:13:35.920Z",
-      "question": "papierdossier",
-      "value": "papierdossier-nein"
+      "question": "is-paper",
+      "value": "is-paper-no"
     },
     "model": "caluma_form.historicalanswer",
     "pk": "944c75f6-74a8-4823-bd2b-f0346278e9a5"
@@ -2915,8 +2915,8 @@
       "id": "1a75d46f-9adc-47c6-8986-9c3219c574b2",
       "meta": {},
       "modified_at": "2020-03-06T11:13:35.958Z",
-      "question": "papierdossier",
-      "value": "papierdossier-nein"
+      "question": "is-paper",
+      "value": "is-paper-no"
     },
     "model": "caluma_form.historicalanswer",
     "pk": "98e52d4c-3d6b-4907-9c8b-d4a0d82a778f"
@@ -3025,8 +3025,8 @@
       "id": "5d808a09-1894-4a9c-bea5-334b2eee54a2",
       "meta": {},
       "modified_at": "2020-03-06T11:13:35.947Z",
-      "question": "papierdossier",
-      "value": "papierdossier-nein"
+      "question": "is-paper",
+      "value": "is-paper-no"
     },
     "model": "caluma_form.historicalanswer",
     "pk": "a9708a2b-8c22-4531-ac57-c8f3b4484777"
@@ -3399,8 +3399,8 @@
       "id": "117faa7f-691c-4300-a844-4aef6808ee21",
       "meta": {},
       "modified_at": "2020-03-06T11:10:26.169Z",
-      "question": "papierdossier",
-      "value": "papierdossier-nein"
+      "question": "is-paper",
+      "value": "is-paper-no"
     },
     "model": "caluma_form.historicalanswer",
     "pk": "c86aaa47-800d-477a-98e2-c4d3633078d0"
@@ -3619,8 +3619,8 @@
       "id": "bb3ef91e-2ad1-4e16-9c92-c104ac1677fd",
       "meta": {},
       "modified_at": "2020-03-06T11:13:35.937Z",
-      "question": "papierdossier",
-      "value": "papierdossier-nein"
+      "question": "is-paper",
+      "value": "is-paper-no"
     },
     "model": "caluma_form.historicalanswer",
     "pk": "e490049c-e9f2-4eff-ad26-4b5c25bd7e61"

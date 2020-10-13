@@ -553,7 +553,7 @@
       "error_message": "",
       "execute_always": 0,
       "name": "Workflow Datum setzen Dossier erfasst",
-      "sort": 4,
+      "sort": 5,
       "success_message": ""
     },
     "model": "core.action",
@@ -5055,6 +5055,20 @@
   },
   {
     "fields": {
+      "available_action": "php",
+      "button": 2,
+      "description": null,
+      "error_message": "Dossier konnte nicht erstellt werden (NG API call failed)",
+      "execute_always": 0,
+      "name": "CreateInstanceNG",
+      "sort": 0,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1457
+  },
+  {
+    "fields": {
       "current_instance_state": 21,
       "next_instance_state": 22
     },
@@ -6281,6 +6295,15 @@
     },
     "model": "core.airaction",
     "pk": 77
+  },
+  {
+    "fields": {
+      "action_name": "index",
+      "available_instance_resource": "journal",
+      "hidden": 0
+    },
+    "model": "core.airaction",
+    "pk": 78
   },
   {
     "fields": {},
@@ -9987,6 +10010,13 @@
   },
   {
     "fields": {
+      "php_class": "CreateInstanceNG"
+    },
+    "model": "core.aphp",
+    "pk": 1457
+  },
+  {
+    "fields": {
       "action_name": "template",
       "available_resource": "page",
       "hidden": 0
@@ -10227,6 +10257,15 @@
     },
     "model": "core.araction",
     "pk": 27
+  },
+  {
+    "fields": {
+      "action_name": "index",
+      "available_resource": "emberlist",
+      "hidden": 0
+    },
+    "model": "core.araction",
+    "pk": 28
   },
   {
     "fields": {
@@ -12049,6 +12088,14 @@
   },
   {
     "fields": {
+      "description": "Add a history entry",
+      "module_name": "history"
+    },
+    "model": "core.availableaction",
+    "pk": "addhistory"
+  },
+  {
+    "fields": {
       "description": "Check with a SQL query",
       "module_name": "default"
     },
@@ -12370,12 +12417,21 @@
   },
   {
     "fields": {
-      "controller_name": "index",
-      "description": "History of an instance",
+      "controller_name": "history",
+      "description": "Show instance history",
       "module_name": "history"
     },
     "model": "core.availableinstanceresource",
     "pk": "history"
+  },
+  {
+    "fields": {
+      "controller_name": "journal",
+      "description": "Show instance journal",
+      "module_name": "journal"
+    },
+    "model": "core.availableinstanceresource",
+    "pk": "journal"
   },
   {
     "fields": {
@@ -12439,6 +12495,15 @@
     },
     "model": "core.availableresource",
     "pk": "download"
+  },
+  {
+    "fields": {
+      "controller_name": "emberlist",
+      "description": "Page with a list of instances (from caluma)",
+      "module_name": "emberlist"
+    },
+    "model": "core.availableresource",
+    "pk": "emberlist"
   },
   {
     "fields": {
@@ -24774,7 +24839,7 @@
       "hidden": 0,
       "name": "Personen- und Projektdaten bearbeiten",
       "resource": 301,
-      "sort": 0,
+      "sort": 1,
       "template": "/form/form-edit.phtml"
     },
     "model": "core.instanceresource",
@@ -24789,7 +24854,7 @@
       "hidden": 0,
       "name": "Personen- und Projektdaten",
       "resource": 301,
-      "sort": 3,
+      "sort": 4,
       "template": "/form/form-read.phtml"
     },
     "model": "core.instanceresource",
@@ -24834,7 +24899,7 @@
       "hidden": 0,
       "name": "Dokumente",
       "resource": 301,
-      "sort": 6,
+      "sort": 7,
       "template": ""
     },
     "model": "core.instanceresource",
@@ -24969,7 +25034,7 @@
       "hidden": 0,
       "name": "Personen- und Projektdaten bearbeiten",
       "resource": 301,
-      "sort": 2,
+      "sort": 3,
       "template": "/form/form-edit.phtml"
     },
     "model": "core.instanceresource",
@@ -24984,7 +25049,7 @@
       "hidden": 0,
       "name": "Verfahren \u00e4ndern",
       "resource": 301,
-      "sort": 10,
+      "sort": 11,
       "template": "/change/gem.phtml"
     },
     "model": "core.instanceresource",
@@ -24999,7 +25064,7 @@
       "hidden": 0,
       "name": "Publikation",
       "resource": 301,
-      "sort": 11,
+      "sort": 12,
       "template": null
     },
     "model": "core.instanceresource",
@@ -25014,7 +25079,7 @@
       "hidden": 0,
       "name": "Beteiligte Fachstellen",
       "resource": 301,
-      "sort": 9,
+      "sort": 10,
       "template": "/global/involved-department.phtml"
     },
     "model": "core.instanceresource",
@@ -25134,7 +25199,7 @@
       "hidden": 0,
       "name": "Workflow",
       "resource": 301,
-      "sort": 13,
+      "sort": 14,
       "template": ""
     },
     "model": "core.instanceresource",
@@ -25314,7 +25379,7 @@
       "hidden": 0,
       "name": "Personen- und Projektdaten bearbeiten",
       "resource": 301,
-      "sort": 1,
+      "sort": 2,
       "template": "/form/form-edit.phtml"
     },
     "model": "core.instanceresource",
@@ -25329,7 +25394,7 @@
       "hidden": 0,
       "name": "Personen- und Projektdaten",
       "resource": 301,
-      "sort": 4,
+      "sort": 5,
       "template": "/form/form-read.phtml"
     },
     "model": "core.instanceresource",
@@ -25809,7 +25874,7 @@
       "hidden": 0,
       "name": "Auflagen bewirtschaften",
       "resource": 301,
-      "sort": 12,
+      "sort": 13,
       "template": null
     },
     "model": "core.instanceresource",
@@ -25854,7 +25919,7 @@
       "hidden": 0,
       "name": "Bauverwaltung",
       "resource": 301,
-      "sort": 14,
+      "sort": 15,
       "template": null
     },
     "model": "core.instanceresource",
@@ -26589,7 +26654,7 @@
       "hidden": 0,
       "name": "Zirkulation Gemeindeservice",
       "resource": 301,
-      "sort": 7,
+      "sort": 8,
       "template": null
     },
     "model": "core.instanceresource",
@@ -26739,7 +26804,7 @@
       "hidden": 0,
       "name": "R\u00fcckmeldungen Gemeindeservice",
       "resource": 301,
-      "sort": 8,
+      "sort": 9,
       "template": null
     },
     "model": "core.instanceresource",
@@ -26754,7 +26819,7 @@
       "hidden": 0,
       "name": "Personen- und Projektdaten",
       "resource": 301,
-      "sort": 5,
+      "sort": 6,
       "template": "/form/form-read.phtml"
     },
     "model": "core.instanceresource",
@@ -26819,6 +26884,66 @@
     },
     "model": "core.instanceresource",
     "pk": 770
+  },
+  {
+    "fields": {
+      "available_instance_resource": "page",
+      "class_field": null,
+      "description": null,
+      "form_group": 161,
+      "hidden": 0,
+      "name": "Formular",
+      "resource": 301,
+      "sort": 0,
+      "template": "/ember/instance.phtml"
+    },
+    "model": "core.instanceresource",
+    "pk": 771
+  },
+  {
+    "fields": {
+      "available_instance_resource": "journal",
+      "class_field": null,
+      "description": null,
+      "form_group": 161,
+      "hidden": 0,
+      "name": "Journal",
+      "resource": 267,
+      "sort": 5,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 772
+  },
+  {
+    "fields": {
+      "available_instance_resource": "history",
+      "class_field": null,
+      "description": null,
+      "form_group": 161,
+      "hidden": 0,
+      "name": "History",
+      "resource": 301,
+      "sort": 17,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 20000
+  },
+  {
+    "fields": {
+      "available_instance_resource": "journal",
+      "class_field": null,
+      "description": null,
+      "form_group": 161,
+      "hidden": 0,
+      "name": "Journal",
+      "resource": 301,
+      "sort": 16,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 20001
   },
   {
     "fields": {
@@ -28494,6 +28619,198 @@
   },
   {
     "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "page"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 20000
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "publication"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 20001
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "workflow"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 20002
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "editformpages"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 20003
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "sanction"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 20004
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "documents_portal"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 20005
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "circulation"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 20006
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "billing"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 20007
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "documents_portal_submit"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 20008
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "editletter"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 20009
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "formerror"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 20010
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "formpages"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 20011
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "formwizard"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 20012
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "history"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 20013
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "editformpage"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 20014
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "bab"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 20015
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "allformpages"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 20016
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "newform"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 20017
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "letter"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 20018
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "editcirculation"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 20019
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "editnotice"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 20020
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "formpage"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 20021
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "buildingauthority"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 20022
+  },
+  {
+    "fields": {
+      "available_action": "addhistory",
+      "available_instance_resource": "documents"
+    },
+    "model": "core.instanceresourceaction",
+    "pk": 20023
+  },
+  {
+    "fields": {
       "circulation_type": 41,
       "draft_circulation_answer": null,
       "pdf_class": "",
@@ -30129,6 +30446,13 @@
     },
     "model": "core.irpage",
     "pk": 705
+  },
+  {
+    "fields": {
+      "pdf_class": null
+    },
+    "model": "core.irpage",
+    "pk": 771
   },
   {
     "fields": {
@@ -39870,6 +40194,519 @@
   },
   {
     "fields": {
+      "instance_resource": 771,
+      "instance_state": 1,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 1140
+  },
+  {
+    "fields": {
+      "instance_resource": 771,
+      "instance_state": 21,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 1141
+  },
+  {
+    "fields": {
+      "instance_resource": 771,
+      "instance_state": 22,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 1142
+  },
+  {
+    "fields": {
+      "instance_resource": 771,
+      "instance_state": 32,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 1143
+  },
+  {
+    "fields": {
+      "instance_resource": 771,
+      "instance_state": 23,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 1144
+  },
+  {
+    "fields": {
+      "instance_resource": 771,
+      "instance_state": 24,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 1145
+  },
+  {
+    "fields": {
+      "instance_resource": 771,
+      "instance_state": 25,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 1146
+  },
+  {
+    "fields": {
+      "instance_resource": 771,
+      "instance_state": 34,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 1147
+  },
+  {
+    "fields": {
+      "instance_resource": 771,
+      "instance_state": 26,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 1148
+  },
+  {
+    "fields": {
+      "instance_resource": 771,
+      "instance_state": 27,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 1149
+  },
+  {
+    "fields": {
+      "instance_resource": 771,
+      "instance_state": 29,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 1150
+  },
+  {
+    "fields": {
+      "instance_resource": 771,
+      "instance_state": 30,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 1151
+  },
+  {
+    "fields": {
+      "instance_resource": 771,
+      "instance_state": 31,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 1152
+  },
+  {
+    "fields": {
+      "instance_resource": 771,
+      "instance_state": 33,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 1153
+  },
+  {
+    "fields": {
+      "instance_resource": 20000,
+      "instance_state": 21,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 20000
+  },
+  {
+    "fields": {
+      "instance_resource": 20000,
+      "instance_state": 22,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 20001
+  },
+  {
+    "fields": {
+      "instance_resource": 20000,
+      "instance_state": 32,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 20002
+  },
+  {
+    "fields": {
+      "instance_resource": 20000,
+      "instance_state": 23,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 20003
+  },
+  {
+    "fields": {
+      "instance_resource": 20000,
+      "instance_state": 24,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 20004
+  },
+  {
+    "fields": {
+      "instance_resource": 20000,
+      "instance_state": 25,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 20005
+  },
+  {
+    "fields": {
+      "instance_resource": 20000,
+      "instance_state": 34,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 20006
+  },
+  {
+    "fields": {
+      "instance_resource": 20000,
+      "instance_state": 26,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 20007
+  },
+  {
+    "fields": {
+      "instance_resource": 20000,
+      "instance_state": 27,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 20008
+  },
+  {
+    "fields": {
+      "instance_resource": 20000,
+      "instance_state": 29,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 20009
+  },
+  {
+    "fields": {
+      "instance_resource": 20000,
+      "instance_state": 30,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 20010
+  },
+  {
+    "fields": {
+      "instance_resource": 20000,
+      "instance_state": 31,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 20011
+  },
+  {
+    "fields": {
+      "instance_resource": 20000,
+      "instance_state": 33,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 20012
+  },
+  {
+    "fields": {
+      "instance_resource": 772,
+      "instance_state": 1,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 20013
+  },
+  {
+    "fields": {
+      "instance_resource": 772,
+      "instance_state": 21,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 20014
+  },
+  {
+    "fields": {
+      "instance_resource": 772,
+      "instance_state": 22,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 20015
+  },
+  {
+    "fields": {
+      "instance_resource": 772,
+      "instance_state": 32,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 20016
+  },
+  {
+    "fields": {
+      "instance_resource": 772,
+      "instance_state": 23,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 20017
+  },
+  {
+    "fields": {
+      "instance_resource": 772,
+      "instance_state": 24,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 20018
+  },
+  {
+    "fields": {
+      "instance_resource": 772,
+      "instance_state": 25,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 20019
+  },
+  {
+    "fields": {
+      "instance_resource": 772,
+      "instance_state": 34,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 20020
+  },
+  {
+    "fields": {
+      "instance_resource": 772,
+      "instance_state": 26,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 20021
+  },
+  {
+    "fields": {
+      "instance_resource": 772,
+      "instance_state": 27,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 20022
+  },
+  {
+    "fields": {
+      "instance_resource": 772,
+      "instance_state": 28,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 20023
+  },
+  {
+    "fields": {
+      "instance_resource": 772,
+      "instance_state": 29,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 20024
+  },
+  {
+    "fields": {
+      "instance_resource": 772,
+      "instance_state": 30,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 20025
+  },
+  {
+    "fields": {
+      "instance_resource": 772,
+      "instance_state": 31,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 20026
+  },
+  {
+    "fields": {
+      "instance_resource": 772,
+      "instance_state": 33,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 20027
+  },
+  {
+    "fields": {
+      "instance_resource": 20001,
+      "instance_state": 1,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 20028
+  },
+  {
+    "fields": {
+      "instance_resource": 20001,
+      "instance_state": 21,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 20029
+  },
+  {
+    "fields": {
+      "instance_resource": 20001,
+      "instance_state": 22,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 20030
+  },
+  {
+    "fields": {
+      "instance_resource": 20001,
+      "instance_state": 32,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 20031
+  },
+  {
+    "fields": {
+      "instance_resource": 20001,
+      "instance_state": 23,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 20032
+  },
+  {
+    "fields": {
+      "instance_resource": 20001,
+      "instance_state": 24,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 20033
+  },
+  {
+    "fields": {
+      "instance_resource": 20001,
+      "instance_state": 25,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 20034
+  },
+  {
+    "fields": {
+      "instance_resource": 20001,
+      "instance_state": 34,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 20035
+  },
+  {
+    "fields": {
+      "instance_resource": 20001,
+      "instance_state": 26,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 20036
+  },
+  {
+    "fields": {
+      "instance_resource": 20001,
+      "instance_state": 27,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 20037
+  },
+  {
+    "fields": {
+      "instance_resource": 20001,
+      "instance_state": 28,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 20038
+  },
+  {
+    "fields": {
+      "instance_resource": 20001,
+      "instance_state": 29,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 20039
+  },
+  {
+    "fields": {
+      "instance_resource": 20001,
+      "instance_state": 30,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 20040
+  },
+  {
+    "fields": {
+      "instance_resource": 20001,
+      "instance_state": 31,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 20041
+  },
+  {
+    "fields": {
+      "instance_resource": 20001,
+      "instance_state": 33,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 20042
+  },
+  {
+    "fields": {
       "instance_resource": 744,
       "instance_state": 21,
       "service": 261
@@ -44666,6 +45503,181 @@
   },
   {
     "fields": {
+      "instance_states": "22"
+    },
+    "model": "core.remberlist",
+    "pk": 264
+  },
+  {
+    "fields": {
+      "instance_states": "24"
+    },
+    "model": "core.remberlist",
+    "pk": 266
+  },
+  {
+    "fields": {
+      "instance_states": "22"
+    },
+    "model": "core.remberlist",
+    "pk": 267
+  },
+  {
+    "fields": {
+      "instance_states": "23"
+    },
+    "model": "core.remberlist",
+    "pk": 287
+  },
+  {
+    "fields": {
+      "instance_states": "22"
+    },
+    "model": "core.remberlist",
+    "pk": 288
+  },
+  {
+    "fields": {
+      "instance_states": "22"
+    },
+    "model": "core.remberlist",
+    "pk": 289
+  },
+  {
+    "fields": {
+      "instance_states": "21,22,32,23,24,25"
+    },
+    "model": "core.remberlist",
+    "pk": 293
+  },
+  {
+    "fields": {
+      "instance_states": "1,21,22,23,24,25,34,26"
+    },
+    "model": "core.remberlist",
+    "pk": 294
+  },
+  {
+    "fields": {
+      "instance_states": "22,23,24,25,26"
+    },
+    "model": "core.remberlist",
+    "pk": 295
+  },
+  {
+    "fields": {
+      "instance_states": "22"
+    },
+    "model": "core.remberlist",
+    "pk": 296
+  },
+  {
+    "fields": {
+      "instance_states": "22"
+    },
+    "model": "core.remberlist",
+    "pk": 297
+  },
+  {
+    "fields": {
+      "instance_states": "22"
+    },
+    "model": "core.remberlist",
+    "pk": 298
+  },
+  {
+    "fields": {
+      "instance_states": "34"
+    },
+    "model": "core.remberlist",
+    "pk": 300
+  },
+  {
+    "fields": {
+      "instance_states": "21"
+    },
+    "model": "core.remberlist",
+    "pk": 301
+  },
+  {
+    "fields": {
+      "instance_states": "21,22,32,23,24"
+    },
+    "model": "core.remberlist",
+    "pk": 302
+  },
+  {
+    "fields": {
+      "instance_states": "23"
+    },
+    "model": "core.remberlist",
+    "pk": 303
+  },
+  {
+    "fields": {
+      "instance_states": "23"
+    },
+    "model": "core.remberlist",
+    "pk": 304
+  },
+  {
+    "fields": {
+      "instance_states": "23"
+    },
+    "model": "core.remberlist",
+    "pk": 305
+  },
+  {
+    "fields": {
+      "instance_states": "25"
+    },
+    "model": "core.remberlist",
+    "pk": 306
+  },
+  {
+    "fields": {
+      "instance_states": "22,32,23,24,25"
+    },
+    "model": "core.remberlist",
+    "pk": 307
+  },
+  {
+    "fields": {
+      "instance_states": "23"
+    },
+    "model": "core.remberlist",
+    "pk": 309
+  },
+  {
+    "fields": {
+      "instance_states": "24,25,26"
+    },
+    "model": "core.remberlist",
+    "pk": 310
+  },
+  {
+    "fields": {
+      "instance_states": "32"
+    },
+    "model": "core.remberlist",
+    "pk": 314
+  },
+  {
+    "fields": {
+      "instance_states": "21"
+    },
+    "model": "core.remberlist",
+    "pk": 316
+  },
+  {
+    "fields": {
+      "instance_states": "21,22,32,23,24,25"
+    },
+    "model": "core.remberlist",
+    "pk": 317
+  },
+  {
+    "fields": {
       "available_resource": "page",
       "class_field": null,
       "description": "Dossier erstellen-Seite",
@@ -44697,7 +45709,7 @@
       "description": "Dossiersuche BK eingeschr\u00e4nkt auf die Gemeinde",
       "hidden": 1,
       "name": "Dossiersuche",
-      "sort": 28,
+      "sort": 27,
       "template": "/buildom/search.phtml"
     },
     "model": "core.resource",
@@ -44710,7 +45722,7 @@
       "description": "Pendenzenliste f\u00fcr die SubFachstellen",
       "hidden": 0,
       "name": "Pendenzenliste Subfachstelle",
-      "sort": 0,
+      "sort": 1,
       "template": ""
     },
     "model": "core.resource",
@@ -44736,7 +45748,7 @@
       "description": "Dossiers, die von den B\u00fcrgern eingereicht wurden",
       "hidden": 0,
       "name": "Eingang Online - Dossiers",
-      "sort": 9,
+      "sort": 10,
       "template": "/list/portal-list.phtml"
     },
     "model": "core.resource",
@@ -44757,7 +45769,7 @@
   },
   {
     "fields": {
-      "available_resource": "simplelist",
+      "available_resource": "emberlist",
       "class_field": null,
       "description": "Dossierzirkulation starten f\u00fcr die Koordinationsstelle Baudirektion BD",
       "hidden": 0,
@@ -44770,7 +45782,7 @@
   },
   {
     "fields": {
-      "available_resource": "simplelist",
+      "available_resource": "emberlist",
       "class_field": null,
       "description": "Dossierzirkulation bei den Fachstellen abgeschlossen",
       "hidden": 0,
@@ -44783,12 +45795,12 @@
   },
   {
     "fields": {
-      "available_resource": "simplelist",
+      "available_resource": "emberlist",
       "class_field": null,
       "description": "Dossierzirkulation starten f\u00fcr Koord Baugesuche BG",
       "hidden": 0,
       "name": "Dossierzirkulation starten",
-      "sort": 12,
+      "sort": 13,
       "template": null
     },
     "model": "core.resource",
@@ -44796,7 +45808,7 @@
   },
   {
     "fields": {
-      "available_resource": "simplelist",
+      "available_resource": "emberlist",
       "class_field": "",
       "description": "",
       "hidden": 0,
@@ -44809,7 +45821,7 @@
   },
   {
     "fields": {
-      "available_resource": "simplelist",
+      "available_resource": "emberlist",
       "class_field": null,
       "description": "Dossierzirkulation starten f\u00fcr Koord NP",
       "hidden": 0,
@@ -44822,7 +45834,7 @@
   },
   {
     "fields": {
-      "available_resource": "simplelist",
+      "available_resource": "emberlist",
       "class_field": null,
       "description": "Dossierzirkulation starten f\u00fcr Koord Umweltschutz AfU",
       "hidden": 0,
@@ -44835,12 +45847,12 @@
   },
   {
     "fields": {
-      "available_resource": "simplelist",
+      "available_resource": "emberlist",
       "class_field": null,
       "description": null,
       "hidden": 0,
       "name": "Bauplanauflage",
-      "sort": 35,
+      "sort": 36,
       "template": "/list/index-portal.phtml"
     },
     "model": "core.resource",
@@ -44848,7 +45860,7 @@
   },
   {
     "fields": {
-      "available_resource": "simplelist",
+      "available_resource": "emberlist",
       "class_field": null,
       "description": null,
       "hidden": 0,
@@ -44861,7 +45873,7 @@
   },
   {
     "fields": {
-      "available_resource": "simplelist",
+      "available_resource": "emberlist",
       "class_field": null,
       "description": null,
       "hidden": 0,
@@ -44874,7 +45886,7 @@
   },
   {
     "fields": {
-      "available_resource": "simplelist",
+      "available_resource": "emberlist",
       "class_field": null,
       "description": "Dossierzirkulation starten f\u00fcr Koord Landwirtschaft ALA",
       "hidden": 0,
@@ -44887,7 +45899,7 @@
   },
   {
     "fields": {
-      "available_resource": "simplelist",
+      "available_resource": "emberlist",
       "class_field": null,
       "description": "Dossierzirkulation starten f\u00fcr Koord Energie AfE",
       "hidden": 0,
@@ -44900,7 +45912,7 @@
   },
   {
     "fields": {
-      "available_resource": "simplelist",
+      "available_resource": "emberlist",
       "class_field": null,
       "description": "Dossierzirkulation starten f\u00fcr Koord AFJ SD",
       "hidden": 0,
@@ -44913,7 +45925,7 @@
   },
   {
     "fields": {
-      "available_resource": "simplelist",
+      "available_resource": "emberlist",
       "class_field": null,
       "description": null,
       "hidden": 0,
@@ -44926,12 +45938,12 @@
   },
   {
     "fields": {
-      "available_resource": "simplelist",
+      "available_resource": "emberlist",
       "class_field": null,
       "description": "Dossierbearbeitung startenf\u00fcr Gemeinden",
       "hidden": 0,
       "name": "Dossierbearbeitung starten",
-      "sort": 10,
+      "sort": 11,
       "template": null
     },
     "model": "core.resource",
@@ -44939,12 +45951,12 @@
   },
   {
     "fields": {
-      "available_resource": "simplelist",
+      "available_resource": "emberlist",
       "class_field": null,
       "description": "Zur Pr\u00fcfung zugewiesene Dossiers f\u00fcr Vernehmlassungsstellen",
       "hidden": 0,
       "name": "Zur Pr\u00fcfung zugewiesene Dossiers",
-      "sort": 4,
+      "sort": 5,
       "template": null
     },
     "model": "core.resource",
@@ -44952,12 +45964,12 @@
   },
   {
     "fields": {
-      "available_resource": "simplelist",
+      "available_resource": "emberlist",
       "class_field": null,
       "description": null,
       "hidden": 0,
       "name": "In Zirkulation (KOOR ARE BG)",
-      "sort": 6,
+      "sort": 7,
       "template": null
     },
     "model": "core.resource",
@@ -44965,12 +45977,12 @@
   },
   {
     "fields": {
-      "available_resource": "simplelist",
+      "available_resource": "emberlist",
       "class_field": null,
       "description": null,
       "hidden": 0,
       "name": "In Zirkulation (KOOR BD)",
-      "sort": 7,
+      "sort": 8,
       "template": null
     },
     "model": "core.resource",
@@ -44978,12 +45990,12 @@
   },
   {
     "fields": {
-      "available_resource": "simplelist",
+      "available_resource": "emberlist",
       "class_field": null,
       "description": null,
       "hidden": 0,
       "name": "In Zirkulation (KOOR ARE NP)",
-      "sort": 8,
+      "sort": 9,
       "template": null
     },
     "model": "core.resource",
@@ -44991,7 +46003,7 @@
   },
   {
     "fields": {
-      "available_resource": "simplelist",
+      "available_resource": "emberlist",
       "class_field": null,
       "description": "Kantonale Pr\u00fcfung beendet f\u00fcr Gemeinden",
       "hidden": 0,
@@ -45004,12 +46016,12 @@
   },
   {
     "fields": {
-      "available_resource": "simplelist",
+      "available_resource": "emberlist",
       "class_field": null,
       "description": "Dossiers die bei den Gemeinden und dem Kanton in Bearbeitung sind, Anzeige f\u00fcr Organisation mit Leserechten",
       "hidden": 0,
       "name": "Laufende Baubewilligungsverfahren und Vorabkl\u00e4rungen",
-      "sort": 3,
+      "sort": 4,
       "template": null
     },
     "model": "core.resource",
@@ -45017,12 +46029,12 @@
   },
   {
     "fields": {
-      "available_resource": "simplelist",
+      "available_resource": "emberlist",
       "class_field": "show_list_count",
       "description": "Zur Pr\u00fcfung zugewiesene Dossiers f\u00fcr die Kommissionsmitglieder",
       "hidden": 0,
       "name": "Zur Pr\u00fcfung zugewiesene Dossiers",
-      "sort": 1,
+      "sort": 2,
       "template": null
     },
     "model": "core.resource",
@@ -45030,12 +46042,12 @@
   },
   {
     "fields": {
-      "available_resource": "simplelist",
+      "available_resource": "emberlist",
       "class_field": "show_list_count",
       "description": "Erledigte Dossiers f\u00fcr die Kommissionsmitglieder",
       "hidden": 0,
       "name": "Erledigte Dossiers",
-      "sort": 2,
+      "sort": 3,
       "template": ""
     },
     "model": "core.resource",
@@ -45069,7 +46081,7 @@
   },
   {
     "fields": {
-      "available_resource": "simplelist",
+      "available_resource": "emberlist",
       "class_field": null,
       "description": null,
       "hidden": 0,
@@ -45082,12 +46094,12 @@
   },
   {
     "fields": {
-      "available_resource": "simplelist",
+      "available_resource": "emberlist",
       "class_field": null,
       "description": "Dossierbearbeitung starten Bundesstellen",
       "hidden": 0,
       "name": "Dossierbearbeitung starten",
-      "sort": 11,
+      "sort": 12,
       "template": null
     },
     "model": "core.resource",
@@ -45095,12 +46107,12 @@
   },
   {
     "fields": {
-      "available_resource": "simplelist",
+      "available_resource": "emberlist",
       "class_field": null,
       "description": "Zur Pr\u00fcfung zugewiesene Dossiers f\u00fcr Vernehmlassungsstellen Gemeindezirkulation",
       "hidden": 0,
       "name": "Zur Pr\u00fcfung zugewiesene Dossiers",
-      "sort": 5,
+      "sort": 6,
       "template": null
     },
     "model": "core.resource",
@@ -45113,11 +46125,24 @@
       "description": null,
       "hidden": 0,
       "name": "Einstellungen",
-      "sort": 27,
+      "sort": 28,
       "template": null
     },
     "model": "core.resource",
     "pk": 318
+  },
+  {
+    "fields": {
+      "available_resource": "page",
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "name": "Form Builder",
+      "sort": 35,
+      "template": "/ember/form-builder.phtml"
+    },
+    "model": "core.resource",
+    "pk": 20000
   },
   {
     "fields": {
@@ -45326,6 +46351,13 @@
     },
     "model": "core.rpage",
     "pk": 251
+  },
+  {
+    "fields": {
+      "pdf_class": null
+    },
+    "model": "core.rpage",
+    "pk": 20000
   },
   {
     "fields": {
@@ -46054,6 +47086,14 @@
     },
     "model": "core.rroleacl",
     "pk": 97
+  },
+  {
+    "fields": {
+      "resource": 20000,
+      "role": 1131
+    },
+    "model": "core.rroleacl",
+    "pk": 20000
   },
   {
     "fields": {
@@ -46984,181 +48024,6 @@
     },
     "model": "core.rserviceacl",
     "pk": 6
-  },
-  {
-    "fields": {
-      "instance_states": "22"
-    },
-    "model": "core.rsimplelist",
-    "pk": 264
-  },
-  {
-    "fields": {
-      "instance_states": "24"
-    },
-    "model": "core.rsimplelist",
-    "pk": 266
-  },
-  {
-    "fields": {
-      "instance_states": "22"
-    },
-    "model": "core.rsimplelist",
-    "pk": 267
-  },
-  {
-    "fields": {
-      "instance_states": "23"
-    },
-    "model": "core.rsimplelist",
-    "pk": 287
-  },
-  {
-    "fields": {
-      "instance_states": "22"
-    },
-    "model": "core.rsimplelist",
-    "pk": 288
-  },
-  {
-    "fields": {
-      "instance_states": "22"
-    },
-    "model": "core.rsimplelist",
-    "pk": 289
-  },
-  {
-    "fields": {
-      "instance_states": "21,22,32,23,24,25"
-    },
-    "model": "core.rsimplelist",
-    "pk": 293
-  },
-  {
-    "fields": {
-      "instance_states": "1,21,22,23,24,25,34,26"
-    },
-    "model": "core.rsimplelist",
-    "pk": 294
-  },
-  {
-    "fields": {
-      "instance_states": "22,23,24,25,26"
-    },
-    "model": "core.rsimplelist",
-    "pk": 295
-  },
-  {
-    "fields": {
-      "instance_states": "22"
-    },
-    "model": "core.rsimplelist",
-    "pk": 296
-  },
-  {
-    "fields": {
-      "instance_states": "22"
-    },
-    "model": "core.rsimplelist",
-    "pk": 297
-  },
-  {
-    "fields": {
-      "instance_states": "22"
-    },
-    "model": "core.rsimplelist",
-    "pk": 298
-  },
-  {
-    "fields": {
-      "instance_states": "34"
-    },
-    "model": "core.rsimplelist",
-    "pk": 300
-  },
-  {
-    "fields": {
-      "instance_states": "21"
-    },
-    "model": "core.rsimplelist",
-    "pk": 301
-  },
-  {
-    "fields": {
-      "instance_states": "21,22,32,23,24"
-    },
-    "model": "core.rsimplelist",
-    "pk": 302
-  },
-  {
-    "fields": {
-      "instance_states": "23"
-    },
-    "model": "core.rsimplelist",
-    "pk": 303
-  },
-  {
-    "fields": {
-      "instance_states": "23"
-    },
-    "model": "core.rsimplelist",
-    "pk": 304
-  },
-  {
-    "fields": {
-      "instance_states": "23"
-    },
-    "model": "core.rsimplelist",
-    "pk": 305
-  },
-  {
-    "fields": {
-      "instance_states": "25"
-    },
-    "model": "core.rsimplelist",
-    "pk": 306
-  },
-  {
-    "fields": {
-      "instance_states": "22,32,23,24,25"
-    },
-    "model": "core.rsimplelist",
-    "pk": 307
-  },
-  {
-    "fields": {
-      "instance_states": "23"
-    },
-    "model": "core.rsimplelist",
-    "pk": 309
-  },
-  {
-    "fields": {
-      "instance_states": "24,25,26"
-    },
-    "model": "core.rsimplelist",
-    "pk": 310
-  },
-  {
-    "fields": {
-      "instance_states": "32"
-    },
-    "model": "core.rsimplelist",
-    "pk": 314
-  },
-  {
-    "fields": {
-      "instance_states": "21"
-    },
-    "model": "core.rsimplelist",
-    "pk": 316
-  },
-  {
-    "fields": {
-      "instance_states": "21,22,32,23,24,25"
-    },
-    "model": "core.rsimplelist",
-    "pk": 317
   },
   {
     "fields": {

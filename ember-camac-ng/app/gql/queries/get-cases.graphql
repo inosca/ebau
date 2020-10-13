@@ -1,0 +1,23 @@
+query GetCases{
+  allCases{
+    pageInfo {
+      startCursor
+    }
+    edges {
+      node {
+        id
+        status
+        createdByUser
+        createdByGroup
+
+        document {
+          form {
+            slug
+            name
+          }
+        }
+      }
+    }
+    totalCount
+  }
+}

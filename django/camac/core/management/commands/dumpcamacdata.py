@@ -13,6 +13,7 @@ from .dumpconfig import (
     pure_config_models,
     pure_config_models_caluma_form,
     pure_config_models_caluma_workflow,
+    view_models,
 )
 
 
@@ -87,7 +88,8 @@ class Command(BaseCommand):
                 m
                 for m in pure_config_models + models_referencing_data
                 if m not in models_managed_by_customer[settings.APPLICATION_NAME]
-            ],
+            ]
+            + view_models,
             options["output"],
         )
 

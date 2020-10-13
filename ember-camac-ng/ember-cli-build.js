@@ -13,6 +13,8 @@ module.exports = function(defaults) {
     fingerprint: { enabled: false }
   });
 
+  app.import("node_modules/proj4/dist/proj4.js");
+  app.import("node_modules/proj4leaflet/src/proj4leaflet.js");
   app.import("node_modules/moment/locale/de.js");
   app.import("node_modules/moment/locale/fr.js");
 

@@ -154,12 +154,15 @@ class InstanceFilterSet(FilterSet):
 class CalumaInstanceFilterSet(InstanceFilterSet):
     is_paper = BooleanFilter(method="filter_is_paper")
 
+    sanction_creator = NumberFilter(field_name="sanctions__service")
+    sanction_control_instance = NumberFilter(field_name="sanctions__control_instance")
+
     def filter_is_paper(self, queryset, name, value):
         _filter = {
             "pk__in": Case.objects.filter(
                 **{
-                    "document__answers__question_id": "papierdossier",
-                    "document__answers__value": "papierdossier-ja",
+                    "document__answers__question_id": "is-paper",
+                    "document__answers__value": "is-paper-yes",
                 }
             )
             .annotate(
