@@ -11,7 +11,7 @@ module.exports = function(environment) {
       apiURL: "/graphql/"
     },
     moment: {
-      includeLocales: ["de", "fr"],
+      includeLocales: require("./locales"),
       allowEmpty: true
     },
     EmberENV: {
