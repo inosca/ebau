@@ -19,17 +19,4 @@
   height: 0 !important;
 }
 
-.project-sz {
-  .work-item-form {
-    .label {
-      margin: 10px 0 2px;
-    }
-
-    .ember-basic-dropdown,
-    input[type="text"],
-    textarea {
-      box-sizing: border-box;
-      width: 50%;
-    }
-  }
-}
+@import "custom";
