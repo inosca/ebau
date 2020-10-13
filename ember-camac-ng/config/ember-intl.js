@@ -1,3 +1,5 @@
+"use strict";
+
 module.exports = function(/* environment */) {
   return {
     /**
@@ -84,7 +86,9 @@ module.exports = function(/* environment */) {
      * @default "function(key,locale){return true}"
      */
     requiresTranslation(key, locale) {
-      return ["de", "fr"].includes(locale);
+      return (
+        !key.startsWith("caluma.") && require("./locales").includes(locale)
+      );
     }
   };
 };

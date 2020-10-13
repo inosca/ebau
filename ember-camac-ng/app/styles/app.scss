@@ -1,7 +1,10 @@
 #ember-camac-ng {
   @import "variables";
-  @import "ember-uikit";
-  @import "ember-power-select";
+  &:not(.disable-uikit) {
+    @import "ember-uikit";
+    @import "ember-caluma";
+  }
+
   @import "modules/history";
   @import "modules/journal";
   @import "modules/work-items";
@@ -11,6 +14,8 @@
   @import "components/pagination";
   @import "components/work-item-list";
 
-  @import "power-select";
   @import "misc";
+  @import "power-select";
+  @import "reset";
+  @import "visibility";
 }
