@@ -9,7 +9,7 @@ from rest_framework import exceptions
 
 from camac.attrs import nested_getattr
 from camac.constants import kt_uri as uri_constants
-from camac.core.models import Circulation, InstanceService
+from camac.core.models import Circulation, CommissionAssignment, InstanceService
 from camac.instance.models import Instance
 from camac.mixins import AttributeMixin
 from camac.request import get_request
@@ -168,6 +168,19 @@ class InstanceQuerysetMixin(object):
     def get_queryset_for_support(self, group=None):
         return self.get_base_queryset()
 
+    def get_queryset_for_organization_readonly(self, group=None):  # pragma: no cover
+        # TODO We don't know what the rules are yet.
+        return set()
+
+    def get_queryset_for_commission(self, group=None):
+        group = self._get_group(group)
+        queryset = self.get_base_queryset()
+        instance_field = self._get_instance_filter_expr("pk", "in")
+        instances_with_invite = CommissionAssignment.objects.filter(group=group).values(
+            "instance"
+        )
+        return queryset.filter(**{instance_field: instances_with_invite})
+
     def _instances_with_activation(self, group):
         return Circulation.objects.filter(activations__service=group.service).values(
             "instance_id"
@@ -238,10 +251,19 @@ class InstanceEditableMixin(AttributeMixin):
     def get_editable_for_canton(self, instance):
         return {"form", "document"}
 
+    def get_editable_for_coordination(self, instance):
+        return {"form", "document"}
+
     def get_editable_for_reader(self, instance):
         return set()
 
     def get_editable_for_public_reader(self, instance):
+        return set()
+
+    def get_editable_for_organization_readonly(self, instance):  # pragma: no cover
+        return set()
+
+    def get_editable_for_commission(self, instance):
         return set()
 
     def get_editable_for_support(self, instance):

@@ -231,6 +231,14 @@ class JournalEntry(models.Model):
     text = models.TextField(blank=True, null=True)
     creation_date = models.DateTimeField()
     modification_date = models.DateTimeField()
+    VISIBILITIES = [
+        ("all", "All"),
+        ("own_organization", "Own Organization"),
+        ("authorities", "Authorities"),
+    ]
+    visibility = models.CharField(
+        max_length=16, choices=VISIBILITIES, default="own_organization"
+    )
 
 
 class HistoryEntry(core_models.MultilingualModel, models.Model):

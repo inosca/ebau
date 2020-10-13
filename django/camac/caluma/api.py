@@ -155,8 +155,8 @@ class CalumaApi:
         return caluma_form_models.Answer.objects.filter(
             **{
                 "document__case__meta__camac-instance-id": instance.pk,
-                "question_id": "papierdossier",
-                "value": "papierdossier-ja",
+                "question_id": "is-paper",
+                "value": "is-paper-yes",
             }
         ).exists()
 

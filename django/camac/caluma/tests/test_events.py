@@ -12,7 +12,7 @@ from pytest_factoryboy import LazyFixture
 from camac.constants.kt_bern import DECISIONS_BEWILLIGT
 
 
-@pytest.mark.parametrize("expected_value", ["papierdossier-ja", "papierdossier-nein"])
+@pytest.mark.parametrize("expected_value", ["is-paper-yes", "is-paper-no"])
 def test_copy_papierdossier(
     db,
     instance,
@@ -32,7 +32,7 @@ def test_copy_papierdossier(
 
     docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=instance.pk)
 
-    case.document.answers.create(question_id="papierdossier", value=expected_value)
+    case.document.answers.create(question_id="is-paper", value=expected_value)
 
     for task_id in [
         "submit",
@@ -53,7 +53,7 @@ def test_copy_papierdossier(
     for task_id in settings.APPLICATION["CALUMA"]["COPY_PAPER_ANSWER_TO"]:
         assert (
             case.work_items.get(task_id=task_id)
-            .document.answers.get(question_id="papierdossier")
+            .document.answers.get(question_id="is-paper")
             .value
             == expected_value
         )
@@ -79,9 +79,7 @@ def test_copy_sb_personalien(
 
     docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=instance.pk)
 
-    case.document.answers.create(
-        question_id="papierdossier", value="papierdossier-nein"
-    )
+    case.document.answers.create(question_id="is-paper", value="is-paper-no")
 
     if use_fallback:
         table = case.document.answers.create(question_id="personalien-gesuchstellerin")

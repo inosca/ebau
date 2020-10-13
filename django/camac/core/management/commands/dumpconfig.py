@@ -125,6 +125,7 @@ pure_config_models = [
     "core.RApiListInstanceState",
     "core.Resource",
     "core.ResourceT",
+    "core.REmberList",
     "core.RFormlist",
     "core.RGroupAcl",
     "core.RList",
@@ -287,6 +288,9 @@ models_managed_by_customer = {
     "demo": [],
 }
 
+# Models that represent views. Those should never be loaded/dumped
+view_models = ["notification.ProjectSubmitterData"]
+
 
 class Command(BaseCommand):
     help = (
@@ -320,6 +324,7 @@ class Command(BaseCommand):
             "--caluma",
             dest="caluma",
             action="store_true",
+            default=True,
             help="Dump caluma config as well",
         )
         parser.add_argument(
@@ -329,9 +334,7 @@ class Command(BaseCommand):
             help="Don't dump caluma config",
         )
 
-        parser.set_defaults(
-            caluma=settings.APPLICATION_NAME in ["kt_bern", "kt_schwyz"]
-        )
+        parser.set_defaults(caluma=settings.APPLICATION_NAME != "demo")
 
     def dump_config(self, export_models, output):
         tmp_output = io.StringIO()
@@ -350,6 +353,7 @@ class Command(BaseCommand):
                 m
                 for m in pure_config_models + models_referencing_data
                 if m not in models_managed_by_customer[settings.APPLICATION_NAME]
+                and m not in view_models
             ],
             options["output"],
         )
