@@ -62,8 +62,4 @@ $expiring-color: #ff8800;
   }
 }
 
-.project-sz {
-  .work-item-list {
-    margin: 10px 0;
-  }
-}
+@import "custom";
