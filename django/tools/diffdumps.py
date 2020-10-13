@@ -314,7 +314,7 @@ class Diffy:
         print("########## Conflict (%s)" % message, file=output)
         print("{", file=output)
         print('   "model": "%s",' % model, file=output)
-        print('   "pk": %d,' % pk, file=output)
+        print('   "pk": %s,' % str(pk), file=output)
 
         for k in sorted(conflict.keys()):
             print("    # %s" % k, file=output)

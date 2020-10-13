@@ -1,0 +1,21 @@
+// Base colors
+$global-primary-background: rgb(234, 22, 31);
+$global-secondary-background: rgb(30, 30, 30);
+$global-danger-background: $global-primary-background;
+$global-success-background: rgb(0, 153, 0);
+$global-muted-background: rgb(245, 245, 245);
+
+// Font colors
+$global-color: rgb(50, 50, 50);
+$global-emphasis-color: rgb(50, 50, 50);
+$global-muted-color: rgb(100, 100, 100);
+$global-link-color: $global-primary-background;
+$global-link-hover-color: $global-primary-background;
+
+// Form
+$form-focus-border: $global-secondary-background;
+
+// Misc
+$modal-z-index: 1;
+
+$button-disabled-background: $global-muted-background;

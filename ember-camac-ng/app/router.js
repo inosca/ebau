@@ -24,4 +24,12 @@ Router.map(function() {
       }
     );
   });
+  this.route("form", { path: "/instances/:id/form" });
+
+  this.mount("ember-caluma", {
+    as: "form-builder",
+    path: "/form-builder",
+    resetNamespace: true
+  });
+  this.route("cases");
 });

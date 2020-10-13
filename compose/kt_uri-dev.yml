@@ -21,6 +21,11 @@ services:
           - caluma-portal.local
           - camac-ng-keycloak.local
 
+  ember-camac-ng:
+    image: acr.run/camac-ng/camac-ng/ember-camac-ng:master
+    networks:
+      - camac-ng.local
+
   clamav:
     ports:
       - "3310:3310"

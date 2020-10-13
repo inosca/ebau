@@ -28,7 +28,7 @@ from camac.instance import serializers
         ("Canton", LazyFixture("user"), 17, {"form", "document"}),
         ("Municipality", LazyFixture("user"), 17, {"form", "document"}),
         ("Service", LazyFixture("user"), 17, {"document"}),
-        ("Coordination", LazyFixture("user"), 17, {"instance", "form", "document"}),
+        ("Coordination", LazyFixture("user"), 17, {"form", "document"}),
     ],
 )
 def test_instance_list(
@@ -106,6 +106,35 @@ def test_instance_search(admin_client, instance, form_field, search):
     assert json["data"][0]["id"] == str(instance.pk)
 
 
+@pytest.mark.parametrize("role__name", [("Support")])
+def test_instance_search_sanctions(
+    db, application_settings, instance, sanction_factory, instance_factory, admin_client
+):
+    """Test that instances can be filtered by sanction creator and sanction
+    control instance.
+    """
+
+    application_settings["FORM_BACKEND"] = "caluma"
+
+    sanction = sanction_factory(instance=instance)
+
+    # The following instance should not turn up in the results.
+    instance_factory()
+
+    filters = [
+        {"sanction_creator": sanction.service.pk},
+        {"sanction_control_instance": sanction.control_instance.pk},
+    ]
+
+    for search_filter in filters:
+        url = reverse("instance-list")
+        response = admin_client.get(url, search_filter)
+        assert response.status_code == status.HTTP_200_OK
+        json = response.json()
+        assert len(json["data"]) == 1
+        assert json["data"][0]["id"] == str(instance.pk)
+
+
 @pytest.mark.parametrize(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
@@ -140,7 +169,7 @@ def test_instance_filter_fields(admin_client, instance, form_field_factory):
         ("Municipality", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
         ("Service", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
         ("Unknown", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
-        ("Coordination", LazyFixture("user"), status.HTTP_400_BAD_REQUEST),
+        ("Coordination", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
     ],
 )
 def test_instance_update(
@@ -273,6 +302,7 @@ def test_instance_create(
     [(LazyFixture("admin_user"), "1311", "new")],
 )
 @pytest.mark.parametrize("attachment__question", ["dokument-parzellen"])
+@pytest.mark.parametrize("short_dossier_number", [True, False])
 @pytest.mark.parametrize(
     "role__name,instance__location,form__name,status_code",
     [
@@ -314,6 +344,7 @@ def test_instance_submit(
     attachment_section,
     attachment_section_group_acl_factory,
     role,
+    short_dossier_number,
     mocker,
     unoconv_pdf_mock,
     caluma_workflow_config_sz,
@@ -322,6 +353,7 @@ def test_instance_submit(
     settings.APPLICATION["NOTIFICATIONS"]["SUBMIT"] = notification_template.slug
     settings.APPLICATION["WORKFLOW_ITEMS"]["SUBMIT"] = workflow_item.pk
     settings.APPLICATION["INSTANCE_IDENTIFIER_FORM_ABBR"] = {"vbs": "PV"}
+    settings.APPLICATION["SHORT_DOSSIER_NUMBER"] = short_dossier_number
 
     case = workflow_api.start_case(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
@@ -376,7 +408,7 @@ def test_instance_submit(
     if status_code == status.HTTP_200_OK:
         json = response.json()
 
-        identifier = "11-17-001"
+        identifier = "11-17-001" if short_dossier_number else "1311-17-001"
         if form.name == "geschaeftskontrolle":
             identifier = "PV-17-001"
 
@@ -485,13 +517,18 @@ def test_instance_export_detail(
 
 
 @pytest.mark.freeze_time("2017-7-27")
+@pytest.mark.parametrize("short_dossier_number", [True, False])
 @pytest.mark.parametrize("location__communal_federal_number", ["1311"])
-def test_instance_generate_identifier(db, instance, instance_factory):
-    instance_factory(identifier="11-17-010")
-    serializer = serializers.InstanceSubmitSerializer(instance)
-    identifier = serializer.generate_identifier()
+def test_instance_generate_identifier(
+    db, instance, instance_factory, settings, short_dossier_number
+):
+    settings.APPLICATION["SHORT_DOSSIER_NUMBER"] = short_dossier_number
 
-    assert identifier == "11-17-011"
+    prefix = "" if short_dossier_number else "13"
+    instance_factory(identifier=prefix + "11-17-010")
+    identifier = serializers.generate_identifier(instance)
+
+    assert identifier == prefix + "11-17-011"
 
 
 @pytest.mark.freeze_time("2017-7-27")
@@ -805,6 +842,26 @@ def test_instance_list_coordination_created(
 
     json = response.json()
     if is_creator or forbidden_states == [9999999]:
+        assert len(json["data"]) == 1
+        assert json["data"][0]["id"] == str(instance.pk)
+    else:
+        assert len(json["data"]) == 0
+
+
+@pytest.mark.parametrize("role__name", ["Commission"])
+@pytest.mark.parametrize("has_assignment", [True, False])
+def test_instance_list_commission(db, admin_client, has_assignment, request, instance):
+    """Ensure that a commission only sees dossiers which they were invited on."""
+
+    if has_assignment:
+        request.getfixturevalue("commission_assignment")
+
+    url = reverse("instance-list")
+    response = admin_client.get(url)
+    assert response.status_code == status.HTTP_200_OK
+
+    json = response.json()
+    if has_assignment:
         assert len(json["data"]) == 1
         assert json["data"][0]["id"] == str(instance.pk)
     else:

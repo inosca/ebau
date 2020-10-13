@@ -1,0 +1,56 @@
+<div>
+  <button class="button" type="button" {{on "click" this.search}}>{{t "gis.findParcel"}}</button>
+</div>
+
+<LeafletMap
+  @lat={{this.lat}}
+  @lng={{this.lng}}
+  @zoom={{this.zoom}}
+  @minZoom={{this.minZoom}}
+  @maxZoom={{this.maxZoom}}
+  @onClick={{perform this.addPoint}}
+  @onLoad={{perform this.handleLoad}}
+  class="uk-width-1-1 uk-height-large uk-margin" as |map|
+>
+  <map.wms-tile
+    @transparent={{true}}
+    @format="image/png"
+    @version="1.1.1"
+    @layers={{this.layers}}
+    @url={{this.gisURL}}
+  />
+  <map.wms-tile
+    @transparent={{true}}
+    @format="image/png"
+    @version="1.1.1"
+    @layers={{this.lowOpacityLayers}}
+    @url={{this.gisURL}}
+    @opacity={{0.5}}
+  />
+
+  {{#each this.parcels as |parcel|}}
+    <map.polygon
+      @locations={{parcel.coordinates}}
+      @clickable={{false}}
+      @color="red"
+    >
+    </map.polygon>
+  {{/each}}
+
+</LeafletMap>
+
+<p class="parcelInfo"></p>
+<div>
+  <button
+    class="button uk-margin-small-top"
+    disabled={{or
+      (not this.currentFeatures)
+      this.getFeatures.isRunning
+      this.applySelection.isRunning
+      }}
+    type="button"
+    {{on "click" (perform this.applySelection)}}
+  >
+    {{t "gis.submitParcel"}}
+  </button>
+</div>

@@ -13,12 +13,18 @@ export default class ApplicationRoute extends ApplicationRouteBase {
   @service intl;
   @service session;
   @service shoebox;
+  @service calumaOptions;
 
   async beforeModel(...args) {
     super.beforeModel(...args);
 
     this.intl.setLocale(this.shoebox.content.language);
     moment.locale(this.shoebox.content.language);
+
+    this.calumaOptions.registerComponentOverride({
+      label: "Karte",
+      component: "ur-gis"
+    });
   }
 
   sessionInvalidated() {
