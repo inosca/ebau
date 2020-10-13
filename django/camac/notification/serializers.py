@@ -551,6 +551,9 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
 
     def _get_recipients_submitter_list(self, instance):
 
+        if instance.form.pk not in uri_constants.PORTAL_FORMS:
+            return []
+
         submitter_type = str(
             Answer.get_value_by_cqi(
                 instance,
