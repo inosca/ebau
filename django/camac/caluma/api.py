@@ -3,6 +3,7 @@ from functools import reduce
 from logging import getLogger
 
 from caluma.caluma_form import models as caluma_form_models
+from caluma.caluma_form.validators import DocumentValidator
 from caluma.caluma_workflow import (
     api as caluma_workflow_api,
     models as caluma_workflow_models,
@@ -414,6 +415,35 @@ class CalumaApi:
 
                 setattr(work_item, groups_type, list(groups))
                 work_item.save()
+
+    def validate_existing_audit_documents(self, instance_id, user):
+        """Intermediate validation of existing audits.
+
+        Make sure that those documents which are linked to the three
+        table questions covering the "audit" functionality are valid.
+
+        This is used when the responsible service is changed, where we
+        want to make sure that filled audits are valid, but the entire
+        document doesn't have to be valid yet.
+        """
+        caluma_settings = settings.APPLICATION.get("CALUMA", {})
+
+        audit_work_item = caluma_workflow_models.WorkItem.objects.filter(
+            **{
+                "task_id": caluma_settings.get("AUDIT_TASK"),
+                "status": caluma_workflow_models.WorkItem.STATUS_READY,
+                "case__family__meta__camac-instance-id": instance_id,
+            }
+        ).first()
+
+        if not audit_work_item:
+            return
+
+        for table_answer in audit_work_item.document.answers.filter(
+            question__type=caluma_form_models.Question.TYPE_TABLE
+        ):
+            for document in table_answer.documents.all():
+                DocumentValidator().validate(document, user)
 
 
 class CamacRequest:

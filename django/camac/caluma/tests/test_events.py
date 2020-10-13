@@ -3,13 +3,18 @@ import pytest
 from caluma.caluma_core.events import send_event
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
-from caluma.caluma_workflow.events import post_create_work_item
+from caluma.caluma_workflow.events import (
+    post_complete_work_item,
+    post_create_work_item,
+    post_skip_work_item,
+)
 from django.conf import settings
 from django.urls import reverse
 from django.utils import timezone
 from pytest_factoryboy import LazyFixture
 
 from camac.constants.kt_bern import DECISIONS_BEWILLIGT
+from camac.instance.models import HistoryEntryT
 
 
 @pytest.mark.parametrize("expected_value", ["is-paper-yes", "is-paper-no"])
@@ -386,3 +391,50 @@ def test_set_assigned_user(
         assert len(work_item.assigned_users) == expected_users
         if expected_users:
             assert work_item.assigned_users == [user.username]
+
+
+@pytest.mark.parametrize(
+    "process_type,expected_text",
+    [
+        ("complete", "Dossierprüfung abgeschlossen"),
+        ("skip", "Dossierprüfung übersprungen"),
+    ],
+)
+def test_audit_history(
+    db,
+    instance,
+    caluma_admin_user,
+    work_item_factory,
+    process_type,
+    expected_text,
+    application_settings,
+):
+    work_item = work_item_factory()
+
+    application_settings["CALUMA"]["AUDIT_TASK"] = work_item.task_id
+
+    case = work_item.case
+    case.meta["camac-instance-id"] = str(instance.pk)
+    case.save()
+
+    if process_type == "skip":
+        send_event(
+            post_skip_work_item,
+            sender="post_skip_work_item",
+            work_item=work_item,
+            user=caluma_admin_user,
+        )
+    elif process_type == "complete":
+        send_event(
+            post_complete_work_item,
+            sender="post_complete_work_item",
+            work_item=work_item,
+            user=caluma_admin_user,
+        )
+
+    assert (
+        HistoryEntryT.objects.filter(history_entry__instance=instance, language="de")
+        .first()
+        .title
+        == expected_text
+    )

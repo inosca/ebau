@@ -36,4 +36,7 @@ Router.map(function () {
       this.route("dashboard");
     });
   });
+  this.route("audit", { path: "instances/:instance_id/audit" }, function () {
+    this.route("edit", { path: "/edit/:document_uuid" });
+  });
 });

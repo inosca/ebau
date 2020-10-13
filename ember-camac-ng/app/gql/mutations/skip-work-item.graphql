@@ -1,0 +1,5 @@
+mutation SkipWorkItem($id: ID!) {
+  skipWorkItem(input: { id: $id }) {
+    clientMutationId
+  }
+}

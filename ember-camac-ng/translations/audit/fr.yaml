@@ -1,0 +1,31 @@
+audit:
+  new: "Nouveau examen"
+  complete: "Clore l'examen"
+  skip: "Sauter l'examen"
+  titleMeta: "Créé le {date} par {creator}"
+
+  type: "Type du examen"
+  createdBy: "Créé par"
+  createdAt: "Créé le"
+  actions: "Actions"
+  back: "Retour à l'aperçu"
+
+  deleteConfirm: ""
+  skipConfirm: ""
+  completeConfirm: ""
+
+  deleteSuccess: ""
+  skipSuccess: ""
+  completeSuccess: ""
+
+  loadingError: "Erreur lors du téléchargement des examens"
+  createError: "Erreur lors de la création du examen"
+  deleteError: ""
+  skipError: ""
+  completeError: ""
+  completeInvalid: ""
+
+  forms:
+    fp-form: "Examen formel"
+    mp-form: "Examen matériel"
+    bab-form: "Construction hors de la zone à bâtir"

@@ -1331,3 +1331,60 @@ def test_instance_name(
             assert "(Papier)" in name
         if is_modification:
             assert "(Projektänderung)" in name
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_change_responsible_service_audit_validation(
+    db,
+    admin_client,
+    admin_user,
+    instance,
+    instance_service,
+    notification_template,
+    role,
+    group,
+    service_factory,
+    user_factory,
+    user_group_factory,
+    caluma_audit,
+    application_settings,
+):
+    case = workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
+        form=caluma_form_models.Form.objects.get(pk="main-form"),
+        meta={"camac-instance-id": instance.pk},
+        user=BaseUser(),
+    )
+    new_service = service_factory()
+
+    for task_id in ["submit", "ebau-number"]:
+        workflow_api.complete_work_item(
+            work_item=case.work_items.get(task_id=task_id), user=BaseUser()
+        )
+
+    audit = case.work_items.get(task_id="audit")
+    invalid_document = caluma_form_models.Document.objects.create(form_id="fp-form")
+    table_answer = audit.document.answers.create(
+        question_id="fp-form", value=[str(invalid_document.pk)]
+    )
+    table_answer.documents.add(invalid_document)
+
+    response = admin_client.post(
+        reverse("instance-change-responsible-service", args=[instance.pk]),
+        {
+            "data": {
+                "type": "instance-change-responsible-services",
+                "attributes": {"service-type": "municipality"},
+                "relationships": {
+                    "to": {"data": {"id": new_service.pk, "type": "services"}}
+                },
+            }
+        },
+    )
+
+    result = response.json()
+
+    assert response.status_code == status.HTTP_400_BAD_REQUEST
+
+    assert len(result["errors"])
+    assert "Invalid audit" == result["errors"][0]["detail"]
