@@ -1,0 +1,21 @@
+.uk-table {
+  border-right: none;
+  border-bottom: none;
+
+  th,
+  td {
+    border-left: none;
+    border-top: none;
+    background-color: transparent;
+  }
+}
+
+.uk-list,
+.uk-nav {
+  margin: 0 !important;
+  padding: 0 !important;
+
+  li {
+    background-image: none !important;
+  }
+}
