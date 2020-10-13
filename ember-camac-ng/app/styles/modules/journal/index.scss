@@ -61,19 +61,4 @@
   cursor: pointer;
 }
 
-.project-sz {
-  .journal {
-    fieldset {
-      border: 1px solid lightgrey;
-      padding: revert;
-    }
-  }
-}
-
-.project-be {
-  .journal {
-    fieldset {
-      border: 1px solid #c8d9e9;
-    }
-  }
-}
+@import "custom";
