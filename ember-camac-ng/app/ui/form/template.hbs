@@ -3,5 +3,5 @@
 </h3>
 
 {{#if this.document}}
-  <CfContent @documentId={{this.document.id}} />
+  <CfContent @documentId={{this.document.id}} @context={{hash instanceId=this.model.id}} />
 {{/if}}
