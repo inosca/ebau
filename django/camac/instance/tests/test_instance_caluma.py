@@ -84,8 +84,7 @@ def mock_generate_and_store_pdf(mocker):
 @pytest.mark.parametrize("instance_state__name", ["new"])
 @pytest.mark.parametrize("paper", [False, True])
 @pytest.mark.parametrize("create_with_camac_form", [False, True])
-@pytest.mark.parametrize("create_in_process", [False, True])
-@pytest.mark.parametrize("use_location", [False, True])
+@pytest.mark.parametrize("uri_process", [False, True])
 @pytest.mark.parametrize(
     "copy,modification", [(False, False), (True, False), (True, True)]
 )
@@ -102,8 +101,7 @@ def test_create_instance_caluma(
     application_settings,
     attachment,
     paper,
-    create_in_process,
-    use_location,
+    uri_process,
     create_with_camac_form,
     copy,
     modification,
@@ -120,8 +118,9 @@ def test_create_instance_caluma(
 
     instance_state_factory(name="comm")
 
-    application_settings["CALUMA"]["CREATE_IN_PROCESS"] = create_in_process
-    application_settings["CALUMA"]["USE_LOCATION"] = use_location
+    application_settings["CALUMA"]["CREATE_IN_PROCESS"] = uri_process
+    application_settings["CALUMA"]["USE_LOCATION"] = uri_process
+    application_settings["CALUMA"]["GENERATE_DOSSIER_NR"] = uri_process
 
     if create_with_camac_form:
         application_settings["FORM_MAPPING"] = {"main-form": [form.pk]}
@@ -150,11 +149,13 @@ def test_create_instance_caluma(
         == paper
     )
 
-    if use_location:
+    if uri_process:
         assert (
             Instance.objects.get(pk=instance_id).location
             == admin_client.user.groups.first().locations.first()
         )
+
+        assert "dossier-number" in case.meta
 
     # do a second request including pk, copying the existing instance
     if copy:
@@ -726,6 +727,8 @@ def test_instance_delete(
     attachment,
     paper,
 ):
+    application_settings["CALUMA"]["GENERATE_DOSSIER_NR"] = False
+
     instance_state_factory(name="new")
     instance_state_factory(name="comm")
     # first create instance with all documents
