@@ -103,6 +103,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     base_url = serializers.SerializerMethodField()
     rejection_feedback = serializers.SerializerMethodField()
     current_service = serializers.SerializerMethodField()
+    current_service_description = serializers.SerializerMethodField()
     date_dossiervollstandig = serializers.SerializerMethodField()
     date_dossiereingang = serializers.SerializerMethodField()
     date_start_zirkulation = serializers.SerializerMethodField()
@@ -110,8 +111,6 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     billing_total_kanton = serializers.SerializerMethodField()
     billing_total = serializers.SerializerMethodField()
     my_activations = serializers.SerializerMethodField()
-
-    sender_service_address = serializers.SerializerMethodField()
 
     vorhaben = serializers.SerializerMethodField()
     parzelle = serializers.SerializerMethodField()
@@ -236,6 +235,16 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             service = self.context["request"].group.service
 
             return service.get_name() if service else "-"
+        except KeyError:
+            return "-"
+
+    def get_current_service_description(self, instance):
+        """Return description of the current service of the active user."""
+        try:
+            service = self.context["request"].group.service
+
+            description = service.get_trans_attr("description")
+            return description or service.get_name() or "-"
         except KeyError:
             return "-"
 
@@ -386,22 +395,6 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return instance.activations.filter(
             circulation_state_id=be_constants.CIRCULATION_STATE_WORKING
         ).count()
-
-    def get_sender_service_address(self, instance):
-        if "request" not in self.context:
-            # in some tests, the serializer is initialized
-            # with limited context
-            return ""
-        service = self.context["request"].group.service
-
-        if not service:  # pragma: no cover
-            return ""
-
-        return (
-            f"{service.name}\n"  #
-            f"{service.address}\n"  #
-            f"{service.zip} {service.city}\n"
-        )
 
     def to_representation(self, instance):
         ret = super().to_representation(instance)
