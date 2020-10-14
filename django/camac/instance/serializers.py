@@ -726,6 +726,11 @@ class CalumaInstanceSerializer(InstanceSerializer):
             if source.validate_answer_value(value, case.document, "gemeinde", None):
                 caluma_api.update_or_create_answer(case.document.pk, "gemeinde", value)
 
+            if settings.APPLICATION["CALUMA"]["USE_LOCATION"]:
+                caluma_api.update_or_create_answer(
+                    case.document.pk, "municipality", instance.location.get_name()
+                )
+
             # create instance service for permissions
             InstanceService.objects.create(
                 instance=instance,
