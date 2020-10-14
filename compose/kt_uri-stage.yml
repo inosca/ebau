@@ -2,8 +2,6 @@ version: "3.4"
 services:
   proxy:
     restart: always
-    depends_on:
-      - iweb_mock
     ports:
       - "80:80"
       - "443:443"
@@ -60,17 +58,6 @@ services:
 
   mailhog:
     restart: always
-
-  iweb_mock:
-    image: acr.run/camac-ng/camac-ng/iweb_mock:${CI_COMMIT_REF_SLUG}-${APPLICATION}
-    build:
-      context: ../iweb_mock
-      cache_from:
-        - acr.run/camac-ng/camac-ng/iweb_mock:${CI_COMMIT_REF_SLUG}-${APPLICATION}
-    depends_on:
-      - php
-    environment:
-      - NODE_ENV=stage
 
   keycloak:
     volumes:
