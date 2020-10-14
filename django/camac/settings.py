@@ -172,6 +172,7 @@ APPLICATIONS = {
             "CREATE_IN_PROCESS": True,
             "USE_LOCATION": True,
             "GENERATE_DOSSIER_NR": True,
+            "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
         },
     },
     "kt_schwyz": {
@@ -256,6 +257,7 @@ APPLICATIONS = {
                 "check-statement": {"cancel": ["revise-statement"]},
                 "revise-statement": {"cancel": ["check-statement"]},
             },
+            "SAVE_DOSSIER_NUMBER_IN_CALUMA": False,
         },
         "HAS_EBAU_NUMBER": False,
         "OIDC_SYNC_USER_ATTRIBUTES": [
@@ -791,6 +793,7 @@ APPLICATIONS = {
             "CREATE_IN_PROCESS": True,
             "USE_LOCATION": True,
             "GENERATE_DOSSIER_NR": True,
+            "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
         },
         "PAPER": {
             "ALLOWED_ROLES": {"DEFAULT": [6]},  # Sekretariat Gemeindebaubehörde

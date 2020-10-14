@@ -38,8 +38,7 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get dossierNr() {
-    // TODO camac_legacy read dossierNr from caluma meta data
-    return null;
+    return this.raw.meta["dossier-number"];
   }
 
   get municipality() {
