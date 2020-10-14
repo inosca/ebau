@@ -55,6 +55,8 @@ SUBMIT_DATE_FORMAT = "%Y-%m-%dT%H:%M:%S%z"
 
 request_logger = getLogger("django.request")
 
+caluma_api = CalumaApi()
+
 
 def get_caluma_form_from_camac(camac_form):
     mapping = settings.APPLICATION.get("FORM_MAPPING", {})
@@ -630,16 +632,15 @@ class CalumaInstanceSerializer(InstanceSerializer):
     def validate_for_municipality(self, data):
         group = self.context["request"].group
 
-        if settings.APPLICATION["CALUMA"]["CREATE_IN_PROCESS"]:
+        if settings.APPLICATION["CALUMA"].get("CREATE_IN_PROCESS"):
             data["instance_state"] = models.InstanceState.objects.get(name="comm")
 
-        if settings.APPLICATION["CALUMA"]["USE_LOCATION"]:
+        if settings.APPLICATION["CALUMA"].get("USE_LOCATION"):
             data["location"] = group.locations.first()
 
         return data
 
     def create(self, validated_data):
-        caluma_api = CalumaApi()
 
         copy_source = validated_data.pop("copy_source", None)
         source_instance = copy_source and models.Instance.objects.get(pk=copy_source)
@@ -665,7 +666,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
         instance = super().create(validated_data)
 
-        if settings.APPLICATION["CALUMA"]["USE_LOCATION"]:  # pragma: no cover
+        if settings.APPLICATION["CALUMA"].get("USE_LOCATION"):  # pragma: no cover
             self._update_instance_location(instance)
 
         workflow = workflow_models.Workflow.objects.filter(
@@ -685,6 +686,31 @@ class CalumaInstanceSerializer(InstanceSerializer):
             meta=case_meta,
         )
 
+        self.initialize_caluma(
+            instance, source_instance, case, is_modification, is_paper
+        )
+
+        if is_paper:
+            # remove the previously created applicants
+            instance.involved_applicants.all().delete()
+
+            # create instance service for permissions
+            InstanceService.objects.create(
+                instance=instance,
+                service_id=group.service.pk,
+                active=1,
+                activation_date=None,
+            )
+
+        if source_instance and not is_modification:
+            self._copy_applicants(source_instance, instance)
+            self._copy_attachments(source_instance, instance)
+
+        return instance
+
+    def initialize_caluma(
+        self, instance, source_instance, case, is_modification, is_paper
+    ):
         if source_instance:
             source_document_pk = workflow_models.Case.objects.get(
                 **{"meta__camac-instance-id": source_instance.pk}
@@ -703,42 +729,29 @@ class CalumaInstanceSerializer(InstanceSerializer):
             case.save()
             old_document.delete()
 
-        # TODO migrate BE
         caluma_api.update_or_create_answer(
             case.document.pk, "is-paper", "is-paper-yes" if is_paper else "is-paper-no"
         )
 
-        if settings.APPLICATION["CALUMA"]["HAS_PROJECT_CHANGE"]:
+        if settings.APPLICATION["CALUMA"].get("HAS_PROJECT_CHANGE"):
             caluma_api.update_or_create_answer(
                 case.document.pk,
                 "projektaenderung",
                 "projektaenderung-ja" if is_modification else "projektaenderung-nein",
             )
-
         if is_paper:
-            # remove the previously created applicants
-            instance.involved_applicants.all().delete()
-
             # prefill municipality question if possible
+            group = self.context["request"].group
             value = str(group.service.pk)
             source = Municipalities()
 
             if source.validate_answer_value(value, case.document, "gemeinde", None):
                 caluma_api.update_or_create_answer(case.document.pk, "gemeinde", value)
 
-            # create instance service for permissions
-            InstanceService.objects.create(
-                instance=instance,
-                service_id=group.service.pk,
-                active=1,
-                activation_date=None,
-            )
-
-        if source_instance and not is_modification:
-            self._copy_applicants(source_instance, instance)
-            self._copy_attachments(source_instance, instance)
-
-        return instance
+            if settings.APPLICATION["CALUMA"].get("USE_LOCATION"):
+                caluma_api.update_or_create_answer(
+                    case.document.pk, "municipality", instance.location.get_name()
+                )
 
     def get_rejection_feedback(self, instance):
         return Answer.get_value_by_cqi(
