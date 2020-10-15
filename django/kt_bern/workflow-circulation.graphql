@@ -4,7 +4,7 @@ mutation CreateCirculationWorkflow {
       slug: "circulation"
       name: "Zirkulation"
       startTasks: ["activation"]
-      allowAllForms: true
+      allowForms: ["circulation"]
       isPublished: true
     }
   ) {
