@@ -650,11 +650,6 @@ APPLICATIONS = {
                 "klassierung-der-taetigkeit-klasse-4",
                 [20055],
             ),
-            (
-                "landwirtschaftliches-vorhaben-mit-ableitung",
-                "landwirtschaftliches-vorhaben-mit-ableitung-ja",
-                [20050],
-            ),
             ("maschinelle-arbeitsmittel", "maschinelle-arbeitsmittel-ja", [20055]),
             (
                 "maschinen-aus-den-folgenden-kategorien",
