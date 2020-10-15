@@ -939,6 +939,7 @@
       "allow_forms": [
         "baupolizeiliches-verfahren",
         "hecken-feldgehoelze-baeume",
+        "klaerung-baubewilligungspflicht",
         "vorabklaerung-einfach",
         "vorabklaerung-vollstaendig"
       ]

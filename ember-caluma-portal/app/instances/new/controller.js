@@ -27,20 +27,16 @@ export default class InstancesNewController extends Controller.extend(
       .filter(({ node: { meta } }) => meta["is-creatable"])
       .reduce(
         (grouped, { node: form }) => {
-          const column = /^vorabklaerung/.test(form.slug)
-            ? "column1"
-            : /^baugesuch/.test(form.slug)
-            ? "column2"
-            : "column3";
+          const column = form.meta.category;
 
           grouped[column].push(form);
 
           return grouped;
         },
         {
-          column1: [],
-          column2: [],
-          column3: [],
+          "preliminary-clarification": [],
+          "building-permit": [],
+          "special-procedure": [],
         }
       );
   }
