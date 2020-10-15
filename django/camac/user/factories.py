@@ -23,6 +23,7 @@ class ServiceGroupTFactory(DjangoModelFactory):
 
 class ServiceFactory(DjangoModelFactory):
     name = Faker("name")
+    description = Faker("name")
     sort = 0
     email = Faker("email")
     service_group = SubFactory(ServiceGroupFactory)
