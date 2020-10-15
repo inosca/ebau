@@ -609,7 +609,7 @@
       "success_message": "Dossier erfolgreich abgeschrieben",
       "error_message": "Dossier konnte nicht abgeschrieben werden",
       "execute_always": 0,
-      "sort": 0
+      "sort": 1
     }
   },
   {
@@ -1607,6 +1607,20 @@
     }
   },
   {
+    "model": "core.action",
+    "pk": 130,
+    "fields": {
+      "available_action": "workitem",
+      "button": 38,
+      "name": "Aufgabe: complete depreciate-case",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
     "model": "core.actionworkitem",
     "pk": 105,
     "fields": {
@@ -1842,6 +1856,17 @@
     "pk": 129,
     "fields": {
       "tasks": "[\"additional-demand\"]",
+      "process_type": "complete",
+      "process_all": false,
+      "is_activation": false,
+      "fail_on_empty": false
+    }
+  },
+  {
+    "model": "core.actionworkitem",
+    "pk": 130,
+    "fields": {
+      "tasks": "[\"depreciate-case\"]",
       "process_type": "complete",
       "process_all": false,
       "is_activation": false,
