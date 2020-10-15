@@ -18,7 +18,7 @@
         <CfField::info @text={{t "instances.new.preClarificationInfo"}} />
       </p>
       <div>
-        {{#each forms.lastSuccessful.value.column1 as |form|}}
+        {{#each forms.lastSuccessful.value.preliminary-clarification as |form|}}
           <UkButton
             @width="1-1"
             @label={{concat form.name " " (if isPaper (concat "(" (t "paper.type") ")"))}}
@@ -36,7 +36,7 @@
         <CfField::info @text={{t "instances.new.applicationInfo"}} />
       </p>
       <div>
-        {{#each forms.lastSuccessful.value.column2 as |form|}}
+        {{#each forms.lastSuccessful.value.building-permit as |form|}}
           <UkButton
             @width="1-1"
             @label={{concat form.name " " (if isPaper (concat "(" (t "paper.type") ")"))}}
@@ -53,7 +53,7 @@
         {{t "instances.new.specialProcedure"}}
       </p>
       <div>
-        {{#each forms.lastSuccessful.value.column3 as |form|}}
+        {{#each forms.lastSuccessful.value.special-procedure as |form|}}
           <UkButton
             @width="1-1"
             @label={{concat form.name " " (if isPaper (concat "(" (t "paper.type") ")"))}}

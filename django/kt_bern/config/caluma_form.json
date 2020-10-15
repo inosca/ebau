@@ -266,6 +266,7 @@
       "name": "{\"de\": \"Baugesuch\", \"fr\": \"Demande de permis de construire\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
+        "category": "building-permit",
         "is-creatable": true,
         "is-main-form": true
       },
@@ -285,6 +286,7 @@
       "name": "{\"de\": \"Generelles Baugesuch\", \"fr\": \"Demande de permis de construire g\\u00e9n\\u00e9ral\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
+        "category": "building-permit",
         "is-creatable": true,
         "is-main-form": true
       },
@@ -304,6 +306,7 @@
       "name": "{\"de\": \"Baugesuch mit UVP\", \"fr\": \"Demande de permis de construire avec EIE\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
+        "category": "building-permit",
         "is-creatable": true,
         "is-main-form": true
       },
@@ -323,6 +326,7 @@
       "name": "{\"de\": \"Baupolizeiliches Verfahren\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
+        "category": "special-procedure",
         "is-creatable": true,
         "is-main-form": true
       },
@@ -774,6 +778,7 @@
       "name": "{\"de\": \"Hecken / Feldgeh\\u00f6lze / B\\u00e4ume\", \"fr\": \"Haies / arbustes des champs / arbres\"}",
       "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {
+        "category": "special-procedure",
         "is-creatable": true,
         "is-main-form": true
       },
@@ -825,6 +830,26 @@
       "name": "{\"de\": \"Immissionsschutz II\", \"fr\": \"Protection contre les immissions II\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "klaerung-baubewilligungspflicht",
+    "fields": {
+      "created_at": "2020-10-15T14:09:35.141Z",
+      "modified_at": "2020-10-15T14:09:35.141Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "name": "{\"de\": \"Kl\\u00e4rung Baubewilligungspflicht\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
+      "meta": {
+        "category": "preliminary-clarification",
+        "is-creatable": true,
+        "is-main-form": true
+      },
       "is_published": true,
       "is_archived": false,
       "source": null
@@ -1263,6 +1288,7 @@
       "name": "{\"de\": \"Einfache Vorabkl\\u00e4rung\", \"fr\": \"Demandes pr\\u00e9alables simples\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
+        "category": "preliminary-clarification",
         "is-creatable": true,
         "is-main-form": true
       },
@@ -1282,6 +1308,7 @@
       "name": "{\"de\": \"Vollst\\u00e4ndige Vorabkl\\u00e4rung\", \"fr\": \"Demandes pr\\u00e9alables compl\\u00e8tes\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
+        "category": "preliminary-clarification",
         "is-creatable": true,
         "is-main-form": true
       },
@@ -8393,6 +8420,58 @@
       "created_by_group": null,
       "form": "immissionsschutz",
       "question": "wird-aussenlaerm-erzeugt",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "klaerung-baubewilligungspflicht.8-freigabequittung",
+    "fields": {
+      "created_at": "2020-10-15T14:10:01.260Z",
+      "modified_at": "2020-10-15T14:10:01.260Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "klaerung-baubewilligungspflicht",
+      "question": "8-freigabequittung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "klaerung-baubewilligungspflicht.allgemeine-angaben-kurz-formular",
+    "fields": {
+      "created_at": "2020-10-15T14:10:38.871Z",
+      "modified_at": "2020-10-15T14:10:38.871Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "klaerung-baubewilligungspflicht",
+      "question": "allgemeine-angaben-kurz-formular",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "klaerung-baubewilligungspflicht.dokumente-vorabklaerung-form",
+    "fields": {
+      "created_at": "2020-10-16T06:44:58.838Z",
+      "modified_at": "2020-10-16T06:44:58.838Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "klaerung-baubewilligungspflicht",
+      "question": "dokumente-vorabklaerung-form",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "klaerung-baubewilligungspflicht.personalien-kurz-formular",
+    "fields": {
+      "created_at": "2020-10-15T14:10:54.642Z",
+      "modified_at": "2020-10-15T14:10:54.643Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "klaerung-baubewilligungspflicht",
+      "question": "personalien-kurz-formular",
       "sort": 4
     }
   },
@@ -25621,7 +25700,7 @@
     "pk": "be-gid",
     "fields": {
       "created_at": "2019-03-28T14:56:01.542Z",
-      "modified_at": "2020-10-15T12:21:18.977Z",
+      "modified_at": "2019-04-18T14:14:00.626Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"BE-GID\", \"fr\": \"BE-GID\"}",
@@ -26271,7 +26350,7 @@
     "pk": "beschreibung-bauvorhaben",
     "fields": {
       "created_at": "2019-04-12T08:18:11.316Z",
-      "modified_at": "2020-10-15T11:54:43.386Z",
+      "modified_at": "2020-01-14T14:07:42.039Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": "[]",
       "label": "{\"de\": \"Beschreibung\", \"fr\": \"Description\"}",
@@ -31803,7 +31882,7 @@
     "pk": "gwr-egid",
     "fields": {
       "created_at": "2019-03-28T14:56:20.402Z",
-      "modified_at": "2020-10-15T12:21:26.180Z",
+      "modified_at": "2020-01-14T13:46:54.277Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"GWR-EGID\", \"fr\": \"N\\u00b0 RegBL-EGID\"}",
