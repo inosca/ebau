@@ -11,7 +11,7 @@ mutation CreateBuildingPermitWorkflow {
       slug: "building-permit"
       name: "Baugesuch"
       startTasks: ["placeholder"]
-      allowAllForms: true
+      allowForms: ["building-permit"]
       isPublished: true
     }
   ) {
