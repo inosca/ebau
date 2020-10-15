@@ -242,9 +242,14 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         """Return description of the current service of the active user."""
         try:
             service = self.context["request"].group.service
+            description = None
+            service_name = None
 
-            description = service.get_trans_attr("description")
-            return description or service.get_name() or "-"
+            if service:
+                description = service.get_trans_attr("description")
+                service_name = service.get_name()
+
+            return description or service_name or "-"
         except KeyError:
             return "-"
 
