@@ -218,7 +218,7 @@ module.exports = function (environment) {
       "Morschach",
       "Muotathal",
       "Oberiberg",
-      "Rechenburg",
+      "Reichenburg",
       "Riemenstalden",
       "Rothenthurm",
       "Sattel",
