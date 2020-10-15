@@ -24,6 +24,7 @@ omit=
     camac/wsgi.py
     # TODO: write tests for the following
     camac/core/dataimport.py
+    camac/core/management/commands/clean_caluma_config.py
     camac/core/management/commands/importmunis.py
     camac/core/management/commands/importrsta.py
     camac/core/management/commands/importservices.py

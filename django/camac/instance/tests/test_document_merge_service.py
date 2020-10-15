@@ -1,7 +1,7 @@
 from pathlib import Path
 
 import pytest
-from caluma.caluma_form.models import Document, Question
+from caluma.caluma_form.models import Document
 from django.conf import settings
 from django.core.cache import cache
 from django.core.management import call_command
@@ -12,7 +12,7 @@ from ..document_merge_service import DMSClient, DMSVisitor
 
 
 @pytest.fixture
-def caluma_form_fixture(db):
+def caluma_form_fixture(db, form_question_factory, question_factory):
     # load caluma config
     path = Path(settings.ROOT_DIR) / "kt_bern" / "config-caluma-form.json"
     call_command("loaddata", path)
@@ -42,6 +42,7 @@ def test_document_merge_service_snapshot(
     form_slug,
     dms_settings,
     form_question_factory,
+    question_factory,
 ):
     cache.clear()
     service_factory(
@@ -57,9 +58,10 @@ def test_document_merge_service_snapshot(
     root_document = Document.objects.get(**_filter)
 
     if form_slug == "baugesuch":
-        archived_q = Question.objects.get(pk="verpflichtung-bei-handaenderung")
+        archived_q = question_factory(
+            pk="verpflichtung-bei-handaenderung", is_archived=True
+        )
         form_question_factory(form=root_document.form, question=archived_q)
-        root_document.answers.get(question=archived_q).delete()
 
     visitor = DMSVisitor()
     snapshot.assert_match(visitor.visit(root_document))
