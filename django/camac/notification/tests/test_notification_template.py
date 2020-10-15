@@ -343,7 +343,7 @@ def test_notification_template_sendmail_koor(
                 BILLING_TOTAL_KOMMUNAL: {{billing_total_kommunal}}
                 BILLING_TOTAL_KANTON: {{billing_total_kanton}}
                 BILLING_TOTAL: {{billing_total}}
-                SENDER_SERVICE_ADDRESS: {{sender_service_address}}
+                CURRENT_SERVICE_DESCRIPTION: {{current_service_description}}
             """,
         )
     ],
@@ -414,12 +414,10 @@ def test_notification_placeholders(
         "DATE_DOSSIERVOLLSTANDIG: 23.08.2019",
         "DATE_DOSSIEREINGANG: 22.07.2019",
         "DATE_START_ZIRKULATION: 24.09.2019",
-        f"BILLING_TOTAL_KOMMUNAL: {kommunal_amount}",
+        f"BILLING_TOTAL_KOMMUNAL: {kommunal_amount:.2f}",
         f"BILLING_TOTAL_KANTON: {kanton_amount}",
         f"BILLING_TOTAL: {round(kommunal_amount + kanton_amount, 2)}",
-        f"SENDER_SERVICE_ADDRESS: {admin_svc.name}",
-        f"{admin_svc.address}",
-        f"{admin_svc.zip} {admin_svc.city}",
+        f"CURRENT_SERVICE_DESCRIPTION: {admin_svc.description}",
     ]
 
 
