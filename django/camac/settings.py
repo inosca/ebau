@@ -242,7 +242,7 @@ APPLICATIONS = {
             "SUBMIT_TASKS": ["submit", "submit-additional-demand"],
             "PRE_COMPLETE": {
                 "complete-check": {"cancel": ["reject-form"]},
-                "reject-form": {"cancel": ["complete-check"]},
+                "reject-form": {"cancel": ["complete-check", "depreciate-case"]},
                 "start-additional-circulation": {
                     "cancel": ["check-statements", "start-decision"]
                 },
@@ -252,10 +252,30 @@ APPLICATIONS = {
                 },
                 "reopen-circulation": {"cancel": ["make-decision"]},
                 "make-decision": {
-                    "cancel": ["create-manual-workitems", "reopen-circulation"]
+                    "cancel": [
+                        "create-manual-workitems",
+                        "reopen-circulation",
+                        "depreciate-case",
+                    ]
                 },
                 "check-statement": {"cancel": ["revise-statement"]},
                 "revise-statement": {"cancel": ["check-statement"]},
+                "depreciate-case": {
+                    "cancel": [
+                        "additional-demand",
+                        "circulation",
+                        "create-manual-workitems",
+                        "make-decision",
+                        "publication",
+                        "reopen-circulation",
+                        "start-additional-circulation",
+                        "start-circulation",
+                        "start-decision",
+                        "submit-additional-demand",
+                        "complete-check",
+                        "reject-form",
+                    ]
+                },
             },
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": False,
         },
