@@ -106,7 +106,7 @@ services:
     depends_on:
       - db
       - mailhog
-    image: acr.run/camac-ng/keycloak-uri/keycloak:11.0.2_theme-v0.3.2
+    image: acr.run/camac-ng/keycloak-uri/keycloak:11.0.2_theme-v0.3.3
     environment:
       - DB_VENDOR=postgres
       - DB_ADDR=db
