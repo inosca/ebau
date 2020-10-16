@@ -781,6 +781,7 @@ APPLICATIONS = {
             "lisag",
             "koor_np_users",
             "koor_bg_users",
+            "responsible_koor",
         ],
         "CALUMA": {
             "FORM_PERMISSIONS": ["main"],

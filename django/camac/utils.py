@@ -8,6 +8,7 @@ from docxtpl import DocxTemplate
 from rest_framework import exceptions
 
 from camac import jinja
+from camac.constants import kt_uri as uri_constants
 
 
 class DocxRenderer:
@@ -113,3 +114,13 @@ def get_paper_settings(key=None):
             key, service_groups.get("DEFAULT", [])
         ),
     }
+
+
+def get_responsible_koor_service_id(form_id):
+    for service_id, forms in uri_constants.RESPONSIBLE_KOORS.items():
+        if form_id in forms:
+            return service_id
+
+    raise RuntimeError(
+        f"No responsible KOOR found for form id {form_id}"
+    )  # pragma: no cover
