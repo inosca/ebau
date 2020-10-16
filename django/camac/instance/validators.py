@@ -296,21 +296,16 @@ class FormDataValidator(object):
 
                     if question["value"] is not None:
                         for value in question["value"]:
-                            new_line = ""
                             firma = value["firma"] if "firma" in value else ""
                             name = f"{value.get('name', '')} {value.get('vorname', '')}"
 
-                            if bool(firma) & (name != " "):
-                                new_line = "\n"
-
-                            full_name = f"{firma}{new_line}{name}"
-
-                            names.append(full_name)
+                            names.append(f"{firma}\n{name}")
 
                             if question["slug"] == "bauherrschaft":
                                 bauherrschaft["people"].append(
                                     {
-                                        "name": full_name,
+                                        "firma": firma,
+                                        "name": name,
                                         "strasse": value.get("strasse"),
                                         "plz": value.get("plz"),
                                         "ort": value.get("ort"),
