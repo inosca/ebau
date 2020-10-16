@@ -1,0 +1,13 @@
+<CaseFilter::Base @filterName={{@filterName}}>
+  <input
+    name={{@filterName}}
+    type={{or @type "text"}}
+    placeholder={{or
+      @placeholder
+      (t (concat "cases.filters." @filterName "-placeholder"))
+    }}
+    value={{@value}}
+    class="uk-width-1"
+    {{on "input" @updateFilter}}
+  />
+</CaseFilter::Base>

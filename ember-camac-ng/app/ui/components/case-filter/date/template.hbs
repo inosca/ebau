@@ -1,0 +1,14 @@
+<CaseFilter::Base @filterName={{@filterName}}>
+  <PikadayInput
+    @onSelection={{this.updateFilter}}
+    @format="DD.MM.YYYY"
+    @placeholder={{or
+      @placeholder
+      (t (concat "cases.filters." @filterName "-placeholder"))
+    }}
+    @value={{this.value}}
+    @maxDate={{this.maxDate}}
+    @minDate={{this.minDate}}
+    class="uk-width-1"
+  />
+</CaseFilter::Base>
