@@ -54,30 +54,9 @@ const normalizeUmlaute = str =>
     .replace("ö", "oe")
     .replace("ü", "ue");
 
-/**
- * Parse an URL.
- *
- * see https://gist.github.com/jlong/2428561
- */
-const parseUrl = url => {
-  const parser = document.createElement("a");
-  parser.href = url || window.location.href;
-  return parser;
-};
-
-const getPathParam = param => {
-  const params = parseUrl().pathname.split("/");
-  const index = params.indexOf(param);
-
-  if (index < 0) {
-    return;
-  }
-
-  return params[index + 1];
-};
-
 export default class UrGisComponent extends Component {
   @service notification;
+  @service intl;
 
   @tracked lat = CENTER[0];
   @tracked lng = CENTER[1];
@@ -96,9 +75,11 @@ export default class UrGisComponent extends Component {
 
   @restartableTask
   *getFeatures(x, y, minx, miny, maxx, maxy) {
+    const width = this._map.target._container.clientWidth;
+    const height = this._map.target._container.clientHeight;
     try {
       const response = yield fetch(
-        `https://service.lisag.ch/ows?SERVICE=WMS&VERSION=1.3.0&HEIGHT=450&WIDTH=1156&request=GetCapabilities&REQUEST=GetFeatureInfo&FORMAT=image/png&LAYERS=raumplanung:ur73_Nutzungsplanung,av:Liegenschaften_overview,raumplanung:sondernutzungsplanung,weitere:wanderwege_uri,weitere:archaeologische_funderwartungsgebiete&QUERY_LAYERS=raumplanung:ur73_Nutzungsplanung,av:Liegenschaften_overview,raumplanung:sondernutzungsplanung,weitere:wanderwege_uri,weitere:archaeologische_funderwartungsgebiete&INFO_FORMAT=application/json&I=${x}&J=${y}&CRS=EPSG:3857&BBOX=${minx},${miny},${maxx},${maxy}&FEATURE_COUNT=10`,
+        `https://service.lisag.ch/ows?SERVICE=WMS&VERSION=1.3.0&HEIGHT=${height}&WIDTH=${width}&request=GetCapabilities&REQUEST=GetFeatureInfo&FORMAT=image/png&LAYERS=raumplanung:ur73_Nutzungsplanung,av:Liegenschaften_overview,raumplanung:sondernutzungsplanung,weitere:wanderwege_uri,weitere:archaeologische_funderwartungsgebiete&QUERY_LAYERS=raumplanung:ur73_Nutzungsplanung,av:Liegenschaften_overview,raumplanung:sondernutzungsplanung,weitere:wanderwege_uri,weitere:archaeologische_funderwartungsgebiete&INFO_FORMAT=application/json&I=${x}&J=${y}&CRS=EPSG:3857&BBOX=${minx},${miny},${maxx},${maxy}&FEATURE_COUNT=10`,
         {
           mode: "cors"
         }
@@ -174,9 +155,7 @@ export default class UrGisComponent extends Component {
       }
     } catch (error) {
       console.error(error);
-      this.notification.danger(
-        "Beim auswählen der Parzelle ist ein technischer Fehler aufgetreten"
-      );
+      this.notification.danger(this.intl.t("gis.technicalError"));
     }
   }
 
@@ -236,9 +215,7 @@ export default class UrGisComponent extends Component {
       );
       const data = yield response.json();
       if (data.features.length === 0) {
-        this.notification.danger(
-          "Es wurde keine entsprechende Parzellen- oder Baurechtsnummer gefunden."
-        );
+        this.notification.danger(this.intl.t("gis.noParcelNumber"));
         return;
       }
       const coordinates = data.features[0].geometry.coordinates[0];
@@ -253,15 +230,13 @@ export default class UrGisComponent extends Component {
       this.zoom = 18;
     } catch (error) {
       console.error(error);
-      this.notification.danger(
-        "Bei der Suche ist ein technischer Fehler aufgetreten"
-      );
+      this.notification.danger(this.intl.t("gis.technicalError"));
     }
   }
 
   @restartableTask
   *uploadBlob(blob) {
-    const instanceId = getPathParam("instance-id");
+    const instanceId = this.args.context.instanceId;
     const formData = new FormData();
     formData.append("file", blob, "Parzellenbild.png");
     yield fetch(
@@ -291,7 +266,7 @@ export default class UrGisComponent extends Component {
       );
     } catch (error) {
       console.error(error);
-      this.notification.danger("Beim Laden ist ein Fehler aufgetreten");
+      this.notification.danger(this.intl.t("gis.loadingError"));
     }
   }
 
@@ -334,9 +309,7 @@ export default class UrGisComponent extends Component {
 
       this.fetchCoordinates.perform(parcelOrBuildingleaseNumber, municipality);
     } catch (error) {
-      this.notification.danger(
-        "Die Parzellen- oder Baurechtsnummer konnte nicht gefunden werden."
-      );
+      this.notification.danger(this.intl.t("gis.noParcelNumber"));
     }
   }
 }
