@@ -1999,6 +1999,34 @@
   },
   {
     "fields": {
+      "created_at": "2020-09-19T10:31:49.207Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "is_archived": false,
+      "label": "{\"de\": \"Aufz\\u00fcge\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-19T10:31:49.207Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "analgetyp-aufzuege"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-19T10:31:49.217Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "is_archived": false,
+      "label": "{\"de\": \"Klima- und L\\u00fcftungsanlage\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-19T10:31:49.217Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "analgetyp-klima"
+  },
+  {
+    "fields": {
       "created_at": "2020-09-19T10:45:29.296Z",
       "created_by_group": null,
       "created_by_user": "admin",
@@ -2178,6 +2206,62 @@
     },
     "model": "caluma_form.option",
     "pk": "anschluss-neu"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-04T08:13:39.358Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "is_archived": false,
+      "label": "{\"de\": \"Andere\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-04T08:15:08.032Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "art-der-baute-andere"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-04T08:13:39.378Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "is_archived": false,
+      "label": "{\"de\": \"Mobilfunk- / Antennenanlage\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-04T08:15:08.085Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "art-der-baute-mobilfunk-antennenanlage"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-04T08:13:39.357Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "is_archived": false,
+      "label": "{\"de\": \"Photovoltaik- / Solaranlage\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-04T08:15:08.059Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "art-der-baute-photovoltaik-solaranlage"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-04T08:13:39.311Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "is_archived": false,
+      "label": "{\"de\": \"Reklame\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-04T08:15:08.067Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "art-der-baute-reklame"
   },
   {
     "fields": {
@@ -2671,6 +2755,118 @@
   },
   {
     "fields": {
+      "created_at": "2020-09-04T08:12:53.330Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "is_archived": false,
+      "label": "{\"de\": \"Andere\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-04T08:14:16.683Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "art-der-tiefbaute-andere"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-04T08:12:22.801Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "is_archived": false,
+      "label": "{\"de\": \"Erschliessungen\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-04T08:14:16.549Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "art-der-tiefbaute-erschliessungen"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-04T08:12:22.786Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "is_archived": false,
+      "label": "{\"de\": \"Parkpl\\u00e4tze\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-04T08:14:16.441Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "art-der-tiefbaute-parkplatze"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-04T08:12:43.451Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "is_archived": false,
+      "label": "{\"de\": \"Revitalisierung / Biotope\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-04T08:14:16.693Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "art-der-tiefbaute-revitalisierung-biotope"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-04T08:12:43.269Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "is_archived": false,
+      "label": "{\"de\": \"Schutzbauten\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-04T08:14:16.485Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "art-der-tiefbaute-schutzbauten"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-04T08:12:43.270Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "is_archived": false,
+      "label": "{\"de\": \"Spielpl\\u00e4tze\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-04T08:14:16.591Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "art-der-tiefbaute-spielplatze"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-04T08:12:22.756Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "is_archived": false,
+      "label": "{\"de\": \"Terrainver\\u00e4nderungen\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-04T08:14:16.421Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "art-der-tiefbaute-terrainveranderungen"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-04T08:12:43.274Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "is_archived": false,
+      "label": "{\"de\": \"Veloabstellpl\\u00e4tze\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-04T08:14:16.514Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "art-der-tiefbaute-veloabstellplatze"
+  },
+  {
+    "fields": {
       "created_at": "2020-09-21T08:55:45.318Z",
       "created_by_group": null,
       "created_by_user": "admin",
@@ -2839,6 +3035,34 @@
   },
   {
     "fields": {
+      "created_at": "2020-09-21T08:47:20.645Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "is_archived": false,
+      "label": "{\"de\": \"Ja\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-21T08:47:20.645Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "beheizte-raeume-ja"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-21T08:47:20.626Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "is_archived": false,
+      "label": "{\"de\": \"Nein\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-21T08:47:20.626Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "beheizte-raeume-nein"
+  },
+  {
+    "fields": {
       "created_at": "2020-09-21T09:00:53.156Z",
       "created_by_group": null,
       "created_by_user": "admin",
@@ -2864,6 +3088,34 @@
     },
     "model": "caluma_form.option",
     "pk": "bewilligung-fuer-nichtforstliche-kleinbauten-nein"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-19T11:09:02.883Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "is_archived": false,
+      "label": "{\"de\": \"Gas\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-19T11:09:16.652Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "brennstoffe-gas"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-19T11:09:02.896Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "is_archived": false,
+      "label": "{\"de\": \"Heiz\\u00f6l\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-19T11:09:16.659Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "brennstoffe-heizoel"
   },
   {
     "fields": {
@@ -2906,6 +3158,20 @@
     },
     "model": "caluma_form.option",
     "pk": "brennstoffe-lagerort-tankraum-tankanlage"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-19T11:09:02.867Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "is_archived": false,
+      "label": "{\"de\": \"Pellets\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-19T11:09:16.633Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "brennstoffe-pellets"
   },
   {
     "fields": {
@@ -4715,6 +4981,90 @@
   },
   {
     "fields": {
+      "created_at": "2020-09-19T11:00:23.484Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "is_archived": false,
+      "label": "{\"de\": \"Andere\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-19T11:00:43.281Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "zusatzheizungsanlage-andere"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-19T11:00:23.482Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "is_archived": false,
+      "label": "{\"de\": \"Chemine\\u00e9\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-19T11:00:43.247Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "zusatzheizungsanlage-cheminee"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-19T11:00:23.452Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "is_archived": false,
+      "label": "{\"de\": \"Elektrizi\\u00e4t\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-19T11:00:43.221Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "zusatzheizungsanlage-elektriziaet"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-19T11:00:23.467Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "is_archived": false,
+      "label": "{\"de\": \"Kachelofen / Schwedenofen\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-19T11:00:43.209Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "zusatzheizungsanlage-kachelofen-schwedenofen"
+  },
+  {
+    "fields": {
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "created_at": "2020-08-27T15:36:35.491Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "data_source": null,
+      "format_validators": "[]",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "is_archived": false,
+      "is_hidden": "false",
+      "is_required": "false",
+      "label": "{\"de\": \"Adresszusatz\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-08-27T15:36:35.491Z",
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "row_form": null,
+      "source": null,
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "sub_form": null,
+      "type": "text"
+    },
+    "model": "caluma_form.question",
+    "pk": "adresszusatz"
+  },
+  {
+    "fields": {
       "configuration": {},
       "created_at": "2020-09-19T10:31:49.295Z",
       "created_by_group": null,
@@ -4955,6 +5305,31 @@
   {
     "fields": {
       "configuration": {},
+      "created_at": "2020-09-04T08:13:39.497Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "data_source": null,
+      "format_validators": "[]",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "is_archived": false,
+      "is_hidden": "!(\n  'category-spezielle-bauten-und-anlagen' in 'category'|answer\n)",
+      "is_required": "false",
+      "label": "{\"de\": \"Art der Baute\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-04T08:15:08.229Z",
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "row_form": null,
+      "source": null,
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "sub_form": null,
+      "type": "multiple_choice"
+    },
+    "model": "caluma_form.question",
+    "pk": "art-der-baute"
+  },
+  {
+    "fields": {
+      "configuration": {},
       "created_at": "2020-09-23T07:31:28.166Z",
       "created_by_group": null,
       "created_by_user": "admin",
@@ -5051,6 +5426,31 @@
     },
     "model": "caluma_form.question",
     "pk": "art-der-holzheizung"
+  },
+  {
+    "fields": {
+      "configuration": {},
+      "created_at": "2020-09-04T08:12:22.913Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "data_source": null,
+      "format_validators": "[]",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "is_archived": false,
+      "is_hidden": "!(\n  'category-tiefbaute' in 'category'|answer\n)",
+      "is_required": "false",
+      "label": "{\"de\": \"Art der Tiefbaute\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-04T08:14:16.869Z",
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "row_form": null,
+      "source": null,
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "sub_form": null,
+      "type": "multiple_choice"
+    },
+    "model": "caluma_form.question",
+    "pk": "art-der-tiefbaute"
   },
   {
     "fields": {
@@ -5263,6 +5663,143 @@
   },
   {
     "fields": {
+      "configuration": {},
+      "created_at": "2020-09-21T08:47:20.803Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "data_source": null,
+      "format_validators": "[]",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "is_archived": false,
+      "is_hidden": "false",
+      "is_required": "false",
+      "label": "{\"de\": \"Werden beheizte R\\u00e4ume ver\\u00e4ndert oder neu erstellt?\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-21T08:47:20.803Z",
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "row_form": null,
+      "source": null,
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "sub_form": null,
+      "type": "choice"
+    },
+    "model": "caluma_form.question",
+    "pk": "beheizte-raeume"
+  },
+  {
+    "fields": {
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "created_at": "2020-09-21T07:44:13.839Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "data_source": null,
+      "format_validators": "[]",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "is_archived": false,
+      "is_hidden": "!(\n  \"typ-der-tiefbaute-andere\" in \"typ-der-tiefbaute\"|answer\n)",
+      "is_required": "false",
+      "label": "{\"de\": \"Andere Tiefbaute: Beschreibung\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-21T07:46:12.200Z",
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
+      "row_form": null,
+      "source": null,
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "sub_form": null,
+      "type": "text"
+    },
+    "model": "caluma_form.question",
+    "pk": "beschreibung-andere-tiefbaute"
+  },
+  {
+    "fields": {
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "created_at": "2020-09-21T07:51:10.834Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "data_source": null,
+      "format_validators": "[]",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "is_archived": false,
+      "is_hidden": "false",
+      "is_required": "false",
+      "label": "{\"de\": \"Beschreibung Kommunikationsanlage\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-21T07:51:10.834Z",
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "row_form": null,
+      "source": null,
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "sub_form": null,
+      "type": "text"
+    },
+    "model": "caluma_form.question",
+    "pk": "beschreibung-kommunikationsanlage"
+  },
+  {
+    "fields": {
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "created_at": "2020-09-21T07:43:11.879Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "data_source": null,
+      "format_validators": "[]",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "is_archived": false,
+      "is_hidden": "!(\n  \"typ-der-tiefbaute-revitalisierung\" in \"typ-der-tiefbaute\"|answer\n)",
+      "is_required": "false",
+      "label": "{\"de\": \"Beschreibung Revitalisierung / Biotope\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-21T07:44:46.718Z",
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
+      "row_form": null,
+      "source": null,
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "sub_form": null,
+      "type": "text"
+    },
+    "model": "caluma_form.question",
+    "pk": "beschreibung-revitalisierung-biotope"
+  },
+  {
+    "fields": {
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "created_at": "2020-09-21T07:42:41.052Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "data_source": null,
+      "format_validators": "[]",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "is_archived": false,
+      "is_hidden": "!(\n  \"typ-der-tiefbaute-schutzbauten\" in \"typ-der-tiefbaute\"|answer\n)",
+      "is_required": "false",
+      "label": "{\"de\": \"Beschreibung Schutzbauten\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-21T07:44:29.717Z",
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
+      "row_form": null,
+      "source": null,
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "sub_form": null,
+      "type": "text"
+    },
+    "model": "caluma_form.question",
+    "pk": "beschreibung-schutzbauten"
+  },
+  {
+    "fields": {
       "configuration": {
         "max_length": null,
         "min_length": null
@@ -5341,6 +5878,31 @@
     },
     "model": "caluma_form.question",
     "pk": "bewilligung-fuer-nichtforstliche-kleinbauten"
+  },
+  {
+    "fields": {
+      "configuration": {},
+      "created_at": "2020-09-19T11:09:02.986Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "data_source": null,
+      "format_validators": "[]",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "is_archived": false,
+      "is_hidden": "!(\n  \"anlagetyp-hauptheizung\" == \"anlagetyp\"|answer\n)",
+      "is_required": "false",
+      "label": "{\"de\": \"Brennstoffe\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-19T11:09:16.809Z",
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "row_form": null,
+      "source": null,
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "sub_form": null,
+      "type": "multiple_choice"
+    },
+    "model": "caluma_form.question",
+    "pk": "brennstoffe"
   },
   {
     "fields": {
@@ -5429,6 +5991,34 @@
         "max_length": null,
         "min_length": null
       },
+      "created_at": "2020-09-01T14:57:05.454Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "data_source": null,
+      "format_validators": "[]",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "is_archived": false,
+      "is_hidden": "false",
+      "is_required": "false",
+      "label": "{\"de\": \"Ort\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-01T14:57:05.454Z",
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "row_form": null,
+      "source": null,
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "sub_form": null,
+      "type": "text"
+    },
+    "model": "caluma_form.question",
+    "pk": "building-city"
+  },
+  {
+    "fields": {
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "created_at": "2020-09-01T15:01:59.448Z",
       "created_by_group": null,
       "created_by_user": "admin",
@@ -5475,6 +6065,62 @@
     },
     "model": "caluma_form.question",
     "pk": "building-permit-type"
+  },
+  {
+    "fields": {
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "created_at": "2020-09-01T14:55:46.159Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "data_source": null,
+      "format_validators": "[]",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "is_archived": false,
+      "is_hidden": "false",
+      "is_required": "false",
+      "label": "{\"de\": \"Strasse/Flurname\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-01T14:55:46.159Z",
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "row_form": null,
+      "source": null,
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "sub_form": null,
+      "type": "text"
+    },
+    "model": "caluma_form.question",
+    "pk": "building-street"
+  },
+  {
+    "fields": {
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "created_at": "2020-09-01T14:56:28.003Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "data_source": null,
+      "format_validators": "[]",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "is_archived": false,
+      "is_hidden": "false",
+      "is_required": "false",
+      "label": "{\"de\": \"Nr.\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-01T14:56:28.003Z",
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "row_form": null,
+      "source": null,
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "sub_form": null,
+      "type": "text"
+    },
+    "model": "caluma_form.question",
+    "pk": "building-street-number"
   },
   {
     "fields": {
@@ -6232,6 +6878,31 @@
   {
     "fields": {
       "configuration": {},
+      "created_at": "2020-09-19T10:53:30.010Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "data_source": null,
+      "format_validators": "[]",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "is_archived": false,
+      "is_hidden": "!(\n  \"category-hochbaute\" in \"category\"|answer\n)",
+      "is_required": "false",
+      "label": "{\"de\": \"Haustechnik\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-19T10:53:30.010Z",
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "row_form": null,
+      "source": null,
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "sub_form": "haustechnik",
+      "type": "form"
+    },
+    "model": "caluma_form.question",
+    "pk": "haustechnik"
+  },
+  {
+    "fields": {
+      "configuration": {},
       "created_at": "2020-09-19T10:56:08.906Z",
       "created_by_group": null,
       "created_by_user": "admin",
@@ -6815,6 +7486,31 @@
   },
   {
     "fields": {
+      "configuration": {},
+      "created_at": "2020-08-28T15:45:21.311Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "data_source": null,
+      "format_validators": "[]",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "is_archived": false,
+      "is_hidden": "false",
+      "is_required": "false",
+      "label": "{\"de\": \"Lokalisierung Titel\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-08-28T15:45:21.311Z",
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "row_form": null,
+      "source": null,
+      "static_content": "{\"de\": \"---\\n\\n### Lokalisierung\", \"fr\": \"\"}",
+      "sub_form": null,
+      "type": "static"
+    },
+    "model": "caluma_form.question",
+    "pk": "lokalisierung-titel"
+  },
+  {
+    "fields": {
       "configuration": {
         "max_length": null,
         "min_length": null
@@ -7308,6 +8004,31 @@
   },
   {
     "fields": {
+      "configuration": {},
+      "created_at": "2020-08-27T15:29:03.518Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "data_source": null,
+      "format_validators": "[]",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "is_archived": false,
+      "is_hidden": "false",
+      "is_required": "false",
+      "label": "{\"de\": \"Personalien Titel\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-08-28T15:27:59.943Z",
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "row_form": null,
+      "source": null,
+      "static_content": "{\"de\": \"---\\n\\n### Personalien\", \"fr\": \"\"}",
+      "sub_form": null,
+      "type": "static"
+    },
+    "model": "caluma_form.question",
+    "pk": "personalien-titel"
+  },
+  {
+    "fields": {
       "configuration": {
         "max_length": null,
         "min_length": null
@@ -7385,6 +8106,31 @@
     },
     "model": "caluma_form.question",
     "pk": "projektdaten"
+  },
+  {
+    "fields": {
+      "configuration": {},
+      "created_at": "2020-08-28T15:27:48.245Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "data_source": null,
+      "format_validators": "[]",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "is_archived": false,
+      "is_hidden": "false",
+      "is_required": "false",
+      "label": "{\"de\": \"Projektdaten Titel\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-08-28T15:27:48.245Z",
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "row_form": null,
+      "source": null,
+      "static_content": "{\"de\": \"---\\n\\n### Projektdaten\", \"fr\": \"\"}",
+      "sub_form": null,
+      "type": "static"
+    },
+    "model": "caluma_form.question",
+    "pk": "projektdaten-titel"
   },
   {
     "fields": {
@@ -8329,6 +9075,59 @@
   },
   {
     "fields": {
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "created_at": "2020-09-19T11:01:08.904Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "data_source": null,
+      "format_validators": "[]",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "is_archived": false,
+      "is_hidden": "!(\n  \"zusatzheizungsanlage-andere\" == \"zusatzheizungsanlage\"|answer\n)",
+      "is_required": "false",
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-19T11:01:31.493Z",
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
+      "row_form": null,
+      "source": null,
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "sub_form": null,
+      "type": "text"
+    },
+    "model": "caluma_form.question",
+    "pk": "zusatzheizung-beschreibung"
+  },
+  {
+    "fields": {
+      "configuration": {},
+      "created_at": "2020-09-19T11:00:23.574Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "data_source": null,
+      "format_validators": "[]",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "is_archived": false,
+      "is_hidden": "!(\n  \"anlagetyp-zusatzheizung\" == \"anlagetyp\"|answer\n)",
+      "is_required": "false",
+      "label": "{\"de\": \"Zusatzheizungsanlage\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-19T11:00:43.392Z",
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "row_form": null,
+      "source": null,
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "sub_form": null,
+      "type": "choice"
+    },
+    "model": "caluma_form.question",
+    "pk": "zusatzheizungsanlage"
+  },
+  {
+    "fields": {
       "created_at": "2020-09-21T06:47:34.332Z",
       "created_by_group": null,
       "created_by_user": "admin",
@@ -8495,6 +9294,58 @@
     },
     "model": "caluma_form.questionoption",
     "pk": "anschluss.anschluss-neu"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-04T08:15:08.234Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "modified_at": "2020-09-04T08:15:08.234Z",
+      "option": "art-der-baute-andere",
+      "question": "art-der-baute",
+      "sort": 1
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-baute.art-der-baute-andere"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-04T08:15:08.242Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "modified_at": "2020-09-04T08:15:08.242Z",
+      "option": "art-der-baute-mobilfunk-antennenanlage",
+      "question": "art-der-baute",
+      "sort": 3
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-baute.art-der-baute-mobilfunk-antennenanlage"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-04T08:15:08.246Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "modified_at": "2020-09-04T08:15:08.246Z",
+      "option": "art-der-baute-photovoltaik-solaranlage",
+      "question": "art-der-baute",
+      "sort": 4
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-baute.art-der-baute-photovoltaik-solaranlage"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-04T08:15:08.238Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "modified_at": "2020-09-04T08:15:08.238Z",
+      "option": "art-der-baute-reklame",
+      "question": "art-der-baute",
+      "sort": 2
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-baute.art-der-baute-reklame"
   },
   {
     "fields": {
@@ -8953,6 +9804,110 @@
   },
   {
     "fields": {
+      "created_at": "2020-09-04T08:14:16.875Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "modified_at": "2020-09-04T08:14:16.875Z",
+      "option": "art-der-tiefbaute-andere",
+      "question": "art-der-tiefbaute",
+      "sort": 1
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-tiefbaute.art-der-tiefbaute-andere"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-04T08:14:16.900Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "modified_at": "2020-09-04T08:14:16.900Z",
+      "option": "art-der-tiefbaute-erschliessungen",
+      "question": "art-der-tiefbaute",
+      "sort": 7
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-tiefbaute.art-der-tiefbaute-erschliessungen"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-04T08:14:16.895Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "modified_at": "2020-09-04T08:14:16.895Z",
+      "option": "art-der-tiefbaute-parkplatze",
+      "question": "art-der-tiefbaute",
+      "sort": 6
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-tiefbaute.art-der-tiefbaute-parkplatze"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-04T08:14:16.878Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "modified_at": "2020-09-04T08:14:16.878Z",
+      "option": "art-der-tiefbaute-revitalisierung-biotope",
+      "question": "art-der-tiefbaute",
+      "sort": 2
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-tiefbaute.art-der-tiefbaute-revitalisierung-biotope"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-04T08:14:16.882Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "modified_at": "2020-09-04T08:14:16.882Z",
+      "option": "art-der-tiefbaute-schutzbauten",
+      "question": "art-der-tiefbaute",
+      "sort": 3
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-tiefbaute.art-der-tiefbaute-schutzbauten"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-04T08:14:16.885Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "modified_at": "2020-09-04T08:14:16.885Z",
+      "option": "art-der-tiefbaute-spielplatze",
+      "question": "art-der-tiefbaute",
+      "sort": 4
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-tiefbaute.art-der-tiefbaute-spielplatze"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-04T08:14:16.904Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "modified_at": "2020-09-04T08:14:16.904Z",
+      "option": "art-der-tiefbaute-terrainveranderungen",
+      "question": "art-der-tiefbaute",
+      "sort": 8
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-tiefbaute.art-der-tiefbaute-terrainveranderungen"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-04T08:14:16.892Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "modified_at": "2020-09-04T08:14:16.892Z",
+      "option": "art-der-tiefbaute-veloabstellplatze",
+      "question": "art-der-tiefbaute",
+      "sort": 5
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-tiefbaute.art-der-tiefbaute-veloabstellplatze"
+  },
+  {
+    "fields": {
       "created_at": "2020-09-21T08:55:45.511Z",
       "created_by_group": null,
       "created_by_user": "admin",
@@ -9109,6 +10064,32 @@
   },
   {
     "fields": {
+      "created_at": "2020-09-21T08:47:20.819Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "modified_at": "2020-09-21T08:47:20.819Z",
+      "option": "beheizte-raeume-ja",
+      "question": "beheizte-raeume",
+      "sort": 2
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "beheizte-raeume.beheizte-raeume-ja"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-21T08:47:20.813Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "modified_at": "2020-09-21T08:47:20.813Z",
+      "option": "beheizte-raeume-nein",
+      "question": "beheizte-raeume",
+      "sort": 1
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "beheizte-raeume.beheizte-raeume-nein"
+  },
+  {
+    "fields": {
       "created_at": "2020-09-21T09:02:03.127Z",
       "created_by_group": null,
       "created_by_user": "admin",
@@ -9171,6 +10152,45 @@
     },
     "model": "caluma_form.questionoption",
     "pk": "brennstoffe-lagerort.brennstoffe-lagerort-tankraum-tankanlage"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-19T11:09:16.817Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "modified_at": "2020-09-19T11:09:16.817Z",
+      "option": "brennstoffe-gas",
+      "question": "brennstoffe",
+      "sort": 1
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "brennstoffe.brennstoffe-gas"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-19T11:09:16.823Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "modified_at": "2020-09-19T11:09:16.823Z",
+      "option": "brennstoffe-heizoel",
+      "question": "brennstoffe",
+      "sort": 2
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "brennstoffe.brennstoffe-heizoel"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-19T11:09:16.828Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "modified_at": "2020-09-19T11:09:16.828Z",
+      "option": "brennstoffe-pellets",
+      "question": "brennstoffe",
+      "sort": 3
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "brennstoffe.brennstoffe-pellets"
   },
   {
     "fields": {
@@ -10874,5 +11894,57 @@
     },
     "model": "caluma_form.questionoption",
     "pk": "umbau.umbau-umnutzung"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-19T11:00:43.397Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "modified_at": "2020-09-19T11:00:43.397Z",
+      "option": "zusatzheizungsanlage-andere",
+      "question": "zusatzheizungsanlage",
+      "sort": 1
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "zusatzheizungsanlage.zusatzheizungsanlage-andere"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-19T11:00:43.400Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "modified_at": "2020-09-19T11:00:43.400Z",
+      "option": "zusatzheizungsanlage-cheminee",
+      "question": "zusatzheizungsanlage",
+      "sort": 2
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "zusatzheizungsanlage.zusatzheizungsanlage-cheminee"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-19T11:00:43.406Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "modified_at": "2020-09-19T11:00:43.406Z",
+      "option": "zusatzheizungsanlage-elektriziaet",
+      "question": "zusatzheizungsanlage",
+      "sort": 4
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "zusatzheizungsanlage.zusatzheizungsanlage-elektriziaet"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-19T11:00:43.403Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "modified_at": "2020-09-19T11:00:43.403Z",
+      "option": "zusatzheizungsanlage-kachelofen-schwedenofen",
+      "question": "zusatzheizungsanlage",
+      "sort": 3
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "zusatzheizungsanlage.zusatzheizungsanlage-kachelofen-schwedenofen"
   }
 ]

@@ -45670,7 +45670,7 @@
   },
   {
     "fields": {
-      "available_resource": "search",
+      "available_resource": "emberlist",
       "class_field": null,
       "description": "Allgemeine Suche",
       "hidden": 0,
@@ -45683,12 +45683,12 @@
   },
   {
     "fields": {
-      "available_resource": "search",
+      "available_resource": "emberlist",
       "class_field": "",
       "description": "Dossiersuche BK eingeschr\u00e4nkt auf die Gemeinde",
       "hidden": 1,
       "name": "Dossiersuche",
-      "sort": 27,
+      "sort": 26,
       "template": "/buildom/search.phtml"
     },
     "model": "core.resource",
@@ -45701,7 +45701,7 @@
       "description": "Pendenzenliste f\u00fcr die SubFachstellen",
       "hidden": 0,
       "name": "Pendenzenliste Subfachstelle",
-      "sort": 1,
+      "sort": 0,
       "template": ""
     },
     "model": "core.resource",
@@ -45727,7 +45727,7 @@
       "description": "Dossiers, die von den B\u00fcrgern eingereicht wurden",
       "hidden": 0,
       "name": "Eingang Online - Dossiers",
-      "sort": 10,
+      "sort": 9,
       "template": "/list/portal-list.phtml"
     },
     "model": "core.resource",
@@ -45753,7 +45753,7 @@
       "description": "Dossierzirkulation starten f\u00fcr die Koordinationsstelle Baudirektion BD",
       "hidden": 0,
       "name": "Dossierzirkulation starten",
-      "sort": 15,
+      "sort": 14,
       "template": null
     },
     "model": "core.resource",
@@ -45766,7 +45766,7 @@
       "description": "Dossierzirkulation bei den Fachstellen abgeschlossen",
       "hidden": 0,
       "name": "Dossierzirkulation beendet",
-      "sort": 22,
+      "sort": 21,
       "template": null
     },
     "model": "core.resource",
@@ -45779,7 +45779,7 @@
       "description": "Dossierzirkulation starten f\u00fcr Koord Baugesuche BG",
       "hidden": 0,
       "name": "Dossierzirkulation starten",
-      "sort": 13,
+      "sort": 12,
       "template": null
     },
     "model": "core.resource",
@@ -45792,7 +45792,7 @@
       "description": "",
       "hidden": 0,
       "name": "Dossiers in Zirkulation",
-      "sort": 23,
+      "sort": 22,
       "template": ""
     },
     "model": "core.resource",
@@ -45805,7 +45805,7 @@
       "description": "Dossierzirkulation starten f\u00fcr Koord NP",
       "hidden": 0,
       "name": "Dossierzirkulation starten",
-      "sort": 14,
+      "sort": 13,
       "template": null
     },
     "model": "core.resource",
@@ -45818,7 +45818,7 @@
       "description": "Dossierzirkulation starten f\u00fcr Koord Umweltschutz AfU",
       "hidden": 0,
       "name": "Dossierzirkulation starten",
-      "sort": 16,
+      "sort": 15,
       "template": null
     },
     "model": "core.resource",
@@ -45844,7 +45844,7 @@
       "description": null,
       "hidden": 0,
       "name": "Baubegleitungssgeb\u00fchren",
-      "sort": 25,
+      "sort": 24,
       "template": null
     },
     "model": "core.resource",
@@ -45857,7 +45857,7 @@
       "description": null,
       "hidden": 0,
       "name": "Erfasste Auflagen",
-      "sort": 24,
+      "sort": 23,
       "template": null
     },
     "model": "core.resource",
@@ -45870,7 +45870,7 @@
       "description": "Dossierzirkulation starten f\u00fcr Koord Landwirtschaft ALA",
       "hidden": 0,
       "name": "Dossierzirkulation starten",
-      "sort": 17,
+      "sort": 16,
       "template": null
     },
     "model": "core.resource",
@@ -45883,7 +45883,7 @@
       "description": "Dossierzirkulation starten f\u00fcr Koord Energie AfE",
       "hidden": 0,
       "name": "Dossierzirkulation starten",
-      "sort": 18,
+      "sort": 17,
       "template": null
     },
     "model": "core.resource",
@@ -45896,7 +45896,7 @@
       "description": "Dossierzirkulation starten f\u00fcr Koord AFJ SD",
       "hidden": 0,
       "name": "Dossierzirkulation starten",
-      "sort": 19,
+      "sort": 18,
       "template": null
     },
     "model": "core.resource",
@@ -45909,7 +45909,7 @@
       "description": null,
       "hidden": 0,
       "name": "Bau- und Einspracheentscheid zugestellt",
-      "sort": 26,
+      "sort": 25,
       "template": null
     },
     "model": "core.resource",
@@ -45922,7 +45922,7 @@
       "description": "Dossierbearbeitung startenf\u00fcr Gemeinden",
       "hidden": 0,
       "name": "Dossierbearbeitung starten",
-      "sort": 11,
+      "sort": 10,
       "template": null
     },
     "model": "core.resource",
@@ -45935,7 +45935,7 @@
       "description": "Zur Pr\u00fcfung zugewiesene Dossiers f\u00fcr Vernehmlassungsstellen",
       "hidden": 0,
       "name": "Zur Pr\u00fcfung zugewiesene Dossiers",
-      "sort": 5,
+      "sort": 4,
       "template": null
     },
     "model": "core.resource",
@@ -45948,7 +45948,7 @@
       "description": null,
       "hidden": 0,
       "name": "In Zirkulation (KOOR ARE BG)",
-      "sort": 7,
+      "sort": 6,
       "template": null
     },
     "model": "core.resource",
@@ -45961,7 +45961,7 @@
       "description": null,
       "hidden": 0,
       "name": "In Zirkulation (KOOR BD)",
-      "sort": 8,
+      "sort": 7,
       "template": null
     },
     "model": "core.resource",
@@ -45974,7 +45974,7 @@
       "description": null,
       "hidden": 0,
       "name": "In Zirkulation (KOOR ARE NP)",
-      "sort": 9,
+      "sort": 8,
       "template": null
     },
     "model": "core.resource",
@@ -45987,7 +45987,7 @@
       "description": "Kantonale Pr\u00fcfung beendet f\u00fcr Gemeinden",
       "hidden": 0,
       "name": "Kantonale Pr\u00fcfung beendet",
-      "sort": 21,
+      "sort": 20,
       "template": null
     },
     "model": "core.resource",
@@ -46000,7 +46000,7 @@
       "description": "Dossiers die bei den Gemeinden und dem Kanton in Bearbeitung sind, Anzeige f\u00fcr Organisation mit Leserechten",
       "hidden": 0,
       "name": "Laufende Baubewilligungsverfahren und Vorabkl\u00e4rungen",
-      "sort": 4,
+      "sort": 3,
       "template": null
     },
     "model": "core.resource",
@@ -46013,7 +46013,7 @@
       "description": "Zur Pr\u00fcfung zugewiesene Dossiers f\u00fcr die Kommissionsmitglieder",
       "hidden": 0,
       "name": "Zur Pr\u00fcfung zugewiesene Dossiers",
-      "sort": 2,
+      "sort": 1,
       "template": null
     },
     "model": "core.resource",
@@ -46026,7 +46026,7 @@
       "description": "Erledigte Dossiers f\u00fcr die Kommissionsmitglieder",
       "hidden": 0,
       "name": "Erledigte Dossiers",
-      "sort": 3,
+      "sort": 2,
       "template": ""
     },
     "model": "core.resource",
@@ -46034,7 +46034,7 @@
   },
   {
     "fields": {
-      "available_resource": "extendedsearch",
+      "available_resource": "emberlist",
       "class_field": null,
       "description": null,
       "hidden": 0,
@@ -46065,7 +46065,7 @@
       "description": null,
       "hidden": 0,
       "name": "Aufgaben Gemeindebaubeh\u00f6rde",
-      "sort": 20,
+      "sort": 19,
       "template": null
     },
     "model": "core.resource",
@@ -46078,7 +46078,7 @@
       "description": "Dossierbearbeitung starten Bundesstellen",
       "hidden": 0,
       "name": "Dossierbearbeitung starten",
-      "sort": 12,
+      "sort": 11,
       "template": null
     },
     "model": "core.resource",
@@ -46091,7 +46091,7 @@
       "description": "Zur Pr\u00fcfung zugewiesene Dossiers f\u00fcr Vernehmlassungsstellen Gemeindezirkulation",
       "hidden": 0,
       "name": "Zur Pr\u00fcfung zugewiesene Dossiers",
-      "sort": 6,
+      "sort": 5,
       "template": null
     },
     "model": "core.resource",
@@ -46104,7 +46104,7 @@
       "description": null,
       "hidden": 0,
       "name": "Einstellungen",
-      "sort": 28,
+      "sort": 27,
       "template": null
     },
     "model": "core.resource",
