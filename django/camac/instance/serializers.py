@@ -18,6 +18,7 @@ from rest_framework_json_api import relations, serializers
 from camac.caluma.api import CalumaApi
 from camac.caluma.extensions.data_sources import Municipalities
 from camac.constants import kt_bern as be_constants
+from camac.constants import kt_uri as ur_constants
 from camac.core.models import (
     Answer,
     HistoryActionConfig,
@@ -56,17 +57,6 @@ SUBMIT_DATE_FORMAT = "%Y-%m-%dT%H:%M:%S%z"
 request_logger = getLogger("django.request")
 
 caluma_api = CalumaApi()
-
-
-def get_caluma_form_from_camac(camac_form):
-    mapping = settings.APPLICATION.get("FORM_MAPPING", {})
-    for caluma_form, form_ids in mapping.items():
-        if camac_form in form_ids:
-            return caluma_form
-
-    raise exceptions.ValidationError(
-        _(f"No form mapping found for form ID {camac_form}.")
-    )
 
 
 def generate_identifier(instance):
@@ -665,8 +655,6 @@ class CalumaInstanceSerializer(InstanceSerializer):
             is_paper = caluma_api.is_paper(source_instance)
         else:
             caluma_form = self.initial_data.get("caluma_form")
-            if caluma_form is None:
-                caluma_form = get_caluma_form_from_camac(self.validated_data["form"].pk)
 
             is_modification = False
             is_paper = (
@@ -745,12 +733,20 @@ class CalumaInstanceSerializer(InstanceSerializer):
             case.document.pk, "is-paper", "is-paper-yes" if is_paper else "is-paper-no"
         )
 
+        if settings.APPLICATION["CALUMA"].get("SYNC_FORM_TYPE"):  # pragma: no cover
+            caluma_api.update_or_create_answer(
+                case.document.pk,
+                "form-type",
+                "form-type-" + ur_constants.CALUMA_FORM_MAPPING[instance.form.pk],
+            )
+
         if settings.APPLICATION["CALUMA"].get("HAS_PROJECT_CHANGE"):
             caluma_api.update_or_create_answer(
                 case.document.pk,
                 "projektaenderung",
                 "projektaenderung-ja" if is_modification else "projektaenderung-nein",
             )
+
         if is_paper:
             # prefill municipality question if possible
             group = self.context["request"].group

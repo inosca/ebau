@@ -27,7 +27,6 @@ from camac.instance.serializers import (
     SUBMIT_DATE_QUESTION_ID,
     CalumaInstanceSerializer,
     CalumaInstanceSubmitSerializer,
-    get_caluma_form_from_camac,
 )
 from camac.utils import flatten
 
@@ -895,13 +894,6 @@ def test_instance_submit_suggestions(
         list(ProposalActivation.objects.values_list("service_id", flat=True))
         == expected_services
     )
-
-
-def test_get_caluma_form_from_camac():
-    assert get_caluma_form_from_camac(1) == "building-permit"
-
-    with pytest.raises(exceptions.ValidationError):
-        get_caluma_form_from_camac(123)
 
 
 @pytest.mark.parametrize("service_group__name", ["municipality"])
