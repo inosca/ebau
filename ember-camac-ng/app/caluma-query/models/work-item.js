@@ -128,7 +128,11 @@ export default class CustomWorkItemModel extends WorkItemModel {
     const ebauNr = this.case?.meta["ebau-number"];
     const suffix = ebauNr ? `(${ebauNr})` : "";
 
-    return `${identifier} - ${name} ${suffix}`.trim();
+    if (name) {
+      return `${identifier} - ${name} ${suffix}`.trim();
+    }
+
+    return identifier;
   }
 
   get directLink() {
