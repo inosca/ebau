@@ -66,7 +66,7 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get instanceState() {
-    return get(this.instance, "instanceState.name");
+    return get(this.instance, "instanceState.uppercaseName");
   }
 
   get coordination() {
