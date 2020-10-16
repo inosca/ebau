@@ -790,6 +790,7 @@ APPLICATIONS = {
             "USE_LOCATION": True,
             "GENERATE_DOSSIER_NR": True,
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
+            "SYNC_FORM_TYPE": True,
         },
         "PAPER": {
             "ALLOWED_ROLES": {"DEFAULT": [6]},  # Sekretariat Gemeindebaubehörde

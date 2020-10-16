@@ -24,10 +24,9 @@ export default class CustomCaseModel extends CaseModel {
 
   get street() {
     const street =
-      getAnswer(this.raw.document, "building-street")?.node.stringValue ?? "";
+      getAnswer(this.raw.document, "parcel-street")?.node.stringValue ?? "";
     const number =
-      getAnswer(this.raw.document, "building-street-number")?.node
-        .stringValue ?? "";
+      getAnswer(this.raw.document, "street-number")?.node.stringValue ?? "";
 
     return `${street} ${number}`;
   }
@@ -51,15 +50,17 @@ export default class CustomCaseModel extends CaseModel {
     // Take the first row and use this as applicant
     const tableAnswers = answer?.node.value[0];
     if (tableAnswers) {
+      const juristicName = getAnswer(tableAnswers, "juristic-person-name")?.node
+        .stringValue;
       const firstName = getAnswer(tableAnswers, "first-name")?.node.stringValue;
       const lastName = getAnswer(tableAnswers, "last-name")?.node.stringValue;
-      return `${firstName ?? ""} ${lastName ?? ""}`;
+      return [juristicName, `${firstName ?? ""} ${lastName ?? ""}`].join(", ");
     }
     return null;
   }
 
   get form() {
-    const answer = getAnswer(this.raw.document, "building-permit-type");
+    const answer = getAnswer(this.raw.document, "form-type");
     return answer?.node.question.options.edges.find(
       edge => edge.node.slug === answer?.node.stringValue
     )?.node.label;
@@ -70,12 +71,7 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get coordination() {
-    //TODO camac_legacy: Not yet implemented
-    return null;
-  }
-  get coordinationShort() {
-    //TODO camac_legacy: Not yet implemented
-    return null;
+    return get(this.instance, "form.description").split(";")[0];
   }
   get reason() {
     //TODO camac_legacy: Not yet implemented
@@ -96,9 +92,9 @@ export default class CustomCaseModel extends CaseModel {
     document {
       answers(questions: [
         "applicant",
-        "building-street",
-        "building-street-number",
-        "building-permit-type",
+        "parcel-street",
+        "street-number",
+        "form-type",
         "proposal-description",
         "municipality"
       ]) {
