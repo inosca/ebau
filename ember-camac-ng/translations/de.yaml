@@ -13,6 +13,8 @@ global:
   openMenu: "Menu öffnen"
   form: "Formular"
   applicant: "Gesuchsteller"
+  search: "Suche"
+  reset: "Zurücksetzen"
 
 organisation:
   edit: "Eigene Organisation bearbeiten"
@@ -121,6 +123,25 @@ cases:
     reason: "Grund"
     caseStatus: "Status"
     parcel: "Parzelle"
+
+  filter: "Dossier Suchen"
+  filters:
+    buildingPermitType: "Verfahren"
+    buildingPermitType-placeholder: "Alle Verfahren"
+    municipality: "Gemeinde"
+    municipality-placeholder: "Alle Gemeinden"
+    instanceState: "Status"
+    instanceState-placeholder: "Alle Status"
+    parcelNumber: "Parzellennummer"
+    parcelNumber-placeholder: "1234"
+    createdAfter: "Erstellung von"
+    createdAfter-placeholder: "23.04.1234"
+    createdBefore: "Erstellung bis"
+    createdBefore-placeholder: "23.04.1234"
+    dossierNumber: "Dossier Nummer"
+    dossierNumber-placeholder: "0101-20-001"
+    proposalDescription: "Vorhaben"
+    proposalDescription-placeholder: "Detailbeschreibung Vorhaben"
 
 gis:
   parcelNumber: "Parzellennummer"

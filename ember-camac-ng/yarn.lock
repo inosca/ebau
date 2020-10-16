@@ -5961,10 +5961,9 @@ ember-basic-dropdown@^3.0.10:
     ember-maybe-in-element "^2.0.1"
     ember-truth-helpers "2.1.0"
 
-ember-caluma@^6.3.0:
+ember-caluma@velrest/ember-caluma#query-options:
   version "6.3.0"
-  resolved "https://registry.yarnpkg.com/ember-caluma/-/ember-caluma-6.3.0.tgz#30717b6fffed4412cff6953b7dc144db7d28c217"
-  integrity sha512-NeoOP45W92D2OiPog2lWQF33dO7aOJyakjWmg9ZAJGvUvQr8ECD7H9OL6uXQpGBtYCCZI+IxDakveYjoob+yYQ==
+  resolved "https://codeload.github.com/velrest/ember-caluma/tar.gz/356242ab3244f95a866f7d3a0919c3584e6269ad"
   dependencies:
     "@glimmer/tracking" "^1.0.1"
     apollo-cache-inmemory "^1.6.6"

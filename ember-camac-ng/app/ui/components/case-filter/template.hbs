@@ -1,0 +1,76 @@
+<div {{did-insert (perform this.fetchFilterData)}}>
+  <form class="uk-form-horizontal" {{on "submit" this.applyFilter}}>
+    <fieldset class="uk-flex uk-flex-column">
+      <legend>
+        <b>
+          {{t "cases.filter"}}
+        </b>
+      </legend>
+
+      <CaseFilter::Input
+        @filterName="dossierNumber"
+        @value={{@filter.dossierNumber}}
+        @updateFilter={{fn this.updateFilter "dossierNumber"}}
+      />
+
+      <CaseFilter::Select
+        @filterName="municipality"
+        @updateFilter={{fn this.updateFilter "municipality"}}
+        @filterOptions={{this.filterData.municipalities}}
+        @valueField="id"
+        @labelField="name"
+        @value={{@filter.municipality}}
+      />
+
+      <CaseFilter::Input
+        @filterName="parcelNumber"
+        @type="number"
+        @value={{@filter.parcelNumber}}
+        @updateFilter={{fn this.updateFilter "parcelNumber"}}
+      />
+
+      <CaseFilter::Select
+        @filterName="instanceState"
+        @updateFilter={{fn this.updateFilter "instanceState"}}
+        @filterOptions={{this.filterData.instanceStates}}
+        @valueField="id"
+        @labelField="uppercaseName"
+        @value={{@filter.instanceState}}
+      />
+
+      <CaseFilter::Select
+        @filterName="buildingPermitType"
+        @updateFilter={{fn this.updateFilter "buildingPermitType"}}
+        @filterOptions={{this.filterData.buildingPermitTypes}}
+        @value={{@filter.buildingPermitType}}
+      />
+
+      <CaseFilter::Date
+        @filterName="createdAfter"
+        @updateFilter={{fn this.updateFilter "createdAfter"}}
+        @value={{@filter.createdAfter}}
+        @maxDate={{@filter.createdBefore}}
+      />
+
+      <CaseFilter::Date
+        @filterName="createdBefore"
+        @updateFilter={{fn this.updateFilter "createdBefore"}}
+        @value={{@filter.createdBefore}}
+        @minDate={{@filter.createdAfter}}
+      />
+
+      <CaseFilter::Input
+        @filterName="proposalDescription"
+        @value={{@filter.proposalDescription}}
+        @updateFilter={{fn this.updateFilter "proposalDescription"}}
+      />
+    </fieldset>
+
+    <button type="submit">
+      {{t "global.search"}}
+    </button>
+    <button type="button" {{on "click" this.resetFilter}}>
+      {{t "global.reset"}}
+    </button>
+  </form>
+</div>
