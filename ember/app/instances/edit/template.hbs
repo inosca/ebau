@@ -5,7 +5,7 @@
         Gesuch
       </LinkTo>
     </li>
-    {{#if @model.meta.is-applicant}}
+    {{#if @model.meta.access-type}}
       <li
         class={{if
           (eq this.router.currentRouteName "instances.edit.involvierte-personen")
@@ -19,6 +19,8 @@
           Involvierte Personen
         </LinkTo>
       </li>
+    {{/if}}
+    {{#if (eq @model.meta.access-type "applicant")}}
       <li
         class={{if
           (eq this.router.currentRouteName "instances.edit.freigegebene-unterlagen")
@@ -45,7 +47,9 @@
           Aufgaben
         </LinkTo>
       </li>
-    {{else}}
+    {{/if}}
+      {{!--
+      Publications are disabled because the legality of it is not clear
       <li
         class={{if
           (eq this.router.currentRouteName "instances.edit.publikationsdokumente")
@@ -59,7 +63,7 @@
           Publikationsdokumente
         </LinkTo>
       </li>
-    {{/if}}
+      --}}
   </ul>
 
   {{#if (eq this.currentPage "form")}}

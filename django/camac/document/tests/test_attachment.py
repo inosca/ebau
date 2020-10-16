@@ -18,8 +18,8 @@ from .data import django_file
         ("Applicant", LazyFixture("admin_user"), 13),
         ("Reader", LazyFixture("user"), 13),
         ("Canton", LazyFixture("user"), 13),
-        ("Municipality", LazyFixture("user"), 13),
-        ("Service", LazyFixture("user"), 13),
+        ("Municipality", LazyFixture("user"), 12),
+        ("Service", LazyFixture("user"), 12),
     ],
 )
 def test_attachment_list(
