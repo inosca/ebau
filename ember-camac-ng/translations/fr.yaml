@@ -109,3 +109,6 @@ gis:
   buildingLeaseNumber: "Numéro du bail à construction"
   findParcel: "Trouver un terrain"
   submitParcel: "Reprendre une parcelle de terrain"
+  noParcelNumber: "Aucun numéro de parcelle ou de bail à construction correspondant n'a été trouvé"
+  technicalError: "Une erreur technique s'est produite lors de la recherche"
+  loadingError: "Une erreur s'est produite lors du chargement"
