@@ -28,9 +28,9 @@ from camac.core.translations import get_translations
 from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import HistoryEntry, HistoryEntryT, Instance
 from camac.instance.validators import transform_coordinates
-from camac.user.models import Group, Role, Service, UserGroup
+from camac.user.models import Group, Role, Service
 from camac.user.utils import unpack_service_emails
-from camac.utils import flatten
+from camac.utils import flatten, get_responsible_koor_service_id
 
 from ..core import models as core_models
 from . import models
@@ -601,23 +601,20 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             for email in value.split(",")
         ]
 
+    def _notify_service(self, service_id):
+        return [
+            {"to": email}
+            for email in unpack_service_emails(Service.objects.filter(pk=service_id))
+        ]
+
     def _get_recipients_koor_np_users(self, instance):
-        return self._group_service_recipients(
-            Group.objects.filter(
-                pk__in=UserGroup.objects.filter(
-                    group__role_id=uri_constants.KOOR_NP_ROLE_ID
-                ).values("group")
-            )
-        )
+        return self._notify_service(uri_constants.KOOR_NP_SERVICE_ID)
 
     def _get_recipients_koor_bg_users(self, instance):
-        return self._group_service_recipients(
-            Group.objects.filter(
-                pk__in=UserGroup.objects.filter(
-                    group__role_id=uri_constants.KOOR_BG_ROLE_ID
-                ).values("group")
-            )
-        )
+        return self._notify_service(uri_constants.KOOR_BG_SERVICE_ID)
+
+    def _get_recipients_responsible_koor(self, instance):
+        return self._notify_service(get_responsible_koor_service_id(instance.form.pk))
 
     def _get_recipients_lisag(self, instance):
         groups = Group.objects.filter(name="Lisag")
