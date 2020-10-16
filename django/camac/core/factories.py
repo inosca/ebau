@@ -53,9 +53,11 @@ class CamacChapterFactory(DjangoModelFactory):
 
 class CamacAnswerFactory(DjangoModelFactory):
     answer = None
+    instance = SubFactory(InstanceFactory)
     question = SubFactory(CamacQuestionFactory)
-    item = 1
     chapter = SubFactory(CamacChapterFactory)
+    item = 1
+    answer = ""
 
     class Meta:
         model = models.Answer
