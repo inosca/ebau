@@ -1,10 +1,12 @@
 import { render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
+import { setupIntl } from "ember-intl/test-support";
 import { setupRenderingTest } from "ember-qunit";
 import { module, test } from "qunit";
 
 module("Integration | Component | case-filter/date", function(hooks) {
   setupRenderingTest(hooks);
+  setupIntl(hooks);
 
   test("it renders", async function(assert) {
     // Set any properties with this.set('myProperty', 'value');
@@ -12,15 +14,6 @@ module("Integration | Component | case-filter/date", function(hooks) {
 
     await render(hbs`<CaseFilter::Date />`);
 
-    assert.equal(this.element.textContent.trim(), "");
-
-    // Template block usage:
-    await render(hbs`
-      <CaseFilter::Date>
-        template block text
-      </CaseFilter::Date>
-    `);
-
-    assert.equal(this.element.textContent.trim(), "template block text");
+    assert.ok(this.element.textContent.trim());
   });
 });
