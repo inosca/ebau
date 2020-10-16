@@ -6836,7 +6836,7 @@
   {
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_KoorBgUsers",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_ResponsibleKoor",
       "template": "dossier-id-von-bundesstelle-frei-geschalten"
     },
     "model": "core.anotification",

@@ -62,8 +62,9 @@ def set_baukontrolle(instance):
 
 def unpack_service_emails(queryset):
     """
-    In some cases (kt_schwyz) the email field is used as a comma-separated list.
+    Extract email addresses for services.
 
+    The email field can be used as a comma-separated list.
     This accessor returns the email addresses as a flat list.
     """
 

@@ -774,26 +774,36 @@ def test_recipient_type_unnotified_service_users(
         assert res == []
 
 
-@pytest.mark.parametrize(
-    "recipient_method",
-    ["_get_recipients_koor_np_users", "_get_recipients_koor_bg_users"],
-)
-@pytest.mark.parametrize("service__email", [None, "", "foo@example.org"])
 def test_recipient_type_koor_users(
-    db, instance, role, recipient_method, mocker, user_group, service
+    db, instance_factory, mocker, user_group, service_factory, form_factory
 ):
 
-    mocker.patch("camac.constants.kt_uri.KOOR_BG_ROLE_ID", role.pk)
-    mocker.patch("camac.constants.kt_uri.KOOR_NP_ROLE_ID", role.pk)
+    koor_bg = service_factory()
+    koor_np = service_factory()
+    instance_bg = instance_factory()
+    instance_np = instance_factory()
+
+    mocker.patch("camac.constants.kt_uri.KOOR_BG_SERVICE_ID", koor_bg.pk)
+    mocker.patch("camac.constants.kt_uri.KOOR_NP_SERVICE_ID", koor_np.pk)
+    mocker.patch(
+        "camac.constants.kt_uri.RESPONSIBLE_KOORS",
+        {koor_bg.pk: [instance_bg.form.pk], koor_np.pk: [instance_np.form.pk]},
+    )
 
     serializer = serializers.NotificationTemplateSendmailSerializer()
-    method = getattr(serializer, recipient_method)
-    res = method(instance)
 
-    if service.email:
-        assert res == [{"to": "foo@example.org"}]
-    else:
-        assert res == []
+    # instance / form doesn't matter
+    bg_recipients = serializer._get_recipients_koor_bg_users(instance_bg)
+    np_recipients = serializer._get_recipients_koor_np_users(instance_bg)
+
+    # instance / form matters
+    responsible_recipients_bg = serializer._get_recipients_responsible_koor(instance_bg)
+    responsible_recipients_np = serializer._get_recipients_responsible_koor(instance_np)
+
+    assert bg_recipients == [{"to": koor_bg.email}]
+    assert np_recipients == [{"to": koor_np.email}]
+    assert responsible_recipients_bg == [{"to": koor_bg.email}]
+    assert responsible_recipients_np == [{"to": koor_np.email}]
 
 
 @pytest.mark.parametrize("group__name", ["Lisag"])
