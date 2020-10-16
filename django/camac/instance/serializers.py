@@ -150,7 +150,7 @@ class FormSerializer(serializers.ModelSerializer):
 
 class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
     editable = serializers.SerializerMethodField()
-    is_applicant = serializers.SerializerMethodField()
+    access_type = serializers.SerializerMethodField()
     user = CurrentUserResourceRelatedField()
     group = GroupResourceRelatedField(default=CurrentGroupDefault())
 
@@ -168,10 +168,22 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         source="get_involved_services", model=Service, read_only=True, many=True
     )
 
-    def get_is_applicant(self, obj):
-        return obj.involved_applicants.filter(
+    @permission_aware
+    def get_access_type(self, obj):
+        access_type = None
+
+        if obj.involved_applicants.filter(
             invitee=self.context["request"].user
-        ).exists()
+        ).exists():
+            access_type = "applicant"
+
+        return access_type
+
+    def get_access_type_for_municipality(self, obj):
+        return "municipality"
+
+    def get_access_type_for_service(self, obj):
+        return "service"
 
     def get_involved_services(self, obj):
         filters = Q(pk__in=obj.circulations.values("activations__service__pk"))
@@ -254,7 +266,7 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
 
     class Meta:
         model = models.Instance
-        meta_fields = ("editable", "is_applicant")
+        meta_fields = ("editable", "access_type")
         fields = (
             "instance_id",
             "instance_state",
