@@ -32,17 +32,19 @@
       </tr>
     {{/each}}
   </tbody>
-  <tfoot>
-    <tr>
-      <td colspan="2" class="uk-text-center">
-        <div uk-toggle="target: #modal-applicants">
-          <UkButton @size="small" @on-click={{perform this.addRow}}>
-            <UkIcon @icon="plus"/>
-          </UkButton>
-        </div>
-      </td>
-    </tr>
-  </tfoot>
+  {{#if (eq @model.meta.access-type "applicant")}}
+    <tfoot>
+      <tr>
+        <td colspan="2" class="uk-text-center">
+          <div uk-toggle="target: #modal-applicants">
+            <UkButton @size="small" @on-click={{perform this.addRow}}>
+              <UkIcon @icon="plus"/>
+            </UkButton>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+  {{/if}}
 </table>
 
 <div id="modal-applicants" uk-modal>
