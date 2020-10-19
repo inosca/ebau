@@ -314,6 +314,25 @@
   },
   {
     "fields": {
+      "created_at": "2020-10-12T11:08:17.405Z",
+      "created_by_group": null,
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "description": "{\"de\": \"\", \"fr\": null}",
+      "is_archived": false,
+      "is_published": true,
+      "meta": {
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "modified_at": "2020-10-12T11:08:17.405Z",
+      "name": "{\"de\": \"Baupolizeiliches Verfahren\", \"fr\": null}",
+      "source": null
+    },
+    "model": "caluma_form.form",
+    "pk": "baupolizeiliches-verfahren"
+  },
+  {
+    "fields": {
       "created_at": "2019-03-11T09:21:12.560Z",
       "created_by_group": null,
       "created_by_user": null,
@@ -3302,7 +3321,7 @@
       "form": "allgemeine-angaben-kurz",
       "modified_at": "2020-10-07T13:33:41.433Z",
       "question": "anfrage-zur-vorabklaerung",
-      "sort": 3
+      "sort": 5
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben-kurz.anfrage-zur-vorabklaerung"
@@ -3315,10 +3334,23 @@
       "form": "allgemeine-angaben-kurz",
       "modified_at": "2020-10-07T13:32:51.696Z",
       "question": "be-gid",
-      "sort": 5
+      "sort": 7
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben-kurz.be-gid"
+  },
+  {
+    "fields": {
+      "created_at": "2020-10-12T11:20:07.291Z",
+      "created_by_group": null,
+      "created_by_user": null,
+      "form": "allgemeine-angaben-kurz",
+      "modified_at": "2020-10-12T11:20:07.291Z",
+      "question": "beschreibung-bauvorhaben",
+      "sort": 3
+    },
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz.beschreibung-bauvorhaben"
   },
   {
     "fields": {
@@ -3328,7 +3360,7 @@
       "form": "allgemeine-angaben-kurz",
       "modified_at": "2020-10-07T13:32:02.145Z",
       "question": "gemeinde",
-      "sort": 7
+      "sort": 9
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben-kurz.gemeinde"
@@ -3341,7 +3373,7 @@
       "form": "allgemeine-angaben-kurz",
       "modified_at": "2020-10-07T13:33:11.043Z",
       "question": "gwr-egid",
-      "sort": 4
+      "sort": 6
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben-kurz.gwr-egid"
@@ -3354,7 +3386,7 @@
       "form": "allgemeine-angaben-kurz",
       "modified_at": "2020-10-07T14:00:09.623Z",
       "question": "is-paper",
-      "sort": 1
+      "sort": 2
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben-kurz.is-paper"
@@ -3367,7 +3399,7 @@
       "form": "allgemeine-angaben-kurz",
       "modified_at": "2020-10-07T13:30:37.321Z",
       "question": "karte",
-      "sort": 11
+      "sort": 13
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben-kurz.karte"
@@ -3380,7 +3412,7 @@
       "form": "allgemeine-angaben-kurz",
       "modified_at": "2020-10-07T13:31:33.072Z",
       "question": "nr",
-      "sort": 9
+      "sort": 11
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben-kurz.nr"
@@ -3393,7 +3425,7 @@
       "form": "allgemeine-angaben-kurz",
       "modified_at": "2020-10-07T13:31:43.460Z",
       "question": "ort-grundstueck",
-      "sort": 8
+      "sort": 10
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben-kurz.ort-grundstueck"
@@ -3406,10 +3438,23 @@
       "form": "allgemeine-angaben-kurz",
       "modified_at": "2020-10-07T13:32:31.598Z",
       "question": "parzelle",
-      "sort": 6
+      "sort": 8
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben-kurz.parzelle"
+  },
+  {
+    "fields": {
+      "created_at": "2020-10-12T11:28:23.846Z",
+      "created_by_group": null,
+      "created_by_user": null,
+      "form": "allgemeine-angaben-kurz",
+      "modified_at": "2020-10-12T11:28:23.846Z",
+      "question": "sachverhalt",
+      "sort": 1
+    },
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz.sachverhalt"
   },
   {
     "fields": {
@@ -3419,7 +3464,7 @@
       "form": "allgemeine-angaben-kurz",
       "modified_at": "2020-10-07T13:52:21.447Z",
       "question": "standort-migriert",
-      "sort": 2
+      "sort": 4
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben-kurz.standort-migriert"
@@ -3432,7 +3477,7 @@
       "form": "allgemeine-angaben-kurz",
       "modified_at": "2020-10-07T13:30:51.055Z",
       "question": "strasse-flurname",
-      "sort": 10
+      "sort": 12
     },
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben-kurz.strasse-flurname"
@@ -4632,6 +4677,58 @@
     },
     "model": "caluma_form.formquestion",
     "pk": "baugesuch.8-freigabequittung"
+  },
+  {
+    "fields": {
+      "created_at": "2020-10-12T11:10:13.700Z",
+      "created_by_group": null,
+      "created_by_user": null,
+      "form": "baupolizeiliches-verfahren",
+      "modified_at": "2020-10-12T11:10:13.700Z",
+      "question": "8-freigabequittung",
+      "sort": 1
+    },
+    "model": "caluma_form.formquestion",
+    "pk": "baupolizeiliches-verfahren.8-freigabequittung"
+  },
+  {
+    "fields": {
+      "created_at": "2020-10-12T11:15:25.797Z",
+      "created_by_group": null,
+      "created_by_user": null,
+      "form": "baupolizeiliches-verfahren",
+      "modified_at": "2020-10-12T11:15:25.797Z",
+      "question": "allgemeine-angaben-kurz-formular",
+      "sort": 3
+    },
+    "model": "caluma_form.formquestion",
+    "pk": "baupolizeiliches-verfahren.allgemeine-angaben-kurz-formular"
+  },
+  {
+    "fields": {
+      "created_at": "2020-10-19T12:21:52.205Z",
+      "created_by_group": null,
+      "created_by_user": null,
+      "form": "baupolizeiliches-verfahren",
+      "modified_at": "2020-10-19T12:21:52.205Z",
+      "question": "dokumente-vorabklaerung-form",
+      "sort": 2
+    },
+    "model": "caluma_form.formquestion",
+    "pk": "baupolizeiliches-verfahren.dokumente-vorabklaerung-form"
+  },
+  {
+    "fields": {
+      "created_at": "2020-10-12T11:09:19.942Z",
+      "created_by_group": null,
+      "created_by_user": null,
+      "form": "baupolizeiliches-verfahren",
+      "modified_at": "2020-10-12T11:09:19.942Z",
+      "question": "personalien-kurz-formular",
+      "sort": 4
+    },
+    "model": "caluma_form.formquestion",
+    "pk": "baupolizeiliches-verfahren.personalien-kurz-formular"
   },
   {
     "fields": {
@@ -25522,7 +25619,8 @@
   {
     "fields": {
       "configuration": {
-        "max_length": null
+        "max_length": null,
+        "min_length": null
       },
       "created_at": "2019-03-28T14:56:01.542Z",
       "created_by_group": null,
@@ -25537,7 +25635,7 @@
       "meta": {
         "widgetOverride": null
       },
-      "modified_at": "2019-04-18T14:14:00.626Z",
+      "modified_at": "2020-10-15T12:21:18.977Z",
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "row_form": null,
       "source": null,
@@ -26171,7 +26269,8 @@
   {
     "fields": {
       "configuration": {
-        "max_length": 1000
+        "max_length": 1000,
+        "min_length": null
       },
       "created_at": "2019-04-12T08:18:11.316Z",
       "created_by_group": "[]",
@@ -26186,7 +26285,7 @@
       "meta": {
         "widgetOverride": null
       },
-      "modified_at": "2020-01-14T14:07:42.039Z",
+      "modified_at": "2020-10-15T11:54:43.386Z",
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "row_form": null,
       "source": null,
@@ -31718,7 +31817,7 @@
       "meta": {
         "widgetOverride": null
       },
-      "modified_at": "2020-01-14T13:46:54.277Z",
+      "modified_at": "2020-10-15T12:21:26.180Z",
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "row_form": null,
       "source": null,
@@ -38847,6 +38946,34 @@
   },
   {
     "fields": {
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "created_at": "2020-10-12T11:28:23.687Z",
+      "created_by_group": null,
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "data_source": null,
+      "format_validators": "[]",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "is_archived": false,
+      "is_hidden": "form != 'baupolizeiliches-verfahren'",
+      "is_required": "false",
+      "label": "{\"de\": \"Sachverhalt\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-10-15T11:54:59.480Z",
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
+      "row_form": null,
+      "source": null,
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "sub_form": null,
+      "type": "textarea"
+    },
+    "model": "caluma_form.question",
+    "pk": "sachverhalt"
+  },
+  {
+    "fields": {
       "configuration": {},
       "created_at": "2019-04-01T13:20:09.529Z",
       "created_by_group": null,
@@ -40143,11 +40270,11 @@
       "format_validators": "[]",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "is_archived": false,
-      "is_hidden": "!('migriertes-dossier' == form)",
+      "is_hidden": "form != 'migriertes-dossier'",
       "is_required": "true",
       "label": "{\"de\": \"Standort\", \"fr\": null}",
       "meta": {},
-      "modified_at": "2020-10-12T08:04:08.109Z",
+      "modified_at": "2020-10-15T12:20:17.392Z",
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "row_form": null,
       "source": null,
