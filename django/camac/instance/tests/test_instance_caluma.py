@@ -7,7 +7,7 @@ from caluma.caluma_workflow import api as workflow_api, models as caluma_workflo
 from django.core import mail
 from django.urls import reverse
 from pytest_factoryboy import LazyFixture
-from rest_framework import exceptions, status
+from rest_framework import status
 
 from camac.constants import kt_bern as constants
 from camac.constants.kt_bern import (
@@ -27,7 +27,6 @@ from camac.instance.serializers import (
     SUBMIT_DATE_QUESTION_ID,
     CalumaInstanceSerializer,
     CalumaInstanceSubmitSerializer,
-    get_caluma_form_from_camac,
 )
 from camac.utils import flatten
 
@@ -125,7 +124,7 @@ def test_create_instance_caluma(
     if create_with_camac_form:
         application_settings["FORM_MAPPING"] = {"main-form": [form.pk]}
         body = {
-            "attributes": {},
+            "attributes": {"caluma-form": "main-form"},
             "relationships": {"form": {"data": {"type": "forms", "id": form.pk}}},
         }
     else:
@@ -895,13 +894,6 @@ def test_instance_submit_suggestions(
         list(ProposalActivation.objects.values_list("service_id", flat=True))
         == expected_services
     )
-
-
-def test_get_caluma_form_from_camac():
-    assert get_caluma_form_from_camac(1) == "building-permit"
-
-    with pytest.raises(exceptions.ValidationError):
-        get_caluma_form_from_camac(123)
 
 
 @pytest.mark.parametrize("service_group__name", ["municipality"])
