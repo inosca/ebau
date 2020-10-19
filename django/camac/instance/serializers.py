@@ -17,8 +17,7 @@ from rest_framework_json_api import relations, serializers
 
 from camac.caluma.api import CalumaApi
 from camac.caluma.extensions.data_sources import Municipalities
-from camac.constants import kt_bern as be_constants
-from camac.constants import kt_uri as ur_constants
+from camac.constants import kt_bern as be_constants, kt_uri as ur_constants
 from camac.core.models import (
     Answer,
     HistoryActionConfig,

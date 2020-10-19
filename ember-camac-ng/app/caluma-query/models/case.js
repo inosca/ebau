@@ -54,7 +54,9 @@ export default class CustomCaseModel extends CaseModel {
         .stringValue;
       const firstName = getAnswer(tableAnswers, "first-name")?.node.stringValue;
       const lastName = getAnswer(tableAnswers, "last-name")?.node.stringValue;
-      return [juristicName, `${firstName ?? ""} ${lastName ?? ""}`].join(", ");
+      return [juristicName, `${firstName ?? ""} ${lastName ?? ""}`]
+        .filter(Boolean)
+        .join(", ");
     }
     return null;
   }
