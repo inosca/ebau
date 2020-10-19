@@ -7,7 +7,7 @@ from caluma.caluma_workflow import api as workflow_api, models as caluma_workflo
 from django.core import mail
 from django.urls import reverse
 from pytest_factoryboy import LazyFixture
-from rest_framework import exceptions, status
+from rest_framework import status
 
 from camac.constants import kt_bern as constants
 from camac.constants.kt_bern import (
@@ -124,7 +124,7 @@ def test_create_instance_caluma(
     if create_with_camac_form:
         application_settings["FORM_MAPPING"] = {"main-form": [form.pk]}
         body = {
-            "attributes": {},
+            "attributes": {"caluma-form": "main-form"},
             "relationships": {"form": {"data": {"type": "forms", "id": form.pk}}},
         }
     else:
