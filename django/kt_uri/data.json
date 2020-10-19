@@ -9067,6 +9067,42 @@
   },
   {
     "fields": {
+      "default_group": 0,
+      "group": 1033,
+      "user": 1
+    },
+    "model": "user.usergroup",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "default_group": 0,
+      "group": 1028,
+      "user": 1
+    },
+    "model": "user.usergroup",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "default_group": 0,
+      "group": 502,
+      "user": 1
+    },
+    "model": "user.usergroup",
+    "pk": 10
+  },
+  {
+    "fields": {
+      "default_group": 0,
+      "group": 283,
+      "user": 1
+    },
+    "model": "user.usergroup",
+    "pk": 11
+  },
+  {
+    "fields": {
       "action": "i",
       "data": "{\"USER_ID\":1210,\"GROUP_ID\":\"1070\",\"DEFAULT_GROUP\":0}",
       "field1": "USER_ID",
@@ -9106,5 +9142,61 @@
     },
     "model": "user.usergrouplog",
     "pk": 3
+  },
+  {
+    "fields": {
+      "action": "i",
+      "data": "{\"USER_ID\":1,\"GROUP_ID\":\"1033\",\"DEFAULT_GROUP\":0}",
+      "field1": "USER_ID",
+      "field2": "GROUP_ID",
+      "id1": 1,
+      "id2": 1033,
+      "modification_date": "2020-10-19T08:22:57Z",
+      "user_id": 1
+    },
+    "model": "user.usergrouplog",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "action": "i",
+      "data": "{\"USER_ID\":1,\"GROUP_ID\":\"1028\",\"DEFAULT_GROUP\":0}",
+      "field1": "USER_ID",
+      "field2": "GROUP_ID",
+      "id1": 1,
+      "id2": 1028,
+      "modification_date": "2020-10-19T08:22:57Z",
+      "user_id": 1
+    },
+    "model": "user.usergrouplog",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "action": "i",
+      "data": "{\"USER_ID\":1,\"GROUP_ID\":\"502\",\"DEFAULT_GROUP\":0}",
+      "field1": "USER_ID",
+      "field2": "GROUP_ID",
+      "id1": 1,
+      "id2": 502,
+      "modification_date": "2020-10-19T08:22:57Z",
+      "user_id": 1
+    },
+    "model": "user.usergrouplog",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "action": "i",
+      "data": "{\"USER_ID\":1,\"GROUP_ID\":\"283\",\"DEFAULT_GROUP\":0}",
+      "field1": "USER_ID",
+      "field2": "GROUP_ID",
+      "id1": 1,
+      "id2": 283,
+      "modification_date": "2020-10-19T08:22:57Z",
+      "user_id": 1
+    },
+    "model": "user.usergrouplog",
+    "pk": 7
   }
 ]
