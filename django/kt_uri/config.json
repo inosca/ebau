@@ -85,34 +85,6 @@
   },
   {
     "fields": {
-      "available_action": "php",
-      "button": 2,
-      "description": "",
-      "error_message": "",
-      "execute_always": 0,
-      "name": "Dossier Nummer erstellen",
-      "sort": 2,
-      "success_message": ""
-    },
-    "model": "core.action",
-    "pk": 7
-  },
-  {
-    "fields": {
-      "available_action": "save",
-      "button": 3,
-      "description": "",
-      "error_message": "Speichern fehlgeschlagen!",
-      "execute_always": 0,
-      "name": "Speichern",
-      "sort": 0,
-      "success_message": "Speichern erfolgreich."
-    },
-    "model": "core.action",
-    "pk": 8
-  },
-  {
-    "fields": {
       "available_action": "formtransition",
       "button": 4,
       "description": "",
@@ -155,20 +127,6 @@
   },
   {
     "fields": {
-      "available_action": "php",
-      "button": 64,
-      "description": "",
-      "error_message": "",
-      "execute_always": 0,
-      "name": "Dossier nummer setzen",
-      "sort": 2,
-      "success_message": ""
-    },
-    "model": "core.action",
-    "pk": 69
-  },
-  {
-    "fields": {
       "available_action": "save",
       "button": 65,
       "description": "",
@@ -208,20 +166,6 @@
     },
     "model": "core.action",
     "pk": 187
-  },
-  {
-    "fields": {
-      "available_action": "save",
-      "button": 4,
-      "description": "",
-      "error_message": "Das Dossier konnte nicht frei gegeben werden, da beim Speicher ein Fehler aufgetreten ist!",
-      "execute_always": 0,
-      "name": "Speichern",
-      "sort": 0,
-      "success_message": "Dossier gespeichert."
-    },
-    "model": "core.action",
-    "pk": 190
   },
   {
     "fields": {
@@ -5055,6 +4999,20 @@
   },
   {
     "fields": {
+      "available_action": "php",
+      "button": 64,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "CreateInstanceNG",
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 20000
+  },
+  {
+    "fields": {
       "current_instance_state": 21,
       "next_instance_state": 22
     },
@@ -9569,20 +9527,6 @@
   },
   {
     "fields": {
-      "php_class": "DossierNR"
-    },
-    "model": "core.aphp",
-    "pk": 7
-  },
-  {
-    "fields": {
-      "php_class": "DossierNR"
-    },
-    "model": "core.aphp",
-    "pk": 69
-  },
-  {
-    "fields": {
       "php_class": "ChangeDossierType"
     },
     "model": "core.aphp",
@@ -9993,6 +9937,13 @@
     },
     "model": "core.aphp",
     "pk": 1457
+  },
+  {
+    "fields": {
+      "php_class": "CreateInstanceNG"
+    },
+    "model": "core.aphp",
+    "pk": 20000
   },
   {
     "fields": {
@@ -12590,24 +12541,6 @@
     },
     "model": "core.broleacl",
     "pk": 1
-  },
-  {
-    "fields": {
-      "button": 3,
-      "instance_state": 21,
-      "role": 6
-    },
-    "model": "core.broleacl",
-    "pk": 2
-  },
-  {
-    "fields": {
-      "button": 3,
-      "instance_state": 25,
-      "role": 6
-    },
-    "model": "core.broleacl",
-    "pk": 3
   },
   {
     "fields": {
@@ -17462,15 +17395,6 @@
   },
   {
     "fields": {
-      "button": 3,
-      "instance_state": 34,
-      "role": 6
-    },
-    "model": "core.broleacl",
-    "pk": 614
-  },
-  {
-    "fields": {
       "button": 5,
       "instance_state": 34,
       "role": 3
@@ -18500,22 +18424,10 @@
   },
   {
     "fields": {
-      "class_field": "",
-      "description": "",
-      "hidden": 0,
-      "instance_resource": 2,
-      "name": "Speichern",
-      "sort": 0
-    },
-    "model": "core.button",
-    "pk": 3
-  },
-  {
-    "fields": {
       "class_field": "release_koor",
       "description": null,
       "hidden": 0,
-      "instance_resource": 2,
+      "instance_resource": 771,
       "name": "Freigeben f\u00fcr Koordinationsstelle",
       "sort": 1
     },
@@ -18587,7 +18499,7 @@
       "class_field": "",
       "description": "",
       "hidden": 0,
-      "instance_resource": 2,
+      "instance_resource": 771,
       "name": "L\u00f6schen",
       "sort": 2
     },
@@ -18623,7 +18535,7 @@
       "class_field": "",
       "description": "Gemeinde COMM und DONE",
       "hidden": 0,
-      "instance_resource": 2,
+      "instance_resource": 771,
       "name": "Archivieren",
       "sort": 3
     },
@@ -19007,7 +18919,7 @@
       "class_field": "",
       "description": "",
       "hidden": 0,
-      "instance_resource": 2,
+      "instance_resource": 771,
       "name": "Wiederer\u00f6ffnen",
       "sort": 4
     },
@@ -20171,7 +20083,7 @@
       "class_field": "oereb",
       "description": null,
       "hidden": 1,
-      "instance_resource": 2,
+      "instance_resource": 771,
       "name": "\u00d6REB Meldung",
       "sort": 5
     },
@@ -24841,7 +24753,7 @@
   },
   {
     "fields": {
-      "available_instance_resource": "editformpage",
+      "available_instance_resource": "page",
       "class_field": null,
       "description": "Personen- und Projektdaten bearbeiten von der Gemeinde",
       "form_group": 81,
@@ -24849,7 +24761,7 @@
       "name": "Personen- und Projektdaten bearbeiten",
       "resource": 267,
       "sort": 0,
-      "template": "/form/form-edit.phtml"
+      "template": "ember/instance.phtml"
     },
     "model": "core.instanceresource",
     "pk": 4
@@ -24916,7 +24828,7 @@
   },
   {
     "fields": {
-      "available_instance_resource": "editformpage",
+      "available_instance_resource": "page",
       "class_field": "",
       "description": "Personen- und Projektdaten bearbeiten von der Koordinationsstelle",
       "form_group": 32,
@@ -24924,7 +24836,7 @@
       "name": "Personen- und Projektdaten bearbeiten",
       "resource": 267,
       "sort": 1,
-      "template": "/form/form-edit.phtml"
+      "template": "ember/instance.phtml"
     },
     "model": "core.instanceresource",
     "pk": 107
@@ -29870,22 +29782,6 @@
       "pdf_class": null
     },
     "model": "core.ireditformpage",
-    "pk": 4
-  },
-  {
-    "fields": {
-      "page": 1,
-      "pdf_class": null
-    },
-    "model": "core.ireditformpage",
-    "pk": 107
-  },
-  {
-    "fields": {
-      "page": 1,
-      "pdf_class": null
-    },
-    "model": "core.ireditformpage",
     "pk": 245
   },
   {
@@ -30355,6 +30251,20 @@
     },
     "model": "core.irnewform",
     "pk": 759
+  },
+  {
+    "fields": {
+      "pdf_class": null
+    },
+    "model": "core.irpage",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "pdf_class": null
+    },
+    "model": "core.irpage",
+    "pk": 107
   },
   {
     "fields": {
