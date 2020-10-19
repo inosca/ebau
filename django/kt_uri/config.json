@@ -24727,7 +24727,7 @@
       "class_field": null,
       "description": "Personen- und Projektdaten bearbeiten die von der Gemeinde erstellt werden, die an die Koordinationsstelle weiter geschickt werden.",
       "form_group": 31,
-      "hidden": 0,
+      "hidden": 1,
       "name": "Personen- und Projektdaten bearbeiten",
       "resource": 301,
       "sort": 1,
@@ -24742,7 +24742,7 @@
       "class_field": "",
       "description": "Zum alle Personen- und Projektdaten, ohne jedoch die, die comm sind.\nDie die Comm sind, k\u00f6nnen ja eh bearbeitet werden.",
       "form_group": 30,
-      "hidden": 0,
+      "hidden": 1,
       "name": "Personen- und Projektdaten",
       "resource": 301,
       "sort": 4,
@@ -24865,7 +24865,7 @@
       "hidden": 0,
       "name": "Workflow",
       "resource": 267,
-      "sort": 10,
+      "sort": 9,
       "template": ""
     },
     "model": "core.instanceresource",
@@ -24922,7 +24922,7 @@
       "class_field": null,
       "description": "Personen- und Projektdaten bearbeiten die von der Gemeinde erstellt werden und bei der Gemeinde bleiben",
       "form_group": 61,
-      "hidden": 0,
+      "hidden": 1,
       "name": "Personen- und Projektdaten bearbeiten",
       "resource": 301,
       "sort": 3,
@@ -24985,7 +24985,7 @@
       "hidden": 0,
       "name": "Dossier abschliessen",
       "resource": 267,
-      "sort": 8,
+      "sort": 7,
       "template": ""
     },
     "model": "core.instanceresource",
@@ -25120,7 +25120,7 @@
       "hidden": 1,
       "name": "Stellungnahme bearbeiten",
       "resource": 267,
-      "sort": 9,
+      "sort": 8,
       "template": "/koord/edit-notice.phtml"
     },
     "model": "core.instanceresource",
@@ -25267,7 +25267,7 @@
       "class_field": null,
       "description": "Dossiers NP die von der Gemeinde erstellt werden und an die Koordinationsstelle weiter geschickt werden.",
       "form_group": 141,
-      "hidden": 0,
+      "hidden": 1,
       "name": "Personen- und Projektdaten bearbeiten",
       "resource": 301,
       "sort": 2,
@@ -25282,7 +25282,7 @@
       "class_field": "",
       "description": "Zum alle Dossier NP anschauen, ohne jedoch die, die comm sind.\nDie die Comm sind, k\u00f6nnen ja bearbeitet werden.",
       "form_group": 141,
-      "hidden": 0,
+      "hidden": 1,
       "name": "Personen- und Projektdaten",
       "resource": 301,
       "sort": 5,
@@ -25735,7 +25735,7 @@
       "hidden": 0,
       "name": "Erfasste Auflagen bewirtschaften",
       "resource": 267,
-      "sort": 11,
+      "sort": 10,
       "template": null
     },
     "model": "core.instanceresource",
@@ -26440,7 +26440,7 @@
       "hidden": 0,
       "name": "BaB Datenerfassung",
       "resource": 267,
-      "sort": 12,
+      "sort": 11,
       "template": ""
     },
     "model": "core.instanceresource",
@@ -26707,7 +26707,7 @@
       "class_field": null,
       "description": "Personen- und Projektdaten f\u00fcr Gemeinde Interne Dossiers",
       "form_group": 161,
-      "hidden": 0,
+      "hidden": 1,
       "name": "Personen- und Projektdaten",
       "resource": 301,
       "sort": 6,
@@ -26800,7 +26800,7 @@
       "hidden": 0,
       "name": "Journal",
       "resource": 267,
-      "sort": 5,
+      "sort": 4,
       "template": null
     },
     "model": "core.instanceresource",
@@ -26835,6 +26835,21 @@
     },
     "model": "core.instanceresource",
     "pk": 20001
+  },
+  {
+    "fields": {
+      "available_instance_resource": "history",
+      "class_field": null,
+      "description": null,
+      "form_group": 161,
+      "hidden": 0,
+      "name": "History",
+      "resource": 267,
+      "sort": 12,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 20003
   },
   {
     "fields": {
@@ -40327,15 +40342,6 @@
   {
     "fields": {
       "instance_resource": 772,
-      "instance_state": 1,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 20013
-  },
-  {
-    "fields": {
-      "instance_resource": 772,
       "instance_state": 21,
       "role": 3
     },
@@ -40413,15 +40419,6 @@
     },
     "model": "core.irroleacl",
     "pk": 20022
-  },
-  {
-    "fields": {
-      "instance_resource": 772,
-      "instance_state": 28,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 20023
   },
   {
     "fields": {
@@ -40593,6 +40590,123 @@
     },
     "model": "core.irroleacl",
     "pk": 20042
+  },
+  {
+    "fields": {
+      "instance_resource": 20003,
+      "instance_state": 21,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 20056
+  },
+  {
+    "fields": {
+      "instance_resource": 20003,
+      "instance_state": 22,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 20057
+  },
+  {
+    "fields": {
+      "instance_resource": 20003,
+      "instance_state": 32,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 20058
+  },
+  {
+    "fields": {
+      "instance_resource": 20003,
+      "instance_state": 23,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 20059
+  },
+  {
+    "fields": {
+      "instance_resource": 20003,
+      "instance_state": 24,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 20060
+  },
+  {
+    "fields": {
+      "instance_resource": 20003,
+      "instance_state": 25,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 20061
+  },
+  {
+    "fields": {
+      "instance_resource": 20003,
+      "instance_state": 34,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 20062
+  },
+  {
+    "fields": {
+      "instance_resource": 20003,
+      "instance_state": 26,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 20063
+  },
+  {
+    "fields": {
+      "instance_resource": 20003,
+      "instance_state": 27,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 20064
+  },
+  {
+    "fields": {
+      "instance_resource": 20003,
+      "instance_state": 29,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 20065
+  },
+  {
+    "fields": {
+      "instance_resource": 20003,
+      "instance_state": 30,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 20066
+  },
+  {
+    "fields": {
+      "instance_resource": 20003,
+      "instance_state": 31,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 20067
+  },
+  {
+    "fields": {
+      "instance_resource": 20003,
+      "instance_state": 33,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 20068
   },
   {
     "fields": {
