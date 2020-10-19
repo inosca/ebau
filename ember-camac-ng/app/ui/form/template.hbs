@@ -1,6 +1,4 @@
-<h3 {{did-insert (perform this.getDocument)}}>
-  {{t "global.form"}} {{this.model.id}}
-</h3>
+<span {{did-insert (perform this.getDocument)}}></span>
 
 {{#if this.document}}
   <CfContent @documentId={{this.document.id}} @context={{hash instanceId=this.model.id}} />

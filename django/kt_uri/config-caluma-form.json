@@ -182,11 +182,11 @@
       "created_by_user": null,
       "form": "building-permit",
       "modified_at": "2020-09-01T14:52:15.436Z",
-      "question": "building-permit-type",
+      "question": "form-type",
       "sort": 12
     },
     "model": "caluma_form.formquestion",
-    "pk": "building-permit.building-permit-type"
+    "pk": "building-permit.form-type"
   },
   {
     "fields": {
@@ -2909,104 +2909,6 @@
   },
   {
     "fields": {
-      "created_at": "2020-09-01T14:52:15.138Z",
-      "created_by_group": null,
-      "created_by_user": "admin",
-      "is_archived": false,
-      "label": "{\"de\": \"Baubewilligungsverfahren mit kantonaler Beteiligung\", \"fr\": null}",
-      "meta": {},
-      "modified_at": "2020-09-01T14:52:15.138Z",
-      "source": null
-    },
-    "model": "caluma_form.option",
-    "pk": "building-permit-type-building-permit-canton"
-  },
-  {
-    "fields": {
-      "created_at": "2020-09-01T14:52:15.165Z",
-      "created_by_group": null,
-      "created_by_user": "admin",
-      "is_archived": false,
-      "label": "{\"de\": \"Baubewilligungsverfahren ohne kantonale Beteiligung\", \"fr\": null}",
-      "meta": {},
-      "modified_at": "2020-09-01T14:52:15.165Z",
-      "source": null
-    },
-    "model": "caluma_form.option",
-    "pk": "building-permit-type-building-permit-municipality"
-  },
-  {
-    "fields": {
-      "created_at": "2020-09-01T14:52:15.256Z",
-      "created_by_group": null,
-      "created_by_user": "admin",
-      "is_archived": false,
-      "label": "{\"de\": \"Reklame-Gesuch\", \"fr\": null}",
-      "meta": {},
-      "modified_at": "2020-09-01T14:52:15.256Z",
-      "source": null
-    },
-    "model": "caluma_form.option",
-    "pk": "building-permit-type-commercial-permit"
-  },
-  {
-    "fields": {
-      "created_at": "2020-09-01T14:52:15.211Z",
-      "created_by_group": null,
-      "created_by_user": "admin",
-      "is_archived": false,
-      "label": "{\"de\": \"Baugesuch-Vorabkl\\u00e4rung mit kantonaler Beteiligung\", \"fr\": null}",
-      "meta": {},
-      "modified_at": "2020-09-01T14:52:15.211Z",
-      "source": null
-    },
-    "model": "caluma_form.option",
-    "pk": "building-permit-type-preliminary-clarification-canton"
-  },
-  {
-    "fields": {
-      "created_at": "2020-09-01T14:52:15.244Z",
-      "created_by_group": null,
-      "created_by_user": "admin",
-      "is_archived": false,
-      "label": "{\"de\": \"Baugesuch-Vorabkl\\u00e4rung ohne kantonale Beteiligung\", \"fr\": null}",
-      "meta": {},
-      "modified_at": "2020-09-01T14:52:15.244Z",
-      "source": null
-    },
-    "model": "caluma_form.option",
-    "pk": "building-permit-type-preliminary-clarification-municipality"
-  },
-  {
-    "fields": {
-      "created_at": "2020-09-01T14:52:15.178Z",
-      "created_by_group": null,
-      "created_by_user": "admin",
-      "is_archived": false,
-      "label": "{\"de\": \"Meldung Vorhaben\", \"fr\": null}",
-      "meta": {},
-      "modified_at": "2020-09-01T14:52:15.178Z",
-      "source": null
-    },
-    "model": "caluma_form.option",
-    "pk": "building-permit-type-project-announcement"
-  },
-  {
-    "fields": {
-      "created_at": "2020-09-01T14:52:15.222Z",
-      "created_by_group": null,
-      "created_by_user": "admin",
-      "is_archived": false,
-      "label": "{\"de\": \"Meldung Solaranlage\", \"fr\": null}",
-      "meta": {},
-      "modified_at": "2020-09-01T14:52:15.222Z",
-      "source": null
-    },
-    "model": "caluma_form.option",
-    "pk": "building-permit-type-solar-announcement"
-  },
-  {
-    "fields": {
       "created_at": "2020-09-04T07:45:14.460Z",
       "created_by_group": null,
       "created_by_user": "admin",
@@ -3410,6 +3312,104 @@
     },
     "model": "caluma_form.option",
     "pk": "fenster-metall"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-01T14:52:15.138Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "is_archived": false,
+      "label": "{\"de\": \"Baubewilligungsverfahren mit kantonaler Beteiligung\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-01T14:52:15.138Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "form-type-building-permit-canton"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-01T14:52:15.165Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "is_archived": false,
+      "label": "{\"de\": \"Baubewilligungsverfahren ohne kantonale Beteiligung\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-01T14:52:15.165Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "form-type-building-permit-municipality"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-01T14:52:15.256Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "is_archived": false,
+      "label": "{\"de\": \"Reklame-Gesuch\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-01T14:52:15.256Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "form-type-commercial-permit"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-01T14:52:15.211Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "is_archived": false,
+      "label": "{\"de\": \"Baugesuch-Vorabkl\\u00e4rung mit kantonaler Beteiligung\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-01T14:52:15.211Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "form-type-preliminary-clarification-canton"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-01T14:52:15.244Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "is_archived": false,
+      "label": "{\"de\": \"Baugesuch-Vorabkl\\u00e4rung ohne kantonale Beteiligung\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-01T14:52:15.244Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "form-type-preliminary-clarification-municipality"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-01T14:52:15.178Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "is_archived": false,
+      "label": "{\"de\": \"Meldung Vorhaben\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-01T14:52:15.178Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "form-type-project-announcement"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-01T14:52:15.222Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "is_archived": false,
+      "label": "{\"de\": \"Meldung Solaranlage\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-01T14:52:15.222Z",
+      "source": null
+    },
+    "model": "caluma_form.option",
+    "pk": "form-type-solar-announcement"
   },
   {
     "fields": {
@@ -5454,31 +5454,6 @@
   {
     "fields": {
       "configuration": {},
-      "created_at": "2020-09-01T14:52:15.343Z",
-      "created_by_group": null,
-      "created_by_user": "admin",
-      "data_source": null,
-      "format_validators": "[]",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "is_archived": false,
-      "is_hidden": "false",
-      "is_required": "false",
-      "label": "{\"de\": \"Gesuchstyp\", \"fr\": null}",
-      "meta": {},
-      "modified_at": "2020-09-01T14:52:15.343Z",
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "row_form": null,
-      "source": null,
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "sub_form": null,
-      "type": "choice"
-    },
-    "model": "caluma_form.question",
-    "pk": "building-permit-type"
-  },
-  {
-    "fields": {
-      "configuration": {},
       "created_at": "2020-09-04T07:45:14.592Z",
       "created_by_group": null,
       "created_by_user": "admin",
@@ -5960,6 +5935,31 @@
     },
     "model": "caluma_form.question",
     "pk": "first-name"
+  },
+  {
+    "fields": {
+      "configuration": {},
+      "created_at": "2020-09-01T14:52:15.343Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "data_source": null,
+      "format_validators": "[]",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "is_archived": false,
+      "is_hidden": "false",
+      "is_required": "false",
+      "label": "{\"de\": \"Gesuchstyp\", \"fr\": null}",
+      "meta": {},
+      "modified_at": "2020-09-01T14:52:15.343Z",
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "row_form": null,
+      "source": null,
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "sub_form": null,
+      "type": "choice"
+    },
+    "model": "caluma_form.question",
+    "pk": "form-type"
   },
   {
     "fields": {
@@ -9174,97 +9174,6 @@
   },
   {
     "fields": {
-      "created_at": "2020-09-01T14:52:15.362Z",
-      "created_by_group": null,
-      "created_by_user": "admin",
-      "modified_at": "2020-09-01T14:52:15.362Z",
-      "option": "building-permit-type-building-permit-canton",
-      "question": "building-permit-type",
-      "sort": 7
-    },
-    "model": "caluma_form.questionoption",
-    "pk": "building-permit-type.building-permit-type-building-permit-canton"
-  },
-  {
-    "fields": {
-      "created_at": "2020-09-01T14:52:15.360Z",
-      "created_by_group": null,
-      "created_by_user": "admin",
-      "modified_at": "2020-09-01T14:52:15.360Z",
-      "option": "building-permit-type-building-permit-municipality",
-      "question": "building-permit-type",
-      "sort": 6
-    },
-    "model": "caluma_form.questionoption",
-    "pk": "building-permit-type.building-permit-type-building-permit-municipality"
-  },
-  {
-    "fields": {
-      "created_at": "2020-09-01T14:52:15.348Z",
-      "created_by_group": null,
-      "created_by_user": "admin",
-      "modified_at": "2020-09-01T14:52:15.348Z",
-      "option": "building-permit-type-commercial-permit",
-      "question": "building-permit-type",
-      "sort": 1
-    },
-    "model": "caluma_form.questionoption",
-    "pk": "building-permit-type.building-permit-type-commercial-permit"
-  },
-  {
-    "fields": {
-      "created_at": "2020-09-01T14:52:15.358Z",
-      "created_by_group": null,
-      "created_by_user": "admin",
-      "modified_at": "2020-09-01T14:52:15.358Z",
-      "option": "building-permit-type-preliminary-clarification-canton",
-      "question": "building-permit-type",
-      "sort": 5
-    },
-    "model": "caluma_form.questionoption",
-    "pk": "building-permit-type.building-permit-type-preliminary-clarification-canton"
-  },
-  {
-    "fields": {
-      "created_at": "2020-09-01T14:52:15.355Z",
-      "created_by_group": null,
-      "created_by_user": "admin",
-      "modified_at": "2020-09-01T14:52:15.355Z",
-      "option": "building-permit-type-preliminary-clarification-municipality",
-      "question": "building-permit-type",
-      "sort": 4
-    },
-    "model": "caluma_form.questionoption",
-    "pk": "building-permit-type.building-permit-type-preliminary-clarification-municipality"
-  },
-  {
-    "fields": {
-      "created_at": "2020-09-01T14:52:15.353Z",
-      "created_by_group": null,
-      "created_by_user": "admin",
-      "modified_at": "2020-09-01T14:52:15.353Z",
-      "option": "building-permit-type-project-announcement",
-      "question": "building-permit-type",
-      "sort": 3
-    },
-    "model": "caluma_form.questionoption",
-    "pk": "building-permit-type.building-permit-type-project-announcement"
-  },
-  {
-    "fields": {
-      "created_at": "2020-09-01T14:52:15.351Z",
-      "created_by_group": null,
-      "created_by_user": "admin",
-      "modified_at": "2020-09-01T14:52:15.351Z",
-      "option": "building-permit-type-solar-announcement",
-      "question": "building-permit-type",
-      "sort": 2
-    },
-    "model": "caluma_form.questionoption",
-    "pk": "building-permit-type.building-permit-type-solar-announcement"
-  },
-  {
-    "fields": {
       "created_at": "2020-09-18T15:07:01.748Z",
       "created_by_group": null,
       "created_by_user": "admin",
@@ -9639,6 +9548,97 @@
     },
     "model": "caluma_form.questionoption",
     "pk": "fenster.fenster-metall"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-01T14:52:15.362Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "modified_at": "2020-09-01T14:52:15.362Z",
+      "option": "form-type-building-permit-canton",
+      "question": "form-type",
+      "sort": 7
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "form-type.form-type-building-permit-canton"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-01T14:52:15.360Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "modified_at": "2020-09-01T14:52:15.360Z",
+      "option": "form-type-building-permit-municipality",
+      "question": "form-type",
+      "sort": 6
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "form-type.form-type-building-permit-municipality"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-01T14:52:15.348Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "modified_at": "2020-09-01T14:52:15.348Z",
+      "option": "form-type-commercial-permit",
+      "question": "form-type",
+      "sort": 1
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "form-type.form-type-commercial-permit"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-01T14:52:15.358Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "modified_at": "2020-09-01T14:52:15.358Z",
+      "option": "form-type-preliminary-clarification-canton",
+      "question": "form-type",
+      "sort": 5
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "form-type.form-type-preliminary-clarification-canton"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-01T14:52:15.355Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "modified_at": "2020-09-01T14:52:15.355Z",
+      "option": "form-type-preliminary-clarification-municipality",
+      "question": "form-type",
+      "sort": 4
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "form-type.form-type-preliminary-clarification-municipality"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-01T14:52:15.353Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "modified_at": "2020-09-01T14:52:15.353Z",
+      "option": "form-type-project-announcement",
+      "question": "form-type",
+      "sort": 3
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "form-type.form-type-project-announcement"
+  },
+  {
+    "fields": {
+      "created_at": "2020-09-01T14:52:15.351Z",
+      "created_by_group": null,
+      "created_by_user": "admin",
+      "modified_at": "2020-09-01T14:52:15.351Z",
+      "option": "form-type-solar-announcement",
+      "question": "form-type",
+      "sort": 2
+    },
+    "model": "caluma_form.questionoption",
+    "pk": "form-type.form-type-solar-announcement"
   },
   {
     "fields": {

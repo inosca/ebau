@@ -72,7 +72,7 @@ export default class CaseTableComponent extends Component {
 
     await this.store.query("instance", {
       instance_id: instanceIds.join(","),
-      include: "instance_state,user"
+      include: "instance_state,user,form"
     });
     return cases;
   }
@@ -98,7 +98,6 @@ export default class CaseTableComponent extends Component {
           "instanceId",
           "dossierNr",
           "coordination",
-          "coordinationShort",
           "form",
           "municipality",
           "user",
@@ -112,7 +111,6 @@ export default class CaseTableComponent extends Component {
           "instanceId",
           "dossierNr",
           "coordination",
-          "coordinationShort",
           "form",
           "municipality",
           "applicant",
