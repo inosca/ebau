@@ -1,3 +1,4 @@
+# TODO: delete this command as soon as open MRs are rebased
 from django.apps import apps
 from django.conf import settings
 from django.contrib.auth import get_user_model

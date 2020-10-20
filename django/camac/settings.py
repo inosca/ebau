@@ -268,6 +268,16 @@ APPLICATIONS = {
             "surname",
         ],
         "SHORT_DOSSIER_NUMBER": True,
+        "DUMP_CONFIG_EXCLUDED_MODELS": [
+            "document.Template",
+            "user.Group",
+            "user.GroupT",
+            "user.GroupLocation",
+            "user.Service",
+            "user.ServiceT",
+            "notification.NotificationTemplate",
+            "notification.NotificationTemplateT",
+        ],
     },
     "kt_bern": {
         "ROLE_PERMISSIONS": {
@@ -767,6 +777,45 @@ APPLICATIONS = {
             ("wildtierschutz", "wildtierschutz-ja", [20064]),
         ],
         "NOTIFICATIONS_EXCLUDED_TASKS": [],
+        "DUMP_CONFIG_GROUPS": {
+            # TODO: uncomment this if relevant
+            # AUDIT_FORMS = [
+            #     "dossierpruefung",
+            #     "fp-form",
+            #     "bab-form",
+            #     "mp-form",
+            #     "mp-abschluss",
+            #     "mp-ausnahmen",
+            #     "mp-bauabstaende",
+            #     "mp-eigene-pruefgegenstaende",
+            #     "mp-erschliessung",
+            #     "mp-form",
+            #     "mp-gesundheit",
+            #     "mp-nutzungsvorschriften",
+            #     "mp-ortsbild-und-landschaftsschutz",
+            #     "mp-schutzinventare",
+            #     "mp-sicherheit",
+            #     "mp-umweltschutz",
+            #     "mp-weitere-gegenstaende",
+            #     "mp-weitere-vorschriften",
+            # ]
+            # "caluma_audit_form": {
+            #     "caluma_form.Option": Q(questions__forms__pk__in=AUDIT_FORMS),
+            #     "caluma_form.Question": Q(forms__pk__in=AUDIT_FORMS),
+            #     "caluma_form.Form": Q(pk__in=AUDIT_FORMS),
+            #     "caluma_form.QuestionOption": Q(question__forms__pk__in=AUDIT_FORMS),
+            #     "caluma_form.FormQuestion": Q(form__pk__in=AUDIT_FORMS),
+            # },
+        },
+        "DUMP_CONFIG_EXCLUDED_MODELS": [
+            "user.Group",
+            "user.GroupT",
+            "user.GroupLocation",
+            "user.Service",
+            "user.ServiceT",
+            "notification.NotificationTemplate",
+            "notification.NotificationTemplateT",
+        ],
     },
     "kt_uri": {
         "FORM_BACKEND": "caluma",
@@ -848,6 +897,15 @@ APPLICATIONS = {
         ],
         "PORTAL_GROUP": 685,
         "INSTANCE_IDENTIFIER_FORM_ABBR": {},
+        "DUMP_CONFIG_EXCLUDED_MODELS": [
+            "user.Group",
+            "user.GroupT",
+            "user.GroupLocation",
+            "user.Service",
+            "user.ServiceT",
+            "notification.NotificationTemplate",
+            "notification.NotificationTemplateT",
+        ],
     },
 }
 

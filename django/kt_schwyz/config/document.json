@@ -1,0 +1,609 @@
+[
+  {
+    "model": "document.attachmentsection",
+    "pk": 1,
+    "fields": {
+      "name": "Dokumente des Gesuchstellers",
+      "description": null,
+      "sort": 1,
+      "notification_template": null,
+      "recipient_types": "[]",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 2,
+    "fields": {
+      "name": "Dokumente Fachstellen (interne Ablage)",
+      "description": null,
+      "sort": 4,
+      "notification_template": null,
+      "recipient_types": null,
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 4,
+    "fields": {
+      "name": "Auflagedokumente",
+      "description": null,
+      "sort": 5,
+      "notification_template": null,
+      "recipient_types": "[]",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 5,
+    "fields": {
+      "name": "Einsprachen",
+      "description": null,
+      "sort": 6,
+      "notification_template": null,
+      "recipient_types": "[]",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 6,
+    "fields": {
+      "name": "Bauentscheid und Merkbl\u00e4tter",
+      "description": null,
+      "sort": 7,
+      "notification_template": null,
+      "recipient_types": "[]",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 7,
+    "fields": {
+      "name": "Dokumente Gemeinde (interne Ablage)",
+      "description": null,
+      "sort": 3,
+      "notification_template": null,
+      "recipient_types": "[]",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 8,
+    "fields": {
+      "name": "Schriftenverkehr",
+      "description": null,
+      "sort": 2,
+      "notification_template": null,
+      "recipient_types": "[]",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 9,
+    "fields": {
+      "name": "Dokumente f\u00fcr Gesuchsteller",
+      "description": null,
+      "sort": 10,
+      "notification_template": null,
+      "recipient_types": "[]",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 10,
+    "fields": {
+      "name": "Rechtsmittel",
+      "description": null,
+      "sort": 8,
+      "notification_template": null,
+      "recipient_types": "[]",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 11,
+    "fields": {
+      "name": "Baukontrolle und Bauabnahme",
+      "description": null,
+      "sort": 9,
+      "notification_template": null,
+      "recipient_types": "[]",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 1,
+    "fields": {
+      "attachment_section": 1,
+      "role": 3,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 3,
+    "fields": {
+      "attachment_section": 1,
+      "role": 4,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 4,
+    "fields": {
+      "attachment_section": 1,
+      "role": 5,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 5,
+    "fields": {
+      "attachment_section": 2,
+      "role": 5,
+      "mode": "adminint"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 6,
+    "fields": {
+      "attachment_section": 1,
+      "role": 6,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 7,
+    "fields": {
+      "attachment_section": 2,
+      "role": 6,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 8,
+    "fields": {
+      "attachment_section": 4,
+      "role": 3,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 9,
+    "fields": {
+      "attachment_section": 5,
+      "role": 3,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 10,
+    "fields": {
+      "attachment_section": 5,
+      "role": 5,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 11,
+    "fields": {
+      "attachment_section": 5,
+      "role": 4,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 12,
+    "fields": {
+      "attachment_section": 4,
+      "role": 5,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 13,
+    "fields": {
+      "attachment_section": 4,
+      "role": 9,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 14,
+    "fields": {
+      "attachment_section": 6,
+      "role": 3,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 15,
+    "fields": {
+      "attachment_section": 6,
+      "role": 8,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 16,
+    "fields": {
+      "attachment_section": 7,
+      "role": 3,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 17,
+    "fields": {
+      "attachment_section": 7,
+      "role": 8,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 19,
+    "fields": {
+      "attachment_section": 1,
+      "role": 8,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 21,
+    "fields": {
+      "attachment_section": 1,
+      "role": 7,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 22,
+    "fields": {
+      "attachment_section": 2,
+      "role": 7,
+      "mode": "adminint"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 23,
+    "fields": {
+      "attachment_section": 4,
+      "role": 8,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 24,
+    "fields": {
+      "attachment_section": 5,
+      "role": 8,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 25,
+    "fields": {
+      "attachment_section": 4,
+      "role": 7,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 26,
+    "fields": {
+      "attachment_section": 5,
+      "role": 7,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 27,
+    "fields": {
+      "attachment_section": 8,
+      "role": 5,
+      "mode": "adminsvc"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 28,
+    "fields": {
+      "attachment_section": 8,
+      "role": 7,
+      "mode": "adminsvc"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 29,
+    "fields": {
+      "attachment_section": 8,
+      "role": 3,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 30,
+    "fields": {
+      "attachment_section": 8,
+      "role": 8,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 31,
+    "fields": {
+      "attachment_section": 8,
+      "role": 6,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 32,
+    "fields": {
+      "attachment_section": 1,
+      "role": 10,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 33,
+    "fields": {
+      "attachment_section": 8,
+      "role": 10,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 34,
+    "fields": {
+      "attachment_section": 4,
+      "role": 10,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 35,
+    "fields": {
+      "attachment_section": 5,
+      "role": 10,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 36,
+    "fields": {
+      "attachment_section": 9,
+      "role": 4,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 37,
+    "fields": {
+      "attachment_section": 9,
+      "role": 3,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 38,
+    "fields": {
+      "attachment_section": 9,
+      "role": 8,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 39,
+    "fields": {
+      "attachment_section": 6,
+      "role": 5,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 40,
+    "fields": {
+      "attachment_section": 6,
+      "role": 7,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 41,
+    "fields": {
+      "attachment_section": 6,
+      "role": 6,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 42,
+    "fields": {
+      "attachment_section": 6,
+      "role": 10,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 43,
+    "fields": {
+      "attachment_section": 9,
+      "role": 6,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 44,
+    "fields": {
+      "attachment_section": 9,
+      "role": 5,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 45,
+    "fields": {
+      "attachment_section": 9,
+      "role": 7,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 46,
+    "fields": {
+      "attachment_section": 4,
+      "role": 4,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 1,
+    "fields": {
+      "attachment_section": 1,
+      "language": "de",
+      "name": "Dokumente des Gesuchstellers",
+      "description": null
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 2,
+    "fields": {
+      "attachment_section": 2,
+      "language": "de",
+      "name": "Dokumente Fachstellen",
+      "description": null
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 3,
+    "fields": {
+      "attachment_section": 4,
+      "language": "de",
+      "name": "Auflagedokumente",
+      "description": null
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 4,
+    "fields": {
+      "attachment_section": 5,
+      "language": "de",
+      "name": "Einsprachen",
+      "description": null
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 5,
+    "fields": {
+      "attachment_section": 6,
+      "language": "de",
+      "name": "Bauentscheid und Merkbl\u00e4tter",
+      "description": null
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 6,
+    "fields": {
+      "attachment_section": 7,
+      "language": "de",
+      "name": "Dokumente Gemeinde (intern)",
+      "description": null
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 7,
+    "fields": {
+      "attachment_section": 8,
+      "language": "de",
+      "name": "Schriftenverkehr",
+      "description": null
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 8,
+    "fields": {
+      "attachment_section": 9,
+      "language": "de",
+      "name": "Dokumente f\u00fcr Gesuchsteller",
+      "description": null
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 9,
+    "fields": {
+      "attachment_section": 10,
+      "language": "de",
+      "name": "Rechtsmittel",
+      "description": null
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 10,
+    "fields": {
+      "attachment_section": 11,
+      "language": "de",
+      "name": "Baukontrolle und Bauabnahme",
+      "description": null
+    }
+  }
+]
