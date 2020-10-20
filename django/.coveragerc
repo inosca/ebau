@@ -38,5 +38,7 @@ omit=
     camac/core/views.py
     camac/core/tests/test_publication_permissions.py
     camac/core/serializers.py
+    # One off commands
+    camac/instance/management/commands/fix_sb_instances.py
 
 show_missing = True
