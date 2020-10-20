@@ -4331,6 +4331,7 @@ class ActionWorkitem(models.Model):
     )
     process_all = models.BooleanField(db_column="PROCESS_ALL", default=False)
     is_activation = models.BooleanField(db_column="IS_ACTIVATION", default=False)
+    fail_on_empty = models.BooleanField(db_column="FAIL_ON_EMPTY", default=False)
 
     class Meta:
         managed = True
