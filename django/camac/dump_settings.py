@@ -1,19 +1,7 @@
-# TODO: delete this command as soon as open MRs are rebased
-import io
-import json
-
-from django.conf import settings
-from django.core.management import call_command
-from django.core.management.base import BaseCommand
-
-# TODO: once deployed on production this list
-# needs to be reduced to tables which are not
-# managed by customer
-
 # Configuration models that do not have any foreign key relationships
 # to non-config models (direct or indirect).
 # These models can be safely deleted and re-imported anytime.
-pure_config_models = [
+DUMP_CONFIG_MODELS = [
     "core.ACheckquery",
     "core.ACirculationEmail",
     "core.ACirculationEmailT",
@@ -143,7 +131,6 @@ pure_config_models = [
     "core.RSimpleList",
     "core.RCalumaList",
     "core.ServiceAnswerActivation",
-    # file
     "file.AFilecheckcontent",
     "file.AFilesavepdf",
     "file.AFilesavepdfContentpage",
@@ -180,7 +167,6 @@ pure_config_models = [
     "responsible.IrEditresponsiblegroup",
     "responsible.ASetresponsiblegroup",
     "responsible.ResponsibleServiceAllocation",
-    # action configurations
     "core.HistoryActionConfig",
     "core.HistoryActionConfigT",
     "core.ActionWorkitem",
@@ -190,7 +176,7 @@ pure_config_models = [
 # List of models that have foreign keys referencing non-config tables
 # (directly or indirectly). All models which are not in this list can
 # be safely flushed and re-imported.
-models_referencing_data = [
+DUMP_CONFIG_MODELS_REFERENCING_DATA = [
     "core.AnswerQuery",
     "core.BGroupAcl",
     "core.BuildingAuthoritySection",
@@ -234,135 +220,59 @@ models_referencing_data = [
     "user.ServiceGroupT",
     "notification.NotificationTemplate",
     "notification.NotificationTemplateT",
-]
-
-pure_config_models_caluma_form = []
-models_referencing_data_caluma_form = [
     "caluma_form.Option",
     "caluma_form.Question",
     "caluma_form.Form",
     "caluma_form.QuestionOption",
     "caluma_form.FormQuestion",
-]
-
-pure_config_models_caluma_workflow = []
-models_referencing_data_caluma_workflow = [
     "caluma_workflow.Workflow",
     "caluma_workflow.Task",
     "caluma_workflow.TaskFlow",
     "caluma_workflow.Flow",
 ]
 
-# exclude models which are managed by the customer alone from sync
-models_managed_by_customer = {
-    "kt_schwyz": [
-        "document.Template",
-        "user.Group",
-        "user.GroupT",
-        "user.GroupLocation",
-        "user.Service",
-        "user.ServiceT",
-        "notification.NotificationTemplate",
-        "notification.NotificationTemplateT",
-    ],
-    "kt_bern": [
-        "user.Group",
-        "user.GroupT",
-        "user.GroupLocation",
-        "user.Service",
-        "user.ServiceT",
-        "notification.NotificationTemplate",
-        "notification.NotificationTemplateT",
-    ],
-    "kt_uri": [
-        "user.Group",
-        "user.GroupT",
-        "user.GroupLocation",
-        "user.Service",
-        "user.ServiceT",
-        "notification.NotificationTemplate",
-        "notification.NotificationTemplateT",
-    ],
-    "demo": [],
+# Exclude models which are managed by the customer alone from sync - instead it
+# will be dumped as data. This will most likely be configured in the
+# application config in settings.py
+DUMP_CONFIG_EXCLUDED_MODELS = [
+    # Example:
+    # "user.Group",
+    # "user.GroupT",
+]
+
+# Define custom config groups that will be dumped in an extracted fixture file.
+# This will most likely be configured in the application config in settings.py
+DUMP_CONFIG_GROUPS = {
+    # Example:
+    # "custom_form": {
+    #     "caluma_form.Option": Q(questions__forms__pk="custom_form"),
+    #     "caluma_form.Question": Q(forms__pk="custom_form"),
+    #     "caluma_form.Form": Q(pk="custom_form"),
+    #     "caluma_form.QuestionOption": Q(question__forms__pk="custom_form"),
+    #     "caluma_form.FormQuestion": Q(form__pk__in="custom_form"),
+    # },
 }
 
-# Models that represent views. Those should never be loaded/dumped
-view_models = ["notification.ProjectSubmitterData"]
+DUMP_DATA_APPS = [
+    "circulation",
+    "core",
+    "document",
+    "instance",
+    "notification",
+    "user",
+    "applicants",
+    "caluma_form",
+    "caluma_workflow",
+]
 
-
-class Command(BaseCommand):
-    help = (
-        "Output the camac configuration of the database as a fixture of the "
-        " given format."
-    )
-
-    def add_arguments(self, parser):
-        parser.add_argument(
-            "--output",
-            type=str,
-            default=settings.APPLICATION_DIR("config.json"),
-            help="Output file for camac config",
-        )
-        parser.add_argument(
-            "--output-caluma-form",
-            dest="output_caluma_form",
-            type=str,
-            default=settings.APPLICATION_DIR("config-caluma-form.json"),
-            help="Output file for caluma form config",
-        )
-        parser.add_argument(
-            "--output-caluma-workflow",
-            dest="output_caluma_workflow",
-            type=str,
-            default=settings.APPLICATION_DIR("config-caluma-workflow.json"),
-            help="Output file for caluma workflow config",
-        )
-
-        parser.add_argument(
-            "--caluma",
-            dest="caluma",
-            action="store_true",
-            default=True,
-            help="Dump caluma config as well",
-        )
-        parser.add_argument(
-            "--no-caluma",
-            dest="caluma",
-            action="store_false",
-            help="Don't dump caluma config",
-        )
-
-        parser.set_defaults(caluma=settings.APPLICATION_NAME != "demo")
-
-    def dump_config(self, export_models, output):
-        tmp_output = io.StringIO()
-        call_command("dumpdata", *export_models, indent=2, stdout=tmp_output)
-        tmp_output.seek(0)
-        data = json.load(tmp_output)
-        data = sorted(data, key=lambda k: (k["model"], k["pk"]))
-
-        with open(output, "w") as f:
-            json.dump(data, f, indent=2, sort_keys=True)
-            f.flush()
-
-    def handle(self, *app_labels, **options):
-        self.dump_config(
-            [
-                m
-                for m in pure_config_models + models_referencing_data
-                if m not in models_managed_by_customer[settings.APPLICATION_NAME]
-                and m not in view_models
-            ],
-            options["output"],
-        )
-
-        if options["caluma"]:
-            self.dump_config(
-                pure_config_models_caluma_form + models_referencing_data_caluma_form,
-                options["output_caluma_form"],
-            )
-            self.dump_config(
-                pure_config_models_caluma_workflow
-                + models_referencing_data_caluma_workflow,
-                options["output_caluma_workflow"],
-            )
+DUMP_DATA_EXCLUDED_MODELS = [
+    "caluma_form.HistoricalOption",
+    "caluma_form.HistoricalQuestion",
+    "caluma_form.HistoricalForm",
+    "caluma_form.HistoricalQuestionOption",
+    "caluma_form.HistoricalFormQuestion",
+    "caluma_workflow.HistoricalWorkflow",
+    "caluma_workflow.HistoricalTask",
+    "caluma_workflow.HistoricalTaskFlow",
+    "caluma_workflow.HistoricalFlow",
+]

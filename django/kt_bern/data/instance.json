@@ -1,0 +1,32 @@
+[
+  {
+    "model": "instance.instance",
+    "pk": 1,
+    "fields": {
+      "instance_state": 1,
+      "form": 1,
+      "user": 8,
+      "group": 6,
+      "creation_date": "2020-03-06T11:10:26.099Z",
+      "modification_date": "2020-03-06T11:10:26.099Z",
+      "previous_instance_state": 1,
+      "identifier": null,
+      "location": null
+    }
+  },
+  {
+    "model": "instance.instance",
+    "pk": 2,
+    "fields": {
+      "instance_state": 20000,
+      "form": 1,
+      "user": 8,
+      "group": 6,
+      "creation_date": "2020-03-06T11:13:35.906Z",
+      "modification_date": "2020-03-06T11:13:35.906Z",
+      "previous_instance_state": 1,
+      "identifier": null,
+      "location": null
+    }
+  }
+]

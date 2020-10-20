@@ -1,0 +1,48 @@
+[
+  {
+    "model": "document.attachment",
+    "pk": 1,
+    "fields": {
+      "uuid": "2e73f6cb-55fe-4050-9494-c9ea44821263",
+      "name": "dummy.pdf",
+      "instance": 1,
+      "path": "attachments/files/1/dummy.pdf",
+      "size": 13264,
+      "date": "2020-03-06T11:13:12.972Z",
+      "user": 8,
+      "mime_type": "application/pdf",
+      "is_parcel_picture": 0,
+      "digital_signature": 0,
+      "is_confidential": 0,
+      "identifier": null,
+      "group": 6,
+      "question": null,
+      "service": null,
+      "context": {},
+      "attachment_sections": [1]
+    }
+  },
+  {
+    "model": "document.attachment",
+    "pk": 2,
+    "fields": {
+      "uuid": "ebdfb634-2f10-44d9-8876-ab5a68a4ef1d",
+      "name": "2-einfache-vorabklarung.pdf",
+      "instance": 2,
+      "path": "attachments/files/2/2-einfache-vorabklarung.pdf",
+      "size": 78431,
+      "date": "2020-03-06T11:14:33.329Z",
+      "user": 8,
+      "mime_type": "application/pdf",
+      "is_parcel_picture": 0,
+      "digital_signature": 0,
+      "is_confidential": 0,
+      "identifier": null,
+      "group": 6,
+      "question": null,
+      "service": null,
+      "context": {},
+      "attachment_sections": [1]
+    }
+  }
+]

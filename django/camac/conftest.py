@@ -220,8 +220,8 @@ def caluma_config_bern(db):
 
     Execution of this fixture takes some time. Only use if really necessary.
     """
-    call_command("loaddata", settings.ROOT_DIR("kt_bern/config-caluma-form.json"))
-    call_command("loaddata", settings.ROOT_DIR("kt_bern/config-caluma-workflow.json"))
+    call_command("loaddata", settings.ROOT_DIR("kt_bern/config/caluma_form.json"))
+    call_command("loaddata", settings.ROOT_DIR("kt_bern/config/caluma_workflow.json"))
 
 
 @pytest.fixture
@@ -348,7 +348,7 @@ def caluma_workflow_config_be(
         caluma_form_models.Form.objects.create(slug="baupolizeiliches-verfahren"),
     ]
 
-    call_command("loaddata", settings.ROOT_DIR("kt_bern/config-caluma-workflow.json"))
+    call_command("loaddata", settings.ROOT_DIR("kt_bern/config/caluma_workflow.json"))
 
     workflows = caluma_workflow_models.Workflow.objects.all()
     main_form = caluma_form_models.Form.objects.get(pk="main-form")
@@ -373,7 +373,7 @@ def caluma_workflow_config_be(
 def caluma_workflow_config_sz(settings, caluma_forms, caluma_config_sz):
     caluma_form_models.Form.objects.create(slug="baugesuch"),
 
-    call_command("loaddata", settings.ROOT_DIR("kt_schwyz/config-caluma-workflow.json"))
+    call_command("loaddata", settings.ROOT_DIR("kt_schwyz/config/caluma_workflow.json"))
 
     workflows = caluma_workflow_models.Workflow.objects.all()
 

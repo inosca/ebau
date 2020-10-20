@@ -1,0 +1,656 @@
+[
+  {
+    "model": "user.location",
+    "pk": 1,
+    "fields": {
+      "communal_cantonal_number": 1,
+      "communal_federal_number": "1201",
+      "district_number": null,
+      "section_number": null,
+      "name": "Altdorf",
+      "commune_name": "Altdorf (UR)",
+      "district_name": "",
+      "section_name": "",
+      "zip": "6460"
+    }
+  },
+  {
+    "model": "user.location",
+    "pk": 2,
+    "fields": {
+      "communal_cantonal_number": 2,
+      "communal_federal_number": "1202",
+      "district_number": null,
+      "section_number": null,
+      "name": "Andermatt",
+      "commune_name": "Andermatt",
+      "district_name": "",
+      "section_name": "",
+      "zip": "6490"
+    }
+  },
+  {
+    "model": "user.location",
+    "pk": 3,
+    "fields": {
+      "communal_cantonal_number": 3,
+      "communal_federal_number": "1203",
+      "district_number": null,
+      "section_number": null,
+      "name": "Attinghausen",
+      "commune_name": "Attinghausen",
+      "district_name": "",
+      "section_name": "",
+      "zip": "6468"
+    }
+  },
+  {
+    "model": "user.location",
+    "pk": 4,
+    "fields": {
+      "communal_cantonal_number": 4,
+      "communal_federal_number": "1204",
+      "district_number": null,
+      "section_number": null,
+      "name": "Bauen",
+      "commune_name": "Bauen",
+      "district_name": "",
+      "section_name": "",
+      "zip": "6466"
+    }
+  },
+  {
+    "model": "user.location",
+    "pk": 5,
+    "fields": {
+      "communal_cantonal_number": 5,
+      "communal_federal_number": "1205",
+      "district_number": null,
+      "section_number": null,
+      "name": "B\u00fcrglen",
+      "commune_name": "B\u00fcrglen",
+      "district_name": "",
+      "section_name": "",
+      "zip": "6463"
+    }
+  },
+  {
+    "model": "user.location",
+    "pk": 6,
+    "fields": {
+      "communal_cantonal_number": 6,
+      "communal_federal_number": "1206",
+      "district_number": null,
+      "section_number": null,
+      "name": "Erstfeld",
+      "commune_name": "Erstfeld",
+      "district_name": "",
+      "section_name": "",
+      "zip": "6472"
+    }
+  },
+  {
+    "model": "user.location",
+    "pk": 7,
+    "fields": {
+      "communal_cantonal_number": 7,
+      "communal_federal_number": "1207",
+      "district_number": null,
+      "section_number": null,
+      "name": "Fl\u00fcelen",
+      "commune_name": "Fl\u00fcelen",
+      "district_name": "",
+      "section_name": "",
+      "zip": "6454"
+    }
+  },
+  {
+    "model": "user.location",
+    "pk": 8,
+    "fields": {
+      "communal_cantonal_number": 8,
+      "communal_federal_number": "1208",
+      "district_number": null,
+      "section_number": null,
+      "name": "G\u00f6schenen",
+      "commune_name": "G\u00f6schenen",
+      "district_name": "",
+      "section_name": "",
+      "zip": "6487"
+    }
+  },
+  {
+    "model": "user.location",
+    "pk": 9,
+    "fields": {
+      "communal_cantonal_number": 9,
+      "communal_federal_number": "1209",
+      "district_number": null,
+      "section_number": null,
+      "name": "Gurtnellen",
+      "commune_name": "Gurtnellen",
+      "district_name": "",
+      "section_name": "",
+      "zip": "6482"
+    }
+  },
+  {
+    "model": "user.location",
+    "pk": 10,
+    "fields": {
+      "communal_cantonal_number": 10,
+      "communal_federal_number": "1210",
+      "district_number": null,
+      "section_number": null,
+      "name": "Hospental",
+      "commune_name": "Hospental",
+      "district_name": "",
+      "section_name": "",
+      "zip": "6493"
+    }
+  },
+  {
+    "model": "user.location",
+    "pk": 11,
+    "fields": {
+      "communal_cantonal_number": 11,
+      "communal_federal_number": "1211",
+      "district_number": null,
+      "section_number": null,
+      "name": "Isenthal",
+      "commune_name": "Isenthal",
+      "district_name": "",
+      "section_name": "",
+      "zip": "6461"
+    }
+  },
+  {
+    "model": "user.location",
+    "pk": 12,
+    "fields": {
+      "communal_cantonal_number": 12,
+      "communal_federal_number": "1212",
+      "district_number": null,
+      "section_number": null,
+      "name": "Realp",
+      "commune_name": "Realp",
+      "district_name": "",
+      "section_name": "",
+      "zip": "6491"
+    }
+  },
+  {
+    "model": "user.location",
+    "pk": 13,
+    "fields": {
+      "communal_cantonal_number": 13,
+      "communal_federal_number": "1213",
+      "district_number": null,
+      "section_number": null,
+      "name": "Schattdorf",
+      "commune_name": "Schattdorf",
+      "district_name": "",
+      "section_name": "",
+      "zip": "6467"
+    }
+  },
+  {
+    "model": "user.location",
+    "pk": 14,
+    "fields": {
+      "communal_cantonal_number": 14,
+      "communal_federal_number": "1214",
+      "district_number": null,
+      "section_number": null,
+      "name": "Seedorf",
+      "commune_name": "Seedorf (UR)",
+      "district_name": "",
+      "section_name": "",
+      "zip": "6462"
+    }
+  },
+  {
+    "model": "user.location",
+    "pk": 15,
+    "fields": {
+      "communal_cantonal_number": 15,
+      "communal_federal_number": "1215",
+      "district_number": null,
+      "section_number": null,
+      "name": "Seelisberg",
+      "commune_name": "Seelisberg",
+      "district_name": "",
+      "section_name": "",
+      "zip": "6377"
+    }
+  },
+  {
+    "model": "user.location",
+    "pk": 16,
+    "fields": {
+      "communal_cantonal_number": 16,
+      "communal_federal_number": "1216",
+      "district_number": null,
+      "section_number": null,
+      "name": "Silenen",
+      "commune_name": "Silenen",
+      "district_name": "",
+      "section_name": "",
+      "zip": "6473"
+    }
+  },
+  {
+    "model": "user.location",
+    "pk": 17,
+    "fields": {
+      "communal_cantonal_number": 17,
+      "communal_federal_number": "1217",
+      "district_number": null,
+      "section_number": null,
+      "name": "Sisikon",
+      "commune_name": "Sisikon",
+      "district_name": "",
+      "section_name": "",
+      "zip": "6452"
+    }
+  },
+  {
+    "model": "user.location",
+    "pk": 18,
+    "fields": {
+      "communal_cantonal_number": 18,
+      "communal_federal_number": "1218",
+      "district_number": null,
+      "section_number": null,
+      "name": "Spiringen",
+      "commune_name": "Spiringen",
+      "district_name": "",
+      "section_name": "",
+      "zip": "6464"
+    }
+  },
+  {
+    "model": "user.location",
+    "pk": 19,
+    "fields": {
+      "communal_cantonal_number": 19,
+      "communal_federal_number": "1219",
+      "district_number": null,
+      "section_number": null,
+      "name": "Untersch\u00e4chen",
+      "commune_name": "Untersch\u00e4chen",
+      "district_name": "",
+      "section_name": "",
+      "zip": "6465"
+    }
+  },
+  {
+    "model": "user.location",
+    "pk": 20,
+    "fields": {
+      "communal_cantonal_number": 20,
+      "communal_federal_number": "1220",
+      "district_number": null,
+      "section_number": null,
+      "name": "Wassen",
+      "commune_name": "Wassen",
+      "district_name": "",
+      "section_name": "",
+      "zip": "6484"
+    }
+  },
+  {
+    "model": "user.location",
+    "pk": 21,
+    "fields": {
+      "communal_cantonal_number": 21,
+      "communal_federal_number": null,
+      "district_number": null,
+      "section_number": null,
+      "name": "Diverse Gemeinden",
+      "commune_name": "Diverse Gemeinden",
+      "district_name": null,
+      "section_name": null,
+      "zip": null
+    }
+  },
+  {
+    "model": "user.location",
+    "pk": 22,
+    "fields": {
+      "communal_cantonal_number": 22,
+      "communal_federal_number": null,
+      "district_number": null,
+      "section_number": null,
+      "name": "Alle Gemeinden",
+      "commune_name": "Alle Gemeinden",
+      "district_name": null,
+      "section_name": null,
+      "zip": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 1,
+    "fields": {
+      "role_parent": null,
+      "name": "Admin",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 2,
+    "fields": {
+      "role_parent": null,
+      "name": "Guest",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 3,
+    "fields": {
+      "role_parent": null,
+      "name": "Koordinationsstelle Baugesuche BG",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 4,
+    "fields": {
+      "role_parent": null,
+      "name": "Vernehmlassungsstelle mit Koordinationsaufgaben",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 5,
+    "fields": {
+      "role_parent": null,
+      "name": "Architect",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 6,
+    "fields": {
+      "role_parent": null,
+      "name": "Sekretariat der Gemeindebaubeh\u00f6rde",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 7,
+    "fields": {
+      "role_parent": null,
+      "name": "Mitglied der Gemeindebaubeh\u00f6rde",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 1021,
+    "fields": {
+      "role_parent": null,
+      "name": "Vernehmlassungsstelle ohne Koordinationsaufgaben",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 1061,
+    "fields": {
+      "role_parent": null,
+      "name": "Koordinationsstelle Nutzungsplanung NP",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 1081,
+    "fields": {
+      "role_parent": null,
+      "name": "Mitglied einer Kommission oder Fachgruppe",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 1101,
+    "fields": {
+      "role_parent": null,
+      "name": "Koordinationsstelle Baudirektion BD",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 1102,
+    "fields": {
+      "role_parent": null,
+      "name": "Gemeinde als Vernehmlassungsstelle",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 1103,
+    "fields": {
+      "role_parent": null,
+      "name": "Portal User",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 1104,
+    "fields": {
+      "role_parent": null,
+      "name": "Vernehmlassungsstelle Gemeindezirkulation",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 1105,
+    "fields": {
+      "role_parent": null,
+      "name": "Organisation mit Leseberechtigung",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 1106,
+    "fields": {
+      "role_parent": null,
+      "name": "Koordinationsstelle Umweltschutz AfU",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 1107,
+    "fields": {
+      "role_parent": null,
+      "name": "Koordinationsstelle Landwirtschaft ALA",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 1127,
+    "fields": {
+      "role_parent": null,
+      "name": "Koordinationsstelle Energie AfE",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 1128,
+    "fields": {
+      "role_parent": null,
+      "name": "Koordinationsstelle Forst und Jagd AFJ",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 1129,
+    "fields": {
+      "role_parent": null,
+      "name": "Koordinationsstelle Sicherheitsdirektion SD",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 1130,
+    "fields": {
+      "role_parent": null,
+      "name": "Bundesstelle",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 1131,
+    "fields": {
+      "role_parent": null,
+      "name": "Support",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 1,
+    "fields": {
+      "name": "Koordinationsstellen"
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 2,
+    "fields": {
+      "name": "Fachstellen Baudirektion"
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 21,
+    "fields": {
+      "name": "Ausserkantonale Fachstellen"
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 41,
+    "fields": {
+      "name": "Gemeinder\u00e4te - externe Pendenzen"
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 61,
+    "fields": {
+      "name": "Fachstellen Justizdirektion"
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 62,
+    "fields": {
+      "name": "Fachstellen Gesundheits- Sozial- und Umweltdirektion"
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 63,
+    "fields": {
+      "name": "Fachstellen Sicherheitsdirektion"
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 64,
+    "fields": {
+      "name": "Fachstellen Volkswirtschaftsdirektion"
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 65,
+    "fields": {
+      "name": "Fachstellen Bildungs- und Kulturdirektion"
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 66,
+    "fields": {
+      "name": "Fachstellen Finanzdirektion"
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 67,
+    "fields": {
+      "name": "Mitglieder Baukommissionen"
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 68,
+    "fields": {
+      "name": "Sekretariate Gemeindebaubeh\u00f6rden"
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 69,
+    "fields": {
+      "name": "Gemeinde Service Stellen"
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 70,
+    "fields": {
+      "name": "Bundesstellen"
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 71,
+    "fields": {
+      "name": "Infrastrukturanlagen Pendenzen von Koordinationstellen"
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 72,
+    "fields": {
+      "name": "Infrastrukturanlagen Pendenzen von Gemeinden"
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 73,
+    "fields": {
+      "name": "Gemeinder\u00e4te - interne Pendenzen"
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 74,
+    "fields": {
+      "name": "Umweltschutzverb\u00e4nde"
+    }
+  }
+]

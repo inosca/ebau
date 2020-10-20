@@ -1,0 +1,1403 @@
+[
+  {
+    "model": "document.attachmentsection",
+    "pk": 1,
+    "fields": {
+      "name": "",
+      "description": null,
+      "sort": 1,
+      "notification_template": null,
+      "recipient_types": "[]",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 2,
+    "fields": {
+      "name": "",
+      "description": null,
+      "sort": 5,
+      "notification_template": null,
+      "recipient_types": "[]",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 3,
+    "fields": {
+      "name": "",
+      "description": null,
+      "sort": 6,
+      "notification_template": null,
+      "recipient_types": "[]",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 4,
+    "fields": {
+      "name": "",
+      "description": null,
+      "sort": 7,
+      "notification_template": null,
+      "recipient_types": "[]",
+      "allowed_mime_types": "[]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 5,
+    "fields": {
+      "name": "",
+      "description": null,
+      "sort": 11,
+      "notification_template": null,
+      "recipient_types": "[]",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 6,
+    "fields": {
+      "name": "",
+      "description": null,
+      "sort": 9,
+      "notification_template": null,
+      "recipient_types": "[]",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 7,
+    "fields": {
+      "name": "",
+      "description": null,
+      "sort": 3,
+      "notification_template": null,
+      "recipient_types": "[]",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 8,
+    "fields": {
+      "name": "",
+      "description": null,
+      "sort": 8,
+      "notification_template": null,
+      "recipient_types": "[]",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 10,
+    "fields": {
+      "name": "",
+      "description": null,
+      "sort": 10,
+      "notification_template": null,
+      "recipient_types": "[]",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 11,
+    "fields": {
+      "name": "",
+      "description": null,
+      "sort": 12,
+      "notification_template": null,
+      "recipient_types": "[]",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 12,
+    "fields": {
+      "name": "",
+      "description": null,
+      "sort": 4,
+      "notification_template": null,
+      "recipient_types": "[]",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 13,
+    "fields": {
+      "name": "",
+      "description": null,
+      "sort": 2,
+      "notification_template": null,
+      "recipient_types": "[]",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 1,
+    "fields": {
+      "attachment_section": 1,
+      "role": 3,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 2,
+    "fields": {
+      "attachment_section": 1,
+      "role": 6,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 3,
+    "fields": {
+      "attachment_section": 2,
+      "role": 3,
+      "mode": "adminsvc"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 4,
+    "fields": {
+      "attachment_section": 3,
+      "role": 3,
+      "mode": "adminsvc"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 5,
+    "fields": {
+      "attachment_section": 2,
+      "role": 4,
+      "mode": "adminsvc"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 6,
+    "fields": {
+      "attachment_section": 3,
+      "role": 4,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 7,
+    "fields": {
+      "attachment_section": 2,
+      "role": 5,
+      "mode": "adminsvc"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 8,
+    "fields": {
+      "attachment_section": 3,
+      "role": 5,
+      "mode": "adminsvc"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 9,
+    "fields": {
+      "attachment_section": 1,
+      "role": 4,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 10,
+    "fields": {
+      "attachment_section": 1,
+      "role": 5,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 11,
+    "fields": {
+      "attachment_section": 1,
+      "role": 10000,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 12,
+    "fields": {
+      "attachment_section": 2,
+      "role": 10000,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 13,
+    "fields": {
+      "attachment_section": 3,
+      "role": 10000,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 14,
+    "fields": {
+      "attachment_section": 1,
+      "role": 20002,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 15,
+    "fields": {
+      "attachment_section": 2,
+      "role": 20002,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 16,
+    "fields": {
+      "attachment_section": 3,
+      "role": 20002,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 17,
+    "fields": {
+      "attachment_section": 1,
+      "role": 20003,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 18,
+    "fields": {
+      "attachment_section": 2,
+      "role": 20003,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 19,
+    "fields": {
+      "attachment_section": 3,
+      "role": 20003,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 20,
+    "fields": {
+      "attachment_section": 1,
+      "role": 20006,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 21,
+    "fields": {
+      "attachment_section": 2,
+      "role": 20006,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 22,
+    "fields": {
+      "attachment_section": 3,
+      "role": 20006,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 23,
+    "fields": {
+      "attachment_section": 4,
+      "role": 10000,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 24,
+    "fields": {
+      "attachment_section": 2,
+      "role": 20000,
+      "mode": "adminsvc"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 25,
+    "fields": {
+      "attachment_section": 1,
+      "role": 20000,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 26,
+    "fields": {
+      "attachment_section": 3,
+      "role": 20000,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 27,
+    "fields": {
+      "attachment_section": 4,
+      "role": 3,
+      "mode": "adminint"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 28,
+    "fields": {
+      "attachment_section": 4,
+      "role": 4,
+      "mode": "adminint"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 29,
+    "fields": {
+      "attachment_section": 4,
+      "role": 5,
+      "mode": "adminint"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 30,
+    "fields": {
+      "attachment_section": 4,
+      "role": 20004,
+      "mode": "adminint"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 31,
+    "fields": {
+      "attachment_section": 4,
+      "role": 20001,
+      "mode": "adminint"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 32,
+    "fields": {
+      "attachment_section": 4,
+      "role": 20005,
+      "mode": "adminint"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 33,
+    "fields": {
+      "attachment_section": 4,
+      "role": 20006,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 34,
+    "fields": {
+      "attachment_section": 4,
+      "role": 20002,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 35,
+    "fields": {
+      "attachment_section": 4,
+      "role": 20003,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 36,
+    "fields": {
+      "attachment_section": 4,
+      "role": 20000,
+      "mode": "adminint"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 38,
+    "fields": {
+      "attachment_section": 3,
+      "role": 6,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 39,
+    "fields": {
+      "attachment_section": 1,
+      "role": 20001,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 40,
+    "fields": {
+      "attachment_section": 3,
+      "role": 20001,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 41,
+    "fields": {
+      "attachment_section": 2,
+      "role": 20001,
+      "mode": "adminsvc"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 42,
+    "fields": {
+      "attachment_section": 1,
+      "role": 20004,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 43,
+    "fields": {
+      "attachment_section": 2,
+      "role": 20004,
+      "mode": "adminsvc"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 44,
+    "fields": {
+      "attachment_section": 3,
+      "role": 20004,
+      "mode": "adminsvc"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 45,
+    "fields": {
+      "attachment_section": 1,
+      "role": 20005,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 46,
+    "fields": {
+      "attachment_section": 2,
+      "role": 20005,
+      "mode": "adminsvc"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 47,
+    "fields": {
+      "attachment_section": 3,
+      "role": 20005,
+      "mode": "adminsvc"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 48,
+    "fields": {
+      "attachment_section": 5,
+      "role": 6,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 49,
+    "fields": {
+      "attachment_section": 5,
+      "role": 10000,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 50,
+    "fields": {
+      "attachment_section": 5,
+      "role": 20006,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 51,
+    "fields": {
+      "attachment_section": 5,
+      "role": 5,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 52,
+    "fields": {
+      "attachment_section": 5,
+      "role": 20005,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 53,
+    "fields": {
+      "attachment_section": 6,
+      "role": 6,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 54,
+    "fields": {
+      "attachment_section": 6,
+      "role": 10000,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 55,
+    "fields": {
+      "attachment_section": 6,
+      "role": 20006,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 56,
+    "fields": {
+      "attachment_section": 6,
+      "role": 5,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 57,
+    "fields": {
+      "attachment_section": 6,
+      "role": 20005,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 58,
+    "fields": {
+      "attachment_section": 7,
+      "role": 6,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 59,
+    "fields": {
+      "attachment_section": 7,
+      "role": 10000,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 60,
+    "fields": {
+      "attachment_section": 7,
+      "role": 20006,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 61,
+    "fields": {
+      "attachment_section": 7,
+      "role": 20002,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 62,
+    "fields": {
+      "attachment_section": 7,
+      "role": 20003,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 63,
+    "fields": {
+      "attachment_section": 7,
+      "role": 5,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 64,
+    "fields": {
+      "attachment_section": 7,
+      "role": 4,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 65,
+    "fields": {
+      "attachment_section": 7,
+      "role": 3,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 66,
+    "fields": {
+      "attachment_section": 7,
+      "role": 20005,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 67,
+    "fields": {
+      "attachment_section": 7,
+      "role": 20001,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 69,
+    "fields": {
+      "attachment_section": 7,
+      "role": 20004,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 70,
+    "fields": {
+      "attachment_section": 7,
+      "role": 20000,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 71,
+    "fields": {
+      "attachment_section": 8,
+      "role": 20002,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 73,
+    "fields": {
+      "attachment_section": 8,
+      "role": 20006,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 74,
+    "fields": {
+      "attachment_section": 8,
+      "role": 20005,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 75,
+    "fields": {
+      "attachment_section": 8,
+      "role": 20001,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 76,
+    "fields": {
+      "attachment_section": 8,
+      "role": 4,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 77,
+    "fields": {
+      "attachment_section": 8,
+      "role": 5,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 78,
+    "fields": {
+      "attachment_section": 8,
+      "role": 20000,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 79,
+    "fields": {
+      "attachment_section": 8,
+      "role": 20003,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 80,
+    "fields": {
+      "attachment_section": 8,
+      "role": 10000,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 81,
+    "fields": {
+      "attachment_section": 8,
+      "role": 3,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 82,
+    "fields": {
+      "attachment_section": 8,
+      "role": 20004,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 83,
+    "fields": {
+      "attachment_section": 13,
+      "role": 6,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 84,
+    "fields": {
+      "attachment_section": 13,
+      "role": 3,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 85,
+    "fields": {
+      "attachment_section": 13,
+      "role": 20004,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 86,
+    "fields": {
+      "attachment_section": 13,
+      "role": 5,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 87,
+    "fields": {
+      "attachment_section": 13,
+      "role": 4,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 88,
+    "fields": {
+      "attachment_section": 13,
+      "role": 20006,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 89,
+    "fields": {
+      "attachment_section": 13,
+      "role": 20002,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 90,
+    "fields": {
+      "attachment_section": 13,
+      "role": 20003,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 91,
+    "fields": {
+      "attachment_section": 13,
+      "role": 20005,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 92,
+    "fields": {
+      "attachment_section": 13,
+      "role": 20001,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 93,
+    "fields": {
+      "attachment_section": 13,
+      "role": 10000,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 94,
+    "fields": {
+      "attachment_section": 13,
+      "role": 20000,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 95,
+    "fields": {
+      "attachment_section": 10,
+      "role": 6,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 96,
+    "fields": {
+      "attachment_section": 10,
+      "role": 10000,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 97,
+    "fields": {
+      "attachment_section": 10,
+      "role": 20006,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 98,
+    "fields": {
+      "attachment_section": 10,
+      "role": 5,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 99,
+    "fields": {
+      "attachment_section": 10,
+      "role": 20005,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 100,
+    "fields": {
+      "attachment_section": 11,
+      "role": 6,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 101,
+    "fields": {
+      "attachment_section": 11,
+      "role": 10000,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 102,
+    "fields": {
+      "attachment_section": 11,
+      "role": 20006,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 103,
+    "fields": {
+      "attachment_section": 11,
+      "role": 5,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 104,
+    "fields": {
+      "attachment_section": 11,
+      "role": 20005,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 105,
+    "fields": {
+      "attachment_section": 12,
+      "role": 6,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 106,
+    "fields": {
+      "attachment_section": 12,
+      "role": 3,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 107,
+    "fields": {
+      "attachment_section": 12,
+      "role": 20004,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 108,
+    "fields": {
+      "attachment_section": 12,
+      "role": 5,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 109,
+    "fields": {
+      "attachment_section": 12,
+      "role": 4,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 110,
+    "fields": {
+      "attachment_section": 12,
+      "role": 20006,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 111,
+    "fields": {
+      "attachment_section": 12,
+      "role": 20002,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 112,
+    "fields": {
+      "attachment_section": 12,
+      "role": 20003,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 113,
+    "fields": {
+      "attachment_section": 12,
+      "role": 20005,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 114,
+    "fields": {
+      "attachment_section": 12,
+      "role": 20001,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 115,
+    "fields": {
+      "attachment_section": 12,
+      "role": 10000,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 116,
+    "fields": {
+      "attachment_section": 12,
+      "role": 20000,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 1,
+    "fields": {
+      "attachment_section": 1,
+      "language": "de",
+      "name": "Beilagen zum Gesuch",
+      "description": "Diese Dokumente wurden vom Gesuchstellenden hochgeladen und sind f\u00fcr alle am Verfahren beteiligten Beh\u00f6rden einsehbar."
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 2,
+    "fields": {
+      "attachment_section": 2,
+      "language": "de",
+      "name": "Beteiligte Beh\u00f6rden",
+      "description": "Hier werden die von den beteiligten Beh\u00f6rden erfassten Dokumente (z.B. Verf\u00fcgungen, Amts- und Fachberichte, Stellungnahmen) hochgeladen. Diese Dokumente sind nur f\u00fcr die am Verfahren beteiligten Beh\u00f6rden sichtbar, nicht aber f\u00fcr die Gesuchstellenden."
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 3,
+    "fields": {
+      "attachment_section": 3,
+      "language": "de",
+      "name": "Alle Beteiligten",
+      "description": "Hier werden von der Leitbeh\u00f6rde Dokumente hochgeladen, welche f\u00fcr alle am Verfahren beteiligten Rollen einsehbar sein sollen (z.B. Verfahrensprogramm, Bauentscheid). Gesuchstellenden werden diese Dokumente im eBau-Portal unter \"R\u00fcckmeldungen\" angezeigt."
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 4,
+    "fields": {
+      "attachment_section": 4,
+      "language": "de",
+      "name": "Intern",
+      "description": "Hier werden Dokumente hochgeladen, welche nur innerhalb der eigenen Organisation sichtbar sein sollen. In diesem Ordner bestehen keine Einschr\u00e4nkungen hinsichtlich der erlaubten Dateiformate."
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 5,
+    "fields": {
+      "attachment_section": 5,
+      "language": "de",
+      "name": "Beilagen SB2",
+      "description": "Diese Dokumente wurden vom Gesuchstellenden im Rahmen der Selbstdeklaration (SB2) hochgeladen."
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 6,
+    "fields": {
+      "attachment_section": 6,
+      "language": "de",
+      "name": "Beilagen SB1",
+      "description": "Diese Dokumente wurden vom Gesuchstellenden im Rahmen der Selbstdeklaration (SB1) hochgeladen."
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 7,
+    "fields": {
+      "attachment_section": 7,
+      "language": "de",
+      "name": "Nachforderungen",
+      "description": "Diese Dokumente wurden im Rahmen einer Nachforderung vom Gesuchstellenden hochgeladen und sind f\u00fcr alle beteiligten Beh\u00f6rden einsehbar."
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 8,
+    "fields": {
+      "attachment_section": 8,
+      "language": "de",
+      "name": "Entscheiddokumente",
+      "description": null
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 9,
+    "fields": {
+      "attachment_section": 1,
+      "language": "fr",
+      "name": "Pi\u00e8ces jointes \u00e0 la demande",
+      "description": "Ces documents ont \u00e9t\u00e9 t\u00e9l\u00e9charg\u00e9s par la personne requ\u00e9rante et peuvent \u00eatre consult\u00e9s par toutes les autorit\u00e9s impliqu\u00e9es dans la proc\u00e9dure."
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 10,
+    "fields": {
+      "attachment_section": 7,
+      "language": "fr",
+      "name": "Demandes de compl\u00e9ment d\u2019information",
+      "description": "Ces documents ont \u00e9t\u00e9 t\u00e9l\u00e9charg\u00e9s par la personne requ\u00e9rante dans le cadre d'une demande de compl\u00e9ment d\u2019information et peuvent \u00eatre consult\u00e9s par toutes les autorit\u00e9s concern\u00e9es."
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 11,
+    "fields": {
+      "attachment_section": 2,
+      "language": "fr",
+      "name": "Autorit\u00e9s participantes",
+      "description": "C'est l\u00e0 que les documents enregistr\u00e9s par les autorit\u00e9s participantes sont t\u00e9l\u00e9charg\u00e9s (par exemple, les d\u00e9cisions, les rapports officiels et techniques, prises de position). Ces documents ne sont visibles que par les autorit\u00e9s impliqu\u00e9es dans la proc\u00e9dure, mais pas par les personnes requ\u00e9rantes."
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 12,
+    "fields": {
+      "attachment_section": 3,
+      "language": "fr",
+      "name": "Toutes les parties",
+      "description": "C'est l\u00e0 que les documents visibles par toutes les parties impliqu\u00e9es dans la proc\u00e9dure sont t\u00e9l\u00e9charg\u00e9s par l'autorit\u00e9 directrice (par exemple, programme de proc\u00e9dure, permis de construire). Les personnes requ\u00e9rantes peuvent consulter ces documents sur le portail eBau, sous la rubrique \"Remarques\"."
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 13,
+    "fields": {
+      "attachment_section": 4,
+      "language": "fr",
+      "name": "Interne",
+      "description": "Ici sont t\u00e9l\u00e9charg\u00e9s des documents qui ne doivent \u00eatre visibles qu'au sein de la propre organisation. Dans ce dossier, il n'y a aucune restriction concernant les formats de fichiers autoris\u00e9s."
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 14,
+    "fields": {
+      "attachment_section": 8,
+      "language": "fr",
+      "name": "Documents de d\u00e9cision",
+      "description": null
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 15,
+    "fields": {
+      "attachment_section": 6,
+      "language": "fr",
+      "name": "Suppl\u00e9ments DC1",
+      "description": "Ces documents ont \u00e9t\u00e9 t\u00e9l\u00e9charg\u00e9s par la personne requ\u00e9rante dans le cadre de d\u00e9claration spontan\u00e9e en mati\u00e8re de contr\u00f4le des constructions 1 (DC1)."
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 17,
+    "fields": {
+      "attachment_section": 5,
+      "language": "fr",
+      "name": "Suppl\u00e9ments DC2",
+      "description": "Ces documents ont \u00e9t\u00e9 t\u00e9l\u00e9charg\u00e9s par la personne requ\u00e9rante dans le cadre de la d\u00e9claration spontan\u00e9e en mati\u00e8re de contr\u00f4le des constructions 2 (DC2)."
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 18,
+    "fields": {
+      "attachment_section": 13,
+      "language": "de",
+      "name": "Beilagen zum Gesuch (Papier)",
+      "description": "Hier k\u00f6nnen Dokumente hochgeladen werden, welche durch die Gesuchstellenden in Papierform (oder ausserhalb des Systems, z.B. per Mail) eingereicht wurden sind. Die Dokumente sind f\u00fcr alle am Verfahren beteiligten Beh\u00f6rden einsehbar."
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 19,
+    "fields": {
+      "attachment_section": 13,
+      "language": "fr",
+      "name": "Pi\u00e8ces jointes \u00e0 la demande (papier)",
+      "description": "vous pouvez t\u00e9l\u00e9charger ici les documents qui ont \u00e9t\u00e9 soumis par la personne requ\u00e9rante sous forme papier (ou en dehors du syst\u00e8me eBau, par exemple par courrier \u00e9lectronique). Les documents peuvent \u00eatre consult\u00e9s par toutes les autorit\u00e9s impliqu\u00e9es dans la proc\u00e9dure."
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 20,
+    "fields": {
+      "attachment_section": 10,
+      "language": "de",
+      "name": "Beilagen SB1 (Papier)",
+      "description": "Hier k\u00f6nnen Dokumente hochgeladen werden, welche durch die Gesuchstellenden in Papierform (oder ausserhalb des Systems, z.B. per Mail) im Rahmen der Selbstdeklaration (SB1) eingereicht wurden sind. Die Dokumente sind f\u00fcr alle am Verfahren beteiligten Beh\u00f6rden einsehbar."
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 21,
+    "fields": {
+      "attachment_section": 10,
+      "language": "fr",
+      "name": "Suppl\u00e9ments DC1 (papier)",
+      "description": "Il est possible de t\u00e9l\u00e9charger ici des documents qui ont \u00e9t\u00e9 soumis par la personne requ\u00e9rante sur papier (ou en dehors du syst\u00e8me eBau, par exemple par courrier \u00e9lectronique) dans le cadre de la d\u00e9claration spontan\u00e9e en mati\u00e8re de contr\u00f4le des constructions 1 (DC1). Les documents peuvent \u00eatre consult\u00e9s par toutes les autorit\u00e9s impliqu\u00e9es dans la proc\u00e9dure."
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 22,
+    "fields": {
+      "attachment_section": 11,
+      "language": "de",
+      "name": "Beilagen SB2 (Papier)",
+      "description": "Hier k\u00f6nnen Dokumente hochgeladen werden, welche durch die Gesuchstellenden in Papierform (oder ausserhalb des Systems, z.B. per Mail) im Rahmen der Selbstdeklaration (SB2) eingereicht wurden sind. Die Dokumente sind f\u00fcr alle am Verfahren beteiligten Beh\u00f6rden einsehbar."
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 23,
+    "fields": {
+      "attachment_section": 11,
+      "language": "fr",
+      "name": "Suppl\u00e9ments DC2 (papier)",
+      "description": "Il est possible de t\u00e9l\u00e9charger ici des documents qui ont \u00e9t\u00e9 soumis par la personne requ\u00e9rante sur papier (ou en dehors du syst\u00e8me eBau, par exemple par courrier \u00e9lectronique) dans le cadre de la d\u00e9claration spontan\u00e9e en mati\u00e8re de contr\u00f4le des constructions 2 (DC2). Les documents peuvent \u00eatre consult\u00e9s par toutes les autorit\u00e9s impliqu\u00e9es dans la proc\u00e9dure."
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 24,
+    "fields": {
+      "attachment_section": 12,
+      "language": "de",
+      "name": "Nachforderungen (Papier)",
+      "description": "Hier k\u00f6nnen Dokumente hochgeladen werden, welche durch die Gesuchstellenden in Papierform (oder ausserhalb des Systems, z.B. per Mail) im Rahmen einer Nachforderung eingereicht wurden sind. Die Dokumente sind f\u00fcr alle beteiligten am Verfahren Beh\u00f6rden einsehbar."
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 25,
+    "fields": {
+      "attachment_section": 12,
+      "language": "fr",
+      "name": "Demandes de compl\u00e9ment d\u2019information (papier)",
+      "description": "Il est possible de t\u00e9l\u00e9charger ici des documents qui ont \u00e9t\u00e9 soumis par la personne requ\u00e9rante sur papier (ou en dehors du syst\u00e8me eBau, par exemple par courrier \u00e9lectronique) dans le cadre d'une demande de compl\u00e9ment d\u2019information. Les documents peuvent \u00eatre consult\u00e9s par toutes les autorit\u00e9s impliqu\u00e9es dans la proc\u00e9dure."
+    }
+  }
+]
