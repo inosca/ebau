@@ -1,0 +1,480 @@
+[
+  {
+    "model": "instance.form",
+    "pk": 1,
+    "fields": {
+      "form_state": 1,
+      "name": null,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.formstate",
+    "pk": 1,
+    "fields": {
+      "name": "Published"
+    }
+  },
+  {
+    "model": "instance.formstate",
+    "pk": 2,
+    "fields": {
+      "name": "Not published"
+    }
+  },
+  {
+    "model": "instance.formt",
+    "pk": 1,
+    "fields": {
+      "form": 1,
+      "language": "de",
+      "name": "Baugesuch",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 1,
+    "fields": {
+      "name": "new",
+      "sort": 0,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 10000,
+    "fields": {
+      "name": "rejected",
+      "sort": 9,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 20000,
+    "fields": {
+      "name": "subm",
+      "sort": 1,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 20003,
+    "fields": {
+      "name": "circulation_init",
+      "sort": 2,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 20004,
+    "fields": {
+      "name": "circulation",
+      "sort": 3,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 20005,
+    "fields": {
+      "name": "coordination",
+      "sort": 4,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 20007,
+    "fields": {
+      "name": "correction",
+      "sort": 10,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 20008,
+    "fields": {
+      "name": "corrected",
+      "sort": 11,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 20009,
+    "fields": {
+      "name": "archived",
+      "sort": 12,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 20010,
+    "fields": {
+      "name": "evaluated",
+      "sort": 5,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 20011,
+    "fields": {
+      "name": "sb1",
+      "sort": 6,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 20013,
+    "fields": {
+      "name": "sb2",
+      "sort": 7,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 20014,
+    "fields": {
+      "name": "conclusion",
+      "sort": 8,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 120000,
+    "fields": {
+      "name": "finished",
+      "sort": 13,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 120001,
+    "fields": {
+      "name": "in_progress",
+      "sort": 14,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 1,
+    "fields": {
+      "instance_state": 1,
+      "language": "de",
+      "name": "Neu",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 10000,
+    "fields": {
+      "instance_state": 10000,
+      "language": "de",
+      "name": "Zur\u00fcckgewiesen",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 20000,
+    "fields": {
+      "instance_state": 20000,
+      "language": "de",
+      "name": "eBau-Nummer zu vergeben",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 20003,
+    "fields": {
+      "instance_state": 20003,
+      "language": "de",
+      "name": "Zirkulation initialisieren",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 20004,
+    "fields": {
+      "instance_state": 20004,
+      "language": "de",
+      "name": "In Zirkulation",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 20005,
+    "fields": {
+      "instance_state": 20005,
+      "language": "de",
+      "name": "In Koordination",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 20007,
+    "fields": {
+      "instance_state": 20007,
+      "language": "de",
+      "name": "In Korrektur",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 20008,
+    "fields": {
+      "instance_state": 20008,
+      "language": "de",
+      "name": "Korrigiert von Leitbeh\u00f6rde",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 20009,
+    "fields": {
+      "instance_state": 20009,
+      "language": "de",
+      "name": "Archiviert",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 20010,
+    "fields": {
+      "instance_state": 20010,
+      "language": "de",
+      "name": "Beurteilung abgeschlossen",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 20011,
+    "fields": {
+      "instance_state": 20011,
+      "language": "de",
+      "name": "Selbstdeklaration (SB1)",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 20013,
+    "fields": {
+      "instance_state": 20013,
+      "language": "de",
+      "name": "Abschluss (SB2)",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 20014,
+    "fields": {
+      "instance_state": 20014,
+      "language": "de",
+      "name": "Zum Abschluss",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120000,
+    "fields": {
+      "instance_state": 120000,
+      "language": "de",
+      "name": "Abgeschlossen",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120001,
+    "fields": {
+      "instance_state": 1,
+      "language": "fr",
+      "name": "Nouveau",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120002,
+    "fields": {
+      "instance_state": 10000,
+      "language": "fr",
+      "name": "Renvoy\u00e9e",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120003,
+    "fields": {
+      "instance_state": 20000,
+      "language": "fr",
+      "name": "Num\u00e9ro eBau \u00e0 attribuer",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120005,
+    "fields": {
+      "instance_state": 20004,
+      "language": "fr",
+      "name": "En proc\u00e9dure de circulation",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120006,
+    "fields": {
+      "instance_state": 20005,
+      "language": "fr",
+      "name": "En cours de coordination",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120008,
+    "fields": {
+      "instance_state": 20007,
+      "language": "fr",
+      "name": "En cours de correction",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120009,
+    "fields": {
+      "instance_state": 20008,
+      "language": "fr",
+      "name": "Corrig\u00e9 par l'autorit\u00e9 directrice",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120010,
+    "fields": {
+      "instance_state": 20009,
+      "language": "fr",
+      "name": "Archiv\u00e9",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120019,
+    "fields": {
+      "instance_state": 20003,
+      "language": "fr",
+      "name": " Initialiser la circulation",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120020,
+    "fields": {
+      "instance_state": 20003,
+      "language": "fr",
+      "name": "Initialiser la circulation",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120021,
+    "fields": {
+      "instance_state": 20010,
+      "language": "fr",
+      "name": "\u00c9valuation cl\u00f4tur\u00e9e",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120022,
+    "fields": {
+      "instance_state": 20011,
+      "language": "fr",
+      "name": " D\u00e9claration spontan\u00e9e (DC1)",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120023,
+    "fields": {
+      "instance_state": 20013,
+      "language": "fr",
+      "name": "Cl\u00f4ture (DC2)",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120024,
+    "fields": {
+      "instance_state": 20014,
+      "language": "fr",
+      "name": "Finaliser",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120027,
+    "fields": {
+      "instance_state": 120000,
+      "language": "fr",
+      "name": "Termin\u00e9",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120028,
+    "fields": {
+      "instance_state": 120001,
+      "language": "de",
+      "name": "In Bearbeitung",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120029,
+    "fields": {
+      "instance_state": 120001,
+      "language": "fr",
+      "name": "En cours",
+      "description": null
+    }
+  }
+]

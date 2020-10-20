@@ -1,0 +1,191 @@
+[
+  {
+    "model": "caluma_workflow.case",
+    "pk": "7d2bb3fe-83a1-4abc-a6c8-732c366678b1",
+    "fields": {
+      "created_at": "2020-06-30T15:02:51.901Z",
+      "modified_at": "2020-06-30T15:02:51.901Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "family": "7d2bb3fe-83a1-4abc-a6c8-732c366678b1",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "workflow": "preliminary-clarification",
+      "status": "running",
+      "meta": {
+        "migrated": true,
+        "submit-date": "2020-03-06T11:14:33+0000",
+        "camac-instance-id": 2
+      },
+      "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4"
+    }
+  },
+  {
+    "model": "caluma_workflow.case",
+    "pk": "edf81bff-4f33-48d6-b8de-2aee7643a97e",
+    "fields": {
+      "created_at": "2020-06-30T15:02:51.873Z",
+      "modified_at": "2020-06-30T15:02:51.874Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "family": "edf81bff-4f33-48d6-b8de-2aee7643a97e",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "workflow": "building-permit",
+      "status": "running",
+      "meta": {
+        "migrated": true,
+        "camac-instance-id": 1
+      },
+      "document": "961f2def-a94a-435f-b8b4-93390c7b40e5"
+    }
+  },
+  {
+    "model": "caluma_workflow.workitem",
+    "pk": "147e4eab-8666-43ac-9e17-fcd0e8f78de5",
+    "fields": {
+      "created_at": "2020-06-30T15:02:51.903Z",
+      "modified_at": "2020-09-15T09:42:07.423Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "name": "{\"de\": \"Gesuch einreichen\", \"fr\": \"Envoyer la demande\"}",
+      "description": "{\"de\": null, \"fr\": null}",
+      "closed_at": "2020-06-30T15:02:51.906Z",
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "deadline": null,
+      "task": "submit",
+      "status": "skipped",
+      "meta": {
+        "migrated": true,
+        "not-viewed": true
+      },
+      "addressed_groups": "[]",
+      "controlling_groups": "[]",
+      "assigned_users": "[]",
+      "case": "7d2bb3fe-83a1-4abc-a6c8-732c366678b1",
+      "child_case": null,
+      "document": null,
+      "previous_work_item": null
+    }
+  },
+  {
+    "model": "caluma_workflow.workitem",
+    "pk": "4bb0968b-86ee-444c-a71c-4586eaaf7ad0",
+    "fields": {
+      "created_at": "2020-06-30T15:02:51.934Z",
+      "modified_at": "2020-09-15T09:42:07.436Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "name": "{\"de\": \"Nachforderungen\", \"fr\": \"Demandes de compl\\u00e9ment d'information\"}",
+      "description": "{\"de\": null, \"fr\": null}",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "deadline": null,
+      "task": "nfd",
+      "status": "ready",
+      "meta": {
+        "migrated": true,
+        "not-viewed": true
+      },
+      "addressed_groups": "[\"2\"]",
+      "controlling_groups": "[]",
+      "assigned_users": "[]",
+      "case": "7d2bb3fe-83a1-4abc-a6c8-732c366678b1",
+      "child_case": null,
+      "document": "cb3d4d28-86a9-42f9-ba0b-f90876b61976",
+      "previous_work_item": "147e4eab-8666-43ac-9e17-fcd0e8f78de5"
+    }
+  },
+  {
+    "model": "caluma_workflow.workitem",
+    "pk": "88c80a5d-992a-4815-8380-3edcb4e977e9",
+    "fields": {
+      "created_at": "2020-09-04T06:08:46.218Z",
+      "modified_at": "2020-09-15T09:42:07.444Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "name": "{\"de\": \"Manuelle Aufgaben erfassen\", \"fr\": \"Saisie des t\\u00e2ches manuelles\"}",
+      "description": "{\"de\": null, \"fr\": null}",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "deadline": null,
+      "task": "create-manual-workitems",
+      "status": "ready",
+      "meta": {
+        "migrated": true,
+        "not-viewed": true,
+        "notify-deadline": true,
+        "notify-completed": true
+      },
+      "addressed_groups": "[]",
+      "controlling_groups": "[]",
+      "assigned_users": "[]",
+      "case": "7d2bb3fe-83a1-4abc-a6c8-732c366678b1",
+      "child_case": null,
+      "document": null,
+      "previous_work_item": null
+    }
+  },
+  {
+    "model": "caluma_workflow.workitem",
+    "pk": "898296ba-4f6f-4742-b40b-2d46cec7c371",
+    "fields": {
+      "created_at": "2020-06-30T15:02:51.929Z",
+      "modified_at": "2020-09-15T09:42:07.452Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "name": "{\"de\": \"eBau-Nummer vergeben\", \"fr\": \"Attribution d'un num\\u00e9ro eBau\"}",
+      "description": "{\"de\": null, \"fr\": null}",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "deadline": "2020-07-05T15:02:51.929Z",
+      "task": "ebau-number",
+      "status": "ready",
+      "meta": {
+        "migrated": true,
+        "not-viewed": true
+      },
+      "addressed_groups": "[\"2\"]",
+      "controlling_groups": "[]",
+      "assigned_users": "[]",
+      "case": "7d2bb3fe-83a1-4abc-a6c8-732c366678b1",
+      "child_case": null,
+      "document": null,
+      "previous_work_item": "147e4eab-8666-43ac-9e17-fcd0e8f78de5"
+    }
+  },
+  {
+    "model": "caluma_workflow.workitem",
+    "pk": "de7cc666-c48d-499a-a000-d52399973af1",
+    "fields": {
+      "created_at": "2020-06-30T15:02:51.893Z",
+      "modified_at": "2020-09-15T09:42:07.461Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "name": "{\"de\": \"Gesuch einreichen\", \"fr\": \"Envoyer la demande\"}",
+      "description": "{\"de\": null, \"fr\": null}",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "deadline": null,
+      "task": "submit",
+      "status": "ready",
+      "meta": {
+        "migrated": true
+      },
+      "addressed_groups": "[]",
+      "controlling_groups": "[]",
+      "assigned_users": "[]",
+      "case": "edf81bff-4f33-48d6-b8de-2aee7643a97e",
+      "child_case": null,
+      "document": null,
+      "previous_work_item": null
+    }
+  }
+]

@@ -1,0 +1,322 @@
+[
+  {
+    "model": "instance.form",
+    "pk": 1,
+    "fields": {
+      "form_state": 1,
+      "name": "baugesuch-reklamegesuch",
+      "description": "Baugesuch"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 2,
+    "fields": {
+      "form_state": 1,
+      "name": "projektanderung",
+      "description": "Projekt\u00e4nderung zu bewilligtem Baugesuch"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 3,
+    "fields": {
+      "form_state": 1,
+      "name": "vorentscheid-gemass-ss84-pbg",
+      "description": "Vorentscheid gem\u00e4ss \u00a7 84 PBG"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 4,
+    "fields": {
+      "form_state": 1,
+      "name": "vorabklarung",
+      "description": "Vorabkl\u00e4rung"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 5,
+    "fields": {
+      "form_state": 1,
+      "name": "baumeldung-fur-geringfugiges-vorhaben",
+      "description": "Baumeldung f\u00fcr geringf\u00fcgiges Vorhaben"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 6,
+    "fields": {
+      "form_state": 1,
+      "name": "technische-bewilligung",
+      "description": "Gesuch um technische Bewilligung"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 7,
+    "fields": {
+      "form_state": 1,
+      "name": "konzession-fur-wasserentnahme",
+      "description": "Konzession f\u00fcr Wasserentnahme"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 8,
+    "fields": {
+      "form_state": 1,
+      "name": "plangenehmigungsgesuch",
+      "description": "Plangenehmigungsgesuch"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 9,
+    "fields": {
+      "form_state": 1,
+      "name": "projektgenehmigungsgesuch-gemass-ss15-strag",
+      "description": "Projektgenehmigungsgesuch gem\u00e4ss \u00a7 15 StraG"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 10,
+    "fields": {
+      "form_state": 1,
+      "name": "anlassbewilligungen-verkehrsbewilligungen",
+      "description": "Anlassbewilligungen / Verkehrsbewilligungen"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 11,
+    "fields": {
+      "form_state": 2,
+      "name": "geschaeftskontrolle",
+      "description": "Gesch\u00e4ftskontrolle"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 12,
+    "fields": {
+      "form_state": 1,
+      "name": "vorabklarung-v2",
+      "description": "Vorabkl\u00e4rung"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 13,
+    "fields": {
+      "form_state": 1,
+      "name": "baumeldung-fur-geringfugiges-vorhaben-v2",
+      "description": "Baumeldung f\u00fcr geringf\u00fcgiges Vorhaben"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 14,
+    "fields": {
+      "form_state": 1,
+      "name": "konzession-fur-wasserentnahme-v2",
+      "description": "Konzession f\u00fcr Wasserentnahme"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 15,
+    "fields": {
+      "form_state": 1,
+      "name": "plangenehmigungsgesuch-v2",
+      "description": "Plangenehmigungsgesuch"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 16,
+    "fields": {
+      "form_state": 1,
+      "name": "projektgenehmigungsgesuch-gemass-ss15-strag-v2",
+      "description": "Projektgenehmigungsgesuch gem\u00e4ss \u00a7 15 StraG"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 17,
+    "fields": {
+      "form_state": 1,
+      "name": "anlassbewilligungen-verkehrsbewilligungen-v2",
+      "description": "Anlassbewilligungen / Verkehrsbewilligungen"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 18,
+    "fields": {
+      "form_state": 1,
+      "name": "baugesuch-reklamegesuch-v2",
+      "description": "Baugesuch"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 19,
+    "fields": {
+      "form_state": 1,
+      "name": "projektanderung-v2",
+      "description": "Projekt\u00e4nderung zu bewilligtem Baugesuch"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 20,
+    "fields": {
+      "form_state": 1,
+      "name": "vorentscheid-gemass-ss84-pbg-v2",
+      "description": "Vorentscheid gem\u00e4ss \u00a7 84 PBG"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 21,
+    "fields": {
+      "form_state": 1,
+      "name": "vorabklarung-v3",
+      "description": "Vorabkl\u00e4rung"
+    }
+  },
+  {
+    "model": "instance.formstate",
+    "pk": 1,
+    "fields": {
+      "name": "Published"
+    }
+  },
+  {
+    "model": "instance.formstate",
+    "pk": 2,
+    "fields": {
+      "name": "Internal"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 1,
+    "fields": {
+      "name": "new",
+      "sort": 0,
+      "description": "Neu"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 2,
+    "fields": {
+      "name": "subm",
+      "sort": 2,
+      "description": "Eingereicht"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 3,
+    "fields": {
+      "name": "comm",
+      "sort": 3,
+      "description": "Von Leitbeh\u00f6rde angenommen"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 4,
+    "fields": {
+      "name": "ext",
+      "sort": 4,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 5,
+    "fields": {
+      "name": "circ",
+      "sort": 5,
+      "description": "In Zirkulation"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 6,
+    "fields": {
+      "name": "redac",
+      "sort": 6,
+      "description": "Bauentscheid ausstehend"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 7,
+    "fields": {
+      "name": "nfd",
+      "sort": 7,
+      "description": "Nachforderung"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 8,
+    "fields": {
+      "name": "done",
+      "sort": 9,
+      "description": "Entschieden"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 9,
+    "fields": {
+      "name": "denied",
+      "sort": 11,
+      "description": "Abgelehnt"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 10,
+    "fields": {
+      "name": "arch",
+      "sort": 12,
+      "description": "Archiviert"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 11,
+    "fields": {
+      "name": "del",
+      "sort": 13,
+      "description": "Gel\u00f6scht"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 12,
+    "fields": {
+      "name": "rejected",
+      "sort": 1,
+      "description": "Zur\u00fcckgewiesen"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 13,
+    "fields": {
+      "name": "stopped",
+      "sort": 8,
+      "description": "Abgeschrieben"
+    }
+  }
+]

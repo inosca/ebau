@@ -1,0 +1,23 @@
+[
+  {
+    "model": "core.answer",
+    "pk": 150000,
+    "fields": {
+      "instance": 2,
+      "question": 20036,
+      "chapter": 100001,
+      "item": 1,
+      "answer": "2020-03-06T11:14:33+0000"
+    }
+  },
+  {
+    "model": "core.instanceservice",
+    "pk": 150000,
+    "fields": {
+      "instance": 2,
+      "service": 2,
+      "active": 1,
+      "activation_date": null
+    }
+  }
+]

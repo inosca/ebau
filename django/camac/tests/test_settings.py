@@ -19,7 +19,7 @@ def test_invalid_admins():
 
 @pytest.mark.parametrize("app_name", ["kt_bern"])
 def test_verify_proposal_config(app_name, settings):
-    caluma_config_file = settings.ROOT_DIR + app_name + "config-caluma-form.json"
+    caluma_config_file = settings.ROOT_DIR + app_name + "config/caluma_form.json"
     caluma_config = json.load(open(caluma_config_file, "r"))
 
     proposal_config = settings.APPLICATIONS.get(app_name, {}).get("SUGGESTIONS", [])
