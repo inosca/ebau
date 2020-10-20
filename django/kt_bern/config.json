@@ -51,7 +51,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 4,
+      "sort": 5,
       "success_message": null
     },
     "model": "core.action",
@@ -107,7 +107,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 3,
+      "sort": 4,
       "success_message": null
     },
     "model": "core.action",
@@ -135,7 +135,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 7,
+      "sort": 6,
       "success_message": null
     },
     "model": "core.action",
@@ -149,7 +149,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 8,
+      "sort": 3,
       "success_message": null
     },
     "model": "core.action",
@@ -163,7 +163,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 5,
+      "sort": 3,
       "success_message": null
     },
     "model": "core.action",
@@ -191,7 +191,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 3,
+      "sort": 2,
       "success_message": null
     },
     "model": "core.action",
@@ -205,7 +205,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 5,
+      "sort": 4,
       "success_message": null
     },
     "model": "core.action",
@@ -247,7 +247,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 4,
+      "sort": 3,
       "success_message": null
     },
     "model": "core.action",
@@ -359,7 +359,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 2,
       "success_message": null
     },
     "model": "core.action",
@@ -401,7 +401,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 8,
+      "sort": 9,
       "success_message": null
     },
     "model": "core.action",
@@ -485,7 +485,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 0,
+      "sort": 1,
       "success_message": null
     },
     "model": "core.action",
@@ -499,7 +499,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 0,
+      "sort": 1,
       "success_message": null
     },
     "model": "core.action",
@@ -513,7 +513,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 3,
+      "sort": 4,
       "success_message": null
     },
     "model": "core.action",
@@ -583,7 +583,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 2,
       "success_message": null
     },
     "model": "core.action",
@@ -625,7 +625,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 2,
       "success_message": null
     },
     "model": "core.action",
@@ -653,7 +653,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 2,
       "success_message": null
     },
     "model": "core.action",
@@ -695,7 +695,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 0,
+      "sort": 1,
       "success_message": null
     },
     "model": "core.action",
@@ -709,7 +709,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 0,
+      "sort": 1,
       "success_message": null
     },
     "model": "core.action",
@@ -751,7 +751,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 0,
+      "sort": 1,
       "success_message": null
     },
     "model": "core.action",
@@ -863,7 +863,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 9,
+      "sort": 8,
       "success_message": null
     },
     "model": "core.action",
@@ -877,7 +877,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 3,
+      "sort": 4,
       "success_message": null
     },
     "model": "core.action",
@@ -919,7 +919,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 0,
+      "sort": 1,
       "success_message": null
     },
     "model": "core.action",
@@ -933,7 +933,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 3,
+      "sort": 2,
       "success_message": null
     },
     "model": "core.action",
@@ -947,7 +947,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 2,
+      "sort": 1,
       "success_message": null
     },
     "model": "core.action",
@@ -975,7 +975,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 0,
+      "sort": 1,
       "success_message": null
     },
     "model": "core.action",
@@ -989,7 +989,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 3,
+      "sort": 5,
       "success_message": null
     },
     "model": "core.action",
@@ -1017,7 +1017,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 0,
       "success_message": null
     },
     "model": "core.action",
@@ -1031,7 +1031,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 0,
       "success_message": null
     },
     "model": "core.action",
@@ -1045,7 +1045,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 0,
       "success_message": null
     },
     "model": "core.action",
@@ -1059,7 +1059,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 2,
+      "sort": 1,
       "success_message": null
     },
     "model": "core.action",
@@ -1073,7 +1073,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 4,
+      "sort": 3,
       "success_message": null
     },
     "model": "core.action",
@@ -1087,7 +1087,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 0,
       "success_message": null
     },
     "model": "core.action",
@@ -1101,7 +1101,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 0,
       "success_message": null
     },
     "model": "core.action",
@@ -1115,7 +1115,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 0,
       "success_message": null
     },
     "model": "core.action",
@@ -1171,7 +1171,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 2,
+      "sort": 1,
       "success_message": null
     },
     "model": "core.action",
@@ -1213,7 +1213,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 2,
+      "sort": 1,
       "success_message": null
     },
     "model": "core.action",
@@ -1227,7 +1227,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 0,
       "success_message": null
     },
     "model": "core.action",
@@ -1241,7 +1241,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 4,
+      "sort": 5,
       "success_message": null
     },
     "model": "core.action",
@@ -1255,7 +1255,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 5,
+      "sort": 6,
       "success_message": null
     },
     "model": "core.action",
@@ -1269,7 +1269,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 6,
+      "sort": 2,
       "success_message": null
     },
     "model": "core.action",
@@ -1283,7 +1283,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 2,
+      "sort": 1,
       "success_message": null
     },
     "model": "core.action",
@@ -1297,7 +1297,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 0,
       "success_message": null
     },
     "model": "core.action",
@@ -1311,7 +1311,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 0,
       "success_message": null
     },
     "model": "core.action",
@@ -1325,7 +1325,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 2,
+      "sort": 1,
       "success_message": null
     },
     "model": "core.action",
@@ -1339,11 +1339,39 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 2,
+      "sort": 1,
       "success_message": null
     },
     "model": "core.action",
     "pk": 150038
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 1200001,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 3,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150039
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 1200000,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 3,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150040
   },
   {
     "fields": {
@@ -1353,7 +1381,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 0,
+      "sort": 2,
       "success_message": null
     },
     "model": "core.action",
@@ -1367,7 +1395,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 0,
+      "sort": 2,
       "success_message": null
     },
     "model": "core.action",
@@ -1381,7 +1409,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 6,
+      "sort": 7,
       "success_message": null
     },
     "model": "core.action",
@@ -1423,7 +1451,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 4,
+      "sort": 3,
       "success_message": null
     },
     "model": "core.action",
@@ -1437,7 +1465,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 5,
+      "sort": 8,
       "success_message": null
     },
     "model": "core.action",
@@ -1451,7 +1479,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 2,
+      "sort": 3,
       "success_message": null
     },
     "model": "core.action",
@@ -1465,7 +1493,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 2,
+      "sort": 3,
       "success_message": null
     },
     "model": "core.action",
@@ -1479,7 +1507,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 3,
+      "sort": 9,
       "success_message": null
     },
     "model": "core.action",
@@ -1493,7 +1521,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 2,
+      "sort": 7,
       "success_message": null
     },
     "model": "core.action",
@@ -1507,7 +1535,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 3,
+      "sort": 4,
       "success_message": null
     },
     "model": "core.action",
@@ -1521,7 +1549,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 2,
+      "sort": 3,
       "success_message": null
     },
     "model": "core.action",
@@ -1535,7 +1563,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 3,
+      "sort": 4,
       "success_message": null
     },
     "model": "core.action",
@@ -1549,7 +1577,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 3,
+      "sort": 4,
       "success_message": null
     },
     "model": "core.action",
@@ -1563,7 +1591,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 2,
+      "sort": 4,
       "success_message": null
     },
     "model": "core.action",
@@ -1577,7 +1605,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 2,
+      "sort": 3,
       "success_message": null
     },
     "model": "core.action",
@@ -2782,6 +2810,30 @@
   },
   {
     "fields": {
+      "action": 150039,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "ECH0211 - Status Notification",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150045
+  },
+  {
+    "fields": {
+      "action": 150040,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "ECH0211 - Status Notification",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150046
+  },
+  {
+    "fields": {
       "action": 1200002,
       "description": null,
       "error_message": null,
@@ -3166,6 +3218,7 @@
   },
   {
     "fields": {
+      "fail_on_empty": true,
       "is_activation": false,
       "process_all": true,
       "process_type": "skip",
@@ -3176,6 +3229,7 @@
   },
   {
     "fields": {
+      "fail_on_empty": true,
       "is_activation": false,
       "process_all": true,
       "process_type": "skip",
@@ -3186,6 +3240,7 @@
   },
   {
     "fields": {
+      "fail_on_empty": true,
       "is_activation": false,
       "process_all": false,
       "process_type": "complete",
@@ -3196,6 +3251,7 @@
   },
   {
     "fields": {
+      "fail_on_empty": true,
       "is_activation": false,
       "process_all": false,
       "process_type": "complete",
@@ -3206,6 +3262,7 @@
   },
   {
     "fields": {
+      "fail_on_empty": true,
       "is_activation": false,
       "process_all": false,
       "process_type": "complete",
@@ -3216,6 +3273,7 @@
   },
   {
     "fields": {
+      "fail_on_empty": true,
       "is_activation": false,
       "process_all": false,
       "process_type": "complete",
@@ -3226,6 +3284,7 @@
   },
   {
     "fields": {
+      "fail_on_empty": true,
       "is_activation": false,
       "process_all": false,
       "process_type": "complete",
@@ -3236,6 +3295,7 @@
   },
   {
     "fields": {
+      "fail_on_empty": true,
       "is_activation": false,
       "process_all": false,
       "process_type": "complete",
@@ -3246,6 +3306,7 @@
   },
   {
     "fields": {
+      "fail_on_empty": false,
       "is_activation": false,
       "process_all": false,
       "process_type": "complete",
@@ -3256,6 +3317,7 @@
   },
   {
     "fields": {
+      "fail_on_empty": true,
       "is_activation": true,
       "process_all": false,
       "process_type": "complete",
@@ -3266,6 +3328,7 @@
   },
   {
     "fields": {
+      "fail_on_empty": true,
       "is_activation": true,
       "process_all": false,
       "process_type": "complete",
@@ -3276,6 +3339,7 @@
   },
   {
     "fields": {
+      "fail_on_empty": true,
       "is_activation": false,
       "process_all": false,
       "process_type": "complete",
@@ -3286,6 +3350,7 @@
   },
   {
     "fields": {
+      "fail_on_empty": false,
       "is_activation": false,
       "process_all": false,
       "process_type": "complete",
@@ -3296,6 +3361,7 @@
   },
   {
     "fields": {
+      "fail_on_empty": false,
       "is_activation": false,
       "process_all": false,
       "process_type": "complete",
@@ -41615,6 +41681,20 @@
     },
     "model": "core.aphp",
     "pk": 150032
+  },
+  {
+    "fields": {
+      "php_class": "TriggerECH0211StatusNotification"
+    },
+    "model": "core.aphp",
+    "pk": 150039
+  },
+  {
+    "fields": {
+      "php_class": "TriggerECH0211StatusNotification"
+    },
+    "model": "core.aphp",
+    "pk": 150040
   },
   {
     "fields": {
