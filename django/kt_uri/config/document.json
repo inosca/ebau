@@ -1,0 +1,1325 @@
+[
+  {
+    "model": "document.attachmentsection",
+    "pk": 1,
+    "fields": {
+      "name": "Interne Dokumente BaB (nur f\u00fcr BaB Fachstellen sichtbar)",
+      "description": null,
+      "sort": 3,
+      "notification_template": null,
+      "recipient_types": null,
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 21,
+    "fields": {
+      "name": "Publikationsordner",
+      "description": null,
+      "sort": 5,
+      "notification_template": null,
+      "recipient_types": null,
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 22,
+    "fields": {
+      "name": "Interne Dokumente ABM BS (nur f\u00fcr ABM BS sichtbar)",
+      "description": null,
+      "sort": 2,
+      "notification_template": null,
+      "recipient_types": null,
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 23,
+    "fields": {
+      "name": "Dokumente Fachstellen (R\u00fcckmeldungen Vernehmlassungsstellen)",
+      "description": null,
+      "sort": 7,
+      "notification_template": null,
+      "recipient_types": null,
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 24,
+    "fields": {
+      "name": "Dokumente Leitbeh\u00f6rden (Baubewilligungen, Verf\u00fcgungen usw.)",
+      "description": null,
+      "sort": 8,
+      "notification_template": null,
+      "recipient_types": null,
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 25,
+    "fields": {
+      "name": "Lisag (Nutzungsplandokumente, ITF Dateien)",
+      "description": null,
+      "sort": 11,
+      "notification_template": null,
+      "recipient_types": null,
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 41,
+    "fields": {
+      "name": "Rechtsmitteldokumente (nur eingeschr\u00e4nkt sichtbar)",
+      "description": null,
+      "sort": 9,
+      "notification_template": null,
+      "recipient_types": null,
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 42,
+    "fields": {
+      "name": "Interne Dokumente ARE NHS D (nur f\u00fcr ARE NHS D sichtbar)",
+      "description": null,
+      "sort": 4,
+      "notification_template": null,
+      "recipient_types": null,
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 61,
+    "fields": {
+      "name": "Interne Dokumente ARE SU (nur f\u00fcr Fachstelle ARE SU sichtbar)",
+      "description": null,
+      "sort": 1,
+      "notification_template": null,
+      "recipient_types": null,
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 62,
+    "fields": {
+      "name": "Geb\u00fchren",
+      "description": null,
+      "sort": 10,
+      "notification_template": null,
+      "recipient_types": null,
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 63,
+    "fields": {
+      "name": "Dokumente Gesuchsteller",
+      "description": null,
+      "sort": 6,
+      "notification_template": null,
+      "recipient_types": null,
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 81,
+    "fields": {
+      "name": "Dokumente UVP sichtbar f\u00fcr AfE WB ARENHSL AFJ ALA AfUGS AfUIS",
+      "description": null,
+      "sort": 0,
+      "notification_template": null,
+      "recipient_types": null,
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 101,
+    "fields": {
+      "name": "Unterlagen Land- und Rechtswerb (nur f\u00fcr BD DS sichtbar)",
+      "description": null,
+      "sort": 0,
+      "notification_template": null,
+      "recipient_types": null,
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 102,
+    "fields": {
+      "name": "Interne Dokumente ARE NP (nur f\u00fcr Fachstelle ARE NP sichtbar)",
+      "description": null,
+      "sort": 0,
+      "notification_template": null,
+      "recipient_types": null,
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 103,
+    "fields": {
+      "name": "Dokumente Gemeindeservice",
+      "description": null,
+      "sort": 0,
+      "notification_template": null,
+      "recipient_types": null,
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 104,
+    "fields": {
+      "name": "Entscheiddokumente (Stellungnahmen / Bewilligungen)",
+      "description": null,
+      "sort": 0,
+      "notification_template": null,
+      "recipient_types": null,
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 236,
+    "fields": {
+      "attachment_section": 21,
+      "role": 7,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 237,
+    "fields": {
+      "attachment_section": 23,
+      "role": 7,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 238,
+    "fields": {
+      "attachment_section": 24,
+      "role": 7,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 239,
+    "fields": {
+      "attachment_section": 21,
+      "role": 6,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 240,
+    "fields": {
+      "attachment_section": 23,
+      "role": 6,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 241,
+    "fields": {
+      "attachment_section": 24,
+      "role": 6,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 242,
+    "fields": {
+      "attachment_section": 25,
+      "role": 6,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 243,
+    "fields": {
+      "attachment_section": 41,
+      "role": 6,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 244,
+    "fields": {
+      "attachment_section": 21,
+      "role": 3,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 245,
+    "fields": {
+      "attachment_section": 23,
+      "role": 3,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 246,
+    "fields": {
+      "attachment_section": 24,
+      "role": 3,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 247,
+    "fields": {
+      "attachment_section": 41,
+      "role": 3,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 248,
+    "fields": {
+      "attachment_section": 21,
+      "role": 1061,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 249,
+    "fields": {
+      "attachment_section": 23,
+      "role": 1061,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 250,
+    "fields": {
+      "attachment_section": 24,
+      "role": 1061,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 251,
+    "fields": {
+      "attachment_section": 25,
+      "role": 1061,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 252,
+    "fields": {
+      "attachment_section": 41,
+      "role": 1061,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 253,
+    "fields": {
+      "attachment_section": 21,
+      "role": 4,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 254,
+    "fields": {
+      "attachment_section": 23,
+      "role": 4,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 255,
+    "fields": {
+      "attachment_section": 24,
+      "role": 4,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 256,
+    "fields": {
+      "attachment_section": 21,
+      "role": 1021,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 257,
+    "fields": {
+      "attachment_section": 23,
+      "role": 1021,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 258,
+    "fields": {
+      "attachment_section": 24,
+      "role": 1021,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 259,
+    "fields": {
+      "attachment_section": 21,
+      "role": 1081,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 260,
+    "fields": {
+      "attachment_section": 24,
+      "role": 1081,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 261,
+    "fields": {
+      "attachment_section": 24,
+      "role": 1101,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 262,
+    "fields": {
+      "attachment_section": 41,
+      "role": 1101,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 263,
+    "fields": {
+      "attachment_section": 21,
+      "role": 1101,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 264,
+    "fields": {
+      "attachment_section": 23,
+      "role": 1,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 265,
+    "fields": {
+      "attachment_section": 23,
+      "role": 1102,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 266,
+    "fields": {
+      "attachment_section": 24,
+      "role": 1102,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 267,
+    "fields": {
+      "attachment_section": 23,
+      "role": 1101,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 268,
+    "fields": {
+      "attachment_section": 23,
+      "role": 1081,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 269,
+    "fields": {
+      "attachment_section": 21,
+      "role": 1103,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 270,
+    "fields": {
+      "attachment_section": 62,
+      "role": 3,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 271,
+    "fields": {
+      "attachment_section": 62,
+      "role": 1061,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 272,
+    "fields": {
+      "attachment_section": 62,
+      "role": 1101,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 273,
+    "fields": {
+      "attachment_section": 63,
+      "role": 1104,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 274,
+    "fields": {
+      "attachment_section": 63,
+      "role": 1101,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 275,
+    "fields": {
+      "attachment_section": 63,
+      "role": 3,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 276,
+    "fields": {
+      "attachment_section": 63,
+      "role": 1061,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 277,
+    "fields": {
+      "attachment_section": 63,
+      "role": 1105,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 278,
+    "fields": {
+      "attachment_section": 21,
+      "role": 1105,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 279,
+    "fields": {
+      "attachment_section": 24,
+      "role": 1105,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 280,
+    "fields": {
+      "attachment_section": 63,
+      "role": 1106,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 281,
+    "fields": {
+      "attachment_section": 23,
+      "role": 1106,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 282,
+    "fields": {
+      "attachment_section": 21,
+      "role": 1106,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 283,
+    "fields": {
+      "attachment_section": 62,
+      "role": 1106,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 284,
+    "fields": {
+      "attachment_section": 24,
+      "role": 1106,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 285,
+    "fields": {
+      "attachment_section": 41,
+      "role": 1106,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 286,
+    "fields": {
+      "attachment_section": 21,
+      "role": 2,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 287,
+    "fields": {
+      "attachment_section": 63,
+      "role": 6,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 288,
+    "fields": {
+      "attachment_section": 63,
+      "role": 7,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 289,
+    "fields": {
+      "attachment_section": 63,
+      "role": 4,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 290,
+    "fields": {
+      "attachment_section": 63,
+      "role": 1021,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 291,
+    "fields": {
+      "attachment_section": 41,
+      "role": 1107,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 292,
+    "fields": {
+      "attachment_section": 24,
+      "role": 1107,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 293,
+    "fields": {
+      "attachment_section": 63,
+      "role": 1107,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 294,
+    "fields": {
+      "attachment_section": 21,
+      "role": 1107,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 295,
+    "fields": {
+      "attachment_section": 23,
+      "role": 1107,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 296,
+    "fields": {
+      "attachment_section": 62,
+      "role": 1107,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 297,
+    "fields": {
+      "attachment_section": 24,
+      "role": 1127,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 298,
+    "fields": {
+      "attachment_section": 63,
+      "role": 1127,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 299,
+    "fields": {
+      "attachment_section": 41,
+      "role": 1127,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 300,
+    "fields": {
+      "attachment_section": 23,
+      "role": 1127,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 301,
+    "fields": {
+      "attachment_section": 62,
+      "role": 1127,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 302,
+    "fields": {
+      "attachment_section": 21,
+      "role": 1127,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 303,
+    "fields": {
+      "attachment_section": 62,
+      "role": 1128,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 304,
+    "fields": {
+      "attachment_section": 63,
+      "role": 1128,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 305,
+    "fields": {
+      "attachment_section": 41,
+      "role": 1128,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 306,
+    "fields": {
+      "attachment_section": 24,
+      "role": 1128,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 307,
+    "fields": {
+      "attachment_section": 21,
+      "role": 1128,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 308,
+    "fields": {
+      "attachment_section": 23,
+      "role": 1128,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 309,
+    "fields": {
+      "attachment_section": 63,
+      "role": 1102,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 310,
+    "fields": {
+      "attachment_section": 63,
+      "role": 1081,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 311,
+    "fields": {
+      "attachment_section": 101,
+      "role": 1101,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 312,
+    "fields": {
+      "attachment_section": 62,
+      "role": 1129,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 313,
+    "fields": {
+      "attachment_section": 63,
+      "role": 1129,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 314,
+    "fields": {
+      "attachment_section": 41,
+      "role": 1129,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 315,
+    "fields": {
+      "attachment_section": 24,
+      "role": 1129,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 316,
+    "fields": {
+      "attachment_section": 21,
+      "role": 1129,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 317,
+    "fields": {
+      "attachment_section": 23,
+      "role": 1129,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 318,
+    "fields": {
+      "attachment_section": 63,
+      "role": 1130,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 319,
+    "fields": {
+      "attachment_section": 23,
+      "role": 1130,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 320,
+    "fields": {
+      "attachment_section": 24,
+      "role": 1130,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 321,
+    "fields": {
+      "attachment_section": 103,
+      "role": 1104,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 322,
+    "fields": {
+      "attachment_section": 103,
+      "role": 6,
+      "mode": "admin"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 323,
+    "fields": {
+      "attachment_section": 21,
+      "role": 1104,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 324,
+    "fields": {
+      "attachment_section": 104,
+      "role": 6,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 325,
+    "fields": {
+      "attachment_section": 104,
+      "role": 1103,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 326,
+    "fields": {
+      "attachment_section": 62,
+      "role": 6,
+      "mode": "read"
+    }
+  },
+  {
+    "model": "document.attachmentsectionserviceacl",
+    "pk": 104,
+    "fields": {
+      "attachment_section": 1,
+      "service": 88,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionserviceacl",
+    "pk": 105,
+    "fields": {
+      "attachment_section": 22,
+      "service": 81,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionserviceacl",
+    "pk": 106,
+    "fields": {
+      "attachment_section": 1,
+      "service": 261,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionserviceacl",
+    "pk": 107,
+    "fields": {
+      "attachment_section": 1,
+      "service": 262,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionserviceacl",
+    "pk": 108,
+    "fields": {
+      "attachment_section": 42,
+      "service": 241,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionserviceacl",
+    "pk": 109,
+    "fields": {
+      "attachment_section": 25,
+      "service": 201,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionserviceacl",
+    "pk": 110,
+    "fields": {
+      "attachment_section": 61,
+      "service": 99,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionserviceacl",
+    "pk": 111,
+    "fields": {
+      "attachment_section": 81,
+      "service": 2,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionserviceacl",
+    "pk": 112,
+    "fields": {
+      "attachment_section": 81,
+      "service": 306,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionserviceacl",
+    "pk": 113,
+    "fields": {
+      "attachment_section": 81,
+      "service": 303,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionserviceacl",
+    "pk": 114,
+    "fields": {
+      "attachment_section": 81,
+      "service": 98,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionserviceacl",
+    "pk": 115,
+    "fields": {
+      "attachment_section": 81,
+      "service": 96,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionserviceacl",
+    "pk": 116,
+    "fields": {
+      "attachment_section": 81,
+      "service": 567,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionserviceacl",
+    "pk": 117,
+    "fields": {
+      "attachment_section": 81,
+      "service": 568,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionserviceacl",
+    "pk": 118,
+    "fields": {
+      "attachment_section": 81,
+      "service": 524,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionserviceacl",
+    "pk": 119,
+    "fields": {
+      "attachment_section": 101,
+      "service": 41,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionserviceacl",
+    "pk": 120,
+    "fields": {
+      "attachment_section": 81,
+      "service": 460,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionserviceacl",
+    "pk": 121,
+    "fields": {
+      "attachment_section": 102,
+      "service": 90,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 1,
+    "fields": {
+      "attachment_section": 1,
+      "language": "de",
+      "name": "Interne Dokumente BaB (nur f\u00fcr BaB Fachstellen sichtbar)",
+      "description": null
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 2,
+    "fields": {
+      "attachment_section": 21,
+      "language": "de",
+      "name": "Publikationsordner",
+      "description": null
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 3,
+    "fields": {
+      "attachment_section": 22,
+      "language": "de",
+      "name": "Interne Dokumente ABM BS (nur f\u00fcr ABM BS sichtbar)",
+      "description": null
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 4,
+    "fields": {
+      "attachment_section": 23,
+      "language": "de",
+      "name": "Dokumente Fachstellen (R\u00fcckmeldungen Vernehmlassungsstellen)",
+      "description": null
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 5,
+    "fields": {
+      "attachment_section": 24,
+      "language": "de",
+      "name": "Dokumente Leitbeh\u00f6rden (Baubewilligungen, Verf\u00fcgungen usw.)",
+      "description": null
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 6,
+    "fields": {
+      "attachment_section": 25,
+      "language": "de",
+      "name": "Lisag (Nutzungsplandokumente, ITF Dateien)",
+      "description": null
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 7,
+    "fields": {
+      "attachment_section": 41,
+      "language": "de",
+      "name": "Rechtsmitteldokumente (nur eingeschr\u00e4nkt sichtbar)",
+      "description": null
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 8,
+    "fields": {
+      "attachment_section": 42,
+      "language": "de",
+      "name": "Interne Dokumente ARE NHS D (nur f\u00fcr ARE NHS D sichtbar)",
+      "description": null
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 9,
+    "fields": {
+      "attachment_section": 61,
+      "language": "de",
+      "name": "Interne Dokumente ARE SU (nur f\u00fcr Fachstelle ARE SU sichtbar)",
+      "description": null
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 10,
+    "fields": {
+      "attachment_section": 62,
+      "language": "de",
+      "name": "Geb\u00fchren",
+      "description": null
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 11,
+    "fields": {
+      "attachment_section": 63,
+      "language": "de",
+      "name": "Dokumente Gesuchsteller",
+      "description": null
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 12,
+    "fields": {
+      "attachment_section": 81,
+      "language": "de",
+      "name": "Dokumente UVP sichtbar f\u00fcr AfE WB ARENHSL AFJ ALA AfUGS AfUIS",
+      "description": null
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 13,
+    "fields": {
+      "attachment_section": 101,
+      "language": "de",
+      "name": "Unterlagen Land- und Rechtswerb (nur f\u00fcr BD DS sichtbar)",
+      "description": null
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 14,
+    "fields": {
+      "attachment_section": 102,
+      "language": "de",
+      "name": "Interne Dokumente ARE NP (nur f\u00fcr Fachstelle ARE NP sichtbar)",
+      "description": null
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 15,
+    "fields": {
+      "attachment_section": 103,
+      "language": "de",
+      "name": "Dokumente Gemeindeservice",
+      "description": null
+    }
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "model": "responsible.ireditresponsibleuser",
+    "pk": 20019,
+    "fields": {
+      "table_name": null,
+      "column_name": null,
+      "is_service_responsible": true,
+      "is_required": false
+    }
+  },
+  {
+    "model": "responsible.ireditresponsibleuser",
+    "pk": 20020,
+    "fields": {
+      "table_name": null,
+      "column_name": null,
+      "is_service_responsible": true,
+      "is_required": false
+    }
+  },
+  {
+    "model": "responsible.ireditresponsibleuser",
+    "pk": 20077,
+    "fields": {
+      "table_name": null,
+      "column_name": null,
+      "is_service_responsible": true,
+      "is_required": false
+    }
+  }
+]

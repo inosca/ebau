@@ -1,0 +1,104 @@
+[
+  {
+    "model": "file.afiletransitiondate",
+    "pk": 1,
+    "fields": {
+      "name": "CONFIRM_DATE"
+    }
+  },
+  {
+    "model": "file.afiletransitiondate",
+    "pk": 2,
+    "fields": {
+      "name": "EXPIRE_DATE"
+    }
+  },
+  {
+    "model": "file.afiletransitiondate",
+    "pk": 3,
+    "fields": {
+      "name": "RESPONSE_DATE"
+    }
+  },
+  {
+    "model": "file.irfileaccesstype",
+    "pk": 1,
+    "fields": {
+      "name": "Only mine"
+    }
+  },
+  {
+    "model": "file.irfileaccesstype",
+    "pk": 2,
+    "fields": {
+      "name": "Only my group"
+    }
+  },
+  {
+    "model": "file.irfileaccesstype",
+    "pk": 3,
+    "fields": {
+      "name": "Only my role"
+    }
+  },
+  {
+    "model": "file.irfileaccesstype",
+    "pk": 4,
+    "fields": {
+      "name": "All"
+    }
+  },
+  {
+    "model": "file.irfileaccesstype",
+    "pk": 5,
+    "fields": {
+      "name": "Another GROUP_ID"
+    }
+  },
+  {
+    "model": "file.irfileaccesstype",
+    "pk": 6,
+    "fields": {
+      "name": "Another USER_ID"
+    }
+  },
+  {
+    "model": "file.irfileaccesstype",
+    "pk": 7,
+    "fields": {
+      "name": "Another ROLE_ID"
+    }
+  },
+  {
+    "model": "file.irfileaccesstype",
+    "pk": 8,
+    "fields": {
+      "name": "Only my Service"
+    }
+  },
+  {
+    "model": "file.irfileaccesstype",
+    "pk": 9,
+    "fields": {
+      "name": "Only given categories"
+    }
+  },
+  {
+    "model": "file.irfilelist",
+    "pk": 10007,
+    "fields": {
+      "ir_file_access_type": 2,
+      "file_validation_type": null,
+      "access_foreign_id": null
+    }
+  },
+  {
+    "model": "file.irfilelist",
+    "pk": 10008,
+    "fields": {
+      "ir_file_access_type": 2,
+      "file_validation_type": null,
+      "access_foreign_id": null
+    }
+  }
+]

@@ -1,0 +1,1527 @@
+[
+  {
+    "model": "instance.instance",
+    "pk": 1,
+    "fields": {
+      "instance_state": 5,
+      "form": 1,
+      "user": 1,
+      "group": 3,
+      "creation_date": "2018-04-17T07:31:56.609Z",
+      "modification_date": "2019-04-17T14:12:53.155Z",
+      "previous_instance_state": 7,
+      "identifier": "72-19-001",
+      "location": 26
+    }
+  },
+  {
+    "model": "instance.instance",
+    "pk": 2,
+    "fields": {
+      "instance_state": 1,
+      "form": 1,
+      "user": 1,
+      "group": 4,
+      "creation_date": "2018-04-17T08:41:53.641Z",
+      "modification_date": "2018-04-17T08:41:53.641Z",
+      "previous_instance_state": 1,
+      "identifier": null,
+      "location": null
+    }
+  },
+  {
+    "model": "instance.instance",
+    "pk": 3,
+    "fields": {
+      "instance_state": 5,
+      "form": 1,
+      "user": 3,
+      "group": 4,
+      "creation_date": "2018-04-17T08:51:51.022Z",
+      "modification_date": "2018-04-17T15:21:25Z",
+      "previous_instance_state": 3,
+      "identifier": "72-18-001",
+      "location": 26
+    }
+  },
+  {
+    "model": "instance.instance",
+    "pk": 4,
+    "fields": {
+      "instance_state": 1,
+      "form": 1,
+      "user": 1,
+      "group": 4,
+      "creation_date": "2019-04-30T17:28:41.561Z",
+      "modification_date": "2019-04-30T17:29:48.449Z",
+      "previous_instance_state": 1,
+      "identifier": null,
+      "location": 2
+    }
+  },
+  {
+    "model": "instance.instance",
+    "pk": 5,
+    "fields": {
+      "instance_state": 1,
+      "form": 1,
+      "user": 1,
+      "group": 4,
+      "creation_date": "2019-04-30T17:37:36.118Z",
+      "modification_date": "2019-04-30T17:38:44.115Z",
+      "previous_instance_state": 1,
+      "identifier": null,
+      "location": 26
+    }
+  },
+  {
+    "model": "instance.instance",
+    "pk": 6,
+    "fields": {
+      "instance_state": 2,
+      "form": 4,
+      "user": 3,
+      "group": 9,
+      "creation_date": "2019-05-01T08:35:16.473Z",
+      "modification_date": "2019-05-01T08:37:48.131Z",
+      "previous_instance_state": 1,
+      "identifier": "01-19-001",
+      "location": 30
+    }
+  },
+  {
+    "model": "instance.instance",
+    "pk": 7,
+    "fields": {
+      "instance_state": 5,
+      "form": 4,
+      "user": 1,
+      "group": 3,
+      "creation_date": "2019-05-02T14:22:20.393Z",
+      "modification_date": "2019-05-02T15:09:56Z",
+      "previous_instance_state": 3,
+      "identifier": "72-19-002",
+      "location": 26
+    }
+  },
+  {
+    "model": "instance.instance",
+    "pk": 8,
+    "fields": {
+      "instance_state": 3,
+      "form": 4,
+      "user": 1,
+      "group": 3,
+      "creation_date": "2019-05-24T09:03:41.052Z",
+      "modification_date": "2019-05-28T11:43:16Z",
+      "previous_instance_state": 2,
+      "identifier": "72-19-003",
+      "location": 26
+    }
+  },
+  {
+    "model": "instance.instance",
+    "pk": 9,
+    "fields": {
+      "instance_state": 1,
+      "form": 4,
+      "user": 1,
+      "group": 4,
+      "creation_date": "2019-05-24T12:38:30.124Z",
+      "modification_date": "2019-05-24T12:38:30.124Z",
+      "previous_instance_state": 1,
+      "identifier": null,
+      "location": null
+    }
+  },
+  {
+    "model": "instance.instance",
+    "pk": 10,
+    "fields": {
+      "instance_state": 1,
+      "form": 4,
+      "user": 1,
+      "group": 4,
+      "creation_date": "2019-05-24T12:38:44.808Z",
+      "modification_date": "2019-05-24T12:38:44.808Z",
+      "previous_instance_state": 1,
+      "identifier": null,
+      "location": null
+    }
+  },
+  {
+    "model": "instance.instance",
+    "pk": 11,
+    "fields": {
+      "instance_state": 1,
+      "form": 4,
+      "user": 1,
+      "group": 4,
+      "creation_date": "2019-05-24T12:38:52.977Z",
+      "modification_date": "2019-05-24T12:38:52.977Z",
+      "previous_instance_state": 1,
+      "identifier": null,
+      "location": null
+    }
+  },
+  {
+    "model": "instance.instance",
+    "pk": 12,
+    "fields": {
+      "instance_state": 6,
+      "form": 4,
+      "user": 1,
+      "group": 3,
+      "creation_date": "2019-05-24T12:57:42.788Z",
+      "modification_date": "2019-05-24T13:45:58Z",
+      "previous_instance_state": 5,
+      "identifier": "72-19-004",
+      "location": 26
+    }
+  },
+  {
+    "model": "instance.instanceresponsibility",
+    "pk": 1,
+    "fields": {
+      "instance": 1,
+      "service": 6,
+      "user": 1
+    }
+  },
+  {
+    "model": "instance.issue",
+    "pk": 1,
+    "fields": {
+      "instance": 1,
+      "group": 3,
+      "service": 6,
+      "user": 1,
+      "deadline_date": "2019-05-15",
+      "state": "open",
+      "text": "foobar"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 1,
+    "fields": {
+      "instance": 1,
+      "name": "grundeigentumerschaft",
+      "value": [
+        {
+          "ort": "3360",
+          "plz": 8798,
+          "name": "Test",
+          "uuid": "15c22007-a3de-4507-8506-829d6ab0b65f",
+          "anrede": "Herr",
+          "strasse": "Test",
+          "vorname": "asdf"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 2,
+    "fields": {
+      "instance": 1,
+      "name": "bauherrschaft",
+      "value": [
+        {
+          "ort": "fasd",
+          "plz": 7894,
+          "name": "fsd",
+          "uuid": "c0b4efb6-ac41-4a96-9f2b-13ebb32a7a84",
+          "anrede": "Herr",
+          "strasse": "fasd",
+          "vorname": "asdf"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 3,
+    "fields": {
+      "instance": 1,
+      "name": "projektverfasser-planer",
+      "value": [
+        {
+          "ort": "fsd",
+          "plz": 7894,
+          "name": "fds",
+          "uuid": "40360f19-7427-4f7d-bb34-0d0a4090fe19",
+          "anrede": "Herr",
+          "strasse": "fsd",
+          "vorname": "asdf"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 4,
+    "fields": {
+      "instance": 3,
+      "name": "parzelle",
+      "value": 1512
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 5,
+    "fields": {
+      "instance": 3,
+      "name": "kategorie-des-vorhabens",
+      "value": ["Baute(n)"]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 6,
+    "fields": {
+      "instance": 3,
+      "name": "art-der-nutzung",
+      "value": ["Wohnen"]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 7,
+    "fields": {
+      "instance": 3,
+      "name": "vorhaben-mit-baute",
+      "value": ["Neubau"]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 8,
+    "fields": {
+      "instance": 3,
+      "name": "tangiert-vorhaben-strasse",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 9,
+    "fields": {
+      "instance": 3,
+      "name": "pfahlfundation-vorgesehen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 10,
+    "fields": {
+      "instance": 3,
+      "name": "baugrubenumschliessung-vorgesehen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 11,
+    "fields": {
+      "instance": 3,
+      "name": "temporare-grundwasserabsenkung-notig",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 12,
+    "fields": {
+      "instance": 3,
+      "name": "anlagen-mit-erheblichen-schadstoffemissionen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 13,
+    "fields": {
+      "instance": 3,
+      "name": "anlagen-mit-erheblichen-strahlungsemissionen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 14,
+    "fields": {
+      "instance": 3,
+      "name": "anlagen-mit-erheblichen-larmemissionen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 15,
+    "fields": {
+      "instance": 3,
+      "name": "larmbelastetes-gebiet",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 16,
+    "fields": {
+      "instance": 3,
+      "name": "aussenbeleuchtung",
+      "value": "Ja"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 17,
+    "fields": {
+      "instance": 3,
+      "name": "wassergefahrdende-stoffe",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 18,
+    "fields": {
+      "instance": 3,
+      "name": "brandschutztechnisch-gefahrliche-stoffe",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 19,
+    "fields": {
+      "instance": 3,
+      "name": "bodenbelastungen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 20,
+    "fields": {
+      "instance": 3,
+      "name": "boden-5000m2",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 21,
+    "fields": {
+      "instance": 3,
+      "name": "ordendliche-mindestabstande",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 22,
+    "fields": {
+      "instance": 3,
+      "name": "auswirkungen-auf-arbeitnehmer",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 23,
+    "fields": {
+      "instance": 3,
+      "name": "200m3-bauabfalle",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 24,
+    "fields": {
+      "instance": 3,
+      "name": "alarmierungseinrichtung-tangiert",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 25,
+    "fields": {
+      "instance": 3,
+      "name": "lebensmittel-umgehen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 26,
+    "fields": {
+      "instance": 3,
+      "name": "trinkwasser-abgeben",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 27,
+    "fields": {
+      "instance": 3,
+      "name": "offentlich-duschanlage-oder-bad",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 28,
+    "fields": {
+      "instance": 3,
+      "name": "gewerbliche-nutzflachen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 29,
+    "fields": {
+      "instance": 3,
+      "name": "gwr",
+      "value": [
+        {
+          "uuid": "d0de1837-bfcc-4c9c-af87-90ec47382859",
+          "adresse": "Geb\u00e4ude Strasse",
+          "vers-nr": "3",
+          "leistung": 2000,
+          "kategorie": "Einfamilienhaus freistehend",
+          "wohnungen": [
+            {
+              "lage": "Osten",
+              "uuid": "c33a3b1f-025f-4aa2-bcb2-2a8757bf0ab2",
+              "flache": 200,
+              "zimmer": 7,
+              "kuchenart": "K\u00fcche (min. 4m\u00b2)",
+              "stockwerk": "5",
+              "maisonette": "Ja",
+              "eingangs-nr": "5"
+            }
+          ],
+          "heizungsart": "Zentralheizung f\u00fcr das Geb\u00e4ude",
+          "kataster-nr": "3",
+          "energietrager-heizung": "W\u00e4rmepumpe",
+          "energietrager-warmwasser": "W\u00e4rmepumpe"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 30,
+    "fields": {
+      "instance": 3,
+      "name": "geometer",
+      "value": "Trigonet AG (Stans)"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 31,
+    "fields": {
+      "instance": 3,
+      "name": "baukosten",
+      "value": 500000
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 32,
+    "fields": {
+      "instance": 3,
+      "name": "grundeigentumerschaft",
+      "value": [
+        {
+          "ort": "0000 Eigent\u00fcmer Ort",
+          "name": "Eigent\u00fcmer Nachname, Vorname",
+          "uuid": "f09cd9c8-4020-4489-a398-dd4f96507823",
+          "strasse": "Eigent\u00fcmer Strasse"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 33,
+    "fields": {
+      "instance": 3,
+      "name": "bauherrschaft",
+      "value": [
+        {
+          "ort": "0000 Bauherschaft Ort",
+          "name": "Bauherschaft, Bauherschaft Vorname",
+          "uuid": "15e54e5b-57ff-4006-a3ca-91ee386070e8",
+          "strasse": "Bauherrschaft Strasse 5"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 34,
+    "fields": {
+      "instance": 3,
+      "name": "projektverfasser-planer",
+      "value": [
+        {
+          "ort": "0000 Planer Ort",
+          "name": "Planer Name, Planer Vorname",
+          "uuid": "23356b1f-27fe-4e2b-80aa-3b293f6e98ad",
+          "strasse": "Planer Strasse 3"
+        },
+        {
+          "ort": "0001 Verfasser Ort",
+          "name": "Verfasser Name, Verfasser Vorname",
+          "uuid": "e5c2698b-b06f-4cd6-90bf-3367cb287a43",
+          "strasse": "Verfasser Strasse 3"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 35,
+    "fields": {
+      "instance": 3,
+      "name": "gebaudevolumen",
+      "value": 200
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 36,
+    "fields": {
+      "instance": 3,
+      "name": "bezeichnung",
+      "value": "Testgeb\u00e4ude"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 37,
+    "fields": {
+      "instance": 1,
+      "name": "bezeichnung",
+      "value": "test"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 38,
+    "fields": {
+      "instance": 1,
+      "name": "projektnummer",
+      "value": "234"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 39,
+    "fields": {
+      "instance": 1,
+      "name": "parzellen",
+      "value": [
+        {
+          "egrid": "CH144022777694",
+          "number": 955,
+          "municipality": "Schwyz"
+        },
+        {
+          "egrid": "CH674077862286",
+          "number": 1881,
+          "municipality": "Schwyz"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 40,
+    "fields": {
+      "instance": 1,
+      "name": "punkte",
+      "value": [
+        {
+          "lat": 47.026107030432364,
+          "lng": 8.652354949261511
+        },
+        {
+          "lat": 47.02446878745013,
+          "lng": 8.6528696823776
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 41,
+    "fields": {
+      "instance": 1,
+      "name": "layer",
+      "value": [
+        {
+          "name": "ms:ch.sz.a005.nutzungsplanung.grundnutzung"
+        },
+        {
+          "name": "ms:ch.sz.a013a.planerischergewaesserschutz.gsbereiche.bereich.au"
+        },
+        {
+          "name": "ms:ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon"
+        },
+        {
+          "name": "ms:ch.sz.a023a.egid"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 42,
+    "fields": {
+      "instance": 1,
+      "name": "kategorie-des-vorhabens",
+      "value": ["Baute(n)"]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 43,
+    "fields": {
+      "instance": 1,
+      "name": "art-der-nutzung",
+      "value": ["Tourismus"]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 44,
+    "fields": {
+      "instance": 1,
+      "name": "vorhaben-mit-baute",
+      "value": ["Anbau / Erweiterung"]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 45,
+    "fields": {
+      "instance": 1,
+      "name": "ordendliche-mindestabstande",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 46,
+    "fields": {
+      "instance": 1,
+      "name": "tangiert-vorhaben-strasse",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 47,
+    "fields": {
+      "instance": 1,
+      "name": "anlagen-mit-erheblichen-schadstoffemissionen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 48,
+    "fields": {
+      "instance": 1,
+      "name": "anlagen-mit-erheblichen-strahlungsemissionen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 49,
+    "fields": {
+      "instance": 1,
+      "name": "anlagen-mit-erheblichen-larmemissionen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 50,
+    "fields": {
+      "instance": 1,
+      "name": "larmbelastetes-gebiet",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 51,
+    "fields": {
+      "instance": 1,
+      "name": "aussenbeleuchtung",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 52,
+    "fields": {
+      "instance": 1,
+      "name": "boden-5000m2",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 53,
+    "fields": {
+      "instance": 1,
+      "name": "bodenbelastungen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 54,
+    "fields": {
+      "instance": 1,
+      "name": "lebensmittel-umgehen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 55,
+    "fields": {
+      "instance": 1,
+      "name": "offentlich-duschanlage-oder-bad",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 56,
+    "fields": {
+      "instance": 1,
+      "name": "wassergefahrdende-stoffe",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 57,
+    "fields": {
+      "instance": 1,
+      "name": "brandschutztechnisch-gefahrliche-stoffe",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 58,
+    "fields": {
+      "instance": 1,
+      "name": "pfahlfundation-vorgesehen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 59,
+    "fields": {
+      "instance": 1,
+      "name": "baugrubenumschliessung-vorgesehen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 60,
+    "fields": {
+      "instance": 1,
+      "name": "temporare-grundwasserabsenkung-notig",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 61,
+    "fields": {
+      "instance": 1,
+      "name": "gewerbliche-nutzflachen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 62,
+    "fields": {
+      "instance": 1,
+      "name": "auswirkungen-auf-arbeitnehmer",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 63,
+    "fields": {
+      "instance": 1,
+      "name": "geometer",
+      "value": "HSK Ingenieur AG (Goldau, K\u00fcssnacht, Brunnen)"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 64,
+    "fields": {
+      "instance": 1,
+      "name": "baugespann-errichtet",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 65,
+    "fields": {
+      "instance": 1,
+      "name": "kein-baugespann-begrundung",
+      "value": "asdf"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 66,
+    "fields": {
+      "instance": 1,
+      "name": "baukosten",
+      "value": 8745
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 67,
+    "fields": {
+      "instance": 1,
+      "name": "gebaudevolumen-sia-116",
+      "value": 954
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 68,
+    "fields": {
+      "instance": 1,
+      "name": "gebaudevolumen-sia-416",
+      "value": 547
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 69,
+    "fields": {
+      "instance": 1,
+      "name": "arbeitssicherheit-planbesprechung",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 70,
+    "fields": {
+      "instance": 1,
+      "name": "arbeitssicherheit-tangiert",
+      "value": ["Sozialr\u00e4ume"]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 71,
+    "fields": {
+      "instance": 1,
+      "name": "arbeitssicherheit-sozialraume-anzahl",
+      "value": 8
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 72,
+    "fields": {
+      "instance": 1,
+      "name": "arbeitssicherheit-sozialraume-waschanlagen",
+      "value": "1"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 73,
+    "fields": {
+      "instance": 1,
+      "name": "arbeitssicherheit-sozialraume-garderoben",
+      "value": "2"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 74,
+    "fields": {
+      "instance": 1,
+      "name": "arbeitssicherheit-sozialraume-toiletten-duschen",
+      "value": "2"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 75,
+    "fields": {
+      "instance": 1,
+      "name": "arbeitssicherheit-sozialraume-sanitare-anlagen",
+      "value": "1"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 76,
+    "fields": {
+      "instance": 1,
+      "name": "arbeitssicherheit-sozialraume-ess-und-aufenthaltsraume",
+      "value": "1"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 77,
+    "fields": {
+      "instance": 1,
+      "name": "arbeitssicherheit-sozialraume-pause-und-ruheraume",
+      "value": "1"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 78,
+    "fields": {
+      "instance": 1,
+      "name": "datenverschnitt-grundwasserschutz-bereich-au",
+      "value": ["Erledigt"]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 79,
+    "fields": {
+      "instance": 4,
+      "name": "parzellen",
+      "value": [
+        {
+          "egrid": "CH532678382977",
+          "number": 634,
+          "municipality": "Feusisberg"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 80,
+    "fields": {
+      "instance": 4,
+      "name": "punkte",
+      "value": [
+        {
+          "lat": 47.18756595392146,
+          "lng": 8.756251665285621
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 81,
+    "fields": {
+      "instance": 4,
+      "name": "layer",
+      "value": [
+        {
+          "name": "ms:ch.sz.a013a.planerischergewaesserschutz.gsbereiche.bereich.au"
+        },
+        {
+          "name": "ms:ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 82,
+    "fields": {
+      "instance": 5,
+      "name": "parzellen",
+      "value": [
+        {
+          "egrid": "- - -",
+          "number": 3279,
+          "municipality": "Schwyz"
+        },
+        {
+          "egrid": "CH832277407342",
+          "number": 216,
+          "municipality": "Schwyz"
+        },
+        {
+          "egrid": "CH792277774094",
+          "number": 1,
+          "municipality": "Schwyz"
+        },
+        {
+          "egrid": "CH630977674421",
+          "number": 606,
+          "municipality": "Steinen"
+        },
+        {
+          "egrid": "CH627700224068",
+          "number": 3387,
+          "municipality": "Schwyz"
+        },
+        {
+          "egrid": "CH614000227744",
+          "number": 3386,
+          "municipality": "Schwyz"
+        },
+        {
+          "egrid": "CH607740002251",
+          "number": 3385,
+          "municipality": "Schwyz"
+        },
+        {
+          "egrid": "CH844022777353",
+          "number": 217,
+          "municipality": "Schwyz"
+        },
+        {
+          "egrid": "CH827773224022",
+          "number": 215,
+          "municipality": "Schwyz"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 83,
+    "fields": {
+      "instance": 5,
+      "name": "punkte",
+      "value": [
+        {
+          "lat": 47.05718901208619,
+          "lng": 8.634944274047722
+        },
+        {
+          "lat": 47.05882624709374,
+          "lng": 8.642150537673029
+        },
+        {
+          "lat": 47.05672121683313,
+          "lng": 8.638032672744265
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 84,
+    "fields": {
+      "instance": 5,
+      "name": "layer",
+      "value": [
+        {
+          "name": "ms:ch.sz.a013a.planerischergewaesserschutz.gwszonen.status.gwszone"
+        },
+        {
+          "name": "ms:ch.sz.a013a.planerischergewaesserschutz.gsbereiche.bereich.au"
+        },
+        {
+          "name": "ms:ch.sz.a018.amtliche_vermessung.bodenbedeckung.gebaeudenummer"
+        },
+        {
+          "name": "ms:ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon"
+        },
+        {
+          "name": "ms:ch.sz.a023a.egid"
+        },
+        {
+          "name": "ms:ch.sz.a078.wanderwege"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 85,
+    "fields": {
+      "instance": 6,
+      "name": "parzellen",
+      "value": [
+        {
+          "egrid": "CH442449778575",
+          "number": 2604,
+          "municipality": "Einsiedeln"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 86,
+    "fields": {
+      "instance": 6,
+      "name": "punkte",
+      "value": [
+        {
+          "lat": 47.111915685543686,
+          "lng": 8.826255369074396
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 87,
+    "fields": {
+      "instance": 6,
+      "name": "layer",
+      "value": [
+        {
+          "name": "ms:ch.sz.a006.swisstlm3d.gewaesser.fliessgewaesser"
+        },
+        {
+          "name": "ms:ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 88,
+    "fields": {
+      "instance": 6,
+      "name": "bezeichnung",
+      "value": "Test 01.05.2019"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 89,
+    "fields": {
+      "instance": 6,
+      "name": "projektnummer",
+      "value": "666"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 90,
+    "fields": {
+      "instance": 1,
+      "name": "lage",
+      "value": "ausserhalb"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 91,
+    "fields": {
+      "instance": 1,
+      "name": "verfahrensart",
+      "value": "meldeverfahren"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 92,
+    "fields": {
+      "instance": 1,
+      "name": "bezeichnung-override",
+      "value": "test foobar"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 93,
+    "fields": {
+      "instance": 1,
+      "name": "verfahrensart-erstellt",
+      "value": "nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 94,
+    "fields": {
+      "instance": 1,
+      "name": "betroffene-nutzungszonen",
+      "value": "innerhalb\nunderground"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 95,
+    "fields": {
+      "instance": 1,
+      "name": "ortsbezeichnung-des-vorhabens",
+      "value": "This is Fluuuuuuur"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 96,
+    "fields": {
+      "instance": 7,
+      "name": "bezeichnung",
+      "value": "test 02.05.2019"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 97,
+    "fields": {
+      "instance": 7,
+      "name": "projektnummer",
+      "value": "666"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 98,
+    "fields": {
+      "instance": 7,
+      "name": "parzellen",
+      "value": [
+        {
+          "egrid": "CH357522774006",
+          "number": 1646,
+          "municipality": "Schwyz"
+        },
+        {
+          "egrid": "CH514099227760",
+          "number": 2151,
+          "municipality": "Schwyz"
+        },
+        {
+          "egrid": "CH332277407516",
+          "number": 1644,
+          "municipality": "Schwyz"
+        },
+        {
+          "egrid": "CH167722409592",
+          "number": 2831,
+          "municipality": "Schwyz"
+        },
+        {
+          "egrid": "CH344022777527",
+          "number": 1645,
+          "municipality": "Schwyz"
+        },
+        {
+          "egrid": "CH992277954069",
+          "number": 2809,
+          "municipality": "Schwyz"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 99,
+    "fields": {
+      "instance": 7,
+      "name": "punkte",
+      "value": [
+        {
+          "lat": 47.01280070173426,
+          "lng": 8.658757123379358
+        },
+        {
+          "lat": 47.01280070173426,
+          "lng": 8.663927213212368
+        },
+        {
+          "lat": 47.01104500198514,
+          "lng": 8.661351372170586
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 100,
+    "fields": {
+      "instance": 7,
+      "name": "layer",
+      "value": [
+        {
+          "name": "ms:ch.sz.a013a.planerischergewaesserschutz.gsbereiche.bereich.au"
+        },
+        {
+          "name": "ms:ch.sz.a018.amtliche_vermessung.bodenbedeckung.gebaeudenummer"
+        },
+        {
+          "name": "ms:ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon"
+        },
+        {
+          "name": "ms:ch.sz.a023a.egid"
+        },
+        {
+          "name": "ms:ch.sz.a133a.kantonales_schutzinventar"
+        },
+        {
+          "name": "ms:ch.sz.a078.wanderwege"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 101,
+    "fields": {
+      "instance": 4,
+      "name": "kategorie-des-vorhabens",
+      "value": ["Baute(n)"]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 102,
+    "fields": {
+      "instance": 8,
+      "name": "bezeichnung",
+      "value": "upload test"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 103,
+    "fields": {
+      "instance": 8,
+      "name": "projektnummer",
+      "value": "666"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 104,
+    "fields": {
+      "instance": 8,
+      "name": "parzellen",
+      "value": [
+        {
+          "egrid": "CH992277984060",
+          "number": 2007,
+          "municipality": "Schwyz"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 105,
+    "fields": {
+      "instance": 8,
+      "name": "punkte",
+      "value": [
+        {
+          "lat": 47.02646978172196,
+          "lng": 8.671036559663749
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 106,
+    "fields": {
+      "instance": 8,
+      "name": "layer",
+      "value": [
+        {
+          "name": "ms:ch.sz.a013a.planerischergewaesserschutz.gsbereiche.bereich.au"
+        },
+        {
+          "name": "ms:ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon"
+        },
+        {
+          "name": "ms:ch.sz.anjf_reptiliengebiete.reptiliengebiet"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 107,
+    "fields": {
+      "instance": 12,
+      "name": "bezeichnung",
+      "value": "circ done test"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 108,
+    "fields": {
+      "instance": 12,
+      "name": "parzellen",
+      "value": [
+        {
+          "egrid": "CH227771224050",
+          "number": 558,
+          "municipality": "Schwyz"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 109,
+    "fields": {
+      "instance": 12,
+      "name": "punkte",
+      "value": [
+        {
+          "lat": 47.0199165526655,
+          "lng": 8.629236194021038
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 110,
+    "fields": {
+      "instance": 12,
+      "name": "layer",
+      "value": [
+        {
+          "name": "ms:ch.sz.a005.nutzungsplanung.grundnutzung"
+        },
+        {
+          "name": "ms:ch.sz.a013a.planerischergewaesserschutz.gsbereiche.bereich.au"
+        },
+        {
+          "name": "ms:ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon"
+        }
+      ]
+    }
+  }
+]

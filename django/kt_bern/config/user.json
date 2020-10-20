@@ -1,0 +1,579 @@
+[
+  {
+    "model": "user.role",
+    "pk": 1,
+    "fields": {
+      "role_parent": null,
+      "name": "admin",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 2,
+    "fields": {
+      "role_parent": null,
+      "name": "guest",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 3,
+    "fields": {
+      "role_parent": null,
+      "name": "municipality-lead",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 4,
+    "fields": {
+      "role_parent": null,
+      "name": "service-lead",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 5,
+    "fields": {
+      "role_parent": null,
+      "name": "construction-control-lead",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 6,
+    "fields": {
+      "role_parent": null,
+      "name": "applicant",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 10000,
+    "fields": {
+      "role_parent": null,
+      "name": "support",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 20000,
+    "fields": {
+      "role_parent": null,
+      "name": "subservice",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 20001,
+    "fields": {
+      "role_parent": 4,
+      "name": "service-clerk",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 20002,
+    "fields": {
+      "role_parent": null,
+      "name": "service-readonly",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 20003,
+    "fields": {
+      "role_parent": null,
+      "name": "municipality-readonly",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 20004,
+    "fields": {
+      "role_parent": 3,
+      "name": "municipality-clerk",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 20005,
+    "fields": {
+      "role_parent": 5,
+      "name": "construction-control-clerk",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 20006,
+    "fields": {
+      "role_parent": null,
+      "name": "construction-control-readonly",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 20007,
+    "fields": {
+      "role_parent": null,
+      "name": "municipality-admin",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 20008,
+    "fields": {
+      "role_parent": null,
+      "name": "service-admin",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 20009,
+    "fields": {
+      "role_parent": null,
+      "name": "construction-control-admin",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 1,
+    "fields": {
+      "role": 1,
+      "language": "de",
+      "name": "Admin",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 2,
+    "fields": {
+      "role": 2,
+      "language": "de",
+      "name": "Guest",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 3,
+    "fields": {
+      "role": 1,
+      "language": "fr",
+      "name": "Administrateur",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 4,
+    "fields": {
+      "role": 2,
+      "language": "fr",
+      "name": "Guest (FR)",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 5,
+    "fields": {
+      "role": 3,
+      "language": "de",
+      "name": "Leitung Leitbeh\u00f6rde",
+      "group_prefix": "Leitung"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 6,
+    "fields": {
+      "role": 4,
+      "language": "de",
+      "name": "Leitung Fachstelle",
+      "group_prefix": "Leitung"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 7,
+    "fields": {
+      "role": 5,
+      "language": "de",
+      "name": "Leitung Baukontrolle",
+      "group_prefix": "Leitung"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 8,
+    "fields": {
+      "role": 6,
+      "language": "de",
+      "name": "Gesuchsteller",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 10001,
+    "fields": {
+      "role": 10000,
+      "language": "de",
+      "name": "System-Betrieb",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20000,
+    "fields": {
+      "role": 20000,
+      "language": "de",
+      "name": "Unterfachstelle",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20001,
+    "fields": {
+      "role": 20001,
+      "language": "de",
+      "name": "Sachbearbeiter Fachstelle",
+      "group_prefix": "Sachbearbeiter"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20002,
+    "fields": {
+      "role": 20002,
+      "language": "de",
+      "name": "Einsichtsberechtigte Fachstelle",
+      "group_prefix": "Einsichtsberechtigte"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20003,
+    "fields": {
+      "role": 20003,
+      "language": "de",
+      "name": "Einsichtsberechtigte Leitbeh\u00f6rde",
+      "group_prefix": "Einsichtsberechtigte"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20004,
+    "fields": {
+      "role": 20004,
+      "language": "de",
+      "name": "Sachbearbeiter Leitbeh\u00f6rde",
+      "group_prefix": "Sachbearbeiter"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20005,
+    "fields": {
+      "role": 20005,
+      "language": "de",
+      "name": "Sachbearbeiter Baukontrolle",
+      "group_prefix": "Sachbearbeiter"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20006,
+    "fields": {
+      "role": 20006,
+      "language": "de",
+      "name": "Einsichtsberechtigte Baukontrolle",
+      "group_prefix": "Einsichtsberechtigte"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20007,
+    "fields": {
+      "role": 1,
+      "language": "fr",
+      "name": "Admin",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20008,
+    "fields": {
+      "role": 2,
+      "language": "fr",
+      "name": "Guest",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20009,
+    "fields": {
+      "role": 3,
+      "language": "fr",
+      "name": "Direction: autorit\u00e9 directrice",
+      "group_prefix": "Direction:"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20010,
+    "fields": {
+      "role": 4,
+      "language": "fr",
+      "name": "Direction: service",
+      "group_prefix": "Direction:"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20011,
+    "fields": {
+      "role": 5,
+      "language": "fr",
+      "name": "Direction: contr\u00f4le des constructions",
+      "group_prefix": "Direction:"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20012,
+    "fields": {
+      "role": 6,
+      "language": "fr",
+      "name": "Requ\u00e9rant/e",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20013,
+    "fields": {
+      "role": 10000,
+      "language": "fr",
+      "name": "Exploitation du syst\u00e8me",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20014,
+    "fields": {
+      "role": 20000,
+      "language": "fr",
+      "name": "Unit\u00e9 d'un service sp\u00e9cialis\u00e9",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20015,
+    "fields": {
+      "role": 20001,
+      "language": "fr",
+      "name": "Collaborateur/collaboratrice d'un service sp\u00e9cialis\u00e9",
+      "group_prefix": "Collaborateur/collaboratrice:"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20016,
+    "fields": {
+      "role": 20002,
+      "language": "fr",
+      "name": "Droit de consulter le dossier: service",
+      "group_prefix": "Droit de consulter le dossier:"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20017,
+    "fields": {
+      "role": 20003,
+      "language": "fr",
+      "name": "Droit de consulter le dossier: autorit\u00e9 directrice",
+      "group_prefix": "Droit de consulter le dossier:"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20018,
+    "fields": {
+      "role": 20004,
+      "language": "fr",
+      "name": "Collaborateur/collaboratrice de l'autorit\u00e9 directrice",
+      "group_prefix": "Collaborateur/collaboratrice:"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20019,
+    "fields": {
+      "role": 20005,
+      "language": "fr",
+      "name": "Collaborateur/collaboratrice du contr\u00f4le des constructions",
+      "group_prefix": "Collaborateur/collaboratrice:"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20020,
+    "fields": {
+      "role": 20006,
+      "language": "fr",
+      "name": "Droit de consulter le dossier: contr\u00f4le des constructions",
+      "group_prefix": "Droit de consulter le dossier:"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20021,
+    "fields": {
+      "role": 20007,
+      "language": "de",
+      "name": "Administration Leitbeh\u00f6rde",
+      "group_prefix": "Administration"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20022,
+    "fields": {
+      "role": 20008,
+      "language": "de",
+      "name": "Administration Fachstelle",
+      "group_prefix": "Administration"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20023,
+    "fields": {
+      "role": 20009,
+      "language": "de",
+      "name": "Administration Baukontrolle",
+      "group_prefix": "Administration"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20024,
+    "fields": {
+      "role": 20009,
+      "language": "fr",
+      "name": "Administration: contr\u00f4le des constructions",
+      "group_prefix": "Administration:"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20025,
+    "fields": {
+      "role": 20008,
+      "language": "fr",
+      "name": "Administration: service",
+      "group_prefix": "Administration:"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20026,
+    "fields": {
+      "role": 20007,
+      "language": "fr",
+      "name": "Administration: autorit\u00e9 directrice",
+      "group_prefix": "Administration:"
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 1,
+    "fields": {
+      "name": "service"
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 2,
+    "fields": {
+      "name": "municipality"
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 3,
+    "fields": {
+      "name": "construction-control"
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 20000,
+    "fields": {
+      "name": "district"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20000,
+    "fields": {
+      "service_group": 1,
+      "language": "de",
+      "name": "Fachstelle"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20001,
+    "fields": {
+      "service_group": 2,
+      "language": "de",
+      "name": "Leitbeh\u00f6rde Gemeinde"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20002,
+    "fields": {
+      "service_group": 3,
+      "language": "de",
+      "name": "Baukontrolle"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20003,
+    "fields": {
+      "service_group": 20000,
+      "language": "de",
+      "name": "Leitbeh\u00f6rde RSTA"
+    }
+  }
+]
