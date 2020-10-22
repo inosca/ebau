@@ -30,12 +30,16 @@ def test_dump_and_load(db, settings, application, tmpdir):
 
     # load data including test data
     call_command(
-        "camac_load", user="test-dummy@adfinis.com", stdout=open(os.devnull, "w"),
+        "camac_load",
+        user="test-dummy@adfinis.com",
+        stdout=open(os.devnull, "w"),
     )
 
     # overwrite configuration
     call_command(
-        "camac_load", user="test-dummy@adfinis.com", stdout=open(os.devnull, "w"),
+        "camac_load",
+        user="test-dummy@adfinis.com",
+        stdout=open(os.devnull, "w"),
     )
 
     for dump_type in ["config", "data"]:
@@ -58,9 +62,13 @@ def test_dump_and_load(db, settings, application, tmpdir):
                 )
 
                 test_dumped_json = sort_fixture(
-                    json.load(test_dumped), unordered_fields,
+                    json.load(test_dumped),
+                    unordered_fields,
                 )
-                dumped_json = sort_fixture(json.load(dumped), unordered_fields,)
+                dumped_json = sort_fixture(
+                    json.load(dumped),
+                    unordered_fields,
+                )
 
                 #  verify that dump is still the same
                 assert (

@@ -531,8 +531,9 @@ def test_notice_kind_of_proceedings_send_handler(
     if has_permission:
         handler.apply()
         assert ech_instance.circulations.exists()
-        assert ech_instance.circulations.first().service == ech_instance.responsible_service(
-            filter_type="municipality"
+        assert (
+            ech_instance.circulations.first().service
+            == ech_instance.responsible_service(filter_type="municipality")
         )
         ech_instance.refresh_from_db()
         assert ech_instance.instance_state.pk == INSTANCE_STATE_ZIRKULATION
