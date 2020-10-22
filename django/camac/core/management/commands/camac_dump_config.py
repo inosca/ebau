@@ -14,6 +14,8 @@ class Command(BaseCommand):
     help = "Output the configuration of the application as grouped fixtures"
 
     def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
         self.groups = collections.defaultdict(list)
 
     def add_arguments(self, parser):
@@ -55,7 +57,7 @@ class Command(BaseCommand):
                 **config.DUMP_CONFIG_GROUPS,
                 **settings.APPLICATION.get("DUMP_CONFIG_GROUPS", {}),
             }
-            for filter_group, model_filters in filter_config:
+            for filter_group, model_filters in filter_config.items():
                 if (
                     model_identifier in model_filters
                 ):  # pragma: no cover, TODO: remove as soon as BE config is uncommented
