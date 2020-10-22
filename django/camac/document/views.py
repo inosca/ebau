@@ -166,8 +166,9 @@ class AttachmentView(
         }
 
         if models.ADMINSERVICE_PERMISSION in attachment_admin_permissions:
-            return obj.service == self.request.group.service and super().has_object_destroy_permission(
-                obj
+            return (
+                obj.service == self.request.group.service
+                and super().has_object_destroy_permission(obj)
             )
 
         return bool(
