@@ -31,12 +31,15 @@ class Services(BaseDataSource):
     def get_data(self, info):
         services = Service.objects.filter(service_group__name="service", disabled=False)
 
-        data = sorted(
-            [
-                [str(service.pk), service.get_name().replace("Leitbehörde ", "")]
-                for service in services.iterator()
-            ],
-            key=lambda x: x[1].casefold(),
-        ) + [["-1", "Andere"]]
+        data = (
+            sorted(
+                [
+                    [str(service.pk), service.get_name().replace("Leitbehörde ", "")]
+                    for service in services.iterator()
+                ],
+                key=lambda x: x[1].casefold(),
+            )
+            + [["-1", "Andere"]]
+        )
 
         return data

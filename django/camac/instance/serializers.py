@@ -114,7 +114,9 @@ def generate_identifier(instance):
         sequence = int(max_identifier[-3:])
 
         identifier = "{0}-{1}-{2}".format(
-            identifier_start, timezone.now().strftime("%y"), str(sequence + 1).zfill(3),
+            identifier_start,
+            timezone.now().strftime("%y"),
+            str(sequence + 1).zfill(3),
         )
 
     return identifier
