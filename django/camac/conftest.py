@@ -411,7 +411,8 @@ def caluma_forms(settings):
         data_source="Municipalities",
     )
     caluma_form_models.Question.objects.create(
-        slug="municipality", type=caluma_form_models.Question.TYPE_TEXT,
+        slug="municipality",
+        type=caluma_form_models.Question.TYPE_TEXT,
     )
     settings.DATA_SOURCE_CLASSES = [
         "camac.caluma.extensions.data_sources.Municipalities"
