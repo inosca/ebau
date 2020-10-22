@@ -14,6 +14,8 @@ class Command(BaseCommand):
     help = "Output the data of the application as grouped fixtures"
 
     def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
         self.groups = collections.defaultdict(list)
 
     def add_arguments(self, parser):
