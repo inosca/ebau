@@ -20,10 +20,10 @@
     "pk": "building-permit",
     "fields": {
       "created_at": "2020-07-12T10:28:29.091Z",
-      "modified_at": "2020-07-12T10:28:29.091Z",
+      "modified_at": "2020-10-21T13:02:55.634Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "name": "{\"de\": \"Baugesuch\", \"fr\": null}",
+      "name": "{\"de\": \"Verfahren\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
       "is_published": true,
@@ -129,6 +129,22 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "meldung-vorhaben",
+    "fields": {
+      "created_at": "2020-10-21T12:42:24.327Z",
+      "modified_at": "2020-10-21T12:42:24.327Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "name": "{\"de\": \"Vorhaben\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "parcel-table",
     "fields": {
       "created_at": "2020-09-01T14:59:21.942Z",
@@ -193,6 +209,70 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "reklame",
+    "fields": {
+      "created_at": "2020-10-21T12:32:25.243Z",
+      "modified_at": "2020-10-21T12:32:25.243Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "name": "{\"de\": \"Reklame\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "reklame-tabelle",
+    "fields": {
+      "created_at": "2020-10-21T12:32:46.245Z",
+      "modified_at": "2020-10-21T12:32:46.245Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "name": "{\"de\": \"Reklame Tabelle\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "solaranlage",
+    "fields": {
+      "created_at": "2020-10-21T12:11:12.212Z",
+      "modified_at": "2020-10-21T12:11:12.213Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "name": "{\"de\": \"Photovoltaik- / Solaranlage\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "solaranlagen-tabelle",
+    "fields": {
+      "created_at": "2020-10-21T12:20:38.477Z",
+      "modified_at": "2020-10-21T12:20:38.477Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "name": "{\"de\": \"Solaranlagen Tabelle\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "spezielle-bauten",
     "fields": {
       "created_at": "2020-09-21T07:47:22.572Z",
@@ -216,6 +296,38 @@
       "created_by_user": "admin",
       "created_by_group": null,
       "name": "{\"de\": \"Tiefbau\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "tiefbau-tabelle",
+    "fields": {
+      "created_at": "2020-10-21T13:19:34.602Z",
+      "modified_at": "2020-10-21T13:19:34.602Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "name": "{\"de\": \"Tiefbau Tabelle\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "veranstaltungsgesuch",
+    "fields": {
+      "created_at": "2020-10-21T12:52:47.140Z",
+      "modified_at": "2020-10-21T12:52:47.140Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "name": "{\"de\": \"Veranstaltungsgesuch\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
       "is_published": true,
@@ -363,7 +475,7 @@
       "created_by_group": null,
       "form": "building-permit",
       "question": "fachthemen",
-      "sort": 1
+      "sort": 5
     }
   },
   {
@@ -376,7 +488,7 @@
       "created_by_group": null,
       "form": "building-permit",
       "question": "form-type",
-      "sort": 2
+      "sort": 6
     }
   },
   {
@@ -389,7 +501,7 @@
       "created_by_group": null,
       "form": "building-permit",
       "question": "is-paper",
-      "sort": 8
+      "sort": 12
     }
   },
   {
@@ -402,7 +514,7 @@
       "created_by_group": null,
       "form": "building-permit",
       "question": "leitbehoerde",
-      "sort": 7
+      "sort": 11
     }
   },
   {
@@ -415,7 +527,7 @@
       "created_by_group": null,
       "form": "building-permit",
       "question": "lokalisierung",
-      "sort": 5
+      "sort": 9
     }
   },
   {
@@ -428,7 +540,7 @@
       "created_by_group": null,
       "form": "building-permit",
       "question": "municipality",
-      "sort": 6
+      "sort": 10
     }
   },
   {
@@ -441,6 +553,19 @@
       "created_by_group": null,
       "form": "building-permit",
       "question": "personalien",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "building-permit.photovoltaik-solaranlage",
+    "fields": {
+      "created_at": "2020-10-21T12:15:10.406Z",
+      "modified_at": "2020-10-21T12:15:10.406Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "building-permit",
+      "question": "photovoltaik-solaranlage",
       "sort": 4
     }
   },
@@ -454,7 +579,46 @@
       "created_by_group": null,
       "form": "building-permit",
       "question": "projektdaten",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "building-permit.reklame",
+    "fields": {
+      "created_at": "2020-10-21T12:40:05.521Z",
+      "modified_at": "2020-10-21T12:40:05.521Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "building-permit",
+      "question": "reklame",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "building-permit.veranstaltung-form",
+    "fields": {
+      "created_at": "2020-10-21T12:59:20.917Z",
+      "modified_at": "2020-10-21T12:59:20.917Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "building-permit",
+      "question": "veranstaltung-form",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "building-permit.vorhaben",
+    "fields": {
+      "created_at": "2020-10-21T12:45:58.749Z",
+      "modified_at": "2020-10-21T12:45:58.749Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "building-permit",
+      "question": "vorhaben",
+      "sort": 2
     }
   },
   {
@@ -667,6 +831,19 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "gebaeude-tabelle.gebaeudenummer-bezeichnung",
+    "fields": {
+      "created_at": "2020-10-21T11:40:48.196Z",
+      "modified_at": "2020-10-21T11:40:48.196Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "gebaeude-tabelle",
+      "question": "gebaeudenummer-bezeichnung",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "gebaeude-tabelle.proposal",
     "fields": {
       "created_at": "2020-10-19T12:41:34.288Z",
@@ -793,6 +970,19 @@
       "form": "haustechnik",
       "question": "brennstoffe-menge",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.gehoert-zu-gebaeudenummer",
+    "fields": {
+      "created_at": "2020-10-21T11:42:35.229Z",
+      "modified_at": "2020-10-21T11:42:35.229Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "haustechnik",
+      "question": "gehoert-zu-gebaeudenummer",
+      "sort": 14
     }
   },
   {
@@ -1144,6 +1334,71 @@
       "form": "materialien",
       "question": "fenster-titel",
       "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "meldung-vorhaben.vorhaben-befristet-bis",
+    "fields": {
+      "created_at": "2020-10-21T12:45:07.625Z",
+      "modified_at": "2020-10-21T12:45:07.625Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "meldung-vorhaben",
+      "question": "vorhaben-befristet-bis",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "meldung-vorhaben.vorhaben-befristet-von",
+    "fields": {
+      "created_at": "2020-10-21T12:44:55.139Z",
+      "modified_at": "2020-10-21T12:44:55.139Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "meldung-vorhaben",
+      "question": "vorhaben-befristet-von",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "meldung-vorhaben.vorhaben-dauer",
+    "fields": {
+      "created_at": "2020-10-21T12:44:36.105Z",
+      "modified_at": "2020-10-21T12:44:36.105Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "meldung-vorhaben",
+      "question": "vorhaben-dauer",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "meldung-vorhaben.vorhaben-gesamtkosten-chf",
+    "fields": {
+      "created_at": "2020-10-21T12:51:19.261Z",
+      "modified_at": "2020-10-21T12:51:19.261Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "meldung-vorhaben",
+      "question": "vorhaben-gesamtkosten-chf",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "meldung-vorhaben.vorhaben-proposal-description",
+    "fields": {
+      "created_at": "2020-10-21T12:50:52.063Z",
+      "modified_at": "2020-10-21T12:50:52.064Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "meldung-vorhaben",
+      "question": "vorhaben-proposal-description",
+      "sort": 5
     }
   },
   {
@@ -1941,19 +2196,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "projektdaten.spezielle-bauten",
-    "fields": {
-      "created_at": "2020-09-21T07:53:31.556Z",
-      "modified_at": "2020-09-21T07:53:31.556Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "projektdaten",
-      "question": "spezielle-bauten",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "projektdaten.tiefbau",
     "fields": {
       "created_at": "2020-09-19T11:23:45.630Z",
@@ -1993,6 +2235,227 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "reklame-tabelle.anzahl-identischer-reklamen",
+    "fields": {
+      "created_at": "2020-10-21T12:36:18.617Z",
+      "modified_at": "2020-10-21T12:36:18.617Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "reklame-tabelle",
+      "question": "anzahl-identischer-reklamen",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklame-tabelle.art-der-reklame",
+    "fields": {
+      "created_at": "2020-10-21T12:33:49.939Z",
+      "modified_at": "2020-10-21T12:33:49.939Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "reklame-tabelle",
+      "question": "art-der-reklame",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklame-tabelle.befristet-bis",
+    "fields": {
+      "created_at": "2020-10-21T12:38:08.664Z",
+      "modified_at": "2020-10-21T12:38:08.664Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "reklame-tabelle",
+      "question": "befristet-bis",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklame-tabelle.befristet-von",
+    "fields": {
+      "created_at": "2020-10-21T12:37:59.452Z",
+      "modified_at": "2020-10-21T12:37:59.452Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "reklame-tabelle",
+      "question": "befristet-von",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklame-tabelle.beleuchtung",
+    "fields": {
+      "created_at": "2020-10-21T12:34:57.305Z",
+      "modified_at": "2020-10-21T12:34:57.305Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "reklame-tabelle",
+      "question": "beleuchtung",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklame-tabelle.groesse-reklame",
+    "fields": {
+      "created_at": "2020-10-21T12:36:00.737Z",
+      "modified_at": "2020-10-21T12:36:00.737Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "reklame-tabelle",
+      "question": "groesse-reklame",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklame-tabelle.installationsart",
+    "fields": {
+      "created_at": "2020-10-21T12:37:00.584Z",
+      "modified_at": "2020-10-21T12:37:00.584Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "reklame-tabelle",
+      "question": "installationsart",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklame-tabelle.montageart",
+    "fields": {
+      "created_at": "2020-10-21T12:34:37.228Z",
+      "modified_at": "2020-10-21T12:34:37.228Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "reklame-tabelle",
+      "question": "montageart",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklame.reklamen",
+    "fields": {
+      "created_at": "2020-10-21T12:39:14.172Z",
+      "modified_at": "2020-10-21T12:39:14.172Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "reklame",
+      "question": "reklamen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlage.solaranlagen",
+    "fields": {
+      "created_at": "2020-10-21T12:26:44.391Z",
+      "modified_at": "2020-10-21T12:26:44.391Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "solaranlage",
+      "question": "solaranlagen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle.anlage-ragt-nicht-ueber-dachflaeche-hinaus",
+    "fields": {
+      "created_at": "2020-10-21T12:23:55.699Z",
+      "modified_at": "2020-10-21T12:23:55.699Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "solaranlagen-tabelle",
+      "question": "anlage-ragt-nicht-ueber-dachflaeche-hinaus",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle.anlage-reflexionsarm",
+    "fields": {
+      "created_at": "2020-10-21T12:25:01.430Z",
+      "modified_at": "2020-10-21T12:25:01.430Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "solaranlagen-tabelle",
+      "question": "anlage-reflexionsarm",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle.kompakte-flaeche",
+    "fields": {
+      "created_at": "2020-10-21T12:24:24.181Z",
+      "modified_at": "2020-10-21T12:24:24.182Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "solaranlagen-tabelle",
+      "question": "kompakte-flaeche",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle.solar-gesamtflaeche-m2",
+    "fields": {
+      "created_at": "2020-10-21T12:29:57.982Z",
+      "modified_at": "2020-10-21T12:29:57.982Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "solaranlagen-tabelle",
+      "question": "solar-gesamtflaeche-m2",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle.solar-gesamtleistung-kw",
+    "fields": {
+      "created_at": "2020-10-21T12:30:11.627Z",
+      "modified_at": "2020-10-21T12:30:11.627Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "solaranlagen-tabelle",
+      "question": "solar-gesamtleistung-kw",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle.typ-der-solaranlage",
+    "fields": {
+      "created_at": "2020-10-21T12:21:04.946Z",
+      "modified_at": "2020-10-21T12:21:04.946Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "solaranlagen-tabelle",
+      "question": "typ-der-solaranlage",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle.ueberragt-dachflaeche",
+    "fields": {
+      "created_at": "2020-10-21T12:23:12.692Z",
+      "modified_at": "2020-10-21T12:23:12.692Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "solaranlagen-tabelle",
+      "question": "ueberragt-dachflaeche",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "spezielle-bauten.beschreibung-spezielle-baute",
     "fields": {
       "created_at": "2020-09-21T07:52:51.009Z",
@@ -2019,249 +2482,353 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "tiefbau.anschluss",
+    "pk": "tiefbau-tabelle.anschluss",
     "fields": {
-      "created_at": "2020-09-21T06:59:05.625Z",
-      "modified_at": "2020-09-21T06:59:05.625Z",
+      "created_at": "2020-10-21T13:20:47.355Z",
+      "modified_at": "2020-10-21T13:20:47.355Z",
       "created_by_user": null,
       "created_by_group": null,
-      "form": "tiefbau",
+      "form": "tiefbau-tabelle",
       "question": "anschluss",
       "sort": 15
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "tiefbau.anschluss-liegenschaftsentwaesserung",
+    "pk": "tiefbau-tabelle.anschluss-liegenschaftsentwaesserung",
     "fields": {
-      "created_at": "2020-09-21T07:07:21.058Z",
-      "modified_at": "2020-09-21T07:07:21.058Z",
+      "created_at": "2020-10-21T13:21:05.803Z",
+      "modified_at": "2020-10-21T13:21:05.803Z",
       "created_by_user": null,
       "created_by_group": null,
-      "form": "tiefbau",
+      "form": "tiefbau-tabelle",
       "question": "anschluss-liegenschaftsentwaesserung",
       "sort": 11
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "tiefbau.anzahl-parkplaetze-bestehend",
+    "pk": "tiefbau-tabelle.anzahl-parkplaetze-bestehend",
     "fields": {
-      "created_at": "2020-09-21T07:26:28.128Z",
-      "modified_at": "2020-09-21T07:26:28.128Z",
+      "created_at": "2020-10-21T13:21:35.982Z",
+      "modified_at": "2020-10-21T13:21:35.982Z",
       "created_by_user": null,
       "created_by_group": null,
-      "form": "tiefbau",
+      "form": "tiefbau-tabelle",
       "question": "anzahl-parkplaetze-bestehend",
       "sort": 8
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "tiefbau.anzahl-parkplaetze-neu",
+    "pk": "tiefbau-tabelle.anzahl-parkplaetze-neu",
     "fields": {
-      "created_at": "2020-09-21T07:28:16.700Z",
-      "modified_at": "2020-09-21T07:28:16.701Z",
+      "created_at": "2020-10-21T13:21:40.722Z",
+      "modified_at": "2020-10-21T13:21:40.723Z",
       "created_by_user": null,
       "created_by_group": null,
-      "form": "tiefbau",
+      "form": "tiefbau-tabelle",
       "question": "anzahl-parkplaetze-neu",
       "sort": 7
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "tiefbau.anzahl-veloabstellplaetze-bestehend",
+    "pk": "tiefbau-tabelle.anzahl-veloabstellplaetze-bestehend",
     "fields": {
-      "created_at": "2020-09-21T07:33:25.448Z",
-      "modified_at": "2020-09-21T07:33:25.448Z",
+      "created_at": "2020-10-21T13:21:49.522Z",
+      "modified_at": "2020-10-21T13:21:49.522Z",
       "created_by_user": null,
       "created_by_group": null,
-      "form": "tiefbau",
+      "form": "tiefbau-tabelle",
       "question": "anzahl-veloabstellplaetze-bestehend",
       "sort": 5
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "tiefbau.anzahl-veloabstellplaetze-neu",
+    "pk": "tiefbau-tabelle.anzahl-veloabstellplaetze-neu",
     "fields": {
-      "created_at": "2020-09-21T07:33:47.441Z",
-      "modified_at": "2020-09-21T07:33:47.441Z",
+      "created_at": "2020-10-21T13:21:56.661Z",
+      "modified_at": "2020-10-21T13:21:56.661Z",
       "created_by_user": null,
       "created_by_group": null,
-      "form": "tiefbau",
+      "form": "tiefbau-tabelle",
       "question": "anzahl-veloabstellplaetze-neu",
       "sort": 4
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "tiefbau.beschreibung-tiefbaute",
+    "pk": "tiefbau-tabelle.beschreibung-tiefbaute",
     "fields": {
-      "created_at": "2020-09-21T07:56:48.405Z",
-      "modified_at": "2020-09-21T07:56:48.405Z",
+      "created_at": "2020-10-21T13:22:12.905Z",
+      "modified_at": "2020-10-21T13:22:12.905Z",
       "created_by_user": null,
       "created_by_group": null,
-      "form": "tiefbau",
+      "form": "tiefbau-tabelle",
       "question": "beschreibung-tiefbaute",
       "sort": 1
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "tiefbau.erschliessungen",
+    "pk": "tiefbau-tabelle.erschliessungen",
     "fields": {
-      "created_at": "2020-09-19T11:20:51.517Z",
-      "modified_at": "2020-09-19T11:20:51.517Z",
+      "created_at": "2020-10-21T13:20:37.790Z",
+      "modified_at": "2020-10-21T13:20:37.790Z",
       "created_by_user": null,
       "created_by_group": null,
-      "form": "tiefbau",
+      "form": "tiefbau-tabelle",
       "question": "erschliessungen",
       "sort": 17
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "tiefbau.hinweis-liegenschaftsentwaesserung-neu",
+    "pk": "tiefbau-tabelle.hinweis-liegenschaftsentwaesserung-neu",
     "fields": {
-      "created_at": "2020-09-21T07:15:04.602Z",
-      "modified_at": "2020-09-21T07:15:04.602Z",
+      "created_at": "2020-10-21T13:21:27.875Z",
+      "modified_at": "2020-10-21T13:21:27.875Z",
       "created_by_user": null,
       "created_by_group": null,
-      "form": "tiefbau",
+      "form": "tiefbau-tabelle",
       "question": "hinweis-liegenschaftsentwaesserung-neu",
       "sort": 9
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "tiefbau.hinweis-parkplaetze-uvp",
+    "pk": "tiefbau-tabelle.hinweis-parkplaetze-uvp",
     "fields": {
-      "created_at": "2020-09-21T07:30:18.667Z",
-      "modified_at": "2020-09-21T07:30:18.667Z",
+      "created_at": "2020-10-21T13:21:45.379Z",
+      "modified_at": "2020-10-21T13:21:45.380Z",
       "created_by_user": null,
       "created_by_group": null,
-      "form": "tiefbau",
+      "form": "tiefbau-tabelle",
       "question": "hinweis-parkplaetze-uvp",
       "sort": 6
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "tiefbau.hinweis-trinkwasserversorgung-neu",
+    "pk": "tiefbau-tabelle.hinweis-trinkwasserversorgung-neu",
     "fields": {
-      "created_at": "2020-09-21T07:12:34.784Z",
-      "modified_at": "2020-09-21T07:12:34.784Z",
+      "created_at": "2020-10-21T13:21:01.964Z",
+      "modified_at": "2020-10-21T13:21:01.964Z",
       "created_by_user": null,
       "created_by_group": null,
-      "form": "tiefbau",
+      "form": "tiefbau-tabelle",
       "question": "hinweis-trinkwasserversorgung-neu",
       "sort": 12
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "tiefbau.infrastrukturanlagen",
+    "pk": "tiefbau-tabelle.infrastrukturanlagen",
     "fields": {
-      "created_at": "2020-09-23T07:48:45.620Z",
-      "modified_at": "2020-09-23T07:48:45.620Z",
+      "created_at": "2020-10-21T13:20:43.098Z",
+      "modified_at": "2020-10-21T13:20:43.098Z",
       "created_by_user": null,
       "created_by_group": null,
-      "form": "tiefbau",
+      "form": "tiefbau-tabelle",
       "question": "infrastrukturanlagen",
       "sort": 16
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "tiefbau.kanalisation-innendurchmesser",
+    "pk": "tiefbau-tabelle.kanalisation-innendurchmesser",
     "fields": {
-      "created_at": "2020-09-21T07:04:48.169Z",
-      "modified_at": "2020-09-21T07:04:48.169Z",
+      "created_at": "2020-10-21T13:21:10.579Z",
+      "modified_at": "2020-10-21T13:21:10.579Z",
       "created_by_user": null,
       "created_by_group": null,
-      "form": "tiefbau",
+      "form": "tiefbau-tabelle",
       "question": "kanalisation-innendurchmesser",
       "sort": 10
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "tiefbau.nummer-wasserzaehler",
+    "pk": "tiefbau-tabelle.nummer-wasserzaehler",
     "fields": {
-      "created_at": "2020-09-21T07:11:24.706Z",
-      "modified_at": "2020-09-21T07:11:24.706Z",
+      "created_at": "2020-10-21T13:20:57.933Z",
+      "modified_at": "2020-10-21T13:20:57.933Z",
       "created_by_user": null,
       "created_by_group": null,
-      "form": "tiefbau",
+      "form": "tiefbau-tabelle",
       "question": "nummer-wasserzaehler",
       "sort": 13
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "tiefbau.spielplaetze-bestehend",
+    "pk": "tiefbau-tabelle.spielplaetze-bestehend",
     "fields": {
-      "created_at": "2020-09-21T07:40:59.338Z",
-      "modified_at": "2020-09-21T07:40:59.338Z",
+      "created_at": "2020-10-21T13:22:01.415Z",
+      "modified_at": "2020-10-21T13:22:01.415Z",
       "created_by_user": null,
       "created_by_group": null,
-      "form": "tiefbau",
+      "form": "tiefbau-tabelle",
       "question": "spielplaetze-bestehend",
       "sort": 3
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "tiefbau.spielplaetze-neu",
+    "pk": "tiefbau-tabelle.spielplaetze-neu",
     "fields": {
-      "created_at": "2020-09-21T07:41:11.807Z",
-      "modified_at": "2020-09-21T07:41:11.807Z",
+      "created_at": "2020-10-21T13:22:03.793Z",
+      "modified_at": "2020-10-21T13:22:03.793Z",
       "created_by_user": null,
       "created_by_group": null,
-      "form": "tiefbau",
+      "form": "tiefbau-tabelle",
       "question": "spielplaetze-neu",
       "sort": 2
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "tiefbau.terrainveraenderungen",
+    "pk": "tiefbau-tabelle.terrainveraenderungen",
     "fields": {
-      "created_at": "2020-09-19T11:19:16.764Z",
-      "modified_at": "2020-09-19T11:19:16.764Z",
+      "created_at": "2020-10-21T13:20:32.802Z",
+      "modified_at": "2020-10-21T13:20:32.802Z",
       "created_by_user": null,
       "created_by_group": null,
-      "form": "tiefbau",
+      "form": "tiefbau-tabelle",
       "question": "terrainveraenderungen",
       "sort": 18
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "tiefbau.trinkwasser-durchmesser",
+    "pk": "tiefbau-tabelle.trinkwasser-durchmesser",
     "fields": {
-      "created_at": "2020-09-21T07:01:37.253Z",
-      "modified_at": "2020-09-21T07:01:37.253Z",
+      "created_at": "2020-10-21T13:20:52.148Z",
+      "modified_at": "2020-10-21T13:20:52.148Z",
       "created_by_user": null,
       "created_by_group": null,
-      "form": "tiefbau",
+      "form": "tiefbau-tabelle",
       "question": "trinkwasser-durchmesser",
       "sort": 14
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "tiefbau.typ-der-tiefbaute",
+    "pk": "tiefbau-tabelle.typ-der-tiefbaute",
     "fields": {
-      "created_at": "2020-09-21T06:54:19.513Z",
-      "modified_at": "2020-09-21T06:54:19.513Z",
+      "created_at": "2020-10-21T13:20:21.559Z",
+      "modified_at": "2020-10-21T13:20:21.559Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "tiefbau-tabelle",
+      "question": "typ-der-tiefbaute",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "tiefbau.tiefbauten",
+    "fields": {
+      "created_at": "2020-10-21T13:23:28.792Z",
+      "modified_at": "2020-10-21T13:23:28.792Z",
       "created_by_user": null,
       "created_by_group": null,
       "form": "tiefbau",
-      "question": "typ-der-tiefbaute",
-      "sort": 19
+      "question": "tiefbauten",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "veranstaltungsgesuch.beanspruchte-flaeche-m2",
+    "fields": {
+      "created_at": "2020-10-21T12:57:34.859Z",
+      "modified_at": "2020-10-21T12:57:34.859Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "veranstaltungsgesuch",
+      "question": "beanspruchte-flaeche-m2",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "veranstaltungsgesuch.veranstaltung-andere-beschreibung",
+    "fields": {
+      "created_at": "2020-10-21T12:57:04.600Z",
+      "modified_at": "2020-10-21T12:57:04.600Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "veranstaltungsgesuch",
+      "question": "veranstaltung-andere-beschreibung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "veranstaltungsgesuch.veranstaltung-art",
+    "fields": {
+      "created_at": "2020-10-21T12:56:14.998Z",
+      "modified_at": "2020-10-21T12:56:14.998Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "veranstaltungsgesuch",
+      "question": "veranstaltung-art",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "veranstaltungsgesuch.veranstaltung-beginn",
+    "fields": {
+      "created_at": "2020-10-21T12:54:51.191Z",
+      "modified_at": "2020-10-21T12:54:51.191Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "veranstaltungsgesuch",
+      "question": "veranstaltung-beginn",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "veranstaltungsgesuch.veranstaltung-begruendung",
+    "fields": {
+      "created_at": "2020-10-21T12:57:48.912Z",
+      "modified_at": "2020-10-21T12:57:48.912Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "veranstaltungsgesuch",
+      "question": "veranstaltung-begruendung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "veranstaltungsgesuch.veranstaltung-beschrieb",
+    "fields": {
+      "created_at": "2020-10-21T12:53:34.601Z",
+      "modified_at": "2020-10-21T12:53:34.601Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "veranstaltungsgesuch",
+      "question": "veranstaltung-beschrieb",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "veranstaltungsgesuch.veranstaltung-ende",
+    "fields": {
+      "created_at": "2020-10-21T12:55:06.271Z",
+      "modified_at": "2020-10-21T12:55:06.271Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "veranstaltungsgesuch",
+      "question": "veranstaltung-ende",
+      "sort": 5
     }
   },
   {
@@ -2294,10 +2861,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "anlage-ragt-nicht-ueber-dachflaeche-hinaus-ja",
+    "fields": {
+      "created_at": "2020-10-21T12:23:55.477Z",
+      "modified_at": "2020-10-21T12:31:06.809Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anlage-ragt-nicht-ueber-dachflaeche-hinaus-nein",
+    "fields": {
+      "created_at": "2020-10-21T12:23:55.480Z",
+      "modified_at": "2020-10-21T12:31:06.819Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "anlagetyp-analgetyp-klima",
     "fields": {
       "created_at": "2020-09-19T10:45:29.296Z",
-      "modified_at": "2020-10-19T12:35:27.707Z",
+      "modified_at": "2020-10-21T13:11:18.396Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Klima- und L\\u00fcftungsanlage\", \"fr\": null}",
@@ -2353,7 +2948,7 @@
     "pk": "anlagetyp-aufzuege",
     "fields": {
       "created_at": "2020-09-19T10:45:29.314Z",
-      "modified_at": "2020-10-19T12:35:27.770Z",
+      "modified_at": "2020-10-21T13:11:18.414Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Aufz\\u00fcge\", \"fr\": null}",
@@ -2364,10 +2959,24 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "anlagetyp-betankungsanlage",
+    "fields": {
+      "created_at": "2020-10-21T13:11:18.662Z",
+      "modified_at": "2020-10-21T13:11:18.663Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Betankungsanlage\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "anlagetyp-hauptheizung",
     "fields": {
       "created_at": "2020-09-19T10:45:29.332Z",
-      "modified_at": "2020-10-19T12:35:27.743Z",
+      "modified_at": "2020-10-21T13:11:18.429Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Energie-/ W\\u00e4rmequelle Heizung\", \"fr\": null}",
@@ -2378,10 +2987,24 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "anlagetyp-notstrom-aggregat",
+    "fields": {
+      "created_at": "2020-10-21T13:11:18.667Z",
+      "modified_at": "2020-10-21T13:11:18.667Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Fest installierte Notstrom-Aggregat-Anlage\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "anlagetyp-photovoltaische-solaranlage",
     "fields": {
       "created_at": "2020-09-19T10:45:29.381Z",
-      "modified_at": "2020-10-19T12:35:27.783Z",
+      "modified_at": "2020-10-21T13:11:18.488Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Photovoltaische Solaranlage\", \"fr\": null}",
@@ -2395,7 +3018,7 @@
     "pk": "anlagetyp-thermische-solaranlage",
     "fields": {
       "created_at": "2020-09-19T10:45:29.324Z",
-      "modified_at": "2020-10-19T12:35:27.764Z",
+      "modified_at": "2020-10-21T13:11:18.464Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Thermische Solaranlage\", \"fr\": null}",
@@ -2409,7 +3032,7 @@
     "pk": "anlagetyp-warmwasser",
     "fields": {
       "created_at": "2020-10-19T12:35:27.834Z",
-      "modified_at": "2020-10-19T12:35:27.834Z",
+      "modified_at": "2020-10-21T13:11:18.494Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Energie-/ W\\u00e4rmequelle Warmwasser\", \"fr\": null}",
@@ -2423,7 +3046,7 @@
     "pk": "anlagetyp-zusatzheizung",
     "fields": {
       "created_at": "2020-09-19T10:45:29.347Z",
-      "modified_at": "2020-10-19T12:35:27.807Z",
+      "modified_at": "2020-10-21T13:11:18.403Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Zusatzheizungsanlage\", \"fr\": null}",
@@ -2437,7 +3060,7 @@
     "pk": "anschluss-bestehend",
     "fields": {
       "created_at": "2020-09-21T06:59:05.302Z",
-      "modified_at": "2020-09-21T07:09:18.620Z",
+      "modified_at": "2020-10-21T13:28:12.587Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Bestehend\", \"fr\": null}",
@@ -2451,7 +3074,7 @@
     "pk": "anschluss-liegenschaftsentwaesserung-bestehend",
     "fields": {
       "created_at": "2020-09-21T07:07:20.762Z",
-      "modified_at": "2020-09-21T07:09:50.501Z",
+      "modified_at": "2020-10-21T13:29:46.267Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Bestehend\", \"fr\": null}",
@@ -2465,7 +3088,7 @@
     "pk": "anschluss-liegenschaftsentwaesserung-neu",
     "fields": {
       "created_at": "2020-09-21T07:07:20.724Z",
-      "modified_at": "2020-09-21T07:09:50.482Z",
+      "modified_at": "2020-10-21T13:29:46.266Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Neu\", \"fr\": null}",
@@ -2479,7 +3102,7 @@
     "pk": "anschluss-neu",
     "fields": {
       "created_at": "2020-09-21T06:59:05.333Z",
-      "modified_at": "2020-09-21T07:09:18.641Z",
+      "modified_at": "2020-10-21T13:28:12.587Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Neu\", \"fr\": null}",
@@ -2577,7 +3200,7 @@
     "pk": "art-der-hochbaute-andere",
     "fields": {
       "created_at": "2020-09-04T08:09:34.088Z",
-      "modified_at": "2020-09-23T07:19:09.262Z",
+      "modified_at": "2020-10-21T13:09:03.009Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Andere\", \"fr\": null}",
@@ -2591,7 +3214,7 @@
     "pk": "art-der-hochbaute-bauten-und-anlagen-gastgewerbe",
     "fields": {
       "created_at": "2020-09-04T08:09:34.018Z",
-      "modified_at": "2020-09-23T07:19:09.249Z",
+      "modified_at": "2020-10-21T13:09:02.934Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Hotel, Restaurant, Beherbergungsbetrieb\", \"fr\": null}",
@@ -2605,7 +3228,7 @@
     "pk": "art-der-hochbaute-brennstofflager",
     "fields": {
       "created_at": "2020-09-18T15:12:30.984Z",
-      "modified_at": "2020-09-23T07:19:09.658Z",
+      "modified_at": "2020-10-21T13:09:03.280Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Brennstofflager\", \"fr\": null}",
@@ -2619,7 +3242,7 @@
     "pk": "art-der-hochbaute-doppeleinfamilienhaus",
     "fields": {
       "created_at": "2020-09-04T07:47:18.633Z",
-      "modified_at": "2020-09-23T07:19:09.070Z",
+      "modified_at": "2020-10-21T13:09:02.811Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Einfamilienhaus angebaut\", \"fr\": null}",
@@ -2633,7 +3256,7 @@
     "pk": "art-der-hochbaute-einfamilienhaus",
     "fields": {
       "created_at": "2020-09-04T07:47:18.651Z",
-      "modified_at": "2020-09-23T07:19:08.858Z",
+      "modified_at": "2020-10-21T13:09:02.852Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Einfamilienhaus freistehend\", \"fr\": null}",
@@ -2647,7 +3270,7 @@
     "pk": "art-der-hochbaute-energieholzlager",
     "fields": {
       "created_at": "2020-09-18T15:12:30.951Z",
-      "modified_at": "2020-09-23T07:19:09.623Z",
+      "modified_at": "2020-10-21T13:09:03.234Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Energieholzlager\", \"fr\": null}",
@@ -2661,7 +3284,7 @@
     "pk": "art-der-hochbaute-forstwirtschaft",
     "fields": {
       "created_at": "2020-09-18T15:12:30.943Z",
-      "modified_at": "2020-09-23T07:19:09.577Z",
+      "modified_at": "2020-10-21T13:09:03.212Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Forstwirtschaftliche Bauten und Anlagen\", \"fr\": null}",
@@ -2675,7 +3298,7 @@
     "pk": "art-der-hochbaute-garage-oder-carport",
     "fields": {
       "created_at": "2020-09-04T08:09:34.009Z",
-      "modified_at": "2020-09-23T07:19:09.155Z",
+      "modified_at": "2020-10-21T13:09:02.938Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Garage / Einstellhallen im Zusammenhang mit Wohngeb\\u00e4uden\", \"fr\": null}",
@@ -2689,7 +3312,7 @@
     "pk": "art-der-hochbaute-geschaftshaus",
     "fields": {
       "created_at": "2020-09-04T08:07:53.789Z",
-      "modified_at": "2020-09-23T07:19:09.041Z",
+      "modified_at": "2020-10-21T13:09:02.842Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Gesch\\u00e4ftsgeb\\u00e4ude, Kaufhaus\", \"fr\": null}",
@@ -2703,7 +3326,7 @@
     "pk": "art-der-hochbaute-heim-mit-unterkunft",
     "fields": {
       "created_at": "2020-09-18T15:12:30.834Z",
-      "modified_at": "2020-09-23T07:19:09.362Z",
+      "modified_at": "2020-10-21T13:09:03.064Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Heim mit Unterkunft, Pflegedienst und Betreuung\", \"fr\": null}",
@@ -2717,7 +3340,7 @@
     "pk": "art-der-hochbaute-industrie",
     "fields": {
       "created_at": "2020-09-04T08:09:33.954Z",
-      "modified_at": "2020-09-23T07:19:09.073Z",
+      "modified_at": "2020-10-21T13:09:02.921Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Industrie- und Gewerbebaute\", \"fr\": null}",
@@ -2731,7 +3354,7 @@
     "pk": "art-der-hochbaute-kirchen",
     "fields": {
       "created_at": "2020-09-18T15:12:30.894Z",
-      "modified_at": "2020-09-23T07:19:09.430Z",
+      "modified_at": "2020-10-21T13:09:03.125Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Kirchen und Sakralbauten\", \"fr\": null}",
@@ -2742,10 +3365,24 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "art-der-hochbaute-kommunikationsanlagen",
+    "fields": {
+      "created_at": "2020-10-21T13:09:03.374Z",
+      "modified_at": "2020-10-21T13:09:03.374Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Kommunikationsanlagen (Mobilfunk-, Richtfunkanlagen)\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "art-der-hochbaute-kulturbauten",
     "fields": {
       "created_at": "2020-09-18T15:12:30.871Z",
-      "modified_at": "2020-09-23T07:19:09.441Z",
+      "modified_at": "2020-10-21T13:09:03.152Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Kulturbauten, Museen, etc.\", \"fr\": null}",
@@ -2759,7 +3396,7 @@
     "pk": "art-der-hochbaute-landwirtschaft-betrieb-wohnteil",
     "fields": {
       "created_at": "2020-09-23T07:18:17.885Z",
-      "modified_at": "2020-09-23T07:19:09.712Z",
+      "modified_at": "2020-10-21T13:09:03.319Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Landwirtschaftliche Betriebsgeb\\u00e4ude mit Wohnteil\", \"fr\": null}",
@@ -2773,7 +3410,7 @@
     "pk": "art-der-hochbaute-materiallager",
     "fields": {
       "created_at": "2020-09-18T15:12:30.985Z",
-      "modified_at": "2020-09-23T07:19:09.633Z",
+      "modified_at": "2020-10-21T13:09:03.283Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Materiallager\", \"fr\": null}",
@@ -2787,7 +3424,7 @@
     "pk": "art-der-hochbaute-mehrfamilienhaus",
     "fields": {
       "created_at": "2020-09-04T07:47:18.636Z",
-      "modified_at": "2020-09-23T07:19:09.061Z",
+      "modified_at": "2020-10-21T13:09:02.836Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Mehrfamilienhaus (reines Wohngeb\\u00e4ude mit mehreren Wohnungen)\", \"fr\": null}",
@@ -2801,7 +3438,7 @@
     "pk": "art-der-hochbaute-oekonomie-mit-tieren-mit-tieren",
     "fields": {
       "created_at": "2020-09-18T15:12:30.935Z",
-      "modified_at": "2020-09-23T07:19:09.557Z",
+      "modified_at": "2020-10-21T13:09:03.191Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Landwirtschaftliche \\u00d6konomiegeb\\u00e4ude mit Tierhaltung\", \"fr\": null}",
@@ -2815,7 +3452,7 @@
     "pk": "art-der-hochbaute-oekonomiegebaude",
     "fields": {
       "created_at": "2020-09-04T08:09:34.036Z",
-      "modified_at": "2020-09-23T07:19:09.177Z",
+      "modified_at": "2020-10-21T13:09:02.978Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Landwirtschaftliche \\u00d6konomiegeb\\u00e4ude ohne Tierhaltung\", \"fr\": null}",
@@ -2829,7 +3466,7 @@
     "pk": "art-der-hochbaute-parkhaus",
     "fields": {
       "created_at": "2020-09-23T07:19:09.744Z",
-      "modified_at": "2020-09-23T07:19:09.744Z",
+      "modified_at": "2020-10-21T13:09:03.367Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Parkhaus\", \"fr\": null}",
@@ -2840,10 +3477,24 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "art-der-hochbaute-reklamebauten",
+    "fields": {
+      "created_at": "2020-10-21T13:09:03.378Z",
+      "modified_at": "2020-10-21T13:09:03.378Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Reklamebauten\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "art-der-hochbaute-schulen",
     "fields": {
       "created_at": "2020-09-18T15:12:30.826Z",
-      "modified_at": "2020-09-23T07:19:09.415Z",
+      "modified_at": "2020-10-21T13:09:03.107Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Schulen\", \"fr\": null}",
@@ -2857,7 +3508,7 @@
     "pk": "art-der-hochbaute-silo",
     "fields": {
       "created_at": "2020-09-18T15:12:30.980Z",
-      "modified_at": "2020-09-23T07:19:09.720Z",
+      "modified_at": "2020-10-21T13:09:03.292Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Silo / Zisterne\", \"fr\": null}",
@@ -2871,7 +3522,7 @@
     "pk": "art-der-hochbaute-spital",
     "fields": {
       "created_at": "2020-09-18T15:12:30.796Z",
-      "modified_at": "2020-09-23T07:19:09.301Z",
+      "modified_at": "2020-10-21T13:09:03.031Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Spital\", \"fr\": null}",
@@ -2885,7 +3536,7 @@
     "pk": "art-der-hochbaute-sporthallen",
     "fields": {
       "created_at": "2020-09-18T15:12:30.899Z",
-      "modified_at": "2020-09-23T07:19:09.501Z",
+      "modified_at": "2020-10-21T13:09:03.197Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Sporthallen, Sportpl\\u00e4tze\", \"fr\": null}",
@@ -2899,7 +3550,7 @@
     "pk": "art-der-hochbaute-tourismusanlagen",
     "fields": {
       "created_at": "2020-09-18T15:12:30.841Z",
-      "modified_at": "2020-09-23T07:19:09.447Z",
+      "modified_at": "2020-10-21T13:09:03.114Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Freizeit- und Tourismusanlagen\", \"fr\": null}",
@@ -2913,7 +3564,7 @@
     "pk": "art-der-hochbaute-wohn-und-geschaftshaus",
     "fields": {
       "created_at": "2020-09-04T08:09:33.798Z",
-      "modified_at": "2020-09-23T07:19:09.051Z",
+      "modified_at": "2020-10-21T13:09:02.888Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Wohn- und Gesch\\u00e4ftshaus\", \"fr\": null}",
@@ -2927,7 +3578,7 @@
     "pk": "art-der-hochbaute-wohnheim-ohne-pflege",
     "fields": {
       "created_at": "2020-09-18T15:12:30.757Z",
-      "modified_at": "2020-09-23T07:19:09.246Z",
+      "modified_at": "2020-10-21T13:09:03.022Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Wohnheim ohne Pflegedienste und Betreuung\", \"fr\": null}",
@@ -2973,6 +3624,34 @@
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"St\\u00fcckholz\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-reklame-aenderung",
+    "fields": {
+      "created_at": "2020-10-21T12:33:49.683Z",
+      "modified_at": "2020-10-21T12:33:49.683Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"\\u00c4nderung bestehender Reklame\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-reklame-neue",
+    "fields": {
+      "created_at": "2020-10-21T12:33:49.685Z",
+      "modified_at": "2020-10-21T12:33:49.685Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Neue Reklame\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -3123,7 +3802,7 @@
     "pk": "befreiung-von-schutzraeumen-beantragt-ja",
     "fields": {
       "created_at": "2020-09-21T08:52:52.393Z",
-      "modified_at": "2020-09-21T08:52:52.393Z",
+      "modified_at": "2020-10-21T14:38:58.066Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
@@ -3137,8 +3816,36 @@
     "pk": "befreiung-von-schutzraeumen-beantragt-nein",
     "fields": {
       "created_at": "2020-09-21T08:52:52.410Z",
-      "modified_at": "2020-09-21T08:52:52.410Z",
+      "modified_at": "2020-10-21T14:38:58.068Z",
       "created_by_user": "admin",
+      "created_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "beleuchtung-ja",
+    "fields": {
+      "created_at": "2020-10-21T12:34:57.114Z",
+      "modified_at": "2020-10-21T12:34:57.114Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "beleuchtung-nein",
+    "fields": {
+      "created_at": "2020-10-21T12:34:57.113Z",
+      "modified_at": "2020-10-21T12:34:57.113Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
       "is_archived": false,
@@ -3179,7 +3886,7 @@
     "pk": "brennstoffe-lagerort-andere",
     "fields": {
       "created_at": "2020-09-19T11:10:32.634Z",
-      "modified_at": "2020-10-19T12:31:22.510Z",
+      "modified_at": "2020-10-21T13:32:13.208Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Andere\", \"fr\": null}",
@@ -3193,7 +3900,7 @@
     "pk": "brennstoffe-lagerort-heizraum",
     "fields": {
       "created_at": "2020-09-19T11:10:32.633Z",
-      "modified_at": "2020-10-19T12:31:22.499Z",
+      "modified_at": "2020-10-21T13:32:13.191Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Heizraum\", \"fr\": null}",
@@ -3207,7 +3914,7 @@
     "pk": "brennstoffe-lagerort-tankraum-tankanlage",
     "fields": {
       "created_at": "2020-09-19T11:10:32.617Z",
-      "modified_at": "2020-10-19T12:31:22.513Z",
+      "modified_at": "2020-10-21T13:32:13.204Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Tankraum / Tankanlage\", \"fr\": null}",
@@ -3221,7 +3928,7 @@
     "pk": "category-hochbaute",
     "fields": {
       "created_at": "2020-09-04T07:45:14.460Z",
-      "modified_at": "2020-09-18T15:07:01.673Z",
+      "modified_at": "2020-10-21T13:14:26.017Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Hochbaute\", \"fr\": null}",
@@ -3235,11 +3942,11 @@
     "pk": "category-spezielle-bauten-und-anlagen",
     "fields": {
       "created_at": "2020-09-04T07:45:14.484Z",
-      "modified_at": "2020-09-18T15:07:01.679Z",
+      "modified_at": "2020-10-21T13:14:26.051Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Spezielle Bauten und Anlagen\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -3249,7 +3956,7 @@
     "pk": "category-tiefbaute",
     "fields": {
       "created_at": "2020-09-04T07:45:14.486Z",
-      "modified_at": "2020-09-18T15:07:01.682Z",
+      "modified_at": "2020-10-21T13:14:26.018Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Tiefbaute\", \"fr\": null}",
@@ -3295,6 +4002,34 @@
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Schweiz\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "die-anlage-wird-nach-dem-stand-der-technik-reflexionsarm-ausgefuehrt-ja",
+    "fields": {
+      "created_at": "2020-10-21T12:25:01.138Z",
+      "modified_at": "2020-10-21T12:31:16.273Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "die-anlage-wird-nach-dem-stand-der-technik-reflexionsarm-ausgefuehrt-nein",
+    "fields": {
+      "created_at": "2020-10-21T12:25:01.156Z",
+      "modified_at": "2020-10-21T12:31:16.275Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -3627,7 +4362,7 @@
     "pk": "form-type-building-permit-canton",
     "fields": {
       "created_at": "2020-09-01T14:52:15.138Z",
-      "modified_at": "2020-09-01T14:52:15.138Z",
+      "modified_at": "2020-10-21T13:00:18.525Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Baubewilligungsverfahren mit kantonaler Beteiligung\", \"fr\": null}",
@@ -3641,7 +4376,7 @@
     "pk": "form-type-building-permit-municipality",
     "fields": {
       "created_at": "2020-09-01T14:52:15.165Z",
-      "modified_at": "2020-09-01T14:52:15.165Z",
+      "modified_at": "2020-10-21T13:00:18.603Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Baubewilligungsverfahren ohne kantonale Beteiligung\", \"fr\": null}",
@@ -3655,7 +4390,7 @@
     "pk": "form-type-commercial-permit",
     "fields": {
       "created_at": "2020-09-01T14:52:15.256Z",
-      "modified_at": "2020-09-01T14:52:15.256Z",
+      "modified_at": "2020-10-21T13:00:18.663Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Reklame-Gesuch\", \"fr\": null}",
@@ -3669,7 +4404,7 @@
     "pk": "form-type-preliminary-clarification-canton",
     "fields": {
       "created_at": "2020-09-01T14:52:15.211Z",
-      "modified_at": "2020-09-01T14:52:15.211Z",
+      "modified_at": "2020-10-21T13:00:18.578Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Baugesuch-Vorabkl\\u00e4rung mit kantonaler Beteiligung\", \"fr\": null}",
@@ -3683,7 +4418,7 @@
     "pk": "form-type-preliminary-clarification-municipality",
     "fields": {
       "created_at": "2020-09-01T14:52:15.244Z",
-      "modified_at": "2020-09-01T14:52:15.244Z",
+      "modified_at": "2020-10-21T13:00:18.591Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Baugesuch-Vorabkl\\u00e4rung ohne kantonale Beteiligung\", \"fr\": null}",
@@ -3697,7 +4432,7 @@
     "pk": "form-type-project-announcement",
     "fields": {
       "created_at": "2020-09-01T14:52:15.178Z",
-      "modified_at": "2020-09-01T14:52:15.178Z",
+      "modified_at": "2020-10-21T13:00:18.625Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Meldung Vorhaben\", \"fr\": null}",
@@ -3711,10 +4446,24 @@
     "pk": "form-type-solar-announcement",
     "fields": {
       "created_at": "2020-09-01T14:52:15.222Z",
-      "modified_at": "2020-09-01T14:52:15.222Z",
+      "modified_at": "2020-10-21T13:00:18.675Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Meldung Solaranlage\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "form-type-veranstaltungsgesuch",
+    "fields": {
+      "created_at": "2020-10-21T13:00:18.680Z",
+      "modified_at": "2020-10-21T13:00:18.680Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Beanspruchung von Kantonsgebiet (Veranstaltungsgesuch)\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -3879,7 +4628,7 @@
     "pk": "grenzabstaende-unterschritten-ja",
     "fields": {
       "created_at": "2020-09-21T08:55:02.258Z",
-      "modified_at": "2020-09-21T08:55:02.258Z",
+      "modified_at": "2020-10-21T14:40:50.227Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
@@ -3893,7 +4642,7 @@
     "pk": "grenzabstaende-unterschritten-nein",
     "fields": {
       "created_at": "2020-09-21T08:55:02.282Z",
-      "modified_at": "2020-09-21T08:55:02.283Z",
+      "modified_at": "2020-10-21T14:40:50.217Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
@@ -4201,7 +4950,7 @@
     "pk": "infrastrukturanlagen-elektriziaet",
     "fields": {
       "created_at": "2020-09-23T07:48:45.096Z",
-      "modified_at": "2020-09-23T07:48:45.096Z",
+      "modified_at": "2020-10-21T13:25:07.096Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Elektrizit\\u00e4tswerke und -netze\", \"fr\": null}",
@@ -4215,7 +4964,7 @@
     "pk": "infrastrukturanlagen-fernheizung",
     "fields": {
       "created_at": "2020-09-23T07:48:45.188Z",
-      "modified_at": "2020-09-23T07:48:45.188Z",
+      "modified_at": "2020-10-21T13:25:07.120Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Fernheizungsanlagen\", \"fr\": null}",
@@ -4229,7 +4978,7 @@
     "pk": "infrastrukturanlagen-gas",
     "fields": {
       "created_at": "2020-09-23T07:48:45.226Z",
-      "modified_at": "2020-09-23T07:48:45.226Z",
+      "modified_at": "2020-10-21T13:25:07.122Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Gaswerke- und netze\", \"fr\": null}",
@@ -4243,7 +4992,7 @@
     "pk": "infrastrukturanlagen-trinkwasser",
     "fields": {
       "created_at": "2020-09-23T07:48:45.178Z",
-      "modified_at": "2020-09-23T07:48:45.178Z",
+      "modified_at": "2020-10-21T13:25:07.097Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Trinkwasserversorgungsanlage\", \"fr\": null}",
@@ -4257,10 +5006,38 @@
     "pk": "infrastrukturanlagen-wasserentsorgung",
     "fields": {
       "created_at": "2020-09-23T07:48:45.124Z",
-      "modified_at": "2020-09-23T07:48:45.124Z",
+      "modified_at": "2020-10-21T13:25:07.159Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Wasserentsorgungsanlagen\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "installationsart-befristet",
+    "fields": {
+      "created_at": "2020-10-21T12:37:00.348Z",
+      "modified_at": "2020-10-21T12:37:00.348Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Befristet\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "installationsart-dauerhaft",
+    "fields": {
+      "created_at": "2020-10-21T12:37:00.348Z",
+      "modified_at": "2020-10-21T12:37:00.348Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Dauerhaft\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -4324,6 +5101,90 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "kompakte-flaeche-ja",
+    "fields": {
+      "created_at": "2020-10-21T12:24:23.965Z",
+      "modified_at": "2020-10-21T12:31:11.710Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kompakte-flaeche-nein",
+    "fields": {
+      "created_at": "2020-10-21T12:24:23.971Z",
+      "modified_at": "2020-10-21T12:31:11.707Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "montageart-freistehend-zb-pylone",
+    "fields": {
+      "created_at": "2020-10-21T12:34:36.870Z",
+      "modified_at": "2020-10-21T12:34:36.870Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Freistehend (z.B. Pylone)\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "montageart-montage-flach-an-fassade",
+    "fields": {
+      "created_at": "2020-10-21T12:34:36.902Z",
+      "modified_at": "2020-10-21T12:34:36.902Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Montage flach an Fassade\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "montageart-montage-rechtwinklig-an-fassade",
+    "fields": {
+      "created_at": "2020-10-21T12:34:36.905Z",
+      "modified_at": "2020-10-21T12:34:36.905Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Montage rechtwinklig an Fassade\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "montageart-montage-ueber-dach",
+    "fields": {
+      "created_at": "2020-10-21T12:34:36.906Z",
+      "modified_at": "2020-10-21T12:34:36.907Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Montage \\u00fcber Dach\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "more-people-involved-invoice-recipient",
     "fields": {
       "created_at": "2020-09-04T08:52:05.474Z",
@@ -4369,7 +5230,7 @@
     "pk": "neuer-pflichtschutzraum-ja",
     "fields": {
       "created_at": "2020-09-21T08:54:03.663Z",
-      "modified_at": "2020-09-21T08:54:03.663Z",
+      "modified_at": "2020-10-21T14:40:04.729Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
@@ -4383,7 +5244,7 @@
     "pk": "neuer-pflichtschutzraum-nein",
     "fields": {
       "created_at": "2020-09-21T08:54:03.680Z",
-      "modified_at": "2020-09-21T08:54:03.680Z",
+      "modified_at": "2020-10-21T14:40:04.724Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
@@ -4719,7 +5580,7 @@
     "pk": "schutzraum-betroffen-ja",
     "fields": {
       "created_at": "2020-09-21T08:51:54.277Z",
-      "modified_at": "2020-09-21T08:51:54.277Z",
+      "modified_at": "2020-10-21T14:38:02.158Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
@@ -4733,7 +5594,7 @@
     "pk": "schutzraum-betroffen-nein",
     "fields": {
       "created_at": "2020-09-21T08:51:54.296Z",
-      "modified_at": "2020-09-21T08:51:54.296Z",
+      "modified_at": "2020-10-21T14:38:02.147Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
@@ -5024,6 +5885,62 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "typ-der-analage-photovoltaisch",
+    "fields": {
+      "created_at": "2020-10-21T12:14:40.627Z",
+      "modified_at": "2020-10-21T12:14:40.627Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Photovoltaische Solaranlage\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "typ-der-analage-thermisch",
+    "fields": {
+      "created_at": "2020-10-21T12:14:40.608Z",
+      "modified_at": "2020-10-21T12:14:40.608Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Thermische Solaranlage\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "typ-der-solaranlage-photovoltaische-solaranlage",
+    "fields": {
+      "created_at": "2020-10-21T12:21:04.728Z",
+      "modified_at": "2020-10-21T12:21:04.728Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Photovoltaische Solaranlage\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "typ-der-solaranlage-thermische-solaranlage",
+    "fields": {
+      "created_at": "2020-10-21T12:21:04.725Z",
+      "modified_at": "2020-10-21T12:21:04.725Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Thermische Solaranlage\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "typ-der-speziellen-bauten-andere",
     "fields": {
       "created_at": "2020-09-21T07:49:36.684Z",
@@ -5220,6 +6137,34 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "ueberragt-dachflaeche-ja",
+    "fields": {
+      "created_at": "2020-10-21T12:23:12.475Z",
+      "modified_at": "2020-10-21T12:30:49.603Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ueberragt-dachflaeche-nein",
+    "fields": {
+      "created_at": "2020-10-21T12:23:12.476Z",
+      "modified_at": "2020-10-21T12:30:49.603Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "umbau-andere-umbauten",
     "fields": {
       "created_at": "2020-09-23T07:12:16.800Z",
@@ -5345,11 +6290,215 @@
     }
   },
   {
+    "model": "caluma_form.option",
+    "pk": "veranstaltung-art-andere",
+    "fields": {
+      "created_at": "2020-10-21T12:56:14.633Z",
+      "modified_at": "2020-10-21T12:56:14.633Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "veranstaltung-art-baustelleninstallation",
+    "fields": {
+      "created_at": "2020-10-21T12:56:14.535Z",
+      "modified_at": "2020-10-21T12:56:14.535Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Baustelleninstallation\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "veranstaltung-art-parkieren",
+    "fields": {
+      "created_at": "2020-10-21T12:56:14.501Z",
+      "modified_at": "2020-10-21T12:56:14.501Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Parkieren\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "veranstaltung-art-sportanlass",
+    "fields": {
+      "created_at": "2020-10-21T12:56:14.589Z",
+      "modified_at": "2020-10-21T12:56:14.589Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Sportanlass\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "veranstaltung-art-standaktion",
+    "fields": {
+      "created_at": "2020-10-21T12:56:14.608Z",
+      "modified_at": "2020-10-21T12:56:14.608Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Standaktion\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "veranstaltung-art-strassenverkauf",
+    "fields": {
+      "created_at": "2020-10-21T12:56:14.596Z",
+      "modified_at": "2020-10-21T12:56:14.596Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Strassenverkauf\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "veranstaltung-art-trottoirparkieren",
+    "fields": {
+      "created_at": "2020-10-21T12:56:14.518Z",
+      "modified_at": "2020-10-21T12:56:14.518Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Trottoirparkieren\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "veranstaltung-art-umzug",
+    "fields": {
+      "created_at": "2020-10-21T12:56:14.507Z",
+      "modified_at": "2020-10-21T12:56:14.507Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Umzug\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "veranstaltung-art-zwischenlagern-von-material",
+    "fields": {
+      "created_at": "2020-10-21T12:56:14.628Z",
+      "modified_at": "2020-10-21T12:56:14.628Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Zwischenlagern von Material\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "vorhaben-dauer-befristet",
+    "fields": {
+      "created_at": "2020-10-21T12:44:35.892Z",
+      "modified_at": "2020-10-21T12:44:35.893Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Befristet\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "vorhaben-dauer-dauerhaft",
+    "fields": {
+      "created_at": "2020-10-21T12:44:35.890Z",
+      "modified_at": "2020-10-21T12:44:35.890Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Dauerhaft\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anlage-ragt-nicht-ueber-dachflaeche-hinaus",
+    "fields": {
+      "created_at": "2020-10-21T12:23:55.587Z",
+      "modified_at": "2020-10-21T12:31:06.962Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Die Anlage ragt von vorne und von oben gesehen nicht \\u00fcber die Dachfl\\u00e4che hinaus\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "!(\n  'typ-der-solaranlage-photovoltaische-solaranlage' == 'typ-der-solaranlage'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anlage-reflexionsarm",
+    "fields": {
+      "created_at": "2020-10-21T12:25:01.288Z",
+      "modified_at": "2020-10-21T12:31:16.428Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Die Anlage wird nach dem Stand der Technik reflexionsarm ausgef\\u00fchrt\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "!(\n  'typ-der-solaranlage-photovoltaische-solaranlage' == 'typ-der-solaranlage'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
     "model": "caluma_form.question",
     "pk": "anlagetyp",
     "fields": {
       "created_at": "2020-09-19T10:31:49.295Z",
-      "modified_at": "2020-10-19T12:35:27.991Z",
+      "modified_at": "2020-10-21T13:11:18.787Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Anlagetyp\", \"fr\": null}",
@@ -5399,13 +6548,13 @@
     "pk": "anschluss",
     "fields": {
       "created_at": "2020-09-21T06:59:05.514Z",
-      "modified_at": "2020-09-21T07:09:18.845Z",
+      "modified_at": "2020-10-21T13:28:12.792Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Anschluss Trinkwasserversorgung\", \"fr\": null}",
       "type": "choice",
       "is_required": "false",
-      "is_hidden": "!(\n  \"erschliessungen-trinkwasserversorgungsanlage\" in \"erschliessungen\"|answer\n)",
+      "is_hidden": "!(\n  \"infrastrukturanlagen-trinkwasser\" in \"infrastrukturanlagen\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -5424,18 +6573,46 @@
     "pk": "anschluss-liegenschaftsentwaesserung",
     "fields": {
       "created_at": "2020-09-21T07:07:20.966Z",
-      "modified_at": "2020-09-21T07:09:50.713Z",
+      "modified_at": "2020-10-21T13:29:46.414Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Anschluss Liegenschaftsentw\\u00e4sserung\", \"fr\": null}",
       "type": "choice",
       "is_required": "false",
-      "is_hidden": "!(\n  \"erschliessungen-liegenschaftsentwaesserung\" in \"erschliessungen\"|answer\n)",
+      "is_hidden": "!(\n  \"infrastrukturanlagen-wasserentsorgung\" in \"infrastrukturanlagen\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anzahl-identischer-reklamen",
+    "fields": {
+      "created_at": "2020-10-21T12:36:18.510Z",
+      "modified_at": "2020-10-21T12:36:18.510Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Anzahl identischer Reklamen\", \"fr\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -5588,13 +6765,13 @@
     "pk": "arbeitssicherheit-und-gesundheitsschutz",
     "fields": {
       "created_at": "2020-10-19T13:06:38.352Z",
-      "modified_at": "2020-10-19T13:10:06.066Z",
+      "modified_at": "2020-10-21T13:16:47.220Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Arbeitssicherheit und Gesundheitsschutz\", \"fr\": null}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "!(\n  [\"purpose-gewerbe\", \"purpose-industrie\", \"purpose-dienstleistung\"] intersects \"purpose\"|answer\n)",
+      "is_hidden": "!(\n  [\"purpose-gewerbe\", \"purpose-industrie\", \"purpose-dienstleistung\", \"purpose-gastgewerbe\"] intersects \"purpose\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -5663,7 +6840,7 @@
     "pk": "art-der-hochbaute",
     "fields": {
       "created_at": "2020-09-04T07:47:18.753Z",
-      "modified_at": "2020-09-23T07:19:09.915Z",
+      "modified_at": "2020-10-21T13:09:03.573Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Typ des Bauwerks\", \"fr\": null}",
@@ -5698,6 +6875,31 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "art-der-reklame",
+    "fields": {
+      "created_at": "2020-10-21T12:33:49.838Z",
+      "modified_at": "2020-10-21T12:33:49.838Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Art der Reklame\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -5778,6 +6980,34 @@
       "info_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beanspruchte-flaeche-m2",
+    "fields": {
+      "created_at": "2020-10-21T12:57:34.777Z",
+      "modified_at": "2020-10-21T12:57:34.777Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Beanspruchte Fl\\u00e4che (m\\u00b2)\", \"fr\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -5897,10 +7127,85 @@
     "pk": "befreiung-von-schutzraeumen-beantragt",
     "fields": {
       "created_at": "2020-09-21T08:52:52.673Z",
-      "modified_at": "2020-09-21T08:52:52.673Z",
+      "modified_at": "2020-10-21T14:38:58.175Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Wird die Befreiung von der Erstellung von Schutzr\\u00e4umen bzw. ein Ersatzbeitrag beantragt?\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"Zus\\u00e4tzliche Information\\n\\nDie Bauherrschaft kann, wenn in der betreffenden Gemeinde gen\\u00fcgend Schutzpl\\u00e4tze vorhanden sind, von der Erstellung eines neuen Schutzraumes bzw. neuer Schutzpl\\u00e4tze befreit werden. Es wird ein Ersatzbeitrag in Rechnung gestellt.\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "befristet-bis",
+    "fields": {
+      "created_at": "2020-10-21T12:38:08.568Z",
+      "modified_at": "2020-10-21T12:38:38.728Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Befristet bis\", \"fr\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "!(\n  \"installationsart-befristet\" == \"installationsart\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "befristet-von",
+    "fields": {
+      "created_at": "2020-10-21T12:37:59.350Z",
+      "modified_at": "2020-10-21T12:38:34.399Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Befristet von\", \"fr\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "!(\n  \"installationsart-befristet\" == \"installationsart\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beleuchtung",
+    "fields": {
+      "created_at": "2020-10-21T12:34:57.206Z",
+      "modified_at": "2020-10-21T12:34:57.206Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Beleuchtung\", \"fr\": null}",
       "type": "choice",
       "is_required": "false",
       "is_hidden": "false",
@@ -6003,10 +7308,10 @@
     "pk": "brennstoffe-lagerort",
     "fields": {
       "created_at": "2020-09-19T11:10:32.742Z",
-      "modified_at": "2020-10-19T12:31:22.645Z",
+      "modified_at": "2020-10-21T13:32:13.531Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "label": "{\"de\": \"Lagerort\", \"fr\": null}",
+      "label": "{\"de\": \"Lagerort Brennstoffe\", \"fr\": null}",
       "type": "choice",
       "is_required": "false",
       "is_hidden": "!(\n  \"hauptheizungsanlage\"|answer in [\"hauptheizungsanlage-gas\", \"hauptheizungsanlage-heizoel\"]\n\n)",
@@ -6112,7 +7417,7 @@
     "pk": "category",
     "fields": {
       "created_at": "2020-09-04T07:45:14.592Z",
-      "modified_at": "2020-09-18T15:07:01.740Z",
+      "modified_at": "2020-10-21T13:14:26.153Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Art des Bauwerks\", \"fr\": null}",
@@ -6165,16 +7470,16 @@
     "pk": "construction-cost",
     "fields": {
       "created_at": "2020-08-28T15:36:02.808Z",
-      "modified_at": "2020-08-28T15:36:02.808Z",
+      "modified_at": "2020-10-21T12:43:20.656Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "label": "{\"de\": \"Baukosten (CHF)\", \"fr\": null}",
+      "label": "{\"de\": \"Gesamtkosten (CHF)\", \"fr\": null}",
       "type": "integer",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -6622,16 +7927,16 @@
     "pk": "form-type",
     "fields": {
       "created_at": "2020-09-01T14:52:15.343Z",
-      "modified_at": "2020-09-01T14:52:15.343Z",
+      "modified_at": "2020-10-21T13:00:18.824Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Gesuchstyp\", \"fr\": null}",
       "type": "choice",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "True",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -6744,6 +8049,62 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "gebaeudenummer-bezeichnung",
+    "fields": {
+      "created_at": "2020-10-21T11:40:47.888Z",
+      "modified_at": "2020-10-21T11:40:47.888Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Geb\\u00e4udenummer / Bezeichnung\", \"fr\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gehoert-zu-gebaeudenummer",
+    "fields": {
+      "created_at": "2020-10-21T11:42:35.137Z",
+      "modified_at": "2020-10-21T11:42:35.137Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Geh\\u00f6rt zu: Geb\\u00e4udenummer / Bezeichnung\", \"fr\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "gesamtflaeche-m2",
     "fields": {
       "created_at": "2020-09-19T11:04:34.693Z",
@@ -6834,7 +8195,7 @@
     "pk": "grenzabstaende-unterschritten",
     "fields": {
       "created_at": "2020-09-21T08:55:02.473Z",
-      "modified_at": "2020-09-21T08:55:02.473Z",
+      "modified_at": "2020-10-21T14:40:50.327Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Werden die gesetzlich festgelegten Grenzabst\\u00e4nde unterschritten?\", \"fr\": null}",
@@ -6843,9 +8204,37 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"Zus\\u00e4tzliche Information\\n\\nWenn die gesetzlich festgelegten Grenzabst\\u00e4nde unterschritten werden, muss gleichzeitig mit dem Baugesuch auch ein entsprechendes  N\\u00e4herbaurecht vorgelegt werden.\\n\\nZudem kann infolge einer Verminderung eines Grenzabstandes auch der Geb\\u00e4udeabstand derart vermindert werden dass das Vorhaben brandschutzrelevant wird.\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "groesse-reklame",
+    "fields": {
+      "created_at": "2020-10-21T12:36:00.635Z",
+      "modified_at": "2020-10-21T12:36:00.635Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Gr\\u00f6sse (cm)\", \"fr\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"L\\u00e4nge / Breite oder Durchmesser\", \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -6965,7 +8354,7 @@
     "pk": "haustechnik-tabelle",
     "fields": {
       "created_at": "2020-09-19T10:56:08.906Z",
-      "modified_at": "2020-09-23T07:20:53.587Z",
+      "modified_at": "2020-10-21T13:34:04.291Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Haus- und Geb\\u00e4udetechnik\", \"fr\": null}",
@@ -6978,7 +8367,12 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
-        "columnsToDisplay": ["anlagetyp", "anlagetyp-art"]
+        "columnsToDisplay": [
+          "anlagetyp",
+          "anlagetyp-art",
+          "gehoert-zu-gebaeudenummer",
+          "hauptheizungsanlage"
+        ]
       },
       "data_source": null,
       "row_form": "haustechnik",
@@ -7226,16 +8620,16 @@
     "pk": "infrastrukturanlagen",
     "fields": {
       "created_at": "2020-09-23T07:48:45.507Z",
-      "modified_at": "2020-09-23T07:48:45.507Z",
+      "modified_at": "2020-10-21T13:25:07.319Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Infrastrukturanlagen (Leitungsbau)\", \"fr\": null}",
       "type": "multiple_choice",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "!(\n  \"typ-der-tiefbaute-infrastrukturanlagen\" in \"typ-der-tiefbaute\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -7262,6 +8656,31 @@
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"---\\n\\n#### Innenausbau\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "installationsart",
+    "fields": {
+      "created_at": "2020-10-21T12:37:00.457Z",
+      "modified_at": "2020-10-21T12:37:00.457Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Installationsart\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -7428,6 +8847,31 @@
         "max_value": null,
         "min_value": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "kompakte-flaeche",
+    "fields": {
+      "created_at": "2020-10-21T12:24:24.072Z",
+      "modified_at": "2020-10-21T12:31:11.831Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Die Anlage wird als kompakte zusammenh\\u00e4ngende Fl\\u00e4che installiert\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "!(\n  'typ-der-solaranlage-photovoltaische-solaranlage' == 'typ-der-solaranlage'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -7655,6 +9099,31 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "montageart",
+    "fields": {
+      "created_at": "2020-10-21T12:34:37.089Z",
+      "modified_at": "2020-10-21T12:34:37.089Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Montageart\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "more-people-involved",
     "fields": {
       "created_at": "2020-09-04T08:52:05.599Z",
@@ -7683,13 +9152,13 @@
     "pk": "municipality",
     "fields": {
       "created_at": "2020-07-12T10:30:23.480Z",
-      "modified_at": "2020-09-16T13:44:57.907Z",
+      "modified_at": "2020-10-21T11:47:18.647Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Gemeinde\", \"fr\": null}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "True",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -7711,7 +9180,7 @@
     "pk": "neuer-pflichtschutzraum",
     "fields": {
       "created_at": "2020-09-21T08:54:03.893Z",
-      "modified_at": "2020-09-21T08:54:03.893Z",
+      "modified_at": "2020-10-21T14:40:04.853Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Wird ein neuer Pflichtschutzraum gebaut?\", \"fr\": null}",
@@ -7720,7 +9189,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"Zus\\u00e4tzliche Information\\n\\nF\\u00fcr die Berechnung der Anzahl Schutzpl\\u00e4tze gelten folgende Werte:\\nF\\u00fcr Bauten mit Wohnungen - pro drei Zimmer zwei Schutzpl\\u00e4tze.\\nF\\u00fcr Spit\\u00e4ler und Heime mit Unterkunft und Pflegedienste, je ein Schutzplatz pro Patientenbett. \\nF\\u00fcr detaillierte Angaben betreffend die Dimensionierung neuer Schutzr\\u00e4ume (Bodenfl\\u00e4che, Raumh\\u00f6he, Raumvolumen) wenden Sie sich bitte direkt an das Amt f\\u00fcr Bev\\u00f6lkerungsschutz und Milit\\u00e4r.\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -8067,6 +9536,31 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "photovoltaik-solaranlage",
+    "fields": {
+      "created_at": "2020-10-21T12:15:10.305Z",
+      "modified_at": "2020-10-21T12:15:32.201Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Photovoltaik- / Solaranlage\", \"fr\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!(\n  'solar' in 'form-type'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "solaranlage",
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "planbesprechung-arbeitsinspektorat",
     "fields": {
       "created_at": "2020-10-19T13:13:20.723Z",
@@ -8122,13 +9616,13 @@
     "pk": "projektdaten",
     "fields": {
       "created_at": "2020-09-18T14:36:33.271Z",
-      "modified_at": "2020-10-19T12:15:39.826Z",
+      "modified_at": "2020-10-21T12:10:11.263Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Bauprojekt\", \"fr\": null}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "!(\n  'building' in 'form-type'|answer || \n  'preliminary' in 'form-type'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -8268,6 +9762,63 @@
       "meta": {},
       "data_source": null,
       "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "reklame",
+    "fields": {
+      "created_at": "2020-10-21T12:40:05.418Z",
+      "modified_at": "2020-10-21T12:41:00.204Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Reklame\", \"fr\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!(\n  'commercial' in 'form-type'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "reklame",
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "reklamen",
+    "fields": {
+      "created_at": "2020-10-21T12:39:14.081Z",
+      "modified_at": "2020-10-21T12:39:34.470Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Reklamen\", \"fr\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": [
+          "art-der-reklame",
+          "groesse-reklame",
+          "montageart",
+          "beleuchtung"
+        ]
+      },
+      "data_source": null,
+      "row_form": "reklame-tabelle",
       "sub_form": null,
       "source": null,
       "format_validators": "[]"
@@ -8661,7 +10212,7 @@
     "pk": "schutzraum-betroffen",
     "fields": {
       "created_at": "2020-09-21T08:51:54.500Z",
-      "modified_at": "2020-09-21T08:51:54.500Z",
+      "modified_at": "2020-10-21T14:38:02.268Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Ist ein bestehender Schutzraum durch die baulichen Massnahmen betroffen?\", \"fr\": null}",
@@ -8670,12 +10221,101 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"Zus\\u00e4tzliche Information\\n\\nFalls ein bestehender Schutzraum zum Beispiel durch Freilegung einer Aussenwand infolge Abgrabung (Aushub) oder durch Abbruch des dar\\u00fcberliegenden Geb\\u00e4udeteils betroffen ist, muss die Fachstelle Zivilschutz beim Amt f\\u00fcr Bev\\u00f6lkerungsschutz und Milit\\u00e4r den Sachverhalt pr\\u00fcfen.\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solar-gesamtflaeche-m2",
+    "fields": {
+      "created_at": "2020-10-21T12:29:57.864Z",
+      "modified_at": "2020-10-21T12:29:57.864Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Gesamtfl\\u00e4che (m\\u00b2)\", \"fr\": null}",
+      "type": "float",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solar-gesamtleistung-kw",
+    "fields": {
+      "created_at": "2020-10-21T12:30:11.535Z",
+      "modified_at": "2020-10-21T12:30:11.535Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Gesamtleistung (kW)\", \"fr\": null}",
+      "type": "float",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solaranlagen",
+    "fields": {
+      "created_at": "2020-10-21T12:26:44.313Z",
+      "modified_at": "2020-10-21T12:31:46.053Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Anlagen\", \"fr\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": [
+          "typ-der-solaranlage",
+          "gesamtflaeche-m2",
+          "gesamtleitstung-kw",
+          "solar-gesamtflaeche-m2",
+          "solar-gesamtleistung-kw"
+        ]
+      },
+      "data_source": null,
+      "row_form": "solaranlagen-tabelle",
       "sub_form": null,
       "source": null,
       "format_validators": "[]"
@@ -8895,6 +10535,31 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "tiefbauten",
+    "fields": {
+      "created_at": "2020-10-21T13:23:28.699Z",
+      "modified_at": "2020-10-21T13:23:28.699Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Tiefbauten\", \"fr\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": "tiefbau-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "title",
     "fields": {
       "created_at": "2020-08-27T15:34:53.176Z",
@@ -8941,6 +10606,56 @@
         "max_length": null,
         "min_length": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "typ-der-analage",
+    "fields": {
+      "created_at": "2020-10-21T12:14:40.721Z",
+      "modified_at": "2020-10-21T12:14:40.721Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Typ der Analage\", \"fr\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "typ-der-solaranlage",
+    "fields": {
+      "created_at": "2020-10-21T12:21:04.829Z",
+      "modified_at": "2020-10-21T12:21:04.829Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Typ der Anlage\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -9029,6 +10744,31 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "ueberragt-dachflaeche",
+    "fields": {
+      "created_at": "2020-10-21T12:23:12.593Z",
+      "modified_at": "2020-10-21T12:30:49.780Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Die Anlage \\u00fcberragt die Dachfl\\u00e4che im rechten Winkel um h\\u00f6chstens 20cm\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "!(\n  'typ-der-solaranlage-photovoltaische-solaranlage' == 'typ-der-solaranlage'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "umbau",
     "fields": {
       "created_at": "2020-09-23T07:12:16.913Z",
@@ -9082,6 +10822,371 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "veranstaltung",
+    "fields": {
+      "created_at": "2020-10-21T12:58:41.795Z",
+      "modified_at": "2020-10-21T12:58:41.795Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Veranstaltung\", \"fr\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": "veranstaltungsgesuch",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "veranstaltung-andere-beschreibung",
+    "fields": {
+      "created_at": "2020-10-21T12:57:04.511Z",
+      "modified_at": "2020-10-21T12:57:04.511Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"veranstaltung-art-andere\" == \"veranstaltung-art\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "veranstaltung-art",
+    "fields": {
+      "created_at": "2020-10-21T12:56:14.806Z",
+      "modified_at": "2020-10-21T12:56:14.807Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Art\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "veranstaltung-beginn",
+    "fields": {
+      "created_at": "2020-10-21T12:54:51.110Z",
+      "modified_at": "2020-10-21T12:54:51.110Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Beginn\", \"fr\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "veranstaltung-begruendung",
+    "fields": {
+      "created_at": "2020-10-21T12:57:48.831Z",
+      "modified_at": "2020-10-21T12:57:48.831Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Begr\\u00fcndung\", \"fr\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "veranstaltung-beschrieb",
+    "fields": {
+      "created_at": "2020-10-21T12:53:34.509Z",
+      "modified_at": "2020-10-21T12:53:34.509Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Beschrieb\", \"fr\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "veranstaltung-ende",
+    "fields": {
+      "created_at": "2020-10-21T12:55:06.172Z",
+      "modified_at": "2020-10-21T12:55:06.173Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Ende\", \"fr\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "veranstaltung-form",
+    "fields": {
+      "created_at": "2020-10-21T12:59:20.824Z",
+      "modified_at": "2020-10-21T13:00:30.960Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Veranstaltung\", \"fr\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!(\n  'veranstaltungsgesuch' in 'form-type'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "veranstaltungsgesuch",
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vorhaben",
+    "fields": {
+      "created_at": "2020-10-21T12:45:58.653Z",
+      "modified_at": "2020-10-21T12:49:17.791Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Vorhaben\", \"fr\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!(\n  'project-announcement' in 'form-type'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "meldung-vorhaben",
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vorhaben-befristet-bis",
+    "fields": {
+      "created_at": "2020-10-21T12:45:07.545Z",
+      "modified_at": "2020-10-21T12:45:35.806Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Befristet bis\", \"fr\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "!(\n  \"vorhaben-dauer-befristet\" == \"vorhaben-dauer\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vorhaben-befristet-von",
+    "fields": {
+      "created_at": "2020-10-21T12:44:55.052Z",
+      "modified_at": "2020-10-21T12:45:31.048Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Befristet von\", \"fr\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "!(\n  \"vorhaben-dauer-befristet\" == \"vorhaben-dauer\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vorhaben-dauer",
+    "fields": {
+      "created_at": "2020-10-21T12:44:36.006Z",
+      "modified_at": "2020-10-21T12:44:36.006Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Dauer\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vorhaben-gesamtkosten-chf",
+    "fields": {
+      "created_at": "2020-10-21T12:51:19.178Z",
+      "modified_at": "2020-10-21T12:51:19.178Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Gesamtkosten (CHF)\", \"fr\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vorhaben-proposal-description",
+    "fields": {
+      "created_at": "2020-10-21T12:50:51.961Z",
+      "modified_at": "2020-10-21T12:50:51.961Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Detailbeschreibung Vorhaben\", \"fr\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "zip",
     "fields": {
       "created_at": "2020-08-27T15:37:05.671Z",
@@ -9106,6 +11211,58 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anlage-ragt-nicht-ueber-dachflaeche-hinaus.anlage-ragt-nicht-ueber-dachflaeche-hinaus-ja",
+    "fields": {
+      "created_at": "2020-10-21T12:31:06.977Z",
+      "modified_at": "2020-10-21T12:31:06.977Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "anlage-ragt-nicht-ueber-dachflaeche-hinaus",
+      "option": "anlage-ragt-nicht-ueber-dachflaeche-hinaus-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anlage-ragt-nicht-ueber-dachflaeche-hinaus.anlage-ragt-nicht-ueber-dachflaeche-hinaus-nein",
+    "fields": {
+      "created_at": "2020-10-21T12:31:06.972Z",
+      "modified_at": "2020-10-21T12:31:06.972Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "anlage-ragt-nicht-ueber-dachflaeche-hinaus",
+      "option": "anlage-ragt-nicht-ueber-dachflaeche-hinaus-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anlage-reflexionsarm.die-anlage-wird-nach-dem-stand-der-technik-reflexionsarm-ausgefuehrt-ja",
+    "fields": {
+      "created_at": "2020-10-21T12:31:16.439Z",
+      "modified_at": "2020-10-21T12:31:16.439Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "anlage-reflexionsarm",
+      "option": "die-anlage-wird-nach-dem-stand-der-technik-reflexionsarm-ausgefuehrt-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anlage-reflexionsarm.die-anlage-wird-nach-dem-stand-der-technik-reflexionsarm-ausgefuehrt-nein",
+    "fields": {
+      "created_at": "2020-10-21T12:31:16.435Z",
+      "modified_at": "2020-10-21T12:31:16.435Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "anlage-reflexionsarm",
+      "option": "die-anlage-wird-nach-dem-stand-der-technik-reflexionsarm-ausgefuehrt-nein",
+      "sort": 1
     }
   },
   {
@@ -9151,100 +11308,126 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-analgetyp-klima",
     "fields": {
-      "created_at": "2020-10-19T12:35:28.009Z",
-      "modified_at": "2020-10-19T12:35:28.009Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:11:18.824Z",
+      "modified_at": "2020-10-21T13:11:18.824Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "anlagetyp",
       "option": "anlagetyp-analgetyp-klima",
-      "sort": 7
+      "sort": 9
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-aufzuege",
     "fields": {
-      "created_at": "2020-10-19T12:35:28.007Z",
-      "modified_at": "2020-10-19T12:35:28.007Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:11:18.821Z",
+      "modified_at": "2020-10-21T13:11:18.821Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "anlagetyp",
       "option": "anlagetyp-aufzuege",
-      "sort": 6
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anlagetyp.anlagetyp-betankungsanlage",
+    "fields": {
+      "created_at": "2020-10-21T13:11:18.799Z",
+      "modified_at": "2020-10-21T13:11:18.799Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "anlagetyp",
+      "option": "anlagetyp-betankungsanlage",
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-hauptheizung",
     "fields": {
-      "created_at": "2020-10-19T12:35:28.005Z",
-      "modified_at": "2020-10-19T12:35:28.005Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:11:18.817Z",
+      "modified_at": "2020-10-21T13:11:18.817Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "anlagetyp",
       "option": "anlagetyp-hauptheizung",
-      "sort": 5
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anlagetyp.anlagetyp-notstrom-aggregat",
+    "fields": {
+      "created_at": "2020-10-21T13:11:18.795Z",
+      "modified_at": "2020-10-21T13:11:18.795Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "anlagetyp",
+      "option": "anlagetyp-notstrom-aggregat",
+      "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-photovoltaische-solaranlage",
     "fields": {
-      "created_at": "2020-10-19T12:35:27.999Z",
-      "modified_at": "2020-10-19T12:35:27.999Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:11:18.806Z",
+      "modified_at": "2020-10-21T13:11:18.806Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "anlagetyp",
       "option": "anlagetyp-photovoltaische-solaranlage",
-      "sort": 2
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-thermische-solaranlage",
     "fields": {
-      "created_at": "2020-10-19T12:35:28.001Z",
-      "modified_at": "2020-10-19T12:35:28.001Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:11:18.810Z",
+      "modified_at": "2020-10-21T13:11:18.810Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "anlagetyp",
       "option": "anlagetyp-thermische-solaranlage",
-      "sort": 3
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-warmwasser",
     "fields": {
-      "created_at": "2020-10-19T12:35:27.996Z",
-      "modified_at": "2020-10-19T12:35:27.996Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:11:18.802Z",
+      "modified_at": "2020-10-21T13:11:18.802Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "anlagetyp",
       "option": "anlagetyp-warmwasser",
-      "sort": 1
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-zusatzheizung",
     "fields": {
-      "created_at": "2020-10-19T12:35:28.003Z",
-      "modified_at": "2020-10-19T12:35:28.003Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:11:18.813Z",
+      "modified_at": "2020-10-21T13:11:18.813Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "anlagetyp",
       "option": "anlagetyp-zusatzheizung",
-      "sort": 4
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "anschluss-liegenschaftsentwaesserung.anschluss-liegenschaftsentwaesserung-bestehend",
     "fields": {
-      "created_at": "2020-09-21T07:09:50.725Z",
-      "modified_at": "2020-09-21T07:09:50.725Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:29:46.424Z",
+      "modified_at": "2020-10-21T13:29:46.424Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "anschluss-liegenschaftsentwaesserung",
       "option": "anschluss-liegenschaftsentwaesserung-bestehend",
@@ -9255,9 +11438,9 @@
     "model": "caluma_form.questionoption",
     "pk": "anschluss-liegenschaftsentwaesserung.anschluss-liegenschaftsentwaesserung-neu",
     "fields": {
-      "created_at": "2020-09-21T07:09:50.721Z",
-      "modified_at": "2020-09-21T07:09:50.721Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:29:46.421Z",
+      "modified_at": "2020-10-21T13:29:46.421Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "anschluss-liegenschaftsentwaesserung",
       "option": "anschluss-liegenschaftsentwaesserung-neu",
@@ -9268,9 +11451,9 @@
     "model": "caluma_form.questionoption",
     "pk": "anschluss.anschluss-bestehend",
     "fields": {
-      "created_at": "2020-09-21T07:09:18.858Z",
-      "modified_at": "2020-09-21T07:09:18.858Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:28:12.803Z",
+      "modified_at": "2020-10-21T13:28:12.803Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "anschluss",
       "option": "anschluss-bestehend",
@@ -9281,9 +11464,9 @@
     "model": "caluma_form.questionoption",
     "pk": "anschluss.anschluss-neu",
     "fields": {
-      "created_at": "2020-09-21T07:09:18.854Z",
-      "modified_at": "2020-09-21T07:09:18.854Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:28:12.799Z",
+      "modified_at": "2020-10-21T13:28:12.799Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "anschluss",
       "option": "anschluss-neu",
@@ -9372,246 +11555,272 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-andere",
     "fields": {
-      "created_at": "2020-09-23T07:19:09.970Z",
-      "modified_at": "2020-09-23T07:19:09.970Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:09:03.641Z",
+      "modified_at": "2020-10-21T13:09:03.641Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-andere",
-      "sort": 17
+      "sort": 19
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-bauten-und-anlagen-gastgewerbe",
     "fields": {
-      "created_at": "2020-09-23T07:19:09.975Z",
-      "modified_at": "2020-09-23T07:19:09.975Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:09:03.649Z",
+      "modified_at": "2020-10-21T13:09:03.649Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-bauten-und-anlagen-gastgewerbe",
-      "sort": 19
+      "sort": 21
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-brennstofflager",
     "fields": {
-      "created_at": "2020-09-23T07:19:09.931Z",
-      "modified_at": "2020-09-23T07:19:09.931Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:09:03.598Z",
+      "modified_at": "2020-10-21T13:09:03.598Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-brennstofflager",
-      "sort": 4
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-doppeleinfamilienhaus",
     "fields": {
-      "created_at": "2020-09-23T07:19:09.992Z",
-      "modified_at": "2020-09-23T07:19:09.992Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:09:03.675Z",
+      "modified_at": "2020-10-21T13:09:03.675Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-doppeleinfamilienhaus",
-      "sort": 25
+      "sort": 27
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-einfamilienhaus",
     "fields": {
-      "created_at": "2020-09-23T07:19:09.995Z",
-      "modified_at": "2020-09-23T07:19:09.995Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:09:03.679Z",
+      "modified_at": "2020-10-21T13:09:03.679Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-einfamilienhaus",
-      "sort": 26
+      "sort": 28
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-energieholzlager",
     "fields": {
-      "created_at": "2020-09-23T07:19:09.938Z",
-      "modified_at": "2020-09-23T07:19:09.938Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:09:03.604Z",
+      "modified_at": "2020-10-21T13:09:03.604Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-energieholzlager",
-      "sort": 6
+      "sort": 8
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-forstwirtschaft",
     "fields": {
-      "created_at": "2020-09-23T07:19:09.941Z",
-      "modified_at": "2020-09-23T07:19:09.941Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:09:03.608Z",
+      "modified_at": "2020-10-21T13:09:03.608Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-forstwirtschaft",
-      "sort": 7
+      "sort": 9
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-garage-oder-carport",
     "fields": {
-      "created_at": "2020-09-23T07:19:09.978Z",
-      "modified_at": "2020-09-23T07:19:09.978Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:09:03.653Z",
+      "modified_at": "2020-10-21T13:09:03.653Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-garage-oder-carport",
-      "sort": 20
+      "sort": 22
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-geschaftshaus",
     "fields": {
-      "created_at": "2020-09-23T07:19:09.987Z",
-      "modified_at": "2020-09-23T07:19:09.987Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:09:03.665Z",
+      "modified_at": "2020-10-21T13:09:03.665Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-geschaftshaus",
-      "sort": 23
+      "sort": 25
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-heim-mit-unterkunft",
     "fields": {
-      "created_at": "2020-09-23T07:19:09.962Z",
-      "modified_at": "2020-09-23T07:19:09.962Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:09:03.631Z",
+      "modified_at": "2020-10-21T13:09:03.631Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-heim-mit-unterkunft",
-      "sort": 14
+      "sort": 16
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-industrie",
     "fields": {
-      "created_at": "2020-09-23T07:19:09.981Z",
-      "modified_at": "2020-09-23T07:19:09.981Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:09:03.657Z",
+      "modified_at": "2020-10-21T13:09:03.657Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-industrie",
-      "sort": 21
+      "sort": 23
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-kirchen",
     "fields": {
-      "created_at": "2020-09-23T07:19:09.954Z",
-      "modified_at": "2020-09-23T07:19:09.954Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:09:03.621Z",
+      "modified_at": "2020-10-21T13:09:03.621Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-kirchen",
-      "sort": 11
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-hochbaute.art-der-hochbaute-kommunikationsanlagen",
+    "fields": {
+      "created_at": "2020-10-21T13:09:03.585Z",
+      "modified_at": "2020-10-21T13:09:03.585Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "art-der-hochbaute",
+      "option": "art-der-hochbaute-kommunikationsanlagen",
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-kulturbauten",
     "fields": {
-      "created_at": "2020-09-23T07:19:09.951Z",
-      "modified_at": "2020-09-23T07:19:09.951Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:09:03.618Z",
+      "modified_at": "2020-10-21T13:09:03.618Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-kulturbauten",
-      "sort": 10
+      "sort": 12
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-landwirtschaft-betrieb-wohnteil",
     "fields": {
-      "created_at": "2020-09-23T07:19:09.924Z",
-      "modified_at": "2020-09-23T07:19:09.924Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:09:03.592Z",
+      "modified_at": "2020-10-21T13:09:03.592Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-landwirtschaft-betrieb-wohnteil",
-      "sort": 2
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-materiallager",
     "fields": {
-      "created_at": "2020-09-23T07:19:09.935Z",
-      "modified_at": "2020-09-23T07:19:09.935Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:09:03.601Z",
+      "modified_at": "2020-10-21T13:09:03.601Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-materiallager",
-      "sort": 5
+      "sort": 7
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-mehrfamilienhaus",
     "fields": {
-      "created_at": "2020-09-23T07:19:09.989Z",
-      "modified_at": "2020-09-23T07:19:09.989Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:09:03.670Z",
+      "modified_at": "2020-10-21T13:09:03.670Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-mehrfamilienhaus",
-      "sort": 24
+      "sort": 26
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-oekonomie-mit-tieren-mit-tieren",
     "fields": {
-      "created_at": "2020-09-23T07:19:09.945Z",
-      "modified_at": "2020-09-23T07:19:09.945Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:09:03.611Z",
+      "modified_at": "2020-10-21T13:09:03.611Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-oekonomie-mit-tieren-mit-tieren",
-      "sort": 8
+      "sort": 10
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-oekonomiegebaude",
     "fields": {
-      "created_at": "2020-09-23T07:19:09.973Z",
-      "modified_at": "2020-09-23T07:19:09.973Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:09:03.645Z",
+      "modified_at": "2020-10-21T13:09:03.645Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-oekonomiegebaude",
-      "sort": 18
+      "sort": 20
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-parkhaus",
     "fields": {
-      "created_at": "2020-09-23T07:19:09.921Z",
-      "modified_at": "2020-09-23T07:19:09.921Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:09:03.588Z",
+      "modified_at": "2020-10-21T13:09:03.588Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-parkhaus",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-hochbaute.art-der-hochbaute-reklamebauten",
+    "fields": {
+      "created_at": "2020-10-21T13:09:03.582Z",
+      "modified_at": "2020-10-21T13:09:03.582Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "art-der-hochbaute",
+      "option": "art-der-hochbaute-reklamebauten",
       "sort": 1
     }
   },
@@ -9619,91 +11828,91 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-schulen",
     "fields": {
-      "created_at": "2020-09-23T07:19:09.959Z",
-      "modified_at": "2020-09-23T07:19:09.959Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:09:03.628Z",
+      "modified_at": "2020-10-21T13:09:03.628Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-schulen",
-      "sort": 13
+      "sort": 15
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-silo",
     "fields": {
-      "created_at": "2020-09-23T07:19:09.927Z",
-      "modified_at": "2020-09-23T07:19:09.927Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:09:03.595Z",
+      "modified_at": "2020-10-21T13:09:03.595Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-silo",
-      "sort": 3
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-spital",
     "fields": {
-      "created_at": "2020-09-23T07:19:09.964Z",
-      "modified_at": "2020-09-23T07:19:09.964Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:09:03.635Z",
+      "modified_at": "2020-10-21T13:09:03.635Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-spital",
-      "sort": 15
+      "sort": 17
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-sporthallen",
     "fields": {
-      "created_at": "2020-09-23T07:19:09.948Z",
-      "modified_at": "2020-09-23T07:19:09.948Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:09:03.615Z",
+      "modified_at": "2020-10-21T13:09:03.615Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-sporthallen",
-      "sort": 9
+      "sort": 11
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-tourismusanlagen",
     "fields": {
-      "created_at": "2020-09-23T07:19:09.956Z",
-      "modified_at": "2020-09-23T07:19:09.956Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:09:03.625Z",
+      "modified_at": "2020-10-21T13:09:03.625Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-tourismusanlagen",
-      "sort": 12
+      "sort": 14
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-wohn-und-geschaftshaus",
     "fields": {
-      "created_at": "2020-09-23T07:19:09.984Z",
-      "modified_at": "2020-09-23T07:19:09.984Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:09:03.661Z",
+      "modified_at": "2020-10-21T13:09:03.661Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-wohn-und-geschaftshaus",
-      "sort": 22
+      "sort": 24
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-wohnheim-ohne-pflege",
     "fields": {
-      "created_at": "2020-09-23T07:19:09.967Z",
-      "modified_at": "2020-09-23T07:19:09.967Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:09:03.638Z",
+      "modified_at": "2020-10-21T13:09:03.638Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-wohnheim-ohne-pflege",
-      "sort": 16
+      "sort": 18
     }
   },
   {
@@ -9743,6 +11952,32 @@
       "question": "art-der-holzheizung",
       "option": "art-der-holzheizung-stueckholz",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-reklame.art-der-reklame-aenderung",
+    "fields": {
+      "created_at": "2020-10-21T12:33:49.847Z",
+      "modified_at": "2020-10-21T12:33:49.847Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "art-der-reklame",
+      "option": "art-der-reklame-aenderung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-reklame.art-der-reklame-neue",
+    "fields": {
+      "created_at": "2020-10-21T12:33:49.853Z",
+      "modified_at": "2020-10-21T12:33:49.853Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "art-der-reklame",
+      "option": "art-der-reklame-neue",
+      "sort": 2
     }
   },
   {
@@ -9879,9 +12114,9 @@
     "model": "caluma_form.questionoption",
     "pk": "befreiung-von-schutzraeumen-beantragt.befreiung-von-schutzraeumen-beantragt-ja",
     "fields": {
-      "created_at": "2020-09-21T08:52:52.686Z",
-      "modified_at": "2020-09-21T08:52:52.686Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T14:38:58.188Z",
+      "modified_at": "2020-10-21T14:38:58.188Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "befreiung-von-schutzraeumen-beantragt",
       "option": "befreiung-von-schutzraeumen-beantragt-ja",
@@ -9892,12 +12127,38 @@
     "model": "caluma_form.questionoption",
     "pk": "befreiung-von-schutzraeumen-beantragt.befreiung-von-schutzraeumen-beantragt-nein",
     "fields": {
-      "created_at": "2020-09-21T08:52:52.680Z",
-      "modified_at": "2020-09-21T08:52:52.680Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T14:38:58.183Z",
+      "modified_at": "2020-10-21T14:38:58.183Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "befreiung-von-schutzraeumen-beantragt",
       "option": "befreiung-von-schutzraeumen-beantragt-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "beleuchtung.beleuchtung-ja",
+    "fields": {
+      "created_at": "2020-10-21T12:34:57.217Z",
+      "modified_at": "2020-10-21T12:34:57.217Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "beleuchtung",
+      "option": "beleuchtung-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "beleuchtung.beleuchtung-nein",
+    "fields": {
+      "created_at": "2020-10-21T12:34:57.213Z",
+      "modified_at": "2020-10-21T12:34:57.213Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "beleuchtung",
+      "option": "beleuchtung-nein",
       "sort": 1
     }
   },
@@ -9931,9 +12192,9 @@
     "model": "caluma_form.questionoption",
     "pk": "brennstoffe-lagerort.brennstoffe-lagerort-andere",
     "fields": {
-      "created_at": "2020-10-19T12:31:22.654Z",
-      "modified_at": "2020-10-19T12:31:22.654Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:32:13.539Z",
+      "modified_at": "2020-10-21T13:32:13.539Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "brennstoffe-lagerort",
       "option": "brennstoffe-lagerort-andere",
@@ -9944,9 +12205,9 @@
     "model": "caluma_form.questionoption",
     "pk": "brennstoffe-lagerort.brennstoffe-lagerort-heizraum",
     "fields": {
-      "created_at": "2020-10-19T12:31:22.661Z",
-      "modified_at": "2020-10-19T12:31:22.661Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:32:13.545Z",
+      "modified_at": "2020-10-21T13:32:13.545Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "brennstoffe-lagerort",
       "option": "brennstoffe-lagerort-heizraum",
@@ -9957,9 +12218,9 @@
     "model": "caluma_form.questionoption",
     "pk": "brennstoffe-lagerort.brennstoffe-lagerort-tankraum-tankanlage",
     "fields": {
-      "created_at": "2020-10-19T12:31:22.658Z",
-      "modified_at": "2020-10-19T12:31:22.658Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:32:13.542Z",
+      "modified_at": "2020-10-21T13:32:13.542Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "brennstoffe-lagerort",
       "option": "brennstoffe-lagerort-tankraum-tankanlage",
@@ -9970,9 +12231,9 @@
     "model": "caluma_form.questionoption",
     "pk": "category.category-hochbaute",
     "fields": {
-      "created_at": "2020-09-18T15:07:01.748Z",
-      "modified_at": "2020-09-18T15:07:01.748Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:14:26.167Z",
+      "modified_at": "2020-10-21T13:14:26.167Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "category",
       "option": "category-hochbaute",
@@ -9983,9 +12244,9 @@
     "model": "caluma_form.questionoption",
     "pk": "category.category-spezielle-bauten-und-anlagen",
     "fields": {
-      "created_at": "2020-09-18T15:07:01.744Z",
-      "modified_at": "2020-09-18T15:07:01.744Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:14:26.160Z",
+      "modified_at": "2020-10-21T13:14:26.160Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "category",
       "option": "category-spezielle-bauten-und-anlagen",
@@ -9996,9 +12257,9 @@
     "model": "caluma_form.questionoption",
     "pk": "category.category-tiefbaute",
     "fields": {
-      "created_at": "2020-09-18T15:07:01.746Z",
-      "modified_at": "2020-09-18T15:07:01.746Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:14:26.164Z",
+      "modified_at": "2020-10-21T13:14:26.164Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "category",
       "option": "category-tiefbaute",
@@ -10347,91 +12608,104 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-building-permit-canton",
     "fields": {
-      "created_at": "2020-09-01T14:52:15.362Z",
-      "modified_at": "2020-09-01T14:52:15.362Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:00:18.861Z",
+      "modified_at": "2020-10-21T13:00:18.861Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "form-type",
       "option": "form-type-building-permit-canton",
-      "sort": 7
+      "sort": 8
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-building-permit-municipality",
     "fields": {
-      "created_at": "2020-09-01T14:52:15.360Z",
-      "modified_at": "2020-09-01T14:52:15.360Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:00:18.858Z",
+      "modified_at": "2020-10-21T13:00:18.858Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "form-type",
       "option": "form-type-building-permit-municipality",
-      "sort": 6
+      "sort": 7
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-commercial-permit",
     "fields": {
-      "created_at": "2020-09-01T14:52:15.348Z",
-      "modified_at": "2020-09-01T14:52:15.348Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:00:18.836Z",
+      "modified_at": "2020-10-21T13:00:18.836Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "form-type",
       "option": "form-type-commercial-permit",
-      "sort": 1
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-preliminary-clarification-canton",
     "fields": {
-      "created_at": "2020-09-01T14:52:15.358Z",
-      "modified_at": "2020-09-01T14:52:15.358Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:00:18.854Z",
+      "modified_at": "2020-10-21T13:00:18.854Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "form-type",
       "option": "form-type-preliminary-clarification-canton",
-      "sort": 5
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-preliminary-clarification-municipality",
     "fields": {
-      "created_at": "2020-09-01T14:52:15.355Z",
-      "modified_at": "2020-09-01T14:52:15.355Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:00:18.850Z",
+      "modified_at": "2020-10-21T13:00:18.850Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "form-type",
       "option": "form-type-preliminary-clarification-municipality",
-      "sort": 4
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-project-announcement",
     "fields": {
-      "created_at": "2020-09-01T14:52:15.353Z",
-      "modified_at": "2020-09-01T14:52:15.353Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:00:18.846Z",
+      "modified_at": "2020-10-21T13:00:18.846Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "form-type",
       "option": "form-type-project-announcement",
-      "sort": 3
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-solar-announcement",
     "fields": {
-      "created_at": "2020-09-01T14:52:15.351Z",
-      "modified_at": "2020-09-01T14:52:15.351Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:00:18.840Z",
+      "modified_at": "2020-10-21T13:00:18.840Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "form-type",
       "option": "form-type-solar-announcement",
-      "sort": 2
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "form-type.form-type-veranstaltungsgesuch",
+    "fields": {
+      "created_at": "2020-10-21T13:00:18.831Z",
+      "modified_at": "2020-10-21T13:00:18.831Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "form-type",
+      "option": "form-type-veranstaltungsgesuch",
+      "sort": 1
     }
   },
   {
@@ -10581,9 +12855,9 @@
     "model": "caluma_form.questionoption",
     "pk": "grenzabstaende-unterschritten.grenzabstaende-unterschritten-ja",
     "fields": {
-      "created_at": "2020-09-21T08:55:02.486Z",
-      "modified_at": "2020-09-21T08:55:02.486Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T14:40:50.338Z",
+      "modified_at": "2020-10-21T14:40:50.338Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "grenzabstaende-unterschritten",
       "option": "grenzabstaende-unterschritten-ja",
@@ -10594,9 +12868,9 @@
     "model": "caluma_form.questionoption",
     "pk": "grenzabstaende-unterschritten.grenzabstaende-unterschritten-nein",
     "fields": {
-      "created_at": "2020-09-21T08:55:02.481Z",
-      "modified_at": "2020-09-21T08:55:02.481Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T14:40:50.334Z",
+      "modified_at": "2020-10-21T14:40:50.334Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "grenzabstaende-unterschritten",
       "option": "grenzabstaende-unterschritten-nein",
@@ -10906,9 +13180,9 @@
     "model": "caluma_form.questionoption",
     "pk": "infrastrukturanlagen.infrastrukturanlagen-elektriziaet",
     "fields": {
-      "created_at": "2020-09-23T07:48:45.529Z",
-      "modified_at": "2020-09-23T07:48:45.529Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:25:07.341Z",
+      "modified_at": "2020-10-21T13:25:07.341Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "infrastrukturanlagen",
       "option": "infrastrukturanlagen-elektriziaet",
@@ -10919,9 +13193,9 @@
     "model": "caluma_form.questionoption",
     "pk": "infrastrukturanlagen.infrastrukturanlagen-fernheizung",
     "fields": {
-      "created_at": "2020-09-23T07:48:45.522Z",
-      "modified_at": "2020-09-23T07:48:45.522Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:25:07.333Z",
+      "modified_at": "2020-10-21T13:25:07.333Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "infrastrukturanlagen",
       "option": "infrastrukturanlagen-fernheizung",
@@ -10932,9 +13206,9 @@
     "model": "caluma_form.questionoption",
     "pk": "infrastrukturanlagen.infrastrukturanlagen-gas",
     "fields": {
-      "created_at": "2020-09-23T07:48:45.519Z",
-      "modified_at": "2020-09-23T07:48:45.519Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:25:07.330Z",
+      "modified_at": "2020-10-21T13:25:07.330Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "infrastrukturanlagen",
       "option": "infrastrukturanlagen-gas",
@@ -10945,9 +13219,9 @@
     "model": "caluma_form.questionoption",
     "pk": "infrastrukturanlagen.infrastrukturanlagen-trinkwasser",
     "fields": {
-      "created_at": "2020-09-23T07:48:45.525Z",
-      "modified_at": "2020-09-23T07:48:45.525Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:25:07.337Z",
+      "modified_at": "2020-10-21T13:25:07.337Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "infrastrukturanlagen",
       "option": "infrastrukturanlagen-trinkwasser",
@@ -10958,13 +13232,39 @@
     "model": "caluma_form.questionoption",
     "pk": "infrastrukturanlagen.infrastrukturanlagen-wasserentsorgung",
     "fields": {
-      "created_at": "2020-09-23T07:48:45.515Z",
-      "modified_at": "2020-09-23T07:48:45.515Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T13:25:07.326Z",
+      "modified_at": "2020-10-21T13:25:07.326Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "infrastrukturanlagen",
       "option": "infrastrukturanlagen-wasserentsorgung",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "installationsart.installationsart-befristet",
+    "fields": {
+      "created_at": "2020-10-21T12:37:00.466Z",
+      "modified_at": "2020-10-21T12:37:00.466Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "installationsart",
+      "option": "installationsart-befristet",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "installationsart.installationsart-dauerhaft",
+    "fields": {
+      "created_at": "2020-10-21T12:37:00.471Z",
+      "modified_at": "2020-10-21T12:37:00.471Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "installationsart",
+      "option": "installationsart-dauerhaft",
+      "sort": 2
     }
   },
   {
@@ -11021,6 +13321,84 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "kompakte-flaeche.kompakte-flaeche-ja",
+    "fields": {
+      "created_at": "2020-10-21T12:31:11.842Z",
+      "modified_at": "2020-10-21T12:31:11.842Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "kompakte-flaeche",
+      "option": "kompakte-flaeche-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kompakte-flaeche.kompakte-flaeche-nein",
+    "fields": {
+      "created_at": "2020-10-21T12:31:11.839Z",
+      "modified_at": "2020-10-21T12:31:11.839Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "kompakte-flaeche",
+      "option": "kompakte-flaeche-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "montageart.montageart-freistehend-zb-pylone",
+    "fields": {
+      "created_at": "2020-10-21T12:34:37.115Z",
+      "modified_at": "2020-10-21T12:34:37.115Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "montageart",
+      "option": "montageart-freistehend-zb-pylone",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "montageart.montageart-montage-flach-an-fassade",
+    "fields": {
+      "created_at": "2020-10-21T12:34:37.106Z",
+      "modified_at": "2020-10-21T12:34:37.106Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "montageart",
+      "option": "montageart-montage-flach-an-fassade",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "montageart.montageart-montage-rechtwinklig-an-fassade",
+    "fields": {
+      "created_at": "2020-10-21T12:34:37.100Z",
+      "modified_at": "2020-10-21T12:34:37.100Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "montageart",
+      "option": "montageart-montage-rechtwinklig-an-fassade",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "montageart.montageart-montage-ueber-dach",
+    "fields": {
+      "created_at": "2020-10-21T12:34:37.111Z",
+      "modified_at": "2020-10-21T12:34:37.111Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "montageart",
+      "option": "montageart-montage-ueber-dach",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "more-people-involved.more-people-involved-invoice-recipient",
     "fields": {
       "created_at": "2020-09-04T08:52:05.611Z",
@@ -11062,9 +13440,9 @@
     "model": "caluma_form.questionoption",
     "pk": "neuer-pflichtschutzraum.neuer-pflichtschutzraum-ja",
     "fields": {
-      "created_at": "2020-09-21T08:54:03.905Z",
-      "modified_at": "2020-09-21T08:54:03.906Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T14:40:04.866Z",
+      "modified_at": "2020-10-21T14:40:04.866Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "neuer-pflichtschutzraum",
       "option": "neuer-pflichtschutzraum-ja",
@@ -11075,9 +13453,9 @@
     "model": "caluma_form.questionoption",
     "pk": "neuer-pflichtschutzraum.neuer-pflichtschutzraum-nein",
     "fields": {
-      "created_at": "2020-09-21T08:54:03.900Z",
-      "modified_at": "2020-09-21T08:54:03.900Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T14:40:04.862Z",
+      "modified_at": "2020-10-21T14:40:04.862Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "neuer-pflichtschutzraum",
       "option": "neuer-pflichtschutzraum-nein",
@@ -11387,9 +13765,9 @@
     "model": "caluma_form.questionoption",
     "pk": "schutzraum-betroffen.schutzraum-betroffen-ja",
     "fields": {
-      "created_at": "2020-09-21T08:51:54.518Z",
-      "modified_at": "2020-09-21T08:51:54.518Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T14:38:02.278Z",
+      "modified_at": "2020-10-21T14:38:02.278Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "schutzraum-betroffen",
       "option": "schutzraum-betroffen-ja",
@@ -11400,9 +13778,9 @@
     "model": "caluma_form.questionoption",
     "pk": "schutzraum-betroffen.schutzraum-betroffen-nein",
     "fields": {
-      "created_at": "2020-09-21T08:51:54.512Z",
-      "modified_at": "2020-09-21T08:51:54.512Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-21T14:38:02.275Z",
+      "modified_at": "2020-10-21T14:38:02.275Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "schutzraum-betroffen",
       "option": "schutzraum-betroffen-nein",
@@ -11671,6 +14049,58 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "typ-der-analage.typ-der-analage-photovoltaisch",
+    "fields": {
+      "created_at": "2020-10-21T12:14:40.729Z",
+      "modified_at": "2020-10-21T12:14:40.729Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "typ-der-analage",
+      "option": "typ-der-analage-photovoltaisch",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "typ-der-analage.typ-der-analage-thermisch",
+    "fields": {
+      "created_at": "2020-10-21T12:14:40.737Z",
+      "modified_at": "2020-10-21T12:14:40.737Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "typ-der-analage",
+      "option": "typ-der-analage-thermisch",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "typ-der-solaranlage.typ-der-solaranlage-photovoltaische-solaranlage",
+    "fields": {
+      "created_at": "2020-10-21T12:21:04.837Z",
+      "modified_at": "2020-10-21T12:21:04.837Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "typ-der-solaranlage",
+      "option": "typ-der-solaranlage-photovoltaische-solaranlage",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "typ-der-solaranlage.typ-der-solaranlage-thermische-solaranlage",
+    "fields": {
+      "created_at": "2020-10-21T12:21:04.843Z",
+      "modified_at": "2020-10-21T12:21:04.843Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "typ-der-solaranlage",
+      "option": "typ-der-solaranlage-thermische-solaranlage",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "typ-der-speziellen-bauten.typ-der-speziellen-bauten-andere",
     "fields": {
       "created_at": "2020-09-21T07:49:36.915Z",
@@ -11853,6 +14283,32 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "ueberragt-dachflaeche.ueberragt-dachflaeche-ja",
+    "fields": {
+      "created_at": "2020-10-21T12:30:49.792Z",
+      "modified_at": "2020-10-21T12:30:49.792Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "ueberragt-dachflaeche",
+      "option": "ueberragt-dachflaeche-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ueberragt-dachflaeche.ueberragt-dachflaeche-nein",
+    "fields": {
+      "created_at": "2020-10-21T12:30:49.788Z",
+      "modified_at": "2020-10-21T12:30:49.788Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "ueberragt-dachflaeche",
+      "option": "ueberragt-dachflaeche-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "umbau.umbau-andere-umbauten",
     "fields": {
       "created_at": "2020-09-23T07:13:50.376Z",
@@ -11966,6 +14422,149 @@
       "question": "umbau",
       "option": "umbau-umnutzung",
       "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "veranstaltung-art.veranstaltung-art-andere",
+    "fields": {
+      "created_at": "2020-10-21T12:56:14.815Z",
+      "modified_at": "2020-10-21T12:56:14.815Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "veranstaltung-art",
+      "option": "veranstaltung-art-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "veranstaltung-art.veranstaltung-art-baustelleninstallation",
+    "fields": {
+      "created_at": "2020-10-21T12:56:14.842Z",
+      "modified_at": "2020-10-21T12:56:14.842Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "veranstaltung-art",
+      "option": "veranstaltung-art-baustelleninstallation",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "veranstaltung-art.veranstaltung-art-parkieren",
+    "fields": {
+      "created_at": "2020-10-21T12:56:14.852Z",
+      "modified_at": "2020-10-21T12:56:14.852Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "veranstaltung-art",
+      "option": "veranstaltung-art-parkieren",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "veranstaltung-art.veranstaltung-art-sportanlass",
+    "fields": {
+      "created_at": "2020-10-21T12:56:14.823Z",
+      "modified_at": "2020-10-21T12:56:14.823Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "veranstaltung-art",
+      "option": "veranstaltung-art-sportanlass",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "veranstaltung-art.veranstaltung-art-standaktion",
+    "fields": {
+      "created_at": "2020-10-21T12:56:14.828Z",
+      "modified_at": "2020-10-21T12:56:14.828Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "veranstaltung-art",
+      "option": "veranstaltung-art-standaktion",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "veranstaltung-art.veranstaltung-art-strassenverkauf",
+    "fields": {
+      "created_at": "2020-10-21T12:56:14.839Z",
+      "modified_at": "2020-10-21T12:56:14.839Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "veranstaltung-art",
+      "option": "veranstaltung-art-strassenverkauf",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "veranstaltung-art.veranstaltung-art-trottoirparkieren",
+    "fields": {
+      "created_at": "2020-10-21T12:56:14.849Z",
+      "modified_at": "2020-10-21T12:56:14.849Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "veranstaltung-art",
+      "option": "veranstaltung-art-trottoirparkieren",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "veranstaltung-art.veranstaltung-art-umzug",
+    "fields": {
+      "created_at": "2020-10-21T12:56:14.845Z",
+      "modified_at": "2020-10-21T12:56:14.845Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "veranstaltung-art",
+      "option": "veranstaltung-art-umzug",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "veranstaltung-art.veranstaltung-art-zwischenlagern-von-material",
+    "fields": {
+      "created_at": "2020-10-21T12:56:14.820Z",
+      "modified_at": "2020-10-21T12:56:14.820Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "veranstaltung-art",
+      "option": "veranstaltung-art-zwischenlagern-von-material",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vorhaben-dauer.vorhaben-dauer-befristet",
+    "fields": {
+      "created_at": "2020-10-21T12:44:36.013Z",
+      "modified_at": "2020-10-21T12:44:36.013Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "vorhaben-dauer",
+      "option": "vorhaben-dauer-befristet",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vorhaben-dauer.vorhaben-dauer-dauerhaft",
+    "fields": {
+      "created_at": "2020-10-21T12:44:36.018Z",
+      "modified_at": "2020-10-21T12:44:36.018Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "vorhaben-dauer",
+      "option": "vorhaben-dauer-dauerhaft",
+      "sort": 2
     }
   }
 ]
