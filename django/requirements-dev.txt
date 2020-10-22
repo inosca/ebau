@@ -1,5 +1,5 @@
 -r requirements.txt
-black==19.10b0
+black==20.8b1
 dj-inmemorystorage==2.1.0
 django-extensions==3.0.3
 django-silk==4.0.1
