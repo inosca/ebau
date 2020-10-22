@@ -78,8 +78,9 @@ export default class UrGisComponent extends Component {
     const width = this._map.target._container.clientWidth;
     const height = this._map.target._container.clientHeight;
     try {
+      const layerList = LAYERS.join(",");
       const response = yield fetch(
-        `https://service.lisag.ch/ows?SERVICE=WMS&VERSION=1.3.0&HEIGHT=${height}&WIDTH=${width}&request=GetCapabilities&REQUEST=GetFeatureInfo&FORMAT=image/png&LAYERS=raumplanung:ur73_Nutzungsplanung,av:Liegenschaften_overview,raumplanung:sondernutzungsplanung,weitere:wanderwege_uri,weitere:archaeologische_funderwartungsgebiete&QUERY_LAYERS=raumplanung:ur73_Nutzungsplanung,av:Liegenschaften_overview,raumplanung:sondernutzungsplanung,weitere:wanderwege_uri,weitere:archaeologische_funderwartungsgebiete&INFO_FORMAT=application/json&I=${x}&J=${y}&CRS=EPSG:3857&BBOX=${minx},${miny},${maxx},${maxy}&FEATURE_COUNT=10`,
+        `https://service.lisag.ch/ows?SERVICE=WMS&VERSION=1.3.0&HEIGHT=${height}&WIDTH=${width}&request=GetCapabilities&REQUEST=GetFeatureInfo&FORMAT=image/png&LAYERS=${layerList}&QUERY_LAYERS=${layerList}&INFO_FORMAT=application/json&I=${x}&J=${y}&CRS=EPSG:3857&BBOX=${minx},${miny},${maxx},${maxy}&FEATURE_COUNT=10`,
         {
           mode: "cors"
         }
