@@ -38,6 +38,7 @@ export default class WorkItemsIndexController extends Controller {
     return [
       "task",
       "instance",
+      "description",
       ...(this.status === "open"
         ? ["deadline", "responsible"]
         : ["closedAt", "closedBy"])
@@ -58,6 +59,13 @@ export default class WorkItemsIndexController extends Controller {
         instance_id: instanceIds.join(","),
         include: "form"
       });
+
+      if (this.shoebox.content.application === "kt_schwyz") {
+        await this.store.query("form-field", {
+          instance: instanceIds.join(","),
+          name: "bezeichnung"
+        });
+      }
     }
 
     if (serviceIds.length) {
