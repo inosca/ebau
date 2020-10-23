@@ -24395,6 +24395,38 @@
     }
   },
   {
+    "model": "core.formgroupform",
+    "pk": 20000,
+    "fields": {
+      "form_group": 255,
+      "form": 293
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 20001,
+    "fields": {
+      "form_group": 255,
+      "form": 290
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 20002,
+    "fields": {
+      "form_group": 252,
+      "form": 293
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 20003,
+    "fields": {
+      "form_group": 252,
+      "form": 290
+    }
+  },
+  {
     "model": "core.grouppermission",
     "pk": 130195,
     "fields": {
@@ -46628,6 +46660,54 @@
     "fields": {
       "resource": 20000,
       "role": 1131
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 20001,
+    "fields": {
+      "resource": 318,
+      "role": 1102
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 20002,
+    "fields": {
+      "resource": 318,
+      "role": 1130
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 20003,
+    "fields": {
+      "resource": 318,
+      "role": 1104
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 20004,
+    "fields": {
+      "resource": 318,
+      "role": 6
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 20005,
+    "fields": {
+      "resource": 318,
+      "role": 4
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 20006,
+    "fields": {
+      "resource": 318,
+      "role": 1021
     }
   },
   {
