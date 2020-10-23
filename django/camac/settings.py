@@ -1244,6 +1244,13 @@ DOCUMENT_MERGE_SERVICE_URL = build_url(
 )
 
 ECH_API = env.bool("ECH_API", default=True)
+ECH_EXCLUDED_FORMS = [
+    "migriertes-dossier",
+    "baupolizeiliches-verfahren",
+    "hecken-feldgehoelze-baeume",
+    "klaerung-baubewilligungspflicht",
+    "zutrittsermaechtigung",
+]
 
 # Swagger settings
 SWAGGER_SETTINGS = {
