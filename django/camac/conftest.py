@@ -347,6 +347,7 @@ def caluma_workflow_config_be(
         caluma_form_models.Form.objects.create(slug="hecken-feldgehoelze-baeume"),
         caluma_form_models.Form.objects.create(slug="baupolizeiliches-verfahren"),
         caluma_form_models.Form.objects.create(slug="klaerung-baubewilligungspflicht"),
+        caluma_form_models.Form.objects.create(slug="zutrittsermaechtigung"),
     ]
 
     call_command("loaddata", settings.ROOT_DIR("kt_bern/config/caluma_workflow.json"))
