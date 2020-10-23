@@ -51,7 +51,6 @@ services:
       - phpresources:/var/www/camac/kt_uri/resources
 
   keycloak:
-    image: acr.run/camac-ng/keycloak-uri/keycloak:3.4.3.Final_theme-v0.2.0-SNAPSHOT-uri
     volumes:
       - /etc/camac/keycloak.env:/run/secrets/keycloak.env:ro
     environment:
