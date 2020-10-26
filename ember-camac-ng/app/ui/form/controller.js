@@ -21,7 +21,7 @@ export default class FormController extends Controller {
       {
         query: getInstanceCaseQuery,
         fetchPolicy: "network-only",
-        variables: { instanceId: this.model.id }
+        variables: { instanceId: this.model.id },
       },
       "allCases.edges.firstObject.node"
     );

@@ -15,12 +15,12 @@ const LAYERS = [
   "av:Liegenschaften_overview",
   "raumplanung:sondernutzungsplanung",
   "weitere:wanderwege_uri",
-  "weitere:archaeologische_funderwartungsgebiete"
+  "weitere:archaeologische_funderwartungsgebiete",
 ];
 
 const LOW_OPACITY_LAYERS = [
   "av:t04_boflaeche_sw",
-  "leitungen:ur34_Abwasseranlagen_(Eigentum)"
+  "leitungen:ur34_Abwasseranlagen_(Eigentum)",
 ];
 
 const RESOLUTIONS = [50, 20, 10, 5, 2.5, 2, 1.5, 1, 0.5, 0.25, 0.1, 0.05];
@@ -30,7 +30,7 @@ L.CRS.EPSG2056 = new L.Proj.CRS(
   "+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=2600000 +y_0=1200000 +ellps=bessel +towgs84=674.374,15.056,405.346,0,0,0,0 +units=m +no_defs",
   {
     resolutions: RESOLUTIONS,
-    origin: [2420000, 1350000]
+    origin: [2420000, 1350000],
   }
 );
 
@@ -39,7 +39,7 @@ const LatLngToEPSG3857 = (lat, lng) =>
 const EPSG3857toLatLng = (x, y) => L.CRS.EPSG3857.unproject(new L.point(x, y));
 
 const filterFeatureById = (features, id) =>
-  features.find(feature => feature.id.includes(id));
+  features.find((feature) => feature.id.includes(id));
 
 const addFeatureStaticText = (featureData, layerName, label) => {
   const maybeLayer = filterFeatureById(featureData, layerName);
@@ -48,11 +48,8 @@ const addFeatureStaticText = (featureData, layerName, label) => {
   }
 };
 
-const normalizeUmlaute = str =>
-  str
-    .replace("ä", "ae")
-    .replace("ö", "oe")
-    .replace("ü", "ue");
+const normalizeUmlaute = (str) =>
+  str.replace("ä", "ae").replace("ö", "oe").replace("ü", "ue");
 
 export default class UrGisComponent extends Component {
   @service notification;
@@ -82,17 +79,17 @@ export default class UrGisComponent extends Component {
       const response = yield fetch(
         `https://service.lisag.ch/ows?SERVICE=WMS&VERSION=1.3.0&HEIGHT=${height}&WIDTH=${width}&request=GetCapabilities&REQUEST=GetFeatureInfo&FORMAT=image/png&LAYERS=${layerList}&QUERY_LAYERS=${layerList}&INFO_FORMAT=application/json&I=${x}&J=${y}&CRS=EPSG:3857&BBOX=${minx},${miny},${maxx},${maxy}&FEATURE_COUNT=10`,
         {
-          mode: "cors"
+          mode: "cors",
         }
       );
       const data = yield response.json();
       if (data.features) {
         this.parcels = [];
         const features = data.features
-          .map(function(feature) {
+          .map(function (feature) {
             return feature.properties.typ_kt_bezeichnung;
           })
-          .filter(function(feature) {
+          .filter(function (feature) {
             return !!feature;
           });
 
@@ -130,7 +127,7 @@ export default class UrGisComponent extends Component {
         const parzelle = liegenschaftFeature.properties.nummer;
 
         const filteredFeatures = features.filter(
-          feature => feature !== undefined
+          (feature) => feature !== undefined
         );
 
         document.querySelector(
@@ -140,18 +137,18 @@ export default class UrGisComponent extends Component {
         )}`;
 
         const coordinates = liegenschaftFeature.geometry.coordinates[0];
-        const coordinatesLatLng = coordinates[0].map(arr =>
+        const coordinatesLatLng = coordinates[0].map((arr) =>
           EPSG3857toLatLng(...arr)
         );
         this.parcels.pushObject({
-          coordinates: coordinatesLatLng
+          coordinates: coordinatesLatLng,
         });
 
         this.currentFeatures = {
           grundnutzung,
           ueberlagerteNutzungen,
           parcelOrBuildingleaseNumber: parzelle,
-          coordinatesLatLng
+          coordinatesLatLng,
         };
       }
     } catch (error) {
@@ -169,9 +166,10 @@ export default class UrGisComponent extends Component {
         window.scrollX +
         this._map.target._container.getBoundingClientRect().left,
       y:
-        window.scrollY + this._map.target._container.getBoundingClientRect().top
+        window.scrollY +
+        this._map.target._container.getBoundingClientRect().top,
     });
-    const image = yield new Promise(resolve => canvas.toBlob(resolve));
+    const image = yield new Promise((resolve) => canvas.toBlob(resolve));
     this.uploadBlob.perform(image);
 
     const grundnutzungField = this.args.field.document.findField(
@@ -211,7 +209,7 @@ export default class UrGisComponent extends Component {
           municipality
         )}</Literal></PropertyIsEqualTo>&FEATURE_COUNT=10`,
         {
-          mode: "cors"
+          mode: "cors",
         }
       );
       const data = yield response.json();
@@ -220,11 +218,11 @@ export default class UrGisComponent extends Component {
         return;
       }
       const coordinates = data.features[0].geometry.coordinates[0];
-      const coordinatesLatLng = coordinates[0].map(arr =>
+      const coordinatesLatLng = coordinates[0].map((arr) =>
         EPSG3857toLatLng(...arr)
       );
       this.parcels.pushObject({
-        coordinates: coordinatesLatLng
+        coordinates: coordinatesLatLng,
       });
       this.lat = coordinatesLatLng[0].lat;
       this.lng = coordinatesLatLng[0].lng;
@@ -245,7 +243,7 @@ export default class UrGisComponent extends Component {
       {
         method: "POST",
         mode: "cors",
-        body: formData
+        body: formData,
       }
     );
   }

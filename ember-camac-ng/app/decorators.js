@@ -4,17 +4,13 @@ import { tracked } from "@glimmer/tracking";
 export function loadingTask(target, property, desc) {
   const gen = desc.value;
 
-  desc.value = function*(...args) {
+  desc.value = function* (...args) {
     try {
-      getOwner(this)
-        .lookup("controller:application")
-        .set("loading", true);
+      getOwner(this).lookup("controller:application").set("loading", true);
 
       return yield* gen.apply(this, args);
     } finally {
-      getOwner(this)
-        .lookup("controller:application")
-        .set("loading", false);
+      getOwner(this).lookup("controller:application").set("loading", false);
     }
   };
 
@@ -24,8 +20,8 @@ export function loadingTask(target, property, desc) {
 export function objectFromQueryParams(...fields) {
   // There is no easy way of putting the fileds directly into the queryParams array.
   // So you need to set the array yourself.
-  return function(target, property, desc) {
-    fields.forEach(field => {
+  return function (target, property, desc) {
+    fields.forEach((field) => {
       Object.defineProperty(
         target,
         field,
@@ -34,7 +30,7 @@ export function objectFromQueryParams(...fields) {
           enumerable: true,
           configurable: true,
           writable: true,
-          initializer: null
+          initializer: null,
         })
       );
     });
@@ -44,15 +40,15 @@ export function objectFromQueryParams(...fields) {
     delete desc.initializer;
     delete desc.enumerable;
 
-    desc.get = function() {
+    desc.get = function () {
       return Object.assign(
-        ...fields.map(field => ({
-          [field]: this[field]
+        ...fields.map((field) => ({
+          [field]: this[field],
         }))
       );
     };
-    desc.set = function(object) {
-      fields.forEach(key => {
+    desc.set = function (object) {
+      fields.forEach((key) => {
         this[key] = object[key];
       });
     };
