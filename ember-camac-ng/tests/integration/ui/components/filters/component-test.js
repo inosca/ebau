@@ -11,6 +11,6 @@ module("Integration | Component | filters", function(hooks) {
     // Handle any actions with this.set('myAction', function(val) { ... });
     await render(hbs`<Filters />`);
 
-    assert.equal(this.element.textContent.trim(), "");
+    assert.dom(this.element).hasText("");
   });
 });
