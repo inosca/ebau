@@ -25,8 +25,8 @@ export default class CamacAuthenticator extends BaseAuthenticator {
 
   async refresh() {
     const token = await fetch("/index/token", {
-      credentials: "same-origin"
-    }).then(response => response.json());
+      credentials: "same-origin",
+    }).then((response) => response.json());
 
     const data = this.handleToken(token);
 

@@ -3,9 +3,9 @@
 module.exports = {
   extends: ["@adfinis-sygroup/eslint-config/ember-app", "plugin:ember/octane"],
   rules: {
-    "ember/no-mixins": "warn"
+    "ember/no-mixins": "warn",
   },
   settings: {
-    "import/internal-regex": "^camac-ng/"
-  }
+    "import/internal-regex": "^camac-ng/",
+  },
 };

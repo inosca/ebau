@@ -11,5 +11,5 @@ export default Factory.extend({
 
   user: association(),
   instance: association(),
-  service: association()
+  service: association(),
 });

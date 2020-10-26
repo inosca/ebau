@@ -2,7 +2,7 @@ function instanceReductor(all, workItem) {
   return [
     ...all,
     workItem.case.parentWorkItem?.case.meta["camac-instance-id"] ||
-      workItem.case.meta["camac-instance-id"]
+      workItem.case.meta["camac-instance-id"],
   ];
 }
 
@@ -11,7 +11,7 @@ function usernameReductor(all, workItem) {
     ...all,
     ...workItem.assignedUsers,
     workItem.createdByUser,
-    workItem.closedByUser
+    workItem.closedByUser,
   ];
 }
 
@@ -20,7 +20,7 @@ function serviceReductor(all, workItem) {
     ...all,
     ...workItem.addressedGroups,
     workItem.createdByGroup,
-    workItem.closedByGroup
+    workItem.closedByGroup,
   ];
 }
 
@@ -32,6 +32,6 @@ export default function getProcessData(workItems) {
   return {
     instanceIds: instanceIds.filter(Boolean),
     usernames: usernames.filter(Boolean),
-    serviceIds: serviceIds.filter(s => parseInt(s))
+    serviceIds: serviceIds.filter((s) => parseInt(s)),
   };
 }

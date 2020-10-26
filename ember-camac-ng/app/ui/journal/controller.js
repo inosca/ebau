@@ -29,7 +29,7 @@ export default class JournalController extends Controller {
 
     return yield this.store.query("journal-entry", {
       instance: this.model.id,
-      include: "user"
+      include: "user",
     });
   }
 
@@ -55,7 +55,7 @@ export default class JournalController extends Controller {
     }
     this.newEntry = this.store.createRecord("journal-entry", {
       instance: this.instance,
-      visibility: "own_organization"
+      visibility: "own_organization",
     });
   }
 
