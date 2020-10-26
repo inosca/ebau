@@ -489,7 +489,7 @@
       "control_groups": "['activation_service_parent']|groups",
       "is_archived": false,
       "form": null,
-      "lead_time": null,
+      "lead_time": 259200,
       "is_multiple_instance": false
     }
   },
