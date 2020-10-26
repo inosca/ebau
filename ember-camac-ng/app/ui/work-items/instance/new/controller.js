@@ -34,7 +34,7 @@ export default class WorkItemNewController extends Controller {
   @tracked workItem = new NewWorkItem();
 
   get responsibleService() {
-    return this.services.find(service =>
+    return this.services.find((service) =>
       this.workItem.addressedGroups.includes(service.id)
     );
   }
@@ -48,7 +48,7 @@ export default class WorkItemNewController extends Controller {
   }
 
   get responsibleUser() {
-    return this.users.find(user =>
+    return this.users.find((user) =>
       this.workItem.assignedUsers.includes(user.username)
     );
   }
@@ -73,7 +73,7 @@ export default class WorkItemNewController extends Controller {
     ) {
       services.unshift({
         id: "applicant",
-        name: this.intl.t("global.applicant")
+        name: this.intl.t("global.applicant"),
       });
     }
 
@@ -84,19 +84,19 @@ export default class WorkItemNewController extends Controller {
   *getData() {
     this.instance = yield this.store.findRecord("instance", this.model.id, {
       include: "involved_services",
-      reload: true
+      reload: true,
     });
 
     this.users = yield this.store.query("user", {
-      service: this.shoebox.content.serviceId
+      service: this.shoebox.content.serviceId,
     });
 
     this.case = yield this.apollo.query(
       {
         query: allCases,
         variables: {
-          metaValueFilter: [{ key: "camac-instance-id", value: this.model.id }]
-        }
+          metaValueFilter: [{ key: "camac-instance-id", value: this.model.id }],
+        },
       },
       "allCases.edges.firstObject.node.id"
     );
@@ -112,7 +112,7 @@ export default class WorkItemNewController extends Controller {
         : {}),
       ...(!this.selectedOwnService
         ? { controllingGroups: [String(this.shoebox.content.serviceId)] }
-        : {})
+        : {}),
     };
 
     try {
@@ -128,11 +128,11 @@ export default class WorkItemNewController extends Controller {
             deadline: this.workItem.deadline,
             meta: JSON.stringify({
               "notify-completed": this.workItem.notificationCompleted,
-              "notify-deadline": this.workItem.notificationDeadline
+              "notify-deadline": this.workItem.notificationDeadline,
             }),
-            ...extra
-          }
-        }
+            ...extra,
+          },
+        },
       });
 
       this.workItem = new NewWorkItem();

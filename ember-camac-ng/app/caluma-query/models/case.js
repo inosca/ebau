@@ -1,9 +1,10 @@
-import { get } from "@ember/object";
 import { inject as service } from "@ember/service";
 import CaseModel from "ember-caluma/caluma-query/models/case";
 
 function getAnswer(document, slug) {
-  return document.answers.edges.find(edge => edge.node.question.slug === slug);
+  return document.answers.edges.find(
+    (edge) => edge.node.question.slug === slug
+  );
 }
 
 export default class CustomCaseModel extends CaseModel {
@@ -19,7 +20,7 @@ export default class CustomCaseModel extends CaseModel {
 
   get user() {
     // TODO camac_legacy read user from caluma
-    return get(this.instance, "user.username");
+    return this.instance?.user?.username;
   }
 
   get street() {
@@ -64,16 +65,18 @@ export default class CustomCaseModel extends CaseModel {
   get form() {
     const answer = getAnswer(this.raw.document, "form-type");
     return answer?.node.question.options.edges.find(
-      edge => edge.node.slug === answer?.node.stringValue
+      (edge) => edge.node.slug === answer?.node.stringValue
     )?.node.label;
   }
 
   get instanceState() {
-    return get(this.instance, "instanceState.uppercaseName");
+    return this.instance?.instanceState.uppercaseName;
   }
 
   get coordination() {
-    return get(this.instance, "form.description").split(";")[0];
+    const description = this.instance?.form?.description;
+
+    return description && description.split(";")[0];
   }
   get reason() {
     //TODO camac_legacy: Not yet implemented

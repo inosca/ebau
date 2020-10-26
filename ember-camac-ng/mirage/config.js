@@ -1,5 +1,5 @@
 /* eslint-disable ember/no-get */
-export default function() {
+export default function () {
   // this.urlPrefix = "";
   // this.namespace = "";
   this.timing = 1000;

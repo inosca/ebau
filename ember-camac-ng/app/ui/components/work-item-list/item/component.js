@@ -16,14 +16,14 @@ export default class WorkItemListItemComponent extends Component {
     return [
       this.editAction,
       this.toggleReadAction,
-      this.assignToMeAction
+      this.assignToMeAction,
     ].filter(Boolean);
   }
 
   get editAction() {
     return {
       action: performHelper([this.edit], {}),
-      title: this.intl.t("workItems.actions.edit")
+      title: this.intl.t("workItems.actions.edit"),
     };
   }
 
@@ -34,7 +34,7 @@ export default class WorkItemListItemComponent extends Component {
 
     return {
       action: performHelper([this.toggleRead], {}),
-      title: this.intl.t(key)
+      title: this.intl.t(key),
     };
   }
 
@@ -45,7 +45,7 @@ export default class WorkItemListItemComponent extends Component {
 
     return {
       action: performHelper([this.assignToMe], {}),
-      title: this.intl.t("workItems.actions.assignToMe")
+      title: this.intl.t("workItems.actions.assignToMe"),
     };
   }
 
@@ -59,7 +59,7 @@ export default class WorkItemListItemComponent extends Component {
       "highlight",
       ...(diff <= 0 ? ["highlight--expired"] : []),
       ...(diff <= 3 && diff > 0 ? ["highlight--expiring"] : []),
-      ...(notViewed ? ["highlight--not-viewed"] : [])
+      ...(notViewed ? ["highlight--not-viewed"] : []),
     ].join(" ");
   }
 
