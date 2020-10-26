@@ -101,6 +101,7 @@ class InstanceView(
         "=circulations__activations__service__name",
         "@form__description",
         "fields__value",
+        "instance_state__description",
     )
 
     @property
