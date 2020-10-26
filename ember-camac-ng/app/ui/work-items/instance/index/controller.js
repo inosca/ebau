@@ -21,19 +21,19 @@ export default class WorkItemsInstanceIndexController extends Controller {
 
   @calumaQuery({
     query: allWorkItems,
-    options: "options"
+    options: "options",
   })
   readyWorkItemsQuery;
 
   @calumaQuery({
     query: allWorkItems,
-    options: "options"
+    options: "options",
   })
   completedWorkItemsQuery;
 
   get options() {
     return {
-      processNew: workItems => this.processNew(workItems)
+      processNew: (workItems) => this.processNew(workItems),
     };
   }
 
@@ -51,7 +51,7 @@ export default class WorkItemsInstanceIndexController extends Controller {
     if (instanceIds.length) {
       await this.store.query("instance", {
         instance_id: instanceIds.join(","),
-        include: "form"
+        include: "form",
       });
     }
 
@@ -71,20 +71,20 @@ export default class WorkItemsInstanceIndexController extends Controller {
       { hasDeadline: true },
       {
         rootCaseMetaValue: [
-          { key: "camac-instance-id", value: parseInt(this.model.id) }
-        ]
+          { key: "camac-instance-id", value: parseInt(this.model.id) },
+        ],
       },
-      { [filterKey]: [this.shoebox.content.serviceId] }
+      { [filterKey]: [this.shoebox.content.serviceId] },
     ];
 
     yield this.readyWorkItemsQuery.fetch({
       filter: [...filter, { status: "READY" }],
-      order: [{ attribute: "DEADLINE", direction: "ASC" }]
+      order: [{ attribute: "DEADLINE", direction: "ASC" }],
     });
 
     yield this.completedWorkItemsQuery.fetch({
       filter: [...filter, { status: "COMPLETED" }],
-      order: [{ attribute: "CLOSED_AT", direction: "DESC" }]
+      order: [{ attribute: "CLOSED_AT", direction: "DESC" }],
     });
   }
 
@@ -93,8 +93,8 @@ export default class WorkItemsInstanceIndexController extends Controller {
     const response = yield this.apollo.query({
       query: getManualWorkItemsCount,
       variables: {
-        instanceId: parseInt(this.model.id)
-      }
+        instanceId: parseInt(this.model.id),
+      },
     });
 
     return response.allWorkItems.totalCount;

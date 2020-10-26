@@ -12,7 +12,7 @@ const filterQueryParams = [
   "buildingPermitType",
   "createdAfter",
   "createdBefore",
-  "proposalDescription"
+  "proposalDescription",
 ];
 
 export default class CasesController extends Controller {

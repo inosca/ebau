@@ -23,14 +23,14 @@ export default class WorkItemsInstanceEditController extends Controller {
 
   @calumaQuery({
     query: allWorkItems,
-    options: "options"
+    options: "options",
   })
   workItemsQuery;
 
   get options() {
     return {
       pageSize: 1,
-      processNew: workItems => this.processNew(workItems)
+      processNew: (workItems) => this.processNew(workItems),
     };
   }
 
@@ -44,7 +44,7 @@ export default class WorkItemsInstanceEditController extends Controller {
     if (instanceIds.length) {
       await this.store.query("instance", {
         instance_id: instanceIds.join(","),
-        include: "form"
+        include: "form",
       });
     }
 
@@ -72,7 +72,7 @@ export default class WorkItemsInstanceEditController extends Controller {
   *fetchUserChoices() {
     try {
       return (yield this.store.query("user", {
-        service: this.shoebox.content.serviceId
+        service: this.shoebox.content.serviceId,
       })).toArray();
     } catch (error) {
       this.notifications.error(this.intl.t("workItems.fetchError"));
@@ -99,18 +99,18 @@ export default class WorkItemsInstanceEditController extends Controller {
         variables: {
           input: {
             workItem: this.workItem.id,
-            meta: JSON.stringify(this.workItem.meta)
-          }
-        }
+            meta: JSON.stringify(this.workItem.meta),
+          },
+        },
       });
 
       yield this.apollo.mutate({
         mutation: completeWorkItem,
         variables: {
           input: {
-            id: this.workItem.id
-          }
-        }
+            id: this.workItem.id,
+          },
+        },
       });
 
       this.notifications.success(this.intl.t("workItems.finishSuccess"));
@@ -133,9 +133,9 @@ export default class WorkItemsInstanceEditController extends Controller {
             workItem: this.workItem.id,
             description: this.workItem.description,
             deadline: this.workItem.deadline,
-            meta: JSON.stringify(this.workItem?.meta)
-          }
-        }
+            meta: JSON.stringify(this.workItem?.meta),
+          },
+        },
       });
 
       this.notifications.success(this.intl.t("workItems.saveSuccess"));

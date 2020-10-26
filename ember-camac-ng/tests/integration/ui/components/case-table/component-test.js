@@ -11,15 +11,15 @@ class FakeShoebox extends Service {
   }
 }
 
-module("Integration | Component | case-table", function(hooks) {
+module("Integration | Component | case-table", function (hooks) {
   setupRenderingTest(hooks);
   setupIntl(hooks);
 
-  hooks.beforeEach(async function() {
+  hooks.beforeEach(async function () {
     this.owner.register("service:shoebox", FakeShoebox);
   });
 
-  skip("it renders", async function(assert) {
+  skip("it renders", async function (assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 

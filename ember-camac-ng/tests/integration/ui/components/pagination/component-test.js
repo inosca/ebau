@@ -4,11 +4,11 @@ import { setupIntl } from "ember-intl/test-support";
 import { setupRenderingTest } from "ember-qunit";
 import { module, test } from "qunit";
 
-module("Integration | Component | pagination", function(hooks) {
+module("Integration | Component | pagination", function (hooks) {
   setupRenderingTest(hooks);
   setupIntl(hooks, "de");
 
-  test("it works", async function(assert) {
+  test("it works", async function (assert) {
     await render(hbs`<Pagination />`);
 
     assert.dom(".pagination").doesNotExist();
@@ -17,10 +17,10 @@ module("Integration | Component | pagination", function(hooks) {
       value: [1, 2, 3, 4, 5],
       hasNextPage: true,
       totalCount: 10,
-      pageSize: 5
+      pageSize: 5,
     });
 
-    this.set("loadMore", e => {
+    this.set("loadMore", (e) => {
       e.preventDefault();
       assert.step("load-more");
     });
