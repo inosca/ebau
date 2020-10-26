@@ -62,15 +62,20 @@ PERMISSIONS = {
     "kt_schwyz": {
         "municipality": {"admin": [1, 4, 5, 6, 7, 8, 9, 10, 11]},
         "portal": {"admin": [1], "read": [5, 9, 4]},
-        "fachstelle": {"read": [1, 5, 4, 6, 9], "adminint": [2], "adminsvc": [8, 11]},
-        "kanton": {"read": [1, 2], "admin": [8, 6, 9, 10, 11]},
-        "publikation": {"read": [4]},
-        "gemeinde sachbearbeiter": {"admin": [6, 7, 1, 4, 5, 8, 9, 11]},
-        "fachstelle sachbearbeiter": {
-            "read": [1, 4, 5, 6, 9],
+        "fachstelle": {
+            "read": [1, 5, 4, 6, 9, 10, 11],
             "adminint": [2],
-            "adminsvc": [8, 11],
+            "adminsvc": [8],
         },
+        "kanton": {"read": [1, 2, 11], "admin": [8, 6, 9, 10]},
+        "publikation": {"read": [4]},
+        "gemeinde sachbearbeiter": {"admin": [6, 7, 1, 4, 5, 8, 9, 10, 11]},
+        "fachstelle sachbearbeiter": {
+            "read": [1, 4, 5, 6, 9, 10, 11],
+            "adminint": [2],
+            "adminsvc": [8],
+        },
+        "fachstelle leitbehörde": {"admin": [1, 4, 5, 6, 7, 8, 9, 10, 11]},
         "lesezugriff": {"read": [1, 8, 4, 5, 6, 10, 11]},
     },
     "demo": {"applicant": {"admin": [250, 251]}},

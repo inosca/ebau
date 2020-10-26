@@ -227,6 +227,7 @@ class FormDataValidator(object):
         form_def = self.get_form_def(self.instance.form.name)
         relevant_data = []
         signature = {"slug": "signature", "title": "Unterschriften", "people": {}}
+        bauherrschaft = {"slug": "bauherrschaft", "title": "", "people": []}
 
         for module_name in form_def:
             if module_name == IGNORED_MODULE:
@@ -258,6 +259,7 @@ class FormDataValidator(object):
 
                         active_questions.append(
                             {
+                                "slug": question_name,
                                 "label": label,
                                 "type": type,
                                 "value": value,
@@ -294,10 +296,21 @@ class FormDataValidator(object):
 
                     if question["value"] is not None:
                         for value in question["value"]:
-                            firma = value["firma"] + "\n" if "firma" in value else ""
-                            names.append(
-                                f"{firma}{value.get('name', '')} {value.get('vorname', '')}"
-                            )
+                            firma = value["firma"] if "firma" in value else ""
+                            name = f"{value.get('name', '')} {value.get('vorname', '')}"
+
+                            names.append(f"{firma}\n{name}")
+
+                            if question["slug"] == "bauherrschaft":
+                                bauherrschaft["people"].append(
+                                    {
+                                        "firma": firma,
+                                        "name": name,
+                                        "strasse": value.get("strasse"),
+                                        "plz": value.get("plz"),
+                                        "ort": value.get("ort"),
+                                    }
+                                )
 
                     # split people into arrays of 3
                     for i in range(0, len(names), 3):
@@ -312,5 +325,6 @@ class FormDataValidator(object):
         signature["people"] = sorted_signature
 
         relevant_data.append(signature)
+        relevant_data.append(bauherrschaft)
 
         return relevant_data
