@@ -4,6 +4,14 @@ import Resolver from "ember-resolver";
 
 import config from "camac-ng/config/environment";
 
+import "@formatjs/intl-getcanonicallocales/polyfill";
+import "@formatjs/intl-pluralrules/polyfill";
+import "@formatjs/intl-pluralrules/locale-data/de";
+import "@formatjs/intl-pluralrules/locale-data/fr";
+import "@formatjs/intl-relativetimeformat/polyfill";
+import "@formatjs/intl-relativetimeformat/locale-data/de";
+import "@formatjs/intl-relativetimeformat/locale-data/fr";
+
 export default class App extends Application {
   modulePrefix = config.modulePrefix;
   podModulePrefix = config.podModulePrefix;
