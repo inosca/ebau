@@ -5,6 +5,7 @@
       "grundinformationen.kategorisierung",
       "personalien",
       "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft",
       "freigegebene-unterlagen"
     ],
     "geschaeftskontrolle": [
@@ -61,6 +62,13 @@
       "parent": "personalien",
       "questions": [
         "grundeigentumerschaft"
+      ]
+    },
+    "personalien.bauherrschaft": {
+      "title": "bauherrschaft",
+      "parent": "personalien",
+      "questions": [
+        "bauherrschaft"
       ]
     },
     "freigegebene-unterlagen": {
@@ -216,6 +224,29 @@
       "config": {}
     },
     "grundeigentumerschaft": {
+      "label": "Grundeigentümerschaft:",
+      "type": "table",
+      "required": false,
+      "config": {
+        "columns": [
+          {
+            "name": "firma",
+            "label": "Firma",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "name",
+            "label": "Name, Vorname",
+            "type": "text",
+            "required": true,
+            "config": {}
+          }
+        ]
+      }
+    },
+    "bauherrschaft": {
       "label": "Grundeigentümerschaft:",
       "type": "table",
       "required": false,
