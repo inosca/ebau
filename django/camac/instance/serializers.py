@@ -630,6 +630,8 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
     @permission_aware
     def validate(self, data):
+        if settings.APPLICATION_NAME == "kt_uri":  # pragma: no cover
+            data["instance_state"] = models.InstanceState.objects.get(name="new_portal")
         return data
 
     def validate_for_municipality(self, data):
@@ -640,6 +642,12 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
         if settings.APPLICATION["CALUMA"].get("USE_LOCATION"):
             data["location"] = group.locations.first()
+
+        return data
+
+    def validate_for_coordination(self, data):  # pragma: no cover
+        if settings.APPLICATION["CALUMA"].get("CREATE_IN_PROCESS"):
+            data["instance_state"] = models.InstanceState.objects.get(name="ext")
 
         return data
 
@@ -712,6 +720,8 @@ class CalumaInstanceSerializer(InstanceSerializer):
     def initialize_caluma(
         self, instance, source_instance, case, is_modification, is_paper
     ):
+        group = self.context["request"].group
+
         if source_instance:
             source_document_pk = workflow_models.Case.objects.get(
                 **{"meta__camac-instance-id": source_instance.pk}
@@ -748,19 +758,22 @@ class CalumaInstanceSerializer(InstanceSerializer):
                 "projektaenderung-ja" if is_modification else "projektaenderung-nein",
             )
 
+        if settings.APPLICATION["CALUMA"].get("USE_LOCATION") and instance.location:
+            caluma_api.update_or_create_answer(
+                case.document.pk, "municipality", instance.location.get_name()
+            )
+
+        if group.pk == settings.APPLICATION.get("PORTAL_GROUP", False):
+            # TODO pre-fill user data into personal data table
+            pass
+
         if is_paper:
             # prefill municipality question if possible
-            group = self.context["request"].group
             value = str(group.service.pk)
             source = Municipalities()
 
             if source.validate_answer_value(value, case.document, "gemeinde", None):
                 caluma_api.update_or_create_answer(case.document.pk, "gemeinde", value)
-
-            if settings.APPLICATION["CALUMA"].get("USE_LOCATION"):
-                caluma_api.update_or_create_answer(
-                    case.document.pk, "municipality", instance.location.get_name()
-                )
 
     def get_rejection_feedback(self, instance):
         return Answer.get_value_by_cqi(
