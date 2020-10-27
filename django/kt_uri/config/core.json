@@ -18034,6 +18034,33 @@
     }
   },
   {
+    "model": "core.broleacl",
+    "pk": 20000,
+    "fields": {
+      "button": 608,
+      "role": 4,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 20001,
+    "fields": {
+      "button": 608,
+      "role": 4,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 20002,
+    "fields": {
+      "button": 608,
+      "role": 4,
+      "instance_state": 34
+    }
+  },
+  {
     "model": "core.bserviceacl",
     "pk": 1,
     "fields": {
@@ -45680,7 +45707,7 @@
     "model": "core.remberlist",
     "pk": 309,
     "fields": {
-      "instance_states": "23"
+      "instance_states": "23,34"
     }
   },
   {
