@@ -593,16 +593,6 @@
   },
   {
     "model": "core.alocation",
-    "pk": 6,
-    "fields": {}
-  },
-  {
-    "model": "core.alocation",
-    "pk": 68,
-    "fields": {}
-  },
-  {
-    "model": "core.alocation",
     "pk": 633,
     "fields": {}
   },
@@ -658,27 +648,9 @@
   },
   {
     "model": "core.alocationqc",
-    "pk": 2,
-    "fields": {
-      "action": 6,
-      "question": 2,
-      "chapter": 3
-    }
-  },
-  {
-    "model": "core.alocationqc",
     "pk": 3,
     "fields": {
       "action": 691,
-      "question": 2,
-      "chapter": 3
-    }
-  },
-  {
-    "model": "core.alocationqc",
-    "pk": 4,
-    "fields": {
-      "action": 68,
       "question": 2,
       "chapter": 3
     }
@@ -1216,15 +1188,6 @@
   },
   {
     "model": "core.apageredirect",
-    "pk": 1065,
-    "fields": {
-      "resource": 251,
-      "instance_resource": 678,
-      "air_action_name": "list"
-    }
-  },
-  {
-    "model": "core.apageredirect",
     "pk": 1071,
     "fields": {
       "resource": 251,
@@ -1716,31 +1679,10 @@
     }
   },
   {
-    "model": "core.action",
-    "pk": 5,
+    "model": "core.aphp",
+    "pk": 20001,
     "fields": {
-      "available_action": "save",
-      "button": 2,
-      "name": "Dossier erstellen",
-      "description": "",
-      "success_message": "Dossier erfolgreich erstellt.",
-      "error_message": "Dossier konnte nicht erstellt werden!",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 6,
-    "fields": {
-      "available_action": "location",
-      "button": 2,
-      "name": "Gemeinde setzen",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 1
+      "php_class": "CreateInstanceNG"
     }
   },
   {
@@ -1753,34 +1695,6 @@
       "description": "",
       "success_message": "Dossier erfolgreich freigegeben.",
       "error_message": "Beim Freigeben des Dossiers ist ein Fehler aufgetreten!",
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 67,
-    "fields": {
-      "available_action": "save",
-      "button": 64,
-      "name": "Speichern",
-      "description": "",
-      "success_message": "Dossier erfolgreich erstellt.",
-      "error_message": "Dossier konnte nicht erstellt werden!",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 68,
-    "fields": {
-      "available_action": "location",
-      "button": 64,
-      "name": "Location setzen",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
       "execute_always": 0,
       "sort": 1
     }
@@ -3677,20 +3591,6 @@
   },
   {
     "model": "core.action",
-    "pk": 1028,
-    "fields": {
-      "available_action": "save",
-      "button": 742,
-      "name": "Speichern",
-      "description": "",
-      "success_message": "Speichern erfolgreich.",
-      "error_message": "Speichern fehlgeschlagen!",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 1029,
     "fields": {
       "available_action": "save",
@@ -3700,7 +3600,7 @@
       "success_message": "",
       "error_message": "",
       "execute_always": 0,
-      "sort": 0
+      "sort": 1
     }
   },
   {
@@ -3714,7 +3614,7 @@
       "success_message": "",
       "error_message": "",
       "execute_always": 0,
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -3877,26 +3777,12 @@
     "fields": {
       "available_action": "php",
       "button": 743,
-      "name": "Personenangaben setzen",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
+      "name": "SaveFormPerson",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
       "execute_always": 0,
-      "sort": 3
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1065,
-    "fields": {
-      "available_action": "save",
-      "button": 748,
-      "name": "Speichern",
-      "description": "Speichern bei \"Weiter\" im Portal",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 0
+      "sort": 4
     }
   },
   {
@@ -3994,7 +3880,7 @@
       "success_message": "",
       "error_message": "",
       "execute_always": 0,
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -6669,6 +6555,20 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 2
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 20001,
+    "fields": {
+      "available_action": "php",
+      "button": 743,
+      "name": "CreateInstanceNG",
+      "description": null,
+      "success_message": null,
+      "error_message": "Beim Erstellen des Dossiers ist ein Fehler aufgetreten.",
+      "execute_always": 0,
+      "sort": 3
     }
   },
   {
@@ -14048,15 +13948,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 174,
-    "fields": {
-      "button": 742,
-      "role": 1103,
-      "instance_state": 28
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 175,
     "fields": {
       "button": 748,
@@ -14080,15 +13971,6 @@
       "button": 725,
       "role": 1101,
       "instance_state": 26
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 178,
-    "fields": {
-      "button": 742,
-      "role": 1103,
-      "instance_state": 29
     }
   },
   {
@@ -19303,18 +19185,6 @@
   },
   {
     "model": "core.button",
-    "pk": 742,
-    "fields": {
-      "instance_resource": 671,
-      "name": "Speichern",
-      "description": "",
-      "class_field": "",
-      "hidden": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.button",
     "pk": 743,
     "fields": {
       "instance_resource": 651,
@@ -19365,9 +19235,9 @@
     "model": "core.button",
     "pk": 748,
     "fields": {
-      "instance_resource": 671,
-      "name": "Speichern und weiter",
-      "description": "Portal\nButton um vom Dossier editieren zu den Dokumenten zu gelangen",
+      "instance_resource": 20004,
+      "name": "Weiter",
+      "description": "Portal\r\nButton um vom Dossier editieren zu den Dokumenten zu gelangen",
       "class_field": "portal_save_and_continue",
       "hidden": 0,
       "sort": 1
@@ -24818,7 +24688,7 @@
       "resource": 267,
       "name": "Personen- und Projektdaten bearbeiten",
       "description": "Personen- und Projektdaten bearbeiten von der Gemeinde",
-      "template": "ember/instance.phtml",
+      "template": "/ember/instance.phtml",
       "class_field": null,
       "hidden": 0,
       "sort": 0,
@@ -24893,8 +24763,8 @@
       "resource": 267,
       "name": "Personen- und Projektdaten bearbeiten",
       "description": "Personen- und Projektdaten bearbeiten von der Koordinationsstelle",
-      "template": "ember/instance.phtml",
-      "class_field": "",
+      "template": "/ember/instance.phtml",
+      "class_field": null,
       "hidden": 0,
       "sort": 1,
       "form_group": 32
@@ -25659,9 +25529,9 @@
       "name": "Dossier bearbeiten",
       "description": "Dossiers vom Portal User",
       "template": "/portal/edit-page.phtml",
-      "class_field": "",
-      "hidden": 0,
-      "sort": 2,
+      "class_field": null,
+      "hidden": 1,
+      "sort": 3,
       "form_group": 247
     }
   },
@@ -25691,7 +25561,7 @@
       "template": "/portal/send-confirmation.phtml",
       "class_field": "",
       "hidden": 0,
-      "sort": 6,
+      "sort": 7,
       "form_group": 247
     }
   },
@@ -25736,7 +25606,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 3,
+      "sort": 4,
       "form_group": 247
     }
   },
@@ -25751,7 +25621,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 4,
+      "sort": 5,
       "form_group": 247
     }
   },
@@ -25766,7 +25636,7 @@
       "template": "/portal/nfd-complete.phtml",
       "class_field": "",
       "hidden": 0,
-      "sort": 5,
+      "sort": 6,
       "form_group": 247
     }
   },
@@ -26907,6 +26777,21 @@
       "class_field": null,
       "hidden": 0,
       "sort": 12,
+      "form_group": 161
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 20004,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 251,
+      "name": "Dossier bearbeiten (Caluma)",
+      "description": "Dossiers vom Portal User",
+      "template": "/ember/instance.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 2,
       "form_group": 161
     }
   },
@@ -29895,7 +29780,7 @@
     "pk": 671,
     "fields": {
       "page": 1,
-      "pdf_class": ""
+      "pdf_class": null
     }
   },
   {
@@ -30413,6 +30298,13 @@
   {
     "model": "core.irpage",
     "pk": 771,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 20004,
     "fields": {
       "pdf_class": null
     }
@@ -40768,6 +40660,24 @@
     }
   },
   {
+    "model": "core.irroleacl",
+    "pk": 20069,
+    "fields": {
+      "instance_resource": 20004,
+      "role": 1103,
+      "instance_state": 28
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 20070,
+    "fields": {
+      "instance_resource": 20004,
+      "role": 1103,
+      "instance_state": 29
+    }
+  },
+  {
     "model": "core.irserviceacl",
     "pk": 1,
     "fields": {
@@ -45739,6 +45649,13 @@
     }
   },
   {
+    "model": "core.remberlist",
+    "pk": 20001,
+    "fields": {
+      "instance_states": "1,21,22,32,23,24,25,34,26,28,29,30,31"
+    }
+  },
+  {
     "model": "core.rlist",
     "pk": 122,
     "fields": {
@@ -46739,6 +46656,22 @@
   },
   {
     "model": "core.rroleacl",
+    "pk": 20007,
+    "fields": {
+      "resource": 20001,
+      "role": 1103
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 20008,
+    "fields": {
+      "resource": 20001,
+      "role": 2
+    }
+  },
+  {
+    "model": "core.rroleacl",
     "pk": 130000,
     "fields": {
       "resource": 318,
@@ -47677,7 +47610,7 @@
       "template": "/global/home.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 32
+      "sort": 31
     }
   },
   {
@@ -47690,7 +47623,7 @@
       "template": "/global/search.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 29
+      "sort": 28
     }
   },
   {
@@ -47755,7 +47688,7 @@
       "template": "/portal/create.phtml",
       "class_field": "",
       "hidden": 0,
-      "sort": 34
+      "sort": 35
     }
   },
   {
@@ -47846,7 +47779,7 @@
       "template": "/list/index-portal.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 36
+      "sort": 37
     }
   },
   {
@@ -48054,7 +47987,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 30
+      "sort": 29
     }
   },
   {
@@ -48067,7 +48000,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 31
+      "sort": 30
     }
   },
   {
@@ -48132,7 +48065,20 @@
       "template": "/ember/form-builder.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 35
+      "sort": 36
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 20001,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Portal Dossiers",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 32
     }
   },
   {
