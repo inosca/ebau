@@ -4,6 +4,7 @@ import pytest
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
+from django.conf import settings
 from django.urls import reverse
 from rest_framework import status
 
@@ -92,13 +93,28 @@ def test_application_retrieve_full(
     )
 
 
-def test_applications_list(admin_client, admin_user, ech_instance, instance_factory):
+def test_applications_list(admin_client, admin_user, ech_instance):
+    url = reverse("applications")
+
+    response = admin_client.get(url)
+    assert response.status_code == status.HTTP_200_OK
+    json = response.json()
+    assert len(json["data"]) == 1
+    assert json["data"][0]["id"] == str(ech_instance.pk)
+
+
+@pytest.mark.parametrize("form_id", settings.ECH_EXCLUDED_FORMS)
+def test_applications_list_exclude(admin_client, admin_user, instance_factory, form_id):
     # generate an instance that should not be accessible for eCH
-    migrated_instance = instance_factory(user=admin_user)
+    form = caluma_form_models.Form.objects.create(slug=form_id)
+    workflow = caluma_workflow_models.Workflow.objects.create(slug=form_id)
+    workflow.allow_forms.add(form)
+
+    instance = instance_factory(user=admin_user)
     workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(slug="migrated"),
-        form=caluma_form_models.Form.objects.get(slug="migriertes-dossier"),
-        meta={"camac-instance-id": migrated_instance.pk},
+        workflow=workflow,
+        form=form,
+        meta={"camac-instance-id": instance.pk},
         user=BaseUser(),
     )
 
@@ -107,8 +123,7 @@ def test_applications_list(admin_client, admin_user, ech_instance, instance_fact
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
     json = response.json()
-    assert len(json["data"]) == 1
-    assert json["data"][0]["id"] == str(ech_instance.pk)
+    assert len(json["data"]) == 0
 
 
 @pytest.mark.parametrize("give_last", [False, True])
