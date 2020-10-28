@@ -168,6 +168,24 @@
     }
   },
   {
+    "model": "instance.instancestate",
+    "pk": 120002,
+    "fields": {
+      "name": "in_progress_internal",
+      "sort": 15,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 120003,
+    "fields": {
+      "name": "finished_internal",
+      "sort": 16,
+      "description": null
+    }
+  },
+  {
     "model": "instance.instancestatet",
     "pk": 1,
     "fields": {
@@ -474,6 +492,46 @@
       "instance_state": 120001,
       "language": "fr",
       "name": "En cours",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120030,
+    "fields": {
+      "instance_state": 120002,
+      "language": "de",
+      "name": "In Bearbeitung (intern)",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120031,
+    "fields": {
+      "instance_state": 120002,
+      "language": "fr",
+      "name": "En cours (interne)",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120032,
+    "fields": {
+      "instance_state": 120003,
+      "language": "de",
+      "name": "Abgeschlossen (intern)",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120033,
+    "fields": {
+      "instance_state": 120003,
+      "language": "fr",
+      "name": "Termin\u00e9 (interne)",
       "description": null
     }
   }

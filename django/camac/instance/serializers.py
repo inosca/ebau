@@ -930,6 +930,11 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         instance.previous_instance_state = instance.instance_state
         instance.instance_state = models.InstanceState.objects.get(name="subm")
 
+        if case.workflow.slug == "building-police-procedure":
+            instance.instance_state = models.InstanceState.objects.get(
+                name="in_progress_internal"
+            )
+
         instance.save()
 
         if not instance.responsible_service(filter_type="municipality"):
