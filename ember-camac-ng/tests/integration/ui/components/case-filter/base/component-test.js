@@ -4,11 +4,11 @@ import { setupIntl } from "ember-intl/test-support";
 import { setupRenderingTest } from "ember-qunit";
 import { module, test } from "qunit";
 
-module("Integration | Component | case-filter/base", function(hooks) {
+module("Integration | Component | case-filter/base", function (hooks) {
   setupRenderingTest(hooks);
   setupIntl(hooks);
 
-  test("it renders", async function(assert) {
+  test("it renders", async function (assert) {
     // Template block usage:
     await render(hbs`
       <CaseFilter::Base @filterName="instanceState">

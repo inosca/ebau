@@ -3,10 +3,10 @@ import { hbs } from "ember-cli-htmlbars";
 import { setupRenderingTest } from "ember-qunit";
 import { module, test } from "qunit";
 
-module("Integration | Component | loading-mask", function(hooks) {
+module("Integration | Component | loading-mask", function (hooks) {
   setupRenderingTest(hooks);
 
-  test("it renders", async function(assert) {
+  test("it renders", async function (assert) {
     await render(hbs`<LoadingMask />`);
 
     assert.dom("#dialog-loading").doesNotExist();

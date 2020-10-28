@@ -21,7 +21,7 @@ export default class NotificationsService extends Service {
   }
 
   remove(id) {
-    this.all = this.all.filter(obj => obj.id !== id);
+    this.all = this.all.filter((obj) => obj.id !== id);
   }
 
   clear() {

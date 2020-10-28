@@ -18,7 +18,7 @@ const DATA = {
   email: "info@acme.com",
   website: "https://acme.com",
   notification: 1,
-  userIds: []
+  userIds: [],
 };
 
 DATA.description = DATA.name;
@@ -29,12 +29,12 @@ class FakeShoebox extends Service {
   }
 }
 
-module("Acceptance | organisation", function(hooks) {
+module("Acceptance | organisation", function (hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
   setupIntl(hooks);
 
-  hooks.beforeEach(async function() {
+  hooks.beforeEach(async function () {
     this.owner.register("service:shoebox", FakeShoebox);
 
     this.server.create("service", { id: SERVICE_ID, name: DATA.name });
@@ -42,7 +42,7 @@ module("Acceptance | organisation", function(hooks) {
     await authenticateSession();
   });
 
-  test("can edit the own organisation", async function(assert) {
+  test("can edit the own organisation", async function (assert) {
     await visit("/organisation");
 
     await fillIn("input[name=phone]", DATA.phone);

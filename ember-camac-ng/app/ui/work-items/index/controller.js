@@ -30,7 +30,7 @@ export default class WorkItemsIndexController extends Controller {
   get options() {
     return {
       pageSize: 20,
-      processNew: workItems => this.processNew(workItems)
+      processNew: (workItems) => this.processNew(workItems),
     };
   }
 
@@ -40,7 +40,7 @@ export default class WorkItemsIndexController extends Controller {
       "instance",
       ...(this.status === "open"
         ? ["deadline", "responsible"]
-        : ["closedAt", "closedBy"])
+        : ["closedAt", "closedBy"]),
     ];
   }
 
@@ -49,14 +49,14 @@ export default class WorkItemsIndexController extends Controller {
 
     await this.store.query("user", {
       username: [
-        ...new Set([...usernames, this.shoebox.content.username])
-      ].join(",")
+        ...new Set([...usernames, this.shoebox.content.username]),
+      ].join(","),
     });
 
     if (instanceIds.length) {
       await this.store.query("instance", {
         instance_id: instanceIds.join(","),
-        include: "form"
+        include: "form",
       });
     }
 
