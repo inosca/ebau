@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   const ENV = {
     modulePrefix: "camac-ng",
     environment,
@@ -8,11 +8,11 @@ module.exports = function(environment) {
     locationType: "hash",
     podModulePrefix: "camac-ng/ui",
     apollo: {
-      apiURL: "/graphql/"
+      apiURL: "/graphql/",
     },
     moment: {
       includeLocales: require("./locales"),
-      allowEmpty: true
+      allowEmpty: true,
     },
     EmberENV: {
       FEATURES: {
@@ -21,15 +21,15 @@ module.exports = function(environment) {
       },
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
-        Date: false
-      }
+        Date: false,
+      },
     },
 
     APP: {
       rootElement: "#ember-camac-ng",
 
-      allowApplicantManualWorkItem: ["kt_schwyz"]
-    }
+      allowApplicantManualWorkItem: ["kt_schwyz"],
+    },
   };
 
   if (environment === "development") {

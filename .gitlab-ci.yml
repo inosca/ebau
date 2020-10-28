@@ -35,8 +35,7 @@ lint-ember-camac-ng:
     - cd ember-camac-ng
     - yarn
   script:
-    - yarn lint:js
-    - yarn lint:hbs
+    - yarn lint
 
 lint-ember-caluma-portal:
   stage: lint
@@ -77,7 +76,7 @@ test-ember-camac-ng:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
     - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --ignore-pull-failures --quiet ember-camac-ng"
     - eval $COMPOSE build --pull ember-camac-ng
-    - eval $COMPOSE run --rm --no-deps ember-camac-ng yarn test
+    - eval $COMPOSE run --rm --no-deps ember-camac-ng yarn test:ember
 
 test-ember-caluma-portal:
   stage: test

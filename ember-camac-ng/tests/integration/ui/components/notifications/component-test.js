@@ -3,10 +3,10 @@ import { hbs } from "ember-cli-htmlbars";
 import { setupRenderingTest } from "ember-qunit";
 import { module, test } from "qunit";
 
-module("Integration | Component | notifications", function(hooks) {
+module("Integration | Component | notifications", function (hooks) {
   setupRenderingTest(hooks);
 
-  test("it renders", async function(assert) {
+  test("it renders", async function (assert) {
     const service = this.owner.lookup("service:notifications");
 
     await render(hbs`<Notifications />`);
