@@ -2,7 +2,15 @@ import Application from "@ember/application";
 import loadInitializers from "ember-load-initializers";
 import Resolver from "ember-resolver";
 
-import config from "./config/environment";
+import config from "camac-ng/config/environment";
+
+import "@formatjs/intl-getcanonicallocales/polyfill";
+import "@formatjs/intl-pluralrules/polyfill";
+import "@formatjs/intl-pluralrules/locale-data/de";
+import "@formatjs/intl-pluralrules/locale-data/fr";
+import "@formatjs/intl-relativetimeformat/polyfill";
+import "@formatjs/intl-relativetimeformat/locale-data/de";
+import "@formatjs/intl-relativetimeformat/locale-data/fr";
 
 export default class App extends Application {
   modulePrefix = config.modulePrefix;
@@ -20,10 +28,10 @@ export default class App extends Application {
           "router", // ember router for navigation
           "intl", // ember-intl for i18n
           "caluma-options", // service to configure ember-caluma
-          "validator" // service for generic regex validation
-        ]
-      }
-    }
+          "validator", // service for generic regex validation
+        ],
+      },
+    },
   };
 }
 

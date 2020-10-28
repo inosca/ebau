@@ -20,7 +20,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
   get assignedUser() {
     return this.store
       .peekAll("user")
-      .find(user => this.assignedUsers.includes(user.username));
+      .find((user) => this.assignedUsers.includes(user.username));
   }
 
   set assignedUser(user) {
@@ -31,13 +31,13 @@ export default class CustomWorkItemModel extends WorkItemModel {
     if (!parseInt(this.addressedGroups[0])) {
       return {
         name: this.intl.t(`global.${this.addressedGroups[0]}`),
-        id: this.addressedGroups[0]
+        id: this.addressedGroups[0],
       };
     }
 
     return this.store
       .peekAll("service")
-      .find(service => this.addressedGroups.includes(service.id));
+      .find((service) => this.addressedGroups.includes(service.id));
   }
 
   get closedByUser() {
@@ -106,7 +106,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
 
     return [
       this.addressedService.name,
-      this.assignedUser ? `(${this.assignedUser.fullName})` : ""
+      this.assignedUser ? `(${this.assignedUser.fullName})` : "",
     ].join(" ");
   }
 
@@ -161,7 +161,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
       const data = {
         INSTANCE_ID: this.instanceId,
         CIRCULATION_ID: this.raw.meta["circulation-id"],
-        ACTIVATION_ID: this.raw.meta["activation-id"]
+        ACTIVATION_ID: this.raw.meta["activation-id"],
       };
 
       return Object.entries(data).reduce(
@@ -184,10 +184,10 @@ export default class CustomWorkItemModel extends WorkItemModel {
             workItem: this.id,
             meta: JSON.stringify({
               ...this.raw.meta,
-              "not-viewed": this.notViewed
-            })
-          }
-        }
+              "not-viewed": this.notViewed,
+            }),
+          },
+        },
       });
 
       return true;
@@ -214,9 +214,9 @@ export default class CustomWorkItemModel extends WorkItemModel {
         variables: {
           input: {
             workItem: this.id,
-            assignedUsers: this.assignedUsers
-          }
-        }
+            assignedUsers: this.assignedUsers,
+          },
+        },
       });
 
       return true;

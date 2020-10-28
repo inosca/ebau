@@ -4,11 +4,11 @@ import { setupIntl } from "ember-intl/test-support";
 import { setupRenderingTest } from "ember-qunit";
 import { module, test } from "qunit";
 
-module("Integration | Component | loading-text", function(hooks) {
+module("Integration | Component | loading-text", function (hooks) {
   setupRenderingTest(hooks);
   setupIntl(hooks);
 
-  test("it renders", async function(assert) {
+  test("it renders", async function (assert) {
     await render(hbs`<LoadingText />`);
 
     assert.dom("span").hasText("t:global.loading:().");
