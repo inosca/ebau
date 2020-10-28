@@ -11,7 +11,7 @@ export default class HistoryController extends Controller {
     return yield this.store.query("history-entry", {
       instance: this.model.id,
       include: "user",
-      sort: "-created_at"
+      sort: "-created_at",
     });
   }
 }

@@ -19,7 +19,7 @@ class Translations extends EmberObject {
 
 export function initialize(applicationInstance) {
   applicationInstance.register("pikaday-i18n:main", Translations, {
-    singleton: true
+    singleton: true,
   });
   applicationInstance.inject(
     "component:pikaday-input",
@@ -30,5 +30,5 @@ export function initialize(applicationInstance) {
 
 export default {
   name: "setup-pikaday-i18n",
-  initialize
+  initialize,
 };

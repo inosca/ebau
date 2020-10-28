@@ -1,10 +1,10 @@
 import { setupTest } from "ember-qunit";
 import { module, test } from "qunit";
 
-module("Unit | Model | history entry", function(hooks) {
+module("Unit | Model | history entry", function (hooks) {
   setupTest(hooks);
 
-  test("it computes the correct icon for the type", function(assert) {
+  test("it computes the correct icon for the type", function (assert) {
     const store = this.owner.lookup("service:store");
     const model = store.createRecord("history-entry", {});
 

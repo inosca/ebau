@@ -14,7 +14,7 @@ export default class CustomApolloService extends ApolloService.extend(
 
     const middleware = setContext(async (_, context) => ({
       ...context,
-      headers: { ...context.headers, ...this.headers }
+      headers: { ...context.headers, ...this.headers },
     }));
 
     return middleware.concat(httpLink);
@@ -24,7 +24,7 @@ export default class CustomApolloService extends ApolloService.extend(
     return {
       authorization: `Bearer ${this.session.data.authenticated.access_token}`,
       "accept-language": this.shoebox.content.language,
-      "x-camac-group": this.shoebox.content.groupId
+      "x-camac-group": this.shoebox.content.groupId,
     };
   }
 }

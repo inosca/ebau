@@ -15,7 +15,7 @@ export default class CaseTableComponent extends Component {
   get options() {
     return {
       pageSize: 15,
-      processNew: cases => this.processNew(cases)
+      processNew: (cases) => this.processNew(cases),
     };
   }
 
@@ -26,29 +26,29 @@ export default class CaseTableComponent extends Component {
         hasAnswer: [
           {
             question: "building-permit-type",
-            value: filter.buildingPermitType
-          }
-        ]
+            value: filter.buildingPermitType,
+          },
+        ],
       },
       dossierNumber: {
         metaValue: [
           {
             key: "dossier-number",
-            value: filter.dossierNumber
-          }
-        ]
+            value: filter.dossierNumber,
+          },
+        ],
       },
       proposalDescription: {
         hasAnswer: [
           {
             question: "proposal-description",
             lookup: "ICONTAINS",
-            value: filter.proposalDescription
-          }
-        ]
+            value: filter.proposalDescription,
+          },
+        ],
       },
       createdBefore: { createdBefore: filter.createdBefore },
-      createdAfter: { createdAfter: filter.createdAfter }
+      createdAfter: { createdAfter: filter.createdAfter },
     };
 
     return Object.entries(filter)
@@ -62,17 +62,17 @@ export default class CaseTableComponent extends Component {
     return htmlSafe(
       this.intl.t("global.paginationInfo", {
         count: this.casesQuery.value.length,
-        total: this.casesQuery.totalCount
+        total: this.casesQuery.totalCount,
       })
     );
   }
 
   async processNew(cases) {
-    const instanceIds = cases.map(_case => _case.meta["camac-instance-id"]);
+    const instanceIds = cases.map((_case) => _case.meta["camac-instance-id"]);
 
     await this.store.query("instance", {
       instance_id: instanceIds.join(","),
-      include: "instance_state,user,form"
+      include: "instance_state,user,form",
     });
     return cases;
   }
@@ -90,7 +90,7 @@ export default class CaseTableComponent extends Component {
           "applicant",
           "intent",
           "street",
-          "instanceState"
+          "instanceState",
         ];
 
       case "coordination":
@@ -104,7 +104,7 @@ export default class CaseTableComponent extends Component {
           "applicant",
           "intent",
           "street",
-          "instanceState"
+          "instanceState",
         ];
       case "service":
         return [
@@ -117,7 +117,7 @@ export default class CaseTableComponent extends Component {
           "intent",
           "street",
           "reason",
-          "caseStatus"
+          "caseStatus",
         ];
 
       default:
@@ -127,7 +127,7 @@ export default class CaseTableComponent extends Component {
           "applicant",
           "intent",
           "street",
-          "parcel"
+          "parcel",
         ];
     }
   }
@@ -140,11 +140,12 @@ export default class CaseTableComponent extends Component {
       queryOptions: {
         context: {
           headers: {
-            "x-camac-filters": `instance_state=${this.args.filter
-              .instanceState ?? ""}&location=${this.args.filter.municipality}`
-          }
-        }
-      }
+            "x-camac-filters": `instance_state=${
+              this.args.filter.instanceState ?? ""
+            }&location=${this.args.filter.municipality}`,
+          },
+        },
+      },
     });
   }
 

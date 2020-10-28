@@ -23,7 +23,7 @@ export default class ApplicationRoute extends ApplicationRouteBase {
 
     this.calumaOptions.registerComponentOverride({
       label: "Karte",
-      component: "ur-gis"
+      component: "ur-gis",
     });
   }
 

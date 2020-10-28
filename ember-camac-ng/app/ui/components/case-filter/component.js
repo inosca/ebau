@@ -38,17 +38,17 @@ export default class CaseFilterComponent extends Component {
               }
             }
           }
-        `
+        `,
       },
       "allQuestions.edges"
     ))
-      .map(edge => edge.node.options.edges)[0]
-      ?.map(edge => edge.node);
+      .map((edge) => edge.node.options.edges)[0]
+      ?.map((edge) => edge.node);
 
     return {
       municipalities,
       buildingPermitTypes,
-      instanceStates
+      instanceStates,
     };
   }
 
@@ -56,7 +56,7 @@ export default class CaseFilterComponent extends Component {
     // The || null is so queryParams with value "" are not put into the url
     this._filter = {
       ...this.args.filter,
-      [field]: event?.target?.value || null
+      [field]: event?.target?.value || null,
     };
   }
 

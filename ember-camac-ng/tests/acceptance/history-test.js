@@ -5,20 +5,20 @@ import { setupApplicationTest } from "ember-qunit";
 import { authenticateSession } from "ember-simple-auth/test-support";
 import { module, test } from "qunit";
 
-module("Acceptance | history", function(hooks) {
+module("Acceptance | history", function (hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
   setupIntl(hooks);
 
-  hooks.beforeEach(async function() {
+  hooks.beforeEach(async function () {
     await authenticateSession({ token: "sometoken" });
 
     this.instance = this.server.create("instance");
   });
 
-  test("it can list history entires", async function(assert) {
+  test("it can list history entires", async function (assert) {
     this.server.createList("history-entry", 5, {
-      instanceId: this.instance.id
+      instanceId: this.instance.id,
     });
 
     await visit(`/instances/${this.instance.id}/history`);
@@ -26,17 +26,17 @@ module("Acceptance | history", function(hooks) {
     assert.dom("tbody > tr").exists({ count: 5 });
   });
 
-  test("it handles empty state", async function(assert) {
+  test("it handles empty state", async function (assert) {
     await visit(`/instances/${this.instance.id}/history`);
 
     assert.dom("tbody > tr").exists({ count: 1 });
     assert.dom("tbody > tr > td").hasText("t:global.empty:()");
   });
 
-  test("it can expand and collapse rows", async function(assert) {
+  test("it can expand and collapse rows", async function (assert) {
     this.server.create("history-entry", {
       instanceId: this.instance.id,
-      body: "test"
+      body: "test",
     });
 
     await visit(`/instances/${this.instance.id}/history`);
