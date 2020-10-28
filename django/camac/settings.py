@@ -525,6 +525,40 @@ APPLICATIONS = {
                     "karte",
                 ],
             },
+            "baupolizeiliches-verfahren": {
+                "forms": ["baupolizeiliches-verfahren"],
+                "template": "2-level",
+                "allgemeine_info": "allgemeine-angaben-kurz-formular",
+                "personalien": "personalien-kurz-formular",
+                "people_sources": {
+                    "personalien-gesuchstellerin": {
+                        "familyName": "name-gesuchstellerin",
+                        "givenName": "vorname-gesuchstellerin",
+                    },
+                    "personalien-vertreterin-mit-vollmacht": {
+                        "familyName": "name-vertreterin",
+                        "givenName": "vorname-vertreterin",
+                    },
+                    "personalien-grundeigentumerin": {
+                        "familyName": "name-grundeigentuemerin",
+                        "givenName": "vorname-grundeigentuemerin",
+                    },
+                    "personalien-gebaudeeigentumerin": {
+                        "familyName": "name-gebaeudeeigentuemerin",
+                        "givenName": "vorname-gebaeudeeigentuemerin",
+                    },
+                    "personalien-projektverfasserin": {
+                        "familyName": "name-projektverfasserin",
+                        "givenName": "vorname-projektverfasserin",
+                    },
+                },
+                "exclude_slugs": [
+                    "papierdossier",
+                    "projektaenderung",
+                    "8-freigabequittung",
+                    "karte",
+                ],
+            },
             "selbstdeklaration": {
                 "forms": ["sb1", "sb2"],
                 "template": "1-level",
