@@ -86,9 +86,12 @@ export default class CustomCaseModel extends CaseModel {
     //TODO camac_legacy: Not yet implemented
     return null;
   }
-  get parcel() {
-    //TODO camac_legacy: Not yet implemented
-    return null;
+  get parcelNumbers() {
+    const answer = getAnswer(this.raw.document, "parcels");
+    const tableAnswers = answer?.node.value ?? [];
+    return tableAnswers.map(
+      answer => getAnswer(answer, "parcel-number")?.node.stringValue
+    );
   }
 
   static fragment = `{
@@ -101,7 +104,8 @@ export default class CustomCaseModel extends CaseModel {
         "street-number",
         "form-type",
         "proposal-description",
-        "municipality"
+        "municipality",
+        "parcels"
       ]) {
         edges {
           node {
