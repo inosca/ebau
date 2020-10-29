@@ -795,6 +795,8 @@ APPLICATIONS = {
             ),
             ("werden-siloanlagen-erstellt", "werden-siloanlagen-erstellt-ja", [20055]),
             ("wildtierschutz", "wildtierschutz-ja", [20064]),
+            ("gesuchstyp", "gesuchstyp-baum", [20065]),
+            ("gesuchstyp", "gesuchstyp-hecke-feldgehoelz", [20065]),
         ],
         "NOTIFICATIONS_EXCLUDED_TASKS": [],
         "DUMP_CONFIG_GROUPS": {
