@@ -491,7 +491,7 @@
     "model": "core.aformtransition",
     "pk": 1274,
     "fields": {
-      "current_instance_state": 22,
+      "current_instance_state": null,
       "next_instance_state": 27
     }
   },
@@ -1683,6 +1683,13 @@
     "pk": 20001,
     "fields": {
       "php_class": "CreateInstanceNG"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 20002,
+    "fields": {
+      "php_class": "SetOLD"
     }
   },
   {
@@ -5166,7 +5173,7 @@
       "name": "L\u00f6schen",
       "description": "L\u00f6schen eines Dossiers der Koord AFJ",
       "success_message": "Dossier gel\u00f6scht.",
-      "error_message": "Das Dossier konnte nich gel\u00f6scht werden, da ein Fehler aufgetreten ist!",
+      "error_message": "Das Dossier konnte nicht gel\u00f6scht werden, da ein Fehler aufgetreten ist!",
       "execute_always": 0,
       "sort": 0
     }
@@ -5476,7 +5483,7 @@
       "success_message": "",
       "error_message": "",
       "execute_always": 0,
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -6567,6 +6574,20 @@
       "description": null,
       "success_message": null,
       "error_message": "Beim Erstellen des Dossiers ist ein Fehler aufgetreten.",
+      "execute_always": 0,
+      "sort": 3
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 20002,
+    "fields": {
+      "available_action": "php",
+      "button": 833,
+      "name": "Archivdossier erstellen",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
       "execute_always": 0,
       "sort": 3
     }
@@ -24327,18 +24348,34 @@
   },
   {
     "model": "core.formgroupform",
-    "pk": 20002,
+    "pk": 20004,
     "fields": {
-      "form_group": 252,
-      "form": 293
+      "form_group": 255,
+      "form": 294
     }
   },
   {
     "model": "core.formgroupform",
-    "pk": 20003,
+    "pk": 20005,
+    "fields": {
+      "form_group": 255,
+      "form": 295
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 20006,
     "fields": {
       "form_group": 252,
-      "form": 290
+      "form": 294
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 20007,
+    "fields": {
+      "form_group": 252,
+      "form": 295
     }
   },
   {
@@ -34154,15 +34191,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 411,
-    "fields": {
-      "instance_resource": 691,
-      "role": 4,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 412,
     "fields": {
       "instance_resource": 683,
@@ -34213,15 +34241,6 @@
       "instance_resource": 684,
       "role": 1061,
       "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 418,
-    "fields": {
-      "instance_resource": 691,
-      "role": 4,
-      "instance_state": 1
     }
   },
   {
@@ -34303,15 +34322,6 @@
       "instance_resource": 690,
       "role": 1101,
       "instance_state": 1
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 428,
-    "fields": {
-      "instance_resource": 691,
-      "role": 4,
-      "instance_state": 22
     }
   },
   {
@@ -40832,6 +40842,69 @@
   },
   {
     "model": "core.irroleacl",
+    "pk": 20071,
+    "fields": {
+      "instance_resource": 735,
+      "role": 1128,
+      "instance_state": 33
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 20072,
+    "fields": {
+      "instance_resource": 733,
+      "role": 4,
+      "instance_state": 33
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 20073,
+    "fields": {
+      "instance_resource": 733,
+      "role": 1021,
+      "instance_state": 33
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 20074,
+    "fields": {
+      "instance_resource": 737,
+      "role": 1128,
+      "instance_state": 33
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 20075,
+    "fields": {
+      "instance_resource": 737,
+      "role": 1129,
+      "instance_state": 33
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 20076,
+    "fields": {
+      "instance_resource": 525,
+      "role": 4,
+      "instance_state": 33
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 20077,
+    "fields": {
+      "instance_resource": 525,
+      "role": 1021,
+      "instance_state": 33
+    }
+  },
+  {
+    "model": "core.irroleacl",
     "pk": 180000,
     "fields": {
       "instance_resource": 180000,
@@ -43443,6 +43516,50 @@
     }
   },
   {
+    "model": "core.pageform",
+    "pk": 20000,
+    "fields": {
+      "page": 1,
+      "form": 294,
+      "page_form_mode": 3,
+      "page_form_group": 1,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.pageform",
+    "pk": 20001,
+    "fields": {
+      "page": 1,
+      "form": 295,
+      "page_form_mode": 3,
+      "page_form_group": 1,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.pageform",
+    "pk": 20002,
+    "fields": {
+      "page": 83,
+      "form": 295,
+      "page_form_mode": 1,
+      "page_form_group": 1,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.pageform",
+    "pk": 20003,
+    "fields": {
+      "page": 41,
+      "form": 295,
+      "page_form_mode": 4,
+      "page_form_group": 1,
+      "sort": 2
+    }
+  },
+  {
     "model": "core.pageformgroup",
     "pk": 1,
     "fields": {
@@ -45089,7 +45206,7 @@
       "answer_query": null,
       "name": "Dossier Erfassungsjahr",
       "description": null,
-      "javascript": "if ($('form').attr('action') && $('form').attr('action').split('/')[8] != 293) {\r\n\t$('#element-[QUESTION]i1').hide();\r\n}",
+      "javascript": "if ($('form').attr('action') && [\"293\", \"294\"].indexOf($('form').attr('action').split('/')[8]) === -1) {\r\n\t$('#element-[QUESTION]i1').hide();\r\n}",
       "regex": null,
       "default_answer": null,
       "class_field": null,
