@@ -540,6 +540,24 @@
     }
   },
   {
+    "model": "instance.form",
+    "pk": 294,
+    "fields": {
+      "form_state": 1,
+      "name": "Archivdossier AFJ",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 295,
+    "fields": {
+      "form_state": 1,
+      "name": "Meldung Vorhaben AFJ",
+      "description": null
+    }
+  },
+  {
     "model": "instance.formstate",
     "pk": 1,
     "fields": {
