@@ -16,7 +16,9 @@
     {{#each this.casesQuery.value as |node|}}
       <tr role="link" {{on "click" (fn this.redirectToCase node)}}>
         {{#each this.tableHeaders as |tHeader|}}
-          <td>
+          <td
+            class={{if (eq tHeader "intent") "uk-text-truncate uk-table-expand"}}
+          >
             {{get node tHeader}}
           </td>
         {{/each}}
