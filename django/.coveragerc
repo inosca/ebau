@@ -40,6 +40,7 @@ omit=
     camac/core/serializers.py
     # One off commands
     camac/instance/management/commands/fix_sb_instances.py
+    camac/instance/management/commands/fix_sb_paper_question.py
     # Deprecated commands
     camac/core/management/commands/dumpcamacdata.py
     camac/core/management/commands/dumpconfig.py
