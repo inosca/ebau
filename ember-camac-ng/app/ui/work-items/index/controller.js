@@ -63,7 +63,7 @@ export default class WorkItemsIndexController extends Controller {
       if (this.shoebox.content.application === "kt_schwyz") {
         await this.store.query("form-field", {
           instance: instanceIds.join(","),
-          name: "bezeichnung"
+          name: "bezeichnung",
         });
       }
     }
