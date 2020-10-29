@@ -862,9 +862,14 @@ APPLICATIONS = {
             "SYNC_FORM_TYPE": True,
         },
         "PAPER": {
-            "ALLOWED_ROLES": {"DEFAULT": [6]},  # Sekretariat Gemeindebaubehörde
+            "ALLOWED_ROLES": {
+                "DEFAULT": [3, 6]
+            },  # KOOR BG, Sekretariat Gemeindebaubehörde
             "ALLOWED_SERVICE_GROUPS": {
-                "DEFAULT": [68]  # Sekretariate Gemeindebaubehörden
+                "DEFAULT": [
+                    1,  # Koordinationsstellen
+                    68,  # Sekretariate Gemeindebaubehörden
+                ]
             },
         },
         "FORM_MAPPING": {
