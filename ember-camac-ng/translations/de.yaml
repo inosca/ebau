@@ -123,6 +123,9 @@ cases:
     reason: "Grund"
     caseStatus: "Status"
     parcel: "Parzelle"
+    createdAt: "Erstellt am"
+    modifiedAt: "Geändert am"
+    submitDate: "Eingereicht am"
 
   filter: "Dossier Suchen"
   filters:
