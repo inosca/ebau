@@ -20,7 +20,7 @@ export default class CustomCaseModel extends CaseModel {
 
   get user() {
     // TODO camac_legacy read user from caluma
-    return this.instance?.user?.username;
+    return this.instance?.get("user.username");
   }
 
   get street() {
@@ -70,7 +70,7 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get instanceState() {
-    return this.instance?.instanceState.uppercaseName;
+    return this.instance?.get("instanceState.uppercaseName");
   }
 
   get coordination() {
