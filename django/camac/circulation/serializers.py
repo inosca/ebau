@@ -29,4 +29,4 @@ class ActivationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Activation
-        fields = ("circulation", "deadline_date", "state", "reason")
+        fields = ("circulation", "deadline_date", "service", "state", "reason")
