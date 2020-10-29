@@ -20,7 +20,9 @@ class CirculationFilterSet(FilterSet):
 class ActivationFilterSet(FilterSet):
 
     circulation_state = NumberMultiValueFilter()
+    instance = NumberMultiValueFilter(field_name="circulation__instance")
     form = NumberMultiValueFilter(field_name="circulation__instance__form")
+    service = NumberMultiValueFilter(field_name="service")
     instance_state = NumberMultiValueFilter(
         field_name="circulation__instance__instance_state"
     )
@@ -43,7 +45,9 @@ class ActivationFilterSet(FilterSet):
         fields = (
             "circulation_state",
             "form",
+            "instance",
             "instance_state",
             "location",
             "previous_instance_state",
+            "service",
         )
