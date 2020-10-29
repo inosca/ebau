@@ -162,3 +162,23 @@ def test_publication_publish(
 
     response = admin_client.post(url)
     assert response.status_code == status.HTTP_204_NO_CONTENT
+
+
+@pytest.mark.parametrize("role__name", [("Municipality")])
+def test_publication_no_publication(
+    application_settings,
+    admin_client,
+    publication_entry,
+    work_item_factory,
+    task_factory,
+    case_factory,
+):
+    task = task_factory()
+    case = case_factory(meta={"camac-instance-id": publication_entry.instance.pk})
+    application_settings["CALUMA"] = {"PUBLICATION_TASK_SLUG": task.slug}
+    work_item_factory(status="ready", task=task, case=case, child_case=None)
+
+    url = reverse("publication-no-publication", args=[publication_entry.pk])
+
+    response = admin_client.post(url)
+    assert response.status_code == status.HTTP_204_NO_CONTENT

@@ -279,6 +279,7 @@ APPLICATIONS = {
             },
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": False,
             "WORK_ITEM_EXCLUDE_ROLES": ["Lesezugriff"],
+            "PUBLICATION_TASK_SLUG": "publication",
         },
         "HAS_EBAU_NUMBER": False,
         "OIDC_SYNC_USER_ATTRIBUTES": [
