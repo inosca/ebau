@@ -192,6 +192,18 @@
     }
   },
   {
+    "model": "document.attachmentsection",
+    "pk": 20000,
+    "fields": {
+      "name": "Interne Dokumente AFJ (nur f\u00fcr Fachstellen AFJ sichtbar)",
+      "description": null,
+      "sort": 0,
+      "notification_template": null,
+      "recipient_types": null,
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
     "model": "document.attachmentsectionroleacl",
     "pk": 236,
     "fields": {
@@ -1011,6 +1023,15 @@
     }
   },
   {
+    "model": "document.attachmentsectionroleacl",
+    "pk": 20000,
+    "fields": {
+      "attachment_section": 20000,
+      "role": 1128,
+      "mode": "write"
+    }
+  },
+  {
     "model": "document.attachmentsectionserviceacl",
     "pk": 104,
     "fields": {
@@ -1169,6 +1190,15 @@
     "fields": {
       "attachment_section": 102,
       "service": 90,
+      "mode": "write"
+    }
+  },
+  {
+    "model": "document.attachmentsectionserviceacl",
+    "pk": 20000,
+    "fields": {
+      "attachment_section": 20000,
+      "service": 2,
       "mode": "write"
     }
   },
