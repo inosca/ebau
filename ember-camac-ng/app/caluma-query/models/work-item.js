@@ -124,7 +124,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
 
   get instanceName() {
     const identifier = this.instance?.identifier || this.instanceId;
-    const name = this.instance?.name;
+    const name = this.instance?.name || this.instance?.form.get("description");
     const ebauNr = this.case?.meta["ebau-number"];
     const suffix = ebauNr ? `(${ebauNr})` : "";
 
@@ -133,6 +133,26 @@ export default class CustomWorkItemModel extends WorkItemModel {
     }
 
     return identifier;
+  }
+
+  get instanceDescription() {
+    let description = "";
+
+    if (this.shoebox.content.application === "kt_schwyz") {
+      const { value } = this.store
+        .peekAll("form-field")
+        .find(
+          field =>
+            field.instance.get("id") === this.instanceId.toString() &&
+            field.name === "bezeichnung"
+        );
+
+      description = value;
+    } else {
+      description = this.raw.case.document.answers.edges[0].node.value;
+    }
+
+    return description;
   }
 
   get directLink() {
@@ -246,6 +266,15 @@ export default class CustomWorkItemModel extends WorkItemModel {
       document {
         form {
           name
+        }
+        answers(questions: ["anfrage-zur-vorabklaerung","beschreibung-bauvorhaben"]) {
+          edges {
+            node {
+              ... on StringAnswer {
+                value
+              }
+            }
+          }
         }
       }
       parentWorkItem {
