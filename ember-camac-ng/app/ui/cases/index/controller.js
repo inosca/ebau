@@ -15,7 +15,7 @@ const filterQueryParams = [
   "proposalDescription",
 ];
 
-export default class CasesController extends Controller {
+export default class CasesIndexController extends Controller {
   queryParams = ["displaySearch", ...filterQueryParams];
 
   @tracked displaySearch = false;
