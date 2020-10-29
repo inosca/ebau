@@ -11,7 +11,7 @@ export default class ContextMenuComponent extends Component {
   handleMouseLeave() {
     this.closeMenuDelay = later(
       this,
-      function() {
+      function () {
         this.menuOpen = false;
       },
       1000
