@@ -634,7 +634,7 @@ snapshots['test_document_merge_service_snapshot[1-baugesuch] 1'] = [
                                 'label': 'Sprengen'
                             }
                         ],
-                        'label': 'Vorbereitende Massnahmen',
+                        'label': 'Vorbereitende Sicherungsmassnahmen',
                         'slug': 'vorbereitende-massnahmen',
                         'type': 'MultipleChoiceQuestion'
                     },
