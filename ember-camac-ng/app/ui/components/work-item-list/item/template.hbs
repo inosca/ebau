@@ -30,6 +30,8 @@
         }}
       {{else if (eq column "closedBy")}}
         {{if @workItem.closedByUser @workItem.closedByUser.fullName "-"}}
+      {{else if (eq column "description")}}
+        {{@workItem.instanceDescription}}
       {{/if}}
     </td>
   {{/each}}
