@@ -1,0 +1,4 @@
+{{#if this.displaySearch}}
+  <CaseFilter @onChange={{this.setCaseFilter}} @filter={{this.caseFilter}} />
+{{/if}}
+<CaseTable @filter={{this.caseFilter}} />

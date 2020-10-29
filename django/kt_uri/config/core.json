@@ -7274,6 +7274,15 @@
     }
   },
   {
+    "model": "core.airaction",
+    "pk": 180000,
+    "fields": {
+      "available_instance_resource": "dashboard",
+      "action_name": "index",
+      "hidden": 0
+    }
+  },
+  {
     "model": "core.answerlist",
     "pk": 1,
     "fields": {
@@ -12135,6 +12144,15 @@
       "module_name": "default",
       "controller_name": "circulation",
       "description": "Read the circulation"
+    }
+  },
+  {
+    "model": "core.availableinstanceresource",
+    "pk": "dashboard",
+    "fields": {
+      "module_name": "dashboard",
+      "controller_name": "dashboard",
+      "description": "Dashboard for Case"
     }
   },
   {
@@ -24661,7 +24679,7 @@
       "template": "/form/form-edit.phtml",
       "class_field": null,
       "hidden": 1,
-      "sort": 1,
+      "sort": 2,
       "form_group": 31
     }
   },
@@ -24676,7 +24694,7 @@
       "template": "/form/form-read.phtml",
       "class_field": "",
       "hidden": 1,
-      "sort": 4,
+      "sort": 5,
       "form_group": 30
     }
   },
@@ -24691,7 +24709,7 @@
       "template": "/ember/instance.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 0,
+      "sort": 1,
       "form_group": 81
     }
   },
@@ -24721,7 +24739,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 7,
+      "sort": 8,
       "form_group": 161
     }
   },
@@ -24736,7 +24754,7 @@
       "template": "/form/form-read.phtml",
       "class_field": "",
       "hidden": 1,
-      "sort": 2,
+      "sort": 3,
       "form_group": 30
     }
   },
@@ -24766,7 +24784,7 @@
       "template": "/ember/instance.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 1,
+      "sort": 2,
       "form_group": 32
     }
   },
@@ -24781,7 +24799,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 3,
+      "sort": 4,
       "form_group": 30
     }
   },
@@ -24796,7 +24814,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 9,
+      "sort": 10,
       "form_group": 30
     }
   },
@@ -24826,7 +24844,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 6,
+      "sort": 7,
       "form_group": 30
     }
   },
@@ -24856,7 +24874,7 @@
       "template": "/form/form-edit.phtml",
       "class_field": null,
       "hidden": 1,
-      "sort": 3,
+      "sort": 4,
       "form_group": 61
     }
   },
@@ -24871,7 +24889,7 @@
       "template": "/change/gem.phtml",
       "class_field": "",
       "hidden": 0,
-      "sort": 11,
+      "sort": 12,
       "form_group": 221
     }
   },
@@ -24886,7 +24904,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 12,
+      "sort": 13,
       "form_group": 257
     }
   },
@@ -24901,7 +24919,7 @@
       "template": "/global/involved-department.phtml",
       "class_field": "",
       "hidden": 0,
-      "sort": 10,
+      "sort": 11,
       "form_group": 181
     }
   },
@@ -24916,7 +24934,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 7,
+      "sort": 8,
       "form_group": 30
     }
   },
@@ -24931,7 +24949,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 5,
+      "sort": 6,
       "form_group": 30
     }
   },
@@ -25021,7 +25039,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 14,
+      "sort": 15,
       "form_group": 161
     }
   },
@@ -25036,7 +25054,7 @@
       "template": "/form/form-edit.phtml",
       "class_field": "",
       "hidden": 0,
-      "sort": 0,
+      "sort": 1,
       "form_group": 141
     }
   },
@@ -25051,7 +25069,7 @@
       "template": "/koord/edit-notice.phtml",
       "class_field": "",
       "hidden": 1,
-      "sort": 8,
+      "sort": 9,
       "form_group": 161
     }
   },
@@ -25081,7 +25099,7 @@
       "template": "/form/form-read.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 1,
+      "sort": 2,
       "form_group": 141
     }
   },
@@ -25096,7 +25114,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 2,
+      "sort": 3,
       "form_group": 141
     }
   },
@@ -25111,7 +25129,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 3,
+      "sort": 4,
       "form_group": 141
     }
   },
@@ -25126,7 +25144,7 @@
       "template": "",
       "class_field": null,
       "hidden": 0,
-      "sort": 4,
+      "sort": 5,
       "form_group": 141
     }
   },
@@ -25141,7 +25159,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 5,
+      "sort": 6,
       "form_group": 141
     }
   },
@@ -25156,7 +25174,7 @@
       "template": "/koord/edit-notice.phtml",
       "class_field": "",
       "hidden": 1,
-      "sort": 6,
+      "sort": 7,
       "form_group": 141
     }
   },
@@ -25171,7 +25189,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 7,
+      "sort": 8,
       "form_group": 141
     }
   },
@@ -25201,7 +25219,7 @@
       "template": "/form/form-edit.phtml",
       "class_field": null,
       "hidden": 1,
-      "sort": 2,
+      "sort": 3,
       "form_group": 141
     }
   },
@@ -25216,7 +25234,7 @@
       "template": "/form/form-read.phtml",
       "class_field": "",
       "hidden": 1,
-      "sort": 5,
+      "sort": 6,
       "form_group": 141
     }
   },
@@ -25351,7 +25369,7 @@
       "template": "/form/form-edit.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 0,
+      "sort": 1,
       "form_group": 242
     }
   },
@@ -25366,7 +25384,7 @@
       "template": "",
       "class_field": "",
       "hidden": 1,
-      "sort": 2,
+      "sort": 3,
       "form_group": 241
     }
   },
@@ -25381,7 +25399,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 3,
+      "sort": 4,
       "form_group": 161
     }
   },
@@ -25411,7 +25429,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 4,
+      "sort": 5,
       "form_group": 241
     }
   },
@@ -25426,7 +25444,7 @@
       "template": "",
       "class_field": null,
       "hidden": 0,
-      "sort": 5,
+      "sort": 6,
       "form_group": 241
     }
   },
@@ -25441,7 +25459,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 6,
+      "sort": 7,
       "form_group": 241
     }
   },
@@ -25456,7 +25474,7 @@
       "template": "/koord/edit-notice.phtml",
       "class_field": "",
       "hidden": 1,
-      "sort": 7,
+      "sort": 8,
       "form_group": 161
     }
   },
@@ -25471,7 +25489,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 8,
+      "sort": 9,
       "form_group": 161
     }
   },
@@ -25486,7 +25504,7 @@
       "template": "/form/form-edit.phtml",
       "class_field": "",
       "hidden": 0,
-      "sort": 1,
+      "sort": 2,
       "form_group": 243
     }
   },
@@ -25666,7 +25684,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 10,
+      "sort": 11,
       "form_group": 161
     }
   },
@@ -25681,7 +25699,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 8,
+      "sort": 9,
       "form_group": 161
     }
   },
@@ -25696,7 +25714,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 13,
+      "sort": 14,
       "form_group": 161
     }
   },
@@ -25711,7 +25729,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 9,
+      "sort": 10,
       "form_group": 161
     }
   },
@@ -25741,7 +25759,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 15,
+      "sort": 16,
       "form_group": 161
     }
   },
@@ -25801,7 +25819,7 @@
       "template": "/form/form-edit.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 0,
+      "sort": 1,
       "form_group": 249
     }
   },
@@ -25816,7 +25834,7 @@
       "template": "/form/form-read.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 1,
+      "sort": 2,
       "form_group": 161
     }
   },
@@ -25831,7 +25849,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 2,
+      "sort": 3,
       "form_group": 161
     }
   },
@@ -25846,7 +25864,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 3,
+      "sort": 4,
       "form_group": 249
     }
   },
@@ -25861,7 +25879,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 5,
+      "sort": 6,
       "form_group": 249
     }
   },
@@ -25876,7 +25894,7 @@
       "template": "/koord/edit-notice.phtml",
       "class_field": "",
       "hidden": 1,
-      "sort": 6,
+      "sort": 7,
       "form_group": 161
     }
   },
@@ -25891,7 +25909,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 7,
+      "sort": 8,
       "form_group": 249
     }
   },
@@ -25906,7 +25924,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 8,
+      "sort": 9,
       "form_group": 161
     }
   },
@@ -25966,7 +25984,7 @@
       "template": "/form/form-edit.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 0,
+      "sort": 1,
       "form_group": 250
     }
   },
@@ -25981,7 +25999,7 @@
       "template": "/form/form-read.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 1,
+      "sort": 2,
       "form_group": 161
     }
   },
@@ -25996,7 +26014,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 2,
+      "sort": 3,
       "form_group": 161
     }
   },
@@ -26011,7 +26029,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 3,
+      "sort": 4,
       "form_group": 250
     }
   },
@@ -26026,7 +26044,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 5,
+      "sort": 6,
       "form_group": 250
     }
   },
@@ -26041,7 +26059,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 6,
+      "sort": 7,
       "form_group": 250
     }
   },
@@ -26056,7 +26074,7 @@
       "template": "",
       "class_field": null,
       "hidden": 0,
-      "sort": 7,
+      "sort": 8,
       "form_group": 250
     }
   },
@@ -26086,7 +26104,7 @@
       "template": "/form/form-edit.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 0,
+      "sort": 1,
       "form_group": 251
     }
   },
@@ -26101,7 +26119,7 @@
       "template": "/form/form-read.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 1,
+      "sort": 2,
       "form_group": 161
     }
   },
@@ -26116,7 +26134,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 2,
+      "sort": 3,
       "form_group": 161
     }
   },
@@ -26131,7 +26149,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 3,
+      "sort": 4,
       "form_group": 251
     }
   },
@@ -26146,7 +26164,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 5,
+      "sort": 6,
       "form_group": 161
     }
   },
@@ -26161,7 +26179,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 6,
+      "sort": 7,
       "form_group": 251
     }
   },
@@ -26176,7 +26194,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 7,
+      "sort": 8,
       "form_group": 251
     }
   },
@@ -26236,7 +26254,7 @@
       "template": "/form/form-edit.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 0,
+      "sort": 1,
       "form_group": 255
     }
   },
@@ -26251,7 +26269,7 @@
       "template": "/form/form-read.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 1,
+      "sort": 2,
       "form_group": 161
     }
   },
@@ -26266,7 +26284,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 2,
+      "sort": 3,
       "form_group": 161
     }
   },
@@ -26281,7 +26299,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 3,
+      "sort": 4,
       "form_group": 255
     }
   },
@@ -26296,7 +26314,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 5,
+      "sort": 6,
       "form_group": 252
     }
   },
@@ -26311,7 +26329,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 7,
+      "sort": 8,
       "form_group": 255
     }
   },
@@ -26326,7 +26344,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 8,
+      "sort": 9,
       "form_group": 255
     }
   },
@@ -26371,7 +26389,7 @@
       "template": "",
       "class_field": null,
       "hidden": 0,
-      "sort": 11,
+      "sort": 12,
       "form_group": 161
     }
   },
@@ -26386,7 +26404,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 4,
+      "sort": 5,
       "form_group": 249
     }
   },
@@ -26401,7 +26419,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 4,
+      "sort": 5,
       "form_group": 250
     }
   },
@@ -26416,7 +26434,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 4,
+      "sort": 5,
       "form_group": 251
     }
   },
@@ -26431,7 +26449,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 4,
+      "sort": 5,
       "form_group": 255
     }
   },
@@ -26461,7 +26479,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 6,
+      "sort": 7,
       "form_group": 254
     }
   },
@@ -26476,7 +26494,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 8,
+      "sort": 9,
       "form_group": 161
     }
   },
@@ -26536,7 +26554,7 @@
       "template": "/form/form-edit.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 0,
+      "sort": 1,
       "form_group": 256
     }
   },
@@ -26566,7 +26584,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 3,
+      "sort": 4,
       "form_group": 256
     }
   },
@@ -26581,7 +26599,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 1,
+      "sort": 2,
       "form_group": 256
     }
   },
@@ -26596,7 +26614,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 2,
+      "sort": 3,
       "form_group": 256
     }
   },
@@ -26626,7 +26644,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 9,
+      "sort": 10,
       "form_group": 161
     }
   },
@@ -26641,7 +26659,7 @@
       "template": "/form/form-read.phtml",
       "class_field": null,
       "hidden": 1,
-      "sort": 6,
+      "sort": 7,
       "form_group": 161
     }
   },
@@ -26716,7 +26734,7 @@
       "template": "/ember/instance.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 0,
+      "sort": 1,
       "form_group": 161
     }
   },
@@ -26731,7 +26749,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 4,
+      "sort": 5,
       "form_group": 161
     }
   },
@@ -26746,7 +26764,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 17,
+      "sort": 18,
       "form_group": 161
     }
   },
@@ -26761,7 +26779,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 16,
+      "sort": 17,
       "form_group": 161
     }
   },
@@ -26776,7 +26794,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 12,
+      "sort": 13,
       "form_group": 161
     }
   },
@@ -26792,6 +26810,141 @@
       "class_field": null,
       "hidden": 0,
       "sort": 2,
+      "form_group": 161
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 180000,
+    "fields": {
+      "available_instance_resource": "dashboard",
+      "resource": 301,
+      "name": "Dashboard",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 0,
+      "form_group": 161
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 180001,
+    "fields": {
+      "available_instance_resource": "dashboard",
+      "resource": 316,
+      "name": "Dashboard",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 0,
+      "form_group": 161
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 180002,
+    "fields": {
+      "available_instance_resource": "dashboard",
+      "resource": 267,
+      "name": "Dashboard",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 0,
+      "form_group": 161
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 180003,
+    "fields": {
+      "available_instance_resource": "dashboard",
+      "resource": 288,
+      "name": "Dashboard",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 0,
+      "form_group": 161
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 180004,
+    "fields": {
+      "available_instance_resource": "dashboard",
+      "resource": 264,
+      "name": "Dashboard",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 0,
+      "form_group": 161
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 180005,
+    "fields": {
+      "available_instance_resource": "dashboard",
+      "resource": 289,
+      "name": "Dashboard",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 0,
+      "form_group": 161
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 180006,
+    "fields": {
+      "available_instance_resource": "dashboard",
+      "resource": 296,
+      "name": "Dashboard",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 0,
+      "form_group": 161
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 180007,
+    "fields": {
+      "available_instance_resource": "dashboard",
+      "resource": 297,
+      "name": "Dashboard",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 0,
+      "form_group": 161
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 180008,
+    "fields": {
+      "available_instance_resource": "dashboard",
+      "resource": 298,
+      "name": "Dashboard",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 0,
       "form_group": 161
     }
   },
@@ -40675,6 +40828,735 @@
       "instance_resource": 20004,
       "role": 1103,
       "instance_state": 29
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180000,
+    "fields": {
+      "instance_resource": 180000,
+      "role": 6,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180001,
+    "fields": {
+      "instance_resource": 180000,
+      "role": 6,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180002,
+    "fields": {
+      "instance_resource": 180000,
+      "role": 6,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180003,
+    "fields": {
+      "instance_resource": 180000,
+      "role": 6,
+      "instance_state": 32
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180004,
+    "fields": {
+      "instance_resource": 180000,
+      "role": 6,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180005,
+    "fields": {
+      "instance_resource": 180000,
+      "role": 6,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180006,
+    "fields": {
+      "instance_resource": 180000,
+      "role": 6,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180007,
+    "fields": {
+      "instance_resource": 180000,
+      "role": 6,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180008,
+    "fields": {
+      "instance_resource": 180000,
+      "role": 6,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180009,
+    "fields": {
+      "instance_resource": 180000,
+      "role": 6,
+      "instance_state": 27
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180010,
+    "fields": {
+      "instance_resource": 180000,
+      "role": 6,
+      "instance_state": 29
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180011,
+    "fields": {
+      "instance_resource": 180000,
+      "role": 6,
+      "instance_state": 30
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180012,
+    "fields": {
+      "instance_resource": 180000,
+      "role": 6,
+      "instance_state": 31
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180013,
+    "fields": {
+      "instance_resource": 180000,
+      "role": 6,
+      "instance_state": 33
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180014,
+    "fields": {
+      "instance_resource": 180001,
+      "role": 1130,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180015,
+    "fields": {
+      "instance_resource": 180001,
+      "role": 1130,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180016,
+    "fields": {
+      "instance_resource": 180001,
+      "role": 1130,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180017,
+    "fields": {
+      "instance_resource": 180001,
+      "role": 1130,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180018,
+    "fields": {
+      "instance_resource": 180001,
+      "role": 1130,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180019,
+    "fields": {
+      "instance_resource": 180001,
+      "role": 1130,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180020,
+    "fields": {
+      "instance_resource": 180001,
+      "role": 1130,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180021,
+    "fields": {
+      "instance_resource": 180002,
+      "role": 3,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180022,
+    "fields": {
+      "instance_resource": 180002,
+      "role": 3,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180023,
+    "fields": {
+      "instance_resource": 180002,
+      "role": 3,
+      "instance_state": 32
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180024,
+    "fields": {
+      "instance_resource": 180002,
+      "role": 3,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180025,
+    "fields": {
+      "instance_resource": 180002,
+      "role": 3,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180026,
+    "fields": {
+      "instance_resource": 180002,
+      "role": 3,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180027,
+    "fields": {
+      "instance_resource": 180002,
+      "role": 3,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180028,
+    "fields": {
+      "instance_resource": 180002,
+      "role": 3,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180029,
+    "fields": {
+      "instance_resource": 180002,
+      "role": 3,
+      "instance_state": 27
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180030,
+    "fields": {
+      "instance_resource": 180002,
+      "role": 3,
+      "instance_state": 33
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180031,
+    "fields": {
+      "instance_resource": 180003,
+      "role": 1061,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180032,
+    "fields": {
+      "instance_resource": 180003,
+      "role": 1061,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180033,
+    "fields": {
+      "instance_resource": 180003,
+      "role": 1061,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180034,
+    "fields": {
+      "instance_resource": 180004,
+      "role": 1101,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180035,
+    "fields": {
+      "instance_resource": 180004,
+      "role": 1101,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180036,
+    "fields": {
+      "instance_resource": 180004,
+      "role": 1101,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180037,
+    "fields": {
+      "instance_resource": 180004,
+      "role": 1101,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180038,
+    "fields": {
+      "instance_resource": 180004,
+      "role": 1101,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180039,
+    "fields": {
+      "instance_resource": 180004,
+      "role": 1101,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180040,
+    "fields": {
+      "instance_resource": 180004,
+      "role": 1101,
+      "instance_state": 33
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180041,
+    "fields": {
+      "instance_resource": 180005,
+      "role": 1106,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180042,
+    "fields": {
+      "instance_resource": 180005,
+      "role": 1106,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180043,
+    "fields": {
+      "instance_resource": 180005,
+      "role": 1106,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180044,
+    "fields": {
+      "instance_resource": 180005,
+      "role": 1106,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180045,
+    "fields": {
+      "instance_resource": 180005,
+      "role": 1106,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180046,
+    "fields": {
+      "instance_resource": 180005,
+      "role": 1106,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180047,
+    "fields": {
+      "instance_resource": 180005,
+      "role": 1106,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180048,
+    "fields": {
+      "instance_resource": 180005,
+      "role": 1106,
+      "instance_state": 27
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180049,
+    "fields": {
+      "instance_resource": 180006,
+      "role": 1107,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180050,
+    "fields": {
+      "instance_resource": 180006,
+      "role": 1107,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180051,
+    "fields": {
+      "instance_resource": 180006,
+      "role": 1107,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180052,
+    "fields": {
+      "instance_resource": 180006,
+      "role": 1107,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180053,
+    "fields": {
+      "instance_resource": 180006,
+      "role": 1107,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180054,
+    "fields": {
+      "instance_resource": 180006,
+      "role": 1107,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180055,
+    "fields": {
+      "instance_resource": 180006,
+      "role": 1107,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180056,
+    "fields": {
+      "instance_resource": 180006,
+      "role": 1107,
+      "instance_state": 27
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180057,
+    "fields": {
+      "instance_resource": 180007,
+      "role": 1127,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180058,
+    "fields": {
+      "instance_resource": 180007,
+      "role": 1127,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180059,
+    "fields": {
+      "instance_resource": 180007,
+      "role": 1127,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180060,
+    "fields": {
+      "instance_resource": 180007,
+      "role": 1127,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180061,
+    "fields": {
+      "instance_resource": 180007,
+      "role": 1127,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180062,
+    "fields": {
+      "instance_resource": 180007,
+      "role": 1127,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180063,
+    "fields": {
+      "instance_resource": 180007,
+      "role": 1127,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180064,
+    "fields": {
+      "instance_resource": 180007,
+      "role": 1127,
+      "instance_state": 27
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180065,
+    "fields": {
+      "instance_resource": 180008,
+      "role": 1128,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180066,
+    "fields": {
+      "instance_resource": 180008,
+      "role": 1128,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180067,
+    "fields": {
+      "instance_resource": 180008,
+      "role": 1128,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180068,
+    "fields": {
+      "instance_resource": 180008,
+      "role": 1128,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180069,
+    "fields": {
+      "instance_resource": 180008,
+      "role": 1128,
+      "instance_state": 27
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180070,
+    "fields": {
+      "instance_resource": 180008,
+      "role": 1128,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180071,
+    "fields": {
+      "instance_resource": 180008,
+      "role": 1128,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180072,
+    "fields": {
+      "instance_resource": 180008,
+      "role": 1128,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180073,
+    "fields": {
+      "instance_resource": 180008,
+      "role": 1129,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180074,
+    "fields": {
+      "instance_resource": 180008,
+      "role": 1129,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180075,
+    "fields": {
+      "instance_resource": 180008,
+      "role": 1129,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180076,
+    "fields": {
+      "instance_resource": 180008,
+      "role": 1129,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180077,
+    "fields": {
+      "instance_resource": 180008,
+      "role": 1129,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180078,
+    "fields": {
+      "instance_resource": 180008,
+      "role": 1129,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180079,
+    "fields": {
+      "instance_resource": 180008,
+      "role": 1129,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 180080,
+    "fields": {
+      "instance_resource": 180008,
+      "role": 1129,
+      "instance_state": 27
     }
   },
   {
