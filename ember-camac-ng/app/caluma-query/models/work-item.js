@@ -142,7 +142,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
       const { value } = this.store
         .peekAll("form-field")
         .find(
-          field =>
+          (field) =>
             field.instance.get("id") === this.instanceId.toString() &&
             field.name === "bezeichnung"
         );
