@@ -5107,7 +5107,7 @@
     "pk": "form-type-building-permit-canton",
     "fields": {
       "created_at": "2020-09-01T14:52:15.138Z",
-      "modified_at": "2020-10-21T13:00:18.525Z",
+      "modified_at": "2020-10-30T07:24:57.873Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Baubewilligungsverfahren mit kantonaler Beteiligung\", \"fr\": null}",
@@ -5121,7 +5121,7 @@
     "pk": "form-type-building-permit-municipality",
     "fields": {
       "created_at": "2020-09-01T14:52:15.165Z",
-      "modified_at": "2020-10-21T13:00:18.603Z",
+      "modified_at": "2020-10-30T07:24:57.931Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Baubewilligungsverfahren ohne kantonale Beteiligung\", \"fr\": null}",
@@ -5135,7 +5135,7 @@
     "pk": "form-type-commercial-permit",
     "fields": {
       "created_at": "2020-09-01T14:52:15.256Z",
-      "modified_at": "2020-10-21T13:00:18.663Z",
+      "modified_at": "2020-10-30T07:24:58.033Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Reklame-Gesuch\", \"fr\": null}",
@@ -5146,10 +5146,66 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "form-type-genehmigung-qgp",
+    "fields": {
+      "created_at": "2020-10-30T07:23:54.669Z",
+      "modified_at": "2020-10-30T07:24:58.087Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "label": "{\"de\": \"Genehmigung Quartiergestaltungsplan QGP\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "form-type-genehmigung-qp",
+    "fields": {
+      "created_at": "2020-10-30T07:24:58.168Z",
+      "modified_at": "2020-10-30T07:24:58.168Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "label": "{\"de\": \"Genehmigung Quartierplan QP\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "form-type-genehmigung-teilrevision-np",
+    "fields": {
+      "created_at": "2020-10-30T07:24:58.164Z",
+      "modified_at": "2020-10-30T07:24:58.164Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "label": "{\"de\": \"Genehmigung Teilrevision Nutzungsplanung\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "form-type-gesamtrevision-np",
+    "fields": {
+      "created_at": "2020-10-30T07:23:17.798Z",
+      "modified_at": "2020-10-30T07:24:58.113Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "label": "{\"de\": \"Genehmigung Gesamtrevision Nutzungsplanung\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "form-type-preliminary-clarification-canton",
     "fields": {
       "created_at": "2020-09-01T14:52:15.211Z",
-      "modified_at": "2020-10-21T13:00:18.578Z",
+      "modified_at": "2020-10-30T07:24:57.939Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Baugesuch-Vorabkl\\u00e4rung mit kantonaler Beteiligung\", \"fr\": null}",
@@ -5163,7 +5219,7 @@
     "pk": "form-type-preliminary-clarification-municipality",
     "fields": {
       "created_at": "2020-09-01T14:52:15.244Z",
-      "modified_at": "2020-10-21T13:00:18.591Z",
+      "modified_at": "2020-10-30T07:24:57.938Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Baugesuch-Vorabkl\\u00e4rung ohne kantonale Beteiligung\", \"fr\": null}",
@@ -5177,7 +5233,7 @@
     "pk": "form-type-project-announcement",
     "fields": {
       "created_at": "2020-09-01T14:52:15.178Z",
-      "modified_at": "2020-10-21T13:00:18.625Z",
+      "modified_at": "2020-10-30T07:24:57.987Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Meldung Vorhaben\", \"fr\": null}",
@@ -5191,7 +5247,7 @@
     "pk": "form-type-solar-announcement",
     "fields": {
       "created_at": "2020-09-01T14:52:15.222Z",
-      "modified_at": "2020-10-21T13:00:18.675Z",
+      "modified_at": "2020-10-30T07:24:58.012Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Meldung Solaranlage\", \"fr\": null}",
@@ -5205,10 +5261,66 @@
     "pk": "form-type-veranstaltungsgesuch",
     "fields": {
       "created_at": "2020-10-21T13:00:18.680Z",
-      "modified_at": "2020-10-21T13:00:18.680Z",
+      "modified_at": "2020-10-30T07:24:58.032Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "label": "{\"de\": \"Beanspruchung von Kantonsgebiet (Veranstaltungsgesuch)\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "form-type-vorpruefung-gesamtrevision-np",
+    "fields": {
+      "created_at": "2020-10-30T07:23:54.674Z",
+      "modified_at": "2020-10-30T07:24:58.094Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "label": "{\"de\": \"Vorpr\\u00fcfung Gesamtrevision Nutzungsplanung\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "form-type-vorpruefung-qgp",
+    "fields": {
+      "created_at": "2020-10-30T07:24:58.163Z",
+      "modified_at": "2020-10-30T07:24:58.163Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "label": "{\"de\": \"Vorpr\\u00fcfung Quartiergestaltungsplan QGP\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "form-type-vorpruefung-qp",
+    "fields": {
+      "created_at": "2020-10-30T07:24:58.187Z",
+      "modified_at": "2020-10-30T07:24:58.188Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "label": "{\"de\": \"Vorpr\\u00fcfung Quartierplan QP\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "form-type-vorpruefung-teilrevision-np",
+    "fields": {
+      "created_at": "2020-10-30T07:24:12.116Z",
+      "modified_at": "2020-10-30T07:24:58.137Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "label": "{\"de\": \"Vorpr\\u00fcfung Teilrevision Nutzungsplanung\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9471,7 +9583,7 @@
     "pk": "form-type",
     "fields": {
       "created_at": "2020-09-01T14:52:15.343Z",
-      "modified_at": "2020-10-21T13:00:18.824Z",
+      "modified_at": "2020-10-30T07:24:58.255Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Gesuchstyp\", \"fr\": null}",
@@ -15170,104 +15282,208 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-building-permit-canton",
     "fields": {
-      "created_at": "2020-10-21T13:00:18.861Z",
-      "modified_at": "2020-10-21T13:00:18.861Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2020-10-30T07:24:58.294Z",
+      "modified_at": "2020-10-30T07:24:58.294Z",
+      "created_by_user": "admin",
       "created_by_group": null,
       "question": "form-type",
       "option": "form-type-building-permit-canton",
-      "sort": 8
+      "sort": 16
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-building-permit-municipality",
     "fields": {
-      "created_at": "2020-10-21T13:00:18.858Z",
-      "modified_at": "2020-10-21T13:00:18.858Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2020-10-30T07:24:58.292Z",
+      "modified_at": "2020-10-30T07:24:58.292Z",
+      "created_by_user": "admin",
       "created_by_group": null,
       "question": "form-type",
       "option": "form-type-building-permit-municipality",
-      "sort": 7
+      "sort": 15
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-commercial-permit",
     "fields": {
-      "created_at": "2020-10-21T13:00:18.836Z",
-      "modified_at": "2020-10-21T13:00:18.836Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2020-10-30T07:24:58.278Z",
+      "modified_at": "2020-10-30T07:24:58.278Z",
+      "created_by_user": "admin",
       "created_by_group": null,
       "question": "form-type",
       "option": "form-type-commercial-permit",
-      "sort": 2
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "form-type.form-type-genehmigung-qgp",
+    "fields": {
+      "created_at": "2020-10-30T07:24:58.272Z",
+      "modified_at": "2020-10-30T07:24:58.272Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "question": "form-type",
+      "option": "form-type-genehmigung-qgp",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "form-type.form-type-genehmigung-qp",
+    "fields": {
+      "created_at": "2020-10-30T07:24:58.266Z",
+      "modified_at": "2020-10-30T07:24:58.266Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "question": "form-type",
+      "option": "form-type-genehmigung-qp",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "form-type.form-type-genehmigung-teilrevision-np",
+    "fields": {
+      "created_at": "2020-10-30T07:24:58.264Z",
+      "modified_at": "2020-10-30T07:24:58.264Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "question": "form-type",
+      "option": "form-type-genehmigung-teilrevision-np",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "form-type.form-type-gesamtrevision-np",
+    "fields": {
+      "created_at": "2020-10-30T07:24:58.274Z",
+      "modified_at": "2020-10-30T07:24:58.274Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "question": "form-type",
+      "option": "form-type-gesamtrevision-np",
+      "sort": 8
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-preliminary-clarification-canton",
     "fields": {
-      "created_at": "2020-10-21T13:00:18.854Z",
-      "modified_at": "2020-10-21T13:00:18.854Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2020-10-30T07:24:58.287Z",
+      "modified_at": "2020-10-30T07:24:58.287Z",
+      "created_by_user": "admin",
       "created_by_group": null,
       "question": "form-type",
       "option": "form-type-preliminary-clarification-canton",
-      "sort": 6
+      "sort": 14
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-preliminary-clarification-municipality",
     "fields": {
-      "created_at": "2020-10-21T13:00:18.850Z",
-      "modified_at": "2020-10-21T13:00:18.850Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2020-10-30T07:24:58.285Z",
+      "modified_at": "2020-10-30T07:24:58.285Z",
+      "created_by_user": "admin",
       "created_by_group": null,
       "question": "form-type",
       "option": "form-type-preliminary-clarification-municipality",
-      "sort": 5
+      "sort": 13
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-project-announcement",
     "fields": {
-      "created_at": "2020-10-21T13:00:18.846Z",
-      "modified_at": "2020-10-21T13:00:18.846Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2020-10-30T07:24:58.283Z",
+      "modified_at": "2020-10-30T07:24:58.283Z",
+      "created_by_user": "admin",
       "created_by_group": null,
       "question": "form-type",
       "option": "form-type-project-announcement",
-      "sort": 4
+      "sort": 12
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-solar-announcement",
     "fields": {
-      "created_at": "2020-10-21T13:00:18.840Z",
-      "modified_at": "2020-10-21T13:00:18.840Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2020-10-30T07:24:58.281Z",
+      "modified_at": "2020-10-30T07:24:58.281Z",
+      "created_by_user": "admin",
       "created_by_group": null,
       "question": "form-type",
       "option": "form-type-solar-announcement",
-      "sort": 3
+      "sort": 11
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-veranstaltungsgesuch",
     "fields": {
-      "created_at": "2020-10-21T13:00:18.831Z",
-      "modified_at": "2020-10-21T13:00:18.831Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2020-10-30T07:24:58.276Z",
+      "modified_at": "2020-10-30T07:24:58.276Z",
+      "created_by_user": "admin",
       "created_by_group": null,
       "question": "form-type",
       "option": "form-type-veranstaltungsgesuch",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "form-type.form-type-vorpruefung-gesamtrevision-np",
+    "fields": {
+      "created_at": "2020-10-30T07:24:58.270Z",
+      "modified_at": "2020-10-30T07:24:58.270Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "question": "form-type",
+      "option": "form-type-vorpruefung-gesamtrevision-np",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "form-type.form-type-vorpruefung-qgp",
+    "fields": {
+      "created_at": "2020-10-30T07:24:58.262Z",
+      "modified_at": "2020-10-30T07:24:58.262Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "question": "form-type",
+      "option": "form-type-vorpruefung-qgp",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "form-type.form-type-vorpruefung-qp",
+    "fields": {
+      "created_at": "2020-10-30T07:24:58.260Z",
+      "modified_at": "2020-10-30T07:24:58.260Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "question": "form-type",
+      "option": "form-type-vorpruefung-qp",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "form-type.form-type-vorpruefung-teilrevision-np",
+    "fields": {
+      "created_at": "2020-10-30T07:24:58.268Z",
+      "modified_at": "2020-10-30T07:24:58.268Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "question": "form-type",
+      "option": "form-type-vorpruefung-teilrevision-np",
+      "sort": 5
     }
   },
   {
