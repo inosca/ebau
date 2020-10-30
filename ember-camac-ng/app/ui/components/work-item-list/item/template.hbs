@@ -31,7 +31,7 @@
       {{else if (eq column "closedBy")}}
         {{if @workItem.closedByUser @workItem.closedByUser.fullName "-"}}
       {{else if (eq column "description")}}
-        {{@workItem.instanceDescription}}
+        <span title={{@workItem.instanceDescription}}>{{@workItem.instanceDescription}}</span>
       {{/if}}
     </td>
   {{/each}}
