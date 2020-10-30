@@ -100,7 +100,7 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get coordination() {
-    const description = this.instance?.get('form.description');
+    const description = this.instance?.get("form.description");
 
     return description && description.split(";")[0];
   }

@@ -1,24 +1,24 @@
 import { render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import { setupRenderingTest } from "ember-qunit";
-import { module, test } from "qunit";
+import { module, todo } from "qunit";
 
-module("Integration | Component | dashboard-column", function (hooks) {
+module("Integration | Component | case-dashboard/address", function (hooks) {
   setupRenderingTest(hooks);
 
-  test("it renders", async function (assert) {
+  todo("it renders", async function (assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<DashboardColumn />`);
+    await render(hbs`<CaseDashboard::Address />`);
 
     assert.equal(this.element.textContent.trim(), "");
 
     // Template block usage:
     await render(hbs`
-      <DashboardColumn>
+      <CaseDashboard::Address>
         template block text
-      </DashboardColumn>
+      </CaseDashboard::Address>
     `);
 
     assert.equal(this.element.textContent.trim(), "template block text");
