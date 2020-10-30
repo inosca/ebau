@@ -83,6 +83,7 @@ def mock_generate_and_store_pdf(mocker):
 @pytest.mark.parametrize("service_group__name", ["municipality"])
 @pytest.mark.parametrize("instance_state__name", ["new"])
 @pytest.mark.parametrize("paper", [False, True])
+@pytest.mark.parametrize("archive", [False, True])
 @pytest.mark.parametrize("create_with_camac_form", [False, True])
 @pytest.mark.parametrize("uri_process", [False, True])
 @pytest.mark.parametrize(
@@ -103,6 +104,7 @@ def test_create_instance_caluma(
     paper,
     uri_process,
     create_with_camac_form,
+    archive,
     copy,
     modification,
     user_factory,
@@ -117,10 +119,12 @@ def test_create_instance_caluma(
         headers.update({"x-camac-group": group.pk})
 
     instance_state_factory(name="comm")
+    instance_state_factory(name="old")
 
     application_settings["CALUMA"]["CREATE_IN_PROCESS"] = uri_process
     application_settings["CALUMA"]["USE_LOCATION"] = uri_process
     application_settings["CALUMA"]["GENERATE_DOSSIER_NR"] = uri_process
+    application_settings["ARCHIVE_FORMS"] = [form.pk]
 
     if create_with_camac_form:
         application_settings["FORM_MAPPING"] = {"main-form": [form.pk]}
@@ -149,13 +153,14 @@ def test_create_instance_caluma(
         == paper
     )
 
+    instance = Instance.objects.get(pk=instance_id)
     if uri_process:
-        assert (
-            Instance.objects.get(pk=instance_id).location
-            == admin_client.user.groups.first().locations.first()
-        )
+        assert instance.location == admin_client.user.groups.first().locations.first()
 
         assert "dossier-number" in case.meta
+
+    if archive:
+        assert instance.instance_state.name == "old"
 
     # do a second request including pk, copying the existing instance
     if copy:
@@ -164,12 +169,10 @@ def test_create_instance_caluma(
         attachment.save()
 
         # assume invitees were created by someone else (bug EBAUBE-2081)
-        Instance.objects.get(pk=instance_id).involved_applicants.update(
-            user_id=user_factory()
-        )
+        instance.involved_applicants.update(user_id=user_factory())
 
         if not modification:
-            old_instance = Instance.objects.get(pk=instance_id)
+            old_instance = instance
             old_instance.instance_state = instance_state_factory(name="rejected")
             old_instance.save()
 
