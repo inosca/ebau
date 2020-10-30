@@ -15,6 +15,18 @@
           @value={{this.models.caseModel.buildingProjectStatus}}
         />
       </tr>
+      {{#if this.isService}}
+        <tr>
+          <DashboardColumn
+            @header={{"Frist"}}
+            @value={{
+              moment-format this.models.activation.deadlineDate "DD.MM.YYYY"
+            }}
+          />
+          {{! Empty column so the spacing is correct}}
+          <DashboardColumn />
+        </tr>
+      {{/if}}
     </DashboardSection>
     <hr />
 
