@@ -1,13 +1,14 @@
 import { getOwner, setOwner } from "@ember/application";
-import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
+import Component from "@glimmer/component";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 import gql from "graphql-tag";
 
 import CustomCaseModel from "camac-ng/caluma-query/models/case";
 
-export default class CasesDetailDashboardController extends Controller {
+export default class CaseDashboardComponent extends Component {
   @service apollo;
+  @service store;
   @service shoebox;
 
   get isLoading() {
@@ -23,12 +24,12 @@ export default class CasesDetailDashboardController extends Controller {
   @dropTask
   *fetchCase() {
     yield this.store.query("instance", {
-      instance_id: this.model,
+      instance_id: this.args.caseId,
       include: "instance_state,user,form",
     });
 
     const journalEntries = yield this.store.query("journal-entry", {
-      instance_id: this.model,
+      instance_id: this.args.caseId,
       "page[size]": 3,
       include: "user",
       sort: "-creation_date",
@@ -53,7 +54,7 @@ export default class CasesDetailDashboardController extends Controller {
           metaFilter: [
             {
               key: "camac-instance-id",
-              value: this.model,
+              value: this.args.caseId,
             },
           ],
         },
@@ -67,7 +68,7 @@ export default class CasesDetailDashboardController extends Controller {
 
     if (this.isService) {
       models.activation = (yield this.store.query("activation", {
-        instance: this.model,
+        instance: this.args.caseId,
         service: this.shoebox.content.serviceId,
       })).filter((activation) => activation.state === "RUN")[0];
     }
