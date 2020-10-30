@@ -1,0 +1,10 @@
+<th class="uk-text-bold uk-width-1-5 uk-text-top">
+  {{@header}}
+</th>
+<td class="uk-width-1-3 uk-text-top" ...attributes>
+  {{#if hasBlock}}
+    {{yield}}
+  {{else}}
+    {{@value}}
+  {{/if}}
+</td>
