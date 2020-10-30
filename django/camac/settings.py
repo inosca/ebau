@@ -865,8 +865,12 @@ APPLICATIONS = {
         },
         "PAPER": {
             "ALLOWED_ROLES": {
-                "DEFAULT": [3, 6]
-            },  # KOOR BG, Sekretariat Gemeindebaubehörde
+                "DEFAULT": [
+                    3,  # KOOR BG
+                    6,  # Sekretariat Gemeindebaubehörde
+                    1061,  # KOOR NP
+                ]
+            },
             "ALLOWED_SERVICE_GROUPS": {
                 "DEFAULT": [
                     1,  # Koordinationsstellen
@@ -886,7 +890,7 @@ APPLICATIONS = {
             "Guest": None,  # TODO AFAIK we don't grant unauthenticated users access to endpoints
             "Koordinationsstelle Baudirektion BD": "coordination",
             "Koordinationsstelle Baugesuche BG": "coordination",
-            "Koordinationsstelle Baugesuche NP": "coordination",
+            "Koordinationsstelle Nutzungsplanung NP": "coordination",
             "Koordinationsstelle Energie AfE": "coordination",
             "Koordinationsstelle Forst und Jagd AFJ": "coordination",
             "Koordinationsstelle Landwirtschaft ALA": "coordination",
