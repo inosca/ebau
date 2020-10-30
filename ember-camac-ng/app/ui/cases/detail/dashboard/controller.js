@@ -8,9 +8,14 @@ import CustomCaseModel from "camac-ng/caluma-query/models/case";
 
 export default class CasesDetailDashboardController extends Controller {
   @service apollo;
+  @service shoebox;
 
   get isLoading() {
     return this.fetchCase.isRunning;
+  }
+
+  get isService() {
+    return this.shoebox.role === "service";
   }
 
   @lastValue("fetchCase") models;
@@ -21,12 +26,14 @@ export default class CasesDetailDashboardController extends Controller {
       instance_id: this.model,
       include: "instance_state,user,form",
     });
+
     const journalEntries = yield this.store.query("journal-entry", {
       instance_id: this.model,
       "page[size]": 3,
       include: "user",
       sort: "-creation_date",
     });
+
     const caseRecord = yield this.apollo.query(
       {
         query: gql`
@@ -55,6 +62,16 @@ export default class CasesDetailDashboardController extends Controller {
     );
     const modelInstance = new CustomCaseModel(caseRecord?.[0]?.node);
     setOwner(modelInstance, getOwner(this));
-    return { caseModel: modelInstance, journalEntries };
+
+    const models = { caseModel: modelInstance, journalEntries };
+
+    if (this.isService) {
+      models.activation = (yield this.store.query("activation", {
+        instance: this.model,
+        service: this.shoebox.content.serviceId,
+      })).filter((activation) => activation.state === "RUN")[0];
+    }
+
+    return models;
   }
 }
