@@ -24,6 +24,8 @@ export default class CustomCaseModel extends CaseModel {
           .stringValue,
         zip: getAnswer(tableAnswers, "zip")?.node.stringValue,
         city: getAnswer(tableAnswers, "city")?.node.stringValue,
+        phone: getAnswer(tableAnswers, "phone")?.node.stringValue,
+        email: getAnswer(tableAnswers, "e-mail")?.node.stringValue,
         juristicName: getAnswer(tableAnswers, "juristic-person-name")?.node
           .stringValue,
 
