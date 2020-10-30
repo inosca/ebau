@@ -55,10 +55,11 @@ $expiring-color: #ff8800;
   }
 
   td.task,
-  td.responsible {
+  td.responsible,
+  td.description {
     text-overflow: ellipsis;
     overflow: hidden;
-    max-width: 300px;
+    max-width: 200px;
   }
 }
 
