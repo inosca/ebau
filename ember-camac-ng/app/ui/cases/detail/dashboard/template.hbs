@@ -4,117 +4,108 @@
       <UkSpinner />
     </div>
   {{else}}
-    <table class="uk-table uk-table-justify uk-table-small unstyled">
-      <tbody>
-        <tr>
-          <th class="uk-text-bold uk-width-1-6">
-            {{t "cases.tableHeaders.dossierNr"}}
-          </th>
-          <td class="uk-width-1-3">
-            {{this.models.caseModel.dossierNr}}
-          </td>
+    <DashboardSection @sectionTitle={{t "dashboard.generalData"}}>
+      <tr>
+        <DashboardColumn
+          @header={{t "cases.tableHeaders.dossierNr"}}
+          @value={{this.models.caseModel.dossierNr}}
+        />
+        <DashboardColumn
+          @header={{t "dashboard.buildingProjectStatus"}}
+          @value={{this.models.caseModel.buildingProjectStatus}}
+        />
+      </tr>
+    </DashboardSection>
+    <hr />
 
-          <th class="uk-text-bold uk-width-1-6">
-            {{t "cases.tableHeaders.municipality"}}
-          </th>
-          <td class="uk-width-1-3">
-            {{this.models.caseModel.municipality}}
-          </td>
-        </tr>
-        <tr>
-          <th class="uk-text-bold uk-width-1-6">
-            {{t "cases.tableHeaders.instanceState"}}
-          </th>
-          <td class="uk-width-1-3">
-            {{this.models.caseModel.instanceState}}
-          </td>
+    <DashboardSection @sectionTitle={{t "dashboard.personalData"}}>
+      <tr>
+        <DashboardColumn @header={{t "cases.tableHeaders.applicant"}}>
+          <DashboardAddress @contact={{this.models.caseModel.applicant}} />
+        </DashboardColumn>
 
-          <th class="uk-text-bold uk-width-1-6">
-            {{t "cases.tableHeaders.street"}}
-          </th>
-          <td class="uk-width-1-3">
-            {{this.models.caseModel.street}}
-          </td>
-        </tr>
-        <tr>
-          <th class="uk-text-bold uk-width-1-6">
-            {{t "cases.tableHeaders.user"}}
-          </th>
-          <td class="uk-width-1-3">
-            {{this.models.caseModel.user}}
-          </td>
+        {{#if this.models.caseModel.projectAuthor}}
+          <DashboardColumn @header={{t "dashboard.projectAuthor"}}>
+            <DashboardAddress
+              @contact={{this.models.caseModel.projectAuthor}}
+            />
+          </DashboardColumn>
+        {{else}}
+          {{! Empty column so the spacing is correct}}
+          <DashboardColumn />
+        {{/if}}
+      </tr>
+      <tr>
+        {{#if this.models.caseModel.landowner}}
+          <DashboardColumn @header={{t "dashboard.landowner"}}>
+            <DashboardAddress
+              @contact={{this.models.caseModel.projectAuthor}}
+            />
+          </DashboardColumn>
+          {{! Empty column so the spacing is correct}}
+          <DashboardColumn />
+        {{/if}}
+      </tr>
+    </DashboardSection>
+    <hr />
 
-          <th class="uk-text-bold uk-width-1-6">
-            {{t "cases.tableHeaders.applicant"}}
-          </th>
-          <td class="uk-width-1-3">
-            {{this.models.caseModel.applicant}}
-          </td>
-        </tr>
+    <DashboardSection @sectionTitle={{t "dashboard.intentAndLocation"}}>
+      <tr>
+        <DashboardColumn
+          @header={{t "cases.tableHeaders.municipality"}}
+          @value={{this.models.caseModel.municipality}}
+        />
+        <DashboardColumn
+          @header={{t "cases.tableHeaders.street"}}
+          @value={{this.models.caseModel.street}}
+        />
+      </tr>
 
-        <tr>
-          <th class="uk-text-bold uk-width-1-6">
-            {{t "cases.tableHeaders.submitDate"}}
-          </th>
-          <td class="uk-width-1-3">
-            {{if
-              this.models.caseModel.submitDate
-              (moment-format this.models.caseModel.submitDate "DD.MM.YYYY")
-              "-"
-            }}
-          </td>
-          <th class="uk-text-bold uk-width-1-6">
-            {{t "cases.tableHeaders.form"}}
-          </th>
-          <td class="uk-width-1-3">
-            {{this.models.caseModel.form}}
-          </td>
-        </tr>
-        <tr>
-          <th class="uk-text-bold uk-width-1-6 uk-text-top">
-            {{t "cases.tableHeaders.intent"}}
-          </th>
-          <td class="uk-width-1-3 uk-text-top" colspan="3">
-            {{this.models.caseModel.intent}}
-          </td>
-        </tr>
-
-        <tr>
-          <th class="uk-text-bold uk-width-1-6 uk-text-top">
-            {{t "journal.title"}}
-          </th>
-          <td class="uk-text-top" colspan="3">
-            {{#each this.models.journalEntries as |journalEntry|}}
-              <article
-                class="uk-comment uk-comment-primary uk-border-rounded uk-margin-bottom"
-              >
-                <div class="uk-comment-body">
-                  <p>
-                    <div class="uk-flex-column">
-                      <span
-                        class="uk-margin-small-right uk-flex uk-flex-between"
-                      >
-                        <span class="uk-text-bold">
-                          {{journalEntry.user.username}}
-                        </span>
-                        {{moment-format
-                          journalEntry.creationDate
-                          "HH:mm DD.MM.YY"
-                        }}
-                      </span>
-                      <hr class="uk-margin-small-top uk-margin-small-bottom" />
-
-                      <span class="uk-width-2-3">
-                        {{journalEntry.text}}
-                      </span>
-                    </div>
-                  </p>
-                </div>
-              </article>
+      <tr>
+        <DashboardColumn @header={{t "dashboard.parcels"}}>
+          <ul class="uk-list uk-list-disc uk-list-collapse">
+            {{#each this.models.caseModel.parcelNumbers as |parcelNumber|}}
+              <li>
+                <a
+                  href="https://egov.ur.ch/teraspur/cgi2TERwww.asp?usr=eigentum&pass=terintra2014&gem=1201&nr={{
+                    parcelNumber
+                  }}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {{parcelNumber}}
+                </a>
+              </li>
             {{/each}}
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          </ul>
+        </DashboardColumn>
+        <DashboardColumn @header={{t "dashboard.egrid"}}>
+          <ul class="uk-list uk-list-disc uk-list-collapse">
+            {{#each this.models.caseModel.egridNumbers as |egridNumber|}}
+              <li>
+                <a
+                  href="https://oereb.ur.ch/?egrid={{egridNumber}}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {{egridNumber}}
+                </a>
+              </li>
+            {{/each}}
+          </ul>
+        </DashboardColumn>
+      </tr>
+
+      <tr>
+        <DashboardColumn
+          @header={{t "cases.tableHeaders.intent"}}
+          @value={{this.models.caseModel.intent}}
+          colspan="3"
+        />
+      </tr>
+    </DashboardSection>
+    <hr />
+
+    <DashboardJournal @journalEntries={{this.models.journalEntries}} />
   {{/if}}
 </div>
