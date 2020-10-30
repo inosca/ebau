@@ -58,7 +58,7 @@ request_logger = getLogger("django.request")
 caluma_api = CalumaApi()
 
 
-def generate_identifier(instance):
+def generate_identifier(instance, year=None):
     """
     Build identifier for instance.
 
@@ -76,7 +76,7 @@ def generate_identifier(instance):
     """
     identifier = instance.identifier
     if not identifier:
-        year = timezone.now().strftime("%y")
+        year = (year or timezone.now().year) % 100
 
         name = instance.form.name
         abbreviations = settings.APPLICATION.get("INSTANCE_IDENTIFIER_FORM_ABBR", {})
@@ -115,7 +115,7 @@ def generate_identifier(instance):
 
         identifier = "{0}-{1}-{2}".format(
             identifier_start,
-            timezone.now().strftime("%y"),
+            year,
             str(sequence + 1).zfill(3),
         )
 
@@ -328,6 +328,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
     is_paper = serializers.SerializerMethodField()  # "Papierdossier
     is_modification = serializers.SerializerMethodField()  # "Projektänderung"
     copy_source = serializers.CharField(required=False, write_only=True)
+    year = serializers.IntegerField(required=False, write_only=True)
 
     public_status = serializers.SerializerMethodField()
 
@@ -673,6 +674,14 @@ class CalumaInstanceSerializer(InstanceSerializer):
                 and group.role.pk in get_paper_settings()["ALLOWED_ROLES"]
             )
 
+        form = validated_data.get("form")
+        if form and form.pk in settings.APPLICATION.get("ARCHIVE_FORMS", []):
+            validated_data["instance_state"] = models.InstanceState.objects.get(
+                name="old"
+            )
+
+        year = validated_data.pop("year", None)
+
         instance = super().create(validated_data)
 
         if settings.APPLICATION["CALUMA"].get("USE_LOCATION"):  # pragma: no cover
@@ -686,7 +695,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
         if settings.APPLICATION["CALUMA"].get("GENERATE_DOSSIER_NR"):
             # Give dossier a unique dossier number
-            case_meta["dossier-number"] = generate_identifier(instance)
+            case_meta["dossier-number"] = generate_identifier(instance, year)
 
         case = workflow_api.start_case(
             workflow=workflow,
@@ -745,10 +754,14 @@ class CalumaInstanceSerializer(InstanceSerializer):
         )
 
         if settings.APPLICATION["CALUMA"].get("SYNC_FORM_TYPE"):  # pragma: no cover
+            form_type = ur_constants.CALUMA_FORM_MAPPING.get(instance.form.pk)
+            if not form_type:
+                raise RuntimeError(
+                    f"Unmapped form {instance.form.name} (ID {instance.form.pk})"
+                )
+
             caluma_api.update_or_create_answer(
-                case.document.pk,
-                "form-type",
-                "form-type-" + ur_constants.CALUMA_FORM_MAPPING[instance.form.pk],
+                case.document.pk, "form-type", "form-type-" + form_type
             )
 
         if settings.APPLICATION["CALUMA"].get("HAS_PROJECT_CHANGE"):
@@ -790,6 +803,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
             "is_paper",
             "is_modification",
             "copy_source",
+            "year",
             "public_status",
             "active_service",
             "responsible_service_users",
