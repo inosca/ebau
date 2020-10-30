@@ -3,22 +3,22 @@ import { hbs } from "ember-cli-htmlbars";
 import { setupRenderingTest } from "ember-qunit";
 import { module, test } from "qunit";
 
-module("Integration | Component | dashboard-address", function (hooks) {
+module("Integration | Component | case-dashboard/column", function (hooks) {
   setupRenderingTest(hooks);
 
   test("it renders", async function (assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<DashboardAddress />`);
+    await render(hbs`<CaseDashboard::Column />`);
 
     assert.equal(this.element.textContent.trim(), "");
 
     // Template block usage:
     await render(hbs`
-      <DashboardAddress>
+      <CaseDashboard::Column>
         template block text
-      </DashboardAddress>
+      </CaseDashboard::Column>
     `);
 
     assert.equal(this.element.textContent.trim(), "template block text");

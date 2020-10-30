@@ -1,0 +1,123 @@
+<div class="uk-width-1" {{did-insert (perform this.fetchCase)}}>
+  {{#if this.isLoading}}
+    <div class="uk-flex uk-flex-center">
+      <UkSpinner />
+    </div>
+  {{else}}
+    <CaseDashboard::Section @sectionTitle={{t "dashboard.generalData"}}>
+      <tr>
+        <CaseDashboard::Column
+          @header={{t "cases.tableHeaders.dossierNr"}}
+          @value={{this.models.caseModel.dossierNr}}
+        />
+        <CaseDashboard::Column
+          @header={{t "dashboard.buildingProjectStatus"}}
+          @value={{this.models.caseModel.buildingProjectStatus}}
+        />
+      </tr>
+      {{#if this.isService}}
+        <tr>
+          <CaseDashboard::Column
+            @header={{"Frist"}}
+            @value={{
+              moment-format this.models.activation.deadlineDate "DD.MM.YYYY"
+            }}
+          />
+          {{! Empty column so the spacing is correct}}
+          <CaseDashboard::Column />
+        </tr>
+      {{/if}}
+    </CaseDashboard::Section>
+    <hr />
+
+    <CaseDashboard::Section @sectionTitle={{t "dashboard.personalData"}}>
+      <tr>
+        <CaseDashboard::Column @header={{t "cases.tableHeaders.applicant"}}>
+          <CaseDashboard::Address @contact={{this.models.caseModel.applicant}} />
+        </CaseDashboard::Column>
+
+        {{#if this.models.caseModel.projectAuthor}}
+          <CaseDashboard::Column @header={{t "dashboard.projectAuthor"}}>
+            <CaseDashboard::Address
+              @contact={{this.models.caseModel.projectAuthor}}
+            />
+          </CaseDashboard::Column>
+        {{else}}
+          {{! Empty column so the spacing is correct}}
+          <CaseDashboard::Column />
+        {{/if}}
+      </tr>
+      <tr>
+        {{#if this.models.caseModel.landowner}}
+          <CaseDashboard::Column @header={{t "dashboard.landowner"}}>
+            <CaseDashboard::Address
+              @contact={{this.models.caseModel.projectAuthor}}
+            />
+          </CaseDashboard::Column>
+          {{! Empty column so the spacing is correct}}
+          <CaseDashboard::Column />
+        {{/if}}
+      </tr>
+    </CaseDashboard::Section>
+    <hr />
+
+    <CaseDashboard::Section @sectionTitle={{t "dashboard.intentAndLocation"}}>
+      <tr>
+        <CaseDashboard::Column
+          @header={{t "cases.tableHeaders.municipality"}}
+          @value={{this.models.caseModel.municipality}}
+        />
+        <CaseDashboard::Column
+          @header={{t "cases.tableHeaders.street"}}
+          @value={{this.models.caseModel.street}}
+        />
+      </tr>
+
+      <tr>
+        <CaseDashboard::Column @header={{t "dashboard.parcels"}}>
+          <ul class="uk-list uk-list-disc uk-list-collapse">
+            {{#each this.models.caseModel.parcelNumbers as |parcelNumber|}}
+              <li>
+                <a
+                  href="https://egov.ur.ch/teraspur/cgi2TERwww.asp?usr=eigentum&pass=terintra2014&gem=1201&nr={{
+                    parcelNumber
+                  }}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {{parcelNumber}}
+                </a>
+              </li>
+            {{/each}}
+          </ul>
+        </CaseDashboard::Column>
+        <CaseDashboard::Column @header={{t "dashboard.egrid"}}>
+          <ul class="uk-list uk-list-disc uk-list-collapse">
+            {{#each this.models.caseModel.egridNumbers as |egridNumber|}}
+              <li>
+                <a
+                  href="https://oereb.ur.ch/?egrid={{egridNumber}}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {{egridNumber}}
+                </a>
+              </li>
+            {{/each}}
+          </ul>
+        </CaseDashboard::Column>
+      </tr>
+
+      <tr>
+        <CaseDashboard::Column
+          @header={{t "cases.tableHeaders.intent"}}
+          @value={{this.models.caseModel.intent}}
+          colspan="3"
+        />
+      </tr>
+    </CaseDashboard::Section>
+    <hr />
+
+    <CaseDashboard::Journal @journalEntries={{this.models.journalEntries}} />
+  {{/if}}
+</div>
