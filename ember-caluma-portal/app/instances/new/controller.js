@@ -9,6 +9,7 @@ export default class InstancesNewController extends Controller.extend(
   new QueryParams().Mixin
 ) {
   @service fetch;
+  @service session;
   @queryManager apollo;
 
   setup() {
@@ -25,6 +26,11 @@ export default class InstancesNewController extends Controller.extend(
 
     return forms
       .filter(({ node: { meta } }) => meta["is-creatable"])
+      .filter(
+        (form) =>
+          this.session.isInternal ||
+          form.node.slug !== "baupolizeiliches-verfahren"
+      )
       .reduce(
         (grouped, { node: form }) => {
           const column = form.meta.category;

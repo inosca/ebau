@@ -91,6 +91,18 @@ FORM_QUESTION_MAP = [
     ("nfd", "is-paper"),
 ]
 
+CALUMA_FORM_TYPES_SLUGS = [
+    "baugesuch",
+    "baugesuch-generell",
+    "baugesuch-mit-uvp",
+    "vorabklaerung-einfach",
+    "vorabklaerung-vollstaendig",
+    "hecken-feldgehoelze-baeume",
+    "baupolizeiliches-verfahren",
+    "klaerung-baubewilligungspflicht",
+    "zutrittsermaechtigung",
+]
+
 
 @dataclass
 class FakeRequest:
@@ -338,17 +350,9 @@ def use_instance_service(application_settings):
 def caluma_workflow_config_be(
     settings, caluma_forms, caluma_config_be, use_instance_service
 ):
-    forms = [
-        caluma_form_models.Form.objects.create(slug="baugesuch"),
-        caluma_form_models.Form.objects.create(slug="baugesuch-generell"),
-        caluma_form_models.Form.objects.create(slug="baugesuch-mit-uvp"),
-        caluma_form_models.Form.objects.create(slug="vorabklaerung-einfach"),
-        caluma_form_models.Form.objects.create(slug="vorabklaerung-vollstaendig"),
-        caluma_form_models.Form.objects.create(slug="hecken-feldgehoelze-baeume"),
-        caluma_form_models.Form.objects.create(slug="baupolizeiliches-verfahren"),
-        caluma_form_models.Form.objects.create(slug="klaerung-baubewilligungspflicht"),
-        caluma_form_models.Form.objects.create(slug="zutrittsermaechtigung"),
-    ]
+
+    for slug in CALUMA_FORM_TYPES_SLUGS:
+        caluma_form_models.Form.objects.create(slug=slug)
 
     call_command("loaddata", settings.ROOT_DIR("kt_bern/config/caluma_workflow.json"))
 
@@ -362,8 +366,7 @@ def caluma_workflow_config_be(
         workflow.allow_forms.add(main_form)
         workflow.save()
 
-    for form in forms:
-        form.delete()
+    caluma_form_models.Form.objects.filter(pk__in=CALUMA_FORM_TYPES_SLUGS).delete()
 
     yield workflows
 
