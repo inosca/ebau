@@ -105,6 +105,14 @@
   },
   {
     "model": "core.aformtransition",
+    "pk": 120016,
+    "fields": {
+      "current_instance_state": 120002,
+      "next_instance_state": 120003
+    }
+  },
+  {
+    "model": "core.aformtransition",
     "pk": 140000,
     "fields": {
       "current_instance_state": 10000,
@@ -218,6 +226,15 @@
   },
   {
     "model": "core.anotification",
+    "pk": 120017,
+    "fields": {
+      "template": "08-entscheid-gemeindeleitbehorde",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_CalumaMunicipality",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
     "pk": 130000,
     "fields": {
       "template": "08-stellungnahme-zu-voranfrage-gesuchsteller",
@@ -304,6 +321,15 @@
       "resource": 20006,
       "instance_resource": 20004,
       "air_action_name": "edit"
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 120009,
+    "fields": {
+      "resource": 20006,
+      "instance_resource": 20079,
+      "air_action_name": null
     }
   },
   {
@@ -432,6 +458,20 @@
     "pk": 120003,
     "fields": {
       "php_class": "CheckDecision"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 120004,
+    "fields": {
+      "php_class": "CheckEbauNumber"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 120006,
+    "fields": {
+      "php_class": "NewEbauNumber"
     }
   },
   {
@@ -1356,6 +1396,146 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 8
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 120004,
+    "fields": {
+      "available_action": "php",
+      "button": 120000,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 120005,
+    "fields": {
+      "available_action": "save",
+      "button": 120000,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 120006,
+    "fields": {
+      "available_action": "php",
+      "button": 120000,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 2
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 120007,
+    "fields": {
+      "available_action": "workitem",
+      "button": 120000,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 3
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 120008,
+    "fields": {
+      "available_action": "addhistory",
+      "button": 120000,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 4
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 120009,
+    "fields": {
+      "available_action": "pageredirect",
+      "button": 120000,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 5
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 120010,
+    "fields": {
+      "available_action": "workitem",
+      "button": 120001,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 2
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 120012,
+    "fields": {
+      "available_action": "addhistory",
+      "button": 120001,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 6
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 120016,
+    "fields": {
+      "available_action": "formtransition",
+      "button": 120001,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 3
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 120017,
+    "fields": {
+      "available_action": "notification",
+      "button": 120001,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 4
     }
   },
   {
@@ -2855,6 +3035,162 @@
   },
   {
     "model": "core.actiont",
+    "pk": 120004,
+    "fields": {
+      "action": 120004,
+      "language": "de",
+      "name": "Check eBau-Nr exists",
+      "description": null,
+      "success_message": null,
+      "error_message": "Die angegebene eBau-Nummer existiert nicht oder wurde durch eine andere Leitbeh\u00f6rde bereits vergeben"
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 120005,
+    "fields": {
+      "action": 120004,
+      "language": "fr",
+      "name": "Check eBau-Nr exists",
+      "description": null,
+      "success_message": null,
+      "error_message": "Le num\u00e9ro eBau sp\u00e9cifi\u00e9 n'existe pas ou a d\u00e9j\u00e0 \u00e9t\u00e9 attribu\u00e9 par une autre autorit\u00e9 directrice"
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 120006,
+    "fields": {
+      "action": 120005,
+      "language": "de",
+      "name": "Speichern",
+      "description": null,
+      "success_message": null,
+      "error_message": "Beim Speichern ist ein Fehler aufgetreten"
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 120007,
+    "fields": {
+      "action": 120006,
+      "language": "de",
+      "name": "Generate eBau number",
+      "description": null,
+      "success_message": null,
+      "error_message": "Bei der Vergabe der eBau-Nummer ist ein Fehler aufgetreten"
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 120008,
+    "fields": {
+      "action": 120007,
+      "language": "de",
+      "name": "Aufgabe abschliessen: eBau-Nummer vergeben",
+      "description": null,
+      "success_message": null,
+      "error_message": null
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 120009,
+    "fields": {
+      "action": 120008,
+      "language": "de",
+      "name": "History: eBau-Nr. vergeben",
+      "description": null,
+      "success_message": null,
+      "error_message": null
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 120010,
+    "fields": {
+      "action": 120008,
+      "language": "fr",
+      "name": "History: eBau-Nr. vergeben",
+      "description": null,
+      "success_message": null,
+      "error_message": null
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 120011,
+    "fields": {
+      "action": 120009,
+      "language": "de",
+      "name": "Redirect",
+      "description": null,
+      "success_message": null,
+      "error_message": null
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 120012,
+    "fields": {
+      "action": 120010,
+      "language": "de",
+      "name": "Aufgabe abschliessen: Entscheid verf\u00fcgen",
+      "description": null,
+      "success_message": null,
+      "error_message": null
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 120014,
+    "fields": {
+      "action": 120012,
+      "language": "de",
+      "name": "History: Bauentscheid verf\u00fcgt",
+      "description": null,
+      "success_message": null,
+      "error_message": null
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 120015,
+    "fields": {
+      "action": 120012,
+      "language": "fr",
+      "name": "History: Bauentscheid verf\u00fcgt",
+      "description": null,
+      "success_message": null,
+      "error_message": null
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 120020,
+    "fields": {
+      "action": 120016,
+      "language": "de",
+      "name": "Go to state \"Abgeschlossen (intern)\"",
+      "description": null,
+      "success_message": null,
+      "error_message": null
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 120021,
+    "fields": {
+      "action": 120017,
+      "language": "de",
+      "name": "Benachrichtigung Leitbeh\u00f6rde",
+      "description": null,
+      "success_message": null,
+      "error_message": null
+    }
+  },
+  {
+    "model": "core.actiont",
     "pk": 130000,
     "fields": {
       "action": 130000,
@@ -3703,6 +4039,28 @@
       "description": null,
       "success_message": null,
       "error_message": null
+    }
+  },
+  {
+    "model": "core.actionworkitem",
+    "pk": 120007,
+    "fields": {
+      "tasks": "[\"ebau-number\"]",
+      "process_type": "complete",
+      "process_all": false,
+      "is_activation": false,
+      "fail_on_empty": true
+    }
+  },
+  {
+    "model": "core.actionworkitem",
+    "pk": 120010,
+    "fields": {
+      "tasks": "[\"decision\"]",
+      "process_type": "complete",
+      "process_all": false,
+      "is_activation": false,
+      "fail_on_empty": true
     }
   },
   {
@@ -42974,6 +43332,51 @@
   },
   {
     "model": "core.broleacl",
+    "pk": 120002,
+    "fields": {
+      "button": 20010,
+      "role": 3,
+      "instance_state": 120002
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 120003,
+    "fields": {
+      "button": 120000,
+      "role": 3,
+      "instance_state": 120002
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 120004,
+    "fields": {
+      "button": 40029,
+      "role": 3,
+      "instance_state": 120002
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 120005,
+    "fields": {
+      "button": 20019,
+      "role": 3,
+      "instance_state": 120002
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 120006,
+    "fields": {
+      "button": 120001,
+      "role": 3,
+      "instance_state": 120002
+    }
+  },
+  {
+    "model": "core.broleacl",
     "pk": 130000,
     "fields": {
       "button": 130000,
@@ -43492,6 +43895,30 @@
       "class_field": "success active_leitbehoerde_only",
       "hidden": 0,
       "sort": 0
+    }
+  },
+  {
+    "model": "core.button",
+    "pk": 120000,
+    "fields": {
+      "instance_resource": 20014,
+      "name": null,
+      "description": null,
+      "class_field": "next-arrows",
+      "hidden": 0,
+      "sort": 2
+    }
+  },
+  {
+    "model": "core.button",
+    "pk": 120001,
+    "fields": {
+      "instance_resource": 20023,
+      "name": null,
+      "description": null,
+      "class_field": "gesuch_only",
+      "hidden": 0,
+      "sort": 2
     }
   },
   {
@@ -44083,6 +44510,36 @@
       "button": 40029,
       "language": "fr",
       "name": "Enregistrer",
+      "description": null
+    }
+  },
+  {
+    "model": "core.buttont",
+    "pk": 120044,
+    "fields": {
+      "button": 120000,
+      "language": "de",
+      "name": "Weiter",
+      "description": null
+    }
+  },
+  {
+    "model": "core.buttont",
+    "pk": 120045,
+    "fields": {
+      "button": 120001,
+      "language": "fr",
+      "name": "Rendre la d\u00e9cision",
+      "description": null
+    }
+  },
+  {
+    "model": "core.buttont",
+    "pk": 120046,
+    "fields": {
+      "button": 120001,
+      "language": "de",
+      "name": "Entscheid verf\u00fcgen",
       "description": null
     }
   },
@@ -51395,6 +51852,24 @@
   },
   {
     "model": "core.historyactionconfig",
+    "pk": 120008,
+    "fields": {
+      "title": null,
+      "body": null,
+      "history_type": "status-change"
+    }
+  },
+  {
+    "model": "core.historyactionconfig",
+    "pk": 120012,
+    "fields": {
+      "title": null,
+      "body": null,
+      "history_type": "status-change"
+    }
+  },
+  {
+    "model": "core.historyactionconfig",
     "pk": 1200107,
     "fields": {
       "title": null,
@@ -51824,6 +52299,46 @@
     "fields": {
       "action": 1200121,
       "title": "Archiv\u00e9",
+      "body": null,
+      "language": "fr"
+    }
+  },
+  {
+    "model": "core.historyactionconfigt",
+    "pk": 120000,
+    "fields": {
+      "action": 120008,
+      "title": "eBau-Nr. vergeben",
+      "body": null,
+      "language": "de"
+    }
+  },
+  {
+    "model": "core.historyactionconfigt",
+    "pk": 120001,
+    "fields": {
+      "action": 120008,
+      "title": "Attribution d'un num\u00e9ro eBau",
+      "body": null,
+      "language": "fr"
+    }
+  },
+  {
+    "model": "core.historyactionconfigt",
+    "pk": 120002,
+    "fields": {
+      "action": 120012,
+      "title": "Bauentscheid verf\u00fcgt",
+      "body": null,
+      "language": "de"
+    }
+  },
+  {
+    "model": "core.historyactionconfigt",
+    "pk": 120003,
+    "fields": {
+      "action": 120012,
+      "title": "D\u00e9cision relative \u00e0 la demande de permis de construire rendue",
       "body": null,
       "language": "fr"
     }
@@ -60756,6 +61271,276 @@
       "instance_resource": 140002,
       "role": 3,
       "instance_state": 120000
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 120065,
+    "fields": {
+      "instance_resource": 20014,
+      "role": 3,
+      "instance_state": 120002
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 120067,
+    "fields": {
+      "instance_resource": 20011,
+      "role": 3,
+      "instance_state": 120002
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 120068,
+    "fields": {
+      "instance_resource": 40008,
+      "role": 3,
+      "instance_state": 120002
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 120069,
+    "fields": {
+      "instance_resource": 20079,
+      "role": 3,
+      "instance_state": 120002
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 120070,
+    "fields": {
+      "instance_resource": 20074,
+      "role": 3,
+      "instance_state": 120002
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 120071,
+    "fields": {
+      "instance_resource": 20068,
+      "role": 3,
+      "instance_state": 120002
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 120072,
+    "fields": {
+      "instance_resource": 20068,
+      "role": 20003,
+      "instance_state": 120002
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 120073,
+    "fields": {
+      "instance_resource": 20075,
+      "role": 3,
+      "instance_state": 120002
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 120074,
+    "fields": {
+      "instance_resource": 20019,
+      "role": 20003,
+      "instance_state": 120002
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 120075,
+    "fields": {
+      "instance_resource": 20019,
+      "role": 3,
+      "instance_state": 120002
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 120076,
+    "fields": {
+      "instance_resource": 20023,
+      "role": 3,
+      "instance_state": 120002
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 120077,
+    "fields": {
+      "instance_resource": 10000,
+      "role": 3,
+      "instance_state": 120002
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 120078,
+    "fields": {
+      "instance_resource": 150000,
+      "role": 3,
+      "instance_state": 120002
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 120079,
+    "fields": {
+      "instance_resource": 140004,
+      "role": 20003,
+      "instance_state": 120002
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 120080,
+    "fields": {
+      "instance_resource": 140004,
+      "role": 3,
+      "instance_state": 120002
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 120081,
+    "fields": {
+      "instance_resource": 150004,
+      "role": 20003,
+      "instance_state": 120002
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 120082,
+    "fields": {
+      "instance_resource": 150004,
+      "role": 3,
+      "instance_state": 120002
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 120083,
+    "fields": {
+      "instance_resource": 140002,
+      "role": 20003,
+      "instance_state": 120002
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 120084,
+    "fields": {
+      "instance_resource": 140002,
+      "role": 3,
+      "instance_state": 120002
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 120085,
+    "fields": {
+      "instance_resource": 20079,
+      "role": 3,
+      "instance_state": 120003
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 120086,
+    "fields": {
+      "instance_resource": 20028,
+      "role": 3,
+      "instance_state": 120003
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 120087,
+    "fields": {
+      "instance_resource": 20074,
+      "role": 3,
+      "instance_state": 120003
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 120088,
+    "fields": {
+      "instance_resource": 10000,
+      "role": 3,
+      "instance_state": 120003
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 120089,
+    "fields": {
+      "instance_resource": 150000,
+      "role": 3,
+      "instance_state": 120003
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 120090,
+    "fields": {
+      "instance_resource": 20023,
+      "role": 3,
+      "instance_state": 120003
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 120091,
+    "fields": {
+      "instance_resource": 20011,
+      "role": 3,
+      "instance_state": 120003
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 120092,
+    "fields": {
+      "instance_resource": 140002,
+      "role": 3,
+      "instance_state": 120003
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 120093,
+    "fields": {
+      "instance_resource": 150004,
+      "role": 3,
+      "instance_state": 120003
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 120094,
+    "fields": {
+      "instance_resource": 140004,
+      "role": 3,
+      "instance_state": 120003
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 120096,
+    "fields": {
+      "instance_resource": 20068,
+      "role": 3,
+      "instance_state": 120003
     }
   },
   {
@@ -117948,7 +118733,7 @@
     "model": "core.rcalumalist",
     "pk": 20006,
     "fields": {
-      "instance_states": "1,20000,20003,20004,20005,20010,20011,20013,20014,10000,20007,20008,20009,120000,120001"
+      "instance_states": "1,20000,20003,20004,20005,20010,20011,20013,20014,10000,20007,20008,20009,120000,120001,120002,120003"
     }
   },
   {
