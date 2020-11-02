@@ -239,7 +239,7 @@ APPLICATIONS = {
                 "check-statement",
                 "revise-statement",
             ],
-            "SUBMIT_TASKS": ["submit", "submit-additional-demand"],
+            "SUBMIT_TASKS": ["submit", "submit-additional-demand", "formal-addition"],
             "PRE_COMPLETE": {
                 "complete-check": {"cancel": ["reject-form"]},
                 "reject-form": {"cancel": ["complete-check", "depreciate-case"]},
