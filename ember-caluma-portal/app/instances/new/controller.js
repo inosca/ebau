@@ -29,7 +29,9 @@ export default class InstancesNewController extends Controller.extend(
       .filter(
         (form) =>
           this.session.isInternal ||
-          form.node.slug !== "baupolizeiliches-verfahren"
+          !["baupolizeiliches-verfahren", "zutrittsermaechtigung"].includes(
+            form.node.slug
+          )
       )
       .reduce(
         (grouped, { node: form }) => {
