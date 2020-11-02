@@ -830,7 +830,7 @@ def test_instance_form_field_ordering(
 
 @pytest.mark.parametrize("role__name", ["Coordination"])
 @pytest.mark.parametrize("is_creator", [True, False])
-@pytest.mark.parametrize("forbidden_states", [None, [9999999]])
+@pytest.mark.parametrize("forbidden_states", ["current_state", [9999999]])
 def test_instance_list_coordination_created(
     db,
     mocker,
@@ -844,11 +844,11 @@ def test_instance_list_coordination_created(
     """Ensure that the coordination role sees their correct dossiers.
 
     KOOR role can see dossiers which their group has created,
-    or which are not in a forbidden state. Note that this is a workaround,
+    and which are not in a forbidden state. Note that this is a workaround,
     as the acutal logic in PHP for this rule is rather more complicated,
     but we're not replicating that rule here (yet).
     """
-    if forbidden_states is None:
+    if forbidden_states == "current_state":
         # unfortunately cannot parametrize this :(
         forbidden_states = [instance_state.pk]
 
@@ -866,7 +866,7 @@ def test_instance_list_coordination_created(
     assert response.status_code == status.HTTP_200_OK
 
     json = response.json()
-    if is_creator or forbidden_states == [9999999]:
+    if is_creator and forbidden_states == [9999999]:
         assert len(json["data"]) == 1
         assert json["data"][0]["id"] == str(instance.pk)
     else:

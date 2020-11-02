@@ -126,12 +126,22 @@ class InstanceQuerysetMixin(object):
         queryset = self.get_base_queryset()
         instance_field = self._get_instance_filter_expr("pk", "in")
         state_field = self._get_instance_filter_expr("instance_state", "in")
+        form_field = self._get_instance_filter_expr("form", "in")
 
         instances_created_by_group = self._instances_created_by(group)
 
         return queryset.filter(
-            Q(**{instance_field: instances_created_by_group})
-            | ~Q(**{state_field: uri_constants.INSTANCE_STATES_HIDDEN_FOR_KOOR})
+            (
+                Q(**{instance_field: instances_created_by_group})
+                | Q(
+                    **{
+                        form_field: uri_constants.RESPONSIBLE_KOORS.get(
+                            group.service_id, []
+                        )
+                    }
+                )
+            )
+            & ~Q(**{state_field: uri_constants.INSTANCE_STATES_HIDDEN_FOR_KOOR})
         )
 
     def get_queryset_for_municipality(self, group=None):
