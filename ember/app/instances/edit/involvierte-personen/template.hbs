@@ -18,7 +18,7 @@
           {{get row "email"}}
         </td>
         <td class="uk-text-right">
-          {{#if (gt this.applicants.length 1)}}
+          {{#if (and (gt this.applicants.length 1) (eq @model.meta.access-type "applicant"))}}
             <button
               type="button"
               title="Eintrag Löschen"
