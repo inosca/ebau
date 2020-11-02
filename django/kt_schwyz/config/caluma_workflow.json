@@ -34,17 +34,6 @@
   },
   {
     "model": "caluma_workflow.flow",
-    "pk": "72b932a2-5400-45bf-b776-7e6348150d02",
-    "fields": {
-      "created_at": "2020-09-03T14:47:49.524Z",
-      "modified_at": "2020-09-03T14:47:49.524Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "next": "['submit']|tasks"
-    }
-  },
-  {
-    "model": "caluma_workflow.flow",
     "pk": "74adbeb1-9e28-48d7-97f9-62975bdf5b71",
     "fields": {
       "created_at": "2020-09-03T14:47:56.430Z",
@@ -111,6 +100,17 @@
   },
   {
     "model": "caluma_workflow.flow",
+    "pk": "f0d95573-f1d6-4e63-bc70-0b145caa6aea",
+    "fields": {
+      "created_at": "2020-11-02T08:09:57.057Z",
+      "modified_at": "2020-11-02T08:09:57.058Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "next": "['reject-form', 'complete-check']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
     "pk": "f28bc947-71c4-4f64-a3ad-c12a664763f9",
     "fields": {
       "created_at": "2020-09-03T14:47:58.504Z",
@@ -118,6 +118,17 @@
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "next": "['make-decision', 'reopen-circulation']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "f2bb6f3c-8f85-443f-977f-2f05dfb5c996",
+    "fields": {
+      "created_at": "2020-11-02T07:49:31.817Z",
+      "modified_at": "2020-11-02T07:49:31.817Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "next": "['formal-addition']|tasks"
     }
   },
   {
@@ -270,6 +281,26 @@
       "is_archived": false,
       "form": null,
       "lead_time": null,
+      "is_multiple_instance": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "formal-addition",
+    "fields": {
+      "created_at": "2020-10-30T14:52:21.081Z",
+      "modified_at": "2020-10-30T14:52:21.081Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "name": "{\"de\": \"Formelle Erg\\u00e4nzung\", \"fr\": null}",
+      "description": "{\"de\": null, \"fr\": null}",
+      "type": "simple",
+      "meta": {},
+      "address_groups": "['applicant']|groups",
+      "control_groups": null,
+      "is_archived": false,
+      "form": null,
+      "lead_time": 5184000,
       "is_multiple_instance": false
     }
   },
@@ -445,11 +476,11 @@
       "description": "{\"de\": null, \"fr\": null}",
       "type": "complete_workflow_form",
       "meta": {},
-      "address_groups": "[]",
+      "address_groups": "['applicant']|groups",
       "control_groups": null,
       "is_archived": false,
       "form": null,
-      "lead_time": null,
+      "lead_time": 7776000,
       "is_multiple_instance": false
     }
   },
@@ -625,6 +656,19 @@
   },
   {
     "model": "caluma_workflow.taskflow",
+    "pk": "95d05e90-4eaf-4627-a437-eba51b48a64e",
+    "fields": {
+      "created_at": "2020-11-02T07:49:31.820Z",
+      "modified_at": "2020-11-02T07:49:31.820Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "workflow": "building-permit",
+      "task": "reject-form",
+      "flow": "f2bb6f3c-8f85-443f-977f-2f05dfb5c996"
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
     "pk": "9fe6a270-ee49-4166-ae8c-d93568e0f6c4",
     "fields": {
       "created_at": "2020-09-03T14:47:54.557Z",
@@ -638,15 +682,15 @@
   },
   {
     "model": "caluma_workflow.taskflow",
-    "pk": "a801c02d-9100-4fe2-883d-0f848e62e2d2",
+    "pk": "c7803ae1-1a0d-4ac8-9876-ab4fa5a51a67",
     "fields": {
-      "created_at": "2020-09-03T14:47:49.527Z",
-      "modified_at": "2020-09-03T14:47:49.527Z",
+      "created_at": "2020-11-02T08:09:57.061Z",
+      "modified_at": "2020-11-02T08:09:57.061Z",
       "created_by_user": null,
       "created_by_group": null,
       "workflow": "building-permit",
-      "task": "reject-form",
-      "flow": "72b932a2-5400-45bf-b776-7e6348150d02"
+      "task": "formal-addition",
+      "flow": "f0d95573-f1d6-4e63-bc70-0b145caa6aea"
     }
   },
   {
