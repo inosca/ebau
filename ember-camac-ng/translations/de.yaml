@@ -49,6 +49,17 @@ journal:
   edit: "Eintrag bearbeiten"
   textareaNew: "Textbereich für neuen Eintrag"
   textareaEdit: "Textbereich zum editieren des Eintrages"
+  noEntries: "Keine Journaleinträge vorhanden"
+
+dashboard:
+  generalData: "Generelle Daten"
+  personalData: "Personendaten"
+  buildingProjectStatus: "Bauprojektstatus"
+  projectAuthor: "Projektverfasser"
+  landowner: "Grundeigentümer"
+  intentAndLocation: "Vorhaben und Lage"
+  parcels: "Parzellen"
+  egrid: "EGRID"
 
 workItems:
   instance: "Dossier"

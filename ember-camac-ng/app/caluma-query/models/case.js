@@ -10,6 +10,38 @@ function getAnswer(document, slug) {
 export default class CustomCaseModel extends CaseModel {
   @service store;
 
+  getPersonData(question) {
+    const answer = getAnswer(this.raw.document, question);
+    // Take the first row and use this as applicant
+    const tableAnswers = answer?.node.value[0];
+
+    if (tableAnswers) {
+      return {
+        firstName: getAnswer(tableAnswers, "first-name")?.node.stringValue,
+        lastName: getAnswer(tableAnswers, "last-name")?.node.stringValue,
+        street: getAnswer(tableAnswers, "street")?.node.stringValue,
+        streetNumber: getAnswer(tableAnswers, "street-number")?.node
+          .stringValue,
+        zip: getAnswer(tableAnswers, "zip")?.node.stringValue,
+        city: getAnswer(tableAnswers, "city")?.node.stringValue,
+        phone: getAnswer(tableAnswers, "phone")?.node.stringValue,
+        email: getAnswer(tableAnswers, "e-mail")?.node.stringValue,
+        juristicName: getAnswer(tableAnswers, "juristic-person-name")?.node
+          .stringValue,
+
+        get name() {
+          return [
+            this.juristicName,
+            `${this.firstName ?? ""} ${this.lastName ?? ""}`,
+          ]
+            .filter(Boolean)
+            .join(", ");
+        },
+      };
+    }
+    return null;
+  }
+
   get instanceId() {
     return this.raw.meta["camac-instance-id"];
   }
@@ -47,19 +79,15 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get applicant() {
-    const answer = getAnswer(this.raw.document, "applicant");
-    // Take the first row and use this as applicant
-    const tableAnswers = answer?.node.value[0];
-    if (tableAnswers) {
-      const juristicName = getAnswer(tableAnswers, "juristic-person-name")?.node
-        .stringValue;
-      const firstName = getAnswer(tableAnswers, "first-name")?.node.stringValue;
-      const lastName = getAnswer(tableAnswers, "last-name")?.node.stringValue;
-      return [juristicName, `${firstName ?? ""} ${lastName ?? ""}`]
-        .filter(Boolean)
-        .join(", ");
-    }
-    return null;
+    return this.getPersonData("applicant");
+  }
+
+  get projectAuthor() {
+    return this.getPersonData("project-author");
+  }
+
+  get landowner() {
+    return this.getPersonData("landowner");
   }
 
   get form() {
@@ -74,7 +102,7 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get coordination() {
-    const description = this.instance?.form?.description;
+    const description = this.instance?.get("form.description");
 
     return description && description.split(";")[0];
   }
@@ -86,9 +114,28 @@ export default class CustomCaseModel extends CaseModel {
     //TODO camac_legacy: Not yet implemented
     return null;
   }
-  get parcel() {
-    //TODO camac_legacy: Not yet implemented
-    return null;
+
+  get buildingProjectStatus() {
+    const answer = getAnswer(this.raw.document, "status-bauprojekt");
+    return answer?.node.question.options.edges.find(
+      (edge) => edge.node.slug === answer?.node.stringValue
+    )?.node.label;
+  }
+
+  get parcelNumbers() {
+    const answer = getAnswer(this.raw.document, "parcels");
+    const tableAnswers = answer?.node.value ?? [];
+    return tableAnswers.map(
+      (answer) => getAnswer(answer, "parcel-number")?.node.stringValue
+    );
+  }
+
+  get egridNumbers() {
+    const answer = getAnswer(this.raw.document, "parcels");
+    const tableAnswers = answer?.node.value ?? [];
+    return tableAnswers.map(
+      (answer) => getAnswer(answer, "e-grid")?.node.stringValue
+    );
   }
 
   static fragment = `{
@@ -97,11 +144,15 @@ export default class CustomCaseModel extends CaseModel {
     document {
       answers(questions: [
         "applicant",
+        "landowner",
+        "project-author",
         "parcel-street",
         "street-number",
         "form-type",
         "proposal-description",
-        "municipality"
+        "municipality",
+        "parcels",
+        "status-bauprojekt"
       ]) {
         edges {
           node {
