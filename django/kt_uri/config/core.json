@@ -573,21 +573,6 @@
   },
   {
     "model": "core.alocation",
-    "pk": 1160,
-    "fields": {}
-  },
-  {
-    "model": "core.alocation",
-    "pk": 1220,
-    "fields": {}
-  },
-  {
-    "model": "core.alocation",
-    "pk": 1257,
-    "fields": {}
-  },
-  {
-    "model": "core.alocation",
     "pk": 1402,
     "fields": {}
   },
@@ -614,33 +599,6 @@
     "pk": 8,
     "fields": {
       "action": 1132,
-      "question": 2,
-      "chapter": 3
-    }
-  },
-  {
-    "model": "core.alocationqc",
-    "pk": 9,
-    "fields": {
-      "action": 1160,
-      "question": 2,
-      "chapter": 3
-    }
-  },
-  {
-    "model": "core.alocationqc",
-    "pk": 10,
-    "fields": {
-      "action": 1220,
-      "question": 2,
-      "chapter": 3
-    }
-  },
-  {
-    "model": "core.alocationqc",
-    "pk": 11,
-    "fields": {
-      "action": 1257,
       "question": 2,
       "chapter": 3
     }
@@ -1351,13 +1309,6 @@
   },
   {
     "model": "core.aphp",
-    "pk": 1161,
-    "fields": {
-      "php_class": "DossierNR"
-    }
-  },
-  {
-    "model": "core.aphp",
     "pk": 1181,
     "fields": {
       "php_class": "CircStart"
@@ -1393,13 +1344,6 @@
   },
   {
     "model": "core.aphp",
-    "pk": 1221,
-    "fields": {
-      "php_class": "DossierNR"
-    }
-  },
-  {
-    "model": "core.aphp",
     "pk": 1232,
     "fields": {
       "php_class": "CircStart"
@@ -1417,13 +1361,6 @@
     "pk": 1240,
     "fields": {
       "php_class": "ReopenCirculation"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1258,
-    "fields": {
-      "php_class": "DossierNR"
     }
   },
   {
@@ -3731,20 +3668,6 @@
   },
   {
     "model": "core.action",
-    "pk": 1140,
-    "fields": {
-      "available_action": "save",
-      "button": 765,
-      "name": "Speichern",
-      "description": "",
-      "success_message": "Speichern erfolgreich.",
-      "error_message": "Speichern fehlgeschlagen!",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 1141,
     "fields": {
       "available_action": "formtransition",
@@ -3941,62 +3864,6 @@
   },
   {
     "model": "core.action",
-    "pk": 1159,
-    "fields": {
-      "available_action": "save",
-      "button": 777,
-      "name": "Speichern",
-      "description": "",
-      "success_message": "Dossier erfolgreich erstellt.",
-      "error_message": "Dossier konnte nicht erstellt werden!",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1160,
-    "fields": {
-      "available_action": "location",
-      "button": 777,
-      "name": "Standort Setzen",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1161,
-    "fields": {
-      "available_action": "php",
-      "button": 777,
-      "name": "Dossier-NR setzen",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1162,
-    "fields": {
-      "available_action": "workflow",
-      "button": 777,
-      "name": "Workflow Datum setzen auf Dossier erfasst",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 3
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 1163,
     "fields": {
       "available_action": "formtransition",
@@ -4103,20 +3970,6 @@
       "description": "EXT - GEM in DONE",
       "success_message": "Status\u00e4nderung erfolgreich ausgef\u00fchrt",
       "error_message": "Die Status\u00e4nderung konnte nicht ausgef\u00fchrt werden",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1199,
-    "fields": {
-      "available_action": "save",
-      "button": 790,
-      "name": "Speichern",
-      "description": "",
-      "success_message": "Speichern erfolgreich.",
-      "error_message": "Speichern fehlgeschlagen!",
       "execute_always": 0,
       "sort": 0
     }
@@ -4385,62 +4238,6 @@
       "error_message": "",
       "execute_always": 0,
       "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1219,
-    "fields": {
-      "available_action": "save",
-      "button": 801,
-      "name": "Speichern",
-      "description": "",
-      "success_message": "Dossier erfolgreich erstellt.",
-      "error_message": "Dossier konnte nicht erstellt werden!",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1220,
-    "fields": {
-      "available_action": "location",
-      "button": 801,
-      "name": "Standort Setzen",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1221,
-    "fields": {
-      "available_action": "php",
-      "button": 801,
-      "name": "Dossier-NR setzen",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1222,
-    "fields": {
-      "available_action": "workflow",
-      "button": 801,
-      "name": "Workflow Datum setzen auf Dossier erfasst",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 3
     }
   },
   {
@@ -4721,62 +4518,6 @@
       "error_message": "",
       "execute_always": 0,
       "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1256,
-    "fields": {
-      "available_action": "save",
-      "button": 817,
-      "name": "Speichern",
-      "description": "",
-      "success_message": "Dossier erfolgreich erstellt.",
-      "error_message": "Dossier konnte nicht erstellt werden!",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1257,
-    "fields": {
-      "available_action": "location",
-      "button": 817,
-      "name": "Standort Setzen",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1258,
-    "fields": {
-      "available_action": "php",
-      "button": 817,
-      "name": "Dossier-NR setzen",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1259,
-    "fields": {
-      "available_action": "workflow",
-      "button": 817,
-      "name": "Workflow Datum setzen auf Dossier erfasst",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 3
     }
   },
   {
@@ -13458,15 +13199,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 196,
-    "fields": {
-      "button": 765,
-      "role": 1106,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 198,
     "fields": {
       "button": 914,
@@ -13557,15 +13289,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 208,
-    "fields": {
-      "button": 790,
-      "role": 1107,
-      "instance_state": 27
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 209,
     "fields": {
       "button": 806,
@@ -13602,15 +13325,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 213,
-    "fields": {
-      "button": 790,
-      "role": 1107,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 214,
     "fields": {
       "button": 874,
@@ -13625,15 +13339,6 @@
       "button": 793,
       "role": 1107,
       "instance_state": 26
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 218,
-    "fields": {
-      "button": 765,
-      "role": 1106,
-      "instance_state": 23
     }
   },
   {
@@ -13805,15 +13510,6 @@
       "button": 829,
       "role": 1128,
       "instance_state": 26
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 238,
-    "fields": {
-      "button": 817,
-      "role": 1127,
-      "instance_state": 1
     }
   },
   {
@@ -13994,15 +13690,6 @@
       "button": 797,
       "role": 1107,
       "instance_state": 26
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 261,
-    "fields": {
-      "button": 777,
-      "role": 1106,
-      "instance_state": 1
     }
   },
   {
@@ -14241,15 +13928,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 291,
-    "fields": {
-      "button": 790,
-      "role": 1107,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 292,
     "fields": {
       "button": 834,
@@ -14367,15 +14045,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 306,
-    "fields": {
-      "button": 801,
-      "role": 1107,
-      "instance_state": 1
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 307,
     "fields": {
       "button": 854,
@@ -14430,15 +14099,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 313,
-    "fields": {
-      "button": 765,
-      "role": 1106,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 314,
     "fields": {
       "button": 917,
@@ -14480,15 +14140,6 @@
       "button": 774,
       "role": 1106,
       "instance_state": 23
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 319,
-    "fields": {
-      "button": 790,
-      "role": 1107,
-      "instance_state": 24
     }
   },
   {
@@ -14601,15 +14252,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 333,
-    "fields": {
-      "button": 765,
-      "role": 1106,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 334,
     "fields": {
       "button": 797,
@@ -14709,15 +14351,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 346,
-    "fields": {
-      "button": 790,
-      "role": 1107,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 347,
     "fields": {
       "button": 806,
@@ -14763,15 +14396,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 353,
-    "fields": {
-      "button": 765,
-      "role": 1106,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 354,
     "fields": {
       "button": 830,
@@ -14813,15 +14437,6 @@
       "button": 834,
       "role": 6,
       "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 359,
-    "fields": {
-      "button": 790,
-      "role": 1107,
-      "instance_state": 23
     }
   },
   {
@@ -14889,15 +14504,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 368,
-    "fields": {
-      "button": 765,
-      "role": 1106,
-      "instance_state": 27
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 369,
     "fields": {
       "button": 810,
@@ -14912,15 +14518,6 @@
       "button": 826,
       "role": 1128,
       "instance_state": 22
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 371,
-    "fields": {
-      "button": 765,
-      "role": 1106,
-      "instance_state": 24
     }
   },
   {
@@ -15065,15 +14662,6 @@
       "button": 794,
       "role": 1107,
       "instance_state": 22
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 390,
-    "fields": {
-      "button": 790,
-      "role": 1107,
-      "instance_state": 21
     }
   },
   {
@@ -16653,15 +16241,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 639,
-    "fields": {
-      "button": 765,
-      "role": 1106,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 640,
     "fields": {
       "button": 854,
@@ -16792,15 +16371,6 @@
     "fields": {
       "button": 775,
       "role": 1106,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 655,
-    "fields": {
-      "button": 790,
-      "role": 1107,
       "instance_state": 34
     }
   },
@@ -18419,18 +17989,6 @@
   },
   {
     "model": "core.button",
-    "pk": 765,
-    "fields": {
-      "instance_resource": 699,
-      "name": "Speichern",
-      "description": "",
-      "class_field": "",
-      "hidden": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.button",
     "pk": 766,
     "fields": {
       "instance_resource": 699,
@@ -18527,18 +18085,6 @@
   },
   {
     "model": "core.button",
-    "pk": 777,
-    "fields": {
-      "instance_resource": 697,
-      "name": "Erstellen",
-      "description": "",
-      "class_field": "",
-      "hidden": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.button",
     "pk": 782,
     "fields": {
       "instance_resource": 702,
@@ -18583,18 +18129,6 @@
       "class_field": null,
       "hidden": 0,
       "sort": 6
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 790,
-    "fields": {
-      "instance_resource": 714,
-      "name": "Speichern",
-      "description": "",
-      "class_field": "",
-      "hidden": 0,
-      "sort": 0
     }
   },
   {
@@ -18715,18 +18249,6 @@
       "class_field": "downloady",
       "hidden": 0,
       "sort": 1
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 801,
-    "fields": {
-      "instance_resource": 722,
-      "name": "Erstellen",
-      "description": "",
-      "class_field": "",
-      "hidden": 0,
-      "sort": 0
     }
   },
   {
@@ -18859,18 +18381,6 @@
       "class_field": "downloady",
       "hidden": 0,
       "sort": 1
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 817,
-    "fields": {
-      "instance_resource": 732,
-      "name": "Erstellen",
-      "description": "",
-      "class_field": "",
-      "hidden": 0,
-      "sort": 0
     }
   },
   {
@@ -24767,28 +24277,13 @@
   },
   {
     "model": "core.instanceresource",
-    "pk": 697,
-    "fields": {
-      "available_instance_resource": "newform",
-      "resource": 22,
-      "name": "Dossier erstellen",
-      "description": "Erstellung durch die Koordinationsstelle AfU",
-      "template": "",
-      "class_field": "",
-      "hidden": 1,
-      "sort": 5,
-      "form_group": 249
-    }
-  },
-  {
-    "model": "core.instanceresource",
     "pk": 699,
     "fields": {
-      "available_instance_resource": "editformpage",
+      "available_instance_resource": "page",
       "resource": 289,
       "name": "Personen- und Projektdaten bearbeiten",
       "description": "Personen- und Projektdaten von der Koordinationsstelle Umweltschutz AfU",
-      "template": "/form/form-edit.phtml",
+      "template": "/ember/instance.phtml",
       "class_field": null,
       "hidden": 0,
       "sort": 1,
@@ -24949,11 +24444,11 @@
     "model": "core.instanceresource",
     "pk": 714,
     "fields": {
-      "available_instance_resource": "editformpage",
+      "available_instance_resource": "page",
       "resource": 296,
       "name": "Personen- und Projektdaten bearbeiten",
       "description": "Personen- und Projektdaten von der Koordinationsstelle Landwirtschaft ALA",
-      "template": "/form/form-edit.phtml",
+      "template": "/ember/instance.phtml",
       "class_field": null,
       "hidden": 0,
       "sort": 1,
@@ -25052,28 +24547,13 @@
   },
   {
     "model": "core.instanceresource",
-    "pk": 722,
-    "fields": {
-      "available_instance_resource": "newform",
-      "resource": 22,
-      "name": "Dossier erstellen",
-      "description": "Erstellung durch die Koordinationsstelle ALA",
-      "template": "",
-      "class_field": "",
-      "hidden": 1,
-      "sort": 6,
-      "form_group": 250
-    }
-  },
-  {
-    "model": "core.instanceresource",
     "pk": 723,
     "fields": {
-      "available_instance_resource": "editformpage",
+      "available_instance_resource": "page",
       "resource": 297,
       "name": "Personen- und Projektdaten bearbeiten",
       "description": "Personen- und Projektdaten von der Koordinationsstelle Energie AfE",
-      "template": "/form/form-edit.phtml",
+      "template": "/ember/instance.phtml",
       "class_field": null,
       "hidden": 0,
       "sort": 1,
@@ -25182,21 +24662,6 @@
       "class_field": "",
       "hidden": 0,
       "sort": 5,
-      "form_group": 251
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 732,
-    "fields": {
-      "available_instance_resource": "newform",
-      "resource": 22,
-      "name": "Dossier erstellen",
-      "description": "Erstellung durch die Koordinationsstelle AfE",
-      "template": "",
-      "class_field": "",
-      "hidden": 1,
-      "sort": 7,
       "form_group": 251
     }
   },
@@ -25504,11 +24969,11 @@
     "model": "core.instanceresource",
     "pk": 758,
     "fields": {
-      "available_instance_resource": "editformpage",
+      "available_instance_resource": "page",
       "resource": 316,
       "name": "Personen- und Projektdaten bearbeiten",
       "description": "Personen- und Projektdaten bearbeiten von der Bundesstelle",
-      "template": "/form/form-edit.phtml",
+      "template": "/ember/instance.phtml",
       "class_field": null,
       "hidden": 0,
       "sort": 1,
@@ -28923,38 +28388,6 @@
     }
   },
   {
-    "model": "core.ireditformpage",
-    "pk": 699,
-    "fields": {
-      "page": 1,
-      "pdf_class": null
-    }
-  },
-  {
-    "model": "core.ireditformpage",
-    "pk": 714,
-    "fields": {
-      "page": 1,
-      "pdf_class": null
-    }
-  },
-  {
-    "model": "core.ireditformpage",
-    "pk": 723,
-    "fields": {
-      "page": 1,
-      "pdf_class": null
-    }
-  },
-  {
-    "model": "core.ireditformpage",
-    "pk": 758,
-    "fields": {
-      "page": 1,
-      "pdf_class": null
-    }
-  },
-  {
     "model": "core.ireditnotice",
     "pk": 367,
     "fields": {
@@ -29272,30 +28705,6 @@
   },
   {
     "model": "core.irnewform",
-    "pk": 697,
-    "fields": {
-      "instance_state": 22,
-      "page_form_group": 1
-    }
-  },
-  {
-    "model": "core.irnewform",
-    "pk": 722,
-    "fields": {
-      "instance_state": 22,
-      "page_form_group": 1
-    }
-  },
-  {
-    "model": "core.irnewform",
-    "pk": 732,
-    "fields": {
-      "instance_state": 22,
-      "page_form_group": 1
-    }
-  },
-  {
-    "model": "core.irnewform",
     "pk": 759,
     "fields": {
       "instance_state": 21,
@@ -29395,6 +28804,13 @@
   },
   {
     "model": "core.irpage",
+    "pk": 699,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
     "pk": 705,
     "fields": {
       "pdf_class": ""
@@ -29402,7 +28818,28 @@
   },
   {
     "model": "core.irpage",
+    "pk": 714,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 723,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
     "pk": 735,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 758,
     "fields": {
       "pdf_class": null
     }
@@ -34373,15 +33810,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 567,
-    "fields": {
-      "instance_resource": 697,
-      "role": 1106,
-      "instance_state": 1
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 568,
     "fields": {
       "instance_resource": 748,
@@ -35111,15 +34539,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 652,
-    "fields": {
-      "instance_resource": 732,
-      "role": 1127,
-      "instance_state": 1
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 653,
     "fields": {
       "instance_resource": 746,
@@ -35557,15 +34976,6 @@
       "instance_resource": 729,
       "role": 1127,
       "instance_state": 27
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 705,
-    "fields": {
-      "instance_resource": 722,
-      "role": 1107,
-      "instance_state": 1
     }
   },
   {
@@ -39750,6 +39160,60 @@
     "fields": {
       "instance_resource": 1,
       "role": 1101,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 20082,
+    "fields": {
+      "instance_resource": 1,
+      "role": 1107,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 20083,
+    "fields": {
+      "instance_resource": 1,
+      "role": 1061,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 20084,
+    "fields": {
+      "instance_resource": 1,
+      "role": 1127,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 20085,
+    "fields": {
+      "instance_resource": 1,
+      "role": 1129,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 20086,
+    "fields": {
+      "instance_resource": 1,
+      "role": 1106,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 20087,
+    "fields": {
+      "instance_resource": 1,
+      "role": 1130,
       "instance_state": 1
     }
   },
@@ -48386,14 +47850,6 @@
   },
   {
     "model": "core.workflowaction",
-    "pk": 1162,
-    "fields": {
-      "workflow_item": 12,
-      "multi_value": 0
-    }
-  },
-  {
-    "model": "core.workflowaction",
     "pk": 1202,
     "fields": {
       "workflow_item": 62,
@@ -48410,14 +47866,6 @@
   },
   {
     "model": "core.workflowaction",
-    "pk": 1222,
-    "fields": {
-      "workflow_item": 12,
-      "multi_value": 0
-    }
-  },
-  {
-    "model": "core.workflowaction",
     "pk": 1226,
     "fields": {
       "workflow_item": 62,
@@ -48429,14 +47877,6 @@
     "pk": 1233,
     "fields": {
       "workflow_item": 44,
-      "multi_value": 0
-    }
-  },
-  {
-    "model": "core.workflowaction",
-    "pk": 1259,
-    "fields": {
-      "workflow_item": 12,
       "multi_value": 0
     }
   },
