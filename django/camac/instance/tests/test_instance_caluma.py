@@ -9,6 +9,7 @@ from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
+from camac.conftest import CALUMA_FORM_TYPES_SLUGS
 from camac.constants import kt_bern as constants
 from camac.constants.kt_bern import (
     DECISIONS_BEWILLIGT,
@@ -335,6 +336,71 @@ def test_instance_submit(
     assert instance.user.email in mail.outbox[0].recipients()
 
     assert mail.outbox[0].subject.startswith("[eBau Test]: ")
+
+
+@pytest.mark.parametrize("service_group__name", ["municipality"])
+@pytest.mark.parametrize("instance_state__name", ["new"])
+@pytest.mark.parametrize(
+    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+)
+def test_instance_submit_state_change(
+    mocker,
+    admin_client,
+    role,
+    role_factory,
+    group_factory,
+    instance,
+    instance_state_factory,
+    service,
+    admin_user,
+    submit_date_question,
+    settings,
+    mock_public_status,
+    multilang,
+    application_settings,
+    mock_nfd_permissions,
+    mock_generate_and_store_pdf,
+    ech_mandatory_answers_einfache_vorabklaerung,
+    caluma_workflow_config_be,
+    notification_template,
+):
+    application_settings["NOTIFICATIONS"]["SUBMIT"] = [
+        {"template_slug": notification_template.slug, "recipient_types": ["applicant"]}
+    ]
+
+    for slug in CALUMA_FORM_TYPES_SLUGS:
+        caluma_form_models.Form.objects.create(slug=slug)
+
+    form = caluma_form_models.Form.objects.get(pk="baupolizeiliches-verfahren")
+    workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
+    workflow.slug = "building-police-procedure"
+    workflow.allow_forms.add(form)
+    workflow.save()
+    case = workflow_api.start_case(
+        workflow=workflow,
+        form=form,
+        meta={"camac-instance-id": instance.pk},
+        user=BaseUser(),
+    )
+
+    case.document.answers.create(value=str(service.pk), question_id="gemeinde")
+
+    group_factory(role=role_factory(name="support"))
+    mocker.patch.object(
+        DocumentParser,
+        "parse_answers",
+        return_value=ech_mandatory_answers_einfache_vorabklaerung,
+    )
+    instance_state_factory(name="subm")
+    instance_state_factory(name="in_progress_internal")
+
+    mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
+
+    admin_client.post(reverse("instance-submit", args=[instance.pk]))
+
+    instance.refresh_from_db()
+
+    assert instance.instance_state.name == "in_progress_internal"
 
 
 @pytest.mark.parametrize("role__name,instance__user", [("Canton", LazyFixture("user"))])

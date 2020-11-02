@@ -45,6 +45,17 @@
   },
   {
     "model": "caluma_workflow.flow",
+    "pk": "358c310a-7d42-492b-a458-5d9a16594e1d",
+    "fields": {
+      "created_at": "2020-10-23T10:51:09.641Z",
+      "modified_at": "2020-10-23T10:51:09.641Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "next": "'complete'|task"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
     "pk": "363f0977-a68b-4d3c-990b-39f2e747b19d",
     "fields": {
       "created_at": "2020-08-10T14:29:36.182Z",
@@ -52,6 +63,17 @@
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "next": "['after-circulation']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "366a854d-9df6-4842-ac89-c7ffaceaf2f4",
+    "fields": {
+      "created_at": "2020-10-23T13:15:32.382Z",
+      "modified_at": "2020-10-23T13:15:32.382Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "next": "['audit', 'decision']|tasks"
     }
   },
   {
@@ -188,6 +210,17 @@
   },
   {
     "model": "caluma_workflow.flow",
+    "pk": "c647f9cc-3261-48b8-840f-eea936888bee",
+    "fields": {
+      "created_at": "2020-10-23T13:15:29.513Z",
+      "modified_at": "2020-10-23T13:15:29.513Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "next": "['ebau-number', 'create-manual-workitems']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
     "pk": "c6acccb6-301d-4a70-97fe-4ee57dcdc5d5",
     "fields": {
       "created_at": "2020-08-10T14:30:18.759Z",
@@ -206,6 +239,17 @@
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "next": "['after-decision']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "e24200e0-2a4f-404b-ac0a-bde2ae302ce0",
+    "fields": {
+      "created_at": "2020-10-23T10:51:07.152Z",
+      "modified_at": "2020-10-23T10:51:07.152Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "next": "'decision'|task"
     }
   },
   {
@@ -635,6 +679,19 @@
   },
   {
     "model": "caluma_workflow.taskflow",
+    "pk": "092d2e2a-2c0a-467d-abcf-a12c5adae0b6",
+    "fields": {
+      "created_at": "2020-10-23T10:51:09.645Z",
+      "modified_at": "2020-10-23T10:51:09.645Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "workflow": "building-police-procedure",
+      "task": "decision",
+      "flow": "358c310a-7d42-492b-a458-5d9a16594e1d"
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
     "pk": "0cb1575e-47a3-43b8-86b3-e7bde2f25b53",
     "fields": {
       "created_at": "2020-08-10T14:29:40.831Z",
@@ -657,6 +714,32 @@
       "workflow": "preliminary-clarification",
       "task": "circulation",
       "flow": "b37d20b3-38f9-4971-bdb9-bbf80f0b9f0b"
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "3322dd3b-72b6-4c97-b89a-4be902a23cd3",
+    "fields": {
+      "created_at": "2020-10-23T10:51:07.156Z",
+      "modified_at": "2020-10-23T10:51:07.156Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "workflow": "building-police-procedure",
+      "task": "start-decision",
+      "flow": "e24200e0-2a4f-404b-ac0a-bde2ae302ce0"
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "35b0be8d-cc39-47d9-b848-4845b5ed2949",
+    "fields": {
+      "created_at": "2020-10-23T13:15:29.517Z",
+      "modified_at": "2020-10-23T13:15:29.517Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "workflow": "building-police-procedure",
+      "task": "submit",
+      "flow": "c647f9cc-3261-48b8-840f-eea936888bee"
     }
   },
   {
@@ -696,6 +779,19 @@
       "workflow": "building-permit",
       "task": "sb2",
       "flow": "53187fd7-57bc-4d3a-83b7-7021e9acf52d"
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "42e7d429-d528-4fe3-aa7c-7edb244560ce",
+    "fields": {
+      "created_at": "2020-10-23T13:15:32.385Z",
+      "modified_at": "2020-10-23T13:15:32.385Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "workflow": "building-police-procedure",
+      "task": "ebau-number",
+      "flow": "366a854d-9df6-4842-ac89-c7ffaceaf2f4"
     }
   },
   {
@@ -887,6 +983,24 @@
   },
   {
     "model": "caluma_workflow.workflow",
+    "pk": "building-police-procedure",
+    "fields": {
+      "created_at": "2020-10-23T10:50:56.076Z",
+      "modified_at": "2020-10-23T13:15:25.691Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "name": "{\"de\": \"Baupolizeiliches Verfahren\", \"fr\": null}",
+      "description": "{\"de\": null, \"fr\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "allow_all_forms": false,
+      "start_tasks": ["submit"],
+      "allow_forms": ["baupolizeiliches-verfahren"]
+    }
+  },
+  {
+    "model": "caluma_workflow.workflow",
     "pk": "circulation",
     "fields": {
       "created_at": "2020-08-10T14:28:56.643Z",
@@ -937,7 +1051,6 @@
       "allow_all_forms": false,
       "start_tasks": ["submit"],
       "allow_forms": [
-        "baupolizeiliches-verfahren",
         "hecken-feldgehoelze-baeume",
         "klaerung-baubewilligungspflicht",
         "vorabklaerung-einfach",
