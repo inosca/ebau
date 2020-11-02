@@ -277,6 +277,11 @@ class CalumaApi:
                 **{"task": activation_task, "meta__activation-id": activation.pk}
             ).first()
 
+            if not activation.service.groups.exclude(
+                role__name__in=caluma_settings.get("WORK_ITEM_EXCLUDE_ROLES", [])
+            ).exists():
+                pass
+
             update_data = {
                 "description": activation.reason,
                 "deadline": activation.deadline_date,
