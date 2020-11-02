@@ -304,7 +304,7 @@
     "pk": 21,
     "fields": {
       "communal_cantonal_number": 21,
-      "communal_federal_number": null,
+      "communal_federal_number": "1221",
       "district_number": null,
       "section_number": null,
       "name": "Diverse Gemeinden",
@@ -319,7 +319,7 @@
     "pk": 22,
     "fields": {
       "communal_cantonal_number": 22,
-      "communal_federal_number": null,
+      "communal_federal_number": "1222",
       "district_number": null,
       "section_number": null,
       "name": "Alle Gemeinden",

@@ -897,6 +897,7 @@ APPLICATIONS = {
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
             "SYNC_FORM_TYPE": True,
         },
+        "ARCHIVE_FORMS": [293, 294],
         "PAPER": {
             "ALLOWED_ROLES": {
                 "DEFAULT": [
