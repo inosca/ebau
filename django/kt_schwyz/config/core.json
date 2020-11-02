@@ -375,6 +375,20 @@
     }
   },
   {
+    "model": "core.aphp",
+    "pk": 130,
+    "fields": {
+      "php_class": "CircSync"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 131,
+    "fields": {
+      "php_class": "CircSync"
+    }
+  },
+  {
     "model": "core.action",
     "pk": 1,
     "fields": {
@@ -1610,6 +1624,34 @@
     "model": "core.action",
     "pk": 130,
     "fields": {
+      "available_action": "php",
+      "button": 39,
+      "name": "Sync Zirkulation",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 131,
+    "fields": {
+      "available_action": "php",
+      "button": 8,
+      "name": "Sync Zirkulation",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 132,
+    "fields": {
       "available_action": "workitem",
       "button": 38,
       "name": "Aufgabe: complete depreciate-case",
@@ -1864,7 +1906,7 @@
   },
   {
     "model": "core.actionworkitem",
-    "pk": 130,
+    "pk": 132,
     "fields": {
       "tasks": "[\"depreciate-case\"]",
       "process_type": "complete",
@@ -5331,11 +5373,11 @@
     "fields": {
       "available_instance_resource": "history",
       "resource": 1,
-      "name": "History",
+      "name": "Verlauf",
       "description": null,
       "template": null,
       "class_field": null,
-      "hidden": 1,
+      "hidden": 0,
       "sort": 14,
       "form_group": 1
     }
