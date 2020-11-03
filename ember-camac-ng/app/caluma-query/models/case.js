@@ -1,5 +1,6 @@
 import { inject as service } from "@ember/service";
 import CaseModel from "ember-caluma/caluma-query/models/case";
+import moment from "moment";
 
 function getAnswer(document, slug) {
   return document.answers.edges.find(
@@ -136,6 +137,33 @@ export default class CustomCaseModel extends CaseModel {
     return tableAnswers.map(
       (answer) => getAnswer(answer, "e-grid")?.node.stringValue
     );
+  }
+
+  get activationWarning() {
+    const activations = this.store.peekAll("activation");
+    const activation = activations
+      .filter(
+        (activation) =>
+          Number(activation.get("circulation.instance.id")) === this.instanceId
+      )
+      .filter(
+        (activation) => activation.state === "NFD" || activation.state === "RUN"
+      )[0];
+
+    if (!activation) {
+      return null;
+    }
+
+    const now = moment();
+    if (activation.state === "NFD") {
+      return "nfd";
+    } else if (moment(activation.deadlineDate) < now) {
+      return "expired";
+    } else if (moment(activation.deadlineDate).subtract("2", "weeks") < now) {
+      return "due-shortly";
+    }
+
+    return null;
   }
 
   static fragment = `{
