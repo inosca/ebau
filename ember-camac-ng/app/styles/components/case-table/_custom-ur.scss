@@ -1,0 +1,11 @@
+tr.activation-warning {
+  &.nfd {
+    color: $activation-warning-nfd;
+  }
+  &.expired {
+    color: $activation-warning-expired;
+  }
+  &.due-shortly {
+    color: $activation-warning-due-shortly;
+  }
+}
