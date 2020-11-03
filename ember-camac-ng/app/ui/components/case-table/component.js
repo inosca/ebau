@@ -49,6 +49,33 @@ export default class CaseTableComponent extends Component {
       },
       createdBefore: { createdBefore: filter.createdBefore },
       createdAfter: { createdAfter: filter.createdAfter },
+      applicantFirstName: {
+        hasAnswer: [
+          {
+            question: "first-name",
+            lookup: "ICONTAINS",
+            value: filter.applicantFirstName,
+          },
+        ],
+      },
+      applicantLastName: {
+        hasAnswer: [
+          {
+            question: "last-name",
+            lookup: "ICONTAINS",
+            value: filter.applicantLastName,
+          },
+        ],
+      },
+      parcelNumber: {
+        hasAnswer: [
+          {
+            question: "parcel-number",
+            lookup: "EXACT",
+            value: filter.parcelNumber,
+          },
+        ],
+      },
     };
 
     return Object.entries(filter)
