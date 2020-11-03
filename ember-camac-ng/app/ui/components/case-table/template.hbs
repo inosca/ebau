@@ -14,7 +14,15 @@
   </thead>
   <tbody>
     {{#each this.casesQuery.value as |node|}}
-      <tr role="link" {{on "click" (fn this.redirectToCase node)}}>
+      <tr
+        role="link"
+        class={{
+          if
+          node.activationWarning
+          (concat "activation-warning " node.activationWarning)
+        }}
+        {{on "click" (fn this.redirectToCase node)}}
+      >
         {{#each this.tableHeaders as |tHeader|}}
           <td
             class={{
