@@ -153,11 +153,14 @@ class Command(BaseCommand):
         emails = []
 
         # assigned_users
-        all_assigned_users = set(
-            User.objects.get(username=username)
+        all_assigned_usernames = set(
+            username
             for item in work_items.values_list("assigned_users", flat=True)
             for username in item
         )
+        all_assigned_users = User.objects.filter(
+            username__in=all_assigned_usernames
+        ).order_by("username")
 
         for user in all_assigned_users:
             user_items = work_items.filter(assigned_users__contains=[user.username])
@@ -176,11 +179,12 @@ class Command(BaseCommand):
                 )
 
         # addressed or controlling groups
-        all_services = set(
-            Service.objects.get(pk=group)
+        all_service_ids = set(
+            group
             for item in work_items.values("addressed_groups", "controlling_groups")
             for group in item["addressed_groups"] + item["controlling_groups"]
         )
+        all_services = Service.objects.filter(pk__in=all_service_ids).order_by("pk")
 
         for service in all_services:
             addressed = work_items.filter(addressed_groups__contains=[str(service.pk)])
