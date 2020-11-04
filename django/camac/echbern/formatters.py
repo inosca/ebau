@@ -390,6 +390,7 @@ def application(instance: Instance, answers: AnswersDict):
                 "beschreibung-bauvorhaben",
                 answers.get("anfrage-zur-vorabklaerung", "unknown"),
             ),
+            min_length=3,
             max_length=950,
         ),
         applicationType=assure_string_length(answers["ech-subject"], max_length=100),
