@@ -1,6 +1,8 @@
 import { getOwner } from "@ember/application";
 import { tracked } from "@glimmer/tracking";
 
+import confirm from "camac-ng/utils/confirm";
+
 export function loadingTask(target, property, desc) {
   const gen = desc.value;
 
@@ -57,4 +59,24 @@ export function objectFromQueryParams(...fields) {
   };
 }
 
-export default { loadingTask, objectFromQueryParams };
+export function confirmTask(textOrKey) {
+  return function (target, property, desc) {
+    const gen = desc.value;
+
+    desc.value = function* (...args) {
+      const intl = getOwner(this).lookup("service:intl");
+      const text = intl.exists(textOrKey) ? intl.t(textOrKey) : textOrKey;
+
+      if (!(yield confirm(text))) {
+        // confirmation was cancelled
+        return;
+      }
+
+      return yield* gen.apply(this, args);
+    };
+
+    return desc;
+  };
+}
+
+export default { loadingTask, confirmTask, objectFromQueryParams };
