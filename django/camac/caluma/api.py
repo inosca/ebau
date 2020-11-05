@@ -379,7 +379,11 @@ class CalumaApi:
 
             self._sync_activations(child_case, circulation.activations.all(), user)
 
-        elif work_item.child_case:
+        elif (
+            work_item.child_case
+            and work_item.child_case.status
+            == caluma_workflow_models.Case.STATUS_RUNNING
+        ):
             # Cancel existing child case since there are no more activations
             caluma_workflow_api.cancel_case(work_item.child_case, user)
 
