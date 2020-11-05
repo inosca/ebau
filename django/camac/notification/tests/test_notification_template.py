@@ -12,7 +12,7 @@ from django.utils import timezone
 from pytest_factoryboy import LazyFixture
 from rest_framework import exceptions, status
 
-from camac.conftest import FakeRequest
+from camac.conftest import CALUMA_FORM_TYPES_SLUGS, FakeRequest
 from camac.instance.models import HistoryEntry
 from camac.notification import serializers
 from camac.notification.serializers import (
@@ -272,6 +272,91 @@ def test_notification_template_sendmail(
             == settings.EMAIL_PREFIX_SUBJECT + instance_service.instance.identifier
         )
         assert mailoutbox[0].body == settings.EMAIL_PREFIX_BODY + "Test body"
+
+
+@pytest.mark.parametrize(
+    "user__email,service__email",
+    [("user@example.com", "service@example.com, service2@example.com")],
+)
+@pytest.mark.parametrize(
+    "role__name",
+    ["Service"],
+)
+@pytest.mark.parametrize(
+    "form_slug",
+    [
+        "baupolizeiliches-verfahren",
+        "hecken-feldgehoelze-baeume",
+        "klaerung-baubewilligungspflicht",
+        "zutrittsermaechtigung",
+    ],
+)
+def test_notification_template_sendmail_rsta_forms(
+    admin_client,
+    instance_service,
+    responsible_service_factory,
+    instance_responsibility_factory,
+    notification_template,
+    mailoutbox,
+    activation,
+    settings,
+    caluma_workflow_config_be,
+    form_slug,
+):
+    url = reverse("notificationtemplate-sendmail")
+
+    for slug in CALUMA_FORM_TYPES_SLUGS:
+        caluma_form_models.Form.objects.create(slug=slug)
+
+    form = caluma_form_models.Form.objects.get(pk=form_slug)
+    workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
+    workflow.slug = "building-police-procedure"
+    workflow.allow_forms.add(form)
+    workflow.save()
+    case = workflow_api.start_case(
+        workflow=workflow,
+        form=form,
+        meta={"camac-instance-id": instance_service.instance.pk},
+        user=BaseUser(),
+    )
+
+    case.document.answers.create(
+        question_id="gemeinde", value=str(instance_service.service.pk)
+    )
+
+    data = {
+        "data": {
+            "type": "notification-template-sendmails",
+            "id": None,
+            "attributes": {
+                "template-slug": notification_template.slug,
+                "body": "Test body",
+                "recipient-types": [
+                    "municipality",
+                    "leitbehoerde",
+                    "service",
+                    "unnotified_service",
+                    "activation_service_parent",
+                    "caluma_municipality",
+                ],
+            },
+            "relationships": {
+                "instance": {
+                    "data": {"type": "instances", "id": instance_service.instance.pk}
+                },
+                "activation": {"data": {"type": "activations", "id": activation.pk}},
+            },
+        }
+    }
+
+    response = admin_client.post(url, data=data)
+    assert (
+        mailoutbox[0].body
+        == settings.EMAIL_PREFIX_BODY
+        + settings.EMAIL_PREFIX_BODY_SPECIAL_FORMS
+        + "Test body"
+    )
+    assert response.status_code == status.HTTP_204_NO_CONTENT
 
 
 @pytest.mark.parametrize(
