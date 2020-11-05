@@ -32361,7 +32361,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": null, \"fr\": \"\"}",
-      "static_content": "{\"de\": \"<div class=\\\"uk-alert\\\">Damit das Regierungsstatthalteramt die Zutrittserm\\u00e4chtigung bearbeiten kann,\\u00fcbergeben Sie das Dossier nach Vergabe der eBau-Nummer durch einenWechsel der Leitbeh\\u00f6rde.</div>\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert\\\">Damit das Regierungsstatthalteramt die Zutrittserm\\u00e4chtigung bearbeiten kann,\\u00fcbergeben Sie das Dossier nach Vergabe der eBau-Nummer durch einen Wechsel der Leitbeh\\u00f6rde.</div>\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
