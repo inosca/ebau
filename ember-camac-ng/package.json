@@ -81,6 +81,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.1.4",
     "faker": "^5.1.0",
+    "file-saver": "^2.0.2",
     "graphql": "^15.4.0",
     "html2canvas": "1.0.0-rc.7",
     "leaflet": "^1.6.0",
