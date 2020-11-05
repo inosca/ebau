@@ -1250,7 +1250,13 @@ EMAIL_PREFIX_BODY = env.str(
         "",
     ),
 )
-
+EMAIL_PREFIX_BODY_SPECIAL_FORMS = env.str(
+    "EMAIL_PREFIX_BODY_SPECIAL_FORMS",
+    (
+        "Achtung: Dieses Gesuch kann nur in eBau bearbeitet werden.\n"
+        "Attention : Cette demande ne peut être traitée que dans l'eBau.\n\n"
+    ),
+)
 
 # Merge definition
 MERGE_DATE_FORMAT = env.str("DJANGO_MERGE_DATE_FORMAT", "%d.%m.%Y")
