@@ -1,0 +1,54 @@
+{{#if this.auditController.fetchAudit.isRunning}}
+  <div class="uk-text-center">
+    <UkSpinner @ratio={{2}} />
+  </div>
+{{else}}
+  {{#unless this.disabled}}
+    <div class="uk-text-right uk-margin">
+      <button class="uk-button uk-button-default" type="button" {{on "click" (perform this.skipAudit)}}>{{t "audit.skip"}}</button>
+      <button class="uk-button uk-button-primary" type="button" {{on "click" (perform this.completeAudit)}}>{{t "audit.complete"}}</button>
+    </div>
+  {{/unless}}
+
+  <table class="uk-table uk-table-striped uk-table-small uk-table-middle">
+    <thead>
+      <tr>
+        <th>{{t "audit.type"}}</th>
+        <th>{{t "audit.createdBy"}}</th>
+        <th>{{t "audit.createdAt"}}</th>
+        <th><span hidden>{{t "audit.actions"}}</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this.audits as |audit|}}
+        <tr>
+          <td><LinkTo @route="audit.edit" @model={{audit.id}}>{{audit.type}}</LinkTo></td>
+          <td>{{audit.createdBy.name}}</td>
+          <td>{{moment-format audit.createdAt "MM.DD.YYYY HH:mm"}}</td>
+          <td class="uk-text-right">
+            {{#if (and (not this.disabled) audit.canEdit)}}
+              <a class="uk-link-text" href="#" {{on "click" (perform this.deleteAudit audit)}}><UkIcon @icon="trash" /></a>
+            {{/if}}
+          </td>
+        </tr>
+      {{else}}
+        <tr>
+          <td colspan="4" class="uk-text-center">{{t "global.empty"}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  {{#unless this.disabled}}
+    <div class="uk-text-center">
+      <button class="uk-button uk-button-default" type="button"><UkIcon @icon="plus" /></button>
+      <div uk-dropdown>
+        <ul class="uk-nav uk-dropdown-nav uk-text-left">
+          {{#each this.forms as |form|}}
+            <li><a href="#" {{on "click" (perform this.createAudit form)}}>{{t (concat "audit.forms." form)}}</a></li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  {{/unless}}
+{{/if}}
