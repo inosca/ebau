@@ -1,0 +1,50 @@
+query GetAudit($instanceId: GenericScalar!) {
+  allCases(
+    filter: [{ metaValue: { key: "camac-instance-id", value: $instanceId } }]
+    first: 1
+  ) {
+    edges {
+      node {
+        id
+        workItems(filter: [{ task: "audit" }], first: 1) {
+          edges {
+            node {
+              id
+              status
+              addressedGroups
+              document {
+                id
+                answers {
+                  edges {
+                    node {
+                      id
+                      question {
+                        slug
+                        ... on TableQuestion {
+                          rowForm {
+                            slug
+                          }
+                        }
+                      }
+                      ... on TableAnswer {
+                        value {
+                          id
+                          createdAt
+                          createdByGroup
+                          form {
+                            slug
+                            name
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

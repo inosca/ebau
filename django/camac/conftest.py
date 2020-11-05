@@ -167,7 +167,7 @@ def multilang(application_settings):
 def use_caluma_form(application_settings):
     application_settings["FORM_BACKEND"] = "caluma"
     application_settings["CALUMA"] = {
-        "FORM_PERMISSIONS": ["main", "sb1", "sb2", "nfd"],
+        "FORM_PERMISSIONS": ["main", "sb1", "sb2", "nfd", "dossierpruefung"],
         "HAS_PROJECT_CHANGE": True,
         "CREATE_IN_PROCESS": False,
         "USE_LOCATION": True,
@@ -233,6 +233,7 @@ def caluma_config_bern(db):
     Execution of this fixture takes some time. Only use if really necessary.
     """
     call_command("loaddata", settings.ROOT_DIR("kt_bern/config/caluma_form.json"))
+    call_command("loaddata", settings.ROOT_DIR("kt_bern/config/caluma_audit_form.json"))
     call_command("loaddata", settings.ROOT_DIR("kt_bern/config/caluma_workflow.json"))
 
 
@@ -375,6 +376,11 @@ def caluma_workflow_config_be(
 
 
 @pytest.fixture
+def caluma_audit(caluma_workflow_config_be):
+    call_command("loaddata", settings.ROOT_DIR("kt_bern/config/caluma_audit_form.json"))
+
+
+@pytest.fixture
 def caluma_workflow_config_sz(settings, caluma_forms, caluma_config_sz):
     caluma_form_models.Form.objects.create(slug="baugesuch"),
 
@@ -404,6 +410,7 @@ def caluma_forms(settings):
     caluma_form_models.Form.objects.create(slug="nfd")
     caluma_form_models.Form.objects.create(slug="circulation")
     caluma_form_models.Form.objects.create(slug="migriertes-dossier")
+    caluma_form_models.Form.objects.create(slug="dossierpruefung")
 
     # dynamic choice options get cached, so we clear them
     # to ensure the new "gemeinde" options will be valid

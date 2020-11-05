@@ -1,0 +1,5 @@
+mutation DeleteDocument($id: ID!) {
+  removeDocument(input: { document: $id }) {
+    clientMutationId
+  }
+}
