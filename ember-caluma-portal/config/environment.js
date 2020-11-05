@@ -82,6 +82,8 @@ module.exports = function (environment) {
         archived: 20009,
         inCorrection: 20007,
         finished: 120000,
+        sb1: 20011,
+        sb2: 20013,
       },
       internalForms: [
         "migriertes-dossier",
@@ -93,6 +95,7 @@ module.exports = function (environment) {
         "hecken-feldgehoelze-baeume",
         "baupolizeiliches-verfahren",
         "zutrittsermaechtigung",
+        "verlaengerung-geltungsdauer",
       ],
       enableRstaForms: false,
       migratedForm: "migriertes-dossier",

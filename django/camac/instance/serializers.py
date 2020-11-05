@@ -2,7 +2,7 @@ import json
 from logging import getLogger
 from uuid import uuid4
 
-from caluma.caluma_form.models import Form
+from caluma.caluma_form.models import Document, Form
 from caluma.caluma_form.validators import CustomValidationError
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
 from django.conf import settings
@@ -329,6 +329,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
     is_paper = serializers.SerializerMethodField()  # "Papierdossier
     is_modification = serializers.SerializerMethodField()  # "Projektänderung"
     copy_source = serializers.CharField(required=False, write_only=True)
+    extend_validity_for = serializers.IntegerField(required=False, write_only=True)
     year = serializers.IntegerField(required=False, write_only=True)
 
     public_status = serializers.SerializerMethodField()
@@ -659,6 +660,54 @@ class CalumaInstanceSerializer(InstanceSerializer):
             attachment.attachment_sections.set(sections)
             attachment.save()
 
+    def _copy_extend_validity_answers(self, source, target):
+        old_document = Document.objects.get(
+            **{"case__meta__camac-instance-id": source.pk}
+        )
+        new_document = Document.objects.get(
+            **{"case__meta__camac-instance-id": target.pk}
+        )
+
+        for answer in old_document.answers.filter(
+            question_id__in=settings.APPLICATION["CALUMA"].get(
+                "EXTEND_VALIDITY_COPY_QUESTIONS", []
+            )
+        ):
+            caluma_api.update_or_create_answer(
+                new_document.pk, answer.question_id, answer.value
+            )
+
+        for slug in settings.APPLICATION["CALUMA"].get(
+            "EXTEND_VALIDITY_COPY_TABLE_QUESTIONS", []
+        ):
+            caluma_api.copy_table_answer(
+                slug,
+                slug,
+                old_document,
+                new_document,
+            )
+
+        caluma_api.update_or_create_answer(new_document.pk, "dossiernummer", source.pk)
+
+    def _copy_ebau_number(self, source_instance, target_instance, case):
+        ebau_number = caluma_api.get_ebau_number(source_instance)
+        case.meta["ebau-number"] = ebau_number
+        case.save()
+        Answer.objects.create(
+            instance=target_instance,
+            question_id=be_constants.QUESTION_EBAU_NR_EXISTS,
+            chapter_id=be_constants.CHAPTER_EBAU_NR,
+            item=1,
+            answer="yes",
+        )
+        Answer.objects.create(
+            instance=target_instance,
+            question_id=be_constants.QUESTION_EBAU_NR,
+            chapter_id=be_constants.CHAPTER_EBAU_NR,
+            item=1,
+            answer=ebau_number,
+        )
+
     @permission_aware
     def validate(self, data):
         if settings.APPLICATION_NAME == "kt_uri":  # pragma: no cover
@@ -686,6 +735,8 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
         copy_source = validated_data.pop("copy_source", None)
         source_instance = copy_source and models.Instance.objects.get(pk=copy_source)
+
+        extend_validity_for = validated_data.pop("extend_validity_for", None)
 
         group = self.context["request"].group
 
@@ -753,6 +804,12 @@ class CalumaInstanceSerializer(InstanceSerializer):
         if source_instance and not is_modification:
             self._copy_applicants(source_instance, instance)
             self._copy_attachments(source_instance, instance)
+        elif extend_validity_for:
+            extend_validity_instance = models.Instance.objects.get(
+                pk=extend_validity_for
+            )
+            self._copy_ebau_number(extend_validity_instance, instance, case)
+            self._copy_extend_validity_answers(extend_validity_instance, instance)
 
         return instance
 
@@ -833,6 +890,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
             "is_paper",
             "is_modification",
             "copy_source",
+            "extend_validity_for",
             "year",
             "public_status",
             "active_service",
@@ -992,6 +1050,13 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 name="in_progress_internal"
             )
 
+        if case.document.form.slug == settings.APPLICATION["CALUMA"].get(
+            "EXTEND_VALIDITY_FORM"
+        ):
+            instance.instance_state = models.InstanceState.objects.get(
+                name="circulation_init"
+            )
+
         instance.save()
 
         if not instance.responsible_service(filter_type="municipality"):
@@ -1021,6 +1086,14 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         if work_item:
             workflow_api.complete_work_item(
                 work_item=work_item,
+                user=self.context["request"].caluma_info.context.user,
+            )
+
+        if case.document.form.slug == settings.APPLICATION["CALUMA"].get(
+            "EXTEND_VALIDITY_FORM"
+        ):
+            workflow_api.skip_work_item(
+                work_item=case.work_items.get(task_id="ebau-number"),
                 user=self.context["request"].caluma_info.context.user,
             )
 
