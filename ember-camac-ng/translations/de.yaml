@@ -15,6 +15,7 @@ global:
   applicant: "Gesuchsteller"
   search: "Suche"
   reset: "Zurücksetzen"
+  ok: "Ok"
 
 organisation:
   edit: "Eigene Organisation bearbeiten"

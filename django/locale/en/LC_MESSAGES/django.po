@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-21 15:45+0200\n"
+"POT-Creation-Date: 2020-11-02 14:36+0100\n"
 "PO-Revision-Date: 2020-02-28 14:55+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -20,6 +20,14 @@ msgstr ""
 #: camac/applicants/serializers.py:32
 #, python-format
 msgid "Email '%(email)s' has already access to instance %(instance)s"
+msgstr ""
+
+#: camac/caluma/extensions/events.py:259
+msgid "Exam skipped"
+msgstr ""
+
+#: camac/caluma/extensions/events.py:261
+msgid "Exam completed"
 msgstr ""
 
 #: camac/document/filters.py:20
@@ -42,7 +50,7 @@ msgid ""
 "attachment PKs!"
 msgstr ""
 
-#: camac/document/permissions.py:98
+#: camac/document/permissions.py:103
 msgid "Only active service can change context"
 msgstr ""
 
@@ -66,7 +74,7 @@ msgstr ""
 msgid "Invalid mime type for template. Allowed types are: docx"
 msgstr ""
 
-#: camac/document/views.py:306
+#: camac/document/views.py:307
 msgid "Specifying an \"attachments\" filter is mandatory!"
 msgstr ""
 
@@ -98,87 +106,91 @@ msgstr ""
 msgid "Applicant"
 msgstr ""
 
-#: camac/instance/mixins.py:263
+#: camac/instance/mixins.py:285
 #, python-format
 msgid "Not allowed to add data to instance %(instance)s"
 msgstr ""
 
-#: camac/instance/mixins.py:296
+#: camac/instance/mixins.py:318
 #, python-format
 msgid "Not allowed to add data to instance %(instance)s as coordination"
 msgstr ""
 
-#: camac/instance/serializers.py:125
+#: camac/instance/serializers.py:205
 msgid "Location may not be changed."
 msgstr ""
 
-#: camac/instance/serializers.py:132
+#: camac/instance/serializers.py:212
 msgid "Form may not be changed."
 msgstr ""
 
-#: camac/instance/serializers.py:500
-msgid "paper"
-msgstr ""
-
-#: camac/instance/serializers.py:503
-msgid "modification"
-msgstr ""
-
-#: camac/instance/serializers.py:507
+#: camac/instance/serializers.py:610
 msgid "migrated"
 msgstr ""
 
-#: camac/instance/serializers.py:821
+#: camac/instance/serializers.py:613
+msgid "paper"
+msgstr ""
+
+#: camac/instance/serializers.py:616
+msgid "modification"
+msgstr ""
+
+#: camac/instance/serializers.py:1003
 msgid "Dossier submitted"
 msgstr ""
 
-#: camac/instance/serializers.py:880
+#: camac/instance/serializers.py:1062
 msgid "SB1 submitted"
 msgstr ""
 
-#: camac/instance/serializers.py:911
+#: camac/instance/serializers.py:1093
 #, python-format
 msgid "%(value)s is not a valid service type - valid types are: %(expected)s"
 msgstr ""
 
-#: camac/instance/serializers.py:985
+#: camac/instance/serializers.py:1107
+msgid "Invalid audit"
+msgstr ""
+
+#: camac/instance/serializers.py:1178
 #, python-format
 msgid "Changed responsible service to: %(service)s"
 msgstr ""
 
-#: camac/instance/serializers.py:1001
-msgid "service"
-msgstr ""
-
-#: camac/instance/serializers.py:1023
-#, python-format
-msgid "Responsible service did not change for instance %(instance_id)s"
-msgstr ""
-
-#: camac/instance/serializers.py:1068
-msgid "SB2 submitted"
-msgstr ""
-
-#: camac/instance/serializers.py:1096
-#, python-format
-msgid "User %(user)s does not belong to service %(service)s."
-msgstr ""
-
-#: camac/instance/serializers.py:1174
-msgid "No location assigned."
-msgstr ""
-
 #: camac/instance/serializers.py:1194
-#, python-format
-msgid "No group found for location %(name)s."
+msgid "service"
 msgstr ""
 
 #: camac/instance/serializers.py:1216
 #, python-format
+msgid "Responsible service did not change for instance %(instance_id)s"
+msgstr ""
+
+#: camac/instance/serializers.py:1261
+msgid "SB2 submitted"
+msgstr ""
+
+#: camac/instance/serializers.py:1289
+#, python-format
+msgid "User %(user)s does not belong to service %(service)s."
+msgstr ""
+
+#: camac/instance/serializers.py:1315
+msgid "No location assigned."
+msgstr ""
+
+#: camac/instance/serializers.py:1335
+#, python-format
+msgid "No group found for location %(name)s."
+msgstr ""
+
+#: camac/instance/serializers.py:1357
+#, python-format
 msgid "invalid question %(question)s."
 msgstr ""
 
-#: camac/instance/serializers.py:1223
+#: camac/instance/serializers.py:1364
 #, python-format
 msgid "%(permission)s is not allowed to edit question %(question)s."
 msgstr ""
@@ -215,7 +227,7 @@ msgstr ""
 msgid "Invalid form type %(form)s."
 msgstr ""
 
-#: camac/notification/serializers.py:811
+#: camac/notification/serializers.py:828
 #, python-format
 msgid "Notification sent to %(receiver)s (%(subject)s)"
 msgstr ""
@@ -224,27 +236,27 @@ msgstr ""
 msgid "Objection %(objection) already has a representative"
 msgstr ""
 
-#: camac/user/authentication.py:57
+#: camac/user/authentication.py:56
 msgid "Invalid Authorization header. No credentials provided"
 msgstr ""
 
-#: camac/user/authentication.py:61
+#: camac/user/authentication.py:60
 msgid ""
 "Invalid Authorization header. Credentials string should not contain spaces."
 msgstr ""
 
-#: camac/user/authentication.py:100
+#: camac/user/authentication.py:99
 msgid "Signature has expired."
 msgstr ""
 
-#: camac/user/authentication.py:103
+#: camac/user/authentication.py:102
 msgid "Invalid token."
 msgstr ""
 
-#: camac/user/authentication.py:109
+#: camac/user/authentication.py:108
 msgid "User session not found or doesn't have client attached on it"
 msgstr ""
 
-#: camac/user/authentication.py:167
+#: camac/user/authentication.py:192
 msgid "User is deactivated."
 msgstr ""

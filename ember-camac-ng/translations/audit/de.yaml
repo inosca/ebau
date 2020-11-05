@@ -1,0 +1,31 @@
+audit:
+  new: "Neue Prüfung"
+  complete: "Prüfung abschliessen"
+  skip: "Prüfung überspringen"
+  titleMeta: "Erstellt am {date} von {creator}"
+
+  type: "Prüfungstyp"
+  createdBy: "Erstellt von"
+  createdAt: "Erstellt am"
+  actions: "Aktionen"
+  back: "Zurück zur Übersicht"
+
+  deleteConfirm: "Wollen Sie die Prüfung wirklich löschen?"
+  skipConfirm: '''<span''>Wollen Sie die Prüfung wirklich überspringen?''</span''>''<div class="uk-margin uk-text-italic">''<strong''>Achtung:''</strong''> Diese Aktion kann nicht mehr rückgängig gemacht werden! Falls Sie einen Wechsel der Leitbehörde beabsichtigen, sollten Sie dies der neuen Leitbehörde überlassen.''</div''>'
+  completeConfirm: '''<span''>Wollen Sie die Prüfung wirklich abschliessen?''</span''>''<div class="uk-margin uk-text-italic">''<strong''>Achtung:''</strong''> Diese Aktion kann nicht mehr rückgängig gemacht werden! Falls Sie einen Wechsel der Leitbehörde beabsichtigen, sollten Sie dies der neuen Leitbehörde überlassen.''</div''>'
+
+  deleteSuccess: "Die Prüfung wurde erfolgreich gelöscht."
+  skipSuccess: "Die Prüfung wurde erfolgreich übersprungen."
+  completeSuccess: "Die Prüfung wurde erfolgreich abgeschlossen."
+
+  loadingError: "Fehler beim Laden der Prüfungen"
+  createError: "Fehler beim Erstellen der Prüfung"
+  deleteError: "Fehler beim Löschen der Prüfung"
+  skipError: "Fehler beim Überspringen der Prüfung"
+  completeError: "Fehler beim Abschliessen der Prüfung"
+  completeInvalid: "Die Dossierprüfung wurde nicht korrekt ausgefüllt. Mindestens eine korrekt ausgefüllte formelle sowie materielle Prüfung ist obligatorisch. Bitte prüfen Ihre Daten und versuchen Sie es nochmals."
+
+  forms:
+    fp-form: "Formelle Prüfung"
+    mp-form: "Materielle Prüfung"
+    bab-form: "Bauen ausserhalb der Bauzone"

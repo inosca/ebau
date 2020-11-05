@@ -4,6 +4,7 @@ import Resolver from "ember-resolver";
 
 import config from "camac-ng/config/environment";
 
+// Intl polyfills
 import "@formatjs/intl-getcanonicallocales/polyfill";
 import "@formatjs/intl-pluralrules/polyfill";
 import "@formatjs/intl-pluralrules/locale-data/de";
@@ -11,6 +12,9 @@ import "@formatjs/intl-pluralrules/locale-data/fr";
 import "@formatjs/intl-relativetimeformat/polyfill";
 import "@formatjs/intl-relativetimeformat/locale-data/de";
 import "@formatjs/intl-relativetimeformat/locale-data/fr";
+
+// Array polyfills (flat, flatMap)
+import "core-js/es/array";
 
 export default class App extends Application {
   modulePrefix = config.modulePrefix;
