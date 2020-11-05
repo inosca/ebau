@@ -978,7 +978,12 @@
       "is_archived": false,
       "allow_all_forms": false,
       "start_tasks": ["submit"],
-      "allow_forms": ["baugesuch", "baugesuch-generell", "baugesuch-mit-uvp"]
+      "allow_forms": [
+        "baugesuch",
+        "baugesuch-generell",
+        "baugesuch-mit-uvp",
+        "verlaengerung-geltungsdauer"
+      ]
     }
   },
   {
