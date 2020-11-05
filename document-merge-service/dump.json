@@ -11,10 +11,10 @@
   },
   {
     "model": "api.template",
-    "pk": "2-level",
+    "pk": "2-level-extended",
     "fields": {
       "description": "",
-      "template": "2-level.docx",
+      "template": "2-level-extended.docx",
       "engine": "docx-template",
       "group": null
     }
