@@ -1,0 +1,9 @@
+# Not needed in french
+gis:
+  parcelNumber: ""
+  buildingLeaseNumber: ""
+  findParcel: ""
+  submitParcel: ""
+  noParcelNumber: ""
+  technicalError: ""
+  loadingError: ""
