@@ -27,7 +27,14 @@
           <td>{{moment-format audit.createdAt "MM.DD.YYYY HH:mm"}}</td>
           <td class="uk-text-right">
             {{#if (and (not this.disabled) audit.canEdit)}}
-              <a class="uk-link-text" href="#" {{on "click" (perform this.deleteAudit audit)}}><UkIcon @icon="trash" /></a>
+              <button
+                type="button"
+                class="uk-button uk-button-text"
+                title={{t "audit.delete"}}
+                {{on "click" (perform this.deleteAudit audit)}}
+              >
+                <UkIcon @icon="trash" />
+              </button>
             {{/if}}
           </td>
         </tr>
@@ -41,7 +48,13 @@
 
   {{#unless this.disabled}}
     <div class="uk-text-center">
-      <button class="uk-button uk-button-default" type="button"><UkIcon @icon="plus" /></button>
+      <button
+        type="button"
+        class="uk-button uk-button-default"
+        title={{t "audit.new"}}
+       >
+        <UkIcon @icon="plus" />
+      </button>
       <div uk-dropdown>
         <ul class="uk-nav uk-dropdown-nav uk-text-left">
           {{#each this.forms as |form|}}
