@@ -774,12 +774,20 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
 
         instance = validated_data["instance"]
 
+        slug = CalumaApi().get_form_slug(instance)
+
         result = 0
 
         for recipient_type in sorted(validated_data["recipient_types"]):
             recipients = getattr(self, "_get_recipients_%s" % recipient_type)(instance)
             subject = subj_prefix + validated_data["subject"]
             body = body_prefix + validated_data["body"]
+            if recipient_type != "applicant" and slug in settings.ECH_EXCLUDED_FORMS:
+                body = (
+                    body_prefix
+                    + settings.EMAIL_PREFIX_BODY_SPECIAL_FORMS
+                    + validated_data["body"]
+                )
 
             valid_recipients = [r for r in recipients if r.get("to")]
             for recipient in valid_recipients:
