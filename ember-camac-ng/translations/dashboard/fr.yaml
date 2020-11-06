@@ -1,0 +1,10 @@
+# Not needed in french
+dashboard:
+  generalData: ""
+  personalData: ""
+  buildingProjectStatus: ""
+  projectAuthor: ""
+  landowner: ""
+  intentAndLocation: ""
+  parcels: ""
+  egrid: ""

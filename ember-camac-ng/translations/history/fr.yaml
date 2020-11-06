@@ -1,0 +1,10 @@
+history:
+  title: "Histoire"
+  event: "Événement"
+
+  types:
+    notification: "Notification"
+    status-change: "Changement d'état"
+
+  expand: "Ouvrir les détails"
+  collapse: "Fermer les détails"
