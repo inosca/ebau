@@ -136,8 +136,6 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   get instanceDescription() {
-    let description = "";
-
     if (this.shoebox.content.application === "kt_schwyz") {
       const { value } = this.store
         .peekAll("form-field")
@@ -147,12 +145,12 @@ export default class CustomWorkItemModel extends WorkItemModel {
             field.name === "bezeichnung"
         );
 
-      description = value;
-    } else {
-      description = this.raw.case.document.answers.edges[0].node.value;
+      return value;
     }
 
-    return description;
+    return this.case?.document.answers.edges
+      .map((edge) => edge.node.value)
+      .join("\n");
   }
 
   get directLink() {
@@ -267,7 +265,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
         form {
           name
         }
-        answers(questions: ["anfrage-zur-vorabklaerung","beschreibung-bauvorhaben"]) {
+        answers(questions: ["anfrage-zur-vorabklaerung", "beschreibung-bauvorhaben"]) {
           edges {
             node {
               ... on StringAnswer {
@@ -283,6 +281,15 @@ export default class CustomWorkItemModel extends WorkItemModel {
           document {
             form {
               name
+            }
+            answers(questions: ["anfrage-zur-vorabklaerung", "beschreibung-bauvorhaben"]) {
+              edges {
+                node {
+                  ... on StringAnswer {
+                    value
+                  }
+                }
+              }
             }
           }
         }
