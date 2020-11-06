@@ -157,6 +157,9 @@ cases:
     dossierNumber-placeholder: "0101-20-001"
     proposalDescription: "Vorhaben"
     proposalDescription-placeholder: "Detailbeschreibung Vorhaben"
+    applicantName: "Gesuchsteller"
+    applicantName-placeholder: "Marc Muster"
+
 
 gis:
   parcelNumber: "Parzellennummer"
