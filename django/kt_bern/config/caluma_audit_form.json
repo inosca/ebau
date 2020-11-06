@@ -804,7 +804,7 @@
       "created_by_group": null,
       "form": "fp-form",
       "question": "fp-begruendungen-fuer-ausnahmen",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -817,7 +817,7 @@
       "created_by_group": null,
       "form": "fp-form",
       "question": "fp-begruendungen-fuer-ausnahmen-bemerkungen",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -830,7 +830,7 @@
       "created_by_group": null,
       "form": "fp-form",
       "question": "fp-beilagen-vorhanden",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -843,7 +843,7 @@
       "created_by_group": null,
       "form": "fp-form",
       "question": "fp-beilagen-vorhanden-bemerkungen",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -856,7 +856,7 @@
       "created_by_group": null,
       "form": "fp-form",
       "question": "fp-form-und-inhalt-des-situationsplanes",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -869,7 +869,7 @@
       "created_by_group": null,
       "form": "fp-form",
       "question": "fp-form-und-inhalt-des-situationsplanes-bemerkungen",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -882,7 +882,7 @@
       "created_by_group": null,
       "form": "fp-form",
       "question": "fp-formulare-vollstaendig",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -895,7 +895,7 @@
       "created_by_group": null,
       "form": "fp-form",
       "question": "fp-formulare-vollstaendig-bemerkungen",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -908,7 +908,7 @@
       "created_by_group": null,
       "form": "fp-form",
       "question": "fp-gesuchsbewilligungsart",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -921,7 +921,7 @@
       "created_by_group": null,
       "form": "fp-form",
       "question": "fp-gesuchsbewilligungsart-andere",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -934,7 +934,7 @@
       "created_by_group": null,
       "form": "fp-form",
       "question": "fp-offenkundige-materielle-maengel",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -947,7 +947,7 @@
       "created_by_group": null,
       "form": "fp-form",
       "question": "fp-profile",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -960,7 +960,7 @@
       "created_by_group": null,
       "form": "fp-form",
       "question": "fp-profile-bemerkungen",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -973,7 +973,7 @@
       "created_by_group": null,
       "form": "fp-form",
       "question": "fp-projektplaene-vorhanden",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -986,7 +986,7 @@
       "created_by_group": null,
       "form": "fp-form",
       "question": "fp-projektplaene-vorhanden-bemerkungen",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -999,6 +999,19 @@
       "created_by_group": null,
       "form": "fp-form",
       "question": "fp-zustaendige-baubewilligungsbehoerde",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "fp-form.fp-zustaendige-baubewilligungsbehoerde-meldung",
+    "fields": {
+      "created_at": "2020-11-05T14:35:35.827Z",
+      "modified_at": "2020-11-05T14:35:35.827Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "fp-form",
+      "question": "fp-zustaendige-baubewilligungsbehoerde-meldung",
       "sort": 1
     }
   },
@@ -15398,6 +15411,31 @@
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": null, \"fr\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "fp-zustaendige-baubewilligungsbehoerde-meldung",
+    "fields": {
+      "created_at": "2020-11-05T14:35:35.591Z",
+      "modified_at": "2020-11-05T14:35:35.591Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "label": "{\"de\": \"\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "'fp-zustaendige-baubewilligungsbehoerde'|answer != 'fp-zustaendige-baubewilligungsbehoerde-regierungsstatthalteramt'",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-margin-remove\\\">Falls Sie einen Wechsel der Leitbeh\\u00f6rde anstreben, f\\u00fchren Sie diesen bitte im Men\\u00fc \\u00abLeitbeh\\u00f6rde\\u00bb aus.</div>\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
