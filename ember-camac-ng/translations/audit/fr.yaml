@@ -1,5 +1,6 @@
 audit:
   new: "Nouveau examen"
+  delete: "Supprimer l'examen"
   complete: "Clore l'examen"
   skip: "Sauter l'examen"
   titleMeta: "Créé le {date} par {creator}"
