@@ -9,6 +9,7 @@ export default class AuditController extends Controller {
   @service store;
   @service shoebox;
   @service notifications;
+  @service intl;
 
   @queryManager apollo;
 
@@ -31,11 +32,17 @@ export default class AuditController extends Controller {
         variables: { instanceId: this.model },
       });
 
-      const workItem = response.allCases.edges[0].node.workItems.edges[0].node;
+      try {
+        const workItem =
+          response.allCases.edges[0].node.workItems.edges[0].node;
 
-      yield this.fetchAdditionalData.perform(workItem);
+        yield this.fetchAdditionalData.perform(workItem);
 
-      return workItem;
+        return workItem;
+      } catch (error) {
+        // no audit work item (migration)
+        return null;
+      }
     } catch (error) {
       this.notifications.error(this.intl.t("audit.loadingError"));
     }
