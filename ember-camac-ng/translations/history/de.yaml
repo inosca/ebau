@@ -1,0 +1,10 @@
+history:
+  title: "History"
+  event: "Ereignis"
+
+  types:
+    notification: "Notifikation"
+    status-change: "Statuswechsel"
+
+  expand: "Details aufklappen"
+  collapse: "Details zuklappen"
