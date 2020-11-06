@@ -1,0 +1,8 @@
+journal:
+  title: "Journal"
+
+  create: "Eintrag erstellen"
+  edit: "Eintrag bearbeiten"
+  textareaNew: "Textbereich für neuen Eintrag"
+  textareaEdit: "Textbereich zum editieren des Eintrages"
+  noEntries: "Keine Journaleinträge vorhanden"
