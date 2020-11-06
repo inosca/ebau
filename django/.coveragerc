@@ -41,6 +41,9 @@ omit=
     # One off commands
     camac/instance/management/commands/fix_sb_instances.py
     camac/instance/management/commands/fix_sb_paper_question.py
+    # Audit migration
+    camac/core/management/commands/config/
+    camac/core/management/commands/migrate_audit.py
     # Deprecated commands
     camac/core/management/commands/dumpcamacdata.py
     camac/core/management/commands/dumpconfig.py
