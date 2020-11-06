@@ -4,7 +4,7 @@
     type="button"
     class="context-menu-trigger"
     title={{t "global.openMenu"}}
-    {{on "click" (set this.menuOpen true)}}
+    {{on "click" (set this "menuOpen" true)}}
   >
     <span hidden>{{t "global.openMenu"}}</span>
     <FaIcon @icon="ellipsis-v" />
