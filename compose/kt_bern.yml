@@ -57,7 +57,6 @@ services:
       - DYNAMIC_TASKS_CLASSES=camac.caluma.extensions.dynamic_tasks.CustomDynamicTasks
       - LANGUAGE_CODE=de
       - LANGUAGES=de,fr
-      - OIDC_BEARER_TOKEN_REVALIDATION_TIME=10
       - META_FIELDS=camac-instance-id,ebau-number,submit-date
       - ENABLE_HISTORICAL_API=true
     volumes:
@@ -133,7 +132,6 @@ services:
       - REQUIRE_AUTHENTICATION=True
       - GROUP_ACCESS_ONLY=True
       - OIDC_USERINFO_ENDPOINT=http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
-      - OIDC_BEARER_TOKEN_REVALIDATION_TIME=5
       - OIDC_GROUPS_API=http://camac-ng.local/api/v1/me
       - OIDC_GROUPS_API_JSONPATH=$$.data.relationships.service.data.id
       - OIDC_GROUPS_API_HEADERS=AUTHORIZATION,X-CAMAC-GROUP
