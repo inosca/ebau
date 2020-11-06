@@ -1,0 +1,14 @@
+organisation:
+  edit: "Eigene Organisation bearbeiten"
+
+  name: "Name"
+  phone: "Telefon"
+  zip: "PLZ"
+  city: "Ort"
+  address: "Adresse"
+  email: "Email"
+  website: "Webseite"
+  notification: "Notifikationen empfangen"
+
+  saveSuccess: "Die Organisation wurde gespeichert."
+  saveError: "Die Organisation konnte nicht gespeichert werden."
