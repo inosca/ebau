@@ -19,6 +19,10 @@ export default class CaseTableComponent extends Component {
     };
   }
 
+  get isService() {
+    return this.shoebox.role === "service";
+  }
+
   get gqlFilter() {
     const filter = this.args.filter;
     const availableFilterSet = {
@@ -87,6 +91,14 @@ export default class CaseTableComponent extends Component {
 
   async processNew(cases) {
     const instanceIds = cases.map((_case) => _case.meta["camac-instance-id"]);
+
+    if (this.isService) {
+      await this.store.query("activation", {
+        instance: instanceIds,
+        service: this.shoebox.content.serviceId,
+        include: "circulation",
+      });
+    }
 
     await this.store.query("instance", {
       instance_id: instanceIds.join(","),

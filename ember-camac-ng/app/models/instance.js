@@ -8,4 +8,5 @@ export default class InstanceModel extends Model {
   @belongsTo user;
   @hasMany services;
   @hasMany("service") involvedServices;
+  @hasMany circulations;
 }
