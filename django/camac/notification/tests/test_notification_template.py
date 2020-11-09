@@ -7,6 +7,7 @@ import pytest
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
+from django.core.exceptions import ObjectDoesNotExist
 from django.urls import reverse
 from django.utils import timezone
 from pytest_factoryboy import LazyFixture
@@ -1158,3 +1159,24 @@ def test_notification_template_sendmail_activation(
 
     formatted_date = nfd_completion_date.answer.strftime(settings.MERGE_DATE_FORMAT)
     assert mailoutbox[0].body == f"nfd_completion_date={formatted_date}"
+
+
+def test_notification_template_update_purposes(admin_client, notification_template):
+    url = reverse("notificationtemplate-update-purposes")
+
+    admin_client.get(
+        url, {"current": notification_template.purpose, "new": "NewPurpose"}
+    )
+
+    notification_template.refresh_from_db()
+
+    assert notification_template.purpose == "NewPurpose"
+
+
+def test_notification_template_delete_purpose(admin_client, notification_template):
+    url = reverse("notificationtemplate-delete-purpose")
+
+    admin_client.delete(url + "?purpose=" + notification_template.purpose)
+
+    with pytest.raises(ObjectDoesNotExist):
+        notification_template.refresh_from_db()
