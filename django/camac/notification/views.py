@@ -135,3 +135,30 @@ class NotificationTemplateView(viewsets.ModelViewSet):
         send_mail(request.data["template_slug"], {"request": request}, **request.data)
 
         return response.Response(status=status.HTTP_204_NO_CONTENT)
+
+    @action(
+        detail=False,
+        methods=["get"],
+    )
+    def update_purposes(self, request):
+        notifications = models.NotificationTemplate.objects.filter(
+            purpose=request.query_params["current"]
+        )
+
+        for notification in notifications:
+            notification.purpose = request.query_params["new"]
+
+        models.NotificationTemplate.objects.bulk_update(notifications, ["purpose"])
+
+        return response.Response(status=status.HTTP_204_NO_CONTENT)
+
+    @action(
+        detail=False,
+        methods=["delete"],
+    )
+    def delete_purpose(self, request):
+        models.NotificationTemplate.objects.filter(
+            purpose=request.query_params["purpose"]
+        ).delete()
+
+        return response.Response(status=status.HTTP_204_NO_CONTENT)
