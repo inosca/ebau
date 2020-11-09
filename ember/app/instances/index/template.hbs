@@ -104,21 +104,13 @@
               @on-click={{fn (mut this.sort)}}
             />
           </th>
-          <th class="white-space-nowrap">
-            Erstelldatum
-            <CamacSortIcon
-              @key="creation_date"
-              @sort={{this.sort}}
-              @on-click={{fn (mut this.sort)}}
-            />
-          </th>
           <th></th>
         </tr>
       </thead>
       <tbody>
         {{#if this.data.isRunning}}
           <tr>
-            <td class="uk-text-center" colspan="5">
+            <td class="uk-text-center" colspan="7">
               <UkSpinner />
             </td>
           </tr>
@@ -176,17 +168,6 @@
                   {{instance.instanceState.description}}
                 </LinkTo>
               </td>
-              <td class="uk-text-nowrap">
-                {{format-date
-                  instance.creationDate
-                  day="2-digit"
-                  month="2-digit"
-                  year="numeric"
-                  hour="2-digit"
-                  minute="2-digit"
-                  hour12=false
-                }}
-              </td>
               <td class="uk-text-center">
                 {{#unless instance.identifier}}
                   <button
@@ -220,7 +201,7 @@
             </tr>
           {{else}}
             <tr>
-              <td class="uk-text-center" colspan="8">
+              <td class="uk-text-center" colspan="7">
                 <i>
                   Kein Gesuch mit dieser Gesuchsnummer gefunden
                 </i>
@@ -234,7 +215,7 @@
           class="pointer"
           {{on "click" (transition-to "instances.new")}}
         >
-          <td class="uk-text-center" colspan="8">
+          <td class="uk-text-center" colspan="7">
             <UkIcon @icon="plus" @scale={{2}}/>
           </td>
         </tr>

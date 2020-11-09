@@ -55,9 +55,9 @@ module("Acceptance | instance list", function (hooks) {
 
     assert.ok(/(\?|&)identifier=123/.test(currentURL()));
 
-    await click("table > thead > tr > th:nth-of-type(7) > span.pointer");
+    await click("table > thead > tr > th:nth-of-type(6) > span.pointer");
 
-    assert.ok(/(\?|&)sort=creation_date/.test(currentURL()));
+    assert.ok(/(\?|&)sort=instance_state__description/.test(currentURL()));
   });
 
   test("can delete non submitted instance", async function (assert) {
