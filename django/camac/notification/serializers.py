@@ -824,7 +824,11 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
                     .users.first()
                 )
 
-            if settings.APPLICATION_NAME in ("kt_bern", "demo"):  # pragma: no cover
+            if settings.APPLICATION_NAME in (
+                "kt_bern",
+                "kt_schwyz",
+                "demo",
+            ):  # pragma: no cover
                 history_entry = HistoryEntry.objects.create(
                     instance=instance,
                     body=body,
