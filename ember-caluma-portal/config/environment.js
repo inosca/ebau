@@ -45,9 +45,6 @@ module.exports = function (environment) {
 
     ebau: {
       internalURL: "http://camac-ng.local",
-      claims: {
-        notificationTemplateId: 32,
-      },
       attachments: {
         allowedMimetypes: ["image/png", "image/jpeg", "application/pdf"],
         buckets: [
@@ -86,7 +83,20 @@ module.exports = function (environment) {
         inCorrection: 20007,
         finished: 120000,
       },
-      internalForms: ["migriertes-dossier"],
+      internalForms: [
+        "migriertes-dossier",
+        "baupolizeiliches-verfahren",
+        "zutrittsermaechtigung",
+      ],
+      rstaForms: [
+        "klaerung-baubewilligungspflicht",
+        "hecken-feldgehoelze-baeume",
+        "baupolizeiliches-verfahren",
+        "zutrittsermaechtigung",
+      ],
+      enableRstaForms: false,
+      migratedForm: "migriertes-dossier",
+      enableMigratedForm: false,
     },
   };
 
@@ -96,6 +106,8 @@ module.exports = function (environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.ebau.enableRstaForms = true;
+    ENV.ebau.enableMigratedForm = true;
   }
 
   if (environment === "test") {

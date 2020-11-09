@@ -1,8 +1,13 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
+import config from "ember-caluma-portal/config/environment";
 import getRootFormsQuery from "ember-caluma-portal/gql/queries/get-root-forms";
-import { restartableTask, dropTask } from "ember-concurrency-decorators";
+import {
+  restartableTask,
+  dropTask,
+  lastValue,
+} from "ember-concurrency-decorators";
 import QueryParams from "ember-parachute";
 
 export default class InstancesNewController extends Controller.extend(
@@ -14,11 +19,30 @@ export default class InstancesNewController extends Controller.extend(
 
   setup() {
     this.set("selectedForm", null);
-    this.forms.perform();
+
+    this.fetchForms.perform();
   }
 
+  get columns() {
+    if (!this.forms) {
+      return [];
+    }
+
+    const order = [
+      "preliminary-clarification",
+      "building-permit",
+      "special-procedure",
+    ];
+
+    return Object.keys(this.forms).sort(
+      (a, b) => order.indexOf(a) - order.indexOf(b)
+    );
+  }
+
+  @lastValue("fetchForms") forms;
+
   @restartableTask
-  *forms() {
+  *fetchForms() {
     const forms = yield this.apollo.query(
       { query: getRootFormsQuery },
       "allForms.edges"
@@ -29,23 +53,19 @@ export default class InstancesNewController extends Controller.extend(
       .filter(
         (form) =>
           this.session.isInternal ||
-          !["baupolizeiliches-verfahren", "zutrittsermaechtigung"].includes(
-            form.node.slug
-          )
+          !config.ebau.internalForms.includes(form.node.slug)
+      )
+      .filter(
+        (form) =>
+          config.ebau.enableRstaForms ||
+          !config.ebau.rstaForms.includes(form.node.slug)
       )
       .reduce(
-        (grouped, { node: form }) => {
-          const column = form.meta.category;
-
-          grouped[column].push(form);
-
-          return grouped;
-        },
-        {
-          "preliminary-clarification": [],
-          "building-permit": [],
-          "special-procedure": [],
-        }
+        (grouped, { node: form }) => ({
+          ...grouped,
+          [form.meta.category]: [...(grouped[form.meta.category] || []), form],
+        }),
+        {}
       );
   }
 
