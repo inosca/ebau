@@ -399,7 +399,7 @@
       "success_message": "Das Dossier wurde erfolgreich angenommen",
       "error_message": "Das Dossier konnte nicht angenommen werden",
       "execute_always": 0,
-      "sort": 0
+      "sort": 1
     }
   },
   {
@@ -427,7 +427,7 @@
       "success_message": "Das Dossier wurde erfolgreich an den Gesuchsteller zur\u00fcckgegeben",
       "error_message": "Das Dossier konnte nicht an den Gesuchsteller zur\u00fcckgegeben werden",
       "execute_always": 0,
-      "sort": 0
+      "sort": 1
     }
   },
   {
@@ -441,7 +441,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -469,7 +469,7 @@
       "success_message": "Stellungnahme erfolgreich abgeschlossen",
       "error_message": "Stellungnahme konnte nicht abgeschlossen werden",
       "execute_always": 0,
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -483,7 +483,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -539,7 +539,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -553,7 +553,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -609,7 +609,7 @@
       "success_message": "Baubewilligung wurde erolgreich erteilt",
       "error_message": "Baubewilligung konnte nicht erteilt werden",
       "execute_always": 0,
-      "sort": 0
+      "sort": 1
     }
   },
   {
@@ -693,7 +693,7 @@
       "success_message": "Email wurde erfolgreich versandt",
       "error_message": "Email konnte nicht versandt werden",
       "execute_always": 0,
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -707,7 +707,7 @@
       "success_message": "Email wurde erfolgreich versandt",
       "error_message": "Email konnte nicht versandt werden",
       "execute_always": 0,
-      "sort": 6
+      "sort": 4
     }
   },
   {
@@ -721,7 +721,7 @@
       "success_message": "Email wurde erfolgreich versandt",
       "error_message": "Email konnte nicht versandt werden",
       "execute_always": 0,
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -749,7 +749,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -763,7 +763,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -777,7 +777,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 0
+      "sort": 1
     }
   },
   {
@@ -973,7 +973,7 @@
       "success_message": "Gesuch erfolgreich zu \"Entscheid\" verschoben",
       "error_message": "Gesuch konnte nicht zu \"Entscheid\" verschoben werden",
       "execute_always": 0,
-      "sort": 0
+      "sort": 2
     }
   },
   {
@@ -1043,7 +1043,7 @@
       "success_message": "Gesuch erneut auf \"In Zirkulation\" gesetzt",
       "error_message": "Gesuch konnte nicht auf \"In Zirkulation\" gesetzt werden",
       "execute_always": 0,
-      "sort": 0
+      "sort": 1
     }
   },
   {
@@ -1169,7 +1169,7 @@
       "success_message": "Email wurde erfolgreich versandt",
       "error_message": "Email konnte nicht versandt werden",
       "execute_always": 0,
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -1281,7 +1281,7 @@
       "success_message": "Gesuch erfolgreich zu \"Entscheid\" verschoben",
       "error_message": "Gesuch konnte nicht zu \"Entscheid\" verschoben werden",
       "execute_always": 0,
-      "sort": 0
+      "sort": 2
     }
   },
   {
@@ -1295,7 +1295,7 @@
       "success_message": "Gesuch erneut auf \"In Zirkulation\" gesetzt",
       "error_message": "Gesuch konnte nicht auf \"In Zirkulation\" gesetzt werden",
       "execute_always": 0,
-      "sort": 0
+      "sort": 1
     }
   },
   {
@@ -1323,7 +1323,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 1
+      "sort": 0
     }
   },
   {
@@ -1337,7 +1337,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 1
+      "sort": 0
     }
   },
   {
@@ -1365,7 +1365,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 3
+      "sort": 1
     }
   },
   {
@@ -1379,7 +1379,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 1
+      "sort": 0
     }
   },
   {
@@ -1393,7 +1393,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 1
+      "sort": 0
     }
   },
   {
@@ -1421,7 +1421,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 3
+      "sort": 1
     }
   },
   {
@@ -1435,7 +1435,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 1
+      "sort": 0
     }
   },
   {
@@ -1449,7 +1449,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 3
+      "sort": 1
     }
   },
   {
@@ -1463,7 +1463,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 2
+      "sort": 1
     }
   },
   {
@@ -1477,7 +1477,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 1
+      "sort": 0
     }
   },
   {
@@ -1486,26 +1486,12 @@
     "fields": {
       "available_action": "workitem",
       "button": 34,
-      "name": "Aufgabe: skip start-circulation",
+      "name": "Aufgabe: skip start-circulation, circulation",
       "description": null,
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 121,
-    "fields": {
-      "available_action": "workitem",
-      "button": 34,
-      "name": "Aufgabe: skip circulation",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 2
+      "sort": 0
     }
   },
   {
@@ -1514,26 +1500,12 @@
     "fields": {
       "available_action": "workitem",
       "button": 45,
-      "name": "Aufgabe: skip start-circulation",
+      "name": "Aufgabe: skip start-circulation, circulation",
       "description": null,
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 123,
-    "fields": {
-      "available_action": "workitem",
-      "button": 45,
-      "name": "Aufgabe: skip circulation",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 2
+      "sort": 0
     }
   },
   {
@@ -1542,26 +1514,12 @@
     "fields": {
       "available_action": "workitem",
       "button": 18,
-      "name": "Aufgabe: skip write-statement",
+      "name": "Aufgabe: skip write-statement, check-statement",
       "description": null,
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
       "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 125,
-    "fields": {
-      "available_action": "workitem",
-      "button": 18,
-      "name": "Aufgabe: skip check-statement",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 2
     }
   },
   {
@@ -1570,26 +1528,12 @@
     "fields": {
       "available_action": "workitem",
       "button": 43,
-      "name": "Aufgabe: skip write-statement",
+      "name": "Aufgabe: skip write-statement, check-statement",
       "description": null,
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
       "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 127,
-    "fields": {
-      "available_action": "workitem",
-      "button": 43,
-      "name": "Aufgabe: skip check-statement",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 2
     }
   },
   {
@@ -1660,6 +1604,174 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 133,
+    "fields": {
+      "available_action": "addhistory",
+      "button": 1,
+      "name": "History: Dossier angenommen",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 4
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 134,
+    "fields": {
+      "available_action": "addhistory",
+      "button": 19,
+      "name": "History: Bewilligung erteilt",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 3
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 135,
+    "fields": {
+      "available_action": "addhistory",
+      "button": 21,
+      "name": "History: Dossier archiviert",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 136,
+    "fields": {
+      "available_action": "addhistory",
+      "button": 38,
+      "name": "History: Dossier abgeschrieben",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 2
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 137,
+    "fields": {
+      "available_action": "addhistory",
+      "button": 9,
+      "name": "History: Zirkulation gestartet",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 5
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 138,
+    "fields": {
+      "available_action": "addhistory",
+      "button": 23,
+      "name": "History: Nachforderung gestartet",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 4
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 139,
+    "fields": {
+      "available_action": "addhistory",
+      "button": 34,
+      "name": "History: Zirkulationsentscheid gestartet",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 3
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 140,
+    "fields": {
+      "available_action": "addhistory",
+      "button": 37,
+      "name": "History: Zur\u00fcck zur Zirkulation",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 2
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 141,
+    "fields": {
+      "available_action": "addhistory",
+      "button": 41,
+      "name": "History: Zirkulation gestartet",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 5
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 142,
+    "fields": {
+      "available_action": "addhistory",
+      "button": 44,
+      "name": "History: Nachforderung gestartet",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 4
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 143,
+    "fields": {
+      "available_action": "addhistory",
+      "button": 45,
+      "name": "History: Zirkulationsentscheid gestartet",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 3
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 144,
+    "fields": {
+      "available_action": "addhistory",
+      "button": 46,
+      "name": "History: Zur\u00fcck zur Zirkulation",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 2
     }
   },
   {
@@ -1798,18 +1910,7 @@
     "model": "core.actionworkitem",
     "pk": 120,
     "fields": {
-      "tasks": "[\"start-circulation\"]",
-      "process_type": "skip",
-      "process_all": false,
-      "is_activation": false,
-      "fail_on_empty": false
-    }
-  },
-  {
-    "model": "core.actionworkitem",
-    "pk": 121,
-    "fields": {
-      "tasks": "[\"circulation\"]",
+      "tasks": "[\"circulation\", \"start-circulation\"]",
       "process_type": "skip",
       "process_all": false,
       "is_activation": false,
@@ -1820,18 +1921,7 @@
     "model": "core.actionworkitem",
     "pk": 122,
     "fields": {
-      "tasks": "[\"start-circulation\"]",
-      "process_type": "skip",
-      "process_all": false,
-      "is_activation": false,
-      "fail_on_empty": false
-    }
-  },
-  {
-    "model": "core.actionworkitem",
-    "pk": 123,
-    "fields": {
-      "tasks": "[\"circulation\"]",
+      "tasks": "[\"circulation\", \"start-circulation\"]",
       "process_type": "skip",
       "process_all": false,
       "is_activation": false,
@@ -1842,18 +1932,7 @@
     "model": "core.actionworkitem",
     "pk": 124,
     "fields": {
-      "tasks": "[\"write-statement\"]",
-      "process_type": "skip",
-      "process_all": true,
-      "is_activation": false,
-      "fail_on_empty": false
-    }
-  },
-  {
-    "model": "core.actionworkitem",
-    "pk": 125,
-    "fields": {
-      "tasks": "[\"check-statement\"]",
+      "tasks": "[\"check-statements\", \"write-statement\"]",
       "process_type": "skip",
       "process_all": true,
       "is_activation": false,
@@ -1864,18 +1943,7 @@
     "model": "core.actionworkitem",
     "pk": 126,
     "fields": {
-      "tasks": "[\"write-statement\"]",
-      "process_type": "skip",
-      "process_all": true,
-      "is_activation": false,
-      "fail_on_empty": false
-    }
-  },
-  {
-    "model": "core.actionworkitem",
-    "pk": 127,
-    "fields": {
-      "tasks": "[\"check-statement\"]",
+      "tasks": "[\"check-statement\", \"write-statement\"]",
       "process_type": "skip",
       "process_all": true,
       "is_activation": false,
@@ -4803,11 +4871,239 @@
     }
   },
   {
+    "model": "core.historyactionconfig",
+    "pk": 133,
+    "fields": {
+      "title": null,
+      "body": null,
+      "history_type": "status-change"
+    }
+  },
+  {
+    "model": "core.historyactionconfig",
+    "pk": 134,
+    "fields": {
+      "title": null,
+      "body": null,
+      "history_type": "status-change"
+    }
+  },
+  {
+    "model": "core.historyactionconfig",
+    "pk": 135,
+    "fields": {
+      "title": null,
+      "body": null,
+      "history_type": "status-change"
+    }
+  },
+  {
+    "model": "core.historyactionconfig",
+    "pk": 136,
+    "fields": {
+      "title": null,
+      "body": null,
+      "history_type": "status-change"
+    }
+  },
+  {
+    "model": "core.historyactionconfig",
+    "pk": 137,
+    "fields": {
+      "title": null,
+      "body": null,
+      "history_type": "status-change"
+    }
+  },
+  {
+    "model": "core.historyactionconfig",
+    "pk": 138,
+    "fields": {
+      "title": null,
+      "body": null,
+      "history_type": "status-change"
+    }
+  },
+  {
+    "model": "core.historyactionconfig",
+    "pk": 139,
+    "fields": {
+      "title": null,
+      "body": null,
+      "history_type": "status-change"
+    }
+  },
+  {
+    "model": "core.historyactionconfig",
+    "pk": 140,
+    "fields": {
+      "title": null,
+      "body": null,
+      "history_type": "status-change"
+    }
+  },
+  {
+    "model": "core.historyactionconfig",
+    "pk": 141,
+    "fields": {
+      "title": null,
+      "body": null,
+      "history_type": "status-change"
+    }
+  },
+  {
+    "model": "core.historyactionconfig",
+    "pk": 142,
+    "fields": {
+      "title": null,
+      "body": null,
+      "history_type": "status-change"
+    }
+  },
+  {
+    "model": "core.historyactionconfig",
+    "pk": 143,
+    "fields": {
+      "title": null,
+      "body": null,
+      "history_type": "status-change"
+    }
+  },
+  {
+    "model": "core.historyactionconfig",
+    "pk": 144,
+    "fields": {
+      "title": null,
+      "body": null,
+      "history_type": "status-change"
+    }
+  },
+  {
     "model": "core.historyactionconfigt",
     "pk": 1,
     "fields": {
       "action": 99,
       "title": "R\u00fcckweisung",
+      "body": null,
+      "language": "de"
+    }
+  },
+  {
+    "model": "core.historyactionconfigt",
+    "pk": 2,
+    "fields": {
+      "action": 133,
+      "title": "Dossier angenommen",
+      "body": null,
+      "language": "de"
+    }
+  },
+  {
+    "model": "core.historyactionconfigt",
+    "pk": 3,
+    "fields": {
+      "action": 134,
+      "title": "Bewilligung erteilt",
+      "body": null,
+      "language": "de"
+    }
+  },
+  {
+    "model": "core.historyactionconfigt",
+    "pk": 4,
+    "fields": {
+      "action": 135,
+      "title": "Dossier archiviert",
+      "body": null,
+      "language": "de"
+    }
+  },
+  {
+    "model": "core.historyactionconfigt",
+    "pk": 5,
+    "fields": {
+      "action": 136,
+      "title": "Dossier abgeschrieben",
+      "body": null,
+      "language": "de"
+    }
+  },
+  {
+    "model": "core.historyactionconfigt",
+    "pk": 6,
+    "fields": {
+      "action": 137,
+      "title": "Zirkulation gestartet",
+      "body": null,
+      "language": "de"
+    }
+  },
+  {
+    "model": "core.historyactionconfigt",
+    "pk": 7,
+    "fields": {
+      "action": 138,
+      "title": "Nachforderung gestartet",
+      "body": null,
+      "language": "de"
+    }
+  },
+  {
+    "model": "core.historyactionconfigt",
+    "pk": 8,
+    "fields": {
+      "action": 139,
+      "title": "Zirkulationsentscheid gestartet",
+      "body": null,
+      "language": "de"
+    }
+  },
+  {
+    "model": "core.historyactionconfigt",
+    "pk": 9,
+    "fields": {
+      "action": 140,
+      "title": "Zur\u00fcck zur Zirkulation",
+      "body": null,
+      "language": "de"
+    }
+  },
+  {
+    "model": "core.historyactionconfigt",
+    "pk": 10,
+    "fields": {
+      "action": 141,
+      "title": "Zirkulation gestartet",
+      "body": null,
+      "language": "de"
+    }
+  },
+  {
+    "model": "core.historyactionconfigt",
+    "pk": 11,
+    "fields": {
+      "action": 142,
+      "title": "Nachforderung gestartet",
+      "body": null,
+      "language": "de"
+    }
+  },
+  {
+    "model": "core.historyactionconfigt",
+    "pk": 12,
+    "fields": {
+      "action": 143,
+      "title": "Zirkulationsentscheid gestartet",
+      "body": null,
+      "language": "de"
+    }
+  },
+  {
+    "model": "core.historyactionconfigt",
+    "pk": 13,
+    "fields": {
+      "action": 144,
+      "title": "Zur\u00fcck zur Zirkulation",
       "body": null,
       "language": "de"
     }
