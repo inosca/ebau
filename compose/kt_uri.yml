@@ -63,7 +63,6 @@ services:
       - DYNAMIC_TASKS_CLASSES=camac.caluma.extensions.dynamic_tasks.CustomDynamicTasks
       - LANGUAGE_CODE=de
       - LANGUAGES=de,fr
-      - OIDC_BEARER_TOKEN_REVALIDATION_TIME=300
       - OIDC_USERNAME_CLAIM=preferred_username
       - OIDC_BOOTSTRAP_BY_EMAIL_FALLBACK=true
       - URI_MIGRATE_PORTAL_USER=true
