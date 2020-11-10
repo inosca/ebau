@@ -178,7 +178,7 @@ def test_publication_no_publication(
     application_settings["CALUMA"] = {"PUBLICATION_TASK_SLUG": task.slug}
     work_item_factory(status="ready", task=task, case=case, child_case=None)
 
-    url = reverse("publication-no-publication", args=[publication_entry.pk])
+    url = reverse("publication-no-publication")
 
-    response = admin_client.post(url)
+    response = admin_client.get(url, {"instance": publication_entry.instance.pk})
     assert response.status_code == status.HTTP_204_NO_CONTENT

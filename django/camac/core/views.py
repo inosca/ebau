@@ -12,7 +12,7 @@ from rest_framework.response import Response
 from rest_framework_json_api import django_filters, filters as json_api_filters, views
 
 from camac.caluma.api import CalumaApi
-from camac.instance.models import FormField
+from camac.instance.models import FormField, Instance
 from camac.user.permissions import permission_aware
 
 from . import filters, models, serializers
@@ -41,9 +41,7 @@ class PublicationEntryView(views.ModelViewSet):
         )
 
     def get_queryset_for_municipality(self):
-        return models.PublicationEntry.objects.filter(
-            instance__group=self.request.group
-        )
+        return models.PublicationEntry.objects.all()
 
     def get_queryset_for_service(self):
         return models.PublicationEntry.objects.none()
@@ -205,16 +203,12 @@ class PublicationEntryView(views.ModelViewSet):
 
         return Response([], 204)
 
-    @action(methods=["post"], detail=True)
-    def no_publication(self, request, pk=None):
-        publication = self.get_object()
-
+    @action(methods=["get"], detail=False)
+    def no_publication(self, request):
         CalumaApi().close_publication(
-            publication.instance, request.caluma_info.context.user
+            Instance.objects.get(pk=request.query_params["instance"]),
+            request.caluma_info.context.user,
         )
-
-        publication.is_published = 1
-        publication.save()
 
         return Response([], 204)
 
