@@ -212,7 +212,7 @@ class CustomPermission(BasePermission):
         instance_id = case.meta.get("camac-instance-id")
 
         resp = requests.get(
-            build_url(settings.INTERNAL_BASE_URL, f"/api/v1/instances/{instance_id}"),
+            build_url(settings.API_HOST, f"/api/v1/instances/{instance_id}"),
             headers=headers(info),
         )
 
