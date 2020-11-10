@@ -58,7 +58,6 @@ services:
       - DYNAMIC_TASKS_CLASSES=camac.caluma.extensions.dynamic_tasks.CustomDynamicTasks
       - LANGUAGE_CODE=de
       - LANGUAGES=de,fr
-      - OIDC_BEARER_TOKEN_REVALIDATION_TIME=10
       - META_FIELDS=camac-instance-id,ebau-number,submit-date
       - ENABLE_HISTORICAL_API=true
     volumes:
