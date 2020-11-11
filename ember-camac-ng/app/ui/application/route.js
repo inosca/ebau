@@ -25,6 +25,17 @@ export default class ApplicationRoute extends ApplicationRouteBase {
       label: "Karte",
       component: "ur-gis",
     });
+
+    this.calumaOptions.registerComponentOverride({
+      label: "Download (PDF)",
+      component: "cf-download-pdf",
+      type: "StaticQuestion",
+    });
+
+    this.calumaOptions.registerComponentOverride({
+      label: "Versteckt",
+      component: "cf-hidden-input",
+    });
   }
 
   sessionInvalidated() {
