@@ -58,7 +58,9 @@ def test_dump_and_load(db, settings, application, tmpdir):
 
             with open(test_filepath, "r") as test_dumped, open(filepath, "r") as dumped:
                 unordered_fields = (
-                    ["allow_forms"] if "caluma_workflow" in filename else []
+                    ["allow_forms", "start_tasks"]
+                    if "caluma_workflow" in filename
+                    else []
                 )
 
                 test_dumped_json = sort_fixture(
