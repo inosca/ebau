@@ -115,6 +115,27 @@ services:
       - KEYCLOAK_USER=admin
       - PROXY_ADDRESS_FORWARDING=true
 
+  document-merge-service:
+    image: adfinissygroup/document-merge-service:v4.0.1
+    depends_on:
+      - db
+    volumes:
+      - ../document-merge-service/uwsgi.ini:/app/uwsgi.ini:ro
+      - ../document-merge-service/kt_uri/templatefiles:/var/lib/document-merge-service/media
+      - ../document-merge-service/kt_uri/dump.json:/tmp/document-merge-service/kt_uri/dump.json
+    environment:
+      - DATABASE_ENGINE=django.db.backends.postgresql
+      - DATABASE_HOST=db
+      - DATABASE_NAME=${APPLICATION}
+      - DATABASE_USER=camac
+      - REQUIRE_AUTHENTICATION=True
+      - GROUP_ACCESS_ONLY=True
+      - OIDC_BEARER_TOKEN_REVALIDATION_TIME=5
+      - OIDC_GROUPS_API=http://camac-ng.local/api/v1/me
+      - OIDC_GROUPS_API_JSONPATH=$$.data.relationships.service.data.id
+      - OIDC_GROUPS_API_HEADERS=AUTHORIZATION,X-CAMAC-GROUP
+
+
 volumes:
   pgdata:
   djangomedia:

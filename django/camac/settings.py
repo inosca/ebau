@@ -865,6 +865,42 @@ APPLICATIONS = {
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
             "SYNC_FORM_TYPE": True,
         },
+        "DOCUMENT_MERGE_SERVICE": {
+            "building-permit": {
+                "forms": [
+                    "building-permit",
+                ],
+                "template": "2-level-extended",
+                "people_sources": {
+                    # FIXME copy from BE, adapt to UR form
+                    "personalien-gesuchstellerin": {
+                        "familyName": "name-gesuchstellerin",
+                        "givenName": "vorname-gesuchstellerin",
+                    },
+                    "personalien-vertreterin-mit-vollmacht": {
+                        "familyName": "name-vertreterin",
+                        "givenName": "vorname-vertreterin",
+                    },
+                    "personalien-grundeigentumerin": {
+                        "familyName": "name-grundeigentuemerin",
+                        "givenName": "vorname-grundeigentuemerin",
+                    },
+                    "personalien-gebaudeeigentumerin": {
+                        "familyName": "name-gebaeudeeigentuemerin",
+                        "givenName": "vorname-gebaeudeeigentuemerin",
+                    },
+                    "personalien-projektverfasserin": {
+                        "familyName": "name-projektverfasserin",
+                        "givenName": "vorname-projektverfasserin",
+                    },
+                },
+                "exclude_slugs": [
+                    "is-paper",
+                    "einreichen",
+                    "gis-karte",
+                ],
+            },
+        },
         "ARCHIVE_FORMS": [293, 294],
         "PAPER": {
             "ALLOWED_ROLES": {
