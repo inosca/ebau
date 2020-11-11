@@ -5984,6 +5984,13 @@
         "options": ["nein", "teilweise", "ja"]
       }
     },
+    "vollstaendigkeitspruefung-bemerkung": {
+      "restrict": ["municipality", "service"],
+      "label": "Bemerkung:",
+      "type": "text",
+      "required": false,
+      "config": {}
+    },
     "publikation-bemerkung": {
       "restrict": ["municipality"],
       "label": "Bemerkung:",
