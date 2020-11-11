@@ -1,0 +1,12 @@
+[
+  {
+    "model": "api.template",
+    "pk": "2-level-extended",
+    "fields": {
+      "description": "",
+      "template": "2-level-extended.docx",
+      "engine": "docx-template",
+      "group": null
+    }
+  }
+]

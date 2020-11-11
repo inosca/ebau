@@ -121,8 +121,8 @@ services:
       - db
     volumes:
       - ../document-merge-service/uwsgi.ini:/app/uwsgi.ini:ro
-      - ../document-merge-service/templatefiles:/var/lib/document-merge-service/media
-      - ../document-merge-service/dump.json:/tmp/document-merge-service/dump.json
+      - ../document-merge-service/kt_bern/templatefiles:/var/lib/document-merge-service/media
+      - ../document-merge-service/kt_bern/dump.json:/tmp/document-merge-service/kt_bern/dump.json
     environment:
       - DATABASE_ENGINE=django.db.backends.postgresql
       - DATABASE_HOST=db
