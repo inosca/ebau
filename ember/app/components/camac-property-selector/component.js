@@ -97,7 +97,7 @@ export default Component.extend({
   searchObject: null,
   selectedSearchResult: null,
   selectedMunicipality: null,
-  gisURL: `https://${ENV.APP.gisHost}/main/wsgi/mapserv_proxy`,
+  gisURL: `https://${ENV.APP.gisHost}`,
   // the tile URL is static because the testserver cannot handle the tile0 subdomain correctly
   tileURL: `https://tile0.map.geo.sz.ch/main/tiles/1.0.0/ch_sz_avg_ortsplan_farbig/default/201610/swissgrid_2056/{z}/{y}/{x}.png`,
 
@@ -296,15 +296,12 @@ export default Component.extend({
         }</wfs:Query>`;
       }).join(",");
 
-      const response = await this.ajax.request(
-        "https://map.geo.sz.ch/main/wsgi/mapserv_proxy",
-        {
-          method: "POST",
-          dataType: "xml",
-          contentType: "text/xml",
-          data: `<wfs:GetFeature version="1.1.0" service="wfs" srsName="EPSG:3857">${layers}</wfs:GetFeature>`,
-        }
-      );
+      const response = await this.ajax.request(this.gisURL, {
+        method: "POST",
+        dataType: "xml",
+        contentType: "text/xml",
+        data: `<wfs:GetFeature version="1.1.0" service="wfs" srsName="EPSG:3857">${layers}</wfs:GetFeature>`,
+      });
       const serializer = new XMLSerializer();
       const responseObject = xml2js(serializer.serializeToString(response), {
         compact: true,
