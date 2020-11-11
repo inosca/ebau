@@ -171,6 +171,11 @@ DUMP_CONFIG_MODELS = [
     "core.HistoryActionConfigT",
     "core.ActionWorkitem",
     "core.ActionCase",
+    "caluma_form.Option",
+    "caluma_form.QuestionOption",
+    "caluma_form.FormQuestion",
+    "caluma_workflow.TaskFlow",
+    "caluma_workflow.Flow",
 ]
 
 # List of models that have foreign keys referencing non-config tables
@@ -220,15 +225,10 @@ DUMP_CONFIG_MODELS_REFERENCING_DATA = [
     "user.ServiceGroupT",
     "notification.NotificationTemplate",
     "notification.NotificationTemplateT",
-    "caluma_form.Option",
     "caluma_form.Question",
     "caluma_form.Form",
-    "caluma_form.QuestionOption",
-    "caluma_form.FormQuestion",
     "caluma_workflow.Workflow",
     "caluma_workflow.Task",
-    "caluma_workflow.TaskFlow",
-    "caluma_workflow.Flow",
 ]
 
 # Exclude models which are managed by the customer alone from sync - instead it
