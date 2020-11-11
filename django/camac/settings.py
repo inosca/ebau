@@ -872,6 +872,7 @@ APPLICATIONS = {
                 ],
                 "template": "2-level-extended",
                 "people_sources": {
+                    # FIXME copy from BE, adapt to UR form
                     "personalien-gesuchstellerin": {
                         "familyName": "name-gesuchstellerin",
                         "givenName": "vorname-gesuchstellerin",
@@ -895,9 +896,8 @@ APPLICATIONS = {
                 },
                 "exclude_slugs": [
                     "is-paper",
-                    "projektaenderung",
-                    "8-freigabequittung",
-                    "karte",
+                    "einreichen",
+                    "gis-karte",
                 ],
             },
         },

@@ -33,7 +33,6 @@ export default class App extends Application {
           "intl", // ember-intl for i18n
           "caluma-options", // service to configure ember-caluma
           "validator", // service for generic regex validation
-          "fetch", // ember-fetch
         ],
       },
     },
