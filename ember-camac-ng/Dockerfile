@@ -1,5 +1,7 @@
 FROM danlynn/ember-cli:latest as build
 
+ARG APPLICATION
+
 COPY package.json yarn.lock /myapp/
 
 RUN yarn install
