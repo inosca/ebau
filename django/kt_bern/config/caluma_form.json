@@ -6945,6 +6945,19 @@
       "created_by_group": null,
       "form": "gebaudeeigentumerin",
       "question": "e-mail-gebaeudeeigentuemerin",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaudeeigentumerin.hinweis-personalien",
+    "fields": {
+      "created_at": "2020-11-12T15:36:10.693Z",
+      "modified_at": "2020-11-12T15:36:10.693Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "gebaudeeigentumerin",
+      "question": "hinweis-personalien",
       "sort": 1
     }
   },
@@ -6958,7 +6971,7 @@
       "created_by_group": null,
       "form": "gebaudeeigentumerin",
       "question": "juristische-person-gebaeudeeigentuemerin",
-      "sort": 12
+      "sort": 11
     }
   },
   {
@@ -6971,7 +6984,7 @@
       "created_by_group": null,
       "form": "gebaudeeigentumerin",
       "question": "name-gebaeudeeigentuemerin",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -6984,7 +6997,7 @@
       "created_by_group": null,
       "form": "gebaudeeigentumerin",
       "question": "name-juristische-person-gebaeudeeigentuemerin",
-      "sort": 11
+      "sort": 10
     }
   },
   {
@@ -6997,7 +7010,7 @@
       "created_by_group": null,
       "form": "gebaudeeigentumerin",
       "question": "nummer-gebaeudeeigentuemerin",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -7010,7 +7023,7 @@
       "created_by_group": null,
       "form": "gebaudeeigentumerin",
       "question": "ort-gebaeudeeigentuemerin",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -7023,7 +7036,7 @@
       "created_by_group": null,
       "form": "gebaudeeigentumerin",
       "question": "plz-gebaeudeeigentuemerin",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -7036,7 +7049,7 @@
       "created_by_group": null,
       "form": "gebaudeeigentumerin",
       "question": "strasse-gebaeudeeigentuemerin",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -7049,7 +7062,7 @@
       "created_by_group": null,
       "form": "gebaudeeigentumerin",
       "question": "telefon-oder-mobile-gebaeudeeigentuemerin",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -7062,7 +7075,7 @@
       "created_by_group": null,
       "form": "gebaudeeigentumerin",
       "question": "vorname-gebaeudeeigentuemerin",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -8011,6 +8024,19 @@
       "created_by_group": null,
       "form": "grundeigentumerin",
       "question": "e-mail-grundeigentuemerin",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "grundeigentumerin.hinweis-personalien",
+    "fields": {
+      "created_at": "2020-11-12T15:37:09.314Z",
+      "modified_at": "2020-11-12T15:37:09.314Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "grundeigentumerin",
+      "question": "hinweis-personalien",
       "sort": 1
     }
   },
@@ -8024,7 +8050,7 @@
       "created_by_group": null,
       "form": "grundeigentumerin",
       "question": "juristische-person-grundeigentuemerin",
-      "sort": 12
+      "sort": 11
     }
   },
   {
@@ -8037,7 +8063,7 @@
       "created_by_group": null,
       "form": "grundeigentumerin",
       "question": "name-grundeigentuemerin",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -8050,7 +8076,7 @@
       "created_by_group": null,
       "form": "grundeigentumerin",
       "question": "name-juristische-person-grundeigentuemerin",
-      "sort": 11
+      "sort": 10
     }
   },
   {
@@ -8063,7 +8089,7 @@
       "created_by_group": null,
       "form": "grundeigentumerin",
       "question": "nummer-grundeigentuemerin",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -8076,7 +8102,7 @@
       "created_by_group": null,
       "form": "grundeigentumerin",
       "question": "ort-grundeigentuemerin",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -8089,7 +8115,7 @@
       "created_by_group": null,
       "form": "grundeigentumerin",
       "question": "plz-grundeigentuemerin",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -8102,7 +8128,7 @@
       "created_by_group": null,
       "form": "grundeigentumerin",
       "question": "strasse-grundeigentuemerin",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -8115,7 +8141,7 @@
       "created_by_group": null,
       "form": "grundeigentumerin",
       "question": "telefon-oder-mobile-grundeigentuemerin",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -8128,7 +8154,7 @@
       "created_by_group": null,
       "form": "grundeigentumerin",
       "question": "vorname-grundeigentuemerin",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -9584,6 +9610,19 @@
       "created_by_group": null,
       "form": "personalien-tabelle",
       "question": "e-mail-gesuchstellerin",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.hinweis-personalien",
+    "fields": {
+      "created_at": "2020-11-12T15:15:05.374Z",
+      "modified_at": "2020-11-12T15:15:05.374Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "hinweis-personalien",
       "sort": 1
     }
   },
@@ -9597,7 +9636,7 @@
       "created_by_group": null,
       "form": "personalien-tabelle",
       "question": "juristische-person-gesuchstellerin",
-      "sort": 12
+      "sort": 11
     }
   },
   {
@@ -9610,7 +9649,7 @@
       "created_by_group": null,
       "form": "personalien-tabelle",
       "question": "name-gesuchstellerin",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -9623,7 +9662,7 @@
       "created_by_group": null,
       "form": "personalien-tabelle",
       "question": "name-juristische-person-gesuchstellerin",
-      "sort": 11
+      "sort": 10
     }
   },
   {
@@ -9636,7 +9675,7 @@
       "created_by_group": null,
       "form": "personalien-tabelle",
       "question": "nummer-gesuchstellerin",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -9649,7 +9688,7 @@
       "created_by_group": null,
       "form": "personalien-tabelle",
       "question": "ort-gesuchstellerin",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -9662,7 +9701,7 @@
       "created_by_group": null,
       "form": "personalien-tabelle",
       "question": "plz-gesuchstellerin",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -9675,7 +9714,7 @@
       "created_by_group": null,
       "form": "personalien-tabelle",
       "question": "strasse-gesuchstellerin",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -9688,7 +9727,7 @@
       "created_by_group": null,
       "form": "personalien-tabelle",
       "question": "telefon-oder-mobile-gesuchstellerin",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -9701,7 +9740,7 @@
       "created_by_group": null,
       "form": "personalien-tabelle",
       "question": "vorname-gesuchstellerin",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -9805,6 +9844,19 @@
       "created_by_group": null,
       "form": "projektverfasserin",
       "question": "e-mail-projektverfasserin",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "projektverfasserin.hinweis-personalien",
+    "fields": {
+      "created_at": "2020-11-12T15:38:03.009Z",
+      "modified_at": "2020-11-12T15:38:03.009Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "projektverfasserin",
+      "question": "hinweis-personalien",
       "sort": 1
     }
   },
@@ -9818,7 +9870,7 @@
       "created_by_group": null,
       "form": "projektverfasserin",
       "question": "juristische-person-projektverfasserin",
-      "sort": 12
+      "sort": 11
     }
   },
   {
@@ -9831,7 +9883,7 @@
       "created_by_group": null,
       "form": "projektverfasserin",
       "question": "name-juristische-person-projektverfasserin",
-      "sort": 11
+      "sort": 10
     }
   },
   {
@@ -9844,7 +9896,7 @@
       "created_by_group": null,
       "form": "projektverfasserin",
       "question": "name-projektverfasserin",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -9857,7 +9909,7 @@
       "created_by_group": null,
       "form": "projektverfasserin",
       "question": "nummer-projektverfasserin",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -9870,7 +9922,7 @@
       "created_by_group": null,
       "form": "projektverfasserin",
       "question": "ort-projektverfasserin",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -9883,7 +9935,7 @@
       "created_by_group": null,
       "form": "projektverfasserin",
       "question": "plz-projektverfasserin",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -9896,7 +9948,7 @@
       "created_by_group": null,
       "form": "projektverfasserin",
       "question": "strasse-projektverfasserin",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -9909,7 +9961,7 @@
       "created_by_group": null,
       "form": "projektverfasserin",
       "question": "telefon-oder-mobile-projektverfasserin",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -9922,7 +9974,7 @@
       "created_by_group": null,
       "form": "projektverfasserin",
       "question": "vorname-projektverfasserin",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -11053,7 +11105,20 @@
       "created_by_group": null,
       "form": "vertreterin-mit-vollmacht",
       "question": "e-mail-vertreterin",
-      "sort": 2
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vertreterin-mit-vollmacht.hinweis-personalien",
+    "fields": {
+      "created_at": "2020-11-12T15:38:47.350Z",
+      "modified_at": "2020-11-12T15:38:47.350Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "vertreterin-mit-vollmacht",
+      "question": "hinweis-personalien",
+      "sort": 1
     }
   },
   {
@@ -11066,7 +11131,7 @@
       "created_by_group": null,
       "form": "vertreterin-mit-vollmacht",
       "question": "juristische-person-vertreterin",
-      "sort": 13
+      "sort": 12
     }
   },
   {
@@ -11079,7 +11144,7 @@
       "created_by_group": null,
       "form": "vertreterin-mit-vollmacht",
       "question": "name-juristische-person-vertreterin",
-      "sort": 12
+      "sort": 11
     }
   },
   {
@@ -11092,7 +11157,7 @@
       "created_by_group": null,
       "form": "vertreterin-mit-vollmacht",
       "question": "name-vertreterin",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -11105,7 +11170,7 @@
       "created_by_group": null,
       "form": "vertreterin-mit-vollmacht",
       "question": "nummer-vertreterin",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -11118,7 +11183,7 @@
       "created_by_group": null,
       "form": "vertreterin-mit-vollmacht",
       "question": "ort-vertreterin",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -11131,7 +11196,7 @@
       "created_by_group": null,
       "form": "vertreterin-mit-vollmacht",
       "question": "plz-vertreterin",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -11144,7 +11209,7 @@
       "created_by_group": null,
       "form": "vertreterin-mit-vollmacht",
       "question": "strasse-vertreterin",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -11157,7 +11222,7 @@
       "created_by_group": null,
       "form": "vertreterin-mit-vollmacht",
       "question": "telefon-oder-mobile-vertreterin",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -11170,7 +11235,7 @@
       "created_by_group": null,
       "form": "vertreterin-mit-vollmacht",
       "question": "vollmacht",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -11183,7 +11248,7 @@
       "created_by_group": null,
       "form": "vertreterin-mit-vollmacht",
       "question": "vorname-vertreterin",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -32342,6 +32407,31 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "hindernisfreies-bauen",
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-personalien",
+    "fields": {
+      "created_at": "2020-11-12T15:15:05.246Z",
+      "modified_at": "2020-11-12T15:19:40.072Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "label": "{\"de\": \"Hinweis Gesuchsteller/in\", \"fr\": \"Hinweis Gesuchsteller/in\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert\\\"><p>Wenn die hier erfasste Person zus\\u00e4tzlich Zugang zum Dossier erhalten und \\u00fcber dessen Bearbeitungsfortschritt informiert werden soll, erfassen Sie diese im Men\\u00fc \\\"Berechtigungen\\\".</p>\\n\\n<p>Um auf das Dossier zuzugreifen, muss die eingeladene Personen auf dem eBau Portal registriert sein. Falls dies noch nicht der Fall ist, wird bei der Einladung automatisch eine E-Mail mit einem Link zur Registrierung versendet.</p></div>\", \"fr\": \"<div class=\\\"uk-alert\\\"><p>Si la personne saisie ici doit \\u00e9galement avoir acc\\u00e8s au dossier et \\u00eatre inform\\u00e9e de l'avancement du projet, saisissez cette personne dans le menu \\\"Autorisation\\\".</p> \\n\\n<p>Pour acc\\u00e9der au dossier, la personne invit\\u00e9e doit \\u00eatre enregistr\\u00e9e sur le portail eBau. Si ce n'est pas encore le cas, un e-mail contenant un lien vers l'enregistrement sera automatiquement envoy\\u00e9 avec l'invitation.</p></div>\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]"
     }
