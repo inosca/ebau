@@ -829,8 +829,11 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
                 "kt_schwyz",
                 "demo",
             ):  # pragma: no cover
+                recipients_log = ", ".join([self._recipient_log(r) for r in recipients])
+
                 history_entry = HistoryEntry.objects.create(
                     instance=instance,
+                    title=f"Notifikation gesendet an {recipients_log} ({subject})",
                     body=body,
                     created_at=timezone.now(),
                     user=user,
@@ -839,9 +842,6 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
                 for (lang, text) in get_translations(
                     gettext_noop("Notification sent to %(receiver)s (%(subject)s)")
                 ):
-                    recipients_log = ", ".join(
-                        [self._recipient_log(r) for r in recipients]
-                    )
                     HistoryEntryT.objects.create(
                         history_entry=history_entry,
                         title=text % {"receiver": recipients_log, "subject": subject},
