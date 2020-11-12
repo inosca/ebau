@@ -28566,19 +28566,20 @@
     "pk": "e-mail-gebaeudeeigentuemerin",
     "fields": {
       "created_at": "2019-04-04T08:53:43.783Z",
-      "modified_at": "2020-01-13T13:52:39.442Z",
+      "modified_at": "2020-11-12T14:08:01.055Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"E-Mail\", \"fr\": \"Courriel\"}",
       "type": "text",
-      "is_required": "true",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
-        "max_length": null
+        "max_length": null,
+        "min_length": null
       },
       "meta": {
         "formatValidators": ["email"]
@@ -28653,19 +28654,20 @@
     "pk": "e-mail-grundeigentuemerin",
     "fields": {
       "created_at": "2019-04-04T08:31:26.893Z",
-      "modified_at": "2020-01-13T13:55:48.390Z",
+      "modified_at": "2020-11-12T14:08:31.118Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"E-Mail\", \"fr\": \"Courriel\"}",
       "type": "text",
-      "is_required": "true",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
-        "max_length": null
+        "max_length": null,
+        "min_length": null
       },
       "meta": {
         "formatValidators": ["email"]
@@ -28711,19 +28713,20 @@
     "pk": "e-mail-projektverfasserin",
     "fields": {
       "created_at": "2019-04-04T10:27:35.707Z",
-      "modified_at": "2020-01-13T13:57:24.127Z",
+      "modified_at": "2020-11-12T14:09:19.683Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"E-Mail\", \"fr\": \"Courriel\"}",
       "type": "text",
-      "is_required": "true",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
-        "max_length": null
+        "max_length": null,
+        "min_length": null
       },
       "meta": {
         "formatValidators": ["email"]
@@ -28770,19 +28773,20 @@
     "pk": "e-mail-vertreterin",
     "fields": {
       "created_at": "2019-04-04T07:45:30.379Z",
-      "modified_at": "2020-01-13T13:58:49.639Z",
+      "modified_at": "2020-11-12T14:10:01.808Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"E-Mail\", \"fr\": \"Courriel\"}",
       "type": "text",
-      "is_required": "true",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
-        "max_length": null
+        "max_length": null,
+        "min_length": null
       },
       "meta": {
         "formatValidators": ["email"]
