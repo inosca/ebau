@@ -4,10 +4,18 @@ import os
 
 from django.apps import apps
 from django.conf import settings
-from django.core import serializers
 from django.core.management.base import BaseCommand
+from django.core.serializers.json import Serializer
 
 from camac import dump_settings as config
+
+
+class CamacDumpSerializer(Serializer):
+    def handle_m2m_field(self, obj, field):
+        super().handle_m2m_field(obj, field)
+
+        if field.name in self._current:
+            self._current[field.name] = sorted(self._current[field.name])
 
 
 class Command(BaseCommand):
@@ -28,8 +36,7 @@ class Command(BaseCommand):
         )
 
     def dump(self, output_dir):
-        Serializer = serializers.get_serializer("json")
-        serializer = Serializer()
+        serializer = CamacDumpSerializer()
 
         for group_name, querysets in self.groups.items():
             filename = os.path.join(output_dir, f"{group_name}.json")
