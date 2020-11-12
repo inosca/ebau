@@ -206,51 +206,48 @@ instances:
   new:
     title: "Neues Dossier"
     kind: "Um welche Art von Dossier handelt es sich?"
-    preClarification: "Vorabklärung"
-    application: "Gesuch"
-    preClarificationInfo: "Bei unklaren Ausgangslagen (insbesondere bei
-      komplizierten und komplexen Bauvorhaben oder bei unklarer Rechtslage) ist
-      es empfehlenswert, vor Eingabe eines Baugesuchs die baurechtlichen
-      Rahmenbedingungen mittels einer Vorabklärung prüfen zu lassen. Je früher
-      die Interessen der betroffenen Beteiligten untereinander abgestimmt
-      werden, umso reibungsloser gestaltet sich in der Regel die Durchführung
-      eines Baubewilligungsverfahrens.
 
-
-      Die **einfache Vorabklärung** ist ein Instrument für jegliche Fragen welche
+    preliminary-clarification:
+      title: "Vorabklärung"
+      info: "Bei unklaren Ausgangslagen (insbesondere bei komplizierten und
+      komplexen Bauvorhaben oder bei unklarer Rechtslage) ist es
+      empfehlenswert, vor Eingabe eines Baugesuchs die baurechtlichen
+      Rahmenbedingungen mittels einer Vorabklärung prüfen zu lassen. Je
+      früher die Interessen der betroffenen Beteiligten untereinander
+      abgestimmt werden, umso reibungsloser gestaltet sich in der Regel die
+      Durchführung eines Baubewilligungsverfahrens.\n\n Die **einfache
+      Vorabklärung** ist ein Instrument für jegliche Fragen welche
       insbesondere die Standortgemeinde als zuständige Behörde direkt
       beurteilen und beantworten kann (Beispiel: Neubau Carport, Ausbau
-      Dachgeschoss, Grenzabstände).
+      Dachgeschoss, Grenzabstände).\n\n Mit der **vollständigen Vorabklärung**
+      können auch umfassende Bauvorhaben, in welchen auch kantonale, bundes-
+      oder andere externe Stellen betroffen sind, einbezogen und koordiniert
+      werden (Beispiel: Bauvorhaben in der Landwirtschaftszone, Bauvorhaben
+      mit einem Neuanschluss an eine Kantonsstrasse)."
 
-
-      Mit der **vollständigen Vorabklärung** können auch umfassende Bauvorhaben, in
-      welchen auch kantonale, bundes- oder andere externe Stellen betroffen sind,
-      einbezogen und koordiniert werden (Beispiel: Bauvorhaben in der
-      Landwirtschaftszone, Bauvorhaben mit einem Neuanschluss an eine Kantonsstrasse)."
-    applicationInfo: "Der häufigste Fall ist die Eingabe eines **Baugesuchs**
+    building-permit:
+      title: "Gesuch"
+      info: "Der häufigste Fall ist die Eingabe eines **Baugesuchs**
       (Beispiel: Anbau Garage, Neubau Einfamilienhaus, Einbau
-      Dachflächenfenster).
-
-
-      Generelle Baugesuche oder Baugesuche mit einer Umweltverträglichkeitsprüfung
-      (UVP) sind in den allermeisten Fällen mit den Behörden vorbesprochen und
-      waren idealerweise bereits Gegenstand einer vollständigen Vorabklärung.
-
-
-      Das **generelle Baugesuch** wird bei Grossprojekten gewählt, wenn noch nicht
-      alle Details ausgearbeitet sind und vorab geklärt werden soll, ob überhaupt
-      eine Bewilligung erreicht werden kann (Beispiel: Einkaufszentrum bei dem
-      z.B. die Lüftung und der Brandschutz erst später erarbeitet werden und vorab
-      das Volumen, die Nutzung und die Parkplätze geklärt werden sollen).
-
-
+      Dachflächenfenster).\n\n Generelle Baugesuche oder Baugesuche mit einer
+      Umweltverträglichkeitsprüfung (UVP) sind in den allermeisten Fällen mit
+      den Behörden vorbesprochen und waren idealerweise bereits Gegenstand
+      einer vollständigen Vorabklärung.\n\n Das **generelle Baugesuch** wird
+      bei Grossprojekten gewählt, wenn noch nicht alle Details ausgearbeitet
+      sind und vorab geklärt werden soll, ob überhaupt eine Bewilligung
+      erreicht werden kann (Beispiel: Einkaufszentrum bei dem z.B. die
+      Lüftung und der Brandschutz erst später erarbeitet werden und vorab das
+      Volumen, die Nutzung und die Parkplätze geklärt werden sollen).\n\n
       Das **Baugesuch mit UVP** ist zu wählen, wenn das Bauvorhaben eine
       Umweltverträglichkeitsprüfung benötigt. Eine Auflistung der pflichtigen
-      Bauten ist im Anhang zur eidgenössischen UVP-Verordnung (UVPV) abschliessend
-      festgelegt (Beispiel: Neubau eines Logistikzentrums mit einer Lagerfläche
-      von mehr als 20'000 m² oder ein Bauvorhaben das mehr als 500 Autoabstellplätze
-      beinhaltet)."
-    specialProcedure: "Spezialverfahren"
+      Bauten ist im Anhang zur eidgenössischen UVP-Verordnung (UVPV)
+      abschliessend festgelegt (Beispiel: Neubau eines Logistikzentrums mit
+      einer Lagerfläche von mehr als 20'000 m² oder ein Bauvorhaben das mehr
+      als 500 Autoabstellplätze beinhaltet)."
+
+    special-procedure:
+      title: "Spezialverfahren"
+      info: ""
 
   status:
     title: "Status"
