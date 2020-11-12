@@ -7,21 +7,6 @@ from django.conf import settings
 from django.core.management import call_command
 
 
-def sort_fixture(fixture, unordered_fields=[]):
-    fixture = sorted(fixture, key=lambda k: (k["model"], k["pk"]))
-
-    if not unordered_fields:
-        return fixture
-
-    # make lists insensitive to order
-    for entry in fixture:
-        for field in unordered_fields:
-            if field in entry["fields"]:
-                entry["fields"][field] = set(entry["fields"][field])
-
-    return fixture
-
-
 @pytest.mark.parametrize("application", settings.APPLICATIONS.keys())
 def test_dump_and_load(db, settings, application, tmpdir):
     settings.APPLICATION_DIR = settings.ROOT_DIR.path(application)
@@ -57,22 +42,7 @@ def test_dump_and_load(db, settings, application, tmpdir):
             test_filepath = os.path.join(outdir, filename)
 
             with open(test_filepath, "r") as test_dumped, open(filepath, "r") as dumped:
-                unordered_fields = (
-                    ["allow_forms", "start_tasks"]
-                    if "caluma_workflow" in filename
-                    else []
-                )
-
-                test_dumped_json = sort_fixture(
-                    json.load(test_dumped),
-                    unordered_fields,
-                )
-                dumped_json = sort_fixture(
-                    json.load(dumped),
-                    unordered_fields,
-                )
-
                 #  verify that dump is still the same
-                assert (
-                    test_dumped_json == dumped_json
+                assert json.load(test_dumped) == json.load(
+                    dumped
                 ), f"Dumped file '{filename}' does not match '{filepath}'"
