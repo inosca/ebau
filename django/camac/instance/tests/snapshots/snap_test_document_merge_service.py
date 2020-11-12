@@ -21,7 +21,8 @@ snapshots['test_document_merge_service_snapshot[1-sb1] 1'] = [
                     'PLZ',
                     'Ort',
                     'Telefon oder Mobile',
-                    'E-Mail'
+                    'E-Mail',
+                    'Hinweis Gesuchsteller/in'
                 ],
                 'label': 'Personalien - Verantwortliche Person Selbstdeklaration Baukontrolle',
                 'rows': [
@@ -102,7 +103,8 @@ snapshots['test_document_merge_service_snapshot[1-sb2] 1'] = [
                     'PLZ',
                     'Ort',
                     'Telefon oder Mobile',
-                    'E-Mail'
+                    'E-Mail',
+                    'Hinweis Gesuchsteller/in'
                 ],
                 'label': 'Personalien - Verantwortliche Person Selbstdeklaration Baukontrolle',
                 'rows': [
@@ -382,7 +384,8 @@ snapshots['test_document_merge_service_snapshot[1-baugesuch] 1'] = [
                             'PLZ',
                             'Ort',
                             'Telefon oder Mobile',
-                            'E-Mail'
+                            'E-Mail',
+                            'Hinweis Gesuchsteller/in'
                         ],
                         'label': 'Personalien - Gesuchsteller/in',
                         'rows': [
@@ -440,6 +443,12 @@ snapshots['test_document_merge_service_snapshot[1-baugesuch] 1'] = [
                                     'slug': 'e-mail-gesuchstellerin',
                                     'type': 'TextQuestion',
                                     'value': 'mm@test.ch'
+                                },
+                                {
+                                    'content': None,
+                                    'label': 'Hinweis Gesuchsteller/in',
+                                    'slug': 'hinweis-personalien',
+                                    'type': 'StaticQuestion'
                                 }
                             ]
                         ],
