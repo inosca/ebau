@@ -51,7 +51,14 @@ services:
     restart: always
 
   ember-camac-ng:
-    image: acr.run/camac-ng/camac-ng/ember-camac-ng:${CI_COMMIT_REF_SLUG}
+    image: acr.run/camac-ng/camac-ng/ember-camac-ng:${CI_COMMIT_REF_SLUG}-${APPLICATION}
+    build:
+      context: ../ember-camac-ng
+      cache_from:
+        - acr.run/camac-ng/camac-ng/ember-camac-ng:${CI_COMMIT_REF_SLUG}-${APPLICATION}
+      args:
+        - APPLICATION=${APPLICATION}
+      restart: always
 
   php:
     image: acr.run/camac-ng/camac-ng/php:${CI_COMMIT_REF_SLUG}-${APPLICATION}
