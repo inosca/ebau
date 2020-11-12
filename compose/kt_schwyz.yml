@@ -69,8 +69,8 @@ services:
       context: ../ember-camac-ng
       cache_from:
         - acr.run/camac-ng/camac-ng/ember-camac-ng:master
-    environment:
-      - APPLICATION=${APPLICATION}
+      args:
+        - APPLICATION=${APPLICATION}
 
   ember:
     build:
