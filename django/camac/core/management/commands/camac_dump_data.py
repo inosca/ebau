@@ -4,10 +4,11 @@ import os
 
 from django.apps import apps
 from django.conf import settings
-from django.core import serializers
 from django.core.management.base import BaseCommand
 
 from camac import dump_settings as config
+
+from .camac_dump_config import CamacDumpSerializer
 
 
 class Command(BaseCommand):
@@ -28,8 +29,7 @@ class Command(BaseCommand):
         )
 
     def dump(self, output_dir):
-        Serializer = serializers.get_serializer("json")
-        serializer = Serializer()
+        serializer = CamacDumpSerializer()
 
         for group_name, querysets in self.groups.items():
             filename = os.path.join(output_dir, f"{group_name}.json")
