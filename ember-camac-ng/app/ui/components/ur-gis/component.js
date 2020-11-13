@@ -288,8 +288,8 @@ export default class UrGisComponent extends Component {
     );
 
     yield this.getFeatures.perform(
-      Math.round(e.layerPoint.x),
-      Math.round(e.layerPoint.y),
+      Math.round(e.containerPoint.x),
+      Math.round(e.containerPoint.y),
       southWest.x,
       southWest.y,
       northEast.x,
