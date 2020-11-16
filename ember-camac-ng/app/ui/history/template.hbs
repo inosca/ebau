@@ -72,6 +72,11 @@
           </td>
         </tr>
       {{/each}}
+      {{#if this.newEntries.links.next}}
+        <tr {{on "click" this.loadMore}} class="pointer" role="button">
+          <td class="center" colspan="5">{{t "global.loadMore"}}</td>
+        </tr>
+      {{/if}}
     {{else}}
       <tr>
         <td class="center" colspan="5">
