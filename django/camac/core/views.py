@@ -11,7 +11,8 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework_json_api import django_filters, filters as json_api_filters, views
 
-from camac.instance.models import FormField
+from camac.caluma.api import CalumaApi
+from camac.instance.models import FormField, Instance
 from camac.user.permissions import permission_aware
 
 from . import filters, models, serializers
@@ -201,6 +202,15 @@ class PublicationEntryView(views.ModelViewSet):
         # Return 400 when a error occured at the Amtsblatt API
         if not response.ok:  # pragma: no cover
             return Response(response.text, 400)
+
+        return Response([], 204)
+
+    @action(methods=["get"], detail=False)
+    def no_publication(self, request):
+        CalumaApi().close_publication(
+            Instance.objects.get(pk=request.query_params["instance"]),
+            request.caluma_info.context.user,
+        )
 
         return Response([], 204)
 

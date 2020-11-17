@@ -5998,6 +5998,15 @@
       "required": false,
       "config": {}
     },
+    "publikation-offen": {
+      "restrict": ["municipality"],
+      "label": "Publikation offen",
+      "type": "radio",
+      "required": false,
+      "config": {
+        "options": ["Offen", "Geschlossen"]
+      }
+    },
     "grundeigentumerschaft-override": {
       "restrict": ["municipality", "service"],
       "label": "Grundeigentümerschaft:",
