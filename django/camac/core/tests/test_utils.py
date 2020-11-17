@@ -7,7 +7,9 @@ from camac.core import models, utils
 @pytest.mark.freeze_time("2020-10-16")
 @pytest.mark.parametrize(
     "question__question_id,chapter__chapter_id",
-    [(QUESTION_EBAU_NR, CHAPTER_EBAU_NR),],  # noqa: E231
+    [
+        (QUESTION_EBAU_NR, CHAPTER_EBAU_NR),
+    ],  # noqa: E231
 )
 def test_max_ebau_nr(db, camac_answer_factory, question, chapter):
     # no answer
@@ -40,7 +42,9 @@ def test_max_ebau_nr(db, camac_answer_factory, question, chapter):
 @pytest.mark.freeze_time("2020-10-16")
 @pytest.mark.parametrize(
     "question__question_id,chapter__chapter_id",
-    [(QUESTION_EBAU_NR, CHAPTER_EBAU_NR),],  # noqa: E231
+    [
+        (QUESTION_EBAU_NR, CHAPTER_EBAU_NR),
+    ],  # noqa: E231
 )
 def test_assign_ebau_nr(db, camac_answer_factory, question, chapter, instance_factory):
     inst = instance_factory()

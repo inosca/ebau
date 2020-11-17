@@ -1,15 +1,10 @@
 from pathlib import Path
 
 import pytest
-
-# from caluma.caluma_form import models as form_models
 from django.core.management import call_command
 
 from camac.constants.kt_bern import CHAPTER_EBAU_NR, QUESTION_EBAU_NR
 from camac.user.models import Service
-
-# from camac.instance.models import Instance
-
 
 data_dir = Path(__file__).resolve().parent / "rsta_data"
 
@@ -47,18 +42,7 @@ def setup_rsta(
     # group_factory(service=service, role=role)
 
 
-@pytest.mark.parametrize(
-    "filename,ebaunr",
-    [
-        # ("2020-10-12_15-14_410_1039488 bom.json", "bar"),
-        ("2020-10-12_15-15_610_1039414.json", ""),
-    ],
-)
 def test_migrate_rsta_command(
     setup_rsta,
-    filename,
-    ebaunr,
 ):
     call_command("migrate_rsta", data_dir)
-
-    # assert Instance.objects.get()
