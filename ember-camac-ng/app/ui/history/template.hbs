@@ -72,9 +72,13 @@
           </td>
         </tr>
       {{/each}}
-      {{#if this.newEntries.links.next}}
-        <tr {{on "click" this.loadMore}} class="pointer" role="button">
-          <td class="center" colspan="5">{{t "global.loadMore"}}</td>
+      {{#if this.hasNextPage}}
+        <tr>
+          <td class="center" colspan="5">
+            <a href="#" {{on "click" this.loadMore}}>
+              {{t "global.loadMore"}}
+            </a>
+          </td>
         </tr>
       {{/if}}
     {{else}}
