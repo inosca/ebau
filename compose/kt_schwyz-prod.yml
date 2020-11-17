@@ -4,6 +4,7 @@ services:
     image: nginx:1.13-alpine
     depends_on:
       - ember
+      - ember-camac-ng
       - php
       - django
       - keycloak
@@ -28,6 +29,8 @@ services:
       - cache
       - clamav
       - keycloak
+      - unoconv
+      - postfix
     restart: always
     environment:
       - DATABASE_HOST=vm-kantonsz-db-vip.cust.adfinis-sygroup.ch
