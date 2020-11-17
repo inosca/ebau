@@ -449,6 +449,21 @@ class CalumaApi:
             for document in table_answer.documents.all():
                 DocumentValidator().validate(document, user)
 
+    def close_publication(self, instance, user):
+        caluma_settings = settings.APPLICATION.get("CALUMA", {})
+        publication_slug = caluma_settings.get("PUBLICATION_TASK_SLUG", "")
+
+        work_item = caluma_workflow_models.WorkItem.objects.filter(
+            **{
+                "status": caluma_workflow_models.WorkItem.STATUS_READY,
+                "case__family__meta__camac-instance-id": instance.pk,
+                "task__slug": publication_slug,
+            }
+        ).first()
+
+        if work_item:
+            caluma_workflow_api.complete_work_item(work_item, user)
+
 
 class CamacRequest:
     """
