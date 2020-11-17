@@ -52,7 +52,6 @@ class CamacChapterFactory(DjangoModelFactory):
 
 
 class CamacAnswerFactory(DjangoModelFactory):
-    answer = None
     instance = SubFactory(InstanceFactory)
     question = SubFactory(CamacQuestionFactory)
     chapter = SubFactory(CamacChapterFactory)
