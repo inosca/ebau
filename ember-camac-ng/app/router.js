@@ -10,8 +10,8 @@ export default class Router extends EmberRouter {
 /* eslint-disable-next-line array-callback-return */
 Router.map(function () {
   this.route("organisation");
-  this.route("history", { path: "/instances/:id/history" });
-  this.route("journal", { path: "/instances/:id/journal" });
+  this.route("history", { path: "/instances/:instance_id/history" });
+  this.route("journal", { path: "/instances/:instance_id/journal" });
   this.route("work-items", function () {
     this.route(
       "instance",
