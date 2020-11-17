@@ -32,7 +32,12 @@ def assign_ebau_nr(instance: Instance, year=None) -> str:
 
     ebau_nr = generate_ebau_nr(year)
 
-    ans, _ = Answer.objects.get_or_create(
+    ans, _ = save_ebau_nr_answer(instance, ebau_nr)
+    return ans.answer
+
+
+def save_ebau_nr_answer(instance: Instance, ebau_nr: str):
+    return Answer.objects.get_or_create(
         instance=instance,
         question_id=QUESTION_EBAU_NR,
         chapter_id=CHAPTER_EBAU_NR,
@@ -40,5 +45,3 @@ def assign_ebau_nr(instance: Instance, year=None) -> str:
         item=1,
         defaults={"answer": ebau_nr},
     )
-
-    return ans.answer
