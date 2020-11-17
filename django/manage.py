@@ -7,8 +7,8 @@ import sys
 
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "camac.settings")
-    from django.core.management import execute_from_command_line
     from django.conf import settings
+    from django.core.management import execute_from_command_line
 
     run_main = os.environ.get("RUN_MAIN") or os.environ.get("WERKZEUG_RUN_MAIN")
 
