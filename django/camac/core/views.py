@@ -41,7 +41,9 @@ class PublicationEntryView(views.ModelViewSet):
         )
 
     def get_queryset_for_municipality(self):
-        return models.PublicationEntry.objects.all()
+        return models.PublicationEntry.objects.filter(
+            instance__group=self.request.group
+        )
 
     def get_queryset_for_service(self):
         return models.PublicationEntry.objects.none()
