@@ -42,7 +42,7 @@ def setup_rsta(
     # group_factory(service=service, role=role)
 
 
-def test_migrate_rsta_command(
-    setup_rsta,
-):
-    call_command("migrate_rsta", data_dir)
+# def test_migrate_rsta_command(
+#     setup_rsta,
+# ):
+#     call_command("migrate_rsta", data_dir)
