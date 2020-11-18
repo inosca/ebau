@@ -86,7 +86,6 @@ services:
       - django
       - cache
       - keycloak
-      - mailhog
     environment:
       - APPLICATION=${APPLICATION}
     volumes:
