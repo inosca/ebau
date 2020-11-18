@@ -1,8 +1,8 @@
 import Application from "@ember/application";
 import loadInitializers from "ember-load-initializers";
+import Resolver from "ember-resolver";
 
-import config from "./config/environment";
-import Resolver from "./resolver";
+import config from "ember-caluma-portal/config/environment";
 
 /* eslint-disable ember/avoid-leaking-state-in-ember-objects */
 export default class App extends Application {

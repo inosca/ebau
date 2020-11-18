@@ -169,12 +169,12 @@ export default class BeGisComponent extends Component {
   showInstructions = false;
   showConfirmation = false;
 
-  @computed("field")
+  @computed("field.document")
   get confirmField() {
     return this.field.document.findField("bestaetigung-gis");
   }
 
-  @computed("confirmField.value.[]")
+  @computed("confirmField.{hidden,value.[]}")
   get confirmFieldUnchecked() {
     return (
       !this.get("confirmField.hidden") &&
@@ -182,7 +182,7 @@ export default class BeGisComponent extends Component {
     );
   }
 
-  @computed()
+  @computed("disabled", "field.document.fields")
   get link() {
     // This try/catch block is necessary as long as we don't have a mock
     // backend for the integration tests.

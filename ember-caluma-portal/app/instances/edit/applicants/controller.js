@@ -1,8 +1,9 @@
 import Controller, { inject as controller } from "@ember/controller";
 import { reads } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
-import parseError from "ember-caluma-portal/utils/parse-error";
 import { dropTask } from "ember-concurrency-decorators";
+
+import parseError from "ember-caluma-portal/utils/parse-error";
 
 export default class InstancesEditApplicantsController extends Controller {
   @service intl;
