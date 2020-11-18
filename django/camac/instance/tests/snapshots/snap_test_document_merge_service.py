@@ -1560,6 +1560,12 @@ snapshots['test_document_merge_service_snapshot[1-baugesuch] 1'] = [
             {
                 'children': [
                     {
+                        'content': None,
+                        'label': 'Hinweis Naturgefahren',
+                        'slug': 'hinweis-naturgefahren',
+                        'type': 'StaticQuestion'
+                    },
+                    {
                         'choices': [
                             {
                                 'checked': True,
