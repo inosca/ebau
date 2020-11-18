@@ -24,7 +24,7 @@
         <tr>
           <td><LinkTo @route="audit.edit" @model={{audit.id}}>{{audit.type}}</LinkTo></td>
           <td>{{audit.createdBy.name}}</td>
-          <td>{{moment-format audit.createdAt "MM.DD.YYYY HH:mm"}}</td>
+          <td>{{moment-format audit.createdAt "DD.MM.YYYY HH:mm"}}</td>
           <td class="uk-text-right">
             {{#if (and (not this.disabled) audit.canEdit)}}
               <button
