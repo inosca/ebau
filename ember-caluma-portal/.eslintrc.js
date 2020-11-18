@@ -6,7 +6,6 @@ module.exports = {
     "ember/no-mixins": "warn",
     "ember/no-get": "warn",
   },
-
   settings: {
     "import/internal-regex": "^ember-caluma-portal/",
   },
