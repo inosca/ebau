@@ -8965,6 +8965,19 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "naturgefahren.hinweis-naturgefahren",
+    "fields": {
+      "created_at": "2020-11-12T15:55:49.270Z",
+      "modified_at": "2020-11-12T15:55:49.270Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "naturgefahren",
+      "question": "hinweis-naturgefahren",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "nfd-tabelle.nfd-tabelle-autorin",
     "fields": {
       "created_at": "2019-09-25T10:19:37.254Z",
@@ -32411,6 +32424,31 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "hindernisfreies-bauen",
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-naturgefahren",
+    "fields": {
+      "created_at": "2020-11-12T15:55:49.119Z",
+      "modified_at": "2020-11-12T16:00:18.621Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "label": "{\"de\": \"Hinweis Naturgefahren\", \"fr\": \"Hinweis Naturgefahren\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"Allgemeine Hinweise <a href=\\\"https://www.naturgefahren.sites.be.ch/naturgefahren_sites/de/index/schutzmassnahmen/schutzmassnahmen/raumplanung/bauten_in_gefahrengebieten.html\\\" target=\\\"_blank\\\">Bauen / bestehende Bauten in Gefahrengebieten</a>\", \"fr\": \"Notes g\\u00e9n\\u00e9rales <a href=\\\"https://www.naturgefahren.sites.be.ch/naturgefahren_sites/fr/index/schutzmassnahmen/schutzmassnahmen/raumplanung/bauten_in_gefahrengebieten.html\\\" target=\\\"_blank\\\">Construire / b\\u00e2timents existants dans les zones de danger</a>\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]"
     }
