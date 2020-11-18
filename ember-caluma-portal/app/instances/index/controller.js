@@ -5,11 +5,6 @@ import { reads } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
 import { isEmpty } from "@ember/utils";
 import { queryManager } from "ember-apollo-client";
-import config from "ember-caluma-portal/config/environment";
-import getCasesQuery from "ember-caluma-portal/gql/queries/get-cases";
-import getMunicipalitiesQuery from "ember-caluma-portal/gql/queries/get-municipalities";
-import getRootFormsQuery from "ember-caluma-portal/gql/queries/get-root-forms";
-import Case from "ember-caluma-portal/lib/case";
 import {
   restartableTask,
   dropTask,
@@ -17,6 +12,12 @@ import {
 } from "ember-concurrency-decorators";
 import QueryParams from "ember-parachute";
 import moment from "moment";
+
+import config from "ember-caluma-portal/config/environment";
+import getCasesQuery from "ember-caluma-portal/gql/queries/get-cases";
+import getMunicipalitiesQuery from "ember-caluma-portal/gql/queries/get-municipalities";
+import getRootFormsQuery from "ember-caluma-portal/gql/queries/get-root-forms";
+import Case from "ember-caluma-portal/lib/case";
 
 const getOrder = (order) => [
   {
@@ -233,8 +234,6 @@ export default class InstancesIndexController extends Controller.extend(
       "types",
       value.map((form) => form.slug)
     );
-
-    return value;
   }
 
   @dropTask
