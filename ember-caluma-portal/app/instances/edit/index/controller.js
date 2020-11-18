@@ -2,11 +2,12 @@ import Controller, { inject as controller } from "@ember/controller";
 import { reads } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
-import getOverviewCaseQuery from "ember-caluma-portal/gql/queries/get-overview-case";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 import UIkit from "uikit";
 
 import config from "../../../config/environment";
+
+import getOverviewCaseQuery from "ember-caluma-portal/gql/queries/get-overview-case";
 
 const findAnswer = (answers, slug) => {
   const answer = answers.find((answer) => answer.question.slug === slug);

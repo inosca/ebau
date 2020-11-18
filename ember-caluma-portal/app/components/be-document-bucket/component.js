@@ -1,9 +1,10 @@
 import { assert } from "@ember/debug";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
-import config from "ember-caluma-portal/config/environment";
 import { dropTask } from "ember-concurrency-decorators";
 import UIkit from "uikit";
+
+import config from "ember-caluma-portal/config/environment";
 
 function requiredArgument(_, name) {
   return {

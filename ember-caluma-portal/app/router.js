@@ -1,8 +1,8 @@
 import EmberRouterScroll from "ember-router-scroll";
 
-import config from "./config/environment";
+import config from "ember-caluma-portal/config/environment";
 
-class Router extends EmberRouterScroll {
+export default class Router extends EmberRouterScroll {
   location = config.locationType;
   rootURL = config.rootURL;
 }
@@ -35,5 +35,3 @@ Router.map(function () {
 
   this.route("notfound", { path: "/*path" });
 });
-
-export default Router;
