@@ -8,9 +8,6 @@ module.exports = function (defaults) {
     "ember-cli-babel": {
       includePolyfill: true,
     },
-    babel: {
-      plugins: ["@babel/plugin-proposal-object-rest-spread"],
-    },
     SRI: { enabled: false },
     emberApolloClient: {
       keepGraphqlFileExtension: false,

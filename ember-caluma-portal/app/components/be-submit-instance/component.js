@@ -3,9 +3,10 @@ import { computed } from "@ember/object";
 import { next } from "@ember/runloop";
 import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
-import InViewportComponent from "ember-caluma-portal/components/in-viewport/component";
 import { task } from "ember-concurrency";
 import { all } from "rsvp";
+
+import InViewportComponent from "ember-caluma-portal/components/in-viewport/component";
 
 export default InViewportComponent.extend({
   intl: service(),
