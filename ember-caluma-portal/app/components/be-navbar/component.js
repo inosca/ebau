@@ -14,7 +14,7 @@ const {
 
 const getInstanceParam = (route) => {
   const instance = get(route, "params.instance");
-  const parent = get(route, "parent");
+  const parent = route.parent;
 
   if (!instance) {
     if (!parent) return null;
