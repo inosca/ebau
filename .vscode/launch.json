@@ -16,6 +16,8 @@
       "request": "attach",
       "port": 5678,
       "host": "localhost",
+      "justMyCode": false,
+      "django": true,
       "pathMappings": [
         {
           "localRoot": "${workspaceFolder}/django",
