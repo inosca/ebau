@@ -48,5 +48,8 @@ omit=
     camac/core/management/commands/dumpcamacdata.py
     camac/core/management/commands/dumpconfig.py
     camac/core/management/commands/loadconfig.py
+    # one-off data migrations
+    camac/data_migration/*
+    camac/core/management/commands/migrate_rsta.py
 
 show_missing = True
