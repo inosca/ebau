@@ -1172,11 +1172,17 @@ def test_notification_template_update_purposes(admin_client, notification_templa
 
     assert notification_template.purpose == "NewPurpose"
 
+    response = admin_client.get(url)
+    assert response.status_code == status.HTTP_400_BAD_REQUEST
 
-def test_notification_template_delete_purpose(admin_client, notification_template):
-    url = reverse("notificationtemplate-delete-purpose")
+
+def test_notification_template_delete_by_purpose(admin_client, notification_template):
+    url = reverse("notificationtemplate-delete-by-purpose")
 
     admin_client.delete(url + "?purpose=" + notification_template.purpose)
 
     with pytest.raises(ObjectDoesNotExist):
         notification_template.refresh_from_db()
+
+    response = admin_client.delete(url)
+    assert response.status_code == status.HTTP_400_BAD_REQUEST
