@@ -26,7 +26,9 @@ export default class HistoryController extends Controller {
   }
 
   @action
-  loadMore() {
+  loadMore(event) {
+    event.preventDefault();
+
     this.page += 1;
     this.fetchEntries.perform();
   }
