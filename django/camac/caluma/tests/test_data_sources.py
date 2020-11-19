@@ -1,3 +1,5 @@
+from collections import namedtuple
+
 import pytest
 
 from camac.constants.kt_bern import SERVICE_GROUP_RSTA
@@ -50,6 +52,9 @@ def test_data_sources(
     )
     service_factory(pk=3, name="service3", disabled=False, service_group__pk=666)
 
-    data = test_class().get_data(None)
+    User = namedtuple("OIDCUser", "group")
+    user = User(group=service1.pk)
+
+    data = test_class().get_data(user)
 
     assert data == expected
