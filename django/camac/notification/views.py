@@ -151,10 +151,9 @@ class NotificationTemplateView(viewsets.ModelViewSet):
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
-        notifications = models.NotificationTemplate.objects.filter(
-            purpose=current_purpose
+        models.NotificationTemplate.objects.filter(purpose=current_purpose).update(
+            purpose=new_purpose
         )
-        notifications.update(purpose=new_purpose)
 
         return response.Response(status=status.HTTP_204_NO_CONTENT)
 
