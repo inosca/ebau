@@ -1,5 +1,6 @@
 babel==2.8.0
-caluma==6.6.0
+caluma==6.7.0
+dataclasses-json==0.5.2
 django==2.2.16
 django-clamd==0.4.0
 django-environ==0.4.5
