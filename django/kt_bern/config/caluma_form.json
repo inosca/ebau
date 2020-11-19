@@ -32789,7 +32789,8 @@
       "row_form": null,
       "sub_form": null,
       "source": null,
-      "format_validators": "[]"
+      "format_validators": "[]",
+      "default_answer": null
     }
   },
   {
