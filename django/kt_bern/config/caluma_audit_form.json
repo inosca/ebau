@@ -16228,7 +16228,7 @@
       "modified_at": "2020-10-14T13:05:13.232Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Anstellfl\\u00e4che f\\u00fcr Kinderwagen und Velo BauV Art. 47/2\", \"fr\": \"Places de stationnement pour voitures d'enfant ou pour bicyclettes BauV Art. 47/2\"}",
+      "label": "{\"de\": \"Abstellfl\\u00e4che f\\u00fcr Kinderwagen und Velo BauV Art. 47/2\", \"fr\": \"Places de stationnement pour voitures d'enfant ou pour bicyclettes BauV Art. 47/2\"}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
