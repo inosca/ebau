@@ -11,9 +11,10 @@ class CamacAuthenticatedGraphQLView(AuthenticationGraphQLView):
 
         request.camac_user = None
         if oidc_user is not None:
-            fake_info = namedtuple("Info", "context")
-            fake_info.context = request
-            fake_info.context.user = oidc_user
+            request.user = oidc_user
+
+            Info = namedtuple("Info", "context")
+            fake_info = Info(context=request)
 
             camac_request = CamacRequest(fake_info).request
 
