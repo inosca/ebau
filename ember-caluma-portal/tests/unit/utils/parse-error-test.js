@@ -1,6 +1,7 @@
 import AdapterError from "@ember-data/adapter/error";
-import parseError from "ember-caluma-portal/utils/parse-error";
 import { module, test } from "qunit";
+
+import parseError from "ember-caluma-portal/utils/parse-error";
 
 module("Unit | Utility | parse-error", function () {
   test("it works", function (assert) {

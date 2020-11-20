@@ -1,10 +1,11 @@
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
-import config from "ember-caluma-portal/config/environment";
 import { dropTask, restartableTask } from "ember-concurrency-decorators";
 import moment from "moment";
 import { all } from "rsvp";
+
+import config from "ember-caluma-portal/config/environment";
 
 export default class BeClaimsFormEditComponent extends Component {
   @service notification;

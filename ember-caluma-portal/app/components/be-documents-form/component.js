@@ -1,7 +1,8 @@
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
-import config from "ember-caluma-portal/config/environment";
 import { dropTask, restartableTask } from "ember-concurrency-decorators";
+
+import config from "ember-caluma-portal/config/environment";
 
 const DEFAULT_CATEGORY = "weitere-unterlagen";
 

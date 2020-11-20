@@ -34,7 +34,7 @@ export default class CustomSession extends Session {
   }
 
   @lastValue("_user") user;
-  @computed("data.authenticated.access_token")
+  @computed("data.authenticated.access_token", "fetchUser")
   get _user() {
     this.fetchUser.perform();
 
@@ -63,8 +63,6 @@ export default class CustomSession extends Session {
 
     this.intl.setLocale([value, fallbackLanguage]);
     this.moment.setLocale(value);
-
-    return value;
   }
 
   @computed("isAuthenticated", "data.authenticated", "group")
