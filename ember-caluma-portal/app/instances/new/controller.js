@@ -1,14 +1,15 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
-import config from "ember-caluma-portal/config/environment";
-import getRootFormsQuery from "ember-caluma-portal/gql/queries/get-root-forms";
 import {
   restartableTask,
   dropTask,
   lastValue,
 } from "ember-concurrency-decorators";
 import QueryParams from "ember-parachute";
+
+import config from "ember-caluma-portal/config/environment";
+import getRootFormsQuery from "ember-caluma-portal/gql/queries/get-root-forms";
 
 export default class InstancesNewController extends Controller.extend(
   new QueryParams().Mixin
