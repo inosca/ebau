@@ -44,10 +44,6 @@ omit=
     # Audit migration
     camac/core/management/commands/config/
     camac/core/management/commands/migrate_audit.py
-    # Deprecated commands
-    camac/core/management/commands/dumpcamacdata.py
-    camac/core/management/commands/dumpconfig.py
-    camac/core/management/commands/loadconfig.py
     # one-off data migrations
     camac/data_migration/*
     camac/core/management/commands/migrate_rsta.py
