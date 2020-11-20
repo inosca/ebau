@@ -192,16 +192,18 @@ instances:
   deleteInstanceError: "Das Dossier konnte nicht gelöscht werden"
   deleteInstanceSuccess: "Das Dossier wurde erfolgreich gelöscht"
   reasonForRejection: "Begründung Rückweisung"
-
   modificationTitle: "Neue Projektänderung"
   modificationText: "Hat sich an Ihrem Bauvorhaben etwas geändert? Hier
     können Sie eine Projektänderung erfassen, ohne die bestehenden Daten neu
     erfassen zu müssen."
-
   rejectionTitle: "Dossier neu einreichen"
   rejectionText: "Sie können das ursprünglich eingereichte Dossier
     entsprechend den Rückmeldungen der Leitbehörde bearbeiten und erneut
     einreichen. Für die Korrektur wird eine neue Dossiernummer erstellt."
+  extensionPeriodOfValidityTitle: "Verlängerung Geltungsdauer"
+  extensionPeriodOfValidityText: "Hier kann eine Verlängerung der Geltungsdauer beantragt werden"
+  extensionPeriodOfValidityButton: "Verlängerung der Geltungsdauer beantragen"
+  createNewExtendValidityError: "Das Dossier Verlängerung der Geltungsdauer konnte nicht erstellt werden"
 
   new:
     title: "Neues Dossier"
