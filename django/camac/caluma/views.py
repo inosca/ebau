@@ -1,6 +1,8 @@
+from collections import namedtuple
+
 from caluma.caluma_user.views import AuthenticationGraphQLView
 
-from camac.user.models import User
+from camac.caluma.api import CamacRequest
 
 
 class CamacAuthenticatedGraphQLView(AuthenticationGraphQLView):
@@ -9,8 +11,15 @@ class CamacAuthenticatedGraphQLView(AuthenticationGraphQLView):
 
         request.camac_user = None
         if oidc_user is not None:
-            request.camac_user = User.objects.filter(
-                username=oidc_user.username
-            ).first()
+            request.user = oidc_user
+
+            Info = namedtuple("Info", "context")
+            fake_info = Info(context=request)
+
+            camac_request = CamacRequest(fake_info).request
+
+            oidc_user.group = camac_request.group.service_id
+            request.camac_user = camac_request.user
+            request.user = oidc_user
 
         return oidc_user
