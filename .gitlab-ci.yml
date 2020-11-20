@@ -44,8 +44,7 @@ lint-ember-caluma-portal:
     - cd ember-caluma-portal
     - yarn
   script:
-    - yarn lint:js
-    - yarn lint:hbs
+    - yarn lint
 
 # TODO: This needs to reconfigured so it also works with kt_uri and kt_schwyz (See package.json).
 lint-php:

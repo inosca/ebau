@@ -169,7 +169,7 @@ instances:
   parcel: "N° de parcelle / de bien-fonds"
   filter: "Cherche"
   reset: "Remise à l'état initial"
-  pageInfo: "Dossiers <strong>1 - {length}</strong> de {total}"
+  pageInfo: "Dossiers '<strong'>1 - {length}'</strong'> de {total}"
   emptyTitle: "Vous n'avez pas encore de demandes!"
   emptyText: "Créez votre première demande rapidement et facilement dès maintenant. Vous pouvez le fermer à tout moment et continuer à le remplir une autre fois sans aucun problème."
   edit: "Modifier le dossier"

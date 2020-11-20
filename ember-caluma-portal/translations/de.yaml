@@ -164,7 +164,7 @@ instances:
   parcel: "Parzellennummer / Liegenschaftsnummer"
   filter: "Filtern"
   reset: "Zurücksetzen"
-  pageInfo: "Dossiers <strong>1 - {length}</strong> von {total}"
+  pageInfo: "Dossiers '<strong'>1 - {length}'</strong'> von {total}"
   emptyTitle: "Sie haben noch keine Gesuche!"
   emptyText: "Erstellen Sie jetzt schnell und bequem Ihr erstes Gesuch. Sie können es jederzeit schliessen und problemlos ein andermal weiter ausfüllen."
   edit: "Dossier bearbeiten"

@@ -14,6 +14,7 @@ export default class InstancesEditIndexRoute extends Route {
 
   redirect() {
     next(async () => {
+      // eslint-disable-next-line ember/no-controller-access-in-routes
       const controller = this.controllerFor("instances.edit");
       const instance = await controller.instanceTask.last;
 
