@@ -87,7 +87,8 @@ def mock_generate_and_store_pdf(mocker):
 @pytest.mark.parametrize("create_with_camac_form", [False, True])
 @pytest.mark.parametrize("uri_process", [False, True])
 @pytest.mark.parametrize(
-    "copy,modification", [(False, False), (True, False), (True, True)]
+    "copy,modification,extend_validity",
+    [(False, False, True), (True, False, False), (True, True, False)],
 )
 @pytest.mark.parametrize("role__name", ["Municipality"])
 def test_create_instance_caluma(
@@ -108,6 +109,7 @@ def test_create_instance_caluma(
     copy,
     modification,
     user_factory,
+    extend_validity,
 ):
     headers = {}
 
@@ -135,7 +137,7 @@ def test_create_instance_caluma(
     else:
         body = {"attributes": {"caluma-form": "main-form"}}
 
-    data = {"data": {"type": "instances", **body}}
+    data = {"data": {"type": "instances", **body}, "extend_validity_for": 1}
 
     create_resp = admin_client.post(reverse("instance-list"), data, **headers)
 
@@ -161,6 +163,41 @@ def test_create_instance_caluma(
 
     if archive:
         assert instance.instance_state.name == "old"
+
+    # questions for application extension of validity period
+    caluma_form_models.Question.objects.create(
+        slug="dossiernummer",
+        type=caluma_form_models.Question.TYPE_TEXT,
+    )
+    QuestionType.objects.create(question_type_id=1, name="Text")
+    Question.objects.create(question_id=constants.QUESTION_EBAU_NR, question_type_id=1)
+    QuestionType.objects.create(question_type_id=5, name="Radiobox")
+    Question.objects.create(
+        question_id=constants.QUESTION_EBAU_NR_EXISTS, question_type_id=5
+    )
+
+    # chapter for application extension of validity period
+    Chapter.objects.create(pk=constants.INSTANCE_STATE_EBAU_NUMMER_VERGEBEN)
+
+    if extend_validity:
+        data["data"]["attributes"].update({"extend-validity-for": str(instance_id)})
+        resp = admin_client.post(reverse("instance-list"), data, **headers)
+
+        assert resp.status_code == status.HTTP_201_CREATED, resp.content
+        new_instance_id = int(resp.json()["data"]["id"])
+        new_instance = Instance.objects.get(pk=new_instance_id)
+
+        new_case = caluma_workflow_models.Case.objects.get(
+            **{"meta__camac-instance-id": new_instance_id}
+        )
+        assert (
+            instance.pk
+            == [
+                answer
+                for answer in new_case.document.answers.all()
+                if answer.question_id == "dossiernummer"
+            ][0].value
+        )
 
     # do a second request including pk, copying the existing instance
     if copy:
@@ -346,6 +383,9 @@ def test_instance_submit(
 @pytest.mark.parametrize(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
+@pytest.mark.parametrize(
+    "is_building_police_procedure,is_extend_validity", [(True, False), (False, True)]
+)
 def test_instance_submit_state_change(
     mocker,
     admin_client,
@@ -366,6 +406,8 @@ def test_instance_submit_state_change(
     ech_mandatory_answers_einfache_vorabklaerung,
     caluma_workflow_config_be,
     notification_template,
+    is_building_police_procedure,
+    is_extend_validity,
 ):
     application_settings["NOTIFICATIONS"]["SUBMIT"] = [
         {"template_slug": notification_template.slug, "recipient_types": ["applicant"]}
@@ -374,9 +416,16 @@ def test_instance_submit_state_change(
     for slug in CALUMA_FORM_TYPES_SLUGS:
         caluma_form_models.Form.objects.create(slug=slug)
 
-    form = caluma_form_models.Form.objects.get(pk="baupolizeiliches-verfahren")
-    workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
-    workflow.slug = "building-police-procedure"
+    if is_extend_validity:
+        form = caluma_form_models.Form.objects.get(pk="verlaengerung-geltungsdauer")
+        workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
+        workflow.slug = "building-permit"
+
+    if is_building_police_procedure:
+        form = caluma_form_models.Form.objects.get(pk="baupolizeiliches-verfahren")
+        workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
+        workflow.slug = "building-police-procedure"
+
     workflow.allow_forms.add(form)
     workflow.save()
     case = workflow_api.start_case(
@@ -395,7 +444,11 @@ def test_instance_submit_state_change(
         return_value=ech_mandatory_answers_einfache_vorabklaerung,
     )
     instance_state_factory(name="subm")
-    instance_state_factory(name="in_progress_internal")
+    if is_extend_validity:
+        instance_state_factory(name="circulation_init")
+
+    if is_building_police_procedure:
+        instance_state_factory(name="in_progress_internal")
 
     mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
 
@@ -403,7 +456,11 @@ def test_instance_submit_state_change(
 
     instance.refresh_from_db()
 
-    assert instance.instance_state.name == "in_progress_internal"
+    if is_extend_validity:
+        assert instance.instance_state.name == "circulation_init"
+
+    if is_building_police_procedure:
+        assert instance.instance_state.name == "in_progress_internal"
 
 
 @pytest.mark.parametrize("role__name,instance__user", [("Canton", LazyFixture("user"))])
