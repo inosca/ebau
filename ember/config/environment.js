@@ -34,9 +34,7 @@ module.exports = function (environment) {
       // used in submit and camac-property-selector
       municipalityNames: [],
 
-      //gisHost: "map-t.geo.sz.ch/main/wsgi/mapserv_proxy", // temporarily disabled, will be needed again
-      gisHost:
-        "schwyz-geoportal.int.sig.cloud.camptocamp.com/mapserv_proxy?ogcserver=source for image/png",
+      gisHost: "map-t.geo.sz.ch/mapserv_proxy?ogcserver=source for image/png",
 
       // Form location mapping in order of definition
       // konzession-fur-wasserentnahme = Amt für Wasserbau
