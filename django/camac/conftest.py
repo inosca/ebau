@@ -101,6 +101,7 @@ CALUMA_FORM_TYPES_SLUGS = [
     "baupolizeiliches-verfahren",
     "klaerung-baubewilligungspflicht",
     "zutrittsermaechtigung",
+    "verlaengerung-geltungsdauer",
 ]
 
 

@@ -193,6 +193,22 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "allgemeine-informationen-geltungsdauer",
+    "fields": {
+      "created_at": "2020-11-06T16:24:46.958Z",
+      "modified_at": "2020-11-06T16:24:46.958Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "name": "{\"de\": \"Allgemeine Informationen (Verl\\u00e4ngerung Geltungsdauer)\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "allgemeine-informationen-vorabklaerung",
     "fields": {
       "created_at": "2019-10-08T12:04:03.308Z",
@@ -1256,6 +1272,26 @@
       "name": "{\"de\": \"Triage\", \"fr\": \"Pres\\u00e9lection\"}",
       "description": "{\"de\": null, \"fr\": null}",
       "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "verlaengerung-geltungsdauer",
+    "fields": {
+      "created_at": "2020-11-06T16:19:16.358Z",
+      "modified_at": "2020-11-09T14:39:51.179Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "name": "{\"de\": \"Verl\\u00e4ngerung Geltungsdauer\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
+      "meta": {
+        "category": "building-permit",
+        "is-creatable": true,
+        "is-main-form": true
+      },
       "is_published": true,
       "is_archived": false,
       "source": null
@@ -3943,6 +3979,123 @@
       "form": "allgemeine-angaben",
       "question": "ueberbauung-in-prozent",
       "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-informationen-geltungsdauer.begruendung-verlaengerung-geltungsdauer",
+    "fields": {
+      "created_at": "2020-11-06T16:25:51.375Z",
+      "modified_at": "2020-11-06T16:25:51.375Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "allgemeine-informationen-geltungsdauer",
+      "question": "begruendung-verlaengerung-geltungsdauer",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-informationen-geltungsdauer.beschreibung-bauvorhaben",
+    "fields": {
+      "created_at": "2020-11-06T16:28:53.924Z",
+      "modified_at": "2020-11-06T16:28:53.924Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "allgemeine-informationen-geltungsdauer",
+      "question": "beschreibung-bauvorhaben",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-informationen-geltungsdauer.dossiernummer",
+    "fields": {
+      "created_at": "2020-11-06T16:30:26.575Z",
+      "modified_at": "2020-11-06T16:30:26.575Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "allgemeine-informationen-geltungsdauer",
+      "question": "dossiernummer",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-informationen-geltungsdauer.gemeinde",
+    "fields": {
+      "created_at": "2020-11-06T16:28:02.279Z",
+      "modified_at": "2020-11-06T16:28:02.279Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "allgemeine-informationen-geltungsdauer",
+      "question": "gemeinde",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-informationen-geltungsdauer.is-paper",
+    "fields": {
+      "created_at": "2020-11-09T10:04:59.761Z",
+      "modified_at": "2020-11-09T10:04:59.762Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "allgemeine-informationen-geltungsdauer",
+      "question": "is-paper",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-informationen-geltungsdauer.nr",
+    "fields": {
+      "created_at": "2020-11-12T12:42:27.356Z",
+      "modified_at": "2020-11-12T12:42:27.356Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "allgemeine-informationen-geltungsdauer",
+      "question": "nr",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-informationen-geltungsdauer.ort-grundstueck",
+    "fields": {
+      "created_at": "2020-11-12T12:48:22.633Z",
+      "modified_at": "2020-11-12T12:48:22.633Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "allgemeine-informationen-geltungsdauer",
+      "question": "ort-grundstueck",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-informationen-geltungsdauer.parzelle",
+    "fields": {
+      "created_at": "2020-11-06T16:28:16.969Z",
+      "modified_at": "2020-11-06T16:28:16.969Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "allgemeine-informationen-geltungsdauer",
+      "question": "parzelle",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-informationen-geltungsdauer.strasse-flurname",
+    "fields": {
+      "created_at": "2020-11-12T12:42:19.776Z",
+      "modified_at": "2020-11-12T12:42:19.776Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "allgemeine-informationen-geltungsdauer",
+      "question": "strasse-flurname",
+      "sort": 8
     }
   },
   {
@@ -11110,6 +11263,45 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "verlaengerung-geltungsdauer.8-freigabequittung",
+    "fields": {
+      "created_at": "2020-11-06T16:21:13.684Z",
+      "modified_at": "2020-11-06T16:21:13.684Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "verlaengerung-geltungsdauer",
+      "question": "8-freigabequittung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "verlaengerung-geltungsdauer.allgemeine-informationen-geltungsdauer-formular",
+    "fields": {
+      "created_at": "2020-11-06T16:32:11.575Z",
+      "modified_at": "2020-11-06T16:32:11.575Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "verlaengerung-geltungsdauer",
+      "question": "allgemeine-informationen-geltungsdauer-formular",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "verlaengerung-geltungsdauer.personalien-kurz-formular",
+    "fields": {
+      "created_at": "2020-11-06T16:20:37.832Z",
+      "modified_at": "2020-11-06T16:20:37.832Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "verlaengerung-geltungsdauer",
+      "question": "personalien-kurz-formular",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "vertreterin-mit-vollmacht.e-mail-vertreterin",
     "fields": {
       "created_at": "2019-09-25T10:19:39.265Z",
@@ -17131,7 +17323,7 @@
     "pk": "is-paper-no",
     "fields": {
       "created_at": "2020-01-14T07:42:26.848Z",
-      "modified_at": "2020-10-12T08:03:52.682Z",
+      "modified_at": "2020-11-09T10:27:55.727Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
@@ -17145,7 +17337,7 @@
     "pk": "is-paper-yes",
     "fields": {
       "created_at": "2020-01-14T07:42:26.842Z",
-      "modified_at": "2020-10-12T08:03:52.677Z",
+      "modified_at": "2020-11-09T10:27:55.737Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
@@ -24059,6 +24251,32 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "allgemeine-informationen-geltungsdauer-formular",
+    "fields": {
+      "created_at": "2020-11-06T16:32:11.454Z",
+      "modified_at": "2020-11-09T12:08:56.204Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "label": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "allgemeine-informationen-geltungsdauer",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "allgemeine-informationen-vorabklaerung-form",
     "fields": {
       "created_at": "2019-10-08T12:08:59.209Z",
@@ -26199,6 +26417,35 @@
       "meta": {
         "widgetOverride": null
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "begruendung-verlaengerung-geltungsdauer",
+    "fields": {
+      "created_at": "2020-11-06T16:25:51.237Z",
+      "modified_at": "2020-11-06T16:25:51.237Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "label": "{\"de\": \"Begr\\u00fcndung Verl\\u00e4ngerung Geltungsdauer\", \"fr\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -28630,6 +28877,34 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "dokumente-vorabklaerung",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "dossiernummer",
+    "fields": {
+      "created_at": "2020-11-06T16:30:26.422Z",
+      "modified_at": "2020-11-09T13:55:50.616Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "label": "{\"de\": \"Dossiernummer\", \"fr\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "\"verlaengerung-geltungsdauer\" == form",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "be-hidden-input"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null
@@ -32834,7 +33109,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": null, \"fr\": \"\"}",
-      "static_content": "{\"de\": \"<div class=\\\"uk-alert\\\">Damit das Regierungsstatthalteramt die Zutrittserm\\u00e4chtigung bearbeiten kann,\\u00fcbergeben Sie das Dossier nach Vergabe der eBau-Nummer durch einen Wechsel der Leitbeh\\u00f6rde.</div>\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert\\\">Damit das Regierungsstatthalteramt die Zutrittserm\\u00e4chtigung bearbeiten kann, \\u00fcbergeben Sie das Dossier nach Vergabe der eBau-Nummer durch einen Wechsel der Leitbeh\\u00f6rde.</div>\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -33273,13 +33548,13 @@
     "pk": "is-paper",
     "fields": {
       "created_at": "2020-01-14T07:42:26.963Z",
-      "modified_at": "2020-10-12T08:03:52.786Z",
+      "modified_at": "2020-11-09T10:27:56Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "label": "{\"de\": \"is-paper\", \"fr\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "'migriertes-dossier' == form",
+      "is_hidden": "'verlaengerung-geltungsdauer' == form || 'migriertes-dossier' == form",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -49683,8 +49958,8 @@
     "model": "caluma_form.questionoption",
     "pk": "is-paper.is-paper-no",
     "fields": {
-      "created_at": "2020-10-12T08:03:52.792Z",
-      "modified_at": "2020-10-12T08:03:52.793Z",
+      "created_at": "2020-11-09T10:27:56.015Z",
+      "modified_at": "2020-11-09T10:27:56.015Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "question": "is-paper",
@@ -49696,8 +49971,8 @@
     "model": "caluma_form.questionoption",
     "pk": "is-paper.is-paper-yes",
     "fields": {
-      "created_at": "2020-10-12T08:03:52.797Z",
-      "modified_at": "2020-10-12T08:03:52.797Z",
+      "created_at": "2020-11-09T10:27:56.023Z",
+      "modified_at": "2020-11-09T10:27:56.023Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "question": "is-paper",

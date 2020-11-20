@@ -163,4 +163,34 @@ export default class InstancesEditIndexController extends Controller {
       this.notification.danger(this.intl.t("instances.deleteInstanceError"));
     }
   }
+
+  @dropTask
+  *createNewFormExtensionPeriodOfValidity() {
+    try {
+      const response = yield this.fetch.fetch(`/api/v1/instances`, {
+        method: "POST",
+        body: JSON.stringify({
+          data: {
+            attributes: {
+              "caluma-form": "verlaengerung-geltungsdauer",
+              "extend-validity-for": this.instance.id,
+            },
+            type: "instances",
+          },
+        }),
+      });
+
+      const {
+        data: { id: instanceId },
+      } = yield response.json();
+
+      yield this.transitionToRoute(
+        "instances.edit.form",
+        instanceId,
+        "verlaengerung-geltungsdauer"
+      );
+    } catch (error) {
+      this.notification.danger(this.intl.t("instances.createNewFormError"));
+    }
+  }
 }
