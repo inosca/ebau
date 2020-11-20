@@ -127,6 +127,15 @@
       </LinkTo>
     {{/if}}
 
+    {{#if (can "extend validity of instance" this.instance)}}
+      <h3 class="instance-overview__action-title">{{t "instances.extensionPeriodOfValidityTitle"}}</h3>
+      <p>{{t "instances.extensionPeriodOfValidityText"}}</p>
+        <UkButton
+          @label={{t "instances.extensionPeriodOfValidityButton"}}
+          @on-click={{perform this.createNewFormExtensionPeriodOfValidity}}
+        />
+    {{/if}}
+
     <h3 class="instance-overview__action-title">{{t "instances.activateFurtherPersons"}}</h3>
     <p>{{t "instances.activateFurtherPersonsText"}}</p>
     <LinkTo @route="instances.edit.applicants" class="uk-button uk-button-default">{{t "instances.managePermissions"}}</LinkTo>

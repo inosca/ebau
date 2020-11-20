@@ -104,4 +104,12 @@ export default class InstanceAbility extends Ability {
       parseInt(this.get("model.instanceState.id"))
     );
   }
+
+  @computed("model.instanceState.id")
+  get canExtendValidity() {
+    return [
+      config.ebau.instanceStates.sb1,
+      config.ebau.instanceStates.sb2,
+    ].includes(parseInt(this.get("model.instanceState.id")));
+  }
 }

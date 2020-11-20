@@ -197,16 +197,18 @@ instances:
   deleteInstanceError: "Le dossier n'a pas pu être supprimé"
   deleteInstanceSuccess: "Le dossier a été supprimé avec succès"
   reasonForRejection: "Motifs de rejet"
-
   modificationTitle: "Nouveau changement de projet"
   modificationText: "Y a-t-il eu des changements dans votre projet de
     construction ? Ici, vous pouvez modifier le projet sans avoir à saisir à
     nouveau les données existantes."
-
   rejectionTitle: "Soumettre à nouveau le dossier"
   rejectionText: "Vous pouvez traiter et soumettre à nouveau le dossier
     initialement soumis conformément au retour d'information de l'autorité
     directrice. Un nouveau numéro de dossier sera créé pour la correction."
+  extensionPeriodOfValidityTitle: "Prolongation Durée de validité"
+  extensionPeriodOfValidityText: "Une prolongation de la période de validité peut être demandée"
+  extensionPeriodOfValidityButton: "Demande de prolongation de la durée de validité"
+  createNewExtendValidityError: "Le dossier d'extension n'a pas pu être préparé"
 
   new:
     title: "Nouveau dossier"
