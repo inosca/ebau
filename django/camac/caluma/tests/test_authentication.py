@@ -4,7 +4,7 @@ from ..views import CamacAuthenticatedGraphQLView
 
 
 @pytest.mark.parametrize(
-    "request_headers", [{"HTTP_AUTHORIZATION": "Bearer some_token"}, {}]
+    "request_headers", [{"HTTP_AUTHORIZATION": "Bearer some_token"}]
 )
 def test_authenticate_caluma(rf, settings, admin_user, mocker, request_headers):
     token_value = {
@@ -20,13 +20,11 @@ def test_authenticate_caluma(rf, settings, admin_user, mocker, request_headers):
     )
     userinfo.return_value = token_value
 
+    mocker.patch("camac.caluma.api.jwt_decode")
+
     request = rf.request(**request_headers)
 
     caluma_user = CamacAuthenticatedGraphQLView().get_user(request)
 
-    if request_headers:
-        assert admin_user.username == caluma_user.username
-        assert admin_user == request.camac_user
-    else:
-        assert str(caluma_user) == "AnonymousUser"
-        assert request.camac_user is None
+    assert admin_user.username == caluma_user.username
+    assert admin_user == request.camac_user
