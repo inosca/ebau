@@ -2,8 +2,9 @@ import Component from "@ember/component";
 import { computed, action, get } from "@ember/object";
 import { alias } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
-import config from "ember-caluma-portal/config/environment";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
+
+import config from "ember-caluma-portal/config/environment";
 
 const {
   languages,
