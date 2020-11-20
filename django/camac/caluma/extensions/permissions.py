@@ -50,7 +50,7 @@ def is_addressed_to_applicant(work_item):
 
 
 def get_current_service_id(info):
-    return CamacRequest(info).request.group.service_id
+    return info.context.user.group
 
 
 class CustomPermission(BasePermission):

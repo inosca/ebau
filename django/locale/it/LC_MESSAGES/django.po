@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-02 14:36+0100\n"
+"POT-Creation-Date: 2020-11-17 09:52+0100\n"
 "PO-Revision-Date: 2020-02-28 14:55+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -23,11 +23,15 @@ msgstr ""
 msgid "Email '%(email)s' has already access to instance %(instance)s"
 msgstr ""
 
-#: camac/caluma/extensions/events.py:259
+#: camac/caluma/extensions/data_sources.py:15
+msgid "not activated"
+msgstr ""
+
+#: camac/caluma/extensions/events.py:265
 msgid "Exam skipped"
 msgstr ""
 
-#: camac/caluma/extensions/events.py:261
+#: camac/caluma/extensions/events.py:267
 msgid "Exam completed"
 msgstr ""
 
@@ -107,12 +111,12 @@ msgstr ""
 msgid "Applicant"
 msgstr ""
 
-#: camac/instance/mixins.py:285
+#: camac/instance/mixins.py:295
 #, python-format
 msgid "Not allowed to add data to instance %(instance)s"
 msgstr ""
 
-#: camac/instance/mixins.py:318
+#: camac/instance/mixins.py:328
 #, python-format
 msgid "Not allowed to add data to instance %(instance)s as coordination"
 msgstr ""
@@ -125,73 +129,73 @@ msgstr ""
 msgid "Form may not be changed."
 msgstr ""
 
-#: camac/instance/serializers.py:610
+#: camac/instance/serializers.py:616
 msgid "migrated"
 msgstr ""
 
-#: camac/instance/serializers.py:613
+#: camac/instance/serializers.py:619
 msgid "paper"
 msgstr ""
 
-#: camac/instance/serializers.py:616
+#: camac/instance/serializers.py:622
 msgid "modification"
 msgstr ""
 
-#: camac/instance/serializers.py:1003
+#: camac/instance/serializers.py:1009
 msgid "Dossier submitted"
 msgstr ""
 
-#: camac/instance/serializers.py:1062
+#: camac/instance/serializers.py:1068
 msgid "SB1 submitted"
 msgstr ""
 
-#: camac/instance/serializers.py:1093
+#: camac/instance/serializers.py:1099
 #, python-format
 msgid "%(value)s is not a valid service type - valid types are: %(expected)s"
 msgstr ""
 
-#: camac/instance/serializers.py:1107
+#: camac/instance/serializers.py:1113
 msgid "Invalid audit"
 msgstr ""
 
-#: camac/instance/serializers.py:1178
+#: camac/instance/serializers.py:1184
 #, python-format
 msgid "Changed responsible service to: %(service)s"
 msgstr ""
 
-#: camac/instance/serializers.py:1194
+#: camac/instance/serializers.py:1200
 msgid "service"
 msgstr ""
 
-#: camac/instance/serializers.py:1216
+#: camac/instance/serializers.py:1222
 #, python-format
 msgid "Responsible service did not change for instance %(instance_id)s"
 msgstr ""
 
-#: camac/instance/serializers.py:1261
+#: camac/instance/serializers.py:1267
 msgid "SB2 submitted"
 msgstr ""
 
-#: camac/instance/serializers.py:1289
+#: camac/instance/serializers.py:1295
 #, python-format
 msgid "User %(user)s does not belong to service %(service)s."
 msgstr ""
 
-#: camac/instance/serializers.py:1315
+#: camac/instance/serializers.py:1321
 msgid "No location assigned."
 msgstr ""
 
-#: camac/instance/serializers.py:1335
+#: camac/instance/serializers.py:1341
 #, python-format
 msgid "No group found for location %(name)s."
 msgstr ""
 
-#: camac/instance/serializers.py:1357
+#: camac/instance/serializers.py:1363
 #, python-format
 msgid "invalid question %(question)s."
 msgstr ""
 
-#: camac/instance/serializers.py:1364
+#: camac/instance/serializers.py:1370
 #, python-format
 msgid "%(permission)s is not allowed to edit question %(question)s."
 msgstr ""
@@ -228,7 +232,7 @@ msgstr ""
 msgid "Invalid form type %(form)s."
 msgstr ""
 
-#: camac/notification/serializers.py:828
+#: camac/notification/serializers.py:843
 #, python-format
 msgid "Notification sent to %(receiver)s (%(subject)s)"
 msgstr ""
