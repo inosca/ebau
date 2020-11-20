@@ -43,7 +43,10 @@ export default class InstanceAbility extends Ability {
 
   @not("session.isInternal") canReadFeedback;
 
-  @computed("session.{isInternal,user.id}", "model.applicants.@each.invitee")
+  @computed(
+    "model.{applicants.@each.invitee,involvedApplicants.[]}",
+    "session.{isInternal,user.id}"
+  )
   get canManageApplicants() {
     return (
       !this.session.isInternal &&
@@ -69,7 +72,7 @@ export default class InstanceAbility extends Ability {
       .includes("write");
   }
 
-  @computed("model.instanceState.id")
+  @computed("model.{calumaForm,instanceState.id}")
   get canCreateModification() {
     const state = parseInt(this.get("model.instanceState.id"));
     const form = this.get("model.calumaForm");

@@ -2,9 +2,10 @@ import Controller, { inject as controller } from "@ember/controller";
 import { reads } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
-import getInstanceCaseQuery from "ember-caluma-portal/gql/queries/get-instance-case";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 import QueryParams from "ember-parachute";
+
+import getInstanceCaseQuery from "ember-caluma-portal/gql/queries/get-instance-case";
 
 const queryParams = new QueryParams({
   displayedForm: {
