@@ -1,1 +1,68 @@
-[]
+[
+  {
+    "model": "applicants.applicant",
+    "pk": 1,
+    "fields": {
+      "instance": 1,
+      "user": 1,
+      "invitee": 1,
+      "created": "2020-11-23T13:23:00.617Z",
+      "email": "admin-camac@example.net"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 2,
+    "fields": {
+      "instance": 1,
+      "user": 1,
+      "invitee": null,
+      "created": "2020-11-23T13:34:42.028Z",
+      "email": "test@test.test"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 3,
+    "fields": {
+      "instance": 2,
+      "user": 1,
+      "invitee": 1,
+      "created": "2020-11-23T13:36:44.444Z",
+      "email": "admin-camac@example.net"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 4,
+    "fields": {
+      "instance": 3,
+      "user": 1,
+      "invitee": 1,
+      "created": "2020-11-23T13:42:08.441Z",
+      "email": "admin-camac@example.net"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 5,
+    "fields": {
+      "instance": 4,
+      "user": 1,
+      "invitee": 1,
+      "created": "2020-11-23T13:56:48.520Z",
+      "email": "admin-camac@example.net"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 6,
+    "fields": {
+      "instance": 5,
+      "user": 1,
+      "invitee": 1,
+      "created": "2020-11-23T14:04:12.835Z",
+      "email": "admin-camac@example.net"
+    }
+  }
+]
