@@ -111,12 +111,12 @@ class Import:
 
         self.service = Service.objects.get(pk=self.geschaeft.Mandant.service)
         self.group = self.service.groups.filter(
-            role__trans__name="Leitung Leitbehörde"
+            trans__name__startswith="Leitung Regierungsstatthalteramt"
         ).first()
 
         self.caluma_user = CalumaMigrationUser()
         self.caluma_user.username = user.username
-        self.caluma_user.group = self.group.pk
+        self.caluma_user.group = self.group.service_id
 
         instance_state = InstanceState.objects.get(
             name=self.geschaeft.instance_state_name
