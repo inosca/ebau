@@ -1,6 +1,6 @@
 import inspect
 import logging
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 import pytest
 from caluma.caluma_core.faker import MultilangProvider
@@ -109,6 +109,7 @@ CALUMA_FORM_TYPES_SLUGS = [
 class FakeRequest:
     group: Group
     user: User
+    query_params: dict = field(default_factory=dict)
 
 
 @pytest.fixture
