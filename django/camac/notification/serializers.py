@@ -424,6 +424,9 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
         return ret
 
+    class Meta:
+        resource_name = "instance-merges"
+
 
 class IssueMergeSerializer(serializers.Serializer):
     deadline_date = serializers.DateField()

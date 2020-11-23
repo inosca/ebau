@@ -10,7 +10,7 @@ from camac.user.models import Group, Service
 
 class CurrentUserDefault(CurrentUserDefault):
     def __call__(self, serializer_field=None):
-        if serializer_field:
+        if serializer_field and "request" in serializer_field.context:
             return serializer_field.context["request"].user
 
     def set_context(self, serializer_field):
