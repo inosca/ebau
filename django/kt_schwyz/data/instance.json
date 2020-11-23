@@ -3,202 +3,477 @@
     "model": "instance.instance",
     "pk": 1,
     "fields": {
-      "instance_state": 5,
-      "form": 1,
+      "instance_state": 6,
+      "form": 18,
       "user": 1,
       "group": 3,
-      "creation_date": "2018-04-17T07:31:56.609Z",
-      "modification_date": "2019-04-17T14:12:53.155Z",
-      "previous_instance_state": 7,
-      "identifier": "72-19-001",
+      "creation_date": "2020-11-23T13:23:00.600Z",
+      "modification_date": "2020-11-23T14:15:07Z",
+      "previous_instance_state": 5,
+      "identifier": "72-20-001",
       "location": 26
     }
   },
   {
     "model": "instance.instance",
     "pk": 2,
-    "fields": {
-      "instance_state": 1,
-      "form": 1,
-      "user": 1,
-      "group": 4,
-      "creation_date": "2018-04-17T08:41:53.641Z",
-      "modification_date": "2018-04-17T08:41:53.641Z",
-      "previous_instance_state": 1,
-      "identifier": null,
-      "location": null
-    }
-  },
-  {
-    "model": "instance.instance",
-    "pk": 3,
-    "fields": {
-      "instance_state": 5,
-      "form": 1,
-      "user": 3,
-      "group": 4,
-      "creation_date": "2018-04-17T08:51:51.022Z",
-      "modification_date": "2018-04-17T15:21:25Z",
-      "previous_instance_state": 3,
-      "identifier": "72-18-001",
-      "location": 26
-    }
-  },
-  {
-    "model": "instance.instance",
-    "pk": 4,
-    "fields": {
-      "instance_state": 1,
-      "form": 1,
-      "user": 1,
-      "group": 4,
-      "creation_date": "2019-04-30T17:28:41.561Z",
-      "modification_date": "2019-04-30T17:29:48.449Z",
-      "previous_instance_state": 1,
-      "identifier": null,
-      "location": 2
-    }
-  },
-  {
-    "model": "instance.instance",
-    "pk": 5,
-    "fields": {
-      "instance_state": 1,
-      "form": 1,
-      "user": 1,
-      "group": 4,
-      "creation_date": "2019-04-30T17:37:36.118Z",
-      "modification_date": "2019-04-30T17:38:44.115Z",
-      "previous_instance_state": 1,
-      "identifier": null,
-      "location": 26
-    }
-  },
-  {
-    "model": "instance.instance",
-    "pk": 6,
     "fields": {
       "instance_state": 2,
-      "form": 4,
-      "user": 3,
-      "group": 9,
-      "creation_date": "2019-05-01T08:35:16.473Z",
-      "modification_date": "2019-05-01T08:37:48.131Z",
-      "previous_instance_state": 1,
-      "identifier": "01-19-001",
-      "location": 30
-    }
-  },
-  {
-    "model": "instance.instance",
-    "pk": 7,
-    "fields": {
-      "instance_state": 5,
-      "form": 4,
+      "form": 18,
       "user": 1,
       "group": 3,
-      "creation_date": "2019-05-02T14:22:20.393Z",
-      "modification_date": "2019-05-02T15:09:56Z",
-      "previous_instance_state": 3,
-      "identifier": "72-19-002",
+      "creation_date": "2020-11-23T13:36:44.439Z",
+      "modification_date": "2020-11-23T13:40:26.708Z",
+      "previous_instance_state": 1,
+      "identifier": "72-20-002",
       "location": 26
     }
   },
   {
     "model": "instance.instance",
-    "pk": 8,
+    "pk": 3,
     "fields": {
       "instance_state": 3,
-      "form": 4,
+      "form": 18,
       "user": 1,
       "group": 3,
-      "creation_date": "2019-05-24T09:03:41.052Z",
-      "modification_date": "2019-05-28T11:43:16Z",
+      "creation_date": "2020-11-23T13:42:08.434Z",
+      "modification_date": "2020-11-23T14:12:51Z",
       "previous_instance_state": 2,
-      "identifier": "72-19-003",
+      "identifier": "72-20-003",
       "location": 26
     }
   },
   {
     "model": "instance.instance",
+    "pk": 4,
+    "fields": {
+      "instance_state": 5,
+      "form": 18,
+      "user": 1,
+      "group": 3,
+      "creation_date": "2020-11-23T13:56:48.516Z",
+      "modification_date": "2020-11-23T14:20:55Z",
+      "previous_instance_state": 3,
+      "identifier": "72-20-004",
+      "location": 26
+    }
+  },
+  {
+    "model": "instance.instance",
+    "pk": 5,
+    "fields": {
+      "instance_state": 1,
+      "form": 18,
+      "user": 1,
+      "group": 4,
+      "creation_date": "2020-11-23T14:04:12.826Z",
+      "modification_date": "2020-11-23T14:05:08.122Z",
+      "previous_instance_state": 1,
+      "identifier": null,
+      "location": 26
+    }
+  },
+  {
+    "model": "instance.historyentry",
+    "pk": 1,
+    "fields": {
+      "instance": 1,
+      "service": null,
+      "user": 1,
+      "created_at": "2020-11-23T13:34:42.342Z",
+      "title": "Notifikation gesendet an test@test.test ([eBau Test]: Sie wurden Eingeladen ein Baugesuch mitzubearbeiten)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nSie wurden eingeladen am Baugesuch http://caluma-portal.local/instances/1 mitzuarbeiten.\n\nUm das Baugesuch einsehen und bearbeiten zu k\u00f6nnen, ist eine Registration auf dem eBau Portal des Kanton Schwyz erforderlich.\nUnter folgendem Link k\u00f6nnen Sie sich registrieren: http://camac-ng-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac",
+      "history_type": "notification"
+    }
+  },
+  {
+    "model": "instance.historyentry",
+    "pk": 2,
+    "fields": {
+      "instance": 1,
+      "service": null,
+      "user": 1,
+      "created_at": "2020-11-23T13:36:29.016Z",
+      "title": "Notifikation gesendet an bauverwaltung@gemeindeschwyz.ch ([eBau Test]: Gesuch 72-20-001: neues Gesuch oder Aktion in laufendem Gesuch)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachtr\u00e4glich Unterlagen hochgeladen (72-20-001, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
+      "history_type": "notification"
+    }
+  },
+  {
+    "model": "instance.historyentry",
+    "pk": 3,
+    "fields": {
+      "instance": 2,
+      "service": null,
+      "user": 1,
+      "created_at": "2020-11-23T13:40:27.004Z",
+      "title": "Notifikation gesendet an bauverwaltung@gemeindeschwyz.ch ([eBau Test]: Gesuch 72-20-002: neues Gesuch oder Aktion in laufendem Gesuch)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachtr\u00e4glich Unterlagen hochgeladen (72-20-002, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
+      "history_type": "notification"
+    }
+  },
+  {
+    "model": "instance.historyentry",
+    "pk": 4,
+    "fields": {
+      "instance": 3,
+      "service": null,
+      "user": 1,
+      "created_at": "2020-11-23T13:47:46.299Z",
+      "title": "Notifikation gesendet an bauverwaltung@gemeindeschwyz.ch ([eBau Test]: Gesuch 72-20-003: neues Gesuch oder Aktion in laufendem Gesuch)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachtr\u00e4glich Unterlagen hochgeladen (72-20-003, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
+      "history_type": "notification"
+    }
+  },
+  {
+    "model": "instance.historyentry",
+    "pk": 5,
+    "fields": {
+      "instance": 4,
+      "service": null,
+      "user": 1,
+      "created_at": "2020-11-23T14:02:38.408Z",
+      "title": "Notifikation gesendet an bauverwaltung@gemeindeschwyz.ch ([eBau Test]: Gesuch 72-20-004: neues Gesuch oder Aktion in laufendem Gesuch)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachtr\u00e4glich Unterlagen hochgeladen (72-20-004, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
+      "history_type": "notification"
+    }
+  },
+  {
+    "model": "instance.historyentry",
+    "pk": 6,
+    "fields": {
+      "instance": 1,
+      "service": null,
+      "user": 1,
+      "created_at": "2020-11-23T14:11:54.146Z",
+      "title": "Notifikation gesendet an admin-camac@example.net ([eBau Test]: Gesuch 72-20-001: Bewilligungsprozess gestartet)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nIhr Gesuch (72-20-001, Schwyz) wurde formell gepr\u00fcft und wird nun der materiellen Beurteilung zugef\u00fchrt.",
+      "history_type": "notification"
+    }
+  },
+  {
+    "model": "instance.historyentry",
+    "pk": 7,
+    "fields": {
+      "instance": 1,
+      "service": null,
+      "user": 1,
+      "created_at": "2020-11-23T14:11:54.515Z",
+      "title": "Dossier angenommen",
+      "body": "",
+      "history_type": "status-change"
+    }
+  },
+  {
+    "model": "instance.historyentry",
+    "pk": 8,
+    "fields": {
+      "instance": 3,
+      "service": null,
+      "user": 1,
+      "created_at": "2020-11-23T14:12:51.619Z",
+      "title": "Notifikation gesendet an admin-camac@example.net ([eBau Test]: Gesuch 72-20-003: Bewilligungsprozess gestartet)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nIhr Gesuch (72-20-003, Schwyz) wurde formell gepr\u00fcft und wird nun der materiellen Beurteilung zugef\u00fchrt.",
+      "history_type": "notification"
+    }
+  },
+  {
+    "model": "instance.historyentry",
     "pk": 9,
     "fields": {
-      "instance_state": 1,
-      "form": 4,
+      "instance": 3,
+      "service": null,
       "user": 1,
-      "group": 4,
-      "creation_date": "2019-05-24T12:38:30.124Z",
-      "modification_date": "2019-05-24T12:38:30.124Z",
-      "previous_instance_state": 1,
-      "identifier": null,
-      "location": null
+      "created_at": "2020-11-23T14:12:51.728Z",
+      "title": "Dossier angenommen",
+      "body": "",
+      "history_type": "status-change"
     }
   },
   {
-    "model": "instance.instance",
+    "model": "instance.historyentry",
     "pk": 10,
     "fields": {
-      "instance_state": 1,
-      "form": 4,
+      "instance": 4,
+      "service": null,
       "user": 1,
-      "group": 4,
-      "creation_date": "2019-05-24T12:38:44.808Z",
-      "modification_date": "2019-05-24T12:38:44.808Z",
-      "previous_instance_state": 1,
-      "identifier": null,
-      "location": null
+      "created_at": "2020-11-23T14:13:27.061Z",
+      "title": "Notifikation gesendet an admin-camac@example.net ([eBau Test]: Gesuch 72-20-004: Bewilligungsprozess gestartet)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nIhr Gesuch (72-20-004, Schwyz) wurde formell gepr\u00fcft und wird nun der materiellen Beurteilung zugef\u00fchrt.",
+      "history_type": "notification"
     }
   },
   {
-    "model": "instance.instance",
+    "model": "instance.historyentry",
     "pk": 11,
     "fields": {
-      "instance_state": 1,
-      "form": 4,
+      "instance": 4,
+      "service": null,
       "user": 1,
-      "group": 4,
-      "creation_date": "2019-05-24T12:38:52.977Z",
-      "modification_date": "2019-05-24T12:38:52.977Z",
-      "previous_instance_state": 1,
-      "identifier": null,
-      "location": null
+      "created_at": "2020-11-23T14:13:27.135Z",
+      "title": "Dossier angenommen",
+      "body": "",
+      "history_type": "status-change"
     }
   },
   {
-    "model": "instance.instance",
+    "model": "instance.historyentry",
     "pk": 12,
     "fields": {
-      "instance_state": 6,
-      "form": 4,
+      "instance": 1,
+      "service": null,
       "user": 1,
-      "group": 3,
-      "creation_date": "2019-05-24T12:57:42.788Z",
-      "modification_date": "2019-05-24T13:45:58Z",
-      "previous_instance_state": 5,
-      "identifier": "72-19-004",
-      "location": 26
+      "created_at": "2020-11-23T14:14:51.148Z",
+      "title": "Zirkulation gestartet",
+      "body": "",
+      "history_type": "status-change"
     }
   },
   {
-    "model": "instance.instanceresponsibility",
-    "pk": 1,
+    "model": "instance.historyentry",
+    "pk": 13,
     "fields": {
       "instance": 1,
-      "service": 6,
-      "user": 1
+      "service": null,
+      "user": 1,
+      "created_at": "2020-11-23T14:15:08.042Z",
+      "title": "Zirkulationsentscheid gestartet",
+      "body": "",
+      "history_type": "status-change"
     }
   },
   {
-    "model": "instance.issue",
+    "model": "instance.historyentry",
+    "pk": 14,
+    "fields": {
+      "instance": 4,
+      "service": null,
+      "user": 1,
+      "created_at": "2020-11-23T14:20:57.447Z",
+      "title": "Zirkulation gestartet",
+      "body": "",
+      "history_type": "status-change"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
     "pk": 1,
     "fields": {
-      "instance": 1,
-      "group": 3,
-      "service": 6,
-      "user": 1,
-      "deadline_date": "2019-05-15",
-      "state": "open",
-      "text": "foobar"
+      "title": "Notifikation gesendet an test@test.test ([eBau Test]: Sie wurden Eingeladen ein Baugesuch mitzubearbeiten)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nSie wurden eingeladen am Baugesuch http://caluma-portal.local/instances/1 mitzuarbeiten.\n\nUm das Baugesuch einsehen und bearbeiten zu k\u00f6nnen, ist eine Registration auf dem eBau Portal des Kanton Schwyz erforderlich.\nUnter folgendem Link k\u00f6nnen Sie sich registrieren: http://camac-ng-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac",
+      "history_entry": 1,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 2,
+    "fields": {
+      "title": "Notification envoy\u00e9e \u00e0 test@test.test ([eBau Test]: Sie wurden Eingeladen ein Baugesuch mitzubearbeiten)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nSie wurden eingeladen am Baugesuch http://caluma-portal.local/instances/1 mitzuarbeiten.\n\nUm das Baugesuch einsehen und bearbeiten zu k\u00f6nnen, ist eine Registration auf dem eBau Portal des Kanton Schwyz erforderlich.\nUnter folgendem Link k\u00f6nnen Sie sich registrieren: http://camac-ng-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac",
+      "history_entry": 1,
+      "language": "fr"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 3,
+    "fields": {
+      "title": "Notifikation gesendet an bauverwaltung@gemeindeschwyz.ch ([eBau Test]: Gesuch 72-20-001: neues Gesuch oder Aktion in laufendem Gesuch)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachtr\u00e4glich Unterlagen hochgeladen (72-20-001, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
+      "history_entry": 2,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 4,
+    "fields": {
+      "title": "Notification envoy\u00e9e \u00e0 bauverwaltung@gemeindeschwyz.ch ([eBau Test]: Gesuch 72-20-001: neues Gesuch oder Aktion in laufendem Gesuch)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachtr\u00e4glich Unterlagen hochgeladen (72-20-001, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
+      "history_entry": 2,
+      "language": "fr"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 5,
+    "fields": {
+      "title": "Notifikation gesendet an bauverwaltung@gemeindeschwyz.ch ([eBau Test]: Gesuch 72-20-002: neues Gesuch oder Aktion in laufendem Gesuch)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachtr\u00e4glich Unterlagen hochgeladen (72-20-002, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
+      "history_entry": 3,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 6,
+    "fields": {
+      "title": "Notification envoy\u00e9e \u00e0 bauverwaltung@gemeindeschwyz.ch ([eBau Test]: Gesuch 72-20-002: neues Gesuch oder Aktion in laufendem Gesuch)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachtr\u00e4glich Unterlagen hochgeladen (72-20-002, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
+      "history_entry": 3,
+      "language": "fr"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 7,
+    "fields": {
+      "title": "Notifikation gesendet an bauverwaltung@gemeindeschwyz.ch ([eBau Test]: Gesuch 72-20-003: neues Gesuch oder Aktion in laufendem Gesuch)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachtr\u00e4glich Unterlagen hochgeladen (72-20-003, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
+      "history_entry": 4,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 8,
+    "fields": {
+      "title": "Notification envoy\u00e9e \u00e0 bauverwaltung@gemeindeschwyz.ch ([eBau Test]: Gesuch 72-20-003: neues Gesuch oder Aktion in laufendem Gesuch)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachtr\u00e4glich Unterlagen hochgeladen (72-20-003, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
+      "history_entry": 4,
+      "language": "fr"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 9,
+    "fields": {
+      "title": "Notifikation gesendet an bauverwaltung@gemeindeschwyz.ch ([eBau Test]: Gesuch 72-20-004: neues Gesuch oder Aktion in laufendem Gesuch)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachtr\u00e4glich Unterlagen hochgeladen (72-20-004, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
+      "history_entry": 5,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 10,
+    "fields": {
+      "title": "Notification envoy\u00e9e \u00e0 bauverwaltung@gemeindeschwyz.ch ([eBau Test]: Gesuch 72-20-004: neues Gesuch oder Aktion in laufendem Gesuch)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachtr\u00e4glich Unterlagen hochgeladen (72-20-004, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
+      "history_entry": 5,
+      "language": "fr"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 11,
+    "fields": {
+      "title": "Notifikation gesendet an admin-camac@example.net ([eBau Test]: Gesuch 72-20-001: Bewilligungsprozess gestartet)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nIhr Gesuch (72-20-001, Schwyz) wurde formell gepr\u00fcft und wird nun der materiellen Beurteilung zugef\u00fchrt.",
+      "history_entry": 6,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 12,
+    "fields": {
+      "title": "Notification envoy\u00e9e \u00e0 admin-camac@example.net ([eBau Test]: Gesuch 72-20-001: Bewilligungsprozess gestartet)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nIhr Gesuch (72-20-001, Schwyz) wurde formell gepr\u00fcft und wird nun der materiellen Beurteilung zugef\u00fchrt.",
+      "history_entry": 6,
+      "language": "fr"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 13,
+    "fields": {
+      "title": "Dossier angenommen",
+      "body": "",
+      "history_entry": 7,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 14,
+    "fields": {
+      "title": "Notifikation gesendet an admin-camac@example.net ([eBau Test]: Gesuch 72-20-003: Bewilligungsprozess gestartet)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nIhr Gesuch (72-20-003, Schwyz) wurde formell gepr\u00fcft und wird nun der materiellen Beurteilung zugef\u00fchrt.",
+      "history_entry": 8,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 15,
+    "fields": {
+      "title": "Notification envoy\u00e9e \u00e0 admin-camac@example.net ([eBau Test]: Gesuch 72-20-003: Bewilligungsprozess gestartet)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nIhr Gesuch (72-20-003, Schwyz) wurde formell gepr\u00fcft und wird nun der materiellen Beurteilung zugef\u00fchrt.",
+      "history_entry": 8,
+      "language": "fr"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 16,
+    "fields": {
+      "title": "Dossier angenommen",
+      "body": "",
+      "history_entry": 9,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 17,
+    "fields": {
+      "title": "Notifikation gesendet an admin-camac@example.net ([eBau Test]: Gesuch 72-20-004: Bewilligungsprozess gestartet)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nIhr Gesuch (72-20-004, Schwyz) wurde formell gepr\u00fcft und wird nun der materiellen Beurteilung zugef\u00fchrt.",
+      "history_entry": 10,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 18,
+    "fields": {
+      "title": "Notification envoy\u00e9e \u00e0 admin-camac@example.net ([eBau Test]: Gesuch 72-20-004: Bewilligungsprozess gestartet)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nIhr Gesuch (72-20-004, Schwyz) wurde formell gepr\u00fcft und wird nun der materiellen Beurteilung zugef\u00fchrt.",
+      "history_entry": 10,
+      "language": "fr"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 19,
+    "fields": {
+      "title": "Dossier angenommen",
+      "body": "",
+      "history_entry": 11,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 20,
+    "fields": {
+      "title": "Zirkulation gestartet",
+      "body": "",
+      "history_entry": 12,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 21,
+    "fields": {
+      "title": "Zirkulationsentscheid gestartet",
+      "body": "",
+      "history_entry": 13,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 22,
+    "fields": {
+      "title": "Zirkulation gestartet",
+      "body": "",
+      "history_entry": 14,
+      "language": "de"
     }
   },
   {
@@ -206,18 +481,8 @@
     "pk": 1,
     "fields": {
       "instance": 1,
-      "name": "grundeigentumerschaft",
-      "value": [
-        {
-          "ort": "3360",
-          "plz": 8798,
-          "name": "Test",
-          "uuid": "15c22007-a3de-4507-8506-829d6ab0b65f",
-          "anrede": "Herr",
-          "strasse": "Test",
-          "vorname": "asdf"
-        }
-      ]
+      "name": "bezeichnung",
+      "value": "Haus am See"
     }
   },
   {
@@ -225,16 +490,12 @@
     "pk": 2,
     "fields": {
       "instance": 1,
-      "name": "bauherrschaft",
+      "name": "parzellen",
       "value": [
         {
-          "ort": "fasd",
-          "plz": 7894,
-          "name": "fsd",
-          "uuid": "c0b4efb6-ac41-4a96-9f2b-13ebb32a7a84",
-          "anrede": "Herr",
-          "strasse": "fasd",
-          "vorname": "asdf"
+          "egrid": "CH967722407039",
+          "number": 430,
+          "municipality": "Schwyz"
         }
       ]
     }
@@ -244,17 +505,14 @@
     "pk": 3,
     "fields": {
       "instance": 1,
-      "name": "projektverfasser-planer",
+      "name": "punkte",
       "value": [
-        {
-          "ort": "fsd",
-          "plz": 7894,
-          "name": "fds",
-          "uuid": "40360f19-7427-4f7d-bb34-0d0a4090fe19",
-          "anrede": "Herr",
-          "strasse": "fsd",
-          "vorname": "asdf"
-        }
+        [
+          {
+            "lat": 47.03185841071765,
+            "lng": 8.622585392467867
+          }
+        ]
       ]
     }
   },
@@ -262,16 +520,29 @@
     "model": "instance.formfield",
     "pk": 4,
     "fields": {
-      "instance": 3,
-      "name": "parzelle",
-      "value": 1512
+      "instance": 1,
+      "name": "layer",
+      "value": [
+        {
+          "name": "ms:ch.sz.a005.nutzungsplanung.grundnutzung"
+        },
+        {
+          "name": "ms:ch.sz.a012.naturgefahrenkarte.synoptisch"
+        },
+        {
+          "name": "ms:ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon"
+        },
+        {
+          "name": "ms:ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon_oereb"
+        }
+      ]
     }
   },
   {
     "model": "instance.formfield",
     "pk": 5,
     "fields": {
-      "instance": 3,
+      "instance": 1,
       "name": "kategorie-des-vorhabens",
       "value": ["Baute(n)"]
     }
@@ -280,44 +551,44 @@
     "model": "instance.formfield",
     "pk": 6,
     "fields": {
-      "instance": 3,
+      "instance": 1,
       "name": "art-der-nutzung",
-      "value": ["Wohnen"]
+      "value": ["Wohnen", "Industrie", "\u00d6ffentliche Nutzung"]
     }
   },
   {
     "model": "instance.formfield",
     "pk": 7,
     "fields": {
-      "instance": 3,
+      "instance": 1,
       "name": "vorhaben-mit-baute",
-      "value": ["Neubau"]
+      "value": ["Neubau", "Nutzungs\u00e4nderung"]
     }
   },
   {
     "model": "instance.formfield",
     "pk": 8,
     "fields": {
-      "instance": 3,
-      "name": "tangiert-vorhaben-strasse",
-      "value": "Nein"
+      "instance": 1,
+      "name": "vorhaben-mit-baute-bisherige-nutzung",
+      "value": "Stall"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 9,
     "fields": {
-      "instance": 3,
-      "name": "pfahlfundation-vorgesehen",
-      "value": "Nein"
+      "instance": 1,
+      "name": "vorhaben-mit-baute-geplante-nutzung",
+      "value": "Wassermacher"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 10,
     "fields": {
-      "instance": 3,
-      "name": "baugrubenumschliessung-vorgesehen",
+      "instance": 1,
+      "name": "ordendliche-mindestabstande",
       "value": "Nein"
     }
   },
@@ -325,8 +596,8 @@
     "model": "instance.formfield",
     "pk": 11,
     "fields": {
-      "instance": 3,
-      "name": "temporare-grundwasserabsenkung-notig",
+      "instance": 1,
+      "name": "tangiert-vorhaben-strasse",
       "value": "Nein"
     }
   },
@@ -334,7 +605,7 @@
     "model": "instance.formfield",
     "pk": 12,
     "fields": {
-      "instance": 3,
+      "instance": 1,
       "name": "anlagen-mit-erheblichen-schadstoffemissionen",
       "value": "Nein"
     }
@@ -343,7 +614,7 @@
     "model": "instance.formfield",
     "pk": 13,
     "fields": {
-      "instance": 3,
+      "instance": 1,
       "name": "anlagen-mit-erheblichen-strahlungsemissionen",
       "value": "Nein"
     }
@@ -352,7 +623,7 @@
     "model": "instance.formfield",
     "pk": 14,
     "fields": {
-      "instance": 3,
+      "instance": 1,
       "name": "anlagen-mit-erheblichen-larmemissionen",
       "value": "Nein"
     }
@@ -361,7 +632,7 @@
     "model": "instance.formfield",
     "pk": 15,
     "fields": {
-      "instance": 3,
+      "instance": 1,
       "name": "larmbelastetes-gebiet",
       "value": "Nein"
     }
@@ -370,7 +641,7 @@
     "model": "instance.formfield",
     "pk": 16,
     "fields": {
-      "instance": 3,
+      "instance": 1,
       "name": "aussenbeleuchtung",
       "value": "Ja"
     }
@@ -379,17 +650,17 @@
     "model": "instance.formfield",
     "pk": 17,
     "fields": {
-      "instance": 3,
-      "name": "wassergefahrdende-stoffe",
-      "value": "Nein"
+      "instance": 1,
+      "name": "boden-5000m2",
+      "value": "Ja"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 18,
     "fields": {
-      "instance": 3,
-      "name": "brandschutztechnisch-gefahrliche-stoffe",
+      "instance": 1,
+      "name": "bodenbelastungen",
       "value": "Nein"
     }
   },
@@ -397,17 +668,17 @@
     "model": "instance.formfield",
     "pk": 19,
     "fields": {
-      "instance": 3,
-      "name": "bodenbelastungen",
-      "value": "Nein"
+      "instance": 1,
+      "name": "lebensmittel-umgehen",
+      "value": "Ja"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 20,
     "fields": {
-      "instance": 3,
-      "name": "boden-5000m2",
+      "instance": 1,
+      "name": "trinkwasser-abgeben",
       "value": "Nein"
     }
   },
@@ -415,8 +686,8 @@
     "model": "instance.formfield",
     "pk": 21,
     "fields": {
-      "instance": 3,
-      "name": "ordendliche-mindestabstande",
+      "instance": 1,
+      "name": "offentlich-duschanlage-oder-bad",
       "value": "Nein"
     }
   },
@@ -424,8 +695,8 @@
     "model": "instance.formfield",
     "pk": 22,
     "fields": {
-      "instance": 3,
-      "name": "auswirkungen-auf-arbeitnehmer",
+      "instance": 1,
+      "name": "brandschutztechnisch-gefahrliche-stoffe",
       "value": "Nein"
     }
   },
@@ -433,8 +704,8 @@
     "model": "instance.formfield",
     "pk": 23,
     "fields": {
-      "instance": 3,
-      "name": "200m3-bauabfalle",
+      "instance": 1,
+      "name": "wassergefahrdende-stoffe",
       "value": "Nein"
     }
   },
@@ -442,8 +713,8 @@
     "model": "instance.formfield",
     "pk": 24,
     "fields": {
-      "instance": 3,
-      "name": "alarmierungseinrichtung-tangiert",
+      "instance": 1,
+      "name": "pfahlfundation-vorgesehen",
       "value": "Nein"
     }
   },
@@ -451,8 +722,8 @@
     "model": "instance.formfield",
     "pk": 25,
     "fields": {
-      "instance": 3,
-      "name": "lebensmittel-umgehen",
+      "instance": 1,
+      "name": "baugrubenumschliessung-vorgesehen",
       "value": "Nein"
     }
   },
@@ -460,8 +731,8 @@
     "model": "instance.formfield",
     "pk": 26,
     "fields": {
-      "instance": 3,
-      "name": "trinkwasser-abgeben",
+      "instance": 1,
+      "name": "temporare-grundwasserabsenkung-notig",
       "value": "Nein"
     }
   },
@@ -469,8 +740,8 @@
     "model": "instance.formfield",
     "pk": 27,
     "fields": {
-      "instance": 3,
-      "name": "offentlich-duschanlage-oder-bad",
+      "instance": 1,
+      "name": "auswirkungen-auf-arbeitnehmer",
       "value": "Nein"
     }
   },
@@ -478,132 +749,108 @@
     "model": "instance.formfield",
     "pk": 28,
     "fields": {
-      "instance": 3,
-      "name": "gewerbliche-nutzflachen",
-      "value": "Nein"
+      "instance": 1,
+      "name": "geometer-v2",
+      "value": "GEO Netz AG (Schwyz, Lachen)"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 29,
     "fields": {
-      "instance": 3,
-      "name": "gwr",
-      "value": [
-        {
-          "uuid": "d0de1837-bfcc-4c9c-af87-90ec47382859",
-          "adresse": "Geb\u00e4ude Strasse",
-          "vers-nr": "3",
-          "leistung": 2000,
-          "kategorie": "Einfamilienhaus freistehend",
-          "wohnungen": [
-            {
-              "lage": "Osten",
-              "uuid": "c33a3b1f-025f-4aa2-bcb2-2a8757bf0ab2",
-              "flache": 200,
-              "zimmer": 7,
-              "kuchenart": "K\u00fcche (min. 4m\u00b2)",
-              "stockwerk": "5",
-              "maisonette": "Ja",
-              "eingangs-nr": "5"
-            }
-          ],
-          "heizungsart": "Zentralheizung f\u00fcr das Geb\u00e4ude",
-          "kataster-nr": "3",
-          "energietrager-heizung": "W\u00e4rmepumpe",
-          "energietrager-warmwasser": "W\u00e4rmepumpe"
-        }
-      ]
+      "instance": 1,
+      "name": "geometer-name",
+      "value": "Meier"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 30,
     "fields": {
-      "instance": 3,
-      "name": "geometer",
-      "value": "Trigonet AG (Stans)"
+      "instance": 1,
+      "name": "projektnummer",
+      "value": "48263"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 31,
     "fields": {
-      "instance": 3,
-      "name": "baukosten",
-      "value": 500000
+      "instance": 1,
+      "name": "baugespann-errichtet",
+      "value": "Ja"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 32,
     "fields": {
-      "instance": 3,
-      "name": "grundeigentumerschaft",
-      "value": [
-        {
-          "ort": "0000 Eigent\u00fcmer Ort",
-          "name": "Eigent\u00fcmer Nachname, Vorname",
-          "uuid": "f09cd9c8-4020-4489-a398-dd4f96507823",
-          "strasse": "Eigent\u00fcmer Strasse"
-        }
-      ]
+      "instance": 1,
+      "name": "baugespann-errichtet-wann",
+      "value": "2020-11-20T00:00:00.000Z"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 33,
     "fields": {
-      "instance": 3,
-      "name": "bauherrschaft",
-      "value": [
-        {
-          "ort": "0000 Bauherschaft Ort",
-          "name": "Bauherschaft, Bauherschaft Vorname",
-          "uuid": "15e54e5b-57ff-4006-a3ca-91ee386070e8",
-          "strasse": "Bauherrschaft Strasse 5"
-        }
-      ]
+      "instance": 1,
+      "name": "baukosten",
+      "value": 1000000
     }
   },
   {
     "model": "instance.formfield",
     "pk": 34,
     "fields": {
-      "instance": 3,
-      "name": "projektverfasser-planer",
-      "value": [
-        {
-          "ort": "0000 Planer Ort",
-          "name": "Planer Name, Planer Vorname",
-          "uuid": "23356b1f-27fe-4e2b-80aa-3b293f6e98ad",
-          "strasse": "Planer Strasse 3"
-        },
-        {
-          "ort": "0001 Verfasser Ort",
-          "name": "Verfasser Name, Verfasser Vorname",
-          "uuid": "e5c2698b-b06f-4cd6-90bf-3367cb287a43",
-          "strasse": "Verfasser Strasse 3"
-        }
-      ]
+      "instance": 1,
+      "name": "gebaudevolumen-sia-116",
+      "value": 200
     }
   },
   {
     "model": "instance.formfield",
     "pk": 35,
     "fields": {
-      "instance": 3,
-      "name": "gebaudevolumen",
-      "value": 200
+      "instance": 1,
+      "name": "gebaudevolumen-sia-416",
+      "value": 790
     }
   },
   {
     "model": "instance.formfield",
     "pk": 36,
     "fields": {
-      "instance": 3,
-      "name": "bezeichnung",
-      "value": "Testgeb\u00e4ude"
+      "instance": 1,
+      "name": "gwr",
+      "value": [
+        {
+          "uuid": "9fc7d53b-d17c-4f24-aee2-7906d9391bb4",
+          "adresse": "Strasse 35",
+          "vers-nr": "12345",
+          "leistung": 757,
+          "geschosse": 9,
+          "kategorie": "Geb\u00e4ude mit ausschliesslicher Wohnnutzung",
+          "wohnungen": [
+            {
+              "lage": "Oben",
+              "uuid": "a135f419-5928-4eaf-9aca-d659070cac7d",
+              "flache": 166,
+              "zimmer": 13,
+              "kuchenart": "K\u00fcche (min. 4m\u00b2)",
+              "stockwerk": "1",
+              "maisonette": "Nein",
+              "eingangs-nr": "12"
+            }
+          ],
+          "bettenzahl": 55,
+          "heizungsart": "Einzelofenheizung",
+          "kataster-nr": "12345",
+          "beherbungsbetrieb": "Nein",
+          "energietrager-heizung": "Elektrizit\u00e4t",
+          "energietrager-warmwasser": "Elektrizit\u00e4t"
+        }
+      ]
     }
   },
   {
@@ -611,8 +858,20 @@
     "pk": 37,
     "fields": {
       "instance": 1,
-      "name": "bezeichnung",
-      "value": "test"
+      "name": "grundeigentumerschaft",
+      "value": [
+        {
+          "ort": "Dorf",
+          "plz": 5315,
+          "tel": "1234567890",
+          "name": "Gunter",
+          "uuid": "99a704f7-e38e-4ed2-9db3-511be7ae0f8e",
+          "email": "test@test.test",
+          "anrede": "Herr",
+          "strasse": "Strasse 18",
+          "vorname": "Sebastian"
+        }
+      ]
     }
   },
   {
@@ -620,8 +879,20 @@
     "pk": 38,
     "fields": {
       "instance": 1,
-      "name": "projektnummer",
-      "value": "234"
+      "name": "bauherrschaft",
+      "value": [
+        {
+          "ort": "Unterdorf",
+          "plz": 9952,
+          "tel": "1234567890",
+          "name": "Hanna",
+          "uuid": "99a704f7-e38e-4ed2-9db3-511be7ae0f8e",
+          "email": "test@test.test",
+          "anrede": "Frau",
+          "strasse": "Oberstrasse 755",
+          "vorname": "Susane"
+        }
+      ]
     }
   },
   {
@@ -629,17 +900,18 @@
     "pk": 39,
     "fields": {
       "instance": 1,
-      "name": "parzellen",
+      "name": "projektverfasser-planer",
       "value": [
         {
-          "egrid": "CH144022777694",
-          "number": 955,
-          "municipality": "Schwyz"
-        },
-        {
-          "egrid": "CH674077862286",
-          "number": 1881,
-          "municipality": "Schwyz"
+          "ort": "Musterdorf",
+          "plz": 7420,
+          "name": "Muster",
+          "uuid": "5458279f-8da0-47c2-8b73-60ac94c9228d",
+          "email": "teste@test.test",
+          "firma": "Firmafirma",
+          "anrede": "Firma",
+          "strasse": "Musterstrasse 190",
+          "vorname": "Mann"
         }
       ]
     }
@@ -649,17 +921,8 @@
     "pk": 40,
     "fields": {
       "instance": 1,
-      "name": "punkte",
-      "value": [
-        {
-          "lat": 47.026107030432364,
-          "lng": 8.652354949261511
-        },
-        {
-          "lat": 47.02446878745013,
-          "lng": 8.6528696823776
-        }
-      ]
+      "name": "datenverschnitt-naturgefahren",
+      "value": ["Vorhanden"]
     }
   },
   {
@@ -667,21 +930,8 @@
     "pk": 41,
     "fields": {
       "instance": 1,
-      "name": "layer",
-      "value": [
-        {
-          "name": "ms:ch.sz.a005.nutzungsplanung.grundnutzung"
-        },
-        {
-          "name": "ms:ch.sz.a013a.planerischergewaesserschutz.gsbereiche.bereich.au"
-        },
-        {
-          "name": "ms:ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon"
-        },
-        {
-          "name": "ms:ch.sz.a023a.egid"
-        }
-      ]
+      "name": "arbeitssicherheit-planbesprechung",
+      "value": "Ja"
     }
   },
   {
@@ -689,8 +939,8 @@
     "pk": 42,
     "fields": {
       "instance": 1,
-      "name": "kategorie-des-vorhabens",
-      "value": ["Baute(n)"]
+      "name": "arbeitssicherheit-tangiert",
+      "value": ["Arbeitsr\u00e4ume", "Betriebseinrichtungen"]
     }
   },
   {
@@ -698,8 +948,8 @@
     "pk": 43,
     "fields": {
       "instance": 1,
-      "name": "art-der-nutzung",
-      "value": ["Tourismus"]
+      "name": "arbeitssicherheit-arbeitsraume-hohe",
+      "value": 2654
     }
   },
   {
@@ -707,8 +957,8 @@
     "pk": 44,
     "fields": {
       "instance": 1,
-      "name": "vorhaben-mit-baute",
-      "value": ["Anbau / Erweiterung"]
+      "name": "arbeitssicherheit-arbeitsraume-fensterflache",
+      "value": 4622
     }
   },
   {
@@ -716,8 +966,8 @@
     "pk": 45,
     "fields": {
       "instance": 1,
-      "name": "ordendliche-mindestabstande",
-      "value": "Nein"
+      "name": "arbeitssicherheit-arbeitsraume-bodenflache-fensterflache",
+      "value": 3546
     }
   },
   {
@@ -725,8 +975,8 @@
     "pk": 46,
     "fields": {
       "instance": 1,
-      "name": "tangiert-vorhaben-strasse",
-      "value": "Nein"
+      "name": "arbeitssicherheit-arbeitsraume-brustungshohen",
+      "value": 355.94
     }
   },
   {
@@ -734,8 +984,8 @@
     "pk": 47,
     "fields": {
       "instance": 1,
-      "name": "anlagen-mit-erheblichen-schadstoffemissionen",
-      "value": "Nein"
+      "name": "arbeitssicherheit-betriebseinrichtungen-arbeitsmittel",
+      "value": "Wasser"
     }
   },
   {
@@ -743,8 +993,8 @@
     "pk": 48,
     "fields": {
       "instance": 1,
-      "name": "anlagen-mit-erheblichen-strahlungsemissionen",
-      "value": "Nein"
+      "name": "arbeitssicherheit-betriebseinrichtungen-produktionsanlagen",
+      "value": "Wasser"
     }
   },
   {
@@ -752,8 +1002,8 @@
     "pk": 49,
     "fields": {
       "instance": 1,
-      "name": "anlagen-mit-erheblichen-larmemissionen",
-      "value": "Nein"
+      "name": "arbeitssicherheit-betriebseinrichtungen-aufstellungsplan",
+      "value": "Wasser"
     }
   },
   {
@@ -761,8 +1011,8 @@
     "pk": 50,
     "fields": {
       "instance": 1,
-      "name": "larmbelastetes-gebiet",
-      "value": "Nein"
+      "name": "arbeitssicherheit-betriebseinrichtungen-ergonomie",
+      "value": "Wasser"
     }
   },
   {
@@ -770,7 +1020,7 @@
     "pk": 51,
     "fields": {
       "instance": 1,
-      "name": "aussenbeleuchtung",
+      "name": "zivilschutz-schutzraum",
       "value": "Nein"
     }
   },
@@ -779,7 +1029,7 @@
     "pk": 52,
     "fields": {
       "instance": 1,
-      "name": "boden-5000m2",
+      "name": "zivilschutz-elementarschaden",
       "value": "Nein"
     }
   },
@@ -788,7 +1038,7 @@
     "pk": 53,
     "fields": {
       "instance": 1,
-      "name": "bodenbelastungen",
+      "name": "zivilschutz-dispens-schutzraumbau",
       "value": "Nein"
     }
   },
@@ -797,8 +1047,8 @@
     "pk": 54,
     "fields": {
       "instance": 1,
-      "name": "lebensmittel-umgehen",
-      "value": "Nein"
+      "name": "lebensmittel-und-hygienesicherheit-info",
+      "value": ["Erledigt"]
     }
   },
   {
@@ -806,8 +1056,8 @@
     "pk": 55,
     "fields": {
       "instance": 1,
-      "name": "offentlich-duschanlage-oder-bad",
-      "value": "Nein"
+      "name": "info-vorhaben-mit-baute",
+      "value": ["Vorhanden"]
     }
   },
   {
@@ -815,8 +1065,8 @@
     "pk": 56,
     "fields": {
       "instance": 1,
-      "name": "wassergefahrdende-stoffe",
-      "value": "Nein"
+      "name": "info-aussenbeleuchtung",
+      "value": ["Vorhanden"]
     }
   },
   {
@@ -824,8 +1074,8 @@
     "pk": 57,
     "fields": {
       "instance": 1,
-      "name": "brandschutztechnisch-gefahrliche-stoffe",
-      "value": "Nein"
+      "name": "info-boden-5000m2",
+      "value": ["Vorhanden"]
     }
   },
   {
@@ -833,106 +1083,132 @@
     "pk": 58,
     "fields": {
       "instance": 1,
-      "name": "pfahlfundation-vorgesehen",
-      "value": "Nein"
+      "name": "info-liegenschaftsentwasserung",
+      "value": ["Vorhanden"]
     }
   },
   {
     "model": "instance.formfield",
     "pk": 59,
     "fields": {
-      "instance": 1,
-      "name": "baugrubenumschliessung-vorgesehen",
-      "value": "Nein"
+      "instance": 2,
+      "name": "bezeichnung",
+      "value": "Grosses Schild"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 60,
     "fields": {
-      "instance": 1,
-      "name": "temporare-grundwasserabsenkung-notig",
-      "value": "Nein"
+      "instance": 2,
+      "name": "parzellen",
+      "value": [
+        {
+          "egrid": "CH614079227712",
+          "number": 383,
+          "municipality": "Schwyz"
+        }
+      ]
     }
   },
   {
     "model": "instance.formfield",
     "pk": 61,
     "fields": {
-      "instance": 1,
-      "name": "gewerbliche-nutzflachen",
-      "value": "Nein"
+      "instance": 2,
+      "name": "punkte",
+      "value": [
+        [
+          {
+            "lat": 47.02673681749302,
+            "lng": 8.646450569554537
+          }
+        ]
+      ]
     }
   },
   {
     "model": "instance.formfield",
     "pk": 62,
     "fields": {
-      "instance": 1,
-      "name": "auswirkungen-auf-arbeitnehmer",
-      "value": "Nein"
+      "instance": 2,
+      "name": "layer",
+      "value": [
+        {
+          "name": "ms:ch.sz.a005.nutzungsplanung.grundnutzung"
+        },
+        {
+          "name": "ms:ch.sz.a012.naturgefahrenkarte.synoptisch"
+        },
+        {
+          "name": "ms:ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon"
+        },
+        {
+          "name": "ms:ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon_oereb"
+        }
+      ]
     }
   },
   {
     "model": "instance.formfield",
     "pk": 63,
     "fields": {
-      "instance": 1,
-      "name": "geometer",
-      "value": "HSK Ingenieur AG (Goldau, K\u00fcssnacht, Brunnen)"
+      "instance": 2,
+      "name": "kategorie-des-vorhabens",
+      "value": ["Anlage(n)"]
     }
   },
   {
     "model": "instance.formfield",
     "pk": 64,
     "fields": {
-      "instance": 1,
-      "name": "baugespann-errichtet",
-      "value": "Nein"
+      "instance": 2,
+      "name": "art-der-nutzung",
+      "value": ["Gewerbe / Dienstleistung"]
     }
   },
   {
     "model": "instance.formfield",
     "pk": 65,
     "fields": {
-      "instance": 1,
-      "name": "kein-baugespann-begrundung",
-      "value": "asdf"
+      "instance": 2,
+      "name": "vorhaben-mit-anlage",
+      "value": ["R\u00fcckbau"]
     }
   },
   {
     "model": "instance.formfield",
     "pk": 66,
     "fields": {
-      "instance": 1,
-      "name": "baukosten",
-      "value": 8745
+      "instance": 2,
+      "name": "art-der-anlage",
+      "value": ["Sondierbohrung"]
     }
   },
   {
     "model": "instance.formfield",
     "pk": 67,
     "fields": {
-      "instance": 1,
-      "name": "gebaudevolumen-sia-116",
-      "value": 954
+      "instance": 2,
+      "name": "ordendliche-mindestabstande",
+      "value": "Nein"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 68,
     "fields": {
-      "instance": 1,
-      "name": "gebaudevolumen-sia-416",
-      "value": 547
+      "instance": 2,
+      "name": "tangiert-vorhaben-strasse",
+      "value": "Nein"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 69,
     "fields": {
-      "instance": 1,
-      "name": "arbeitssicherheit-planbesprechung",
+      "instance": 2,
+      "name": "anlagen-mit-erheblichen-schadstoffemissionen",
       "value": "Nein"
     }
   },
@@ -940,229 +1216,143 @@
     "model": "instance.formfield",
     "pk": 70,
     "fields": {
-      "instance": 1,
-      "name": "arbeitssicherheit-tangiert",
-      "value": ["Sozialr\u00e4ume"]
+      "instance": 2,
+      "name": "anlagen-mit-erheblichen-strahlungsemissionen",
+      "value": "Nein"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 71,
     "fields": {
-      "instance": 1,
-      "name": "arbeitssicherheit-sozialraume-anzahl",
-      "value": 8
+      "instance": 2,
+      "name": "anlagen-mit-erheblichen-larmemissionen",
+      "value": "Nein"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 72,
     "fields": {
-      "instance": 1,
-      "name": "arbeitssicherheit-sozialraume-waschanlagen",
-      "value": "1"
+      "instance": 2,
+      "name": "larmbelastetes-gebiet",
+      "value": "Nein"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 73,
     "fields": {
-      "instance": 1,
-      "name": "arbeitssicherheit-sozialraume-garderoben",
-      "value": "2"
+      "instance": 2,
+      "name": "aussenbeleuchtung",
+      "value": "Nein"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 74,
     "fields": {
-      "instance": 1,
-      "name": "arbeitssicherheit-sozialraume-toiletten-duschen",
-      "value": "2"
+      "instance": 2,
+      "name": "boden-5000m2",
+      "value": "Nein"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 75,
     "fields": {
-      "instance": 1,
-      "name": "arbeitssicherheit-sozialraume-sanitare-anlagen",
-      "value": "1"
+      "instance": 2,
+      "name": "bodenbelastungen",
+      "value": "Nein"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 76,
     "fields": {
-      "instance": 1,
-      "name": "arbeitssicherheit-sozialraume-ess-und-aufenthaltsraume",
-      "value": "1"
+      "instance": 2,
+      "name": "lebensmittel-umgehen",
+      "value": "Nein"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 77,
     "fields": {
-      "instance": 1,
-      "name": "arbeitssicherheit-sozialraume-pause-und-ruheraume",
-      "value": "1"
+      "instance": 2,
+      "name": "offentlich-duschanlage-oder-bad",
+      "value": "Nein"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 78,
     "fields": {
-      "instance": 1,
-      "name": "datenverschnitt-grundwasserschutz-bereich-au",
-      "value": ["Erledigt"]
+      "instance": 2,
+      "name": "auswirkungen-auf-arbeitnehmer",
+      "value": "Nein"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 79,
     "fields": {
-      "instance": 4,
-      "name": "parzellen",
-      "value": [
-        {
-          "egrid": "CH532678382977",
-          "number": 634,
-          "municipality": "Feusisberg"
-        }
-      ]
+      "instance": 2,
+      "name": "geometer-v2",
+      "value": "GEO Netz AG (Schwyz, Lachen)"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 80,
     "fields": {
-      "instance": 4,
-      "name": "punkte",
-      "value": [
-        {
-          "lat": 47.18756595392146,
-          "lng": 8.756251665285621
-        }
-      ]
+      "instance": 2,
+      "name": "geometer-name",
+      "value": "Rajj"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 81,
     "fields": {
-      "instance": 4,
-      "name": "layer",
-      "value": [
-        {
-          "name": "ms:ch.sz.a013a.planerischergewaesserschutz.gsbereiche.bereich.au"
-        },
-        {
-          "name": "ms:ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon"
-        }
-      ]
+      "instance": 2,
+      "name": "baugespann-errichtet",
+      "value": "Nein"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 82,
     "fields": {
-      "instance": 5,
-      "name": "parzellen",
-      "value": [
-        {
-          "egrid": "- - -",
-          "number": 3279,
-          "municipality": "Schwyz"
-        },
-        {
-          "egrid": "CH832277407342",
-          "number": 216,
-          "municipality": "Schwyz"
-        },
-        {
-          "egrid": "CH792277774094",
-          "number": 1,
-          "municipality": "Schwyz"
-        },
-        {
-          "egrid": "CH630977674421",
-          "number": 606,
-          "municipality": "Steinen"
-        },
-        {
-          "egrid": "CH627700224068",
-          "number": 3387,
-          "municipality": "Schwyz"
-        },
-        {
-          "egrid": "CH614000227744",
-          "number": 3386,
-          "municipality": "Schwyz"
-        },
-        {
-          "egrid": "CH607740002251",
-          "number": 3385,
-          "municipality": "Schwyz"
-        },
-        {
-          "egrid": "CH844022777353",
-          "number": 217,
-          "municipality": "Schwyz"
-        },
-        {
-          "egrid": "CH827773224022",
-          "number": 215,
-          "municipality": "Schwyz"
-        }
-      ]
+      "instance": 2,
+      "name": "baukosten",
+      "value": 431
     }
   },
   {
     "model": "instance.formfield",
     "pk": 83,
     "fields": {
-      "instance": 5,
-      "name": "punkte",
-      "value": [
-        {
-          "lat": 47.05718901208619,
-          "lng": 8.634944274047722
-        },
-        {
-          "lat": 47.05882624709374,
-          "lng": 8.642150537673029
-        },
-        {
-          "lat": 47.05672121683313,
-          "lng": 8.638032672744265
-        }
-      ]
+      "instance": 2,
+      "name": "kein-baugespann-begrundung",
+      "value": "Warum"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 84,
     "fields": {
-      "instance": 5,
-      "name": "layer",
+      "instance": 2,
+      "name": "grundeigentumerschaft",
       "value": [
         {
-          "name": "ms:ch.sz.a013a.planerischergewaesserschutz.gwszonen.status.gwszone"
-        },
-        {
-          "name": "ms:ch.sz.a013a.planerischergewaesserschutz.gsbereiche.bereich.au"
-        },
-        {
-          "name": "ms:ch.sz.a018.amtliche_vermessung.bodenbedeckung.gebaeudenummer"
-        },
-        {
-          "name": "ms:ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon"
-        },
-        {
-          "name": "ms:ch.sz.a023a.egid"
-        },
-        {
-          "name": "ms:ch.sz.a078.wanderwege"
+          "ort": "Mandorf",
+          "plz": 5631,
+          "name": "Foller",
+          "uuid": "7590f1e5-6ae9-4669-bb2a-fd5a8af4c662",
+          "anrede": "Herr",
+          "strasse": "Teststrasse 13",
+          "vorname": "Bauer"
         }
       ]
     }
@@ -1171,13 +1361,17 @@
     "model": "instance.formfield",
     "pk": 85,
     "fields": {
-      "instance": 6,
-      "name": "parzellen",
+      "instance": 2,
+      "name": "bauherrschaft",
       "value": [
         {
-          "egrid": "CH442449778575",
-          "number": 2604,
-          "municipality": "Einsiedeln"
+          "ort": "Mandorf",
+          "plz": 5631,
+          "name": "Foller",
+          "uuid": "7590f1e5-6ae9-4669-bb2a-fd5a8af4c662",
+          "anrede": "Herr",
+          "strasse": "Teststrasse 13",
+          "vorname": "Bauer"
         }
       ]
     }
@@ -1186,12 +1380,17 @@
     "model": "instance.formfield",
     "pk": 86,
     "fields": {
-      "instance": 6,
-      "name": "punkte",
+      "instance": 2,
+      "name": "projektverfasser-planer",
       "value": [
         {
-          "lat": 47.111915685543686,
-          "lng": 8.826255369074396
+          "ort": "Mandorf",
+          "plz": 5631,
+          "name": "Foller",
+          "uuid": "7590f1e5-6ae9-4669-bb2a-fd5a8af4c662",
+          "anrede": "Herr",
+          "strasse": "Teststrasse 13",
+          "vorname": "Bauer"
         }
       ]
     }
@@ -1200,191 +1399,262 @@
     "model": "instance.formfield",
     "pk": 87,
     "fields": {
-      "instance": 6,
-      "name": "layer",
-      "value": [
-        {
-          "name": "ms:ch.sz.a006.swisstlm3d.gewaesser.fliessgewaesser"
-        },
-        {
-          "name": "ms:ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon"
-        }
-      ]
+      "instance": 2,
+      "name": "arbeitssicherheit-planbesprechung",
+      "value": "Nein"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 88,
     "fields": {
-      "instance": 6,
-      "name": "bezeichnung",
-      "value": "Test 01.05.2019"
+      "instance": 2,
+      "name": "arbeitssicherheit-tangiert",
+      "value": ["Gesundheitssch\u00e4dliche Stoffe"]
     }
   },
   {
     "model": "instance.formfield",
     "pk": 89,
     "fields": {
-      "instance": 6,
-      "name": "projektnummer",
-      "value": "666"
+      "instance": 2,
+      "name": "arbeitssicherheit-gesundheitsschadliche-stoffe-auflistung",
+      "value": "Luft"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 90,
     "fields": {
-      "instance": 1,
-      "name": "lage",
-      "value": "ausserhalb"
+      "instance": 2,
+      "name": "arbeitssicherheit-gesundheitsschadliche-stoffe-verwendung",
+      "value": "Luft"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 91,
     "fields": {
-      "instance": 1,
-      "name": "verfahrensart",
-      "value": "meldeverfahren"
+      "instance": 2,
+      "name": "arbeitssicherheit-gesundheitsschadliche-stoffe-uberwachung",
+      "value": "Luft"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 92,
     "fields": {
-      "instance": 1,
-      "name": "bezeichnung-override",
-      "value": "test foobar"
+      "instance": 2,
+      "name": "arbeitssicherheit-gesundheitsschadliche-stoffe-ex-zonen",
+      "value": "Luft"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 93,
     "fields": {
-      "instance": 1,
-      "name": "verfahrensart-erstellt",
-      "value": "nein"
+      "instance": 2,
+      "name": "arbeitssicherheit-gesundheitsschadliche-stoffe-ort-menge-luftung",
+      "value": "Luft"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 94,
     "fields": {
-      "instance": 1,
-      "name": "betroffene-nutzungszonen",
-      "value": "innerhalb\nunderground"
+      "instance": 2,
+      "name": "grundwasser-sondierbohrung-anzahl-bohrungen",
+      "value": 22224
     }
   },
   {
     "model": "instance.formfield",
     "pk": 95,
     "fields": {
-      "instance": 1,
-      "name": "ortsbezeichnung-des-vorhabens",
-      "value": "This is Fluuuuuuur"
+      "instance": 2,
+      "name": "grundwasser-sondierbohrung-koordinaten",
+      "value": "1243224"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 96,
     "fields": {
-      "instance": 7,
-      "name": "bezeichnung",
-      "value": "test 02.05.2019"
+      "instance": 2,
+      "name": "grundwasser-sondierbohrung-zweck",
+      "value": "Baugrunduntersuchung"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 97,
     "fields": {
-      "instance": 7,
-      "name": "projektnummer",
-      "value": "666"
+      "instance": 2,
+      "name": "grundwasser-sondierbohrung-tiefe",
+      "value": 355
     }
   },
   {
     "model": "instance.formfield",
     "pk": 98,
     "fields": {
-      "instance": 7,
-      "name": "parzellen",
-      "value": [
-        {
-          "egrid": "CH357522774006",
-          "number": 1646,
-          "municipality": "Schwyz"
-        },
-        {
-          "egrid": "CH514099227760",
-          "number": 2151,
-          "municipality": "Schwyz"
-        },
-        {
-          "egrid": "CH332277407516",
-          "number": 1644,
-          "municipality": "Schwyz"
-        },
-        {
-          "egrid": "CH167722409592",
-          "number": 2831,
-          "municipality": "Schwyz"
-        },
-        {
-          "egrid": "CH344022777527",
-          "number": 1645,
-          "municipality": "Schwyz"
-        },
-        {
-          "egrid": "CH992277954069",
-          "number": 2809,
-          "municipality": "Schwyz"
-        }
-      ]
+      "instance": 2,
+      "name": "grundwasser-sondierbohrung-pumpversuch",
+      "value": "Ja"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 99,
     "fields": {
-      "instance": 7,
-      "name": "punkte",
-      "value": [
-        {
-          "lat": 47.01280070173426,
-          "lng": 8.658757123379358
-        },
-        {
-          "lat": 47.01280070173426,
-          "lng": 8.663927213212368
-        },
-        {
-          "lat": 47.01104500198514,
-          "lng": 8.661351372170586
-        }
-      ]
+      "instance": 2,
+      "name": "grundwasser-sondierbohrung-bohrfirma",
+      "value": "Niemand"
     }
   },
   {
     "model": "instance.formfield",
     "pk": 100,
     "fields": {
-      "instance": 7,
+      "instance": 2,
+      "name": "grundwasser-sondierbohrung-geologe",
+      "value": "Niemand"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 101,
+    "fields": {
+      "instance": 2,
+      "name": "grundwasser-sondierbohrung-entsorgung",
+      "value": "Trinken"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 102,
+    "fields": {
+      "instance": 3,
+      "name": "bezeichnung",
+      "value": "Wald im See"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 103,
+    "fields": {
+      "instance": 3,
+      "name": "parzellen",
+      "value": [
+        {
+          "egrid": "CH967722407039",
+          "number": 430,
+          "municipality": "Schwyz"
+        },
+        {
+          "egrid": "CH167722409493",
+          "number": 3507,
+          "municipality": "Schwyz"
+        },
+        {
+          "egrid": "CH992277704047",
+          "number": 421,
+          "municipality": "Schwyz"
+        },
+        {
+          "egrid": "CH987022407759",
+          "number": 420,
+          "municipality": "Schwyz"
+        },
+        {
+          "egrid": "CH414046227786",
+          "number": 4717,
+          "municipality": "Schwyz"
+        },
+        {
+          "egrid": "CH974077702232",
+          "number": 419,
+          "municipality": "Schwyz"
+        },
+        {
+          "egrid": "CH514004227742",
+          "number": 3653,
+          "municipality": "Schwyz"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 104,
+    "fields": {
+      "instance": 3,
+      "name": "punkte",
+      "value": [
+        [
+          {
+            "lat": 47.03269764470809,
+            "lng": 8.622042561637205
+          },
+          {
+            "lat": 47.03194656955271,
+            "lng": 8.622760032923667
+          }
+        ],
+        [
+          {
+            "lat": 47.032453786051946,
+            "lng": 8.623879471401972
+          },
+          {
+            "lat": 47.032891001877495,
+            "lng": 8.623646450780974
+          },
+          {
+            "lat": 47.03274108101036,
+            "lng": 8.6248061926202
+          },
+          {
+            "lat": 47.031881622307154,
+            "lng": 8.625273648409898
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 105,
+    "fields": {
+      "instance": 3,
       "name": "layer",
       "value": [
         {
-          "name": "ms:ch.sz.a013a.planerischergewaesserschutz.gsbereiche.bereich.au"
+          "name": "ms:ch.sz.a005.nutzungsplanung.grundnutzung"
         },
         {
-          "name": "ms:ch.sz.a018.amtliche_vermessung.bodenbedeckung.gebaeudenummer"
+          "name": "ms:ch.sz.a012.naturgefahrenkarte.synoptisch"
         },
         {
           "name": "ms:ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon"
         },
         {
+          "name": "ms:ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon_oereb"
+        },
+        {
+          "name": "ms:ch.sz.a006.swisstlm3d.gewaesser.fliessgewaesser"
+        },
+        {
+          "name": "ms:ch.sz.a018.amtliche_vermessung.bodenbedeckung.gebaeudenummer"
+        },
+        {
           "name": "ms:ch.sz.a023a.egid"
         },
         {
-          "name": "ms:ch.sz.a133a.kantonales_schutzinventar"
+          "name": "ms:ch.sz.a049.fischregionen"
+        },
+        {
+          "name": "ms:ch.sz.a049.fischgewaesser_pot"
         },
         {
           "name": "ms:ch.sz.a078.wanderwege"
@@ -1394,7 +1664,423 @@
   },
   {
     "model": "instance.formfield",
-    "pk": 101,
+    "pk": 106,
+    "fields": {
+      "instance": 3,
+      "name": "kategorie-des-vorhabens",
+      "value": ["Baute(n)"]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 107,
+    "fields": {
+      "instance": 3,
+      "name": "art-der-nutzung",
+      "value": ["Forstwirtschaft"]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 108,
+    "fields": {
+      "instance": 3,
+      "name": "vorhaben-mit-baute",
+      "value": ["Umbau / Erneuerung / Sanierung"]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 109,
+    "fields": {
+      "instance": 3,
+      "name": "ordendliche-mindestabstande",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 110,
+    "fields": {
+      "instance": 3,
+      "name": "tangiert-vorhaben-strasse",
+      "value": "Ja, indirekt"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 111,
+    "fields": {
+      "instance": 3,
+      "name": "anlagen-mit-erheblichen-schadstoffemissionen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 112,
+    "fields": {
+      "instance": 3,
+      "name": "anlagen-mit-erheblichen-strahlungsemissionen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 113,
+    "fields": {
+      "instance": 3,
+      "name": "anlagen-mit-erheblichen-larmemissionen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 114,
+    "fields": {
+      "instance": 3,
+      "name": "larmbelastetes-gebiet",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 115,
+    "fields": {
+      "instance": 3,
+      "name": "aussenbeleuchtung",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 116,
+    "fields": {
+      "instance": 3,
+      "name": "boden-5000m2",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 117,
+    "fields": {
+      "instance": 3,
+      "name": "bodenbelastungen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 118,
+    "fields": {
+      "instance": 3,
+      "name": "lebensmittel-umgehen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 119,
+    "fields": {
+      "instance": 3,
+      "name": "wassergefahrdende-stoffe",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 120,
+    "fields": {
+      "instance": 3,
+      "name": "brandschutztechnisch-gefahrliche-stoffe",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 121,
+    "fields": {
+      "instance": 3,
+      "name": "200m3-bauabfalle",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 122,
+    "fields": {
+      "instance": 3,
+      "name": "auswirkungen-auf-arbeitnehmer",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 123,
+    "fields": {
+      "instance": 3,
+      "name": "geometer-v2",
+      "value": "HSK Ingenieur AG (Goldau, K\u00fcssnacht, Brunnen)"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 124,
+    "fields": {
+      "instance": 3,
+      "name": "geometer-name",
+      "value": "Wald"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 125,
+    "fields": {
+      "instance": 3,
+      "name": "baugespann-errichtet",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 126,
+    "fields": {
+      "instance": 3,
+      "name": "kein-baugespann-begrundung",
+      "value": "Vald"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 127,
+    "fields": {
+      "instance": 3,
+      "name": "baukosten",
+      "value": 523256
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 128,
+    "fields": {
+      "instance": 3,
+      "name": "gebaudevolumen-sia-116",
+      "value": 436242
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 129,
+    "fields": {
+      "instance": 3,
+      "name": "gebaudevolumen-sia-416",
+      "value": 2342352
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 130,
+    "fields": {
+      "instance": 3,
+      "name": "grundeigentumerschaft",
+      "value": [
+        {
+          "ort": "Waldort",
+          "plz": 5351,
+          "name": "Waldi",
+          "uuid": "132be295-0612-4f81-981c-03eef08104e0",
+          "anrede": "Herr",
+          "strasse": "Waldman",
+          "vorname": "Vi waldu"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 131,
+    "fields": {
+      "instance": 3,
+      "name": "bauherrschaft",
+      "value": [
+        {
+          "ort": "Waldort",
+          "plz": 5351,
+          "name": "Waldi",
+          "uuid": "132be295-0612-4f81-981c-03eef08104e0",
+          "anrede": "Herr",
+          "strasse": "Waldman",
+          "vorname": "Vi waldu"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 132,
+    "fields": {
+      "instance": 3,
+      "name": "projektverfasser-planer",
+      "value": [
+        {
+          "ort": "Waldort",
+          "plz": 5351,
+          "name": "Waldi",
+          "uuid": "132be295-0612-4f81-981c-03eef08104e0",
+          "anrede": "Herr",
+          "strasse": "Waldman",
+          "vorname": "Vi waldu"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 133,
+    "fields": {
+      "instance": 3,
+      "name": "wald-forstlich",
+      "value": "Ja"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 134,
+    "fields": {
+      "instance": 3,
+      "name": "wald-auswirkungen",
+      "value": "Ja"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 135,
+    "fields": {
+      "instance": 3,
+      "name": "datenverschnitt-naturgefahren",
+      "value": ["Vorhanden"]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 136,
+    "fields": {
+      "instance": 3,
+      "name": "datenverschnitt-wanderweg",
+      "value": ["Erledigt"]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 137,
+    "fields": {
+      "instance": 3,
+      "name": "verkehr-strasse-indirekt",
+      "value": [
+        {
+          "typ": "Bezirksstrasse",
+          "name": "Diese da",
+          "uuid": "7501a357-fb02-4e38-afba-4d41c5b663b6"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 138,
+    "fields": {
+      "instance": 3,
+      "name": "datenverschnitt-gewasserschutz",
+      "value": ["Erledigt"]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 139,
+    "fields": {
+      "instance": 3,
+      "name": "datenverschnitt-fisch",
+      "value": ["Erledigt"]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 140,
+    "fields": {
+      "instance": 4,
+      "name": "bezeichnung",
+      "value": "Durian Fabrik"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 141,
+    "fields": {
+      "instance": 4,
+      "name": "projektnummer",
+      "value": "074"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 142,
+    "fields": {
+      "instance": 4,
+      "name": "parzellen",
+      "value": [
+        {
+          "egrid": "CH514000227778",
+          "number": 3373,
+          "municipality": "Schwyz"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 143,
+    "fields": {
+      "instance": 4,
+      "name": "punkte",
+      "value": [
+        [
+          {
+            "lat": 47.019116058404364,
+            "lng": 8.632512511106816
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 144,
+    "fields": {
+      "instance": 4,
+      "name": "layer",
+      "value": [
+        {
+          "name": "ms:ch.sz.a005.nutzungsplanung.grundnutzung"
+        },
+        {
+          "name": "ms:ch.sz.a012.naturgefahrenkarte.synoptisch"
+        },
+        {
+          "name": "ms:ch.sz.a013a.planerischergewaesserschutz.gsbereiche.bereich.au"
+        },
+        {
+          "name": "ms:ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon"
+        },
+        {
+          "name": "ms:ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon_oereb"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 145,
     "fields": {
       "instance": 4,
       "name": "kategorie-des-vorhabens",
@@ -1403,32 +2089,323 @@
   },
   {
     "model": "instance.formfield",
-    "pk": 102,
+    "pk": 146,
     "fields": {
-      "instance": 8,
+      "instance": 4,
+      "name": "art-der-nutzung",
+      "value": ["\u00d6ffentliche Nutzung"]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 147,
+    "fields": {
+      "instance": 4,
+      "name": "vorhaben-mit-baute",
+      "value": ["Anbau / Erweiterung"]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 148,
+    "fields": {
+      "instance": 4,
+      "name": "ordendliche-mindestabstande",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 149,
+    "fields": {
+      "instance": 4,
+      "name": "tangiert-vorhaben-strasse",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 150,
+    "fields": {
+      "instance": 4,
+      "name": "anlagen-mit-erheblichen-schadstoffemissionen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 151,
+    "fields": {
+      "instance": 4,
+      "name": "anlagen-mit-erheblichen-strahlungsemissionen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 152,
+    "fields": {
+      "instance": 4,
+      "name": "anlagen-mit-erheblichen-larmemissionen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 153,
+    "fields": {
+      "instance": 4,
+      "name": "larmbelastetes-gebiet",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 154,
+    "fields": {
+      "instance": 4,
+      "name": "aussenbeleuchtung",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 155,
+    "fields": {
+      "instance": 4,
+      "name": "boden-5000m2",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 156,
+    "fields": {
+      "instance": 4,
+      "name": "bodenbelastungen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 157,
+    "fields": {
+      "instance": 4,
+      "name": "lebensmittel-umgehen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 158,
+    "fields": {
+      "instance": 4,
+      "name": "offentlich-duschanlage-oder-bad",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 159,
+    "fields": {
+      "instance": 4,
+      "name": "wassergefahrdende-stoffe",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 160,
+    "fields": {
+      "instance": 4,
+      "name": "brandschutztechnisch-gefahrliche-stoffe",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 161,
+    "fields": {
+      "instance": 4,
+      "name": "baugrubenumschliessung-vorgesehen",
+      "value": "Ja"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 162,
+    "fields": {
+      "instance": 4,
+      "name": "temporare-grundwasserabsenkung-notig",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 163,
+    "fields": {
+      "instance": 4,
+      "name": "auswirkungen-auf-arbeitnehmer",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 164,
+    "fields": {
+      "instance": 4,
+      "name": "baugespann-errichtet",
+      "value": "Ja"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 165,
+    "fields": {
+      "instance": 4,
+      "name": "pfahlfundation-vorgesehen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 166,
+    "fields": {
+      "instance": 4,
+      "name": "geometer-v2",
+      "value": "GEO Netz AG (Schwyz, Lachen)"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 167,
+    "fields": {
+      "instance": 4,
+      "name": "baugespann-errichtet-wann",
+      "value": "2021-01-21T00:00:00.000Z"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 168,
+    "fields": {
+      "instance": 4,
+      "name": "baukosten",
+      "value": 34567
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 169,
+    "fields": {
+      "instance": 4,
+      "name": "gebaudevolumen-sia-116",
+      "value": 24571
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 170,
+    "fields": {
+      "instance": 4,
+      "name": "gebaudevolumen-sia-416",
+      "value": 2456724
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 171,
+    "fields": {
+      "instance": 4,
+      "name": "grundeigentumerschaft",
+      "value": [
+        {
+          "ort": "Fruchtdorf",
+          "plz": 7120,
+          "name": "Frucht",
+          "uuid": "fb549505-ed96-4120-aef1-6df67753dd0c",
+          "anrede": "Frau",
+          "strasse": "Fruchtstrasse 62",
+          "vorname": "Fruchtsaft"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 172,
+    "fields": {
+      "instance": 4,
+      "name": "bauherrschaft",
+      "value": [
+        {
+          "ort": "Fruchtdorf",
+          "plz": 7120,
+          "name": "Frucht",
+          "uuid": "fb549505-ed96-4120-aef1-6df67753dd0c",
+          "anrede": "Frau",
+          "strasse": "Fruchtstrasse 62",
+          "vorname": "Fruchtsaft"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 173,
+    "fields": {
+      "instance": 4,
+      "name": "projektverfasser-planer",
+      "value": [
+        {
+          "ort": "Fruchtdorf",
+          "plz": 7120,
+          "name": "Frucht",
+          "uuid": "fb549505-ed96-4120-aef1-6df67753dd0c",
+          "anrede": "Frau",
+          "strasse": "Fruchtstrasse 62",
+          "vorname": "Fruchtsaft"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 174,
+    "fields": {
+      "instance": 4,
+      "name": "datenverschnitt-naturgefahren",
+      "value": ["Vorhanden"]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 175,
+    "fields": {
+      "instance": 4,
+      "name": "datenverschnitt-grundwasserschutz-bereich-au",
+      "value": ["Erledigt"]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 176,
+    "fields": {
+      "instance": 5,
       "name": "bezeichnung",
-      "value": "upload test"
+      "value": "Grosses Haus"
     }
   },
   {
     "model": "instance.formfield",
-    "pk": 103,
+    "pk": 177,
     "fields": {
-      "instance": 8,
-      "name": "projektnummer",
-      "value": "666"
-    }
-  },
-  {
-    "model": "instance.formfield",
-    "pk": 104,
-    "fields": {
-      "instance": 8,
+      "instance": 5,
       "name": "parzellen",
       "value": [
         {
-          "egrid": "CH992277984060",
-          "number": 2007,
+          "egrid": "CH187122407713",
+          "number": 538,
           "municipality": "Schwyz"
         }
       ]
@@ -1436,90 +2413,799 @@
   },
   {
     "model": "instance.formfield",
-    "pk": 105,
+    "pk": 178,
     "fields": {
-      "instance": 8,
+      "instance": 5,
       "name": "punkte",
       "value": [
-        {
-          "lat": 47.02646978172196,
-          "lng": 8.671036559663749
-        }
+        [
+          {
+            "lat": 47.020915844096564,
+            "lng": 8.643929717969717
+          }
+        ]
       ]
     }
   },
   {
     "model": "instance.formfield",
-    "pk": 106,
+    "pk": 179,
     "fields": {
-      "instance": 8,
-      "name": "layer",
-      "value": [
-        {
-          "name": "ms:ch.sz.a013a.planerischergewaesserschutz.gsbereiche.bereich.au"
-        },
-        {
-          "name": "ms:ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon"
-        },
-        {
-          "name": "ms:ch.sz.anjf_reptiliengebiete.reptiliengebiet"
-        }
-      ]
-    }
-  },
-  {
-    "model": "instance.formfield",
-    "pk": 107,
-    "fields": {
-      "instance": 12,
-      "name": "bezeichnung",
-      "value": "circ done test"
-    }
-  },
-  {
-    "model": "instance.formfield",
-    "pk": 108,
-    "fields": {
-      "instance": 12,
-      "name": "parzellen",
-      "value": [
-        {
-          "egrid": "CH227771224050",
-          "number": 558,
-          "municipality": "Schwyz"
-        }
-      ]
-    }
-  },
-  {
-    "model": "instance.formfield",
-    "pk": 109,
-    "fields": {
-      "instance": 12,
-      "name": "punkte",
-      "value": [
-        {
-          "lat": 47.0199165526655,
-          "lng": 8.629236194021038
-        }
-      ]
-    }
-  },
-  {
-    "model": "instance.formfield",
-    "pk": 110,
-    "fields": {
-      "instance": 12,
+      "instance": 5,
       "name": "layer",
       "value": [
         {
           "name": "ms:ch.sz.a005.nutzungsplanung.grundnutzung"
         },
         {
+          "name": "ms:ch.sz.a012.naturgefahrenkarte.synoptisch"
+        },
+        {
           "name": "ms:ch.sz.a013a.planerischergewaesserschutz.gsbereiche.bereich.au"
         },
         {
           "name": "ms:ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon"
+        },
+        {
+          "name": "ms:ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon_oereb"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 180,
+    "fields": {
+      "instance": 5,
+      "name": "kategorie-des-vorhabens",
+      "value": ["Baute(n)"]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 181,
+    "fields": {
+      "instance": 5,
+      "name": "art-der-nutzung",
+      "value": ["Wohnen"]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 182,
+    "fields": {
+      "instance": 5,
+      "name": "vorhaben-mit-baute",
+      "value": ["Neubau"]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 183,
+    "fields": {
+      "instance": 5,
+      "name": "ordendliche-mindestabstande",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 184,
+    "fields": {
+      "instance": 5,
+      "name": "tangiert-vorhaben-strasse",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 185,
+    "fields": {
+      "instance": 5,
+      "name": "anlagen-mit-erheblichen-schadstoffemissionen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 186,
+    "fields": {
+      "instance": 5,
+      "name": "anlagen-mit-erheblichen-strahlungsemissionen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 187,
+    "fields": {
+      "instance": 5,
+      "name": "anlagen-mit-erheblichen-larmemissionen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 188,
+    "fields": {
+      "instance": 5,
+      "name": "larmbelastetes-gebiet",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 189,
+    "fields": {
+      "instance": 5,
+      "name": "aussenbeleuchtung",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 190,
+    "fields": {
+      "instance": 5,
+      "name": "boden-5000m2",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 191,
+    "fields": {
+      "instance": 5,
+      "name": "bodenbelastungen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 192,
+    "fields": {
+      "instance": 5,
+      "name": "lebensmittel-umgehen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 193,
+    "fields": {
+      "instance": 5,
+      "name": "wassergefahrdende-stoffe",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 194,
+    "fields": {
+      "instance": 5,
+      "name": "brandschutztechnisch-gefahrliche-stoffe",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 195,
+    "fields": {
+      "instance": 5,
+      "name": "pfahlfundation-vorgesehen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 196,
+    "fields": {
+      "instance": 5,
+      "name": "baugrubenumschliessung-vorgesehen",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 197,
+    "fields": {
+      "instance": 5,
+      "name": "temporare-grundwasserabsenkung-notig",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 198,
+    "fields": {
+      "instance": 5,
+      "name": "auswirkungen-auf-arbeitnehmer",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 199,
+    "fields": {
+      "instance": 5,
+      "name": "geometer-v2",
+      "value": "Wild Ingenieure AG (K\u00fcssnacht)"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 200,
+    "fields": {
+      "instance": 5,
+      "name": "baugespann-errichtet",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 201,
+    "fields": {
+      "instance": 5,
+      "name": "kein-baugespann-begrundung",
+      "value": "Weil "
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 202,
+    "fields": {
+      "instance": 5,
+      "name": "baukosten",
+      "value": 24536
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 203,
+    "fields": {
+      "instance": 5,
+      "name": "gebaudevolumen-sia-116",
+      "value": 643
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 204,
+    "fields": {
+      "instance": 5,
+      "name": "gebaudevolumen-sia-416",
+      "value": 65
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 205,
+    "fields": {
+      "instance": 5,
+      "name": "grundeigentumerschaft",
+      "value": [
+        {
+          "ort": "Dorfhorf",
+          "plz": 5243,
+          "name": "Bill",
+          "uuid": "9952fae1-a4e0-4f88-a3a9-fe2c1b755b29",
+          "email": "test@test.tseth",
+          "firma": "Mecroseilt",
+          "anrede": "Herr",
+          "strasse": "Dastestrasse 1",
+          "vorname": "Gates"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 206,
+    "fields": {
+      "instance": 5,
+      "name": "bauherrschaft",
+      "value": [
+        {
+          "ort": "Dorfhorf",
+          "plz": 5243,
+          "name": "Bill",
+          "uuid": "9952fae1-a4e0-4f88-a3a9-fe2c1b755b29",
+          "anrede": "Herr",
+          "strasse": "Dastestrasse 1",
+          "vorname": "Gates"
+        },
+        {
+          "ort": "Timmytim",
+          "plz": 6874,
+          "name": "Apple",
+          "uuid": "892d5066-fac3-4121-8f75-892125754d84",
+          "anrede": "Frau",
+          "strasse": "Timhortons 4",
+          "vorname": "Tim"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 207,
+    "fields": {
+      "instance": 5,
+      "name": "projektverfasser-planer",
+      "value": [
+        {
+          "ort": "Timmytim",
+          "plz": 6874,
+          "name": "Apple",
+          "uuid": "892d5066-fac3-4121-8f75-892125754d84",
+          "anrede": "Frau",
+          "strasse": "Timhortons 4",
+          "vorname": "Tim"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 208,
+    "fields": {
+      "instance": 5,
+      "name": "datenverschnitt-naturgefahren",
+      "value": ["Vorhanden"]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 209,
+    "fields": {
+      "instance": 5,
+      "name": "zivilschutz-elementarschaden",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 210,
+    "fields": {
+      "instance": 5,
+      "name": "zivilschutz-schutzraum",
+      "value": "Ja"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 211,
+    "fields": {
+      "instance": 5,
+      "name": "zivilschutz-dispens-schutzraumbau",
+      "value": "Ja"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 212,
+    "fields": {
+      "instance": 5,
+      "name": "datenverschnitt-grundwasserschutz-bereich-au",
+      "value": ["Erledigt"]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 213,
+    "fields": {
+      "instance": 1,
+      "name": "bauherrschaft-override",
+      "value": [
+        {
+          "ort": "Unterdorf",
+          "plz": 9952,
+          "tel": "1234567890",
+          "name": "Hanna",
+          "uuid": "99a704f7-e38e-4ed2-9db3-511be7ae0f8e",
+          "email": "test@test.test",
+          "anrede": "Frau",
+          "strasse": "Oberstrasse 755",
+          "vorname": "Susane"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 214,
+    "fields": {
+      "instance": 1,
+      "name": "verfahrensart",
+      "value": "meldeverfahren"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 215,
+    "fields": {
+      "instance": 1,
+      "name": "grundeigentumerschaft-override",
+      "value": [
+        {
+          "ort": "Dorf",
+          "plz": 5315,
+          "tel": "1234567890",
+          "name": "Gunter",
+          "uuid": "99a704f7-e38e-4ed2-9db3-511be7ae0f8e",
+          "email": "test@test.test",
+          "anrede": "Herr",
+          "strasse": "Strasse 18",
+          "vorname": "Sebastian"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 216,
+    "fields": {
+      "instance": 1,
+      "name": "verfahrensart-erstellt",
+      "value": "nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 217,
+    "fields": {
+      "instance": 1,
+      "name": "projektverfasser-planer-override",
+      "value": [
+        {
+          "ort": "Musterdorf",
+          "plz": 7420,
+          "name": "Muster",
+          "uuid": "5458279f-8da0-47c2-8b73-60ac94c9228d",
+          "email": "teste@test.test",
+          "firma": "Firmafirma",
+          "anrede": "Firma",
+          "strasse": "Musterstrasse 190",
+          "vorname": "Mann"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 218,
+    "fields": {
+      "instance": 1,
+      "name": "standort-spezialbezeichnung",
+      "value": "Nichts"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 219,
+    "fields": {
+      "instance": 1,
+      "name": "vollstaendigkeitspruefung-bemerkung",
+      "value": ""
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 220,
+    "fields": {
+      "instance": 1,
+      "name": "bezeichnung-override",
+      "value": "Haus am See"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 221,
+    "fields": {
+      "instance": 1,
+      "name": "standort-ort",
+      "value": ""
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 222,
+    "fields": {
+      "instance": 1,
+      "name": "ortsbezeichnung-des-vorhabens",
+      "value": "Haus"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 223,
+    "fields": {
+      "instance": 1,
+      "name": "lage",
+      "value": "ausserhalb"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 224,
+    "fields": {
+      "instance": 1,
+      "name": "betroffene-nutzungszonen",
+      "value": "Links rechts"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 225,
+    "fields": {
+      "instance": 3,
+      "name": "verfahrensart-erstellt",
+      "value": "ja"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 226,
+    "fields": {
+      "instance": 3,
+      "name": "bezeichnung-override",
+      "value": "Wald im See"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 227,
+    "fields": {
+      "instance": 3,
+      "name": "bauherrschaft-override",
+      "value": [
+        {
+          "ort": "Waldort",
+          "plz": 5351,
+          "name": "Waldi",
+          "uuid": "132be295-0612-4f81-981c-03eef08104e0",
+          "anrede": "Herr",
+          "strasse": "Waldman",
+          "vorname": "Vi waldu"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 228,
+    "fields": {
+      "instance": 3,
+      "name": "lage",
+      "value": "beides"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 229,
+    "fields": {
+      "instance": 3,
+      "name": "betroffene-nutzungszonen",
+      "value": "Grosses Wald"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 230,
+    "fields": {
+      "instance": 3,
+      "name": "grundeigentumerschaft-override",
+      "value": [
+        {
+          "ort": "Waldort",
+          "plz": 5351,
+          "name": "Waldi",
+          "uuid": "132be295-0612-4f81-981c-03eef08104e0",
+          "anrede": "Herr",
+          "strasse": "Waldman",
+          "vorname": "Vi waldu"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 231,
+    "fields": {
+      "instance": 3,
+      "name": "standort-ort",
+      "value": "Walter"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 232,
+    "fields": {
+      "instance": 3,
+      "name": "projektverfasser-planer-override",
+      "value": [
+        {
+          "ort": "Waldort",
+          "plz": 5351,
+          "name": "Waldi",
+          "uuid": "132be295-0612-4f81-981c-03eef08104e0",
+          "anrede": "Herr",
+          "strasse": "Waldman",
+          "vorname": "Vi waldu"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 233,
+    "fields": {
+      "instance": 3,
+      "name": "ortsbezeichnung-des-vorhabens",
+      "value": "Wald"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 234,
+    "fields": {
+      "instance": 3,
+      "name": "vollstaendigkeitspruefung-bemerkung",
+      "value": "Nein"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 235,
+    "fields": {
+      "instance": 3,
+      "name": "standort-spezialbezeichnung",
+      "value": "Waldo"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 236,
+    "fields": {
+      "instance": 3,
+      "name": "verfahrensart",
+      "value": "vereinfacht"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 237,
+    "fields": {
+      "instance": 4,
+      "name": "betroffene-nutzungszonen",
+      "value": "Fruchtsaft"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 238,
+    "fields": {
+      "instance": 4,
+      "name": "bezeichnung-override",
+      "value": "Durian Fabrik"
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 239,
+    "fields": {
+      "instance": 4,
+      "name": "grundeigentumerschaft-override",
+      "value": [
+        {
+          "ort": "Fruchtdorf",
+          "plz": 7120,
+          "name": "Frucht",
+          "uuid": "fb549505-ed96-4120-aef1-6df67753dd0c",
+          "anrede": "Frau",
+          "strasse": "Fruchtstrasse 62",
+          "vorname": "Fruchtsaft"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 240,
+    "fields": {
+      "instance": 4,
+      "name": "ortsbezeichnung-des-vorhabens",
+      "value": ""
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 241,
+    "fields": {
+      "instance": 4,
+      "name": "projektverfasser-planer-override",
+      "value": [
+        {
+          "ort": "Fruchtdorf",
+          "plz": 7120,
+          "name": "Frucht",
+          "uuid": "fb549505-ed96-4120-aef1-6df67753dd0c",
+          "anrede": "Frau",
+          "strasse": "Fruchtstrasse 62",
+          "vorname": "Fruchtsaft"
+        }
+      ]
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 242,
+    "fields": {
+      "instance": 4,
+      "name": "standort-ort",
+      "value": ""
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 243,
+    "fields": {
+      "instance": 4,
+      "name": "vollstaendigkeitspruefung-bemerkung",
+      "value": ""
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 244,
+    "fields": {
+      "instance": 4,
+      "name": "lage",
+      "value": ""
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 245,
+    "fields": {
+      "instance": 4,
+      "name": "standort-spezialbezeichnung",
+      "value": ""
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 246,
+    "fields": {
+      "instance": 4,
+      "name": "verfahrensart-erstellt",
+      "value": ""
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 247,
+    "fields": {
+      "instance": 4,
+      "name": "verfahrensart",
+      "value": ""
+    }
+  },
+  {
+    "model": "instance.formfield",
+    "pk": 248,
+    "fields": {
+      "instance": 4,
+      "name": "bauherrschaft-override",
+      "value": [
+        {
+          "ort": "Fruchtdorf",
+          "plz": 7120,
+          "name": "Frucht",
+          "uuid": "fb549505-ed96-4120-aef1-6df67753dd0c",
+          "anrede": "Frau",
+          "strasse": "Fruchtstrasse 62",
+          "vorname": "Fruchtsaft"
         }
       ]
     }
