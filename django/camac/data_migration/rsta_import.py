@@ -1,8 +1,13 @@
 import codecs
 import json
+import mimetypes
+import pickle
+import sys
+import traceback
 from collections import Counter, defaultdict
 from json import JSONDecodeError
 from pathlib import Path
+from typing import Optional
 
 from caluma.caluma_form import api as form_api
 from caluma.caluma_form.models import Form, Question
@@ -10,14 +15,38 @@ from caluma.caluma_form.validators import CustomValidationError
 from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.models import Case, Workflow
+from django.core.files import File
 from django.utils.timezone import make_aware, now
 
 from camac.core import utils
 from camac.core.models import Publication
+from camac.document.models import Attachment, AttachmentSection
 from camac.instance.models import Instance, InstanceState, JournalEntry
+from camac.tags.models import Tags
 from camac.user.models import Service, ServiceT, User
 
 from .rsta_data import Beteiligter, Geschaeft
+
+workflow = Workflow.objects.get(pk="migrated")
+form = Form.objects.get(pk="migriertes-dossier")
+q_geschaeftstyp = Question.objects.get(pk="geschaeftstyp")
+q_gemeinde = Question.objects.get(pk="gemeinde")
+user = User.objects.get(username="service-account-camac-admin")
+f_personalien = Form.objects.get(slug="personalien")
+attachment_section = AttachmentSection.objects.get(trans__name="Intern")
+
+
+def read_file(path: Path) -> dict:
+    try:
+        data = json.loads(path.read_text())
+    except JSONDecodeError:
+        try:
+            data = json.loads(codecs.open(path, "r", encoding="utf-8-sig").read())
+        except JSONDecodeError:
+            print(f'Unknown file format was passed, skipping: "{path.name}"')
+            raise
+
+    return data
 
 
 class CalumaMigrationUser(BaseUser):
@@ -28,48 +57,96 @@ class CalumaMigrationUser(BaseUser):
 class Importer:
     """Load data and start imports from given filesystem path."""
 
-    def __init__(self, path):
+    def __init__(
+        self,
+        path,
+        state_file: Optional[Path] = None,
+        document_path: Optional[Path] = None,
+        reimport: bool = True,
+        debug: bool = False,
+    ):
         self.path = path
         self.services = Counter()
-        self.results = {}
+        self.state_file = state_file or Path.cwd() / "migrate_rsta_state.pickle"
+        self.reimport = reimport
+        self.debug = debug
+
+        self.document_path = document_path or self.path
+        if self.document_path.is_file():
+            self.document_path = self.document_path.parent
+
+        try:
+            self.results = pickle.load(self.state_file.open("rb"))
+            assert isinstance(self.results, dict)
+        except (FileNotFoundError, AssertionError):
+            self.results = {}
+
+    @property
+    def all_files(self) -> list:
+        return self.results.keys()
+
+    @property
+    def completed_files(self) -> list:
+        return [
+            filename
+            for filename, result in self.results.items()
+            if result["status"] == "completed"
+        ]
+
+    def write_result(self, filename, result):
+        self.results[filename] = result
+        pickle.dump(self.results, self.state_file.open("wb"))
 
     def iter(self, path: Path):
         if path.is_file():
-            data = self.read_file(path)
-            print(f"Loading file {path}")
+            data = read_file(path)
             yield path.name, Geschaeft.from_dict(data)
 
-        for _file in path.glob("**/*.json"):
+        for _file in path.glob("*.json"):
+            if _file.name in self.completed_files:
+                continue
+
             yield from self.iter(_file)
 
-    def run(self):
+    def run(self, reimport: bool = True, debug: bool = False):
+        start = now()
+
         for filename, geschaeft in self.iter(self.path):
-            print(f"Importing geschaeft {geschaeft.geschaefts_nr}")
-            Import(self, filename, geschaeft).run()
+            print(f"Importing geschaeft {geschaeft.geschaefts_nr} from file {filename}")
+            _import = Import(self, filename, geschaeft)
+            result = _import.run(reimport, debug)
+            self.write_result(filename, result)
+
+        duration = (now() - start).seconds
+
+        total = len(self.results)
+        completed = len(
+            [
+                result
+                for result in self.results.values()
+                if result["status"] == "completed"
+            ]
+        )
+        failed = len(
+            [result for result in self.results.values() if result["status"] == "failed"]
+        )
+
+        hours, minutes, seconds = duration // 3600, duration // 60 % 3600, duration % 60
+
+        print(
+            "\n"
+            "Migration Summary\n"
+            "-----------------\n"
+            f"Total: {total}, Completed: {completed}, Failed: {failed}\n"
+            f"Duration: {hours} h, {minutes} min, {seconds} s"
+        )
 
     def find_missing_services(self):
-        for filename, geschaeft in self.iter(self.path):
-            Import(self, filename, geschaeft).find_missing_services()
-
-    def read_file(self, path: Path) -> dict:
-        try:
-            data = json.loads(path.read_text())
-        except JSONDecodeError:
+        for _, geschaeft in self.iter(self.path):
             try:
-                data = json.loads(codecs.open(path, "r", encoding="utf-8-sig").read())
-            except JSONDecodeError:
-                print(f"{path.name}: Unknown file format was passed, skipping")
-                raise
-
-        return data
-
-
-workflow = Workflow.objects.get(pk="migrated")
-form = Form.objects.get(pk="migriertes-dossier")
-q_geschaeftstyp = Question.objects.get(pk="geschaeftstyp")
-q_gemeinde = Question.objects.get(pk="gemeinde")
-user = User.objects.get(username="service-account-camac-admin")
-f_personalien = Form.objects.get(slug="personalien")
+                ServiceT.objects.get(name=geschaeft.Gemeinde.service_name)
+            except ServiceT.DoesNotExist:
+                self.services[self.geschaeft.Gemeinde.gdBez] += 1
 
 
 class Import:
@@ -90,21 +167,30 @@ class Import:
             "g_jahr": geschaeft.gJahr,
             "g_nr_extern": geschaeft.gNrExtern,
             "started": self.now,
+            "status": "running",
+            "errors": [],
         }
-        self.error_entries = []
 
-    def find_missing_services(self):
+    def log_error(self, error):
+        self.results["errors"].append(error)
+
+    def run(self, reimport: bool = True, debug: bool = False) -> bool:
         try:
-            ServiceT.objects.get(name=self.geschaeft.Gemeinde.service_name)
-        except ServiceT.DoesNotExist:
-            self.importer.services[self.geschaeft.Gemeinde.gdBez] += 1
+            self._run(reimport)
+            self.results["status"] = "completed"
+        except Exception:  # noqa: B901
+            self.results["status"] = "failed"
 
-    def run(self):
-        # TODO check tags if geschaeft was imported already
-        # Tag.objects.filter(
-        #     service=self.service, name=self.geschaeft.geschaefts_nr
-        # )
+            print(f'## Error: file "{self.filename}" failed!')
 
+            if not debug:
+                traceback.print_exc(file=sys.stdout)
+            else:
+                raise
+
+        return self.results
+
+    def _run(self, reimport):
         self.municipality = ServiceT.objects.get(
             name=self.geschaeft.Gemeinde.service_name
         ).service
@@ -122,7 +208,18 @@ class Import:
             name=self.geschaeft.instance_state_name
         )
 
-        # TODO: add "migrated" status so we know in case of a reimport
+        # see if tag already exists -> geschaeft was imported already
+        tag = Tags.objects.filter(name=self.geschaeft.geschaefts_nr).first()
+        if tag:
+            if reimport:
+                # clean up all camac fields trough cascade, caluma is upsert anyways
+                tag.instance.delete()
+                tag.delete()
+
+            else:
+                # don't touch existing instance
+                return
+
         self.instance = Instance.objects.create(
             creation_date=self.now,
             modification_date=self.now,
@@ -146,17 +243,33 @@ class Import:
             service=self.service, name=self.geschaeft.geschaefts_nr
         )
 
-        self.case = workflow_api.start_case(
-            workflow=workflow,
-            form=form,
-            user=self.caluma_user,
-            meta={
-                "camac-instance-id": self.instance.pk,
-                "submit-date": self.geschaeft.submit_date,
-                "ebau-number": ebau_nr,
-                "prefecta-number": self.geschaeft.geschaefts_nr,
-            },
-        )
+        self.case = Case.objects.filter(
+            **{"meta__prefecta-number": self.geschaeft.geschaefts_nr}
+        ).first()
+
+        if self.case and reimport:
+            self.case.delete()
+            self.case = None
+
+        if not self.case:
+            self.case = workflow_api.start_case(
+                workflow=workflow,
+                form=form,
+                user=self.caluma_user,
+                meta={
+                    "camac-instance-id": self.instance.pk,
+                    "submit-date": self.geschaeft.submit_date,
+                    "ebau-number": ebau_nr,
+                    "prefecta-number": self.geschaeft.geschaefts_nr,
+                },
+            )
+
+        if instance_state.name == "finished":
+            decision = self.case.work_items.filter(task__slug="decision").get()
+            decision.status = decision.STATUS_SKIPPED
+            decision.save()
+            self.case.status = self.case.STATUS_COMPLETED
+            self.case.save()
 
         # Caluma base questions
         form_api.save_answer(
@@ -176,20 +289,21 @@ class Import:
         self.import_beteiligte()
         self.import_aktivitaeten()
         self.import_details()
+        self.import_documents()
 
         # TODO camac
-        # * Dokumente
         # * Gebühren (evtl)
 
         # add errornous data
-        JournalEntry.objects.create(
-            instance=self.instance,
-            service=self.service,
-            user=user,
-            text="\n---\n".join(self.error_entries),
-            creation_date=self.now,
-            modification_date=self.now,
-        )
+        if self.results["errors"]:
+            JournalEntry.objects.create(
+                instance=self.instance,
+                service=self.service,
+                user=user,
+                text="\n---\n".join(self.results["errors"]),
+                creation_date=self.now,
+                modification_date=self.now,
+            )
 
     def import_beteiligte(self):
         weitere_personen = set()
@@ -229,7 +343,7 @@ class Import:
                     end=pub_akt.sDatum2.date().isoformat(),
                 )
             else:
-                self.error_entries.append(f"Publikation: {pub_akt.journal_text}")
+                self.log_error(f"Publikation: {pub_akt.journal_text}")
 
         # import all other than submit date, publication
         rest = [akt for akt in self.geschaeft.Aktivitaeten if akt.sCodeS not in [1, 23]]
@@ -290,9 +404,7 @@ class Import:
                 raise
 
         if has_errors:
-            self.error_entries.append(
-                f"{beteiligter.bCodeBBezD}: {beteiligter.Adresse}"
-            )
+            self.log_error(f"{beteiligter.bCodeBBezD}: {beteiligter.Adresse}")
 
         form_api.save_answer(
             document=self.case.document,
@@ -302,3 +414,31 @@ class Import:
         )
 
         return beteiligter.weitere_personen_option
+
+    def import_documents(self):
+        for doc in self.geschaeft.Dokumente:
+            path = self.importer.document_path / doc.file_path
+
+            try:
+                file = File(path.open("rb"), name=path.name)
+                size = file.size
+            except FileNotFoundError:
+                file = None
+                size = 0
+                self.log_error(
+                    f"Dokument nicht gefunden | Fichier introuvable: {path.name}"
+                )
+
+            attachment = Attachment.objects.create(
+                instance=self.instance,
+                user=user,
+                service=self.service,
+                group=self.group,
+                name=doc.docName,
+                path=file,
+                size=size,
+                date=make_aware(doc.docCreatedat) if doc.docCreatedat else self.now,
+                mime_type=mimetypes.guess_type(str(path))[0]
+                or "application/octet-stream",
+            )
+            attachment_section.attachments.add(attachment)
