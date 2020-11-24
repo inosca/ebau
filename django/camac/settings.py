@@ -1409,7 +1409,7 @@ PUBLICATION_API_URL = build_url(
 PUBLICATION_API_USER = env.str("PUBLICATION_API_USER", "")
 PUBLICATION_API_PASSWORD = env.str("PUBLICATION_API_PASSWORD", "")
 
-if ENABLE_SILK and not env.bool("TEST_SUITE_RUNNING"):  # pragma: no cover
+if ENABLE_SILK and not env.bool("TEST_SUITE_RUNNING", False):  # pragma: no cover
     INSTALLED_APPS.append("silk")
     MIDDLEWARE.extend(
         [
