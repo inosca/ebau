@@ -258,6 +258,9 @@ class FormFieldFilterSet(FilterSet):
         field_name="value",
     )
     instance_state = CharMultiValueFilter(field_name="instance__instance_state__name")
+    instance_state_exclude = CharMultiValueFilter(
+        field_name="instance__instance_state__name", exclude=True
+    )
 
     class Meta:
         model = models.FormField
