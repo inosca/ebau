@@ -1775,6 +1775,20 @@
     }
   },
   {
+    "model": "core.action",
+    "pk": 145,
+    "fields": {
+      "available_action": "workitem",
+      "button": 21,
+      "name": "Aufgabe: complete archive-form",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 2
+    }
+  },
+  {
     "model": "core.actionworkitem",
     "pk": 105,
     "fields": {
@@ -1977,6 +1991,17 @@
     "pk": 132,
     "fields": {
       "tasks": "[\"depreciate-case\"]",
+      "process_type": "complete",
+      "process_all": false,
+      "is_activation": false,
+      "fail_on_empty": false
+    }
+  },
+  {
+    "model": "core.actionworkitem",
+    "pk": 145,
+    "fields": {
+      "tasks": "[\"archive-instance\"]",
       "process_type": "complete",
       "process_all": false,
       "is_activation": false,
