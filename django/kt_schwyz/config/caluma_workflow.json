@@ -45,6 +45,17 @@
   },
   {
     "model": "caluma_workflow.flow",
+    "pk": "83f2c279-bc8c-4cf4-97e1-8068fa85e8fa",
+    "fields": {
+      "created_at": "2020-11-19T16:58:27.552Z",
+      "modified_at": "2020-11-19T16:58:27.552Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "next": "['archive-instance']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
     "pk": "915cdda0-42f9-4c76-9c5d-93438db5172b",
     "fields": {
       "created_at": "2020-09-03T14:47:51.420Z",
@@ -128,7 +139,7 @@
       "modified_at": "2020-11-02T07:49:31.817Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "next": "['formal-addition']|tasks"
+      "next": "['formal-addition', 'archive-instance']|tasks"
     }
   },
   {
@@ -151,6 +162,26 @@
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "name": "{\"de\": \"Nachforderung\", \"fr\": null}",
+      "description": "{\"de\": null, \"fr\": null}",
+      "type": "simple",
+      "meta": {},
+      "address_groups": "['municipality']|groups",
+      "control_groups": null,
+      "is_archived": false,
+      "form": null,
+      "lead_time": null,
+      "is_multiple_instance": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "archive-instance",
+    "fields": {
+      "created_at": "2020-11-19T16:37:17.039Z",
+      "modified_at": "2020-11-19T16:37:17.039Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "name": "{\"de\": \"Dossier archivieren\", \"fr\": null}",
       "description": "{\"de\": null, \"fr\": null}",
       "type": "simple",
       "meta": {},
@@ -565,6 +596,19 @@
   },
   {
     "model": "caluma_workflow.taskflow",
+    "pk": "175d2ce4-5780-433e-b30c-e3ef13a4fdff",
+    "fields": {
+      "created_at": "2020-11-19T16:58:27.554Z",
+      "modified_at": "2020-11-19T16:58:27.554Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "workflow": "building-permit",
+      "task": "make-decision",
+      "flow": "83f2c279-bc8c-4cf4-97e1-8068fa85e8fa"
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
     "pk": "1ca7c04f-57d5-4571-b4b5-a1fbbec551cf",
     "fields": {
       "created_at": "2020-09-03T14:47:45.619Z",
@@ -691,6 +735,19 @@
       "workflow": "building-permit",
       "task": "formal-addition",
       "flow": "f0d95573-f1d6-4e63-bc70-0b145caa6aea"
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "e0002fe5-9d86-4a6b-8c41-b4cf9d576f56",
+    "fields": {
+      "created_at": "2020-11-19T16:58:27.554Z",
+      "modified_at": "2020-11-19T16:58:27.554Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "workflow": "building-permit",
+      "task": "depreciate-case",
+      "flow": "83f2c279-bc8c-4cf4-97e1-8068fa85e8fa"
     }
   },
   {

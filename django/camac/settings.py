@@ -244,6 +244,7 @@ APPLICATIONS = {
             "PRE_COMPLETE": {
                 "complete-check": {"cancel": ["reject-form"]},
                 "reject-form": {"cancel": ["complete-check", "depreciate-case"]},
+                "formal-adittion": {"cancel": ["archive-instance"]},
                 "start-additional-circulation": {
                     "cancel": ["check-statements", "start-decision"]
                 },
@@ -254,7 +255,6 @@ APPLICATIONS = {
                 "reopen-circulation": {"cancel": ["make-decision"]},
                 "make-decision": {
                     "cancel": [
-                        "create-manual-workitems",
                         "reopen-circulation",
                         "depreciate-case",
                     ]
@@ -265,7 +265,6 @@ APPLICATIONS = {
                     "cancel": [
                         "additional-demand",
                         "circulation",
-                        "create-manual-workitems",
                         "make-decision",
                         "publication",
                         "reopen-circulation",
@@ -275,6 +274,11 @@ APPLICATIONS = {
                         "submit-additional-demand",
                         "complete-check",
                         "reject-form",
+                    ]
+                },
+                "archive-instance": {
+                    "cancel": [
+                        "create-manual-workitems",
                     ]
                 },
             },
