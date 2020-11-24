@@ -5,6 +5,7 @@ import Resolver from "ember-resolver";
 import config from "ember-caluma-portal/config/environment";
 
 // Intl polyfills
+import "@formatjs/intl-locale/polyfill";
 import "@formatjs/intl-getcanonicallocales/polyfill";
 import "@formatjs/intl-pluralrules/polyfill";
 import "@formatjs/intl-pluralrules/locale-data/de";
