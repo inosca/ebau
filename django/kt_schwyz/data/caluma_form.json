@@ -1,1 +1,233 @@
-[]
+[
+  {
+    "model": "caluma_form.historicaldocument",
+    "pk": "0accc7b6-c1b1-4a92-9c5b-49234aa713a4",
+    "fields": {
+      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2020-11-23T14:20:56.428Z",
+      "modified_at": "2020-11-23T14:20:56.428Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "id": "785b31a9-f250-4237-aaa3-cb98de462b19",
+      "meta": {},
+      "family": "785b31a9-f250-4237-aaa3-cb98de462b19",
+      "form": "circulation",
+      "source": null,
+      "history_date": "2020-11-23T14:20:56.429Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicaldocument",
+    "pk": "0be62be6-a931-4b44-b7fd-212d5b83d9db",
+    "fields": {
+      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2020-11-23T14:14:50.369Z",
+      "modified_at": "2020-11-23T14:14:50.369Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "id": "468a884e-b526-4f4d-9ac9-3aa59fecaf3f",
+      "meta": {},
+      "family": "468a884e-b526-4f4d-9ac9-3aa59fecaf3f",
+      "form": "circulation",
+      "source": null,
+      "history_date": "2020-11-23T14:14:50.370Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicaldocument",
+    "pk": "bda085b6-6e32-4bb9-b4f2-a106a56f952e",
+    "fields": {
+      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2020-11-23T13:42:08.448Z",
+      "modified_at": "2020-11-23T13:42:08.448Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "id": "96c7605e-f1ec-4f78-b1ae-4c923e40296f",
+      "meta": {},
+      "family": "96c7605e-f1ec-4f78-b1ae-4c923e40296f",
+      "form": "baugesuch",
+      "source": null,
+      "history_date": "2020-11-23T13:42:08.449Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicaldocument",
+    "pk": "d9c6fb89-51e9-4a30-a72a-26bd2dc7ebaa",
+    "fields": {
+      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2020-11-23T13:36:44.459Z",
+      "modified_at": "2020-11-23T13:36:44.459Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "id": "3ba608f8-2015-46fd-8fb9-c6c5e7bb68c6",
+      "meta": {},
+      "family": "3ba608f8-2015-46fd-8fb9-c6c5e7bb68c6",
+      "form": "baugesuch",
+      "source": null,
+      "history_date": "2020-11-23T13:36:44.460Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicaldocument",
+    "pk": "dd67ce26-a137-48b3-a074-106820ed3fad",
+    "fields": {
+      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2020-11-23T14:04:12.846Z",
+      "modified_at": "2020-11-23T14:04:12.846Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "id": "932aee7e-2912-47a2-b395-aaa6f73e2315",
+      "meta": {},
+      "family": "932aee7e-2912-47a2-b395-aaa6f73e2315",
+      "form": "baugesuch",
+      "source": null,
+      "history_date": "2020-11-23T14:04:12.847Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicaldocument",
+    "pk": "ef0976b6-52f8-4ff0-a612-ad5bb0069eac",
+    "fields": {
+      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2020-11-23T13:23:00.628Z",
+      "modified_at": "2020-11-23T13:23:00.628Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "id": "ac37a014-405b-4b54-86ad-77dc0bdb9918",
+      "meta": {},
+      "family": "ac37a014-405b-4b54-86ad-77dc0bdb9918",
+      "form": "baugesuch",
+      "source": null,
+      "history_date": "2020-11-23T13:23:00.630Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicaldocument",
+    "pk": "ff19d0d5-cedc-4160-9755-a24f48ccfdbf",
+    "fields": {
+      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2020-11-23T13:56:48.530Z",
+      "modified_at": "2020-11-23T13:56:48.530Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "id": "cf47cfb4-fbe0-4dc4-b053-e8b0dc4bc722",
+      "meta": {},
+      "family": "cf47cfb4-fbe0-4dc4-b053-e8b0dc4bc722",
+      "form": "baugesuch",
+      "source": null,
+      "history_date": "2020-11-23T13:56:48.532Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.document",
+    "pk": "3ba608f8-2015-46fd-8fb9-c6c5e7bb68c6",
+    "fields": {
+      "created_at": "2020-11-23T13:36:44.459Z",
+      "modified_at": "2020-11-23T13:36:44.459Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "family": "3ba608f8-2015-46fd-8fb9-c6c5e7bb68c6",
+      "form": "baugesuch",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "caluma_form.document",
+    "pk": "468a884e-b526-4f4d-9ac9-3aa59fecaf3f",
+    "fields": {
+      "created_at": "2020-11-23T14:14:50.369Z",
+      "modified_at": "2020-11-23T14:14:50.369Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "family": "468a884e-b526-4f4d-9ac9-3aa59fecaf3f",
+      "form": "circulation",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "caluma_form.document",
+    "pk": "785b31a9-f250-4237-aaa3-cb98de462b19",
+    "fields": {
+      "created_at": "2020-11-23T14:20:56.428Z",
+      "modified_at": "2020-11-23T14:20:56.428Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "family": "785b31a9-f250-4237-aaa3-cb98de462b19",
+      "form": "circulation",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "caluma_form.document",
+    "pk": "932aee7e-2912-47a2-b395-aaa6f73e2315",
+    "fields": {
+      "created_at": "2020-11-23T14:04:12.846Z",
+      "modified_at": "2020-11-23T14:04:12.846Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "family": "932aee7e-2912-47a2-b395-aaa6f73e2315",
+      "form": "baugesuch",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "caluma_form.document",
+    "pk": "96c7605e-f1ec-4f78-b1ae-4c923e40296f",
+    "fields": {
+      "created_at": "2020-11-23T13:42:08.448Z",
+      "modified_at": "2020-11-23T13:42:08.448Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "family": "96c7605e-f1ec-4f78-b1ae-4c923e40296f",
+      "form": "baugesuch",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "caluma_form.document",
+    "pk": "ac37a014-405b-4b54-86ad-77dc0bdb9918",
+    "fields": {
+      "created_at": "2020-11-23T13:23:00.628Z",
+      "modified_at": "2020-11-23T13:23:00.628Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "family": "ac37a014-405b-4b54-86ad-77dc0bdb9918",
+      "form": "baugesuch",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "caluma_form.document",
+    "pk": "cf47cfb4-fbe0-4dc4-b053-e8b0dc4bc722",
+    "fields": {
+      "created_at": "2020-11-23T13:56:48.530Z",
+      "modified_at": "2020-11-23T13:56:48.530Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "family": "cf47cfb4-fbe0-4dc4-b053-e8b0dc4bc722",
+      "form": "baugesuch",
+      "source": null,
+      "meta": {}
+    }
+  }
+]
