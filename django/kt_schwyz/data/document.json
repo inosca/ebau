@@ -3,12 +3,12 @@
     "model": "document.attachment",
     "pk": 1,
     "fields": {
-      "uuid": "27efe30b-4cf6-462f-adad-55d956fba03c",
+      "uuid": "0525ce92-0784-4e5a-949b-8c0cca0deb19",
       "name": "dokument-grundstucksangaben.png",
       "instance": 1,
       "path": "attachments/files/1/dokument-grundstucksangaben.png",
-      "size": 173277,
-      "date": "2019-04-17T10:50:20.567Z",
+      "size": 58173,
+      "date": "2020-11-23T13:23:47.397Z",
       "user": 1,
       "mime_type": "image/png",
       "is_parcel_picture": 0,
@@ -19,205 +19,44 @@
       "question": "dokument-grundstucksangaben",
       "service": null,
       "context": {},
-      "attachment_sections": [1, 4]
+      "attachment_sections": [1]
     }
   },
   {
     "model": "document.attachment",
     "pk": 2,
     "fields": {
-      "uuid": "3c4b3767-a0ec-4d90-9de5-56aa1e160e01",
-      "name": "mulan_painting.jpg",
+      "uuid": "8efc38d0-188c-4d1b-842d-e91b64a2a4dc",
+      "name": "Gutachten.pdf",
       "instance": 1,
-      "path": "attachments/files/1/mulan_painting.jpg",
-      "size": 91955,
-      "date": "2019-04-17T10:55:46.107Z",
+      "path": "attachments/files/1/Gutachten.pdf",
+      "size": 212954,
+      "date": "2020-11-23T13:32:23.221Z",
       "user": 1,
-      "mime_type": "image/jpeg",
+      "mime_type": "application/pdf",
       "is_parcel_picture": 0,
       "digital_signature": 0,
       "is_confidential": 0,
       "identifier": null,
-      "group": 3,
-      "question": null,
-      "service": 6,
+      "group": 4,
+      "question": "dokument-gutachten-nachweise-begrundungen",
+      "service": null,
       "context": {},
-      "attachment_sections": [9]
+      "attachment_sections": [1]
     }
   },
   {
     "model": "document.attachment",
     "pk": 3,
     "fields": {
-      "uuid": "dde4dfb0-3616-4f2b-b58f-932063a22557",
-      "name": "Kirishima-Touka.jpg",
+      "uuid": "5907864c-9ab6-4283-b887-d4e8b3309545",
+      "name": "WeitereUnterlagen.pdf",
       "instance": 1,
-      "path": "attachments/files/1/Kirishima-Touka.jpg",
-      "size": 377295,
-      "date": "2019-04-17T10:56:13.569Z",
+      "path": "attachments/files/1/WeitereUnterlagen.pdf",
+      "size": 212954,
+      "date": "2020-11-23T13:32:48.157Z",
       "user": 1,
-      "mime_type": "image/jpeg",
-      "is_parcel_picture": 0,
-      "digital_signature": 0,
-      "is_confidential": 0,
-      "identifier": null,
-      "group": 3,
-      "question": null,
-      "service": 6,
-      "context": {},
-      "attachment_sections": [9]
-    }
-  },
-  {
-    "model": "document.attachment",
-    "pk": 4,
-    "fields": {
-      "uuid": "d08ff6a1-c3a8-46d5-a17f-043556bf7e19",
-      "name": "mulan_painting.jpg",
-      "instance": 1,
-      "path": "attachments/files/1/mulan_painting_CIDe4qE.jpg",
-      "size": 91955,
-      "date": "2019-04-23T08:29:24.713Z",
-      "user": 1,
-      "mime_type": "image/jpeg",
-      "is_parcel_picture": 0,
-      "digital_signature": 0,
-      "is_confidential": 0,
-      "identifier": null,
-      "group": 3,
-      "question": null,
-      "service": 6,
-      "context": {},
-      "attachment_sections": [4]
-    }
-  },
-  {
-    "model": "document.attachment",
-    "pk": 5,
-    "fields": {
-      "uuid": "9f9f12cb-26f8-4c6e-9553-08eb0e9de5b0",
-      "name": "touka.jpg",
-      "instance": 1,
-      "path": "attachments/files/1/touka.jpg",
-      "size": 707507,
-      "date": "2019-04-23T08:47:23.675Z",
-      "user": 1,
-      "mime_type": "image/jpeg",
-      "is_parcel_picture": 0,
-      "digital_signature": 0,
-      "is_confidential": 0,
-      "identifier": null,
-      "group": 3,
-      "question": null,
-      "service": 6,
-      "context": {},
-      "attachment_sections": [8]
-    }
-  },
-  {
-    "model": "document.attachment",
-    "pk": 6,
-    "fields": {
-      "uuid": "a2c2ddbb-c482-4851-953b-dc36260a8260",
-      "name": "LogoTVWorb.jpg",
-      "instance": 1,
-      "path": "attachments/files/1/LogoTVWorb.jpg",
-      "size": 770430,
-      "date": "2019-04-23T08:47:34.756Z",
-      "user": 1,
-      "mime_type": "image/jpeg",
-      "is_parcel_picture": 0,
-      "digital_signature": 0,
-      "is_confidential": 0,
-      "identifier": null,
-      "group": 3,
-      "question": null,
-      "service": 6,
-      "context": {},
-      "attachment_sections": [7]
-    }
-  },
-  {
-    "model": "document.attachment",
-    "pk": 7,
-    "fields": {
-      "uuid": "cfd624d9-4093-41cc-a0d0-6b37b5a6d35f",
-      "name": "dokument-grundstucksangaben.png",
-      "instance": 4,
-      "path": "attachments/files/4/dokument-grundstucksangaben.png",
-      "size": 39128,
-      "date": "2019-04-30T17:29:48.583Z",
-      "user": 1,
-      "mime_type": "image/png",
-      "is_parcel_picture": 0,
-      "digital_signature": 0,
-      "is_confidential": 0,
-      "identifier": null,
-      "group": 4,
-      "question": "dokument-grundstucksangaben",
-      "service": null,
-      "context": {},
-      "attachment_sections": [1]
-    }
-  },
-  {
-    "model": "document.attachment",
-    "pk": 8,
-    "fields": {
-      "uuid": "e1395f44-ce21-4756-8c40-8d8dcd7f7920",
-      "name": "dokument-grundstucksangaben.png",
-      "instance": 5,
-      "path": "attachments/files/5/dokument-grundstucksangaben.png",
-      "size": 1120950,
-      "date": "2019-04-30T17:38:44.344Z",
-      "user": 1,
-      "mime_type": "image/png",
-      "is_parcel_picture": 0,
-      "digital_signature": 0,
-      "is_confidential": 0,
-      "identifier": null,
-      "group": 4,
-      "question": "dokument-grundstucksangaben",
-      "service": null,
-      "context": {},
-      "attachment_sections": [1]
-    }
-  },
-  {
-    "model": "document.attachment",
-    "pk": 9,
-    "fields": {
-      "uuid": "94c0f82e-69de-4dfa-a036-409d4a51768a",
-      "name": "dokument-grundstucksangaben.png",
-      "instance": 6,
-      "path": "attachments/files/6/dokument-grundstucksangaben.png",
-      "size": 25334,
-      "date": "2019-05-01T08:37:12.509Z",
-      "user": 3,
-      "mime_type": "image/png",
-      "is_parcel_picture": 0,
-      "digital_signature": 0,
-      "is_confidential": 0,
-      "identifier": null,
-      "group": 4,
-      "question": "dokument-grundstucksangaben",
-      "service": null,
-      "context": {},
-      "attachment_sections": [1]
-    }
-  },
-  {
-    "model": "document.attachment",
-    "pk": 10,
-    "fields": {
-      "uuid": "aa750fe5-2533-4c4a-b2bf-a837486d3207",
-      "name": "mulan_painting.jpg",
-      "instance": 6,
-      "path": "attachments/files/6/mulan_painting.jpg",
-      "size": 91955,
-      "date": "2019-05-01T08:37:44.296Z",
-      "user": 3,
-      "mime_type": "image/jpeg",
+      "mime_type": "application/pdf",
       "is_parcel_picture": 0,
       "digital_signature": 0,
       "is_confidential": 0,
@@ -231,1387 +70,232 @@
   },
   {
     "model": "document.attachment",
-    "pk": 11,
-    "fields": {
-      "uuid": "0de0abe7-e385-413c-9845-294126df92b8",
-      "name": "dokument-grundstucksangaben.png",
-      "instance": 7,
-      "path": "attachments/files/7/dokument-grundstucksangaben.png",
-      "size": 104612,
-      "date": "2019-05-02T14:24:31.593Z",
-      "user": 1,
-      "mime_type": "image/png",
-      "is_parcel_picture": 0,
-      "digital_signature": 0,
-      "is_confidential": 0,
-      "identifier": null,
-      "group": 4,
-      "question": "dokument-grundstucksangaben",
-      "service": null,
-      "context": {},
-      "attachment_sections": [1]
-    }
-  },
-  {
-    "model": "document.attachment",
-    "pk": 12,
-    "fields": {
-      "uuid": "64e80c3c-193e-448e-9e2d-a953d89e5a45",
-      "name": "test\u00fcx.jpg",
-      "instance": 7,
-      "path": "attachments/files/7/test\u00fcx.jpg",
-      "size": 5,
-      "date": "2019-05-08T09:09:26.463Z",
-      "user": 1,
-      "mime_type": "image/jpeg",
-      "is_parcel_picture": 0,
-      "digital_signature": 0,
-      "is_confidential": 0,
-      "identifier": null,
-      "group": 3,
-      "question": null,
-      "service": 6,
-      "context": {},
-      "attachment_sections": [8]
-    }
-  },
-  {
-    "model": "document.attachment",
-    "pk": 13,
-    "fields": {
-      "uuid": "ab4c0bc7-b7a8-4dda-97e0-548aa5859c6e",
-      "name": "m\u00fclan.jpg",
-      "instance": 7,
-      "path": "attachments/files/7/m\u00fclan.jpg",
-      "size": 91955,
-      "date": "2019-05-08T17:36:04.660Z",
-      "user": 1,
-      "mime_type": "image/jpeg",
-      "is_parcel_picture": 0,
-      "digital_signature": 0,
-      "is_confidential": 0,
-      "identifier": null,
-      "group": 3,
-      "question": null,
-      "service": 6,
-      "context": {},
-      "attachment_sections": [8]
-    }
-  },
-  {
-    "model": "document.attachment",
-    "pk": 14,
-    "fields": {
-      "uuid": "af4058f3-d083-4ffb-92ae-9835e184ee0c",
-      "name": "dokument-grundstucksangaben.png",
-      "instance": 8,
-      "path": "attachments/files/8/dokument-grundstucksangaben.png",
-      "size": 752015,
-      "date": "2019-05-24T09:04:02.518Z",
-      "user": 1,
-      "mime_type": "image/png",
-      "is_parcel_picture": 0,
-      "digital_signature": 0,
-      "is_confidential": 0,
-      "identifier": null,
-      "group": 4,
-      "question": "dokument-grundstucksangaben",
-      "service": null,
-      "context": {},
-      "attachment_sections": [1]
-    }
-  },
-  {
-    "model": "document.attachment",
-    "pk": 15,
-    "fields": {
-      "uuid": "0cb28cb7-0b8b-46e4-95b6-026e88ff6463",
-      "name": "Bergwanderung_2018.pdf",
-      "instance": 8,
-      "path": "attachments/files/8/Bergwanderung_2018_7ZR0sHY.pdf",
-      "size": 649908,
-      "date": "2019-05-24T09:05:57.518Z",
-      "user": 1,
-      "mime_type": "application/pdf",
-      "is_parcel_picture": 0,
-      "digital_signature": 0,
-      "is_confidential": 0,
-      "identifier": null,
-      "group": 4,
-      "question": "dokument-projektplane-projektbeschrieb",
-      "service": null,
-      "context": {},
-      "attachment_sections": [1]
-    }
-  },
-  {
-    "model": "document.attachment",
-    "pk": 16,
-    "fields": {
-      "uuid": "1384bde9-e028-4944-94b0-f24cc56541a0",
-      "name": "Bergwanderung_2018.pdf",
-      "instance": 8,
-      "path": "attachments/files/8/Bergwanderung_2018_Q5p0hEp.pdf",
-      "size": 649908,
-      "date": "2019-05-24T09:08:52.083Z",
-      "user": 1,
-      "mime_type": "application/pdf",
-      "is_parcel_picture": 0,
-      "digital_signature": 0,
-      "is_confidential": 0,
-      "identifier": null,
-      "group": 4,
-      "question": "dokument-projektplane-projektbeschrieb",
-      "service": null,
-      "context": {},
-      "attachment_sections": [1]
-    }
-  },
-  {
-    "model": "document.attachment",
-    "pk": 17,
-    "fields": {
-      "uuid": "c9da6d89-c0a2-46b1-9d1b-ae5ad0e21a60",
-      "name": "Bergwanderung_2018.pdf",
-      "instance": 8,
-      "path": "attachments/files/8/Bergwanderung_2018_FqZMPyG.pdf",
-      "size": 76957,
-      "date": "2019-05-24T09:09:18.987Z",
-      "user": 1,
-      "mime_type": "application/pdf",
-      "is_parcel_picture": 0,
-      "digital_signature": 0,
-      "is_confidential": 0,
-      "identifier": null,
-      "group": 4,
-      "question": "dokument-projektplane-projektbeschrieb",
-      "service": null,
-      "context": {},
-      "attachment_sections": [1]
-    }
-  },
-  {
-    "model": "document.attachment",
-    "pk": 18,
-    "fields": {
-      "uuid": "6c685f4c-4f6e-46d7-9531-fb8f7657f3a2",
-      "name": "dokument-grundstucksangaben.png",
-      "instance": 12,
-      "path": "attachments/files/12/dokument-grundstucksangaben.png",
-      "size": 60866,
-      "date": "2019-05-24T13:01:18.595Z",
-      "user": 1,
-      "mime_type": "image/png",
-      "is_parcel_picture": 0,
-      "digital_signature": 0,
-      "is_confidential": 0,
-      "identifier": null,
-      "group": 4,
-      "question": "dokument-grundstucksangaben",
-      "service": null,
-      "context": {},
-      "attachment_sections": [1]
-    }
-  },
-  {
-    "model": "document.attachment",
-    "pk": 19,
-    "fields": {
-      "uuid": "a52a4ff9-60a5-46d5-8075-1753367a382f",
-      "name": "m\u00fclan.jpg",
-      "instance": 12,
-      "path": "attachments/files/12/m\u00fclan.jpg",
-      "size": 91955,
-      "date": "2019-05-24T13:01:32.408Z",
-      "user": 1,
-      "mime_type": "image/jpeg",
-      "is_parcel_picture": 0,
-      "digital_signature": 0,
-      "is_confidential": 0,
-      "identifier": null,
-      "group": 4,
-      "question": "dokument-projektplane-projektbeschrieb",
-      "service": null,
-      "context": {},
-      "attachment_sections": [1]
-    }
-  },
-  {
-    "model": "document.attachment",
-    "pk": 20,
-    "fields": {
-      "uuid": "4d4def5a-9fae-4591-a8c5-e1c28b8f5982",
-      "name": "m\u00fclan.jpg",
-      "instance": 8,
-      "path": "attachments/files/8/m\u00fclan.jpg",
-      "size": 91955,
-      "date": "2019-05-28T08:58:45.014Z",
-      "user": 1,
-      "mime_type": "image/jpeg",
-      "is_parcel_picture": 0,
-      "digital_signature": 0,
-      "is_confidential": 0,
-      "identifier": null,
-      "group": 3,
-      "question": null,
-      "service": 6,
-      "context": {},
-      "attachment_sections": [7]
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 1,
-    "fields": {
-      "date_time": "2019-04-17T10:56:41.605Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 3,
-      "group": 4
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 2,
-    "fields": {
-      "date_time": "2019-04-23T13:29:09.095Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 1,
-      "group": 4
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 3,
-    "fields": {
-      "date_time": "2019-04-23T13:49:06.339Z",
-      "keycloak_id": "9535c2ff-9649-4254-96cb-3c899353aa11",
-      "name": "Testuser Adfinis",
-      "attachment": 1,
-      "group": 394
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
     "pk": 4,
     "fields": {
-      "date_time": "2019-04-23T13:50:19.159Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 1,
-      "group": 4
+      "uuid": "11d13048-3028-426e-8f7a-3cf5e3487435",
+      "name": "Projektbeschrieb.pdf",
+      "instance": 1,
+      "path": "attachments/files/1/Projektbeschrieb.pdf",
+      "size": 212954,
+      "date": "2020-11-23T13:33:05.684Z",
+      "user": 1,
+      "mime_type": "application/pdf",
+      "is_parcel_picture": 0,
+      "digital_signature": 0,
+      "is_confidential": 0,
+      "identifier": null,
+      "group": 4,
+      "question": "dokument-projektplane-projektbeschrieb",
+      "service": null,
+      "context": {},
+      "attachment_sections": [1]
     }
   },
   {
-    "model": "document.attachmentdownloadhistory",
+    "model": "document.attachment",
     "pk": 5,
     "fields": {
-      "date_time": "2019-04-23T13:58:02.829Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 1,
-      "group": 4
+      "uuid": "f0183a5f-8e75-4422-9ca8-a122c40680a4",
+      "name": "Baugesuch_23.11.2020.pdf",
+      "instance": 1,
+      "path": "attachments/files/1/Baugesuch_23.11.2020.pdf",
+      "size": 359717,
+      "date": "2020-11-23T13:36:33.126Z",
+      "user": 1,
+      "mime_type": "application/pdf",
+      "is_parcel_picture": 0,
+      "digital_signature": 0,
+      "is_confidential": 0,
+      "identifier": null,
+      "group": 4,
+      "question": "dokument-projektplane-projektbeschrieb",
+      "service": null,
+      "context": {},
+      "attachment_sections": [1]
     }
   },
   {
-    "model": "document.attachmentdownloadhistory",
+    "model": "document.attachment",
     "pk": 6,
     "fields": {
-      "date_time": "2019-04-23T14:02:56.099Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 1,
-      "group": 4
+      "uuid": "dc589ecc-b6f6-48ab-af92-1eddfd922d10",
+      "name": "dokument-grundstucksangaben.png",
+      "instance": 2,
+      "path": "attachments/files/2/dokument-grundstucksangaben.png",
+      "size": 130886,
+      "date": "2020-11-23T13:37:35.955Z",
+      "user": 1,
+      "mime_type": "image/png",
+      "is_parcel_picture": 0,
+      "digital_signature": 0,
+      "is_confidential": 0,
+      "identifier": null,
+      "group": 4,
+      "question": "dokument-grundstucksangaben",
+      "service": null,
+      "context": {},
+      "attachment_sections": [1]
     }
   },
   {
-    "model": "document.attachmentdownloadhistory",
+    "model": "document.attachment",
     "pk": 7,
     "fields": {
-      "date_time": "2019-04-23T14:03:05.376Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 1,
-      "group": 4
+      "uuid": "bc5fcba6-48e8-4937-be5e-e377d9ab98d7",
+      "name": "Projektbeschrieb.pdf",
+      "instance": 2,
+      "path": "attachments/files/2/Projektbeschrieb.pdf",
+      "size": 212954,
+      "date": "2020-11-23T13:40:19.207Z",
+      "user": 1,
+      "mime_type": "application/pdf",
+      "is_parcel_picture": 0,
+      "digital_signature": 0,
+      "is_confidential": 0,
+      "identifier": null,
+      "group": 4,
+      "question": "dokument-projektplane-projektbeschrieb",
+      "service": null,
+      "context": {},
+      "attachment_sections": [1]
     }
   },
   {
-    "model": "document.attachmentdownloadhistory",
+    "model": "document.attachment",
     "pk": 8,
     "fields": {
-      "date_time": "2019-04-23T14:03:59.268Z",
-      "keycloak_id": "9535c2ff-9649-4254-96cb-3c899353aa11",
-      "name": "Testuser Adfinis",
-      "attachment": 1,
-      "group": 394
+      "uuid": "a44cee57-b276-49ea-b3d5-8f9d5a18257f",
+      "name": "Baugesuch_23.11.2020.pdf",
+      "instance": 2,
+      "path": "attachments/files/2/Baugesuch_23.11.2020.pdf",
+      "size": 303973,
+      "date": "2020-11-23T13:40:30.617Z",
+      "user": 1,
+      "mime_type": "application/pdf",
+      "is_parcel_picture": 0,
+      "digital_signature": 0,
+      "is_confidential": 0,
+      "identifier": null,
+      "group": 4,
+      "question": "dokument-projektplane-projektbeschrieb",
+      "service": null,
+      "context": {},
+      "attachment_sections": [1]
     }
   },
   {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 9,
-    "fields": {
-      "date_time": "2019-04-23T14:11:10.994Z",
-      "keycloak_id": "9535c2ff-9649-4254-96cb-3c899353aa11",
-      "name": "Testuser Adfinis",
-      "attachment": 1,
-      "group": 394
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
+    "model": "document.attachment",
     "pk": 10,
     "fields": {
-      "date_time": "2019-04-23T14:11:57.433Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 1,
-      "group": 4
+      "uuid": "dd71d8c1-efbc-4e5b-bd96-57675c243807",
+      "name": "dokument-grundstucksangaben.png",
+      "instance": 3,
+      "path": "attachments/files/3/dokument-grundstucksangaben.png",
+      "size": 136398,
+      "date": "2020-11-23T13:43:46.032Z",
+      "user": 1,
+      "mime_type": "image/png",
+      "is_parcel_picture": 0,
+      "digital_signature": 0,
+      "is_confidential": 0,
+      "identifier": null,
+      "group": 4,
+      "question": "dokument-grundstucksangaben",
+      "service": null,
+      "context": {},
+      "attachment_sections": [1]
     }
   },
   {
-    "model": "document.attachmentdownloadhistory",
+    "model": "document.attachment",
     "pk": 11,
     "fields": {
-      "date_time": "2019-05-08T09:09:37.169Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
+      "uuid": "f04eb8c9-ea99-44ec-9596-2c029190bb22",
+      "name": "Baugesuch_23.11.2020.pdf",
+      "instance": 3,
+      "path": "attachments/files/3/Baugesuch_23.11.2020.pdf",
+      "size": 284669,
+      "date": "2020-11-23T13:47:50.285Z",
+      "user": 1,
+      "mime_type": "application/pdf",
+      "is_parcel_picture": 0,
+      "digital_signature": 0,
+      "is_confidential": 0,
+      "identifier": null,
+      "group": 4,
+      "question": "dokument-projektplane-projektbeschrieb",
+      "service": null,
+      "context": {},
+      "attachment_sections": [1]
     }
   },
   {
-    "model": "document.attachmentdownloadhistory",
+    "model": "document.attachment",
     "pk": 12,
     "fields": {
-      "date_time": "2019-05-08T09:20:30.330Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
+      "uuid": "1c44d094-6fd3-4dc0-b1eb-f46dbfc83970",
+      "name": "dokument-grundstucksangaben.png",
+      "instance": 4,
+      "path": "attachments/files/4/dokument-grundstucksangaben.png",
+      "size": 146142,
+      "date": "2020-11-23T14:00:23.540Z",
+      "user": 1,
+      "mime_type": "image/png",
+      "is_parcel_picture": 0,
+      "digital_signature": 0,
+      "is_confidential": 0,
+      "identifier": null,
+      "group": 4,
+      "question": "dokument-grundstucksangaben",
+      "service": null,
+      "context": {},
+      "attachment_sections": [1]
     }
   },
   {
-    "model": "document.attachmentdownloadhistory",
+    "model": "document.attachment",
     "pk": 13,
     "fields": {
-      "date_time": "2019-05-08T09:21:26.888Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
+      "uuid": "6d62e06e-00a5-4917-a876-b1ec854eb19b",
+      "name": "Baugesuch_23.11.2020.pdf",
+      "instance": 4,
+      "path": "attachments/files/4/Baugesuch_23.11.2020.pdf",
+      "size": 270271,
+      "date": "2020-11-23T14:02:41.895Z",
+      "user": 1,
+      "mime_type": "application/pdf",
+      "is_parcel_picture": 0,
+      "digital_signature": 0,
+      "is_confidential": 0,
+      "identifier": null,
+      "group": 4,
+      "question": "dokument-projektplane-projektbeschrieb",
+      "service": null,
+      "context": {},
+      "attachment_sections": [1]
     }
   },
   {
-    "model": "document.attachmentdownloadhistory",
+    "model": "document.attachment",
     "pk": 14,
     "fields": {
-      "date_time": "2019-05-08T09:31:06.235Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 15,
-    "fields": {
-      "date_time": "2019-05-08T09:33:12.428Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 16,
-    "fields": {
-      "date_time": "2019-05-08T11:30:28.710Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 17,
-    "fields": {
-      "date_time": "2019-05-08T11:34:24.246Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 18,
-    "fields": {
-      "date_time": "2019-05-08T11:51:42.384Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 19,
-    "fields": {
-      "date_time": "2019-05-08T11:58:35.143Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 20,
-    "fields": {
-      "date_time": "2019-05-08T11:59:30.255Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 21,
-    "fields": {
-      "date_time": "2019-05-08T12:20:19.529Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 22,
-    "fields": {
-      "date_time": "2019-05-08T12:50:25.300Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 23,
-    "fields": {
-      "date_time": "2019-05-08T14:44:11.986Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 24,
-    "fields": {
-      "date_time": "2019-05-08T14:44:35.869Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 25,
-    "fields": {
-      "date_time": "2019-05-08T14:56:27.599Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 26,
-    "fields": {
-      "date_time": "2019-05-08T15:19:44.426Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 27,
-    "fields": {
-      "date_time": "2019-05-08T15:31:32.651Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 28,
-    "fields": {
-      "date_time": "2019-05-08T15:36:14.597Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 29,
-    "fields": {
-      "date_time": "2019-05-08T15:37:27.773Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 30,
-    "fields": {
-      "date_time": "2019-05-08T15:46:59.586Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 31,
-    "fields": {
-      "date_time": "2019-05-08T15:56:18.266Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 32,
-    "fields": {
-      "date_time": "2019-05-08T15:56:28.593Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 33,
-    "fields": {
-      "date_time": "2019-05-08T15:57:38.576Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 34,
-    "fields": {
-      "date_time": "2019-05-08T15:58:02.748Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 35,
-    "fields": {
-      "date_time": "2019-05-08T15:59:03.161Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 11,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 36,
-    "fields": {
-      "date_time": "2019-05-08T15:59:12.109Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 37,
-    "fields": {
-      "date_time": "2019-05-08T15:59:57.229Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 11,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 38,
-    "fields": {
-      "date_time": "2019-05-08T16:03:14.024Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 39,
-    "fields": {
-      "date_time": "2019-05-08T16:03:30.799Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 40,
-    "fields": {
-      "date_time": "2019-05-08T16:03:30.846Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 41,
-    "fields": {
-      "date_time": "2019-05-08T16:03:30.886Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 42,
-    "fields": {
-      "date_time": "2019-05-08T16:03:30.925Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 43,
-    "fields": {
-      "date_time": "2019-05-08T16:03:30.966Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 44,
-    "fields": {
-      "date_time": "2019-05-08T16:03:31.023Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 45,
-    "fields": {
-      "date_time": "2019-05-08T16:17:57.640Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 46,
-    "fields": {
-      "date_time": "2019-05-08T16:18:30.717Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 47,
-    "fields": {
-      "date_time": "2019-05-08T16:18:35.030Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 11,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 48,
-    "fields": {
-      "date_time": "2019-05-08T16:21:00.173Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 49,
-    "fields": {
-      "date_time": "2019-05-08T16:28:24.783Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 50,
-    "fields": {
-      "date_time": "2019-05-08T16:29:39.352Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 51,
-    "fields": {
-      "date_time": "2019-05-08T16:30:43.314Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 52,
-    "fields": {
-      "date_time": "2019-05-08T16:31:05.927Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 53,
-    "fields": {
-      "date_time": "2019-05-08T16:33:47.648Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 54,
-    "fields": {
-      "date_time": "2019-05-08T16:34:30.931Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 55,
-    "fields": {
-      "date_time": "2019-05-08T16:34:49.217Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 56,
-    "fields": {
-      "date_time": "2019-05-08T16:35:14.253Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 57,
-    "fields": {
-      "date_time": "2019-05-08T16:36:35.866Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 58,
-    "fields": {
-      "date_time": "2019-05-08T16:36:50.056Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 59,
-    "fields": {
-      "date_time": "2019-05-08T16:37:28.212Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 60,
-    "fields": {
-      "date_time": "2019-05-08T16:38:21.294Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 61,
-    "fields": {
-      "date_time": "2019-05-08T16:38:35.634Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 62,
-    "fields": {
-      "date_time": "2019-05-08T16:39:19.241Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 63,
-    "fields": {
-      "date_time": "2019-05-08T16:39:33.255Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 64,
-    "fields": {
-      "date_time": "2019-05-08T16:39:43.829Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 65,
-    "fields": {
-      "date_time": "2019-05-08T16:41:27.972Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 66,
-    "fields": {
-      "date_time": "2019-05-08T16:41:39.917Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 67,
-    "fields": {
-      "date_time": "2019-05-08T16:41:58.949Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 68,
-    "fields": {
-      "date_time": "2019-05-08T16:42:45.771Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 69,
-    "fields": {
-      "date_time": "2019-05-08T16:42:58.846Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 70,
-    "fields": {
-      "date_time": "2019-05-08T16:44:13.944Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 71,
-    "fields": {
-      "date_time": "2019-05-08T16:46:03.062Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 72,
-    "fields": {
-      "date_time": "2019-05-08T16:46:42.081Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 73,
-    "fields": {
-      "date_time": "2019-05-08T16:49:03.977Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 74,
-    "fields": {
-      "date_time": "2019-05-08T16:49:17.913Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 75,
-    "fields": {
-      "date_time": "2019-05-08T16:52:07.644Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 76,
-    "fields": {
-      "date_time": "2019-05-08T16:52:24.792Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 77,
-    "fields": {
-      "date_time": "2019-05-08T16:52:45.042Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 78,
-    "fields": {
-      "date_time": "2019-05-08T16:55:11.219Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 79,
-    "fields": {
-      "date_time": "2019-05-08T16:55:22.077Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 80,
-    "fields": {
-      "date_time": "2019-05-08T16:56:09.559Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 81,
-    "fields": {
-      "date_time": "2019-05-08T16:56:25.389Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 82,
-    "fields": {
-      "date_time": "2019-05-08T16:57:14.746Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 83,
-    "fields": {
-      "date_time": "2019-05-08T16:58:48.461Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 84,
-    "fields": {
-      "date_time": "2019-05-08T16:59:12.533Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 85,
-    "fields": {
-      "date_time": "2019-05-08T16:59:26.171Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 86,
-    "fields": {
-      "date_time": "2019-05-08T17:00:05.739Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 87,
-    "fields": {
-      "date_time": "2019-05-08T17:10:05.941Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 88,
-    "fields": {
-      "date_time": "2019-05-08T17:10:15.799Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 89,
-    "fields": {
-      "date_time": "2019-05-08T17:11:09.624Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 90,
-    "fields": {
-      "date_time": "2019-05-08T17:11:15.694Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 91,
-    "fields": {
-      "date_time": "2019-05-08T17:11:49.661Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 92,
-    "fields": {
-      "date_time": "2019-05-08T17:20:02.787Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 93,
-    "fields": {
-      "date_time": "2019-05-08T17:20:10.242Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 94,
-    "fields": {
-      "date_time": "2019-05-08T17:21:37.207Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 95,
-    "fields": {
-      "date_time": "2019-05-08T17:22:22.028Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 96,
-    "fields": {
-      "date_time": "2019-05-08T17:22:49.962Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 97,
-    "fields": {
-      "date_time": "2019-05-08T17:24:54.249Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 98,
-    "fields": {
-      "date_time": "2019-05-08T17:25:46.466Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 99,
-    "fields": {
-      "date_time": "2019-05-08T17:29:36.960Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 100,
-    "fields": {
-      "date_time": "2019-05-08T17:30:17.957Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 101,
-    "fields": {
-      "date_time": "2019-05-08T17:32:20.265Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 102,
-    "fields": {
-      "date_time": "2019-05-08T17:33:55.981Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 12,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 103,
-    "fields": {
-      "date_time": "2019-05-08T17:36:12.467Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 13,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 104,
-    "fields": {
-      "date_time": "2019-05-09T07:09:02.896Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 13,
-      "group": 3
-    }
-  },
-  {
-    "model": "document.attachmentdownloadhistory",
-    "pk": 105,
-    "fields": {
-      "date_time": "2019-05-28T08:59:05.563Z",
-      "keycloak_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "name": "Static Administrator",
-      "attachment": 16,
-      "group": 3
+      "uuid": "bcb3260b-79ee-487b-98e3-c51ecfa98aa9",
+      "name": "dokument-grundstucksangaben.png",
+      "instance": 5,
+      "path": "attachments/files/5/dokument-grundstucksangaben.png",
+      "size": 121993,
+      "date": "2020-11-23T14:05:08.232Z",
+      "user": 1,
+      "mime_type": "image/png",
+      "is_parcel_picture": 0,
+      "digital_signature": 0,
+      "is_confidential": 0,
+      "identifier": null,
+      "group": 4,
+      "question": "dokument-grundstucksangaben",
+      "service": null,
+      "context": {},
+      "attachment_sections": [1]
     }
   }
 ]
