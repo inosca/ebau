@@ -1,6 +1,5 @@
 import pytest
 from caluma.caluma_form.models import Form
-from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow.api import skip_work_item, start_case
 from caluma.caluma_workflow.models import Case, Workflow, WorkItem
 from django.urls import reverse
@@ -96,19 +95,19 @@ def test_sync_circulation(
     circulation,
     activation_factory,
     caluma_workflow_config_be,
+    caluma_admin_user,
 ):
-    user = BaseUser()
     case = start_case(
         workflow=Workflow.objects.get(pk="building-permit"),
         form=Form.objects.get(pk="main-form"),
-        user=user,
+        user=caluma_admin_user,
         meta={"camac-instance-id": circulation.instance.pk},
     )
 
     for task_id in ["submit", "ebau-number", "init-circulation"]:
         skip_work_item(
             case.work_items.get(task_id=task_id),
-            user,
+            caluma_admin_user,
             context={"circulation-id": circulation.pk},
         )
 
