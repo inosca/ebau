@@ -1018,6 +1018,10 @@ APPLICATIONS["kt_bern"]["DUMP_CONFIG_GROUPS"] = {
         "caluma_form.FormQuestion": Q(
             form__pk__in=APPLICATIONS["kt_bern"]["CALUMA"]["AUDIT_FORMS"]
         ),
+        "caluma_form.Answer": Q(
+            question__forms__pk__in=APPLICATIONS["kt_bern"]["CALUMA"]["AUDIT_FORMS"],
+            document__isnull=True,
+        ),
     },
 }
 
