@@ -246,13 +246,8 @@ def post_complete_circulation(sender, case, user, **kwargs):
 @on(post_complete_work_item)
 def post_complete_audit(sender, work_item, user, **kwargs):
     if work_item.task_id == get_caluma_setting("AUDIT_TASK"):
-        try:
-            instance = Instance.objects.get(
-                pk=work_item.case.meta.get("camac-instance-id")
-            )
-            camac_user = user_models.User.objects.get(username=user.username)
-        except (Instance.DoesNotExist, user_models.User.DoesNotExist):
-            return
+        instance = Instance.objects.get(pk=work_item.case.meta.get("camac-instance-id"))
+        camac_user = user_models.User.objects.get(username=user.username)
 
         history = HistoryEntry.objects.create(
             instance=instance,

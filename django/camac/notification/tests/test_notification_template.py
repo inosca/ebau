@@ -5,7 +5,6 @@ from time import mktime
 
 import pytest
 from caluma.caluma_form import models as caluma_form_models
-from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.urls import reverse
 from django.utils import timezone
@@ -188,6 +187,7 @@ def test_notification_template_sendmail(
     new_responsible_model,
     settings,
     caluma_workflow_config_be,
+    caluma_admin_user,
 ):
     url = reverse("notificationtemplate-sendmail")
     if new_responsible_model:
@@ -205,7 +205,7 @@ def test_notification_template_sendmail(
         workflow=caluma_workflow_models.Workflow.objects.get(slug="building-permit"),
         form=caluma_form_models.Form.objects.get(slug="main-form"),
         meta={"camac-instance-id": instance_service.instance.pk},
-        user=BaseUser(),
+        user=caluma_admin_user,
     )
 
     case.document.answers.create(
@@ -302,6 +302,7 @@ def test_notification_template_sendmail_rsta_forms(
     settings,
     caluma_workflow_config_be,
     form_slug,
+    caluma_admin_user,
 ):
     url = reverse("notificationtemplate-sendmail")
 
@@ -317,7 +318,7 @@ def test_notification_template_sendmail_rsta_forms(
         workflow=workflow,
         form=form,
         meta={"camac-instance-id": instance_service.instance.pk},
-        user=BaseUser(),
+        user=caluma_admin_user,
     )
 
     case.document.answers.create(
@@ -550,6 +551,7 @@ def test_notification_caluma_placeholders(
     circulation_state_factory,
     mocker,
     caluma_workflow_config_be,
+    caluma_admin_user,
 ):
     url = reverse("notificationtemplate-sendmail")
 
@@ -586,7 +588,7 @@ def test_notification_caluma_placeholders(
         workflow=caluma_workflow_models.Workflow.objects.get(slug="building-permit"),
         form=caluma_form_models.Form.objects.get(slug="main-form"),
         meta={"camac-instance-id": instance.pk, "ebau-number": "2019-01"},
-        user=BaseUser(),
+        user=caluma_admin_user,
     )
 
     data = {
