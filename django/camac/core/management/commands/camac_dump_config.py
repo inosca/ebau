@@ -43,16 +43,32 @@ class Command(BaseCommand):
             with open(filename, "w") as out:
                 serializer.serialize(itertools.chain(*querysets), indent=2, stream=out)
 
-    def handle(self, *app_labels, **options):
-        model_identifiers = set(
+    def get_groups(self):
+        return {
+            **config.DUMP_CONFIG_GROUPS,
+            **settings.APPLICATION.get("DUMP_CONFIG_GROUPS", {}),
+        }
+
+    def get_models(self):
+        config_models = set(
             config.DUMP_CONFIG_MODELS + config.DUMP_CONFIG_MODELS_REFERENCING_DATA
         ) - set(
             config.DUMP_CONFIG_EXCLUDED_MODELS
             + settings.APPLICATION.get("DUMP_CONFIG_EXCLUDED_MODELS", [])
         )
+        group_models = set(itertools.chain(*self.get_groups().values())) - config_models
 
-        for model_identifier in sorted(model_identifiers):
-            (app_label, model_label) = model_identifier.split(".")
+        return [
+            (
+                identifier,
+                *identifier.split("."),
+                identifier in group_models,
+            )
+            for identifier in sorted(config_models | group_models)
+        ]
+
+    def handle(self, *app_labels, **options):
+        for model_identifier, app_label, model_label, group_only in self.get_models():
             model = apps.get_model(app_label, model_label)
 
             if not model._meta.managed:  # pragma: no cover
@@ -60,11 +76,7 @@ class Command(BaseCommand):
 
             excluded_pks = []
 
-            filter_config = {
-                **config.DUMP_CONFIG_GROUPS,
-                **settings.APPLICATION.get("DUMP_CONFIG_GROUPS", {}),
-            }
-            for filter_group, model_filters in filter_config.items():
+            for filter_group, model_filters in self.get_groups().items():
                 if model_identifier in model_filters:
                     filtered_queryset = (
                         model.objects.exclude(pk__in=excluded_pks)
@@ -76,8 +88,9 @@ class Command(BaseCommand):
 
                     self.groups[filter_group].append(filtered_queryset)
 
-            self.groups[app_label].append(
-                model.objects.exclude(pk__in=excluded_pks).order_by("pk")
-            )
+            if not group_only:
+                self.groups[app_label].append(
+                    model.objects.exclude(pk__in=excluded_pks).order_by("pk")
+                )
 
         self.dump(options["output_dir"])
