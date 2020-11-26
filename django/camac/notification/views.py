@@ -1,5 +1,6 @@
 from django.db.models import Q
 from django.shortcuts import get_object_or_404
+from django.utils.translation import gettext as _
 from rest_framework import response, status, viewsets
 from rest_framework.decorators import action
 
@@ -133,5 +134,44 @@ class NotificationTemplateView(viewsets.ModelViewSet):
     )
     def sendmail(self, request):
         send_mail(request.data["template_slug"], {"request": request}, **request.data)
+
+        return response.Response(status=status.HTTP_204_NO_CONTENT)
+
+    @action(
+        detail=False,
+        methods=["get"],
+    )
+    def update_purposes(self, request):
+        current_purpose = request.query_params.get("current")
+        new_purpose = request.query_params.get("new")
+
+        if not new_purpose or not current_purpose:
+            return response.Response(
+                _("update_purposes has not been provided with the required parameters"),
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        models.NotificationTemplate.objects.filter(purpose=current_purpose).update(
+            purpose=new_purpose
+        )
+
+        return response.Response(status=status.HTTP_204_NO_CONTENT)
+
+    @action(
+        detail=False,
+        methods=["delete"],
+    )
+    def delete_by_purpose(self, request):
+        purpose = request.query_params.get("purpose")
+
+        if not purpose:
+            return response.Response(
+                _(
+                    "delete_by_purpose has not been provided with the required parameter"
+                ),
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        models.NotificationTemplate.objects.filter(purpose=purpose).delete()
 
         return response.Response(status=status.HTTP_204_NO_CONTENT)
