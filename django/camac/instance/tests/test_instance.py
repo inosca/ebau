@@ -5,7 +5,6 @@ import pyexcel
 import pytest
 import pytz
 from caluma.caluma_form import models as caluma_form_models
-from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.urls import reverse
 from pytest_factoryboy import LazyFixture
@@ -354,6 +353,7 @@ def test_instance_submit(
     mocker,
     unoconv_pdf_mock,
     caluma_workflow_config_sz,
+    caluma_admin_user,
 ):
 
     settings.APPLICATION["NOTIFICATIONS"]["SUBMIT"] = notification_template.slug
@@ -365,7 +365,7 @@ def test_instance_submit(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
         form=caluma_form_models.Form.objects.get(pk="baugesuch"),
         meta={"camac-instance-id": instance.pk},
-        user=BaseUser(),
+        user=caluma_admin_user,
     )
 
     # only create group in a successful run
