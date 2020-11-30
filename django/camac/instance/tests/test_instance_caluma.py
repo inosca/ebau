@@ -2,7 +2,6 @@ from pathlib import Path
 
 import pytest
 from caluma.caluma_form import models as caluma_form_models
-from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.core import mail
 from django.urls import reverse
@@ -344,6 +343,7 @@ def test_instance_submit(
     caluma_workflow_config_be,
     has_personalien_sb1,
     has_personalien_gesuchstellerin,
+    caluma_admin_user,
 ):
     application_settings["NOTIFICATIONS"]["SUBMIT"] = [
         {"template_slug": notification_template.slug, "recipient_types": ["applicant"]}
@@ -353,7 +353,7 @@ def test_instance_submit(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
         form=caluma_form_models.Form.objects.get(pk="main-form"),
         meta={"camac-instance-id": instance.pk},
-        user=BaseUser(),
+        user=caluma_admin_user,
     )
 
     case.document.answers.create(value=str(service.pk), question_id="gemeinde")
@@ -408,6 +408,7 @@ def test_instance_submit_state_change(
     notification_template,
     is_building_police_procedure,
     is_extend_validity,
+    caluma_admin_user,
 ):
     application_settings["NOTIFICATIONS"]["SUBMIT"] = [
         {"template_slug": notification_template.slug, "recipient_types": ["applicant"]}
@@ -432,7 +433,7 @@ def test_instance_submit_state_change(
         workflow=workflow,
         form=form,
         meta={"camac-instance-id": instance.pk},
-        user=BaseUser(),
+        user=caluma_admin_user,
     )
 
     case.document.answers.create(value=str(service.pk), question_id="gemeinde")
@@ -523,6 +524,7 @@ def test_instance_report(
     has_personalien_sb2,
     circulation,
     docx_decision_factory,
+    caluma_admin_user,
 ):
     instance_state.pk = instance_state_pk
     instance_state.save()
@@ -538,7 +540,7 @@ def test_instance_report(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
         form=caluma_form_models.Form.objects.get(pk="main-form"),
         meta={"camac-instance-id": instance.pk},
-        user=BaseUser(),
+        user=caluma_admin_user,
     )
 
     docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=instance.pk)
@@ -552,7 +554,7 @@ def test_instance_report(
         "decision",
     ]:
         workflow_api.complete_work_item(
-            work_item=case.work_items.get(task_id=task_id), user=BaseUser()
+            work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user
         )
 
     instance_state_factory(name=new_instance_state_name, pk=new_instance_state_pk)
@@ -609,6 +611,7 @@ def test_instance_finalize(
     caluma_workflow_config_be,
     circulation,
     docx_decision_factory,
+    caluma_admin_user,
 ):
     instance_state.pk = instance_state_pk
     instance_state.save()
@@ -624,7 +627,7 @@ def test_instance_finalize(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
         form=caluma_form_models.Form.objects.get(pk="main-form"),
         meta={"camac-instance-id": instance.pk},
-        user=BaseUser(),
+        user=caluma_admin_user,
     )
 
     docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=instance.pk)
@@ -639,7 +642,7 @@ def test_instance_finalize(
         "sb1",
     ]:
         workflow_api.complete_work_item(
-            work_item=case.work_items.get(task_id=task_id), user=BaseUser()
+            work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user
         )
 
     instance_state_factory(name=new_instance_state_name, pk=new_instance_state_pk)
@@ -675,6 +678,7 @@ def test_generate_and_store_pdf(
     paper,
     application_settings,
     caluma_workflow_config_be,
+    caluma_admin_user,
 ):
     mocker.patch("camac.caluma.api.CalumaApi.is_paper", lambda s, i: paper)
 
@@ -715,12 +719,12 @@ def test_generate_and_store_pdf(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
         form=caluma_form_models.Form.objects.get(pk="main-form"),
         meta={"camac-instance-id": instance.pk},
-        user=BaseUser(),
+        user=caluma_admin_user,
     )
 
     if form_slug:
         workflow_api.complete_work_item(
-            work_item=case.work_items.get(task_id="submit"), user=BaseUser()
+            work_item=case.work_items.get(task_id="submit"), user=caluma_admin_user
         )
 
     serializer._generate_and_store_pdf(instance, form_slug=form_slug)
@@ -741,6 +745,7 @@ def test_caluma_instance_list_filter(
     mock_public_status,
     mock_nfd_permissions,
     caluma_workflow_config_be,
+    caluma_admin_user,
 ):
     # not paper instances
     instance_factory(user=admin_user)
@@ -752,7 +757,7 @@ def test_caluma_instance_list_filter(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
         form=caluma_form_models.Form.objects.get(pk="main-form"),
         meta={"camac-instance-id": paper_instance.pk},
-        user=BaseUser(),
+        user=caluma_admin_user,
     )
     case.document.answers.create(question_id="is-paper", value="is-paper-yes")
 
@@ -788,6 +793,7 @@ def test_generate_pdf_action(
     expected_status,
     application_settings,
     caluma_workflow_config_be,
+    caluma_admin_user,
 ):
     content = b"some binary data"
 
@@ -812,12 +818,12 @@ def test_generate_pdf_action(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
         form=caluma_form_models.Form.objects.get(pk="main-form"),
         meta={"camac-instance-id": instance.pk},
-        user=BaseUser(),
+        user=caluma_admin_user,
     )
 
     if form_slug:
         workflow_api.complete_work_item(
-            work_item=case.work_items.get(task_id="submit"), user=BaseUser()
+            work_item=case.work_items.get(task_id="submit"), user=caluma_admin_user
         )
 
     url = reverse("instance-generate-pdf", args=[instance.pk])
@@ -977,6 +983,7 @@ def test_instance_submit_suggestions(
     sugg_config,
     sugg_answer_values,
     expected_services,
+    caluma_admin_user,
 ):
     circulation_state_factory(circulation_state_id=constants.CIRCULATION_STATE_WORKING)
     circulation_type_factory(circulation_type_id=constants.CIRCULATION_TYPE_STANDARD)
@@ -988,7 +995,7 @@ def test_instance_submit_suggestions(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
         form=caluma_form_models.Form.objects.get(pk="main-form"),
         meta={"camac-instance-id": instance.pk},
-        user=BaseUser(),
+        user=caluma_admin_user,
     )
 
     case.document.answers.create(value=str(service.pk), question_id="gemeinde")
@@ -1120,6 +1127,7 @@ def test_change_responsible_service_circulations(
     circulation_factory,
     activation_factory,
     should_sync,
+    caluma_admin_user,
 ):
     instance = instance_service.instance
     instance.instance_state = instance_state
@@ -1134,7 +1142,7 @@ def test_change_responsible_service_circulations(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
         form=caluma_form_models.Form.objects.get(pk="main-form"),
         meta={"camac-instance-id": instance.pk},
-        user=BaseUser(),
+        user=caluma_admin_user,
     )
 
     c1 = circulation_factory(instance=instance, service=old_service)
@@ -1153,7 +1161,7 @@ def test_change_responsible_service_circulations(
 
     for task_id in ["submit", "ebau-number", "init-circulation"]:
         workflow_api.complete_work_item(
-            work_item=case.work_items.get(task_id=task_id), user=BaseUser()
+            work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user
         )
 
     response = admin_client.post(
@@ -1213,6 +1221,7 @@ def test_change_responsible_service(
     application_settings,
     service_type,
     expected_status,
+    caluma_admin_user,
 ):
     application_settings["NOTIFICATIONS"]["CHANGE_RESPONSIBLE_SERVICE"] = {
         "template_slug": notification_template.slug,
@@ -1223,7 +1232,7 @@ def test_change_responsible_service(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
         form=caluma_form_models.Form.objects.get(pk="main-form"),
         meta={"camac-instance-id": instance.pk},
-        user=BaseUser(),
+        user=caluma_admin_user,
     )
 
     if expected_status == status.HTTP_400_BAD_REQUEST:
@@ -1237,7 +1246,7 @@ def test_change_responsible_service(
 
     for task_id in ["submit", "ebau-number"]:
         workflow_api.complete_work_item(
-            work_item=case.work_items.get(task_id=task_id), user=BaseUser()
+            work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user
         )
 
     # other user is no member of the new service
@@ -1337,6 +1346,7 @@ def test_instance_name(
     is_paper,
     is_modification,
     is_migrated,
+    caluma_admin_user,
 ):
     def yes_no_german(boolean):
         return "ja" if boolean else "nein"
@@ -1355,7 +1365,7 @@ def test_instance_name(
         workflow=workflow,
         form=form,
         meta={"camac-instance-id": instance.pk},
-        user=BaseUser(),
+        user=caluma_admin_user,
     )
 
     if is_migrated:
@@ -1405,18 +1415,19 @@ def test_change_responsible_service_audit_validation(
     user_group_factory,
     caluma_audit,
     application_settings,
+    caluma_admin_user,
 ):
     case = workflow_api.start_case(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
         form=caluma_form_models.Form.objects.get(pk="main-form"),
         meta={"camac-instance-id": instance.pk},
-        user=BaseUser(),
+        user=caluma_admin_user,
     )
     new_service = service_factory()
 
     for task_id in ["submit", "ebau-number"]:
         workflow_api.complete_work_item(
-            work_item=case.work_items.get(task_id=task_id), user=BaseUser()
+            work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user
         )
 
     audit = case.work_items.get(task_id="audit")

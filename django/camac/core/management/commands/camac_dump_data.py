@@ -36,6 +36,12 @@ class Command(BaseCommand):
             with open(filename, "w") as out:
                 serializer.serialize(itertools.chain(*querysets), indent=2, stream=out)
 
+    def get_groups(self):
+        return {
+            **config.DUMP_CONFIG_GROUPS,
+            **settings.APPLICATION.get("DUMP_CONFIG_GROUPS", {}),
+        }
+
     def handle(self, *app_labels, **options):
         excluded_models = set(
             config.DUMP_CONFIG_MODELS
@@ -51,10 +57,23 @@ class Command(BaseCommand):
 
             for model in app_config.get_models():
                 model_identifier = f"{app_label}.{model.__name__}"
+                excluded_pks = []
 
                 if model_identifier in excluded_models or not model._meta.managed:
                     continue
 
-                self.groups[app_label].append(model.objects.all().order_by("pk"))
+                for filter_group, model_filters in self.get_groups().items():
+                    if model_identifier in model_filters:
+                        # exclude models that are used in config group
+                        excluded_pks += list(
+                            model.objects.exclude(pk__in=excluded_pks)
+                            .filter(model_filters[model_identifier])
+                            .order_by("pk")
+                            .values_list("pk", flat=True)
+                        )
+
+                self.groups[app_label].append(
+                    model.objects.exclude(pk__in=excluded_pks).order_by("pk")
+                )
 
         self.dump(options["output_dir"])
