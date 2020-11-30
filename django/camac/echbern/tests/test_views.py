@@ -2,7 +2,6 @@ import json
 
 import pytest
 from caluma.caluma_form import models as caluma_form_models
-from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.conf import settings
 from django.urls import reverse
@@ -104,7 +103,13 @@ def test_applications_list(admin_client, admin_user, ech_instance):
 
 
 @pytest.mark.parametrize("form_id", settings.ECH_EXCLUDED_FORMS)
-def test_applications_list_exclude(admin_client, admin_user, instance_factory, form_id):
+def test_applications_list_exclude(
+    admin_client,
+    admin_user,
+    instance_factory,
+    form_id,
+    caluma_admin_user,
+):
     # generate an instance that should not be accessible for eCH
     form = caluma_form_models.Form.objects.create(slug=form_id)
     workflow = caluma_workflow_models.Workflow.objects.create(slug=form_id)
@@ -115,7 +120,7 @@ def test_applications_list_exclude(admin_client, admin_user, instance_factory, f
         workflow=workflow,
         form=form,
         meta={"camac-instance-id": instance.pk},
-        user=BaseUser(),
+        user=caluma_admin_user,
     )
 
     url = reverse("applications")
@@ -224,6 +229,7 @@ def test_send(
     service_group_factory,
     service_factory,
     caluma_workflow_config_be,
+    caluma_admin_user,
 ):
     if has_permission:
         service_group_baukontrolle = service_group_factory(
@@ -261,11 +267,11 @@ def test_send(
         workflow=caluma_workflow_models.Workflow.objects.get(slug="building-permit"),
         form=caluma_form_models.Form.objects.get(slug="main-form"),
         meta={"camac-instance-id": ech_instance.pk},
-        user=BaseUser(),
+        user=caluma_admin_user,
     )
 
     workflow_api.complete_work_item(
-        work_item=case.work_items.get(task_id="submit"), user=BaseUser()
+        work_item=case.work_items.get(task_id="submit"), user=caluma_admin_user
     )
 
     url = reverse("send")
@@ -302,6 +308,7 @@ def test_send_400_invalid_judgement(
     attachment_section_factory,
     attachment_factory,
     caluma_workflow_config_be,
+    caluma_admin_user,
 ):
     attachment_section_beteiligte_behoerden = attachment_section_factory(
         pk=ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN
@@ -331,11 +338,11 @@ def test_send_400_invalid_judgement(
         ),
         form=caluma_form_models.Form.objects.get(slug="main-form"),
         meta={"camac-instance-id": ech_instance.pk},
-        user=BaseUser(),
+        user=caluma_admin_user,
     )
 
     workflow_api.complete_work_item(
-        work_item=case.work_items.get(task_id="submit"), user=BaseUser()
+        work_item=case.work_items.get(task_id="submit"), user=caluma_admin_user
     )
 
     url = reverse("send")

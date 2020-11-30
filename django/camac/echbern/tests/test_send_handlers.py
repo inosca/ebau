@@ -1,5 +1,4 @@
 import pytest
-from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow import api as workflow_api
 
 from camac.constants.kt_bern import (
@@ -118,6 +117,7 @@ def test_notice_ruling_send_handler(
     service_group_factory,
     instance_service_factory,
     multilang,
+    caluma_admin_user,
 ):
     service_group_gemeinde = ech_instance.responsible_service().service_group
     service_group_baukontrolle = service_group_factory(pk=SERVICE_GROUP_BAUKONTROLLE)
@@ -186,7 +186,7 @@ def test_notice_ruling_send_handler(
         user=admin_user,
         group=admin_user.groups.first(),
         auth_header=None,
-        caluma_user=BaseUser(),
+        caluma_user=caluma_admin_user,
     )
     assert handler.has_permission()[0] == has_permission
 
@@ -230,6 +230,7 @@ def test_change_responsibility_send_handler(
     instance_service_factory,
     ech_instance,
     multilang,
+    caluma_admin_user,
 ):
     instance_state = instance_state_factory(pk=instance_state_pk)
     ech_instance.instance_state = instance_state
@@ -269,7 +270,7 @@ def test_change_responsibility_send_handler(
         user=admin_user,
         group=group,
         auth_header=None,
-        caluma_user=BaseUser(),
+        caluma_user=caluma_admin_user,
     )
     assert handler.has_permission()[0] is has_permission
 
@@ -312,6 +313,7 @@ def test_close_dossier_send_handler(
     instance_state_factory,
     circulation_factory,
     docx_decision_factory,
+    caluma_admin_user,
 ):
     instance_state_factory(pk=INSTANCE_STATE_FINISHED)
 
@@ -336,7 +338,7 @@ def test_close_dossier_send_handler(
         "decision",
     ]:
         workflow_api.skip_work_item(
-            work_item=case.work_items.get(task_id=task_id), user=BaseUser()
+            work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user
         )
 
     group = admin_user.groups.first()
@@ -356,7 +358,7 @@ def test_close_dossier_send_handler(
         user=admin_user,
         group=group,
         auth_header=None,
-        caluma_user=BaseUser(),
+        caluma_user=caluma_admin_user,
     )
 
     assert handler.has_permission()[0] is success
@@ -396,6 +398,7 @@ def test_task_send_handler(
     instance_resource_factory,
     notification_template_factory,
     mailoutbox,
+    caluma_admin_user,
 ):
     if has_template:
         notification_template_factory(slug=NOTIFICATION_ECH)
@@ -430,7 +433,7 @@ def test_task_send_handler(
         user=admin_user,
         group=group,
         auth_header="Bearer: some token",
-        caluma_user=BaseUser(),
+        caluma_user=caluma_admin_user,
     )
     assert handler.has_permission()[0] is True
 
@@ -456,7 +459,11 @@ def test_task_send_handler(
             handler.apply()
 
 
-def test_task_send_handler_no_permission(admin_user, ech_instance):
+def test_task_send_handler_no_permission(
+    admin_user,
+    ech_instance,
+    caluma_admin_user,
+):
     group = admin_user.groups.first()
     group.service = ech_instance.services.first()
     group.save()
@@ -469,7 +476,7 @@ def test_task_send_handler_no_permission(admin_user, ech_instance):
         user=None,
         group=group,
         auth_header=None,
-        caluma_user=BaseUser(),
+        caluma_user=caluma_admin_user,
     )
     assert handler.has_permission()[0] is False
 
@@ -484,6 +491,7 @@ def test_notice_kind_of_proceedings_send_handler(
     ech_instance_case,
     instance_state_factory,
     instance_resource_factory,
+    caluma_admin_user,
 ):
     attachment_section_beteiligte_behoerden = attachment_section_factory(
         pk=ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN
@@ -510,7 +518,7 @@ def test_notice_kind_of_proceedings_send_handler(
 
     for task_id in ["submit", "ebau-number"]:
         workflow_api.skip_work_item(
-            work_item=case.work_items.get(task_id=task_id), user=BaseUser()
+            work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user
         )
 
     instance_state_factory(pk=INSTANCE_STATE_ZIRKULATION)
@@ -524,7 +532,7 @@ def test_notice_kind_of_proceedings_send_handler(
         user=admin_user,
         group=group,
         auth_header=None,
-        caluma_user=BaseUser(),
+        caluma_user=caluma_admin_user,
     )
     assert handler.has_permission()[0] is has_permission
 
@@ -563,6 +571,7 @@ def test_accompanying_report_send_handler(
     activation_factory,
     user_group_factory,
     notice_type_factory,
+    caluma_admin_user,
 ):
     user_group = user_group_factory(default_group=1)
 
@@ -603,7 +612,7 @@ def test_accompanying_report_send_handler(
         user=user_group.user,
         group=user_group.group,
         auth_header=None,
-        caluma_user=BaseUser(),
+        caluma_user=caluma_admin_user,
     )
     if not has_activation:
         assert handler.has_permission()[0] is False
