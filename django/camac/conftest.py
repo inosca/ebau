@@ -8,6 +8,7 @@ from caluma.caluma_form import (
     factories as caluma_form_factories,
     models as caluma_form_models,
 )
+from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow import (
     factories as caluma_workflow_factories,
     models as caluma_workflow_models,
@@ -140,6 +141,15 @@ def admin_user(admin_user, group, group_location, user_group_factory):
     admin_user.save()
     user_group_factory(group=group, user=admin_user, default_group=1)
     return admin_user
+
+
+@pytest.fixture
+def caluma_admin_user(admin_user):
+    class FakeUser(BaseUser):
+        def __str__(self):
+            return self.username
+
+    return FakeUser(username=admin_user.username)
 
 
 @pytest.fixture

@@ -1,5 +1,1797 @@
 [
   {
+    "model": "caluma_form.answer",
+    "pk": "0069fc78-d88f-40b1-8eec-86d2dd28f66c",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.934Z",
+      "modified_at": "2020-11-20T13:21:32.934Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-raumhoehe",
+      "value": "mp-raumhoehe-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "01a93e7e-3f8e-48db-b39d-ca371a1a70e5",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.261Z",
+      "modified_at": "2020-11-20T13:21:32.261Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-naturgefahren-gefahrengebiet",
+      "value": "mp-naturgefahren-gefahrengebiet-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06d7220c-d915-4940-9e12-e7c9a5edb6fe",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.685Z",
+      "modified_at": "2020-11-20T13:21:32.685Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-breite-gefaelle",
+      "value": "mp-breite-gefaelle-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "0a7296a9-6553-4703-825d-f3552f62b5cc",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.959Z",
+      "modified_at": "2020-11-20T13:21:32.959Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-dachform",
+      "value": "mp-dachform-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "0becab69-1232-4308-a522-06736be9cc3b",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.496Z",
+      "modified_at": "2020-11-20T13:21:33.496Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-gebaeudebreite",
+      "value": "mp-gebaeudebreite-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "0d773cd6-e3a5-4dbb-88c3-b8dcd6de2cfd",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.456Z",
+      "modified_at": "2020-11-20T13:21:33.456Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-hygiene-und-unfallverh\u00fctung-auf-baupl\u00e4tzen",
+      "value": "mp-hygiene-und-unfallverh\u00fctung-auf-baupl\u00e4tzen-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "13474a73-02c7-4f7b-9849-ec2fae31c6bd",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.529Z",
+      "modified_at": "2020-11-20T13:21:32.529Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-bauweise-geschlossen",
+      "value": "mp-bauweise-geschlossen-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "1612438c-a28b-4fbe-afe7-a96491f17251",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.075Z",
+      "modified_at": "2020-11-20T13:21:33.075Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-uvp",
+      "value": "mp-uvp-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "19843a9e-8df4-4d50-ab10-4c87b0bbcb04",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.984Z",
+      "modified_at": "2020-11-20T13:21:32.984Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-dachvorspruenge",
+      "value": "mp-dachvorspruenge-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "19c1d86e-c7b7-40be-a34f-6135a331ac14",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.318Z",
+      "modified_at": "2020-11-20T13:21:32.318Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-abstellraeume",
+      "value": "mp-abstellraeume-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "1b8827b6-af1e-4a5f-a391-6399484bb0fd",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.391Z",
+      "modified_at": "2020-11-20T13:21:32.391Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-schutzraumbau-befreiung",
+      "value": "mp-schutzraumbau-befreiung-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "1cead1d2-a931-4124-b191-5af158f4434f",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.730Z",
+      "modified_at": "2020-11-20T13:21:32.730Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-abstand-von-zonegrenzen",
+      "value": "mp-abstand-von-zonegrenzen-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "20e103f0-8a6b-469a-8994-2c9dc00f83cc",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.309Z",
+      "modified_at": "2020-11-20T13:21:32.309Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-kleiner-grenzabstand-hauptgebaeude-bewohnt",
+      "value": "mp-kleiner-grenzabstand-hauptgebaeude-bewohnt-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "22dc2a0b-d630-4d9d-90d4-9fd1678d52dd",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.213Z",
+      "modified_at": "2020-11-20T13:21:33.213Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-entsorgungskonzept",
+      "value": "mp-entsorgungskonzept-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "239df598-c978-48e4-a44e-75b15293cc19",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.613Z",
+      "modified_at": "2020-11-20T13:21:33.613Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-ewap",
+      "value": "mp-ewap-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "24c92fd1-19e6-4e78-a4eb-25bde365b852",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.575Z",
+      "modified_at": "2020-11-20T13:21:33.575Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-schutzzone",
+      "value": "mp-schutzzone-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "24e73bf0-171d-4bc8-9d3b-f5bccbcd23ae",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.568Z",
+      "modified_at": "2020-11-20T13:21:32.568Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-treppenbreiten",
+      "value": "mp-treppenbreiten-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "25e1fb24-03bb-44b8-8ead-7e6075781875",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.538Z",
+      "modified_at": "2020-11-20T13:21:32.538Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-bauweise-offen",
+      "value": "mp-bauweise-offen-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "278fe7e7-be13-4340-9ac4-80fb87275f9f",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.767Z",
+      "modified_at": "2020-11-20T13:21:32.767Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-bauten-in-bahnnaehe",
+      "value": "mp-bauten-in-bahnnaehe-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "2981957f-2eae-4d79-9673-49e1afde4507",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.447Z",
+      "modified_at": "2020-11-20T13:21:32.447Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-laermschutzverordnung",
+      "value": "mp-laermschutzverordnung-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "2b578d15-ee58-4c81-a851-d21703f6e2fc",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.168Z",
+      "modified_at": "2020-11-20T13:21:33.168Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-kinderspielplaetze",
+      "value": "mp-kinderspielplaetze-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "2f0478ef-908c-4005-979f-76aae5fba373",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.909Z",
+      "modified_at": "2020-11-20T13:21:32.909Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-auskragung-offener-bauteile",
+      "value": "mp-auskragung-offener-bauteile-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "31b85fef-603b-4963-85d4-69b588330f99",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.995Z",
+      "modified_at": "2020-11-20T13:21:32.995Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-az-uez-gz-ueberbauungsprozente",
+      "value": "mp-az-uez-gz-ueberbauungsprozente-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "336624b7-4642-4733-be19-0c98f11e8d1f",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.505Z",
+      "modified_at": "2020-11-20T13:21:33.505Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-raumgroesse",
+      "value": "mp-raumgroesse-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "343bdd6c-47ab-45fc-a541-ce2200a6d246",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.345Z",
+      "modified_at": "2020-11-20T13:21:32.345Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-abag-abav",
+      "value": "mp-abag-abav-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "35db6c1d-8e60-4890-ad27-6aa13348578a",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.515Z",
+      "modified_at": "2020-11-20T13:21:33.515Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-material-und-farbwahl",
+      "value": "mp-material-und-farbwahl-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "3b75adba-1461-410b-8cca-5330196ac7a2",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.484Z",
+      "modified_at": "2020-11-20T13:21:32.484Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-einordnung-und-gestaltung",
+      "value": "mp-einordnung-und-gestaltung-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "3e2797e6-eb66-441d-a491-8c1a3d53fbaf",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.353Z",
+      "modified_at": "2020-11-20T13:21:32.353Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-umgebungsgestaltung",
+      "value": "mp-umgebungsgestaltung-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "3fd05cf9-e85f-481d-9e4d-f88182b5471d",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.594Z",
+      "modified_at": "2020-11-20T13:21:33.594Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-strassenanschluss",
+      "value": "mp-strassenanschluss-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "45b09506-f5ac-4abb-a610-aefdf3de642e",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.361Z",
+      "modified_at": "2020-11-20T13:21:32.361Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-gebaeudelaenge",
+      "value": "mp-gebaeudelaenge-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "4635958e-a95e-4bea-bf74-3a0ed88a2d25",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.597Z",
+      "modified_at": "2020-11-20T13:21:32.597Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-versickerung",
+      "value": "mp-versickerung-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "47e70ea3-0095-49fe-ba48-7beb60c12836",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.605Z",
+      "modified_at": "2020-11-20T13:21:32.605Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-firsthoehe",
+      "value": "mp-firsthoehe-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "494a1e40-6bb5-4f0d-9f09-0e3d27d99003",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.328Z",
+      "modified_at": "2020-11-20T13:21:32.328Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-andere-immissionen",
+      "value": "mp-andere-immissionen-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "4a457369-a3af-4315-ac03-e792ab6967f4",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.947Z",
+      "modified_at": "2020-11-20T13:21:32.947Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-bauinventar-baugruppe",
+      "value": "mp-bauinventar-baugruppe-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "4b398539-1c53-48d7-bd7c-0f6f1ce4dc6b",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.228Z",
+      "modified_at": "2020-11-20T13:21:32.228Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-wohnraeume-im-ug",
+      "value": "mp-wohnraeume-im-ug-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "4bbd7527-8a38-438a-b6bc-6df52adf81b3",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.564Z",
+      "modified_at": "2020-11-20T13:21:33.564Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-abstellplaetze-gewerbe",
+      "value": "mp-abstellplaetze-gewerbe-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "50ef7d9d-e7be-4f7b-8b25-6a944eb60c6a",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.428Z",
+      "modified_at": "2020-11-20T13:21:32.428Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-abstand-von-gewaessern",
+      "value": "mp-abstand-von-gewaessern-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "514c2031-adc8-47b2-81e3-ac04243dfd4f",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.279Z",
+      "modified_at": "2020-11-20T13:21:32.279Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-sicherheit-im-allgemeinen",
+      "value": "mp-sicherheit-im-allgemeinen-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "517de9e9-16fe-45c7-9832-ccb8165cf119",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.370Z",
+      "modified_at": "2020-11-20T13:21:32.370Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-bauen-in-der-landwirtschaftszone",
+      "value": "mp-bauen-in-der-landwirtschaftszone-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "59e11b20-5e56-4d9e-b878-a7afcbdff1f5",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.095Z",
+      "modified_at": "2020-11-20T13:21:33.096Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-gebaeudestellung-zur-strasse",
+      "value": "mp-gebaeudestellung-zur-strasse-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "5f09b9e9-d143-40c1-82bf-7665cfdc228b",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.487Z",
+      "modified_at": "2020-11-20T13:21:33.487Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-schutzvorrichtungen",
+      "value": "mp-schutzvorrichtungen-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "5f58abcc-2090-4186-b548-7f411029ba69",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.660Z",
+      "modified_at": "2020-11-20T13:21:32.660Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-az-uez-gz-gruenflaechenziffer",
+      "value": "mp-az-uez-gz-gruenflaechenziffer-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "602d67f2-60d2-4068-beb1-fae2c71a2118",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.547Z",
+      "modified_at": "2020-11-20T13:21:32.547Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-kantonales-naturschutzgebiet",
+      "value": "mp-kantonales-naturschutzgebiet-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "61101aaa-828b-43fb-a3f1-43f05407bee5",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.739Z",
+      "modified_at": "2020-11-20T13:21:32.739Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-gesetz-ueber-see-und-flussufer",
+      "value": "mp-gesetz-ueber-see-und-flussufer-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "628a2bea-d3f3-4834-92a9-79e5a8783556",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.635Z",
+      "modified_at": "2020-11-20T13:21:32.635Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-kanalisationsanschluss",
+      "value": "mp-kanalisationsanschluss-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "62ef435f-9e9c-4691-9c31-a1b2e8a668b1",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.147Z",
+      "modified_at": "2020-11-20T13:21:33.147Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-altlasten-verdachtsflaechen",
+      "value": "mp-altlasten-verdachtsflaechen-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "675675ec-2c35-4c4b-aeb3-408038d89a5e",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.115Z",
+      "modified_at": "2020-11-20T13:21:33.115Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-bauweise-gestaltungsfreiheit",
+      "value": "mp-bauweise-gestaltungsfreiheit-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "6a209430-97fb-4f95-8cfd-ed2c5fdf549c",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.545Z",
+      "modified_at": "2020-11-20T13:21:33.545Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-entsorgung-abfaelle",
+      "value": "mp-entsorgung-abfaelle-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "6ce7db43-c1f2-4e77-b99d-19facb18b37b",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.456Z",
+      "modified_at": "2020-11-20T13:21:32.456Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-raumhoehe-abgeschraegt",
+      "value": "mp-raumhoehe-abgeschraegt-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "6e598467-a210-41bf-a391-ca9f6763e2a3",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.506Z",
+      "modified_at": "2020-11-20T13:21:32.506Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-antennen",
+      "value": "mp-antennen-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "7056785d-8d31-417f-b55d-258e763fc6ef",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.554Z",
+      "modified_at": "2020-11-20T13:21:33.554Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-abstand-vom-wald",
+      "value": "mp-abstand-vom-wald-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "738207c6-7877-4664-8070-071dc52008dc",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.406Z",
+      "modified_at": "2020-11-20T13:21:32.406Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-anstellflaeche-fuer-kinderwagen-und-velo",
+      "value": "mp-anstellflaeche-fuer-kinderwagen-und-velo-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "7436c2d2-23a3-4909-820a-6f7ba8c8f75e",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.337Z",
+      "modified_at": "2020-11-20T13:21:32.337Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-einfriedungen-stuetzmauern-boeschungen",
+      "value": "mp-einfriedungen-stuetzmauern-boeschungen-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "754eb614-5a9f-40cf-a485-f1b4b0bdfb9e",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.477Z",
+      "modified_at": "2020-11-20T13:21:33.477Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-kaminhoehe",
+      "value": "mp-kaminhoehe-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "7575f407-1db5-4020-bd88-de9fdd529c39",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.127Z",
+      "modified_at": "2020-11-20T13:21:33.127Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-gebaeudestellung-im-gelaende",
+      "value": "mp-gebaeudestellung-im-gelaende-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "759302df-9525-48a7-abc9-f4f837b78b0d",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.464Z",
+      "modified_at": "2020-11-20T13:21:32.464Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-moorlandschaft",
+      "value": "mp-moorlandschaft-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "76182cb6-374b-4108-937f-f6ea673b4578",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.604Z",
+      "modified_at": "2020-11-20T13:21:33.604Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-galerie",
+      "value": "mp-galerie-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "764fec92-d7f4-43cc-b1bf-43da2660bcdc",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.043Z",
+      "modified_at": "2020-11-20T13:21:33.043Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-dachaufbauten",
+      "value": "mp-dachaufbauten-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "7b294883-9c84-4965-9f3e-803a21b621f5",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.668Z",
+      "modified_at": "2020-11-20T13:21:32.668Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-hecken",
+      "value": "mp-hecken-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "7e288891-1117-4d30-8f5c-e0ed8ba9487b",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.702Z",
+      "modified_at": "2020-11-20T13:21:32.702Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-isos",
+      "value": "mp-isos-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "7f911ca8-0ed2-4bb7-972b-e6cdc8961f1c",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.297Z",
+      "modified_at": "2020-11-20T13:21:32.297Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-energiekollektoren",
+      "value": "mp-energiekollektoren-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "8046f378-59e5-4589-8163-9bc638ebc12d",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.157Z",
+      "modified_at": "2020-11-20T13:21:33.157Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-sanitaere-einrichtungen",
+      "value": "mp-sanitaere-einrichtungen-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "83e2518c-15e2-45d9-b08e-f9b652fc9c79",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.446Z",
+      "modified_at": "2020-11-20T13:21:33.446Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-grenzabstand-unterirdischer-bauteile",
+      "value": "mp-grenzabstand-unterirdischer-bauteile-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "843e56eb-dde0-4142-b74a-3761e3bea37a",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.202Z",
+      "modified_at": "2020-11-20T13:21:33.202Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-abstellplaetze-wohnen",
+      "value": "mp-abstellplaetze-wohnen-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "85a9ffdb-b81f-4a13-96a0-c6a2c9084e84",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.474Z",
+      "modified_at": "2020-11-20T13:21:32.474Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-belichtung-belueftung-und-besonnung",
+      "value": "mp-belichtung-belueftung-und-besonnung-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "85c98146-c64e-4bb8-88c9-13e569f383a1",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.257Z",
+      "modified_at": "2020-11-20T13:21:33.257Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-terrainveraenderungen",
+      "value": "mp-terrainveraenderungen-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "860a1e30-460b-4d06-84c6-892a9a473d7d",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.467Z",
+      "modified_at": "2020-11-20T13:21:33.467Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-kleiner-grenzabstand-nebengebaeude-bewohnt",
+      "value": "mp-kleiner-grenzabstand-nebengebaeude-bewohnt-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "8aca0bd6-ba93-4cbd-b042-4386e4692530",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.065Z",
+      "modified_at": "2020-11-20T13:21:33.065Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-ivs",
+      "value": "mp-ivs-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "8d027456-8368-41fc-b1cf-b1d36f9e6df4",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.615Z",
+      "modified_at": "2020-11-20T13:21:32.615Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-energiegesetzgebung",
+      "value": "mp-energiegesetzgebung-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "8dcd60a0-9111-4e63-afe6-5dc7403dbb8c",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.129Z",
+      "modified_at": "2020-11-20T13:21:32.129Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-umweltschutz-question",
+      "value": "mp-umweltschutz-question-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "8f92980b-8a4a-42fd-b844-62e44b03c765",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.287Z",
+      "modified_at": "2020-11-20T13:21:32.287Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-wohnungsanteil",
+      "value": "mp-wohnungsanteil-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "8fa18440-04f2-400c-9e05-d9d216d5dd6e",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.814Z",
+      "modified_at": "2020-11-20T13:21:32.814Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-zufahrt",
+      "value": "mp-zufahrt-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "8fc86953-5c29-4205-9b41-a339033bf187",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.623Z",
+      "modified_at": "2020-11-20T13:21:33.623Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-bauinventar-erhaltenswert",
+      "value": "mp-bauinventar-erhaltenswert-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "965c5b82-17ba-4018-a6c4-ec3d1bfe7b3d",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.585Z",
+      "modified_at": "2020-11-20T13:21:33.585Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-gebaeudehoehe",
+      "value": "mp-gebaeudehoehe-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "9d1f016a-a113-427e-abf1-c3d98f58c7bf",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.270Z",
+      "modified_at": "2020-11-20T13:21:32.270Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-grosse-spielflaeche",
+      "value": "mp-grosse-spielflaeche-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "9db41197-764c-4507-9714-047adec632e1",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.526Z",
+      "modified_at": "2020-11-20T13:21:33.526Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-schalldaemmung",
+      "value": "mp-schalldaemmung-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "9fb79aa9-4be8-4ad4-9078-428576d43dea",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.241Z",
+      "modified_at": "2020-11-20T13:21:32.241Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-az-uez-gz-nutzungsuebertragung",
+      "value": "mp-az-uez-gz-nutzungsuebertragung-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "a13371c4-b644-4333-8aa3-9e8cbdebcd5f",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.873Z",
+      "modified_at": "2020-11-20T13:21:32.873Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-besondere-verhaeltnisse",
+      "value": "mp-besondere-verhaeltnisse-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "a220629c-1eba-49b5-a684-d5879b863e80",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.437Z",
+      "modified_at": "2020-11-20T13:21:32.437Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-bepflanzung",
+      "value": "mp-bepflanzung-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "a24a39c5-583f-4508-b9f4-357dfbc1db55",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.780Z",
+      "modified_at": "2020-11-20T13:21:32.780Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-nutzungsart",
+      "value": "mp-nutzungsart-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "a2bfe657-62b4-4c0e-86e1-3a1a3c98acd8",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.748Z",
+      "modified_at": "2020-11-20T13:21:32.748Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-kniewand",
+      "value": "mp-kniewand-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "af49d2fd-dae5-4ef7-a545-b2e400889298",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.225Z",
+      "modified_at": "2020-11-20T13:21:33.225Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-gebaeudeform-proportionen",
+      "value": "mp-gebaeudeform-proportionen-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "b3ff63ae-6159-4781-9691-25700539093b",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.031Z",
+      "modified_at": "2020-11-20T13:21:33.031Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-eisenbahn",
+      "value": "mp-eisenbahn-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "b447489a-91fb-4c7f-aa1e-a52a876fa902",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.711Z",
+      "modified_at": "2020-11-20T13:21:32.711Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-stoerfallvorsorge",
+      "value": "mp-stoerfallvorsorge-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "b95ad3ac-2f89-4ba3-983f-588c009a4519",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.418Z",
+      "modified_at": "2020-11-20T13:21:32.418Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-zugangsrecht",
+      "value": "mp-zugangsrecht-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "bb5b7438-8240-4cfb-8225-5e07e14e619c",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.519Z",
+      "modified_at": "2020-11-20T13:21:32.519Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-gebaeudeproportionen",
+      "value": "mp-gebaeudeproportionen-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "bcb96563-700a-4213-b7b9-4332199c97ff",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.587Z",
+      "modified_at": "2020-11-20T13:21:32.587Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-aufenthaltsbereiche",
+      "value": "mp-aufenthaltsbereiche-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "bd75900b-3781-478d-9bbc-1a4224bf062d",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.693Z",
+      "modified_at": "2020-11-20T13:21:32.693Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-abstand-von-strassen",
+      "value": "mp-abstand-von-strassen-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "c26e3a9d-cce1-4fbc-88e7-9b7ba389611e",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.019Z",
+      "modified_at": "2020-11-20T13:21:33.019Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-fachstellen",
+      "value": "mp-fachstellen-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "c5646c7e-b7b3-4bca-9e2a-f0585073384a",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.246Z",
+      "modified_at": "2020-11-20T13:21:33.246Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-geschosszahl",
+      "value": "mp-geschosszahl-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "c5d35185-8b97-4bc5-b786-e8f8a65f558d",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.757Z",
+      "modified_at": "2020-11-20T13:21:32.757Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-bauliche-vorkehrungen-fuer-behinderte",
+      "value": "mp-bauliche-vorkehrungen-fuer-behinderte-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "c6307ff0-3ebd-495d-b0e4-83b725bdce6e",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.626Z",
+      "modified_at": "2020-11-20T13:21:32.626Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-wanderweg",
+      "value": "mp-wanderweg-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "cbbef577-7356-4bb2-a860-ec36d14d7907",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.792Z",
+      "modified_at": "2020-11-20T13:21:32.792Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-dachneigung",
+      "value": "mp-dachneigung-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "d0fe6916-c872-4c4f-b4e2-639db3e98ff6",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.180Z",
+      "modified_at": "2020-11-20T13:21:33.180Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-firstrichtung",
+      "value": "mp-firstrichtung-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "d231749c-a0f7-4cbd-a8ce-347597869699",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.192Z",
+      "modified_at": "2020-11-20T13:21:33.192Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-kleiner-grenzabstand-nebengebaeude-unbewohnt",
+      "value": "mp-kleiner-grenzabstand-nebengebaeude-unbewohnt-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "d38e2037-2699-49a6-93d3-f94128ec0ab0",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.536Z",
+      "modified_at": "2020-11-20T13:21:33.536Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-fixpunkt",
+      "value": "mp-fixpunkt-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "d432fb86-71e0-4452-bde4-f9f78a7698ae",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.053Z",
+      "modified_at": "2020-11-20T13:21:33.053Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-zonenkonformitaet",
+      "value": "mp-zonenkonformitaet-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "d53d1578-2567-4d68-9c80-edcefac3206c",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.676Z",
+      "modified_at": "2020-11-20T13:21:32.676Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-bauabstaende-zu-leitungen",
+      "value": "mp-bauabstaende-zu-leitungen-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "d549a6d8-8abf-4ed0-993f-0cde09e8dab7",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.496Z",
+      "modified_at": "2020-11-20T13:21:32.496Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-auzuege",
+      "value": "mp-auzuege-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "d8c8babd-5885-45e7-a019-b64a97016d7a",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.137Z",
+      "modified_at": "2020-11-20T13:21:33.137Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-bln",
+      "value": "mp-bln-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "ddd985af-99ea-4d94-aa57-ce894066b7ce",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.252Z",
+      "modified_at": "2020-11-20T13:21:32.252Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-fotodokumentation",
+      "value": "mp-fotodokumentation-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "e4752449-c437-487c-a609-feb1514b3fd3",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.652Z",
+      "modified_at": "2020-11-20T13:21:32.652Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-radon",
+      "value": "mp-radon-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "ea687d6b-4942-423e-9f93-25e879d15b8a",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.644Z",
+      "modified_at": "2020-11-20T13:21:32.644Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-luftreinhaltungsverordnung",
+      "value": "mp-luftreinhaltungsverordnung-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "eecdc02b-416b-4661-8959-3013989478cf",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.721Z",
+      "modified_at": "2020-11-20T13:21:32.721Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-mehrlaengen-und-breitenzuschlag",
+      "value": "mp-mehrlaengen-und-breitenzuschlag-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "ef6ab056-f6b1-4f2b-8ea3-44267158dec6",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.085Z",
+      "modified_at": "2020-11-20T13:21:33.085Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-bauinventar-schuetzenswert",
+      "value": "mp-bauinventar-schuetzenswert-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "f170d64c-c6a6-4682-8310-b62f93fd6c90",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.105Z",
+      "modified_at": "2020-11-20T13:21:33.105Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-gebaeudeabstand",
+      "value": "mp-gebaeudeabstand-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "f1bcde5e-6d47-42e3-9d54-6c5b4006c2a8",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.235Z",
+      "modified_at": "2020-11-20T13:21:33.235Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-kleiner-grenzabstand-hauptgebaeude-unbewohnt",
+      "value": "mp-kleiner-grenzabstand-hauptgebaeude-unbewohnt-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "f6bb45a8-4bfe-4a15-8b9b-4447434eba98",
+    "fields": {
+      "created_at": "2020-11-20T13:21:33.006Z",
+      "modified_at": "2020-11-20T13:21:33.006Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-kehrichtplatz",
+      "value": "mp-kehrichtplatz-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "f7051c2e-c1f1-43a0-9024-afb21b4f1181",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.578Z",
+      "modified_at": "2020-11-20T13:21:32.578Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-grosser-grenzabstand",
+      "value": "mp-grosser-grenzabstand-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "f7cccd84-41b8-4226-91ce-8a0479b2726c",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.972Z",
+      "modified_at": "2020-11-20T13:21:32.972Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-dachausbau",
+      "value": "mp-dachausbau-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "fce59991-663b-4401-8dc7-58426f4db71c",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.803Z",
+      "modified_at": "2020-11-20T13:21:32.803Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-baulinien-plan",
+      "value": "mp-baulinien-plan-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "fce59ba8-c36e-4c09-8570-53b974da692f",
+    "fields": {
+      "created_at": "2020-11-20T13:21:32.558Z",
+      "modified_at": "2020-11-20T13:21:32.558Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "mp-luftreinhaltung-baustelle",
+      "value": "mp-luftreinhaltung-baustelle-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
     "model": "caluma_form.form",
     "pk": "bab-beilagen",
     "fields": {
@@ -15503,7 +17295,7 @@
     "pk": "mp-abag-abav",
     "fields": {
       "created_at": "2020-10-14T13:05:14.748Z",
-      "modified_at": "2020-10-14T13:05:14.748Z",
+      "modified_at": "2020-11-20T13:21:32.348Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"ABAG / ABAV\", \"fr\": \"LTEI / OTEI\"}",
@@ -15521,7 +17313,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "343bdd6c-47ab-45fc-a541-ce2200a6d246"
     }
   },
   {
@@ -15607,7 +17399,7 @@
     "pk": "mp-abstand-vom-wald",
     "fields": {
       "created_at": "2020-10-14T13:05:12.248Z",
-      "modified_at": "2020-10-14T13:05:12.248Z",
+      "modified_at": "2020-11-20T13:21:33.559Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Abstand vom Wald KWaG/KWaV Art. 25/34\", \"fr\": \"Distance par rapport \\u00e0 la for\\u00eat KWaG/KWaV Art. 25/34\"}",
@@ -15625,7 +17417,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "7056785d-8d31-417f-b55d-258e763fc6ef"
     }
   },
   {
@@ -15685,7 +17477,7 @@
     "pk": "mp-abstand-von-gewaessern",
     "fields": {
       "created_at": "2020-10-14T13:05:12.212Z",
-      "modified_at": "2020-10-14T13:05:12.212Z",
+      "modified_at": "2020-11-20T13:21:32.432Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Abstand von Gew\\u00e4ssern BauG/Anh.I WBV Art. 11\", \"fr\": \"Distance par rapport aux eaux BauG/Anh.I WBV Art. 11\"}",
@@ -15703,7 +17495,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "50ef7d9d-e7be-4f7b-8b25-6a944eb60c6a"
     }
   },
   {
@@ -15763,7 +17555,7 @@
     "pk": "mp-abstand-von-strassen",
     "fields": {
       "created_at": "2020-10-14T13:05:12.174Z",
-      "modified_at": "2020-10-14T13:05:12.174Z",
+      "modified_at": "2020-11-20T13:21:32.697Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Abstand von Strassen SG Art. 80\", \"fr\": \"D\\u00e9cence des routes SG Art. 80\"}",
@@ -15781,7 +17573,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "bd75900b-3781-478d-9bbc-1a4224bf062d"
     }
   },
   {
@@ -15841,7 +17633,7 @@
     "pk": "mp-abstand-von-zonegrenzen",
     "fields": {
       "created_at": "2020-10-14T13:05:12.285Z",
-      "modified_at": "2020-10-14T13:05:12.285Z",
+      "modified_at": "2020-11-20T13:21:32.734Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Abstand von Zonengrenzen GBR\", \"fr\": \"Distance par rapport aux limites de zone GBR\"}",
@@ -15859,7 +17651,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "1cead1d2-a931-4124-b191-5af158f4434f"
     }
   },
   {
@@ -15919,7 +17711,7 @@
     "pk": "mp-abstellplaetze-gewerbe",
     "fields": {
       "created_at": "2020-10-14T13:05:13.194Z",
-      "modified_at": "2020-10-14T13:05:13.194Z",
+      "modified_at": "2020-11-20T13:21:33.569Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Abstellpl\\u00e4tze: Gewerbe BauV Art. 49-56\", \"fr\": \"Places de stationnement: artisanat BauV Art. 49-56\"}",
@@ -15937,7 +17729,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "4bbd7527-8a38-438a-b6bc-6df52adf81b3"
     }
   },
   {
@@ -15997,7 +17789,7 @@
     "pk": "mp-abstellplaetze-wohnen",
     "fields": {
       "created_at": "2020-10-14T13:05:13.155Z",
-      "modified_at": "2020-10-14T13:05:13.155Z",
+      "modified_at": "2020-11-20T13:21:33.206Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Abstellpl\\u00e4tze: Wohnen BauV Art. 49-56\", \"fr\": \"Places de stationnement: habitat BauV Art. 49-56\"}",
@@ -16015,7 +17807,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "843e56eb-dde0-4142-b74a-3761e3bea37a"
     }
   },
   {
@@ -16075,7 +17867,7 @@
     "pk": "mp-abstellraeume",
     "fields": {
       "created_at": "2020-10-14T13:05:13.110Z",
-      "modified_at": "2020-10-14T13:05:13.110Z",
+      "modified_at": "2020-11-20T13:21:32.322Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Abstellr\\u00e4ume BauV Art. 47/1\", \"fr\": \"R\\u00e9duits BauV Art. 47/1\"}",
@@ -16093,7 +17885,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "19c1d86e-c7b7-40be-a34f-6135a331ac14"
     }
   },
   {
@@ -16153,7 +17945,7 @@
     "pk": "mp-altlasten-verdachtsflaechen",
     "fields": {
       "created_at": "2020-10-14T13:05:15.439Z",
-      "modified_at": "2020-10-14T13:05:15.439Z",
+      "modified_at": "2020-11-20T13:21:33.152Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Altlasten-/Verdachtsfl\\u00e4chen\", \"fr\": \"Sites contamin\\u00e9s ou potentiellement contamin\\u00e9s\"}",
@@ -16171,7 +17963,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "62ef435f-9e9c-4691-9c31-a1b2e8a668b1"
     }
   },
   {
@@ -16231,7 +18023,7 @@
     "pk": "mp-andere-immissionen",
     "fields": {
       "created_at": "2020-10-14T13:05:15.158Z",
-      "modified_at": "2020-10-14T13:05:15.158Z",
+      "modified_at": "2020-11-20T13:21:32.332Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Andere Immissionen LRV\", \"fr\": \"Autres immissions LRV\"}",
@@ -16249,7 +18041,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "494a1e40-6bb5-4f0d-9f09-0e3d27d99003"
     }
   },
   {
@@ -16309,7 +18101,7 @@
     "pk": "mp-anstellflaeche-fuer-kinderwagen-und-velo",
     "fields": {
       "created_at": "2020-10-14T13:05:13.232Z",
-      "modified_at": "2020-10-14T13:05:13.232Z",
+      "modified_at": "2020-11-20T13:21:32.411Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Abstellfl\\u00e4che f\\u00fcr Kinderwagen und Velo BauV Art. 47/2\", \"fr\": \"Places de stationnement pour voitures d'enfant ou pour bicyclettes BauV Art. 47/2\"}",
@@ -16327,7 +18119,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "738207c6-7877-4664-8070-071dc52008dc"
     }
   },
   {
@@ -16387,7 +18179,7 @@
     "pk": "mp-antennen",
     "fields": {
       "created_at": "2020-10-14T13:05:13.963Z",
-      "modified_at": "2020-10-14T13:05:13.963Z",
+      "modified_at": "2020-11-20T13:21:32.513Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Antennen BauV Art. 17/18\", \"fr\": \"Antennes BauV Art. 17/18\"}",
@@ -16405,7 +18197,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "6e598467-a210-41bf-a391-ca9f6763e2a3"
     }
   },
   {
@@ -16465,7 +18257,7 @@
     "pk": "mp-aufenthaltsbereiche",
     "fields": {
       "created_at": "2020-10-14T13:05:13.066Z",
-      "modified_at": "2020-10-14T13:05:13.066Z",
+      "modified_at": "2020-11-20T13:21:32.592Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Aufenthaltsbereiche BauV Art. 44 f.\", \"fr\": \"Aires de loisirs BauV Art. 44 f.\"}",
@@ -16483,7 +18275,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "bcb96563-700a-4213-b7b9-4332199c97ff"
     }
   },
   {
@@ -16543,7 +18335,7 @@
     "pk": "mp-auskragung-offener-bauteile",
     "fields": {
       "created_at": "2020-10-14T13:05:12.060Z",
-      "modified_at": "2020-10-14T13:05:12.060Z",
+      "modified_at": "2020-11-20T13:21:32.924Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Auskragung offener Bauteile GBR\", \"fr\": \"Empi\\u00e9tement de parties en saillie GBR\"}",
@@ -16561,7 +18353,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "2f0478ef-908c-4005-979f-76aae5fba373"
     }
   },
   {
@@ -16647,7 +18439,7 @@
     "pk": "mp-auzuege",
     "fields": {
       "created_at": "2020-10-14T13:05:14.668Z",
-      "modified_at": "2020-10-14T13:05:14.668Z",
+      "modified_at": "2020-11-20T13:21:32.501Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Aufz\\u00fcge BauV Art. 59\", \"fr\": \"Ascenseurs BauV Art. 59\"}",
@@ -16665,7 +18457,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "d549a6d8-8abf-4ed0-993f-0cde09e8dab7"
     }
   },
   {
@@ -16725,7 +18517,7 @@
     "pk": "mp-az-uez-gz-gruenflaechenziffer",
     "fields": {
       "created_at": "2020-10-14T13:05:11.555Z",
-      "modified_at": "2020-10-14T13:05:11.555Z",
+      "modified_at": "2020-11-20T13:21:32.663Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"AZ / UeZ / GZ: Gr\\u00fcnfl\\u00e4chenziffer GBR\", \"fr\": \"Indice (utilisation / surface b\\u00e2tie / surfaces vertes): indice de surface verte GBR\"}",
@@ -16743,7 +18535,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "5f58abcc-2090-4186-b548-7f411029ba69"
     }
   },
   {
@@ -16803,7 +18595,7 @@
     "pk": "mp-az-uez-gz-nutzungsuebertragung",
     "fields": {
       "created_at": "2020-10-14T13:05:11.513Z",
-      "modified_at": "2020-10-14T13:05:11.513Z",
+      "modified_at": "2020-11-20T13:21:32.246Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"AZ / UeZ / GZ: Nutzungs\\u00fcbertragung GBR\", \"fr\": \"Indice (utilisation / surface b\\u00e2tie / surfaces vertes): transfert de l'affectation GBR\"}",
@@ -16821,7 +18613,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "9fb79aa9-4be8-4ad4-9078-428576d43dea"
     }
   },
   {
@@ -16881,7 +18673,7 @@
     "pk": "mp-az-uez-gz-ueberbauungsprozente",
     "fields": {
       "created_at": "2020-10-14T13:05:11.474Z",
-      "modified_at": "2020-10-14T13:05:11.474Z",
+      "modified_at": "2020-11-20T13:21:33Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"AZ / UeZ / GZ: \\u00dcberbauungsprozente GBR\", \"fr\": \"Indice (utilisation / surface b\\u00e2tie / surfaces vertes): taux d'occupation du sol GBR\"}",
@@ -16899,7 +18691,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "31b85fef-603b-4963-85d4-69b588330f99"
     }
   },
   {
@@ -16985,7 +18777,7 @@
     "pk": "mp-bauabstaende-zu-leitungen",
     "fields": {
       "created_at": "2020-10-14T13:05:12.322Z",
-      "modified_at": "2020-10-14T13:05:12.322Z",
+      "modified_at": "2020-11-20T13:21:32.680Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Bauabst\\u00e4nde zu Leitungen\", \"fr\": \"Distances par rapport aux conduites\"}",
@@ -17003,7 +18795,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "d53d1578-2567-4d68-9c80-edcefac3206c"
     }
   },
   {
@@ -17063,7 +18855,7 @@
     "pk": "mp-bauen-in-der-landwirtschaftszone",
     "fields": {
       "created_at": "2020-10-14T13:05:12.956Z",
-      "modified_at": "2020-10-14T13:05:12.956Z",
+      "modified_at": "2020-11-20T13:21:32.374Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Bauen in der Landwirtschaftszone RPG Art. 24 ff.\", \"fr\": \"Construction en zone agricole RPG Art. 24 ff.\"}",
@@ -17081,7 +18873,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "517de9e9-16fe-45c7-9832-ccb8165cf119"
     }
   },
   {
@@ -17141,7 +18933,7 @@
     "pk": "mp-bauinventar-baugruppe",
     "fields": {
       "created_at": "2020-10-14T13:05:12.568Z",
-      "modified_at": "2020-10-14T13:05:12.568Z",
+      "modified_at": "2020-11-20T13:21:32.952Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Bauinventar: Baugruppe BauG Art. 10\", \"fr\": \"Recensement architectural: ensemble b\\u00e2ti BauG Art. 10\"}",
@@ -17159,7 +18951,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "4a457369-a3af-4315-ac03-e792ab6967f4"
     }
   },
   {
@@ -17219,7 +19011,7 @@
     "pk": "mp-bauinventar-erhaltenswert",
     "fields": {
       "created_at": "2020-10-14T13:05:12.490Z",
-      "modified_at": "2020-10-14T13:05:12.490Z",
+      "modified_at": "2020-11-20T13:21:33.628Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Bauinventar: Erhaltenswert BauG Art. 10\", \"fr\": \"Recensement architectural: objet digne de conservation BauG Art. 10\"}",
@@ -17237,7 +19029,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "8fc86953-5c29-4205-9b41-a339033bf187"
     }
   },
   {
@@ -17297,7 +19089,7 @@
     "pk": "mp-bauinventar-schuetzenswert",
     "fields": {
       "created_at": "2020-10-14T13:05:12.532Z",
-      "modified_at": "2020-10-14T13:05:12.532Z",
+      "modified_at": "2020-11-20T13:21:33.090Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Bauinventar: Sch\\u00fctzenswert BauG Art. 10\", \"fr\": \"Recensement architectural: objet digne de protection BauG Art. 10\"}",
@@ -17315,7 +19107,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "ef6ab056-f6b1-4f2b-8ea3-44267158dec6"
     }
   },
   {
@@ -17375,7 +19167,7 @@
     "pk": "mp-bauliche-vorkehrungen-fuer-behinderte",
     "fields": {
       "created_at": "2020-10-14T13:05:14.708Z",
-      "modified_at": "2020-10-14T13:05:14.708Z",
+      "modified_at": "2020-11-20T13:21:32.761Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Bauliche Vorkehrungen f\\u00fcr Behinderte BauG | BauV Art. 22f. | 85 ff.\", \"fr\": \"Mesures de construction en faveur des handicap\\u00e9s BauG | BauV Art. 22f. | 85 ff.\"}",
@@ -17393,7 +19185,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "c5d35185-8b97-4bc5-b786-e8f8a65f558d"
     }
   },
   {
@@ -17453,7 +19245,7 @@
     "pk": "mp-baulinien-plan",
     "fields": {
       "created_at": "2020-10-14T13:05:11.833Z",
-      "modified_at": "2020-10-14T13:05:11.833Z",
+      "modified_at": "2020-11-20T13:21:32.808Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Baulinien Plan\", \"fr\": \"Alignement Plan\"}",
@@ -17471,7 +19263,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "fce59991-663b-4401-8dc7-58426f4db71c"
     }
   },
   {
@@ -17531,7 +19323,7 @@
     "pk": "mp-bauten-in-bahnnaehe",
     "fields": {
       "created_at": "2020-10-14T13:05:15.386Z",
-      "modified_at": "2020-10-14T13:05:15.386Z",
+      "modified_at": "2020-11-20T13:21:32.773Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Bauten in Bahnn\\u00e4he\", \"fr\": \"Constructions \\u00e0 proximit\\u00e9 des voies ferr\\u00e9es\"}",
@@ -17549,7 +19341,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "278fe7e7-be13-4340-9ac4-80fb87275f9f"
     }
   },
   {
@@ -17609,7 +19401,7 @@
     "pk": "mp-bauweise-geschlossen",
     "fields": {
       "created_at": "2020-10-14T13:05:10.840Z",
-      "modified_at": "2020-10-14T13:05:10.840Z",
+      "modified_at": "2020-11-20T13:21:32.533Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Bauweise: Geschlossen GBR\", \"fr\": \"Ordre des constructions: contigu GBR\"}",
@@ -17627,7 +19419,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "13474a73-02c7-4f7b-9849-ec2fae31c6bd"
     }
   },
   {
@@ -17687,7 +19479,7 @@
     "pk": "mp-bauweise-gestaltungsfreiheit",
     "fields": {
       "created_at": "2020-10-14T13:05:10.879Z",
-      "modified_at": "2020-10-14T13:05:10.879Z",
+      "modified_at": "2020-11-20T13:21:33.120Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Bauweise: Gestaltungsfreiheit BauG Art. 75\", \"fr\": \"Ordre des constructions: libert\\u00e9 de conception BauG Art. 75\"}",
@@ -17705,7 +19497,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "675675ec-2c35-4c4b-aeb3-408038d89a5e"
     }
   },
   {
@@ -17765,7 +19557,7 @@
     "pk": "mp-bauweise-offen",
     "fields": {
       "created_at": "2020-10-14T13:05:10.801Z",
-      "modified_at": "2020-10-14T13:05:10.801Z",
+      "modified_at": "2020-11-20T13:21:32.542Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Bauweise: Offen GBR\", \"fr\": \"Ordre des constructions: non contigu GBR\"}",
@@ -17783,7 +19575,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "25e1fb24-03bb-44b8-8ead-7e6075781875"
     }
   },
   {
@@ -17843,7 +19635,7 @@
     "pk": "mp-belichtung-belueftung-und-besonnung",
     "fields": {
       "created_at": "2020-10-14T13:05:14.203Z",
-      "modified_at": "2020-10-14T13:05:14.203Z",
+      "modified_at": "2020-11-20T13:21:32.478Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Belichtung, Bel\\u00fcftung und Besonnung BauV Art. 64\", \"fr\": \"Luminosit\\u00e9, a\\u00e9ration et ensoleillement BauV Art. 64\"}",
@@ -17861,7 +19653,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "85a9ffdb-b81f-4a13-96a0-c6a2c9084e84"
     }
   },
   {
@@ -17921,7 +19713,7 @@
     "pk": "mp-bepflanzung",
     "fields": {
       "created_at": "2020-10-14T13:05:13.302Z",
-      "modified_at": "2020-10-14T13:05:13.302Z",
+      "modified_at": "2020-11-20T13:21:32.441Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Bepflanzung GBR/EG ZGB\", \"fr\": \"Plantations GBR/EG ZGB\"}",
@@ -17939,7 +19731,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "a220629c-1eba-49b5-a684-d5879b863e80"
     }
   },
   {
@@ -17999,7 +19791,7 @@
     "pk": "mp-besondere-verhaeltnisse",
     "fields": {
       "created_at": "2020-10-14T13:05:12.921Z",
-      "modified_at": "2020-10-14T13:05:12.921Z",
+      "modified_at": "2020-11-20T13:21:32.889Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Besondere Verh\\u00e4ltnisse BauG Art. 26\", \"fr\": \"Circonstances particuli\\u00e8res BauG Art. 26\"}",
@@ -18017,7 +19809,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "a13371c4-b644-4333-8aa3-9e8cbdebcd5f"
     }
   },
   {
@@ -18077,7 +19869,7 @@
     "pk": "mp-bln",
     "fields": {
       "created_at": "2020-10-14T13:05:12.734Z",
-      "modified_at": "2020-10-14T13:05:12.734Z",
+      "modified_at": "2020-11-20T13:21:33.142Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"BLN und weitere Bundesinventare NHG Art. 5\", \"fr\": \"IFP et autres inventaires f\\u00e9d\\u00e9raux NHG Art. 5\"}",
@@ -18095,7 +19887,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "d8c8babd-5885-45e7-a019-b64a97016d7a"
     }
   },
   {
@@ -18155,7 +19947,7 @@
     "pk": "mp-breite-gefaelle",
     "fields": {
       "created_at": "2020-10-14T13:05:13.473Z",
-      "modified_at": "2020-10-14T13:05:13.473Z",
+      "modified_at": "2020-11-20T13:21:32.689Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Breite, Gef\\u00e4lle BauG/BauV Art. 7/6\", \"fr\": \"Largeur, d\\u00e9clivit\\u00e9 BauG/BauV Art. 7/6\"}",
@@ -18173,7 +19965,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "06d7220c-d915-4940-9e12-e7c9a5edb6fe"
     }
   },
   {
@@ -18233,7 +20025,7 @@
     "pk": "mp-dachaufbauten",
     "fields": {
       "created_at": "2020-10-14T13:05:11.280Z",
-      "modified_at": "2020-10-14T13:05:11.280Z",
+      "modified_at": "2020-11-20T13:21:33.047Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Dachaufbauten GBR\", \"fr\": \"Superstructures du toit GBR\"}",
@@ -18251,7 +20043,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "764fec92-d7f4-43cc-b1bf-43da2660bcdc"
     }
   },
   {
@@ -18311,7 +20103,7 @@
     "pk": "mp-dachausbau",
     "fields": {
       "created_at": "2020-10-14T13:05:11.125Z",
-      "modified_at": "2020-10-14T13:05:11.125Z",
+      "modified_at": "2020-11-20T13:21:32.977Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Dachausbau GBR\", \"fr\": \"Am\\u00e9nagement des combles GBR\"}",
@@ -18329,7 +20121,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "f7cccd84-41b8-4226-91ce-8a0479b2726c"
     }
   },
   {
@@ -18389,7 +20181,7 @@
     "pk": "mp-dachform",
     "fields": {
       "created_at": "2020-10-14T13:05:11.163Z",
-      "modified_at": "2020-10-14T13:05:11.163Z",
+      "modified_at": "2020-11-20T13:21:32.965Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Dachform GBR\", \"fr\": \"Forme de la toiture GBR\"}",
@@ -18407,7 +20199,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "0a7296a9-6553-4703-825d-f3552f62b5cc"
     }
   },
   {
@@ -18467,7 +20259,7 @@
     "pk": "mp-dachneigung",
     "fields": {
       "created_at": "2020-10-14T13:05:11.203Z",
-      "modified_at": "2020-10-14T13:05:11.203Z",
+      "modified_at": "2020-11-20T13:21:32.797Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Dachneigung GBR\", \"fr\": \"Pente de la toiture GBR\"}",
@@ -18485,7 +20277,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "cbbef577-7356-4bb2-a860-ec36d14d7907"
     }
   },
   {
@@ -18545,7 +20337,7 @@
     "pk": "mp-dachvorspruenge",
     "fields": {
       "created_at": "2020-10-14T13:05:11.242Z",
-      "modified_at": "2020-10-14T13:05:11.242Z",
+      "modified_at": "2020-11-20T13:21:32.989Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Dachvorspr\\u00fcnge GBR\", \"fr\": \"Avant-toits GBR\"}",
@@ -18563,7 +20355,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "19843a9e-8df4-4d50-ab10-4c87b0bbcb04"
     }
   },
   {
@@ -18654,7 +20446,7 @@
     "pk": "mp-einfriedungen-stuetzmauern-boeschungen",
     "fields": {
       "created_at": "2020-10-14T13:05:13.887Z",
-      "modified_at": "2020-10-14T13:05:13.887Z",
+      "modified_at": "2020-11-20T13:21:32.340Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Einfriedungen, St\\u00fctzmauern, B\\u00f6schungen GBR\", \"fr\": \"Cl\\u00f4tures, murs de sout\\u00e8nement, talus GBR\"}",
@@ -18672,7 +20464,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "7436c2d2-23a3-4909-820a-6f7ba8c8f75e"
     }
   },
   {
@@ -18732,7 +20524,7 @@
     "pk": "mp-einordnung-und-gestaltung",
     "fields": {
       "created_at": "2020-10-14T13:05:13.630Z",
-      "modified_at": "2020-10-14T13:05:13.630Z",
+      "modified_at": "2020-11-20T13:21:32.490Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Einordnung und Gestaltung Baug Art. 9\", \"fr\": \"Int\\u00e9gration et forme Baug Art. 9\"}",
@@ -18750,7 +20542,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "3b75adba-1461-410b-8cca-5330196ac7a2"
     }
   },
   {
@@ -18810,7 +20602,7 @@
     "pk": "mp-eisenbahn",
     "fields": {
       "created_at": "2020-10-14T13:05:15.343Z",
-      "modified_at": "2020-10-14T13:05:15.343Z",
+      "modified_at": "2020-11-20T13:21:33.036Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Eisenbahn EBG Art. 18a\", \"fr\": \"Voies ferr\\u00e9es EBG Art. 18a\"}",
@@ -18828,7 +20620,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "b3ff63ae-6159-4781-9691-25700539093b"
     }
   },
   {
@@ -18888,7 +20680,7 @@
     "pk": "mp-energiegesetzgebung",
     "fields": {
       "created_at": "2020-10-14T13:05:15.235Z",
-      "modified_at": "2020-10-14T13:05:15.235Z",
+      "modified_at": "2020-11-20T13:21:32.620Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Energiegesetzgebung (u.a. W\\u00e4rmed\\u00e4mmung)\", \"fr\": \"L\\u00e9gislation sur l\\u2019\\u00e9nergie (isolation thermique notamment)\"}",
@@ -18906,7 +20698,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "8d027456-8368-41fc-b1cf-b1d36f9e6df4"
     }
   },
   {
@@ -18966,7 +20758,7 @@
     "pk": "mp-energiekollektoren",
     "fields": {
       "created_at": "2020-10-14T13:05:14.007Z",
-      "modified_at": "2020-10-14T13:05:14.007Z",
+      "modified_at": "2020-11-20T13:21:32.302Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Energiekollektoren\", \"fr\": \"Capteurs d'\\u00e9nergie\"}",
@@ -18984,7 +20776,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "7f911ca8-0ed2-4bb7-972b-e6cdc8961f1c"
     }
   },
   {
@@ -19044,7 +20836,7 @@
     "pk": "mp-entsorgung-abfaelle",
     "fields": {
       "created_at": "2020-10-14T13:05:15.119Z",
-      "modified_at": "2020-10-14T13:05:15.119Z",
+      "modified_at": "2020-11-20T13:21:33.549Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Entsorgung Abf\\u00e4lle\", \"fr\": \"Traitement des d\\u00e9chets\"}",
@@ -19062,7 +20854,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "6a209430-97fb-4f95-8cfd-ed2c5fdf549c"
     }
   },
   {
@@ -19122,7 +20914,7 @@
     "pk": "mp-entsorgungskonzept",
     "fields": {
       "created_at": "2020-10-14T13:05:15.480Z",
-      "modified_at": "2020-10-14T13:05:15.480Z",
+      "modified_at": "2020-11-20T13:21:33.218Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Entsorgungskonzept\", \"fr\": \"Plan de gestion des d\\u00e9chets\"}",
@@ -19140,7 +20932,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "22dc2a0b-d630-4d9d-90d4-9fd1678d52dd"
     }
   },
   {
@@ -19252,7 +21044,7 @@
     "pk": "mp-ewap",
     "fields": {
       "created_at": "2020-10-14T13:05:11.636Z",
-      "modified_at": "2020-10-14T13:05:11.636Z",
+      "modified_at": "2020-11-20T13:21:33.618Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"EWAP GBR\", \"fr\": \"THP GBR\"}",
@@ -19270,7 +21062,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "239df598-c978-48e4-a44e-75b15293cc19"
     }
   },
   {
@@ -19330,7 +21122,7 @@
     "pk": "mp-fachstellen",
     "fields": {
       "created_at": "2020-10-14T13:05:13.926Z",
-      "modified_at": "2020-10-14T13:05:13.926Z",
+      "modified_at": "2020-11-20T13:21:33.025Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Fachstellen BauV Art. 14\", \"fr\": \"Services sp\\u00e9cialis\\u00e9s BauV Art. 14\"}",
@@ -19348,7 +21140,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "c26e3a9d-cce1-4fbc-88e7-9b7ba389611e"
     }
   },
   {
@@ -19408,7 +21200,7 @@
     "pk": "mp-firsthoehe",
     "fields": {
       "created_at": "2020-10-14T13:05:11.002Z",
-      "modified_at": "2020-10-14T13:05:11.002Z",
+      "modified_at": "2020-11-20T13:21:32.610Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Firsth\\u00f6he GBR\", \"fr\": \"Hauteur du fa\\u00eete GBR\"}",
@@ -19426,7 +21218,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "47e70ea3-0095-49fe-ba48-7beb60c12836"
     }
   },
   {
@@ -19486,7 +21278,7 @@
     "pk": "mp-firstrichtung",
     "fields": {
       "created_at": "2020-10-14T13:05:13.735Z",
-      "modified_at": "2020-10-14T13:05:13.735Z",
+      "modified_at": "2020-11-20T13:21:33.185Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Firstrichtung\", \"fr\": \"Orientation du fa\\u00eete\"}",
@@ -19504,7 +21296,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "d0fe6916-c872-4c4f-b4e2-639db3e98ff6"
     }
   },
   {
@@ -19564,7 +21356,7 @@
     "pk": "mp-fixpunkt",
     "fields": {
       "created_at": "2020-10-14T13:05:10.919Z",
-      "modified_at": "2020-10-14T13:05:10.919Z",
+      "modified_at": "2020-11-20T13:21:33.540Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Fixpunkt (Ausgangsh\\u00f6he) BewD Art. 14\", \"fr\": \"Point fixe (cote du sol fini du rez-de-chauss\\u00e9e) BewD Art. 14\"}",
@@ -19582,7 +21374,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "d38e2037-2699-49a6-93d3-f94128ec0ab0"
     }
   },
   {
@@ -19668,7 +21460,7 @@
     "pk": "mp-fotodokumentation",
     "fields": {
       "created_at": "2020-10-14T13:05:14.082Z",
-      "modified_at": "2020-10-14T13:05:14.082Z",
+      "modified_at": "2020-11-20T13:21:32.256Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Fotodokumentation\", \"fr\": \"Documentation photographique\"}",
@@ -19686,7 +21478,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "ddd985af-99ea-4d94-aa57-ce894066b7ce"
     }
   },
   {
@@ -19746,7 +21538,7 @@
     "pk": "mp-galerie",
     "fields": {
       "created_at": "2020-10-14T13:05:11.324Z",
-      "modified_at": "2020-10-14T13:05:11.324Z",
+      "modified_at": "2020-11-20T13:21:33.608Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Galerie\", \"fr\": \"Galerie\"}",
@@ -19764,7 +21556,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "76182cb6-374b-4108-937f-f6ea673b4578"
     }
   },
   {
@@ -19824,7 +21616,7 @@
     "pk": "mp-gebaeudeabstand",
     "fields": {
       "created_at": "2020-10-14T13:05:12.135Z",
-      "modified_at": "2020-10-14T13:05:12.135Z",
+      "modified_at": "2020-11-20T13:21:33.110Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Geb\\u00e4udeabstand GBR\", \"fr\": \"Distance entre les b\\u00e2timents GBR\"}",
@@ -19842,7 +21634,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "f170d64c-c6a6-4682-8310-b62f93fd6c90"
     }
   },
   {
@@ -19902,7 +21694,7 @@
     "pk": "mp-gebaeudebreite",
     "fields": {
       "created_at": "2020-10-14T13:05:11.408Z",
-      "modified_at": "2020-10-14T13:05:11.408Z",
+      "modified_at": "2020-11-20T13:21:33.500Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Geb\\u00e4udebreite GBR\", \"fr\": \"Largeur du b\\u00e2timent GBR\"}",
@@ -19920,7 +21712,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "0becab69-1232-4308-a522-06736be9cc3b"
     }
   },
   {
@@ -19980,7 +21772,7 @@
     "pk": "mp-gebaeudeform-proportionen",
     "fields": {
       "created_at": "2020-10-14T13:05:13.776Z",
-      "modified_at": "2020-10-14T13:05:13.776Z",
+      "modified_at": "2020-11-20T13:21:33.229Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Geb\\u00e4udeform / Proportionen\", \"fr\": \"Formes et proportions du b\\u00e2timent \"}",
@@ -19998,7 +21790,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "af49d2fd-dae5-4ef7-a545-b2e400889298"
     }
   },
   {
@@ -20058,7 +21850,7 @@
     "pk": "mp-gebaeudehoehe",
     "fields": {
       "created_at": "2020-10-14T13:05:10.958Z",
-      "modified_at": "2020-10-14T13:05:10.958Z",
+      "modified_at": "2020-11-20T13:21:33.589Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Geb\\u00e4udeh\\u00f6he GBR\", \"fr\": \"Hauteur du b\\u00e2timent GBR\"}",
@@ -20076,7 +21868,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "965c5b82-17ba-4018-a6c4-ec3d1bfe7b3d"
     }
   },
   {
@@ -20136,7 +21928,7 @@
     "pk": "mp-gebaeudelaenge",
     "fields": {
       "created_at": "2020-10-14T13:05:11.366Z",
-      "modified_at": "2020-10-14T13:05:11.366Z",
+      "modified_at": "2020-11-20T13:21:32.365Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Geb\\u00e4udel\\u00e4nge GBR\", \"fr\": \"Longueur du b\\u00e2timent GBR\"}",
@@ -20154,7 +21946,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "45b09506-f5ac-4abb-a610-aefdf3de642e"
     }
   },
   {
@@ -20214,7 +22006,7 @@
     "pk": "mp-gebaeudeproportionen",
     "fields": {
       "created_at": "2020-10-14T13:05:11.595Z",
-      "modified_at": "2020-10-14T13:05:11.595Z",
+      "modified_at": "2020-11-20T13:21:32.523Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Geb\\u00e4udeproportionen (Verh\\u00e4ltnis B zu H) GBR\", \"fr\": \"Proportions du b\\u00e2timent (rapport largeur - hauteur) GBR\"}",
@@ -20232,7 +22024,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "bb5b7438-8240-4cfb-8225-5e07e14e619c"
     }
   },
   {
@@ -20292,7 +22084,7 @@
     "pk": "mp-gebaeudestellung-im-gelaende",
     "fields": {
       "created_at": "2020-10-14T13:05:13.667Z",
-      "modified_at": "2020-10-14T13:05:13.667Z",
+      "modified_at": "2020-11-20T13:21:33.132Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Geb\\u00e4udestellung im Gel\\u00e4nde\", \"fr\": \"Implantation du b\\u00e2timent\"}",
@@ -20310,7 +22102,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "7575f407-1db5-4020-bd88-de9fdd529c39"
     }
   },
   {
@@ -20370,7 +22162,7 @@
     "pk": "mp-gebaeudestellung-zur-strasse",
     "fields": {
       "created_at": "2020-10-14T13:05:13.704Z",
-      "modified_at": "2020-10-14T13:05:13.704Z",
+      "modified_at": "2020-11-20T13:21:33.100Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Geb\\u00e4udestellung zur Strasse\", \"fr\": \"Position du b\\u00e2timent par rapport \\u00e0 la route\"}",
@@ -20388,7 +22180,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "59e11b20-5e56-4d9e-b878-a7afcbdff1f5"
     }
   },
   {
@@ -20448,7 +22240,7 @@
     "pk": "mp-geschosszahl",
     "fields": {
       "created_at": "2020-10-14T13:05:11.043Z",
-      "modified_at": "2020-10-14T13:05:11.043Z",
+      "modified_at": "2020-11-20T13:21:33.251Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Geschosszahl GBR\", \"fr\": \"Nombre d\\u2019\\u00e9tages GBR\"}",
@@ -20466,7 +22258,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "c5646c7e-b7b3-4bca-9e2a-f0585073384a"
     }
   },
   {
@@ -20526,7 +22318,7 @@
     "pk": "mp-gesetz-ueber-see-und-flussufer",
     "fields": {
       "created_at": "2020-10-14T13:05:15.523Z",
-      "modified_at": "2020-10-14T13:05:15.523Z",
+      "modified_at": "2020-11-20T13:21:32.743Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Gesetz \\u00fcber See- und Flussufer SFG\", \"fr\": \"Loi sur les rives des lacs et des rivi\\u00e8res SFG\"}",
@@ -20544,7 +22336,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "61101aaa-828b-43fb-a3f1-43f05407bee5"
     }
   },
   {
@@ -20630,7 +22422,7 @@
     "pk": "mp-grenzabstand-unterirdischer-bauteile",
     "fields": {
       "created_at": "2020-10-14T13:05:12.097Z",
-      "modified_at": "2020-10-14T13:05:12.097Z",
+      "modified_at": "2020-11-20T13:21:33.450Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Grenzabstand unterirdischer Bauteile GBR\", \"fr\": \"Distance \\u00e0 la limite souterraine GBR\"}",
@@ -20648,7 +22440,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "83e2518c-15e2-45d9-b08e-f9b652fc9c79"
     }
   },
   {
@@ -20708,7 +22500,7 @@
     "pk": "mp-grosse-spielflaeche",
     "fields": {
       "created_at": "2020-10-14T13:05:13.266Z",
-      "modified_at": "2020-10-14T13:05:13.266Z",
+      "modified_at": "2020-11-20T13:21:32.274Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"grosse Spielfl\\u00e4che BauV Art. 46\", \"fr\": \"Grande surface de jeu BauV Art. 46\"}",
@@ -20726,7 +22518,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "9d1f016a-a113-427e-abf1-c3d98f58c7bf"
     }
   },
   {
@@ -20786,7 +22578,7 @@
     "pk": "mp-grosser-grenzabstand",
     "fields": {
       "created_at": "2020-10-14T13:05:12.023Z",
-      "modified_at": "2020-10-14T13:05:12.023Z",
+      "modified_at": "2020-11-20T13:21:32.582Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Grosser Grenzabstand GBR\", \"fr\": \"Grande distance \\u00e0 la limite GBR\"}",
@@ -20804,7 +22596,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "f7051c2e-c1f1-43a0-9024-afb21b4f1181"
     }
   },
   {
@@ -20864,7 +22656,7 @@
     "pk": "mp-hecken",
     "fields": {
       "created_at": "2020-10-14T13:05:12.696Z",
-      "modified_at": "2020-10-14T13:05:12.696Z",
+      "modified_at": "2020-11-20T13:21:32.672Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Hecken\", \"fr\": \"Haies\"}",
@@ -20882,7 +22674,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "7b294883-9c84-4965-9f3e-803a21b621f5"
     }
   },
   {
@@ -20942,7 +22734,7 @@
     "pk": "mp-hygiene-und-unfallverh\u00fctung-auf-baupl\u00e4tzen",
     "fields": {
       "created_at": "2020-10-14T13:05:14.786Z",
-      "modified_at": "2020-10-14T13:05:14.786Z",
+      "modified_at": "2020-11-20T13:21:33.461Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Hygiene- und Unfallverh\\u00fctung auf Baupl\\u00e4tzen BauV Art. 70 ff.\", \"fr\": \"Mesures d'hygi\\u00e8ne et pr\\u00e9vention des accidents sur les chantiers BauV Art. 70 ff.\"}",
@@ -20960,7 +22752,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "0d773cd6-e3a5-4dbb-88c3-b8dcd6de2cfd"
     }
   },
   {
@@ -21020,7 +22812,7 @@
     "pk": "mp-isos",
     "fields": {
       "created_at": "2020-10-14T13:05:12.611Z",
-      "modified_at": "2020-10-14T13:05:12.611Z",
+      "modified_at": "2020-11-20T13:21:32.706Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"ISOS NHG Art. 5\", \"fr\": \"ISOS NHG Art. 5\"}",
@@ -21038,7 +22830,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "7e288891-1117-4d30-8f5c-e0ed8ba9487b"
     }
   },
   {
@@ -21098,7 +22890,7 @@
     "pk": "mp-ivs",
     "fields": {
       "created_at": "2020-10-14T13:05:12.813Z",
-      "modified_at": "2020-10-14T13:05:12.813Z",
+      "modified_at": "2020-11-20T13:21:33.070Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"IVS NHG Art. 5\", \"fr\": \"IVS NHG Art. 5\"}",
@@ -21116,7 +22908,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "8aca0bd6-ba93-4cbd-b042-4386e4692530"
     }
   },
   {
@@ -21176,7 +22968,7 @@
     "pk": "mp-kaminhoehe",
     "fields": {
       "created_at": "2020-10-14T13:05:14.965Z",
-      "modified_at": "2020-10-14T13:05:14.965Z",
+      "modified_at": "2020-11-20T13:21:33.482Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Kaminh\\u00f6he (0.5 m \\u00fcber First) BSIG 8/823.111/2.1\", \"fr\": \"Hauteur de la chemin\\u00e9e (0,5 m au-dessus du fa\\u00eete au moins) BSIG 8/823.111/2.1\"}",
@@ -21194,7 +22986,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "754eb614-5a9f-40cf-a485-f1b4b0bdfb9e"
     }
   },
   {
@@ -21254,7 +23046,7 @@
     "pk": "mp-kanalisationsanschluss",
     "fields": {
       "created_at": "2020-10-14T13:05:15.606Z",
-      "modified_at": "2020-10-14T13:05:15.606Z",
+      "modified_at": "2020-11-20T13:21:32.639Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Kanalisationsanschluss\", \"fr\": \"Raccordement aux canalisations\"}",
@@ -21272,7 +23064,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "628a2bea-d3f3-4834-92a9-79e5a8783556"
     }
   },
   {
@@ -21332,7 +23124,7 @@
     "pk": "mp-kantonales-naturschutzgebiet",
     "fields": {
       "created_at": "2020-10-14T13:05:12.654Z",
-      "modified_at": "2020-10-14T13:05:12.654Z",
+      "modified_at": "2020-11-20T13:21:32.552Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Kantonales Naturschutzgebiet\", \"fr\": \"R\\u00e9serve naturelle cantonale\"}",
@@ -21350,7 +23142,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "602d67f2-60d2-4068-beb1-fae2c71a2118"
     }
   },
   {
@@ -21410,7 +23202,7 @@
     "pk": "mp-kehrichtplatz",
     "fields": {
       "created_at": "2020-10-14T13:05:13.343Z",
-      "modified_at": "2020-10-14T13:05:13.344Z",
+      "modified_at": "2020-11-20T13:21:33.012Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Kehrichtplatz GBR\", \"fr\": \"Place pour d\\u00e9chets GBR\"}",
@@ -21428,7 +23220,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "f6bb45a8-4bfe-4a15-8b9b-4447434eba98"
     }
   },
   {
@@ -21488,7 +23280,7 @@
     "pk": "mp-kinderspielplaetze",
     "fields": {
       "created_at": "2020-10-14T13:05:13.027Z",
-      "modified_at": "2020-10-14T13:05:13.027Z",
+      "modified_at": "2020-11-20T13:21:33.173Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Kinderspielpl\\u00e4tze BauV Art. 44 f.\", \"fr\": \"Places de jeux pour enfants BauV Art. 44 f.\"}",
@@ -21506,7 +23298,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "2b578d15-ee58-4c81-a851-d21703f6e2fc"
     }
   },
   {
@@ -21566,7 +23358,7 @@
     "pk": "mp-kleiner-grenzabstand-hauptgebaeude-bewohnt",
     "fields": {
       "created_at": "2020-10-14T13:05:11.866Z",
-      "modified_at": "2020-10-14T13:05:11.866Z",
+      "modified_at": "2020-11-20T13:21:32.313Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Kleiner Grenzabstand: Hauptgeb\\u00e4ude bewohnt GBR\", \"fr\": \"Distance \\u00e0 la limite trop faible: b\\u00e2timent principal habit\\u00e9 GBR\"}",
@@ -21584,7 +23376,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "20e103f0-8a6b-469a-8994-2c9dc00f83cc"
     }
   },
   {
@@ -21644,7 +23436,7 @@
     "pk": "mp-kleiner-grenzabstand-hauptgebaeude-unbewohnt",
     "fields": {
       "created_at": "2020-10-14T13:05:11.902Z",
-      "modified_at": "2020-10-14T13:05:11.902Z",
+      "modified_at": "2020-11-20T13:21:33.239Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Kleiner Grenzabstand: Hauptgeb\\u00e4ude unbewohnt GBR\", \"fr\": \"Distance \\u00e0 la limite trop faible: b\\u00e2timent principal inhabit\\u00e9 GBR\"}",
@@ -21662,7 +23454,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "f1bcde5e-6d47-42e3-9d54-6c5b4006c2a8"
     }
   },
   {
@@ -21722,7 +23514,7 @@
     "pk": "mp-kleiner-grenzabstand-nebengebaeude-bewohnt",
     "fields": {
       "created_at": "2020-10-14T13:05:11.942Z",
-      "modified_at": "2020-10-14T13:05:11.942Z",
+      "modified_at": "2020-11-20T13:21:33.472Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Kleiner Grenzabstand: Nebengeb\\u00e4ude bewohnt GBR\", \"fr\": \"Distance \\u00e0 la limite trop faible: annexe habit\\u00e9e GBR\"}",
@@ -21740,7 +23532,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "860a1e30-460b-4d06-84c6-892a9a473d7d"
     }
   },
   {
@@ -21800,7 +23592,7 @@
     "pk": "mp-kleiner-grenzabstand-nebengebaeude-unbewohnt",
     "fields": {
       "created_at": "2020-10-14T13:05:11.980Z",
-      "modified_at": "2020-10-14T13:05:11.980Z",
+      "modified_at": "2020-11-20T13:21:33.196Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Kleiner Grenzabstand: Nebengeb\\u00e4ude unbewohnt GBR\", \"fr\": \"Distance \\u00e0 la limite trop faible: annexe inhabit\\u00e9e GBR\"}",
@@ -21818,7 +23610,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "d231749c-a0f7-4cbd-a8ce-347597869699"
     }
   },
   {
@@ -21878,7 +23670,7 @@
     "pk": "mp-kniewand",
     "fields": {
       "created_at": "2020-10-14T13:05:11.086Z",
-      "modified_at": "2020-10-14T13:05:11.086Z",
+      "modified_at": "2020-11-20T13:21:32.752Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Kniewand GBR\", \"fr\": \"Hauteur du mur de combles GBR\"}",
@@ -21896,7 +23688,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "a2bfe657-62b4-4c0e-86e1-3a1a3c98acd8"
     }
   },
   {
@@ -21956,7 +23748,7 @@
     "pk": "mp-laermschutzverordnung",
     "fields": {
       "created_at": "2020-10-14T13:05:15.009Z",
-      "modified_at": "2020-10-14T13:05:15.009Z",
+      "modified_at": "2020-11-20T13:21:32.451Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"L\\u00e4rmschutzverordnung LSV\", \"fr\": \"Ordonnance sur la protection contre le bruit LSV\"}",
@@ -21974,7 +23766,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "2981957f-2eae-4d79-9673-49e1afde4507"
     }
   },
   {
@@ -22034,7 +23826,7 @@
     "pk": "mp-luftreinhaltung-baustelle",
     "fields": {
       "created_at": "2020-10-14T13:05:15.689Z",
-      "modified_at": "2020-10-14T13:05:15.689Z",
+      "modified_at": "2020-11-20T13:21:32.563Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Luftreinhaltung Baustelle\", \"fr\": \"Mesures de protection de l'air sur le chantier\"}",
@@ -22052,7 +23844,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "fce59ba8-c36e-4c09-8570-53b974da692f"
     }
   },
   {
@@ -22112,7 +23904,7 @@
     "pk": "mp-luftreinhaltungsverordnung",
     "fields": {
       "created_at": "2020-10-14T13:05:14.922Z",
-      "modified_at": "2020-10-14T13:05:14.922Z",
+      "modified_at": "2020-11-20T13:21:32.647Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Luftreinhaltungsverordnung LRV\", \"fr\": \"Ordonnance sur la protection de l'air LRV\"}",
@@ -22130,7 +23922,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "ea687d6b-4942-423e-9f93-25e879d15b8a"
     }
   },
   {
@@ -22190,7 +23982,7 @@
     "pk": "mp-material-und-farbwahl",
     "fields": {
       "created_at": "2020-10-14T13:05:13.814Z",
-      "modified_at": "2020-10-14T13:05:13.814Z",
+      "modified_at": "2020-11-20T13:21:33.520Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Material- und Farbwahl\", \"fr\": \"Choix des mat\\u00e9riaux et des couleurs\"}",
@@ -22208,7 +24000,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "35db6c1d-8e60-4890-ad27-6aa13348578a"
     }
   },
   {
@@ -22268,7 +24060,7 @@
     "pk": "mp-mehrlaengen-und-breitenzuschlag",
     "fields": {
       "created_at": "2020-10-14T13:05:11.443Z",
-      "modified_at": "2020-10-14T13:05:11.443Z",
+      "modified_at": "2020-11-20T13:21:32.725Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Mehrl\\u00e4ngen- und breitenzuschlag GBR\", \"fr\": \"Suppl\\u00e9ment de distance sur les c\\u00f4t\\u00e9s longs et \\u00e9troits GBR\"}",
@@ -22286,7 +24078,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "eecdc02b-416b-4661-8959-3013989478cf"
     }
   },
   {
@@ -22346,7 +24138,7 @@
     "pk": "mp-moorlandschaft",
     "fields": {
       "created_at": "2020-10-14T13:05:12.774Z",
-      "modified_at": "2020-10-14T13:05:12.774Z",
+      "modified_at": "2020-11-20T13:21:32.469Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Moorlandschaft NHG Art. 23b ff.\", \"fr\": \"Site mar\\u00e9cageux NHG Art. 23b ff.\"}",
@@ -22364,7 +24156,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "759302df-9525-48a7-abc9-f4f837b78b0d"
     }
   },
   {
@@ -22424,7 +24216,7 @@
     "pk": "mp-naturgefahren-gefahrengebiet",
     "fields": {
       "created_at": "2020-10-14T13:05:14.507Z",
-      "modified_at": "2020-10-14T13:05:14.507Z",
+      "modified_at": "2020-11-20T13:21:32.265Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Naturgefahren / Gefahrengebiet BauG Art. 6\", \"fr\": \"Dangers naturels / zone de danger BauG Art. 6\"}",
@@ -22442,7 +24234,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "01a93e7e-3f8e-48db-b39d-ca371a1a70e5"
     }
   },
   {
@@ -22502,7 +24294,7 @@
     "pk": "mp-nutzungsart",
     "fields": {
       "created_at": "2020-10-14T13:05:10.648Z",
-      "modified_at": "2020-10-14T13:05:10.649Z",
+      "modified_at": "2020-11-20T13:21:32.785Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Nutzungsart GBR\", \"fr\": \"Type d'affectation GBR\"}",
@@ -22520,7 +24312,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "a24a39c5-583f-4508-b9f4-357dfbc1db55"
     }
   },
   {
@@ -22690,7 +24482,7 @@
     "pk": "mp-radon",
     "fields": {
       "created_at": "2020-10-14T13:05:14.426Z",
-      "modified_at": "2020-10-14T13:05:14.426Z",
+      "modified_at": "2020-11-20T13:21:32.655Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Radon\", \"fr\": \"Radon\"}",
@@ -22708,7 +24500,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "e4752449-c437-487c-a609-feb1514b3fd3"
     }
   },
   {
@@ -22768,7 +24560,7 @@
     "pk": "mp-raumgroesse",
     "fields": {
       "created_at": "2020-10-14T13:05:14.305Z",
-      "modified_at": "2020-10-14T13:05:14.305Z",
+      "modified_at": "2020-11-20T13:21:33.509Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Raumgr\\u00f6sse (mind. 8 m\\u00b2) BauV Art. 67/3\", \"fr\": \"Dimensions des locaux (min. 8 m\\u00b2) BauV Art. 67/3\"}",
@@ -22786,7 +24578,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "336624b7-4642-4733-be19-0c98f11e8d1f"
     }
   },
   {
@@ -22846,7 +24638,7 @@
     "pk": "mp-raumhoehe",
     "fields": {
       "created_at": "2020-10-14T13:05:14.234Z",
-      "modified_at": "2020-10-14T13:05:14.234Z",
+      "modified_at": "2020-11-20T13:21:32.940Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Raumh\\u00f6he BauV Art. 67/1\", \"fr\": \"Hauteur des locaux BauV Art. 67/1\"}",
@@ -22864,7 +24656,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "0069fc78-d88f-40b1-8eec-86d2dd28f66c"
     }
   },
   {
@@ -22872,7 +24664,7 @@
     "pk": "mp-raumhoehe-abgeschraegt",
     "fields": {
       "created_at": "2020-10-14T13:05:14.270Z",
-      "modified_at": "2020-10-14T13:05:14.270Z",
+      "modified_at": "2020-11-20T13:21:32.459Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Raumh\\u00f6he abgeschr\\u00e4gt BauV Art. 67/2\", \"fr\": \"Hauteur des locaux mansard\\u00e9s BauV Art. 67/2\"}",
@@ -22890,7 +24682,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "6ce7db43-c1f2-4e77-b99d-19facb18b37b"
     }
   },
   {
@@ -23002,7 +24794,7 @@
     "pk": "mp-sanitaere-einrichtungen",
     "fields": {
       "created_at": "2020-10-14T13:05:14.387Z",
-      "modified_at": "2020-10-14T13:05:14.387Z",
+      "modified_at": "2020-11-20T13:21:33.161Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Sanit\\u00e4re Einrichtungen BauV Art. 69\", \"fr\": \"Installations sanitaires BauV Art. 69\"}",
@@ -23020,7 +24812,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "8046f378-59e5-4589-8163-9bc638ebc12d"
     }
   },
   {
@@ -23080,7 +24872,7 @@
     "pk": "mp-schalldaemmung",
     "fields": {
       "created_at": "2020-10-14T13:05:15.046Z",
-      "modified_at": "2020-10-14T13:05:15.046Z",
+      "modified_at": "2020-11-20T13:21:33.530Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Schalld\\u00e4mmung (siehe auch SIA Norm 181)\", \"fr\": \"Isolation acoustique (voir \\u00e9galement la norme SIA 181)\"}",
@@ -23098,7 +24890,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "9db41197-764c-4507-9714-047adec632e1"
     }
   },
   {
@@ -23184,7 +24976,7 @@
     "pk": "mp-schutzraumbau-befreiung",
     "fields": {
       "created_at": "2020-10-14T13:05:15.649Z",
-      "modified_at": "2020-10-14T13:05:15.649Z",
+      "modified_at": "2020-11-20T13:21:32.400Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Schutzraumbau/ -befreiung\", \"fr\": \"Obligation de construire un abri et dispense\"}",
@@ -23202,7 +24994,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "1b8827b6-af1e-4a5f-a391-6399484bb0fd"
     }
   },
   {
@@ -23262,7 +25054,7 @@
     "pk": "mp-schutzvorrichtungen",
     "fields": {
       "created_at": "2020-10-14T13:05:14.595Z",
-      "modified_at": "2020-10-14T13:05:14.595Z",
+      "modified_at": "2020-11-20T13:21:33.491Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Schutzvorrichtungen BauV Art. 58\", \"fr\": \"Dispositifs de s\\u00e9curit\\u00e9 BauV Art. 58\"}",
@@ -23280,7 +25072,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "5f09b9e9-d143-40c1-82bf-7665cfdc228b"
     }
   },
   {
@@ -23340,7 +25132,7 @@
     "pk": "mp-schutzzone",
     "fields": {
       "created_at": "2020-10-14T13:05:12.454Z",
-      "modified_at": "2020-10-14T13:05:12.454Z",
+      "modified_at": "2020-11-20T13:21:33.579Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Schutzzone ZPP/UeO\", \"fr\": \"Zone de protection ZPP/UeO\"}",
@@ -23358,7 +25150,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "24c92fd1-19e6-4e78-a4eb-25bde365b852"
     }
   },
   {
@@ -23444,7 +25236,7 @@
     "pk": "mp-sicherheit-im-allgemeinen",
     "fields": {
       "created_at": "2020-10-14T13:05:14.553Z",
-      "modified_at": "2020-10-14T13:05:14.553Z",
+      "modified_at": "2020-11-20T13:21:32.282Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Sicherheit im Allgemeinen BauV Art. 57\", \"fr\": \"S\\u00e9curit\\u00e9 en g\\u00e9n\\u00e9ral BauV Art. 57\"}",
@@ -23462,7 +25254,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "514c2031-adc8-47b2-81e3-ac04243dfd4f"
     }
   },
   {
@@ -23522,7 +25314,7 @@
     "pk": "mp-stoerfallvorsorge",
     "fields": {
       "created_at": "2020-10-14T13:05:15.080Z",
-      "modified_at": "2020-10-14T13:05:15.080Z",
+      "modified_at": "2020-11-20T13:21:32.715Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"St\\u00f6rfallvorsorge\", \"fr\": \"Pr\\u00e9vention des accidents majeurs\"}",
@@ -23540,7 +25332,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "b447489a-91fb-4c7f-aa1e-a52a876fa902"
     }
   },
   {
@@ -23600,7 +25392,7 @@
     "pk": "mp-strassenanschluss",
     "fields": {
       "created_at": "2020-10-14T13:05:13.561Z",
-      "modified_at": "2020-10-14T13:05:13.561Z",
+      "modified_at": "2020-11-20T13:21:33.598Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Strassenanschluss SG Art. 85\", \"fr\": \"D\\u00e9bouch\\u00e9 SG Art. 85\"}",
@@ -23618,7 +25410,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "3fd05cf9-e85f-481d-9e4d-f88182b5471d"
     }
   },
   {
@@ -23678,7 +25470,7 @@
     "pk": "mp-terrainveraenderungen",
     "fields": {
       "created_at": "2020-10-14T13:05:14.046Z",
-      "modified_at": "2020-10-14T13:05:14.046Z",
+      "modified_at": "2020-11-20T13:21:33.263Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Terrainver\\u00e4nderungen\", \"fr\": \"Modifications de terrain\"}",
@@ -23696,7 +25488,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "85c98146-c64e-4bb8-88c9-13e569f383a1"
     }
   },
   {
@@ -23756,7 +25548,7 @@
     "pk": "mp-treppenbreiten",
     "fields": {
       "created_at": "2020-10-14T13:05:14.632Z",
-      "modified_at": "2020-10-14T13:05:14.632Z",
+      "modified_at": "2020-11-20T13:21:32.572Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Treppenbreiten BauV Art. 59\", \"fr\": \"Largeur des escaliers BauV Art. 59\"}",
@@ -23774,7 +25566,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "24e73bf0-171d-4bc8-9d3b-f5bccbcd23ae"
     }
   },
   {
@@ -23834,7 +25626,7 @@
     "pk": "mp-umgebungsgestaltung",
     "fields": {
       "created_at": "2020-10-14T13:05:13.850Z",
-      "modified_at": "2020-10-14T13:05:13.850Z",
+      "modified_at": "2020-11-20T13:21:32.356Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Umgebungsgestaltung GBR\", \"fr\": \"Am\\u00e9nagement des abords GBR\"}",
@@ -23852,7 +25644,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "3e2797e6-eb66-441d-a491-8c1a3d53fbaf"
     }
   },
   {
@@ -23938,7 +25730,7 @@
     "pk": "mp-umweltschutz-question",
     "fields": {
       "created_at": "2020-10-14T13:05:14.882Z",
-      "modified_at": "2020-10-14T13:05:14.882Z",
+      "modified_at": "2020-11-20T13:21:32.204Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Umweltschutz\", \"fr\": \"Protection de l\\u2019environnement\"}",
@@ -23956,7 +25748,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "8dcd60a0-9111-4e63-afe6-5dc7403dbb8c"
     }
   },
   {
@@ -24016,7 +25808,7 @@
     "pk": "mp-uvp",
     "fields": {
       "created_at": "2020-10-14T13:05:15.198Z",
-      "modified_at": "2020-10-14T13:05:15.198Z",
+      "modified_at": "2020-11-20T13:21:33.079Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"UVP\", \"fr\": \"EIE\"}",
@@ -24034,7 +25826,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "1612438c-a28b-4fbe-afe7-a96491f17251"
     }
   },
   {
@@ -24094,7 +25886,7 @@
     "pk": "mp-versickerung",
     "fields": {
       "created_at": "2020-10-14T13:05:15.563Z",
-      "modified_at": "2020-10-14T13:05:15.563Z",
+      "modified_at": "2020-11-20T13:21:32.601Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Versickerung\", \"fr\": \"Infiltration\"}",
@@ -24112,7 +25904,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "4635958e-a95e-4bea-bf74-3a0ed88a2d25"
     }
   },
   {
@@ -24172,7 +25964,7 @@
     "pk": "mp-wanderweg",
     "fields": {
       "created_at": "2020-10-14T13:05:15.724Z",
-      "modified_at": "2020-10-14T13:05:15.724Z",
+      "modified_at": "2020-11-20T13:21:32.630Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Wanderweg\", \"fr\": \"Chemin de randonn\\u00e9e p\\u00e9destre\"}",
@@ -24190,7 +25982,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "c6307ff0-3ebd-495d-b0e4-83b725bdce6e"
     }
   },
   {
@@ -24331,7 +26123,7 @@
     "pk": "mp-wohnraeume-im-ug",
     "fields": {
       "created_at": "2020-10-14T13:05:14.342Z",
-      "modified_at": "2020-10-14T13:05:14.342Z",
+      "modified_at": "2020-11-20T13:21:32.235Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Wohnr\\u00e4ume im UG BauV Art. 66\", \"fr\": \"Locaux d'habitation en sous-sol BauV Art. 66\"}",
@@ -24349,7 +26141,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "4b398539-1c53-48d7-bd7c-0f6f1ce4dc6b"
     }
   },
   {
@@ -24409,7 +26201,7 @@
     "pk": "mp-wohnungsanteil",
     "fields": {
       "created_at": "2020-10-14T13:05:10.763Z",
-      "modified_at": "2020-10-14T13:05:10.763Z",
+      "modified_at": "2020-11-20T13:21:32.291Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Wohnungsanteil GBR\", \"fr\": \"Taux d'habitation GBR\"}",
@@ -24427,7 +26219,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "8f92980b-8a4a-42fd-b844-62e44b03c765"
     }
   },
   {
@@ -24487,7 +26279,7 @@
     "pk": "mp-zonenkonformitaet",
     "fields": {
       "created_at": "2020-10-14T13:05:10.726Z",
-      "modified_at": "2020-10-14T13:05:10.726Z",
+      "modified_at": "2020-11-20T13:21:33.058Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Zonenkonformit\\u00e4t\", \"fr\": \"Conformit\\u00e9 \\u00e0 l'affectation de la zone \"}",
@@ -24505,7 +26297,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "d432fb86-71e0-4452-bde4-f9f78a7698ae"
     }
   },
   {
@@ -24565,7 +26357,7 @@
     "pk": "mp-zufahrt",
     "fields": {
       "created_at": "2020-10-14T13:05:13.446Z",
-      "modified_at": "2020-10-14T13:05:13.446Z",
+      "modified_at": "2020-11-20T13:21:32.819Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Zufahrt SG Art. 85\", \"fr\": \"Acc\\u00e8s SG Art. 85\"}",
@@ -24583,7 +26375,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "8fa18440-04f2-400c-9e05-d9d216d5dd6e"
     }
   },
   {
@@ -24643,7 +26435,7 @@
     "pk": "mp-zugangsrecht",
     "fields": {
       "created_at": "2020-10-14T13:05:13.519Z",
-      "modified_at": "2020-10-14T13:05:13.519Z",
+      "modified_at": "2020-11-20T13:21:32.423Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Zugangsrecht BauV Art. 4\", \"fr\": \"Droit d'acc\\u00e8s BauV Art. 4\"}",
@@ -24661,7 +26453,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null
+      "default_answer": "b95ad3ac-2f89-4ba3-983f-588c009a4519"
     }
   },
   {

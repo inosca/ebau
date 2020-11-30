@@ -3,7 +3,6 @@ from caluma.caluma_form import (
     factories as caluma_form_factories,
     models as caluma_form_models,
 )
-from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.urls import reverse
 from pytest_factoryboy import LazyFixture
@@ -390,21 +389,26 @@ def nfd_table_question(row_form):
 
 
 @pytest.fixture
-def nfd_case(instance, caluma_workflow_config_be, nfd_form):
+def nfd_case(
+    instance,
+    caluma_workflow_config_be,
+    nfd_form,
+    caluma_admin_user,
+):
     case = workflow_api.start_case(
         workflow=caluma_workflow_models.Workflow.objects.get(slug="building-permit"),
         form=caluma_form_models.Form.objects.get(slug="main-form"),
         meta={"camac-instance-id": instance.pk},
-        user=BaseUser(),
+        user=caluma_admin_user,
     )
 
     return case
 
 
 @pytest.fixture
-def empty_document(nfd_case):
+def empty_document(nfd_case, caluma_admin_user):
     workflow_api.complete_work_item(
-        work_item=nfd_case.work_items.get(task_id="submit"), user=BaseUser()
+        work_item=nfd_case.work_items.get(task_id="submit"), user=caluma_admin_user
     )
 
     return nfd_case.work_items.get(task_id="nfd").document
