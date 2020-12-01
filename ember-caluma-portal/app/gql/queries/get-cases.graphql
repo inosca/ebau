@@ -1,4 +1,4 @@
-# import * from 'ember-caluma/gql/fragments/field-answer'
+# import * from 'ember-caluma/gql/fragments/field-answer.graphql'
 
 query GetCases(
   $cursor: String
