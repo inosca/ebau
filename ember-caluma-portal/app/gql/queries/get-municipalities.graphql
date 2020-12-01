@@ -1,5 +1,5 @@
 query GetMunicipalities {
-  allQuestions(slug: "gemeinde") {
+  allQuestions(filter: [{ slug: "gemeinde" }]) {
     edges {
       node {
         ... on DynamicChoiceQuestion {

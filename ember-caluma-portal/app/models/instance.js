@@ -2,7 +2,8 @@ import Model, { attr, belongsTo, hasMany } from "@ember-data/model";
 import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
 import { lastValue, dropTask } from "ember-concurrency-decorators";
-import gql from "graphql-tag";
+
+import getFormQuery from "ember-caluma-portal/gql/queries/get-form.graphql";
 
 export default class Instance extends Model {
   @service intl;
@@ -43,18 +44,7 @@ export default class Instance extends Model {
   *getMainForm() {
     return yield this.apollo.query(
       {
-        query: gql`
-          query($form: String!) {
-            allForms(slug: $form) {
-              edges {
-                node {
-                  slug
-                  name
-                }
-              }
-            }
-          }
-        `,
+        query: getFormQuery,
         variables: { form: this.calumaForm },
       },
       "allForms.edges.firstObject.node"
