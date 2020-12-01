@@ -5,7 +5,7 @@ import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 import QueryParams from "ember-parachute";
 
-import getInstanceCaseQuery from "ember-caluma-portal/gql/queries/get-instance-case";
+import getInstanceCaseQuery from "ember-caluma-portal/gql/queries/get-instance-case.graphql";
 
 const queryParams = new QueryParams({
   displayedForm: {

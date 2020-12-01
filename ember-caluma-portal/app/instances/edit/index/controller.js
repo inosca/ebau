@@ -7,7 +7,7 @@ import UIkit from "uikit";
 
 import config from "../../../config/environment";
 
-import getOverviewCaseQuery from "ember-caluma-portal/gql/queries/get-overview-case";
+import getOverviewCaseQuery from "ember-caluma-portal/gql/queries/get-overview-case.graphql";
 
 const findAnswer = (answers, slug) => {
   const answer = answers.find((answer) => answer.question.slug === slug);
