@@ -124,7 +124,7 @@ export default Component.extend({
                 },
               },
             ],
-          } = await this.ajax.request("/maps/main/wsgi/fulltextsearch", {
+          } = await this.ajax.request("/maps/search", {
             method: "GET",
             data: {
               query: parcel.egrid,
@@ -202,16 +202,13 @@ export default Component.extend({
     yield timeout(500);
 
     try {
-      const { features } = yield this.ajax.request(
-        "/maps/main/wsgi/fulltextsearch",
-        {
-          method: "GET",
-          data: {
-            query,
-            limit: 50,
-          },
-        }
-      );
+      const { features } = yield this.ajax.request("/maps/search", {
+        method: "GET",
+        data: {
+          query,
+          limit: 50,
+        },
+      });
 
       return features;
     } catch (e) {
