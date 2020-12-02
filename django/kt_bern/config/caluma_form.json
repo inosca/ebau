@@ -9027,32 +9027,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "migriertes-dossier.6-dokumente",
-    "fields": {
-      "created_at": "2020-10-08T08:31:33.203Z",
-      "modified_at": "2020-10-08T08:31:33.203Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "migriertes-dossier",
-      "question": "6-dokumente",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "migriertes-dossier.8-freigabequittung",
-    "fields": {
-      "created_at": "2020-10-08T08:27:34.586Z",
-      "modified_at": "2020-10-08T08:27:34.586Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "migriertes-dossier",
-      "question": "8-freigabequittung",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "migriertes-dossier.allgemeine-angaben-kurz-formular",
     "fields": {
       "created_at": "2020-10-08T08:21:00.446Z",
