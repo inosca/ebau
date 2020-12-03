@@ -25,6 +25,7 @@ def setup_rsta(
     settings.APPLICATION["IS_MULTILINGUAL"] = True
     call_command("loaddata", settings.ROOT_DIR("kt_bern/config/user.json"))
     call_command("loaddata", settings.ROOT_DIR("kt_bern/data/user.json"))
+    call_command("loaddata", settings.ROOT_DIR("kt_bern/config/document.json"))
     form_factory(form_id=1)
     camac_question_factory(question_id=QUESTION_EBAU_NR)
     camac_chapter_factory(chapter_id=CHAPTER_EBAU_NR)
