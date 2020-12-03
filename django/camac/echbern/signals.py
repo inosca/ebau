@@ -32,3 +32,7 @@ file_subsequently = django.dispatch.Signal(
 change_responsibility = django.dispatch.Signal(
     providing_args=["instance", "user_pk", "group_pk"]
 )
+
+assigned_ebau_number = django.dispatch.Signal(
+    providing_args=["instance", "user_pk", "group_pk"]
+)
