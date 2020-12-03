@@ -9,7 +9,7 @@ from django.db import transaction
 from django.db.models import OuterRef, Q, Subquery
 from django.http import HttpResponse
 from django.utils import timezone
-from rest_framework import response, viewsets
+from rest_framework import response, status, viewsets
 from rest_framework.decorators import action
 from rest_framework.generics import RetrieveAPIView
 from rest_framework.settings import api_settings
@@ -132,6 +132,7 @@ class InstanceView(
                 "report": serializers.CalumaInstanceReportSerializer,
                 "finalize": serializers.CalumaInstanceFinalizeSerializer,
                 "change_responsible_service": serializers.CalumaInstanceChangeResponsibleServiceSerializer,
+                "set_ebau_number": serializers.CalumaInstanceSetEbauNumberSerializer,
                 "default": serializers.CalumaInstanceSerializer,
             },
             "camac-ng": {
@@ -195,6 +196,19 @@ class InstanceView(
         return instance.instance_services.filter(
             active=1, service=self.request.group.service
         ).exists()
+
+    @permission_aware
+    def has_object_set_ebau_number_permission(self, instance):
+        return False
+
+    def has_object_set_ebau_number_permission_for_municipality(self, instance):
+        return (
+            instance.responsible_service(filter_type="municipality")
+            == self.request.group.service
+        ) and instance.instance_state.name in ["subm", "in_progress_internal"]
+
+    def has_object_set_ebau_number_permission_for_support(self, instance):
+        return True
 
     @transaction.atomic
     def destroy(self, request, pk=None):
@@ -364,12 +378,17 @@ class InstanceView(
 
         return response.Response(data=serializer.data)
 
-    def _custom_serializer_action(self, request, pk=None):
-        serializer = self.get_serializer(self.get_object(), data={}, partial=True)
+    def _custom_serializer_action(self, request, pk=None, status_code=None):
+        serializer = self.get_serializer(
+            self.get_object(), data=request.data, partial=True
+        )
         serializer.is_valid(raise_exception=True)
         serializer.save()
 
-        return response.Response(data=serializer.data)
+        if status_code == status.HTTP_204_NO_CONTENT:
+            return response.Response(data=None, status=status_code)
+
+        return response.Response(data=serializer.data, status=status_code)
 
     @action(methods=["post"], detail=True)
     def report(self, request, pk=None):
@@ -381,13 +400,11 @@ class InstanceView(
 
     @action(methods=["post"], detail=True, url_path="change-responsible-service")
     def change_responsible_service(self, request, pk=None):
-        serializer = self.get_serializer(
-            self.get_object(), data=request.data, partial=True
-        )
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
+        return self._custom_serializer_action(request, pk, status.HTTP_204_NO_CONTENT)
 
-        return response.Response(None, 204)
+    @action(methods=["post"], detail=True, url_path="set-ebau-number")
+    def set_ebau_number(self, request, pk=None):
+        return self._custom_serializer_action(request, pk, status.HTTP_204_NO_CONTENT)
 
     @action(methods=["get"], detail=True, url_path="generate-pdf")
     def generate_pdf(self, request, pk=None):
