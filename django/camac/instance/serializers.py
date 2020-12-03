@@ -1,4 +1,5 @@
 import json
+import re
 from logging import getLogger
 from uuid import uuid4
 
@@ -21,15 +22,15 @@ from camac.caluma.extensions.data_sources import Municipalities
 from camac.constants import kt_bern as be_constants, kt_uri as ur_constants
 from camac.core.models import (
     Answer,
-    HistoryActionConfig,
     InstanceLocation,
     InstanceService,
     ProposalActivation,
 )
 from camac.core.serializers import MultilingualField, MultilingualSerializer
-from camac.core.translations import get_translations
+from camac.core.utils import create_history_entry, generate_ebau_nr
 from camac.document.models import AttachmentSection
 from camac.echbern.signals import (
+    assigned_ebau_number,
     change_responsibility,
     instance_submitted,
     sb1_submitted,
@@ -914,17 +915,8 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
 
 class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
-    def _create_history_entry(self, texts):
-        history = models.HistoryEntry.objects.create(
-            instance=self.instance,
-            created_at=timezone.now(),
-            user=self.context["request"].user,
-            history_type=HistoryActionConfig.HISTORY_TYPE_STATUS,
-        )
-        for (language, text) in texts:
-            models.HistoryEntryT.objects.create(
-                history_entry=history, title=text, language=language
-            )
+    def _create_history_entry(self, text):
+        create_history_entry(self.instance, self.context["request"].user, text)
 
     def _notify_submit(self, template_slug, recipient_types):
         """Send notification email."""
@@ -1071,7 +1063,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
         self._generate_and_store_pdf(instance)
         self._set_submit_date(validated_data)
-        self._create_history_entry(get_translations(gettext_noop("Dossier submitted")))
+        self._create_history_entry(gettext_noop("Dossier submitted"))
         self._create_answer_proposals(instance)
         self._update_rejected_instance(instance)
 
@@ -1138,7 +1130,7 @@ class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
         # generate and submit pdf
         self._generate_and_store_pdf(instance, "sb1")
 
-        self._create_history_entry(get_translations(gettext_noop("SB1 submitted")))
+        self._create_history_entry(gettext_noop("SB1 submitted"))
 
         sb1_submitted.send(
             sender=self.__class__,
@@ -1152,6 +1144,115 @@ class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
             self._notify_submit(**notification_config)
 
         return instance
+
+
+class CalumaInstanceSetEbauNumberSerializer(serializers.Serializer):
+    """Handle setting of the ebau-number."""
+
+    ebau_number = serializers.CharField(required=False, allow_blank=True)
+
+    def validate_ebau_number(self, value):
+        """Validate the ebau number field.
+
+        This field expects a string of the format "[year]-[number]" (e.g.
+        2020-12) or an empty string if the number should be generated
+        automatically.
+
+        If a number is passed, there must be an instance with the same number
+        in the same municipality but there mustn't be an instance with the
+        same number in a different municipality.
+        """
+
+        if not value:
+            return generate_ebau_nr(timezone.now().year)
+
+        if not re.search(r"\d{4}-\d+", value):
+            raise exceptions.ValidationError(_("Invalid format"))
+
+        service_filters = {
+            "instance_services__service": self.instance.responsible_service(
+                filter_type="municipality"
+            ),
+            "instance_services__active": 1,
+        }
+
+        instances = models.Instance.objects.filter(
+            pk__in=list(
+                workflow_models.Case.objects.filter(
+                    **{"meta__ebau-number": value}
+                ).values_list("meta__camac-instance-id", flat=True)
+            )
+        )
+
+        if instances.exclude(**service_filters).exists():
+            raise exceptions.ValidationError(
+                _("This eBau number is already in use by a different municipality")
+            )
+
+        if not instances.filter(**service_filters).exists():
+            raise exceptions.ValidationError(_("This eBau number doesn't exist"))
+
+        return value
+
+    def _save_ebau_number(self, instance, case, ebau_number):
+        case.meta["ebau-number"] = ebau_number
+        case.save()
+
+        Answer.objects.update_or_create(
+            instance=instance,
+            question_id=be_constants.QUESTION_EBAU_NR,
+            chapter_id=be_constants.CHAPTER_EBAU_NR,
+            item=1,
+            defaults={"answer": ebau_number},
+        )
+
+    @permission_aware
+    def _update_workflow(self, instance, case):
+        # The workflow should only be updated if the municipality sets the ebau number
+        pass
+
+    def _update_workflow_for_municipality(self, instance, case):
+        work_item = case.work_items.filter(
+            task_id="ebau-number", status=workflow_models.WorkItem.STATUS_READY
+        ).first()
+
+        if work_item:
+            workflow_api.complete_work_item(
+                work_item=work_item,
+                user=self.context["request"].caluma_info.context.user,
+            )
+
+        if instance.instance_state.name == "subm":
+            instance.instance_state = models.InstanceState.objects.get(
+                name="circulation_init"
+            )
+            instance.save()
+            assigned_ebau_number.send(
+                sender=self.__class__,
+                instance=self.instance,
+                user_pk=self.context["request"].user.pk,
+                group_pk=self.context["request"].group.pk,
+            )
+
+        create_history_entry(
+            self.instance,
+            self.context["request"].user,
+            gettext_noop("Assigned ebau number"),
+        )
+
+    @transaction.atomic
+    def update(self, instance, validated_data):
+        case = workflow_models.Case.objects.get(
+            **{"meta__camac-instance-id": instance.pk}
+        )
+
+        self._save_ebau_number(instance, case, validated_data.get("ebau_number"))
+        self._update_workflow(instance, case)
+
+        return instance
+
+    class Meta:
+        resource_name = "instance-set-ebau-numbers"
 
 
 class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
@@ -1253,26 +1354,17 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
         )
 
     def _add_history_entry(self, to_service):
-        texts = get_translations(
-            gettext_noop("Changed responsible service to: %(service)s")
-        )
-
-        history = models.HistoryEntry.objects.create(
-            instance=self.instance,
-            created_at=timezone.now(),
-            user=self.context["request"].user,
-            history_type=HistoryActionConfig.HISTORY_TYPE_STATUS,
-        )
-
-        for (language, text) in texts:
+        def get_text_data(language):
             service_t = to_service.trans.filter(language=language).first()
-            name = service_t.name if service_t else to_service.name
 
-            models.HistoryEntryT.objects.create(
-                history_entry=history,
-                title=_(text % {"service": name}),
-                language=language,
-            )
+            return {"service": service_t.name if service_t else to_service.name}
+
+        create_history_entry(
+            self.instance,
+            self.context["request"].user,
+            gettext_noop("Changed responsible service to: %(service)s"),
+            get_text_data,
+        )
 
     @transaction.atomic
     def update(self, instance, validated_data):
@@ -1337,7 +1429,7 @@ class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
         # generate and submit pdf
         self._generate_and_store_pdf(instance, "sb2")
 
-        self._create_history_entry(get_translations(gettext_noop("SB2 submitted")))
+        self._create_history_entry(gettext_noop("SB2 submitted"))
 
         sb2_submitted.send(
             sender=self.__class__,

@@ -59,6 +59,7 @@ from .formatters import (
 from .models import Message
 from .signals import (
     accompanying_report_send,
+    assigned_ebau_number,
     change_responsibility as change_responsibility_signal,
     circulation_started,
     file_subsequently,
@@ -465,6 +466,7 @@ def submit_callback(sender, instance, user_pk, group_pk, **kwargs):
 @receiver(circulation_started)
 @receiver(ruling)
 @receiver(finished)
+@receiver(assigned_ebau_number)
 def send_status_notification(sender, instance, user_pk, group_pk, **kwargs):
     if settings.ECH_API:
         handler = StatusNotificationEventHandler(
