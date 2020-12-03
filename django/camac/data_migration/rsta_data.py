@@ -89,6 +89,8 @@ class Mandant:
 
     @property
     def service(self):
+        # TODO extend with additional rstas
+        # * 20025 = Regierungsstatthalteramt Interlaken-Oberhasli
         MAP = {510: 20025}
         return MAP[self.mNr]
 
@@ -311,7 +313,17 @@ class Detail:
 @dataclass_json
 @dataclass(frozen=True)
 class Dokument:
-    pass
+    gNr: int
+    docSerialNr: int
+    docFileType: str
+    docFileName: str
+    docName: str
+    docComment: str
+    docCreatedat: datetime = iso_date_field()
+
+    @property
+    def file_path(self):
+        return f"{self.gNr}/{self.docFileName}"
 
 
 @dataclass_json
