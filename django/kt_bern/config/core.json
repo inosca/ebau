@@ -1220,7 +1220,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 0
+      "sort": 1
     }
   },
   {
@@ -1234,7 +1234,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 0
+      "sort": 1
     }
   },
   {
@@ -1570,7 +1570,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -1981,6 +1981,34 @@
   },
   {
     "model": "core.action",
+    "pk": 150042,
+    "fields": {
+      "available_action": "case",
+      "button": 20046,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 150043,
+    "fields": {
+      "available_action": "case",
+      "button": 20047,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
     "pk": 1200002,
     "fields": {
       "available_action": "formtransition",
@@ -2032,7 +2060,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -2222,6 +2250,20 @@
     "pk": 150036,
     "fields": {
       "process_type": "cancel"
+    }
+  },
+  {
+    "model": "core.actioncase",
+    "pk": 150042,
+    "fields": {
+      "process_type": "suspend"
+    }
+  },
+  {
+    "model": "core.actioncase",
+    "pk": 150043,
+    "fields": {
+      "process_type": "resume"
     }
   },
   {
@@ -3527,6 +3569,30 @@
       "action": 150040,
       "language": "de",
       "name": "ECH0211 - Status Notification",
+      "description": null,
+      "success_message": null,
+      "error_message": null
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 150048,
+    "fields": {
+      "action": 150042,
+      "language": "de",
+      "name": "Suspend case",
+      "description": null,
+      "success_message": null,
+      "error_message": null
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 150049,
+    "fields": {
+      "action": 150043,
+      "language": "de",
+      "name": "Resume case",
       "description": null,
       "success_message": null,
       "error_message": null
@@ -60261,15 +60327,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 21768,
-    "fields": {
-      "instance_resource": 20079,
-      "role": 3,
-      "instance_state": 20007
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 21769,
     "fields": {
       "instance_resource": 20079,
@@ -62138,15 +62195,6 @@
       "instance_resource": 150004,
       "role": 3,
       "instance_state": 10000
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 150073,
-    "fields": {
-      "instance_resource": 150004,
-      "role": 3,
-      "instance_state": 20007
     }
   },
   {
