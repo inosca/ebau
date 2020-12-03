@@ -11,20 +11,20 @@ audit:
   actions: "Actions"
   back: "Retour à l'aperçu"
 
-  deleteConfirm: ""
-  skipConfirm: ""
-  completeConfirm: ""
+  deleteConfirm: "Voulez-vous vraiment supprimer l'examen ?"
+  skipConfirm: '''<span''>Voulez-vous vraiment sauter l''examen du dossier ?''</span''>''<div class="uk-margin uk-text-italic">''<strong''>Attention :''</strong''> Cette action ne peut être annulée ! Si vous avez l''intention de changer d''autorité directrice, vous devez laisser cette tâche à la nouvelle autorité directrice.''</div''>'
+  completeConfirm: '''<span''>Voulez-vous vraiment clore l''examen du dossier ?''</span''>''<div class="uk-margin uk-text-italic">''<strong''>Attention :''</strong''> Cette action ne peut être annulée ! Si vous avez l''intention de changer d''autorité directrice, vous devez laisser cette tâche à la nouvelle autorité directrice.''</div''>'
 
-  deleteSuccess: ""
-  skipSuccess: ""
-  completeSuccess: ""
+  deleteSuccess: "L'examen a été supprimé avec succès."
+  skipSuccess: "L'examen a été sauté avec succès."
+  completeSuccess: "L'examen a été clos avec succès."
 
   loadingError: "Erreur lors du téléchargement des examens"
   createError: "Erreur lors de la création du examen"
-  deleteError: ""
-  skipError: ""
-  completeError: ""
-  completeInvalid: ""
+  deleteError: "Erreur lors de la suppression du examen"
+  skipError: "Erreur lors du saut du examen"
+  completeError: "Erreur lors de la clôture du examen"
+  completeInvalid: "L'examen du dossier n'a pas été effectué correctement. Au moins un examen formel et matériel correctement effectué est obligatoire. Veuillez vérifier vos données et réessayer."
 
   forms:
     fp-form: "Examen formel"
