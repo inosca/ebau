@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-08 11:00+0100\n"
-"PO-Revision-Date: 2020-12-08 11:01+0100\n"
+"POT-Creation-Date: 2020-12-09 08:53+0100\n"
+"PO-Revision-Date: 2020-12-04 11:23+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -145,79 +145,97 @@ msgstr "papier"
 msgid "modification"
 msgstr "modification du projet"
 
-#: camac/instance/serializers.py:1028
+#: camac/instance/serializers.py:1031
 msgid "Dossier completed by resubmission"
 msgstr "Dossier complété par une nouvelle soumission"
 
-#: camac/instance/serializers.py:1067
+#: camac/instance/serializers.py:1071
 msgid "Dossier submitted"
 msgstr "Dossier envoyé"
 
-#: camac/instance/serializers.py:1134
+#: camac/instance/serializers.py:1138
 msgid "SB1 submitted"
 msgstr "DC1 envoyé"
 
-#: camac/instance/serializers.py:1171
+#: camac/instance/serializers.py:1176
+msgid "Archived"
+msgstr "Archivé"
+
+#: camac/instance/serializers.py:1195
+#, python-format
+msgid "'%(form)s' is not a valid form type"
+msgstr "'%(form)s' est un type de dossier non valable"
+
+#: camac/instance/serializers.py:1205
+#, python-format
+msgid "The current form '%(form)s' can't be changed"
+msgstr "Le type de dossier actuel '%(form)s' ne peut être modifié"
+
+#: camac/instance/serializers.py:1224
+msgid "Changed form type"
+msgstr ""
+
+#: camac/instance/serializers.py:1254
 msgid "Invalid format"
 msgstr "Format non valide"
 
-#: camac/instance/serializers.py:1190
+#: camac/instance/serializers.py:1273
 msgid "This eBau number is already in use by a different municipality"
 msgstr "Ce numéro eBau a déjà été attribué par une autre autorité directrice"
 
-#: camac/instance/serializers.py:1194
+#: camac/instance/serializers.py:1277
 msgid "This eBau number doesn't exist"
 msgstr "Ce numéro eBau n'existe pas"
 
-#: camac/instance/serializers.py:1241
+#: camac/instance/serializers.py:1324
 msgid "Assigned ebau number"
 msgstr "Attribution d'un numéro eBau"
 
-#: camac/instance/serializers.py:1274
+#: camac/instance/serializers.py:1357
 #, python-format
 msgid "%(value)s is not a valid service type - valid types are: %(expected)s"
 msgstr ""
 "%(value)s n'est pas un type de service correct - les types corrects sont "
 "%(expected)s"
 
-#: camac/instance/serializers.py:1288
+#: camac/instance/serializers.py:1371
 msgid "Invalid audit"
 msgstr ""
 
-#: camac/instance/serializers.py:1366
+#: camac/instance/serializers.py:1449
 #, python-format
 msgid "Changed responsible service to: %(service)s"
 msgstr "Nouvelle autorité directrice: %(service)s"
 
-#: camac/instance/serializers.py:1388
+#: camac/instance/serializers.py:1471
 #, python-format
 msgid "Responsible service did not change for instance %(instance_id)s"
 msgstr "N'a pas changé d'autorité directrice pour le dossier %(instance_id)s"
 
-#: camac/instance/serializers.py:1433
+#: camac/instance/serializers.py:1516
 msgid "SB2 submitted"
 msgstr "DC2 envoyé"
 
-#: camac/instance/serializers.py:1461
+#: camac/instance/serializers.py:1544
 #, python-format
 msgid "User %(user)s does not belong to service %(service)s."
 msgstr ""
 
-#: camac/instance/serializers.py:1487
+#: camac/instance/serializers.py:1570
 msgid "No location assigned."
 msgstr ""
 
-#: camac/instance/serializers.py:1507
+#: camac/instance/serializers.py:1590
 #, python-format
 msgid "No group found for location %(name)s."
 msgstr ""
 
-#: camac/instance/serializers.py:1529
+#: camac/instance/serializers.py:1612
 #, python-format
 msgid "invalid question %(question)s."
 msgstr ""
 
-#: camac/instance/serializers.py:1536
+#: camac/instance/serializers.py:1619
 #, python-format
 msgid "%(permission)s is not allowed to edit question %(question)s."
 msgstr ""

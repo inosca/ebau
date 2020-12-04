@@ -1,0 +1,22 @@
+support:
+  archive:
+    title: "Dossier archivieren"
+    description: "Hier können Sie das Dossier archivieren (z.B. Testdossiers, duplizierte Dossiers, etc.). Dabei wird das Dossier unwiederruflich in den Status '<strong'>Archiviert'</strong'> versetzt."
+    button: "Archivieren"
+
+    confirm: "Wollen Sie das Dossier wirklich archivieren?"
+    error: "Fehler beim Archivieren des Dossiers"
+
+  ebau-number:
+    title: "eBau-Nummer ändern"
+    description: "Hier können Sie falsch vergebene eBau-Nummern korrigieren. Wenn Sie das untenstehende Feld leer lassen, wird eine neue eBau-Nummer generiert. Der Dossierstatus wird dabei nicht verändert."
+
+    confirm: "Wollen Sie die eBau-Nummer wirklich ändern?"
+    error: "Fehler beim Ändern der eBau-Nummer"
+
+  change-form:
+    title: "Dossiertyp ändern"
+    description: "Hier können Sie falsche Dossiertypen korrigieren. Dies ist nur mit den Typen '<strong'>Baugesuch'</strong'>, '<strong'>Generelles Baugesuch'</strong'> und '<strong'>Baugesuch mit UVP'</strong'> möglich."
+
+    confirm: "Wollen Sie den Dossiertyp wirklich ändern?"
+    error: "Fehler beim Ändern des Dossiertyps"
