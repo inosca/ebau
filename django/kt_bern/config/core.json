@@ -17,14 +17,6 @@
   },
   {
     "model": "core.aformtransition",
-    "pk": 10052,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 20003
-    }
-  },
-  {
-    "model": "core.aformtransition",
     "pk": 20006,
     "fields": {
       "current_instance_state": null,
@@ -325,27 +317,11 @@
   },
   {
     "model": "core.apageredirect",
-    "pk": 120009,
-    "fields": {
-      "resource": 20006,
-      "instance_resource": 20079,
-      "air_action_name": null
-    }
-  },
-  {
-    "model": "core.apageredirect",
     "pk": 150008,
     "fields": {
       "resource": 20006,
       "instance_resource": 20004,
       "air_action_name": "edit"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 10042,
-    "fields": {
-      "php_class": "TriggerECH0211StatusNotification"
     }
   },
   {
@@ -415,7 +391,7 @@
     "model": "core.aphp",
     "pk": 20017,
     "fields": {
-      "php_class": "NewEbauNumber"
+      "php_class": "SetEbauNumber"
     }
   },
   {
@@ -458,20 +434,6 @@
     "pk": 120003,
     "fields": {
       "php_class": "CheckDecision"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 120004,
-    "fields": {
-      "php_class": "CheckEbauNumber"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 120006,
-    "fields": {
-      "php_class": "NewEbauNumber"
     }
   },
   {
@@ -651,20 +613,6 @@
   },
   {
     "model": "core.action",
-    "pk": 10042,
-    "fields": {
-      "available_action": "php",
-      "button": 20002,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 6
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 10048,
     "fields": {
       "available_action": "php",
@@ -717,20 +665,6 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 10052,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 20002,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 4
     }
   },
   {
@@ -1351,90 +1285,6 @@
   },
   {
     "model": "core.action",
-    "pk": 120004,
-    "fields": {
-      "available_action": "php",
-      "button": 120000,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 120005,
-    "fields": {
-      "available_action": "save",
-      "button": 120000,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 120006,
-    "fields": {
-      "available_action": "php",
-      "button": 120000,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 120007,
-    "fields": {
-      "available_action": "workitem",
-      "button": 120000,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 3
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 120008,
-    "fields": {
-      "available_action": "addhistory",
-      "button": 120000,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 4
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 120009,
-    "fields": {
-      "available_action": "pageredirect",
-      "button": 120000,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 5
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 120010,
     "fields": {
       "available_action": "workitem",
@@ -1683,20 +1533,6 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 150013,
-    "fields": {
-      "available_action": "workitem",
-      "button": 20002,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 3
     }
   },
   {
@@ -2037,20 +1873,6 @@
   },
   {
     "model": "core.action",
-    "pk": 1200107,
-    "fields": {
-      "available_action": "addhistory",
-      "button": 20002,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 7
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 1200108,
     "fields": {
       "available_action": "addhistory",
@@ -2364,18 +2186,6 @@
   },
   {
     "model": "core.actiont",
-    "pk": 10042,
-    "fields": {
-      "action": 10042,
-      "language": "de",
-      "name": "ECH0211 - Status Notification",
-      "description": "Notify ECH0211 clients about status change",
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
     "pk": 10048,
     "fields": {
       "action": 10048,
@@ -2418,18 +2228,6 @@
       "language": "de",
       "name": "ECH0211 - Status Notification",
       "description": "Notify ECH0211 clients about status change",
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 10052,
-    "fields": {
-      "action": 10052,
-      "language": "de",
-      "name": "Change State to \"Zirkulation initialisieren\"",
-      "description": null,
       "success_message": null,
       "error_message": null
     }
@@ -2632,7 +2430,7 @@
     "fields": {
       "action": 20017,
       "language": "de",
-      "name": "Generate eBau number",
+      "name": "Set eBau-Nr.",
       "description": null,
       "success_message": null,
       "error_message": "Bei der Vergabe der eBau-Nummer ist ein Fehler aufgetreten"
@@ -2964,102 +2762,6 @@
   },
   {
     "model": "core.actiont",
-    "pk": 120004,
-    "fields": {
-      "action": 120004,
-      "language": "de",
-      "name": "Check eBau-Nr exists",
-      "description": null,
-      "success_message": null,
-      "error_message": "Die angegebene eBau-Nummer existiert nicht oder wurde durch eine andere Leitbeh\u00f6rde bereits vergeben"
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 120005,
-    "fields": {
-      "action": 120004,
-      "language": "fr",
-      "name": "Check eBau-Nr exists",
-      "description": null,
-      "success_message": null,
-      "error_message": "Le num\u00e9ro eBau sp\u00e9cifi\u00e9 n'existe pas ou a d\u00e9j\u00e0 \u00e9t\u00e9 attribu\u00e9 par une autre autorit\u00e9 directrice"
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 120006,
-    "fields": {
-      "action": 120005,
-      "language": "de",
-      "name": "Speichern",
-      "description": null,
-      "success_message": null,
-      "error_message": "Beim Speichern ist ein Fehler aufgetreten"
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 120007,
-    "fields": {
-      "action": 120006,
-      "language": "de",
-      "name": "Generate eBau number",
-      "description": null,
-      "success_message": null,
-      "error_message": "Bei der Vergabe der eBau-Nummer ist ein Fehler aufgetreten"
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 120008,
-    "fields": {
-      "action": 120007,
-      "language": "de",
-      "name": "Aufgabe abschliessen: eBau-Nummer vergeben",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 120009,
-    "fields": {
-      "action": 120008,
-      "language": "de",
-      "name": "History: eBau-Nr. vergeben",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 120010,
-    "fields": {
-      "action": 120008,
-      "language": "fr",
-      "name": "History: eBau-Nr. vergeben",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 120011,
-    "fields": {
-      "action": 120009,
-      "language": "de",
-      "name": "Redirect",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
     "pk": 120012,
     "fields": {
       "action": 120010,
@@ -3317,18 +3019,6 @@
       "action": 150012,
       "language": "de",
       "name": "Aufgabe abschliessen: Entscheid verf\u00fcgen",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 150018,
-    "fields": {
-      "action": 150013,
-      "language": "de",
-      "name": "Aufgabe abschliessen: eBau-Nummer vergeben",
       "description": null,
       "success_message": null,
       "error_message": null
@@ -3617,30 +3307,6 @@
       "action": 1200003,
       "language": "de",
       "name": "Go to state \"zum Abschluss\"",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 1200109,
-    "fields": {
-      "action": 1200107,
-      "language": "de",
-      "name": "History: eBau-Nr. vergeben",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 1200110,
-    "fields": {
-      "action": 1200107,
-      "language": "fr",
-      "name": "History: eBau-Nr. vergeben",
       "description": null,
       "success_message": null,
       "error_message": null
@@ -3960,17 +3626,6 @@
   },
   {
     "model": "core.actionworkitem",
-    "pk": 120007,
-    "fields": {
-      "tasks": "[\"ebau-number\"]",
-      "process_type": "complete",
-      "process_all": false,
-      "is_activation": false,
-      "fail_on_empty": true
-    }
-  },
-  {
-    "model": "core.actionworkitem",
     "pk": 120010,
     "fields": {
       "tasks": "[\"decision\"]",
@@ -4018,17 +3673,6 @@
     "pk": 150012,
     "fields": {
       "tasks": "[\"decision\"]",
-      "process_type": "complete",
-      "process_all": false,
-      "is_activation": false,
-      "fail_on_empty": true
-    }
-  },
-  {
-    "model": "core.actionworkitem",
-    "pk": 150013,
-    "fields": {
-      "tasks": "[\"ebau-number\"]",
       "process_type": "complete",
       "process_all": false,
       "is_activation": false,
@@ -43211,15 +42855,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 120003,
-    "fields": {
-      "button": 120000,
-      "role": 3,
-      "instance_state": 120002
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 120006,
     "fields": {
       "button": 120001,
@@ -43288,6 +42923,15 @@
       "button": 20013,
       "role": 3,
       "instance_state": 120001
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 150031,
+    "fields": {
+      "button": 20002,
+      "role": 3,
+      "instance_state": 120002
     }
   },
   {
@@ -43606,18 +43250,6 @@
       "class_field": "success",
       "hidden": 0,
       "sort": 0
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 120000,
-    "fields": {
-      "instance_resource": 20014,
-      "name": null,
-      "description": null,
-      "class_field": "next-arrows",
-      "hidden": 0,
-      "sort": 2
     }
   },
   {
@@ -44181,16 +43813,6 @@
       "button": 20047,
       "language": "fr",
       "name": "Clore la correction",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 120044,
-    "fields": {
-      "button": 120000,
-      "language": "de",
-      "name": "Weiter",
       "description": null
     }
   },
@@ -51523,25 +51145,7 @@
   },
   {
     "model": "core.historyactionconfig",
-    "pk": 120008,
-    "fields": {
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
-    "model": "core.historyactionconfig",
     "pk": 120012,
-    "fields": {
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
-    "model": "core.historyactionconfig",
-    "pk": 1200107,
     "fields": {
       "title": null,
       "body": null,
@@ -51663,26 +51267,6 @@
       "title": null,
       "body": null,
       "history_type": "status-change"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 1,
-    "fields": {
-      "action": 1200107,
-      "title": "eBau-Nr. vergeben",
-      "body": null,
-      "language": "de"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 2,
-    "fields": {
-      "action": 1200107,
-      "title": "Attribution d'un num\u00e9ro eBau",
-      "body": null,
-      "language": "fr"
     }
   },
   {
@@ -51941,26 +51525,6 @@
     "fields": {
       "action": 1200121,
       "title": "Archiv\u00e9",
-      "body": null,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 120000,
-    "fields": {
-      "action": 120008,
-      "title": "eBau-Nr. vergeben",
-      "body": null,
-      "language": "de"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 120001,
-    "fields": {
-      "action": 120008,
-      "title": "Attribution d'un num\u00e9ro eBau",
       "body": null,
       "language": "fr"
     }
