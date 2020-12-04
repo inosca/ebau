@@ -1,7 +1,9 @@
 from logging import getLogger
 
-from caluma.caluma_user.models import BaseUser
+from caluma.caluma_core.events import send_event
+from caluma.caluma_user.models import AnonymousUser
 from caluma.caluma_workflow.api import cancel_work_item, complete_work_item
+from caluma.caluma_workflow.events import post_create_work_item
 from caluma.caluma_workflow.models import Case, Task, WorkItem
 from caluma.caluma_workflow.utils import bulk_create_work_items
 from django.core.management.base import BaseCommand
@@ -25,7 +27,7 @@ class Command(BaseCommand):
     @transaction.atomic
     def handle(self, *args, **options):
         tid = transaction.savepoint()
-        user = BaseUser()
+        user = AnonymousUser()
 
         for instance in Instance.objects.filter(
             instance_state__name__in=["conclusion", "sb1", "sb2"]
@@ -64,7 +66,19 @@ class Command(BaseCommand):
                         f"Work item '{work_item.task_id}' for instance {instance.pk} was cancelled"
                     )
 
-            bulk_create_work_items(Task.objects.filter(pk=required_task), case, user)
+            created_work_items = bulk_create_work_items(
+                Task.objects.filter(pk=required_task), case, user
+            )
+
+            for created_work_item in created_work_items:
+                send_event(
+                    post_create_work_item,
+                    sender=self,
+                    work_item=created_work_item,
+                    user=user,
+                    context={},
+                )
+
             log.info(
                 f"Work item '{required_task}' for instance {instance.pk} was created"
             )
