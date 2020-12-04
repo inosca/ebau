@@ -64,6 +64,12 @@ export function confirmTask(textOrKey) {
     const gen = desc.value;
 
     desc.value = function* (...args) {
+      const event = args.find((arg) => arg instanceof Event);
+
+      if (event) {
+        event.preventDefault();
+      }
+
       const intl = getOwner(this).lookup("service:intl");
       const text = intl.exists(textOrKey) ? intl.t(textOrKey) : textOrKey;
 

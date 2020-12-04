@@ -42,9 +42,12 @@ export default class FetchService extends Service {
       }
 
       // throw an error containing a human readable message
-      throw new Error(
-        `Fetch request to URL ${response.url} returned ${response.status} ${response.statusText}:\n\n${body}`
-      );
+      throw {
+        response,
+        error: new Error(
+          `Fetch request to URL ${response.url} returned ${response.status} ${response.statusText}:\n\n${body}`
+        ),
+      };
     }
 
     return response;
