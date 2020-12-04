@@ -594,7 +594,7 @@ APPLICATIONS = {
                     },
                 },
                 "exclude_slugs": [
-                    "papierdossier",
+                    "is-paper",
                     "projektaenderung",
                     "8-freigabequittung",
                     "karte",
