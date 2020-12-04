@@ -1,0 +1,10 @@
+query GetForms($forms: [String]) {
+  allForms(slugs: $forms) {
+    edges {
+      node {
+        slug
+        name
+      }
+    }
+  }
+}
