@@ -27,9 +27,31 @@ module.exports = function (environment) {
 
     APP: {
       rootElement: "#ember-camac-ng",
-
-      allowApplicantManualWorkItem: ["kt_schwyz"],
     },
+
+    APPLICATIONS: {
+      kt_bern: {
+        allowApplicantManualWorkItem: false,
+        instanceStates: {
+          archived: 20009,
+        },
+        interchangeableForms: [
+          "baugesuch",
+          "baugesuch-generell",
+          "baugesuch-mit-uvp",
+        ],
+      },
+      kt_schwyz: {
+        allowApplicantManualWorkItem: true,
+      },
+      kt_uri: {
+        allowApplicantManualWorkItem: false,
+      },
+    },
+
+    // this will be overwritten by one of the canton specific configurations
+    // above
+    APPLICATION: {},
   };
 
   if (environment === "development") {
@@ -55,6 +77,8 @@ module.exports = function (environment) {
   if (environment === "production") {
     // here you can enable a production-specific feature
   }
+
+  ENV.APPLICATION = ENV.APPLICATIONS[process.env.APPLICATION || "kt_bern"];
 
   return ENV;
 };

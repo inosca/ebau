@@ -39,4 +39,5 @@ Router.map(function () {
   this.route("audit", { path: "instances/:instance_id/audit" }, function () {
     this.route("edit", { path: "/edit/:document_uuid" });
   });
+  this.route("support", { path: "instances/:instance_id/support" });
 });
