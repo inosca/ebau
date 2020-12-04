@@ -17,18 +17,18 @@ class Command(BaseCommand):
         fix_count = 0
 
         for sb_document in Document.objects.filter(form_id__in=["sb1", "sb2"]):
-            if sb_document.answers.filter(question_id="papierdossier").exists():
+            if sb_document.answers.filter(question_id="is-paper").exists():
                 continue
 
             case = sb_document.work_item.case
 
             log.warn(
-                f"Question 'papierdossier' was not filled for '{sb_document.form_id}' form on instance {case.meta.get('camac-instance-id')} -- fixing"
+                f"Question 'is-paper' was not filled for '{sb_document.form_id}' form on instance {case.meta.get('camac-instance-id')} -- fixing"
             )
 
             sb_document.answers.create(
-                question_id="papierdossier",
-                value=case.document.answers.get(question_id="papierdossier").value,
+                question_id="is-paper",
+                value=case.document.answers.get(question_id="is-paper").value,
             )
 
             fix_count += 1
