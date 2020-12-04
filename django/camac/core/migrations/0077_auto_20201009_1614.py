@@ -4,8 +4,6 @@ from django.db import migrations
 
 rename_papierdossier = """
 begin;
-alter table caluma_form_question disable trigger all;
-alter table caluma_form_option disable trigger all;
 
 update caluma_form_question set slug = 'is-paper' where slug='papierdossier';
 update caluma_form_formquestion set id=replace(id, 'papierdossier', 'is-paper'), question_id = 'is-paper' where question_id='papierdossier';
@@ -19,16 +17,12 @@ update caluma_form_option set slug='is-paper-no' where slug='papierdossier-nein'
 update caluma_form_questionoption set id='is-paper.is-paper-yes', option_id='is-paper-yes', question_id='is-paper' where id='papierdossier.papierdossier-ja';
 update caluma_form_questionoption set id='is-paper.is-paper-no', option_id='is-paper-no', question_id='is-paper' where id='papierdossier.papierdossier-nein';
 
-alter table caluma_form_question enable trigger all;
-alter table caluma_form_option enable trigger all;
 commit;
 """
 
 
 rename_papierdossier_reverse = """
 begin;
-alter table caluma_form_question disable trigger all;
-alter table caluma_form_option disable trigger all;
 
 update caluma_form_question set slug = 'papierdossier' where slug='is-paper';
 update caluma_form_formquestion set id=replace(id, 'is-paper', 'papierdossier'), question_id = 'papierdossier' where question_id='is-paper';
@@ -42,8 +36,6 @@ update caluma_form_option set slug='papierdossier-nein' where slug='is-paper-no'
 update caluma_form_questionoption set id='papierdossier.papierdossier-ja', option_id='papierdossier-ja', question_id='papierdossier' where id='is-paper.is-paper-yes';
 update caluma_form_questionoption set id='papierdossier.papierdossier-nein', option_id='papierdossier-nein', question_id='papierdossier' where id='is-paper.is-paper-no';
 
-alter table caluma_form_question enable trigger all;
-alter table caluma_form_option enable trigger all;
 commit;
 """
 
@@ -55,5 +47,7 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RunSQL(sql=rename_papierdossier, reverse_sql=rename_papierdossier_reverse),
+        migrations.RunSQL(
+            sql=rename_papierdossier, reverse_sql=rename_papierdossier_reverse
+        ),
     ]
