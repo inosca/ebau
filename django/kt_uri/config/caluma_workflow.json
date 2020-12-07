@@ -32,9 +32,9 @@
       "meta": {},
       "is_published": true,
       "is_archived": false,
-      "allow_all_forms": false,
+      "allow_all_forms": true,
       "start_tasks": ["placeholder"],
-      "allow_forms": ["building-permit"]
+      "allow_forms": []
     }
   }
 ]
