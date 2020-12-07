@@ -37138,7 +37138,7 @@
     "pk": "nr",
     "fields": {
       "created_at": "2019-03-28T14:15:25.544Z",
-      "modified_at": "2020-01-14T15:05:17.265Z",
+      "modified_at": "2020-12-07T09:01:47.548Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Nr.\", \"fr\": \"N\\u00b0\"}",
@@ -37150,7 +37150,8 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
-        "max_length": 12
+        "max_length": 12,
+        "min_length": null
       },
       "meta": {},
       "data_source": null,
@@ -37450,7 +37451,7 @@
     "pk": "nummer-vertreterin",
     "fields": {
       "created_at": "2019-04-04T07:35:10.527Z",
-      "modified_at": "2019-04-04T07:39:17.163Z",
+      "modified_at": "2020-12-07T09:01:03.933Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Nummer\", \"fr\": \"Num\\u00e9ro\"}",
@@ -37458,11 +37459,12 @@
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
-        "max_length": null
+        "max_length": null,
+        "min_length": null
       },
       "meta": {},
       "data_source": null,
@@ -38017,19 +38019,20 @@
     "pk": "ort-grundstueck",
     "fields": {
       "created_at": "2019-04-04T09:17:54.620Z",
-      "modified_at": "2020-01-14T15:04:20.365Z",
+      "modified_at": "2020-12-07T09:01:59.229Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Ort\", \"fr\": \"Localit\\u00e9\"}",
       "type": "text",
-      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_required": "!('vorabklaerung' in form)",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
-        "max_length": 40
+        "max_length": 40,
+        "min_length": null
       },
       "meta": {},
       "data_source": null,
@@ -41723,19 +41726,20 @@
     "pk": "strasse-flurname",
     "fields": {
       "created_at": "2019-03-28T14:15:10.806Z",
-      "modified_at": "2020-01-14T15:04:10.836Z",
+      "modified_at": "2020-12-07T09:01:36.411Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Strasse/Flurname\", \"fr\": \"Rue/lieu-dit\"}",
       "type": "text",
-      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_required": "!('vorabklaerung' in form)",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
-        "max_length": 60
+        "max_length": 60,
+        "min_length": null
       },
       "meta": {},
       "data_source": null,
