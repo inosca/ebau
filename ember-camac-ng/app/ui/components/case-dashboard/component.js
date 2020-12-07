@@ -1,13 +1,15 @@
 import { getOwner, setOwner } from "@ember/application";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
+import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 import gql from "graphql-tag";
 
 import CustomCaseModel from "camac-ng/caluma-query/models/case";
 
 export default class CaseDashboardComponent extends Component {
-  @service apollo;
+  @queryManager apollo;
+
   @service store;
   @service shoebox;
 

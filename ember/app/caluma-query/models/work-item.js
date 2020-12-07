@@ -1,10 +1,11 @@
 import { inject as service } from "@ember/service";
 import completeWorkItemMutation from "citizen-portal/gql/mutations/complete-workitem";
+import { queryManager } from "ember-apollo-client";
 import WorkItemModel from "ember-caluma/caluma-query/models/work-item";
 import { dropTask } from "ember-concurrency-decorators";
 
 export default class CustomWorkItemModel extends WorkItemModel {
-  @service apollo;
+  @queryManager apollo;
   @service notification;
 
   @dropTask()
