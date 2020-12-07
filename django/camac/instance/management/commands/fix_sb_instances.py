@@ -2,7 +2,7 @@ from logging import getLogger
 
 from caluma.caluma_core.events import send_event
 from caluma.caluma_user.models import AnonymousUser
-from caluma.caluma_workflow.api import cancel_work_item, complete_work_item
+from caluma.caluma_workflow.api import cancel_work_item, skip_work_item
 from caluma.caluma_workflow.events import post_create_work_item
 from caluma.caluma_workflow.models import Case, Task, WorkItem
 from caluma.caluma_workflow.utils import bulk_create_work_items
@@ -27,7 +27,7 @@ class Command(BaseCommand):
     @transaction.atomic
     def handle(self, *args, **options):
         tid = transaction.savepoint()
-        user = AnonymousUser()
+        user = AnonymousUser(username="admin")
 
         for instance in Instance.objects.filter(
             instance_state__name__in=["conclusion", "sb1", "sb2"]
@@ -56,9 +56,9 @@ class Command(BaseCommand):
                 status=WorkItem.STATUS_READY
             ).exclude(task_id="create-manual-workitems"):
                 if work_item.task_id in ["nfd", "publication", "audit"]:
-                    complete_work_item(work_item=work_item, user=user)
+                    skip_work_item(work_item=work_item, user=user)
                     log.info(
-                        f"Work item '{work_item.task_id}' for instance {instance.pk} was completed"
+                        f"Work item '{work_item.task_id}' for instance {instance.pk} was skipped"
                     )
                 else:
                     cancel_work_item(work_item=work_item, user=user)
