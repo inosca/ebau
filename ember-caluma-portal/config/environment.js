@@ -97,7 +97,7 @@ module.exports = function (environment) {
         "zutrittsermaechtigung",
         "verlaengerung-geltungsdauer",
       ],
-      enableRstaForms: false,
+      enableRstaForms: true,
       migratedForm: "migriertes-dossier",
       enableMigratedForm: false,
     },
