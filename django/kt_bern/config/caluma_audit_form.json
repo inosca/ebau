@@ -17275,7 +17275,7 @@
       "label": "{\"de\": \"\", \"fr\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "'fp-zustaendige-baubewilligungsbehoerde'|answer != 'fp-zustaendige-baubewilligungsbehoerde-regierungsstatthalteramt'",
+      "is_hidden": "!('fp-zustaendige-baubewilligungsbehoerde'|answer in ['fp-zustaendige-baubewilligungsbehoerde-regierungsstatthalteramt', 'fp-zustaendige-baubewilligungsbehoerde-unklar'])",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": null, \"fr\": null}",
