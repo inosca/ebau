@@ -2,6 +2,7 @@ import Controller from "@ember/controller";
 import { action, set } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
+import { queryManager } from "ember-apollo-client";
 import calumaQuery from "ember-caluma/caluma-query";
 import { allWorkItems } from "ember-caluma/caluma-query/queries";
 import { dropTask, restartableTask } from "ember-concurrency-decorators";
@@ -12,9 +13,10 @@ import getProcessData from "camac-ng/utils/work-item";
 export default class WorkItemsInstanceIndexController extends Controller {
   queryParams = ["role"];
 
+  @queryManager apollo;
+
   @service store;
   @service shoebox;
-  @service apollo;
 
   // Filters
   @tracked role = "active";
