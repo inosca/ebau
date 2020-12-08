@@ -31,7 +31,9 @@ workflow = Workflow.objects.get(pk="migrated")
 form = Form.objects.get(pk="migriertes-dossier")
 q_geschaeftstyp = Question.objects.get(pk="geschaeftstyp")
 q_gemeinde = Question.objects.get(pk="gemeinde")
-user = User.objects.get(username="service-account-camac-admin")
+user, _ = User.objects.get_or_create(
+    username="prefecta-migration", defaults={"name": "Prefecta", "surname": "Migration"}
+)
 f_personalien = Form.objects.get(slug="personalien")
 attachment_section = AttachmentSection.objects.get(trans__name="Intern")
 
@@ -131,7 +133,7 @@ class Importer:
             [result for result in self.results.values() if result["status"] == "failed"]
         )
 
-        hours, minutes, seconds = duration // 3600, duration // 60 % 3600, duration % 60
+        hours, minutes, seconds = duration // 3600, duration // 60 % 60, duration % 60
 
         print(
             "\n"
@@ -145,8 +147,8 @@ class Importer:
         for _, geschaeft in self.iter(self.path):
             try:
                 ServiceT.objects.get(name=geschaeft.Gemeinde.service_name)
-            except ServiceT.DoesNotExist:
-                self.services[self.geschaeft.Gemeinde.gdBez] += 1
+            except (ServiceT.DoesNotExist, ServiceT.MultipleObjectsReturned):
+                self.services[geschaeft.Gemeinde.gdBez] += 1
 
 
 class Import:
@@ -191,10 +193,7 @@ class Import:
         return self.results
 
     def _run(self, reimport):
-        self.municipality = ServiceT.objects.get(
-            name=self.geschaeft.Gemeinde.service_name
-        ).service
-
+        self.municipality = self.get_municipality(self.geschaeft.Gemeinde.service_name)
         self.service = Service.objects.get(pk=self.geschaeft.Mandant.service)
         self.group = self.service.groups.filter(
             trans__name__startswith="Leitung Regierungsstatthalteramt"
@@ -209,7 +208,9 @@ class Import:
         )
 
         # see if tag already exists -> geschaeft was imported already
-        tag = Tags.objects.filter(name=self.geschaeft.geschaefts_nr).first()
+        tag = Tags.objects.filter(
+            name=self.geschaeft.geschaefts_nr, service=self.service
+        ).first()
         if tag:
             if reimport:
                 # clean up all camac fields trough cascade, caluma is upsert anyways
@@ -345,17 +346,14 @@ class Import:
             else:
                 self.log_error(f"Publikation: {pub_akt.journal_text}")
 
-        # import all other than submit date, publication
-        rest = [akt for akt in self.geschaeft.Aktivitaeten if akt.sCodeS not in [1, 23]]
-
-        for akt in rest:
+        for akt in self.geschaeft.Aktivitaeten:
             JournalEntry.objects.create(
                 instance=self.instance,
                 service=self.service,
                 user=user,
                 text=akt.journal_text,
-                creation_date=make_aware(akt.sMutdat),
-                modification_date=make_aware(akt.sMutdat),
+                creation_date=make_aware(akt.journal_date),
+                modification_date=make_aware(akt.journal_date),
             )
 
     def import_details(self):
@@ -442,3 +440,9 @@ class Import:
                 or "application/octet-stream",
             )
             attachment_section.attachments.add(attachment)
+
+    def get_municipality(self, name):
+        try:
+            return ServiceT.objects.get(name=name).service
+        except ServiceT.MultipleObjectsReturned:
+            return ServiceT.objects.get(name=name, service__disabled=0).service

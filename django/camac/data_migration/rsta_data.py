@@ -40,6 +40,149 @@ BETEILIGTER_QUESTION_MAP = {
     "aFirma": {"slug": "name-juristische-person"},
 }
 
+MANDANT_MAP = {
+    300: 20021,  # Bern-Mittelland
+    400: 20023,  # Emmental
+    410: 20027,  # Oberaargau
+    500: 20024,  # Frutigen-Niedersimmental
+    510: 20025,  # Interlaken-Oberhasli
+    520: 20028,  # Obersimmental-Saanen
+    530: 20030,  # Thun
+    600: 20022,  # Biel-Bienne
+    610: 20029,  # Seeland
+    620: 20026,  # Berner-Jura
+}
+
+GEMEINDE_MAP = {
+    # 300 Bern-Mittelland
+    "Arni (BE)": "Arni BE",
+    "Deisswil": "Stettlen",
+    "Kirchdorf": "Kirchdorf (BE)",
+    "Schulgemeinde Mühlethurnen-Lohnstorf": "Thurnen",
+    "Verwaltungskreis Bern-Mittelland": "Bern",
+    "Wald (Zimmerwald)": "Wald BE",
+    "(inaktiv) Aeschlen": "Oberdiessbach",
+    "(Inaktiv) Albligen": "Schwarzenburg",
+    "(Inaktiv) Amtsbezirk Bern": "Bern",
+    "(Inaktiv) Amtsbezirk Konolfingen": "Konolfingen",
+    "(Inaktiv) Amtsbezirk Laupen": "Laupen",
+    "(Inaktiv) Englisberg": "Wald BE",
+    "(Inaktiv) Kirchenthurnen": "Kirchenthurnen",
+    "(Inaktiv) Lohnstorf": "Lohnstorf",
+    "(Inaktiv) Mühlethurnen": "Thurnen",
+    "(Inaktiv) Niederwichtrach": "Wichtrach",
+    "(Inaktiv) Oberwichtrach": "Wichtrach",
+    "(Inaktiv) Rüti bei Riggisberg": "Riggisberg",
+    "(Inaktiv) Schönbühl-Urtenen": "Urtenen-Schönbühl",
+    "(Inaktiv) Wahlern": "Schwarzenburg",
+    "(inaktiv) Belpberg": "Belp",
+    "(inaktiv) Bleiken bei Oberdiessbach": "Oberdiessbach",
+    "(inaktiv) Büren zum Hof": "Fraubrunnen",
+    "(inaktiv) Etzelkofen": "Fraubrunnen",
+    "(inaktiv) Gelterfingen": "Kirchdorf (BE)",
+    "(inaktiv) Golaten": "Kallnach",
+    "(inaktiv) Grafenried": "Fraubrunnen",
+    "(inaktiv) Limpach": "Fraubrunnen",
+    "(inaktiv) Mühledorf (BE)": "Kirchdorf (BE)",
+    "(inaktiv) Mülchi": "Fraubrunnen",
+    "(inaktiv) Münchringen": "Jegenstorf",
+    "(inaktiv) Noflen": "Kirchdorf (BE)",
+    "(inaktiv) Schalunen": "Fraubrunnen",
+    "(inaktiv) Scheunen": "Jegenstorf",
+    "(inaktiv) Schlosswil": "Grosshöchstetten",
+    "(inaktiv) Trimstein": "Münsingen",
+    "(inaktiv) Tägertschi": "Münsingen",
+    "(inaktiv) Zauggenried": "Fraubrunnen",
+    # 400 Emmental
+    "Kirchberg": "Kirchberg (BE)",
+    "Röthenbach i. E.": "Röthenbach im Emmental",
+    "Verwaltungskreis Emmental": "Langnau im Emmental",
+    "(Inaktiv) Amtsbezirk Signau": "Signau",
+    "(Inaktiv) Amtsbezirk Trachselwald": "Trachselwald",
+    "(inaktiv) Niederösch": "Ersigen",
+    "(inaktiv) Oberösch": "Ersigen",
+    # 410 Oberaargau
+    "Roggwil": "Roggwil (BE)",
+    "Verwaltungskreis Oberaargau": "Wangen an der Aare",
+    "Walterswil": "Walterswil (BE)",
+    "(Inaktiv) Gutenburg": "Madiswil",
+    "(Inaktiv) Wolfisberg": "Wolfisberg",
+    "(inaktiv) Bollodingen": "Bettenhausen",
+    "(inaktiv) Hermiswil": "Seeberg",
+    "(inaktiv) Kleindietwil": "Madiswil",
+    "(inaktiv) Leimiswil": "Madiswil",
+    "(inaktiv) Oberönz": "Herzogenbuchsee",
+    "(inaktiv) Röthenbach bei Herzogenbuchsee": "Heimenhausen",
+    "(inaktiv) Untersteckholz": "Langenthal",
+    "(inaktiv) Wanzwil": "Heimenhausen",
+    # 500 Frutigen-Niedersimmental
+    "Aeschi": "Aeschi bei Spiez",
+    "Erlenbach": "Erlenbach im Simmental",
+    "Oberwil i.S.": "Oberwil im Simmental",
+    "Reichenbach": "Reichenbach im Kandertal",
+    "Verwaltungskreis Frutigen-Niedersimmental": "Frutigen",
+    # 510 Interlaken
+    "Brienz (BE)": "Brienz",
+    "Niederried bei Interlaken": "Niederried b. Interlaken",
+    "Verwaltungskreis Interlaken-Oberhasli": "Interlaken",
+    "(inaktiv) Gadmen": "Innertkirchen",
+    # 520 Obersimmental-Saanen
+    "Gsteig": "Gsteig b. Gstaad",
+    "St Stephan": "St. Stephan",
+    "(Inaktiv) Amtsbezirk Obersimmental": "Saanen",
+    # 530 Thun
+    "(Inaktiv) Amtsbezirk Thun": "Thun",
+    "(Inaktiv) Forst": "Forst-Längenbühl",
+    "(Inaktiv) Längenbühl": "Forst-Längenbühl",
+    "(inaktiv) Höfen": "Stocken-Höfen",
+    "(inaktiv) Kienersrüti": "Uttigen",
+    "(inaktiv) Niederstocken": "Stocken-Höfen",
+    "(inaktiv) Oberstocken": "Stocken-Höfen",
+    "(inaktiv) Schwendibach": "Steffisburg",
+    "Oberhofen": "Oberhofen am Thunersee",
+    "Teuffenthal": "Teuffenthal (BE)",
+    "Verwaltungskreis Thun": "Thun",
+    # 600 Biel-Bienne
+    "(Inaktiv) Nidau Amtsbezirk": "Nidau",
+    "(Inaktiv) Twann": "Twann-Tüscherz",
+    "(Inaktiv) Tüscherz-Alfermée": "Twann-Tüscherz",
+    "Gemeindeverwaltung Evilard-Leubringen": "Leubringen Evilard",
+    "Stadtverwaltung Biel-Bienne": "Biel / Bienne",
+    "Verwaltungskreis Biel-Bienne": "Biel / Bienne",
+    # 610 Seeland
+    "(inaktiv) Bangerten": "Rapperswil (BE)",
+    "(inaktiv) Busswil bei Büren": "Lyss",
+    "(inaktiv) Niederried": "Kallnach",
+    "(inaktiv) Ruppoldsried": "Rapperswil (BE)",
+    "Bargen": "Bargen (BE)",
+    "Rapperswil": "Rapperswil (BE)",
+    "Seedorf": "Seedorf (BE)",
+    "Studen": "Studen (BE)",
+    "Verwaltungskreis Seeland": "Aarberg",
+    # 620 Berner-Jura
+    "(inactif) Bévilard": "Valbirse",
+    "(inactif) Châtelat": "Petit-Val",
+    "(inactif) Diesse": "Plateau de Diesse",
+    "(inactif) District de La Neuveville": "La Neuveville",
+    "(inactif) La Heutte": "Péry-La Heutte",
+    "(inactif) Lamboing": "Plateau de Diesse",
+    "(inactif) Malleray": "Valbirse",
+    "(inactif) Monible": "Petit-Val",
+    "(inactif) Plagne": "Sauge",
+    "(inactif) Pontenet": "Valbirse",
+    "(inactif) Prêles": "Plateau de Diesse",
+    "(inactif) Péry": "Péry-La Heutte",
+    "(inactif) Sornetan": "Petit-Val",
+    "(inactif) Souboz": "Petit-Val",
+    "(inactif) Vauffelin": "Sauge",
+    "Commune de Saules": "Saules (BE)",
+    "Elay": "Elay Seehof",
+    "La Scheulte": "La Scheulte Schelten",
+    "Péry - La Heutte": "Péry-La Heutte",
+    "Renan": "Renan (BE)",
+    "Romont": "Romont (BE)",
+}
+
 
 def iso_decoder(*args, **kwargs):
     try:
@@ -70,13 +213,7 @@ class Gemeinde:
 
     @property
     def service_name(self):
-        MAP = {
-            "Brienz (BE)": "Brienz",
-            "(inaktiv) Gadmen": "Innertkirchen",
-            "Niederried bei Interlaken": "Niederried b. Interlaken",
-            "Verwaltungskreis Interlaken-Oberhasli": "Interlaken",
-        }
-        name = MAP.get(self.gdBez, self.gdBez)
+        name = GEMEINDE_MAP.get(self.gdBez, self.gdBez)
         return f"Leitbehörde {name}"
 
 
@@ -89,10 +226,7 @@ class Mandant:
 
     @property
     def service(self):
-        # TODO extend with additional rstas
-        # * 20025 = Regierungsstatthalteramt Interlaken-Oberhasli
-        MAP = {510: 20025}
-        return MAP[self.mNr]
+        return MANDANT_MAP[self.mNr]
 
 
 @dataclass_json
@@ -130,6 +264,10 @@ class Aktivitaet:
     sDatum2: datetime = iso_date_field()
     sDatum3: datetime = iso_date_field()
     sMutdat: datetime = iso_date_field()
+
+    @property
+    def journal_date(self):
+        return self.sDatum1 or self.sDatum2 or self.sMutdat
 
     @property
     def journal_text(self):
@@ -247,7 +385,6 @@ class Beteiligter:
         if self.Adresse.aLandCode != "CH":
             return []
 
-        # TODO nummer?
         ans = [
             {
                 "question": f"{BETEILIGTER_QUESTION_MAP[field]['slug']}-{self.suffix}",
@@ -356,7 +493,7 @@ class Geschaeft:
     def geschaefts_typ(self):
         # TODO missing values:
         # unknown nhsb: 'Ausnahmen von Schutzbeschlüssen'
-        # pruefung-bewilligungspflicht
+        # pruefung-bewilligungspflicht -> zusammen mit "anfrage-zustaendigkeit"?
         MAP = {
             "bg": "baubewilligungsverfahren",
             "bgam": "amtsbericht",
@@ -373,17 +510,17 @@ class Geschaeft:
     def submit_date(self):
         eingang = [akt for akt in self.Aktivitaeten if akt.sCodeS == 1]
 
-        # TODO this is has to be logged
+        # TODO log this
         if not eingang:
             return self.Aktivitaeten[0].sDatum1.date().isoformat()
 
         eingang = eingang[0]
 
-        if all([eingang.sDatum1, eingang.sDatum2]):
-            return sorted([eingang.sDatum1, eingang.sDatum2])[0].date().isoformat()
-        elif eingang.sDatum1 is not None:
+        if eingang.sDatum1:
+            # Datum Eingang
             return eingang.sDatum1.date().isoformat()
-        elif eingang.sDatum2 is not None:
+        if eingang.sDatum2:
+            # Datum Baugesuch
             return eingang.sDatum2.date().isoformat()
 
         # TODO log this.
