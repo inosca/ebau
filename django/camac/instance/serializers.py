@@ -1025,6 +1025,11 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             workflow_api.cancel_case(
                 case=source_case, user=self.context["request"].caluma_info.context.user
             )
+            create_history_entry(
+                source_instance,
+                self.context["request"].user,
+                gettext_noop("Dossier completed by resubmission"),
+            )
 
     @transaction.atomic
     def update(self, instance, validated_data):
