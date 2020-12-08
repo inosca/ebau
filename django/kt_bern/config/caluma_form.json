@@ -1289,7 +1289,7 @@
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
         "category": "building-permit",
-        "is-creatable": true,
+        "is-creatable": false,
         "is-main-form": true
       },
       "is_published": true,
