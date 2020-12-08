@@ -1319,7 +1319,7 @@ EMAIL_PREFIX_BODY_SPECIAL_FORMS = env.str(
     "EMAIL_PREFIX_BODY_SPECIAL_FORMS",
     (
         "Achtung: Dieses Gesuch kann nur in eBau bearbeitet werden.\n"
-        "Attention : Cette demande ne peut être traitée que dans l'eBau.\n\n"
+        "Attention: Cette demande ne peut être traitée dans eBau.\n\n"
     ),
 )
 
