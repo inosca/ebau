@@ -42545,19 +42545,20 @@
     "pk": "telefon-oder-mobile-gebaeudeeigentuemerin",
     "fields": {
       "created_at": "2019-04-04T08:52:39.274Z",
-      "modified_at": "2020-01-13T13:52:25.797Z",
+      "modified_at": "2020-12-08T11:41:10.210Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Telefon oder Mobile\", \"fr\": \"T\\u00e9l\\u00e9phone fixe ou mobile\"}",
       "type": "text",
-      "is_required": "true",
+      "is_required": "!('is-paper'|answer == 'is-paper-yes')",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
-        "max_length": null
+        "max_length": null,
+        "min_length": null
       },
       "meta": {
         "formatValidators": ["phone-number"]
@@ -42575,19 +42576,20 @@
     "pk": "telefon-oder-mobile-gesuchstellerin",
     "fields": {
       "created_at": "2019-04-04T07:55:32.446Z",
-      "modified_at": "2020-01-13T13:53:59.518Z",
+      "modified_at": "2020-12-08T11:39:55.858Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Telefon oder Mobile\", \"fr\": \"T\\u00e9l\\u00e9phone fixe ou mobile\"}",
       "type": "text",
-      "is_required": "true",
+      "is_required": "!('is-paper'|answer == 'is-paper-yes')",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
-        "max_length": null
+        "max_length": null,
+        "min_length": null
       },
       "meta": {
         "formatValidators": ["phone-number"]
@@ -42635,19 +42637,20 @@
     "pk": "telefon-oder-mobile-grundeigentuemerin",
     "fields": {
       "created_at": "2019-04-04T08:30:42.037Z",
-      "modified_at": "2020-01-13T13:55:42.543Z",
+      "modified_at": "2020-12-08T11:41:47.466Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Telefon oder Mobile\", \"fr\": \"T\\u00e9l\\u00e9phone fixe ou mobile\"}",
       "type": "text",
-      "is_required": "true",
+      "is_required": "!('is-paper'|answer == 'is-paper-yes')",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
-        "max_length": null
+        "max_length": null,
+        "min_length": null
       },
       "meta": {
         "formatValidators": ["phone-number"]
@@ -42695,19 +42698,20 @@
     "pk": "telefon-oder-mobile-projektverfasserin",
     "fields": {
       "created_at": "2019-04-04T10:26:43.115Z",
-      "modified_at": "2020-01-13T13:57:18.329Z",
+      "modified_at": "2020-12-08T11:42:12.751Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Telefon oder Mobile\", \"fr\": \"T\\u00e9l\\u00e9phone fixe ou mobile\"}",
       "type": "text",
-      "is_required": "true",
+      "is_required": "!('is-paper'|answer == 'is-paper-yes')",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
-        "max_length": null
+        "max_length": null,
+        "min_length": null
       },
       "meta": {
         "formatValidators": ["phone-number"]
@@ -42756,19 +42760,20 @@
     "pk": "telefon-oder-mobile-vertreterin",
     "fields": {
       "created_at": "2019-04-04T07:44:58.651Z",
-      "modified_at": "2020-01-13T13:58:43.915Z",
+      "modified_at": "2020-12-08T11:42:37.916Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Telefon oder Mobile\", \"fr\": \"T\\u00e9l\\u00e9phone fixe ou mobile\"}",
       "type": "text",
-      "is_required": "true",
+      "is_required": "!('is-paper'|answer == 'is-paper-yes')",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
-        "max_length": null
+        "max_length": null,
+        "min_length": null
       },
       "meta": {
         "formatValidators": ["phone-number"]
