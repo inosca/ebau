@@ -9,8 +9,30 @@ https://docs.djangoproject.com/en/1.11/howto/deployment/wsgi/
 
 import os
 
+from django.conf import settings
 from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "camac.settings")
 
-application = get_wsgi_application()
+if settings.MANABI_ENABLE:
+    from .dav import get_dav
+
+    wsgi_ɗav = get_dav()
+    wsgi_django = get_wsgi_application()
+
+    def dispatch(environ, start_response):
+        # __import__("remote_pdb").RemotePdb("0.0.0.0", 5555).set_trace()
+        path = environ["PATH_INFO"] or "/"
+        dav_prefix = "/dav"
+        if path.startswith(dav_prefix):
+            environ = environ.copy()
+            environ["SCRIPT_NAME"] = environ.get("SCRIPT_NAME", "") + dav_prefix
+            environ["PATH_INFO"] = path[len(dav_prefix) :]
+            return wsgi_ɗav(environ, start_response)
+        else:
+            return wsgi_django(environ, start_response)
+
+    application = dispatch
+else:
+
+    application = get_wsgi_application()
