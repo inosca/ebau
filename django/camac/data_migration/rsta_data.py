@@ -501,7 +501,7 @@ class Geschaeft:
             "bgz": "anfrage-zustaendigkeit",
             "bpv": "baupolizeiliches-verfahren",
             "nhs": "entfernen-von-hecken-und-feldgeholzen",
-            "nhsb": "baubewilligungsverfahren",
+            "nhsb": "entfernen-von-hecken-und-feldgeholzen",
         }
 
         return f"geschaeftstyp-{MAP[self.cgCode]}"
