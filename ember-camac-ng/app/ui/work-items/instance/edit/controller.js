@@ -2,6 +2,7 @@ import Controller from "@ember/controller";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
+import { queryManager } from "ember-apollo-client";
 import calumaQuery from "ember-caluma/caluma-query";
 import { allWorkItems } from "ember-caluma/caluma-query/queries";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
@@ -12,8 +13,9 @@ import saveWorkItem from "camac-ng/gql/mutations/save-workitem";
 import getProcessData from "camac-ng/utils/work-item";
 
 export default class WorkItemsInstanceEditController extends Controller {
+  @queryManager apollo;
+
   @service store;
-  @service apollo;
   @service notifications;
   @service intl;
   @service shoebox;
