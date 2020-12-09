@@ -481,6 +481,7 @@ class CamacRequest:
         camac_group = get_group(self.request)
         self.request.group = camac_group
         self.request.oidc_user = oidc_user
+        self.request.query_params = self.request.GET
 
     def _get_camac_user(self, oidc_user):
         return User.objects.get(username=oidc_user.username)
