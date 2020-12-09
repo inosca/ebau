@@ -53,7 +53,7 @@ dumpdata: ## Dump the current camac and caluma data
 
 .PHONY: loadconfig-camac
 loadconfig-camac: ## Load the camac configuration
-	@docker-compose exec django ./wait-for-it.sh -t 300 0.0.0.0:80 -- python manage.py camac_load --user $(GIT_USER)
+	@docker-compose exec django ./wait-for-it.sh -t 300 127.0.0.1:80 -- python manage.py camac_load --user $(GIT_USER)
 	@make clear-cache
 
 .PHONY: loadconfig-dms
