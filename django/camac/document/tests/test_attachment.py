@@ -22,6 +22,14 @@ from .data import django_file
         ("Service", LazyFixture("user"), 12),
     ],
 )
+@pytest.mark.parametrize(
+    "attachment__path,is_docx",
+    [
+        ("attachments/files/852/example.jpg", False),
+        ("attachments/files/852/important.docx", True),
+    ],
+)
+@pytest.mark.parametrize("mode", ["admin", "read"])
 def test_attachment_list(
     admin_client,
     attachment_attachment_sections,
@@ -30,6 +38,8 @@ def test_attachment_list(
     django_assert_num_queries,
     role,
     mocker,
+    is_docx,
+    mode,
 ):
     url = reverse("attachment-list")
 
@@ -39,7 +49,7 @@ def test_attachment_list(
         {
             "demo": {
                 role.name.lower(): {
-                    "admin": [attachment_attachment_sections.attachmentsection_id]
+                    mode: [attachment_attachment_sections.attachmentsection_id]
                 }
             }
         },
@@ -57,8 +67,11 @@ def test_attachment_list(
     assert response.status_code == status.HTTP_200_OK
 
     json = response.json()
-    assert len(json["data"]) == 1
-    assert json["data"][0]["id"] == str(attachment_attachment_sections.attachment.pk)
+    data = json["data"]
+    assert len(data) == 1
+    assert data[0]["id"] == str(attachment_attachment_sections.attachment.pk)
+    can_write = role.name not in ("Applicant", "Reader") and mode == "admin"
+    assert (data[0]["attributes"]["webdav-link"] is not None) == (can_write and is_docx)
 
 
 @pytest.mark.parametrize(
@@ -391,9 +404,8 @@ def test_attachment_download_404(admin_client, attachment):
     "role__name,instance__user,instance_state__name,acl_mode",
     [("Applicant", LazyFixture("admin_user"), "new", models.ADMIN_PERMISSION)],
 )
-@pytest.mark.parametrize(
-    "multi,expected_name", [(False, "multiple-pages.pdf"), (True, "attachments.zip")]
-)
+@pytest.mark.parametrize("multi", [False, True])
+@pytest.mark.parametrize("document", ["multiple-pages.pdf", "important.docx"])
 def test_attachment_download(
     admin_client,
     service,
@@ -401,12 +413,16 @@ def test_attachment_download(
     attachment_factory,
     attachment_section,
     acl_mode,
+    document,
     multi,
-    expected_name,
     mocker,
 ):
+    if multi:
+        expected_name = "attachments.zip"
+    else:
+        expected_name = document
     attachment1 = attachment_factory(
-        instance=instance, service=service, path=django_file("multiple-pages.pdf")
+        instance=instance, service=service, path=django_file(document)
     )
 
     # fix permissions
@@ -418,16 +434,16 @@ def test_attachment_download(
     test_path = "/".join(str(attachment1.path).split("/")[3:])
     attachment1.path = test_path
     attachment1.path.name = test_path
-    attachment1.name = "multiple-pages.pdf"
+    attachment1.name = document
     attachment1.save()
     attachments = [attachment1]
 
     attachment2 = attachment_factory(
-        instance=instance, service=service, path=django_file("multiple-pages.pdf")
+        instance=instance, service=service, path=django_file(document)
     )
     attachment2.path = test_path
     attachment2.path.name = test_path
-    attachment2.name = "multiple-pages-2.pdf"
+    attachment2.name = document
     attachment2.save()
 
     if multi:

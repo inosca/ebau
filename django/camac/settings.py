@@ -1490,3 +1490,18 @@ if ENABLE_SILK and not env.bool("TEST_SUITE_RUNNING", False):  # pragma: no cove
 # Whether to migrate Portal users on first login. See authentication.py for
 # detailed description of what the migrations does.
 URI_MIGRATE_PORTAL_USER = env.bool("URI_MIGRATE_PORTAL_USER", default=False)
+
+MANABI_ENABLE = env.bool("MANABI_ENABLE", default=default(True, False))
+
+# These are security relevant: provide a default that cannot be abused
+MANABI_SHARED_KEY = env.str(
+    "MANABI_SHARED_KEY", default=default("bNEZsIjvxDAiLhDA1chvF9zL9OJYPNlCqNPlm7KbhmU")
+)
+
+MANABI_TOKEN_ACTIVATE_TIMEOUT = env.int(
+    "MANABI_TOKEN_ACTIVATE_TIMEOUT", default=default(600, 60)
+)
+MANABI_TOKEN_REFRESH_TIMEOUT = env.int(
+    "MANABI_TOKEN_REFRESH_TIMEOUT", default=default(60, 600)
+)
+MANABI_DEBUG = env.bool("MANABI_DEBUG", default=default(True, False))

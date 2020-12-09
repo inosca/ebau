@@ -45,6 +45,7 @@ services:
       - DJANGO_CACHE_LOCATION=cache:11211
       - DJANGO_MEDIA_ROOT=/var/lib/camac/media
       - DJANGO_CLAMD_TCP_ADDR=clamav
+      - MANABI_ENABLE=true
       - APPLICATION=${APPLICATION}
       - CACHE_BACKEND=django.core.cache.backends.memcached.MemcachedCache
       - CACHE_LOCATION=cache:11211
