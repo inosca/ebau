@@ -1,12 +1,11 @@
 import pytest
+from caluma.caluma_user.views import HttpResponseUnauthorized
+from graphene_django.views import HttpError
 
 from ..views import CamacAuthenticatedGraphQLView
 
 
-@pytest.mark.parametrize(
-    "request_headers", [{"HTTP_AUTHORIZATION": "Bearer some_token"}]
-)
-def test_authenticate_caluma(rf, settings, admin_user, mocker, request_headers):
+def test_authenticate_caluma(rf, settings, admin_user, group, mocker):
     token_value = {
         "sub": admin_user.username,
         "email": admin_user.email,
@@ -22,9 +21,20 @@ def test_authenticate_caluma(rf, settings, admin_user, mocker, request_headers):
 
     mocker.patch("camac.caluma.api.jwt_decode")
 
-    request = rf.request(**request_headers)
+    request = rf.request(HTTP_AUTHORIZATION="Bearer some_token", X_CAMAC_GROUP=group.pk)
 
     caluma_user = CamacAuthenticatedGraphQLView().get_user(request)
 
-    assert admin_user.username == caluma_user.username
-    assert admin_user == request.camac_user
+    assert caluma_user.username == admin_user.username
+    assert caluma_user.group == group.service_id
+    assert request.camac_user == admin_user
+
+
+def test_unauthorized_caluma(rf):
+    # A request without a token will result in an AnonymousUser in caluma
+    request = rf.request()
+
+    with pytest.raises(HttpError) as e:
+        CamacAuthenticatedGraphQLView().get_user(request)
+
+    assert isinstance(e.value.response, HttpResponseUnauthorized)
