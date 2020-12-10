@@ -205,10 +205,10 @@ instances:
   rejectionText: "Vous pouvez traiter et soumettre à nouveau le dossier
     initialement soumis conformément au retour d'information de l'autorité
     directrice. Un nouveau numéro de dossier sera créé pour la correction."
-  extensionPeriodOfValidityTitle: "Prolongation Durée de validité"
-  extensionPeriodOfValidityText: "Une prolongation de la période de validité peut être demandée"
-  extensionPeriodOfValidityButton: "Demande de prolongation de la durée de validité"
-  createNewExtendValidityError: "Le dossier d'extension n'a pas pu être préparé"
+
+  extensionPeriodOfValidityTitle: "Prolongation de la durée de validité du permis de construire"
+  extensionPeriodOfValidityText: "Vous pouvez demander une prolongation de la durée de validité du permis de construire."
+  extensionPeriodOfValidityButton: "Demander"
 
   new:
     title: "Nouveau dossier"
