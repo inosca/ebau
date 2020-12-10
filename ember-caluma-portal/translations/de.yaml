@@ -200,10 +200,10 @@ instances:
   rejectionText: "Sie können das ursprünglich eingereichte Dossier
     entsprechend den Rückmeldungen der Leitbehörde bearbeiten und erneut
     einreichen. Für die Korrektur wird eine neue Dossiernummer erstellt."
+
   extensionPeriodOfValidityTitle: "Verlängerung Geltungsdauer"
-  extensionPeriodOfValidityText: "Hier kann eine Verlängerung der Geltungsdauer beantragt werden"
-  extensionPeriodOfValidityButton: "Verlängerung der Geltungsdauer beantragen"
-  createNewExtendValidityError: "Das Dossier Verlängerung der Geltungsdauer konnte nicht erstellt werden"
+  extensionPeriodOfValidityText: "Hier kann eine Verlängerung der Geltungsdauer beantragt werden."
+  extensionPeriodOfValidityButton: "Beantragen"
 
   new:
     title: "Neues Dossier"
