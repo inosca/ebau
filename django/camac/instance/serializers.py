@@ -1151,6 +1151,85 @@ class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
         return instance
 
 
+class CalumaInstanceArchiveSerializer(serializers.Serializer):
+    """Handle archiving of an instance."""
+
+    @transaction.atomic
+    def update(self, instance, validated_data):
+        # update the instance state
+        instance.previous_instance_state = instance.instance_state
+        instance.instance_state = models.InstanceState.objects.get(name="archived")
+        instance.save()
+
+        # cancel the caluma case
+        workflow_api.cancel_case(
+            workflow_models.Case.objects.get(
+                **{"meta__camac-instance-id": instance.pk}
+            ),
+            self.context["request"].caluma_info.context.user,
+        )
+
+        # create a history entry
+        create_history_entry(
+            self.instance,
+            self.context["request"].user,
+            gettext_noop("Archived"),
+        )
+
+        return instance
+
+    class Meta:
+        resource_name = "instance-archives"
+
+
+class CalumaInstanceChangeFormSerializer(serializers.Serializer):
+    """Handle changing the form of an instance."""
+
+    interchangeable_forms = ["baugesuch", "baugesuch-generell", "baugesuch-mit-uvp"]
+
+    form = serializers.CharField()
+
+    def validate_form(self, value):
+        if value not in self.interchangeable_forms:
+            raise exceptions.ValidationError(
+                _("'%(form)s' is not a valid form type") % {"form": value}
+            )
+
+        return value
+
+    def validate(self, data):
+        current_form = CalumaApi().get_form_slug(self.instance)
+
+        if current_form not in self.interchangeable_forms:
+            raise exceptions.ValidationError(
+                _("The current form '%(form)s' can't be changed")
+                % {"form": current_form}
+            )
+
+        return data
+
+    @transaction.atomic
+    def update(self, instance, validated_data):
+        case = workflow_models.Case.objects.get(
+            **{"meta__camac-instance-id": instance.pk}
+        )
+
+        case.document.form_id = validated_data["form"]
+        case.document.save()
+
+        # create a history entry
+        create_history_entry(
+            self.instance,
+            self.context["request"].user,
+            gettext_noop("Changed form type"),
+        )
+
+        return instance
+
+    class Meta:
+        resource_name = "instance-change-forms"
+
+
 class CalumaInstanceSetEbauNumberSerializer(serializers.Serializer):
     """Handle setting of the ebau-number."""
 
