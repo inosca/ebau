@@ -133,6 +133,8 @@ class InstanceView(
                 "finalize": serializers.CalumaInstanceFinalizeSerializer,
                 "change_responsible_service": serializers.CalumaInstanceChangeResponsibleServiceSerializer,
                 "set_ebau_number": serializers.CalumaInstanceSetEbauNumberSerializer,
+                "archive": serializers.CalumaInstanceArchiveSerializer,
+                "change_form": serializers.CalumaInstanceChangeFormSerializer,
                 "default": serializers.CalumaInstanceSerializer,
             },
             "camac-ng": {
@@ -208,6 +210,20 @@ class InstanceView(
         ) and instance.instance_state.name in ["subm", "in_progress_internal"]
 
     def has_object_set_ebau_number_permission_for_support(self, instance):
+        return True
+
+    @permission_aware
+    def has_object_archive_permission(self, instance):
+        return False
+
+    def has_object_archive_permission_for_support(self, instance):
+        return True
+
+    @permission_aware
+    def has_object_change_form_permission(self, instance):
+        return False
+
+    def has_object_change_form_permission_for_support(self, instance):
         return True
 
     @transaction.atomic
@@ -419,6 +435,14 @@ class InstanceView(
             content_type="application/pdf", filename=pdf.name, file_obj=pdf.file
         )
         return response
+
+    @action(methods=["post"], detail=True)
+    def archive(self, request, pk=None):
+        return self._custom_serializer_action(request, pk, status.HTTP_204_NO_CONTENT)
+
+    @action(methods=["post"], detail=True, url_path="change-form")
+    def change_form(self, request, pk=None):
+        return self._custom_serializer_action(request, pk, status.HTTP_204_NO_CONTENT)
 
 
 class InstanceResponsibilityView(mixins.InstanceQuerysetMixin, views.ModelViewSet):

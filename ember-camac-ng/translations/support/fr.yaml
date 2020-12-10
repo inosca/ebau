@@ -1,0 +1,22 @@
+support:
+  archive:
+    title: "Archivage d'un dossier"
+    description: "Ici vous pouvez archiver le dossier (par exemple, les dossiers d'essai, les dossiers en double, etc.) Le dossier est alors irrévocablement placé sous le statut '<strong'>Archivé'</strong'>."
+    button: "Archiver"
+
+    confirm: "Voulez vous vraiment archiver le dossier ?"
+    error: "Erreur lors de l'archivage du dossier"
+
+  ebau-number:
+    title: "Modifier le numéro eBau"
+    description: "Ici vous pouvez corriger les numéros eBau incorrectement attribués. Si vous laissez le champ ci-dessous vide, un nouveau numéro eBau sera généré. Le statut du dossier ne sera pas modifié."
+
+    confirm: "Voulez vous vraiment changer le numéro eBau ?"
+    error: "Erreur lors de la modification du numéro eBau"
+
+  change-form:
+    title: "Modifier le type de dossier"
+    description: "Ici vous pouvez corriger les types de dossiers incorrects. Cela n'est possible qu'avec les types '<strong'>Demande de permis de construire'</strong'>, '<strong'>Demande de permis de construire général'</strong'> et '<strong'>Demande de permis de construire avec EIE'</strong'>"
+
+    confirm: "Voulez vous vraiment changer le type de dossier ?"
+    error: "Erreur lors de la modification du type de dossier"
