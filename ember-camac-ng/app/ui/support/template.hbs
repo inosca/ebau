@@ -1,0 +1,74 @@
+<span {{did-insert (perform this.setup)}}></span>
+
+<Notifications @style="uikit" />
+
+{{#if this.setup.isRunning}}
+  <div class="uk-text-center"><UkSpinner @ratio={{2}} /></div>
+{{else if this.instance}}
+  <div class="uk-child-width-1-2" uk-grid>
+    <div>
+      <p class="uk-text-large">{{t "support.archive.title"}}</p>
+      <p>{{t "support.archive.description" htmlSafe=true}}</p>
+      <UkButton
+        @color="primary"
+        @label={{t "support.archive.button"}}
+        @on-click={{perform this.archive}}
+        @disabled={{or this.archive.isRunning (cannot "archive instance" this.instance)}}
+      />
+    </div>
+    <div>
+      <p class="uk-text-large">{{t "support.ebau-number.title"}}</p>
+      <p>{{t "support.ebau-number.description"}}</p>
+      <form {{on "submit" (perform this.changeEbauNumber)}}>
+        <div class="uk-grid-small" uk-grid>
+          <div class="uk-width-expand">
+            <Input
+              @type="text"
+              @pattern="\d{4}-\d+"
+              @value={{this.ebauNumber}}
+              @disabled={{cannot "set ebau number of instance" this.instance}}
+              class="uk-input uk-form-small"
+            />
+          </div>
+          <div>
+            <UkButton
+              @color="primary"
+              @type="submit"
+              @label={{t "global.save"}}
+              @disabled={{or this.changeEbauNumber.isRunning (cannot "set ebau number of instance" this.instance)}}
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+    <div>
+      <p class="uk-text-large">{{t "support.change-form.title"}}</p>
+      <p>{{t "support.change-form.description" htmlSafe=true}}</p>
+      <form {{on "submit" (perform this.changeForm)}}>
+        <div class="uk-grid-small" uk-grid>
+          <div class="uk-width-expand">
+            <select
+              class="uk-select uk-form-small"
+              disabled={{cannot "change form of instance" this.instance}}
+              required
+              {{on "change" (fn (mut this.form))}}
+            >
+              <option></option>
+              {{#each this.forms as |form|}}
+                <option value={{form.value}} selected={{eq this.form.value form.value}}>{{form.label}}</option>
+              {{/each}}
+            </select>
+          </div>
+          <div>
+            <UkButton
+              @color="primary"
+              @type="submit"
+              @label={{t "global.save"}}
+              @disabled={{or this.changeForm.isRunning (cannot "change form of instance" this.instance)}}
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+{{/if}}

@@ -68,11 +68,7 @@ export default class WorkItemNewController extends Controller {
   get services() {
     const services = this.instance?.involvedServices.toArray() || [];
 
-    if (
-      ENV.APP.allowApplicantManualWorkItem.includes(
-        this.shoebox.content.application
-      )
-    ) {
+    if (ENV.APPLICATION.allowApplicantManualWorkItem) {
       services.unshift({
         id: "applicant",
         name: this.intl.t("global.applicant"),

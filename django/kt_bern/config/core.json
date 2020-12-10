@@ -113,14 +113,6 @@
   },
   {
     "model": "core.aformtransition",
-    "pk": 150003,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 20009
-    }
-  },
-  {
-    "model": "core.aformtransition",
     "pk": 1200002,
     "fields": {
       "current_instance_state": null,
@@ -1439,20 +1431,6 @@
   },
   {
     "model": "core.action",
-    "pk": 150003,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 150000,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 150006,
     "fields": {
       "available_action": "notification",
@@ -1747,20 +1725,6 @@
   },
   {
     "model": "core.action",
-    "pk": 150036,
-    "fields": {
-      "available_action": "case",
-      "button": 150000,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 150037,
     "fields": {
       "available_action": "workitem",
@@ -2040,20 +2004,6 @@
     }
   },
   {
-    "model": "core.action",
-    "pk": 1200121,
-    "fields": {
-      "available_action": "addhistory",
-      "button": 150000,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 3
-    }
-  },
-  {
     "model": "core.actioncase",
     "pk": 150034,
     "fields": {
@@ -2065,13 +2015,6 @@
     "pk": 150035,
     "fields": {
       "process_type": "resume"
-    }
-  },
-  {
-    "model": "core.actioncase",
-    "pk": 150036,
-    "fields": {
-      "process_type": "cancel"
     }
   },
   {
@@ -2918,18 +2861,6 @@
   },
   {
     "model": "core.actiont",
-    "pk": 150003,
-    "fields": {
-      "action": 150003,
-      "language": "de",
-      "name": "Go to state \"Archiviert\"",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
     "pk": 150008,
     "fields": {
       "action": 150006,
@@ -3199,18 +3130,6 @@
       "action": 150035,
       "language": "de",
       "name": "Resume case",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 150042,
-    "fields": {
-      "action": 150036,
-      "language": "de",
-      "name": "Cancel case",
       "description": null,
       "success_message": null,
       "error_message": null
@@ -3583,30 +3502,6 @@
       "action": 1200120,
       "language": "fr",
       "name": "Histoire: Proc\u00e9dure compl\u00e9t\u00e9e",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 1200137,
-    "fields": {
-      "action": 1200121,
-      "language": "de",
-      "name": "History: Archiviert",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 1200138,
-    "fields": {
-      "action": 1200121,
-      "language": "fr",
-      "name": "Histoire: Archiv\u00e9",
       "description": null,
       "success_message": null,
       "error_message": null
@@ -4816,6 +4711,15 @@
     "pk": 150005,
     "fields": {
       "available_instance_resource": "audit",
+      "action_name": "index",
+      "hidden": 0
+    }
+  },
+  {
+    "model": "core.airaction",
+    "pk": 150006,
+    "fields": {
+      "available_instance_resource": "support",
       "action_name": "index",
       "hidden": 0
     }
@@ -42486,6 +42390,15 @@
   },
   {
     "model": "core.availableinstanceresource",
+    "pk": "support",
+    "fields": {
+      "module_name": "support",
+      "controller_name": "support",
+      "description": "Utilities for support"
+    }
+  },
+  {
+    "model": "core.availableinstanceresource",
     "pk": "workitemlistinstance",
     "fields": {
       "module_name": "workitem",
@@ -43302,18 +43215,6 @@
   },
   {
     "model": "core.button",
-    "pk": 150000,
-    "fields": {
-      "instance_resource": 150001,
-      "name": null,
-      "description": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.button",
     "pk": 1200000,
     "fields": {
       "instance_resource": 20070,
@@ -43903,26 +43804,6 @@
       "button": 20045,
       "language": "fr",
       "name": "Clore la \u00e9valuation",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 150002,
-    "fields": {
-      "button": 150000,
-      "language": "de",
-      "name": "Dossier archivieren",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 150003,
-    "fields": {
-      "button": 150000,
-      "language": "fr",
-      "name": "Archiver le dossier",
       "description": null
     }
   },
@@ -51261,15 +51142,6 @@
     }
   },
   {
-    "model": "core.historyactionconfig",
-    "pk": 1200121,
-    "fields": {
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
     "model": "core.historyactionconfigt",
     "pk": 3,
     "fields": {
@@ -51505,26 +51377,6 @@
     "fields": {
       "action": 1200120,
       "title": "Proc\u00e9dure compl\u00e9t\u00e9e",
-      "body": null,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 29,
-    "fields": {
-      "action": 1200121,
-      "title": "Archiviert",
-      "body": null,
-      "language": "de"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 30,
-    "fields": {
-      "action": 1200121,
-      "title": "Archiv\u00e9",
       "body": null,
       "language": "fr"
     }
@@ -52010,7 +51862,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 4,
+      "sort": 5,
       "form_group": 40000
     }
   },
@@ -52175,7 +52027,7 @@
       "template": "/ember/instance.phtml",
       "class_field": "menu-category-primary",
       "hidden": 0,
-      "sort": 0,
+      "sort": 1,
       "form_group": 40000
     }
   },
@@ -52190,7 +52042,7 @@
       "template": null,
       "class_field": "menu-category-primary",
       "hidden": 0,
-      "sort": 1,
+      "sort": 2,
       "form_group": 40000
     }
   },
@@ -52205,7 +52057,7 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 2,
+      "sort": 3,
       "form_group": 40000
     }
   },
@@ -52265,7 +52117,7 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 3,
+      "sort": 4,
       "form_group": 40000
     }
   },
@@ -52311,6 +52163,21 @@
       "class_field": null,
       "hidden": 0,
       "sort": 6,
+      "form_group": 40000
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 150011,
+    "fields": {
+      "available_instance_resource": "support",
+      "resource": 150000,
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": "menu-category-primary",
+      "hidden": 0,
+      "sort": 0,
       "form_group": 40000
     }
   },
@@ -56913,6 +56780,26 @@
       "instance_resource": 150010,
       "language": "fr",
       "name": "Examen du dossier",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 150027,
+    "fields": {
+      "instance_resource": 150011,
+      "language": "de",
+      "name": "Support",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 150028,
+    "fields": {
+      "instance_resource": 150011,
+      "language": "fr",
+      "name": "Support",
       "description": null
     }
   },
@@ -63233,6 +63120,159 @@
     "pk": 150290,
     "fields": {
       "instance_resource": 150001,
+      "role": 10000,
+      "instance_state": 120003
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 150291,
+    "fields": {
+      "instance_resource": 150011,
+      "role": 10000,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 150292,
+    "fields": {
+      "instance_resource": 150011,
+      "role": 10000,
+      "instance_state": 20000
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 150293,
+    "fields": {
+      "instance_resource": 150011,
+      "role": 10000,
+      "instance_state": 20003
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 150294,
+    "fields": {
+      "instance_resource": 150011,
+      "role": 10000,
+      "instance_state": 20004
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 150295,
+    "fields": {
+      "instance_resource": 150011,
+      "role": 10000,
+      "instance_state": 20005
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 150296,
+    "fields": {
+      "instance_resource": 150011,
+      "role": 10000,
+      "instance_state": 20010
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 150297,
+    "fields": {
+      "instance_resource": 150011,
+      "role": 10000,
+      "instance_state": 20011
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 150298,
+    "fields": {
+      "instance_resource": 150011,
+      "role": 10000,
+      "instance_state": 20013
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 150299,
+    "fields": {
+      "instance_resource": 150011,
+      "role": 10000,
+      "instance_state": 20014
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 150300,
+    "fields": {
+      "instance_resource": 150011,
+      "role": 10000,
+      "instance_state": 10000
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 150301,
+    "fields": {
+      "instance_resource": 150011,
+      "role": 10000,
+      "instance_state": 20007
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 150302,
+    "fields": {
+      "instance_resource": 150011,
+      "role": 10000,
+      "instance_state": 20008
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 150303,
+    "fields": {
+      "instance_resource": 150011,
+      "role": 10000,
+      "instance_state": 20009
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 150304,
+    "fields": {
+      "instance_resource": 150011,
+      "role": 10000,
+      "instance_state": 120000
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 150305,
+    "fields": {
+      "instance_resource": 150011,
+      "role": 10000,
+      "instance_state": 120001
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 150306,
+    "fields": {
+      "instance_resource": 150011,
+      "role": 10000,
+      "instance_state": 120002
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 150307,
+    "fields": {
+      "instance_resource": 150011,
       "role": 10000,
       "instance_state": 120003
     }
