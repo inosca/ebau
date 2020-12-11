@@ -854,7 +854,12 @@ APPLICATIONS = {
             ("gesuchstyp", "gesuchstyp-hecke-feldgehoelz", [20065]),
         ],
         "NOTIFICATIONS_EXCLUDED_TASKS": [],
-        "DUMP_CONFIG_GROUPS": {},
+        "DUMP_CONFIG_GROUPS": {
+            "email_notifications": {
+                "notification.NotificationTemplate": Q(type="email"),
+                "notification.NotificationTemplateT": Q(template__type="email"),
+            },
+        },
         "DUMP_CONFIG_EXCLUDED_MODELS": [
             "user.Group",
             "user.GroupT",
@@ -1004,6 +1009,7 @@ APPLICATIONS = {
 }
 
 APPLICATIONS["kt_bern"]["DUMP_CONFIG_GROUPS"] = {
+    **APPLICATIONS["kt_bern"]["DUMP_CONFIG_GROUPS"],
     "caluma_audit_form": {
         "caluma_form.Option": Q(
             questions__forms__pk__in=APPLICATIONS["kt_bern"]["CALUMA"]["AUDIT_FORMS"]
