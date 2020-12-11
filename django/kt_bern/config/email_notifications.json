@@ -848,7 +848,7 @@
       "language": "de",
       "purpose": "05 Bericht Erstellt",
       "subject": "Bericht erstellt (eBau-Nr. {{EBAU_NUMBER}}) / Rapport cr\u00e9\u00e9 (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nF\u00fcr das Baugesuch mit der eBau-Nr. {{EBAU_NUMBER}} wurden die gem\u00e4ss Leitverfahren eingeforderten\r\nStellungnahmen, Amts- und Fachberichte und Verf\u00fcgungen erstellt.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{ACTIVATION_STATEMENT_DE}}\r\n\r\n{{CURRENT_SERVICE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nPour l'application de construction avec le num\u00e9ro eBau {{EBAU_NUMBER}}, les codes de construction suivants \u00e9taient requis selon la proc\u00e9dure principale\r\navis, rapports officiels et techniques et d\u00e9cisions.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{ACTIVATION_STATEMENT_FR}}\r\n\r\n{{CURRENT_SERVICE}}"
+      "body": "Guten Tag\r\n\r\nF\u00fcr das Baugesuch mit der eBau-Nr. {{EBAU_NUMBER}} wurden die gem\u00e4ss Leitverfahren eingeforderten\r\nStellungnahmen, Amts- und Fachberichte und Verf\u00fcgungen erstellt: {{ ACTIVATION_ANSWER_DE }}.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{ACTIVATION_STATEMENT_DE}}\r\n\r\n{{CURRENT_SERVICE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nPour l'application de construction avec le num\u00e9ro eBau {{EBAU_NUMBER}}, les codes de construction suivants \u00e9taient requis selon la proc\u00e9dure principale\r\navis, rapports officiels et techniques et d\u00e9cisions: {{ ACTIVATION_ANSWER_FR }}.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{ACTIVATION_STATEMENT_FR}}\r\n\r\n{{CURRENT_SERVICE}}"
     }
   },
   {
