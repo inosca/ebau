@@ -444,6 +444,8 @@ class Import:
 
     def get_municipality(self, name):
         try:
-            return ServiceT.objects.get(name=name).service
+            return ServiceT.objects.get(name=name, language="de").service
         except ServiceT.MultipleObjectsReturned:
-            return ServiceT.objects.get(name=name, service__disabled=0).service
+            return ServiceT.objects.get(
+                name=name, language="de", service__disabled=0
+            ).service
