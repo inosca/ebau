@@ -1161,7 +1161,7 @@ DATABASES = {
 # Sequence ranges to be used for each developer. Note: NEVER EVER
 # EVER change this without talking to the affected developers. New
 # developers should just be appended instead (which is safe).
-SEQUENCE_NAMESPACES_SIZE = 10000
+SEQUENCE_NAMESPACES_SIZE = 1000000
 SEQUENCE_NAMESPACES = {}
 
 
