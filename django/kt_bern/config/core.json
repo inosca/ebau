@@ -42872,7 +42872,7 @@
       "instance_resource": 20014,
       "name": null,
       "description": null,
-      "class_field": "next-arrows",
+      "class_field": "next-arrows active_leitbehoerde_only",
       "hidden": 0,
       "sort": 1
     }
@@ -42944,7 +42944,7 @@
       "instance_resource": 20014,
       "name": null,
       "description": null,
-      "class_field": "success",
+      "class_field": "success active_leitbehoerde_only",
       "hidden": 0,
       "sort": 0
     }
