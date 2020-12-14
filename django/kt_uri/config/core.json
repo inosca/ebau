@@ -553,11 +553,6 @@
   },
   {
     "model": "core.alocation",
-    "pk": 691,
-    "fields": {}
-  },
-  {
-    "model": "core.alocation",
     "pk": 1009,
     "fields": {}
   },
@@ -570,20 +565,6 @@
     "model": "core.alocation",
     "pk": 1132,
     "fields": {}
-  },
-  {
-    "model": "core.alocation",
-    "pk": 1402,
-    "fields": {}
-  },
-  {
-    "model": "core.alocationqc",
-    "pk": 3,
-    "fields": {
-      "action": 691,
-      "question": 2,
-      "chapter": 3
-    }
   },
   {
     "model": "core.alocationqc",
@@ -599,15 +580,6 @@
     "pk": 8,
     "fields": {
       "action": 1132,
-      "question": 2,
-      "chapter": 3
-    }
-  },
-  {
-    "model": "core.alocationqc",
-    "pk": 13,
-    "fields": {
-      "action": 1402,
       "question": 2,
       "chapter": 3
     }
@@ -1169,13 +1141,6 @@
   },
   {
     "model": "core.aphp",
-    "pk": 692,
-    "fields": {
-      "php_class": "DossierNR"
-    }
-  },
-  {
-    "model": "core.aphp",
     "pk": 831,
     "fields": {
       "php_class": "CircStart"
@@ -1417,13 +1382,6 @@
     "pk": 1388,
     "fields": {
       "php_class": "ReopenCirculation"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1403,
-    "fields": {
-      "php_class": "DossierNR"
     }
   },
   {
@@ -2222,62 +2180,6 @@
       "error_message": "",
       "execute_always": 0,
       "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 690,
-    "fields": {
-      "available_action": "save",
-      "button": 468,
-      "name": "Dossier erstellen",
-      "description": "",
-      "success_message": "Dossier erfolgreich erstellt.",
-      "error_message": "Dossier konnte nicht erstellt werden!",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 691,
-    "fields": {
-      "available_action": "location",
-      "button": 468,
-      "name": "Gemeinde setzen",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 692,
-    "fields": {
-      "available_action": "php",
-      "button": 468,
-      "name": "Dossier Nummer erstellen",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 693,
-    "fields": {
-      "available_action": "workflow",
-      "button": 468,
-      "name": "Workflow Datum setzen Dossier erfasst",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 3
     }
   },
   {
@@ -5274,62 +5176,6 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1401,
-    "fields": {
-      "available_action": "save",
-      "button": 930,
-      "name": "Speichern",
-      "description": null,
-      "success_message": "Dossier erfolgreich erstellt.",
-      "error_message": "Dossier konnte nicht erstellt werden!",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1402,
-    "fields": {
-      "available_action": "location",
-      "button": 930,
-      "name": "Standort Setzen",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1403,
-    "fields": {
-      "available_action": "php",
-      "button": 930,
-      "name": "Dossier-NR setzen",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1404,
-    "fields": {
-      "available_action": "workflow",
-      "button": 930,
-      "name": "Workflow Datum setzen auf Dossier erfasst",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 3
     }
   },
   {
@@ -12470,15 +12316,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 97,
-    "fields": {
-      "button": 468,
-      "role": 6,
-      "instance_state": 1
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 98,
     "fields": {
       "button": 469,
@@ -15359,15 +15196,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 516,
-    "fields": {
-      "button": 930,
-      "role": 1130,
-      "instance_state": 1
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 517,
     "fields": {
       "button": 931,
@@ -17449,18 +17277,6 @@
   },
   {
     "model": "core.button",
-    "pk": 468,
-    "fields": {
-      "instance_resource": 489,
-      "name": "Erstellen",
-      "description": "",
-      "class_field": "",
-      "hidden": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.button",
     "pk": 469,
     "fields": {
       "instance_resource": 490,
@@ -18693,18 +18509,6 @@
       "class_field": "circ_send_button no-animation",
       "hidden": 0,
       "sort": 1
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 930,
-    "fields": {
-      "instance_resource": 759,
-      "name": "Erstellen",
-      "description": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 0
     }
   },
   {
@@ -23707,21 +23511,6 @@
   },
   {
     "model": "core.instanceresource",
-    "pk": 489,
-    "fields": {
-      "available_instance_resource": "newform",
-      "resource": 22,
-      "name": "Dossier erstellen",
-      "description": "Erstellung NP durch die Gemeinde",
-      "template": "",
-      "class_field": "",
-      "hidden": 1,
-      "sort": 1,
-      "form_group": 141
-    }
-  },
-  {
-    "model": "core.instanceresource",
     "pk": 490,
     "fields": {
       "available_instance_resource": "editformpage",
@@ -24977,21 +24766,6 @@
       "class_field": null,
       "hidden": 0,
       "sort": 1,
-      "form_group": 256
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 759,
-    "fields": {
-      "available_instance_resource": "newform",
-      "resource": 22,
-      "name": "Dossier erstellen",
-      "description": "Erstellung durch Bundesstelle",
-      "template": null,
-      "class_field": null,
-      "hidden": 1,
-      "sort": 9,
       "form_group": 256
     }
   },
@@ -28689,25 +28463,9 @@
   },
   {
     "model": "core.irnewform",
-    "pk": 489,
-    "fields": {
-      "instance_state": 21,
-      "page_form_group": null
-    }
-  },
-  {
-    "model": "core.irnewform",
     "pk": 651,
     "fields": {
       "instance_state": 28,
-      "page_form_group": null
-    }
-  },
-  {
-    "model": "core.irnewform",
-    "pk": 759,
-    "fields": {
-      "instance_state": 21,
       "page_form_group": null
     }
   },
@@ -30512,15 +30270,6 @@
       "instance_resource": 488,
       "role": 1061,
       "instance_state": 27
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 187,
-    "fields": {
-      "instance_resource": 489,
-      "role": 6,
-      "instance_state": 1
     }
   },
   {
@@ -36038,15 +35787,6 @@
       "instance_resource": 758,
       "role": 1130,
       "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 848,
-    "fields": {
-      "instance_resource": 759,
-      "role": 1130,
-      "instance_state": 1
     }
   },
   {
@@ -47792,14 +47532,6 @@
   },
   {
     "model": "core.workflowaction",
-    "pk": 693,
-    "fields": {
-      "workflow_item": 12,
-      "multi_value": 0
-    }
-  },
-  {
-    "model": "core.workflowaction",
     "pk": 699,
     "fields": {
       "workflow_item": 16,
@@ -48011,14 +47743,6 @@
     "pk": 1389,
     "fields": {
       "workflow_item": 81,
-      "multi_value": 0
-    }
-  },
-  {
-    "model": "core.workflowaction",
-    "pk": 1404,
-    "fields": {
-      "workflow_item": 12,
       "multi_value": 0
     }
   },
