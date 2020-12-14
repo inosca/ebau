@@ -232,9 +232,12 @@ class Import:
         )
 
         # use gNrExtern if it's an existing ebau_nr
-        if Case.objects.filter(
-            **{"meta__ebau-number": self.geschaeft.gNrExtern}
-        ).exists():
+        if (
+            self.geschaeft.gNrExtern
+            and Case.objects.filter(
+                **{"meta__ebau-number": self.geschaeft.gNrExtern}
+            ).exists()
+        ):
             ebau_nr = self.geschaeft.gNrExtern
         else:
             ebau_nr = utils.assign_ebau_nr(self.instance, self.geschaeft.gJahr)
@@ -245,7 +248,10 @@ class Import:
         )
 
         self.case = Case.objects.filter(
-            **{"meta__prefecta-number": self.geschaeft.geschaefts_nr}
+            **{
+                "meta__prefecta-number": self.geschaeft.geschaefts_nr,
+                "meta__prefecta-mandant": self.geschaeft.gMandant,
+            }
         ).first()
 
         if self.case and reimport:
@@ -262,6 +268,7 @@ class Import:
                     "submit-date": self.geschaeft.submit_date,
                     "ebau-number": ebau_nr,
                     "prefecta-number": self.geschaeft.geschaefts_nr,
+                    "prefecta-mandant": self.geschaeft.gMandant,
                 },
             )
 
