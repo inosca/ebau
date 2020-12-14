@@ -1,6 +1,8 @@
 import logging
+from functools import wraps
 from uuid import uuid4
 
+from caluma.caluma_workflow.models import Case
 from django.conf import settings
 from django.dispatch import receiver
 from django.utils import timezone
@@ -456,58 +458,77 @@ class ChangeResponsibilityEventHandler(BaseEventHandler):
             raise
 
 
+def if_ech_enabled(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        instance = kwargs.get("instance")
+        instance_ignored = (
+            Case.objects.filter(
+                **{
+                    "meta__camac-instance-id": instance.pk,
+                    "document__form__in": settings.ECH_EXCLUDED_FORMS,
+                }
+            ).exists()
+            if instance
+            else False
+        )
+
+        if settings.ECH_API and not instance_ignored:
+            return func(*args, **kwargs)
+
+    return wrapper
+
+
 @receiver(instance_submitted)
+@if_ech_enabled
 def submit_callback(sender, instance, user_pk, group_pk, **kwargs):
-    if settings.ECH_API:
-        handler = SubmitEventHandler(instance, user_pk=user_pk, group_pk=group_pk)
-        handler.run()
+    handler = SubmitEventHandler(instance, user_pk=user_pk, group_pk=group_pk)
+    handler.run()
 
 
 @receiver(circulation_started)
 @receiver(ruling)
 @receiver(finished)
 @receiver(assigned_ebau_number)
+@if_ech_enabled
 def send_status_notification(sender, instance, user_pk, group_pk, **kwargs):
-    if settings.ECH_API:
-        handler = StatusNotificationEventHandler(
-            instance, user_pk=user_pk, group_pk=group_pk
-        )
-        handler.run()
+    handler = StatusNotificationEventHandler(
+        instance, user_pk=user_pk, group_pk=group_pk
+    )
+    handler.run()
 
 
 @receiver(task_send)
 @receiver(sb1_submitted)
 @receiver(sb2_submitted)
+@if_ech_enabled
 def task_callback(sender, instance, user_pk, group_pk, **kwargs):
-    if settings.ECH_API:
-        handler = TaskEventHandler(instance, user_pk=user_pk, group_pk=group_pk)
-        handler.run()
+    handler = TaskEventHandler(instance, user_pk=user_pk, group_pk=group_pk)
+    handler.run()
 
 
 @receiver(accompanying_report_send)
+@if_ech_enabled
 def accompanying_report_callback(
     sender, instance, user_pk, group_pk, context, attachments, **kwargs
 ):
-    if settings.ECH_API:
-        handler = AccompanyingReportEventHandler(
-            instance, user_pk=user_pk, group_pk=group_pk, context=context
-        )
-        handler.run(attachments)
+    handler = AccompanyingReportEventHandler(
+        instance, user_pk=user_pk, group_pk=group_pk, context=context
+    )
+    handler.run(attachments)
 
 
 @receiver(file_subsequently)
+@if_ech_enabled
 def file_subsequently_callback(sender, instance, user_pk, group_pk, **kwargs):
-    if settings.ECH_API:
-        handler = FileSubsequentlyEventHandler(
-            instance, user_pk=user_pk, group_pk=group_pk
-        )
-        handler.run()
+    handler = FileSubsequentlyEventHandler(instance, user_pk=user_pk, group_pk=group_pk)
+    handler.run()
 
 
 @receiver(change_responsibility_signal)
+@if_ech_enabled
 def change_responsibility_callback(sender, instance, user_pk, group_pk, **kwargs):
-    if settings.ECH_API:
-        handler = ChangeResponsibilityEventHandler(
-            instance, user_pk=user_pk, group_pk=group_pk
-        )
-        handler.run()
+    handler = ChangeResponsibilityEventHandler(
+        instance, user_pk=user_pk, group_pk=group_pk
+    )
+    handler.run()
