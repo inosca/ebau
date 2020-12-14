@@ -23216,8 +23216,8 @@
     "fields": {
       "available_instance_resource": "editformpage",
       "resource": 301,
-      "name": "Personen- und Projektdaten bearbeiten",
-      "description": "Personen- und Projektdaten bearbeiten die von der Gemeinde erstellt werden, die an die Koordinationsstelle weiter geschickt werden.",
+      "name": "Formular",
+      "description": "Formular die von der Gemeinde erstellt werden, die an die Koordinationsstelle weiter geschickt werden.",
       "template": "/form/form-edit.phtml",
       "class_field": null,
       "hidden": 1,
@@ -23246,8 +23246,8 @@
     "fields": {
       "available_instance_resource": "page",
       "resource": 267,
-      "name": "Personen- und Projektdaten bearbeiten",
-      "description": "Personen- und Projektdaten bearbeiten von der Gemeinde",
+      "name": "Formular",
+      "description": "Formular von der Gemeinde",
       "template": "/ember/instance.phtml",
       "class_field": null,
       "hidden": 0,
@@ -23306,8 +23306,8 @@
     "fields": {
       "available_instance_resource": "page",
       "resource": 267,
-      "name": "Personen- und Projektdaten bearbeiten",
-      "description": "Personen- und Projektdaten bearbeiten von der Koordinationsstelle",
+      "name": "Formular",
+      "description": "Formular von der Koordinationsstelle",
       "template": "/ember/instance.phtml",
       "class_field": null,
       "hidden": 0,
@@ -23396,8 +23396,8 @@
     "fields": {
       "available_instance_resource": "editformpage",
       "resource": 301,
-      "name": "Personen- und Projektdaten bearbeiten",
-      "description": "Personen- und Projektdaten bearbeiten die von der Gemeinde erstellt werden und bei der Gemeinde bleiben",
+      "name": "Formular",
+      "description": "Formular die von der Gemeinde erstellt werden und bei der Gemeinde bleiben",
       "template": "/form/form-edit.phtml",
       "class_field": null,
       "hidden": 1,
@@ -23576,7 +23576,7 @@
     "fields": {
       "available_instance_resource": "page",
       "resource": 288,
-      "name": "Personen- und Projektdaten bearbeiten",
+      "name": "Formular",
       "description": "Dossiers von Koord NP",
       "template": "/ember/instance.phtml",
       "class_field": "",
@@ -23726,7 +23726,7 @@
     "fields": {
       "available_instance_resource": "editformpage",
       "resource": 301,
-      "name": "Personen- und Projektdaten bearbeiten",
+      "name": "Formular",
       "description": "Dossiers NP die von der Gemeinde erstellt werden und an die Koordinationsstelle weiter geschickt werden.",
       "template": "/form/form-edit.phtml",
       "class_field": null,
@@ -23876,8 +23876,8 @@
     "fields": {
       "available_instance_resource": "page",
       "resource": 264,
-      "name": "Personen- und Projektdaten bearbeiten",
-      "description": "Personen- und Projektdaten bearbeiten f\u00fcr alle Dossiers KOOR BD",
+      "name": "Formular",
+      "description": "Formular f\u00fcr alle Dossiers KOOR BD",
       "template": "/ember/instance.phtml",
       "class_field": null,
       "hidden": 0,
@@ -24281,7 +24281,7 @@
     "fields": {
       "available_instance_resource": "page",
       "resource": 289,
-      "name": "Personen- und Projektdaten bearbeiten",
+      "name": "Formular",
       "description": "Personen- und Projektdaten von der Koordinationsstelle Umweltschutz AfU",
       "template": "/ember/instance.phtml",
       "class_field": null,
@@ -24446,7 +24446,7 @@
     "fields": {
       "available_instance_resource": "page",
       "resource": 296,
-      "name": "Personen- und Projektdaten bearbeiten",
+      "name": "Formular",
       "description": "Personen- und Projektdaten von der Koordinationsstelle Landwirtschaft ALA",
       "template": "/ember/instance.phtml",
       "class_field": null,
@@ -24551,7 +24551,7 @@
     "fields": {
       "available_instance_resource": "page",
       "resource": 297,
-      "name": "Personen- und Projektdaten bearbeiten",
+      "name": "Formular",
       "description": "Personen- und Projektdaten von der Koordinationsstelle Energie AfE",
       "template": "/ember/instance.phtml",
       "class_field": null,
@@ -24686,7 +24686,7 @@
     "fields": {
       "available_instance_resource": "page",
       "resource": 298,
-      "name": "Personen- und Projektdaten bearbeiten",
+      "name": "Formular",
       "description": "Personen- und Projektdaten von der Koordinationsstelle AFJ SD",
       "template": "/ember/instance.phtml",
       "class_field": null,
@@ -24971,8 +24971,8 @@
     "fields": {
       "available_instance_resource": "page",
       "resource": 316,
-      "name": "Personen- und Projektdaten bearbeiten",
-      "description": "Personen- und Projektdaten bearbeiten von der Bundesstelle",
+      "name": "Formular",
+      "description": "Formular von der Bundesstelle",
       "template": "/ember/instance.phtml",
       "class_field": null,
       "hidden": 0,
@@ -25106,7 +25106,7 @@
     "fields": {
       "available_instance_resource": "formpage",
       "resource": 317,
-      "name": "Personen- und Projektdaten bearbeiten",
+      "name": "Formular",
       "description": null,
       "template": null,
       "class_field": null,
