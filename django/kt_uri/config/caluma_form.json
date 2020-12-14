@@ -102,7 +102,7 @@
     "pk": "einreichen",
     "fields": {
       "created_at": "2020-11-02T15:49:58.887Z",
-      "modified_at": "2020-11-13T10:11:55.676Z",
+      "modified_at": "2020-12-09T12:02:36.136Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "name": "{\"de\": \"Einreichen\", \"fr\": null}",
@@ -230,11 +230,11 @@
     "pk": "informationen-intern",
     "fields": {
       "created_at": "2020-11-24T14:43:40.475Z",
-      "modified_at": "2020-11-24T14:51:00.184Z",
+      "modified_at": "2020-12-09T13:58:22.690Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
-      "description": "{\"de\": \"Interne Verfahren\", \"fr\": null}",
+      "description": "{\"de\": \"Mitberichtsverfahren Kanton\", \"fr\": null}",
       "meta": {},
       "is_published": true,
       "is_archived": false,
@@ -326,11 +326,11 @@
     "pk": "mitberichtsverfahren",
     "fields": {
       "created_at": "2020-12-07T15:59:04.442Z",
-      "modified_at": "2020-12-07T15:59:04.442Z",
+      "modified_at": "2020-12-09T13:57:50.746Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
-      "description": "{\"de\": \"Mitberichtsverfahren\", \"fr\": null}",
+      "description": "{\"de\": \"Mitberichtsverfahren Bund\", \"fr\": null}",
       "meta": {},
       "is_published": true,
       "is_archived": false,
@@ -438,11 +438,11 @@
     "pk": "pgv",
     "fields": {
       "created_at": "2020-12-07T16:09:24.933Z",
-      "modified_at": "2020-12-07T16:09:24.933Z",
+      "modified_at": "2020-12-09T13:59:01.015Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
-      "description": "{\"de\": \"Plangenehmigungsverfahren (PGV)\", \"fr\": null}",
+      "description": "{\"de\": \"Plangenehmigungsverfahren Kanton\", \"fr\": null}",
       "meta": {},
       "is_published": true,
       "is_archived": false,
@@ -2216,7 +2216,7 @@
       "created_by_group": null,
       "form": "building-permit",
       "question": "einreichen",
-      "sort": 1
+      "sort": 7
     }
   },
   {
@@ -2229,7 +2229,7 @@
       "created_by_group": null,
       "form": "building-permit",
       "question": "fachthemen",
-      "sort": 4
+      "sort": 8
     }
   },
   {
@@ -2242,7 +2242,7 @@
       "created_by_group": null,
       "form": "building-permit",
       "question": "form-type",
-      "sort": 6
+      "sort": 10
     }
   },
   {
@@ -2255,7 +2255,7 @@
       "created_by_group": null,
       "form": "building-permit",
       "question": "generelle-fachthemen",
-      "sort": 5
+      "sort": 9
     }
   },
   {
@@ -2307,33 +2307,7 @@
       "created_by_group": null,
       "form": "building-permit",
       "question": "lokalisierung",
-      "sort": 10
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "building-permit.mitberichtsverfahren-koor-bg",
-    "fields": {
-      "created_at": "2020-11-24T13:00:51.298Z",
-      "modified_at": "2020-11-24T13:00:51.298Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "building-permit",
-      "question": "mitberichtsverfahren-koor-bg",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "building-permit.oereb-verfahren",
-    "fields": {
-      "created_at": "2020-11-11T08:09:32.783Z",
-      "modified_at": "2020-11-11T08:09:32.783Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "building-permit",
-      "question": "oereb-verfahren",
-      "sort": 7
+      "sort": 13
     }
   },
   {
@@ -2346,20 +2320,7 @@
       "created_by_group": null,
       "form": "building-permit",
       "question": "personalien",
-      "sort": 9
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "building-permit.photovoltaik-solaranlage",
-    "fields": {
-      "created_at": "2020-10-21T12:15:10.406Z",
-      "modified_at": "2020-10-21T12:15:10.406Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "building-permit",
-      "question": "photovoltaik-solaranlage",
-      "sort": 13
+      "sort": 12
     }
   },
   {
@@ -2372,45 +2333,6 @@
       "created_by_group": null,
       "form": "building-permit",
       "question": "projektdaten",
-      "sort": 8
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "building-permit.reklame",
-    "fields": {
-      "created_at": "2020-10-21T12:40:05.521Z",
-      "modified_at": "2020-10-21T12:40:05.521Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "building-permit",
-      "question": "reklame",
-      "sort": 12
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "building-permit.veranstaltung-form",
-    "fields": {
-      "created_at": "2020-10-21T12:59:20.917Z",
-      "modified_at": "2020-10-21T12:59:20.917Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "building-permit",
-      "question": "veranstaltung-form",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "building-permit.vorhaben",
-    "fields": {
-      "created_at": "2020-10-21T12:45:58.749Z",
-      "modified_at": "2020-10-21T12:45:58.749Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "building-permit",
-      "question": "vorhaben",
       "sort": 11
     }
   },
@@ -2424,6 +2346,19 @@
       "created_by_group": null,
       "form": "cantonal-territory-usage",
       "question": "einreichen",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "cantonal-territory-usage.form-type",
+    "fields": {
+      "created_at": "2020-12-10T10:36:32.672Z",
+      "modified_at": "2020-12-10T10:36:32.672Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "cantonal-territory-usage",
+      "question": "form-type",
       "sort": 1
     }
   },
@@ -2437,7 +2372,7 @@
       "created_by_group": null,
       "form": "cantonal-territory-usage",
       "question": "is-paper",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -2450,7 +2385,7 @@
       "created_by_group": null,
       "form": "cantonal-territory-usage",
       "question": "leitbehoerde",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -2463,7 +2398,7 @@
       "created_by_group": null,
       "form": "cantonal-territory-usage",
       "question": "lokalisierung",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -2476,7 +2411,7 @@
       "created_by_group": null,
       "form": "cantonal-territory-usage",
       "question": "personalien",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -2489,7 +2424,20 @@
       "created_by_group": null,
       "form": "cantonal-territory-usage",
       "question": "veranstaltung-form",
-      "sort": 4
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "commercial-permit.allgemeine-informationen-reklame",
+    "fields": {
+      "created_at": "2020-12-10T10:39:32.780Z",
+      "modified_at": "2020-12-10T10:39:32.781Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "commercial-permit",
+      "question": "allgemeine-informationen-reklame",
+      "sort": 6
     }
   },
   {
@@ -2502,7 +2450,20 @@
       "created_by_group": null,
       "form": "commercial-permit",
       "question": "einreichen",
-      "sort": 2
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "commercial-permit.form-type",
+    "fields": {
+      "created_at": "2020-12-10T10:23:31.755Z",
+      "modified_at": "2020-12-10T10:23:31.756Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "commercial-permit",
+      "question": "form-type",
+      "sort": 7
     }
   },
   {
@@ -2515,7 +2476,7 @@
       "created_by_group": null,
       "form": "commercial-permit",
       "question": "is-paper",
-      "sort": 6
+      "sort": 8
     }
   },
   {
@@ -2528,7 +2489,7 @@
       "created_by_group": null,
       "form": "commercial-permit",
       "question": "leitbehoerde",
-      "sort": 1
+      "sort": 5
     }
   },
   {
@@ -2541,7 +2502,7 @@
       "created_by_group": null,
       "form": "commercial-permit",
       "question": "lokalisierung",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -2554,7 +2515,7 @@
       "created_by_group": null,
       "form": "commercial-permit",
       "question": "personalien",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -2567,7 +2528,7 @@
       "created_by_group": null,
       "form": "commercial-permit",
       "question": "reklame",
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -3599,14 +3560,27 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "informationen-intern.allgemeinde-informationen-zu-internen-verfahren",
+    "pk": "informationen-intern.form-type",
     "fields": {
-      "created_at": "2020-11-24T14:47:18.235Z",
-      "modified_at": "2020-11-24T14:47:18.235Z",
+      "created_at": "2020-12-10T10:37:01.234Z",
+      "modified_at": "2020-12-10T10:37:01.234Z",
       "created_by_user": null,
       "created_by_group": null,
       "form": "informationen-intern",
-      "question": "allgemeinde-informationen-zu-internen-verfahren",
+      "question": "form-type",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "informationen-intern.info-mbv-kanton",
+    "fields": {
+      "created_at": "2020-12-09T14:37:54.298Z",
+      "modified_at": "2020-12-09T14:37:54.299Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "informationen-intern",
+      "question": "info-mbv-kanton",
       "sort": 5
     }
   },
@@ -4288,19 +4262,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "mitberichtsverfahren-koor-bg.leitbehoerde",
-    "fields": {
-      "created_at": "2020-12-01T12:41:48.415Z",
-      "modified_at": "2020-12-01T12:41:48.415Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "mitberichtsverfahren-koor-bg",
-      "question": "leitbehoerde",
-      "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "mitberichtsverfahren-koor-bg.zustaendige-personen",
     "fields": {
       "created_at": "2020-11-27T07:36:53.472Z",
@@ -4314,6 +4275,32 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "mitberichtsverfahren.form-type",
+    "fields": {
+      "created_at": "2020-12-10T10:36:44.938Z",
+      "modified_at": "2020-12-10T10:36:44.938Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "mitberichtsverfahren",
+      "question": "form-type",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "mitberichtsverfahren.info-mbv-kanton",
+    "fields": {
+      "created_at": "2020-12-09T14:41:40.484Z",
+      "modified_at": "2020-12-09T14:41:40.484Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "mitberichtsverfahren",
+      "question": "info-mbv-kanton",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "mitberichtsverfahren.is-paper",
     "fields": {
       "created_at": "2020-12-07T15:59:12.215Z",
@@ -4322,7 +4309,7 @@
       "created_by_group": null,
       "form": "mitberichtsverfahren",
       "question": "is-paper",
-      "sort": 5
+      "sort": 7
     }
   },
   {
@@ -4335,7 +4322,7 @@
       "created_by_group": null,
       "form": "mitberichtsverfahren",
       "question": "leitbehoerde",
-      "sort": 4
+      "sort": 6
     }
   },
   {
@@ -4348,7 +4335,7 @@
       "created_by_group": null,
       "form": "mitberichtsverfahren",
       "question": "lokalisierung",
-      "sort": 2
+      "sort": 4
     }
   },
   {
@@ -4361,7 +4348,7 @@
       "created_by_group": null,
       "form": "mitberichtsverfahren",
       "question": "mitberichtsverfahren-koor-bg",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -4374,7 +4361,7 @@
       "created_by_group": null,
       "form": "mitberichtsverfahren",
       "question": "personalien",
-      "sort": 1
+      "sort": 3
     }
   },
   {
@@ -4548,6 +4535,19 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "oereb.form-type",
+    "fields": {
+      "created_at": "2020-12-10T10:37:31.299Z",
+      "modified_at": "2020-12-10T10:37:31.299Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "oereb",
+      "question": "form-type",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "oereb.is-paper",
     "fields": {
       "created_at": "2020-12-07T15:52:23.250Z",
@@ -4556,7 +4556,7 @@
       "created_by_group": null,
       "form": "oereb",
       "question": "is-paper",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -4569,7 +4569,7 @@
       "created_by_group": null,
       "form": "oereb",
       "question": "leitbehoerde",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -4582,7 +4582,7 @@
       "created_by_group": null,
       "form": "oereb",
       "question": "lokalisierung",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -4595,7 +4595,7 @@
       "created_by_group": null,
       "form": "oereb",
       "question": "oereb-verfahren",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -4608,7 +4608,7 @@
       "created_by_group": null,
       "form": "oereb",
       "question": "personalien",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -5172,6 +5172,19 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "pgv.form-type",
+    "fields": {
+      "created_at": "2020-12-10T10:37:15.563Z",
+      "modified_at": "2020-12-10T10:37:15.563Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "pgv",
+      "question": "form-type",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "pgv.is-paper",
     "fields": {
       "created_at": "2020-12-07T16:09:32.499Z",
@@ -5180,7 +5193,7 @@
       "created_by_group": null,
       "form": "pgv",
       "question": "is-paper",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -5193,7 +5206,7 @@
       "created_by_group": null,
       "form": "pgv",
       "question": "leitbehoerde",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -5206,7 +5219,7 @@
       "created_by_group": null,
       "form": "pgv",
       "question": "lokalisierung",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -5219,7 +5232,7 @@
       "created_by_group": null,
       "form": "pgv",
       "question": "personalien",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -5232,7 +5245,7 @@
       "created_by_group": null,
       "form": "preliminary-clarification",
       "question": "anleitung-zum-ausfuellen-der-formulare",
-      "sort": 7
+      "sort": 10
     }
   },
   {
@@ -5245,7 +5258,46 @@
       "created_by_group": null,
       "form": "preliminary-clarification",
       "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "preliminary-clarification.fachthemen",
+    "fields": {
+      "created_at": "2020-12-10T08:04:30.015Z",
+      "modified_at": "2020-12-10T08:04:30.015Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "preliminary-clarification",
+      "question": "fachthemen",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "preliminary-clarification.form-type",
+    "fields": {
+      "created_at": "2020-12-10T08:04:38.917Z",
+      "modified_at": "2020-12-10T08:04:38.917Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "preliminary-clarification",
+      "question": "form-type",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "preliminary-clarification.generelle-fachthemen",
+    "fields": {
+      "created_at": "2020-12-10T08:04:23.314Z",
+      "modified_at": "2020-12-10T08:04:23.314Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "preliminary-clarification",
+      "question": "generelle-fachthemen",
+      "sort": 3
     }
   },
   {
@@ -5258,7 +5310,7 @@
       "created_by_group": null,
       "form": "preliminary-clarification",
       "question": "impressum",
-      "sort": 6
+      "sort": 9
     }
   },
   {
@@ -5271,7 +5323,7 @@
       "created_by_group": null,
       "form": "preliminary-clarification",
       "question": "is-paper",
-      "sort": 8
+      "sort": 11
     }
   },
   {
@@ -5284,7 +5336,7 @@
       "created_by_group": null,
       "form": "preliminary-clarification",
       "question": "leitbehoerde",
-      "sort": 5
+      "sort": 8
     }
   },
   {
@@ -5297,7 +5349,7 @@
       "created_by_group": null,
       "form": "preliminary-clarification",
       "question": "lokalisierung",
-      "sort": 4
+      "sort": 7
     }
   },
   {
@@ -5310,7 +5362,7 @@
       "created_by_group": null,
       "form": "preliminary-clarification",
       "question": "personalien",
-      "sort": 3
+      "sort": 6
     }
   },
   {
@@ -5323,7 +5375,7 @@
       "created_by_group": null,
       "form": "preliminary-clarification",
       "question": "projektdaten",
-      "sort": 1
+      "sort": 5
     }
   },
   {
@@ -5661,6 +5713,19 @@
       "created_by_group": null,
       "form": "proposal-declaration",
       "question": "einreichen",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "proposal-declaration.form-type",
+    "fields": {
+      "created_at": "2020-12-10T10:37:58.463Z",
+      "modified_at": "2020-12-10T10:37:58.463Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "proposal-declaration",
+      "question": "form-type",
       "sort": 1
     }
   },
@@ -5674,7 +5739,7 @@
       "created_by_group": null,
       "form": "proposal-declaration",
       "question": "is-paper",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -5687,7 +5752,7 @@
       "created_by_group": null,
       "form": "proposal-declaration",
       "question": "leitbehoerde",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -5700,7 +5765,7 @@
       "created_by_group": null,
       "form": "proposal-declaration",
       "question": "lokalisierung",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -5713,7 +5778,7 @@
       "created_by_group": null,
       "form": "proposal-declaration",
       "question": "personalien",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -5726,7 +5791,7 @@
       "created_by_group": null,
       "form": "proposal-declaration",
       "question": "vorhaben",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -5895,6 +5960,19 @@
       "created_by_group": null,
       "form": "solar-declaration",
       "question": "einreichen",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solar-declaration.form-type",
+    "fields": {
+      "created_at": "2020-12-10T10:38:11.365Z",
+      "modified_at": "2020-12-10T10:38:11.365Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "solar-declaration",
+      "question": "form-type",
       "sort": 1
     }
   },
@@ -5908,7 +5986,7 @@
       "created_by_group": null,
       "form": "solar-declaration",
       "question": "is-paper",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -5921,7 +5999,7 @@
       "created_by_group": null,
       "form": "solar-declaration",
       "question": "leitbehoerde",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -5934,7 +6012,7 @@
       "created_by_group": null,
       "form": "solar-declaration",
       "question": "lokalisierung",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -5947,20 +6025,20 @@
       "created_by_group": null,
       "form": "solar-declaration",
       "question": "personalien",
-      "sort": 2
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.formquestion",
     "pk": "solar-declaration.photovoltaik-solaranlage",
     "fields": {
-      "created_at": "2020-12-07T15:39:16.410Z",
-      "modified_at": "2020-12-07T15:39:16.410Z",
+      "created_at": "2020-12-10T08:55:32.970Z",
+      "modified_at": "2020-12-10T08:55:32.970Z",
       "created_by_user": null,
       "created_by_group": null,
       "form": "solar-declaration",
       "question": "photovoltaik-solaranlage",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -5973,7 +6051,7 @@
       "created_by_group": null,
       "form": "solaranlage",
       "question": "bemerkungen-solaranlage",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -5986,7 +6064,7 @@
       "created_by_group": null,
       "form": "solaranlage",
       "question": "hinweis-baubewilligungspflicht",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -5999,7 +6077,7 @@
       "created_by_group": null,
       "form": "solaranlage",
       "question": "solaranlagen",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -7897,7 +7975,7 @@
     "pk": "art-der-hochbaute-andere",
     "fields": {
       "created_at": "2020-09-04T08:09:34.088Z",
-      "modified_at": "2020-11-25T18:52:45.767Z",
+      "modified_at": "2020-12-10T09:25:06.757Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Andere\", \"fr\": null}",
@@ -7911,7 +7989,7 @@
     "pk": "art-der-hochbaute-bauten-und-anlagen-gastgewerbe",
     "fields": {
       "created_at": "2020-09-04T08:09:34.018Z",
-      "modified_at": "2020-11-25T18:52:45.740Z",
+      "modified_at": "2020-12-10T09:25:06.728Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Hotel, Restaurant, Beherbergungsbetrieb\", \"fr\": null}",
@@ -7925,7 +8003,7 @@
     "pk": "art-der-hochbaute-brennstofflager",
     "fields": {
       "created_at": "2020-09-18T15:12:30.984Z",
-      "modified_at": "2020-11-25T18:52:46.120Z",
+      "modified_at": "2020-12-10T09:25:09.044Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Brennstofflager\", \"fr\": null}",
@@ -7939,7 +8017,7 @@
     "pk": "art-der-hochbaute-doppeleinfamilienhaus",
     "fields": {
       "created_at": "2020-09-04T07:47:18.633Z",
-      "modified_at": "2020-11-25T18:52:45.574Z",
+      "modified_at": "2020-12-10T09:25:06.380Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Einfamilienhaus angebaut\", \"fr\": null}",
@@ -7953,7 +8031,7 @@
     "pk": "art-der-hochbaute-einfamilienhaus",
     "fields": {
       "created_at": "2020-09-04T07:47:18.651Z",
-      "modified_at": "2020-11-25T18:52:45.645Z",
+      "modified_at": "2020-12-10T09:25:06.448Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Einfamilienhaus freistehend\", \"fr\": null}",
@@ -7967,7 +8045,7 @@
     "pk": "art-der-hochbaute-energieholzlager",
     "fields": {
       "created_at": "2020-09-18T15:12:30.951Z",
-      "modified_at": "2020-11-25T18:52:46.060Z",
+      "modified_at": "2020-12-10T09:25:09.061Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Energieholzlager\", \"fr\": null}",
@@ -7981,7 +8059,7 @@
     "pk": "art-der-hochbaute-forstwirtschaft",
     "fields": {
       "created_at": "2020-09-18T15:12:30.943Z",
-      "modified_at": "2020-11-25T18:52:46.056Z",
+      "modified_at": "2020-12-10T09:25:08.996Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Forstwirtschaftliche Bauten und Anlagen\", \"fr\": null}",
@@ -7995,7 +8073,7 @@
     "pk": "art-der-hochbaute-garage-oder-carport",
     "fields": {
       "created_at": "2020-09-04T08:09:34.009Z",
-      "modified_at": "2020-11-25T18:52:45.732Z",
+      "modified_at": "2020-12-10T09:25:06.550Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Garage / Einstellhallen im Zusammenhang mit Wohngeb\\u00e4uden\", \"fr\": null}",
@@ -8009,10 +8087,10 @@
     "pk": "art-der-hochbaute-geschaftshaus",
     "fields": {
       "created_at": "2020-09-04T08:07:53.789Z",
-      "modified_at": "2020-11-25T18:52:45.577Z",
+      "modified_at": "2020-12-10T09:25:06.446Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "label": "{\"de\": \"Gesch\\u00e4ftsgeb\\u00e4ude, Kaufhaus\", \"fr\": null}",
+      "label": "{\"de\": \"Kaufhaus, Gesch\\u00e4ftsgeb\\u00e4ude\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8023,7 +8101,7 @@
     "pk": "art-der-hochbaute-heim-mit-unterkunft",
     "fields": {
       "created_at": "2020-09-18T15:12:30.834Z",
-      "modified_at": "2020-11-25T18:52:45.856Z",
+      "modified_at": "2020-12-10T09:25:08.772Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Heim mit Unterkunft, Pflegedienst und Betreuung\", \"fr\": null}",
@@ -8037,7 +8115,7 @@
     "pk": "art-der-hochbaute-industrie",
     "fields": {
       "created_at": "2020-09-04T08:09:33.954Z",
-      "modified_at": "2020-11-25T18:52:45.669Z",
+      "modified_at": "2020-12-10T09:25:06.494Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Industrie- und Gewerbebaute\", \"fr\": null}",
@@ -8051,7 +8129,7 @@
     "pk": "art-der-hochbaute-kehrichtentsorgungsanlagen",
     "fields": {
       "created_at": "2020-11-25T18:52:46.245Z",
-      "modified_at": "2020-11-25T18:52:46.245Z",
+      "modified_at": "2020-12-10T09:25:09.180Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Kehrichtentsorgungsanlagen\", \"fr\": null}",
@@ -8065,7 +8143,7 @@
     "pk": "art-der-hochbaute-kirchen",
     "fields": {
       "created_at": "2020-09-18T15:12:30.894Z",
-      "modified_at": "2020-11-25T18:52:45.965Z",
+      "modified_at": "2020-12-10T09:25:08.917Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Kirchen und Sakralbauten\", \"fr\": null}",
@@ -8079,7 +8157,7 @@
     "pk": "art-der-hochbaute-kommunikationsanlagen",
     "fields": {
       "created_at": "2020-10-21T13:09:03.374Z",
-      "modified_at": "2020-11-25T18:52:46.213Z",
+      "modified_at": "2020-12-10T09:25:09.193Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "label": "{\"de\": \"Kommunikationsanlagen (Mobilfunk-, Richtfunkanlagen)\", \"fr\": null}",
@@ -8093,7 +8171,7 @@
     "pk": "art-der-hochbaute-kulturbauten",
     "fields": {
       "created_at": "2020-09-18T15:12:30.871Z",
-      "modified_at": "2020-11-25T18:52:45.960Z",
+      "modified_at": "2020-12-10T09:25:08.909Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Kulturbauten, Museen, etc.\", \"fr\": null}",
@@ -8107,7 +8185,7 @@
     "pk": "art-der-hochbaute-landwirtschaft-betrieb-wohnteil",
     "fields": {
       "created_at": "2020-09-23T07:18:17.885Z",
-      "modified_at": "2020-11-25T18:52:46.147Z",
+      "modified_at": "2020-12-10T09:25:09.100Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Landwirtschaftliche Betriebsgeb\\u00e4ude mit Wohnteil\", \"fr\": null}",
@@ -8121,7 +8199,7 @@
     "pk": "art-der-hochbaute-materiallager",
     "fields": {
       "created_at": "2020-09-18T15:12:30.985Z",
-      "modified_at": "2020-11-25T18:52:46.106Z",
+      "modified_at": "2020-12-10T09:25:09.005Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Materiallager\", \"fr\": null}",
@@ -8135,7 +8213,7 @@
     "pk": "art-der-hochbaute-mehrfamilienhaus",
     "fields": {
       "created_at": "2020-09-04T07:47:18.636Z",
-      "modified_at": "2020-11-25T18:52:45.630Z",
+      "modified_at": "2020-12-10T09:25:06.393Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Mehrfamilienhaus (reines Wohngeb\\u00e4ude mit mehreren Wohnungen)\", \"fr\": null}",
@@ -8149,7 +8227,7 @@
     "pk": "art-der-hochbaute-oekonomie-mit-tieren-mit-tieren",
     "fields": {
       "created_at": "2020-09-18T15:12:30.935Z",
-      "modified_at": "2020-11-25T18:52:46.024Z",
+      "modified_at": "2020-12-10T09:25:08.916Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Landwirtschaftliche \\u00d6konomiegeb\\u00e4ude mit Tierhaltung\", \"fr\": null}",
@@ -8163,7 +8241,7 @@
     "pk": "art-der-hochbaute-oekonomiegebaude",
     "fields": {
       "created_at": "2020-09-04T08:09:34.036Z",
-      "modified_at": "2020-11-25T18:52:45.783Z",
+      "modified_at": "2020-12-10T09:25:06.728Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Landwirtschaftliche \\u00d6konomiegeb\\u00e4ude ohne Tierhaltung\", \"fr\": null}",
@@ -8177,7 +8255,7 @@
     "pk": "art-der-hochbaute-parkhaus",
     "fields": {
       "created_at": "2020-09-23T07:19:09.744Z",
-      "modified_at": "2020-11-25T18:52:46.190Z",
+      "modified_at": "2020-12-10T09:25:09.146Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Parkhaus\", \"fr\": null}",
@@ -8191,7 +8269,7 @@
     "pk": "art-der-hochbaute-reklamebauten",
     "fields": {
       "created_at": "2020-10-21T13:09:03.378Z",
-      "modified_at": "2020-11-25T18:52:46.230Z",
+      "modified_at": "2020-12-10T09:25:09.173Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "label": "{\"de\": \"Reklamebauten\", \"fr\": null}",
@@ -8205,7 +8283,7 @@
     "pk": "art-der-hochbaute-schulen",
     "fields": {
       "created_at": "2020-09-18T15:12:30.826Z",
-      "modified_at": "2020-11-25T18:52:45.923Z",
+      "modified_at": "2020-12-10T09:25:08.765Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Schulen\", \"fr\": null}",
@@ -8219,7 +8297,7 @@
     "pk": "art-der-hochbaute-silo",
     "fields": {
       "created_at": "2020-09-18T15:12:30.980Z",
-      "modified_at": "2020-11-25T18:52:46.151Z",
+      "modified_at": "2020-12-10T09:25:09.102Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Silo / Zisterne\", \"fr\": null}",
@@ -8233,7 +8311,7 @@
     "pk": "art-der-hochbaute-spital",
     "fields": {
       "created_at": "2020-09-18T15:12:30.796Z",
-      "modified_at": "2020-11-25T18:52:45.838Z",
+      "modified_at": "2020-12-10T09:25:08.767Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Spital\", \"fr\": null}",
@@ -8247,7 +8325,7 @@
     "pk": "art-der-hochbaute-sporthallen",
     "fields": {
       "created_at": "2020-09-18T15:12:30.899Z",
-      "modified_at": "2020-11-25T18:52:46.007Z",
+      "modified_at": "2020-12-10T09:25:08.925Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Sporthallen, Sportpl\\u00e4tze\", \"fr\": null}",
@@ -8261,7 +8339,7 @@
     "pk": "art-der-hochbaute-tourismusanlagen",
     "fields": {
       "created_at": "2020-09-18T15:12:30.841Z",
-      "modified_at": "2020-11-25T18:52:45.915Z",
+      "modified_at": "2020-12-10T09:25:08.784Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Freizeit- und Tourismusanlagen\", \"fr\": null}",
@@ -8275,7 +8353,7 @@
     "pk": "art-der-hochbaute-wohn-und-geschaftshaus",
     "fields": {
       "created_at": "2020-09-04T08:09:33.798Z",
-      "modified_at": "2020-11-25T18:52:45.679Z",
+      "modified_at": "2020-12-10T09:25:06.515Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Wohn- und Gesch\\u00e4ftshaus\", \"fr\": null}",
@@ -8289,7 +8367,7 @@
     "pk": "art-der-hochbaute-wohnheim-ohne-pflege",
     "fields": {
       "created_at": "2020-09-18T15:12:30.757Z",
-      "modified_at": "2020-11-25T18:52:45.823Z",
+      "modified_at": "2020-12-10T09:25:06.726Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Wohnheim ohne Pflegedienste und Betreuung\", \"fr\": null}",
@@ -16864,6 +16942,32 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "allgemeine-informationen-reklame",
+    "fields": {
+      "created_at": "2020-12-10T10:39:32.384Z",
+      "modified_at": "2020-12-10T10:39:32.384Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Allgemeine Informationen Reklame\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"Test\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "allgemeine-infos",
     "fields": {
       "created_at": "2020-10-30T17:15:57.712Z",
@@ -17601,7 +17705,7 @@
     "pk": "art-der-hochbaute",
     "fields": {
       "created_at": "2020-09-04T07:47:18.753Z",
-      "modified_at": "2020-11-25T18:52:46.530Z",
+      "modified_at": "2020-12-10T09:25:09.720Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Typ des Bauwerks\", \"fr\": null}",
@@ -20454,16 +20558,16 @@
     "pk": "einreichen",
     "fields": {
       "created_at": "2020-11-02T15:50:57.270Z",
-      "modified_at": "2020-11-02T15:50:57.270Z",
+      "modified_at": "2020-12-09T14:57:23.177Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Einreichen\", \"fr\": null}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "!(\n  'form-type'|answer in [\n    \"form-type-building-permit-canton\",\n    \"form-type-building-permit-municipality\",\n    \"form-type-preliminary-clarification-canton\",\n    \"form-type-preliminary-clarification-municipality\",\n    \"form-type-project-announcement\",\n    \"form-type-solar-announcement\",\n    \"form-type-commercial-permit\",\n    \"form-type-veranstaltungsgesuch\"\n  ]\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -23336,6 +23440,32 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "info-mbv-kanton",
+    "fields": {
+      "created_at": "2020-12-09T13:50:01.821Z",
+      "modified_at": "2020-12-10T08:32:30.424Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "label": "{\"de\": \"Allgemeine Information zu internen Mitberichtsverfahren\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"##Allgemeine Informationen zu verwaltungsinternen Verfahren\\n\\nAlle internen Verfahren werden k\\u00fcnftig, analog wie das zum Beispiel beim Baubewilligungsverfahren gemacht wird, mit dem benutzergef\\u00fchrten Formular erfasst. Die Themen \\\"Personalien\\\" und \\\"Lokalisierung\\\" sind dabei bei allen Verfahren identisch.\\n\\n**Auswahl des Verfahrens**\\nZur Vereinfachung der Datenstruktur werden die diversen Verfahrenstypen in den drei Themen \\\"Mitberichtsverfahren Kanton\\\", Mitberichtsverfahren Bund\\\" und \\\"PGV Kanton\\\" zusammengef\\u00fchrt.  Bis auf weiteres k\\u00f6nnen Sie, wenn Sie ein neues Dossier erstellen m\\u00f6chten,  wie gewohnt im CAMAC Menu \\\"Neues Dossier erstellen\\\" das Verfahren ausw\\u00e4hlen. Im Formular wird das dazugeh\\u00f6rige Thema angezeigt. In einem zweiten Schritt k\\u00f6nnen Sie dann die definitive Auswahl des Verfahrens t\\u00e4tigen (im Endausbau von URec wird die erste Auswahl wegfallen).\\n\\n##Klassierung der Verfahren##\\n**Mitberichtsverfahren Kanton** beinhaltet alle Mitberichtsverfahren die von einer kantonalen Stelle geleitet werden (z.B. Konzessionsverfahren - Leitbeh\\u00f6rde ist das Amt f\\u00fcr Energie).\\n\\n**Mitberichtsverfahren Bund** sind Verfahren, bei denen die kantonalen Fachstellen einen direkten oder einen koordinierten Mitbericht zu handen einer Bundesstelle abgeben (z.B. ein Mitberichtsverfahren zu einem PGV nach Seilbahngesetz - Leitbeh\\u00f6rde ist das BAV, zust\\u00e4ndig f\\u00fcr die Koordination der R\\u00fcckmeldungen der kantonalen Fachstellen ist das ARE).\\n\\n**PGV Kanton** beinhaltet alle Plangenehmigungsverfahren die von einer kantonalen Stelle geleitet werden (z.B. PGV Kantonsstrasse - Leitbeh\\u00f6rde ist die Baudirektion).\\n\\nWir bitten Sie, im Rahmen der internen Verfahren auf die **Erhebung von Geb\\u00fchren** zu verzichten.\\n\\nBei Fragen wenden Sie sich bitte an das [Amt f\\u00fcr Raumentwicklung](https://www.ur.ch/_rte/amt/847) oder schreiben Sie uns eine Nachricht an:[Support URec](raumplanung@ur.ch)\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "infrastruktur-entsorgung",
     "fields": {
       "created_at": "2020-11-25T18:55:44.971Z",
@@ -25105,10 +25235,10 @@
     "pk": "mitberichtsverfahren-koor-bg",
     "fields": {
       "created_at": "2020-11-24T13:00:50.303Z",
-      "modified_at": "2020-12-07T16:08:12.655Z",
+      "modified_at": "2020-12-09T11:46:39.542Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "label": "{\"de\": \"Mitberichtsverfahren ARE\", \"fr\": null}",
+      "label": "{\"de\": \"Mitberichtsverfahren Kanton\", \"fr\": null}",
       "type": "form",
       "is_required": "false",
       "is_hidden": "false",
@@ -30523,7 +30653,7 @@
     "pk": "zustaendige-personen",
     "fields": {
       "created_at": "2020-11-27T07:36:53.324Z",
-      "modified_at": "2020-12-01T12:43:10.195Z",
+      "modified_at": "2020-12-09T14:40:20.340Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Zust\\u00e4ndige Person der Leitbeh\\u00f6rde\", \"fr\": null}",
@@ -31175,8 +31305,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-andere",
     "fields": {
-      "created_at": "2020-11-25T18:52:46.606Z",
-      "modified_at": "2020-11-25T18:52:46.606Z",
+      "created_at": "2020-12-10T09:25:09.982Z",
+      "modified_at": "2020-12-10T09:25:09.982Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -31188,8 +31318,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-bauten-und-anlagen-gastgewerbe",
     "fields": {
-      "created_at": "2020-11-25T18:52:46.612Z",
-      "modified_at": "2020-11-25T18:52:46.612Z",
+      "created_at": "2020-12-10T09:25:09.991Z",
+      "modified_at": "2020-12-10T09:25:09.991Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -31201,8 +31331,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-brennstofflager",
     "fields": {
-      "created_at": "2020-11-25T18:52:46.561Z",
-      "modified_at": "2020-11-25T18:52:46.561Z",
+      "created_at": "2020-12-10T09:25:09.932Z",
+      "modified_at": "2020-12-10T09:25:09.932Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -31214,8 +31344,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-doppeleinfamilienhaus",
     "fields": {
-      "created_at": "2020-11-25T18:52:46.632Z",
-      "modified_at": "2020-11-25T18:52:46.632Z",
+      "created_at": "2020-12-10T09:25:10.012Z",
+      "modified_at": "2020-12-10T09:25:10.012Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -31227,8 +31357,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-einfamilienhaus",
     "fields": {
-      "created_at": "2020-11-25T18:52:46.636Z",
-      "modified_at": "2020-11-25T18:52:46.636Z",
+      "created_at": "2020-12-10T09:25:10.015Z",
+      "modified_at": "2020-12-10T09:25:10.015Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -31240,8 +31370,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-energieholzlager",
     "fields": {
-      "created_at": "2020-11-25T18:52:46.567Z",
-      "modified_at": "2020-11-25T18:52:46.567Z",
+      "created_at": "2020-12-10T09:25:09.939Z",
+      "modified_at": "2020-12-10T09:25:09.939Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -31253,8 +31383,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-forstwirtschaft",
     "fields": {
-      "created_at": "2020-11-25T18:52:46.571Z",
-      "modified_at": "2020-11-25T18:52:46.571Z",
+      "created_at": "2020-12-10T09:25:09.943Z",
+      "modified_at": "2020-12-10T09:25:09.943Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -31266,8 +31396,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-garage-oder-carport",
     "fields": {
-      "created_at": "2020-11-25T18:52:46.616Z",
-      "modified_at": "2020-11-25T18:52:46.616Z",
+      "created_at": "2020-12-10T09:25:09.995Z",
+      "modified_at": "2020-12-10T09:25:09.995Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -31279,8 +31409,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-geschaftshaus",
     "fields": {
-      "created_at": "2020-11-25T18:52:46.626Z",
-      "modified_at": "2020-11-25T18:52:46.626Z",
+      "created_at": "2020-12-10T09:25:10.005Z",
+      "modified_at": "2020-12-10T09:25:10.005Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -31292,8 +31422,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-heim-mit-unterkunft",
     "fields": {
-      "created_at": "2020-11-25T18:52:46.595Z",
-      "modified_at": "2020-11-25T18:52:46.595Z",
+      "created_at": "2020-12-10T09:25:09.970Z",
+      "modified_at": "2020-12-10T09:25:09.970Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -31305,8 +31435,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-industrie",
     "fields": {
-      "created_at": "2020-11-25T18:52:46.619Z",
-      "modified_at": "2020-11-25T18:52:46.619Z",
+      "created_at": "2020-12-10T09:25:09.998Z",
+      "modified_at": "2020-12-10T09:25:09.998Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -31318,8 +31448,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-kehrichtentsorgungsanlagen",
     "fields": {
-      "created_at": "2020-11-25T18:52:46.539Z",
-      "modified_at": "2020-11-25T18:52:46.539Z",
+      "created_at": "2020-12-10T09:25:09.909Z",
+      "modified_at": "2020-12-10T09:25:09.909Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -31331,8 +31461,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-kirchen",
     "fields": {
-      "created_at": "2020-11-25T18:52:46.584Z",
-      "modified_at": "2020-11-25T18:52:46.584Z",
+      "created_at": "2020-12-10T09:25:09.958Z",
+      "modified_at": "2020-12-10T09:25:09.958Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -31344,8 +31474,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-kommunikationsanlagen",
     "fields": {
-      "created_at": "2020-11-25T18:52:46.547Z",
-      "modified_at": "2020-11-25T18:52:46.547Z",
+      "created_at": "2020-12-10T09:25:09.918Z",
+      "modified_at": "2020-12-10T09:25:09.918Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -31357,8 +31487,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-kulturbauten",
     "fields": {
-      "created_at": "2020-11-25T18:52:46.580Z",
-      "modified_at": "2020-11-25T18:52:46.580Z",
+      "created_at": "2020-12-10T09:25:09.955Z",
+      "modified_at": "2020-12-10T09:25:09.955Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -31370,8 +31500,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-landwirtschaft-betrieb-wohnteil",
     "fields": {
-      "created_at": "2020-11-25T18:52:46.554Z",
-      "modified_at": "2020-11-25T18:52:46.554Z",
+      "created_at": "2020-12-10T09:25:09.925Z",
+      "modified_at": "2020-12-10T09:25:09.925Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -31383,8 +31513,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-materiallager",
     "fields": {
-      "created_at": "2020-11-25T18:52:46.564Z",
-      "modified_at": "2020-11-25T18:52:46.564Z",
+      "created_at": "2020-12-10T09:25:09.935Z",
+      "modified_at": "2020-12-10T09:25:09.935Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -31396,8 +31526,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-mehrfamilienhaus",
     "fields": {
-      "created_at": "2020-11-25T18:52:46.629Z",
-      "modified_at": "2020-11-25T18:52:46.629Z",
+      "created_at": "2020-12-10T09:25:10.008Z",
+      "modified_at": "2020-12-10T09:25:10.008Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -31409,8 +31539,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-oekonomie-mit-tieren-mit-tieren",
     "fields": {
-      "created_at": "2020-11-25T18:52:46.574Z",
-      "modified_at": "2020-11-25T18:52:46.574Z",
+      "created_at": "2020-12-10T09:25:09.947Z",
+      "modified_at": "2020-12-10T09:25:09.947Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -31422,8 +31552,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-oekonomiegebaude",
     "fields": {
-      "created_at": "2020-11-25T18:52:46.609Z",
-      "modified_at": "2020-11-25T18:52:46.609Z",
+      "created_at": "2020-12-10T09:25:09.988Z",
+      "modified_at": "2020-12-10T09:25:09.988Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -31435,8 +31565,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-parkhaus",
     "fields": {
-      "created_at": "2020-11-25T18:52:46.550Z",
-      "modified_at": "2020-11-25T18:52:46.550Z",
+      "created_at": "2020-12-10T09:25:09.922Z",
+      "modified_at": "2020-12-10T09:25:09.922Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -31448,8 +31578,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-reklamebauten",
     "fields": {
-      "created_at": "2020-11-25T18:52:46.543Z",
-      "modified_at": "2020-11-25T18:52:46.543Z",
+      "created_at": "2020-12-10T09:25:09.914Z",
+      "modified_at": "2020-12-10T09:25:09.914Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -31461,8 +31591,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-schulen",
     "fields": {
-      "created_at": "2020-11-25T18:52:46.591Z",
-      "modified_at": "2020-11-25T18:52:46.591Z",
+      "created_at": "2020-12-10T09:25:09.966Z",
+      "modified_at": "2020-12-10T09:25:09.966Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -31474,8 +31604,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-silo",
     "fields": {
-      "created_at": "2020-11-25T18:52:46.558Z",
-      "modified_at": "2020-11-25T18:52:46.558Z",
+      "created_at": "2020-12-10T09:25:09.929Z",
+      "modified_at": "2020-12-10T09:25:09.929Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -31487,8 +31617,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-spital",
     "fields": {
-      "created_at": "2020-11-25T18:52:46.598Z",
-      "modified_at": "2020-11-25T18:52:46.598Z",
+      "created_at": "2020-12-10T09:25:09.973Z",
+      "modified_at": "2020-12-10T09:25:09.973Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -31500,8 +31630,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-sporthallen",
     "fields": {
-      "created_at": "2020-11-25T18:52:46.577Z",
-      "modified_at": "2020-11-25T18:52:46.577Z",
+      "created_at": "2020-12-10T09:25:09.950Z",
+      "modified_at": "2020-12-10T09:25:09.950Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -31513,8 +31643,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-tourismusanlagen",
     "fields": {
-      "created_at": "2020-11-25T18:52:46.587Z",
-      "modified_at": "2020-11-25T18:52:46.587Z",
+      "created_at": "2020-12-10T09:25:09.962Z",
+      "modified_at": "2020-12-10T09:25:09.962Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -31526,8 +31656,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-wohn-und-geschaftshaus",
     "fields": {
-      "created_at": "2020-11-25T18:52:46.622Z",
-      "modified_at": "2020-11-25T18:52:46.623Z",
+      "created_at": "2020-12-10T09:25:10.002Z",
+      "modified_at": "2020-12-10T09:25:10.002Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -31539,8 +31669,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-wohnheim-ohne-pflege",
     "fields": {
-      "created_at": "2020-11-25T18:52:46.602Z",
-      "modified_at": "2020-11-25T18:52:46.602Z",
+      "created_at": "2020-12-10T09:25:09.977Z",
+      "modified_at": "2020-12-10T09:25:09.977Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
