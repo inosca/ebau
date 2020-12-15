@@ -7,6 +7,7 @@ module.exports = function (environment) {
     rootURL: "/",
     locationType: "hash",
     podModulePrefix: "camac-ng/ui",
+    historySupportMiddleware: true,
     apollo: {
       apiURL: "/graphql/",
     },
@@ -79,6 +80,7 @@ module.exports = function (environment) {
   }
 
   ENV.APPLICATION = ENV.APPLICATIONS[process.env.APPLICATION || "kt_bern"];
+  ENV.routerScroll = { targetElement: ENV.APP.rootElement };
 
   return ENV;
 };
