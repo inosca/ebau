@@ -166,7 +166,7 @@ def test_create_instance_caluma(
     # questions for application extension of validity period
     caluma_form_models.Question.objects.create(
         slug="dossiernummer",
-        type=caluma_form_models.Question.TYPE_TEXT,
+        type=caluma_form_models.Question.TYPE_INTEGER,
     )
     QuestionType.objects.create(question_type_id=1, name="Text")
     Question.objects.create(question_id=constants.QUESTION_EBAU_NR, question_type_id=1)
