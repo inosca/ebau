@@ -358,6 +358,20 @@ APPLICATIONS = {
                 "template_slug": "02-benachrichtigung-baubewilligungsbehorde",
                 "recipient_types": ["leitbehoerde"],
             },
+            "DECISION": [
+                {
+                    "template_slug": "08-stellungnahme-zu-voranfrage-gesuchsteller",
+                    "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "08-entscheid-gemeindeleitbehorde",
+                    "recipient_types": ["leitbehoerde"],
+                },
+                {
+                    "template_slug": "08-entscheid-amts-und-fachstellen",
+                    "recipient_types": ["service"],
+                },
+            ],
         },
         "PUBLICATION_DURATION": timedelta(),
         "IS_MULTILINGUAL": True,
@@ -380,6 +394,7 @@ APPLICATIONS = {
             "REPORT_TASK": "sb1",
             "FINALIZE_TASK": "sb2",
             "AUDIT_TASK": "audit",
+            "DECISION_TASK": "decision",
             "COPY_PAPER_ANSWER_TO": ["nfd", "sb1", "sb2"],
             "COPY_PERSONAL": [
                 {
