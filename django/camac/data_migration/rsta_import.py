@@ -111,12 +111,18 @@ class Importer:
             yield from self.iter(_file)
 
     def run(self, reimport: bool = True, debug: bool = False):
+        self._exec_method("run", reimport, debug)
+
+    def set_zustaendig(self, reimport: bool = True, debug: bool = False):
+        self._exec_method("set_zustaendig", reimport, debug)
+
+    def _exec_method(self, method, reimport: bool = True, debug: bool = False):
         start = now()
 
         for filename, geschaeft in self.iter(self.path):
             print(f"Importing geschaeft {geschaeft.geschaefts_nr} from file {filename}")
             _import = Import(self, filename, geschaeft)
-            result = _import.run(reimport, debug)
+            result = getattr(_import, method)(reimport, debug)
             self.write_result(filename, result)
 
         duration = (now() - start).seconds
@@ -158,6 +164,7 @@ class Import:
         self.importer = importer
         self.filename = filename
         self.geschaeft = geschaeft
+        self.instance = None
 
         self.now = now()
         self.row_documents = defaultdict(list)
@@ -177,8 +184,15 @@ class Import:
         self.results["errors"].append(error)
 
     def run(self, reimport: bool = True, debug: bool = False) -> bool:
+        return self._exec_method("_run", reimport, debug)
+
+    def set_zustaendig(self, reimport: bool = True, debug: bool = False) -> bool:
+        return self._exec_method("_set_zustaendig", reimport, debug)
+
+    def _exec_method(self, method, reimport: bool = True, debug: bool = False) -> bool:
         try:
-            self._run(reimport)
+            self._init()
+            getattr(self, method)(reimport)
             self.results["status"] = "completed"
         except Exception:  # noqa: B901
             self.results["status"] = "failed"
@@ -192,7 +206,7 @@ class Import:
 
         return self.results
 
-    def _run(self, reimport):
+    def _init(self):
         self.municipality = self.get_municipality(self.geschaeft.Gemeinde.service_name)
         self.service = Service.objects.get(pk=self.geschaeft.Mandant.service)
         self.group = self.service.groups.filter(
@@ -203,6 +217,7 @@ class Import:
         self.caluma_user.username = user.username
         self.caluma_user.group = self.group.service_id
 
+    def _run(self, reimport):
         instance_state = InstanceState.objects.get(
             name=self.geschaeft.instance_state_name
         )
@@ -246,6 +261,7 @@ class Import:
         self.instance.tags.create(
             service=self.service, name=self.geschaeft.geschaefts_nr
         )
+        self._set_zustaendig()
 
         self.case = Case.objects.filter(
             **{
@@ -456,3 +472,25 @@ class Import:
             return ServiceT.objects.get(
                 name=name, language="de", service__disabled=0
             ).service
+
+    def _set_zustaendig(self, reimport: bool = True):
+        zustaendig = self.geschaeft.gZustaendig
+
+        if not zustaendig:
+            return
+
+        instance = self.instance
+
+        if instance is None:
+            tag = Tags.objects.filter(
+                name=self.geschaeft.geschaefts_nr, service=self.service
+            ).first()
+
+            if tag is None:
+                return
+
+            instance = tag.instance
+
+        Tags.objects.get_or_create(
+            instance=instance, service=self.service, name=f"zuständig: {zustaendig}"
+        )

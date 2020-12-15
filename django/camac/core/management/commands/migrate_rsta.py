@@ -54,7 +54,15 @@ class Command(BaseCommand):
             "--debug",
             action="store_true",
             default=False,
-            help="Throw exception and stop if error occures, default: off",
+            help="Throw exception and stop if error occures",
+        )
+
+        parser.add_argument(
+            "--zustaendig-only",
+            action="store_true",
+            dest="zustaendig",
+            default=False,
+            help="Import only zustaendig as tags, requires existing instances with geschaefts_nr.",
         )
 
     def handle(self, *args, **options):
@@ -66,5 +74,13 @@ class Command(BaseCommand):
             if k in ["state_file", "document-path"] and v
         }
 
-        importer = Importer(path, **kwargs)
-        importer.run(options["reimport"], options["debug"])
+        if options["zustaendig"]:
+            kwargs.setdefault(
+                "state_file", Path.cwd() / "migrate_rsta_zustaendig.pickle"
+            )
+            importer = Importer(path, **kwargs)
+            print('Importing only "zustaendig: user" tags')
+            importer.set_zustaendig(options["reimport"], options["debug"])
+        else:
+            importer = Importer(path, **kwargs)
+            importer.run(options["reimport"], options["debug"])
