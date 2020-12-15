@@ -3,7 +3,8 @@ import re
 from logging import getLogger
 from uuid import uuid4
 
-from caluma.caluma_form.models import Document, Form
+from caluma.caluma_form import api as form_api
+from caluma.caluma_form.models import Document, Form, Question
 from caluma.caluma_form.validators import CustomValidationError
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
 from django.conf import settings
@@ -374,6 +375,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
             be_constants.INSTANCE_STATE_EBAU_NUMMER_VERGEBEN: be_constants.PUBLIC_INSTANCE_STATE_RECEIVING,
             be_constants.INSTANCE_STATE_CORRECTION_IN_PROGRESS: be_constants.PUBLIC_INSTANCE_STATE_COMMUNAL,
             be_constants.INSTANCE_STATE_IN_PROGRESS: be_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
+            be_constants.INSTANCE_STATE_IN_PROGRESS_INTERNAL: be_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
             be_constants.INSTANCE_STATE_KOORDINATION: be_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
             be_constants.INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT: be_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
             be_constants.INSTANCE_STATE_ZIRKULATION: be_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
@@ -385,6 +387,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
             be_constants.INSTANCE_STATE_FINISHED: be_constants.PUBLIC_INSTANCE_STATE_FINISHED,
             be_constants.INSTANCE_STATE_ARCHIVED: be_constants.PUBLIC_INSTANCE_STATE_ARCHIVED,
             be_constants.INSTANCE_STATE_DONE: be_constants.PUBLIC_INSTANCE_STATE_DONE,
+            be_constants.INSTANCE_STATE_DONE_INTERNAL: be_constants.PUBLIC_INSTANCE_STATE_DONE,
         }
 
         return STATUS_MAP.get(
@@ -565,6 +568,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
         if instance.instance_state.name in [
             "circulation_init",
             "circulation",
+            "in_coordination",
             "in_progress",
             "in_progress_internal",
         ]:
@@ -674,8 +678,11 @@ class CalumaInstanceSerializer(InstanceSerializer):
                 "EXTEND_VALIDITY_COPY_QUESTIONS", []
             )
         ):
-            caluma_api.update_or_create_answer(
-                new_document.pk, answer.question_id, answer.value
+            form_api.save_answer(
+                answer.question,
+                new_document,
+                self.context["request"].caluma_info.context.user,
+                answer.value,
             )
 
         for slug in settings.APPLICATION["CALUMA"].get(
@@ -688,7 +695,12 @@ class CalumaInstanceSerializer(InstanceSerializer):
                 new_document,
             )
 
-        caluma_api.update_or_create_answer(new_document.pk, "dossiernummer", source.pk)
+        form_api.save_answer(
+            Question.objects.get(pk="dossiernummer"),
+            new_document,
+            self.context["request"].caluma_info.context.user,
+            int(source.pk),
+        )
 
     def _copy_ebau_number(self, source_instance, target_instance, case):
         ebau_number = caluma_api.get_ebau_number(source_instance)
