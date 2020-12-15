@@ -476,6 +476,8 @@ class Geschaeft:
     cgCode: str
     cgCodeD: str
     cgCodeBezD: str
+    gZustaendig: str
+    gMutuser: str
 
     Gemeinde: Gemeinde
     Mandant: Mandant
