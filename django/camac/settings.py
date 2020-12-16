@@ -531,7 +531,7 @@ APPLICATIONS = {
                     "baugesuch-generell",
                     "vorabklaerung-vollstaendig",
                 ],
-                "template": "2-level",
+                "template": "form",
                 "allgemeine_info": "1-allgemeine-informationen",
                 "personalien": "personalien",
                 "people_sources": {
@@ -559,7 +559,7 @@ APPLICATIONS = {
                 "exclude_slugs": [
                     "is-paper",
                     "projektaenderung",
-                    "8-freigabequittung",
+                    "einreichen-button",
                     "karte",
                 ],
             },
@@ -567,14 +567,14 @@ APPLICATIONS = {
                 "forms": [
                     "vorabklaerung-einfach",
                 ],
-                "template": "1-level",
+                "template": "form",
                 "allgemeine_info": "allgemeine-informationen-vorabklaerung-form",
                 "givenName": "vorname-gesuchstellerin-vorabklaerung",
                 "familyName": "name-gesuchstellerin-vorabklaerung",
                 "exclude_slugs": [
                     "is-paper",
                     "projektaenderung",
-                    "freigabequittung-vorabklaerung-form",
+                    "einreichen-button",
                     "dokumente-vorabklaerung-form",
                     "karte-einfache-vorabklaerung",
                 ],
@@ -587,7 +587,7 @@ APPLICATIONS = {
                     "klaerung-baubewilligungspflicht",
                     "verlaengerung-geltungsdauer",
                 ],
-                "template": "1-level",
+                "template": "form",
                 "allgemeine_info": "allgemeine-angaben-kurz-formular",
                 "personalien": "personalien-kurz-formular",
                 "people_sources": {
@@ -611,17 +611,17 @@ APPLICATIONS = {
                 "exclude_slugs": [
                     "is-paper",
                     "projektaenderung",
-                    "8-freigabequittung",
+                    "einreichen-button",
                     "karte",
                 ],
             },
             "selbstdeklaration": {
                 "forms": ["sb1", "sb2"],
-                "template": "1-level",
+                "template": "form",
                 "exclude_slugs": [
                     "is-paper",
-                    "freigabequittung-sb1",
-                    "freigabequittung-sb2",
+                    "einreichen-button-sb1",
+                    "einreichen-button-sb2",
                     "dokumente-sb1",
                     "dokumente-sb2",
                 ],

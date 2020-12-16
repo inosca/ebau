@@ -3320,19 +3320,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "abschluss-sb2.bemerkungen-abschluss-sb2",
-    "fields": {
-      "created_at": "2019-09-25T10:19:39.757Z",
-      "modified_at": "2019-09-25T10:19:39.757Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "abschluss-sb2",
-      "question": "bemerkungen-abschluss-sb2",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "abschluss-sb2.meldung-tankanlage",
     "fields": {
       "created_at": "2019-09-25T10:19:38.851Z",
@@ -6557,6 +6544,19 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "freigabequittung-sb1.bemerkungen-sb1",
+    "fields": {
+      "created_at": "2020-12-16T10:06:19.942Z",
+      "modified_at": "2020-12-16T10:06:19.942Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "freigabequittung-sb1",
+      "question": "bemerkungen-sb1",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "freigabequittung-sb1.einreichen-button-sb1",
     "fields": {
       "created_at": "2019-09-25T10:19:39.799Z",
@@ -6605,6 +6605,19 @@
       "form": "freigabequittung-sb1",
       "question": "is-paper",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "freigabequittung-sb2.bemerkungen-abschluss-sb2",
+    "fields": {
+      "created_at": "2020-12-16T10:07:23.768Z",
+      "modified_at": "2020-12-16T10:07:23.768Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "freigabequittung-sb2",
+      "question": "bemerkungen-abschluss-sb2",
+      "sort": 5
     }
   },
   {
@@ -10531,19 +10544,6 @@
       "form": "selbstdeklaration-sb1",
       "question": "beginn-bauarbeiten",
       "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "selbstdeklaration-sb1.bemerkungen-sb1",
-    "fields": {
-      "created_at": "2019-09-25T10:19:39.614Z",
-      "modified_at": "2019-09-25T10:19:39.614Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "selbstdeklaration-sb1",
-      "question": "bemerkungen-sb1",
-      "sort": 1
     }
   },
   {
@@ -30969,7 +30969,7 @@
     "pk": "freigabequittung-druckansicht",
     "fields": {
       "created_at": "2019-06-17T10:46:43.842Z",
-      "modified_at": "2019-06-17T10:49:06.755Z",
+      "modified_at": "2020-12-16T10:13:54.725Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"\", \"fr\": \"\"}",
@@ -30979,7 +30979,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
-      "static_content": "{\"de\": \"Das folgende Formular ist unterzeichnet und datiert an die Baupolizeibeh\\u00f6rde zu senden.\", \"fr\": \"La DC 2 doit \\u00eatre imprim\\u00e9e, sign\\u00e9e et envoy\\u00e9e \\u00e0 la police des constructions.\"}",
+      "static_content": "{\"de\": \"<hr>\\n<p class=\\\"uk-margin-remove-bottom\\\">Das folgende Formular ist unterzeichnet und datiert an die Baupolizeibeh\\u00f6rde zu senden.</p>\", \"fr\": \"<hr>\\n<p class=\\\"uk-margin-remove-bottom\\\">La DC 1 doit \\u00eatre imprim\\u00e9e, sign\\u00e9e et envoy\\u00e9e \\u00e0 la police des constructions.</p>\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -31047,7 +31047,7 @@
     "pk": "freigabequittung-sb2-druckansicht",
     "fields": {
       "created_at": "2019-06-17T11:49:05.910Z",
-      "modified_at": "2019-06-17T11:49:05.910Z",
+      "modified_at": "2020-12-16T10:16:52.660Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"\", \"fr\": \"\"}",
@@ -31056,8 +31056,8 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"Das folgende Formular ist unterzeichnet und datiert und an die Baupolizeibeh\\u00f6rde zu senden.\", \"fr\": \"\"}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"<hr>\\n<p class=\\\"uk-margin-remove-bottom\\\">Das folgende Formular ist unterzeichnet und datiert an die Baupolizeibeh\\u00f6rde zu senden.</p>\", \"fr\": \"<hr>\\n<p class=\\\"uk-margin-remove-bottom\\\">La DC 2 doit \\u00eatre imprim\\u00e9e, sign\\u00e9e et envoy\\u00e9e \\u00e0 la police des constructions.</p>\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -31073,7 +31073,7 @@
     "pk": "freigabequittung-text",
     "fields": {
       "created_at": "2019-05-08T12:42:53.746Z",
-      "modified_at": "2019-05-08T12:42:53.746Z",
+      "modified_at": "2020-12-16T09:29:51.050Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"freigabequittung-text\", \"fr\": \"Declaration de validation\"}",
@@ -31083,7 +31083,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
-      "static_content": "{\"de\": \"S\\u00e4mtliche Pl\\u00e4ne und Dokumente sind unterzeichnet, datiert und in mindestens zweifacher Ausgabe mit dem Gesuchsformular bei der zust\\u00e4ndigen Gemeinde einzusenden.\", \"fr\": \"Tous les documents doivent \\u00eatre sign\\u00e9s, dat\\u00e9s et soumis en au moins deux exemplaires avec le formulaire de demande \\u00e0 la municipalit\\u00e9 responsable.\"}",
+      "static_content": "{\"de\": \"<hr>\\n<p class=\\\"uk-margin-remove-bottom\\\">S\\u00e4mtliche Pl\\u00e4ne und Dokumente sind unterzeichnet, datiert und in mindestens zweifacher Ausgabe mit dem Gesuchsformular bei der zust\\u00e4ndigen Gemeinde einzusenden.</p>\", \"fr\": \"<hr>\\n<p class=\\\"uk-margin-remove-bottom\\\">Tous les documents doivent \\u00eatre sign\\u00e9s, dat\\u00e9s et soumis en au moins deux exemplaires avec le formulaire de demande \\u00e0 la municipalit\\u00e9 responsable.</p>\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
