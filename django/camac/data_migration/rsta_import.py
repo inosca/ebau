@@ -2,6 +2,7 @@ import codecs
 import json
 import mimetypes
 import pickle
+import re
 import sys
 import traceback
 from collections import Counter, defaultdict
@@ -246,21 +247,13 @@ class Import:
             form_id=1,
         )
 
-        # use gNrExtern if it's an existing ebau_nr
-        if (
-            self.geschaeft.gNrExtern
-            and Case.objects.filter(
-                **{"meta__ebau-number": self.geschaeft.gNrExtern}
-            ).exists()
-        ):
-            ebau_nr = self.geschaeft.gNrExtern
-        else:
-            ebau_nr = utils.assign_ebau_nr(self.instance, self.geschaeft.gJahr)
+        ebau_nr = self.get_or_create_ebau_nr()
 
         self.instance.instance_services.create(service=self.service, active=1)
         self.instance.tags.create(
             service=self.service, name=self.geschaeft.geschaefts_nr
         )
+
         self._set_zustaendig()
 
         self.case = Case.objects.filter(
@@ -494,3 +487,22 @@ class Import:
         Tags.objects.get_or_create(
             instance=instance, service=self.service, name=f"zuständig: {zustaendig}"
         )
+
+    def get_or_create_ebau_nr(self):
+        # use gNrExtern if it's an existing ebau_nr
+        pattern = re.compile("([0-9]{4}-[1-9][0-9]*)")
+        result = pattern.search(str(self.geschaeft.gNrExtern))
+
+        if result:
+            try:
+                match = result.groups()[0]
+                case = Case.objects.filter(**{"meta__ebau-number": match}).first()
+                instance_id = case.meta.get("camac-instance-id")
+                instance = Instance.objects.get(pk=instance_id)
+
+                if instance.services.filter(service_id=self.service.pk).exists():
+                    return match
+            except Exception:
+                pass
+
+        return utils.assign_ebau_nr(self.instance, self.geschaeft.gJahr)
