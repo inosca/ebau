@@ -42849,6 +42849,33 @@
   },
   {
     "model": "core.broleacl",
+    "pk": 150032,
+    "fields": {
+      "button": 20046,
+      "role": 3,
+      "instance_state": 20004
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 150033,
+    "fields": {
+      "button": 20021,
+      "role": 3,
+      "instance_state": 20004
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 150034,
+    "fields": {
+      "button": 20022,
+      "role": 3,
+      "instance_state": 20004
+    }
+  },
+  {
+    "model": "core.broleacl",
     "pk": 1200001,
     "fields": {
       "button": 1200000,
@@ -43004,7 +43031,7 @@
       "instance_resource": 20029,
       "name": null,
       "description": null,
-      "class_field": "success active_leitbehoerde_only",
+      "class_field": "success active_leitbehoerde_only no_running_circulations no_open_claims",
       "hidden": 0,
       "sort": 0
     }
@@ -43016,7 +43043,7 @@
       "instance_resource": 20029,
       "name": null,
       "description": null,
-      "class_field": "active_leitbehoerde_only",
+      "class_field": "active_leitbehoerde_only no_running_circulations no_open_claims",
       "hidden": 0,
       "sort": 1
     }
@@ -43100,7 +43127,7 @@
       "instance_resource": 20074,
       "name": null,
       "description": null,
-      "class_field": "active_leitbehoerde_only",
+      "class_field": "active_leitbehoerde_only no_running_circulations",
       "hidden": 0,
       "sort": 0
     }
@@ -63275,6 +63302,15 @@
       "instance_resource": 150011,
       "role": 10000,
       "instance_state": 120003
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 150308,
+    "fields": {
+      "instance_resource": 20029,
+      "role": 3,
+      "instance_state": 20004
     }
   },
   {
