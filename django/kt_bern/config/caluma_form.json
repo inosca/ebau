@@ -4004,7 +4004,7 @@
       "created_by_group": null,
       "form": "allgemeine-informationen-geltungsdauer",
       "question": "begruendung-verlaengerung-geltungsdauer",
-      "sort": 9
+      "sort": 8
     }
   },
   {
@@ -4017,7 +4017,7 @@
       "created_by_group": null,
       "form": "allgemeine-informationen-geltungsdauer",
       "question": "beschreibung-bauvorhaben",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -4030,7 +4030,7 @@
       "created_by_group": null,
       "form": "allgemeine-informationen-geltungsdauer",
       "question": "dossiernummer",
-      "sort": 2
+      "sort": 9
     }
   },
   {
@@ -4043,7 +4043,7 @@
       "created_by_group": null,
       "form": "allgemeine-informationen-geltungsdauer",
       "question": "gemeinde",
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -4069,7 +4069,7 @@
       "created_by_group": null,
       "form": "allgemeine-informationen-geltungsdauer",
       "question": "nr",
-      "sort": 7
+      "sort": 6
     }
   },
   {
@@ -4082,7 +4082,7 @@
       "created_by_group": null,
       "form": "allgemeine-informationen-geltungsdauer",
       "question": "ort-grundstueck",
-      "sort": 6
+      "sort": 5
     }
   },
   {
@@ -4095,7 +4095,7 @@
       "created_by_group": null,
       "form": "allgemeine-informationen-geltungsdauer",
       "question": "parzelle",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -4108,7 +4108,7 @@
       "created_by_group": null,
       "form": "allgemeine-informationen-geltungsdauer",
       "question": "strasse-flurname",
-      "sort": 8
+      "sort": 7
     }
   },
   {
@@ -28890,9 +28890,9 @@
       "modified_at": "2020-12-14T13:11:19.314Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "label": "{\"de\": \"Dossiernummer\", \"fr\": null}",
+      "label": "{\"de\": \"Dossier-Nr.\", \"fr\": \"Num\\u00e9ro de dossier\"}",
       "type": "integer",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
@@ -28903,8 +28903,7 @@
         "min_length": null
       },
       "meta": {
-        "widgetOverride": "be-hidden-input",
-	"hideLabel": true
+        "widgetOverride": "be-disabled-input"
       },
       "data_source": null,
       "row_form": null,
