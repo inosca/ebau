@@ -470,7 +470,7 @@ class Geschaeft:
     gNr: int
     gJahr: int
     gNrIntern: int
-    gNrExtern: int
+    gNrExtern: str
     gStatus: int
     gStatusBezD: str
     cgCode: str
