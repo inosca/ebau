@@ -125,6 +125,8 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     pending_activations = serializers.SerializerMethodField()
     activation_statement_de = serializers.SerializerMethodField()
     activation_statement_fr = serializers.SerializerMethodField()
+    activation_answer_de = serializers.SerializerMethodField()
+    activation_answer_fr = serializers.SerializerMethodField()
 
     def __init__(self, instance, *args, activation=None, escape=False, **kwargs):
         self.escape = escape
@@ -288,6 +290,21 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             }
 
         return message.get(language)
+
+    def get_activation_answer_de(self, instance):
+        return self._get_activation_answer(instance, "de")
+
+    def get_activation_answer_fr(self, instance):
+        return self._get_activation_answer(instance, "fr")
+
+    def _get_activation_answer(self, instance, language):
+        if (
+            not getattr(self, "activation", None)
+            or not self.activation.circulation_answer
+        ):
+            return ""
+
+        return self.activation.circulation_answer.get_trans_attr("name", lang=language)
 
     def get_form_name(self, instance):
         if settings.APPLICATION["FORM_BACKEND"] == "camac-ng":
