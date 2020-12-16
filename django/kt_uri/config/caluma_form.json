@@ -67,6 +67,22 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "bundesverfahren",
+    "fields": {
+      "created_at": "2020-12-16T08:46:46.321Z",
+      "modified_at": "2020-12-16T08:46:46.321Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "cantonal-territory-usage",
     "fields": {
       "created_at": "2020-12-07T15:47:19.320Z",
@@ -2334,6 +2350,71 @@
       "form": "building-permit",
       "question": "projektdaten",
       "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bundesverfahren.form-type",
+    "fields": {
+      "created_at": "2020-12-16T08:47:40.496Z",
+      "modified_at": "2020-12-16T08:47:40.496Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "bundesverfahren",
+      "question": "form-type",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bundesverfahren.is-paper",
+    "fields": {
+      "created_at": "2020-12-16T08:47:03.854Z",
+      "modified_at": "2020-12-16T08:47:03.854Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "bundesverfahren",
+      "question": "is-paper",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bundesverfahren.leitbehoerde",
+    "fields": {
+      "created_at": "2020-12-16T08:47:11.240Z",
+      "modified_at": "2020-12-16T08:47:11.240Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "bundesverfahren",
+      "question": "leitbehoerde",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bundesverfahren.lokalisierung",
+    "fields": {
+      "created_at": "2020-12-16T08:47:25.475Z",
+      "modified_at": "2020-12-16T08:47:25.475Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "bundesverfahren",
+      "question": "lokalisierung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bundesverfahren.personalien",
+    "fields": {
+      "created_at": "2020-12-16T08:47:31.242Z",
+      "modified_at": "2020-12-16T08:47:31.242Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "bundesverfahren",
+      "question": "personalien",
+      "sort": 2
     }
   },
   {
