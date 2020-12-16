@@ -214,11 +214,6 @@ export default class InstancesIndexController extends Controller.extend(
         (form) =>
           config.ebau.enableRstaForms ||
           !config.ebau.rstaForms.includes(form.slug)
-      )
-      .filter(
-        (form) =>
-          config.ebau.enableMigratedForm ||
-          form.slug !== config.ebau.migratedForm
       );
   }
 
