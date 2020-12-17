@@ -1053,7 +1053,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         instance.previous_instance_state = instance.instance_state
         instance.instance_state = models.InstanceState.objects.get(name="subm")
 
-        if case.workflow.slug == "building-police-procedure":
+        if case.workflow.slug == "internal":
             instance.instance_state = models.InstanceState.objects.get(
                 name="in_progress_internal"
             )
