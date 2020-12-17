@@ -46,7 +46,7 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
         elif workflow == "preliminary-clarification":
             instance_state_name = "evaluated"
 
-        elif workflow == "building-police-procedure":
+        elif workflow == "internal":
             instance_state_name = "done_internal"
 
         # go to next instance state
