@@ -396,6 +396,11 @@ APPLICATIONS = {
             "AUDIT_TASK": "audit",
             "DECISION_TASK": "decision",
             "EBAU_NUMBER_TASK": "ebau-number",
+            "INTERNAL_FORMS": [
+                "baupolizeiliches-verfahren",
+                "zutrittsermaechtigung",
+                "klaerung-baubewilligungspflicht",
+            ],
             "COPY_PAPER_ANSWER_TO": ["nfd", "sb1", "sb2"],
             "COPY_PERSONAL": [
                 {

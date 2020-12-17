@@ -89,6 +89,7 @@ module.exports = function (environment) {
         "migriertes-dossier",
         "baupolizeiliches-verfahren",
         "zutrittsermaechtigung",
+        "klaerung-baubewilligungspflicht",
       ],
     },
   };
