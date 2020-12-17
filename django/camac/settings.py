@@ -395,6 +395,7 @@ APPLICATIONS = {
             "FINALIZE_TASK": "sb2",
             "AUDIT_TASK": "audit",
             "DECISION_TASK": "decision",
+            "EBAU_NUMBER_TASK": "ebau-number",
             "COPY_PAPER_ANSWER_TO": ["nfd", "sb1", "sb2"],
             "COPY_PERSONAL": [
                 {
