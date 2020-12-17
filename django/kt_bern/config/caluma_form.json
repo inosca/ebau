@@ -856,11 +856,11 @@
     "pk": "klaerung-baubewilligungspflicht",
     "fields": {
       "created_at": "2020-10-15T14:09:35.141Z",
-      "modified_at": "2020-10-15T14:09:35.141Z",
+      "modified_at": "2020-12-17T13:20:21.730Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "name": "{\"de\": \"Kl\\u00e4rung Baubewilligungspflicht\", \"fr\": null}",
-      "description": "{\"de\": \"\", \"fr\": null}",
+      "name": "{\"de\": \"Kl\\u00e4rung Baubewilligungspflicht\", \"fr\": \"Clarification de l'octroi d'un permis de construire\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {
         "category": "preliminary-clarification",
         "is-creatable": true,
@@ -1282,11 +1282,11 @@
     "pk": "verlaengerung-geltungsdauer",
     "fields": {
       "created_at": "2020-11-06T16:19:16.358Z",
-      "modified_at": "2020-11-09T14:39:51.179Z",
+      "modified_at": "2020-12-17T13:22:12.146Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "name": "{\"de\": \"Verl\\u00e4ngerung Geltungsdauer\", \"fr\": null}",
-      "description": "{\"de\": \"\", \"fr\": null}",
+      "name": "{\"de\": \"Verl\\u00e4ngerung Geltungsdauer\", \"fr\": \"Prolongation de la dur\\u00e9e de validit\\u00e9 du permis de construire\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {
         "category": "building-permit",
         "is-creatable": false,
@@ -3224,7 +3224,7 @@
       "created_by_group": null,
       "form": "8-freigabequittung",
       "question": "freigabequittung-bemerkungen",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -3242,6 +3242,19 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "8-freigabequittung.hinweis-klaerung-baubewilligungspflicht",
+    "fields": {
+      "created_at": "2020-12-17T13:15:29.363Z",
+      "modified_at": "2020-12-17T13:15:29.363Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "8-freigabequittung",
+      "question": "hinweis-klaerung-baubewilligungspflicht",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "8-freigabequittung.hinweis-zutrittsermaechtigung",
     "fields": {
       "created_at": "2020-10-30T15:01:28.056Z",
@@ -3250,7 +3263,7 @@
       "created_by_group": null,
       "form": "8-freigabequittung",
       "question": "hinweis-zutrittsermaechtigung",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -24254,16 +24267,16 @@
     "pk": "allgemeine-informationen-geltungsdauer-formular",
     "fields": {
       "created_at": "2020-11-06T16:32:11.454Z",
-      "modified_at": "2020-11-09T12:08:56.204Z",
+      "modified_at": "2020-12-17T13:21:14.576Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "label": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
+      "label": "{\"de\": \"Allgemeine Informationen\", \"fr\": \"Informations g\\u00e9n\\u00e9rales\"}",
       "type": "form",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -26430,16 +26443,16 @@
     "pk": "begruendung-verlaengerung-geltungsdauer",
     "fields": {
       "created_at": "2020-11-06T16:25:51.237Z",
-      "modified_at": "2020-11-06T16:25:51.237Z",
+      "modified_at": "2020-12-17T13:23:42.277Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "label": "{\"de\": \"Begr\\u00fcndung Verl\\u00e4ngerung Geltungsdauer\", \"fr\": null}",
+      "label": "{\"de\": \"Begr\\u00fcndung Verl\\u00e4ngerung Geltungsdauer\", \"fr\": \"Justification de la prolongation de la dur\\u00e9e de validit\\u00e9 du permis de construire\"}",
       "type": "textarea",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "placeholder": "{\"de\": null, \"fr\": \"\"}",
+      "info_text": "{\"de\": null, \"fr\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -33069,6 +33082,32 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "hindernisfreies-bauen",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-klaerung-baubewilligungspflicht",
+    "fields": {
+      "created_at": "2020-12-17T13:15:29.220Z",
+      "modified_at": "2020-12-17T13:19:43.182Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "label": "{\"de\": \"Hinweis Kl\\u00e4rung Baubewilligungspflicht\", \"fr\": \"Hinweis Kl\\u00e4rung Baubewilligungspflicht\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "'klaerung-baubewilligungspflicht' != form",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-margin-remove-bottom\\\">Damit das Regierungsstatthalteramt die Kl\\u00e4rung Baubewilligungspflicht bearbeiten kann, \\u00fcbergeben Sie das Dossier nach Vergabe der eBau-Nummer durch einen Wechsel der Leitbeh\\u00f6rde.</div>\", \"fr\": \"<div class=\\\"uk-alert uk-margin-remove-bottom\\\">Pour que la pr\\u00e9fecture puisse traiter la clarification de l'octroi d'un permis de construire, vous remettez le dossier \\u00e0 l'autorit\\u00e9 directrise apr\\u00e8s que le num\\u00e9ro eBau ait \\u00e9t\\u00e9 attribu\\u00e9.</div>\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null
