@@ -312,7 +312,7 @@ def test_notification_template_sendmail_rsta_forms(
 
     form = caluma_form_models.Form.objects.get(pk=form_slug)
     workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
-    workflow.slug = "building-police-procedure"
+    workflow.slug = "internal"
     workflow.allow_forms.add(form)
     workflow.save()
     case = workflow_api.start_case(

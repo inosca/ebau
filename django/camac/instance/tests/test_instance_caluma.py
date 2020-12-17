@@ -419,13 +419,19 @@ def test_instance_submit_state_change(
 
     if is_extend_validity:
         form = caluma_form_models.Form.objects.get(pk="verlaengerung-geltungsdauer")
+
         workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
         workflow.slug = "building-permit"
 
+        instance_state_factory(name="circulation_init")
+
     if is_building_police_procedure:
         form = caluma_form_models.Form.objects.get(pk="baupolizeiliches-verfahren")
+
         workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
-        workflow.slug = "building-police-procedure"
+        workflow.slug = "internal"
+
+        instance_state_factory(name="in_progress_internal")
 
     workflow.allow_forms.add(form)
     workflow.save()
@@ -445,12 +451,6 @@ def test_instance_submit_state_change(
         return_value=ech_mandatory_answers_einfache_vorabklaerung,
     )
     instance_state_factory(name="subm")
-    if is_extend_validity:
-        instance_state_factory(name="circulation_init")
-
-    if is_building_police_procedure:
-        instance_state_factory(name="in_progress_internal")
-
     mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
 
     admin_client.post(reverse("instance-submit", args=[instance.pk]))
