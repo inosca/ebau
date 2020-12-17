@@ -767,6 +767,17 @@ class CalumaInstanceSerializer(InstanceSerializer):
                 and group.role.pk in get_paper_settings()["ALLOWED_ROLES"]
             )
 
+        if (
+            caluma_form in settings.APPLICATION["CALUMA"].get("INTERNAL_FORMS", [])
+            and not is_paper
+        ):
+            raise exceptions.ValidationError(
+                _(
+                    "The form '%(form)s' can only be used by an internal role"
+                    % {"form": caluma_form}
+                )
+            )
+
         form = validated_data.get("form")
         if form and form.pk in settings.APPLICATION.get("ARCHIVE_FORMS", []):
             validated_data["instance_state"] = models.InstanceState.objects.get(

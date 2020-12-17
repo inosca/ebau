@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-15 14:27+0100\n"
-"PO-Revision-Date: 2020-12-15 14:33+0100\n"
+"POT-Creation-Date: 2020-12-17 13:49+0100\n"
+"PO-Revision-Date: 2020-12-17 13:49+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -24,23 +24,23 @@ msgid "Email '%(email)s' has already access to instance %(instance)s"
 msgstr ""
 "L'utilisateur avec l'email '%(email)s' a déjà accès au dossier %(instance)s"
 
-#: camac/caluma/extensions/data_sources.py:14
+#: camac/caluma/extensions/data_sources.py:13
 msgid "not activated"
 msgstr "non activé"
 
-#: camac/caluma/extensions/events.py:265
+#: camac/caluma/extensions/events.py:263
 msgid "Exam skipped"
 msgstr "Examen sauté"
 
-#: camac/caluma/extensions/events.py:267
+#: camac/caluma/extensions/events.py:265
 msgid "Exam completed"
 msgstr "Dossier examiné"
 
-#: camac/caluma/extensions/events.py:280
+#: camac/caluma/extensions/events.py:278
 msgid "Evaluation completed"
 msgstr "Evaluation close"
 
-#: camac/caluma/extensions/events.py:288
+#: camac/caluma/extensions/events.py:286
 msgid "Decision decreed"
 msgstr "Décision relative à la demande de permis de construire rendue"
 
@@ -106,7 +106,7 @@ msgid "No template specified for form '%(form_slug)s'."
 msgstr ""
 
 #: camac/instance/document_merge_service.py:72
-#: camac/instance/document_merge_service.py:392
+#: camac/instance/document_merge_service.py:395
 msgid "Signatures"
 msgstr "Signatures"
 
@@ -118,8 +118,8 @@ msgstr "Signature"
 msgid "Place and date"
 msgstr "Lieu et date"
 
-#: camac/instance/document_merge_service.py:338
-#: camac/instance/document_merge_service.py:402
+#: camac/instance/document_merge_service.py:341
+#: camac/instance/document_merge_service.py:405
 msgid "Applicant"
 msgstr "Requérant/e"
 
@@ -153,102 +153,108 @@ msgstr "papier"
 msgid "modification"
 msgstr "modification du projet"
 
-#: camac/instance/serializers.py:1043
+#: camac/instance/serializers.py:777
+#, python-format
+msgid "The form '%(form)s' can only be used by an internal role"
+msgstr ""
+"Le formulaire '%(form)s' ne peut être utilisé que pour les rôles internes"
+
+#: camac/instance/serializers.py:1054
 msgid "Dossier completed by resubmission"
 msgstr "Dossier complété par une nouvelle soumission"
 
-#: camac/instance/serializers.py:1083
+#: camac/instance/serializers.py:1094
 msgid "Dossier submitted"
 msgstr "Dossier envoyé"
 
-#: camac/instance/serializers.py:1150
+#: camac/instance/serializers.py:1161
 msgid "SB1 submitted"
 msgstr "DC1 envoyé"
 
-#: camac/instance/serializers.py:1188
+#: camac/instance/serializers.py:1199
 msgid "Archived"
 msgstr "Archivé"
 
-#: camac/instance/serializers.py:1207
+#: camac/instance/serializers.py:1218
 #, python-format
 msgid "'%(form)s' is not a valid form type"
 msgstr "'%(form)s' est un type de dossier non valable"
 
-#: camac/instance/serializers.py:1217
+#: camac/instance/serializers.py:1228
 #, python-format
 msgid "The current form '%(form)s' can't be changed"
 msgstr "Le type de dossier actuel '%(form)s' ne peut être modifié"
 
-#: camac/instance/serializers.py:1236
+#: camac/instance/serializers.py:1247
 msgid "Changed form type"
 msgstr ""
 
-#: camac/instance/serializers.py:1266
+#: camac/instance/serializers.py:1277
 msgid "Invalid format"
 msgstr "Format non valide"
 
-#: camac/instance/serializers.py:1285
+#: camac/instance/serializers.py:1296
 msgid "This eBau number is already in use by a different municipality"
 msgstr "Ce numéro eBau a déjà été attribué par une autre autorité directrice"
 
-#: camac/instance/serializers.py:1289
+#: camac/instance/serializers.py:1300
 msgid "This eBau number doesn't exist"
 msgstr "Ce numéro eBau n'existe pas"
 
-#: camac/instance/serializers.py:1336
+#: camac/instance/serializers.py:1347
 msgid "Assigned ebau number"
 msgstr "Attribution d'un numéro eBau"
 
-#: camac/instance/serializers.py:1369
+#: camac/instance/serializers.py:1380
 #, python-format
 msgid "%(value)s is not a valid service type - valid types are: %(expected)s"
 msgstr ""
 "%(value)s n'est pas un type de service correct - les types corrects sont "
 "%(expected)s"
 
-#: camac/instance/serializers.py:1383
+#: camac/instance/serializers.py:1394
 msgid "Invalid audit"
 msgstr ""
 
-#: camac/instance/serializers.py:1461
+#: camac/instance/serializers.py:1472
 #, python-format
 msgid "Changed responsible service to: %(service)s"
 msgstr "Nouvelle autorité directrice: %(service)s"
 
-#: camac/instance/serializers.py:1483
+#: camac/instance/serializers.py:1494
 #, python-format
 msgid "Responsible service did not change for instance %(instance_id)s"
 msgstr "N'a pas changé d'autorité directrice pour le dossier %(instance_id)s"
 
-#: camac/instance/serializers.py:1528
+#: camac/instance/serializers.py:1539
 msgid "SB2 submitted"
 msgstr "DC2 envoyé"
 
-#: camac/instance/serializers.py:1556
+#: camac/instance/serializers.py:1567
 #, python-format
 msgid "User %(user)s does not belong to service %(service)s."
 msgstr ""
 
-#: camac/instance/serializers.py:1582
+#: camac/instance/serializers.py:1593
 msgid "No location assigned."
 msgstr ""
 
-#: camac/instance/serializers.py:1602
+#: camac/instance/serializers.py:1613
 #, python-format
 msgid "No group found for location %(name)s."
 msgstr ""
 
-#: camac/instance/serializers.py:1624
+#: camac/instance/serializers.py:1635
 #, python-format
 msgid "invalid question %(question)s."
 msgstr ""
 
-#: camac/instance/serializers.py:1631
+#: camac/instance/serializers.py:1642
 #, python-format
 msgid "%(permission)s is not allowed to edit question %(question)s."
 msgstr ""
 
-#: camac/instance/utils.py:34
+#: camac/instance/utils.py:35
 #, python-format
 msgid "Could not find construction control for instance %(id)d"
 msgstr "Aucun contrôle de construction trouvé pour le dossier %(id)d"
@@ -285,7 +291,7 @@ msgstr ""
 msgid "Invalid form type %(form)s."
 msgstr ""
 
-#: camac/notification/serializers.py:846
+#: camac/notification/serializers.py:863
 #, python-format
 msgid "Notification sent to %(receiver)s (%(subject)s)"
 msgstr "Notification envoyée à %(receiver)s (%(subject)s)"

@@ -1456,3 +1456,56 @@ def test_change_responsible_service_audit_validation(
 
     assert len(result["errors"])
     assert "Invalid audit" == result["errors"][0]["detail"]
+
+
+@pytest.mark.parametrize("service_group__name", ["municipality"])
+@pytest.mark.parametrize("instance_state__name", ["new"])
+@pytest.mark.parametrize(
+    "role__name,expected_status,error",
+    [
+        ("Municipality", status.HTTP_201_CREATED, None),
+        (
+            "Applicant",
+            status.HTTP_400_BAD_REQUEST,
+            "The form 'main-form' can only be used by an internal role",
+        ),
+    ],
+)
+def test_create_instance_caluma_internal_forms(
+    db,
+    admin_client,
+    instance_state,
+    instance_state_factory,
+    form,
+    role,
+    mock_nfd_permissions,
+    group,
+    caluma_workflow_config_be,
+    application_settings,
+    expected_status,
+    error,
+):
+    application_settings["CALUMA"]["INTERNAL_FORMS"] = ["main-form"]
+    application_settings["CALUMA"]["CREATE_IN_PROCESS"] = False
+    application_settings["CALUMA"]["USE_LOCATION"] = False
+    application_settings["CALUMA"]["GENERATE_DOSSIER_NR"] = False
+
+    if role.name == "Municipality":
+        application_settings["PAPER"] = {
+            "ALLOWED_ROLES": {"DEFAULT": [group.role.pk]},
+            "ALLOWED_SERVICE_GROUPS": {"DEFAULT": [group.service.service_group.pk]},
+        }
+        headers = {"x-camac-group": group.pk}
+    else:
+        headers = {}
+
+    response = admin_client.post(
+        reverse("instance-list"),
+        {"data": {"type": "instances", "attributes": {"caluma-form": "main-form"}}},
+        **headers,
+    )
+
+    assert response.status_code == expected_status
+
+    if error:
+        assert error in response.json()["errors"][0]["detail"]
