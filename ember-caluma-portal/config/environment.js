@@ -90,14 +90,6 @@ module.exports = function (environment) {
         "baupolizeiliches-verfahren",
         "zutrittsermaechtigung",
       ],
-      rstaForms: [
-        "klaerung-baubewilligungspflicht",
-        "hecken-feldgehoelze-baeume",
-        "baupolizeiliches-verfahren",
-        "zutrittsermaechtigung",
-        "verlaengerung-geltungsdauer",
-      ],
-      enableRstaForms: true,
     },
   };
 
@@ -107,7 +99,6 @@ module.exports = function (environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.ebau.enableRstaForms = true;
   }
 
   if (environment === "test") {
