@@ -31,7 +31,6 @@ from camac.core.serializers import MultilingualField, MultilingualSerializer
 from camac.core.utils import create_history_entry, generate_ebau_nr
 from camac.document.models import AttachmentSection
 from camac.echbern.signals import (
-    assigned_ebau_number,
     change_responsibility,
     instance_submitted,
     sb1_submitted,
@@ -1316,25 +1315,8 @@ class CalumaInstanceSetEbauNumberSerializer(serializers.Serializer):
             workflow_api.complete_work_item(
                 work_item=work_item,
                 user=self.context["request"].caluma_info.context.user,
+                context={"group-id": self.context["request"].group.pk},
             )
-
-        if instance.instance_state.name == "subm":
-            instance.instance_state = models.InstanceState.objects.get(
-                name="circulation_init"
-            )
-            instance.save()
-            assigned_ebau_number.send(
-                sender=self.__class__,
-                instance=self.instance,
-                user_pk=self.context["request"].user.pk,
-                group_pk=self.context["request"].group.pk,
-            )
-
-        create_history_entry(
-            self.instance,
-            self.context["request"].user,
-            gettext_noop("Assigned ebau number"),
-        )
 
     @transaction.atomic
     def update(self, instance, validated_data):
