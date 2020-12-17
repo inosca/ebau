@@ -230,6 +230,15 @@
     }
   },
   {
+    "model": "core.apageredirect",
+    "pk": 150044,
+    "fields": {
+      "resource": 20006,
+      "instance_resource": null,
+      "air_action_name": null
+    }
+  },
+  {
     "model": "core.aphp",
     "pk": 10049,
     "fields": {
@@ -1199,7 +1208,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 1
+      "sort": 0
     }
   },
   {
@@ -1452,6 +1461,20 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 150044,
+    "fields": {
+      "available_action": "pageredirect",
+      "button": 20040,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
     }
   },
   {
@@ -2605,6 +2628,18 @@
       "action": 150043,
       "language": "de",
       "name": "Resume case",
+      "description": null,
+      "success_message": null,
+      "error_message": null
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 150050,
+    "fields": {
+      "action": 150044,
+      "language": "de",
+      "name": "Redirect to instance",
       "description": null,
       "success_message": null,
       "error_message": null
@@ -54971,6 +55006,14 @@
     "fields": {
       "available_instance_resource": "editdecisionnote",
       "available_action": "case"
+    }
+  },
+  {
+    "model": "core.instanceresourceaction",
+    "pk": 150080,
+    "fields": {
+      "available_instance_resource": "docxdecision",
+      "available_action": "pageredirect"
     }
   },
   {
