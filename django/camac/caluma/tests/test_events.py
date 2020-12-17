@@ -454,7 +454,7 @@ def test_audit_history(
             "Beurteilung abgeschlossen",
         ),
         (
-            "building-police-procedure",
+            "internal",
             DECISIONS_BEWILLIGT,
             "done_internal",
             "Beurteilung abgeschlossen",
