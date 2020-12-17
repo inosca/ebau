@@ -147,7 +147,7 @@ def test_set_ebau_number(
         (
             "Municipality",
             status.HTTP_204_NO_CONTENT,
-            "building-police-procedure",
+            "internal",
             "in_progress_internal",
             "in_progress_internal",
             True,
@@ -179,7 +179,7 @@ def test_set_ebau_number(
         (
             "Support",
             status.HTTP_204_NO_CONTENT,
-            "building-police-procedure",
+            "internal",
             "in_progress_internal",
             "in_progress_internal",
             False,
