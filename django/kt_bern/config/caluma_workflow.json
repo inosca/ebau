@@ -685,7 +685,7 @@
       "modified_at": "2020-10-23T10:51:09.645Z",
       "created_by_user": null,
       "created_by_group": null,
-      "workflow": "building-police-procedure",
+      "workflow": "internal",
       "task": "decision",
       "flow": "358c310a-7d42-492b-a458-5d9a16594e1d"
     }
@@ -724,7 +724,7 @@
       "modified_at": "2020-10-23T10:51:07.156Z",
       "created_by_user": null,
       "created_by_group": null,
-      "workflow": "building-police-procedure",
+      "workflow": "internal",
       "task": "start-decision",
       "flow": "e24200e0-2a4f-404b-ac0a-bde2ae302ce0"
     }
@@ -737,7 +737,7 @@
       "modified_at": "2020-10-23T13:15:29.517Z",
       "created_by_user": null,
       "created_by_group": null,
-      "workflow": "building-police-procedure",
+      "workflow": "internal",
       "task": "submit",
       "flow": "c647f9cc-3261-48b8-840f-eea936888bee"
     }
@@ -789,7 +789,7 @@
       "modified_at": "2020-10-23T13:15:32.385Z",
       "created_by_user": null,
       "created_by_group": null,
-      "workflow": "building-police-procedure",
+      "workflow": "internal",
       "task": "ebau-number",
       "flow": "366a854d-9df6-4842-ac89-c7ffaceaf2f4"
     }
@@ -988,24 +988,6 @@
   },
   {
     "model": "caluma_workflow.workflow",
-    "pk": "building-police-procedure",
-    "fields": {
-      "created_at": "2020-10-23T10:50:56.076Z",
-      "modified_at": "2020-10-23T13:15:25.691Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "name": "{\"de\": \"Baupolizeiliches Verfahren\", \"fr\": null}",
-      "description": "{\"de\": null, \"fr\": null}",
-      "meta": {},
-      "is_published": true,
-      "is_archived": false,
-      "allow_all_forms": false,
-      "start_tasks": ["submit"],
-      "allow_forms": ["baupolizeiliches-verfahren"]
-    }
-  },
-  {
-    "model": "caluma_workflow.workflow",
     "pk": "circulation",
     "fields": {
       "created_at": "2020-08-10T14:28:56.643Z",
@@ -1020,6 +1002,24 @@
       "allow_all_forms": false,
       "start_tasks": ["activation"],
       "allow_forms": ["circulation"]
+    }
+  },
+  {
+    "model": "caluma_workflow.workflow",
+    "pk": "internal",
+    "fields": {
+      "created_at": "2020-10-23T10:50:56.076Z",
+      "modified_at": "2020-10-23T13:15:25.691Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "name": "{\"de\": \"Internes Verfahren\", \"fr\": null}",
+      "description": "{\"de\": null, \"fr\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "allow_all_forms": false,
+      "start_tasks": ["submit"],
+      "allow_forms": ["baupolizeiliches-verfahren", "zutrittsermaechtigung"]
     }
   },
   {
@@ -1059,8 +1059,7 @@
         "hecken-feldgehoelze-baeume",
         "klaerung-baubewilligungspflicht",
         "vorabklaerung-einfach",
-        "vorabklaerung-vollstaendig",
-        "zutrittsermaechtigung"
+        "vorabklaerung-vollstaendig"
       ]
     }
   }

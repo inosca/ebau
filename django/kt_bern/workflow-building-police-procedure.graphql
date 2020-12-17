@@ -1,10 +1,10 @@
-mutation CreatBuildingPoliceProcedureWorkflow {
+mutation CreateInternalWorkflow {
   saveWorkflow(
     input: {
-      slug: "building-police-procedure"
-      name: "Baupolizeiliches Verfahren"
+      slug: "internal"
+      name: "Internes Verfahren"
       startTasks: ["submit"]
-      allowForms: ["baupolizeiliches-verfahren"]
+      allowForms: ["baupolizeiliches-verfahren", "zutrittsermaechtigung"]
       isPublished: true
     }
   ) {
@@ -15,7 +15,7 @@ mutation CreatBuildingPoliceProcedureWorkflow {
 mutation CreateFlow1 {
   addWorkflowFlow(
     input: {
-      workflow: "building-police-procedure"
+      workflow: "internal"
       tasks: ["submit"]
       next: "['ebau-number', 'create-manual-workitems']|tasks"
     }
@@ -27,7 +27,7 @@ mutation CreateFlow1 {
 mutation CreateFlow2 {
   addWorkflowFlow(
     input: {
-      workflow: "building-police-procedure"
+      workflow: "internal"
       tasks: ["ebau-number"]
       next: "['audit', 'decision']|tasks"
     }
