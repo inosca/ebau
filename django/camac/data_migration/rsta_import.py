@@ -17,6 +17,7 @@ from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.models import Case, Workflow
 from django.core.files import File
+from django.db import transaction
 from django.utils.timezone import make_aware, now
 
 from camac.core import utils
@@ -218,6 +219,7 @@ class Import:
         self.caluma_user.username = user.username
         self.caluma_user.group = self.group.service_id
 
+    @transaction.atomic
     def _run(self, reimport):
         instance_state = InstanceState.objects.get(
             name=self.geschaeft.instance_state_name
