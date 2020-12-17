@@ -205,16 +205,10 @@ export default class InstancesIndexController extends Controller.extend(
   @lastValue("getRootForms") rootForms;
 
   get formFilterOptions() {
-    return (this.rootForms || [])
-      .filter(
-        (form) =>
-          this.isInternal || !config.ebau.internalForms.includes(form.slug)
-      )
-      .filter(
-        (form) =>
-          config.ebau.enableRstaForms ||
-          !config.ebau.rstaForms.includes(form.slug)
-      );
+    return (this.rootForms || []).filter(
+      (form) =>
+        this.isInternal || !config.ebau.internalForms.includes(form.slug)
+    );
   }
 
   @computed("rootForms.@each.slug", "types.[]")
