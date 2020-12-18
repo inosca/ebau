@@ -401,6 +401,16 @@ APPLICATIONS = {
                 "zutrittsermaechtigung",
                 "klaerung-baubewilligungspflicht",
             ],
+            "MODIFICATION_ALLOW_FORMS": [
+                "baugesuch",
+                "baugesuch-generell",
+                "baugesuch-mit-uvp",
+            ],
+            "MODIFICATION_DISALLOW_STATES": [
+                "new",
+                "finished",
+                "archived",
+            ],
             "COPY_PAPER_ANSWER_TO": ["nfd", "sb1", "sb2"],
             "COPY_PERSONAL": [
                 {
