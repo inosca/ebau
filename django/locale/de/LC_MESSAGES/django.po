@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-17 13:49+0100\n"
-"PO-Revision-Date: 2020-12-17 13:50+0100\n"
+"POT-Creation-Date: 2020-12-18 13:53+0100\n"
+"PO-Revision-Date: 2020-12-18 13:54+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -29,21 +29,25 @@ msgstr ""
 msgid "not activated"
 msgstr "nicht aktiviert"
 
-#: camac/caluma/extensions/events.py:263
+#: camac/caluma/extensions/events/audit.py:21
 msgid "Exam skipped"
 msgstr "Dossierprüfung übersprungen"
 
-#: camac/caluma/extensions/events.py:265
+#: camac/caluma/extensions/events/audit.py:23
 msgid "Exam completed"
 msgstr "Dossierprüfung abgeschlossen"
 
-#: camac/caluma/extensions/events.py:278
+#: camac/caluma/extensions/events/decision.py:31
 msgid "Evaluation completed"
 msgstr "Beurteilung abgeschlossen"
 
-#: camac/caluma/extensions/events.py:286
+#: camac/caluma/extensions/events/decision.py:39
 msgid "Decision decreed"
 msgstr "Bauentscheid verfügt"
+
+#: camac/caluma/extensions/events/ebau_number.py:40
+msgid "Assigned ebau number"
+msgstr "eBau-Nr. vergeben"
 
 #: camac/document/filters.py:20
 msgid ""
@@ -139,121 +143,121 @@ msgstr "Keine Berechtigung um Daten zum Dossier %(instance)s hinzuzufügen"
 msgid "Not allowed to add data to instance %(instance)s as coordination"
 msgstr "Keine Berechtigung um Daten zum Dossier %(instance)s hinzuzufügen"
 
-#: camac/instance/serializers.py:207
+#: camac/instance/serializers.py:206
 msgid "Location may not be changed."
 msgstr "Standort darf nicht geändert werden."
 
-#: camac/instance/serializers.py:214
+#: camac/instance/serializers.py:213
 msgid "Form may not be changed."
 msgstr "Formular darf nicht geändert werden."
 
-#: camac/instance/serializers.py:622
+#: camac/instance/serializers.py:621
 msgid "migrated"
 msgstr "Migriert"
 
-#: camac/instance/serializers.py:625
+#: camac/instance/serializers.py:624
 msgid "paper"
 msgstr "Papier"
 
-#: camac/instance/serializers.py:628
+#: camac/instance/serializers.py:627
 msgid "modification"
 msgstr "Projektänderung"
 
-#: camac/instance/serializers.py:777
+#: camac/instance/serializers.py:776
 #, python-format
 msgid "The form '%(form)s' can only be used by an internal role"
 msgstr "Das Formular '%(form)s' kann nur von internen Rollen genutzt werden"
 
-#: camac/instance/serializers.py:1054
+#: camac/instance/serializers.py:787
+msgid "Project modification is not allowed"
+msgstr "Projektänderung nicht erlaubt"
+
+#: camac/instance/serializers.py:1061
 msgid "Dossier completed by resubmission"
 msgstr "Dossier durch Neueinreichung abgeschlossen"
 
-#: camac/instance/serializers.py:1094
+#: camac/instance/serializers.py:1101
 msgid "Dossier submitted"
 msgstr "Dossier eingereicht"
 
-#: camac/instance/serializers.py:1161
+#: camac/instance/serializers.py:1168
 msgid "SB1 submitted"
 msgstr "SB1 eingereicht"
 
-#: camac/instance/serializers.py:1199
+#: camac/instance/serializers.py:1206
 msgid "Archived"
 msgstr "Archiviert"
 
-#: camac/instance/serializers.py:1218
+#: camac/instance/serializers.py:1225
 #, python-format
 msgid "'%(form)s' is not a valid form type"
 msgstr "'%(form)s' ist ein ungültiger Dossiertyp"
 
-#: camac/instance/serializers.py:1228
+#: camac/instance/serializers.py:1235
 #, python-format
 msgid "The current form '%(form)s' can't be changed"
 msgstr "Der momentane Dossiertyp '%(form)s' kann nicht geändert werden"
 
-#: camac/instance/serializers.py:1247
+#: camac/instance/serializers.py:1254
 msgid "Changed form type"
 msgstr "Dossiertyp geändert"
 
-#: camac/instance/serializers.py:1277
+#: camac/instance/serializers.py:1284
 msgid "Invalid format"
 msgstr "Ungültiges Format"
 
-#: camac/instance/serializers.py:1296
+#: camac/instance/serializers.py:1303
 msgid "This eBau number is already in use by a different municipality"
 msgstr "Diese eBau-Nummer wurde durch eine andere Leitbehörde bereits vergeben"
 
-#: camac/instance/serializers.py:1300
+#: camac/instance/serializers.py:1307
 msgid "This eBau number doesn't exist"
 msgstr "Diese eBau-Nummer existiert nicht"
 
-#: camac/instance/serializers.py:1347
-msgid "Assigned ebau number"
-msgstr "eBau-Nr. vergeben"
-
-#: camac/instance/serializers.py:1380
+#: camac/instance/serializers.py:1370
 #, python-format
 msgid "%(value)s is not a valid service type - valid types are: %(expected)s"
 msgstr ""
 "%(value)s ist kein korrekter Servicetyp - korrekte Typen sind: %(expected)s"
 
-#: camac/instance/serializers.py:1394
+#: camac/instance/serializers.py:1384
 msgid "Invalid audit"
 msgstr ""
 
-#: camac/instance/serializers.py:1472
+#: camac/instance/serializers.py:1462
 #, python-format
 msgid "Changed responsible service to: %(service)s"
 msgstr "Neue Leitbehörde: %(service)s"
 
-#: camac/instance/serializers.py:1494
+#: camac/instance/serializers.py:1484
 #, python-format
 msgid "Responsible service did not change for instance %(instance_id)s"
 msgstr "Wechsel der Leitbehörde für Dossier %(instance_id)s ist fehlgeschlagen"
 
-#: camac/instance/serializers.py:1539
+#: camac/instance/serializers.py:1529
 msgid "SB2 submitted"
 msgstr "SB2 eingereicht"
 
-#: camac/instance/serializers.py:1567
+#: camac/instance/serializers.py:1557
 #, python-format
 msgid "User %(user)s does not belong to service %(service)s."
 msgstr "Der Benutzer %(user)s gehört nicht zum Service %(service)s."
 
-#: camac/instance/serializers.py:1593
+#: camac/instance/serializers.py:1583
 msgid "No location assigned."
 msgstr "Kein Standort gesetzt."
 
-#: camac/instance/serializers.py:1613
+#: camac/instance/serializers.py:1603
 #, python-format
 msgid "No group found for location %(name)s."
 msgstr "Keine Gruppe für den Standort %(name)s gefunden."
 
-#: camac/instance/serializers.py:1635
+#: camac/instance/serializers.py:1625
 #, python-format
 msgid "invalid question %(question)s."
 msgstr "Ungültige Frage %(question)s."
 
-#: camac/instance/serializers.py:1642
+#: camac/instance/serializers.py:1632
 #, python-format
 msgid "%(permission)s is not allowed to edit question %(question)s."
 msgstr "%(permission)s darf die Frage %(question)s nicht bearbeiten."
