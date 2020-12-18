@@ -122,6 +122,7 @@ def test_create_instance_caluma(
     instance_state_factory(name="comm")
     instance_state_factory(name="old")
 
+    application_settings["CALUMA"]["MODIFICATION_ALLOW_FORMS"] = ["main-form"]
     application_settings["CALUMA"]["CREATE_IN_PROCESS"] = uri_process
     application_settings["CALUMA"]["USE_LOCATION"] = uri_process
     application_settings["CALUMA"]["GENERATE_DOSSIER_NR"] = uri_process
@@ -1509,3 +1510,68 @@ def test_create_instance_caluma_internal_forms(
 
     if error:
         assert error in response.json()["errors"][0]["detail"]
+
+
+@pytest.mark.parametrize("role__name", ["Applicant"])
+@pytest.mark.parametrize(
+    "caluma_form,expected_status",
+    [
+        ("verlaerungerung-geltungsdauer", status.HTTP_400_BAD_REQUEST),
+        ("baugesuch", status.HTTP_400_BAD_REQUEST),
+    ],
+)
+def test_create_instance_caluma_modification(
+    db,
+    admin_client,
+    instance_state,
+    instance_state_factory,
+    role,
+    form,
+    mock_nfd_permissions,
+    caluma_workflow_config_be,
+    application_settings,
+    caluma_form,
+    expected_status,
+):
+    instance_state_factory(name="new")
+
+    workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
+    workflow.allow_forms.add(
+        caluma_form_models.Form.objects.create(slug="baugesuch"),
+        caluma_form_models.Form.objects.create(slug="verlaerungerung-geltungsdauer"),
+    )
+
+    application_settings["CALUMA"]["MODIFICATION_ALLOW_FORMS"] = ["baugesuch"]
+    application_settings["CALUMA"]["MODIFICATION_DISALLOW_STATES"] = ["new"]
+    application_settings["CALUMA"]["CREATE_IN_PROCESS"] = False
+    application_settings["CALUMA"]["USE_LOCATION"] = False
+    application_settings["CALUMA"]["GENERATE_DOSSIER_NR"] = False
+
+    create_response = admin_client.post(
+        reverse("instance-list"),
+        {
+            "data": {
+                "type": "instances",
+                "attributes": {
+                    "caluma_form": caluma_form,
+                },
+            }
+        },
+    )
+    instance_id = create_response.json()["data"]["id"]
+
+    response = admin_client.post(
+        reverse("instance-list"),
+        {
+            "data": {
+                "type": "instances",
+                "attributes": {
+                    "copy-source": str(instance_id),
+                    "is-modification": True,
+                },
+            }
+        },
+    )
+
+    assert response.status_code == expected_status
+    assert "Projektänderung nicht erlaubt" in response.json()["errors"][0]["detail"]
