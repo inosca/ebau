@@ -3424,19 +3424,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "allgemeine-angaben-kurz.anfrage-zur-vorabklaerung",
-    "fields": {
-      "created_at": "2020-10-07T13:33:41.433Z",
-      "modified_at": "2020-10-07T13:33:41.433Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "allgemeine-angaben-kurz",
-      "question": "anfrage-zur-vorabklaerung",
-      "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben-kurz.be-gid",
     "fields": {
       "created_at": "2020-10-07T13:32:51.696Z",
@@ -3497,7 +3484,7 @@
       "created_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "is-paper",
-      "sort": 2
+      "sort": 1
     }
   },
   {
@@ -3562,7 +3549,7 @@
       "created_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "sachverhalt",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -40207,16 +40194,16 @@
     "pk": "sachverhalt",
     "fields": {
       "created_at": "2020-10-12T11:28:23.687Z",
-      "modified_at": "2020-10-15T11:54:59.480Z",
+      "modified_at": "2020-12-18T12:46:29.540Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "label": "{\"de\": \"Sachverhalt\", \"fr\": null}",
+      "label": "{\"de\": \"Sachverhalt\", \"fr\": \"Situation\"}",
       "type": "textarea",
       "is_required": "false",
-      "is_hidden": "form != 'baupolizeiliches-verfahren'",
+      "is_hidden": "!(form in ['baupolizeiliches-verfahren', 'klaerung-baubewilligungspflicht'])",
       "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": \"\"}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null,
