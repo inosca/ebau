@@ -778,6 +778,14 @@ class CalumaInstanceSerializer(InstanceSerializer):
                 )
             )
 
+        if is_modification and (
+            caluma_form
+            not in settings.APPLICATION["CALUMA"].get("MODIFICATION_ALLOW_FORMS", [])
+            or source_instance.instance_state.name
+            in settings.APPLICATION["CALUMA"].get("MODIFICATION_DISALLOW_STATES", [])
+        ):
+            raise exceptions.ValidationError(_("Project modification is not allowed"))
+
         form = validated_data.get("form")
         if form and form.pk in settings.APPLICATION.get("ARCHIVE_FORMS", []):
             validated_data["instance_state"] = models.InstanceState.objects.get(
