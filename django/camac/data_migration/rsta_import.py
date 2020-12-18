@@ -154,7 +154,9 @@ class Importer:
     def find_missing_services(self):
         for _, geschaeft in self.iter(self.path):
             try:
-                ServiceT.objects.get(name=geschaeft.Gemeinde.service_name)
+                ServiceT.objects.get(
+                    name=geschaeft.Gemeinde.service_name, language="de"
+                )
             except (ServiceT.DoesNotExist, ServiceT.MultipleObjectsReturned):
                 self.services[geschaeft.Gemeinde.gdBez] += 1
 
