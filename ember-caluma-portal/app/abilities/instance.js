@@ -80,7 +80,7 @@ export default class InstanceAbility extends Ability {
     return (
       state &&
       form &&
-      !["vorabklaerung-einfach", "vorabklaerung-vollstaendig"].includes(form) &&
+      ["baugesuch", "baugesuch-generell", "baugesuch-mit-uvp"].includes(form) &&
       ![
         config.ebau.instanceStates.new,
         config.ebau.instanceStates.finished,
