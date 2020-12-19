@@ -14,6 +14,9 @@ sb2_submitted = django.dispatch.Signal(
 circulation_started = django.dispatch.Signal(
     providing_args=["instance", "user_pk", "group_pk"]
 )
+circulation_ended = django.dispatch.Signal(
+    providing_args=["instance", "user_pk", "group_pk"]
+)
 
 ruling = django.dispatch.Signal(providing_args=["instance", "user_pk", "group_pk"])
 

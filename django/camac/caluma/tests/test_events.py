@@ -538,3 +538,52 @@ def test_complete_decision(
     assert HistoryEntryT.objects.filter(
         history_entry__instance=instance, title=expected_text, language="de"
     ).exists()
+
+
+@pytest.mark.parametrize(
+    "task,expected_instance_state,expected_history_text",
+    [
+        ("start-decision", "coordination", "Zirkulation abgeschlossen"),
+        ("skip-circulation", "coordination", "Zirkulation übersprungen"),
+        ("reopen-circulation", "circulation", "Zirkulation wiedereröffnet"),
+        ("complete", "finished", "Baugesuchsverfahren abgeschlossen"),
+    ],
+)
+def test_complete_simple_workflow(
+    db,
+    instance,
+    caluma_admin_user,
+    caluma_config_be,
+    group,
+    role,
+    multilang,
+    instance_state_factory,
+    work_item_factory,
+    task_factory,
+    task,
+    expected_instance_state,
+    expected_history_text,
+):
+    work_item = work_item_factory(task=task_factory(slug=task))
+    instance_state = instance_state_factory(name=expected_instance_state)
+
+    case = work_item.case
+    case.meta["camac-instance-id"] = str(instance.pk)
+    case.save()
+
+    send_event(
+        post_complete_work_item,
+        sender="post_complete_work_item",
+        work_item=work_item,
+        user=caluma_admin_user,
+        context={"group_id": group.pk},
+    )
+
+    instance.refresh_from_db()
+
+    assert instance.instance_state == instance_state
+    assert HistoryEntryT.objects.filter(
+        history_entry__instance=instance,
+        title=expected_history_text,
+        language="de",
+    ).exists()
