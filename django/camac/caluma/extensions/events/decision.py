@@ -1,6 +1,8 @@
 import reversion
 from caluma.caluma_core.events import on
+from caluma.caluma_workflow.api import skip_work_item
 from caluma.caluma_workflow.events import post_complete_work_item
+from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.db import transaction
 from django.utils.translation import gettext_noop
@@ -29,7 +31,7 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
 
         workflow = work_item.case.workflow_id
         history_text = gettext_noop("Evaluation completed")
-        instance_state_name = "done"
+        instance_state_name = "finished"
 
         if workflow == "building-permit":
             approved = DocxDecision.objects.filter(
@@ -47,7 +49,17 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
             instance_state_name = "evaluated"
 
         elif workflow == "internal":
-            instance_state_name = "done_internal"
+            instance_state_name = "finished_internal"
+            ebau_work_item = work_item.case.work_items.filter(
+                task_id=get_caluma_setting("EBAU_NUMBER_TASK"),
+                status=WorkItem.STATUS_READY,
+            ).first()
+            if ebau_work_item:
+                # this could also be done in the PRE_COMPLETE config but it's
+                # way too risky since it could break the workflow of currently
+                # broken instances in production and should only happen for
+                # internal instances that do not require an ebau number.
+                skip_work_item(ebau_work_item, user, context)
 
         # go to next instance state
         with reversion.create_revision():
