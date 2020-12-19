@@ -80,7 +80,7 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
         )
 
         # send notifications to applicant, municipality and all involved services
-        for config in settings.APPLICATION["NOTIFICATIONS"]["DECISION"]:
+        for config in settings.APPLICATION["NOTIFICATIONS"].get("DECISION", []):
             send_mail(
                 config["template_slug"],
                 context={},
