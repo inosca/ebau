@@ -67,17 +67,6 @@
   },
   {
     "model": "caluma_workflow.flow",
-    "pk": "366a854d-9df6-4842-ac89-c7ffaceaf2f4",
-    "fields": {
-      "created_at": "2020-10-23T13:15:32.382Z",
-      "modified_at": "2020-10-23T13:15:32.382Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "next": "['audit', 'decision']|tasks"
-    }
-  },
-  {
-    "model": "caluma_workflow.flow",
     "pk": "3826b971-fded-4ecd-a7d5-0ca604424ccf",
     "fields": {
       "created_at": "2020-08-10T14:29:43.839Z",
@@ -216,7 +205,7 @@
       "modified_at": "2020-10-23T13:15:29.513Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "next": "['ebau-number', 'create-manual-workitems']|tasks"
+      "next": "['ebau-number', 'audit', 'nfd', 'decision', 'create-manual-workitems']|tasks"
     }
   },
   {
@@ -239,17 +228,6 @@
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "next": "['after-decision']|tasks"
-    }
-  },
-  {
-    "model": "caluma_workflow.flow",
-    "pk": "e24200e0-2a4f-404b-ac0a-bde2ae302ce0",
-    "fields": {
-      "created_at": "2020-10-23T10:51:07.152Z",
-      "modified_at": "2020-10-23T10:51:07.152Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "next": "'decision'|task"
     }
   },
   {
@@ -679,19 +657,6 @@
   },
   {
     "model": "caluma_workflow.taskflow",
-    "pk": "092d2e2a-2c0a-467d-abcf-a12c5adae0b6",
-    "fields": {
-      "created_at": "2020-10-23T10:51:09.645Z",
-      "modified_at": "2020-10-23T10:51:09.645Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "workflow": "internal",
-      "task": "decision",
-      "flow": "358c310a-7d42-492b-a458-5d9a16594e1d"
-    }
-  },
-  {
-    "model": "caluma_workflow.taskflow",
     "pk": "0cb1575e-47a3-43b8-86b3-e7bde2f25b53",
     "fields": {
       "created_at": "2020-08-10T14:29:40.831Z",
@@ -714,19 +679,6 @@
       "workflow": "preliminary-clarification",
       "task": "circulation",
       "flow": "b37d20b3-38f9-4971-bdb9-bbf80f0b9f0b"
-    }
-  },
-  {
-    "model": "caluma_workflow.taskflow",
-    "pk": "3322dd3b-72b6-4c97-b89a-4be902a23cd3",
-    "fields": {
-      "created_at": "2020-10-23T10:51:07.156Z",
-      "modified_at": "2020-10-23T10:51:07.156Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "workflow": "internal",
-      "task": "start-decision",
-      "flow": "e24200e0-2a4f-404b-ac0a-bde2ae302ce0"
     }
   },
   {
@@ -779,19 +731,6 @@
       "workflow": "building-permit",
       "task": "sb2",
       "flow": "53187fd7-57bc-4d3a-83b7-7021e9acf52d"
-    }
-  },
-  {
-    "model": "caluma_workflow.taskflow",
-    "pk": "42e7d429-d528-4fe3-aa7c-7edb244560ce",
-    "fields": {
-      "created_at": "2020-10-23T13:15:32.385Z",
-      "modified_at": "2020-10-23T13:15:32.385Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "workflow": "internal",
-      "task": "ebau-number",
-      "flow": "366a854d-9df6-4842-ac89-c7ffaceaf2f4"
     }
   },
   {
