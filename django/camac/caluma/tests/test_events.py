@@ -445,8 +445,8 @@ def test_audit_history(
     "workflow,decision,expected_instance_state,expected_text",
     [
         ("building-permit", DECISIONS_BEWILLIGT, "sb1", "Bauentscheid verfügt"),
-        ("building-permit", DECISIONS_ABGELEHNT, "done", "Bauentscheid verfügt"),
-        ("migrated", DECISIONS_BEWILLIGT, "done", "Beurteilung abgeschlossen"),
+        ("building-permit", DECISIONS_ABGELEHNT, "finished", "Bauentscheid verfügt"),
+        ("migrated", DECISIONS_BEWILLIGT, "finished", "Beurteilung abgeschlossen"),
         (
             "preliminary-clarification",
             DECISIONS_BEWILLIGT,
@@ -456,7 +456,7 @@ def test_audit_history(
         (
             "internal",
             DECISIONS_BEWILLIGT,
-            "done_internal",
+            "finished_internal",
             "Beurteilung abgeschlossen",
         ),
     ],
@@ -518,6 +518,10 @@ def test_complete_decision(
     case.workflow = workflow_factory(slug=workflow)
     case.meta["camac-instance-id"] = str(instance.pk)
     case.save()
+
+    if workflow == "internal":
+        work_item_factory(case=case)
+        application_settings["CALUMA"]["EBAU_NUMBER_TASK"] = work_item.task_id
 
     send_event(
         post_complete_work_item,
