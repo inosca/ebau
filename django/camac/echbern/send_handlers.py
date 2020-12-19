@@ -12,7 +12,6 @@ from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
     INSTANCE_STATE_DONE,
     INSTANCE_STATE_DOSSIERPRUEFUNG,
-    INSTANCE_STATE_FINISHED,
     INSTANCE_STATE_KOORDINATION,
     INSTANCE_STATE_REJECTED,
     INSTANCE_STATE_SB1,
@@ -38,15 +37,8 @@ from camac.document.models import Attachment, AttachmentSection
 from camac.instance.models import Instance, InstanceState
 from camac.instance.serializers import CalumaInstanceChangeResponsibleServiceSerializer
 from camac.user.models import Service
-from camac.user.utils import set_baukontrolle
 
-from .signals import (
-    accompanying_report_send,
-    circulation_started,
-    finished,
-    ruling,
-    task_send,
-)
+from .signals import accompanying_report_send, circulation_started, ruling, task_send
 from .utils import judgement_to_decision
 
 
@@ -109,10 +101,10 @@ class BaseSendHandler:
             **{"meta__camac-instance-id": int(self.get_instance_id())}
         )
 
-    def complete_work_item(self, task, context=None):
+    def complete_work_item(self, task, context={}):
         return self._process_work_item("complete", task, context)
 
-    def skip_work_item(self, task, context=None):
+    def skip_work_item(self, task, context={}):
         return self._process_work_item("skip", task, context)
 
     def _process_work_item(self, action, task, context):
@@ -126,7 +118,11 @@ class BaseSendHandler:
         )
 
         if work_item and fn:
-            fn(work_item=work_item, user=self.caluma_user, context=context)
+            fn(
+                work_item=work_item,
+                user=self.caluma_user,
+                context={"group-id": self.group.pk, **context},
+            )
 
     def has_permission(self):
         return self.instance.responsible_service() == self.group.service, None
@@ -153,7 +149,7 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
         ]:
             return (
                 False,
-                'NoticeRuling is only allowed for instances in the state "Dossierprüfung", "In Koordination" or "In Zirkulation".',
+                'NoticeRuling is only allowed for instances in the state "In Koordination" or "In Zirkulation".',
             )
 
         return True, None
@@ -166,19 +162,8 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
                 status=403,
             )
 
-        status = {
-            1: INSTANCE_STATE_SB1,
-            2: INSTANCE_STATE_SB1,
-            3: INSTANCE_STATE_REJECTED,
-            4: INSTANCE_STATE_REJECTED,
-        }
-
         workflow_slug = self.get_case().workflow_id
         judgement = self.data.eventNotice.decisionRuling.judgement
-
-        state_id = status[judgement]
-        if workflow_slug == "preliminary-clarification":
-            state_id = INSTANCE_STATE_FINISHED
 
         try:
             decision = judgement_to_decision(judgement, workflow_slug)
@@ -187,13 +172,6 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
                 f'"{judgement}" is not a valid judgement for "{workflow_slug}"'
             )
 
-        if state_id == INSTANCE_STATE_SB1:
-            set_baukontrolle(self.instance)
-
-        self.complete_work_item("decision")
-
-        self.instance.instance_state = InstanceState.objects.get(pk=state_id)
-        self.instance.save()
         # TODO: where should we write self.data.eventNotice.decisionRuling.ruling ?
         DocxDecision.objects.create(
             instance=self.instance.pk,
@@ -202,14 +180,35 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
             decision_type="UNKNOWN_ECH",
         )
 
-        self.link_to_section(attachments)
+        if judgement in [3, 4]:
+            # reject instance
+            self.instance.instance_state = InstanceState.objects.get(
+                pk=INSTANCE_STATE_REJECTED
+            )
+            self.instance.save()
 
-        ruling.send(
-            sender=self.__class__,
-            instance=self.instance,
-            user_pk=self.user.pk,
-            group_pk=self.group.pk,
-        )
+            # send ech event
+            ruling.send(
+                sender=self.__class__,
+                instance=self.instance,
+                user_pk=self.user.pk,
+                group_pk=self.group.pk,
+            )
+
+            # suspend case
+            workflow_api.suspend_case(case=self.get_case(), user=self.caluma_user)
+        else:
+            # we might have a running circulation, skip it
+            self.skip_work_item("circulation")
+            self.skip_work_item("start-decision")
+            # if we don't have one, skip the whole circulation
+            self.skip_work_item("skip-circulation")
+
+            # this handle status changes and assignment of the construction control
+            # for "normal" judgements
+            self.complete_work_item("decision")
+
+        self.link_to_section(attachments)
 
 
 class ChangeResponsibilitySendHandler(BaseSendHandler):
@@ -357,20 +356,9 @@ class CloseArchiveDossierSendHandler(BaseSendHandler):
         )
 
     def apply(self):
-        state = InstanceState.objects.get(pk=INSTANCE_STATE_FINISHED)
-
-        self.instance.instance_state = state
-        self.instance.save()
-
-        for task_id in ["sb1", "sb2", "complete"]:
-            self.skip_work_item(task_id)
-
-        finished.send(
-            sender=self.__class__,
-            instance=self.instance,
-            user_pk=self.user.pk,
-            group_pk=self.group.pk,
-        )
+        self.skip_work_item("sb1")
+        self.skip_work_item("sb2")
+        self.complete_work_item("complete")
 
 
 class TaskSendHandler(BaseSendHandler):
