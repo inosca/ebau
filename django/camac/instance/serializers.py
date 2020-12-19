@@ -538,10 +538,15 @@ class CalumaInstanceSerializer(InstanceSerializer):
         return set()
 
     def _get_nfd_form_permissions_for_municipality(self, instance):
-        permissions = set(["write"])
+        permissions = set(["read"])
 
-        if CalumaApi().is_paper(instance):
-            permissions.update(CalumaApi().get_nfd_form_permissions(instance))
+        if instance.instance_state.name in [
+            "circulation_init",
+            "circulation",
+            "coordination",
+            "in_progress_internal",
+        ]:
+            permissions.add("write")
 
         return permissions
 
@@ -559,16 +564,12 @@ class CalumaInstanceSerializer(InstanceSerializer):
         return set(["read"])
 
     def _get_dossierpruefung_form_permissions_for_municipality(self, instance):
-        permissions = set()
-
-        if instance.instance_state.name not in ["new", "subm", "correction"]:
-            permissions.add("read")
+        permissions = set(["read"])
 
         if instance.instance_state.name in [
             "circulation_init",
             "circulation",
-            "in_coordination",
-            "in_progress",
+            "coordination",
             "in_progress_internal",
         ]:
             permissions.add("write")
