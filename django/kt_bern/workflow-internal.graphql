@@ -12,24 +12,12 @@ mutation CreateInternalWorkflow {
   }
 }
 
-mutation CreateFlow1 {
+mutation CreateFlow {
   addWorkflowFlow(
     input: {
       workflow: "internal"
       tasks: ["submit"]
-      next: "['ebau-number', 'create-manual-workitems']|tasks"
-    }
-  ) {
-    clientMutationId
-  }
-}
-
-mutation CreateFlow2 {
-  addWorkflowFlow(
-    input: {
-      workflow: "internal"
-      tasks: ["ebau-number"]
-      next: "['audit', 'decision']|tasks"
+      next: "['ebau-number', 'audit', 'nfd', 'decision', 'create-manual-workitems']|tasks"
     }
   ) {
     clientMutationId
