@@ -2,10 +2,7 @@ import pytest
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 
-from camac.constants.kt_bern import (
-    QUESTION_EBAU_NR,
-    SERVICE_GROUP_LEITBEHOERDE_GEMEINDE,
-)
+from camac.constants.kt_bern import QUESTION_EBAU_NR
 from camac.echbern.data_preparation import slugs_baugesuch, slugs_vorabklaerung_einfach
 
 
@@ -28,7 +25,7 @@ def ech_instance(
         service__email="burgdorf@example.com",
         service__pk=2,
         service__trans=None,
-        service__service_group__pk=SERVICE_GROUP_LEITBEHOERDE_GEMEINDE,
+        service__service_group__name="municipality",
         active=1,
     )
 
