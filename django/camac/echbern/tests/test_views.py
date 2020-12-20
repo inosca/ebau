@@ -217,6 +217,7 @@ def test_send(
     admin_client,
     admin_user,
     ech_instance,
+    ech_instance_case,
     mocker,
     instance_state_factory,
     role_factory,
@@ -252,21 +253,17 @@ def test_send(
         )
         attachment.attachment_sections.add(attachment_section_beteiligte_behoerden)
 
-    state = instance_state_factory(name="audit")
-    expected_state = instance_state_factory(name="rejected")
+    state = instance_state_factory(name="circulation_init")
+    expected_state = instance_state_factory(name="finished")
     ech_instance.instance_state = state
     ech_instance.save()
 
-    case = workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(slug="building-permit"),
-        form=caluma_form_models.Form.objects.get(slug="main-form"),
-        meta={"camac-instance-id": ech_instance.pk},
-        user=caluma_admin_user,
-    )
+    case = ech_instance_case()
 
-    workflow_api.complete_work_item(
-        work_item=case.work_items.get(task_id="submit"), user=caluma_admin_user
-    )
+    for task in ["submit", "ebau-number"]:
+        workflow_api.skip_work_item(
+            work_item=case.work_items.get(task_id=task), user=caluma_admin_user
+        )
 
     url = reverse("send")
     response = admin_client.post(
@@ -409,7 +406,7 @@ def test_send_404_attachment_missing(
     group.role = role_factory(name="support")
     group.save()
 
-    state = instance_state_factory(name="audit")
+    state = instance_state_factory(name="circulation_init")
     ech_instance.instance_state = state
     ech_instance.save()
 
