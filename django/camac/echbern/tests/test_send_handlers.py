@@ -5,6 +5,7 @@ from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
     ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
     DECISIONS_BEWILLIGT,
+    INSTANCE_STATE_DONE,
     INSTANCE_STATE_DOSSIERPRUEFUNG,
     INSTANCE_STATE_EBAU_NUMMER_VERGEBEN,
     INSTANCE_STATE_FINISHED,
@@ -61,7 +62,7 @@ def test_resolve_send_handler(xml_file, expected_send_handler):
 
 
 @pytest.mark.parametrize(
-    "judgement,instance_state_pk,has_permission,is_vorabklaerung,active,expected_state_pk",
+    "judgement,instance_state_pk,has_permission,is_vorabklaerung,active,expected_state_pk,expected_state_name",
     [
         (
             4,
@@ -70,8 +71,17 @@ def test_resolve_send_handler(xml_file, expected_send_handler):
             False,
             "leitbehoerde",
             INSTANCE_STATE_REJECTED,
+            "rejected",
         ),
-        (3, INSTANCE_STATE_DOSSIERPRUEFUNG, False, False, "leitbehoerde", None),
+        (
+            3,
+            INSTANCE_STATE_DOSSIERPRUEFUNG,
+            False,
+            False,
+            "leitbehoerde",
+            None,
+            None,
+        ),
         (
             1,
             INSTANCE_STATE_KOORDINATION,
@@ -79,6 +89,7 @@ def test_resolve_send_handler(xml_file, expected_send_handler):
             False,
             "leitbehoerde",
             INSTANCE_STATE_SB1,
+            "sb1",
         ),
         (
             1,
@@ -87,8 +98,17 @@ def test_resolve_send_handler(xml_file, expected_send_handler):
             False,
             "leitbehoerde",
             INSTANCE_STATE_SB1,
+            "sb1",
         ),
-        (1, INSTANCE_STATE_ZIRKULATION, True, False, "rsta", INSTANCE_STATE_SB1),
+        (
+            1,
+            INSTANCE_STATE_ZIRKULATION,
+            True,
+            False,
+            "rsta",
+            INSTANCE_STATE_SB1,
+            "sb1",
+        ),
         (
             1,
             INSTANCE_STATE_ZIRKULATION,
@@ -96,8 +116,17 @@ def test_resolve_send_handler(xml_file, expected_send_handler):
             True,
             "leitbehoerde",
             INSTANCE_STATE_FINISHED,
+            "evaluated",
         ),
-        (4, INSTANCE_STATE_EBAU_NUMMER_VERGEBEN, False, "leitbehoerde", False, None),
+        (
+            4,
+            INSTANCE_STATE_EBAU_NUMMER_VERGEBEN,
+            False,
+            "leitbehoerde",
+            False,
+            None,
+            None,
+        ),
     ],
 )
 def test_notice_ruling_send_handler(
@@ -107,6 +136,7 @@ def test_notice_ruling_send_handler(
     is_vorabklaerung,
     active,
     expected_state_pk,
+    expected_state_name,
     admin_user,
     ech_instance,
     ech_instance_case,
@@ -120,8 +150,12 @@ def test_notice_ruling_send_handler(
     caluma_admin_user,
 ):
     service_group_gemeinde = ech_instance.responsible_service().service_group
-    service_group_baukontrolle = service_group_factory(pk=SERVICE_GROUP_BAUKONTROLLE)
-    service_group_rsta = service_group_factory(pk=SERVICE_GROUP_RSTA)
+    service_group_gemeinde.name = "municipality"
+    service_group_gemeinde.save()
+    service_group_baukontrolle = service_group_factory(
+        pk=SERVICE_GROUP_BAUKONTROLLE, name="construction-control"
+    )
+    service_group_rsta = service_group_factory(pk=SERVICE_GROUP_RSTA, name="district")
 
     service_gemeinde = service_factory(
         service_group=service_group_gemeinde,
@@ -166,7 +200,7 @@ def test_notice_ruling_send_handler(
     )
     attachment.attachment_sections.add(attachment_section_beteiligte_behoerden)
 
-    ech_instance_case(is_vorabklaerung)
+    case = ech_instance_case(is_vorabklaerung)
 
     data = CreateFromDocument(xml_data("notice_ruling"))
 
@@ -190,8 +224,25 @@ def test_notice_ruling_send_handler(
     )
     assert handler.has_permission()[0] == has_permission
 
+    # put case in a realistic status
+    skip_tasks = ["submit"]
+
+    if instance_state_pk == INSTANCE_STATE_DOSSIERPRUEFUNG:
+        skip_tasks.append("ebau-number")
+    elif instance_state_pk == INSTANCE_STATE_ZIRKULATION:
+        skip_tasks.extend(["ebau-number", "init-circulation"])
+    elif instance_state_pk == INSTANCE_STATE_KOORDINATION:
+        skip_tasks.extend(["ebau-number", "skip-circulation"])
+
+    for task_id in skip_tasks:
+        workflow_api.skip_work_item(
+            work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user
+        )
+
     if has_permission:
-        expected_state = instance_state_factory(pk=expected_state_pk)
+        expected_state = instance_state_factory(
+            pk=expected_state_pk, name=expected_state_name
+        )
         handler.apply()
         ech_instance.refresh_from_db()
         assert ech_instance.instance_state == expected_state
@@ -315,7 +366,7 @@ def test_close_dossier_send_handler(
     docx_decision_factory,
     caluma_admin_user,
 ):
-    instance_state_factory(pk=INSTANCE_STATE_FINISHED)
+    instance_state_factory(pk=INSTANCE_STATE_DONE, name="finished")
 
     inst_serv = instance_service_factory(
         instance=ech_instance, service__name="Baukontrolle Burgdorf", active=1
@@ -367,7 +418,7 @@ def test_close_dossier_send_handler(
         handler.apply()
         ech_instance.refresh_from_db()
 
-        assert ech_instance.instance_state.pk == INSTANCE_STATE_FINISHED
+        assert ech_instance.instance_state.pk == INSTANCE_STATE_DONE
         assert Message.objects.count() == 1
         assert Message.objects.first().receiver == ech_instance.responsible_service()
 
