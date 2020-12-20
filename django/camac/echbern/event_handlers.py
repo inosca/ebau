@@ -33,15 +33,6 @@ from camac.constants.kt_bern import (
     ECH_TASK_SB2_SUBMITTED,
     ECH_TASK_STELLUNGNAHME,
     ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION,
-    INSTANCE_STATE_DOSSIERPRUEFUNG,
-    INSTANCE_STATE_EBAU_NUMMER_VERGEBEN,
-    INSTANCE_STATE_FINISHED,
-    INSTANCE_STATE_KOORDINATION,
-    INSTANCE_STATE_REJECTED,
-    INSTANCE_STATE_SB1,
-    INSTANCE_STATE_SB2,
-    INSTANCE_STATE_TO_BE_FINISHED,
-    INSTANCE_STATE_ZIRKULATION,
     NOTICE_TYPE_NEBENBESTIMMUNG,
     NOTICE_TYPE_STELLUNGNAHME,
 )
@@ -183,31 +174,22 @@ class StatusNotificationEventHandler(BaseEventHandler):
     def get_message_type(self):
         message_type = "unkown"  # this should never be used
 
-        if (
-            self.instance.previous_instance_state.pk
-            == INSTANCE_STATE_EBAU_NUMMER_VERGEBEN
-        ):
+        if self.instance.previous_instance_state.name == "subm":
             message_type = ECH_STATUS_NOTIFICATION_EBAU_NR_VERGEBEN
         elif (
-            self.instance.previous_instance_state.pk == INSTANCE_STATE_DOSSIERPRUEFUNG
-            and not self.instance.instance_state.pk == INSTANCE_STATE_REJECTED
+            self.instance.previous_instance_state.name == "audit"
+            and not self.instance.instance_state.name == "rejected"
         ):  # pragma: no cover
             message_type = ECH_STATUS_NOTIFICATION_PRUEFUNG_ABGESCHLOSSEN
-        elif self.instance.instance_state.pk == INSTANCE_STATE_ZIRKULATION:
+        elif self.instance.instance_state.name == "circulation":
             message_type = ECH_STATUS_NOTIFICATION_ZIRKULATION_GESTARTET
-        elif self.instance.instance_state.pk == INSTANCE_STATE_SB1:  # pragma: no cover
+        elif self.instance.instance_state.name == "sb1":  # pragma: no cover
             message_type = ECH_STATUS_NOTIFICATION_SB1_AUSSTEHEND
-        elif (
-            self.instance.instance_state.pk == INSTANCE_STATE_FINISHED
-        ):  # pragma: no cover
+        elif self.instance.instance_state.name == "evaluated":  # pragma: no cover
             message_type = ECH_STATUS_NOTIFICATION_ABGESCHLOSSEN
-        elif (
-            self.instance.instance_state.pk == INSTANCE_STATE_REJECTED
-        ):  # pragma: no cover
+        elif self.instance.instance_state.name == "rejected":  # pragma: no cover
             message_type = ECH_STATUS_NOTIFICATION_ZURUECKGEWIESEN
-        elif (
-            self.instance.instance_state.pk == INSTANCE_STATE_KOORDINATION
-        ):  # pragma: no cover
+        elif self.instance.instance_state.name == "coordination":  # pragma: no cover
             message_type = ECH_STATUS_NOTIFICATION_IN_KOORDINATION
 
         return message_type
@@ -265,17 +247,17 @@ class WithdrawPlanningPermissionApplicationEventHandler(BaseEventHandler):
 class TaskEventHandler(BaseEventHandler):
     event_type = "task"
     task_map = {
-        INSTANCE_STATE_ZIRKULATION: {
+        "circulation": {
             "message_type": ECH_TASK_STELLUNGNAHME,
             "comment": "Anforderung einer Stellungnahme",
             "attachment_section": ATTACHMENT_SECTION_BEILAGEN_GESUCH,
         },
-        INSTANCE_STATE_SB2: {
+        "sb2": {
             "message_type": ECH_TASK_SB1_SUBMITTED,
             "comment": "SB1 eingereicht",
             "attachment_section": ATTACHMENT_SECTION_BEILAGEN_SB1,
         },
-        INSTANCE_STATE_TO_BE_FINISHED: {
+        "conclusion": {
             "message_type": ECH_TASK_SB2_SUBMITTED,
             "comment": "SB2 eingereicht",
             "attachment_section": ATTACHMENT_SECTION_BEILAGEN_SB2,
@@ -330,14 +312,14 @@ class TaskEventHandler(BaseEventHandler):
 
     def run(self):
         data = self.get_data()
-        context = self.task_map[self.instance.instance_state.pk]
+        context = self.task_map[self.instance.instance_state.name]
 
         attachments = Attachment.objects.filter(
             instance=self.instance,
             attachment_sections__pk=context["attachment_section"],
         )
 
-        if self.instance.instance_state.pk == INSTANCE_STATE_ZIRKULATION:
+        if self.instance.instance_state.name == "circulation":
             return self._handle_activations(context, data, attachments)
 
         xml = self.get_xml(
