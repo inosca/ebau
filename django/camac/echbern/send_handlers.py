@@ -30,7 +30,7 @@ from camac.instance.models import Instance, InstanceState
 from camac.instance.serializers import CalumaInstanceChangeResponsibleServiceSerializer
 from camac.user.models import Service
 
-from .signals import accompanying_report_send, circulation_started, ruling, task_send
+from .signals import accompanying_report_send, circulation_started, task_send
 from .utils import judgement_to_decision
 
 
@@ -128,11 +128,11 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
         if not super().has_permission()[0]:
             return False, None
 
-        if self.instance.instance_state.name == "audit":
+        if self.instance.instance_state.name == "circulation_init":
             if self.data.eventNotice.decisionRuling.judgement != 4:
                 return (
                     False,
-                    'For instances in the state "Dossierprüfung", only a NoticeRuling with judgement "4" is allowed.',
+                    'For instances in the state "Zirkulation initialisieren", only a NoticeRuling with judgement "4" is allowed.',
                 )
             return True, None
         if self.instance.instance_state.name not in ["coordination", "circulation"]:
@@ -169,31 +169,15 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
             decision_type="UNKNOWN_ECH",
         )
 
-        if judgement in [3, 4]:
-            # reject instance
-            self.instance.instance_state = InstanceState.objects.get(name="rejected")
-            self.instance.save()
+        # we might have a running circulation, skip it
+        self.skip_work_item("circulation")
+        self.skip_work_item("start-decision")
+        # if we don't have one, skip the whole circulation
+        self.skip_work_item("skip-circulation")
 
-            # send ech event
-            ruling.send(
-                sender=self.__class__,
-                instance=self.instance,
-                user_pk=self.user.pk,
-                group_pk=self.group.pk,
-            )
-
-            # suspend case
-            workflow_api.suspend_case(case=self.get_case(), user=self.caluma_user)
-        else:
-            # we might have a running circulation, skip it
-            self.skip_work_item("circulation")
-            self.skip_work_item("start-decision")
-            # if we don't have one, skip the whole circulation
-            self.skip_work_item("skip-circulation")
-
-            # this handle status changes and assignment of the construction control
-            # for "normal" judgements
-            self.complete_work_item("decision")
+        # this handle status changes and assignment of the construction control
+        # for "normal" judgements
+        self.complete_work_item("decision")
 
         self.link_to_section(attachments)
 
