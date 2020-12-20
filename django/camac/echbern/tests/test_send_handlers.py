@@ -54,8 +54,8 @@ def test_resolve_send_handler(xml_file, expected_send_handler):
 @pytest.mark.parametrize(
     "judgement,instance_state_name,has_permission,is_vorabklaerung,active,expected_state_name",
     [
-        (4, "audit", True, False, "leitbehoerde", "rejected"),
-        (3, "audit", False, False, "leitbehoerde", None),
+        (4, "circulation_init", True, False, "leitbehoerde", "finished"),
+        (3, "circulation_init", False, False, "leitbehoerde", None),
         (1, "coordination", True, False, "leitbehoerde", "sb1"),
         (1, "circulation", True, False, "leitbehoerde", "sb1"),
         (1, "circulation", True, False, "rsta", "sb1"),
@@ -157,7 +157,7 @@ def test_notice_ruling_send_handler(
     # put case in a realistic status
     skip_tasks = ["submit"]
 
-    if instance_state_name == "audit":
+    if instance_state_name == "circulation_init":
         skip_tasks.append("ebau-number")
     elif instance_state_name == "circulation":
         skip_tasks.extend(["ebau-number", "init-circulation"])
@@ -184,7 +184,7 @@ def test_notice_ruling_send_handler(
 
         expected_service = (
             active_service
-            if is_vorabklaerung or expected_state_name == "rejected"
+            if is_vorabklaerung or expected_state_name == "finished"
             else service_baukontrolle
         )
         assert ech_instance.responsible_service() == expected_service
@@ -193,9 +193,9 @@ def test_notice_ruling_send_handler(
 @pytest.mark.parametrize(
     "service_exists,instance_state_name,has_permission,success",
     [
-        (True, "audit", True, True),
+        (True, "circulation_init", True, True),
         (True, "sb1", False, False),
-        (False, "audit", True, False),
+        (False, "circulation_init", True, False),
     ],
 )
 def test_change_responsibility_send_handler(
@@ -487,7 +487,7 @@ def test_notice_kind_of_proceedings_send_handler(
     group.service = ech_instance.services.first()
     group.save()
 
-    state = instance_state_factory(name="audit")
+    state = instance_state_factory(name="subm")
     if has_permission:
         state = instance_state_factory(name="circulation_init")
     ech_instance.instance_state = state
