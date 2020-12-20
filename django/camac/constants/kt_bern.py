@@ -152,3 +152,6 @@ ATTACHMENT_SECTION_BEILAGEN_GESUCH = 1
 
 # Notification template slugs
 NOTIFICATION_ECH = "03-verfahrensablauf-fachstelle"
+
+# Instance resource
+INSTANCE_RESOURCE_ZIRKULATION = 20004
