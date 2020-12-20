@@ -24,7 +24,6 @@ from camac.constants.kt_bern import (
     ECH_STATUS_NOTIFICATION_ABGESCHLOSSEN,
     ECH_STATUS_NOTIFICATION_EBAU_NR_VERGEBEN,
     ECH_STATUS_NOTIFICATION_IN_KOORDINATION,
-    ECH_STATUS_NOTIFICATION_PRUEFUNG_ABGESCHLOSSEN,
     ECH_STATUS_NOTIFICATION_SB1_AUSSTEHEND,
     ECH_STATUS_NOTIFICATION_ZIRKULATION_GESTARTET,
     ECH_STATUS_NOTIFICATION_ZURUECKGEWIESEN,
@@ -176,11 +175,6 @@ class StatusNotificationEventHandler(BaseEventHandler):
 
         if self.instance.previous_instance_state.name == "subm":
             message_type = ECH_STATUS_NOTIFICATION_EBAU_NR_VERGEBEN
-        elif (
-            self.instance.previous_instance_state.name == "audit"
-            and not self.instance.instance_state.name == "rejected"
-        ):  # pragma: no cover
-            message_type = ECH_STATUS_NOTIFICATION_PRUEFUNG_ABGESCHLOSSEN
         elif self.instance.instance_state.name == "circulation":
             message_type = ECH_STATUS_NOTIFICATION_ZIRKULATION_GESTARTET
         elif self.instance.instance_state.name == "sb1":  # pragma: no cover
