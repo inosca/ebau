@@ -10,15 +10,7 @@ from rest_framework.test import APIClient
 from camac.caluma.api import CalumaApi
 from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
-    INSTANCE_STATE_DONE,
-    INSTANCE_STATE_DOSSIERPRUEFUNG,
-    INSTANCE_STATE_KOORDINATION,
-    INSTANCE_STATE_REJECTED,
-    INSTANCE_STATE_SB1,
-    INSTANCE_STATE_SB2,
-    INSTANCE_STATE_TO_BE_FINISHED,
-    INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT,
-    INSTANCE_STATE_ZIRKULATION,
+    INSTANCE_RESOURCE_ZIRKULATION,
     NOTICE_TYPE_NEBENBESTIMMUNG,
     NOTICE_TYPE_STELLUNGNAHME,
     NOTIFICATION_ECH,
@@ -136,17 +128,14 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
         if not super().has_permission()[0]:
             return False, None
 
-        if self.instance.instance_state.pk == INSTANCE_STATE_DOSSIERPRUEFUNG:
+        if self.instance.instance_state.name == "audit":
             if self.data.eventNotice.decisionRuling.judgement != 4:
                 return (
                     False,
                     'For instances in the state "Dossierprüfung", only a NoticeRuling with judgement "4" is allowed.',
                 )
             return True, None
-        if self.instance.instance_state.pk not in [
-            INSTANCE_STATE_KOORDINATION,
-            INSTANCE_STATE_ZIRKULATION,
-        ]:
+        if self.instance.instance_state.name not in ["coordination", "circulation"]:
             return (
                 False,
                 'NoticeRuling is only allowed for instances in the state "In Koordination" or "In Zirkulation".',
@@ -182,9 +171,7 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
 
         if judgement in [3, 4]:
             # reject instance
-            self.instance.instance_state = InstanceState.objects.get(
-                pk=INSTANCE_STATE_REJECTED
-            )
+            self.instance.instance_state = InstanceState.objects.get(name="rejected")
             self.instance.save()
 
             # send ech event
@@ -215,11 +202,11 @@ class ChangeResponsibilitySendHandler(BaseSendHandler):
     def has_permission(self):
         if not super().has_permission()[0]:  # pragma: no cover
             return False, None
-        if self.instance.instance_state.pk in [
-            INSTANCE_STATE_SB1,
-            INSTANCE_STATE_SB2,
-            INSTANCE_STATE_TO_BE_FINISHED,
-            INSTANCE_STATE_DONE,
+        if self.instance.instance_state.name in [
+            "sb1",
+            "sb2",
+            "conclusion",
+            "finished",
         ]:
             return (
                 False,
@@ -336,11 +323,7 @@ class CloseArchiveDossierSendHandler(BaseSendHandler):
             instance=self.instance, active=True, service=self.group.service
         ).exists():
             return False, None
-        if self.instance.instance_state.pk in [
-            INSTANCE_STATE_SB1,
-            INSTANCE_STATE_SB2,
-            INSTANCE_STATE_TO_BE_FINISHED,
-        ]:
+        if self.instance.instance_state.name in ["sb1", "sb2", "conclusion"]:
             return True, None
         return (
             False,
@@ -370,7 +353,7 @@ class TaskSendHandler(BaseSendHandler):
     def has_permission(self):
         if not super().has_permission()[0]:  # pragma: no cover
             return False, None
-        if not self.instance.instance_state.pk == INSTANCE_STATE_ZIRKULATION:
+        if not self.instance.instance_state.name == "circulation":
             return (
                 False,
                 'You can only send a "Task" for instances in the state "In Zirkulation".',
@@ -384,7 +367,7 @@ class TaskSendHandler(BaseSendHandler):
         )
         if not circulation:
             instance_resource = InstanceResource.objects.get(
-                pk=INSTANCE_STATE_ZIRKULATION
+                pk=INSTANCE_RESOURCE_ZIRKULATION
             )
             circulation = Circulation.objects.create(
                 service=self.instance.responsible_service(filter_type="municipality"),
@@ -492,7 +475,7 @@ class NoticeKindOfProceedingsSendHandler(DocumentAccessibilityMixin, TaskSendHan
         if not super().has_permission():  # pragma: no cover
             return False, None
 
-        if self.instance.instance_state.pk != INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT:
+        if self.instance.instance_state.name != "circulation_init":
             return (
                 False,
                 'You can only send a "NoticeKindOfProceedings" for instances in the state "Zirkulation initialisieren".',
@@ -510,7 +493,7 @@ class NoticeKindOfProceedingsSendHandler(DocumentAccessibilityMixin, TaskSendHan
             )
 
         circulation = self._get_circulation()
-        instance_state = InstanceState.objects.get(pk=INSTANCE_STATE_ZIRKULATION)
+        instance_state = InstanceState.objects.get(name="circulation")
         self.instance.instance_state = instance_state
         self.instance.save()
 
