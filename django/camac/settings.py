@@ -5,7 +5,9 @@ from datetime import timedelta
 
 import environ
 from django.db.models.expressions import Q
+from django.utils.translation import gettext_noop
 
+from camac.echbern.signals import circulation_ended, circulation_started, finished
 from camac.utils import build_url
 
 env = environ.Env()
@@ -396,6 +398,28 @@ APPLICATIONS = {
             "AUDIT_TASK": "audit",
             "DECISION_TASK": "decision",
             "EBAU_NUMBER_TASK": "ebau-number",
+            "SIMPLE_WORKFLOW": {
+                "reopen-circulation": {
+                    "next_instance_state": "circulation",
+                    "ech_event": circulation_started,
+                    "history_text": gettext_noop("Circulation reopened"),
+                },
+                "skip-circulation": {
+                    "next_instance_state": "coordination",
+                    "ech_event": circulation_ended,
+                    "history_text": gettext_noop("Circulation skipped"),
+                },
+                "start-decision": {
+                    "next_instance_state": "coordination",
+                    "ech_event": circulation_ended,
+                    "history_text": gettext_noop("Circulation completed"),
+                },
+                "complete": {
+                    "next_instance_state": "finished",
+                    "ech_event": finished,
+                    "history_text": gettext_noop("Procedure completed"),
+                },
+            },
             "INTERNAL_FORMS": [
                 "baupolizeiliches-verfahren",
                 "zutrittsermaechtigung",
