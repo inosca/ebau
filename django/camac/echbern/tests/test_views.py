@@ -12,10 +12,6 @@ from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
     DECISION_JUDGEMENT_MAP,
     DECISIONS_ABGESCHRIEBEN,
-    INSTANCE_STATE_DOSSIERPRUEFUNG,
-    INSTANCE_STATE_KOORDINATION,
-    INSTANCE_STATE_REJECTED,
-    SERVICE_GROUP_BAUKONTROLLE,
     VORABKLAERUNG_DECISIONS_BEWILLIGT_MIT_VORBEHALT,
 )
 from camac.core.models import (
@@ -232,9 +228,7 @@ def test_send(
     caluma_admin_user,
 ):
     if has_permission:
-        service_group_baukontrolle = service_group_factory(
-            pk=SERVICE_GROUP_BAUKONTROLLE
-        )
+        service_group_baukontrolle = service_group_factory(name="construction-control")
 
         service_factory(
             service_group=service_group_baukontrolle,
@@ -258,8 +252,8 @@ def test_send(
         )
         attachment.attachment_sections.add(attachment_section_beteiligte_behoerden)
 
-    state = instance_state_factory(pk=INSTANCE_STATE_DOSSIERPRUEFUNG)
-    expected_state = instance_state_factory(pk=INSTANCE_STATE_REJECTED)
+    state = instance_state_factory(name="audit")
+    expected_state = instance_state_factory(name="rejected")
     ech_instance.instance_state = state
     ech_instance.save()
 
@@ -326,7 +320,7 @@ def test_send_400_invalid_judgement(
     group.role = role_factory(name="support")
     group.save()
 
-    state = instance_state_factory(pk=INSTANCE_STATE_KOORDINATION)
+    state = instance_state_factory(name="coordination")
     ech_instance.instance_state = state
     ech_instance.save()
 
@@ -415,7 +409,7 @@ def test_send_404_attachment_missing(
     group.role = role_factory(name="support")
     group.save()
 
-    state = instance_state_factory(pk=INSTANCE_STATE_DOSSIERPRUEFUNG)
+    state = instance_state_factory(name="audit")
     ech_instance.instance_state = state
     ech_instance.save()
 

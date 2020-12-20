@@ -5,21 +5,10 @@ from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
     ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
     DECISIONS_BEWILLIGT,
-    INSTANCE_STATE_DONE,
-    INSTANCE_STATE_DOSSIERPRUEFUNG,
-    INSTANCE_STATE_EBAU_NUMMER_VERGEBEN,
-    INSTANCE_STATE_FINISHED,
-    INSTANCE_STATE_KOORDINATION,
-    INSTANCE_STATE_REJECTED,
-    INSTANCE_STATE_SB1,
-    INSTANCE_STATE_TO_BE_FINISHED,
-    INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT,
-    INSTANCE_STATE_ZIRKULATION,
+    INSTANCE_RESOURCE_ZIRKULATION,
     NOTICE_TYPE_NEBENBESTIMMUNG,
     NOTICE_TYPE_STELLUNGNAHME,
     NOTIFICATION_ECH,
-    SERVICE_GROUP_BAUKONTROLLE,
-    SERVICE_GROUP_RSTA,
 )
 from camac.core.models import Activation, DocxDecision, InstanceService, Notice
 from camac.echbern.tests.utils import xml_data
@@ -61,81 +50,25 @@ def test_resolve_send_handler(xml_file, expected_send_handler):
         assert resolve_send_handler(data) == expected_send_handler
 
 
+@pytest.mark.parametrize("service_group__name", ["municipality"])
 @pytest.mark.parametrize(
-    "judgement,instance_state_pk,has_permission,is_vorabklaerung,active,expected_state_pk,expected_state_name",
+    "judgement,instance_state_name,has_permission,is_vorabklaerung,active,expected_state_name",
     [
-        (
-            4,
-            INSTANCE_STATE_DOSSIERPRUEFUNG,
-            True,
-            False,
-            "leitbehoerde",
-            INSTANCE_STATE_REJECTED,
-            "rejected",
-        ),
-        (
-            3,
-            INSTANCE_STATE_DOSSIERPRUEFUNG,
-            False,
-            False,
-            "leitbehoerde",
-            None,
-            None,
-        ),
-        (
-            1,
-            INSTANCE_STATE_KOORDINATION,
-            True,
-            False,
-            "leitbehoerde",
-            INSTANCE_STATE_SB1,
-            "sb1",
-        ),
-        (
-            1,
-            INSTANCE_STATE_ZIRKULATION,
-            True,
-            False,
-            "leitbehoerde",
-            INSTANCE_STATE_SB1,
-            "sb1",
-        ),
-        (
-            1,
-            INSTANCE_STATE_ZIRKULATION,
-            True,
-            False,
-            "rsta",
-            INSTANCE_STATE_SB1,
-            "sb1",
-        ),
-        (
-            1,
-            INSTANCE_STATE_ZIRKULATION,
-            True,
-            True,
-            "leitbehoerde",
-            INSTANCE_STATE_FINISHED,
-            "evaluated",
-        ),
-        (
-            4,
-            INSTANCE_STATE_EBAU_NUMMER_VERGEBEN,
-            False,
-            "leitbehoerde",
-            False,
-            None,
-            None,
-        ),
+        (4, "audit", True, False, "leitbehoerde", "rejected"),
+        (3, "audit", False, False, "leitbehoerde", None),
+        (1, "coordination", True, False, "leitbehoerde", "sb1"),
+        (1, "circulation", True, False, "leitbehoerde", "sb1"),
+        (1, "circulation", True, False, "rsta", "sb1"),
+        (1, "circulation", True, True, "leitbehoerde", "evaluated"),
+        (4, "subm", False, "leitbehoerde", False, None),
     ],
 )
 def test_notice_ruling_send_handler(
     judgement,
-    instance_state_pk,
+    instance_state_name,
     has_permission,
     is_vorabklaerung,
     active,
-    expected_state_pk,
     expected_state_name,
     admin_user,
     ech_instance,
@@ -145,17 +78,14 @@ def test_notice_ruling_send_handler(
     attachment_section_factory,
     service_factory,
     service_group_factory,
+    service_group,
     instance_service_factory,
     multilang,
     caluma_admin_user,
 ):
     service_group_gemeinde = ech_instance.responsible_service().service_group
-    service_group_gemeinde.name = "municipality"
-    service_group_gemeinde.save()
-    service_group_baukontrolle = service_group_factory(
-        pk=SERVICE_GROUP_BAUKONTROLLE, name="construction-control"
-    )
-    service_group_rsta = service_group_factory(pk=SERVICE_GROUP_RSTA, name="district")
+    service_group_baukontrolle = service_group_factory(name="construction-control")
+    service_group_rsta = service_group_factory(name="district")
 
     service_gemeinde = service_factory(
         service_group=service_group_gemeinde,
@@ -206,7 +136,7 @@ def test_notice_ruling_send_handler(
 
     data.eventNotice.decisionRuling.judgement = judgement
 
-    state = instance_state_factory(pk=instance_state_pk)
+    state = instance_state_factory(name=instance_state_name)
     ech_instance.instance_state = state
     ech_instance.save()
 
@@ -227,11 +157,11 @@ def test_notice_ruling_send_handler(
     # put case in a realistic status
     skip_tasks = ["submit"]
 
-    if instance_state_pk == INSTANCE_STATE_DOSSIERPRUEFUNG:
+    if instance_state_name == "audit":
         skip_tasks.append("ebau-number")
-    elif instance_state_pk == INSTANCE_STATE_ZIRKULATION:
+    elif instance_state_name == "circulation":
         skip_tasks.extend(["ebau-number", "init-circulation"])
-    elif instance_state_pk == INSTANCE_STATE_KOORDINATION:
+    elif instance_state_name == "coordination":
         skip_tasks.extend(["ebau-number", "skip-circulation"])
 
     for task_id in skip_tasks:
@@ -240,9 +170,7 @@ def test_notice_ruling_send_handler(
         )
 
     if has_permission:
-        expected_state = instance_state_factory(
-            pk=expected_state_pk, name=expected_state_name
-        )
+        expected_state = instance_state_factory(name=expected_state_name)
         handler.apply()
         ech_instance.refresh_from_db()
         assert ech_instance.instance_state == expected_state
@@ -256,23 +184,23 @@ def test_notice_ruling_send_handler(
 
         expected_service = (
             active_service
-            if is_vorabklaerung or expected_state_pk == INSTANCE_STATE_REJECTED
+            if is_vorabklaerung or expected_state_name == "rejected"
             else service_baukontrolle
         )
         assert ech_instance.responsible_service() == expected_service
 
 
 @pytest.mark.parametrize(
-    "service_exists,instance_state_pk,has_permission,success",
+    "service_exists,instance_state_name,has_permission,success",
     [
-        (True, INSTANCE_STATE_DOSSIERPRUEFUNG, True, True),
-        (True, INSTANCE_STATE_SB1, False, False),
-        (False, INSTANCE_STATE_DOSSIERPRUEFUNG, True, False),
+        (True, "audit", True, True),
+        (True, "sb1", False, False),
+        (False, "audit", True, False),
     ],
 )
 def test_change_responsibility_send_handler(
     service_exists,
-    instance_state_pk,
+    instance_state_name,
     has_permission,
     success,
     admin_user,
@@ -283,7 +211,7 @@ def test_change_responsibility_send_handler(
     multilang,
     caluma_admin_user,
 ):
-    instance_state = instance_state_factory(pk=instance_state_pk)
+    instance_state = instance_state_factory(name=instance_state_name)
     ech_instance.instance_state = instance_state
     ech_instance.save()
     burgdorf = ech_instance.responsible_service()
@@ -292,9 +220,9 @@ def test_change_responsibility_send_handler(
     group.service = ech_instance.services.first()
     group.save()
 
-    if instance_state_pk == INSTANCE_STATE_SB1:
+    if instance_state_name == "sb1":
         service_baukontrolle = service_factory(
-            service_group__pk=SERVICE_GROUP_BAUKONTROLLE,
+            service_group__name="construction-control",
             name=None,
             trans__name="Baukontrolle Burgdorf",
             trans__city="Burgdorf",
@@ -345,17 +273,17 @@ def test_change_responsibility_send_handler(
 
 
 @pytest.mark.parametrize(
-    "requesting_service,state_pk,success",
+    "requesting_service,instance_state_name,success",
     [
-        ("leitbehörde", INSTANCE_STATE_SB1, True),
-        ("baukontrolle", INSTANCE_STATE_TO_BE_FINISHED, True),
-        ("leitbehörde", INSTANCE_STATE_KOORDINATION, False),
-        ("nobody", INSTANCE_STATE_TO_BE_FINISHED, False),
+        ("leitbehörde", "sb1", True),
+        ("baukontrolle", "conclusion", True),
+        ("leitbehörde", "coordination", False),
+        ("nobody", "conclusion", False),
     ],
 )
 def test_close_dossier_send_handler(
     requesting_service,
-    state_pk,
+    instance_state_name,
     success,
     ech_instance,
     ech_instance_case,
@@ -366,13 +294,13 @@ def test_close_dossier_send_handler(
     docx_decision_factory,
     caluma_admin_user,
 ):
-    instance_state_factory(pk=INSTANCE_STATE_DONE, name="finished")
+    instance_state_factory(name="finished")
 
     inst_serv = instance_service_factory(
         instance=ech_instance, service__name="Baukontrolle Burgdorf", active=1
     )
 
-    ech_instance.instance_state = instance_state_factory(pk=state_pk)
+    ech_instance.instance_state = instance_state_factory(name=instance_state_name)
     ech_instance.save()
 
     circulation_factory(instance=ech_instance)
@@ -418,7 +346,7 @@ def test_close_dossier_send_handler(
         handler.apply()
         ech_instance.refresh_from_db()
 
-        assert ech_instance.instance_state.pk == INSTANCE_STATE_DONE
+        assert ech_instance.instance_state.name == "finished"
         assert Message.objects.count() == 1
         assert Message.objects.first().receiver == ech_instance.responsible_service()
 
@@ -454,9 +382,9 @@ def test_task_send_handler(
     if has_template:
         notification_template_factory(slug=NOTIFICATION_ECH)
 
-    instance_resource_factory(pk=INSTANCE_STATE_ZIRKULATION)
+    instance_resource_factory(pk=INSTANCE_RESOURCE_ZIRKULATION)
     circulation_state_factory(pk=1, name="RUN")
-    state = instance_state_factory(pk=INSTANCE_STATE_ZIRKULATION)
+    state = instance_state_factory(name="circulation")
     ech_instance.instance_state = state
     ech_instance.save()
     ech_instance_case()
@@ -559,9 +487,9 @@ def test_notice_kind_of_proceedings_send_handler(
     group.service = ech_instance.services.first()
     group.save()
 
-    state = instance_state_factory(pk=INSTANCE_STATE_DOSSIERPRUEFUNG)
+    state = instance_state_factory(name="audit")
     if has_permission:
-        state = instance_state_factory(pk=INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT)
+        state = instance_state_factory(name="circulation_init")
     ech_instance.instance_state = state
     ech_instance.save()
 
@@ -572,8 +500,8 @@ def test_notice_kind_of_proceedings_send_handler(
             work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user
         )
 
-    instance_state_factory(pk=INSTANCE_STATE_ZIRKULATION)
-    instance_resource_factory(pk=INSTANCE_STATE_ZIRKULATION)
+    instance_state_factory(name="circulation")
+    instance_resource_factory(pk=INSTANCE_RESOURCE_ZIRKULATION)
 
     data = CreateFromDocument(xml_data("kind_of_proceedings"))
 
@@ -595,7 +523,7 @@ def test_notice_kind_of_proceedings_send_handler(
             == ech_instance.responsible_service(filter_type="municipality")
         )
         ech_instance.refresh_from_db()
-        assert ech_instance.instance_state.pk == INSTANCE_STATE_ZIRKULATION
+        assert ech_instance.instance_state.name == "circulation"
 
         assert Message.objects.count() == 1
         message = Message.objects.first()
@@ -644,7 +572,7 @@ def test_accompanying_report_send_handler(
     support_group.service = ech_instance.services.first()
     support_group.save()
 
-    state = instance_state_factory(pk=INSTANCE_STATE_ZIRKULATION)
+    state = instance_state_factory(name="circulation")
     ech_instance.instance_state = state
     ech_instance.save()
     ech_instance_case()
