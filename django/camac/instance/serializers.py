@@ -1284,12 +1284,7 @@ class CalumaInstanceSetEbauNumberSerializer(serializers.Serializer):
         if not re.search(r"\d{4}-\d+", value):
             raise exceptions.ValidationError(_("Invalid format"))
 
-        service_filters = {
-            "instance_services__service": self.instance.responsible_service(
-                filter_type="municipality"
-            ),
-            "instance_services__active": 1,
-        }
+        municipality = self.instance.responsible_service(filter_type="municipality")
 
         instances = models.Instance.objects.filter(
             pk__in=list(
@@ -1299,12 +1294,12 @@ class CalumaInstanceSetEbauNumberSerializer(serializers.Serializer):
             )
         )
 
-        if instances.exclude(**service_filters).exists():
+        if instances.exclude(instance_services__service=municipality).exists():
             raise exceptions.ValidationError(
                 _("This eBau number is already in use by a different municipality")
             )
 
-        if not instances.filter(**service_filters).exists():
+        if not instances.filter(instance_services__service=municipality).exists():
             raise exceptions.ValidationError(_("This eBau number doesn't exist"))
 
         return value
