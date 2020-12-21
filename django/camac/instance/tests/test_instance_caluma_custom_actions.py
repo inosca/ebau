@@ -67,12 +67,12 @@ def test_set_ebau_number(
         user=caluma_admin_user,
     )
 
-    # create existing instance with ebau-number 2020-2 in the same municipality
+    # create existing instance with ebau-number 2020-2 with same municipality involved
     instance_same = instance_factory()
     instance_service_factory(
         service=instance.responsible_service(filter_type="municipality"),
         instance=instance_same,
-        active=1,
+        active=0,
     )
     camac_answer_factory(
         instance=instance_same,
