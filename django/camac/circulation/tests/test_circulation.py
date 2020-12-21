@@ -11,9 +11,12 @@ from camac.circulation import serializers
 
 
 def get_activation_work_item(case, activation_id):
-    return case.work_items.get(
-        **{"task_id": "activation", "meta__activation-id": activation_id}
-    )
+    try:
+        return case.work_items.get(
+            **{"task_id": "activation", "meta__activation-id": activation_id}
+        )
+    except WorkItem.DoesNotExist:
+        return None
 
 
 @pytest.mark.parametrize(
@@ -117,9 +120,11 @@ def test_sync_circulation(
 
     assert not circulation_work_item.child_case
 
-    a1 = activation_factory(circulation=circulation)
-    a2 = activation_factory(circulation=circulation)
-    a3 = activation_factory(circulation=circulation)
+    a1 = activation_factory(
+        circulation=circulation, circulation_state__name="DONE", circulation_answer=None
+    )
+    a2 = activation_factory(circulation=circulation, circulation_state__name="DONE")
+    a3 = activation_factory(circulation=circulation, circulation_state__name="RUN")
 
     response = admin_client.patch(reverse("circulation-sync", args=[circulation.pk]))
     assert response.status_code == status.HTTP_204_NO_CONTENT
@@ -127,13 +132,18 @@ def test_sync_circulation(
     circulation_work_item.refresh_from_db()
     assert circulation_work_item.child_case.status == Case.STATUS_RUNNING
 
-    for activation in [a1, a2, a3]:
-        assert (
-            get_activation_work_item(
-                circulation_work_item.child_case, activation.pk
-            ).status
-            == WorkItem.STATUS_READY
-        )
+    assert (
+        get_activation_work_item(circulation_work_item.child_case, a1.pk).status
+        == WorkItem.STATUS_CANCELED
+    )
+    assert (
+        get_activation_work_item(circulation_work_item.child_case, a2.pk).status
+        == WorkItem.STATUS_SKIPPED
+    )
+    assert (
+        get_activation_work_item(circulation_work_item.child_case, a3.pk).status
+        == WorkItem.STATUS_READY
+    )
 
     now = timezone.now()
     a2.deadline_date = now
@@ -150,10 +160,9 @@ def test_sync_circulation(
         == now
     )
 
-    assert (
-        get_activation_work_item(circulation_work_item.child_case, a3_pk).status
-        == WorkItem.STATUS_CANCELED
-    )
+    assert not get_activation_work_item(circulation_work_item.child_case, a3_pk)
+    circulation_work_item.child_case.refresh_from_db()
+    assert circulation_work_item.child_case.status == Case.STATUS_COMPLETED
 
     a1.delete()
     a2.delete()
@@ -162,4 +171,4 @@ def test_sync_circulation(
     assert response.status_code == status.HTTP_204_NO_CONTENT
 
     circulation_work_item.refresh_from_db()
-    assert circulation_work_item.child_case.status == Case.STATUS_CANCELED
+    assert not circulation_work_item.child_case

@@ -367,6 +367,13 @@
     }
   },
   {
+    "model": "core.aphp",
+    "pk": 150048,
+    "fields": {
+      "php_class": "SyncCirculation"
+    }
+  },
+  {
     "model": "core.action",
     "pk": 10013,
     "fields": {
@@ -1408,6 +1415,20 @@
     "fields": {
       "available_action": "pageredirect",
       "button": 20048,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 150048,
+    "fields": {
+      "available_action": "php",
+      "button": 20008,
       "name": null,
       "description": null,
       "success_message": null,
@@ -2487,6 +2508,18 @@
       "action": 150047,
       "language": "de",
       "name": "Redirect to instance",
+      "description": null,
+      "success_message": null,
+      "error_message": null
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 150054,
+    "fields": {
+      "action": 150048,
+      "language": "de",
+      "name": "Zirkulation mit Caluma synchronisieren",
       "description": null,
       "success_message": null,
       "error_message": null
