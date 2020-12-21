@@ -49452,6 +49452,26 @@
     }
   },
   {
+    "model": "core.circulationanswer",
+    "pk": 150000,
+    "fields": {
+      "circulation_type": 20000,
+      "circulation_answer_type": 1,
+      "name": null,
+      "sort": 5
+    }
+  },
+  {
+    "model": "core.circulationanswer",
+    "pk": 150001,
+    "fields": {
+      "circulation_type": 20000,
+      "circulation_answer_type": 1,
+      "name": null,
+      "sort": 6
+    }
+  },
+  {
     "model": "core.circulationanswert",
     "pk": 20000,
     "fields": {
@@ -49539,6 +49559,42 @@
       "circulation_answer": 20005,
       "language": "fr",
       "name": "Demande de compl\u00e9ment d'information"
+    }
+  },
+  {
+    "model": "core.circulationanswert",
+    "pk": 150000,
+    "fields": {
+      "circulation_answer": 150000,
+      "language": "de",
+      "name": "Baubewilligungspflichtig"
+    }
+  },
+  {
+    "model": "core.circulationanswert",
+    "pk": 150001,
+    "fields": {
+      "circulation_answer": 150001,
+      "language": "de",
+      "name": "Nicht Baubewilligungspflichtig"
+    }
+  },
+  {
+    "model": "core.circulationanswert",
+    "pk": 150002,
+    "fields": {
+      "circulation_answer": 150000,
+      "language": "fr",
+      "name": "Soumis \u00e0 l'octroi d'un permis de construire"
+    }
+  },
+  {
+    "model": "core.circulationanswert",
+    "pk": 150003,
+    "fields": {
+      "circulation_answer": 150001,
+      "language": "fr",
+      "name": "Non soumis \u00e0 l'octroi d'un permis de construire"
     }
   },
   {
