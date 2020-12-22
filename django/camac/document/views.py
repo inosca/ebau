@@ -242,8 +242,10 @@ class AttachmentView(
         try:
             thumbnail = get_thumbnail(path, geometry_string="x300")
         # no proper exception handling in sorl thumbnail when image type is
-        # invalid - workaround catching AtttributeError
-        except AttributeError:
+        # invalid - workaround catching AttributeError
+        # ValueError occures if the document holds an empty file
+        # Could happen with Prefecta imported documents, missing the file
+        except (AttributeError, ValueError):
             raise exceptions.NotFound()
         return HttpResponse(thumbnail.read(), "image/jpeg")
 
