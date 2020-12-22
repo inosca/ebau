@@ -862,7 +862,7 @@
       "name": "{\"de\": \"Kl\\u00e4rung Baubewilligungspflicht\", \"fr\": \"Clarification de l'octroi d'un permis de construire\"}",
       "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {
-        "category": "preliminary-clarification",
+        "category": "special-procedure",
         "is-creatable": true,
         "is-main-form": true
       },
@@ -1288,7 +1288,6 @@
       "name": "{\"de\": \"Verl\\u00e4ngerung Geltungsdauer\", \"fr\": \"Prolongation de la dur\\u00e9e de validit\\u00e9 du permis de construire\"}",
       "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {
-        "category": "building-permit",
         "is-creatable": false,
         "is-main-form": true
       },
@@ -1476,7 +1475,7 @@
       "name": "{\"de\": \"Zutrittserm\\u00e4chtigung\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
-        "category": "preliminary-clarification",
+        "category": "special-procedure",
         "is-creatable": true,
         "is-main-form": true
       },
