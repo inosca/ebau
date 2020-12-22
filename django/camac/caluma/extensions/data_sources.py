@@ -6,13 +6,15 @@ from django.utils.translation import gettext as _
 from camac.user.models import Service
 
 
-def get_municipality_label(service):
-    name = service.get_name().replace("Leitbehörde ", "")
+def get_municipality_label(service, replace_with_de="", replace_with_fr=""):
+    name = (
+        service.get_name()
+        .replace("Leitbehörde", replace_with_de)
+        .replace("Autorité directrice", replace_with_fr)
+    ).strip()
 
     if service.disabled:
-        suffix = _("not activated")
-
-        return f"{name} ({suffix})"
+        return f"{name} ({_('not activated')})"
 
     return name
 
@@ -69,7 +71,10 @@ class Services(BaseDataSource):
         data = (
             sorted(
                 [
-                    [str(service.pk), service.get_name().replace("Leitbehörde ", "")]
+                    [
+                        str(service.pk),
+                        get_municipality_label(service, "Gemeinde", "Municipalité"),
+                    ]
                     for service in services.iterator()
                 ],
                 key=lambda x: x[1].casefold(),
