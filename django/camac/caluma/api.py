@@ -2,15 +2,18 @@ from copy import copy
 from functools import reduce
 from logging import getLogger
 
+from caluma.caluma_core.events import send_event
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_form.validators import DocumentValidator
 from caluma.caluma_workflow import (
     api as caluma_workflow_api,
     models as caluma_workflow_models,
 )
+from caluma.caluma_workflow.events import post_complete_case, post_create_work_item
 from caluma.caluma_workflow.utils import get_jexl_groups
 from django.conf import settings
 from django.db.models import Q
+from django.utils.timezone import now
 from jwt import decode as jwt_decode
 
 from camac.user.middleware import get_group
@@ -273,6 +276,9 @@ class CalumaApi:
             pk=caluma_settings.get("ACTIVATION_INIT_TASK")
         )
 
+        to_cancel = []
+        to_skip = []
+
         for activation in activations:
             work_item = child_case.work_items.filter(
                 **{"task": activation_task, "meta__activation-id": activation.pk}
@@ -312,31 +318,52 @@ class CalumaApi:
                 work_item.save()
             else:
                 # Activation work item does not exist yet, create a new one
-                child_case.work_items.create(
+                work_item = child_case.work_items.create(
                     task=activation_task,
                     status=caluma_workflow_models.WorkItem.STATUS_READY,
                     created_by_user=user.username,
                     created_by_group=user.group,
                     name=activation_task.name,
-                    meta={
-                        "activation-id": activation.pk,
-                        "not-viewed": True,
-                        "notify-completed": False,
-                        "notify-deadline": True,
-                    },
+                    meta={"activation-id": activation.pk},
                     **update_data,
                 )
+                send_event(
+                    post_create_work_item,
+                    sender=self.__class__,
+                    work_item=work_item,
+                    user=user,
+                    context={},
+                )
 
-        # Note: The activation_ids need to be strings in order for the
-        # query to filter correctly (jsonb type casting...)
-        activation_ids = list(activations.values_list("pk", flat=True))
+            if (
+                activation.circulation_state.name == "DONE"
+                and work_item.status == caluma_workflow_models.WorkItem.STATUS_READY
+            ):
+                if not activation.circulation_answer:
+                    # force finished
+                    to_cancel.append(work_item)
+                else:
+                    # answered
+                    to_skip.append(work_item)
+
         for existing_work_item in child_case.work_items.filter(
             task=activation_task, status=caluma_workflow_models.WorkItem.STATUS_READY
+        ).exclude(
+            **{
+                "meta__activation-id__in": list(
+                    activations.values_list("pk", flat=True)
+                )
+            }
         ):
-            # Cancel existing activation work items that don't have an
+            # Delete existing activation work items that don't have an
             # activation anymore.
-            if existing_work_item.meta.get("activation-id") not in activation_ids:
-                caluma_workflow_api.cancel_work_item(existing_work_item, user)
+            existing_work_item.delete()
+
+        for work_item in to_cancel:
+            caluma_workflow_api.cancel_work_item(work_item, user)
+
+        for work_item in to_skip:
+            caluma_workflow_api.skip_work_item(work_item, user)
 
     def sync_circulation(self, circulation, user):
         """Synchronize a CAMAC circulation with the Caluma workflow.
@@ -379,13 +406,33 @@ class CalumaApi:
 
             self._sync_activations(child_case, circulation.activations.all(), user)
 
-        elif (
-            work_item.child_case
-            and work_item.child_case.status
-            == caluma_workflow_models.Case.STATUS_RUNNING
-        ):
-            # Cancel existing child case since there are no more activations
-            caluma_workflow_api.cancel_case(work_item.child_case, user)
+            if (
+                not child_case.work_items.filter(
+                    status=caluma_workflow_models.WorkItem.STATUS_READY
+                )
+                and child_case.status == caluma_workflow_models.Case.STATUS_RUNNING
+            ):
+                # Manually close the case since all work items are completed.
+                # This can happen when all activations except one are answered
+                # and the remaining is deleted. Caluma can't react in this case
+                # since that work item is deleted.
+                child_case.status = caluma_workflow_models.Case.STATUS_COMPLETED
+                child_case.closed_at = now()
+                child_case.closed_by_user = user.username
+                child_case.closed_by_group = user.group
+                child_case.save()
+
+                # This will automatically complete the parent work item
+                send_event(
+                    post_complete_case,
+                    sender=self.__class__,
+                    case=child_case,
+                    user=user,
+                    context={},
+                )
+        elif work_item.child_case:
+            # Delete existing child case since there are no more activations
+            work_item.child_case.delete()
 
     def reassign_work_items(self, instance_id, from_group_id, to_group_id):
         from_group_id = str(from_group_id)
