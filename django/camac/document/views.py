@@ -145,10 +145,6 @@ class AttachmentView(
     }
     ordering_fields = ("name", "date", "size")
 
-    @permission_aware
-    def get_queryset(self):
-        return self.get_base_queryset()
-
     def has_object_destroy_base_permission(self, obj):
         section_modes = {
             attachment_section.get_mode(self.request.group)
@@ -270,10 +266,6 @@ class AttachmentDownloadView(
     pagination_class = None
     # use empty serializer to avoid an exception on schema generation
     serializer_class = Serializer
-
-    @permission_aware
-    def get_queryset(self):
-        return self.get_base_queryset()
 
     @swagger_auto_schema(auto_schema=None)
     def retrieve(self, request, **kwargs):
