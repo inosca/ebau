@@ -2,7 +2,7 @@ from collections import defaultdict
 
 from caluma.caluma_core.events import send_event
 from caluma.caluma_user.models import AnonymousUser
-from caluma.caluma_workflow.api import cancel_work_item
+from caluma.caluma_workflow.api import cancel_case, cancel_work_item
 from caluma.caluma_workflow.events import post_create_work_item
 from caluma.caluma_workflow.models import Case, Task, WorkItem
 from caluma.caluma_workflow.utils import bulk_create_work_items
@@ -78,6 +78,7 @@ class Command(BaseCommand):
         self.fix_status_circulation_init_and_circulation()
         self.fix_circulation_leftovers()
         self.fix_circulation_work_items()
+        self.fix_closed()
         if options["sync_circulation"]:
             self.fix_circulation()
         self.fix_required_tasks()
@@ -104,6 +105,35 @@ class Command(BaseCommand):
             transaction.savepoint_rollback(tid)
         else:
             transaction.savepoint_commit(tid)
+
+    def fix_closed(self):
+        count = 0
+        for instance in Instance.objects.filter(
+            instance_state__name__in=["evaluated", "finished", "finished_internal"],
+            pk__in=list(
+                Case.objects.filter(
+                    work_items__status=WorkItem.STATUS_READY,
+                    **self.get_instance_filters("meta__camac-instance-id"),
+                ).values_list("meta__camac-instance-id", flat=True)
+            ),
+            **self.get_instance_filters(),
+        ):
+            case = self.get_case(instance)
+            if not case:
+                continue
+
+            count += 1
+            if case.status == Case.STATUS_RUNNING:
+                cancel_case(case, self.user)
+            else:
+                for work_item in case.work_items.filter(status=WorkItem.STATUS_READY):
+                    cancel_work_item(work_item, self.user)
+
+            self.fixed_instances[instance.pk].append("Closed work items")
+
+        self.stdout.write(
+            self.style.WARNING(f"Canceled {count} cases of closed instances")
+        )
 
     def fix_status_circulation_init_and_circulation(self):
         status_count = 0
@@ -145,6 +175,8 @@ class Command(BaseCommand):
         ).filter(circulations__activations__circulation_state__name="RUN"):
             work_item_count += 1
             case = self.get_case(instance)
+            if not case:
+                continue
 
             for work_item in case.work_items.filter(
                 task_id__in=["init-circulation", "skip-circulation"],
