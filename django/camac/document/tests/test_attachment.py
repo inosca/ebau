@@ -656,7 +656,7 @@ def test_attachment_detail(
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("user"))]
+    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
 def test_attachment_loosen_filter(
     admin_client, role, mocker, instance, attachment_section, attachment
@@ -843,7 +843,7 @@ def test_attachment_mime_type(
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("user"))]
+    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
 def test_attachment_section_filters(
     admin_client, role, mocker, instance, attachment_section_factory, attachment_factory
