@@ -71,7 +71,7 @@ class Command(BaseCommand):
         kwargs = {
             k: v.resolve()
             for k, v in options.items()
-            if k in ["state_file", "document-path"] and v
+            if k in ["state_file", "document_path"] and v
         }
 
         if options["zustaendig"]:
