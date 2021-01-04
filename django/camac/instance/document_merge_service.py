@@ -280,7 +280,11 @@ class DMSVisitor:
         return {"value": answer.value if answer else None}
 
     def _visit_date_question(self, node, parent_doc=None, answer=None, **_):
-        return {"value": answer.date.strftime("%Y-%m-%d") if answer else None}
+        return {
+            "value": answer.date.strftime("%Y-%m-%d")
+            if answer and answer.date
+            else None
+        }
 
     def _visit_question(self, node, parent_doc=None, flatten=False):
 
