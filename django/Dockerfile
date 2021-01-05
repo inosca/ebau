@@ -6,6 +6,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	gettext \
 	locales \
 	libreoffice \
+	libsodium23 \
 && rm -rf /var/lib/apt/lists/* \
 && mkdir /app \
 && sed -i -e 's/# de_CH.UTF-8 UTF-8/de_CH.UTF-8 UTF-8/' /etc/locale.gen \

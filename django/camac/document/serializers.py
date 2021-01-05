@@ -1,8 +1,11 @@
 import mimetypes
+from pathlib import Path
 
 from django.conf import settings
 from django.utils.translation import gettext as _
 from django_clamd.validators import validate_file_infection
+from manabi.token import Key, Token
+from manabi.util import from_string
 from rest_framework import exceptions
 from rest_framework_json_api import serializers
 
@@ -46,12 +49,26 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
     attachment_sections = FormDataResourceRelatedField(
         queryset=models.AttachmentSection.objects, many=True
     )
+    webdav_link = serializers.SerializerMethodField()
     included_serializers = {
         "user": "camac.user.serializers.UserSerializer",
         "instance": "camac.instance.serializers.InstanceSerializer",
         "attachment_sections": AttachmentSectionSerializer,
         "service": "camac.user.serializers.ServiceSerializer",
     }
+
+    def get_webdav_link(self, instance):
+        if not settings.MANABI_ENABLE:  # pragma: no cover
+            return None
+        path = Path(instance.path.name)
+        if path.suffix not in (".doc", ".docx", ".ppt", ".pptx", ".xls", ".xlsx"):
+            return None
+        view = self.context.get("view")
+        if not view.has_write_permission(instance):
+            return None
+        key = Key(from_string(settings.MANABI_SHARED_KEY))
+        token = Token(key, path)
+        return f"ms-word:ofe|u|{settings.INTERNAL_BASE_URL}/dav/{token.as_url()}"
 
     def _get_default_attachment_sections(self, group):
         return models.AttachmentSection.objects.filter_group(group)[:1]
@@ -196,8 +213,17 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             "question",
             "context",
             "uuid",
+            "webdav_link",
         )
-        read_only_fields = ("date", "mime_type", "name", "size", "user", "uuid")
+        read_only_fields = (
+            "date",
+            "mime_type",
+            "name",
+            "size",
+            "user",
+            "uuid",
+            "webdav_link",
+        )
 
 
 class TemplateSerializer(serializers.ModelSerializer):
