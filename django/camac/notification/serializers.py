@@ -6,9 +6,8 @@ from logging import getLogger
 import inflection
 import jinja2
 from django.conf import settings
-from django.core.mail import EmailMessage
+from django.core.mail import EmailMessage, get_connection
 from django.db.models import Q, Sum
-from django.utils import timezone
 from django.utils.text import slugify
 from django.utils.translation import gettext_noop
 from rest_framework import exceptions
@@ -24,9 +23,9 @@ from camac.core.models import (
     HistoryActionConfig,
     WorkflowEntry,
 )
-from camac.core.translations import get_translations
+from camac.core.utils import create_history_entry
 from camac.instance.mixins import InstanceEditableMixin
-from camac.instance.models import HistoryEntry, HistoryEntryT, Instance
+from camac.instance.models import Instance
 from camac.instance.validators import transform_coordinates
 from camac.user.models import Group, Role, Service
 from camac.user.utils import unpack_service_emails
@@ -791,49 +790,51 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
     def create(self, validated_data):
         subj_prefix = settings.EMAIL_PREFIX_SUBJECT
         body_prefix = settings.EMAIL_PREFIX_BODY
+        special_forms_prefix = settings.EMAIL_PREFIX_BODY_SPECIAL_FORMS
 
         instance = validated_data["instance"]
+        form_slug = CalumaApi().get_form_slug(instance)
 
-        slug = CalumaApi().get_form_slug(instance)
-
-        result = 0
+        emails = []
+        post_send = []
 
         for recipient_type in sorted(validated_data["recipient_types"]):
             recipients = getattr(self, "_get_recipients_%s" % recipient_type)(instance)
             subject = subj_prefix + validated_data["subject"]
-            body = body_prefix + validated_data["body"]
-            if recipient_type != "applicant" and slug in settings.ECH_EXCLUDED_FORMS:
-                body = (
-                    body_prefix
-                    + settings.EMAIL_PREFIX_BODY_SPECIAL_FORMS
-                    + validated_data["body"]
-                )
 
-            valid_recipients = [r for r in recipients if r.get("to")]
-            for recipient in valid_recipients:
-                email = EmailMessage(
-                    subject=subject,
-                    body=body,
-                    # EmailMessage needs "to" and "cc" to be lists
-                    **{
-                        k: [e.strip() for e in email.split(",")]
-                        for (k, email) in recipient.items()
-                        if email
-                    },
-                )
+            if (
+                recipient_type != "applicant"
+                and form_slug in settings.ECH_EXCLUDED_FORMS
+            ):
+                body = body_prefix + special_forms_prefix + validated_data["body"]
+            else:
+                body = body_prefix + validated_data["body"]
 
-                result += email.send()
+            for recipient in [r for r in recipients if r.get("to")]:
+                emails.append(
+                    EmailMessage(
+                        subject=subject,
+                        body=body,
+                        # EmailMessage needs "to" and "cc" to be lists
+                        **{
+                            k: [e.strip() for e in email.split(",")]
+                            for (k, email) in recipient.items()
+                            if email
+                        },
+                    )
+                )
 
                 request_logger.info(
                     f'Sent email "{subject}" to {self._recipient_log(recipient)}'
                 )
 
-            getattr(self, f"_post_send_{recipient_type}", lambda i: None)(instance)
+            post_send.append(
+                getattr(self, f"_post_send_{recipient_type}", lambda instance: None)
+            )
 
             # If no request context was provided to the serializer we assume the
             # mail delivery is part of a batch job initalized by the system
             # operation user.
-
             if self.context:
                 user = self.context["request"].user
             else:
@@ -844,32 +845,30 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
                     .users.first()
                 )
 
-            if settings.APPLICATION_NAME in (
-                "kt_bern",
-                "kt_schwyz",
-                "demo",
-            ):  # pragma: no cover
-                recipients_log = ", ".join([self._recipient_log(r) for r in recipients])
-
-                history_entry = HistoryEntry.objects.create(
-                    instance=instance,
-                    title=f"Notifikation gesendet an {recipients_log} ({subject})",
-                    body=body,
-                    created_at=timezone.now(),
-                    user=user,
-                    history_type=HistoryActionConfig.HISTORY_TYPE_NOTIFICATION,
+            if settings.APPLICATION.get("LOG_NOTIFICATIONS"):
+                create_history_entry(
+                    instance,
+                    user,
+                    gettext_noop("Notification sent to %(receiver)s (%(subject)s)"),
+                    lambda lang: {
+                        "receiver": ", ".join(
+                            [self._recipient_log(r) for r in recipients]
+                        ),
+                        "subject": subject,
+                    },
+                    HistoryActionConfig.HISTORY_TYPE_NOTIFICATION,
                 )
-                for (lang, text) in get_translations(
-                    gettext_noop("Notification sent to %(receiver)s (%(subject)s)")
-                ):
-                    HistoryEntryT.objects.create(
-                        history_entry=history_entry,
-                        title=text % {"receiver": recipients_log, "subject": subject},
-                        body=body,
-                        language=lang,
-                    )
 
-        return result
+        if emails:
+            connection = get_connection()
+            connection.open()
+            connection.send_messages(emails)
+            connection.close()
+
+        for fn in post_send:
+            fn(instance)
+
+        return len(emails)
 
     class Meta:
         resource_name = "notification-template-sendmails"

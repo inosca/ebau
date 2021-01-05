@@ -124,6 +124,7 @@ WSGI_APPLICATION = "camac.wsgi.application"
 # an application is defined by the customer e.g. uri, schwyz, etc.
 APPLICATIONS = {
     "demo": {
+        "LOG_NOTIFICATIONS": True,
         # Mapping between camac role and instance permission.
         "ROLE_PERMISSIONS": {
             # Commonly used roles
@@ -179,6 +180,7 @@ APPLICATIONS = {
         },
     },
     "kt_schwyz": {
+        "LOG_NOTIFICATIONS": True,
         "ROLE_PERMISSIONS": {
             "Gemeinde": "municipality",
             "Gemeinde Sachbearbeiter": "municipality",
@@ -309,6 +311,7 @@ APPLICATIONS = {
         ],
     },
     "kt_bern": {
+        "LOG_NOTIFICATIONS": True,
         "ROLE_PERMISSIONS": {
             "service-lead": "service",
             "service-clerk": "service",
@@ -926,6 +929,7 @@ APPLICATIONS = {
         ],
     },
     "kt_uri": {
+        "LOG_NOTIFICATIONS": False,
         "FORM_BACKEND": "caluma",
         "PUBLICATION_DURATION": timedelta(days=20),
         "PORTAL_USER_ID": 1209,
