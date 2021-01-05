@@ -15,7 +15,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # fix ImageMagick policy for creating thumbnails
 RUN sed -i 's/<policy domain="coder" rights="none" pattern="PDF" \/>/<policy domain="coder" rights="read | write" pattern="PDF" \/>/' /etc/ImageMagick-6/policy.xml
-RUN mkdir -p /var/empty
 
 WORKDIR /app
 
