@@ -21,7 +21,6 @@ if settings.MANABI_ENABLE:
     wsgi_django = get_wsgi_application()
 
     def dispatch(environ, start_response):
-        # __import__("remote_pdb").RemotePdb("0.0.0.0", 5555).set_trace()
         path = environ["PATH_INFO"] or "/"
         dav_prefix = "/dav"
         if path.startswith(dav_prefix):
