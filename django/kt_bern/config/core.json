@@ -25,50 +25,10 @@
   },
   {
     "model": "core.aformtransition",
-    "pk": 20024,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 20005
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 20027,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 20004
-    }
-  },
-  {
-    "model": "core.aformtransition",
     "pk": 20041,
     "fields": {
       "current_instance_state": null,
       "next_instance_state": 10000
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 20079,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 20011
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 20098,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 20005
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 20101,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 20010
     }
   },
   {
@@ -85,22 +45,6 @@
     "fields": {
       "current_instance_state": 20007,
       "next_instance_state": null
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 20104,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 120000
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 120016,
-    "fields": {
-      "current_instance_state": 120002,
-      "next_instance_state": 120003
     }
   },
   {
@@ -165,24 +109,6 @@
   },
   {
     "model": "core.anotification",
-    "pk": 10038,
-    "fields": {
-      "template": "08-entscheid-gesuchsteller",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_Applicant",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 10039,
-    "fields": {
-      "template": "08-entscheid-gemeindeleitbehorde",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_CalumaMunicipality",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
     "pk": 10040,
     "fields": {
       "template": "05-bericht-erstellt",
@@ -192,37 +118,10 @@
   },
   {
     "model": "core.anotification",
-    "pk": 10041,
-    "fields": {
-      "template": "08-entscheid-amts-und-fachstellen",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_Service",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
     "pk": 20090,
     "fields": {
       "template": "03-verfahrensablauf-fachstelle",
       "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedService",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 120017,
-    "fields": {
-      "template": "08-entscheid-gemeindeleitbehorde",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_CalumaMunicipality",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 130000,
-    "fields": {
-      "template": "08-stellungnahme-zu-voranfrage-gesuchsteller",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_Applicant",
       "processor": "Notification_Processor_SendEmailAPI"
     }
   },
@@ -250,24 +149,6 @@
     "fields": {
       "template": "05-bericht-erstellt",
       "recipient_type": "Custom_Plugin_Notification_Recipient_ActivationServiceParent",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 150030,
-    "fields": {
-      "template": "08-entscheid-gemeindeleitbehorde",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_CalumaMunicipality",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 150031,
-    "fields": {
-      "template": "08-entscheid-amts-und-fachstellen",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_Service",
       "processor": "Notification_Processor_SendEmailAPI"
     }
   },
@@ -317,10 +198,39 @@
     }
   },
   {
-    "model": "core.aphp",
-    "pk": 10048,
+    "model": "core.apageredirect",
+    "pk": 150044,
     "fields": {
-      "php_class": "TriggerECH0211StatusNotification"
+      "resource": 20006,
+      "instance_resource": 20023,
+      "air_action_name": null
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 150045,
+    "fields": {
+      "resource": 20006,
+      "instance_resource": 20023,
+      "air_action_name": null
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 150046,
+    "fields": {
+      "resource": 20006,
+      "instance_resource": 20023,
+      "air_action_name": null
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 150047,
+    "fields": {
+      "resource": 20008,
+      "instance_resource": 20080,
+      "air_action_name": null
     }
   },
   {
@@ -333,13 +243,6 @@
   {
     "model": "core.aphp",
     "pk": 10050,
-    "fields": {
-      "php_class": "TriggerECH0211StatusNotification"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 10051,
     "fields": {
       "php_class": "TriggerECH0211StatusNotification"
     }
@@ -374,23 +277,9 @@
   },
   {
     "model": "core.aphp",
-    "pk": 10060,
-    "fields": {
-      "php_class": "TriggerECH0211StatusNotification"
-    }
-  },
-  {
-    "model": "core.aphp",
     "pk": 20017,
     "fields": {
       "php_class": "SetEbauNumber"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 20092,
-    "fields": {
-      "php_class": "SetBaukontrolle"
     }
   },
   {
@@ -419,13 +308,6 @@
     "pk": 110004,
     "fields": {
       "php_class": "CheckEbauNumber"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 120003,
-    "fields": {
-      "php_class": "CheckDecision"
     }
   },
   {
@@ -472,13 +354,6 @@
   },
   {
     "model": "core.aphp",
-    "pk": 150032,
-    "fields": {
-      "php_class": "TriggerECH0211StatusNotification"
-    }
-  },
-  {
-    "model": "core.aphp",
     "pk": 150039,
     "fields": {
       "php_class": "TriggerECH0211StatusNotification"
@@ -489,6 +364,13 @@
     "pk": 150040,
     "fields": {
       "php_class": "TriggerECH0211StatusNotification"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 150048,
+    "fields": {
+      "php_class": "SyncCirculation"
     }
   },
   {
@@ -549,34 +431,6 @@
   },
   {
     "model": "core.action",
-    "pk": 10038,
-    "fields": {
-      "available_action": "notification",
-      "button": 20040,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 5
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 10039,
-    "fields": {
-      "available_action": "notification",
-      "button": 20040,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 6
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 10040,
     "fields": {
       "available_action": "notification",
@@ -587,34 +441,6 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 4
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 10041,
-    "fields": {
-      "available_action": "notification",
-      "button": 20040,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 7
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 10048,
-    "fields": {
-      "available_action": "php",
-      "button": 20040,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 3
     }
   },
   {
@@ -643,20 +469,6 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 6
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 10051,
-    "fields": {
-      "available_action": "php",
-      "button": 20016,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 2
     }
   },
   {
@@ -727,20 +539,6 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 10060,
-    "fields": {
-      "available_action": "php",
-      "button": 20048,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 3
     }
   },
   {
@@ -927,34 +725,6 @@
   },
   {
     "model": "core.action",
-    "pk": 20024,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 20016,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 20027,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 20018,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 20028,
     "fields": {
       "available_action": "pageredirect",
@@ -1067,20 +837,6 @@
   },
   {
     "model": "core.action",
-    "pk": 20079,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 20040,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 20090,
     "fields": {
       "available_action": "notification",
@@ -1091,48 +847,6 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 20092,
-    "fields": {
-      "available_action": "php",
-      "button": 20040,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 20098,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 20044,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 20101,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 20045,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
     }
   },
   {
@@ -1155,20 +869,6 @@
     "fields": {
       "available_action": "formtransition",
       "button": 20047,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 20104,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 20048,
       "name": null,
       "description": null,
       "success_message": null,
@@ -1259,90 +959,6 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 120003,
-    "fields": {
-      "available_action": "php",
-      "button": 20040,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 8
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 120010,
-    "fields": {
-      "available_action": "workitem",
-      "button": 120001,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 120012,
-    "fields": {
-      "available_action": "addhistory",
-      "button": 120001,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 6
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 120016,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 120001,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 3
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 120017,
-    "fields": {
-      "available_action": "notification",
-      "button": 120001,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 4
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 130000,
-    "fields": {
-      "available_action": "notification",
-      "button": 20045,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 4
     }
   },
   {
@@ -1487,20 +1103,6 @@
   },
   {
     "model": "core.action",
-    "pk": 150011,
-    "fields": {
-      "available_action": "workitem",
-      "button": 20045,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 150012,
     "fields": {
       "available_action": "workitem",
@@ -1510,7 +1112,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 1
+      "sort": 0
     }
   },
   {
@@ -1655,48 +1257,6 @@
   },
   {
     "model": "core.action",
-    "pk": 150030,
-    "fields": {
-      "available_action": "notification",
-      "button": 20045,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 5
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 150031,
-    "fields": {
-      "available_action": "notification",
-      "button": 20045,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 6
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 150032,
-    "fields": {
-      "available_action": "php",
-      "button": 20045,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 150034,
     "fields": {
       "available_action": "case",
@@ -1809,6 +1369,76 @@
   },
   {
     "model": "core.action",
+    "pk": 150044,
+    "fields": {
+      "available_action": "pageredirect",
+      "button": 20040,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 150045,
+    "fields": {
+      "available_action": "pageredirect",
+      "button": 20044,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 150046,
+    "fields": {
+      "available_action": "pageredirect",
+      "button": 20016,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 150047,
+    "fields": {
+      "available_action": "pageredirect",
+      "button": 20048,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 150048,
+    "fields": {
+      "available_action": "php",
+      "button": 20008,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
     "pk": 1200002,
     "fields": {
       "available_action": "formtransition",
@@ -1851,20 +1481,6 @@
   },
   {
     "model": "core.action",
-    "pk": 1200110,
-    "fields": {
-      "available_action": "addhistory",
-      "button": 20044,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 3
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 1200111,
     "fields": {
       "available_action": "addhistory",
@@ -1875,62 +1491,6 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 8
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1200112,
-    "fields": {
-      "available_action": "addhistory",
-      "button": 20016,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 3
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1200113,
-    "fields": {
-      "available_action": "addhistory",
-      "button": 20018,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 3
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1200114,
-    "fields": {
-      "available_action": "addhistory",
-      "button": 20040,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 9
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1200115,
-    "fields": {
-      "available_action": "addhistory",
-      "button": 20045,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 7
     }
   },
   {
@@ -1981,20 +1541,6 @@
     "fields": {
       "available_action": "addhistory",
       "button": 1200001,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 4
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1200120,
-    "fields": {
-      "available_action": "addhistory",
-      "button": 20048,
       "name": null,
       "description": null,
       "success_message": null,
@@ -2081,60 +1627,12 @@
   },
   {
     "model": "core.actiont",
-    "pk": 10038,
-    "fields": {
-      "action": 10038,
-      "language": "de",
-      "name": "Benachrichtigung Gesuchsteller (Mail)",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 10039,
-    "fields": {
-      "action": 10039,
-      "language": "de",
-      "name": "Benachrichtigung Gemeinde",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
     "pk": 10040,
     "fields": {
       "action": 10040,
       "language": "de",
       "name": "Notification: Bericht erstellt",
       "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 10041,
-    "fields": {
-      "action": 10041,
-      "language": "de",
-      "name": "Benachrichtigung Amts- und Fachstellen",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 10048,
-    "fields": {
-      "action": 10048,
-      "language": "de",
-      "name": "ECH0211 - Status Notification",
-      "description": "Notify ECH0211 clients about status change",
       "success_message": null,
       "error_message": null
     }
@@ -2156,18 +1654,6 @@
     "pk": 10050,
     "fields": {
       "action": 10050,
-      "language": "de",
-      "name": "ECH0211 - Status Notification",
-      "description": "Notify ECH0211 clients about status change",
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 10051,
-    "fields": {
-      "action": 10051,
       "language": "de",
       "name": "ECH0211 - Status Notification",
       "description": "Notify ECH0211 clients about status change",
@@ -2230,18 +1716,6 @@
       "action": 10057,
       "language": "de",
       "name": "Trigger ECH0211 event: Task",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 10060,
-    "fields": {
-      "action": 10060,
-      "language": "de",
-      "name": "ECH0211 - Status Notification",
       "description": null,
       "success_message": null,
       "error_message": null
@@ -2405,30 +1879,6 @@
   },
   {
     "model": "core.actiont",
-    "pk": 20024,
-    "fields": {
-      "action": 20024,
-      "language": "de",
-      "name": "Go to state 7 (In Koordination)",
-      "description": null,
-      "success_message": "Zirkulation erfolgreich abgeschlossen",
-      "error_message": "Beim Abschliessen der Zirkulation ist ein Fehler aufgetreten"
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 20027,
-    "fields": {
-      "action": 20027,
-      "language": "de",
-      "name": "Go to state 6 (In Zirkulation)",
-      "description": null,
-      "success_message": "Die Zirkulation wurde erfolgreich wiederer\u00f6ffnet.",
-      "error_message": "Beim Wiederer\u00f6ffnen der Zirkulation ist ein Fehler aufgetreten."
-    }
-  },
-  {
-    "model": "core.actiont",
     "pk": 20028,
     "fields": {
       "action": 20028,
@@ -2525,59 +1975,11 @@
   },
   {
     "model": "core.actiont",
-    "pk": 20079,
-    "fields": {
-      "action": 20079,
-      "language": "de",
-      "name": "Go to state \"SB1\"",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
     "pk": 20090,
     "fields": {
       "action": 20090,
       "language": "de",
       "name": "Beh\u00f6rden in Zirkulation benachrichtigen",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 20092,
-    "fields": {
-      "action": 20092,
-      "language": "de",
-      "name": "Set Baukontrolle",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 20098,
-    "fields": {
-      "action": 20098,
-      "language": "de",
-      "name": "Go to state \"In Koordination\"",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 20101,
-    "fields": {
-      "action": 20101,
-      "language": "de",
-      "name": "Go to state \"Beurteilung abgeschlossen\"",
       "description": null,
       "success_message": null,
       "error_message": null
@@ -2602,18 +2004,6 @@
       "action": 20103,
       "language": "de",
       "name": "Go to previous state",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 20104,
-    "fields": {
-      "action": 20104,
-      "language": "de",
-      "name": "Go to state \"Abgeschlossen\"",
       "description": null,
       "success_message": null,
       "error_message": null
@@ -2689,90 +2079,6 @@
       "description": null,
       "success_message": null,
       "error_message": "Die angegebene eBau-Nummer existiert nicht oder wurde durch eine andere Leitbeh\u00f6rde bereits vergeben"
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 120003,
-    "fields": {
-      "action": 120003,
-      "language": "de",
-      "name": "Check decision",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 120012,
-    "fields": {
-      "action": 120010,
-      "language": "de",
-      "name": "Aufgabe abschliessen: Entscheid verf\u00fcgen",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 120014,
-    "fields": {
-      "action": 120012,
-      "language": "de",
-      "name": "History: Bauentscheid verf\u00fcgt",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 120015,
-    "fields": {
-      "action": 120012,
-      "language": "fr",
-      "name": "History: Bauentscheid verf\u00fcgt",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 120020,
-    "fields": {
-      "action": 120016,
-      "language": "de",
-      "name": "Go to state \"Abgeschlossen (intern)\"",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 120021,
-    "fields": {
-      "action": 120017,
-      "language": "de",
-      "name": "Benachrichtigung Leitbeh\u00f6rde",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 130000,
-    "fields": {
-      "action": 130000,
-      "language": "de",
-      "name": "Benachrichtigung Gesuchsteller (Mail)",
-      "description": null,
-      "success_message": null,
-      "error_message": null
     }
   },
   {
@@ -2933,18 +2239,6 @@
   },
   {
     "model": "core.actiont",
-    "pk": 150016,
-    "fields": {
-      "action": 150011,
-      "language": "de",
-      "name": "Aufgabe abschliessen: Entscheid verf\u00fcgen",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
     "pk": 150017,
     "fields": {
       "action": 150012,
@@ -3077,42 +2371,6 @@
   },
   {
     "model": "core.actiont",
-    "pk": 150036,
-    "fields": {
-      "action": 150030,
-      "language": "de",
-      "name": "Benachrichtigung Gemeinde",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 150037,
-    "fields": {
-      "action": 150031,
-      "language": "de",
-      "name": "Benachrichtigung Amts- und Fachstellen",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 150038,
-    "fields": {
-      "action": 150032,
-      "language": "de",
-      "name": "ECH0211 - Status Notification",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
     "pk": 150040,
     "fields": {
       "action": 150034,
@@ -3209,6 +2467,66 @@
   },
   {
     "model": "core.actiont",
+    "pk": 150050,
+    "fields": {
+      "action": 150044,
+      "language": "de",
+      "name": "Redirect back to decision",
+      "description": null,
+      "success_message": null,
+      "error_message": null
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 150051,
+    "fields": {
+      "action": 150045,
+      "language": "de",
+      "name": "Redirect to decision",
+      "description": null,
+      "success_message": null,
+      "error_message": null
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 150052,
+    "fields": {
+      "action": 150046,
+      "language": "de",
+      "name": "Redirect to decision",
+      "description": null,
+      "success_message": null,
+      "error_message": null
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 150053,
+    "fields": {
+      "action": 150047,
+      "language": "de",
+      "name": "Redirect to instance",
+      "description": null,
+      "success_message": null,
+      "error_message": null
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 150054,
+    "fields": {
+      "action": 150048,
+      "language": "de",
+      "name": "Zirkulation mit Caluma synchronisieren",
+      "description": null,
+      "success_message": null,
+      "error_message": null
+    }
+  },
+  {
+    "model": "core.actiont",
     "pk": 1200004,
     "fields": {
       "action": 1200002,
@@ -3257,30 +2575,6 @@
   },
   {
     "model": "core.actiont",
-    "pk": 1200115,
-    "fields": {
-      "action": 1200110,
-      "language": "de",
-      "name": "History: Zirkulation \u00fcbersprungen",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 1200116,
-    "fields": {
-      "action": 1200110,
-      "language": "fr",
-      "name": "Journal: Zirkulation \u00fcbersprungen",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
     "pk": 1200117,
     "fields": {
       "action": 1200111,
@@ -3298,90 +2592,6 @@
       "action": 1200111,
       "language": "fr",
       "name": "History: Zirkulation gestartet",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 1200119,
-    "fields": {
-      "action": 1200112,
-      "language": "de",
-      "name": "History: Zirkulation abgeschlossen",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 1200120,
-    "fields": {
-      "action": 1200112,
-      "language": "fr",
-      "name": "History: Zirkulation abgeschlossen",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 1200122,
-    "fields": {
-      "action": 1200113,
-      "language": "fr",
-      "name": "History: Zirkulation wiederer\u00f6ffnet",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 1200123,
-    "fields": {
-      "action": 1200114,
-      "language": "de",
-      "name": "History: Bauentscheid verf\u00fcgt",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 1200124,
-    "fields": {
-      "action": 1200114,
-      "language": "fr",
-      "name": "Bauentscheid verf\u00fcgt",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 1200125,
-    "fields": {
-      "action": 1200115,
-      "language": "de",
-      "name": "History: Beurteilung abgeschlossen",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 1200126,
-    "fields": {
-      "action": 1200115,
-      "language": "fr",
-      "name": "Beurteilung abgeschlossen",
       "description": null,
       "success_message": null,
       "error_message": null
@@ -3484,53 +2694,6 @@
     }
   },
   {
-    "model": "core.actiont",
-    "pk": 1200135,
-    "fields": {
-      "action": 1200120,
-      "language": "de",
-      "name": "History: Baugesuchsverfahren abgeschlossen",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 1200136,
-    "fields": {
-      "action": 1200120,
-      "language": "fr",
-      "name": "Histoire: Proc\u00e9dure compl\u00e9t\u00e9e",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 12000121,
-    "fields": {
-      "action": 1200113,
-      "language": "de",
-      "name": "History: Zirkulation wiederer\u00f6ffnet",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actionworkitem",
-    "pk": 120010,
-    "fields": {
-      "tasks": "[\"decision\"]",
-      "process_type": "complete",
-      "process_all": false,
-      "is_activation": false,
-      "fail_on_empty": true
-    }
-  },
-  {
     "model": "core.actionworkitem",
     "pk": 150009,
     "fields": {
@@ -3548,17 +2711,6 @@
       "tasks": "[\"sb2\"]",
       "process_type": "skip",
       "process_all": true,
-      "is_activation": false,
-      "fail_on_empty": true
-    }
-  },
-  {
-    "model": "core.actionworkitem",
-    "pk": 150011,
-    "fields": {
-      "tasks": "[\"decision\"]",
-      "process_type": "complete",
-      "process_all": false,
       "is_activation": false,
       "fail_on_empty": true
     }
@@ -42786,15 +41938,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 120006,
-    "fields": {
-      "button": 120001,
-      "role": 3,
-      "instance_state": 120002
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 130000,
     "fields": {
       "button": 130000,
@@ -42863,6 +42006,33 @@
       "button": 20002,
       "role": 3,
       "instance_state": 120002
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 150032,
+    "fields": {
+      "button": 20046,
+      "role": 3,
+      "instance_state": 20004
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 150033,
+    "fields": {
+      "button": 20021,
+      "role": 3,
+      "instance_state": 20004
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 150034,
+    "fields": {
+      "button": 20022,
+      "role": 3,
+      "instance_state": 20004
     }
   },
   {
@@ -43022,7 +42192,7 @@
       "instance_resource": 20029,
       "name": null,
       "description": null,
-      "class_field": "success active_leitbehoerde_only",
+      "class_field": "success active_leitbehoerde_only no_running_circulations no_open_claims",
       "hidden": 0,
       "sort": 0
     }
@@ -43034,7 +42204,7 @@
       "instance_resource": 20029,
       "name": null,
       "description": null,
-      "class_field": "active_leitbehoerde_only",
+      "class_field": "active_leitbehoerde_only no_running_circulations no_open_claims",
       "hidden": 0,
       "sort": 1
     }
@@ -43082,7 +42252,7 @@
       "instance_resource": 20023,
       "name": null,
       "description": null,
-      "class_field": "gesuch_only",
+      "class_field": null,
       "hidden": 0,
       "sort": 0
     }
@@ -43101,24 +42271,12 @@
   },
   {
     "model": "core.button",
-    "pk": 20045,
-    "fields": {
-      "instance_resource": 20023,
-      "name": null,
-      "description": null,
-      "class_field": "reduced_only",
-      "hidden": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.button",
     "pk": 20046,
     "fields": {
       "instance_resource": 20074,
       "name": null,
       "description": null,
-      "class_field": "active_leitbehoerde_only",
+      "class_field": "active_leitbehoerde_only no_running_circulations",
       "hidden": 0,
       "sort": 0
     }
@@ -43181,18 +42339,6 @@
       "class_field": "success",
       "hidden": 0,
       "sort": 0
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 120001,
-    "fields": {
-      "instance_resource": 20023,
-      "name": null,
-      "description": null,
-      "class_field": "gesuch_only",
-      "hidden": 0,
-      "sort": 2
     }
   },
   {
@@ -43432,16 +42578,6 @@
       "button": 20044,
       "language": "de",
       "name": "Zirkulation \u00fcberspringen",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 20045,
-    "fields": {
-      "button": 20045,
-      "language": "de",
-      "name": "Beurteilung abschliessen",
       "description": null
     }
   },
@@ -43737,26 +42873,6 @@
   },
   {
     "model": "core.buttont",
-    "pk": 120045,
-    "fields": {
-      "button": 120001,
-      "language": "fr",
-      "name": "Rendre la d\u00e9cision",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 120046,
-    "fields": {
-      "button": 120001,
-      "language": "de",
-      "name": "Entscheid verf\u00fcgen",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
     "pk": 130000,
     "fields": {
       "button": 130000,
@@ -43812,16 +42928,6 @@
       "button": 20044,
       "language": "fr",
       "name": "Sauter la proc\u00e9dure de circulation",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 150001,
-    "fields": {
-      "button": 20045,
-      "language": "fr",
-      "name": "Clore la \u00e9valuation",
       "description": null
     }
   },
@@ -50397,6 +49503,26 @@
     }
   },
   {
+    "model": "core.circulationanswer",
+    "pk": 150000,
+    "fields": {
+      "circulation_type": 20000,
+      "circulation_answer_type": 1,
+      "name": null,
+      "sort": 5
+    }
+  },
+  {
+    "model": "core.circulationanswer",
+    "pk": 150001,
+    "fields": {
+      "circulation_type": 20000,
+      "circulation_answer_type": 1,
+      "name": null,
+      "sort": 6
+    }
+  },
+  {
     "model": "core.circulationanswert",
     "pk": 20000,
     "fields": {
@@ -50484,6 +49610,42 @@
       "circulation_answer": 20005,
       "language": "fr",
       "name": "Demande de compl\u00e9ment d'information"
+    }
+  },
+  {
+    "model": "core.circulationanswert",
+    "pk": 150000,
+    "fields": {
+      "circulation_answer": 150000,
+      "language": "de",
+      "name": "Baubewilligungspflichtig"
+    }
+  },
+  {
+    "model": "core.circulationanswert",
+    "pk": 150001,
+    "fields": {
+      "circulation_answer": 150001,
+      "language": "de",
+      "name": "Nicht Baubewilligungspflichtig"
+    }
+  },
+  {
+    "model": "core.circulationanswert",
+    "pk": 150002,
+    "fields": {
+      "circulation_answer": 150000,
+      "language": "fr",
+      "name": "Soumis \u00e0 l'octroi d'un permis de construire"
+    }
+  },
+  {
+    "model": "core.circulationanswert",
+    "pk": 150003,
+    "fields": {
+      "circulation_answer": 150001,
+      "language": "fr",
+      "name": "Non soumis \u00e0 l'octroi d'un permis de construire"
     }
   },
   {
@@ -51044,15 +50206,6 @@
   },
   {
     "model": "core.historyactionconfig",
-    "pk": 120012,
-    "fields": {
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
-    "model": "core.historyactionconfig",
     "pk": 1200108,
     "fields": {
       "title": null,
@@ -51062,52 +50215,7 @@
   },
   {
     "model": "core.historyactionconfig",
-    "pk": 1200110,
-    "fields": {
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
-    "model": "core.historyactionconfig",
     "pk": 1200111,
-    "fields": {
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
-    "model": "core.historyactionconfig",
-    "pk": 1200112,
-    "fields": {
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
-    "model": "core.historyactionconfig",
-    "pk": 1200113,
-    "fields": {
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
-    "model": "core.historyactionconfig",
-    "pk": 1200114,
-    "fields": {
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
-    "model": "core.historyactionconfig",
-    "pk": 1200115,
     "fields": {
       "title": null,
       "body": null,
@@ -51151,15 +50259,6 @@
     }
   },
   {
-    "model": "core.historyactionconfig",
-    "pk": 1200120,
-    "fields": {
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
     "model": "core.historyactionconfigt",
     "pk": 3,
     "fields": {
@@ -51181,26 +50280,6 @@
   },
   {
     "model": "core.historyactionconfigt",
-    "pk": 7,
-    "fields": {
-      "action": 1200110,
-      "title": "Zirkulation \u00fcbersprungen",
-      "body": null,
-      "language": "de"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 8,
-    "fields": {
-      "action": 1200110,
-      "title": "Sans proc\u00e9dure de circulation",
-      "body": null,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
     "pk": 9,
     "fields": {
       "action": 1200111,
@@ -51215,86 +50294,6 @@
     "fields": {
       "action": 1200111,
       "title": "Proc\u00e9dure de circulation lanc\u00e9e",
-      "body": null,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 11,
-    "fields": {
-      "action": 1200112,
-      "title": "Zirkulation abgeschlossen",
-      "body": null,
-      "language": "de"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 12,
-    "fields": {
-      "action": 1200112,
-      "title": "Proc\u00e9dure de circulation close",
-      "body": null,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 13,
-    "fields": {
-      "action": 1200113,
-      "title": "Zirkulation wiederer\u00f6ffnet",
-      "body": null,
-      "language": "de"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 14,
-    "fields": {
-      "action": 1200113,
-      "title": "R\u00e9ouverture de la circulation",
-      "body": null,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 15,
-    "fields": {
-      "action": 1200114,
-      "title": "Bauentscheid verf\u00fcgt",
-      "body": null,
-      "language": "de"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 16,
-    "fields": {
-      "action": 1200114,
-      "title": "D\u00e9cision relative \u00e0 la demande de permis de construire rendue",
-      "body": null,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 17,
-    "fields": {
-      "action": 1200115,
-      "title": "Beurteilung abgeschlossen",
-      "body": null,
-      "language": "de"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 18,
-    "fields": {
-      "action": 1200115,
-      "title": "Evaluation close",
       "body": null,
       "language": "fr"
     }
@@ -51375,46 +50374,6 @@
     "fields": {
       "action": 1200119,
       "title": "DC2 compl\u00e9t\u00e9e manuellement",
-      "body": null,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 27,
-    "fields": {
-      "action": 1200120,
-      "title": "Baugesuchsverfahren abgeschlossen",
-      "body": null,
-      "language": "de"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 28,
-    "fields": {
-      "action": 1200120,
-      "title": "Proc\u00e9dure compl\u00e9t\u00e9e",
-      "body": null,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 120002,
-    "fields": {
-      "action": 120012,
-      "title": "Bauentscheid verf\u00fcgt",
-      "body": null,
-      "language": "de"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 120003,
-    "fields": {
-      "action": 120012,
-      "title": "D\u00e9cision relative \u00e0 la demande de permis de construire rendue",
       "body": null,
       "language": "fr"
     }
@@ -55804,6 +54763,14 @@
     "fields": {
       "available_instance_resource": "editdecisionnote",
       "available_action": "case"
+    }
+  },
+  {
+    "model": "core.instanceresourceaction",
+    "pk": 150080,
+    "fields": {
+      "available_instance_resource": "docxdecision",
+      "available_action": "pageredirect"
     }
   },
   {
@@ -60335,15 +59302,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 120078,
-    "fields": {
-      "instance_resource": 150000,
-      "role": 3,
-      "instance_state": 120002
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 120079,
     "fields": {
       "instance_resource": 140004,
@@ -60419,15 +59377,6 @@
     "pk": 120088,
     "fields": {
       "instance_resource": 10000,
-      "role": 3,
-      "instance_state": 120003
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 120089,
-    "fields": {
-      "instance_resource": 150000,
       "role": 3,
       "instance_state": 120003
     }
@@ -62999,15 +61948,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 150266,
-    "fields": {
-      "instance_resource": 150009,
-      "role": 3,
-      "instance_state": 120001
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 150267,
     "fields": {
       "instance_resource": 150010,
@@ -63372,6 +62312,42 @@
     "fields": {
       "instance_resource": 150011,
       "role": 10000,
+      "instance_state": 120003
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 150308,
+    "fields": {
+      "instance_resource": 20029,
+      "role": 3,
+      "instance_state": 20004
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 150309,
+    "fields": {
+      "instance_resource": 150000,
+      "role": 3,
+      "instance_state": 120002
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 150310,
+    "fields": {
+      "instance_resource": 150000,
+      "role": 3,
+      "instance_state": 120003
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 150311,
+    "fields": {
+      "instance_resource": 20075,
+      "role": 3,
       "instance_state": 120003
     }
   },

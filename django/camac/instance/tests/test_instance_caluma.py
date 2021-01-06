@@ -122,6 +122,7 @@ def test_create_instance_caluma(
     instance_state_factory(name="comm")
     instance_state_factory(name="old")
 
+    application_settings["CALUMA"]["MODIFICATION_ALLOW_FORMS"] = ["main-form"]
     application_settings["CALUMA"]["CREATE_IN_PROCESS"] = uri_process
     application_settings["CALUMA"]["USE_LOCATION"] = uri_process
     application_settings["CALUMA"]["GENERATE_DOSSIER_NR"] = uri_process
@@ -166,7 +167,7 @@ def test_create_instance_caluma(
     # questions for application extension of validity period
     caluma_form_models.Question.objects.create(
         slug="dossiernummer",
-        type=caluma_form_models.Question.TYPE_TEXT,
+        type=caluma_form_models.Question.TYPE_INTEGER,
     )
     QuestionType.objects.create(question_type_id=1, name="Text")
     Question.objects.create(question_id=constants.QUESTION_EBAU_NR, question_type_id=1)
@@ -419,13 +420,19 @@ def test_instance_submit_state_change(
 
     if is_extend_validity:
         form = caluma_form_models.Form.objects.get(pk="verlaengerung-geltungsdauer")
+
         workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
         workflow.slug = "building-permit"
 
+        instance_state_factory(name="circulation_init")
+
     if is_building_police_procedure:
         form = caluma_form_models.Form.objects.get(pk="baupolizeiliches-verfahren")
+
         workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
-        workflow.slug = "building-police-procedure"
+        workflow.slug = "internal"
+
+        instance_state_factory(name="in_progress_internal")
 
     workflow.allow_forms.add(form)
     workflow.save()
@@ -445,12 +452,6 @@ def test_instance_submit_state_change(
         return_value=ech_mandatory_answers_einfache_vorabklaerung,
     )
     instance_state_factory(name="subm")
-    if is_extend_validity:
-        instance_state_factory(name="circulation_init")
-
-    if is_building_police_procedure:
-        instance_state_factory(name="in_progress_internal")
-
     mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
 
     admin_client.post(reverse("instance-submit", args=[instance.pk]))
@@ -1458,245 +1459,119 @@ def test_change_responsible_service_audit_validation(
     assert "Invalid audit" == result["errors"][0]["detail"]
 
 
-@pytest.fixture
-def ebau_number_question(db, camac_question_factory, camac_chapter_factory):
-    camac_question_factory(question_id=constants.QUESTION_EBAU_NR)
-    camac_chapter_factory(chapter_id=constants.CHAPTER_EBAU_NR)
-
-
-@pytest.mark.freeze_time("2020-12-03")
-@pytest.mark.parametrize("role__name,instance_state__name", [("Municipality", "subm")])
+@pytest.mark.parametrize("service_group__name", ["municipality"])
+@pytest.mark.parametrize("instance_state__name", ["new"])
 @pytest.mark.parametrize(
-    "ebau_number,expected_ebau_number,expected_error",
+    "role__name,expected_status,error",
     [
-        ("2020-2", "2020-2", None),
-        ("", "2020-3", None),
-        ("20-112", None, "Ungültiges Format"),
+        ("Municipality", status.HTTP_201_CREATED, None),
         (
-            "2020-1",
-            None,
-            "Diese eBau-Nummer wurde durch eine andere Leitbehörde bereits vergeben",
+            "Applicant",
+            status.HTTP_400_BAD_REQUEST,
+            "The form 'main-form' can only be used by an internal role",
         ),
-        ("2020-112", None, "Diese eBau-Nummer existiert nicht"),
     ],
 )
-def test_set_ebau_number(
+def test_create_instance_caluma_internal_forms(
     db,
     admin_client,
-    admin_user,
-    caluma_admin_user,
-    caluma_workflow_config_be,
-    instance,
-    instance_service,
     instance_state,
-    role,
-    ebau_number_question,
-    camac_answer_factory,
-    instance_factory,
-    instance_service_factory,
     instance_state_factory,
-    service_factory,
-    ebau_number,
-    expected_ebau_number,
-    expected_error,
+    form,
+    role,
+    mock_nfd_permissions,
+    group,
+    caluma_workflow_config_be,
+    application_settings,
+    expected_status,
+    error,
 ):
-    instance_state_factory(name="circulation_init")
+    application_settings["CALUMA"]["INTERNAL_FORMS"] = ["main-form"]
+    application_settings["CALUMA"]["CREATE_IN_PROCESS"] = False
+    application_settings["CALUMA"]["USE_LOCATION"] = False
+    application_settings["CALUMA"]["GENERATE_DOSSIER_NR"] = False
 
-    # create existing instance with ebau-number 2020-1 in a different municipality
-    instance_other = instance_service_factory(service=service_factory()).instance
-    camac_answer_factory(
-        instance=instance_other,
-        question_id=constants.QUESTION_EBAU_NR,
-        chapter_id=constants.CHAPTER_EBAU_NR,
-        answer="2020-1",
-    )
-    workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(pk="main-form"),
-        meta={"camac-instance-id": instance_other.pk, "ebau-number": "2020-1"},
-        user=caluma_admin_user,
-    )
-
-    # create existing instance with ebau-number 2020-2 in the same municipality
-    instance_same = instance_factory()
-    instance_service_factory(
-        service=instance.responsible_service(filter_type="municipality"),
-        instance=instance_same,
-        active=1,
-    )
-    camac_answer_factory(
-        instance=instance_same,
-        question_id=constants.QUESTION_EBAU_NR,
-        chapter_id=constants.CHAPTER_EBAU_NR,
-        answer="2020-2",
-    )
-    workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(pk="main-form"),
-        meta={"camac-instance-id": instance_same.pk, "ebau-number": "2020-2"},
-        user=caluma_admin_user,
-    )
-
-    # create case for the instance which will be assigned a new ebau number
-    case = workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(pk="main-form"),
-        meta={"camac-instance-id": instance.pk},
-        user=caluma_admin_user,
-    )
-
-    # "submit" instance
-    workflow_api.skip_work_item(
-        work_item=case.work_items.get(task_id="submit"), user=caluma_admin_user
-    )
+    if role.name == "Municipality":
+        application_settings["PAPER"] = {
+            "ALLOWED_ROLES": {"DEFAULT": [group.role.pk]},
+            "ALLOWED_SERVICE_GROUPS": {"DEFAULT": [group.service.service_group.pk]},
+        }
+        headers = {"x-camac-group": group.pk}
+    else:
+        headers = {}
 
     response = admin_client.post(
-        reverse("instance-set-ebau-number", args=[instance.pk]),
+        reverse("instance-list"),
+        {"data": {"type": "instances", "attributes": {"caluma-form": "main-form"}}},
+        **headers,
+    )
+
+    assert response.status_code == expected_status
+
+    if error:
+        assert error in response.json()["errors"][0]["detail"]
+
+
+@pytest.mark.parametrize("role__name", ["Applicant"])
+@pytest.mark.parametrize(
+    "caluma_form,expected_status",
+    [
+        ("verlaerungerung-geltungsdauer", status.HTTP_400_BAD_REQUEST),
+        ("baugesuch", status.HTTP_400_BAD_REQUEST),
+    ],
+)
+def test_create_instance_caluma_modification(
+    db,
+    admin_client,
+    instance_state,
+    instance_state_factory,
+    role,
+    form,
+    mock_nfd_permissions,
+    caluma_workflow_config_be,
+    application_settings,
+    caluma_form,
+    expected_status,
+):
+    instance_state_factory(name="new")
+
+    workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
+    workflow.allow_forms.add(
+        caluma_form_models.Form.objects.create(slug="baugesuch"),
+        caluma_form_models.Form.objects.create(slug="verlaerungerung-geltungsdauer"),
+    )
+
+    application_settings["CALUMA"]["MODIFICATION_ALLOW_FORMS"] = ["baugesuch"]
+    application_settings["CALUMA"]["MODIFICATION_DISALLOW_STATES"] = ["new"]
+    application_settings["CALUMA"]["CREATE_IN_PROCESS"] = False
+    application_settings["CALUMA"]["USE_LOCATION"] = False
+    application_settings["CALUMA"]["GENERATE_DOSSIER_NR"] = False
+
+    create_response = admin_client.post(
+        reverse("instance-list"),
         {
             "data": {
-                "type": "instance-set-ebau-numbers",
-                "attributes": {"ebau-number": ebau_number},
+                "type": "instances",
+                "attributes": {
+                    "caluma_form": caluma_form,
+                },
             }
         },
     )
-
-    if expected_error:
-        result = response.json()
-
-        assert response.status_code == status.HTTP_400_BAD_REQUEST
-        assert len(result["errors"])
-        assert expected_error == result["errors"][0]["detail"]
-    else:
-        case.refresh_from_db()
-
-        assert response.status_code == status.HTTP_204_NO_CONTENT
-        assert case.meta["ebau-number"] == expected_ebau_number
-
-
-@pytest.mark.freeze_time("2020-12-03")
-@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
-@pytest.mark.parametrize(
-    "role__name,expected_status,caluma_workflow,instance_state__name,expected_instance_state,expect_completed_work_item",
-    [
-        (
-            "Municipality",
-            status.HTTP_204_NO_CONTENT,
-            "building-permit",
-            "subm",
-            "circulation_init",
-            True,
-        ),
-        (
-            "Municipality",
-            status.HTTP_204_NO_CONTENT,
-            "preliminary-clarification",
-            "subm",
-            "circulation_init",
-            True,
-        ),
-        (
-            "Municipality",
-            status.HTTP_204_NO_CONTENT,
-            "building-police-procedure",
-            "in_progress_internal",
-            "in_progress_internal",
-            True,
-        ),
-        (
-            "Municipality",
-            status.HTTP_403_FORBIDDEN,
-            "building-permit",
-            "circulation_init",
-            None,
-            None,
-        ),
-        (
-            "Support",
-            status.HTTP_204_NO_CONTENT,
-            "building-permit",
-            "subm",
-            "subm",
-            False,
-        ),
-        (
-            "Support",
-            status.HTTP_204_NO_CONTENT,
-            "preliminary-clarification",
-            "subm",
-            "subm",
-            False,
-        ),
-        (
-            "Support",
-            status.HTTP_204_NO_CONTENT,
-            "building-police-procedure",
-            "in_progress_internal",
-            "in_progress_internal",
-            False,
-        ),
-        (
-            "Applicant",
-            status.HTTP_403_FORBIDDEN,
-            "building-permit",
-            "subm",
-            None,
-            None,
-        ),
-    ],
-)
-def test_set_ebau_number_workflow(
-    db,
-    admin_client,
-    admin_user,
-    caluma_admin_user,
-    caluma_workflow_config_be,
-    instance,
-    instance_service,
-    instance_state,
-    role,
-    ebau_number_question,
-    instance_state_factory,
-    expected_status,
-    caluma_workflow,
-    expected_instance_state,
-    expect_completed_work_item,
-):
-    instance_state_factory(name="circulation_init")
-
-    workflow = caluma_workflow_models.Workflow.objects.get(pk=caluma_workflow)
-    case = workflow_api.start_case(
-        workflow=workflow,
-        form=workflow.allow_forms.first(),
-        meta={"camac-instance-id": instance.pk},
-        user=caluma_admin_user,
-    )
-
-    workflow_api.skip_work_item(
-        work_item=case.work_items.get(task_id="submit"), user=caluma_admin_user
-    )
+    instance_id = create_response.json()["data"]["id"]
 
     response = admin_client.post(
-        reverse("instance-set-ebau-number", args=[instance.pk]),
+        reverse("instance-list"),
         {
             "data": {
-                "type": "instance-set-ebau-numbers",
-                "attributes": {"ebau-number": ""},
+                "type": "instances",
+                "attributes": {
+                    "copy-source": str(instance_id),
+                    "is-modification": True,
+                },
             }
         },
     )
 
     assert response.status_code == expected_status
-
-    if expected_status == status.HTTP_204_NO_CONTENT:
-        case.refresh_from_db()
-        instance.refresh_from_db()
-
-        assert instance.instance_state.name == expected_instance_state
-        assert case.meta["ebau-number"] == "2020-1"
-        assert (
-            case.work_items.filter(
-                task_id="ebau-number",
-                status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
-            ).exists()
-            == expect_completed_work_item
-        )
+    assert "Projektänderung nicht erlaubt" in response.json()["errors"][0]["detail"]

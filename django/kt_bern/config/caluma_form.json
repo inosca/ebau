@@ -856,13 +856,13 @@
     "pk": "klaerung-baubewilligungspflicht",
     "fields": {
       "created_at": "2020-10-15T14:09:35.141Z",
-      "modified_at": "2020-10-15T14:09:35.141Z",
+      "modified_at": "2020-12-17T13:20:21.730Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "name": "{\"de\": \"Kl\\u00e4rung Baubewilligungspflicht\", \"fr\": null}",
-      "description": "{\"de\": \"\", \"fr\": null}",
+      "name": "{\"de\": \"Kl\\u00e4rung Baubewilligungspflicht\", \"fr\": \"Clarification de l'octroi d'un permis de construire\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {
-        "category": "preliminary-clarification",
+        "category": "special-procedure",
         "is-creatable": true,
         "is-main-form": true
       },
@@ -1282,13 +1282,12 @@
     "pk": "verlaengerung-geltungsdauer",
     "fields": {
       "created_at": "2020-11-06T16:19:16.358Z",
-      "modified_at": "2020-11-09T14:39:51.179Z",
+      "modified_at": "2020-12-17T13:22:12.146Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "name": "{\"de\": \"Verl\\u00e4ngerung Geltungsdauer\", \"fr\": null}",
-      "description": "{\"de\": \"\", \"fr\": null}",
+      "name": "{\"de\": \"Verl\\u00e4ngerung Geltungsdauer\", \"fr\": \"Prolongation de la dur\\u00e9e de validit\\u00e9 du permis de construire\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {
-        "category": "building-permit",
         "is-creatable": false,
         "is-main-form": true
       },
@@ -1476,7 +1475,7 @@
       "name": "{\"de\": \"Zutrittserm\\u00e4chtigung\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
-        "category": "preliminary-clarification",
+        "category": "special-procedure",
         "is-creatable": true,
         "is-main-form": true
       },
@@ -3224,7 +3223,7 @@
       "created_by_group": null,
       "form": "8-freigabequittung",
       "question": "freigabequittung-bemerkungen",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -3242,6 +3241,19 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "8-freigabequittung.hinweis-klaerung-baubewilligungspflicht",
+    "fields": {
+      "created_at": "2020-12-17T13:15:29.363Z",
+      "modified_at": "2020-12-17T13:15:29.363Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "8-freigabequittung",
+      "question": "hinweis-klaerung-baubewilligungspflicht",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "8-freigabequittung.hinweis-zutrittsermaechtigung",
     "fields": {
       "created_at": "2020-10-30T15:01:28.056Z",
@@ -3250,7 +3262,7 @@
       "created_by_group": null,
       "form": "8-freigabequittung",
       "question": "hinweis-zutrittsermaechtigung",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -3316,19 +3328,6 @@
       "form": "abschluss-sb2",
       "question": "bedingungen-auflagen-eingehalten",
       "sort": 10
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "abschluss-sb2.bemerkungen-abschluss-sb2",
-    "fields": {
-      "created_at": "2019-09-25T10:19:39.757Z",
-      "modified_at": "2019-09-25T10:19:39.757Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "abschluss-sb2",
-      "question": "bemerkungen-abschluss-sb2",
-      "sort": 1
     }
   },
   {
@@ -3424,19 +3423,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "allgemeine-angaben-kurz.anfrage-zur-vorabklaerung",
-    "fields": {
-      "created_at": "2020-10-07T13:33:41.433Z",
-      "modified_at": "2020-10-07T13:33:41.433Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "allgemeine-angaben-kurz",
-      "question": "anfrage-zur-vorabklaerung",
-      "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben-kurz.be-gid",
     "fields": {
       "created_at": "2020-10-07T13:32:51.696Z",
@@ -3497,7 +3483,7 @@
       "created_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "is-paper",
-      "sort": 2
+      "sort": 1
     }
   },
   {
@@ -3562,7 +3548,7 @@
       "created_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "sachverhalt",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -4004,7 +3990,7 @@
       "created_by_group": null,
       "form": "allgemeine-informationen-geltungsdauer",
       "question": "begruendung-verlaengerung-geltungsdauer",
-      "sort": 9
+      "sort": 8
     }
   },
   {
@@ -4017,7 +4003,7 @@
       "created_by_group": null,
       "form": "allgemeine-informationen-geltungsdauer",
       "question": "beschreibung-bauvorhaben",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -4030,7 +4016,7 @@
       "created_by_group": null,
       "form": "allgemeine-informationen-geltungsdauer",
       "question": "dossiernummer",
-      "sort": 2
+      "sort": 9
     }
   },
   {
@@ -4043,7 +4029,7 @@
       "created_by_group": null,
       "form": "allgemeine-informationen-geltungsdauer",
       "question": "gemeinde",
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -4069,7 +4055,7 @@
       "created_by_group": null,
       "form": "allgemeine-informationen-geltungsdauer",
       "question": "nr",
-      "sort": 7
+      "sort": 6
     }
   },
   {
@@ -4082,7 +4068,7 @@
       "created_by_group": null,
       "form": "allgemeine-informationen-geltungsdauer",
       "question": "ort-grundstueck",
-      "sort": 6
+      "sort": 5
     }
   },
   {
@@ -4095,7 +4081,7 @@
       "created_by_group": null,
       "form": "allgemeine-informationen-geltungsdauer",
       "question": "parzelle",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -4108,7 +4094,7 @@
       "created_by_group": null,
       "form": "allgemeine-informationen-geltungsdauer",
       "question": "strasse-flurname",
-      "sort": 8
+      "sort": 7
     }
   },
   {
@@ -6557,6 +6543,19 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "freigabequittung-sb1.bemerkungen-sb1",
+    "fields": {
+      "created_at": "2020-12-16T10:06:19.942Z",
+      "modified_at": "2020-12-16T10:06:19.942Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "freigabequittung-sb1",
+      "question": "bemerkungen-sb1",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "freigabequittung-sb1.einreichen-button-sb1",
     "fields": {
       "created_at": "2019-09-25T10:19:39.799Z",
@@ -6605,6 +6604,19 @@
       "form": "freigabequittung-sb1",
       "question": "is-paper",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "freigabequittung-sb2.bemerkungen-abschluss-sb2",
+    "fields": {
+      "created_at": "2020-12-16T10:07:23.768Z",
+      "modified_at": "2020-12-16T10:07:23.768Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "freigabequittung-sb2",
+      "question": "bemerkungen-abschluss-sb2",
+      "sort": 5
     }
   },
   {
@@ -10531,19 +10543,6 @@
       "form": "selbstdeklaration-sb1",
       "question": "beginn-bauarbeiten",
       "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "selbstdeklaration-sb1.bemerkungen-sb1",
-    "fields": {
-      "created_at": "2019-09-25T10:19:39.614Z",
-      "modified_at": "2019-09-25T10:19:39.614Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "selbstdeklaration-sb1",
-      "question": "bemerkungen-sb1",
-      "sort": 1
     }
   },
   {
@@ -24254,16 +24253,16 @@
     "pk": "allgemeine-informationen-geltungsdauer-formular",
     "fields": {
       "created_at": "2020-11-06T16:32:11.454Z",
-      "modified_at": "2020-11-09T12:08:56.204Z",
+      "modified_at": "2020-12-17T13:21:14.576Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "label": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
+      "label": "{\"de\": \"Allgemeine Informationen\", \"fr\": \"Informations g\\u00e9n\\u00e9rales\"}",
       "type": "form",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -26430,16 +26429,16 @@
     "pk": "begruendung-verlaengerung-geltungsdauer",
     "fields": {
       "created_at": "2020-11-06T16:25:51.237Z",
-      "modified_at": "2020-11-06T16:25:51.237Z",
+      "modified_at": "2020-12-17T13:23:42.277Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "label": "{\"de\": \"Begr\\u00fcndung Verl\\u00e4ngerung Geltungsdauer\", \"fr\": null}",
+      "label": "{\"de\": \"Begr\\u00fcndung Verl\\u00e4ngerung Geltungsdauer\", \"fr\": \"Justification de la prolongation de la dur\\u00e9e de validit\\u00e9 du permis de construire\"}",
       "type": "textarea",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "placeholder": "{\"de\": null, \"fr\": \"\"}",
+      "info_text": "{\"de\": null, \"fr\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -26884,13 +26883,13 @@
     "pk": "beschreibung-bauvorhaben",
     "fields": {
       "created_at": "2019-04-12T08:18:11.316Z",
-      "modified_at": "2020-01-14T14:07:42.039Z",
+      "modified_at": "2020-12-14T13:10:06.645Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": "[]",
       "label": "{\"de\": \"Beschreibung\", \"fr\": \"Description\"}",
       "type": "textarea",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "form == 'verlaengerung-geltungsdauer'",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"M\\u00f6glichst genaue Umschreibung des Bauvorhabens. Die wesentlichen Gegenst\\u00e4nde des Bauvorhabens sind aufzuf\\u00fchren.\", \"fr\": \"Description aussi pr\\u00e9cise que possible du projet de construction. Les \\u00e9l\\u00e9ments essentiels du projet doivent \\u00eatre pr\\u00e9sent\\u00e9s.\"}",
@@ -28887,20 +28886,23 @@
     "pk": "dossiernummer",
     "fields": {
       "created_at": "2020-11-06T16:30:26.422Z",
-      "modified_at": "2020-11-09T13:55:50.616Z",
+      "modified_at": "2020-12-14T13:11:19.314Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "label": "{\"de\": \"Dossiernummer\", \"fr\": null}",
-      "type": "text",
-      "is_required": "false",
-      "is_hidden": "\"verlaengerung-geltungsdauer\" == form",
+      "label": "{\"de\": \"Dossier-Nr.\", \"fr\": \"Num\\u00e9ro de dossier\"}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {
-        "widgetOverride": "be-hidden-input"
+        "widgetOverride": "be-disabled-input"
       },
       "data_source": null,
       "row_form": null,
@@ -30966,7 +30968,7 @@
     "pk": "freigabequittung-druckansicht",
     "fields": {
       "created_at": "2019-06-17T10:46:43.842Z",
-      "modified_at": "2019-06-17T10:49:06.755Z",
+      "modified_at": "2020-12-16T10:13:54.725Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"\", \"fr\": \"\"}",
@@ -30976,7 +30978,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
-      "static_content": "{\"de\": \"Das folgende Formular ist unterzeichnet und datiert an die Baupolizeibeh\\u00f6rde zu senden.\", \"fr\": \"La DC 2 doit \\u00eatre imprim\\u00e9e, sign\\u00e9e et envoy\\u00e9e \\u00e0 la police des constructions.\"}",
+      "static_content": "{\"de\": \"<hr>\\n<p class=\\\"uk-margin-remove-bottom\\\">Das folgende Formular ist unterzeichnet und datiert an die Baupolizeibeh\\u00f6rde zu senden.</p>\", \"fr\": \"<hr>\\n<p class=\\\"uk-margin-remove-bottom\\\">La DC 1 doit \\u00eatre imprim\\u00e9e, sign\\u00e9e et envoy\\u00e9e \\u00e0 la police des constructions.</p>\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -31044,7 +31046,7 @@
     "pk": "freigabequittung-sb2-druckansicht",
     "fields": {
       "created_at": "2019-06-17T11:49:05.910Z",
-      "modified_at": "2019-06-17T11:49:05.910Z",
+      "modified_at": "2020-12-16T10:16:52.660Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"\", \"fr\": \"\"}",
@@ -31053,8 +31055,8 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"Das folgende Formular ist unterzeichnet und datiert und an die Baupolizeibeh\\u00f6rde zu senden.\", \"fr\": \"\"}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"<hr>\\n<p class=\\\"uk-margin-remove-bottom\\\">Das folgende Formular ist unterzeichnet und datiert an die Baupolizeibeh\\u00f6rde zu senden.</p>\", \"fr\": \"<hr>\\n<p class=\\\"uk-margin-remove-bottom\\\">La DC 2 doit \\u00eatre imprim\\u00e9e, sign\\u00e9e et envoy\\u00e9e \\u00e0 la police des constructions.</p>\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -31070,7 +31072,7 @@
     "pk": "freigabequittung-text",
     "fields": {
       "created_at": "2019-05-08T12:42:53.746Z",
-      "modified_at": "2019-05-08T12:42:53.746Z",
+      "modified_at": "2020-12-16T09:29:51.050Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"freigabequittung-text\", \"fr\": \"Declaration de validation\"}",
@@ -31080,7 +31082,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
-      "static_content": "{\"de\": \"S\\u00e4mtliche Pl\\u00e4ne und Dokumente sind unterzeichnet, datiert und in mindestens zweifacher Ausgabe mit dem Gesuchsformular bei der zust\\u00e4ndigen Gemeinde einzusenden.\", \"fr\": \"Tous les documents doivent \\u00eatre sign\\u00e9s, dat\\u00e9s et soumis en au moins deux exemplaires avec le formulaire de demande \\u00e0 la municipalit\\u00e9 responsable.\"}",
+      "static_content": "{\"de\": \"<hr>\\n<p class=\\\"uk-margin-remove-bottom\\\">S\\u00e4mtliche Pl\\u00e4ne und Dokumente sind unterzeichnet, datiert und in mindestens zweifacher Ausgabe mit dem Gesuchsformular bei der zust\\u00e4ndigen Gemeinde einzusenden.</p>\", \"fr\": \"<hr>\\n<p class=\\\"uk-margin-remove-bottom\\\">Tous les documents doivent \\u00eatre sign\\u00e9s, dat\\u00e9s et soumis en au moins deux exemplaires avec le formulaire de demande \\u00e0 la municipalit\\u00e9 responsable.</p>\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -31715,13 +31717,13 @@
     "pk": "gemeinde",
     "fields": {
       "created_at": "2019-05-05T12:48:17.169Z",
-      "modified_at": "2019-05-05T12:54:08.450Z",
+      "modified_at": "2020-12-14T13:10:18.031Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Zust\\u00e4ndige Gemeinde\", \"fr\": \"Commune comp\\u00e9tente\"}",
       "type": "dynamic_choice",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "form == 'verlaengerung-geltungsdauer'",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -33066,6 +33068,32 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "hindernisfreies-bauen",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-klaerung-baubewilligungspflicht",
+    "fields": {
+      "created_at": "2020-12-17T13:15:29.220Z",
+      "modified_at": "2020-12-17T13:19:43.182Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "label": "{\"de\": \"Hinweis Kl\\u00e4rung Baubewilligungspflicht\", \"fr\": \"Hinweis Kl\\u00e4rung Baubewilligungspflicht\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "'klaerung-baubewilligungspflicht' != form",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-margin-remove-bottom\\\">Damit das Regierungsstatthalteramt die Kl\\u00e4rung Baubewilligungspflicht bearbeiten kann, \\u00fcbergeben Sie das Dossier nach Vergabe der eBau-Nummer durch einen Wechsel der Leitbeh\\u00f6rde.</div>\", \"fr\": \"<div class=\\\"uk-alert uk-margin-remove-bottom\\\">Pour que la pr\\u00e9fecture puisse traiter la clarification de l'octroi d'un permis de construire, vous remettez le dossier \\u00e0 l'autorit\\u00e9 directrise apr\\u00e8s que le num\\u00e9ro eBau ait \\u00e9t\\u00e9 attribu\\u00e9.</div>\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null
@@ -37193,13 +37221,13 @@
     "pk": "nr",
     "fields": {
       "created_at": "2019-03-28T14:15:25.544Z",
-      "modified_at": "2020-12-07T09:01:47.548Z",
+      "modified_at": "2020-12-14T13:10:30.573Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Nr.\", \"fr\": \"N\\u00b0\"}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "form == 'verlaengerung-geltungsdauer'",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -38074,13 +38102,13 @@
     "pk": "ort-grundstueck",
     "fields": {
       "created_at": "2019-04-04T09:17:54.620Z",
-      "modified_at": "2020-12-07T09:01:59.229Z",
+      "modified_at": "2020-12-14T13:10:24.770Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Ort\", \"fr\": \"Localit\\u00e9\"}",
       "type": "text",
       "is_required": "!('vorabklaerung' in form)",
-      "is_hidden": "false",
+      "is_hidden": "form == 'verlaengerung-geltungsdauer'",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -38301,16 +38329,16 @@
     "pk": "parzelle",
     "fields": {
       "created_at": "2019-03-28T14:16:48.858Z",
-      "modified_at": "2019-04-01T10:35:17.818Z",
+      "modified_at": "2020-12-14T13:10:12.289Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Parzelle\", \"fr\": \"parcelle\"}",
       "type": "table",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "form == 'verlaengerung-geltungsdauer'",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
@@ -38632,13 +38660,13 @@
     "pk": "personalien-kurz-formular",
     "fields": {
       "created_at": "2020-10-05T08:53:30.849Z",
-      "modified_at": "2020-10-08T07:35:30.639Z",
+      "modified_at": "2020-12-16T15:53:58.103Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "label": "{\"de\": \"Personalien\", \"fr\": \"Donn\\u00e9es personnelles\"}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "form == 'verlaengerung-geltungsdauer'",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
@@ -40165,16 +40193,16 @@
     "pk": "sachverhalt",
     "fields": {
       "created_at": "2020-10-12T11:28:23.687Z",
-      "modified_at": "2020-10-15T11:54:59.480Z",
+      "modified_at": "2020-12-18T12:46:29.540Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "label": "{\"de\": \"Sachverhalt\", \"fr\": null}",
+      "label": "{\"de\": \"Sachverhalt\", \"fr\": \"Situation\"}",
       "type": "textarea",
       "is_required": "false",
-      "is_hidden": "form != 'baupolizeiliches-verfahren'",
+      "is_hidden": "!(form in ['baupolizeiliches-verfahren', 'klaerung-baubewilligungspflicht'])",
       "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": \"\"}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -41781,13 +41809,13 @@
     "pk": "strasse-flurname",
     "fields": {
       "created_at": "2019-03-28T14:15:10.806Z",
-      "modified_at": "2020-12-07T09:01:36.411Z",
+      "modified_at": "2020-12-14T13:10:43.720Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Strasse/Flurname\", \"fr\": \"Rue/lieu-dit\"}",
       "type": "text",
       "is_required": "!('vorabklaerung' in form)",
-      "is_hidden": "false",
+      "is_hidden": "form == 'verlaengerung-geltungsdauer'",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",

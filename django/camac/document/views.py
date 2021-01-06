@@ -2,6 +2,7 @@ import io
 import mimetypes
 import os
 import zipfile
+from enum import Enum
 from functools import reduce
 
 from django.conf import settings
@@ -129,6 +130,11 @@ class AttachmentQuerysetMixin:
         ).distinct()
 
 
+class PermissionMode(Enum):
+    destroy = 1
+    write = 2
+
+
 class AttachmentView(
     AttachmentQuerysetMixin,
     InstanceEditableMixin,
@@ -145,13 +151,17 @@ class AttachmentView(
     }
     ordering_fields = ("name", "date", "size")
 
-    @permission_aware
-    def get_queryset(self):
-        return self.get_base_queryset()
-
     def has_object_destroy_base_permission(self, obj):
+        return self.has_permission(obj, PermissionMode.destroy)
+
+    # Called from serilaizer
+    def has_write_permission(self, obj):
+        return self.has_permission(obj, PermissionMode.write)
+
+    def has_permission(self, obj, mode=PermissionMode.destroy):
+        group = self.request.group
         section_modes = {
-            attachment_section.get_mode(self.request.group)
+            attachment_section.get_mode(group)
             for attachment_section in obj.attachment_sections.all()
         }
         # get_mode() can return None if no access mode configured.
@@ -161,13 +171,16 @@ class AttachmentView(
 
         attachment_admin_permissions = section_modes - {
             models.READ_PERMISSION,
-            models.WRITE_PERMISSION,
             models.PUBLIC_PERMISSION,
         }
+        if mode == PermissionMode.destroy:
+            attachment_admin_permissions = section_modes - {
+                models.WRITE_PERMISSION,
+            }
 
         if models.ADMINSERVICE_PERMISSION in attachment_admin_permissions:
             return (
-                obj.service == self.request.group.service
+                obj.service == group.service
                 and super().has_object_destroy_permission(obj)
             )
 
@@ -242,8 +255,10 @@ class AttachmentView(
         try:
             thumbnail = get_thumbnail(path, geometry_string="x300")
         # no proper exception handling in sorl thumbnail when image type is
-        # invalid - workaround catching AtttributeError
-        except AttributeError:
+        # invalid - workaround catching AttributeError
+        # ValueError occures if the document holds an empty file
+        # Could happen with Prefecta imported documents, missing the file
+        except (AttributeError, ValueError):
             raise exceptions.NotFound()
         return HttpResponse(thumbnail.read(), "image/jpeg")
 
@@ -268,10 +283,6 @@ class AttachmentDownloadView(
     pagination_class = None
     # use empty serializer to avoid an exception on schema generation
     serializer_class = Serializer
-
-    @permission_aware
-    def get_queryset(self):
-        return self.get_base_queryset()
 
     @swagger_auto_schema(auto_schema=None)
     def retrieve(self, request, **kwargs):
