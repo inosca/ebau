@@ -13,7 +13,6 @@ from camac.constants.kt_bern import (
     ECH_STATUS_NOTIFICATION_ABGESCHLOSSEN,
     ECH_STATUS_NOTIFICATION_EBAU_NR_VERGEBEN,
     ECH_STATUS_NOTIFICATION_IN_KOORDINATION,
-    ECH_STATUS_NOTIFICATION_PRUEFUNG_ABGESCHLOSSEN,
     ECH_STATUS_NOTIFICATION_SB1_AUSSTEHEND,
     ECH_STATUS_NOTIFICATION_ZIRKULATION_GESTARTET,
     ECH_STATUS_NOTIFICATION_ZURUECKGEWIESEN,
@@ -110,13 +109,6 @@ GET_TABLE_DATA = [
         "3.1",
         ECH_STATUS_NOTIFICATION_EBAU_NR_VERGEBEN,
         f"[status_notification_ebau_nr_vergeben]({static('xml/get/status_notification_ebau_nr_vergeben.xml')})",
-    ],
-    [
-        "StatusNotification",
-        "Prüfung abgeschlossen melden",
-        "3.1",
-        ECH_STATUS_NOTIFICATION_PRUEFUNG_ABGESCHLOSSEN,
-        f"[status_notification_pruefung_abgeschlossen]({static('xml/get/status_notification_pruefung_abgeschlossen.xml')})",
     ],
     [
         "StatusNotification",

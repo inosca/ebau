@@ -75,10 +75,15 @@ def test_dynamic_task_after_decision(
 
 
 @pytest.mark.parametrize(
-    "has_circulation,expected_tasks",
+    "has_circulation,instance_state__name,expected_tasks",
     [
-        (False, ["skip-circulation", "init-circulation"]),
-        (True, ["start-circulation", "check-activation", "start-decision"]),
+        (False, "circulation_init", ["skip-circulation", "init-circulation"]),
+        (False, "circulation", ["start-circulation", "start-decision"]),
+        (
+            True,
+            "circulation",
+            ["start-circulation", "check-activation", "start-decision"],
+        ),
     ],
 )
 def test_dynamic_task_after_circulation(
@@ -86,6 +91,7 @@ def test_dynamic_task_after_circulation(
     caluma_admin_user,
     caluma_workflow_config_be,
     instance,
+    instance_state,
     circulation_factory,
     has_circulation,
     expected_tasks,

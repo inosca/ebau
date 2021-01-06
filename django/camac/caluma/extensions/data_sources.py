@@ -3,17 +3,18 @@ from caluma.caluma_data_source.utils import data_source_cache
 from django.core.cache import cache
 from django.utils.translation import gettext as _
 
-from camac.constants.kt_bern import SERVICE_GROUP_RSTA
 from camac.user.models import Service
 
 
-def get_municipality_label(service):
-    name = service.get_name().replace("Leitbehörde ", "")
+def get_municipality_label(service, replace_with_de="", replace_with_fr=""):
+    name = (
+        service.get_name()
+        .replace("Leitbehörde", replace_with_de)
+        .replace("Autorité directrice", replace_with_fr)
+    ).strip()
 
     if service.disabled:
-        suffix = _("not activated")
-
-        return f"{name} ({suffix})"
+        return f"{name} ({_('not activated')})"
 
     return name
 
@@ -26,7 +27,7 @@ class Municipalities(BaseDataSource):
         is_rsta = (
             hasattr(user, "group")
             and Service.objects.filter(
-                pk=user.group, service_group_id=SERVICE_GROUP_RSTA
+                pk=user.group, service_group__name="district"
             ).exists()
         )
 
@@ -53,16 +54,27 @@ class Municipalities(BaseDataSource):
 
 
 class Services(BaseDataSource):
-    info = "List of services from Camac"
+    info = "List of services, municipalities and RSTAs from Camac"
 
     @data_source_cache(timeout=3600)
     def get_data(self, info):
-        services = Service.objects.filter(service_group__name="service", disabled=False)
+        services = Service.objects.filter(
+            service_parent__isnull=True,
+            service_group__name__in=[
+                "service",
+                "municipality",
+                "district",
+            ],
+            disabled=False,
+        )
 
         data = (
             sorted(
                 [
-                    [str(service.pk), service.get_name().replace("Leitbehörde ", "")]
+                    [
+                        str(service.pk),
+                        get_municipality_label(service, "Gemeinde", "Municipalité"),
+                    ]
                     for service in services.iterator()
                 ],
                 key=lambda x: x[1].casefold(),

@@ -2,6 +2,7 @@ import codecs
 import json
 import mimetypes
 import pickle
+import re
 import sys
 import traceback
 from collections import Counter, defaultdict
@@ -16,6 +17,7 @@ from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.models import Case, Workflow
 from django.core.files import File
+from django.db import transaction
 from django.utils.timezone import make_aware, now
 
 from camac.core import utils
@@ -111,12 +113,18 @@ class Importer:
             yield from self.iter(_file)
 
     def run(self, reimport: bool = True, debug: bool = False):
+        self._exec_method("run", reimport, debug)
+
+    def set_zustaendig(self, reimport: bool = True, debug: bool = False):
+        self._exec_method("set_zustaendig", reimport, debug)
+
+    def _exec_method(self, method, reimport: bool = True, debug: bool = False):
         start = now()
 
         for filename, geschaeft in self.iter(self.path):
             print(f"Importing geschaeft {geschaeft.geschaefts_nr} from file {filename}")
             _import = Import(self, filename, geschaeft)
-            result = _import.run(reimport, debug)
+            result = getattr(_import, method)(reimport, debug)
             self.write_result(filename, result)
 
         duration = (now() - start).seconds
@@ -146,7 +154,9 @@ class Importer:
     def find_missing_services(self):
         for _, geschaeft in self.iter(self.path):
             try:
-                ServiceT.objects.get(name=geschaeft.Gemeinde.service_name)
+                ServiceT.objects.get(
+                    name=geschaeft.Gemeinde.service_name, language="de"
+                )
             except (ServiceT.DoesNotExist, ServiceT.MultipleObjectsReturned):
                 self.services[geschaeft.Gemeinde.gdBez] += 1
 
@@ -158,6 +168,7 @@ class Import:
         self.importer = importer
         self.filename = filename
         self.geschaeft = geschaeft
+        self.instance = None
 
         self.now = now()
         self.row_documents = defaultdict(list)
@@ -177,8 +188,15 @@ class Import:
         self.results["errors"].append(error)
 
     def run(self, reimport: bool = True, debug: bool = False) -> bool:
+        return self._exec_method("_run", reimport, debug)
+
+    def set_zustaendig(self, reimport: bool = True, debug: bool = False) -> bool:
+        return self._exec_method("_set_zustaendig", reimport, debug)
+
+    def _exec_method(self, method, reimport: bool = True, debug: bool = False) -> bool:
         try:
-            self._run(reimport)
+            self._init()
+            getattr(self, method)(reimport)
             self.results["status"] = "completed"
         except Exception:  # noqa: B901
             self.results["status"] = "failed"
@@ -192,7 +210,7 @@ class Import:
 
         return self.results
 
-    def _run(self, reimport):
+    def _init(self):
         self.municipality = self.get_municipality(self.geschaeft.Gemeinde.service_name)
         self.service = Service.objects.get(pk=self.geschaeft.Mandant.service)
         self.group = self.service.groups.filter(
@@ -203,6 +221,8 @@ class Import:
         self.caluma_user.username = user.username
         self.caluma_user.group = self.group.service_id
 
+    @transaction.atomic
+    def _run(self, reimport):
         instance_state = InstanceState.objects.get(
             name=self.geschaeft.instance_state_name
         )
@@ -231,21 +251,14 @@ class Import:
             form_id=1,
         )
 
-        # use gNrExtern if it's an existing ebau_nr
-        if (
-            self.geschaeft.gNrExtern
-            and Case.objects.filter(
-                **{"meta__ebau-number": self.geschaeft.gNrExtern}
-            ).exists()
-        ):
-            ebau_nr = self.geschaeft.gNrExtern
-        else:
-            ebau_nr = utils.assign_ebau_nr(self.instance, self.geschaeft.gJahr)
+        ebau_nr = self.get_or_create_ebau_nr()
 
         self.instance.instance_services.create(service=self.service, active=1)
         self.instance.tags.create(
             service=self.service, name=self.geschaeft.geschaefts_nr
         )
+
+        self._set_zustaendig()
 
         self.case = Case.objects.filter(
             **{
@@ -456,3 +469,44 @@ class Import:
             return ServiceT.objects.get(
                 name=name, language="de", service__disabled=0
             ).service
+
+    def _set_zustaendig(self, reimport: bool = True):
+        zustaendig = self.geschaeft.gZustaendig
+
+        if not zustaendig:
+            return
+
+        instance = self.instance
+
+        if instance is None:
+            tag = Tags.objects.filter(
+                name=self.geschaeft.geschaefts_nr, service=self.service
+            ).first()
+
+            if tag is None:
+                return
+
+            instance = tag.instance
+
+        Tags.objects.get_or_create(
+            instance=instance, service=self.service, name=f"zuständig: {zustaendig}"
+        )
+
+    def get_or_create_ebau_nr(self):
+        # use gNrExtern if it's an existing ebau_nr
+        pattern = re.compile("([0-9]{4}-[1-9][0-9]*)")
+        result = pattern.search(str(self.geschaeft.gNrExtern))
+
+        if result:
+            try:
+                match = result.groups()[0]
+                case = Case.objects.filter(**{"meta__ebau-number": match}).first()
+                instance_id = case.meta.get("camac-instance-id")
+                instance = Instance.objects.get(pk=instance_id)
+
+                if instance.services.filter(service_id=self.service.pk).exists():
+                    return match
+            except Exception:
+                pass
+
+        return utils.assign_ebau_nr(self.instance, self.geschaeft.gJahr)

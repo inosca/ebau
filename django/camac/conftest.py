@@ -115,6 +115,7 @@ class FakeRequest:
 
 @pytest.fixture
 def request_mock(mocker):
+    admin_uuid = "462afaba-aeb7-494a-8596-3497b81ed701"
     request_mock = mocker.patch(
         "django.test.client.WSGIRequest.caluma_info",
         new_callable=mocker.PropertyMock,
@@ -122,8 +123,8 @@ def request_mock(mocker):
     )
     request_mock.return_value = CalumaInfo(
         {
-            "sub": "462afaba-aeb7-494a-8596-3497b81ed701",
-            settings.OIDC_USERNAME_CLAIM: "foo",
+            "sub": admin_uuid,
+            settings.OIDC_USERNAME_CLAIM: admin_uuid,
         }
     )
 

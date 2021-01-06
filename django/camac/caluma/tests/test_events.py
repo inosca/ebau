@@ -13,7 +13,7 @@ from django.urls import reverse
 from django.utils import timezone
 from pytest_factoryboy import LazyFixture
 
-from camac.constants.kt_bern import DECISIONS_BEWILLIGT
+from camac.constants.kt_bern import DECISIONS_ABGELEHNT, DECISIONS_BEWILLIGT
 from camac.instance.models import HistoryEntryT
 
 
@@ -438,3 +438,152 @@ def test_audit_history(
         .title
         == expected_text
     )
+
+
+@pytest.mark.parametrize("role__name", ["Support"])
+@pytest.mark.parametrize(
+    "workflow,decision,expected_instance_state,expected_text",
+    [
+        ("building-permit", DECISIONS_BEWILLIGT, "sb1", "Bauentscheid verfügt"),
+        ("building-permit", DECISIONS_ABGELEHNT, "finished", "Bauentscheid verfügt"),
+        ("migrated", DECISIONS_BEWILLIGT, "finished", "Beurteilung abgeschlossen"),
+        (
+            "preliminary-clarification",
+            DECISIONS_BEWILLIGT,
+            "evaluated",
+            "Beurteilung abgeschlossen",
+        ),
+        (
+            "internal",
+            DECISIONS_BEWILLIGT,
+            "finished_internal",
+            "Beurteilung abgeschlossen",
+        ),
+    ],
+)
+def test_complete_decision(
+    db,
+    instance,
+    caluma_admin_user,
+    application_settings,
+    mailoutbox,
+    group,
+    role,
+    instance_service_factory,
+    notification_template,
+    service_factory,
+    docx_decision_factory,
+    workflow_factory,
+    work_item_factory,
+    instance_state_factory,
+    notification_template_factory,
+    workflow,
+    decision,
+    expected_instance_state,
+    expected_text,
+    multilang,
+):
+    docx_decision_factory(decision=decision, instance=instance.pk)
+    instance_state_factory(name=expected_instance_state)
+
+    instance_service_factory(
+        instance=instance,
+        service=service_factory(
+            trans__name="Leitbehörde Bern",
+            trans__language="de",
+            service_group__name="municipality",
+        ),
+        active=1,
+    )
+
+    service_factory(
+        trans__name="Baukontrolle Bern",
+        trans__language="de",
+        service_group__name="construction-control",
+    )
+
+    work_item = work_item_factory()
+    case = work_item.case
+
+    application_settings["CALUMA"]["DECISION_TASK"] = work_item.task_id
+    application_settings["NOTIFICATIONS"] = {
+        "DECISION": [
+            {
+                "template_slug": notification_template.slug,
+                "recipient_types": ["applicant"],
+            }
+        ]
+    }
+
+    case.workflow = workflow_factory(slug=workflow)
+    case.meta["camac-instance-id"] = str(instance.pk)
+    case.save()
+
+    if workflow == "internal":
+        work_item_factory(case=case)
+        application_settings["CALUMA"]["EBAU_NUMBER_TASK"] = work_item.task_id
+
+    send_event(
+        post_complete_work_item,
+        sender="post_complete_work_item",
+        work_item=work_item,
+        user=caluma_admin_user,
+        context={"group_id": group.pk},
+    )
+
+    instance.refresh_from_db()
+
+    assert instance.instance_state.name == expected_instance_state
+    assert len(mailoutbox) == 1
+    assert HistoryEntryT.objects.filter(
+        history_entry__instance=instance, title=expected_text, language="de"
+    ).exists()
+
+
+@pytest.mark.parametrize(
+    "task,expected_instance_state,expected_history_text",
+    [
+        ("start-decision", "coordination", "Zirkulation abgeschlossen"),
+        ("skip-circulation", "coordination", "Zirkulation übersprungen"),
+        ("reopen-circulation", "circulation", "Zirkulation wiedereröffnet"),
+        ("complete", "finished", "Baugesuchsverfahren abgeschlossen"),
+    ],
+)
+def test_complete_simple_workflow(
+    db,
+    instance,
+    caluma_admin_user,
+    caluma_config_be,
+    group,
+    role,
+    multilang,
+    instance_state_factory,
+    work_item_factory,
+    task_factory,
+    task,
+    expected_instance_state,
+    expected_history_text,
+):
+    work_item = work_item_factory(task=task_factory(slug=task))
+    instance_state = instance_state_factory(name=expected_instance_state)
+
+    case = work_item.case
+    case.meta["camac-instance-id"] = str(instance.pk)
+    case.save()
+
+    send_event(
+        post_complete_work_item,
+        sender="post_complete_work_item",
+        work_item=work_item,
+        user=caluma_admin_user,
+        context={"group_id": group.pk},
+    )
+
+    instance.refresh_from_db()
+
+    assert instance.instance_state == instance_state
+    assert HistoryEntryT.objects.filter(
+        history_entry__instance=instance,
+        title=expected_history_text,
+        language="de",
+    ).exists()

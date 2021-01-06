@@ -1,20 +1,10 @@
 [
   {
     "model": "api.template",
-    "pk": "1-level",
+    "pk": "form",
     "fields": {
       "description": "",
-      "template": "1-level.docx",
-      "engine": "docx-template",
-      "group": null
-    }
-  },
-  {
-    "model": "api.template",
-    "pk": "2-level",
-    "fields": {
-      "description": "",
-      "template": "2-level.docx",
+      "template": "form.docx",
       "engine": "docx-template",
       "group": null
     }

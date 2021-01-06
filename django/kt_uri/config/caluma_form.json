@@ -67,6 +67,22 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "bundesverfahren",
+    "fields": {
+      "created_at": "2020-12-16T08:46:46.321Z",
+      "modified_at": "2020-12-16T08:46:46.321Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "cantonal-territory-usage",
     "fields": {
       "created_at": "2020-12-07T15:47:19.320Z",
@@ -2338,6 +2354,84 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "bundesverfahren.form-type",
+    "fields": {
+      "created_at": "2020-12-16T08:47:40.496Z",
+      "modified_at": "2020-12-16T08:47:40.496Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "bundesverfahren",
+      "question": "form-type",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bundesverfahren.is-paper",
+    "fields": {
+      "created_at": "2020-12-16T08:47:03.854Z",
+      "modified_at": "2020-12-16T08:47:03.854Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "bundesverfahren",
+      "question": "is-paper",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bundesverfahren.leitbehoerde",
+    "fields": {
+      "created_at": "2020-12-16T08:47:11.240Z",
+      "modified_at": "2020-12-16T08:47:11.240Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "bundesverfahren",
+      "question": "leitbehoerde",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bundesverfahren.lokalisierung",
+    "fields": {
+      "created_at": "2020-12-16T08:47:25.475Z",
+      "modified_at": "2020-12-16T08:47:25.475Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "bundesverfahren",
+      "question": "lokalisierung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bundesverfahren.personalien",
+    "fields": {
+      "created_at": "2020-12-16T08:47:31.242Z",
+      "modified_at": "2020-12-16T08:47:31.242Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "bundesverfahren",
+      "question": "personalien",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "cantonal-territory-usage.allgemeine-informationen-benuetzung-kantonsgebiet",
+    "fields": {
+      "created_at": "2020-12-15T11:06:41.614Z",
+      "modified_at": "2020-12-15T11:06:41.615Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "cantonal-territory-usage",
+      "question": "allgemeine-informationen-benuetzung-kantonsgebiet",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "cantonal-territory-usage.einreichen",
     "fields": {
       "created_at": "2020-12-07T15:47:55.907Z",
@@ -2372,7 +2466,7 @@
       "created_by_group": null,
       "form": "cantonal-territory-usage",
       "question": "is-paper",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -2385,7 +2479,7 @@
       "created_by_group": null,
       "form": "cantonal-territory-usage",
       "question": "leitbehoerde",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -4322,7 +4416,7 @@
       "created_by_group": null,
       "form": "mitberichtsverfahren-koor-bg",
       "question": "art-mbv",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -4335,7 +4429,7 @@
       "created_by_group": null,
       "form": "mitberichtsverfahren-koor-bg",
       "question": "beschreibung-bemerkungen",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -4348,7 +4442,20 @@
       "created_by_group": null,
       "form": "mitberichtsverfahren-koor-bg",
       "question": "beschreibung-zu-mbv",
-      "sort": 3
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "mitberichtsverfahren-koor-bg.form-type",
+    "fields": {
+      "created_at": "2020-12-15T13:13:56.748Z",
+      "modified_at": "2020-12-15T13:13:56.748Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "mitberichtsverfahren-koor-bg",
+      "question": "form-type",
+      "sort": 1
     }
   },
   {
@@ -4361,7 +4468,7 @@
       "created_by_group": null,
       "form": "mitberichtsverfahren-koor-bg",
       "question": "zustaendige-personen",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -4535,6 +4642,19 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "oereb.allgemeine-informationen-oereb-verfahren",
+    "fields": {
+      "created_at": "2020-12-15T10:19:20.440Z",
+      "modified_at": "2020-12-15T10:19:20.440Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "oereb",
+      "question": "allgemeine-informationen-oereb-verfahren",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "oereb.form-type",
     "fields": {
       "created_at": "2020-12-10T10:37:31.299Z",
@@ -4556,7 +4676,7 @@
       "created_by_group": null,
       "form": "oereb",
       "question": "is-paper",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -4569,7 +4689,7 @@
       "created_by_group": null,
       "form": "oereb",
       "question": "leitbehoerde",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -5172,6 +5292,19 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "pgv.allgemeine-informationen-pgv-kanton",
+    "fields": {
+      "created_at": "2020-12-15T13:29:29.314Z",
+      "modified_at": "2020-12-15T13:29:29.314Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "pgv",
+      "question": "allgemeine-informationen-pgv-kanton",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "pgv.form-type",
     "fields": {
       "created_at": "2020-12-10T10:37:15.563Z",
@@ -5193,7 +5326,7 @@
       "created_by_group": null,
       "form": "pgv",
       "question": "is-paper",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -5206,7 +5339,7 @@
       "created_by_group": null,
       "form": "pgv",
       "question": "leitbehoerde",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -5705,6 +5838,19 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "proposal-declaration.allgemeine-informationen-meldung-vorhaben",
+    "fields": {
+      "created_at": "2020-12-15T09:44:57.708Z",
+      "modified_at": "2020-12-15T09:44:57.708Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "proposal-declaration",
+      "question": "allgemeine-informationen-meldung-vorhaben",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "proposal-declaration.einreichen",
     "fields": {
       "created_at": "2020-12-07T15:44:38.029Z",
@@ -5739,7 +5885,7 @@
       "created_by_group": null,
       "form": "proposal-declaration",
       "question": "is-paper",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -5752,7 +5898,7 @@
       "created_by_group": null,
       "form": "proposal-declaration",
       "question": "leitbehoerde",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -5952,6 +6098,19 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "solar-declaration.allgemeine-informationen-solaranlage",
+    "fields": {
+      "created_at": "2020-12-15T08:39:43.047Z",
+      "modified_at": "2020-12-15T08:39:43.047Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "solar-declaration",
+      "question": "allgemeine-informationen-solaranlage",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "solar-declaration.einreichen",
     "fields": {
       "created_at": "2020-12-07T15:39:35.269Z",
@@ -5986,7 +6145,7 @@
       "created_by_group": null,
       "form": "solar-declaration",
       "question": "is-paper",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -5999,7 +6158,7 @@
       "created_by_group": null,
       "form": "solar-declaration",
       "question": "leitbehoerde",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -8591,7 +8750,7 @@
     "pk": "art-mbv-abparzellierung",
     "fields": {
       "created_at": "2020-11-24T13:59:21.318Z",
-      "modified_at": "2020-12-01T12:43:45.015Z",
+      "modified_at": "2020-12-15T13:22:44.033Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Abparzellierung / Ver\\u00e4usserung\", \"fr\": null}",
@@ -8605,7 +8764,7 @@
     "pk": "art-mbv-archivdossier",
     "fields": {
       "created_at": "2020-11-24T13:59:21.336Z",
-      "modified_at": "2020-12-01T12:43:45.036Z",
+      "modified_at": "2020-12-15T13:22:44.026Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Neues Archivdossier erfassen\", \"fr\": null}",
@@ -8619,7 +8778,7 @@
     "pk": "art-mbv-bgbb",
     "fields": {
       "created_at": "2020-11-24T13:59:21.203Z",
-      "modified_at": "2020-12-01T12:43:45.036Z",
+      "modified_at": "2020-12-15T13:22:43.946Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"BGBB-Verfahren (Feststellungsverf\\u00fcgung JD)\", \"fr\": null}",
@@ -8633,7 +8792,7 @@
     "pk": "art-mbv-mbv-intern",
     "fields": {
       "created_at": "2020-11-24T13:44:11.271Z",
-      "modified_at": "2020-12-01T12:43:43.360Z",
+      "modified_at": "2020-12-15T13:22:44.009Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Internes Mitberichtsverfahren / Genehmigungsverfahren\", \"fr\": null}",
@@ -8647,7 +8806,7 @@
     "pk": "art-mbv-mbv-luftfahrt",
     "fields": {
       "created_at": "2020-11-24T13:28:51.714Z",
-      "modified_at": "2020-12-01T12:43:43.343Z",
+      "modified_at": "2020-12-15T13:22:43.867Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Mitberichtverfahren zu Plangenehmigungsverfahren Luftfahrt (PGV Luftfahrt)\", \"fr\": null}",
@@ -8661,7 +8820,7 @@
     "pk": "art-mbv-mbv-militaer",
     "fields": {
       "created_at": "2020-11-24T13:28:51.716Z",
-      "modified_at": "2020-12-01T12:43:43.344Z",
+      "modified_at": "2020-12-15T13:22:43.944Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Mitberichtverfahren zu Plangenehmigungsverfahren Milit\\u00e4r (PGV Milit\\u00e4r)\", \"fr\": null}",
@@ -8675,7 +8834,7 @@
     "pk": "art-mbv-mbv-seilbahn",
     "fields": {
       "created_at": "2020-11-24T13:28:51.699Z",
-      "modified_at": "2020-12-01T12:43:43.353Z",
+      "modified_at": "2020-12-15T13:22:43.987Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Mitberichtverfahren zu Plangenehmigungsverfahren Seilbahn (PGV Seilbahn)\", \"fr\": null}",
@@ -16942,10 +17101,114 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "allgemeine-informationen-benuetzung-kantonsgebiet",
+    "fields": {
+      "created_at": "2020-12-15T11:06:41.511Z",
+      "modified_at": "2020-12-15T12:20:33.907Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "label": "{\"de\": \"Allgemeine Informationen Ben\\u00fctzung Kantonsgebiet\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"##Hinweise zum Bewilligungsverfahren \\\"Ben\\u00fctzung Kantonsgebiet / Veranstaltungsgesuch\\\"\\n\\nDieses Formular w\\u00e4hlen Sie, wenn Sie eine Veranstaltung planen oder eine Einrichtung (z.B. Baustellenger\\u00fcst, tempor\\u00e4rer Verkaufs- oder Informationsstand, tempor\\u00e4re Zwischenlagerung von Baumaterial usw.) und eine \\u00f6ffentliche Strasse oder ein \\u00f6ffentlichen Platz betroffen ist bzw. ben\\u00fctzt wird. \\n\\nAlle Nutzungen von \\u00f6ffentlichen Strassen und Pl\\u00e4tzen, die \\u00fcber den Gemeingebrauch hinausgehen, sind bewilligungspflichtig. Gem\\u00e4ss Artikel 3 der Verordnung \\u00fcber den Strassenverkehr erteilt die Baudirektion die Zustimmung, wenn dem Vorhaben keine \\u00f6ffentlichen oder privaten Interessen entgegenstehen.\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "allgemeine-informationen-meldung-vorhaben",
+    "fields": {
+      "created_at": "2020-12-15T09:44:57.626Z",
+      "modified_at": "2020-12-15T09:47:00.948Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "label": "{\"de\": \"Allgemeine Informationen Meldung Vorhaben\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"##Herzlich willkommen auf der elektronischen Plattform f\\u00fcr Verfahrenskoordination des Kantons Uri.\\n\\nWir danken Ihnen, dass Sie diese Dienstleistung nutzen.\\n\\n###Wichtiger Hinweis\\n\\nGeringf\\u00fcgige Vorhaben k\\u00f6nnen der zust\\u00e4ndigen Gemeindebaubeh\\u00f6rde mit diesem Formular gemeldet werden. Die Gemeindebaubeh\\u00f6rde entscheidet \\u00fcber die Baubewilligungspflicht.\\n\\nVon der Baubewilligungspflicht befreit sind zum Beispiel reine Unterhalts-und Reparaturarbeiten sowie geringf\\u00fcgige Bauvorhaben, die weder \\u00f6ffentliche noch private Interessen merklich ber\\u00fchren. Auch Vorhaben die nur f\\u00fcr kurze Dauer erstellt werden sind allenfalls von der Baubewilligungspflicht befreit. Auch solche Vorhaben sind der zust\\u00e4ndigen Baubeh\\u00f6rde zu melden.\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "allgemeine-informationen-oereb-verfahren",
+    "fields": {
+      "created_at": "2020-12-15T10:19:20.350Z",
+      "modified_at": "2020-12-15T10:52:52.702Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "label": "{\"de\": \"Allgemeine Informationen \\u00d6reb-Verfahren\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"##Herzlich willkommen auf der elektronischen Plattform f\\u00fcr Verfahrenskoordination des Kantons Uri.\\n\\nWir danken Ihnen, dass Sie diese Dienstleistung nutzen.\\n\\n**Hinweis** \\nAlle internen Verfahren, dazu geh\\u00f6ren auch die Nutzungsplanverfahren, werden k\\u00fcnftig, analog wie das zum Beispiel beim Baubewilligungsverfahren gemacht wird, mit dem benutzergef\\u00fchrten Formular erfasst. Die Themen \\\"Personalien\\\" und \\\"Lokalisierung\\\" sind dabei bei allen Verfahren identisch.\\n\\n**Auswahl des Verfahrens**\\nZur Vereinfachung der Datenstruktur werden alle Nutzungsplanverfahren im Verfahrenstyp \\\"\\u00d6reb-Verfahren\\\" zusammengef\\u00fchrt. Bis auf weiteres k\\u00f6nnen Sie, wenn Sie ein neues Dossier erstellen m\\u00f6chten,  wie gewohnt im CAMAC Menu \\\"Neues Dossier erstellen\\\" das Verfahren ausw\\u00e4hlen. Im Formular wird das dazugeh\\u00f6rige Thema \\\"\\u00d6reb\\\" angezeigt. In einem zweiten Schritt k\\u00f6nnen Sie dann die definitive Auswahl des Verfahrens t\\u00e4tigen (im Endausbau von URec wird die erste Auswahl wegfallen).\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "allgemeine-informationen-pgv-kanton",
+    "fields": {
+      "created_at": "2020-12-15T13:29:29.223Z",
+      "modified_at": "2020-12-15T14:00:17.807Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "label": "{\"de\": \"Allgemeine Informationen PGV Kanton\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"##Allgemeine Informationen zu verwaltungsinternen Verfahren\\n\\nAlle internen Verfahren werden k\\u00fcnftig, analog wie das zum Beispiel beim Baubewilligungsverfahren gemacht wird, mit dem benutzergef\\u00fchrten Formular erfasst. Die Themen \\\"Personalien\\\" und \\\"Lokalisierung\\\" sind dabei bei allen Verfahren identisch.\\n\\n**Auswahl des Verfahrens**\\nZur Vereinfachung der Datenstruktur werden die diversen Verfahrenstypen in den drei Themen \\\"Mitberichtsverfahren Kanton\\\", Mitberichtsverfahren Bund\\\" und \\\"PGV Kanton\\\" zusammengef\\u00fchrt.  Bis auf weiteres k\\u00f6nnen Sie, wenn Sie ein neues Dossier erstellen m\\u00f6chten,  wie gewohnt im CAMAC Menu \\\"Neues Dossier erstellen\\\" das Verfahren ausw\\u00e4hlen. Im Formular wird das dazugeh\\u00f6rige Thema angezeigt. In einem zweiten Schritt k\\u00f6nnen Sie dann die definitive Auswahl des Verfahrens t\\u00e4tigen (im Endausbau von URec wird die erste Auswahl wegfallen).\\n\\n##Klassierung der Verfahren##\\n**Mitberichtsverfahren Kanton (MBV Kanton)** beinhaltet alle Mitberichtsverfahren die von einer kantonalen Stelle geleitet werden (z.B. Konzessionsverfahren - Leitbeh\\u00f6rde ist das Amt f\\u00fcr Energie).\\n\\n**Mitberichtsverfahren Bund(MBV Bund)** sind Verfahren, bei denen die kantonalen Fachstellen einen direkten oder einen koordinierten Mitbericht zu handen einer Bundesstelle abgeben (z.B. ein Mitberichtsverfahren zu einem PGV nach Seilbahngesetz - Leitbeh\\u00f6rde ist das BAV, zust\\u00e4ndig f\\u00fcr die Koordination der R\\u00fcckmeldungen der kantonalen Fachstellen ist das ARE).\\n\\n**Plangenehmigungsverfahren Kanton (PGV Kanton** beinhaltet alle Plangenehmigungsverfahren die von einer kantonalen Stelle geleitet werden (z.B. PGV Kantonsstrasse - Leitbeh\\u00f6rde ist die Baudirektion).\\n\\nWir bitten Sie, im Rahmen der internen Verfahren auf die **Erhebung von Geb\\u00fchren** zu verzichten.\\n\\nBei Fragen wenden Sie sich bitte an das [Amt f\\u00fcr Raumentwicklung](https://www.ur.ch/_rte/amt/847) oder schreiben Sie uns eine Nachricht an:[Support URec](raumplanung@ur.ch)\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "allgemeine-informationen-reklame",
     "fields": {
       "created_at": "2020-12-10T10:39:32.384Z",
-      "modified_at": "2020-12-10T10:39:32.384Z",
+      "modified_at": "2020-12-15T09:42:47.528Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "label": "{\"de\": \"Allgemeine Informationen Reklame\", \"fr\": null}",
@@ -16954,8 +17217,34 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"Test\", \"fr\": \"\"}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"##Herzlich willkommen auf der elektronischen Plattform f\\u00fcr Verfahrenskoordination des Kantons Uri.\\n\\nWir danken Ihnen, dass Sie diese Dienstleistung nutzen.\\n\\n**Wichtiger Hinweis**\\n\\nF\\u00fcr die Installation bzw. Montage von einfachen Reklamen (zum Beispiel Reklametafeln an Geb\\u00e4uden) gelten im Kanton Uri grunds\\u00e4tzlich die Bestimmungen der kantonalen Verordnung \\u00fcber das Reklamewesen. Demnach bed\\u00fcrfen Gesuche um Anbringung von st\\u00e4ndigen Reklamen der Bewilligung der Gemeinde. Gesuche um Anbringung von tempor\\u00e4ren Reklamen an \\u00f6ffentlichen Strassen bed\\u00fcrfen der Bewilligung der zust\\u00e4ndigen Direktion.  Alle \\u00fcbrigen tempor\\u00e4ren Reklamen sind ebenfalls durch die Gemeinde zu bewilligen.\\n\\n**Baubewilligungspflicht**\\nF\\u00fcr Reklamegesuche wird, unter der Voraussetzung dass keine baulichen Massnahmen erforderlich sind (siehe unten), kein Baubewilligungsvertfahren durchgef\\u00fchrt. F\\u00fcr eigentliche Reklamebauten in deren Zusammenhang bauliche Massnahmen notwendig sind (zum Beispiel die Erstellung von Fundamenten und Stahlkonstruktionen) ist in der Regel ein Baugesuch erforderlich. Die Gemeindebaubeh\\u00f6rde entscheidet \\u00fcber die Baubewilligungspflicht.\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "allgemeine-informationen-solaranlage",
+    "fields": {
+      "created_at": "2020-12-15T08:39:42.950Z",
+      "modified_at": "2020-12-15T09:28:35.458Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "label": "{\"de\": \"Allgemeine Informationen Solaranlage\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"##Herzlich willkommen auf der elektronischen Plattform f\\u00fcr Verfahrenskoordination des Kantons Uri.\\n\\nWir danken Ihnen, dass Sie diese Dienstleistung nutzen.\\n\\n**Wichtiger Hinweis zur Baubewilligungspflicht von Solaranlagen**\\n\\nMit der Revision des Raumplanungsgesetzes (RPG) und der Raumplanungsverordnung (RPV) k\\u00f6nnen Solaranlagen heute unter Anwendung eines vereinfachten Melde- statt eines Baubewilligungsverfahrens errichtet werden. Die Baubewilligungsfreiheit bezieht sich auf Solaranlagen auf D\\u00e4chern, wenn sie gen\\u00fcgend angepasst sind. Unter bestimmten Voraussetzungen muss jedoch auch f\\u00fcr Solaranlagen ein Baubewilligungsverfahren durchgef\\u00fchrt werden.\\n\\nBitte erfassen Sie die geplante/n Anlage/n mit der nachfolgenden Tabelle. Je nach Beantwortung der Fragen werden Sie auf eine allf\\u00e4llige Baubewilligungspflicht hingewiesen.\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -17916,10 +18205,10 @@
     "pk": "art-mbv",
     "fields": {
       "created_at": "2020-11-24T13:28:51.810Z",
-      "modified_at": "2020-12-01T12:43:46.155Z",
+      "modified_at": "2020-12-15T13:22:44.155Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "label": "{\"de\": \"Art des Verfahrens\", \"fr\": null}",
+      "label": "{\"de\": \"Art des Verfahrens (Leitbeh\\u00f6rde ARE)\", \"fr\": null}",
       "type": "choice",
       "is_required": "false",
       "is_hidden": "false",
@@ -18344,7 +18633,7 @@
     "pk": "baubewilligungspflicht-reklamebauten",
     "fields": {
       "created_at": "2020-12-01T14:04:27.257Z",
-      "modified_at": "2020-12-01T14:16:00.096Z",
+      "modified_at": "2020-12-15T09:33:56.936Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Hinweis Baubewilligungspflicht\", \"fr\": null}",
@@ -18354,7 +18643,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"---\\n\\n###Wichtiger Hinweis\\n\\nF\\u00fcr die Installation bzw. Montage von einfachen Reklamen (zum Beispiel Reklametafeln an Geb\\u00e4uden) gelten im Kanton Uri grunds\\u00e4tzlich die Bestimmungen der kantonalen Verordnung \\u00fcber das Reklamewesen. \\n\\nDemnach bed\\u00fcrfen Gesuche um Anbringung von st\\u00e4ndigen Reklamen der Bewilligung der Gemeinde. Gesuche um Anbringung von tempor\\u00e4ren Reklamen an \\u00f6ffentlichen Strassen bed\\u00fcrfen der Bewilligung der zust\\u00e4ndigen Direktion.  Alle \\u00fcbrigen tempor\\u00e4ren Reklamen sind ebenfalls durch die Gemeinde zu bewilligen.\\n\\n**Baubewilligungspflicht**\\n F\\u00fcr eigentliche Reklamebauten in deren Zusammenhang bauliche Massnahmen notwendig sind (zum Beispiel die Erstellung von Fundamenten und Stahlkonstruktionen) ist in der Regel ein Baugesuch erforderlich. Die Gemeindebaubeh\\u00f6rde entscheidet \\u00fcber die Baubewilligungspflicht.\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"Bitte erfassen Sie die geplante/n Reklame/n mit der Tabelle unten (es k\\u00f6nnen mehrere Datens\\u00e4tze erfasst werden). \\n\\n---\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -18370,7 +18659,7 @@
     "pk": "baubewilligungspflicht-vorhaben",
     "fields": {
       "created_at": "2020-12-01T14:19:59.045Z",
-      "modified_at": "2020-12-01T19:44:35.371Z",
+      "modified_at": "2020-12-15T10:01:17.867Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Hinweis Baubewilligungspflicht Vorhaben\", \"fr\": null}",
@@ -18380,7 +18669,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"---\\n\\n###Wichtiger Hinweis\\n\\nGeringf\\u00fcgige Vorhaben k\\u00f6nnen der zust\\u00e4ndigen Gemeindebaubeh\\u00f6rde mit diesem Formular gemeldet werden. Die Gemeindebaubeh\\u00f6rde entscheidet \\u00fcber die Baubewilligungspflicht.\\n\\nVon der Baubewilligungspflicht befreit sind zum Beispiel reine Unterhalts-und Reparaturarbeiten sowie geringf\\u00fcgige Bauvorhaben, die weder \\u00f6ffentliche noch private Interessen merklich ber\\u00fchren. Auch Vorhaben die nur f\\u00fcr kurze Dauer erstellt werden sind allenfalls von der Baubewilligungspflicht befreit. Auch solche Vorhaben sind der zust\\u00e4ndigen Baubeh\\u00f6rde zu melden.\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"##Wichtiger Hinweis\\n\\nVerwenden Sie dieses Formular, wenn Sie beispielsweise Unterhaltsarbeiten an Fassaden durchf\\u00fchren, ein Gartenhaus errichten, Bauten und Anlagen entfernen wollen, die nicht Geb\\u00e4ude oder Geb\\u00e4udeteile sind, etc. Beschreiben Sie das Vorhaben m\\u00f6glichst genau. Ein neuer Farbanstrich einer Baute sollte zum Beispiel eindeutige Angaben zum Farbton enthalten (RAL oder NCS Nummer) oder die Lage und der Umfang einer geringf\\u00fcgigen Terrainver\\u00e4nderung muss aus den Angaben klar ersichtlich sein. Sie erleichtern der Gemeindebaubeh\\u00f6rde dadurch die Beurteilung betreffend Baubewilligungspflicht.\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -22914,7 +23203,7 @@
     "pk": "hinweis-baubewilligungspflicht",
     "fields": {
       "created_at": "2020-11-13T06:55:15.160Z",
-      "modified_at": "2020-12-01T14:30:32.182Z",
+      "modified_at": "2020-12-15T09:27:06.792Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Hinweis Baubewilligungspflicht\", \"fr\": null}",
@@ -22924,7 +23213,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"---\\n\\n##Wichtiger Hinweis##\\nMit der Revision des Raumplanungsgesetzes (RPG) und der Raumplanungsverordnung (RPV) k\\u00f6nnen Solaranlagen heute unter Anwendung eines vereinfachten Melde- statt eines Baubewilligungsverfahrens errichtet werden. Die Baubewilligungsfreiheit bezieht sich auf Solaranlagen auf D\\u00e4chern, wenn sie gen\\u00fcgend angepasst sind. \\n\\nUnter bestimmten Voraussetzungen muss jedoch auch f\\u00fcr Solaranlagen ein Baubewilligungsverfahren durchgef\\u00fchrt werden.  Zur groben Kl\\u00e4rung der Baubewilligungspflicht bitten wir Sie, die Anlage mit der untenstehenden Tabelle zu erfassen und die Fragen durchzugehen. Je nach Beantwortung werden Sie auf eine allf\\u00e4llige Baubewilligungspflicht hingewiesen. \\n\\nWeitere Informationen zur Baubewilligungspflicht von Solaranlagen k\\u00f6nnen Sie dem [Merkblatt \\\"Baugesuche einreichen\\\"](https://www.ur.ch/_docn/187159/Merkblatt_Baugesuche_einreichen_Version_1.2.pdf) entnehmen.\\n\\n---\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"Bitte erfassen Sie die geplante/n Solar- und/oder Photovoltaikanlage/n mit der Tabelle unten (es k\\u00f6nnen mehrere Datens\\u00e4tze erfasst werden). \\n\\nWeitere Informationen zur Baubewilligungspflicht von Solaranlagen k\\u00f6nnen Sie dem [Merkblatt \\\"Baugesuche einreichen\\\"](https://www.ur.ch/_docn/187159/Merkblatt_Baugesuche_einreichen_Version_1.2.pdf) entnehmen.\\n\\n---\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -23443,7 +23732,7 @@
     "pk": "info-mbv-kanton",
     "fields": {
       "created_at": "2020-12-09T13:50:01.821Z",
-      "modified_at": "2020-12-10T08:32:30.424Z",
+      "modified_at": "2020-12-15T13:33:37.513Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Allgemeine Information zu internen Mitberichtsverfahren\", \"fr\": null}",
@@ -23453,7 +23742,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"##Allgemeine Informationen zu verwaltungsinternen Verfahren\\n\\nAlle internen Verfahren werden k\\u00fcnftig, analog wie das zum Beispiel beim Baubewilligungsverfahren gemacht wird, mit dem benutzergef\\u00fchrten Formular erfasst. Die Themen \\\"Personalien\\\" und \\\"Lokalisierung\\\" sind dabei bei allen Verfahren identisch.\\n\\n**Auswahl des Verfahrens**\\nZur Vereinfachung der Datenstruktur werden die diversen Verfahrenstypen in den drei Themen \\\"Mitberichtsverfahren Kanton\\\", Mitberichtsverfahren Bund\\\" und \\\"PGV Kanton\\\" zusammengef\\u00fchrt.  Bis auf weiteres k\\u00f6nnen Sie, wenn Sie ein neues Dossier erstellen m\\u00f6chten,  wie gewohnt im CAMAC Menu \\\"Neues Dossier erstellen\\\" das Verfahren ausw\\u00e4hlen. Im Formular wird das dazugeh\\u00f6rige Thema angezeigt. In einem zweiten Schritt k\\u00f6nnen Sie dann die definitive Auswahl des Verfahrens t\\u00e4tigen (im Endausbau von URec wird die erste Auswahl wegfallen).\\n\\n##Klassierung der Verfahren##\\n**Mitberichtsverfahren Kanton** beinhaltet alle Mitberichtsverfahren die von einer kantonalen Stelle geleitet werden (z.B. Konzessionsverfahren - Leitbeh\\u00f6rde ist das Amt f\\u00fcr Energie).\\n\\n**Mitberichtsverfahren Bund** sind Verfahren, bei denen die kantonalen Fachstellen einen direkten oder einen koordinierten Mitbericht zu handen einer Bundesstelle abgeben (z.B. ein Mitberichtsverfahren zu einem PGV nach Seilbahngesetz - Leitbeh\\u00f6rde ist das BAV, zust\\u00e4ndig f\\u00fcr die Koordination der R\\u00fcckmeldungen der kantonalen Fachstellen ist das ARE).\\n\\n**PGV Kanton** beinhaltet alle Plangenehmigungsverfahren die von einer kantonalen Stelle geleitet werden (z.B. PGV Kantonsstrasse - Leitbeh\\u00f6rde ist die Baudirektion).\\n\\nWir bitten Sie, im Rahmen der internen Verfahren auf die **Erhebung von Geb\\u00fchren** zu verzichten.\\n\\nBei Fragen wenden Sie sich bitte an das [Amt f\\u00fcr Raumentwicklung](https://www.ur.ch/_rte/amt/847) oder schreiben Sie uns eine Nachricht an:[Support URec](raumplanung@ur.ch)\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"##Allgemeine Informationen zu verwaltungsinternen Verfahren\\n\\nAlle internen Verfahren werden k\\u00fcnftig, analog wie das zum Beispiel beim Baubewilligungsverfahren gemacht wird, mit dem benutzergef\\u00fchrten Formular erfasst. Die Themen \\\"Personalien\\\" und \\\"Lokalisierung\\\" sind dabei bei allen Verfahren identisch.\\n\\n**Auswahl des Verfahrens**\\nZur Vereinfachung der Datenstruktur werden die diversen Verfahrenstypen in den drei Themen \\\"Mitberichtsverfahren Kanton\\\", Mitberichtsverfahren Bund\\\" und \\\"PGV Kanton\\\" zusammengef\\u00fchrt.  Bis auf weiteres k\\u00f6nnen Sie, wenn Sie ein neues Dossier erstellen m\\u00f6chten,  wie gewohnt im CAMAC Menu \\\"Neues Dossier erstellen\\\" das Verfahren ausw\\u00e4hlen. Im Formular wird das dazugeh\\u00f6rige Thema angezeigt. In einem zweiten Schritt k\\u00f6nnen Sie dann die definitive Auswahl des Verfahrens t\\u00e4tigen (im Endausbau von URec wird die erste Auswahl wegfallen).\\n\\n##Klassierung der Verfahren##\\n**Mitberichtsverfahren Kanton (MBV Kanton)** beinhaltet alle Mitberichtsverfahren die von einer kantonalen Stelle geleitet werden (z.B. Konzessionsverfahren - Leitbeh\\u00f6rde ist das Amt f\\u00fcr Energie).\\n\\n**Mitberichtsverfahren Bund (MBV Bund)** sind Verfahren, bei denen die kantonalen Fachstellen einen direkten oder einen koordinierten Mitbericht zu handen einer Bundesstelle abgeben (z.B. ein Mitberichtsverfahren zu einem PGV nach Seilbahngesetz - Leitbeh\\u00f6rde ist das BAV, zust\\u00e4ndig f\\u00fcr die Koordination der R\\u00fcckmeldungen der kantonalen Fachstellen ist das ARE).\\n\\n**Plangenehmigungsverfahren Kanton (PGV Kanton)** beinhaltet alle Plangenehmigungsverfahren die von einer kantonalen Stelle geleitet werden (z.B. PGV Kantonsstrasse - Leitbeh\\u00f6rde ist die Baudirektion).\\n\\nWir bitten Sie, im Rahmen der internen Verfahren auf die **Erhebung von Geb\\u00fchren** zu verzichten.\\n\\nBei Fragen wenden Sie sich bitte an das [Amt f\\u00fcr Raumentwicklung](https://www.ur.ch/_rte/amt/847) oder schreiben Sie uns eine Nachricht an:[Support URec](raumplanung@ur.ch)\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -25235,7 +25524,7 @@
     "pk": "mitberichtsverfahren-koor-bg",
     "fields": {
       "created_at": "2020-11-24T13:00:50.303Z",
-      "modified_at": "2020-12-09T11:46:39.542Z",
+      "modified_at": "2020-12-15T13:15:54.401Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Mitberichtsverfahren Kanton\", \"fr\": null}",
@@ -26757,7 +27046,7 @@
     "pk": "raumdetails-titel",
     "fields": {
       "created_at": "2020-09-19T10:24:26.447Z",
-      "modified_at": "2020-11-27T08:11:46.840Z",
+      "modified_at": "2020-12-15T14:41:35.819Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Energienachweis\", \"fr\": null}",
@@ -26767,7 +27056,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"####Hinweise und Erkl\\u00e4rungen\\n\\n- 0 Nachweis MINERGIE-Label\\nF\\u00fcr das Projekt besteht ein MINERGIE-Label: Kopie des provisorischen  Zertifikats beilegen. Auf Formular EN-2b \\u00abSystemnachweis W\\u00e4rmed\\u00e4mmung\\u00bb  bei Beilagen auf MINERGIE-Label hinweisen. Mit der Unterschrift bei \\u00abNachweis erarbeitet durch\\u00bb wird best\\u00e4tigt, dass das Bauvorhaben gem\\u00e4ss MINERGIE- Label ausgef\\u00fchrt wird. Bei Privater Kontrolle sind ausser dem erw\\u00e4hnten Formu-lar EN-2b und der Kopie des provisorischen Zertifikats keine weiteren Beilagen zu den Bereichen W\\u00e4rmed\\u00e4mmung und H\\u00f6chstanteil n\\u00f6tig. Fehlt die Unterschrift Private Kontrolle, sind alle Unterlagen beizulegen, da die Beh\\u00f6rde diese f\\u00fcr die Ausf\\u00fchrungskontrolle ben\\u00f6tigt.\\n\\n- 1Nachweis H\\u00f6chstanteil nichterneuerbarer Energien\\n(EnG Artikel 3 bis 5, EnR Artiekl 14 und 15)\\n\\nDer Nachweis kann entweder durch die Wahl einer Standardl\\u00f6sung oder durch eine Berechnung des H\\u00f6chstanteils nichterneuerbarer Energien erbracht werden. Dieser Nachweis ist zu erbringen bei:\\n\\u2013Neubauten\\n\\u2013neubauartigen Umbauten\\n\\u2013Anbauten und Aufstockungen, wenn die neu geschaffene Energiebezugsfl\\u00e4che mehr als 50 m2 und gleichzeitig mehr als 20% der Energiebezugsfl\\u00e4che des bestehenden Geb\\u00e4udeteiles betr\\u00e4gt; oder wenn mehr als 1000 m2 Energie-bezugsfl\\u00e4che neu geschaffen werden.\\n\\n- 2a Einzelbauteilnachweis W\\u00e4rmed\\u00e4mmung\\nEnG Artiekl 3 bis 5; EnR Artikel 5 bis 7)\\n\\nGem\\u00e4ss Norm SIA 380/1 \\u00abThermische Energie im Hochbau\\u00bb, Ausgabe 2009. Bei Neubauten sind alle Bauteile nachzuweisen, welche die beheizte oder gek\\u00fchlte Zone l\\u00fcckenlos umschliessen. Bei Umbauten oder Umnutzungen sind nur die betroffenen Bauteile nachzuweisen.\\n\\n- 2b Systemnachweis W\\u00e4rmed\\u00e4mmung\\n(EnG Artikel 3 bis 5; EnR Artiekl 5 bis 7)\\n\\nGem\\u00e4ss Norm SIA 380/1 \\u00abThermische Energie im Hochbau\\u00bb, Ausgabe 2009. Bei Neubauten ist der Heizw\\u00e4rmebedarf f\\u00fcr die gesamte beheizte oder gek\\u00fchlte Zone nachzuweisen. Der Systemnachweis f\\u00fcr Umbauten und Umnutzungen hat im Minimum alle R\\u00e4ume zu umfassen, die Bauteile aufweisen, die vom Umbau oder von der Umnutzung betroffen werden.\\n\\n- 3 Nachweis Heizungs- und Warmwasseranlagen\\n(EnG Artikel 3 bis 5; EnR Artikel 12 bis 13 und 20 bis 21)\\n\\nDer Nachweis ist f\\u00fcr alle neuen und f\\u00fcr die von einem Umbau betroffenen  bestehenden Anlagenteile zu erbringen.\\n\\n- 4 Nachweis L\\u00fcftungstechnische Anlagen\\n(EnG Artikel 3 bis 5; EnR Artikel 18 bis 21)\\n\\nDer Nachweis ist f\\u00fcr alle neuen und f\\u00fcr die von einem Umbau betroffenen  bestehenden Anlagenteile zu erbringen.\\n\\n- 5 Nachweis f\\u00fcr K\\u00fchlung und/oder Befeuchtung\\n(EnG Artikel 3 bis 5; EnR Artikel 17,20,21)\\n\\nDer Nachweis ist f\\u00fcr alle neuen und f\\u00fcr die von einem Umbau betroffenen  bestehenden Anlagenteile zu erbringen.\\n\\n- 6/7/8 Nachweis K\\u00fchlr\\u00e4ume/Gew\\u00e4chsh\\u00e4user/Traglufthallen\\n(EnG Artikel 3 bis 5; EnR Artikel 9 bis 11)\\n\\nDer Nachweis ist f\\u00fcr alle neuen und f\\u00fcr die von einem Umbau oder einer  Umnutzung betroffenen Bauteile zu erbringen. Bei K\\u00fchlr\\u00e4umen: Angaben  \\u00fcber die bei der K\\u00e4lteerzeugung allenfalls entstehende Abw\\u00e4rme sind bei  den Heizungsanlagen (vgl. EN-3) anzubringen.\\n\\n- 10/11 Nachweis Heizungen im Freien/Freiluftb\\u00e4der\\n(EnG Artikel 3 bis 5; EnR Artikel 24 und 25)\\n\\nDer Nachweis ist f\\u00fcr alle neuen, ersetzten und von einem Umbau betroffenen  bestehenden Anlagenteile, sowie bei einem Ersatz der W\\u00e4rmeerzeugung zu erbringen.\\n\\n- 12 Nachweis ortsfeste elektrische Widerstandsheizungen\\n(EnG Artikel 7; EnR Artikel 23)\\n\\nDer Nachweis ist f\\u00fcr alle neuen Elektroheizungen mit mehr als 3 kW oder f\\u00fcr  die Erweiterung um mehr als 3 kW Anschlussleistung zu erbringen.\\n\\nEnG Energiegesetz des Kantons Uri vom 18. April 1999 - RB 40.7211\\nEnV Energiereglement des Kantons Uri vom 16. Dezember 2008 - RB40.7215\", \"fr\": null}",
-      "static_content": "{\"de\": \"##Pr\\u00fcfung der Notwendigkeit eines Energienachweises\\n\\nEin Energienachweis ist in der Regel notwendig bei beheizten oder gek\\u00fchlten Neubauten, Umbauten, Erweiterungen und Zweck\\u00e4nderungen, oder wenn in der Geb\\u00e4udeh\\u00fclle einzelne Bauteile ersetzt, oder neu ged\\u00e4mmt werden. Ebenfalls notwendig ist der Nachweis, wenn technische Anlagen wie Heizungen, L\\u00fcftungen, Klima- und/oder K\\u00e4lteanlagen ersetzt oder neu eingebaut werden. Bitte w\\u00e4hlen Sie die entsprechenden baulichen Umst\\u00e4nde aus, die bei Ihrem Vorhaben zutreffen.\\n\\nIm Zweifelsfall kontaktieren Sie bitte zur Kl\\u00e4rung der Notwendigkeit eines Energienachweises direkt das [Amt f\\u00fcr Energie](https://www.ur.ch/_rte/amt/828)\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"##Energienachweis\\n\\nEin Energienachweis ist in der Regel notwendig bei beheizten oder gek\\u00fchlten Neubauten, Umbauten, Erweiterungen und Zweck\\u00e4nderungen, oder wenn in der Geb\\u00e4udeh\\u00fclle einzelne Bauteile ersetzt, oder neu ged\\u00e4mmt werden. Ebenfalls notwendig ist der Nachweis, wenn technische Anlagen wie Heizungen, L\\u00fcftungen, Klima- und/oder K\\u00e4lteanlagen ersetzt oder neu eingebaut werden. Bitte w\\u00e4hlen Sie die entsprechenden baulichen Umst\\u00e4nde aus, die bei Ihrem Vorhaben zutreffen.\\n\\nIm Zweifelsfall kontaktieren Sie bitte zur Kl\\u00e4rung der Notwendigkeit eines Energienachweises direkt das [Amt f\\u00fcr Energie](https://www.ur.ch/_rte/amt/828)\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -31877,8 +32166,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-mbv.art-mbv-abparzellierung",
     "fields": {
-      "created_at": "2020-12-01T12:43:47.298Z",
-      "modified_at": "2020-12-01T12:43:47.298Z",
+      "created_at": "2020-12-15T13:22:44.167Z",
+      "modified_at": "2020-12-15T13:22:44.167Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-mbv",
@@ -31890,8 +32179,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-mbv.art-mbv-archivdossier",
     "fields": {
-      "created_at": "2020-12-01T12:43:46.163Z",
-      "modified_at": "2020-12-01T12:43:46.163Z",
+      "created_at": "2020-12-15T13:22:44.163Z",
+      "modified_at": "2020-12-15T13:22:44.163Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-mbv",
@@ -31903,8 +32192,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-mbv.art-mbv-bgbb",
     "fields": {
-      "created_at": "2020-12-01T12:43:47.302Z",
-      "modified_at": "2020-12-01T12:43:47.302Z",
+      "created_at": "2020-12-15T13:22:44.170Z",
+      "modified_at": "2020-12-15T13:22:44.170Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-mbv",
@@ -31916,8 +32205,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-mbv.art-mbv-mbv-intern",
     "fields": {
-      "created_at": "2020-12-01T12:43:47.422Z",
-      "modified_at": "2020-12-01T12:43:47.422Z",
+      "created_at": "2020-12-15T13:22:44.174Z",
+      "modified_at": "2020-12-15T13:22:44.174Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-mbv",
@@ -31929,8 +32218,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-mbv.art-mbv-mbv-luftfahrt",
     "fields": {
-      "created_at": "2020-12-01T12:43:47.433Z",
-      "modified_at": "2020-12-01T12:43:47.433Z",
+      "created_at": "2020-12-15T13:22:44.180Z",
+      "modified_at": "2020-12-15T13:22:44.180Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-mbv",
@@ -31942,8 +32231,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-mbv.art-mbv-mbv-militaer",
     "fields": {
-      "created_at": "2020-12-01T12:43:47.437Z",
-      "modified_at": "2020-12-01T12:43:47.437Z",
+      "created_at": "2020-12-15T13:22:44.184Z",
+      "modified_at": "2020-12-15T13:22:44.184Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-mbv",
@@ -31955,8 +32244,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-mbv.art-mbv-mbv-seilbahn",
     "fields": {
-      "created_at": "2020-12-01T12:43:47.426Z",
-      "modified_at": "2020-12-01T12:43:47.426Z",
+      "created_at": "2020-12-15T13:22:44.177Z",
+      "modified_at": "2020-12-15T13:22:44.177Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-mbv",

@@ -4,23 +4,17 @@ from caluma.caluma_core.events import on
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.events import (
-    post_complete_case,
     post_complete_work_item,
     post_create_work_item,
-    post_skip_work_item,
     pre_complete_work_item,
     pre_skip_work_item,
 )
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.core import mail
-from django.utils import timezone
-from django.utils.translation import gettext_noop
 
 from camac.caluma.api import CalumaApi
-from camac.core.models import HistoryActionConfig
-from camac.core.translations import get_translations
-from camac.instance.models import HistoryEntry, HistoryEntryT, Instance
+from camac.instance.models import Instance
 from camac.user import models as user_models
 from camac.user.utils import unpack_service_emails
 
@@ -33,6 +27,10 @@ def get_caluma_setting(key, default=None):
 
 def get_instance_id(work_item):
     return work_item.case.family.meta.get("camac-instance-id")
+
+
+def get_instance(work_item):
+    return Instance.objects.get(pk=get_instance_id(work_item))
 
 
 @on(post_create_work_item)
@@ -121,7 +119,7 @@ def set_assigned_user(sender, work_item, user, **kwargs):
     if len(work_item.assigned_users):
         return
 
-    instance = Instance.objects.get(pk=get_instance_id(work_item))
+    instance = get_instance(work_item)
 
     try:
         service = user_models.Service.objects.get(pk=work_item.addressed_groups[0])
@@ -227,41 +225,3 @@ def handle_pre_complete_work_item(sender, work_item, user, **kwargs):
                 task_id__in=tasks, status=WorkItem.STATUS_READY
             ):
                 action(item, user)
-
-
-@on(post_complete_case)
-def post_complete_circulation(sender, case, user, **kwargs):
-    if case.workflow_id == get_caluma_setting("CIRCULATION_WORKFLOW"):
-        parent_work_item = WorkItem.objects.filter(
-            child_case=case,
-            task_id=get_caluma_setting("CIRCULATION_TASK"),
-            status=WorkItem.STATUS_READY,
-        ).first()
-
-        if parent_work_item:
-            workflow_api.complete_work_item(parent_work_item, user)
-
-
-@on(post_skip_work_item)
-@on(post_complete_work_item)
-def post_complete_audit(sender, work_item, user, **kwargs):
-    if work_item.task_id == get_caluma_setting("AUDIT_TASK"):
-        instance = Instance.objects.get(pk=work_item.case.meta.get("camac-instance-id"))
-        camac_user = user_models.User.objects.get(username=user.username)
-
-        history = HistoryEntry.objects.create(
-            instance=instance,
-            created_at=timezone.now(),
-            user=camac_user,
-            history_type=HistoryActionConfig.HISTORY_TYPE_STATUS,
-        )
-
-        if sender == "post_skip_work_item":
-            texts = get_translations(gettext_noop("Exam skipped"))
-        else:
-            texts = get_translations(gettext_noop("Exam completed"))
-
-        for (language, text) in texts:
-            HistoryEntryT.objects.create(
-                history_entry=history, title=text, language=language
-            )

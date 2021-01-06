@@ -89,17 +89,8 @@ module.exports = function (environment) {
         "migriertes-dossier",
         "baupolizeiliches-verfahren",
         "zutrittsermaechtigung",
-      ],
-      rstaForms: [
         "klaerung-baubewilligungspflicht",
-        "hecken-feldgehoelze-baeume",
-        "baupolizeiliches-verfahren",
-        "zutrittsermaechtigung",
-        "verlaengerung-geltungsdauer",
       ],
-      enableRstaForms: true,
-      migratedForm: "migriertes-dossier",
-      enableMigratedForm: false,
     },
   };
 
@@ -109,8 +100,6 @@ module.exports = function (environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.ebau.enableRstaForms = true;
-    ENV.ebau.enableMigratedForm = true;
   }
 
   if (environment === "test") {

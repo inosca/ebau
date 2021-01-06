@@ -10,16 +10,7 @@ from rest_framework.test import APIClient
 from camac.caluma.api import CalumaApi
 from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
-    INSTANCE_STATE_DONE,
-    INSTANCE_STATE_DOSSIERPRUEFUNG,
-    INSTANCE_STATE_FINISHED,
-    INSTANCE_STATE_KOORDINATION,
-    INSTANCE_STATE_REJECTED,
-    INSTANCE_STATE_SB1,
-    INSTANCE_STATE_SB2,
-    INSTANCE_STATE_TO_BE_FINISHED,
-    INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT,
-    INSTANCE_STATE_ZIRKULATION,
+    INSTANCE_RESOURCE_ZIRKULATION,
     NOTICE_TYPE_NEBENBESTIMMUNG,
     NOTICE_TYPE_STELLUNGNAHME,
     NOTIFICATION_ECH,
@@ -38,15 +29,8 @@ from camac.document.models import Attachment, AttachmentSection
 from camac.instance.models import Instance, InstanceState
 from camac.instance.serializers import CalumaInstanceChangeResponsibleServiceSerializer
 from camac.user.models import Service
-from camac.user.utils import set_baukontrolle
 
-from .signals import (
-    accompanying_report_send,
-    circulation_started,
-    finished,
-    ruling,
-    task_send,
-)
+from .signals import accompanying_report_send, circulation_started, task_send
 from .utils import judgement_to_decision
 
 
@@ -109,10 +93,10 @@ class BaseSendHandler:
             **{"meta__camac-instance-id": int(self.get_instance_id())}
         )
 
-    def complete_work_item(self, task, context=None):
+    def complete_work_item(self, task, context={}):
         return self._process_work_item("complete", task, context)
 
-    def skip_work_item(self, task, context=None):
+    def skip_work_item(self, task, context={}):
         return self._process_work_item("skip", task, context)
 
     def _process_work_item(self, action, task, context):
@@ -126,7 +110,11 @@ class BaseSendHandler:
         )
 
         if work_item and fn:
-            fn(work_item=work_item, user=self.caluma_user, context=context)
+            fn(
+                work_item=work_item,
+                user=self.caluma_user,
+                context={"group-id": self.group.pk, **context},
+            )
 
     def has_permission(self):
         return self.instance.responsible_service() == self.group.service, None
@@ -140,20 +128,17 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
         if not super().has_permission()[0]:
             return False, None
 
-        if self.instance.instance_state.pk == INSTANCE_STATE_DOSSIERPRUEFUNG:
+        if self.instance.instance_state.name == "circulation_init":
             if self.data.eventNotice.decisionRuling.judgement != 4:
                 return (
                     False,
-                    'For instances in the state "Dossierprüfung", only a NoticeRuling with judgement "4" is allowed.',
+                    'For instances in the state "Zirkulation initialisieren", only a NoticeRuling with judgement "4" is allowed.',
                 )
             return True, None
-        if self.instance.instance_state.pk not in [
-            INSTANCE_STATE_KOORDINATION,
-            INSTANCE_STATE_ZIRKULATION,
-        ]:
+        if self.instance.instance_state.name not in ["coordination", "circulation"]:
             return (
                 False,
-                'NoticeRuling is only allowed for instances in the state "Dossierprüfung", "In Koordination" or "In Zirkulation".',
+                'NoticeRuling is only allowed for instances in the state "In Koordination" or "In Zirkulation".',
             )
 
         return True, None
@@ -166,19 +151,8 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
                 status=403,
             )
 
-        status = {
-            1: INSTANCE_STATE_SB1,
-            2: INSTANCE_STATE_SB1,
-            3: INSTANCE_STATE_REJECTED,
-            4: INSTANCE_STATE_REJECTED,
-        }
-
         workflow_slug = self.get_case().workflow_id
         judgement = self.data.eventNotice.decisionRuling.judgement
-
-        state_id = status[judgement]
-        if workflow_slug == "preliminary-clarification":
-            state_id = INSTANCE_STATE_FINISHED
 
         try:
             decision = judgement_to_decision(judgement, workflow_slug)
@@ -187,13 +161,6 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
                 f'"{judgement}" is not a valid judgement for "{workflow_slug}"'
             )
 
-        if state_id == INSTANCE_STATE_SB1:
-            set_baukontrolle(self.instance)
-
-        self.complete_work_item("decision")
-
-        self.instance.instance_state = InstanceState.objects.get(pk=state_id)
-        self.instance.save()
         # TODO: where should we write self.data.eventNotice.decisionRuling.ruling ?
         DocxDecision.objects.create(
             instance=self.instance.pk,
@@ -202,25 +169,28 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
             decision_type="UNKNOWN_ECH",
         )
 
-        self.link_to_section(attachments)
+        # we might have a running circulation, skip it
+        self.skip_work_item("circulation")
+        self.skip_work_item("start-decision")
+        # if we don't have one, skip the whole circulation
+        self.skip_work_item("skip-circulation")
 
-        ruling.send(
-            sender=self.__class__,
-            instance=self.instance,
-            user_pk=self.user.pk,
-            group_pk=self.group.pk,
-        )
+        # this handle status changes and assignment of the construction control
+        # for "normal" judgements
+        self.complete_work_item("decision")
+
+        self.link_to_section(attachments)
 
 
 class ChangeResponsibilitySendHandler(BaseSendHandler):
     def has_permission(self):
         if not super().has_permission()[0]:  # pragma: no cover
             return False, None
-        if self.instance.instance_state.pk in [
-            INSTANCE_STATE_SB1,
-            INSTANCE_STATE_SB2,
-            INSTANCE_STATE_TO_BE_FINISHED,
-            INSTANCE_STATE_DONE,
+        if self.instance.instance_state.name in [
+            "sb1",
+            "sb2",
+            "conclusion",
+            "finished",
         ]:
             return (
                 False,
@@ -337,11 +307,7 @@ class CloseArchiveDossierSendHandler(BaseSendHandler):
             instance=self.instance, active=True, service=self.group.service
         ).exists():
             return False, None
-        if self.instance.instance_state.pk in [
-            INSTANCE_STATE_SB1,
-            INSTANCE_STATE_SB2,
-            INSTANCE_STATE_TO_BE_FINISHED,
-        ]:
+        if self.instance.instance_state.name in ["sb1", "sb2", "conclusion"]:
             return True, None
         return (
             False,
@@ -357,20 +323,9 @@ class CloseArchiveDossierSendHandler(BaseSendHandler):
         )
 
     def apply(self):
-        state = InstanceState.objects.get(pk=INSTANCE_STATE_FINISHED)
-
-        self.instance.instance_state = state
-        self.instance.save()
-
-        for task_id in ["sb1", "sb2", "complete"]:
-            self.skip_work_item(task_id)
-
-        finished.send(
-            sender=self.__class__,
-            instance=self.instance,
-            user_pk=self.user.pk,
-            group_pk=self.group.pk,
-        )
+        self.skip_work_item("sb1")
+        self.skip_work_item("sb2")
+        self.complete_work_item("complete")
 
 
 class TaskSendHandler(BaseSendHandler):
@@ -382,7 +337,7 @@ class TaskSendHandler(BaseSendHandler):
     def has_permission(self):
         if not super().has_permission()[0]:  # pragma: no cover
             return False, None
-        if not self.instance.instance_state.pk == INSTANCE_STATE_ZIRKULATION:
+        if not self.instance.instance_state.name == "circulation":
             return (
                 False,
                 'You can only send a "Task" for instances in the state "In Zirkulation".',
@@ -396,7 +351,7 @@ class TaskSendHandler(BaseSendHandler):
         )
         if not circulation:
             instance_resource = InstanceResource.objects.get(
-                pk=INSTANCE_STATE_ZIRKULATION
+                pk=INSTANCE_RESOURCE_ZIRKULATION
             )
             circulation = Circulation.objects.create(
                 service=self.instance.responsible_service(filter_type="municipality"),
@@ -504,7 +459,7 @@ class NoticeKindOfProceedingsSendHandler(DocumentAccessibilityMixin, TaskSendHan
         if not super().has_permission():  # pragma: no cover
             return False, None
 
-        if self.instance.instance_state.pk != INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT:
+        if self.instance.instance_state.name != "circulation_init":
             return (
                 False,
                 'You can only send a "NoticeKindOfProceedings" for instances in the state "Zirkulation initialisieren".',
@@ -522,7 +477,7 @@ class NoticeKindOfProceedingsSendHandler(DocumentAccessibilityMixin, TaskSendHan
             )
 
         circulation = self._get_circulation()
-        instance_state = InstanceState.objects.get(pk=INSTANCE_STATE_ZIRKULATION)
+        instance_state = InstanceState.objects.get(name="circulation")
         self.instance.instance_state = instance_state
         self.instance.save()
 

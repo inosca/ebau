@@ -56,11 +56,6 @@ export default class InstancesNewController extends Controller.extend(
           this.session.isInternal ||
           !config.ebau.internalForms.includes(form.node.slug)
       )
-      .filter(
-        (form) =>
-          config.ebau.enableRstaForms ||
-          !config.ebau.rstaForms.includes(form.node.slug)
-      )
       .reduce(
         (grouped, { node: form }) => ({
           ...grouped,

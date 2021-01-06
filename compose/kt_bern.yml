@@ -116,7 +116,7 @@ services:
       - KEYCLOAK_USER=admin
 
   document-merge-service:
-    image: adfinissygroup/document-merge-service:v4.0.1
+    image: adfinissygroup/document-merge-service:v4.3.0
     depends_on:
       - db
     volumes:

@@ -1,5 +1,5 @@
 Babel==2.9.0
-caluma==7.1.1
+caluma==7.2.0
 dataclasses-json==0.5.2
 Django==2.2.17
 django-clamd==0.4.0
@@ -27,7 +27,8 @@ python-keycloak==0.22.0
 python-memcached==1.59
 PyXB==1.2.6
 requests==2.25.0
-sorl-thumbnail==12.6.3
+sorl-thumbnail==12.7.0
 tabulate==0.8.7
 uWSGI==2.0.19.1
 xmlschema==1.3.1
+manabi @ git+https://github.com/ganwell/manabi

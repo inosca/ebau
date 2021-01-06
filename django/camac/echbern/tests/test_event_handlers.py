@@ -7,12 +7,8 @@ from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_BEILAGEN_SB2,
     ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
     CIRCULATION_ANSWER_POSITIV,
-    INSTANCE_STATE_SB2,
-    INSTANCE_STATE_TO_BE_FINISHED,
-    INSTANCE_STATE_ZIRKULATION,
     NOTICE_TYPE_NEBENBESTIMMUNG,
     NOTICE_TYPE_STELLUNGNAHME,
-    SERVICE_GROUP_BAUKONTROLLE,
 )
 from camac.echbern.schema.ech_0211_2_0 import CreateFromDocument
 from camac.echbern.signals import file_subsequently, instance_submitted
@@ -243,7 +239,7 @@ def test_task_event_handler_stellungnahme(
 
     expected_name = aas_gesuch.attachment.display_name
 
-    ech_instance.instance_state = instance_state_factory(pk=INSTANCE_STATE_ZIRKULATION)
+    ech_instance.instance_state = instance_state_factory(name="circulation")
     ech_instance.save()
     s1 = service_factory(email="s1@example.com")
     s2 = service_factory(email="s2@example.com")
@@ -267,11 +263,9 @@ def test_task_event_handler_stellungnahme(
         assert xml.eventRequest.document[0].titles.title[0].value() == expected_name
 
 
-@pytest.mark.parametrize(
-    "instance_state_pk", [INSTANCE_STATE_SB2, INSTANCE_STATE_TO_BE_FINISHED]
-)
+@pytest.mark.parametrize("instance_state_name", ["sb2", "conclusion"])
 def test_task_event_handler_SBs(
-    instance_state_pk,
+    instance_state_name,
     ech_instance,
     instance_state_factory,
     admin_user,
@@ -281,7 +275,7 @@ def test_task_event_handler_SBs(
     instance_service_factory,
 ):
     service_baukontrolle = service_factory(
-        service_group__pk=SERVICE_GROUP_BAUKONTROLLE,
+        service_group__name="construction-control",
         name=None,
         trans__name="Baukontrolle Burgdorf",
         trans__city="Burgdorf",
@@ -301,10 +295,10 @@ def test_task_event_handler_SBs(
     )
 
     expected_name = aas_sb1.attachment.display_name
-    if instance_state_pk == INSTANCE_STATE_TO_BE_FINISHED:
+    if instance_state_name == "conclusion":
         expected_name = aas_sb2.attachment.display_name
 
-    ech_instance.instance_state = instance_state_factory(pk=instance_state_pk)
+    ech_instance.instance_state = instance_state_factory(name=instance_state_name)
     ech_instance.save()
 
     eh = event_handlers.TaskEventHandler(ech_instance, user_pk=admin_user.pk)

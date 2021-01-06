@@ -3,7 +3,8 @@ import re
 from logging import getLogger
 from uuid import uuid4
 
-from caluma.caluma_form.models import Document, Form
+from caluma.caluma_form import api as form_api
+from caluma.caluma_form.models import Document, Form, Question
 from caluma.caluma_form.validators import CustomValidationError
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
 from django.conf import settings
@@ -30,7 +31,6 @@ from camac.core.serializers import MultilingualField, MultilingualSerializer
 from camac.core.utils import create_history_entry, generate_ebau_nr
 from camac.document.models import AttachmentSection
 from camac.echbern.signals import (
-    assigned_ebau_number,
     change_responsibility,
     instance_submitted,
     sb1_submitted,
@@ -374,6 +374,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
             be_constants.INSTANCE_STATE_EBAU_NUMMER_VERGEBEN: be_constants.PUBLIC_INSTANCE_STATE_RECEIVING,
             be_constants.INSTANCE_STATE_CORRECTION_IN_PROGRESS: be_constants.PUBLIC_INSTANCE_STATE_COMMUNAL,
             be_constants.INSTANCE_STATE_IN_PROGRESS: be_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
+            be_constants.INSTANCE_STATE_IN_PROGRESS_INTERNAL: be_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
             be_constants.INSTANCE_STATE_KOORDINATION: be_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
             be_constants.INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT: be_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
             be_constants.INSTANCE_STATE_ZIRKULATION: be_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
@@ -385,6 +386,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
             be_constants.INSTANCE_STATE_FINISHED: be_constants.PUBLIC_INSTANCE_STATE_FINISHED,
             be_constants.INSTANCE_STATE_ARCHIVED: be_constants.PUBLIC_INSTANCE_STATE_ARCHIVED,
             be_constants.INSTANCE_STATE_DONE: be_constants.PUBLIC_INSTANCE_STATE_DONE,
+            be_constants.INSTANCE_STATE_DONE_INTERNAL: be_constants.PUBLIC_INSTANCE_STATE_DONE,
         }
 
         return STATUS_MAP.get(
@@ -536,10 +538,15 @@ class CalumaInstanceSerializer(InstanceSerializer):
         return set()
 
     def _get_nfd_form_permissions_for_municipality(self, instance):
-        permissions = set(["write"])
+        permissions = set(["read"])
 
-        if CalumaApi().is_paper(instance):
-            permissions.update(CalumaApi().get_nfd_form_permissions(instance))
+        if instance.instance_state.name in [
+            "circulation_init",
+            "circulation",
+            "coordination",
+            "in_progress_internal",
+        ]:
+            permissions.add("write")
 
         return permissions
 
@@ -557,15 +564,12 @@ class CalumaInstanceSerializer(InstanceSerializer):
         return set(["read"])
 
     def _get_dossierpruefung_form_permissions_for_municipality(self, instance):
-        permissions = set()
-
-        if instance.instance_state.name not in ["new", "subm", "correction"]:
-            permissions.add("read")
+        permissions = set(["read"])
 
         if instance.instance_state.name in [
             "circulation_init",
             "circulation",
-            "in_progress",
+            "coordination",
             "in_progress_internal",
         ]:
             permissions.add("write")
@@ -674,8 +678,11 @@ class CalumaInstanceSerializer(InstanceSerializer):
                 "EXTEND_VALIDITY_COPY_QUESTIONS", []
             )
         ):
-            caluma_api.update_or_create_answer(
-                new_document.pk, answer.question_id, answer.value
+            form_api.save_answer(
+                answer.question,
+                new_document,
+                self.context["request"].caluma_info.context.user,
+                answer.value,
             )
 
         for slug in settings.APPLICATION["CALUMA"].get(
@@ -688,7 +695,12 @@ class CalumaInstanceSerializer(InstanceSerializer):
                 new_document,
             )
 
-        caluma_api.update_or_create_answer(new_document.pk, "dossiernummer", source.pk)
+        form_api.save_answer(
+            Question.objects.get(pk="dossiernummer"),
+            new_document,
+            self.context["request"].caluma_info.context.user,
+            int(source.pk),
+        )
 
     def _copy_ebau_number(self, source_instance, target_instance, case):
         ebau_number = caluma_api.get_ebau_number(source_instance)
@@ -755,6 +767,25 @@ class CalumaInstanceSerializer(InstanceSerializer):
                 in get_paper_settings()["ALLOWED_SERVICE_GROUPS"]
                 and group.role.pk in get_paper_settings()["ALLOWED_ROLES"]
             )
+
+        if (
+            caluma_form in settings.APPLICATION["CALUMA"].get("INTERNAL_FORMS", [])
+            and not is_paper
+        ):
+            raise exceptions.ValidationError(
+                _(
+                    "The form '%(form)s' can only be used by an internal role"
+                    % {"form": caluma_form}
+                )
+            )
+
+        if is_modification and (
+            caluma_form
+            not in settings.APPLICATION["CALUMA"].get("MODIFICATION_ALLOW_FORMS", [])
+            or source_instance.instance_state.name
+            in settings.APPLICATION["CALUMA"].get("MODIFICATION_DISALLOW_STATES", [])
+        ):
+            raise exceptions.ValidationError(_("Project modification is not allowed"))
 
         form = validated_data.get("form")
         if form and form.pk in settings.APPLICATION.get("ARCHIVE_FORMS", []):
@@ -1042,7 +1073,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         instance.previous_instance_state = instance.instance_state
         instance.instance_state = models.InstanceState.objects.get(name="subm")
 
-        if case.workflow.slug == "building-police-procedure":
+        if case.workflow.slug == "internal":
             instance.instance_state = models.InstanceState.objects.get(
                 name="in_progress_internal"
             )
@@ -1253,12 +1284,7 @@ class CalumaInstanceSetEbauNumberSerializer(serializers.Serializer):
         if not re.search(r"\d{4}-\d+", value):
             raise exceptions.ValidationError(_("Invalid format"))
 
-        service_filters = {
-            "instance_services__service": self.instance.responsible_service(
-                filter_type="municipality"
-            ),
-            "instance_services__active": 1,
-        }
+        municipality = self.instance.responsible_service(filter_type="municipality")
 
         instances = models.Instance.objects.filter(
             pk__in=list(
@@ -1268,12 +1294,12 @@ class CalumaInstanceSetEbauNumberSerializer(serializers.Serializer):
             )
         )
 
-        if instances.exclude(**service_filters).exists():
+        if instances.exclude(instance_services__service=municipality).exists():
             raise exceptions.ValidationError(
                 _("This eBau number is already in use by a different municipality")
             )
 
-        if not instances.filter(**service_filters).exists():
+        if not instances.filter(instance_services__service=municipality).exists():
             raise exceptions.ValidationError(_("This eBau number doesn't exist"))
 
         return value
@@ -1304,25 +1330,8 @@ class CalumaInstanceSetEbauNumberSerializer(serializers.Serializer):
             workflow_api.complete_work_item(
                 work_item=work_item,
                 user=self.context["request"].caluma_info.context.user,
+                context={"group-id": self.context["request"].group.pk},
             )
-
-        if instance.instance_state.name == "subm":
-            instance.instance_state = models.InstanceState.objects.get(
-                name="circulation_init"
-            )
-            instance.save()
-            assigned_ebau_number.send(
-                sender=self.__class__,
-                instance=self.instance,
-                user_pk=self.context["request"].user.pk,
-                group_pk=self.context["request"].group.pk,
-            )
-
-        create_history_entry(
-            self.instance,
-            self.context["request"].user,
-            gettext_noop("Assigned ebau number"),
-        )
 
     @transaction.atomic
     def update(self, instance, validated_data):

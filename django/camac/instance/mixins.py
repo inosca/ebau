@@ -13,6 +13,7 @@ from camac.core.models import Circulation, CommissionAssignment, InstanceService
 from camac.instance.models import Instance
 from camac.mixins import AttributeMixin
 from camac.request import get_request
+from camac.user.models import User
 from camac.user.permissions import permission_aware
 
 from . import models
@@ -50,7 +51,9 @@ class InstanceQuerysetMixin(object):
         return group or getattr(self, "group", None) or self.request.group
 
     def _get_user(self):
-        return getattr(self, "user", None) or self.request.user
+        user = getattr(self, "user", None) or self.request.user
+
+        return user if isinstance(user, User) else None
 
     def get_base_queryset(self):
         """Get base query queryset for role specific filters.

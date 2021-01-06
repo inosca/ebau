@@ -312,7 +312,7 @@ def test_notification_template_sendmail_rsta_forms(
 
     form = caluma_form_models.Form.objects.get(pk=form_slug)
     workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
-    workflow.slug = "building-police-procedure"
+    workflow.slug = "internal"
     workflow.allow_forms.add(form)
     workflow.save()
     case = workflow_api.start_case(
@@ -527,6 +527,8 @@ def test_notification_placeholders(
                 PENDING_ACTIVATIONS: {{PENDING_ACTIVATIONS}}
                 ACTIVATION_STATEMENT_DE: {{ACTIVATION_STATEMENT_DE}}
                 ACTIVATION_STATEMENT_FR: {{ACTIVATION_STATEMENT_FR}}
+                ACTIVATION_ANSWER_DE: {{ACTIVATION_ANSWER_DE}}
+                ACTIVATION_ANSWER_FR: {{ACTIVATION_ANSWER_FR}}
                 CURRENT_SERVICE: {{CURRENT_SERVICE}}
             """,
         )
@@ -534,6 +536,15 @@ def test_notification_placeholders(
 )
 @pytest.mark.parametrize("total_activations,done_activations", [(2, 2), (2, 1)])
 @pytest.mark.parametrize("with_activation", [True, False])
+@pytest.mark.parametrize(
+    "circulation_answer_name",
+    [
+        {
+            "de": "Nicht betroffen / nicht zuständig",
+            "fr": "Non concerné/e / non compétent/e",
+        }
+    ],
+)
 def test_notification_caluma_placeholders(
     admin_client,
     admin_user,
@@ -550,15 +561,23 @@ def test_notification_caluma_placeholders(
     circulation_factory,
     done_activations,
     circulation_state_factory,
+    circulation_answer_factory,
     mocker,
     caluma_workflow_config_be,
     caluma_admin_user,
+    circulation_answer_name,
+    multilang,
 ):
     url = reverse("notificationtemplate-sendmail")
 
     STATE_DONE, STATE_WORKING = circulation_state_factory.create_batch(2)
     mocker.patch("camac.constants.kt_bern.CIRCULATION_STATE_DONE", STATE_DONE.pk)
     mocker.patch("camac.constants.kt_bern.CIRCULATION_STATE_WORKING", STATE_WORKING.pk)
+
+    circulation_answer = circulation_answer_factory()
+
+    for language, name in circulation_answer_name.items():
+        circulation_answer.trans.create(language=language, name=name)
 
     assert not len(mailoutbox)
 
@@ -570,6 +589,7 @@ def test_notification_caluma_placeholders(
         activation_factory(
             circulation=circulation,
             circulation_state=STATE_WORKING,
+            circulation_answer=circulation_answer,
             service_parent=circulation.service,
         )
         for _ in range(total_activations)
@@ -609,6 +629,8 @@ def test_notification_caluma_placeholders(
         data["data"]["relationships"]["activation"] = {
             "data": {"type": "activations", "id": activations[0].pk}
         }
+        activation_answer_de = circulation_answer_name["de"]
+        activation_answer_fr = circulation_answer_name["fr"]
 
         if done_activations == total_activations:
             activation_statement_de = f"Alle {total_activations} Stellungnahmen der Zirkulation vom 02.01.2020 sind nun eingegangen."
@@ -621,6 +643,8 @@ def test_notification_caluma_placeholders(
     else:
         activation_statement_de = ""
         activation_statement_fr = ""
+        activation_answer_de = ""
+        activation_answer_fr = ""
         total_activations += 1
 
     response = admin_client.post(url, data=data)
@@ -652,6 +676,8 @@ def test_notification_caluma_placeholders(
             f"PENDING_ACTIVATIONS: {total_activations-done_activations}",
             f"ACTIVATION_STATEMENT_DE: {activation_statement_de}",
             f"ACTIVATION_STATEMENT_FR: {activation_statement_fr}",
+            f"ACTIVATION_ANSWER_DE: {activation_answer_de}",
+            f"ACTIVATION_ANSWER_FR: {activation_answer_fr}",
             f"CURRENT_SERVICE: {service_name}",
         ]
     ]

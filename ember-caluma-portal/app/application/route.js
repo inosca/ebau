@@ -67,5 +67,9 @@ export default class ApplicationRouter extends Route.extend(
       label: "Versteckt",
       component: "be-hidden-input",
     });
+    this.calumaOptions.registerComponentOverride({
+      label: "Deaktiviert",
+      component: "be-disabled-input",
+    });
   }
 }

@@ -8,7 +8,15 @@ from marshmallow import fields
 
 # NOTE: no map for gebaudeeigentumerin, sb, weitere-personen
 BETEILIGTER_TYPE_MAP = {
+    "Antragsteller": {
+        "tablequestion": "personalien-gesuchstellerin",
+        "suffix": "gesuchstellerin",
+    },
     "Gesuchsteller": {
+        "tablequestion": "personalien-gesuchstellerin",
+        "suffix": "gesuchstellerin",
+    },
+    "Gesuchsteller (H)": {
         "tablequestion": "personalien-gesuchstellerin",
         "suffix": "gesuchstellerin",
     },
@@ -147,8 +155,8 @@ GEMEINDE_MAP = {
     "(Inaktiv) Twann": "Twann-Tüscherz",
     "(Inaktiv) Tüscherz-Alfermée": "Twann-Tüscherz",
     "Gemeindeverwaltung Evilard-Leubringen": "Leubringen Evilard",
-    "Stadtverwaltung Biel-Bienne": "Biel / Bienne",
-    "Verwaltungskreis Biel-Bienne": "Biel / Bienne",
+    "Stadtverwaltung Biel-Bienne": "Biel Bienne",
+    "Verwaltungskreis Biel-Bienne": "Biel Bienne",
     # 610 Seeland
     "(inaktiv) Bangerten": "Rapperswil (BE)",
     "(inaktiv) Busswil bei Büren": "Lyss",
@@ -470,12 +478,14 @@ class Geschaeft:
     gNr: int
     gJahr: int
     gNrIntern: int
-    gNrExtern: int
+    gNrExtern: str
     gStatus: int
     gStatusBezD: str
     cgCode: str
     cgCodeD: str
     cgCodeBezD: str
+    gZustaendig: str
+    gMutuser: str
 
     Gemeinde: Gemeinde
     Mandant: Mandant
