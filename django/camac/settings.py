@@ -5,7 +5,9 @@ from datetime import timedelta
 
 import environ
 from django.db.models.expressions import Q
+from django.utils.translation import gettext_noop
 
+from camac.echbern.signals import circulation_ended, circulation_started, finished
 from camac.utils import build_url
 
 env = environ.Env()
@@ -122,6 +124,7 @@ WSGI_APPLICATION = "camac.wsgi.application"
 # an application is defined by the customer e.g. uri, schwyz, etc.
 APPLICATIONS = {
     "demo": {
+        "LOG_NOTIFICATIONS": True,
         # Mapping between camac role and instance permission.
         "ROLE_PERMISSIONS": {
             # Commonly used roles
@@ -177,6 +180,7 @@ APPLICATIONS = {
         },
     },
     "kt_schwyz": {
+        "LOG_NOTIFICATIONS": True,
         "ROLE_PERMISSIONS": {
             "Gemeinde": "municipality",
             "Gemeinde Sachbearbeiter": "municipality",
@@ -307,6 +311,7 @@ APPLICATIONS = {
         ],
     },
     "kt_bern": {
+        "LOG_NOTIFICATIONS": True,
         "ROLE_PERMISSIONS": {
             "service-lead": "service",
             "service-clerk": "service",
@@ -358,6 +363,20 @@ APPLICATIONS = {
                 "template_slug": "02-benachrichtigung-baubewilligungsbehorde",
                 "recipient_types": ["leitbehoerde"],
             },
+            "DECISION": [
+                {
+                    "template_slug": "08-stellungnahme-zu-voranfrage-gesuchsteller",
+                    "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "08-entscheid-gemeindeleitbehorde",
+                    "recipient_types": ["leitbehoerde"],
+                },
+                {
+                    "template_slug": "08-entscheid-amts-und-fachstellen",
+                    "recipient_types": ["service"],
+                },
+            ],
         },
         "PUBLICATION_DURATION": timedelta(),
         "IS_MULTILINGUAL": True,
@@ -380,6 +399,45 @@ APPLICATIONS = {
             "REPORT_TASK": "sb1",
             "FINALIZE_TASK": "sb2",
             "AUDIT_TASK": "audit",
+            "DECISION_TASK": "decision",
+            "EBAU_NUMBER_TASK": "ebau-number",
+            "SIMPLE_WORKFLOW": {
+                "reopen-circulation": {
+                    "next_instance_state": "circulation",
+                    "ech_event": circulation_started,
+                    "history_text": gettext_noop("Circulation reopened"),
+                },
+                "skip-circulation": {
+                    "next_instance_state": "coordination",
+                    "ech_event": circulation_ended,
+                    "history_text": gettext_noop("Circulation skipped"),
+                },
+                "start-decision": {
+                    "next_instance_state": "coordination",
+                    "ech_event": circulation_ended,
+                    "history_text": gettext_noop("Circulation completed"),
+                },
+                "complete": {
+                    "next_instance_state": "finished",
+                    "ech_event": finished,
+                    "history_text": gettext_noop("Procedure completed"),
+                },
+            },
+            "INTERNAL_FORMS": [
+                "baupolizeiliches-verfahren",
+                "zutrittsermaechtigung",
+                "klaerung-baubewilligungspflicht",
+            ],
+            "MODIFICATION_ALLOW_FORMS": [
+                "baugesuch",
+                "baugesuch-generell",
+                "baugesuch-mit-uvp",
+            ],
+            "MODIFICATION_DISALLOW_STATES": [
+                "new",
+                "finished",
+                "archived",
+            ],
             "COPY_PAPER_ANSWER_TO": ["nfd", "sb1", "sb2"],
             "COPY_PERSONAL": [
                 {
@@ -516,7 +574,7 @@ APPLICATIONS = {
                     "baugesuch-generell",
                     "vorabklaerung-vollstaendig",
                 ],
-                "template": "2-level",
+                "template": "form",
                 "allgemeine_info": "1-allgemeine-informationen",
                 "personalien": "personalien",
                 "people_sources": {
@@ -544,7 +602,7 @@ APPLICATIONS = {
                 "exclude_slugs": [
                     "is-paper",
                     "projektaenderung",
-                    "8-freigabequittung",
+                    "einreichen-button",
                     "karte",
                 ],
             },
@@ -552,14 +610,14 @@ APPLICATIONS = {
                 "forms": [
                     "vorabklaerung-einfach",
                 ],
-                "template": "1-level",
+                "template": "form",
                 "allgemeine_info": "allgemeine-informationen-vorabklaerung-form",
                 "givenName": "vorname-gesuchstellerin-vorabklaerung",
                 "familyName": "name-gesuchstellerin-vorabklaerung",
                 "exclude_slugs": [
                     "is-paper",
                     "projektaenderung",
-                    "freigabequittung-vorabklaerung-form",
+                    "einreichen-button",
                     "dokumente-vorabklaerung-form",
                     "karte-einfache-vorabklaerung",
                 ],
@@ -572,7 +630,7 @@ APPLICATIONS = {
                     "klaerung-baubewilligungspflicht",
                     "verlaengerung-geltungsdauer",
                 ],
-                "template": "1-level",
+                "template": "form",
                 "allgemeine_info": "allgemeine-angaben-kurz-formular",
                 "personalien": "personalien-kurz-formular",
                 "people_sources": {
@@ -596,17 +654,17 @@ APPLICATIONS = {
                 "exclude_slugs": [
                     "is-paper",
                     "projektaenderung",
-                    "8-freigabequittung",
+                    "einreichen-button",
                     "karte",
                 ],
             },
             "selbstdeklaration": {
                 "forms": ["sb1", "sb2"],
-                "template": "1-level",
+                "template": "form",
                 "exclude_slugs": [
                     "is-paper",
-                    "freigabequittung-sb1",
-                    "freigabequittung-sb2",
+                    "einreichen-button-sb1",
+                    "einreichen-button-sb2",
                     "dokumente-sb1",
                     "dokumente-sb2",
                 ],
@@ -854,7 +912,12 @@ APPLICATIONS = {
             ("gesuchstyp", "gesuchstyp-hecke-feldgehoelz", [20065]),
         ],
         "NOTIFICATIONS_EXCLUDED_TASKS": [],
-        "DUMP_CONFIG_GROUPS": {},
+        "DUMP_CONFIG_GROUPS": {
+            "email_notifications": {
+                "notification.NotificationTemplate": Q(type="email"),
+                "notification.NotificationTemplateT": Q(template__type="email"),
+            },
+        },
         "DUMP_CONFIG_EXCLUDED_MODELS": [
             "user.Group",
             "user.GroupT",
@@ -866,6 +929,7 @@ APPLICATIONS = {
         ],
     },
     "kt_uri": {
+        "LOG_NOTIFICATIONS": False,
         "FORM_BACKEND": "caluma",
         "PUBLICATION_DURATION": timedelta(days=20),
         "PORTAL_USER_ID": 1209,
@@ -1004,6 +1068,7 @@ APPLICATIONS = {
 }
 
 APPLICATIONS["kt_bern"]["DUMP_CONFIG_GROUPS"] = {
+    **APPLICATIONS["kt_bern"]["DUMP_CONFIG_GROUPS"],
     "caluma_audit_form": {
         "caluma_form.Option": Q(
             questions__forms__pk__in=APPLICATIONS["kt_bern"]["CALUMA"]["AUDIT_FORMS"]
@@ -1429,3 +1494,18 @@ if ENABLE_SILK and not env.bool("TEST_SUITE_RUNNING", False):  # pragma: no cove
 # Whether to migrate Portal users on first login. See authentication.py for
 # detailed description of what the migrations does.
 URI_MIGRATE_PORTAL_USER = env.bool("URI_MIGRATE_PORTAL_USER", default=False)
+
+MANABI_ENABLE = env.bool("MANABI_ENABLE", default=default(True, False))
+
+# These are security relevant: provide a default that cannot be abused
+MANABI_SHARED_KEY = env.str(
+    "MANABI_SHARED_KEY", default=default("bNEZsIjvxDAiLhDA1chvF9zL9OJYPNlCqNPlm7KbhmU")
+)
+
+MANABI_TOKEN_ACTIVATE_TIMEOUT = env.int(
+    "MANABI_TOKEN_ACTIVATE_TIMEOUT", default=default(600, 60)
+)
+MANABI_TOKEN_REFRESH_TIMEOUT = env.int(
+    "MANABI_TOKEN_REFRESH_TIMEOUT", default=default(60, 600)
+)
+MANABI_DEBUG = env.bool("MANABI_DEBUG", default=default(True, False))
