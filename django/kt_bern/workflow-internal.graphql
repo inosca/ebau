@@ -1,0 +1,25 @@
+mutation CreateInternalWorkflow {
+  saveWorkflow(
+    input: {
+      slug: "internal"
+      name: "Internes Verfahren"
+      startTasks: ["submit"]
+      allowForms: ["baupolizeiliches-verfahren", "zutrittsermaechtigung"]
+      isPublished: true
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "internal"
+      tasks: ["submit"]
+      next: "['ebau-number', 'audit', 'nfd', 'decision', 'create-manual-workitems']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
