@@ -5,6 +5,7 @@ from caluma.caluma_user.views import AuthenticationGraphQLView, HttpResponseUnau
 from graphene_django.views import HttpError
 
 from camac.caluma.api import CamacRequest
+from camac.user.models import User
 
 
 class CamacAuthenticatedGraphQLView(AuthenticationGraphQLView):
@@ -16,17 +17,21 @@ class CamacAuthenticatedGraphQLView(AuthenticationGraphQLView):
             # (e.g None, AnonymousUser)
             raise HttpError(HttpResponseUnauthorized())
 
-        # Get the camac request containing the camac user and group
-        request.user = oidc_user
-        Info = namedtuple("Info", "context")
-        camac_request = CamacRequest(Info(context=request)).request
+        try:
+            # Get the camac request containing the camac user and group
+            request.user = oidc_user
+            Info = namedtuple("Info", "context")
+            camac_request = CamacRequest(Info(context=request)).request
 
-        # Patch the caluma user to have the right group (which is the
-        # service in camac)
-        if camac_request.group and camac_request.group.service_id:
-            oidc_user.group = camac_request.group.service_id
+            # Patch the caluma user to have the right group (which is the
+            # service in camac)
+            if camac_request.group and camac_request.group.service_id:
+                oidc_user.group = camac_request.group.service_id
 
-        # Set the camac_user property on the caluma request
-        request.camac_user = camac_request.user
+            # Set the camac_user property on the caluma request
+            request.camac_user = camac_request.user
+        except User.DoesNotExist:
+            # Raise a 401 error if the user was not found in the CAMAC database
+            raise HttpError(HttpResponseUnauthorized())
 
         return oidc_user
