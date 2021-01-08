@@ -1,4 +1,5 @@
 import json
+import logging
 import os
 import re
 from datetime import timedelta
@@ -1148,6 +1149,10 @@ REQUEST_LOGGING_METHODS = env.list(
 )
 REQUEST_LOGGING_CONTENT_TYPES = env.list(
     "DJANGO_REQUEST_LOGGING_CONTENT_TYPES", default=["application/vnd.api+json"]
+)
+REQUEST_LOGGING_HTTP_4XX_LOG_LEVEL = env.str(
+    "DJANGO_REQUEST_LOGGING_HTTP_4XX_LOG_LEVELS",
+    default=default(logging.ERROR, logging.INFO),
 )
 
 # Managing files
