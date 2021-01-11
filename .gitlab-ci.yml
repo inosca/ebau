@@ -27,6 +27,12 @@ lint-yml:
     - yarn global add prettier
   script:
     - prettier -c *.yml
+  only:
+    refs:
+      - master
+      - merge_requests
+    changes:
+      - "*.yml"
 
 lint-ember-camac-ng:
   stage: lint
@@ -36,6 +42,14 @@ lint-ember-camac-ng:
     - yarn
   script:
     - yarn lint
+  only:
+    refs:
+      - master
+      - merge_requests
+    changes:
+      - ember-camac-ng/*
+      - compose/ci.yml
+      - .gitlab-ci.yml
 
 lint-ember-caluma-portal:
   stage: lint
@@ -45,6 +59,14 @@ lint-ember-caluma-portal:
     - yarn
   script:
     - yarn lint
+  only:
+    refs:
+      - master
+      - merge_requests
+    changes:
+      - ember-caluma-portal/*
+      - compose/ci.yml
+      - .gitlab-ci.yml
 
 # TODO: This needs to reconfigured so it also works with kt_uri and kt_schwyz (See package.json).
 lint-php:
@@ -56,6 +78,14 @@ lint-php:
     - yarn --cwd=php install
     - yarn --cwd=php lint
     - yarn --cwd=php prettier-check
+  only:
+    refs:
+      - master
+      - merge_requests
+    changes:
+      - php/*
+      - compose/ci.yml
+      - .gitlab-ci.yml
 
 test-ember:
   stage: test
@@ -66,6 +96,14 @@ test-ember:
     - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --ignore-pull-failures --quiet ember"
     - eval $COMPOSE build --pull ember
     - eval $COMPOSE run --rm --no-deps ember yarn test
+  only:
+    refs:
+      - master
+      - merge_requests
+    changes:
+      - ember/*
+      - compose/ci.yml
+      - .gitlab-ci.yml
 
 test-ember-camac-ng:
   stage: test
@@ -76,6 +114,14 @@ test-ember-camac-ng:
     - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --ignore-pull-failures --quiet ember-camac-ng"
     - eval $COMPOSE build --pull ember-camac-ng
     - eval $COMPOSE run --rm --no-deps ember-camac-ng yarn test:ember
+  only:
+    refs:
+      - master
+      - merge_requests
+    changes:
+      - ember-camac-ng/*
+      - compose/ci.yml
+      - .gitlab-ci.yml
 
 test-ember-caluma-portal:
   stage: test
@@ -86,6 +132,14 @@ test-ember-caluma-portal:
     - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --ignore-pull-failures --quiet ember-caluma-portal"
     - eval $COMPOSE build --pull ember-caluma-portal
     - eval $COMPOSE run --rm --no-deps ember-caluma-portal yarn test:ember
+  only:
+    refs:
+      - master
+      - merge_requests
+    changes:
+      - ember-caluma-portal/*
+      - compose/ci.yml
+      - .gitlab-ci.yml
 
 test-django:
   stage: test
@@ -97,12 +151,27 @@ test-django:
     - eval $COMPOSE up -d --build db clamav unoconv
     - eval $COMPOSE build --pull django
     - eval $COMPOSE run --rm --no-deps django make install-dev test
+  only:
+    refs:
+      - master
+      - merge_requests
+    changes:
+      - django/*
+      - compose/ci.yml
+      - .gitlab-ci.yml
 
 symfony-security-checker:
   stage: test
   image:
     name: jakzal/phpqa:php7.3-alpine
   script: security-checker security:check ./php/composer.lock
+  only:
+    refs:
+      - master
+      - merge_requests
+    changes:
+      - php/composer.lock
+      - .gitlab-ci.yml
 
 .build-image:
   stage: build
