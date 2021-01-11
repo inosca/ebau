@@ -75,7 +75,7 @@ def test_circulation_detail(admin_client, circulation):
         ("circulation-list", "post", status.HTTP_405_METHOD_NOT_ALLOWED),
         ("circulation-detail", "get", status.HTTP_200_OK),
         ("circulation-detail", "patch", status.HTTP_403_FORBIDDEN),
-        ("circulation-detail", "delete", status.HTTP_405_METHOD_NOT_ALLOWED),
+        ("circulation-detail", "delete", status.HTTP_204_NO_CONTENT),
     ],
 )
 def test_circulation_permissions(
@@ -172,3 +172,47 @@ def test_sync_circulation(
 
     circulation_work_item.refresh_from_db()
     assert not circulation_work_item.child_case
+
+
+@pytest.mark.parametrize(
+    "role__name,instance__user", [("Municipality", LazyFixture("admin_user"))]
+)
+@pytest.mark.parametrize(
+    "has_activation,expected_status",
+    [(True, status.HTTP_403_FORBIDDEN), (False, status.HTTP_204_NO_CONTENT)],
+)
+def test_delete_circulation(
+    admin_client,
+    instance_service,
+    circulation,
+    caluma_workflow_config_be,
+    caluma_admin_user,
+    activation_factory,
+    has_activation,
+    expected_status,
+):
+    case = start_case(
+        workflow=Workflow.objects.get(pk="building-permit"),
+        form=Form.objects.get(pk="main-form"),
+        user=caluma_admin_user,
+        meta={"camac-instance-id": circulation.instance.pk},
+    )
+
+    for task_id in ["submit", "ebau-number", "init-circulation"]:
+        skip_work_item(
+            case.work_items.get(task_id=task_id),
+            caluma_admin_user,
+            context={"circulation-id": circulation.pk},
+        )
+
+    if has_activation:
+        activation_factory(circulation=circulation)
+
+    response = admin_client.delete(reverse("circulation-detail", args=[circulation.pk]))
+
+    assert response.status_code == expected_status
+
+    if expected_status == status.HTTP_204_NO_CONTENT:
+        assert not case.work_items.filter(
+            **{"meta__circulation-id": circulation.pk}
+        ).exists()
