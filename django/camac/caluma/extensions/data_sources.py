@@ -5,6 +5,8 @@ from django.utils.translation import activate, deactivate, gettext as _
 
 from camac.user.models import Service
 
+from .countries import COUNTRIES
+
 
 def get_municipality_label(service, municipality_prefix=False):
     label = {}
@@ -40,6 +42,18 @@ def get_others_option():
         deactivate()
 
     return ["-1", label]
+
+
+def set_favourite_countries(data):
+    favourite_countries = [
+        "Schweiz",
+        "Deutschland",
+        "Österreich",
+        "Frankreich",
+        "Italien",
+        "Liechtenstein",
+    ]
+    return favourite_countries + data
 
 
 class Municipalities(BaseDataSource):
@@ -103,3 +117,12 @@ class Services(BaseDataSource):
         )
 
         return data
+
+
+class Countries(BaseDataSource):
+    info = "List of all countries in the world"
+
+    @data_source_cache(timeout=3600)
+    def get_data(self, info):
+        data = sorted([country for country in COUNTRIES])
+        return set_favourite_countries(data)
