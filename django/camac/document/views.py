@@ -206,7 +206,8 @@ class AttachmentView(
 
     def perform_destroy(self, instance):
         """Delete image cache before deleting attachment."""
-        delete(instance.path)
+        if instance.path:
+            delete(instance.path)
         super().perform_destroy(instance)
 
     @swagger_auto_schema(
