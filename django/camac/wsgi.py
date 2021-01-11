@@ -15,9 +15,9 @@ from django.core.wsgi import get_wsgi_application
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "camac.settings")
 
 if settings.MANABI_ENABLE:
-    from .dav import get_dav
+    from camac.dav import get_dav
 
-    wsgi_ɗav = get_dav()
+    wsgi_dav = get_dav()
     wsgi_django = get_wsgi_application()
 
     def dispatch(environ, start_response):
@@ -27,7 +27,7 @@ if settings.MANABI_ENABLE:
             environ = environ.copy()
             environ["SCRIPT_NAME"] = environ.get("SCRIPT_NAME", "") + dav_prefix
             environ["PATH_INFO"] = path[len(dav_prefix) :]
-            return wsgi_ɗav(environ, start_response)
+            return wsgi_dav(environ, start_response)
         else:
             return wsgi_django(environ, start_response)
 
