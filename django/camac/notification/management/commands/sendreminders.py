@@ -212,6 +212,4 @@ class Command(BaseCommand):
 
         if emails:
             connection = mail.get_connection()
-            connection.open()
             connection.send_messages(emails)
-            connection.close()
