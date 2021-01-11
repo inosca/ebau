@@ -203,9 +203,7 @@ Vous recevez cette notification parce que vous avez sélectionné le paramètre 
     ]
 
     connection = mail.get_connection()
-    connection.open()
     connection.send_messages(emails)
-    connection.close()
 
 
 @on(pre_skip_work_item)
