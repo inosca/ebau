@@ -6,6 +6,8 @@ from rest_framework.response import Response
 from rest_framework.settings import api_settings
 from rest_framework_json_api import views
 
+from caluma.caluma_workflow.api import skip_work_item
+from caluma.caluma_workflow.models import WorkItem
 from camac.caluma.api import CalumaApi
 from camac.core.models import Activation, Circulation
 from camac.instance.filters import FormFieldOrdering
@@ -20,7 +22,7 @@ class CirculationView(InstanceQuerysetMixin, InstanceEditableMixin, views.ModelV
     queryset = Circulation.objects.select_related("instance")
     serializer_class = serializers.CirculationSerializer
     filterset_class = filters.CirculationFilterSet
-    http_method_names = ["get", "patch"]
+    http_method_names = ["get", "patch", "delete"]
     prefetch_for_includes = {
         "activations": [
             "activations__circulation",
@@ -29,11 +31,39 @@ class CirculationView(InstanceQuerysetMixin, InstanceEditableMixin, views.ModelV
         ]
     }
 
+    def has_base_object_permission(self, instance):
+        return self.has_editable_permission(self.get_instance(instance))
+
+    def has_object_destroy_permission(self, instance):
+        return (
+            self.has_base_object_permission(instance)
+            and not instance.activations.count()
+        )
+
     def has_object_update_permission(self, instance):
         return False
 
     def has_object_sync_permission(self, instance):
-        return self.has_editable_permission(self.get_instance(instance))
+        return self.has_base_object_permission(instance)
+
+    @transaction.atomic
+    def perform_destroy(self, circulation):
+        work_item = WorkItem.objects.filter(
+            **{"meta__circulation-id": circulation.pk}
+        ).first()
+
+        if work_item:
+            # skip work item to continue the workflow
+            skip_work_item(
+                work_item=work_item,
+                user=self.request.caluma_info.context.user,
+            )
+
+            # remove obsolete work item
+            work_item.delete()
+
+        # delete circulation
+        super().perform_destroy(circulation)
 
     @action(methods=["PATCH"], detail=True)
     @transaction.atomic
