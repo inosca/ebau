@@ -44,18 +44,6 @@ def get_others_option():
     return ["-1", label]
 
 
-def set_favourite_countries(data):
-    favourite_countries = [
-        "Schweiz",
-        "Deutschland",
-        "Österreich",
-        "Frankreich",
-        "Italien",
-        "Liechtenstein",
-    ]
-    return favourite_countries + data
-
-
 class Municipalities(BaseDataSource):
     info = "List of municipalities from Camac"
 
@@ -120,9 +108,8 @@ class Services(BaseDataSource):
 
 
 class Countries(BaseDataSource):
-    info = "List of all countries in the world"
+    info = "List of all countries in the world with opinionated sorting"
 
     @data_source_cache(timeout=3600)
     def get_data(self, info):
-        data = sorted([country for country in COUNTRIES])
-        return set_favourite_countries(data)
+        return COUNTRIES
