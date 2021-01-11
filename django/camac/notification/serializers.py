@@ -861,9 +861,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
 
         if emails:
             connection = get_connection()
-            connection.open()
             connection.send_messages(emails)
-            connection.close()
 
         for fn in post_send:
             fn(instance)
