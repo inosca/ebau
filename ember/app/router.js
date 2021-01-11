@@ -66,6 +66,7 @@ Router.map(function () {
         this.route("gesuchsunterlagen-ve-va");
         this.route("anlassbewilligungen-verkehrsbewilligungen");
         this.route("baumeldung-fur-geringfugige-vorhaben");
+        this.route("baumeldung-fur-geringfugige-vorhaben-v2");
         this.route("konzession-fur-wasserentnahme");
         this.route("projektanderung");
         this.route("projektgenehmigungsgesuch");
