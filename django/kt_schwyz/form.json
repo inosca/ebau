@@ -236,6 +236,35 @@
       "fachthemen.fischerei",
       "gesuchsunterlagen"
     ],
+    "baumeldung-fur-geringfugiges-vorhaben-v3": [
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "baumeldung-fur-geringfugige-vorhaben-v2",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft",
+      "personalien.projektverfasser-planer",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "gesuchsunterlagen"
+    ],
     "technische-bewilligung": [
       "technische-bewilligung",
       "grundinformationen",
@@ -847,6 +876,11 @@
       "title": "Baumeldung für geringfügige Vorhaben",
       "parent": null,
       "questions": ["bm-solaranlage"]
+    },
+    "baumeldung-fur-geringfugige-vorhaben-v2": {
+      "title": "Baumeldung für geringfügige Vorhaben",
+      "parent": null,
+      "questions": ["bm-solaranlage", "baukosten"]
     },
     "konzession-fur-wasserentnahme": {
       "title": "Konzession für Wasserentnahme",
