@@ -1,22 +1,45 @@
 from caluma.caluma_data_source.data_sources import BaseDataSource
 from caluma.caluma_data_source.utils import data_source_cache
 from django.core.cache import cache
-from django.utils.translation import gettext as _
+from django.utils.translation import activate, deactivate, gettext as _
 
 from camac.user.models import Service
 
 
-def get_municipality_label(service, replace_with_de="", replace_with_fr=""):
-    name = (
-        service.get_name()
-        .replace("Leitbehörde", replace_with_de)
-        .replace("Autorité directrice", replace_with_fr)
-    ).strip()
+def get_municipality_label(service, municipality_prefix=False):
+    label = {}
 
-    if service.disabled:
-        return f"{name} ({_('not activated')})"
+    for language in ["de", "fr"]:
+        name = (
+            service.get_name(lang=language)
+            .replace("Leitbehörde", "Gemeinde" if municipality_prefix else "")
+            .replace(
+                "Autorité directrice", "Municipalité" if municipality_prefix else ""
+            )
+        ).strip()
 
-    return name
+        if service.disabled:
+            activate(language)
+            postfix = _("not activated")
+            text = f"{name} ({postfix})"
+            deactivate()
+        else:
+            text = name
+
+        label[language] = text
+
+    return label
+
+
+def get_others_option():
+    label = {}
+
+    for language in ["de", "fr"]:
+        activate(language)
+        label[language] = _("Others")
+        deactivate()
+
+    return ["-1", label]
 
 
 class Municipalities(BaseDataSource):
@@ -49,7 +72,7 @@ class Municipalities(BaseDataSource):
                 [service.pk, get_municipality_label(service)]
                 for service in services.iterator()
             ],
-            key=lambda x: x[1].casefold(),
+            key=lambda x: x[1]["de"].casefold(),
         )
 
 
@@ -71,15 +94,12 @@ class Services(BaseDataSource):
         data = (
             sorted(
                 [
-                    [
-                        str(service.pk),
-                        get_municipality_label(service, "Gemeinde", "Municipalité"),
-                    ]
+                    [str(service.pk), get_municipality_label(service, True)]
                     for service in services.iterator()
                 ],
-                key=lambda x: x[1].casefold(),
+                key=lambda x: x[1]["de"].casefold(),
             )
-            + [["-1", "Andere"]]
+            + [get_others_option()]
         )
 
         return data
