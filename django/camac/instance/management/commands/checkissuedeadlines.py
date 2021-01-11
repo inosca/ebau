@@ -48,4 +48,5 @@ class Command(BaseCommand):
         if messages:
             connection = get_connection()
             connection.send_messages(messages)
+
         issues.update(state=Issue.STATE_DELAYED)
