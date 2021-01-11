@@ -9,7 +9,7 @@ from django.conf import settings
 from django.core.files.base import ContentFile
 from django.db.models import Q
 from django.utils.text import slugify
-from django.utils.translation import gettext as _
+from django.utils.translation import get_language, gettext as _
 from rest_framework import exceptions
 from rest_framework.authentication import get_authorization_header
 
@@ -249,7 +249,14 @@ class DMSVisitor:
 
         for ans in answer:
             value = data_source.validate_answer_value(ans, document, question, None)
-            yield value
+
+            if isinstance(value, dict):
+                yield value.get(get_language())
+
+            # This can happen with old dynamic options which were saved before
+            # the data source were multilingual
+
+            yield value  # pragma: no cover
 
     def _visit_dynamic_choice_question(self, node, parent_doc=None, answer=None, **_):
         ret = {"type": "TextQuestion", "value": None}
