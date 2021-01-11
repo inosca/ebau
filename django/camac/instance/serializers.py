@@ -1294,13 +1294,13 @@ class CalumaInstanceSetEbauNumberSerializer(serializers.Serializer):
             )
         )
 
-        if instances.exclude(instance_services__service=municipality).exists():
+        if not instances.exists():
+            raise exceptions.ValidationError(_("This eBau number doesn't exist"))
+
+        if not instances.filter(instance_services__service=municipality).exists():
             raise exceptions.ValidationError(
                 _("This eBau number is already in use by a different municipality")
             )
-
-        if not instances.filter(instance_services__service=municipality).exists():
-            raise exceptions.ValidationError(_("This eBau number doesn't exist"))
 
         return value
 
