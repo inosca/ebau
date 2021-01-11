@@ -189,6 +189,15 @@
     }
   },
   {
+    "model": "instance.form",
+    "pk": 22,
+    "fields": {
+      "form_state": 1,
+      "name": "baumeldung-fur-geringfugiges-vorhaben-v3",
+      "description": "Baumeldung f\u00fcr geringf\u00fcgiges Vorhaben"
+    }
+  },
+  {
     "model": "instance.formstate",
     "pk": 1,
     "fields": {
