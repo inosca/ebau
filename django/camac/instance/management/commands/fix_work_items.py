@@ -79,6 +79,7 @@ class Command(BaseCommand):
         self.fix_circulation_leftovers()
         self.fix_circulation_work_items()
         self.fix_closed()
+        self.fix_wrongly_closed_cases()
         if options["sync_circulation"]:
             self.fix_circulation()
         self.fix_required_tasks()
@@ -351,3 +352,38 @@ class Command(BaseCommand):
                 if len(canceled):
                     canceled_slugs = ", ".join(map(lambda s: f"'{s}'", canceled))
                     self.stdout.write(self.style.ERROR(f"\tCanceled: {canceled_slugs}"))
+
+    def fix_wrongly_closed_cases(self):
+        count = 0
+
+        for instance in Instance.objects.exclude(
+            instance_state__name__in=[
+                "evaluated",
+                "finished",
+                "finished_internal",
+                "archived",
+            ],
+        ).filter(
+            pk__in=list(
+                Case.objects.filter(
+                    status__in=[Case.STATUS_CANCELED, Case.STATUS_COMPLETED],
+                    work_items__status=WorkItem.STATUS_READY,
+                ).values_list("meta__camac-instance-id", flat=True)
+            ),
+            **self.get_instance_filters(),
+        ):
+            case = self.get_case(instance)
+            if not case:
+                continue
+
+            count += 1
+
+            case.status = Case.STATUS_RUNNING
+            case.closed_at = None
+            case.closed_by_group = None
+            case.closed_by_user = None
+            case.save()
+
+            self.fixed_instances[instance.pk].append("Wrongly closed case")
+
+        self.stdout.write(self.style.WARNING(f"Reopened {count} wrongly closed cases"))
