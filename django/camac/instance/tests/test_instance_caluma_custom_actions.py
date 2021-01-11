@@ -87,6 +87,21 @@ def test_set_ebau_number(
         user=caluma_admin_user,
     )
 
+    # instance with different municipality but also ebau-nr 2020-2
+    instance_indirect = instance_service_factory(service=service_factory()).instance
+    camac_answer_factory(
+        instance=instance_indirect,
+        question_id=constants.QUESTION_EBAU_NR,
+        chapter_id=constants.CHAPTER_EBAU_NR,
+        answer="2020-2",
+    )
+    workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
+        form=caluma_form_models.Form.objects.get(pk="main-form"),
+        meta={"camac-instance-id": instance_indirect.pk, "ebau-number": "2020-2"},
+        user=caluma_admin_user,
+    )
+
     # create case for the instance which will be assigned a new ebau number
     case = workflow_api.start_case(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
