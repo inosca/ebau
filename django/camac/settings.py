@@ -249,12 +249,14 @@ APPLICATIONS = {
             "PRE_COMPLETE": {
                 "complete-check": {"cancel": ["reject-form"]},
                 "reject-form": {"cancel": ["complete-check", "depreciate-case"]},
+                "start-circulation": {"cancel": ["skip-circulation"]},
+                "skip-circulation": {"cancel": ["start-circulation"]},
                 "formal-adittion": {"cancel": ["archive-instance"]},
                 "start-additional-circulation": {
                     "cancel": ["check-statements", "start-decision"]
                 },
                 "start-decision": {
-                    "skip": ["check-statements"],
+                    "skip": ["check-statements", "start-circulation", "circulation"],
                     "cancel": ["start-additional-circulation", "additional-demand"],
                 },
                 "reopen-circulation": {"cancel": ["make-decision"]},
@@ -265,6 +267,7 @@ APPLICATIONS = {
                     ]
                 },
                 "check-statement": {"cancel": ["revise-statement"]},
+                "check-statements": {"skip": ["write-statement", "check-statement"]},
                 "revise-statement": {"cancel": ["check-statement"]},
                 "depreciate-case": {
                     "cancel": [
@@ -290,6 +293,52 @@ APPLICATIONS = {
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": False,
             "WORK_ITEM_EXCLUDE_ROLES": ["Lesezugriff"],
             "PUBLICATION_TASK_SLUG": "publication",
+            "SIMPLE_WORKFLOW": {
+                "complete-check": {
+                    "next_instance_state": "comm",
+                    "history_text": gettext_noop("Dossier angenommen"),
+                    "notification": {
+                        "template_slug": "bewilligungsprozess-gestartet",
+                        "recipient_types": ["applicant"],
+                    },
+                },
+                "reject-form": {
+                    "next_instance_state": "rejected",
+                    "history_text": gettext_noop("Dossier zurückgewiesen"),
+                    "notification": {
+                        "template_slug": "ruckweisung",
+                        "recipient_types": ["applicant"],
+                    },
+                },
+                "make-decision": {
+                    "next_instance_state": "done",
+                    "history_text": gettext_noop("Bewilligung erteilt"),
+                },
+                "archive-form": {
+                    "next_instance_state": "arch",
+                    "history_text": gettext_noop("Dossier archiviert"),
+                },
+                "depricate-case": {
+                    "next_instance_state": "stopped",
+                    "history_text": gettext_noop("Dossier abgeschrieben"),
+                },
+                "additional-demand": {
+                    "next_instance_state": "nfd",
+                    "history_text": gettext_noop("Nachforderung gestartet"),
+                    "notification": {
+                        "template_slug": "nachforderung",
+                        "recipient_types": ["applicant"],
+                    },
+                },
+                "start-decision": {
+                    "next_instance_state": "redac",
+                    "history_text": gettext_noop("Zirkulationsentscheid gestartet"),
+                },
+                "reopen-circulation": {
+                    "next_instance_state": "circ",
+                    "history_text": gettext_noop("Zurück zur Zirkulation"),
+                },
+            },
         },
         "HAS_EBAU_NUMBER": False,
         "OIDC_SYNC_USER_ATTRIBUTES": [

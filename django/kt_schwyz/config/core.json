@@ -25,73 +25,9 @@
   },
   {
     "model": "core.aformtransition",
-    "pk": 1,
-    "fields": {
-      "current_instance_state": 2,
-      "next_instance_state": 3
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 4,
-    "fields": {
-      "current_instance_state": 2,
-      "next_instance_state": 12
-    }
-  },
-  {
-    "model": "core.aformtransition",
     "pk": 18,
     "fields": {
       "current_instance_state": 3,
-      "next_instance_state": 5
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 39,
-    "fields": {
-      "current_instance_state": 6,
-      "next_instance_state": 8
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 40,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 13
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 41,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 10
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 44,
-    "fields": {
-      "current_instance_state": 5,
-      "next_instance_state": 7
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 75,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 6
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 80,
-    "fields": {
-      "current_instance_state": 6,
       "next_instance_state": 5
     }
   },
@@ -104,53 +40,11 @@
     }
   },
   {
-    "model": "core.aformtransition",
-    "pk": 94,
-    "fields": {
-      "current_instance_state": 5,
-      "next_instance_state": 7
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 97,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 6
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 98,
-    "fields": {
-      "current_instance_state": 6,
-      "next_instance_state": 5
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 47,
-    "fields": {
-      "template": "ruckweisung",
-      "recipient_type": "Notification_Manager_Applicant",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
     "model": "core.anotification",
     "pk": 48,
     "fields": {
       "template": "einladung-zur-stellungnahme",
       "recipient_type": "Notification_Manager_UnnotifiedService",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 49,
-    "fields": {
-      "template": "bewilligungsprozess-gestartet",
-      "recipient_type": "Notification_Manager_Applicant",
       "processor": "Notification_Processor_SendEmailAPI"
     }
   },
@@ -169,15 +63,6 @@
     "fields": {
       "template": "einladung-zur-stellungnahme",
       "recipient_type": "Notification_Manager_UnnotifiedService",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 64,
-    "fields": {
-      "template": "ruckweisung",
-      "recipient_type": "Notification_Manager_Applicant",
       "processor": "Notification_Processor_SendEmailAPI"
     }
   },
@@ -205,15 +90,6 @@
     "fields": {
       "template": "einladung-zur-stellungnahme",
       "recipient_type": "Notification_Manager_UnnotifiedService",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 96,
-    "fields": {
-      "template": "ruckweisung",
-      "recipient_type": "Notification_Manager_Applicant",
       "processor": "Notification_Processor_SendEmailAPI"
     }
   },
@@ -390,20 +266,6 @@
   },
   {
     "model": "core.action",
-    "pk": 1,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 1,
-      "name": "subm zu comm",
-      "description": "subm zu comm Statuswechsel wenn die Gemeinde ein Dossier akzeptiert",
-      "success_message": "Das Dossier wurde erfolgreich angenommen",
-      "error_message": "Das Dossier konnte nicht angenommen werden",
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 2,
     "fields": {
       "available_action": "workflow",
@@ -414,20 +276,6 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 4,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 3,
-      "name": "subm zu rejected",
-      "description": "Nachforderungen vorhanden, Dossier zur\u00fcck an den Gesuchsteller",
-      "success_message": "Das Dossier wurde erfolgreich an den Gesuchsteller zur\u00fcckgegeben",
-      "error_message": "Das Dossier konnte nicht an den Gesuchsteller zur\u00fcckgegeben werden",
-      "execute_always": 0,
-      "sort": 1
     }
   },
   {
@@ -600,48 +448,6 @@
   },
   {
     "model": "core.action",
-    "pk": 39,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 19,
-      "name": "instance state to done",
-      "description": null,
-      "success_message": "Baubewilligung wurde erolgreich erteilt",
-      "error_message": "Baubewilligung konnte nicht erteilt werden",
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 40,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 38,
-      "name": "instance state to stopped",
-      "description": null,
-      "success_message": "Dossier erfolgreich abgeschrieben",
-      "error_message": "Dossier konnte nicht abgeschrieben werden",
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 41,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 21,
-      "name": "instance state to arch",
-      "description": null,
-      "success_message": "Dossier erfolgreich archiviert",
-      "error_message": "Dossier konnte nicht archiviert werden",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 42,
     "fields": {
       "available_action": "php",
@@ -651,7 +457,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 0
+      "sort": 2
     }
   },
   {
@@ -670,34 +476,6 @@
   },
   {
     "model": "core.action",
-    "pk": 44,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 23,
-      "name": "instance state to nfd",
-      "description": null,
-      "success_message": "Nachforderung erflogreich abgesendet",
-      "error_message": "Nachforderung konnte nicht versandt werden",
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 47,
-    "fields": {
-      "available_action": "notification",
-      "button": 3,
-      "name": "Email Nachforderung",
-      "description": null,
-      "success_message": "Email wurde erfolgreich versandt",
-      "error_message": "Email konnte nicht versandt werden",
-      "execute_always": 0,
-      "sort": 4
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 48,
     "fields": {
       "available_action": "notification",
@@ -708,20 +486,6 @@
       "error_message": "Email konnte nicht versandt werden",
       "execute_always": 0,
       "sort": 4
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 49,
-    "fields": {
-      "available_action": "notification",
-      "button": 1,
-      "name": "Email Angenommen",
-      "description": null,
-      "success_message": "Email wurde erfolgreich versandt",
-      "error_message": "Email konnte nicht versandt werden",
-      "execute_always": 0,
-      "sort": 3
     }
   },
   {
@@ -852,20 +616,6 @@
   },
   {
     "model": "core.action",
-    "pk": 64,
-    "fields": {
-      "available_action": "notification",
-      "button": 23,
-      "name": "Email Nachforderun",
-      "description": null,
-      "success_message": "Email wurde erfolgreich versandt",
-      "error_message": "Email konnte nicht versandt werden",
-      "execute_always": 0,
-      "sort": 3
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 65,
     "fields": {
       "available_action": "save",
@@ -964,20 +714,6 @@
   },
   {
     "model": "core.action",
-    "pk": 75,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 34,
-      "name": "instance state to redac",
-      "description": null,
-      "success_message": "Gesuch erfolgreich zu \"Entscheid\" verschoben",
-      "error_message": "Gesuch konnte nicht zu \"Entscheid\" verschoben werden",
-      "execute_always": 0,
-      "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 76,
     "fields": {
       "available_action": "php",
@@ -1028,20 +764,6 @@
       "description": null,
       "success_message": null,
       "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 80,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 37,
-      "name": "instance state to circ",
-      "description": null,
-      "success_message": "Gesuch erneut auf \"In Zirkulation\" gesetzt",
-      "error_message": "Gesuch konnte nicht auf \"In Zirkulation\" gesetzt werden",
       "execute_always": 0,
       "sort": 1
     }
@@ -1225,21 +947,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 94,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 44,
-      "name": "instance state to nfd",
-      "description": null,
-      "success_message": "Nachforderung erflogreich abgesendet",
-      "error_message": "Nachforderung konnte nicht versandt werden",
-      "execute_always": 0,
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -1254,62 +962,6 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 96,
-    "fields": {
-      "available_action": "notification",
-      "button": 44,
-      "name": "Email Nachforderun",
-      "description": null,
-      "success_message": "Email wurde erfolgreich versandt",
-      "error_message": "Email konnte nicht versandt werden",
-      "execute_always": 0,
-      "sort": 3
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 97,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 45,
-      "name": "instance state to redac",
-      "description": null,
-      "success_message": "Gesuch erfolgreich zu \"Entscheid\" verschoben",
-      "error_message": "Gesuch konnte nicht zu \"Entscheid\" verschoben werden",
-      "execute_always": 0,
-      "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 98,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 46,
-      "name": "instance state to circ",
-      "description": null,
-      "success_message": "Gesuch erneut auf \"In Zirkulation\" gesetzt",
-      "error_message": "Gesuch konnte nicht auf \"In Zirkulation\" gesetzt werden",
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 99,
-    "fields": {
-      "available_action": "addhistory",
-      "button": 3,
-      "name": "History: Dossier zur\u00fcckgewiesen",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 5
     }
   },
   {
@@ -1351,7 +1003,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 3
+      "sort": 1
     }
   },
   {
@@ -1407,7 +1059,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 3
+      "sort": 1
     }
   },
   {
@@ -1482,62 +1134,6 @@
   },
   {
     "model": "core.action",
-    "pk": 120,
-    "fields": {
-      "available_action": "workitem",
-      "button": 34,
-      "name": "Aufgabe: skip start-circulation, circulation",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 122,
-    "fields": {
-      "available_action": "workitem",
-      "button": 45,
-      "name": "Aufgabe: skip start-circulation, circulation",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 124,
-    "fields": {
-      "available_action": "workitem",
-      "button": 18,
-      "name": "Aufgabe: skip write-statement, check-statement",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 126,
-    "fields": {
-      "available_action": "workitem",
-      "button": 43,
-      "name": "Aufgabe: skip write-statement, check-statement",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 128,
     "fields": {
       "available_action": "workitem",
@@ -1608,62 +1204,6 @@
   },
   {
     "model": "core.action",
-    "pk": 133,
-    "fields": {
-      "available_action": "addhistory",
-      "button": 1,
-      "name": "History: Dossier angenommen",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 4
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 134,
-    "fields": {
-      "available_action": "addhistory",
-      "button": 19,
-      "name": "History: Bewilligung erteilt",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 3
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 135,
-    "fields": {
-      "available_action": "addhistory",
-      "button": 21,
-      "name": "History: Dossier archiviert",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 136,
-    "fields": {
-      "available_action": "addhistory",
-      "button": 38,
-      "name": "History: Dossier abgeschrieben",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 137,
     "fields": {
       "available_action": "addhistory",
@@ -1678,48 +1218,6 @@
   },
   {
     "model": "core.action",
-    "pk": 138,
-    "fields": {
-      "available_action": "addhistory",
-      "button": 23,
-      "name": "History: Nachforderung gestartet",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 4
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 139,
-    "fields": {
-      "available_action": "addhistory",
-      "button": 34,
-      "name": "History: Zirkulationsentscheid gestartet",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 3
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 140,
-    "fields": {
-      "available_action": "addhistory",
-      "button": 37,
-      "name": "History: Zur\u00fcck zur Zirkulation",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 141,
     "fields": {
       "available_action": "addhistory",
@@ -1730,48 +1228,6 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 5
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 142,
-    "fields": {
-      "available_action": "addhistory",
-      "button": 44,
-      "name": "History: Nachforderung gestartet",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 4
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 143,
-    "fields": {
-      "available_action": "addhistory",
-      "button": 45,
-      "name": "History: Zirkulationsentscheid gestartet",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 3
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 144,
-    "fields": {
-      "available_action": "addhistory",
-      "button": 46,
-      "name": "History: Zur\u00fcck zur Zirkulation",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 2
     }
   },
   {
@@ -1917,50 +1373,6 @@
       "process_type": "complete",
       "process_all": false,
       "is_activation": true,
-      "fail_on_empty": false
-    }
-  },
-  {
-    "model": "core.actionworkitem",
-    "pk": 120,
-    "fields": {
-      "tasks": "[\"circulation\", \"start-circulation\"]",
-      "process_type": "skip",
-      "process_all": false,
-      "is_activation": false,
-      "fail_on_empty": false
-    }
-  },
-  {
-    "model": "core.actionworkitem",
-    "pk": 122,
-    "fields": {
-      "tasks": "[\"circulation\", \"start-circulation\"]",
-      "process_type": "skip",
-      "process_all": false,
-      "is_activation": false,
-      "fail_on_empty": false
-    }
-  },
-  {
-    "model": "core.actionworkitem",
-    "pk": 124,
-    "fields": {
-      "tasks": "[\"check-statements\", \"write-statement\"]",
-      "process_type": "skip",
-      "process_all": true,
-      "is_activation": false,
-      "fail_on_empty": false
-    }
-  },
-  {
-    "model": "core.actionworkitem",
-    "pk": 126,
-    "fields": {
-      "tasks": "[\"check-statement\", \"write-statement\"]",
-      "process_type": "skip",
-      "process_all": true,
-      "is_activation": false,
       "fail_on_empty": false
     }
   },
@@ -4896,79 +4308,7 @@
   },
   {
     "model": "core.historyactionconfig",
-    "pk": 99,
-    "fields": {
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
-    "model": "core.historyactionconfig",
-    "pk": 133,
-    "fields": {
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
-    "model": "core.historyactionconfig",
-    "pk": 134,
-    "fields": {
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
-    "model": "core.historyactionconfig",
-    "pk": 135,
-    "fields": {
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
-    "model": "core.historyactionconfig",
-    "pk": 136,
-    "fields": {
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
-    "model": "core.historyactionconfig",
     "pk": 137,
-    "fields": {
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
-    "model": "core.historyactionconfig",
-    "pk": 138,
-    "fields": {
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
-    "model": "core.historyactionconfig",
-    "pk": 139,
-    "fields": {
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
-    "model": "core.historyactionconfig",
-    "pk": 140,
     "fields": {
       "title": null,
       "body": null,
@@ -4985,83 +4325,6 @@
     }
   },
   {
-    "model": "core.historyactionconfig",
-    "pk": 142,
-    "fields": {
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
-    "model": "core.historyactionconfig",
-    "pk": 143,
-    "fields": {
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
-    "model": "core.historyactionconfig",
-    "pk": 144,
-    "fields": {
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 1,
-    "fields": {
-      "action": 99,
-      "title": "R\u00fcckweisung",
-      "body": null,
-      "language": "de"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 2,
-    "fields": {
-      "action": 133,
-      "title": "Dossier angenommen",
-      "body": null,
-      "language": "de"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 3,
-    "fields": {
-      "action": 134,
-      "title": "Bewilligung erteilt",
-      "body": null,
-      "language": "de"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 4,
-    "fields": {
-      "action": 135,
-      "title": "Dossier archiviert",
-      "body": null,
-      "language": "de"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 5,
-    "fields": {
-      "action": 136,
-      "title": "Dossier abgeschrieben",
-      "body": null,
-      "language": "de"
-    }
-  },
-  {
     "model": "core.historyactionconfigt",
     "pk": 6,
     "fields": {
@@ -5073,70 +4336,10 @@
   },
   {
     "model": "core.historyactionconfigt",
-    "pk": 7,
-    "fields": {
-      "action": 138,
-      "title": "Nachforderung gestartet",
-      "body": null,
-      "language": "de"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 8,
-    "fields": {
-      "action": 139,
-      "title": "Zirkulationsentscheid gestartet",
-      "body": null,
-      "language": "de"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 9,
-    "fields": {
-      "action": 140,
-      "title": "Zur\u00fcck zur Zirkulation",
-      "body": null,
-      "language": "de"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
     "pk": 10,
     "fields": {
       "action": 141,
       "title": "Zirkulation gestartet",
-      "body": null,
-      "language": "de"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 11,
-    "fields": {
-      "action": 142,
-      "title": "Nachforderung gestartet",
-      "body": null,
-      "language": "de"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 12,
-    "fields": {
-      "action": 143,
-      "title": "Zirkulationsentscheid gestartet",
-      "body": null,
-      "language": "de"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 13,
-    "fields": {
-      "action": 144,
-      "title": "Zur\u00fcck zur Zirkulation",
       "body": null,
       "language": "de"
     }
