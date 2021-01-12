@@ -2,7 +2,7 @@ from collections import namedtuple
 
 import pytest
 
-from ..extensions.data_sources import Municipalities, Services
+from ..extensions.data_sources import Countries, Municipalities, Services
 
 
 @pytest.mark.parametrize(
@@ -89,3 +89,8 @@ def test_data_sources(
     data = test_class().get_data(user)
 
     assert data == expected
+
+    country_data = Countries().get_data(user)
+    assert country_data[0] == "Schweiz"
+    assert country_data[1] == "Deutschland"
+    assert country_data[2] == "Österreich"
