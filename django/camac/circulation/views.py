@@ -1,4 +1,6 @@
 import django_excel
+from caluma.caluma_workflow.api import skip_work_item
+from caluma.caluma_workflow.models import WorkItem
 from django.db import transaction
 from django.db.models import OuterRef, Subquery
 from rest_framework.decorators import action
@@ -6,8 +8,6 @@ from rest_framework.response import Response
 from rest_framework.settings import api_settings
 from rest_framework_json_api import views
 
-from caluma.caluma_workflow.api import skip_work_item
-from caluma.caluma_workflow.models import WorkItem
 from camac.caluma.api import CalumaApi
 from camac.core.models import Activation, Circulation
 from camac.instance.filters import FormFieldOrdering
