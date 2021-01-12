@@ -5,6 +5,8 @@ from django.utils.translation import activate, deactivate, gettext as _
 
 from camac.user.models import Service
 
+from .countries import COUNTRIES
+
 
 def get_municipality_label(service, municipality_prefix=False):
     label = {}
@@ -103,3 +105,11 @@ class Services(BaseDataSource):
         )
 
         return data
+
+
+class Countries(BaseDataSource):
+    info = "List of all countries in the world with opinionated sorting"
+
+    @data_source_cache(timeout=3600)
+    def get_data(self, info):
+        return COUNTRIES
