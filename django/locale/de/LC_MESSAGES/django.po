@@ -365,6 +365,30 @@ msgstr ""
 msgid "User is deactivated."
 msgstr "Benutzer ist deaktiviert."
 
+msgid "Form accepted"
+msgstr "Dossier angenommen"
+
+msgid "Form rejected"
+msgstr "Dossier zurückgewiesen"
+
+msgid "Permission granted"
+msgstr "Bewilligung erteilt"
+
+msgid "Form archived"
+msgstr "Dossier archiviert"
+
+msgid "Form depricated"
+msgstr "Dossier abgeschrieben"
+
+msgid "Started additional demand"
+msgstr "Nachforderung gestartet"
+
+msgid "Circulation decision started"
+msgstr "Zirkulationsentscheid gestartet"
+
+msgid "Back to circulation"
+msgstr "Zurück zur Zirkulation"
+
 #~ msgid "There is more than one user with the email '%(email)s'"
 #~ msgstr "Es gibt mehr als einen Benutzer mit der Email '%(email)s'"
 
