@@ -143,3 +143,9 @@ class PublicationEntryUserPermissionSerializer(serializers.ModelSerializer):
                 fields=["publication_entry", "user"],
             )
         ]
+
+
+class AuthoritySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Authority
+        fields = ("authority_id", "name")
