@@ -15,18 +15,16 @@
           @value={{this.models.caseModel.buildingProjectStatus}}
         />
       </tr>
-      {{#if this.isService}}
-        <tr>
-          <CaseDashboard::Column
-            @header={{"Frist"}}
-            @value={{
-              moment-format this.models.activation.deadlineDate "DD.MM.YYYY"
-            }}
-          />
-          {{! Empty column so the spacing is correct}}
-          <CaseDashboard::Column />
-        </tr>
-      {{/if}}
+      <tr>
+        <CaseDashboard::Column
+          @header={{t "cases.tableHeaders.intent"}}
+          @value={{this.models.caseModel.intent}}
+        />
+        <CaseDashboard::Column
+          @header={{t "cases.tableHeaders.lead"}}
+          @value={{this.models.caseModel.authority.name}}
+        />
+      </tr>
     </CaseDashboard::Section>
     <hr />
 
@@ -51,7 +49,7 @@
         {{#if this.models.caseModel.landowner}}
           <CaseDashboard::Column @header={{t "dashboard.landowner"}}>
             <CaseDashboard::Address
-              @contact={{this.models.caseModel.projectAuthor}}
+              @contact={{this.models.caseModel.landowner}}
             />
           </CaseDashboard::Column>
           {{! Empty column so the spacing is correct}}
@@ -61,7 +59,31 @@
     </CaseDashboard::Section>
     <hr />
 
-    <CaseDashboard::Section @sectionTitle={{t "dashboard.intentAndLocation"}}>
+    <CaseDashboard::Section @sectionTitle={{t "dashboard.editing"}}>
+      <tr>
+        <CaseDashboard::Column
+          @header={{t "cases.tableHeaders.dossierCreated"}}
+          @value={{moment-format this.models.caseModel.createdAt "DD.MM.YYYY"}}
+        />
+        <CaseDashboard::Column @header={{t "cases.tableHeaders.involvedServices"}}>
+          <ul>
+            {{#each this.models.involvedServices as |service|}}
+              <li>{{service}}</li>
+            {{/each}}
+          </ul>
+        </CaseDashboard::Column>
+      </tr>
+
+      <tr>
+        {{#if (and this.isService this.models.ownActivation)}}
+          <CaseDashboard::Column @header={{t "cases.tableHeaders.processingDeadline"}}
+            @value={{moment-format this.models.ownActivation.deadlineDate "DD.MM.YYYY"}} />
+        {{/if}}
+      </tr>
+    </CaseDashboard::Section>
+    <hr />
+
+    <CaseDashboard::Section @sectionTitle={{t "dashboard.location"}}>
       <tr>
         <CaseDashboard::Column
           @header={{t "cases.tableHeaders.municipality"}}
@@ -108,14 +130,15 @@
         </CaseDashboard::Column>
       </tr>
 
-      <tr>
-        <CaseDashboard::Column
-          @header={{t "cases.tableHeaders.intent"}}
-          @value={{this.models.caseModel.intent}}
-          colspan="3"
-        />
-      </tr>
     </CaseDashboard::Section>
+    <CaseDashboard::Section>
+      {{#each this.models.parcelPicture as |picture|}}
+        <tr>
+          <img class="uk-width-1-1" src="{{this.models.caseModel.parcelPictureUrl}}{{picture.identifier}}" alt={{t "cases.tableHeaders.parcelPicture"}}>
+        </tr>
+      {{/each}}
+    </CaseDashboard::Section>
+
     <hr />
 
     <CaseDashboard::Journal @journalEntries={{this.models.journalEntries}} />

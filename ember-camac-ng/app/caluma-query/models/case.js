@@ -2,6 +2,22 @@ import { inject as service } from "@ember/service";
 import CaseModel from "ember-caluma/caluma-query/models/case";
 import moment from "moment";
 
+const instanceResourceDocumentMapping = {
+  6: 46, // Sekretariat der Gemeindebaubehörde
+  1104: 770, // Vernehmlassungsstelle Gemeindezirkulation
+  4: 525, // Vernehmlassungsstelle mit Koordinationsaufgaben
+  1021: 525, // Vernehmlassungsstelle ohne Koordinationsaufgaben
+  1: 676, // Guest
+  1101: 607, // Koordinationsstelle Baudirektion BD
+  3: 145, // Koordinationsstelle Baugesuche BG
+  1127: 725, // Koordinationsstelle Energie AfE
+  1128: 737, // Koordinationsstelle Forst und Jagd AFJ
+  1107: 716, // Koordinationsstelle Landwirtschaft ALA
+  1061: 466, // Koordinationsstelle Nutzungsplanung NP
+  1129: 737, // Koordinationsstelle Sicherheitsdirektion SD
+  1106: 701, // Koordinationsstelle Umweltschutz AfU
+};
+
 function getAnswer(document, slug) {
   return document.answers.edges.find(
     (edge) => edge.node.question.slug === slug
@@ -10,6 +26,7 @@ function getAnswer(document, slug) {
 
 export default class CustomCaseModel extends CaseModel {
   @service store;
+  @service shoebox;
 
   getPersonData(question) {
     const answer = getAnswer(this.raw.document, question);
@@ -65,9 +82,22 @@ export default class CustomCaseModel extends CaseModel {
     return `${street} ${number}`;
   }
 
+  get parcelPictureUrl() {
+    return `/documents/list/download/instance-resource-id/${
+      instanceResourceDocumentMapping[this.shoebox.content.roleId]
+    }/instance-id/${this.instanceId}/attachmentid/`;
+  }
+
   get intent() {
     return getAnswer(this.raw.document, "proposal-description")?.node
       .stringValue;
+  }
+
+  get authority() {
+    const authorityId = getAnswer(this.raw.document, "leitbehoerde")?.node
+      .stringValue;
+
+    return this.store.findRecord("authority", Number(authorityId));
   }
 
   get dossierNr() {
@@ -134,9 +164,9 @@ export default class CustomCaseModel extends CaseModel {
   get egridNumbers() {
     const answer = getAnswer(this.raw.document, "parcels");
     const tableAnswers = answer?.node.value ?? [];
-    return tableAnswers.map(
-      (answer) => getAnswer(answer, "e-grid")?.node.stringValue
-    );
+    return tableAnswers
+      .map((answer) => getAnswer(answer, "e-grid")?.node.stringValue)
+      .filter(Boolean);
   }
 
   get activationWarning() {
@@ -180,7 +210,8 @@ export default class CustomCaseModel extends CaseModel {
         "proposal-description",
         "municipality",
         "parcels",
-        "status-bauprojekt"
+        "status-bauprojekt",
+        "leitbehoerde",
       ]) {
         edges {
           node {
