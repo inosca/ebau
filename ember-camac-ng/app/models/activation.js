@@ -5,4 +5,5 @@ export default class ActivationModel extends Model {
   @attr state;
 
   @belongsTo circulation;
+  @belongsTo service;
 }

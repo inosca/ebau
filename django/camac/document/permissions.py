@@ -78,6 +78,14 @@ PERMISSIONS = {
         "fachstelle leitbehörde": {"admin": [1, 4, 5, 6, 7, 8, 9, 10, 11]},
         "lesezugriff": {"read": [1, 8, 4, 5, 6, 10, 11]},
     },
+    "kt_uri": {
+        # currently only needed on Dashboard to load parcel picture
+        "municipality": {"read": [21]},
+        "service": {"read": [21]},
+        "coordination": {"read": [21]},
+        "organization_readonly": {"read": [21]},
+        "support": {"read": [21]},
+    },
     "demo": {"applicant": {"admin": [250, 251]}},
 }
 
