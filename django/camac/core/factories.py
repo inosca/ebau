@@ -333,3 +333,10 @@ class SanctionFactory(DjangoModelFactory):
 
     class Meta:
         model = models.Sanction
+
+
+class AuthorityFactory(DjangoModelFactory):
+    name = Faker("name")
+
+    class Meta:
+        model = models.Authority

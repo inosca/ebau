@@ -5,6 +5,7 @@ dashboard:
   buildingProjectStatus: ""
   projectAuthor: ""
   landowner: ""
-  intentAndLocation: ""
+  location: ""
+  editing: ""
   parcels: ""
   egrid: ""

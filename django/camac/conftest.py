@@ -81,11 +81,12 @@ Faker.add_provider(FreezegunAwareDatetimeProvider)
 
 FORM_QUESTION_MAP = [
     ("main-form", "gemeinde"),
-    ("main-form", "municipality"),  # Kt. UR
     ("main-form", "is-paper"),
     ("main-form", "baubeschrieb"),
     ("main-form", "personalien-sb"),
     ("main-form", "personalien-gesuchstellerin"),
+    ("main-form", "municipality"),  # Kt. UR
+    ("main-form", "leitbehoerde"),  # Kt. UR
     ("sb1", "is-paper"),
     ("sb1", "personalien-sb1-sb2"),
     ("sb2", "is-paper"),
@@ -437,6 +438,10 @@ def caluma_forms(settings):
     )
     caluma_form_models.Question.objects.create(
         slug="municipality",
+        type=caluma_form_models.Question.TYPE_TEXT,
+    )
+    caluma_form_models.Question.objects.create(
+        slug="leitbehoerde",
         type=caluma_form_models.Question.TYPE_TEXT,
     )
     settings.DATA_SOURCE_CLASSES = [

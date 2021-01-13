@@ -238,7 +238,11 @@ def test_instance_update_location(admin_client, instance, location_factory):
         ("Unknown", LazyFixture("user"), "new", status.HTTP_404_NOT_FOUND),
     ],
 )
-def test_instance_destroy(admin_client, instance, status_code, location_factory):
+def test_instance_destroy(
+    admin_client, instance, status_code, location_factory, application_settings
+):
+    application_settings["CALUMA"]["CREATE_IN_PROCESS"] = True
+
     url = reverse("instance-detail", args=[instance.pk])
 
     """

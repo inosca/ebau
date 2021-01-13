@@ -1,9 +1,10 @@
 dashboard:
   generalData: "Generelle Daten"
-  personalData: "Personendaten"
+  personalData: "Personalien"
   buildingProjectStatus: "Bauprojektstatus"
   projectAuthor: "Projektverfasser"
   landowner: "Grundeigentümer"
-  intentAndLocation: "Vorhaben und Lage"
+  location: "Lage"
+  editing: "Bearbeitung"
   parcels: "Parzellen"
   egrid: "EGRID"

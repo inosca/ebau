@@ -18,6 +18,11 @@ cases:
     createdAt: ""
     modifiedAt: ""
     submitDate: ""
+    lead: ""
+    dossierCreated: ""
+    processingDeadline: ""
+    involvedServices: ""
+    parcelPicture: ""
 
   filter: ""
   filters:

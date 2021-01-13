@@ -137,6 +137,9 @@ def test_create_instance_caluma(
     else:
         body = {"attributes": {"caluma-form": "main-form"}}
 
+    if uri_process:
+        body["attributes"]["lead"] = 1
+
     data = {"data": {"type": "instances", **body}, "extend_validity_for": 1}
 
     create_resp = admin_client.post(reverse("instance-list"), data, **headers)
@@ -860,6 +863,8 @@ def test_instance_delete(
     paper,
 ):
     application_settings["CALUMA"]["GENERATE_DOSSIER_NR"] = False
+    application_settings["CALUMA"]["CREATE_IN_PROCESS"] = False
+    application_settings["CALUMA"]["USE_LOCATION"] = False
 
     instance_state_factory(name="new")
     instance_state_factory(name="comm")
@@ -873,7 +878,12 @@ def test_instance_delete(
         }
         headers.update({"x-camac-group": group.pk})
 
-    data = {"data": {"type": "instances", "attributes": {"caluma-form": "main-form"}}}
+    data = {
+        "data": {
+            "type": "instances",
+            "attributes": {"caluma-form": "main-form"},
+        }
+    }
 
     create_resp = admin_client.post(reverse("instance-list"), data, **headers)
 
