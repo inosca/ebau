@@ -49,15 +49,16 @@ class Municipalities(BaseDataSource):
 
     def get_data(self, user):
         cache_key = f"data_source_{type(self).__name__}"
-        is_rsta = (
+        include_disabled = (
             hasattr(user, "group")
             and Service.objects.filter(
                 pk=user.group, service_group__name="district"
             ).exists()
+            or (hasattr(user, "role") and user.role == "support")
         )
 
-        if is_rsta:
-            cache_key += "_rsta"
+        if include_disabled:
+            cache_key += "_with_disabled"
             filters = {}
         else:
             filters = {"disabled": False}
