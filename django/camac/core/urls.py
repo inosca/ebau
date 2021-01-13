@@ -5,6 +5,7 @@ from . import views
 r = SimpleRouter(trailing_slash=False)
 
 r.register(r"publication-entries", views.PublicationEntryView, "publication")
+r.register(r"authorities", views.AuthorityView, "authority")
 
 """
 This endpoint is disabled because the legality of it is not clear

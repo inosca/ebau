@@ -11,4 +11,5 @@ export default class ServiceModel extends Model {
   @attr("string") website;
   @attr("number") notification;
   @hasMany("user") users;
+  @hasMany activations;
 }

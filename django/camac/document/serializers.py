@@ -214,6 +214,7 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             "context",
             "uuid",
             "webdav_link",
+            "identifier",
         )
         read_only_fields = (
             "date",
@@ -223,6 +224,7 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             "user",
             "uuid",
             "webdav_link",
+            "identifier",
         )
 
 

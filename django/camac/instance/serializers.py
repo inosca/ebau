@@ -895,6 +895,10 @@ class CalumaInstanceSerializer(InstanceSerializer):
                 case.document.pk, "municipality", instance.location.get_name()
             )
 
+            # Synchronize the 'Leitbehörde' for display in the dashboard
+            lead = self.context["request"].data["lead"]
+            caluma_api.update_or_create_answer(case.document.pk, "leitbehoerde", lead)
+
         if group.pk == settings.APPLICATION.get("PORTAL_GROUP", False):
             # TODO pre-fill user data into personal data table
             pass

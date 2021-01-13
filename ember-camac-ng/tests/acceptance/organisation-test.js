@@ -19,6 +19,7 @@ const DATA = {
   website: "https://acme.com",
   notification: 1,
   userIds: [],
+  activationIds: null,
 };
 
 DATA.description = DATA.name;
