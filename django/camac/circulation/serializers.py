@@ -1,6 +1,7 @@
 from rest_framework_json_api import serializers
 
 from camac.core.models import Activation, Circulation
+from camac.user.serializers import ServiceSerializer
 
 
 class CirculationSerializer(serializers.ModelSerializer):
@@ -22,7 +23,10 @@ class ActivationSerializer(serializers.ModelSerializer):
     and simply json api structure.
     """
 
-    included_serializers = {"circulation": CirculationSerializer}
+    included_serializers = {
+        "circulation": CirculationSerializer,
+        "service": ServiceSerializer,
+    }
 
     def get_state(self, activation):
         return activation.circulation_state.name

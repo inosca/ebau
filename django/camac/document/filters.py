@@ -49,6 +49,7 @@ class RESTJSONFilter(JSONValueFilter):
 
 
 class AttachmentFilterSet(FilterSet):
+    instance_id = NumberFilter(field_name="instance_id")
     name = CharMultiValueFilter(lookup_expr="startswith")
     context = RESTJSONFilter()
 
@@ -58,7 +59,7 @@ class AttachmentFilterSet(FilterSet):
 
     class Meta:
         model = models.Attachment
-        fields = ("instance", "user", "name", "attachment_sections")
+        fields = ("instance", "user", "name", "attachment_sections", "instance_id")
 
 
 class AttachmentDownloadFilterSet(FilterSet):
