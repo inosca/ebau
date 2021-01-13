@@ -7,6 +7,7 @@ from django.http import HttpResponse
 from django.utils import timezone
 from django.utils.encoding import escape_uri_path, smart_bytes
 from pyproj import CRS, Transformer
+from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework_json_api import django_filters, filters as json_api_filters, views
@@ -321,3 +322,11 @@ class SendfileHttpResponse(HttpResponse):
         )
         self["X-Accel-Redirect"] = "%s" % escape_uri_path(str(file_path))
         self["X-Sendfile"] = smart_bytes(str(abs_path))
+
+
+class AuthorityView(viewsets.ReadOnlyModelViewSet):
+    """Only used in Kt. UR for 'Leitbehörde'."""
+
+    swagger_schema = None
+    serializer_class = serializers.AuthoritySerializer
+    queryset = models.Authority.objects.all()

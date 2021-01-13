@@ -4,6 +4,7 @@ import Component from "@glimmer/component";
 import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 import gql from "graphql-tag";
+import { all } from "rsvp";
 
 import CustomCaseModel from "camac-ng/caluma-query/models/case";
 
@@ -31,10 +32,34 @@ export default class CaseDashboardComponent extends Component {
     });
 
     const journalEntries = yield this.store.query("journal-entry", {
-      instance_id: this.args.caseId,
+      instance: this.args.caseId,
       "page[size]": 3,
       include: "user",
       sort: "-creation_date",
+    });
+
+    const activations = yield this.store.query("activation", {
+      instance: this.args.caseId,
+      include: "service",
+    });
+
+    const serviceList = yield all(
+      activations.toArray().map((activation) => activation.service)
+    );
+
+    const involvedServices = [
+      ...new Set(serviceList.map((service) => service.name)),
+    ];
+    const ownActivation = activations.find(
+      (activation) =>
+        parseInt(activation.get("service.id")) ===
+          this.shoebox.content.serviceId && activation.state === "RUN"
+    );
+
+    const parcelPicture = yield this.store.query("attachment", {
+      instance_id: this.args.caseId,
+      name: "Parzellenbild.png",
+      include: "instance",
     });
 
     const caseRecord = yield this.apollo.query(
@@ -66,14 +91,13 @@ export default class CaseDashboardComponent extends Component {
     const modelInstance = new CustomCaseModel(caseRecord?.[0]?.node);
     setOwner(modelInstance, getOwner(this));
 
-    const models = { caseModel: modelInstance, journalEntries };
-
-    if (this.isService) {
-      models.activation = (yield this.store.query("activation", {
-        instance: this.args.caseId,
-        service: this.shoebox.content.serviceId,
-      })).filter((activation) => activation.state === "RUN")[0];
-    }
+    const models = {
+      caseModel: modelInstance,
+      journalEntries,
+      involvedServices,
+      parcelPicture,
+      ownActivation,
+    };
 
     return models;
   }

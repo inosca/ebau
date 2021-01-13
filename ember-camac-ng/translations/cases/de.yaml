@@ -17,6 +17,11 @@ cases:
     createdAt: "Erstellt am"
     modifiedAt: "Geändert am"
     submitDate: "Eingereicht am"
+    lead: "Leitbehörde"
+    dossierCreated: "Dossier erfasst"
+    processingDeadline: "Bearbeitungsfrist"
+    involvedServices: "Beteiligte Fachstellen"
+    parcelPicture: "Parzellenbild"
 
   filter: "Dossier Suchen"
   filters:
