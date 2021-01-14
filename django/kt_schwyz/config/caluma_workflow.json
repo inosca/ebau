@@ -12,6 +12,17 @@
   },
   {
     "model": "caluma_workflow.flow",
+    "pk": "3ee40b13-7014-4efb-8ca7-aeaf1f241c5b",
+    "fields": {
+      "created_at": "2021-01-12T16:28:31.158Z",
+      "modified_at": "2021-01-12T16:28:31.158Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "next": "['reopen-circulation','make-decision']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
     "pk": "4e405383-e014-4106-b95c-853da58a568b",
     "fields": {
       "created_at": "2020-09-03T14:47:54.554Z",
@@ -62,7 +73,7 @@
       "modified_at": "2020-09-03T14:47:51.420Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "next": "['start-circulation', 'publication']|tasks"
+      "next": "['start-circulation', 'publication', 'skip-circulation']|tasks"
     }
   },
   {
@@ -221,7 +232,7 @@
       "modified_at": "2020-09-03T14:46:39.457Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "name": "{\"de\": \"Stellungnahmen pr\\u00fcfen\", \"fr\": null}",
+      "name": "{\"de\": \"R\\u00fcmeldungen abgleichen\", \"fr\": null}",
       "description": "{\"de\": null, \"fr\": null}",
       "type": "simple",
       "meta": {},
@@ -229,7 +240,7 @@
       "control_groups": null,
       "is_archived": false,
       "form": null,
-      "lead_time": 864000,
+      "lead_time": 432000,
       "is_multiple_instance": false
     }
   },
@@ -269,7 +280,7 @@
       "control_groups": null,
       "is_archived": false,
       "form": null,
-      "lead_time": 864000,
+      "lead_time": 432000,
       "is_multiple_instance": false
     }
   },
@@ -371,7 +382,7 @@
       "control_groups": null,
       "is_archived": false,
       "form": null,
-      "lead_time": 864000,
+      "lead_time": 345600,
       "is_multiple_instance": false
     }
   },
@@ -437,6 +448,26 @@
   },
   {
     "model": "caluma_workflow.task",
+    "pk": "skip-circulation",
+    "fields": {
+      "created_at": "2021-01-11T16:02:00.150Z",
+      "modified_at": "2021-01-11T16:02:00.150Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "name": "{\"de\": \"Zirkulation \\u00fcberspringen\", \"fr\": null}",
+      "description": "{\"de\": null, \"fr\": null}",
+      "type": "simple",
+      "meta": {},
+      "address_groups": "['municipality']|groups",
+      "control_groups": null,
+      "is_archived": false,
+      "form": null,
+      "lead_time": null,
+      "is_multiple_instance": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
     "pk": "start-additional-circulation",
     "fields": {
       "created_at": "2020-09-03T14:46:36.187Z",
@@ -471,7 +502,7 @@
       "control_groups": null,
       "is_archived": false,
       "form": null,
-      "lead_time": 864000,
+      "lead_time": 345600,
       "is_multiple_instance": false
     }
   },
@@ -491,7 +522,7 @@
       "control_groups": null,
       "is_archived": false,
       "form": null,
-      "lead_time": 864000,
+      "lead_time": 432000,
       "is_multiple_instance": false
     }
   },
@@ -531,7 +562,7 @@
       "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": null,
-      "lead_time": 864000,
+      "lead_time": 1728000,
       "is_multiple_instance": false
     }
   },
@@ -631,6 +662,19 @@
       "workflow": "building-permit",
       "task": "complete-check",
       "flow": "915cdda0-42f9-4c76-9c5d-93438db5172b"
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "444f02d3-0dcc-4527-8bd7-1cea618e4ef2",
+    "fields": {
+      "created_at": "2021-01-12T16:28:31.162Z",
+      "modified_at": "2021-01-12T16:28:31.162Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "workflow": "building-permit",
+      "task": "skip-circulation",
+      "flow": "3ee40b13-7014-4efb-8ca7-aeaf1f241c5b"
     }
   },
   {
