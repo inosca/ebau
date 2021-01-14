@@ -1,3 +1,4 @@
+import itertools
 import mimetypes
 from pathlib import Path
 
@@ -61,14 +62,28 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         if not settings.MANABI_ENABLE:  # pragma: no cover
             return None
         path = Path(instance.path.name)
-        if path.suffix not in (".doc", ".docx", ".ppt", ".pptx", ".xls", ".xlsx"):
+
+        file_handlers = {
+            "word": [".doc", ".docx"],
+            "excel": [".xls", ".xlsx"],
+            "powerpoint": [".ppt", ".pptx"],
+        }
+
+        if path.suffix not in list(
+            itertools.chain(*[v for key, v in file_handlers.items()])
+        ):
             return None
         view = self.context.get("view")
         if not view.has_write_permission(instance):
             return None
         key = Key(from_string(settings.MANABI_SHARED_KEY))
         token = Token(key, path)
-        return f"ms-word:ofe|u|{settings.INTERNAL_BASE_URL}/dav/{token.as_url()}"
+
+        handler = next(
+            handler for handler, types in file_handlers.items() if path.suffix in types
+        )
+        relative = self.context["request"].build_absolute_uri(f"/dav/{token.as_url()}")
+        return f"ms-{handler}:ofe|u|{relative}"
 
     def _get_default_attachment_sections(self, group):
         return models.AttachmentSection.objects.filter_group(group)[:1]
