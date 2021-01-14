@@ -245,7 +245,6 @@ class Command(BaseCommand):
             created_by_group=str(self._get_rsta(instance).pk),
         )
         document_answer = audit.answers.get(question_id="fp-form")
-        document_answer.value.append(str(document.pk))
         document_answer.documents.add(document)
         document_answer.save()
 
