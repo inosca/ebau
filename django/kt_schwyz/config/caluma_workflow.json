@@ -232,7 +232,7 @@
       "modified_at": "2020-09-03T14:46:39.457Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "name": "{\"de\": \"Stellungnahmen pr\\u00fcfen\", \"fr\": null}",
+      "name": "{\"de\": \"R\\u00fcmeldungen abgleichen\", \"fr\": null}",
       "description": "{\"de\": null, \"fr\": null}",
       "type": "simple",
       "meta": {},
@@ -240,7 +240,7 @@
       "control_groups": null,
       "is_archived": false,
       "form": null,
-      "lead_time": 864000,
+      "lead_time": 432000,
       "is_multiple_instance": false
     }
   },
@@ -280,7 +280,7 @@
       "control_groups": null,
       "is_archived": false,
       "form": null,
-      "lead_time": 864000,
+      "lead_time": 432000,
       "is_multiple_instance": false
     }
   },
@@ -382,7 +382,7 @@
       "control_groups": null,
       "is_archived": false,
       "form": null,
-      "lead_time": 864000,
+      "lead_time": 345600,
       "is_multiple_instance": false
     }
   },
@@ -502,7 +502,7 @@
       "control_groups": null,
       "is_archived": false,
       "form": null,
-      "lead_time": 864000,
+      "lead_time": 345600,
       "is_multiple_instance": false
     }
   },
@@ -522,7 +522,7 @@
       "control_groups": null,
       "is_archived": false,
       "form": null,
-      "lead_time": 864000,
+      "lead_time": 432000,
       "is_multiple_instance": false
     }
   },
@@ -562,7 +562,7 @@
       "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": null,
-      "lead_time": 864000,
+      "lead_time": 1728000,
       "is_multiple_instance": false
     }
   },
