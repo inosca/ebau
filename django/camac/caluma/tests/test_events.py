@@ -476,7 +476,6 @@ def test_complete_decision(
     workflow_factory,
     work_item_factory,
     instance_state_factory,
-    notification_template_factory,
     workflow,
     decision,
     expected_instance_state,
@@ -550,8 +549,10 @@ def test_complete_decision(
     ],
 )
 def test_complete_simple_workflow(
+    application_settings,
     db,
     instance,
+    admin_user,
     caluma_admin_user,
     caluma_config_be,
     group,
@@ -561,11 +562,25 @@ def test_complete_simple_workflow(
     work_item_factory,
     task_factory,
     task,
+    notification_template,
+    mailoutbox,
+    role_factory,
     expected_instance_state,
     expected_history_text,
 ):
     work_item = work_item_factory(task=task_factory(slug=task))
     instance_state = instance_state_factory(name=expected_instance_state)
+    group = admin_user.groups.first()
+    group.role = role_factory(name="support")
+    group.save()
+
+    notification = {
+        "template_slug": notification_template.slug,
+        "recipient_types": ["applicant"],
+    }
+    application_settings["CALUMA"]["SIMPLE_WORKFLOW"][task][
+        "notification"
+    ] = notification
 
     case = work_item.case
     case.meta["camac-instance-id"] = str(instance.pk)
@@ -587,3 +602,6 @@ def test_complete_simple_workflow(
         title=expected_history_text,
         language="de",
     ).exists()
+    assert len(mailoutbox) == 1
+
+    del application_settings["CALUMA"]["SIMPLE_WORKFLOW"][task]["notification"]
