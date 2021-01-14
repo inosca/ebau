@@ -5,6 +5,10 @@ from django.db import transaction
 
 from camac.core.utils import create_history_entry
 from camac.instance.models import InstanceState
+from camac.notification.serializers import (
+    PermissionlessNotificationTemplateSendmailSerializer,
+)
+from camac.notification.views import send_mail
 from camac.user.models import User
 
 from .general import get_caluma_setting, get_instance
@@ -24,6 +28,7 @@ def post_complete_simple_workflow(sender, work_item, user, context, **kwargs):
         next_instance_state = config.get("next_instance_state")
         ech_event = config.get("ech_event")
         history_text = config.get("history_text")
+        notification = config.get("notification")
 
         if next_instance_state:
             with reversion.create_revision():
@@ -48,3 +53,12 @@ def post_complete_simple_workflow(sender, work_item, user, context, **kwargs):
         if history_text:
             # create history entry
             create_history_entry(instance, camac_user, history_text)
+
+        if notification:
+            send_mail(
+                notification["template_slug"],
+                context={},
+                instance={"id": instance.pk, "type": "instances"},
+                recipient_types=notification["recipient_types"],
+                serializer=PermissionlessNotificationTemplateSendmailSerializer,
+            )
