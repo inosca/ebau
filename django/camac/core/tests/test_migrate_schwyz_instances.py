@@ -1,11 +1,7 @@
 import os
 
-from caluma.caluma_workflow.models import Case
+from caluma.caluma_workflow.models import WorkItem
 from django.core.management import call_command
-from django.db.models import Count
-
-from camac.core.models import Circulation
-from camac.instance.models import Instance
 
 
 def test_migrate_schwyz_instances(
@@ -26,8 +22,7 @@ def test_migrate_schwyz_instances(
 
     # load data including test data
     call_command(
-        "loadconfig",
-        caluma=True,
+        "camac_load",
         user="test-dummy@adfinis.com",
         stdout=open(os.devnull, "w"),
     )
@@ -53,15 +48,11 @@ def test_migrate_schwyz_instances(
     activation_factory(
         circulation=circ, circulation_state=circulation_state_factory(name="REVIEW")
     )
+    activation_factory(
+        circulation=circ, circulation_state=circulation_state_factory(name="OK")
+    )
     instance_responsibility_factory(instance=instance)
 
     call_command("migrate_schwyz_instances")
 
-    assert (
-        Case.objects.all().count()
-        == Instance.objects.all().count()
-        + Circulation.objects.annotate(activation_count=Count("activations"))
-        .filter(activation_count__gt=0)
-        .count()
-        - 1  # one circulation which has finished
-    )
+    assert WorkItem.objects.all().count() == 102
