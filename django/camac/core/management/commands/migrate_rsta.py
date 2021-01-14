@@ -60,9 +60,15 @@ class Command(BaseCommand):
         parser.add_argument(
             "--zustaendig-only",
             action="store_true",
-            dest="zustaendig",
             default=False,
             help="Import only zustaendig as tags, requires existing instances with geschaefts_nr.",
+        )
+
+        parser.add_argument(
+            "--documents-only",
+            action="store_true",
+            default=False,
+            help="Import only documents, requires existing instances with geschaefts_nr.",
         )
 
     def handle(self, *args, **options):
@@ -74,13 +80,23 @@ class Command(BaseCommand):
             if k in ["state_file", "document_path"] and v
         }
 
-        if options["zustaendig"]:
+        if options["zustaendig_only"]:
             kwargs.setdefault(
                 "state_file", Path.cwd() / "migrate_rsta_zustaendig.pickle"
             )
             importer = Importer(path, **kwargs)
             print('Importing only "zustaendig: user" tags')
             importer.set_zustaendig(options["reimport"], options["debug"])
-        else:
+            return
+
+        if options["documents_only"]:
+            kwargs.setdefault(
+                "state_file", Path.cwd() / "migrate_rsta_documents.pickle"
+            )
             importer = Importer(path, **kwargs)
-            importer.run(options["reimport"], options["debug"])
+            print("Importing only missing documents")
+            importer.reimport_documents(options["reimport"], options["debug"])
+            return
+
+        importer = Importer(path, **kwargs)
+        importer.run(options["reimport"], options["debug"])

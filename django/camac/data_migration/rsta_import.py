@@ -118,6 +118,9 @@ class Importer:
     def set_zustaendig(self, reimport: bool = True, debug: bool = False):
         self._exec_method("set_zustaendig", reimport, debug)
 
+    def reimport_documents(self, reimport: bool = True, debug: bool = False):
+        self._exec_method("reimport_documents", reimport, debug)
+
     def _exec_method(self, method, reimport: bool = True, debug: bool = False):
         start = now()
 
@@ -127,7 +130,7 @@ class Importer:
             result = getattr(_import, method)(reimport, debug)
             self.write_result(filename, result)
 
-        duration = (now() - start).seconds
+        duration = (now() - start).total_seconds()
 
         total = len(self.results)
         completed = len(
@@ -192,6 +195,9 @@ class Import:
 
     def set_zustaendig(self, reimport: bool = True, debug: bool = False) -> bool:
         return self._exec_method("_set_zustaendig", reimport, debug)
+
+    def reimport_documents(self, reimport: bool = True, debug: bool = False) -> bool:
+        return self._exec_method("_reimport_documents", reimport, debug)
 
     def _exec_method(self, method, reimport: bool = True, debug: bool = False) -> bool:
         try:
@@ -326,6 +332,34 @@ class Import:
                 modification_date=self.now,
             )
 
+    def _reimport_documents(self, reimport: bool = True, debug: bool = False):
+        # see if tag already exists -> geschaeft was imported already
+        tag = Tags.objects.filter(
+            name=self.geschaeft.geschaefts_nr, service=self.service
+        ).first()
+
+        if not tag:
+            return
+
+        self.instance = tag.instance
+
+        self.case = Case.objects.filter(
+            **{
+                "meta__prefecta-number": self.geschaeft.geschaefts_nr,
+                "meta__prefecta-mandant": self.geschaeft.gMandant,
+            }
+        ).first()
+
+        case_inst_id = self.case.meta.get("camac-instance-id")
+
+        if self.case.meta.get("camac-instance-id") != self.instance.pk:
+            print(
+                f"Tag {self.instance.pk} and Case {case_inst_id} do not match for {self.geschaeft.geschaefts_nr}, {self.geschaeft.gMandant}"
+            )
+            return
+
+        self.import_documents()
+
     def import_beteiligte(self):
         weitere_personen = set()
 
@@ -436,16 +470,38 @@ class Import:
     def import_documents(self):
         for doc in self.geschaeft.Dokumente:
             path = self.importer.document_path / doc.file_path
+            path_latin1 = self.importer.document_path / doc.file_path_latin1
 
-            try:
-                file = File(path.open("rb"), name=path.name)
-                size = file.size
-            except FileNotFoundError:
-                file = None
-                size = 0
+            attachment = self.instance.attachments.filter(name=path.name).first()
+
+            # skip existing attachments
+            if attachment and attachment.size > 0:
+                continue
+
+            file = None
+            size = 0
+
+            for p in [path, path_latin1]:
+                try:
+                    file = File(p.open("rb"), name=p.name)
+                    size = file.size
+                    break
+                except FileNotFoundError:
+                    continue
+
+            if file is None:
                 self.log_error(
                     f"Dokument nicht gefunden | Fichier introuvable: {path.name}"
                 )
+
+            if attachment:
+                attachment.path = file
+                attachment.size = size
+                attachment.mime_type = (
+                    mimetypes.guess_type(str(path))[0] or "application/octet-stream"
+                )
+                attachment.save()
+                continue
 
             attachment = Attachment.objects.create(
                 instance=self.instance,
