@@ -1012,7 +1012,7 @@
     "fields": {
       "available_action": "workitem",
       "button": 34,
-      "name": "Aufgabe: complete start-decision",
+      "name": "Aufgabe: complete start-decision, skip-circulation",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -1068,7 +1068,7 @@
     "fields": {
       "available_action": "workitem",
       "button": 45,
-      "name": "Aufgabe: complete start-decision",
+      "name": "Aufgabe: complete start-decision, skip-circulation",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -1245,6 +1245,34 @@
     }
   },
   {
+    "model": "core.action",
+    "pk": 146,
+    "fields": {
+      "available_action": "workitem",
+      "button": 18,
+      "name": "Aufgabe: skip write-statement, check-statement",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 147,
+    "fields": {
+      "available_action": "workitem",
+      "button": 43,
+      "name": "Aufgabe: skip write-statement, check-statement",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
     "model": "core.actionworkitem",
     "pk": 105,
     "fields": {
@@ -1281,7 +1309,7 @@
     "model": "core.actionworkitem",
     "pk": 109,
     "fields": {
-      "tasks": "[\"start-decision\"]",
+      "tasks": "[\"skip-circulation\", \"start-decision\"]",
       "process_type": "complete",
       "process_all": false,
       "is_activation": false,
@@ -1325,7 +1353,7 @@
     "model": "core.actionworkitem",
     "pk": 115,
     "fields": {
-      "tasks": "[\"start-decision\"]",
+      "tasks": "[\"skip-circulation\", \"start-decision\"]",
       "process_type": "complete",
       "process_all": false,
       "is_activation": false,
@@ -1414,6 +1442,28 @@
     "pk": 145,
     "fields": {
       "tasks": "[\"archive-instance\"]",
+      "process_type": "complete",
+      "process_all": false,
+      "is_activation": false,
+      "fail_on_empty": false
+    }
+  },
+  {
+    "model": "core.actionworkitem",
+    "pk": 146,
+    "fields": {
+      "tasks": "[\"check-statement\", \"write-statement\"]",
+      "process_type": "skip",
+      "process_all": false,
+      "is_activation": false,
+      "fail_on_empty": false
+    }
+  },
+  {
+    "model": "core.actionworkitem",
+    "pk": 147,
+    "fields": {
+      "tasks": "[\"check-statement\", \"write-statement\"]",
       "process_type": "complete",
       "process_all": false,
       "is_activation": false,
