@@ -2,11 +2,12 @@ import functools
 import json
 
 from caluma.caluma_form.models import Answer, Document, Option, Question
-from caluma.caluma_workflow.models import WorkItem
+from caluma.caluma_workflow.models import Case, WorkItem
 from django.core.management.base import BaseCommand
 from django.db import transaction
 from django.db.models import Q
 from django.utils.timezone import now
+from simple_history.utils import bulk_create_with_history
 
 from camac.caluma.api import CalumaApi
 from camac.constants.kt_bern import SERVICE_GROUP_RSTA
@@ -38,7 +39,7 @@ def get_question_slug(mapping, question_id):
     raise Exception(f"No slug for question '{question_id}' found")
 
 
-def get_value(value, question, value_mapping):
+def get_value(value, question, value_mapping):  # noqa: C901
     if value.startswith("[") and value.endswith("]"):
         # multiple values
         return [get_value(raw, question, value_mapping) for raw in json.loads(value)]
@@ -86,6 +87,36 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         sid = transaction.savepoint()
 
+        # create missing "audit" workitems
+        instance_pks = list(
+            CamacAnswer.objects.filter(item=1, chapter_id=40089, question_id=40468)
+            .exclude(instance__instance_state__name__in=["new", "archived"])
+            .values_list("instance_id", flat=True)
+        )
+
+        cases = Case.objects.filter(
+            **{"meta__camac-instance-id__in": instance_pks}
+        ).exclude(work_items__task_id="audit")
+        count = cases.count()
+
+        for i, case in enumerate(cases, 1):
+            instance_id = case.meta.get("camac-instance-id")
+            instance = Instance.objects.get(pk=instance_id)
+            service = instance.responsible_service(filter_type="municipality")
+            WorkItem.objects.create(
+                task_id="audit",
+                case=case,
+                status=WorkItem.STATUS_COMPLETED,
+                addressed_groups=[str(service.pk)],
+            )
+
+            self.stdout.write(
+                self.style.SUCCESS(
+                    f"Created missing audit workitem of instance {instance_id}\t({i} / {count})"
+                )
+            )
+
+        # migrate content of "audit" workitems
         audit_work_items = WorkItem.objects.filter(
             task_id="audit", document__isnull=True
         )
@@ -162,7 +193,7 @@ class Command(BaseCommand):
                 )
             )
 
-        Answer.objects.bulk_create(caluma_answers)
+        bulk_create_with_history(caluma_answers, Answer)
 
     def _migrate_formal_exam(self, instance, audit):
         answers = get_answers_by_mapping(instance, formal_exam.MAPPING_MUNICIPALITY)
@@ -176,9 +207,7 @@ class Command(BaseCommand):
             created_at=now(),
             created_by_group=str(self._get_municipality(instance).pk),
         )
-        document_answer = audit.answers.create(
-            question_id="fp-form", value=[str(document.pk)]
-        )
+        document_answer = audit.answers.create(question_id="fp-form")
         document_answer.documents.add(document)
 
         self._fill_document(
@@ -245,9 +274,7 @@ class Command(BaseCommand):
                 instance.responsible_service(filter_type="municipality").pk
             ),
         )
-        document_answer = audit.answers.create(
-            question_id="bab-form", value=[str(document.pk)]
-        )
+        document_answer = audit.answers.create(question_id="bab-form")
         document_answer.documents.add(document)
 
         self._fill_document(
@@ -271,9 +298,7 @@ class Command(BaseCommand):
                 instance.responsible_service(filter_type="municipality").pk
             ),
         )
-        document_answer = audit.answers.create(
-            question_id="mp-form", value=[str(document.pk)]
-        )
+        document_answer = audit.answers.create(question_id="mp-form")
         document_answer.documents.add(document)
 
         self._fill_document(
