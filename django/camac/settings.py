@@ -380,6 +380,12 @@ APPLICATIONS = {
             "notification.NotificationTemplateT",
         ],
         "PDF": {"SECTION": 1},
+        "DUMP_CONFIG_GROUPS": {
+            "email_notifications": {
+                "notification.NotificationTemplate": Q(type="email"),
+                "notification.NotificationTemplateT": Q(template__type="email"),
+            },
+        },
     },
     "kt_bern": {
         "LOG_NOTIFICATIONS": True,
