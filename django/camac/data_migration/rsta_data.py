@@ -470,6 +470,11 @@ class Dokument:
     def file_path(self):
         return f"{self.gNr}/{self.docFileName}"
 
+    @property
+    def file_path_latin1(self):
+        # for the case, that the files have latin-1 encoded file names on the filesystem
+        return self.file_path.encode("latin-1").decode("utf-8", "surrogateescape")
+
 
 @dataclass_json
 @dataclass(frozen=True)
