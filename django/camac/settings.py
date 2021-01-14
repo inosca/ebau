@@ -191,7 +191,7 @@ APPLICATIONS = {
             "Lesezugriff": "reader",
             "Publikation": "public_reader",
             "Fachstelle Leitbehörde": "municipality",
-            "System-Betrieb": "support",
+            "Support": "support",
         },
         "PORTAL_GROUP": 4,
         "NOTIFICATIONS": {
@@ -249,6 +249,8 @@ APPLICATIONS = {
             "PRE_COMPLETE": {
                 "complete-check": {"cancel": ["reject-form"]},
                 "reject-form": {"cancel": ["complete-check", "depreciate-case"]},
+                "start-circulation": {"cancel": ["skip-circulation"]},
+                "skip-circulation": {"cancel": ["start-circulation"]},
                 "formal-adittion": {"cancel": ["archive-instance"]},
                 "start-additional-circulation": {
                     "cancel": ["check-statements", "start-decision"]
@@ -268,17 +270,20 @@ APPLICATIONS = {
                 "revise-statement": {"cancel": ["check-statement"]},
                 "depreciate-case": {
                     "cancel": [
-                        "additional-demand",
-                        "circulation",
-                        "make-decision",
-                        "publication",
-                        "reopen-circulation",
-                        "start-additional-circulation",
-                        "start-circulation",
-                        "start-decision",
-                        "submit-additional-demand",
+                        "formal-addition",
                         "complete-check",
                         "reject-form",
+                        "start-circulation",
+                        "publication",
+                        "skip-circulation",
+                        "circulation",
+                        "additional-demand",
+                        "submit-additional-demand",
+                        "start-additional-circulation",
+                        "check-statements",
+                        "start-decision",
+                        "make-decision",
+                        "reopen-circulation",
                     ]
                 },
                 "archive-instance": {
@@ -290,6 +295,56 @@ APPLICATIONS = {
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": False,
             "WORK_ITEM_EXCLUDE_ROLES": ["Lesezugriff"],
             "PUBLICATION_TASK_SLUG": "publication",
+            "SIMPLE_WORKFLOW": {
+                "complete-check": {
+                    "next_instance_state": "comm",
+                    "history_text": gettext_noop("Form accepted"),
+                    "notification": {
+                        "template_slug": "bewilligungsprozess-gestartet",
+                        "recipient_types": ["applicant"],
+                    },
+                },
+                "reject-form": {
+                    "next_instance_state": "rejected",
+                    "history_text": gettext_noop("Form rejected"),
+                    "notification": {
+                        "template_slug": "ruckweisung",
+                        "recipient_types": ["applicant"],
+                    },
+                },
+                "make-decision": {
+                    "next_instance_state": "done",
+                    "history_text": gettext_noop("Permission granted"),
+                },
+                "archive-form": {
+                    "next_instance_state": "arch",
+                    "history_text": gettext_noop("Form archived"),
+                },
+                "depricate-case": {
+                    "next_instance_state": "stopped",
+                    "history_text": gettext_noop("Form depricated"),
+                },
+                "additional-demand": {
+                    "next_instance_state": "nfd",
+                    "history_text": gettext_noop("Started additional demand"),
+                    "notification": {
+                        "template_slug": "nachforderung",
+                        "recipient_types": ["applicant"],
+                    },
+                },
+                "skip-circulation": {
+                    "next_instance_state": "redac",
+                    "history_text": gettext_noop("Circulation decision started"),
+                },
+                "start-decision": {
+                    "next_instance_state": "redac",
+                    "history_text": gettext_noop("Circulation decision started"),
+                },
+                "reopen-circulation": {
+                    "next_instance_state": "circ",
+                    "history_text": gettext_noop("Back to circulation"),
+                },
+            },
         },
         "HAS_EBAU_NUMBER": False,
         "OIDC_SYNC_USER_ATTRIBUTES": [
