@@ -149,7 +149,7 @@ RESPONSIBLE_KOORS = {
         FORM_PGV_SEILBAHNGESETZ,
         FORM_MELDUNG_OEREB,
         FORM_MELDUNG_OEREB_NP,
-    ]
+    ],
 }
 
 
