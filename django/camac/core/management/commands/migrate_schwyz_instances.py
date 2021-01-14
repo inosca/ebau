@@ -139,7 +139,7 @@ def migrate_circulation(instance, case):
 class Command(BaseCommand):
     help = "Create an caluma case and work items for every instance"
 
-    @transaction.atomic
+    @transaction.atomic  # noqa: C901
     def handle(self, *args, **options):
         self.stdout.write("Starting Instance to Caluma Case and WorkItem migration")
 
@@ -147,10 +147,8 @@ class Command(BaseCommand):
             instance_state = instance.instance_state.name
             case_status = Case.STATUS_RUNNING
 
-            if instance_state in ["done", "denied", "arch", "del"]:
+            if instance_state in ["arch", "del"]:
                 case_status = Case.STATUS_COMPLETED
-            elif instance_state == "stopped":
-                case_status = Case.STATUS_CANCELED
 
             document = Document.objects.create(form=Form.objects.get(pk="baugesuch"))
             workflow = Workflow.objects.get(pk="building-permit")
@@ -167,30 +165,45 @@ class Command(BaseCommand):
                 **{"meta__camac-instance-id": instance.pk},
             )[0]
 
-            # missing nfd
-            if instance_state in ["new", "rejected"]:
+            if instance_state == "new":
                 create_work_item_from_task(case, "submit")
+            elif instance_state == "rejected":
+                create_work_item_from_task(case, "formal-addition", applicant=True)
+                create_work_item_from_task(case, "create-manual-workitems")
+                create_work_item_from_task(case, "depreciate-case")
             elif instance_state == "subm":
                 create_work_item_from_task(case, "reject-form", instance=instance)
                 create_work_item_from_task(case, "complete-check", instance=instance)
                 create_work_item_from_task(case, "create-manual-workitems")
+                create_work_item_from_task(case, "depreciate-case")
             elif instance_state == "comm":
                 create_work_item_from_task(case, "start-circulation", instance=instance)
                 create_work_item_from_task(case, "publication", instance=instance)
+                create_work_item_from_task(case, "skip-circulation")
                 create_work_item_from_task(case, "create-manual-workitems")
+                create_work_item_from_task(case, "depreciate-case")
             elif instance_state == "circ":
                 migrate_circulation(instance, case)
                 create_work_item_from_task(case, "create-manual-workitems")
+                create_work_item_from_task(case, "depreciate-case")
             elif instance_state == "redac":
                 create_work_item_from_task(case, "make-decision", instance=instance)
                 create_work_item_from_task(
                     case, "reopen-circulation", instance=instance
                 )
                 create_work_item_from_task(case, "create-manual-workitems")
+                create_work_item_from_task(case, "depreciate-case")
             elif instance_state == "nfd":
                 create_work_item_from_task(
                     case, "submit-additional-demand", applicant=True
                 )
                 create_work_item_from_task(case, "create-manual-workitems")
+                create_work_item_from_task(case, "depreciate-case")
+            elif instance_state in [
+                "stopped",
+                "done",
+                "denied",
+            ]:
+                create_work_item_from_task(case, "archive-instance")
 
         self.stdout.write("Created Cases and WorkItems from Instances")
