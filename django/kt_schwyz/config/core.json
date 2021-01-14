@@ -457,7 +457,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 2
+      "sort": 0
     }
   },
   {
@@ -947,7 +947,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 2
+      "sort": 0
     }
   },
   {
@@ -1003,7 +1003,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -1059,7 +1059,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -1255,7 +1255,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 0
+      "sort": 1
     }
   },
   {
@@ -1269,7 +1269,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 0
+      "sort": 1
     }
   },
   {
@@ -1454,7 +1454,7 @@
     "fields": {
       "tasks": "[\"check-statement\", \"write-statement\"]",
       "process_type": "skip",
-      "process_all": false,
+      "process_all": true,
       "is_activation": false,
       "fail_on_empty": false
     }
@@ -1465,7 +1465,7 @@
     "fields": {
       "tasks": "[\"check-statement\", \"write-statement\"]",
       "process_type": "complete",
-      "process_all": false,
+      "process_all": true,
       "is_activation": false,
       "fail_on_empty": false
     }

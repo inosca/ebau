@@ -191,7 +191,7 @@ APPLICATIONS = {
             "Lesezugriff": "reader",
             "Publikation": "public_reader",
             "Fachstelle Leitbehörde": "municipality",
-            "System-Betrieb": "support",
+            "Support": "support",
         },
         "PORTAL_GROUP": 4,
         "NOTIFICATIONS": {
@@ -328,6 +328,10 @@ APPLICATIONS = {
                         "template_slug": "nachforderung",
                         "recipient_types": ["applicant"],
                     },
+                },
+                "skip-circulation": {
+                    "next_instance_state": "redac",
+                    "history_text": gettext_noop("Circulation decision started"),
                 },
                 "start-decision": {
                     "next_instance_state": "redac",
