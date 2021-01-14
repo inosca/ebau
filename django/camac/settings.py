@@ -256,7 +256,7 @@ APPLICATIONS = {
                     "cancel": ["check-statements", "start-decision"]
                 },
                 "start-decision": {
-                    "skip": ["check-statements", "start-circulation", "circulation"],
+                    "skip": ["check-statements"],
                     "cancel": ["start-additional-circulation", "additional-demand"],
                 },
                 "reopen-circulation": {"cancel": ["make-decision"]},
@@ -267,7 +267,6 @@ APPLICATIONS = {
                     ]
                 },
                 "check-statement": {"cancel": ["revise-statement"]},
-                "check-statements": {"skip": ["write-statement", "check-statement"]},
                 "revise-statement": {"cancel": ["check-statement"]},
                 "depreciate-case": {
                     "cancel": [
