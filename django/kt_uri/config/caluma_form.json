@@ -70,11 +70,11 @@
     "pk": "bundesverfahren",
     "fields": {
       "created_at": "2020-12-16T08:46:46.321Z",
-      "modified_at": "2020-12-16T08:46:46.321Z",
+      "modified_at": "2020-12-16T21:58:53.693Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
-      "description": "{\"de\": \"\", \"fr\": null}",
+      "description": "{\"de\": \"Bundesverfahren\", \"fr\": null}",
       "meta": {},
       "is_published": true,
       "is_archived": false,
@@ -2354,6 +2354,19 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "bundesverfahren.allgemeine-informationen-zu-bundesverfahren",
+    "fields": {
+      "created_at": "2020-12-17T14:51:06.754Z",
+      "modified_at": "2020-12-17T14:51:06.754Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "bundesverfahren",
+      "question": "allgemeine-informationen-zu-bundesverfahren",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "bundesverfahren.form-type",
     "fields": {
       "created_at": "2020-12-16T08:47:40.496Z",
@@ -2375,7 +2388,7 @@
       "created_by_group": null,
       "form": "bundesverfahren",
       "question": "is-paper",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -2388,7 +2401,7 @@
       "created_by_group": null,
       "form": "bundesverfahren",
       "question": "leitbehoerde",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -17245,6 +17258,32 @@
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"##Herzlich willkommen auf der elektronischen Plattform f\\u00fcr Verfahrenskoordination des Kantons Uri.\\n\\nWir danken Ihnen, dass Sie diese Dienstleistung nutzen.\\n\\n**Wichtiger Hinweis zur Baubewilligungspflicht von Solaranlagen**\\n\\nMit der Revision des Raumplanungsgesetzes (RPG) und der Raumplanungsverordnung (RPV) k\\u00f6nnen Solaranlagen heute unter Anwendung eines vereinfachten Melde- statt eines Baubewilligungsverfahrens errichtet werden. Die Baubewilligungsfreiheit bezieht sich auf Solaranlagen auf D\\u00e4chern, wenn sie gen\\u00fcgend angepasst sind. Unter bestimmten Voraussetzungen muss jedoch auch f\\u00fcr Solaranlagen ein Baubewilligungsverfahren durchgef\\u00fchrt werden.\\n\\nBitte erfassen Sie die geplante/n Anlage/n mit der nachfolgenden Tabelle. Je nach Beantwortung der Fragen werden Sie auf eine allf\\u00e4llige Baubewilligungspflicht hingewiesen.\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "allgemeine-informationen-zu-bundesverfahren",
+    "fields": {
+      "created_at": "2020-12-17T14:51:05.079Z",
+      "modified_at": "2020-12-17T15:24:18.653Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "label": "{\"de\": \"Allgemeine Informationen zu Bundesverfahren\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"##Erkl\\u00e4rung Bundesverfahren\\n\\nAls Bundesverfahren werden im URec jene Verfahren bezeichnet, welche von der zust\\u00e4ndigen Bundesstelle direkt im URec erfasst und den Gemeinden und den je nach Verfahren jeweils zust\\u00e4ndigen Koordinationsstellen direkt von der Bundesstelle als Pendenz zugewiesen werden. \\n\\nZu beachten ist, dass die zust\\u00e4ndige Bundesstelle die betroffene/n Gemeinde/n direkt per Zirkulation bedient (analog der Zirkulation durch eine Koordinationsstelle).  Die Gemeinden erledigen die Pendenz vom Bundesamt direkt. Die kantonalen Fachstellen hingegen werden je nach Verfahren entweder von der KOOR BD oder der KOOR BG koordiniert. Die zust\\u00e4ndige Koordinationsstelle antwortet der Bundesstelle mit einer koordinierten Gesamtstellungnahme.\\n\\n**PGV nach Eisenbahngesetz**\\n\\nDiese werden vom BAV an die Koordinationsstelle Baudirektion freigeschaltet. Die Koordinationsstelle Baudirektion koordiniert dieses Verfahren bei den Fachstellen unter dem Verfahrenstitel \\\"Mitberichtsverfahren / PGV nach Eisenbahngesetz (EBG)\\\"\\n\\n**PGV nach Seilbahngesetz**\\n\\nDiese werden vom BAV an die Koordinationsstelle Baueingaben freigeschaltet. Die Koordinationsstelle f\\u00fcr Baueingaben beim ARE koordiniert dieses Verfahren unter dem Verfahrenstitel \\\"Mitberichtsverfahren / PGV nach Seilbahngesetz (SebG)\\\".\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
