@@ -214,8 +214,6 @@ build-kt_uri-stage:
   extends: .build-image
   variables:
     APPLICATION: kt_uri
-    # TODO: Can be removed once all customer compose files have been refactored
-    CONTAINERS: django php db
     COMPOSE: docker-compose -f compose/kt_uri.yml -f compose/kt_uri-stage.yml
   only:
     - stage-ur
@@ -224,8 +222,6 @@ build-kt_uri-production:
   extends: .build-image
   variables:
     APPLICATION: kt_uri
-    # TODO: Can be removed once all customer compose files have been refactored
-    CONTAINERS: django php db
     COMPOSE: docker-compose -f compose/kt_uri.yml -f compose/kt_uri-prod.yml
   only:
     - production-ur
