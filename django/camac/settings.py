@@ -298,7 +298,7 @@ APPLICATIONS = {
             "SIMPLE_WORKFLOW": {
                 "complete-check": {
                     "next_instance_state": "comm",
-                    "history_text": gettext_noop("Form accepted"),
+                    "history_text": "Dossier angenommen",
                     "notification": {
                         "template_slug": "bewilligungsprozess-gestartet",
                         "recipient_types": ["applicant"],
@@ -306,7 +306,7 @@ APPLICATIONS = {
                 },
                 "reject-form": {
                     "next_instance_state": "rejected",
-                    "history_text": gettext_noop("Form rejected"),
+                    "history_text": "Dossier zurückgewiesen",
                     "notification": {
                         "template_slug": "ruckweisung",
                         "recipient_types": ["applicant"],
@@ -314,19 +314,19 @@ APPLICATIONS = {
                 },
                 "make-decision": {
                     "next_instance_state": "done",
-                    "history_text": gettext_noop("Permission granted"),
+                    "history_text": "Bewilligung erteilt",
                 },
                 "archive-form": {
                     "next_instance_state": "arch",
-                    "history_text": gettext_noop("Form archived"),
+                    "history_text": "Dossier archiviert",
                 },
                 "depricate-case": {
                     "next_instance_state": "stopped",
-                    "history_text": gettext_noop("Form depricated"),
+                    "history_text": "Dossier abgeschrieben",
                 },
                 "additional-demand": {
                     "next_instance_state": "nfd",
-                    "history_text": gettext_noop("Started additional demand"),
+                    "history_text": "Nachforderung gestartet",
                     "notification": {
                         "template_slug": "nachforderung",
                         "recipient_types": ["applicant"],
@@ -334,15 +334,15 @@ APPLICATIONS = {
                 },
                 "skip-circulation": {
                     "next_instance_state": "redac",
-                    "history_text": gettext_noop("Circulation decision started"),
+                    "history_text": "Zirkulationsentscheid gestartet",
                 },
                 "start-decision": {
                     "next_instance_state": "redac",
-                    "history_text": gettext_noop("Circulation decision started"),
+                    "history_text": "Zirkulationsentscheid gestartet",
                 },
                 "reopen-circulation": {
                     "next_instance_state": "circ",
-                    "history_text": gettext_noop("Back to circulation"),
+                    "history_text": "Zurück zur Zirkulation",
                 },
             },
         },
