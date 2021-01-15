@@ -857,6 +857,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
                         "subject": subject,
                     },
                     HistoryActionConfig.HISTORY_TYPE_NOTIFICATION,
+                    body,
                 )
 
         if emails:

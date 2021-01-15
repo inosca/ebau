@@ -153,7 +153,7 @@
     "fields": {
       "resource": 1,
       "instance_resource": 7,
-      "air_action_name": null
+      "air_action_name": "edit"
     }
   },
   {
@@ -162,7 +162,7 @@
     "fields": {
       "resource": 1,
       "instance_resource": 7,
-      "air_action_name": null
+      "air_action_name": "edit"
     }
   },
   {
@@ -171,7 +171,7 @@
     "fields": {
       "resource": 1,
       "instance_resource": 47,
-      "air_action_name": null
+      "air_action_name": "edit"
     }
   },
   {
@@ -189,7 +189,7 @@
     "fields": {
       "resource": 1,
       "instance_resource": 47,
-      "air_action_name": null
+      "air_action_name": "edit"
     }
   },
   {
@@ -216,7 +216,7 @@
     "fields": {
       "resource": 1,
       "instance_resource": 7,
-      "air_action_name": null
+      "air_action_name": "edit"
     }
   },
   {
@@ -225,7 +225,16 @@
     "fields": {
       "resource": 1,
       "instance_resource": 49,
-      "air_action_name": null
+      "air_action_name": "index"
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 158,
+    "fields": {
+      "resource": 1,
+      "instance_resource": 49,
+      "air_action_name": "index"
     }
   },
   {
@@ -365,7 +374,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 2
+      "sort": 1
     }
   },
   {
@@ -1340,7 +1349,7 @@
     "fields": {
       "available_action": "workitem",
       "button": 18,
-      "name": "Aufgabe: skip write-statement, check-statement",
+      "name": "Aufgabe: skip circulation",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -1354,7 +1363,7 @@
     "fields": {
       "available_action": "workitem",
       "button": 43,
-      "name": "Aufgabe: skip write-statement, check-statement",
+      "name": "Aufgabe: skip circulation",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -1503,6 +1512,20 @@
     }
   },
   {
+    "model": "core.action",
+    "pk": 158,
+    "fields": {
+      "available_action": "pageredirect",
+      "button": 1,
+      "name": "Zur\u00fcck zur Aufgabenliste",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 2
+    }
+  },
+  {
     "model": "core.actionworkitem",
     "pk": 105,
     "fields": {
@@ -1510,7 +1533,7 @@
       "process_type": "complete",
       "process_all": false,
       "is_activation": false,
-      "fail_on_empty": false
+      "fail_on_empty": true
     }
   },
   {
@@ -1521,7 +1544,7 @@
       "process_type": "complete",
       "process_all": false,
       "is_activation": false,
-      "fail_on_empty": false
+      "fail_on_empty": true
     }
   },
   {
@@ -1532,7 +1555,7 @@
       "process_type": "complete",
       "process_all": false,
       "is_activation": false,
-      "fail_on_empty": false
+      "fail_on_empty": true
     }
   },
   {
@@ -1554,7 +1577,7 @@
       "process_type": "complete",
       "process_all": false,
       "is_activation": false,
-      "fail_on_empty": false
+      "fail_on_empty": true
     }
   },
   {
@@ -1565,7 +1588,7 @@
       "process_type": "complete",
       "process_all": false,
       "is_activation": false,
-      "fail_on_empty": false
+      "fail_on_empty": true
     }
   },
   {
@@ -1576,7 +1599,7 @@
       "process_type": "complete",
       "process_all": false,
       "is_activation": false,
-      "fail_on_empty": false
+      "fail_on_empty": true
     }
   },
   {
@@ -1587,7 +1610,7 @@
       "process_type": "complete",
       "process_all": false,
       "is_activation": false,
-      "fail_on_empty": false
+      "fail_on_empty": true
     }
   },
   {
@@ -1598,7 +1621,7 @@
       "process_type": "complete",
       "process_all": false,
       "is_activation": false,
-      "fail_on_empty": false
+      "fail_on_empty": true
     }
   },
   {
@@ -1642,7 +1665,7 @@
       "process_type": "complete",
       "process_all": false,
       "is_activation": false,
-      "fail_on_empty": false
+      "fail_on_empty": true
     }
   },
   {
@@ -1653,7 +1676,7 @@
       "process_type": "complete",
       "process_all": false,
       "is_activation": false,
-      "fail_on_empty": false
+      "fail_on_empty": true
     }
   },
   {
@@ -1664,7 +1687,7 @@
       "process_type": "complete",
       "process_all": false,
       "is_activation": false,
-      "fail_on_empty": false
+      "fail_on_empty": true
     }
   },
   {
@@ -1675,16 +1698,16 @@
       "process_type": "complete",
       "process_all": false,
       "is_activation": false,
-      "fail_on_empty": false
+      "fail_on_empty": true
     }
   },
   {
     "model": "core.actionworkitem",
     "pk": 146,
     "fields": {
-      "tasks": "[\"check-statement\", \"write-statement\"]",
+      "tasks": "[\"circulation\"]",
       "process_type": "skip",
-      "process_all": true,
+      "process_all": false,
       "is_activation": false,
       "fail_on_empty": false
     }
@@ -1693,9 +1716,9 @@
     "model": "core.actionworkitem",
     "pk": 147,
     "fields": {
-      "tasks": "[\"check-statement\", \"write-statement\"]",
-      "process_type": "complete",
-      "process_all": true,
+      "tasks": "[\"circulation\"]",
+      "process_type": "skip",
+      "process_all": false,
       "is_activation": false,
       "fail_on_empty": false
     }

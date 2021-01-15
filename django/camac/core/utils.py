@@ -58,6 +58,7 @@ def create_history_entry(
     text: str,
     text_data: Callable[[str], dict] = lambda language: {},
     history_type: str = HistoryActionConfig.HISTORY_TYPE_STATUS,
+    body: str = "",
 ) -> None:
     """
     Create a multilingual history entry for an instance.
@@ -82,9 +83,14 @@ def create_history_entry(
         created_at=timezone.now(),
         user=user,
         history_type=history_type,
+        title=text,
+        body=body,
     )
 
     for (language, text) in get_translations(text):
         HistoryEntryT.objects.create(
-            history_entry=history, title=text % text_data(language), language=language
+            history_entry=history,
+            title=text % text_data(language),
+            body=body,
+            language=language,
         )
