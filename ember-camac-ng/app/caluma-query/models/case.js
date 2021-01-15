@@ -97,7 +97,9 @@ export default class CustomCaseModel extends CaseModel {
     const authorityId = getAnswer(this.raw.document, "leitbehoerde")?.node
       .stringValue;
 
-    return this.store.findRecord("authority", Number(authorityId));
+    return authorityId
+      ? this.store.findRecord("authority", Number(authorityId))
+      : "";
   }
 
   get dossierNr() {
