@@ -1,5 +1,6 @@
 from typing import Callable
 
+from django.conf import settings
 from django.db.models import IntegerField
 from django.db.models.functions import Cast, Substr
 from django.utils import timezone
@@ -58,6 +59,7 @@ def create_history_entry(
     text: str,
     text_data: Callable[[str], dict] = lambda language: {},
     history_type: str = HistoryActionConfig.HISTORY_TYPE_STATUS,
+    body: str = "",
 ) -> None:
     """
     Create a multilingual history entry for an instance.
@@ -77,14 +79,22 @@ def create_history_entry(
     ... )
     """
 
+    data = {}
+    if not settings.APPLICATION.get("IS_MULTILINGUAL", False):
+        data = {"title": text, "body": body}
+
     history = HistoryEntry.objects.create(
         instance=instance,
         created_at=timezone.now(),
         user=user,
         history_type=history_type,
+        **data,
     )
 
     for (language, text) in get_translations(text):
         HistoryEntryT.objects.create(
-            history_entry=history, title=text % text_data(language), language=language
+            history_entry=history,
+            title=text % text_data(language),
+            body=body,
+            language=language,
         )

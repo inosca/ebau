@@ -846,10 +846,17 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
                 )
 
             if settings.APPLICATION.get("LOG_NOTIFICATIONS"):
+                title = gettext_noop("Notification sent to %(receiver)s (%(subject)s)")
+
+                if not settings.APPLICATION.get("IS_MULTILINGUAL", False):
+                    title = "Notifikation gesendet an {0} ({1})".format(
+                        ", ".join([self._recipient_log(r) for r in recipients]), subject
+                    )
+
                 create_history_entry(
                     instance,
                     user,
-                    gettext_noop("Notification sent to %(receiver)s (%(subject)s)"),
+                    title,
                     lambda lang: {
                         "receiver": ", ".join(
                             [self._recipient_log(r) for r in recipients]
@@ -857,6 +864,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
                         "subject": subject,
                     },
                     HistoryActionConfig.HISTORY_TYPE_NOTIFICATION,
+                    body,
                 )
 
         if emails:

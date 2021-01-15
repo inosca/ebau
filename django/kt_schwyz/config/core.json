@@ -139,6 +139,105 @@
     }
   },
   {
+    "model": "core.apageredirect",
+    "pk": 148,
+    "fields": {
+      "resource": 23,
+      "instance_resource": null,
+      "air_action_name": null
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 149,
+    "fields": {
+      "resource": 1,
+      "instance_resource": 7,
+      "air_action_name": "edit"
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 150,
+    "fields": {
+      "resource": 1,
+      "instance_resource": 7,
+      "air_action_name": "edit"
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 151,
+    "fields": {
+      "resource": 1,
+      "instance_resource": 47,
+      "air_action_name": "edit"
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 152,
+    "fields": {
+      "resource": 1,
+      "instance_resource": 47,
+      "air_action_name": null
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 153,
+    "fields": {
+      "resource": 1,
+      "instance_resource": 47,
+      "air_action_name": "edit"
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 154,
+    "fields": {
+      "resource": 23,
+      "instance_resource": null,
+      "air_action_name": null
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 155,
+    "fields": {
+      "resource": 23,
+      "instance_resource": null,
+      "air_action_name": null
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 156,
+    "fields": {
+      "resource": 1,
+      "instance_resource": 7,
+      "air_action_name": "edit"
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 157,
+    "fields": {
+      "resource": 1,
+      "instance_resource": 49,
+      "air_action_name": "index"
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 158,
+    "fields": {
+      "resource": 1,
+      "instance_resource": 49,
+      "air_action_name": "index"
+    }
+  },
+  {
     "model": "core.aphp",
     "pk": 20,
     "fields": {
@@ -275,7 +374,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 2
+      "sort": 1
     }
   },
   {
@@ -289,7 +388,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 3
+      "sort": 1
     }
   },
   {
@@ -611,7 +710,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 2
+      "sort": 1
     }
   },
   {
@@ -961,7 +1060,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 2
+      "sort": 1
     }
   },
   {
@@ -1017,7 +1116,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 1
+      "sort": 0
     }
   },
   {
@@ -1073,7 +1172,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 1
+      "sort": 0
     }
   },
   {
@@ -1241,7 +1340,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 2
+      "sort": 0
     }
   },
   {
@@ -1250,7 +1349,7 @@
     "fields": {
       "available_action": "workitem",
       "button": 18,
-      "name": "Aufgabe: skip write-statement, check-statement",
+      "name": "Aufgabe: skip circulation",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -1264,12 +1363,166 @@
     "fields": {
       "available_action": "workitem",
       "button": 43,
-      "name": "Aufgabe: skip write-statement, check-statement",
+      "name": "Aufgabe: skip circulation",
       "description": null,
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
       "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 148,
+    "fields": {
+      "available_action": "pageredirect",
+      "button": 38,
+      "name": "Zur\u00fcck zur Aufgabenliste",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 149,
+    "fields": {
+      "available_action": "pageredirect",
+      "button": 34,
+      "name": "Zur\u00fcck zur Zirkulation",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 150,
+    "fields": {
+      "available_action": "pageredirect",
+      "button": 37,
+      "name": "Zur\u00fcck zur Zirkulation",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 151,
+    "fields": {
+      "available_action": "pageredirect",
+      "button": 44,
+      "name": "Zur\u00fcck zur Zirkulation",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 2
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 152,
+    "fields": {
+      "available_action": "pageredirect",
+      "button": 45,
+      "name": "Zur\u00fcck zur Zirkulation",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 153,
+    "fields": {
+      "available_action": "pageredirect",
+      "button": 46,
+      "name": "Zur\u00fcck zur Zirkulation",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 154,
+    "fields": {
+      "available_action": "pageredirect",
+      "button": 21,
+      "name": "Zur\u00fcck zur Aufgabenliste",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 155,
+    "fields": {
+      "available_action": "pageredirect",
+      "button": 3,
+      "name": "Zur\u00fcck zur Aufgabenliste",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 2
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 156,
+    "fields": {
+      "available_action": "pageredirect",
+      "button": 23,
+      "name": "Zur\u00fcck zur Zirkulation",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 2
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 157,
+    "fields": {
+      "available_action": "pageredirect",
+      "button": 19,
+      "name": "Zur\u00fcck zur Aufgabenliste",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 158,
+    "fields": {
+      "available_action": "pageredirect",
+      "button": 1,
+      "name": "Zur\u00fcck zur Aufgabenliste",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 2
     }
   },
   {
@@ -1280,7 +1533,7 @@
       "process_type": "complete",
       "process_all": false,
       "is_activation": false,
-      "fail_on_empty": false
+      "fail_on_empty": true
     }
   },
   {
@@ -1291,7 +1544,7 @@
       "process_type": "complete",
       "process_all": false,
       "is_activation": false,
-      "fail_on_empty": false
+      "fail_on_empty": true
     }
   },
   {
@@ -1302,7 +1555,7 @@
       "process_type": "complete",
       "process_all": false,
       "is_activation": false,
-      "fail_on_empty": false
+      "fail_on_empty": true
     }
   },
   {
@@ -1324,7 +1577,7 @@
       "process_type": "complete",
       "process_all": false,
       "is_activation": false,
-      "fail_on_empty": false
+      "fail_on_empty": true
     }
   },
   {
@@ -1335,7 +1588,7 @@
       "process_type": "complete",
       "process_all": false,
       "is_activation": false,
-      "fail_on_empty": false
+      "fail_on_empty": true
     }
   },
   {
@@ -1346,7 +1599,7 @@
       "process_type": "complete",
       "process_all": false,
       "is_activation": false,
-      "fail_on_empty": false
+      "fail_on_empty": true
     }
   },
   {
@@ -1357,7 +1610,7 @@
       "process_type": "complete",
       "process_all": false,
       "is_activation": false,
-      "fail_on_empty": false
+      "fail_on_empty": true
     }
   },
   {
@@ -1368,7 +1621,7 @@
       "process_type": "complete",
       "process_all": false,
       "is_activation": false,
-      "fail_on_empty": false
+      "fail_on_empty": true
     }
   },
   {
@@ -1412,7 +1665,7 @@
       "process_type": "complete",
       "process_all": false,
       "is_activation": false,
-      "fail_on_empty": false
+      "fail_on_empty": true
     }
   },
   {
@@ -1423,7 +1676,7 @@
       "process_type": "complete",
       "process_all": false,
       "is_activation": false,
-      "fail_on_empty": false
+      "fail_on_empty": true
     }
   },
   {
@@ -1434,7 +1687,7 @@
       "process_type": "complete",
       "process_all": false,
       "is_activation": false,
-      "fail_on_empty": false
+      "fail_on_empty": true
     }
   },
   {
@@ -1445,16 +1698,16 @@
       "process_type": "complete",
       "process_all": false,
       "is_activation": false,
-      "fail_on_empty": false
+      "fail_on_empty": true
     }
   },
   {
     "model": "core.actionworkitem",
     "pk": 146,
     "fields": {
-      "tasks": "[\"check-statement\", \"write-statement\"]",
+      "tasks": "[\"circulation\"]",
       "process_type": "skip",
-      "process_all": true,
+      "process_all": false,
       "is_activation": false,
       "fail_on_empty": false
     }
@@ -1463,9 +1716,9 @@
     "model": "core.actionworkitem",
     "pk": 147,
     "fields": {
-      "tasks": "[\"check-statement\", \"write-statement\"]",
-      "process_type": "complete",
-      "process_all": true,
+      "tasks": "[\"circulation\"]",
+      "process_type": "skip",
+      "process_all": false,
       "is_activation": false,
       "fail_on_empty": false
     }
