@@ -1559,7 +1559,7 @@ MANABI_ENABLE = env.bool("MANABI_ENABLE", default=default(True, False))
 
 # These are security relevant: provide a default that cannot be abused
 MANABI_SHARED_KEY = env.str(
-    "MANABI_SHARED_KEY", default=default("bNEZsIjvxDAiLhDA1chvF9zL9OJYPNlCqNPlm7KbhmU")
+    "MANABI_SHARED_KEY", default="bNEZsIjvxDAiLhDA1chvF9zL9OJYPNlCqNPlm7KbhmU"
 )
 
 MANABI_TOKEN_ACTIVATE_TIMEOUT = env.int(
