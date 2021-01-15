@@ -1384,7 +1384,7 @@ class Button(MultilingualModel, models.Model):
         "InstanceResource",
         models.CASCADE,
         db_column="INSTANCE_RESOURCE_ID",
-        related_name="+",
+        related_name="buttons",
     )
     name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
     description = models.CharField(

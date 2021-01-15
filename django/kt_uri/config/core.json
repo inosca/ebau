@@ -113,22 +113,6 @@
   },
   {
     "model": "core.aformtransition",
-    "pk": 258,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 27
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 259,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 26
-    }
-  },
-  {
-    "model": "core.aformtransition",
     "pk": 351,
     "fields": {
       "current_instance_state": null,
@@ -169,33 +153,9 @@
   },
   {
     "model": "core.aformtransition",
-    "pk": 700,
-    "fields": {
-      "current_instance_state": 21,
-      "next_instance_state": 27
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 701,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 26
-    }
-  },
-  {
-    "model": "core.aformtransition",
     "pk": 730,
     "fields": {
       "current_instance_state": null,
-      "next_instance_state": 21
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 731,
-    "fields": {
-      "current_instance_state": 25,
       "next_instance_state": 21
     }
   },
@@ -229,14 +189,6 @@
     "fields": {
       "current_instance_state": 24,
       "next_instance_state": 26
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1004,
-    "fields": {
-      "current_instance_state": 26,
-      "next_instance_state": 22
     }
   },
   {
@@ -337,14 +289,6 @@
   },
   {
     "model": "core.aformtransition",
-    "pk": 1102,
-    "fields": {
-      "current_instance_state": 26,
-      "next_instance_state": 21
-    }
-  },
-  {
-    "model": "core.aformtransition",
     "pk": 1131,
     "fields": {
       "current_instance_state": 23,
@@ -381,14 +325,6 @@
     "fields": {
       "current_instance_state": null,
       "next_instance_state": 23
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1185,
-    "fields": {
-      "current_instance_state": 23,
-      "next_instance_state": 24
     }
   },
   {
@@ -517,14 +453,6 @@
     "fields": {
       "current_instance_state": 21,
       "next_instance_state": 22
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1446,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 26
     }
   },
   {
@@ -821,15 +749,6 @@
   {
     "model": "core.anotification",
     "pk": 1297,
-    "fields": {
-      "template": "oreb-meldung",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_Lisag",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 1317,
     "fields": {
       "template": "oreb-meldung",
       "recipient_type": "Custom_Plugin_Notification_Recipient_Lisag",
@@ -1456,20 +1375,6 @@
   },
   {
     "model": "core.action",
-    "pk": 87,
-    "fields": {
-      "available_action": "save",
-      "button": 65,
-      "name": "Speichern",
-      "description": "",
-      "success_message": "Speichern erfolgreich.",
-      "error_message": "Speichern fehlgeschlagen!",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 171,
     "fields": {
       "available_action": "workflow",
@@ -1480,20 +1385,6 @@
       "error_message": "Workflow Datum konnte nicht gesetzt werden",
       "execute_always": 1,
       "sort": 5
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 187,
-    "fields": {
-      "available_action": "save",
-      "button": 5,
-      "name": "Speichern",
-      "description": "",
-      "success_message": "Speichern erfolgreich.",
-      "error_message": "Speichern fehlgeschlagen!",
-      "execute_always": 0,
-      "sort": 0
     }
   },
   {
@@ -1648,48 +1539,6 @@
       "error_message": "",
       "execute_always": 0,
       "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 257,
-    "fields": {
-      "available_action": "save",
-      "button": 150,
-      "name": "Speichern",
-      "description": "",
-      "success_message": "Speichern erfolgreich.",
-      "error_message": "Speichern fehlgeschlagen!",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 258,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 151,
-      "name": "L\u00f6schen",
-      "description": "COMM zu DEL (nur Gemeinde)",
-      "success_message": "Dossier erfolgreich gel\u00f6scht.",
-      "error_message": "Das Dossier konnte nicht gel\u00f6scht werden, da ein Fehler aufgetreten ist!",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 259,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 152,
-      "name": "Archivieren",
-      "description": "COMM zu ARCH (nur Gemeinde)",
-      "success_message": "Dossier erfolgreich archiviert.",
-      "error_message": "Das Dossiert konnte nicht archiviert werden, da ein Fehler aufgetreten ist!",
-      "execute_always": 0,
-      "sort": 0
     }
   },
   {
@@ -2184,34 +2033,6 @@
   },
   {
     "model": "core.action",
-    "pk": 694,
-    "fields": {
-      "available_action": "save",
-      "button": 469,
-      "name": "Speichern",
-      "description": "",
-      "success_message": "Speichern erfolgreich.",
-      "error_message": "Speichern fehlgeschlagen!",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 696,
-    "fields": {
-      "available_action": "save",
-      "button": 470,
-      "name": "Speichern",
-      "description": "",
-      "success_message": "Dossier gespeichert.",
-      "error_message": "Das Dossier konnte nicht frei gegeben werden, da beim Speicher ein Fehler aufgetreten ist!",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 697,
     "fields": {
       "available_action": "formtransition",
@@ -2254,48 +2075,6 @@
   },
   {
     "model": "core.action",
-    "pk": 700,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 471,
-      "name": "L\u00f6schen",
-      "description": "Dossier der Gemeinde l\u00f6schen",
-      "success_message": "Dossier erfolgreich gel\u00f6scht.",
-      "error_message": "Das Dossier konnte nicht gel\u00f6scht werden, da ein Fehler aufgetreten ist!",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 701,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 472,
-      "name": "Archivieren",
-      "description": "ANY (Gemeinde) zu ARCH",
-      "success_message": "Das Dossier wurde archiviert.",
-      "error_message": "Das Dossier konnte nich archiviert werden, da ein Fehler aufgetreten ist!",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 702,
-    "fields": {
-      "available_action": "workflow",
-      "button": 472,
-      "name": "Archivieren",
-      "description": "ANY (Gemeinde) zu ARCH",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 711,
     "fields": {
       "available_action": "pageredirect",
@@ -2318,20 +2097,6 @@
       "description": null,
       "success_message": null,
       "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 731,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 489,
-      "name": "Wiederer\u00f6ffnen done - comm",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
       "execute_always": 0,
       "sort": 0
     }
@@ -2926,20 +2691,6 @@
   },
   {
     "model": "core.action",
-    "pk": 990,
-    "fields": {
-      "available_action": "save",
-      "button": 708,
-      "name": "Speichern",
-      "description": "",
-      "success_message": "Speichern erfolgreich.",
-      "error_message": "Speichern fehlgeschlagen!",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 992,
     "fields": {
       "available_action": "formtransition",
@@ -2987,20 +2738,6 @@
       "available_action": "docx",
       "button": 714,
       "name": "Rechnung generieren",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1004,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 718,
-      "name": "Wiederer\u00f6ffnen ARCH - EXT",
       "description": "",
       "success_message": "",
       "error_message": "",
@@ -3472,20 +3209,6 @@
   },
   {
     "model": "core.action",
-    "pk": 1102,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 761,
-      "name": "Transition Arch - COMM",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 1105,
     "fields": {
       "available_action": "php",
@@ -3864,20 +3587,6 @@
   },
   {
     "model": "core.action",
-    "pk": 1185,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 785,
-      "name": "Status\u00e4nderung EXT GEM in DONE",
-      "description": "EXT - GEM in DONE",
-      "success_message": "Status\u00e4nderung erfolgreich ausgef\u00fchrt",
-      "error_message": "Die Status\u00e4nderung konnte nicht ausgef\u00fchrt werden",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 1200,
     "fields": {
       "available_action": "formtransition",
@@ -4138,20 +3847,6 @@
       "description": "",
       "success_message": "",
       "error_message": "",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1223,
-    "fields": {
-      "available_action": "save",
-      "button": 802,
-      "name": "Speichern",
-      "description": "",
-      "success_message": "Speichern erfolgreich.",
-      "error_message": "Speichern fehlgeschlagen!",
       "execute_always": 0,
       "sort": 0
     }
@@ -4704,20 +4399,6 @@
   },
   {
     "model": "core.action",
-    "pk": 1317,
-    "fields": {
-      "available_action": "notification",
-      "button": 854,
-      "name": "E-Mail an Lisag",
-      "description": "S\u00e4mtliche \u00d6REB Meldungen k\u00f6nnen direkt per Email an die Lisag gesendet werden. Diese Aktion wird f\u00fcr solche Mails von der Koordinationsstelle Nutzungsplanung (NP) verwendet.",
-      "success_message": "Ein E-Mail mit der \u00d6REB Meldung wurde versendet.",
-      "error_message": "Das E-Mail mit der \u00d6REB Meldung konnte nicht versendet werden.",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 1318,
     "fields": {
       "available_action": "notification",
@@ -4792,20 +4473,6 @@
     "fields": {
       "available_action": "workflow",
       "button": 894,
-      "name": "\u00d6REB Workflow-Datum setzen",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1362,
-    "fields": {
-      "available_action": "workflow",
-      "button": 854,
       "name": "\u00d6REB Workflow-Datum setzen",
       "description": "",
       "success_message": "",
@@ -4966,20 +4633,6 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1377,
-    "fields": {
-      "available_action": "save",
-      "button": 921,
-      "name": "Speichern",
-      "description": null,
-      "success_message": "Dossier gespeichert.",
-      "error_message": "Das Dossier konnte nicht frei gegeben werden, da beim Speicher ein Fehler aufgetreten ist!",
-      "execute_always": 0,
-      "sort": 0
     }
   },
   {
@@ -5512,34 +5165,6 @@
       "error_message": "Das E-Mail an die Koordinationsstelle konnte nicht versandt werden.",
       "execute_always": 0,
       "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1446,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 944,
-      "name": "Archivieren",
-      "description": "ANY (Gemeinde) zu ARCH",
-      "success_message": "Das Dossier wurde archiviert.",
-      "error_message": "Das Dossier konnte nich archiviert werden, da ein Fehler aufgetreten ist!",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1447,
-    "fields": {
-      "available_action": "workflow",
-      "button": 944,
-      "name": "Archivieren",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
     }
   },
   {
@@ -11551,132 +11176,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 5,
-    "fields": {
-      "button": 5,
-      "role": 3,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 6,
-    "fields": {
-      "button": 5,
-      "role": 3,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 7,
-    "fields": {
-      "button": 5,
-      "role": 3,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 8,
-    "fields": {
-      "button": 5,
-      "role": 3,
-      "instance_state": 24
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 9,
-    "fields": {
-      "button": 5,
-      "role": 3,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 10,
-    "fields": {
-      "button": 5,
-      "role": 3,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 11,
-    "fields": {
-      "button": 5,
-      "role": 3,
-      "instance_state": 27
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 13,
-    "fields": {
-      "button": 65,
-      "role": 3,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 14,
-    "fields": {
-      "button": 65,
-      "role": 3,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 15,
-    "fields": {
-      "button": 65,
-      "role": 3,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 16,
-    "fields": {
-      "button": 65,
-      "role": 3,
-      "instance_state": 24
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 17,
-    "fields": {
-      "button": 65,
-      "role": 3,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 18,
-    "fields": {
-      "button": 65,
-      "role": 3,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 19,
-    "fields": {
-      "button": 65,
-      "role": 3,
-      "instance_state": 27
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 20,
     "fields": {
       "button": 124,
@@ -11736,24 +11235,6 @@
       "button": 149,
       "role": 6,
       "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 27,
-    "fields": {
-      "button": 150,
-      "role": 6,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 28,
-    "fields": {
-      "button": 152,
-      "role": 6,
-      "instance_state": 21
     }
   },
   {
@@ -12316,15 +11797,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 98,
-    "fields": {
-      "button": 469,
-      "role": 6,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 99,
     "fields": {
       "button": 470,
@@ -12334,45 +11806,9 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 100,
-    "fields": {
-      "button": 471,
-      "role": 6,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 101,
-    "fields": {
-      "button": 472,
-      "role": 6,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 102,
-    "fields": {
-      "button": 472,
-      "role": 6,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 103,
     "fields": {
       "button": 488,
-      "role": 6,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 104,
-    "fields": {
-      "button": 489,
       "role": 6,
       "instance_state": 25
     }
@@ -12604,15 +12040,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 133,
-    "fields": {
-      "button": 708,
-      "role": 1101,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 134,
     "fields": {
       "button": 305,
@@ -12685,15 +12112,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 145,
-    "fields": {
-      "button": 708,
-      "role": 1101,
-      "instance_state": 24
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 146,
     "fields": {
       "button": 714,
@@ -12730,15 +12148,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 151,
-    "fields": {
-      "button": 708,
-      "role": 1101,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 152,
     "fields": {
       "button": 711,
@@ -12757,29 +12166,11 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 158,
-    "fields": {
-      "button": 708,
-      "role": 1101,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 160,
     "fields": {
       "button": 690,
       "role": 1101,
       "instance_state": 23
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 163,
-    "fields": {
-      "button": 718,
-      "role": 3,
-      "instance_state": 26
     }
   },
   {
@@ -13000,15 +12391,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 191,
-    "fields": {
-      "button": 761,
-      "role": 3,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 192,
     "fields": {
       "button": 758,
@@ -13090,15 +12472,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 204,
-    "fields": {
-      "button": 854,
-      "role": 6,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 205,
     "fields": {
       "button": 834,
@@ -13149,15 +12522,6 @@
       "button": 811,
       "role": 1127,
       "instance_state": 22
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 212,
-    "fields": {
-      "button": 854,
-      "role": 4,
-      "instance_state": 24
     }
   },
   {
@@ -13225,15 +12589,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 224,
-    "fields": {
-      "button": 802,
-      "role": 1127,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 225,
     "fields": {
       "button": 834,
@@ -13293,15 +12648,6 @@
       "button": 834,
       "role": 6,
       "instance_state": 21
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 232,
-    "fields": {
-      "button": 802,
-      "role": 1127,
-      "instance_state": 22
     }
   },
   {
@@ -13405,15 +12751,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 246,
-    "fields": {
-      "button": 854,
-      "role": 1102,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 247,
     "fields": {
       "button": 804,
@@ -13495,15 +12832,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 256,
-    "fields": {
-      "button": 802,
-      "role": 1127,
-      "instance_state": 24
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 257,
     "fields": {
       "button": 834,
@@ -13554,24 +12882,6 @@
       "button": 782,
       "role": 1106,
       "instance_state": 23
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 265,
-    "fields": {
-      "button": 854,
-      "role": 1021,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 266,
-    "fields": {
-      "button": 854,
-      "role": 1021,
-      "instance_state": 25
     }
   },
   {
@@ -13671,15 +12981,6 @@
       "button": 812,
       "role": 1127,
       "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 281,
-    "fields": {
-      "button": 854,
-      "role": 1021,
-      "instance_state": 24
     }
   },
   {
@@ -13837,15 +13138,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 301,
-    "fields": {
-      "button": 854,
-      "role": 1102,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 302,
     "fields": {
       "button": 784,
@@ -13878,15 +13170,6 @@
       "button": 831,
       "role": 1128,
       "instance_state": 27
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 307,
-    "fields": {
-      "button": 854,
-      "role": 1102,
-      "instance_state": 21
     }
   },
   {
@@ -13945,29 +13228,11 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 315,
-    "fields": {
-      "button": 802,
-      "role": 1127,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 316,
     "fields": {
       "button": 914,
       "role": 1128,
       "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 317,
-    "fields": {
-      "button": 854,
-      "role": 4,
-      "instance_state": 22
     }
   },
   {
@@ -14044,15 +13309,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 327,
-    "fields": {
-      "button": 854,
-      "role": 1021,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 328,
     "fields": {
       "button": 915,
@@ -14098,29 +13354,11 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 335,
-    "fields": {
-      "button": 854,
-      "role": 6,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 336,
     "fields": {
       "button": 811,
       "role": 1127,
       "instance_state": 27
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 337,
-    "fields": {
-      "button": 854,
-      "role": 4,
-      "instance_state": 23
     }
   },
   {
@@ -14170,15 +13408,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 344,
-    "fields": {
-      "button": 802,
-      "role": 1127,
-      "instance_state": 27
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 345,
     "fields": {
       "button": 834,
@@ -14197,29 +13426,11 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 348,
-    "fields": {
-      "button": 854,
-      "role": 1102,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 349,
     "fields": {
       "button": 799,
       "role": 1107,
       "instance_state": 23
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 350,
-    "fields": {
-      "button": 854,
-      "role": 1021,
-      "instance_state": 21
     }
   },
   {
@@ -14247,15 +13458,6 @@
       "button": 831,
       "role": 1128,
       "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 356,
-    "fields": {
-      "button": 854,
-      "role": 4,
-      "instance_state": 21
     }
   },
   {
@@ -14422,15 +13624,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 380,
-    "fields": {
-      "button": 854,
-      "role": 1102,
-      "instance_state": 24
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 381,
     "fields": {
       "button": 831,
@@ -14463,24 +13656,6 @@
       "button": 808,
       "role": 1127,
       "instance_state": 23
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 386,
-    "fields": {
-      "button": 854,
-      "role": 4,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 387,
-    "fields": {
-      "button": 802,
-      "role": 1127,
-      "instance_state": 26
     }
   },
   {
@@ -14535,15 +13710,6 @@
       "button": 794,
       "role": 1107,
       "instance_state": 23
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 396,
-    "fields": {
-      "button": 802,
-      "role": 1127,
-      "instance_state": 25
     }
   },
   {
@@ -14791,33 +13957,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 444,
-    "fields": {
-      "button": 150,
-      "role": 6,
-      "instance_state": 32
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 450,
-    "fields": {
-      "button": 785,
-      "role": 3,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 455,
-    "fields": {
-      "button": 785,
-      "role": 3,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 456,
     "fields": {
       "button": 762,
@@ -14845,27 +13984,9 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 459,
-    "fields": {
-      "button": 785,
-      "role": 3,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 460,
     "fields": {
       "button": 762,
-      "role": 3,
-      "instance_state": 32
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 461,
-    "fields": {
-      "button": 785,
       "role": 3,
       "instance_state": 32
     }
@@ -15601,55 +14722,10 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 580,
-    "fields": {
-      "button": 65,
-      "role": 3,
-      "instance_state": 33
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 581,
     "fields": {
       "button": 144,
       "role": 3,
-      "instance_state": 33
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 582,
-    "fields": {
-      "button": 150,
-      "role": 6,
-      "instance_state": 33
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 584,
-    "fields": {
-      "button": 151,
-      "role": 1,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 585,
-    "fields": {
-      "button": 151,
-      "role": 1,
-      "instance_state": 33
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 586,
-    "fields": {
-      "button": 151,
-      "role": 6,
       "instance_state": 33
     }
   },
@@ -15718,15 +14794,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 595,
-    "fields": {
-      "button": 944,
-      "role": 6,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 596,
     "fields": {
       "button": 945,
@@ -15748,15 +14815,6 @@
     "pk": 599,
     "fields": {
       "button": 762,
-      "role": 3,
-      "instance_state": 27
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 600,
-    "fields": {
-      "button": 785,
       "role": 3,
       "instance_state": 27
     }
@@ -15871,33 +14929,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 613,
-    "fields": {
-      "button": 152,
-      "role": 6,
-      "instance_state": 32
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 615,
-    "fields": {
-      "button": 5,
-      "role": 3,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 616,
-    "fields": {
-      "button": 65,
-      "role": 3,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 617,
     "fields": {
       "button": 149,
@@ -15961,27 +14992,9 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 624,
-    "fields": {
-      "button": 472,
-      "role": 6,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 625,
     "fields": {
       "button": 488,
-      "role": 6,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 626,
-    "fields": {
-      "button": 489,
       "role": 6,
       "instance_state": 34
     }
@@ -16001,15 +15014,6 @@
     "fields": {
       "button": 548,
       "role": 1061,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 630,
-    "fields": {
-      "button": 708,
-      "role": 1101,
       "instance_state": 34
     }
   },
@@ -16069,15 +15073,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 640,
-    "fields": {
-      "button": 854,
-      "role": 6,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 641,
     "fields": {
       "button": 832,
@@ -16109,15 +15104,6 @@
     "fields": {
       "button": 917,
       "role": 1101,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 645,
-    "fields": {
-      "button": 854,
-      "role": 1021,
       "instance_state": 34
     }
   },
@@ -16163,15 +15149,6 @@
     "fields": {
       "button": 834,
       "role": 1021,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 651,
-    "fields": {
-      "button": 854,
-      "role": 1102,
       "instance_state": 34
     }
   },
@@ -16258,15 +15235,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 663,
-    "fields": {
-      "button": 854,
-      "role": 4,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 664,
     "fields": {
       "button": 834,
@@ -16280,15 +15248,6 @@
     "fields": {
       "button": 797,
       "role": 1107,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 666,
-    "fields": {
-      "button": 802,
-      "role": 1127,
       "instance_state": 34
     }
   },
@@ -16316,15 +15275,6 @@
     "fields": {
       "button": 920,
       "role": 1129,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 671,
-    "fields": {
-      "button": 785,
-      "role": 3,
       "instance_state": 34
     }
   },
@@ -16393,15 +15343,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 679,
-    "fields": {
-      "button": 944,
-      "role": 6,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 680,
     "fields": {
       "button": 947,
@@ -16429,27 +15370,9 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 683,
-    "fields": {
-      "button": 785,
-      "role": 1061,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 684,
     "fields": {
       "button": 762,
-      "role": 3,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 685,
-    "fields": {
-      "button": 785,
       "role": 3,
       "instance_state": 23
     }
@@ -16488,24 +15411,6 @@
       "button": 608,
       "role": 4,
       "instance_state": 34
-    }
-  },
-  {
-    "model": "core.bserviceacl",
-    "pk": 1,
-    "fields": {
-      "button": 5,
-      "service": 1,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.bserviceacl",
-    "pk": 2,
-    "fields": {
-      "button": 5,
-      "service": 1,
-      "instance_state": 24
     }
   },
   {
@@ -16883,58 +15788,34 @@
     "model": "core.button",
     "pk": 4,
     "fields": {
-      "instance_resource": 771,
+      "instance_resource": 180000,
       "name": "Freigeben f\u00fcr Koordinationsstelle",
-      "description": null,
-      "class_field": "release_koor",
+      "description": "Freigeben f\u00fcr KOOR BG",
+      "class_field": "release_koor in_form_group:31",
       "hidden": 0,
       "sort": 1
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 5,
-    "fields": {
-      "instance_resource": 4,
-      "name": "Speichern",
-      "description": "",
-      "class_field": "",
-      "hidden": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 65,
-    "fields": {
-      "instance_resource": 107,
-      "name": "Speichern",
-      "description": "",
-      "class_field": "",
-      "hidden": 0,
-      "sort": 0
     }
   },
   {
     "model": "core.button",
     "pk": 124,
     "fields": {
-      "instance_resource": 4,
+      "instance_resource": 180002,
       "name": "Zur\u00fcck an Gemeinde",
       "description": "ext zu comm",
-      "class_field": "return_to_community no-animation",
+      "class_field": "return_to_community no-animation in_form_group:81",
       "hidden": 0,
-      "sort": 1
+      "sort": 0
     }
   },
   {
     "model": "core.button",
     "pk": 144,
     "fields": {
-      "instance_resource": 107,
+      "instance_resource": 180002,
       "name": "L\u00f6schen",
       "description": "",
-      "class_field": "",
+      "class_field": " in_form_group:32",
       "hidden": 0,
       "sort": 2
     }
@@ -16943,22 +15824,22 @@
     "model": "core.button",
     "pk": 146,
     "fields": {
-      "instance_resource": 771,
+      "instance_resource": 180000,
       "name": "L\u00f6schen",
       "description": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 2
+      "sort": 5
     }
   },
   {
     "model": "core.button",
     "pk": 147,
     "fields": {
-      "instance_resource": 4,
+      "instance_resource": 180002,
       "name": "Zur\u00fcck an Gemeinde",
       "description": "redac zu done",
-      "class_field": "return_to_community  no-animation",
+      "class_field": "return_to_community  no-animation in_form_group:81",
       "hidden": 0,
       "sort": 2
     }
@@ -16967,10 +15848,10 @@
     "model": "core.button",
     "pk": 148,
     "fields": {
-      "instance_resource": 107,
+      "instance_resource": 180002,
       "name": "Archivieren",
       "description": "",
-      "class_field": "",
+      "class_field": " in_form_group:32",
       "hidden": 0,
       "sort": 3
     }
@@ -16979,48 +15860,12 @@
     "model": "core.button",
     "pk": 149,
     "fields": {
-      "instance_resource": 771,
+      "instance_resource": 180000,
       "name": "Archivieren",
       "description": "Gemeinde COMM und DONE",
       "class_field": "",
       "hidden": 0,
-      "sort": 3
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 150,
-    "fields": {
-      "instance_resource": 245,
-      "name": "Speichern",
-      "description": "",
-      "class_field": "",
-      "hidden": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 151,
-    "fields": {
-      "instance_resource": 245,
-      "name": "L\u00f6schen",
-      "description": "",
-      "class_field": "",
-      "hidden": 0,
-      "sort": 2
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 152,
-    "fields": {
-      "instance_resource": 245,
-      "name": "Archivieren",
-      "description": "",
-      "class_field": "",
-      "hidden": 0,
-      "sort": 3
+      "sort": 6
     }
   },
   {
@@ -17195,10 +16040,10 @@
     "model": "core.button",
     "pk": 429,
     "fields": {
-      "instance_resource": 445,
+      "instance_resource": 180003,
       "name": "L\u00f6schen",
       "description": "",
-      "class_field": "",
+      "class_field": " in_form_group:141",
       "hidden": 0,
       "sort": 1
     }
@@ -17207,10 +16052,10 @@
     "model": "core.button",
     "pk": 430,
     "fields": {
-      "instance_resource": 445,
+      "instance_resource": 180003,
       "name": "Archivieren",
       "description": "",
-      "class_field": "",
+      "class_field": " in_form_group:141",
       "hidden": 0,
       "sort": 2
     }
@@ -17277,74 +16122,26 @@
   },
   {
     "model": "core.button",
-    "pk": 469,
-    "fields": {
-      "instance_resource": 490,
-      "name": "Speichern",
-      "description": "",
-      "class_field": "",
-      "hidden": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.button",
     "pk": 470,
     "fields": {
-      "instance_resource": 490,
+      "instance_resource": 180000,
       "name": "Freigeben f\u00fcr Koordinationsstelle",
-      "description": null,
-      "class_field": "release_koor",
-      "hidden": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 471,
-    "fields": {
-      "instance_resource": 490,
-      "name": "L\u00f6schen",
-      "description": "",
-      "class_field": "",
+      "description": "Freigeben f\u00fcr KOOR NP",
+      "class_field": "release_koor in_form_group:141",
       "hidden": 0,
       "sort": 2
     }
   },
   {
     "model": "core.button",
-    "pk": 472,
-    "fields": {
-      "instance_resource": 490,
-      "name": "Archivieren",
-      "description": "Gemeinde COMM und DONE",
-      "class_field": "",
-      "hidden": 0,
-      "sort": 3
-    }
-  },
-  {
-    "model": "core.button",
     "pk": 488,
     "fields": {
-      "instance_resource": 771,
+      "instance_resource": 180000,
       "name": "Wiederer\u00f6ffnen",
       "description": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 4
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 489,
-    "fields": {
-      "instance_resource": 490,
-      "name": "Wiederer\u00f6ffnen",
-      "description": "",
-      "class_field": "",
-      "hidden": 0,
-      "sort": 4
+      "sort": 0
     }
   },
   {
@@ -17363,10 +16160,10 @@
     "model": "core.button",
     "pk": 529,
     "fields": {
-      "instance_resource": 445,
+      "instance_resource": 180003,
       "name": "Zur\u00fcck an Gemeinde",
       "description": null,
-      "class_field": "return_to_community no-animation",
+      "class_field": "return_to_community no-animation in_form_group:141",
       "hidden": 0,
       "sort": 3
     }
@@ -17505,21 +16302,9 @@
   },
   {
     "model": "core.button",
-    "pk": 708,
-    "fields": {
-      "instance_resource": 605,
-      "name": "Speichern",
-      "description": "",
-      "class_field": "",
-      "hidden": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.button",
     "pk": 710,
     "fields": {
-      "instance_resource": 605,
+      "instance_resource": 180004,
       "name": "L\u00f6schen",
       "description": "",
       "class_field": "",
@@ -17531,7 +16316,7 @@
     "model": "core.button",
     "pk": 711,
     "fields": {
-      "instance_resource": 605,
+      "instance_resource": 180004,
       "name": "Archivieren",
       "description": "",
       "class_field": "",
@@ -17553,21 +16338,9 @@
   },
   {
     "model": "core.button",
-    "pk": 718,
-    "fields": {
-      "instance_resource": 107,
-      "name": "Wiederer\u00f6ffnen (EXT)",
-      "description": "Von Arch zur\u00fcck zu Redac",
-      "class_field": "button_reopen",
-      "hidden": 0,
-      "sort": 5
-    }
-  },
-  {
-    "model": "core.button",
     "pk": 719,
     "fields": {
-      "instance_resource": 605,
+      "instance_resource": 180004,
       "name": "Wiederer\u00f6ffnen (COMM)",
       "description": "",
       "class_field": "button_reopen",
@@ -17579,10 +16352,10 @@
     "model": "core.button",
     "pk": 721,
     "fields": {
-      "instance_resource": 465,
+      "instance_resource": 180003,
       "name": "Wiederer\u00f6ffnen (COMM)",
       "description": "",
-      "class_field": "button_reopen",
+      "class_field": "button_reopen in_form_group:141",
       "hidden": 0,
       "sort": 0
     }
@@ -17735,10 +16508,10 @@
     "model": "core.button",
     "pk": 756,
     "fields": {
-      "instance_resource": 4,
+      "instance_resource": 180002,
       "name": "Wiederer\u00f6ffnen (COMM)",
-      "description": "",
-      "class_field": "",
+      "description": null,
+      "class_field": null,
       "hidden": 0,
       "sort": 3
     }
@@ -17747,10 +16520,10 @@
     "model": "core.button",
     "pk": 757,
     "fields": {
-      "instance_resource": 465,
+      "instance_resource": 180003,
       "name": "Wiederer\u00f6ffnen (EXT)",
       "description": "",
-      "class_field": "",
+      "class_field": " in_form_group:141",
       "hidden": 0,
       "sort": 1
     }
@@ -17759,7 +16532,7 @@
     "model": "core.button",
     "pk": 758,
     "fields": {
-      "instance_resource": 605,
+      "instance_resource": 180004,
       "name": "Wiederer\u00f6ffnen (EXT)",
       "description": "",
       "class_field": "",
@@ -17771,22 +16544,10 @@
     "model": "core.button",
     "pk": 760,
     "fields": {
-      "instance_resource": 4,
+      "instance_resource": 180002,
       "name": "Wiederer\u00f6ffnen (EXT)",
-      "description": "",
-      "class_field": "",
-      "hidden": 0,
-      "sort": 4
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 761,
-    "fields": {
-      "instance_resource": 107,
-      "name": "Wiederer\u00f6ffnen (COMM)",
-      "description": "",
-      "class_field": "",
+      "description": null,
+      "class_field": null,
       "hidden": 0,
       "sort": 4
     }
@@ -17795,11 +16556,11 @@
     "model": "core.button",
     "pk": 762,
     "fields": {
-      "instance_resource": 4,
+      "instance_resource": 180002,
       "name": "Status\u00e4nderung",
       "description": "\u00c4ndert den Status des Dossiers",
       "class_field": null,
-      "hidden": 0,
+      "hidden": 1,
       "sort": 5
     }
   },
@@ -17807,7 +16568,7 @@
     "model": "core.button",
     "pk": 766,
     "fields": {
-      "instance_resource": 699,
+      "instance_resource": 180005,
       "name": "L\u00f6schen",
       "description": "",
       "class_field": "",
@@ -17819,7 +16580,7 @@
     "model": "core.button",
     "pk": 767,
     "fields": {
-      "instance_resource": 699,
+      "instance_resource": 180005,
       "name": "Archivieren",
       "description": "",
       "class_field": "",
@@ -17831,7 +16592,7 @@
     "model": "core.button",
     "pk": 769,
     "fields": {
-      "instance_resource": 699,
+      "instance_resource": 180005,
       "name": "Wiederer\u00f6ffnen (EXT)",
       "description": "Von Arch zur\u00fcck zu Redac",
       "class_field": "",
@@ -17937,21 +16698,9 @@
   },
   {
     "model": "core.button",
-    "pk": 785,
-    "fields": {
-      "instance_resource": 107,
-      "name": "Status\u00e4nderung",
-      "description": "\u00c4ndert den Status des Dossiers",
-      "class_field": null,
-      "hidden": 0,
-      "sort": 6
-    }
-  },
-  {
-    "model": "core.button",
     "pk": 791,
     "fields": {
-      "instance_resource": 714,
+      "instance_resource": 180006,
       "name": "L\u00f6schen",
       "description": "",
       "class_field": "",
@@ -17963,7 +16712,7 @@
     "model": "core.button",
     "pk": 792,
     "fields": {
-      "instance_resource": 714,
+      "instance_resource": 180006,
       "name": "Archivieren",
       "description": "",
       "class_field": "",
@@ -17975,7 +16724,7 @@
     "model": "core.button",
     "pk": 793,
     "fields": {
-      "instance_resource": 714,
+      "instance_resource": 180006,
       "name": "Wiederer\u00f6ffnen (EXT)",
       "description": "Von Arch zur\u00fcck zu Redac",
       "class_field": "",
@@ -18069,21 +16818,9 @@
   },
   {
     "model": "core.button",
-    "pk": 802,
-    "fields": {
-      "instance_resource": 723,
-      "name": "Speichern",
-      "description": "",
-      "class_field": "",
-      "hidden": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.button",
     "pk": 803,
     "fields": {
-      "instance_resource": 723,
+      "instance_resource": 180007,
       "name": "L\u00f6schen",
       "description": "",
       "class_field": "",
@@ -18095,7 +16832,7 @@
     "model": "core.button",
     "pk": 804,
     "fields": {
-      "instance_resource": 723,
+      "instance_resource": 180007,
       "name": "Archivieren",
       "description": "",
       "class_field": "",
@@ -18107,7 +16844,7 @@
     "model": "core.button",
     "pk": 805,
     "fields": {
-      "instance_resource": 723,
+      "instance_resource": 180007,
       "name": "Wiederer\u00f6ffnen (EXT)",
       "description": "Von Arch zur\u00fcck zu Redac",
       "class_field": "",
@@ -18203,7 +16940,7 @@
     "model": "core.button",
     "pk": 823,
     "fields": {
-      "instance_resource": 735,
+      "instance_resource": 180008,
       "name": "L\u00f6schen",
       "description": "",
       "class_field": "",
@@ -18215,7 +16952,7 @@
     "model": "core.button",
     "pk": 824,
     "fields": {
-      "instance_resource": 735,
+      "instance_resource": 180008,
       "name": "Archivieren",
       "description": "",
       "class_field": "",
@@ -18227,7 +16964,7 @@
     "model": "core.button",
     "pk": 825,
     "fields": {
-      "instance_resource": 735,
+      "instance_resource": 180008,
       "name": "Wiederer\u00f6ffnen (EXT)",
       "description": "Von Arch zur\u00fcck zu Redac",
       "class_field": "",
@@ -18323,34 +17060,22 @@
     "model": "core.button",
     "pk": 834,
     "fields": {
-      "instance_resource": 771,
+      "instance_resource": 180000,
       "name": "\u00d6REB Meldung",
       "description": null,
       "class_field": "oereb",
       "hidden": 1,
-      "sort": 5
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 854,
-    "fields": {
-      "instance_resource": 490,
-      "name": "\u00d6REB Meldung",
-      "description": "",
-      "class_field": "oereb",
-      "hidden": 0,
-      "sort": 5
+      "sort": 4
     }
   },
   {
     "model": "core.button",
     "pk": 874,
     "fields": {
-      "instance_resource": 445,
+      "instance_resource": 180003,
       "name": "\u00d6REB Meldung",
       "description": "",
-      "class_field": "oereb",
+      "class_field": "oereb in_form_group:141",
       "hidden": 0,
       "sort": 4
     }
@@ -18359,10 +17084,10 @@
     "model": "core.button",
     "pk": 894,
     "fields": {
-      "instance_resource": 4,
+      "instance_resource": 180002,
       "name": "\u00d6REB Meldung",
       "description": "",
-      "class_field": "oereb",
+      "class_field": "oereb in_form_group:81",
       "hidden": 0,
       "sort": 6
     }
@@ -18371,7 +17096,7 @@
     "model": "core.button",
     "pk": 914,
     "fields": {
-      "instance_resource": 735,
+      "instance_resource": 180008,
       "name": "\u00d6REB Meldung",
       "description": "",
       "class_field": "oereb",
@@ -18383,7 +17108,7 @@
     "model": "core.button",
     "pk": 915,
     "fields": {
-      "instance_resource": 699,
+      "instance_resource": 180005,
       "name": "\u00d6REB Meldung",
       "description": "",
       "class_field": "oereb",
@@ -18395,7 +17120,7 @@
     "model": "core.button",
     "pk": 917,
     "fields": {
-      "instance_resource": 605,
+      "instance_resource": 180004,
       "name": "\u00d6REB Meldung",
       "description": "",
       "class_field": "oereb",
@@ -18431,12 +17156,12 @@
     "model": "core.button",
     "pk": 921,
     "fields": {
-      "instance_resource": 245,
+      "instance_resource": 180000,
       "name": "Freigeben f\u00fcr Gemeindebaubeh\u00f6rde",
       "description": null,
-      "class_field": "release_buildingauthority",
+      "class_field": "release_buildingauthority in_form_group:61",
       "hidden": 0,
-      "sort": 1
+      "sort": 3
     }
   },
   {
@@ -18515,7 +17240,7 @@
     "model": "core.button",
     "pk": 931,
     "fields": {
-      "instance_resource": 758,
+      "instance_resource": 180001,
       "name": "Speichern",
       "description": null,
       "class_field": null,
@@ -18527,7 +17252,7 @@
     "model": "core.button",
     "pk": 932,
     "fields": {
-      "instance_resource": 758,
+      "instance_resource": 180001,
       "name": "L\u00f6schen",
       "description": null,
       "class_field": null,
@@ -18539,7 +17264,7 @@
     "model": "core.button",
     "pk": 933,
     "fields": {
-      "instance_resource": 758,
+      "instance_resource": 180001,
       "name": "Archivieren",
       "description": null,
       "class_field": "archive_btn",
@@ -18623,7 +17348,7 @@
     "model": "core.button",
     "pk": 943,
     "fields": {
-      "instance_resource": 758,
+      "instance_resource": 180001,
       "name": "Freigeben f\u00fcr Koordinationsstelle",
       "description": null,
       "class_field": "release_koor",
@@ -18633,24 +17358,12 @@
   },
   {
     "model": "core.button",
-    "pk": 944,
-    "fields": {
-      "instance_resource": 766,
-      "name": "Archivieren",
-      "description": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.button",
     "pk": 945,
     "fields": {
-      "instance_resource": 107,
+      "instance_resource": 180002,
       "name": "Zur\u00fcck an Leitbeh\u00f6rde",
       "description": null,
-      "class_field": null,
+      "class_field": "in_form_group:32",
       "hidden": 0,
       "sort": 1
     }
@@ -18659,7 +17372,7 @@
     "model": "core.button",
     "pk": 946,
     "fields": {
-      "instance_resource": 605,
+      "instance_resource": 180004,
       "name": "Zur\u00fcck an Leitbeh\u00f6rde",
       "description": null,
       "class_field": null,
@@ -18695,10 +17408,10 @@
     "model": "core.button",
     "pk": 949,
     "fields": {
-      "instance_resource": 445,
+      "instance_resource": 180003,
       "name": "Status\u00e4nderung",
       "description": "\u00c4ndert den Status des Dossiers",
-      "class_field": null,
+      "class_field": " in_form_group:141",
       "hidden": 0,
       "sort": 5
     }
@@ -23016,36 +21729,6 @@
   },
   {
     "model": "core.instanceresource",
-    "pk": 2,
-    "fields": {
-      "available_instance_resource": "editformpage",
-      "resource": 301,
-      "name": "Formular",
-      "description": "Formular die von der Gemeinde erstellt werden, die an die Koordinationsstelle weiter geschickt werden.",
-      "template": "/form/form-edit.phtml",
-      "class_field": null,
-      "hidden": 1,
-      "sort": 2,
-      "form_group": 31
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 3,
-    "fields": {
-      "available_instance_resource": "formpage",
-      "resource": 301,
-      "name": "Personen- und Projektdaten",
-      "description": "Zum alle Personen- und Projektdaten, ohne jedoch die, die comm sind.\nDie die Comm sind, k\u00f6nnen ja eh bearbeitet werden.",
-      "template": "/form/form-read.phtml",
-      "class_field": "",
-      "hidden": 1,
-      "sort": 5,
-      "form_group": 30
-    }
-  },
-  {
-    "model": "core.instanceresource",
     "pk": 4,
     "fields": {
       "available_instance_resource": "page",
@@ -23056,7 +21739,7 @@
       "class_field": null,
       "hidden": 0,
       "sort": 1,
-      "form_group": 81
+      "form_group": 161
     }
   },
   {
@@ -23102,21 +21785,6 @@
       "hidden": 1,
       "sort": 3,
       "form_group": 30
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 107,
-    "fields": {
-      "available_instance_resource": "page",
-      "resource": 267,
-      "name": "Formular",
-      "description": "Formular von der Koordinationsstelle",
-      "template": "/ember/instance.phtml",
-      "class_field": null,
-      "hidden": 0,
-      "sort": 2,
-      "form_group": 32
     }
   },
   {
@@ -23192,21 +21860,6 @@
       "hidden": 0,
       "sort": 0,
       "form_group": 30
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 245,
-    "fields": {
-      "available_instance_resource": "editformpage",
-      "resource": 301,
-      "name": "Formular",
-      "description": "Formular die von der Gemeinde erstellt werden und bei der Gemeinde bleiben",
-      "template": "/form/form-edit.phtml",
-      "class_field": null,
-      "hidden": 1,
-      "sort": 4,
-      "form_group": 61
     }
   },
   {
@@ -23381,12 +22034,12 @@
       "available_instance_resource": "page",
       "resource": 288,
       "name": "Formular",
-      "description": "Dossiers von Koord NP",
+      "description": null,
       "template": "/ember/instance.phtml",
-      "class_field": "",
+      "class_field": null,
       "hidden": 0,
       "sort": 1,
-      "form_group": 141
+      "form_group": 161
     }
   },
   {
@@ -23402,21 +22055,6 @@
       "hidden": 1,
       "sort": 9,
       "form_group": 161
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 465,
-    "fields": {
-      "available_instance_resource": "formpage",
-      "resource": 288,
-      "name": "Personen- und Projektdaten",
-      "description": "Personen- und Projektdaten KOOR NP",
-      "template": "/form/form-read.phtml",
-      "class_field": null,
-      "hidden": 0,
-      "sort": 2,
-      "form_group": 141
     }
   },
   {
@@ -23506,36 +22144,6 @@
       "class_field": "",
       "hidden": 0,
       "sort": 8,
-      "form_group": 141
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 490,
-    "fields": {
-      "available_instance_resource": "editformpage",
-      "resource": 301,
-      "name": "Formular",
-      "description": "Dossiers NP die von der Gemeinde erstellt werden und an die Koordinationsstelle weiter geschickt werden.",
-      "template": "/form/form-edit.phtml",
-      "class_field": null,
-      "hidden": 1,
-      "sort": 3,
-      "form_group": 141
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 491,
-    "fields": {
-      "available_instance_resource": "formpage",
-      "resource": 301,
-      "name": "Personen- und Projektdaten",
-      "description": "Zum alle Dossier NP anschauen, ohne jedoch die, die comm sind.\nDie die Comm sind, k\u00f6nnen ja bearbeitet werden.",
-      "template": "/form/form-read.phtml",
-      "class_field": "",
-      "hidden": 1,
-      "sort": 6,
       "form_group": 141
     }
   },
@@ -23671,22 +22279,7 @@
       "class_field": null,
       "hidden": 0,
       "sort": 1,
-      "form_group": 241
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 606,
-    "fields": {
-      "available_instance_resource": "formpage",
-      "resource": 264,
-      "name": "Personen- und Projektdaten",
-      "description": "Lese-Modus aller Dossiers",
-      "template": "",
-      "class_field": "",
-      "hidden": 1,
-      "sort": 3,
-      "form_group": 241
+      "form_group": 161
     }
   },
   {
@@ -24081,21 +22674,6 @@
   },
   {
     "model": "core.instanceresource",
-    "pk": 700,
-    "fields": {
-      "available_instance_resource": "formpage",
-      "resource": 289,
-      "name": "Personen- und Projektdaten",
-      "description": "Personen- und Projektdaten KOOR AfU",
-      "template": "/form/form-read.phtml",
-      "class_field": null,
-      "hidden": 0,
-      "sort": 2,
-      "form_group": 161
-    }
-  },
-  {
-    "model": "core.instanceresource",
     "pk": 701,
     "fields": {
       "available_instance_resource": "documents",
@@ -24246,21 +22824,6 @@
   },
   {
     "model": "core.instanceresource",
-    "pk": 715,
-    "fields": {
-      "available_instance_resource": "formpage",
-      "resource": 296,
-      "name": "Personen- und Projektdaten",
-      "description": "Personen- und Projektdaten KOOR ALA",
-      "template": "/form/form-read.phtml",
-      "class_field": null,
-      "hidden": 0,
-      "sort": 2,
-      "form_group": 161
-    }
-  },
-  {
-    "model": "core.instanceresource",
     "pk": 716,
     "fields": {
       "available_instance_resource": "documents",
@@ -24347,21 +22910,6 @@
       "hidden": 0,
       "sort": 1,
       "form_group": 251
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 724,
-    "fields": {
-      "available_instance_resource": "formpage",
-      "resource": 297,
-      "name": "Personen- und Projektdaten",
-      "description": "Personen- und Projektdaten KOOR AfE",
-      "template": "/form/form-read.phtml",
-      "class_field": null,
-      "hidden": 0,
-      "sort": 2,
-      "form_group": 161
     }
   },
   {
@@ -24482,21 +23030,6 @@
       "hidden": 0,
       "sort": 1,
       "form_group": 255
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 736,
-    "fields": {
-      "available_instance_resource": "formpage",
-      "resource": 298,
-      "name": "Personen- und Projektdaten",
-      "description": "Personen- und Projektdaten KOOR AFJ SD",
-      "template": "/form/form-read.phtml",
-      "class_field": null,
-      "hidden": 0,
-      "sort": 2,
-      "form_group": 161
     }
   },
   {
@@ -24841,21 +23374,6 @@
       "class_field": null,
       "hidden": 0,
       "sort": 10,
-      "form_group": 161
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 766,
-    "fields": {
-      "available_instance_resource": "formpage",
-      "resource": 301,
-      "name": "Personen- und Projektdaten",
-      "description": "Personen- und Projektdaten f\u00fcr Gemeinde Interne Dossiers",
-      "template": "/form/form-read.phtml",
-      "class_field": null,
-      "hidden": 1,
-      "sort": 7,
       "form_group": 161
     }
   },
@@ -28123,30 +26641,6 @@
   },
   {
     "model": "core.ireditformpage",
-    "pk": 2,
-    "fields": {
-      "page": 1,
-      "pdf_class": null
-    }
-  },
-  {
-    "model": "core.ireditformpage",
-    "pk": 245,
-    "fields": {
-      "page": 1,
-      "pdf_class": null
-    }
-  },
-  {
-    "model": "core.ireditformpage",
-    "pk": 490,
-    "fields": {
-      "page": 81,
-      "pdf_class": null
-    }
-  },
-  {
-    "model": "core.ireditformpage",
     "pk": 671,
     "fields": {
       "page": 1,
@@ -28223,14 +26717,6 @@
   },
   {
     "model": "core.irformpage",
-    "pk": 3,
-    "fields": {
-      "page": 1,
-      "pdf_class": ""
-    }
-  },
-  {
-    "model": "core.irformpage",
     "pk": 22,
     "fields": {
       "page": 1,
@@ -28263,22 +26749,6 @@
   },
   {
     "model": "core.irformpage",
-    "pk": 465,
-    "fields": {
-      "page": 81,
-      "pdf_class": null
-    }
-  },
-  {
-    "model": "core.irformpage",
-    "pk": 491,
-    "fields": {
-      "page": 81,
-      "pdf_class": ""
-    }
-  },
-  {
-    "model": "core.irformpage",
     "pk": 505,
     "fields": {
       "page": 81,
@@ -28304,14 +26774,6 @@
   {
     "model": "core.irformpage",
     "pk": 565,
-    "fields": {
-      "page": 1,
-      "pdf_class": ""
-    }
-  },
-  {
-    "model": "core.irformpage",
-    "pk": 606,
     "fields": {
       "page": 1,
       "pdf_class": ""
@@ -28351,14 +26813,6 @@
   },
   {
     "model": "core.irformpage",
-    "pk": 700,
-    "fields": {
-      "page": 1,
-      "pdf_class": null
-    }
-  },
-  {
-    "model": "core.irformpage",
     "pk": 711,
     "fields": {
       "page": 1,
@@ -28371,22 +26825,6 @@
     "fields": {
       "page": 1,
       "pdf_class": ""
-    }
-  },
-  {
-    "model": "core.irformpage",
-    "pk": 715,
-    "fields": {
-      "page": 1,
-      "pdf_class": null
-    }
-  },
-  {
-    "model": "core.irformpage",
-    "pk": 724,
-    "fields": {
-      "page": 1,
-      "pdf_class": null
     }
   },
   {
@@ -28407,14 +26845,6 @@
   },
   {
     "model": "core.irformpage",
-    "pk": 736,
-    "fields": {
-      "page": 1,
-      "pdf_class": null
-    }
-  },
-  {
-    "model": "core.irformpage",
     "pk": 751,
     "fields": {
       "page": 81,
@@ -28424,14 +26854,6 @@
   {
     "model": "core.irformpage",
     "pk": 755,
-    "fields": {
-      "page": 1,
-      "pdf_class": null
-    }
-  },
-  {
-    "model": "core.irformpage",
-    "pk": 766,
     "fields": {
       "page": 1,
       "pdf_class": null
@@ -28472,13 +26894,6 @@
   {
     "model": "core.irpage",
     "pk": 4,
-    "fields": {
-      "pdf_class": null
-    }
-  },
-  {
-    "model": "core.irpage",
-    "pk": 107,
     "fields": {
       "pdf_class": null
     }
@@ -28623,114 +27038,6 @@
       "instance_resource": 1,
       "role": 6,
       "instance_state": 1
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 2,
-    "fields": {
-      "instance_resource": 2,
-      "role": 6,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 3,
-    "fields": {
-      "instance_resource": 2,
-      "role": 6,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 4,
-    "fields": {
-      "instance_resource": 3,
-      "role": 6,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 5,
-    "fields": {
-      "instance_resource": 3,
-      "role": 6,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 6,
-    "fields": {
-      "instance_resource": 3,
-      "role": 6,
-      "instance_state": 24
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 7,
-    "fields": {
-      "instance_resource": 3,
-      "role": 6,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 8,
-    "fields": {
-      "instance_resource": 3,
-      "role": 6,
-      "instance_state": 27
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 9,
-    "fields": {
-      "instance_resource": 3,
-      "role": 7,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 10,
-    "fields": {
-      "instance_resource": 3,
-      "role": 7,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 11,
-    "fields": {
-      "instance_resource": 3,
-      "role": 7,
-      "instance_state": 24
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12,
-    "fields": {
-      "instance_resource": 3,
-      "role": 7,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 13,
-    "fields": {
-      "instance_resource": 3,
-      "role": 7,
-      "instance_state": 26
     }
   },
   {
@@ -29059,69 +27366,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 51,
-    "fields": {
-      "instance_resource": 107,
-      "role": 3,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 52,
-    "fields": {
-      "instance_resource": 107,
-      "role": 3,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 53,
-    "fields": {
-      "instance_resource": 107,
-      "role": 3,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 54,
-    "fields": {
-      "instance_resource": 107,
-      "role": 3,
-      "instance_state": 24
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 55,
-    "fields": {
-      "instance_resource": 107,
-      "role": 3,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 56,
-    "fields": {
-      "instance_resource": 107,
-      "role": 3,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 57,
-    "fields": {
-      "instance_resource": 107,
-      "role": 3,
-      "instance_state": 27
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 58,
     "fields": {
       "instance_resource": 145,
@@ -29388,15 +27632,6 @@
       "instance_resource": 205,
       "role": 3,
       "instance_state": 27
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 88,
-    "fields": {
-      "instance_resource": 245,
-      "role": 6,
-      "instance_state": 21
     }
   },
   {
@@ -29878,33 +28113,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 143,
-    "fields": {
-      "instance_resource": 465,
-      "role": 1061,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 144,
-    "fields": {
-      "instance_resource": 465,
-      "role": 1061,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 145,
-    "fields": {
-      "instance_resource": 465,
-      "role": 1061,
-      "instance_state": 27
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 146,
     "fields": {
       "instance_resource": 466,
@@ -30270,114 +28478,6 @@
       "instance_resource": 488,
       "role": 1061,
       "instance_state": 27
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 188,
-    "fields": {
-      "instance_resource": 490,
-      "role": 6,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 189,
-    "fields": {
-      "instance_resource": 490,
-      "role": 6,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 190,
-    "fields": {
-      "instance_resource": 491,
-      "role": 6,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 191,
-    "fields": {
-      "instance_resource": 491,
-      "role": 6,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 192,
-    "fields": {
-      "instance_resource": 491,
-      "role": 6,
-      "instance_state": 24
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 193,
-    "fields": {
-      "instance_resource": 491,
-      "role": 6,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 194,
-    "fields": {
-      "instance_resource": 491,
-      "role": 7,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 195,
-    "fields": {
-      "instance_resource": 491,
-      "role": 7,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 196,
-    "fields": {
-      "instance_resource": 491,
-      "role": 7,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 197,
-    "fields": {
-      "instance_resource": 491,
-      "role": 7,
-      "instance_state": 24
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 198,
-    "fields": {
-      "instance_resource": 491,
-      "role": 7,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 199,
-    "fields": {
-      "instance_resource": 491,
-      "role": 7,
-      "instance_state": 26
     }
   },
   {
@@ -31102,15 +29202,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 281,
-    "fields": {
-      "instance_resource": 606,
-      "role": 1101,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 282,
     "fields": {
       "instance_resource": 650,
@@ -31255,29 +29346,11 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 299,
-    "fields": {
-      "instance_resource": 606,
-      "role": 1101,
-      "instance_state": 24
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 300,
     "fields": {
       "instance_resource": 650,
       "role": 1081,
       "instance_state": 23
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 301,
-    "fields": {
-      "instance_resource": 606,
-      "role": 1101,
-      "instance_state": 26
     }
   },
   {
@@ -31303,15 +29376,6 @@
     "pk": 305,
     "fields": {
       "instance_resource": 648,
-      "role": 1101,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 306,
-    "fields": {
-      "instance_resource": 606,
       "role": 1101,
       "instance_state": 23
     }
@@ -31579,15 +29643,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 338,
-    "fields": {
-      "instance_resource": 606,
-      "role": 1101,
-      "instance_state": 27
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 340,
     "fields": {
       "instance_resource": 625,
@@ -31719,15 +29774,6 @@
       "instance_resource": 607,
       "role": 1101,
       "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 356,
-    "fields": {
-      "instance_resource": 606,
-      "role": 1101,
-      "instance_state": 22
     }
   },
   {
@@ -32425,15 +30471,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 437,
-    "fields": {
-      "instance_resource": 700,
-      "role": 1106,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 438,
     "fields": {
       "instance_resource": 728,
@@ -32538,15 +30575,6 @@
       "instance_resource": 705,
       "role": 1106,
       "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 450,
-    "fields": {
-      "instance_resource": 700,
-      "role": 1106,
-      "instance_state": 23
     }
   },
   {
@@ -32857,15 +30885,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 485,
-    "fields": {
-      "instance_resource": 736,
-      "role": 1128,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 486,
     "fields": {
       "instance_resource": 712,
@@ -32916,15 +30935,6 @@
       "instance_resource": 719,
       "role": 1107,
       "instance_state": 25
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 494,
-    "fields": {
-      "instance_resource": 724,
-      "role": 1127,
-      "instance_state": 21
     }
   },
   {
@@ -33001,15 +31011,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 503,
-    "fields": {
-      "instance_resource": 736,
-      "role": 1128,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 504,
     "fields": {
       "instance_resource": 748,
@@ -33073,37 +31074,10 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 511,
-    "fields": {
-      "instance_resource": 700,
-      "role": 1106,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 512,
     "fields": {
       "instance_resource": 712,
       "role": 1102,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 513,
-    "fields": {
-      "instance_resource": 724,
-      "role": 1127,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 514,
-    "fields": {
-      "instance_resource": 715,
-      "role": 1107,
       "instance_state": 23
     }
   },
@@ -33190,15 +31164,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 524,
-    "fields": {
-      "instance_resource": 715,
-      "role": 1107,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 525,
     "fields": {
       "instance_resource": 716,
@@ -33258,15 +31223,6 @@
       "instance_resource": 733,
       "role": 4,
       "instance_state": 23
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 532,
-    "fields": {
-      "instance_resource": 736,
-      "role": 1128,
-      "instance_state": 27
     }
   },
   {
@@ -33397,15 +31353,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 548,
-    "fields": {
-      "instance_resource": 700,
-      "role": 1106,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 549,
     "fields": {
       "instance_resource": 701,
@@ -33429,24 +31376,6 @@
       "instance_resource": 719,
       "role": 1107,
       "instance_state": 27
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 552,
-    "fields": {
-      "instance_resource": 724,
-      "role": 1127,
-      "instance_state": 27
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 553,
-    "fields": {
-      "instance_resource": 736,
-      "role": 1128,
-      "instance_state": 23
     }
   },
   {
@@ -33595,15 +31524,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 572,
-    "fields": {
-      "instance_resource": 715,
-      "role": 1107,
-      "instance_state": 27
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 573,
     "fields": {
       "instance_resource": 706,
@@ -33663,24 +31583,6 @@
       "instance_resource": 711,
       "role": 4,
       "instance_state": 23
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 580,
-    "fields": {
-      "instance_resource": 736,
-      "role": 1128,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 581,
-    "fields": {
-      "instance_resource": 700,
-      "role": 1106,
-      "instance_state": 27
     }
   },
   {
@@ -33770,15 +31672,6 @@
     "fields": {
       "instance_resource": 706,
       "role": 1106,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 592,
-    "fields": {
-      "instance_resource": 715,
-      "role": 1107,
       "instance_state": 21
     }
   },
@@ -34495,15 +32388,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 678,
-    "fields": {
-      "instance_resource": 715,
-      "role": 1107,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 679,
     "fields": {
       "instance_resource": 720,
@@ -34540,15 +32424,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 683,
-    "fields": {
-      "instance_resource": 724,
-      "role": 1127,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 684,
     "fields": {
       "instance_resource": 707,
@@ -34581,15 +32456,6 @@
       "instance_resource": 717,
       "role": 1107,
       "instance_state": 23
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 689,
-    "fields": {
-      "instance_resource": 724,
-      "role": 1127,
-      "instance_state": 26
     }
   },
   {
@@ -35170,51 +33036,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 760,
-    "fields": {
-      "instance_resource": 736,
-      "role": 1129,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 762,
-    "fields": {
-      "instance_resource": 736,
-      "role": 1129,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 764,
-    "fields": {
-      "instance_resource": 736,
-      "role": 1129,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 765,
-    "fields": {
-      "instance_resource": 736,
-      "role": 1129,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 766,
-    "fields": {
-      "instance_resource": 736,
-      "role": 1129,
-      "instance_state": 27
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 767,
     "fields": {
       "instance_resource": 737,
@@ -35476,15 +33297,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 804,
-    "fields": {
-      "instance_resource": 245,
-      "role": 6,
-      "instance_state": 32
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 805,
     "fields": {
       "instance_resource": 46,
@@ -35533,15 +33345,6 @@
     "pk": 813,
     "fields": {
       "instance_resource": 4,
-      "role": 3,
-      "instance_state": 32
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 814,
-    "fields": {
-      "instance_resource": 107,
       "role": 3,
       "instance_state": 32
     }
@@ -36196,15 +33999,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 914,
-    "fields": {
-      "instance_resource": 766,
-      "role": 6,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 915,
     "fields": {
       "instance_resource": 145,
@@ -36217,15 +34011,6 @@
     "pk": 916,
     "fields": {
       "instance_resource": 145,
-      "role": 6,
-      "instance_state": 33
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 917,
-    "fields": {
-      "instance_resource": 245,
       "role": 6,
       "instance_state": 33
     }
@@ -36254,15 +34039,6 @@
     "fields": {
       "instance_resource": 46,
       "role": 4,
-      "instance_state": 33
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 921,
-    "fields": {
-      "instance_resource": 107,
-      "role": 3,
       "instance_state": 33
     }
   },
@@ -36871,47 +34647,11 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 994,
-    "fields": {
-      "instance_resource": 3,
-      "role": 7,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 995,
-    "fields": {
-      "instance_resource": 3,
-      "role": 7,
-      "instance_state": 32
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 996,
     "fields": {
       "instance_resource": 46,
       "role": 7,
       "instance_state": 32
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 997,
-    "fields": {
-      "instance_resource": 2,
-      "role": 6,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 998,
-    "fields": {
-      "instance_resource": 3,
-      "role": 7,
-      "instance_state": 34
     }
   },
   {
@@ -36955,15 +34695,6 @@
     "pk": 1003,
     "fields": {
       "instance_resource": 85,
-      "role": 3,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 1004,
-    "fields": {
-      "instance_resource": 107,
       "role": 3,
       "instance_state": 34
     }
@@ -37078,15 +34809,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 1017,
-    "fields": {
-      "instance_resource": 465,
-      "role": 1061,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 1018,
     "fields": {
       "instance_resource": 466,
@@ -37136,24 +34858,6 @@
     "fields": {
       "instance_resource": 488,
       "role": 1061,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 1024,
-    "fields": {
-      "instance_resource": 490,
-      "role": 6,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 1025,
-    "fields": {
-      "instance_resource": 491,
-      "role": 7,
       "instance_state": 34
     }
   },
@@ -37298,15 +35002,6 @@
     "fields": {
       "instance_resource": 225,
       "role": 3,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 1043,
-    "fields": {
-      "instance_resource": 606,
-      "role": 1101,
       "instance_state": 34
     }
   },
@@ -37573,15 +35268,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 1073,
-    "fields": {
-      "instance_resource": 736,
-      "role": 1128,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 1074,
     "fields": {
       "instance_resource": 712,
@@ -37627,15 +35313,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 1079,
-    "fields": {
-      "instance_resource": 724,
-      "role": 1127,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 1080,
     "fields": {
       "instance_resource": 748,
@@ -37667,15 +35344,6 @@
     "fields": {
       "instance_resource": 710,
       "role": 1103,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 1084,
-    "fields": {
-      "instance_resource": 700,
-      "role": 1106,
       "instance_state": 34
     }
   },
@@ -37870,15 +35538,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 1106,
-    "fields": {
-      "instance_resource": 715,
-      "role": 1107,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 1107,
     "fields": {
       "instance_resource": 702,
@@ -37981,15 +35640,6 @@
     "pk": 1118,
     "fields": {
       "instance_resource": 735,
-      "role": 1129,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 1119,
-    "fields": {
-      "instance_resource": 736,
       "role": 1129,
       "instance_state": 34
     }
@@ -38116,15 +35766,6 @@
     "pk": 1133,
     "fields": {
       "instance_resource": 765,
-      "role": 6,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 1134,
-    "fields": {
-      "instance_resource": 766,
       "role": 6,
       "instance_state": 34
     }
@@ -47540,14 +45181,6 @@
   },
   {
     "model": "core.workflowaction",
-    "pk": 702,
-    "fields": {
-      "workflow_item": 62,
-      "multi_value": 0
-    }
-  },
-  {
-    "model": "core.workflowaction",
     "pk": 793,
     "fields": {
       "workflow_item": 46,
@@ -47692,14 +45325,6 @@
   },
   {
     "model": "core.workflowaction",
-    "pk": 1362,
-    "fields": {
-      "workflow_item": 80,
-      "multi_value": 2
-    }
-  },
-  {
-    "model": "core.workflowaction",
     "pk": 1363,
     "fields": {
       "workflow_item": 80,
@@ -47775,14 +45400,6 @@
     "pk": 1444,
     "fields": {
       "workflow_item": 16,
-      "multi_value": 0
-    }
-  },
-  {
-    "model": "core.workflowaction",
-    "pk": 1447,
-    "fields": {
-      "workflow_item": 62,
       "multi_value": 0
     }
   },
