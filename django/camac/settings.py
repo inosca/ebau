@@ -6,7 +6,7 @@ from datetime import timedelta
 
 import environ
 from django.db.models.expressions import Q
-from django.utils.translation import gettext_noop
+from django.utils.translation import gettext_lazy
 
 from camac.echbern.signals import circulation_ended, circulation_started, finished
 from camac.utils import build_url
@@ -461,22 +461,22 @@ APPLICATIONS = {
                 "reopen-circulation": {
                     "next_instance_state": "circulation",
                     "ech_event": circulation_started,
-                    "history_text": gettext_noop("Circulation reopened"),
+                    "history_text": gettext_lazy("Circulation reopened"),
                 },
                 "skip-circulation": {
                     "next_instance_state": "coordination",
                     "ech_event": circulation_ended,
-                    "history_text": gettext_noop("Circulation skipped"),
+                    "history_text": gettext_lazy("Circulation skipped"),
                 },
                 "start-decision": {
                     "next_instance_state": "coordination",
                     "ech_event": circulation_ended,
-                    "history_text": gettext_noop("Circulation completed"),
+                    "history_text": gettext_lazy("Circulation completed"),
                 },
                 "complete": {
                     "next_instance_state": "finished",
                     "ech_event": finished,
-                    "history_text": gettext_noop("Procedure completed"),
+                    "history_text": gettext_lazy("Procedure completed"),
                 },
             },
             "INTERNAL_FORMS": [
@@ -1559,7 +1559,7 @@ MANABI_ENABLE = env.bool("MANABI_ENABLE", default=default(True, False))
 
 # These are security relevant: provide a default that cannot be abused
 MANABI_SHARED_KEY = env.str(
-    "MANABI_SHARED_KEY", default="bNEZsIjvxDAiLhDA1chvF9zL9OJYPNlCqNPlm7KbhmU"
+    "MANABI_SHARED_KEY", default=default("bNEZsIjvxDAiLhDA1chvF9zL9OJYPNlCqNPlm7KbhmU")
 )
 
 MANABI_TOKEN_ACTIVATE_TIMEOUT = env.int(
