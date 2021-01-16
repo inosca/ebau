@@ -210,8 +210,18 @@ build-kt_schwyz-production:
   only:
     - production-sz
 
+.build-image-ur:
+  stage: build
+  services:
+    - docker:dind
+  script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
+    - eval $COMPOSE pull --ignore-pull-failures --quiet $CONTAINERS
+    - eval $COMPOSE build --pull
+    - eval $COMPOSE push
+
 build-kt_uri-stage:
-  extends: .build-image
+  extends: .build-image-ur
   variables:
     APPLICATION: kt_uri
     COMPOSE: docker-compose -f compose/kt_uri.yml -f compose/kt_uri-stage.yml
@@ -219,7 +229,7 @@ build-kt_uri-stage:
     - stage-ur
 
 build-kt_uri-production:
-  extends: .build-image
+  extends: .build-image-ur
   variables:
     APPLICATION: kt_uri
     COMPOSE: docker-compose -f compose/kt_uri.yml -f compose/kt_uri-prod.yml
