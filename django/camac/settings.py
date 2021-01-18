@@ -244,6 +244,7 @@ APPLICATIONS = {
                 "write-statement",
                 "check-statement",
                 "revise-statement",
+                "alter-statement",
             ],
             "SUBMIT_TASKS": ["submit", "submit-additional-demand", "formal-addition"],
             "PRE_COMPLETE": {
