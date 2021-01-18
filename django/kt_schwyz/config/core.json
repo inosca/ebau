@@ -4938,7 +4938,7 @@
     "fields": {
       "available_instance_resource": "journal",
       "resource": 1,
-      "name": "Journal",
+      "name": "Notizen",
       "description": null,
       "template": null,
       "class_field": null,
@@ -5133,7 +5133,7 @@
     "fields": {
       "available_instance_resource": "journal",
       "resource": 6,
-      "name": "Journal",
+      "name": "Notizen",
       "description": null,
       "template": null,
       "class_field": null,

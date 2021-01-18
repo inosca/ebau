@@ -15,7 +15,7 @@
     "model": "document.attachmentsection",
     "pk": 2,
     "fields": {
-      "name": "Dokumente Fachstellen (interne Ablage)",
+      "name": "Interne Ablage (nur gruppenintern sichtbar)",
       "description": null,
       "sort": 4,
       "notification_template": null,
@@ -63,7 +63,7 @@
     "model": "document.attachmentsection",
     "pk": 7,
     "fields": {
-      "name": "Dokumente Gemeinde (interne Ablage)",
+      "name": "Interne Ablage (nur gruppenintern sichtbar)",
       "description": null,
       "sort": 3,
       "notification_template": null,
@@ -522,7 +522,7 @@
     "fields": {
       "attachment_section": 2,
       "language": "de",
-      "name": "Dokumente Fachstellen",
+      "name": "Interne Ablage (nur gruppenintern sichtbar)",
       "description": null
     }
   },
@@ -562,7 +562,7 @@
     "fields": {
       "attachment_section": 7,
       "language": "de",
-      "name": "Dokumente Gemeinde (intern)",
+      "name": "Interne Ablage (nur gruppenintern sichtbar)",
       "description": null
     }
   },
