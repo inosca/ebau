@@ -1195,7 +1195,7 @@
     "fields": {
       "available_action": "workitem",
       "button": 24,
-      "name": "Aufgabe: complete write-statement",
+      "name": "Aufgabe: complete write-statement, alter-statement",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -1628,7 +1628,7 @@
     "model": "core.actionworkitem",
     "pk": 117,
     "fields": {
-      "tasks": "[\"write-statement\"]",
+      "tasks": "[\"alter-statement\", \"write-statement\"]",
       "process_type": "complete",
       "process_all": false,
       "is_activation": true,
