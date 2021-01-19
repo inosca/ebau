@@ -579,7 +579,9 @@ def person_type(person):
     if handle_ja_nein_bool(person["juristische-person"]):
         pers_identification = None
         org_identification = ns_company_identification.organisationIdentificationType(
-            organisationName=person["name-juristische-person"],
+            organisationName=assure_string_length(
+                person["name-juristische-person"], max_length=255
+            ),
             organisationAdditionalName=assure_string_length(
                 f'{person["vorname"]} {person["name"]}', max_length=255
             ),
