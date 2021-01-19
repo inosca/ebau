@@ -1,13 +1,45 @@
-import { action, set } from "@ember/object";
+import { getOwner } from "@ember/application";
+import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
+import { isEmpty } from "@ember/utils";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
-import { enqueueTask, restartableTask } from "ember-concurrency-decorators";
+import { queryManager } from "ember-apollo-client";
+import saveDocumentMutation from "ember-caluma/gql/mutations/save-document";
+import { parseDocument } from "ember-caluma/lib/parsers";
+import {
+  dropTask,
+  enqueueTask,
+  restartableTask,
+} from "ember-concurrency-decorators";
 import fetch from "fetch";
 import html2canvas from "html2canvas";
+import { all } from "rsvp";
 
 const { L } = window;
 
+const KEY_TABLE_QUESTION = "parcels";
+const KEY_TABLE_FORM = "parcel-table";
+const KEYS_TABLE = [
+  "parcel-number",
+  "building-law-number",
+  "e-grid",
+  "coordinates-east",
+  "coordinates-north",
+  "parcel-street",
+  "parcel-street-number",
+  "parcel-zip",
+  "parcel-city",
+];
+const FIELD_KEYS = [
+  "parcel-street",
+  "street-number",
+  "parcel-city",
+  "parzellen-oder-baurechtsnummer",
+  "municipality",
+  "ueberlagerte-nutzungen",
+  "grundnutzung",
+];
 const CENTER = [46.881301, 8.643078];
 
 const LAYERS = [
@@ -16,6 +48,8 @@ const LAYERS = [
   "raumplanung:sondernutzungsplanung",
   "weitere:wanderwege_uri",
   "weitere:archaeologische_funderwartungsgebiete",
+  "av:gebaeudeadressen",
+  "t08_selbstrecht_ims_overview",
 ];
 
 const LOW_OPACITY_LAYERS = [
@@ -54,24 +88,25 @@ const normalizeUmlaute = (str) =>
 export default class UrGisComponent extends Component {
   @service notification;
   @service intl;
+  @service calumaStore;
 
+  @queryManager apollo;
   @tracked lat = CENTER[0];
   @tracked lng = CENTER[1];
   @tracked zoom = 13;
+  @tracked _search = "";
+  @tracked parcels = [];
   minZoom = 10;
   maxZoom = 18;
-  @tracked _search = "";
   layers = LAYERS.join(",");
   lowOpacityLayers = LOW_OPACITY_LAYERS.join(",");
   gisURL = "https://service.lisag.ch/ows";
-  @tracked parcels = [];
-  @tracked currentFeatures = null;
 
   _map = null;
   _value = null;
 
   @restartableTask
-  *getFeatures(x, y, minx, miny, maxx, maxy) {
+  *getFeatures(x, y, minx, miny, maxx, maxy, clickCoordinates) {
     const width = this._map.target._container.clientWidth;
     const height = this._map.target._container.clientHeight;
     try {
@@ -96,9 +131,19 @@ export default class UrGisComponent extends Component {
         const grundnutzung = features.shift();
         const ueberlagerteNutzungen = features.join(", ");
 
+        const gebaeudeAdressenFeature = filterFeatureById(
+          data.features,
+          "t19_gebaeudeeingang_ims"
+        );
+
         const liegenschaftFeature = filterFeatureById(
           data.features,
           "t08_liegenschaft_ims_overview"
+        );
+
+        const selbstrechtFeature = filterFeatureById(
+          data.features,
+          "t08_selbstrecht_ims_overview"
         );
 
         const archFeature = filterFeatureById(
@@ -124,32 +169,54 @@ export default class UrGisComponent extends Component {
           features.push("Archäologisches Fundwartungsgebiet");
         }
 
-        const parzelle = liegenschaftFeature.properties.nummer;
-
         const filteredFeatures = features.filter(
           (feature) => feature !== undefined
         );
 
+        const parcelNumber = liegenschaftFeature.properties.nummer;
+
         document.querySelector(
           ".parcelInfo"
-        ).innerHTML = `Parzelle ${parzelle}: ${grundnutzung}, ${filteredFeatures.join(
+        ).innerHTML = `Parzelle ${parcelNumber}: ${grundnutzung}, ${filteredFeatures.join(
           ", "
         )}`;
 
         const coordinates = liegenschaftFeature.geometry.coordinates[0];
+        const egrid = liegenschaftFeature.properties.egris_egrid;
+        const municipality = liegenschaftFeature.properties.gemeinde;
         const coordinatesLatLng = coordinates[0].map((arr) =>
           EPSG3857toLatLng(...arr)
         );
-        this.parcels.pushObject({
-          coordinates: coordinatesLatLng,
-        });
 
-        this.currentFeatures = {
+        const parcel = {
+          coordinates: coordinatesLatLng,
+          number: parcelNumber,
+          egrid,
+          municipality,
           grundnutzung,
-          ueberlagerteNutzungen,
-          parcelOrBuildingleaseNumber: parzelle,
-          coordinatesLatLng,
+          "parcel-number": parcelNumber,
+          "parzellen-oder-baurechtsnummer": parcelNumber,
+          "e-grid": egrid,
+          "coordinates-east": clickCoordinates.lat,
+          "coordinates-north": clickCoordinates.lng,
+          "ueberlagerte-nutzungen": ueberlagerteNutzungen,
         };
+
+        if (gebaeudeAdressenFeature) {
+          parcel["parcel-street"] =
+            gebaeudeAdressenFeature.properties.strassennamen;
+          parcel["street-number"] =
+            gebaeudeAdressenFeature.properties.hausnummer;
+          parcel["parcel-street-number"] =
+            gebaeudeAdressenFeature.properties.hausnummer;
+          parcel["parcel-city"] = gebaeudeAdressenFeature.properties.ortschaft;
+          parcel["parcel-zip"] = gebaeudeAdressenFeature.properties.plz;
+        }
+
+        if (selbstrechtFeature) {
+          parcel["building-law-number"] = selbstrechtFeature.properties.nummer;
+        }
+        this.parcels.pushObject(parcel);
       }
     } catch (error) {
       console.error(error);
@@ -172,32 +239,91 @@ export default class UrGisComponent extends Component {
     const image = yield new Promise((resolve) => canvas.toBlob(resolve));
     this.uploadBlob.perform(image);
 
-    const grundnutzungField = this.args.field.document.findField(
-      "grundnutzung"
-    );
-    set(grundnutzungField, "answer.value", this.currentFeatures.grundnutzung);
-    grundnutzungField.save.unlinked().perform();
+    this.populateFields.perform(this.parcels);
+    this.populateTable.perform(this.parcels);
+  }
 
-    const ueberlagerndeNutzungenField = this.args.field.document.findField(
-      "ueberlagerte-nutzungen"
+  @dropTask
+  *populateFields(parcels) {
+    yield all(
+      parcels.map(async (parcel) => {
+        const fields = this.args.field.document.fields.filter((field) =>
+          FIELD_KEYS.includes(field.question.slug)
+        );
+
+        await all(
+          fields.map(async (field) => {
+            const slug = field.question.slug;
+            const value = parcel[slug];
+
+            if (!isEmpty(value)) {
+              field.answer.set("value", String(value));
+            } else {
+              field.answer.set("value", "");
+            }
+
+            await field.save.perform();
+            await field.validate.perform();
+          })
+        );
+      })
+    );
+  }
+
+  @dropTask
+  *populateTable(parcels) {
+    const table = this.args.field.document.fields.find(
+      (field) => field.question.slug === KEY_TABLE_QUESTION
     );
 
-    set(
-      ueberlagerndeNutzungenField,
-      "answer.value",
-      this.currentFeatures.ueberlagerteNutzungen
-    );
-    ueberlagerndeNutzungenField.save.unlinked().perform();
+    const mutation = {
+      mutation: saveDocumentMutation,
+      variables: { input: { form: KEY_TABLE_FORM } },
+    };
 
-    const parcelOrBuildingleaseNumber = this.args.field.document.findField(
-      "parzellen-oder-baurechtsnummer"
+    const rows = yield all(
+      parcels.map(async (parcel) => {
+        const newDocumentRaw = await this.apollo.mutate(
+          mutation,
+          "saveDocument.document"
+        );
+
+        const newDocument = this.calumaStore.push(
+          getOwner(this)
+            .factoryFor("caluma-model:document")
+            .create({
+              raw: parseDocument(newDocumentRaw),
+            })
+        );
+
+        const fields = newDocument.fields.filter((field) =>
+          KEYS_TABLE.includes(field.question.slug)
+        );
+
+        await all(
+          fields.map(async (field) => {
+            const { slug } = field.question;
+            const value = parcel[slug];
+
+            if (!isEmpty(value)) {
+              field.answer.set("value", String(value));
+            } else {
+              field.answer.set("value", "");
+            }
+
+            await field.save.perform();
+            await field.validate.perform();
+          })
+        );
+
+        return newDocument;
+      })
     );
-    set(
-      parcelOrBuildingleaseNumber,
-      "answer.value",
-      this.currentFeatures.parcelOrBuildingleaseNumber
-    );
-    parcelOrBuildingleaseNumber.save.unlinked().perform();
+
+    table.answer.set("value", rows);
+
+    yield table.save.perform();
+    yield table.validate.perform();
   }
 
   @restartableTask
@@ -293,7 +419,8 @@ export default class UrGisComponent extends Component {
       southWest.x,
       southWest.y,
       northEast.x,
-      northEast.y
+      northEast.y,
+      e.latlng
     );
   }
 
