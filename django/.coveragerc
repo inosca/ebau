@@ -39,8 +39,8 @@ omit=
     camac/core/tests/test_publication_permissions.py
     camac/core/serializers.py
     # One off commands
-    camac/instance/management/commands/fix_sb_instances.py
-    camac/instance/management/commands/fix_sb_paper_question.py
+    camac/instance/management/commands/fix_work_items.py
+    camac/core/management/commands/fix_applicants.py
     # Audit migration
     camac/core/management/commands/config/
     camac/core/management/commands/migrate_audit.py

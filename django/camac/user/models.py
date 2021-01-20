@@ -2,6 +2,7 @@ import hashlib
 
 from django.conf import settings
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
+from django.contrib.postgres.fields import CIEmailField
 from django.db import models
 
 from ..core import models as core_models
@@ -34,7 +35,7 @@ class User(AbstractBaseUser):
     )
     name = models.CharField(db_column="NAME", max_length=100)
     surname = models.CharField(db_column="SURNAME", max_length=100)
-    email = models.CharField(db_column="EMAIL", max_length=100, blank=True, null=True)
+    email = CIEmailField(db_column="EMAIL", max_length=100, blank=True, null=True)
     phone = models.CharField(db_column="PHONE", max_length=100, blank=True, null=True)
     disabled = models.PositiveSmallIntegerField(db_column="DISABLED", default=0)
     language = models.CharField(db_column="LANGUAGE", max_length=2)
