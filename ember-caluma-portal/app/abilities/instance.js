@@ -45,15 +45,17 @@ export default class InstanceAbility extends Ability {
 
   @computed(
     "model.{applicants.@each.invitee,involvedApplicants.[]}",
-    "session.{isInternal,user.id}"
+    "session.{isSupport,user.id}"
   )
   get canManageApplicants() {
+    const applicants = this.get("model.involvedApplicants") || [];
+    const userId = parseInt(this.get("session.user.id"));
+
+    // must be an applicant or support
     return (
-      !this.session.isInternal &&
-      // must be an applicant
-      (this.get("model.involvedApplicants") || []).find(
-        (applicant) =>
-          applicant.get("invitee.id") === this.get("session.user.id")
+      this.session.isSupport ||
+      applicants.find(
+        (applicant) => parseInt(applicant.get("invitee.id")) === userId
       )
     );
   }
