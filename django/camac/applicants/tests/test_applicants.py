@@ -43,6 +43,7 @@ def test_applicant_update(admin_client, instance):
         ("Municipality", LazyFixture("admin_user"), 1, status.HTTP_403_FORBIDDEN),
         ("Service", LazyFixture("admin_user"), 1, status.HTTP_403_FORBIDDEN),
         ("Canton", LazyFixture("admin_user"), 1, status.HTTP_403_FORBIDDEN),
+        ("Support", LazyFixture("admin_user"), 1, status.HTTP_204_NO_CONTENT),
     ],
 )
 def test_applicant_delete(
@@ -71,6 +72,7 @@ def test_applicant_delete(
         ("Municipality", "test@example.com", None, status.HTTP_403_FORBIDDEN),
         ("Service", "test@example.com", None, status.HTTP_403_FORBIDDEN),
         ("Canton", "test@example.com", None, status.HTTP_403_FORBIDDEN),
+        ("Support", "user@example.com", True, status.HTTP_201_CREATED),
     ],
 )
 def test_applicant_create(

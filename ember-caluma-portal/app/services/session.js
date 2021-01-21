@@ -44,6 +44,11 @@ export default class CustomSession extends Session {
   @alias("data.group") group;
   @notEmpty("group") isInternal;
 
+  @computed("group")
+  get isSupport() {
+    return config.ebau.supportGroups.includes(parseInt(this.group));
+  }
+
   @computed("data.language")
   get language() {
     const sessionLanguage = validateLanguage(this.get("data.language"));

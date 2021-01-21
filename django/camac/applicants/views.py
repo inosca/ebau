@@ -65,3 +65,6 @@ class ApplicantsView(viewsets.ModelViewSet, InstanceQuerysetMixin):
 
     def has_object_destroy_permission_for_canton(self, obj):
         return False
+
+    def has_object_destroy_permission_for_support(self, obj):
+        return True
