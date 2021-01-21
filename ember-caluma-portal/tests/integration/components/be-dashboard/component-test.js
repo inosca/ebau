@@ -6,8 +6,6 @@ import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
 
-import config from "../../../../config/environment";
-
 module("Integration | Component | be-dashboard", function (hooks) {
   setupRenderingTest(hooks);
   setupMirage(hooks);
@@ -35,7 +33,7 @@ module("Integration | Component | be-dashboard", function (hooks) {
     this.owner.register(
       "service:session",
       Service.extend({
-        group: null,
+        isSupport: false,
         language: "de",
       })
     );
@@ -53,9 +51,7 @@ module("Integration | Component | be-dashboard", function (hooks) {
   test("it can be edited by support users", async function (assert) {
     assert.expect(5);
 
-    this.owner
-      .lookup("service:session")
-      .set("group", config.ebau.supportGroups[0]);
+    this.owner.lookup("service:session").set("isSupport", true);
 
     await render(hbs`<BeDashboard class="content" @page="test-content" />`);
 

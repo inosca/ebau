@@ -1,8 +1,6 @@
 import { setupTest } from "ember-qunit";
 import { module, test } from "qunit";
 
-import config from "../../../config/environment";
-
 module("Unit | Ability | dashboard", function (hooks) {
   setupTest(hooks);
 
@@ -11,10 +9,10 @@ module("Unit | Ability | dashboard", function (hooks) {
 
     const ability = this.owner.lookup("ability:dashboard");
 
-    ability.set("session", { group: config.ebau.supportGroups[0] });
+    ability.set("session", { isSupport: true });
     assert.ok(ability.canEdit);
 
-    ability.set("session", { group: 123 });
+    ability.set("session", { isSupport: false });
     assert.notOk(ability.canEdit);
   });
 });
