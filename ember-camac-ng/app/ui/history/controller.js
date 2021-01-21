@@ -6,6 +6,7 @@ import { dropTask } from "ember-concurrency-decorators";
 
 export default class HistoryController extends Controller {
   @service store;
+  @service shoebox;
 
   page = 1;
   @tracked entries = [];

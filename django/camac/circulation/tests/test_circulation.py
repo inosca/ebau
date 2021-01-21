@@ -99,6 +99,8 @@ def test_sync_circulation(
     activation_factory,
     caluma_workflow_config_be,
     caluma_admin_user,
+    group_factory,
+    role,
 ):
     case = start_case(
         workflow=Workflow.objects.get(pk="building-permit"),
@@ -120,11 +122,24 @@ def test_sync_circulation(
 
     assert not circulation_work_item.child_case
 
+    group = group_factory(role=role)
+
     a1 = activation_factory(
-        circulation=circulation, circulation_state__name="DONE", circulation_answer=None
+        circulation=circulation,
+        circulation_state__name="DONE",
+        circulation_answer=None,
+        service=group.service,
     )
-    a2 = activation_factory(circulation=circulation, circulation_state__name="DONE")
-    a3 = activation_factory(circulation=circulation, circulation_state__name="RUN")
+    a2 = activation_factory(
+        circulation=circulation,
+        circulation_state__name="DONE",
+        service=group.service,
+    )
+    a3 = activation_factory(
+        circulation=circulation,
+        circulation_state__name="RUN",
+        service=group.service,
+    )
 
     response = admin_client.patch(reverse("circulation-sync", args=[circulation.pk]))
     assert response.status_code == status.HTTP_204_NO_CONTENT
