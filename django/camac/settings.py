@@ -73,7 +73,6 @@ INSTALLED_APPS = [
     "camac.circulation.apps.DefaultConfig",
     "camac.notification.apps.DefaultConfig",
     "camac.responsible.apps.DefaultConfig",
-    "camac.file.apps.DefaultConfig",
     "camac.applicants.apps.DefaultConfig",
     "camac.auditlog.apps.DefaultConfig",
     "camac.tags.apps.DefaultConfig",
@@ -84,6 +83,9 @@ INSTALLED_APPS = [
     "reversion",
     "rest_framework_xml",
     "gisbern",
+    # TODO: remove this when all production environments ran the migration to
+    # delete the tables of this app
+    "camac.file.apps.DefaultConfig",
 ]
 
 if DEBUG:
