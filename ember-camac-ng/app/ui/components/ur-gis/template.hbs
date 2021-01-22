@@ -34,6 +34,17 @@
       @clickable={{false}}
       @color="red"
     >
+      {{#if parcel.number}}
+        <TooltipLayer @sticky={{true}}>
+          <strong>
+            {{parcel.number}} {{parcel.municipality}}
+          </strong>
+
+          <i>
+            {{parcel.egrid}}
+          </i>
+        </TooltipLayer>
+      {{/if}}
     </map.polygon>
   {{/each}}
 
@@ -44,7 +55,7 @@
   <button
     class="button uk-margin-small-top"
     disabled={{or
-      (not this.currentFeatures)
+      (not this.parcels)
       this.getFeatures.isRunning
       this.applySelection.isRunning
       }}
