@@ -50,6 +50,9 @@ services:
       # TODO: Implement resource fallback in document module, so this can be removed
       - phpresources:/var/www/camac/kt_uri/resources
 
+  ember-camac-ng:
+    image: acr.run/camac-ng/camac-ng/ember-camac-ng:${CI_COMMIT_REF_SLUG}
+
   cache:
     restart: always
 
@@ -65,7 +68,6 @@ services:
     environment:
       - ENV_FILE=/run/secrets/keycloak.env
     restart: always
-
 
 volumes:
   pgdata:
