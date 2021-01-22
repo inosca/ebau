@@ -29,6 +29,8 @@ audit:
   createPdfError: "Erreur lors du téléchargement du PDF"
   completeInvalid: "L'examen du dossier n'a pas été effectué correctement. Au moins un examen formel et matériel correctement effectué est obligatoire. Veuillez vérifier vos données et réessayer."
 
+  onlyExamItems: "Afficher uniquement les objets de l'éxamen"
+
   forms:
     fp-form: "Examen formel"
     mp-form: "Examen matériel"
