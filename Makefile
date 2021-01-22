@@ -187,9 +187,14 @@ release-folder: ## Add a template for a release folder
 	@echo "# Änderungen\n## Ansible (Rolle / Variablen)\n-\n## DB\n-\n## Apache\n-" >> "releases/$(version)/MANUAL.md"
 	@yarn --cwd php prettier --loglevel=silent --write "../releases/$(version)/*.md"
 
+.PHONY: clear-silk
 clear-silk:
 	@docker-compose exec django python manage.py silk_clear_request_log
 
 .PHONY: django-shell
 django-shell:
 	@docker-compose exec django python manage.py shell
+
+.PHONY: user-admin
+user-admin: ## Add most recent user to admin group
+	@docker-compose exec db psql -Ucamac ${APPLICATION} -c 'insert into "USER_GROUP" ("DEFAULT_GROUP", "GROUP_ID", "USER_ID") values (1, 1, (select "USER_ID" from "USER" order by "USER_ID" desc limit 1));'
