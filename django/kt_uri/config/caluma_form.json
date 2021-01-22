@@ -20697,7 +20697,7 @@
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Land\", \"fr\": null}",
-      "type": "dynamic_multiple_choice",
+      "type": "dynamic_choice",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
