@@ -1,5 +1,6 @@
 journal:
   title: "Journal"
+  title-sz: "Notizen"
 
   create: "Eintrag erstellen"
   edit: "Eintrag bearbeiten"

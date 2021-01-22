@@ -1,5 +1,9 @@
 <h1>
-  {{t "journal.title"}}
+  {{#if (eq this.shoebox.content.application "kt_schwyz")}}
+    {{t "journal.title-sz"}}
+  {{else}}
+    {{t "journal.title"}}
+  {{/if}}
 </h1>
 
 {{#if this.newEntry}}
