@@ -1,7 +1,8 @@
 from datetime import timedelta
 
 from caluma.caluma_form.models import Document, Form
-from caluma.caluma_user.models import BaseUser
+from caluma.caluma_user.models import AnonymousUser
+from caluma.caluma_workflow import api as caluma_workflow_api
 from caluma.caluma_workflow.models import Case, Task, Workflow, WorkItem
 from caluma.caluma_workflow.utils import get_jexl_groups
 from django.core.management.base import BaseCommand
@@ -9,6 +10,7 @@ from django.db import transaction
 from django.db.models import Count, Q
 from django.utils import timezone
 
+from camac.caluma.api import CalumaApi
 from camac.instance.models import Instance, InstanceResponsibility
 
 
@@ -36,7 +38,7 @@ def create_work_item_from_task(
         deadline = timezone.now() + timedelta(seconds=task.lead_time)
 
     addressed_groups = get_jexl_groups(
-        task.address_groups, task, case, BaseUser(), None, context
+        task.address_groups, task, case, AnonymousUser(), None, context
     )
 
     responsible_user = []
@@ -62,7 +64,7 @@ def create_work_item_from_task(
         deadline=deadline,
         addressed_groups=addressed_groups,
         controlling_groups=get_jexl_groups(
-            task.control_groups, task, case, BaseUser(), None, context
+            task.control_groups, task, case, AnonymousUser(), None, context
         ),
         assigned_users=responsible_user,
     )
@@ -88,7 +90,6 @@ def migrate_circulation(instance, case):
         child_case = Case.objects.create(
             workflow=Workflow.objects.get(pk="circulation"),
             status=Case.STATUS_RUNNING,
-            meta={"migrated": True},
             family=case,
         )
 
@@ -100,40 +101,17 @@ def migrate_circulation(instance, case):
             instance=instance,
         )
 
-        for activation in circulation.activations.all():
-            context_and_meta = {"activation-id": activation.pk}
-            if activation.circulation_state.name == "RUN":
-                create_work_item_from_task(
-                    child_case,
-                    "write-statement",
-                    meta=context_and_meta,
-                    context=context_and_meta,
-                    deadline=activation.deadline_date,
-                )
-            elif activation.circulation_state.name == "REVIEW":
-                create_work_item_from_task(
-                    child_case,
-                    "revise-statement",
-                    meta=context_and_meta,
-                    context=context_and_meta,
-                )
-                create_work_item_from_task(
-                    child_case,
-                    "check-statement",
-                    meta=context_and_meta,
-                    context=context_and_meta,
-                )
-            elif activation.circulation_state.name in ["OK", "DONE"]:
-                work_item = create_work_item_from_task(
-                    child_case,
-                    "revise-statement",
-                    meta=context_and_meta,
-                    context=context_and_meta,
-                )
+        CalumaApi().sync_circulation(circulation, AnonymousUser())
 
-                work_item.status = WorkItem.STATUS_COMPLETED
-                work_item.closed_at = timezone.now()
-                work_item.save()
+        for activation in circulation.activations.all():
+            if activation.circulation_state.name in ["OK", "REVIEW"]:
+                work_item = WorkItem.objects.filter(
+                    **{"meta__activation-id": activation.pk}
+                ).first()
+                if work_item.status == WorkItem.STATUS_READY:
+                    caluma_workflow_api.skip_work_item(
+                        work_item, AnonymousUser(), {"activation-id": activation.pk}
+                    )
 
 
 class Command(BaseCommand):
