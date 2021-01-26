@@ -1207,13 +1207,18 @@ class CalumaInstanceArchiveSerializer(serializers.Serializer):
         instance.instance_state = models.InstanceState.objects.get(name="archived")
         instance.save()
 
-        # cancel the caluma case
-        workflow_api.cancel_case(
-            workflow_models.Case.objects.get(
-                **{"meta__camac-instance-id": instance.pk}
-            ),
-            self.context["request"].caluma_info.context.user,
+        case = workflow_models.Case.objects.get(
+            **{"meta__camac-instance-id": instance.pk}
         )
+
+        # cancel the caluma case if it's still running or suspended (rejected)
+        if case.status in [
+            workflow_models.Case.STATUS_RUNNING,
+            workflow_models.Case.STATUS_SUSPENDED,
+        ]:
+            workflow_api.cancel_case(
+                case, self.context["request"].caluma_info.context.user
+            )
 
         # create a history entry
         create_history_entry(
