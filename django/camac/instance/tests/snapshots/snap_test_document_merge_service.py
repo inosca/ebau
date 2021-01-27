@@ -4,7 +4,6 @@ from __future__ import unicode_literals
 
 from snapshottest import Snapshot
 
-
 snapshots = Snapshot()
 
 snapshots["test_document_merge_service_snapshot[1-baugesuch] 1"] = [
@@ -1996,6 +1995,12 @@ snapshots["test_document_merge_service_snapshot[1-sb2] 1"] = [
                 "label": "Meldung Tankanlage",
                 "slug": "meldung-tankanlage",
                 "type": "ChoiceQuestion",
+            },
+            {
+                "label": "Bauende",
+                "slug": "bauende",
+                "type": "DateQuestion",
+                "value": None,
             },
         ],
         "label": "Abschluss",
