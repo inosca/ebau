@@ -2,7 +2,7 @@ from collections import defaultdict
 
 from caluma.caluma_core.events import send_event
 from caluma.caluma_user.models import AnonymousUser
-from caluma.caluma_workflow.api import cancel_case, cancel_work_item
+from caluma.caluma_workflow.api import cancel_case, cancel_work_item, suspend_case
 from caluma.caluma_workflow.events import post_create_work_item
 from caluma.caluma_workflow.models import Case, Task, WorkItem
 from caluma.caluma_workflow.utils import bulk_create_work_items
@@ -83,6 +83,7 @@ class Command(BaseCommand):
         if options["sync_circulation"]:
             self.fix_circulation()
         self.fix_required_tasks()
+        self.fix_suspended_cases()
 
         if len(self.fixed_instances.keys()):
             self.stdout.write("")
@@ -387,3 +388,26 @@ class Command(BaseCommand):
             self.fixed_instances[instance.pk].append("Wrongly closed case")
 
         self.stdout.write(self.style.WARNING(f"Reopened {count} wrongly closed cases"))
+
+    def fix_suspended_cases(self):
+        count = 0
+
+        for case in Case.objects.exclude(status=Case.STATUS_SUSPENDED).filter(
+            **{
+                "meta__camac-instance-id__in": list(
+                    Instance.objects.filter(
+                        instance_state__name__in=["correction", "rejected"],
+                        **self.get_instance_filters(),
+                    ).values_list("pk", flat=True)
+                )
+            }
+        ):
+            suspend_case(case, self.user)
+            count += 1
+            self.fixed_instances[case.meta.get("camac-instance-id")].append(
+                "Case not suspended"
+            )
+
+        self.stdout.write(
+            self.style.WARNING(f"Suspended {count} rejected or in correction cases")
+        )
