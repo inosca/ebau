@@ -1,4 +1,5 @@
 from caluma.caluma_form.models import Answer, Document, DynamicOption, Option
+from caluma.caluma_form.validators import DocumentValidator
 from caluma.caluma_workflow.models import Case
 from django.utils.translation import get_language
 
@@ -203,8 +204,12 @@ class DocumentParser:
         return rows
 
     def parse_answers(self, document, slugs):
+        """Parse all answers that are visible in the document and intended for ECH."""
+
+        visible_questions = DocumentValidator().visible_questions(document, None)
         caluma_answers = Answer.objects.filter(
-            document=document, question__slug__in=slugs
+            document=document,
+            question__slug__in=list(set(slugs) & set(visible_questions)),
         )
 
         answers = AnswersDict()
