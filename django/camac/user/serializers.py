@@ -63,7 +63,10 @@ class CurrentUserSerializer(UserSerializer):
     def get_groups(self, obj):
         return obj.groups.filter(disabled=False)
 
-    included_serializers = {"groups": "camac.user.serializers.GroupSerializer"}
+    included_serializers = {
+        "groups": "camac.user.serializers.GroupSerializer",
+        "service": "camac.user.serializers.ServiceSerializer",
+    }
 
     class Meta(UserSerializer.Meta):
         fields = UserSerializer.Meta.fields + (
@@ -107,7 +110,10 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
             user_groups__group_id__in=obj.groups.values("pk")
         ).distinct()
 
-    included_serializers = {"users": "camac.user.serializers.UserSerializer"}
+    included_serializers = {
+        "users": "camac.user.serializers.UserSerializer",
+        "service_parent": "camac.user.serializers.ServiceSerializer",
+    }
 
     def update(self, instance, validated_data):
         old_name = instance.get_name()
@@ -172,8 +178,9 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
             "address",
             "phone",
             "users",
+            "service_parent",
         )
-        read_only_fields = ("users",)
+        read_only_fields = ("users", "service_parent")
 
 
 class GroupSerializer(MultilingualSerializer, serializers.ModelSerializer):
