@@ -34,6 +34,7 @@ services:
       - DJANGO_ENV_FILE=/run/secrets/django.env
     volumes:
       - /etc/camac/django.env:/run/secrets/django.env:ro
+      - ../django/uwsgi-prod.ini:/app/uwsgi.ini
 
   php:
     image: acr.run/camac-ng/camac-ng/php:${CI_COMMIT_REF_SLUG}-${APPLICATION}
