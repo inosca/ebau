@@ -969,6 +969,11 @@ APPLICATIONS = {
             ("wildtierschutz", "wildtierschutz-ja", [20064]),
             ("gesuchstyp", "gesuchstyp-baum", [20065]),
             ("gesuchstyp", "gesuchstyp-hecke-feldgehoelz", [20065]),
+            (
+                "handelt-es-sich-um-ein-sensibles-objekt",
+                "handelt-es-sich-um-ein-sensibles-objekt-ja",
+                [20075, 20076, 20077, 20078],
+            ),
         ],
         "NOTIFICATIONS_EXCLUDED_TASKS": [],
         "DUMP_CONFIG_GROUPS": {
