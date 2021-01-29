@@ -1409,6 +1409,8 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
         ]:
             return
 
+        caluma_user = self.context["request"].caluma_info.context.user
+
         for circulation in self.instance.circulations.all():
             # Get all activations where the old responsible service invited
             # it's own sub services or the invited service is the newly
@@ -1422,11 +1424,19 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
                 # Delete said activations
                 deleted_activations.delete()
                 # Sync circulation with caluma
-                CalumaApi().sync_circulation(
-                    circulation, self.context["request"].caluma_info.context.user
-                )
+                CalumaApi().sync_circulation(circulation, caluma_user)
 
             if not circulation.activations.exists():
+                circulation_work_item = workflow_models.WorkItem.objects.filter(
+                    **{"meta__circulation-id": circulation.pk, "task_id": "circulation"}
+                ).first()
+
+                if circulation_work_item:
+                    # skip the work item to continue the workflow
+                    workflow_api.skip_work_item(circulation_work_item, caluma_user)
+                    # then delete it since the ciruclation will be deleted
+                    circulation_work_item.delete()
+
                 # Delete empty circulation
                 circulation.delete()
 
