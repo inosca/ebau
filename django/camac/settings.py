@@ -1093,8 +1093,8 @@ APPLICATIONS = {
             "Portal User": None,  # Uses the fallback permissions
             "Sekretariat der Gemeindebaubehörde": "municipality",
             "Vernehmlassungsstelle Gemeindezirkulation": "service",
-            "Vernehmlassungsstelle mit Koordinationsaufgaben": "service",
-            "Vernehmlassungsstelle ohne Koordinationsaufgaben": "service",
+            "Vernehmlassungsstelle mit Koordinationsaufgaben": "trusted_service",
+            "Vernehmlassungsstelle ohne Koordinationsaufgaben": "trusted_service",
             "Support": "support",
         },
         # The following services don't receive notifications if they have
