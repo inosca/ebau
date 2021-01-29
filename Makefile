@@ -189,3 +189,7 @@ release-folder: ## Add a template for a release folder
 
 clear-silk:
 	@docker-compose exec django python manage.py silk_clear_request_log
+
+.PHONY: django-shell
+django-shell:
+	@docker-compose exec django python manage.py shell
