@@ -160,17 +160,17 @@ test-django:
       - compose/ci.yml
       - .gitlab-ci.yml
 
-symfony-security-checker:
+php-security-checker:
   stage: test
   image:
     name: jakzal/phpqa:php7.3-alpine
-  script: security-checker security:check ./php/composer.lock
+  script: local-php-security-checker --path=./php/composer.lock
   only:
     refs:
       - master
       - merge_requests
     changes:
-      - php/composer.lock
+      - php/**/*
       - .gitlab-ci.yml
 
 .build-image:
