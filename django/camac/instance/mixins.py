@@ -128,7 +128,7 @@ class InstanceQuerysetMixin(object):
         group = self._get_group(group)
         queryset = self.get_base_queryset()
         instance_field = self._get_instance_filter_expr("pk", "in")
-        state_field = self._get_instance_filter_expr("instance_state", "in")
+        state_field = self._get_instance_filter_expr("instance_state__name", "in")
         form_field = self._get_instance_filter_expr("form", "in")
 
         instances_created_by_group = self._instances_created_by(group)
@@ -144,7 +144,7 @@ class InstanceQuerysetMixin(object):
                     }
                 )
             )
-            & ~Q(**{state_field: uri_constants.INSTANCE_STATES_HIDDEN_FOR_KOOR})
+            & ~Q(**{state_field: uri_constants.INSTANCE_STATES_PRIVATE})
         )
 
     def get_queryset_for_municipality(self, group=None):
@@ -174,6 +174,14 @@ class InstanceQuerysetMixin(object):
         instances = self._instances_with_activation(group)
         # use subquery to avoid duplicates
         return queryset.filter(**{instance_field: instances})
+
+    def get_queryset_for_trusted_service(self, group=None):
+        # "Trusted" services see all submitted instances (Kt. UR)
+        state_field = self._get_instance_filter_expr("instance_state__name", "in")
+
+        return self.get_base_queryset().filter(
+            ~Q(**{state_field: uri_constants.INSTANCE_STATES_PRIVATE})
+        )
 
     def get_queryset_for_canton(self, group=None):
         return self.get_base_queryset()
@@ -326,7 +334,7 @@ class InstanceEditableMixin(AttributeMixin):
 
     def validate_instance_for_coordination(self, instance):
         # TODO: Map form types to responsible KOORS
-        if instance.instance_state_id in uri_constants.INSTANCE_STATES_HIDDEN_FOR_KOOR:
+        if instance.instance_state_id in uri_constants.INSTANCE_STATES_PRIVATE:
             raise exceptions.ValidationError(
                 _("Not allowed to add data to instance %(instance)s as coordination")
                 % {"instance": instance.pk}

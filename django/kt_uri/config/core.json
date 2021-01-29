@@ -42493,6 +42493,13 @@
   },
   {
     "model": "core.remberlist",
+    "pk": 42,
+    "fields": {
+      "instance_states": "1,21,22,32,23,24,25,34,26,27,28,29,30,31,33"
+    }
+  },
+  {
+    "model": "core.remberlist",
     "pk": 264,
     "fields": {
       "instance_states": "22"
@@ -44899,7 +44906,7 @@
       "name": "Zur Pr\u00fcfung zugewiesene Dossiers",
       "description": "Zur Pr\u00fcfung zugewiesene Dossiers f\u00fcr Vernehmlassungsstellen",
       "template": null,
-      "class_field": null,
+      "class_field": "hasActivation",
       "hidden": 0,
       "sort": 4
     }
