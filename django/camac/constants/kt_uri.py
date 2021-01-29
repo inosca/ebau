@@ -9,21 +9,7 @@ CIRCULATION_STATE_NFD = 41
 
 ROLE_MUNICIPALITY = 6  # Sekretariat der Gemeindebaubehörde
 
-INSTANCE_STATE_COMM = 21
-INSTANCE_STATE_EXT = 22
-INSTANCE_STATE_EXT_GEM = 32
-INSTANCE_STATE_CIRC = 23
-INSTANCE_STATE_REDAC = 24
-INSTANCE_STATE_DONE = 25
-INSTANCE_STATE_ARCH = 26
-INSTANCE_STATE_DEL = 27
-INSTANCE_STATE_NEW = 1
-INSTANCE_STATE_NEW_PORTAL = 28
-INSTANCE_STATE_CONTROL = 34
-
-# TODO theoretically, we'd like to hide COMM as well, but instances can be sent
-# "back" into "COMM" if the canton didn't do a circulation
-INSTANCE_STATES_HIDDEN_FOR_KOOR = [INSTANCE_STATE_NEW, INSTANCE_STATE_NEW_PORTAL]
+INSTANCE_STATES_PRIVATE = ["new", "new_portal"]
 
 # Question identifiers (Chapter/Question/Item) for various information that we need
 # Format: List of 3-tuples to implement fallback
@@ -133,6 +119,7 @@ RESPONSIBLE_KOORS = {
         FORM_VORABKLAERUNG_MIT_KANTON,
         FORM_PGV_SEILBAHNGESETZ,
         FORM_MITBERICHT_BUNDESSTELLE,
+        FORM_REKLAME,
     ],
     KOOR_NP_SERVICE_ID: [
         FORM_LUFTFAHRT,
