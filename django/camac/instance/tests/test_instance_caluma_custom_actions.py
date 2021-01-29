@@ -1,11 +1,15 @@
 import pytest
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
+from caluma.caluma_workflow.models import Task
+from django.core import mail
 from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
+from camac.caluma.api import CalumaApi
 from camac.constants import kt_bern as constants
+from camac.instance.models import HistoryEntry
 
 
 @pytest.fixture
@@ -379,3 +383,232 @@ def test_change_form(
         case.refresh_from_db()
 
         assert case.document.form_id == new_form_slug
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize(
+    "instance_state__name,should_sync", [("circulation", True), ("sb1", False)]
+)
+def test_change_responsible_service_circulations(
+    db,
+    admin_client,
+    admin_user,
+    role,
+    instance_state,
+    instance_service,
+    caluma_workflow_config_be,
+    service_factory,
+    circulation_factory,
+    activation_factory,
+    work_item_factory,
+    should_sync,
+    caluma_admin_user,
+):
+    instance = instance_service.instance
+    instance.instance_state = instance_state
+    instance.save()
+
+    old_service = instance.responsible_service()
+    sub_service = service_factory(service_parent=old_service)
+    new_service = service_factory()
+    some_service = service_factory()
+
+    case = workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
+        form=caluma_form_models.Form.objects.get(pk="main-form"),
+        meta={"camac-instance-id": instance.pk},
+        user=caluma_admin_user,
+    )
+
+    c1 = circulation_factory(instance=instance, service=old_service)
+    c2 = circulation_factory(instance=instance, service=old_service)
+
+    # from the old service to some service, stays
+    a1 = activation_factory(circulation=c1, service_parent=old_service)
+    # from some other service to some other service, stays
+    a2 = activation_factory(circulation=c1, service_parent=some_service)
+    # should be deleted since the new service is now responsible
+    a3 = activation_factory(
+        circulation=c1, service_parent=old_service, service=new_service
+    )
+    # should be deleted since it's to a sub service of the old services
+    activation_factory(circulation=c2, service_parent=old_service, service=sub_service)
+
+    for task_id in ["submit", "ebau-number", "init-circulation"]:
+        workflow_api.complete_work_item(
+            work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user
+        )
+
+    for circulation in [c1, c2]:
+        work_item_factory(
+            task=Task.objects.get(pk="circulation"),
+            meta={"circulation-id": circulation.pk},
+        )
+
+        CalumaApi().sync_circulation(circulation, caluma_admin_user)
+
+    response = admin_client.post(
+        reverse("instance-change-responsible-service", args=[instance.pk]),
+        {
+            "data": {
+                "type": "instance-change-responsible-services",
+                "attributes": {"service-type": "municipality"},
+                "relationships": {
+                    "to": {"data": {"id": new_service.pk, "type": "services"}}
+                },
+            }
+        },
+    )
+
+    assert response.status_code == status.HTTP_204_NO_CONTENT
+
+    if should_sync:
+        assert instance.circulations.filter(pk=c1.pk).exists()
+        assert not instance.circulations.filter(pk=c2.pk).exists()
+
+        c1.refresh_from_db()
+
+        assert c1.activations.filter(pk=a1.pk).exists()
+        assert c1.activations.filter(pk=a2.pk).exists()
+        assert not c1.activations.filter(pk=a3.pk).exists()
+
+        a1.refresh_from_db()
+        a2.refresh_from_db()
+
+        assert a1.service_parent == new_service
+        assert a2.service_parent == some_service
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize(
+    "service_type,expected_status",
+    [
+        ("municipality", status.HTTP_204_NO_CONTENT),
+        ("construction_control", status.HTTP_204_NO_CONTENT),
+        ("invalidtype", status.HTTP_400_BAD_REQUEST),
+    ],
+)
+def test_change_responsible_service(
+    db,
+    admin_client,
+    admin_user,
+    instance,
+    instance_service,
+    notification_template,
+    role,
+    group,
+    service_factory,
+    user_factory,
+    user_group_factory,
+    caluma_workflow_config_be,
+    application_settings,
+    service_type,
+    expected_status,
+    caluma_admin_user,
+):
+    application_settings["NOTIFICATIONS"]["CHANGE_RESPONSIBLE_SERVICE"] = {
+        "template_slug": notification_template.slug,
+        "recipient_types": ["leitbehoerde"],
+    }
+
+    case = workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
+        form=caluma_form_models.Form.objects.get(pk="main-form"),
+        meta={"camac-instance-id": instance.pk},
+        user=caluma_admin_user,
+    )
+
+    if expected_status == status.HTTP_400_BAD_REQUEST:
+        old_service = instance.responsible_service()
+    else:
+        old_service = instance.responsible_service(filter_type=service_type)
+    new_service = service_factory()
+
+    group.service = old_service
+    group.save()
+
+    for task_id in ["submit", "ebau-number"]:
+        workflow_api.complete_work_item(
+            work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user
+        )
+
+    # other user is no member of the new service
+    other_user = user_factory()
+    # admin user is a member of the new service
+    user_group_factory(user=admin_user, group__service=new_service)
+
+    init_circulation = case.work_items.get(task_id="init-circulation")
+    init_circulation.assigned_users = [admin_user.username, other_user.username]
+    init_circulation.save()
+
+    assert (
+        case.work_items.filter(
+            status="ready", addressed_groups__contains=[str(old_service.pk)]
+        ).count()
+        == 5
+    )
+    assert (
+        case.work_items.filter(
+            status="ready", addressed_groups__contains=[str(new_service.pk)]
+        ).count()
+        == 0
+    )
+
+    response = admin_client.post(
+        reverse("instance-change-responsible-service", args=[instance.pk]),
+        {
+            "data": {
+                "type": "instance-change-responsible-services",
+                "attributes": {"service-type": service_type},
+                "relationships": {
+                    "to": {"data": {"id": new_service.pk, "type": "services"}}
+                },
+            }
+        },
+    )
+
+    assert response.status_code == expected_status
+
+    if expected_status == status.HTTP_204_NO_CONTENT:
+        instance.refresh_from_db()
+
+        # responsible service changed
+        assert not instance.instance_services.filter(
+            active=1, service=old_service
+        ).exists()
+        assert instance.responsible_service(filter_type=service_type) == new_service
+
+        # notification was sent
+        assert len(mail.outbox) == 1
+        assert new_service.email in mail.outbox[0].recipients()
+
+        # history entry was created
+        history = HistoryEntry.objects.filter(instance=instance).last()
+        assert (
+            history.trans.get(language="de").title
+            == f"Neue Leitbehörde: {new_service.trans.get(language='de').name}"
+        )
+
+        # caluma work items are reassigned
+        assert (
+            case.work_items.filter(
+                status="ready", addressed_groups__contains=[str(old_service.pk)]
+            ).count()
+            == 0
+        )
+        assert (
+            case.work_items.filter(
+                status="ready", addressed_groups__contains=[str(new_service.pk)]
+            ).count()
+            == 5
+        )
+
+        # assigned users are filtered
+        init_circulation.refresh_from_db()
+        assert admin_user.username in init_circulation.assigned_users
+        assert other_user.username not in init_circulation.assigned_users
+    elif expected_status == status.HTTP_400_BAD_REQUEST:
+        assert (
+            response.data[0]["detail"]
+            == f"{service_type} is not a valid service type - valid types are: municipality, construction_control"
+        )
