@@ -700,7 +700,10 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         # Circulation and subcirculation share the same circulation object.
         # They can only be distinguished by their SERVICE_PARENT_ID.
         activations = Activation.objects.filter(
-            circulation__instance_id=instance.pk, email_sent=0, service_parent=service
+            circulation__instance_id=instance.pk,
+            email_sent=0,
+            service_parent=service,
+            service__notification=1,
         )
         services = {a.service for a in activations}
 
@@ -710,7 +713,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
 
     def _get_recipients_service(self, instance):
         services = Service.objects.filter(
-            pk__in=instance.circulations.values("activations__service")
+            pk__in=instance.circulations.values("activations__service"), notification=1
         )
 
         return flatten(
