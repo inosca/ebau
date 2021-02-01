@@ -179,8 +179,8 @@ export default class CaseTableComponent extends Component {
         context: {
           headers: {
             "x-camac-filters": Object.entries(camacFilters)
-              .filter(([_, val]) => !!val)
-              .map((a) => a.join("="))
+              .filter((entry) => !!entry[1])
+              .map((entry) => entry.join("="))
               .join("&"),
           },
         },
