@@ -95,7 +95,6 @@ services:
       - /var/www/camac/public/public-kt_bern/css
       - /var/www/camac/public/public-kt_bern/js
       - /var/www/camac/public/node_modules
-      - /var/www/camac/public/bower_components
 
   unoconv:
     image: zrrrzzt/docker-unoconv-webservice:8.9.4
