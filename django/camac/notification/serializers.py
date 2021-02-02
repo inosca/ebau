@@ -594,7 +594,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         return [
             {"to": email}
             for email in unpack_service_emails(
-                Service.objects.filter(groups__in=groups)
+                Service.objects.filter(groups__in=groups, notification=1)
             )
         ]
 
@@ -611,7 +611,9 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             circulation_state_id=uri_constants.CIRCULATION_STATE_IDLE
         )
 
-        services = Service.objects.filter(pk__in=activations.values("service_id"))
+        services = Service.objects.filter(
+            pk__in=activations.values("service_id"), notification=1
+        )
 
         return [
             {"to": email}
@@ -623,7 +625,9 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
     def _notify_service(self, service_id):
         return [
             {"to": email}
-            for email in unpack_service_emails(Service.objects.filter(pk=service_id))
+            for email in unpack_service_emails(
+                Service.objects.filter(pk=service_id, notification=1)
+            )
         ]
 
     def _get_recipients_koor_np_users(self, instance):
@@ -648,7 +652,8 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             )
 
         return self._get_responsible(
-            instance, Service.objects.filter(pk=municipality_service_id).first()
+            instance,
+            Service.objects.filter(pk=municipality_service_id, notification=1).first(),
         )
 
     def _get_recipients_applicant(self, instance):
@@ -672,8 +677,11 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         )
 
     def _get_responsible(self, instance, service):
+        if not service.notification:
+            return []
+
         responsible_old = instance.responsible_services.filter(
-            service=service
+            service=service,
         ).values_list("responsible_user__email", flat=True)
         responsible_new = instance.responsibilities.filter(service=service).values_list(
             "user__email", flat=True
@@ -703,7 +711,6 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             circulation__instance_id=instance.pk,
             email_sent=0,
             service_parent=service,
-            service__notification=1,
         )
         services = {a.service for a in activations}
 
@@ -713,7 +720,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
 
     def _get_recipients_service(self, instance):
         services = Service.objects.filter(
-            pk__in=instance.circulations.values("activations__service"), notification=1
+            pk__in=instance.circulations.values("activations__service")
         )
 
         return flatten(
@@ -732,9 +739,10 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
                 f"Recipient type requires you to provide activation for instance {instance.pk}"
             )
 
-        email = activation.service.email
-        if email and "@" in email:
-            return [{"to": addr} for addr in activation.service.email.split(",")]
+        if activation.service.notification:
+            email = activation.service.email
+            if email and "@" in email:
+                return [{"to": addr} for addr in activation.service.email.split(",")]
         return []
 
     def _get_recipients_circulation_service(self, instance):
@@ -749,9 +757,10 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
                 f"Recipient type requires you to provide activation for instance {instance.pk}"
             )
 
-        email = activation.service.email
-        if email and "@" in email:
-            return [{"to": addr} for addr in activation.service.email.split(",")]
+        if activation.service.notification:
+            email = activation.service.email
+            if email and "@" in email:
+                return [{"to": addr} for addr in activation.service.email.split(",")]
         return []
 
     def _get_recipients_construction_control(self, instance):
