@@ -6,7 +6,8 @@ from caluma.schema import schema
 
 
 @pytest.mark.parametrize(
-    "role__name,expected_count", [("Support", 3), ("Service", 1), ("Applicant", 0)]
+    "role__name,expected_count",
+    [("Support", 3), ("Service", 1), ("TrustedService", 3), ("Applicant", 0)],
 )
 def test_document_visibility(
     db,
