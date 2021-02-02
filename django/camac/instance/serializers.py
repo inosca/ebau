@@ -416,7 +416,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
         if state != "new":
             permissions.add("read")
 
-        if state in ["ext", "circ", "redac"]:
+        if state in ["ext", "circ", "redac", "old"]:
             permissions.add("write")
         return permissions
 
@@ -436,7 +436,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
         if state != "new":
             permissions.add("read")
 
-        if state in ["correction", "comm"]:
+        if state in ["correction", "comm", "old"]:
             permissions.add("write")
 
         if (

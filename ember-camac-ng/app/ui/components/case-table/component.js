@@ -164,15 +164,21 @@ export default class CaseTableComponent extends Component {
 
   @action
   setup() {
+    const camacFilters = {
+      instance_state: this.args.filter.instanceState || "",
+      location: this.args.filter.municipality,
+      service: this.args.hasActivation ? this.shoebox.content.serviceId : null,
+    };
     this.casesQuery.fetch({
       order: [{ meta: "camac-instance-id" }],
       filter: this.gqlFilter,
       queryOptions: {
         context: {
           headers: {
-            "x-camac-filters": `instance_state=${
-              this.args.filter.instanceState ?? ""
-            }&location=${this.args.filter.municipality}`,
+            "x-camac-filters": Object.entries(camacFilters)
+              .filter(([, value]) => value)
+              .map((entry) => entry.join("="))
+              .join("&"),
           },
         },
       },
