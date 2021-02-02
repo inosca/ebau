@@ -362,7 +362,7 @@
     "fields": {
       "attachment_section": 21,
       "role": 4,
-      "mode": "write"
+      "mode": "read"
     }
   },
   {
@@ -389,7 +389,7 @@
     "fields": {
       "attachment_section": 21,
       "role": 1021,
-      "mode": "write"
+      "mode": "read"
     }
   },
   {
@@ -452,7 +452,7 @@
     "fields": {
       "attachment_section": 21,
       "role": 1101,
-      "mode": "admin"
+      "mode": "read"
     }
   },
   {
@@ -506,7 +506,7 @@
     "fields": {
       "attachment_section": 21,
       "role": 1103,
-      "mode": "write"
+      "mode": "read"
     }
   },
   {
@@ -623,7 +623,7 @@
     "fields": {
       "attachment_section": 21,
       "role": 1106,
-      "mode": "admin"
+      "mode": "read"
     }
   },
   {
@@ -731,7 +731,7 @@
     "fields": {
       "attachment_section": 21,
       "role": 1107,
-      "mode": "admin"
+      "mode": "read"
     }
   },
   {
@@ -803,7 +803,7 @@
     "fields": {
       "attachment_section": 21,
       "role": 1127,
-      "mode": "admin"
+      "mode": "read"
     }
   },
   {
@@ -848,7 +848,7 @@
     "fields": {
       "attachment_section": 21,
       "role": 1128,
-      "mode": "admin"
+      "mode": "read"
     }
   },
   {
@@ -929,7 +929,7 @@
     "fields": {
       "attachment_section": 21,
       "role": 1129,
-      "mode": "admin"
+      "mode": "read"
     }
   },
   {
