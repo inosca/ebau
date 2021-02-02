@@ -358,10 +358,10 @@
     "pk": "mitberichtsverfahren-koor-bg",
     "fields": {
       "created_at": "2020-11-24T12:55:29.235Z",
-      "modified_at": "2020-12-03T09:26:38.694Z",
+      "modified_at": "2021-01-29T07:58:04.349Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "name": "{\"de\": \"Mitberichtsverfahren Kanton\", \"fr\": null}",
+      "name": "{\"de\": \"Mitberichtsverfahren Kanton (Verfahrensauswahl ARE)\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
       "is_published": true,
@@ -7643,7 +7643,7 @@
     "pk": "anlagetyp-analgetyp-klima",
     "fields": {
       "created_at": "2020-09-19T10:45:29.296Z",
-      "modified_at": "2020-11-02T14:10:29.245Z",
+      "modified_at": "2021-01-28T08:26:00.094Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Klima- und L\\u00fcftungsanlage\", \"fr\": null}",
@@ -7699,7 +7699,7 @@
     "pk": "anlagetyp-aufzuege",
     "fields": {
       "created_at": "2020-09-19T10:45:29.314Z",
-      "modified_at": "2020-11-02T14:10:29.197Z",
+      "modified_at": "2021-01-28T08:26:00.173Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Aufz\\u00fcge\", \"fr\": null}",
@@ -7713,7 +7713,7 @@
     "pk": "anlagetyp-betankungsanlage",
     "fields": {
       "created_at": "2020-10-21T13:11:18.662Z",
-      "modified_at": "2020-11-02T14:10:29.369Z",
+      "modified_at": "2021-01-28T08:26:01.847Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "label": "{\"de\": \"Betankungsanlage (Benzin, Diesel)\", \"fr\": null}",
@@ -7727,7 +7727,7 @@
     "pk": "anlagetyp-hauptheizung",
     "fields": {
       "created_at": "2020-09-19T10:45:29.332Z",
-      "modified_at": "2020-11-02T14:10:29.190Z",
+      "modified_at": "2021-01-28T08:26:00.064Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Energie-/ W\\u00e4rmequelle Heizung\", \"fr\": null}",
@@ -7741,7 +7741,7 @@
     "pk": "anlagetyp-lueftungsanlage",
     "fields": {
       "created_at": "2020-10-26T08:11:57.459Z",
-      "modified_at": "2020-11-02T14:10:29.413Z",
+      "modified_at": "2021-01-28T08:26:00Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "label": "{\"de\": \"L\\u00fcftungsanlage\", \"fr\": null}",
@@ -7755,7 +7755,7 @@
     "pk": "anlagetyp-notstrom-aggregat",
     "fields": {
       "created_at": "2020-10-21T13:11:18.667Z",
-      "modified_at": "2020-11-02T14:10:29.421Z",
+      "modified_at": "2021-01-28T08:26:00.228Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "label": "{\"de\": \"Fest installierte Notstrom-Aggregat-Anlage\", \"fr\": null}",
@@ -7769,7 +7769,7 @@
     "pk": "anlagetyp-photovoltaische-solaranlage",
     "fields": {
       "created_at": "2020-09-19T10:45:29.381Z",
-      "modified_at": "2020-11-02T14:10:29.330Z",
+      "modified_at": "2021-01-28T08:26:01.898Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Photovoltaische Solaranlage\", \"fr\": null}",
@@ -7783,7 +7783,7 @@
     "pk": "anlagetyp-tankanlagen",
     "fields": {
       "created_at": "2020-10-31T20:11:50.153Z",
-      "modified_at": "2020-11-02T14:10:29.441Z",
+      "modified_at": "2021-01-28T08:26:01.912Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Tankanlagen (Heiz\\u00f6l)\", \"fr\": null}",
@@ -7797,7 +7797,7 @@
     "pk": "anlagetyp-thermische-solaranlage",
     "fields": {
       "created_at": "2020-09-19T10:45:29.324Z",
-      "modified_at": "2020-11-02T14:10:29.321Z",
+      "modified_at": "2021-01-28T08:26:01.945Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Thermische Solaranlage\", \"fr\": null}",
@@ -7811,7 +7811,7 @@
     "pk": "anlagetyp-warmwasser",
     "fields": {
       "created_at": "2020-10-19T12:35:27.834Z",
-      "modified_at": "2020-11-02T14:10:29.373Z",
+      "modified_at": "2021-01-28T08:26:00.339Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Energie-/ W\\u00e4rmequelle Warmwasser\", \"fr\": null}",
@@ -7825,7 +7825,7 @@
     "pk": "anlagetyp-zusatzheizung",
     "fields": {
       "created_at": "2020-09-19T10:45:29.347Z",
-      "modified_at": "2020-11-02T14:10:29.230Z",
+      "modified_at": "2021-01-28T08:26:00.149Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Zusatzheizungsanlage\", \"fr\": null}",
@@ -11605,7 +11605,7 @@
     "pk": "hauptheizungsanlage-abwaerme",
     "fields": {
       "created_at": "2020-09-23T07:32:42.566Z",
-      "modified_at": "2020-11-18T16:01:39.829Z",
+      "modified_at": "2021-01-28T13:52:07.367Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Abw\\u00e4rme (innerhalb des Geb\\u00e4udes)\", \"fr\": null}",
@@ -11619,7 +11619,7 @@
     "pk": "hauptheizungsanlage-andere",
     "fields": {
       "created_at": "2020-09-19T10:50:10.537Z",
-      "modified_at": "2020-11-18T16:01:39.740Z",
+      "modified_at": "2021-01-28T13:52:07.528Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Andere\", \"fr\": null}",
@@ -11633,7 +11633,7 @@
     "pk": "hauptheizungsanlage-elektrizitaet",
     "fields": {
       "created_at": "2020-09-19T10:50:10.404Z",
-      "modified_at": "2020-11-18T16:01:39.545Z",
+      "modified_at": "2021-01-28T13:52:07.510Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Elektrizit\\u00e4t\", \"fr\": null}",
@@ -11647,7 +11647,7 @@
     "pk": "hauptheizungsanlage-erdsonde",
     "fields": {
       "created_at": "2020-09-19T10:50:10.428Z",
-      "modified_at": "2020-11-18T16:01:39.661Z",
+      "modified_at": "2021-01-28T13:52:04.804Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Erdsonde\", \"fr\": null}",
@@ -11661,7 +11661,7 @@
     "pk": "hauptheizungsanlage-erdwaerme",
     "fields": {
       "created_at": "2020-09-23T07:30:04.396Z",
-      "modified_at": "2020-11-18T16:01:39.739Z",
+      "modified_at": "2021-01-28T13:52:04.887Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Erdw\\u00e4rme\", \"fr\": null}",
@@ -11675,7 +11675,7 @@
     "pk": "hauptheizungsanlage-erdwaermesonde",
     "fields": {
       "created_at": "2020-10-19T12:23:45.514Z",
-      "modified_at": "2020-11-18T16:01:39.899Z",
+      "modified_at": "2021-01-28T13:52:05.256Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Erdw\\u00e4rmesonde\", \"fr\": null}",
@@ -11689,7 +11689,7 @@
     "pk": "hauptheizungsanlage-fernwaerme",
     "fields": {
       "created_at": "2020-09-19T10:50:10.538Z",
-      "modified_at": "2020-11-18T16:01:39.714Z",
+      "modified_at": "2021-01-28T13:52:07.601Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Fernw\\u00e4rme\", \"fr\": null}",
@@ -11703,7 +11703,7 @@
     "pk": "hauptheizungsanlage-gas",
     "fields": {
       "created_at": "2020-09-23T07:36:37.125Z",
-      "modified_at": "2020-11-18T16:01:39.877Z",
+      "modified_at": "2021-01-28T13:52:04.855Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Gas\", \"fr\": null}",
@@ -11717,7 +11717,7 @@
     "pk": "hauptheizungsanlage-grundwasserwaermepumpe",
     "fields": {
       "created_at": "2020-09-19T10:50:10.400Z",
-      "modified_at": "2020-11-18T16:01:39.601Z",
+      "modified_at": "2021-01-28T13:52:05.091Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Wasser (Grundwasserw\\u00e4rmepumpe, Oberfl\\u00e4chenwasser, Abwasser)\", \"fr\": null}",
@@ -11731,7 +11731,7 @@
     "pk": "hauptheizungsanlage-heizoel",
     "fields": {
       "created_at": "2020-09-19T10:50:10.362Z",
-      "modified_at": "2020-11-18T16:01:39.552Z",
+      "modified_at": "2021-01-28T13:52:04.483Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Heiz\\u00f6l\", \"fr\": null}",
@@ -11745,7 +11745,7 @@
     "pk": "hauptheizungsanlage-holz",
     "fields": {
       "created_at": "2020-09-23T07:30:04.416Z",
-      "modified_at": "2020-11-18T16:01:39.771Z",
+      "modified_at": "2021-01-28T13:52:07.579Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Holz\", \"fr\": null}",
@@ -11759,7 +11759,7 @@
     "pk": "hauptheizungsanlage-holzschnitzel-pellets",
     "fields": {
       "created_at": "2020-09-19T10:50:10.349Z",
-      "modified_at": "2020-11-18T16:01:39.537Z",
+      "modified_at": "2021-01-28T13:52:04.927Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Holzschnitzel / Pellets\", \"fr\": null}",
@@ -11773,7 +11773,7 @@
     "pk": "hauptheizungsanlage-kachelofen-schwedenofen",
     "fields": {
       "created_at": "2020-09-19T10:50:10.523Z",
-      "modified_at": "2020-11-18T16:01:39.670Z",
+      "modified_at": "2021-01-28T13:52:05.112Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Kachelofen / Schwedenofen\", \"fr\": null}",
@@ -11787,7 +11787,7 @@
     "pk": "hauptheizungsanlage-luftwaermepumpe",
     "fields": {
       "created_at": "2020-09-19T10:50:10.498Z",
-      "modified_at": "2020-11-18T16:01:39.647Z",
+      "modified_at": "2021-01-28T13:52:07.530Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Luftw\\u00e4rmepumpe\", \"fr\": null}",
@@ -11801,7 +11801,7 @@
     "pk": "hauptheizungsanlage-sonne-thermisch",
     "fields": {
       "created_at": "2020-09-23T07:30:04.458Z",
-      "modified_at": "2020-11-18T16:01:39.801Z",
+      "modified_at": "2021-01-28T13:52:05.062Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Sonne (thermisch)\", \"fr\": null}",
@@ -11815,7 +11815,7 @@
     "pk": "hauptheizungsanlage-stueckholz",
     "fields": {
       "created_at": "2020-09-19T10:50:10.380Z",
-      "modified_at": "2020-11-18T16:01:39.463Z",
+      "modified_at": "2021-01-28T13:52:04.731Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"St\\u00fcckholz\", \"fr\": null}",
@@ -11829,11 +11829,11 @@
     "pk": "hauptheizungsanlage-unbestimmt",
     "fields": {
       "created_at": "2020-09-23T07:30:04.469Z",
-      "modified_at": "2020-11-18T16:01:39.822Z",
+      "modified_at": "2021-01-28T13:52:05.140Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Unbestimmt\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -13551,7 +13551,7 @@
     "pk": "proposal-abbruch-rueckbau",
     "fields": {
       "created_at": "2020-08-28T15:33:19.397Z",
-      "modified_at": "2020-11-11T11:15:29.845Z",
+      "modified_at": "2021-01-22T18:13:14.338Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Abbruch\", \"fr\": null}",
@@ -13565,7 +13565,7 @@
     "pk": "proposal-anbau-erweiterung",
     "fields": {
       "created_at": "2020-08-28T15:33:19.429Z",
-      "modified_at": "2020-11-11T11:15:29.807Z",
+      "modified_at": "2021-01-22T18:13:13.961Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Anbau / Erweiterung\", \"fr\": null}",
@@ -13579,7 +13579,7 @@
     "pk": "proposal-andere",
     "fields": {
       "created_at": "2020-08-28T15:33:19.519Z",
-      "modified_at": "2020-11-11T11:15:29.864Z",
+      "modified_at": "2021-01-22T18:13:13.767Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Andere\", \"fr\": null}",
@@ -13593,7 +13593,7 @@
     "pk": "proposal-neubau",
     "fields": {
       "created_at": "2020-08-28T15:33:19.359Z",
-      "modified_at": "2020-11-11T11:15:29.804Z",
+      "modified_at": "2021-01-22T18:13:13.949Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Neubau\", \"fr\": null}",
@@ -13607,7 +13607,7 @@
     "pk": "proposal-nutzungsaenderung",
     "fields": {
       "created_at": "2020-08-28T15:33:19.390Z",
-      "modified_at": "2020-11-11T11:15:29.801Z",
+      "modified_at": "2021-01-22T18:13:13.962Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Nutzungs\\u00e4nderung\", \"fr\": null}",
@@ -13621,7 +13621,7 @@
     "pk": "proposal-umbau-erneuerung-sanierung",
     "fields": {
       "created_at": "2020-08-28T15:33:19.404Z",
-      "modified_at": "2020-11-11T11:15:29.766Z",
+      "modified_at": "2021-01-22T18:13:13.771Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Umbau\", \"fr\": null}",
@@ -17415,7 +17415,7 @@
     "pk": "anlagetyp",
     "fields": {
       "created_at": "2020-09-19T10:31:49.295Z",
-      "modified_at": "2020-11-02T14:10:29.615Z",
+      "modified_at": "2021-01-28T13:50:15.399Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Anlagetyp\", \"fr\": null}",
@@ -18119,7 +18119,7 @@
     "pk": "art-der-hochbaute",
     "fields": {
       "created_at": "2020-09-04T07:47:18.753Z",
-      "modified_at": "2020-12-10T09:25:09.720Z",
+      "modified_at": "2021-01-25T06:59:48.878Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Typ des Bauwerks\", \"fr\": null}",
@@ -18949,7 +18949,7 @@
     "pk": "bedachung",
     "fields": {
       "created_at": "2020-09-19T09:39:58.947Z",
-      "modified_at": "2020-10-29T18:34:44.416Z",
+      "modified_at": "2021-01-28T08:29:56.360Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Bedachung\", \"fr\": null}",
@@ -22670,7 +22670,7 @@
     "pk": "gebaeude",
     "fields": {
       "created_at": "2020-10-19T12:48:56.635Z",
-      "modified_at": "2020-11-04T19:02:52.932Z",
+      "modified_at": "2021-01-28T13:59:10.792Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Geb\\u00e4ude und Anlagen\", \"fr\": null}",
@@ -22687,7 +22687,8 @@
           "art-der-hochbaute",
           "proposal",
           "gebaeudenummer-bezeichnung",
-          "gebaeudekategorie"
+          "gebaeudekategorie",
+          "fundationsart"
         ]
       },
       "data_source": null,
@@ -23502,7 +23503,7 @@
     "pk": "hauptheizungsanlage",
     "fields": {
       "created_at": "2020-09-19T10:50:10.619Z",
-      "modified_at": "2020-11-18T16:01:40.212Z",
+      "modified_at": "2021-01-28T13:52:08.679Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Energie-/ W\\u00e4rmequelle\", \"fr\": null}",
@@ -23530,7 +23531,7 @@
     "pk": "haustechnik-tabelle",
     "fields": {
       "created_at": "2020-09-19T10:56:08.906Z",
-      "modified_at": "2020-10-21T13:34:04.291Z",
+      "modified_at": "2021-01-28T13:57:29.097Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Haus- und Geb\\u00e4udetechnik\", \"fr\": null}",
@@ -23547,7 +23548,8 @@
           "anlagetyp",
           "anlagetyp-art",
           "gehoert-zu-gebaeudenummer",
-          "hauptheizungsanlage"
+          "hauptheizungsanlage",
+          "heizsystem-art"
         ]
       },
       "data_source": null,
@@ -24277,7 +24279,7 @@
     "pk": "info-mbv-kanton",
     "fields": {
       "created_at": "2020-12-09T13:50:01.821Z",
-      "modified_at": "2020-12-15T13:33:37.513Z",
+      "modified_at": "2021-01-29T09:57:21.816Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Allgemeine Information zu internen Mitberichtsverfahren\", \"fr\": null}",
@@ -24287,7 +24289,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"##Allgemeine Informationen zu verwaltungsinternen Verfahren\\n\\nAlle internen Verfahren werden k\\u00fcnftig, analog wie das zum Beispiel beim Baubewilligungsverfahren gemacht wird, mit dem benutzergef\\u00fchrten Formular erfasst. Die Themen \\\"Personalien\\\" und \\\"Lokalisierung\\\" sind dabei bei allen Verfahren identisch.\\n\\n**Auswahl des Verfahrens**\\nZur Vereinfachung der Datenstruktur werden die diversen Verfahrenstypen in den drei Themen \\\"Mitberichtsverfahren Kanton\\\", Mitberichtsverfahren Bund\\\" und \\\"PGV Kanton\\\" zusammengef\\u00fchrt.  Bis auf weiteres k\\u00f6nnen Sie, wenn Sie ein neues Dossier erstellen m\\u00f6chten,  wie gewohnt im CAMAC Menu \\\"Neues Dossier erstellen\\\" das Verfahren ausw\\u00e4hlen. Im Formular wird das dazugeh\\u00f6rige Thema angezeigt. In einem zweiten Schritt k\\u00f6nnen Sie dann die definitive Auswahl des Verfahrens t\\u00e4tigen (im Endausbau von URec wird die erste Auswahl wegfallen).\\n\\n##Klassierung der Verfahren##\\n**Mitberichtsverfahren Kanton (MBV Kanton)** beinhaltet alle Mitberichtsverfahren die von einer kantonalen Stelle geleitet werden (z.B. Konzessionsverfahren - Leitbeh\\u00f6rde ist das Amt f\\u00fcr Energie).\\n\\n**Mitberichtsverfahren Bund (MBV Bund)** sind Verfahren, bei denen die kantonalen Fachstellen einen direkten oder einen koordinierten Mitbericht zu handen einer Bundesstelle abgeben (z.B. ein Mitberichtsverfahren zu einem PGV nach Seilbahngesetz - Leitbeh\\u00f6rde ist das BAV, zust\\u00e4ndig f\\u00fcr die Koordination der R\\u00fcckmeldungen der kantonalen Fachstellen ist das ARE).\\n\\n**Plangenehmigungsverfahren Kanton (PGV Kanton)** beinhaltet alle Plangenehmigungsverfahren die von einer kantonalen Stelle geleitet werden (z.B. PGV Kantonsstrasse - Leitbeh\\u00f6rde ist die Baudirektion).\\n\\nWir bitten Sie, im Rahmen der internen Verfahren auf die **Erhebung von Geb\\u00fchren** zu verzichten.\\n\\nBei Fragen wenden Sie sich bitte an das [Amt f\\u00fcr Raumentwicklung](https://www.ur.ch/_rte/amt/847) oder schreiben Sie uns eine Nachricht an:[Support URec](raumplanung@ur.ch)\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"##Allgemeine Informationen zu verwaltungsinternen Verfahren\\n\\nAlle internen Verfahren werden k\\u00fcnftig, analog wie das zum Beispiel beim Baubewilligungsverfahren gemacht wird, mit dem benutzergef\\u00fchrten Formular erfasst. Die Themen \\\"Personalien\\\" und \\\"Lokalisierung\\\" sind dabei bei allen Verfahren identisch.\\n\\n**Auswahl des Verfahrens**\\nZur Vereinfachung der Datenstruktur werden die diversen Verfahrenstypen in den drei Themen \\\"Mitberichtsverfahren Kanton\\\", Mitberichtsverfahren Bund\\\" und \\\"PGV Kanton\\\" zusammengef\\u00fchrt.  Bis auf weiteres k\\u00f6nnen Sie, wenn Sie ein neues Dossier erstellen m\\u00f6chten,  wie gewohnt im CAMAC Menu \\\"Neues Dossier erstellen\\\" das Verfahren ausw\\u00e4hlen. Im Formular wird das dazugeh\\u00f6rige Thema angezeigt. In einem zweiten Schritt k\\u00f6nnen Sie dann die definitive Auswahl des Verfahrens t\\u00e4tigen (im Endausbau von URec wird die erste Auswahl wegfallen).\\n\\n##Klassierung der Verfahren##\\n**Mitberichtsverfahren Kanton (MBV Kanton)** beinhaltet alle Mitberichtsverfahren die von einer kantonalen Stelle geleitet werden (z.B. Konzessionsverfahren - Leitbeh\\u00f6rde ist das Amt f\\u00fcr Energie).\\n\\n**Mitberichtsverfahren Bund(MBV Bund)** sind Verfahren, bei denen die kantonalen Fachstellen einen direkten oder einen koordinierten Mitbericht zu handen einer Bundesstelle abgeben (z.B. ein Mitberichtsverfahren zu einem PGV nach Seilbahngesetz - Leitbeh\\u00f6rde ist das BAV, zust\\u00e4ndig f\\u00fcr die Koordination der R\\u00fcckmeldungen der kantonalen Fachstellen ist das ARE).\\n\\n**Plangenehmigungsverfahren Kanton (PGV Kanton** beinhaltet alle Plangenehmigungsverfahren die von einer kantonalen Stelle geleitet werden (z.B. PGV Kantonsstrasse - Leitbeh\\u00f6rde ist die Baudirektion).\\n\\nWir bitten Sie, im Rahmen der internen Verfahren auf die **Erhebung von Geb\\u00fchren** zu verzichten.\\n\\nBei Fragen wenden Sie sich bitte an das [Amt f\\u00fcr Raumentwicklung](https://www.ur.ch/_rte/amt/847) oder schreiben Sie uns eine Nachricht an:[Support URec](raumplanung@ur.ch)\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -27576,7 +27578,7 @@
     "pk": "proposal",
     "fields": {
       "created_at": "2020-08-28T15:33:19.588Z",
-      "modified_at": "2020-11-11T11:15:29.998Z",
+      "modified_at": "2021-01-22T18:13:14.604Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Art der Arbeiten\", \"fr\": null}",
@@ -27750,7 +27752,7 @@
     "pk": "purpose",
     "fields": {
       "created_at": "2020-08-28T15:38:22.916Z",
-      "modified_at": "2020-11-19T10:57:04.372Z",
+      "modified_at": "2021-02-02T11:39:30.091Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Welche Nutzungszwecke und Besonderheiten beinhaltet das Bauprojekt?\", \"fr\": null}",
@@ -32248,8 +32250,8 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-analgetyp-klima",
     "fields": {
-      "created_at": "2020-11-02T14:10:29.665Z",
-      "modified_at": "2020-11-02T14:10:29.665Z",
+      "created_at": "2021-01-28T13:50:15.568Z",
+      "modified_at": "2021-01-28T13:50:15.568Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "anlagetyp",
@@ -32261,130 +32263,130 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-aufzuege",
     "fields": {
-      "created_at": "2020-11-02T14:10:29.662Z",
-      "modified_at": "2020-11-02T14:10:29.662Z",
+      "created_at": "2021-01-28T13:50:15.549Z",
+      "modified_at": "2021-01-28T13:50:15.549Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "anlagetyp",
       "option": "anlagetyp-aufzuege",
-      "sort": 10
+      "sort": 9
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-betankungsanlage",
     "fields": {
-      "created_at": "2020-11-02T14:10:29.640Z",
-      "modified_at": "2020-11-02T14:10:29.640Z",
+      "created_at": "2021-01-28T13:50:15.517Z",
+      "modified_at": "2021-01-28T13:50:15.517Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "anlagetyp",
       "option": "anlagetyp-betankungsanlage",
-      "sort": 4
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-hauptheizung",
     "fields": {
-      "created_at": "2020-11-02T14:10:29.659Z",
-      "modified_at": "2020-11-02T14:10:29.659Z",
+      "created_at": "2021-01-28T13:50:15.546Z",
+      "modified_at": "2021-01-28T13:50:15.546Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "anlagetyp",
       "option": "anlagetyp-hauptheizung",
-      "sort": 9
+      "sort": 8
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-lueftungsanlage",
     "fields": {
-      "created_at": "2020-11-02T14:10:29.631Z",
-      "modified_at": "2020-11-02T14:10:29.631Z",
+      "created_at": "2021-01-28T13:50:15.564Z",
+      "modified_at": "2021-01-28T13:50:15.564Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "anlagetyp",
       "option": "anlagetyp-lueftungsanlage",
-      "sort": 2
+      "sort": 10
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-notstrom-aggregat",
     "fields": {
-      "created_at": "2020-11-02T14:10:29.635Z",
-      "modified_at": "2020-11-02T14:10:29.635Z",
+      "created_at": "2021-01-28T13:50:15.490Z",
+      "modified_at": "2021-01-28T13:50:15.491Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "anlagetyp",
       "option": "anlagetyp-notstrom-aggregat",
-      "sort": 3
+      "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-photovoltaische-solaranlage",
     "fields": {
-      "created_at": "2020-11-02T14:10:29.647Z",
-      "modified_at": "2020-11-02T14:10:29.647Z",
+      "created_at": "2021-01-28T13:50:15.522Z",
+      "modified_at": "2021-01-28T13:50:15.522Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "anlagetyp",
       "option": "anlagetyp-photovoltaische-solaranlage",
-      "sort": 6
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-tankanlagen",
     "fields": {
-      "created_at": "2020-11-02T14:10:29.626Z",
-      "modified_at": "2020-11-02T14:10:29.626Z",
+      "created_at": "2021-01-28T13:50:15.510Z",
+      "modified_at": "2021-01-28T13:50:15.510Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "anlagetyp",
       "option": "anlagetyp-tankanlagen",
-      "sort": 1
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-thermische-solaranlage",
     "fields": {
-      "created_at": "2020-11-02T14:10:29.650Z",
-      "modified_at": "2020-11-02T14:10:29.650Z",
+      "created_at": "2021-01-28T13:50:15.527Z",
+      "modified_at": "2021-01-28T13:50:15.527Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "anlagetyp",
       "option": "anlagetyp-thermische-solaranlage",
-      "sort": 7
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-warmwasser",
     "fields": {
-      "created_at": "2020-11-02T14:10:29.644Z",
-      "modified_at": "2020-11-02T14:10:29.644Z",
+      "created_at": "2021-01-28T13:50:15.542Z",
+      "modified_at": "2021-01-28T13:50:15.542Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "anlagetyp",
       "option": "anlagetyp-warmwasser",
-      "sort": 5
+      "sort": 7
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-zusatzheizung",
     "fields": {
-      "created_at": "2020-11-02T14:10:29.655Z",
-      "modified_at": "2020-11-02T14:10:29.655Z",
+      "created_at": "2021-01-28T13:50:15.530Z",
+      "modified_at": "2021-01-28T13:50:15.531Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "anlagetyp",
       "option": "anlagetyp-zusatzheizung",
-      "sort": 8
+      "sort": 6
     }
   },
   {
@@ -32677,47 +32679,47 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-andere",
     "fields": {
-      "created_at": "2020-12-10T09:25:09.982Z",
-      "modified_at": "2020-12-10T09:25:09.982Z",
+      "created_at": "2021-01-25T06:59:48.886Z",
+      "modified_at": "2021-01-25T06:59:48.886Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-andere",
-      "sort": 20
+      "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-bauten-und-anlagen-gastgewerbe",
     "fields": {
-      "created_at": "2020-12-10T09:25:09.991Z",
-      "modified_at": "2020-12-10T09:25:09.991Z",
+      "created_at": "2021-01-25T06:59:48.952Z",
+      "modified_at": "2021-01-25T06:59:48.952Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-bauten-und-anlagen-gastgewerbe",
-      "sort": 22
+      "sort": 21
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-brennstofflager",
     "fields": {
-      "created_at": "2020-12-10T09:25:09.932Z",
-      "modified_at": "2020-12-10T09:25:09.932Z",
+      "created_at": "2021-01-25T06:59:48.904Z",
+      "modified_at": "2021-01-25T06:59:48.904Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-brennstofflager",
-      "sort": 7
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-doppeleinfamilienhaus",
     "fields": {
-      "created_at": "2020-12-10T09:25:10.012Z",
-      "modified_at": "2020-12-10T09:25:10.012Z",
+      "created_at": "2021-01-25T06:59:48.974Z",
+      "modified_at": "2021-01-25T06:59:48.974Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -32729,8 +32731,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-einfamilienhaus",
     "fields": {
-      "created_at": "2020-12-10T09:25:10.015Z",
-      "modified_at": "2020-12-10T09:25:10.015Z",
+      "created_at": "2021-01-25T06:59:48.978Z",
+      "modified_at": "2021-01-25T06:59:48.978Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -32742,34 +32744,34 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-energieholzlager",
     "fields": {
-      "created_at": "2020-12-10T09:25:09.939Z",
-      "modified_at": "2020-12-10T09:25:09.939Z",
+      "created_at": "2021-01-25T06:59:48.911Z",
+      "modified_at": "2021-01-25T06:59:48.911Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-energieholzlager",
-      "sort": 9
+      "sort": 8
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-forstwirtschaft",
     "fields": {
-      "created_at": "2020-12-10T09:25:09.943Z",
-      "modified_at": "2020-12-10T09:25:09.943Z",
+      "created_at": "2021-01-25T06:59:48.914Z",
+      "modified_at": "2021-01-25T06:59:48.914Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-forstwirtschaft",
-      "sort": 10
+      "sort": 9
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-garage-oder-carport",
     "fields": {
-      "created_at": "2020-12-10T09:25:09.995Z",
-      "modified_at": "2020-12-10T09:25:09.995Z",
+      "created_at": "2021-01-25T06:59:48.958Z",
+      "modified_at": "2021-01-25T06:59:48.958Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -32781,60 +32783,60 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-geschaftshaus",
     "fields": {
-      "created_at": "2020-12-10T09:25:10.005Z",
-      "modified_at": "2020-12-10T09:25:10.005Z",
+      "created_at": "2021-01-25T06:59:48.962Z",
+      "modified_at": "2021-01-25T06:59:48.962Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-geschaftshaus",
-      "sort": 26
+      "sort": 24
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-heim-mit-unterkunft",
     "fields": {
-      "created_at": "2020-12-10T09:25:09.970Z",
-      "modified_at": "2020-12-10T09:25:09.970Z",
+      "created_at": "2021-01-25T06:59:48.949Z",
+      "modified_at": "2021-01-25T06:59:48.949Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-heim-mit-unterkunft",
-      "sort": 17
+      "sort": 20
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-industrie",
     "fields": {
-      "created_at": "2020-12-10T09:25:09.998Z",
-      "modified_at": "2020-12-10T09:25:09.998Z",
+      "created_at": "2021-01-25T06:59:48.965Z",
+      "modified_at": "2021-01-25T06:59:48.965Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-industrie",
-      "sort": 24
+      "sort": 25
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-kehrichtentsorgungsanlagen",
     "fields": {
-      "created_at": "2020-12-10T09:25:09.909Z",
-      "modified_at": "2020-12-10T09:25:09.909Z",
+      "created_at": "2021-01-25T06:59:48.889Z",
+      "modified_at": "2021-01-25T06:59:48.889Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-kehrichtentsorgungsanlagen",
-      "sort": 1
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-kirchen",
     "fields": {
-      "created_at": "2020-12-10T09:25:09.958Z",
-      "modified_at": "2020-12-10T09:25:09.958Z",
+      "created_at": "2021-01-25T06:59:48.929Z",
+      "modified_at": "2021-01-25T06:59:48.930Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -32846,8 +32848,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-kommunikationsanlagen",
     "fields": {
-      "created_at": "2020-12-10T09:25:09.918Z",
-      "modified_at": "2020-12-10T09:25:09.918Z",
+      "created_at": "2021-01-25T06:59:48.893Z",
+      "modified_at": "2021-01-25T06:59:48.893Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -32859,8 +32861,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-kulturbauten",
     "fields": {
-      "created_at": "2020-12-10T09:25:09.955Z",
-      "modified_at": "2020-12-10T09:25:09.955Z",
+      "created_at": "2021-01-25T06:59:48.927Z",
+      "modified_at": "2021-01-25T06:59:48.927Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -32872,34 +32874,34 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-landwirtschaft-betrieb-wohnteil",
     "fields": {
-      "created_at": "2020-12-10T09:25:09.925Z",
-      "modified_at": "2020-12-10T09:25:09.925Z",
+      "created_at": "2021-01-25T06:59:48.917Z",
+      "modified_at": "2021-01-25T06:59:48.917Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-landwirtschaft-betrieb-wohnteil",
-      "sort": 5
+      "sort": 10
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-materiallager",
     "fields": {
-      "created_at": "2020-12-10T09:25:09.935Z",
-      "modified_at": "2020-12-10T09:25:09.935Z",
+      "created_at": "2021-01-25T06:59:48.907Z",
+      "modified_at": "2021-01-25T06:59:48.907Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-materiallager",
-      "sort": 8
+      "sort": 7
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-mehrfamilienhaus",
     "fields": {
-      "created_at": "2020-12-10T09:25:10.008Z",
-      "modified_at": "2020-12-10T09:25:10.008Z",
+      "created_at": "2021-01-25T06:59:48.971Z",
+      "modified_at": "2021-01-25T06:59:48.971Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -32911,86 +32913,86 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-oekonomie-mit-tieren-mit-tieren",
     "fields": {
-      "created_at": "2020-12-10T09:25:09.947Z",
-      "modified_at": "2020-12-10T09:25:09.947Z",
+      "created_at": "2021-01-25T06:59:48.924Z",
+      "modified_at": "2021-01-25T06:59:48.924Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-oekonomie-mit-tieren-mit-tieren",
-      "sort": 11
+      "sort": 12
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-oekonomiegebaude",
     "fields": {
-      "created_at": "2020-12-10T09:25:09.988Z",
-      "modified_at": "2020-12-10T09:25:09.988Z",
+      "created_at": "2021-01-25T06:59:48.921Z",
+      "modified_at": "2021-01-25T06:59:48.921Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-oekonomiegebaude",
-      "sort": 21
+      "sort": 11
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-parkhaus",
     "fields": {
-      "created_at": "2020-12-10T09:25:09.922Z",
-      "modified_at": "2020-12-10T09:25:09.922Z",
+      "created_at": "2021-01-25T06:59:48.955Z",
+      "modified_at": "2021-01-25T06:59:48.955Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-parkhaus",
-      "sort": 4
+      "sort": 22
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-reklamebauten",
     "fields": {
-      "created_at": "2020-12-10T09:25:09.914Z",
-      "modified_at": "2020-12-10T09:25:09.914Z",
+      "created_at": "2021-01-25T06:59:48.895Z",
+      "modified_at": "2021-01-25T06:59:48.895Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-reklamebauten",
-      "sort": 2
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-schulen",
     "fields": {
-      "created_at": "2020-12-10T09:25:09.966Z",
-      "modified_at": "2020-12-10T09:25:09.966Z",
+      "created_at": "2021-01-25T06:59:48.939Z",
+      "modified_at": "2021-01-25T06:59:48.939Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-schulen",
-      "sort": 16
+      "sort": 17
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-silo",
     "fields": {
-      "created_at": "2020-12-10T09:25:09.929Z",
-      "modified_at": "2020-12-10T09:25:09.929Z",
+      "created_at": "2021-01-25T06:59:48.899Z",
+      "modified_at": "2021-01-25T06:59:48.899Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-silo",
-      "sort": 6
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-spital",
     "fields": {
-      "created_at": "2020-12-10T09:25:09.973Z",
-      "modified_at": "2020-12-10T09:25:09.973Z",
+      "created_at": "2021-01-25T06:59:48.942Z",
+      "modified_at": "2021-01-25T06:59:48.942Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -33002,21 +33004,21 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-sporthallen",
     "fields": {
-      "created_at": "2020-12-10T09:25:09.950Z",
-      "modified_at": "2020-12-10T09:25:09.950Z",
+      "created_at": "2021-01-25T06:59:48.935Z",
+      "modified_at": "2021-01-25T06:59:48.935Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-sporthallen",
-      "sort": 12
+      "sort": 16
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-tourismusanlagen",
     "fields": {
-      "created_at": "2020-12-10T09:25:09.962Z",
-      "modified_at": "2020-12-10T09:25:09.962Z",
+      "created_at": "2021-01-25T06:59:48.933Z",
+      "modified_at": "2021-01-25T06:59:48.933Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -33028,21 +33030,21 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-wohn-und-geschaftshaus",
     "fields": {
-      "created_at": "2020-12-10T09:25:10.002Z",
-      "modified_at": "2020-12-10T09:25:10.002Z",
+      "created_at": "2021-01-25T06:59:48.968Z",
+      "modified_at": "2021-01-25T06:59:48.968Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
       "option": "art-der-hochbaute-wohn-und-geschaftshaus",
-      "sort": 25
+      "sort": 26
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-hochbaute.art-der-hochbaute-wohnheim-ohne-pflege",
     "fields": {
-      "created_at": "2020-12-10T09:25:09.977Z",
-      "modified_at": "2020-12-10T09:25:09.977Z",
+      "created_at": "2021-01-25T06:59:48.946Z",
+      "modified_at": "2021-01-25T06:59:48.946Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-hochbaute",
@@ -33561,34 +33563,34 @@
     "model": "caluma_form.questionoption",
     "pk": "bedachung.bedachung-andere",
     "fields": {
-      "created_at": "2020-10-29T18:34:44.427Z",
-      "modified_at": "2020-10-29T18:34:44.427Z",
+      "created_at": "2021-01-28T08:29:56.409Z",
+      "modified_at": "2021-01-28T08:29:56.409Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "bedachung",
       "option": "bedachung-andere",
-      "sort": 2
+      "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "bedachung.bedachung-begruent",
     "fields": {
-      "created_at": "2020-10-29T18:34:44.423Z",
-      "modified_at": "2020-10-29T18:34:44.423Z",
+      "created_at": "2021-01-28T08:29:56.437Z",
+      "modified_at": "2021-01-28T08:29:56.437Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "bedachung",
       "option": "bedachung-begruent",
-      "sort": 1
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "bedachung.bedachung-blech",
     "fields": {
-      "created_at": "2020-10-29T18:34:44.433Z",
-      "modified_at": "2020-10-29T18:34:44.433Z",
+      "created_at": "2021-01-28T08:29:56.444Z",
+      "modified_at": "2021-01-28T08:29:56.444Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "bedachung",
@@ -33600,8 +33602,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bedachung.bedachung-eternit",
     "fields": {
-      "created_at": "2020-10-29T18:34:44.436Z",
-      "modified_at": "2020-10-29T18:34:44.436Z",
+      "created_at": "2021-01-28T08:29:56.454Z",
+      "modified_at": "2021-01-28T08:29:56.454Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "bedachung",
@@ -33613,8 +33615,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bedachung.bedachung-holzschindeln",
     "fields": {
-      "created_at": "2020-10-29T18:34:44.430Z",
-      "modified_at": "2020-10-29T18:34:44.430Z",
+      "created_at": "2021-01-28T08:29:56.440Z",
+      "modified_at": "2021-01-28T08:29:56.440Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "bedachung",
@@ -33626,8 +33628,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bedachung.bedachung-kupfer",
     "fields": {
-      "created_at": "2020-10-29T18:34:44.440Z",
-      "modified_at": "2020-10-29T18:34:44.440Z",
+      "created_at": "2021-01-28T08:29:56.457Z",
+      "modified_at": "2021-01-28T08:29:56.457Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "bedachung",
@@ -33639,8 +33641,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bedachung.bedachung-ziegel",
     "fields": {
-      "created_at": "2020-10-29T18:34:44.449Z",
-      "modified_at": "2020-10-29T18:34:44.449Z",
+      "created_at": "2021-01-28T08:29:56.460Z",
+      "modified_at": "2021-01-28T08:29:56.460Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "bedachung",
@@ -35888,34 +35890,34 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-abwaerme",
     "fields": {
-      "created_at": "2020-11-18T16:01:40.228Z",
-      "modified_at": "2020-11-18T16:01:40.228Z",
+      "created_at": "2021-01-28T13:52:08.712Z",
+      "modified_at": "2021-01-28T13:52:08.712Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "hauptheizungsanlage",
       "option": "hauptheizungsanlage-abwaerme",
-      "sort": 3
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-andere",
     "fields": {
-      "created_at": "2020-11-18T16:01:40.244Z",
-      "modified_at": "2020-11-18T16:01:40.244Z",
+      "created_at": "2021-01-28T13:52:08.701Z",
+      "modified_at": "2021-01-28T13:52:08.701Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "hauptheizungsanlage",
       "option": "hauptheizungsanlage-andere",
-      "sort": 8
+      "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-elektrizitaet",
     "fields": {
-      "created_at": "2020-11-18T16:01:40.263Z",
-      "modified_at": "2020-11-18T16:01:40.263Z",
+      "created_at": "2021-01-28T13:52:08.748Z",
+      "modified_at": "2021-01-28T13:52:08.748Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "hauptheizungsanlage",
@@ -35927,8 +35929,8 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-erdsonde",
     "fields": {
-      "created_at": "2020-11-18T16:01:40.257Z",
-      "modified_at": "2020-11-18T16:01:40.257Z",
+      "created_at": "2021-01-28T13:52:08.742Z",
+      "modified_at": "2021-01-28T13:52:08.742Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "hauptheizungsanlage",
@@ -35940,34 +35942,34 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-erdwaerme",
     "fields": {
-      "created_at": "2020-11-18T16:01:40.240Z",
-      "modified_at": "2020-11-18T16:01:40.240Z",
+      "created_at": "2021-01-28T13:52:08.729Z",
+      "modified_at": "2021-01-28T13:52:08.729Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "hauptheizungsanlage",
       "option": "hauptheizungsanlage-erdwaerme",
-      "sort": 7
+      "sort": 8
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-erdwaermesonde",
     "fields": {
-      "created_at": "2020-11-18T16:01:40.221Z",
-      "modified_at": "2020-11-18T16:01:40.221Z",
+      "created_at": "2021-01-28T13:52:08.705Z",
+      "modified_at": "2021-01-28T13:52:08.705Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "hauptheizungsanlage",
       "option": "hauptheizungsanlage-erdwaermesonde",
-      "sort": 1
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-fernwaerme",
     "fields": {
-      "created_at": "2020-11-18T16:01:40.247Z",
-      "modified_at": "2020-11-18T16:01:40.247Z",
+      "created_at": "2021-01-28T13:52:08.732Z",
+      "modified_at": "2021-01-28T13:52:08.732Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "hauptheizungsanlage",
@@ -35979,21 +35981,21 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-gas",
     "fields": {
-      "created_at": "2020-11-18T16:01:40.225Z",
-      "modified_at": "2020-11-18T16:01:40.225Z",
+      "created_at": "2021-01-28T13:52:08.709Z",
+      "modified_at": "2021-01-28T13:52:08.709Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "hauptheizungsanlage",
       "option": "hauptheizungsanlage-gas",
-      "sort": 2
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-grundwasserwaermepumpe",
     "fields": {
-      "created_at": "2020-11-18T16:01:40.260Z",
-      "modified_at": "2020-11-18T16:01:40.260Z",
+      "created_at": "2021-01-28T13:52:08.745Z",
+      "modified_at": "2021-01-28T13:52:08.745Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "hauptheizungsanlage",
@@ -36005,8 +36007,8 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-heizoel",
     "fields": {
-      "created_at": "2020-11-18T16:01:40.272Z",
-      "modified_at": "2020-11-18T16:01:40.272Z",
+      "created_at": "2021-01-28T13:52:08.757Z",
+      "modified_at": "2021-01-28T13:52:08.757Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "hauptheizungsanlage",
@@ -36018,21 +36020,21 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-holz",
     "fields": {
-      "created_at": "2020-11-18T16:01:40.237Z",
-      "modified_at": "2020-11-18T16:01:40.237Z",
+      "created_at": "2021-01-28T13:52:08.724Z",
+      "modified_at": "2021-01-28T13:52:08.724Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "hauptheizungsanlage",
       "option": "hauptheizungsanlage-holz",
-      "sort": 6
+      "sort": 7
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-holzschnitzel-pellets",
     "fields": {
-      "created_at": "2020-11-18T16:01:40.266Z",
-      "modified_at": "2020-11-18T16:01:40.266Z",
+      "created_at": "2021-01-28T13:52:08.751Z",
+      "modified_at": "2021-01-28T13:52:08.751Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "hauptheizungsanlage",
@@ -36044,8 +36046,8 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-kachelofen-schwedenofen",
     "fields": {
-      "created_at": "2020-11-18T16:01:40.251Z",
-      "modified_at": "2020-11-18T16:01:40.251Z",
+      "created_at": "2021-01-28T13:52:08.736Z",
+      "modified_at": "2021-01-28T13:52:08.736Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "hauptheizungsanlage",
@@ -36057,8 +36059,8 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-luftwaermepumpe",
     "fields": {
-      "created_at": "2020-11-18T16:01:40.254Z",
-      "modified_at": "2020-11-18T16:01:40.254Z",
+      "created_at": "2021-01-28T13:52:08.739Z",
+      "modified_at": "2021-01-28T13:52:08.739Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "hauptheizungsanlage",
@@ -36070,21 +36072,21 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-sonne-thermisch",
     "fields": {
-      "created_at": "2020-11-18T16:01:40.234Z",
-      "modified_at": "2020-11-18T16:01:40.234Z",
+      "created_at": "2021-01-28T13:52:08.720Z",
+      "modified_at": "2021-01-28T13:52:08.720Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "hauptheizungsanlage",
       "option": "hauptheizungsanlage-sonne-thermisch",
-      "sort": 5
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-stueckholz",
     "fields": {
-      "created_at": "2020-11-18T16:01:40.269Z",
-      "modified_at": "2020-11-18T16:01:40.269Z",
+      "created_at": "2021-01-28T13:52:08.754Z",
+      "modified_at": "2021-01-28T13:52:08.754Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "hauptheizungsanlage",
@@ -36096,13 +36098,13 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-unbestimmt",
     "fields": {
-      "created_at": "2020-11-18T16:01:40.231Z",
-      "modified_at": "2020-11-18T16:01:40.231Z",
+      "created_at": "2021-01-28T13:52:08.716Z",
+      "modified_at": "2021-01-28T13:52:08.716Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "hauptheizungsanlage",
       "option": "hauptheizungsanlage-unbestimmt",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -37591,35 +37593,35 @@
     "model": "caluma_form.questionoption",
     "pk": "proposal.proposal-abbruch-rueckbau",
     "fields": {
-      "created_at": "2020-11-11T11:15:30.012Z",
-      "modified_at": "2020-11-11T11:15:30.012Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-01-22T18:13:14.623Z",
+      "modified_at": "2021-01-22T18:13:14.623Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
       "question": "proposal",
       "option": "proposal-abbruch-rueckbau",
-      "sort": 2
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "proposal.proposal-anbau-erweiterung",
     "fields": {
-      "created_at": "2020-11-11T11:15:30.015Z",
-      "modified_at": "2020-11-11T11:15:30.015Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-01-22T18:13:14.617Z",
+      "modified_at": "2021-01-22T18:13:14.617Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
       "question": "proposal",
       "option": "proposal-anbau-erweiterung",
-      "sort": 3
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "proposal.proposal-andere",
     "fields": {
-      "created_at": "2020-11-11T11:15:30.008Z",
-      "modified_at": "2020-11-11T11:15:30.008Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-01-22T18:13:14.613Z",
+      "modified_at": "2021-01-22T18:13:14.613Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
       "question": "proposal",
       "option": "proposal-andere",
@@ -37630,9 +37632,9 @@
     "model": "caluma_form.questionoption",
     "pk": "proposal.proposal-neubau",
     "fields": {
-      "created_at": "2020-11-11T11:15:30.025Z",
-      "modified_at": "2020-11-11T11:15:30.025Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-01-22T18:13:14.629Z",
+      "modified_at": "2021-01-22T18:13:14.629Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
       "question": "proposal",
       "option": "proposal-neubau",
@@ -37643,22 +37645,22 @@
     "model": "caluma_form.questionoption",
     "pk": "proposal.proposal-nutzungsaenderung",
     "fields": {
-      "created_at": "2020-11-11T11:15:30.019Z",
-      "modified_at": "2020-11-11T11:15:30.019Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-01-22T18:13:14.620Z",
+      "modified_at": "2021-01-22T18:13:14.620Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
       "question": "proposal",
       "option": "proposal-nutzungsaenderung",
-      "sort": 4
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "proposal.proposal-umbau-erneuerung-sanierung",
     "fields": {
-      "created_at": "2020-11-11T11:15:30.022Z",
-      "modified_at": "2020-11-11T11:15:30.022Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-01-22T18:13:14.626Z",
+      "modified_at": "2021-01-22T18:13:14.626Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
       "question": "proposal",
       "option": "proposal-umbau-erneuerung-sanierung",
@@ -37669,22 +37671,22 @@
     "model": "caluma_form.questionoption",
     "pk": "purpose.purpose-andere",
     "fields": {
-      "created_at": "2020-11-19T10:57:04.386Z",
-      "modified_at": "2020-11-19T10:57:04.386Z",
-      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_at": "2021-02-02T11:39:30.505Z",
+      "modified_at": "2021-02-02T11:39:30.505Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "purpose",
       "option": "purpose-andere",
-      "sort": 2
+      "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "purpose.purpose-dienstleistung",
     "fields": {
-      "created_at": "2020-11-19T10:57:04.406Z",
-      "modified_at": "2020-11-19T10:57:04.406Z",
-      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_at": "2021-02-02T11:39:30.715Z",
+      "modified_at": "2021-02-02T11:39:30.715Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "purpose",
       "option": "purpose-dienstleistung",
@@ -37695,9 +37697,9 @@
     "model": "caluma_form.questionoption",
     "pk": "purpose.purpose-gastgewerbe",
     "fields": {
-      "created_at": "2020-11-19T10:57:04.391Z",
-      "modified_at": "2020-11-19T10:57:04.391Z",
-      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_at": "2021-02-02T11:39:30.664Z",
+      "modified_at": "2021-02-02T11:39:30.664Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "purpose",
       "option": "purpose-gastgewerbe",
@@ -37708,9 +37710,9 @@
     "model": "caluma_form.questionoption",
     "pk": "purpose.purpose-gewerbe",
     "fields": {
-      "created_at": "2020-11-19T10:57:04.410Z",
-      "modified_at": "2020-11-19T10:57:04.410Z",
-      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_at": "2021-02-02T11:39:30.719Z",
+      "modified_at": "2021-02-02T11:39:30.719Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "purpose",
       "option": "purpose-gewerbe",
@@ -37721,9 +37723,9 @@
     "model": "caluma_form.questionoption",
     "pk": "purpose.purpose-industrie",
     "fields": {
-      "created_at": "2020-11-19T10:57:04.414Z",
-      "modified_at": "2020-11-19T10:57:04.414Z",
-      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_at": "2021-02-02T11:39:30.722Z",
+      "modified_at": "2021-02-02T11:39:30.722Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "purpose",
       "option": "purpose-industrie",
@@ -37734,9 +37736,9 @@
     "model": "caluma_form.questionoption",
     "pk": "purpose.purpose-lager",
     "fields": {
-      "created_at": "2020-11-19T10:57:04.398Z",
-      "modified_at": "2020-11-19T10:57:04.398Z",
-      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_at": "2021-02-02T11:39:30.697Z",
+      "modified_at": "2021-02-02T11:39:30.697Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "purpose",
       "option": "purpose-lager",
@@ -37747,9 +37749,9 @@
     "model": "caluma_form.questionoption",
     "pk": "purpose.purpose-landwirtschaft",
     "fields": {
-      "created_at": "2020-11-19T10:57:04.395Z",
-      "modified_at": "2020-11-19T10:57:04.395Z",
-      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_at": "2021-02-02T11:39:30.674Z",
+      "modified_at": "2021-02-02T11:39:30.674Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "purpose",
       "option": "purpose-landwirtschaft",
@@ -37760,22 +37762,22 @@
     "model": "caluma_form.questionoption",
     "pk": "purpose.purpose-oeffentlich-zugaenglich",
     "fields": {
-      "created_at": "2020-11-19T10:57:04.382Z",
-      "modified_at": "2020-11-19T10:57:04.382Z",
-      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_at": "2021-02-02T11:39:30.652Z",
+      "modified_at": "2021-02-02T11:39:30.652Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "purpose",
       "option": "purpose-oeffentlich-zugaenglich",
-      "sort": 1
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "purpose.purpose-verkauf",
     "fields": {
-      "created_at": "2020-11-19T10:57:04.403Z",
-      "modified_at": "2020-11-19T10:57:04.403Z",
-      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_at": "2021-02-02T11:39:30.701Z",
+      "modified_at": "2021-02-02T11:39:30.701Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "purpose",
       "option": "purpose-verkauf",
@@ -37786,9 +37788,9 @@
     "model": "caluma_form.questionoption",
     "pk": "purpose.purpose-wohnen",
     "fields": {
-      "created_at": "2020-11-19T10:57:04.418Z",
-      "modified_at": "2020-11-19T10:57:04.418Z",
-      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_at": "2021-02-02T11:39:30.731Z",
+      "modified_at": "2021-02-02T11:39:30.731Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "purpose",
       "option": "purpose-wohnen",
