@@ -383,17 +383,15 @@ def test_notification_template_sendmail_koor(
     KOOR is special in that they have more complicated rules than other
     roles in Kanton Uri: Full access is granted for the following cases
     * They've created an instance themselves
-    * The instance is not in a "forbidden" state (which mostly
+    * The instance is not in a "private" state (which mostly
       excludes instances being edited before submission)
     """
     if use_forbidden_state:
-        use_forbidden_state = [instance.instance_state_id]
+        use_forbidden_state = [instance.instance_state.name]
     else:
-        use_forbidden_state = [instance_state_factory().pk]
+        use_forbidden_state = [instance_state_factory().name]
 
-    mocker.patch(
-        "camac.constants.kt_uri.INSTANCE_STATES_HIDDEN_FOR_KOOR", use_forbidden_state
-    )
+    mocker.patch("camac.constants.kt_uri.INSTANCE_STATES_PRIVATE", use_forbidden_state)
 
     url = reverse("notificationtemplate-sendmail")
     data = {

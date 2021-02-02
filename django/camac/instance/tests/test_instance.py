@@ -27,7 +27,6 @@ from camac.instance import serializers
         ("Canton", LazyFixture("user"), 17, {"form", "document"}),
         ("Municipality", LazyFixture("user"), 16, {"form", "document"}),
         ("Service", LazyFixture("user"), 16, {"document"}),
-        ("Coordination", LazyFixture("user"), 17, {"form", "document"}),
     ],
 )
 def test_instance_list(
@@ -43,6 +42,7 @@ def test_instance_list(
     instance_service_factory,
     circulation_factory,
     activation_factory,
+    mocker,
 ):
     application_settings["INSTANCE_ACCESS_TYPE_ROLES"] = {
         "municipality": ["Municipality"],
@@ -174,11 +174,11 @@ def test_instance_filter_fields(admin_client, instance, form_field_factory):
         ("Municipality", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
         ("Service", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
         ("Unknown", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
-        ("Coordination", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
+        ("Coordination", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
     ],
 )
 def test_instance_update(
-    admin_client, instance, location_factory, form_factory, status_code
+    admin_client, instance, location_factory, form_factory, status_code, mocker
 ):
     url = reverse("instance-detail", args=[instance.pk])
 
@@ -854,11 +854,9 @@ def test_instance_list_coordination_created(
     """
     if forbidden_states == "current_state":
         # unfortunately cannot parametrize this :(
-        forbidden_states = [instance_state.pk]
+        forbidden_states = [instance_state.name]
 
-    mocker.patch(
-        "camac.constants.kt_uri.INSTANCE_STATES_HIDDEN_FOR_KOOR", forbidden_states
-    )
+    mocker.patch("camac.constants.kt_uri.INSTANCE_STATES_PRIVATE", forbidden_states)
 
     if not is_creator:
         other_group = group_factory()

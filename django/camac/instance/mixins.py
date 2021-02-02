@@ -334,7 +334,7 @@ class InstanceEditableMixin(AttributeMixin):
 
     def validate_instance_for_coordination(self, instance):
         # TODO: Map form types to responsible KOORS
-        if instance.instance_state_id in uri_constants.INSTANCE_STATES_PRIVATE:
+        if instance.instance_state.name in uri_constants.INSTANCE_STATES_PRIVATE:
             raise exceptions.ValidationError(
                 _("Not allowed to add data to instance %(instance)s as coordination")
                 % {"instance": instance.pk}
