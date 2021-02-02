@@ -140,6 +140,11 @@ def test_sync_circulation(
         circulation_state__name="RUN",
         service=group.service,
     )
+    a4 = activation_factory(
+        circulation=circulation,
+        circulation_state__name="IDLE",
+        service=group.service,
+    )
 
     response = admin_client.patch(reverse("circulation-sync", args=[circulation.pk]))
     assert response.status_code == status.HTTP_204_NO_CONTENT
@@ -159,6 +164,7 @@ def test_sync_circulation(
         get_activation_work_item(circulation_work_item.child_case, a3.pk).status
         == WorkItem.STATUS_READY
     )
+    assert get_activation_work_item(circulation_work_item.child_case, a4.pk) is None
 
     now = timezone.now()
     a2.deadline_date = now
@@ -181,6 +187,7 @@ def test_sync_circulation(
 
     a1.delete()
     a2.delete()
+    a4.delete()
 
     response = admin_client.patch(reverse("circulation-sync", args=[circulation.pk]))
     assert response.status_code == status.HTTP_204_NO_CONTENT
