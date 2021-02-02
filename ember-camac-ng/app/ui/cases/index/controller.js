@@ -14,13 +14,13 @@ const filterQueryParams = [
   "createdBefore",
   "proposalDescription",
   "applicantName",
-  "hasActivation",
 ];
 
 export default class CasesIndexController extends Controller {
-  queryParams = ["displaySearch", ...filterQueryParams];
+  queryParams = ["displaySearch", "hasActivation", ...filterQueryParams];
 
   @tracked displaySearch = false;
+  @tracked hasActivation = false;
 
   @objectFromQueryParams(...filterQueryParams)
   caseFilter;

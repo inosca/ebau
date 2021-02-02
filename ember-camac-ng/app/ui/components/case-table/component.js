@@ -165,12 +165,9 @@ export default class CaseTableComponent extends Component {
   @action
   setup() {
     const camacFilters = {
-      instance_state: this.args.filter.instanceState ?? "",
+      instance_state: this.args.filter.instanceState || "",
       location: this.args.filter.municipality,
-      service:
-        this.args.filter.hasActivation === "true"
-          ? this.shoebox.content.serviceId
-          : null,
+      service: this.args.hasActivation ? this.shoebox.content.serviceId : null,
     };
     this.casesQuery.fetch({
       order: [{ meta: "camac-instance-id" }],
@@ -179,7 +176,7 @@ export default class CaseTableComponent extends Component {
         context: {
           headers: {
             "x-camac-filters": Object.entries(camacFilters)
-              .filter((entry) => !!entry[1])
+              .filter((entry) => entry[1])
               .map((entry) => entry.join("="))
               .join("&"),
           },
