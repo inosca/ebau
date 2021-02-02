@@ -13,10 +13,11 @@ export default class FormController extends Controller {
   @service calumaStore;
   @queryManager apollo;
 
-  @lastValue("getDocument") document;
+  @lastValue("getData") data;
 
   @dropTask()
-  *getDocument() {
+  *getData() {
+    const instance = yield this.store.findRecord("instance", this.model.id);
     const raw = yield this.apollo.query(
       {
         query: getInstanceCaseQuery,
@@ -26,6 +27,6 @@ export default class FormController extends Controller {
       "allCases.edges.firstObject.node"
     );
 
-    return raw.document;
+    return { instance, document: raw.document };
   }
 }

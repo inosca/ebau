@@ -1,5 +1,9 @@
-<span {{did-insert (perform this.getDocument)}}></span>
+<span {{did-insert (perform this.getData)}}></span>
 
-{{#if this.document}}
-  <CfContent @documentId={{this.document.id}} @context={{hash instanceId=this.model.id}} />
+{{#if this.data.document}}
+  <CfContent
+    @documentId={{this.data.document.id}}
+    @context={{hash instanceId=this.model.id}}
+    @disabled={{cannot "write form of instance" this.data.instance}}
+  />
 {{/if}}

@@ -31,4 +31,8 @@ export default class InstanceAbility extends Ability {
       config.APPLICATION.interchangeableForms.includes(this.model.calumaForm)
     );
   }
+
+  get canWriteForm() {
+    return (this.model.meta?.editable || []).includes("form");
+  }
 }
