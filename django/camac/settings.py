@@ -136,6 +136,7 @@ APPLICATIONS = {
             "Administration Leitbehörde": "municipality",
             "Coordination": "coordination",
             "Service": "service",
+            "TrustedService": "trusted_service",
             "Reader": "reader",
             "Canton": "canton",
             "PublicReader": "public_reader",

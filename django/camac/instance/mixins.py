@@ -190,8 +190,16 @@ class InstanceQuerysetMixin(object):
         return self.get_base_queryset()
 
     def get_queryset_for_organization_readonly(self, group=None):  # pragma: no cover
-        # TODO We don't know what the rules are yet.
-        return set()
+        # temporary, actual rules still need to be specified
+        group = self._get_group(group)
+        queryset = self.get_base_queryset()
+        instance_field = self._get_instance_filter_expr("pk", "in")
+
+        instances_for_location = models.Instance.objects.filter(
+            location__in=group.locations.all()
+        )
+
+        return queryset.filter(**{instance_field: instances_for_location})
 
     def get_queryset_for_commission(self, group=None):
         group = self._get_group(group)
