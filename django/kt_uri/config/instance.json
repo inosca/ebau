@@ -575,7 +575,7 @@
     "model": "instance.instancestate",
     "pk": 1,
     "fields": {
-      "name": "new",
+      "name": "new_comm",
       "sort": 0,
       "description": ""
     }
@@ -647,7 +647,7 @@
     "model": "instance.instancestate",
     "pk": 28,
     "fields": {
-      "name": "new_portal",
+      "name": "new",
       "sort": 10,
       "description": ""
     }
