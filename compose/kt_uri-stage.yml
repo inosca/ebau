@@ -41,6 +41,7 @@ services:
       - ENV_FILE=/run/secrets/document-merge-service.env
     volumes:
       - /etc/camac/document-merge-service.env:/run/secrets/document-merge-service.env:ro
+      - ../document-merge-service/uwsgi-prod.ini:/app/uwsgi.ini:ro
 
   php:
     image: acr.run/camac-ng/camac-ng/php:${CI_COMMIT_REF_SLUG}-${APPLICATION}
