@@ -2,7 +2,21 @@ from collections import namedtuple
 
 import pytest
 
-from ..extensions.data_sources import Countries, Municipalities, Services
+from ..extensions.data_sources import Countries, Locations, Municipalities, Services
+
+
+@pytest.mark.parametrize(
+    "role,expected_count", [("Portal User", 1), ("Some internal role", 2)]
+)
+def test_locations(db, role, location_factory, expected_count):
+    User = namedtuple("OIDCUser", "role")
+    user = User(role=role)
+
+    location_factory(name="Foo", zip=123)
+    location_factory(name="Foo", zip=None)
+
+    data = Locations().get_data(user)
+    assert len(data) == expected_count
 
 
 @pytest.mark.parametrize(

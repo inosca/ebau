@@ -1,3 +1,8 @@
 .leaflet-pane {
   z-index: 0;
 }
+
+// make sure that zoom buttons in map don't overlap open powerselect
+.leaflet-top {
+  z-index: 999;
+}
