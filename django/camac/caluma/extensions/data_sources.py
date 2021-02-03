@@ -3,7 +3,7 @@ from caluma.caluma_data_source.utils import data_source_cache
 from django.core.cache import cache
 from django.utils.translation import activate, deactivate, gettext as _
 
-from camac.user.models import Service
+from camac.user.models import Location, Service
 
 from .countries import COUNTRIES
 
@@ -76,6 +76,30 @@ class Municipalities(BaseDataSource):
                 for service in services.iterator()
             ],
             key=lambda x: x[1]["de"].casefold(),
+        )
+
+
+class Locations(BaseDataSource):
+    info = "List of locations from Camac"
+
+    def get_data(self, user):
+        cache_key = f"data_source_{type(self).__name__}"
+        include_special = hasattr(user, "role") and user.role != "Portal User"
+
+        if include_special:
+            cache_key += "_with_special"
+            filters = {}
+        else:
+            filters = {"zip__isnull": False}
+
+        return cache.get_or_set(cache_key, lambda: self._get_data(filters), 3600)
+
+    def _get_data(self, filters):
+        locations = Location.objects.filter(**filters)
+
+        return sorted(
+            [[loc.pk, loc.name] for loc in locations.iterator()],
+            key=lambda x: x[1].casefold(),
         )
 
 
