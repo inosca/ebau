@@ -58,7 +58,7 @@ services:
       - VISIBILITY_CLASSES=camac.caluma.extensions.visibilities.CustomVisibility
       - PERMISSION_CLASSES=camac.caluma.extensions.permissions.CustomPermission
       - VALIDATION_CLASSES=camac.caluma.extensions.validations.CustomValidation
-      - DATA_SOURCE_CLASSES=camac.caluma.extensions.data_sources.Locations,camac.caluma.extensions.data_sources.Countries
+      - DATA_SOURCE_CLASSES=camac.caluma.extensions.data_sources.Locations,camac.caluma.extensions.data_sources.Countries,camac.caluma.extensions.data_sources.Mitberichtsverfahren
       - DYNAMIC_GROUPS_CLASSES=camac.caluma.extensions.dynamic_groups.CustomDynamicGroups
       - DYNAMIC_TASKS_CLASSES=camac.caluma.extensions.dynamic_tasks.CustomDynamicTasks
       - LANGUAGE_CODE=de
