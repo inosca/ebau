@@ -26303,11 +26303,11 @@
     "pk": "municipality",
     "fields": {
       "created_at": "2020-07-12T10:30:23.480Z",
-      "modified_at": "2020-10-21T11:47:18.647Z",
+      "modified_at": "2021-02-02T13:00:15.927Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Gemeinde\", \"fr\": null}",
-      "type": "text",
+      "type": "dynamic_choice",
       "is_required": "false",
       "is_hidden": "True",
       "is_archived": false,
@@ -26318,8 +26318,10 @@
         "max_length": null,
         "min_length": null
       },
-      "meta": {},
-      "data_source": null,
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": "Locations",
       "row_form": null,
       "sub_form": null,
       "source": null,
