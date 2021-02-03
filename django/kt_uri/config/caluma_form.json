@@ -150,11 +150,11 @@
     "pk": "fachthemen",
     "fields": {
       "created_at": "2020-10-19T13:06:11.247Z",
-      "modified_at": "2020-10-19T13:06:11.247Z",
+      "modified_at": "2021-02-03T08:12:42.043Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "name": "{\"de\": \"Fachthemen\", \"fr\": null}",
-      "description": "{\"de\": \"\", \"fr\": null}",
+      "description": "{\"de\": \"Projekt- und lagebezogene Fachthemen\", \"fr\": null}",
       "meta": {},
       "is_published": true,
       "is_archived": false,
@@ -13635,7 +13635,7 @@
     "pk": "purpose-andere",
     "fields": {
       "created_at": "2020-08-28T15:38:22.860Z",
-      "modified_at": "2020-11-19T10:57:04.243Z",
+      "modified_at": "2021-02-03T08:15:33.755Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Andere\", \"fr\": null}",
@@ -13649,7 +13649,7 @@
     "pk": "purpose-dienstleistung",
     "fields": {
       "created_at": "2020-08-28T15:38:22.799Z",
-      "modified_at": "2020-11-19T10:57:04.069Z",
+      "modified_at": "2021-02-03T08:15:33.555Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Dienstleistung (z.B. Coiffeursalon, Zahnarztpraxis usw.)\", \"fr\": null}",
@@ -13660,10 +13660,24 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "purpose-forstwirtschaft",
+    "fields": {
+      "created_at": "2021-02-03T08:15:23.939Z",
+      "modified_at": "2021-02-03T08:15:33.810Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "label": "{\"de\": \"Forstwirtschaft\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "purpose-gastgewerbe",
     "fields": {
       "created_at": "2020-08-28T15:38:22.845Z",
-      "modified_at": "2020-11-19T10:57:04.188Z",
+      "modified_at": "2021-02-03T08:15:33.815Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Gastgewerbe (Restaurant, Hotel, TakeAway, Besenbeiz usw.)\", \"fr\": null}",
@@ -13677,7 +13691,7 @@
     "pk": "purpose-gewerbe",
     "fields": {
       "created_at": "2020-08-28T15:38:22.794Z",
-      "modified_at": "2020-11-19T10:57:04.077Z",
+      "modified_at": "2021-02-03T08:15:33.623Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Arbeiten (Gewerbebetrieb)\", \"fr\": null}",
@@ -13691,7 +13705,7 @@
     "pk": "purpose-industrie",
     "fields": {
       "created_at": "2020-08-28T15:38:22.720Z",
-      "modified_at": "2020-11-19T10:57:04.056Z",
+      "modified_at": "2021-02-03T08:15:33.600Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Arbeiten (industrieller Betrieb)\", \"fr\": null}",
@@ -13705,7 +13719,7 @@
     "pk": "purpose-lager",
     "fields": {
       "created_at": "2020-08-28T15:38:22.795Z",
-      "modified_at": "2020-11-19T10:57:04.180Z",
+      "modified_at": "2021-02-03T08:15:33.628Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Lager (Materiallager, Einstellhallen f\\u00fcr Fahrzeuge usw.)\", \"fr\": null}",
@@ -13719,7 +13733,7 @@
     "pk": "purpose-landwirtschaft",
     "fields": {
       "created_at": "2020-08-28T15:38:22.861Z",
-      "modified_at": "2020-11-19T10:57:04.208Z",
+      "modified_at": "2021-02-03T08:15:33.813Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Landwirtschaft\", \"fr\": null}",
@@ -13733,7 +13747,7 @@
     "pk": "purpose-oeffentlich-zugaenglich",
     "fields": {
       "created_at": "2020-11-01T19:45:49.099Z",
-      "modified_at": "2020-11-19T10:57:04.254Z",
+      "modified_at": "2021-02-03T08:15:33.757Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"\\u00d6ffentlich zug\\u00e4ngliche Baute/Anlage\", \"fr\": null}",
@@ -13747,7 +13761,7 @@
     "pk": "purpose-verkauf",
     "fields": {
       "created_at": "2020-08-28T15:38:22.726Z",
-      "modified_at": "2020-11-19T10:57:04.182Z",
+      "modified_at": "2021-02-03T08:15:33.641Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Verkauf (z.B. Lebensmittelladen, Apotheke, Kiosk usw.)\", \"fr\": null}",
@@ -13761,7 +13775,7 @@
     "pk": "purpose-wohnen",
     "fields": {
       "created_at": "2020-08-28T15:38:22.700Z",
-      "modified_at": "2020-11-19T10:57:04.087Z",
+      "modified_at": "2021-02-03T08:15:33.612Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Wohnen\", \"fr\": null}",
@@ -25481,13 +25495,13 @@
     "pk": "landwirtschaft-wald",
     "fields": {
       "created_at": "2020-11-04T07:37:09.757Z",
-      "modified_at": "2020-11-15T20:03:21.743Z",
+      "modified_at": "2021-02-03T08:28:30.192Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "label": "{\"de\": \"Landwirtschaft\", \"fr\": null}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "!(\n  \"Landwirtschaftszone\" in (\"grundnutzung\"|answer || \"\")\n)",
+      "is_hidden": "!(\n  [\"purpose-landwirtschaft\"] intersects \"purpose\"|answer ||\n  \"Landwirtschaftszone\" in (\"grundnutzung\"|answer || \"\")\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -27752,7 +27766,7 @@
     "pk": "purpose",
     "fields": {
       "created_at": "2020-08-28T15:38:22.916Z",
-      "modified_at": "2021-02-02T11:39:30.091Z",
+      "modified_at": "2021-02-03T08:17:09.096Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Welche Nutzungszwecke und Besonderheiten beinhaltet das Bauprojekt?\", \"fr\": null}",
@@ -31461,13 +31475,13 @@
     "pk": "wald-formular",
     "fields": {
       "created_at": "2020-11-13T08:43:32.440Z",
-      "modified_at": "2020-11-13T08:45:02.803Z",
+      "modified_at": "2021-02-03T08:28:37.110Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "label": "{\"de\": \"Wald\", \"fr\": null}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "!(\n  \"Wald\" in (\"grundnutzung\"|answer || \"\")\n)",
+      "is_hidden": "!(\n  [\"purpose-forstwirtschaft\"] intersects \"purpose\"|answer ||\n  \"Wald\" in (\"grundnutzung\"|answer || \"\")\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -37671,9 +37685,9 @@
     "model": "caluma_form.questionoption",
     "pk": "purpose.purpose-andere",
     "fields": {
-      "created_at": "2021-02-02T11:39:30.505Z",
-      "modified_at": "2021-02-02T11:39:30.505Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-02-03T08:17:09.101Z",
+      "modified_at": "2021-02-03T08:17:09.101Z",
+      "created_by_user": "admin",
       "created_by_group": null,
       "question": "purpose",
       "option": "purpose-andere",
@@ -37684,22 +37698,35 @@
     "model": "caluma_form.questionoption",
     "pk": "purpose.purpose-dienstleistung",
     "fields": {
-      "created_at": "2021-02-02T11:39:30.715Z",
-      "modified_at": "2021-02-02T11:39:30.715Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-02-03T08:17:09.118Z",
+      "modified_at": "2021-02-03T08:17:09.118Z",
+      "created_by_user": "admin",
       "created_by_group": null,
       "question": "purpose",
       "option": "purpose-dienstleistung",
-      "sort": 7
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "purpose.purpose-forstwirtschaft",
+    "fields": {
+      "created_at": "2021-02-03T08:17:09.108Z",
+      "modified_at": "2021-02-03T08:17:09.108Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "question": "purpose",
+      "option": "purpose-forstwirtschaft",
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "purpose.purpose-gastgewerbe",
     "fields": {
-      "created_at": "2021-02-02T11:39:30.664Z",
-      "modified_at": "2021-02-02T11:39:30.664Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-02-03T08:17:09.106Z",
+      "modified_at": "2021-02-03T08:17:09.106Z",
+      "created_by_user": "admin",
       "created_by_group": null,
       "question": "purpose",
       "option": "purpose-gastgewerbe",
@@ -37710,61 +37737,61 @@
     "model": "caluma_form.questionoption",
     "pk": "purpose.purpose-gewerbe",
     "fields": {
-      "created_at": "2021-02-02T11:39:30.719Z",
-      "modified_at": "2021-02-02T11:39:30.719Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-02-03T08:17:09.120Z",
+      "modified_at": "2021-02-03T08:17:09.120Z",
+      "created_by_user": "admin",
       "created_by_group": null,
       "question": "purpose",
       "option": "purpose-gewerbe",
-      "sort": 8
+      "sort": 9
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "purpose.purpose-industrie",
     "fields": {
-      "created_at": "2021-02-02T11:39:30.722Z",
-      "modified_at": "2021-02-02T11:39:30.722Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-02-03T08:17:09.123Z",
+      "modified_at": "2021-02-03T08:17:09.123Z",
+      "created_by_user": "admin",
       "created_by_group": null,
       "question": "purpose",
       "option": "purpose-industrie",
-      "sort": 9
+      "sort": 10
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "purpose.purpose-lager",
     "fields": {
-      "created_at": "2021-02-02T11:39:30.697Z",
-      "modified_at": "2021-02-02T11:39:30.697Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-02-03T08:17:09.113Z",
+      "modified_at": "2021-02-03T08:17:09.113Z",
+      "created_by_user": "admin",
       "created_by_group": null,
       "question": "purpose",
       "option": "purpose-lager",
-      "sort": 5
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "purpose.purpose-landwirtschaft",
     "fields": {
-      "created_at": "2021-02-02T11:39:30.674Z",
-      "modified_at": "2021-02-02T11:39:30.674Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-02-03T08:17:09.111Z",
+      "modified_at": "2021-02-03T08:17:09.111Z",
+      "created_by_user": "admin",
       "created_by_group": null,
       "question": "purpose",
       "option": "purpose-landwirtschaft",
-      "sort": 4
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "purpose.purpose-oeffentlich-zugaenglich",
     "fields": {
-      "created_at": "2021-02-02T11:39:30.652Z",
-      "modified_at": "2021-02-02T11:39:30.652Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-02-03T08:17:09.104Z",
+      "modified_at": "2021-02-03T08:17:09.104Z",
+      "created_by_user": "admin",
       "created_by_group": null,
       "question": "purpose",
       "option": "purpose-oeffentlich-zugaenglich",
@@ -37775,26 +37802,26 @@
     "model": "caluma_form.questionoption",
     "pk": "purpose.purpose-verkauf",
     "fields": {
-      "created_at": "2021-02-02T11:39:30.701Z",
-      "modified_at": "2021-02-02T11:39:30.701Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-02-03T08:17:09.115Z",
+      "modified_at": "2021-02-03T08:17:09.115Z",
+      "created_by_user": "admin",
       "created_by_group": null,
       "question": "purpose",
       "option": "purpose-verkauf",
-      "sort": 6
+      "sort": 7
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "purpose.purpose-wohnen",
     "fields": {
-      "created_at": "2021-02-02T11:39:30.731Z",
-      "modified_at": "2021-02-02T11:39:30.731Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-02-03T08:17:09.126Z",
+      "modified_at": "2021-02-03T08:17:09.126Z",
+      "created_by_user": "admin",
       "created_by_group": null,
       "question": "purpose",
       "option": "purpose-wohnen",
-      "sort": 10
+      "sort": 11
     }
   },
   {
