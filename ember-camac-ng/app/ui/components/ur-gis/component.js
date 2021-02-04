@@ -197,8 +197,8 @@ export default class UrGisComponent extends Component {
           "parcel-number": parcelNumber,
           "parzellen-oder-baurechtsnummer": parcelNumber,
           "e-grid": egrid,
-          "coordinates-east": clickCoordinates.lat,
-          "coordinates-north": clickCoordinates.lng,
+          "coordinates-east": clickCoordinates.x,
+          "coordinates-north": clickCoordinates.y,
           "ueberlagerte-nutzungen": ueberlagerteNutzungen,
         };
 
@@ -431,7 +431,7 @@ export default class UrGisComponent extends Component {
       southWest.y,
       northEast.x,
       northEast.y,
-      e.latlng
+      LatLngToEPSG3857(e.latlng.lat, e.latlng.lng)
     );
   }
 
