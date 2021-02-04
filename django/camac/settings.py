@@ -601,13 +601,12 @@ APPLICATIONS = {
             },
             "CONSTRUCTION_CONTROL": {
                 "FILTERS": {"service__service_group__pk": 3},
-                # TODO: migrate echbern to instance state names:
-                # "INSTANCE_STATES": ["sb1", "sb2", "conclusion", "finished"],
                 "INSTANCE_STATES": [
-                    20011,  # sb1
-                    20013,  # sb2
-                    20014,  # conclusion
-                    120000,  # finished
+                    "sb1",
+                    "sb2",
+                    "conclusion",
+                    "finished",
+                    "finished_internal",
                 ],
             },
         },

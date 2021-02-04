@@ -441,6 +441,8 @@ def test_change_responsible_service_circulations(
 
     for circulation in [c1, c2]:
         work_item_factory(
+            case=case,
+            child_case=None,  # this will be properly created in the sync method
             task=Task.objects.get(pk="circulation"),
             meta={"circulation-id": circulation.pk},
         )
