@@ -10,7 +10,13 @@ from camac.core.models import WorkflowEntry
 
 @pytest.mark.parametrize(
     "role__name,size",
-    [("Applicant", 0), ("Canton", 0), ("Municipality", 1), ("Service", 0)],
+    [
+        ("Applicant", 0),
+        ("Canton", 0),
+        ("Municipality", 1),
+        ("Service", 1),
+        ("Reader", 1),
+    ],
 )
 def test_publication_list(admin_client, publication_entry, activation, size):
     url = reverse("publication-list")
@@ -31,6 +37,7 @@ def test_publication_list(admin_client, publication_entry, activation, size):
         ("Municipality", status.HTTP_200_OK),
         ("Canton", status.HTTP_403_FORBIDDEN),
         ("Service", status.HTTP_403_FORBIDDEN),
+        ("Reader", status.HTTP_403_FORBIDDEN),
     ],
 )
 def test_publication_update(
@@ -67,6 +74,7 @@ def test_publication_update(
         ("Municipality", status.HTTP_201_CREATED),
         ("Canton", status.HTTP_403_FORBIDDEN),
         ("Service", status.HTTP_403_FORBIDDEN),
+        ("Reader", status.HTTP_403_FORBIDDEN),
     ],
 )
 def test_publication_create(
@@ -95,7 +103,7 @@ def test_publication_create(
 
 
 @pytest.mark.parametrize(
-    "role__name", ["Applicant", "Municipality", "Canton", "Service"]
+    "role__name", ["Applicant", "Municipality", "Canton", "Service", "Reader"]
 )
 def test_publication_destroy(admin_client, publication_entry, activation):
     url = reverse("publication-detail", args=[publication_entry.pk])
