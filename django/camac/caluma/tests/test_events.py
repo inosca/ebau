@@ -334,8 +334,8 @@ def test_set_meta_attributes(
 @pytest.mark.parametrize("application_name", ["kt_bern", "kt_schwyz"])
 @pytest.mark.parametrize("has_assigned_users", [True, False])
 @pytest.mark.parametrize(
-    "has_addressed_groups,service_exists,expected_users",
-    [(False, False, 0), (False, True, 0), (True, False, 0), (True, True, 1)],
+    "has_addressed_groups,expected_users",
+    [(False, 0), (True, 1)],
 )
 def test_set_assigned_user(
     db,
@@ -348,7 +348,6 @@ def test_set_assigned_user(
     responsible_service_factory,
     has_assigned_users,
     has_addressed_groups,
-    service_exists,
     expected_users,
     application_name,
 ):
@@ -356,15 +355,12 @@ def test_set_assigned_user(
     addressed_groups = []
     assigned_users = [user_factory().username] if has_assigned_users else []
 
-    if service_exists:
-        if application_name == "kt_bern":
-            service = responsible_service_factory(
-                instance=instance, responsible_user=user
-            ).service
-        else:
-            service = instance_responsibility_factory(
-                instance=instance, user=user
-            ).service
+    if application_name == "kt_bern":
+        service = responsible_service_factory(
+            instance=instance, responsible_user=user
+        ).service
+    else:
+        service = instance_responsibility_factory(instance=instance, user=user).service
 
     if has_addressed_groups:
         addressed_groups = [service.pk] if service else [123]
@@ -381,6 +377,7 @@ def test_set_assigned_user(
         sender="test_set_assigned_user",
         work_item=work_item,
         user=caluma_admin_user,
+        context={},
     )
 
     work_item.refresh_from_db()
@@ -423,6 +420,7 @@ def test_audit_history(
             sender="post_skip_work_item",
             work_item=work_item,
             user=caluma_admin_user,
+            context={},
         )
     elif process_type == "complete":
         send_event(
@@ -430,6 +428,7 @@ def test_audit_history(
             sender="post_complete_work_item",
             work_item=work_item,
             user=caluma_admin_user,
+            context={},
         )
 
     assert (
@@ -481,6 +480,7 @@ def test_complete_decision(
     expected_instance_state,
     expected_text,
     multilang,
+    use_instance_service,
 ):
     docx_decision_factory(decision=decision, instance=instance.pk)
     instance_state_factory(name=expected_instance_state)
@@ -495,7 +495,7 @@ def test_complete_decision(
         active=1,
     )
 
-    service_factory(
+    construction_control = service_factory(
         trans__name="Baukontrolle Bern",
         trans__language="de",
         service_group__name="construction-control",
@@ -537,6 +537,9 @@ def test_complete_decision(
     assert HistoryEntryT.objects.filter(
         history_entry__instance=instance, title=expected_text, language="de"
     ).exists()
+
+    if expected_instance_state == "sb1":
+        assert instance.responsible_service() == construction_control
 
 
 @pytest.mark.parametrize(

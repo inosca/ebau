@@ -9,8 +9,7 @@ from camac.user.models import User
 from .general import get_caluma_setting, get_instance
 
 
-@on(post_skip_work_item)
-@on(post_complete_work_item)
+@on([post_complete_work_item, post_skip_work_item], raise_exception=True)
 @transaction.atomic
 def post_complete_audit(sender, work_item, user, **kwargs):
     if work_item.task_id == get_caluma_setting("AUDIT_TASK"):
