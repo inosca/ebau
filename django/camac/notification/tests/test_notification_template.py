@@ -1214,3 +1214,47 @@ def test_notification_template_delete_by_purpose(admin_client, notification_temp
 
     response = admin_client.delete(url)
     assert response.status_code == status.HTTP_400_BAD_REQUEST
+
+
+@pytest.mark.parametrize("service__email", ["test@example.com"])
+@pytest.mark.parametrize("role__name", ["support"])
+@pytest.mark.parametrize(
+    "notification_template__body",
+    ["nfd_completion_date={{ACTIVATION.nfd_completion_date}}"],
+)
+def test_notification_template_service_no_notification(
+    db,
+    admin_client,
+    instance,
+    instance_service,
+    activation,
+    nfd_completion_date,
+    notification_template,
+    settings,
+    mailoutbox,
+):
+    """Ensure that if the template has access to the activation when specified in the request."""
+
+    activation.service.notification = 0
+    activation.service.save()
+    nfd_completion_date.activation = activation
+    nfd_completion_date.activation.save()
+
+    # No need to test this here.
+    settings.EMAIL_PREFIX_BODY = ""
+
+    sendmail_serializer = PermissionlessNotificationTemplateSendmailSerializer(
+        data={
+            "recipient_types": ["leitbehoerde"],
+            "notification_template": {
+                "type": "notification-templates",
+                "id": notification_template.pk,
+            },
+            "instance": {"id": instance.pk, "type": "instances"},
+            "activation": {"id": activation.pk, "type": "activations"},
+        }
+    )
+    sendmail_serializer.is_valid(raise_exception=True)
+    sendmail_serializer.save()
+
+    assert len(mailoutbox) == 0
