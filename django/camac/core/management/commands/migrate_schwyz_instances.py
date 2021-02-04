@@ -26,6 +26,12 @@ def create_work_item_from_task(
 ):
     task = Task.objects.get(pk=task_slug)
 
+    if WorkItem.objects.filter(
+        case=case,
+        task=task,
+    ).first():
+        return
+
     meta = {
         "migrated": True,
         "not-viewed": True,
@@ -87,11 +93,11 @@ def migrate_circulation(instance, case):
 
     for circulation in circulations.filter(activation_count__gt=0):
         # create one work item with a child case per running circulation
-        child_case = Case.objects.create(
+        child_case = Case.objects.get_or_create(
             workflow=Workflow.objects.get(pk="circulation"),
             status=Case.STATUS_RUNNING,
             family=case,
-        )
+        )[0]
 
         create_work_item_from_task(
             case,
@@ -164,6 +170,7 @@ class Command(BaseCommand):
                 migrate_circulation(instance, case)
                 create_work_item_from_task(case, "create-manual-workitems")
                 create_work_item_from_task(case, "depreciate-case")
+                create_work_item_from_task(case, "publication", instance=instance)
             elif instance_state == "redac":
                 create_work_item_from_task(case, "make-decision", instance=instance)
                 create_work_item_from_task(
@@ -171,12 +178,14 @@ class Command(BaseCommand):
                 )
                 create_work_item_from_task(case, "create-manual-workitems")
                 create_work_item_from_task(case, "depreciate-case")
+                create_work_item_from_task(case, "publication", instance=instance)
             elif instance_state == "nfd":
                 create_work_item_from_task(
                     case, "submit-additional-demand", applicant=True
                 )
                 create_work_item_from_task(case, "create-manual-workitems")
                 create_work_item_from_task(case, "depreciate-case")
+                create_work_item_from_task(case, "publication", instance=instance)
             elif instance_state in [
                 "stopped",
                 "done",
