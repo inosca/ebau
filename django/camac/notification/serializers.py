@@ -788,7 +788,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         return self._get_responsible(instance, activation.service_parent)
 
     def _recipient_log(self, recipient):
-        return recipient["to"] + (
+        return recipient["to"] or "" + (
             f" (CC: {recipient['cc']})" if "cc" in recipient else ""
         )
 
