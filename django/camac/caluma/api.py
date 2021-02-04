@@ -279,15 +279,14 @@ class CalumaApi:
         to_cancel = []
         to_skip = []
 
-        for activation in activations:
+        for activation in activations.exclude(circulation_state__name="IDLE").exclude(
+            service__groups__role__name__in=caluma_settings.get(
+                "WORK_ITEM_EXCLUDE_ROLES", []
+            )
+        ):
             work_item = child_case.work_items.filter(
                 **{"task": activation_task, "meta__activation-id": activation.pk}
             ).first()
-
-            if not activation.service.groups.exclude(
-                role__name__in=caluma_settings.get("WORK_ITEM_EXCLUDE_ROLES", [])
-            ).exists():
-                continue
 
             update_data = {
                 "description": activation.reason,

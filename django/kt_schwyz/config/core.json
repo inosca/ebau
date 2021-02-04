@@ -528,7 +528,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -654,7 +654,7 @@
       "success_message": "Email wurde erfolgreich versandt",
       "error_message": "Email konnte nicht versandt werden",
       "execute_always": 0,
-      "sort": 2
+      "sort": 3
     }
   },
   {
