@@ -73,4 +73,4 @@ def test_migrate_schwyz_instances(
 
     call_command("migrate_schwyz_instances")
 
-    assert WorkItem.objects.all().count() == 99
+    assert WorkItem.objects.all().count() == 87
