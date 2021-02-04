@@ -479,7 +479,7 @@ class NotificationTemplateMergeSerializer(
 ):
     instance_editable_permission = None
     """
-    No specific permission needed to send notificaion
+    No specific permission needed to send notification
     """
 
     instance = serializers.ResourceRelatedField(queryset=Instance.objects.all())
@@ -681,7 +681,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             return []
 
         responsible_old = instance.responsible_services.filter(
-            service=service,
+            service=service
         ).values_list("responsible_user__email", flat=True)
         responsible_new = instance.responsibilities.filter(service=service).values_list(
             "user__email", flat=True
