@@ -751,7 +751,13 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
     def validate_for_coordination(self, data):  # pragma: no cover
         if settings.APPLICATION["CALUMA"].get("CREATE_IN_PROCESS"):
-            data["instance_state"] = models.InstanceState.objects.get(name="ext")
+            # FIXME: Bundesstelle has role "coordination, but is
+            # actually more like a municipality (dossiers start in COMM)
+            is_federal = self.context[
+                "request"
+            ].group.service.pk = ur_constants.BUNDESSTELLE_SERVICE_ID
+            state = "comm" if is_federal else "ext"
+            data["instance_state"] = models.InstanceState.objects.get(name=state)
 
         return data
 
