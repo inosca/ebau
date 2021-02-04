@@ -2,7 +2,13 @@ from collections import namedtuple
 
 import pytest
 
-from ..extensions.data_sources import Countries, Locations, Municipalities, Services
+from ..extensions.data_sources import (
+    Countries,
+    Locations,
+    Mitberichtsverfahren,
+    Municipalities,
+    Services,
+)
 
 
 @pytest.mark.parametrize(
@@ -16,6 +22,21 @@ def test_locations(db, role, location_factory, expected_count):
     location_factory(name="Foo", zip=None)
 
     data = Locations().get_data(user)
+    assert len(data) == expected_count
+
+
+@pytest.mark.parametrize(
+    "role,expected_count",
+    [("Koordinationsstelle Baugesuche BG", 4), ("Something else", 0)],
+)
+def test_mitberichtsverfahren(db, role, location_factory, expected_count):
+    User = namedtuple("OIDCUser", "role")
+    user = User(role=role)
+
+    location_factory(name="Foo", zip=123)
+    location_factory(name="Foo", zip=None)
+
+    data = Mitberichtsverfahren().get_data(user)
     assert len(data) == expected_count
 
 
