@@ -28,6 +28,7 @@ class ServiceFactory(DjangoModelFactory):
     email = Faker("email")
     service_group = SubFactory(ServiceGroupFactory)
     trans = RelatedFactory("camac.user.factories.ServiceTFactory", "service")
+    notification = 1
 
     class Meta:
         model = models.Service
