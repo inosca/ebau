@@ -358,10 +358,10 @@
     "pk": "mitberichtsverfahren-koor-bg",
     "fields": {
       "created_at": "2020-11-24T12:55:29.235Z",
-      "modified_at": "2021-01-29T07:58:04.349Z",
+      "modified_at": "2021-02-03T13:31:38.980Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "name": "{\"de\": \"Mitberichtsverfahren Kanton (Verfahrensauswahl ARE)\", \"fr\": null}",
+      "name": "{\"de\": \"Mitberichtsverfahren Kanton\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
       "is_published": true,
@@ -4421,19 +4421,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "mitberichtsverfahren-koor-bg.art-mbv",
-    "fields": {
-      "created_at": "2020-11-24T13:28:51.958Z",
-      "modified_at": "2020-11-24T13:28:51.958Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "mitberichtsverfahren-koor-bg",
-      "question": "art-mbv",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "mitberichtsverfahren-koor-bg.beschreibung-bemerkungen",
     "fields": {
       "created_at": "2020-11-24T13:53:10.820Z",
@@ -4455,7 +4442,7 @@
       "created_by_group": null,
       "form": "mitberichtsverfahren-koor-bg",
       "question": "beschreibung-zu-mbv",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -4473,6 +4460,19 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "mitberichtsverfahren-koor-bg.mbv-type",
+    "fields": {
+      "created_at": "2021-02-03T13:39:58.954Z",
+      "modified_at": "2021-02-03T13:39:58.954Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "mitberichtsverfahren-koor-bg",
+      "question": "mbv-type",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "mitberichtsverfahren-koor-bg.zustaendige-personen",
     "fields": {
       "created_at": "2020-11-27T07:36:53.472Z",
@@ -4481,7 +4481,7 @@
       "created_by_group": null,
       "form": "mitberichtsverfahren-koor-bg",
       "question": "zustaendige-personen",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -26092,6 +26092,34 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "materialien",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mbv-type",
+    "fields": {
+      "created_at": "2021-02-03T13:39:58.874Z",
+      "modified_at": "2021-02-03T13:39:58.874Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "label": "{\"de\": \"Art des Verfahrens\", \"fr\": null}",
+      "type": "dynamic_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": "Mitberichtsverfahren",
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
