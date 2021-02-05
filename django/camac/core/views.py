@@ -47,10 +47,17 @@ class PublicationEntryView(views.ModelViewSet):
         )
 
     def get_queryset_for_service(self):
-        return models.PublicationEntry.objects.none()
+        return models.PublicationEntry.objects.filter(
+            instance__circulations__activations__service=self.request.group.service
+        )
 
     def get_queryset_for_canton(self):
         return models.PublicationEntry.objects.none()
+
+    def get_queryset_for_reader(self):
+        return models.PublicationEntry.objects.filter(
+            instance__circulations__activations__service=self.request.group.service
+        )
 
     @permission_aware
     def has_create_permission(self):

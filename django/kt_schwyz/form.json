@@ -5900,7 +5900,7 @@
       }
     },
     "einsprecher": {
-      "restrict": ["municipality", "service"],
+      "restrict": ["municipality", "service", "reader"],
       "label": "Einsprecher:",
       "hint": "Natürliche oder juristische Person, die während der öffentlichen Planauflage eines Vorhabens Einsprache erhebt.",
       "type": "table",
@@ -5953,42 +5953,42 @@
       }
     },
     "bezeichnung-override": {
-      "restrict": ["municipality", "service"],
+      "restrict": ["municipality", "service", "reader"],
       "label": "Bezeichung des Vorhabens:",
       "type": "textarea",
       "required": true,
       "config": {}
     },
     "betroffene-nutzungszonen": {
-      "restrict": ["municipality", "service"],
+      "restrict": ["municipality", "service", "reader"],
       "label": "Betroffene Nutzungszonen:",
       "type": "textarea",
       "required": false,
       "config": {}
     },
     "ortsbezeichnung-des-vorhabens": {
-      "restrict": ["municipality", "service"],
+      "restrict": ["municipality", "service", "reader"],
       "label": "Adresse",
       "type": "text",
       "required": false,
       "config": {}
     },
     "standort-spezialbezeichnung": {
-      "restrict": ["municipality", "service"],
+      "restrict": ["municipality", "service", "reader"],
       "label": "Spezialbezeichnung",
       "type": "text",
       "required": false,
       "config": {}
     },
     "standort-ort": {
-      "restrict": ["municipality", "service"],
+      "restrict": ["municipality", "service", "reader"],
       "label": "Ort",
       "type": "text",
       "required": false,
       "config": {}
     },
     "lage": {
-      "restrict": ["municipality", "service"],
+      "restrict": ["municipality", "service", "reader"],
       "label": "Lage der Bauzone:",
       "type": "radio",
       "required": true,
@@ -5997,7 +5997,7 @@
       }
     },
     "verfahrensart": {
-      "restrict": ["municipality", "service"],
+      "restrict": ["municipality", "service", "reader"],
       "label": "Verfahrensart:",
       "type": "radio",
       "required": true,
@@ -6010,7 +6010,7 @@
       }
     },
     "verfahrensart-erstellt": {
-      "restrict": ["municipality", "service"],
+      "restrict": ["municipality", "service", "reader"],
       "label": "Bereits erstellt:",
       "type": "radio",
       "required": true,
@@ -6019,21 +6019,21 @@
       }
     },
     "vollstaendigkeitspruefung-bemerkung": {
-      "restrict": ["municipality", "service"],
+      "restrict": ["municipality", "service", "reader"],
       "label": "Bemerkung:",
       "type": "text",
       "required": false,
       "config": {}
     },
     "publikation-bemerkung": {
-      "restrict": ["municipality"],
+      "restrict": ["municipality", "service", "reader"],
       "label": "Bemerkung:",
       "type": "textarea",
       "required": false,
       "config": {}
     },
     "publikation-offen": {
-      "restrict": ["municipality"],
+      "restrict": ["municipality", "service", "reader"],
       "label": "Publikation offen",
       "type": "radio",
       "required": false,
@@ -6042,7 +6042,7 @@
       }
     },
     "grundeigentumerschaft-override": {
-      "restrict": ["municipality", "service"],
+      "restrict": ["municipality", "service", "reader"],
       "label": "Grundeigentümerschaft:",
       "type": "table",
       "required": false,
@@ -6122,7 +6122,7 @@
       }
     },
     "bauherrschaft-override": {
-      "restrict": ["municipality", "service"],
+      "restrict": ["municipality", "service", "reader"],
       "label": "Bauherrschaft:",
       "type": "table",
       "required": true,
@@ -6202,7 +6202,7 @@
       }
     },
     "projektverfasser-planer-override": {
-      "restrict": ["municipality", "service"],
+      "restrict": ["municipality", "service", "reader"],
       "label": "Projektverfasser / Planer:",
       "type": "table",
       "required": true,
