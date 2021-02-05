@@ -79,11 +79,12 @@ class Command(BaseCommand):
             assigned_users=responsible_user,
         )
 
-        self.stdout.write(f"Created work item {work_item.pk}")
+        self.stdout.write(f"Created work item {work_item.pk} {work_item.name}")
 
         return work_item
 
     def migrate_circulation(self, instance, case):
+        self.stdout.write(f"Migrating instance {instance.pk} circulations")
         circulations = instance.circulations.annotate(
             activation_count=Count("activations")
         )
@@ -133,6 +134,7 @@ class Command(BaseCommand):
         self.stdout.write("Starting Instance to Caluma Case and WorkItem migration")
 
         for instance in Instance.objects.all():
+            self.stdout.write(f"Migrating instance {instance.pk}")
             instance_state = instance.instance_state.name
             case_status = Case.STATUS_RUNNING
 
@@ -153,6 +155,7 @@ class Command(BaseCommand):
                 },
                 **{"meta__camac-instance-id": instance.pk},
             )[0]
+            self.stdout.write(f"Using case {case.pk}")
 
             if instance_state == "new":
                 self.create_work_item_from_task(case, "submit")
