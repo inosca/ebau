@@ -103,6 +103,98 @@ class Locations(BaseDataSource):
         )
 
 
+mapping = {
+    "Koordinationsstelle Baugesuche BG": [
+        [42, "Internes Mitberichtsverfahren / Genehmigungsverfahren"],
+        [46, "Mitberichtverfahren zu Plangenehmigungsverfahren Militär (PGV Militär)"],
+        [
+            45,
+            "Mitberichtverfahren zu Plangenehmigungsverfahren Luftfahrt (PGV Luftfahrt)",
+        ],
+        [
+            250,
+            "Mitberichtverfahren zu Plangenehmigungsverfahren Seilbahn (PGV Seilbahn)",
+        ],
+    ],
+    "Koordinationsstelle Baudirektion BD": [
+        [223, "PGV öffentliche Gewässer (Artikel 12 WBG)"],
+        [224, "PGV private Gewässer (Artikel 19 WBG)"],
+        [181, "PGV Kantonsstrasse (Artikel 30 StrG)"],
+        [201, "PGV Gemeindestrasse (Artikel 30 StrG)"],
+        [221, "PGV Korporationsstrasse (Artikel 30 StrG)"],
+        [222, "PGV vereinfachtes Verfahren (Artikel 31 StrG)"],
+        [
+            225,
+            "Konzessionsverfahren Regierungsrat für Anlagen bis 1000 kW (Artikel 18 GNG)",
+        ],
+        [241, "Konzessionsverfahren Landrat für Anlagen ab 1000 kW (Artikel 18 GNG)"],
+        [242, "Konzessionsverfahren Baudirektion für Wärmeentnahmen (Artikel 40 GNG)"],
+        [243, "Mitberichtsverfahren / PGV nach Starkstromverordnung (EleG)"],
+        [244, "Mitberichtsverfahren / PGV nach Eisenbahngesetz (EBG)"],
+        [245, "Mitberichtsverfahren / PGV nach Nationalstrassengesetz (NSG)"],
+        [
+            246,
+            "Konzessionsverfahren Baudirektion Beanspruchung Kantonsgewässer bis 500 m2 (Artikel 3 ORR)",
+        ],
+        [248, "Internes Mitberichtsverfahren BD"],
+        [286, "Land- und Rechtserweb"],
+    ],
+    "Koordinationsstelle Nutzungsplanung NP": [
+        [161, "Internes Mitberichtsverfahren"],
+        [46, "Mitberichtverfahren zu Plangenehmigungsverfahren Militär (PGV Militär)"],
+        [
+            45,
+            "Mitberichtverfahren zu Plangenehmigungsverfahren Luftfahrt (PGV Luftfahrt)",
+        ],
+        [
+            250,
+            "Mitberichtverfahren zu Plangenehmigungsverfahren Seilbahn (PGV Seilbahn)",
+        ],
+    ],
+    "Koordinationsstelle Energie AfE": [
+        [256, "Internes Mitberichtsverfahren AfE"],
+        [
+            257,
+            "Konzessionsverfahren Regierungsrat für Anlagen bis 1000 kW (Artikel 18 GNG)",
+        ],
+        [258, "Konzessionsverfahren Landrat für Anlagen ab 1000 kW (Artikel 18 GNG)"],
+        [259, "Konzessionsverfahren Baudirektion für Wärmeentnahmen (Artikel 40 GNG)"],
+        [
+            289,
+            "Konzessionsverfahren Korporationsgewässer mit Genehmigung durch Regierungsrat (Artikel 15 GNG)",
+        ],
+    ],
+    "Koordinationsstelle Forst und Jagd AFJ": [
+        [260, "Internes Mitberichtsverfahren AFJ"],
+    ],
+    "Koordinationsstelle Landwirtschaft ALA": [
+        [254, "Internes Mitberichtsverfahren ALA"],
+        [
+            255,
+            "Internes Mitberichtsverfahren ALA (Korporationsstrassen mit Subventionierung)",
+        ],
+    ],
+    "Koordinationsstelle Sicherheitsdirektion SD": [
+        [287, "Internes Mitberichtsverfahren SD AfKP"],
+        [288, "Internes Mitberichtsverfahren SD"],
+    ],
+    "Koordinationsstelle Umweltschutz AfU": [
+        [251, "Internes Mitberichtsverfahren AfU"],
+        [252, "Internes Mitberichtsverfahren nach Artikel 30 BG Umweltschutz"],
+        [253, "Internes Mitberichtsverfahren / Bewilligungsverfahren gemäss UVP"],
+    ],
+}
+
+
+class Mitberichtsverfahren(BaseDataSource):
+    info = "List of different types of 'Mitberichtsverfahren' (role-dependent)"
+
+    def get_data(self, user):
+        if not hasattr(user, "role"):  # pragma: no cover
+            return []
+        return mapping.get(user.role, [])
+
+
 class Services(BaseDataSource):
     info = "List of services, municipalities and RSTAs from Camac"
 
