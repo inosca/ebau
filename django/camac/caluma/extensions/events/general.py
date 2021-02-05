@@ -12,6 +12,7 @@ from caluma.caluma_workflow.events import (
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.core import mail
+from django.db import transaction
 
 from camac.caluma.api import CalumaApi
 from camac.instance.models import Instance
@@ -33,7 +34,8 @@ def get_instance(work_item):
     return Instance.objects.get(pk=get_instance_id(work_item))
 
 
-@on(post_create_work_item)
+@on(post_create_work_item, raise_exception=True)
+@transaction.atomic
 def copy_sb_personal(sender, work_item, **kwargs):
     for config in get_caluma_setting("COPY_PERSONAL", []):
         if work_item.task_id == config["TASK"]:
@@ -46,9 +48,14 @@ def copy_sb_personal(sender, work_item, **kwargs):
             )
 
 
-@on(post_create_work_item)
+@on(post_create_work_item, raise_exception=True)
+@transaction.atomic
 def copy_paper_answer(sender, work_item, **kwargs):
-    if work_item.task_id in get_caluma_setting("COPY_PAPER_ANSWER_TO", []):
+    if (
+        work_item.task_id in get_caluma_setting("COPY_PAPER_ANSWER_TO", [])
+        and work_item.document
+        and work_item.case.document
+    ):
         # copy answer to the is-paper question in the case document to the
         # newly created work item document
         try:
@@ -66,7 +73,8 @@ def copy_paper_answer(sender, work_item, **kwargs):
             )
 
 
-@on(post_create_work_item)
+@on(post_create_work_item, raise_exception=True)
+@transaction.atomic
 def set_meta_attributes(sender, work_item, user, context, **kwargs):
     """Set needed meta attributes on the newly created work item.
 
@@ -114,17 +122,23 @@ def set_meta_attributes(sender, work_item, user, context, **kwargs):
     work_item.save()
 
 
-@on(post_create_work_item)
+@on(post_create_work_item, raise_exception=True)
+@transaction.atomic
 def set_assigned_user(sender, work_item, user, **kwargs):
-    if len(work_item.assigned_users):
+    addressed_group = next(
+        (
+            int(group)
+            for group in work_item.addressed_groups
+            if isinstance(group, int) or (isinstance(group, str) and group.isdigit())
+        ),
+        None,
+    )
+
+    if len(work_item.assigned_users) or not addressed_group:
         return
 
     instance = get_instance(work_item)
-
-    try:
-        service = user_models.Service.objects.get(pk=work_item.addressed_groups[0])
-    except (IndexError, user_models.Service.DoesNotExist):
-        return
+    service = user_models.Service.objects.get(pk=addressed_group)
 
     responsible_old = instance.responsible_services.filter(service=service).values_list(
         "responsible_user__username", flat=True
@@ -137,7 +151,7 @@ def set_assigned_user(sender, work_item, user, **kwargs):
     work_item.save()
 
 
-@on(post_complete_work_item)
+@on(post_complete_work_item, raise_exception=True)
 def notify_completed_work_item(sender, work_item, user, **kwargs):
     if not work_item.meta.get("notify-completed", False):
         return
@@ -206,8 +220,8 @@ Vous recevez cette notification parce que vous avez sélectionné le paramètre 
     connection.send_messages(emails)
 
 
-@on(pre_skip_work_item)
-@on(pre_complete_work_item)
+@on([pre_complete_work_item, pre_skip_work_item], raise_exception=True)
+@transaction.atomic
 def handle_pre_complete_work_item(sender, work_item, user, **kwargs):
     # Completed work items should always be marked as read
     work_item.meta["not-viewed"] = False
