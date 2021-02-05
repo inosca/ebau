@@ -2,7 +2,7 @@ import { inject as service } from "@ember/service";
 import CaseModel from "ember-caluma/caluma-query/models/case";
 import moment from "moment";
 
-const instanceResourceDocumentMapping = {
+export const INSTANCE_RESOURCE_DOCUMENT_MAPPING = {
   6: 46, // Sekretariat der Gemeindebaubehörde
   1104: 770, // Vernehmlassungsstelle Gemeindezirkulation
   4: 525, // Vernehmlassungsstelle mit Koordinationsaufgaben
@@ -84,7 +84,7 @@ export default class CustomCaseModel extends CaseModel {
 
   get parcelPictureUrl() {
     return `/documents/list/download/instance-resource-id/${
-      instanceResourceDocumentMapping[this.shoebox.content.roleId]
+      INSTANCE_RESOURCE_DOCUMENT_MAPPING[this.shoebox.content.roleId]
     }/instance-id/${this.instanceId}/attachmentid/`;
   }
 
