@@ -10,13 +10,7 @@ from rest_framework import status
 
 from camac.conftest import CALUMA_FORM_TYPES_SLUGS
 from camac.constants import kt_bern as constants
-from camac.constants.kt_bern import (
-    DECISIONS_BEWILLIGT,
-    INSTANCE_STATE_NEW,
-    INSTANCE_STATE_SB1,
-    INSTANCE_STATE_SB2,
-    INSTANCE_STATE_TO_BE_FINISHED,
-)
+from camac.constants.kt_bern import DECISIONS_BEWILLIGT
 from camac.core.models import Chapter, ProposalActivation, Question, QuestionType
 from camac.echbern import event_handlers
 from camac.echbern.data_preparation import DocumentParser
@@ -52,15 +46,15 @@ def mock_public_status(mocker):
 
 
 @pytest.fixture
-def instance_service_construction_control(
-    instance_service_factory, service_factory, service_group_factory, instance
-):
-    return instance_service_factory(
-        instance=instance,
-        service=service_factory(
-            service_group=service_group_factory(name="construction-control")
-        ),
-    )
+def construction_control_for(service_factory):
+    def wrapper(service):
+        service.trans.update(name="Leitbehörde XY")
+
+        return service_factory(
+            trans__name="Baukontrolle XY", service_group__name="construction-control"
+        )
+
+    return wrapper
 
 
 @pytest.fixture
@@ -493,45 +487,34 @@ def test_responsible_user(admin_client, instance, user, service, multilang):
 
 
 @pytest.mark.parametrize(
-    "instance_state__name,instance_state_pk,has_personalien_sb2,expected_status",
-    [
-        ("sb1", INSTANCE_STATE_SB1, False, status.HTTP_200_OK),
-        ("sb1", INSTANCE_STATE_SB1, True, status.HTTP_200_OK),
-        ("new", INSTANCE_STATE_NEW, False, status.HTTP_403_FORBIDDEN),
-    ],
+    "role__name,instance__user,service_group__name",
+    [("Applicant", LazyFixture("admin_user"), "municipality")],
 )
 @pytest.mark.parametrize(
-    "new_instance_state_name,new_instance_state_pk", [("sb2", INSTANCE_STATE_SB2)]
-)
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+    "instance_state__name,expected_status",
+    [("sb1", status.HTTP_200_OK), ("new", status.HTTP_403_FORBIDDEN)],
 )
 def test_instance_report(
     admin_client,
     role,
     instance,
+    instance_service,
+    service_group,
     instance_state,
-    instance_state_pk,
     instance_state_factory,
-    instance_service_construction_control,
+    construction_control_for,
     expected_status,
-    new_instance_state_name,
-    new_instance_state_pk,
     notification_template,
     application_settings,
-    service,
-    admin_user,
     multilang,
     mock_nfd_permissions,
     mock_generate_and_store_pdf,
     caluma_workflow_config_be,
-    has_personalien_sb2,
-    circulation,
     docx_decision_factory,
     caluma_admin_user,
 ):
-    instance_state.pk = instance_state_pk
-    instance_state.save()
+    instance_state_factory(name="coordination")
+    instance_state_factory(name="sb2")
 
     application_settings["NOTIFICATIONS"]["REPORT"] = [
         {
@@ -547,21 +530,18 @@ def test_instance_report(
         user=caluma_admin_user,
     )
 
-    docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=instance.pk)
+    if instance_state.name == "sb1":
+        docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=instance.pk)
 
-    for task_id in [
-        "submit",
-        "ebau-number",
-        "init-circulation",
-        "circulation",
-        "start-decision",
-        "decision",
-    ]:
-        workflow_api.complete_work_item(
-            work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user
-        )
+        service = instance.responsible_service()
+        construction_control = construction_control_for(service)
 
-    instance_state_factory(name=new_instance_state_name, pk=new_instance_state_pk)
+        for task_id in ["submit", "ebau-number", "skip-circulation", "decision"]:
+            workflow_api.complete_work_item(
+                work_item=case.work_items.get(task_id=task_id),
+                user=caluma_admin_user,
+                context={"group-id": service.pk},
+            )
 
     response = admin_client.post(reverse("instance-report", args=[instance.pk]))
 
@@ -573,7 +553,7 @@ def test_instance_report(
         recipients = flatten([m.to for m in mail.outbox])
 
         assert instance.user.email in recipients
-        assert instance_service_construction_control.service.email in recipients
+        assert construction_control.email in recipients
 
         case.refresh_from_db()
         assert case.status == "running"
@@ -581,44 +561,35 @@ def test_instance_report(
 
 
 @pytest.mark.parametrize(
-    "instance_state__name,instance_state_pk,expected_status",
-    [
-        ("sb2", INSTANCE_STATE_SB2, status.HTTP_200_OK),
-        ("new", INSTANCE_STATE_NEW, status.HTTP_403_FORBIDDEN),
-    ],
+    "role__name,instance__user,service_group__name",
+    [("Applicant", LazyFixture("admin_user"), "municipality")],
 )
 @pytest.mark.parametrize(
-    "new_instance_state_name,new_instance_state_pk",
-    [("conclusion", INSTANCE_STATE_TO_BE_FINISHED)],
-)
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+    "instance_state__name,expected_status",
+    [("sb2", status.HTTP_200_OK), ("new", status.HTTP_403_FORBIDDEN)],
 )
 def test_instance_finalize(
     admin_client,
     role,
     instance,
+    instance_service,
+    service_group,
     instance_state,
-    instance_state_pk,
     instance_state_factory,
-    instance_service_construction_control,
+    construction_control_for,
     expected_status,
-    new_instance_state_name,
-    new_instance_state_pk,
     notification_template,
     application_settings,
-    service,
-    admin_user,
     multilang,
     mock_nfd_permissions,
     mock_generate_and_store_pdf,
     caluma_workflow_config_be,
-    circulation,
     docx_decision_factory,
     caluma_admin_user,
 ):
-    instance_state.pk = instance_state_pk
-    instance_state.save()
+    instance_state_factory(name="coordination")
+    instance_state_factory(name="sb1")
+    instance_state_factory(name="conclusion")
 
     application_settings["NOTIFICATIONS"]["FINALIZE"] = [
         {
@@ -634,22 +605,27 @@ def test_instance_finalize(
         user=caluma_admin_user,
     )
 
-    docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=instance.pk)
+    if instance_state.name == "sb2":
+        docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=instance.pk)
 
-    for task_id in [
-        "submit",
-        "ebau-number",
-        "init-circulation",
-        "circulation",
-        "start-decision",
-        "decision",
-        "sb1",
-    ]:
-        workflow_api.complete_work_item(
-            work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user
-        )
+        service = instance.responsible_service()
+        construction_control = construction_control_for(service)
 
-    instance_state_factory(name=new_instance_state_name, pk=new_instance_state_pk)
+        for task_id in [
+            "submit",
+            "ebau-number",
+            "skip-circulation",
+            "decision",
+            "sb1",
+        ]:
+            workflow_api.complete_work_item(
+                work_item=case.work_items.get(task_id=task_id),
+                user=caluma_admin_user,
+                context={"group-id": service.pk},
+            )
+
+        instance.instance_state = instance_state
+        instance.save()
 
     response = admin_client.post(reverse("instance-finalize", args=[instance.pk]))
 
@@ -661,7 +637,7 @@ def test_instance_finalize(
         recipients = flatten([m.to for m in mail.outbox])
 
         assert instance.user.email in recipients
-        assert instance_service_construction_control.service.email in recipients
+        assert construction_control.email in recipients
 
         assert sorted(
             case.work_items.filter(status="ready").values_list("task_id", flat=True)
