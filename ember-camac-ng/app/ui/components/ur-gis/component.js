@@ -16,6 +16,8 @@ import fetch from "fetch";
 import html2canvas from "html2canvas";
 import { all } from "rsvp";
 
+import { INSTANCE_RESOURCE_DOCUMENT_MAPPING } from "../../../caluma-query/models/case";
+
 const { L } = window;
 
 const KEY_TABLE_QUESTION = "parcels";
@@ -89,6 +91,7 @@ export default class UrGisComponent extends Component {
   @service notification;
   @service intl;
   @service calumaStore;
+  @service shoebox;
 
   @queryManager apollo;
   @tracked lat = CENTER[0];
@@ -376,7 +379,9 @@ export default class UrGisComponent extends Component {
     const formData = new FormData();
     formData.append("file", blob, "Parzellenbild.png");
     yield fetch(
-      `/documents/list/upload-parcel-picture/instance-resource-id/46/instance-id/${instanceId}`,
+      `/documents/list/upload-parcel-picture/instance-resource-id/${
+        INSTANCE_RESOURCE_DOCUMENT_MAPPING[this.shoebox.content.roleId]
+      }/instance-id/${instanceId}`,
       {
         method: "POST",
         mode: "cors",
