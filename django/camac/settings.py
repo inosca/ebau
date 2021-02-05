@@ -324,7 +324,7 @@ APPLICATIONS = {
                     "next_instance_state": "arch",
                     "history_text": "Dossier archiviert",
                 },
-                "depricate-case": {
+                "depreciate-case": {
                     "next_instance_state": "stopped",
                     "history_text": "Dossier abgeschrieben",
                 },
