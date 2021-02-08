@@ -3,6 +3,7 @@ from datetime import timedelta
 from caluma.caluma_form.models import Document, Form
 from caluma.caluma_user.models import AnonymousUser
 from caluma.caluma_workflow import api as caluma_workflow_api
+from caluma.caluma_workflow.events import post_complete_work_item, post_skip_work_item
 from caluma.caluma_workflow.models import Case, Task, Workflow, WorkItem
 from caluma.caluma_workflow.utils import get_jexl_groups
 from django.core.management.base import BaseCommand
@@ -11,6 +12,9 @@ from django.db.models import Count, Q
 from django.utils import timezone
 
 from camac.caluma.api import CalumaApi
+from camac.caluma.extensions.events.circulation import (
+    post_complete_circulation_work_item,
+)
 from camac.instance.models import Instance, InstanceResponsibility
 
 
@@ -30,10 +34,7 @@ class Command(BaseCommand):
     ):
         task = Task.objects.get(pk=task_slug)
 
-        if WorkItem.objects.filter(
-            case=case,
-            task=task,
-        ).first():
+        if WorkItem.objects.filter(case=case, task=task).first():
             return
 
         meta = {
@@ -99,6 +100,10 @@ class Command(BaseCommand):
             return
 
         for circulation in circulations:
+            # if no service is set, it is faulty and can be skipped
+            if not circulation.service:
+                continue
+
             # create one work item with a child case per running circulation
             child_case = Case.objects.get_or_create(
                 workflow=Workflow.objects.get(pk="circulation"),
@@ -130,6 +135,9 @@ class Command(BaseCommand):
     @transaction.atomic  # noqa: C901
     def handle(self, *args, **options):
         self.stdout.write("Starting Instance to Caluma Case and WorkItem migration")
+
+        post_complete_work_item.disconnect(post_complete_circulation_work_item)
+        post_skip_work_item.disconnect(post_complete_circulation_work_item)
 
         for instance in Instance.objects.all():
             self.stdout.write(f"Migrating instance {instance.pk}")
@@ -198,11 +206,10 @@ class Command(BaseCommand):
                 self.create_work_item_from_task(case, "create-manual-workitems")
                 self.create_work_item_from_task(case, "depreciate-case")
                 self.create_work_item_from_task(case, "publication", instance=instance)
-            elif instance_state in [
-                "stopped",
-                "done",
-                "denied",
-            ]:
+            elif instance_state in ["stopped", "done", "denied"]:
                 self.create_work_item_from_task(case, "archive-instance")
+
+        post_complete_work_item.connect(post_complete_circulation_work_item)
+        post_skip_work_item.connect(post_complete_circulation_work_item)
 
         self.stdout.write("Created Cases and WorkItems from Instances")
