@@ -127,6 +127,7 @@ export default class WorkItemNewController extends Controller {
             meta: JSON.stringify({
               "notify-completed": this.workItem.notificationCompleted,
               "notify-deadline": this.workItem.notificationDeadline,
+              "is-manually-completable": true,
             }),
             ...extra,
           },
