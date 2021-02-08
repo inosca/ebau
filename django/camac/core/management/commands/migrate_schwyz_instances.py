@@ -104,18 +104,10 @@ class Command(BaseCommand):
             if not circulation.service:
                 continue
 
-            # create one work item with a child case per running circulation
-            child_case = Case.objects.get_or_create(
-                workflow=Workflow.objects.get(pk="circulation"),
-                status=Case.STATUS_RUNNING,
-                family=case,
-            )[0]
-
             self.create_work_item_from_task(
                 case,
                 "circulation",
                 meta={"circulation-id": circulation.pk},
-                child_case=child_case,
                 instance=instance,
                 context={"circulation-id": circulation.pk},
             )
@@ -127,6 +119,10 @@ class Command(BaseCommand):
                     work_item = WorkItem.objects.filter(
                         **{"meta__activation-id": activation.pk}
                     ).first()
+
+                    if not work_item:
+                        continue
+
                     if work_item.status == WorkItem.STATUS_READY:
                         caluma_workflow_api.skip_work_item(
                             work_item, AnonymousUser(), {"activation-id": activation.pk}
