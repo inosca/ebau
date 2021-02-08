@@ -69,7 +69,7 @@ def test_migrate_schwyz_instances(
         circulation_state=circulation_state_factory(name="OK"),
         service=system_operation_group.service,
     )
-    instance_responsibility_factory(instance=instance)
+    instance_responsibility_factory(instance=instance, service=instance.group.service)
 
     call_command("migrate_schwyz_instances")
 
