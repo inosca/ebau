@@ -15,6 +15,7 @@ from camac.caluma.api import CalumaApi
 from camac.caluma.extensions.events.circulation import (
     post_complete_circulation_work_item,
 )
+from camac.core.models import PublicationEntry
 from camac.instance.models import Instance, InstanceResponsibility
 
 
@@ -35,6 +36,20 @@ class Command(BaseCommand):
         task = Task.objects.get(pk=task_slug)
 
         if WorkItem.objects.filter(case=case, task=task).first():
+            self.stdout.write(
+                f"{task_slug} work item on case {case.pk} exists skipping"
+            )
+            return
+
+        if (
+            task_slug == "publication"
+            and PublicationEntry.objects.filter(
+                instance=instance, is_published=1
+            ).exists()
+        ):
+            self.stdout.write(
+                f"Publication was finished on instance {instance.pk} skipping publication task creation"
+            )
             return
 
         meta = {
@@ -117,15 +132,47 @@ class Command(BaseCommand):
             for activation in circulation.activations.all():
                 if activation.circulation_state.name in ["OK", "REVIEW"]:
                     work_item = WorkItem.objects.filter(
-                        **{"meta__activation-id": activation.pk}
+                        **{
+                            "meta__activation-id": activation.pk,
+                            "status": WorkItem.STATUS_READY,
+                        }
                     ).first()
 
-                    if not work_item:
+                    if not work_item:  # pragma: no cover
+                        self.stdout.write(
+                            f"No work item was found for activation {activation.pk}"
+                        )
                         continue
 
-                    if work_item.status == WorkItem.STATUS_READY:
+                    caluma_workflow_api.skip_work_item(
+                        work_item,
+                        AnonymousUser(),
+                        {
+                            "circulation-id": circulation.pk,
+                            "activation-id": activation.pk,
+                        },
+                    )
+                    if activation.circulation_state.name == "OK":
+                        work_item = WorkItem.objects.filter(
+                            **{
+                                "meta__activation-id": activation.pk,
+                                "status": WorkItem.STATUS_READY,
+                                "task__slug": "check-statement",
+                            }
+                        ).first()
+
+                        if not work_item:  # pragma: no cover
+                            self.stdout.write(
+                                f"No work item was found for activation {activation.pk}"
+                            )
+                            continue
+
                         caluma_workflow_api.skip_work_item(
-                            work_item, AnonymousUser(), {"activation-id": activation.pk}
+                            work_item,
+                            AnonymousUser(),
+                            {
+                                "activation-id": activation.pk,
+                            },
                         )
 
     @transaction.atomic  # noqa: C901
@@ -176,10 +223,10 @@ class Command(BaseCommand):
                 self.create_work_item_from_task(
                     case, "start-circulation", instance=instance
                 )
-                self.create_work_item_from_task(case, "publication", instance=instance)
                 self.create_work_item_from_task(case, "skip-circulation")
                 self.create_work_item_from_task(case, "create-manual-workitems")
                 self.create_work_item_from_task(case, "depreciate-case")
+                self.create_work_item_from_task(case, "publication", instance=instance)
             elif instance_state == "circ":
                 self.migrate_circulation(instance, case)
                 self.create_work_item_from_task(case, "create-manual-workitems")
