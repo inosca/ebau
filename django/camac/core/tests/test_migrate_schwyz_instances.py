@@ -36,9 +36,7 @@ def test_migrate_schwyz_instances(
 
     # load data including test data
     call_command(
-        "camac_load",
-        user="test-dummy@adfinis.com",
-        stdout=open(os.devnull, "w"),
+        "camac_load", user="test-dummy@adfinis.com", stdout=open(os.devnull, "w")
     )
 
     for state in [
@@ -59,6 +57,7 @@ def test_migrate_schwyz_instances(
 
     instance = instance_factory(instance_state=instance_state_factory(name="circ"))
     circ = circulation_factory(instance=instance)
+    circ_without_service = circulation_factory(instance=instance, service=None)
     activation_factory(
         circulation=circ,
         circulation_state=circulation_state_factory(name="REVIEW"),
@@ -67,6 +66,11 @@ def test_migrate_schwyz_instances(
     activation_factory(
         circulation=circ,
         circulation_state=circulation_state_factory(name="OK"),
+        service=system_operation_group.service,
+    )
+    activation_factory(
+        circulation=circ_without_service,
+        circulation_state=circulation_state_factory(name="RUN"),
         service=system_operation_group.service,
     )
     instance_responsibility_factory(instance=instance, service=instance.group.service)
