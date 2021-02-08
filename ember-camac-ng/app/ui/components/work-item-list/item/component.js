@@ -10,6 +10,10 @@ export default class WorkItemListItemComponent extends Component {
 
   get actions() {
     if (!this.args.workItem.isAddressedToCurrentService) {
+      if (this.args.workItem.task.slug === "create-manual-workitems") {
+        return [this.editAction].filter(Boolean);
+      }
+
       return [];
     }
 
