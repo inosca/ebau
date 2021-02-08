@@ -416,7 +416,8 @@ class CalumaInstanceSerializer(InstanceSerializer):
         if state != "new":
             permissions.add("read")
 
-        if state in ["ext", "circ", "redac", "old"]:
+        # COMM is needed for "Bundesstelle"
+        if state in ["comm", "ext", "circ", "redac", "old"]:
             permissions.add("write")
         return permissions
 
@@ -753,9 +754,10 @@ class CalumaInstanceSerializer(InstanceSerializer):
         if settings.APPLICATION["CALUMA"].get("CREATE_IN_PROCESS"):
             # FIXME: Bundesstelle has role "coordination, but is
             # actually more like a municipality (dossiers start in COMM)
-            is_federal = self.context[
-                "request"
-            ].group.service.pk = ur_constants.BUNDESSTELLE_SERVICE_ID
+            is_federal = (
+                self.context["request"].group.service.pk
+                == ur_constants.BUNDESSTELLE_SERVICE_ID
+            )
             state = "comm" if is_federal else "ext"
             data["instance_state"] = models.InstanceState.objects.get(name=state)
 
