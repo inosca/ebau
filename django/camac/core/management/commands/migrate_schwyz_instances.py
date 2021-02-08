@@ -54,12 +54,10 @@ class Command(BaseCommand):
         responsible_user = []
         if instance:
             responsibility = InstanceResponsibility.objects.filter(
-                instance=instance
+                instance=instance, service__pk=addressed_groups[0]
             ).first()
             if responsibility:
                 responsible_user = [responsibility.user.username]
-                if responsibility.service.pk not in addressed_groups:
-                    addressed_groups.append(responsibility.service.pk)
 
         if applicant:
             addressed_groups.append("applicant")
