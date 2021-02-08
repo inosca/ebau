@@ -17,6 +17,7 @@ def test_migrate_schwyz_instances(
     activation_factory,
     instance_responsibility_factory,
     system_operation_group,
+    publication_entry_factory,
 ):
     settings.APPLICATION_DIR = settings.ROOT_DIR.path("kt_schwyz")
     settings.APPLICATION_NAME = "kt_schwyz"
@@ -73,8 +74,15 @@ def test_migrate_schwyz_instances(
         circulation_state=circulation_state_factory(name="RUN"),
         service=system_operation_group.service,
     )
-    instance_responsibility_factory(instance=instance, service=instance.group.service)
+    responsible_instance = instance_factory(
+        instance_state=instance_state_factory(name="comm")
+    )
+    instance_responsibility_factory(
+        instance=responsible_instance,
+        service=responsible_instance.group.service,
+    )
+    publication_entry_factory(is_published=1, instance=instance)
 
     call_command("migrate_schwyz_instances")
 
-    assert WorkItem.objects.all().count() == 87
+    assert WorkItem.objects.all().count() == 92
