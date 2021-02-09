@@ -12,14 +12,12 @@ from caluma.caluma_workflow import (
 from caluma.caluma_workflow.events import post_complete_case, post_create_work_item
 from caluma.caluma_workflow.utils import get_jexl_groups
 from django.conf import settings
-from django.db.models import Q
+from django.db.models import Count, Q
 from django.utils.timezone import now
 from jwt import decode as jwt_decode
 
 from camac.user.middleware import get_group
 from camac.user.models import Service, User
-
-APPLICANT_GROUP_ID = 6
 
 log = getLogger(__name__)
 
@@ -270,20 +268,25 @@ class CalumaApi:
             sb_row = self.copy_document(row.id, family=target_document.family)
             new_table_answer.documents.add(sb_row)
 
+    def _clean_activations(self, child_case, activations):
+        caluma_settings = settings.APPLICATION.get("CALUMA", {})
+        existing_ids = list(activations.values_list("pk", flat=True))
+
+        # Delete existing activation work items that don't have an
+        # activation anymore.
+        child_case.work_items.filter(
+            task_id__in=caluma_settings.get("ACTIVATION_TASKS")
+        ).exclude(**{"meta__activation-id__in": existing_ids}).delete()
+
     def _sync_activations(self, child_case, activations, user):
         caluma_settings = settings.APPLICATION.get("CALUMA", {})
         activation_task = caluma_workflow_models.Task.objects.get(
             pk=caluma_settings.get("ACTIVATION_INIT_TASK")
         )
 
-        to_cancel = []
-        to_skip = []
+        post_sync = set()
 
-        for activation in activations.exclude(circulation_state__name="IDLE").exclude(
-            service__groups__role__name__in=caluma_settings.get(
-                "WORK_ITEM_EXCLUDE_ROLES", []
-            )
-        ):
+        for activation in activations:
             work_item = child_case.work_items.filter(
                 **{"task": activation_task, "meta__activation-id": activation.pk}
             ).first()
@@ -335,34 +338,39 @@ class CalumaApi:
                 )
 
             if (
-                activation.circulation_state.name == "DONE"
+                activation.circulation_state.name in ["OK", "DONE"]
                 and work_item.status == caluma_workflow_models.WorkItem.STATUS_READY
             ):
-                if not activation.circulation_answer:
-                    # force finished
-                    to_cancel.append(work_item)
-                else:
-                    # answered
-                    to_skip.append(work_item)
-
-        for existing_work_item in child_case.work_items.filter(
-            task=activation_task, status=caluma_workflow_models.WorkItem.STATUS_READY
-        ).exclude(
-            **{
-                "meta__activation-id__in": list(
-                    activations.values_list("pk", flat=True)
+                post_sync.add(
+                    (
+                        activation.pk,
+                        # Skip if the activation has an answer and cancel if it
+                        # doesn't, which means that it was force finished
+                        "skip" if activation.circulation_answer else "cancel",
+                    )
                 )
-            }
-        ):
-            # Delete existing activation work items that don't have an
-            # activation anymore.
-            existing_work_item.delete()
 
-        for work_item in to_cancel:
-            caluma_workflow_api.cancel_work_item(work_item, user)
+        for activation_id, action in post_sync:
+            fn = getattr(caluma_workflow_api, f"{action}_work_item")
 
-        for work_item in to_skip:
-            caluma_workflow_api.skip_work_item(work_item, user)
+            for task in caluma_settings.get("ACTIVATION_RELEVANT_TASKS", []):
+                work_item = child_case.work_items.filter(
+                    **{
+                        "task_id": task,
+                        "status": caluma_workflow_models.WorkItem.STATUS_READY,
+                        "meta__activation-id": activation_id,
+                    }
+                ).first()
+
+                if work_item:
+                    fn(
+                        work_item=work_item,
+                        user=user,
+                        context={
+                            "activation-id": activation_id,
+                            "circulation-id": activations.first().circulation.pk,
+                        },
+                    )
 
     def sync_circulation(self, circulation, user):
         """Synchronize a CAMAC circulation with the Caluma workflow.
@@ -377,19 +385,31 @@ class CalumaApi:
 
         caluma_settings = settings.APPLICATION.get("CALUMA", {})
 
-        work_item = caluma_workflow_models.WorkItem.objects.filter(
-            **{
-                "task_id": caluma_settings.get("CIRCULATION_TASK"),
-                "case__meta__camac-instance-id": circulation.instance.pk,
-                "meta__circulation-id": circulation.pk,
-            }
-        ).first()
-
-        if not work_item:
+        try:
+            work_item = caluma_workflow_models.WorkItem.objects.get(
+                **{
+                    "task_id": caluma_settings.get("CIRCULATION_TASK"),
+                    "case__meta__camac-instance-id": circulation.instance.pk,
+                    "meta__circulation-id": circulation.pk,
+                }
+            )
+        except caluma_workflow_models.WorkItem.DoesNotExist:
             log.error(f"No work item found for circulation {circulation.pk}")
             return
 
-        if circulation.activations.exists():
+        activations = circulation.activations.exclude(circulation_state__name="IDLE")
+
+        excluded_roles = caluma_settings.get("ACTIVATION_EXCLUDE_ROLES", [])
+
+        if excluded_roles:
+            activations = activations.annotate(
+                service_non_excluded_groups_count=Count(
+                    "service__groups",
+                    filter=~Q(service__groups__role__name__in=excluded_roles),
+                )
+            ).exclude(service_non_excluded_groups_count=0)
+
+        if activations.exists():
             # Get or create a child case for the circulation
             child_case = work_item.child_case or caluma_workflow_api.start_case(
                 workflow=caluma_workflow_models.Workflow.objects.get(
@@ -400,10 +420,11 @@ class CalumaApi:
                 ),
                 user=user,
                 parent_work_item=work_item,
-                context={"activation-id": circulation.activations.first().pk},
+                context={"activation-id": activations.first().pk},
             )
 
-            self._sync_activations(child_case, circulation.activations.all(), user)
+            self._sync_activations(child_case, activations, user)
+            self._clean_activations(child_case, activations)
 
             if (
                 not child_case.work_items.filter(
