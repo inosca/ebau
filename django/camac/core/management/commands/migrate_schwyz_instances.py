@@ -22,6 +22,14 @@ from camac.instance.models import Instance, InstanceResponsibility
 class Command(BaseCommand):
     help = "Create an caluma case and work items for every instance"
 
+    def add_arguments(self, parser):
+        parser.add_argument(
+            "--only-creation-log",
+            dest="only_creation_log",
+            action="store_true",
+            default=False,
+        )
+
     def create_work_item_from_task(
         self,
         case,
@@ -32,13 +40,15 @@ class Command(BaseCommand):
         deadline=None,
         instance=None,
         applicant=False,
+        additional_filters={},
     ):
         task = Task.objects.get(pk=task_slug)
 
-        if WorkItem.objects.filter(case=case, task=task).exists():
-            self.stdout.write(
-                f"{task_slug} work item on case {case.pk} exists skipping"
-            )
+        if WorkItem.objects.filter(case=case, task=task, **additional_filters).exists():
+            if self.verbose:
+                self.stdout.write(
+                    f"{task_slug} work item on case {case.pk} exists skipping"
+                )
             return
 
         if (
@@ -47,9 +57,10 @@ class Command(BaseCommand):
                 instance=instance, is_published=1
             ).exists()
         ):
-            self.stdout.write(
-                f"Publication was finished on instance {instance.pk} skipping publication task creation"
-            )
+            if self.verbose:
+                self.stdout.write(
+                    f"Publication was finished on instance {instance.pk} skipping publication task creation"
+                )
             return
 
         meta = {
@@ -98,31 +109,28 @@ class Command(BaseCommand):
         return work_item
 
     def migrate_circulation(self, instance, case):
-        self.stdout.write(f"Migrating instance {instance.pk} circulations")
+        if self.verbose:
+            self.stdout.write(f"Migrating instance {instance.pk} circulations")
+
         circulations = instance.circulations.annotate(
             not_idle_activations=Count(
                 "activations", filter=~Q(activations__circulation_state__name="IDLE")
             )
         )
 
+        # create all circulation work items first
         for circulation in circulations.filter(not_idle_activations__gte=1):
-            if WorkItem.objects.filter(
-                **{
-                    "case": case,
-                    "task__slug": "circulation",
-                    "meta__circulation-id": circulation.pk,
-                }
-            ).exists():
-                continue
-
             self.create_work_item_from_task(
                 case,
                 "circulation",
                 meta={"circulation-id": circulation.pk},
                 instance=instance,
                 context={"circulation-id": circulation.pk},
+                additional_filters={"meta__circulation-id": circulation.pk},
             )
 
+        # sync them later when all work items are created to avoid creating a
+        # broken workflow state
         for circulation in circulations.filter(not_idle_activations__gte=1):
             CalumaApi().sync_circulation(circulation, AnonymousUser())
 
@@ -132,14 +140,12 @@ class Command(BaseCommand):
                 work_item = WorkItem.objects.filter(
                     **{
                         "meta__activation-id": activation.pk,
-                        "status": WorkItem.STATUS_READY,
+                        "task_id": "write-statement",
                     }
                 ).first()
 
-                if not work_item:  # pragma: no cover
-                    self.stdout.write(
-                        f"No work item was found for activation {activation.pk}"
-                    )
+                if not work_item.status == WorkItem.STATUS_READY:
+                    # Check statement work item was already skipped - continue
                     continue
 
                 caluma_workflow_api.skip_work_item(
@@ -151,15 +157,22 @@ class Command(BaseCommand):
                     },
                 )
 
+                self.stdout.write(
+                    f"Skipped work item 'check-statement' for activation {activation.pk} that's already in review"
+                )
+
     @transaction.atomic  # noqa: C901
     def handle(self, *args, **options):
+        self.verbose = not options["only_creation_log"]
+
         self.stdout.write("Starting Instance to Caluma Case and WorkItem migration")
 
         post_complete_work_item.disconnect(post_complete_circulation_work_item)
         post_skip_work_item.disconnect(post_complete_circulation_work_item)
 
         for instance in Instance.objects.all():
-            self.stdout.write(f"Migrating instance {instance.pk}")
+            if self.verbose:
+                self.stdout.write(f"Migrating instance {instance.pk}")
             instance_state = instance.instance_state.name
             case_status = Case.STATUS_RUNNING
 
@@ -180,7 +193,8 @@ class Command(BaseCommand):
                 },
                 **{"meta__camac-instance-id": instance.pk},
             )[0]
-            self.stdout.write(f"Using case {case.pk}")
+            if self.verbose:
+                self.stdout.write(f"Using case {case.pk}")
 
             if instance_state == "new":
                 self.create_work_item_from_task(case, "submit")
