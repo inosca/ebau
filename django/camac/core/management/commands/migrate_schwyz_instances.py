@@ -35,7 +35,7 @@ class Command(BaseCommand):
     ):
         task = Task.objects.get(pk=task_slug)
 
-        if WorkItem.objects.filter(case=case, task=task).first():
+        if WorkItem.objects.filter(case=case, task=task).exists():
             self.stdout.write(
                 f"{task_slug} work item on case {case.pk} exists skipping"
             )
@@ -100,23 +100,19 @@ class Command(BaseCommand):
     def migrate_circulation(self, instance, case):
         self.stdout.write(f"Migrating instance {instance.pk} circulations")
         circulations = instance.circulations.annotate(
-            activation_count=Count("activations")
+            not_idle_activations=Count(
+                "activations", filter=~Q(activations__circulation_state__name="IDLE")
+            )
         )
 
-        if not circulations.filter(
-            Q(activations__circulation_state__name__in=["RUN", "REVIEW"])
-        ).exists():
-            # circulation is over
-            self.create_work_item_from_task(
-                case, "start-additional-circulation", instance=instance
-            )
-            self.create_work_item_from_task(case, "start-decision", instance=instance)
-            self.create_work_item_from_task(case, "check-statements", instance=instance)
-            return
-
-        for circulation in circulations:
-            # if no service is set, it is faulty and can be skipped
-            if not circulation.service:
+        for circulation in circulations.filter(not_idle_activations__gte=1):
+            if WorkItem.objects.filter(
+                **{
+                    "case": case,
+                    "task__slug": "circulation",
+                    "meta__circulation-id": circulation.pk,
+                }
+            ).exists():
                 continue
 
             self.create_work_item_from_task(
@@ -127,6 +123,7 @@ class Command(BaseCommand):
                 context={"circulation-id": circulation.pk},
             )
 
+        for circulation in circulations.filter(not_idle_activations__gte=1):
             CalumaApi().sync_circulation(circulation, AnonymousUser())
 
             for activation in circulation.activations.filter(
