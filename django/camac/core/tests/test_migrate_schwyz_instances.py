@@ -32,7 +32,11 @@ def test_migrate_schwyz_instances(
             "revise-statement",
             "alter-statement",
         ],
-        "WORK_ITEM_EXCLUDE_ROLES": [],
+        "ACTIVATION_RELEVANT_TASKS": [
+            "write-statement",
+            "check-statement",
+        ],
+        "ACTIVATION_EXCLUDE_ROLES": [],
     }
 
     # load data including test data
