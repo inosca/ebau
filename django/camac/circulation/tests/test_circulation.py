@@ -99,9 +99,16 @@ def test_sync_circulation(
     activation_factory,
     caluma_workflow_config_be,
     caluma_admin_user,
+    service_factory,
     group_factory,
+    role_factory,
     role,
+    application_settings,
 ):
+    read_only_role = role_factory(name="read_only")
+
+    application_settings["CALUMA"]["ACTIVATION_EXCLUDE_ROLES"] = [read_only_role.name]
+
     case = start_case(
         workflow=Workflow.objects.get(pk="building-permit"),
         form=Form.objects.get(pk="main-form"),
@@ -122,49 +129,62 @@ def test_sync_circulation(
 
     assert not circulation_work_item.child_case
 
-    group = group_factory(role=role)
+    excluded_service = service_factory()
+    excluded_service.groups.set([group_factory(role=read_only_role)])
+
+    service = group_factory(role=role).service
+    service.groups.add(group_factory(role=read_only_role))
 
     a1 = activation_factory(
         circulation=circulation,
         circulation_state__name="DONE",
         circulation_answer=None,
-        service=group.service,
+        service=service,
     )
     a2 = activation_factory(
         circulation=circulation,
-        circulation_state__name="DONE",
-        service=group.service,
+        circulation_state__name="OK",
+        service=service,
     )
     a3 = activation_factory(
         circulation=circulation,
         circulation_state__name="RUN",
-        service=group.service,
+        service=service,
     )
     a4 = activation_factory(
         circulation=circulation,
         circulation_state__name="IDLE",
-        service=group.service,
+        service=service,
+    )
+    a5 = activation_factory(
+        circulation=circulation,
+        circulation_state__name="RUN",
+        service=excluded_service,
     )
 
     response = admin_client.patch(reverse("circulation-sync", args=[circulation.pk]))
     assert response.status_code == status.HTTP_204_NO_CONTENT
-
     circulation_work_item.refresh_from_db()
     assert circulation_work_item.child_case.status == Case.STATUS_RUNNING
 
     assert (
         get_activation_work_item(circulation_work_item.child_case, a1.pk).status
         == WorkItem.STATUS_CANCELED
-    )
+    )  # done without circulation answer
     assert (
         get_activation_work_item(circulation_work_item.child_case, a2.pk).status
         == WorkItem.STATUS_SKIPPED
-    )
+    )  # ok (same as done) with activation answer
     assert (
         get_activation_work_item(circulation_work_item.child_case, a3.pk).status
         == WorkItem.STATUS_READY
-    )
-    assert get_activation_work_item(circulation_work_item.child_case, a4.pk) is None
+    )  # run, needs to be ready
+    assert (
+        get_activation_work_item(circulation_work_item.child_case, a4.pk) is None
+    )  # a4 doesn't exist yet since it's idle
+    assert (
+        get_activation_work_item(circulation_work_item.child_case, a5.pk) is None
+    )  # a5 doesn't exist since it's for an excluded service
 
     now = timezone.now()
     a2.deadline_date = now
