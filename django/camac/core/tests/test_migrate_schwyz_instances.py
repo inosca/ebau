@@ -62,7 +62,6 @@ def test_migrate_schwyz_instances(
 
     instance = instance_factory(instance_state=instance_state_factory(name="circ"))
     circ = circulation_factory(instance=instance)
-    circ_without_service = circulation_factory(instance=instance, service=None)
     activation_factory(
         circulation=circ,
         circulation_state=circulation_state_factory(name="REVIEW"),
@@ -71,11 +70,6 @@ def test_migrate_schwyz_instances(
     activation_factory(
         circulation=circ,
         circulation_state=circulation_state_factory(name="OK"),
-        service=system_operation_group.service,
-    )
-    activation_factory(
-        circulation=circ_without_service,
-        circulation_state=circulation_state_factory(name="RUN"),
         service=system_operation_group.service,
     )
     responsible_instance = instance_factory(
@@ -89,4 +83,4 @@ def test_migrate_schwyz_instances(
 
     call_command("migrate_schwyz_instances")
 
-    assert WorkItem.objects.all().count() == 92
+    assert WorkItem.objects.all().count() == 89
