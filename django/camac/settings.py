@@ -249,6 +249,11 @@ APPLICATIONS = {
                 "revise-statement",
                 "alter-statement",
             ],
+            "ACTIVATION_RELEVANT_TASKS": [
+                "write-statement",
+                "check-statement",
+            ],
+            "ACTIVATION_EXCLUDE_ROLES": ["Lesezugriff"],
             "SUBMIT_TASKS": ["submit", "submit-additional-demand", "formal-addition"],
             "PRE_COMPLETE": {
                 "complete-check": {"cancel": ["reject-form"]},
@@ -297,7 +302,6 @@ APPLICATIONS = {
                 },
             },
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": False,
-            "WORK_ITEM_EXCLUDE_ROLES": ["Lesezugriff"],
             "PUBLICATION_TASK_SLUG": "publication",
             "SIMPLE_WORKFLOW": {
                 "complete-check": {
@@ -455,6 +459,7 @@ APPLICATIONS = {
             "CIRCULATION_FORM": "circulation",
             "ACTIVATION_INIT_TASK": "activation",
             "ACTIVATION_TASKS": ["activation"],
+            "ACTIVATION_RELEVANT_TASKS": ["activation"],
             "SUBMIT_TASKS": ["submit"],
             "REPORT_TASK": "sb1",
             "FINALIZE_TASK": "sb2",

@@ -129,51 +129,30 @@ class Command(BaseCommand):
 
             CalumaApi().sync_circulation(circulation, AnonymousUser())
 
-            for activation in circulation.activations.all():
-                if activation.circulation_state.name in ["OK", "REVIEW"]:
-                    work_item = WorkItem.objects.filter(
-                        **{
-                            "meta__activation-id": activation.pk,
-                            "status": WorkItem.STATUS_READY,
-                        }
-                    ).first()
+            for activation in circulation.activations.filter(
+                circulation_state__name="REVIEW"
+            ):
+                work_item = WorkItem.objects.filter(
+                    **{
+                        "meta__activation-id": activation.pk,
+                        "status": WorkItem.STATUS_READY,
+                    }
+                ).first()
 
-                    if not work_item:  # pragma: no cover
-                        self.stdout.write(
-                            f"No work item was found for activation {activation.pk}"
-                        )
-                        continue
-
-                    caluma_workflow_api.skip_work_item(
-                        work_item,
-                        AnonymousUser(),
-                        {
-                            "circulation-id": circulation.pk,
-                            "activation-id": activation.pk,
-                        },
+                if not work_item:  # pragma: no cover
+                    self.stdout.write(
+                        f"No work item was found for activation {activation.pk}"
                     )
-                    if activation.circulation_state.name == "OK":
-                        work_item = WorkItem.objects.filter(
-                            **{
-                                "meta__activation-id": activation.pk,
-                                "status": WorkItem.STATUS_READY,
-                                "task__slug": "check-statement",
-                            }
-                        ).first()
+                    continue
 
-                        if not work_item:  # pragma: no cover
-                            self.stdout.write(
-                                f"No work item was found for activation {activation.pk}"
-                            )
-                            continue
-
-                        caluma_workflow_api.skip_work_item(
-                            work_item,
-                            AnonymousUser(),
-                            {
-                                "activation-id": activation.pk,
-                            },
-                        )
+                caluma_workflow_api.skip_work_item(
+                    work_item,
+                    AnonymousUser(),
+                    {
+                        "circulation-id": circulation.pk,
+                        "activation-id": activation.pk,
+                    },
+                )
 
     @transaction.atomic  # noqa: C901
     def handle(self, *args, **options):
