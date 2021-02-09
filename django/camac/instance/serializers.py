@@ -911,7 +911,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
         if settings.APPLICATION["CALUMA"].get("USE_LOCATION") and instance.location:
             caluma_api.update_or_create_answer(
-                case.document.pk, "municipality", instance.location.get_name()
+                case.document.pk, "municipality", instance.location.pk
             )
 
             # Synchronize the 'Leitbehörde' for display in the dashboard

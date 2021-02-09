@@ -107,8 +107,10 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get municipality() {
-    // TODO camac_legacy: Is the municipality in caluma actually set in camac?
-    return getAnswer(this.raw.document, "municipality")?.node.stringValue;
+    const answer = getAnswer(this.raw.document, "municipality");
+    return answer?.node.question.options.edges.find(
+      (edge) => edge.node.slug === answer?.node.stringValue
+    )?.node.label;
   }
 
   get applicant() {
@@ -220,6 +222,16 @@ export default class CustomCaseModel extends CaseModel {
             question {
               slug
               ... on ChoiceQuestion{
+                options {
+                  edges {
+                    node {
+                      slug
+                      label
+                    }
+                  }
+                }
+              }
+              ... on DynamicChoiceQuestion{
                 options {
                   edges {
                     node {
