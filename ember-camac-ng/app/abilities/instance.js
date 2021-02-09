@@ -33,6 +33,6 @@ export default class InstanceAbility extends Ability {
   }
 
   get canWriteForm() {
-    return (this.model.meta?.editable || []).includes("form");
+    return (this.model.meta?.permissions.main || []).includes("write");
   }
 }
