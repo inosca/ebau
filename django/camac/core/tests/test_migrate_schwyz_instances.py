@@ -32,10 +32,7 @@ def test_migrate_schwyz_instances(
             "revise-statement",
             "alter-statement",
         ],
-        "ACTIVATION_RELEVANT_TASKS": [
-            "write-statement",
-            "check-statement",
-        ],
+        "ACTIVATION_RELEVANT_TASKS": ["write-statement", "check-statement"],
         "ACTIVATION_EXCLUDE_ROLES": [],
     }
 
@@ -76,16 +73,15 @@ def test_migrate_schwyz_instances(
         instance_state=instance_state_factory(name="comm")
     )
     instance_responsibility_factory(
-        instance=responsible_instance,
-        service=responsible_instance.group.service,
+        instance=responsible_instance, service=responsible_instance.group.service
     )
     publication_entry_factory(is_published=1, instance=instance)
 
     call_command("migrate_schwyz_instances")
 
-    assert WorkItem.objects.all().count() == 88
+    assert WorkItem.objects.all().count() == 90
 
     call_command("migrate_schwyz_instances")
 
     # running the migration another time should no do anything
-    assert WorkItem.objects.all().count() == 88
+    assert WorkItem.objects.all().count() == 90
