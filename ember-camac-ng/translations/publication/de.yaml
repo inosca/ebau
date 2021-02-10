@@ -1,0 +1,8 @@
+publication:
+  new: "Neue Publikation erstellen"
+  loadingError: "Fehler beim Laden der Publikation"
+  createError: "Fehler beim Erstellen der Publikation"
+  publicationOf: "Publikation vom "
+  COMPLETED: "Abgeschlossen"
+  SKIPPED: "Abgeschlossen"
+  READY: "In Bearbeitung"
