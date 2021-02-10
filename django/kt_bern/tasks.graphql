@@ -100,6 +100,31 @@ mutation CreatePublicationTask {
   }
 }
 
+mutation CreateFillPublicationTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "fill-publication"
+      name: "Publikation"
+      form: "publikation"
+      addressGroups: "['municipality']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateNewPublicationTask {
+  saveSimpleTask(
+    input: {
+      slug: "create-publication"
+      name: "Neue Publikation erfassen"
+      addressGroups: "['municipality']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
 mutation CreateCirculationTask {
   saveSimpleTask(
     input: {
