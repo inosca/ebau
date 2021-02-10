@@ -355,6 +355,22 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "mitberichtsverfahren-bund",
+    "fields": {
+      "created_at": "2021-02-09T13:12:27.700Z",
+      "modified_at": "2021-02-09T13:12:27.700Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "name": "{\"de\": \"Mitberichtsverfahren Bund\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "mitberichtsverfahren-koor-bg",
     "fields": {
       "created_at": "2020-11-24T12:55:29.235Z",
@@ -454,14 +470,14 @@
     "pk": "pgv",
     "fields": {
       "created_at": "2020-12-07T16:09:24.933Z",
-      "modified_at": "2020-12-09T13:59:01.015Z",
+      "modified_at": "2021-02-09T13:19:14.026Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
       "description": "{\"de\": \"Plangenehmigungsverfahren Kanton\", \"fr\": null}",
       "meta": {},
       "is_published": true,
-      "is_archived": false,
+      "is_archived": true,
       "source": null
     }
   },
@@ -4265,6 +4281,19 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "mitbericht-bund.allgemeine-informationen-zu-bundesverfahren",
+    "fields": {
+      "created_at": "2021-02-09T13:21:10.401Z",
+      "modified_at": "2021-02-09T13:21:10.401Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "mitbericht-bund",
+      "question": "allgemeine-informationen-zu-bundesverfahren",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "mitbericht-bund.form-type",
     "fields": {
       "created_at": "2020-12-10T10:36:44.938Z",
@@ -4274,19 +4303,6 @@
       "form": "mitbericht-bund",
       "question": "form-type",
       "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "mitbericht-bund.info-mbv-kanton",
-    "fields": {
-      "created_at": "2020-12-09T14:41:40.484Z",
-      "modified_at": "2020-12-09T14:41:40.484Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "mitbericht-bund",
-      "question": "info-mbv-kanton",
-      "sort": 5
     }
   },
   {
@@ -4330,14 +4346,14 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "mitbericht-bund.mitberichtsverfahren-koor-bg",
+    "pk": "mitbericht-bund.mitberichtsverfahren-bund",
     "fields": {
-      "created_at": "2020-12-07T15:59:29.369Z",
-      "modified_at": "2020-12-07T15:59:29.369Z",
+      "created_at": "2021-02-09T13:16:14.938Z",
+      "modified_at": "2021-02-09T13:16:14.938Z",
       "created_by_user": null,
       "created_by_group": null,
       "form": "mitbericht-bund",
-      "question": "mitberichtsverfahren-koor-bg",
+      "question": "mitberichtsverfahren-bund",
       "sort": 2
     }
   },
@@ -4421,6 +4437,58 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "mitberichtsverfahren-bund.beschreibung-bemerkungen",
+    "fields": {
+      "created_at": "2021-02-09T13:13:44.460Z",
+      "modified_at": "2021-02-09T13:13:44.460Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "mitberichtsverfahren-bund",
+      "question": "beschreibung-bemerkungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "mitberichtsverfahren-bund.beschreibung-zu-mbv",
+    "fields": {
+      "created_at": "2021-02-09T13:13:27.634Z",
+      "modified_at": "2021-02-09T13:13:27.634Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "mitberichtsverfahren-bund",
+      "question": "beschreibung-zu-mbv",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "mitberichtsverfahren-bund.mbv-bund-type",
+    "fields": {
+      "created_at": "2021-02-09T13:15:25.854Z",
+      "modified_at": "2021-02-09T13:15:25.854Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "mitberichtsverfahren-bund",
+      "question": "mbv-bund-type",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "mitberichtsverfahren-bund.zustaendige-personen",
+    "fields": {
+      "created_at": "2021-02-09T13:13:11.855Z",
+      "modified_at": "2021-02-09T13:13:11.855Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "mitberichtsverfahren-bund",
+      "question": "zustaendige-personen",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "mitberichtsverfahren-koor-bg.beschreibung-bemerkungen",
     "fields": {
       "created_at": "2020-11-24T13:53:10.820Z",
@@ -4443,19 +4511,6 @@
       "form": "mitberichtsverfahren-koor-bg",
       "question": "beschreibung-zu-mbv",
       "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "mitberichtsverfahren-koor-bg.form-type",
-    "fields": {
-      "created_at": "2020-12-15T13:13:56.748Z",
-      "modified_at": "2020-12-15T13:13:56.748Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "mitberichtsverfahren-koor-bg",
-      "question": "form-type",
-      "sort": 1
     }
   },
   {
@@ -12666,6 +12721,48 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "mbv-bund-type-mitberichtsverfahren",
+    "fields": {
+      "created_at": "2021-02-09T13:15:25.165Z",
+      "modified_at": "2021-02-09T13:15:25.165Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Mitberichtsverfahren\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mbv-bund-type-pgv-eisenbahn",
+    "fields": {
+      "created_at": "2021-02-09T13:15:25.123Z",
+      "modified_at": "2021-02-09T13:15:25.123Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Mitberichtsverfahren / PGV nach Eisenbahngesetz (EBG)\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mbv-bund-type-pgv-seilbahn",
+    "fields": {
+      "created_at": "2021-02-09T13:15:25.140Z",
+      "modified_at": "2021-02-09T13:15:25.140Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Mitberichtsverfahren / PGV nach Seilbahngesetz (SebG)\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "mehrgeschossige-wohnung-ja",
     "fields": {
       "created_at": "2020-11-09T14:49:11.848Z",
@@ -17188,6 +17285,34 @@
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"##Herzlich willkommen auf der elektronischen Plattform f\\u00fcr Verfahrenskoordination des Kantons Uri.\\n\\nWir danken Ihnen, dass Sie diese Dienstleistung nutzen.\\n\\n###Wichtiger Hinweis\\n\\nGeringf\\u00fcgige Vorhaben k\\u00f6nnen der zust\\u00e4ndigen Gemeindebaubeh\\u00f6rde mit diesem Formular gemeldet werden. Die Gemeindebaubeh\\u00f6rde entscheidet \\u00fcber die Baubewilligungspflicht.\\n\\nVon der Baubewilligungspflicht befreit sind zum Beispiel reine Unterhalts-und Reparaturarbeiten sowie geringf\\u00fcgige Bauvorhaben, die weder \\u00f6ffentliche noch private Interessen merklich ber\\u00fchren. Auch Vorhaben die nur f\\u00fcr kurze Dauer erstellt werden sind allenfalls von der Baubewilligungspflicht befreit. Auch solche Vorhaben sind der zust\\u00e4ndigen Baubeh\\u00f6rde zu melden.\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "allgemeine-informationen-mitbericht-bund",
+    "fields": {
+      "created_at": "2021-02-09T13:10:55.910Z",
+      "modified_at": "2021-02-09T13:10:55.910Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Allgemeine Informationen Mitbericht Bund\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"TODO Paul\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -26101,6 +26226,34 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "mbv-bund-type",
+    "fields": {
+      "created_at": "2021-02-09T13:15:25.472Z",
+      "modified_at": "2021-02-09T13:15:25.472Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Art des Verfahrens\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "mbv-type",
     "fields": {
       "created_at": "2021-02-03T13:39:58.874Z",
@@ -26235,6 +26388,34 @@
       "data_source": null,
       "row_form": null,
       "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mitberichtsverfahren-bund",
+    "fields": {
+      "created_at": "2021-02-09T13:16:14.805Z",
+      "modified_at": "2021-02-09T13:16:14.805Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Mitberichtsverfahren Bund\", \"fr\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "mitberichtsverfahren-bund",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -36902,6 +37083,45 @@
       "created_by_group": null,
       "question": "luftfremdstoffe",
       "option": "luftfremdstoffe-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mbv-bund-type.mbv-bund-type-mitberichtsverfahren",
+    "fields": {
+      "created_at": "2021-02-09T13:15:25.742Z",
+      "modified_at": "2021-02-09T13:15:25.742Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "mbv-bund-type",
+      "option": "mbv-bund-type-mitberichtsverfahren",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mbv-bund-type.mbv-bund-type-pgv-eisenbahn",
+    "fields": {
+      "created_at": "2021-02-09T13:15:25.728Z",
+      "modified_at": "2021-02-09T13:15:25.728Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "mbv-bund-type",
+      "option": "mbv-bund-type-pgv-eisenbahn",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mbv-bund-type.mbv-bund-type-pgv-seilbahn",
+    "fields": {
+      "created_at": "2021-02-09T13:15:25.514Z",
+      "modified_at": "2021-02-09T13:15:25.514Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "mbv-bund-type",
+      "option": "mbv-bund-type-pgv-seilbahn",
       "sort": 1
     }
   },
