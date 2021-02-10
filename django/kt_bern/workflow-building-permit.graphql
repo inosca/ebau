@@ -29,13 +29,38 @@ mutation CreateFlow2 {
     input: {
       workflow: "building-permit"
       tasks: ["ebau-number"]
-      next: "['skip-circulation', 'init-circulation', 'audit', 'publication']|tasks"
+      next: "['skip-circulation', 'init-circulation', 'audit', 'publication', 'fill-publication']|tasks"
     }
   ) {
     clientMutationId
   }
 }
+
 mutation CreateFlow3 {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["fill-publication"]
+      next: "'create-publication'|task"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow4 {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["create-publication"]
+      next: "'fill-publication'|task"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow5 {
   addWorkflowFlow(
     input: {
       workflow: "building-permit"
@@ -47,7 +72,7 @@ mutation CreateFlow3 {
   }
 }
 
-mutation CreateFlow4 {
+mutation CreateFlow6 {
   addWorkflowFlow(
     input: {
       workflow: "building-permit"
@@ -59,7 +84,7 @@ mutation CreateFlow4 {
   }
 }
 
-mutation CreateFlow5 {
+mutation CreateFlow7 {
   addWorkflowFlow(
     input: {
       workflow: "building-permit"
@@ -71,7 +96,7 @@ mutation CreateFlow5 {
   }
 }
 
-mutation CreateFlow6 {
+mutation CreateFlow8 {
   addWorkflowFlow(
     input: {
       workflow: "building-permit"
@@ -83,7 +108,7 @@ mutation CreateFlow6 {
   }
 }
 
-mutation CreateFlow7 {
+mutation CreateFlow9 {
   addWorkflowFlow(
     input: {
       workflow: "building-permit"
@@ -95,7 +120,7 @@ mutation CreateFlow7 {
   }
 }
 
-mutation CreateFlow8 {
+mutation CreateFlow10 {
   addWorkflowFlow(
     input: {
       workflow: "building-permit"
@@ -107,7 +132,7 @@ mutation CreateFlow8 {
   }
 }
 
-mutation CreateFlow9 {
+mutation CreateFlow11 {
   addWorkflowFlow(
     input: {
       workflow: "building-permit"
@@ -119,7 +144,7 @@ mutation CreateFlow9 {
   }
 }
 
-mutation CreateFlow10 {
+mutation CreateFlow12 {
   addWorkflowFlow(
     input: {
       workflow: "building-permit"
@@ -131,7 +156,7 @@ mutation CreateFlow10 {
   }
 }
 
-mutation CreateFlow11 {
+mutation CreateFlow13 {
   addWorkflowFlow(
     input: {
       workflow: "building-permit"
