@@ -584,6 +584,7 @@ APPLICATIONS = {
                 "personalien-sb",
                 "parzelle",
             ],
+            "PUBLICATION_FORM": "publikation",
         },
         "PORTAL_GROUP": 6,
         "DEMO_MODE_GROUPS": [
@@ -1155,6 +1156,21 @@ APPLICATIONS["kt_bern"]["DUMP_CONFIG_GROUPS"] = {
         "caluma_form.Answer": Q(
             question__forms__pk__in=APPLICATIONS["kt_bern"]["CALUMA"]["AUDIT_FORMS"],
             document__isnull=True,
+        ),
+    },
+    "caluma_publication_form": {
+        "caluma_form.Option": Q(
+            questions__forms__pk=APPLICATIONS["kt_bern"]["CALUMA"]["PUBLICATION_FORM"]
+        ),
+        "caluma_form.Question": Q(
+            forms__pk=APPLICATIONS["kt_bern"]["CALUMA"]["PUBLICATION_FORM"]
+        ),
+        "caluma_form.Form": Q(pk=APPLICATIONS["kt_bern"]["CALUMA"]["PUBLICATION_FORM"]),
+        "caluma_form.QuestionOption": Q(
+            question__forms__pk=APPLICATIONS["kt_bern"]["CALUMA"]["PUBLICATION_FORM"]
+        ),
+        "caluma_form.FormQuestion": Q(
+            form__pk=APPLICATIONS["kt_bern"]["CALUMA"]["PUBLICATION_FORM"]
         ),
     },
 }
