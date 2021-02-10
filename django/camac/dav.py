@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from django.conf import settings
 from manabi.auth import ManabiAuthenticator
 from manabi.filesystem import ManabiProvider
@@ -20,7 +22,9 @@ def get_dav():
     return WsgiDAVApp(
         {
             "mount_path": "/dav",
-            "lock_manager": ManabiLockLockStorage(refresh),
+            "lock_manager": ManabiLockLockStorage(
+                refresh, Path(settings.MEDIA_ROOT, "manabi")
+            ),
             "provider_mapping": {
                 "/": ManabiProvider(settings.MEDIA_ROOT),
             },
@@ -35,6 +39,9 @@ def get_dav():
                 "key": key,
                 "refresh": refresh,
                 "initial": settings.MANABI_TOKEN_ACTIVATE_TIMEOUT,
+            },
+            "hotfixes": {
+                "re_encode_path_info": False,
             },
         }
     )
