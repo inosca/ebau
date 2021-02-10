@@ -41,4 +41,11 @@ Router.map(function () {
   });
   this.route("support", { path: "instances/:instance_id/support" });
   this.route("responsible", { path: "instances/:instance_id/responsible" });
+  this.route(
+    "publication",
+    { path: "instances/:instance_id/publication" },
+    function () {
+      this.route("edit", { path: "/edit/:workitem_uuid" });
+    }
+  );
 });
