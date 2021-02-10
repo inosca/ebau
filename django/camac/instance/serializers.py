@@ -592,6 +592,31 @@ class CalumaInstanceSerializer(InstanceSerializer):
         return set(["read", "write"])
 
     @permission_aware
+    def _get_publikation_form_permissions(self, instance):
+        return set()
+
+    def _get_publikation_form_permissions_for_service(self, instance):
+        return set(["read"])
+
+    def _get_publikation_form_permissions_for_municipality(self, instance):
+        permissions = set()
+
+        if instance.instance_state.name not in ["new", "subm", "correction"]:
+            permissions.add("read")
+
+        if "read" in permissions and instance.instance_state.name not in [
+            "finished",
+            "evaluated",
+            "conclusion",
+        ]:
+            permissions.add("write")
+
+        return permissions
+
+    def _get_publikation_form_permissions_for_support(self, instance):
+        return set(["read", "write"])
+
+    @permission_aware
     def _get_case_meta_permissions(self, instance):
         return set(["read"])
 

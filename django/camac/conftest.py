@@ -248,6 +248,9 @@ def caluma_config_bern(db):
     """
     call_command("loaddata", settings.ROOT_DIR("kt_bern/config/caluma_form.json"))
     call_command("loaddata", settings.ROOT_DIR("kt_bern/config/caluma_audit_form.json"))
+    call_command(
+        "loaddata", settings.ROOT_DIR("kt_bern/config/caluma_publication_form.json")
+    )
     call_command("loaddata", settings.ROOT_DIR("kt_bern/config/caluma_workflow.json"))
 
 
@@ -391,7 +394,22 @@ def caluma_workflow_config_be(
 
 @pytest.fixture
 def caluma_audit(caluma_workflow_config_be):
+    for slug in CALUMA_FORM_TYPES_SLUGS:
+        caluma_form_models.Form.objects.create(slug=slug)
+
     call_command("loaddata", settings.ROOT_DIR("kt_bern/config/caluma_audit_form.json"))
+    caluma_form_models.Form.objects.filter(pk__in=CALUMA_FORM_TYPES_SLUGS).delete()
+
+
+@pytest.fixture
+def caluma_publication(caluma_workflow_config_be):
+    for slug in CALUMA_FORM_TYPES_SLUGS:
+        caluma_form_models.Form.objects.create(slug=slug)
+
+    call_command(
+        "loaddata", settings.ROOT_DIR("kt_bern/config/caluma_publication_form.json")
+    )
+    caluma_form_models.Form.objects.filter(pk__in=CALUMA_FORM_TYPES_SLUGS).delete()
 
 
 @pytest.fixture
@@ -425,6 +443,7 @@ def caluma_forms(settings):
     caluma_form_models.Form.objects.create(slug="circulation")
     caluma_form_models.Form.objects.create(slug="migriertes-dossier")
     caluma_form_models.Form.objects.create(slug="dossierpruefung")
+    caluma_form_models.Form.objects.create(slug="publikation")
 
     # dynamic choice options get cached, so we clear them
     # to ensure the new "gemeinde" options will be valid

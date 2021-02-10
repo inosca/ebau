@@ -39,7 +39,7 @@ from camac.constants.kt_bern import (
 def test_dynamic_task_after_decision(
     db,
     caluma_admin_user,
-    caluma_workflow_config_be,
+    caluma_publication,
     docx_decision_factory,
     instance,
     workflow_id,
@@ -89,7 +89,7 @@ def test_dynamic_task_after_decision(
 def test_dynamic_task_after_circulation(
     db,
     caluma_admin_user,
-    caluma_workflow_config_be,
+    caluma_publication,
     instance,
     instance_state,
     circulation_factory,
