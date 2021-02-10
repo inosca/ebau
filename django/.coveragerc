@@ -44,6 +44,7 @@ omit=
     camac/data_migration/*
     camac/core/management/commands/migrate_rsta.py
     camac/core/management/commands/migrate_rejected.py
+    camac/core/management/commands/migrate_publication.py
     # Audit migration
     camac/core/management/commands/config/
     camac/core/management/commands/migrate_audit.py
