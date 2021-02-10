@@ -9,7 +9,6 @@ from camac.caluma.extensions.dynamic_groups import CustomDynamicGroups
 @pytest.mark.parametrize("has_group", [True, False])
 def test_dynamic_group_bern(
     db,
-    caluma_workflow_config_be,
     instance,
     service_factory,
     activation_factory,
@@ -18,6 +17,7 @@ def test_dynamic_group_bern(
     caluma_admin_user,
     use_instance_service,
     has_group,
+    caluma_publication,
 ):
     municipality = service_factory()
     construction_control = service_factory()
