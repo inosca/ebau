@@ -1,0 +1,8 @@
+responsible:
+  title: "Zuständigkeit"
+  organisation: "Organisation"
+  responsiblePerson: "Zuständige Person"
+  responsible: "Zuständig"
+  noResponsibleChosen: "Keine zuständige Person ausgewählt"
+  saveError: "Fehler beim Speichern der zuständigen Person"
+  saveSuccess: "Zuständige Person wurde gespeichert"
