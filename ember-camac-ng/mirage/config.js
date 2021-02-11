@@ -6,6 +6,8 @@ export default function () {
 
   this.get("/api/v1/instances/:id");
 
+  this.get("/api/v1/users/");
+
   this.get("/api/v1/services");
   this.get("/api/v1/services/:id");
   this.patch("/api/v1/services/:id");
@@ -15,6 +17,10 @@ export default function () {
   this.get("/api/v1/journal-entries");
   this.post("/api/v1/journal-entries");
   this.patch("/api/v1/journal-entries/:id");
+
+  this.get("/api/v1/responsible-services");
+  this.post("/api/v1/responsible-services");
+  this.patch("/api/v1/responsible-services/:id");
 
   this.passthrough("/index/token");
 }
