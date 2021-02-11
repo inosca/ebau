@@ -1,0 +1,8 @@
+responsible:
+  title: "Compétence"
+  organisation: "Organisation"
+  responsiblePerson: "Personne compétente"
+  responsible: "Responsable"
+  noResponsibleChosen: "Aucune personne responsable sélectionnée"
+  saveError: "Erreur en sauvegarder de la personne responsable "
+  saveSuccess: "La personne responsable sauvegardée avec succès"
