@@ -151,10 +151,7 @@ class Command(BaseCommand):
                 caluma_workflow_api.skip_work_item(
                     work_item,
                     AnonymousUser(),
-                    {
-                        "circulation-id": circulation.pk,
-                        "activation-id": activation.pk,
-                    },
+                    {"circulation-id": circulation.pk, "activation-id": activation.pk},
                 )
 
                 self.stdout.write(
@@ -222,6 +219,9 @@ class Command(BaseCommand):
                 self.create_work_item_from_task(case, "create-manual-workitems")
                 self.create_work_item_from_task(case, "depreciate-case")
                 self.create_work_item_from_task(case, "publication", instance=instance)
+                self.create_work_item_from_task(
+                    case, "additional-demand", instance=instance
+                )
             elif instance_state == "redac":
                 self.create_work_item_from_task(
                     case, "make-decision", instance=instance
