@@ -40,4 +40,5 @@ Router.map(function () {
     this.route("edit", { path: "/edit/:document_uuid" });
   });
   this.route("support", { path: "instances/:instance_id/support" });
+  this.route("responsible", { path: "instances/:instance_id/responsible" });
 });
