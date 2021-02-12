@@ -31,6 +31,7 @@ Router.map(function () {
     path: "/form-builder",
     resetNamespace: true,
   });
+  this.mount("ember-ebau-gwr", { as: "gwr", path: "/gwr/:id" });
   this.route("cases", function () {
     this.route("detail", { path: "/:case_id" }, function () {
       this.route("dashboard");
