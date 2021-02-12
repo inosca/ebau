@@ -135,6 +135,7 @@ services:
       - ENV=dev
       - DATABASE_PASSWORD=camac
       - OIDC_USERINFO_ENDPOINT=http://camac-ng-keycloak.local/auth/realms/urec/protocol/openid-connect/userinfo
+      - OIDC_GROUPS_API=http://camac-ng.local/api/v1/me?include=service,service.service_parent
     # There appears to be bug where libreoffice can only be started as the root
     # user. The workaround of fixing owner and permissions of ~/.config did not
     # work in our case.
