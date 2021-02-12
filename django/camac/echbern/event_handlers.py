@@ -173,17 +173,17 @@ class StatusNotificationEventHandler(BaseEventHandler):
     def get_message_type(self):
         message_type = "unkown"  # this should never be used
 
-        if self.instance.previous_instance_state.name == "subm":
+        if self.instance.instance_state.name == "circulation_init":
             message_type = ECH_STATUS_NOTIFICATION_EBAU_NR_VERGEBEN
         elif self.instance.instance_state.name == "circulation":
             message_type = ECH_STATUS_NOTIFICATION_ZIRKULATION_GESTARTET
-        elif self.instance.instance_state.name == "sb1":  # pragma: no cover
+        elif self.instance.instance_state.name == "sb1":
             message_type = ECH_STATUS_NOTIFICATION_SB1_AUSSTEHEND
-        elif self.instance.instance_state.name == "evaluated":  # pragma: no cover
+        elif self.instance.instance_state.name == "evaluated":
             message_type = ECH_STATUS_NOTIFICATION_ABGESCHLOSSEN
         elif self.instance.instance_state.name == "rejected":  # pragma: no cover
             message_type = ECH_STATUS_NOTIFICATION_ZURUECKGEWIESEN
-        elif self.instance.instance_state.name == "coordination":  # pragma: no cover
+        elif self.instance.instance_state.name == "coordination":
             message_type = ECH_STATUS_NOTIFICATION_IN_KOORDINATION
 
         return message_type

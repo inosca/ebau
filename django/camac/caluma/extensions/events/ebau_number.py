@@ -23,6 +23,7 @@ def post_complete_ebau_number(sender, work_item, user, context, **kwargs):
             # set instance state
             with reversion.create_revision():
                 reversion.set_user(camac_user)
+                instance.previous_instance_state = instance.instance_state
                 instance.instance_state = InstanceState.objects.get(
                     name="circulation_init"
                 )
