@@ -28,6 +28,7 @@ module.exports = function (environment) {
 
     APP: {
       rootElement: "#ember-camac-ng",
+      gisUrl: "https://service.lisag.ch/ows",
     },
 
     APPLICATIONS: {
@@ -56,6 +57,7 @@ module.exports = function (environment) {
   };
 
   if (environment === "development") {
+    ENV.APP.gisUrl = "http://camac-ng.local/lisag/ows";
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
