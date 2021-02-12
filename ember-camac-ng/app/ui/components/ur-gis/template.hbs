@@ -1,14 +1,18 @@
-<div>
-  <button class="button" type="button" {{on "click" this.search}}>{{t "gis.findParcel"}}</button>
-</div>
+{{#unless @disabled}}
+  <div>
+    <button class="button" type="button" {{on "click" (perform this.search)}}>
+      {{t "gis.findParcel"}}
+    </button>
+  </div>
+{{/unless}}
 
 <LeafletMap
-  @lat={{this.lat}}
-  @lng={{this.lng}}
+  @lat={{this.latlng.lat}}
+  @lng={{this.latlng.lng}}
   @zoom={{this.zoom}}
   @minZoom={{this.minZoom}}
   @maxZoom={{this.maxZoom}}
-  @onClick={{perform this.addPoint}}
+  @onClick={{perform this.getFeatures value="latlng"}}
   @onLoad={{perform this.handleLoad}}
   class="uk-width-1-1 uk-height-large uk-margin" as |map|
 >
@@ -47,21 +51,23 @@
       {{/if}}
     </map.polygon>
   {{/each}}
-
 </LeafletMap>
 
 <p class="parcelInfo"></p>
-<div>
-  <button
-    class="button uk-margin-small-top"
-    disabled={{or
-      (not this.parcels)
-      this.getFeatures.isRunning
-      this.applySelection.isRunning
+{{#unless @disabled}}
+  <div>
+    <button
+      class="button uk-margin-small-top"
+      disabled={{
+        or
+        (not this.parcels)
+        this.getFeatures.isRunning
+        this.applySelection.isRunning
       }}
-    type="button"
-    {{on "click" (perform this.applySelection)}}
-  >
-    {{t "gis.submitParcel"}}
-  </button>
-</div>
+      type="button"
+      {{on "click" (perform this.applySelection)}}
+    >
+      {{t "gis.submitParcel"}}
+    </button>
+  </div>
+{{/unless}}
