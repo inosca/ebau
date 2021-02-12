@@ -1,5 +1,4 @@
 import { getOwner } from "@ember/application";
-import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { isEmpty } from "@ember/utils";
 import Component from "@glimmer/component";
@@ -18,6 +17,8 @@ import { all } from "rsvp";
 
 import { INSTANCE_RESOURCE_DOCUMENT_MAPPING } from "../../../caluma-query/models/case";
 
+import ENV from "camac-ng/config/environment";
+
 const { L } = window;
 
 const KEY_TABLE_QUESTION = "parcels";
@@ -33,16 +34,17 @@ const KEYS_TABLE = [
   "parcel-zip",
   "parcel-city",
 ];
-const FIELD_KEYS = [
+const SIMPLE_FIELD_KEYS = [
   "parcel-street",
   "street-number",
   "parcel-city",
   "parzellen-oder-baurechtsnummer",
-  "municipality",
   "ueberlagerte-nutzungen",
   "grundnutzung",
 ];
-const CENTER = [46.881301, 8.643078];
+const CHOICE_FIELD_KEYS = ["municipality"];
+
+const CENTER = { lat: 46.881301, lng: 8.643078 };
 
 const LAYERS = [
   "raumplanung:ur73_Nutzungsplanung",
@@ -70,9 +72,29 @@ L.CRS.EPSG2056 = new L.Proj.CRS(
   }
 );
 
-const LatLngToEPSG3857 = (lat, lng) =>
-  L.CRS.EPSG3857.project(L.latLng(lat, lng));
-const EPSG3857toLatLng = (x, y) => L.CRS.EPSG3857.unproject(new L.point(x, y));
+/**
+ * Convert LatLng to EPSG3857
+ * @param coordinates Either {lat, lng} or [lat, lng]
+ * @returns {x, y}
+ */
+function LatLngToEPSG3857(coordinates) {
+  const arr = Array.isArray(coordinates)
+    ? coordinates
+    : [coordinates.lat, coordinates.lng];
+  return L.CRS.EPSG3857.project(L.latLng(arr));
+}
+
+/**
+ * Convert EPSG3857 to LatLng
+ * @param coordinates Either {x, y} or [x, y]
+ * @returns {lat, lng}
+ */
+function EPSG3857toLatLng(coordinates) {
+  const arr = Array.isArray(coordinates)
+    ? coordinates
+    : [coordinates.x, coordinates.y];
+  return L.CRS.EPSG3857.unproject(new L.point(arr));
+}
 
 const filterFeatureById = (features, id) =>
   features.find((feature) => feature.id.includes(id));
@@ -82,6 +104,10 @@ const addFeatureStaticText = (featureData, layerName, label) => {
   if (maybeLayer) {
     return label;
   }
+};
+
+const getCenter = (coordinates) => {
+  return L.polygon(coordinates).getBounds().getCenter();
 };
 
 const normalizeUmlaute = (str) =>
@@ -94,8 +120,7 @@ export default class UrGisComponent extends Component {
   @service shoebox;
 
   @queryManager apollo;
-  @tracked lat = CENTER[0];
-  @tracked lng = CENTER[1];
+  @tracked latlng = CENTER;
   @tracked zoom = 13;
   @tracked _search = "";
   @tracked parcels = [];
@@ -103,19 +128,28 @@ export default class UrGisComponent extends Component {
   maxZoom = 18;
   layers = LAYERS.join(",");
   lowOpacityLayers = LOW_OPACITY_LAYERS.join(",");
-  gisURL = "https://service.lisag.ch/ows";
+  gisURL = ENV.APP.gisUrl;
 
   _map = null;
   _value = null;
 
+  @enqueueTask
+  *handleLoad(target) {
+    this._map = target;
+    yield this.search.perform();
+  }
+
   @restartableTask
-  *getFeatures(x, y, minx, miny, maxx, maxy, clickCoordinates) {
-    const width = this._map.target._container.clientWidth;
-    const height = this._map.target._container.clientHeight;
+  *getFeatures(latlng) {
+    const { x, y } = LatLngToEPSG3857(latlng);
     try {
       const layerList = LAYERS.join(",");
+      const minX = x - 1;
+      const minY = y - 1;
+      const maxX = x + 1;
+      const maxY = y + 1;
       const response = yield fetch(
-        `https://service.lisag.ch/ows?SERVICE=WMS&VERSION=1.3.0&HEIGHT=${height}&WIDTH=${width}&request=GetCapabilities&REQUEST=GetFeatureInfo&FORMAT=image/png&LAYERS=${layerList}&QUERY_LAYERS=${layerList}&INFO_FORMAT=application/json&I=${x}&J=${y}&CRS=EPSG:3857&BBOX=${minx},${miny},${maxx},${maxy}&FEATURE_COUNT=10`,
+        `${this.gisURL}?SERVICE=WMS&VERSION=1.3.0&HEIGHT=101&WIDTH=101&request=GetCapabilities&REQUEST=GetFeatureInfo&FORMAT=image/png&LAYERS=${layerList}&QUERY_LAYERS=${layerList}&INFO_FORMAT=application/json&I=50&J=50&CRS=EPSG:3857&BBOX=${minX},${minY},${maxX},${maxY}&FEATURE_COUNT=10`,
         {
           mode: "cors",
         }
@@ -180,19 +214,19 @@ export default class UrGisComponent extends Component {
 
         document.querySelector(
           ".parcelInfo"
-        ).innerHTML = `Parzelle ${parcelNumber}: ${grundnutzung}, ${filteredFeatures.join(
-          ", "
-        )}`;
+        ).innerHTML = `Parzelle ${parcelNumber}: ${[
+          grundnutzung,
+          ...filteredFeatures,
+        ].join(", ")}`;
 
-        const coordinates = liegenschaftFeature.geometry.coordinates[0];
+        const coordinates = liegenschaftFeature.geometry.coordinates[0][0].map(
+          EPSG3857toLatLng
+        );
         const egrid = liegenschaftFeature.properties.egris_egrid;
         const municipality = liegenschaftFeature.properties.gemeinde;
-        const coordinatesLatLng = coordinates[0].map((arr) =>
-          EPSG3857toLatLng(...arr)
-        );
 
         const parcel = {
-          coordinates: coordinatesLatLng,
+          coordinates,
           number: parcelNumber,
           egrid,
           municipality,
@@ -200,8 +234,8 @@ export default class UrGisComponent extends Component {
           "parcel-number": parcelNumber,
           "parzellen-oder-baurechtsnummer": parcelNumber,
           "e-grid": egrid,
-          "coordinates-east": clickCoordinates.x,
-          "coordinates-north": clickCoordinates.y,
+          "coordinates-east": x,
+          "coordinates-north": y,
           "ueberlagerte-nutzungen": ueberlagerteNutzungen,
         };
 
@@ -262,13 +296,21 @@ export default class UrGisComponent extends Component {
     yield all(
       parcels.map(async (parcel) => {
         const fields = this.args.field.document.fields.filter((field) =>
-          FIELD_KEYS.includes(field.question.slug)
+          [...SIMPLE_FIELD_KEYS, ...CHOICE_FIELD_KEYS].includes(
+            field.question.slug
+          )
         );
 
         await all(
           fields.map(async (field) => {
-            const slug = field.question.slug;
-            const value = parcel[slug];
+            let value;
+            if (CHOICE_FIELD_KEYS.includes(field.question.slug)) {
+              value = field.question.options.find(
+                ({ label }) => label === parcel[field.question.slug]
+              )?.slug;
+            } else {
+              value = parcel[field.question.slug];
+            }
 
             if (!isEmpty(value)) {
               field.answer.set("value", String(value));
@@ -342,10 +384,15 @@ export default class UrGisComponent extends Component {
 
   @restartableTask
   *fetchCoordinates(term, municipality) {
+    if (!term || !municipality) {
+      return;
+    }
     try {
       this.parcels = [];
       const response = yield fetch(
-        `https://service.lisag.ch/ows?service=WFS&version=1.0.0&REQUEST=GetFeature&srsName=EPSG:3857&typeName=geour:geour_liegenschaft_suche&outputFormat=json&filter=<PropertyIsEqualTo><PropertyName>nummer_gde</PropertyName><Literal>${term}.${normalizeUmlaute(
+        `${
+          this.gisURL
+        }?service=WFS&version=1.0.0&REQUEST=GetFeature&srsName=EPSG:3857&typeName=geour:geour_liegenschaft_suche&outputFormat=json&filter=<PropertyIsEqualTo><PropertyName>nummer_gde</PropertyName><Literal>${term}.${normalizeUmlaute(
           municipality
         )}</Literal></PropertyIsEqualTo>&FEATURE_COUNT=10`,
         {
@@ -357,15 +404,10 @@ export default class UrGisComponent extends Component {
         this.notification.danger(this.intl.t("gis.noParcelNumber"));
         return;
       }
-      const coordinates = data.features[0].geometry.coordinates[0];
-      const coordinatesLatLng = coordinates[0].map((arr) =>
-        EPSG3857toLatLng(...arr)
+      const coordinates = getCenter(
+        data.features[0].geometry.coordinates[0][0].map(EPSG3857toLatLng)
       );
-      this.parcels.pushObject({
-        coordinates: coordinatesLatLng,
-      });
-      this.lat = coordinatesLatLng[0].lat;
-      this.lng = coordinatesLatLng[0].lng;
+      this.latlng = coordinates;
       this.zoom = 18;
     } catch (error) {
       console.error(error);
@@ -390,67 +432,31 @@ export default class UrGisComponent extends Component {
     );
   }
 
-  @enqueueTask
-  *handleLoad(target) {
+  @restartableTask
+  *search() {
     try {
-      this._map = target;
-      const municipality = this.args.field.document.findAnswer("municipality");
-      const parcelOrBuildingleaseNumber = this.args.field.document.findAnswer(
-        "parzellen-oder-baurechtsnummer"
-      );
-      if (!municipality || !parcelOrBuildingleaseNumber) {
-        return;
-      }
-      yield this.fetchCoordinates.perform(
-        parcelOrBuildingleaseNumber,
-        municipality
-      );
-    } catch (error) {
-      console.error(error);
-      this.notification.danger(this.intl.t("gis.loadingError"));
-    }
-  }
-
-  @enqueueTask
-  *addPoint(e) {
-    if (this.readonly) {
-      return;
-    }
-
-    const bounds = this._map.target.getBounds();
-
-    const southWest = LatLngToEPSG3857(
-      bounds._southWest.lat,
-      bounds._southWest.lng
-    );
-
-    const northEast = LatLngToEPSG3857(
-      bounds._northEast.lat,
-      bounds._northEast.lng
-    );
-
-    yield this.getFeatures.perform(
-      Math.round(e.containerPoint.x),
-      Math.round(e.containerPoint.y),
-      southWest.x,
-      southWest.y,
-      northEast.x,
-      northEast.y,
-      LatLngToEPSG3857(e.latlng.lat, e.latlng.lng)
-    );
-  }
-
-  @action
-  search(event) {
-    try {
-      event.preventDefault();
-      const municipality = this.args.field.document.findAnswer("municipality");
+      const doc = this.args.field.document;
+      const field = doc.findField("municipality");
       const parcelOrBuildingleaseNumber = this.args.field.document
         .findAnswer("parzellen-oder-baurechtsnummer")
-        .toString();
+        ?.toString();
 
-      this.fetchCoordinates.perform(parcelOrBuildingleaseNumber, municipality);
+      if (!field.value || !parcelOrBuildingleaseNumber) {
+        return;
+      }
+      // make sure the dynamic options are loaded
+      yield field.question.loadDynamicOptions.last;
+      const municipality = field.question.options.find(
+        ({ slug }) => slug === field.value
+      );
+
+      yield this.fetchCoordinates.perform(
+        parcelOrBuildingleaseNumber,
+        municipality.label
+      );
+      yield this.getFeatures.perform(this.latlng);
     } catch (error) {
+      console.error(error);
       this.notification.danger(this.intl.t("gis.noParcelNumber"));
     }
   }
