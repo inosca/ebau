@@ -1,154 +1,40 @@
-import { getOwner } from "@ember/application";
 import Controller from "@ember/controller";
-import { computed, action } from "@ember/object";
-import { reads } from "@ember/object/computed";
-import { inject as service } from "@ember/service";
+import { action } from "@ember/object";
 import { isEmpty } from "@ember/utils";
 import { queryManager } from "ember-apollo-client";
-import {
-  restartableTask,
-  dropTask,
-  lastValue,
-} from "ember-concurrency-decorators";
-import QueryParams from "ember-parachute";
+import calumaQuery from "ember-caluma/caluma-query";
+import { allCases } from "ember-caluma/caluma-query/queries";
+import { dropTask } from "ember-concurrency-decorators";
 import moment from "moment";
 
+import { Mixin } from "./query-params";
+
 import config from "ember-caluma-portal/config/environment";
-import getCasesQuery from "ember-caluma-portal/gql/queries/get-cases.graphql";
-import getMunicipalitiesQuery from "ember-caluma-portal/gql/queries/get-municipalities.graphql";
 import getRootFormsQuery from "ember-caluma-portal/gql/queries/get-root-forms.graphql";
-import Case from "ember-caluma-portal/lib/case";
 
-const getOrder = (order) => [
-  {
-    meta: order.split(":")[0],
-    direction: order.split(":")[1].toUpperCase(),
-  },
-];
+const getRecursiveSources = (form, forms) => {
+  if (!form.source?.slug) {
+    return [];
+  }
 
-const getHasAnswerFilters = ({ parcel: value }) =>
-  [
-    {
-      question: "parzellennummer",
-      lookup: "CONTAINS",
-      value,
-    },
-  ].filter(({ value }) => !isEmpty(value));
+  const source = forms.find(({ slug }) => slug === form.source.slug);
 
-const getSearchAnswersFilters = ({ address: value }) =>
-  [
-    {
-      questions: [
-        "strasse-flurname",
-        "strasse-gesuchstellerin",
-        "nr",
-        "nummer-gesuchstellerin",
-        "plz-gesuchstellerin",
-        "ort-grundstueck",
-        "ort-gesuchstellerin",
-      ],
-      value,
-    },
-  ].filter(({ value }) => !isEmpty(value));
-
-const getMetaValueFilters = ({ instanceId, ebau, submitFrom, submitTo }) =>
-  [
-    { key: "camac-instance-id", value: instanceId },
-    { key: "ebau-number", value: ebau },
-    {
-      key: "submit-date",
-      value: toDateTime(moment(submitFrom).startOf("day")),
-      lookup: "GTE",
-    },
-    {
-      key: "submit-date",
-      value: toDateTime(moment(submitTo).endOf("day")),
-      lookup: "LTE",
-    },
-  ].filter(({ value }) => !isEmpty(value));
-
-const DATE_URL_FORMAT = "YYYY-MM-DD";
+  return [source.slug, ...getRecursiveSources(source, forms)];
+};
 
 const toDateTime = (date) => (date.isValid() ? date.utc().format() : null);
 
-const dateQueryParam = {
-  serialize(value) {
-    const date = moment.utc(value);
-
-    return date.isValid()
-      ? date.utc().format(DATE_URL_FORMAT)
-      : this.defaultValue;
-  },
-  deserialize(value) {
-    const date = moment.utc(value, DATE_URL_FORMAT);
-
-    return date.isValid() ? date.toDate() : this.defaultValue;
-  },
-};
-
-const queryParams = new QueryParams({
-  types: {
-    defaultValue: [],
-    replace: true,
-    serialize(value) {
-      return value.toString();
-    },
-    deserialize(value) {
-      if (!value) {
-        return [];
-      }
-      return value.split(",");
-    },
-  },
-  instanceId: {
-    defaultValue: null,
-    replace: true,
-    serialize(value) {
-      const int = parseInt(value);
-
-      return !isNaN(int) ? int : this.defaultValue;
-    },
-    deserialize(value) {
-      const int = parseInt(value);
-
-      return !isNaN(int) ? int : this.defaultValue;
-    },
-  },
-  ebau: {
-    defaultValue: "",
-    replace: true,
-  },
-  parcel: {
-    defaultValue: "",
-    replace: true,
-  },
-  address: {
-    defaultValue: "",
-    replace: true,
-  },
-  submitFrom: {
-    defaultValue: null,
-    replace: true,
-    ...dateQueryParam,
-  },
-  submitTo: {
-    defaultValue: null,
-    replace: true,
-    ...dateQueryParam,
-  },
-  order: {
-    defaultValue: "camac-instance-id:desc",
-    replace: true,
-  },
-});
-
-export default class InstancesIndexController extends Controller.extend(
-  queryParams.Mixin
-) {
-  @service fetch;
-  @service session;
-
+export default class InstancesIndexController extends Controller.extend(Mixin) {
   @queryManager apollo;
+
+  @calumaQuery({ query: allCases, options: "options" }) cases;
+
+  get options() {
+    return {
+      pageSize: 15,
+      processNew: (cases) => this.processAll(cases),
+    };
+  }
 
   get orderOptions() {
     return [
@@ -186,43 +72,92 @@ export default class InstancesIndexController extends Controller.extend(
   }
 
   setup() {
-    this.getMunicipalities.perform();
     this.getRootForms.perform();
-
-    this.set("cases", []);
-    this.fetchData.perform();
+    this.getCases.perform();
   }
 
   reset() {
     this.resetQueryParams();
-    this.set("cases", []);
 
-    this.getMunicipalities.cancelAll({ reset: true });
     this.getRootForms.cancelAll({ reset: true });
-    this.fetchData.cancelAll({ reset: true });
+    this.getCases.cancelAll({ reset: true });
   }
 
-  @lastValue("getRootForms") rootForms;
-
   get formFilterOptions() {
-    return (this.rootForms || []).filter(
+    const raw = (this.getRootForms.lastSuccessful?.value || []).filter(
       (form) =>
         this.isInternal || !config.ebau.internalForms.includes(form.slug)
     );
+
+    return raw
+      .filter((form) => form.isPublished)
+      .map((form) => ({
+        name: form.name,
+        value: [form.slug, ...getRecursiveSources(form, raw)],
+        isEqual(other) {
+          return this.value.join(",") === other.value.join(",");
+        },
+      }));
   }
 
-  @computed("rootForms.@each.slug", "types.[]")
   get selectedTypes() {
-    return (this.rootForms || []).filter((form) =>
-      this.types.includes(form.slug)
+    return this.formFilterOptions.filter((form) =>
+      form.value.some((value) => this.types.includes(value))
     );
   }
 
   set selectedTypes(value) {
     this.set(
       "types",
-      value.map((form) => form.slug)
+      value.flatMap((form) => form.value)
     );
+  }
+
+  get filter() {
+    return [
+      ...(this.types ? [{ documentForms: this.types }] : []),
+      {
+        metaValue: [
+          { key: "camac-instance-id", value: this.instanceId },
+          { key: "ebau-number", value: this.ebau },
+          {
+            key: "submit-date",
+            value: toDateTime(moment(this.submitFrom).startOf("day")),
+            lookup: "GTE",
+          },
+          {
+            key: "submit-date",
+            value: toDateTime(moment(this.submitTo).endOf("day")),
+            lookup: "LTE",
+          },
+        ].filter(({ value }) => !isEmpty(value)),
+      },
+      {
+        searchAnswers: [
+          {
+            questions: [
+              "strasse-flurname",
+              "strasse-gesuchstellerin",
+              "nr",
+              "nummer-gesuchstellerin",
+              "plz-gesuchstellerin",
+              "ort-grundstueck",
+              "ort-gesuchstellerin",
+            ],
+            value: this.address,
+          },
+        ].filter(({ value }) => !isEmpty(value)),
+      },
+      {
+        hasAnswer: [
+          {
+            question: "parzellennummer",
+            lookup: "CONTAINS",
+            value: this.parcel,
+          },
+        ].filter(({ value }) => !isEmpty(value)),
+      },
+    ];
   }
 
   @dropTask
@@ -234,75 +169,52 @@ export default class InstancesIndexController extends Controller.extend(
   }
 
   @dropTask
-  *getMunicipalities() {
-    return (yield this.apollo.query(
-      { query: getMunicipalitiesQuery },
-      "allQuestions.edges.firstObject.node.options.edges"
-    )).map(({ node }) => node);
+  *getCases() {
+    yield this.cases.fetch({
+      order: this.order,
+      filter: this.filter,
+    });
   }
 
-  @reads("fetchData.lastSuccessful.value") pageInfo;
+  @dropTask
+  *getMoreCases() {
+    yield this.cases.fetchMore();
+  }
 
-  @restartableTask
-  *fetchData(cursor = null) {
-    try {
-      const forms = yield this.getRootForms.last;
+  async processAll(cases) {
+    const instanceIds = cases
+      .map(({ meta }) => meta["camac-instance-id"])
+      .filter(Boolean);
 
-      const raw = yield this.apollo.query(
-        {
-          query: getCasesQuery,
-          variables: {
-            cursor,
-            order: getOrder(this.order),
-            forms: this.types.length
-              ? this.types
-              : forms.map(({ slug }) => slug),
-            metaValueFilters: getMetaValueFilters(this.allQueryParams),
-            hasAnswerFilters: getHasAnswerFilters(this.allQueryParams),
-            searchAnswersFilters: getSearchAnswersFilters(this.allQueryParams),
-          },
-          fetchPolicy: "network-only",
-        },
-        "allCases"
-      );
-      const rawCases = raw.edges.map(({ node }) => node);
+    const serviceIds = cases
+      .map(
+        ({ document }) =>
+          document.answers.edges
+            .map(({ node }) => node)
+            .find((answer) => answer.question.slug === "gemeinde")?.stringValue
+      )
+      .filter(Boolean);
 
-      if (rawCases.length) {
-        const municipalities = yield this.getMunicipalities.last;
-
-        yield this.store.query("instance", {
-          instance_id: rawCases
-            .map(({ meta }) => meta["camac-instance-id"])
-            .join(","),
-        });
-
-        const cases = rawCases.map((raw) => {
-          return Case.create(getOwner(this).ownerInjection(), {
-            raw,
-            instance: this.store.peekRecord(
-              "instance",
-              raw.meta["camac-instance-id"]
-            ),
-            municipalities,
-          });
-        });
-
-        this.set("cases", [...this.cases, ...cases]);
-      }
-
-      return { ...raw.pageInfo, totalCount: raw.totalCount };
-    } catch (e) {
-      // eslint-disable-next-line no-console
-      console.error(e);
+    if (instanceIds.length) {
+      await this.store.query("instance", {
+        instance_id: instanceIds.join(","),
+      });
     }
+
+    if (serviceIds.length) {
+      await this.store.query("public-service", {
+        service_id: serviceIds.join(","),
+      });
+    }
+
+    return cases;
   }
 
   @dropTask
   *applyFilters(event) {
     event.preventDefault();
 
-    this.set("cases", []);
-    yield this.fetchData.perform();
+    yield this.getCases.perform();
   }
 
   @dropTask
@@ -310,9 +222,7 @@ export default class InstancesIndexController extends Controller.extend(
     event.preventDefault();
 
     yield this.resetQueryParams();
-
-    this.set("cases", []);
-    yield this.fetchData.perform();
+    yield this.getCases.perform();
   }
 
   @action
