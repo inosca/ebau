@@ -64,7 +64,7 @@ const FIELD_MAP = {
       "übriger Bereich üB": "gewaesserschutzbereich-ueb",
       "Gewässerschutzbereich Ao": "gewaesserschutzbereich-ao",
       "Gewässerschutzbereich Au": "gewaesserschutzbereich-au",
-      "Provisorischer Zuströmbereich Zu": "gewaesserschutzbereich-zu",
+      // deprecated: "Provisorischer Zuströmbereich Zu": "gewaesserschutzbereich-zu",
     },
   },
   NSG_NSGP: {

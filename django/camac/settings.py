@@ -667,9 +667,13 @@ APPLICATIONS = {
             "baugesuch": {
                 "forms": [
                     "baugesuch",
+                    "baugesuch-v2",
                     "baugesuch-mit-uvp",
+                    "baugesuch-mit-uvp-v2",
                     "baugesuch-generell",
+                    "baugesuch-generell-v2",
                     "vorabklaerung-vollstaendig",
+                    "vorabklaerung-vollstaendig-v2",
                 ],
                 "template": "form",
                 "allgemeine_info": "1-allgemeine-informationen",
@@ -773,6 +777,16 @@ APPLICATIONS = {
                 [20063],
             ),
             (
+                "art-versickerung-dach-v2",
+                "art-versickerung-dach-v2-oberflaechengewaesser",
+                [20063],
+            ),
+            (
+                "art-versickerung-platz-v2",
+                "art-versickerung-platz-v2-oberflaechengewaesser",
+                [20063],
+            ),
+            (
                 "ausnahme-im-sinne-von-artikel-64-kenv",
                 "ausnahme-im-sinne-von-artikel-64-kenv-ja",
                 [20046],
@@ -849,6 +863,13 @@ APPLICATIONS = {
             ("grundwasserschutzzonen", "grundwasserschutzzonen-s1", [20050]),
             ("grundwasserschutzzonen", "grundwasserschutzzonen-s2sh", [20050]),
             ("grundwasserschutzzonen", "grundwasserschutzzonen-s3sm", [20050]),
+            ("grundwasserschutzzonen-v2", "grundwasserschutzzonen-v2-s1", [20050]),
+            ("grundwasserschutzzonen-v2", "grundwasserschutzzonen-v2-s2", [20050]),
+            ("grundwasserschutzzonen-v2", "grundwasserschutzzonen-v2-s3-s3zu", [20050]),
+            ("grundwasserschutzzonen-v2", "grundwasserschutzzonen-v2-sa", [20050]),
+            ("grundwasserschutzzonen-v2", "grundwasserschutzzonen-v2-sbw", [20050]),
+            ("grundwasserschutzzonen-v2", "grundwasserschutzzonen-v2-sh", [20050]),
+            ("grundwasserschutzzonen-v2", "grundwasserschutzzonen-v2-sm", [20050]),
             (
                 "ist-das-vorhaben-energierelevant",
                 "ist-das-vorhaben-energierelevant-ja",
@@ -857,6 +878,11 @@ APPLICATIONS = {
             (
                 "ist-durch-das-bauvorhaben-boden-betroffen",
                 "ist-durch-das-bauvorhaben-boden-betroffen-ja",
+                [20050],
+            ),
+            (
+                "ist-durch-das-bauvorhaben-boden-ober-unterboden-betroffen-v2",
+                "ist-durch-das-bauvorhaben-boden-ober-unterboden-betroffen-v2-ja",
                 [20050],
             ),
             (
@@ -920,7 +946,13 @@ APPLICATIONS = {
                 "sind-belange-des-gewasserschutzes-betroffen-ja",
                 [20050],
             ),
+            (
+                "sind-belange-des-gewaesserschutzes-betroffen-v2",
+                "sind-belange-des-gewaesserschutzes-betroffen-v2-ja",
+                [20050],
+            ),
             ("versickerung", "versickerung-nein", [20063]),
+            ("versickerung-v2", "versickerung-v2-nein", [20063]),
             ("verunreinigte-abluft", "verunreinigte-abluft-ja", [20054]),
             (
                 "verwendungszweck-der-anlage",
@@ -1003,6 +1035,17 @@ APPLICATIONS = {
             "email_notifications": {
                 "notification.NotificationTemplate": Q(type="email"),
                 "notification.NotificationTemplateT": Q(template__type="email"),
+            },
+            "caluma_form_v2": {
+                "caluma_form.Form": Q(pk__endswith="-v2"),
+                "caluma_form.FormQuestion": Q(form__pk__endswith="-v2"),
+                "caluma_form.Question": Q(pk__endswith="-v2"),
+                "caluma_form.QuestionOption": Q(question__pk__endswith="-v2"),
+                "caluma_form.Option": Q(questions__pk__endswith="-v2"),
+                "caluma_form.Answer": Q(
+                    question__forms__pk__endswith="-v2",
+                    document__isnull=True,
+                ),
             },
         },
         "DUMP_CONFIG_EXCLUDED_MODELS": [
