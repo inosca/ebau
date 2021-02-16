@@ -3311,15 +3311,6 @@
   },
   {
     "model": "core.airaction",
-    "pk": 20063,
-    "fields": {
-      "available_instance_resource": "editresponsiblegroup",
-      "action_name": "edit-responsible-group",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.airaction",
     "pk": 20064,
     "fields": {
       "available_instance_resource": "editresponsibleuser",
@@ -40736,14 +40727,6 @@
   },
   {
     "model": "core.availableaction",
-    "pk": "setresponsiblegroup",
-    "fields": {
-      "module_name": "responsible",
-      "description": "Set responsible group"
-    }
-  },
-  {
-    "model": "core.availableaction",
     "pk": "setserviceresponsible",
     "fields": {
       "module_name": "responsible",
@@ -40917,15 +40900,6 @@
       "module_name": "default",
       "controller_name": "circulation",
       "description": "Edit the notice"
-    }
-  },
-  {
-    "model": "core.availableinstanceresource",
-    "pk": "editresponsiblegroup",
-    "fields": {
-      "module_name": "responsible",
-      "controller_name": "index",
-      "description": "Edit responsible group"
     }
   },
   {
@@ -50041,7 +50015,7 @@
       "resource": 20006,
       "name": null,
       "description": null,
-      "template": "/responsible/index.phtml",
+      "template": null,
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 4,
@@ -50056,7 +50030,7 @@
       "resource": 20007,
       "name": null,
       "description": null,
-      "template": "/responsible/index.phtml",
+      "template": null,
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 4,
@@ -50326,7 +50300,7 @@
       "resource": 20008,
       "name": null,
       "description": null,
-      "template": "/responsible/index.phtml",
+      "template": null,
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 3,
@@ -52112,14 +52086,6 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 10086,
-    "fields": {
-      "available_instance_resource": "editresponsiblegroup",
-      "available_action": "notification"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 20050,
     "fields": {
       "available_instance_resource": "editformpage",
@@ -52480,50 +52446,10 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 20100,
-    "fields": {
-      "available_instance_resource": "editresponsiblegroup",
-      "available_action": "save"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20101,
-    "fields": {
-      "available_instance_resource": "editresponsiblegroup",
-      "available_action": "setresponsiblegroup"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20102,
-    "fields": {
-      "available_instance_resource": "editresponsiblegroup",
-      "available_action": "formtransition"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20103,
-    "fields": {
-      "available_instance_resource": "editresponsiblegroup",
-      "available_action": "php"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 20104,
     "fields": {
       "available_instance_resource": "editresponsibleuser",
       "available_action": "save"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20105,
-    "fields": {
-      "available_instance_resource": "editresponsibleuser",
-      "available_action": "setresponsiblegroup"
     }
   },
   {
@@ -52540,110 +52466,6 @@
     "fields": {
       "available_instance_resource": "editresponsibleuser",
       "available_action": "php"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20111,
-    "fields": {
-      "available_instance_resource": "editformpage",
-      "available_action": "setresponsiblegroup"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20112,
-    "fields": {
-      "available_instance_resource": "editformpages",
-      "available_action": "setresponsiblegroup"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20113,
-    "fields": {
-      "available_instance_resource": "formpage",
-      "available_action": "setresponsiblegroup"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20114,
-    "fields": {
-      "available_instance_resource": "formpages",
-      "available_action": "setresponsiblegroup"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20115,
-    "fields": {
-      "available_instance_resource": "allformpages",
-      "available_action": "setresponsiblegroup"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20116,
-    "fields": {
-      "available_instance_resource": "editcirculation",
-      "available_action": "setresponsiblegroup"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20117,
-    "fields": {
-      "available_instance_resource": "circulation",
-      "available_action": "setresponsiblegroup"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20118,
-    "fields": {
-      "available_instance_resource": "editnotice",
-      "available_action": "setresponsiblegroup"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20119,
-    "fields": {
-      "available_instance_resource": "letter",
-      "available_action": "setresponsiblegroup"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20120,
-    "fields": {
-      "available_instance_resource": "editletter",
-      "available_action": "setresponsiblegroup"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20121,
-    "fields": {
-      "available_instance_resource": "page",
-      "available_action": "setresponsiblegroup"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20122,
-    "fields": {
-      "available_instance_resource": "formwizard",
-      "available_action": "setresponsiblegroup"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20123,
-    "fields": {
-      "available_instance_resource": "editresponsiblegroup",
-      "available_action": "setserviceresponsible"
     }
   },
   {
@@ -52764,14 +52586,6 @@
     "fields": {
       "available_instance_resource": "docxdecision",
       "available_action": "php"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 40002,
-    "fields": {
-      "available_instance_resource": "editresponsiblegroup",
-      "available_action": "addhistory"
     }
   },
   {
@@ -53192,14 +53006,6 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 150029,
-    "fields": {
-      "available_instance_resource": "editresponsiblegroup",
-      "available_action": "workitem"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 150030,
     "fields": {
       "available_instance_resource": "page",
@@ -53307,14 +53113,6 @@
     "pk": 150046,
     "fields": {
       "available_instance_resource": "journal",
-      "available_action": "case"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 150047,
-    "fields": {
-      "available_instance_resource": "editresponsiblegroup",
       "available_action": "case"
     }
   },
