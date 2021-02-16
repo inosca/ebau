@@ -60,6 +60,9 @@ INSTALLED_APPS = [
     "caluma.caluma_form.apps.DefaultConfig",
     "caluma.caluma_workflow.apps.DefaultConfig",
     "caluma.caluma_data_source.apps.DefaultConfig",
+    # GWR module
+    "generic_permissions.apps.GenericPermissionsConfig",
+    "ebau_gwr.linker.apps.LinkerConfig",
     "graphene_django",
     "localized_fields",
     "psqlextra",
