@@ -128,20 +128,39 @@ slugs_baugesuch = {
 
 slugs_vorabklaerung_einfach = {
     "top": [
-        ("anfrage-zur-vorabklaerung", "lorem ipsum\tmit tab"),
-        ("e-grid-nr", "23"),
         ("gemeinde", "2"),
+        ("beschreibung-bauvorhaben", "lorem ipsum\tmit tab"),
         ("gwr-egid", "23"),
-        ("lagekoordinaten-nord-einfache-vorabklaerung", "1070500.000"),
-        ("lagekoordinaten-ost-einfache-vorabklaerung", "2480034.0"),
-        ("name-gesuchstellerin-vorabklaerung", "Smith"),
-        ("nummer-gesuchstellerin", "23"),
-        ("ort-gesuchstellerin", "Burgdorf"),
-        ("parzellennummer", "23"),
-        ("plz-gesuchstellerin", 2323),
-        ("strasse-gesuchstellerin", "Teststrasse mit   Leerzeichen"),
-        ("vorname-gesuchstellerin-vorabklaerung", "Winston"),
-    ]
+        ("name-gesuchstellerin", "Smith"),
+        ("nr", "23"),
+        ("ort-grundstueck", "Burgdorf"),
+        ("strasse-flurname", "Teststrasse mit   Leerzeichen"),
+    ],
+    "personalien-gesuchstellerin": [
+        [
+            ("name-gesuchstellerin", "Smith"),
+            ("nummer-gesuchstellerin", "23"),
+            ("ort-gesuchstellerin", "Burgdorf"),
+            ("plz-gesuchstellerin", 2323),
+            ("strasse-gesuchstellerin", "Teststrasse"),
+            ("vorname-gesuchstellerin", "Winston"),
+            ("telefon-oder-mobile-gesuchstellerin", "0311234567"),
+            ("e-mail-gesuchstellerin", "a@b.ch"),
+            (
+                "juristische-person-gesuchstellerin",
+                "juristische-person-gesuchstellerin-nein",
+            ),
+            ("name-juristische-person-gesuchstellerin", None),
+        ]
+    ],
+    "parzelle": [
+        [
+            ("e-grid-nr", "23"),
+            ("lagekoordinaten-nord", "1070500.000"),
+            ("lagekoordinaten-ost", "2480034.0"),
+            ("parzellennummer", "1586"),
+        ],
+    ],
 }
 
 
