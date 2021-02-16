@@ -19,6 +19,7 @@ urlpatterns = [
     url(r"^api/v1/", include("camac.objection.urls")),
     url(r"^ech/v1/", include("camac.echbern.urls")),
     url(r"^api/v1/", include("gisbern.urls")),
+    url(r"^api/v1/", include("camac.responsible.urls")),
     url(
         r"^api/swagger(?P<format>\.json|\.yaml)$",
         SCHEMA_VIEW.without_ui(cache_timeout=0),
