@@ -106,19 +106,13 @@ baugesuch_data = AnswersDict(
 )
 
 vorabklaerung_data = {
-    "anfrage-zur-vorabklaerung": "lorem ipsum mit tab",
+    "beschreibung-bauvorhaben": "lorem ipsum mit tab",
     "caluma-workflow-slug": "preliminary-clarification",
-    "e-grid-nr": "23",
     "ech-subject": "Einfache Vorabklärung",
     "gemeinde": "2",
     "gwr-egid": "23",
-    "lagekoordinaten-nord-einfache-vorabklaerung": "1070500.000",
-    "lagekoordinaten-ost-einfache-vorabklaerung": "2480034.0",
-    "name-gesuchstellerin-vorabklaerung": "Smith",
-    "nummer-gesuchstellerin": "23",
-    "ort-gesuchstellerin": "Burgdorf",
-    "parzellennummer": "23",
-    "plz-gesuchstellerin": 2323,
-    "strasse-gesuchstellerin": "Teststrasse mit Leerzeichen",
-    "vorname-gesuchstellerin-vorabklaerung": "Winston",
+    "name-gesuchstellerin": "Smith",
+    "nr": "23",
+    "ort-grundstueck": "Burgdorf",
+    "strasse-flurname": "Teststrasse mit Leerzeichen",
 }
