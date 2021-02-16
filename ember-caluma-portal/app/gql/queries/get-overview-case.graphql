@@ -15,9 +15,6 @@ query GetOverviewCase($instanceId: GenericScalar!) {
           }
           answers(
             questions: [
-              "name-gesuchstellerin-vorabklaerung"
-              "vorname-gesuchstellerin-vorabklaerung"
-              "anfrage-zur-vorabklaerung"
               "strasse-gesuchstellerin"
               "nummer-gesuchstellerin"
               "plz-gesuchstellerin"
