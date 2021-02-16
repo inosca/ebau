@@ -11,6 +11,10 @@ query GetRootForms($slug: String) {
         slug
         name
         meta
+        isPublished
+        source {
+          slug
+        }
       }
     }
   }

@@ -10,7 +10,7 @@
       "name": "{\"de\": \"1. Allgemeine Informationen\", \"fr\": \"1. Informations g\\u00e9n\\u00e9rales\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -26,7 +26,7 @@
       "name": "{\"de\": \"2. Nutzung Bauvorhaben\", \"fr\": \"2. Affectation vis\\u00e9e par le projet de construction\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -42,7 +42,7 @@
       "name": "{\"de\": \"3. Grundst\\u00fcck\", \"fr\": \"3. Immeuble\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -58,7 +58,7 @@
       "name": "{\"de\": \"4. Bauwerk\", \"fr\": \"4. Ouvrage\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -74,7 +74,7 @@
       "name": "{\"de\": \"5. Spezialformulare\", \"fr\": \"5. Formulaires sp\\u00e9ciaux\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -90,7 +90,7 @@
       "name": "{\"de\": \"6. Dokumente\", \"fr\": \"6. Documents\"}",
       "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -106,7 +106,7 @@
       "name": "{\"de\": \"7. Best\\u00e4tigung\", \"fr\": \"7. Confirmation\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -122,7 +122,7 @@
       "name": "{\"de\": \"8. Einreichen\", \"fr\": \"8. Envoyer\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -138,7 +138,7 @@
       "name": "{\"de\": \"Abschluss\", \"fr\": \"Graduation\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -154,7 +154,7 @@
       "name": "{\"de\": \"Allgemeine Angaben\", \"fr\": \"Indications g\\u00e9n\\u00e9rales\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -170,7 +170,7 @@
       "name": "{\"de\": \"Allgemeine Angaben\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -186,7 +186,7 @@
       "name": "{\"de\": \"Allgemeine Angaben zum Betrieb\", \"fr\": \"Indications g\\u00e9n\\u00e9rales sur l'installation\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -202,7 +202,7 @@
       "name": "{\"de\": \"Allgemeine Informationen (Verl\\u00e4ngerung Geltungsdauer)\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -218,7 +218,7 @@
       "name": "{\"de\": \"Art der Emmission Tabelle\", \"fr\": \"Nature des \\u00e9missions\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -234,7 +234,7 @@
       "name": "{\"de\": \"Ausschankr\\u00e4ume Tabelle\", \"fr\": \"Locaux de d\\u00e9bit\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -250,7 +250,7 @@
       "name": "{\"de\": \"B\\u00e4ume / Hecken\", \"fr\": \"Arbres / haies\"}",
       "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -267,10 +267,10 @@
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
         "category": "building-permit",
-        "is-creatable": true,
+        "is-creatable": false,
         "is-main-form": true
       },
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -287,10 +287,10 @@
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
         "category": "building-permit",
-        "is-creatable": true,
+        "is-creatable": false,
         "is-main-form": true
       },
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -307,10 +307,10 @@
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
         "category": "building-permit",
-        "is-creatable": true,
+        "is-creatable": false,
         "is-main-form": true
       },
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -346,7 +346,7 @@
       "name": "{\"de\": \"Bauvorhaben\", \"fr\": \"Projet de construction\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -362,7 +362,7 @@
       "name": "{\"de\": \"Beschreibung der Prozessart Tabelle\", \"fr\": \"description type de ph\\u00e9nom\\u00e8ne\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -378,7 +378,7 @@
       "name": "{\"de\": \"Biologische Sicherheit & St\\u00f6rfallvorsorge\", \"fr\": \"S\\u00e9curit\\u00e9 biologique et pr\\u00e9vention des accidents majeurs\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -394,7 +394,7 @@
       "name": "{\"de\": \"Bodenschutz\", \"fr\": \"Protection du sol\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -410,7 +410,7 @@
       "name": "{\"de\": \"Brandschutz\", \"fr\": \"Protection contre l'incendie\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -426,7 +426,7 @@
       "name": "{\"de\": \"Zirkulation\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -442,7 +442,7 @@
       "name": "{\"de\": \"Dashboard\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -458,7 +458,7 @@
       "name": "{\"de\": \"Dokumente (Hecken / Feldgeh\\u00f6lze / B\\u00e4ume)\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -474,7 +474,7 @@
       "name": "{\"de\": \"Dokumente\", \"fr\": \"Documents\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -490,7 +490,7 @@
       "name": "{\"de\": \"Dokumente\", \"fr\": \"Documents\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -506,7 +506,7 @@
       "name": "{\"de\": \"Dokumente (Vorabkl\\u00e4rung)\", \"fr\": \"Documents (Demandes pr\\u00e9alables)\"}",
       "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -522,7 +522,7 @@
       "name": "{\"de\": \"Durchgef\\u00fchrte Vorabkl\\u00e4rungen\", \"fr\": \"Demandes pr\\u00e9alables r\\u00e9alis\\u00e9es\"}",
       "description": "{\"de\": null, \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -538,7 +538,7 @@
       "name": "{\"de\": \"Durchgef\\u00fchrte Vorabkl\\u00e4rungen Tabelle\", \"fr\": \"Demandes pr\\u00e9alables r\\u00e9alis\\u00e9es\"}",
       "description": "{\"de\": null, \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -554,7 +554,7 @@
       "name": "{\"de\": \"Eigent\\u00fcmer Tabelle\", \"fr\": \"Propri\\u00e9taire\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -570,7 +570,7 @@
       "name": "{\"de\": \"Energie\", \"fr\": \"Energie\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -586,7 +586,7 @@
       "name": "{\"de\": \"Entsorgung\", \"fr\": \"Gestion des d\\u00e9chets\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -602,7 +602,7 @@
       "name": "{\"de\": \"Freigabequittung\", \"fr\": \"D\\u00e9claration de validation\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -618,7 +618,7 @@
       "name": "{\"de\": \"Freigabequittung\", \"fr\": \"D\\u00e9claration de validation\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -634,7 +634,7 @@
       "name": "{\"de\": \"Gastgewerbe - Allgemein\", \"fr\": \"H\\u00f4tellerie et restauration - G\\u00e9n\\u00e9ralit\\u00e9s\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -650,7 +650,7 @@
       "name": "{\"de\": \"Gastgewerbe - Fumoir\", \"fr\": \"H\\u00f4tellerie et restauration - Fumoir\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -666,7 +666,7 @@
       "name": "{\"de\": \"Geb\\u00e4udeeigent\\u00fcmer/in Tabelle\", \"fr\": \"Propri\\u00e9taire immobilier/immobili\\u00e8re\"}",
       "description": "{\"de\": null, \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -682,7 +682,7 @@
       "name": "{\"de\": \"Gew\\u00e4sserschutz - Bauten im Grundwasser\", \"fr\": \"Protection des eaux - Constructions dans les eaux souterraines\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -698,7 +698,7 @@
       "name": "{\"de\": \"Gew\\u00e4sserschutz - Gewerbe / Industrie\", \"fr\": \"Protection des eaux - Artisanat / industrie\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -714,7 +714,7 @@
       "name": "{\"de\": \"Gew\\u00e4sserschutz - Grundst\\u00fcckentw\\u00e4sserung\", \"fr\": \"Protection des eaux - Evacuation des eaux des biens-fonds\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -730,7 +730,7 @@
       "name": "{\"de\": \"Gew\\u00e4sserschutz - Lagerung wassergef\\u00e4hrdender Fl\\u00fcssigkeiten\", \"fr\": \"Protection des eaux - Entreposage de liquides pouvant polluer les eaux\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -746,7 +746,7 @@
       "name": "{\"de\": \"Grundeigent\\u00fcmer/in Tabelle\", \"fr\": \"Propri\\u00e9taire foncier/fonci\\u00e8re\"}",
       "description": "{\"de\": null, \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -782,7 +782,7 @@
       "name": "{\"de\": \"Hindernisfreies Bauen\", \"fr\": \"Construction sans obstacles\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -798,7 +798,7 @@
       "name": "{\"de\": \"Immissionsschutz I\", \"fr\": \"Protection contre les immissions\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -814,7 +814,7 @@
       "name": "{\"de\": \"Immissionsschutz II\", \"fr\": \"Protection contre les immissions II\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -850,7 +850,7 @@
       "name": "{\"de\": \"Kleintank Tabelle\", \"fr\": \"Petit r\\u00e9servoir\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -866,7 +866,7 @@
       "name": "{\"de\": \"Laden Tabelle\", \"fr\": \"D\\u00e9poser\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -882,7 +882,7 @@
       "name": "{\"de\": \"Lagerung von Stoffen Tabelle\", \"fr\": \"Stockage de substances\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -898,7 +898,7 @@
       "name": "{\"de\": \"Maschinen & Anlagen\", \"fr\": \"Machines et installations\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -914,7 +914,7 @@
       "name": "{\"de\": \"Maschinen & Anlagen Tabelle\", \"fr\": \"machines & installations\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -930,7 +930,7 @@
       "name": "{\"de\": \"Mehrkammertanks Tabelle\", \"fr\": \"Citerne \\u00e0 plusieurs compartiments\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -965,7 +965,7 @@
       "name": "{\"de\": \"Naturgefahren\", \"fr\": \"Dangers naturels\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -984,7 +984,7 @@
         "widgetOverride": "be-claims-form",
         "attachment-section": "'is-paper'|answer == 'is-paper-yes' ? 12 : 7"
       },
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1000,7 +1000,7 @@
       "name": "{\"de\": \"Nachforderungen Tabelle (NFD)\", \"fr\": \"Demandes suppl\\u00e9mentaires tableau (NFD)\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1016,7 +1016,7 @@
       "name": "{\"de\": \"\\u00d6ffnungszeiten Tabelle\", \"fr\": \"Heures d'ouverture\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1032,7 +1032,7 @@
       "name": "{\"de\": \"Parzelle Tabelle\", \"fr\": \"parcelle\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1048,7 +1048,7 @@
       "name": "{\"de\": \"Personalien\", \"fr\": \"Donn\\u00e9es personnelles\"}",
       "description": "{\"de\": null, \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1064,7 +1064,7 @@
       "name": "{\"de\": \"Personalien - Betreiber/in der Anlage\", \"fr\": \"Donn\\u00e9es personnelles - Exploitant/e de l'installation\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1080,7 +1080,7 @@
       "name": "{\"de\": \"Personalien - Gastgewerbe\", \"fr\": \"Donn\\u00e9es personnelles - H\\u00f4tellerie et restauration\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1096,7 +1096,7 @@
       "name": "{\"de\": \"Personalien Tabelle\", \"fr\": \"Donn\\u00e9es personnelles\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1112,7 +1112,7 @@
       "name": "{\"de\": \"Projektverfasser/in Tabelle\", \"fr\": \"Auteur du projet\"}",
       "description": "{\"de\": null, \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1128,7 +1128,7 @@
       "name": "{\"de\": \"Reklame\", \"fr\": \"R\\u00e9clame\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1144,7 +1144,7 @@
       "name": "{\"de\": \"Reklame Tabelle\", \"fr\": \"R\\u00e9clame\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1160,7 +1160,7 @@
       "name": "{\"de\": \"Selbstdeklaration Baukontrolle 1\", \"fr\": \"D\\u00e9claration spontan\\u00e9e en mati\\u00e8re de contr\\u00f4le des constructions 1\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1176,7 +1176,7 @@
       "name": "{\"de\": \"Selbstdeklaration Baukontrolle 2\", \"fr\": \"D\\u00e9claration spontan\\u00e9e en mati\\u00e8re de contr\\u00f4le des constructions 2\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1192,7 +1192,7 @@
       "name": "{\"de\": \"Selbstdeklaration\", \"fr\": \"D\\u00e9claration spontan\\u00e9e\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1208,7 +1208,7 @@
       "name": "{\"de\": \"Solar- & Sendeanlagen\", \"fr\": \"Installations solaires et stations \\u00e9mettrices\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1224,7 +1224,7 @@
       "name": "{\"de\": \"Sondenmodelle Tabelle\", \"fr\": \"mod\\u00e8les de sonde\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1240,7 +1240,7 @@
       "name": "{\"de\": \"Triage\", \"fr\": \"Pres\\u00e9lection\"}",
       "description": "{\"de\": null, \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1275,7 +1275,7 @@
       "name": "{\"de\": \"Vertreter/in mit Vollmacht Tabelle\", \"fr\": \"Repr\\u00e9sentant(e) avec procuration\"}",
       "description": "{\"de\": null, \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1312,10 +1312,10 @@
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
         "category": "preliminary-clarification",
-        "is-creatable": true,
+        "is-creatable": false,
         "is-main-form": true
       },
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1331,7 +1331,7 @@
       "name": "{\"de\": \"W\\u00e4rmepumpen\", \"fr\": \"Pompes \\u00e0 chaleur\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1347,7 +1347,7 @@
       "name": "{\"de\": \"Wald\", \"fr\": \"For\\u00eat\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1363,7 +1363,7 @@
       "name": "{\"de\": \"Wohnen\", \"fr\": \"Habitation\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1379,7 +1379,7 @@
       "name": "{\"de\": \"Wohnen Tabelle\", \"fr\": \"logements\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1395,7 +1395,7 @@
       "name": "{\"de\": \"Zivilschutz\", \"fr\": \"Protection civile\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1411,7 +1411,7 @@
       "name": "{\"de\": \"Zonenvorschriften - Baurechtliche Grundordnung\", \"fr\": \"Prescriptions applicables aux zones - R\\u00e9glementation fondamentale en mati\\u00e8re de construction\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1427,7 +1427,7 @@
       "name": "{\"de\": \"Zonenvorschriften - Schutzzonen\", \"fr\": \"Prescriptions applicables aux zones - Zones prot\\u00e9g\\u00e9es\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -13978,7 +13978,7 @@
     "pk": "bauten-oder-pfaehlen-im-grundwasser-ja",
     "fields": {
       "created_at": "2019-04-01T10:44:45.619Z",
-      "modified_at": "2019-09-18T09:34:42.314Z",
+      "modified_at": "2021-03-12T13:17:20.078Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\"}",
@@ -13992,7 +13992,7 @@
     "pk": "bauten-oder-pfaehlen-im-grundwasser-nein",
     "fields": {
       "created_at": "2019-04-01T10:44:45.622Z",
-      "modified_at": "2019-09-18T09:34:42.321Z",
+      "modified_at": "2021-03-12T13:17:20.040Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\"}",
@@ -15532,10 +15532,10 @@
     "pk": "flammpunkt-fluessigkeit-flammpunkt-ueber-60-grad",
     "fields": {
       "created_at": "2019-04-03T12:07:12.565Z",
-      "modified_at": "2019-05-03T09:08:56.109Z",
+      "modified_at": "2021-03-15T16:33:37.276Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Brennbare Fl\\u00fcssigkeit mit Flammpunkt > 60 Grad\", \"fr\": \"Liquides in_x001E_ammables dont le point d\\u2019\\u00e9clair > 60\\u00b0C\"}",
+      "label": "{\"de\": \"Brennbare Fl\\u00fcssigkeit mit Flammpunkt > 60 Grad\", \"fr\": \"Liquides inflammables dont le point d\\u2019\\u00e9clair > 60\\u00b0C\"}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15560,10 +15560,10 @@
     "pk": "flammpunkt-fluessigkeit-flammpunkt-unter-60-grad",
     "fields": {
       "created_at": "2019-04-03T12:07:12.566Z",
-      "modified_at": "2019-05-03T09:08:56.107Z",
+      "modified_at": "2021-03-15T16:33:37.214Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Brennbare Fl\\u00fcssigkeit mit Flammpunkt < 60 Grad\", \"fr\": \"Liquides in_x001E_ammables dont le point d\\u2019\\u00e9clair < 60\\u00b0C\"}",
+      "label": "{\"de\": \"Brennbare Fl\\u00fcssigkeit mit Flammpunkt < 60 Grad\", \"fr\": \"Liquides inflammables dont le point d\\u2019\\u00e9clair < 60\\u00b0C\"}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16092,7 +16092,7 @@
     "pk": "geplante-anlagen-sendeanlage",
     "fields": {
       "created_at": "2019-04-03T07:51:22.994Z",
-      "modified_at": "2019-05-04T12:43:38.031Z",
+      "modified_at": "2021-03-12T12:57:11.980Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Sendeanlage\", \"fr\": \"Station \\u00e9mettrice\"}",
@@ -16106,7 +16106,7 @@
     "pk": "geplante-anlagen-solar-oder-photovoltaik-anlage",
     "fields": {
       "created_at": "2019-04-03T07:51:22.991Z",
-      "modified_at": "2019-05-04T12:43:38.026Z",
+      "modified_at": "2021-03-12T12:57:12.016Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Solar- oder Photovoltaik-Anlage\", \"fr\": \"Installation solaire ou photovolta\\u00efque\"}",
@@ -16386,11 +16386,11 @@
     "pk": "gewaesserschutzbereich-zu",
     "fields": {
       "created_at": "2019-04-01T10:42:44.244Z",
-      "modified_at": "2019-05-06T09:58:11.662Z",
+      "modified_at": "2021-03-12T13:28:37.575Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Zu\", \"fr\": \"Zu\"}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18248,7 +18248,7 @@
     "pk": "mit-invasiven-neophyten-belasteter-boden-ja",
     "fields": {
       "created_at": "2019-04-01T11:28:08.156Z",
-      "modified_at": "2019-05-03T07:35:42.434Z",
+      "modified_at": "2021-03-08T12:54:54.112Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\"}",
@@ -18262,7 +18262,7 @@
     "pk": "mit-invasiven-neophyten-belasteter-boden-nein",
     "fields": {
       "created_at": "2019-04-01T11:28:08.159Z",
-      "modified_at": "2019-05-03T07:35:42.443Z",
+      "modified_at": "2021-03-08T12:54:54.137Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\"}",
@@ -22210,7 +22210,7 @@
     "pk": "werden-neue-hofduengeranlagen-erstellt-ja",
     "fields": {
       "created_at": "2019-03-28T09:47:46.405Z",
-      "modified_at": "2019-09-18T08:18:00.163Z",
+      "modified_at": "2021-03-12T13:12:43.230Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\"}",
@@ -22224,7 +22224,7 @@
     "pk": "werden-neue-hofduengeranlagen-erstellt-nein",
     "fields": {
       "created_at": "2019-03-28T09:47:46.416Z",
-      "modified_at": "2019-09-18T08:18:00.156Z",
+      "modified_at": "2021-03-12T13:12:43.172Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\"}",
@@ -24853,7 +24853,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"**Einzureichende Unterlagen**\\n- Kartenausschnitt / Situation mit eingezeichnetem Standort\\n- Grundrisspl\\u00e4ne der Untergeschosse\\n- Schnittplan mit Untergeschoss und Baugrubenumschliessung, eingezeichneter Wasserhaltung sowie mittlerem Grundwasserspiegel (mit den entsprechenden \\nKoten in m \\u00fc. M.)\\n- Pfahl-, Injektions- oder Ankerpl\\u00e4ne, Situation und Schnittpl\\u00e4ne \\nmit Koten in m \\u00fc.M. (falls geplant)\\n- Baugrunduntersuchung / Hydrogeologisches Gutachten (falls vorhanden)\", \"fr\": \"**Pi\\u00e8ces \\u00e0 joindre \\u00e0 la demande**\\n- Extrait de carte ou plan de situation avec localisation de l'ouvrage\\n- Plan du sous-sol du b\\u00e2timent\\n- Coupe des sous-sols avec indication de l'enceinte de la fouille, description du syst\\u00e8me d'\\u00e9puisement et du niveau moyen de la nappe phr\\u00e9atique (cotes en m s. m.)\\n- Plans de situation et coupes des installations: pieux, palplanches, injections, \\nancrages (m s. m.), le cas \\u00e9ch\\u00e9ant\\n- Etudes g\\u00e9otechniques ou expertises g\\u00e9ologiques (si disponibles)\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -25945,16 +25945,16 @@
     "pk": "bauten-oder-pfaehlen-im-grundwasser",
     "fields": {
       "created_at": "2019-04-01T10:44:45.806Z",
-      "modified_at": "2019-09-18T09:34:42.429Z",
+      "modified_at": "2021-03-15T13:17:39.719Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Bauten oder Pf\\u00e4hlen im Grundwasser oder Grundwasserabsenkung\", \"fr\": \"Constructions / pieux dans les eaux souterraines ou abaissement de la nappe phr\\u00e9atique?\"}",
+      "label": "{\"de\": \"Bauten (inkl. Pf\\u00e4hle) im Grundwasser oder Grundwasserabsenkung?\", \"fr\": \"Constructions (incl. pieux) dans les eaux souterraines ou abaissement de la nappe phr\\u00e9atique?\"}",
       "type": "choice",
       "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"Informationen auf Merkblatt:\\n  \\n[Merkblatt - Bauten im Grundwasser und Grundwasserabsenkungen](https://www.bve.be.ch/bve/de/index/direktion/organisation/awa/formulare_bewilligungen/Grundwasser.assetref/dam/documents/BVE/AWA/de/WASSER/Grundwasser/Bauten%20im%20Grundwasser/BA_GA_Merkblatt_Bauten_Grundwasser.pdf)\", \"fr\": \"Fen\\u00eatre d'information:\\n\\n[Brochure - B\\u00e2timents dans les eaux souterraines et affaissement des eaux souterraines](https://www.bve.be.ch/bve/de/index/direktion/organisation/awa/formulare_bewilligungen/Grundwasser.assetref/dam/documents/BVE/AWA/de/WASSER/Grundwasser/Bauten%20im%20Grundwasser/BA_GA_Merkblatt_Bauten_Grundwasser.pdf)\"}",
+      "info_text": "{\"de\": \"- Freilegen des Grundwassers\\n- Grundwasserabsenkung\\n- Bauten (inkl. Pf\\u00e4hle) im Grundwasser\\n- Spezialtiefbauarbeiten im Grundwasserbereich\\n\\n[Merkblatt - Bauten im Grundwasser und Grundwasserabsenkungen](https://www.bve.be.ch/bve/de/index/direktion/organisation/awa/formulare_bewilligungen/Grundwasser.assetref/dam/documents/BVE/AWA/de/WASSER/Grundwasser/Bauten%20im%20Grundwasser/BA_GA_Merkblatt_Bauten_Grundwasser.pdf)\", \"fr\": \"- la mise \\u00e0 d\\u00e9couvert de la nappe phr\\u00e9atique\\n- le rabattement de la nappe phr\\u00e9atique\\n- les constructions situ\\u00e9es en dessous de la nappe phr\\u00e9atique\\n- les ouvrages sp\\u00e9ciaux du g\\u00e9nie civil sis dans une zone d'eaux souterraines\\n\\n[Notice - Constructions dans les eaux souterraines et abaissement de la nappe phr\\u00e9atique](https://www.bve.be.ch/bve/fr/index/direktion/organisation/awa/formulare_bewilligungen/Grundwasser.assetref/dam/documents/BVE/AWA/fr/EAU/Eaux%20souterraines/Construction%20dans%20les%20eaux%20souterraines/BA_GA_Merkblatt_Bauten_Grundwasser_f.pdf)\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
@@ -27190,19 +27190,20 @@
     "pk": "beschreibung-tiefenfundation",
     "fields": {
       "created_at": "2019-04-03T14:08:59.126Z",
-      "modified_at": "2019-05-16T10:23:19.133Z",
+      "modified_at": "2021-03-15T13:25:34.989Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Beschreibung Tiefenfundation\", \"fr\": \"Description des Fondations profondes\"}",
+      "label": "{\"de\": \"Beschreibung Tiefenfundation, Name des Pfahlsystems\", \"fr\": \"Description des Fondations profondes, Nom du syst\\u00e8me de la fondation par pieux\"}",
       "type": "text",
       "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
       "is_hidden": "!(\n  'art-der-fundationsmassnahmen-tiefenfundation' in 'art-der-fundationsmassnahmen'|answer\n)",
       "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": \"\"}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
-        "max_length": null
+        "max_length": null,
+        "min_length": null
       },
       "meta": {
         "widgetOverride": null
@@ -30053,7 +30054,7 @@
     "pk": "entwaesserung-der-dachflaechen",
     "fields": {
       "created_at": "2019-04-09T12:27:14.454Z",
-      "modified_at": "2019-05-03T08:53:55.509Z",
+      "modified_at": "2021-03-12T13:45:59.731Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Entw\\u00e4sserung der Dachfl\\u00e4chen\", \"fr\": \"Evacuation des eaux des surfaces de toiture\"}",
@@ -30066,6 +30067,7 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
+        "hideLabel": true,
         "widgetOverride": null
       },
       "data_source": null,
@@ -32105,7 +32107,7 @@
     "pk": "geplante-anlagen",
     "fields": {
       "created_at": "2019-04-03T07:51:23.126Z",
-      "modified_at": "2019-05-04T12:43:38.196Z",
+      "modified_at": "2021-03-12T12:57:12.194Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Welche der folgenden Anlagen sind geplant?\", \"fr\": \"Lesquelles des installations suivantes sont-elles projet\\u00e9es?\"}",
@@ -32114,7 +32116,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "info_text": "{\"de\": \"[Merkblatt - Reinigung und Entw\\u00e4sserung von Fl\\u00e4chen mit Photovoltaikanlagen und Sonnenkollektoren sowie Glasd\\u00e4chern](https://www.bve.be.ch/bve/de/index/direktion/organisation/awa/formulare_bewilligungen/liegenschaftsentwaesserung.assetref/dam/documents/BVE/AWA/de/WASSER/Grundst%C3%BCcksentw%C3%A4sserung/Allgemein/Merkblatt%20Reinigung%20und%20Entw%C3%A4sserung%20von%20Photovoltaikanlagen.pdf)\", \"fr\": \"[Evacuation des eaux de nettoyage des installations photovolta\\u00efques et des panneaux solaires](https://www.bve.be.ch/bve/fr/index/direktion/organisation/awa/formulare_bewilligungen/liegenschaftsentwaesserung.assetref/dam/documents/BVE/AWA/fr/EAU/Evacuation%20eaux%20des%20bien%20fonds/General/BA_GA_gdm028_Merkblatt_Entw%C3%A4sserung_Photovoltaikanlagen_franz_20120926.pdf)\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
@@ -36281,7 +36283,7 @@
     "pk": "mit-invasiven-neophyten-belasteter-boden",
     "fields": {
       "created_at": "2019-04-01T11:28:08.323Z",
-      "modified_at": "2019-05-03T07:35:42.583Z",
+      "modified_at": "2021-03-08T12:54:54.267Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Verl\\u00e4sst mit invasiven Neophyten belasteter Boden den Projektperimeter?\", \"fr\": \"Des mat\\u00e9riaux terreux contamin\\u00e9s par des plantes n\\u00e9ophytes envahissantes sont-ils transport\\u00e9s hors du p\\u00e9rim\\u00e8tre du projet?\"}",
@@ -36290,7 +36292,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "info_text": "{\"de\": \"Invasive gebietsfremde Pflanzen k\\u00f6nnen sich sehr schnell ausbreiten. Die Ausbreitung von Pflanzen auf der Schwarzen Liste muss verhindert werden ([www.infoflora.ch](https://www.infoflora.ch)). Besondere Gefahr besteht beim Japanischen Staudenkn\\u00f6terich und Erdmandelgras.\", \"fr\": \"Les plantes exotiques envahissantes peuvent se r\\u00e9pandre tr\\u00e8s rapidement. Il faut emp\\u00eacher la propagation des plantes inscrites sur la liste noire ([www.infoflora.ch/fr/](https://infoflora.ch/fr/)). Un danger particulier provient de la renou\\u00e9e du Japon et du souchet comestible.\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
@@ -37328,16 +37330,16 @@
     "pk": "neubau-abwasseranlagen-grundleitungen",
     "fields": {
       "created_at": "2019-04-03T13:28:32.468Z",
-      "modified_at": "2019-05-06T10:16:18.294Z",
+      "modified_at": "2021-03-15T13:19:49.121Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Neubau von Abwasseranlagen, Grundleitungen, Grundst\\u00fcckanschlussleitungen?\", \"fr\": \"Construction de nouveaux \\u00e9quipements d'assainissement, de canalisations et de conduites de raccordement\"}",
+      "label": "{\"de\": \"Neubau von Abwasseranlagen (z.B Grundleitungen, Grundst\\u00fcckanschlussleitungen)?\", \"fr\": \"Construction de nouveaux \\u00e9quipements d'assainissement (par ex. de canalisations et de conduites de raccordement)\"}",
       "type": "choice",
       "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
@@ -39647,17 +39649,17 @@
     "pk": "platz-und-verkehrsflachen-titel",
     "fields": {
       "created_at": "2019-05-03T16:46:38.014Z",
-      "modified_at": "2019-05-04T09:14:20.549Z",
+      "modified_at": "2021-03-15T10:08:16.508Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Platz- und Verkehrsfl\\u00e4chen\", \"fr\": \"Places et aires de circulation\"}",
+      "label": "{\"de\": \"Entw\\u00e4sserung der Platz und Verkehrsfl\\u00e4chen\", \"fr\": \"Places et aires de circulation\"}",
       "type": "static",
       "is_required": "false",
       "is_hidden": "!(\n  'aenderungen-dachflaechen-zufahrten-plaetzen-ja' == 'aenderungen-dachflaechen-zufahrten-plaetzen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"***\\n**Platz- und Verkehrsfl\\u00e4chen**\", \"fr\": \"***\\n**Places et aires de circulation**\"}",
+      "static_content": "{\"de\": \"***\\n**Entw\\u00e4sserung der Platz und Verkehrsfl\\u00e4chen**\", \"fr\": \"***\\n**Places et aires de circulation**\"}",
       "configuration": {},
       "meta": {
         "widgetOverride": null
@@ -39677,19 +39679,20 @@
     "pk": "platz-und-verkehrsflaechen",
     "fields": {
       "created_at": "2019-04-09T12:35:21.997Z",
-      "modified_at": "2019-05-03T08:57:23.306Z",
+      "modified_at": "2021-03-15T13:37:30.217Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Platz- und Verkehrsfl\\u00e4chen\", \"fr\": \"Places et aires de circulation\"}",
+      "label": "{\"de\": \"Entw\\u00e4sserung der Platz und Verkehrsfl\\u00e4chen\", \"fr\": \"Evacuation des eaux pluviales d'avant-places et de chauss\\u00e9es\"}",
       "type": "choice",
       "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
       "is_hidden": "!(\n  'aenderungen-dachflaechen-zufahrten-plaetzen-ja' == 'aenderungen-dachflaechen-zufahrten-plaetzen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
+        "hideLabel": true,
         "widgetOverride": null
       },
       "data_source": null,
@@ -44659,16 +44662,16 @@
     "pk": "versickerung-dachflaechen",
     "fields": {
       "created_at": "2019-04-09T12:29:51.451Z",
-      "modified_at": "2019-05-03T08:54:30.309Z",
+      "modified_at": "2021-03-15T13:21:05.179Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Versickerung?\", \"fr\": \"Infiltration?\"}",
+      "label": "{\"de\": \"Wird das Regenabwasser versickert?\", \"fr\": \"Est-il pr\\u00e9vu d'infiltrer des eaux pluviales?\"}",
       "type": "choice",
       "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
       "is_hidden": "!(\n  'aenderungen-dachflaechen-zufahrten-plaetzen-ja' == 'aenderungen-dachflaechen-zufahrten-plaetzen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
@@ -44689,16 +44692,16 @@
     "pk": "versickerung-platz-und-verkehrsflaechen",
     "fields": {
       "created_at": "2019-04-09T12:37:04.965Z",
-      "modified_at": "2019-05-03T08:57:59.106Z",
+      "modified_at": "2021-03-15T13:21:37.352Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Versickerung?\", \"fr\": \"Infiltration?\"}",
+      "label": "{\"de\": \"Wird das Regenabwasser versickert?\", \"fr\": \"Est-il pr\\u00e9vu d'infiltrer des eaux pluviales?\"}",
       "type": "choice",
       "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
       "is_hidden": "!(\n  'aenderungen-dachflaechen-zufahrten-plaetzen-ja' == 'aenderungen-dachflaechen-zufahrten-plaetzen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
@@ -46190,7 +46193,7 @@
     "pk": "werden-neue-hofduengeranlagen-erstellt",
     "fields": {
       "created_at": "2019-03-28T09:47:46.554Z",
-      "modified_at": "2019-09-18T08:18:00.290Z",
+      "modified_at": "2021-03-12T13:12:43.363Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Werden neue Hofd\\u00fcngeranlagen erstellt?\", \"fr\": \"De nouvelles installations de stockage d'engrais de ferme sont-elles pr\\u00e9vues?\"}",
@@ -46199,7 +46202,7 @@
       "is_hidden": "!(\n  'nutzungsart-landwirtschaft' in 'nutzungsart'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"[Ingenieurbest\\u00e4tigung](https://www.bve.be.ch/bve/de/index/direktion/organisation/awa/formulare_bewilligungen/liegenschaftsentwaesserung.assetref/dam/documents/BVE/AWA/de/WASSER/Grundst%C3%BCcksentw%C3%A4sserung/Landwirtschaft/Ingenieurbestaetigung_d_2016_ae041.pdf)\", \"fr\": \"[Confirmation technique](https://www.bve.be.ch/bve/de/index/direktion/organisation/awa/formulare_bewilligungen/liegenschaftsentwaesserung.assetref/dam/documents/BVE/AWA/de/WASSER/Grundst%C3%BCcksentw%C3%A4sserung/Landwirtschaft/Ingenieurbestaetigung_d_2016_ae041.pdf)\"}",
+      "info_text": "{\"de\": \"[Ingenieurbest\\u00e4tigung f\\u00fcr G\\u00fcllegruben](https://www.bve.be.ch/bve/de/index/direktion/organisation/awa/formulare_bewilligungen/liegenschaftsentwaesserung.assetref/dam/documents/BVE/AWA/de/WASSER/Grundst%C3%BCcksentw%C3%A4sserung/Landwirtschaft/Ingenieurbestaetigung_d_2016_ae041.pdf)\", \"fr\": \"[Attestation de l'ing\\u00e9nieur](https://www.bve.be.ch/bve/fr/index/direktion/organisation/awa/formulare_bewilligungen/liegenschaftsentwaesserung.assetref/dam/documents/BVE/AWA/fr/EAU/Evacuation%20eaux%20des%20bien%20fonds/Agriculture/Attestation%20de%20l%27ing%C3%A9nieur_f_2016_ae041.pdf)\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
@@ -46848,10 +46851,10 @@
     "pk": "zufahrten-plaetze-in-quadratmeter",
     "fields": {
       "created_at": "2019-04-03T13:27:08.587Z",
-      "modified_at": "2019-05-03T08:53:17.398Z",
+      "modified_at": "2021-03-12T13:43:46.013Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Zufahrten / Pl\\u00e4tze in m\\u00b2\", \"fr\": \"Nouvelles voies d'acc\\u00e8s, places en m\\u00b2\"}",
+      "label": "{\"de\": \"Neue Zufahrten / Pl\\u00e4tze / PW-Parkpl\\u00e4tze in m\\u00b2\", \"fr\": \"Nouvelles voies d'acc\\u00e8s, places en m\\u00b2\"}",
       "type": "float",
       "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
       "is_hidden": "!(\n  'aenderungen-dachflaechen-zufahrten-plaetzen-ja' == 'aenderungen-dachflaechen-zufahrten-plaetzen'|answer\n)",
@@ -48273,8 +48276,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bauten-oder-pfaehlen-im-grundwasser.bauten-oder-pfaehlen-im-grundwasser-ja",
     "fields": {
-      "created_at": "2019-09-18T09:34:42.439Z",
-      "modified_at": "2019-09-18T09:34:42.439Z",
+      "created_at": "2021-03-12T13:17:20.269Z",
+      "modified_at": "2021-03-12T13:17:20.269Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "question": "bauten-oder-pfaehlen-im-grundwasser",
@@ -48286,8 +48289,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bauten-oder-pfaehlen-im-grundwasser.bauten-oder-pfaehlen-im-grundwasser-nein",
     "fields": {
-      "created_at": "2019-09-18T09:34:42.436Z",
-      "modified_at": "2019-09-18T09:34:42.436Z",
+      "created_at": "2021-03-12T13:17:20.265Z",
+      "modified_at": "2021-03-12T13:17:20.265Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "question": "bauten-oder-pfaehlen-im-grundwasser",
@@ -55930,8 +55933,8 @@
     "model": "caluma_form.questionoption",
     "pk": "werden-neue-hofduengeranlagen-erstellt.werden-neue-hofduengeranlagen-erstellt-ja",
     "fields": {
-      "created_at": "2019-09-18T08:18:00.299Z",
-      "modified_at": "2019-09-18T08:18:00.299Z",
+      "created_at": "2021-03-12T13:12:43.375Z",
+      "modified_at": "2021-03-12T13:12:43.375Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "question": "werden-neue-hofduengeranlagen-erstellt",
@@ -55943,8 +55946,8 @@
     "model": "caluma_form.questionoption",
     "pk": "werden-neue-hofduengeranlagen-erstellt.werden-neue-hofduengeranlagen-erstellt-nein",
     "fields": {
-      "created_at": "2019-09-18T08:18:00.296Z",
-      "modified_at": "2019-09-18T08:18:00.296Z",
+      "created_at": "2021-03-12T13:12:43.371Z",
+      "modified_at": "2021-03-12T13:12:43.371Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "question": "werden-neue-hofduengeranlagen-erstellt",
