@@ -1,3 +1,4 @@
+import glob
 import inspect
 import logging
 from dataclasses import dataclass, field
@@ -96,10 +97,14 @@ FORM_QUESTION_MAP = [
 
 CALUMA_FORM_TYPES_SLUGS = [
     "baugesuch",
+    "baugesuch-v2",
     "baugesuch-generell",
+    "baugesuch-generell-v2",
     "baugesuch-mit-uvp",
+    "baugesuch-mit-uvp-v2",
     "vorabklaerung-einfach",
     "vorabklaerung-vollstaendig",
+    "vorabklaerung-vollstaendig-v2",
     "hecken-feldgehoelze-baeume",
     "baupolizeiliches-verfahren",
     "klaerung-baubewilligungspflicht",
@@ -285,12 +290,9 @@ def caluma_config_bern(db):
 
     Execution of this fixture takes some time. Only use if really necessary.
     """
-    call_command("loaddata", settings.ROOT_DIR("kt_bern/config/caluma_form.json"))
-    call_command("loaddata", settings.ROOT_DIR("kt_bern/config/caluma_audit_form.json"))
     call_command(
-        "loaddata", settings.ROOT_DIR("kt_bern/config/caluma_publication_form.json")
+        "loaddata", *glob.glob(settings.ROOT_DIR("kt_bern/config/caluma_*.json"))
     )
-    call_command("loaddata", settings.ROOT_DIR("kt_bern/config/caluma_workflow.json"))
 
 
 @pytest.fixture
