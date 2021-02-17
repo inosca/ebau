@@ -70,5 +70,48 @@
         </div>
       </form>
     </div>
+
+    {{on-key "ctrl+shift+Space" (fn (mut this.showAdvanced) (not this.showAdvanced))}}
+    {{#if this.showAdvanced}}
+      <div>
+        <p class="uk-text-large">{{t "support.fix-work-items.title"}}</p>
+        <p>{{t "support.fix-work-items.description" htmlSafe=true}}</p>
+        <form {{on "submit" (perform this.fixWorkItems)}}>
+          {{#if this.output}}
+            <pre class="uk-margin">{{this.output}}</pre>
+          {{/if}}
+          <div class="uk-grid-small" uk-grid>
+            <div class="uk-width-expand uk-flex uk-flex-middle">
+              <label class="uk-margin-small-right">
+                <Input
+                  @type="checkbox"
+                  @checked={{this.dry}}
+                  @disabled={{not this.dryRunDone}}
+                  class="uk-checkbox"
+                />
+                {{t "support.fix-work-items.dry"}}
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  class="uk-checkbox"
+                  checked={{this.syncCirculation}}
+                  {{on "change" this.updateSyncCirculation}}
+                >
+                {{t "support.fix-work-items.sync-circulation"}}
+              </label>
+            </div>
+            <div>
+              <UkButton
+                @color="primary"
+                @type="submit"
+                @label={{t "support.fix-work-items.send"}}
+                @disabled={{this.fixWorkItems.isRunning}}
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+    {{/if}}
   </div>
 {{/if}}

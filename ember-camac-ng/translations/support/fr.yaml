@@ -20,3 +20,13 @@ support:
 
     confirm: "Voulez vous vraiment changer le type de dossier ?"
     error: "Erreur lors de la modification du type de dossier"
+
+  fix-work-items:
+    title: "Réparation des tâches"
+    description: "Dans ce cas, les états incorrects des tâches qui sont apparus en raison d'une erreur dans le système peuvent être corrigés. Cette fonction ne doit être utilisée que par les utilisateurs qui savent ce qu'ils font."
+    dry: "Test"
+    sync-circulation: "Synchroniser la circulation"
+    send: "Envoyer"
+
+    confirm: "Êtes-vous sûr de vouloir envoyer la commande ?"
+    error: "Erreur lors de la réparation des tâches"
