@@ -1,0 +1,311 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "publikation",
+    "fields": {
+      "created_at": "2020-11-20T13:06:10.808Z",
+      "modified_at": "2020-11-20T13:06:10.808Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "name": "{\"de\": \"Publikation\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "publikation.publikation-1-publikation-anzeiger",
+    "fields": {
+      "created_at": "2020-11-20T13:17:57.477Z",
+      "modified_at": "2020-11-20T13:17:57.477Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "publikation",
+      "question": "publikation-1-publikation-anzeiger",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "publikation.publikation-2-publikation-anzeiger",
+    "fields": {
+      "created_at": "2020-11-20T13:18:23.588Z",
+      "modified_at": "2020-11-20T13:18:23.588Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "publikation",
+      "question": "publikation-2-publikation-anzeiger",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "publikation.publikation-ablaufdatum",
+    "fields": {
+      "created_at": "2020-11-20T13:17:21.711Z",
+      "modified_at": "2020-11-20T13:17:21.711Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "publikation",
+      "question": "publikation-ablaufdatum",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "publikation.publikation-amtsblatt",
+    "fields": {
+      "created_at": "2020-11-20T13:19:39.725Z",
+      "modified_at": "2020-11-20T13:19:39.725Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "publikation",
+      "question": "publikation-amtsblatt",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "publikation.publikation-anzeiger-von",
+    "fields": {
+      "created_at": "2020-11-20T13:18:51.033Z",
+      "modified_at": "2020-11-20T13:18:51.033Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "publikation",
+      "question": "publikation-anzeiger-von",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "publikation.publikation-startdatum",
+    "fields": {
+      "created_at": "2020-11-20T13:16:51.530Z",
+      "modified_at": "2020-11-20T13:16:51.530Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "publikation",
+      "question": "publikation-startdatum",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "publikation.publikation-text",
+    "fields": {
+      "created_at": "2020-11-20T13:20:08.242Z",
+      "modified_at": "2020-11-20T13:20:08.242Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "publikation",
+      "question": "publikation-text",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "publikation-1-publikation-anzeiger",
+    "fields": {
+      "created_at": "2020-11-20T13:17:57.361Z",
+      "modified_at": "2020-12-03T13:14:31.349Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "label": "{\"de\": \"1. Publikation Anzeiger\", \"fr\": \"1\\u00e8re Publication feuille d'avis\"}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "publikation-2-publikation-anzeiger",
+    "fields": {
+      "created_at": "2020-11-20T13:18:23.401Z",
+      "modified_at": "2020-12-03T13:14:50.684Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "label": "{\"de\": \"2. Publikation Anzeiger\", \"fr\": \"2\\u00e8me Publication feuille d'avis\"}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "publikation-ablaufdatum",
+    "fields": {
+      "created_at": "2020-11-20T13:17:21.588Z",
+      "modified_at": "2020-12-03T13:14:16.889Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "label": "{\"de\": \"Ablaufdatum\", \"fr\": \"Date d'expiration\"}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "publikation-amtsblatt",
+    "fields": {
+      "created_at": "2020-11-20T13:19:39.601Z",
+      "modified_at": "2020-12-03T13:15:35.576Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "label": "{\"de\": \"Publikation Amtsblatt\", \"fr\": \"Publication feuille officielle\"}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "publikation-anzeiger-von",
+    "fields": {
+      "created_at": "2020-11-20T13:18:50.919Z",
+      "modified_at": "2020-12-03T13:15:13.433Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "label": "{\"de\": \"Anzeiger von\", \"fr\": \"Feuille d\\u2019avis de\"}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\"}",
+      "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "publikation-startdatum",
+    "fields": {
+      "created_at": "2020-11-20T13:16:51.413Z",
+      "modified_at": "2020-12-03T13:14:03.315Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "label": "{\"de\": \"Startdatum\", \"fr\": \"Date de d\\u00e9but\"}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "publikation-text",
+    "fields": {
+      "created_at": "2020-11-20T13:20:08.115Z",
+      "modified_at": "2020-12-03T13:15:47.633Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "label": "{\"de\": \"Text\", \"fr\": \"Texte\"}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\"}",
+      "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  }
+]

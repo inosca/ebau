@@ -41016,7 +41016,7 @@
     "fields": {
       "module_name": "publication",
       "controller_name": "publication",
-      "description": "Publication"
+      "description": "Caluma based publication module"
     }
   },
   {
