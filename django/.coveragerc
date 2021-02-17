@@ -41,11 +41,11 @@ omit=
     # One off commands
     camac/instance/management/commands/fix_work_items.py
     camac/core/management/commands/fix_applicants.py
+    camac/data_migration/*
+    camac/core/management/commands/migrate_rsta.py
+    camac/core/management/commands/migrate_rejected.py
     # Audit migration
     camac/core/management/commands/config/
     camac/core/management/commands/migrate_audit.py
-    # one-off data migrations
-    camac/data_migration/*
-    camac/core/management/commands/migrate_rsta.py
 
 show_missing = True
