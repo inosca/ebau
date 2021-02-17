@@ -614,3 +614,76 @@ def test_change_responsible_service(
             response.data[0]["detail"]
             == f"{service_type} is not a valid service type - valid types are: municipality, construction_control"
         )
+
+
+@pytest.mark.parametrize(
+    "instance__user,service_group__name", [(LazyFixture("admin_user"), "municipality")]
+)
+@pytest.mark.parametrize("dry", [True, False])
+@pytest.mark.parametrize(
+    "role__name,instance_state__name,sync_circulation,expected_status,expected_work_items",
+    [
+        ("Support", "subm", False, status.HTTP_200_OK, ["ebau-number"]),
+        (
+            "Support",
+            "circulation_init",
+            False,
+            status.HTTP_200_OK,
+            ["skip-circulation", "init-circulation"],
+        ),
+        ("Support", "sb1", False, status.HTTP_200_OK, ["sb1"]),
+        ("Municipality", "subm", False, status.HTTP_403_FORBIDDEN, None),
+    ],
+)
+def test_fix_work_items(
+    db,
+    admin_client,
+    admin_user,
+    caluma_admin_user,
+    caluma_workflow_config_be,
+    instance,
+    instance_state,
+    instance_service,
+    service_group,
+    snapshot,
+    role,
+    dry,
+    sync_circulation,
+    expected_status,
+    expected_work_items,
+):
+    case = workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
+        form=caluma_form_models.Form.objects.get(pk="main-form"),
+        meta={"camac-instance-id": instance.pk},
+        user=caluma_admin_user,
+    )
+
+    # simulate broken state
+    case.work_items.all().delete()
+
+    response = admin_client.post(
+        reverse("instance-fix-work-items", args=[instance.pk]),
+        {
+            "data": {
+                "type": "instance-fix-work-items",
+                "attributes": {"dry": dry, "sync_circulation": sync_circulation},
+            }
+        },
+    )
+
+    assert response.status_code == expected_status
+
+    if response.status_code == status.HTTP_200_OK:
+        raw_output = response.json()["data"]["attributes"]["output"]
+
+        snapshot.assert_match(raw_output.replace(str(instance.pk), "INSTANCE_ID"))
+
+        case.refresh_from_db()
+
+        if dry:
+            assert case.work_items.count() == 0
+        else:
+            assert sorted(case.work_items.values_list("task_id", flat=True)) == sorted(
+                expected_work_items
+            )
