@@ -1,0 +1,22 @@
+query GetCreatePublication($instanceId: GenericScalar!) {
+  allCases(
+    filter: [{ metaValue: { key: "camac-instance-id", value: $instanceId } }]
+    first: 1
+  ) {
+    edges {
+      node {
+        id
+        workItems(
+          filter: [{ task: "create-publication" }, { status: READY }]
+          first: 1
+        ) {
+          edges {
+            node {
+              id
+            }
+          }
+        }
+      }
+    }
+  }
+}

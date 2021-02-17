@@ -1,0 +1,13 @@
+query GetPublication($id: ID) {
+  allWorkItems(filter: [{ id: $id }, { task: "fill-publication" }]) {
+    edges {
+      node {
+        id
+        status
+        document {
+          id
+        }
+      }
+    }
+  }
+}
