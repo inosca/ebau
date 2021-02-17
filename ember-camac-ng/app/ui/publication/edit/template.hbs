@@ -1,0 +1,17 @@
+{{#if this.publication}}
+  <CfContent
+    @documentId={{decode-id this.publication.document.id}}
+    @disabled={{this.disabled}}
+  />
+{{/if}}
+
+{{#if this.createPublicationWorkItem }}
+  <UkButton
+    @color="primary"
+    @disabled={{this.createPublication.isRunning}}
+    @loading={{this.createPublication.isRunning}}
+    @on-click={{perform this.createPublication}}
+  >
+    {{t "publication.new"}}
+  </UkButton>
+{{/if}}

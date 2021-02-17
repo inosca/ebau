@@ -1,0 +1,20 @@
+<span {{did-insert (perform this.fetchPublications)}}></span>
+
+<Notifications @style="uikit" />
+
+<ul class="uk-nav">
+  {{#each this.publications as |publication|}}
+    <li>
+      <LinkTo
+        @route="publication.edit"
+        @model={{decode-id publication.id}}
+      >
+        {{t "publication.publicationOf"}} {{moment-format publication.createdAt "DD.MM.YYYY"}} ({{t (concat "publication." publication.status)}})
+      </LinkTo>
+    </li>
+  {{/each}}
+</ul>
+
+<hr>
+
+{{outlet}}
