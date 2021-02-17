@@ -30,31 +30,37 @@
     <label class="uk-form-label" for="responsible-user-select">
       {{t "responsible.responsible"}}
     </label>
-    <PowerSelect
-      @searchEnabled={{true}}
-      @searchField="fullName"
-      @renderInPlace={{true}}
-      @options={{this.fetchedUsers}}
-      @selected={{this.selectedUser}}
-      @noMatchesMessage={{t "global.noMatch"}}
-      @onChange={{fn (mut this.selectedUser)}}
-      @allowClear={{true}}
-      class="uk-form-controls"
-      id="responsible-user-select"
-      data-test-responsible-user-select as |user|
-    >
-      {{user.fullName}}
-    </PowerSelect>
-    <div class="uk-text-right uk-margin">
-      <button
-        disabled={{not this.selectedUser}}
-        title={{if this.selectedUser "" (t "responsible.noResponsibleChosen")}}
-        class="uk-button uk-button-primary"
-        type="submit"
-        data-test-save-responsible
-      >
-        {{t "global.save"}}
-      </button>
+    <div uk-grid>
+      <div class="uk-width-expand">
+        <PowerSelect
+          @searchEnabled={{true}}
+          @searchField="fullName"
+          @renderInPlace={{true}}
+          @options={{this.fetchedUsers}}
+          @selected={{this.selectedUser}}
+          @noMatchesMessage={{t "global.noMatch"}}
+          @onChange={{fn (mut this.selectedUser)}}
+          @allowClear={{true}}
+          class="uk-form-controls"
+          id="responsible-user-select"
+          data-test-responsible-user-select as |user|
+        >
+          {{user.fullName}}
+        </PowerSelect>
+      </div>
+      <div>
+        <div class="uk-text-right uk-margin">
+          <button
+            disabled={{not this.selectedUser}}
+            title={{if this.selectedUser "" (t "responsible.noResponsibleChosen")}}
+            class="uk-button uk-button-primary"
+            type="submit"
+            data-test-save-responsible
+          >
+            {{t "global.save"}}
+          </button>
+        </div>
+      </div>
     </div>
   </form>
 {{/if}}
