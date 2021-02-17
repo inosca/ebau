@@ -1,5 +1,7 @@
 import json
 import re
+from collections import namedtuple
+from io import StringIO
 from logging import getLogger
 from uuid import uuid4
 
@@ -11,6 +13,7 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.contrib.postgres.fields.jsonb import KeyTextTransform
 from django.core.files.base import ContentFile
+from django.core.management import call_command
 from django.db import transaction
 from django.db.models import Max, Q
 from django.utils import timezone
@@ -1531,6 +1534,36 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
 
     class Meta:
         resource_name = "instance-change-responsible-services"
+
+
+class CalumaInstanceFixWorkItemsSerializer(serializers.Serializer):
+    dry = serializers.BooleanField(default=True)
+    sync_circulation = serializers.BooleanField(default=True)
+    output = serializers.CharField()
+
+    def update(self, instance, validated_data):
+        output = StringIO()
+
+        call_command(
+            "fix_work_items",
+            instance=instance.pk,
+            no_color=True,
+            stdout=output,
+            **validated_data,
+        )
+
+        Response = namedtuple("Response", ("dry", "sync_circulation", "output", "pk"))
+
+        return Response(**validated_data, output=output.getvalue(), pk=None)
+
+    class Meta:
+        resource_name = "instance-fix-work-items"
+        fields = (
+            "dry",
+            "sync_circulation",
+            "output",
+        )
+        read_only_fields = ("output",)
 
 
 class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
