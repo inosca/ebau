@@ -237,22 +237,22 @@ class InstanceView(
 
         return response
 
+    def _get_field_value(self, name):
+        try:
+            return self.get_object().fields.get(name=name).value
+        except ObjectDoesNotExist:
+            return None
+
     @action(methods=["get"], detail=True)
     def gwr_data(self, request, pk):
         """Export instance data to GWR."""
-
-        def get_field_value(name):
-            try:
-                return instance.fields.get(name=name).value
-            except ObjectDoesNotExist:
-                return None
 
         if settings.APPLICATION["FORM_BACKEND"] == "caluma":  # pragma: no cover
             return response.Response(status=status.HTTP_404_NOT_FOUND)
 
         instance = self.get_object()
 
-        clients = get_field_value("bauherrschaft")
+        clients = self._get_field_value("bauherrschaft")
         client = clients[0] if clients else None
 
         workflow_submit_item = settings.APPLICATION.get("WORKFLOW_ITEMS", {}).get(
@@ -267,8 +267,8 @@ class InstanceView(
 
         return response.Response(
             {
-                "constructionProjectDescription": get_field_value("bezeichnung"),
-                "totalCostsOfProject": get_field_value("baukosten"),
+                "constructionProjectDescription": self._get_field_value("bezeichnung"),
+                "totalCostsOfProject": self._get_field_value("baukosten"),
                 "client": {
                     "address": {
                         "town": client["ort"],
