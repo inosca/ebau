@@ -15,7 +15,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
                 decision=DECISIONS_BEWILLIGT,
             ).exists()
         ):
-            return ["sb1", "create-manual-workitems"]
+            return ["sb1", "create-manual-workitems", "create-publication"]
 
         return []
 

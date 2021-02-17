@@ -1,0 +1,8 @@
+publication:
+  new: "Créer une nouvelle publication"
+  loadingError: "Erreur lors du téléchargement de la publication"
+  createError: "Erreur lors de la création de la publication"
+  publicationOf: "Publication du "
+  COMPLETED: "Complété"
+  SKIPPED: "Complété"
+  READY: "En cours"

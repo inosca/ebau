@@ -453,7 +453,14 @@ APPLICATIONS = {
             "surname",
         ],
         "CALUMA": {
-            "FORM_PERMISSIONS": ["main", "sb1", "sb2", "nfd", "dossierpruefung"],
+            "FORM_PERMISSIONS": [
+                "main",
+                "sb1",
+                "sb2",
+                "nfd",
+                "dossierpruefung",
+                "publikation",
+            ],
             "CIRCULATION_WORKFLOW": "circulation",
             "CIRCULATION_TASK": "circulation",
             "CIRCULATION_FORM": "circulation",
@@ -531,14 +538,21 @@ APPLICATIONS = {
                 "init-circulation": {"cancel": ["skip-circulation"]},
                 "start-circulation": {"cancel": ["check-activation", "start-decision"]},
                 "decision": {
-                    "skip": ["audit", "publication"],
-                    "cancel": ["reopen-circulation", "create-manual-workitems"],
+                    "skip": ["audit", "publication", "fill-publication"],
+                    "cancel": [
+                        "reopen-circulation",
+                        "create-manual-workitems",
+                        "create-publication",
+                    ],
                     "complete": ["nfd"],
                 },
                 "reopen-circulation": {"cancel": ["decision"]},
                 "complete": {
-                    "skip": ["check-sb1", "check-sb2"],
-                    "cancel": ["create-manual-workitems"],
+                    "skip": ["check-sb1", "check-sb2", "fill-publication"],
+                    "cancel": [
+                        "create-manual-workitems",
+                        "create-publication",
+                    ],
                 },
             },
             "HAS_PROJECT_CHANGE": True,
@@ -584,6 +598,7 @@ APPLICATIONS = {
                 "personalien-sb",
                 "parzelle",
             ],
+            "PUBLICATION_FORM": "publikation",
         },
         "PORTAL_GROUP": 6,
         "DEMO_MODE_GROUPS": [
@@ -1155,6 +1170,21 @@ APPLICATIONS["kt_bern"]["DUMP_CONFIG_GROUPS"] = {
         "caluma_form.Answer": Q(
             question__forms__pk__in=APPLICATIONS["kt_bern"]["CALUMA"]["AUDIT_FORMS"],
             document__isnull=True,
+        ),
+    },
+    "caluma_publication_form": {
+        "caluma_form.Option": Q(
+            questions__forms__pk=APPLICATIONS["kt_bern"]["CALUMA"]["PUBLICATION_FORM"]
+        ),
+        "caluma_form.Question": Q(
+            forms__pk=APPLICATIONS["kt_bern"]["CALUMA"]["PUBLICATION_FORM"]
+        ),
+        "caluma_form.Form": Q(pk=APPLICATIONS["kt_bern"]["CALUMA"]["PUBLICATION_FORM"]),
+        "caluma_form.QuestionOption": Q(
+            question__forms__pk=APPLICATIONS["kt_bern"]["CALUMA"]["PUBLICATION_FORM"]
+        ),
+        "caluma_form.FormQuestion": Q(
+            form__pk=APPLICATIONS["kt_bern"]["CALUMA"]["PUBLICATION_FORM"]
         ),
     },
 }

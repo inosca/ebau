@@ -3,9 +3,21 @@ mutation CreateMigratedWorkflow {
     input: {
       slug: "migrated"
       name: "Migriertes Dossier"
-      startTasks: ["decision", "create-manual-workitems"]
+      startTasks: ["fill-publication", "decision", "create-manual-workitems"]
       allowForms: ["migriertes-dossier"]
       isPublished: true
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "migrated"
+      tasks: ["fill-publication"]
+      next: "'create-publication'|task"
     }
   ) {
     clientMutationId
