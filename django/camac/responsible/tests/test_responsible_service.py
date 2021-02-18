@@ -25,14 +25,14 @@ def test_responsible_service_list(admin_client, responsible_service):
 )
 def test_responsible_service_create(
     admin_client,
-    group_factory,
     instance,
     service,
     admin_user,
     status_code,
-    instance_service,
     activation,
+    work_item_factory,
 ):
+    work_item = work_item_factory(addressed_groups=[instance.group.service.pk])
 
     url = reverse("responsibleservice-list")
 
@@ -50,11 +50,14 @@ def test_responsible_service_create(
     response = admin_client.post(url, data=data)
     assert response.status_code == status_code
     json = response.json()
+
     if status_code == status.HTTP_201_CREATED:
         assert (
             int(json["data"]["relationships"]["instance"]["data"]["id"])
             == instance.instance_id
         )
+        work_item.refresh_from_db()
+        assert work_item.assigned_users[0] == instance.user.username
 
 
 @pytest.mark.parametrize(
@@ -71,9 +74,11 @@ def test_responsible_service_update(
     status_code,
     activation,
     service,
-    group_factory,
     instance,
+    work_item_factory,
+    admin_user,
 ):
+    work_item = work_item_factory(addressed_groups=[responsible_service.service.pk])
 
     url = reverse("responsibleservice-detail", args=[responsible_service.pk])
 
@@ -99,4 +104,8 @@ def test_responsible_service_update(
     if status_code == status.HTTP_200_OK:
         assert (
             int(json["data"]["relationships"]["instance"]["data"]["id"]) == instance.pk
+        )
+        work_item.refresh_from_db()
+        assert (
+            work_item.assigned_users[0] == responsible_service.responsible_user.username
         )
