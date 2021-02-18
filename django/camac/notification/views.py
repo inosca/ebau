@@ -1,5 +1,4 @@
 from django.db.models import Q
-from django.shortcuts import get_object_or_404
 from django.utils.translation import gettext as _
 from rest_framework import response, status, viewsets
 from rest_framework.decorators import action
@@ -7,30 +6,7 @@ from rest_framework.decorators import action
 from camac.user.permissions import permission_aware
 
 from . import filters, models, serializers
-
-
-def send_mail(
-    slug,
-    context,
-    serializer=serializers.NotificationTemplateSendmailSerializer,
-    **kwargs,
-):
-    """Call a SendmailSerializer based on a NotificationTemplate Slug."""
-    notification_template = get_object_or_404(models.NotificationTemplate, slug=slug)
-
-    data = {
-        "notification_template": {
-            "type": "notification-templates",
-            "id": notification_template.pk,
-        },
-        **kwargs,
-    }
-
-    serializer = serializer(data=data, context=context)
-    serializer.is_valid(raise_exception=True)
-    serializer.save()
-
-    return serializer
+from .utils import send_mail
 
 
 class NotificationTemplateView(viewsets.ModelViewSet):

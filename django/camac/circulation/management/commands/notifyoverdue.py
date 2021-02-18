@@ -38,7 +38,7 @@ from camac.core.models import Activation, ActivationCallbackNotice
 from camac.notification.serializers import (
     PermissionlessNotificationTemplateSendmailSerializer,
 )
-from camac.notification.views import send_mail
+from camac.notification.utils import send_mail
 
 Notification = namedtuple(
     "Notification", ["activation", "template_slug", "recipient_type"]

@@ -10,7 +10,7 @@ from camac.core.models import Activation
 from camac.notification.serializers import (
     PermissionlessNotificationTemplateSendmailSerializer,
 )
-from camac.notification.views import send_mail
+from camac.notification.utils import send_mail
 from camac.user.models import Service, User
 
 TEMPLATE_REMINDER_CIRCULATION = "05-meldung-fristuberschreitung-fachstelle"

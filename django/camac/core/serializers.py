@@ -10,7 +10,7 @@ from camac.instance.models import Instance
 from camac.notification.serializers import (
     PermissionlessNotificationTemplateSendmailSerializer,
 )
-from camac.notification.views import send_mail
+from camac.notification.utils import send_mail
 from camac.user.models import User
 
 from . import models

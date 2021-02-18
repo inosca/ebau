@@ -27,8 +27,8 @@ class CamacAuthenticatedGraphQLView(AuthenticationGraphQLView):
             # service in camac) and add CAMAC role
             if camac_request.group:
                 oidc_user.role = camac_request.group.role.name
-                if camac_request.group.service_id:
-                    oidc_user.group = camac_request.group.service_id
+                oidc_user.camac_group = camac_request.group.pk
+                oidc_user.group = camac_request.group.service_id
 
             # Set the camac_user property on the caluma request
             request.camac_user = camac_request.user
