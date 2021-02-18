@@ -439,7 +439,6 @@ def test_audit_history(
     )
 
 
-@pytest.mark.parametrize("role__name", ["Support"])
 @pytest.mark.parametrize(
     "workflow,decision,expected_instance_state,expected_text",
     [
@@ -470,6 +469,7 @@ def test_complete_decision(
     role,
     instance_service_factory,
     notification_template,
+    activation,
     service_factory,
     docx_decision_factory,
     workflow_factory,
@@ -511,7 +511,13 @@ def test_complete_decision(
                 "template_slug": notification_template.slug,
                 "recipient_types": ["applicant"],
             }
-        ]
+        ],
+        "DECISION_PRELIMINARY_CLARIFICATION": [
+            {
+                "template_slug": notification_template.slug,
+                "recipient_types": ["applicant"],
+            }
+        ],
     }
 
     case.workflow = workflow_factory(slug=workflow)
@@ -527,7 +533,7 @@ def test_complete_decision(
         sender="post_complete_work_item",
         work_item=work_item,
         user=caluma_admin_user,
-        context={"group_id": group.pk},
+        context={},
     )
 
     instance.refresh_from_db()
@@ -573,9 +579,6 @@ def test_complete_simple_workflow(
 ):
     work_item = work_item_factory(task=task_factory(slug=task))
     instance_state = instance_state_factory(name=expected_instance_state)
-    group = admin_user.groups.first()
-    group.role = role_factory(name="support")
-    group.save()
 
     notification = {
         "template_slug": notification_template.slug,
@@ -594,7 +597,7 @@ def test_complete_simple_workflow(
         sender="post_complete_work_item",
         work_item=work_item,
         user=caluma_admin_user,
-        context={"group_id": group.pk},
+        context={},
     )
 
     instance.refresh_from_db()

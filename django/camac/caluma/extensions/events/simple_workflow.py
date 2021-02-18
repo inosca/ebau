@@ -5,10 +5,7 @@ from django.db import transaction
 
 from camac.core.utils import create_history_entry
 from camac.instance.models import InstanceState
-from camac.notification.serializers import (
-    PermissionlessNotificationTemplateSendmailSerializer,
-)
-from camac.notification.views import send_mail
+from camac.notification.utils import send_mail_without_request
 from camac.user.models import User
 
 from .general import get_caluma_setting, get_instance
@@ -47,7 +44,7 @@ def post_complete_simple_workflow(sender, work_item, user, context, **kwargs):
                 sender=f"post_complete_{work_item.task_id.replace('-', '_')}",
                 instance=instance,
                 user_pk=camac_user.pk,
-                group_pk=context.get("group-id"),
+                group_pk=user.camac_group,
             )
 
         if history_text:
@@ -55,10 +52,17 @@ def post_complete_simple_workflow(sender, work_item, user, context, **kwargs):
             create_history_entry(instance, camac_user, history_text)
 
         if notification:
-            send_mail(
+            additional_data = (
+                {"body": context.get("notification-body")}
+                if context.get("notification-body")
+                else {}
+            )
+
+            send_mail_without_request(
                 notification["template_slug"],
-                context={},
+                user.username,
+                user.camac_group,
                 instance={"id": instance.pk, "type": "instances"},
                 recipient_types=notification["recipient_types"],
-                serializer=PermissionlessNotificationTemplateSendmailSerializer,
+                **additional_data,
             )
