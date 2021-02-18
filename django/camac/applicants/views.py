@@ -2,7 +2,7 @@ from django.conf import settings
 from rest_framework import viewsets
 
 from camac.instance.mixins import InstanceQuerysetMixin
-from camac.notification.views import send_mail
+from camac.notification.utils import send_mail
 from camac.user.permissions import permission_aware
 
 from . import filters, models, serializers

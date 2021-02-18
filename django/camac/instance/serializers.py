@@ -37,7 +37,7 @@ from camac.echbern.signals import (
     sb2_submitted,
 )
 from camac.instance.mixins import InstanceEditableMixin
-from camac.notification.views import send_mail
+from camac.notification.utils import send_mail
 from camac.user.models import Group, Service
 from camac.user.permissions import permission_aware
 from camac.user.relations import (
@@ -1383,7 +1383,6 @@ class CalumaInstanceSetEbauNumberSerializer(serializers.Serializer):
             workflow_api.complete_work_item(
                 work_item=work_item,
                 user=self.context["request"].caluma_info.context.user,
-                context={"group-id": self.context["request"].group.pk},
             )
 
     @transaction.atomic

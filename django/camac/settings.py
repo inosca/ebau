@@ -429,6 +429,20 @@ APPLICATIONS = {
             },
             "DECISION": [
                 {
+                    "template_slug": "08-entscheid-gesuchsteller",
+                    "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "08-entscheid-gemeindeleitbehorde",
+                    "recipient_types": ["leitbehoerde"],
+                },
+                {
+                    "template_slug": "08-entscheid-amts-und-fachstellen",
+                    "recipient_types": ["service"],
+                },
+            ],
+            "DECISION_PRELIMINARY_CLARIFICATION": [
+                {
                     "template_slug": "08-stellungnahme-zu-voranfrage-gesuchsteller",
                     "recipient_types": ["applicant"],
                 },

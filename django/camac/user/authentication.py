@@ -36,12 +36,17 @@ class CalumaInfo:
     It may need to be expanded in the future.
     """
 
-    def __init__(self, userinfo, token=None):
-        self.context = CalumaInfo._Context(userinfo, token)
+    def __init__(self, userinfo, request, token=None):
+        self.context = CalumaInfo._Context(userinfo, request, token)
 
     class _Context:
-        def __init__(self, userinfo, token):
+        def __init__(self, userinfo, request, token):
             self.user = caluma_user_models.OIDCUser(token=token, userinfo=userinfo)
+
+            if hasattr(request, "group"):
+                self.user.role = request.group.role.name
+                self.user.camac_group = request.group.pk
+                self.user.group = request.group.service_id
 
 
 class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
@@ -79,7 +84,7 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
         )
         # attach caluma info to request, as it's possible to do in middleware
         # (requires token info)
-        request.caluma_info = CalumaInfo(userinfo[1], jwt_value)
+        request.caluma_info = CalumaInfo(userinfo[1], request, jwt_value)
 
         return userinfo
 
