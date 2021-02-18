@@ -19,7 +19,7 @@ from camac.caluma.api import CalumaApi
 from camac.core.models import InstanceService, WorkflowEntry
 from camac.core.views import SendfileHttpResponse
 from camac.document.models import Attachment, AttachmentSection
-from camac.notification.views import send_mail
+from camac.notification.utils import send_mail
 from camac.user.permissions import permission_aware
 from camac.utils import DocxRenderer
 

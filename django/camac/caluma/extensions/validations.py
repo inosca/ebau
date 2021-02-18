@@ -5,7 +5,7 @@ from caluma.caluma_form.schema import SaveDocumentStringAnswer
 from camac.caluma.api import CamacRequest
 from camac.echbern.signals import file_subsequently
 from camac.instance.models import Instance
-from camac.notification.views import send_mail
+from camac.notification.utils import send_mail
 
 CLAIM_QUESTION = "nfd-tabelle-table"
 CLAIM_STATUS_QUESTION = "nfd-tabelle-status"

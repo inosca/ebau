@@ -110,11 +110,7 @@ class BaseSendHandler:
         )
 
         if work_item and fn:
-            fn(
-                work_item=work_item,
-                user=self.caluma_user,
-                context={"group-id": self.group.pk, **context},
-            )
+            fn(work_item=work_item, user=self.caluma_user, context=context)
 
     def has_permission(self):
         return self.instance.responsible_service() == self.group.service, None
