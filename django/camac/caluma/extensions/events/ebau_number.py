@@ -34,7 +34,7 @@ def post_complete_ebau_number(sender, work_item, user, context, **kwargs):
                 sender="post_complete_work_item",
                 instance=instance,
                 user_pk=camac_user.pk,
-                group_pk=context.get("group-id"),
+                group_pk=user.camac_group,
             )
 
         # create history entry

@@ -13,10 +13,7 @@ from camac.core.utils import create_history_entry
 from camac.echbern.signals import ruling
 from camac.instance.models import InstanceState
 from camac.instance.utils import set_construction_control
-from camac.notification.serializers import (
-    PermissionlessNotificationTemplateSendmailSerializer,
-)
-from camac.notification.views import send_mail
+from camac.notification.utils import send_mail_without_request
 from camac.user.models import User
 
 from .general import get_caluma_setting, get_instance
@@ -76,17 +73,24 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
             sender="post_complete_decision",
             instance=instance,
             user_pk=camac_user.pk,
-            group_pk=context.get("group-id"),
+            group_pk=user.camac_group,
+        )
+
+        notification_config = settings.APPLICATION["NOTIFICATIONS"].get(
+            "DECISION_PRELIMINARY_CLARIFICATION"
+            if workflow == "preliminary-clarification"
+            else "DECISION",
+            [],
         )
 
         # send notifications to applicant, municipality and all involved services
-        for config in settings.APPLICATION["NOTIFICATIONS"].get("DECISION", []):
-            send_mail(
+        for config in notification_config:
+            send_mail_without_request(
                 config["template_slug"],
-                context={},
+                user.username,
+                user.camac_group,
                 instance={"id": instance.pk, "type": "instances"},
                 recipient_types=config["recipient_types"],
-                serializer=PermissionlessNotificationTemplateSendmailSerializer,
             )
 
         # create history entry
