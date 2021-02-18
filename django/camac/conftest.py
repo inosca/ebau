@@ -8,7 +8,7 @@ from caluma.caluma_form import (
     factories as caluma_form_factories,
     models as caluma_form_models,
 )
-from caluma.caluma_user.models import BaseUser
+from caluma.caluma_user.models import OIDCUser
 from caluma.caluma_workflow import (
     factories as caluma_workflow_factories,
     models as caluma_workflow_models,
@@ -19,6 +19,7 @@ from django.core.management import call_command
 from django.utils import timezone
 from factory import Faker
 from factory.base import FactoryMetaClass
+from jwt import encode as jwt_encode
 from pytest_factoryboy import register
 from pytest_factoryboy.fixture import get_model_name
 from rest_framework import status
@@ -115,8 +116,7 @@ class FakeRequest:
 
 
 @pytest.fixture
-def request_mock(mocker):
-    admin_uuid = "462afaba-aeb7-494a-8596-3497b81ed701"
+def request_mock(mocker, admin_user, group):
     request_mock = mocker.patch(
         "django.test.client.WSGIRequest.caluma_info",
         new_callable=mocker.PropertyMock,
@@ -124,9 +124,10 @@ def request_mock(mocker):
     )
     request_mock.return_value = CalumaInfo(
         {
-            "sub": admin_uuid,
-            settings.OIDC_USERNAME_CLAIM: admin_uuid,
-        }
+            "sub": admin_user.username,
+            settings.OIDC_USERNAME_CLAIM: admin_user.username,
+        },
+        FakeRequest(user=admin_user, group=group),
     )
 
 
@@ -146,12 +147,27 @@ def admin_user(admin_user, group, group_location, user_group_factory):
 
 
 @pytest.fixture
-def caluma_admin_user(admin_user):
-    class FakeUser(BaseUser):
-        def __str__(self):
-            return self.username
+def token(admin_user):
+    return jwt_encode(
+        {"aud": admin_user.groups.first().name, "username": "joël-tester"}, "secret"
+    )
 
-    return FakeUser(username=admin_user.username)
+
+@pytest.fixture
+def caluma_admin_user(admin_user, group, token):
+    user = OIDCUser(
+        token=token,
+        userinfo={
+            settings.OIDC_USERNAME_CLAIM: admin_user.username,
+            settings.OIDC_GROUPS_CLAIM: [group.service_id],
+            "sub": admin_user.username,
+        },
+    )
+
+    user.role = group.role.name
+    user.camac_group = group.pk
+
+    return user
 
 
 @pytest.fixture

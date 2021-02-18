@@ -1,24 +1,7 @@
 import functools
 
 import pytest
-from caluma.caluma_user.models import OIDCUser
 from caluma.schema import schema
-from jwt import encode as jwt_encode
-
-
-@pytest.fixture
-def token(admin_user):
-    return jwt_encode(
-        {"aud": admin_user.groups.first().name, "username": "joël-tester"}, "secret"
-    )
-
-
-@pytest.fixture
-def caluma_admin_user(settings, token, admin_user):
-    return OIDCUser(
-        token,
-        {settings.OIDC_USERNAME_CLAIM: admin_user.username, "sub": admin_user.username},
-    )
 
 
 @pytest.fixture
