@@ -4,7 +4,7 @@ from caluma.caluma_user.models import OIDCUser
 from caluma.caluma_user.views import AuthenticationGraphQLView, HttpResponseUnauthorized
 from graphene_django.views import HttpError
 
-from camac.caluma.api import CamacRequest
+from camac.caluma.utils import CamacRequest, extend_user
 from camac.user.models import User
 
 
@@ -23,12 +23,7 @@ class CamacAuthenticatedGraphQLView(AuthenticationGraphQLView):
             Info = namedtuple("Info", "context")
             camac_request = CamacRequest(Info(context=request)).request
 
-            # Patch the caluma user to have the right group (which is the
-            # service in camac) and add CAMAC role
-            if camac_request.group:
-                oidc_user.role = camac_request.group.role.name
-                oidc_user.camac_group = camac_request.group.pk
-                oidc_user.group = camac_request.group.service_id
+            extend_user(oidc_user, camac_request)
 
             # Set the camac_user property on the caluma request
             request.camac_user = camac_request.user
