@@ -20,3 +20,13 @@ support:
 
     confirm: "Wollen Sie den Dossiertyp wirklich ändern?"
     error: "Fehler beim Ändern des Dossiertyps"
+
+  fix-work-items:
+    title: "Aufgaben reparieren"
+    description: "Hier können falsche Zustände von Aufgaben welche durch einen Fehler im System entstanden sind behoben werden. Diese Funktion sollte nur von Benutzern genutzt werden, welche wissen was sie tun."
+    dry: "Probelauf"
+    sync-circulation: "Zirkulation synchronisieren"
+    send: "Senden"
+
+    confirm: "Wollen Sie den Befehl wirklich absenden?"
+    error: "Fehler beim Reparieren der Aufgaben"
