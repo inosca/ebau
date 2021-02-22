@@ -1,4 +1,3 @@
-from copy import copy
 from functools import reduce
 from logging import getLogger
 
@@ -14,10 +13,8 @@ from caluma.caluma_workflow.utils import get_jexl_groups
 from django.conf import settings
 from django.db.models import Count, Q
 from django.utils.timezone import now
-from jwt import decode as jwt_decode
 
-from camac.user.middleware import get_group
-from camac.user.models import Service, User
+from camac.user.models import Service
 
 log = getLogger(__name__)
 
@@ -530,25 +527,3 @@ class CalumaApi:
 
         if work_item:
             caluma_workflow_api.complete_work_item(work_item, user)
-
-
-class CamacRequest:
-    """
-    A camac request object built from the given caluma info object.
-
-    The request attribute holds a shallow copy of `info.context` with translated
-    values where needed (user, group, etc.).
-    """
-
-    def __init__(self, info):
-        self.request = copy(info.context)
-        oidc_user = self.request.user
-        self.request.user = self._get_camac_user(oidc_user)
-        self.request.auth = jwt_decode(oidc_user.token, verify=False)
-        camac_group = get_group(self.request)
-        self.request.group = camac_group
-        self.request.oidc_user = oidc_user
-        self.request.query_params = self.request.GET
-
-    def _get_camac_user(self, oidc_user):
-        return User.objects.get(username=oidc_user.username)

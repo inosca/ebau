@@ -1,7 +1,6 @@
 import hashlib
 import logging
 
-from caluma.caluma_user import models as caluma_user_models
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core.cache import cache
@@ -23,30 +22,6 @@ from camac.instance.models import Instance
 from camac.user.models import Group, UserGroup
 
 request_logger = logging.getLogger("django.request")
-
-
-class CalumaInfo:
-    """A caluma info object built from the given camac request.
-
-    Caluma requires an "info" object in various places, representing
-    the GraphQL request, user, etc; similar to the context in
-    DRF views.
-
-    This info object is limited and only contains what's actually needed.
-    It may need to be expanded in the future.
-    """
-
-    def __init__(self, userinfo, request, token=None):
-        self.context = CalumaInfo._Context(userinfo, request, token)
-
-    class _Context:
-        def __init__(self, userinfo, request, token):
-            self.user = caluma_user_models.OIDCUser(token=token, userinfo=userinfo)
-
-            if hasattr(request, "group"):
-                self.user.role = request.group.role.name
-                self.user.camac_group = request.group.pk
-                self.user.group = request.group.service_id
 
 
 class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
@@ -77,16 +52,11 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
         # token might be too long for key so we use hash sum instead.
         token_hash = hashlib.sha1(force_bytes(jwt_value)).hexdigest()
 
-        userinfo = cache.get_or_set(
+        return cache.get_or_set(
             "authentication.userinfo.%s" % token_hash,
             lambda: self._verify_token(jwt_value),
             timeout=settings.OIDC_BEARER_TOKEN_REVALIDATION_TIME,
         )
-        # attach caluma info to request, as it's possible to do in middleware
-        # (requires token info)
-        request.caluma_info = CalumaInfo(userinfo[1], request, jwt_value)
-
-        return userinfo
 
     def _verify_token(self, jwt_value):  # noqa: C901
         keycloak = KeycloakOpenID(
