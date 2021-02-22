@@ -4,7 +4,7 @@ from django.conf import settings
 from manabi.auth import ManabiAuthenticator
 from manabi.filesystem import ManabiProvider
 from manabi.lock import ManabiLockLockStorage
-from manabi.log import verbose_logging
+from manabi.log import HeaderLogger, verbose_logging
 from wsgidav.debug_filter import WsgiDavDebugFilter  # type: ignore
 from wsgidav.dir_browser import WsgiDavDirBrowser  # type: ignore
 from wsgidav.error_printer import ErrorPrinter  # type: ignore
@@ -29,6 +29,7 @@ def get_dav():
                 "/": ManabiProvider(settings.MEDIA_ROOT),
             },
             "middleware_stack": [
+                HeaderLogger,
                 WsgiDavDebugFilter,
                 ErrorPrinter,
                 ManabiAuthenticator,
