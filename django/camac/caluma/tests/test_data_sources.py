@@ -15,8 +15,8 @@ from ..extensions.data_sources import (
     "role,expected_count", [("Portal User", 1), ("Some internal role", 2)]
 )
 def test_locations(db, role, location_factory, expected_count):
-    User = namedtuple("OIDCUser", "role")
-    user = User(role=role)
+    User = namedtuple("OIDCUser", "camac_role")
+    user = User(camac_role=role)
 
     location_factory(name="Foo", zip=123)
     location_factory(name="Foo", zip=None)
@@ -30,8 +30,8 @@ def test_locations(db, role, location_factory, expected_count):
     [("Koordinationsstelle Baugesuche BG", 4), ("Something else", 0)],
 )
 def test_mitberichtsverfahren(db, role, location_factory, expected_count):
-    User = namedtuple("OIDCUser", "role")
-    user = User(role=role)
+    User = namedtuple("OIDCUser", "camac_role")
+    user = User(camac_role=role)
 
     location_factory(name="Foo", zip=123)
     location_factory(name="Foo", zip=None)

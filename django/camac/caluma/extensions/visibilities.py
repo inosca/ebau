@@ -7,7 +7,7 @@ from caluma.caluma_user.visibilities import Authenticated
 from caluma.caluma_workflow import schema as workflow_schema
 from django.db.models import F, Q
 
-from camac.caluma.api import CamacRequest
+from camac.caluma.utils import CamacRequest
 from camac.constants.kt_bern import DASHBOARD_FORM_SLUG
 from camac.instance.filters import CalumaInstanceFilterSet
 from camac.instance.mixins import InstanceQuerysetMixin
