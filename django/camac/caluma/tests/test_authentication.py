@@ -19,7 +19,7 @@ def test_authenticate_caluma(rf, settings, admin_user, group, mocker):
     )
     userinfo.return_value = token_value
 
-    mocker.patch("camac.caluma.api.jwt_decode")
+    mocker.patch("camac.caluma.utils.jwt_decode")
 
     request = rf.request(HTTP_AUTHORIZATION="Bearer some_token", X_CAMAC_GROUP=group.pk)
 
@@ -41,7 +41,7 @@ def test_unauthorized_caluma(rf, mocker, settings, has_token, username):
         )
         userinfo.return_value = {settings.OIDC_USERNAME_CLAIM: username}
         settings.OIDC_USERINFO_ENDPOINT = "http://fake-endpoint.local"
-        mocker.patch("camac.caluma.api.jwt_decode")
+        mocker.patch("camac.caluma.utils.jwt_decode")
     else:
         headers = {}
 

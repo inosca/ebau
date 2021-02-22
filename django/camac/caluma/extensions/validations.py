@@ -2,7 +2,7 @@ from caluma.caluma_core.validations import BaseValidation, validation_for
 from caluma.caluma_form.models import Answer
 from caluma.caluma_form.schema import SaveDocumentStringAnswer
 
-from camac.caluma.api import CamacRequest
+from camac.caluma.utils import CamacRequest
 from camac.echbern.signals import file_subsequently
 from camac.instance.models import Instance
 from camac.notification.utils import send_mail
