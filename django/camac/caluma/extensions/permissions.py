@@ -29,7 +29,7 @@ from caluma.caluma_workflow.schema import (
 from django.conf import settings
 from django.db.models import Q
 
-from camac.caluma.api import CamacRequest
+from camac.caluma.utils import CamacRequest
 from camac.constants.kt_bern import DASHBOARD_FORM_SLUG
 from camac.instance.models import Instance
 from camac.utils import build_url, headers

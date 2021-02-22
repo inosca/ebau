@@ -26,6 +26,7 @@ from rest_framework import status
 from rest_framework.test import APIClient, APIRequestFactory
 
 from camac.applicants import factories as applicant_factories
+from camac.caluma.utils import CalumaInfo
 from camac.core import factories as core_factories
 from camac.document import factories as document_factories
 from camac.document.tests.data import django_file
@@ -36,7 +37,6 @@ from camac.notification import factories as notification_factories
 from camac.objection import factories as objection_factories
 from camac.responsible import factories as responsible_factories
 from camac.user import factories as user_factories
-from camac.user.authentication import CalumaInfo
 from camac.user.models import Group, User
 from camac.utils import build_url
 
@@ -112,22 +112,30 @@ CALUMA_FORM_TYPES_SLUGS = [
 class FakeRequest:
     group: Group
     user: User
+    auth: dict = field(default_factory=dict)
     query_params: dict = field(default_factory=dict)
+    META: dict = field(default_factory=dict)
 
 
 @pytest.fixture
 def request_mock(mocker, admin_user, group):
+    auth = {
+        "sub": admin_user.username,
+        settings.OIDC_USERNAME_CLAIM: admin_user.username,
+    }
+
     request_mock = mocker.patch(
         "django.test.client.WSGIRequest.caluma_info",
         new_callable=mocker.PropertyMock,
         create=True,
     )
     request_mock.return_value = CalumaInfo(
-        {
-            "sub": admin_user.username,
-            settings.OIDC_USERNAME_CLAIM: admin_user.username,
-        },
-        FakeRequest(user=admin_user, group=group),
+        FakeRequest(
+            user=admin_user,
+            group=group,
+            auth=auth,
+            META={"HTTP_AUTHORIZATION": f"Bearer {jwt_encode(auth,'secret')}"},
+        ),
     )
 
 
@@ -164,7 +172,7 @@ def caluma_admin_user(admin_user, group, token):
         },
     )
 
-    user.role = group.role.name
+    user.camac_role = group.role.name
     user.camac_group = group.pk
 
     return user
