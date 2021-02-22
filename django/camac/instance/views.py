@@ -135,6 +135,7 @@ class InstanceView(
                 "set_ebau_number": serializers.CalumaInstanceSetEbauNumberSerializer,
                 "archive": serializers.CalumaInstanceArchiveSerializer,
                 "change_form": serializers.CalumaInstanceChangeFormSerializer,
+                "fix_work_items": serializers.CalumaInstanceFixWorkItemsSerializer,
                 "default": serializers.CalumaInstanceSerializer,
             },
             "camac-ng": {
@@ -224,6 +225,13 @@ class InstanceView(
         return False
 
     def has_object_change_form_permission_for_support(self, instance):
+        return True
+
+    @permission_aware
+    def has_object_fix_work_items_permission(self, instance):
+        return False
+
+    def has_object_fix_work_items_permission_for_support(self, instance):
         return True
 
     @transaction.atomic
@@ -443,6 +451,10 @@ class InstanceView(
     @action(methods=["post"], detail=True, url_path="change-form")
     def change_form(self, request, pk=None):
         return self._custom_serializer_action(request, pk, status.HTTP_204_NO_CONTENT)
+
+    @action(methods=["post"], detail=True, url_path="fix-work-items")
+    def fix_work_items(self, request, pk=None):
+        return self._custom_serializer_action(request, pk)
 
 
 class InstanceResponsibilityView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
