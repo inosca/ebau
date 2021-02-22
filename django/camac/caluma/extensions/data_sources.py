@@ -54,7 +54,7 @@ class Municipalities(BaseDataSource):
             and Service.objects.filter(
                 pk=user.group, service_group__name="district"
             ).exists()
-            or (hasattr(user, "role") and user.role == "support")
+            or (hasattr(user, "camac_role") and user.camac_role == "support")
         )
 
         if include_disabled:
@@ -84,7 +84,9 @@ class Locations(BaseDataSource):
 
     def get_data(self, user):
         cache_key = f"data_source_{type(self).__name__}"
-        include_special = hasattr(user, "role") and user.role != "Portal User"
+        include_special = (
+            hasattr(user, "camac_role") and user.camac_role != "Portal User"
+        )
 
         if include_special:
             cache_key += "_with_special"
@@ -190,9 +192,9 @@ class Mitberichtsverfahren(BaseDataSource):
     info = "List of different types of 'Mitberichtsverfahren' (role-dependent)"
 
     def get_data(self, user):
-        if not hasattr(user, "role"):  # pragma: no cover
+        if not hasattr(user, "camac_role"):  # pragma: no cover
             return []
-        return mapping.get(user.role, [])
+        return mapping.get(user.camac_role, [])
 
 
 class Services(BaseDataSource):
