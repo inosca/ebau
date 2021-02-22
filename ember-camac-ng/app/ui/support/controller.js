@@ -1,4 +1,5 @@
 import Controller from "@ember/controller";
+import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
@@ -19,6 +20,11 @@ export default class SupportController extends Controller {
 
   @tracked ebauNumber;
   @tracked _form;
+  @tracked output;
+  @tracked dry = true;
+  @tracked dryRunDone = false;
+  @tracked syncCirculation = false;
+  @tracked showAdvanced = false;
 
   get form() {
     return this.forms.find((form) => form.value === this._form);
@@ -26,6 +32,12 @@ export default class SupportController extends Controller {
 
   set form(event) {
     this._form = event.target.value;
+  }
+
+  @action updateSyncCirculation({ target: { checked: value } }) {
+    this.dry = true;
+    this.dryRunDone = false;
+    this.syncCirculation = value;
   }
 
   @dropTask
@@ -134,6 +146,38 @@ export default class SupportController extends Controller {
       location.reload();
     } catch (error) {
       this.notifications.error(this.intl.t("support.change-form.error"));
+    }
+  }
+
+  @dropTask
+  @confirmTask("support.fix-work-items.confirm")
+  *fixWorkItems() {
+    try {
+      this.output = "...";
+
+      const response = yield this.fetch.fetch(
+        `/api/v1/instances/${this.model}/fix-work-items`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            data: {
+              type: "instance-fix-work-items",
+              id: this.model,
+              attributes: {
+                dry: this.dry,
+                "sync-circulation": this.syncCirculation,
+              },
+            },
+          }),
+        }
+      );
+
+      const { data } = yield response.json();
+
+      this.output = data.attributes.output;
+      this.dryRunDone = true;
+    } catch (error) {
+      this.notifications.error(this.intl.t("support.fix-work-items.error"));
     }
   }
 }

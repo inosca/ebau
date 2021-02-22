@@ -16,6 +16,7 @@ from camac.core.models import Activation, Circulation
 from camac.instance.models import Instance, InstanceState
 
 REQUIRED_CONFIG = {
+    "subm": {"tasks": ["ebau-number"]},
     "circulation_init": {
         "tasks": ["skip-circulation", "init-circulation"],
         "condition": lambda case: not case.work_items.filter(
@@ -80,10 +81,10 @@ class Command(BaseCommand):
         self.fix_circulation_work_items()
         self.fix_closed()
         self.fix_wrongly_closed_cases()
+        self.fix_suspended_cases()
         if options["sync_circulation"]:
             self.fix_circulation()
         self.fix_required_tasks()
-        self.fix_suspended_cases()
 
         if len(self.fixed_instances.keys()):
             self.stdout.write("")
