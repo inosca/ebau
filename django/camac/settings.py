@@ -95,6 +95,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.middleware.common.CommonMiddleware",
     "camac.user.middleware.GroupMiddleware",
+    "camac.caluma.middleware.CalumaInfoMiddleware",
     "camac.middleware.LoggingMiddleware",
     "reversion.middleware.RevisionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
