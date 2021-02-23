@@ -476,7 +476,7 @@
       "language": "de",
       "purpose": "00 Empfang Anfrage/Baugesuch (Gesuchsteller)",
       "subject": "Erfolgreiche Einreichung / Formulaire d\u00e9pos\u00e9 avec succ\u00e8s",
-      "body": "Guten Tag\r\n\r\nIhr Dossier mit der Dossier-Nr. {{INSTANCE_ID}} wurde erfolgreich \u00fcbermittelt. Alle auf eBau hochgeladenen Pl\u00e4ne und Dokumente m\u00fcssen unterschrieben, datiert und in mindestens zweifacher Ausfertigung mit dem Gesuchsformular bei der zust\u00e4ndigen Gemeinde eingereicht werden. Das Gesuch wird erst bearbeitet, wenn die Gemeinde das Papierdossier erhalten hat.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nGerne m\u00f6chten wir erfahren wie einfach die elektronische Eingabe eines Gesuches war. Wir bitten Sie daher, sich 2 - 3 Minuten Zeit zu nehmen und den folgenden Fragebogen zu beantworten. Besten Dank.\r\n\r\nhttps://www.onlineumfragen.com/login.cfm?umfrage=87201\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nVotre dossier portant le num\u00e9ro de dossier {{INSTANCE_ID}} a \u00e9t\u00e9 d\u00e9pos\u00e9/e avec succ\u00e8s. Tous les plans et documents t\u00e9l\u00e9charg\u00e9s sur eBau doivent \u00eatre sign\u00e9s, dat\u00e9s et envoy\u00e9s en au moins deux exemplaires avec le formulaire de demande de permis de construire \u00e0 la commune responsable. La demande ne sera trait\u00e9e que lorsque la commune aura re\u00e7u le dossier papier.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}"
+      "body": "Guten Tag\r\n\r\nIhr Dossier mit der Dossier-Nr. {{INSTANCE_ID}} wurde erfolgreich \u00fcbermittelt. Alle auf eBau hochgeladenen Pl\u00e4ne und Dokumente m\u00fcssen unterschrieben, datiert und in mindestens zweifacher Ausfertigung mit dem Gesuchsformular bei der zust\u00e4ndigen Gemeinde eingereicht werden. Das Dossier wird erst bearbeitet, wenn die Gemeinde das Papierdossier erhalten hat.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nGerne m\u00f6chten wir erfahren wie einfach die elektronische Eingabe eines Dossiers war. Wir bitten Sie daher, sich 2 - 3 Minuten Zeit zu nehmen und den folgenden Fragebogen zu beantworten. Besten Dank.\r\n\r\nhttps://www.onlineumfragen.com/login.cfm?umfrage=87201\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nVotre dossier portant le num\u00e9ro de dossier {{INSTANCE_ID}} a \u00e9t\u00e9 d\u00e9pos\u00e9/e avec succ\u00e8s. Tous les plans et documents t\u00e9l\u00e9charg\u00e9s sur eBau doivent \u00eatre sign\u00e9s, dat\u00e9s et envoy\u00e9s en au moins deux exemplaires avec le formulaire de demande de permis de construire \u00e0 la commune responsable. Le dossier ne sera trait\u00e9 que lorsque la commune aura re\u00e7u le dossier papier.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}"
     }
   },
   {
@@ -510,9 +510,9 @@
       "template": 4,
       "template_slug": "01-empfang-baugesuch-gemeinde",
       "language": "de",
-      "purpose": "01 Empfang Baugesuch (Gemeinde)",
-      "subject": "Empfang Baugesuch eBau-Nr. {{EBAU_NUMBER}} / R\u00e9ception de la demande de permis de construire portant le num\u00e9ro eBau {{EBAU_NUMBER}}",
-      "body": "Guten Tag\r\n\r\nDas Baugesuch mit der eBau-Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) wurde erfolgreich abgeschlossen. Das Baubewilligungsverfahren wird von der Gemeinde {{LEITBEHOERDE_NAME}} er\u00f6ffnet.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa demande de permis de construire portant le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) a \u00e9t\u00e9 transmise avec succ\u00e8s. La commune de {{LEITBEHOERDE_NAME}} ouvre la proc\u00e9dure d'octroi du permis de construire.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{LEITBEHOERDE_NAME}}"
+      "purpose": "01 Empfang Dossier (Gemeinde)",
+      "subject": "Empfang Dossier eBau-Nr. {{EBAU_NUMBER}} / R\u00e9ception du dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}}",
+      "body": "Guten Tag\r\n\r\nDas Dossier mit der eBau-Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) wurde erfolgreich abgeschlossen. Das Baubewilligungsverfahren wird von der Gemeinde {{LEITBEHOERDE_NAME}} er\u00f6ffnet.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLe dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) a \u00e9t\u00e9 transmise avec succ\u00e8s. La commune de {{LEITBEHOERDE_NAME}} ouvre la proc\u00e9dure d'octroi du permis de construire.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{LEITBEHOERDE_NAME}}"
     }
   },
   {
@@ -522,9 +522,9 @@
       "template": 5,
       "template_slug": "02-empfangsbestatigung-baugesuch-gesuchsteller",
       "language": "de",
-      "purpose": "02 Empfangsbest\u00e4tigung Baugesuch (Gesuchsteller)",
-      "subject": "Empfangsbest\u00e4tigung Baugesuch (eBau-Nr. {{EBAU_NUMBER}}) / Accus\u00e9 de r\u00e9ception de la demande de permis de construire (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDas Baugesuch mit der eBau-Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) wurde erfolgreich \u00fcbermittelt. Das Verfahren wird nun ausgel\u00f6st. Sie werden \u00fcber die Statusmeldungen informiert. \r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa demande de permis de construire portant le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) a \u00e9t\u00e9 d\u00e9pos\u00e9e avec succ\u00e8s. La proc\u00e9dure est ouverte et tout changement de statut vous sera communiqu\u00e9. \r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}"
+      "purpose": "02 Empfangsbest\u00e4tigung Dossier (Gesuchsteller)",
+      "subject": "Empfangsbest\u00e4tigung Dossier (eBau-Nr. {{EBAU_NUMBER}}) / Accus\u00e9 de r\u00e9ception du dossier (n\u00b0 eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDas Dossier mit der eBau-Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) wurde erfolgreich \u00fcbermittelt. Das Verfahren wird nun ausgel\u00f6st. Sie werden \u00fcber die Statusmeldungen informiert. \r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLe dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) a \u00e9t\u00e9 d\u00e9pos\u00e9e avec succ\u00e8s. La proc\u00e9dure est ouverte et tout changement de statut vous sera communiqu\u00e9. \r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}"
     }
   },
   {
@@ -534,9 +534,9 @@
       "template": 6,
       "template_slug": "02-aufforderung-bereinigung-baugesuch",
       "language": "de",
-      "purpose": "02 Aufforderung Bereinigung Baugesuch",
-      "subject": "Aufforderung Bereinigung Baugesuch (eBau-Nr. {{EBAU_NUMBER}}) / Invitation \u00e0 corriger la demande de permis de construire (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDas Baugesuch mit der eBau-Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) wurde formell gepr\u00fcft. Sie erhalten den Brief mit dem Pr\u00fcfresultat beigef\u00fcgt.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa demande de permis de construire portant le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) a fait l'objet d'un examen formel dont le r\u00e9sultat vous est communiqu\u00e9 dans le courrier ci-joint.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}"
+      "purpose": "02 Aufforderung Bereinigung Dossier",
+      "subject": "Aufforderung Bereinigung Dossier (eBau-Nr. {{EBAU_NUMBER}}) / Invitation \u00e0 corriger le dossier (n\u00b0 eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDas Dossier mit der eBau-Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) wurde formell gepr\u00fcft. Sie erhalten den Brief mit dem Pr\u00fcfresultat beigef\u00fcgt.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLe dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) a fait l'objet d'un examen formel dont le r\u00e9sultat vous est communiqu\u00e9 dans le courrier ci-joint.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}"
     }
   },
   {
@@ -547,8 +547,8 @@
       "template_slug": "02-benachrichtigung-baubewilligungsbehorde",
       "language": "de",
       "purpose": "02 Benachrichtigung Baubewilligungsbeh\u00f6rde",
-      "subject": "Fortsetzung Baugesuch (eBau-Nr. {{EBAU_NUMBER}}) / Poursuite du traitement de la demande de permis de construire (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nWir leiten Ihnen zust\u00e4ndigkeitshalber das Baugesuch mit der eBau-Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) zur Fortsetzung des Baubewilligungsverfahrens weiter.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nVeuillez trouver ci-joint la demande de permis de construire portant le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}), dont la poursuite du traitement rel\u00e8ve de votre comp\u00e9tence.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{LEITBEHOERDE_NAME}}"
+      "subject": "Fortsetzung Dossier (eBau-Nr. {{EBAU_NUMBER}}) / Poursuite du traitement du dossier (n\u00b0 eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nWir leiten Ihnen zust\u00e4ndigkeitshalber das Dossier mit der eBau-Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) zur Fortsetzung des Baubewilligungsverfahrens weiter.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nVeuillez trouver ci-joint le dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}), dont la poursuite du traitement rel\u00e8ve de votre comp\u00e9tence.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{LEITBEHOERDE_NAME}}"
     }
   },
   {
@@ -560,7 +560,7 @@
       "language": "de",
       "purpose": "02 Erkl\u00e4rung Zust\u00e4ndigkeit  (Gemeinde)",
       "subject": "Erkl\u00e4rung Zust\u00e4ndigkeit (eBau Nr. {{EBAU_NUMBER}}) / D\u00e9claration relative \u00e0 la comp\u00e9tence (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDas Baubewilligungsverfahren f\u00fcr das Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) wurde zust\u00e4ndigkeitshalber \u00fcbernommen. \r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\nMadame, Monsieur,\r\n\r\nNotre autorit\u00e9 se charge de la demande de permis de construire portant le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}), qui rel\u00e8ve de sa comp\u00e9tence. \r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{LEITBEHOERDE_NAME}}"
+      "body": "Guten Tag\r\n\r\nDas Baubewilligungsverfahren f\u00fcr das Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) wurde zust\u00e4ndigkeitshalber \u00fcbernommen. \r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\nMadame, Monsieur,\r\n\r\nNotre autorit\u00e9 se charge du dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}), qui rel\u00e8ve de sa comp\u00e9tence. \r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{LEITBEHOERDE_NAME}}"
     }
   },
   {
@@ -570,9 +570,9 @@
       "template": 9,
       "template_slug": "02-baugesuch-aufgrund-mangel-abweisen-oder-nicht-eintreten-art-18-bewd",
       "language": "de",
-      "purpose": "02 Baugesuch aufgrund M\u00e4ngel abweisen oder nicht eintreten (Art. 18 BewD)",
-      "subject": "Baugesuch aufgrund von M\u00e4ngeln abgewiesen oder nicht darauf eingetreten (eBau Nr. {{EBAU_NUMBER}}) / Demande de permis de construire rejet\u00e9e en raison de d\u00e9fauts ou non satisfaite (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDie Baubewilligungsbeh\u00f6rde {{LEITBEHOERDE_NAME}} hat das Gesuch mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) zur\u00fcckgewiesen. Das Gesuch kann nun angepasst und erneut eingereicht werden.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nMitteilung der Baubewilligungsbeh\u00f6rde:\r\n\r\n{{REJECTION_FEEDBACK}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur, \r\n\r\nL'autorit\u00e9 du permis de construire {{LEITBEHOERDE_NAME}} a la p\u00e9tition avec eBau N\u00b0 {{EBAU_NUMBER}}. ({{INSTANCE_ID}}) a \u00e9t\u00e9 rejet\u00e9e. La demande peut maintenant \u00eatre adapt\u00e9e et soumise \u00e0 nouveau. \r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nCommunication de l'autorit\u00e9 d'octroi du permis de construire:\r\n\r\n{{REJECTION_FEEDBACK}}"
+      "purpose": "02 Dossier aufgrund M\u00e4ngel abweisen oder nicht eintreten (Art. 18 BewD)",
+      "subject": "Dossier aufgrund von M\u00e4ngeln abgewiesen oder nicht darauf eingetreten (eBau Nr. {{EBAU_NUMBER}}) / Dossier rejet\u00e9 en raison de d\u00e9fauts ou non satisfaite (n\u00b0 eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDie Baubewilligungsbeh\u00f6rde {{LEITBEHOERDE_NAME}} hat das Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) zur\u00fcckgewiesen. Das Dossier kann nun angepasst und erneut eingereicht werden.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nMitteilung der Baubewilligungsbeh\u00f6rde:\r\n\r\n{{REJECTION_FEEDBACK}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur, \r\n\r\nL'autorit\u00e9 du permis de construire {{LEITBEHOERDE_NAME}} a rejet\u00e9 le dossier avec eBau N\u00b0 {{EBAU_NUMBER}}. ({{INSTANCE_ID}}). Le dossier peut maintenant \u00eatre adapt\u00e9e et soumise \u00e0 nouveau. \r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nCommunication de l'autorit\u00e9 d'octroi du permis de construire:\r\n\r\n{{REJECTION_FEEDBACK}}"
     }
   },
   {
@@ -596,7 +596,7 @@
       "language": "de",
       "purpose": "03 Verfahrensablauf (Fachstelle)",
       "subject": "Hinweis zum Verfahrensablauf (eBau Nr. {{EBAU_NUMBER}}) / Pr\u00e9cision sur le d\u00e9roulement de la proc\u00e9dure (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nSie erhalten das Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) zur Ausarbeitung einer Stellungnahme eines Amts- Fachberichtes oder einer Verf\u00fcgung gem\u00e4ss Verfahrensprogramm.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{CURRENT_SERVICE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nVeuillez trouver ci-joint la demande de permis de construire portant le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) au sujet de laquelle vous voudrez bien prendre position, r\u00e9diger un rapport officiel ou un rapport technique ou encore rendre une d\u00e9cision conform\u00e9ment au d\u00e9roulement de la proc\u00e9dure.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{CURRENT_SERVICE}}"
+      "body": "Guten Tag\r\n\r\nSie erhalten das Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) zur Ausarbeitung einer Stellungnahme eines Amts- Fachberichtes oder einer Verf\u00fcgung gem\u00e4ss Verfahrensprogramm.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{CURRENT_SERVICE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nVeuillez trouver ci-joint le dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) au sujet de laquelle vous voudrez bien prendre position, r\u00e9diger un rapport officiel ou un rapport technique ou encore rendre une d\u00e9cision conform\u00e9ment au d\u00e9roulement de la proc\u00e9dure.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{CURRENT_SERVICE}}"
     }
   },
   {
@@ -608,7 +608,7 @@
       "language": "de",
       "purpose": "03 Meldung Frist\u00fcberschreitung (Fachstelle)",
       "subject": "Meldung Frist\u00fcberschreitung (eBau Nr. {{EBAU_NUMBER}}) / Avis concernant le d\u00e9passement du d\u00e9lai (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag \r\n\r\nDie gesetzte Frist im Baubewilligungsverfahren f\u00fcr das Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) ist abgelaufen. Fehlende Stellungnahmen,  Amts- und Fachberichte, Verf\u00fcgungen sind bei betroffenen Stellen nachzufordern.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur, \r\n\r\nLe d\u00e9lai fix\u00e9 dans la proc\u00e9dure d'octroi du permis de construire relative \u00e0 la demande portant le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) est \u00e9chu. Il convient donc de r\u00e9clamer les prises de position, les rapports officiels ou techniques ou encore les d\u00e9cisions aux instances qui ne les auraient pas encore remis.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{LEITBEHOERDE_NAME}}"
+      "body": "Guten Tag \r\n\r\nDie gesetzte Frist im Baubewilligungsverfahren f\u00fcr das Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) ist abgelaufen. Fehlende Stellungnahmen,  Amts- und Fachberichte, Verf\u00fcgungen sind bei betroffenen Stellen nachzufordern.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur, \r\n\r\nLe d\u00e9lai fix\u00e9 dans la proc\u00e9dure d'octroi du dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) est \u00e9chu. Il convient donc de r\u00e9clamer les prises de position, les rapports officiels ou techniques ou encore les d\u00e9cisions aux instances qui ne les auraient pas encore remis.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{LEITBEHOERDE_NAME}}"
     }
   },
   {
@@ -618,9 +618,9 @@
       "template": 14,
       "template_slug": "04-baugesuch-zur-auflage-gemeinde",
       "language": "de",
-      "purpose": "04 Baugesuch zur Auflage (Gemeinde)",
-      "subject": "Baugesuch zur Auflage (eBau Nr. {{EBAU_NUMBER}}) / Demande de permis de construire \u00e0 d\u00e9poser publiquement (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDas Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} ist gem\u00e4ss Anhang f\u00fcr die \u00f6ffentliche Auflage bereitzustellen.\r\n\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nNous vous prions de bien vouloir pr\u00e9parer le d\u00e9p\u00f4t public de la demande de permis de construire portant le num\u00e9ro eBau {{EBAU_NUMBER}} conform\u00e9ment \u00e0 l'annexe.\r\n\r\n{{LEITBEHOERDE_NAME}}"
+      "purpose": "04 Dossier zur Auflage (Gemeinde)",
+      "subject": "Dossier zur Auflage (eBau Nr. {{EBAU_NUMBER}}) / Dossier \u00e0 d\u00e9poser publiquement (n\u00b0 eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDas Dossier mit der eBau Nr. {{EBAU_NUMBER}} ist gem\u00e4ss Anhang f\u00fcr die \u00f6ffentliche Auflage bereitzustellen.\r\n\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nNous vous prions de bien vouloir pr\u00e9parer le d\u00e9p\u00f4t public du dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} conform\u00e9ment \u00e0 l'annexe.\r\n\r\n{{LEITBEHOERDE_NAME}}"
     }
   },
   {
@@ -632,7 +632,7 @@
       "language": "de",
       "purpose": "04 Elektronischer Versand f\u00fcr Anzeiger/Amtsblatt",
       "subject": "Elektronischer Versand f\u00fcr Anzeiger/Amtsblatt (eBau Nr. {{EBAU_NUMBER}}) / Envoi \u00e9lectronique \u00e0 la Feuille officielle/feuille officielle d'avis (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDas Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} ist gem\u00e4ss Anhang zu publizieren.\r\n\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nNous vous prions de bien vouloir publier la demande de permis de construire portant le num\u00e9ro eBau {{EBAU_NUMBER}} conform\u00e9ment \u00e0 l'annexe.\r\n\r\n{{LEITBEHOERDE_NAME}}"
+      "body": "Guten Tag\r\n\r\nDas Dossier mit der eBau Nr. {{EBAU_NUMBER}} ist gem\u00e4ss Anhang zu publizieren.\r\n\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nNous vous prions de bien vouloir publier le dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} conform\u00e9ment \u00e0 l'annexe.\r\n\r\n{{LEITBEHOERDE_NAME}}"
     }
   },
   {
@@ -644,7 +644,7 @@
       "language": "de",
       "purpose": "05 Zus\u00e4tzliche Infos notwendig (Beh\u00f6rden)",
       "subject": "Zus\u00e4tzliche Infos notwendig (eBau Nr. {{EBAU_NUMBER}}) / Compl\u00e9ment d'information requis (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDie Pr\u00fcfung hat ergeben, dass f\u00fcr die Beurteilung des Baugesuches mit der eBau Nr. {{EBAU_NUMBER}} noch weitere Unterlagen / Dokumente gem\u00e4ss beigef\u00fcgtem Anhang notwendig sind. \r\n\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nIl ressort d'un premier examen que d'autres documents / indications (selon le document annex\u00e9) sont n\u00e9cessaires au traitement de la demande de permis de construire portant le num\u00e9ro eBau {{EBAU_NUMBER}}. \r\n\r\n{{LEITBEHOERDE_NAME}}"
+      "body": "Guten Tag\r\n\r\nDie Pr\u00fcfung hat ergeben, dass f\u00fcr die Beurteilung des Dossiers mit der eBau Nr. {{EBAU_NUMBER}} noch weitere Unterlagen / Dokumente gem\u00e4ss beigef\u00fcgtem Anhang notwendig sind. \r\n\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nIl ressort d'un premier examen que d'autres documents / indications (selon le document annex\u00e9) sont n\u00e9cessaires au traitement du dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}}. \r\n\r\n{{LEITBEHOERDE_NAME}}"
     }
   },
   {
@@ -656,7 +656,7 @@
       "language": "de",
       "purpose": "05 Meldung Frist\u00fcberschreitung (Fachstelle)",
       "subject": "Frist\u00fcberschreitung (eBau Nr. {{EBAU_NUMBER}}) / non-respect d'un d\u00e9lai (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag \r\n\r\nSie wurden aufgefordert, die Stellungnahmen, Amts- und Fachbericht, Verf\u00fcgungen zum Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) zu verfassen. Die Frist ist abgelaufen. Sie werden hiermit aufgefordert, diese umgehend zu verfassen.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\neBau\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nIls ont \u00e9t\u00e9 appel\u00e9s \u00e0 soumettre les relev\u00e9s, rapports officiels et techniques, commandes \u00e0 la demande de permis de construire avec le num\u00e9ro eBau {{EBAU_NUMBER}}. ({{INSTANCE_ID}}). Le mandat a expir\u00e9. Nous vous prions de l'\u00e9crire d\u00e8s que possible.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\neBau"
+      "body": "Guten Tag \r\n\r\nSie wurden aufgefordert, die Stellungnahmen, Amts- und Fachbericht, Verf\u00fcgungen zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) zu verfassen. Die Frist ist abgelaufen. Sie werden hiermit aufgefordert, diese umgehend zu verfassen.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\neBau\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nIls ont \u00e9t\u00e9 appel\u00e9s \u00e0 soumettre les relev\u00e9s, rapports officiels et techniques, commandes au dossier avec le num\u00e9ro eBau {{EBAU_NUMBER}}. ({{INSTANCE_ID}}). Le mandat a expir\u00e9. Nous vous prions de l'\u00e9crire d\u00e8s que possible.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\neBau"
     }
   },
   {
@@ -692,7 +692,7 @@
       "language": "de",
       "purpose": "07 Protokoll (Amts- und Fachstellen, Gesuchsteller, Einsprecher)",
       "subject": "Protokoll Einigungsverhandlung (eBau Nr. {{EBAU_NUMBER}}) / Proc\u00e8s-verbal des pourparlers de conciliation (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nSie erhalten das Protokoll der Einigungsverhandlung zum Baugesuch mit der eBau Nr. {{EBAU_NUMBER}}.\r\n\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nVeuillez trouver ci-joint le proc\u00e8s-verbal des pourparlers de conciliation relatifs \u00e0 la demande de permis de construire portant le num\u00e9ro eBau {{EBAU_NUMBER}}.\r\n\r\n{{LEITBEHOERDE_NAME}}"
+      "body": "Guten Tag\r\n\r\nSie erhalten das Protokoll der Einigungsverhandlung zum Dossier mit der eBau Nr. {{EBAU_NUMBER}}.\r\n\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nVeuillez trouver ci-joint le proc\u00e8s-verbal des pourparlers de conciliation relatifs au dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}}.\r\n\r\n{{LEITBEHOERDE_NAME}}"
     }
   },
   {
@@ -704,7 +704,7 @@
       "language": "de",
       "purpose": "08 Entscheid (Gesuchsteller)",
       "subject": "Information \u00fcber Entscheid (eBau Nr. {{EBAU_NUMBER}}) / Information sur le prononc\u00e9 de la d\u00e9cision (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDer Bauentscheid zum Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} wurde gef\u00e4llt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa d\u00e9cision relative \u00e0 la demande de permis de construire portant le num\u00e9ro eBau {{EBAU_NUMBER}} a \u00e9t\u00e9 rendue. Elle est jointe en annexe, accompagn\u00e9e de l'indication des voies de droit.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}"
+      "body": "Guten Tag\r\n\r\nDer Bauentscheid zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} wurde gef\u00e4llt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa d\u00e9cision relative au dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} a \u00e9t\u00e9 rendue. Elle est jointe en annexe, accompagn\u00e9e de l'indication des voies de droit.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}"
     }
   },
   {
@@ -716,7 +716,7 @@
       "language": "de",
       "purpose": "08 Zustellung Baubewilligung an Nachf\u00fchrungsgeometer",
       "subject": "Aufforderung Nachf\u00fchrung Situationsplan (eBau Nr. {{EBAU_NUMBER}}) / Demande de mise \u00e0 jour du plan de situation (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDas Baugesuch mit der eBau Nr. {{EBAU_NUMBER}}  wurde bewilligt. Sie wurden f\u00fcr dieses Baugesuch auf eBau unter folgendem Link freigeschalten. Bitte entnehmen Sie dort den Bauentscheid und den Situationsplan f\u00fcr die Nachf\u00fchrung.\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa demande de permis de construire portant le num\u00e9ro eBau {{EBAU_NUMBER}} a \u00e9t\u00e9 accept\u00e9e. Le lien suivant vous donne acc\u00e8s aux donn\u00e9es eBau y relatives. Vous y trouverez la d\u00e9cision relative \u00e0 la demande de permis de construire ainsi que le plan de situation que vous voudrez bien mettre \u00e0 jour.\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}"
+      "body": "Guten Tag\r\n\r\nDas Dossier mit der eBau Nr. {{EBAU_NUMBER}}  wurde bewilligt. Sie wurden f\u00fcr dieses Dossier auf eBau unter folgendem Link freigeschalten. Bitte entnehmen Sie dort den Bauentscheid und den Situationsplan f\u00fcr die Nachf\u00fchrung.\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLe dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} a \u00e9t\u00e9 accept\u00e9e. Le lien suivant vous donne acc\u00e8s aux donn\u00e9es eBau y relatives. Vous y trouverez la d\u00e9cision relative \u00e0 la demande de permis de construire ainsi que le plan de situation que vous voudrez bien mettre \u00e0 jour.\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}"
     }
   },
   {
@@ -728,7 +728,7 @@
       "language": "de",
       "purpose": "10 Zugriffsanfrage",
       "subject": "Zugriffsanfrage (eBau Nr. {{EBAU_NUMBER}}) / Question relative \u00e0 l'acc\u00e8s (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nWir haben Ihre Anfrage f\u00fcr den Zugriff auf das Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} erhalten.\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nVotre demande relative \u00e0 l'acc\u00e8s \u00e0 la demande de permis de construire portant le num\u00e9ro eBau {{EBAU_NUMBER}} nous est bien parvenue.\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}"
+      "body": "Guten Tag\r\n\r\nWir haben Ihre Anfrage f\u00fcr den Zugriff auf das Dossier mit der eBau Nr. {{EBAU_NUMBER}} erhalten.\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nVotre demande relative \u00e0 l'acc\u00e8s au dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} nous est bien parvenue.\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}"
     }
   },
   {
@@ -740,7 +740,7 @@
       "language": "de",
       "purpose": "10 Zugriffsmeldung",
       "subject": "Zugriffsmeldung (eBau Nr. {{EBAU_NUMBER}}) / Avis concernant l'acc\u00e8s (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nIhre Anfrage f\u00fcr den Zugriff auf das Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} wurde bearbeitet. Der Zugriff auf das Baugesuchsdossier ist freigeschaltet.\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nVotre demande concernant l'acc\u00e8s \u00e0 la demande de permis de construire portant le num\u00e9ro eBau {{EBAU_NUMBER}} a \u00e9t\u00e9 trait\u00e9e et le dossier vous est d\u00e9sormais accessible.\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}"
+      "body": "Guten Tag\r\n\r\nIhre Anfrage f\u00fcr den Zugriff auf das Dossier mit der eBau Nr. {{EBAU_NUMBER}} wurde bearbeitet. Der Zugriff auf das Dossier ist freigeschaltet.\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nVotre demande concernant l'acc\u00e8s au dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} a \u00e9t\u00e9 trait\u00e9e et le dossier vous est d\u00e9sormais accessible.\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}"
     }
   },
   {
@@ -812,7 +812,7 @@
       "language": "de",
       "purpose": "03 Dossierkorrektur (Gesuchsteller)",
       "subject": "Dossierkorrektur (eBau Nr. {{EBAU_NUMBER}}) / Correction du dossier (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nZu dem von Ihnen eingereichten Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} wurden von der Leitbeh\u00f6rde Korrekturen erfasst. Sie k\u00f6nnen das korrigierte Gesuch unter folgendem Link einsehen:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nL'autorit\u00e9 directrice a apport\u00e9 des corrections \u00e0 la demande de permis de construire portant le num\u00e9ro eBau {{EBAU_NUMBER}} que vous avez d\u00e9pos\u00e9e. Le lien suivant vous donne acc\u00e8s \u00e0 la version corrig\u00e9e:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}"
+      "body": "Guten Tag\r\n\r\nZu dem von Ihnen eingereichten Dossier mit der eBau Nr. {{EBAU_NUMBER}} wurden von der Leitbeh\u00f6rde Korrekturen erfasst. Sie k\u00f6nnen das korrigierte Dossier unter folgendem Link einsehen:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nL'autorit\u00e9 directrice a apport\u00e9 des corrections au dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} que vous avez d\u00e9pos\u00e9e. Le lien suivant vous donne acc\u00e8s \u00e0 la version corrig\u00e9e:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}"
     }
   },
   {
@@ -824,7 +824,7 @@
       "language": "de",
       "purpose": "03 Zus\u00e4tzliche Unterlagen notwendig (Gesuchsteller)",
       "subject": "Zus\u00e4tzliche Unterlagen notwendig (eBau Nr. {{EBAU_NUMBER}}) / Documents compl\u00e9mentaires requis (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDie Pr\u00fcfung hat ergeben, dass f\u00fcr die Beurteilung des Baugesuches mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) noch weitere Unterlagen / Dokumente notwendig sind. Bitte \u00f6ffnen Sie das Men\u00fc \"Nachforderungen\" unter folgendem Link:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/nfd\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nIl ressort d'un premier examen que d'autres documents / indications (selon le document annex\u00e9) sont n\u00e9cessaires \u00e0 l'appr\u00e9ciation de la demande de permis de construire portant le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}). Veuillez ouvrir le menu \"Demande de compl\u00e9ment d'information\" au moyen du lien suivant:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/nfd\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}"
+      "body": "Guten Tag\r\n\r\nDie Pr\u00fcfung hat ergeben, dass f\u00fcr die Beurteilung des Dossiers mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) noch weitere Unterlagen / Dokumente notwendig sind. Bitte \u00f6ffnen Sie das Men\u00fc \"Nachforderungen\" unter folgendem Link:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/nfd\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nIl ressort d'un premier examen que d'autres documents / indications (selon le document annex\u00e9) sont n\u00e9cessaires \u00e0 l'appr\u00e9ciation du dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}). Veuillez ouvrir le menu \"Demande de compl\u00e9ment d'information\" au moyen du lien suivant:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/nfd\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}"
     }
   },
   {
@@ -836,7 +836,7 @@
       "language": "de",
       "purpose": "03 Nachforderung beantwortet (Leitbeh\u00f6rde)",
       "subject": "Nachforderung beantwortet (eBau Nr. {{EBAU_NUMBER}}) / Compl\u00e9ment d'information fourni (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nEine Nachforderung zum Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) wurde beantwortet. \r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLe compl\u00e9ment d'information sollicit\u00e9 au sujet de la demande de permis de construire portant le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) a \u00e9t\u00e9 fourni. \r\n\r\n{{INTERNAL_DOSSIER_LINK}}"
+      "body": "Guten Tag\r\n\r\nEine Nachforderung zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) wurde beantwortet. \r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLe compl\u00e9ment d'information sollicit\u00e9 au sujet du dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) a \u00e9t\u00e9 fourni. \r\n\r\n{{INTERNAL_DOSSIER_LINK}}"
     }
   },
   {
@@ -848,7 +848,7 @@
       "language": "de",
       "purpose": "05 Bericht Erstellt",
       "subject": "Bericht erstellt (eBau-Nr. {{EBAU_NUMBER}}) / Rapport cr\u00e9\u00e9 (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nF\u00fcr das Baugesuch mit der eBau-Nr. {{EBAU_NUMBER}} wurden die gem\u00e4ss Leitverfahren eingeforderten\r\nStellungnahmen, Amts- und Fachberichte und Verf\u00fcgungen erstellt: {{ ACTIVATION_ANSWER_DE }}.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{ACTIVATION_STATEMENT_DE}}\r\n\r\n{{CURRENT_SERVICE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nPour l'application de construction avec le num\u00e9ro eBau {{EBAU_NUMBER}}, les codes de construction suivants \u00e9taient requis selon la proc\u00e9dure principale\r\navis, rapports officiels et techniques et d\u00e9cisions: {{ ACTIVATION_ANSWER_FR }}.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{ACTIVATION_STATEMENT_FR}}\r\n\r\n{{CURRENT_SERVICE}}"
+      "body": "Guten Tag\r\n\r\nF\u00fcr das Dossier mit der eBau-Nr. {{EBAU_NUMBER}} wurden die gem\u00e4ss Leitverfahren eingeforderten\r\nStellungnahmen, Amts- und Fachberichte und Verf\u00fcgungen erstellt: {{ ACTIVATION_ANSWER_DE }}.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{ACTIVATION_STATEMENT_DE}}\r\n\r\n{{CURRENT_SERVICE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nPour le dossier avec le num\u00e9ro eBau {{EBAU_NUMBER}}, les codes de construction suivants \u00e9taient requis selon la proc\u00e9dure principale\r\navis, rapports officiels et techniques et d\u00e9cisions: {{ ACTIVATION_ANSWER_FR }}.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{ACTIVATION_STATEMENT_FR}}\r\n\r\n{{CURRENT_SERVICE}}"
     }
   },
   {
@@ -860,7 +860,7 @@
       "language": "de",
       "purpose": "08 Entscheid (Gemeinde/Leitbeh\u00f6rde)",
       "subject": "Information \u00fcber Entscheid (eBau Nr. {{EBAU_NUMBER}}) / Information sur le prononc\u00e9 de la d\u00e9cision (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDer Bauentscheid zum Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} wurde gef\u00e4llt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\r\n\r\n{{BASE_URL}}/apidocuments/list/list/instance-resource-id/20068/instance-id/{{INSTANCE_ID}}\r\n\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa d\u00e9cision relative \u00e0 la demande de permis de construire portant le num\u00e9ro eBau {{EBAU_NUMBER}} a \u00e9t\u00e9 rendue. Elle est jointe en annexe, accompagn\u00e9e de l'indication des voies de droit.\r\n\r\n{{BASE_URL}}/apidocuments/list/list/instance-resource-id/20068/instance-id/{{INSTANCE_ID}}\r\n\r\n{{LEITBEHOERDE_NAME}}"
+      "body": "Guten Tag\r\n\r\nDer Bauentscheid zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} wurde gef\u00e4llt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\r\n\r\n{{BASE_URL}}/apidocuments/list/list/instance-resource-id/20068/instance-id/{{INSTANCE_ID}}\r\n\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa d\u00e9cision relative au dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} a \u00e9t\u00e9 rendue. Elle est jointe en annexe, accompagn\u00e9e de l'indication des voies de droit.\r\n\r\n{{BASE_URL}}/apidocuments/list/list/instance-resource-id/20068/instance-id/{{INSTANCE_ID}}\r\n\r\n{{LEITBEHOERDE_NAME}}"
     }
   },
   {
@@ -872,7 +872,7 @@
       "language": "de",
       "purpose": "08 Entscheid (Amts- und Fachstellen)",
       "subject": "Information \u00fcber Entscheid (eBau Nr. {{EBAU_NUMBER}}) / Information sur le prononc\u00e9 de la d\u00e9cision (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDer Bauentscheid zum Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} wurde gef\u00e4llt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\r\n\r\n{{BASE_URL}}/apidocuments/list/list/instance-resource-id/20069/instance-id/{{INSTANCE_ID}}\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa d\u00e9cision relative \u00e0 l'affaire portant le num\u00e9ro eBau {{EBAU_NUMBER}} a \u00e9t\u00e9 rendue et vous la trouverez en annexe.\r\n\r\n{{BASE_URL}}/apidocuments/list/list/instance-resource-id/20069/instance-id/{{INSTANCE_ID}}\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}"
+      "body": "Guten Tag\r\n\r\nDer Bauentscheid zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} wurde gef\u00e4llt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\r\n\r\n{{BASE_URL}}/apidocuments/list/list/instance-resource-id/20069/instance-id/{{INSTANCE_ID}}\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa d\u00e9cision relative \u00e0 l'affaire portant le num\u00e9ro eBau {{EBAU_NUMBER}} a \u00e9t\u00e9 rendue et vous la trouverez en annexe.\r\n\r\n{{BASE_URL}}/apidocuments/list/list/instance-resource-id/20069/instance-id/{{INSTANCE_ID}}\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}"
     }
   },
   {
