@@ -68,9 +68,6 @@ export default class Case extends EmberObject {
 
   @computed("answers.[]")
   get description() {
-    return (
-      this.findAnswer("anfrage-zur-vorabklaerung") ||
-      this.findAnswer("beschreibung-bauvorhaben")
-    );
+    return this.findAnswer("beschreibung-bauvorhaben");
   }
 }

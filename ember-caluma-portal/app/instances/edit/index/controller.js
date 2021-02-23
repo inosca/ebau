@@ -58,10 +58,7 @@ function getMunicipality(answers) {
 }
 
 function getBuildingSpecification(answers) {
-  return (
-    findAnswer(answers, "beschreibung-bauvorhaben") ||
-    findAnswer(answers, "anfrage-zur-vorabklaerung")
-  );
+  return findAnswer(answers, "beschreibung-bauvorhaben");
 }
 
 export default class InstancesEditIndexController extends Controller {

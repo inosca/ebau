@@ -700,29 +700,14 @@ APPLICATIONS = {
                     "karte",
                 ],
             },
-            "vorabklaerung-einfach": {
-                "forms": [
-                    "vorabklaerung-einfach",
-                ],
-                "template": "form",
-                "allgemeine_info": "allgemeine-informationen-vorabklaerung-form",
-                "givenName": "vorname-gesuchstellerin-vorabklaerung",
-                "familyName": "name-gesuchstellerin-vorabklaerung",
-                "exclude_slugs": [
-                    "is-paper",
-                    "projektaenderung",
-                    "einreichen-button",
-                    "dokumente-vorabklaerung-form",
-                    "karte-einfache-vorabklaerung",
-                ],
-            },
-            "spezial-gesuche": {
+            "gesuche-kurz": {
                 "forms": [
                     "hecken-feldgehoelze-baeume",
                     "baupolizeiliches-verfahren",
                     "zutrittsermaechtigung",
                     "klaerung-baubewilligungspflicht",
                     "verlaengerung-geltungsdauer",
+                    "vorabklaerung-einfach",
                 ],
                 "template": "form",
                 "allgemeine_info": "allgemeine-angaben-kurz-formular",
