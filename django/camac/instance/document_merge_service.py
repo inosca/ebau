@@ -336,25 +336,7 @@ class DMSVisitor:
                 slug=slugs["allgemeine_info"]
             ).sub_form
 
-        if self.template_type == "vorabklaerung-einfach":
-
-            def _get_person_value(slug_key):
-                question = allgemeine_info.questions.get(slug=slugs[slug_key])
-                return self._visit_question(question, parent_doc=self.root_document)[
-                    "value"
-                ]
-
-            given_name, family_name = [
-                _get_person_value(key) for key in ["givenName", "familyName"]
-            ]
-
-            return {
-                "label": _("Applicant"),
-                "people": [{"familyName": family_name, "givenName": given_name}],
-                "type": "SignatureQuestion",
-            }
-
-        elif self.template_type == "baugesuch":
+        if self.template_type == "baugesuch":
             personalien = allgemeine_info.questions.get(
                 slug=slugs["personalien"]
             ).sub_form

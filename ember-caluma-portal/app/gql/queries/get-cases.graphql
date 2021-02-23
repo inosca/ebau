@@ -41,7 +41,6 @@ query GetCases(
               "nummer-gesuchstellerin"
               "plz-gesuchstellerin"
               "ort-gesuchstellerin"
-              "anfrage-zur-vorabklaerung"
               "beschreibung-bauvorhaben"
               "gemeinde"
               "strasse-flurname"

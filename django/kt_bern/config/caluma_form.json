@@ -11470,14 +11470,27 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "vorabklaerung-einfach.allgemeine-informationen-vorabklaerung-form",
+    "pk": "vorabklaerung-einfach.8-freigabequittung",
     "fields": {
-      "created_at": "2019-10-08T12:08:59.343Z",
-      "modified_at": "2019-10-08T12:08:59.343Z",
+      "created_at": "2021-01-27T12:55:12.683Z",
+      "modified_at": "2021-01-27T12:55:12.683Z",
       "created_by_user": null,
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
-      "question": "allgemeine-informationen-vorabklaerung-form",
+      "question": "8-freigabequittung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorabklaerung-einfach.allgemeine-angaben-kurz-formular",
+    "fields": {
+      "created_at": "2021-01-27T12:54:59.618Z",
+      "modified_at": "2021-01-27T12:54:59.618Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "vorabklaerung-einfach",
+      "question": "allgemeine-angaben-kurz-formular",
       "sort": 3
     }
   },
@@ -11496,15 +11509,15 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "vorabklaerung-einfach.freigabequittung-vorabklaerung-form",
+    "pk": "vorabklaerung-einfach.personalien-kurz-formular",
     "fields": {
-      "created_at": "2019-10-08T12:25:38.353Z",
-      "modified_at": "2019-10-08T12:25:38.353Z",
+      "created_at": "2021-01-27T12:54:45.552Z",
+      "modified_at": "2021-01-27T12:54:45.552Z",
       "created_by_user": null,
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
-      "question": "freigabequittung-vorabklaerung-form",
-      "sort": 1
+      "question": "personalien-kurz-formular",
+      "sort": 4
     }
   },
   {
