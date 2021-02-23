@@ -22,6 +22,25 @@
   },
   {
     "model": "caluma_form.historicaldocument",
+    "pk": "1fe881c0-a5d9-482e-8180-536f44d2cfdf",
+    "fields": {
+      "history_user_id": null,
+      "created_at": "2021-02-23T08:59:18.164Z",
+      "modified_at": "2021-02-23T08:59:18.164Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "id": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
+      "meta": {},
+      "family": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
+      "form": "parzelle-tabelle",
+      "source": null,
+      "history_date": "2021-02-23T08:59:18.165Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicaldocument",
     "pk": "29e3f4ef-1f11-4d89-a47b-a3683b8b9897",
     "fields": {
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -79,6 +98,44 @@
       "history_date": "2020-03-06T11:10:26.145Z",
       "history_change_reason": null,
       "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicaldocument",
+    "pk": "6d1985c5-efe6-499f-8788-ddb837f9da2b",
+    "fields": {
+      "history_user_id": null,
+      "created_at": "2021-02-23T08:59:18.086Z",
+      "modified_at": "2021-02-23T08:59:18.086Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "id": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
+      "meta": {},
+      "family": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
+      "form": "personalien-tabelle",
+      "source": null,
+      "history_date": "2021-02-23T08:59:18.086Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicaldocument",
+    "pk": "872cfee6-c78f-4673-9f14-ade28fe26e5a",
+    "fields": {
+      "history_user_id": null,
+      "created_at": "2021-02-23T08:59:18.086Z",
+      "modified_at": "2021-02-23T08:59:18.158Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "id": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
+      "meta": {},
+      "family": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
+      "form": "personalien-tabelle",
+      "source": null,
+      "history_date": "2021-02-23T08:59:18.159Z",
+      "history_change_reason": null,
+      "history_type": "~"
     }
   },
   {
@@ -159,6 +216,25 @@
       "history_date": "2020-03-06T11:10:26.154Z",
       "history_change_reason": null,
       "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicaldocument",
+    "pk": "c2ece460-1c51-485b-9866-854a991a0295",
+    "fields": {
+      "history_user_id": null,
+      "created_at": "2021-02-23T08:59:18.164Z",
+      "modified_at": "2021-02-23T08:59:18.248Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "id": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
+      "meta": {},
+      "family": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
+      "form": "parzelle-tabelle",
+      "source": null,
+      "history_date": "2021-02-23T08:59:18.248Z",
+      "history_change_reason": null,
+      "history_type": "~"
     }
   },
   {
@@ -263,6 +339,34 @@
       "history_date": "2020-03-06T11:13:35.942Z",
       "history_change_reason": null,
       "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.document",
+    "pk": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.164Z",
+      "modified_at": "2021-02-23T08:59:18.248Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "family": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
+      "form": "parzelle-tabelle",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "caluma_form.document",
+    "pk": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.086Z",
+      "modified_at": "2021-02-23T08:59:18.158Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "family": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
+      "form": "personalien-tabelle",
+      "source": null,
+      "meta": {}
     }
   },
   {
@@ -461,6 +565,28 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "10477dde-9838-4814-af1d-e0c693a59a1f",
+    "fields": {
+      "created_at": "2020-03-06T11:14:13.302Z",
+      "modified_at": "2020-03-06T11:14:13.302Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "history_question_type": "text",
+      "id": "93fd27f2-22f5-4466-b7c8-ae05066143d2",
+      "value": "3776",
+      "meta": {},
+      "date": null,
+      "history_user_id": null,
+      "question": "parzellennummer",
+      "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
+      "file": null,
+      "history_date": "2021-02-23T08:59:18.277Z",
+      "history_change_reason": null,
+      "history_type": "-"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "10ea93f1-0163-46bc-bfe8-1188170f8a0c",
     "fields": {
       "created_at": "2020-03-06T11:10:47.018Z",
@@ -505,6 +631,50 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "14e80376-4341-4f8f-889d-0d5109ffc2c4",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.120Z",
+      "modified_at": "2021-02-23T08:59:18.120Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "history_question_type": "text",
+      "id": "bbd4952a-3fbc-4736-bdde-bf25aec64b2a",
+      "value": "13",
+      "meta": {},
+      "date": null,
+      "history_user_id": null,
+      "question": "nummer-gesuchstellerin",
+      "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
+      "file": null,
+      "history_date": "2021-02-23T08:59:18.121Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "1578bb65-69ce-4467-831e-1dca2983245b",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.239Z",
+      "modified_at": "2021-02-23T08:59:18.239Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "history_question_type": "table",
+      "id": "0bdfad88-a14a-4802-a981-5313bd075260",
+      "value": null,
+      "meta": {},
+      "date": null,
+      "history_user_id": null,
+      "question": "parzelle",
+      "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
+      "file": null,
+      "history_date": "2021-02-23T08:59:18.240Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "15ad84a4-a6e6-4756-ab2c-e998b410b0dc",
     "fields": {
       "created_at": "2020-03-06T11:11:34.109Z",
@@ -523,6 +693,28 @@
       "history_date": "2020-03-06T11:11:34.110Z",
       "history_change_reason": null,
       "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "15b9703d-3b56-4fd2-a732-8a01ac5ca04b",
+    "fields": {
+      "created_at": "2021-02-23T09:04:09.576Z",
+      "modified_at": "2021-02-23T09:04:13.633Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "history_question_type": "text",
+      "id": "e97857ee-5282-438c-9041-99ed71927a5e",
+      "value": "000000",
+      "meta": {},
+      "date": null,
+      "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "question": "telefon-oder-mobile-gesuchstellerin",
+      "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
+      "file": null,
+      "history_date": "2021-02-23T09:04:13.635Z",
+      "history_change_reason": null,
+      "history_type": "~"
     }
   },
   {
@@ -565,6 +757,28 @@
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
       "file": null,
       "history_date": "2020-03-06T11:14:13.348Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "1cd2bd99-8e63-4661-b682-964d6ea90a59",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.113Z",
+      "modified_at": "2021-02-23T08:59:18.113Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "history_question_type": "text",
+      "id": "709db828-1fbc-4141-a816-56ad3bd01860",
+      "value": "Weg",
+      "meta": {},
+      "date": null,
+      "history_user_id": null,
+      "question": "strasse-gesuchstellerin",
+      "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
+      "file": null,
+      "history_date": "2021-02-23T08:59:18.114Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -759,7 +973,7 @@
       "meta": {},
       "date": null,
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "question": "ort-gesuchstellerin",
+      "question": "ort-grundstueck",
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
       "file": null,
       "history_date": "2020-03-06T11:13:49.686Z",
@@ -807,6 +1021,28 @@
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
       "file": null,
       "history_date": "2020-03-06T11:13:54.774Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "3a9661cb-4301-44d8-88b8-83c80dcfa31b",
+    "fields": {
+      "created_at": "2021-02-23T09:04:19.920Z",
+      "modified_at": "2021-02-23T09:04:19.920Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "history_question_type": "text",
+      "id": "cb06976a-9665-4332-86e0-0b9527117d29",
+      "value": "test@example.com",
+      "meta": {},
+      "date": null,
+      "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "question": "e-mail-gesuchstellerin",
+      "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
+      "file": null,
+      "history_date": "2021-02-23T09:04:19.921Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -873,6 +1109,50 @@
       "document": "c72dcd61-91b0-4cf9-a823-658e53d9306f",
       "file": null,
       "history_date": "2020-03-06T11:12:02.761Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "45ae3fc9-b3f7-4af8-a16a-0b4f83484efa",
+    "fields": {
+      "created_at": "2020-03-06T11:13:42.694Z",
+      "modified_at": "2020-03-06T11:13:42.694Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "history_question_type": "text",
+      "id": "c7aad8fb-4756-4561-8e76-167a16565c55",
+      "value": "Peter",
+      "meta": {},
+      "date": null,
+      "history_user_id": null,
+      "question": "vorname-gesuchstellerin-vorabklaerung",
+      "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
+      "file": null,
+      "history_date": "2021-02-23T08:59:18.272Z",
+      "history_change_reason": null,
+      "history_type": "-"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "474af724-c05d-40e2-9cbe-26518a6c266c",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.106Z",
+      "modified_at": "2021-02-23T08:59:18.106Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "history_question_type": "text",
+      "id": "a5dc7cf3-5f56-4dc9-b1a8-eb3e5dd015d7",
+      "value": "Peter",
+      "meta": {},
+      "date": null,
+      "history_user_id": null,
+      "question": "vorname-gesuchstellerin",
+      "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
+      "file": null,
+      "history_date": "2021-02-23T08:59:18.107Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -1121,6 +1401,28 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "57603cc8-415f-47ef-a558-a353e29bb4f3",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.184Z",
+      "modified_at": "2021-02-23T08:59:18.184Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "history_question_type": "text",
+      "id": "a3f0796e-0512-4fc3-9025-64c4831954ea",
+      "value": "CH908035124647",
+      "meta": {},
+      "date": null,
+      "history_user_id": null,
+      "question": "e-grid-nr",
+      "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
+      "file": null,
+      "history_date": "2021-02-23T08:59:18.184Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "57a0396a-024f-4a2d-b27f-4cf7ce6a2c16",
     "fields": {
       "created_at": "2020-03-06T11:13:13.541Z",
@@ -1199,7 +1501,7 @@
       "meta": {},
       "date": null,
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "question": "strasse-gesuchstellerin",
+      "question": "strasse-flurname",
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
       "file": null,
       "history_date": "2020-03-06T11:13:45.908Z",
@@ -1227,6 +1529,72 @@
       "history_date": "2020-03-06T11:10:40.387Z",
       "history_change_reason": null,
       "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "63c5fde1-444a-4df5-9e08-31f296162fb0",
+    "fields": {
+      "created_at": "2020-03-06T11:14:13.285Z",
+      "modified_at": "2020-03-06T11:14:13.285Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "history_question_type": "text",
+      "id": "c18aca9d-25f9-412d-864d-7877e8ec91c0",
+      "value": "CH908035124647",
+      "meta": {},
+      "date": null,
+      "history_user_id": null,
+      "question": "e-grid-nr",
+      "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
+      "file": null,
+      "history_date": "2021-02-23T08:59:18.275Z",
+      "history_change_reason": null,
+      "history_type": "-"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "64fb6bda-3731-48c5-bbc8-aadd67461f80",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.098Z",
+      "modified_at": "2021-02-23T08:59:18.098Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "history_question_type": "text",
+      "id": "dc804a17-31be-4b8b-a05d-7df7402291ab",
+      "value": "M\u00fcller",
+      "meta": {},
+      "date": null,
+      "history_user_id": null,
+      "question": "name-gesuchstellerin",
+      "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
+      "file": null,
+      "history_date": "2021-02-23T08:59:18.099Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "665d2557-8581-4dfd-b979-67641d595fd7",
+    "fields": {
+      "created_at": "2021-02-23T09:04:09.576Z",
+      "modified_at": "2021-02-23T09:04:14.878Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "history_question_type": "text",
+      "id": "e97857ee-5282-438c-9041-99ed71927a5e",
+      "value": "0000000000",
+      "meta": {},
+      "date": null,
+      "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "question": "telefon-oder-mobile-gesuchstellerin",
+      "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
+      "file": null,
+      "history_date": "2021-02-23T09:04:14.880Z",
+      "history_change_reason": null,
+      "history_type": "~"
     }
   },
   {
@@ -1287,10 +1655,32 @@
       "meta": {},
       "date": null,
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "question": "nummer-gesuchstellerin",
+      "question": "nr",
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
       "file": null,
       "history_date": "2020-03-06T11:13:46.619Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "6d59b435-8102-4a82-8413-2cf4d31e927a",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.175Z",
+      "modified_at": "2021-02-23T08:59:18.175Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "history_question_type": "text",
+      "id": "204df57e-c60e-4c63-ab8f-fd9d2b512da9",
+      "value": "3776",
+      "meta": {},
+      "date": null,
+      "history_user_id": null,
+      "question": "parzellennummer",
+      "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
+      "file": null,
+      "history_date": "2021-02-23T08:59:18.175Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -1319,6 +1709,28 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "710028bf-b562-4bdb-8a90-5446ab89a77a",
+    "fields": {
+      "created_at": "2021-02-23T09:04:09.576Z",
+      "modified_at": "2021-02-23T09:04:12.107Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "history_question_type": "text",
+      "id": "e97857ee-5282-438c-9041-99ed71927a5e",
+      "value": "000",
+      "meta": {},
+      "date": null,
+      "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "question": "telefon-oder-mobile-gesuchstellerin",
+      "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
+      "file": null,
+      "history_date": "2021-02-23T09:04:12.110Z",
+      "history_change_reason": null,
+      "history_type": "~"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "72e286f2-bd33-45d2-a750-626fbae5f6cf",
     "fields": {
       "created_at": "2020-03-06T11:12:45.189Z",
@@ -1335,6 +1747,28 @@
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
       "file": null,
       "history_date": "2020-03-06T11:12:45.190Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "75b35c1c-f8be-4fbe-80f3-dcf312885f2d",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.127Z",
+      "modified_at": "2021-02-23T08:59:18.127Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "history_question_type": "integer",
+      "id": "0a4a5f37-c4a3-4934-b28a-fea066e4459f",
+      "value": 3000,
+      "meta": {},
+      "date": null,
+      "history_user_id": null,
+      "question": "plz-gesuchstellerin",
+      "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
+      "file": null,
+      "history_date": "2021-02-23T08:59:18.128Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -1407,6 +1841,28 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "7a3919c4-a285-4306-b19d-3ca7679bbe83",
+    "fields": {
+      "created_at": "2020-03-06T11:13:48.386Z",
+      "modified_at": "2020-03-06T11:13:48.386Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "history_question_type": "integer",
+      "id": "01d83f05-758e-420d-ac44-eba44e802c22",
+      "value": 3000,
+      "meta": {},
+      "date": null,
+      "history_user_id": null,
+      "question": "plz-gesuchstellerin",
+      "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
+      "file": null,
+      "history_date": "2021-02-23T08:59:18.285Z",
+      "history_change_reason": null,
+      "history_type": "-"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "7b4c8707-bba1-490c-8361-311045d5695c",
     "fields": {
       "created_at": "2020-03-06T11:11:28.690Z",
@@ -1423,6 +1879,28 @@
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
       "file": null,
       "history_date": "2020-03-06T11:11:28.691Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "7c9dc1fa-efd6-4952-bf11-1c2d7934e5e5",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.135Z",
+      "modified_at": "2021-02-23T08:59:18.135Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "history_question_type": "text",
+      "id": "af39a0f3-7c0f-4785-8f34-620f1ea457c5",
+      "value": "Bern",
+      "meta": {},
+      "date": null,
+      "history_user_id": null,
+      "question": "ort-gesuchstellerin",
+      "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
+      "file": null,
+      "history_date": "2021-02-23T08:59:18.135Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -1447,6 +1925,50 @@
       "history_date": "2020-03-06T11:12:45.830Z",
       "history_change_reason": null,
       "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "85c7dcc0-aaec-4853-afb2-cd6c6cc551a1",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.232Z",
+      "modified_at": "2021-02-23T08:59:18.232Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "history_question_type": "float",
+      "id": "74a3ef3d-f68a-40d4-b5a5-e1f008795958",
+      "value": 1212209.0,
+      "meta": {},
+      "date": null,
+      "history_user_id": null,
+      "question": "lagekoordinaten-nord",
+      "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
+      "file": null,
+      "history_date": "2021-02-23T08:59:18.232Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "86c9065a-584a-4776-9213-06e4b7893654",
+    "fields": {
+      "created_at": "2020-03-06T11:13:41.532Z",
+      "modified_at": "2020-03-06T11:13:41.532Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "history_question_type": "text",
+      "id": "e4567b3c-f18d-4fd1-a410-29c72851c221",
+      "value": "M\u00fcller",
+      "meta": {},
+      "date": null,
+      "history_user_id": null,
+      "question": "name-gesuchstellerin-vorabklaerung",
+      "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
+      "file": null,
+      "history_date": "2021-02-23T08:59:18.270Z",
+      "history_change_reason": null,
+      "history_type": "-"
     }
   },
   {
@@ -1649,6 +2171,50 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "a3e5c949-e2b9-4345-9074-fa7c747df2fd",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.216Z",
+      "modified_at": "2021-02-23T08:59:18.216Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "history_question_type": "text",
+      "id": "f3bf3658-ef91-48c5-858c-c08b5096fca2",
+      "value": "Bern",
+      "meta": {},
+      "date": null,
+      "history_user_id": null,
+      "question": "ort-parzelle",
+      "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
+      "file": null,
+      "history_date": "2021-02-23T08:59:18.216Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "a590d5af-b6c9-40e6-b41b-cd59404ce3ea",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.224Z",
+      "modified_at": "2021-02-23T08:59:18.224Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "history_question_type": "float",
+      "id": "54563f5d-6484-4918-9e9a-e4d06e5ebefa",
+      "value": 2614285.0,
+      "meta": {},
+      "date": null,
+      "history_user_id": null,
+      "question": "lagekoordinaten-ost",
+      "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
+      "file": null,
+      "history_date": "2021-02-23T08:59:18.224Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "a8e9c9a9-3d43-4b4e-908c-14095d4c1c1c",
     "fields": {
       "created_at": "2020-03-06T11:14:13.285Z",
@@ -1687,6 +2253,28 @@
       "document": "dd645aba-6efa-4103-b23e-19b0ad1e9625",
       "file": null,
       "history_date": "2020-03-06T11:13:35.948Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "aa1c45b2-b281-4efa-ac98-9a9aa495eb01",
+    "fields": {
+      "created_at": "2021-02-23T09:04:09.576Z",
+      "modified_at": "2021-02-23T09:04:09.576Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "history_question_type": "text",
+      "id": "e97857ee-5282-438c-9041-99ed71927a5e",
+      "value": "0",
+      "meta": {},
+      "date": null,
+      "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "question": "telefon-oder-mobile-gesuchstellerin",
+      "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
+      "file": null,
+      "history_date": "2021-02-23T09:04:09.578Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -1913,6 +2501,28 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "c0637e59-0b72-457e-9ff6-64734810dec4",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.200Z",
+      "modified_at": "2021-02-23T08:59:18.200Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "history_question_type": "text",
+      "id": "1d1ac7d4-7230-42a0-92f3-df19027e8f9e",
+      "value": "13",
+      "meta": {},
+      "date": null,
+      "history_user_id": null,
+      "question": "nummer-parzelle",
+      "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
+      "file": null,
+      "history_date": "2021-02-23T08:59:18.201Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "c15251ee-9009-4e8e-b5bb-02c9c3747fcb",
     "fields": {
       "created_at": "2020-03-06T11:10:26.140Z",
@@ -1953,6 +2563,28 @@
       "history_date": "2020-03-06T11:13:41.534Z",
       "history_change_reason": null,
       "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "c2e89774-1bb6-4777-a19a-8d1df0574591",
+    "fields": {
+      "created_at": "2020-03-06T11:14:13.312Z",
+      "modified_at": "2020-03-06T11:14:13.312Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "history_question_type": "float",
+      "id": "63b31066-f48f-47cf-a31b-c23e90b8161e",
+      "value": 2614285.0,
+      "meta": {},
+      "date": null,
+      "history_user_id": null,
+      "question": "lagekoordinaten-ost-einfache-vorabklaerung",
+      "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
+      "file": null,
+      "history_date": "2021-02-23T08:59:18.282Z",
+      "history_change_reason": null,
+      "history_type": "-"
     }
   },
   {
@@ -2001,6 +2633,28 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "c4877955-6317-4377-98d6-0e534b836125",
+    "fields": {
+      "created_at": "2020-03-06T11:14:13.346Z",
+      "modified_at": "2020-03-06T11:14:13.346Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "history_question_type": "float",
+      "id": "8cfd8083-fa29-45f1-b8af-e240fbf1a2b0",
+      "value": 1212209.0,
+      "meta": {},
+      "date": null,
+      "history_user_id": null,
+      "question": "lagekoordinaten-nord-einfache-vorabklaerung",
+      "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
+      "file": null,
+      "history_date": "2021-02-23T08:59:18.280Z",
+      "history_change_reason": null,
+      "history_type": "-"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "c4ccde5b-09e2-4fc1-8520-a327a540fc2e",
     "fields": {
       "created_at": "2020-03-06T11:10:43.663Z",
@@ -2039,6 +2693,28 @@
       "document": "e0c8f56e-5b2c-4800-88cf-380cb9cf5aa4",
       "file": null,
       "history_date": "2020-03-06T11:10:48.551Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "c7cf7131-4269-4637-bea7-79342373edd9",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.142Z",
+      "modified_at": "2021-02-23T08:59:18.142Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "history_question_type": "choice",
+      "id": "aa38c5b3-195d-4e16-aba3-1cbd2cfda402",
+      "value": "juristische-person-gesuchstellerin-nein",
+      "meta": {},
+      "date": null,
+      "history_user_id": null,
+      "question": "juristische-person-gesuchstellerin",
+      "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
+      "file": null,
+      "history_date": "2021-02-23T08:59:18.142Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -2221,6 +2897,28 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "df190969-04a5-422d-9b15-62507adf6f1c",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.192Z",
+      "modified_at": "2021-02-23T08:59:18.192Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "history_question_type": "text",
+      "id": "fd285a13-a9c4-4aa7-8f0c-db0d43f6a033",
+      "value": "Weg",
+      "meta": {},
+      "date": null,
+      "history_user_id": null,
+      "question": "strasse-parzelle",
+      "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
+      "file": null,
+      "history_date": "2021-02-23T08:59:18.192Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "df4452f2-3237-4009-bd24-36ec8d47abb1",
     "fields": {
       "created_at": "2020-03-06T11:13:17.685Z",
@@ -2265,6 +2963,28 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "e3b3f2dd-08a0-4506-8735-ac1d8234c0cf",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.148Z",
+      "modified_at": "2021-02-23T08:59:18.148Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "history_question_type": "table",
+      "id": "1dfe96c9-873d-4de7-b5d5-11153849e5f5",
+      "value": null,
+      "meta": {},
+      "date": null,
+      "history_user_id": null,
+      "question": "personalien-gesuchstellerin",
+      "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
+      "file": null,
+      "history_date": "2021-02-23T08:59:18.149Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "e490049c-e9f2-4eff-ad26-4b5c25bd7e61",
     "fields": {
       "created_at": "2020-03-06T11:13:35.937Z",
@@ -2299,7 +3019,7 @@
       "meta": {},
       "date": null,
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "question": "anfrage-zur-vorabklaerung",
+      "question": "beschreibung-bauvorhaben",
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
       "file": null,
       "history_date": "2020-03-06T11:14:21.417Z",
@@ -2441,6 +3161,28 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "f2e4b6a2-4b31-4bd5-a8bb-9872ac867fe7",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.208Z",
+      "modified_at": "2021-02-23T08:59:18.208Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "history_question_type": "integer",
+      "id": "e5140b4d-7324-44f1-a8c5-a4ff8cb5000f",
+      "value": 3000,
+      "meta": {},
+      "date": null,
+      "history_user_id": null,
+      "question": "plz-parzelle",
+      "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
+      "file": null,
+      "history_date": "2021-02-23T08:59:18.209Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "f3d9a004-3a18-4c02-b99f-25f5b9bcc1be",
     "fields": {
       "created_at": "2020-03-06T11:12:13.472Z",
@@ -2551,22 +3293,6 @@
   },
   {
     "model": "caluma_form.answer",
-    "pk": "01d83f05-758e-420d-ac44-eba44e802c22",
-    "fields": {
-      "created_at": "2020-03-06T11:13:48.386Z",
-      "modified_at": "2020-03-06T11:13:48.386Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "question": "plz-gesuchstellerin",
-      "value": 3000,
-      "meta": {},
-      "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "date": null,
-      "file": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
     "pk": "05d3206e-3082-4db7-991c-7c5b124a237f",
     "fields": {
       "created_at": "2020-03-06T11:11:34.109Z",
@@ -2593,6 +3319,38 @@
       "value": "auto-oder-fahrradabstellplaetze-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "0a4a5f37-c4a3-4934-b28a-fea066e4459f",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.127Z",
+      "modified_at": "2021-02-23T08:59:18.127Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "plz-gesuchstellerin",
+      "value": 3000,
+      "meta": {},
+      "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "0bdfad88-a14a-4802-a981-5313bd075260",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.239Z",
+      "modified_at": "2021-02-23T08:59:18.239Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "parzelle",
+      "value": null,
+      "meta": {},
+      "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
       "date": null,
       "file": null
     }
@@ -2711,6 +3469,54 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "1d1ac7d4-7230-42a0-92f3-df19027e8f9e",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.200Z",
+      "modified_at": "2021-02-23T08:59:18.200Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "nummer-parzelle",
+      "value": "13",
+      "meta": {},
+      "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "1dfe96c9-873d-4de7-b5d5-11153849e5f5",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.148Z",
+      "modified_at": "2021-02-23T08:59:18.148Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "personalien-gesuchstellerin",
+      "value": null,
+      "meta": {},
+      "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "204df57e-c60e-4c63-ab8f-fd9d2b512da9",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.175Z",
+      "modified_at": "2021-02-23T08:59:18.175Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "parzellennummer",
+      "value": "3776",
+      "meta": {},
+      "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "27c91d70-1644-48af-8031-f59f7169db9d",
     "fields": {
       "created_at": "2020-03-06T11:12:35.062Z",
@@ -2765,7 +3571,7 @@
       "modified_at": "2020-03-06T11:13:46.618Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "question": "nummer-gesuchstellerin",
+      "question": "nr",
       "value": "13",
       "meta": {},
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
@@ -2951,6 +3757,22 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "54563f5d-6484-4918-9e9a-e4d06e5ebefa",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.224Z",
+      "modified_at": "2021-02-23T08:59:18.224Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "lagekoordinaten-ost",
+      "value": 2614285.0,
+      "meta": {},
+      "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "567f7cb9-4004-4f86-843a-b380af54201a",
     "fields": {
       "created_at": "2020-03-06T11:10:26.140Z",
@@ -2973,7 +3795,7 @@
       "modified_at": "2020-03-06T11:13:49.685Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "question": "ort-gesuchstellerin",
+      "question": "ort-grundstueck",
       "value": "Bern",
       "meta": {},
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
@@ -3031,22 +3853,6 @@
   },
   {
     "model": "caluma_form.answer",
-    "pk": "63b31066-f48f-47cf-a31b-c23e90b8161e",
-    "fields": {
-      "created_at": "2020-03-06T11:14:13.312Z",
-      "modified_at": "2020-03-06T11:14:13.312Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "question": "lagekoordinaten-ost-einfache-vorabklaerung",
-      "value": 2614285.0,
-      "meta": {},
-      "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "date": null,
-      "file": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
     "pk": "6ca51572-1675-42cf-87a8-47a9e7c9825d",
     "fields": {
       "created_at": "2020-03-06T11:10:50.008Z",
@@ -3063,6 +3869,22 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "709db828-1fbc-4141-a816-56ad3bd01860",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.113Z",
+      "modified_at": "2021-02-23T08:59:18.113Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "strasse-gesuchstellerin",
+      "value": "Weg",
+      "meta": {},
+      "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "72360f69-2b27-4199-9c81-f5a984e75881",
     "fields": {
       "created_at": "2020-03-06T11:13:05.424Z",
@@ -3073,6 +3895,22 @@
       "value": 10000,
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "74a3ef3d-f68a-40d4-b5a5-e1f008795958",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.232Z",
+      "modified_at": "2021-02-23T08:59:18.232Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "lagekoordinaten-nord",
+      "value": 1212209.0,
+      "meta": {},
+      "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
       "date": null,
       "file": null
     }
@@ -3325,7 +4163,7 @@
       "modified_at": "2020-03-06T11:14:21.416Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "question": "anfrage-zur-vorabklaerung",
+      "question": "beschreibung-bauvorhaben",
       "value": "Test Vorabkl\u00e4rung",
       "meta": {},
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
@@ -3367,22 +4205,6 @@
   },
   {
     "model": "caluma_form.answer",
-    "pk": "8cfd8083-fa29-45f1-b8af-e240fbf1a2b0",
-    "fields": {
-      "created_at": "2020-03-06T11:14:13.346Z",
-      "modified_at": "2020-03-06T11:14:13.346Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "question": "lagekoordinaten-nord-einfache-vorabklaerung",
-      "value": 1212209.0,
-      "meta": {},
-      "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "date": null,
-      "file": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
     "pk": "91b7b868-1da0-4915-9fe2-cb25c011b322",
     "fields": {
       "created_at": "2020-03-06T11:12:54.593Z",
@@ -3393,22 +4215,6 @@
       "value": "wird-aussenlaerm-erzeugt-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
-    "pk": "93fd27f2-22f5-4466-b7c8-ae05066143d2",
-    "fields": {
-      "created_at": "2020-03-06T11:14:13.302Z",
-      "modified_at": "2020-03-06T11:14:13.302Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "question": "parzellennummer",
-      "value": "3776",
-      "meta": {},
-      "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
       "date": null,
       "file": null
     }
@@ -3511,6 +4317,38 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "a3f0796e-0512-4fc3-9025-64c4831954ea",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.184Z",
+      "modified_at": "2021-02-23T08:59:18.184Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "e-grid-nr",
+      "value": "CH908035124647",
+      "meta": {},
+      "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "a5dc7cf3-5f56-4dc9-b1a8-eb3e5dd015d7",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.106Z",
+      "modified_at": "2021-02-23T08:59:18.106Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "vorname-gesuchstellerin",
+      "value": "Peter",
+      "meta": {},
+      "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "a7a963f1-c867-40b2-9328-b1b7d8376939",
     "fields": {
       "created_at": "2020-03-06T11:12:59.316Z",
@@ -3537,6 +4375,22 @@
       "value": 1211926.0,
       "meta": {},
       "document": "c72dcd61-91b0-4cf9-a823-658e53d9306f",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "aa38c5b3-195d-4e16-aba3-1cbd2cfda402",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.142Z",
+      "modified_at": "2021-02-23T08:59:18.142Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "juristische-person-gesuchstellerin",
+      "value": "juristische-person-gesuchstellerin-nein",
+      "meta": {},
+      "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
       "date": null,
       "file": null
     }
@@ -3585,6 +4439,22 @@
       "value": null,
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "af39a0f3-7c0f-4785-8f34-620f1ea457c5",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.135Z",
+      "modified_at": "2021-02-23T08:59:18.135Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "ort-gesuchstellerin",
+      "value": "Bern",
+      "meta": {},
+      "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
       "date": null,
       "file": null
     }
@@ -3655,6 +4525,22 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "bbd4952a-3fbc-4736-bdde-bf25aec64b2a",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.120Z",
+      "modified_at": "2021-02-23T08:59:18.120Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "nummer-gesuchstellerin",
+      "value": "13",
+      "meta": {},
+      "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "bdc74cde-3b98-46b5-8399-d423b1ee02ac",
     "fields": {
       "created_at": "2020-03-06T11:10:11.639Z",
@@ -3671,22 +4557,6 @@
   },
   {
     "model": "caluma_form.answer",
-    "pk": "c18aca9d-25f9-412d-864d-7877e8ec91c0",
-    "fields": {
-      "created_at": "2020-03-06T11:14:13.285Z",
-      "modified_at": "2020-03-06T11:14:13.285Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "question": "e-grid-nr",
-      "value": "CH908035124647",
-      "meta": {},
-      "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "date": null,
-      "file": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
     "pk": "c341bb68-b10b-4451-8107-bd9aa482b2d0",
     "fields": {
       "created_at": "2020-03-06T11:14:30.304Z",
@@ -3695,22 +4565,6 @@
       "created_by_group": null,
       "question": "einreichen-button",
       "value": ["einreichen-button-eingereicht"],
-      "meta": {},
-      "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "date": null,
-      "file": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
-    "pk": "c7aad8fb-4756-4561-8e76-167a16565c55",
-    "fields": {
-      "created_at": "2020-03-06T11:13:42.694Z",
-      "modified_at": "2020-03-06T11:13:42.694Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "question": "vorname-gesuchstellerin-vorabklaerung",
-      "value": "Peter",
       "meta": {},
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
       "date": null,
@@ -3745,6 +4599,22 @@
       "value": ["keine-tangierung-natur-wild-vogelschutz--ja"],
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "cb06976a-9665-4332-86e0-0b9527117d29",
+    "fields": {
+      "created_at": "2021-02-23T09:04:19.920Z",
+      "modified_at": "2021-02-23T09:04:19.920Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "question": "e-mail-gesuchstellerin",
+      "value": "test@example.com",
+      "meta": {},
+      "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
       "date": null,
       "file": null
     }
@@ -3879,6 +4749,22 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "dc804a17-31be-4b8b-a05d-7df7402291ab",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.098Z",
+      "modified_at": "2021-02-23T08:59:18.098Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "name-gesuchstellerin",
+      "value": "M\u00fcller",
+      "meta": {},
+      "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "dff1a1f7-256e-4771-9b0c-37770eef81d1",
     "fields": {
       "created_at": "2020-03-06T11:10:43.663Z",
@@ -3943,16 +4829,32 @@
   },
   {
     "model": "caluma_form.answer",
-    "pk": "e4567b3c-f18d-4fd1-a410-29c72851c221",
+    "pk": "e5140b4d-7324-44f1-a8c5-a4ff8cb5000f",
     "fields": {
-      "created_at": "2020-03-06T11:13:41.532Z",
-      "modified_at": "2020-03-06T11:13:41.532Z",
+      "created_at": "2021-02-23T08:59:18.208Z",
+      "modified_at": "2021-02-23T08:59:18.208Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "plz-parzelle",
+      "value": 3000,
+      "meta": {},
+      "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "e97857ee-5282-438c-9041-99ed71927a5e",
+    "fields": {
+      "created_at": "2021-02-23T09:04:09.576Z",
+      "modified_at": "2021-02-23T09:04:14.878Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "question": "name-gesuchstellerin-vorabklaerung",
-      "value": "M\u00fcller",
+      "question": "telefon-oder-mobile-gesuchstellerin",
+      "value": "0000000000",
       "meta": {},
-      "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
+      "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
       "date": null,
       "file": null
     }
@@ -3997,7 +4899,7 @@
       "modified_at": "2020-03-06T11:13:45.906Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "question": "strasse-gesuchstellerin",
+      "question": "strasse-flurname",
       "value": "Weg",
       "meta": {},
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
@@ -4017,6 +4919,22 @@
       "value": "grenzwerte-ueberschritten-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "f3bf3658-ef91-48c5-858c-c08b5096fca2",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.216Z",
+      "modified_at": "2021-02-23T08:59:18.216Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "ort-parzelle",
+      "value": "Bern",
+      "meta": {},
+      "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
       "date": null,
       "file": null
     }
@@ -4102,6 +5020,22 @@
     }
   },
   {
+    "model": "caluma_form.answer",
+    "pk": "fd285a13-a9c4-4aa7-8f0c-db0d43f6a033",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.192Z",
+      "modified_at": "2021-02-23T08:59:18.192Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "strasse-parzelle",
+      "value": "Weg",
+      "meta": {},
+      "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
+      "date": null,
+      "file": null
+    }
+  },
+  {
     "model": "caluma_form.historicalanswerdocument",
     "pk": "9aff2a8e-0515-4b37-b965-af12af5c60e5",
     "fields": {
@@ -4115,6 +5049,24 @@
       "answer": "ae97aeb2-e2b0-4d49-905b-9384d0537fe6",
       "document": "e0c8f56e-5b2c-4800-88cf-380cb9cf5aa4",
       "history_date": "2020-03-06T11:11:03.567Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswerdocument",
+    "pk": "be227769-1631-4179-80a7-8dbe3620cb8a",
+    "fields": {
+      "history_user_id": null,
+      "created_at": "2021-02-23T08:59:18.154Z",
+      "modified_at": "2021-02-23T08:59:18.154Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "id": "446869b0-64f0-4c06-9aad-0cd06f3a8c2f",
+      "sort": 1,
+      "answer": "1dfe96c9-873d-4de7-b5d5-11153849e5f5",
+      "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
+      "history_date": "2021-02-23T08:59:18.155Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -4135,6 +5087,50 @@
       "history_date": "2020-03-06T11:12:02.984Z",
       "history_change_reason": null,
       "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswerdocument",
+    "pk": "e0fdfad2-cbd5-4da2-9ab1-89b05b388938",
+    "fields": {
+      "history_user_id": null,
+      "created_at": "2021-02-23T08:59:18.244Z",
+      "modified_at": "2021-02-23T08:59:18.244Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "id": "59b921a7-9801-4458-a777-c2544e3c957b",
+      "sort": 1,
+      "answer": "0bdfad88-a14a-4802-a981-5313bd075260",
+      "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
+      "history_date": "2021-02-23T08:59:18.244Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.answerdocument",
+    "pk": "446869b0-64f0-4c06-9aad-0cd06f3a8c2f",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.154Z",
+      "modified_at": "2021-02-23T08:59:18.154Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "answer": "1dfe96c9-873d-4de7-b5d5-11153849e5f5",
+      "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.answerdocument",
+    "pk": "59b921a7-9801-4458-a777-c2544e3c957b",
+    "fields": {
+      "created_at": "2021-02-23T08:59:18.244Z",
+      "modified_at": "2021-02-23T08:59:18.244Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "answer": "0bdfad88-a14a-4802-a981-5313bd075260",
+      "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
+      "sort": 1
     }
   },
   {
