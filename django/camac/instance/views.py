@@ -247,6 +247,7 @@ class InstanceView(
     def gwr_data(self, request, pk):
         """Export instance data to GWR."""
 
+        # TODO: consider moving this to a serializer
         if settings.APPLICATION["FORM_BACKEND"] == "caluma":  # pragma: no cover
             return response.Response(status=status.HTTP_404_NOT_FOUND)
 
@@ -262,7 +263,7 @@ class InstanceView(
             submit_date = WorkflowEntry.objects.get(
                 instance=instance, workflow_item__pk=workflow_submit_item
             ).workflow_date
-        except ObjectDoesNotExist:
+        except WorkflowEntry.DoesNotExist:
             submit_date = None
 
         return response.Response(
