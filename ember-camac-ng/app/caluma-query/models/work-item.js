@@ -267,7 +267,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
         form {
           name
         }
-        answers(questions: ["anfrage-zur-vorabklaerung", "beschreibung-bauvorhaben"]) {
+        answers(questions: ["beschreibung-bauvorhaben"]) {
           edges {
             node {
               ... on StringAnswer {
@@ -284,7 +284,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
             form {
               name
             }
-            answers(questions: ["anfrage-zur-vorabklaerung", "beschreibung-bauvorhaben"]) {
+            answers(questions: ["beschreibung-bauvorhaben"]) {
               edges {
                 node {
                   ... on StringAnswer {
