@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 
 from snapshottest import Snapshot
 
+
 snapshots = Snapshot()
 
 snapshots["test_document_merge_service_snapshot[1-baugesuch] 1"] = [
@@ -2043,40 +2044,58 @@ snapshots["test_document_merge_service_snapshot[3-None] 1"] = [
     {
         "children": [
             {
-                "label": "Name",
-                "slug": "name-gesuchstellerin-vorabklaerung",
-                "type": "TextQuestion",
-                "value": "Muster",
+                "columns": [
+                    "Handelt es sich um eine juristische Person?",
+                    "Name juristische Person",
+                    "Name",
+                    "Vorname",
+                    "Strasse",
+                    "Nummer",
+                    "PLZ",
+                    "Ort",
+                    "Telefon oder Mobile",
+                    "E-Mail",
+                    "Hinweis Gesuchsteller/in",
+                ],
+                "label": "Personalien - Gesuchsteller/in",
+                "rows": [],
+                "slug": "personalien-gesuchstellerin",
+                "type": "TableQuestion",
             },
             {
-                "label": "Vorname",
-                "slug": "vorname-gesuchstellerin-vorabklaerung",
-                "type": "TextQuestion",
-                "value": "Max",
+                "choices": [
+                    {"checked": False, "label": "Vertreter/in mit Vollmacht"},
+                    {"checked": False, "label": "Projektverfasser/in"},
+                    {"checked": False, "label": "Grundeigentümer/in"},
+                    {"checked": False, "label": "Gebäudeeigentümer/in"},
+                    {
+                        "checked": False,
+                        "label": "Verantwortliche Person Selbstdeklaration Baukontrolle",
+                    },
+                ],
+                "label": "Sind neben den Gesuchstellenden weitere Personen beteiligt?",
+                "slug": "weitere-personen",
+                "type": "MultipleChoiceQuestion",
             },
+        ],
+        "label": "Personalien",
+        "slug": "personalien-kurz-formular",
+        "type": "FormQuestion",
+    },
+    {
+        "children": [
             {
-                "label": "Strasse",
-                "slug": "strasse-gesuchstellerin",
+                "label": "Strasse/Flurname",
+                "slug": "strasse-flurname",
                 "type": "TextQuestion",
-                "value": "asdfstr.",
+                "value": None,
             },
-            {
-                "label": "Nummer",
-                "slug": "nummer-gesuchstellerin",
-                "type": "TextQuestion",
-                "value": "1",
-            },
-            {
-                "label": "PLZ",
-                "slug": "plz-gesuchstellerin",
-                "type": "IntegerQuestion",
-                "value": 3000,
-            },
+            {"label": "Nr.", "slug": "nr", "type": "TextQuestion", "value": None},
             {
                 "label": "Ort",
-                "slug": "ort-gesuchstellerin",
+                "slug": "ort-grundstueck",
                 "type": "TextQuestion",
-                "value": "Bern",
+                "value": None,
             },
             {
                 "label": "Zuständige Gemeinde",
@@ -2085,28 +2104,22 @@ snapshots["test_document_merge_service_snapshot[3-None] 1"] = [
                 "value": "Burgdorf",
             },
             {
-                "label": "Lagekoordinaten - Ost",
-                "slug": "lagekoordinaten-ost-einfache-vorabklaerung",
-                "type": "FloatQuestion",
-                "value": "2614314",
-            },
-            {
-                "label": "Lagekoordinaten – Nord",
-                "slug": "lagekoordinaten-nord-einfache-vorabklaerung",
-                "type": "FloatQuestion",
-                "value": "1211926",
-            },
-            {
-                "label": "Parzellennummer",
-                "slug": "parzellennummer",
-                "type": "TextQuestion",
-                "value": "1",
-            },
-            {
-                "label": "Liegenschaftsnummer",
-                "slug": "liegenschaftsnummer",
-                "type": "IntegerQuestion",
-                "value": None,
+                "columns": [
+                    "Parzellennummer",
+                    "Liegenschaftsnummer",
+                    "Baurecht-Nummer",
+                    "E-GRID-Nr.",
+                    "Strasse",
+                    "Nummer",
+                    "PLZ",
+                    "Ort",
+                    "Lagekoordinaten - Ost",
+                    "Lagekoordinaten - Nord",
+                ],
+                "label": "Parzelle",
+                "rows": [],
+                "slug": "parzelle",
+                "type": "TableQuestion",
             },
             {
                 "label": "BE-GID",
@@ -2121,31 +2134,27 @@ snapshots["test_document_merge_service_snapshot[3-None] 1"] = [
                 "value": None,
             },
             {
-                "label": "E-GRID-Nr.",
-                "slug": "e-grid-nr",
-                "type": "TextQuestion",
-                "value": "CH273589324696",
-            },
-            {
-                "label": "Anfrage",
-                "slug": "anfrage-zur-vorabklaerung",
+                "label": "Beschreibung",
+                "slug": "beschreibung-bauvorhaben",
                 "type": "TextareaQuestion",
-                "value": "bitte abklaeren",
-            },
-            {
-                "choices": [
-                    {
-                        "checked": True,
-                        "label": "Der/die Gesuchsteller/in bestätigt, dass die vom GIS-System übernommen Daten mit den baurechtlichen Grundlagen übereinstimmen.",
-                    }
-                ],
-                "label": "Der/die Gesuchsteller/in bestätigt, dass die vom GIS-System übernommen Daten mit den baurechtlichen Grundlagen übereinstimmen.",
-                "slug": "bestaetigung-gis",
-                "type": "MultipleChoiceQuestion",
+                "value": None,
             },
         ],
-        "label": "Allgemeine Informationen",
-        "slug": "allgemeine-informationen-vorabklaerung-form",
+        "label": "Allgemeine Angaben",
+        "slug": "allgemeine-angaben-kurz-formular",
+        "type": "FormQuestion",
+    },
+    {
+        "children": [
+            {
+                "content": None,
+                "label": "Dokumente Platzhalter",
+                "slug": "dokumente-platzhalter",
+                "type": "StaticQuestion",
+            }
+        ],
+        "label": "Dokumente",
+        "slug": "dokumente-vorabklaerung-form",
         "type": "FormQuestion",
     },
     {
@@ -2158,18 +2167,19 @@ snapshots["test_document_merge_service_snapshot[3-None] 1"] = [
             },
             {
                 "content": None,
+                "label": "freigabequittung-text",
+                "slug": "freigabequittung-text",
+                "type": "StaticQuestion",
+            },
+            {
+                "content": None,
                 "label": "Formulardownload (PDF)",
                 "slug": "formulardownload-pdf",
                 "type": "StaticQuestion",
             },
         ],
         "label": "Einreichen",
-        "slug": "freigabequittung-vorabklaerung-form",
+        "slug": "8-freigabequittung",
         "type": "FormQuestion",
-    },
-    {
-        "label": "Gesuchsteller/in",
-        "people": [{"familyName": "Muster", "givenName": "Max"}],
-        "type": "SignatureQuestion",
     },
 ]

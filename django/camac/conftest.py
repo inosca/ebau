@@ -236,12 +236,27 @@ def ech_mandatory_answers_baugesuch():
 def ech_mandatory_answers_einfache_vorabklaerung():
     return {
         "ech-subject": "Einfache Vorabklärung",
+        "personalien-gesuchstellerin": [
+            {
+                "name-gesuchstellerin": "Testname",
+                "ort-gesuchstellerin": "Testort",
+                "plz-gesuchstellerin": 232,  # non standard swiss zip
+                "strasse-gesuchstellerin": "Teststrasse",
+                "vorname-gesuchstellerin": "Testvorname",
+                "juristische-person-gesuchstellerin": "Nein",
+                "telefon-oder-mobile-gesuchstellerin": int("0311234567"),
+                "e-mail-gesuchstellerin": "a@b.ch",
+            }
+        ],
         "gemeinde": "Testgemeinde",
-        "name-gesuchstellerin-vorabklaerung": "Testname",
-        "ort-gesuchstellerin": "Testort",
-        "plz-gesuchstellerin": 23235,  # non standard swiss zip
-        "strasse-gesuchstellerin": "Teststrasse",
-        "vorname-gesuchstellerin-vorabklaerung": "Testvorname",
+        "parzelle": [
+            {
+                "parzellennummer": "1586",
+                "lagekoordinaten-ost": 2480000,
+                "lagekoordinaten-nord": 1070000,
+            }
+        ],
+        "beschreibung-bauvorhaben": "Testvorhaben",
     }
 
 
