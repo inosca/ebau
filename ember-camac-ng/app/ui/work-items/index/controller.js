@@ -50,7 +50,7 @@ export default class WorkItemsIndexController extends Controller {
   async processNew(workItems) {
     const { usernames, instanceIds, serviceIds } = getProcessData(workItems);
 
-    await this.store.query("user", {
+    await this.store.query("public-user", {
       username: [
         ...new Set([...usernames, this.shoebox.content.username]),
       ].join(","),

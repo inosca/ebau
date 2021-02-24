@@ -40,7 +40,7 @@ export default class WorkItemsInstanceEditController extends Controller {
     const { usernames, instanceIds, serviceIds } = getProcessData(workItems);
 
     if (usernames.length) {
-      await this.store.query("user", { username: usernames.join(",") });
+      await this.store.query("public-user", { username: usernames.join(",") });
     }
 
     if (instanceIds.length) {
@@ -73,7 +73,7 @@ export default class WorkItemsInstanceEditController extends Controller {
   @dropTask
   *fetchUserChoices() {
     try {
-      return (yield this.store.query("user", {
+      return (yield this.store.query("public-user", {
         service: this.shoebox.content.serviceId,
       })).toArray();
     } catch (error) {
