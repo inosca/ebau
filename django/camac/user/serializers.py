@@ -88,6 +88,13 @@ class CurrentUserSerializer(UserSerializer):
         read_only_fields = ("groups", "phone", "email", "address", "zip", "city")
 
 
+class PublicUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.User
+        fields = ("username", "name", "surname")
+        resource_name = "public-users"
+
+
 class RoleSerializer(MultilingualSerializer, serializers.ModelSerializer):
     permission = serializers.SerializerMethodField()
 
