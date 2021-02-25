@@ -47,7 +47,7 @@ export default class WorkItemsInstanceIndexController extends Controller {
     const { usernames, instanceIds, serviceIds } = getProcessData(workItems);
 
     if (usernames.length) {
-      await this.store.query("user", { username: usernames.join(",") });
+      await this.store.query("public-user", { username: usernames.join(",") });
     }
 
     if (instanceIds.length) {
