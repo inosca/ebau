@@ -39,6 +39,14 @@ class ServiceFilterSet(FilterSet):
         fields = ("service_id",)
 
 
+class PublicUserFilterSet(FilterSet):
+    username = CharMultiValueFilter()
+
+    class Meta:
+        model = models.User
+        fields = ("username",)
+
+
 class UserFilterSet(FilterSet):
     id = NumberMultiValueFilter()
     username = CharMultiValueFilter()
