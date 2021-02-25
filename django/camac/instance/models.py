@@ -314,7 +314,7 @@ class FormField(models.Model):
     """
     Represents fields of an instance form.
 
-    What form type field references is assigned on instance itself.
+    Which form type the field references is assigned on instance itself.
     """
 
     instance = models.ForeignKey(Instance, models.CASCADE, related_name="fields")
