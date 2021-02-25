@@ -4,6 +4,7 @@ from datetime import timedelta
 import django_excel
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
 from django.conf import settings
+from django.core.exceptions import ObjectDoesNotExist
 from django.core.files import File
 from django.db import transaction
 from django.db.models import OuterRef, Q, Subquery
@@ -243,6 +244,58 @@ class InstanceView(
             CalumaApi().delete_instance_case(instance_id)
 
         return response
+
+    def _get_field_value(self, name):
+        try:
+            return self.get_object().fields.get(name=name).value
+        except ObjectDoesNotExist:
+            return None
+
+    @action(methods=["get"], detail=True)
+    def gwr_data(self, request, pk):
+        """Export instance data to GWR."""
+
+        # TODO: consider moving this to a serializer
+        if settings.APPLICATION["FORM_BACKEND"] == "caluma":  # pragma: no cover
+            return response.Response(status=status.HTTP_404_NOT_FOUND)
+
+        instance = self.get_object()
+
+        clients = self._get_field_value("bauherrschaft")
+        client = clients[0] if clients else None
+
+        workflow_submit_item = settings.APPLICATION.get("WORKFLOW_ITEMS", {}).get(
+            "SUBMIT"
+        )
+        try:
+            submit_date = WorkflowEntry.objects.get(
+                instance=instance, workflow_item__pk=workflow_submit_item
+            ).workflow_date
+        except WorkflowEntry.DoesNotExist:
+            submit_date = None
+
+        return response.Response(
+            {
+                "constructionProjectDescription": self._get_field_value("bezeichnung"),
+                "totalCostsOfProject": self._get_field_value("baukosten"),
+                "client": {
+                    "address": {
+                        "town": client["ort"],
+                        "swissZipCode": client["plz"],
+                        "street": client["strasse"],
+                    },
+                    "identification": {
+                        "personIdentification": {
+                            "officialName": client["name"],
+                            "firstName": client["vorname"],
+                        },
+                    },
+                }
+                if client
+                else None,
+                "projectAnnouncementDate": submit_date,
+            }
+        )
 
     @action(methods=["get"], detail=False)
     def export_list(self, request):

@@ -37,6 +37,17 @@ export default class App extends Application {
         ],
       },
     },
+    emberEbauGwr: {
+      dependencies: {
+        services: [
+          "notification", // ember-uikit for notifications
+          "intl", // ember-intl for i18n
+          { config: "gwr-config" }, // service to configure ember-ebau-gwr
+          "fetch", // for data import API call
+          "store", // ember-data store for link API
+        ],
+      },
+    },
   };
 }
 
