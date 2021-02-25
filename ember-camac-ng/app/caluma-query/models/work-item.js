@@ -21,7 +21,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
 
   get assignedUser() {
     return this.store
-      .peekAll("user")
+      .peekAll("public-user")
       .find((user) => this.assignedUsers.includes(user.username));
   }
 
@@ -43,12 +43,14 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   get closedByUser() {
-    return this.store.peekAll("user").findBy("username", this.raw.closedByUser);
+    return this.store
+      .peekAll("public-user")
+      .findBy("username", this.raw.closedByUser);
   }
 
   get createdByUser() {
     return this.store
-      .peekAll("user")
+      .peekAll("public-user")
       .findBy("username", this.raw.createdByUser);
   }
 
@@ -219,8 +221,8 @@ export default class CustomWorkItemModel extends WorkItemModel {
   async assignToMe() {
     const id = this.shoebox.content.userId;
     const user =
-      (await this.store.peekRecord("user", id)) ||
-      (await this.store.findRecord("user", id, { reload: true }));
+      (await this.store.peekRecord("public-user", id)) ||
+      (await this.store.findRecord("public-user", id, { reload: true }));
 
     return await this.assignToUser(user);
   }
