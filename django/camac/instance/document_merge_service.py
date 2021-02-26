@@ -3,7 +3,7 @@ from importlib import import_module
 from logging import getLogger
 
 import requests
-from caluma.caluma_form.models import Document, Question
+from caluma.caluma_form.models import Answer, Document, Question
 from caluma.caluma_form.validators import DocumentValidator
 from django.conf import settings
 from django.core.files.base import ContentFile
@@ -38,22 +38,24 @@ class DMSHandler:
     def __init__(self):
         self.visitor = DMSVisitor()
 
-    def generate_pdf(self, instance, form_slug, request):
+    def generate_pdf(self, instance_id, request, form_slug=None, document_id=None):
         # get caluma document and generate data for document merge service
-        if form_slug:
+        if document_id:
+            _filter = {"pk": document_id}
+        elif form_slug:
             _filter = {
-                "work_item__case__meta__camac-instance-id": instance.pk,
+                "work_item__case__meta__camac-instance-id": instance_id,
                 "form_id": form_slug,
             }
         else:
-            _filter = {"case__meta__camac-instance-id": instance.pk}
+            _filter = {"case__meta__camac-instance-id": instance_id}
 
         try:
             doc = Document.objects.get(**_filter)
         except (Document.DoesNotExist, Document.MultipleObjectsReturned):
             message = _(
                 "None or multiple caluma Documents found for instance: %(instance)s"
-            ) % {"instance": instance.pk}
+            ) % {"instance": instance_id}
             request_logger.error(message)
             raise exceptions.ValidationError(message)
 
@@ -66,7 +68,7 @@ class DMSHandler:
             )
 
         data = {
-            "caseId": instance.pk,
+            "caseId": instance_id,
             "caseType": str(doc.form.name),
             "sections": self.visitor.visit(doc),
             "signatureSectionTitle": _("Signatures"),
@@ -79,7 +81,7 @@ class DMSHandler:
         dms_client = DMSClient(auth)
         pdf = dms_client.merge(data, template)
 
-        _file = ContentFile(pdf, slugify(f"{instance.pk}-{doc.form.name}") + ".pdf")
+        _file = ContentFile(pdf, slugify(f"{instance_id}-{doc.form.name}") + ".pdf")
         _file.content_type = "application/pdf"
 
         return _file
@@ -156,15 +158,44 @@ class DMSVisitor:
             if child.slug in self.exclude_slugs or not self._is_visible_question(child):
                 continue
 
+            if (
+                node.form.slug == "mp-form"
+                and child.type != Question.TYPE_FORM
+                and child.slug
+                not in [
+                    "mp-eigene-pruefgegenstaende",
+                    "mp-erforderliche-beilagen-vorhanden",
+                    "mp-welche-beilagen-fehlen",
+                ]
+            ):
+                base_question_slug = re.sub(
+                    r"(-bemerkungen|-ergebnis)$", "", child.slug
+                )
+                base_answer = Answer.objects.filter(
+                    question_id=base_question_slug, document_id=node.id
+                ).first()
+                if (
+                    not base_answer
+                    or not base_answer.value
+                    or base_answer.value.endswith("-nein")
+                ):
+                    continue
+
             result = self._visit_question(
                 child, parent_doc=node, flatten=flatten, **kwargs
             )
+
             if result is None:
                 continue
 
             if child.type == Question.TYPE_FORM and not len(
                 result.get("children", [])
             ):  # pragma: no cover
+                continue
+
+            if child.slug == "mp-eigene-pruefgegenstaende" and not len(
+                result.get("rows", [])
+            ):
                 continue
 
             visited_children.append(result)
