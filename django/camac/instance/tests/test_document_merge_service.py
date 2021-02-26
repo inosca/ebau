@@ -1,7 +1,7 @@
 from pathlib import Path
 
 import pytest
-from caluma.caluma_form.models import Document
+from caluma.caluma_form.models import Document, Form
 from django.conf import settings
 from django.core.cache import cache
 from django.core.management import call_command
@@ -30,7 +30,14 @@ def dms_settings(application_settings):
 
 
 @pytest.mark.parametrize(
-    "instance_id,form_slug", [(1, "baugesuch"), (1, "sb1"), (1, "sb2"), (3, None)]
+    "instance_id,form_slug",
+    [
+        (1, "baugesuch"),
+        (1, "sb1"),
+        (1, "sb2"),
+        (3, None),
+        (2, "mp-form"),
+    ],
 )
 def test_document_merge_service_snapshot(
     db,
@@ -43,6 +50,10 @@ def test_document_merge_service_snapshot(
     dms_settings,
     form_question_factory,
     question_factory,
+    document_factory,
+    camac_answer_factory,
+    instance_factory,
+    answer_factory,
 ):
     cache.clear()
     service_factory(
@@ -52,8 +63,14 @@ def test_document_merge_service_snapshot(
     )
 
     _filter = {"meta__camac-instance-id": instance_id}
+
     if form_slug:
         _filter["form__slug"] = form_slug
+
+    if form_slug == "mp-form":
+        form = Form.objects.create(slug="mp-form")
+        document = document_factory(form=form)
+        _filter = {"id": document.id}
 
     root_document = Document.objects.get(**_filter)
 
@@ -62,6 +79,36 @@ def test_document_merge_service_snapshot(
             pk="verpflichtung-bei-handaenderung", is_archived=True
         )
         form_question_factory(form=root_document.form, question=archived_q)
+
+    if form_slug == "mp-form":
+        questions = [
+            ("mp-nutzungsart", "choice", "mp-nutzungsart-nein"),
+            ("mp-nutzungsart-ergebnis", "choice", None),
+            ("mp-nutzungsart-bemerkungen", "textarea", "Test Nutzungsart"),
+            ("mp-bepflanzung", "choice", "mp-bepflanzung-ja"),
+            (
+                "mp-bepflanzung-ergebnis",
+                "choice",
+                "mp-bepflanzung-ergebnis-eingehalten",
+            ),
+            ("mp-bepflanzung-bemerkungen", "textarea", "Test Bepflanzung"),
+            ("mp-eigene-pruefgegenstaende", "table", None),
+            (
+                "mp-erforderliche-beilagen-vorhanden",
+                "choice",
+                "mp-erforderliche-beilagen-vorhanden",
+            ),
+            ("mp-welche-beilagen-fehlen", "textarea", "Alle"),
+        ]
+        for i, (question_slug, question_type, value) in enumerate(reversed(questions)):
+            question = question_factory(slug=question_slug, type=question_type)
+            form_question_factory(form=root_document.form, question=question, sort=i)
+            if value:
+                answer_factory(
+                    question_id=question.pk,
+                    value=value,
+                    document_id=document.pk,
+                )
 
     visitor = DMSVisitor()
     snapshot.assert_match(visitor.visit(root_document))
