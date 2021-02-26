@@ -4,6 +4,7 @@ audit:
   complete: "Clore l'examen"
   skip: "Sauter l'examen"
   titleMeta: "Créé le {date} par {creator}"
+  createPdf: "Télécharger le PDF"
 
   type: "Type du examen"
   createdBy: "Créé par"
@@ -24,6 +25,7 @@ audit:
   deleteError: "Erreur lors de la suppression du examen"
   skipError: "Erreur lors du saut du examen"
   completeError: "Erreur lors de la clôture du examen"
+  createPdfError: "Erreur lors du téléchargement du PDF"
   completeInvalid: "L'examen du dossier n'a pas été effectué correctement. Au moins un examen formel et matériel correctement effectué est obligatoire. Veuillez vérifier vos données et réessayer."
 
   forms:

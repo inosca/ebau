@@ -11,6 +11,16 @@
   },
   {
     "model": "api.template",
+    "pk": "audit-form",
+    "fields": {
+      "description": "",
+      "template": "audit-form.docx",
+      "engine": "docx-template",
+      "group": null
+    }
+  },
+  {
+    "model": "api.template",
     "pk": "fr-decision-globale",
     "fields": {
       "description": "FR D\u00e9cision globale",
