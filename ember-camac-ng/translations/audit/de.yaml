@@ -4,6 +4,7 @@ audit:
   complete: "Prüfung abschliessen"
   skip: "Prüfung überspringen"
   titleMeta: "Erstellt am {date} von {creator}"
+  createPdf: "PDF herunterladen"
 
   type: "Prüfungstyp"
   createdBy: "Erstellt von"
@@ -24,6 +25,7 @@ audit:
   deleteError: "Fehler beim Löschen der Prüfung"
   skipError: "Fehler beim Überspringen der Prüfung"
   completeError: "Fehler beim Abschliessen der Prüfung"
+  createPdfError: "Fehler beim Herunterladen des PDF"
   completeInvalid: "Die Dossierprüfung wurde nicht korrekt ausgefüllt. Mindestens eine korrekt ausgefüllte formelle sowie materielle Prüfung ist obligatorisch. Bitte prüfen Ihre Daten und versuchen Sie es nochmals."
 
   forms:
