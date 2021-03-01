@@ -6664,9 +6664,9 @@ ember-destroyable-polyfill@^2.0.2:
     ember-cli-version-checker "^5.1.1"
     ember-compatibility-helpers "^1.2.1"
 
-"ember-ebau-gwr@https://github.com/adfinis-sygroup/ember-ebau-gwr#data-import":
+ember-ebau-gwr@adfinis-sygroup/ember-ebau-gwr#main:
   version "0.0.0"
-  resolved "https://github.com/adfinis-sygroup/ember-ebau-gwr#673815a09c545af49e052ab5f22e1310d2e5d9f9"
+  resolved "https://codeload.github.com/adfinis-sygroup/ember-ebau-gwr/tar.gz/b9887b3d7eda88ed71726a073cda96d9a50ac4f8"
   dependencies:
     "@ember/render-modifiers" "^1.0.2"
     dayjs "^1.10.3"

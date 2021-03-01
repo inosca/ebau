@@ -47,7 +47,7 @@ module("Acceptance | responsible", function (hooks) {
   });
 
   test("it can save a responsible user", async function (assert) {
-    const users = this.server.createList("user", 3);
+    const users = this.server.createList("user", 3, { serviceId: SERVICE_ID });
 
     await visit(`/instances/${this.instance.id}/responsible`);
 

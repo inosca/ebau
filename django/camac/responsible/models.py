@@ -99,6 +99,7 @@ class ResponsibleService(models.Model):
     class Meta:
         managed = True
         db_table = "RESPONSIBLE_SERVICE"
+        unique_together = [["instance", "service"]]
 
 
 class ResponsibleServiceLog(models.Model):
