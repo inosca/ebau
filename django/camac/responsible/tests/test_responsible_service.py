@@ -31,8 +31,12 @@ def test_responsible_service_create(
     status_code,
     activation,
     work_item_factory,
+    case_factory,
 ):
-    work_item = work_item_factory(addressed_groups=[instance.group.service.pk])
+    case = case_factory(meta={"camac-instance-id": instance.pk})
+    work_item = work_item_factory(
+        case=case, addressed_groups=[instance.group.service.pk]
+    )
 
     url = reverse("responsibleservice-list")
 
@@ -76,9 +80,18 @@ def test_responsible_service_update(
     service,
     instance,
     work_item_factory,
+    case_factory,
     admin_user,
 ):
-    work_item = work_item_factory(addressed_groups=[responsible_service.service.pk])
+    case = case_factory(meta={"camac-instance-id": responsible_service.instance.pk})
+    work_item = work_item_factory(
+        case=case, addressed_groups=[responsible_service.service.pk]
+    )
+    other_work_item = work_item_factory(
+        case=case_factory(),
+        addressed_groups=[responsible_service.service.pk],
+        assigned_users=[],
+    )
 
     url = reverse("responsibleservice-detail", args=[responsible_service.pk])
 
@@ -98,14 +111,15 @@ def test_responsible_service_update(
             },
         }
     }
+
     response = admin_client.patch(url, data=data)
     assert response.status_code == status_code
-    json = response.json()
+
     if status_code == status.HTTP_200_OK:
-        assert (
-            int(json["data"]["relationships"]["instance"]["data"]["id"]) == instance.pk
-        )
         work_item.refresh_from_db()
+        other_work_item.refresh_from_db()
+
         assert (
             work_item.assigned_users[0] == responsible_service.responsible_user.username
         )
+        assert other_work_item.assigned_users == []
