@@ -938,3 +938,105 @@ def test_instance_list_commission(db, admin_client, has_assignment, request, ins
         assert json["data"][0]["id"] == str(instance.pk)
     else:
         assert len(json["data"]) == 0
+
+
+@pytest.mark.parametrize(
+    "instance__user,instance_state__name", [(LazyFixture("admin_user"), "subm")]
+)
+@pytest.mark.parametrize(
+    "role__name,current_form_slug,new_form_slug,expected_status",
+    [
+        (
+            "Municipality",
+            "baugesuch-reklamegesuch-v2",
+            "projektanderung-v2",
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            "Municipality",
+            "anlassbewilligungen-verkehrsbewilligungen-v2",
+            "projektgenehmigungsgesuch-gemass-ss15-strag-v2",
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            "Municipality",
+            "baugesuch-reklamegesuch-v2",
+            "baugesuch-reklamegesuch-v2",
+            status.HTTP_400_BAD_REQUEST,
+        ),
+        (
+            "Municipality",
+            "konzession-fur-wasserentnahme",
+            "baugesuch-reklamegesuch-v2",
+            status.HTTP_400_BAD_REQUEST,
+        ),
+        (
+            "Municipality",
+            "baugesuch-reklamegesuch-v2",
+            "konzession-fur-wasserentnahme",
+            status.HTTP_400_BAD_REQUEST,
+        ),
+        (
+            "Applicant",
+            "baugesuch-reklamegesuch-v2",
+            "projektanderung-v2",
+            status.HTTP_403_FORBIDDEN,
+        ),
+    ],
+)
+def test_instance_change_form(
+    db,
+    admin_client,
+    admin_user,
+    caluma_admin_user,
+    caluma_workflow_config_sz,
+    caluma_config_sz,
+    instance,
+    instance_service,
+    form_factory,
+    instance_state_factory,
+    role,
+    current_form_slug,
+    new_form_slug,
+    expected_status,
+):
+    caluma_form, _ = caluma_form_models.Form.objects.get_or_create(
+        pk="baugesuch"
+    )
+    workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
+
+    case = workflow_api.start_case(
+        workflow=workflow,
+        form=caluma_form,
+        meta={"camac-instance-id": instance.pk},
+        user=caluma_admin_user,
+    )
+    work_item = caluma_workflow_models.WorkItem.objects.get(task_id="submit")
+    workflow_api.complete_work_item(
+        work_item=work_item,
+        user=caluma_admin_user,
+    )
+
+    instance_state_factory(name="rejected")
+    current_form = form_factory(name=current_form_slug)
+    new_form = form_factory(name=new_form_slug)
+
+    instance.form = current_form
+    instance.save()
+
+    response = admin_client.post(
+        reverse("instance-change-form", args=[instance.pk]),
+        {
+            "data": {
+                "type": "instance-change-forms",
+                "attributes": {"form": new_form_slug},
+            }
+        },
+    )
+
+    assert response.status_code == expected_status
+
+    if expected_status == status.HTTP_204_NO_CONTENT:
+        instance.refresh_from_db()
+
+        assert instance.form.name == new_form_slug

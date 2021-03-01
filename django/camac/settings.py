@@ -261,6 +261,7 @@ APPLICATIONS = {
             ],
             "ACTIVATION_EXCLUDE_ROLES": ["Lesezugriff"],
             "SUBMIT_TASKS": ["submit", "submit-additional-demand", "formal-addition"],
+            "REJECTION_TASK": "reject-form",
             "PRE_COMPLETE": {
                 "complete-check": {"cancel": ["reject-form"]},
                 "reject-form": {"cancel": ["complete-check", "depreciate-case"]},
