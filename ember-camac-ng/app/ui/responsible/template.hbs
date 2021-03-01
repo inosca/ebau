@@ -1,8 +1,8 @@
 <Notifications @style="uikit"/>
 
-<span {{did-insert (perform this.getData)}}></span>
+<span {{did-insert (perform this.fetchData)}}></span>
 
-{{#if this.getData.isRunning}}
+{{#if this.fetchData.isRunning}}
   <div class="uk-text-center">
     <UkSpinner @ratio={{2}} />
   </div>
@@ -36,7 +36,7 @@
           @searchEnabled={{true}}
           @searchField="fullName"
           @renderInPlace={{true}}
-          @options={{this.fetchedUsers}}
+          @options={{this.users}}
           @selected={{this.selectedUser}}
           @noMatchesMessage={{t "global.noMatch"}}
           @onChange={{fn (mut this.selectedUser)}}
