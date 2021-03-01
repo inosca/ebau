@@ -9,25 +9,54 @@ export default class ResponsibleController extends Controller {
   @service notifications;
   @service intl;
 
-  @tracked selectedUser;
-  @tracked fetchedUsers = [];
-  @tracked responsibilites = [];
+  @tracked _selectedUser;
+
+  get responsibilites() {
+    return this.store
+      .peekAll("responsible-service")
+      .filter(
+        (responsibleService) =>
+          parseInt(responsibleService.belongsTo("instance").id()) ===
+          parseInt(this.model.id)
+      );
+  }
+
+  get users() {
+    return this.store
+      .peekAll("user")
+      .filter(
+        (user) =>
+          parseInt(user.belongsTo("service").id()) ===
+          this.shoebox.content.serviceId
+      );
+  }
+
+  get current() {
+    return this.responsibilites.find(
+      (responsibleService) =>
+        parseInt(responsibleService.belongsTo("service").id()) ===
+        this.shoebox.content.serviceId
+    );
+  }
+
+  get selectedUser() {
+    return this._selectedUser || this.current?.responsibleUser;
+  }
+
+  set selectedUser(user) {
+    this._selectedUser = user;
+  }
 
   @dropTask
-  *getData() {
-    this.responsibilites = yield this.store.query("responsible-service", {
+  *fetchData() {
+    yield this.store.query("responsible-service", {
       instance: this.model.id,
       include: "responsible_user,service",
     });
 
-    this.fetchedUsers = yield this.store.query("user", {
+    yield this.store.query("user", {
       service: this.shoebox.content.serviceId,
     });
-
-    this.selectedUser = yield this.responsibilites.find(
-      (res) =>
-        parseInt(res.get("service.id")) === this.shoebox.content.serviceId
-    )?.responsibleUser;
   }
 
   @dropTask
@@ -35,23 +64,15 @@ export default class ResponsibleController extends Controller {
     event.preventDefault();
 
     try {
-      let responsibility = this.responsibilites.find(
-        (res) =>
-          parseInt(res.get("service.id")) === this.shoebox.content.serviceId
-      );
-
-      if (!responsibility) {
-        responsibility = this.store.createRecord("responsible-service", {
+      const responsibility =
+        this.current ||
+        this.store.createRecord("responsible-service", {
           instance: this.model,
-          service_id: this.shoebox.content.serviceId,
         });
-      }
 
       responsibility.responsibleUser = this.selectedUser;
-      yield responsibility.save();
 
-      this.responsibilites.update();
-      this.selectedUser = {};
+      yield responsibility.save();
 
       this.notifications.success(this.intl.t("responsible.saveSuccess"));
     } catch (error) {

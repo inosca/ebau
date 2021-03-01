@@ -18,7 +18,7 @@ const DATA = {
   email: "info@acme.com",
   website: "https://acme.com",
   notification: 1,
-  userIds: [],
+  userIds: null,
   activationIds: null,
 };
 
