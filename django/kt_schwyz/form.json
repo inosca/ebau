@@ -108,7 +108,8 @@
       "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
-      "gesuchsunterlagen"
+      "gesuchsunterlagen",
+      "meta"
     ],
     "projektanderung-v2": [
       "projektanderung",
@@ -122,7 +123,8 @@
       "personalien.grundeigentumerschaft",
       "personalien.bauherrschaft",
       "personalien.projektverfasser-planer",
-      "gesuchsunterlagen"
+      "gesuchsunterlagen",
+      "meta"
     ],
     "vorentscheid-gemass-ss84-pbg-v2": [
       "vorentscheid",
@@ -154,7 +156,8 @@
       "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
-      "gesuchsunterlagen"
+      "gesuchsunterlagen",
+      "meta"
     ],
     "vorabklarung": [
       "grundinformationen",
@@ -234,7 +237,8 @@
       "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
-      "gesuchsunterlagen"
+      "gesuchsunterlagen",
+      "meta"
     ],
     "baumeldung-fur-geringfugiges-vorhaben-v3": [
       "grundinformationen",
@@ -263,7 +267,8 @@
       "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
-      "gesuchsunterlagen"
+      "gesuchsunterlagen",
+      "meta"
     ],
     "technische-bewilligung": [
       "technische-bewilligung",
@@ -292,7 +297,8 @@
       "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
-      "gesuchsunterlagen"
+      "gesuchsunterlagen",
+      "meta"
     ],
     "konzession-fur-wasserentnahme": [
       "konzession-fur-wasserentnahme",
@@ -327,7 +333,8 @@
       "personalien",
       "personalien.bauherrschaft",
       "personalien.projektverfasser-planer",
-      "gesuchsunterlagen"
+      "gesuchsunterlagen",
+      "meta"
     ],
     "plangenehmigungsgesuch": [
       "grundinformationen",

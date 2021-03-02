@@ -342,8 +342,6 @@ class CamacInstanceChangeFormSerializer(serializers.Serializer):
     @transaction.atomic
     def update(self, instance, validated_data):
         previous_form = instance.form
-        instance.previous_instance_state = instance.instance_state
-        instance.instance_state = models.InstanceState.objects.get(name="rejected")
         instance.form = models.Form.objects.get(name=validated_data["form"])
 
         instance.save()
@@ -352,7 +350,7 @@ class CamacInstanceChangeFormSerializer(serializers.Serializer):
             instance=instance, name="meta", defaults={"value": json.dumps({})}
         )
         meta_value = json.loads(meta.value)
-        meta_value["formChange"] = {"original": previous_form.name}
+        meta_value["formChange"] = {"name": previous_form.name, "id": previous_form.pk}
         meta.value = json.dumps(meta_value)
         meta.save()
 
@@ -360,27 +358,22 @@ class CamacInstanceChangeFormSerializer(serializers.Serializer):
             **{
                 "task_id": settings.APPLICATION["CALUMA"]["REJECTION_TASK"],
                 "status": workflow_models.WorkItem.STATUS_READY,
-                "case__meta__camac-instance-id": self.instance.pk,
+                "case__meta__camac-instance-id": instance.pk,
             }
         ).first()
 
         workflow_api.complete_work_item(
             work_item=work_item,
             user=self.context["request"].caluma_info.context.user,
+            context={
+                "notification-body": f'Die Leitbehörde hat ihres Gesuch von einem "{previous_form.description}" zu einem "{instance.form.description}" umgewandelt, da der vorherige Gesuchstyp inkorrekt war.'
+            },
         )
 
-        send_mail(
-            "ruckweisung",
-            self.context,
-            recipient_types=["applicant"],
-            instance={"type": "instances", "id": self.instance.pk},
-        )
-
-        # create a history entry
         create_history_entry(
-            self.instance,
+            instance,
             self.context["request"].user,
-            f"Dossier wurde von {previous_form.name} zu {instance.form.name} umgewandelt",
+            f'Dossier wurde von "{previous_form.description}" zu "{instance.form.description}" umgewandelt',
         )
 
         return instance
