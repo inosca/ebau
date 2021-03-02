@@ -311,6 +311,9 @@ APPLICATIONS = {
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": False,
             "PUBLICATION_TASK_SLUG": "publication",
             "SIMPLE_WORKFLOW": {
+                "formal-addition": {
+                    "next_instance_state": "subm",
+                },
                 "complete-check": {
                     "next_instance_state": "comm",
                     "history_text": "Dossier angenommen",
