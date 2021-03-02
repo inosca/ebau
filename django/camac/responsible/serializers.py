@@ -25,19 +25,22 @@ class ResponsibleServiceSerializer(InstanceEditableMixin, serializers.ModelSeria
 
     def create(self, validated_data):
         responsible_service = super().create(validated_data)
-        self._assign_work_items(responsible_service)
+        self._reassign_work_items(responsible_service)
 
         return responsible_service
 
     def update(self, responsible_service, validated_data):
         super().update(responsible_service, validated_data)
-        self._assign_work_items(responsible_service)
+        self._reassign_work_items(responsible_service)
 
         return responsible_service
 
-    def _assign_work_items(self, responsible_service):
-        # assign all tasks of the service of this instance to the responsible user
-
+    def _reassign_work_items(self, responsible_service):
+        # reassign all tasks of this instance for this service to the
+        # responsible user
         WorkItem.objects.filter(
-            addressed_groups=[responsible_service.service.pk]
+            **{
+                "case__family__meta__camac-instance-id": responsible_service.instance.pk,
+                "addressed_groups": [responsible_service.service.pk],
+            }
         ).update(assigned_users=[responsible_service.responsible_user.username])
