@@ -90,8 +90,8 @@ services:
       - djangomedia:/var/www/camac/media
       - phpsessions:/var/www/camac/sessions
       - /var/www/camac/vendor
-      - /var/www/camac/public/public-kt_bern/css
-      - /var/www/camac/public/public-kt_bern/js
+      - /var/www/camac/public/public-kt_uri/css/dist
+      - /var/www/camac/public/public-kt_uri/js/dist
       - /var/www/camac/public/node_modules
 
   mailhog:
