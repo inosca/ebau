@@ -15729,7 +15729,7 @@
       "email_subject": "CAMAC Dossier Nr. [@c2q6i1]: Bau- und Einsprache-Entscheid",
       "from_email": "camac@ur.ch",
       "from_name": "Camac Info",
-      "attachment_section": 104,
+      "attachment_section": 12000004,
       "workflow_item": 87
     }
   },
@@ -15743,7 +15743,7 @@
       "email_subject": "CAMAC Dossier Nr. [@c2q6i1]: Bau- und Einsprache-Entscheid",
       "from_email": "camac@ur.ch",
       "from_name": "Camac Info",
-      "attachment_section": 104,
+      "attachment_section": 12000004,
       "workflow_item": 87
     }
   },
@@ -15757,7 +15757,7 @@
       "email_subject": "CAMAC Dossier Nr. [@c2q6i1]: Bau- und Einsprache-Entscheid",
       "from_email": "camac@ur.ch",
       "from_name": "Camac Info",
-      "attachment_section": 104,
+      "attachment_section": 12000004,
       "workflow_item": 130000
     }
   },
@@ -21791,7 +21791,7 @@
     "model": "core.instanceresource",
     "pk": 46,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 301,
       "name": "Dokumente",
       "description": "",
@@ -21821,7 +21821,7 @@
     "model": "core.instanceresource",
     "pk": 145,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 267,
       "name": "Dokumente",
       "description": "Dokumente fur Baubewilligungsverfahren mit kantonaler Beteiligung",
@@ -22091,7 +22091,7 @@
     "model": "core.instanceresource",
     "pk": 466,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 288,
       "name": "Dokumente",
       "description": "",
@@ -22181,7 +22181,7 @@
     "model": "core.instanceresource",
     "pk": 525,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 302,
       "name": "Dokumente",
       "description": "",
@@ -22226,7 +22226,7 @@
     "model": "core.instanceresource",
     "pk": 545,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 42,
       "name": "Dokumente",
       "description": "Dokumente anschauen f\u00fcr Dossier, die nicht in der Pendenzenliste sind",
@@ -22241,7 +22241,7 @@
     "model": "core.instanceresource",
     "pk": 585,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 309,
       "name": "Dokumente",
       "description": "Dokumentenauflistung f\u00fcr die Kommissionsmitglieder",
@@ -22286,7 +22286,7 @@
     "model": "core.instanceresource",
     "pk": 607,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 264,
       "name": "Dokumente",
       "description": "",
@@ -22436,7 +22436,7 @@
     "model": "core.instanceresource",
     "pk": 676,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 250,
       "name": "Dokumente",
       "description": "Ansicht der Dokumente nach einreichung Dossier",
@@ -22616,7 +22616,7 @@
     "model": "core.instanceresource",
     "pk": 696,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 307,
       "name": "Dokumente",
       "description": null,
@@ -22646,7 +22646,7 @@
     "model": "core.instanceresource",
     "pk": 701,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 289,
       "name": "Dokumente",
       "description": "Dokumente fur Baubewilligungsverfahren",
@@ -22736,7 +22736,7 @@
     "model": "core.instanceresource",
     "pk": 710,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 293,
       "name": "Dokumente",
       "description": "",
@@ -22766,7 +22766,7 @@
     "model": "core.instanceresource",
     "pk": 716,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 296,
       "name": "Dokumente",
       "description": "Dokumente fur Baubewilligungsverfahren",
@@ -22856,7 +22856,7 @@
     "model": "core.instanceresource",
     "pk": 725,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 297,
       "name": "Dokumente",
       "description": "Dokumente fur Baubewilligungsverfahren",
@@ -22946,7 +22946,7 @@
     "model": "core.instanceresource",
     "pk": 737,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 298,
       "name": "Dokumente",
       "description": "Dokumente fur Baubewilligungsverfahren",
@@ -23156,7 +23156,7 @@
     "model": "core.instanceresource",
     "pk": 756,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 314,
       "name": "Dokumente",
       "description": null,
@@ -23216,7 +23216,7 @@
     "model": "core.instanceresource",
     "pk": 761,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 316,
       "name": "Dokumente",
       "description": "Dokumente Bundesstelle",
@@ -23306,7 +23306,7 @@
     "model": "core.instanceresource",
     "pk": 770,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 317,
       "name": "Dokumente",
       "description": null,
@@ -23629,21 +23629,6 @@
       "class_field": null,
       "hidden": 0,
       "sort": 1,
-      "form_group": 161
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 12000000,
-    "fields": {
-      "available_instance_resource": "apidocuments",
-      "resource": 301,
-      "name": "Dokumente",
-      "description": "List of instance documents (API source)",
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 3,
       "form_group": 161
     }
   },
@@ -36649,267 +36634,6 @@
       "instance_resource": 2000002,
       "role": 1105,
       "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000000,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 7,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000001,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 7,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000002,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 7,
-      "instance_state": 32
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000003,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 7,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000004,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 7,
-      "instance_state": 24
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000005,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 7,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000006,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 7,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000007,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 7,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000008,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 7,
-      "instance_state": 33
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000009,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 6,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000010,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 6,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000011,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 6,
-      "instance_state": 32
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000012,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 6,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000013,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 6,
-      "instance_state": 24
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000014,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 6,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000015,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 6,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000016,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 6,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000017,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 6,
-      "instance_state": 27
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000018,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 6,
-      "instance_state": 33
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000019,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 4,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000020,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 4,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000021,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 4,
-      "instance_state": 32
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000022,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 4,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000023,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 4,
-      "instance_state": 24
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000024,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 4,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000025,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 4,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000026,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 4,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000027,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 4,
-      "instance_state": 27
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000028,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 4,
-      "instance_state": 33
     }
   },
   {
