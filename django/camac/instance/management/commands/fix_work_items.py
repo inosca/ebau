@@ -82,6 +82,7 @@ class Command(BaseCommand):
         self.fix_closed()
         self.fix_wrongly_closed_cases()
         self.fix_suspended_cases()
+        self.fix_circulation_addressed_group()
         if options["sync_circulation"]:
             self.fix_circulation()
         self.fix_required_tasks()
@@ -411,4 +412,29 @@ class Command(BaseCommand):
 
         self.stdout.write(
             self.style.WARNING(f"Suspended {count} rejected or in correction cases")
+        )
+
+    def fix_circulation_addressed_group(self):
+        unassigned_circulation_work_items = WorkItem.objects.filter(
+            addressed_groups=[],
+            task_id="circulation",
+            **self.get_instance_filters("case__family__meta__camac-instance-id"),
+        )
+
+        for work_item in unassigned_circulation_work_items:
+            circulation = Circulation.objects.get(
+                pk=work_item.meta.get("circulation-id")
+            )
+
+            work_item.addressed_groups = [circulation.service_id]
+            work_item.save()
+
+            self.fixed_instances[
+                work_item.case.family.meta.get("camac-instance-id")
+            ].append("Circulation not assigned")
+
+        self.stdout.write(
+            self.style.WARNING(
+                f"Assigned {unassigned_circulation_work_items.count()} circulation work items"
+            )
         )
