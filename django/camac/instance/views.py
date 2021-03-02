@@ -228,7 +228,10 @@ class InstanceView(
         return False
 
     def has_object_change_form_permission_for_municipality(self, instance):
-        return instance.instance_state.name == "subm"
+        return (
+            instance.responsible_service(filter_type="municipality")
+            == self.request.group.service
+        ) and instance.instance_state.name == "subm"
 
     def has_object_change_form_permission_for_support(self, instance):
         return True

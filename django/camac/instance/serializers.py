@@ -305,7 +305,7 @@ class SchwyzInstanceSerializer(InstanceSerializer):
 class CamacInstanceChangeFormSerializer(serializers.Serializer):
     """Handle changing the form of an instance."""
 
-    interchangeable_forms = [
+    INTERCHANGEABLE_FORMS = [
         "vorentscheid-gemass-ss84-pbg-v2",
         "baugesuch-reklamegesuch-v2",
         "projektanderung-v2",
@@ -319,7 +319,7 @@ class CamacInstanceChangeFormSerializer(serializers.Serializer):
     form = serializers.CharField()
 
     def validate_form(self, value):
-        if value not in self.interchangeable_forms:
+        if value not in self.INTERCHANGEABLE_FORMS:
             raise exceptions.ValidationError(
                 _("'%(form)s' is not a valid form type") % {"form": value}
             )
@@ -327,7 +327,7 @@ class CamacInstanceChangeFormSerializer(serializers.Serializer):
         return value
 
     def validate(self, data):
-        if self.instance.form.name not in self.interchangeable_forms:
+        if self.instance.form.name not in self.INTERCHANGEABLE_FORMS:
             raise exceptions.ValidationError(
                 _("The current form '%(form)s' can't be changed")
                 % {"form": self.instance.form.name}
