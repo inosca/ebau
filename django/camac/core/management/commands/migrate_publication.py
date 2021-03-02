@@ -82,7 +82,7 @@ class Command(BaseCommand):
                     output_field=IntegerField(),
                 )
             )
-            .exclude(work_items__task_id="fill-publication")
+            .exclude(work_items__task_id__in=["fill-publication", "create-publication"])
             .exclude(
                 instance_id__in=(
                     [options["instance"]]
@@ -157,38 +157,29 @@ class Command(BaseCommand):
             complete_work_item(target_work_item, self.user)
 
     def fix_work_item_status(self, case, instance):
-        # refetch new work items from db but only if ready
-        fill_work_item = case.work_items.filter(
-            task_id="fill-publication", status=WorkItem.STATUS_READY
-        ).first()
-        create_work_item = case.work_items.filter(
-            task_id="create-publication", status=WorkItem.STATUS_READY
-        ).first()
-
         if instance.instance_state.name in ["rejected", "correction"]:
-            if fill_work_item:
-                suspend_work_item(fill_work_item, self.user)
-            if create_work_item:
-                suspend_work_item(create_work_item, self.user)
+            self.process_work_item(case, "fill-publication", suspend_work_item)
+            self.process_work_item(case, "create-publication", suspend_work_item)
 
-        if (
-            instance.instance_state.name
-            in [
-                "sb1",
-                "sb2",
-                "conclusion",
-            ]
-            and fill_work_item
-        ):
-            skip_work_item(fill_work_item, self.user)
+        elif instance.instance_state.name in [
+            "sb1",
+            "sb2",
+            "conclusion",
+        ]:
+            self.process_work_item(case, "fill-publication", skip_work_item)
 
-        if instance.instance_state.name in [
+        elif instance.instance_state.name in [
             "evaluated",
             "finished",
             "finished_internal",
         ]:
-            if fill_work_item:
-                skip_work_item(fill_work_item, self.user)
+            self.process_work_item(case, "fill-publication", skip_work_item)
+            self.process_work_item(case, "create-publication", cancel_work_item)
 
-            if create_work_item:
-                cancel_work_item(create_work_item, self.user)
+    def process_work_item(self, case, task_id, fn):
+        work_item = case.work_items.filter(
+            task_id=task_id, status=WorkItem.STATUS_READY
+        ).first()
+
+        if work_item:
+            fn(work_item, self.user)
