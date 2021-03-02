@@ -12,6 +12,7 @@ from rest_framework import status
 
 from camac.core.models import InstanceLocation, WorkflowEntry
 from camac.instance import serializers
+from camac.instance.models import HistoryEntryT
 
 
 @pytest.mark.parametrize(
@@ -940,72 +941,93 @@ def test_instance_list_commission(db, admin_client, has_assignment, request, ins
         assert len(json["data"]) == 0
 
 
+@pytest.mark.parametrize("instance__user", [(LazyFixture("admin_user"))])
 @pytest.mark.parametrize(
-    "instance__user,instance_state__name", [(LazyFixture("admin_user"), "subm")]
-)
-@pytest.mark.parametrize(
-    "role__name,current_form_slug,new_form_slug,expected_status",
+    "role__name,current_form_slug,new_form_slug,starting_instance_state,expected_status",
     [
         (
             "Municipality",
             "baugesuch-reklamegesuch-v2",
             "projektanderung-v2",
+            "subm",
             status.HTTP_204_NO_CONTENT,
         ),
         (
             "Municipality",
             "anlassbewilligungen-verkehrsbewilligungen-v2",
             "projektgenehmigungsgesuch-gemass-ss15-strag-v2",
+            "subm",
             status.HTTP_204_NO_CONTENT,
         ),
         (
             "Municipality",
             "baugesuch-reklamegesuch-v2",
             "baugesuch-reklamegesuch-v2",
+            "subm",
             status.HTTP_400_BAD_REQUEST,
         ),
         (
             "Municipality",
             "konzession-fur-wasserentnahme",
             "baugesuch-reklamegesuch-v2",
+            "subm",
             status.HTTP_400_BAD_REQUEST,
         ),
         (
             "Municipality",
             "baugesuch-reklamegesuch-v2",
             "konzession-fur-wasserentnahme",
+            "subm",
             status.HTTP_400_BAD_REQUEST,
+        ),
+        (
+            "Municipality",
+            "baugesuch-reklamegesuch-v2",
+            "projektanderung-v2",
+            "circ",
+            status.HTTP_403_FORBIDDEN,
         ),
         (
             "Applicant",
             "baugesuch-reklamegesuch-v2",
             "projektanderung-v2",
+            "subm",
             status.HTTP_403_FORBIDDEN,
         ),
     ],
 )
 def test_instance_change_form(
     db,
+    mailoutbox,
     admin_client,
     admin_user,
     caluma_admin_user,
     caluma_workflow_config_sz,
     caluma_config_sz,
+    application_settings,
     instance,
     instance_service,
+    notification_template,
     form_factory,
     instance_state_factory,
     role,
     current_form_slug,
     new_form_slug,
     expected_status,
+    starting_instance_state,
 ):
-    caluma_form, _ = caluma_form_models.Form.objects.get_or_create(
-        pk="baugesuch"
-    )
+    notification = {
+        "template_slug": notification_template.slug,
+        "recipient_types": ["applicant"],
+    }
+    application_settings["CALUMA"]["SIMPLE_WORKFLOW"]["reject-form"][
+        "notification"
+    ] = notification
+
+    caluma_form, _ = caluma_form_models.Form.objects.get_or_create(pk="baugesuch")
     workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
 
-    case = workflow_api.start_case(
+    workflow_api.start_case(
         workflow=workflow,
         form=caluma_form,
         meta={"camac-instance-id": instance.pk},
@@ -1017,10 +1039,11 @@ def test_instance_change_form(
         user=caluma_admin_user,
     )
 
-    instance_state_factory(name="rejected")
+    finished_instance_state = instance_state_factory(name="rejected")
     current_form = form_factory(name=current_form_slug)
-    new_form = form_factory(name=new_form_slug)
+    form_factory(name=new_form_slug)
 
+    instance.instance_state = instance_state_factory(name=starting_instance_state)
     instance.form = current_form
     instance.save()
 
@@ -1040,3 +1063,14 @@ def test_instance_change_form(
         instance.refresh_from_db()
 
         assert instance.form.name == new_form_slug
+        assert len(mailoutbox) == 1
+        assert instance.instance_state == finished_instance_state
+        assert HistoryEntryT.objects.filter(
+            history_entry__instance=instance,
+            language="de",
+        ).exists()
+        assert caluma_workflow_models.WorkItem.objects.filter(
+            task_id="formal-addition"
+        ).exists()
+
+    del application_settings["CALUMA"]["SIMPLE_WORKFLOW"]["reject-form"]["notification"]
