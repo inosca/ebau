@@ -40,6 +40,20 @@ export default Route.extend({
     };
   },
 
+  async setupController(controller, model) {
+    this._super(controller, model);
+
+    // Set instanceTransformation on the controller to determine if the instance was transformed 
+    const meta = this.questionStore.peek("meta", model.instance.id);
+    if (meta && meta.value) {
+      const formId = JSON.parse(meta.value).formChange.id;
+      if (formId) {
+        const form = await this.store.findRecord("form", formId)
+        this.controllerFor("instances.edit").set('instanceTransformation', form.description);
+      }
+    }
+  },
+
   async afterModel(model) {
     const { forms, modules } = await this.questionStore.config;
 
@@ -65,6 +79,7 @@ export default Route.extend({
       // have too much unnecessary data in the memory
       this.store.unloadAll();
       this.questionStore.clear();
+      this.controllerFor("instances.edit").set('instanceTransformation', null)
     }
   },
 });

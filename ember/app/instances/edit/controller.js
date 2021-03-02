@@ -85,6 +85,8 @@ export default Controller.extend({
   router: service(),
   ajax: service(),
 
+  instanceTransformation: null,
+
   modules: computedTask("_modules", "model.instance.form.name"),
   _modules: task(function* () {
     const { forms, modules } = yield this.get("questionStore.config");
