@@ -80,11 +80,62 @@ PERMISSIONS = {
     },
     "kt_uri": {
         # currently only needed on Dashboard to load parcel picture
-        "municipality": {"read": [21]},
-        "service": {"read": [21]},
-        "coordination": {"read": [21]},
+        "municipality": {
+            "read": [
+                21,
+                12000002,
+                12000003,
+                12000006,
+            ],
+            "write": [
+                12000000,
+                12000005,
+            ],
+            "adminint": [12000001],
+            "adminsvc": [
+                12000004,
+                12000007,
+            ],
+        },
+        "service": {
+            "read": [
+                21,
+                12000004,
+            ],
+            "write": [12000000],
+            "adminint": [12000001],
+            "adminsvc": [
+                12000002,
+                12000003,
+            ],
+        },
+        "coordination": {
+            "read": [21],
+            "write": [12000000],
+            "adminint": [12000001],
+            "adminsvc": [
+                12000002,
+                12000004,
+                12000005,
+                12000006,
+                12000007,
+            ],
+        },
         "organization_readonly": {"read": [21]},
-        "support": {"read": [21]},
+        "support": {
+            "read": [21],
+            "admin": [
+                12000000,
+                12000001,
+                12000002,
+                12000003,
+                12000004,
+                12000005,
+                12000006,
+                12000007,
+            ],
+        },
+        "applicant": {"adminsvc": [12000000]},
     },
     "demo": {"applicant": {"admin": [250, 251]}},
 }
