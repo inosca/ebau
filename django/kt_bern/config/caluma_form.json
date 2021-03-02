@@ -339,7 +339,7 @@
       "modified_at": "2020-10-12T11:08:17.405Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "name": "{\"de\": \"Baupolizeiliches Verfahren\", \"fr\": null}",
+      "name": "{\"de\": \"Baupolizeiliches Verfahren\", \"fr\": \"Proc\\u00e9dure de police des constructions\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
         "category": "special-procedure",
@@ -1472,7 +1472,7 @@
       "modified_at": "2020-10-16T05:35:52.595Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "name": "{\"de\": \"Zutrittserm\\u00e4chtigung\", \"fr\": null}",
+      "name": "{\"de\": \"Zutrittserm\\u00e4chtigung\", \"fr\": \"Autorisation d'acc\\u00e8s\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
         "category": "special-procedure",
