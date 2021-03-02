@@ -97,6 +97,14 @@ grunt-build-sz: ## Grunt build
 grunt-watch-sz: ## Grunt watch
 	docker-compose exec php sh -c "cd ../camac/public && npm run build-sz && npm run watch-sz"
 
+.PHONY: grunt-build-ur
+grunt-build-ur: ## Grunt build
+	docker-compose exec php sh -c "cd ../camac/public && npm run build-ur"
+
+.PHONY: grunt-watch-ur
+grunt-watch-ur: ## Grunt watch
+	docker-compose exec php sh -c "cd ../camac/public && npm run build-ur && npm run watch-ur"
+
 .PHONY: format
 format:
 	@yarn --cwd=php install
