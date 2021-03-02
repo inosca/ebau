@@ -14,6 +14,7 @@ Canceled 0 activation work items of finished circulations
 Canceled 0 cases of closed instances
 Reopened 0 wrongly closed cases
 Suspended 0 rejected or in correction cases
+Assigned 0 circulation work items
 INSTANCE_ID (circulation_init):
 \tCreated: 'skip-circulation', 'init-circulation'
 
@@ -28,6 +29,7 @@ Canceled 0 activation work items of finished circulations
 Canceled 0 cases of closed instances
 Reopened 0 wrongly closed cases
 Suspended 0 rejected or in correction cases
+Assigned 0 circulation work items
 INSTANCE_ID (circulation_init):
 \tCreated: 'skip-circulation', 'init-circulation'
 
@@ -42,6 +44,7 @@ Canceled 0 activation work items of finished circulations
 Canceled 0 cases of closed instances
 Reopened 0 wrongly closed cases
 Suspended 0 rejected or in correction cases
+Assigned 0 circulation work items
 INSTANCE_ID (sb1):
 \tCreated: 'sb1'
 
@@ -56,6 +59,7 @@ Canceled 0 activation work items of finished circulations
 Canceled 0 cases of closed instances
 Reopened 0 wrongly closed cases
 Suspended 0 rejected or in correction cases
+Assigned 0 circulation work items
 INSTANCE_ID (sb1):
 \tCreated: 'sb1'
 
@@ -70,6 +74,7 @@ Canceled 0 activation work items of finished circulations
 Canceled 0 cases of closed instances
 Reopened 0 wrongly closed cases
 Suspended 0 rejected or in correction cases
+Assigned 0 circulation work items
 INSTANCE_ID (subm):
 \tCreated: 'ebau-number'
 
@@ -84,6 +89,7 @@ Canceled 0 activation work items of finished circulations
 Canceled 0 cases of closed instances
 Reopened 0 wrongly closed cases
 Suspended 0 rejected or in correction cases
+Assigned 0 circulation work items
 INSTANCE_ID (subm):
 \tCreated: 'ebau-number'
 
