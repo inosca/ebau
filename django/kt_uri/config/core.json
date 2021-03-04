@@ -6005,6 +6005,42 @@
     }
   },
   {
+    "model": "core.airaction",
+    "pk": 12000001,
+    "fields": {
+      "available_instance_resource": "apidocuments",
+      "action_name": "list",
+      "hidden": 0
+    }
+  },
+  {
+    "model": "core.airaction",
+    "pk": 12000002,
+    "fields": {
+      "available_instance_resource": "apidocuments",
+      "action_name": "delete",
+      "hidden": 1
+    }
+  },
+  {
+    "model": "core.airaction",
+    "pk": 12000003,
+    "fields": {
+      "available_instance_resource": "apidocuments",
+      "action_name": "upload",
+      "hidden": 1
+    }
+  },
+  {
+    "model": "core.airaction",
+    "pk": 12000004,
+    "fields": {
+      "available_instance_resource": "apidocuments",
+      "action_name": "download",
+      "hidden": 1
+    }
+  },
+  {
     "model": "core.answerlist",
     "pk": 1,
     "fields": {
@@ -10830,6 +10866,15 @@
       "module_name": "default",
       "controller_name": "form",
       "description": "Read all pages of the form"
+    }
+  },
+  {
+    "model": "core.availableinstanceresource",
+    "pk": "apidocuments",
+    "fields": {
+      "module_name": "apidocuments",
+      "controller_name": "list",
+      "description": "List of instance documents (API source)"
     }
   },
   {
@@ -15684,7 +15729,7 @@
       "email_subject": "CAMAC Dossier Nr. [@c2q6i1]: Bau- und Einsprache-Entscheid",
       "from_email": "camac@ur.ch",
       "from_name": "Camac Info",
-      "attachment_section": 104,
+      "attachment_section": 12000004,
       "workflow_item": 87
     }
   },
@@ -15698,7 +15743,7 @@
       "email_subject": "CAMAC Dossier Nr. [@c2q6i1]: Bau- und Einsprache-Entscheid",
       "from_email": "camac@ur.ch",
       "from_name": "Camac Info",
-      "attachment_section": 104,
+      "attachment_section": 12000004,
       "workflow_item": 87
     }
   },
@@ -15712,7 +15757,7 @@
       "email_subject": "CAMAC Dossier Nr. [@c2q6i1]: Bau- und Einsprache-Entscheid",
       "from_email": "camac@ur.ch",
       "from_name": "Camac Info",
-      "attachment_section": 104,
+      "attachment_section": 12000004,
       "workflow_item": 130000
     }
   },
@@ -21746,14 +21791,14 @@
     "model": "core.instanceresource",
     "pk": 46,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 301,
       "name": "Dokumente",
       "description": "",
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 8,
+      "sort": 2,
       "form_group": 161
     }
   },
@@ -21776,7 +21821,7 @@
     "model": "core.instanceresource",
     "pk": 145,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 267,
       "name": "Dokumente",
       "description": "Dokumente fur Baubewilligungsverfahren mit kantonaler Beteiligung",
@@ -21858,7 +21903,7 @@
       "template": "/change/gem.phtml",
       "class_field": "",
       "hidden": 0,
-      "sort": 12,
+      "sort": 7,
       "form_group": 221
     }
   },
@@ -21873,7 +21918,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 13,
+      "sort": 8,
       "form_group": 257
     }
   },
@@ -21888,7 +21933,7 @@
       "template": "/global/involved-department.phtml",
       "class_field": "",
       "hidden": 0,
-      "sort": 11,
+      "sort": 6,
       "form_group": 181
     }
   },
@@ -22008,7 +22053,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 15,
+      "sort": 10,
       "form_group": 161
     }
   },
@@ -22046,7 +22091,7 @@
     "model": "core.instanceresource",
     "pk": 466,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 288,
       "name": "Dokumente",
       "description": "",
@@ -22136,7 +22181,7 @@
     "model": "core.instanceresource",
     "pk": 525,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 302,
       "name": "Dokumente",
       "description": "",
@@ -22181,7 +22226,7 @@
     "model": "core.instanceresource",
     "pk": 545,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 42,
       "name": "Dokumente",
       "description": "Dokumente anschauen f\u00fcr Dossier, die nicht in der Pendenzenliste sind",
@@ -22196,7 +22241,7 @@
     "model": "core.instanceresource",
     "pk": 585,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 309,
       "name": "Dokumente",
       "description": "Dokumentenauflistung f\u00fcr die Kommissionsmitglieder",
@@ -22241,7 +22286,7 @@
     "model": "core.instanceresource",
     "pk": 607,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 264,
       "name": "Dokumente",
       "description": "",
@@ -22391,7 +22436,7 @@
     "model": "core.instanceresource",
     "pk": 676,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 250,
       "name": "Dokumente",
       "description": "Ansicht der Dokumente nach einreichung Dossier",
@@ -22518,7 +22563,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 14,
+      "sort": 9,
       "form_group": 161
     }
   },
@@ -22563,7 +22608,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 16,
+      "sort": 11,
       "form_group": 161
     }
   },
@@ -22571,7 +22616,7 @@
     "model": "core.instanceresource",
     "pk": 696,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 307,
       "name": "Dokumente",
       "description": null,
@@ -22601,7 +22646,7 @@
     "model": "core.instanceresource",
     "pk": 701,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 289,
       "name": "Dokumente",
       "description": "Dokumente fur Baubewilligungsverfahren",
@@ -22691,7 +22736,7 @@
     "model": "core.instanceresource",
     "pk": 710,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 293,
       "name": "Dokumente",
       "description": "",
@@ -22721,7 +22766,7 @@
     "model": "core.instanceresource",
     "pk": 716,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 296,
       "name": "Dokumente",
       "description": "Dokumente fur Baubewilligungsverfahren",
@@ -22811,7 +22856,7 @@
     "model": "core.instanceresource",
     "pk": 725,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 297,
       "name": "Dokumente",
       "description": "Dokumente fur Baubewilligungsverfahren",
@@ -22901,7 +22946,7 @@
     "model": "core.instanceresource",
     "pk": 737,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 298,
       "name": "Dokumente",
       "description": "Dokumente fur Baubewilligungsverfahren",
@@ -23088,7 +23133,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 9,
+      "sort": 4,
       "form_group": 161
     }
   },
@@ -23111,7 +23156,7 @@
     "model": "core.instanceresource",
     "pk": 756,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 314,
       "name": "Dokumente",
       "description": null,
@@ -23171,7 +23216,7 @@
     "model": "core.instanceresource",
     "pk": 761,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 316,
       "name": "Dokumente",
       "description": "Dokumente Bundesstelle",
@@ -23223,7 +23268,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 10,
+      "sort": 5,
       "form_group": 161
     }
   },
@@ -23261,7 +23306,7 @@
     "model": "core.instanceresource",
     "pk": 770,
     "fields": {
-      "available_instance_resource": "documents",
+      "available_instance_resource": "apidocuments",
       "resource": 317,
       "name": "Dokumente",
       "description": null,
@@ -23313,7 +23358,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 18,
+      "sort": 13,
       "form_group": 161
     }
   },
@@ -23328,7 +23373,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 17,
+      "sort": 12,
       "form_group": 161
     }
   },
