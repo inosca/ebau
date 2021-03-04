@@ -608,9 +608,9 @@ class CalumaInstanceSerializer(InstanceSerializer):
             permissions.add("read")
 
         if "read" in permissions and instance.instance_state.name not in [
-            "finished",
             "evaluated",
-            "conclusion",
+            "finished",
+            "finished_internal",
         ]:
             permissions.add("write")
 
