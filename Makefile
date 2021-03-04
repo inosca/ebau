@@ -83,27 +83,27 @@ migrate:  ## Migrate schema
 
 .PHONY: grunt-build-be
 grunt-build-be: ## Grunt build
-	docker-compose exec php sh -c "cd ../camac/public && npm run build-be"
+	docker-compose exec php sh -c "cd public && npm run build-be"
 
 .PHONY: grunt-watch-be
 grunt-watch-be: ## Grunt watch
-	docker-compose exec php sh -c "cd ../camac/public && npm run build-be && npm run watch-be"
+	docker-compose exec php sh -c "cd public && npm run build-be && npm run watch-be"
 
 .PHONY: grunt-build-sz
 grunt-build-sz: ## Grunt build
-	docker-compose exec php sh -c "cd ../camac/public && npm run build-sz"
+	docker-compose exec php sh -c "cd public && npm run build-sz"
 
 .PHONY: grunt-watch-sz
 grunt-watch-sz: ## Grunt watch
-	docker-compose exec php sh -c "cd ../camac/public && npm run build-sz && npm run watch-sz"
+	docker-compose exec php sh -c "cd public && npm run build-sz && npm run watch-sz"
 
 .PHONY: grunt-build-ur
 grunt-build-ur: ## Grunt build
-	docker-compose exec php sh -c "cd ../camac/public && npm run build-ur"
+	docker-compose exec php sh -c "cd public && npm run build-ur"
 
 .PHONY: grunt-watch-ur
 grunt-watch-ur: ## Grunt watch
-	docker-compose exec php sh -c "cd ../camac/public && npm run build-ur && npm run watch-ur"
+	docker-compose exec php sh -c "cd public && npm run build-ur && npm run watch-ur"
 
 .PHONY: format
 format:

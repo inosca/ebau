@@ -96,6 +96,18 @@
     }
   },
   {
+    "model": "document.attachmentsection",
+    "pk": 12000008,
+    "fields": {
+      "name": "Publikationsordner",
+      "description": null,
+      "sort": 8,
+      "notification_template": null,
+      "recipient_types": null,
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
     "model": "document.attachmentsectiont",
     "pk": 1,
     "fields": {
