@@ -42,5 +42,6 @@ class ResponsibleServiceSerializer(InstanceEditableMixin, serializers.ModelSeria
             **{
                 "case__family__meta__camac-instance-id": responsible_service.instance.pk,
                 "addressed_groups": [responsible_service.service.pk],
+                "status": WorkItem.STATUS_READY,
             }
         ).update(assigned_users=[responsible_service.responsible_user.username])
