@@ -4,6 +4,7 @@ from caluma.caluma_form import (
     models as caluma_form_models,
 )
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
+from django.conf import settings
 from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
@@ -26,382 +27,85 @@ def sort_permissions(permissions):
     return {key: sorted(value) for key, value in permissions.items()}
 
 
+@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
 @pytest.mark.parametrize(
-    "instance__user,service_group__name",
-    [(LazyFixture("admin_user"), "construction-control")],
-)
-@pytest.mark.parametrize(
-    "role__name,instance_state__name,expected_permissions",
+    "instance_state__name",
     [
-        (
-            "Applicant",
-            "new",
-            {
-                "case-meta": R,
-                "main": RW,
-                "sb1": [],
-                "sb2": [],
-                "nfd": [],
-                "dossierpruefung": [],
-            },
-        ),
-        (
-            "Applicant",
-            "subm",
-            {
-                "case-meta": R,
-                "main": R,
-                "sb1": [],
-                "sb2": [],
-                "nfd": [],
-                "dossierpruefung": [],
-            },
-        ),
-        (
-            "Applicant",
-            "correction",
-            {
-                "case-meta": R,
-                "main": R,
-                "sb1": [],
-                "sb2": [],
-                "nfd": [],
-                "dossierpruefung": [],
-            },
-        ),
-        (
-            "Applicant",
-            "rejected",
-            {
-                "case-meta": R,
-                "main": R,
-                "sb1": [],
-                "sb2": [],
-                "nfd": [],
-                "dossierpruefung": [],
-            },
-        ),
-        (
-            "Applicant",
-            "sb1",
-            {
-                "case-meta": R,
-                "main": R,
-                "sb1": RW,
-                "sb2": [],
-                "nfd": [],
-                "dossierpruefung": [],
-            },
-        ),
-        (
-            "Applicant",
-            "sb2",
-            {
-                "case-meta": R,
-                "main": R,
-                "sb1": R,
-                "sb2": RW,
-                "nfd": [],
-                "dossierpruefung": [],
-            },
-        ),
-        (
-            "Applicant",
-            "conclusion",
-            {
-                "case-meta": R,
-                "main": R,
-                "sb1": R,
-                "sb2": R,
-                "nfd": [],
-                "dossierpruefung": [],
-            },
-        ),
-        (
-            "Service",
-            "new",
-            {
-                "case-meta": R,
-                "main": [],
-                "sb1": [],
-                "sb2": [],
-                "nfd": [],
-                "dossierpruefung": [],
-            },
-        ),
-        (
-            "Service",
-            "subm",
-            {
-                "case-meta": R,
-                "main": R,
-                "sb1": [],
-                "sb2": [],
-                "nfd": [],
-                "dossierpruefung": [],
-            },
-        ),
-        (
-            "Service",
-            "correction",
-            {
-                "case-meta": R,
-                "main": R,
-                "sb1": [],
-                "sb2": [],
-                "nfd": [],
-                "dossierpruefung": [],
-            },
-        ),
-        (
-            "Service",
-            "rejected",
-            {
-                "case-meta": R,
-                "main": R,
-                "sb1": [],
-                "sb2": [],
-                "nfd": [],
-                "dossierpruefung": R,
-            },
-        ),
-        (
-            "Service",
-            "sb1",
-            {
-                "case-meta": R,
-                "main": R,
-                "sb1": [],
-                "sb2": [],
-                "nfd": [],
-                "dossierpruefung": R,
-            },
-        ),
-        (
-            "Service",
-            "sb2",
-            {
-                "case-meta": R,
-                "main": R,
-                "sb1": R,
-                "sb2": [],
-                "nfd": [],
-                "dossierpruefung": R,
-            },
-        ),
-        (
-            "Service",
-            "conclusion",
-            {
-                "case-meta": R,
-                "main": R,
-                "sb1": R,
-                "sb2": R,
-                "nfd": [],
-                "dossierpruefung": R,
-            },
-        ),
-        (
-            "Municipality",
-            "new",
-            {
-                "case-meta": R,
-                "main": [],
-                "sb1": [],
-                "sb2": [],
-                "nfd": R,
-                "dossierpruefung": R,
-            },
-        ),
-        (
-            "Municipality",
-            "subm",
-            {
-                "case-meta": RW,
-                "main": R,
-                "sb1": [],
-                "sb2": [],
-                "nfd": R,
-                "dossierpruefung": R,
-            },
-        ),
-        (
-            "Municipality",
-            "correction",
-            {
-                "case-meta": RW,
-                "main": RW,
-                "sb1": [],
-                "sb2": [],
-                "nfd": R,
-                "dossierpruefung": R,
-            },
-        ),
-        (
-            "Municipality",
-            "rejected",
-            {
-                "case-meta": RW,
-                "main": R,
-                "sb1": [],
-                "sb2": [],
-                "nfd": R,
-                "dossierpruefung": R,
-            },
-        ),
-        (
-            "Municipality",
-            "circulation_init",
-            {
-                "case-meta": RW,
-                "main": R,
-                "sb1": [],
-                "sb2": [],
-                "nfd": RW,
-                "dossierpruefung": RW,
-            },
-        ),
-        (
-            "Municipality",
-            "circulation",
-            {
-                "case-meta": RW,
-                "main": R,
-                "sb1": [],
-                "sb2": [],
-                "nfd": RW,
-                "dossierpruefung": RW,
-            },
-        ),
-        (
-            "Municipality",
-            "coordination",
-            {
-                "case-meta": RW,
-                "main": R,
-                "sb1": [],
-                "sb2": [],
-                "nfd": RW,
-                "dossierpruefung": RW,
-            },
-        ),
-        (
-            "Municipality",
-            "in_progress",
-            {
-                "case-meta": RW,
-                "main": R,
-                "sb1": [],
-                "sb2": [],
-                "nfd": R,
-                "dossierpruefung": R,
-            },
-        ),
-        (
-            "Municipality",
-            "in_progress_internal",
-            {
-                "case-meta": RW,
-                "main": R,
-                "sb1": [],
-                "sb2": [],
-                "nfd": RW,
-                "dossierpruefung": RW,
-            },
-        ),
-        (
-            "Municipality",
-            "sb1",
-            {
-                "case-meta": RW,
-                "main": R,
-                "sb1": [],
-                "sb2": [],
-                "nfd": R,
-                "dossierpruefung": R,
-            },
-        ),
-        (
-            "Municipality",
-            "sb2",
-            {
-                "case-meta": RW,
-                "main": R,
-                "sb1": R,
-                "sb2": [],
-                "nfd": R,
-                "dossierpruefung": R,
-            },
-        ),
-        (
-            "Municipality",
-            "conclusion",
-            {
-                "case-meta": RW,
-                "main": R,
-                "sb1": R,
-                "sb2": R,
-                "nfd": R,
-                "dossierpruefung": R,
-            },
-        ),
-        (
-            "Coordination",
-            "ext",
-            {
-                "main": RW,
-                "case-meta": R,
-                "sb1": [],
-                "sb2": [],
-                "nfd": [],
-                "dossierpruefung": [],
-            },
-        ),
-        (
-            "Coordination",
-            "circ",
-            {
-                "main": RW,
-                "case-meta": R,
-                "sb1": [],
-                "sb2": [],
-                "nfd": [],
-                "dossierpruefung": [],
-            },
-        ),
-        (
-            "Coordination",
-            "redac",
-            {
-                "main": RW,
-                "case-meta": R,
-                "sb1": [],
-                "sb2": [],
-                "nfd": [],
-                "dossierpruefung": [],
-            },
-        ),
-        ("Support", "new", FULL_PERMISSIONS),
-        ("Support", "subm", FULL_PERMISSIONS),
-        ("Support", "correction", FULL_PERMISSIONS),
-        ("Support", "rejected", FULL_PERMISSIONS),
-        ("Support", "sb1", FULL_PERMISSIONS),
-        ("Support", "sb2", FULL_PERMISSIONS),
-        ("Support", "conclusion", FULL_PERMISSIONS),
+        "new",
+        "subm",
+        "rejected",
+        "circulation_init",
+        "circulation",
+        "coordination",
+        "sb1",
+        "sb2",
+        "conclusion",
+        "finished",
+        # preliminary clarification
+        "evaluated",
+        # migrated
+        "in_progress",
+        # internal
+        "in_progress_internal",
+        "finished_internal",
     ],
 )
-def test_instance_permissions(
-    admin_client, activation, instance, expected_permissions, use_caluma_form
+@pytest.mark.parametrize(
+    "role__name,service_group__name",
+    [
+        ("Applicant", None),
+        ("Municipality", "municipality"),
+        ("Municipality", "district"),
+        ("Municipality", "construction-control"),
+        ("Service", "service"),
+        ("Support", None),
+    ],
+)
+def test_instance_permissions_be(
+    admin_client,
+    activation,
+    instance,
+    instance_state,
+    use_caluma_form,
+    snapshot,
+    application_settings,
 ):
-    url = reverse("instance-detail", args=[instance.pk])
+    application_settings["CALUMA"]["FORM_PERMISSIONS"] = settings.APPLICATIONS[
+        "kt_bern"
+    ]["CALUMA"]["FORM_PERMISSIONS"]
 
-    response = admin_client.get(url)
+    response = admin_client.get(reverse("instance-detail", args=[instance.pk]))
 
     assert response.status_code == status.HTTP_200_OK
 
-    permissions = response.json()["data"]["meta"]["permissions"]
+    snapshot.assert_match(
+        sort_permissions(response.json()["data"]["meta"]["permissions"])
+    )
 
-    assert sort_permissions(permissions) == sort_permissions(expected_permissions)
+
+@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize("role__name", ["Coordination"])
+@pytest.mark.parametrize("instance_state__name", ["ext", "circ", "redac"])
+def test_instance_permissions_ur(
+    admin_client,
+    activation,
+    instance,
+    instance_state,
+    use_caluma_form,
+    snapshot,
+    application_settings,
+):
+    application_settings["CALUMA"]["FORM_PERMISSIONS"] = settings.APPLICATIONS[
+        "kt_uri"
+    ]["CALUMA"]["FORM_PERMISSIONS"]
+
+    response = admin_client.get(reverse("instance-detail", args=[instance.pk]))
+
+    assert response.status_code == status.HTTP_200_OK
+
+    snapshot.assert_match(
+        sort_permissions(response.json()["data"]["meta"]["permissions"])
+    )
 
 
 @pytest.fixture
