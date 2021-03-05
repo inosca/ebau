@@ -51,5 +51,10 @@ omit=
     # Audit migration
     camac/core/management/commands/config/
     camac/core/management/commands/migrate_audit.py
+    # Uri Camac -> Caluma dossier migration
+    camac/migrate_to_caluma/management/commands/delete_migrated_cases.py
+    camac/migrate_to_caluma/management/commands/migrate_cases.py
+    camac/migrate_to_caluma/question_map.py
+    camac/migrate_to_caluma/transforms.py
 
 show_missing = True
