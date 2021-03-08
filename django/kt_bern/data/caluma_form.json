@@ -521,28 +521,6 @@
   },
   {
     "model": "caluma_form.historicalanswer",
-    "pk": "0b27c5c9-cff9-469d-b863-b9221b80e4e0",
-    "fields": {
-      "created_at": "2020-03-06T11:14:13.316Z",
-      "modified_at": "2020-03-06T11:14:13.316Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "history_question_type": "text",
-      "id": "46665688-8ed7-4ed2-a2c1-94d8ae049709",
-      "value": "undefined",
-      "meta": {},
-      "date": null,
-      "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "question": "karte-einfache-vorabklaerung",
-      "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "file": null,
-      "history_date": "2020-03-06T11:14:13.320Z",
-      "history_change_reason": null,
-      "history_type": "+"
-    }
-  },
-  {
-    "model": "caluma_form.historicalanswer",
     "pk": "0f1cb346-1748-4f93-9a95-e1e4cd2e7bc7",
     "fields": {
       "created_at": "2020-03-06T11:12:53.839Z",
@@ -741,28 +719,6 @@
   },
   {
     "model": "caluma_form.historicalanswer",
-    "pk": "17fe1a63-46dd-44e2-bf85-ca27400f8b7b",
-    "fields": {
-      "created_at": "2020-03-06T11:14:13.346Z",
-      "modified_at": "2020-03-06T11:14:13.346Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "history_question_type": "float",
-      "id": "8cfd8083-fa29-45f1-b8af-e240fbf1a2b0",
-      "value": 1212209.0,
-      "meta": {},
-      "date": null,
-      "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "question": "lagekoordinaten-nord-einfache-vorabklaerung",
-      "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "file": null,
-      "history_date": "2020-03-06T11:14:13.348Z",
-      "history_change_reason": null,
-      "history_type": "+"
-    }
-  },
-  {
-    "model": "caluma_form.historicalanswer",
     "pk": "1cd2bd99-8e63-4661-b682-964d6ea90a59",
     "fields": {
       "created_at": "2021-02-23T08:59:18.113Z",
@@ -939,28 +895,6 @@
   },
   {
     "model": "caluma_form.historicalanswer",
-    "pk": "2720cdea-13ce-4372-8112-c5ae6a9d8da9",
-    "fields": {
-      "created_at": "2020-03-06T11:13:42.694Z",
-      "modified_at": "2020-03-06T11:13:42.694Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "history_question_type": "text",
-      "id": "c7aad8fb-4756-4561-8e76-167a16565c55",
-      "value": "Peter",
-      "meta": {},
-      "date": null,
-      "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "question": "vorname-gesuchstellerin-vorabklaerung",
-      "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "file": null,
-      "history_date": "2020-03-06T11:13:42.695Z",
-      "history_change_reason": null,
-      "history_type": "+"
-    }
-  },
-  {
-    "model": "caluma_form.historicalanswer",
     "pk": "27552282-48e1-4c88-9e6f-c12044164178",
     "fields": {
       "created_at": "2020-03-06T11:13:49.685Z",
@@ -1111,28 +1045,6 @@
       "history_date": "2020-03-06T11:12:02.761Z",
       "history_change_reason": null,
       "history_type": "+"
-    }
-  },
-  {
-    "model": "caluma_form.historicalanswer",
-    "pk": "45ae3fc9-b3f7-4af8-a16a-0b4f83484efa",
-    "fields": {
-      "created_at": "2020-03-06T11:13:42.694Z",
-      "modified_at": "2020-03-06T11:13:42.694Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "history_question_type": "text",
-      "id": "c7aad8fb-4756-4561-8e76-167a16565c55",
-      "value": "Peter",
-      "meta": {},
-      "date": null,
-      "history_user_id": null,
-      "question": "vorname-gesuchstellerin-vorabklaerung",
-      "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "file": null,
-      "history_date": "2021-02-23T08:59:18.272Z",
-      "history_change_reason": null,
-      "history_type": "-"
     }
   },
   {
@@ -1951,28 +1863,6 @@
   },
   {
     "model": "caluma_form.historicalanswer",
-    "pk": "86c9065a-584a-4776-9213-06e4b7893654",
-    "fields": {
-      "created_at": "2020-03-06T11:13:41.532Z",
-      "modified_at": "2020-03-06T11:13:41.532Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "history_question_type": "text",
-      "id": "e4567b3c-f18d-4fd1-a410-29c72851c221",
-      "value": "M\u00fcller",
-      "meta": {},
-      "date": null,
-      "history_user_id": null,
-      "question": "name-gesuchstellerin-vorabklaerung",
-      "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "file": null,
-      "history_date": "2021-02-23T08:59:18.270Z",
-      "history_change_reason": null,
-      "history_type": "-"
-    }
-  },
-  {
-    "model": "caluma_form.historicalanswer",
     "pk": "873c8fd3-c365-4172-8826-f6ae79d8dad8",
     "fields": {
       "created_at": "2020-03-06T11:13:13.595Z",
@@ -2545,50 +2435,6 @@
   },
   {
     "model": "caluma_form.historicalanswer",
-    "pk": "c2cacc56-36c5-461d-a8c1-07dcd0a0d26e",
-    "fields": {
-      "created_at": "2020-03-06T11:13:41.532Z",
-      "modified_at": "2020-03-06T11:13:41.532Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "history_question_type": "text",
-      "id": "e4567b3c-f18d-4fd1-a410-29c72851c221",
-      "value": "M\u00fcller",
-      "meta": {},
-      "date": null,
-      "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "question": "name-gesuchstellerin-vorabklaerung",
-      "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "file": null,
-      "history_date": "2020-03-06T11:13:41.534Z",
-      "history_change_reason": null,
-      "history_type": "+"
-    }
-  },
-  {
-    "model": "caluma_form.historicalanswer",
-    "pk": "c2e89774-1bb6-4777-a19a-8d1df0574591",
-    "fields": {
-      "created_at": "2020-03-06T11:14:13.312Z",
-      "modified_at": "2020-03-06T11:14:13.312Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "history_question_type": "float",
-      "id": "63b31066-f48f-47cf-a31b-c23e90b8161e",
-      "value": 2614285.0,
-      "meta": {},
-      "date": null,
-      "history_user_id": null,
-      "question": "lagekoordinaten-ost-einfache-vorabklaerung",
-      "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "file": null,
-      "history_date": "2021-02-23T08:59:18.282Z",
-      "history_change_reason": null,
-      "history_type": "-"
-    }
-  },
-  {
-    "model": "caluma_form.historicalanswer",
     "pk": "c32b9998-5493-4afb-b46a-3ce7d1321eab",
     "fields": {
       "created_at": "2020-03-06T11:11:30.181Z",
@@ -2629,28 +2475,6 @@
       "history_date": "2020-03-06T11:12:59.317Z",
       "history_change_reason": null,
       "history_type": "+"
-    }
-  },
-  {
-    "model": "caluma_form.historicalanswer",
-    "pk": "c4877955-6317-4377-98d6-0e534b836125",
-    "fields": {
-      "created_at": "2020-03-06T11:14:13.346Z",
-      "modified_at": "2020-03-06T11:14:13.346Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "history_question_type": "float",
-      "id": "8cfd8083-fa29-45f1-b8af-e240fbf1a2b0",
-      "value": 1212209.0,
-      "meta": {},
-      "date": null,
-      "history_user_id": null,
-      "question": "lagekoordinaten-nord-einfache-vorabklaerung",
-      "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "file": null,
-      "history_date": "2021-02-23T08:59:18.280Z",
-      "history_change_reason": null,
-      "history_type": "-"
     }
   },
   {
@@ -3205,28 +3029,6 @@
   },
   {
     "model": "caluma_form.historicalanswer",
-    "pk": "f5e4c2dc-a594-42d1-bc77-cead3a2d42fc",
-    "fields": {
-      "created_at": "2020-03-06T11:14:13.312Z",
-      "modified_at": "2020-03-06T11:14:13.312Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "history_question_type": "float",
-      "id": "63b31066-f48f-47cf-a31b-c23e90b8161e",
-      "value": 2614285.0,
-      "meta": {},
-      "date": null,
-      "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "question": "lagekoordinaten-ost-einfache-vorabklaerung",
-      "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "file": null,
-      "history_date": "2020-03-06T11:14:13.313Z",
-      "history_change_reason": null,
-      "history_type": "+"
-    }
-  },
-  {
-    "model": "caluma_form.historicalanswer",
     "pk": "f8919e59-7fb0-41b9-b53d-c23bdcfeaa1c",
     "fields": {
       "created_at": "2020-03-06T11:12:25.244Z",
@@ -3671,22 +3473,6 @@
       "value": "baugruppe-bauinventar-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
-    "pk": "46665688-8ed7-4ed2-a2c1-94d8ae049709",
-    "fields": {
-      "created_at": "2020-03-06T11:14:13.316Z",
-      "modified_at": "2020-03-06T11:14:13.316Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "question": "karte-einfache-vorabklaerung",
-      "value": "undefined",
-      "meta": {},
-      "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
       "date": null,
       "file": null
     }
