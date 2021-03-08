@@ -119,7 +119,6 @@ slugs_baugesuch = {
             ("plz-vertreterin", 2323),
             ("strasse-vertreterin", "Teststrasse"),
             ("vorname-vertreterin", "Winston"),
-            ("vorname-gesuchstellerin-vorabklaerung", "Winston"),
             ("juristische-person-vertreterin", "juristische-person-vertreterin-ja"),
             ("name-juristische-person-vertreterin", "Firma XY AG"),
         ]
