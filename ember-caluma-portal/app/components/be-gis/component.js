@@ -25,26 +25,6 @@ const KEYS_TABLE = [
   KEY_TABLE_COORD_EAST,
 ];
 
-const KEY_SIMPLE_MAP = "karte-einfache-vorabklaerung";
-const KEY_SIMPLE_PARCEL = "parzellennummer";
-// The question baurecht-nummer is not present in the simple form.
-//const KEY_SIMPLE_BAURECHT = "baurecht-nummer";
-const KEY_SIMPLE_EGRID = "e-grid-nr";
-const KEY_SIMPLE_COORD_NORTH = "lagekoordinaten-nord-einfache-vorabklaerung";
-const KEY_SIMPLE_COORD_EAST = "lagekoordinaten-ost-einfache-vorabklaerung";
-const KEYS_SIMPLE = [
-  KEY_SIMPLE_MAP,
-  KEY_SIMPLE_PARCEL,
-  //KEY_SIMPLE_BAURECHT,
-  KEY_SIMPLE_EGRID,
-  KEY_SIMPLE_COORD_NORTH,
-  KEY_SIMPLE_COORD_EAST,
-];
-const KEYS_SIMPLE_HASH = {
-  [KEY_SIMPLE_COORD_NORTH]: KEY_TABLE_COORD_NORTH,
-  [KEY_SIMPLE_COORD_EAST]: KEY_TABLE_COORD_EAST,
-};
-
 const REGEXP_ORIGIN = /^(https?:\/\/[^/]+)/i;
 
 const FIELD_MAP = {
@@ -370,37 +350,6 @@ export default class BeGisComponent extends Component {
   }
 
   /**
-   * Saves the parcel values in their corresponding fields from the
-   * current document. This method is used for the preliminary assessment
-   * and only allows for one parcel.
-   *
-   * @method populateFields
-   * @param {Array} parcels The parcels prepared by `addremoveResult`.
-   */
-  @dropTask
-  *populateFields(parcels) {
-    const [parcel] = parcels;
-    const fields = this.field.document.fields.filter((field) =>
-      KEYS_SIMPLE.includes(field.question.slug)
-    );
-
-    yield all(
-      fields.map(async (field) => {
-        const slug =
-          KEYS_SIMPLE_HASH[field.question.slug] || field.question.slug;
-        const value = String(parcel[slug]);
-
-        if (value !== null && value.length > 0) {
-          field.answer.set("value", value);
-
-          await field.save.perform();
-          await field.validate.perform();
-        }
-      })
-    );
-  }
-
-  /**
    * Creates a new document for each parcel and saves the parcel values
    * in their corresponding fields. This method is used for all workflows
    * except the preliminary assessment.
@@ -552,23 +501,16 @@ export default class BeGisComponent extends Component {
 
   @action
   applySelection() {
-    if (this.parcels && this.parcels.length) {
-      if (this.field.question.slug === KEY_SIMPLE_MAP) {
-        if (this.parcels.length > 1) {
-          this.notification.danger(this.intl.t("gis.notifications.max-one"));
-        } else {
-          this.populateFields.perform(this.parcels);
-        }
-      } else {
-        if (this.parcels.length > 20) {
-          this.notification.danger(this.intl.t("gis.notifications.max-twenty"));
-        } else {
-          this.populateTable.perform(this.parcels);
-          this.fetchAdditionalData.perform(this.parcels);
-        }
-      }
-    } else {
+    if (!this.parcels?.length) {
       this.notification.danger(this.intl.t("gis.notifications.min-one"));
+      return;
     }
+    if (this.parcels.length > 20) {
+      this.notification.danger(this.intl.t("gis.notifications.max-twenty"));
+      return;
+    }
+
+    this.populateTable.perform(this.parcels);
+    this.fetchAdditionalData.perform(this.parcels);
   }
 }

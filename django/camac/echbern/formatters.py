@@ -306,38 +306,19 @@ def get_realestateinformation(answers):
     ]
 
     if not re_info:
-        # happens if form == vorabklaerung
+        # happens if no parcels are filled (preliminary clarification)
         re_info = [
             ns_application.realestateInformationType(
                 realestate=ns_objektwesen.realestateType(
                     realestateIdentification=ns_objektwesen.realestateIdentificationType(
-                        number=answers.get("parzellennummer", "0")
+                        number="0"
                     ),
                     realestateType="8",
-                    coordinates=ns_objektwesen.coordinatesType(
-                        LV95=pyxb.BIND(
-                            east=handle_coordinate_value(
-                                answers["lagekoordinaten-ost-einfache-vorabklaerung"]
-                            ),
-                            north=handle_coordinate_value(
-                                answers["lagekoordinaten-nord-einfache-vorabklaerung"]
-                            ),
-                            originOfCoordinates=904,
-                        )
-                    )
-                    if all(
-                        k in answers and answers[k]
-                        for k in (
-                            "lagekoordinaten-ost-einfache-vorabklaerung",
-                            "lagekoordinaten-nord-einfache-vorabklaerung",
-                        )
-                    )
-                    else None,
+                    coordinates=None,
                 ),
                 municipality=ech_0007_6_0.swissMunicipalityType(
                     municipalityName=assure_string_length(
-                        answers.get("ort-gesuchstellerin", answers["gemeinde"]),
-                        max_length=40,
+                        answers["gemeinde"], max_length=40
                     ),
                     cantonAbbreviation="BE",
                 ),
@@ -616,7 +597,6 @@ def person_type(person):
 def get_applicant_data(answers):
     if "personalien-gesuchstellerin" in answers:
         pers_infos = answers["personalien-gesuchstellerin"][0]
-        # Values for Baugesuch
         return {
             "vorname": pers_infos["vorname-gesuchstellerin"],
             "name": pers_infos["name-gesuchstellerin"],
@@ -629,14 +609,15 @@ def get_applicant_data(answers):
                 "name-juristische-person-gesuchstellerin"
             ),
         }
-    # Values for Vorabklaerung
+
+    # No value given (should not be possible)
     return {
-        "vorname": answers.get("vorname-gesuchstellerin-vorabklaerung"),
-        "name": answers.get("name-gesuchstellerin-vorabklaerung"),
-        "strasse": answers.get("strasse-gesuchstellerin"),
-        "nummer": answers.get("nummer-gesuchstellerin"),
-        "ort": answers.get("ort-gesuchstellerin"),
-        "plz": answers.get("plz-gesuchstellerin"),
+        "vorname": None,
+        "name": None,
+        "strasse": None,
+        "nummer": None,
+        "ort": None,
+        "plz": None,
         "juristische-person": "Nein",
     }
 
