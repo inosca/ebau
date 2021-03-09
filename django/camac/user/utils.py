@@ -33,6 +33,11 @@ def get_group(request):
     3. default group of client using `aud` claim
     4. user's default group
     """
+
+    user = getattr(request, "user", None)
+    if user is None or isinstance(user, AnonymousUser):
+        return None
+
     group_id = request.GET.get("group", request.META.get("HTTP_X_CAMAC_GROUP"))
 
     if group_id:
@@ -46,9 +51,6 @@ def get_group(request):
 
         # fallback, default group of user
         if group is None:
-            user = getattr(request, "user", None)
-            if user is None or isinstance(user, AnonymousUser):
-                user = models.User.objects.get(username="guest").pk
             group_qs = models.UserGroup.objects.filter(user=user, default_group=1)
             group_qs = group_qs.select_related("group", "group__role", "group__service")
             user_group = group_qs.first()
