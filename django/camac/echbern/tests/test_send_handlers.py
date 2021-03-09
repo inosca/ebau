@@ -352,17 +352,19 @@ def test_close_dossier_send_handler(
 
 
 @pytest.mark.parametrize(
-    "has_circulation,has_service,valid_service_id,has_template,success",
+    "has_circulation,has_done_circulation,has_service,valid_service_id,has_template,success",
     [
-        (True, True, True, True, True),
-        (False, True, True, True, True),
-        (True, False, True, True, False),
-        (True, True, False, True, False),
-        (True, True, True, False, False),
+        (True, False, True, True, True, True),
+        (False, True, True, True, True, True),
+        (False, False, True, True, True, True),
+        (True, False, False, True, True, False),
+        (True, False, True, False, True, False),
+        (True, False, True, True, False, False),
     ],
 )
 def test_task_send_handler(
     has_circulation,
+    has_done_circulation,
     has_service,
     valid_service_id,
     has_template,
@@ -374,6 +376,7 @@ def test_task_send_handler(
     instance_state_factory,
     service_factory,
     circulation_state_factory,
+    activation_factory,
     instance_resource_factory,
     notification_template_factory,
     mailoutbox,
@@ -387,7 +390,12 @@ def test_task_send_handler(
     state = instance_state_factory(name="circulation")
     ech_instance.instance_state = state
     ech_instance.save()
-    ech_instance_case()
+
+    case = ech_instance_case()
+    for task_id in ["submit", "ebau-number"]:
+        workflow_api.skip_work_item(
+            work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user
+        )
 
     group = admin_user.groups.first()
     group.service = ech_instance.services.first()
@@ -396,9 +404,27 @@ def test_task_send_handler(
     if has_service:
         service = service_factory(pk=23, email="s1@example.com")
 
-    if has_circulation:
+    if has_circulation or has_done_circulation:
         circulation_factory(instance=ech_instance)  # dummy
         circulation = circulation_factory(instance=ech_instance)
+
+        workflow_api.skip_work_item(
+            work_item=case.work_items.get(task_id="init-circulation"),
+            user=caluma_admin_user,
+            context={"circulation-id": circulation.pk},
+        )
+
+        if has_done_circulation:
+            activation_factory(
+                circulation=circulation,
+                circulation_state__name="DONE",
+                ech_msg_created=True,
+            )
+            workflow_api.skip_work_item(
+                work_item=case.work_items.get(task_id="circulation"),
+                user=caluma_admin_user,
+                context={"circulation-id": circulation.pk},
+            )
 
     xml = xml_data("task")
     if not valid_service_id:
@@ -421,11 +447,15 @@ def test_task_send_handler(
         assert Message.objects.count() == 1
         message = Message.objects.first()
         assert message.receiver == service
-        assert Activation.objects.count() == 1
-        activation = Activation.objects.first()
+
+        activations = Activation.objects.exclude(circulation_state__name="DONE")
+        activation = activations.first()
+
+        assert activations.count() == 1
         assert activation.service == service
         assert activation.deadline_date.strftime("%Y-%m-%d") == "2020-03-23"
-        if has_circulation:
+
+        if has_circulation and not has_done_circulation:
             assert activation.circulation == circulation
 
         assert len(mailoutbox) == 1
