@@ -22,11 +22,21 @@ def permission_aware(func):
     permission is defined by reading `ROLE_PERMISSIONS` of current
     application and model.
 
-
     Example, `get_queryset` method is called and the permission is determined
     to be `canton` decorator will first try to call
     `get_queryset_for_canton` and only if not existent will call
     `get_queryset` as fallback.
+
+    For unauthenticated users (which don't have a group or role as an
+    effect), an implicit role named "public" is assumed, resulting in the
+    suffix `_for_public`, eg. `get_queryset_for_public`.
+    This function should return an empty queryset for non-configured projects.
+
+    Be aware, that the fallback is still the base function, as a generic
+    handling is not feasible (or would need to happen at the init stage, not
+    during runtime). It's the responsibility of the developer that opens up the
+    permission (removes IsAuthenticated, etc.) to ensure a _for_public handler
+    is provided.
 
     Decorator inspired by
     https://github.com/computer-lab/django-rest-framework-roles
@@ -40,6 +50,15 @@ def permission_aware(func):
         if permission_func:
             return permission_func(*args, **kwargs)
 
+        if not bool(group) and permission_func is None:  # pragma: no cover
+            try:
+                return self.queryset.none()
+            except AttributeError:
+                raise RuntimeError(
+                    f"Bad configuration: Anonymous User accessing unguared method `{func.__name__}`, "
+                    f"should be handled by a `{func.__name__}_for_public` method."
+                )
+
         return func(self, *args, **kwargs)
 
     return wrapper
@@ -50,7 +69,7 @@ def get_permission_func(cls, name, group):
         return None
 
     perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
-    perm = perms.get(group.role.name)
+    perm = perms.get(group.role.name) if group else "public"
 
     if perm:
         perm_func = "{0}_for_{1}".format(name, perm)
@@ -113,3 +132,19 @@ class ViewPermissions(permissions.BasePermission):
             action = "update"
 
         return action
+
+
+class ReadOnly(permissions.BasePermission):
+    def has_permission(self, request, view):
+        return request.method in permissions.SAFE_METHODS
+
+    def has_object_permission(self, request, view, obj):
+        return request.method in permissions.SAFE_METHODS
+
+
+DefaultOrPublicReadOnly = (
+    # identical to DEFAULT_PERMISSION_CLASSES
+    permissions.IsAuthenticated
+    & IsGroupMember
+    & ViewPermissions
+) | ReadOnly
