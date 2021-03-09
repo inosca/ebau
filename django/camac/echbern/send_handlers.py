@@ -20,7 +20,6 @@ from camac.core.models import (
     Circulation,
     CirculationState,
     DocxDecision,
-    InstanceResource,
     InstanceService,
     Notice,
     NoticeType,
@@ -341,23 +340,31 @@ class TaskSendHandler(BaseSendHandler):
         return True, None
 
     def _get_circulation(self):
-        # we add the Activation to the most recent Circulation or start a new one
+        # Get the most recent circulation
         circulation = (
-            Circulation.objects.filter(instance=self.instance).order_by("-pk").first()
+            Circulation.objects.filter(instance=self.instance)
+            .prefetch_related("activations__circulation_state")
+            .order_by("-pk")
+            .first()
         )
-        if not circulation:
-            instance_resource = InstanceResource.objects.get(
-                pk=INSTANCE_RESOURCE_ZIRKULATION
-            )
+
+        # If there is no existing circulation or the circulation is done (all
+        # activations are done) we create a new one and add the new activation
+        # to that. Otherwise we add it to the running circulation
+        if not circulation or (
+            circulation.activations.exclude(circulation_state__name="DONE")
+            and circulation.activations.count()
+        ):
             circulation = Circulation.objects.create(
                 service=self.instance.responsible_service(filter_type="municipality"),
                 instance=self.instance,
-                instance_resource_id=instance_resource.pk,
+                instance_resource_id=INSTANCE_RESOURCE_ZIRKULATION,
                 name=trunc(timezone.now().timestamp()),
             )
-            self.complete_work_item(
-                "init-circulation", {"circulation-id": circulation.pk}
-            )
+            context = {"circulation-id": circulation.pk}
+            self.complete_work_item("init-circulation", context)
+            self.complete_work_item("start-circulation", context)
+
         return circulation
 
     def _get_service(self):
