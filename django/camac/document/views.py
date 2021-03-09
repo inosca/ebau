@@ -2,12 +2,14 @@ import io
 import mimetypes
 import os
 import zipfile
+from datetime import timedelta
 from enum import Enum
 from functools import reduce
 
 from django.conf import settings
 from django.db.models import Q
 from django.http import HttpResponse
+from django.utils import timezone
 from django.utils.translation import gettext as _
 from drf_yasg import openapi
 from drf_yasg.errors import SwaggerGenerationError
@@ -26,7 +28,7 @@ from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.models import Instance
 from camac.notification.serializers import InstanceMergeSerializer
 from camac.swagger.utils import get_operation_description, group_param
-from camac.user.permissions import permission_aware
+from camac.user.permissions import DefaultOrPublicReadOnly, permission_aware
 from camac.utils import DocxRenderer
 
 from . import filters, models, permissions, serializers
@@ -78,8 +80,6 @@ class FileUploadSwaggerAutoSchema(SwaggerAutoSchema):
 
 class AttachmentQuerysetMixin:
     def get_base_queryset(self):
-        if getattr(self, "swagger_fake_view", False):
-            return models.Attachment.objects.none()
         queryset = super().get_base_queryset()
 
         permission_info = permissions.section_permissions_for_role(
@@ -129,6 +129,23 @@ class AttachmentQuerysetMixin:
             | loosen_filter(self.request)
         ).distinct()
 
+    def get_queryset_for_public(self):
+        if not settings.APPLICATION.get("ENABLE_PUBLIC_ENDPOINTS"):
+            return self.queryset.none()
+
+        instances = Instance.objects.filter(
+            publication_entries__publication_date__gte=timezone.now()
+            - settings.APPLICATION.get("PUBLICATION_DURATION", timedelta()),
+            publication_entries__publication_date__lt=timezone.now(),
+            publication_entries__is_published=True,
+        )
+        return self.queryset.filter(
+            instance__pk__in=instances,
+            attachment_sections__pk__in=settings.APPLICATION.get(
+                "PUBLIC_ATTACHMENT_SECTIONS", []
+            ),
+        )
+
 
 class PermissionMode(Enum):
     destroy = 1
@@ -142,6 +159,7 @@ class AttachmentView(
     views.ModelViewSet,
 ):
     queryset = models.Attachment.objects.all()
+    permission_classes = [DefaultOrPublicReadOnly]
     serializer_class = serializers.AttachmentSerializer
     filterset_class = filters.AttachmentFilterSet
     instance_editable_permission = "document"
@@ -154,7 +172,7 @@ class AttachmentView(
     def has_object_destroy_base_permission(self, obj):
         return self.has_permission(obj, PermissionMode.destroy)
 
-    # Called from serilaizer
+    # Called from serializer
     def has_write_permission(self, obj):
         return self.has_permission(obj, PermissionMode.write)
 
@@ -284,18 +302,28 @@ class AttachmentDownloadView(
     pagination_class = None
     # use empty serializer to avoid an exception on schema generation
     serializer_class = Serializer
+    permission_classes = [DefaultOrPublicReadOnly]
+
+    def _create_history_entry(self, request, attachment):
+        fields = {
+            "keycloak_id": request.user.username,
+            "name": "{0} {1}".format(
+                getattr(request.user, "name", "Anonymous"),
+                getattr(request.user, "surname", "User"),
+            ),
+            "attachment": attachment,
+        }
+
+        if bool(request.group):
+            fields["group"] = request.group
+        return models.AttachmentDownloadHistory.objects.create(**fields)
 
     @swagger_auto_schema(auto_schema=None)
     def retrieve(self, request, **kwargs):
         attachment = self.get_object()
         download_path = kwargs.get(self.lookup_field)
 
-        models.AttachmentDownloadHistory.objects.create(
-            keycloak_id=request.user.username,
-            name="{0} {1}".format(request.user.name, request.user.surname),
-            attachment=self.get_object(),
-            group=request.group,
-        )
+        self._create_history_entry(request, attachment)
 
         response = SendfileHttpResponse(
             content_type=attachment.mime_type,
@@ -327,12 +355,7 @@ class AttachmentDownloadView(
             raise NotFound()
 
         for attachment in filtered_qs:
-            models.AttachmentDownloadHistory.objects.create(
-                keycloak_id=request.user.username,
-                name="{0} {1}".format(request.user.name, request.user.surname),
-                attachment=attachment,
-                group=request.group,
-            )
+            self._create_history_entry(request, attachment)
 
         attachment = filtered_qs.first()
         download_path = str(attachment.path)

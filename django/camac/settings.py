@@ -1194,6 +1194,8 @@ APPLICATIONS = {
             "notification.NotificationTemplate",
             "notification.NotificationTemplateT",
         ],
+        "ENABLE_PUBLIC_ENDPOINTS": True,
+        "PUBLIC_ATTACHMENT_SECTIONS": [12000008],
     },
 }
 

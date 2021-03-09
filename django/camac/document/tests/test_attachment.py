@@ -1,8 +1,10 @@
 import io
 import json
+from datetime import timedelta
 
 import pytest
 from django.urls import reverse
+from django.utils import timezone
 from PIL import Image
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
@@ -938,3 +940,80 @@ def test_attachment_section_filters(
     json = response.json()
     assert response.status_code == status.HTTP_200_OK
     assert len(json["data"]) == 0
+
+
+@pytest.mark.freeze_time("2021-03-09")
+def test_attachment_public_access(
+    db,
+    client,
+    instance_factory,
+    attachment_attachment_section_factory,
+    publication_entry_factory,
+    application_settings,
+):
+    """Test unauthenticated, public access to publicated attachments."""
+
+    pub_instance = publication_entry_factory(
+        publication_date=timezone.now() - timedelta(days=1), is_published=True
+    ).instance
+
+    aas, aas2, aas3, *_ = attachment_attachment_section_factory.create_batch(
+        5, attachment__instance=pub_instance
+    )
+    aasa = aas.attachment
+    aass = aas.attachmentsection
+
+    url = reverse("attachment-list")
+    res = client.get(url)
+
+    # nothing is visible without the settings
+    assert res.status_code == status.HTTP_200_OK
+    assert len(res.json()["data"]) == 0
+
+    application_settings["ENABLE_PUBLIC_ENDPOINTS"] = True
+    application_settings["PUBLIC_ATTACHMENT_SECTIONS"] = [aass.pk]
+    application_settings["PUBLICATION_DURATION"] = timedelta(days=30)
+
+    # publicated attachments are visible
+    res = client.get(url)
+    assert res.status_code == status.HTTP_200_OK
+    assert len(res.json()["data"]) == 1
+    data = res.json()["data"][0]
+    assert data["id"] == str(aasa.pk)
+
+    url = reverse("attachment-detail", args=[aasa.pk])
+    res = client.get(url)
+    assert res.status_code == status.HTTP_200_OK
+
+    res = client.delete(url)
+    assert res.status_code == status.HTTP_401_UNAUTHORIZED
+
+    data["attributes"]["name"] = "some other value"
+    res = client.patch(url, data)
+    assert res.status_code == status.HTTP_401_UNAUTHORIZED
+
+    url = reverse("attachment-download", args=[aasa.path])
+    response = client.get(url)
+    assert response.status_code == status.HTTP_200_OK
+
+    assert aasa.download_history.count() == 1
+    assert aasa.download_history.first().name == "Anonymous User"
+
+    application_settings["PUBLIC_ATTACHMENT_SECTIONS"].append(aas2.attachmentsection.pk)
+    url = reverse("attachment-list")
+    res = client.get(url)
+    assert res.status_code == status.HTTP_200_OK
+    data = res.json()["data"]
+    assert len(data) == 2
+    assert set(d["id"] for d in data) == set([str(aasa.pk), str(aas2.attachment_id)])
+
+    res = client.get(url, {"attachment_sections": aas2.attachmentsection.pk})
+    assert res.status_code == status.HTTP_200_OK
+    data = res.json()["data"]
+    assert len(data) == 1
+    assert data[0]["id"] == str(aas2.attachment_id)
+
+    # other endpoints eg. attachment sections are still forbidden
+    url = reverse("attachmentsection-list")
+    response = client.get(url)
+    assert response.status_code == status.HTTP_401_UNAUTHORIZED
