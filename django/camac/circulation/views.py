@@ -9,7 +9,7 @@ from rest_framework.settings import api_settings
 from rest_framework_json_api import views
 
 from camac.caluma.api import CalumaApi
-from camac.core.models import Activation, Circulation
+from camac.core.models import Activation, Circulation, CirculationState
 from camac.instance.filters import FormFieldOrdering
 from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.models import FormField
@@ -46,6 +46,9 @@ class CirculationView(InstanceQuerysetMixin, InstanceEditableMixin, views.ModelV
     def has_object_sync_permission(self, instance):
         return self.has_base_object_permission(instance)
 
+    def has_object_end_permission(self, instance):
+        return self.has_base_object_permission(instance)
+
     @transaction.atomic
     def perform_destroy(self, circulation):
         work_item = WorkItem.objects.filter(
@@ -70,6 +73,28 @@ class CirculationView(InstanceQuerysetMixin, InstanceEditableMixin, views.ModelV
     def sync(self, request, pk=None):
         CalumaApi().sync_circulation(
             self.get_object(), request.caluma_info.context.user
+        )
+
+        return Response([], 204)
+
+    @action(methods=["PATCH"], detail=True)
+    @transaction.atomic
+    def end(self, request, pk=None):
+        circulation = self.get_object()
+
+        # skip circulation work item
+        work_item = WorkItem.objects.filter(
+            **{"meta__circulation-id": circulation.pk}
+        ).first()
+        if work_item:
+            skip_work_item(
+                work_item=work_item,
+                user=self.request.caluma_info.context.user,
+            )
+
+        # set state of all activations to done
+        circulation.activations.update(
+            circulation_state=CirculationState.objects.get(name="DONE")
         )
 
         return Response([], 204)
