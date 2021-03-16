@@ -131,10 +131,12 @@ def test_notification_template_merge(
     application_settings,
     form_field_factory,
     notice_factory,
+    publication_entry,
 ):
     notice_factory.create_batch(size=3, activation=activation)
     application_settings["COORDINATE_QUESTION"] = "punkte"
     application_settings["QUESTIONS_WITH_OVERRIDE"] = ["bezeichnung"]
+    application_settings["LOCATION_NAME_QUESTION"] = "durchmesser-der-bohrung"
 
     add_field = functools.partial(form_field_factory, instance=instance)
     add_field(
@@ -142,6 +144,10 @@ def test_notification_template_merge(
     )
     add_field(name="bezeichnung", value="abc")
     add_field(name="bezeichnung-override", value="abc")
+    add_field(name="durchmesser-der-bohrung", value=1)
+
+    publication_entry.is_published = 1
+    publication_entry.save()
 
     url = reverse("notificationtemplate-merge", args=[notification_template.pk])
 
