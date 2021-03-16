@@ -1,6 +1,6 @@
+import { setContext } from "@apollo/client/link/context";
+import { onError } from "@apollo/client/link/error";
 import { inject as service } from "@ember/service";
-import { setContext } from "apollo-link-context";
-import { onError } from "apollo-link-error";
 import ApolloService from "ember-apollo-client/services/apollo";
 import CalumaApolloServiceMixin from "ember-caluma/mixins/caluma-apollo-service-mixin";
 
