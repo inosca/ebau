@@ -28,7 +28,9 @@ python-keycloak==0.22.0
 python-memcached==1.59
 PyXB==1.2.6
 requests==2.25.0
-sorl-thumbnail==12.7.0
+# TODO: fixes issues with imagemagick, remove once this is merged:
+# https://github.com/jazzband/sorl-thumbnail/pull/661
+sorl-thumbnail @ git+https://github.com/sbor23/sorl-thumbnail.git@f4f850526d883ee6713dceae8a6128a45db038d1#egg=sorl-thumbnail
 tabulate==0.8.7
 uWSGI==2.0.19.1
 xmlschema==1.3.1
