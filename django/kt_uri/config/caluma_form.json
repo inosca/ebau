@@ -58,7 +58,8 @@
       "name": "{\"de\": \"Baugesuch\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
-        "is-main-form": true
+        "is-main-form": true,
+        "is-creatable": true
       },
       "is_published": true,
       "is_archived": false,
@@ -75,7 +76,10 @@
       "created_by_group": null,
       "name": "{\"de\": \"Bundesverfahren\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
-      "meta": {},
+      "meta": {
+        "is-main-form": true,
+        "is-creatable": true
+      },
       "is_published": true,
       "is_archived": false,
       "source": null
@@ -91,7 +95,10 @@
       "created_by_group": null,
       "name": "{\"de\": \"Ben\\u00fctzung Kantonsgebiet\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
-      "meta": {},
+      "meta": {
+        "is-main-form": true,
+        "is-creatable": true
+      },
       "is_published": true,
       "is_archived": false,
       "source": null
@@ -107,7 +114,10 @@
       "created_by_group": null,
       "name": "{\"de\": \"Reklamegesuch\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
-      "meta": {},
+      "meta": {
+        "is-main-form": true,
+        "is-creatable": true
+      },
       "is_published": true,
       "is_archived": false,
       "source": null
@@ -491,7 +501,10 @@
       "created_by_group": null,
       "name": "{\"de\": \"Mitberichtsverfahren Bund\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
-      "meta": {},
+      "meta": {
+        "is-main-form": true,
+        "is-creatable": true
+      },
       "is_published": true,
       "is_archived": false,
       "source": null
@@ -507,7 +520,10 @@
       "created_by_group": null,
       "name": "{\"de\": \"Mitberichtsverfahren Kanton\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
-      "meta": {},
+      "meta": {
+        "is-main-form": true,
+        "is-creatable": true
+      },
       "is_published": true,
       "is_archived": false,
       "source": null
@@ -555,7 +571,10 @@
       "created_by_group": null,
       "name": "{\"de\": \"\\u00d6REB Verfahren\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
-      "meta": {},
+      "meta": {
+        "is-main-form": true,
+        "is-creatable": true
+      },
       "is_published": true,
       "is_archived": false,
       "source": null
@@ -651,7 +670,10 @@
       "created_by_group": null,
       "name": "{\"de\": \"Baugesuch-Vorabkl\\u00e4rung\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
-      "meta": {},
+      "meta": {
+        "is-main-form": true,
+        "is-creatable": true
+      },
       "is_published": true,
       "is_archived": false,
       "source": null
@@ -683,7 +705,10 @@
       "created_by_group": null,
       "name": "{\"de\": \"Meldung Vorhaben\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
-      "meta": {},
+      "meta": {
+        "is-main-form": true,
+        "is-creatable": true
+      },
       "is_published": true,
       "is_archived": false,
       "source": null
@@ -731,7 +756,10 @@
       "created_by_group": null,
       "name": "{\"de\": \"Meldung Solaranlage\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
-      "meta": {},
+      "meta": {
+        "is-main-form": true,
+        "is-creatable": true
+      },
       "is_published": true,
       "is_archived": false,
       "source": null
