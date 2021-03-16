@@ -397,6 +397,8 @@ class TemplateView(views.ModelViewSet):
     filterset_class = filters.TemplateFilterSet
     serializer_class = serializers.TemplateSerializer
     instance_editable_permission = "document"
+    ordering_fields = ("name",)
+    ordering = ("name",)
 
     @permission_aware
     def has_create_permission(self):
