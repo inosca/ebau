@@ -52,11 +52,11 @@
     "pk": "building-permit",
     "fields": {
       "created_at": "2020-07-12T10:28:29.091Z",
-      "modified_at": "2020-12-07T15:25:40.489Z",
+      "modified_at": "2021-03-16T07:53:33.705Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
-      "description": "{\"de\": \"Baugesuch\", \"fr\": null}",
+      "name": "{\"de\": \"Baugesuch\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
         "is-main-form": true
       },
@@ -235,6 +235,22 @@
       "created_by_group": null,
       "name": "{\"de\": \"Hochbau\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "info-building-permit",
+    "fields": {
+      "created_at": "2021-03-16T07:54:12.746Z",
+      "modified_at": "2021-03-16T07:54:12.746Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
+      "description": "{\"de\": \"Baugesuch\", \"fr\": null}",
       "meta": {},
       "is_published": true,
       "is_archived": false,
@@ -2253,15 +2269,15 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "building-permit.anleitung-zum-ausfuellen-der-formulare",
+    "pk": "building-permit.allgemeine-informationen-baugesuch",
     "fields": {
-      "created_at": "2020-10-30T17:44:41.013Z",
-      "modified_at": "2020-10-30T17:44:41.013Z",
+      "created_at": "2021-03-16T07:58:00.049Z",
+      "modified_at": "2021-03-16T07:58:00.049Z",
       "created_by_user": null,
       "created_by_group": null,
       "form": "building-permit",
-      "question": "anleitung-zum-ausfuellen-der-formulare",
-      "sort": 16
+      "question": "allgemeine-informationen-baugesuch",
+      "sort": 8
     }
   },
   {
@@ -2274,7 +2290,7 @@
       "created_by_group": null,
       "form": "building-permit",
       "question": "einreichen",
-      "sort": 7
+      "sort": 1
     }
   },
   {
@@ -2287,20 +2303,7 @@
       "created_by_group": null,
       "form": "building-permit",
       "question": "fachthemen",
-      "sort": 8
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "building-permit.form-type",
-    "fields": {
-      "created_at": "2020-09-01T14:52:15.436Z",
-      "modified_at": "2020-09-01T14:52:15.436Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "building-permit",
-      "question": "form-type",
-      "sort": 10
+      "sort": 2
     }
   },
   {
@@ -2313,46 +2316,7 @@
       "created_by_group": null,
       "form": "building-permit",
       "question": "generelle-fachthemen",
-      "sort": 9
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "building-permit.impressum",
-    "fields": {
-      "created_at": "2020-11-13T09:27:33.777Z",
-      "modified_at": "2020-11-13T09:27:33.777Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "building-permit",
-      "question": "impressum",
-      "sort": 15
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "building-permit.is-paper",
-    "fields": {
-      "created_at": "2020-07-12T11:32:00.766Z",
-      "modified_at": "2020-07-12T11:32:00.766Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "building-permit",
-      "question": "is-paper",
-      "sort": 17
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "building-permit.leitbehoerde",
-    "fields": {
-      "created_at": "2020-07-12T10:30:37.956Z",
-      "modified_at": "2020-07-12T10:30:37.956Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "building-permit",
-      "question": "leitbehoerde",
-      "sort": 14
+      "sort": 3
     }
   },
   {
@@ -2365,7 +2329,7 @@
       "created_by_group": null,
       "form": "building-permit",
       "question": "lokalisierung",
-      "sort": 13
+      "sort": 7
     }
   },
   {
@@ -2378,7 +2342,7 @@
       "created_by_group": null,
       "form": "building-permit",
       "question": "personalien",
-      "sort": 12
+      "sort": 6
     }
   },
   {
@@ -2391,7 +2355,7 @@
       "created_by_group": null,
       "form": "building-permit",
       "question": "projektdaten",
-      "sort": 11
+      "sort": 5
     }
   },
   {
@@ -3692,6 +3656,32 @@
       "form": "hochbau",
       "question": "wohnungen",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "info-building-permit.anleitung-zum-ausfuellen-der-formulare",
+    "fields": {
+      "created_at": "2021-03-16T07:55:06.896Z",
+      "modified_at": "2021-03-16T07:55:06.896Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "info-building-permit",
+      "question": "anleitung-zum-ausfuellen-der-formulare",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "info-building-permit.impressum",
+    "fields": {
+      "created_at": "2021-03-16T07:55:26.796Z",
+      "modified_at": "2021-03-16T07:55:26.796Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "info-building-permit",
+      "question": "impressum",
+      "sort": 1
     }
   },
   {
@@ -5303,7 +5293,20 @@
       "created_by_group": null,
       "form": "personalien",
       "question": "applicant",
-      "sort": 5
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien.form-type",
+    "fields": {
+      "created_at": "2021-03-16T08:00:37.749Z",
+      "modified_at": "2021-03-16T08:00:37.749Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "personalien",
+      "question": "form-type",
+      "sort": 2
     }
   },
   {
@@ -5316,6 +5319,19 @@
       "created_by_group": null,
       "form": "personalien",
       "question": "invoice-recipient",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien.is-paper",
+    "fields": {
+      "created_at": "2021-03-16T08:00:44.944Z",
+      "modified_at": "2021-03-16T08:00:44.944Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "personalien",
+      "question": "is-paper",
       "sort": 1
     }
   },
@@ -5329,6 +5345,19 @@
       "created_by_group": null,
       "form": "personalien",
       "question": "landowner",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien.leitbehoerde",
+    "fields": {
+      "created_at": "2021-03-16T08:00:33.003Z",
+      "modified_at": "2021-03-16T08:00:33.003Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "personalien",
+      "question": "leitbehoerde",
       "sort": 3
     }
   },
@@ -5342,7 +5371,7 @@
       "created_by_group": null,
       "form": "personalien",
       "question": "more-people-involved",
-      "sort": 4
+      "sort": 7
     }
   },
   {
@@ -5355,7 +5384,7 @@
       "created_by_group": null,
       "form": "personalien",
       "question": "personendaten",
-      "sort": 6
+      "sort": 9
     }
   },
   {
@@ -5368,7 +5397,7 @@
       "created_by_group": null,
       "form": "personalien",
       "question": "project-author",
-      "sort": 2
+      "sort": 5
     }
   },
   {
@@ -17455,6 +17484,34 @@
       "data_source": null,
       "row_form": null,
       "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "allgemeine-informationen-baugesuch",
+    "fields": {
+      "created_at": "2021-03-16T07:57:59.956Z",
+      "modified_at": "2021-03-16T07:57:59.957Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "label": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "info-building-permit",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
