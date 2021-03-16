@@ -9,7 +9,7 @@ import {
 import QueryParams from "ember-parachute";
 
 import config from "ember-caluma-portal/config/environment";
-import getRootFormsQuery from "ember-caluma-portal/gql/queries/get-root-forms";
+import getRootFormsQuery from "ember-caluma-portal/gql/queries/get-root-forms.graphql";
 
 export default class InstancesNewController extends Controller.extend(
   new QueryParams().Mixin

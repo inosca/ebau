@@ -6,8 +6,8 @@ import { queryManager } from "ember-apollo-client";
 import { decodeId } from "ember-caluma/helpers/decode-id";
 import { dropTask } from "ember-concurrency-decorators";
 
-import saveDashboardContent from "../../gql/mutations/save-dashboard-content";
-import getDashboardContent from "../../gql/queries/get-dashboard-content";
+import saveDashboardContent from "ember-caluma-portal/gql/mutations/save-dashboard-content.graphql";
+import getDashboardContent from "ember-caluma-portal/gql/queries/get-dashboard-content.graphql";
 
 export default class BeDashboardComponent extends Component {
   @queryManager apollo;

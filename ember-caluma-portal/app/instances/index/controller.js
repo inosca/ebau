@@ -1,6 +1,6 @@
 import { getOwner } from "@ember/application";
 import Controller from "@ember/controller";
-import { computed, set, action } from "@ember/object";
+import { computed, action } from "@ember/object";
 import { reads } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
 import { isEmpty } from "@ember/utils";
@@ -14,9 +14,9 @@ import QueryParams from "ember-parachute";
 import moment from "moment";
 
 import config from "ember-caluma-portal/config/environment";
-import getCasesQuery from "ember-caluma-portal/gql/queries/get-cases";
-import getMunicipalitiesQuery from "ember-caluma-portal/gql/queries/get-municipalities";
-import getRootFormsQuery from "ember-caluma-portal/gql/queries/get-root-forms";
+import getCasesQuery from "ember-caluma-portal/gql/queries/get-cases.graphql";
+import getMunicipalitiesQuery from "ember-caluma-portal/gql/queries/get-municipalities.graphql";
+import getRootFormsQuery from "ember-caluma-portal/gql/queries/get-root-forms.graphql";
 import Case from "ember-caluma-portal/lib/case";
 
 const getOrder = (order) => [
@@ -241,7 +241,7 @@ export default class InstancesIndexController extends Controller.extend(
     )).map(({ node }) => node);
   }
 
-  @reads("fetchData.lastSuccessful.value.pageInfo") pageInfo;
+  @reads("fetchData.lastSuccessful.value") pageInfo;
 
   @restartableTask
   *fetchData(cursor = null) {
@@ -290,9 +290,7 @@ export default class InstancesIndexController extends Controller.extend(
         this.set("cases", [...this.cases, ...cases]);
       }
 
-      set(raw, "pageInfo", { ...raw.pageInfo, totalCount: raw.totalCount });
-
-      return raw;
+      return { ...raw.pageInfo, totalCount: raw.totalCount };
     } catch (e) {
       // eslint-disable-next-line no-console
       console.error(e);
