@@ -46,8 +46,8 @@ module.exports = function (environment) {
       // projektgenehmigungsgesuch-gemass-ss15-strag bezirk = Bezirksfachstelle
       // projektgenehmigungsgesuch-gemass-ss15-strag kanton = Tiefbauamt
       formLocations: {
-        14: "Amt für Gewässer",
-        17: "Kantonspolizei Schwyz",
+        "14": "Amt für Gewässer",
+        "17": "Kantonspolizei Schwyz",
         "15-astra": "Tiefbauamt des Kantons Schwyz",
         "15-esti": "Eidg. Starkstrominspektorat",
         "15-bavs": "Verkehrsamt Schwyz",
