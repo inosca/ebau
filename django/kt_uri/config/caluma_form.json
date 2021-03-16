@@ -1975,7 +1975,7 @@
       "created_by_group": null,
       "form": "bauten-ausserhalb-bauzone",
       "question": "bab-titel",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -2040,7 +2040,20 @@
       "created_by_group": null,
       "form": "bauten-ausserhalb-bauzone",
       "question": "einfuehrungstext",
-      "sort": 11
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauten-ausserhalb-bauzone.erklaerung-standortgebundenheit",
+    "fields": {
+      "created_at": "2021-03-11T16:53:01.370Z",
+      "modified_at": "2021-03-11T16:53:01.370Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "bauten-ausserhalb-bauzone",
+      "question": "erklaerung-standortgebundenheit",
+      "sort": 7
     }
   },
   {
@@ -2079,7 +2092,7 @@
       "created_by_group": null,
       "form": "bauten-ausserhalb-bauzone",
       "question": "hinweis-bab-fachthema",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -2092,7 +2105,7 @@
       "created_by_group": null,
       "form": "bauten-ausserhalb-bauzone",
       "question": "landwirtschaftlich-begruendet",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -2105,7 +2118,7 @@
       "created_by_group": null,
       "form": "bauten-ausserhalb-bauzone",
       "question": "neue-bauten",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -2118,7 +2131,7 @@
       "created_by_group": null,
       "form": "bauten-ausserhalb-bauzone",
       "question": "standortbegruendung",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -2144,7 +2157,7 @@
       "created_by_group": null,
       "form": "brandschutz-zivilschutz",
       "question": "brandschutz",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -2157,7 +2170,7 @@
       "created_by_group": null,
       "form": "brandschutz-zivilschutz",
       "question": "brandschutzkonzept-inhalt",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -2183,7 +2196,7 @@
       "created_by_group": null,
       "form": "brandschutz-zivilschutz",
       "question": "schutzraum",
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -2210,6 +2223,19 @@
       "form": "brandschutz-zivilschutz",
       "question": "schutzraum-vorhanden",
       "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-zivilschutz.schutzraumrelevante-massnahmen",
+    "fields": {
+      "created_at": "2021-03-11T16:36:48.512Z",
+      "modified_at": "2021-03-11T16:36:48.512Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "brandschutz-zivilschutz",
+      "question": "schutzraumrelevante-massnahmen",
+      "sort": 5
     }
   },
   {
@@ -3120,19 +3146,6 @@
       "form": "gebaeude-tabelle",
       "question": "art-der-reklamebaute",
       "sort": 19
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "gebaeude-tabelle.assekuranznummer",
-    "fields": {
-      "created_at": "2020-12-01T09:20:07.464Z",
-      "modified_at": "2020-12-01T09:20:07.464Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "gebaeude-tabelle",
-      "question": "assekuranznummer",
-      "sort": 21
     }
   },
   {
@@ -4198,7 +4211,7 @@
       "created_by_group": null,
       "form": "meldung-vorhaben",
       "question": "baubewilligungspflicht-vorhaben",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -4211,7 +4224,7 @@
       "created_by_group": null,
       "form": "meldung-vorhaben",
       "question": "bemerkungen-meldung",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -4224,7 +4237,7 @@
       "created_by_group": null,
       "form": "meldung-vorhaben",
       "question": "vorhaben-befristet-bis",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -4237,7 +4250,7 @@
       "created_by_group": null,
       "form": "meldung-vorhaben",
       "question": "vorhaben-befristet-von",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -4250,7 +4263,7 @@
       "created_by_group": null,
       "form": "meldung-vorhaben",
       "question": "vorhaben-dauer",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -4263,7 +4276,7 @@
       "created_by_group": null,
       "form": "meldung-vorhaben",
       "question": "vorhaben-gesamtkosten-chf",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -4276,7 +4289,7 @@
       "created_by_group": null,
       "form": "meldung-vorhaben",
       "question": "vorhaben-proposal-description",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -6985,19 +6998,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "umweltschutz.entsorgen",
-    "fields": {
-      "created_at": "2020-11-04T12:59:58.372Z",
-      "modified_at": "2020-11-04T12:59:58.372Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "umweltschutz",
-      "question": "entsorgen",
-      "sort": 16
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "umweltschutz.entsorgungskonzept",
     "fields": {
       "created_at": "2020-11-04T14:53:42.726Z",
@@ -7344,7 +7344,7 @@
       "created_by_group": null,
       "form": "verkehr",
       "question": "art-der-anlage",
-      "sort": 5
+      "sort": 8
     }
   },
   {
@@ -7357,7 +7357,7 @@
       "created_by_group": null,
       "form": "verkehr",
       "question": "beeintraechtigung",
-      "sort": 8
+      "sort": 11
     }
   },
   {
@@ -7370,7 +7370,7 @@
       "created_by_group": null,
       "form": "verkehr",
       "question": "beeintraechtigung-weg",
-      "sort": 4
+      "sort": 7
     }
   },
   {
@@ -7383,7 +7383,7 @@
       "created_by_group": null,
       "form": "verkehr",
       "question": "beschreibung",
-      "sort": 7
+      "sort": 10
     }
   },
   {
@@ -7396,6 +7396,19 @@
       "created_by_group": null,
       "form": "verkehr",
       "question": "beschreibung-schiffsverkehr",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "verkehr.beschreibung-seilbahnanlage",
+    "fields": {
+      "created_at": "2021-03-11T16:45:42.498Z",
+      "modified_at": "2021-03-11T16:45:42.498Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "verkehr",
+      "question": "beschreibung-seilbahnanlage",
       "sort": 1
     }
   },
@@ -7409,7 +7422,7 @@
       "created_by_group": null,
       "form": "verkehr",
       "question": "beschreibung-weg",
-      "sort": 3
+      "sort": 6
     }
   },
   {
@@ -7422,7 +7435,7 @@
       "created_by_group": null,
       "form": "verkehr",
       "question": "langsamverkehr",
-      "sort": 6
+      "sort": 9
     }
   },
   {
@@ -7435,7 +7448,33 @@
       "created_by_group": null,
       "form": "verkehr",
       "question": "schiffsverkehr",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "verkehr.seilbahnanlage",
+    "fields": {
+      "created_at": "2021-03-11T16:43:19.928Z",
+      "modified_at": "2021-03-11T16:43:19.928Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "verkehr",
+      "question": "seilbahnanlage",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "verkehr.seilbahnanlage-betroffen",
+    "fields": {
+      "created_at": "2021-03-11T16:42:27.411Z",
+      "modified_at": "2021-03-11T16:42:27.411Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "verkehr",
+      "question": "seilbahnanlage-betroffen",
+      "sort": 3
     }
   },
   {
@@ -7448,7 +7487,7 @@
       "created_by_group": null,
       "form": "verkehr",
       "question": "strasse-ist-betroffen",
-      "sort": 10
+      "sort": 13
     }
   },
   {
@@ -7461,7 +7500,7 @@
       "created_by_group": null,
       "form": "verkehr",
       "question": "strassen-und-langsamverkehr",
-      "sort": 11
+      "sort": 14
     }
   },
   {
@@ -7474,7 +7513,7 @@
       "created_by_group": null,
       "form": "verkehr",
       "question": "strassentyp",
-      "sort": 9
+      "sort": 12
     }
   },
   {
@@ -7614,7 +7653,7 @@
     "pk": "24d-rpg-ja",
     "fields": {
       "created_at": "2020-11-13T08:29:37.083Z",
-      "modified_at": "2020-11-13T08:29:37.083Z",
+      "modified_at": "2021-03-11T12:54:42.610Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
@@ -7628,7 +7667,7 @@
     "pk": "24d-rpg-nein",
     "fields": {
       "created_at": "2020-11-13T08:29:37.079Z",
-      "modified_at": "2020-11-13T08:29:37.079Z",
+      "modified_at": "2021-03-11T12:54:42.610Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
@@ -7642,7 +7681,7 @@
     "pk": "abbruch-ja",
     "fields": {
       "created_at": "2020-11-04T12:57:14.437Z",
-      "modified_at": "2020-11-04T12:57:14.437Z",
+      "modified_at": "2021-03-11T13:57:28.246Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
@@ -7656,7 +7695,7 @@
     "pk": "abbruch-nein",
     "fields": {
       "created_at": "2020-11-04T12:57:14.437Z",
-      "modified_at": "2020-11-04T12:57:14.437Z",
+      "modified_at": "2021-03-11T13:57:28.246Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
@@ -8048,7 +8087,7 @@
     "pk": "art-der-anlage-historischer-verkehrsweg-ivs",
     "fields": {
       "created_at": "2020-11-03T16:13:28.778Z",
-      "modified_at": "2020-11-11T18:40:09.457Z",
+      "modified_at": "2021-03-11T14:10:42.287Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Historischer Verkehrsweg (IVS)\", \"fr\": null}",
@@ -8062,7 +8101,7 @@
     "pk": "art-der-anlage-ivs",
     "fields": {
       "created_at": "2020-11-03T16:15:41.679Z",
-      "modified_at": "2020-11-11T18:40:09.490Z",
+      "modified_at": "2021-03-11T14:10:42.297Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Historischer Verkehrsweg (Inventar historischer Verkehrswege IVS)\", \"fr\": null}",
@@ -8076,7 +8115,7 @@
     "pk": "art-der-anlage-veloweg",
     "fields": {
       "created_at": "2020-11-03T16:13:28.786Z",
-      "modified_at": "2020-11-11T18:40:09.472Z",
+      "modified_at": "2021-03-11T14:10:42.241Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Veloweg\", \"fr\": null}",
@@ -8090,7 +8129,7 @@
     "pk": "art-der-anlage-wanderweg",
     "fields": {
       "created_at": "2020-11-03T16:15:41.603Z",
-      "modified_at": "2020-11-11T18:40:09.477Z",
+      "modified_at": "2021-03-11T14:10:42.319Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Wanderweg (Haupt- und Nebenwanderwege gem\\u00e4ss Wanderwegrichtplan)\", \"fr\": null}",
@@ -8104,7 +8143,7 @@
     "pk": "art-der-anlage-wanderweg-wanderwegrichtplan",
     "fields": {
       "created_at": "2020-11-03T16:13:28.789Z",
-      "modified_at": "2020-11-11T18:40:09.424Z",
+      "modified_at": "2021-03-11T14:10:42.286Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Wanderweg (Wanderwegrichtplan)\", \"fr\": null}",
@@ -9014,7 +9053,7 @@
     "pk": "asbest-ja",
     "fields": {
       "created_at": "2020-11-04T12:59:10.922Z",
-      "modified_at": "2020-11-04T16:10:53.696Z",
+      "modified_at": "2021-03-11T13:57:34.293Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
@@ -9028,7 +9067,7 @@
     "pk": "asbest-nein",
     "fields": {
       "created_at": "2020-11-04T12:59:10.922Z",
-      "modified_at": "2020-11-04T16:10:53.695Z",
+      "modified_at": "2021-03-11T13:57:34.299Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
@@ -9070,7 +9109,7 @@
     "pk": "aussenbeleuchtung-ja",
     "fields": {
       "created_at": "2020-11-04T15:18:04.651Z",
-      "modified_at": "2020-11-04T15:18:04.652Z",
+      "modified_at": "2021-03-11T14:03:33.089Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
@@ -9084,7 +9123,7 @@
     "pk": "aussenbeleuchtung-nein",
     "fields": {
       "created_at": "2020-11-04T15:18:04.653Z",
-      "modified_at": "2020-11-04T15:18:04.653Z",
+      "modified_at": "2021-03-11T14:03:33.090Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
@@ -9224,7 +9263,7 @@
     "pk": "beeintraechtigung-",
     "fields": {
       "created_at": "2020-11-03T12:40:06.819Z",
-      "modified_at": "2020-11-11T18:41:14.371Z",
+      "modified_at": "2021-03-11T14:13:21.479Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"\", \"fr\": null}",
@@ -9238,7 +9277,7 @@
     "pk": "beeintraechtigung-aenderung-einfahrt",
     "fields": {
       "created_at": "2020-11-03T12:40:06.769Z",
-      "modified_at": "2020-11-11T18:41:14.355Z",
+      "modified_at": "2021-03-11T14:13:21.421Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"\\u00c4nderung bestehende Einfahrt\", \"fr\": null}",
@@ -9252,7 +9291,7 @@
     "pk": "beeintraechtigung-andere",
     "fields": {
       "created_at": "2020-11-03T12:40:06.796Z",
-      "modified_at": "2020-11-11T18:41:14.397Z",
+      "modified_at": "2021-03-11T14:13:21.415Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Andere\", \"fr\": null}",
@@ -9266,7 +9305,7 @@
     "pk": "beeintraechtigung-mehrverkehr",
     "fields": {
       "created_at": "2020-11-03T12:40:06.765Z",
-      "modified_at": "2020-11-11T18:41:14.399Z",
+      "modified_at": "2021-03-11T14:13:21.466Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Durch das Vorhaben entsteht Mehrverkehr\", \"fr\": null}",
@@ -9280,7 +9319,7 @@
     "pk": "beeintraechtigung-neue-einfahrt",
     "fields": {
       "created_at": "2020-11-03T12:40:06.757Z",
-      "modified_at": "2020-11-11T18:41:14.360Z",
+      "modified_at": "2021-03-11T14:13:21.388Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Neue Einfahrt geplant\", \"fr\": null}",
@@ -9294,7 +9333,7 @@
     "pk": "beeintraechtigung-sichtweiten",
     "fields": {
       "created_at": "2020-11-03T12:40:06.717Z",
-      "modified_at": "2020-11-11T18:41:14.340Z",
+      "modified_at": "2021-03-11T14:13:21.471Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Beeinflussung der Sichtweiten\", \"fr\": null}",
@@ -9308,7 +9347,7 @@
     "pk": "beeintraechtigung-weg-andere",
     "fields": {
       "created_at": "2020-11-03T16:49:49.423Z",
-      "modified_at": "2020-11-11T18:40:40.791Z",
+      "modified_at": "2021-03-11T14:11:18.489Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"andere\", \"fr\": null}",
@@ -9322,7 +9361,7 @@
     "pk": "beeintraechtigung-weg-verlegt",
     "fields": {
       "created_at": "2020-11-03T16:49:49.398Z",
-      "modified_at": "2020-11-11T18:40:40.794Z",
+      "modified_at": "2021-03-11T14:11:18.482Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"wird verlegt (neue Linienf\\u00fchrung)\", \"fr\": null}",
@@ -9336,7 +9375,7 @@
     "pk": "beeintraechtigung-weg-voruebergehend-gesperrt",
     "fields": {
       "created_at": "2020-11-03T16:49:49.406Z",
-      "modified_at": "2020-11-11T18:40:40.773Z",
+      "modified_at": "2021-03-11T14:11:18.487Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"wird vor\\u00fcbergehend gesperrt\", \"fr\": null}",
@@ -9546,7 +9585,7 @@
     "pk": "bewilligungsdokumente-ja",
     "fields": {
       "created_at": "2020-11-13T13:57:02.759Z",
-      "modified_at": "2020-11-13T13:59:05.566Z",
+      "modified_at": "2021-03-11T14:32:14.565Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
@@ -9560,7 +9599,7 @@
     "pk": "bewilligungsdokumente-nein",
     "fields": {
       "created_at": "2020-11-13T13:57:02.759Z",
-      "modified_at": "2020-11-13T13:59:05.566Z",
+      "modified_at": "2021-03-11T14:32:14.585Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
@@ -9854,7 +9893,7 @@
     "pk": "entsorgen-ja",
     "fields": {
       "created_at": "2020-11-04T12:59:58.186Z",
-      "modified_at": "2020-11-04T12:59:58.187Z",
+      "modified_at": "2021-03-11T14:00:05.793Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
@@ -9868,7 +9907,7 @@
     "pk": "entsorgen-nein",
     "fields": {
       "created_at": "2020-11-04T12:59:58.186Z",
-      "modified_at": "2020-11-04T12:59:58.186Z",
+      "modified_at": "2021-03-11T14:00:05.804Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
@@ -11142,7 +11181,7 @@
     "pk": "forstwirtschaft-ja",
     "fields": {
       "created_at": "2020-09-21T09:00:20.451Z",
-      "modified_at": "2020-11-13T13:33:44.851Z",
+      "modified_at": "2021-03-11T14:42:22.679Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
@@ -11156,7 +11195,7 @@
     "pk": "forstwirtschaft-nein",
     "fields": {
       "created_at": "2020-09-21T09:00:20.471Z",
-      "modified_at": "2020-11-13T13:33:44.836Z",
+      "modified_at": "2021-03-11T14:42:22.610Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
@@ -11254,7 +11293,7 @@
     "pk": "gebaeudekategorie-andere",
     "fields": {
       "created_at": "2020-10-19T12:43:51.339Z",
-      "modified_at": "2020-10-19T12:43:51.339Z",
+      "modified_at": "2021-03-04T10:28:24.872Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Andere Wohngeb\\u00e4ude (Wohngeb\\u00e4ude mit Nebennutzung)\", \"fr\": null}",
@@ -11268,7 +11307,7 @@
     "pk": "gebaeudekategorie-ausschliessliche-wohnnutzung",
     "fields": {
       "created_at": "2020-10-19T12:43:51.305Z",
-      "modified_at": "2020-10-19T12:43:51.305Z",
+      "modified_at": "2021-03-04T10:28:24.839Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Geb\\u00e4ude mit ausschliesslicher Wohnnutzung\", \"fr\": null}",
@@ -11282,7 +11321,7 @@
     "pk": "gebaeudekategorie-ohne-wohnnutzung",
     "fields": {
       "created_at": "2020-10-19T12:43:51.310Z",
-      "modified_at": "2020-10-19T12:43:51.310Z",
+      "modified_at": "2021-03-04T10:28:24.857Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Geb\\u00e4ude ohne Wohnnutzung\", \"fr\": null}",
@@ -11296,7 +11335,7 @@
     "pk": "gebaeudekategorie-provisorische-unterkunft",
     "fields": {
       "created_at": "2020-10-19T12:43:51.372Z",
-      "modified_at": "2020-10-19T12:43:51.372Z",
+      "modified_at": "2021-03-04T10:28:24.852Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Provisorische Unterkunft\", \"fr\": null}",
@@ -11310,7 +11349,7 @@
     "pk": "gebaeudekategorie-sonderbau",
     "fields": {
       "created_at": "2020-10-19T12:43:51.342Z",
-      "modified_at": "2020-10-19T12:43:51.342Z",
+      "modified_at": "2021-03-04T10:28:24.841Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Sonderbau\", \"fr\": null}",
@@ -11324,7 +11363,7 @@
     "pk": "gebaeudekategorie-teilweise-wohnnutzung",
     "fields": {
       "created_at": "2020-10-19T12:43:51.341Z",
-      "modified_at": "2020-10-19T12:43:51.341Z",
+      "modified_at": "2021-03-04T10:28:24.842Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Geb\\u00e4ude mit teilweiser Wohnnutzung\", \"fr\": null}",
@@ -11548,7 +11587,7 @@
     "pk": "grobbeurteilung-standortgebunden",
     "fields": {
       "created_at": "2020-11-04T19:37:14.916Z",
-      "modified_at": "2020-11-11T18:24:52.578Z",
+      "modified_at": "2021-03-11T14:32:52.010Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Nicht landwirtschaftliche Nutzung\", \"fr\": null}",
@@ -11562,7 +11601,7 @@
     "pk": "grobbeurteilung-zonenkonform",
     "fields": {
       "created_at": "2020-11-04T19:37:14.916Z",
-      "modified_at": "2020-11-11T18:24:52.592Z",
+      "modified_at": "2021-03-11T14:32:52.011Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Landwirtschaftliche Nutzung\", \"fr\": null}",
@@ -11576,7 +11615,7 @@
     "pk": "groesse-der-baustelle-groesser-4000",
     "fields": {
       "created_at": "2020-11-04T13:52:37.839Z",
-      "modified_at": "2020-11-04T13:52:37.839Z",
+      "modified_at": "2021-03-11T14:02:08.745Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Die Baustelle ist gr\\u00f6sser als 4'000 m2 bzw. das Bauvolumen ist mehr als 10'000 m3\", \"fr\": null}",
@@ -11590,7 +11629,7 @@
     "pk": "groesse-der-baustelle-kleiner-4000",
     "fields": {
       "created_at": "2020-11-04T13:52:37.837Z",
-      "modified_at": "2020-11-04T13:52:37.837Z",
+      "modified_at": "2021-03-11T14:02:08.729Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Die Baustelle ist kleiner als 4'000 m2 bzw. das Bauvolumen weniger als 10'000 m3\", \"fr\": null}",
@@ -12556,7 +12595,7 @@
     "pk": "landwirtschaftlich-begruendet-ja",
     "fields": {
       "created_at": "2020-11-11T10:42:34.328Z",
-      "modified_at": "2020-11-30T20:19:24.012Z",
+      "modified_at": "2021-03-04T10:34:00.876Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
@@ -12570,7 +12609,7 @@
     "pk": "landwirtschaftlich-begruendet-nein",
     "fields": {
       "created_at": "2020-11-11T10:42:34.331Z",
-      "modified_at": "2020-11-30T20:19:24.015Z",
+      "modified_at": "2021-03-04T10:34:00.876Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
@@ -12584,7 +12623,7 @@
     "pk": "langsamverkehr-ja",
     "fields": {
       "created_at": "2020-11-03T16:41:08.640Z",
-      "modified_at": "2020-11-03T16:41:08.640Z",
+      "modified_at": "2021-03-11T14:05:10.392Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
@@ -12598,7 +12637,7 @@
     "pk": "langsamverkehr-nein",
     "fields": {
       "created_at": "2020-11-03T16:41:08.638Z",
-      "modified_at": "2020-11-03T16:41:08.638Z",
+      "modified_at": "2021-03-11T14:05:10.407Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"nein\", \"fr\": null}",
@@ -12794,7 +12833,7 @@
     "pk": "mindest-und-grenzabstaende-fliessgewaesser",
     "fields": {
       "created_at": "2020-11-02T07:25:21.218Z",
-      "modified_at": "2020-11-10T10:40:01.655Z",
+      "modified_at": "2021-03-11T13:19:11.435Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Mindestabstand zu Fliessgew\\u00e4ssern (6 m)\", \"fr\": null}",
@@ -12808,7 +12847,7 @@
     "pk": "mindest-und-grenzabstaende-grenzabstand",
     "fields": {
       "created_at": "2020-11-02T08:55:03.346Z",
-      "modified_at": "2020-11-10T10:40:01.697Z",
+      "modified_at": "2021-03-11T13:19:11.897Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Grenz- und Geb\\u00e4udeabstand (Bauordnung)\", \"fr\": null}",
@@ -12822,11 +12861,11 @@
     "pk": "mindest-und-grenzabstaende-keine",
     "fields": {
       "created_at": "2020-11-02T09:02:15.176Z",
-      "modified_at": "2020-11-10T10:40:01.729Z",
+      "modified_at": "2021-03-11T13:19:11.441Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Es werden keine Mindest- und/oder Grenzabst\\u00e4nde unterschritten\", \"fr\": null}",
-      "is_archived": true,
+      "is_archived": false,
       "meta": {},
       "source": null
     }
@@ -12836,7 +12875,7 @@
     "pk": "mindest-und-grenzabstaende-seeufer",
     "fields": {
       "created_at": "2020-11-02T08:53:59.456Z",
-      "modified_at": "2020-11-10T10:40:01.648Z",
+      "modified_at": "2021-03-11T13:19:12.045Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Mindestabstand zum See (20 m)\", \"fr\": null}",
@@ -12850,7 +12889,7 @@
     "pk": "mindest-und-grenzabstaende-verkehrsflaechen",
     "fields": {
       "created_at": "2020-11-02T07:25:21.220Z",
-      "modified_at": "2020-11-10T10:40:01.630Z",
+      "modified_at": "2021-03-11T13:19:11.990Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Mindestabstand zu \\u00f6ffentlichen Verkehrsfl\\u00e4chen (4 m)\", \"fr\": null}",
@@ -12864,7 +12903,7 @@
     "pk": "mindest-und-grenzabstaende-waldabstand",
     "fields": {
       "created_at": "2020-11-02T07:25:21.182Z",
-      "modified_at": "2020-11-10T10:40:01.615Z",
+      "modified_at": "2021-03-11T13:19:11.491Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Waldabstand (20 m)\", \"fr\": null}",
@@ -13088,7 +13127,7 @@
     "pk": "nichtforstliche-baute-ja",
     "fields": {
       "created_at": "2020-11-13T12:46:09.639Z",
-      "modified_at": "2020-11-30T20:20:45.001Z",
+      "modified_at": "2021-03-11T14:42:30.179Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
@@ -13102,7 +13141,7 @@
     "pk": "nichtforstliche-baute-nein",
     "fields": {
       "created_at": "2020-11-13T12:46:09.650Z",
-      "modified_at": "2020-11-30T20:20:45Z",
+      "modified_at": "2021-03-11T14:42:30.601Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
@@ -14040,7 +14079,7 @@
     "pk": "reflexionsarm-ja",
     "fields": {
       "created_at": "2020-10-27T11:47:06.070Z",
-      "modified_at": "2020-10-27T11:47:06.070Z",
+      "modified_at": "2021-03-11T12:54:54.273Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
@@ -14054,7 +14093,7 @@
     "pk": "reflexionsarm-nein",
     "fields": {
       "created_at": "2020-10-27T11:47:06.066Z",
-      "modified_at": "2020-10-27T11:47:06.066Z",
+      "modified_at": "2021-03-11T12:54:54.273Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
@@ -14222,7 +14261,7 @@
     "pk": "schiffsverkehr-ja",
     "fields": {
       "created_at": "2020-11-03T18:21:53.729Z",
-      "modified_at": "2020-11-03T18:21:53.729Z",
+      "modified_at": "2021-03-11T14:08:03.490Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
@@ -14236,7 +14275,7 @@
     "pk": "schiffsverkehr-nein",
     "fields": {
       "created_at": "2020-11-03T18:21:53.716Z",
-      "modified_at": "2020-11-03T18:21:53.716Z",
+      "modified_at": "2021-03-11T14:08:03.493Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
@@ -14250,7 +14289,7 @@
     "pk": "schutzraum-antrag",
     "fields": {
       "created_at": "2020-11-05T07:32:48.953Z",
-      "modified_at": "2020-11-05T07:39:21.565Z",
+      "modified_at": "2021-03-11T16:39:18.528Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Es wird ein Antrag auf Befreiung von der Schutzraumpflicht gestellt\", \"fr\": null}",
@@ -14264,7 +14303,7 @@
     "pk": "schutzraum-betroffen-ja",
     "fields": {
       "created_at": "2020-09-21T08:51:54.277Z",
-      "modified_at": "2020-11-09T12:41:20.671Z",
+      "modified_at": "2021-03-11T14:33:52.444Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
@@ -14278,7 +14317,7 @@
     "pk": "schutzraum-betroffen-nein",
     "fields": {
       "created_at": "2020-09-21T08:51:54.296Z",
-      "modified_at": "2020-11-09T12:41:20.670Z",
+      "modified_at": "2021-03-11T14:33:52.440Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
@@ -14292,10 +14331,94 @@
     "pk": "schutzraum-neu",
     "fields": {
       "created_at": "2020-11-05T07:32:48.953Z",
-      "modified_at": "2020-11-05T07:39:21.566Z",
+      "modified_at": "2021-03-11T16:39:18.529Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Es wird ein neuer Schutzraum gebaut\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "schutzraumrelevante-massnahmen-ja",
+    "fields": {
+      "created_at": "2021-03-11T16:36:48.212Z",
+      "modified_at": "2021-03-11T16:38:55.546Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "schutzraumrelevante-massnahmen-nein",
+    "fields": {
+      "created_at": "2021-03-11T16:36:48.205Z",
+      "modified_at": "2021-03-11T16:38:55.547Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "seilbahnanlage-betroffen-ja",
+    "fields": {
+      "created_at": "2021-03-11T16:42:27.174Z",
+      "modified_at": "2021-03-11T16:43:28.222Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "seilbahnanlage-betroffen-nein",
+    "fields": {
+      "created_at": "2021-03-11T16:42:26.401Z",
+      "modified_at": "2021-03-11T16:43:28.240Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "seilbahnanlage-personenseilbahn",
+    "fields": {
+      "created_at": "2021-03-11T16:43:18.962Z",
+      "modified_at": "2021-03-11T16:44:20.446Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Personenseilbahn\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "seilbahnanlage-warenseilbahn",
+    "fields": {
+      "created_at": "2021-03-11T16:43:18.970Z",
+      "modified_at": "2021-03-11T16:44:20.443Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Waren-und Transportseilbahn\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14404,7 +14527,7 @@
     "pk": "stand-der-realisierung-realisiert",
     "fields": {
       "created_at": "2020-10-26T10:52:52.936Z",
-      "modified_at": "2020-10-26T10:52:52.936Z",
+      "modified_at": "2021-03-11T13:12:31.976Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Realisiert\", \"fr\": null}",
@@ -14418,7 +14541,7 @@
     "pk": "stand-der-realisierung-realisierung-gestartet-baustopp-verfuegt",
     "fields": {
       "created_at": "2020-10-26T10:52:52.928Z",
-      "modified_at": "2020-10-26T10:52:52.928Z",
+      "modified_at": "2021-03-11T13:12:31.972Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Realisierung gestartet (Baustopp verf\\u00fcgt)\", \"fr\": null}",
@@ -14516,7 +14639,7 @@
     "pk": "strasse-ist-betroffen-ja",
     "fields": {
       "created_at": "2020-11-03T16:45:44.175Z",
-      "modified_at": "2020-11-03T16:45:44.175Z",
+      "modified_at": "2021-03-11T14:04:29.194Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
@@ -14530,10 +14653,108 @@
     "pk": "strasse-ist-betroffen-nein",
     "fields": {
       "created_at": "2020-11-03T16:45:44.175Z",
-      "modified_at": "2020-11-03T16:45:44.175Z",
+      "modified_at": "2021-03-11T14:04:29.200Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "strassentyp-mgb",
+    "fields": {
+      "created_at": "2021-02-24T15:34:47.546Z",
+      "modified_at": "2021-03-11T14:09:38.123Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "label": "{\"de\": \"MGB\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "strassentyp-nationalstrasse",
+    "fields": {
+      "created_at": "2021-02-24T15:27:31.478Z",
+      "modified_at": "2021-03-11T14:09:38.129Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "label": "{\"de\": \"Nationalstrasse\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "strassentyp-oeffentliche-strasse-gemeindestrasse",
+    "fields": {
+      "created_at": "2021-02-24T15:27:31.490Z",
+      "modified_at": "2021-03-11T14:09:38.057Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "label": "{\"de\": \"Gemeindestrasse\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "strassentyp-oeffentliche-strasse-kantonsstrasse",
+    "fields": {
+      "created_at": "2021-02-24T15:27:31.445Z",
+      "modified_at": "2021-03-11T14:09:38.067Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "label": "{\"de\": \"Kantonsstrasse\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "strassentyp-oeffentliche-strasse-korporationsstrasse",
+    "fields": {
+      "created_at": "2021-02-24T15:27:32.171Z",
+      "modified_at": "2021-03-11T14:09:38.144Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "label": "{\"de\": \"Korporationsstrasse\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "strassentyp-sbb",
+    "fields": {
+      "created_at": "2021-02-24T15:34:47.038Z",
+      "modified_at": "2021-03-11T14:09:38.133Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "label": "{\"de\": \"SBB\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "strassentyp-sob",
+    "fields": {
+      "created_at": "2021-02-24T15:34:47.111Z",
+      "modified_at": "2021-03-11T14:09:38.159Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "label": "{\"de\": \"SOB (Gotthard Bergstrecke)\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14656,7 +14877,7 @@
     "pk": "themen-arbeitssicherheit-arbeitnehmer",
     "fields": {
       "created_at": "2020-10-19T13:15:34.752Z",
-      "modified_at": "2020-11-04T12:39:33.336Z",
+      "modified_at": "2021-03-11T14:21:05.224Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Arbeitnehmer\", \"fr\": null}",
@@ -14670,7 +14891,7 @@
     "pk": "themen-arbeitssicherheit-arbeitsraeume",
     "fields": {
       "created_at": "2020-10-19T13:15:34.728Z",
-      "modified_at": "2020-11-04T12:39:33.318Z",
+      "modified_at": "2021-03-11T14:21:05.203Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Arbeitsr\\u00e4ume\", \"fr\": null}",
@@ -14684,7 +14905,7 @@
     "pk": "themen-arbeitssicherheit-ausgaenge",
     "fields": {
       "created_at": "2020-10-19T13:15:34.774Z",
-      "modified_at": "2020-11-04T12:39:33.301Z",
+      "modified_at": "2021-03-11T14:21:05.128Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Ausg\\u00e4nge, Fluchtwege\", \"fr\": null}",
@@ -14698,7 +14919,7 @@
     "pk": "themen-arbeitssicherheit-baukonstruktion",
     "fields": {
       "created_at": "2020-10-26T09:12:17.355Z",
-      "modified_at": "2020-11-04T12:39:33.630Z",
+      "modified_at": "2021-03-11T14:21:08.607Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Baukonstruktion und -material\", \"fr\": null}",
@@ -14712,7 +14933,7 @@
     "pk": "themen-arbeitssicherheit-beleuchtung",
     "fields": {
       "created_at": "2020-10-19T13:15:34.822Z",
-      "modified_at": "2020-11-04T12:39:33.414Z",
+      "modified_at": "2021-03-11T14:21:04.955Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"K\\u00fcnstliche Beleuchtung\", \"fr\": null}",
@@ -14726,7 +14947,7 @@
     "pk": "themen-arbeitssicherheit-betriebseinrichtungen",
     "fields": {
       "created_at": "2020-10-19T13:15:34.918Z",
-      "modified_at": "2020-11-04T12:39:33.407Z",
+      "modified_at": "2021-03-11T14:21:04.861Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Betriebseinrichtungen / Arbeitsmittel\", \"fr\": null}",
@@ -14740,7 +14961,7 @@
     "pk": "themen-arbeitssicherheit-druckbehaelter",
     "fields": {
       "created_at": "2020-10-26T10:28:23.370Z",
-      "modified_at": "2020-11-04T12:39:33.666Z",
+      "modified_at": "2021-03-11T14:21:08.751Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Druckbeh\\u00e4lter\", \"fr\": null}",
@@ -14754,7 +14975,7 @@
     "pk": "themen-arbeitssicherheit-emissionen",
     "fields": {
       "created_at": "2020-10-19T13:15:34.837Z",
-      "modified_at": "2020-11-04T12:39:33.468Z",
+      "modified_at": "2021-03-11T14:21:05.933Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Innerbetriebliche Emissionen\", \"fr\": null}",
@@ -14768,7 +14989,7 @@
     "pk": "themen-arbeitssicherheit-ergonomie",
     "fields": {
       "created_at": "2020-10-26T10:42:11.909Z",
-      "modified_at": "2020-11-04T12:39:33.654Z",
+      "modified_at": "2021-03-11T14:21:05.299Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Ergonomie\", \"fr\": null}",
@@ -14782,7 +15003,7 @@
     "pk": "themen-arbeitssicherheit-foerderanlagen",
     "fields": {
       "created_at": "2020-10-19T13:15:35.002Z",
-      "modified_at": "2020-11-04T12:39:33.507Z",
+      "modified_at": "2021-03-11T14:21:08.615Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"F\\u00f6rderanlagen, F\\u00f6rdermittel\", \"fr\": null}",
@@ -14796,7 +15017,7 @@
     "pk": "themen-arbeitssicherheit-gase",
     "fields": {
       "created_at": "2020-11-04T10:04:31.625Z",
-      "modified_at": "2020-11-04T12:39:33.689Z",
+      "modified_at": "2021-03-11T14:21:08.748Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Technische Gase und Fl\\u00fcssiggas\", \"fr\": null}",
@@ -14810,7 +15031,7 @@
     "pk": "themen-arbeitssicherheit-gesundheitsschaedlich",
     "fields": {
       "created_at": "2020-10-19T13:15:34.987Z",
-      "modified_at": "2020-11-04T12:39:33.503Z",
+      "modified_at": "2021-03-11T14:21:05.101Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Gesundheitssch\\u00e4dliche Stoffe\", \"fr\": null}",
@@ -14824,7 +15045,7 @@
     "pk": "themen-arbeitssicherheit-keine",
     "fields": {
       "created_at": "2020-10-19T13:15:35.117Z",
-      "modified_at": "2020-11-04T12:39:33.601Z",
+      "modified_at": "2021-03-11T14:21:05.352Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Es werden keine der aufgef\\u00fchrten Themen tangiert\", \"fr\": null}",
@@ -14838,7 +15059,7 @@
     "pk": "themen-arbeitssicherheit-lager",
     "fields": {
       "created_at": "2020-10-19T13:15:35.051Z",
-      "modified_at": "2020-11-04T12:39:33.547Z",
+      "modified_at": "2021-03-11T14:21:04.987Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Lager und Lagereinrichtungen\", \"fr\": null}",
@@ -14852,7 +15073,7 @@
     "pk": "themen-arbeitssicherheit-lueftung",
     "fields": {
       "created_at": "2020-10-19T13:15:34.819Z",
-      "modified_at": "2020-11-04T12:39:33.351Z",
+      "modified_at": "2021-03-11T14:21:08.687Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"L\\u00fcftung\", \"fr\": null}",
@@ -14866,7 +15087,7 @@
     "pk": "themen-arbeitssicherheit-oberflaechen",
     "fields": {
       "created_at": "2020-10-19T13:15:35.073Z",
-      "modified_at": "2020-11-04T12:39:33.572Z",
+      "modified_at": "2021-03-11T14:21:08.746Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Oberfl\\u00e4chenbehandlungsanlagen\", \"fr\": null}",
@@ -14880,7 +15101,7 @@
     "pk": "themen-arbeitssicherheit-schweissanlagen",
     "fields": {
       "created_at": "2020-10-19T13:15:34.990Z",
-      "modified_at": "2020-11-04T12:39:33.467Z",
+      "modified_at": "2021-03-11T14:21:08.802Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Schweissanlagen\", \"fr\": null}",
@@ -14894,7 +15115,7 @@
     "pk": "themen-arbeitssicherheit-sonnenschutz",
     "fields": {
       "created_at": "2020-11-04T12:39:33.687Z",
-      "modified_at": "2020-11-04T12:39:33.687Z",
+      "modified_at": "2021-03-11T14:21:08.796Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Sonnenschutz\", \"fr\": null}",
@@ -14908,7 +15129,7 @@
     "pk": "themen-arbeitssicherheit-sozialraeume",
     "fields": {
       "created_at": "2020-10-19T13:15:35.089Z",
-      "modified_at": "2020-11-04T12:39:33.565Z",
+      "modified_at": "2021-03-11T14:21:05.179Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Sozialr\\u00e4ume\", \"fr\": null}",
@@ -15762,7 +15983,7 @@
     "pk": "umbau-andere-umbauten",
     "fields": {
       "created_at": "2020-09-23T07:12:16.800Z",
-      "modified_at": "2020-09-23T07:13:50.213Z",
+      "modified_at": "2021-03-11T13:13:32.953Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Andere Umbauten\", \"fr\": null}",
@@ -15776,7 +15997,7 @@
     "pk": "umbau-beheizte-erweiterung",
     "fields": {
       "created_at": "2020-09-23T07:12:16.739Z",
-      "modified_at": "2020-09-23T07:13:50.069Z",
+      "modified_at": "2021-03-11T13:13:31.730Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Beheizte Erweiterung\", \"fr\": null}",
@@ -15790,7 +16011,7 @@
     "pk": "umbau-energetische-sanierung",
     "fields": {
       "created_at": "2020-09-23T07:12:16.688Z",
-      "modified_at": "2020-09-23T07:13:50.099Z",
+      "modified_at": "2021-03-11T13:13:31.715Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Energetische Sanierung\", \"fr\": null}",
@@ -15804,7 +16025,7 @@
     "pk": "umbau-nicht-beheizte-erweiterung",
     "fields": {
       "created_at": "2020-09-23T07:12:16.631Z",
-      "modified_at": "2020-09-23T07:13:49.981Z",
+      "modified_at": "2021-03-11T13:13:31.799Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Nicht beheizte Erweiterung\", \"fr\": null}",
@@ -15818,7 +16039,7 @@
     "pk": "umbau-photovoltaische-solaranlage",
     "fields": {
       "created_at": "2020-09-23T07:12:16.818Z",
-      "modified_at": "2020-09-23T07:13:50.231Z",
+      "modified_at": "2021-03-11T13:13:31.748Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Photovoltaische Solaranlage\", \"fr\": null}",
@@ -15832,7 +16053,7 @@
     "pk": "umbau-renovationen-innenbereich",
     "fields": {
       "created_at": "2020-09-23T07:12:16.671Z",
-      "modified_at": "2020-09-23T07:13:50.091Z",
+      "modified_at": "2021-03-11T13:13:31.728Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Umbauten / Renovationen im Innenbereich\", \"fr\": null}",
@@ -15846,7 +16067,7 @@
     "pk": "umbau-sanierung-des-heizsystems",
     "fields": {
       "created_at": "2020-09-23T07:12:16.751Z",
-      "modified_at": "2020-09-23T07:13:50.136Z",
+      "modified_at": "2021-03-11T13:13:31.769Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Sanierung des Heizsystems\", \"fr\": null}",
@@ -15860,7 +16081,7 @@
     "pk": "umbau-thermische-solaranlage",
     "fields": {
       "created_at": "2020-09-23T07:12:16.827Z",
-      "modified_at": "2020-09-23T07:13:50.198Z",
+      "modified_at": "2021-03-11T13:13:31.794Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Thermische Solaranlage\", \"fr\": null}",
@@ -15874,7 +16095,7 @@
     "pk": "umbau-umnutzung",
     "fields": {
       "created_at": "2020-09-23T07:12:16.686Z",
-      "modified_at": "2020-09-23T07:13:50.067Z",
+      "modified_at": "2021-03-11T13:13:31.780Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Umnutzung\", \"fr\": null}",
@@ -16308,7 +16529,7 @@
     "pk": "verwendung-aushub-ja",
     "fields": {
       "created_at": "2020-11-04T13:02:28.184Z",
-      "modified_at": "2020-11-04T16:13:12.557Z",
+      "modified_at": "2021-03-11T13:57:45.373Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
@@ -16322,7 +16543,7 @@
     "pk": "verwendung-aushub-nein",
     "fields": {
       "created_at": "2020-11-04T13:02:28.186Z",
-      "modified_at": "2020-11-04T16:13:12.557Z",
+      "modified_at": "2021-03-11T13:57:45.371Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
@@ -16336,7 +16557,7 @@
     "pk": "verwendung-humus-ja",
     "fields": {
       "created_at": "2020-11-04T13:05:22.494Z",
-      "modified_at": "2020-11-07T16:39:23.268Z",
+      "modified_at": "2021-03-11T13:57:55.674Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
@@ -16350,7 +16571,7 @@
     "pk": "verwendung-humus-nein",
     "fields": {
       "created_at": "2020-11-04T13:05:22.495Z",
-      "modified_at": "2020-11-07T16:39:23.274Z",
+      "modified_at": "2021-03-11T13:57:55.676Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
@@ -16994,12 +17215,12 @@
     "pk": "24d-rpg",
     "fields": {
       "created_at": "2020-11-13T07:20:07.513Z",
-      "modified_at": "2020-11-13T08:29:37.249Z",
+      "modified_at": "2021-03-11T12:54:43.066Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Betrifft die Anlage eine sch\\u00fctzenswerte Baute gem\\u00e4ss Art. 24d RPG oder Art. 39 Abs. 2 RPV?\", \"fr\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
@@ -17022,16 +17243,16 @@
     "pk": "abbruch",
     "fields": {
       "created_at": "2020-11-04T12:57:14.527Z",
-      "modified_at": "2020-11-04T12:57:14.527Z",
+      "modified_at": "2021-03-11T13:57:28.401Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Werden Bauten ganz oder teilweise abgebrochen?\", \"fr\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -17330,7 +17551,7 @@
     "pk": "allgemeine-informationen-oereb-verfahren",
     "fields": {
       "created_at": "2020-12-15T10:19:20.350Z",
-      "modified_at": "2020-12-15T10:52:52.702Z",
+      "modified_at": "2021-02-23T09:05:32.167Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Allgemeine Informationen \\u00d6reb-Verfahren\", \"fr\": null}",
@@ -17340,7 +17561,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"##Herzlich willkommen auf der elektronischen Plattform f\\u00fcr Verfahrenskoordination des Kantons Uri.\\n\\nWir danken Ihnen, dass Sie diese Dienstleistung nutzen.\\n\\n**Hinweis** \\nAlle internen Verfahren, dazu geh\\u00f6ren auch die Nutzungsplanverfahren, werden k\\u00fcnftig, analog wie das zum Beispiel beim Baubewilligungsverfahren gemacht wird, mit dem benutzergef\\u00fchrten Formular erfasst. Die Themen \\\"Personalien\\\" und \\\"Lokalisierung\\\" sind dabei bei allen Verfahren identisch.\\n\\n**Auswahl des Verfahrens**\\nZur Vereinfachung der Datenstruktur werden alle Nutzungsplanverfahren im Verfahrenstyp \\\"\\u00d6reb-Verfahren\\\" zusammengef\\u00fchrt. Bis auf weiteres k\\u00f6nnen Sie, wenn Sie ein neues Dossier erstellen m\\u00f6chten,  wie gewohnt im CAMAC Menu \\\"Neues Dossier erstellen\\\" das Verfahren ausw\\u00e4hlen. Im Formular wird das dazugeh\\u00f6rige Thema \\\"\\u00d6reb\\\" angezeigt. In einem zweiten Schritt k\\u00f6nnen Sie dann die definitive Auswahl des Verfahrens t\\u00e4tigen (im Endausbau von URec wird die erste Auswahl wegfallen).\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"##Herzlich willkommen auf der elektronischen Plattform f\\u00fcr Verfahrenskoordination des Kantons Uri.\\n\\nWir danken Ihnen, dass Sie diese Dienstleistung nutzen.\\n\\n**Hinweis** \\nAlle internen Verfahren, dazu geh\\u00f6ren auch die Nutzungsplanverfahren, werden k\\u00fcnftig, analog wie das zum Beispiel beim Baubewilligungsverfahren gemacht wird, mit dem benutzergef\\u00fchrten Formular erfasst. Die Themen \\\"Personalien\\\" und \\\"Lokalisierung\\\" sind dabei bei allen Verfahren identisch.\\n\\n**Auswahl des Verfahrens**\\nZur Vereinfachung der Datenstruktur werden alle Nutzungsplanverfahren im Verfahrenstyp \\\"\\u00d6REB-Verfahren\\\" zusammengef\\u00fchrt. Bis auf weiteres k\\u00f6nnen Sie, wenn Sie ein neues Dossier erstellen m\\u00f6chten,  wie gewohnt im CAMAC Menu \\\"Neues Dossier erstellen\\\" das Verfahren ausw\\u00e4hlen. Im Formular wird das dazugeh\\u00f6rige Thema \\\"\\u00d6REB\\\" angezeigt. In einem zweiten Schritt k\\u00f6nnen Sie dann die definitive Auswahl des Verfahrens t\\u00e4tigen (im Endausbau von URec wird die erste Auswahl wegfallen).\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -17414,7 +17635,7 @@
     "pk": "allgemeine-informationen-solaranlage",
     "fields": {
       "created_at": "2020-12-15T08:39:42.950Z",
-      "modified_at": "2020-12-15T09:28:35.458Z",
+      "modified_at": "2021-03-15T09:29:36.983Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Allgemeine Informationen Solaranlage\", \"fr\": null}",
@@ -17424,7 +17645,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"##Herzlich willkommen auf der elektronischen Plattform f\\u00fcr Verfahrenskoordination des Kantons Uri.\\n\\nWir danken Ihnen, dass Sie diese Dienstleistung nutzen.\\n\\n**Wichtiger Hinweis zur Baubewilligungspflicht von Solaranlagen**\\n\\nMit der Revision des Raumplanungsgesetzes (RPG) und der Raumplanungsverordnung (RPV) k\\u00f6nnen Solaranlagen heute unter Anwendung eines vereinfachten Melde- statt eines Baubewilligungsverfahrens errichtet werden. Die Baubewilligungsfreiheit bezieht sich auf Solaranlagen auf D\\u00e4chern, wenn sie gen\\u00fcgend angepasst sind. Unter bestimmten Voraussetzungen muss jedoch auch f\\u00fcr Solaranlagen ein Baubewilligungsverfahren durchgef\\u00fchrt werden.\\n\\nBitte erfassen Sie die geplante/n Anlage/n mit der nachfolgenden Tabelle. Je nach Beantwortung der Fragen werden Sie auf eine allf\\u00e4llige Baubewilligungspflicht hingewiesen.\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"##Herzlich willkommen auf der elektronischen Plattform f\\u00fcr Verfahrenskoordination des Kantons Uri.\\n\\nWir danken Ihnen, dass Sie diese Dienstleistung nutzen.\\n\\n**Wichtiger Hinweis zur Baubewilligungspflicht von Solaranlagen**\\n\\nMit der Revision des Raumplanungsgesetzes (RPG) und der Raumplanungsverordnung (RPV) k\\u00f6nnen Solaranlagen heute unter Anwendung eines vereinfachten Melde- statt eines Baubewilligungsverfahrens errichtet werden. Die Baubewilligungsfreiheit bezieht sich auf Solaranlagen auf D\\u00e4chern, wenn sie gen\\u00fcgend angepasst sind. Unter bestimmten Voraussetzungen muss jedoch auch f\\u00fcr Solaranlagen ein Baubewilligungsverfahren durchgef\\u00fchrt werden.\\n\\nBitte erfassen Sie die geplante/n Anlage/n mit der nachfolgenden Tabelle. Je nach Beantwortung der Fragen werden Sie auf eine allf\\u00e4llige Baubewilligungspflicht hingewiesen.\\n\\nWeitere Informationen (zum Beispiel betreffend F\\u00f6rderbeitr\\u00e4gen, Planungshilfen usw.) gibt es bei [SWISSOLAR] (https://www.swissolar.ch).\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -17610,7 +17831,7 @@
     "pk": "anleitung-zum-ausfuellen-der-formulare",
     "fields": {
       "created_at": "2020-10-30T17:44:40.930Z",
-      "modified_at": "2020-12-01T14:35:01.864Z",
+      "modified_at": "2021-03-11T13:05:21.342Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Anleitung extern\", \"fr\": null}",
@@ -17620,7 +17841,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"####ANLEITUNG\\nNachdem Sie die Gemeinde, in der das Vorhaben geplant ist und das Verfahren ausgew\\u00e4hlt haben k\\u00f6nnen Sie nun Ihr Vorhaben und alle dazu geh\\u00f6renden Angaben und Unterlagen Schrittweise wie folgt erfassen:\\n\\n###Punkt 1\\nBestimmen Sie im Menu LOKALISIERUNG (wird links eingeblendet) den genauen Standort wo das Vorhaben realisiert wird. Sie k\\u00f6nnen:\\n- einen Punktstandort ausw\\u00e4hlen (z.B. f\\u00fcr kleinere Objekte, f\\u00fcr eine Mobilfunkanlage usw.)\\n- ein Linienobjekt ausw\\u00e4hlen (z.B. f\\u00fcr die Erfassung eines Bewirtschaftungsweges, eines Wanderweges, einer Fernw\\u00e4rmeleitung usw.) \\n- eine Fl\\u00e4che ausw\\u00e4hlen (z.B. Eintrag des Grundrisses eines MFH, oder die Festlegung des Perimeters einer Terrainver\\u00e4nderung usw.) \\n\\nDas System wird die betroffenen Parzellen Nummern, die Egrid Nummern und die entsprechenden Daten aus der Nutzungsplanung sowie weitere, im Geoinformationssystem des Kantons erfasste Daten auslesen und teilweise direkt in die daf\\u00fcr vorgesehenen Felder abf\\u00fcllen.\\n\\n###Punkt 2\\nErfassen Sie im Menu PERSONALIEN die Daten von allen Personen die am Verfahren beteiligt sind. Dabei ist zu beachten, dass, sofern Grundeigent\\u00fcmer, Projektverfasser oder Rechnungsempf\\u00e4nger nicht indentisch sind, f\\u00fcr diese Personen ein separates Datenblatt auszuf\\u00fcllen ist. Es k\\u00f6nnen beliebig viele Personen erfasst werden. Ebenfalls k\\u00f6nnen bei allen Personen die Daten von stellvertretenden Personen erfasst werden.\\n\\n###Punkt 3\\nErfassen Sie das BAUPROJEKT. Je nachdem, ob das Bauprojekt Hochbauten und Tiefbauten beinhaltet, m\\u00fcssen allenfalls unter \\\"Art des Bauwerks\\\" beide Arten ausgew\\u00e4hlt werden. \\n\\nDie Formulare werden, je nach getroffener Auswahl in der Menuf\\u00fchrung, links angezeigt (z.B. wenn Sie bei der Auswahl \\\"Nutzung / Zweck\\\" die Rubrik \\\"Dienstleistung und Verkauf\\\" ausw\\u00e4hlen, wird das Fachthema Arbeitssicherheit und Gesundheitsschutz angezeigt usw. \\n\\nErfassen Sie nun mit der Tabelle \\\"Geb\\u00e4ude und Anlagen\\\" f\\u00fcr jeden Teil des Bauprojekts einen entsprechenden Datensatz. Hier ist zu beachten, dass f\\u00fcr jedes Geb\\u00e4ude eine Bezeichnung anzugeben ist (z.B. HAUS A) damit die Daten aus der Tabelle \\\"Haus- und Geb\\u00e4udetechnik\\\" den entsprechenden Bauten zugeordnet werden kann.\\nVerfahren Sie gleich mit der Tabelle \\\"Haus- und Geb\\u00e4udetechnik\\\" und bezeichen Sie im obersten Feld das Geb\\u00e4ude, zu der die erfasste Haustechnik geh\\u00f6rt.\\n\\nUnter dem Menu Tiefbau k\\u00f6nnen Sie nach dem gleichen Muster mehrere Tiebbauanlagen erfassen.\\n\\n###Punkt 4\\nF\\u00fcllen Sie alle Felder aus, die je nach Fachthema eingeblendet sind. Ein Thema ist vollst\\u00e4ndig ausgef\\u00fcllt wenn alle Pflichtfelder ausgef\\u00fcllt sind und hinter dem Formular ein H\\u00e4ckchen erscheint.\\n\\n###Punkt 5\\nDokumente; im Menu GESUCHSUNTERLAGEN stehen verschiedene Unterlagenkategorien zur Verf\\u00fcgung, in die Sie Ihre Gesuchsunterlagen hochladen k\\u00f6nnen.\\n\\n###Punkt 6\\nUnterschriften. Bitte beachten Sie, dass aus rechtlichen Gr\\u00fcnden (\\u00f6ffentliche Bauplanauflage und Visierung der bewilligten Pl\\u00e4ne) in der Regel, nebst der digitalen Eingabe, zwei physische Dossiers samt Unterschriften (Planunterlagen) bei der zust\\u00e4ndigen Gemeinde eingereicht werden m\\u00fcssen.  Bei kleinen Vorhaben mit entsprechend wenig Planbeilagen (maximal A3) kann allenfalls (mit R\\u00fccksprache bei der zust\\u00e4ndigen Gemeinde) auf die physische Zustellung der Unterlagen verzichtet werden. Das Unterschriftenblatt ist jedoch, in jedem Fall auszuf\\u00fcllen, auszudrucken und der Gemeindebaubeh\\u00f6rde zuzustellen. Einzig bei so genannten qualifiziert digital signierten Dokumenten entf\\u00e4llt die physische Zustellung der Unterlagen g\\u00e4nzlich. \\n\\nBitte beachten: Bei s\\u00e4mtlichen Baurechtssituationen (ZGB Baurechte und Allmend-Baurechte) ist der Baurechtsnehmer in der Regel zwat Eigent\\u00fcmer der Baute jedoch nicht Grundeigent\\u00fcmer. Ein Baugesuch muss deshalb entweder vom Gesuchsteller unterzeichnet sein oder es muss, falls es sich beim Grundeigent\\u00fcmer um eine juristische Person handelt (Korporation Uri und Korporation Ursern) ein entsprechneder Protokollauszug vorliegen.\\n\\n###Online Anzeige\\nDie hier hochgeladenen Dokumente sind Bestandteil der \\u00f6ffentlichen Bauplanauflage und k\\u00f6nnen auch online eingesehen werden. Sie haben die M\\u00f6glichkeit, im Portal jene Dokumente, die Sie als vertraulich einstufen und nicht f\\u00fcr die Online Publikation freigeben m\\u00f6chten, entsprechend zu kennzeichnen.\\n\\n###Speichern / Drucken\\nIhre Eingaben werden automatisch gespeichert, sobald Sie das Feld verlassen. So haben Sie die M\\u00f6glichkeit, jederzeit abzubrechen und zu einem beliebigen Zeitpunkt fortzufahren. Sie k\\u00f6nnen Ihr Gesuchsformular jederzeit als pdf-Dokument abspeichern und folglich auch ausdrucken (unter EINREICHEN mit Klick auf PDF GENERIEREN).\\n\\n###Gesuch einreichen\\nDas Gesuch kann erst eingereicht werden, wenn alle Pflichtangaben gemacht wurden. Nach dem Einreichen k\\u00f6nnen keine Anpassungen mehr vorgenommen werden. Im Falle nachtr\\u00e4glicher Erg\\u00e4nzungen oder Korrekturen bitten wir Sie sich mit der zust\\u00e4ndigen Bauverwaltung der Gemeinde in Verbindung zu setzen.\\n\\n###L\\u00f6schen\\nBegonnene, aber noch nicht eingereichte Gesuche, k\\u00f6nnen Sie l\\u00f6schen.\\n\\n###Verfahrensstand\\nSolange Sie ein Gesuch nicht eingereicht haben, bleibt der Status auf \\u201eNeu\\u201c. Nach Einreichung des Gesuchs wird sich der Status immer dem jeweiligen Verfahrensstand anpassen. Das Dossier durchl\\u00e4uft folgende Status: Neu / Eingereicht / Von Gemeinde angenommen / In Zirkulation / Bauentscheid ausstehend / Nachforderung / Bewilligt / (Abgelehnt) / Archiviert.\\n\\n###Hilfe\\nIm Falle von Problemen oder Fragen, welche durch die hinterlegten Hilfestellungen nicht gekl\\u00e4rt werden, k\\u00f6nnen Sie sich entweder an die zust\\u00e4ndige Bauverwaltung der entsprechenden Gemeinde oder an das Amt f\\u00fcr Raumentwicklung raumplanung@ur.ch wenden.\", \"fr\": null}",
-      "static_content": "{\"de\": \"##Herzlich willkommen auf der elektronischen Plattform f\\u00fcr Verfahrenskoordination des Kantons Uri.\\n\\nWir danken Ihnen, dass Sie diese Dienstleistung nutzen.\\n\\nSie m\\u00fcssen kein Computerprofi sein, damit Sie sich hier zurechtfinden. Das Ausf\\u00fcllen der Formulare wird jedoch etwas Zeit beanspruchen. Zeit die gut investiert ist. Die Erfahrungen der letzten Jahre aus hunderten von Dossiers haben gezeigt, dass die meiste Zeit dann verloren geht, wenn Dossiers unvollst\\u00e4ndig sind oder gar falsche Angaben enthalten.\\n\\nDieses benutzergef\\u00fchrte Formular ersetzt das bisherige Formular A (pdf) und weitere teils fachthemenbezogene Einzelformulare. Das Gesuchsformular ist mit einer logischen Nutzerf\\u00fchrung hinterlegt.\\n\\n#####Bei vielen Portalen muss man sich von A nach B durchklicken. Hier k\\u00f6nnen Sie jederzeit und von Beginn an von einem Thema zum anderen wechseln. Ihre Eingaben werden fortlaufend gespeichert. **Das hat den Vorteil, dass Sie die Formulare in beliebiger Reihenfolge ausf\\u00fcllen k\\u00f6nnen.** Das System zeigt Ihnen ganz zum Schluss an, welche Pflichtfelder noch ausgef\\u00fcllt werden m\\u00fcssen.\\n\\nIm Infotext rechts finden Sie eine kurze Anleitung zu den wichtigsten Schritten die beim Ausf\\u00fcllen der Formulare zu beachten sind.\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"##Herzlich willkommen auf der elektronischen Plattform f\\u00fcr Verfahrenskoordination des Kantons Uri.\\n\\nWir danken Ihnen, dass Sie diese Dienstleistung nutzen.\\n\\nSie m\\u00fcssen kein Computerprofi sein, damit Sie sich hier zurechtfinden. Das Ausf\\u00fcllen der Formulare wird jedoch etwas Zeit beanspruchen. Zeit die gut investiert ist. Die Erfahrungen der letzten Jahre aus hunderten von Dossiers haben gezeigt, dass die meiste Zeit dann verloren geht, wenn Dossiers unvollst\\u00e4ndig sind oder gar falsche Angaben enthalten.\\n\\nDieses benutzergef\\u00fchrte Formular ersetzt das bisherige Formular A (pdf) und weitere teils fachthemenbezogene Einzelformulare. Das Gesuchsformular ist mit einer logischen Nutzerf\\u00fchrung hinterlegt.\\n\\nBei vielen Portalen muss man sich von A nach B durchklicken. Hier k\\u00f6nnen Sie jederzeit und von Beginn an von einem Thema zum anderen wechseln. Ihre Eingaben werden fortlaufend gespeichert. **Das hat den Vorteil, dass Sie die Formulare in beliebiger Reihenfolge ausf\\u00fcllen k\\u00f6nnen.** Das System zeigt Ihnen ganz zum Schluss an, welche Pflichtfelder noch ausgef\\u00fcllt werden m\\u00fcssen.\\n\\nIm Infotext rechts finden Sie eine kurze Anleitung zu den wichtigsten Schritten die beim Ausf\\u00fcllen der Formulare zu beachten sind.\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -18112,12 +18333,12 @@
     "pk": "art-der-anlage",
     "fields": {
       "created_at": "2020-11-03T16:13:28.890Z",
-      "modified_at": "2020-11-11T18:40:09.577Z",
+      "modified_at": "2021-03-11T14:10:42.479Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Art der Anlage\", \"fr\": null}",
       "type": "multiple_choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "!(\n  \"langsamverkehr-ja\" == \"langsamverkehr\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
@@ -18625,12 +18846,12 @@
     "pk": "asbest",
     "fields": {
       "created_at": "2020-11-04T12:59:11.023Z",
-      "modified_at": "2020-11-04T16:10:53.811Z",
+      "modified_at": "2021-03-11T13:57:34.393Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Sind bei den Bauarbeiten gesundheitsgef\\u00e4hrdende Stoffe wie Blei, Asbest zu erwarten?\", \"fr\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
@@ -18833,16 +19054,16 @@
     "pk": "aussenbeleuchtung",
     "fields": {
       "created_at": "2020-11-04T15:18:04.749Z",
-      "modified_at": "2020-11-04T15:18:04.749Z",
+      "modified_at": "2021-03-11T14:03:33.199Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Ist bei Ihrem Vorhaben eine Aussenbeleuchtung geplant?\", \"fr\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -18917,7 +19138,7 @@
     "pk": "baubewilligung",
     "fields": {
       "created_at": "2020-11-09T11:44:38.161Z",
-      "modified_at": "2020-11-13T13:51:33.012Z",
+      "modified_at": "2021-03-11T14:31:59.077Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Baubewilligung f\\u00fcr Bauten die nach 1980 errichtet wurden\", \"fr\": null}",
@@ -18927,7 +19148,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"####Pr\\u00fcfung der Rechtm\\u00e4ssigkeit der bestehenden Baute\\nWenn die Baute oder Anlage nach 1980 errichtet wurde, muss als Erstes deren Rechtm\\u00e4ssigkleit gepr\\u00fcft werden (wann wurde die Baubewilligung erteilt?). Bitte f\\u00fcgen Sie alte Baubewilligungsdokumente bei den Unterlagen hinzu (falls die Bewilligungsdokumente nicht verf\\u00fcgbar sind, erkundigen Sie sich bitte bei der zust\\u00e4ndigen Gemeinde).\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"####Pr\\u00fcfung der Rechtm\\u00e4ssigkeit der bestehenden Bauten und Anlagen\\nWenn die Baute oder Anlage nach 1980 errichtet wurde, muss als Erstes deren Rechtm\\u00e4ssigkleit gepr\\u00fcft werden (wann wurde die Baubewilligung erteilt?). Bitte f\\u00fcgen Sie alte Baubewilligungsdokumente bei den Unterlagen hinzu (falls die Bewilligungsdokumente nicht verf\\u00fcgbar sind, erkundigen Sie sich bitte bei der zust\\u00e4ndigen Gemeinde).\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -19206,12 +19427,12 @@
     "pk": "beeintraechtigung",
     "fields": {
       "created_at": "2020-11-03T12:40:06.917Z",
-      "modified_at": "2020-11-11T18:41:14.472Z",
+      "modified_at": "2021-03-11T14:13:21.625Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Art der Beeintr\\u00e4chtigung\", \"fr\": null}",
       "type": "multiple_choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "!(\n  \"strasse-ist-betroffen-ja\" == \"strasse-ist-betroffen\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
@@ -19234,12 +19455,12 @@
     "pk": "beeintraechtigung-weg",
     "fields": {
       "created_at": "2020-11-03T16:49:49.500Z",
-      "modified_at": "2020-11-11T18:40:40.859Z",
+      "modified_at": "2021-03-11T14:11:18.605Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "label": "{\"de\": \"Art der Beeintraechtigung\", \"fr\": null}",
+      "label": "{\"de\": \"Art der Beeintr\\u00e4chtigung\", \"fr\": null}",
       "type": "multiple_choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "!(\n  \"langsamverkehr-ja\" == \"langsamverkehr\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
@@ -20078,10 +20299,10 @@
     "pk": "beschreibung-schiffsverkehr",
     "fields": {
       "created_at": "2020-11-11T11:11:28.493Z",
-      "modified_at": "2020-11-11T18:40:48.233Z",
+      "modified_at": "2021-03-11T16:46:27.234Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "label": "{\"de\": \"Beschreibung in welcher Form der Schiffsverkehr betroffen ist\", \"fr\": null}",
+      "label": "{\"de\": \"Beschreibung der Beeintr\\u00e4chtigung\", \"fr\": null}",
       "type": "text",
       "is_required": "false",
       "is_hidden": "!(\n  \"schiffsverkehr-ja\" == \"schiffsverkehr\"|answer\n)",
@@ -20116,6 +20337,37 @@
       "type": "text",
       "is_required": "false",
       "is_hidden": "!(\"themen-arbeitssicherheit-schweissanlagen\" in \"themen-arbeitssicherheit\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-seilbahnanlage",
+    "fields": {
+      "created_at": "2021-03-11T16:45:42.389Z",
+      "modified_at": "2021-03-11T16:46:11.548Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Beschreibung der Beeintr\\u00e4chtigung\", \"fr\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!(\n  \"seilbahnanlage-betroffen-ja\" == \"seilbahnanlage-betroffen\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -20556,10 +20808,10 @@
     "pk": "bewilligungsdokumente",
     "fields": {
       "created_at": "2020-11-13T13:57:02.862Z",
-      "modified_at": "2020-11-13T13:59:05.663Z",
+      "modified_at": "2021-03-11T14:32:14.721Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "label": "{\"de\": \"Sind zur bestehenden Baute Bewilligungsdokumente vorhanden?\", \"fr\": null}",
+      "label": "{\"de\": \"Sind zur bestehenden Baute oder Anlage Bewilligungsdokumente vorhanden?\", \"fr\": null}",
       "type": "choice",
       "is_required": "false",
       "is_hidden": "!(\"landwirtschaftlich-begruendet-nein\" == \"landwirtschaftlich-begruendet\"|answer)",
@@ -21142,7 +21394,7 @@
     "pk": "denkmalpflege",
     "fields": {
       "created_at": "2020-11-04T18:23:02.502Z",
-      "modified_at": "2020-11-17T08:36:04.352Z",
+      "modified_at": "2021-02-24T16:59:50.410Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Denkmalpflege Titel\", \"fr\": null}",
@@ -21152,7 +21404,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"---\\n\\n##Ortsbildschutz / Denkmalpflege / Arch\\u00e4ologie\\n\\n####Ortsbildschutz\\n\\n- **[Bundesinventar der sch\\u00fctzenswerten Ortsbilder der Schweiz, ISOS](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjVjsminvbsAhWLlxQKHUP-BZEQFjAAegQIBBAC&url=https%3A%2F%2Fwww.bak.admin.ch%2Fbak%2Fde%2Fhome%2Fkulturerbe%2Fheimatschutz-und-denkmalpflege%2Fisos.html&usg=AOvVaw0YCkIX55e_bkDvjBo9xLOe)** Im [ISOS](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjVjsminvbsAhWLlxQKHUP-BZEQFjAAegQIBBAC&url=https%3A%2F%2Fwww.bak.admin.ch%2Fbak%2Fde%2Fhome%2Fkulturerbe%2Fheimatschutz-und-denkmalpflege%2Fisos.html&usg=AOvVaw0YCkIX55e_bkDvjBo9xLOe) sind zw\\u00f6lf Ortsbilder von nationaler Bedeutung, vier regional bedeutende und neun lokal bedeutende Ortsbilder erfasst. In diesen Gebieten m\\u00fcssen Bauvorhaben bedeutend h\\u00f6here Anforderungen erf\\u00fcllen als in anderen Ortsbildern.  Die Einpassung von Vorhaben in das Ortsbild muss allerdings an allen Orten des Kantons Uri, insbesondere auch ausserhalb der Hauptsiedlungen, in den Weilern und teilweise auch in Alpsiedlungen ber\\u00fccksichtig werden.\\n\\n####Denkmalpflege\\n- Der Anblick eines denkmalgesch\\u00fctzten Geb\\u00e4udes fasziniert und wirkt wie eine Reise in vergangene Epochen. Abgesehen davon dass bei Umbauten von Schutzobjekten auch Kostenbeitr\\u00e4ge der \\u00f6ffentliche Hand m\\u00f6glich sind, ist allein schon dieser Gedanke \\u00e4usserst vorteilhaft.\\n\\n- Gem\\u00e4ss Artikel 13 des kantonalen Natur- und Heimatschutzgesetzes (NHG) sind Massnahmen, die ein Schutzobjekt nachhaltig ver\\u00e4ndern, bewilligungspflichtig. Es empfiehlt sich, beim Umbau und bei der Sanierung von Schutzobjekten, fr\\u00fchzeitig mit der kantonalen Fachstelle Kontakt aufzunehmen um unerw\\u00fcnschte Plan\\u00e4nderungen und Folgekosten zu vermeiden. \\n\\n####Arch\\u00e4ologie \\n- **Bauen an arch\\u00e4ologisch bedeutsamen Stellen** \\nIm Geoinformationsystem des Kantons sind an diversen Stellen, Orten und Gebieten so genannte arch\\u00e4ologische Funderwartungsgebiete ausgeschieden. F\\u00fcr Bauherrschaften, die in einem solchen Gebiet ein Vorhaben realisieren m\\u00f6chte, bedeutet das in erster Linie, dass im Zeitplan eine gewisse Reserve f\\u00fcr die arch\\u00e4ologischen Abkl\\u00e4rungen eingeplant werden sollte.\\n\\n- **Historische Funde** \\nGem\\u00e4ss Artikel 21 des kantonalen Natur- und Heimatschutzgesetzes (NHG) bed\\u00fcrfen einerseits Ausgrabungen von historisch und naturwissenschaftlich bedeutsamen Objekten der Bewilligung der zust\\u00e4ndigen Direktion. Andererseits sind, unabh\\u00e4ngig ob dies in einem speziell festgelegten Gebiet (arch\\u00e4ologische Funderwartungsgebiete) oder ausserhalb solcher Gebiete eintrifft, wissenschaftliche Funde der zust\\u00e4ndigen Direktion sofort anzuzeigen.\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"---\\n\\n##Ortsbildschutz / Denkmalpflege / Arch\\u00e4ologie\\n\\n####Ortsbildschutz\\n\\n- **[Bundesinventar der sch\\u00fctzenswerten Ortsbilder der Schweiz, ISOS](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjVjsminvbsAhWLlxQKHUP-BZEQFjAAegQIBBAC&url=https%3A%2F%2Fwww.bak.admin.ch%2Fbak%2Fde%2Fhome%2Fkulturerbe%2Fheimatschutz-und-denkmalpflege%2Fisos.html&usg=AOvVaw0YCkIX55e_bkDvjBo9xLOe)** Im [ISOS](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjVjsminvbsAhWLlxQKHUP-BZEQFjAAegQIBBAC&url=https%3A%2F%2Fwww.bak.admin.ch%2Fbak%2Fde%2Fhome%2Fkulturerbe%2Fheimatschutz-und-denkmalpflege%2Fisos.html&usg=AOvVaw0YCkIX55e_bkDvjBo9xLOe) sind zw\\u00f6lf Ortsbilder von nationaler Bedeutung, vier regional bedeutende und neun lokal bedeutende Ortsbilder erfasst. In diesen Gebieten m\\u00fcssen Bauvorhaben bedeutend h\\u00f6here Anforderungen erf\\u00fcllen als in anderen Ortsbildern.  Die Einpassung von Vorhaben in das Ortsbild muss allerdings an allen Orten des Kantons Uri, insbesondere auch ausserhalb der Hauptsiedlungen, in den Weilern und teilweise auch in Alpsiedlungen ber\\u00fccksichtig werden.\\n\\n####Denkmalpflege\\n- Der Anblick eines denkmalgesch\\u00fctzten Geb\\u00e4udes fasziniert und wirkt wie eine Reise in vergangene Epochen. Abgesehen davon dass bei Umbauten von Schutzobjekten auch Kostenbeitr\\u00e4ge der \\u00f6ffentliche Hand m\\u00f6glich sind, ist allein schon dieser Gedanke \\u00e4usserst vorteilhaft.\\n\\n- Gem\\u00e4ss Artikel 13 des kantonalen Natur- und Heimatschutzgesetzes (NHG) sind Massnahmen, die ein Schutzobjekt nachhaltig ver\\u00e4ndern, bewilligungspflichtig. Es empfiehlt sich, beim Umbau und bei der Sanierung von Schutzobjekten, fr\\u00fchzeitig mit der [kantonalen Fachstelle f\\u00fcr Denkmalpflege und Arch\\u00e4ologie](https://www.ur.ch/_rte/amt/1324) Kontakt aufzunehmen um unerw\\u00fcnschte Plan\\u00e4nderungen und Folgekosten zu vermeiden. \\n\\n####Arch\\u00e4ologie \\n- **Bauen an arch\\u00e4ologisch bedeutsamen Stellen** \\nIm Geoinformationsystem des Kantons sind an diversen Stellen, Orten und Gebieten so genannte arch\\u00e4ologische Funderwartungsgebiete ausgeschieden. F\\u00fcr Bauherrschaften, die in einem solchen Gebiet ein Vorhaben realisieren m\\u00f6chte, bedeutet das in erster Linie, dass im Zeitplan eine gewisse Reserve f\\u00fcr die arch\\u00e4ologischen Abkl\\u00e4rungen eingeplant werden sollte.\\n\\n- **Historische Funde** \\nGem\\u00e4ss Artikel 21 des kantonalen Natur- und Heimatschutzgesetzes (NHG) bed\\u00fcrfen einerseits Ausgrabungen von historisch und naturwissenschaftlich bedeutsamen Objekten der Bewilligung der zust\\u00e4ndigen Direktion. Andererseits sind, unabh\\u00e4ngig ob dies in einem speziell festgelegten Gebiet (arch\\u00e4ologische Funderwartungsgebiete) oder ausserhalb solcher Gebiete eintrifft, wissenschaftliche Funde der zust\\u00e4ndigen Direktion sofort anzuzeigen.\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -21431,16 +21683,16 @@
     "pk": "entsorgen",
     "fields": {
       "created_at": "2020-11-04T12:59:58.269Z",
-      "modified_at": "2020-11-04T12:59:58.269Z",
+      "modified_at": "2021-03-11T14:00:05.934Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "label": "{\"de\": \"Werde infolge Abbruch Bauabfallstoffe entsorgt?\", \"fr\": null}",
+      "label": "{\"de\": \"Werden infolge Abbruch Bauabfallstoffe entsorgt?\", \"fr\": null}",
       "type": "choice",
       "is_required": "false",
       "is_hidden": "false",
-      "is_archived": false,
+      "is_archived": true,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -21487,7 +21739,7 @@
     "pk": "eproid",
     "fields": {
       "created_at": "2020-11-09T15:44:10.370Z",
-      "modified_at": "2020-11-09T15:44:26.465Z",
+      "modified_at": "2021-03-11T13:11:16.731Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"EPROID\", \"fr\": null}",
@@ -21557,6 +21809,34 @@
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"---\\n\\n#### Ergonomie / B\\u00fcroarbeitspl\\u00e4tze\\nHinweise f\\u00fcr die Einrichtung von B\\u00fcroarbeitspl\\u00e4tzen k\\u00f6nnen Sie aus der EKAS Brosch\\u00fcre 6205 \\u201eUnfall - kein Zufall, Arbeitssicherheit und Gesundheitsschutz in B\\u00fcrobetrieben\\u201c entnehmen.\\n\\nWICHTIGER HINWEIS:\\nBei der Zug\\u00e4nglichkeit und Einrichtung von B\\u00fcroarbeitspl\\u00e4tzen ist sind die Bestimmungen des Behindertengleichstellungsgesetzes (BehiG) zu beachten.\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "erklaerung-standortgebundenheit",
+    "fields": {
+      "created_at": "2021-03-11T16:53:01.265Z",
+      "modified_at": "2021-03-11T16:53:01.265Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Erkl\\u00e4rung zur Standortgebundenheit\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"TODO Paul\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -22577,7 +22857,7 @@
     "pk": "formulardownload-pdf",
     "fields": {
       "created_at": "2020-11-02T15:50:37.421Z",
-      "modified_at": "2020-11-11T11:15:46.040Z",
+      "modified_at": "2021-02-24T07:07:56.054Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Formulardownload (PDF)\", \"fr\": null}",
@@ -22586,8 +22866,8 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"-\", \"fr\": \"\"}",
+      "info_text": "{\"de\": \"Bitte erstellen Sie das pdf Formular, drucken Sie es aus und schicken Sie es unterzeichnet im Doppel an die zust\\u00e4ndige Gemeinde. Qualifiziert digital signierte Formulare k\\u00f6nnen Sie bei den Dokumenten hochladen. Diese m\\u00fcssen nicht physisch eingereicht werrden. Alle weiteren Unterlagen m\\u00fcssen nur nach Bedarf physisch eingereicht werden. Die Gemeinde wird Ihnen falls notwendig eine entsprechende Meldung schicken.\", \"fr\": null}",
+      "static_content": "{\"de\": \"Bitte erstellen Sie das pdf Formular, drucken Sie es aus und schicken Sie es unterzeichnet der zust\\u00e4ndigen Gemeinde. Alle weiteren Unterlagen m\\u00fcssen nur nach Bedarf physisch eingerecht werden. Die gemeinde wird Ihnen falls notwendig eine entsprechende Meldung schikcen.\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
         "widgetOverride": "cf-download-pdf"
@@ -22607,12 +22887,12 @@
     "pk": "forstwirtschaft",
     "fields": {
       "created_at": "2020-09-21T09:00:20.722Z",
-      "modified_at": "2020-11-13T13:33:44.948Z",
+      "modified_at": "2021-03-11T14:42:22.856Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Dient die geplante Baute / Anlage forstlichen Zwecken?\", \"fr\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "False",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
@@ -22809,12 +23089,12 @@
     "pk": "gebaeude",
     "fields": {
       "created_at": "2020-10-19T12:48:56.635Z",
-      "modified_at": "2021-01-28T13:59:10.792Z",
+      "modified_at": "2021-03-11T13:43:52.554Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Geb\\u00e4ude und Anlagen\", \"fr\": null}",
       "type": "table",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
@@ -22873,16 +23153,16 @@
     "pk": "gebaeudekategorie",
     "fields": {
       "created_at": "2020-10-19T12:43:51.470Z",
-      "modified_at": "2020-10-19T12:43:51.470Z",
+      "modified_at": "2021-03-04T10:28:25.676Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Geb\\u00e4udekategorie\", \"fr\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -23406,10 +23686,10 @@
     "pk": "grobbeurteilung",
     "fields": {
       "created_at": "2020-11-04T19:37:15.019Z",
-      "modified_at": "2020-11-11T18:24:52.703Z",
+      "modified_at": "2021-03-11T14:32:52.160Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "label": "{\"de\": \"Zu welchem Zweck wurde das Geb\\u00e4ude urspr\\u00fcnglich genutzt?\", \"fr\": null}",
+      "label": "{\"de\": \"Zu welchem Zweck wurde die Baute oder Anlage urspr\\u00fcnglich genutzt?\", \"fr\": null}",
       "type": "choice",
       "is_required": "false",
       "is_hidden": "!(\"landwirtschaftlich-begruendet-nein\" == \"landwirtschaftlich-begruendet\"|answer)",
@@ -23434,16 +23714,16 @@
     "pk": "groesse-der-baustelle",
     "fields": {
       "created_at": "2020-11-04T13:52:37.941Z",
-      "modified_at": "2020-11-04T13:52:37.941Z",
+      "modified_at": "2021-03-11T14:02:08.863Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Gr\\u00f6sse der Baustelle\", \"fr\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -24045,7 +24325,7 @@
     "pk": "hinweis-pdf-und-einreichen",
     "fields": {
       "created_at": "2020-11-24T15:04:30.890Z",
-      "modified_at": "2020-12-01T14:29:07.917Z",
+      "modified_at": "2021-02-24T07:05:45.088Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Hinweis pdf und Einreichen\", \"fr\": null}",
@@ -24055,7 +24335,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"---\\n\\nWICHTIG: Gesuche die **nicht qualifiziert** elektronisch unterzeichnet sind, m\\u00fcssen in zweifacher Ausf\\u00fchrung (inkl. pdf Gesuchsformular in Papierform) erstellt, unterschrieben und der Gemeinde zugestellt werden. Die Vorgaben des jeweiligen Baureglementes sind einzuhalten.\\n\\nMit Klick auf die Schaltfl\\u00e4che \\\"Einreichen\\\"...\\n\\n...best\\u00e4tigen Sie, dass das Formular vollst\\u00e4ndig und wahrheitsgetreu ausgef\\u00fcllt wurde,\\n...wird Ihr Gesuch bei der zust\\u00e4ndigen Beh\\u00f6rde zur Kontrolle eingereicht,\\n...k\\u00f6nnen Sie an den Formulareintr\\u00e4gen keine Ver\\u00e4nderungen mehr vornehmen.\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"---\\n\\n####**Unterzeichnung des Gesuches**\\n\\n**Physische Unterzeichnung des pdf Formulars** Bitte erstellen Sie das pdf Formular (Formulardownload) mit den Dossierinhalten, drucken Sie es aus und schicken Sie das Formular handschriftlich unterzeichnet im Doppel der zust\\u00e4ndigen Gemeinde.\\n\\n**Elektronische Unterzeichnung des pdf Formulars** Alternativ k\\u00f6nnen Sie das pdf  Formular downloaden, qualifiziert elektronisch unterzeichnen und bei den Dokumenten hochladen. Qualifiziert elektronisch unterzeichnete Gesuche m\\u00fcssen nicht schriftlich eingereicht werden. \\n\\n**Unterzeichnung von Pl\\u00e4nen und weiteren Gesuchsunterlagen**\\nDie digitale Unterschrift ist nicht zwingend auf allen Dokumenten erforderlich. Massgebend sind schlussendlich jene Dokumente, welche Sie via diese Plattform einreichen und von der Gemeinde im Rahmen des Bewilligungsprozesses als Entscheiddokumente markiert werden. Diese Dokumente (Bauentscheid, Pl\\u00e4ne, Fachstellenberichte, Verf\\u00fcgungen usw.) bleiben im URec rechtsverbindlich und unver\\u00e4nderlich gespeichert. Sie k\\u00f6nnen \\u00fcber einen Link den die Baubeh\\u00f6rde im Rahmen des Baubewilligungsprozesses per E-Mail verschickt, ge\\u00f6ffnet werden.  \\n\\n**Er\\u00f6ffnung der Entscheiddokumente**\\nDie Er\\u00f6ffnung der Entscheiddokumente an die Bauherrschaft erfolgt in der Regel per E-Mail. Die E-Mail enth\\u00e4lt einen Link \\u00fcber den alle Entscheiddokumente ge\\u00f6ffnet werden k\\u00f6nnen. Die Empfangsbest\\u00e4tigung, das heisst die Annahme des Links durch die Bauherrschaft (erstmaliges \\u00d6ffnen des Links) wird im URec als rechtsverbindliches Er\\u00f6ffnungsdatum gespeichert. Wahlweise kann die Baubeh\\u00f6rde die Entscheiddokumente auch zus\\u00e4tzlich per Post zustellen. \\n\\n**Einreichung vollst\\u00e4ndiger physischer Dossiers**\\nDie Vorgaben des jeweiligen Baureglementes sind einzuhalten. Je nach Umfang und Art des Dossiers kann die Gemeinde das Einreichen zus\\u00e4tzlicher physischer Dossiers bei der Bauherrschaft anfordern.\\n\\nMit Klick auf die Schaltfl\\u00e4che \\\"Einreichen\\\"...\\n\\n...best\\u00e4tigen Sie, dass das Formular vollst\\u00e4ndig und wahrheitsgetreu ausgef\\u00fcllt wurde,\\n...wird Ihr Gesuch bei der zust\\u00e4ndigen Beh\\u00f6rde zur Kontrolle eingereicht,\\n...k\\u00f6nnen Sie an den Formulareintr\\u00e4gen keine Ver\\u00e4nderungen mehr vornehmen.\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -24418,7 +24698,7 @@
     "pk": "info-mbv-kanton",
     "fields": {
       "created_at": "2020-12-09T13:50:01.821Z",
-      "modified_at": "2021-01-29T09:57:21.816Z",
+      "modified_at": "2021-02-23T09:00:59.861Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Allgemeine Information zu internen Mitberichtsverfahren\", \"fr\": null}",
@@ -24428,7 +24708,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"##Allgemeine Informationen zu verwaltungsinternen Verfahren\\n\\nAlle internen Verfahren werden k\\u00fcnftig, analog wie das zum Beispiel beim Baubewilligungsverfahren gemacht wird, mit dem benutzergef\\u00fchrten Formular erfasst. Die Themen \\\"Personalien\\\" und \\\"Lokalisierung\\\" sind dabei bei allen Verfahren identisch.\\n\\n**Auswahl des Verfahrens**\\nZur Vereinfachung der Datenstruktur werden die diversen Verfahrenstypen in den drei Themen \\\"Mitberichtsverfahren Kanton\\\", Mitberichtsverfahren Bund\\\" und \\\"PGV Kanton\\\" zusammengef\\u00fchrt.  Bis auf weiteres k\\u00f6nnen Sie, wenn Sie ein neues Dossier erstellen m\\u00f6chten,  wie gewohnt im CAMAC Menu \\\"Neues Dossier erstellen\\\" das Verfahren ausw\\u00e4hlen. Im Formular wird das dazugeh\\u00f6rige Thema angezeigt. In einem zweiten Schritt k\\u00f6nnen Sie dann die definitive Auswahl des Verfahrens t\\u00e4tigen (im Endausbau von URec wird die erste Auswahl wegfallen).\\n\\n##Klassierung der Verfahren##\\n**Mitberichtsverfahren Kanton (MBV Kanton)** beinhaltet alle Mitberichtsverfahren die von einer kantonalen Stelle geleitet werden (z.B. Konzessionsverfahren - Leitbeh\\u00f6rde ist das Amt f\\u00fcr Energie).\\n\\n**Mitberichtsverfahren Bund(MBV Bund)** sind Verfahren, bei denen die kantonalen Fachstellen einen direkten oder einen koordinierten Mitbericht zu handen einer Bundesstelle abgeben (z.B. ein Mitberichtsverfahren zu einem PGV nach Seilbahngesetz - Leitbeh\\u00f6rde ist das BAV, zust\\u00e4ndig f\\u00fcr die Koordination der R\\u00fcckmeldungen der kantonalen Fachstellen ist das ARE).\\n\\n**Plangenehmigungsverfahren Kanton (PGV Kanton** beinhaltet alle Plangenehmigungsverfahren die von einer kantonalen Stelle geleitet werden (z.B. PGV Kantonsstrasse - Leitbeh\\u00f6rde ist die Baudirektion).\\n\\nWir bitten Sie, im Rahmen der internen Verfahren auf die **Erhebung von Geb\\u00fchren** zu verzichten.\\n\\nBei Fragen wenden Sie sich bitte an das [Amt f\\u00fcr Raumentwicklung](https://www.ur.ch/_rte/amt/847) oder schreiben Sie uns eine Nachricht an:[Support URec](raumplanung@ur.ch)\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"##Allgemeine Informationen zu verwaltungsinternen Verfahren\\n\\nAlle internen Verfahren werden k\\u00fcnftig, analog wie das zum Beispiel beim Baubewilligungsverfahren gemacht wird, mit dem benutzergef\\u00fchrten Formular erfasst. Die Themen \\\"Personalien\\\" und \\\"Lokalisierung\\\" sind dabei bei allen Verfahren identisch.\\n\\n**Auswahl des Verfahrens**\\nZur Vereinfachung der Datenstruktur werden die diversen Verfahrenstypen in den drei Themen \\\"Mitberichtsverfahren Kanton\\\", Mitberichtsverfahren Bund\\\" und \\\"PGV Kanton\\\" zusammengef\\u00fchrt.  Bis auf weiteres k\\u00f6nnen Sie, wenn Sie ein neues Dossier erstellen m\\u00f6chten,  wie gewohnt im CAMAC Menu \\\"Neues Dossier erstellen\\\" das Verfahren ausw\\u00e4hlen. Im Formular wird das dazugeh\\u00f6rige Thema angezeigt. In einem zweiten Schritt k\\u00f6nnen Sie dann die definitive Auswahl des Verfahrens t\\u00e4tigen (im Endausbau von URec wird die erste Auswahl wegfallen).\\n\\n##Klassierung der Verfahren##\\n**Mitberichtsverfahren Kanton (MBV Kanton)** beinhaltet alle Mitberichtsverfahren die von einer kantonalen Stelle geleitet werden (z.B. Konzessionsverfahren - Leitbeh\\u00f6rde ist das Amt f\\u00fcr Energie).\\n\\n**Mitberichtsverfahren Bund (MBV Bund)** sind Verfahren, bei denen die kantonalen Fachstellen einen direkten oder einen koordinierten Mitbericht zu handen einer Bundesstelle abgeben (z.B. ein Mitberichtsverfahren zu einem PGV nach Seilbahngesetz - Leitbeh\\u00f6rde ist das BAV, zust\\u00e4ndig f\\u00fcr die Koordination der R\\u00fcckmeldungen der kantonalen Fachstellen ist das ARE).\\n\\n**Plangenehmigungsverfahren Kanton (PGV Kanton)** beinhaltet alle Plangenehmigungsverfahren die von einer kantonalen Stelle geleitet werden (z.B. PGV Kantonsstrasse - Leitbeh\\u00f6rde ist die Baudirektion).\\n\\nWir bitten Sie, im Rahmen der internen Verfahren auf die **Erhebung von Geb\\u00fchren** zu verzichten.\\n\\nBei Fragen wenden Sie sich bitte an das [Amt f\\u00fcr Raumentwicklung](https://www.ur.ch/_rte/amt/847) oder schreiben Sie uns eine Nachricht an: [Support URec](raumplanung@ur.ch)\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -25648,12 +25928,12 @@
     "pk": "landwirtschaftlich-begruendet",
     "fields": {
       "created_at": "2020-11-11T10:42:34.409Z",
-      "modified_at": "2020-11-30T20:19:24.298Z",
+      "modified_at": "2021-03-04T10:34:01.152Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Ist das Vorhaben landwirtschaftlich begr\\u00fcndet?\", \"fr\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
@@ -25676,16 +25956,16 @@
     "pk": "langsamverkehr",
     "fields": {
       "created_at": "2020-11-03T16:41:08.736Z",
-      "modified_at": "2020-11-03T16:41:08.736Z",
+      "modified_at": "2021-03-11T14:05:10.626Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Ist eine Anlage des Langsamverkehrs betroffen?\", \"fr\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -26344,12 +26624,12 @@
     "pk": "mindest-und-grenzabstaende",
     "fields": {
       "created_at": "2020-11-02T07:25:21.319Z",
-      "modified_at": "2020-11-10T10:40:01.912Z",
+      "modified_at": "2021-03-11T13:19:12.168Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Werden Mindest-und Grenzabst\\u00e4nde unterschritten? Wenn ja, welche?\", \"fr\": null}",
       "type": "multiple_choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
@@ -26716,12 +26996,12 @@
     "pk": "nichtforstliche-baute",
     "fields": {
       "created_at": "2020-11-13T12:46:09.766Z",
-      "modified_at": "2020-11-30T20:20:45.267Z",
+      "modified_at": "2021-03-11T14:42:30.787Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Wird eine Bewilligung \\\"Nichtforstliche Kleinbaute\\\" beantragt?\", \"fr\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "!(\n  \"forstwirtschaft-nein\" == \"forstwirtschaft\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
@@ -27831,12 +28111,12 @@
     "pk": "proposal-description",
     "fields": {
       "created_at": "2020-07-12T10:29:09.928Z",
-      "modified_at": "2020-12-03T13:40:39.592Z",
+      "modified_at": "2021-02-24T13:40:51.127Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Umschreibung Bauprojekt\", \"fr\": null}",
       "type": "text",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"zum Beispiel: Neubau Einfamilienhaus mit Carport\", \"fr\": null}",
@@ -28176,16 +28456,16 @@
     "pk": "reflexionsarm",
     "fields": {
       "created_at": "2020-10-27T11:47:06.163Z",
-      "modified_at": "2020-10-27T11:47:06.163Z",
+      "modified_at": "2021-03-11T12:54:54.550Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "label": "{\"de\": \"Die Anlage wird nach dem Stand der Technik reflexionsarm ausgef\\u00fchrt\", \"fr\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -28288,12 +28568,12 @@
     "pk": "reklamen",
     "fields": {
       "created_at": "2020-10-21T12:39:14.081Z",
-      "modified_at": "2020-10-21T12:39:34.470Z",
+      "modified_at": "2021-03-11T12:50:09.435Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "label": "{\"de\": \"Reklamen\", \"fr\": null}",
       "type": "table",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
@@ -28305,7 +28585,8 @@
           "art-der-reklame",
           "groesse-reklame",
           "montageart",
-          "beleuchtung"
+          "beleuchtung",
+          "anzahl-identischer-reklamen"
         ]
       },
       "data_source": null,
@@ -28385,7 +28666,7 @@
     "pk": "representative-country",
     "fields": {
       "created_at": "2020-08-28T14:54:28.075Z",
-      "modified_at": "2021-02-11T09:18:17.291Z",
+      "modified_at": "2021-02-11T08:36:15.393Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Land\", \"fr\": null}",
@@ -28398,7 +28679,7 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
-      "data_source": "Locations",
+      "data_source": "Municipalities",
       "row_form": null,
       "sub_form": null,
       "source": null,
@@ -28537,7 +28818,7 @@
     "pk": "representative-phone",
     "fields": {
       "created_at": "2020-08-28T14:54:47.737Z",
-      "modified_at": "2020-08-28T14:59:43.942Z",
+      "modified_at": "2021-02-24T16:51:28.386Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Telefon\", \"fr\": null}",
@@ -28545,7 +28826,7 @@
       "is_required": "false",
       "is_hidden": "!(\n  'has-representative-yes' == 'has-representative'|answer\n)",
       "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null}",
+      "placeholder": "{\"de\": \"z.B. 041 875 24 24\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
@@ -28807,16 +29088,16 @@
     "pk": "schiffsverkehr",
     "fields": {
       "created_at": "2020-11-03T18:21:53.822Z",
-      "modified_at": "2020-11-03T18:21:53.823Z",
+      "modified_at": "2021-03-11T14:08:03.603Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "label": "{\"de\": \"Ist der Schiffsverkehr auf dem Urnersee betroffen?\", \"fr\": null}",
+      "label": "{\"de\": \"Ist der Schiffsverkehr auf Urner Gew\\u00e4ssern betroffen?\", \"fr\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -28897,13 +29178,13 @@
     "pk": "schutzraum",
     "fields": {
       "created_at": "2020-11-05T07:32:49.038Z",
-      "modified_at": "2020-11-05T07:39:21.654Z",
+      "modified_at": "2021-03-11T16:39:18.680Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Wird ein neuer Schutzraum gebaut oder ein Antrag um Schutzraumbefreiung gestellt?\", \"fr\": null}",
       "type": "choice",
-      "is_required": "false",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!(\"schutzraumrelevante-massnahmen-ja\" == \"schutzraumrelevante-massnahmen\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -28925,12 +29206,12 @@
     "pk": "schutzraum-baulich-betroffen",
     "fields": {
       "created_at": "2020-11-05T07:37:30.327Z",
-      "modified_at": "2020-11-05T07:43:05.004Z",
+      "modified_at": "2021-03-11T14:33:52.572Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Ist ein bestehender Schutzraum durch bauliche Massnahmen (z.B. Teilabbruch Geb\\u00e4ude, Abgrabungen usw.) betroffen?\", \"fr\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
@@ -29006,6 +29287,34 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "schutzraumrelevante-massnahmen",
+    "fields": {
+      "created_at": "2021-03-11T16:36:48.342Z",
+      "modified_at": "2021-03-11T16:38:55.698Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Werden schutzraumrelevante R\\u00e4ume (Wohnr\\u00e4ume, Geschosse) erstellt oder ver\\u00e4ndert?\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "schweissanlagen-titel",
     "fields": {
       "created_at": "2020-10-26T10:28:05.517Z",
@@ -29020,6 +29329,62 @@
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"---\\n\\n#### Schweissanlagen\\nHinweise f\\u00fcr den Betrieb von Anlagen f\\u00fcr das Schweissen, Schneiden und verwandte Verfahren zum Bearbeiten metallischer Werkstoffe sind in der EKAS-Richtlinie 6509 \\u201eSchweissen, Schneiden und verwandte Verfahren zum Bearbeiten metallischer Werkstoffe\\u201c enthalten.\\n\\nSchweisspl\\u00e4tze von Elektroschweissern sind gegen den \\u00fcbrigen Arbeitsraum hin abzuschirmen. Die Abschirmungen sollen Blendungen verhindern und aus schwer entflammbarem Material bestehen.\\n\\nDie auftretenden gesundheitsgef\\u00e4hrdenden Gase und Rauch sind an der Entstehungsstelle abzusaugen und gefahrlos zu beseitigen.\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "seilbahnanlage",
+    "fields": {
+      "created_at": "2021-03-11T16:43:19.085Z",
+      "modified_at": "2021-03-11T16:44:20.578Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Typ der Seilbahnanlage\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "!(\n  \"seilbahnanlage-betroffen-ja\" == \"seilbahnanlage-betroffen\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "seilbahnanlage-betroffen",
+    "fields": {
+      "created_at": "2021-03-11T16:42:27.281Z",
+      "modified_at": "2021-03-11T16:43:28.378Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Ist eine bestehende Seilbahnanlage betroffen?\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -29099,12 +29464,12 @@
     "pk": "solaranlagen",
     "fields": {
       "created_at": "2020-10-21T12:26:44.313Z",
-      "modified_at": "2020-10-27T15:10:17.110Z",
+      "modified_at": "2021-03-11T12:52:17.152Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "label": "{\"de\": \"Anlagen\", \"fr\": null}",
       "type": "table",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
@@ -29309,16 +29674,16 @@
     "pk": "stand-der-realisierung",
     "fields": {
       "created_at": "2020-10-26T10:52:53.053Z",
-      "modified_at": "2020-10-26T10:52:53.053Z",
+      "modified_at": "2021-03-11T13:12:32.138Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Stand der Realisierung\", \"fr\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "!(\n  \"status-bauprojekt-nachtraeglich\" == \"status-bauprojekt\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -29449,7 +29814,7 @@
     "pk": "standortbegruendung",
     "fields": {
       "created_at": "2020-11-09T11:29:44.220Z",
-      "modified_at": "2020-11-11T18:24:35.408Z",
+      "modified_at": "2021-03-11T14:29:12.746Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Standortbegr\\u00fcndung - aufgrund welcher objektiver Gr\\u00fcnde ist das Vorhaben auf den gew\\u00e4hlten Standort angewiesen?\", \"fr\": null}",
@@ -29626,16 +29991,16 @@
     "pk": "strasse-ist-betroffen",
     "fields": {
       "created_at": "2020-11-03T16:45:44.267Z",
-      "modified_at": "2020-11-03T16:45:44.267Z",
+      "modified_at": "2021-03-11T14:04:29.292Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "label": "{\"de\": \"Ist eine \\u00f6ffentliche Strasse betroffen?\", \"fr\": null}",
+      "label": "{\"de\": \"Ist ein \\u00f6ffentlicher Verkehrstr\\u00e4ger betroffen?\", \"fr\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -29654,7 +30019,7 @@
     "pk": "strassen-und-langsamverkehr",
     "fields": {
       "created_at": "2020-11-03T16:10:48.809Z",
-      "modified_at": "2020-12-03T11:11:42.925Z",
+      "modified_at": "2021-02-24T15:31:03.664Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Strassen- Schiffs- und Langsamverkehr Titel\", \"fr\": null}",
@@ -29664,7 +30029,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"##Fragen zum Strassen- Schiffs- und Langsamverkehr\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"##\\u00d6ffentliche Verkehrstr\\u00e4ger\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -29713,12 +30078,12 @@
     "pk": "strassentyp",
     "fields": {
       "created_at": "2020-11-03T12:36:47.191Z",
-      "modified_at": "2020-11-11T18:40:32.683Z",
+      "modified_at": "2021-03-11T14:09:38.297Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "label": "{\"de\": \"Klassierung der Strasse\", \"fr\": null}",
+      "label": "{\"de\": \"Klassierung (Art des Verkehrstr\\u00e4gers)\", \"fr\": null}",
       "type": "multiple_choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "!(\n  \"strasse-ist-betroffen-ja\" == \"strasse-ist-betroffen\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
@@ -29971,7 +30336,7 @@
     "pk": "themen-arbeitssicherheit",
     "fields": {
       "created_at": "2020-10-19T13:15:35.231Z",
-      "modified_at": "2020-11-04T12:39:33.853Z",
+      "modified_at": "2021-03-11T14:21:09.705Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Welche Themenbereiche werden durch Ihr Vorhaben tangiert?\", \"fr\": null}",
@@ -30150,10 +30515,10 @@
     "pk": "tiefbauten-landschaft",
     "fields": {
       "created_at": "2020-11-05T13:01:17.310Z",
-      "modified_at": "2020-11-05T16:05:23.412Z",
+      "modified_at": "2021-03-11T13:52:37.070Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "label": "{\"de\": \"Tiefbauten / Landschaft\", \"fr\": null}",
+      "label": "{\"de\": \"Tiefbauten-Landschaft\", \"fr\": null}",
       "type": "table",
       "is_required": "false",
       "is_hidden": "false",
@@ -30788,12 +31153,12 @@
     "pk": "umbau",
     "fields": {
       "created_at": "2020-09-23T07:12:16.913Z",
-      "modified_at": "2020-09-23T07:13:50.368Z",
+      "modified_at": "2021-03-11T13:13:33.888Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Umbau\", \"fr\": null}",
       "type": "multiple_choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "!(\n  \"proposal-umbau-erneuerung-sanierung\" in \"proposal\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
@@ -31338,12 +31703,12 @@
     "pk": "verwendung-aushub",
     "fields": {
       "created_at": "2020-11-04T13:02:28.282Z",
-      "modified_at": "2020-11-04T16:13:12.666Z",
+      "modified_at": "2021-03-11T13:57:45.491Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Wird der anfallende Aushub im Rahmen des Bauprojekts vor Ort wieder verwendet?\", \"fr\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
@@ -31366,12 +31731,12 @@
     "pk": "verwendung-humus",
     "fields": {
       "created_at": "2020-11-04T13:05:22.586Z",
-      "modified_at": "2020-11-07T16:39:23.377Z",
+      "modified_at": "2021-03-11T13:57:55.778Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Wird der anfallende Humus im Rahmen des Bauprojekts vor Ort wieder verwendet?\", \"fr\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
@@ -32332,9 +32697,9 @@
     "model": "caluma_form.questionoption",
     "pk": "24d-rpg.24d-rpg-ja",
     "fields": {
-      "created_at": "2020-11-13T08:29:37.438Z",
-      "modified_at": "2020-11-13T08:29:37.438Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2021-03-11T12:54:43.195Z",
+      "modified_at": "2021-03-11T12:54:43.195Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "24d-rpg",
       "option": "24d-rpg-ja",
@@ -32345,9 +32710,9 @@
     "model": "caluma_form.questionoption",
     "pk": "24d-rpg.24d-rpg-nein",
     "fields": {
-      "created_at": "2020-11-13T08:29:37.430Z",
-      "modified_at": "2020-11-13T08:29:37.430Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2021-03-11T12:54:43.108Z",
+      "modified_at": "2021-03-11T12:54:43.108Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "24d-rpg",
       "option": "24d-rpg-nein",
@@ -32358,8 +32723,8 @@
     "model": "caluma_form.questionoption",
     "pk": "abbruch.abbruch-ja",
     "fields": {
-      "created_at": "2020-11-04T12:57:14.541Z",
-      "modified_at": "2020-11-04T12:57:14.541Z",
+      "created_at": "2021-03-11T13:57:28.430Z",
+      "modified_at": "2021-03-11T13:57:28.430Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "abbruch",
@@ -32371,8 +32736,8 @@
     "model": "caluma_form.questionoption",
     "pk": "abbruch.abbruch-nein",
     "fields": {
-      "created_at": "2020-11-04T12:57:14.534Z",
-      "modified_at": "2020-11-04T12:57:14.534Z",
+      "created_at": "2021-03-11T13:57:28.420Z",
+      "modified_at": "2021-03-11T13:57:28.420Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "abbruch",
@@ -32761,9 +33126,9 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-anlage.art-der-anlage-historischer-verkehrsweg-ivs",
     "fields": {
-      "created_at": "2020-11-11T18:40:09.586Z",
-      "modified_at": "2020-11-11T18:40:09.586Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-11T14:10:42.502Z",
+      "modified_at": "2021-03-11T14:10:42.502Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-anlage",
       "option": "art-der-anlage-historischer-verkehrsweg-ivs",
@@ -32774,9 +33139,9 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-anlage.art-der-anlage-ivs",
     "fields": {
-      "created_at": "2020-11-11T18:40:09.581Z",
-      "modified_at": "2020-11-11T18:40:09.581Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-11T14:10:42.492Z",
+      "modified_at": "2021-03-11T14:10:42.492Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-anlage",
       "option": "art-der-anlage-ivs",
@@ -32787,9 +33152,9 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-anlage.art-der-anlage-veloweg",
     "fields": {
-      "created_at": "2020-11-11T18:40:09.590Z",
-      "modified_at": "2020-11-11T18:40:09.590Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-11T14:10:42.513Z",
+      "modified_at": "2021-03-11T14:10:42.513Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-anlage",
       "option": "art-der-anlage-veloweg",
@@ -32800,9 +33165,9 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-anlage.art-der-anlage-wanderweg",
     "fields": {
-      "created_at": "2020-11-11T18:40:09.584Z",
-      "modified_at": "2020-11-11T18:40:09.584Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-11T14:10:42.497Z",
+      "modified_at": "2021-03-11T14:10:42.497Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-anlage",
       "option": "art-der-anlage-wanderweg",
@@ -32813,9 +33178,9 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-anlage.art-der-anlage-wanderweg-wanderwegrichtplan",
     "fields": {
-      "created_at": "2020-11-11T18:40:09.588Z",
-      "modified_at": "2020-11-11T18:40:09.588Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-11T14:10:42.508Z",
+      "modified_at": "2021-03-11T14:10:42.508Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "art-der-anlage",
       "option": "art-der-anlage-wanderweg-wanderwegrichtplan",
@@ -33684,8 +34049,8 @@
     "model": "caluma_form.questionoption",
     "pk": "asbest.asbest-ja",
     "fields": {
-      "created_at": "2020-11-04T16:10:53.826Z",
-      "modified_at": "2020-11-04T16:10:53.826Z",
+      "created_at": "2021-03-11T13:57:34.416Z",
+      "modified_at": "2021-03-11T13:57:34.416Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "asbest",
@@ -33697,8 +34062,8 @@
     "model": "caluma_form.questionoption",
     "pk": "asbest.asbest-nein",
     "fields": {
-      "created_at": "2020-11-04T16:10:53.821Z",
-      "modified_at": "2020-11-04T16:10:53.821Z",
+      "created_at": "2021-03-11T13:57:34.402Z",
+      "modified_at": "2021-03-11T13:57:34.402Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "asbest",
@@ -33736,8 +34101,8 @@
     "model": "caluma_form.questionoption",
     "pk": "aussenbeleuchtung.aussenbeleuchtung-ja",
     "fields": {
-      "created_at": "2020-11-04T15:18:04.764Z",
-      "modified_at": "2020-11-04T15:18:04.764Z",
+      "created_at": "2021-03-11T14:03:33.219Z",
+      "modified_at": "2021-03-11T14:03:33.219Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "aussenbeleuchtung",
@@ -33749,8 +34114,8 @@
     "model": "caluma_form.questionoption",
     "pk": "aussenbeleuchtung.aussenbeleuchtung-nein",
     "fields": {
-      "created_at": "2020-11-04T15:18:04.758Z",
-      "modified_at": "2020-11-04T15:18:04.758Z",
+      "created_at": "2021-03-11T14:03:33.215Z",
+      "modified_at": "2021-03-11T14:03:33.215Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "aussenbeleuchtung",
@@ -33879,9 +34244,9 @@
     "model": "caluma_form.questionoption",
     "pk": "beeintraechtigung-weg.beeintraechtigung-weg-andere",
     "fields": {
-      "created_at": "2020-11-11T18:40:40.864Z",
-      "modified_at": "2020-11-11T18:40:40.864Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-11T14:11:18.611Z",
+      "modified_at": "2021-03-11T14:11:18.611Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "beeintraechtigung-weg",
       "option": "beeintraechtigung-weg-andere",
@@ -33892,9 +34257,9 @@
     "model": "caluma_form.questionoption",
     "pk": "beeintraechtigung-weg.beeintraechtigung-weg-verlegt",
     "fields": {
-      "created_at": "2020-11-11T18:40:40.867Z",
-      "modified_at": "2020-11-11T18:40:40.867Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-11T14:11:18.614Z",
+      "modified_at": "2021-03-11T14:11:18.614Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "beeintraechtigung-weg",
       "option": "beeintraechtigung-weg-verlegt",
@@ -33905,9 +34270,9 @@
     "model": "caluma_form.questionoption",
     "pk": "beeintraechtigung-weg.beeintraechtigung-weg-voruebergehend-gesperrt",
     "fields": {
-      "created_at": "2020-11-11T18:40:40.870Z",
-      "modified_at": "2020-11-11T18:40:40.870Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-11T14:11:18.617Z",
+      "modified_at": "2021-03-11T14:11:18.617Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "beeintraechtigung-weg",
       "option": "beeintraechtigung-weg-voruebergehend-gesperrt",
@@ -33918,9 +34283,9 @@
     "model": "caluma_form.questionoption",
     "pk": "beeintraechtigung.beeintraechtigung-",
     "fields": {
-      "created_at": "2020-11-11T18:41:14.476Z",
-      "modified_at": "2020-11-11T18:41:14.476Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-11T14:13:21.634Z",
+      "modified_at": "2021-03-11T14:13:21.634Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "beeintraechtigung",
       "option": "beeintraechtigung-",
@@ -33931,9 +34296,9 @@
     "model": "caluma_form.questionoption",
     "pk": "beeintraechtigung.beeintraechtigung-aenderung-einfahrt",
     "fields": {
-      "created_at": "2020-11-11T18:41:14.486Z",
-      "modified_at": "2020-11-11T18:41:14.486Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-11T14:13:21.651Z",
+      "modified_at": "2021-03-11T14:13:21.652Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "beeintraechtigung",
       "option": "beeintraechtigung-aenderung-einfahrt",
@@ -33944,9 +34309,9 @@
     "model": "caluma_form.questionoption",
     "pk": "beeintraechtigung.beeintraechtigung-andere",
     "fields": {
-      "created_at": "2020-11-11T18:41:14.479Z",
-      "modified_at": "2020-11-11T18:41:14.479Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-11T14:13:21.639Z",
+      "modified_at": "2021-03-11T14:13:21.639Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "beeintraechtigung",
       "option": "beeintraechtigung-andere",
@@ -33957,9 +34322,9 @@
     "model": "caluma_form.questionoption",
     "pk": "beeintraechtigung.beeintraechtigung-mehrverkehr",
     "fields": {
-      "created_at": "2020-11-11T18:41:14.482Z",
-      "modified_at": "2020-11-11T18:41:14.482Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-11T14:13:21.645Z",
+      "modified_at": "2021-03-11T14:13:21.645Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "beeintraechtigung",
       "option": "beeintraechtigung-mehrverkehr",
@@ -33970,9 +34335,9 @@
     "model": "caluma_form.questionoption",
     "pk": "beeintraechtigung.beeintraechtigung-neue-einfahrt",
     "fields": {
-      "created_at": "2020-11-11T18:41:14.488Z",
-      "modified_at": "2020-11-11T18:41:14.488Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-11T14:13:21.655Z",
+      "modified_at": "2021-03-11T14:13:21.655Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "beeintraechtigung",
       "option": "beeintraechtigung-neue-einfahrt",
@@ -33983,9 +34348,9 @@
     "model": "caluma_form.questionoption",
     "pk": "beeintraechtigung.beeintraechtigung-sichtweiten",
     "fields": {
-      "created_at": "2020-11-11T18:41:14.484Z",
-      "modified_at": "2020-11-11T18:41:14.484Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-11T14:13:21.648Z",
+      "modified_at": "2021-03-11T14:13:21.648Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "beeintraechtigung",
       "option": "beeintraechtigung-sichtweiten",
@@ -34178,8 +34543,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bewilligungsdokumente.bewilligungsdokumente-ja",
     "fields": {
-      "created_at": "2020-11-13T13:59:05.675Z",
-      "modified_at": "2020-11-13T13:59:05.675Z",
+      "created_at": "2021-03-11T14:32:14.731Z",
+      "modified_at": "2021-03-11T14:32:14.731Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "bewilligungsdokumente",
@@ -34191,8 +34556,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bewilligungsdokumente.bewilligungsdokumente-nein",
     "fields": {
-      "created_at": "2020-11-13T13:59:05.671Z",
-      "modified_at": "2020-11-13T13:59:05.671Z",
+      "created_at": "2021-03-11T14:32:14.727Z",
+      "modified_at": "2021-03-11T14:32:14.727Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "bewilligungsdokumente",
@@ -34438,8 +34803,8 @@
     "model": "caluma_form.questionoption",
     "pk": "entsorgen.entsorgen-ja",
     "fields": {
-      "created_at": "2020-11-04T12:59:58.282Z",
-      "modified_at": "2020-11-04T12:59:58.282Z",
+      "created_at": "2021-03-11T14:00:05.950Z",
+      "modified_at": "2021-03-11T14:00:05.950Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "entsorgen",
@@ -34451,8 +34816,8 @@
     "model": "caluma_form.questionoption",
     "pk": "entsorgen.entsorgen-nein",
     "fields": {
-      "created_at": "2020-11-04T12:59:58.276Z",
-      "modified_at": "2020-11-04T12:59:58.276Z",
+      "created_at": "2021-03-11T14:00:05.945Z",
+      "modified_at": "2021-03-11T14:00:05.945Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "entsorgen",
@@ -35634,8 +35999,8 @@
     "model": "caluma_form.questionoption",
     "pk": "forstwirtschaft.forstwirtschaft-ja",
     "fields": {
-      "created_at": "2020-11-13T13:33:44.963Z",
-      "modified_at": "2020-11-13T13:33:44.963Z",
+      "created_at": "2021-03-11T14:42:22.946Z",
+      "modified_at": "2021-03-11T14:42:22.946Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "forstwirtschaft",
@@ -35647,8 +36012,8 @@
     "model": "caluma_form.questionoption",
     "pk": "forstwirtschaft.forstwirtschaft-nein",
     "fields": {
-      "created_at": "2020-11-13T13:33:44.958Z",
-      "modified_at": "2020-11-13T13:33:44.958Z",
+      "created_at": "2021-03-11T14:42:22.915Z",
+      "modified_at": "2021-03-11T14:42:22.915Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "forstwirtschaft",
@@ -35738,9 +36103,9 @@
     "model": "caluma_form.questionoption",
     "pk": "gebaeudekategorie.gebaeudekategorie-andere",
     "fields": {
-      "created_at": "2020-10-19T12:43:51.483Z",
-      "modified_at": "2020-10-19T12:43:51.483Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-04T10:28:25.997Z",
+      "modified_at": "2021-03-04T10:28:25.997Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "gebaeudekategorie",
       "option": "gebaeudekategorie-andere",
@@ -35751,9 +36116,9 @@
     "model": "caluma_form.questionoption",
     "pk": "gebaeudekategorie.gebaeudekategorie-ausschliessliche-wohnnutzung",
     "fields": {
-      "created_at": "2020-10-19T12:43:51.493Z",
-      "modified_at": "2020-10-19T12:43:51.493Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-04T10:28:26.020Z",
+      "modified_at": "2021-03-04T10:28:26.020Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "gebaeudekategorie",
       "option": "gebaeudekategorie-ausschliessliche-wohnnutzung",
@@ -35764,9 +36129,9 @@
     "model": "caluma_form.questionoption",
     "pk": "gebaeudekategorie.gebaeudekategorie-ohne-wohnnutzung",
     "fields": {
-      "created_at": "2020-10-19T12:43:51.485Z",
-      "modified_at": "2020-10-19T12:43:51.485Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-04T10:28:26.006Z",
+      "modified_at": "2021-03-04T10:28:26.006Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "gebaeudekategorie",
       "option": "gebaeudekategorie-ohne-wohnnutzung",
@@ -35777,9 +36142,9 @@
     "model": "caluma_form.questionoption",
     "pk": "gebaeudekategorie.gebaeudekategorie-provisorische-unterkunft",
     "fields": {
-      "created_at": "2020-10-19T12:43:51.480Z",
-      "modified_at": "2020-10-19T12:43:51.480Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-04T10:28:25.975Z",
+      "modified_at": "2021-03-04T10:28:25.975Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "gebaeudekategorie",
       "option": "gebaeudekategorie-provisorische-unterkunft",
@@ -35790,9 +36155,9 @@
     "model": "caluma_form.questionoption",
     "pk": "gebaeudekategorie.gebaeudekategorie-sonderbau",
     "fields": {
-      "created_at": "2020-10-19T12:43:51.476Z",
-      "modified_at": "2020-10-19T12:43:51.476Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-04T10:28:25.872Z",
+      "modified_at": "2021-03-04T10:28:25.872Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "gebaeudekategorie",
       "option": "gebaeudekategorie-sonderbau",
@@ -35803,9 +36168,9 @@
     "model": "caluma_form.questionoption",
     "pk": "gebaeudekategorie.gebaeudekategorie-teilweise-wohnnutzung",
     "fields": {
-      "created_at": "2020-10-19T12:43:51.489Z",
-      "modified_at": "2020-10-19T12:43:51.489Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-04T10:28:26.010Z",
+      "modified_at": "2021-03-04T10:28:26.010Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "gebaeudekategorie",
       "option": "gebaeudekategorie-teilweise-wohnnutzung",
@@ -36011,9 +36376,9 @@
     "model": "caluma_form.questionoption",
     "pk": "grobbeurteilung.grobbeurteilung-standortgebunden",
     "fields": {
-      "created_at": "2020-11-11T18:24:52.711Z",
-      "modified_at": "2020-11-11T18:24:52.711Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-11T14:32:52.169Z",
+      "modified_at": "2021-03-11T14:32:52.169Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "grobbeurteilung",
       "option": "grobbeurteilung-standortgebunden",
@@ -36024,9 +36389,9 @@
     "model": "caluma_form.questionoption",
     "pk": "grobbeurteilung.grobbeurteilung-zonenkonform",
     "fields": {
-      "created_at": "2020-11-11T18:24:52.723Z",
-      "modified_at": "2020-11-11T18:24:52.723Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-11T14:32:52.173Z",
+      "modified_at": "2021-03-11T14:32:52.173Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "grobbeurteilung",
       "option": "grobbeurteilung-zonenkonform",
@@ -36037,8 +36402,8 @@
     "model": "caluma_form.questionoption",
     "pk": "groesse-der-baustelle.groesse-der-baustelle-groesser-4000",
     "fields": {
-      "created_at": "2020-11-04T13:52:37.952Z",
-      "modified_at": "2020-11-04T13:52:37.952Z",
+      "created_at": "2021-03-11T14:02:08.874Z",
+      "modified_at": "2021-03-11T14:02:08.874Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "groesse-der-baustelle",
@@ -36050,8 +36415,8 @@
     "model": "caluma_form.questionoption",
     "pk": "groesse-der-baustelle.groesse-der-baustelle-kleiner-4000",
     "fields": {
-      "created_at": "2020-11-04T13:52:37.958Z",
-      "modified_at": "2020-11-04T13:52:37.958Z",
+      "created_at": "2021-03-11T14:02:08.884Z",
+      "modified_at": "2021-03-11T14:02:08.884Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "groesse-der-baustelle",
@@ -36934,8 +37299,8 @@
     "model": "caluma_form.questionoption",
     "pk": "landwirtschaftlich-begruendet.landwirtschaftlich-begruendet-ja",
     "fields": {
-      "created_at": "2020-11-30T20:19:24.358Z",
-      "modified_at": "2020-11-30T20:19:24.358Z",
+      "created_at": "2021-03-04T10:34:01.215Z",
+      "modified_at": "2021-03-04T10:34:01.215Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "landwirtschaftlich-begruendet",
@@ -36947,8 +37312,8 @@
     "model": "caluma_form.questionoption",
     "pk": "landwirtschaftlich-begruendet.landwirtschaftlich-begruendet-nein",
     "fields": {
-      "created_at": "2020-11-30T20:19:24.305Z",
-      "modified_at": "2020-11-30T20:19:24.305Z",
+      "created_at": "2021-03-04T10:34:01.195Z",
+      "modified_at": "2021-03-04T10:34:01.195Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "landwirtschaftlich-begruendet",
@@ -36960,8 +37325,8 @@
     "model": "caluma_form.questionoption",
     "pk": "langsamverkehr.langsamverkehr-ja",
     "fields": {
-      "created_at": "2020-11-03T16:41:08.763Z",
-      "modified_at": "2020-11-03T16:41:08.763Z",
+      "created_at": "2021-03-11T14:05:10.640Z",
+      "modified_at": "2021-03-11T14:05:10.640Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "langsamverkehr",
@@ -36973,8 +37338,8 @@
     "model": "caluma_form.questionoption",
     "pk": "langsamverkehr.langsamverkehr-nein",
     "fields": {
-      "created_at": "2020-11-03T16:41:08.756Z",
-      "modified_at": "2020-11-03T16:41:08.756Z",
+      "created_at": "2021-03-11T14:05:10.635Z",
+      "modified_at": "2021-03-11T14:05:10.635Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "langsamverkehr",
@@ -37155,9 +37520,9 @@
     "model": "caluma_form.questionoption",
     "pk": "mindest-und-grenzabstaende.mindest-und-grenzabstaende-fliessgewaesser",
     "fields": {
-      "created_at": "2020-11-10T10:40:01.947Z",
-      "modified_at": "2020-11-10T10:40:01.947Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2021-03-11T13:19:12.208Z",
+      "modified_at": "2021-03-11T13:19:12.208Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "mindest-und-grenzabstaende",
       "option": "mindest-und-grenzabstaende-fliessgewaesser",
@@ -37168,9 +37533,9 @@
     "model": "caluma_form.questionoption",
     "pk": "mindest-und-grenzabstaende.mindest-und-grenzabstaende-grenzabstand",
     "fields": {
-      "created_at": "2020-11-10T10:40:01.931Z",
-      "modified_at": "2020-11-10T10:40:01.931Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2021-03-11T13:19:12.193Z",
+      "modified_at": "2021-03-11T13:19:12.193Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "mindest-und-grenzabstaende",
       "option": "mindest-und-grenzabstaende-grenzabstand",
@@ -37181,9 +37546,9 @@
     "model": "caluma_form.questionoption",
     "pk": "mindest-und-grenzabstaende.mindest-und-grenzabstaende-keine",
     "fields": {
-      "created_at": "2020-11-10T10:40:01.924Z",
-      "modified_at": "2020-11-10T10:40:01.924Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2021-03-11T13:19:12.176Z",
+      "modified_at": "2021-03-11T13:19:12.176Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "mindest-und-grenzabstaende",
       "option": "mindest-und-grenzabstaende-keine",
@@ -37194,9 +37559,9 @@
     "model": "caluma_form.questionoption",
     "pk": "mindest-und-grenzabstaende.mindest-und-grenzabstaende-seeufer",
     "fields": {
-      "created_at": "2020-11-10T10:40:01.934Z",
-      "modified_at": "2020-11-10T10:40:01.934Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2021-03-11T13:19:12.197Z",
+      "modified_at": "2021-03-11T13:19:12.197Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "mindest-und-grenzabstaende",
       "option": "mindest-und-grenzabstaende-seeufer",
@@ -37207,9 +37572,9 @@
     "model": "caluma_form.questionoption",
     "pk": "mindest-und-grenzabstaende.mindest-und-grenzabstaende-verkehrsflaechen",
     "fields": {
-      "created_at": "2020-11-10T10:40:01.943Z",
-      "modified_at": "2020-11-10T10:40:01.943Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2021-03-11T13:19:12.204Z",
+      "modified_at": "2021-03-11T13:19:12.204Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "mindest-und-grenzabstaende",
       "option": "mindest-und-grenzabstaende-verkehrsflaechen",
@@ -37220,9 +37585,9 @@
     "model": "caluma_form.questionoption",
     "pk": "mindest-und-grenzabstaende.mindest-und-grenzabstaende-waldabstand",
     "fields": {
-      "created_at": "2020-11-10T10:40:01.939Z",
-      "modified_at": "2020-11-10T10:40:01.939Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2021-03-11T13:19:12.200Z",
+      "modified_at": "2021-03-11T13:19:12.200Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "mindest-und-grenzabstaende",
       "option": "mindest-und-grenzabstaende-waldabstand",
@@ -37376,8 +37741,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nichtforstliche-baute.nichtforstliche-baute-ja",
     "fields": {
-      "created_at": "2020-11-30T20:20:45.281Z",
-      "modified_at": "2020-11-30T20:20:45.281Z",
+      "created_at": "2021-03-11T14:42:30.820Z",
+      "modified_at": "2021-03-11T14:42:30.820Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "nichtforstliche-baute",
@@ -37389,8 +37754,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nichtforstliche-baute.nichtforstliche-baute-nein",
     "fields": {
-      "created_at": "2020-11-30T20:20:45.277Z",
-      "modified_at": "2020-11-30T20:20:45.277Z",
+      "created_at": "2021-03-11T14:42:30.810Z",
+      "modified_at": "2021-03-11T14:42:30.810Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "nichtforstliche-baute",
@@ -38221,9 +38586,9 @@
     "model": "caluma_form.questionoption",
     "pk": "reflexionsarm.reflexionsarm-ja",
     "fields": {
-      "created_at": "2020-10-27T11:47:06.177Z",
-      "modified_at": "2020-10-27T11:47:06.177Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2021-03-11T12:54:54.628Z",
+      "modified_at": "2021-03-11T12:54:54.628Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "reflexionsarm",
       "option": "reflexionsarm-ja",
@@ -38234,9 +38599,9 @@
     "model": "caluma_form.questionoption",
     "pk": "reflexionsarm.reflexionsarm-nein",
     "fields": {
-      "created_at": "2020-10-27T11:47:06.171Z",
-      "modified_at": "2020-10-27T11:47:06.171Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2021-03-11T12:54:54.583Z",
+      "modified_at": "2021-03-11T12:54:54.583Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "reflexionsarm",
       "option": "reflexionsarm-nein",
@@ -38390,8 +38755,8 @@
     "model": "caluma_form.questionoption",
     "pk": "schiffsverkehr.schiffsverkehr-ja",
     "fields": {
-      "created_at": "2020-11-03T18:21:53.839Z",
-      "modified_at": "2020-11-03T18:21:53.839Z",
+      "created_at": "2021-03-11T14:08:03.615Z",
+      "modified_at": "2021-03-11T14:08:03.615Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "schiffsverkehr",
@@ -38403,8 +38768,8 @@
     "model": "caluma_form.questionoption",
     "pk": "schiffsverkehr.schiffsverkehr-nein",
     "fields": {
-      "created_at": "2020-11-03T18:21:53.832Z",
-      "modified_at": "2020-11-03T18:21:53.832Z",
+      "created_at": "2021-03-11T14:08:03.611Z",
+      "modified_at": "2021-03-11T14:08:03.611Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "schiffsverkehr",
@@ -38416,8 +38781,8 @@
     "model": "caluma_form.questionoption",
     "pk": "schutzraum-baulich-betroffen.schutzraum-betroffen-ja",
     "fields": {
-      "created_at": "2020-11-05T07:43:05.016Z",
-      "modified_at": "2020-11-05T07:43:05.016Z",
+      "created_at": "2021-03-11T14:33:52.583Z",
+      "modified_at": "2021-03-11T14:33:52.583Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "schutzraum-baulich-betroffen",
@@ -38429,8 +38794,8 @@
     "model": "caluma_form.questionoption",
     "pk": "schutzraum-baulich-betroffen.schutzraum-betroffen-nein",
     "fields": {
-      "created_at": "2020-11-05T07:43:05.012Z",
-      "modified_at": "2020-11-05T07:43:05.012Z",
+      "created_at": "2021-03-11T14:33:52.580Z",
+      "modified_at": "2021-03-11T14:33:52.580Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "schutzraum-baulich-betroffen",
@@ -38468,9 +38833,9 @@
     "model": "caluma_form.questionoption",
     "pk": "schutzraum.schutzraum-antrag",
     "fields": {
-      "created_at": "2020-11-05T07:39:21.662Z",
-      "modified_at": "2020-11-05T07:39:21.662Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-03-11T16:39:18.693Z",
+      "modified_at": "2021-03-11T16:39:18.693Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "schutzraum",
       "option": "schutzraum-antrag",
@@ -38481,13 +38846,91 @@
     "model": "caluma_form.questionoption",
     "pk": "schutzraum.schutzraum-neu",
     "fields": {
-      "created_at": "2020-11-05T07:39:21.666Z",
-      "modified_at": "2020-11-05T07:39:21.666Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-03-11T16:39:18.698Z",
+      "modified_at": "2021-03-11T16:39:18.698Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "schutzraum",
       "option": "schutzraum-neu",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "schutzraumrelevante-massnahmen.schutzraumrelevante-massnahmen-ja",
+    "fields": {
+      "created_at": "2021-03-11T16:38:55.716Z",
+      "modified_at": "2021-03-11T16:38:55.716Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "schutzraumrelevante-massnahmen",
+      "option": "schutzraumrelevante-massnahmen-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "schutzraumrelevante-massnahmen.schutzraumrelevante-massnahmen-nein",
+    "fields": {
+      "created_at": "2021-03-11T16:38:55.708Z",
+      "modified_at": "2021-03-11T16:38:55.708Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "schutzraumrelevante-massnahmen",
+      "option": "schutzraumrelevante-massnahmen-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "seilbahnanlage-betroffen.seilbahnanlage-betroffen-ja",
+    "fields": {
+      "created_at": "2021-03-11T16:43:28.391Z",
+      "modified_at": "2021-03-11T16:43:28.391Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "seilbahnanlage-betroffen",
+      "option": "seilbahnanlage-betroffen-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "seilbahnanlage-betroffen.seilbahnanlage-betroffen-nein",
+    "fields": {
+      "created_at": "2021-03-11T16:43:28.387Z",
+      "modified_at": "2021-03-11T16:43:28.387Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "seilbahnanlage-betroffen",
+      "option": "seilbahnanlage-betroffen-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "seilbahnanlage.seilbahnanlage-personenseilbahn",
+    "fields": {
+      "created_at": "2021-03-11T16:44:20.593Z",
+      "modified_at": "2021-03-11T16:44:20.593Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "seilbahnanlage",
+      "option": "seilbahnanlage-personenseilbahn",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "seilbahnanlage.seilbahnanlage-warenseilbahn",
+    "fields": {
+      "created_at": "2021-03-11T16:44:20.586Z",
+      "modified_at": "2021-03-11T16:44:20.586Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "seilbahnanlage",
+      "option": "seilbahnanlage-warenseilbahn",
+      "sort": 1
     }
   },
   {
@@ -38585,9 +39028,9 @@
     "model": "caluma_form.questionoption",
     "pk": "stand-der-realisierung.stand-der-realisierung-realisiert",
     "fields": {
-      "created_at": "2020-10-26T10:52:53.063Z",
-      "modified_at": "2020-10-26T10:52:53.063Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-11T13:12:32.161Z",
+      "modified_at": "2021-03-11T13:12:32.161Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "stand-der-realisierung",
       "option": "stand-der-realisierung-realisiert",
@@ -38598,9 +39041,9 @@
     "model": "caluma_form.questionoption",
     "pk": "stand-der-realisierung.stand-der-realisierung-realisierung-gestartet-baustopp-verfuegt",
     "fields": {
-      "created_at": "2020-10-26T10:52:53.066Z",
-      "modified_at": "2020-10-26T10:52:53.066Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-11T13:12:32.168Z",
+      "modified_at": "2021-03-11T13:12:32.168Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "stand-der-realisierung",
       "option": "stand-der-realisierung-realisierung-gestartet-baustopp-verfuegt",
@@ -38689,8 +39132,8 @@
     "model": "caluma_form.questionoption",
     "pk": "strasse-ist-betroffen.strasse-ist-betroffen-ja",
     "fields": {
-      "created_at": "2020-11-03T16:45:44.283Z",
-      "modified_at": "2020-11-03T16:45:44.283Z",
+      "created_at": "2021-03-11T14:04:29.310Z",
+      "modified_at": "2021-03-11T14:04:29.310Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "strasse-ist-betroffen",
@@ -38702,8 +39145,8 @@
     "model": "caluma_form.questionoption",
     "pk": "strasse-ist-betroffen.strasse-ist-betroffen-nein",
     "fields": {
-      "created_at": "2020-11-03T16:45:44.276Z",
-      "modified_at": "2020-11-03T16:45:44.276Z",
+      "created_at": "2021-03-11T14:04:29.305Z",
+      "modified_at": "2021-03-11T14:04:29.305Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "strasse-ist-betroffen",
@@ -38713,41 +39156,93 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "strassentyp.oeffentliche-strasse-gemeindestrasse",
+    "pk": "strassentyp.strassentyp-mgb",
     "fields": {
-      "created_at": "2020-11-11T18:40:32.689Z",
-      "modified_at": "2020-11-11T18:40:32.689Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-11T14:09:38.315Z",
+      "modified_at": "2021-03-11T14:09:38.315Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "strassentyp",
-      "option": "oeffentliche-strasse-gemeindestrasse",
-      "sort": 2
+      "option": "strassentyp-mgb",
+      "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "strassentyp.oeffentliche-strasse-kantonsstrasse",
+    "pk": "strassentyp.strassentyp-nationalstrasse",
     "fields": {
-      "created_at": "2020-11-11T18:40:32.691Z",
-      "modified_at": "2020-11-11T18:40:32.691Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-11T14:09:38.333Z",
+      "modified_at": "2021-03-11T14:09:38.333Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "strassentyp",
-      "option": "oeffentliche-strasse-kantonsstrasse",
+      "option": "strassentyp-nationalstrasse",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "strassentyp.strassentyp-oeffentliche-strasse-gemeindestrasse",
+    "fields": {
+      "created_at": "2021-03-11T14:09:38.339Z",
+      "modified_at": "2021-03-11T14:09:38.339Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "question": "strassentyp",
+      "option": "strassentyp-oeffentliche-strasse-gemeindestrasse",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "strassentyp.strassentyp-oeffentliche-strasse-kantonsstrasse",
+    "fields": {
+      "created_at": "2021-03-11T14:09:38.342Z",
+      "modified_at": "2021-03-11T14:09:38.342Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "question": "strassentyp",
+      "option": "strassentyp-oeffentliche-strasse-kantonsstrasse",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "strassentyp.strassentyp-oeffentliche-strasse-korporationsstrasse",
+    "fields": {
+      "created_at": "2021-03-11T14:09:38.336Z",
+      "modified_at": "2021-03-11T14:09:38.336Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "question": "strassentyp",
+      "option": "strassentyp-oeffentliche-strasse-korporationsstrasse",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "strassentyp.strassentyp-sbb",
+    "fields": {
+      "created_at": "2021-03-11T14:09:38.329Z",
+      "modified_at": "2021-03-11T14:09:38.329Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "question": "strassentyp",
+      "option": "strassentyp-sbb",
       "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "strassentyp.oeffentliche-strasse-korporationsstrasse",
+    "pk": "strassentyp.strassentyp-sob",
     "fields": {
-      "created_at": "2020-11-11T18:40:32.687Z",
-      "modified_at": "2020-11-11T18:40:32.687Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-11T14:09:38.320Z",
+      "modified_at": "2021-03-11T14:09:38.320Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "strassentyp",
-      "option": "oeffentliche-strasse-korporationsstrasse",
-      "sort": 1
+      "option": "strassentyp-sob",
+      "sort": 2
     }
   },
   {
@@ -38858,8 +39353,8 @@
     "model": "caluma_form.questionoption",
     "pk": "themen-arbeitssicherheit.themen-arbeitssicherheit-arbeitnehmer",
     "fields": {
-      "created_at": "2020-11-04T12:39:33.923Z",
-      "modified_at": "2020-11-04T12:39:33.923Z",
+      "created_at": "2021-03-11T14:21:09.776Z",
+      "modified_at": "2021-03-11T14:21:09.776Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "themen-arbeitssicherheit",
@@ -38871,8 +39366,8 @@
     "model": "caluma_form.questionoption",
     "pk": "themen-arbeitssicherheit.themen-arbeitssicherheit-arbeitsraeume",
     "fields": {
-      "created_at": "2020-11-04T12:39:33.920Z",
-      "modified_at": "2020-11-04T12:39:33.920Z",
+      "created_at": "2021-03-11T14:21:09.773Z",
+      "modified_at": "2021-03-11T14:21:09.773Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "themen-arbeitssicherheit",
@@ -38884,8 +39379,8 @@
     "model": "caluma_form.questionoption",
     "pk": "themen-arbeitssicherheit.themen-arbeitssicherheit-ausgaenge",
     "fields": {
-      "created_at": "2020-11-04T12:39:33.917Z",
-      "modified_at": "2020-11-04T12:39:33.917Z",
+      "created_at": "2021-03-11T14:21:09.770Z",
+      "modified_at": "2021-03-11T14:21:09.770Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "themen-arbeitssicherheit",
@@ -38897,21 +39392,21 @@
     "model": "caluma_form.questionoption",
     "pk": "themen-arbeitssicherheit.themen-arbeitssicherheit-baukonstruktion",
     "fields": {
-      "created_at": "2020-11-04T12:39:33.879Z",
-      "modified_at": "2020-11-04T12:39:33.879Z",
+      "created_at": "2021-03-11T14:21:09.730Z",
+      "modified_at": "2021-03-11T14:21:09.730Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "themen-arbeitssicherheit",
       "option": "themen-arbeitssicherheit-baukonstruktion",
-      "sort": 5
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "themen-arbeitssicherheit.themen-arbeitssicherheit-beleuchtung",
     "fields": {
-      "created_at": "2020-11-04T12:39:33.911Z",
-      "modified_at": "2020-11-04T12:39:33.911Z",
+      "created_at": "2021-03-11T14:21:09.765Z",
+      "modified_at": "2021-03-11T14:21:09.765Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "themen-arbeitssicherheit",
@@ -38923,8 +39418,8 @@
     "model": "caluma_form.questionoption",
     "pk": "themen-arbeitssicherheit.themen-arbeitssicherheit-betriebseinrichtungen",
     "fields": {
-      "created_at": "2020-11-04T12:39:33.905Z",
-      "modified_at": "2020-11-04T12:39:33.905Z",
+      "created_at": "2021-03-11T14:21:09.758Z",
+      "modified_at": "2021-03-11T14:21:09.759Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "themen-arbeitssicherheit",
@@ -38936,21 +39431,21 @@
     "model": "caluma_form.questionoption",
     "pk": "themen-arbeitssicherheit.themen-arbeitssicherheit-druckbehaelter",
     "fields": {
-      "created_at": "2020-11-04T12:39:33.876Z",
-      "modified_at": "2020-11-04T12:39:33.876Z",
+      "created_at": "2021-03-11T14:21:09.727Z",
+      "modified_at": "2021-03-11T14:21:09.727Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "themen-arbeitssicherheit",
       "option": "themen-arbeitssicherheit-druckbehaelter",
-      "sort": 4
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "themen-arbeitssicherheit.themen-arbeitssicherheit-emissionen",
     "fields": {
-      "created_at": "2020-11-04T12:39:33.908Z",
-      "modified_at": "2020-11-04T12:39:33.908Z",
+      "created_at": "2021-03-11T14:21:09.762Z",
+      "modified_at": "2021-03-11T14:21:09.762Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "themen-arbeitssicherheit",
@@ -38962,21 +39457,21 @@
     "model": "caluma_form.questionoption",
     "pk": "themen-arbeitssicherheit.themen-arbeitssicherheit-ergonomie",
     "fields": {
-      "created_at": "2020-11-04T12:39:33.870Z",
-      "modified_at": "2020-11-04T12:39:33.870Z",
+      "created_at": "2021-03-11T14:21:09.724Z",
+      "modified_at": "2021-03-11T14:21:09.724Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "themen-arbeitssicherheit",
       "option": "themen-arbeitssicherheit-ergonomie",
-      "sort": 3
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "themen-arbeitssicherheit.themen-arbeitssicherheit-foerderanlagen",
     "fields": {
-      "created_at": "2020-11-04T12:39:33.895Z",
-      "modified_at": "2020-11-04T12:39:33.895Z",
+      "created_at": "2021-03-11T14:21:09.745Z",
+      "modified_at": "2021-03-11T14:21:09.745Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "themen-arbeitssicherheit",
@@ -38988,21 +39483,21 @@
     "model": "caluma_form.questionoption",
     "pk": "themen-arbeitssicherheit.themen-arbeitssicherheit-gase",
     "fields": {
-      "created_at": "2020-11-04T12:39:33.867Z",
-      "modified_at": "2020-11-04T12:39:33.867Z",
+      "created_at": "2021-03-11T14:21:09.720Z",
+      "modified_at": "2021-03-11T14:21:09.720Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "themen-arbeitssicherheit",
       "option": "themen-arbeitssicherheit-gase",
-      "sort": 2
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "themen-arbeitssicherheit.themen-arbeitssicherheit-gesundheitsschaedlich",
     "fields": {
-      "created_at": "2020-11-04T12:39:33.902Z",
-      "modified_at": "2020-11-04T12:39:33.902Z",
+      "created_at": "2021-03-11T14:21:09.755Z",
+      "modified_at": "2021-03-11T14:21:09.755Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "themen-arbeitssicherheit",
@@ -39014,21 +39509,21 @@
     "model": "caluma_form.questionoption",
     "pk": "themen-arbeitssicherheit.themen-arbeitssicherheit-keine",
     "fields": {
-      "created_at": "2020-11-04T12:39:33.882Z",
-      "modified_at": "2020-11-04T12:39:33.882Z",
+      "created_at": "2021-03-11T14:21:09.714Z",
+      "modified_at": "2021-03-11T14:21:09.714Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "themen-arbeitssicherheit",
       "option": "themen-arbeitssicherheit-keine",
-      "sort": 6
+      "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "themen-arbeitssicherheit.themen-arbeitssicherheit-lager",
     "fields": {
-      "created_at": "2020-11-04T12:39:33.892Z",
-      "modified_at": "2020-11-04T12:39:33.892Z",
+      "created_at": "2021-03-11T14:21:09.741Z",
+      "modified_at": "2021-03-11T14:21:09.741Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "themen-arbeitssicherheit",
@@ -39040,8 +39535,8 @@
     "model": "caluma_form.questionoption",
     "pk": "themen-arbeitssicherheit.themen-arbeitssicherheit-lueftung",
     "fields": {
-      "created_at": "2020-11-04T12:39:33.914Z",
-      "modified_at": "2020-11-04T12:39:33.914Z",
+      "created_at": "2021-03-11T14:21:09.768Z",
+      "modified_at": "2021-03-11T14:21:09.768Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "themen-arbeitssicherheit",
@@ -39053,8 +39548,8 @@
     "model": "caluma_form.questionoption",
     "pk": "themen-arbeitssicherheit.themen-arbeitssicherheit-oberflaechen",
     "fields": {
-      "created_at": "2020-11-04T12:39:33.889Z",
-      "modified_at": "2020-11-04T12:39:33.889Z",
+      "created_at": "2021-03-11T14:21:09.737Z",
+      "modified_at": "2021-03-11T14:21:09.737Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "themen-arbeitssicherheit",
@@ -39066,8 +39561,8 @@
     "model": "caluma_form.questionoption",
     "pk": "themen-arbeitssicherheit.themen-arbeitssicherheit-schweissanlagen",
     "fields": {
-      "created_at": "2020-11-04T12:39:33.898Z",
-      "modified_at": "2020-11-04T12:39:33.899Z",
+      "created_at": "2021-03-11T14:21:09.748Z",
+      "modified_at": "2021-03-11T14:21:09.748Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "themen-arbeitssicherheit",
@@ -39079,21 +39574,21 @@
     "model": "caluma_form.questionoption",
     "pk": "themen-arbeitssicherheit.themen-arbeitssicherheit-sonnenschutz",
     "fields": {
-      "created_at": "2020-11-04T12:39:33.863Z",
-      "modified_at": "2020-11-04T12:39:33.863Z",
+      "created_at": "2021-03-11T14:21:09.717Z",
+      "modified_at": "2021-03-11T14:21:09.717Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "themen-arbeitssicherheit",
       "option": "themen-arbeitssicherheit-sonnenschutz",
-      "sort": 1
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "themen-arbeitssicherheit.themen-arbeitssicherheit-sozialraeume",
     "fields": {
-      "created_at": "2020-11-04T12:39:33.885Z",
-      "modified_at": "2020-11-04T12:39:33.885Z",
+      "created_at": "2021-03-11T14:21:09.733Z",
+      "modified_at": "2021-03-11T14:21:09.733Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "themen-arbeitssicherheit",
@@ -39885,9 +40380,9 @@
     "model": "caluma_form.questionoption",
     "pk": "umbau.umbau-andere-umbauten",
     "fields": {
-      "created_at": "2020-09-23T07:13:50.376Z",
-      "modified_at": "2020-09-23T07:13:50.376Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-11T13:13:33.944Z",
+      "modified_at": "2021-03-11T13:13:33.944Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "umbau",
       "option": "umbau-andere-umbauten",
@@ -39898,9 +40393,9 @@
     "model": "caluma_form.questionoption",
     "pk": "umbau.umbau-beheizte-erweiterung",
     "fields": {
-      "created_at": "2020-09-23T07:13:50.390Z",
-      "modified_at": "2020-09-23T07:13:50.390Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-11T13:13:33.985Z",
+      "modified_at": "2021-03-11T13:13:33.985Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "umbau",
       "option": "umbau-beheizte-erweiterung",
@@ -39911,9 +40406,9 @@
     "model": "caluma_form.questionoption",
     "pk": "umbau.umbau-energetische-sanierung",
     "fields": {
-      "created_at": "2020-09-23T07:13:50.402Z",
-      "modified_at": "2020-09-23T07:13:50.402Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-11T13:13:34.003Z",
+      "modified_at": "2021-03-11T13:13:34.003Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "umbau",
       "option": "umbau-energetische-sanierung",
@@ -39924,9 +40419,9 @@
     "model": "caluma_form.questionoption",
     "pk": "umbau.umbau-nicht-beheizte-erweiterung",
     "fields": {
-      "created_at": "2020-09-23T07:13:50.386Z",
-      "modified_at": "2020-09-23T07:13:50.386Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-11T13:13:33.981Z",
+      "modified_at": "2021-03-11T13:13:33.981Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "umbau",
       "option": "umbau-nicht-beheizte-erweiterung",
@@ -39937,9 +40432,9 @@
     "model": "caluma_form.questionoption",
     "pk": "umbau.umbau-photovoltaische-solaranlage",
     "fields": {
-      "created_at": "2020-09-23T07:13:50.380Z",
-      "modified_at": "2020-09-23T07:13:50.380Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-11T13:13:33.957Z",
+      "modified_at": "2021-03-11T13:13:33.957Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "umbau",
       "option": "umbau-photovoltaische-solaranlage",
@@ -39950,9 +40445,9 @@
     "model": "caluma_form.questionoption",
     "pk": "umbau.umbau-renovationen-innenbereich",
     "fields": {
-      "created_at": "2020-09-23T07:13:50.396Z",
-      "modified_at": "2020-09-23T07:13:50.396Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-11T13:13:33.996Z",
+      "modified_at": "2021-03-11T13:13:33.996Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "umbau",
       "option": "umbau-renovationen-innenbereich",
@@ -39963,9 +40458,9 @@
     "model": "caluma_form.questionoption",
     "pk": "umbau.umbau-sanierung-des-heizsystems",
     "fields": {
-      "created_at": "2020-09-23T07:13:50.399Z",
-      "modified_at": "2020-09-23T07:13:50.399Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-11T13:13:33.999Z",
+      "modified_at": "2021-03-11T13:13:33.999Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "umbau",
       "option": "umbau-sanierung-des-heizsystems",
@@ -39976,9 +40471,9 @@
     "model": "caluma_form.questionoption",
     "pk": "umbau.umbau-thermische-solaranlage",
     "fields": {
-      "created_at": "2020-09-23T07:13:50.383Z",
-      "modified_at": "2020-09-23T07:13:50.383Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-11T13:13:33.963Z",
+      "modified_at": "2021-03-11T13:13:33.963Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "umbau",
       "option": "umbau-thermische-solaranlage",
@@ -39989,9 +40484,9 @@
     "model": "caluma_form.questionoption",
     "pk": "umbau.umbau-umnutzung",
     "fields": {
-      "created_at": "2020-09-23T07:13:50.393Z",
-      "modified_at": "2020-09-23T07:13:50.393Z",
-      "created_by_user": "admin",
+      "created_at": "2021-03-11T13:13:33.989Z",
+      "modified_at": "2021-03-11T13:13:33.989Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "umbau",
       "option": "umbau-umnutzung",
@@ -40392,8 +40887,8 @@
     "model": "caluma_form.questionoption",
     "pk": "verwendung-aushub.verwendung-aushub-ja",
     "fields": {
-      "created_at": "2020-11-04T16:13:12.678Z",
-      "modified_at": "2020-11-04T16:13:12.678Z",
+      "created_at": "2021-03-11T13:57:45.502Z",
+      "modified_at": "2021-03-11T13:57:45.502Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "verwendung-aushub",
@@ -40405,8 +40900,8 @@
     "model": "caluma_form.questionoption",
     "pk": "verwendung-aushub.verwendung-aushub-nein",
     "fields": {
-      "created_at": "2020-11-04T16:13:12.674Z",
-      "modified_at": "2020-11-04T16:13:12.674Z",
+      "created_at": "2021-03-11T13:57:45.498Z",
+      "modified_at": "2021-03-11T13:57:45.498Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "verwendung-aushub",
@@ -40418,8 +40913,8 @@
     "model": "caluma_form.questionoption",
     "pk": "verwendung-humus.verwendung-humus-ja",
     "fields": {
-      "created_at": "2020-11-07T16:39:23.391Z",
-      "modified_at": "2020-11-07T16:39:23.391Z",
+      "created_at": "2021-03-11T13:57:55.792Z",
+      "modified_at": "2021-03-11T13:57:55.792Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "verwendung-humus",
@@ -40431,8 +40926,8 @@
     "model": "caluma_form.questionoption",
     "pk": "verwendung-humus.verwendung-humus-nein",
     "fields": {
-      "created_at": "2020-11-07T16:39:23.386Z",
-      "modified_at": "2020-11-07T16:39:23.386Z",
+      "created_at": "2021-03-11T13:57:55.789Z",
+      "modified_at": "2021-03-11T13:57:55.789Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "question": "verwendung-humus",
