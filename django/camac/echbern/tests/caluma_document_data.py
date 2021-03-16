@@ -95,7 +95,6 @@ baugesuch_data = AnswersDict(
                     "strasse-vertreterin": "Teststrasse",
                     "vorname-vertreterin": "Winston",
                     "juristische-person-vertreterin": "Ja",
-                    "vorname-gesuchstellerin-vorabklaerung": "Winston",
                     "name-juristische-person-vertreterin": "Firma XY AG",
                 }
             )

@@ -209,22 +209,6 @@
   },
   {
     "model": "caluma_form.form",
-    "pk": "allgemeine-informationen-vorabklaerung",
-    "fields": {
-      "created_at": "2019-10-08T12:04:03.308Z",
-      "modified_at": "2019-10-09T08:12:08.357Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "name": "{\"de\": \"Allgemeine Informationen (Vorabkl\\u00e4rung)\", \"fr\": \"Informations g\\u00e9n\\u00e9rales (Demandes pr\\u00e9alables)\"}",
-      "description": "{\"de\": \"\", \"fr\": \"\"}",
-      "meta": {},
-      "is_published": true,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.form",
     "pk": "art-der-emmission-tabelle",
     "fields": {
       "created_at": "2019-04-09T13:59:59.993Z",
@@ -633,22 +617,6 @@
       "created_by_group": "[]",
       "name": "{\"de\": \"Freigabequittung\", \"fr\": \"D\\u00e9claration de validation\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
-      "meta": {},
-      "is_published": true,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.form",
-    "pk": "freigabequittung-vorabklaerung",
-    "fields": {
-      "created_at": "2019-10-08T12:22:45.159Z",
-      "modified_at": "2019-10-09T08:14:00.109Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "name": "{\"de\": \"Freigabequittung (Vorabkl\\u00e4rung)\", \"fr\": \"D\\u00e9claration de validation (Demandes pr\\u00e9alables)\"}",
-      "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {},
       "is_published": true,
       "is_archived": false,
@@ -4112,253 +4080,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "allgemeine-informationen-vorabklaerung.anfrage-zur-vorabklaerung",
-    "fields": {
-      "created_at": "2019-09-25T10:19:39.072Z",
-      "modified_at": "2019-09-25T10:19:39.072Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "allgemeine-informationen-vorabklaerung",
-      "question": "anfrage-zur-vorabklaerung",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "allgemeine-informationen-vorabklaerung.be-gid",
-    "fields": {
-      "created_at": "2019-09-25T10:19:37.742Z",
-      "modified_at": "2019-09-25T10:19:37.742Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "allgemeine-informationen-vorabklaerung",
-      "question": "be-gid",
-      "sort": 7
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "allgemeine-informationen-vorabklaerung.bestaetigung-gis",
-    "fields": {
-      "created_at": "2019-12-16T16:28:26.501Z",
-      "modified_at": "2019-12-16T16:28:26.501Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "allgemeine-informationen-vorabklaerung",
-      "question": "bestaetigung-gis",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "allgemeine-informationen-vorabklaerung.e-grid-nr",
-    "fields": {
-      "created_at": "2019-09-25T10:19:38.374Z",
-      "modified_at": "2019-09-25T10:19:38.374Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "allgemeine-informationen-vorabklaerung",
-      "question": "e-grid-nr",
-      "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "allgemeine-informationen-vorabklaerung.gemeinde",
-    "fields": {
-      "created_at": "2019-09-25T10:19:35.817Z",
-      "modified_at": "2019-09-25T10:19:35.817Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "allgemeine-informationen-vorabklaerung",
-      "question": "gemeinde",
-      "sort": 13
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "allgemeine-informationen-vorabklaerung.gwr-egid",
-    "fields": {
-      "created_at": "2019-09-25T10:19:38.102Z",
-      "modified_at": "2019-09-25T10:19:38.102Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "allgemeine-informationen-vorabklaerung",
-      "question": "gwr-egid",
-      "sort": 6
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "allgemeine-informationen-vorabklaerung.is-paper",
-    "fields": {
-      "created_at": "2020-01-14T07:42:46.726Z",
-      "modified_at": "2020-01-14T07:42:46.726Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "allgemeine-informationen-vorabklaerung",
-      "question": "is-paper",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "allgemeine-informationen-vorabklaerung.karte-einfache-vorabklaerung",
-    "fields": {
-      "created_at": "2019-09-25T10:19:36.100Z",
-      "modified_at": "2019-09-25T10:19:36.100Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "allgemeine-informationen-vorabklaerung",
-      "question": "karte-einfache-vorabklaerung",
-      "sort": 12
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "allgemeine-informationen-vorabklaerung.lagekoordinaten-nord-einfache-vorabklaerung",
-    "fields": {
-      "created_at": "2019-09-25T10:19:36.543Z",
-      "modified_at": "2019-09-25T10:19:36.543Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "allgemeine-informationen-vorabklaerung",
-      "question": "lagekoordinaten-nord-einfache-vorabklaerung",
-      "sort": 10
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "allgemeine-informationen-vorabklaerung.lagekoordinaten-ost-einfache-vorabklaerung",
-    "fields": {
-      "created_at": "2019-09-25T10:19:36.293Z",
-      "modified_at": "2019-09-25T10:19:36.293Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "allgemeine-informationen-vorabklaerung",
-      "question": "lagekoordinaten-ost-einfache-vorabklaerung",
-      "sort": 11
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "allgemeine-informationen-vorabklaerung.liegenschaftsnummer",
-    "fields": {
-      "created_at": "2019-09-25T10:19:37.134Z",
-      "modified_at": "2019-09-25T10:19:37.134Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "allgemeine-informationen-vorabklaerung",
-      "question": "liegenschaftsnummer",
-      "sort": 8
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "allgemeine-informationen-vorabklaerung.name-gesuchstellerin-vorabklaerung",
-    "fields": {
-      "created_at": "2019-09-25T10:19:34.863Z",
-      "modified_at": "2019-09-25T10:19:34.863Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "allgemeine-informationen-vorabklaerung",
-      "question": "name-gesuchstellerin-vorabklaerung",
-      "sort": 19
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "allgemeine-informationen-vorabklaerung.nummer-gesuchstellerin",
-    "fields": {
-      "created_at": "2019-09-25T10:19:35.227Z",
-      "modified_at": "2019-09-25T10:19:35.227Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "allgemeine-informationen-vorabklaerung",
-      "question": "nummer-gesuchstellerin",
-      "sort": 16
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "allgemeine-informationen-vorabklaerung.ort-gesuchstellerin",
-    "fields": {
-      "created_at": "2019-09-25T10:19:35.519Z",
-      "modified_at": "2019-09-25T10:19:35.519Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "allgemeine-informationen-vorabklaerung",
-      "question": "ort-gesuchstellerin",
-      "sort": 14
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "allgemeine-informationen-vorabklaerung.parzellennummer",
-    "fields": {
-      "created_at": "2019-09-25T10:19:36.957Z",
-      "modified_at": "2019-09-25T10:19:36.957Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "allgemeine-informationen-vorabklaerung",
-      "question": "parzellennummer",
-      "sort": 9
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "allgemeine-informationen-vorabklaerung.plz-gesuchstellerin",
-    "fields": {
-      "created_at": "2019-09-25T10:19:35.392Z",
-      "modified_at": "2019-09-25T10:19:35.392Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "allgemeine-informationen-vorabklaerung",
-      "question": "plz-gesuchstellerin",
-      "sort": 15
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "allgemeine-informationen-vorabklaerung.projektaenderung",
-    "fields": {
-      "created_at": "2020-03-03T13:46:34.022Z",
-      "modified_at": "2020-03-03T13:46:34.022Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "allgemeine-informationen-vorabklaerung",
-      "question": "projektaenderung",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "allgemeine-informationen-vorabklaerung.strasse-gesuchstellerin",
-    "fields": {
-      "created_at": "2019-09-25T10:19:35.208Z",
-      "modified_at": "2019-09-25T10:19:35.208Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "allgemeine-informationen-vorabklaerung",
-      "question": "strasse-gesuchstellerin",
-      "sort": 17
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "allgemeine-informationen-vorabklaerung.vorname-gesuchstellerin-vorabklaerung",
-    "fields": {
-      "created_at": "2019-09-25T10:19:34.986Z",
-      "modified_at": "2019-09-25T10:19:34.986Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "allgemeine-informationen-vorabklaerung",
-      "question": "vorname-gesuchstellerin-vorabklaerung",
-      "sort": 18
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "art-der-emmission-tabelle.abluftentreinigungsanlage-beinhaltet",
     "fields": {
       "created_at": "2019-09-25T10:19:37.735Z",
@@ -6682,45 +6403,6 @@
       "form": "freigabequittung-sb2",
       "question": "is-paper",
       "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "freigabequittung-vorabklaerung.einreichen-button",
-    "fields": {
-      "created_at": "2019-10-08T12:23:57.387Z",
-      "modified_at": "2019-10-08T12:23:57.387Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "freigabequittung-vorabklaerung",
-      "question": "einreichen-button",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "freigabequittung-vorabklaerung.formulardownload-pdf",
-    "fields": {
-      "created_at": "2019-10-08T12:23:47.541Z",
-      "modified_at": "2019-10-08T12:23:47.541Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "freigabequittung-vorabklaerung",
-      "question": "formulardownload-pdf",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "freigabequittung-vorabklaerung.freigabequittung-bemerkungen",
-    "fields": {
-      "created_at": "2020-12-07T08:23:17.461Z",
-      "modified_at": "2020-12-07T08:23:17.461Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "freigabequittung-vorabklaerung",
-      "question": "freigabequittung-bemerkungen",
-      "sort": 3
     }
   },
   {
@@ -24370,34 +24052,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "allgemeine-informationen-vorabklaerung-form",
-    "fields": {
-      "created_at": "2019-10-08T12:08:59.209Z",
-      "modified_at": "2019-10-09T08:15:30.576Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "label": "{\"de\": \"Allgemeine Informationen\", \"fr\": \"Informations g\\u00e9n\\u00e9rales\"}",
-      "type": "form",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": \"\"}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": "allgemeine-informationen-vorabklaerung",
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "amts-fachstelle",
     "fields": {
       "created_at": "2019-05-05T13:01:55.868Z",
@@ -24479,37 +24133,6 @@
         "hideLabel": true,
         "widgetOverride": null
       },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "anfrage-zur-vorabklaerung",
-    "fields": {
-      "created_at": "2019-04-11T08:26:02.789Z",
-      "modified_at": "2020-10-07T13:33:56.537Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": "[]",
-      "label": "{\"de\": \"Anfrage\", \"fr\": \"Question sur la demande pr\\u00e9alable\"}",
-      "type": "textarea",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {
-        "max_length": 1000,
-        "min_length": null
-      },
-      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -31695,34 +31318,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "freigabequittung-vorabklaerung-form",
-    "fields": {
-      "created_at": "2019-10-08T12:25:38.165Z",
-      "modified_at": "2019-10-09T08:16:03.459Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "label": "{\"de\": \"Einreichen\", \"fr\": \"Envoyer\"}",
-      "type": "form",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": \"\"}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": "freigabequittung-vorabklaerung",
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "fruchtfolgeflaeche-ausgeschieden",
     "fields": {
       "created_at": "2019-04-01T11:44:38.606Z",
@@ -35069,38 +34664,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "karte-einfache-vorabklaerung",
-    "fields": {
-      "created_at": "2019-05-05T11:33:50.822Z",
-      "modified_at": "2019-05-05T11:34:57.358Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "label": "{\"de\": \"Karte\", \"fr\": \"Carte\"}",
-      "type": "text",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {
-        "max_length": null
-      },
-      "meta": {
-        "widgetOverride": "be-gis"
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "keine-tangierung-natur-wild-vogelschutz",
     "fields": {
       "created_at": "2019-04-10T12:01:54.598Z",
@@ -35733,39 +35296,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "lagekoordinaten-nord-einfache-vorabklaerung",
-    "fields": {
-      "created_at": "2019-05-09T10:46:01.220Z",
-      "modified_at": "2020-01-14T15:06:51.592Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "label": "{\"de\": \"Lagekoordinaten \\u2013 Nord\", \"fr\": \"Coordonn\\u00e9es planim\\u00e9triques \\u2013 Nord\"}",
-      "type": "float",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null}",
-      "info_text": "{\"de\": \"[Nach Landesvermessung LV95](https://www.lv95.bve.be.ch/lv95_bve/de/index/navi/index.html)\", \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {
-        "max_value": 1300000.999,
-        "min_value": 1070000.0
-      },
-      "meta": {
-        "widgetOverride": null
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "lagekoordinaten-ost",
     "fields": {
       "created_at": "2019-03-28T14:14:04.276Z",
@@ -35785,39 +35315,6 @@
         "min_value": 2480000.0
       },
       "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "lagekoordinaten-ost-einfache-vorabklaerung",
-    "fields": {
-      "created_at": "2019-05-09T10:43:28.861Z",
-      "modified_at": "2020-01-14T15:06:44.650Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "label": "{\"de\": \"Lagekoordinaten - Ost\", \"fr\": \"Coordonn\\u00e9es planim\\u00e9triques - Est\"}",
-      "type": "float",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null}",
-      "info_text": "{\"de\": \"[Nach Landesvermessung LV95](https://www.lv95.bve.be.ch/lv95_bve/de/index/navi/index.html)\", \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {
-        "max_value": 2840000.999,
-        "min_value": 2480000.0
-      },
-      "meta": {
-        "widgetOverride": null
-      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -37350,36 +36847,6 @@
       "meta": {
         "widgetOverride": null
       },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "name-gesuchstellerin-vorabklaerung",
-    "fields": {
-      "created_at": "2019-04-11T12:34:23.414Z",
-      "modified_at": "2020-01-14T14:02:31.219Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": "[]",
-      "label": "{\"de\": \"Name\", \"fr\": \"Nom\"}",
-      "type": "text",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {
-        "max_length": 30
-      },
-      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -45821,36 +45288,6 @@
       "meta": {
         "widgetOverride": null
       },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "vorname-gesuchstellerin-vorabklaerung",
-    "fields": {
-      "created_at": "2019-04-11T12:35:41.821Z",
-      "modified_at": "2020-01-14T14:02:36.092Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": "[]",
-      "label": "{\"de\": \"Vorname\", \"fr\": \"Pr\\u00e9nom\"}",
-      "type": "text",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {
-        "max_length": 30
-      },
-      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
