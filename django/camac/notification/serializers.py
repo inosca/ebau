@@ -90,6 +90,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     billing_entries = BillingEntryMergeSerializer(many=True)
     answer_period_date = serializers.SerializerMethodField()
     publication_date = serializers.SerializerMethodField()
+    publications = serializers.SerializerMethodField()
     instance_id = serializers.IntegerField()
     public_dossier_link = serializers.SerializerMethodField()
     internal_dossier_link = serializers.SerializerMethodField()
@@ -225,6 +226,24 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             and publication_entry.publication_date.strftime(settings.MERGE_DATE_FORMAT)
             or ""
         )
+
+    def get_publications(self, instance):
+        publications = []
+
+        for publication in instance.publication_entries.filter(is_published=1).order_by(
+            "publication_date"
+        ):
+            publications.append(
+                {
+                    "description": publication.text,
+                    "date": publication.publication_date.strftime(
+                        settings.MERGE_DATE_FORMAT
+                    ),
+                    "calendar_week": publication.publication_date.isocalendar()[1],
+                }
+            )
+
+        return publications
 
     def get_leitbehoerde_name(self, instance):
         """Return current active service of the instance."""
@@ -432,6 +451,8 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             elif field.name in settings.APPLICATION.get("QUESTIONS_WITH_OVERRIDE", []):
                 override = instance.fields.filter(name=f"{field.name}-override").first()
                 value = override.value if override else value
+            elif field.name == settings.APPLICATION.get("LOCATION_NAME_QUESTION", ""):
+                ret["field_standort_adresse"] = value
 
             ret[name] = value
 
