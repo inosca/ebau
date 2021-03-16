@@ -10,7 +10,6 @@
       @label={{t "gis.apply-button"}}
       @on-click={{this.applySelection}}
       @loading={{or
-        this.populateFields.isRunning
         this.populateTable.isRunning
         this.fetchAdditionalData.isRunning
       }}
