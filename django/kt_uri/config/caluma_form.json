@@ -52,11 +52,11 @@
     "pk": "building-permit",
     "fields": {
       "created_at": "2020-07-12T10:28:29.091Z",
-      "modified_at": "2020-12-07T15:25:40.489Z",
+      "modified_at": "2021-03-16T07:53:33.705Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
-      "description": "{\"de\": \"Baugesuch\", \"fr\": null}",
+      "name": "{\"de\": \"Baugesuch\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
         "is-main-form": true
       },
@@ -70,11 +70,11 @@
     "pk": "bundesverfahren",
     "fields": {
       "created_at": "2020-12-16T08:46:46.321Z",
-      "modified_at": "2020-12-16T21:58:53.693Z",
+      "modified_at": "2021-03-16T08:37:45.744Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
-      "description": "{\"de\": \"Bundesverfahren\", \"fr\": null}",
+      "name": "{\"de\": \"Bundesverfahren\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
       "is_published": true,
       "is_archived": false,
@@ -86,11 +86,11 @@
     "pk": "cantonal-territory-usage",
     "fields": {
       "created_at": "2020-12-07T15:47:19.320Z",
-      "modified_at": "2020-12-07T15:47:19.320Z",
+      "modified_at": "2021-03-16T08:32:56.602Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
-      "description": "{\"de\": \"Ben\\u00fctzung Kantonsgebiet\", \"fr\": null}",
+      "name": "{\"de\": \"Ben\\u00fctzung Kantonsgebiet\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
       "is_published": true,
       "is_archived": false,
@@ -102,11 +102,11 @@
     "pk": "commercial-permit",
     "fields": {
       "created_at": "2020-12-07T15:26:27.259Z",
-      "modified_at": "2020-12-07T15:26:27.259Z",
+      "modified_at": "2021-03-16T08:35:42.134Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
-      "description": "{\"de\": \"Reklamegesuch\", \"fr\": null}",
+      "name": "{\"de\": \"Reklamegesuch\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
       "is_published": true,
       "is_archived": false,
@@ -243,6 +243,166 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "info-building-permit",
+    "fields": {
+      "created_at": "2021-03-16T07:54:12.746Z",
+      "modified_at": "2021-03-16T07:54:12.746Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
+      "description": "{\"de\": \"Baugesuch\", \"fr\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "info-bundesverfahren",
+    "fields": {
+      "created_at": "2021-03-16T08:37:04.025Z",
+      "modified_at": "2021-03-16T08:37:04.025Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
+      "description": "{\"de\": \"Bundesverfahren\", \"fr\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "info-cantonal-territory-usage",
+    "fields": {
+      "created_at": "2021-03-16T08:31:56.625Z",
+      "modified_at": "2021-03-16T08:31:56.625Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
+      "description": "{\"de\": \"Ben\\u00fctzung Kantonsgebiet\", \"fr\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "info-commercial-permit",
+    "fields": {
+      "created_at": "2021-03-16T08:35:05.303Z",
+      "modified_at": "2021-03-16T08:35:05.303Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
+      "description": "{\"de\": \"Reklamegesuch\", \"fr\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "info-mitbericht-bund",
+    "fields": {
+      "created_at": "2021-03-16T08:25:09.886Z",
+      "modified_at": "2021-03-16T08:25:09.886Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
+      "description": "{\"de\": \"Mitberichtsverfahren Bund\", \"fr\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "info-mitbericht-kanton",
+    "fields": {
+      "created_at": "2021-03-16T08:17:18.468Z",
+      "modified_at": "2021-03-16T08:17:18.468Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
+      "description": "{\"de\": \"Mitberichtsverfahren Kanton\", \"fr\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "info-oereb",
+    "fields": {
+      "created_at": "2021-03-16T08:29:34.990Z",
+      "modified_at": "2021-03-16T08:29:34.990Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
+      "description": "{\"de\": \"\\u00d6REB Verfahren\", \"fr\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "info-preliminary-clarification",
+    "fields": {
+      "created_at": "2021-03-16T08:12:05.053Z",
+      "modified_at": "2021-03-16T08:12:05.053Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
+      "description": "{\"de\": \"Baugesuch-Vorabkl\\u00e4rung\", \"fr\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "info-proposal-declaration",
+    "fields": {
+      "created_at": "2021-03-16T08:19:42.332Z",
+      "modified_at": "2021-03-16T08:19:42.332Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
+      "description": "{\"de\": \"Meldung Vorhaben\", \"fr\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "info-solar-declaration",
+    "fields": {
+      "created_at": "2021-03-16T08:27:17.898Z",
+      "modified_at": "2021-03-16T08:27:17.898Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
+      "description": "{\"de\": \"Meldung Solaranlage\", \"fr\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "landschaft-ortsbild",
     "fields": {
       "created_at": "2020-11-04T07:36:07.625Z",
@@ -326,11 +486,11 @@
     "pk": "mitbericht-bund",
     "fields": {
       "created_at": "2020-12-07T15:59:04.442Z",
-      "modified_at": "2020-12-09T13:57:50.746Z",
+      "modified_at": "2021-03-16T08:26:35.197Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
-      "description": "{\"de\": \"Mitberichtsverfahren Bund\", \"fr\": null}",
+      "name": "{\"de\": \"Mitberichtsverfahren Bund\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
       "is_published": true,
       "is_archived": false,
@@ -342,11 +502,11 @@
     "pk": "mitbericht-kanton",
     "fields": {
       "created_at": "2020-11-24T14:43:40.475Z",
-      "modified_at": "2020-12-09T13:58:22.690Z",
+      "modified_at": "2021-03-16T08:23:00.263Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
-      "description": "{\"de\": \"Mitberichtsverfahren Kanton\", \"fr\": null}",
+      "name": "{\"de\": \"Mitberichtsverfahren Kanton\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
       "is_published": true,
       "is_archived": false,
@@ -390,11 +550,11 @@
     "pk": "oereb",
     "fields": {
       "created_at": "2020-12-07T15:52:09.095Z",
-      "modified_at": "2020-12-07T15:52:09.095Z",
+      "modified_at": "2021-03-16T08:31:04.969Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
-      "description": "{\"de\": \"\\u00d6REB Verfahren\", \"fr\": null}",
+      "name": "{\"de\": \"\\u00d6REB Verfahren\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
       "is_published": true,
       "is_archived": false,
@@ -486,11 +646,11 @@
     "pk": "preliminary-clarification",
     "fields": {
       "created_at": "2020-12-07T15:08:05.985Z",
-      "modified_at": "2020-12-07T15:08:05.985Z",
+      "modified_at": "2021-03-16T08:15:12.142Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
-      "description": "{\"de\": \"Baugesuch-Vorabkl\\u00e4rung\", \"fr\": null}",
+      "name": "{\"de\": \"Baugesuch-Vorabkl\\u00e4rung\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
       "is_published": true,
       "is_archived": false,
@@ -518,11 +678,11 @@
     "pk": "proposal-declaration",
     "fields": {
       "created_at": "2020-12-07T15:43:03.602Z",
-      "modified_at": "2020-12-07T15:43:03.602Z",
+      "modified_at": "2021-03-16T08:22:21.614Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
-      "description": "{\"de\": \"Meldung Vorhaben\", \"fr\": null}",
+      "name": "{\"de\": \"Meldung Vorhaben\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
       "is_published": true,
       "is_archived": false,
@@ -566,11 +726,11 @@
     "pk": "solar-declaration",
     "fields": {
       "created_at": "2020-12-07T15:38:43.488Z",
-      "modified_at": "2020-12-07T15:38:43.488Z",
+      "modified_at": "2021-03-16T08:28:40.997Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
-      "description": "{\"de\": \"Meldung Solaranlage\", \"fr\": null}",
+      "name": "{\"de\": \"Meldung Solaranlage\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
       "is_published": true,
       "is_archived": false,
@@ -2253,15 +2413,15 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "building-permit.anleitung-zum-ausfuellen-der-formulare",
+    "pk": "building-permit.allgemeine-informationen-baugesuch",
     "fields": {
-      "created_at": "2020-10-30T17:44:41.013Z",
-      "modified_at": "2020-10-30T17:44:41.013Z",
+      "created_at": "2021-03-16T07:58:00.049Z",
+      "modified_at": "2021-03-16T07:58:00.049Z",
       "created_by_user": null,
       "created_by_group": null,
       "form": "building-permit",
-      "question": "anleitung-zum-ausfuellen-der-formulare",
-      "sort": 16
+      "question": "allgemeine-informationen-baugesuch",
+      "sort": 8
     }
   },
   {
@@ -2274,7 +2434,7 @@
       "created_by_group": null,
       "form": "building-permit",
       "question": "einreichen",
-      "sort": 7
+      "sort": 1
     }
   },
   {
@@ -2287,20 +2447,7 @@
       "created_by_group": null,
       "form": "building-permit",
       "question": "fachthemen",
-      "sort": 8
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "building-permit.form-type",
-    "fields": {
-      "created_at": "2020-09-01T14:52:15.436Z",
-      "modified_at": "2020-09-01T14:52:15.436Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "building-permit",
-      "question": "form-type",
-      "sort": 10
+      "sort": 2
     }
   },
   {
@@ -2313,46 +2460,7 @@
       "created_by_group": null,
       "form": "building-permit",
       "question": "generelle-fachthemen",
-      "sort": 9
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "building-permit.impressum",
-    "fields": {
-      "created_at": "2020-11-13T09:27:33.777Z",
-      "modified_at": "2020-11-13T09:27:33.777Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "building-permit",
-      "question": "impressum",
-      "sort": 15
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "building-permit.is-paper",
-    "fields": {
-      "created_at": "2020-07-12T11:32:00.766Z",
-      "modified_at": "2020-07-12T11:32:00.766Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "building-permit",
-      "question": "is-paper",
-      "sort": 17
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "building-permit.leitbehoerde",
-    "fields": {
-      "created_at": "2020-07-12T10:30:37.956Z",
-      "modified_at": "2020-07-12T10:30:37.956Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "building-permit",
-      "question": "leitbehoerde",
-      "sort": 14
+      "sort": 3
     }
   },
   {
@@ -2365,7 +2473,7 @@
       "created_by_group": null,
       "form": "building-permit",
       "question": "lokalisierung",
-      "sort": 13
+      "sort": 7
     }
   },
   {
@@ -2378,7 +2486,7 @@
       "created_by_group": null,
       "form": "building-permit",
       "question": "personalien",
-      "sort": 12
+      "sort": 6
     }
   },
   {
@@ -2391,59 +2499,20 @@
       "created_by_group": null,
       "form": "building-permit",
       "question": "projektdaten",
-      "sort": 11
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "bundesverfahren.allgemeine-informationen-zu-bundesverfahren",
-    "fields": {
-      "created_at": "2020-12-17T14:51:06.754Z",
-      "modified_at": "2020-12-17T14:51:06.754Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "bundesverfahren",
-      "question": "allgemeine-informationen-zu-bundesverfahren",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "bundesverfahren.form-type",
-    "fields": {
-      "created_at": "2020-12-16T08:47:40.496Z",
-      "modified_at": "2020-12-16T08:47:40.496Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "bundesverfahren",
-      "question": "form-type",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "bundesverfahren.is-paper",
-    "fields": {
-      "created_at": "2020-12-16T08:47:03.854Z",
-      "modified_at": "2020-12-16T08:47:03.854Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "bundesverfahren",
-      "question": "is-paper",
-      "sort": 6
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "bundesverfahren.leitbehoerde",
-    "fields": {
-      "created_at": "2020-12-16T08:47:11.240Z",
-      "modified_at": "2020-12-16T08:47:11.240Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "bundesverfahren",
-      "question": "leitbehoerde",
       "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bundesverfahren.allgemeine-informationen-bundesverfahren",
+    "fields": {
+      "created_at": "2021-03-16T08:38:10.720Z",
+      "modified_at": "2021-03-16T08:38:10.720Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "bundesverfahren",
+      "question": "allgemeine-informationen-bundesverfahren",
+      "sort": 3
     }
   },
   {
@@ -2456,7 +2525,7 @@
       "created_by_group": null,
       "form": "bundesverfahren",
       "question": "lokalisierung",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -2469,20 +2538,20 @@
       "created_by_group": null,
       "form": "bundesverfahren",
       "question": "personalien",
-      "sort": 2
+      "sort": 1
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "cantonal-territory-usage.allgemeine-informationen-benuetzung-kantonsgebiet",
+    "pk": "cantonal-territory-usage.allgemeine-informationen-cantonal-territory-usage",
     "fields": {
-      "created_at": "2020-12-15T11:06:41.614Z",
-      "modified_at": "2020-12-15T11:06:41.615Z",
+      "created_at": "2021-03-16T08:33:43.696Z",
+      "modified_at": "2021-03-16T08:33:43.696Z",
       "created_by_user": null,
       "created_by_group": null,
       "form": "cantonal-territory-usage",
-      "question": "allgemeine-informationen-benuetzung-kantonsgebiet",
-      "sort": 6
+      "question": "allgemeine-informationen-cantonal-territory-usage",
+      "sort": 5
     }
   },
   {
@@ -2495,46 +2564,7 @@
       "created_by_group": null,
       "form": "cantonal-territory-usage",
       "question": "einreichen",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "cantonal-territory-usage.form-type",
-    "fields": {
-      "created_at": "2020-12-10T10:36:32.672Z",
-      "modified_at": "2020-12-10T10:36:32.672Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "cantonal-territory-usage",
-      "question": "form-type",
       "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "cantonal-territory-usage.is-paper",
-    "fields": {
-      "created_at": "2020-12-07T15:47:29.771Z",
-      "modified_at": "2020-12-07T15:47:29.771Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "cantonal-territory-usage",
-      "question": "is-paper",
-      "sort": 8
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "cantonal-territory-usage.leitbehoerde",
-    "fields": {
-      "created_at": "2020-12-07T15:48:07.749Z",
-      "modified_at": "2020-12-07T15:48:07.749Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "cantonal-territory-usage",
-      "question": "leitbehoerde",
-      "sort": 7
     }
   },
   {
@@ -2547,7 +2577,7 @@
       "created_by_group": null,
       "form": "cantonal-territory-usage",
       "question": "lokalisierung",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -2560,7 +2590,7 @@
       "created_by_group": null,
       "form": "cantonal-territory-usage",
       "question": "personalien",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -2573,20 +2603,20 @@
       "created_by_group": null,
       "form": "cantonal-territory-usage",
       "question": "veranstaltung-form",
-      "sort": 5
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "commercial-permit.allgemeine-informationen-reklame",
+    "pk": "commercial-permit.allgemeine-informationen-reklamegesuch",
     "fields": {
-      "created_at": "2020-12-10T10:39:32.780Z",
-      "modified_at": "2020-12-10T10:39:32.781Z",
+      "created_at": "2021-03-16T08:36:23.438Z",
+      "modified_at": "2021-03-16T08:36:23.438Z",
       "created_by_user": null,
       "created_by_group": null,
       "form": "commercial-permit",
-      "question": "allgemeine-informationen-reklame",
-      "sort": 6
+      "question": "allgemeine-informationen-reklamegesuch",
+      "sort": 5
     }
   },
   {
@@ -2600,45 +2630,6 @@
       "form": "commercial-permit",
       "question": "einreichen",
       "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "commercial-permit.form-type",
-    "fields": {
-      "created_at": "2020-12-10T10:23:31.755Z",
-      "modified_at": "2020-12-10T10:23:31.756Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "commercial-permit",
-      "question": "form-type",
-      "sort": 7
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "commercial-permit.is-paper",
-    "fields": {
-      "created_at": "2020-12-07T15:26:36.412Z",
-      "modified_at": "2020-12-07T15:26:36.412Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "commercial-permit",
-      "question": "is-paper",
-      "sort": 8
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "commercial-permit.leitbehoerde",
-    "fields": {
-      "created_at": "2020-12-07T15:48:27.696Z",
-      "modified_at": "2020-12-07T15:48:27.696Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "commercial-permit",
-      "question": "leitbehoerde",
-      "sort": 5
     }
   },
   {
@@ -3696,6 +3687,162 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "info-building-permit.anleitung-zum-ausfuellen-der-formulare",
+    "fields": {
+      "created_at": "2021-03-16T07:55:06.896Z",
+      "modified_at": "2021-03-16T07:55:06.896Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "info-building-permit",
+      "question": "anleitung-zum-ausfuellen-der-formulare",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "info-building-permit.impressum",
+    "fields": {
+      "created_at": "2021-03-16T07:55:26.796Z",
+      "modified_at": "2021-03-16T07:55:26.796Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "info-building-permit",
+      "question": "impressum",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "info-bundesverfahren.allgemeine-informationen-zu-bundesverfahren",
+    "fields": {
+      "created_at": "2021-03-16T08:37:19.412Z",
+      "modified_at": "2021-03-16T08:37:19.412Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "info-bundesverfahren",
+      "question": "allgemeine-informationen-zu-bundesverfahren",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "info-cantonal-territory-usage.allgemeine-informationen-benuetzung-kantonsgebiet",
+    "fields": {
+      "created_at": "2021-03-16T08:32:28.810Z",
+      "modified_at": "2021-03-16T08:32:28.810Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "info-cantonal-territory-usage",
+      "question": "allgemeine-informationen-benuetzung-kantonsgebiet",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "info-commercial-permit.allgemeine-informationen-reklame",
+    "fields": {
+      "created_at": "2021-03-16T08:35:18.729Z",
+      "modified_at": "2021-03-16T08:35:18.729Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "info-commercial-permit",
+      "question": "allgemeine-informationen-reklame",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "info-mitbericht-bund.allgemeine-informationen-zu-bundesverfahren",
+    "fields": {
+      "created_at": "2021-03-16T08:25:25.319Z",
+      "modified_at": "2021-03-16T08:25:25.319Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "info-mitbericht-bund",
+      "question": "allgemeine-informationen-zu-bundesverfahren",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "info-mitbericht-kanton.info-mbv-kanton",
+    "fields": {
+      "created_at": "2021-03-16T08:17:39.202Z",
+      "modified_at": "2021-03-16T08:17:39.202Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "info-mitbericht-kanton",
+      "question": "info-mbv-kanton",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "info-oereb.allgemeine-informationen-oereb-verfahren",
+    "fields": {
+      "created_at": "2021-03-16T08:29:48.342Z",
+      "modified_at": "2021-03-16T08:29:48.342Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "info-oereb",
+      "question": "allgemeine-informationen-oereb-verfahren",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "info-preliminary-clarification.anleitung-zum-ausfuellen-der-formulare",
+    "fields": {
+      "created_at": "2021-03-16T08:15:43.044Z",
+      "modified_at": "2021-03-16T08:15:43.044Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "info-preliminary-clarification",
+      "question": "anleitung-zum-ausfuellen-der-formulare",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "info-preliminary-clarification.impressum",
+    "fields": {
+      "created_at": "2021-03-16T08:16:02.122Z",
+      "modified_at": "2021-03-16T08:16:02.122Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "info-preliminary-clarification",
+      "question": "impressum",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "info-proposal-declaration.allgemeine-informationen-meldung-vorhaben",
+    "fields": {
+      "created_at": "2021-03-16T08:20:02.107Z",
+      "modified_at": "2021-03-16T08:20:02.107Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "info-proposal-declaration",
+      "question": "allgemeine-informationen-meldung-vorhaben",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "info-solar-declaration.allgemeine-informationen-solaranlage",
+    "fields": {
+      "created_at": "2021-03-16T08:27:34.474Z",
+      "modified_at": "2021-03-16T08:27:34.474Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "info-solar-declaration",
+      "question": "allgemeine-informationen-solaranlage",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "landschaft-ortsbild.artenschutz",
     "fields": {
       "created_at": "2020-11-24T11:01:36.338Z",
@@ -4294,54 +4441,15 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "mitbericht-bund.allgemeine-informationen-zu-bundesverfahren",
+    "pk": "mitbericht-bund.allgemeine-informationen-mitberichtsverfahren-bund",
     "fields": {
-      "created_at": "2021-02-09T13:21:10.401Z",
-      "modified_at": "2021-02-09T13:21:10.401Z",
+      "created_at": "2021-03-16T08:26:24.400Z",
+      "modified_at": "2021-03-16T08:26:24.400Z",
       "created_by_user": null,
       "created_by_group": null,
       "form": "mitbericht-bund",
-      "question": "allgemeine-informationen-zu-bundesverfahren",
-      "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "mitbericht-bund.form-type",
-    "fields": {
-      "created_at": "2020-12-10T10:36:44.938Z",
-      "modified_at": "2020-12-10T10:36:44.938Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "mitbericht-bund",
-      "question": "form-type",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "mitbericht-bund.is-paper",
-    "fields": {
-      "created_at": "2020-12-07T15:59:12.215Z",
-      "modified_at": "2020-12-07T15:59:12.215Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "mitbericht-bund",
-      "question": "is-paper",
-      "sort": 7
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "mitbericht-bund.leitbehoerde",
-    "fields": {
-      "created_at": "2020-12-07T15:59:16.837Z",
-      "modified_at": "2020-12-07T15:59:16.837Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "mitbericht-bund",
-      "question": "leitbehoerde",
-      "sort": 6
+      "question": "allgemeine-informationen-mitberichtsverfahren-bund",
+      "sort": 4
     }
   },
   {
@@ -4354,7 +4462,7 @@
       "created_by_group": null,
       "form": "mitbericht-bund",
       "question": "lokalisierung",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -4367,7 +4475,7 @@
       "created_by_group": null,
       "form": "mitbericht-bund",
       "question": "mitberichtsverfahren-bund",
-      "sort": 2
+      "sort": 1
     }
   },
   {
@@ -4380,33 +4488,20 @@
       "created_by_group": null,
       "form": "mitbericht-bund",
       "question": "personalien",
-      "sort": 3
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "mitbericht-kanton.form-type",
+    "pk": "mitbericht-kanton.allgemeine-informationen-mitbericht-kanton",
     "fields": {
-      "created_at": "2020-12-10T10:37:01.234Z",
-      "modified_at": "2020-12-10T10:37:01.234Z",
+      "created_at": "2021-03-16T08:18:35.698Z",
+      "modified_at": "2021-03-16T08:18:35.698Z",
       "created_by_user": null,
       "created_by_group": null,
       "form": "mitbericht-kanton",
-      "question": "form-type",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "mitbericht-kanton.info-mbv-kanton",
-    "fields": {
-      "created_at": "2020-12-09T14:37:54.298Z",
-      "modified_at": "2020-12-09T14:37:54.299Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "mitbericht-kanton",
-      "question": "info-mbv-kanton",
-      "sort": 5
+      "question": "allgemeine-informationen-mitbericht-kanton",
+      "sort": 4
     }
   },
   {
@@ -4419,7 +4514,7 @@
       "created_by_group": null,
       "form": "mitbericht-kanton",
       "question": "lokalisierung",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -4432,7 +4527,7 @@
       "created_by_group": null,
       "form": "mitbericht-kanton",
       "question": "mitberichtsverfahren-koor-bg",
-      "sort": 2
+      "sort": 1
     }
   },
   {
@@ -4445,7 +4540,7 @@
       "created_by_group": null,
       "form": "mitbericht-kanton",
       "question": "personalien",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -4723,54 +4818,15 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "oereb.allgemeine-informationen-oereb-verfahren",
+    "pk": "oereb.allgemeine-informationen-oereb",
     "fields": {
-      "created_at": "2020-12-15T10:19:20.440Z",
-      "modified_at": "2020-12-15T10:19:20.440Z",
+      "created_at": "2021-03-16T08:30:50.450Z",
+      "modified_at": "2021-03-16T08:30:50.451Z",
       "created_by_user": null,
       "created_by_group": null,
       "form": "oereb",
-      "question": "allgemeine-informationen-oereb-verfahren",
-      "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "oereb.form-type",
-    "fields": {
-      "created_at": "2020-12-10T10:37:31.299Z",
-      "modified_at": "2020-12-10T10:37:31.299Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "oereb",
-      "question": "form-type",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "oereb.is-paper",
-    "fields": {
-      "created_at": "2020-12-07T15:52:23.250Z",
-      "modified_at": "2020-12-07T15:52:23.250Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "oereb",
-      "question": "is-paper",
-      "sort": 6
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "oereb.leitbehoerde",
-    "fields": {
-      "created_at": "2020-12-07T15:52:18.317Z",
-      "modified_at": "2020-12-07T15:52:18.317Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "oereb",
-      "question": "leitbehoerde",
-      "sort": 7
+      "question": "allgemeine-informationen-oereb",
+      "sort": 4
     }
   },
   {
@@ -4783,7 +4839,7 @@
       "created_by_group": null,
       "form": "oereb",
       "question": "lokalisierung",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -4796,7 +4852,7 @@
       "created_by_group": null,
       "form": "oereb",
       "question": "oereb-verfahren",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -4809,7 +4865,7 @@
       "created_by_group": null,
       "form": "oereb",
       "question": "personalien",
-      "sort": 2
+      "sort": 1
     }
   },
   {
@@ -5303,7 +5359,20 @@
       "created_by_group": null,
       "form": "personalien",
       "question": "applicant",
-      "sort": 5
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien.form-type",
+    "fields": {
+      "created_at": "2021-03-16T08:00:37.749Z",
+      "modified_at": "2021-03-16T08:00:37.749Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "personalien",
+      "question": "form-type",
+      "sort": 2
     }
   },
   {
@@ -5316,6 +5385,19 @@
       "created_by_group": null,
       "form": "personalien",
       "question": "invoice-recipient",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien.is-paper",
+    "fields": {
+      "created_at": "2021-03-16T08:00:44.944Z",
+      "modified_at": "2021-03-16T08:00:44.944Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "personalien",
+      "question": "is-paper",
       "sort": 1
     }
   },
@@ -5329,6 +5411,19 @@
       "created_by_group": null,
       "form": "personalien",
       "question": "landowner",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien.leitbehoerde",
+    "fields": {
+      "created_at": "2021-03-16T08:00:33.003Z",
+      "modified_at": "2021-03-16T08:00:33.003Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "personalien",
+      "question": "leitbehoerde",
       "sort": 3
     }
   },
@@ -5342,7 +5437,7 @@
       "created_by_group": null,
       "form": "personalien",
       "question": "more-people-involved",
-      "sort": 4
+      "sort": 7
     }
   },
   {
@@ -5355,7 +5450,7 @@
       "created_by_group": null,
       "form": "personalien",
       "question": "personendaten",
-      "sort": 6
+      "sort": 9
     }
   },
   {
@@ -5368,7 +5463,7 @@
       "created_by_group": null,
       "form": "personalien",
       "question": "project-author",
-      "sort": 2
+      "sort": 5
     }
   },
   {
@@ -5451,15 +5546,15 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "preliminary-clarification.anleitung-zum-ausfuellen-der-formulare",
+    "pk": "preliminary-clarification.allgemeine-informationen-baugesuch-vorabklaerung",
     "fields": {
-      "created_at": "2020-12-07T15:23:30.252Z",
-      "modified_at": "2020-12-07T15:23:30.252Z",
+      "created_at": "2021-03-16T08:14:11.795Z",
+      "modified_at": "2021-03-16T08:14:11.795Z",
       "created_by_user": null,
       "created_by_group": null,
       "form": "preliminary-clarification",
-      "question": "anleitung-zum-ausfuellen-der-formulare",
-      "sort": 10
+      "question": "allgemeine-informationen-baugesuch-vorabklaerung",
+      "sort": 12
     }
   },
   {
@@ -5490,19 +5585,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "preliminary-clarification.form-type",
-    "fields": {
-      "created_at": "2020-12-10T08:04:38.917Z",
-      "modified_at": "2020-12-10T08:04:38.917Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "preliminary-clarification",
-      "question": "form-type",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "preliminary-clarification.generelle-fachthemen",
     "fields": {
       "created_at": "2020-12-10T08:04:23.314Z",
@@ -5512,45 +5594,6 @@
       "form": "preliminary-clarification",
       "question": "generelle-fachthemen",
       "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "preliminary-clarification.impressum",
-    "fields": {
-      "created_at": "2020-12-07T15:24:27.762Z",
-      "modified_at": "2020-12-07T15:24:27.762Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "preliminary-clarification",
-      "question": "impressum",
-      "sort": 9
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "preliminary-clarification.is-paper",
-    "fields": {
-      "created_at": "2020-12-07T15:23:35.285Z",
-      "modified_at": "2020-12-07T15:23:35.285Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "preliminary-clarification",
-      "question": "is-paper",
-      "sort": 11
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "preliminary-clarification.leitbehoerde",
-    "fields": {
-      "created_at": "2020-12-07T15:24:55.320Z",
-      "modified_at": "2020-12-07T15:24:55.320Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "preliminary-clarification",
-      "question": "leitbehoerde",
-      "sort": 8
     }
   },
   {
@@ -5919,15 +5962,15 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "proposal-declaration.allgemeine-informationen-meldung-vorhaben",
+    "pk": "proposal-declaration.allgemeine-informationen-proposal-declaration",
     "fields": {
-      "created_at": "2020-12-15T09:44:57.708Z",
-      "modified_at": "2020-12-15T09:44:57.708Z",
+      "created_at": "2021-03-16T08:21:42.011Z",
+      "modified_at": "2021-03-16T08:21:42.011Z",
       "created_by_user": null,
       "created_by_group": null,
       "form": "proposal-declaration",
-      "question": "allgemeine-informationen-meldung-vorhaben",
-      "sort": 6
+      "question": "allgemeine-informationen-proposal-declaration",
+      "sort": 5
     }
   },
   {
@@ -5940,46 +5983,7 @@
       "created_by_group": null,
       "form": "proposal-declaration",
       "question": "einreichen",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "proposal-declaration.form-type",
-    "fields": {
-      "created_at": "2020-12-10T10:37:58.463Z",
-      "modified_at": "2020-12-10T10:37:58.463Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "proposal-declaration",
-      "question": "form-type",
       "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "proposal-declaration.is-paper",
-    "fields": {
-      "created_at": "2020-12-07T15:43:10.312Z",
-      "modified_at": "2020-12-07T15:43:10.312Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "proposal-declaration",
-      "question": "is-paper",
-      "sort": 8
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "proposal-declaration.leitbehoerde",
-    "fields": {
-      "created_at": "2020-12-07T15:49:00.960Z",
-      "modified_at": "2020-12-07T15:49:00.960Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "proposal-declaration",
-      "question": "leitbehoerde",
-      "sort": 7
     }
   },
   {
@@ -5992,7 +5996,7 @@
       "created_by_group": null,
       "form": "proposal-declaration",
       "question": "lokalisierung",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -6005,7 +6009,7 @@
       "created_by_group": null,
       "form": "proposal-declaration",
       "question": "personalien",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -6018,7 +6022,7 @@
       "created_by_group": null,
       "form": "proposal-declaration",
       "question": "vorhaben",
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -6179,15 +6183,15 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "solar-declaration.allgemeine-informationen-solaranlage",
+    "pk": "solar-declaration.allgemeine-informationen-meldung-solaranlage",
     "fields": {
-      "created_at": "2020-12-15T08:39:43.047Z",
-      "modified_at": "2020-12-15T08:39:43.047Z",
+      "created_at": "2021-03-16T08:28:29.398Z",
+      "modified_at": "2021-03-16T08:28:29.398Z",
       "created_by_user": null,
       "created_by_group": null,
       "form": "solar-declaration",
-      "question": "allgemeine-informationen-solaranlage",
-      "sort": 6
+      "question": "allgemeine-informationen-meldung-solaranlage",
+      "sort": 5
     }
   },
   {
@@ -6200,46 +6204,7 @@
       "created_by_group": null,
       "form": "solar-declaration",
       "question": "einreichen",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "solar-declaration.form-type",
-    "fields": {
-      "created_at": "2020-12-10T10:38:11.365Z",
-      "modified_at": "2020-12-10T10:38:11.365Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "solar-declaration",
-      "question": "form-type",
       "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "solar-declaration.is-paper",
-    "fields": {
-      "created_at": "2020-12-07T15:38:53.285Z",
-      "modified_at": "2020-12-07T15:38:53.285Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "solar-declaration",
-      "question": "is-paper",
-      "sort": 8
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "solar-declaration.leitbehoerde",
-    "fields": {
-      "created_at": "2020-12-07T15:48:39.869Z",
-      "modified_at": "2020-12-07T15:48:39.869Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "solar-declaration",
-      "question": "leitbehoerde",
-      "sort": 7
     }
   },
   {
@@ -6252,7 +6217,7 @@
       "created_by_group": null,
       "form": "solar-declaration",
       "question": "lokalisierung",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -6265,7 +6230,7 @@
       "created_by_group": null,
       "form": "solar-declaration",
       "question": "personalien",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -6278,7 +6243,7 @@
       "created_by_group": null,
       "form": "solar-declaration",
       "question": "photovoltaik-solaranlage",
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -17464,6 +17429,62 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "allgemeine-informationen-baugesuch",
+    "fields": {
+      "created_at": "2021-03-16T07:57:59.956Z",
+      "modified_at": "2021-03-16T07:57:59.957Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "label": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "info-building-permit",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "allgemeine-informationen-baugesuch-vorabklaerung",
+    "fields": {
+      "created_at": "2021-03-16T08:14:11.678Z",
+      "modified_at": "2021-03-16T08:14:11.678Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "label": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "info-preliminary-clarification",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "allgemeine-informationen-benuetzung-kantonsgebiet",
     "fields": {
       "created_at": "2020-12-15T11:06:41.511Z",
@@ -17483,6 +17504,90 @@
       "data_source": null,
       "row_form": null,
       "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "allgemeine-informationen-bundesverfahren",
+    "fields": {
+      "created_at": "2021-03-16T08:38:10.610Z",
+      "modified_at": "2021-03-16T08:38:10.610Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "label": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "info-bundesverfahren",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "allgemeine-informationen-cantonal-territory-usage",
+    "fields": {
+      "created_at": "2021-03-16T08:33:43.589Z",
+      "modified_at": "2021-03-16T08:33:43.589Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "label": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "info-cantonal-territory-usage",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "allgemeine-informationen-meldung-solaranlage",
+    "fields": {
+      "created_at": "2021-03-16T08:28:29.276Z",
+      "modified_at": "2021-03-16T08:28:29.276Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "label": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "info-solar-declaration",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -17548,6 +17653,90 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "allgemeine-informationen-mitbericht-kanton",
+    "fields": {
+      "created_at": "2021-03-16T08:18:35.591Z",
+      "modified_at": "2021-03-16T08:18:35.591Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "label": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "info-mitbericht-kanton",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "allgemeine-informationen-mitberichtsverfahren-bund",
+    "fields": {
+      "created_at": "2021-03-16T08:26:24.289Z",
+      "modified_at": "2021-03-16T08:26:24.289Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "label": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "info-mitbericht-bund",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "allgemeine-informationen-oereb",
+    "fields": {
+      "created_at": "2021-03-16T08:30:50.356Z",
+      "modified_at": "2021-03-16T08:30:50.356Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "label": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "info-oereb",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "allgemeine-informationen-oereb-verfahren",
     "fields": {
       "created_at": "2020-12-15T10:19:20.350Z",
@@ -17604,6 +17793,34 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "allgemeine-informationen-proposal-declaration",
+    "fields": {
+      "created_at": "2021-03-16T08:21:41.910Z",
+      "modified_at": "2021-03-16T08:21:41.910Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "label": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "info-proposal-declaration",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "allgemeine-informationen-reklame",
     "fields": {
       "created_at": "2020-12-10T10:39:32.384Z",
@@ -17623,6 +17840,34 @@
       "data_source": null,
       "row_form": null,
       "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "allgemeine-informationen-reklamegesuch",
+    "fields": {
+      "created_at": "2021-03-16T08:36:23.082Z",
+      "modified_at": "2021-03-16T08:36:23.083Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "label": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "info-commercial-permit",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
