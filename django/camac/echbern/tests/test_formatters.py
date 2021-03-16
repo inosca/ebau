@@ -38,8 +38,8 @@ def test_base_delivery(
             "ort-grundstueck"
         ] = ""  # implicitly test filling up strings to min_length
         # implicitly test empty coordinates
-        ech_mandatory_answers["lagekoordinaten-nord-einfache-vorabklaerung"] = None
-        ech_mandatory_answers["lagekoordinaten-ost-einfache-vorabklaerung"] = None
+        ech_mandatory_answers["parzelle"][0]["lagekoordinaten-nord"] = None
+        ech_mandatory_answers["parzelle"][0]["lagekoordinaten-ost"] = None
 
     elif form == "vollstaendige vorabklaerung":
         ech_mandatory_answers = ech_mandatory_answers_vollstaendige_vorabklaerung
