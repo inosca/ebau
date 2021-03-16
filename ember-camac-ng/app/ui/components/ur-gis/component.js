@@ -110,9 +110,6 @@ const getCenter = (coordinates) => {
   return L.polygon(coordinates).getBounds().getCenter();
 };
 
-const normalizeUmlaute = (str) =>
-  str.replace("ä", "ae").replace("ö", "oe").replace("ü", "ue");
-
 export default class UrGisComponent extends Component {
   @service notification;
   @service intl;
@@ -383,22 +380,32 @@ export default class UrGisComponent extends Component {
   }
 
   @restartableTask
-  *fetchCoordinates(term, municipality) {
-    if (!term || !municipality) {
+  *fetchCoordinates(parcelOrBuildingleaseNr, municipality) {
+    if (!parcelOrBuildingleaseNr || !municipality) {
       return;
     }
+    const searchMapping = {
+      "Seedorf (Ortsteil Bauen)": "Seedorf-Bauen",
+    };
+    const searchMunicipalityBy = searchMapping[municipality] || municipality;
     try {
       this.parcels = [];
-      const response = yield fetch(
-        `${
-          this.gisURL
-        }?service=WFS&version=1.0.0&REQUEST=GetFeature&srsName=EPSG:3857&typeName=geour:geour_liegenschaft_suche&outputFormat=json&filter=<PropertyIsEqualTo><PropertyName>nummer_gde</PropertyName><Literal>${term}.${normalizeUmlaute(
-          municipality
-        )}</Literal></PropertyIsEqualTo>&FEATURE_COUNT=10`,
-        {
-          mode: "cors",
-        }
-      );
+      const params = new URLSearchParams({
+        service: "WFS",
+        version: "1.1.0",
+        REQUEST: "GetFeature",
+        srsName: "EPSG:3857",
+        typeName: "suche:all_egrid_data",
+        outputFormat: "json",
+        FEATURE_COUNT: 10,
+        filter: `<PropertyIsEqualTo>
+          <PropertyName>searchterm</PropertyName>
+          <Literal>${parcelOrBuildingleaseNr} ${searchMunicipalityBy}</Literal>
+        </PropertyIsEqualTo>`,
+      });
+      const response = yield fetch(`${this.gisURL}?${params.toString()}`, {
+        mode: "cors",
+      });
       const data = yield response.json();
       if (data.features.length === 0) {
         this.notification.danger(this.intl.t("gis.noParcelNumber"));
@@ -437,11 +444,11 @@ export default class UrGisComponent extends Component {
     try {
       const doc = this.args.field.document;
       const field = doc.findField("municipality");
-      const parcelOrBuildingleaseNumber = this.args.field.document
+      const parcelOrBuildingleaseNr = this.args.field.document
         .findAnswer("parzellen-oder-baurechtsnummer")
         ?.toString();
 
-      if (!field.value || !parcelOrBuildingleaseNumber) {
+      if (!field.value || !parcelOrBuildingleaseNr) {
         return;
       }
       // make sure the dynamic options are loaded
@@ -451,7 +458,7 @@ export default class UrGisComponent extends Component {
       );
 
       yield this.fetchCoordinates.perform(
-        parcelOrBuildingleaseNumber,
+        parcelOrBuildingleaseNr,
         municipality.label
       );
       yield this.getFeatures.perform(this.latlng);
