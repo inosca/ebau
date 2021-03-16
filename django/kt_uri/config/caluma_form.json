@@ -77,8 +77,7 @@
       "name": "{\"de\": \"Bundesverfahren\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
-        "is-main-form": true,
-        "is-creatable": true
+        "is-main-form": true
       },
       "is_published": true,
       "is_archived": false,
@@ -96,8 +95,7 @@
       "name": "{\"de\": \"Ben\\u00fctzung Kantonsgebiet\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
-        "is-main-form": true,
-        "is-creatable": true
+        "is-main-form": true
       },
       "is_published": true,
       "is_archived": false,
@@ -502,8 +500,7 @@
       "name": "{\"de\": \"Mitberichtsverfahren Bund\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
-        "is-main-form": true,
-        "is-creatable": true
+        "is-main-form": true
       },
       "is_published": true,
       "is_archived": false,
@@ -521,8 +518,7 @@
       "name": "{\"de\": \"Mitberichtsverfahren Kanton\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
-        "is-main-form": true,
-        "is-creatable": true
+        "is-main-form": true
       },
       "is_published": true,
       "is_archived": false,
@@ -572,8 +568,7 @@
       "name": "{\"de\": \"\\u00d6REB Verfahren\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
-        "is-main-form": true,
-        "is-creatable": true
+        "is-main-form": true
       },
       "is_published": true,
       "is_archived": false,
