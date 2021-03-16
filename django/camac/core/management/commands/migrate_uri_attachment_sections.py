@@ -1,7 +1,8 @@
 from django.core.management.base import BaseCommand
-from django.db import transaction
+from django.db.utils import IntegrityError
 
-from camac.document.models import Attachment
+from camac.core.models import Archive
+from camac.document.models import Attachment, AttachmentSection
 
 SECTION_MAPPING = {
     "1": "12000001",  # Interne Dokumente BAB
@@ -27,26 +28,28 @@ SECTION_MAPPING = {
 class Command(BaseCommand):
     help = "Migrates the attachments for uri because of new sections"
 
-    def add_arguments(self, parser):
-        parser.add_argument("--dry", dest="dry", action="store_true", default=False)
-
-    @transaction.atomic
     def handle(self, *args, **options):
-        sid = transaction.savepoint()
-
         try:
             for old_section, new_section in SECTION_MAPPING.items():
-                Attachment.attachment_sections.through.objects.filter(
+                mappings = Attachment.attachment_sections.through.objects.filter(
                     attachmentsection_id=old_section
-                ).update(attachmentsection_id=new_section)
+                )
+                Archive.objects.filter(attachment_section_id=old_section).update(
+                    attachment_section_id=new_section
+                )
+                for mapping in mappings:
+                    try:
+                        mapping.attachmentsection_id = new_section
+                        mapping.save()
+                        self.stdout.write(
+                            f"Mapping {mapping.attachment_id}, {mapping.attachmentsection_id} was updated"
+                        )
+                    except IntegrityError:
+                        mapping.delete()
+                        self.stdout.write(
+                            f"Mapping {mapping.attachment_id}, {mapping.attachmentsection_id} was deleted"
+                        )
 
-                Attachment.attachment_sections.through.objects.filter(
-                    attachmentsection_id=old_section
-                ).delete()
+                AttachmentSection.objects.filter(pk=old_section).delete()
         except Attachment.DoesNotExist:
             self.stdout.write("There are no attachment sections to migrate")
-
-        if options["dry"]:
-            transaction.savepoint_rollback(sid)
-        else:
-            transaction.savepoint_commit(sid)
