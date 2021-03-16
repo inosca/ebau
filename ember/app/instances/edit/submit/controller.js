@@ -28,7 +28,7 @@ export default class InstancesEditSubmitController extends Controller {
       return false;
     }
 
-    const modules = this.editController.modules.lastSuccessful.value;
+    const modules = this.editController.modules.lastSuccessful?.value;
 
     if (!modules) {
       return false;
@@ -77,5 +77,11 @@ export default class InstancesEditSubmitController extends Controller {
         "Hoppla, etwas ist schief gelaufen. Bitte überprüfen Sie Ihre Eingabedaten nochmals."
       );
     }
+  }
+
+  get isWasserentnahmeForm() {
+    return this.model.instance
+      .get("form.name")
+      .startsWith("konzession-fur-wasserentnahme");
   }
 }

@@ -2,26 +2,53 @@
   <DownloadInstance @instance={{@model.instance}} @group={{this.params.group}} />
   <p class="uk-text-left">
     WICHTIG: Bis die rechtlichen Grundlagen für eine rein elektronische
-    Gesuchseingabe geschaffen sind, müssen zwei vollständige Gesuchsdossiers (inkl. Gesuchsformular in Papierform)
+    Gesuchseingabe geschaffen sind,
+    {{#if this.isWasserentnahmeForm}}
+    muss ein vollständiges Gesuchsdossier (inkl. Gesuchsformular in Papierform)
+    erstellt, unterschrieben und dem Amt für Gewässer, Abteilung Wasserbau, Bahnhofstrasse 9, Postfach 1214, 6431 Schwyz zugestellt werden.
+    {{else}}
+    müssen zwei vollständige Gesuchsdossiers (inkl. Gesuchsformular in Papierform)
     erstellt, unterschrieben und der Gemeinde zugestellt werden.
+    {{/if}}
     Die Vorgaben des jeweiligen Baureglementes sind einzuhalten.
-    {{camac-hint-dialog
-      "Konkrete Schritte zur Einreichung:
-1. Gesuchsformular ausfüllen, Gesuchsunterlagen hochladen
-      und elektronisch einreichen. (Falls die Einreichung erfolgreich war,
-      wird unter «GESUCH BEARBEITEN» das Gesuch mit einer Gesuchsnummer
-      und dem neuen Status «Eingereicht» aufgelistet.)
-2. Zwei vollständige Gesuchsdossiers in Papierform
-      (inkl. Gesuchsformular in Papierform) erstellen und mit den gemäss Baureglement
-      oder sonstiger Bestimmungen nötigen Unterschriften versehen. (Die zwei Papierdossiers sind
-      solange nötig, bis die elektronische Unterschrift im Kanton Schwyz
-      rechtlich geregelt ist.
-      Ein Dossier wird nach Abschluss des Verfahrens die Bauherrschaft
-      erhalten und das zweite bleibt bei der Leitbehörde.)
-3. Zustellung der beiden Dossiers an die Leitbehörde.
-      WICHTIG: Die Leitbehörde bearbeitet Ihr Gesuch erst,
-      wenn die Papierunterlagen vorliegen."
-    }}
+
+    {{#if this.isWasserentnahmeForm}}
+      {{camac-hint-dialog "Konkrete Schritte zur Einreichung:
+
+  1. Gesuchsformular ausfüllen, Gesuchsunterlagen hochladen
+              und elektronisch einreichen. (Falls die Einreichung erfolgreich war,
+              wird unter «GESUCH BEARBEITEN» das Gesuch mit einer Gesuchsnummer
+              und dem neuen Status «Eingereicht» aufgelistet.)
+
+  2. Ein vollständiges Gesuchsdossier in Papierform
+              (inkl. Gesuchsformular in Papierform) erstellen und mit den
+              nötigen Unterschriften versehen. (Das Papierdossier ist
+              solange nötig, bis die elektronische Unterschrift im Kanton Schwyz
+              rechtlich geregelt ist.)
+
+  3. Zustellung des Dossiers an das Amt für Gewässer.
+              WICHTIG: Die Leitbehörde bearbeitet Ihr Gesuch erst,
+              wenn die Papierunterlagen vorliegen."}}
+    {{else}}
+      {{camac-hint-dialog "Konkrete Schritte zur Einreichung:
+
+  1. Gesuchsformular ausfüllen, Gesuchsunterlagen hochladen
+            und elektronisch einreichen. (Falls die Einreichung erfolgreich war,
+            wird unter «GESUCH BEARBEITEN» das Gesuch mit einer Gesuchsnummer
+            und dem neuen Status «Eingereicht» aufgelistet.)
+
+  2. Zwei vollständige Gesuchsdossiers in Papierform
+            (inkl. Gesuchsformular in Papierform) erstellen und mit den gemäss Baureglement
+            oder sonstiger Bestimmungen nötigen Unterschriften versehen. (Die zwei Papierdossiers sind
+            solange nötig, bis die elektronische Unterschrift im Kanton Schwyz
+            rechtlich geregelt ist.
+            Ein Dossier wird nach Abschluss des Verfahrens die Bauherrschaft
+            erhalten und das zweite bleibt bei der Leitbehörde.)
+
+  3. Zustellung der beiden Dossiers an die Leitbehörde.
+            WICHTIG: Die Leitbehörde bearbeitet Ihr Gesuch erst,
+            wenn die Papierunterlagen vorliegen."}}
+    {{/if}}
   </p>
   <p class="uk-text-left">
     Mit Klick auf die Schaltfläche "Einreichen"...
