@@ -94,4 +94,5 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
             )
 
         # create history entry
-        create_history_entry(instance, camac_user, history_text)
+        if not context or not context.get("no-history"):
+            create_history_entry(instance, camac_user, history_text)

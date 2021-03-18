@@ -31,8 +31,10 @@ def post_complete_circulation(sender, case, user, **kwargs):
 
 @on([post_complete_work_item, post_skip_work_item], raise_exception=True)
 @transaction.atomic
-def post_complete_circulation_work_item(sender, work_item, user, **kwargs):
-    if work_item.task_id == get_caluma_setting("CIRCULATION_TASK"):
+def post_complete_circulation_work_item(sender, work_item, user, context, **kwargs):
+    if work_item.task_id == get_caluma_setting("CIRCULATION_TASK") and (
+        not context or not context.get("no-history")
+    ):
         create_history_entry(
             get_instance(work_item),
             User.objects.get(username=user.username),
