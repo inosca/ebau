@@ -11,8 +11,10 @@ from .general import get_caluma_setting, get_instance
 
 @on([post_complete_work_item, post_skip_work_item], raise_exception=True)
 @transaction.atomic
-def post_complete_audit(sender, work_item, user, **kwargs):
-    if work_item.task_id == get_caluma_setting("AUDIT_TASK"):
+def post_complete_audit(sender, work_item, user, context, **kwargs):
+    if work_item.task_id == get_caluma_setting("AUDIT_TASK") and (
+        not context or not context.get("no-history")
+    ):
         create_history_entry(
             instance=get_instance(work_item),
             user=User.objects.get(username=user.username),
