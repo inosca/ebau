@@ -55,18 +55,19 @@ class CirculationView(InstanceQuerysetMixin, InstanceEditableMixin, views.ModelV
             **{"meta__circulation-id": circulation.pk}
         ).first()
 
+        # delete circulation
+        super().perform_destroy(circulation)
+
         if work_item:
             # skip work item to continue the workflow
             skip_work_item(
                 work_item=work_item,
                 user=self.request.caluma_info.context.user,
+                context={"no-history": True},
             )
 
             # remove obsolete work item
             work_item.delete()
-
-        # delete circulation
-        super().perform_destroy(circulation)
 
     @action(methods=["PATCH"], detail=True)
     @transaction.atomic

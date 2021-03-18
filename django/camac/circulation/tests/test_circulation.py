@@ -220,18 +220,51 @@ def test_sync_circulation(
     "role__name,instance__user", [("Municipality", LazyFixture("admin_user"))]
 )
 @pytest.mark.parametrize(
-    "has_activation,expected_status",
-    [(True, status.HTTP_403_FORBIDDEN), (False, status.HTTP_204_NO_CONTENT)],
+    "has_activation,has_other_circulations,instance_state__name,expected_status,expected_work_items",
+    [
+        (
+            True,
+            False,
+            "circulation_init",
+            status.HTTP_403_FORBIDDEN,
+            None,
+        ),
+        (
+            False,
+            False,
+            "circulation_init",
+            status.HTTP_204_NO_CONTENT,
+            ["init-circulation", "skip-circulation"],
+        ),
+        (
+            False,
+            False,
+            "circulation",
+            status.HTTP_204_NO_CONTENT,
+            ["start-circulation", "start-decision"],
+        ),
+        (
+            False,
+            True,
+            "circulation",
+            status.HTTP_204_NO_CONTENT,
+            ["start-circulation", "check-activation", "start-decision"],
+        ),
+    ],
 )
 def test_delete_circulation(
     admin_client,
     instance_service,
+    instance_state,
     circulation,
+    circulation_factory,
     caluma_workflow_config_be,
     caluma_admin_user,
     activation_factory,
     has_activation,
+    has_other_circulations,
     expected_status,
+    expected_work_items,
 ):
     case = start_case(
         workflow=Workflow.objects.get(pk="building-permit"),
@@ -250,6 +283,9 @@ def test_delete_circulation(
     if has_activation:
         activation_factory(circulation=circulation)
 
+    if has_other_circulations:
+        circulation_factory(instance=circulation.instance)
+
     response = admin_client.delete(reverse("circulation-detail", args=[circulation.pk]))
 
     assert response.status_code == expected_status
@@ -258,6 +294,12 @@ def test_delete_circulation(
         assert not case.work_items.filter(
             **{"meta__circulation-id": circulation.pk}
         ).exists()
+
+        for task_id in expected_work_items:
+            assert case.work_items.filter(
+                task_id=task_id,
+                status=WorkItem.STATUS_READY,
+            ).exists()
 
 
 @pytest.mark.parametrize(
