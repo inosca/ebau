@@ -47,7 +47,7 @@ def post_complete_simple_workflow(sender, work_item, user, context, **kwargs):
                 group_pk=user.camac_group,
             )
 
-        if history_text:
+        if history_text and (not context or not context.get("no-history")):
             # create history entry
             create_history_entry(instance, camac_user, history_text)
 

@@ -38,4 +38,7 @@ def post_complete_ebau_number(sender, work_item, user, context, **kwargs):
             )
 
         # create history entry
-        create_history_entry(instance, camac_user, gettext_noop("Assigned ebau number"))
+        if not context or not context.get("no-history"):
+            create_history_entry(
+                instance, camac_user, gettext_noop("Assigned ebau number")
+            )
