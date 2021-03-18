@@ -22,18 +22,36 @@ REQUIRED_CONFIG = {
         "condition": lambda case: not case.work_items.filter(
             task_id="circulation", status=WorkItem.STATUS_READY
         ).exists(),
-        "ignored_tasks": ["nfd", "publication", "audit"],
+        "ignored_tasks": [
+            "nfd",
+            "publication",
+            "audit",
+            "fill-publication",
+            "create-publication",
+        ],
     },
     "circulation": {
         "tasks": ["start-circulation", "start-decision"],
         "condition": lambda case: not case.work_items.filter(
             task_id="circulation", status=WorkItem.STATUS_READY
         ).exists(),
-        "ignored_tasks": ["nfd", "publication", "audit"],
+        "ignored_tasks": [
+            "nfd",
+            "publication",
+            "audit",
+            "fill-publication",
+            "create-publication",
+        ],
     },
     "coordination": {
         "tasks": ["decision", "reopen-circulation"],
-        "ignored_tasks": ["nfd", "publication", "audit"],
+        "ignored_tasks": [
+            "nfd",
+            "publication",
+            "audit",
+            "fill-publication",
+            "create-publication",
+        ],
     },
     "sb1": {"tasks": ["sb1"]},
     "sb2": {"tasks": ["sb2"]},
