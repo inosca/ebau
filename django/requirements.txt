@@ -34,4 +34,4 @@ sorl-thumbnail @ git+https://github.com/sbor23/sorl-thumbnail.git@f4f850526d883e
 tabulate==0.8.7
 uWSGI==2.0.19.1
 xmlschema==1.3.1
-manabi==0.2.0
+manabi==0.4.0
