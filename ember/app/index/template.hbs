@@ -5,10 +5,8 @@
   Was wollen Sie als Nächstes machen?
 </h4>
 
-{{!--
+{{#if this.showPublications}}
 <div uk-grid class="uk-child-width-1-1 uk-child-width-1-3@s">
---}}
-<div uk-grid="" class="uk-child-width-1-1 uk-child-width-1-2@s">
   <UkFlex @horizontal="center" class="uk-flex-right@s">
     <LinkTo
       @route="instances.new"
@@ -21,10 +19,7 @@
     </LinkTo>
   </UkFlex>
 
-  {{!--
-  {{#uk-flex horizontal="center" class="uk-flex-center@s"}}
-  --}}
-  <UkFlex {{did-insert (perform this.fetchWorkItems)}} @horizontal="center" class="uk-flex-left@s">
+  <UkFlex {{did-insert (perform this.fetchWorkItems)}} @horizontal="center" class="uk-flex-center@s">
     <LinkTo
       @route="instances.index"
       class="uk-button uk-button-default uk-width-medium uk-height-medium uk-flex uk-flex-middle uk-flex-column"
@@ -41,15 +36,47 @@ Gesuch einsehen</div>
     {{/if}}
   </UkFlex>
 
-  {{!--
-  Publications are disabled because the legality of it is not clear
-  revert !2353 to remove
-  {{#uk-flex horizontal="center" class="uk-flex-left@s"}}
-    {{#link-to "publications" class="uk-button uk-button-default uk-width-medium uk-height-medium uk-flex uk-flex-middle uk-flex-center uk-flex-column"}}
-      <UkIcon @icon="file-text" ratio={{3}}/>
-      <br>
-      Publikationen
-    {{/link-to}}
-  {{/uk-flex}}
-    --}}
+  <UkFlex @horizontal="center" class="uk-flex-left@s">
+    <LinkTo
+      @route="publications"
+      class="uk-button uk-button-default uk-width-medium uk-height-medium uk-flex uk-flex-middle uk-flex-column"
+    >
+      <div class="title-card">
+        <UkIcon @icon="file-text" ratio={{3}}/>
+        <div class="title-card-text">Publikationen</div>
+      </div>
+    </LinkTo>
+  </UkFlex>
 </div>
+{{else}}
+<div uk-grid="" class="uk-child-width-1-1 uk-child-width-1-2@s">
+  <UkFlex @horizontal="center" class="uk-flex-right@s">
+    <LinkTo
+      @route="instances.new"
+      class="uk-button uk-button-default uk-width-medium uk-height-medium uk-flex uk-flex-middle uk-flex-column"
+    >
+      <div class="title-card">
+        <UkIcon @icon="plus" ratio={{3}}/>
+        <div class="title-card-text">Neues Gesuch</div>
+      </div>
+    </LinkTo>
+  </UkFlex>
+
+  <UkFlex {{did-insert (perform this.fetchWorkItems)}} @horizontal="center" class="uk-flex-left@s">
+    <LinkTo
+      @route="instances.index"
+      class="uk-button uk-button-default uk-width-medium uk-height-medium uk-flex uk-flex-middle uk-flex-column"
+    >
+      <div class="title-card">
+        <UkIcon @icon="pencil" ratio={{3}}/>
+        <div class="title-card-text">Gesuch bearbeiten
+oder
+Gesuch einsehen</div>
+      </div>
+    </LinkTo>
+    {{#if this.workItemsQuery.totalCount}}
+      <span title="Anzahl von offenen Aufgaben" class="uk-badge uk-position-absolute uk-position-small">{{this.workItemsQuery.totalCount}}</span>
+    {{/if}}
+  </UkFlex>
+</div>
+{{/if}}

@@ -11,12 +11,6 @@ class PublicationEntryFilterSet(FilterSet):
         fields = ("instance",)
 
 
-class PublicationEntryUserPermissionFilterSet(FilterSet):
-    class Meta:
-        model = models.PublicationEntryUserPermission
-        fields = ("publication_entry", "user", "status")
-
-
 class WorkflowEntryFilterSet(FilterSet):
     instance = NumberFilter(field_name="instance_id")
     workflow_item_id = NumberFilter(field_name="workflow_item_id")
