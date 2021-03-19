@@ -4,7 +4,11 @@ mutation CreatePreliminaryClarificationWorkflow {
       slug: "preliminary-clarification"
       name: "Vorabklärung"
       startTasks: ["submit"]
-      allowForms: ["vorabklaerung-einfach", "vorabklaerung-vollstaendig"]
+      allowForms: [
+        "vorabklaerung-einfach"
+        "vorabklaerung-vollstaendig"
+        "vorabklaerung-vollstaendig-v2"
+      ]
       isPublished: true
     }
   ) {

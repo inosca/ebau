@@ -4,7 +4,14 @@ mutation CreateBuildingPermitWorkflow {
       slug: "building-permit"
       name: "Baugesuch"
       startTasks: ["submit"]
-      allowForms: ["baugesuch", "baugesuch-generell", "baugesuch-mit-uvp"]
+      allowForms: [
+        "baugesuch"
+        "baugesuch-v2"
+        "baugesuch-generell"
+        "baugesuch-generell-v2"
+        "baugesuch-mit-uvp"
+        "baugesuch-mit-uvp-v2"
+      ]
       isPublished: true
     }
   ) {
