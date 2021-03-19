@@ -105,7 +105,7 @@ def baugesuch_filled(
 ):
     case = workflow_api.start_case(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(slug="baugesuch-generell"),
+        form=caluma_form_models.Form.objects.get(slug="baugesuch-generell-v2"),
         meta={"camac-instance-id": 1},
         user=caluma_admin_user,
     )
