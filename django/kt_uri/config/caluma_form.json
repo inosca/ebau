@@ -2783,6 +2783,19 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "energetische-massnahmen.energienachweis-nachtraeglich",
+    "fields": {
+      "created_at": "2021-03-22T12:58:19.138Z",
+      "modified_at": "2021-03-22T12:58:19.138Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "energetische-massnahmen",
+      "question": "energienachweis-nachtraeglich",
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "energetische-massnahmen.formular-freiluftbaeder",
     "fields": {
       "created_at": "2020-11-16T16:12:10.138Z",
@@ -3012,7 +3025,7 @@
       "created_by_group": null,
       "form": "energetische-massnahmen",
       "question": "raumdetails-titel",
-      "sort": 22
+      "sort": 23
     }
   },
   {
@@ -7281,6 +7294,45 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "veranstaltungsgesuch.date-time-migrated",
+    "fields": {
+      "created_at": "2021-03-22T16:43:29.563Z",
+      "modified_at": "2021-03-22T16:43:29.563Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "veranstaltungsgesuch",
+      "question": "date-time-migrated",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "veranstaltungsgesuch.duration-migrated",
+    "fields": {
+      "created_at": "2021-03-22T16:44:40.625Z",
+      "modified_at": "2021-03-22T16:44:40.625Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "veranstaltungsgesuch",
+      "question": "duration-migrated",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "veranstaltungsgesuch.migrated-from-camac",
+    "fields": {
+      "created_at": "2021-03-22T16:39:52.626Z",
+      "modified_at": "2021-03-22T16:39:52.626Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "veranstaltungsgesuch",
+      "question": "migrated-from-camac",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "veranstaltungsgesuch.veranstaltung-andere-beschreibung",
     "fields": {
       "created_at": "2020-10-21T12:57:04.600Z",
@@ -7315,7 +7367,7 @@
       "created_by_group": null,
       "form": "veranstaltungsgesuch",
       "question": "veranstaltung-beginn",
-      "sort": 6
+      "sort": 8
     }
   },
   {
@@ -7341,7 +7393,7 @@
       "created_by_group": null,
       "form": "veranstaltungsgesuch",
       "question": "veranstaltung-beschrieb",
-      "sort": 7
+      "sort": 9
     }
   },
   {
@@ -7354,7 +7406,7 @@
       "created_by_group": null,
       "form": "veranstaltungsgesuch",
       "question": "veranstaltung-ende",
-      "sort": 5
+      "sort": 7
     }
   },
   {
@@ -9906,6 +9958,34 @@
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"5 Punkte (Ja, auf jeden Fall)\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "energienachweis-nachtraeglich-ja",
+    "fields": {
+      "created_at": "2021-03-22T12:58:18.377Z",
+      "modified_at": "2021-03-22T12:58:18.378Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "energienachweis-nachtraeglich-nein",
+    "fields": {
+      "created_at": "2021-03-22T12:58:18.364Z",
+      "modified_at": "2021-03-22T12:58:18.364Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12853,6 +12933,34 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "migrated-from-camac-no",
+    "fields": {
+      "created_at": "2021-03-22T16:40:23.171Z",
+      "modified_at": "2021-03-22T16:58:11.199Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "migrated-from-camac-yes",
+    "fields": {
+      "created_at": "2021-03-22T16:40:23.159Z",
+      "modified_at": "2021-03-22T16:58:11.182Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "mindest-und-grenzabstaende-fliessgewaesser",
     "fields": {
       "created_at": "2020-11-02T07:25:21.218Z",
@@ -13584,7 +13692,7 @@
     "pk": "projekt-energienachweis-heizungs-und-warmwasser",
     "fields": {
       "created_at": "2020-10-31T17:54:07.204Z",
-      "modified_at": "2020-11-18T11:08:59.245Z",
+      "modified_at": "2021-03-22T13:00:04.006Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Heizungs- und Warmwasseranlagen\", \"fr\": null}",
@@ -13598,7 +13706,7 @@
     "pk": "projekt-energienachweis-hoechstanteil",
     "fields": {
       "created_at": "2020-10-31T17:54:07.238Z",
-      "modified_at": "2020-11-18T11:08:59.236Z",
+      "modified_at": "2021-03-22T13:00:04.037Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"H\\u00f6chstanteil nichterneuerbarer Energien\", \"fr\": null}",
@@ -13612,7 +13720,7 @@
     "pk": "projekt-energienachweis-huelle",
     "fields": {
       "created_at": "2020-10-31T17:54:07.226Z",
-      "modified_at": "2020-11-18T11:08:59.248Z",
+      "modified_at": "2021-03-22T13:00:04.200Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Geb\\u00e4udeh\\u00fclle\", \"fr\": null}",
@@ -13626,7 +13734,7 @@
     "pk": "projekt-energienachweis-keine-bereiche",
     "fields": {
       "created_at": "2020-11-02T12:34:06.554Z",
-      "modified_at": "2020-11-18T11:08:59.399Z",
+      "modified_at": "2021-03-22T13:00:04.008Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Es sind keine energetisch relevanten Themenbereiche betroffen\", \"fr\": null}",
@@ -13640,7 +13748,7 @@
     "pk": "projekt-energienachweis-keine-bereiche-betroffen",
     "fields": {
       "created_at": "2020-11-02T11:53:04.073Z",
-      "modified_at": "2020-11-18T11:08:59.346Z",
+      "modified_at": "2021-03-22T13:00:04.033Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Es sind keine energetisch relevanten Themenbereiche betroffen\", \"fr\": null}",
@@ -13654,7 +13762,7 @@
     "pk": "projekt-energienachweis-kuehlung",
     "fields": {
       "created_at": "2020-10-31T17:54:07.273Z",
-      "modified_at": "2020-11-18T11:08:59.341Z",
+      "modified_at": "2021-03-22T13:00:03.985Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"K\\u00fchlung und Befeuchtung\", \"fr\": null}",
@@ -13668,7 +13776,7 @@
     "pk": "projekt-energienachweis-lueftung",
     "fields": {
       "created_at": "2020-10-31T17:54:07.262Z",
-      "modified_at": "2020-11-18T11:08:59.342Z",
+      "modified_at": "2021-03-22T13:00:04.065Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"L\\u00fcftungstechnische Anlagen\", \"fr\": null}",
@@ -13682,7 +13790,7 @@
     "pk": "projekt-energienachweis-minergie",
     "fields": {
       "created_at": "2020-10-31T17:54:07.178Z",
-      "modified_at": "2020-11-18T11:08:59.243Z",
+      "modified_at": "2021-03-22T13:00:04.033Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"MINERGIE Label\", \"fr\": null}",
@@ -13696,7 +13804,7 @@
     "pk": "projekt-energienachweis-spezielle-bauten",
     "fields": {
       "created_at": "2020-10-31T17:54:07.291Z",
-      "modified_at": "2020-11-18T11:08:59.344Z",
+      "modified_at": "2021-03-22T13:00:03.986Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Spezielle Bauten und Anlagen\", \"fr\": null}",
@@ -21694,6 +21802,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "date-time-migrated",
+    "fields": {
+      "created_at": "2021-03-22T16:43:29.456Z",
+      "modified_at": "2021-03-22T16:43:29.456Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "label": "{\"de\": \"Datum / Zeit (migriert)\", \"fr\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!('migrated-from-camac-yes' in 'migrated-from-camac'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "denkmalpflege",
     "fields": {
       "created_at": "2020-11-04T18:23:02.502Z",
@@ -21737,6 +21876,37 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"---\\n\\n#### Druckbeh\\u00e4lter\\nDie Art der Druckbeh\\u00e4lter, deren Lage im Betrieb bzw. auf dem Betriebsareal, sowie Inhalt, Betriebsdruck und Mengenangaben m\\u00fcssen entweder in den Pl\\u00e4nen ersichtlich sein oder mittels einer separaten Liste deklariert werden.\", \"fr\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "duration-migrated",
+    "fields": {
+      "created_at": "2021-03-22T16:44:40.511Z",
+      "modified_at": "2021-03-22T16:44:40.511Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "label": "{\"de\": \"Dauer (von - bis) (migriert)\", \"fr\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!('migrated-from-camac-yes' in 'migrated-from-camac'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -21974,6 +22144,34 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "energetische-massnahmen",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "energienachweis-nachtraeglich",
+    "fields": {
+      "created_at": "2021-03-22T12:58:18.686Z",
+      "modified_at": "2021-03-22T12:58:18.686Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "label": "{\"de\": \"Der Energienachweis wird nachtr\\u00e4glich eingereicht\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -24488,13 +24686,13 @@
     "pk": "hinweis-benutzergefuehrtes-formular",
     "fields": {
       "created_at": "2020-11-18T11:07:18.008Z",
-      "modified_at": "2020-11-18T11:09:31.191Z",
+      "modified_at": "2021-03-22T12:59:55.950Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Hinweis benutzergef\\u00fchrtes Formular\", \"fr\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "!(\"energienachweis-nachtraeglich-nein\" == \"energienachweis-nachtraeglich\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -24628,7 +24826,7 @@
     "pk": "hinweis-pdf-und-einreichen",
     "fields": {
       "created_at": "2020-11-24T15:04:30.890Z",
-      "modified_at": "2021-02-24T07:05:45.088Z",
+      "modified_at": "2021-03-22T12:53:51.928Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Hinweis pdf und Einreichen\", \"fr\": null}",
@@ -24638,7 +24836,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"---\\n\\n####**Unterzeichnung des Gesuches**\\n\\n**Physische Unterzeichnung des pdf Formulars** Bitte erstellen Sie das pdf Formular (Formulardownload) mit den Dossierinhalten, drucken Sie es aus und schicken Sie das Formular handschriftlich unterzeichnet im Doppel der zust\\u00e4ndigen Gemeinde.\\n\\n**Elektronische Unterzeichnung des pdf Formulars** Alternativ k\\u00f6nnen Sie das pdf  Formular downloaden, qualifiziert elektronisch unterzeichnen und bei den Dokumenten hochladen. Qualifiziert elektronisch unterzeichnete Gesuche m\\u00fcssen nicht schriftlich eingereicht werden. \\n\\n**Unterzeichnung von Pl\\u00e4nen und weiteren Gesuchsunterlagen**\\nDie digitale Unterschrift ist nicht zwingend auf allen Dokumenten erforderlich. Massgebend sind schlussendlich jene Dokumente, welche Sie via diese Plattform einreichen und von der Gemeinde im Rahmen des Bewilligungsprozesses als Entscheiddokumente markiert werden. Diese Dokumente (Bauentscheid, Pl\\u00e4ne, Fachstellenberichte, Verf\\u00fcgungen usw.) bleiben im URec rechtsverbindlich und unver\\u00e4nderlich gespeichert. Sie k\\u00f6nnen \\u00fcber einen Link den die Baubeh\\u00f6rde im Rahmen des Baubewilligungsprozesses per E-Mail verschickt, ge\\u00f6ffnet werden.  \\n\\n**Er\\u00f6ffnung der Entscheiddokumente**\\nDie Er\\u00f6ffnung der Entscheiddokumente an die Bauherrschaft erfolgt in der Regel per E-Mail. Die E-Mail enth\\u00e4lt einen Link \\u00fcber den alle Entscheiddokumente ge\\u00f6ffnet werden k\\u00f6nnen. Die Empfangsbest\\u00e4tigung, das heisst die Annahme des Links durch die Bauherrschaft (erstmaliges \\u00d6ffnen des Links) wird im URec als rechtsverbindliches Er\\u00f6ffnungsdatum gespeichert. Wahlweise kann die Baubeh\\u00f6rde die Entscheiddokumente auch zus\\u00e4tzlich per Post zustellen. \\n\\n**Einreichung vollst\\u00e4ndiger physischer Dossiers**\\nDie Vorgaben des jeweiligen Baureglementes sind einzuhalten. Je nach Umfang und Art des Dossiers kann die Gemeinde das Einreichen zus\\u00e4tzlicher physischer Dossiers bei der Bauherrschaft anfordern.\\n\\nMit Klick auf die Schaltfl\\u00e4che \\\"Einreichen\\\"...\\n\\n...best\\u00e4tigen Sie, dass das Formular vollst\\u00e4ndig und wahrheitsgetreu ausgef\\u00fcllt wurde,\\n...wird Ihr Gesuch bei der zust\\u00e4ndigen Beh\\u00f6rde zur Kontrolle eingereicht,\\n...k\\u00f6nnen Sie an den Formulareintr\\u00e4gen keine Ver\\u00e4nderungen mehr vornehmen.\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"---\\n\\n####**Unterzeichnung / Einreichung**\\n\\n#####Physische Unterzeichnung des PDF Formulars\\n\\nBitte erstellen Sie das PDF Formular des Dossiers (Formulardownload siehe unten), drucken Sie es aus und schicken Sie es handschriftlich unterzeichnet im Doppel der zust\\u00e4ndigen Gemeinde.\\n\\n#####Elektronische Unterzeichnung des PDF Formulars\\n\\nAlternativ k\\u00f6nnen Sie das PDF Formular downloaden, qualifiziert elektronisch unterzeichnen und bei den Dokumenten hochladen. Qualifiziert elektronisch unterzeichnete PDF Formulare m\\u00fcssen, unter dem Vorbehalt der Einreichung allf\\u00e4lliger physischer Gesamtdossiers (siehe unten) nicht schriftlich eingereicht werden. \\n\\n#####Unterzeichnung von Pl\\u00e4nen und weiteren Gesuchsunterlagen\\n\\nDie digitale Unterschrift ist nicht zwingend auf allen Dokumenten erforderlich. Massgebend sind jene Dokumente, welche Sie via diese Plattform einreichen und von der Gemeinde im Rahmen des Bewilligungsprozesses als Entscheiddokumente markiert werden. Diese Dokumente (Pl\\u00e4ne, Fachstellenberichte, Verf\\u00fcgungen, Bauentscheid usw.) bleiben im URec rechtsverbindlich und unver\\u00e4nderlich gespeichert. Sie k\\u00f6nnen \\u00fcber einen Link, den die Baubeh\\u00f6rde im Rahmen des Baubewilligungsprozesses per E-Mail verschickt, ge\\u00f6ffnet werden.  \\n\\n#####Einreichung vollst\\u00e4ndiger physischer Dossiers\\n\\nDie Gemeinden haben teilweise unterschiedliche gesetzliche Bestimmungen und eine unterschiedliche Arbeitspraxis. Es ist unser Ziel, mittel bis langfristig auf physische Unterlagen g\\u00e4nzlich zu verzichten. Die Vorgaben der jeweiligen Baureglemente der Gemeinden sind jedoch einzuhalten. Je nach Umfang und Art des Dossiers kann die Gemeinde das Einreichen zus\\u00e4tzlicher physischer Dossiers bei der Bauherrschaft anfordern. Bitte kl\\u00e4ren Sie unaufgefordert und **raschm\\u00f6glichst nach dem elektronischen Einreichen des Dossiers** bei der zust\\u00e4ndigen Gemeinde ab, ob und in welchem Umfang, nebst dem unterzeichneten **PDF Formular**, zus\\u00e4tzliche physische Dossiers eingereicht werden m\\u00fcssen.\\n\\nMit Klick auf die Schaltfl\\u00e4che \\\"Einreichen\\\"...\\n\\n...best\\u00e4tigen Sie, dass das Formular vollst\\u00e4ndig und wahrheitsgetreu ausgef\\u00fcllt wurde,\\n...wird Ihr Gesuch bei der zust\\u00e4ndigen Gemeindebaubeh\\u00f6rde zur Pr\\u00fcfung eingereicht,\\n...k\\u00f6nnen Sie an den Formulareintr\\u00e4gen keine Ver\\u00e4nderungen mehr vornehmen.\\n\\n#####Er\\u00f6ffnung der Entscheiddokumente\\n\\nDie Er\\u00f6ffnung der Entscheiddokumente an die Bauherrschaft erfolgt in der regel vollst\\u00e4ndig digital per E-Mail. Zus\\u00e4tzlich wird der Bauentscheid analog per Post zugestellt (die E-Mail enth\\u00e4lt einen Link, \\u00fcber den alle Entscheiddokumente ge\\u00f6ffnet werden k\\u00f6nnen. Beim digitalen Er\\u00f6ffnen wird die Empfangsbest\\u00e4tigung, das heisst die Annahme des Links durch die Bauherrschaft, beim erstmaligen \\u00d6ffnen des Links im URec als rechtsverbindliches Er\\u00f6ffnungsdatum gespeichert). Wahlweise kann die Baubeh\\u00f6rde die Entscheiddokumente zus\\u00e4tzlich zur digitalen Er\\u00f6ffnung auch noch physisch per Post zustellen.\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -25238,12 +25436,7 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
-        "columnsToDisplay": [
-          "representative-first-name",
-          "representative-last-name",
-          "representative-phone",
-          "representative-e-mail"
-        ]
+        "columnsToDisplay": ["first-name", "last-name", "phone", "e-mail"]
       },
       "data_source": null,
       "row_form": "personal-data-table",
@@ -26924,6 +27117,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "migrated-from-camac",
+    "fields": {
+      "created_at": "2021-03-19T11:48:59.824Z",
+      "modified_at": "2021-03-22T16:58:11.326Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "label": "{\"de\": \"Ist von Camac migriert\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": "cf-hidden-input"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "mindest-und-grenzabstaende",
     "fields": {
       "created_at": "2020-11-02T07:25:21.319Z",
@@ -28361,13 +28585,13 @@
     "pk": "projekt-energienachweis",
     "fields": {
       "created_at": "2020-10-31T17:54:07.381Z",
-      "modified_at": "2020-11-18T11:08:59.516Z",
+      "modified_at": "2021-03-22T13:00:04.868Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Welche Themenbereiche sind betroffen?\", \"fr\": null}",
       "type": "multiple_choice",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "!(\"energienachweis-nachtraeglich-nein\" == \"energienachweis-nachtraeglich\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"#### INFO\\nJe nachdem, welche Themenbereiche Sie unter \\\"Projekt Energienachweis\\\" ausw\\u00e4hlen, werden die Links zu den entsprechenden EN Zusatzformularen angezeigt.\\n\\nBitte f\\u00fcllen Sie die entsprechneden Formulare aus und laden Sie diese bei den Dokumenten hoch (bezeichnen Sie die Dokumente bitte mit dem offiziellen K\\u00fcrzel, z.B. EN-1a).\", \"fr\": null}",
@@ -28678,7 +28902,7 @@
     "pk": "raumdetails-titel",
     "fields": {
       "created_at": "2020-09-19T10:24:26.447Z",
-      "modified_at": "2020-12-15T14:41:35.819Z",
+      "modified_at": "2021-03-22T13:01:45.676Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "label": "{\"de\": \"Energienachweis\", \"fr\": null}",
@@ -28688,7 +28912,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"####Hinweise und Erkl\\u00e4rungen\\n\\n- 0 Nachweis MINERGIE-Label\\nF\\u00fcr das Projekt besteht ein MINERGIE-Label: Kopie des provisorischen  Zertifikats beilegen. Auf Formular EN-2b \\u00abSystemnachweis W\\u00e4rmed\\u00e4mmung\\u00bb  bei Beilagen auf MINERGIE-Label hinweisen. Mit der Unterschrift bei \\u00abNachweis erarbeitet durch\\u00bb wird best\\u00e4tigt, dass das Bauvorhaben gem\\u00e4ss MINERGIE- Label ausgef\\u00fchrt wird. Bei Privater Kontrolle sind ausser dem erw\\u00e4hnten Formu-lar EN-2b und der Kopie des provisorischen Zertifikats keine weiteren Beilagen zu den Bereichen W\\u00e4rmed\\u00e4mmung und H\\u00f6chstanteil n\\u00f6tig. Fehlt die Unterschrift Private Kontrolle, sind alle Unterlagen beizulegen, da die Beh\\u00f6rde diese f\\u00fcr die Ausf\\u00fchrungskontrolle ben\\u00f6tigt.\\n\\n- 1Nachweis H\\u00f6chstanteil nichterneuerbarer Energien\\n(EnG Artikel 3 bis 5, EnR Artiekl 14 und 15)\\n\\nDer Nachweis kann entweder durch die Wahl einer Standardl\\u00f6sung oder durch eine Berechnung des H\\u00f6chstanteils nichterneuerbarer Energien erbracht werden. Dieser Nachweis ist zu erbringen bei:\\n\\u2013Neubauten\\n\\u2013neubauartigen Umbauten\\n\\u2013Anbauten und Aufstockungen, wenn die neu geschaffene Energiebezugsfl\\u00e4che mehr als 50 m2 und gleichzeitig mehr als 20% der Energiebezugsfl\\u00e4che des bestehenden Geb\\u00e4udeteiles betr\\u00e4gt; oder wenn mehr als 1000 m2 Energie-bezugsfl\\u00e4che neu geschaffen werden.\\n\\n- 2a Einzelbauteilnachweis W\\u00e4rmed\\u00e4mmung\\nEnG Artiekl 3 bis 5; EnR Artikel 5 bis 7)\\n\\nGem\\u00e4ss Norm SIA 380/1 \\u00abThermische Energie im Hochbau\\u00bb, Ausgabe 2009. Bei Neubauten sind alle Bauteile nachzuweisen, welche die beheizte oder gek\\u00fchlte Zone l\\u00fcckenlos umschliessen. Bei Umbauten oder Umnutzungen sind nur die betroffenen Bauteile nachzuweisen.\\n\\n- 2b Systemnachweis W\\u00e4rmed\\u00e4mmung\\n(EnG Artikel 3 bis 5; EnR Artiekl 5 bis 7)\\n\\nGem\\u00e4ss Norm SIA 380/1 \\u00abThermische Energie im Hochbau\\u00bb, Ausgabe 2009. Bei Neubauten ist der Heizw\\u00e4rmebedarf f\\u00fcr die gesamte beheizte oder gek\\u00fchlte Zone nachzuweisen. Der Systemnachweis f\\u00fcr Umbauten und Umnutzungen hat im Minimum alle R\\u00e4ume zu umfassen, die Bauteile aufweisen, die vom Umbau oder von der Umnutzung betroffen werden.\\n\\n- 3 Nachweis Heizungs- und Warmwasseranlagen\\n(EnG Artikel 3 bis 5; EnR Artikel 12 bis 13 und 20 bis 21)\\n\\nDer Nachweis ist f\\u00fcr alle neuen und f\\u00fcr die von einem Umbau betroffenen  bestehenden Anlagenteile zu erbringen.\\n\\n- 4 Nachweis L\\u00fcftungstechnische Anlagen\\n(EnG Artikel 3 bis 5; EnR Artikel 18 bis 21)\\n\\nDer Nachweis ist f\\u00fcr alle neuen und f\\u00fcr die von einem Umbau betroffenen  bestehenden Anlagenteile zu erbringen.\\n\\n- 5 Nachweis f\\u00fcr K\\u00fchlung und/oder Befeuchtung\\n(EnG Artikel 3 bis 5; EnR Artikel 17,20,21)\\n\\nDer Nachweis ist f\\u00fcr alle neuen und f\\u00fcr die von einem Umbau betroffenen  bestehenden Anlagenteile zu erbringen.\\n\\n- 6/7/8 Nachweis K\\u00fchlr\\u00e4ume/Gew\\u00e4chsh\\u00e4user/Traglufthallen\\n(EnG Artikel 3 bis 5; EnR Artikel 9 bis 11)\\n\\nDer Nachweis ist f\\u00fcr alle neuen und f\\u00fcr die von einem Umbau oder einer  Umnutzung betroffenen Bauteile zu erbringen. Bei K\\u00fchlr\\u00e4umen: Angaben  \\u00fcber die bei der K\\u00e4lteerzeugung allenfalls entstehende Abw\\u00e4rme sind bei  den Heizungsanlagen (vgl. EN-3) anzubringen.\\n\\n- 10/11 Nachweis Heizungen im Freien/Freiluftb\\u00e4der\\n(EnG Artikel 3 bis 5; EnR Artikel 24 und 25)\\n\\nDer Nachweis ist f\\u00fcr alle neuen, ersetzten und von einem Umbau betroffenen  bestehenden Anlagenteile, sowie bei einem Ersatz der W\\u00e4rmeerzeugung zu erbringen.\\n\\n- 12 Nachweis ortsfeste elektrische Widerstandsheizungen\\n(EnG Artikel 7; EnR Artikel 23)\\n\\nDer Nachweis ist f\\u00fcr alle neuen Elektroheizungen mit mehr als 3 kW oder f\\u00fcr  die Erweiterung um mehr als 3 kW Anschlussleistung zu erbringen.\\n\\nEnG Energiegesetz des Kantons Uri vom 18. April 1999 - RB 40.7211\\nEnV Energiereglement des Kantons Uri vom 16. Dezember 2008 - RB40.7215\", \"fr\": null}",
-      "static_content": "{\"de\": \"##Energienachweis\\n\\nEin Energienachweis ist in der Regel notwendig bei beheizten oder gek\\u00fchlten Neubauten, Umbauten, Erweiterungen und Zweck\\u00e4nderungen, oder wenn in der Geb\\u00e4udeh\\u00fclle einzelne Bauteile ersetzt, oder neu ged\\u00e4mmt werden. Ebenfalls notwendig ist der Nachweis, wenn technische Anlagen wie Heizungen, L\\u00fcftungen, Klima- und/oder K\\u00e4lteanlagen ersetzt oder neu eingebaut werden. Bitte w\\u00e4hlen Sie die entsprechenden baulichen Umst\\u00e4nde aus, die bei Ihrem Vorhaben zutreffen.\\n\\nIm Zweifelsfall kontaktieren Sie bitte zur Kl\\u00e4rung der Notwendigkeit eines Energienachweises direkt das [Amt f\\u00fcr Energie](https://www.ur.ch/_rte/amt/828)\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"##Energienachweis\\n\\nEin Energienachweis ist in der Regel notwendig bei beheizten oder gek\\u00fchlten Neubauten, Umbauten, Erweiterungen und Zweck\\u00e4nderungen, oder wenn in der Geb\\u00e4udeh\\u00fclle einzelne Bauteile ersetzt, oder neu ged\\u00e4mmt werden. Ebenfalls notwendig ist der Nachweis, wenn technische Anlagen wie Heizungen, L\\u00fcftungen, Klima- und/oder K\\u00e4lteanlagen ersetzt oder neu eingebaut werden. Bitte w\\u00e4hlen Sie die entsprechenden baulichen Umst\\u00e4nde aus, die bei Ihrem Vorhaben zutreffen.\\n\\nIm Zweifelsfall kontaktieren Sie bitte zur Kl\\u00e4rung der Notwendigkeit eines Energienachweises direkt das [Amt f\\u00fcr Energie](https://www.ur.ch/_rte/amt/828).\\n\\nDer Energienachweis wird in der Regel auf der Basis von Detailpl\\u00e4nen erstellt. Da diese zum Zeitpunkt der Baueingabe oftmals noch nicht vorliegen, kann der Energienachweis im Rahmen des laufenden Bewilligungsverfahrens auch nachtr\\u00e4glich eingereicht werden. Dies muss jedoch sp\\u00e4testens und rechtzeitig vor Baubeginn erfolgen. Die Baufreigabe erfolgt in der Regel erst nach positiver Pr\\u00fcfung des Energienachweises. Es ist Sache der zust\\u00e4ndigen Baubeh\\u00f6rde, die Baufreigabe davon abh\\u00e4ngig zu machen.\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -32528,13 +32752,13 @@
     "pk": "weitere-en-formulare",
     "fields": {
       "created_at": "2020-11-16T16:25:51.182Z",
-      "modified_at": "2020-11-18T11:02:48.899Z",
+      "modified_at": "2021-03-22T13:01:05.831Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "label": "{\"de\": \"Weitere EN Formulare\", \"fr\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "!(\"energienachweis-nachtraeglich-nein\" == \"energienachweis-nachtraeglich\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -35131,6 +35355,32 @@
       "question": "empfehlen",
       "option": "empfehlen-5",
       "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "energienachweis-nachtraeglich.energienachweis-nachtraeglich-ja",
+    "fields": {
+      "created_at": "2021-03-22T12:58:19.044Z",
+      "modified_at": "2021-03-22T12:58:19.044Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "energienachweis-nachtraeglich",
+      "option": "energienachweis-nachtraeglich-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "energienachweis-nachtraeglich.energienachweis-nachtraeglich-nein",
+    "fields": {
+      "created_at": "2021-03-22T12:58:18.735Z",
+      "modified_at": "2021-03-22T12:58:18.735Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "question": "energienachweis-nachtraeglich",
+      "option": "energienachweis-nachtraeglich-nein",
+      "sort": 1
     }
   },
   {
@@ -37852,6 +38102,32 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "migrated-from-camac.migrated-from-camac-no",
+    "fields": {
+      "created_at": "2021-03-22T16:58:11.337Z",
+      "modified_at": "2021-03-22T16:58:11.337Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "question": "migrated-from-camac",
+      "option": "migrated-from-camac-no",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "migrated-from-camac.migrated-from-camac-yes",
+    "fields": {
+      "created_at": "2021-03-22T16:58:11.343Z",
+      "modified_at": "2021-03-22T16:58:11.343Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "question": "migrated-from-camac",
+      "option": "migrated-from-camac-yes",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "mindest-und-grenzabstaende.mindest-und-grenzabstaende-fliessgewaesser",
     "fields": {
       "created_at": "2021-03-11T13:19:12.208Z",
@@ -38439,9 +38715,9 @@
     "model": "caluma_form.questionoption",
     "pk": "projekt-energienachweis.projekt-energienachweis-heizungs-und-warmwasser",
     "fields": {
-      "created_at": "2020-11-18T11:08:59.540Z",
-      "modified_at": "2020-11-18T11:08:59.540Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-03-22T13:00:04.976Z",
+      "modified_at": "2021-03-22T13:00:04.976Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "projekt-energienachweis",
       "option": "projekt-energienachweis-heizungs-und-warmwasser",
@@ -38452,9 +38728,9 @@
     "model": "caluma_form.questionoption",
     "pk": "projekt-energienachweis.projekt-energienachweis-hoechstanteil",
     "fields": {
-      "created_at": "2020-11-18T11:08:59.547Z",
-      "modified_at": "2020-11-18T11:08:59.547Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-03-22T13:00:05.029Z",
+      "modified_at": "2021-03-22T13:00:05.029Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "projekt-energienachweis",
       "option": "projekt-energienachweis-hoechstanteil",
@@ -38465,9 +38741,9 @@
     "model": "caluma_form.questionoption",
     "pk": "projekt-energienachweis.projekt-energienachweis-huelle",
     "fields": {
-      "created_at": "2020-11-18T11:08:59.543Z",
-      "modified_at": "2020-11-18T11:08:59.543Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-03-22T13:00:05.025Z",
+      "modified_at": "2021-03-22T13:00:05.025Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "projekt-energienachweis",
       "option": "projekt-energienachweis-huelle",
@@ -38478,9 +38754,9 @@
     "model": "caluma_form.questionoption",
     "pk": "projekt-energienachweis.projekt-energienachweis-keine-bereiche",
     "fields": {
-      "created_at": "2020-11-18T11:08:59.523Z",
-      "modified_at": "2020-11-18T11:08:59.523Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-03-22T13:00:04.898Z",
+      "modified_at": "2021-03-22T13:00:04.898Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "projekt-energienachweis",
       "option": "projekt-energienachweis-keine-bereiche",
@@ -38491,9 +38767,9 @@
     "model": "caluma_form.questionoption",
     "pk": "projekt-energienachweis.projekt-energienachweis-keine-bereiche-betroffen",
     "fields": {
-      "created_at": "2020-11-18T11:08:59.527Z",
-      "modified_at": "2020-11-18T11:08:59.527Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-03-22T13:00:04.913Z",
+      "modified_at": "2021-03-22T13:00:04.913Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "projekt-energienachweis",
       "option": "projekt-energienachweis-keine-bereiche-betroffen",
@@ -38504,9 +38780,9 @@
     "model": "caluma_form.questionoption",
     "pk": "projekt-energienachweis.projekt-energienachweis-kuehlung",
     "fields": {
-      "created_at": "2020-11-18T11:08:59.533Z",
-      "modified_at": "2020-11-18T11:08:59.533Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-03-22T13:00:04.968Z",
+      "modified_at": "2021-03-22T13:00:04.968Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "projekt-energienachweis",
       "option": "projekt-energienachweis-kuehlung",
@@ -38517,9 +38793,9 @@
     "model": "caluma_form.questionoption",
     "pk": "projekt-energienachweis.projekt-energienachweis-lueftung",
     "fields": {
-      "created_at": "2020-11-18T11:08:59.536Z",
-      "modified_at": "2020-11-18T11:08:59.536Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-03-22T13:00:04.972Z",
+      "modified_at": "2021-03-22T13:00:04.972Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "projekt-energienachweis",
       "option": "projekt-energienachweis-lueftung",
@@ -38530,9 +38806,9 @@
     "model": "caluma_form.questionoption",
     "pk": "projekt-energienachweis.projekt-energienachweis-minergie",
     "fields": {
-      "created_at": "2020-11-18T11:08:59.550Z",
-      "modified_at": "2020-11-18T11:08:59.550Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-03-22T13:00:05.032Z",
+      "modified_at": "2021-03-22T13:00:05.032Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "projekt-energienachweis",
       "option": "projekt-energienachweis-minergie",
@@ -38543,9 +38819,9 @@
     "model": "caluma_form.questionoption",
     "pk": "projekt-energienachweis.projekt-energienachweis-spezielle-bauten",
     "fields": {
-      "created_at": "2020-11-18T11:08:59.530Z",
-      "modified_at": "2020-11-18T11:08:59.530Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-03-22T13:00:04.932Z",
+      "modified_at": "2021-03-22T13:00:04.932Z",
+      "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "question": "projekt-energienachweis",
       "option": "projekt-energienachweis-spezielle-bauten",

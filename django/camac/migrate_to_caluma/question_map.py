@@ -57,6 +57,11 @@ QUESTION_MAP_BAUGESUCH = [
     ),  # Telefon Mobile (again?)
     ("c1q66i1", "applicant.*.e-mail", Transform.none),  # Email
     ("c1q221i1", "applicant.*.juristic-person-name", Transform.none),  # Organisation
+    (
+        "c1q221i1",
+        "applicant.*.is-juristic-person",
+        Transform.yes_if_present("is-juristic-person"),
+    ),  # Organisation
     # sub part 2: projektverfasserin
     ("c1q71i1", "project-author.*.first-name", Transform.extract_name_part("first")),
     (
@@ -80,6 +85,11 @@ QUESTION_MAP_BAUGESUCH = [
         "project-author.*.juristic-person-name",
         Transform.none,
     ),  # Organisation
+    (
+        "c1q222i1",
+        "project-author.*.is-juristic-person",
+        Transform.yes_if_present("is-juristic-person"),
+    ),  # Organisation
     # sub part 3: Grundeigentümer
     (
         "c1q82i1",
@@ -99,8 +109,11 @@ QUESTION_MAP_BAUGESUCH = [
     ("c1q89i1", "landowner.*.phone", Transform.append_text()),  # Telefon Geschäft
     ("c1q88i1", "landowner.*.e-mail", Transform.none),  # Email
     ("c1q223i1", "landowner.*.juristic-person-name", Transform.none),  # Organisation
-    # Chapter 2: Generell
-    ("c21q91i1", "parzellen-oder-baurechtsnummer", Transform.none),
+    (
+        "c1q223i1",
+        "landowner.*.is-juristic-person",
+        Transform.yes_if_present("is-juristic-person"),
+    ),  # Organisation
     # Chapter 3: Erstellung
     (
         "c3q2i1",
@@ -112,18 +125,12 @@ QUESTION_MAP_BAUGESUCH = [
     ("c2q5i1", "leitbehoerde", Transform.none),
     # Chapter 21: Objektdaten
     ("c21q93i1", "parcel-street", Transform.none),
+    ("c102q93i1", "parcel-street", Transform.none),
     ("c21q91i1", "parcels.*.parcel-number", Transform.none),
     ("c21q93i1", "parcels.*.parcel-street", Transform.none),
     ("c21q98i1", "proposal-description", Transform.append_text("; ")),
     ("c21q102i1", "construction-cost", Transform.extract_number),
     ("c21q22i1", "grundnutzung", Transform.join_multi_values_grundnutzung("; ")),
-    # (
-    #     # Vorhaben -> Vorhaben
-    #     "c21q97i1",
-    #     "proposal-description",
-    #     # TODO should be prepended - how to do priorities?
-    #     Transform.append_text("; "),
-    # ),
     (
         # Vorhaben -> Vorhaben
         "c21q97i1",
@@ -301,6 +308,8 @@ QUESTION_MAP_BAUGESUCH = [
             }
         ),
     ),
+    ("c21q101i1", "umbauter-raum", Transform.extract_number),
+    ("c21q100i1", "purpose-description", Transform.none),
     (
         "c21q94i1",
         "ueberlagerte-nutzungen",
@@ -329,19 +338,19 @@ QUESTION_MAP_BAUGESUCH = [
         # Orientierende Nutzungsplaninhalt
         "c21q95i1",
         "ueberlagerte-nutzungen",
-        Transform.join_multi_values_orientierende_nutzung("; "),
+        Transform.join_multi_values_ueberlagerte_nutzung("; "),
     ),
     (
         # Orientierende Nutzungsplaninhalt
         "c101q95i1",
         "ueberlagerte-nutzungen",
-        Transform.join_multi_values_orientierende_nutzung("; "),
+        Transform.join_multi_values_ueberlagerte_nutzung("; "),
     ),
     (
         # Orientierende Nutzungsplaninhalt
         "c102q95i1",
         "ueberlagerte-nutzungen",
-        Transform.join_multi_values_orientierende_nutzung("; "),
+        Transform.join_multi_values_ueberlagerte_nutzung("; "),
     ),
     # Chapter 22: Objektdaten
     (
@@ -393,6 +402,44 @@ QUESTION_MAP_BAUGESUCH = [
     ),  # Überlagerte Nutzungsplaninhalte
 ]
 
+QUESTION_MAP_BEANSPRUCHUNG_KANTONSGEBIET = [
+    ("c102q244i1", "veranstaltung-beschrieb", Transform.none),
+    ("c102q247i1", "veranstaltung-andere-beschreibung", Transform.none),
+    ("c102q249i1", "beanspruchte-flaeche-m2", Transform.extract_number),
+    ("c102q250i1", "veranstaltung-begruendung", Transform.none),
+    ("c102q245i1", "date-time-migrated", Transform.none),
+    ("c102q246i1", "duration-migrated", Transform.none),
+]
+
+QUESTION_MAP_MITBERICHTSVERFAHREN = [
+    ("c21q98i1", "beschreibung-zu-mbv", Transform.none),
+    ("c21q103i1", "beschreibung-bemerkungen", Transform.none),
+]
+
+QUESTION_MAP_OEREB = [
+    ("c21q98i1", "bezeichnung", Transform.none),
+    ("c21q103i1", "bemerkungen-np", Transform.none),
+]
+
+QUESTION_MAP_MELDUNG = [
+    ("c21q98i1", "vorhaben-proposal-description", Transform.none),
+    ("c21q102i1", "vorhaben-gesamtkosten-chf", Transform.extract_number),
+    ("c21q100i1", "bemerkungen-meldung", Transform.join_multiple_values()),
+    ("c21q103i1", "bemerkungen-meldung", Transform.join_multiple_values()),
+]
+
+QUESTION_MAP_REKLAME_GESUCH = [
+    ("c21q98i1", "bemerkungen-reklame", Transform.join_multiple_values()),
+    ("c21q103i1", "bemerkungen-reklame", Transform.join_multiple_values()),
+    ("c21q100i1", "bemerkungen-reklame", Transform.join_multiple_values()),
+]
+
+QUESTION_MAP_SOLAR = [
+    ("c21q98i1", "bemerkungen-solaranlage", Transform.join_multiple_values()),
+    ("c21q103i1", "bemerkungen-solaranlage", Transform.join_multiple_values()),
+    ("c21q100i1", "bemerkungen-solaranlage", Transform.join_multiple_values()),
+]
+
 IGNORE_QUESTIONS = {
     # temporarily ignoring for future analysis
     #
@@ -421,8 +468,6 @@ IGNORE_QUESTIONS = {
     "c21q96i1",  # 5 Vorhaben
     "c21q253i1",  # Detailangaben zum Nutzungsplan
     "c21q254i1",  # Detailangaben zur Nutzung
-    "c21q101i1",  # Umbauter Raum nach SIA 416 - TODO: in versteckte frage migrieren
-    "c21q100i1",  # Andere Nutzung
     "c21q270i1",  # Parzellenstandort (Gemeinde)
     # Chapter 101: Objektdaten
     # Chapter 102: Objektdaten (veranstaltung?)
@@ -454,30 +499,42 @@ slugs_to_ignore = [
     "category",
     "gebaeude.*.art-der-hochbaute",
     "purpose",
+    "purpose-description",
+    "umbauter-raum",
 ]
 
 
 def create_question_map(slugs):
-    return filter(lambda mapping: mapping[1] not in slugs, QUESTION_MAP_BAUGESUCH)
+    return list(filter(lambda mapping: mapping[1] not in slugs, QUESTION_MAP_BAUGESUCH))
 
 
-QUESTION_MAP_VORABKLAERUNG = QUESTION_MAP_BAUGESUCH
+QUESTION_MAP_REKLAME = (
+    create_question_map(slugs_to_ignore) + QUESTION_MAP_REKLAME_GESUCH
+)
 
-QUESTION_MAP_REKLAME = create_question_map(slugs_to_ignore)
+QUESTION_MAP_MELDUNG_SOLARANLAGE = (
+    create_question_map(slugs_to_ignore) + QUESTION_MAP_SOLAR
+)
 
-QUESTION_MAP_MELDUNG_VORHABEN = create_question_map(slugs_to_ignore)
+QUESTION_MAP_MELDUNG_VORHABEN = (
+    create_question_map(slugs_to_ignore) + QUESTION_MAP_MELDUNG
+)
 
-QUESTION_MAP_MELDUNG_SOLARANLAGE = create_question_map(slugs_to_ignore)
+QUESTION_MAP_MITBERICHT_KANTON = (
+    create_question_map(slugs_to_ignore + ["leitbehoerde"])
+    + QUESTION_MAP_MITBERICHTSVERFAHREN
+)
 
-QUESTION_MAP_MITBERICHT_KANTON = create_question_map(slugs_to_ignore + ["leitbehoerde"])
+QUESTION_MAP_MITBERICHT_BUND = (
+    create_question_map(slugs_to_ignore + ["leitbehoerde"])
+    + QUESTION_MAP_MITBERICHTSVERFAHREN
+)
 
-QUESTION_MAP_MITBERICHT_BUND = create_question_map(slugs_to_ignore + ["leitbehoerde"])
+QUESTION_MAP_OEREB_VERFAHREN = create_question_map(slugs_to_ignore) + QUESTION_MAP_OEREB
 
-QUESTION_MAP_OEREB_VERFAHREN = create_question_map(slugs_to_ignore)
-
-QUESTION_MAP_BENUETZUNG_KANTONSGEBIET = create_question_map(slugs_to_ignore)
-
-QUESTION_MAP_BUNDESVERFAHREN = QUESTION_MAP_BAUGESUCH
+QUESTION_MAP_BENUETZUNG_KANTONSGEBIET = (
+    create_question_map(slugs_to_ignore) + QUESTION_MAP_BEANSPRUCHUNG_KANTONSGEBIET
+)
 
 IGNORE_CHAPTERS = {
     "c00000000000000",
