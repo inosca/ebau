@@ -7,7 +7,7 @@ from datetime import datetime
 from logging import getLogger
 from pprint import pprint
 
-import translitcodec  # noqa
+# import translitcodec  # noqa
 from caluma.caluma_form import models as form_models
 from caluma.caluma_workflow import models as workflow_models
 from caluma.caluma_workflow.jexl import GroupJexl
@@ -50,75 +50,70 @@ class Command(BaseCommand):
 
     help = "Migrate dossiers from old Camac to Caluma/Camac-NG."
 
-    FORM_TO_CALUMA_FORM = {
-        "Baubewilligungsverfahren mit kantonaler Beteiligung": "building-permit",
-        "Baubewilligungsverfahren ohne kantonale Beteiligung": "building-permit",
-        "Baugesuch-Vorabklärung mit kantonaler Beteiligung": "preliminary-clarification",
-        "Baugesuch-Vorabklärung ohne kantonale Beteiligung": "preliminary-clarification",
-        "Meldung Vorhaben": "proposal-declaration",
-        "Meldung-Solaranlage": "solar-declaration",
-        "Reklame-Gesuch (eingereicht via Gemeinde)": "commercial-permit",
-        "Bewilligungsverfahren für die Beanspruchung von Kantonsgebiet": "cantonal-territory-usage",
-        "Bewilligungsverfahren für die Beanspruchung von Kantonsgebiet SD": "cantonal-territory-usage",
-        "Genehmigung Gesamtrevision Nutzungsplanung": "oereb",
-        "Genehmigung Quartiergestaltungsplan QGP": "oereb",
-        "Vorprüfung Gesamtrevision Nutzungsplanung": "oereb",
-        "Vorprüfung Teilrevision Nutzungsplanung": "oereb",
-        "Genehmigung Quartierplan QP": "oereb",
-        "Genehmigung Teilrevision Nutzungsplanung": "oereb",
-        "Vorprüfung Quartiergestaltungsplan QGP": "oereb",
-        "Vorprüfung Quartierplan QP": "oereb",
-        "Internes Genehmigungsverfahren": "mitbericht-kanton",
-        "Internes Mitberichtsverfahren / Bewilligungsverfahren gemäss UVP": "mitbericht-kanton",
-        "Internes Mitberichtsverfahren AFJ": "mitbericht-kanton",
-        "Internes Mitberichtsverfahren ALA": "mitbericht-kanton",
-        "Internes Mitberichtsverfahren ALA (Korporationsstrassen mit Subventionierung)": "mitbericht-kanton",
-        "Internes Mitberichtsverfahren AfE": "mitbericht-kanton",
-        "Internes Mitberichtsverfahren AfU": "mitbericht-kanton",
-        "Internes Mitberichtsverfahren BD": "mitbericht-kanton",
-        "Internes Mitberichtsverfahren BG": "mitbericht-kanton",
-        "Internes Mitberichtsverfahren NP": "mitbericht-kanton",
-        "Internes Mitberichtsverfahren SD": "mitbericht-kanton",
-        "Internes Mitberichtsverfahren SD AfKP": "mitbericht-kanton",
-        "Internes Mitberichtsverfahren nach Artikel 30 BG Umweltschutz": "mitbericht-kanton",
-        "Konzessionsverfahren Baudirektion Beanspruchung Kantonsgewässer bis 500 m2 (Artikel 3 ORR)": "mitbericht-kanton",
-        "Konzessionsverfahren Baudirektion für Wärmeentnahmen (Artikel 40 GNG) AFE": "mitbericht-kanton",
-        "Konzessionsverfahren Baudirektion für Wärmeentnahmen (Artikel 40 GNG) BD": "mitbericht-kanton",
-        "Konzessionsverfahren Korporationsgewässer mit Genehmigung durch Regierungsrat (Artikel 15 GNG)": "mitbericht-kanton",
-        "Konzessionsverfahren Landrat für Anlagen ab 1000 kW (Artikel 18 GNG) AFE": "mitbericht-kanton",
-        "Konzessionsverfahren Landrat für Anlagen ab 1000 kW (Artikel 18 GNG) BD": "mitbericht-kanton",
-        "Konzessionsverfahren Regierungsrat für Anlagen bis 1000 kW (Artikel 18 GNG) AFE": "mitbericht-kanton",
-        "Konzessionsverfahren Regierungsrat für Anlagen bis 1000 kW (Artikel 18 GNG) BD": "mitbericht-kanton",
-        "Land- und Rechtserwerb": "mitbericht-kanton",
-        "Mitberichtsverfahren / PGV für militärische Bauten": "mitbericht-kanton",
-        "Mitberichtsverfahren / PGV nach Eisenbahngesetz (EBG)": "mitbericht-kanton",
-        "Mitberichtsverfahren / PGV nach Luftfahrtgesetz": "mitbericht-kanton",
-        "Mitberichtsverfahren / PGV nach Nationalstrassengesetz (NSG)": "mitbericht-kanton",
-        "Mitberichtsverfahren / PGV nach Seilbahngesetz (SebG)": "mitbericht-kanton",
-        "Mitberichtsverfahren / PGV nach Starkstromverordnung (EleG)": "mitbericht-kanton",
-        "PGV Gemeindestrasse (Artikel 30 StrG)": "pgv",
-        "PGV Kantonsstrasse (Artikel 30 StrG)": "pgv",
-        "PGV Korporationsstrasse (Artikel 30 StrG)": "pgv",
-        "PGV private Gewässer (Artikel 19 WBG)": "pgv",
-        "PGV vereinfachtes Verfahren (Artikel 31 StrG)": "pgv",
-        "PGV öffentliche Gewässer (Artikel 12 WBG)": "pgv",
-        "PGV vereinfachtes Verfahren": "pgv",
-        "Reklame-Gesuch (eingereicht via Baudirektion)": "commercial-permit",
-        "Verfahren nach BGBB / und Apparzellierungsverfahren": "building-permit",
-        "Archivdossier": "building-permit",
-        "Archivdossier AFJ": "building-permit",
-        "Mitberichtsverfahren Bundesstelle": "mitbericht-bund",  # unspecified, found in test data
-        "Meldung ÖREB Anpassung": "oereb",
-        "Meldung ÖREB Anpassung AFJ": "oereb",
-        "Meldung ÖREB Anpassung AFU": "oereb",
-        "Meldung ÖREB Anpassung ARE NP": "oereb",
-        "Meldung ÖREB Anpassung BD": "oereb",
-        "Meldung Vorhaben AFJ": "proposal-declaration",
-    }
+    def get_caluma_form(self, form_id):
+        mapping = {
+            "building-permit": [41, 44, 47, 293, 294],
+            "preliminary-clarification": [21, 61],
+            "commercial-permit": [121, 249],
+            "solar-declaration": [141],
+            "proposal-declaration": [290, 295],
+            "cantonal-territory-usage": [247, 291],
+            "oereb": [
+                261,
+                281,
+                282,
+                284,
+                285,
+                101,
+                102,
+                103,
+                104,
+                105,
+                106,
+                107,
+                108,
+            ],
+            "mitbericht-kanton": [
+                42,
+                43,
+                45,
+                46,
+                161,
+                181,
+                201,
+                221,
+                222,
+                223,
+                224,
+                225,
+                241,
+                242,
+                243,
+                245,
+                246,
+                248,
+                251,
+                252,
+                253,
+                254,
+                255,
+                256,
+                257,
+                258,
+                259,
+                260,
+                286,
+                287,
+                288,
+                289,
+            ],
+            "mitbericht-bund": [244, 250, 292],
+        }
+        return [key for key, value in mapping.items() if form_id in value][0]
 
     QUESTION_MAP_BY_FORM = {
         "building-permit": question_map.QUESTION_MAP_BAUGESUCH,
-        "preliminary-clarification": question_map.QUESTION_MAP_VORABKLAERUNG,
+        "preliminary-clarification": question_map.QUESTION_MAP_BAUGESUCH,
         "commercial-permit": question_map.QUESTION_MAP_REKLAME,
         "proposal-declaration": question_map.QUESTION_MAP_MELDUNG_VORHABEN,
         "solar-declaration": question_map.QUESTION_MAP_MELDUNG_SOLARANLAGE,
@@ -126,7 +121,6 @@ class Command(BaseCommand):
         "mitbericht-bund": question_map.QUESTION_MAP_MITBERICHT_BUND,
         "cantonal-territory-usage": question_map.QUESTION_MAP_BENUETZUNG_KANTONSGEBIET,
         "oereb": question_map.QUESTION_MAP_OEREB_VERFAHREN,
-        "bundesverfahren": question_map.QUESTION_MAP_BUNDESVERFAHREN,
     }
 
     IGNORE_QUESTIONS = question_map.IGNORE_QUESTIONS
@@ -193,41 +187,7 @@ class Command(BaseCommand):
             (inst, need_debugger)
             for inst, need_debugger in (
                 self._ask_next(inst)
-                for inst in Instance.objects.filter(
-                    group__service_id=346,
-                    # pk=2822, # dossier mit municipality frage
-                    # form_id__in=(
-                    #     [
-                    # 44,  # Baubewilligungsverfahren mit kantonaler Beteiligung
-                    # 47,  # Baubewilligungsverfahren ohne kantonale Beteiligung
-                    # 121,  # Reklame
-                    # 249,  # Reklame BD
-                    # 290,  # Meldung Vorhaben
-                    # 295,  # Meldung Vorhaben AFJ
-                    # 141,  # Meldung Solaranlage
-                    # 42,  # Mitbericht BG
-                    # 161,  # Mitbericht NP
-                    # 248,  # Mitbericht BD
-                    # 251,  # Mitbericht AFU
-                    # 252,  # Mitbericht Umweltschutz
-                    # 253,  # Mitbericht UVP
-                    # 254,  # Mitbericht ALA
-                    # 255,  # Mitbericht ALA Korporation
-                    # 256,  # Mitbericht AFE
-                    # 260,  # Mitbericht AFJ
-                    # 287,  # Mitbericht SD AFKP
-                    # 288,  # Mitbericht SD
-                    # 292,  # Mitbericht Bundesstelle
-                    # 261,  # Meldung OEREB
-                    # 281,  # Meldung OEREB AFJ
-                    # 282,  # Meldung OEREB AFU
-                    # 284,  # Meldung OEREB NP
-                    # 285,  # Meldung OEREB BD
-                    # 247,  # Kantonsgebiet
-                    # 291,  # Kantonsgebiet SD
-                    #     ]
-                    # ),
-                )[:120]
+                for inst in Instance.objects.all()
                 if not self._has_case(inst)
             )
             if inst
@@ -336,7 +296,7 @@ class Command(BaseCommand):
     def _make_document(self, inst):
         inst_user = inst.user.username
         document = form_models.Document.objects.create(
-            form_id=self.FORM_TO_CALUMA_FORM[inst.form.get_name()],
+            form_id=self.get_caluma_form(inst.form_id),
             created_by_user=inst_user,
             created_by_group=None,
         )
@@ -454,8 +414,7 @@ class Command(BaseCommand):
                     # prices in francs is enough
                     value = re.sub(r"\.[0-9]+$", "", value)
                 if value == "":
-                    # TODO maybe better set to None?
-                    value = "0"
+                    value = None
                 if "." in value:
                     answer.value = float(value)
                 else:
@@ -464,8 +423,8 @@ class Command(BaseCommand):
                 log.critical(
                     f"{ind}Integer answer {slug} contains non-integer value: {new_value}"
                 )
-                # __import__("pdb").set_trace()  # noqa
-                # pass
+                __import__("pdb").set_trace()  # noqa
+                pass
         elif answer.question.type == answer.question.TYPE_FLOAT:
             try:
                 # some minimal sanitizing that doesn't affect the actual value
@@ -674,7 +633,7 @@ class Command(BaseCommand):
     @transaction.atomic
     def migrate_instance(self, inst, need_debugger):
         camac_form_name = inst.form.get_name()
-        caluma_form = self.FORM_TO_CALUMA_FORM[inst.form.get_name()]
+        caluma_form = self.get_caluma_form(inst.form_id)
 
         log.info(
             f"Begin importing instance {inst.instance_id}: {camac_form_name} -> {caluma_form}"
@@ -692,6 +651,19 @@ class Command(BaseCommand):
         num_answers = self._copy_answers(inst, document)
         self._copy_address_data(inst, document)
         self._set_permit_type(inst, document)
+        self._set_checkbox_question(
+            document, "umbauter-raum", "category", "category-hochbaute"
+        )
+        self._set_checkbox_question(
+            document, "purpose-description", "purpose", "purpose-andere"
+        )
+        self._set_checkbox_question(
+            document,
+            "veranstaltung-andere-beschreibung",
+            "veranstaltung-art",
+            "veranstaltung-art-andere",
+        )
+        self._set_migrated_question(document)
 
         log.info(
             f"Finished instance form for {inst.instance_id}, transferred {num_answers} answers"
@@ -719,6 +691,31 @@ class Command(BaseCommand):
         if value:
             ans, _ = document.answers.get_or_create(question=question, value=value)
 
+    def _set_checkbox_question(
+        self, document, trigger_answer, hidden_answer, answer_slug
+    ):
+        if (
+            document.answers.filter(question_id=trigger_answer).exists()
+            and document.answers.filter(question_id=hidden_answer).exists()
+            and answer_slug not in document.answers.get(question_id=hidden_answer).value
+        ):
+            answer = document.answers.get(question_id=hidden_answer)
+            answer.value.append(answer_slug)
+            answer.save()
+        elif (
+            document.answers.filter(question_id=trigger_answer).exists()
+            and not document.answers.filter(question_id=hidden_answer).exists()
+        ):
+            document.answers.create(
+                question_id=hidden_answer, document=document, value=answer_slug
+            )
+
+    def _set_migrated_question(self, document):
+        question = form_models.Question.objects.get(slug="migrated-from-camac")
+        document.answers.create(
+            question=question, document=document, value="migrated-from-camac-yes"
+        )
+
     def _copy_address_data(self, inst, document):
         applicant_table = document.answers.filter(question_id="applicant").first()
         if not applicant_table:
@@ -730,13 +727,45 @@ class Command(BaseCommand):
             # We have the applicant table, but no row document.
             return
 
+        involved_people_question = form_models.Question.objects.get(
+            slug="more-people-involved"
+        )
         answers = self._get_camac_answers(inst).filter(item=1, chapter=1)
+
+        additional_people = [
+            "more-people-involved-" + value
+            for (qid, qids, value) in [
+                (68, [69], "invoice-recipient"),
+                (79, [71, 222], "project-author"),
+                (80, [82, 223], "landowner"),
+            ]
+            if answers.filter(question=qid).exists()
+            and answers.get(question=qid).answer == "1"
+            or any([answers.filter(question=q) for q in qids])
+        ]
+        form_models.Answer.objects.create(
+            value=additional_people,
+            document=document,
+            question=involved_people_question,
+        )
+
         if (
-            answers.filter(question=68).exists()
+            "more-people-involved-project-author" in additional_people
+            and answers.filter(question=79).exists()
+            and answers.get(question=79).answer == "1"
+        ):
+            table_ans, _ = document.answers.get_or_create(
+                question_id="project-author",
+                question__slug="project-author",
+                question__type=form_models.Question.TYPE_TABLE,
+            )
+            table_ans.documents.add(applicant.copy())
+
+        if (
+            "more-people-involved-invoice-recipient" in additional_people
+            and answers.filter(question=68).exists()
             and answers.get(question=68).answer == "1"
         ):
-            # Rechnungsadresse identisch GesuchstellerIn
-            # TODO: matching field? Copy data
             table_ans, _ = document.answers.get_or_create(
                 question_id="invoice-recipient",
                 question__slug="invoice-recipient",
@@ -745,20 +774,10 @@ class Command(BaseCommand):
             table_ans.documents.add(applicant.copy())
 
         if (
-            answers.filter(question=79).exists()
-            and answers.get(question=79).answer == "1"
+            "more-people-involved-landowner" in additional_people
+            and answers.filter(question=80).exists()
+            and answers.get(question=80).answer == "1"
         ):
-            # ProjektverfasserIn identisch GesuchstellerIn
-            # TODO: add document to "project-author" table
-            table_ans, _ = document.answers.get_or_create(
-                question_id="project-author",
-                question__slug="project-author",
-                question__type=form_models.Question.TYPE_TABLE,
-            )
-            table_ans.documents.add(applicant.copy())
-
-        if answers.filter(question=80).exists():
-            # GrundeigentümerIn identisch GesuchstellerIn
             table_ans, _ = document.answers.get_or_create(
                 question_id="landowner",
                 question__slug="landowner",
