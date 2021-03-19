@@ -70,6 +70,21 @@ GRUNDNUTZUNG_MAPPING = {
     "WG5": "Wohn- und Gewerbezone 5+",  # Wohn- und Gewerbezone 5+
     "K": "Kernzone",  # Kernzone
     "KZE": "Kernzone - Zentrum",  # Kernzone - Zentrum
+    "LW": None,  # Value not in answerlist
+    "R": None,  # Value not in answerlist
+    "W": None,  # Value not in answerlist
+    "KZ": None,  # Value not in answerlist
+    "KS": None,  # Value not in answerlist
+    "ViB": None,  # Value not in answerlist
+    "T": None,  # Value not in answerlist
+    "G": None,  # Value not in answerlist
+    "O": None,  # Value not in answerlist
+    "VaB": None,  # Value not in answerlist
+    "F": None,  # Value not in answerlist
+    "FaB": None,  # Value not in answerlist
+    "B": None,  # Value not in answerlist
+    "U": None,  # Value not in answerlist
+    "": None,  # Empty value in answerslist
 }
 
 UEBERLAGERTE_NUTZUNG_MAP = {
@@ -120,12 +135,6 @@ UEBERLAGERTE_NUTZUNG_MAP = {
     "QRPp": "Zone mit Quartierrichtplanpflicht",  # Zone mit Quartierrichtplanpflicht
     "ABüH": "Gewerbesonderzone Harder, überlagert",  # Gewerbesonderzone Harder, überlagert
     "PB": "Projektierungsbereich",  # Projektierungsbereich
-    "LSrn": "",  # Value not in answerlist
-    "GG": "",  # Value not in answerlist
-    "GSZ": "",  # Value not in answerlist
-}
-
-ORIENTIERENDE_NUTZUNG_MAPPING = {
     "GSZ": "Grundwasserschutzzone",
     "GSZp": "Grundwasserschutzzonen provisorisch",
     "GSA": "Grundwasserschutzareale",
@@ -136,18 +145,29 @@ ORIENTIERENDE_NUTZUNG_MAPPING = {
     "NSrn": "Naturschutzzone regional / national",
     "FM": "Flachmoor",
     "LSrn": "Landschaftsschutzzone regional / national",
+    "GmsB": "Gebiete mit schützenswerter Bausubstanz",
+    "NOrnl": "Naturobjekt regional / national, linear",
+    "NOrn": "Naturobjekt regional / national, punktförmig",
+    "KOrnl": "Kulturobjekt regional / national, linear",
+    "KOrn": "Kulturobjekt regional / national, punktförmig",
+    "FFF": "Fruchtfolgefläche",
+    "GRu": None,  # Value not in answerlist
+    "WS": None,  # Value not in answerlist
+    "NSlu": None,  # Value not in answerlist
+    "SFu": None,  # Value not in answerlist
+    "": None,  # Empty value in answerslist
 }
 
 
 class Transform:
     @staticmethod
-    def yesno(value_prefix):
-        """Return a question transform for camac-style yes/no questions."""
-        transform = {
-            "Ja": "%s-ja" % value_prefix,
-            "Nein": "%s-nein" % value_prefix,
-        }
-        return lambda val: transform.get(val, None)
+    def yes_if_present(value_prefix):
+        def mapper(val):
+            if val:
+                return f"{value_prefix}-yes"
+            return f"{value_prefix}-no"
+
+        return mapper
 
     @staticmethod
     def checkbox(value_mapping):
@@ -209,38 +229,50 @@ class Transform:
     @staticmethod
     def join_multi_values_grundnutzung(separator):
         def wrapper(val):
-            value_list = []
-            for value in json.loads(val):
-                value_list.append(GRUNDNUTZUNG_MAPPING[value])
-            return separator.join(value_list)
+            return separator.join(
+                [
+                    GRUNDNUTZUNG_MAPPING.get(v)
+                    for v in json.loads(val)
+                    if GRUNDNUTZUNG_MAPPING.get(v)
+                ]
+            )
 
         return wrapper
 
     @staticmethod
     def join_multi_values_ueberlagerte_nutzung(separator):
-        def wrapper(val):
+        def wrapper(val, document, slug):
+
             try:
-                value_list = []
-                for value in json.loads(val):
-                    value_list.append(UEBERLAGERTE_NUTZUNG_MAP[value])
+                existing_answer = document.answers.get(question=slug)
+                value_list = [
+                    UEBERLAGERTE_NUTZUNG_MAP.get(v)
+                    for v in json.loads(val)
+                    if UEBERLAGERTE_NUTZUNG_MAP.get(v)
+                ]
+                value_list.append(existing_answer.value)
                 return separator.join(value_list)
-            except KeyError:
-                __import__("pdb").set_trace()  # noqa
-                pass
+            except form_models.Answer.DoesNotExist:
+                return separator.join(
+                    [
+                        UEBERLAGERTE_NUTZUNG_MAP.get(v)
+                        for v in json.loads(val)
+                        if UEBERLAGERTE_NUTZUNG_MAP.get(v)
+                    ]
+                )
 
         return wrapper
 
     @staticmethod
-    def join_multi_values_orientierende_nutzung(separator):
-        def wrapper(val):
+    def join_multiple_values():
+        def wrapper(val, document, slug):
+
             try:
-                value_list = []
-                for value in json.loads(val):
-                    value_list.append(ORIENTIERENDE_NUTZUNG_MAPPING[value])
-                return separator.join(value_list)
-            except KeyError:
-                __import__("pdb").set_trace()  # noqa
-                pass
+                existing_answer = document.answers.get(question=slug)
+                values = f"{existing_answer.value}; {val}"
+                return values
+            except form_models.Answer.DoesNotExist:
+                return val
 
         return wrapper
 
