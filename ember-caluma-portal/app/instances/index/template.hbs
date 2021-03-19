@@ -106,14 +106,14 @@
         class="uk-margin-small-right"
         @color="default"
         @type="reset"
-        @disabled={{this.fetchData.isRunning}}
+        @disabled={{this.cases.isLoading}}
         @label={{t "instances.reset"}}
         @on-click={{perform this.resetFilters}}
        />
       <UkButton
         @color="primary"
         @type="submit"
-        @disabled={{this.fetchData.isRunning}}
+        @disabled={{this.cases.isLoading}}
         @label={{t "instances.filter"}}
        />
     </div>
@@ -122,14 +122,14 @@
 
 <hr>
 
-{{#if (and fetchData.isRunning (eq cases.length 0))}}
+{{#if (and this.cases.isLoading (eq this.cases.value.length 0))}}
   <div class="uk-text-center uk-padding">
     <UkSpinner @ratio={{2}} />
   </div>
-{{else if cases.length}}
+{{else if this.cases.value.length}}
   <div uk-grid>
     <div class="uk-width-expand uk-flex uk-flex-middle uk-text-meta">
-      <span>{{t "instances.pageInfo" length=cases.length total=pageInfo.totalCount htmlSafe=true}}</span>
+      <span>{{t "instances.pageInfo" length=this.cases.value.length total=this.cases.totalCount htmlSafe=true}}</span>
     </div>
 
     <div class="uk-width-auto uk-flex uk-flex-middle">
@@ -137,7 +137,7 @@
         {{t "instances.orderBy"}}:
       </label>
       <select class="uk-select uk-form-small uk-margin-small-left" onchange={{action (mut order) value="target.value"}} id="order">
-        {{#each orderOptions as |o|}}
+        {{#each this.orderOptions as |o|}}
           <option value={{o.value}} selected={{eq order o.value}}>{{t o.label}} ({{t o.direction}})</option>
         {{/each}}
       </select>
@@ -157,7 +157,7 @@
       </tr>
     </thead>
     <tbody>
-      {{#each this.cases as |case|}}
+      {{#each this.cases.value as |case|}}
         <tr class="uk-table-middle">
           <td>
             <LinkTo @route="instances.edit" @model={{case.instanceId}} class="uk-text-bold">{{case.instanceId}}</LinkTo>
@@ -171,10 +171,10 @@
           <td class="uk-text-truncate" title={{case.description}}>{{case.description}}</td>
         </tr>
       {{/each}}
-      {{#if this.pageInfo.hasNextPage}}
+      {{#if this.cases.hasNextPage}}
         <tr>
           <td colspan="8" class="uk-text-center">
-            <InViewport @onEnter={{perform this.fetchData this.pageInfo.endCursor}}>
+            <InViewport @onEnter={{perform this.getMoreCases}}>
               <UkSpinner />
             </InViewport>
           </td>

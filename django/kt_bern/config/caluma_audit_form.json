@@ -1802,7 +1802,7 @@
       "name": "{\"de\": \"Bauen ausserhalb der Bauzone - Beilagen\", \"fr\": \"Construction hors de la zone \\u00e0 b\\u00e2tir - Annexes\"}",
       "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1818,7 +1818,7 @@
       "name": "{\"de\": \"Bauen ausserhalb der Bauzone\", \"fr\": \"Construction hors de la zone \\u00e0 b\\u00e2tir\"}",
       "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1834,7 +1834,7 @@
       "name": "{\"de\": \"Dossierpr\\u00fcfung\", \"fr\": \"Examen du dossier\"}",
       "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1850,7 +1850,7 @@
       "name": "{\"de\": \"Formelle Pr\\u00fcfung\", \"fr\": \"Examen formel\"}",
       "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1866,7 +1866,7 @@
       "name": "{\"de\": \"Materielle Pr\\u00fcfung - Abschluss\", \"fr\": \"Examen mat\\u00e9riel - Cl\\u00f4ture\"}",
       "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1882,7 +1882,7 @@
       "name": "{\"de\": \"Materielle Pr\\u00fcfung - Ausnahmen\", \"fr\": \"Examen mat\\u00e9riel - D\\u00e9rogations\"}",
       "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1898,7 +1898,7 @@
       "name": "{\"de\": \"Materielle Pr\\u00fcfung - Bauabst\\u00e4nde\", \"fr\": \"Examen mat\\u00e9riel - Distances\"}",
       "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1914,7 +1914,7 @@
       "name": "{\"de\": \"Materielle Pr\\u00fcfung - Weitere Gegenst\\u00e4nde - Eigene Pr\\u00fcfgegenst\\u00e4nde\", \"fr\": \"Examen mat\\u00e9riel - Autres objets - Propres objects\"}",
       "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1930,7 +1930,7 @@
       "name": "{\"de\": \"Materielle Pr\\u00fcfung - Erschliessung\", \"fr\": \"Examen mat\\u00e9riel - Equipement\"}",
       "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1946,7 +1946,7 @@
       "name": "{\"de\": \"Materielle Pr\\u00fcfung\", \"fr\": \"Examen mat\\u00e9riel\"}",
       "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1962,7 +1962,7 @@
       "name": "{\"de\": \"Materielle Pr\\u00fcfung - Gesundheit\", \"fr\": \"Examen mat\\u00e9riel - Sant\\u00e9\"}",
       "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1978,7 +1978,7 @@
       "name": "{\"de\": \"Materielle Pr\\u00fcfung - Nutzungsvorschriften\", \"fr\": \"Examen mat\\u00e9riel - Prescriptions en mati\\u00e8re d'affectation\"}",
       "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1994,7 +1994,7 @@
       "name": "{\"de\": \"Materielle Pr\\u00fcfung - Ortsbild- und Landschaftsschutz\", \"fr\": \"Examen mat\\u00e9riel - Protection des sites et du paysage\"}",
       "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -2010,7 +2010,7 @@
       "name": "{\"de\": \"Materielle Pr\\u00fcfung - Schutzinventare\", \"fr\": \"Examen mat\\u00e9riel - Inventaires de protection\"}",
       "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -2026,7 +2026,7 @@
       "name": "{\"de\": \"Materielle Pr\\u00fcfung - Sicherheit\", \"fr\": \"Examen mat\\u00e9riel - S\\u00e9curit\\u00e9\"}",
       "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -2042,7 +2042,7 @@
       "name": "{\"de\": \"Materielle Pr\\u00fcfung - Umweltschutz\", \"fr\": \"Examen mat\\u00e9riel - Protection de l'environnement\"}",
       "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -2058,7 +2058,7 @@
       "name": "{\"de\": \"Materielle Pr\\u00fcfung - Weitere Gegenst\\u00e4nde\", \"fr\": \"Examen mat\\u00e9riel - Autres objets\"}",
       "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -2074,7 +2074,7 @@
       "name": "{\"de\": \"Materielle Pr\\u00fcfung - Weitere Vorschriften\", \"fr\": \"Examen mat\\u00e9riel - Autres prescriptions\"}",
       "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
