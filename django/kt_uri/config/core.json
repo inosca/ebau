@@ -41668,7 +41668,7 @@
     "model": "core.remberlist",
     "pk": 314,
     "fields": {
-      "instance_states": "32"
+      "instance_states": "32,23,25,34"
     }
   },
   {
