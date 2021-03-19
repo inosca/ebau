@@ -79,16 +79,7 @@ class InstanceQuerysetMixin(object):
 
     @permission_aware
     def get_queryset(self, group=None):
-        queryset = self.get_base_queryset()
-
-        # A user should see dossiers which he submitted or has been invited to.
-        return queryset.filter(
-            **{
-                self._get_instance_filter_expr(
-                    "involved_applicants__invitee"
-                ): self._get_user()
-            }
-        )
+        return self.get_base_queryset()
 
     def get_queryset_for_public_reader(self, group=None):
         queryset = self.get_base_queryset()
