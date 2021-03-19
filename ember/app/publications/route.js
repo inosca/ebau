@@ -1,10 +1,10 @@
 import Route from "@ember/routing/route";
+import ENV from "citizen-portal/config/environment";
 
-export default Route.extend({
-  setupController(controller, ...args) {
-    this._super(...args);
-
-    controller.publications.perform();
-    controller.publicationPermissions.perform();
-  },
-});
+export default class PublicationsRoute extends Route {
+  beforeModel(transition) {
+    if (!ENV.APP.showPublications) {
+      transition.abort();
+    }
+  }
+}

@@ -34,6 +34,9 @@ module.exports = function (environment) {
       // used in submit and camac-property-selector
       municipalityNames: [],
 
+      // enables publication view
+      showPublications: true,
+
       gisHost: "map-t.geo.sz.ch",
 
       // Form location mapping in order of definition
@@ -161,7 +164,7 @@ module.exports = function (environment) {
       "Vorderthal",
       "Wangen",
       "Wollerau",
-      "Amt für Gewässer",
+      "Amt für Wasserbau",
       "Tiefbauamt des Kantons Schwyz",
       "Kantonspolizei Schwyz",
       "Eidg. Starkstrominspektorat",
@@ -231,7 +234,7 @@ module.exports = function (environment) {
       "Vorderthal",
       "Wangen",
       "Wollerau",
-      "Amt für Gewässer",
+      "Amt für Wasserbau",
       "Tiefbauamt des Kantons Schwyz",
       "Kantonspolizei Schwyz",
       "Eidg. Starkstrominspektorat",
@@ -263,7 +266,7 @@ module.exports = function (environment) {
       "Rothenthurm",
       "Steinen",
       "Steinerberg",
-      "Amt für Gewässer",
+      "Amt für Wasserbau",
       "Tiefbauamt des Kantons Schwyz",
       "Kantonspolizei Schwyz",
       "Eidg. Starkstrominspektorat",
@@ -278,7 +281,8 @@ module.exports = function (environment) {
       "Bezirk Schwyz",
     ];
 
-    ENV.APP.gisHost = "map.geo.sz.ch";
+    ENV.APP.gisHost =
+      "map.geo.sz.ch/mapserv_proxy?ogcserver=source for image/png";
   }
 
   return ENV;
