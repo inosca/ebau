@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.conf.urls import url
 from rest_framework.routers import SimpleRouter
 
@@ -28,5 +29,19 @@ urlpatterns.append(
         name="form-config-download",
     )
 )
+
+
+def enable_public_caluma_instances():
+    urlpatterns.append(
+        url(
+            r"public-caluma-instances",
+            views.PublicCalumaInstanceView.as_view(),
+            name="public-caluma-instance",
+        )
+    )
+
+
+if settings.APPLICATION.get("ENABLE_PUBLIC_ENDPOINTS"):  # pragma: no cover
+    enable_public_caluma_instances()
 
 urlpatterns.extend(r.urls)
