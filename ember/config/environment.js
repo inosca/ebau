@@ -37,7 +37,7 @@ module.exports = function (environment) {
       gisHost: "map-t.geo.sz.ch/mapserv_proxy?ogcserver=source for image/png",
 
       // Form location mapping in order of definition
-      // konzession-fur-wasserentnahme = Amt für Wasserbau
+      // konzession-fur-wasserentnahme = Amt für Gewässer
       // anlassbewilligungen-verkehrsbewilligungen = Kantons Polizei
       // plangenehmigungsgesuch astra = Tiefbauamt
       // plangenehmigungsgesuch esti = Energiefachstelle
@@ -46,7 +46,7 @@ module.exports = function (environment) {
       // projektgenehmigungsgesuch-gemass-ss15-strag bezirk = Bezirksfachstelle
       // projektgenehmigungsgesuch-gemass-ss15-strag kanton = Tiefbauamt
       formLocations: {
-        14: "Amt für Wasserbau",
+        14: "Amt für Gewässer",
         17: "Kantonspolizei Schwyz",
         "15-astra": "Tiefbauamt des Kantons Schwyz",
         "15-esti": "Eidg. Starkstrominspektorat",
@@ -161,7 +161,7 @@ module.exports = function (environment) {
       "Vorderthal",
       "Wangen",
       "Wollerau",
-      "Amt für Wasserbau",
+      "Amt für Gewässer",
       "Tiefbauamt des Kantons Schwyz",
       "Kantonspolizei Schwyz",
       "Eidg. Starkstrominspektorat",
@@ -231,7 +231,7 @@ module.exports = function (environment) {
       "Vorderthal",
       "Wangen",
       "Wollerau",
-      "Amt für Wasserbau",
+      "Amt für Gewässer",
       "Tiefbauamt des Kantons Schwyz",
       "Kantonspolizei Schwyz",
       "Eidg. Starkstrominspektorat",
@@ -263,7 +263,7 @@ module.exports = function (environment) {
       "Rothenthurm",
       "Steinen",
       "Steinerberg",
-      "Amt für Wasserbau",
+      "Amt für Gewässer",
       "Tiefbauamt des Kantons Schwyz",
       "Kantonspolizei Schwyz",
       "Eidg. Starkstrominspektorat",
