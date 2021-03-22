@@ -136,9 +136,9 @@
       <label class="uk-text-meta uk-text-nowrap" for="order">
         {{t "instances.orderBy"}}:
       </label>
-      <select class="uk-select uk-form-small uk-margin-small-left" onchange={{action (mut order) value="target.value"}} id="order">
+      <select class="uk-select uk-form-small uk-margin-small-left" name="order" id="order" {{on "change" this.updateOrder}}>
         {{#each this.orderOptions as |o|}}
-          <option value={{o.value}} selected={{eq order o.value}}>{{t o.label}} ({{t o.direction}})</option>
+          <option value={{o.value}} selected={{eq this.order o.value}}>{{t o.label}} ({{t o.direction}})</option>
         {{/each}}
       </select>
     </div>
