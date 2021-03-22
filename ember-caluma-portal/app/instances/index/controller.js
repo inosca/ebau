@@ -113,7 +113,7 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
     );
   }
 
-  get filter() {
+  get serializedFilter() {
     return [
       ...(this.types ? [{ documentForms: this.types }] : []),
       {
@@ -160,6 +160,16 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
     ];
   }
 
+  get serializedOrder() {
+    const [key, direction] = this.order.split(":");
+    return [
+      {
+        meta: key,
+        direction: direction.toUpperCase(),
+      },
+    ];
+  }
+
   @dropTask
   *getRootForms() {
     return (yield this.apollo.query(
@@ -171,8 +181,8 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
   @dropTask
   *getCases() {
     yield this.cases.fetch({
-      order: this.order,
-      filter: this.filter,
+      order: this.serializedOrder,
+      filter: this.serializedFilter,
     });
   }
 
@@ -233,5 +243,11 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
   @action
   updateDate(prop, value) {
     this.set(prop, moment(value));
+  }
+
+  @action
+  updateOrder({ target: { value } }) {
+    this.set("order", value);
+    this.getCases.perform();
   }
 }
