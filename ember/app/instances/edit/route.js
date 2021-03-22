@@ -10,7 +10,7 @@ export default class InstancesEditRoute extends Route {
   queryParams = {
     group: { refreshModel: true },
     publication: {},
-  }
+  };
 
   async model({ instance_id: id, group, publication = false }) {
     this.viewedByPublication = publication;
