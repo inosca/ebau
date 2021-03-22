@@ -30,6 +30,7 @@
             <LinkTo
               @route="instances.edit"
               @model={{publication.instance.id}}
+              @query={{hash publication=publication.id}}
               title="Klicken Sie um das Gesuch anzuschauen"
             >
               {{publication.instance.identifier}}
@@ -47,7 +48,7 @@
               title="Klicken Sie um das Gesuch anzuschauen"
               class="uk-icon-button"
               uk-icon="file-text"
-              {{on "click" (perform this.navigate publication.instance)}}
+              {{on "click" (perform this.navigate publication)}}
             ></button>
           </td>
         </tr>

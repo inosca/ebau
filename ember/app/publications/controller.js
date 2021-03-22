@@ -14,8 +14,13 @@ export default class IndexController extends Controller {
   }
 
   @dropTask
-  *navigate(instance) {
-    // TODO count amount of clicks
-    yield this.transitionToRoute("instances.edit", instance.get("id"), { queryParams: { publication: 1 }});
+  *navigate(publication) {
+    yield this.transitionToRoute(
+      "instances.edit",
+      publication.instance.get("id"),
+      {
+        queryParams: { publication: publication.id },
+      }
+    );
   }
 }
