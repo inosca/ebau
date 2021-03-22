@@ -1,5 +1,6 @@
 import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
+import SessionStorageStore from "ember-simple-auth/session-stores/session-storage";
 import { all } from "rsvp";
 
 export default class InstancesEditRoute extends Route {
@@ -8,9 +9,12 @@ export default class InstancesEditRoute extends Route {
 
   queryParams = {
     group: { refreshModel: true },
-  };
+    publication: {},
+  }
 
-  async model({ instance_id: id, group }) {
+  async model({ instance_id: id, group, publication = false }) {
+    this.viewedByPublication = publication;
+
     const response = await this.ajax.request(`/api/v1/instances/${id}`, {
       data: {
         group,
@@ -59,10 +63,34 @@ export default class InstancesEditRoute extends Route {
     this.questionStore._store.pushObjects(questionObjects);
   }
 
-  setupController(controller, model) {
+  async setupController(controller, model) {
     super.setupController(controller, model);
 
     controller.instanceTransformation.perform();
+
+    if (this.viewedByPublication) {
+      const session = SessionStorageStore.create({ _isFastBoot: false });
+      const storage = await session.restore();
+
+      if (!("publicationsSeen" in storage)) {
+        storage.publicationsSeen = [];
+      }
+
+      if (!storage.publicationsSeen.includes(this.viewedByPublication)) {
+        this.ajax.request(
+          `/api/v1/publication-entries/${this.viewedByPublication}/viewed`,
+          {
+            method: "POST",
+            headers: {
+              Accept: "application/vnd.api+json",
+            },
+          }
+        );
+        storage.publicationsSeen.push(this.viewedByPublication);
+      }
+
+      await session.persist(storage);
+    }
   }
 
   resetController(_, isExiting) {
