@@ -164,7 +164,7 @@ module.exports = function (environment) {
       "Vorderthal",
       "Wangen",
       "Wollerau",
-      "Amt für Wasserbau",
+      "Amt für Gewässer",
       "Tiefbauamt des Kantons Schwyz",
       "Kantonspolizei Schwyz",
       "Eidg. Starkstrominspektorat",
@@ -234,7 +234,7 @@ module.exports = function (environment) {
       "Vorderthal",
       "Wangen",
       "Wollerau",
-      "Amt für Wasserbau",
+      "Amt für Gewässer",
       "Tiefbauamt des Kantons Schwyz",
       "Kantonspolizei Schwyz",
       "Eidg. Starkstrominspektorat",
@@ -266,7 +266,7 @@ module.exports = function (environment) {
       "Rothenthurm",
       "Steinen",
       "Steinerberg",
-      "Amt für Wasserbau",
+      "Amt für Gewässer",
       "Tiefbauamt des Kantons Schwyz",
       "Kantonspolizei Schwyz",
       "Eidg. Starkstrominspektorat",
@@ -283,6 +283,8 @@ module.exports = function (environment) {
 
     ENV.APP.gisHost =
       "map.geo.sz.ch/mapserv_proxy?ogcserver=source for image/png";
+
+    ENV.APP.showPublications = false;
   }
 
   return ENV;
