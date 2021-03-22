@@ -8,7 +8,6 @@ module.exports = {
     "ember/no-computed-properties-in-native-classes": "warn",
     "ember/classic-decorator-no-classic-methods": "warn",
     "ember/require-tagless-components": "warn",
-    "ember/no-classic-classes": "warn",
     "ember/no-classic-components": "warn",
     "ember/no-component-lifecycle-hooks": "warn",
   },

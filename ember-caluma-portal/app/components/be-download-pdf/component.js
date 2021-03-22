@@ -1,22 +1,23 @@
-import Component from "@ember/component";
 import { inject as service } from "@ember/service";
-import { task } from "ember-concurrency";
+import Component from "@glimmer/component";
+import { dropTask } from "ember-concurrency-decorators";
 import { saveAs } from "file-saver";
 
-export default Component.extend({
-  notification: service(),
-  intl: service(),
-  fetch: service(),
+export default class BeDownloadPdfComponent extends Component {
+  @service notification;
+  @service intl;
+  @service fetch;
 
-  export: task(function* () {
+  @dropTask
+  *export() {
     try {
-      const query = this.get("field.document.rootForm.meta.is-main-form")
+      const query = this.args.field.document.rootForm.meta["is-main-form"]
         ? ""
-        : `?form-slug=${this.get("field.document.rootForm.slug")}`;
+        : `?form-slug=${this.args.field.document.rootForm.slug}`;
 
       // generate document in CAMAC
       const response = yield this.fetch.fetch(
-        `/api/v1/instances/${this.context.instanceId}/generate-pdf${query}`
+        `/api/v1/instances/${this.args.context.instanceId}/generate-pdf${query}`
       );
 
       const filename = response.headers
@@ -27,5 +28,5 @@ export default Component.extend({
     } catch (error) {
       this.notification.danger(this.intl.t("freigabequittung.downloadError"));
     }
-  }),
-});
+  }
+}

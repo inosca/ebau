@@ -6392,6 +6392,18 @@ ember-in-element-polyfill@^1.0.0, ember-in-element-polyfill@^1.0.1:
     ember-cli-htmlbars "^5.3.1"
     ember-cli-version-checker "^5.1.2"
 
+ember-in-viewport@^3.8.1:
+  version "3.8.1"
+  resolved "https://registry.yarnpkg.com/ember-in-viewport/-/ember-in-viewport-3.8.1.tgz#fd8305366d425c3912def49210e63fd582a7e60d"
+  integrity sha512-abzKIa7FiOBz3fLkZ3ZSgxJQf5enGe1IdrLdjfo5HjdyWTq9j+B0lzuZCoOYUuWdoiTiXvT3gDFNqQ5j7ky2kw==
+  dependencies:
+    ember-auto-import "^1.6.0"
+    ember-cli-babel "^7.22.1"
+    ember-modifier "^2.1.0"
+    fast-deep-equal "^2.0.1"
+    intersection-observer-admin "~0.2.13"
+    raf-pool "~0.1.4"
+
 "ember-inflector@^2.0.0 || ^3.0.0", ember-inflector@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/ember-inflector/-/ember-inflector-3.0.1.tgz#04be6df4d7e4000f6d6bd70787cdc995f77be4ab"
@@ -7437,6 +7449,11 @@ faker@^5.4.0:
   version "5.4.0"
   resolved "https://registry.yarnpkg.com/faker/-/faker-5.4.0.tgz#f18e55993c6887918182b003d163df14daeb3011"
   integrity sha512-Y9n/Ky/xZx/Bj8DePvXspUYRtHl/rGQytoIT5LaxmNwSe3wWyOeOXb3lT6Dpipq240PVpeFaGKzScz/5fvff2g==
+
+fast-deep-equal@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-2.0.1.tgz#7b05218ddf9667bf7f370bf7fdb2cb15fdd0aa49"
+  integrity sha1-ewUhjd+WZ79/Nwv3/bLLFf3Qqkk=
 
 fast-deep-equal@^3.1.1:
   version "3.1.3"
@@ -8755,6 +8772,11 @@ inquirer@^7.3.3:
     string-width "^4.1.0"
     strip-ansi "^6.0.0"
     through "^2.3.6"
+
+intersection-observer-admin@~0.2.13:
+  version "0.2.13"
+  resolved "https://registry.yarnpkg.com/intersection-observer-admin/-/intersection-observer-admin-0.2.13.tgz#00a021695bf5aef8d198204514d2f849fd27d089"
+  integrity sha512-REIM59IHXPe9U5eTnowurzzfhgqVkSImZJnOSJZTAJ0LnyJqw8S/eD5s8ZYneQfm9JszhGIBwudF9gF02A3BpQ==
 
 intersection-observer@^0.12.0:
   version "0.12.0"
@@ -11384,6 +11406,11 @@ qunit@^2.13.0:
     js-reporters "1.2.3"
     node-watch "0.7.1"
     tiny-glob "0.2.8"
+
+raf-pool@~0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/raf-pool/-/raf-pool-0.1.4.tgz#6b9f75ea1903c16e162ffe8c76688f5a625bc2cd"
+  integrity sha512-BBPamTVuSprPq7CUmgxc+ycbsYUtUYnQtJYEfMHXMaostPaNpQzipLfSa/rwjmlgjBPiD7G+I+8W340sLOPu6g==
 
 randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5, randombytes@^2.1.0:
   version "2.1.0"

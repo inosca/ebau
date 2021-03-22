@@ -1,5 +1,6 @@
 import Service from "@ember/service";
 import { render, settled, click } from "@ember/test-helpers";
+import { tracked } from "@glimmer/component";
 import { setupMirage } from "ember-cli-mirage/test-support";
 import { setupIntl } from "ember-intl/test-support";
 import { setupRenderingTest } from "ember-qunit";
@@ -29,10 +30,9 @@ module("Integration | Component | be-navbar", function (hooks) {
 
     this.owner.register(
       "service:router",
-      Service.extend({
-        // eslint-disable-next-line ember/avoid-leaking-state-in-ember-objects
-        currentRoute: { name: "dummy", parent: null, params: {} },
-      })
+      class MockService extends Service {
+        @tracked currentRoute = { name: "dummy", parent: null, params: {} };
+      }
     );
   });
 

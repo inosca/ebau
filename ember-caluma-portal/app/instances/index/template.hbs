@@ -173,10 +173,12 @@
       {{/each}}
       {{#if this.cases.hasNextPage}}
         <tr>
-          <td colspan="8" class="uk-text-center">
-            <InViewport @onEnter={{perform this.getMoreCases}}>
-              <UkSpinner />
-            </InViewport>
+          <td
+            colspan="8"
+            class="uk-text-center"
+            {{in-viewport onEnter=(perform this.getMoreCases)}}
+          >
+            <UkSpinner />
           </td>
         </tr>
       {{/if}}

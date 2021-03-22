@@ -15,6 +15,7 @@
   @label={{@field.question.label}}
   @loading={{this.submit.isRunning}}
   @on-click={{perform submit}}
+  {{in-viewport onEnter=(perform this.validate)}}
 />
 
 {{#if this.submit.isRunning}}

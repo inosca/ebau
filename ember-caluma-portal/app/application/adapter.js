@@ -1,21 +1,21 @@
 import JSONAPIAdapter from "@ember-data/adapter/json-api";
-import { reads } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
-import DataAdapterMixin from "ember-simple-auth/mixins/data-adapter-mixin";
 
-export default class ApplicationAdapter extends JSONAPIAdapter.extend(
-  DataAdapterMixin
-) {
+export default class ApplicationAdapter extends JSONAPIAdapter {
   namespace = "api/v1";
 
   @service session;
 
-  @reads("session.headers") headers;
+  get headers() {
+    return this.session.headers;
+  }
 
   _appendInclude(url, adapterOptions) {
-    if (adapterOptions && adapterOptions.include) {
+    if (adapterOptions?.include) {
       return `${url}?include=${adapterOptions.include}`;
     }
+
+    return url;
   }
 
   urlForUpdateRecord(...args) {
@@ -34,5 +34,13 @@ export default class ApplicationAdapter extends JSONAPIAdapter.extend(
       super.urlForCreateRecord(...args),
       adapterOptions
     );
+  }
+
+  handleResponse(status, ...args) {
+    if (status === 401 && this.session.isAuthenticated) {
+      this.session.invalidate();
+    }
+
+    return super.handleResponse(status, ...args);
   }
 }
