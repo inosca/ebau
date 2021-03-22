@@ -245,7 +245,6 @@ APPLICATIONS = {
                 "NEW": "gesuchsbearbeitungs-einladung-neu",
                 "EXISTING": "gesuchsbearbeitungs-einladung-bestehend",
             },
-            "PUBLICATION_PERMISSION": "publikation-einsehen",
         },
         "PUBLICATION_DURATION": timedelta(days=30),
         "PUBLICATION_BACKEND": "camac-ng",
