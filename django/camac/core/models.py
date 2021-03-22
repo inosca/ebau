@@ -3274,6 +3274,7 @@ class PublicationEntry(models.Model):
         blank=True,
         null=True,
     )
+    publication_views = models.IntegerField(default=0)
 
     class Meta:
         managed = True

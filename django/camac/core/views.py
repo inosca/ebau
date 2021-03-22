@@ -3,6 +3,7 @@ from uuid import uuid4
 
 import requests
 from django.conf import settings
+from django.db.models import F
 from django.http import HttpResponse
 from django.utils import timezone
 from django.utils.encoding import escape_uri_path, smart_bytes
@@ -290,6 +291,13 @@ class PublicationEntryView(ModelViewSet):
             request.caluma_info.context.user,
         )
 
+        return Response([], 204)
+
+    @action(methods=["post"], detail=True)
+    def viewed(self, request, pk=None):
+        models.PublicationEntry.objects.filter(pk=pk).update(
+            publication_views=F("publication_views") + 1
+        )
         return Response([], 204)
 
 
