@@ -1,4 +1,4 @@
-{{#unless embedded}}
+{{#unless this.embedded}}
   <nav class="be-navbar" {{did-insert (perform this.fetchGroups)}}>
     <div class="uk-container uk-flex uk-flex-column">
       <div class="uk-width-1-1 uk-position-relative">
@@ -23,6 +23,7 @@
       <div class="uk-width-1-1 uk-flex">
         <div class="uk-navbar-left">
           <ul class="uk-navbar-nav">
+            {{! template-lint-disable no-unknown-arguments-for-builtin-components }}
             <LinkTo @route="index" @tagName="li" @activeClass="uk-active"><a href="#">{{t "nav.index"}}</a></LinkTo>
             <LinkTo @route="instances" @tagName="li" @activeClass="uk-active"><a href="#">{{t "nav.instances"}}</a></LinkTo>
             <LinkTo @route="support" @tagName="li" @activeClass="uk-active"><a href="#">{{t "nav.support"}}</a></LinkTo>

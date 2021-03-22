@@ -1,8 +1,8 @@
 <iframe title={{t "gis.title"}} name="map" src={{this.link}}></iframe>
 
 <div
-  {{did-insert (fn this.addMessageListener)}}
-  {{will-destroy (fn this.removeMessageListener)}}
+  {{did-insert this.addMessageListener}}
+  {{will-destroy this.removeMessageListener}}
   class="uk-flex uk-flex-between uk-margin-small-top"
 >
   <div>
