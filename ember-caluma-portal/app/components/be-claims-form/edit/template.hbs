@@ -31,7 +31,7 @@
       <CfFieldValue @field={{@claim.comment}} @tagName="p" class="uk-text-italic uk-margin-remove-vertical" />
     {{else}}
       <div class="uk-form-controls">
-        <Textarea @value={{@claim.comment.answer.value}} @class="uk-textarea" @name="comment" @rows="6" />
+        <Textarea @value={{@claim.comment.answer.value}} id="comment" class="uk-textarea" name="comment" rows="6" />
       </div>
     {{/if}}
   </div>

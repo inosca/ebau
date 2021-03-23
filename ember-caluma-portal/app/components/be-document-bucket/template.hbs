@@ -33,7 +33,7 @@
         {{#if (or @loading @attachments.length)}}
           <div class="uk-text-left uk-margin uk-width-1-1">
             <BeAttachmentList
-              @loading={{loading}}
+              @loading={{@loading}}
               @attachments={{@attachments}}
               @deletable={{@deletable}}
               @onDelete={{perform this.delete}}

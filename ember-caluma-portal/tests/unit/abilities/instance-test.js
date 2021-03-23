@@ -6,7 +6,7 @@ import config from "../../../config/environment";
 module("Unit | Ability | instance", function (hooks) {
   setupTest(hooks);
 
-  test("it computes form read/write permissions", function (assert) {
+  test("it computes form read/write permissions", async function (assert) {
     assert.expect(6);
 
     const ability = this.owner.lookup("ability:instance");
@@ -37,7 +37,7 @@ module("Unit | Ability | instance", function (hooks) {
     assert.notOk(ability.canReadForm);
   });
 
-  test("it computes read permissions", function (assert) {
+  test("it computes read permissions", async function (assert) {
     assert.expect(2);
 
     const ability = this.owner.lookup("ability:instance");
@@ -67,7 +67,7 @@ module("Unit | Ability | instance", function (hooks) {
     assert.ok(ability.canRead);
   });
 
-  test("it computes write permissions", function (assert) {
+  test("it computes write permissions", async function (assert) {
     assert.expect(2);
 
     const ability = this.owner.lookup("ability:instance");
@@ -97,7 +97,7 @@ module("Unit | Ability | instance", function (hooks) {
     assert.ok(ability.canWrite);
   });
 
-  test("it computes create permissions", function (assert) {
+  test("it computes create permissions", async function (assert) {
     assert.expect(6);
 
     const ability = this.owner.lookup("ability:instance");
@@ -132,7 +132,7 @@ module("Unit | Ability | instance", function (hooks) {
     assert.ok(ability.canCreate);
   });
 
-  test("it computes delete permissions", function (assert) {
+  test("it computes delete permissions", async function (assert) {
     assert.expect(2);
 
     const ability = this.owner.lookup("ability:instance");
