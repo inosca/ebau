@@ -44,7 +44,7 @@
       @label={{t "global.continue"}}
       @disabled={{or (not this.selectedForm) this.save.isRunning}}
       @loading={{this.save.isRunning}}
-      @on-click={{perform save}}
+      @on-click={{perform this.save}}
     />
   </div>
 {{/let}}

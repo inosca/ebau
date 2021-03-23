@@ -1,4 +1,4 @@
-{{#unless embedded}}
+{{#unless this.embedded}}
   <h2>
     {{this.instance.mainForm.name}} {{this.instance.typeDetail}}
     <span class="uk-text-light">({{t "instances.instanceId"}} {{this.model}})</span>
@@ -7,7 +7,7 @@
 
 {{#if (can "read instance" this.instance)}}
   <ul class="uk-tab">
-    {{#unless embedded}}
+    {{#unless this.embedded}}
       <BeSubnavLink @route="instances.edit.index">
         {{t "nav.overview"}}
       </BeSubnavLink>

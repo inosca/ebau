@@ -1,13 +1,13 @@
 <div class="uk-position-relative" {{did-insert (perform this.fetch)}}>
   {{#if this.edit}}
-    <Textarea @value={{this.content}} rows="10" class="uk-textarea" />
+    <Textarea @value={{this.content}} rows="10" class="uk-textarea" aria-label={{t "dashboard.content"}} />
     <div class="uk-text-right uk-margin">
       <UkButton data-test-dashboard-cancel @on-click={{this.cancelEdit}}>{{t "global.cancel"}}</UkButton>
       <UkButton data-test-dashboard-save @color="primary" @loading={{this.save.isRunning}} @on-click={{perform this.save}}>{{t "global.save"}}</UkButton>
     </div>
   {{/if}}
 
-  {{#if (and (not edit) (can "edit dashboard"))}}
+  {{#if (and (not this.edit) (can "edit dashboard"))}}
     <UkButton
       data-test-dashboard-edit
       class="uk-position-top-right uk-margin-top uk-margin-right"
