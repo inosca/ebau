@@ -69,24 +69,8 @@ export const queryParams = new QueryParams({
     ...dateQueryParam,
   },
   order: {
-    defaultValue: [
-      {
-        meta: "camac-instance-id",
-        direction: "DESC",
-      },
-    ],
+    defaultValue: "camac-instance-id:desc",
     replace: true,
-    serialize([{ meta, direction }]) {
-      return `${meta}:${direction.toLowerCase()}`;
-    },
-    deserialize(value) {
-      return [
-        {
-          meta: value.split(":")[0],
-          direction: value.split(":")[1].toUpperCase(),
-        },
-      ];
-    },
   },
 });
 

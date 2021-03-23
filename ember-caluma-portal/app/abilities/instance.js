@@ -1,12 +1,14 @@
 import { computed } from "@ember/object";
-import { not, or } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
+import { tracked } from "@glimmer/tracking";
 import { Ability } from "ember-can";
 
 import config from "../config/environment";
 
 export default class InstanceAbility extends Ability {
   @service session;
+
+  @tracked form;
 
   @computed("form.{meta.is-main-form,slug}")
   get formName() {
@@ -38,10 +40,17 @@ export default class InstanceAbility extends Ability {
     );
   }
 
-  @not("session.isInternal") canCreateExternal;
-  @or("canCreateExternal", "canCreatePaper") canCreate;
+  get canCreateExternal() {
+    return !this.session.isInternal;
+  }
 
-  @not("session.isInternal") canReadFeedback;
+  get canCreate() {
+    return this.canCreateExternal || this.canCreatePaper;
+  }
+
+  get canReadFeedback() {
+    return !this.session.isInternal;
+  }
 
   @computed(
     "model.{applicants.@each.invitee,involvedApplicants.[]}",

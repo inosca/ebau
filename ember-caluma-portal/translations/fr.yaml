@@ -342,6 +342,7 @@ modification:
 
 dashboard:
   edit: "modifier"
+  content: "Contenu"
   no-content: 'Aucun contenu n''a encore été enregistré. Cliquez sur "modifier" pour entrer un nouveau contenu.'
   load-error: "Erreur lors du chargement du contenu"
   save-error: "Erreur lors de la sauvegarde du contenu"

@@ -1,67 +1,59 @@
 import { assert } from "@ember/debug";
 import { computed } from "@ember/object";
-import { next } from "@ember/runloop";
 import { inject as service } from "@ember/service";
+import Component from "@glimmer/component";
 import { queryManager } from "ember-apollo-client";
-import { task } from "ember-concurrency";
+import { dropTask, restartableTask } from "ember-concurrency-decorators";
 import { all } from "rsvp";
 
-import InViewportComponent from "ember-caluma-portal/components/in-viewport/component";
+export default class BeSubmitInstanceComponent extends Component {
+  @service intl;
+  @service notification;
+  @service router;
+  @service fetch;
 
-export default InViewportComponent.extend({
-  intl: service(),
-  notification: service(),
-  router: service(),
-  fetch: service(),
+  @queryManager apollo;
 
-  apollo: queryManager(),
-
-  onEnter() {
-    next(this, () => this.validate.perform());
-  },
-
-  invalidFields: computed(
-    "field.document.fields.@each.{optional,hidden,isInvalid}",
-    function () {
-      return this.field.document.fields.filter(
-        (field) => !field.hidden && !field.optional && field.isInvalid
-      );
-    }
-  ),
-
-  validate: task(function* () {
-    yield all(
-      this.field.document.fields.map((field) => field.validate.perform())
+  @computed(
+    "args.field.document.fields",
+    "field.document.fields.@each.{hidden,isInvalid,optional}"
+  )
+  get invalidFields() {
+    return this.args.field.document.fields.filter(
+      (field) => !field.hidden && !field.optional && field.isInvalid
     );
-  }).restartable(),
+  }
 
-  buttonDisabled: computed(
+  @restartableTask
+  *validate() {
+    yield all(
+      this.args.field.document.fields.map((field) => field.validate.perform())
+    );
+  }
+
+  @computed(
     "disabled",
     "validate.{performCount,isRunning}",
-    "invalidFields.length",
-    function () {
-      return (
-        this.disabled ||
-        this.validate.performCount === 0 ||
-        this.validate.isRunning ||
-        this.invalidFields.length > 0
-      );
-    }
-  ),
-
-  submit: task(function* () {
-    // mark instance as submitted (optimistic) because after submitting, answer cannot be saved anymore
-    this.field.set(
-      "answer.value",
-      this.field.get(
-        "question.multipleChoiceOptions.edges.firstObject.node.slug"
-      )
+    "invalidFields.length"
+  )
+  get buttonDisabled() {
+    return (
+      this.disabled ||
+      this.validate.performCount === 0 ||
+      this.validate.isRunning ||
+      this.invalidFields.length > 0
     );
-    yield this.field.save.perform();
+  }
+
+  @dropTask
+  *submit() {
+    // mark instance as submitted (optimistic) because after submitting, answer cannot be saved anymore
+    this.args.field.answer.value = this.args.field.question.multipleChoiceOptions.edges[0].node.slug;
+    yield this.args.field.save.perform();
 
     try {
-      const instanceId = this.get("context.instanceId");
-      const action = this.get("field.question.meta.action");
+      const instanceId = this.args.context.instanceId;
+      const action = this.args.field.question.meta.action;
 
       assert("Field must have a meta property `action`", action);
 
@@ -88,8 +80,8 @@ export default InViewportComponent.extend({
         this.intl.t("be-submit-instance.failed-message", { reasons })
       );
       // un-mark as submitted
-      this.field.set("answer.value", null);
-      yield this.field.save.perform();
+      this.args.field.answer.value = null;
+      yield this.args.field.save.perform();
     }
-  }).drop(),
-});
+  }
+}
