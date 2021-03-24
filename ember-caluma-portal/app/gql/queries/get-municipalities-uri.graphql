@@ -1,0 +1,18 @@
+query GetMunicipalitiesUri {
+  allQuestions(slug: "municipality") {
+    edges {
+      node {
+        ... on DynamicChoiceQuestion {
+          options {
+            edges {
+              node {
+                label
+                slug
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -763,8 +763,6 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
     @permission_aware
     def validate(self, data):
-        if settings.APPLICATION_NAME == "kt_uri":  # pragma: no cover
-            data["instance_state"] = models.InstanceState.objects.get(name="new_portal")
         return data
 
     def validate_for_municipality(self, data):
@@ -790,6 +788,16 @@ class CalumaInstanceSerializer(InstanceSerializer):
             data["instance_state"] = models.InstanceState.objects.get(name=state)
 
         return data
+
+    @permission_aware
+    def should_generate_identifier(self):
+        return False
+
+    def should_generate_identifier_for_municipality(self):
+        return settings.APPLICATION["CALUMA"].get("CREATE_IN_PROCESS")
+
+    def should_generate_identifier_for_coordination(self):
+        return settings.APPLICATION["CALUMA"].get("CREATE_IN_PROCESS")
 
     def create(self, validated_data):
 
@@ -853,7 +861,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
         case_meta = {"camac-instance-id": instance.pk}
 
-        if settings.APPLICATION["CALUMA"].get("GENERATE_DOSSIER_NR"):
+        if self.should_generate_identifier():
             # Give dossier a unique dossier number
             case_meta["dossier-number"] = generate_identifier(instance, year)
 
@@ -867,6 +875,29 @@ class CalumaInstanceSerializer(InstanceSerializer):
         self.initialize_caluma(
             instance, source_instance, case, is_modification, is_paper
         )
+
+        self.initialize_camac(
+            instance,
+            source_instance,
+            group,
+            is_modification,
+            is_paper,
+            extend_validity_for,
+            case,
+        )
+
+        return instance
+
+    def initialize_camac(
+        self,
+        instance,
+        source_instance,
+        group,
+        is_modification,
+        is_paper,
+        extend_validity_for,
+        case,
+    ):
 
         if is_paper:
             # remove the previously created applicants
@@ -889,8 +920,6 @@ class CalumaInstanceSerializer(InstanceSerializer):
             )
             self._copy_ebau_number(extend_validity_instance, instance, case)
             self._copy_extend_validity_answers(extend_validity_instance, instance)
-
-        return instance
 
     def initialize_caluma(
         self, instance, source_instance, case, is_modification, is_paper

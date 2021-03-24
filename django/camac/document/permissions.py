@@ -137,7 +137,7 @@ PERMISSIONS = {
                 12000007,
             ],
         },
-        "applicant": {"adminsvc": [12000000]},
+        "portal user": {"adminsvc": [12000000]},
     },
     "demo": {"applicant": {"admin": [250, 251]}},
 }

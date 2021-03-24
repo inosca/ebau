@@ -1,6 +1,40 @@
 "use strict";
 
 module.exports = function (environment) {
+  const app = process.env.APPLICATION || "kt_bern";
+  const appConfig = {
+    kt_bern: {
+      name: "be",
+      realm: "ebau",
+      locales: ["de", "fr"],
+      supportGroups: [10000],
+      selectableGroups: {
+        roles: [
+          3, // Leitung Leitbehörde
+          5, // Leitung Baukontrolle
+          20004, // Sachbearbeiter Leitbehörde
+          20005, // Sachbearbeiter Baukontrolle
+          10000, // System-Betrieb
+        ],
+      },
+      documents: {
+        feedbackSection: 3,
+      },
+    },
+    kt_uri: {
+      name: "ur",
+      realm: "urec",
+      locales: ["de"],
+      supportGroups: [1070],
+      selectableGroups: {
+        roles: [
+          1131, // Support
+        ],
+      },
+      documents: {},
+    },
+  }[app];
+
   const ENV = {
     modulePrefix: "ember-caluma-portal",
     environment,
@@ -8,8 +42,7 @@ module.exports = function (environment) {
     locationType: "auto",
     historySupportMiddleware: true,
     "ember-simple-auth-oidc": {
-      host:
-        "http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect",
+      host: `http://camac-ng-keycloak.local/auth/realms/${appConfig.realm}/protocol/openid-connect`,
       clientId: "portal",
       authEndpoint: "/auth",
       tokenEndpoint: "/token",
@@ -37,11 +70,13 @@ module.exports = function (environment) {
       // when it is created
     },
     moment: {
-      includeLocales: ["de", "fr"],
+      includeLocales: appConfig.locales,
     },
 
-    languages: ["de", "fr"],
+    languages: appConfig.locales,
     fallbackLanguage: "de",
+
+    APPLICATION: appConfig,
 
     ebau: {
       internalURL: "http://camac-ng.local",
@@ -54,16 +89,8 @@ module.exports = function (environment) {
           "dokument-weitere-gesuchsunterlagen",
         ],
       },
-      supportGroups: [10000],
-      selectableGroups: {
-        roles: [
-          3, // Leitung Leitbehörde
-          5, // Leitung Baukontrolle
-          20004, // Sachbearbeiter Leitbehörde
-          20005, // Sachbearbeiter Baukontrolle
-          10000, // System-Betrieb
-        ],
-      },
+      supportGroups: appConfig.supportGroups,
+      selectableGroups: appConfig.selectableGroups,
       paperInstances: {
         allowedGroups: {
           roles: [
