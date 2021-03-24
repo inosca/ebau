@@ -651,13 +651,13 @@ class Command(BaseCommand):
         num_answers = self._copy_answers(inst, document)
         self._copy_address_data(inst, document)
         self._set_permit_type(inst, document)
-        self._set_checkbox_question(
+        self._fill_checkbox_if_answer_exists(
             document, "umbauter-raum", "category", "category-hochbaute"
         )
-        self._set_checkbox_question(
+        self._fill_checkbox_if_answer_exists(
             document, "purpose-description", "purpose", "purpose-andere"
         )
-        self._set_checkbox_question(
+        self._fill_checkbox_if_answer_exists(
             document,
             "veranstaltung-andere-beschreibung",
             "veranstaltung-art",
@@ -691,23 +691,24 @@ class Command(BaseCommand):
         if value:
             ans, _ = document.answers.get_or_create(question=question, value=value)
 
-    def _set_checkbox_question(
-        self, document, trigger_answer, hidden_answer, answer_slug
+    def _fill_checkbox_if_answer_exists(
+        self, document, answer_to_check, checkbox_to_fill, answer_slug
     ):
-        if (
-            document.answers.filter(question_id=trigger_answer).exists()
-            and document.answers.filter(question_id=hidden_answer).exists()
-            and answer_slug not in document.answers.get(question_id=hidden_answer).value
+        "Fill checkbox_to_fill with a given answer_slug if answer_to_check exists."
+
+        if not document.answers.filter(question_id=answer_to_check).exists():
+            return
+
+        if document.answers.filter(question_id=checkbox_to_fill).exists() and (
+            answer_slug not in document.answers.get(question_id=checkbox_to_fill).value
         ):
-            answer = document.answers.get(question_id=hidden_answer)
+            answer = document.answers.get(question_id=checkbox_to_fill)
             answer.value.append(answer_slug)
             answer.save()
-        elif (
-            document.answers.filter(question_id=trigger_answer).exists()
-            and not document.answers.filter(question_id=hidden_answer).exists()
-        ):
+
+        elif not document.answers.filter(question_id=checkbox_to_fill).exists():
             document.answers.create(
-                question_id=hidden_answer, document=document, value=answer_slug
+                question_id=checkbox_to_fill, document=document, value=answer_slug
             )
 
     def _set_migrated_question(self, document):
@@ -732,55 +733,43 @@ class Command(BaseCommand):
         )
         answers = self._get_camac_answers(inst).filter(item=1, chapter=1)
 
-        additional_people = [
-            "more-people-involved-" + value
-            for (qid, qids, value) in [
-                (68, [69], "invoice-recipient"),
-                (79, [71, 222], "project-author"),
-                (80, [82, 223], "landowner"),
-            ]
+        personal_data_config = [
+            (68, [69], "invoice-recipient"),
+            (79, [71, 222], "project-author"),
+            (80, [82, 223], "landowner"),
+        ]
+
+        people_to_copy = [
+            (qid, qids, value)
+            for (qid, qids, value) in personal_data_config
             if answers.filter(question=qid).exists()
             and answers.get(question=qid).answer == "1"
-            or any([answers.filter(question=q) for q in qids])
         ]
+
+        additional_people = list(
+            set(
+                [
+                    (qid, qids, value)
+                    for (qid, qids, value) in personal_data_config
+                    if any([answers.filter(question=q) for q in qids])
+                ]
+                + people_to_copy
+            )
+        )
+
+        additional_people_answer = [
+            "more-people-involved-" + value for (qid, qids, value) in additional_people
+        ]
+
         form_models.Answer.objects.create(
-            value=additional_people,
+            value=additional_people_answer,
             document=document,
             question=involved_people_question,
         )
 
-        if (
-            "more-people-involved-project-author" in additional_people
-            and answers.filter(question=79).exists()
-            and answers.get(question=79).answer == "1"
-        ):
+        for (qid, qids, slug) in people_to_copy:
             table_ans, _ = document.answers.get_or_create(
-                question_id="project-author",
-                question__slug="project-author",
-                question__type=form_models.Question.TYPE_TABLE,
-            )
-            table_ans.documents.add(applicant.copy())
-
-        if (
-            "more-people-involved-invoice-recipient" in additional_people
-            and answers.filter(question=68).exists()
-            and answers.get(question=68).answer == "1"
-        ):
-            table_ans, _ = document.answers.get_or_create(
-                question_id="invoice-recipient",
-                question__slug="invoice-recipient",
-                question__type=form_models.Question.TYPE_TABLE,
-            )
-            table_ans.documents.add(applicant.copy())
-
-        if (
-            "more-people-involved-landowner" in additional_people
-            and answers.filter(question=80).exists()
-            and answers.get(question=80).answer == "1"
-        ):
-            table_ans, _ = document.answers.get_or_create(
-                question_id="landowner",
-                question__slug="landowner",
+                question_id=slug,
                 question__type=form_models.Question.TYPE_TABLE,
             )
             table_ans.documents.add(applicant.copy())
