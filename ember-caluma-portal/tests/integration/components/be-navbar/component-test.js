@@ -5,6 +5,8 @@ import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
 
+import testIf from "ember-caluma-portal/tests/helpers/test-if";
+
 module("Integration | Component | be-navbar", function (hooks) {
   setupRenderingTest(hooks);
   setupMirage(hooks);
@@ -31,7 +33,7 @@ module("Integration | Component | be-navbar", function (hooks) {
     await this.resetLanguage();
   });
 
-  test("it renders the logo dynamically", async function (assert) {
+  testIf("be")("it renders the logo dynamically", async function (assert) {
     assert.expect(2);
 
     await render(hbs`<BeNavbar />`);
@@ -63,7 +65,7 @@ module("Integration | Component | be-navbar", function (hooks) {
       .hasText("t:nav.support:()");
   });
 
-  test("it renders a language switcher", async function (assert) {
+  testIf("be")("it renders a language switcher", async function (assert) {
     assert.expect(4);
 
     await render(hbs`<BeNavbar />`);

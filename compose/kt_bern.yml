@@ -76,6 +76,8 @@ services:
       context: ../ember-caluma-portal
       cache_from:
         - acr.run/camac-ng/camac-ng/ember-caluma-portal:master
+      args:
+        - APPLICATION=${APPLICATION}
 
   php:
     build:
