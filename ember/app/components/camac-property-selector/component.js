@@ -97,9 +97,8 @@ export default Component.extend({
   searchObject: null,
   selectedSearchResult: null,
   selectedMunicipality: null,
-  gisURL: `https://${ENV.APP.gisHost}`,
-  // the tile URL is static because the testserver cannot handle the tile0 subdomain correctly
-  tileURL: `https://tile0.map.geo.sz.ch/main/tiles/1.0.0/ch_sz_avg_ortsplan_farbig/default/201610/swissgrid_2056/{z}/{y}/{x}.png`,
+  gisURL: `https://${ENV.APP.gisHost}/mapserv_proxy?ogcserver=source for image/png`,
+  tileURL: `https://${ENV.APP.gisHost}/tiles/1.0.0/ch_sz_avg_ortsplan_farbig/default/201610/swissgrid_2056/{z}/{y}/{x}.png`,
 
   ajax: service(),
   notification: service(),
