@@ -142,13 +142,13 @@
       </tr>
 
     </CaseDashboard::Section>
-    <CaseDashboard::Section>
-      {{#each this.models.parcelPicture as |picture|}}
+    {{#if this.models.parcelPicture}}
+      <CaseDashboard::Section>
         <tr>
-          <img class="uk-width-1-1" src="{{this.models.caseModel.parcelPictureUrl}}{{picture.identifier}}" alt={{t "cases.tableHeaders.parcelPicture"}}>
+          <img class="uk-width-1-1" src="{{this.models.parcelPicture}}" alt={{t "cases.tableHeaders.parcelPicture"}}>
         </tr>
-      {{/each}}
-    </CaseDashboard::Section>
+      </CaseDashboard::Section>
+    {{/if}}
 
     <hr />
 
