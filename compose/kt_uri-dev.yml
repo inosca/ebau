@@ -71,6 +71,11 @@ services:
     # Pro tip from 1337 backend devs: use this command and run `manage.py runserver 0:80 inside django container to enable pdb goodness
     # command: /bin/sh -c "while true; do sleep 10; done"
 
+  ember-caluma-portal:
+    image: acr.run/camac-ng/camac-ng/ember-caluma-portal:master
+    networks:
+      - camac-ng.local
+
   php:
     image: acr.run/camac-ng/camac-ng/php:master
     volumes:

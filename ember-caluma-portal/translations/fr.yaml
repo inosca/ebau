@@ -3,7 +3,7 @@ caluma:
     optional: "si nécessaire"
 
 global:
-  title: "eBau Berne"
+  title-be: "eBau Berne"
   versionPrefix: "v"
   continue: "Suivante"
   delete: "Effacer"
@@ -152,7 +152,7 @@ support:
   phone: "+41 31 636 99 96"
 
 index:
-  welcome: "Bienvenue sur le portail eBau du canton de Berne"
+  welcome-be: "Bienvenue sur le portail eBau du canton de Berne"
   nextStep: "Que voulez-vous faire ensuite?"
 
 instances:

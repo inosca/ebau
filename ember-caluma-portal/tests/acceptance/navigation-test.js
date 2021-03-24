@@ -5,6 +5,8 @@ import { setupApplicationTest } from "ember-qunit";
 import { authenticateSession } from "ember-simple-auth/test-support";
 import { module, test } from "qunit";
 
+import testIf from "ember-caluma-portal/tests/helpers/test-if";
+
 module("Acceptance | navigation", function (hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
@@ -43,37 +45,40 @@ module("Acceptance | navigation", function (hooks) {
       .hasText("Doe John");
   });
 
-  test("it renders a link to the internal section", async function (assert) {
-    assert.expect(2);
+  testIf("be")(
+    "it renders a link to the internal section",
+    async function (assert) {
+      assert.expect(2);
 
-    const { id: instanceId } = this.server.create("instance", {
-      meta: { permissions: { main: ["read"] } },
-      calumaForm: "baugesuch",
-    });
-    const form = this.server.create("form", { slug: "baugesuch" });
-    const document = this.server.create("document", { form });
-    this.server.create("case", {
-      meta: { "camac-instance-id": instanceId },
-      document,
-    });
+      const { id: instanceId } = this.server.create("instance", {
+        meta: { permissions: { main: ["read"] } },
+        calumaForm: "baugesuch",
+      });
+      const form = this.server.create("form", { slug: "baugesuch" });
+      const document = this.server.create("document", { form });
+      this.server.create("case", {
+        meta: { "camac-instance-id": instanceId },
+        document,
+      });
 
-    const { id: groupId } = this.server.create("public-group");
-    this.owner.lookup("service:session").set("data.group", groupId);
+      const { id: groupId } = this.server.create("public-group");
+      this.owner.lookup("service:session").set("data.group", groupId);
 
-    await visit("/");
+      await visit("/");
 
-    assert
-      .dom("a.be-navbar-internal-link")
-      .hasAttribute("href", "http://camac-ng.local");
+      assert
+        .dom("a.be-navbar-internal-link")
+        .hasAttribute("href", "http://camac-ng.local");
 
-    await visit(`/instances/${instanceId}`);
-    await waitFor("a.be-navbar-internal-link");
+      await visit(`/instances/${instanceId}`);
+      await waitFor("a.be-navbar-internal-link");
 
-    assert
-      .dom("a.be-navbar-internal-link")
-      .hasAttribute(
-        "href",
-        "http://camac-ng.local/index/redirect-to-instance-resource/instance-id/1"
-      );
-  });
+      assert
+        .dom("a.be-navbar-internal-link")
+        .hasAttribute(
+          "href",
+          "http://camac-ng.local/index/redirect-to-instance-resource/instance-id/1"
+        );
+    }
+  );
 });

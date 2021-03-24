@@ -32,7 +32,7 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
   get options() {
     return {
       pageSize: 15,
-      processNew: (cases) => this.processAll(cases),
+      processNew: (cases) => this.processNew(cases),
     };
   }
 
@@ -191,7 +191,7 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
     yield this.cases.fetchMore();
   }
 
-  async processAll(cases) {
+  async processNew(cases) {
     const instanceIds = cases
       .map(({ meta }) => meta["camac-instance-id"])
       .filter(Boolean);
