@@ -3,19 +3,49 @@
     <div class="uk-container uk-flex uk-flex-column">
       <div class="uk-width-1-1 uk-position-relative">
         <LinkTo @route="index" class="be-logo uk-link-reset">
-          <img class="uk-height-1-1" src="/assets/images/logo-ebau-bern-1-{{this.language}}.svg" alt={{t "global.title"}}>
+          {{#if (is-application "be")}}
+            <img
+              class="uk-height-1-1"
+              src="/assets/images/logo-ebau-bern-1-{{this.language}}.svg"
+              alt={{t "global.title-be"}}
+            />
+          {{else if (is-application "ur")}}
+            <div class="uk-flex uk-flex-between uk-height-1-1">
+              <img
+                class="uk-height-1-1 ur-logo"
+                src="/assets/images/logo-urec.svg"
+                alt={{t "global.urec"}}
+              />
+              <img
+                class="uk-height-1-1 ur-logo"
+                src="/assets/images/logo-kanton-uri.svg"
+                alt={{t "global.title-ur"}}
+              />
+            </div>
+          {{/if}}
 
-          {{#if (not-eq this.environment "production")}}
+          {{#if
+            (and (not-eq this.environment "production") (is-application "be"))
+          }}
             <div class="uk-margin-small-top">
-              <span class="uk-text-small">{{t "global.versionPrefix"}}{{app-version hideSha=true}}</span>
-              <UkLabel @label={{this.environment}} class="uk-margin-small-left" />
+              <span class="uk-text-small">
+                {{t "global.versionPrefix"}}{{app-version hideSha=true}}
+              </span>
+              <UkLabel
+                @label={{this.environment}}
+                class="uk-margin-small-left"
+              />
             </div>
           {{/if}}
         </LinkTo>
 
-        {{#if this.session.isInternal}}
-          <a href="{{this.internalLink}}" class="be-navbar-internal-link uk-position-center-right">
-            {{t "nav.internal"}} <UkIcon @icon="arrow-right" />
+        {{#if (and this.session.isInternal (is-application "be"))}}
+          <a
+            href="{{this.internalLink}}"
+            class="be-navbar-internal-link uk-position-center-right"
+          >
+            {{t "nav.internal"}}
+            <UkIcon @icon="arrow-right" />
           </a>
         {{/if}}
       </div>
@@ -24,16 +54,33 @@
         <div class="uk-navbar-left">
           <ul class="uk-navbar-nav">
             {{! template-lint-disable no-unknown-arguments-for-builtin-components }}
-            <LinkTo @route="index" @tagName="li" @activeClass="uk-active"><a href="#">{{t "nav.index"}}</a></LinkTo>
-            <LinkTo @route="instances" @tagName="li" @activeClass="uk-active"><a href="#">{{t "nav.instances"}}</a></LinkTo>
-            <LinkTo @route="support" @tagName="li" @activeClass="uk-active"><a href="#">{{t "nav.support"}}</a></LinkTo>
+            <LinkTo @route="index" @tagName="li" @activeClass="uk-active">
+              <a href="#">
+                {{t "nav.index"}}
+              </a>
+            </LinkTo>
+            <LinkTo @route="instances" @tagName="li" @activeClass="uk-active">
+              <a href="#">
+                {{t "nav.instances"}}
+              </a>
+            </LinkTo>
+            <LinkTo @route="support" @tagName="li" @activeClass="uk-active">
+              <a href="#">
+                {{t "nav.support"}}
+              </a>
+            </LinkTo>
           </ul>
         </div>
 
         <div class="uk-navbar-right">
           <ul class="uk-navbar-nav">
             <li>
-              <a href="#">{{this.user.fullName}} {{#if this.group}}({{this.group.name}}){{/if}}</a>
+              <a href="#">
+                {{this.user.fullName}}
+                {{#if this.group}}
+                  ({{this.group.name}})
+                {{/if}}
+              </a>
               {{#if this.groups.length}}
                 <div
                   uk-dropdown
@@ -44,14 +91,22 @@
                 >
                   <ul class="uk-nav uk-dropdown-nav">
                     <li class={{unless this.group "uk-active"}}>
-                      <a data-test-no-group href="#" {{on "click" (fn this.setGroup null)}}>
+                      <a
+                        data-test-no-group
+                        href="#"
+                        {{on "click" (fn this.setGroup null)}}
+                      >
                         {{t "nav.applicant"}}
                       </a>
                     </li>
                     <li class="uk-nav-divider"></li>
                     {{#each this.groups as |g|}}
                       <li class={{if (eq g.id this.group.id) "uk-active"}}>
-                        <a data-test-group={{g.id}} href="#" {{on "click" (fn this.setGroup g.id)}}>
+                        <a
+                          data-test-group={{g.id}}
+                          href="#"
+                          {{on "click" (fn this.setGroup g.id)}}
+                        >
                           {{g.name}}
                         </a>
                       </li>
@@ -61,12 +116,18 @@
               {{/if}}
             </li>
             {{#each this.languages as |lang|}}
-              <li class={{if (eq lang this.language) "uk-active"}}><a href="#" {{on "click" (fn this.setLanguage lang)}}>{{lang}}</a></li>
+              <li class={{if (eq lang this.language) "uk-active"}}>
+                <a href="#" {{on "click" (fn this.setLanguage lang)}}>
+                  {{lang}}
+                </a>
+              </li>
             {{/each}}
             <li>
-              <a href="#" {{on "click" this.logout}} title={{t "nav.logout"}}>
+              <a href="#" title={{t "nav.logout"}} {{on "click" this.logout}}>
                 <UkIcon @icon="sign-out" />
-                <span class="uk-hidden">{{t "nav.logout"}}</span>
+                <span class="uk-hidden">
+                  {{t "nav.logout"}}
+                </span>
               </a>
             </li>
           </ul>

@@ -68,6 +68,7 @@ export default class InstancesEditIndexController extends Controller {
   @service intl;
 
   @controller("instances.edit") editController;
+  @reads("editController.hasFeedbackSection") hasFeedbackSection;
   @reads("editController.feedbackTask.isRunning") feedbackLoading;
   @reads("editController.decisionTask.isRunning") decisionLoading;
   @reads("editController.feedback") feedback;

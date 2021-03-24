@@ -3,7 +3,9 @@ caluma:
     optional: "falls nötig"
 
 global:
-  title: "eBau Bern"
+  title-be: "eBau Bern"
+  title-ur: "Kanton Uri"
+  urec: "Urec"
   versionPrefix: "v"
   continue: "Weiter"
   delete: "Löschen"
@@ -147,7 +149,8 @@ support:
   phone: "+41 31 636 99 97"
 
 index:
-  welcome: "Willkommen im eBau-Portal des Kantons Bern"
+  welcome-be: "Willkommen im eBau-Portal des Kantons Bern"
+  welcome-ur: "Willkommen im Portal für elektronische Verfahrenskoordination des Kantons Uri"
   nextStep: "Was möchten Sie als Nächstes machen?"
 
 instances:
