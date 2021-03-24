@@ -7,6 +7,8 @@
       "modified_at": "2020-08-10T14:30:21.420Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "next": "['start-circulation', 'start-decision']|tasks"
     }
   },
@@ -18,6 +20,8 @@
       "modified_at": "2020-08-10T14:29:37.829Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "next": "'circulation'|task"
     }
   },
@@ -29,6 +33,8 @@
       "modified_at": "2020-09-15T14:09:40.350Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "next": "['decision', 'reopen-circulation']|tasks"
     }
   },
@@ -40,6 +46,8 @@
       "modified_at": "2020-08-10T14:30:14.806Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "next": "['skip-circulation', 'init-circulation', 'audit', 'publication', 'fill-publication']|tasks"
     }
   },
@@ -51,6 +59,8 @@
       "modified_at": "2020-11-23T14:33:20.017Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "next": "['create-publication']|tasks"
     }
   },
@@ -62,6 +72,8 @@
       "modified_at": "2020-11-27T10:34:55.711Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "next": "'fill-publication'|task"
     }
   },
@@ -73,6 +85,8 @@
       "modified_at": "2020-10-23T10:51:09.641Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "next": "'complete'|task"
     }
   },
@@ -84,6 +98,8 @@
       "modified_at": "2020-08-10T14:29:36.182Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "next": "['after-circulation']|tasks"
     }
   },
@@ -95,6 +111,8 @@
       "modified_at": "2020-08-10T14:29:43.839Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "next": "['sb2', 'check-sb1']|tasks"
     }
   },
@@ -106,6 +124,8 @@
       "modified_at": "2021-01-25T14:50:39.193Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "next": "'create-publication'|task"
     }
   },
@@ -117,6 +137,8 @@
       "modified_at": "2020-11-23T14:33:55.488Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "next": "['fill-publication']|tasks"
     }
   },
@@ -128,6 +150,8 @@
       "modified_at": "2020-08-25T11:13:51.882Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "next": "['ebau-number', 'nfd', 'create-manual-workitems']|tasks"
     }
   },
@@ -139,6 +163,8 @@
       "modified_at": "2020-08-10T14:29:40.827Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "next": "['start-circulation', 'start-decision']|tasks"
     }
   },
@@ -150,6 +176,8 @@
       "modified_at": "2020-08-10T14:29:33.526Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "next": "['skip-circulation', 'init-circulation', 'audit', 'publication', 'fill-publication']|tasks"
     }
   },
@@ -161,6 +189,8 @@
       "modified_at": "2020-08-10T14:29:45.504Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "next": "['complete', 'check-sb2']|tasks"
     }
   },
@@ -172,6 +202,8 @@
       "modified_at": "2020-08-10T14:29:34.744Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "next": "'circulation'|task"
     }
   },
@@ -183,6 +215,8 @@
       "modified_at": "2020-09-15T14:09:38.952Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "next": "['decision', 'reopen-circulation']|tasks"
     }
   },
@@ -194,6 +228,8 @@
       "modified_at": "2020-08-10T14:29:39.487Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "next": "['decision', 'reopen-circulation']|tasks"
     }
   },
@@ -205,6 +241,8 @@
       "modified_at": "2020-08-10T14:30:20.015Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "next": "['decision', 'reopen-circulation']|tasks"
     }
   },
@@ -216,6 +254,8 @@
       "modified_at": "2020-08-25T11:14:35.929Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "next": "['ebau-number', 'nfd', 'create-manual-workitems']|tasks"
     }
   },
@@ -227,6 +267,8 @@
       "modified_at": "2020-08-10T14:30:17.331Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "next": "['after-circulation']|tasks"
     }
   },
@@ -238,6 +280,8 @@
       "modified_at": "2020-08-10T14:30:16.090Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "next": "'circulation'|task"
     }
   },
@@ -249,6 +293,8 @@
       "modified_at": "2020-10-23T13:15:29.513Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "next": "['ebau-number', 'audit', 'nfd', 'decision', 'create-manual-workitems']|tasks"
     }
   },
@@ -260,6 +306,8 @@
       "modified_at": "2020-08-10T14:30:18.760Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "next": "'circulation'|task"
     }
   },
@@ -271,6 +319,8 @@
       "modified_at": "2020-08-10T14:29:42.341Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "next": "['after-decision']|tasks"
     }
   },
@@ -282,6 +332,8 @@
       "modified_at": "2020-11-27T10:34:52.151Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "next": "'create-publication'|task"
     }
   },
@@ -293,6 +345,8 @@
       "modified_at": "2020-09-15T09:33:24.450Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "name": "{\"de\": \"Stellungnahme verfassen\", \"fr\": \"R\\u00e9diger une prise de position\"}",
       "description": "{\"de\": null, \"fr\": null}",
       "type": "simple",
@@ -313,6 +367,8 @@
       "modified_at": "2020-09-15T09:33:51.138Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "name": "{\"de\": \"Dossier pr\\u00fcfen\", \"fr\": \"V\\u00e9rifier le dossier\"}",
       "description": "{\"de\": null, \"fr\": null}",
       "type": "complete_task_form",
@@ -335,6 +391,8 @@
       "modified_at": "2020-09-15T09:34:12.007Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "name": "{\"de\": \"Stellungnahmen pr\\u00fcfen\", \"fr\": \"V\\u00e9rifier les prises de position\"}",
       "description": "{\"de\": null, \"fr\": null}",
       "type": "simple",
@@ -357,6 +415,8 @@
       "modified_at": "2020-09-15T09:34:35.044Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "name": "{\"de\": \"Selbstdeklaration 1 pr\\u00fcfen\", \"fr\": \"V\\u00e9rifier la d\\u00e9claration spontan\\u00e9e 1\"}",
       "description": "{\"de\": null, \"fr\": null}",
       "type": "simple",
@@ -379,6 +439,8 @@
       "modified_at": "2020-09-15T09:34:43.788Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "name": "{\"de\": \"Selbstdeklaration 2 pr\\u00fcfen\", \"fr\": \"V\\u00e9rifier la d\\u00e9claration spontan\\u00e9e 2\"}",
       "description": "{\"de\": null, \"fr\": null}",
       "type": "simple",
@@ -401,6 +463,8 @@
       "modified_at": "2020-09-15T09:35:02.383Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "name": "{\"de\": \"Zirkulation\", \"fr\": \"Circulation\"}",
       "description": "{\"de\": null, \"fr\": null}",
       "type": "simple",
@@ -421,6 +485,8 @@
       "modified_at": "2020-09-15T09:40:34.773Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "name": "{\"de\": \"Baugesuchsverfahren abschliessen\", \"fr\": \"Clore la proc\\u00e9dure\"}",
       "description": "{\"de\": null, \"fr\": null}",
       "type": "simple",
@@ -441,6 +507,8 @@
       "modified_at": "2020-09-15T09:36:02.022Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "name": "{\"de\": \"Manuelle Aufgaben erfassen\", \"fr\": \"Saisie des t\\u00e2ches manuelles\"}",
       "description": "{\"de\": null, \"fr\": null}",
       "type": "simple",
@@ -463,6 +531,8 @@
       "modified_at": "2020-11-23T14:28:37.051Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "name": "{\"de\": \"Neue Publikation erfassen\", \"fr\": null}",
       "description": "{\"de\": null, \"fr\": null}",
       "type": "simple",
@@ -483,6 +553,8 @@
       "modified_at": "2020-09-15T09:36:21.022Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "name": "{\"de\": \"Entscheid verf\\u00fcgen\", \"fr\": \"Rendre la d\\u00e9cision\"}",
       "description": "{\"de\": null, \"fr\": null}",
       "type": "simple",
@@ -503,6 +575,8 @@
       "modified_at": "2020-09-15T09:36:45.991Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "name": "{\"de\": \"eBau-Nummer vergeben\", \"fr\": \"Attribution d'un num\\u00e9ro eBau\"}",
       "description": "{\"de\": null, \"fr\": null}",
       "type": "simple",
@@ -523,6 +597,8 @@
       "modified_at": "2020-11-23T14:28:35.121Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "name": "{\"de\": \"Publikation\", \"fr\": null}",
       "description": "{\"de\": null, \"fr\": null}",
       "type": "complete_task_form",
@@ -543,6 +619,8 @@
       "modified_at": "2020-09-15T09:37:04.487Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "name": "{\"de\": \"Zirkulation initialisieren\", \"fr\": \"Initialiser la circulation\"}",
       "description": "{\"de\": null, \"fr\": null}",
       "type": "simple",
@@ -563,6 +641,8 @@
       "modified_at": "2020-09-15T09:37:29.194Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "name": "{\"de\": \"Nachforderungen\", \"fr\": \"Demandes de compl\\u00e9ment d'information\"}",
       "description": "{\"de\": null, \"fr\": null}",
       "type": "complete_task_form",
@@ -583,6 +663,8 @@
       "modified_at": "2020-09-15T09:37:46.898Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "name": "{\"de\": \"Dossier publizieren\", \"fr\": \"Publier le dossier\"}",
       "description": "{\"de\": null, \"fr\": null}",
       "type": "simple",
@@ -605,6 +687,8 @@
       "modified_at": "2020-09-15T09:38:05.440Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "name": "{\"de\": \"Zirkulation wiederer\\u00f6ffnen\", \"fr\": \"Rouvrir la proc\\u00e9dure de circulation\"}",
       "description": "{\"de\": null, \"fr\": null}",
       "type": "simple",
@@ -625,6 +709,8 @@
       "modified_at": "2020-09-15T09:38:45.400Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "name": "{\"de\": \"Selbstdeklaration 1 ausf\\u00fcllen\", \"fr\": \"Remplir la d\\u00e9claration spontan\\u00e9e 1\"}",
       "description": "{\"de\": null, \"fr\": null}",
       "type": "complete_task_form",
@@ -645,6 +731,8 @@
       "modified_at": "2020-09-15T09:38:52.288Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "name": "{\"de\": \"Selbstdeklaration 2 ausf\\u00fcllen\", \"fr\": \"Remplir la d\\u00e9claration spontan\\u00e9e 2\"}",
       "description": "{\"de\": null, \"fr\": null}",
       "type": "complete_task_form",
@@ -665,6 +753,8 @@
       "modified_at": "2020-09-15T14:09:37.342Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "name": "{\"de\": \"Zirkulation \\u00fcberspringen\", \"fr\": \"Sauter la proc\\u00e9dure de circulation\"}",
       "description": "{\"de\": null, \"fr\": null}",
       "type": "simple",
@@ -685,6 +775,8 @@
       "modified_at": "2020-09-15T09:39:32.539Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "name": "{\"de\": \"Weitere Zirkulation starten\", \"fr\": \"Lancer une autre circulation\"}",
       "description": "{\"de\": null, \"fr\": null}",
       "type": "simple",
@@ -705,6 +797,8 @@
       "modified_at": "2020-09-15T09:39:12.006Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "name": "{\"de\": \"Entscheid starten\", \"fr\": \"Clore la proc\\u00e9dure de circulation\"}",
       "description": "{\"de\": null, \"fr\": null}",
       "type": "simple",
@@ -725,6 +819,8 @@
       "modified_at": "2020-09-15T09:39:50.638Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "name": "{\"de\": \"Gesuch einreichen\", \"fr\": \"Envoyer la demande\"}",
       "description": "{\"de\": null, \"fr\": null}",
       "type": "complete_workflow_form",
@@ -745,6 +841,8 @@
       "modified_at": "2020-08-25T11:13:51.884Z",
       "created_by_user": null,
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "workflow": "building-permit",
       "task": "submit",
       "flow": "46846c68-6d6d-4eb5-b2dd-296d62d31393"
@@ -758,6 +856,8 @@
       "modified_at": "2020-08-10T14:29:40.831Z",
       "created_by_user": null,
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "workflow": "building-permit",
       "task": "reopen-circulation",
       "flow": "4a409fe9-741e-4e36-99c6-2cde4b2150c2"
@@ -771,6 +871,8 @@
       "modified_at": "2020-11-23T14:33:20.023Z",
       "created_by_user": null,
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "workflow": "building-permit",
       "task": "fill-publication",
       "flow": "2b422ed2-7091-467a-81d3-be4e32a770eb"
@@ -784,6 +886,8 @@
       "modified_at": "2020-11-27T10:34:52.155Z",
       "created_by_user": null,
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "workflow": "preliminary-clarification",
       "task": "fill-publication",
       "flow": "f0bc799a-54ee-41ae-86e5-56f41a085872"
@@ -797,6 +901,8 @@
       "modified_at": "2020-08-10T14:30:17.336Z",
       "created_by_user": null,
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "workflow": "preliminary-clarification",
       "task": "circulation",
       "flow": "b37d20b3-38f9-4971-bdb9-bbf80f0b9f0b"
@@ -810,6 +916,8 @@
       "modified_at": "2020-11-23T14:33:55.491Z",
       "created_by_user": null,
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "workflow": "building-permit",
       "task": "create-publication",
       "flow": "3f07b928-da62-44ce-837f-ee4315e4c40f"
@@ -823,6 +931,8 @@
       "modified_at": "2020-10-23T13:15:29.517Z",
       "created_by_user": null,
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "workflow": "internal",
       "task": "submit",
       "flow": "c647f9cc-3261-48b8-840f-eea936888bee"
@@ -836,6 +946,8 @@
       "modified_at": "2020-08-10T14:29:42.347Z",
       "created_by_user": null,
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "workflow": "building-permit",
       "task": "decision",
       "flow": "d8dd513b-ea02-43ba-96cd-568457d21744"
@@ -849,6 +961,8 @@
       "modified_at": "2020-08-10T14:30:14.812Z",
       "created_by_user": null,
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "workflow": "preliminary-clarification",
       "task": "ebau-number",
       "flow": "240e43d1-3969-41e6-8f25-f27fa1751592"
@@ -862,6 +976,8 @@
       "modified_at": "2020-08-10T14:29:45.508Z",
       "created_by_user": null,
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "workflow": "building-permit",
       "task": "sb2",
       "flow": "53187fd7-57bc-4d3a-83b7-7021e9acf52d"
@@ -875,6 +991,8 @@
       "modified_at": "2020-09-15T14:09:38.959Z",
       "created_by_user": null,
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "workflow": "building-permit",
       "task": "skip-circulation",
       "flow": "71149692-b9a9-4a85-8e29-929c39f7a9c5"
@@ -888,6 +1006,8 @@
       "modified_at": "2020-08-10T14:30:16.096Z",
       "created_by_user": null,
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "workflow": "preliminary-clarification",
       "task": "init-circulation",
       "flow": "c02b6af6-6eb3-4d62-8717-d09eb2cda738"
@@ -901,6 +1021,8 @@
       "modified_at": "2020-08-10T14:30:18.765Z",
       "created_by_user": null,
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "workflow": "preliminary-clarification",
       "task": "start-circulation",
       "flow": "c6acccb6-301d-4a70-97fe-4ee57dcdc5d5"
@@ -914,6 +1036,8 @@
       "modified_at": "2020-08-10T14:29:36.187Z",
       "created_by_user": null,
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "workflow": "building-permit",
       "task": "circulation",
       "flow": "363f0977-a68b-4d3c-990b-39f2e747b19d"
@@ -927,6 +1051,8 @@
       "modified_at": "2020-08-10T14:29:34.748Z",
       "created_by_user": null,
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "workflow": "building-permit",
       "task": "init-circulation",
       "flow": "68438cb7-3635-4586-a3f6-a5032b5fbc4e"
@@ -940,6 +1066,8 @@
       "modified_at": "2020-08-10T14:30:21.425Z",
       "created_by_user": null,
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "workflow": "preliminary-clarification",
       "task": "reopen-circulation",
       "flow": "10ce3772-ca45-4000-8d85-8fab4b379f6f"
@@ -953,6 +1081,8 @@
       "modified_at": "2020-08-10T14:29:43.844Z",
       "created_by_user": null,
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "workflow": "building-permit",
       "task": "sb1",
       "flow": "3826b971-fded-4ecd-a7d5-0ca604424ccf"
@@ -966,6 +1096,8 @@
       "modified_at": "2020-11-27T10:34:55.716Z",
       "created_by_user": null,
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "workflow": "preliminary-clarification",
       "task": "create-publication",
       "flow": "35207bd3-ab3b-4ef3-910a-bcb5a3f971cb"
@@ -979,6 +1111,8 @@
       "modified_at": "2020-08-10T14:29:39.493Z",
       "created_by_user": null,
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "workflow": "building-permit",
       "task": "start-decision",
       "flow": "7885afc9-3322-4572-b81b-d177136e5d62"
@@ -992,6 +1126,8 @@
       "modified_at": "2020-08-10T14:29:33.531Z",
       "created_by_user": null,
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "workflow": "building-permit",
       "task": "ebau-number",
       "flow": "4daff7a4-f031-47bf-8fef-445d5ca88278"
@@ -1005,6 +1141,8 @@
       "modified_at": "2020-08-10T14:30:20.022Z",
       "created_by_user": null,
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "workflow": "preliminary-clarification",
       "task": "start-decision",
       "flow": "944dc36e-68c6-498f-9fc3-fa47b1afa843"
@@ -1018,6 +1156,8 @@
       "modified_at": "2021-01-25T14:50:39.206Z",
       "created_by_user": null,
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "workflow": "migrated",
       "task": "fill-publication",
       "flow": "3e4d93ce-32e2-4f39-bea6-d666e82980e6"
@@ -1031,6 +1171,8 @@
       "modified_at": "2020-08-10T14:29:37.834Z",
       "created_by_user": null,
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "workflow": "building-permit",
       "task": "start-circulation",
       "flow": "10edadbe-80f7-48b4-9837-7062c8b8e863"
@@ -1044,6 +1186,8 @@
       "modified_at": "2020-08-25T11:14:35.931Z",
       "created_by_user": null,
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "workflow": "preliminary-clarification",
       "task": "submit",
       "flow": "a5dba546-a4fe-4670-8c85-6c3057deaa8f"
@@ -1057,6 +1201,8 @@
       "modified_at": "2020-09-15T14:09:40.355Z",
       "created_by_user": null,
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "workflow": "preliminary-clarification",
       "task": "skip-circulation",
       "flow": "135e0ae3-ff30-475d-a0e8-efc004d04f1b"
@@ -1070,6 +1216,8 @@
       "modified_at": "2020-08-10T14:29:29.158Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "name": "{\"de\": \"Baugesuch\", \"fr\": null}",
       "description": "{\"de\": null, \"fr\": null}",
       "meta": {},
@@ -1096,6 +1244,8 @@
       "modified_at": "2020-08-10T14:28:56.643Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "name": "{\"de\": \"Zirkulation\", \"fr\": null}",
       "description": "{\"de\": null, \"fr\": null}",
       "meta": {},
@@ -1114,6 +1264,8 @@
       "modified_at": "2020-10-23T13:15:25.691Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "name": "{\"de\": \"Internes Verfahren\", \"fr\": null}",
       "description": "{\"de\": null, \"fr\": null}",
       "meta": {},
@@ -1132,6 +1284,8 @@
       "modified_at": "2021-01-25T14:51:39.552Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "name": "{\"de\": \"Migriertes Dossier\", \"fr\": null}",
       "description": "{\"de\": null, \"fr\": null}",
       "meta": {},
@@ -1154,6 +1308,8 @@
       "modified_at": "2020-08-10T14:30:11.892Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "name": "{\"de\": \"Vorabkl\\u00e4rung\", \"fr\": null}",
       "description": "{\"de\": null, \"fr\": null}",
       "meta": {},
