@@ -31,6 +31,9 @@ query GetAudit($instanceId: GenericScalar!) {
                           id
                           createdAt
                           createdByGroup
+                          modifiedContentByUser
+                          modifiedContentByGroup
+                          modifiedContentAt
                           form {
                             slug
                             name

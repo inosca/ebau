@@ -3,12 +3,13 @@ audit:
   delete: "Prüfung löschen"
   complete: "Prüfung abschliessen"
   skip: "Prüfung überspringen"
-  titleMeta: "Erstellt am {date} von {creator}"
+  titleMeta: "Zuletzt bearbeitet von '<span' title={service}>{user}'</span>' am {date}"
   createPdf: "PDF herunterladen"
 
   type: "Prüfungstyp"
-  createdBy: "Erstellt von"
-  createdAt: "Erstellt am"
+  municipality: "Leitbehörde"
+  modified: "Zuletzt bearbeitet"
+  modifiedText: "'<span' title={service}>{user}'</span>' am {date}"
   actions: "Aktionen"
   back: "Zurück zur Übersicht"
 

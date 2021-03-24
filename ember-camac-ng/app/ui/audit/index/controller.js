@@ -30,12 +30,28 @@ class Audit {
     return this._raw.form.name;
   }
 
-  get createdBy() {
+  get municipality() {
     return this.store.peekRecord("service", this._raw.createdByGroup);
   }
 
-  get createdAt() {
-    return this._raw.createdAt;
+  get modifiedByUser() {
+    return (
+      this._raw.modifiedContentByUser &&
+      this.store
+        .peekAll("public-user")
+        .find((user) => user.username === this._raw.modifiedContentByUser)
+    );
+  }
+
+  get modifiedByService() {
+    return (
+      this._raw.modifiedContentByGroup &&
+      this.store.peekRecord("service", this._raw.modifiedContentByGroup)
+    );
+  }
+
+  get modifiedAt() {
+    return this._raw.modifiedContentAt;
   }
 
   get form() {
