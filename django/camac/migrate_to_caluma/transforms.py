@@ -6,158 +6,6 @@ from caluma.caluma_form import models as form_models
 
 log = getLogger(__name__)
 
-GRUNDNUTZUNG_MAPPING = {
-    "W1": "Wohnzone 1",  # Wohnzone 1
-    "W2": "Wohnzone 2",  # Wohnzone 2
-    "W3": "Wohnzone 3",  # Wohnzone 3
-    "W4": "Wohnzone 4",  # Wohnzone 4
-    "GE": "Gewerbezone",  # Gewerbezone
-    "I": "Industriezone",  # Industriezone
-    "WG2": "Wohn- und Gewerbezone 2",  # Wohn- und Gewerbezone 2
-    "WG3": "Wohn- und Gewerbezone 3",  # Wohn- und Gewerbezone 3
-    "WG4": "Wohn- und Gewerbezone 4",  # Wohn- und Gewerbezone 4
-    "K1": "Kernzone 1",  # Kernzone 1
-    "K3": "Kernzone 3",  # Kernzone 3
-    "BZ": "Bahnhofzone",  # Bahnhofzone
-    "OE": "Zone für öffentliche Bauten und Anlagen",  # Zone für öffentliche Bauten und Anlagen
-    "FZ": "Freihaltezone",  # Freihaltezone
-    "TZ": "Tourismuszone",  # Tourismuszone
-    "SF": "Zone für Sport- und Freizeitanlagen",  # Zone für Sport- und Freizeitanlagen
-    "VF": "Verkehrsfläche innerhalb Bauzonen",  # Verkehrsfläche innerhalb Bauzonen
-    "AB": "Zone für besondere Anlagen und Betriebsstätten",  # Zone für besondere Anlagen und Betriebsstätten
-    "L": "Landwirtschaftszone",  # Landwirtschaftszone
-    "SL": "Speziallandwirtschaftszone",  # Speziallandwirtschaftszone
-    "RB": "Rebbauzone",  # Rebbauzone
-    "NSl": "Naturschutzzone lokal",  # Naturschutzzone lokal
-    "FZaB": "Freihaltezone ausserhalb Bauzonen",  # Freihaltezone ausserhalb Bauzonen
-    "GR": "Gewässerraumzone",  # Gewässerraumzone
-    "Ge": "Gewässer",  # Gewässer
-    "WZ": "Weilerzone",  # Weilerzone
-    "VFaB": "Verkehrsfläche ausserhalb Bauzonen",  # Verkehrsfläche ausserhalb Bauzonen
-    "RZ": "Reservezone",  # Reservezone
-    "Wa": "Wald",  # Wald
-    "D": "Deponiezone",  # Deponiezone
-    "A": "Abbauzone",  # Abbauzone
-    "AD": "Abbau- und Deponiezone",  # Abbau- und Deponiezone
-    "SFG": "Zone für Sport- und Freizeitanlagen Golf",  # Zone für Sport- und Freizeitanlagen Golf
-    "RZu": "Reservezone, unproduktiv",  # Reservezone, unproduktiv
-    "W2K": "Wohnzone 2 Kirchhügel",  # Wohnzone 2 Kirchhügel
-    "W2a": "Wohnzone 2a",  # Wohnzone 2a
-    "W2b": "Wohnzone 2b",  # Wohnzone 2b
-    "W2c": "Wohnzone 2c",  # Wohnzone 2c
-    "WE": "Wohnzone Eggberge",  # Wohnzone Eggberge
-    "WL": "Wohnzone im Landschaftsgebiet",  # Wohnzone im Landschaftsgebiet
-    "WK": "Wohnzone Kolonie",  # Wohnzone Kolonie
-    "WSRütli": "Sonderwohnzone Rütli",  # Sonderwohnzone Rütli
-    "WGE": "Wohn- und Gewerbezone Eggberge",  # Wohn- und Gewerbezone Eggberge
-    "K2": "Kernzone 2",  # Kernzone 2
-    "K4": "Kernzone 4",  # Kernzone 4
-    "I1": "Industriezone 1",  # Industriezone 1
-    "I2": "Industriezone 2",  # Industriezone 2
-    "ABEC": "Zone für besondere Anlage und Betriebsstätte Event-Center",  # Zone für besondere Anlage und Betriebsstätte Event-Center
-    "WS": "Sonderwohnzone",  # Sonderwohnzone
-    "BZB": "BZ Brüsti",  # BZ Brüsti
-    "Eh": "Erholungszone",  # Erholungszone
-    "FPZ": "Flugplatzzone",  # Flugplatzzone
-    "ABE": "Gewerbesonderzone Eielen",  # Gewerbesonderzone Eielen
-    "ABH": "Gewerbesonderzone Harder",  # Gewerbesonderzone Harder
-    "ABN": "Niederhofen",  # Niederhofen
-    "ABSH": "Sondernutzungszone Holzheizwerk",  # Sondernutzungszone Holzheizwerk
-    "SZB": "Sonderzone Baugruppen",  # Sonderzone Baugruppen
-    "G1": "Gewerbezone 1",  # Gewerbezone 1
-    "G2": "Gewerbezone 2",  # Gewerbezone 2
-    "W5": "Wohnzone 5+",  # Wohnzone 5+
-    "WG5": "Wohn- und Gewerbezone 5+",  # Wohn- und Gewerbezone 5+
-    "K": "Kernzone",  # Kernzone
-    "KZE": "Kernzone - Zentrum",  # Kernzone - Zentrum
-    "LW": None,  # Value not in answerlist
-    "R": None,  # Value not in answerlist
-    "W": None,  # Value not in answerlist
-    "KZ": None,  # Value not in answerlist
-    "KS": None,  # Value not in answerlist
-    "ViB": None,  # Value not in answerlist
-    "T": None,  # Value not in answerlist
-    "G": None,  # Value not in answerlist
-    "O": None,  # Value not in answerlist
-    "VaB": None,  # Value not in answerlist
-    "F": None,  # Value not in answerlist
-    "FaB": None,  # Value not in answerlist
-    "B": None,  # Value not in answerlist
-    "U": None,  # Value not in answerlist
-    "": None,  # Empty value in answerslist
-}
-
-UEBERLAGERTE_NUTZUNG_MAP = {
-    "OS": "Ortsbildschutzzone",  # Ortsbildschutzzone
-    "SOK": "Schutzobjekt in Kernzonen",  # Schutzobjekt in Kernzonen
-    "Arch": "Archäologisches Funderwartungsgebiet",  # Archäologisches Funderwartungsgebiet
-    "NSlü": "Naturschutzzone lokal, überlagert",  # Naturschutzzone lokal, überlagert
-    "LSl": "Landschaftsschutzzone lokal",  # Landschaftsschutzzone lokal
-    "LpB": "Gebiet mit landschaftsprägenden Bauten",  # Gebiet mit landschaftsprägenden Bauten
-    "TrS": "Gebiet mit traditioneller Streubauweise",  # Gebiet mit traditioneller Streubauweise
-    "GRü": "Gewässerraumzone, überlagert",  # Gewässerraumzone, überlagert
-    "GZr": "Gefahrenzone rot",  # Gefahrenzone rot
-    "GZb": "Gefahrenzone blau",  # Gefahrenzone blau
-    "GZg": "Gefahrenzone gelb",  # Gefahrenzone gelb
-    "ZW": "Zone für Wintersport",  # Zone für Wintersport
-    "Dü": "Deponiezone, überlagert",  # Deponiezone, überlagert
-    "Aü": "Abbauzone, überlagert",  # Abbauzone, überlagert
-    "ABü": "Zone für besondere Anlagen und Betriebsstätten, überlagert",  # Zone für besondere Anlagen und Betriebsstätten, überlagert
-    "ZBG": "Zone für Bauten in Gewässern",  # Zone für Bauten in Gewässern
-    "SFü": "Zone für Sport- und Freizeitanlagen, überlagert",  # Zone für Sport- und Freizeitanlagen, überlagert
-    "QPr": "Bereich rechtsgültiger Quartierplan",  # Bereich rechtsgültiger Quartierplan
-    "QGPr": "Bereich rechtsgültiger Quartiergestaltungsplan",  # Bereich rechtsgültiger Quartiergestaltungsplan
-    "QPp": "Zone mit Quartierplanpflicht",  # Zone mit Quartierplanpflicht
-    "QGPp": "Zone mit Quartiergestaltungsplanpflicht",  # Zone mit Quartiergestaltungsplanpflicht
-    "NvI": "Nutzungsvorbehalt Immissionsschutz",  # Nutzungsvorbehalt Immissionsschutz
-    "GvRR": "Genehmigungsvorbehalt RR",  # Genehmigungsvorbehalt RR
-    "wfF": "weitere flächenbezogene Festlegung",  # weitere flächenbezogene Festlegung
-    "BLS": "Baulinie Strasse",  # Baulinie Strasse
-    "BLG": "Baulinie Gewässer",  # Baulinie Gewässer
-    "BLI": "Baulinie Immissionsschutz",  # Baulinie Immissionsschutz
-    "BL": "weitere Baulinie (gem. Art. 49 PBG)",  # weitere Baulinie (gem. Art. 49 PBG)
-    "NOll": "Naturobjekt lokal, linear",  # Naturobjekt lokal, linear
-    "KOll": "Kulturobjekt lokal, linear",  # Kulturobjekt lokal, linear
-    "NOl": "Naturobjekt lokal",  # Naturobjekt lokal
-    "KOl": "Kulturobjekt lokal",  # Kulturobjekt lokal
-    "EO": "Einzelobjekt in Kern- und Schutzzonen",  # Einzelobjekt in Kern- und Schutzzonen
-    "KOIIGM": "Geschützte Mauer",  # Geschützte Mauer
-    "NOIEB": "Einzelbaum",  # Einzelbaum
-    "EOSG": "Schutzwürdige Gebäude",  # Schutzwürdige Gebäude
-    "VB": "Gebiet mit verdichteter Bauweise",  # Gebiet mit verdichteter Bauweise
-    "QRPr": "Bereich rechtsgültiger Quartierrichtplan",  # Bereich rechtsgültiger Quartierrichtplan
-    "AR": "Abfahrtsrouten",  # Abfahrtsrouten
-    "F": "Fernsprenganlagen",  # Fernsprenganlagen
-    "PA": "Parkanlagen",  # Parkanlagen
-    "SUB": "Seeuferbereich, überlagert",  # Seeuferbereich, überlagert
-    "E": "Schutzbereich",  # Schutzbereich
-    "KOIIwG": "wichtige Gasse",  # wichtige Gasse
-    "QRPp": "Zone mit Quartierrichtplanpflicht",  # Zone mit Quartierrichtplanpflicht
-    "ABüH": "Gewerbesonderzone Harder, überlagert",  # Gewerbesonderzone Harder, überlagert
-    "PB": "Projektierungsbereich",  # Projektierungsbereich
-    "GSZ": "Grundwasserschutzzone",
-    "GSZp": "Grundwasserschutzzonen provisorisch",
-    "GSA": "Grundwasserschutzareale",
-    "GSAp": "Grundwasserschutzareale provisorisch",
-    "GG": "Gefahrengebiet",
-    "WRZ": "Wildruhezone",
-    "WR": "Waldreservat",
-    "NSrn": "Naturschutzzone regional / national",
-    "FM": "Flachmoor",
-    "LSrn": "Landschaftsschutzzone regional / national",
-    "GmsB": "Gebiete mit schützenswerter Bausubstanz",
-    "NOrnl": "Naturobjekt regional / national, linear",
-    "NOrn": "Naturobjekt regional / national, punktförmig",
-    "KOrnl": "Kulturobjekt regional / national, linear",
-    "KOrn": "Kulturobjekt regional / national, punktförmig",
-    "FFF": "Fruchtfolgefläche",
-    "GRu": None,  # Value not in answerlist
-    "WS": None,  # Value not in answerlist
-    "NSlu": None,  # Value not in answerlist
-    "SFu": None,  # Value not in answerlist
-    "": None,  # Empty value in answerslist
-}
-
 
 class Transform:
     @staticmethod
@@ -227,39 +75,17 @@ class Transform:
         return wrapper
 
     @staticmethod
-    def join_multi_values_grundnutzung(separator):
-        def wrapper(val):
-            return separator.join(
-                [
-                    GRUNDNUTZUNG_MAPPING.get(v)
-                    for v in json.loads(val)
-                    if GRUNDNUTZUNG_MAPPING.get(v)
-                ]
-            )
-
-        return wrapper
-
-    @staticmethod
-    def join_multi_values_ueberlagerte_nutzung(separator):
+    def join_checkbox(mapping, separator):
         def wrapper(val, document, slug):
 
+            value_list = [mapping.get(v) for v in json.loads(val) if mapping.get(v)]
             try:
                 existing_answer = document.answers.get(question=slug)
-                value_list = [
-                    UEBERLAGERTE_NUTZUNG_MAP.get(v)
-                    for v in json.loads(val)
-                    if UEBERLAGERTE_NUTZUNG_MAP.get(v)
-                ]
                 value_list.append(existing_answer.value)
-                return separator.join(value_list)
             except form_models.Answer.DoesNotExist:
-                return separator.join(
-                    [
-                        UEBERLAGERTE_NUTZUNG_MAP.get(v)
-                        for v in json.loads(val)
-                        if UEBERLAGERTE_NUTZUNG_MAP.get(v)
-                    ]
-                )
+                pass
+
+            return separator.join(value_list)
 
         return wrapper
 
