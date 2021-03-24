@@ -59,6 +59,7 @@
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
         "is-main-form": true,
+        "category": "building-permit",
         "is-creatable": true
       },
       "is_published": true,
@@ -95,7 +96,8 @@
       "name": "{\"de\": \"Ben\\u00fctzung Kantonsgebiet\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
-        "is-main-form": true
+        "is-main-form": true,
+        "category": "special-procedure"
       },
       "is_published": true,
       "is_archived": false,
@@ -114,8 +116,25 @@
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
         "is-main-form": true,
+        "category": "special-procedure",
         "is-creatable": true
       },
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "dashboard",
+    "fields": {
+      "created_at": "2021-03-16T10:26:39.423Z",
+      "modified_at": "2021-03-16T10:26:39.423Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "name": "{\"de\": \"Dashboard\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
+      "meta": {},
       "is_published": true,
       "is_archived": false,
       "source": null
@@ -667,6 +686,7 @@
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
         "is-main-form": true,
+        "category": "building-permit",
         "is-creatable": true
       },
       "is_published": true,
@@ -702,7 +722,8 @@
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
         "is-main-form": true,
-        "is-creatable": true
+        "is-creatable": true,
+        "category": "building-permit"
       },
       "is_published": true,
       "is_archived": false,
@@ -753,6 +774,7 @@
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
         "is-main-form": true,
+        "category": "special-procedure",
         "is-creatable": true
       },
       "is_published": true,
@@ -2692,6 +2714,19 @@
       "form": "commercial-permit",
       "question": "reklame",
       "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dashboard.portal-inhalt-de",
+    "fields": {
+      "created_at": "2021-03-16T10:31:26.622Z",
+      "modified_at": "2021-03-16T10:31:26.622Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "dashboard",
+      "question": "portal-inhalt-de",
+      "sort": 1
     }
   },
   {
@@ -28249,6 +28284,37 @@
       "info_text": "{\"de\": \"#### INFO Plangenehmigungspflicht\\nGem\\u00e4ss Artikel 7 Arbeitsgesetz (ArG) muss, wer einen industriellen Betrieb errichten oder umgestalten will, bei der kantonalen Beh\\u00f6rde um die Genehmigung der geplanten Anlage nachsuchen. Im Zweifelsfall entscheidet die zust\\u00e4ndige kantonale Beh\\u00f6rde \\u00fcber die Plangenehmigungspflicht (Artikel 41 Arbeitsgesetz).\\n\\n#### Nichtindustrielle Betriebe:\\nEbenfalls dem Plangenehmigungsverfahren unterstellt sind folgende, teilweise gewerblichen, nichtindustriellen Betriebe:\\n- S\\u00e4gereien\\n- Entsorgungs- und Recyclingbetriebe\\n- chemisch-technische Produktionsbetriebe\\n- Steins\\u00e4gewerke\\n- Betrieb die Zementwaren herstellen\\n- Eisen-, Stahl- und Metallgiessereien\\n- Betriebe der Abwasserreinigung \\n- Eisenbiegereien\\n- Betriebe, die Oberfl\\u00e4chen behandeln, wie Verzinkereien, H\\u00e4rtereien, Galvanobetriebe und Anodisierwerke\\n- Betriebe der Holzimpr\\u00e4gnierung\\n- Betriebe, die Chemikalien, fl\\u00fcssige oder gasf\\u00f6rmige Brennstoffe oder andere leicht brennbare Fl\\u00fcssigkeiten oder Gase lagern oder umschlagen, wenn die geplanten  Einrichtungen  ein  \\u00dcberschreiten  der  Mengenschwellen  nach  dem  Anhang 1.1 der St\\u00f6rfallverordnung vom 27. Februar 199110 erlauben\\n- Betriebe,  die  mit  Mikroorganismen  der  Gruppe  3  oder  4  nach  Artikel  3  Absatz  2  der  Verordnung  vom  25.  August  199912  \\u00fcber  den  Schutz  der  Arbeitnehmerinnen und Arbeitnehmer vor Gef\\u00e4hrdung durch Mikroorganismen umgehen\\n- Betriebe  mit  Lagern  oder  R\\u00e4umen,  in  denen  die  Luftzusammensetzung  in  potenziell gesundheitssch\\u00e4dlicher Weise vom nat\\u00fcrlichen Zustand abweicht, namentlich indem der Sauerstoffgehalt unter 18 Prozent liegt\\n- Betriebe  mit  Arbeitsmitteln  im  Sinne  von  Artikel  49  Absatz  2  Ziffern  1,  2  oder  6  der  Verordnung  vom  19.  Dezember  198315  \\u00fcber  die  Verh\\u00fctung  von  Unf\\u00e4llen und Berufskrankheiten (VUVEisen\\n\\nBei Unklarheiten betreffend die Plangenehmigungspflicht kontaktieren Sie bitte das Arbeitsinspektorat.\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "portal-inhalt-de",
+    "fields": {
+      "created_at": "2021-03-16T10:31:26.526Z",
+      "modified_at": "2021-03-16T10:31:26.526Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "label": "{\"de\": \"Portal Inhalt DE\", \"fr\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,

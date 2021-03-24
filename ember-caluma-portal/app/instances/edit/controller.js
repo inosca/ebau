@@ -5,7 +5,10 @@ import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 import QueryParams from "ember-parachute";
 
-const FEEDBACK_ATTACHMENT_SECTION = 3;
+import config from "ember-caluma-portal/config/environment";
+
+const FEEDBACK_ATTACHMENT_SECTION =
+  config.APPLICATION.documents.feedbackSection;
 
 export default class InstancesEditController extends Controller.extend(
   new QueryParams().Mixin
@@ -15,6 +18,8 @@ export default class InstancesEditController extends Controller.extend(
   @service session;
 
   @queryManager apollo;
+
+  hasFeedbackSection = Boolean(FEEDBACK_ATTACHMENT_SECTION);
 
   setup() {
     this.instanceTask.perform();
@@ -55,6 +60,9 @@ export default class InstancesEditController extends Controller.extend(
   @lastValue("feedbackTask") feedback;
   @dropTask
   *feedbackTask() {
+    if (!FEEDBACK_ATTACHMENT_SECTION) {
+      return [];
+    }
     return yield this.store.query("attachment", {
       instance: this.model,
       attachment_sections: FEEDBACK_ATTACHMENT_SECTION,

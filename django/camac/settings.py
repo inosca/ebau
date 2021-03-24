@@ -183,7 +183,6 @@ APPLICATIONS = {
             "HAS_PROJECT_CHANGE": False,
             "CREATE_IN_PROCESS": True,
             "USE_LOCATION": True,
-            "GENERATE_DOSSIER_NR": True,
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
         },
     },
@@ -576,7 +575,6 @@ APPLICATIONS = {
             "HAS_PROJECT_CHANGE": True,
             "CREATE_IN_PROCESS": False,
             "USE_LOCATION": False,
-            "GENERATE_DOSSIER_NR": False,
             "AUDIT_FORMS": [
                 "dossierpruefung",
                 "fp-form",
@@ -1079,7 +1077,6 @@ APPLICATIONS = {
             "HAS_PROJECT_CHANGE": False,
             "CREATE_IN_PROCESS": True,
             "USE_LOCATION": True,
-            "GENERATE_DOSSIER_NR": True,
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
             "SYNC_FORM_TYPE": True,
         },
@@ -1140,11 +1137,8 @@ APPLICATIONS = {
             "kantonsgebiet": [247, 291],
         },
         "ROLE_PERMISSIONS": {
-            "Admin": None,
-            "Architect": None,
             "Bundesstelle": "coordination",
             "Gemeinde als Vernehmlassungsstelle": "service",
-            "Guest": None,  # TODO AFAIK we don't grant unauthenticated users access to endpoints
             "Koordinationsstelle Baudirektion BD": "coordination",
             "Koordinationsstelle Baugesuche BG": "coordination",
             "Koordinationsstelle Nutzungsplanung NP": "coordination",
@@ -1156,12 +1150,15 @@ APPLICATIONS = {
             "Mitglied der Gemeindebaubehörde": "municipality",  # TODO Maybe we should introduce a municipality_readonly role?
             "Mitglied einer Kommission oder Fachgruppe": "commission",
             "Organisation mit Leseberechtigung": "organization_readonly",
-            "Portal User": None,  # Uses the fallback permissions
             "Sekretariat der Gemeindebaubehörde": "municipality",
             "Vernehmlassungsstelle Gemeindezirkulation": "service",
             "Vernehmlassungsstelle mit Koordinationsaufgaben": "trusted_service",
             "Vernehmlassungsstelle ohne Koordinationsaufgaben": "trusted_service",
             "Support": "support",
+            # "Portal User": None,  # Uses the fallback permissions
+            # "Admin": None,
+            # "Architect": None,
+            # "Guest": None,  # TODO AFAIK we don't grant unauthenticated users access to endpoints
         },
         # The following services don't receive notifications if they have
         # overdue circulation activations.

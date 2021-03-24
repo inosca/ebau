@@ -1,22 +1,38 @@
 <div class="uk-width-2-3 uk-margin-auto">
-  <h1 class="uk-text-center">{{t "index.welcome"}}</h1>
+  <h1 class="uk-text-center">
+    {{t (concat "index.welcome-" (application-name))}}
+  </h1>
 
   <BeDashboard class="uk-padding uk-background-muted" @page="portal-inhalt" />
 
-  <p class="uk-text-center uk-text-large uk-margin-large-top uk-margin-medium-bottom">{{t "index.nextStep"}}</p>
+  <p
+    class="uk-text-center uk-text-large uk-margin-large-top uk-margin-medium-bottom"
+  >
+    {{t "index.nextStep"}}
+  </p>
 
   <div class="uk-flex uk-flex-center">
     {{#if (can "create instance")}}
-      <div class="uk-flex uk-flex-middle uk-margin-small-left uk-margin-small-right">
-        <LinkTo @route="instances.new" class="uk-button uk-button-default uk-width-medium uk-height-medium uk-flex uk-flex-middle uk-flex-center uk-flex-column">
+      <div
+        class="uk-flex uk-flex-middle uk-margin-small-left uk-margin-small-right"
+      >
+        <LinkTo
+          @route="instances.new"
+          class="uk-button uk-button-default uk-width-medium uk-height-medium uk-flex uk-flex-middle uk-flex-center uk-flex-column"
+        >
           <UkIcon @icon="plus" @ratio="3" class="uk-margin" />
           {{t "instances.new.title"}}
         </LinkTo>
       </div>
     {{/if}}
 
-    <div class="uk-flex uk-flex-middle uk-margin-small-left uk-margin-small-right">
-      <LinkTo @route="instances.index" class="uk-button uk-button-default uk-width-medium uk-height-medium uk-flex uk-flex-middle uk-flex-center uk-flex-column">
+    <div
+      class="uk-flex uk-flex-middle uk-margin-small-left uk-margin-small-right"
+    >
+      <LinkTo
+        @route="instances.index"
+        class="uk-button uk-button-default uk-width-medium uk-height-medium uk-flex uk-flex-middle uk-flex-center uk-flex-column"
+      >
         <UkIcon @icon="pencil" @ratio="3" class="uk-margin" />
         {{t "instances.edit"}}
       </LinkTo>

@@ -22,6 +22,7 @@ from camac.instance.serializers import (
     CalumaInstanceSerializer,
     CalumaInstanceSubmitSerializer,
 )
+from camac.user.models import Location
 from camac.utils import flatten
 
 
@@ -83,7 +84,7 @@ def mock_generate_and_store_pdf(mocker):
     "copy,modification,extend_validity",
     [(False, False, True), (True, False, False), (True, True, False)],
 )
-@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("role__name", ["Municipality", "Coordination"])
 def test_create_instance_caluma(
     db,
     admin_client,
@@ -113,23 +114,48 @@ def test_create_instance_caluma(
         }
         headers.update({"x-camac-group": group.pk})
 
+    # Uri states
     instance_state_factory(name="comm")
     instance_state_factory(name="old")
+    instance_state_factory(name="ext")
 
     application_settings["CALUMA"]["MODIFICATION_ALLOW_FORMS"] = ["main-form"]
     application_settings["CALUMA"]["CREATE_IN_PROCESS"] = uri_process
     application_settings["CALUMA"]["USE_LOCATION"] = uri_process
-    application_settings["CALUMA"]["GENERATE_DOSSIER_NR"] = uri_process
     application_settings["ARCHIVE_FORMS"] = [form.pk]
 
+    location = Location.objects.first()
     if create_with_camac_form:
         application_settings["FORM_MAPPING"] = {"main-form": [form.pk]}
         body = {
-            "attributes": {"caluma-form": "main-form"},
-            "relationships": {"form": {"data": {"type": "forms", "id": form.pk}}},
+            "attributes": {"caluma-form": "main-form", "location": location.pk},
+            "relationships": {
+                "form": {
+                    "data": {
+                        "type": "forms",
+                        "id": form.pk,
+                    },
+                },
+                "location": {
+                    "data": {
+                        "type": "locations",
+                        "id": location.pk,
+                    },
+                },
+            },
         }
     else:
-        body = {"attributes": {"caluma-form": "main-form"}}
+        body = {
+            "attributes": {"caluma-form": "main-form"},
+            "relationships": {
+                "location": {
+                    "data": {
+                        "type": "locations",
+                        "id": location.pk,
+                    },
+                },
+            },
+        }
 
     if uri_process:
         body["attributes"]["lead"] = 1
@@ -846,7 +872,6 @@ def test_instance_delete(
     attachment,
     paper,
 ):
-    application_settings["CALUMA"]["GENERATE_DOSSIER_NR"] = False
     application_settings["CALUMA"]["CREATE_IN_PROCESS"] = False
     application_settings["CALUMA"]["USE_LOCATION"] = False
 
@@ -1263,7 +1288,6 @@ def test_create_instance_caluma_internal_forms(
     application_settings["CALUMA"]["INTERNAL_FORMS"] = ["main-form"]
     application_settings["CALUMA"]["CREATE_IN_PROCESS"] = False
     application_settings["CALUMA"]["USE_LOCATION"] = False
-    application_settings["CALUMA"]["GENERATE_DOSSIER_NR"] = False
 
     if role.name == "Municipality":
         application_settings["PAPER"] = {
@@ -1319,7 +1343,6 @@ def test_create_instance_caluma_modification(
     application_settings["CALUMA"]["MODIFICATION_DISALLOW_STATES"] = ["new"]
     application_settings["CALUMA"]["CREATE_IN_PROCESS"] = False
     application_settings["CALUMA"]["USE_LOCATION"] = False
-    application_settings["CALUMA"]["GENERATE_DOSSIER_NR"] = False
 
     create_response = admin_client.post(
         reverse("instance-list"),
