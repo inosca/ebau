@@ -4,6 +4,8 @@ caluma:
 
 global:
   title-be: "eBau Berne"
+  title-ur: ""
+  urec: ""
   versionPrefix: "v"
   continue: "Suivante"
   delete: "Effacer"
@@ -153,6 +155,7 @@ support:
 
 index:
   welcome-be: "Bienvenue sur le portail eBau du canton de Berne"
+  welcome-ur: ""
   nextStep: "Que voulez-vous faire ensuite?"
 
 instances:
