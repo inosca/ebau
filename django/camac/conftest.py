@@ -214,7 +214,6 @@ def use_caluma_form(application_settings):
         "HAS_PROJECT_CHANGE": True,
         "CREATE_IN_PROCESS": False,
         "USE_LOCATION": True,
-        "GENERATE_DOSSIER_NR": False,
     }
 
 
