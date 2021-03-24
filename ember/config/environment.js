@@ -34,7 +34,7 @@ module.exports = function (environment) {
       // used in submit and camac-property-selector
       municipalityNames: [],
 
-      gisHost: "map-t.geo.sz.ch/mapserv_proxy?ogcserver=source for image/png",
+      gisHost: "map-t.geo.sz.ch",
 
       // Form location mapping in order of definition
       // konzession-fur-wasserentnahme = Amt für Gewässer
@@ -278,8 +278,7 @@ module.exports = function (environment) {
       "Bezirk Schwyz",
     ];
 
-    ENV.APP.gisHost =
-      "map.geo.sz.ch/mapserv_proxy?ogcserver=source for image/png";
+    ENV.APP.gisHost = "map.geo.sz.ch";
   }
 
   return ENV;
