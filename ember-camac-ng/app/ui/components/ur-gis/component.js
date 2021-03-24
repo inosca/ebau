@@ -15,8 +15,6 @@ import fetch from "fetch";
 import html2canvas from "html2canvas";
 import { all } from "rsvp";
 
-import { INSTANCE_RESOURCE_DOCUMENT_MAPPING } from "../../../caluma-query/models/case";
-
 import ENV from "camac-ng/config/environment";
 
 const { L } = window;
@@ -121,6 +119,8 @@ export default class UrGisComponent extends Component {
   @service intl;
   @service calumaStore;
   @service shoebox;
+  @service fetch;
+  @service store;
 
   @queryManager apollo;
   @tracked latlng = CENTER;
@@ -431,16 +431,37 @@ export default class UrGisComponent extends Component {
   @restartableTask
   *uploadBlob(blob) {
     const instanceId = this.args.context.instanceId;
+
+    const attachments = yield this.store.query("attachment", {
+      instance: instanceId,
+      name: "Parzellenbild.png",
+      context: JSON.stringify({
+        key: "isReplaced",
+        value: true,
+        invert: true,
+      }),
+    });
+    attachments.forEach((attachment) => {
+      attachment.context = {
+        ...attachment.context,
+        isReplaced: true,
+      };
+      attachment.save();
+    });
+
     const formData = new FormData();
-    formData.append("file", blob, "Parzellenbild.png");
-    yield fetch(
-      `/documents/list/upload-parcel-picture/instance-resource-id/${
-        INSTANCE_RESOURCE_DOCUMENT_MAPPING[this.shoebox.content.roleId]
-      }/instance-id/${instanceId}`,
+    formData.append("instance", instanceId);
+    formData.append(
+      "attachment_sections",
+      ENV.APP.attachmentSections.applicant
+    );
+    formData.append("path", blob, "Parzellenbild.png");
+    yield this.fetch.fetch(
+      `/api/v1/attachments?group=${this.shoebox.content.groupId}`,
       {
         method: "POST",
-        mode: "cors",
         body: formData,
+        headers: { "content-type": undefined },
       }
     );
   }

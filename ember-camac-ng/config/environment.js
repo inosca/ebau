@@ -29,6 +29,8 @@ module.exports = function (environment) {
     APP: {
       rootElement: "#ember-camac-ng",
       gisUrl: "https://service.lisag.ch/ows",
+      // special attachment section mapping
+      attachmentSections: { applicant: "12000000" },
     },
 
     APPLICATIONS: {
