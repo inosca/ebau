@@ -30,7 +30,7 @@ MUNICIPALITY_MAP = {
     "20": "20",  # Wassen
 }
 
-GRUNDNUTZUNG_MAPPING = {
+GRUNDNUTZUNG_MAP = {
     "W1": "Wohnzone 1",  # Wohnzone 1
     "W2": "Wohnzone 2",  # Wohnzone 2
     "W3": "Wohnzone 3",  # Wohnzone 3
@@ -184,6 +184,22 @@ UEBERLAGERTE_NUTZUNG_MAP = {
 
 
 QUESTION_MAP_BAUGESUCH = [
+    (
+        "c2q260i1",
+        "status-bauprojekt",
+        Transform.static_if_present("status-bauprojekt-nachtraeglich"),
+    ),
+    (
+        "c2q260i1",
+        "stand-der-realisierung",
+        Transform.join_checkbox(
+            {
+                "already_realized": "stand-der-realisierung-realisiert",
+                "stopped": "stand-der-realisierung-realisierung-gestartet-baustopp-verfuegt",
+            },
+            "; ",
+        ),
+    ),
     # address / names
     # Chapter 1: baugesuch / personendaten / gesuchsteller
     # TODO: list/subform, different types of address?
@@ -267,6 +283,7 @@ QUESTION_MAP_BAUGESUCH = [
         "landowner.*.is-juristic-person",
         Transform.yes_if_present("is-juristic-person"),
     ),  # Organisation
+    ("c1q69i1", "invoice-recipient.*.first-name", Transform.none),
     # Chapter 3: Erstellung
     (
         "c3q2i1",
@@ -282,8 +299,9 @@ QUESTION_MAP_BAUGESUCH = [
     ("c21q91i1", "parcels.*.parcel-number", Transform.none),
     ("c21q93i1", "parcels.*.parcel-street", Transform.none),
     ("c21q98i1", "proposal-description", Transform.append_text("; ")),
+    ("c21q97i1", "proposal-description", Transform.prepend_proposal()),
     ("c21q102i1", "construction-cost", Transform.extract_number),
-    ("c21q22i1", "grundnutzung", Transform.join_multi_values_grundnutzung("; ")),
+    ("c21q22i1", "grundnutzung", Transform.join_checkbox(GRUNDNUTZUNG_MAP, "; ")),
     (
         # Vorhaben -> Vorhaben
         "c21q97i1",
@@ -491,31 +509,31 @@ QUESTION_MAP_BAUGESUCH = [
         # Orientierende Nutzungsplaninhalt
         "c21q95i1",
         "ueberlagerte-nutzungen",
-        Transform.join_multi_values_ueberlagerte_nutzung("; "),
+        Transform.join_checkbox(UEBERLAGERTE_NUTZUNG_MAP, "; "),
     ),
     (
         # Orientierende Nutzungsplaninhalt
         "c101q95i1",
         "ueberlagerte-nutzungen",
-        Transform.join_multi_values_ueberlagerte_nutzung("; "),
+        Transform.join_checkbox(UEBERLAGERTE_NUTZUNG_MAP, "; "),
     ),
     (
         # Orientierende Nutzungsplaninhalt
         "c102q95i1",
         "ueberlagerte-nutzungen",
-        Transform.join_multi_values_ueberlagerte_nutzung("; "),
+        Transform.join_checkbox(UEBERLAGERTE_NUTZUNG_MAP, "; "),
     ),
     # Chapter 22: Objektdaten
     (
         "c22q94i1",
         "ueberlagerte-nutzungen",
-        Transform.join_multi_values_ueberlagerte_nutzung("; "),
+        Transform.join_checkbox(UEBERLAGERTE_NUTZUNG_MAP, "; "),
     ),  # Überlagerte Nutzungsplaninhalte
     # Chapter 101: Objektdaten
     (
         "c101q22i1",
         "grundnutzung",
-        Transform.join_multi_values_grundnutzung("; "),
+        Transform.join_checkbox(GRUNDNUTZUNG_MAP, "; "),
     ),  # Grundnutzungen
     (
         "c101q91i1",
@@ -532,7 +550,7 @@ QUESTION_MAP_BAUGESUCH = [
     (
         "c101q94i1",
         "ueberlagerte-nutzungen",
-        Transform.Transform.join_multi_values_ueberlagerte_nutzung("; "),
+        Transform.join_checkbox(UEBERLAGERTE_NUTZUNG_MAP, "; "),
     ),  # Überlagerte Nutzungsplaninhalte
     # Chapter 102: Objektdaten
     ("c102q91i1", "parcels.*.parcel-number", Transform.none),  # Parzellennummer
@@ -545,13 +563,13 @@ QUESTION_MAP_BAUGESUCH = [
     (
         "c102q22i1",
         "grundnutzung",
-        Transform.join_multi_values_grundnutzung("; "),
+        Transform.join_checkbox(GRUNDNUTZUNG_MAP, "; "),
     ),  # Grundnutzungen
     ("c102q92i1", "parcels.*.building-law-number", Transform.none),  # Baurechtsnummer
     (
         "c102q94i1",
         "ueberlagerte-nutzungen",
-        Transform.join_multi_values_ueberlagerte_nutzung("; "),
+        Transform.join_checkbox(UEBERLAGERTE_NUTZUNG_MAP, "; "),
     ),  # Überlagerte Nutzungsplaninhalte
 ]
 
@@ -597,20 +615,12 @@ IGNORE_QUESTIONS = {
     # temporarily ignoring for future analysis
     #
     # Chapter 1: baugesuch / personendaten / gesuchsteller
-    "c1q68i1",  # Rechnungsadresse identisch GesuchstellerIn: TODO: if set, copy primary data to invoice data
-    "c1q79i1",  # ProjektverfasserIn identisch GesuchstellerIn: TODO: if set, copy primary data to requestor data
-    "c1q80i1",  # GrundeigentümerIn identisch GesuchstellerIn: TODO: if set, copy primary data to landowner data
-    "c1q69i1",  # Rechnungsadresse - TODO no matching field?
     "c1q70i1",  # 2 ProjektverfasserIn
     "c1q81i1",  # 3 GrundeigentümerIn
     # Chapter 2: Generell
     "c2q3i1",  # Es werden keine physischen Unterlagen zugestellt
     "c2q251i1",  # Prüfungshinweise Gemeindebaubehörde
     "c2q260i1",  # Gesuch nachträglich eingereicht
-    "c2q1i1",  # Mitteilungen der Gemeinde
-    "c2q181i1",  # Mitteilungen der zuständigen Koordinationsstelle
-    "c2q4i1",  # Die Gemeindebaubehörde wünscht, dass das vorliegende Gesuch hinsichtlich folgender Fachbereiche durch die zuständigen kantonalen Fachstellen geprüft wird
-    "c2q256i1",  # Mitteilung an Bürger
     "c2q6i1",  # Dossiernummer
     "c2q272i1",  # Alte Dossier NR
     "c1q41i1",  # 1 Gesuchsteller
@@ -625,11 +635,8 @@ IGNORE_QUESTIONS = {
     # Chapter 101: Objektdaten
     # Chapter 102: Objektdaten (veranstaltung?)
     "c102q255i1",  # Detailangaben zum Nutzungsplan
-    "c102q247i1",  # Art der Nutzung
-    "c102q250i1",  # Bemerkungen
     "c102q245i1",  # Datum / Zeit
     "c102q246i1",  # Dauer (von - bis)
-    "c102q249i1",  # Beanspruchte Fläche in m2
     "c102q270i1",  # Parzellenstandort (Gemeinde)
     # Chapter 103: Meta
     "c103q257i1",  # Dossier eingereicht von
@@ -654,6 +661,8 @@ slugs_to_ignore = [
     "purpose",
     "purpose-description",
     "umbauter-raum",
+    "status-bauprojekt",
+    "stand-der-realisierung",
 ]
 
 
