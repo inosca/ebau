@@ -1066,7 +1066,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         request = self.context["request"]
 
         pdf = document_merge_service.DMSHandler().generate_pdf(
-            instance, form_slug, request
+            instance.pk, request, form_slug
         )
 
         attachment_section = self._get_pdf_section(instance, form_slug)

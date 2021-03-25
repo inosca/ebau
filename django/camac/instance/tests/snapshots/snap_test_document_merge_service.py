@@ -2039,6 +2039,39 @@ snapshots["test_document_merge_service_snapshot[1-sb2] 1"] = [
     },
 ]
 
+snapshots["test_document_merge_service_snapshot[2-mp-form] 1"] = [
+    {
+        "choices": [],
+        "label": "Frau Alicja Stiffel",
+        "slug": "mp-bepflanzung",
+        "type": "ChoiceQuestion",
+    },
+    {
+        "choices": [],
+        "label": "Jane Pruschke",
+        "slug": "mp-bepflanzung-ergebnis",
+        "type": "ChoiceQuestion",
+    },
+    {
+        "label": "Herr Saban Schenk",
+        "slug": "mp-bepflanzung-bemerkungen",
+        "type": "TextareaQuestion",
+        "value": "Test Bepflanzung",
+    },
+    {
+        "choices": [],
+        "label": "Prof. Marie-Louise Hörle B.Eng.",
+        "slug": "mp-erforderliche-beilagen-vorhanden",
+        "type": "ChoiceQuestion",
+    },
+    {
+        "label": "Sandro Mude",
+        "slug": "mp-welche-beilagen-fehlen",
+        "type": "TextareaQuestion",
+        "value": "Alle",
+    },
+]
+
 snapshots["test_document_merge_service_snapshot[3-None] 1"] = [
     {
         "children": [

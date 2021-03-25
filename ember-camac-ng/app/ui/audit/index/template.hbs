@@ -26,6 +26,14 @@
           <td>{{audit.createdBy.name}}</td>
           <td>{{moment-format audit.createdAt "DD.MM.YYYY HH:mm"}}</td>
           <td class="uk-text-right">
+            <button
+              type="button"
+              class="uk-button uk-button-text"
+              title={{t "audit.createPdf"}}
+              {{on "click" (perform this.createPdf audit)}}
+            >
+              <UkIcon @icon="file-pdf" />
+            </button>
             {{#if (and (not this.disabled) audit.canEdit)}}
               <button
                 type="button"
