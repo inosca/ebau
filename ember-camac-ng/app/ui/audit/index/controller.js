@@ -5,6 +5,7 @@ import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
 import { decodeId } from "ember-caluma/helpers/decode-id";
 import { dropTask } from "ember-concurrency-decorators";
+import { saveAs } from "file-saver";
 
 import { confirmTask } from "camac-ng/decorators";
 import completeWorkItem from "camac-ng/gql/mutations/complete-work-item";
@@ -50,8 +51,9 @@ class Audit {
 }
 
 export default class AuditIndexController extends Controller {
-  @service notifications;
+  @service notification;
   @service intl;
+  @service fetch;
 
   @queryManager apollo;
 
@@ -132,6 +134,26 @@ export default class AuditIndexController extends Controller {
       yield this.transitionToRoute("audit.edit", decodeId(documentId));
     } catch (error) {
       this.notifications.error(this.intl.t("audit.createError"));
+    }
+  }
+
+  @dropTask
+  *createPdf(audit) {
+    try {
+      const response = yield this.fetch.fetch(
+        `/api/v1/instances/${this.model}/generate-pdf?document-id=${audit.id}`
+      );
+      if (!response.ok) {
+        throw new Error(`${response.status}: ${response.statusText}`);
+      }
+
+      const filename = response.headers
+        .get("content-disposition")
+        .match(/filename="(.*)"/)[1];
+
+      saveAs(yield response.blob(), filename);
+    } catch (error) {
+      this.notification.danger(this.intl.t("audit.createPdfError"));
     }
   }
 
