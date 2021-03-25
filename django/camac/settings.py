@@ -753,6 +753,18 @@ APPLICATIONS = {
                     "dokumente-sb2",
                 ],
             },
+            "regular-exams": {
+                "forms": ["fp-form", "bab-form"],
+                "template": "audit-form",
+                "exclude_slugs": [
+                    "bab-01-07-1972-um-und-ausgebaut-meldung",
+                    "bab-naehe-von-schutzenswerten-gebaeuden-meldung",
+                ],
+            },
+            "material-exam": {
+                "forms": ["mp-form"],
+                "template": "form",
+            },
         },
         "GROUP_RENAME_ON_SERVICE_RENAME": True,
         "SERVICE_UPDATE_ALLOWED_ROLES": [

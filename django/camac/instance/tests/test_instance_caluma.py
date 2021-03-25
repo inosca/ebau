@@ -786,11 +786,12 @@ def test_caluma_instance_list_filter(
 
 
 @pytest.mark.parametrize(
-    "form_slug,expected_status",
+    "form_slug,has_document_id,expected_status",
     [
-        (None, status.HTTP_200_OK),
-        ("nfd", status.HTTP_200_OK),
-        ("something", status.HTTP_400_BAD_REQUEST),
+        (None, False, status.HTTP_200_OK),
+        (None, True, status.HTTP_200_OK),
+        ("nfd", False, status.HTTP_200_OK),
+        ("something", False, status.HTTP_400_BAD_REQUEST),
     ],
 )
 @pytest.mark.parametrize("role__name,instance__user", [("Canton", LazyFixture("user"))])
@@ -803,11 +804,13 @@ def test_generate_pdf_action(
     instance,
     caluma_form,
     document_factory,
+    form_factory,
     form_slug,
     expected_status,
     application_settings,
     caluma_workflow_config_be,
     caluma_admin_user,
+    has_document_id,
 ):
     content = b"some binary data"
 
@@ -826,6 +829,7 @@ def test_generate_pdf_action(
     application_settings["DOCUMENT_MERGE_SERVICE"] = {
         "main-form": {"template": "some-template"},
         "nfd": {"template": "some-template"},
+        "mp-form": {"template": "some-template"},
     }
 
     case = workflow_api.start_case(
@@ -842,6 +846,10 @@ def test_generate_pdf_action(
 
     url = reverse("instance-generate-pdf", args=[instance.pk])
     data = {"form-slug": form_slug} if form_slug else {}
+
+    if has_document_id:
+        document_id = document_factory(form__slug="mp-form").pk
+        data = {"document-id": document_id}
 
     response = admin_client.get(url, data)
 
