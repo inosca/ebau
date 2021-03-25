@@ -1,13 +1,13 @@
 import codecs
 import inspect
 import itertools
+import json
 import re
 from collections import defaultdict
 from datetime import datetime
 from logging import getLogger
 from pprint import pprint
 
-# import translitcodec  # noqa
 from caluma.caluma_form import models as form_models
 from caluma.caluma_workflow import models as workflow_models
 from caluma.caluma_workflow.jexl import GroupJexl
@@ -16,13 +16,18 @@ from django.core.validators import EMPTY_VALUES
 from django.db import transaction
 from django.db.models import F, Value
 from django.db.models.expressions import CombinedExpression, Func
+from django.utils.timezone import now
 
 from camac.constants import kt_uri as uri_constants
 from camac.core.models import Answer, ChapterPage
-from camac.instance.models import Instance
+from camac.instance.models import Instance, JournalEntry
 from camac.migrate_to_caluma import question_map
+from camac.user.models import User
 
 log = getLogger(__name__)
+
+# ADMIN_USER_ID = 1 # sycloud, production
+ADMIN_USER_ID = 3240  # local
 
 
 class DryRun(BaseException):
@@ -664,6 +669,7 @@ class Command(BaseCommand):
             "veranstaltung-art-andere",
         )
         self._set_migrated_question(document)
+        self._fill_journal_entries(document, inst)
 
         log.info(
             f"Finished instance form for {inst.instance_id}, transferred {num_answers} answers"
@@ -691,10 +697,62 @@ class Command(BaseCommand):
         if value:
             ans, _ = document.answers.get_or_create(question=question, value=value)
 
+    def _fill_journal_entries(self, document, inst):
+        """Fill communication questions into journal entries."""
+
+        admin_user = User.objects.get(pk=ADMIN_USER_ID)
+        try:
+            cantonal_audit_answer = Answer.objects.get(
+                question_id=4, instance_id=inst.pk
+            )
+            cantonal_audit_answer_values = json.loads(cantonal_audit_answer.answer)
+            answer_map = {
+                "abm": "Brandschutz (ABM)",
+                "afe": "Energienachweis",
+                "qgp": "Sondernutzungsplanung (QGP / QP)",
+                "nhsdenkmal": "kommunales Kulturobjekt (NHS Denkmalpflege)",
+                "nhsschutz": "kommunales Schutzobjekt /-gebiet (NHS)",
+            }
+            value = map(lambda answer: answer_map[answer], cantonal_audit_answer_values)
+
+            JournalEntry.objects.create(
+                instance=inst,
+                user=admin_user,
+                text=f"Prüfung Gemeindeaufgaben durch kantonale Fachstellen (migriert): {', '.join(list(value))}",
+                creation_date=now(),
+                modification_date=now(),
+                visibility="authorities",
+            )
+        except Answer.DoesNotExist:
+            pass
+
+        try:
+            mitteilung_questions_map = [
+                (1, "Mitteilung der Gemeinde (migriert): "),
+                (181, "Mitteilung der zuständigen Koordinationsstelle (migriert): "),
+                (256, "Mitteilung an Bürger (migriert): "),
+            ]
+
+            for question_id, value in mitteilung_questions_map:
+                mitteilung_answer = Answer.objects.get(
+                    question_id=question_id, instance_id=inst.pk
+                )
+                JournalEntry.objects.create(
+                    instance=inst,
+                    user=admin_user,
+                    text=f"{value}{mitteilung_answer.answer}",
+                    creation_date=now(),
+                    modification_date=now(),
+                    visibility="authorities",
+                )
+
+        except Answer.DoesNotExist:
+            pass
+
     def _fill_checkbox_if_answer_exists(
         self, document, answer_to_check, checkbox_to_fill, answer_slug
     ):
-        "Fill checkbox_to_fill with a given answer_slug if answer_to_check exists."
+        """Fill checkbox_to_fill with a given answer_slug if answer_to_check exists."""
 
         if not document.answers.filter(question_id=answer_to_check).exists():
             return
@@ -746,20 +804,20 @@ class Command(BaseCommand):
             and answers.get(question=qid).answer == "1"
         ]
 
-        additional_people = list(
+        additional_people = [
+            (qid, qids, value)
+            for (qid, qids, value) in personal_data_config
+            if any([answers.filter(question=q) for q in qids])
+        ] + people_to_copy
+
+        additional_people_answer = list(
             set(
                 [
-                    (qid, qids, value)
-                    for (qid, qids, value) in personal_data_config
-                    if any([answers.filter(question=q) for q in qids])
+                    "more-people-involved-" + value
+                    for (qid, qids, value) in additional_people
                 ]
-                + people_to_copy
             )
         )
-
-        additional_people_answer = [
-            "more-people-involved-" + value for (qid, qids, value) in additional_people
-        ]
 
         form_models.Answer.objects.create(
             value=additional_people_answer,

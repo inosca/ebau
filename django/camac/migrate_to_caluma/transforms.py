@@ -18,6 +18,51 @@ class Transform:
         return mapper
 
     @staticmethod
+    def static_if_present(value):
+        def mapper(val):
+            if val:
+                return value
+            return None
+
+        return mapper
+
+    @staticmethod
+    def prepend_proposal():
+        def mapper(val, slug, document):
+            old_value_map = {
+                "23": "An/Aufbau",
+                "24": "Zweckänderung",
+                "25": "Terrainveränderung",
+                "27": "Reklame",
+                "28": "Garage",
+                "29": "Solaranlage",
+                "30": "Fassadensanierung",
+                "31": "EFH",
+                "32": "MFH",
+                "33": "Geschäftshaus",
+                "34": "Lagergebäude",
+                "35": "Antennenanlage",
+                "36": "Unterkellerung",
+            }
+            values = json.loads(val)
+
+            if "21" in values:
+                values.remove("21")
+            if "22" in values:
+                values.remove("22")
+            if "26" in values:
+                values.remove("26")
+            if values and values != [""]:
+                value = map(lambda value: old_value_map[value], values)
+                try:
+                    ans = document.answers.get(question_id=slug)
+                    return f"{', '.join(list(value))}; {ans.value}"
+                except form_models.Answer.DoesNotExist:
+                    return f"{', '.join(list(value))}"
+
+        return mapper
+
+    @staticmethod
     def checkbox(value_mapping):
         """Return a question transform for camac-style checkbox.
 
