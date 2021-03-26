@@ -305,21 +305,10 @@ class SchwyzInstanceSerializer(InstanceSerializer):
 class CamacInstanceChangeFormSerializer(serializers.Serializer):
     """Handle changing the form of an instance."""
 
-    INTERCHANGEABLE_FORMS = [
-        "vorentscheid-gemass-ss84-pbg-v2",
-        "baugesuch-reklamegesuch-v2",
-        "projektanderung-v2",
-        "technische-bewilligung",
-        "baumeldung-fur-geringfugiges-vorhaben-v2",
-        "baumeldung-fur-geringfugiges-vorhaben-v3",
-        "anlassbewilligungen-verkehrsbewilligungen-v2",
-        "projektgenehmigungsgesuch-gemass-ss15-strag-v2",
-    ]
-
     form = serializers.CharField()
 
     def validate_form(self, value):
-        if value not in self.INTERCHANGEABLE_FORMS:
+        if value not in settings.APPLICATION.get("INTERCHANGEABLE_FORMS", []):
             raise exceptions.ValidationError(
                 _("'%(form)s' is not a valid form type") % {"form": value}
             )
@@ -327,14 +316,19 @@ class CamacInstanceChangeFormSerializer(serializers.Serializer):
         return value
 
     def validate(self, data):
-        if self.instance.form.name not in self.INTERCHANGEABLE_FORMS:
+        if self.instance.form.name not in settings.APPLICATION.get(
+            "INTERCHANGEABLE_FORMS", []
+        ):
             raise exceptions.ValidationError(
                 _("The current form '%(form)s' can't be changed")
                 % {"form": self.instance.form.name}
             )
         elif self.instance.form.name == data["form"]:
             raise exceptions.ValidationError(
-                _(_("'%(form)s' is not a valid form type") % {"form": data["form"]})
+                _(
+                    _("Form is already of type '%(form)s', nothing to do.")
+                    % {"form": data["form"]}
+                )
             )
 
         return data
@@ -354,13 +348,13 @@ class CamacInstanceChangeFormSerializer(serializers.Serializer):
         meta.value = json.dumps(meta_value)
         meta.save()
 
-        work_item = workflow_models.WorkItem.objects.filter(
+        work_item = workflow_models.WorkItem.objects.get(
             **{
                 "task_id": settings.APPLICATION["CALUMA"]["REJECTION_TASK"],
                 "status": workflow_models.WorkItem.STATUS_READY,
                 "case__meta__camac-instance-id": instance.pk,
             }
-        ).first()
+        )
 
         workflow_api.complete_work_item(
             work_item=work_item,
@@ -382,7 +376,7 @@ class CamacInstanceChangeFormSerializer(serializers.Serializer):
         resource_name = "instance-change-forms"
 
 
-class CalumaInstanceSerializer(InstanceSerializer):
+class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
     # TODO once more than one Camac-NG project uses Caluma as a form
     # this serializer needs to be split up into what is actually
     # Caluma and what is project specific
