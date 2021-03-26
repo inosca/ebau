@@ -1023,6 +1023,16 @@ def test_instance_change_form(
     application_settings["CALUMA"]["SIMPLE_WORKFLOW"]["reject-form"][
         "notification"
     ] = notification
+    application_settings["INTERCHANGEABLE_FORMS"] = [
+        "vorentscheid-gemass-ss84-pbg-v2",
+        "baugesuch-reklamegesuch-v2",
+        "projektanderung-v2",
+        "technische-bewilligung",
+        "baumeldung-fur-geringfugiges-vorhaben-v2",
+        "baumeldung-fur-geringfugiges-vorhaben-v3",
+        "anlassbewilligungen-verkehrsbewilligungen-v2",
+        "projektgenehmigungsgesuch-gemass-ss15-strag-v2",
+    ]
 
     caluma_form, _ = caluma_form_models.Form.objects.get_or_create(pk="baugesuch")
     workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
@@ -1072,5 +1082,3 @@ def test_instance_change_form(
         assert caluma_workflow_models.WorkItem.objects.filter(
             task_id="formal-addition"
         ).exists()
-
-    del application_settings["CALUMA"]["SIMPLE_WORKFLOW"]["reject-form"]["notification"]
