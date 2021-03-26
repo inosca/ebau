@@ -383,6 +383,16 @@ APPLICATIONS = {
             "notification.NotificationTemplate",
             "notification.NotificationTemplateT",
         ],
+        "INTERCHANGEABLE_FORMS": [
+            "vorentscheid-gemass-ss84-pbg-v2",
+            "baugesuch-reklamegesuch-v2",
+            "projektanderung-v2",
+            "technische-bewilligung",
+            "baumeldung-fur-geringfugiges-vorhaben-v2",
+            "baumeldung-fur-geringfugiges-vorhaben-v3",
+            "anlassbewilligungen-verkehrsbewilligungen-v2",
+            "projektgenehmigungsgesuch-gemass-ss15-strag-v2",
+        ],
         "PDF": {"SECTION": 1},
     },
     "kt_bern": {
