@@ -86,7 +86,7 @@ class TemplateFilterSet(FilterSet):
 
     class Meta:
         model = models.Template
-        fields = ("global_template",)
+        fields = ("global_template", "name")
 
 
 class AttachmentDownloadHistoryFilterSet(FilterSet):
