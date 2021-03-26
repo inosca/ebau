@@ -2,13 +2,13 @@ import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
 import { all } from "rsvp";
 
-export default Route.extend({
-  ajax: service(),
-  questionStore: service(),
+export default class InstancesEditRoute extends Route {
+  @service ajax;
+  @service questionStore;
 
-  queryParams: {
+  queryParams = {
     group: { refreshModel: true },
-  },
+  };
 
   async model({ instance_id: id, group }) {
     const response = await this.ajax.request(`/api/v1/instances/${id}`, {
@@ -38,24 +38,7 @@ export default Route.extend({
       instance: this.store.peekRecord("instance", id),
       meta,
     };
-  },
-
-  async setupController(controller, model) {
-    this._super(controller, model);
-
-    // Set instanceTransformation on the controller to determine if the instance was transformed
-    const meta = this.questionStore.peek("meta", model.instance.id);
-    if (meta && meta.value) {
-      const formId = JSON.parse(meta.value).formChange.id;
-      if (formId) {
-        const form = await this.store.findRecord("form", formId);
-        this.controllerFor("instances.edit").set(
-          "instanceTransformation",
-          form.description
-        );
-      }
-    }
-  },
+  }
 
   async afterModel(model) {
     const { forms, modules } = await this.questionStore.config;
@@ -74,7 +57,7 @@ export default Route.extend({
     const questionObjects = await all(questions.map(await build));
 
     this.questionStore._store.pushObjects(questionObjects);
-  },
+  }
 
   resetController(_, isExiting) {
     if (isExiting) {
@@ -84,5 +67,5 @@ export default Route.extend({
       this.questionStore.clear();
       this.controllerFor("instances.edit").set("instanceTransformation", null);
     }
-  },
-});
+  }
+}
