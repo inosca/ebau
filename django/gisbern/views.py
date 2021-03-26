@@ -84,7 +84,6 @@ def get_gis_data(multisurface):
         for layer in all_special_layers
         if layer not in settings.GIS_SKIP_SPECIAL_LAYERS
     ]
-    print(boolean_layers)
 
     query = "".join(
         map(
