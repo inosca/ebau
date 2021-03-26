@@ -83,6 +83,12 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
     this.getCases.cancelAll({ reset: true });
   }
 
+  get allForms() {
+    return (this.getRootForms.lastSuccessful?.value || []).map(
+      (form) => form.slug
+    );
+  }
+
   get formFilterOptions() {
     const raw = (this.getRootForms.lastSuccessful?.value || []).filter(
       (form) =>
@@ -115,7 +121,9 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
 
   get serializedFilter() {
     return [
-      ...(this.types ? [{ documentForms: this.types }] : []),
+      ...(this.types.length
+        ? [{ documentForms: this.types }]
+        : [{ documentForms: this.allForms }]),
       {
         metaValue: [
           { key: "camac-instance-id", value: this.instanceId },
@@ -180,6 +188,8 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
 
   @dropTask
   *getCases() {
+    yield this.getRootForms.last;
+
     yield this.cases.fetch({
       order: this.serializedOrder,
       filter: this.serializedFilter,
