@@ -81,6 +81,7 @@ INSTALLED_APPS = [
     "camac.tags.apps.DefaultConfig",
     "camac.objection.apps.DefaultConfig",
     "camac.echbern.apps.EchbernConfig",
+    "camac.migrate_to_caluma",
     "sorl.thumbnail",
     "django_clamd",
     "reversion",
