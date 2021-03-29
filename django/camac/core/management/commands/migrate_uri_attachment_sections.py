@@ -6,7 +6,7 @@ from camac.document.models import Attachment, AttachmentSection
 
 SECTION_MAPPING = {
     "1": "12000001",  # Interne Dokumente BAB
-    "21": "12000008",  # Publikationsordner
+    "21": "12000000",  # Dokumente Gesuchsteller (aus ehemaligem Publikationsordner)
     "22": "12000001",  # Interne Dokumente ABM BS
     "23": "12000002",  # Dokumente Fachstellen
     "24": "12000004",  # Dokumente Leitbehörden
@@ -21,7 +21,7 @@ SECTION_MAPPING = {
     "102": "12000001",  # Interne Dokumente ARE NP
     "103": "12000003",  # Dokumente Gemeindeservice
     "104": "12000004",  # Entscheiddokumente
-    "20000": "12000001",  # Interne Dokumente AFJ
+    "105": "12000001",  # Interne Dokumente AFJ
 }
 
 
@@ -39,6 +39,12 @@ class Command(BaseCommand):
                 )
                 for mapping in mappings:
                     try:
+                        attachment = Attachment.objects.get(
+                            attachment_id=mapping.attachment_id
+                        )
+                        attachment.context.update({"isPublished": True})
+                        attachment.save()
+
                         mapping.attachmentsection_id = new_section
                         mapping.save()
                         self.stdout.write(
