@@ -5,31 +5,6 @@ from .transforms import Transform
 # Second: Caluma question identifier
 # Third: transform function
 
-MUNICIPALITY_MAP = {
-    "22": "22",  # Alle Gemeinden
-    "1": "1",  # Altdorf
-    "2": "2",  # Andermatt
-    "3": "3",  # Attinghausen
-    "5": "5",  # Bürglen
-    "21": "21",  # Diverse Gemeinden
-    "6": "6",  # Erstfeld
-    "7": "7",  # Flüelen
-    "9": "9",  # Gurtnellen
-    "8": "8",  # Göschenen
-    "10": "10",  # Hospental
-    "11": "11",  # Isenthal
-    "12": "12",  # Realp
-    "13": "13",  # Schattdorf
-    "14": "14",  # Seedorf
-    "4": "4",  # Seedorf (Ortsteil Bauen)
-    "15": "15",  # Seelisberg
-    "16": "16",  # Silenen
-    "17": "17",  # Sisikon
-    "18": "18",  # Spiringen
-    "19": "19",  # Unterschächen
-    "20": "20",  # Wassen
-}
-
 GRUNDNUTZUNG_MAP = {
     "W1": "Wohnzone 1",  # Wohnzone 1
     "W2": "Wohnzone 2",  # Wohnzone 2
@@ -285,17 +260,14 @@ QUESTION_MAP_BAUGESUCH = [
     ),  # Organisation
     ("c1q69i1", "invoice-recipient.*.first-name", Transform.none),
     # Chapter 3: Erstellung
-    (
-        "c3q2i1",
-        "municipality",
-        Transform.select(MUNICIPALITY_MAP),
-    ),
-    ("c2q2i1", "municipality", Transform.select(MUNICIPALITY_MAP)),
     ("c3q5i1", "leitbehoerde", Transform.none),
     ("c2q5i1", "leitbehoerde", Transform.none),
     # Chapter 21: Objektdaten
     ("c21q93i1", "parcel-street", Transform.none),
     ("c102q93i1", "parcel-street", Transform.none),
+    ("c21q91i1", "parzellen-oder-baurechtsnummer", Transform.extract_first_number),
+    ("c101q91i1", "parzellen-oder-baurechtsnummer", Transform.extract_first_number),
+    ("c102q91i1", "parzellen-oder-baurechtsnummer", Transform.extract_first_number),
     ("c21q91i1", "parcels.*.parcel-number", Transform.none),
     ("c21q93i1", "parcels.*.parcel-street", Transform.none),
     ("c21q98i1", "proposal-description", Transform.append_text("; ")),
