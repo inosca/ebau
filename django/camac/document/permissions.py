@@ -79,10 +79,8 @@ PERMISSIONS = {
         "lesezugriff": {"read": [1, 8, 4, 5, 6, 10, 11]},
     },
     "kt_uri": {
-        # currently only needed on Dashboard to load parcel picture
         "municipality": {
             "read": [
-                21,
                 12000002,
                 12000003,
                 12000006,
@@ -100,7 +98,6 @@ PERMISSIONS = {
         },
         "service": {
             "read": [
-                21,
                 12000004,
                 12000008,
             ],
@@ -112,7 +109,6 @@ PERMISSIONS = {
             ],
         },
         "coordination": {
-            "read": [21],
             "write": [12000000],
             "adminint": [12000001],
             "adminsvc": [
@@ -123,9 +119,7 @@ PERMISSIONS = {
                 12000008,
             ],
         },
-        "organization_readonly": {"read": [21]},
         "support": {
-            "read": [21],
             "admin": [
                 12000000,
                 12000001,
