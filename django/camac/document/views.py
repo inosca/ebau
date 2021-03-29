@@ -483,6 +483,13 @@ class TemplateView(views.ModelViewSet):
         serializer.validate_instance(instance)
         data = serializer.data
 
+        data["activations"].sort(
+            key=lambda activation: (
+                activation["service_obj"]["service_group"]["name"],
+                activation["service_obj"]["sort"],
+            )
+        )
+
         for activation in data["activations"]:
             activation["notices"].sort(
                 key=lambda notice: NOTICE_TYPE_ORDER[notice["notice_type"]]

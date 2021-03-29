@@ -17,11 +17,11 @@ from .data import django_file
 @pytest.mark.parametrize(
     "role__name,instance__user,num_queries",
     [
-        ("Applicant", LazyFixture("admin_user"), 13),
-        ("Reader", LazyFixture("user"), 13),
-        ("Canton", LazyFixture("user"), 13),
-        ("Municipality", LazyFixture("user"), 12),
-        ("Service", LazyFixture("user"), 12),
+        ("Applicant", LazyFixture("admin_user"), 14),
+        ("Reader", LazyFixture("user"), 14),
+        ("Canton", LazyFixture("user"), 14),
+        ("Municipality", LazyFixture("user"), 13),
+        ("Service", LazyFixture("user"), 13),
     ],
 )
 @pytest.mark.parametrize(
