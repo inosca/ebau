@@ -113,12 +113,20 @@ class LocationSerializer(serializers.ModelSerializer):
         fields = ("name", "communal_federal_number")
 
 
+class PublicServiceGroupSerializer(MultilingualSerializer, serializers.ModelSerializer):
+    class Meta:
+        model = models.ServiceGroup
+        fields = ("name",)
+        resource_name = "public-service-groups"
+
+
 class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
     city = MultilingualField()
     description = MultilingualField()
     users = relations.SerializerMethodResourceRelatedField(
         source="get_users", model=models.User, read_only=True, many=True
     )
+    service_group = PublicServiceGroupSerializer()
 
     def get_users(self, obj):
         return models.User.objects.filter(
@@ -194,8 +202,10 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
             "phone",
             "users",
             "service_parent",
+            "sort",
+            "service_group",
         )
-        read_only_fields = ("users", "service_parent")
+        read_only_fields = ("users", "sort", "service_group", "service_parent")
 
 
 class GroupSerializer(MultilingualSerializer, serializers.ModelSerializer):
@@ -222,13 +232,6 @@ class PublicRoleSerializer(MultilingualSerializer, serializers.ModelSerializer):
         model = models.Role
         fields = ("name",)
         resource_name = "public-role"
-
-
-class PublicServiceGroupSerializer(MultilingualSerializer, serializers.ModelSerializer):
-    class Meta:
-        model = models.ServiceGroup
-        fields = ("name",)
-        resource_name = "public-service-groups"
 
 
 class PublicServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
