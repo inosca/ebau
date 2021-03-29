@@ -22,12 +22,14 @@ from camac.constants import kt_uri as uri_constants
 from camac.core.models import Answer, ChapterPage
 from camac.instance.models import Instance, JournalEntry
 from camac.migrate_to_caluma import question_map
-from camac.user.models import User
+from camac.user.models import Location, User
 
 log = getLogger(__name__)
 
 # ADMIN_USER_ID = 1 # sycloud, production
 ADMIN_USER_ID = 3240  # local
+
+DOSSIER_NUMBER_QUESTION_ID = 6
 
 
 class DryRun(BaseException):
@@ -258,12 +260,16 @@ class Command(BaseCommand):
             if submitted
             else workflow_models.WorkItem.STATUS_READY
         )
+        dossier_number = Answer.objects.get(
+            instance_id=inst.instance_id, question_id=DOSSIER_NUMBER_QUESTION_ID
+        )
 
         case = workflow_models.Case.objects.create(
             workflow=workflow,
             meta={
                 "camac-instance-id": inst.instance_id,
                 "migrated_from_old_camac": True,
+                "dossier-number": dossier_number.answer,
                 # TODO extract submit date from somewhere?
             },
             document=document,
@@ -670,6 +676,7 @@ class Command(BaseCommand):
         )
         self._set_migrated_question(document)
         self._fill_journal_entries(document, inst)
+        self._set_municipality(document, inst)
 
         log.info(
             f"Finished instance form for {inst.instance_id}, transferred {num_answers} answers"
@@ -696,6 +703,19 @@ class Command(BaseCommand):
 
         if value:
             ans, _ = document.answers.get_or_create(question=question, value=value)
+
+    def _set_municipality(self, document, inst):
+        try:
+            location = Location.objects.get(location_id=inst.location_id)
+            question = form_models.Question.objects.get(slug="municipality")
+
+            form_models.Answer.objects.get_or_create(
+                value=str(location.pk),
+                document=document,
+                question=question,
+            )
+        except form_models.Answer.DoesNotExist:
+            pass
 
     def _fill_journal_entries(self, document, inst):
         """Fill communication questions into journal entries."""

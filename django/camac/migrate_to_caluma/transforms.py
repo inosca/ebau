@@ -258,3 +258,8 @@ class Transform:
             new_value = new_value[1:]
 
         return new_value
+
+    @staticmethod
+    def extract_first_number(value):
+        new_value = re.search(r"\d+", str(value)).group()
+        return new_value
