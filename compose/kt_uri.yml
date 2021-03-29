@@ -141,6 +141,7 @@ services:
       - OIDC_BEARER_TOKEN_REVALIDATION_TIME=5
       - OIDC_GROUPS_API_JSONPATH=$$.included[?(@.type=='services')].id
       - OIDC_GROUPS_API_HEADERS=AUTHORIZATION,X-CAMAC-GROUP
+      - DOCXTEMPLATE_JINJA_EXTENSIONS=
 
 volumes:
   pgdata:
