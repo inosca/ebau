@@ -90,11 +90,14 @@ export default class CaseTableComponent extends Component {
   }
 
   async processNew(cases) {
+    if (!cases.length) {
+      return [];
+    }
     const instanceIds = cases.map((_case) => _case.meta["camac-instance-id"]);
 
     if (this.isService) {
       await this.store.query("activation", {
-        instance: instanceIds,
+        instance: instanceIds.join(","),
         service: this.shoebox.content.serviceId,
         include: "circulation",
       });
