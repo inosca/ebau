@@ -2,6 +2,7 @@ from collections import namedtuple
 
 import pytest
 
+from ..extensions.countries import COUNTRIES
 from ..extensions.data_sources import (
     Countries,
     Locations,
@@ -57,6 +58,11 @@ def test_mitberichtsverfahren(db, role, location_factory, expected_count):
                 ["4", {"de": "service4", "fr": "service4"}],
                 ["-1", {"de": "Andere", "fr": "Autres"}],
             ],
+            False,
+        ),
+        (
+            Countries,
+            COUNTRIES,
             False,
         ),
     ],
@@ -124,8 +130,3 @@ def test_data_sources(
     data = test_class().get_data(user)
 
     assert data == expected
-
-    country_data = Countries().get_data(user)
-    assert country_data[0] == "Schweiz"
-    assert country_data[1] == "Deutschland"
-    assert country_data[2] == "Österreich"
