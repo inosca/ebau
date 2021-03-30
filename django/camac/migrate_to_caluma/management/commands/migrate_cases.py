@@ -260,16 +260,19 @@ class Command(BaseCommand):
             if submitted
             else workflow_models.WorkItem.STATUS_READY
         )
-        dossier_number = Answer.objects.get(
-            instance_id=inst.instance_id, question_id=DOSSIER_NUMBER_QUESTION_ID
-        )
+        try:
+            dossier_number = Answer.objects.get(
+                instance_id=inst.instance_id, question_id=DOSSIER_NUMBER_QUESTION_ID
+            )
+        except Answer.DoesNotExist:
+            dossier_number = None
 
         case = workflow_models.Case.objects.create(
             workflow=workflow,
             meta={
                 "camac-instance-id": inst.instance_id,
                 "migrated_from_old_camac": True,
-                "dossier-number": dossier_number.answer,
+                "dossier-number": dossier_number.answer if dossier_number else None,
                 # TODO extract submit date from somewhere?
             },
             document=document,
