@@ -48,12 +48,16 @@ class InstanceQuerysetMixin(object):
         return result
 
     def _get_group(self, group=None):
-        return group or getattr(self, "group", None) or self.request.group
+        return group or getattr(self, "group", None) or self._get_request().group
 
     def _get_user(self):
-        user = getattr(self, "user", None) or self.request.user
+        user = getattr(self, "user", None) or self._get_request().user
 
         return user if isinstance(user, User) else None
+
+    def _get_request(self):
+        """Ensure that the mixin works in serializers and views."""
+        return self.request if hasattr(self, "request") else self.context["request"]
 
     def get_base_queryset(self):
         """Get base query queryset for role specific filters.

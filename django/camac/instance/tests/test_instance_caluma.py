@@ -104,6 +104,7 @@ def test_create_instance_caluma(
     modification,
     user_factory,
     extend_validity,
+    instance_service_factory,
 ):
     headers = {}
 
@@ -231,6 +232,10 @@ def test_create_instance_caluma(
         # assume invitees were created by someone else (bug EBAUBE-2081)
         instance.involved_applicants.update(user_id=user_factory())
 
+        instance_service_factory(
+            instance=instance, service=admin_client.user.groups.first().service
+        )
+
         if not modification:
             old_instance = instance
             old_instance.instance_state = instance_state_factory(name="rejected")
@@ -261,6 +266,30 @@ def test_create_instance_caluma(
             assert attachment.name == new_attachment.name
             assert attachment.uuid != new_attachment.uuid
             assert attachment.path.name != new_attachment.path.name
+
+
+@pytest.mark.parametrize("instance_state__name", ["new"])
+def test_copy_without_permission(
+    admin_client,
+    instance_state,
+    caluma_workflow_config_be,
+    instance_factory,
+    group_factory,
+):
+    instance = instance_factory(group=group_factory())
+
+    data = {
+        "data": {
+            "type": "instances",
+            "attributes": {
+                "copy-source": str(instance.instance_id),
+                "caluma-form": "main-form",
+            },
+        },
+    }
+
+    copy_resp = admin_client.post(reverse("instance-list"), data)
+    assert copy_resp.status_code == status.HTTP_400_BAD_REQUEST
 
 
 @pytest.mark.parametrize(
