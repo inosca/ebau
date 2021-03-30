@@ -39,7 +39,7 @@ from camac.echbern.signals import (
     sb1_submitted,
     sb2_submitted,
 )
-from camac.instance.mixins import InstanceEditableMixin
+from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.notification.utils import send_mail
 from camac.user.models import Group, Service
 from camac.user.permissions import permission_aware
@@ -303,7 +303,7 @@ class SchwyzInstanceSerializer(InstanceSerializer):
         return instance
 
 
-class CalumaInstanceSerializer(InstanceSerializer):
+class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
     # TODO once more than one Camac-NG project uses Caluma as a form
     # this serializer needs to be split up into what is actually
     # Caluma and what is project specific
@@ -799,16 +799,27 @@ class CalumaInstanceSerializer(InstanceSerializer):
     def should_generate_identifier_for_coordination(self):
         return settings.APPLICATION["CALUMA"].get("CREATE_IN_PROCESS")
 
+    instance_field = None
+
+    def get_base_queryset(self):
+        """Overridden from InstanceQuerysetMixin to avoid the super().get_queryset() call."""
+        instance_state_expr = self._get_instance_filter_expr("instance_state")
+        return models.Instance.objects.all().select_related(instance_state_expr)
+
     def create(self, validated_data):
 
         copy_source = validated_data.pop("copy_source", None)
-        source_instance = copy_source and models.Instance.objects.get(pk=copy_source)
-
+        group = self.context["request"].group
+        queryset = super().get_queryset(group)
         extend_validity_for = validated_data.pop("extend_validity_for", None)
 
-        group = self.context["request"].group
+        source_instance = None
+        if copy_source:
+            try:
+                source_instance = queryset.get(pk=copy_source)
+            except models.Instance.DoesNotExist:
+                raise exceptions.ValidationError(_("Source instance not found"))
 
-        if source_instance:
             caluma_form = caluma_api.get_form_slug(source_instance)
             is_modification = self.initial_data.get("is_modification", False)
             is_paper = caluma_api.is_paper(source_instance)
