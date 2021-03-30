@@ -261,5 +261,5 @@ class Transform:
 
     @staticmethod
     def extract_first_number(value):
-        new_value = re.search(r"\d+", str(value)).group()
-        return new_value
+        match = re.search(r"\d+", str(value))
+        return match.group() if match else None
