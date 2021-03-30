@@ -18,7 +18,7 @@ cases:
     modifiedAt: "Geändert am"
     submitDate: "Eingereicht am"
     lead: "Leitbehörde"
-    dossierCreated: "Dossier erfasst"
+    dossierCreated: "Dossier angenommen / erfasst"
     processingDeadline: "Bearbeitungsfrist"
     involvedServices: "Beteiligte Fachstellen"
     parcelPicture: "Parzellenbild"
