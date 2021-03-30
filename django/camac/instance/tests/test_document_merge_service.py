@@ -43,6 +43,7 @@ def test_document_merge_service_snapshot(
     db,
     snapshot,
     service_factory,
+    service_t_factory,
     service_group_factory,
     caluma_form_fixture,
     instance_id,
@@ -54,13 +55,15 @@ def test_document_merge_service_snapshot(
     camac_answer_factory,
     instance_factory,
     answer_factory,
+    multilang,
 ):
     cache.clear()
-    service_factory(
+    municipality = service_factory(
         pk=2,
         service_group=service_group_factory(name="municipality"),
-        name="Leitbehörde Burgdorf",
     )
+    service_t_factory(service=municipality, name="Leitbehörde Burgdorf", language="de")
+    service_t_factory(service=municipality, name="Municipalité Burgdorf", language="fr")
 
     _filter = {"meta__camac-instance-id": instance_id}
 

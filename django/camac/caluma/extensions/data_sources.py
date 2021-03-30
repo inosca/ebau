@@ -9,26 +9,31 @@ from .countries import COUNTRIES
 
 
 def get_municipality_label(service, municipality_prefix=False):
+    translations = service.trans.all()
     label = {}
 
-    for language in ["de", "fr"]:
+    for translation in translations:
         name = (
-            service.get_name(lang=language)
-            .replace("Leitbehörde", "Gemeinde" if municipality_prefix else "")
-            .replace(
+            translation.name.replace(
+                "Leitbehörde", "Gemeinde" if municipality_prefix else ""
+            ).replace(
                 "Autorité directrice", "Municipalité" if municipality_prefix else ""
             )
         ).strip()
 
         if service.disabled:
-            activate(language)
+            activate(translation.language)
             postfix = _("not activated")
             text = f"{name} ({postfix})"
             deactivate()
         else:
             text = name
 
-        label[language] = text
+        label[translation.language] = text
+
+    for language in ["de", "fr"]:
+        if language not in label.keys():
+            label[language] = list(label.values())[0]
 
     return label
 
@@ -66,15 +71,18 @@ class Municipalities(BaseDataSource):
         return cache.get_or_set(cache_key, lambda: self._get_data(filters), 3600)
 
     def _get_data(self, filters):
-        services = Service.objects.filter(
-            service_parent__isnull=True, service_group__name="municipality", **filters
+        services = (
+            Service.objects.select_related("service_group")
+            .filter(
+                service_parent__isnull=True,
+                service_group__name="municipality",
+                **filters,
+            )
+            .prefetch_related("trans")
         )
 
         return sorted(
-            [
-                [service.pk, get_municipality_label(service)]
-                for service in services.iterator()
-            ],
+            [[service.pk, get_municipality_label(service)] for service in services],
             key=lambda x: x[1]["de"].casefold(),
         )
 
@@ -202,21 +210,25 @@ class Services(BaseDataSource):
 
     @data_source_cache(timeout=3600)
     def get_data(self, info):
-        services = Service.objects.filter(
-            service_parent__isnull=True,
-            service_group__name__in=[
-                "service",
-                "municipality",
-                "district",
-            ],
-            disabled=False,
+        services = (
+            Service.objects.select_related("service_group")
+            .filter(
+                service_parent__isnull=True,
+                service_group__name__in=[
+                    "service",
+                    "municipality",
+                    "district",
+                ],
+                disabled=False,
+            )
+            .prefetch_related("trans")
         )
 
         data = (
             sorted(
                 [
                     [str(service.pk), get_municipality_label(service, True)]
-                    for service in services.iterator()
+                    for service in services
                 ],
                 key=lambda x: x[1]["de"].casefold(),
             )
