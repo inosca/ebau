@@ -213,6 +213,7 @@ APPLICATIONS = {
         "IS_MULTILINGUAL": False,
         "FORM_BACKEND": "camac-ng",
         "COORDINATE_QUESTION": "punkte",
+        "LOCATION_NAME_QUESTION": "ortsbezeichnung-des-vorhabens",
         "WORKFLOW_ITEMS": {
             "SUBMIT": 10,
             "INSTANCE_COMPLETE": 14,
