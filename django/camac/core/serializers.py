@@ -149,3 +149,17 @@ class AuthoritySerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Authority
         fields = ("authority_id", "name")
+
+
+class WorkflowEntrySerializer(serializers.ModelSerializer):
+    workflow_item = relations.ResourceRelatedField(queryset=models.WorkflowItem.objects)
+
+    class Meta:
+        model = models.WorkflowEntry
+        fields = (
+            "workflow_entry_id",
+            "workflow_date",
+            "instance",
+            "workflow_item",
+            "group",
+        )
