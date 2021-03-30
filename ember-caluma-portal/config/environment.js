@@ -35,6 +35,9 @@ module.exports = function (environment) {
     },
   }[app];
 
+  const oidcHost =
+    process.env.KEYCLOAK_HOST || "http://camac-ng-keycloak.local";
+
   const ENV = {
     modulePrefix: "ember-caluma-portal",
     environment,
@@ -42,7 +45,7 @@ module.exports = function (environment) {
     locationType: "auto",
     historySupportMiddleware: true,
     "ember-simple-auth-oidc": {
-      host: `http://camac-ng-keycloak.local/auth/realms/${appConfig.realm}/protocol/openid-connect`,
+      host: `${oidcHost}/auth/realms/${appConfig.realm}/protocol/openid-connect`,
       clientId: "portal",
       authEndpoint: "/auth",
       tokenEndpoint: "/token",
