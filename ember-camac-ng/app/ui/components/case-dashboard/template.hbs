@@ -52,6 +52,17 @@
               @contact={{this.models.caseModel.landowner}}
             />
           </CaseDashboard::Column>
+        {{else}}
+          {{! Empty column so the spacing is correct}}
+          <CaseDashboard::Column />
+        {{/if}}
+        {{#if this.models.caseModel.invoiceRecipient}}
+          <CaseDashboard::Column @header={{t "dashboard.invoiceRecipient"}}>
+            <CaseDashboard::Address
+              @contact={{this.models.caseModel.invoiceRecipient}}
+            />
+          </CaseDashboard::Column>
+        {{else}}
           {{! Empty column so the spacing is correct}}
           <CaseDashboard::Column />
         {{/if}}
