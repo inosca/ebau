@@ -2042,30 +2042,30 @@ snapshots["test_document_merge_service_snapshot[1-sb2] 1"] = [
 snapshots["test_document_merge_service_snapshot[2-mp-form] 1"] = [
     {
         "choices": [],
-        "label": "Frau Alicja Stiffel",
+        "label": "Steven Henck",
         "slug": "mp-bepflanzung",
         "type": "ChoiceQuestion",
     },
     {
         "choices": [],
-        "label": "Jane Pruschke",
+        "label": "Hanne Klemm MBA.",
         "slug": "mp-bepflanzung-ergebnis",
         "type": "ChoiceQuestion",
     },
     {
-        "label": "Herr Saban Schenk",
+        "label": "Dipl.-Ing. Meinolf Schmidtke",
         "slug": "mp-bepflanzung-bemerkungen",
         "type": "TextareaQuestion",
         "value": "Test Bepflanzung",
     },
     {
         "choices": [],
-        "label": "Prof. Marie-Louise Hörle B.Eng.",
+        "label": "Univ.Prof. Raisa Stroh MBA.",
         "slug": "mp-erforderliche-beilagen-vorhanden",
         "type": "ChoiceQuestion",
     },
     {
-        "label": "Sandro Mude",
+        "label": "Marius Vogt-Birnbaum",
         "slug": "mp-welche-beilagen-fehlen",
         "type": "TextareaQuestion",
         "value": "Alle",
