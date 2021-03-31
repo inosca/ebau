@@ -1,7 +1,7 @@
 from caluma.caluma_data_source.data_sources import BaseDataSource
 from caluma.caluma_data_source.utils import data_source_cache
 from django.core.cache import cache
-from django.utils.translation import activate, deactivate, gettext as _
+from django.utils.translation import gettext as _, override
 
 from camac.user.models import Location, Service
 
@@ -22,10 +22,9 @@ def get_municipality_label(service, municipality_prefix=False):
         ).strip()
 
         if service.disabled:
-            activate(translation.language)
-            postfix = _("not activated")
-            text = f"{name} ({postfix})"
-            deactivate()
+            with override(translation.language):
+                postfix = _("not activated")
+                text = f"{name} ({postfix})"
         else:
             text = name
 
@@ -42,9 +41,8 @@ def get_others_option():
     label = {}
 
     for language in ["de", "fr"]:
-        activate(language)
-        label[language] = _("Others")
-        deactivate()
+        with override(language):
+            label[language] = _("Others")
 
     return ["-1", label]
 
