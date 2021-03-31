@@ -83,6 +83,12 @@ function LatLngToEPSG3857(coordinates) {
     : [coordinates.lat, coordinates.lng];
   return L.CRS.EPSG3857.project(L.latLng(arr));
 }
+function LatLngToEPSG2056(coordinates) {
+  const arr = Array.isArray(coordinates)
+    ? coordinates
+    : [coordinates.lat, coordinates.lng];
+  return L.CRS.EPSG2056.project(L.latLng(arr));
+}
 
 /**
  * Convert EPSG3857 to LatLng
@@ -231,8 +237,8 @@ export default class UrGisComponent extends Component {
           "parcel-number": parcelNumber,
           "parzellen-oder-baurechtsnummer": parcelNumber,
           "e-grid": egrid,
-          "coordinates-east": x,
-          "coordinates-north": y,
+          "coordinates-east": LatLngToEPSG2056(latlng).x,
+          "coordinates-north": LatLngToEPSG2056(latlng).y,
           "ueberlagerte-nutzungen": ueberlagerteNutzungen,
         };
 
