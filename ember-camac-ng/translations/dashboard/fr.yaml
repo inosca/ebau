@@ -5,6 +5,7 @@ dashboard:
   buildingProjectStatus: ""
   projectAuthor: ""
   landowner: ""
+  invoiceRecipient: ""
   location: ""
   editing: ""
   parcels: ""
