@@ -13,6 +13,7 @@ from rest_framework.response import Response
 from rest_framework_json_api import django_filters, filters as json_api_filters, views
 
 from camac.caluma.api import CalumaApi
+from camac.instance.mixins import InstanceQuerysetMixin
 from camac.instance.models import FormField, Instance
 from camac.user.permissions import permission_aware
 
@@ -337,3 +338,12 @@ class AuthorityView(viewsets.ReadOnlyModelViewSet):
     swagger_schema = None
     serializer_class = serializers.AuthoritySerializer
     queryset = models.Authority.objects.all()
+
+
+class WorkflowEntryView(viewsets.ReadOnlyModelViewSet, InstanceQuerysetMixin):
+    """Only used in Kt. UR."""
+
+    swagger_schema = None
+    serializer_class = serializers.WorkflowEntrySerializer
+    queryset = models.WorkflowEntry.objects.all()
+    filterset_class = filters.WorkflowEntryFilterSet

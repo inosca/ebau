@@ -8,6 +8,8 @@ import { all } from "rsvp";
 
 import CustomCaseModel from "camac-ng/caluma-query/models/case";
 
+const WORKFLOW_ITEM_ID = 12; // Dossier erfasst
+
 export default class CaseDashboardComponent extends Component {
   @queryManager apollo;
 
@@ -42,6 +44,13 @@ export default class CaseDashboardComponent extends Component {
       instance: this.args.caseId,
       include: "service",
     });
+
+    const workflowEntries = yield this.store.query("workflowEntry", {
+      instance: this.args.caseId,
+      workflow_item_id: WORKFLOW_ITEM_ID,
+    });
+
+    const acceptDate = workflowEntries.get("firstObject").workflowDate;
 
     const serviceList = yield all(
       activations.toArray().map((activation) => activation.service)
@@ -97,6 +106,7 @@ export default class CaseDashboardComponent extends Component {
       involvedServices,
       parcelPicture,
       ownActivation,
+      acceptDate,
     };
 
     return models;
