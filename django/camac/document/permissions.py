@@ -131,6 +131,15 @@ PERMISSIONS = {
                 12000007,
             ],
         },
+        "organization_readonly": {"read": [12000004]},
+        "comission": {
+            "read": [
+                12000004,
+                12000000,
+                12000002,
+                12000003,
+            ]
+        },
         "portal user": {"adminsvc": [12000000]},
     },
     "demo": {"applicant": {"admin": [250, 251]}},
