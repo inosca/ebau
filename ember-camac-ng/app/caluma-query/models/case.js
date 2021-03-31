@@ -125,6 +125,10 @@ export default class CustomCaseModel extends CaseModel {
     return this.getPersonData("landowner");
   }
 
+  get invoiceRecipient() {
+    return this.getPersonData("invoice-recipient");
+  }
+
   get form() {
     const answer = getAnswer(this.raw.document, "form-type");
     return answer?.node.question.options.edges.find(
@@ -208,6 +212,7 @@ export default class CustomCaseModel extends CaseModel {
         "applicant",
         "landowner",
         "project-author",
+        "invoice-recipient",
         "parcel-street",
         "street-number",
         "form-type",
