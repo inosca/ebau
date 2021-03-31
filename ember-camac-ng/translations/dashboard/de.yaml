@@ -4,6 +4,7 @@ dashboard:
   buildingProjectStatus: "Bauprojektstatus"
   projectAuthor: "Projektverfasser"
   landowner: "Grundeigentümer"
+  invoiceRecipient: "Rechnungsempfänger"
   location: "Lage"
   editing: "Bearbeitung"
   parcels: "Parzellen"
