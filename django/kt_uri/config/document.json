@@ -51,7 +51,7 @@
     "model": "document.attachmentsection",
     "pk": 12000004,
     "fields": {
-      "name": "Entscheiddokumente",
+      "name": "Dokumente Leitbeh\u00f6rde",
       "description": "Baubewilligungen, Verf\u00fcgungen usw.",
       "sort": 4,
       "notification_template": null,

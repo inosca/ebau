@@ -108,6 +108,18 @@ PERMISSIONS = {
                 12000003,
             ],
         },
+        "trusted_service": {
+            "read": [
+                12000004,
+                12000008,
+            ],
+            "write": [12000000],
+            "adminint": [12000001],
+            "adminsvc": [
+                12000002,
+                12000003,
+            ],
+        },
         "coordination": {
             "write": [12000000],
             "adminint": [12000001],
