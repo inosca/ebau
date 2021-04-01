@@ -1,8 +1,6 @@
 import pytest
 
-from camac.migrate_to_caluma.management.commands.migrate_cases import (
-    extract_parcels,
-)
+from camac.migrate_to_caluma.management.commands.migrate_cases import extract_parcels
 
 
 @pytest.mark.parametrize(
