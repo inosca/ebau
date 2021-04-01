@@ -3,12 +3,13 @@ audit:
   delete: "Supprimer l'examen"
   complete: "Clore l'examen"
   skip: "Sauter l'examen"
-  titleMeta: "Créé le {date} par {creator}"
+  titleMeta: "Dernière modification par '<span' title={service}>{user}'</span>' le {date}"
   createPdf: "Télécharger le PDF"
 
   type: "Type du examen"
-  createdBy: "Créé par"
-  createdAt: "Créé le"
+  municipality: "Autorité directrice"
+  modified: "Dernière modification"
+  modifiedText: "'<span' title={service}>{user}'</span>' le {date}"
   actions: "Actions"
   back: "Retour à l'aperçu"
 
