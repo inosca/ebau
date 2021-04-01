@@ -37,23 +37,31 @@
             {{/if}}
           </td>
           <td class="uk-text-right">
-            <button
-              type="button"
-              class="uk-button uk-button-text"
-              title={{t "audit.createPdf"}}
-              {{on "click" (perform this.createPdf audit)}}
-            >
-              <UkIcon @icon="file-pdf" />
-            </button>
-            {{#if (and (not this.disabled) audit.canEdit)}}
+            {{#if this.createPdf.isRunning}}
+              <UkSpinner @ratio={{0.5}} />
+            {{else}}
               <button
                 type="button"
                 class="uk-button uk-button-text"
-                title={{t "audit.delete"}}
-                {{on "click" (perform this.deleteAudit audit)}}
+                title={{t "audit.createPdf"}}
+                {{on "click" (perform this.createPdf audit)}}
               >
-                <UkIcon @icon="trash" />
+                <UkIcon @icon="file-pdf" />
               </button>
+            {{/if}}
+            {{#if (and (not this.disabled) audit.canEdit)}}
+              {{#if this.deleteAudit.isRunning}}
+                <UkSpinner @ratio={{0.5}} />
+              {{else}}
+                <button
+                  type="button"
+                  class="uk-button uk-button-text"
+                  title={{t "audit.delete"}}
+                  {{on "click" (perform this.deleteAudit audit)}}
+                >
+                  <UkIcon @icon="trash" />
+                </button>
+              {{/if}}
             {{/if}}
           </td>
         </tr>
@@ -75,11 +83,17 @@
         <UkIcon @icon="plus" />
       </button>
       <div uk-dropdown>
-        <ul class="uk-nav uk-dropdown-nav uk-text-left">
-          {{#each this.forms as |form|}}
-            <li><a href="#" {{on "click" (perform this.createAudit form)}}>{{t (concat "audit.forms." form)}}</a></li>
-          {{/each}}
-        </ul>
+        {{#if this.createAudit.isRunning}}
+          <div class="uk-flex-center uk-flex-middle uk-width-1-1">
+            <UkSpinner />
+          </div>
+        {{else}}
+          <ul class="uk-nav uk-dropdown-nav uk-text-left">
+            {{#each this.forms as |form|}}
+              <li><a href="#" {{on "click" (perform this.createAudit form)}}>{{t (concat "audit.forms." form)}}</a></li>
+            {{/each}}
+          </ul>
+        {{/if}}
       </div>
     </div>
   {{/unless}}
