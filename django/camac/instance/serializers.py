@@ -5,8 +5,7 @@ from io import StringIO
 from logging import getLogger
 from uuid import uuid4
 
-from caluma.caluma_form import api as form_api
-from caluma.caluma_form.models import Document, Form, Question
+from caluma.caluma_form import api as form_api, models as form_models
 from caluma.caluma_form.validators import CustomValidationError
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
 from django.conf import settings
@@ -41,7 +40,7 @@ from camac.echbern.signals import (
 )
 from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.notification.utils import send_mail
-from camac.user.models import Group, Service
+from camac.user.models import Group, Location, Service
 from camac.user.permissions import permission_aware
 from camac.user.relations import (
     CurrentUserResourceRelatedField,
@@ -295,7 +294,7 @@ class SchwyzInstanceSerializer(InstanceSerializer):
 
         workflow_api.start_case(
             workflow=workflow_models.Workflow.objects.get(pk="building-permit"),
-            form=Form.objects.get(pk="baugesuch"),
+            form=form_models.Form.objects.get(pk="baugesuch"),
             user=self.context["request"].caluma_info.context.user,
             meta={"camac-instance-id": instance.pk},
         )
@@ -706,10 +705,10 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             attachment.save()
 
     def _copy_extend_validity_answers(self, source, target):
-        old_document = Document.objects.get(
+        old_document = form_models.Document.objects.get(
             **{"case__meta__camac-instance-id": source.pk}
         )
-        new_document = Document.objects.get(
+        new_document = form_models.Document.objects.get(
             **{"case__meta__camac-instance-id": target.pk}
         )
 
@@ -736,7 +735,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             )
 
         form_api.save_answer(
-            Question.objects.get(pk="dossiernummer"),
+            form_models.Question.objects.get(pk="dossiernummer"),
             new_document,
             self.context["request"].caluma_info.context.user,
             int(source.pk),
@@ -878,7 +877,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
         case = workflow_api.start_case(
             workflow=workflow,
-            form=Form.objects.get(pk=caluma_form),
+            form=form_models.Form.objects.get(pk=caluma_form),
             user=self.context["request"].caluma_info.context.user,
             meta=case_meta,
         )
@@ -1917,3 +1916,54 @@ class IssueTemplateSetApplySerializer(InstanceEditableMixin, serializers.Seriali
 
     class Meta:
         resource_name = "issue-template-sets-apply"
+
+
+class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cover
+    """Serialize public caluma instances (kt_uri)."""
+
+    instance_id = serializers.CharField(read_only=True)
+    dossier_nr = serializers.CharField(read_only=True)
+    municipality = serializers.SerializerMethodField()
+    applicant = serializers.SerializerMethodField()
+    street = serializers.SerializerMethodField()
+    parcels = serializers.SerializerMethodField()
+
+    def get_municipality(self, case):
+        return Location.objects.get(
+            pk=case.document.answers.get(question_id="municipality").value
+        ).name
+
+    def get_applicant(self, case):
+        ans = case.document.answers.filter(question_id="applicant").first()
+
+        if not ans:
+            return
+
+        applicant_doc = ans.documents.last()
+
+        return " ".join(
+            [
+                getattr(
+                    applicant_doc.answers.filter(question_id=q).first(), "value", ""
+                )
+                for q in ["title", "first-name", "last-name"]
+            ]
+        )
+
+    def get_street(self, case):
+        return getattr(
+            case.document.answers.filter(question_id="parcel-street").first(),
+            "value",
+            "",
+        )
+
+    def get_parcels(self, case):
+        return ", ".join(
+            form_models.Answer.objects.filter(
+                question_id="parcel-number", document__family=case.document
+            ).values_list("value", flat=True)
+        )
+
+    class Meta:
+        model = workflow_models.Case
+        resource_name = "public-caluma-instances"

@@ -4,7 +4,8 @@ import pytest
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.core import mail
-from django.urls import reverse
+from django.urls import clear_url_caches, reverse
+from django.urls.exceptions import NoReverseMatch
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
@@ -15,6 +16,7 @@ from camac.core.models import Chapter, ProposalActivation, Question, QuestionTyp
 from camac.echbern import event_handlers
 from camac.echbern.data_preparation import DocumentParser
 from camac.echbern.tests.caluma_document_data import baugesuch_data
+from camac.instance import urls
 from camac.instance.models import Instance
 from camac.instance.serializers import (
     SUBMIT_DATE_CHAPTER,
@@ -24,6 +26,16 @@ from camac.instance.serializers import (
 )
 from camac.user.models import Location
 from camac.utils import flatten
+
+
+@pytest.fixture
+def enable_public_urls(application_settings):
+    application_settings["ENABLE_PUBLIC_ENDPOINTS"] = True
+    urls.enable_public_caluma_instances()
+    clear_url_caches()
+    yield
+    urls.urlpatterns.pop()
+    clear_url_caches()
 
 
 @pytest.fixture
@@ -1409,3 +1421,29 @@ def test_create_instance_caluma_modification(
 
     assert response.status_code == expected_status
     assert "Projektänderung nicht erlaubt" in response.json()["errors"][0]["detail"]
+
+
+@pytest.mark.parametrize("with_client", ["public", "admin"])
+def test_public_caluma_instance_enabled_empty_qs(
+    db,
+    client,
+    admin_client,
+    application_settings,
+    instance_factory,
+    with_client,
+    enable_public_urls,
+):
+    instance_factory.create_batch(5)
+    url = reverse("public-caluma-instance")
+    if with_client == "public":
+        resp = client.get(url)
+    else:
+        resp = admin_client.get(url)
+
+    assert resp.status_code == status.HTTP_200_OK
+    assert len(resp.json()["data"]) == 0
+
+
+def test_public_caluma_instance_disabled():
+    with pytest.raises(NoReverseMatch):
+        reverse("public-caluma-instance")
