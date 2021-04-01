@@ -268,8 +268,6 @@ QUESTION_MAP_BAUGESUCH = [
     ("c21q91i1", "parzellen-oder-baurechtsnummer", Transform.extract_first_number),
     ("c101q91i1", "parzellen-oder-baurechtsnummer", Transform.extract_first_number),
     ("c102q91i1", "parzellen-oder-baurechtsnummer", Transform.extract_first_number),
-    ("c21q91i1", "parcels.*.parcel-number", Transform.none),
-    ("c21q93i1", "parcels.*.parcel-street", Transform.none),
     ("c21q98i1", "proposal-description", Transform.append_text("; ")),
     ("c21q97i1", "proposal-description", Transform.prepend_proposal()),
     ("c21q102i1", "construction-cost", Transform.extract_number),
@@ -508,12 +506,6 @@ QUESTION_MAP_BAUGESUCH = [
         Transform.join_checkbox(GRUNDNUTZUNG_MAP, "; "),
     ),  # Grundnutzungen
     (
-        "c101q91i1",
-        "parcels.*.parcel-number",
-        Transform.none,
-    ),  # Parzellennummer (TODO: Table?)
-    ("c101q93i1", "parcels.*.parcel-street", Transform.none),  # Strasse/Flurname
-    (
         "c101q98i1",
         "proposal-description",
         Transform.append_text("; "),
@@ -525,8 +517,6 @@ QUESTION_MAP_BAUGESUCH = [
         Transform.join_checkbox(UEBERLAGERTE_NUTZUNG_MAP, "; "),
     ),  # Überlagerte Nutzungsplaninhalte
     # Chapter 102: Objektdaten
-    ("c102q91i1", "parcels.*.parcel-number", Transform.none),  # Parzellennummer
-    ("c102q93i1", "parcels.*.parcel-street", Transform.none),  # Strasse/Flurname
     (
         "c102q244i1",
         "proposal-description",
