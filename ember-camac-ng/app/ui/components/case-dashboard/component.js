@@ -10,11 +10,22 @@ import CustomCaseModel from "camac-ng/caluma-query/models/case";
 
 const WORKFLOW_ITEM_ID = 12; // Dossier erfasst
 
+function convertToBase64(blob) {
+  return new Promise((resolve) => {
+    const fr = new FileReader();
+    fr.onload = (e) => {
+      resolve(e.target.result);
+    };
+    fr.readAsDataURL(blob);
+  });
+}
+
 export default class CaseDashboardComponent extends Component {
   @queryManager apollo;
 
   @service store;
   @service shoebox;
+  @service fetch;
 
   get isLoading() {
     return this.fetchCase.isRunning;
@@ -50,7 +61,7 @@ export default class CaseDashboardComponent extends Component {
       workflow_item_id: WORKFLOW_ITEM_ID,
     });
 
-    const acceptDate = workflowEntries.get("firstObject").workflowDate;
+    const acceptDate = workflowEntries.get("firstObject")?.workflowDate;
 
     const serviceList = yield all(
       activations.toArray().map((activation) => activation.service)
@@ -59,17 +70,36 @@ export default class CaseDashboardComponent extends Component {
     const involvedServices = [
       ...new Set(serviceList.map((service) => service.name)),
     ];
+
     const ownActivation = activations.find(
       (activation) =>
         parseInt(activation.get("service.id")) ===
           this.shoebox.content.serviceId && activation.state === "RUN"
     );
 
-    const parcelPicture = yield this.store.query("attachment", {
-      instance_id: this.args.caseId,
+    const attachment = yield this.store.query("attachment", {
+      instance: this.args.caseId,
       name: "Parzellenbild.png",
-      include: "instance",
+      context: JSON.stringify({
+        key: "isReplaced",
+        value: true,
+        invert: true,
+      }),
     });
+    const attachmentId = attachment.get("firstObject")?.id;
+
+    let parcelPicture;
+
+    if (attachmentId) {
+      const response = yield this.fetch.fetch(
+        `${attachment.get("firstObject").path}`,
+        {
+          headers: { accept: undefined },
+        }
+      );
+      const blob = yield response.blob();
+      parcelPicture = yield convertToBase64(blob);
+    }
 
     const caseRecord = yield this.apollo.query(
       {
@@ -104,9 +134,9 @@ export default class CaseDashboardComponent extends Component {
       caseModel: modelInstance,
       journalEntries,
       involvedServices,
-      parcelPicture,
       ownActivation,
       acceptDate,
+      parcelPicture,
     };
 
     return models;
