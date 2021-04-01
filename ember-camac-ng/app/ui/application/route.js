@@ -36,6 +36,12 @@ export default class ApplicationRoute extends ApplicationRouteBase {
       label: "Versteckt",
       component: "cf-hidden-input",
     });
+
+    this.calumaOptions.registerComponentOverride({
+      label: "Collapsible Textarea",
+      component: "cf-collapsible-textarea",
+      type: "TextareaQuestion",
+    });
   }
 
   sessionInvalidated() {
