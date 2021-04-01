@@ -68,6 +68,18 @@ services:
         - APPLICATION=${APPLICATION}
     restart: always
 
+  ember-caluma-portal:
+    image: acr.run/camac-ng/camac-ng/ember-camac-ng:${CI_COMMIT_REF_SLUG}-${APPLICATION}
+    build:
+      context: ../ember-caluma-portal
+      cache_from:
+        - acr.run/camac-ng/camac-ng/ember-caluma-portal:${CI_COMMIT_REF_SLUG}-${APPLICATION}
+      args:
+        - APPLICATION=${APPLICATION}
+        - KEYCLOAK_HOST=${KEYCLOAK_HOST}
+    restart: always
+
+
   cache:
     restart: always
 

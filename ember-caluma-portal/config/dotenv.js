@@ -2,10 +2,9 @@
 
 const path = require("path");
 
-module.exports = function (env) {
+module.exports = function () {
   return {
-    enabled: env !== "production",
-    clientAllowedKeys: ["APPLICATION"],
+    clientAllowedKeys: ["APPLICATION", "KEYCLOAK_HOST"],
     path: path.join(path.dirname(__dirname), "../.env"),
   };
 };
