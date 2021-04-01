@@ -2,22 +2,6 @@ import { inject as service } from "@ember/service";
 import CaseModel from "ember-caluma/caluma-query/models/case";
 import moment from "moment";
 
-export const INSTANCE_RESOURCE_DOCUMENT_MAPPING = {
-  6: 46, // Sekretariat der Gemeindebaubehörde
-  1104: 770, // Vernehmlassungsstelle Gemeindezirkulation
-  4: 525, // Vernehmlassungsstelle mit Koordinationsaufgaben
-  1021: 525, // Vernehmlassungsstelle ohne Koordinationsaufgaben
-  1: 676, // Guest
-  1101: 607, // Koordinationsstelle Baudirektion BD
-  3: 145, // Koordinationsstelle Baugesuche BG
-  1127: 725, // Koordinationsstelle Energie AfE
-  1128: 737, // Koordinationsstelle Forst und Jagd AFJ
-  1107: 716, // Koordinationsstelle Landwirtschaft ALA
-  1061: 466, // Koordinationsstelle Nutzungsplanung NP
-  1129: 737, // Koordinationsstelle Sicherheitsdirektion SD
-  1106: 701, // Koordinationsstelle Umweltschutz AfU
-};
-
 function getAnswer(document, slug) {
   return document.answers.edges.find(
     (edge) => edge.node.question.slug === slug
@@ -80,12 +64,6 @@ export default class CustomCaseModel extends CaseModel {
       getAnswer(this.raw.document, "street-number")?.node.stringValue ?? "";
 
     return `${street} ${number}`;
-  }
-
-  get parcelPictureUrl() {
-    return `/documents/list/download/instance-resource-id/${
-      INSTANCE_RESOURCE_DOCUMENT_MAPPING[this.shoebox.content.roleId]
-    }/instance-id/${this.instanceId}/attachmentid/`;
   }
 
   get intent() {
