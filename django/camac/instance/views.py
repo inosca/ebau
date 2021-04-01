@@ -4,6 +4,7 @@ from datetime import timedelta
 import django_excel
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
 from django.conf import settings
+from django.contrib.postgres.fields.jsonb import KeyTextTransform
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.files import File
 from django.db import transaction
@@ -12,7 +13,7 @@ from django.http import HttpResponse
 from django.utils import timezone
 from rest_framework import response, status, viewsets
 from rest_framework.decorators import action
-from rest_framework.generics import RetrieveAPIView
+from rest_framework.generics import ListAPIView, RetrieveAPIView
 from rest_framework.settings import api_settings
 from rest_framework_json_api import views
 
@@ -21,7 +22,7 @@ from camac.core.models import InstanceService, WorkflowEntry
 from camac.core.views import SendfileHttpResponse
 from camac.document.models import Attachment, AttachmentSection
 from camac.notification.utils import send_mail
-from camac.user.permissions import permission_aware
+from camac.user.permissions import ReadOnly, permission_aware
 from camac.utils import DocxRenderer
 
 from ..utils import get_paper_settings
@@ -967,3 +968,37 @@ class IssueTemplateSetView(views.ModelViewSet):
         models.Issue.objects.bulk_create(issues)
 
         return response.Response([], 204)
+
+
+class PublicCalumaInstanceView(
+    ListAPIView,
+):
+    """Public view for published instances (kt_uri).
+
+    Visibility is toggled in urls.py via ENABLE_PUBLIC_ENDPOINTS application settings.
+    """
+
+    permission_classes = [ReadOnly]
+    serializer_class = serializers.PublicCalumaInstanceSerializer
+
+    def get_queryset(self):
+        instances = models.Instance.objects.filter(
+            publication_entries__publication_date__gte=timezone.now()
+            - settings.APPLICATION.get("PUBLICATION_DURATION"),
+            publication_entries__publication_date__lt=timezone.now(),
+            publication_entries__is_published=True,
+        )
+
+        qs = (
+            workflow_models.Case.objects.filter(
+                **{
+                    "meta__camac-instance-id__in": list(
+                        instances.values_list("pk", flat=True)
+                    )
+                }
+            )
+            .annotate(instance_id=KeyTextTransform("camac-instance-id", "meta"))
+            .annotate(dossier_nr=KeyTextTransform("dossier-number", "meta"))
+            .order_by("dossier_nr")
+        )
+        return qs
