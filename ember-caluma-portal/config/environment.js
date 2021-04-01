@@ -1,6 +1,10 @@
 "use strict";
 
 module.exports = function (environment) {
+  // eslint-disable-next-line no-console
+  console.log(
+    `build env: APPLICATION: ${process.env.APPLICATION}, KEYCLOAK_HOST: ${process.env.KEYCLOAK_HOST}`
+  );
   const app = process.env.APPLICATION || "kt_bern";
   const appConfig = {
     kt_bern: {
