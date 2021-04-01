@@ -52,6 +52,14 @@ def get_addressed_groups(task):
     return addressed_groups
 
 
+def extract_parcels(parcel_string):
+    numbers = re.findall(r"[0-9]+", parcel_string)
+    filtered_numbers = [
+        int(number) for number in numbers if int(number) not in range(1201, 1221)
+    ]
+    return filtered_numbers
+
+
 class Command(BaseCommand):
     """Migrate dossiers from old Camac to Caluma/Camac-NG."""
 
@@ -680,6 +688,7 @@ class Command(BaseCommand):
         self._set_migrated_question(document)
         self._fill_journal_entries(document, inst)
         self._set_municipality(document, inst)
+        self._extract_parcel_number(document, inst)
 
         log.info(
             f"Finished instance form for {inst.instance_id}, transferred {num_answers} answers"
@@ -718,6 +727,30 @@ class Command(BaseCommand):
                 question=question,
             )
         except form_models.Answer.DoesNotExist:
+            pass
+
+    def _extract_parcel_number(self, document, inst):
+        try:
+            parcel_string = Answer.objects.get(question_id=91, instance=inst).answer
+            street = Answer.objects.get(question_id=93, instance=inst).answer
+            numbers = extract_parcels(parcel_string)
+            table_ans, _ = document.answers.get_or_create(question_id="parcels")
+            for (index, number) in enumerate(numbers):
+                row_doc = self._get_row_doc(
+                    "",
+                    root=document,
+                    index=index,
+                    table_ans=table_ans,
+                    path_so_far_str="",
+                )
+                form_models.Answer.objects.create(
+                    question_id="parcel-number", document=row_doc, value=number
+                )
+                form_models.Answer.objects.create(
+                    question_id="parcel-street", document=row_doc, value=street
+                )
+
+        except Answer.DoesNotExist:
             pass
 
     def _fill_journal_entries(self, document, inst):
