@@ -21,7 +21,8 @@ class RESTJSONFilter(JSONValueFilter):
                 `{
                     "key": "key_in_context_json",
                     "value": "value to be searched for",
-                    "lookup": "any of EXACT,STARTSWITH,CONTAINS,ICONTAINS,GTE,GT,LTE,LT (defaults to EXACT)"
+                    "lookup": "any of EXACT,STARTSWITH,CONTAINS,ICONTAINS,GTE,GT,LTE,LT (defaults to EXACT)",
+                    "invert": "boolean (defaults to false). Negates the lookup"
                 }`
                 \nOptionally, you may also pass a list of such dicts to combine lookups
             """
@@ -41,11 +42,18 @@ class RESTJSONFilter(JSONValueFilter):
 
         # make lookup lowercase, as JSONValueFilter expects (Allow clients
         # to use uppercase to keep similarity with the GraphQL interface)
-        value = [
-            {**filt, "lookup": filt["lookup"].lower()} if "lookup" in filt else filt
-            for filt in value
-        ]
-        return super().filter(queryset, value)
+        for filt in value:
+            invert = filt.pop("invert", False)
+            new_queryset = super().filter(
+                queryset.model.objects.all(),
+                [{**filt, "lookup": filt.get("lookup", "exact").lower()}],
+            )
+            queryset = (
+                queryset.exclude(pk__in=new_queryset)
+                if invert
+                else queryset.filter(pk__in=new_queryset)
+            )
+        return queryset
 
 
 class AttachmentFilterSet(FilterSet):

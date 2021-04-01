@@ -42,8 +42,15 @@ class Command(BaseCommand):
                         attachment = Attachment.objects.get(
                             attachment_id=mapping.attachment_id
                         )
-                        attachment.context.update({"isPublished": True})
-                        attachment.save()
+                        try:
+                            # check if attachment is in the publication folder, then set isPublished
+                            if attachment.attachment_sections.get(
+                                attachment_section_id=21
+                            ):
+                                attachment.context.update({"isPublished": True})
+                                attachment.save()
+                        except Attachment.DoesNotExist:
+                            pass
 
                         mapping.attachmentsection_id = new_section
                         mapping.save()
