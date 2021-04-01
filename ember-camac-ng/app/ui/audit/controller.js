@@ -52,16 +52,30 @@ export default class AuditController extends Controller {
   *fetchAdditionalData(workItem) {
     const serviceIds = workItem.document.answers.edges
       .flatMap((edge) =>
-        edge.node.value.map((doc) => parseInt(doc.createdByGroup))
+        edge.node.value.map((doc) => [
+          doc.createdByGroup,
+          doc.modifiedContentByGroup,
+        ])
+      )
+      .map((id) => parseInt(id, 10))
+      .filter(Boolean);
+
+    const usernames = workItem.document.answers.edges
+      .flatMap((edge) =>
+        edge.node.value.map((doc) => doc.modifiedContentByUser)
       )
       .filter(Boolean);
 
-    if (!serviceIds.length) {
-      return;
+    if (serviceIds.length) {
+      yield this.store.query("service", {
+        service_id: serviceIds.join(","),
+      });
     }
 
-    return yield this.store.query("service", {
-      service_id: serviceIds.join(","),
-    });
+    if (usernames.length) {
+      yield this.store.query("public-user", {
+        username: usernames.join(","),
+      });
+    }
   }
 }

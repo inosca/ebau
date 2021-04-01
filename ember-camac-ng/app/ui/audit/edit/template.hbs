@@ -6,10 +6,11 @@
       </span>
       -
       <span class="uk-text-meta">
-        {{t
-          "audit.titleMeta"
-          creator=this.audit.createdBy.name
-          date=(moment-format this.audit.createdAt "DD.MM.YYYY HH:mm")
+        {{t "audit.titleMeta"
+          user=this.audit.modifiedByUser.fullName
+          service=this.audit.modifiedByService.name
+          date=(moment-format this.audit.modifiedAt "DD.MM.YYYY HH:mm")
+          htmlSafe=true
         }}
       </span>
     </div>
