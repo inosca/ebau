@@ -1,7 +1,7 @@
 FROM danlynn/ember-cli:3.20.0 as build
 
 ARG APPLICATION
-ARG KEYCLOAK_HOME
+ARG KEYCLOAK_HOST
 
 COPY package.json yarn.lock /myapp/
 
