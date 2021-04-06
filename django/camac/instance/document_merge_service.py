@@ -3,7 +3,7 @@ from importlib import import_module
 from logging import getLogger
 
 import requests
-from caluma.caluma_form.models import Answer, Document, Question
+from caluma.caluma_form.models import Answer, Document, Form, Question
 from caluma.caluma_form.validators import DocumentValidator
 from django.conf import settings
 from django.core.files.base import ContentFile
@@ -106,24 +106,28 @@ class DMSClient:
 
 
 class DMSVisitor:
-    def __init__(self, exclude_slugs=[]):
-        self._exclude_slugs = exclude_slugs
+    def __init__(self, exclude_slugs=None):
+        self._exclude_slugs = exclude_slugs if exclude_slugs else []
         self.root_document = None
         self.visible_questions = []
+        self._template_type = None
 
     @property
     def template_type(self):
         """Group similar forms as they use the same template."""
-        return get_form_type_key(self.root_document.form.slug)
+        if not self._template_type:
+            self._template_type = get_form_type_key(self.root_document.form.slug)
+
+        return self._template_type
 
     @property
     def exclude_slugs(self):
-        if self._exclude_slugs:  # pragma: no cover
-            return self._exclude_slugs
-        if not self.template_type:  # pragma: no cover
-            return []
+        if not self._exclude_slugs:
+            self._exclude_slugs = get_form_type_config(self.template_type).get(
+                "exclude_slugs", []
+            )
 
-        return get_form_type_config(self.template_type).get("exclude_slugs", [])
+        return self._exclude_slugs
 
     def visit(self, node):
         cls_name = type(node).__name__.lower()
@@ -185,7 +189,7 @@ class DMSVisitor:
                 child, parent_doc=node, flatten=flatten, **kwargs
             )
 
-            if result is None:
+            if result is None:  # pragma: no cover
                 continue
 
             if child.type == Question.TYPE_FORM and not len(
@@ -336,7 +340,7 @@ class DMSVisitor:
 
         answer = parent_doc.answers.filter(question=node).first()
 
-        if not answer and node.is_archived:
+        if not answer and node.is_archived:  # pragma: no cover
             return
 
         fns = {
@@ -358,77 +362,53 @@ class DMSVisitor:
         return ret
 
     def prepare_receipt_page(self):
-        if self.template_type in ["vorabklaerung-einfach", "baugesuch"]:
-            slugs = settings.APPLICATION.get("DOCUMENT_MERGE_SERVICE", {}).get(
+        if self.template_type not in [
+            "baugesuch",
+            "selbstdeklaration",
+        ]:
+            return
+
+        slugs = settings.APPLICATION.get("DOCUMENT_MERGE_SERVICE", {}).get("_base", {})
+        slugs.update(
+            settings.APPLICATION.get("DOCUMENT_MERGE_SERVICE", {}).get(
                 self.template_type, {}
             )
+        )
 
-            allgemeine_info = self.root_document.form.questions.get(
-                slug=slugs["allgemeine_info"]
-            ).sub_form
+        personalien_form = Form.objects.get(slug=slugs["personalien"])
 
-        if self.template_type == "baugesuch":
-            personalien = allgemeine_info.questions.get(
-                slug=slugs["personalien"]
-            ).sub_form
+        children = []
+        for question in personalien_form.questions.filter(type=Question.TYPE_TABLE):
+            if not self._is_visible_question(question):  # pragma: no cover
+                continue
 
-            children = []
-            for question in personalien.questions.all():
-                if not self._is_visible_question(question):  # pragma: no cover
-                    continue
+            table = self._visit_question(question, parent_doc=self.root_document)
 
-                table = self._visit_question(question, parent_doc=self.root_document)
+            if (
+                table["slug"] not in slugs["people_sources"]
+                or "rows" in table
+                and not table["rows"]
+            ):  # pragma: no cover
+                continue
 
-                if (
-                    table["slug"] not in slugs["people_sources"]
-                    or "rows" in table
-                    and not table["rows"]
-                ):  # pragma: no cover
-                    continue
+            children.append(
+                {
+                    "label": re.match(r".* - (.*)$", table["label"]).group(1),
+                    "people": [
+                        {
+                            slugs["people_names"][field["slug"]]: field["value"]
+                            for field in row
+                            if field["slug"] in slugs["people_names"]
+                        }
+                        for row in table["rows"]
+                    ],
+                    "type": "SignatureQuestion",
+                }
+            )
 
-                children.append(
-                    {
-                        "label": re.match(r".* - (.*)$", table["label"]).group(1),
-                        "people": [
-                            {
-                                "familyName": next(
-                                    field["value"]
-                                    for field in row
-                                    if field["slug"]
-                                    == slugs["people_sources"][table["slug"]][
-                                        "familyName"
-                                    ]
-                                ),
-                                "givenName": next(
-                                    field["value"]
-                                    for field in row
-                                    if field["slug"]
-                                    == slugs["people_sources"][table["slug"]][
-                                        "givenName"
-                                    ]
-                                ),
-                            }
-                            for row in table["rows"]
-                        ],
-                        "type": "SignatureQuestion",
-                    }
-                )
-
-            return {
-                "slug": "8-unterschriften",
-                "label": _("Signatures"),
-                "children": children,
-                "type": "FormQuestion",
-            }
-
-        if self.template_type == "selbstdeklaration":
-            # TODO: Soon we'll have a responsible person for this form. The
-            # people will then be computed from that table instead of this
-            # static empty person.
-            return {
-                "label": _("Applicant"),
-                "people": [{"firstName": "", "lastName": ""}],
-                "type": "SignatureQuestion",
-            }
-
-        return None  # pragma: no cover
+        return {
+            "slug": "8-unterschriften",
+            "label": _("Signatures"),
+            "children": children,
+            "type": "FormQuestion",
+        }
