@@ -91,14 +91,18 @@ export default class CaseDashboardComponent extends Component {
     let parcelPicture;
 
     if (attachmentId) {
-      const response = yield this.fetch.fetch(
-        `${attachment.get("firstObject").path}`,
-        {
-          headers: { accept: undefined },
-        }
-      );
-      const blob = yield response.blob();
-      parcelPicture = yield convertToBase64(blob);
+      try {
+        const response = yield this.fetch.fetch(
+          `${attachment.get("firstObject").path}`,
+          {
+            headers: { accept: undefined },
+          }
+        );
+        const blob = yield response.blob();
+        parcelPicture = yield convertToBase64(blob);
+      } catch (e) {
+        console.error(e);
+      }
     }
 
     const caseRecord = yield this.apollo.query(
