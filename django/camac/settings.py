@@ -664,6 +664,20 @@ APPLICATIONS = {
             "ALLOWED_SERVICE_GROUPS": {"SB1": [3], "SB2": [3], "DEFAULT": [2, 20000]},
         },
         "DOCUMENT_MERGE_SERVICE": {
+            "_base": {
+                "people_sources": {
+                    "personalien-sb1-sb2",
+                    "personalien-gesuchstellerin",
+                    "personalien-vertreterin-mit-vollmacht",
+                    "personalien-grundeigentumerin",
+                    "personalien-gebaudeeigentumerin",
+                    "personalien-projektverfasserin",
+                },
+                "people_names": {
+                    "name-gesuchstellerin": "familyName",
+                    "vorname-gesuchstellerin": "givenName",
+                },
+            },
             "baugesuch": {
                 "forms": [
                     "baugesuch",
@@ -672,71 +686,17 @@ APPLICATIONS = {
                     "baugesuch-mit-uvp-v2",
                     "baugesuch-generell",
                     "baugesuch-generell-v2",
+                    "vorabklaerung-einfach",
                     "vorabklaerung-vollstaendig",
                     "vorabklaerung-vollstaendig-v2",
-                ],
-                "template": "form",
-                "allgemeine_info": "1-allgemeine-informationen",
-                "personalien": "personalien",
-                "people_sources": {
-                    "personalien-gesuchstellerin": {
-                        "familyName": "name-gesuchstellerin",
-                        "givenName": "vorname-gesuchstellerin",
-                    },
-                    "personalien-vertreterin-mit-vollmacht": {
-                        "familyName": "name-vertreterin",
-                        "givenName": "vorname-vertreterin",
-                    },
-                    "personalien-grundeigentumerin": {
-                        "familyName": "name-grundeigentuemerin",
-                        "givenName": "vorname-grundeigentuemerin",
-                    },
-                    "personalien-gebaudeeigentumerin": {
-                        "familyName": "name-gebaeudeeigentuemerin",
-                        "givenName": "vorname-gebaeudeeigentuemerin",
-                    },
-                    "personalien-projektverfasserin": {
-                        "familyName": "name-projektverfasserin",
-                        "givenName": "vorname-projektverfasserin",
-                    },
-                },
-                "exclude_slugs": [
-                    "is-paper",
-                    "projektaenderung",
-                    "einreichen-button",
-                    "karte",
-                ],
-            },
-            "gesuche-kurz": {
-                "forms": [
                     "hecken-feldgehoelze-baeume",
                     "baupolizeiliches-verfahren",
                     "zutrittsermaechtigung",
                     "klaerung-baubewilligungspflicht",
                     "verlaengerung-geltungsdauer",
-                    "vorabklaerung-einfach",
                 ],
                 "template": "form",
-                "allgemeine_info": "allgemeine-angaben-kurz-formular",
-                "personalien": "personalien-kurz-formular",
-                "people_sources": {
-                    "personalien-gesuchstellerin": {
-                        "familyName": "name-gesuchstellerin",
-                        "givenName": "vorname-gesuchstellerin",
-                    },
-                    "vertreterin-vollmacht-hecken-feldgehoelze-baeume": {
-                        "familyName": "name-vertreterin",
-                        "givenName": "vorname-vertreterin",
-                    },
-                    "grundeigentuemerin-hecken-feldgeholze-baume": {
-                        "familyName": "name-grundeigentuemerin",
-                        "givenName": "vorname-grundeigentuemerin",
-                    },
-                    "projektverfasserin-hecken-feldgehoelze-baeume": {
-                        "familyName": "name-projektverfasserin",
-                        "givenName": "vorname-projektverfasserin",
-                    },
-                },
+                "personalien": "personalien",
                 "exclude_slugs": [
                     "is-paper",
                     "projektaenderung",
@@ -747,6 +707,7 @@ APPLICATIONS = {
             "selbstdeklaration": {
                 "forms": ["sb1", "sb2"],
                 "template": "form",
+                "personalien": "selbstdeklaration-sb1",
                 "exclude_slugs": [
                     "is-paper",
                     "einreichen-button-sb1",
