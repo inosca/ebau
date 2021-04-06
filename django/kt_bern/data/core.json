@@ -11,6 +11,81 @@
     }
   },
   {
+    "model": "core.answer",
+    "pk": 17000003,
+    "fields": {
+      "instance": 3,
+      "question": 20036,
+      "chapter": 100001,
+      "item": 1,
+      "answer": "2021-03-31T13:17:08+0000"
+    }
+  },
+  {
+    "model": "core.answer",
+    "pk": 17000004,
+    "fields": {
+      "instance": 3,
+      "question": 20034,
+      "chapter": 20000,
+      "item": 1,
+      "answer": "no"
+    }
+  },
+  {
+    "model": "core.answer",
+    "pk": 17000005,
+    "fields": {
+      "instance": 3,
+      "question": 20035,
+      "chapter": 20000,
+      "item": 1,
+      "answer": "2021-1"
+    }
+  },
+  {
+    "model": "core.answerlog",
+    "pk": 17000000,
+    "fields": {
+      "modification_date": "2021-04-06T12:19:10Z",
+      "user_id": 8,
+      "action": "i",
+      "data": "{\"INSTANCE_ID\":3,\"QUESTION_ID\":20034,\"CHAPTER_ID\":20000,\"ITEM\":1,\"ANSWER\":\"no\"}",
+      "id1": 3,
+      "field1": "INSTANCE_ID",
+      "id2": 20034,
+      "field2": "QUESTION_ID",
+      "id3": 20000,
+      "field3": "CHAPTER_ID",
+      "id4": 1,
+      "field4": "ITEM"
+    }
+  },
+  {
+    "model": "core.proposalactivation",
+    "pk": 17000004,
+    "fields": {
+      "instance": 3,
+      "circulation_type": 20000,
+      "service": 20049,
+      "circulation_state": 1,
+      "deadline_date": "2021-03-31T00:00:00Z",
+      "reason": ""
+    }
+  },
+  {
+    "model": "core.proposalactivation",
+    "pk": 17000005,
+    "fields": {
+      "instance": 3,
+      "circulation_type": 20000,
+      "service": 20055,
+      "circulation_state": 1,
+      "deadline_date": "2021-03-31T00:00:00Z",
+      "reason": ""
+    }
+  },
+  {
     "model": "core.instanceservice",
     "pk": 150000,
     "fields": {
@@ -18,6 +93,35 @@
       "service": 2,
       "active": 1,
       "activation_date": null
+    }
+  },
+  {
+    "model": "core.instanceservice",
+    "pk": 17000003,
+    "fields": {
+      "instance": 3,
+      "service": 2,
+      "active": 1,
+      "activation_date": null
+    }
+  },
+  {
+    "model": "core.instanceservice",
+    "pk": 17000004,
+    "fields": {
+      "instance": 3,
+      "service": 3,
+      "active": 1,
+      "activation_date": null
+    }
+  },
+  {
+    "model": "core.docxdecision",
+    "pk": 3,
+    "fields": {
+      "decision": "accepted",
+      "decision_type": "BAUBEWILLIGUNG",
+      "decision_date": "2021-04-06"
     }
   }
 ]
