@@ -186,6 +186,7 @@ APPLICATIONS = {
             "USE_LOCATION": True,
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
         },
+        "PDF": {"SECTION": 1},
     },
     "kt_schwyz": {
         "LOG_NOTIFICATIONS": True,
@@ -378,6 +379,7 @@ APPLICATIONS = {
             "notification.NotificationTemplate",
             "notification.NotificationTemplateT",
         ],
+        "PDF": {"SECTION": 1},
     },
     "kt_bern": {
         "LOG_NOTIFICATIONS": True,

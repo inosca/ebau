@@ -344,7 +344,6 @@ def test_instance_submit(
     status_code,
     role_factory,
     group_factory,
-    settings,
     group_location_factory,
     attachment,
     workflow_item,
@@ -358,12 +357,14 @@ def test_instance_submit(
     unoconv_pdf_mock,
     caluma_workflow_config_sz,
     caluma_admin_user,
+    application_settings,
 ):
 
-    settings.APPLICATION["NOTIFICATIONS"]["SUBMIT"] = notification_template.slug
-    settings.APPLICATION["WORKFLOW_ITEMS"]["SUBMIT"] = workflow_item.pk
-    settings.APPLICATION["INSTANCE_IDENTIFIER_FORM_ABBR"] = {"vbs": "PV"}
-    settings.APPLICATION["SHORT_DOSSIER_NUMBER"] = short_dossier_number
+    application_settings["NOTIFICATIONS"]["SUBMIT"] = notification_template.slug
+    application_settings["WORKFLOW_ITEMS"]["SUBMIT"] = workflow_item.pk
+    application_settings["INSTANCE_IDENTIFIER_FORM_ABBR"] = {"vbs": "PV"}
+    application_settings["SHORT_DOSSIER_NUMBER"] = short_dossier_number
+    application_settings["PDF"]["SECTION"] = attachment_section.pk
 
     case = workflow_api.start_case(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
