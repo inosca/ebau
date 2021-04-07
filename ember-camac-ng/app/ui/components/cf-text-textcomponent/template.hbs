@@ -1,0 +1,16 @@
+<Textcomponent @field={{@field}}>
+  <Input
+    @type="text"
+    @readonly={{@disabled}}
+    @name={{@field.pk}}
+    @id={{@field.pk}}
+    @value={{@field.answer.value}}
+    @placeholder={{@field.question.placeholder}}
+    class="
+      uk-input
+      {{if @field.isInvalid "uk-form-danger"}}
+      {{if @field.disabled "uk-disabled"}}
+    "
+    {{on "input" this.save}}
+  />
+</Textcomponent>
