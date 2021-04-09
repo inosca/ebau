@@ -29,6 +29,7 @@ Router.map(function () {
           this.route("gwr");
           this.route("allgemeine-informationen-zum-vorhaben");
           this.route("allgemeine-informationen-zum-vorhaben-v2");
+          this.route("allgemeine-informationen-zum-vorhaben-v3");
           this.route("ausnahmebewilligungen");
         });
         this.route("personalien", function () {
