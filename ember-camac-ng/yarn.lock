@@ -6750,22 +6750,22 @@ ember-destroyable-polyfill@^2.0.2:
     ember-cli-version-checker "^5.1.1"
     ember-compatibility-helpers "^1.2.1"
 
-ember-ebau-gwr@^1.5.3:
-  version "1.5.3"
-  resolved "https://registry.yarnpkg.com/ember-ebau-gwr/-/ember-ebau-gwr-1.5.3.tgz#6455d2e141b4fe49ccfb38a4bd25bdfea2af11e9"
-  integrity sha512-UZO+ajq9Twg6W920bmSV/bvwvLMYZO8PY4WsFN40UK4SXDbHuhOkWyq94B1KwW9MzaplUXcdDwx7cpuTLc8GfA==
+ember-ebau-gwr@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/ember-ebau-gwr/-/ember-ebau-gwr-1.6.0.tgz#77bdcbecff18e9f3cf27d31960c58b03c7c90116"
+  integrity sha512-7xuNfe7CBG+WvTmPm9SPAjlHivek18V5uHrkfaD4PAr28F7jiG9qfojmbhc45YqpNauXREwVbBiaIP1Str9ByQ==
   dependencies:
     "@ember/render-modifiers" "^1.0.2"
     dayjs "^1.10.3"
     ember-auto-import "^1.10.1"
-    ember-cli-babel "^7.22.1"
-    ember-cli-htmlbars "^5.3.1"
+    ember-cli-babel "^7.23.1"
+    ember-cli-htmlbars "^5.3.2"
     ember-concurrency "^1.3.0"
     ember-concurrency-decorators "^2.0.2"
     ember-intl "^5.5.1"
     ember-pikaday "^3.0.0"
     ember-truth-helpers "^3.0.0"
-    ember-uikit "^2.2.2"
+    ember-uikit "^3.0.2"
     handlebars "^4.7.6"
 
 ember-element-helper@^0.2.0:
