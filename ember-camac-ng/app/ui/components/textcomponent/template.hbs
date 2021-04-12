@@ -7,24 +7,28 @@
     {{did-insert (perform this.getTextcomponents)}}
   ></button>
   <div uk-dropdown="mode: click; pos: bottom-right">
-    <ul uk-accordion="multiple: true" class="uk-nav uk-dropdown-nav">
-      {{#each-in this.textcomponents as |category textcomponentCategory|}}
-        <li>
-          <a class="uk-active uk-accordion-title uk-margin-small uk-text-bold" href="#">{{category}}</a>
-          <ul class="uk-accordion-content">
-            {{#each textcomponentCategory as |textcomponent|}}  
-              <li class="uk-margin-small uk-text-bold pointer">
-                <a {{on "click" (fn this.applyTextcomponent textcomponent)}} href="#">
-                  {{textcomponent.subject}}
-                </a>
-              </li>
-            {{/each}}
-          </ul>
-        </li>
-      {{else}}
-        <li>{{t "global.empty"}}</li>
-      {{/each-in}}
-    </ul>
+    {{#if this.getTextcomponents.isRunning}}
+      <UkSpinner class="uk-animation-fade" />
+    {{else}}
+      <ul uk-accordion="multiple: true" class="uk-nav uk-dropdown-nav">
+        {{#each-in this.textcomponents as |category textcomponentCategory|}}
+          <li>
+            <a class="uk-accordion-title uk-margin-small uk-text-bold" href="#">{{category}}</a>
+            <ul class="uk-accordion-content">
+              {{#each textcomponentCategory as |textcomponent|}}
+                <li class="uk-margin-small uk-text-bold">
+                  <a {{on "click" (fn this.applyTextcomponent textcomponent)}} href="#">
+                    {{textcomponent.subject}}
+                  </a>
+                </li>
+              {{/each}}
+            </ul>
+          </li>
+        {{else}}
+          <li>{{t "global.empty"}}</li>
+        {{/each-in}}
+      </ul>
+    {{/if}}
   </div>
   {{yield}}
 </div>

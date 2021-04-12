@@ -10,10 +10,21 @@ export default class TextcomponentComponent extends Component {
   @lastValue("getTextcomponents") textcomponents;
   @dropTask
   *getTextcomponents() {
-    const textcomponents = yield this.store.query("notification-template", {
-      service: this.shoebox.content.serviceId,
-      type: "textcomponent",
-    });
+    let textcomponents = this.store
+      .peekAll("notification-template")
+      .filter((template) => {
+        return (
+          parseInt(template.belongsTo("service").id()) ===
+            this.shoebox.content.serviceId && template.type === "textcomponent"
+        );
+      });
+
+    if (!textcomponents.length) {
+      textcomponents = yield this.store.query("notification-template", {
+        service: this.shoebox.content.serviceId,
+        type: "textcomponent",
+      });
+    }
 
     const sortedTextcomponents = {};
 
@@ -29,7 +40,9 @@ export default class TextcomponentComponent extends Component {
   }
 
   @action
-  applyTextcomponent(textcomponent) {
+  applyTextcomponent(textcomponent, e) {
+    e.preventDefault();
+
     this.args.field.answer.value = [
       this.args.field.answer.value,
       textcomponent.body,
