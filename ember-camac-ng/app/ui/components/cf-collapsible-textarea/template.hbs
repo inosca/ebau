@@ -1,28 +1,28 @@
-<ul uk-accordion>
-  <li class="ti-item">
-    <a class="uk-accordion-title default-font-size" href="#">
-      <span class="uk-text-bold">
-        {{@field.question.label}}
-      </span>
+<a {{on "click" this.toggleCollapsible}} href="#">
+  <span class="uk-text-bold">
+    {{@field.question.label}}
+  </span>
 
-      {{#if @field.optional}}
-        <span class="uk-margin-small-left uk-text-muted uk-text-lowercase uk-text-normal">({{t "caluma.form.optional"}})</span>
-      {{/if}}
-    </a>
-    <div class="uk-accordion-content uk-margin-small-top">
-      <Textarea
-        @readonly={{@disabled}}
-        @name={{@field.pk}}
-        @id={{@field.pk}}
-        @value={{@field.answer.value}}
-        @maxlength={{@field.question.textareaMaxLength}}
-        class="
-          uk-textarea
-          {{if @field.isInvalid "uk-form-danger"}}
-          {{if @field.disabled "uk-disabled"}}
-        "
-        {{on "input" this.save}}
-      />
-    </div>
-  </li>
-</ul>
+  {{#if @field.optional}}
+    <span class="uk-margin-small-left uk-text-muted uk-text-lowercase uk-text-normal">({{t "caluma.form.optional"}})</span>
+  {{/if}}
+
+  <UkIcon class="uk-align-right" @icon="{{if this.collapsed "plus" "minus"}}"/>
+</a>
+{{#unless this.collapsed}}
+  <div class="uk-flex">
+    <textarea
+      @readonly={{@disabled}}
+      @name={{@field.pk}}
+      @id={{@field.pk}}
+      @value={{@field.answer.value}}
+      @maxlength={{@field.question.textareaMaxLength}}
+      class="
+        uk-textarea
+        {{if @field.isInvalid "uk-form-danger"}}
+        {{if @field.disabled "uk-disabled"}}
+      "
+      {{on "input" this.save}}
+    />
+  </div>
+{{/unless}}
