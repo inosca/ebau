@@ -492,7 +492,7 @@ class NotificationTemplateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.NotificationTemplate
-        fields = ("slug", "purpose", "subject", "body", "type")
+        fields = ("slug", "purpose", "subject", "body", "type", "service")
 
 
 class NotificationTemplateMergeSerializer(

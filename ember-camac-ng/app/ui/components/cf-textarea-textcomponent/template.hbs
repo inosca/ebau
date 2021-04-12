@@ -1,10 +1,10 @@
 <Textcomponent @field={{@field}}>
-  <Textarea
-    @readonly={{@disabled}}
-    @name={{@field.pk}}
-    @id={{@field.pk}}
-    @value={{@field.answer.value}}
-    @maxlength={{@field.question.textareaMaxLength}}
+  <textarea
+    readonly={{@disabled}}
+    name={{@field.pk}}
+    id={{@field.pk}}
+    value={{@field.answer.value}}
+    maxlength={{@field.question.textareaMaxLength}}
     class="
       uk-textarea
       {{if @field.isInvalid "uk-form-danger"}}
