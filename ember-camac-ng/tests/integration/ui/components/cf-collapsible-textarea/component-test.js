@@ -12,6 +12,6 @@ module("Integration | Component | cf-collapsible-textarea", function (hooks) {
     await render(hbs`<CfCollapsibleTextarea @field={{this.field}}/>`);
 
     assert.equal(this.element.textContent.trim(), "Textarea");
-    assert.dom(".uk-accordion").exists();
+    assert.dom("span[icon='plus']").exists();
   });
 });
