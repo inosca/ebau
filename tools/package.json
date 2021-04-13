@@ -1,0 +1,18 @@
+{
+  "name": "camac-ng-tools",
+  "version": "0.0.0",
+  "description": "Tools for the camac-ng repo",
+  "scripts": {
+    "test": "tap",
+    "link-checker": "node bin/link-checker.js"
+  },
+  "dependencies": {
+    "csv-writer": "^1.6.0",
+    "markdown-it": "^12.0.4",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "tap": "^15.0.2"
+  },
+  "type": "module"
+}
