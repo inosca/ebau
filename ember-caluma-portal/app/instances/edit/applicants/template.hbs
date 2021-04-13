@@ -1,57 +1,62 @@
-<table class="uk-table uk-table-striped">
-  <thead>
-    <tr>
-      <th>{{t "instances.applicants.invitee"}}</th>
-      <th>{{t "instances.applicants.created"}}</th>
-      <th>{{t "instances.applicants.user"}}</th>
-      <td></td>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each this.applicants as |applicant|}}
+<LoadingOrNotfound
+  @loading={{this.editController.instanceTask.isRunning}}
+  @hasPermission={{can "manage applicants of instance" this.editController.instance}}
+>
+  <table class="uk-table uk-table-striped">
+    <thead>
       <tr>
-        <td>
-          {{#if applicant.invitee}}
-            {{applicant.invitee.fullName}}
-          {{else}}
-            {{applicant.email}}
-            <span class="uk-text-meta">({{t "instances.applicants.unregistered"}})</span>
-          {{/if}}
-        </td>
-        <td>{{format-date applicant.created month="2-digit" day="2-digit" year="numeric" hour="2-digit" minute="2-digit"}}</td>
-        <td>{{applicant.user.fullName}}</td>
-        <td class="uk-text-right">
-          {{#if (gt this.applicants.length 1)}}
-            <button
-              type="button"
-              class="uk-icon-button"
-              uk-icon="trash"
-              title={{t "global.delete"}}
-              {{on "click" (perform this.delete applicant)}}
-            ></button>
-          {{/if}}
-        </td>
+        <th>{{t "instances.applicants.invitee"}}</th>
+        <th>{{t "instances.applicants.created"}}</th>
+        <th>{{t "instances.applicants.user"}}</th>
+        <td></td>
       </tr>
-    {{/each}}
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      {{#each this.applicants as |applicant|}}
+        <tr>
+          <td>
+            {{#if applicant.invitee}}
+              {{applicant.invitee.fullName}}
+            {{else}}
+              {{applicant.email}}
+              <span class="uk-text-meta">({{t "instances.applicants.unregistered"}})</span>
+            {{/if}}
+          </td>
+          <td>{{format-date applicant.created month="2-digit" day="2-digit" year="numeric" hour="2-digit" minute="2-digit"}}</td>
+          <td>{{applicant.user.fullName}}</td>
+          <td class="uk-text-right">
+            {{#if (gt this.applicants.length 1)}}
+              <button
+                type="button"
+                class="uk-icon-button"
+                uk-icon="trash"
+                title={{t "global.delete"}}
+                {{on "click" (perform this.delete applicant)}}
+              ></button>
+            {{/if}}
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
 
-<form uk-grid class="uk-grid-small" onsubmit={{perform this.add}}>
-  <div class="uk-width-expand">
-    <div class="uk-inline uk-width-1-1">
-      <UkIcon @icon="mail" class="uk-form-icon" />
-      <Input
-        class="uk-input"
-        id="email"
-        name="email"
-        placeholder={{t "instances.applicants.email"}}
-        required={{true}}
-        @type="email"
-        @value={{this.email}}
-      />
+  <form uk-grid class="uk-grid-small" onsubmit={{perform this.add}}>
+    <div class="uk-width-expand">
+      <div class="uk-inline uk-width-1-1">
+        <UkIcon @icon="mail" class="uk-form-icon" />
+        <Input
+          class="uk-input"
+          id="email"
+          name="email"
+          placeholder={{t "instances.applicants.email"}}
+          required={{true}}
+          @type="email"
+          @value={{this.email}}
+        />
+      </div>
     </div>
-  </div>
-  <div class="uk-width-auto">
-    <UkButton @type="submit" @color="primary" @disabled={{not this.email.length}}>{{t "instances.applicants.add"}}</UkButton>
-  </div>
-</form>
+    <div class="uk-width-auto">
+      <UkButton @type="submit" @color="primary" @disabled={{not this.email.length}}>{{t "instances.applicants.add"}}</UkButton>
+    </div>
+  </form>
+</LoadingOrNotfound>
