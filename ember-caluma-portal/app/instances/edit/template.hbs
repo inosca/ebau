@@ -1,43 +1,48 @@
-{{#unless this.embedded}}
-  <h2>
-    {{this.instance.mainForm.name}} {{this.instance.typeDetail}}
-    <span class="uk-text-light">
-      ({{t "instances.instanceId"}} {{this.model}})
-    </span>
-  </h2>
-{{/unless}}
+<LoadingOrNotfound
+  @loading={{this.instanceTask.isRunning}}
+  @hasPermission={{can "read instance" this.instance}}
+>
+  {{#unless this.embedded}}
+    <h2>
+      {{this.instance.mainForm.name}} {{this.instance.typeDetail}}
+      <span class="uk-text-light">
+        ({{t "instances.instanceId"}} {{this.model}})
+      </span>
+    </h2>
+  {{/unless}}
 
-{{#if (can "read instance" this.instance)}}
-  <ul class="uk-tab">
-    {{#unless this.embedded}}
-      <BeSubnavLink @route="instances.edit.index">
-        {{t "nav.overview"}}
-      </BeSubnavLink>
-    {{/unless}}
+  {{#if (can "read instance" this.instance)}}
+    <ul class="uk-tab">
+      {{#unless this.embedded}}
+        <BeSubnavLink @route="instances.edit.index">
+          {{t "nav.overview"}}
+        </BeSubnavLink>
+      {{/unless}}
 
-    {{#if this.instance.mainForm}}
-      <BeSubnavLink
-        @route="instances.edit.form"
-        @model={{this.instance.mainForm.slug}}
-      >
-        {{this.instance.mainForm.name}}
-      </BeSubnavLink>
-    {{/if}}
-
-    {{#each (array "nfd" "sb1" "sb2") as |form|}}
-      {{#if (can "read form of instance" this.instance form=(hash slug=form))}}
-        <BeSubnavLink @route="instances.edit.form" @model={{form}}>
-          {{t (concat "instances.forms." form)}}
+      {{#if this.instance.mainForm}}
+        <BeSubnavLink
+          @route="instances.edit.form"
+          @model={{this.instance.mainForm.slug}}
+        >
+          {{this.instance.mainForm.name}}
         </BeSubnavLink>
       {{/if}}
-    {{/each}}
 
-    {{#if (can "manage applicants of instance" this.instance)}}
-      <BeSubnavLink @route="instances.edit.applicants">
-        {{t "nav.applicants"}}
-      </BeSubnavLink>
-    {{/if}}
-  </ul>
-{{/if}}
+      {{#each (array "nfd" "sb1" "sb2") as |form|}}
+        {{#if (can "read form of instance" this.instance form=(hash slug=form))}}
+          <BeSubnavLink @route="instances.edit.form" @model={{form}}>
+            {{t (concat "instances.forms." form)}}
+          </BeSubnavLink>
+        {{/if}}
+      {{/each}}
 
-{{outlet}}
+      {{#if (can "manage applicants of instance" this.instance)}}
+        <BeSubnavLink @route="instances.edit.applicants">
+          {{t "nav.applicants"}}
+        </BeSubnavLink>
+      {{/if}}
+    </ul>
+  {{/if}}
+
+  {{outlet}}
+</LoadingOrNotfound>

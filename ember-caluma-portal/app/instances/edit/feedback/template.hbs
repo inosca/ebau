@@ -1,5 +1,10 @@
-{{#if this.feedback}}
-  <BeAttachmentList @loading={{this.loading}} @attachments={{this.feedback}} />
-{{else}}
-  <div class="uk-text-center">{{t "feedback.info"}}</div>
-{{/if}}
+<LoadingOrNotfound
+  @loading={{this.editController.instanceTask.isRunning}}
+  @hasPermission={{can "read feedback of instance" this.editController.instance}}
+>
+  {{#if this.feedback}}
+    <BeAttachmentList @loading={{this.loading}} @attachments={{this.feedback}} />
+  {{else}}
+    <div class="uk-text-center">{{t "feedback.info"}}</div>
+  {{/if}}
+</LoadingOrNotfound>
