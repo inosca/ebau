@@ -782,14 +782,14 @@ class Command(BaseCommand):
         except Answer.DoesNotExist:
             pass
 
-        try:
-            mitteilung_questions_map = [
-                (1, "Mitteilung der Gemeinde (migriert): "),
-                (181, "Mitteilung der zuständigen Koordinationsstelle (migriert): "),
-                (256, "Mitteilung an Bürger (migriert): "),
-            ]
+        mitteilung_questions_map = [
+            (1, "Mitteilung der Gemeinde (migriert): "),
+            (181, "Mitteilung der zuständigen Koordinationsstelle (migriert): "),
+            (256, "Mitteilung an Bürger (migriert): "),
+        ]
 
-            for question_id, value in mitteilung_questions_map:
+        for question_id, value in mitteilung_questions_map:
+            try:
                 mitteilung_answer = Answer.objects.get(
                     question_id=question_id, instance_id=inst.pk
                 )
@@ -801,9 +801,8 @@ class Command(BaseCommand):
                     modification_date=now(),
                     visibility="authorities",
                 )
-
-        except Answer.DoesNotExist:
-            pass
+            except Answer.DoesNotExist:
+                pass
 
     def _fill_checkbox_if_answer_exists(
         self, document, answer_to_check, checkbox_to_fill, answer_slug
