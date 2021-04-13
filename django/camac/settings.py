@@ -1204,6 +1204,11 @@ APPLICATIONS = {
         ],
         "PORTAL_GROUP": 685,
         "INSTANCE_IDENTIFIER_FORM_ABBR": {},
+        "DUMP_CONFIG_GROUPS": {
+            "dashboard_document": {
+                "caluma_form.Document": Q(form="dashboard"),
+            },
+        },
         "DUMP_CONFIG_EXCLUDED_MODELS": [
             "user.Group",
             "user.GroupT",
