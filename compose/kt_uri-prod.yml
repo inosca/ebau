@@ -53,8 +53,7 @@ services:
   ember-camac-ng:
     image: acr.run/camac-ng/camac-ng/ember-camac-ng:${CI_COMMIT_REF_SLUG}-${APPLICATION}
     build:
-      context: ../
-      dockerfile: ./ember-camac-ng/Dockerfile
+      context: ../ember-camac-ng
       cache_from:
         - acr.run/camac-ng/camac-ng/ember-camac-ng:${CI_COMMIT_REF_SLUG}-${APPLICATION}
       args:
@@ -64,8 +63,7 @@ services:
   ember-caluma-portal:
     image: acr.run/camac-ng/camac-ng/ember-caluma-portal:${CI_COMMIT_REF_SLUG}-${APPLICATION}
     build:
-      context: ../
-      dockerfile: ./ember-caluma-portal/Dockerfile
+      context: ../ember-caluma-portal
       cache_from:
         - acr.run/camac-ng/camac-ng/ember-caluma-portal:${CI_COMMIT_REF_SLUG}-${APPLICATION}
       args:
