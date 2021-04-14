@@ -1,6 +1,7 @@
 import Controller, { inject as controller } from "@ember/controller";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
+import { dropTask } from "ember-concurrency-decorators";
 
 export default class AuditEditController extends Controller {
   @service materialExamSwitcher;
@@ -26,6 +27,14 @@ export default class AuditEditController extends Controller {
     }
 
     return this.auditController.disabled || !this.audit.canEdit;
+  }
+
+  @dropTask
+  *back(event) {
+    event.preventDefault();
+
+    yield this.auditController.fetchAudit.perform();
+    yield this.transitionToRoute("audit.index");
   }
 
   @action
