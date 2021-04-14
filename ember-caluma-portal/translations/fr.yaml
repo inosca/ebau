@@ -13,6 +13,8 @@ global:
   back: "Retour"
   save: "Enregistrer"
   ok: "Ok"
+  setConfidential: ""
+  setNonConfidential: ""
 
 nav:
   form: "Formulaire"
@@ -71,6 +73,7 @@ documents:
       demande."
 
   download: "Télécharger le fichier"
+  confidential: ""
 
   drag: "Glisser un fichier dans cette zone, ou"
   click: "cliquez ici pour télécharger un fichier"
