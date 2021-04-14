@@ -37,6 +37,9 @@
               @attachments={{@attachments}}
               @deletable={{@deletable}}
               @onDelete={{perform this.delete}}
+              @useConfidential={{this.useConfidential}}
+              @onConfidential={{this.toggleConfidential}}
+              @attachmentLoading={{this.attachmentLoading}}
             />
           </div>
         {{/if}}

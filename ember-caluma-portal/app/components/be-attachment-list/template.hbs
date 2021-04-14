@@ -10,7 +10,7 @@
           <div class="uk-width-expand">
             {{#if attachment.path}}
               <a href="#" title={{t "documents.download"}} class="uk-text-bold uk-text-link" {{on "click" (perform attachment.download)}}>
-                {{attachment.name}}
+                {{attachment.name}} {{if attachment.context.isConfidential (t "documents.confidential") ""}}
               </a>
             {{else}}
               <span class="uk-text-bold">{{attachment.name}}</span>
@@ -29,6 +29,19 @@
           {{#if @deletable}}
             <div class="uk-flex uk-flex-middle">
               <button type="button" class="uk-icon-button" uk-icon="trash" title={{t "global.delete"}} {{on "click" (fn @onDelete attachment)}}></button>
+              {{#if @useConfidential}}
+                {{#if (includes attachment.id @attachmentLoading)}}
+                  <UkSpinner />
+                {{ else}}
+                  <button
+                    type="button"
+                    class="uk-icon-button"
+                    uk-icon={{if attachment.context.isConfidential "lock" "unlock"}}
+                    title={{if attachment.context.isConfidential (t "global.setNonConfidential") (t "global.setConfidential")}}
+                    {{on "click" (perform @onConfidential attachment)}}>
+                  </button>
+                {{/if}}
+              {{/if}}
             </div>
           {{/if}}
         </div>
