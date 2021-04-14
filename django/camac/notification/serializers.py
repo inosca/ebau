@@ -235,7 +235,6 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         ):
             publications.append(
                 {
-                    "description": publication.text,
                     "date": publication.publication_date.strftime(
                         settings.MERGE_DATE_FORMAT
                     ),
