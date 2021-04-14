@@ -6080,7 +6080,7 @@
       "modified_by_group": null,
       "form": "parcel-table",
       "question": "building-law-number",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -6130,6 +6130,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "parcel-table.hb-number",
+    "fields": {
+      "created_at": "2021-04-08T14:07:04.431Z",
+      "modified_at": "2021-04-08T14:07:04.431Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "parcel-table",
+      "question": "hb-number",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "parcel-table.parcel-city",
     "fields": {
       "created_at": "2020-09-01T15:05:46.481Z",
@@ -6155,7 +6170,7 @@
       "modified_by_group": null,
       "form": "parcel-table",
       "question": "parcel-number",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -27358,10 +27373,10 @@
     "pk": "formulardownload-pdf",
     "fields": {
       "created_at": "2020-11-02T15:50:37.421Z",
-      "modified_at": "2021-02-24T07:07:56.054Z",
+      "modified_at": "2021-04-07T06:07:21.030Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Formulardownload (PDF)\", \"fr\": null}",
       "type": "static",
@@ -27369,7 +27384,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"Bitte erstellen Sie das pdf Formular, drucken Sie es aus und schicken Sie es unterzeichnet im Doppel an die zust\\u00e4ndige Gemeinde. Qualifiziert digital signierte Formulare k\\u00f6nnen Sie bei den Dokumenten hochladen. Diese m\\u00fcssen nicht physisch eingereicht werrden. Alle weiteren Unterlagen m\\u00fcssen nur nach Bedarf physisch eingereicht werden. Die Gemeinde wird Ihnen falls notwendig eine entsprechende Meldung schicken.\", \"fr\": null}",
+      "info_text": "{\"de\": \"Bitte erstellen Sie das pdf Formular, drucken Sie es aus und schicken Sie es unterzeichnet im Doppel an die zust\\u00e4ndige Gemeinde. Qualifiziert digital signierte Formulare k\\u00f6nnen Sie bei den Dokumenten hochladen. Diese m\\u00fcssen nicht physisch eingereicht werrden. Alle weiteren Unterlagen m\\u00fcssen nur nach Bedarf physisch eingereicht werden. Bitte nehmen Sie umgehend mit der Gemeindebaubeh\\u00f6rde Kontakt auf und kl\\u00e4ren Sie, ob und wieviele physische Dossiers eingereicht werden m\\u00fcssen.\", \"fr\": null}",
       "static_content": "{\"de\": \"Bitte erstellen Sie das pdf Formular, drucken Sie es aus und schicken Sie es unterzeichnet der zust\\u00e4ndigen Gemeinde. Alle weiteren Unterlagen m\\u00fcssen nur nach Bedarf physisch eingerecht werden. Die gemeinde wird Ihnen falls notwendig eine entsprechende Meldung schikcen.\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
@@ -28640,6 +28655,39 @@
       },
       "data_source": null,
       "row_form": "haustechnik",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hb-number",
+    "fields": {
+      "created_at": "2021-04-08T14:07:04.238Z",
+      "modified_at": "2021-04-08T14:07:04.238Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"HB-Nummer\", \"fr\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
