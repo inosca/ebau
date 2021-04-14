@@ -51,7 +51,8 @@ services:
   ember-camac-ng:
     image: acr.run/camac-ng/camac-ng/ember-camac-ng:${CI_COMMIT_REF_SLUG}-${APPLICATION}
     build:
-      context: ../ember-camac-ng
+      context: ../
+      dockerfile: ./ember-camac-ng/Dockerfile
       cache_from:
         - acr.run/camac-ng/camac-ng/ember-camac-ng:${CI_COMMIT_REF_SLUG}-${APPLICATION}
       args:

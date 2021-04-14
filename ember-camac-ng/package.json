@@ -97,9 +97,6 @@
     "sass": "^1.29.0",
     "uuid": "^8.3.1"
   },
-  "resolutions": {
-    "ember-uikit": "^3.0.2"
-  },
   "engines": {
     "node": "10.* || >= 12"
   },
