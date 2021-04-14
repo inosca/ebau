@@ -1,6 +1,7 @@
 import { computed } from "@ember/object";
 import { alias, notEmpty } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
+import { tracked } from "@glimmer/tracking";
 import { lastValue, restartableTask } from "ember-concurrency-decorators";
 import { handleUnauthorized } from "ember-simple-auth-oidc";
 import oidcConfig from "ember-simple-auth-oidc/config";
@@ -20,7 +21,8 @@ export default class CustomSession extends Session {
   @service store;
   @service intl;
   @service moment;
-  @service router;
+
+  @tracked groups = [];
 
   @restartableTask
   *fetchUser() {
@@ -34,7 +36,7 @@ export default class CustomSession extends Session {
   }
 
   @lastValue("_user") user;
-  @computed("data.authenticated.access_token", "fetchUser")
+  @computed("data.authenticated.is_authenticated", "fetchUser")
   get _user() {
     this.fetchUser.perform();
 
