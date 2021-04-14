@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "workspaces": [
+    "ember-camac-ng",
+    "ember-caluma-portal"
+  ],
+  "resolutions": {
+    "ember-concurrency": "^1.3.0"
+  }
+}

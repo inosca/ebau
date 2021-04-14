@@ -1,6 +1,0 @@
-**/*.swp
-Dockerfile
-tmp
-node_modules
-dist
-build
