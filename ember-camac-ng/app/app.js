@@ -46,6 +46,7 @@ export default class App extends Application {
           { dataImport: "gwrDataImport" }, // for data import API call
           "store", // ember-data store for link API
           "router",
+          "session",
         ],
       },
     },
