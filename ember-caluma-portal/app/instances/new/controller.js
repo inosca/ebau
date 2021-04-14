@@ -67,14 +67,25 @@ export default class InstancesNewController extends Controller.extend(
 
   @dropTask
   *save() {
+    const body = {
+      data: {
+        attributes: { "caluma-form": this.selectedForm.slug },
+        type: "instances",
+      },
+    };
+    if (this.selectedForm.meta["camac-form-id"]) {
+      body.data.relationships = {
+        form: {
+          data: {
+            id: this.selectedForm.meta["camac-form-id"],
+            type: "forms",
+          },
+        },
+      };
+    }
     const response = yield this.fetch.fetch(`/api/v1/instances`, {
       method: "POST",
-      body: JSON.stringify({
-        data: {
-          attributes: { "caluma-form": this.selectedForm },
-          type: "instances",
-        },
-      }),
+      body: JSON.stringify(body),
     });
 
     const {
@@ -84,7 +95,7 @@ export default class InstancesNewController extends Controller.extend(
     yield this.transitionToRoute(
       "instances.edit.form",
       instanceId,
-      this.selectedForm
+      this.selectedForm.slug
     );
   }
 }
