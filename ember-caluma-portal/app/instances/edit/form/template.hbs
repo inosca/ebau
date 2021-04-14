@@ -1,36 +1,41 @@
-{{#if this.embedded}}
-  <CfContent
-    @documentId={{decode-id this.document.id}}
-    @disabled={{cannot "write form of instance" this.instance form=this.document.form}}
-    @useAsHeading={{true}}
-    @headingBaseLevel={{2}}
-    @context={{hash
-      instance=this.instance
-      instanceId=this.instance.id
-    }}
-  as |content|>
-    {{#if (gt content.document.fieldsets.length 1)}}
-      <div uk-grid>
-        <div class="uk-width-1-1 uk-width-1-3@s"><content.navigation /></div>
-        <div class="uk-width-1-1 uk-width-2-3@s">
-          <content.form />
-          <hr>
-          <content.pagination />
+<LoadingOrNotfound
+  @loading={{this.getDocument.isRunning}}
+  @hasPermission={{can "read form of instance" this.instance form=this.document.form}}
+>
+  {{#if this.embedded}}
+    <CfContent
+      @documentId={{decode-id this.document.id}}
+      @disabled={{cannot "write form of instance" this.instance form=this.document.form}}
+      @useAsHeading={{true}}
+      @headingBaseLevel={{2}}
+      @context={{hash
+        instance=this.instance
+        instanceId=this.instance.id
+      }}
+    as |content|>
+      {{#if (gt content.document.fieldsets.length 1)}}
+        <div uk-grid>
+          <div class="uk-width-1-1 uk-width-1-3@s"><content.navigation /></div>
+          <div class="uk-width-1-1 uk-width-2-3@s">
+            <content.form />
+            <hr>
+            <content.pagination />
+          </div>
         </div>
-      </div>
-    {{else}}
-      <div class="embedded-content"><content.form /></div>
-    {{/if}}
-  </CfContent>
-{{else}}
-  <CfContent
-    @documentId={{decode-id this.document.id}}
-    @disabled={{cannot "write form of instance" this.instance form=this.document.form}}
-    @useAsHeading={{true}}
-    @headingBaseLevel={{2}}
-    @context={{hash
-      instance=this.instance
-      instanceId=this.instance.id
-    }}
-  />
-{{/if}}
+      {{else}}
+        <div class="embedded-content"><content.form /></div>
+      {{/if}}
+    </CfContent>
+  {{else}}
+    <CfContent
+      @documentId={{decode-id this.document.id}}
+      @disabled={{cannot "write form of instance" this.instance form=this.document.form}}
+      @useAsHeading={{true}}
+      @headingBaseLevel={{2}}
+      @context={{hash
+        instance=this.instance
+        instanceId=this.instance.id
+      }}
+    />
+  {{/if}}
+</LoadingOrNotfound>
