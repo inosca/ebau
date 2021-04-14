@@ -105,5 +105,8 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "resolutions": {
+    "ember-concurrency": "^1.3.0"
   }
 }
