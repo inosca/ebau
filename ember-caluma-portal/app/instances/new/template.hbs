@@ -27,9 +27,8 @@
                 <UkButton
                   @width="1-1"
                   @label={{concat form.name " " (if isPaper (concat "(" (t "paper.type") ")"))}}
-                  @color={{if (eq form.slug this.selectedForm) "secondary" "default"}}
-                  @on-click={{fn (mut this.selectedForm) form.slug}}
-
+                  @color={{if (eq form.slug this.selectedForm.slug) "secondary" "default"}}
+                  @on-click={{fn (mut this.selectedForm) form}}
                   class="uk-margin-small-bottom"
                 />
               {{/each}}

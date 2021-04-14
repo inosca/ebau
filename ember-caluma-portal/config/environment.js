@@ -12,6 +12,7 @@ module.exports = function (environment) {
       realm: "ebau",
       locales: ["de", "fr"],
       supportGroups: [10000],
+      useConfidential: false,
       selectableGroups: {
         roles: [
           3, // Leitung Leitbehörde
@@ -30,6 +31,7 @@ module.exports = function (environment) {
       realm: "urec",
       locales: ["de"],
       supportGroups: [1070],
+      useConfidential: true,
       selectableGroups: {
         roles: [
           1131, // Support
