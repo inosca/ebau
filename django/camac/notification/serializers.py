@@ -27,7 +27,6 @@ from camac.core.utils import create_history_entry
 from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
 from camac.instance.validators import transform_coordinates
-from camac.user import serializers as user_serializers
 from camac.user.models import Group, Role, Service
 from camac.user.utils import unpack_service_emails
 from camac.utils import flatten, get_responsible_koor_service_id
@@ -51,7 +50,6 @@ class ActivationMergeSerializer(serializers.Serializer):
     end_date = serializers.DateTimeField(format=settings.MERGE_DATE_FORMAT)
     circulation_state = serializers.StringRelatedField()
     service = serializers.StringRelatedField()
-    service_obj = user_serializers.ServiceSerializer(read_only=True, source="service")
     reason = serializers.CharField()
     circulation_answer = serializers.StringRelatedField()
     notices = NoticeMergeSerializer(many=True)
