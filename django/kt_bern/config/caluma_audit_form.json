@@ -2936,7 +2936,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-begruendungen-fuer-ausnahmen",
-      "sort": 9
+      "sort": 13
     }
   },
   {
@@ -2951,7 +2951,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-begruendungen-fuer-ausnahmen-bemerkungen",
-      "sort": 8
+      "sort": 12
     }
   },
   {
@@ -2966,7 +2966,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-beilagen-vorhanden",
-      "sort": 11
+      "sort": 15
     }
   },
   {
@@ -2981,7 +2981,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-beilagen-vorhanden-bemerkungen",
-      "sort": 10
+      "sort": 14
     }
   },
   {
@@ -2996,7 +2996,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-form-und-inhalt-des-situationsplanes",
-      "sort": 7
+      "sort": 11
     }
   },
   {
@@ -3011,7 +3011,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-form-und-inhalt-des-situationsplanes-bemerkungen",
-      "sort": 6
+      "sort": 10
     }
   },
   {
@@ -3026,7 +3026,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-formulare-vollstaendig",
-      "sort": 13
+      "sort": 17
     }
   },
   {
@@ -3041,7 +3041,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-formulare-vollstaendig-bemerkungen",
-      "sort": 12
+      "sort": 16
     }
   },
   {
@@ -3056,7 +3056,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-gesuchsbewilligungsart",
-      "sort": 17
+      "sort": 21
     }
   },
   {
@@ -3071,7 +3071,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-gesuchsbewilligungsart-andere",
-      "sort": 16
+      "sort": 20
     }
   },
   {
@@ -3086,7 +3086,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-offenkundige-materielle-maengel",
-      "sort": 3
+      "sort": 7
     }
   },
   {
@@ -3101,7 +3101,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-profile",
-      "sort": 15
+      "sort": 19
     }
   },
   {
@@ -3116,7 +3116,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-profile-bemerkungen",
-      "sort": 14
+      "sort": 18
     }
   },
   {
@@ -3131,7 +3131,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-projektplaene-vorhanden",
-      "sort": 5
+      "sort": 9
     }
   },
   {
@@ -3146,7 +3146,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-projektplaene-vorhanden-bemerkungen",
-      "sort": 4
+      "sort": 8
     }
   },
   {
@@ -3177,6 +3177,51 @@
       "form": "fp-form",
       "question": "fp-zustaendige-baubewilligungsbehoerde-meldung",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "fp-form.fp-zustaendigkeit-baubewilligung",
+    "fields": {
+      "created_at": "2021-04-01T12:56:31.826Z",
+      "modified_at": "2021-04-01T12:56:31.826Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "fp-form",
+      "question": "fp-zustaendigkeit-baubewilligung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "fp-form.fp-zustaendigkeit-baubewilligung-info",
+    "fields": {
+      "created_at": "2021-04-01T12:59:39.655Z",
+      "modified_at": "2021-04-01T12:59:39.655Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "fp-form",
+      "question": "fp-zustaendigkeit-baubewilligung-info",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "fp-form.fp-zustaendigkeit-bauvorhaben",
+    "fields": {
+      "created_at": "2021-04-01T12:57:02.541Z",
+      "modified_at": "2021-04-01T12:57:02.541Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "fp-form",
+      "question": "fp-zustaendigkeit-bauvorhaben",
+      "sort": 4
     }
   },
   {
@@ -9143,6 +9188,102 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Zust\\u00e4ndigkeit unklar, Entscheid Regierungsstatthalteramt erbeten\", \"fr\": \"Comp\\u00e9tence incertaine; demander une d\\u00e9cision pr\\u00e9fectorale\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "fp-zustaendigkeit-baubewilligung-mehr",
+    "fields": {
+      "created_at": "2021-04-01T13:55:23.455Z",
+      "modified_at": "2021-04-01T14:10:11.882Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"mehr als die vorgenannten Anforderungen, oder die Baukosten liegen \\u00fcber 1 Million Franken\", \"fr\": \"requiert davantage que les documents pr\\u00e9cit\\u00e9s, ou alors sa r\\u00e9alisation revient \\u00e0 plus d'un million de francs;\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "fp-zustaendigkeit-baubewilligung-nicht-mehr",
+    "fields": {
+      "created_at": "2021-04-01T13:55:23.455Z",
+      "modified_at": "2021-04-01T14:10:11.882Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"nicht mehr als die vorgenannten Anforderungen\", \"fr\": \"ne n\\u00e9cessite rien de plus que\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "fp-zustaendigkeit-baubewilligung-uvp",
+    "fields": {
+      "created_at": "2021-04-01T13:55:23.455Z",
+      "modified_at": "2021-04-01T14:10:11.882Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"eine UVP\", \"fr\": \"implique une \\u00e9tude d'impact sur l'environnement.\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "fp-zustaendigkeit-bauvorhaben-gastgewerbe",
+    "fields": {
+      "created_at": "2021-04-01T13:55:23.455Z",
+      "modified_at": "2021-04-01T12:57:35.870Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "label": "{\"de\": \"betrifft einen Gastgewerbebetrieb\", \"fr\": \"porte sur l'h\\u00f4tellerie et la restauration;\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "fp-zustaendigkeit-bauvorhaben-gemeinde",
+    "fields": {
+      "created_at": "2021-04-01T13:55:23.455Z",
+      "modified_at": "2021-04-01T12:57:35.880Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "label": "{\"de\": \"ist f\\u00fcr Zwecke der Gemeinde bestimmt\", \"fr\": \"est propre \\u00e0 la commune;\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "fp-zustaendigkeit-bauvorhaben-gewaesser",
+    "fields": {
+      "created_at": "2021-04-01T13:55:23.455Z",
+      "modified_at": "2021-04-01T12:57:35.918Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "label": "{\"de\": \"betrifft Gew\\u00e4sser ohne Gemeindehoheit (Art. 101 BauV)\", \"fr\": \"est situ\\u00e9 sur un lac ou une rivi\\u00e8re soumis \\u00e0 la souverainet\\u00e9 d'aucune commune (art. 101 OC).\"}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -19790,6 +19931,96 @@
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-margin-remove\\\">Falls Sie einen Wechsel der Leitbeh\\u00f6rde anstreben, f\\u00fchren Sie diesen bitte im Men\\u00fc \\u00abLeitbeh\\u00f6rde\\u00bb aus.</div>\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "fp-zustaendigkeit-baubewilligung",
+    "fields": {
+      "created_at": "2021-04-01T13:55:23.578Z",
+      "modified_at": "2021-04-01T12:57:47.501Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "label": "{\"de\": \"Das Bauvorhaben erfordert neben der Baubewilligung:\", \"fr\": \"Outre le permis de construire, le projet de construction\"}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "fp-zustaendigkeit-baubewilligung-info",
+    "fields": {
+      "created_at": "2021-04-01T14:35:35.591Z",
+      "modified_at": "2021-04-01T14:24:43.535Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "label": "{\"de\": \"Anforderungen des Bauvorhabens\", \"fr\": \"Les Documents n\\u00e9cessaires\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"<p class=\\\"uk-text-bold uk-margin-remove\\\">Anforderungen des Bauvorhabens</p>\\n<ul class=\\\"uk-margin-remove uk-padding-remove\\\">\\n<li>den Anschluss an das Strassen- und Energieleitungsnetz, an die Wasserversorgung und Kanalisation</li>\\n<li>den Anschluss an Fernmeldeanlagen, Gemeinschaftsantennenanlagen und dgl.</li>\\n<li>die Gew\\u00e4sserschutzbewilligung</li>\\n<li>die Konzession zum Entzug von W\\u00e4rme aus einem \\u00f6ffentlichen Gew\\u00e4sser</li>\\n<li>die Haustechnik</li>\\n<li>den energietechnischen Massnahmennachweis</li>\\n<li>die Pr\\u00fcfung der technischen Belange der Feuerpolizei und des Zivilschutzes</li>\\n<li>die Ausnahmebewilligung nach Art. 24 - 24d oder Art. 37a RPG</li>\\n<li>den Entscheid \\u00fcber die Zonenkonformit\\u00e4t einer Baute ausserhalb der Bauzone</li>\\n<li>die Ausnahme nach Art. 26 oder 28 BauG oder nach Art. 81 SG</li>\\n</ul>\", \"fr\": \"<p class=\\\"uk-text-bold uk-margin-remove\\\">Les Documents n\\u00e9cessaires</p>\\n<ul class=\\\"uk-margin-remove uk-padding-remove\\\">\\n<li>Ie raccordement \\u00e0 la route, aux r\\u00e9seaux de distribution d'\\u00e9nergie et d'eau ainsi qu'aux canalisations,</li>\\n<li>le raccordement aux installations de t\\u00e9l\\u00e9communications, aux antennes collectives, etc.,</li>\\n<li>l'autorisation en mati\\u00e8re de protection des eaux,</li>\\n<li>la concession de pr\\u00e9l\\u00e8vement de chaleur dans des eaux publiques,</li>\\n<li>les installations techniques int\\u00e9rieures,</li>\\n<li>le certificat de conformit\\u00e9 aux normes \\u00e9nerg\\u00e9tiques,</li>\\n<li>l'examen des questions techniques relatives \\u00e0 la police du feu et \\u00e0 la protection civile,</li>\\n<li>la d\\u00e9rogation au sens des articles 24 \\u00e0 24d ou 37a LAT,</li>\\n<li>la d\\u00e9cision sur la conformit\\u00e9 de l\\u2019affectation \\u00e0 la zone d\\u2019un b\\u00e2timent hors de la zone \\u00e0 b\\u00e2tir,</li>\\n<li>la d\\u00e9rogation au sens des articles 26 ou 28 LC ou de l'article 81 LR</li>\\n</ul>\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "fp-zustaendigkeit-bauvorhaben",
+    "fields": {
+      "created_at": "2021-04-01T13:55:23.578Z",
+      "modified_at": "2021-04-01T12:57:36.090Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "label": "{\"de\": \"Das Bauvorhaben\", \"fr\": \"Le projet de construction\"}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"Bauvorhaben in der Landwirtschaftszone bed\\u00fcrfen in jedem Fall einer Verf\\u00fcgung des Amtes f\\u00fcr Gemeinden und Raumordnung hinsichtlich der Zonenkonformit\\u00e4t (Art. 16/22 RPG) oder f\\u00fcr die Ausnahmebewilligung nach Art. 24 - 24d oder Art. 37a RPG.\", \"fr\": \"Les projets de construction dans une zone agricole requi\\u00e8rent dans tous les cas une d\\u00e9cision de l'OACOT sur la conformit\\u00e9 \\u00e0 l'affectation de la zone (art. 16/22 LAT) ou une d\\u00e9rogation au sens des articles 24 \\u00e0 24d ou 37a LAT.\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -31093,6 +31324,96 @@
       "modified_by_group": null,
       "question": "fp-zustaendige-baubewilligungsbehoerde",
       "option": "fp-zustaendige-baubewilligungsbehoerde-unklar",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "fp-zustaendigkeit-baubewilligung.fp-zustaendigkeit-baubewilligung-mehr",
+    "fields": {
+      "created_at": "2021-04-01T12:57:47.507Z",
+      "modified_at": "2021-04-01T12:57:47.507Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "fp-zustaendigkeit-baubewilligung",
+      "option": "fp-zustaendigkeit-baubewilligung-mehr",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "fp-zustaendigkeit-baubewilligung.fp-zustaendigkeit-baubewilligung-nicht-mehr",
+    "fields": {
+      "created_at": "2021-04-01T12:57:47.509Z",
+      "modified_at": "2021-04-01T12:57:47.509Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "fp-zustaendigkeit-baubewilligung",
+      "option": "fp-zustaendigkeit-baubewilligung-nicht-mehr",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "fp-zustaendigkeit-baubewilligung.fp-zustaendigkeit-baubewilligung-uvp",
+    "fields": {
+      "created_at": "2021-04-01T12:57:47.505Z",
+      "modified_at": "2021-04-01T12:57:47.505Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "fp-zustaendigkeit-baubewilligung",
+      "option": "fp-zustaendigkeit-baubewilligung-uvp",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "fp-zustaendigkeit-bauvorhaben.fp-zustaendigkeit-bauvorhaben-gastgewerbe",
+    "fields": {
+      "created_at": "2021-04-01T12:57:36.098Z",
+      "modified_at": "2021-04-01T12:57:36.098Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "fp-zustaendigkeit-bauvorhaben",
+      "option": "fp-zustaendigkeit-bauvorhaben-gastgewerbe",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "fp-zustaendigkeit-bauvorhaben.fp-zustaendigkeit-bauvorhaben-gemeinde",
+    "fields": {
+      "created_at": "2021-04-01T12:57:36.096Z",
+      "modified_at": "2021-04-01T12:57:36.096Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "fp-zustaendigkeit-bauvorhaben",
+      "option": "fp-zustaendigkeit-bauvorhaben-gemeinde",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "fp-zustaendigkeit-bauvorhaben.fp-zustaendigkeit-bauvorhaben-gewaesser",
+    "fields": {
+      "created_at": "2021-04-01T12:57:36.094Z",
+      "modified_at": "2021-04-01T12:57:36.094Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "fp-zustaendigkeit-bauvorhaben",
+      "option": "fp-zustaendigkeit-bauvorhaben-gewaesser",
       "sort": 1
     }
   },
