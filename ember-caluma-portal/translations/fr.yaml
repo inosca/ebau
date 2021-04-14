@@ -150,8 +150,11 @@ submit:
 
 support:
   title: "Support technique (24/7)"
-  info: "Pour toute question concernant la procédure, veuillez contacter la municipalité responsable"
+  info-be: "Pour toute question concernant la procédure, veuillez contacter la municipalité responsable"
+  info-ur: ""
   phone: "+41 31 636 99 96"
+  email-ur: ""
+  subject-ur: ""
 
 index:
   welcome-be: "Bienvenue sur le portail eBau du canton de Berne"
