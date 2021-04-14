@@ -29,8 +29,7 @@ services:
 
   ember-camac-ng:
     build:
-      context: ../
-      dockerfile: ./ember-camac-ng/Dockerfile
+      context: ../ember-camac-ng
       cache_from:
         - acr.run/camac-ng/camac-ng/ember-camac-ng:master
       args:
@@ -77,8 +76,7 @@ services:
 
   ember-caluma-portal:
     build:
-      context: ../
-      dockerfile: ./ember-caluma-portal/Dockerfile
+      context: ../ember-caluma-portal
       cache_from:
         - acr.run/camac-ng/camac-ng/ember-caluma-portal:master
       args:
