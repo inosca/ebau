@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     # GWR module
     "generic_permissions.apps.GenericPermissionsConfig",
     "ebau_gwr.linker.apps.LinkerConfig",
+    "ebau_gwr.token_proxy.apps.TokenProxyConfig",
     "graphene_django",
     "localized_fields",
     "psqlextra",
@@ -1660,3 +1661,7 @@ MANABI_SHARED_KEY = env.str(
 MANABI_TOKEN_ACTIVATE_TIMEOUT = env.int("MANABI_TOKEN_ACTIVATE_TIMEOUT", default=600)
 MANABI_TOKEN_REFRESH_TIMEOUT = env.int("MANABI_TOKEN_REFRESH_TIMEOUT", default=600)
 MANABI_DEBUG = env.bool("MANABI_DEBUG", default=default(True, False))
+
+# GWR
+GWR_FERNET_KEY = env.str("GWR_FERNET_KEY")
+GWR_HOUSING_STAT_WSK_ID = env.int("GWR_WSK_ID")
