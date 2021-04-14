@@ -5,7 +5,7 @@ caluma:
 global:
   title-be: "eBau Bern"
   title-ur: "Kanton Uri"
-  urec: "Urec"
+  urec: "URec"
   versionPrefix: "v"
   continue: "Weiter"
   delete: "Löschen"
@@ -145,8 +145,11 @@ submit:
 
 support:
   title: "Technischer Support (24/7)"
-  info: "Für fachliche Fragen wenden Sie sich bitte an die zuständige Gemeinde."
+  info-be: "Für fachliche Fragen wenden Sie sich bitte an die zuständige Gemeinde."
+  info-ur: "Im Falle von Problemen oder Fragen, welche durch die hinterlegten Hilfestellungen nicht geklärt werden, können Sie sich entweder an <b>die zuständige Bauverwaltung der entsprechenden Gemeinde</b> oder an <b>das Amt für Raumentwicklung</b> wenden."
   phone: "+41 31 636 99 97"
+  email-ur: "raumplanung@ur.ch"
+  subject-ur: "URec - Supportanfrage"
 
 index:
   welcome-be: "Willkommen im eBau-Portal des Kantons Bern"
