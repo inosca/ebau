@@ -49,7 +49,7 @@ class Command(BaseCommand):
                             ):
                                 attachment.context.update({"isPublished": True})
                                 attachment.save()
-                        except Attachment.DoesNotExist:
+                        except AttachmentSection.DoesNotExist:
                             pass
 
                         mapping.attachmentsection_id = new_section
