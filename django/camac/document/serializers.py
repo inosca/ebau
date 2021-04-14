@@ -216,7 +216,6 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             "date",
             "digital_signature",
             "instance",
-            "is_confidential",
             "is_parcel_picture",
             "mime_type",
             "name",

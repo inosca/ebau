@@ -68,7 +68,8 @@
       "meta": {
         "category": "building-permit",
         "is-creatable": true,
-        "is-main-form": true
+        "is-main-form": true,
+        "camac-form-id": 44
       },
       "is_published": true,
       "is_archived": false,
@@ -131,7 +132,8 @@
       "meta": {
         "category": "special-procedure",
         "is-creatable": true,
-        "is-main-form": true
+        "is-main-form": true,
+        "camac-form-id": 121
       },
       "is_published": true,
       "is_archived": false,
@@ -150,6 +152,42 @@
       "modified_by_group": null,
       "name": "{\"de\": \"Dashboard\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "dokumente",
+    "fields": {
+      "created_at": "2021-04-08T06:53:17.185Z",
+      "modified_at": "2021-04-09T15:06:26.546Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Dokumente\", \"fr\": null}",
+      "description": "{\"de\": \"Dokumente Baugesuch und Vorabkl\\u00e4rung\", \"fr\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "dokumente-spezialgesuche",
+    "fields": {
+      "created_at": "2021-04-09T14:18:31.572Z",
+      "modified_at": "2021-04-09T15:07:21.816Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Dokumente\", \"fr\": null}",
+      "description": "{\"de\": \"Dokumente Spezialgesuche\", \"fr\": null}",
       "meta": {},
       "is_published": true,
       "is_archived": false,
@@ -771,7 +809,8 @@
       "meta": {
         "category": "building-permit",
         "is-creatable": true,
-        "is-main-form": true
+        "is-main-form": true,
+        "camac-form-id": 21
       },
       "is_published": true,
       "is_archived": false,
@@ -811,7 +850,8 @@
       "meta": {
         "category": "building-permit",
         "is-creatable": true,
-        "is-main-form": true
+        "is-main-form": true,
+        "camac-form-id": 290
       },
       "is_published": true,
       "is_archived": false,
@@ -869,7 +909,8 @@
       "meta": {
         "category": "special-procedure",
         "is-creatable": true,
-        "is-main-form": true
+        "is-main-form": true,
+        "camac-form-id": 141
       },
       "is_published": true,
       "is_archived": false,
@@ -2819,6 +2860,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "building-permit.dokumente",
+    "fields": {
+      "created_at": "2021-04-08T06:59:36.772Z",
+      "modified_at": "2021-04-08T06:59:36.772Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "building-permit",
+      "question": "dokumente",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "building-permit.einreichen",
     "fields": {
       "created_at": "2020-11-02T15:50:57.324Z",
@@ -2844,7 +2900,7 @@
       "modified_by_group": null,
       "form": "building-permit",
       "question": "fachthemen",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -2859,7 +2915,7 @@
       "modified_by_group": null,
       "form": "building-permit",
       "question": "generelle-fachthemen",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -2919,7 +2975,7 @@
       "modified_by_group": null,
       "form": "bundesverfahren",
       "question": "allgemeine-informationen-bundesverfahren",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -2934,7 +2990,7 @@
       "modified_by_group": null,
       "form": "bundesverfahren",
       "question": "lokalisierung",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -2949,7 +3005,7 @@
       "modified_by_group": null,
       "form": "bundesverfahren",
       "question": "personalien",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -2964,7 +3020,22 @@
       "modified_by_group": null,
       "form": "cantonal-territory-usage",
       "question": "allgemeine-informationen-cantonal-territory-usage",
-      "sort": 5
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "cantonal-territory-usage.dokumente",
+    "fields": {
+      "created_at": "2021-04-09T13:27:34.834Z",
+      "modified_at": "2021-04-09T13:27:34.835Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "cantonal-territory-usage",
+      "question": "dokumente",
+      "sort": 2
     }
   },
   {
@@ -2994,7 +3065,7 @@
       "modified_by_group": null,
       "form": "cantonal-territory-usage",
       "question": "lokalisierung",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -3009,7 +3080,7 @@
       "modified_by_group": null,
       "form": "cantonal-territory-usage",
       "question": "personalien",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -3024,7 +3095,7 @@
       "modified_by_group": null,
       "form": "cantonal-territory-usage",
       "question": "veranstaltung-form",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -3039,7 +3110,22 @@
       "modified_by_group": null,
       "form": "commercial-permit",
       "question": "allgemeine-informationen-reklamegesuch",
-      "sort": 5
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "commercial-permit.dokumente-spezialgesuch",
+    "fields": {
+      "created_at": "2021-04-09T15:24:29.444Z",
+      "modified_at": "2021-04-09T15:24:29.444Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "commercial-permit",
+      "question": "dokumente-spezialgesuch",
+      "sort": 2
     }
   },
   {
@@ -3069,7 +3155,7 @@
       "modified_by_group": null,
       "form": "commercial-permit",
       "question": "lokalisierung",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -3084,7 +3170,7 @@
       "modified_by_group": null,
       "form": "commercial-permit",
       "question": "personalien",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -3099,7 +3185,7 @@
       "modified_by_group": null,
       "form": "commercial-permit",
       "question": "reklame",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -3115,6 +3201,321 @@
       "form": "dashboard",
       "question": "portal-inhalt-de",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-spezialgesuche.dachaufsicht-spezialgesuche",
+    "fields": {
+      "created_at": "2021-04-09T15:11:47.932Z",
+      "modified_at": "2021-04-09T15:11:47.932Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-spezialgesuche",
+      "question": "dachaufsicht-spezialgesuche",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-spezialgesuche.fotodokumentation-spezialgesuche",
+    "fields": {
+      "created_at": "2021-04-09T15:12:20.520Z",
+      "modified_at": "2021-04-09T15:12:20.520Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-spezialgesuche",
+      "question": "fotodokumentation-spezialgesuche",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-spezialgesuche.produktbeschrieb-spezialgesuche",
+    "fields": {
+      "created_at": "2021-04-09T15:12:51Z",
+      "modified_at": "2021-04-09T15:12:51Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-spezialgesuche",
+      "question": "produktbeschrieb-spezialgesuche",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-spezialgesuche.situationsplan-1-500-spezialgesuche",
+    "fields": {
+      "created_at": "2021-04-09T15:11:12.902Z",
+      "modified_at": "2021-04-09T15:11:12.902Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-spezialgesuche",
+      "question": "situationsplan-1-500-spezialgesuche",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.brandschutzkonzept",
+    "fields": {
+      "created_at": "2021-04-08T08:36:43.654Z",
+      "modified_at": "2021-04-08T08:36:43.654Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "brandschutzkonzept",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.brandschutzplan",
+    "fields": {
+      "created_at": "2021-04-08T08:12:15.178Z",
+      "modified_at": "2021-04-08T08:12:15.178Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "brandschutzplan",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.dachaufsicht",
+    "fields": {
+      "created_at": "2021-04-08T08:54:19.089Z",
+      "modified_at": "2021-04-08T08:54:19.089Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "dachaufsicht",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.energienachweis",
+    "fields": {
+      "created_at": "2021-04-08T09:04:01.508Z",
+      "modified_at": "2021-04-08T09:04:01.508Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "energienachweis",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.entwaesserungsplan",
+    "fields": {
+      "created_at": "2021-04-08T09:18:37.449Z",
+      "modified_at": "2021-04-08T09:18:37.449Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "entwaesserungsplan",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.fassadenplaene",
+    "fields": {
+      "created_at": "2021-04-08T09:03:11.081Z",
+      "modified_at": "2021-04-08T09:03:11.081Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "fassadenplaene",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.fotodokumentation",
+    "fields": {
+      "created_at": "2021-04-08T09:23:08.490Z",
+      "modified_at": "2021-04-08T09:23:08.490Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "fotodokumentation",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.grundrissplaene",
+    "fields": {
+      "created_at": "2021-04-08T08:45:21.129Z",
+      "modified_at": "2021-04-08T08:45:21.130Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "grundrissplaene",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.laengenprofile",
+    "fields": {
+      "created_at": "2021-04-08T09:21:32.292Z",
+      "modified_at": "2021-04-08T09:21:32.292Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "laengenprofile",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.normalprofil",
+    "fields": {
+      "created_at": "2021-04-08T09:12:15.538Z",
+      "modified_at": "2021-04-08T09:12:15.538Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "normalprofil",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.produktbeschrieb",
+    "fields": {
+      "created_at": "2021-04-08T09:33:56.275Z",
+      "modified_at": "2021-04-08T09:33:56.275Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "produktbeschrieb",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.querprofile",
+    "fields": {
+      "created_at": "2021-04-08T09:07:14.721Z",
+      "modified_at": "2021-04-08T09:07:14.721Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "querprofile",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.schnittplaene",
+    "fields": {
+      "created_at": "2021-04-08T09:01:32.725Z",
+      "modified_at": "2021-04-08T09:01:32.725Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "schnittplaene",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.situationsplan-1-1000",
+    "fields": {
+      "created_at": "2021-04-08T06:58:40.441Z",
+      "modified_at": "2021-04-08T06:58:40.441Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "situationsplan-1-1000",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.situationsplan-1-500",
+    "fields": {
+      "created_at": "2021-04-08T08:10:28.941Z",
+      "modified_at": "2021-04-08T08:10:28.941Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "situationsplan-1-500",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.technischer-beschrieb",
+    "fields": {
+      "created_at": "2021-04-08T09:34:53.833Z",
+      "modified_at": "2021-04-08T09:34:53.833Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "technischer-beschrieb",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.werkleitungsplan",
+    "fields": {
+      "created_at": "2021-04-08T09:29:10.383Z",
+      "modified_at": "2021-04-08T09:29:10.383Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "werkleitungsplan",
+      "sort": 3
     }
   },
   {
@@ -5184,7 +5585,7 @@
       "modified_by_group": null,
       "form": "mitbericht-bund",
       "question": "allgemeine-informationen-mitberichtsverfahren-bund",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -5199,7 +5600,7 @@
       "modified_by_group": null,
       "form": "mitbericht-bund",
       "question": "lokalisierung",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -5214,7 +5615,7 @@
       "modified_by_group": null,
       "form": "mitbericht-bund",
       "question": "mitberichtsverfahren-bund",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -5229,7 +5630,7 @@
       "modified_by_group": null,
       "form": "mitbericht-bund",
       "question": "personalien",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -5244,7 +5645,7 @@
       "modified_by_group": null,
       "form": "mitbericht-kanton",
       "question": "allgemeine-informationen-mitbericht-kanton",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -5259,7 +5660,7 @@
       "modified_by_group": null,
       "form": "mitbericht-kanton",
       "question": "lokalisierung",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -5274,7 +5675,7 @@
       "modified_by_group": null,
       "form": "mitbericht-kanton",
       "question": "mitberichtsverfahren-koor-bg",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -5289,7 +5690,7 @@
       "modified_by_group": null,
       "form": "mitbericht-kanton",
       "question": "personalien",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -5619,7 +6020,7 @@
       "modified_by_group": null,
       "form": "oereb",
       "question": "allgemeine-informationen-oereb",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -5634,7 +6035,7 @@
       "modified_by_group": null,
       "form": "oereb",
       "question": "lokalisierung",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -5649,7 +6050,7 @@
       "modified_by_group": null,
       "form": "oereb",
       "question": "oereb-verfahren",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -5664,7 +6065,7 @@
       "modified_by_group": null,
       "form": "oereb",
       "question": "personalien",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -6459,7 +6860,22 @@
       "modified_by_group": null,
       "form": "preliminary-clarification",
       "question": "allgemeine-informationen-baugesuch-vorabklaerung",
-      "sort": 12
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "preliminary-clarification.dokumente",
+    "fields": {
+      "created_at": "2021-04-09T13:24:17.157Z",
+      "modified_at": "2021-04-09T13:24:17.157Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "preliminary-clarification",
+      "question": "dokumente",
+      "sort": 2
     }
   },
   {
@@ -6489,7 +6905,7 @@
       "modified_by_group": null,
       "form": "preliminary-clarification",
       "question": "fachthemen",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -6504,7 +6920,7 @@
       "modified_by_group": null,
       "form": "preliminary-clarification",
       "question": "generelle-fachthemen",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -6939,7 +7355,22 @@
       "modified_by_group": null,
       "form": "proposal-declaration",
       "question": "allgemeine-informationen-proposal-declaration",
-      "sort": 5
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "proposal-declaration.dokumente-spezialgesuch",
+    "fields": {
+      "created_at": "2021-04-09T15:26:09.511Z",
+      "modified_at": "2021-04-09T15:26:09.511Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "proposal-declaration",
+      "question": "dokumente-spezialgesuch",
+      "sort": 2
     }
   },
   {
@@ -6969,7 +7400,7 @@
       "modified_by_group": null,
       "form": "proposal-declaration",
       "question": "lokalisierung",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -6984,7 +7415,7 @@
       "modified_by_group": null,
       "form": "proposal-declaration",
       "question": "personalien",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -6999,7 +7430,7 @@
       "modified_by_group": null,
       "form": "proposal-declaration",
       "question": "vorhaben",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -7194,7 +7625,22 @@
       "modified_by_group": null,
       "form": "solar-declaration",
       "question": "allgemeine-informationen-meldung-solaranlage",
-      "sort": 5
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solar-declaration.dokumente-spezialgesuch",
+    "fields": {
+      "created_at": "2021-04-09T15:25:33.716Z",
+      "modified_at": "2021-04-09T15:25:33.716Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solar-declaration",
+      "question": "dokumente-spezialgesuch",
+      "sort": 2
     }
   },
   {
@@ -7224,7 +7670,7 @@
       "modified_by_group": null,
       "form": "solar-declaration",
       "question": "lokalisierung",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -7239,7 +7685,7 @@
       "modified_by_group": null,
       "form": "solar-declaration",
       "question": "personalien",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -7254,7 +7700,7 @@
       "modified_by_group": null,
       "form": "solar-declaration",
       "question": "photovoltaik-solaranlage",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -11153,6 +11599,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "brandschutzkonzept-ja",
+    "fields": {
+      "created_at": "2021-04-08T08:36:43.410Z",
+      "modified_at": "2021-04-09T11:56:01.724Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Brandschutzkonzept\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "brandschutzplan-ja",
+    "fields": {
+      "created_at": "2021-04-08T08:12:14.917Z",
+      "modified_at": "2021-04-09T11:54:51.252Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Brandschutzplan\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "brennstoffe-lagerort-andere",
     "fields": {
       "created_at": "2020-09-19T11:10:32.634Z",
@@ -11329,6 +11807,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "dachaufsicht-ja",
+    "fields": {
+      "created_at": "2021-04-08T08:54:18.805Z",
+      "modified_at": "2021-04-08T09:01:08.323Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dachaufsicht\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "dachaufsicht-spezialgesuche-ja",
+    "fields": {
+      "created_at": "2021-04-09T15:11:47.686Z",
+      "modified_at": "2021-04-09T15:18:21.239Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dachaufsicht\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "die-anlage-wird-nach-dem-stand-der-technik-reflexionsarm-ausgefuehrt-ja",
     "fields": {
       "created_at": "2020-10-21T12:25:01.138Z",
@@ -11441,6 +11951,22 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "energienachweis-ja",
+    "fields": {
+      "created_at": "2021-04-08T09:04:01.253Z",
+      "modified_at": "2021-04-09T11:58:47.914Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Energienachweis\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "energienachweis-nachtraeglich-ja",
     "fields": {
       "created_at": "2021-03-22T12:58:18.377Z",
@@ -11498,6 +12024,22 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entwaesserungsplan-ja",
+    "fields": {
+      "created_at": "2021-04-08T09:18:37.203Z",
+      "modified_at": "2021-04-09T12:02:56.852Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entw\\u00e4sserungsplan\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11834,6 +12376,22 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Verputz\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "fassadenplaene-ja",
+    "fields": {
+      "created_at": "2021-04-08T09:03:10.839Z",
+      "modified_at": "2021-04-09T11:58:11.971Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fassadenpl\\u00e4ne\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12977,6 +13535,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "fotodokumentation-ja",
+    "fields": {
+      "created_at": "2021-04-08T09:23:08.247Z",
+      "modified_at": "2021-04-09T15:15:42.107Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fotodokumentation\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "fotodokumentation-spezialgesuche-ja",
+    "fields": {
+      "created_at": "2021-04-09T15:12:20.286Z",
+      "modified_at": "2021-04-09T15:18:31.056Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fotodokumentation\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "fundationsart-andere",
     "fields": {
       "created_at": "2020-09-18T15:31:39.047Z",
@@ -13466,6 +14056,22 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Die Baustelle ist kleiner als 4'000 m2 bzw. das Bauvolumen weniger als 10'000 m3\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "grundrissplaene-ja",
+    "fields": {
+      "created_at": "2021-04-08T08:45:16.553Z",
+      "modified_at": "2021-04-09T11:56:55.632Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grundrisspl\\u00e4ne\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14369,6 +14975,22 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "laengenprofile-ja",
+    "fields": {
+      "created_at": "2021-04-08T09:21:32.050Z",
+      "modified_at": "2021-04-09T12:03:46.157Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"L\\u00e4ngenprofile\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "laermschutz-beeintraechtigungen",
     "fields": {
       "created_at": "2020-11-04T14:09:48.140Z",
@@ -15265,6 +15887,22 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "normalprofil-ja",
+    "fields": {
+      "created_at": "2021-04-08T09:12:15.288Z",
+      "modified_at": "2021-04-09T14:13:32.763Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Normalprofil\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "oberflaechen-typ-farbspritzanlage",
     "fields": {
       "created_at": "2020-10-29T07:38:13.483Z",
@@ -15697,6 +16335,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "produktbeschrieb-ja",
+    "fields": {
+      "created_at": "2021-04-08T09:33:56.011Z",
+      "modified_at": "2021-04-08T09:34:29.216Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Produktbeschrieb\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "produktbeschrieb-spezialgesuche-ja",
+    "fields": {
+      "created_at": "2021-04-09T15:12:50.727Z",
+      "modified_at": "2021-04-09T15:18:40.912Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Produktbeschrieb\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "projekt-energienachweis-heizungs-und-warmwasser",
     "fields": {
       "created_at": "2020-10-31T17:54:07.204Z",
@@ -16106,6 +16776,22 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Wohnen\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "querprofile-ja",
+    "fields": {
+      "created_at": "2021-04-08T09:07:14.487Z",
+      "modified_at": "2021-04-09T12:00:43.159Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Querprofile\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16529,6 +17215,22 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "schnittplaene-ja",
+    "fields": {
+      "created_at": "2021-04-08T09:01:32.474Z",
+      "modified_at": "2021-04-09T11:57:38.780Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schnittpl\\u00e4ne\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "schutzraum-antrag",
     "fields": {
       "created_at": "2020-11-05T07:32:48.953Z",
@@ -16682,6 +17384,54 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Waren-und Transportseilbahn\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "situationsplan-1-1000-ja",
+    "fields": {
+      "created_at": "2021-04-08T06:58:40.077Z",
+      "modified_at": "2021-04-09T14:57:40.165Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Situationsplan 1 : 1000\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "situationsplan-1-500-ja",
+    "fields": {
+      "created_at": "2021-04-08T08:10:28.573Z",
+      "modified_at": "2021-04-09T15:13:55.084Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Situationsplan 1 : 500\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "situationsplan-1-500-spezialgesuche-ja",
+    "fields": {
+      "created_at": "2021-04-09T15:11:12.658Z",
+      "modified_at": "2021-04-12T06:05:31.583Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Situationsplan 1 : 500\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17066,6 +17816,22 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"SOB (Gotthard Bergstrecke)\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "technischer-beschrieb-ja",
+    "fields": {
+      "created_at": "2021-04-08T09:34:53.564Z",
+      "modified_at": "2021-04-09T12:08:35.389Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Technischer Beschrieb\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -19499,6 +20265,22 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Stapeleinrichtungen\", \"fr\": null}",
       "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werkleitungsplan-ja",
+    "fields": {
+      "created_at": "2021-04-08T09:29:10.148Z",
+      "modified_at": "2021-04-12T06:22:07.898Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Werkleitungsplan\", \"fr\": null}",
+      "is_archived": false,
       "meta": {},
       "source": null
     }
@@ -23810,7 +24592,7 @@
       "label": "{\"de\": \"Bestehend\", \"fr\": null}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "!(\n  \"tiefbau-siedlung-art\"|answer intersects [\n    \"tiefbau-siedlung-art-parkplaetze\",\n    \"tiefbau-siedlung-art-veloabstellplaetze\",\n    \"tiefbau-siedlung-art-spielplaetze\"\n  ]\n)",
+      "is_hidden": "!(\n  \"tiefbau-siedlung-art\"|answer in [\n    \"tiefbau-siedlung-art-parkplaetze\",\n    \"tiefbau-siedlung-art-veloabstellplaetze\",\n    \"tiefbau-siedlung-art-spielplaetze\"\n  ]\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -24255,6 +25037,36 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "brandschutzkonzept",
+    "fields": {
+      "created_at": "2021-04-08T08:36:43.519Z",
+      "modified_at": "2021-04-09T11:56:01.844Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Brandschutzkonzept\", \"fr\": null}",
+      "type": "multiple_choice",
+      "is_required": "[\n 'art-der-hochbaute-einfamilienhaus',\n 'art-der-hochbaute-doppeleinfamilienhaus',\n 'art-der-hochbaute-mehrfamilienhaus',\n 'art-der-hochbaute-geschaftshaus',\n 'art-der-hochbaute-wohn-und-geschaftshaus',\n 'art-der-hochbaute-industrie',\n 'art-der-hochbaute-garage-oder-carport',\n 'art-der-hochbaute-parkhaus',\n 'art-der-hochbaute-bauten-und-anlagen-gastgewerbe',\n 'art-der-hochbaute-heim-mit-unterkunft',\n 'art-der-hochbaute-wohnheim-ohne-pflege',\n 'art-der-hochbaute-spital',\n 'art-der-hochbaute-schulen',\n 'art-der-hochbaute-sporthallen',\n 'art-der-hochbaute-tourismusanlagen',\n 'art-der-hochbaute-kirchen',\n 'art-der-hochbaute-kulturbauten'\n] intersects \n'gebaeude'|answer|mapby('art-der-hochbaute')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "brandschutzkonzept-inhalt",
     "fields": {
       "created_at": "2020-11-05T07:47:30.047Z",
@@ -24271,6 +25083,36 @@
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"**Erfordernis Brandschutzpl\\u00e4ne / Brandschutzkonzept**\\n\\nDie neue Brandschutzrichtlinie [Qualit\\u00e4tssicherung im Brandschutz 11-15](https://services.vkg.ch/rest/public/georg/bs/publikation/documents/BSPUB-1394520214-2706.pdf/content) regelt im Grundsatz die Erfordernis des Brandschutznachweises, welcher sich im Kanton Uri im Rahmen des Baubewilligungsverfahrens bereits etabliert hat.\\n\\nEine Vorbesprechung des Brandschutznachweises mit dem kommunalen Brandschutzverantwortlichen der Gemeinde ist insbesondere f\\u00fcr komplexe Bauvorhaben sinnvoll. Eine Vorbesprechung mit der kantonalen Brandschutzbeh\\u00f6rde ist nach R\\u00fccksprache mit der Gemeindebaubeh\\u00f6rde m\\u00f6glich.\\n\\nNachfolgende Links f\\u00fchren Sie Themenbezogen direkt zur Internetseite der Vereinigung Kantonaler Feuerversicherungen VKF:\\n\\n- [Brandschutzrichtlinie Qualit\\u00e4tssicherung im Brandschutz](https://services.vkg.ch/rest/public/georg/bs/publikation/documents/BSPUB-1394520214-2706.pdf/content)\\n\\n- [Brandschutzmerkblatt](https://services.vkg.ch/rest/public/georg/bs/publikation/documents/BSPUB-1394520214-203.pdf/content)\\n\\n- [Musterpl\\u00e4ne](https://services.vkg.ch/rest/public/georg/bs/publikation/documents/BSPUB-1394520214-207.zip/content)\\n\\nNachfolgende Links f\\u00fchren Sie Themenbezogen direkt zur gemeinsamen Internetseite der Zentralschweizer Brandschutzfachstellen:\\n\\n- [Anleitung und Muster Brandschutznachweis](https://www.brandschutznachweis.ch/de/vorlagen-arbeitshilfen/brandschutznachweise)\\n\\n- [Symbole f\\u00fcr Brandschutzpl\\u00e4ne](https://www.brandschutznachweis.ch/de/vorlagen-arbeitshilfen/symbole-fuer-brandschutzplaene)\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "brandschutzplan",
+    "fields": {
+      "created_at": "2021-04-08T08:12:15.042Z",
+      "modified_at": "2021-04-09T11:54:51.441Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Brandschutzplan\", \"fr\": null}",
+      "type": "multiple_choice",
+      "is_required": "[\n 'art-der-hochbaute-einfamilienhaus',\n 'art-der-hochbaute-doppeleinfamilienhaus',\n 'art-der-hochbaute-mehrfamilienhaus',\n 'art-der-hochbaute-geschaftshaus',\n 'art-der-hochbaute-wohn-und-geschaftshaus',\n 'art-der-hochbaute-industrie',\n 'art-der-hochbaute-garage-oder-carport',\n 'art-der-hochbaute-parkhaus',\n 'art-der-hochbaute-bauten-und-anlagen-gastgewerbe',\n 'art-der-hochbaute-heim-mit-unterkunft',\n 'art-der-hochbaute-wohnheim-ohne-pflege',\n 'art-der-hochbaute-spital',\n 'art-der-hochbaute-schulen',\n 'art-der-hochbaute-sporthallen',\n 'art-der-hochbaute-tourismusanlagen',\n 'art-der-hochbaute-kirchen',\n 'art-der-hochbaute-kulturbauten'\n] intersects \n'gebaeude'|answer|mapby('art-der-hochbaute')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -24638,6 +25480,66 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "dachaufsicht",
+    "fields": {
+      "created_at": "2021-04-08T08:54:18.972Z",
+      "modified_at": "2021-04-08T09:01:08.505Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dachaufsicht\", \"fr\": null}",
+      "type": "multiple_choice",
+      "is_required": "'form-type-solar-announcement' in 'form-type'|answer",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "dachaufsicht-spezialgesuche",
+    "fields": {
+      "created_at": "2021-04-09T15:11:47.796Z",
+      "modified_at": "2021-04-09T15:18:21.423Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dachaufsicht\", \"fr\": null}",
+      "type": "multiple_choice",
+      "is_required": "'form-type-solar-announcement' in 'form-type'|answer",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "date-time-migrated",
     "fields": {
       "created_at": "2021-03-22T16:43:29.456Z",
@@ -24692,6 +25594,72 @@
       "data_source": null,
       "row_form": null,
       "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "dokumente",
+    "fields": {
+      "created_at": "2021-04-08T06:59:36.654Z",
+      "modified_at": "2021-04-08T06:59:36.654Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dokumente\", \"fr\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "be-documents-form",
+        "attachment-section": "12000000"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "dokumente",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "dokumente-spezialgesuch",
+    "fields": {
+      "created_at": "2021-04-09T15:24:29.322Z",
+      "modified_at": "2021-04-09T15:24:29.322Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dokumente\", \"fr\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "be-documents-form",
+        "attachment-section": "12000000"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "dokumente-spezialgesuche",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -25013,6 +25981,36 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "energienachweis",
+    "fields": {
+      "created_at": "2021-04-08T09:04:01.375Z",
+      "modified_at": "2021-04-09T11:58:48.119Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Energienachweis\", \"fr\": null}",
+      "type": "multiple_choice",
+      "is_required": "[\n 'art-der-hochbaute-einfamilienhaus',\n 'art-der-hochbaute-doppeleinfamilienhaus',\n 'art-der-hochbaute-mehrfamilienhaus',\n 'art-der-hochbaute-geschaftshaus',\n 'art-der-hochbaute-wohn-und-geschaftshaus',\n 'art-der-hochbaute-industrie',\n 'art-der-hochbaute-bauten-und-anlagen-gastgewerbe',\n 'art-der-hochbaute-heim-mit-unterkunft',\n 'art-der-hochbaute-wohnheim-ohne-pflege',\n 'art-der-hochbaute-spital',\n 'art-der-hochbaute-schulen',\n 'art-der-hochbaute-sporthallen',\n 'art-der-hochbaute-tourismusanlagen',\n 'art-der-hochbaute-kirchen',\n 'art-der-hochbaute-kulturbauten',\n 'art-der-hochbaute-landwirtschaft-betrieb-wohnteil'\n] intersects \n'gebaeude'|answer|mapby('art-der-hochbaute')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "energienachweis-nachtraeglich",
     "fields": {
       "created_at": "2021-03-22T12:58:18.686Z",
@@ -25089,6 +26087,36 @@
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"##Hinweis##\\nBei der Baubewilligungsbeh\\u00f6rde ist ein Entsorgungskonzept einzureichen. Die Konzeptvorlage finden Sie hier: [Entsorgungskonzept](https://www.abfall.ch/info/publikationen)\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "entwaesserungsplan",
+    "fields": {
+      "created_at": "2021-04-08T09:18:37.311Z",
+      "modified_at": "2021-04-09T12:02:57.050Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entw\\u00e4sserungsplan\", \"fr\": null}",
+      "type": "multiple_choice",
+      "is_required": "[\n 'art-der-hochbaute-ekonomie-mit-tieren-mit-tieren',\n 'art-der-hochbaute-oekonomiegebaude',\n 'art-der-hochbaute-landwirtschaft-betrieb-wohnteil',\n 'art-der-hochbaute-forstwirtschaft',\n 'art-der-hochbaute-brennstofflager',\n 'art-der-hochbaute-silo'\n] intersects \n'gebaeude'|answer|mapby('art-der-hochbaute') ||\n[\n 'tiefbau-siedlung-art-parkplaetze',\n 'tiefbau-siedlung-art-veloabstellplaetze',\n 'tiefbau-siedlung-art-spielplaetze'\n] intersects 'tiefbauten'|answer|mapby('tiefbau-siedlung-art')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -25268,7 +26296,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Infrastruktur: Strassen und Wege\", \"fr\": null}",
-      "type": "multiple_choice",
+      "type": "choice",
       "is_required": "false",
       "is_hidden": "!(\n  \"tiefbau-landschaft-art-erschliessungen\" in \"tiefbau-landschaft-art\"|answer\n)",
       "is_archived": false,
@@ -25719,6 +26747,36 @@
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"#### Angaben zur Geb\\u00e4udeh\\u00fclle\\nMaterialien und Farbgebung der Fassade, der Geb\\u00e4ude\\u00f6ffnungen (Fenster und T\\u00fcren) und der Bedachung. Bei umfangreichen Projekten (z.B. Gesamt\\u00fcberbauungen, gr\\u00f6ssere Bauten und Anlagen, Bauten in sensiblen Gebieten wie Kern- und/oder Ortsbildschutzzonen) bitten wir Sie, ein Farbkonzept einzureichen.\\n\\nIn diesem Zusammenhang verweisen wir auf das Merkblatt [Farbgebung in Ortsbildern und in der Landschaft](https://www.ur.ch/_docn/187162/Merkblatt_Farbgebung_in_Ortsbildern_und_in_der_Landschaft_Version_2.pdf)\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "fassadenplaene",
+    "fields": {
+      "created_at": "2021-04-08T09:03:10.956Z",
+      "modified_at": "2021-04-09T11:58:12.100Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fassadenpl\\u00e4ne\", \"fr\": null}",
+      "type": "multiple_choice",
+      "is_required": "[\n 'art-der-hochbaute-einfamilienhaus',\n 'art-der-hochbaute-doppeleinfamilienhaus',\n 'art-der-hochbaute-mehrfamilienhaus',\n 'art-der-hochbaute-geschaftshaus',\n 'art-der-hochbaute-wohn-und-geschaftshaus',\n 'art-der-hochbaute-industrie',\n 'art-der-hochbaute-garage-oder-carport',\n 'art-der-hochbaute-parkhaus',\n 'art-der-hochbaute-bauten-und-anlagen-gastgewerbe',\n 'art-der-hochbaute-heim-mit-unterkunft',\n 'art-der-hochbaute-wohnheim-ohne-pflege',\n 'art-der-hochbaute-spital',\n 'art-der-hochbaute-schulen',\n 'art-der-hochbaute-sporthallen',\n 'art-der-hochbaute-tourismusanlagen',\n 'art-der-hochbaute-kirchen',\n 'art-der-hochbaute-kulturbauten',\n 'art-der-hochbaute-ekonomie-mit-tieren-mit-tieren',\n 'art-der-hochbaute-oekonomiegebaude',\n 'art-der-hochbaute-landwirtschaft-betrieb-wohnteil',\n 'art-der-hochbaute-forstwirtschaft'\n] intersects \n'gebaeude'|answer|mapby('art-der-hochbaute')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -26341,6 +27399,66 @@
       "type": "choice",
       "is_required": "true",
       "is_hidden": "False",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "fotodokumentation",
+    "fields": {
+      "created_at": "2021-04-08T09:23:08.359Z",
+      "modified_at": "2021-04-09T15:15:42.303Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fotodokumentation\", \"fr\": null}",
+      "type": "multiple_choice",
+      "is_required": "[\n 'terrainveraenderungen-gelaendeaufschuettung',\n 'terrainveraenderungen-steingewinnung-abbau-oberflaechlich',\n 'terrainveraenderungen-steinabbau',\n 'terrainveraenderungen-bodenverbesserungohne-materialzufuhr',\n 'terrainveraenderungen-bodenverbesserung-mit-materialzufuhr'\n] intersects 'tiefbauten-landschaft'|answer|mapby('terrainveraenderungen') ||\n[\n 'erschliessungen-viehtriebweg',\n 'erschliessungen-bewirtschaftungsweg-befahrbar',\n 'erschliessungen-gueterstrasse',\n 'erschliessungen-gemeindestrasse'\n] intersects \n'tiefbauten-landschaft'|answer|mapby('erschliessungen')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "fotodokumentation-spezialgesuche",
+    "fields": {
+      "created_at": "2021-04-09T15:12:20.396Z",
+      "modified_at": "2021-04-09T15:18:31.266Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fotodokumentation\", \"fr\": null}",
+      "type": "multiple_choice",
+      "is_required": "'form-type-commercial-permit' in 'form-type'|answer",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -27328,6 +28446,36 @@
         "max_length": null,
         "min_length": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "grundrissplaene",
+    "fields": {
+      "created_at": "2021-04-08T08:45:21.010Z",
+      "modified_at": "2021-04-09T11:56:55.824Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grundrisspl\\u00e4ne\", \"fr\": null}",
+      "type": "multiple_choice",
+      "is_required": "[\n 'art-der-hochbaute-einfamilienhaus',\n 'art-der-hochbaute-doppeleinfamilienhaus',\n 'art-der-hochbaute-mehrfamilienhaus',\n 'art-der-hochbaute-geschaftshaus',\n 'art-der-hochbaute-wohn-und-geschaftshaus',\n 'art-der-hochbaute-industrie',\n 'art-der-hochbaute-garage-oder-carport',\n 'art-der-hochbaute-parkhaus',\n 'art-der-hochbaute-bauten-und-anlagen-gastgewerbe',\n 'art-der-hochbaute-heim-mit-unterkunft',\n 'art-der-hochbaute-wohnheim-ohne-pflege',\n 'art-der-hochbaute-spital',\n 'art-der-hochbaute-schulen',\n 'art-der-hochbaute-sporthallen',\n 'art-der-hochbaute-tourismusanlagen',\n 'art-der-hochbaute-kirchen',\n 'art-der-hochbaute-kulturbauten',\n 'art-der-hochbaute-ekonomie-mit-tieren-mit-tieren',\n 'art-der-hochbaute-oekonomiegebaude',\n 'art-der-hochbaute-landwirtschaft-betrieb-wohnteil',\n 'art-der-hochbaute-forstwirtschaft',\n 'art-der-hochbaute-materiallager',\n 'art-der-hochbaute-brennstofflager',\n 'art-der-hochbaute-kehrichtentsorgungsanlagen'\n] intersects \n'gebaeude'|answer|mapby('art-der-hochbaute')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -29120,6 +30268,36 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "laengenprofile",
+    "fields": {
+      "created_at": "2021-04-08T09:21:32.163Z",
+      "modified_at": "2021-04-09T12:03:46.383Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"L\\u00e4ngenprofile\", \"fr\": null}",
+      "type": "multiple_choice",
+      "is_required": "[\n 'erschliessungen-gueterstrasse',\n 'erschliessungen-quartierstrasse',\n 'erschliessungen-korporationsstrasse',\n 'erschliessungen-gemeindestrasse'\n] intersects \n'tiefbauten-landschaft'|answer|mapby('erschliessungen')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "laermgutachten-erfoderlich",
     "fields": {
       "created_at": "2020-11-04T14:14:46.404Z",
@@ -30668,7 +31846,7 @@
       "label": "{\"de\": \"Neu\", \"fr\": null}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "!(\n  \"tiefbau-siedlung-art\"|answer intersects [\n    \"tiefbau-siedlung-art-parkplaetze\",\n    \"tiefbau-siedlung-art-veloabstellplaetze\",\n    \"tiefbau-siedlung-art-spielplaetze\"\n  ]\n)",
+      "is_hidden": "!(\n  \"tiefbau-siedlung-art\"|answer in [\n    \"tiefbau-siedlung-art-parkplaetze\",\n    \"tiefbau-siedlung-art-veloabstellplaetze\",\n    \"tiefbau-siedlung-art-spielplaetze\"\n  ]\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -30826,6 +32004,36 @@
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"####Nichtionisierende Strahlung\\n\\n**Hinweis:** Bauvorhaben im Einzugsbereich von Hochspannungsleitungen (z.B. Swissgrid, SBB, CKW oder \\u00f6rtliche Elektrizit\\u00e4tswerke) m\\u00fcssen hinsichtlich nichtionisierender Strahlung (NISV) gepr\\u00fcft werden.\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "normalprofil",
+    "fields": {
+      "created_at": "2021-04-08T09:12:15.401Z",
+      "modified_at": "2021-04-09T14:13:32.962Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Normalprofil\", \"fr\": null}",
+      "type": "multiple_choice",
+      "is_required": "([\n 'erschliessungen-wanderweg',\n 'erschliessungen-fussweg',\n 'erschliessungen-veloweg',\n 'erschliessungen-viehtriebweg',\n 'erschliessungen-bewirtschaftungsweg-befahrbar',\n 'erschliessungen-liegenschaftszufahrt',\n 'erschliessungen-baupiste-temporaer'\n] intersects \n'tiefbauten-landschaft'|answer|mapby('erschliessungen'))",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -31852,6 +33060,66 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "produktbeschrieb",
+    "fields": {
+      "created_at": "2021-04-08T09:33:56.139Z",
+      "modified_at": "2021-04-08T09:34:29.351Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Produktbeschrieb\", \"fr\": null}",
+      "type": "multiple_choice",
+      "is_required": "'form-type-solar-announcement' in 'form-type'|answer",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "produktbeschrieb-spezialgesuche",
+    "fields": {
+      "created_at": "2021-04-09T15:12:50.838Z",
+      "modified_at": "2021-04-09T15:18:41.036Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Produktbeschrieb\", \"fr\": null}",
+      "type": "multiple_choice",
+      "is_required": "'form-type-solar-announcement' in 'form-type'|answer",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "project-author",
     "fields": {
       "created_at": "2020-08-28T14:23:57.475Z",
@@ -32180,6 +33448,36 @@
         "max_length": null,
         "min_length": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "querprofile",
+    "fields": {
+      "created_at": "2021-04-08T09:07:14.591Z",
+      "modified_at": "2021-04-09T12:00:43.351Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Querprofile\", \"fr\": null}",
+      "type": "multiple_choice",
+      "is_required": "[\n 'terrainveraenderungen-gelaendeaufschuettung',\n 'terrainveraenderungen-deponie',\n 'terrainveraenderungen-steingewinnung-abbau-oberflaechlich',\n 'terrainveraenderungen-steinabbau',\n 'terrainveraenderungen-bodenverbesserungohne-materialzufuhr',\n 'terrainveraenderungen-bodenverbesserung-mit-materialzufuhr'\n] intersects 'tiefbauten-landschaft'|answer|mapby('terrainveraenderungen') ||\n[\n 'erschliessungen-gueterstrasse',\n 'erschliessungen-quartierstrasse',\n 'erschliessungen-korporationsstrasse',\n 'erschliessungen-gemeindestrasse'\n] intersects \n'tiefbauten-landschaft'|answer|mapby('erschliessungen')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -33080,6 +34378,36 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "schnittplaene",
+    "fields": {
+      "created_at": "2021-04-08T09:01:32.587Z",
+      "modified_at": "2021-04-09T11:57:38.967Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schnittpl\\u00e4ne\", \"fr\": null}",
+      "type": "multiple_choice",
+      "is_required": "[\n 'art-der-hochbaute-einfamilienhaus',\n 'art-der-hochbaute-doppeleinfamilienhaus',\n 'art-der-hochbaute-mehrfamilienhaus',\n 'art-der-hochbaute-geschaftshaus',\n 'art-der-hochbaute-wohn-und-geschaftshaus',\n 'art-der-hochbaute-industrie',\n 'art-der-hochbaute-garage-oder-carport',\n 'art-der-hochbaute-parkhaus',\n 'art-der-hochbaute-bauten-und-anlagen-gastgewerbe',\n 'art-der-hochbaute-heim-mit-unterkunft',\n 'art-der-hochbaute-wohnheim-ohne-pflege',\n 'art-der-hochbaute-spital',\n 'art-der-hochbaute-schulen',\n 'art-der-hochbaute-sporthallen',\n 'art-der-hochbaute-tourismusanlagen',\n 'art-der-hochbaute-kirchen',\n 'art-der-hochbaute-kulturbauten',\n 'art-der-hochbaute-ekonomie-mit-tieren-mit-tieren',\n 'art-der-hochbaute-oekonomiegebaude',\n 'art-der-hochbaute-landwirtschaft-betrieb-wohnteil',\n 'art-der-hochbaute-forstwirtschaft'\n] intersects \n'gebaeude'|answer|mapby('art-der-hochbaute')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "schuettgut-behaelter-silos",
     "fields": {
       "created_at": "2020-10-26T10:33:59.415Z",
@@ -33334,6 +34662,96 @@
       "label": "{\"de\": \"Ist eine bestehende Seilbahnanlage betroffen?\", \"fr\": null}",
       "type": "choice",
       "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "situationsplan-1-1000",
+    "fields": {
+      "created_at": "2021-04-08T06:58:40.309Z",
+      "modified_at": "2021-04-09T14:57:40.374Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Situationsplan 1 : 1000\", \"fr\": null}",
+      "type": "multiple_choice",
+      "is_required": "[\n 'erschliessungen-wanderweg',\n 'erschliessungen-fussweg',\n 'erschliessungen-veloweg',\n 'erschliessungen-viehtriebweg',\n 'erschliessungen-gueterstrasse',\n 'erschliessungen-quartierstrasse',\n 'erschliessungen-korporationsstrasse',\n 'erschliessungen-gemeindestrasse'\n] intersects \n'tiefbauten-landschaft'|answer|mapby('erschliessungen') ||\n[\n 'tiefbau-landschaft-art-leitungsbau',\n 'tiefbau-landschaft-art-entsorgung'\n] intersects\n'tiefbauten-landschaft'|answer|mapby('tiefbau-landschaft-art')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "situationsplan-1-500",
+    "fields": {
+      "created_at": "2021-04-08T08:10:28.700Z",
+      "modified_at": "2021-04-09T15:13:55.303Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Situationsplan 1 : 500\", \"fr\": null}",
+      "type": "multiple_choice",
+      "is_required": "[\n 'art-der-hochbaute-einfamilienhaus',\n 'art-der-hochbaute-doppeleinfamilienhaus',\n 'art-der-hochbaute-mehrfamilienhaus',\n 'art-der-hochbaute-geschaftshaus',\n 'art-der-hochbaute-wohn-und-geschaftshaus',\n 'art-der-hochbaute-industrie',\n 'art-der-hochbaute-garage-oder-carport',\n 'art-der-hochbaute-parkhaus',\n 'art-der-hochbaute-bauten-und-anlagen-gastgewerbe',\n 'art-der-hochbaute-heim-mit-unterkunft',\n 'art-der-hochbaute-wohnheim-ohne-pflege',\n 'art-der-hochbaute-spital',\n 'art-der-hochbaute-schulen',\n 'art-der-hochbaute-sporthallen',\n 'art-der-hochbaute-tourismusanlagen',\n 'art-der-hochbaute-kirchen',\n 'art-der-hochbaute-kulturbauten',\n 'art-der-hochbaute-ekonomie-mit-tieren-mit-tieren',\n 'art-der-hochbaute-oekonomiegebaude',\n 'art-der-hochbaute-landwirtschaft-betrieb-wohnteil',\n 'art-der-hochbaute-forstwirtschaft',\n 'art-der-hochbaute-energieholzlager',\n 'art-der-hochbaute-materiallager',\n 'art-der-hochbaute-brennstofflager',\n 'art-der-hochbaute-silo',\n 'art-der-hochbaute-reklamebauten',\n 'art-der-hochbaute-kommunikationsanlagen',\n 'art-der-hochbaute-kehrichtentsorgungsanlagen',\n 'art-der-hochbaute-andere'\n] intersects \n'gebaeude'|answer|mapby('art-der-hochbaute') ||\n[\n 'terrainveraenderungen-gelaendeaufschuettung',\n 'terrainveraenderungen-deponie',\n 'terrainveraenderungen-steingewinnung-abbau-oberflaechlich',\n 'terrainveraenderungen-steinabbau',\n 'terrainveraenderungen-bodenverbesserungohne-materialzufuhr',\n 'terrainveraenderungen-bodenverbesserung-mit-materialzufuhr'\n] intersects 'tiefbauten-landschaft'|answer|mapby('terrainveraenderungen') ||\n[\n 'erschliessungen-bewirtschaftungsweg-befahrbar',\n 'erschliessungen-liegenschaftszufahrt',\n 'erschliessungen-baupiste-temporaer'\n] intersects 'tiefbauten-landschaft'|answer|mapby('erschliessungen') ||\n[\n 'tiefbau-landschaft-art-schutzbauten',\n 'tiefbau-landschaft-art-revitalisierung'\n] intersects 'tiefbauten-landschaft'|answer|mapby('tiefbau-landschaft-art') ||\n[\n 'tiefbau-siedlung-art-parkplaetze',\n 'tiefbau-siedlung-art-veloabstellplaetze',\n 'tiefbau-siedlung-art-spielplaetze',\n 'tiefbau-siedlung-art-stromanschluss',\n 'tiefbau-siedlung-art-trinkwasser',\n 'tiefbau-siedlung-art-fernheizung',\n 'tiefbau-siedlung-art-gasnetz',\n 'tiefbau-siedlung-art-abwasser',\n 'tiefbau-siedlung-art-datenleitung'\n] intersects 'tiefbauten'|answer|mapby('tiefbau-siedlung-art')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "situationsplan-1-500-spezialgesuche",
+    "fields": {
+      "created_at": "2021-04-09T15:11:12.769Z",
+      "modified_at": "2021-04-12T06:05:31.732Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Situationsplan 1 : 500\", \"fr\": null}",
+      "type": "multiple_choice",
+      "is_required": "[\n 'form-type-solar-announcement',\n 'form-type-commercial-permit',\n 'form-type-project-announcement'\n] intersects 'form-type'|answer",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
@@ -34231,6 +35649,36 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "technischer-beschrieb",
+    "fields": {
+      "created_at": "2021-04-08T09:34:53.695Z",
+      "modified_at": "2021-04-09T12:08:35.611Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Technischer Beschrieb\", \"fr\": null}",
+      "type": "multiple_choice",
+      "is_required": "[\n 'art-der-hochbaute-brennstofflager',\n 'art-der-hochbaute-kehrichtentsorgungsanlagen'\n] intersects \n'gebaeude'|answer|mapby('art-der-hochbaute') ||\n[\n 'terrainveraenderungen-gelaendeaufschuettung',\n 'terrainveraenderungen-deponie',\n 'terrainveraenderungen-steingewinnung-abbau-oberflaechlich',\n 'terrainveraenderungen-steinabbau',\n 'terrainveraenderungen-bodenverbesserungohne-materialzufuhr',\n 'terrainveraenderungen-bodenverbesserung-mit-materialzufuhr'\n] intersects 'tiefbauten-landschaft'|answer|mapby('terrainveraenderungen')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "teilnahme-verlosung",
     "fields": {
       "created_at": "2020-11-15T19:46:10.159Z",
@@ -34270,7 +35718,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Terrainver\\u00e4nderungen\", \"fr\": null}",
-      "type": "multiple_choice",
+      "type": "choice",
       "is_required": "false",
       "is_hidden": "!(\n  \"tiefbau-landschaft-art-terrainveraenderungen\" in \"tiefbau-landschaft-art\"|answer\n)",
       "is_archived": false,
@@ -34480,7 +35928,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Umgebung und Anschl\\u00fcsse\", \"fr\": null}",
-      "type": "multiple_choice",
+      "type": "choice",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
@@ -36409,6 +37857,36 @@
       "type": "multiple_choice",
       "is_required": "false",
       "is_hidden": "!(\"themen-arbeitssicherheit-foerderanlagen\" in \"themen-arbeitssicherheit\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werkleitungsplan",
+    "fields": {
+      "created_at": "2021-04-08T09:29:10.251Z",
+      "modified_at": "2021-04-12T06:22:08.084Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Werkleitungsplan\", \"fr\": null}",
+      "type": "multiple_choice",
+      "is_required": "[\n 'art-der-hochbaute-einfamilienhaus',\n 'art-der-hochbaute-doppeleinfamilienhaus',\n 'art-der-hochbaute-mehrfamilienhaus',\n 'art-der-hochbaute-geschaftshaus',\n 'art-der-hochbaute-wohn-und-geschaftshaus',\n 'art-der-hochbaute-industrie',\n 'art-der-hochbaute-bauten-und-anlagen-gastgewerbe',\n 'art-der-hochbaute-heim-mit-unterkunft',\n 'art-der-hochbaute-wohnheim-ohne-pflege',\n 'art-der-hochbaute-spital',\n 'art-der-hochbaute-schulen',\n 'art-der-hochbaute-sporthallen',\n 'art-der-hochbaute-tourismusanlagen',\n 'art-der-hochbaute-kirchen',\n 'art-der-hochbaute-kulturbauten'\n] intersects \n'gebaeude'|answer|mapby('art-der-hochbaute') ||\n[\n 'infrastruktur-entsorgung-abwasser'\n] intersects\n'tiefbauten-landschaft'|answer|mapby('infrastruktur-entsorgung') ||\n[\n 'infrastrukturanlagen-landschaft-elektriziaet',\n 'infrastrukturanlagen-landschaft-trinkwasser',\n 'infrastrukturanlagen-landschaft-fernheizung',\n 'infrastrukturanlagen-landschaft-gas',\n 'infrastrukturanlagen-landschaft-datenversorgung'\n] intersects 'tiefbauten-landschaft'|answer|mapby('infrastrukturanlagen-landschaft')",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -39065,6 +40543,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "brandschutzkonzept.brandschutzkonzept-ja",
+    "fields": {
+      "created_at": "2021-04-09T11:56:01.855Z",
+      "modified_at": "2021-04-09T11:56:01.855Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "brandschutzkonzept",
+      "option": "brandschutzkonzept-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "brandschutzplan.brandschutzplan-ja",
+    "fields": {
+      "created_at": "2021-04-09T11:54:51.450Z",
+      "modified_at": "2021-04-09T11:54:51.450Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "brandschutzplan",
+      "option": "brandschutzplan-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "brennstoffe-lagerort.brennstoffe-lagerort-andere",
     "fields": {
       "created_at": "2020-10-21T13:32:13.539Z",
@@ -39230,6 +40738,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "dachaufsicht-spezialgesuche.dachaufsicht-spezialgesuche-ja",
+    "fields": {
+      "created_at": "2021-04-09T15:18:21.431Z",
+      "modified_at": "2021-04-09T15:18:21.431Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "dachaufsicht-spezialgesuche",
+      "option": "dachaufsicht-spezialgesuche-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "dachaufsicht.dachaufsicht-ja",
+    "fields": {
+      "created_at": "2021-04-08T09:01:08.514Z",
+      "modified_at": "2021-04-08T09:01:08.514Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "dachaufsicht",
+      "option": "dachaufsicht-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "empfehlen.empfehlen-1",
     "fields": {
       "created_at": "2020-11-14T16:24:31.761Z",
@@ -39335,6 +40873,21 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "energienachweis.energienachweis-ja",
+    "fields": {
+      "created_at": "2021-04-09T11:58:48.128Z",
+      "modified_at": "2021-04-09T11:58:48.128Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "energienachweis",
+      "option": "energienachweis-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "entsorgen.entsorgen-ja",
     "fields": {
       "created_at": "2021-03-11T14:00:05.950Z",
@@ -39360,6 +40913,21 @@
       "modified_by_group": null,
       "question": "entsorgen",
       "option": "entsorgen-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entwaesserungsplan.entwaesserungsplan-ja",
+    "fields": {
+      "created_at": "2021-04-09T12:02:57.060Z",
+      "modified_at": "2021-04-09T12:02:57.060Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "entwaesserungsplan",
+      "option": "entwaesserungsplan-ja",
       "sort": 1
     }
   },
@@ -39676,6 +41244,21 @@
       "question": "fassade",
       "option": "fassade-verputz",
       "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "fassadenplaene.fassadenplaene-ja",
+    "fields": {
+      "created_at": "2021-04-09T11:58:12.115Z",
+      "modified_at": "2021-04-09T11:58:12.115Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "fassadenplaene",
+      "option": "fassadenplaene-ja",
+      "sort": 1
     }
   },
   {
@@ -40745,6 +42328,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "fotodokumentation-spezialgesuche.fotodokumentation-spezialgesuche-ja",
+    "fields": {
+      "created_at": "2021-04-09T15:18:31.274Z",
+      "modified_at": "2021-04-09T15:18:31.274Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "fotodokumentation-spezialgesuche",
+      "option": "fotodokumentation-spezialgesuche-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "fotodokumentation.fotodokumentation-ja",
+    "fields": {
+      "created_at": "2021-04-09T15:15:42.313Z",
+      "modified_at": "2021-04-09T15:15:42.313Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "fotodokumentation",
+      "option": "fotodokumentation-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "fundationsart.fundationsart-andere",
     "fields": {
       "created_at": "2020-09-18T15:31:39.112Z",
@@ -41206,6 +42819,21 @@
       "question": "groesse-der-baustelle",
       "option": "groesse-der-baustelle-kleiner-4000",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "grundrissplaene.grundrissplaene-ja",
+    "fields": {
+      "created_at": "2021-04-09T11:56:55.832Z",
+      "modified_at": "2021-04-09T11:56:55.832Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "grundrissplaene",
+      "option": "grundrissplaene-ja",
+      "sort": 1
     }
   },
   {
@@ -42080,6 +43708,21 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "laengenprofile.laengenprofile-ja",
+    "fields": {
+      "created_at": "2021-04-09T12:03:46.391Z",
+      "modified_at": "2021-04-09T12:03:46.391Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "laengenprofile",
+      "option": "laengenprofile-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "laermschutzfragen.laermschutzfragen-laermschutz-beeintraechtigungen",
     "fields": {
       "created_at": "2020-11-04T16:21:38.347Z",
@@ -42815,6 +44458,21 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "normalprofil.normalprofil-ja",
+    "fields": {
+      "created_at": "2021-04-09T14:13:32.972Z",
+      "modified_at": "2021-04-09T14:13:32.972Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "normalprofil",
+      "option": "normalprofil-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "oberflaechen-typ.oberflaechen-typ-farbspritzanlage",
     "fields": {
       "created_at": "2020-10-29T08:50:36.921Z",
@@ -43170,6 +44828,36 @@
       "modified_by_group": null,
       "question": "plangenehmigungspflicht",
       "option": "plangenehmigungspflicht-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "produktbeschrieb-spezialgesuche.produktbeschrieb-spezialgesuche-ja",
+    "fields": {
+      "created_at": "2021-04-09T15:18:41.046Z",
+      "modified_at": "2021-04-09T15:18:41.046Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "produktbeschrieb-spezialgesuche",
+      "option": "produktbeschrieb-spezialgesuche-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "produktbeschrieb.produktbeschrieb-ja",
+    "fields": {
+      "created_at": "2021-04-08T09:34:29.364Z",
+      "modified_at": "2021-04-08T09:34:29.364Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "produktbeschrieb",
+      "option": "produktbeschrieb-ja",
       "sort": 1
     }
   },
@@ -43565,6 +45253,21 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "querprofile.querprofile-ja",
+    "fields": {
+      "created_at": "2021-04-09T12:00:43.360Z",
+      "modified_at": "2021-04-09T12:00:43.360Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "querprofile",
+      "option": "querprofile-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "rechtsstatus-qgp.rechtsstatus-qgp-aenderung",
     "fields": {
       "created_at": "2020-11-11T12:22:56.123Z",
@@ -43955,6 +45658,21 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "schnittplaene.schnittplaene-ja",
+    "fields": {
+      "created_at": "2021-04-09T11:57:38.977Z",
+      "modified_at": "2021-04-09T11:57:38.977Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "schnittplaene",
+      "option": "schnittplaene-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "schutzraum-baulich-betroffen.schutzraum-betroffen-ja",
     "fields": {
       "created_at": "2021-03-11T14:33:52.583Z",
@@ -44130,6 +45848,51 @@
       "modified_by_group": null,
       "question": "seilbahnanlage",
       "option": "seilbahnanlage-warenseilbahn",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "situationsplan-1-1000.situationsplan-1-1000-ja",
+    "fields": {
+      "created_at": "2021-04-09T14:57:40.383Z",
+      "modified_at": "2021-04-09T14:57:40.383Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "situationsplan-1-1000",
+      "option": "situationsplan-1-1000-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "situationsplan-1-500-spezialgesuche.situationsplan-1-500-spezialgesuche-ja",
+    "fields": {
+      "created_at": "2021-04-12T06:05:31.744Z",
+      "modified_at": "2021-04-12T06:05:31.744Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "situationsplan-1-500-spezialgesuche",
+      "option": "situationsplan-1-500-spezialgesuche-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "situationsplan-1-500.situationsplan-1-500-ja",
+    "fields": {
+      "created_at": "2021-04-09T15:13:55.313Z",
+      "modified_at": "2021-04-09T15:13:55.313Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "situationsplan-1-500",
+      "option": "situationsplan-1-500-ja",
       "sort": 1
     }
   },
@@ -44491,6 +46254,21 @@
       "question": "strassentyp",
       "option": "strassentyp-sob",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "technischer-beschrieb.technischer-beschrieb-ja",
+    "fields": {
+      "created_at": "2021-04-09T12:08:35.623Z",
+      "modified_at": "2021-04-09T12:08:35.623Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "technischer-beschrieb",
+      "option": "technischer-beschrieb-ja",
+      "sort": 1
     }
   },
   {
@@ -46770,6 +48548,21 @@
       "modified_by_group": null,
       "question": "welche-foerderanlagen",
       "option": "welche-foerderanlagen-stapeleinrichtungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werkleitungsplan.werkleitungsplan-ja",
+    "fields": {
+      "created_at": "2021-04-12T06:22:08.092Z",
+      "modified_at": "2021-04-12T06:22:08.092Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "werkleitungsplan",
+      "option": "werkleitungsplan-ja",
       "sort": 1
     }
   },

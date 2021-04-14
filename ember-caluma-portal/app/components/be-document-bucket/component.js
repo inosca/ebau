@@ -1,7 +1,8 @@
 import { assert } from "@ember/debug";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
-import { dropTask } from "ember-concurrency-decorators";
+import { tracked } from "@glimmer/tracking";
+import { dropTask, task } from "ember-concurrency-decorators";
 import UIkit from "uikit";
 
 import config from "ember-caluma-portal/config/environment";
@@ -24,8 +25,14 @@ export default class BeDocumentBucketComponent extends Component {
   @requiredArgument onUpload;
   @requiredArgument onDelete;
 
+  @tracked attachmentLoading = [];
+
   get allowedMimetypes() {
     return config.ebau.attachments.allowedMimetypes.join(",");
+  }
+
+  get useConfidential() {
+    return config.APPLICATION.useConfidential;
   }
 
   @dropTask
@@ -60,5 +67,19 @@ export default class BeDocumentBucketComponent extends Component {
     }
 
     return yield this.onDelete({ attachment, bucket: this.slug });
+  }
+
+  @task
+  *toggleConfidential(attachment) {
+    attachment.context = {
+      ...attachment.context,
+      isConfidential: !attachment.context.isConfidential,
+    };
+    this.attachmentLoading = [...this.attachmentLoading, attachment.id];
+    this.attachmentLoading = this.attachmentLoading.filter(
+      (id) => id !== attachment.id
+    );
+
+    yield attachment.save();
   }
 }
