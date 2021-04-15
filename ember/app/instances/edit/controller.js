@@ -1,40 +1,39 @@
 import { getOwner } from "@ember/application";
 import Controller from "@ember/controller";
-import EmberObject, { computed, get, getWithDefault } from "@ember/object";
+import EmberObject, { computed, get } from "@ember/object";
 import { gt } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
+import { tracked } from "@glimmer/tracking";
 import computedTask from "citizen-portal/lib/computed-task";
-import { task } from "ember-concurrency";
+import { task } from "ember-concurrency-decorators";
 
-const Module = EmberObject.extend({
-  questionStore: service(),
+class Module extends EmberObject {
+  @service questionStore;
 
-  queryParams: ["group"],
-  group: null,
+  queryParams = ["group"];
+  @tracked group = null;
 
-  allQuestions: computed(
-    "questions",
-    "submodules.@each.questions",
-    function () {
-      return [
-        ...this.getWithDefault("questions", []),
-        ...this.getWithDefault("submodules", []).reduce((qs, submodule) => {
-          return [...qs, ...getWithDefault(submodule, "questions", [])];
-        }, []),
-      ];
-    }
-  ),
+  @computed("questions", "submodules.@each.questions")
+  get allQuestions() {
+    return [
+      ...(this.questions || []),
+      ...(this.submodules || []).reduce((qs, submodule) => {
+        return [...qs, ...(submodule.questions || [])];
+      }, []),
+    ];
+  }
 
-  editable: computed("editableTypes.[]", "isApplicant", function () {
+  @computed("editableTypes.[]", "isApplicant")
+  get editable() {
     if (!this.isApplicant) {
       return false;
     }
 
     const questions = this.questionStore.peekSet(
-      this.getWithDefault("allQuestions", []),
+      this.allQuestions || [],
       this.instance
     );
-    const editable = this.getWithDefault("editableTypes", []);
+    const editable = this.editableTypes || [];
 
     const editableFieldTypes = [
       ...(editable.includes("form")
@@ -46,54 +45,49 @@ const Module = EmberObject.extend({
     return questions.some(({ field: { type } }) => {
       return editableFieldTypes.includes(type);
     });
-  }),
+  }
 
-  state: computed(
-    "questionStore._store.@each.{value,hidden,isNew}",
-    function () {
-      const names = this.getWithDefault("allQuestions", []);
+  @computed("questionStore._store.@each.{value,hidden,isNew}")
+  get state() {
+    const names = this.allQuestions || [];
 
-      const questions = this.questionStore
-        .peekSet(names, this.instance)
-        .filter((q) => !q.hidden);
+    const questions = this.questionStore
+      .peekSet(names, this.instance)
+      .filter((q) => !q.hidden);
 
-      if (!questions.length) {
-        return null;
-      }
-
-      if (questions.every((q) => q.get("isNew"))) {
-        return "untouched";
-      }
-
-      const relevantQuestions = questions.filter((q) =>
-        q.get("field.required")
-      );
-
-      if (relevantQuestions.some((q) => q.get("isNew"))) {
-        return "unfinished";
-      }
-
-      return relevantQuestions.every((q) => q.validate() === true)
-        ? "valid"
-        : "invalid";
+    if (!questions.length) {
+      return null;
     }
-  ),
-});
 
-export default Controller.extend({
-  questionStore: service(),
-  router: service(),
-  ajax: service(),
+    if (questions.every((q) => q.get("isNew"))) {
+      return "untouched";
+    }
 
-  modules: computedTask("_modules", "model.instance.form.name"),
-  _modules: task(function* () {
+    const relevantQuestions = questions.filter((q) => q.get("field.required"));
+
+    if (relevantQuestions.some((q) => q.get("isNew"))) {
+      return "unfinished";
+    }
+
+    return relevantQuestions.every((q) => q.validate() === true)
+      ? "valid"
+      : "invalid";
+  }
+}
+
+export default class InstancesEditController extends Controller {
+  @service questionStore;
+  @service router;
+  @service ajax;
+
+  @computedTask("_modules", "model.instance.form.name")
+  modules;
+
+  @task
+  *_modules() {
     const { forms, modules } = yield this.get("questionStore.config");
 
-    const usedModules = getWithDefault(
-      forms,
-      this.get("model.instance.form.name"),
-      []
-    )
+    const usedModules = (forms[this.get("model.instance.form.name")] || [])
       .map((name) => ({ name, ...modules[name] } || null))
       .filter(Boolean);
 
@@ -122,70 +116,63 @@ export default Controller.extend({
           return false;
         }
       });
-  }),
+  }
 
-  navigation: computed("modules.lastSuccessful.value.[]", function () {
-    return this.getWithDefault("modules.lastSuccessful.value", []).reduce(
-      (nav, mod) => {
-        if (mod.get("parent")) {
-          const parent = nav.find((n) => n.get("name") === mod.get("parent"));
+  @computed("modules.lastSuccessful.value.[]")
+  get navigation() {
+    return (this.modules.lastSuccessful.value || []).reduce((nav, mod) => {
+      if (mod.get("parent")) {
+        const parent = nav.find((n) => n.get("name") === mod.get("parent"));
 
-          parent.set("submodules", [
-            ...parent
-              .get("submodules")
-              .filter((sub) => sub.get("name") !== mod.get("name")),
-            mod,
-          ]);
-        } else if (
-          !this.get("model.meta.access-type") &&
-          mod.get("name") !== "gesuchsunterlagen"
-        ) {
-          nav.push(mod);
-        } else {
-          nav.push(mod);
-        }
+        parent.set("submodules", [
+          ...parent
+            .get("submodules")
+            .filter((sub) => sub.get("name") !== mod.get("name")),
+          mod,
+        ]);
+      } else if (
+        !this.get("model.meta.access-type") &&
+        mod.get("name") !== "gesuchsunterlagen"
+      ) {
+        nav.push(mod);
+      } else {
+        nav.push(mod);
+      }
 
-        return nav;
-      },
-      []
-    );
-  }),
+      return nav;
+    }, []);
+  }
 
-  links: computed(
+  @computed(
     "modules.lastSuccessful.value.[]",
-    "questionStore._store.@each.{value,isNew,hidden}",
-    function () {
-      const editableTypes = ["form", "document"];
-      return [
-        "instances.edit.index",
-        ...this.getWithDefault("modules.lastSuccessful.value", [])
-          .filter(({ state }) => Boolean(state))
-          .mapBy("link"),
-        ...(this.get("model.meta.editable").some((e) =>
-          editableTypes.includes(e)
-        )
-          ? ["instances.edit.submit"]
-          : []),
-      ];
-    }
-  ),
+    "questionStore._store.@each.{value,isNew,hidden}"
+  )
+  get links() {
+    const editableTypes = ["form", "document"];
+    return [
+      "instances.edit.index",
+      ...(this.modules.lastSuccessful.value || [])
+        .filter(({ state }) => Boolean(state))
+        .mapBy("link"),
+      ...(this.get("model.meta.editable").some((e) => editableTypes.includes(e))
+        ? ["instances.edit.submit"]
+        : []),
+    ];
+  }
 
-  currentIndex: computed("links.[]", "router.currentRouteName", function () {
-    return this.getWithDefault("links", []).indexOf(
-      this.get("router.currentRouteName")
-    );
-  }),
+  @computed("links.[]", "router.currentRouteName")
+  get currentIndex() {
+    return (this.links || []).indexOf(this.get("router.currentRouteName"));
+  }
 
-  hasPrev: gt("currentIndex", 0),
-  hasNext: computed(
-    "links.length",
-    "currentIndex.lastSuccessful.value",
-    function () {
-      return this.currentIndex < this.getWithDefault("links.length", 0) - 1;
-    }
-  ),
+  @gt("currentIndex", 0) hasPrev;
+  @computed("links.length", "currentIndex.lastSuccessful.value")
+  get hasNext() {
+    return this.currentIndex < (this.links.length || 0) - 1;
+  }
 
-  currentPage: computed("router.currentRouteName", function () {
+  @computed("router.currentRouteName")
+  get currentPage() {
     switch (this.get("router.currentRouteName")) {
       case "instances.edit.involvierte-personen":
         return "applicants";
@@ -200,9 +187,10 @@ export default Controller.extend({
       default:
         return "form";
     }
-  }),
+  }
 
-  prev: task(function* () {
+  @task
+  *prev() {
     yield this.get("questionStore.saveQuestion.last");
 
     const links = this.links;
@@ -211,14 +199,27 @@ export default Controller.extend({
     yield this.transitionToRoute(
       get(links, (i + links.length - 1) % links.length)
     );
-  }),
+  }
 
-  next: task(function* () {
+  @task
+  *next() {
     yield this.get("questionStore.saveQuestion.last");
 
     const links = this.links;
     const i = this.currentIndex;
 
     yield this.transitionToRoute(get(links, (i + 1) % links.length));
-  }),
-});
+  }
+
+  get instanceTransformation() {
+    const meta = this.questionStore.peek("meta", this.model.instance.id);
+    if (meta?.value) {
+      const formId = JSON.parse(meta.value).formChange.id;
+      if (formId) {
+        const form = this.store.findRecord("form", formId);
+        return form.description;
+      }
+    }
+    return null;
+  }
+}

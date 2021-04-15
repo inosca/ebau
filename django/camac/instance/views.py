@@ -143,6 +143,7 @@ class InstanceView(
             "camac-ng": {
                 "submit": serializers.InstanceSubmitSerializer,
                 "default": serializers.SchwyzInstanceSerializer,
+                "change_form": serializers.CamacInstanceChangeFormSerializer,
             },
         }
 
@@ -224,6 +225,15 @@ class InstanceView(
 
     @permission_aware
     def has_object_change_form_permission(self, instance):
+        return False
+
+    def has_object_change_form_permission_for_municipality(self, instance):
+        if settings.APPLICATION["FORM_BACKEND"] == "camac-ng":
+            return (
+                instance.responsible_service(filter_type="municipality")
+                == self.request.group.service
+            ) and instance.instance_state.name == "subm"
+
         return False
 
     def has_object_change_form_permission_for_support(self, instance):

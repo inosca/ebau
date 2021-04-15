@@ -302,6 +302,80 @@ class SchwyzInstanceSerializer(InstanceSerializer):
         return instance
 
 
+class CamacInstanceChangeFormSerializer(serializers.Serializer):
+    """Handle changing the form of an instance."""
+
+    form = serializers.CharField()
+
+    def validate_form(self, value):
+        if value not in settings.APPLICATION.get("INTERCHANGEABLE_FORMS", []):
+            raise exceptions.ValidationError(
+                _("'%(form)s' is not a valid form type") % {"form": value}
+            )
+
+        return value
+
+    def validate(self, data):
+        if self.instance.form.name not in settings.APPLICATION.get(
+            "INTERCHANGEABLE_FORMS", []
+        ):
+            raise exceptions.ValidationError(
+                _("The current form '%(form)s' can't be changed")
+                % {"form": self.instance.form.name}
+            )
+        elif self.instance.form.name == data["form"]:
+            raise exceptions.ValidationError(
+                _(
+                    _("Form is already of type '%(form)s', nothing to do.")
+                    % {"form": data["form"]}
+                )
+            )
+
+        return data
+
+    @transaction.atomic
+    def update(self, instance, validated_data):
+        previous_form = instance.form
+        instance.form = models.Form.objects.get(name=validated_data["form"])
+
+        instance.save()
+
+        meta, _ = models.FormField.objects.get_or_create(
+            instance=instance, name="meta", defaults={"value": json.dumps({})}
+        )
+        meta_value = json.loads(meta.value)
+        meta_value["formChange"] = {"name": previous_form.name, "id": previous_form.pk}
+        meta.value = json.dumps(meta_value)
+        meta.save()
+
+        work_item = workflow_models.WorkItem.objects.get(
+            **{
+                "task_id": settings.APPLICATION["CALUMA"]["REJECTION_TASK"],
+                "status": workflow_models.WorkItem.STATUS_READY,
+                "case__meta__camac-instance-id": instance.pk,
+            }
+        )
+
+        workflow_api.complete_work_item(
+            work_item=work_item,
+            user=self.context["request"].caluma_info.context.user,
+            context={
+                "notification-body": f'Die Leitbehörde hat ihres Gesuch von einem "{previous_form.description}" zu einem "{instance.form.description}" umgewandelt, da der vorherige Gesuchstyp inkorrekt war.'
+            },
+        )
+
+        create_history_entry(
+            instance,
+            self.context["request"].user,
+            f'Dossier wurde von "{previous_form.description}" zu "{instance.form.description}" umgewandelt',
+        )
+
+        return instance
+
+    class Meta:
+        resource_name = "instance-change-forms"
+
+
 class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
     # TODO once more than one Camac-NG project uses Caluma as a form
     # this serializer needs to be split up into what is actually
