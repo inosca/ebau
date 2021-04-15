@@ -1,8 +1,9 @@
 import { getOwner } from "@ember/application";
 import Controller from "@ember/controller";
-import EmberObject, { computed, get, getWithDefault } from "@ember/object";
+import EmberObject, { computed, get } from "@ember/object";
 import { gt } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
+import { tracked } from "@glimmer/tracking";
 import computedTask from "citizen-portal/lib/computed-task";
 import { task } from "ember-concurrency-decorators";
 
@@ -10,14 +11,14 @@ class Module extends EmberObject {
   @service questionStore;
 
   queryParams = ["group"];
-  group = null;
+  @tracked group = null;
 
   @computed("questions", "submodules.@each.questions")
   get allQuestions() {
     return [
-      ...this.getWithDefault("questions", []),
-      ...this.getWithDefault("submodules", []).reduce((qs, submodule) => {
-        return [...qs, ...getWithDefault(submodule, "questions", [])];
+      ...(this.questions || []),
+      ...(this.submodules || []).reduce((qs, submodule) => {
+        return [...qs, ...(submodule.questions || [])];
       }, []),
     ];
   }
@@ -29,10 +30,10 @@ class Module extends EmberObject {
     }
 
     const questions = this.questionStore.peekSet(
-      this.getWithDefault("allQuestions", []),
+      this.allQuestions || [],
       this.instance
     );
-    const editable = this.getWithDefault("editableTypes", []);
+    const editable = this.editableTypes || [];
 
     const editableFieldTypes = [
       ...(editable.includes("form")
@@ -48,7 +49,7 @@ class Module extends EmberObject {
 
   @computed("questionStore._store.@each.{value,hidden,isNew}")
   get state() {
-    const names = this.getWithDefault("allQuestions", []);
+    const names = this.allQuestions || [];
 
     const questions = this.questionStore
       .peekSet(names, this.instance)
@@ -86,11 +87,7 @@ export default class InstancesEditController extends Controller {
   *_modules() {
     const { forms, modules } = yield this.get("questionStore.config");
 
-    const usedModules = getWithDefault(
-      forms,
-      this.get("model.instance.form.name"),
-      []
-    )
+    const usedModules = (forms[this.get("model.instance.form.name")] || [])
       .map((name) => ({ name, ...modules[name] } || null))
       .filter(Boolean);
 
@@ -123,30 +120,27 @@ export default class InstancesEditController extends Controller {
 
   @computed("modules.lastSuccessful.value.[]")
   get navigation() {
-    return this.getWithDefault("modules.lastSuccessful.value", []).reduce(
-      (nav, mod) => {
-        if (mod.get("parent")) {
-          const parent = nav.find((n) => n.get("name") === mod.get("parent"));
+    return (this.modules.lastSuccessful.value || []).reduce((nav, mod) => {
+      if (mod.get("parent")) {
+        const parent = nav.find((n) => n.get("name") === mod.get("parent"));
 
-          parent.set("submodules", [
-            ...parent
-              .get("submodules")
-              .filter((sub) => sub.get("name") !== mod.get("name")),
-            mod,
-          ]);
-        } else if (
-          !this.get("model.meta.access-type") &&
-          mod.get("name") !== "gesuchsunterlagen"
-        ) {
-          nav.push(mod);
-        } else {
-          nav.push(mod);
-        }
+        parent.set("submodules", [
+          ...parent
+            .get("submodules")
+            .filter((sub) => sub.get("name") !== mod.get("name")),
+          mod,
+        ]);
+      } else if (
+        !this.get("model.meta.access-type") &&
+        mod.get("name") !== "gesuchsunterlagen"
+      ) {
+        nav.push(mod);
+      } else {
+        nav.push(mod);
+      }
 
-        return nav;
-      },
-      []
-    );
+      return nav;
+    }, []);
   }
 
   @computed(
@@ -157,7 +151,7 @@ export default class InstancesEditController extends Controller {
     const editableTypes = ["form", "document"];
     return [
       "instances.edit.index",
-      ...this.getWithDefault("modules.lastSuccessful.value", [])
+      ...(this.modules.lastSuccessful.value || [])
         .filter(({ state }) => Boolean(state))
         .mapBy("link"),
       ...(this.get("model.meta.editable").some((e) => editableTypes.includes(e))
@@ -168,15 +162,13 @@ export default class InstancesEditController extends Controller {
 
   @computed("links.[]", "router.currentRouteName")
   get currentIndex() {
-    return this.getWithDefault("links", []).indexOf(
-      this.get("router.currentRouteName")
-    );
+    return (this.links || []).indexOf(this.get("router.currentRouteName"));
   }
 
   @gt("currentIndex", 0) hasPrev;
   @computed("links.length", "currentIndex.lastSuccessful.value")
   get hasNext() {
-    return this.currentIndex < this.getWithDefault("links.length", 0) - 1;
+    return this.currentIndex < (this.links.length || 0) - 1;
   }
 
   @computed("router.currentRouteName")
@@ -221,7 +213,7 @@ export default class InstancesEditController extends Controller {
 
   get instanceTransformation() {
     const meta = this.questionStore.peek("meta", this.model.instance.id);
-    if (meta && meta.value) {
+    if (meta?.value) {
       const formId = JSON.parse(meta.value).formChange.id;
       if (formId) {
         const form = this.store.findRecord("form", formId);
