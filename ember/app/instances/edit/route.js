@@ -65,7 +65,6 @@ export default class InstancesEditRoute extends Route {
       // have too much unnecessary data in the memory
       this.store.unloadAll();
       this.questionStore.clear();
-      this.controllerFor("instances.edit").set("instanceTransformation", null);
     }
   }
 }
