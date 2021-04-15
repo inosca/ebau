@@ -50,21 +50,36 @@ export default class AuditController extends Controller {
 
   @dropTask
   *fetchAdditionalData(workItem) {
-    const serviceIds = workItem.document.answers.edges
-      .flatMap((edge) =>
-        edge.node.value.map((doc) => [
-          doc.createdByGroup,
-          doc.modifiedContentByGroup,
-        ])
-      )
-      .map((id) => parseInt(id, 10))
-      .filter(Boolean);
+    const cachedServiceIds = this.store
+      .peekAll("service")
+      .map((service) => parseInt(service.id, 10));
+    const cachedUsernames = this.store
+      .peekAll("public-user")
+      .map((user) => user.username);
 
-    const usernames = workItem.document.answers.edges
-      .flatMap((edge) =>
-        edge.node.value.map((doc) => doc.modifiedContentByUser)
-      )
-      .filter(Boolean);
+    const serviceIds = [
+      ...new Set(
+        workItem.document.answers.edges
+          .flatMap((edge) =>
+            edge.node.value.map((doc) => [
+              doc.createdByGroup,
+              doc.modifiedContentByGroup,
+            ])
+          )
+          .map((id) => parseInt(id, 10))
+          .filter((id) => id && !cachedServiceIds.includes(id))
+      ),
+    ];
+
+    const usernames = [
+      ...new Set(
+        workItem.document.answers.edges
+          .flatMap((edge) =>
+            edge.node.value.map((doc) => doc.modifiedContentByUser)
+          )
+          .filter((username) => username && !cachedUsernames.includes(username))
+      ),
+    ];
 
     if (serviceIds.length) {
       yield this.store.query("service", {
