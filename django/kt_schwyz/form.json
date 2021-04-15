@@ -156,6 +156,84 @@
       "fachthemen.fischerei",
       "gesuchsunterlagen"
     ],
+    "baugesuch-reklamegesuch-v3": [
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung",
+      "grundinformationen.allgemeine-informationen-zum-vorhaben-v3",
+      "grundinformationen.ausnahmebewilligungen",
+      "grundinformationen.gwr",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft",
+      "personalien.projektverfasser-planer",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "gesuchsunterlagen"
+    ],
+    "projektanderung-v3": [
+      "projektanderung",
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung",
+      "grundinformationen.allgemeine-informationen-zum-vorhaben-v3",
+      "grundinformationen.ausnahmebewilligungen",
+      "grundinformationen.gwr",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft",
+      "personalien.projektverfasser-planer",
+      "gesuchsunterlagen"
+    ],
+    "vorentscheid-gemass-ss84-pbg-v3": [
+      "vorentscheid",
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung",
+      "grundinformationen.allgemeine-informationen-zum-vorhaben-v3",
+      "grundinformationen.gwr",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft",
+      "personalien.projektverfasser-planer",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "gesuchsunterlagen"
+    ],
     "vorabklarung": [
       "grundinformationen",
       "grundinformationen.lokalisierung",
@@ -507,6 +585,20 @@
       "parent": "grundinformationen",
       "questions": [
         "geometer-v2",
+        "geometer-name",
+        "baugespann-errichtet",
+        "baugespann-errichtet-wann",
+        "kein-baugespann-begrundung",
+        "baukosten",
+        "gebaudevolumen-sia-116",
+        "gebaudevolumen-sia-416"
+      ]
+    },
+    "grundinformationen.allgemeine-informationen-zum-vorhaben-v3": {
+      "title": "Allgemeine Informationen zum Vorhaben",
+      "parent": "grundinformationen",
+      "questions": [
+        "geometer-v3",
         "geometer-name",
         "baugespann-errichtet",
         "baugespann-errichtet-wann",
@@ -1876,6 +1968,20 @@
           "GEO Netz AG (Schwyz, Lachen)",
           "HSK Ingenieur AG (Goldau, Küssnacht, Brunnen)",
           "geometrie plus ag (Freienbach, Einsiedeln)",
+          "Wild Ingenieure AG (Küssnacht)"
+        ]
+      }
+    },
+    "geometer-v3": {
+      "label": "Bitte wählen Sie zur Nachführung der amtlichen Vermessung einen Geometer aus.",
+      "hint": "Die Kosten für die Nachführung der amtlichen Vermessung infolge Umsetzung eines Bauvorhabens trägt die Bauherrschaft. Deshalb kann die Bauherrschaft bestimmen, welches Geometerbüro die besagten Arbeiten ausführen soll.",
+      "type": "radio",
+      "required": true,
+      "config": {
+        "options": [
+          "Geoinfra Ingenieure AG (Pfäffikon, Siebnen, Einsiedeln, Goldau, Küssnacht, Brunnen)",
+          "geometrie plus ag (Freienbach)",
+          "GEO Netz AG (Lachen, Schwyz)",
           "Wild Ingenieure AG (Küssnacht)"
         ]
       }

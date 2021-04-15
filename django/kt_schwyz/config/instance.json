@@ -198,6 +198,33 @@
     }
   },
   {
+    "model": "instance.form",
+    "pk": 23,
+    "fields": {
+      "form_state": 1,
+      "name": "baugesuch-reklamegesuch-v3",
+      "description": "Baugesuch"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 24,
+    "fields": {
+      "form_state": 1,
+      "name": "projektanderung-v3",
+      "description": "Projekt\u00e4nderung zu bewilligtem Baugesuch"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 25,
+    "fields": {
+      "form_state": 1,
+      "name": "vorentscheid-gemass-ss84-pbg-v3",
+      "description": "Vorentscheid gem\u00e4ss \u00a7 84 PBG"
+    }
+  },
+  {
     "model": "instance.formstate",
     "pk": 1,
     "fields": {
