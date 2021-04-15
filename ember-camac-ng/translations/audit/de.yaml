@@ -29,6 +29,8 @@ audit:
   createPdfError: "Fehler beim Herunterladen des PDF"
   completeInvalid: "Die Dossierprüfung wurde nicht korrekt ausgefüllt. Mindestens eine korrekt ausgefüllte formelle sowie materielle Prüfung ist obligatorisch. Bitte prüfen Ihre Daten und versuchen Sie es nochmals."
 
+  onlyExamItems: "Nur Prüfgegenstände anzeigen"
+
   forms:
     fp-form: "Formelle Prüfung"
     mp-form: "Materielle Prüfung"
