@@ -28,6 +28,7 @@ from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.models import Instance
 from camac.notification.serializers import InstanceMergeSerializer
 from camac.swagger.utils import get_operation_description, group_param
+from camac.user.models import Service
 from camac.user.permissions import DefaultOrPublicReadOnly, permission_aware
 from camac.utils import DocxRenderer
 
@@ -482,6 +483,12 @@ class TemplateView(views.ModelViewSet):
         serializer = self.get_serializer(instance, escape=True)
         serializer.validate_instance(instance)
         data = serializer.data
+
+        def activation_sort(activation):
+            service = Service.objects.get(name=activation["service"])
+            return (service.service_group.name, service.sort)
+
+        data["activations"].sort(key=activation_sort)
 
         for activation in data["activations"]:
             activation["notices"].sort(
