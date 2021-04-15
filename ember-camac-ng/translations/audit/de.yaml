@@ -3,19 +3,19 @@ audit:
   delete: "Prüfung löschen"
   complete: "Prüfung abschliessen"
   skip: "Prüfung überspringen"
-  titleMeta: "Zuletzt bearbeitet von '<span' title={service}>{user}'</span>' am {date}"
+  titleMeta: 'Zuletzt bearbeitet von <span title="{service}">{user}</span> am {date}'
   createPdf: "PDF herunterladen"
 
   type: "Prüfungstyp"
   municipality: "Leitbehörde"
   modified: "Zuletzt bearbeitet"
-  modifiedText: "'<span' title={service}>{user}'</span>' am {date}"
+  modifiedText: '<span title="{service}">{user}</span> am {date}'
   actions: "Aktionen"
   back: "Zurück zur Übersicht"
 
   deleteConfirm: "Wollen Sie die Prüfung wirklich löschen?"
-  skipConfirm: '''<span''>Wollen Sie die Prüfung wirklich überspringen?''</span''>''<div class="uk-margin uk-text-italic">''<strong''>Achtung:''</strong''> Diese Aktion kann nicht mehr rückgängig gemacht werden! Falls Sie einen Wechsel der Leitbehörde beabsichtigen, sollten Sie dies der neuen Leitbehörde überlassen.''</div''>'
-  completeConfirm: '''<span''>Wollen Sie die Prüfung wirklich abschliessen?''</span''>''<div class="uk-margin uk-text-italic">''<strong''>Achtung:''</strong''> Diese Aktion kann nicht mehr rückgängig gemacht werden! Falls Sie einen Wechsel der Leitbehörde beabsichtigen, sollten Sie dies der neuen Leitbehörde überlassen.''</div''>'
+  skipConfirm: '<span>Wollen Sie die Prüfung wirklich überspringen?</span><div class="uk-margin uk-text-italic"><strong>Achtung:</strong> Diese Aktion kann nicht mehr rückgängig gemacht werden! Falls Sie einen Wechsel der Leitbehörde beabsichtigen, sollten Sie dies der neuen Leitbehörde überlassen.</div>'
+  completeConfirm: '<span>Wollen Sie die Prüfung wirklich abschliessen?</span><div class="uk-margin uk-text-italic"><strong>Achtung:</strong> Diese Aktion kann nicht mehr rückgängig gemacht werden! Falls Sie einen Wechsel der Leitbehörde beabsichtigen, sollten Sie dies der neuen Leitbehörde überlassen.</div>'
 
   deleteSuccess: "Die Prüfung wurde erfolgreich gelöscht."
   skipSuccess: "Die Prüfung wurde erfolgreich übersprungen."

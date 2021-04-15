@@ -3,19 +3,19 @@ audit:
   delete: "Supprimer l'examen"
   complete: "Clore l'examen"
   skip: "Sauter l'examen"
-  titleMeta: "Dernière modification par '<span' title={service}>{user}'</span>' le {date}"
+  titleMeta: 'Dernière modification par <span title="{service}">{user}</span> le {date}'
   createPdf: "Télécharger le PDF"
 
   type: "Type du examen"
   municipality: "Autorité directrice"
   modified: "Dernière modification"
-  modifiedText: "'<span' title={service}>{user}'</span>' le {date}"
+  modifiedText: '<span title="{service}">{user}</span> le {date}'
   actions: "Actions"
   back: "Retour à l'aperçu"
 
   deleteConfirm: "Voulez-vous vraiment supprimer l'examen ?"
-  skipConfirm: '''<span''>Voulez-vous vraiment sauter l''examen du dossier ?''</span''>''<div class="uk-margin uk-text-italic">''<strong''>Attention :''</strong''> Cette action ne peut être annulée ! Si vous avez l''intention de changer d''autorité directrice, vous devez laisser cette tâche à la nouvelle autorité directrice.''</div''>'
-  completeConfirm: '''<span''>Voulez-vous vraiment clore l''examen du dossier ?''</span''>''<div class="uk-margin uk-text-italic">''<strong''>Attention :''</strong''> Cette action ne peut être annulée ! Si vous avez l''intention de changer d''autorité directrice, vous devez laisser cette tâche à la nouvelle autorité directrice.''</div''>'
+  skipConfirm: '<span>Voulez-vous vraiment sauter lexamen du dossier ?</span><div class="uk-margin uk-text-italic"><strong>Attention :</strong> Cette action ne peut être annulée ! Si vous avez lintention de changer dautorité directrice, vous devez laisser cette tâche à la nouvelle autorité directrice.</div>'
+  completeConfirm: '<span>Voulez-vous vraiment clore lexamen du dossier ?</span><div class="uk-margin uk-text-italic"><strong>Attention :</strong> Cette action ne peut être annulée ! Si vous avez lintention de changer dautorité directrice, vous devez laisser cette tâche à la nouvelle autorité directrice.</div>'
 
   deleteSuccess: "L'examen a été supprimé avec succès."
   skipSuccess: "L'examen a été sauté avec succès."
