@@ -7,10 +7,10 @@ from rest_framework.validators import UniqueTogetherValidator
 from rest_framework_json_api import relations, serializers
 
 from camac.instance.models import Instance
-from camac.notification.serializers import (
-    PermissionlessNotificationTemplateSendmailSerializer,
+from camac.notification import (
+    serializers as notification_serializers,
+    utils as notification_utils,
 )
-from camac.notification.utils import send_mail
 from camac.user.models import User
 
 from . import models
@@ -113,10 +113,10 @@ class PublicationEntryUserPermissionSerializer(serializers.ModelSerializer):
         )
 
         if notification_template:
-            send_mail(
+            notification_utils.send_mail(
                 notification_template,
                 self.context,
-                PermissionlessNotificationTemplateSendmailSerializer,
+                notification_serializers.PermissionlessNotificationTemplateSendmailSerializer,
                 recipient_types=["municipality"],
                 instance={
                     "id": validated_data["publication_entry"].instance.pk,

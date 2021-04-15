@@ -194,8 +194,9 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
             "phone",
             "users",
             "service_parent",
+            "sort",
         )
-        read_only_fields = ("users", "service_parent")
+        read_only_fields = ("users", "sort", "service_parent")
 
 
 class GroupSerializer(MultilingualSerializer, serializers.ModelSerializer):
