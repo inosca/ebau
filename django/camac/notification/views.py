@@ -29,7 +29,7 @@ class NotificationTemplateView(viewsets.ModelViewSet):
                 Q(type="textcomponent")
                 & (Q(service=None) | Q(service=self.request.group.service))
             )
-        )
+        ).select_related("service")
 
     def get_queryset_for_service(self):
         return self.get_queryset_for_canton()
