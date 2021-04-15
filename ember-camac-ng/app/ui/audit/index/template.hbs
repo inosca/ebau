@@ -1,4 +1,4 @@
-{{#if this.auditController.fetchAudit.isRunning}}
+{{#if (and this.auditController.fetchAudit.isRunning (not this.auditController.fetchAudit.lastSuccessful))}}
   <div class="uk-text-center">
     <UkSpinner @ratio={{2}} />
   </div>
@@ -37,7 +37,7 @@
             {{/if}}
           </td>
           <td class="uk-text-right">
-            {{#if this.createPdf.isRunning}}
+            {{#if (includes audit.id this.pdfLoading)}}
               <UkSpinner @ratio={{0.5}} />
             {{else}}
               <button
@@ -50,7 +50,7 @@
               </button>
             {{/if}}
             {{#if (and (not this.disabled) audit.canEdit)}}
-              {{#if this.deleteAudit.isRunning}}
+              {{#if (includes audit.id this.deleteAudit)}}
                 <UkSpinner @ratio={{0.5}} />
               {{else}}
                 <button
