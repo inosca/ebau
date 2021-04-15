@@ -31,7 +31,7 @@
               <button type="button" class="uk-icon-button" uk-icon="trash" title={{t "global.delete"}} {{on "click" (fn @onDelete attachment)}}></button>
               {{#if @useConfidential}}
                 {{#if (includes attachment.id @attachmentLoading)}}
-                  <UkSpinner />
+                  <UkSpinner @ratio={{1.1}} />
                 {{ else}}
                   <button
                     type="button"
