@@ -726,7 +726,7 @@ class Command(BaseCommand):
                 document=document,
                 question=question,
             )
-        except form_models.Answer.DoesNotExist:
+        except (form_models.Answer.DoesNotExist, Location.DoesNotExist):
             pass
 
     def _extract_parcel_number(self, document, inst):
