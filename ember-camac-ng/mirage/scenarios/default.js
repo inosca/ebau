@@ -8,4 +8,6 @@ export default function (server) {
   server.createList("history-entry", 5, { instanceId: 2 });
 
   server.createList("journal-entry", 3, { instanceId: 2 });
+
+  server.createList("notification-template", 3);
 }
