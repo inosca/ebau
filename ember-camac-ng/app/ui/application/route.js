@@ -42,6 +42,18 @@ export default class ApplicationRoute extends ApplicationRouteBase {
       component: "cf-collapsible-textarea",
       type: "TextareaQuestion",
     });
+
+    this.calumaOptions.registerComponentOverride({
+      label: "Text input with textcomponents",
+      component: "cf-text-textcomponent",
+      type: "TextQuestion",
+    });
+
+    this.calumaOptions.registerComponentOverride({
+      label: "Textarea with textcomponents",
+      component: "cf-textarea-textcomponent",
+      type: "TextareaQuestion",
+    });
   }
 
   sessionInvalidated() {

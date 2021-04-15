@@ -28544,7 +28544,9 @@
         "max_length": null,
         "min_length": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-text-textcomponent"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -28578,8 +28580,7 @@
         "min_length": null
       },
       "meta": {
-        "hideLabel": true,
-        "widgetOverride": "cf-collapsible-textarea"
+        "widgetOverride": "cf-textarea-textcomponent"
       },
       "data_source": null,
       "row_form": null,

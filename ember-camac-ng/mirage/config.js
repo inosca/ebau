@@ -22,5 +22,7 @@ export default function () {
   this.post("/api/v1/responsible-services");
   this.patch("/api/v1/responsible-services/:id");
 
+  this.get("/api/v1/notification-templates");
+
   this.passthrough("/index/token");
 }
