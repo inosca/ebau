@@ -2,9 +2,10 @@ import { getOwner, setOwner } from "@ember/application";
 import { A } from "@ember/array";
 import Controller, { inject as controller } from "@ember/controller";
 import { inject as service } from "@ember/service";
+import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import { decodeId } from "ember-caluma/helpers/decode-id";
-import { dropTask } from "ember-concurrency-decorators";
+import { dropTask, task } from "ember-concurrency-decorators";
 import { saveAs } from "file-saver";
 
 import { confirmTask } from "camac-ng/decorators";
@@ -74,6 +75,9 @@ export default class AuditIndexController extends Controller {
   @queryManager apollo;
 
   @controller("audit") auditController;
+
+  @tracked pdfLoading = [];
+  @tracked deleteLoading = [];
 
   get disabled() {
     return this.auditController.disabled;
@@ -149,13 +153,15 @@ export default class AuditIndexController extends Controller {
 
       yield this.transitionToRoute("audit.edit", decodeId(documentId));
     } catch (error) {
-      this.notifications.error(this.intl.t("audit.createError"));
+      this.notifications.danger(this.intl.t("audit.createError"));
     }
   }
 
-  @dropTask
+  @task
   *createPdf(audit) {
     try {
+      this.pdfLoading = [...this.pdfLoading, audit.id];
+
       const response = yield this.fetch.fetch(
         `/api/v1/instances/${this.model}/generate-pdf?document-id=${audit.id}`
       );
@@ -170,13 +176,17 @@ export default class AuditIndexController extends Controller {
       saveAs(yield response.blob(), filename);
     } catch (error) {
       this.notification.danger(this.intl.t("audit.createPdfError"));
+    } finally {
+      this.pdfLoading = this.pdfLoading.filter((id) => id !== audit.id);
     }
   }
 
-  @dropTask
+  @task
   @confirmTask("audit.deleteConfirm")
   *deleteAudit(audit) {
     try {
+      this.deleteLoading = [...this.deleteLoading, audit.id];
+
       const value = new Set(
         this.getTableAnswerValue(
           this.auditController.auditWorkItem.document,
@@ -206,7 +216,9 @@ export default class AuditIndexController extends Controller {
 
       this.notifications.success(this.intl.t("audit.deleteSuccess"));
     } catch (error) {
-      this.notifications.error(this.intl.t("audit.deleteError"));
+      this.notifications.danger(this.intl.t("audit.deleteError"));
+    } finally {
+      this.deleteLoading = this.deleteLoading.filter((id) => id !== audit.id);
     }
   }
 
@@ -223,7 +235,7 @@ export default class AuditIndexController extends Controller {
 
       this.notifications.success(this.intl.t("audit.skipSuccess"));
     } catch (error) {
-      this.notifications.error(this.intl.t("audit.skipError"));
+      this.notifications.danger(this.intl.t("audit.skipError"));
     }
   }
 
@@ -242,10 +254,10 @@ export default class AuditIndexController extends Controller {
     } catch (error) {
       if (error.errors) {
         // validation failed
-        this.notifications.error(this.intl.t("audit.completeInvalid"));
+        this.notifications.danger(this.intl.t("audit.completeInvalid"));
       } else {
         // generic error
-        this.notifications.error(this.intl.t("audit.completeError"));
+        this.notifications.danger(this.intl.t("audit.completeError"));
       }
     }
   }
