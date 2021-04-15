@@ -76,10 +76,10 @@ export default class BeDocumentBucketComponent extends Component {
       isConfidential: !attachment.context.isConfidential,
     };
     this.attachmentLoading = [...this.attachmentLoading, attachment.id];
+
+    yield attachment.save();
     this.attachmentLoading = this.attachmentLoading.filter(
       (id) => id !== attachment.id
     );
-
-    yield attachment.save();
   }
 }
