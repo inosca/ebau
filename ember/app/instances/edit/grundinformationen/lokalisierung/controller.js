@@ -32,7 +32,7 @@ export default Controller.extend({
   specialForm: computed("model.instance.form.id", function () {
     let form = `${this.get("model.instance.form.id")}`;
     const meta = this.questionStore.peek("meta", this.model.instance.id);
-    if (meta) {
+    if (meta?.value) {
       const formType = JSON.parse(meta.value).formType;
       form = `${form}-${formType}`;
     }

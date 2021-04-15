@@ -111,6 +111,10 @@
           </span>
         </h1>
 
+        {{#if this.instanceTransformation}}
+          <span>Umgewandelt von "{{this.instanceTransformation}}"</span>
+        {{/if}}
+
         <div uk-grid class="uk-margin uk-child-width-1-2">
           <div>
             {{#if this.hasPrev}}
