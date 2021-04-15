@@ -2408,6 +2408,15 @@
     }
   },
   {
+    "model": "core.araction",
+    "pk": 20,
+    "fields": {
+      "available_resource": "apilistactivation",
+      "action_name": "exportactivation",
+      "hidden": 1
+    }
+  },
+  {
     "model": "core.availableaction",
     "pk": "addhistory",
     "fields": {
