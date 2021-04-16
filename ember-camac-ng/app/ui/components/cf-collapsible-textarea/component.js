@@ -11,7 +11,7 @@ export default class CfCollapsibleTextareaComponent extends Component {
   }
 
   @action
-  toggleCollapsible(e) {
+  toggle(e) {
     e.preventDefault();
 
     this.collapsed = !this.collapsed;
