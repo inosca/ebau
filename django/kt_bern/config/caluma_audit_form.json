@@ -433,24 +433,6 @@
   },
   {
     "model": "caluma_form.answer",
-    "pk": "343bdd6c-47ab-45fc-a541-ce2200a6d246",
-    "fields": {
-      "created_at": "2020-11-20T13:21:32.345Z",
-      "modified_at": "2020-11-20T13:21:32.345Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "mp-abag-abav",
-      "value": "mp-abag-abav-nein",
-      "meta": {},
-      "document": null,
-      "date": null,
-      "file": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
     "pk": "35db6c1d-8e60-4890-ad27-6aa13348578a",
     "fields": {
       "created_at": "2020-11-20T13:21:33.515Z",
@@ -6811,51 +6793,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "mp-sicherheit.mp-abag-abav",
-    "fields": {
-      "created_at": "2020-10-14T13:05:14.834Z",
-      "modified_at": "2020-10-14T13:05:14.834Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "mp-sicherheit",
-      "question": "mp-abag-abav",
-      "sort": 6
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "mp-sicherheit.mp-abag-abav-bemerkungen",
-    "fields": {
-      "created_at": "2020-10-14T13:05:14.828Z",
-      "modified_at": "2020-10-14T13:05:14.828Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "mp-sicherheit",
-      "question": "mp-abag-abav-bemerkungen",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "mp-sicherheit.mp-abag-abav-ergebnis",
-    "fields": {
-      "created_at": "2020-10-14T13:05:14.831Z",
-      "modified_at": "2020-10-14T13:05:14.831Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "mp-sicherheit",
-      "question": "mp-abag-abav-ergebnis",
-      "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "mp-sicherheit.mp-auzuege",
     "fields": {
       "created_at": "2020-10-14T13:05:14.848Z",
@@ -9284,86 +9221,6 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": "2",
       "label": "{\"de\": \"betrifft Gew\\u00e4sser ohne Gemeindehoheit (Art. 101 BauV)\", \"fr\": \"est situ\\u00e9 sur un lac ou une rivi\\u00e8re soumis \\u00e0 la souverainet\\u00e9 d'aucune commune (art. 101 OC).\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "mp-abag-abav-ergebnis-eingehalten",
-    "fields": {
-      "created_at": "2020-10-14T13:05:14.765Z",
-      "modified_at": "2020-10-14T13:05:14.765Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "mp-abag-abav-ergebnis-mangel",
-    "fields": {
-      "created_at": "2020-10-14T13:05:14.768Z",
-      "modified_at": "2020-10-14T13:05:14.768Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "mp-abag-abav-ergebnis-mangel-behoben",
-    "fields": {
-      "created_at": "2020-10-14T13:05:14.772Z",
-      "modified_at": "2020-10-14T13:05:14.772Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "mp-abag-abav-ja",
-    "fields": {
-      "created_at": "2020-10-14T13:05:14.751Z",
-      "modified_at": "2020-10-14T13:05:14.751Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "mp-abag-abav-nein",
-    "fields": {
-      "created_at": "2020-10-14T13:05:14.754Z",
-      "modified_at": "2020-10-14T13:05:14.754Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\"}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -20020,99 +19877,6 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"Bauvorhaben in der Landwirtschaftszone bed\\u00fcrfen in jedem Fall einer Verf\\u00fcgung des Amtes f\\u00fcr Gemeinden und Raumordnung hinsichtlich der Zonenkonformit\\u00e4t (Art. 16/22 RPG) oder f\\u00fcr die Ausnahmebewilligung nach Art. 24 - 24d oder Art. 37a RPG.\", \"fr\": \"Les projets de construction dans une zone agricole requi\\u00e8rent dans tous les cas une d\\u00e9cision de l'OACOT sur la conformit\\u00e9 \\u00e0 l'affectation de la zone (art. 16/22 LAT) ou une d\\u00e9rogation au sens des articles 24 \\u00e0 24d ou 37a LAT.\"}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "mp-abag-abav",
-    "fields": {
-      "created_at": "2020-10-14T13:05:14.748Z",
-      "modified_at": "2020-11-20T13:21:32.348Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"ABAG / ABAV\", \"fr\": \"LTEI / OTEI\"}",
-      "type": "choice",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": "343bdd6c-47ab-45fc-a541-ce2200a6d246",
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "mp-abag-abav-bemerkungen",
-    "fields": {
-      "created_at": "2020-10-14T13:05:14.782Z",
-      "modified_at": "2020-10-14T13:05:14.782Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Bemerkungen\", \"fr\": \"Remarques\"}",
-      "type": "textarea",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true,
-        "widgetOverride": "cf-collapsible-textarea"
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "mp-abag-abav-ergebnis",
-    "fields": {
-      "created_at": "2020-10-14T13:05:14.761Z",
-      "modified_at": "2020-10-14T13:05:14.761Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Pr\\u00fcfergebnis\", \"fr\": \"R\\u00e9sultat de l'examen\"}",
-      "type": "choice",
-      "is_required": "true",
-      "is_hidden": "'mp-abag-abav'|answer != 'mp-abag-abav-ja'",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -31754,81 +31518,6 @@
       "modified_by_group": "2",
       "question": "fp-zustaendigkeit-bauvorhaben",
       "option": "fp-zustaendigkeit-bauvorhaben-gewaesser",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "mp-abag-abav-ergebnis.mp-abag-abav-ergebnis-eingehalten",
-    "fields": {
-      "created_at": "2020-10-14T13:05:14.776Z",
-      "modified_at": "2020-10-14T13:05:14.776Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "mp-abag-abav-ergebnis",
-      "option": "mp-abag-abav-ergebnis-eingehalten",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "mp-abag-abav-ergebnis.mp-abag-abav-ergebnis-mangel",
-    "fields": {
-      "created_at": "2020-10-14T13:05:14.778Z",
-      "modified_at": "2020-10-14T13:05:14.778Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "mp-abag-abav-ergebnis",
-      "option": "mp-abag-abav-ergebnis-mangel",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "mp-abag-abav-ergebnis.mp-abag-abav-ergebnis-mangel-behoben",
-    "fields": {
-      "created_at": "2020-10-14T13:05:14.780Z",
-      "modified_at": "2020-10-14T13:05:14.780Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "mp-abag-abav-ergebnis",
-      "option": "mp-abag-abav-ergebnis-mangel-behoben",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "mp-abag-abav.mp-abag-abav-ja",
-    "fields": {
-      "created_at": "2020-10-14T13:05:14.756Z",
-      "modified_at": "2020-10-14T13:05:14.756Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "mp-abag-abav",
-      "option": "mp-abag-abav-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "mp-abag-abav.mp-abag-abav-nein",
-    "fields": {
-      "created_at": "2020-10-14T13:05:14.759Z",
-      "modified_at": "2020-10-14T13:05:14.759Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "mp-abag-abav",
-      "option": "mp-abag-abav-nein",
       "sort": 1
     }
   },
