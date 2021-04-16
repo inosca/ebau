@@ -120,7 +120,7 @@ export default class InstancesEditController extends Controller {
 
   @computed("modules.lastSuccessful.value.[]")
   get navigation() {
-    return (this.modules.lastSuccessful.value || []).reduce((nav, mod) => {
+    return (this.modules.lastSuccessful?.value || []).reduce((nav, mod) => {
       if (mod.get("parent")) {
         const parent = nav.find((n) => n.get("name") === mod.get("parent"));
 
@@ -151,7 +151,7 @@ export default class InstancesEditController extends Controller {
     const editableTypes = ["form", "document"];
     return [
       "instances.edit.index",
-      ...(this.modules.lastSuccessful.value || [])
+      ...(this.modules.lastSuccessful?.value || [])
         .filter(({ state }) => Boolean(state))
         .mapBy("link"),
       ...(this.get("model.meta.editable").some((e) => editableTypes.includes(e))
