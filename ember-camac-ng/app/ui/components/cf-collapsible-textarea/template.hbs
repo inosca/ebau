@@ -1,30 +1,37 @@
-<label for="{{@field.pk}}">
-  <a {{on "click" this.toggleCollapsible}} class="uk-link-reset" href="#">
-    <span class="uk-text-bold">
-      {{@field.question.label}}
+<label class="uk-form-label" for="{{@field.pk}}">
+  <a
+    href="#"
+    class="uk-link-reset uk-flex uk-flex-between"
+    title={{t (concat "audit." (if this.collapsed "expand" "collapse"))}}
+    {{on "click" this.toggle}}
+  >
+    <span>
+      <span class="uk-text-bold">
+        {{@field.question.label}}
+      </span>
+
+      {{#if @field.optional}}
+        <span class="uk-margin-small-left uk-text-muted uk-text-lowercase uk-text-normal">({{t "caluma.form.optional"}})</span>
+      {{/if}}
     </span>
 
-    {{#if @field.optional}}
-      <span class="uk-margin-small-left uk-text-muted uk-text-lowercase uk-text-normal">({{t "caluma.form.optional"}})</span>
-    {{/if}}
-
-    <UkIcon class="uk-align-right" @icon="{{if this.collapsed "plus" "minus"}}"/>
+    <UkIcon @icon={{if this.collapsed "chevron-right" "chevron-down"}} @ratio={{0.75}} />
   </a>
 </label>
-<div class="uk-flex">
-  {{#unless this.collapsed}}
-    <textarea
-      readonly={{@disabled}}
-      name={{@field.pk}}
-      id={{@field.pk}}
-      value={{@field.answer.value}}
-      maxlength={{@field.question.textareaMaxLength}}
-      class="
-        uk-textarea
-        {{if @field.isInvalid "uk-form-danger"}}
-        {{if @field.disabled "uk-disabled"}}
-      "
-      {{on "input" this.save}}
-    />
-  {{/unless}}
-</div>
+
+{{#unless this.collapsed}}
+  <textarea
+    readonly={{@disabled}}
+    name={{@field.pk}}
+    id={{@field.pk}}
+    value={{@field.answer.value}}
+    maxlength={{@field.question.textareaMaxLength}}
+    rows="4"
+    class="
+      uk-textarea
+      {{if @field.isInvalid "uk-form-danger"}}
+      {{if @field.disabled "uk-disabled"}}
+    "
+    {{on "input" this.save}}
+  />
+{{/unless}}
