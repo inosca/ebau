@@ -44,5 +44,51 @@
       "context": {},
       "attachment_sections": [1]
     }
+  },
+  {
+    "model": "document.attachment",
+    "pk": 17000003,
+    "fields": {
+      "uuid": "e579b96d-b053-488d-8dac-626b87b05748",
+      "name": "3-baugesuch.pdf",
+      "instance": 3,
+      "path": "attachments/files/3/3-baugesuch_O6D64U5.pdf",
+      "size": 440830,
+      "date": "2021-03-31T13:17:08.781Z",
+      "user": 8,
+      "mime_type": "application/pdf",
+      "is_parcel_picture": 0,
+      "digital_signature": 0,
+      "is_confidential": 0,
+      "identifier": null,
+      "group": 6,
+      "question": "dokument-weitere-gesuchsunterlagen",
+      "service": null,
+      "context": {},
+      "attachment_sections": [1]
+    }
+  },
+  {
+    "model": "document.attachment",
+    "pk": 17000004,
+    "fields": {
+      "uuid": "693fc051-bfcb-4c97-b455-81ac99470df0",
+      "name": "3-selbstdeklaration-baukontrolle-1.pdf",
+      "instance": 3,
+      "path": "attachments/files/3/3-selbstdeklaration-baukontrolle-1.pdf",
+      "size": 55298,
+      "date": "2021-04-06T12:23:10.105Z",
+      "user": 8,
+      "mime_type": "application/pdf",
+      "is_parcel_picture": 0,
+      "digital_signature": 0,
+      "is_confidential": 0,
+      "identifier": null,
+      "group": 6,
+      "question": "dokument-weitere-gesuchsunterlagen",
+      "service": null,
+      "context": {},
+      "attachment_sections": [6]
+    }
   }
 ]
