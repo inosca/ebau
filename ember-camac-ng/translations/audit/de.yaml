@@ -31,6 +31,9 @@ audit:
 
   onlyExamItems: "Nur Prüfgegenstände anzeigen"
 
+  expand: "aufklappen"
+  collapse: "zuklappen"
+
   forms:
     fp-form: "Formelle Prüfung"
     mp-form: "Materielle Prüfung"

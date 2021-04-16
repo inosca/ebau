@@ -31,6 +31,9 @@ audit:
 
   onlyExamItems: "Afficher uniquement les objets de l'éxamen"
 
+  expand: "ouvrir"
+  collapse: "fermer"
+
   forms:
     fp-form: "Examen formel"
     mp-form: "Examen matériel"
