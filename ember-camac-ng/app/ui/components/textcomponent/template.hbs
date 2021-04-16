@@ -13,10 +13,10 @@
       <ul uk-accordion="multiple: true" class="uk-nav uk-dropdown-nav">
         {{#each-in this.textcomponents as |category textcomponentCategory|}}
           <li>
-            <a class="uk-accordion-title uk-margin-small uk-text-bold" href="#">{{category}}</a>
-            <ul class="uk-accordion-content">
+            <a class="uk-accordion-title uk-text-bold" href="#">{{category}}</a>
+            <ul class="uk-accordion-content uk-margin-small-left uk-margin-small-bottom">
               {{#each textcomponentCategory as |textcomponent|}}
-                <li class="uk-margin-small uk-text-bold">
+                <li class="uk-margin-small">
                   <a {{on "click" (fn this.applyTextcomponent textcomponent)}} href="#">
                     {{textcomponent.subject}}
                   </a>
