@@ -20,5 +20,16 @@
       "created": "2020-03-06T11:13:35.909Z",
       "email": "email@example.ch"
     }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 3,
+    "fields": {
+      "instance": 3,
+      "user": 8,
+      "invitee": 8,
+      "created": "2021-03-31T12:32:53.893Z",
+      "email": "email@example.ch"
+    }
   }
 ]

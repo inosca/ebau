@@ -7,7 +7,7 @@ from snapshottest import Snapshot
 
 snapshots = Snapshot()
 
-snapshots["test_document_merge_service_snapshot[1-baugesuch] 1"] = [
+snapshots["test_document_merge_service_snapshot[baugesuch] 1"] = [
     {
         "children": [
             {
@@ -55,13 +55,13 @@ snapshots["test_document_merge_service_snapshot[1-baugesuch] 1"] = [
                                     "label": "Name",
                                     "slug": "name-gesuchstellerin",
                                     "type": "TextQuestion",
-                                    "value": "Mustermann",
+                                    "value": "Meier",
                                 },
                                 {
                                     "label": "Vorname",
                                     "slug": "vorname-gesuchstellerin",
                                     "type": "TextQuestion",
-                                    "value": "Max",
+                                    "value": "Hans",
                                 },
                                 {
                                     "label": "Strasse",
@@ -73,7 +73,7 @@ snapshots["test_document_merge_service_snapshot[1-baugesuch] 1"] = [
                                     "label": "Nummer",
                                     "slug": "nummer-gesuchstellerin",
                                     "type": "TextQuestion",
-                                    "value": "14",
+                                    "value": "33",
                                 },
                                 {
                                     "label": "PLZ",
@@ -91,13 +91,13 @@ snapshots["test_document_merge_service_snapshot[1-baugesuch] 1"] = [
                                     "label": "Telefon oder Mobile",
                                     "slug": "telefon-oder-mobile-gesuchstellerin",
                                     "type": "TextQuestion",
-                                    "value": "000 000 00 00",
+                                    "value": "0999999999",
                                 },
                                 {
                                     "label": "E-Mail",
                                     "slug": "e-mail-gesuchstellerin",
                                     "type": "TextQuestion",
-                                    "value": "mm@test.ch",
+                                    "value": "test@example.ch",
                                 },
                                 {
                                     "content": None,
@@ -152,7 +152,7 @@ snapshots["test_document_merge_service_snapshot[1-baugesuch] 1"] = [
                         "label": "Beschreibung",
                         "slug": "beschreibung-bauvorhaben",
                         "type": "TextareaQuestion",
-                        "value": "Dachstock anbauen",
+                        "value": "Testanfrage",
                     },
                     {
                         "label": "Bisherige Nutzung",
@@ -258,7 +258,7 @@ snapshots["test_document_merge_service_snapshot[1-baugesuch] 1"] = [
                         "label": "Baukosten in CHF",
                         "slug": "baukosten-in-chf",
                         "type": "IntegerQuestion",
-                        "value": 100000,
+                        "value": 10000,
                     },
                     {
                         "label": "Geplanter Baustart",
@@ -304,8 +304,8 @@ snapshots["test_document_merge_service_snapshot[1-baugesuch] 1"] = [
                     },
                     {
                         "choices": [
-                            {"checked": True, "label": "EFH"},
-                            {"checked": False, "label": "MFH"},
+                            {"checked": False, "label": "EFH"},
+                            {"checked": True, "label": "MFH"},
                         ],
                         "label": "Um was für ein Gebäude handelt es sich?",
                         "slug": "um-was-fuer-ein-gebaeude-handelt-es-sich",
@@ -460,13 +460,13 @@ snapshots["test_document_merge_service_snapshot[1-baugesuch] 1"] = [
                         "label": "Strasse/Flurname",
                         "slug": "strasse-flurname",
                         "type": "TextQuestion",
-                        "value": "Strasse",
+                        "value": "Teststrasse",
                     },
                     {
                         "label": "Nr.",
                         "slug": "nr",
                         "type": "TextQuestion",
-                        "value": "14",
+                        "value": "3",
                     },
                     {
                         "label": "Ort",
@@ -500,7 +500,7 @@ snapshots["test_document_merge_service_snapshot[1-baugesuch] 1"] = [
                                     "label": "Parzellennummer",
                                     "slug": "parzellennummer",
                                     "type": "TextQuestion",
-                                    "value": "921",
+                                    "value": "1",
                                 },
                                 {
                                     "label": "Liegenschaftsnummer",
@@ -518,7 +518,7 @@ snapshots["test_document_merge_service_snapshot[1-baugesuch] 1"] = [
                                     "label": "E-GRID-Nr.",
                                     "slug": "e-grid-nr",
                                     "type": "TextQuestion",
-                                    "value": "CH208935354670",
+                                    "value": "CH273589324696",
                                 },
                                 {
                                     "label": "Strasse",
@@ -548,13 +548,13 @@ snapshots["test_document_merge_service_snapshot[1-baugesuch] 1"] = [
                                     "label": "Lagekoordinaten - Ost",
                                     "slug": "lagekoordinaten-ost",
                                     "type": "FloatQuestion",
-                                    "value": 2614411.0,
+                                    "value": 2614314.0,
                                 },
                                 {
                                     "label": "Lagekoordinaten - Nord",
                                     "slug": "lagekoordinaten-nord",
                                     "type": "FloatQuestion",
-                                    "value": 1211395.0,
+                                    "value": 1211926.0,
                                 },
                             ]
                         ],
@@ -617,7 +617,7 @@ snapshots["test_document_merge_service_snapshot[1-baugesuch] 1"] = [
                         "label": "Nutzungszone",
                         "slug": "nutzungszone",
                         "type": "TextQuestion",
-                        "value": "Mischzone 3a ",
+                        "value": "Ensembleschutzzone ",
                     },
                     {
                         "label": "Überbauungsordnung",
@@ -671,7 +671,7 @@ snapshots["test_document_merge_service_snapshot[1-baugesuch] 1"] = [
                 "children": [
                     {
                         "choices": [
-                            {"checked": True, "label": "S1"},
+                            {"checked": False, "label": "S1"},
                             {"checked": False, "label": "S2/Sh"},
                             {"checked": False, "label": "S3/Sm"},
                         ],
@@ -718,11 +718,65 @@ snapshots["test_document_merge_service_snapshot[1-baugesuch] 1"] = [
                     },
                     {
                         "choices": [
-                            {"checked": False, "label": "Ja"},
-                            {"checked": True, "label": "Nein"},
+                            {"checked": True, "label": "Ja"},
+                            {"checked": False, "label": "Nein"},
                         ],
                         "label": "Handelt es sich bei der Liegenschaft um ein Baudenkmal?",
                         "slug": "handelt-es-sich-um-ein-baudenkmal",
+                        "type": "ChoiceQuestion",
+                    },
+                    {
+                        "choices": [
+                            {"checked": False, "label": "Ja"},
+                            {"checked": True, "label": "Nein"},
+                        ],
+                        "label": "Schützenswert",
+                        "slug": "schuetzenswert",
+                        "type": "ChoiceQuestion",
+                    },
+                    {
+                        "choices": [
+                            {"checked": False, "label": "Ja"},
+                            {"checked": True, "label": "Nein"},
+                        ],
+                        "label": "Erhaltenswert",
+                        "slug": "erhaltenswert",
+                        "type": "ChoiceQuestion",
+                    },
+                    {
+                        "choices": [
+                            {"checked": False, "label": "Ja"},
+                            {"checked": True, "label": "Nein"},
+                        ],
+                        "label": "K-Objekt",
+                        "slug": "k-objekt",
+                        "type": "ChoiceQuestion",
+                    },
+                    {
+                        "choices": [
+                            {"checked": False, "label": "Ja"},
+                            {"checked": True, "label": "Nein"},
+                        ],
+                        "label": "Baugruppe Bauinventar",
+                        "slug": "baugruppe-bauinventar",
+                        "type": "ChoiceQuestion",
+                    },
+                    {
+                        "choices": [
+                            {"checked": False, "label": "Ja"},
+                            {"checked": True, "label": "Nein"},
+                        ],
+                        "label": "RRB",
+                        "slug": "rrb",
+                        "type": "ChoiceQuestion",
+                    },
+                    {
+                        "choices": [
+                            {"checked": False, "label": "Ja"},
+                            {"checked": True, "label": "Nein"},
+                        ],
+                        "label": "Vertrag",
+                        "slug": "vertrag",
                         "type": "ChoiceQuestion",
                     },
                     {
@@ -964,7 +1018,7 @@ snapshots["test_document_merge_service_snapshot[1-baugesuch] 1"] = [
                         "label": "Gebäudeversicherungswert vor der Erneuerung in CHF",
                         "slug": "gebaeudeversicherungswert-in-chf",
                         "type": "IntegerQuestion",
-                        "value": 2000000,
+                        "value": 10000,
                     }
                 ],
                 "label": "Hindernisfreies Bauen",
@@ -1827,7 +1881,7 @@ snapshots["test_document_merge_service_snapshot[1-baugesuch] 1"] = [
         "children": [
             {
                 "label": "Gesuchsteller/in",
-                "people": [{"familyName": "Mustermann", "givenName": "Max"}],
+                "people": [{"familyName": "Meier", "givenName": "Hans"}],
                 "type": "SignatureQuestion",
             }
         ],
@@ -1837,7 +1891,58 @@ snapshots["test_document_merge_service_snapshot[1-baugesuch] 1"] = [
     },
 ]
 
-snapshots["test_document_merge_service_snapshot[1-sb1] 1"] = [
+snapshots["test_document_merge_service_snapshot[mp-form] 1"] = [
+    {
+        "children": [
+            {
+                "choices": [
+                    {"checked": True, "label": "Prüfungsgegenstand"},
+                    {"checked": False, "label": "Kein Prüfungsgegenstand"},
+                ],
+                "label": "Bepflanzung GBR/EG ZGB",
+                "slug": "mp-bepflanzung",
+                "type": "ChoiceQuestion",
+            },
+            {
+                "choices": [
+                    {"checked": True, "label": "Eingehalten"},
+                    {"checked": False, "label": "Mangel"},
+                    {"checked": False, "label": "Mangel behoben"},
+                ],
+                "label": "Prüfergebnis",
+                "slug": "mp-bepflanzung-ergebnis",
+                "type": "ChoiceQuestion",
+            },
+            {
+                "label": "Bemerkungen",
+                "slug": "mp-bepflanzung-bemerkungen",
+                "type": "TextareaQuestion",
+                "value": "Test Bepflanzung",
+            },
+        ],
+        "label": "Weitere Vorschriften",
+        "slug": "mp-weitere-vorschriften",
+        "type": "FormQuestion",
+    },
+    {
+        "children": [
+            {
+                "choices": [
+                    {"checked": False, "label": "Ja"},
+                    {"checked": False, "label": "Nein"},
+                ],
+                "label": "Sind die erforderlichen Beilagen zum Baugesuch vorhanden?",
+                "slug": "mp-erforderliche-beilagen-vorhanden",
+                "type": "ChoiceQuestion",
+            }
+        ],
+        "label": "Abschluss",
+        "slug": "mp-abschluss",
+        "type": "FormQuestion",
+    },
+]
+
+snapshots["test_document_merge_service_snapshot[sb1] 1"] = [
     {
         "children": [
             {
@@ -1855,7 +1960,144 @@ snapshots["test_document_merge_service_snapshot[1-sb1] 1"] = [
                     "Hinweis Gesuchsteller/in",
                 ],
                 "label": "Personalien - Verantwortliche Person Selbstdeklaration Baukontrolle",
-                "rows": [],
+                "rows": [
+                    [
+                        {
+                            "label": "Handelt es sich um eine juristische Person?",
+                            "slug": "juristische-person-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": "Nein",
+                        },
+                        {
+                            "label": "Name juristische Person",
+                            "slug": "name-juristische-person-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": None,
+                        },
+                        {
+                            "label": "Name",
+                            "slug": "name-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": "Muster",
+                        },
+                        {
+                            "label": "Vorname",
+                            "slug": "vorname-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": "Max",
+                        },
+                        {
+                            "label": "Strasse",
+                            "slug": "strasse-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": "Wiesenweg",
+                        },
+                        {
+                            "label": "Nummer",
+                            "slug": "nummer-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": "33",
+                        },
+                        {
+                            "label": "PLZ",
+                            "slug": "plz-gesuchstellerin",
+                            "type": "IntegerQuestion",
+                            "value": 3007,
+                        },
+                        {
+                            "label": "Ort",
+                            "slug": "ort-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": "Bern",
+                        },
+                        {
+                            "label": "Telefon oder Mobile",
+                            "slug": "telefon-oder-mobile-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": "077777777",
+                        },
+                        {
+                            "label": "E-Mail",
+                            "slug": "e-mail-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": "info@example.com",
+                        },
+                        {
+                            "content": None,
+                            "label": "Hinweis Gesuchsteller/in",
+                            "slug": "hinweis-personalien",
+                            "type": "StaticQuestion",
+                        },
+                    ],
+                    [
+                        {
+                            "label": "Handelt es sich um eine juristische Person?",
+                            "slug": "juristische-person-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": "Ja",
+                        },
+                        {
+                            "label": "Name juristische Person",
+                            "slug": "name-juristische-person-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": "Architekturbüro Asdf",
+                        },
+                        {
+                            "label": "Name",
+                            "slug": "name-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": "Egger",
+                        },
+                        {
+                            "label": "Vorname",
+                            "slug": "vorname-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": "Ernst",
+                        },
+                        {
+                            "label": "Strasse",
+                            "slug": "strasse-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": "Eggistrasse",
+                        },
+                        {
+                            "label": "Nummer",
+                            "slug": "nummer-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": None,
+                        },
+                        {
+                            "label": "PLZ",
+                            "slug": "plz-gesuchstellerin",
+                            "type": "IntegerQuestion",
+                            "value": 3456,
+                        },
+                        {
+                            "label": "Ort",
+                            "slug": "ort-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": "Ebersecken",
+                        },
+                        {
+                            "label": "Telefon oder Mobile",
+                            "slug": "telefon-oder-mobile-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": "01010101",
+                        },
+                        {
+                            "label": "E-Mail",
+                            "slug": "e-mail-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": "i@e.org",
+                        },
+                        {
+                            "content": None,
+                            "label": "Hinweis Gesuchsteller/in",
+                            "slug": "hinweis-personalien",
+                            "type": "StaticQuestion",
+                        },
+                    ],
+                ],
                 "slug": "personalien-sb1-sb2",
                 "type": "TableQuestion",
             },
@@ -1870,18 +2112,27 @@ snapshots["test_document_merge_service_snapshot[1-sb1] 1"] = [
             },
             {
                 "choices": [
-                    {"checked": False, "label": "Ja"},
-                    {"checked": True, "label": "Nein"},
+                    {"checked": True, "label": "Ja"},
+                    {"checked": False, "label": "Nein"},
                 ],
                 "label": "Ist eine Schnurgerüstabnahme erforderlich?",
                 "slug": "ist-eine-schnurgerustabnahme-erforderlich",
                 "type": "ChoiceQuestion",
             },
             {
-                "label": "Beginn Bauarbeiten",
-                "slug": "beginn-bauarbeiten",
+                "choices": [
+                    {"checked": True, "label": "Ja"},
+                    {"checked": False, "label": "Nein"},
+                ],
+                "label": "Sind Schnurgerüst und die bewilligte Höhe zur Abnahme bereit?",
+                "slug": "schnurgeruest-zur-abnahme-bereit",
+                "type": "ChoiceQuestion",
+            },
+            {
+                "label": "Ab wann ist eine Kontrolle möglich?",
+                "slug": "ab-wann-ist-eine-kontrolle-moeglich",
                 "type": "DateQuestion",
-                "value": "2020-01-31",
+                "value": "2021-04-07",
             },
         ],
         "label": "Selbstdeklaration",
@@ -1914,13 +2165,23 @@ snapshots["test_document_merge_service_snapshot[1-sb1] 1"] = [
         "type": "FormQuestion",
     },
     {
-        "label": "Gesuchsteller/in",
-        "people": [{"firstName": "", "lastName": ""}],
-        "type": "SignatureQuestion",
+        "children": [
+            {
+                "label": "Verantwortliche Person Selbstdeklaration Baukontrolle",
+                "people": [
+                    {"familyName": "Muster", "givenName": "Max"},
+                    {"familyName": "Egger", "givenName": "Ernst"},
+                ],
+                "type": "SignatureQuestion",
+            }
+        ],
+        "label": "Unterschriften",
+        "slug": "8-unterschriften",
+        "type": "FormQuestion",
     },
 ]
 
-snapshots["test_document_merge_service_snapshot[1-sb2] 1"] = [
+snapshots["test_document_merge_service_snapshot[sb2] 1"] = [
     {
         "children": [
             {
@@ -1938,13 +2199,150 @@ snapshots["test_document_merge_service_snapshot[1-sb2] 1"] = [
                     "Hinweis Gesuchsteller/in",
                 ],
                 "label": "Personalien - Verantwortliche Person Selbstdeklaration Baukontrolle",
-                "rows": [],
+                "rows": [
+                    [
+                        {
+                            "label": "Handelt es sich um eine juristische Person?",
+                            "slug": "juristische-person-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": "Ja",
+                        },
+                        {
+                            "label": "Name juristische Person",
+                            "slug": "name-juristische-person-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": "Architekturbüro Asdf",
+                        },
+                        {
+                            "label": "Name",
+                            "slug": "name-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": "Egger",
+                        },
+                        {
+                            "label": "Vorname",
+                            "slug": "vorname-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": "Ernst",
+                        },
+                        {
+                            "label": "Strasse",
+                            "slug": "strasse-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": "Eggistrasse",
+                        },
+                        {
+                            "label": "Nummer",
+                            "slug": "nummer-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": None,
+                        },
+                        {
+                            "label": "PLZ",
+                            "slug": "plz-gesuchstellerin",
+                            "type": "IntegerQuestion",
+                            "value": 3456,
+                        },
+                        {
+                            "label": "Ort",
+                            "slug": "ort-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": "Ebersecken",
+                        },
+                        {
+                            "label": "Telefon oder Mobile",
+                            "slug": "telefon-oder-mobile-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": "01010101",
+                        },
+                        {
+                            "label": "E-Mail",
+                            "slug": "e-mail-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": "i@e.org",
+                        },
+                        {
+                            "content": None,
+                            "label": "Hinweis Gesuchsteller/in",
+                            "slug": "hinweis-personalien",
+                            "type": "StaticQuestion",
+                        },
+                    ],
+                    [
+                        {
+                            "label": "Handelt es sich um eine juristische Person?",
+                            "slug": "juristische-person-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": "Nein",
+                        },
+                        {
+                            "label": "Name juristische Person",
+                            "slug": "name-juristische-person-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": None,
+                        },
+                        {
+                            "label": "Name",
+                            "slug": "name-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": "Muster",
+                        },
+                        {
+                            "label": "Vorname",
+                            "slug": "vorname-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": "Max",
+                        },
+                        {
+                            "label": "Strasse",
+                            "slug": "strasse-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": "Wiesenweg",
+                        },
+                        {
+                            "label": "Nummer",
+                            "slug": "nummer-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": "33",
+                        },
+                        {
+                            "label": "PLZ",
+                            "slug": "plz-gesuchstellerin",
+                            "type": "IntegerQuestion",
+                            "value": 3007,
+                        },
+                        {
+                            "label": "Ort",
+                            "slug": "ort-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": "Bern",
+                        },
+                        {
+                            "label": "Telefon oder Mobile",
+                            "slug": "telefon-oder-mobile-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": "077777777",
+                        },
+                        {
+                            "label": "E-Mail",
+                            "slug": "e-mail-gesuchstellerin",
+                            "type": "TextQuestion",
+                            "value": "info@example.com",
+                        },
+                        {
+                            "content": None,
+                            "label": "Hinweis Gesuchsteller/in",
+                            "slug": "hinweis-personalien",
+                            "type": "StaticQuestion",
+                        },
+                    ],
+                ],
                 "slug": "personalien-sb1-sb2",
                 "type": "TableQuestion",
             },
             {
                 "choices": [
-                    {"checked": True, "label": "Ja"},
+                    {"checked": False, "label": "Ja"},
                     {"checked": False, "label": "Nein"},
                 ],
                 "label": "Ist das Bauvorhaben nach der Baubewilligung und evtl. Projektänderungsbewilligung ausgeführt?",
@@ -1953,7 +2351,7 @@ snapshots["test_document_merge_service_snapshot[1-sb2] 1"] = [
             },
             {
                 "choices": [
-                    {"checked": True, "label": "Ja"},
+                    {"checked": False, "label": "Ja"},
                     {"checked": False, "label": "Nein"},
                 ],
                 "label": "Sind die Bedingungen und Auflagen der Baubewilligung eingehalten?",
@@ -1962,7 +2360,7 @@ snapshots["test_document_merge_service_snapshot[1-sb2] 1"] = [
             },
             {
                 "choices": [
-                    {"checked": True, "label": "Ja"},
+                    {"checked": False, "label": "Ja"},
                     {"checked": False, "label": "Nein"},
                 ],
                 "label": "Sind die Sicherheitsvorschriften eingehalten?",
@@ -1971,7 +2369,7 @@ snapshots["test_document_merge_service_snapshot[1-sb2] 1"] = [
             },
             {
                 "choices": [
-                    {"checked": True, "label": "Ja"},
+                    {"checked": False, "label": "Ja"},
                     {"checked": False, "label": "Nein"},
                 ],
                 "label": "Sind die Nebengebäude fertiggestellt?",
@@ -1980,7 +2378,7 @@ snapshots["test_document_merge_service_snapshot[1-sb2] 1"] = [
             },
             {
                 "choices": [
-                    {"checked": True, "label": "Ja"},
+                    {"checked": False, "label": "Ja"},
                     {"checked": False, "label": "Nein"},
                 ],
                 "label": "Sind die Umgebungsarbeiten fertiggestellt?",
@@ -1990,7 +2388,7 @@ snapshots["test_document_merge_service_snapshot[1-sb2] 1"] = [
             {
                 "choices": [
                     {"checked": False, "label": "Ja"},
-                    {"checked": True, "label": "Nein"},
+                    {"checked": False, "label": "Nein"},
                 ],
                 "label": "Meldung Tankanlage",
                 "slug": "meldung-tankanlage",
@@ -2030,314 +2428,6 @@ snapshots["test_document_merge_service_snapshot[1-sb2] 1"] = [
         ],
         "label": "Freigabequittung",
         "slug": "freigabequittung-sb2",
-        "type": "FormQuestion",
-    },
-    {
-        "label": "Gesuchsteller/in",
-        "people": [{"firstName": "", "lastName": ""}],
-        "type": "SignatureQuestion",
-    },
-]
-
-snapshots["test_document_merge_service_snapshot[2-mp-form] 1"] = [
-    {
-        "choices": [],
-        "label": "Steven Henck",
-        "slug": "mp-bepflanzung",
-        "type": "ChoiceQuestion",
-    },
-    {
-        "choices": [],
-        "label": "Hanne Klemm MBA.",
-        "slug": "mp-bepflanzung-ergebnis",
-        "type": "ChoiceQuestion",
-    },
-    {
-        "label": "Dipl.-Ing. Meinolf Schmidtke",
-        "slug": "mp-bepflanzung-bemerkungen",
-        "type": "TextareaQuestion",
-        "value": "Test Bepflanzung",
-    },
-    {
-        "choices": [],
-        "label": "Univ.Prof. Raisa Stroh MBA.",
-        "slug": "mp-erforderliche-beilagen-vorhanden",
-        "type": "ChoiceQuestion",
-    },
-    {
-        "label": "Marius Vogt-Birnbaum",
-        "slug": "mp-welche-beilagen-fehlen",
-        "type": "TextareaQuestion",
-        "value": "Alle",
-    },
-]
-
-snapshots["test_document_merge_service_snapshot[3-None] 1"] = [
-    {
-        "children": [
-            {
-                "columns": [
-                    "Handelt es sich um eine juristische Person?",
-                    "Name juristische Person",
-                    "Name",
-                    "Vorname",
-                    "Strasse",
-                    "Nummer",
-                    "PLZ",
-                    "Ort",
-                    "Telefon oder Mobile",
-                    "E-Mail",
-                    "Hinweis Gesuchsteller/in",
-                ],
-                "label": "Personalien - Gesuchsteller/in",
-                "rows": [
-                    [
-                        {
-                            "label": "Handelt es sich um eine juristische Person?",
-                            "slug": "juristische-person-gesuchstellerin",
-                            "type": "TextQuestion",
-                            "value": "Nein",
-                        },
-                        {
-                            "label": "Name",
-                            "slug": "name-gesuchstellerin",
-                            "type": "TextQuestion",
-                            "value": "Muster",
-                        },
-                        {
-                            "label": "Vorname",
-                            "slug": "vorname-gesuchstellerin",
-                            "type": "TextQuestion",
-                            "value": "Max",
-                        },
-                        {
-                            "label": "Strasse",
-                            "slug": "strasse-gesuchstellerin",
-                            "type": "TextQuestion",
-                            "value": "asdfstr.",
-                        },
-                        {
-                            "label": "Nummer",
-                            "slug": "nummer-gesuchstellerin",
-                            "type": "TextQuestion",
-                            "value": "1",
-                        },
-                        {
-                            "label": "PLZ",
-                            "slug": "plz-gesuchstellerin",
-                            "type": "IntegerQuestion",
-                            "value": 3000,
-                        },
-                        {
-                            "label": "Ort",
-                            "slug": "ort-gesuchstellerin",
-                            "type": "TextQuestion",
-                            "value": "Bern",
-                        },
-                        {
-                            "label": "Telefon oder Mobile",
-                            "slug": "telefon-oder-mobile-gesuchstellerin",
-                            "type": "TextQuestion",
-                            "value": None,
-                        },
-                        {
-                            "label": "E-Mail",
-                            "slug": "e-mail-gesuchstellerin",
-                            "type": "TextQuestion",
-                            "value": None,
-                        },
-                        {
-                            "content": None,
-                            "label": "Hinweis Gesuchsteller/in",
-                            "slug": "hinweis-personalien",
-                            "type": "StaticQuestion",
-                        },
-                    ]
-                ],
-                "slug": "personalien-gesuchstellerin",
-                "type": "TableQuestion",
-            },
-            {
-                "choices": [
-                    {"checked": False, "label": "Vertreter/in mit Vollmacht"},
-                    {"checked": False, "label": "Projektverfasser/in"},
-                    {"checked": False, "label": "Grundeigentümer/in"},
-                    {"checked": False, "label": "Gebäudeeigentümer/in"},
-                    {
-                        "checked": False,
-                        "label": "Verantwortliche Person Selbstdeklaration Baukontrolle",
-                    },
-                ],
-                "label": "Sind neben den Gesuchstellenden weitere Personen beteiligt?",
-                "slug": "weitere-personen",
-                "type": "MultipleChoiceQuestion",
-            },
-        ],
-        "label": "Personalien",
-        "slug": "personalien-kurz-formular",
-        "type": "FormQuestion",
-    },
-    {
-        "children": [
-            {
-                "label": "Strasse/Flurname",
-                "slug": "strasse-flurname",
-                "type": "TextQuestion",
-                "value": "asdfstr.",
-            },
-            {"label": "Nr.", "slug": "nr", "type": "TextQuestion", "value": "1"},
-            {
-                "label": "Ort",
-                "slug": "ort-grundstueck",
-                "type": "TextQuestion",
-                "value": "Bern",
-            },
-            {
-                "label": "Zuständige Gemeinde",
-                "slug": "gemeinde",
-                "type": "TextQuestion",
-                "value": "Burgdorf",
-            },
-            {
-                "columns": [
-                    "Parzellennummer",
-                    "Liegenschaftsnummer",
-                    "Baurecht-Nummer",
-                    "E-GRID-Nr.",
-                    "Strasse",
-                    "Nummer",
-                    "PLZ",
-                    "Ort",
-                    "Lagekoordinaten - Ost",
-                    "Lagekoordinaten - Nord",
-                ],
-                "label": "Parzelle",
-                "rows": [
-                    [
-                        {
-                            "label": "Parzellennummer",
-                            "slug": "parzellennummer",
-                            "type": "TextQuestion",
-                            "value": "1",
-                        },
-                        {
-                            "label": "Liegenschaftsnummer",
-                            "slug": "liegenschaftsnummer",
-                            "type": "IntegerQuestion",
-                            "value": None,
-                        },
-                        {
-                            "label": "Baurecht-Nummer",
-                            "slug": "baurecht-nummer",
-                            "type": "TextQuestion",
-                            "value": None,
-                        },
-                        {
-                            "label": "E-GRID-Nr.",
-                            "slug": "e-grid-nr",
-                            "type": "TextQuestion",
-                            "value": "CH273589324696",
-                        },
-                        {
-                            "label": "Strasse",
-                            "slug": "strasse-parzelle",
-                            "type": "TextQuestion",
-                            "value": "asdfstr.",
-                        },
-                        {
-                            "label": "Nummer",
-                            "slug": "nummer-parzelle",
-                            "type": "TextQuestion",
-                            "value": "1",
-                        },
-                        {
-                            "label": "PLZ",
-                            "slug": "plz-parzelle",
-                            "type": "IntegerQuestion",
-                            "value": 3000,
-                        },
-                        {
-                            "label": "Ort",
-                            "slug": "ort-parzelle",
-                            "type": "TextQuestion",
-                            "value": "Bern",
-                        },
-                        {
-                            "label": "Lagekoordinaten - Ost",
-                            "slug": "lagekoordinaten-ost",
-                            "type": "FloatQuestion",
-                            "value": 2614314.0,
-                        },
-                        {
-                            "label": "Lagekoordinaten - Nord",
-                            "slug": "lagekoordinaten-nord",
-                            "type": "FloatQuestion",
-                            "value": 1211926.0,
-                        },
-                    ]
-                ],
-                "slug": "parzelle",
-                "type": "TableQuestion",
-            },
-            {
-                "label": "BE-GID",
-                "slug": "be-gid",
-                "type": "TextQuestion",
-                "value": None,
-            },
-            {
-                "label": "GWR-EGID",
-                "slug": "gwr-egid",
-                "type": "IntegerQuestion",
-                "value": None,
-            },
-            {
-                "label": "Beschreibung",
-                "slug": "beschreibung-bauvorhaben",
-                "type": "TextareaQuestion",
-                "value": "bitte abklaeren",
-            },
-        ],
-        "label": "Allgemeine Angaben",
-        "slug": "allgemeine-angaben-kurz-formular",
-        "type": "FormQuestion",
-    },
-    {
-        "children": [
-            {
-                "content": None,
-                "label": "Dokumente Platzhalter",
-                "slug": "dokumente-platzhalter",
-                "type": "StaticQuestion",
-            }
-        ],
-        "label": "Dokumente",
-        "slug": "dokumente-vorabklaerung-form",
-        "type": "FormQuestion",
-    },
-    {
-        "children": [
-            {
-                "label": "Bemerkungen",
-                "slug": "freigabequittung-bemerkungen",
-                "type": "TextareaQuestion",
-                "value": None,
-            },
-            {
-                "content": None,
-                "label": "freigabequittung-text",
-                "slug": "freigabequittung-text",
-                "type": "StaticQuestion",
-            },
-            {
-                "content": None,
-                "label": "Formulardownload (PDF)",
-                "slug": "formulardownload-pdf",
-                "type": "StaticQuestion",
-            },
-        ],
-        "label": "Einreichen",
-        "slug": "8-freigabequittung",
         "type": "FormQuestion",
     },
 ]
