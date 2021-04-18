@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 const isProduction = process.env.EMBER_ENV === "production";
 
