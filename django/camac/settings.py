@@ -8,7 +8,6 @@ import environ
 from django.db.models.expressions import Q
 from django.utils.translation import gettext_lazy
 
-from camac.echbern.signals import circulation_ended, circulation_started, finished
 from camac.utils import build_url
 
 env = environ.Env()
@@ -518,22 +517,22 @@ APPLICATIONS = {
             "SIMPLE_WORKFLOW": {
                 "reopen-circulation": {
                     "next_instance_state": "circulation",
-                    "ech_event": circulation_started,
+                    "ech_event": "camac.echbern.signals.circulation_started",
                     "history_text": gettext_lazy("Circulation reopened"),
                 },
                 "skip-circulation": {
                     "next_instance_state": "coordination",
-                    "ech_event": circulation_ended,
+                    "ech_event": "camac.echbern.signals.circulation_ended",
                     "history_text": gettext_lazy("Circulation skipped"),
                 },
                 "start-decision": {
                     "next_instance_state": "coordination",
-                    "ech_event": circulation_ended,
+                    "ech_event": "camac.echbern.signals.circulation_ended",
                     "history_text": gettext_lazy("Circulation completed"),
                 },
                 "complete": {
                     "next_instance_state": "finished",
-                    "ech_event": finished,
+                    "ech_event": "camac.echbern.signals.finished",
                     "history_text": gettext_lazy("Procedure completed"),
                 },
             },
