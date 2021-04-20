@@ -431,6 +431,7 @@ def test_notification_template_sendmail_koor(
                 DATE_DOSSIERVOLLSTANDIG: {{date_dossiervollstandig}}
                 DATE_DOSSIEREINGANG: {{date_dossiereingang}}
                 DATE_START_ZIRKULATION: {{date_start_zirkulation}}
+                DATE_BAU_EINSPRACHEENTSCHEID: {{date_bau_einspracheentscheid}}
                 BILLING_TOTAL_KOMMUNAL: {{billing_total_kommunal}}
                 BILLING_TOTAL_KANTON: {{billing_total_kanton}}
                 BILLING_TOTAL: {{billing_total}}
@@ -461,6 +462,9 @@ def test_notification_placeholders(
     ).workflow_item.pk
     settings.APPLICATION["WORKFLOW_ITEMS"]["START_CIRC"] = workflow_entry_factory(
         instance=instance, workflow_date=timezone.make_aware(datetime(2019, 9, 24, 10))
+    ).workflow_item.pk
+    settings.APPLICATION["WORKFLOW_ITEMS"]["DECISION"] = workflow_entry_factory(
+        instance=instance, workflow_date=timezone.make_aware(datetime(2019, 10, 24, 10))
     ).workflow_item.pk
 
     kommunal_amount = billing_v2_entry_factory(
@@ -505,6 +509,7 @@ def test_notification_placeholders(
         "DATE_DOSSIERVOLLSTANDIG: 23.08.2019",
         "DATE_DOSSIEREINGANG: 22.07.2019",
         "DATE_START_ZIRKULATION: 24.09.2019",
+        "DATE_BAU_EINSPRACHEENTSCHEID: 24.10.2019",
         f"BILLING_TOTAL_KOMMUNAL: {kommunal_amount:.2f}",
         f"BILLING_TOTAL_KANTON: {kanton_amount}",
         f"BILLING_TOTAL: {round(kommunal_amount + kanton_amount, 2)}",

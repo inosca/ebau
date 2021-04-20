@@ -107,6 +107,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     date_dossiervollstandig = serializers.SerializerMethodField()
     date_dossiereingang = serializers.SerializerMethodField()
     date_start_zirkulation = serializers.SerializerMethodField()
+    date_bau_einspracheentscheid = serializers.SerializerMethodField()
     billing_total_kommunal = serializers.SerializerMethodField()
     billing_total_kanton = serializers.SerializerMethodField()
     billing_total = serializers.SerializerMethodField()
@@ -389,6 +390,11 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     def get_date_start_zirkulation(self, instance):
         return self._get_workflow_entry_date(
             instance, settings.APPLICATION.get("WORKFLOW_ITEMS", {}).get("START_CIRC")
+        )
+
+    def get_date_bau_einspracheentscheid(self, instance):
+        return self._get_workflow_entry_date(
+            instance, settings.APPLICATION.get("WORKFLOW_ITEMS", {}).get("DECISION")
         )
 
     def get_billing_total_kommunal(self, instance):
