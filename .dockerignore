@@ -1,0 +1,12 @@
+# frontend containers are built from the root to include workspace references
+*
+!package.json
+!yarn.lock
+!.env
+!./ember-camac-ng
+!./ember-caluma-portal
+**/*.swp
+**/Dockerfile
+**/node_modules
+**/dist
+**/build
