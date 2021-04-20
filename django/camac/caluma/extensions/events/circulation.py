@@ -6,6 +6,7 @@ from caluma.caluma_workflow.events import (
     post_skip_work_item,
 )
 from caluma.caluma_workflow.models import WorkItem
+from django.conf import settings
 from django.db import transaction
 from django.utils.translation import gettext_noop
 
@@ -35,9 +36,14 @@ def post_complete_circulation_work_item(sender, work_item, user, context, **kwar
     if work_item.task_id == get_caluma_setting("CIRCULATION_TASK") and (
         not context or not context.get("no-history")
     ):
+        text = gettext_noop("Circulation of %(date)s completed")
+
+        if not settings.APPLICATION.get("IS_MULTILINGUAL", True):
+            text = f"Zirkulation vom {work_item.created_at.strftime('%d.%m.%Y')} abgeschlossen"
+
         create_history_entry(
             get_instance(work_item),
             User.objects.get(username=user.username),
-            gettext_noop("Circulation of %(date)s completed"),
+            text,
             lambda lang: {"date": work_item.created_at.strftime("%d.%m.%Y")},
         )
