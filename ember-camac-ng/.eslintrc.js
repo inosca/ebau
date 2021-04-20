@@ -1,7 +1,7 @@
 "use strict";
 
 module.exports = {
-  extends: ["@adfinis-sygroup/eslint-config/ember-app", "plugin:ember/octane"],
+  extends: "@adfinis-sygroup/eslint-config/ember-app",
   rules: {
     "ember/no-mixins": "warn",
   },
