@@ -1,0 +1,10 @@
+mutation CopyDocument($source: ID!) {
+  copyDocument(input: { source: $source }) {
+    document {
+      id
+      form {
+        slug
+      }
+    }
+  }
+}

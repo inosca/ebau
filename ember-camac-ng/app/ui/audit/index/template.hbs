@@ -50,6 +50,18 @@
               </button>
             {{/if}}
             {{#if (and (not this.disabled) audit.canEdit)}}
+              {{#if (and this.copyAudit.isRunning (eq audit.id this.copyAudit.lastRunning.args.firstObject.id))}}
+                <UkSpinner @ratio={{0.5}} />
+              {{else}}
+                <button
+                  type="button"
+                  class="uk-button uk-button-text"
+                  title={{t "audit.copy"}}
+                  {{on "click" (perform this.copyAudit audit)}}
+                >
+                  <UkIcon @icon="copy" />
+                </button>
+              {{/if}}
               {{#if (includes audit.id this.deleteAudit)}}
                 <UkSpinner @ratio={{0.5}} />
               {{else}}

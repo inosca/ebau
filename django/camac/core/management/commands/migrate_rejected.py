@@ -4,7 +4,7 @@ import pytz
 from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.models import Case, Task, WorkItem
-from caluma.caluma_workflow.utils import bulk_create_work_items
+from caluma.caluma_workflow.utils import create_work_items
 from django.core.management.base import BaseCommand
 from django.db import transaction
 from django.db.models.expressions import RawSQL
@@ -163,7 +163,7 @@ class Command(BaseCommand):
         if not task_slugs:
             return
 
-        work_items = bulk_create_work_items(
+        work_items = create_work_items(
             Task.objects.filter(pk__in=task_slugs), case, self.user, context=context
         )
 
