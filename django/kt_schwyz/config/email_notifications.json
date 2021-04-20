@@ -73,11 +73,11 @@
   },
   {
     "model": "notification.notificationtemplate",
-    "pk": 19,
+    "pk": 25,
     "fields": {
       "slug": "gesuchsbearbeitungs-einladung-neu",
       "purpose": "Gesuchsbearbeitungs Einladung, Neu",
-      "subject": "Sie wurden Eingeladen ein Baugesuch mitzubearbeiten",
+      "subject": "Sie wurden eingeladen an einem Baugesuch mitzuarbeiten",
       "body": "Sie wurden eingeladen am Baugesuch {{ public_dossier_link }} mitzuarbeiten.\r\n\r\nUm das Baugesuch einsehen und bearbeiten zu k\u00f6nnen, ist eine Registration auf dem eBau Portal des Kanton Schwyz erforderlich.\r\nUnter folgendem Link k\u00f6nnen Sie sich registrieren: {{ registration_link }}",
       "service": null,
       "type": "email"
@@ -85,24 +85,12 @@
   },
   {
     "model": "notification.notificationtemplate",
-    "pk": 20,
+    "pk": 26,
     "fields": {
       "slug": "gesuchsbearbeitungs-einladung-bestehend",
       "purpose": "Gesuchsbearbeitungs Einladung, Bestehend",
-      "subject": "Sie wurden Eingeladen ein Baugesuch mitzubearbeiten",
-      "body": "Sie wurden eingeladen am Baugesuch {{ public_dossier_link }} mitzuarbeiten.\r\n",
-      "service": null,
-      "type": "email"
-    }
-  },
-  {
-    "model": "notification.notificationtemplate",
-    "pk": 21,
-    "fields": {
-      "slug": "publikation-einsehen",
-      "purpose": "Publikation Einsehen",
-      "subject": "Zur Publiaktion vom Gesuch {{identifier}} wurde Zugriff angefordert",
-      "body": "Bewilligen oder weisen Sie diese Anfrage ab.",
+      "subject": "Sie wurden eingeladen an einem Baugesuch mitzuarbeiten",
+      "body": "Sie wurden eingeladen am Baugesuch {{ public_dossier_link }} mitzuarbeiten.",
       "service": null,
       "type": "email"
     }
