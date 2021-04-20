@@ -10,6 +10,7 @@ from caluma.caluma_core.permissions import (
 )
 from caluma.caluma_form.models import Document
 from caluma.caluma_form.schema import (
+    CopyDocument,
     RemoveAnswer,
     RemoveDocument,
     SaveDocument,
@@ -148,6 +149,12 @@ class CustomPermission(BasePermission):
             return self.has_camac_role(info, "support")
 
         return self.has_camac_edit_permission(document.family, info)
+
+    @permission_for(CopyDocument)
+    def has_permission_for_copydocument(self, mutation, info):
+        source = Document.objects.get(pk=mutation.get_params(info)["input"]["source"])
+
+        return self.has_camac_edit_permission(source, info)
 
     # Answer
     @permission_for(SaveDocumentAnswer)
