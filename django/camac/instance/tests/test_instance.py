@@ -456,7 +456,7 @@ def test_instance_export_list(
     )
     add_field(name="bezeichnung", value="Bezeichnung")
 
-    with django_assert_num_queries(2):
+    with django_assert_num_queries(4):
         response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
 
