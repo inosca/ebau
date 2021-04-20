@@ -2,6 +2,7 @@ import reversion
 from caluma.caluma_core.events import on
 from caluma.caluma_workflow.events import post_complete_work_item
 from django.db import transaction
+from django.utils.module_loading import import_string
 
 from camac.core.utils import create_history_entry
 from camac.instance.models import InstanceState
@@ -23,7 +24,9 @@ def post_complete_simple_workflow(sender, work_item, user, context, **kwargs):
         config = simple_workflow_config[work_item.task_id]
 
         next_instance_state = config.get("next_instance_state")
-        ech_event = config.get("ech_event")
+        ech_event_name = config.get("ech_event")
+        ech_event = import_string(ech_event_name) if ech_event_name else None
+
         history_text = config.get("history_text")
         notification = config.get("notification")
 

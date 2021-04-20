@@ -1,6 +1,7 @@
 import glob
 import inspect
 import logging
+from copy import deepcopy
 from dataclasses import dataclass, field
 
 import pytest
@@ -370,12 +371,16 @@ def nfd_completion_date(
 
 @pytest.fixture
 def caluma_config_be(settings, use_caluma_form):
-    settings.APPLICATION["CALUMA"] = settings.APPLICATIONS["kt_bern"]["CALUMA"]
+    settings.APPLICATION["CALUMA"] = deepcopy(
+        settings.APPLICATIONS["kt_bern"]["CALUMA"]
+    )
 
 
 @pytest.fixture
 def caluma_config_sz(settings):
-    settings.APPLICATION["CALUMA"] = settings.APPLICATIONS["kt_schwyz"]["CALUMA"]
+    settings.APPLICATION["CALUMA"] = deepcopy(
+        settings.APPLICATIONS["kt_schwyz"]["CALUMA"]
+    )
 
 
 @pytest.fixture
