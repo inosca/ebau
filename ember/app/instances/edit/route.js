@@ -59,6 +59,12 @@ export default class InstancesEditRoute extends Route {
     this.questionStore._store.pushObjects(questionObjects);
   }
 
+  setupController(controller, model) {
+    super.setupController(controller, model);
+
+    controller.instanceTransformation.perform();
+  }
+
   resetController(_, isExiting) {
     if (isExiting) {
       // We clear the store and the question store at this point so we do not

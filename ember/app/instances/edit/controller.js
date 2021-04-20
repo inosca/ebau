@@ -211,12 +211,13 @@ export default class InstancesEditController extends Controller {
     yield this.transitionToRoute(get(links, (i + 1) % links.length));
   }
 
-  get instanceTransformation() {
+  @task
+  *instanceTransformation() {
     const meta = this.questionStore.peek("meta", this.model.instance.id);
     if (meta?.value) {
       const formId = JSON.parse(meta.value).formChange.id;
       if (formId) {
-        const form = this.store.findRecord("form", formId);
+        const form = yield this.store.findRecord("form", formId);
         return form.description;
       }
     }
