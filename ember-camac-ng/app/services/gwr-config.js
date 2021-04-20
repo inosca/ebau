@@ -9,5 +9,4 @@ export default class GwrConfigService extends Service {
 
   username = "1342zoselc";
   password = "%u1N89DqX4";
-  wsk_id = 351388;
 }
