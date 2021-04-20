@@ -111,8 +111,8 @@
           </span>
         </h1>
 
-        {{#if this.instanceTransformation}}
-          <span>Umgewandelt von "{{this.instanceTransformation}}"</span>
+        {{#if this.instanceTransformation.lastSuccessful.value}}
+          <span>Umgewandelt von "{{this.instanceTransformation.lastSuccessful.value}}"</span>
         {{/if}}
 
         <div uk-grid class="uk-margin uk-child-width-1-2">
