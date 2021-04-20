@@ -3,7 +3,7 @@ FROM danlynn/ember-cli:3.20.0 as build
 ARG APPLICATION
 
 COPY package.json yarn.lock /myapp/
-COPY ./ember-camac-ng/package.json ./ember-camac-ng/yarn.lock /myapp/ember-camac-ng/
+COPY ./ember-camac-ng/package.json /myapp/ember-camac-ng/
 
 RUN yarn workspace camac-ng install
 
