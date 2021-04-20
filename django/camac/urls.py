@@ -41,6 +41,7 @@ urlpatterns = [
         name="graphql",
     ),
     url(r"^api/v1/linker/", include("ebau_gwr.linker.urls")),
+    url(r"^api/v1/", include("ebau_gwr.token_proxy.urls")),
     # url(r'^api/docs/$', schema_view),
     # url(r'^api/auth/$', include('keycloak_adapter.urls')),
 ]
