@@ -3,8 +3,9 @@ audit:
   delete: "Prüfung löschen"
   complete: "Prüfung abschliessen"
   skip: "Prüfung überspringen"
-  titleMeta: 'Zuletzt bearbeitet von <span title="{service}">{user}</span> am {date}'
+  copy: "Prüfung kopieren"
   createPdf: "PDF herunterladen"
+  titleMeta: 'Zuletzt bearbeitet von <span title="{service}">{user}</span> am {date}'
 
   type: "Prüfungstyp"
   municipality: "Leitbehörde"
@@ -16,6 +17,7 @@ audit:
   deleteConfirm: "Wollen Sie die Prüfung wirklich löschen?"
   skipConfirm: '<span>Wollen Sie die Prüfung wirklich überspringen?</span><div class="uk-margin uk-text-italic"><strong>Achtung:</strong> Diese Aktion kann nicht mehr rückgängig gemacht werden! Falls Sie einen Wechsel der Leitbehörde beabsichtigen, sollten Sie dies der neuen Leitbehörde überlassen.</div>'
   completeConfirm: '<span>Wollen Sie die Prüfung wirklich abschliessen?</span><div class="uk-margin uk-text-italic"><strong>Achtung:</strong> Diese Aktion kann nicht mehr rückgängig gemacht werden! Falls Sie einen Wechsel der Leitbehörde beabsichtigen, sollten Sie dies der neuen Leitbehörde überlassen.</div>'
+  copyConfirm: "Wollen Sie die Prüfung wirklich kopieren?"
 
   deleteSuccess: "Die Prüfung wurde erfolgreich gelöscht."
   skipSuccess: "Die Prüfung wurde erfolgreich übersprungen."
@@ -28,6 +30,7 @@ audit:
   completeError: "Fehler beim Abschliessen der Prüfung"
   createPdfError: "Fehler beim Herunterladen des PDF"
   completeInvalid: "Die Dossierprüfung wurde nicht korrekt ausgefüllt. Mindestens eine korrekt ausgefüllte formelle sowie materielle Prüfung ist obligatorisch. Bitte prüfen Ihre Daten und versuchen Sie es nochmals."
+  copyError: "Fehler beim Kopieren der Prüfung"
 
   onlyExamItems: "Nur Prüfgegenstände anzeigen"
 
