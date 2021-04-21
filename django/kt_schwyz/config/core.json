@@ -4325,6 +4325,30 @@
     }
   },
   {
+    "model": "core.formgroupform",
+    "pk": 23,
+    "fields": {
+      "form_group": 1,
+      "form": 23
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 24,
+    "fields": {
+      "form_group": 1,
+      "form": 24
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 25,
+    "fields": {
+      "form_group": 1,
+      "form": 25
+    }
+  },
+  {
     "model": "core.grouppermission",
     "pk": 1,
     "fields": {
@@ -14580,6 +14604,72 @@
     "fields": {
       "page": 1,
       "form": 22,
+      "page_form_mode": 1,
+      "page_form_group": 1,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.pageform",
+    "pk": 48,
+    "fields": {
+      "page": 2,
+      "form": 23,
+      "page_form_mode": 1,
+      "page_form_group": 1,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.pageform",
+    "pk": 49,
+    "fields": {
+      "page": 1,
+      "form": 23,
+      "page_form_mode": 1,
+      "page_form_group": 1,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.pageform",
+    "pk": 50,
+    "fields": {
+      "page": 2,
+      "form": 25,
+      "page_form_mode": 1,
+      "page_form_group": 1,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.pageform",
+    "pk": 51,
+    "fields": {
+      "page": 1,
+      "form": 25,
+      "page_form_mode": 1,
+      "page_form_group": 1,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.pageform",
+    "pk": 52,
+    "fields": {
+      "page": 2,
+      "form": 24,
+      "page_form_mode": 1,
+      "page_form_group": 1,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.pageform",
+    "pk": 53,
+    "fields": {
+      "page": 1,
+      "form": 24,
       "page_form_mode": 1,
       "page_form_group": 1,
       "sort": 1
