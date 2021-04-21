@@ -10,6 +10,7 @@ import { saveAs } from "file-saver";
 
 import { confirmTask } from "camac-ng/decorators";
 import completeWorkItem from "camac-ng/gql/mutations/complete-work-item";
+import copyDocument from "camac-ng/gql/mutations/copy-document";
 import createAuditDocument from "camac-ng/gql/mutations/create-audit-document";
 import deleteDocument from "camac-ng/gql/mutations/delete-document";
 import linkAuditDocument from "camac-ng/gql/mutations/link-audit-document";
@@ -68,7 +69,7 @@ class Audit {
 }
 
 export default class AuditIndexController extends Controller {
-  @service notification;
+  @service notifications;
   @service intl;
   @service fetch;
 
@@ -153,7 +154,7 @@ export default class AuditIndexController extends Controller {
 
       yield this.transitionToRoute("audit.edit", decodeId(documentId));
     } catch (error) {
-      this.notifications.danger(this.intl.t("audit.createError"));
+      this.notifications.error(this.intl.t("audit.createError"));
     }
   }
 
@@ -175,7 +176,7 @@ export default class AuditIndexController extends Controller {
 
       saveAs(yield response.blob(), filename);
     } catch (error) {
-      this.notification.danger(this.intl.t("audit.createPdfError"));
+      this.notifications.error(this.intl.t("audit.createPdfError"));
     } finally {
       this.pdfLoading = this.pdfLoading.filter((id) => id !== audit.id);
     }
@@ -216,9 +217,52 @@ export default class AuditIndexController extends Controller {
 
       this.notifications.success(this.intl.t("audit.deleteSuccess"));
     } catch (error) {
-      this.notifications.danger(this.intl.t("audit.deleteError"));
+      this.notifications.error(this.intl.t("audit.deleteError"));
     } finally {
       this.deleteLoading = this.deleteLoading.filter((id) => id !== audit.id);
+    }
+  }
+
+  @dropTask
+  @confirmTask("audit.copyConfirm")
+  *copyAudit(audit) {
+    try {
+      // copy document
+      const document = yield this.apollo.mutate(
+        {
+          mutation: copyDocument,
+          variables: { source: audit.id },
+        },
+        "copyDocument.document"
+      );
+
+      const documentId = decodeId(document.id);
+      const form = document.form.slug;
+
+      const value = new Set(
+        this.getTableAnswerValue(
+          this.auditController.auditWorkItem.document,
+          form
+        )
+      );
+
+      value.add(documentId);
+
+      // link document to the right table
+      yield this.apollo.mutate({
+        mutation: linkAuditDocument,
+        variables: {
+          question: form,
+          document: decodeId(this.auditController.auditWorkItem.document.id),
+          value: [...value],
+        },
+      });
+
+      yield this.auditController.fetchAudit.perform();
+
+      yield this.transitionToRoute("audit.edit", documentId);
+    } catch (error) {
+      this.notifications.error(this.intl.t("audit.copyError"));
     }
   }
 
@@ -235,7 +279,7 @@ export default class AuditIndexController extends Controller {
 
       this.notifications.success(this.intl.t("audit.skipSuccess"));
     } catch (error) {
-      this.notifications.danger(this.intl.t("audit.skipError"));
+      this.notifications.error(this.intl.t("audit.skipError"));
     }
   }
 
@@ -254,10 +298,10 @@ export default class AuditIndexController extends Controller {
     } catch (error) {
       if (error.errors) {
         // validation failed
-        this.notifications.danger(this.intl.t("audit.completeInvalid"));
+        this.notifications.error(this.intl.t("audit.completeInvalid"));
       } else {
         // generic error
-        this.notifications.danger(this.intl.t("audit.completeError"));
+        this.notifications.error(this.intl.t("audit.completeError"));
       }
     }
   }
