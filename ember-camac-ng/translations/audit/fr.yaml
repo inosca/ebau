@@ -3,8 +3,9 @@ audit:
   delete: "Supprimer l'examen"
   complete: "Clore l'examen"
   skip: "Sauter l'examen"
-  titleMeta: 'Dernière modification par <span title="{service}">{user}</span> le {date}'
+  copy: "Copier l'examen"
   createPdf: "Télécharger le PDF"
+  titleMeta: 'Dernière modification par <span title="{service}">{user}</span> le {date}'
 
   type: "Type du examen"
   municipality: "Autorité directrice"
@@ -16,6 +17,7 @@ audit:
   deleteConfirm: "Voulez-vous vraiment supprimer l'examen ?"
   skipConfirm: '<span>Voulez-vous vraiment sauter lexamen du dossier ?</span><div class="uk-margin uk-text-italic"><strong>Attention :</strong> Cette action ne peut être annulée ! Si vous avez lintention de changer dautorité directrice, vous devez laisser cette tâche à la nouvelle autorité directrice.</div>'
   completeConfirm: '<span>Voulez-vous vraiment clore lexamen du dossier ?</span><div class="uk-margin uk-text-italic"><strong>Attention :</strong> Cette action ne peut être annulée ! Si vous avez lintention de changer dautorité directrice, vous devez laisser cette tâche à la nouvelle autorité directrice.</div>'
+  copyConfirm: "Voulez-vous vraiment copier l'examen ?"
 
   deleteSuccess: "L'examen a été supprimé avec succès."
   skipSuccess: "L'examen a été sauté avec succès."
@@ -28,6 +30,7 @@ audit:
   completeError: "Erreur lors de la clôture du examen"
   createPdfError: "Erreur lors du téléchargement du PDF"
   completeInvalid: "L'examen du dossier n'a pas été effectué correctement. Au moins un examen formel et matériel correctement effectué est obligatoire. Veuillez vérifier vos données et réessayer."
+  copyError: "Erreur lors de la copie du examen"
 
   onlyExamItems: "Afficher uniquement les objets de l'éxamen"
 
