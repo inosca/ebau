@@ -4,6 +4,7 @@ import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 
 import getAudit from "camac-ng/gql/queries/get-audit";
+import getEbauNumber from "camac-ng/gql/queries/get-ebau-number";
 
 export default class AuditController extends Controller {
   @service store;
@@ -22,23 +23,44 @@ export default class AuditController extends Controller {
     );
   }
 
-  @lastValue("fetchAudit") auditWorkItem;
+  get auditWorkItem() {
+    return this.audits?.find(
+      (workItem) => workItem.caseData.instanceId === this.model
+    );
+  }
+
+  @lastValue("fetchAudit") audits;
   @dropTask
   *fetchAudit() {
     try {
+      const ebauNumber = yield this.apollo.query(
+        {
+          query: getEbauNumber,
+          fetchPolicy: "network-only",
+          variables: { instanceId: this.model },
+        },
+        "allCases.edges.firstObject.node.meta.ebau-number"
+      );
+
       const response = yield this.apollo.query({
         query: getAudit,
         fetchPolicy: "network-only",
-        variables: { instanceId: this.model },
+        variables: { ebauNumber },
       });
 
       try {
-        const workItem =
-          response.allCases.edges[0].node.workItems.edges[0].node;
+        // populate work items with case data for later
+        const workItems = response.allCases.edges.map((edge) => ({
+          ...edge.node.workItems.edges[0].node,
+          caseData: {
+            instanceId: edge.node.meta["camac-instance-id"],
+            form: edge.node.document.form.name,
+          },
+        }));
 
-        yield this.fetchAdditionalData.perform(workItem);
+        yield this.fetchAdditionalData.perform(workItems);
 
-        return workItem;
+        return workItems;
       } catch (error) {
         // no audit work item (migration)
         return null;
@@ -49,7 +71,7 @@ export default class AuditController extends Controller {
   }
 
   @dropTask
-  *fetchAdditionalData(workItem) {
+  *fetchAdditionalData(workItems) {
     const cachedServiceIds = this.store
       .peekAll("service")
       .map((service) => parseInt(service.id, 10));
@@ -59,25 +81,31 @@ export default class AuditController extends Controller {
 
     const serviceIds = [
       ...new Set(
-        workItem.document.answers.edges
-          .flatMap((edge) =>
-            edge.node.value.map((doc) => [
-              doc.createdByGroup,
-              doc.modifiedContentByGroup,
-            ])
-          )
-          .map((id) => parseInt(id, 10))
-          .filter((id) => id && !cachedServiceIds.includes(id))
+        workItems.flatMap((workItem) =>
+          workItem.document.answers.edges
+            .flatMap((edge) =>
+              edge.node.value.map((doc) => [
+                doc.createdByGroup,
+                doc.modifiedContentByGroup,
+              ])
+            )
+            .map((id) => parseInt(id, 10))
+            .filter((id) => id && !cachedServiceIds.includes(id))
+        )
       ),
     ];
 
     const usernames = [
       ...new Set(
-        workItem.document.answers.edges
-          .flatMap((edge) =>
-            edge.node.value.map((doc) => doc.modifiedContentByUser)
-          )
-          .filter((username) => username && !cachedUsernames.includes(username))
+        workItems.flatMap((workItem) =>
+          workItem.document.answers.edges
+            .flatMap((edge) =>
+              edge.node.value.map((doc) => doc.modifiedContentByUser)
+            )
+            .filter(
+              (username) => username && !cachedUsernames.includes(username)
+            )
+        )
       ),
     ];
 
