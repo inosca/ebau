@@ -153,7 +153,7 @@ class ActivationView(InstanceQuerysetMixin, views.ReadOnlyModelViewSet):
                 applicants=Subquery(
                     fields_queryset.filter(name="projektverfasser-planer").values(
                         "value"
-                    )[:1]
+                    )
                 )
             )
             .annotate(
@@ -164,6 +164,21 @@ class ActivationView(InstanceQuerysetMixin, views.ReadOnlyModelViewSet):
         )
         queryset = self.filter_queryset(queryset)
 
+        def applicant_names(activation):
+            overrides = FormField.objects.filter(
+                instance=activation.circulation.instance,
+                name="projektverfasser-planer-override",
+            ).values("value")
+
+            applicants = overrides if len(overrides) else (activation.applicants or [])
+
+            return ", ".join(
+                [
+                    f"{applicant.get('firma', '')} {applicant.get('vorname', '')} {applicant.get('name', '')}".strip()
+                    for applicant in applicants
+                ]
+            )
+
         content = [
             [
                 activation.circulation.instance.pk,
@@ -173,9 +188,7 @@ class ActivationView(InstanceQuerysetMixin, views.ReadOnlyModelViewSet):
                     activation.circulation.instance.location
                     and activation.circulation.instance.location.name
                 ),
-                ", ".join(
-                    [applicant["name"] for applicant in (activation.applicants or [])]
-                ),
+                applicant_names(activation),
                 activation.description,
                 activation.reason,
                 activation.circulation.instance.instance_state.name,
