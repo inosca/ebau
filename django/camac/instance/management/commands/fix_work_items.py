@@ -5,7 +5,7 @@ from caluma.caluma_user.models import AnonymousUser
 from caluma.caluma_workflow.api import cancel_case, cancel_work_item, suspend_case
 from caluma.caluma_workflow.events import post_create_work_item
 from caluma.caluma_workflow.models import Case, Task, WorkItem
-from caluma.caluma_workflow.utils import bulk_create_work_items
+from caluma.caluma_workflow.utils import create_work_items
 from django.core.management.base import BaseCommand
 from django.db import transaction
 from django.db.models import Count
@@ -210,7 +210,7 @@ class Command(BaseCommand):
                 if not case.work_items.filter(
                     **{"meta__circulation-id": circulation.pk}
                 ).exists():
-                    created_work_items = bulk_create_work_items(
+                    created_work_items = create_work_items(
                         tasks=Task.objects.filter(pk="circulation"),
                         case=self.get_case(instance),
                         user=self.user,
@@ -346,7 +346,7 @@ class Command(BaseCommand):
                     canceled.append(work_item.task_id)
                     cancel_work_item(work_item=work_item, user=self.user)
 
-                created_work_items = bulk_create_work_items(
+                created_work_items = create_work_items(
                     Task.objects.filter(pk=required_task), case, self.user
                 )
                 created.append(required_task)

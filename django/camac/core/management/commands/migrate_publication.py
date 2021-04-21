@@ -8,7 +8,7 @@ from caluma.caluma_workflow.api import (
     suspend_work_item,
 )
 from caluma.caluma_workflow.models import Case, Task, WorkItem
-from caluma.caluma_workflow.utils import bulk_create_work_items
+from caluma.caluma_workflow.utils import create_work_items
 from django.contrib.postgres.fields.jsonb import KeyTransform
 from django.core.management.base import BaseCommand
 from django.db import transaction
@@ -131,7 +131,7 @@ class Command(BaseCommand):
     def migrate_publication(self, case, instance):
         publication = Publication.objects.filter(instance=instance.pk).first()
 
-        target_work_item = bulk_create_work_items(
+        target_work_item = create_work_items(
             tasks=[self.fill_task],
             case=case,
             user=self.user,
