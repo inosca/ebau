@@ -1,0 +1,40 @@
+<tr>
+  <td><LinkTo @route="audit.edit" @model={{@audit.id}}>{{@audit.type}}</LinkTo></td>
+  <td>{{@audit.municipality.name}}</td>
+  <td>
+    {{#if (and @audit.modifiedByUser @audit.modifiedByService @audit.modifiedAt)}}
+      {{t "audit.modifiedText"
+        user=@audit.modifiedByUser.fullName
+        service=@audit.modifiedByService.name
+        date=(moment-format @audit.modifiedAt "DD.MM.YYYY HH:mm")
+        htmlSafe=true
+      }}
+    {{else}}
+      -
+    {{/if}}
+  </td>
+  <td class="uk-text-right">
+    <IconButton
+      @icon="file-pdf"
+      @loading={{this.pdf.isRunning}}
+      @onClick={{perform this.pdf}}
+      title={{t "audit.createPdf"}}
+    />
+    {{#if (and (not @disabled) @audit.canEdit)}}
+      <IconButton
+        @icon="copy"
+        @loading={{this.copy.isRunning}}
+        @onClick={{perform this.copy}}
+        title={{t "audit.copy"}}
+      />
+      {{#unless @onlyCopy}}
+        <IconButton
+          @icon="trash"
+          @loading={{this.delete.isRunning}}
+          @onClick={{perform this.delete}}
+          title={{t "audit.delete"}}
+        />
+      {{/unless}}
+    {{/if}}
+  </td>
+</tr>
