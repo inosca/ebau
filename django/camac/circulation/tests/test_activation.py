@@ -63,7 +63,7 @@ def test_activation_export(
     )
     add_field(name="bezeichnung", value="Bezeichnung")
 
-    with django_assert_num_queries(2):
+    with django_assert_num_queries(4):
         response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
     book = pyexcel.get_book(file_content=response.content, file_type="xlsx")
