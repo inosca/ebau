@@ -4,8 +4,9 @@ audit:
   complete: "Prüfung abschliessen"
   skip: "Prüfung überspringen"
   copy: "Prüfung kopieren"
-  createPdf: "PDF herunterladen"
+  createPdf: "Prüfung als PDF herunterladen"
   titleMeta: 'Zuletzt bearbeitet von <span title="{service}">{user}</span> am {date}'
+  showSameEbauNumber: "Prüfungen von Dossiers mit gleicher eBau-Nummer"
 
   type: "Prüfungstyp"
   municipality: "Leitbehörde"

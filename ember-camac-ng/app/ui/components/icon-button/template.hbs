@@ -1,0 +1,14 @@
+<button
+  type="button"
+  class="uk-icon-button {{if @disabled "uk-disabled"}}"
+  title={{t "audit.createPdf"}}
+  disabled={{@disabled}}
+  {{on "click" @onClick}}
+  ...attributes
+>
+  {{#if @loading}}
+    <UkSpinner @ratio={{0.5}} />
+  {{else}}
+    <UkIcon @icon={{@icon}} />
+  {{/if}}
+</button>
