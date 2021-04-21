@@ -158,6 +158,7 @@ APPLICATIONS = {
             "INSTANCE_COMPLETE": None,
             "PUBLICATION": None,
             "START_CIRC": None,
+            "DECISION": None,
         },
         "PAPER": {
             "ALLOWED_ROLES": {"DEFAULT": []},
@@ -221,6 +222,7 @@ APPLICATIONS = {
             "INSTANCE_COMPLETE": 14,
             "PUBLICATION": 15,
             "START_CIRC": 44,
+            "DECISION": 47,
         },
         "QUESTIONS_WITH_OVERRIDE": [
             "bezeichnung",
