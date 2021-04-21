@@ -319,7 +319,7 @@ class InstanceView(
                 applicants=Subquery(
                     fields_queryset.filter(name="projektverfasser-planer").values(
                         "value"
-                    )[:1]
+                    )
                 )
             )
             .annotate(
@@ -330,18 +330,28 @@ class InstanceView(
         )
         queryset = self.filter_queryset(queryset)
 
+        def applicant_names(instance):
+            overrides = models.FormField.objects.filter(
+                instance=instance,
+                name="projektverfasser-planer-override",
+            ).values("value")
+
+            applicants = overrides if len(overrides) else (instance.applicants or [])
+
+            return ", ".join(
+                [
+                    f"{applicant.get('firma', '')} {applicant.get('vorname', '')} {applicant.get('name', '')}".strip()
+                    for applicant in applicants
+                ]
+            )
+
         content = [
             [
                 instance.pk,
                 instance.identifier,
                 instance.form.description,
                 instance.location and instance.location.name,
-                ", ".join(
-                    [
-                        applicant["name"] if "name" in applicant else applicant["firma"]
-                        for applicant in (instance.applicants or [])
-                    ]
-                ),
+                applicant_names(instance),
                 instance.description,
                 instance.instance_state.name,
                 instance.instance_state.description,
