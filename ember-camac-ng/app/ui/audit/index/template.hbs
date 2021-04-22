@@ -3,110 +3,48 @@
     <UkSpinner @ratio={{2}} />
   </div>
 {{else}}
-  {{#unless this.disabled}}
-    <div class="uk-text-right uk-margin">
-      <button class="uk-button uk-button-default" type="button" {{on "click" (perform this.skipAudit)}}>{{t "audit.skip"}}</button>
-      <button class="uk-button uk-button-primary" type="button" {{on "click" (perform this.completeAudit)}}>{{t "audit.complete"}}</button>
+  <div class="uk-flex uk-flex-between uk-margin">
+    <div class="uk-flex uk-flex-middle">
+      <UkToggleSwitch
+        @value={{this.showSameEbauNumber}}
+        @size="small"
+        @name="show-same-ebau-number"
+        @on-toggle={{this.toggleShowSameEbauNumber}}
+        class="x-small"
+      />
+      <label class="uk-text-meta uk-margin-small-left" for="show-same-ebau-number">
+        {{t "audit.showSameEbauNumber"}}
+      </label>
     </div>
-  {{/unless}}
 
-  <table class="uk-table uk-table-striped uk-table-small uk-table-middle">
-    <thead>
-      <tr>
-        <th>{{t "audit.type"}}</th>
-        <th>{{t "audit.municipality"}}</th>
-        <th>{{t "audit.modified"}}</th>
-        <th><span hidden>{{t "audit.actions"}}</span></th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each this.audits as |audit|}}
-        <tr>
-          <td><LinkTo @route="audit.edit" @model={{audit.id}}>{{audit.type}}</LinkTo></td>
-          <td>{{audit.municipality.name}}</td>
-          <td>
-            {{#if (and audit.modifiedByUser audit.modifiedByService audit.modifiedAt)}}
-              {{t "audit.modifiedText"
-                user=audit.modifiedByUser.fullName
-                service=audit.modifiedByService.name
-                date=(moment-format audit.modifiedAt "DD.MM.YYYY HH:mm")
-                htmlSafe=true
-              }}
-            {{else}}
-              -
-            {{/if}}
-          </td>
-          <td class="uk-text-right">
-            {{#if (includes audit.id this.pdfLoading)}}
-              <UkSpinner @ratio={{0.5}} />
-            {{else}}
-              <button
-                type="button"
-                class="uk-button uk-button-text"
-                title={{t "audit.createPdf"}}
-                {{on "click" (perform this.createPdf audit)}}
-              >
-                <UkIcon @icon="file-pdf" />
-              </button>
-            {{/if}}
-            {{#if (and (not this.disabled) audit.canEdit)}}
-              {{#if (and this.copyAudit.isRunning (eq audit.id this.copyAudit.lastRunning.args.firstObject.id))}}
-                <UkSpinner @ratio={{0.5}} />
-              {{else}}
-                <button
-                  type="button"
-                  class="uk-button uk-button-text"
-                  title={{t "audit.copy"}}
-                  {{on "click" (perform this.copyAudit audit)}}
-                >
-                  <UkIcon @icon="copy" />
-                </button>
-              {{/if}}
-              {{#if (includes audit.id this.deleteAudit)}}
-                <UkSpinner @ratio={{0.5}} />
-              {{else}}
-                <button
-                  type="button"
-                  class="uk-button uk-button-text"
-                  title={{t "audit.delete"}}
-                  {{on "click" (perform this.deleteAudit audit)}}
-                >
-                  <UkIcon @icon="trash" />
-                </button>
-              {{/if}}
-            {{/if}}
-          </td>
-        </tr>
-      {{else}}
-        <tr>
-          <td colspan="4" class="uk-text-center">{{t "global.empty"}}</td>
-        </tr>
-      {{/each}}
-    </tbody>
-  </table>
-
-  {{#unless this.disabled}}
-    <div class="uk-text-center">
-      <button
-        type="button"
-        class="uk-button uk-button-default"
-        title={{t "audit.new"}}
-       >
-        <UkIcon @icon="plus" />
-      </button>
-      <div uk-dropdown>
-        {{#if this.createAudit.isRunning}}
-          <div class="uk-flex-center uk-flex-middle uk-width-1-1">
-            <UkSpinner />
-          </div>
-        {{else}}
-          <ul class="uk-nav uk-dropdown-nav uk-text-left">
-            {{#each this.forms as |form|}}
-              <li><a href="#" {{on "click" (perform this.createAudit form)}}>{{t (concat "audit.forms." form)}}</a></li>
-            {{/each}}
-          </ul>
-        {{/if}}
+    {{#unless this.disabled}}
+      <div>
+        <button class="uk-button uk-button-default" type="button" {{on "click" (perform this.skipAudit)}}>{{t "audit.skip"}}</button>
+        <button class="uk-button uk-button-primary" type="button" {{on "click" (perform this.completeAudit)}}>{{t "audit.complete"}}</button>
       </div>
-    </div>
-  {{/unless}}
+    {{/unless}}
+  </div>
+
+  <AuditTable
+    @audits={{this.audits}}
+    @documentData={{this.documentData}}
+    @disabled={{this.disabled}}
+    @onRefresh={{perform this.auditController.fetchAudit}}
+  />
+
+  {{#if this.showSameEbauNumber}}
+    {{#each this.auditsWithSameEbauNumber as |auditGroup|}}
+      <div class="uk-margin-top">
+        <strong>{{auditGroup.instanceId}} - {{auditGroup.form}}</strong>
+        <hr>
+        <AuditTable
+          @audits={{auditGroup.audits}}
+          @documentData={{this.documentData}}
+          @disabled={{this.disabled}}
+          @onlyCopy={{true}}
+          @onRefresh={{perform this.auditController.fetchAudit}}
+        />
+      </div>
+    {{/each}}
+  {{/if}}
 {{/if}}
