@@ -456,6 +456,22 @@
     }
   },
   {
+    "model": "core.aformtransition",
+    "pk": 12000002,
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 31
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 12000003,
+    "fields": {
+      "current_instance_state": 31,
+      "next_instance_state": null
+    }
+  },
+  {
     "model": "core.alocation",
     "pk": 1009,
     "fields": {}
@@ -827,6 +843,15 @@
     "fields": {
       "template": "dossier-id-von-bundesstelle-frei-geschalten",
       "recipient_type": "Custom_Plugin_Notification_Recipient_ResponsibleKoor",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 12000004,
+    "fields": {
+      "template": "dossier-abgewiesen",
+      "recipient_type": "Notification_Manager_Applicant",
       "processor": "Notification_Processor_SendEmailAPI"
     }
   },
@@ -5053,6 +5078,76 @@
       "error_message": "Beim Erstellen des Dossiers ist ein Fehler aufgetreten.",
       "execute_always": 0,
       "sort": 3
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000000,
+    "fields": {
+      "available_action": "save",
+      "button": 12000000,
+      "name": "Save",
+      "description": null,
+      "success_message": "Speichern erfolgreich",
+      "error_message": "Beim Speichern ist ein Fehler aufgetreten",
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000001,
+    "fields": {
+      "available_action": "save",
+      "button": 12000001,
+      "name": "Save",
+      "description": null,
+      "success_message": null,
+      "error_message": "Beim Speichern ist ein Fehler aufgetreten",
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000002,
+    "fields": {
+      "available_action": "formtransition",
+      "button": 12000001,
+      "name": "Reset State to \"Zur\u00fcckgewiesen\"",
+      "description": null,
+      "success_message": "Dossier erfolgreich zur\u00fcckgewiesen",
+      "error_message": "Bei der \u00c4nderung vom Dossierstatus ist ein Fehler aufgetreten",
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000003,
+    "fields": {
+      "available_action": "formtransition",
+      "button": 12000002,
+      "name": "Reset state \"Zur\u00fcckgewiesen\" to previous state",
+      "description": null,
+      "success_message": "Dossier Zur\u00fcckweisung wurde erfolgreich aufgehoben",
+      "error_message": "Bei der \u00c4nderung vom Dossierstatus ist ein Fehler aufgetreten",
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000004,
+    "fields": {
+      "available_action": "notification",
+      "button": 12000001,
+      "name": "E-Mail an Gesuchsteller schicken",
+      "description": null,
+      "success_message": null,
+      "error_message": "Beim Verschicken der E-Mail ist ein Fehler aufgetreten",
+      "execute_always": 0,
+      "sort": 2
     }
   },
   {
@@ -15194,6 +15289,60 @@
     }
   },
   {
+    "model": "core.broleacl",
+    "pk": 12000000,
+    "fields": {
+      "button": 12000001,
+      "role": 6,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000001,
+    "fields": {
+      "button": 12000001,
+      "role": 6,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000002,
+    "fields": {
+      "button": 12000001,
+      "role": 6,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000003,
+    "fields": {
+      "button": 12000001,
+      "role": 6,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000004,
+    "fields": {
+      "button": 12000001,
+      "role": 6,
+      "instance_state": 30
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000005,
+    "fields": {
+      "button": 12000002,
+      "role": 1,
+      "instance_state": 31
+    }
+  },
+  {
     "model": "core.billingconfig",
     "pk": 1,
     "fields": {
@@ -17161,6 +17310,42 @@
     }
   },
   {
+    "model": "core.button",
+    "pk": 12000000,
+    "fields": {
+      "instance_resource": 12000000,
+      "name": "Speichern",
+      "description": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.button",
+    "pk": 12000001,
+    "fields": {
+      "instance_resource": 12000000,
+      "name": "Dossier zur\u00fcckweisen",
+      "description": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.button",
+    "pk": 12000002,
+    "fields": {
+      "instance_resource": 12000000,
+      "name": "R\u00fcckweisung aufheben",
+      "description": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 2
+    }
+  },
+  {
     "model": "core.chapter",
     "pk": 1,
     "fields": {
@@ -17264,6 +17449,15 @@
     "pk": 106,
     "fields": {
       "name": "Stellungsnahme (Gemeinde)",
+      "description": null,
+      "javascript": null
+    }
+  },
+  {
+    "model": "core.chapter",
+    "pk": 12000000,
+    "fields": {
+      "name": "R\u00fcckmeldungen f\u00fcr Gesuchsteller/in",
       "description": null,
       "javascript": null
     }
@@ -17437,6 +17631,15 @@
       "chapter": 104,
       "page": 1,
       "sort": 4
+    }
+  },
+  {
+    "model": "core.chapterpage",
+    "pk": 12000000,
+    "fields": {
+      "chapter": 12000000,
+      "page": 12000000,
+      "sort": 0
     }
   },
   {
@@ -21602,7 +21805,7 @@
       "template": "/change/gem.phtml",
       "class_field": "",
       "hidden": 0,
-      "sort": 7,
+      "sort": 6,
       "form_group": 221
     }
   },
@@ -21617,7 +21820,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 8,
+      "sort": 7,
       "form_group": 257
     }
   },
@@ -21632,7 +21835,7 @@
       "template": "/global/involved-department.phtml",
       "class_field": "",
       "hidden": 0,
-      "sort": 6,
+      "sort": 5,
       "form_group": 181
     }
   },
@@ -22787,7 +22990,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 4,
+      "sort": 3,
       "form_group": 161
     }
   },
@@ -22922,7 +23125,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 5,
+      "sort": 4,
       "form_group": 161
     }
   },
@@ -23283,6 +23486,21 @@
       "class_field": null,
       "hidden": 0,
       "sort": 1,
+      "form_group": 161
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 12000000,
+    "fields": {
+      "available_instance_resource": "editformpage",
+      "resource": 301,
+      "name": "Dossier zur\u00fcckweisen",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 8,
       "form_group": 161
     }
   },
@@ -25151,6 +25369,14 @@
     }
   },
   {
+    "model": "core.instanceresourceaction",
+    "pk": 12000000,
+    "fields": {
+      "available_instance_resource": "editformpage",
+      "available_action": "notification"
+    }
+  },
+  {
     "model": "core.ircirculation",
     "pk": 314,
     "fields": {
@@ -26223,6 +26449,14 @@
     "pk": 671,
     "fields": {
       "page": 1,
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.ireditformpage",
+    "pk": 12000000,
+    "fields": {
+      "page": 12000000,
       "pdf_class": null
     }
   },
@@ -36257,6 +36491,51 @@
     }
   },
   {
+    "model": "core.irroleacl",
+    "pk": 12000002,
+    "fields": {
+      "instance_resource": 12000000,
+      "role": 6,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000003,
+    "fields": {
+      "instance_resource": 12000000,
+      "role": 6,
+      "instance_state": 31
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000004,
+    "fields": {
+      "instance_resource": 12000000,
+      "role": 6,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000005,
+    "fields": {
+      "instance_resource": 12000000,
+      "role": 6,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000006,
+    "fields": {
+      "instance_resource": 12000000,
+      "role": 6,
+      "instance_state": 30
+    }
+  },
+  {
     "model": "core.irserviceacl",
     "pk": 1,
     "fields": {
@@ -36734,6 +37013,15 @@
       "name": "Meta",
       "description": "Diese Seite dient dazu, dass man Meta-Informationen zu einem Formular speichern kann.\nWird prim\u00e4r f\u00fcr das Portal benutzt, um zu speichern, wer dass das Dossier eingereicht hat. Ansonsten m\u00fcsste man die ACL wieder einf\u00fchren. Wenn es in der bestehenden Seite ist, wird das Feld immer wieder mit leer \u00fcberschrieben!",
       "javascript": ""
+    }
+  },
+  {
+    "model": "core.page",
+    "pk": 12000000,
+    "fields": {
+      "name": "R\u00fcckmeldungen f\u00fcr Gesuchsteller/innen",
+      "description": null,
+      "javascript": null
     }
   },
   {
@@ -38130,7 +38418,7 @@
       "form": 47,
       "page_form_mode": 1,
       "page_form_group": 1,
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -38208,6 +38496,94 @@
       "page_form_mode": 4,
       "page_form_group": 1,
       "sort": 2
+    }
+  },
+  {
+    "model": "core.pageform",
+    "pk": 12000000,
+    "fields": {
+      "page": 12000000,
+      "form": 21,
+      "page_form_mode": 3,
+      "page_form_group": 1,
+      "sort": 2
+    }
+  },
+  {
+    "model": "core.pageform",
+    "pk": 12000001,
+    "fields": {
+      "page": 12000000,
+      "form": 44,
+      "page_form_mode": 1,
+      "page_form_group": 1,
+      "sort": 3
+    }
+  },
+  {
+    "model": "core.pageform",
+    "pk": 12000002,
+    "fields": {
+      "page": 12000000,
+      "form": 47,
+      "page_form_mode": 1,
+      "page_form_group": 1,
+      "sort": 3
+    }
+  },
+  {
+    "model": "core.pageform",
+    "pk": 12000003,
+    "fields": {
+      "page": 12000000,
+      "form": 61,
+      "page_form_mode": 1,
+      "page_form_group": 1,
+      "sort": 2
+    }
+  },
+  {
+    "model": "core.pageform",
+    "pk": 12000004,
+    "fields": {
+      "page": 12000000,
+      "form": 121,
+      "page_form_mode": 1,
+      "page_form_group": 1,
+      "sort": 3
+    }
+  },
+  {
+    "model": "core.pageform",
+    "pk": 12000005,
+    "fields": {
+      "page": 12000000,
+      "form": 249,
+      "page_form_mode": 1,
+      "page_form_group": 1,
+      "sort": 3
+    }
+  },
+  {
+    "model": "core.pageform",
+    "pk": 12000006,
+    "fields": {
+      "page": 12000000,
+      "form": 141,
+      "page_form_mode": 1,
+      "page_form_group": 1,
+      "sort": 3
+    }
+  },
+  {
+    "model": "core.pageform",
+    "pk": 12000007,
+    "fields": {
+      "page": 12000000,
+      "form": 290,
+      "page_form_mode": 1,
+      "page_form_group": 1,
+      "sort": 3
     }
   },
   {
@@ -39881,6 +40257,22 @@
     }
   },
   {
+    "model": "core.question",
+    "pk": 12000000,
+    "fields": {
+      "question_type": 2,
+      "mapping": 1,
+      "answer_query": null,
+      "name": "R\u00fcckmeldung",
+      "description": null,
+      "javascript": null,
+      "regex": null,
+      "default_answer": null,
+      "class_field": null,
+      "validation": null
+    }
+  },
+  {
     "model": "core.questionchapter",
     "pk": 1,
     "fields": {
@@ -41033,6 +41425,17 @@
       "required": 0,
       "item": 1,
       "sort": 10
+    }
+  },
+  {
+    "model": "core.questionchapter",
+    "pk": 12000000,
+    "fields": {
+      "question": 12000000,
+      "chapter": 12000000,
+      "required": 0,
+      "item": 1,
+      "sort": 0
     }
   },
   {
