@@ -18,7 +18,9 @@ module.exports = function (environment) {
   const instanceStatesUr = {
     new: 28,
     finished: 25, // done
-    archived: 33, // old
+    archived: 26, // arch
+    rejected: 31,
+    old: 33,
   };
   const appConfig = {
     kt_bern: {
@@ -72,6 +74,7 @@ module.exports = function (environment) {
           instanceStatesUr.new,
           instanceStatesUr.archived,
           instanceStatesUr.finished,
+          instanceStatesUr.old,
         ],
       },
     },
@@ -154,13 +157,6 @@ module.exports = function (environment) {
         "zutrittsermaechtigung",
         "klaerung-baubewilligungspflicht",
       ],
-    },
-    urec: {
-      instanceStates: {
-        new: 28,
-        done: 25,
-        old: 33,
-      },
     },
   };
 
