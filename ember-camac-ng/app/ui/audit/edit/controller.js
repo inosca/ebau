@@ -12,9 +12,12 @@ export default class AuditEditController extends Controller {
   queryParams = ["displayedForm"];
 
   get audit() {
-    return this.auditIndexController.audits.find(
-      (audit) => audit.id === this.model
-    );
+    return [
+      ...(this.auditIndexController.audits || []),
+      ...(this.auditIndexController.auditsWithSameEbauNumber || []).flatMap(
+        (group) => group.audits
+      ),
+    ].find((audit) => audit.id === this.model);
   }
 
   get isMaterialExam() {
@@ -22,8 +25,12 @@ export default class AuditEditController extends Controller {
   }
 
   get disabled() {
-    if (!this.audit) {
-      return false;
+    // audits from the same ebau number should be read-only
+    if (
+      !this.audit ||
+      !this.auditIndexController.audits.find((audit) => audit.id === this.model)
+    ) {
+      return true;
     }
 
     return this.auditController.disabled || !this.audit.canEdit;

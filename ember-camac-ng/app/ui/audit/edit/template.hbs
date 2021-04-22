@@ -19,7 +19,7 @@
   {{/if}}
 
   <div class="uk-text-right">
-    <a href="" {{on "click" (perform this.back)}}>{{t "audit.back"}}</a>
+    <a href="" class="no-loading" {{on "click" (perform this.back)}}>{{t "audit.back"}}</a>
   </div>
 </div>
 
@@ -41,6 +41,7 @@ as |content|>
               @size="small"
               @name="toggle-irrelevant-fields"
               @on-toggle={{this.toggleIrrelevant}}
+              class="x-small"
             />
             <label class="uk-text-meta uk-margin-small-top" for="toggle-irrelevant-fields">
               {{t "audit.onlyExamItems"}}
