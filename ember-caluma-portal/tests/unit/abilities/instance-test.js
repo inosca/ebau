@@ -3,6 +3,8 @@ import { module, test } from "qunit";
 
 import config from "../../../config/environment";
 
+import testIf from "ember-caluma-portal/tests/helpers/test-if";
+
 module("Unit | Ability | instance", function (hooks) {
   setupTest(hooks);
 
@@ -132,7 +134,7 @@ module("Unit | Ability | instance", function (hooks) {
     assert.ok(ability.canCreate);
   });
 
-  test("it computes delete permissions", async function (assert) {
+  testIf("be")("it computes delete permissions", async function (assert) {
     assert.expect(2);
 
     const ability = this.owner.lookup("ability:instance");

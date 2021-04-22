@@ -1,1 +1,304 @@
-[]
+[
+  {
+    "model": "caluma_workflow.historicalcase",
+    "pk": "39058553-eb5a-4315-9188-42eece7a1e87",
+    "fields": {
+      "history_user_id": "admin",
+      "created_at": "2021-04-16T12:44:43.020Z",
+      "modified_at": "2021-04-16T12:44:43.020Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "id": "c7e5eef4-4919-4f5d-accc-995d080e1c00",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "status": "running",
+      "meta": {
+        "camac-instance-id": 1
+      },
+      "family": "c7e5eef4-4919-4f5d-accc-995d080e1c00",
+      "workflow": "building-permit",
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "history_date": "2021-04-16T12:44:43.022Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_workflow.historicalcase",
+    "pk": "97e75daf-4d14-4dbb-87c1-a63dc3d2142b",
+    "fields": {
+      "history_user_id": "admin",
+      "created_at": "2021-04-16T12:48:20.991Z",
+      "modified_at": "2021-04-16T12:48:20.991Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "id": "857ff0e6-9547-46c8-bd44-7258c9fa33e4",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "status": "running",
+      "meta": {
+        "camac-instance-id": 2
+      },
+      "family": "857ff0e6-9547-46c8-bd44-7258c9fa33e4",
+      "workflow": "building-permit",
+      "document": "a2a3c0b2-26be-496a-b733-97c00401c2f5",
+      "history_date": "2021-04-16T12:48:20.993Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_workflow.case",
+    "pk": "857ff0e6-9547-46c8-bd44-7258c9fa33e4",
+    "fields": {
+      "created_at": "2021-04-16T12:48:20.991Z",
+      "modified_at": "2021-04-16T12:48:20.991Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "family": "857ff0e6-9547-46c8-bd44-7258c9fa33e4",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "workflow": "building-permit",
+      "status": "running",
+      "meta": {
+        "camac-instance-id": 2
+      },
+      "document": "a2a3c0b2-26be-496a-b733-97c00401c2f5"
+    }
+  },
+  {
+    "model": "caluma_workflow.case",
+    "pk": "c7e5eef4-4919-4f5d-accc-995d080e1c00",
+    "fields": {
+      "created_at": "2021-04-16T12:44:43.020Z",
+      "modified_at": "2021-04-16T12:44:43.020Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "family": "c7e5eef4-4919-4f5d-accc-995d080e1c00",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "workflow": "building-permit",
+      "status": "running",
+      "meta": {
+        "camac-instance-id": 1
+      },
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0"
+    }
+  },
+  {
+    "model": "caluma_workflow.historicalworkitem",
+    "pk": "14c54886-9fc7-4bf2-b61d-fa91253c77fa",
+    "fields": {
+      "history_user_id": "admin",
+      "created_at": "2021-04-16T12:44:43.087Z",
+      "modified_at": "2021-04-16T12:44:43.087Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "id": "c2119c5c-165a-4d7c-9d43-b827e0ec6287",
+      "name": "{\"de\": null, \"fr\": null}",
+      "description": "{\"de\": null, \"fr\": null}",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "deadline": null,
+      "status": "ready",
+      "meta": {},
+      "addressed_groups": "[]",
+      "controlling_groups": "[]",
+      "assigned_users": "[]",
+      "task": "placeholder",
+      "case": "c7e5eef4-4919-4f5d-accc-995d080e1c00",
+      "child_case": null,
+      "document": null,
+      "previous_work_item": null,
+      "history_date": "2021-04-16T12:44:43.090Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_workflow.historicalworkitem",
+    "pk": "594d79a6-8e82-4f2e-9df2-3821a8d05b44",
+    "fields": {
+      "history_user_id": "admin",
+      "created_at": "2021-04-16T12:48:21.002Z",
+      "modified_at": "2021-04-16T12:48:21.013Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "id": "c9c7b057-751e-4578-9da4-6f9d21d7e205",
+      "name": "{\"de\": \"Platzhalter\", \"fr\": null}",
+      "description": "{\"de\": null, \"fr\": null}",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "deadline": null,
+      "status": "ready",
+      "meta": {
+        "not-viewed": true,
+        "notify-deadline": true,
+        "notify-completed": false
+      },
+      "addressed_groups": "[]",
+      "controlling_groups": "[]",
+      "assigned_users": "[]",
+      "task": "placeholder",
+      "case": "857ff0e6-9547-46c8-bd44-7258c9fa33e4",
+      "child_case": null,
+      "document": null,
+      "previous_work_item": null,
+      "history_date": "2021-04-16T12:48:21.016Z",
+      "history_change_reason": null,
+      "history_type": "~"
+    }
+  },
+  {
+    "model": "caluma_workflow.historicalworkitem",
+    "pk": "6717a424-2205-4c8d-bd0b-dde17b773f9f",
+    "fields": {
+      "history_user_id": "admin",
+      "created_at": "2021-04-16T12:44:43.087Z",
+      "modified_at": "2021-04-16T12:44:43.099Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "id": "c2119c5c-165a-4d7c-9d43-b827e0ec6287",
+      "name": "{\"de\": \"Platzhalter\", \"fr\": null}",
+      "description": "{\"de\": null, \"fr\": null}",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "deadline": null,
+      "status": "ready",
+      "meta": {
+        "not-viewed": true,
+        "notify-deadline": true,
+        "notify-completed": false
+      },
+      "addressed_groups": "[]",
+      "controlling_groups": "[]",
+      "assigned_users": "[]",
+      "task": "placeholder",
+      "case": "c7e5eef4-4919-4f5d-accc-995d080e1c00",
+      "child_case": null,
+      "document": null,
+      "previous_work_item": null,
+      "history_date": "2021-04-16T12:44:43.101Z",
+      "history_change_reason": null,
+      "history_type": "~"
+    }
+  },
+  {
+    "model": "caluma_workflow.historicalworkitem",
+    "pk": "6db34da6-1eda-46c8-9478-36e0991e8568",
+    "fields": {
+      "history_user_id": "admin",
+      "created_at": "2021-04-16T12:48:21.002Z",
+      "modified_at": "2021-04-16T12:48:21.002Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "id": "c9c7b057-751e-4578-9da4-6f9d21d7e205",
+      "name": "{\"de\": null, \"fr\": null}",
+      "description": "{\"de\": null, \"fr\": null}",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "deadline": null,
+      "status": "ready",
+      "meta": {},
+      "addressed_groups": "[]",
+      "controlling_groups": "[]",
+      "assigned_users": "[]",
+      "task": "placeholder",
+      "case": "857ff0e6-9547-46c8-bd44-7258c9fa33e4",
+      "child_case": null,
+      "document": null,
+      "previous_work_item": null,
+      "history_date": "2021-04-16T12:48:21.004Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_workflow.workitem",
+    "pk": "c2119c5c-165a-4d7c-9d43-b827e0ec6287",
+    "fields": {
+      "created_at": "2021-04-16T12:44:43.087Z",
+      "modified_at": "2021-04-16T12:44:43.099Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Platzhalter\", \"fr\": null}",
+      "description": "{\"de\": null, \"fr\": null}",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "deadline": null,
+      "task": "placeholder",
+      "status": "ready",
+      "meta": {
+        "not-viewed": true,
+        "notify-deadline": true,
+        "notify-completed": false
+      },
+      "addressed_groups": "[]",
+      "controlling_groups": "[]",
+      "assigned_users": "[]",
+      "case": "c7e5eef4-4919-4f5d-accc-995d080e1c00",
+      "child_case": null,
+      "document": null,
+      "previous_work_item": null
+    }
+  },
+  {
+    "model": "caluma_workflow.workitem",
+    "pk": "c9c7b057-751e-4578-9da4-6f9d21d7e205",
+    "fields": {
+      "created_at": "2021-04-16T12:48:21.002Z",
+      "modified_at": "2021-04-16T12:48:21.013Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Platzhalter\", \"fr\": null}",
+      "description": "{\"de\": null, \"fr\": null}",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "deadline": null,
+      "task": "placeholder",
+      "status": "ready",
+      "meta": {
+        "not-viewed": true,
+        "notify-deadline": true,
+        "notify-completed": false
+      },
+      "addressed_groups": "[]",
+      "controlling_groups": "[]",
+      "assigned_users": "[]",
+      "case": "857ff0e6-9547-46c8-bd44-7258c9fa33e4",
+      "child_case": null,
+      "document": null,
+      "previous_work_item": null
+    }
+  }
+]
