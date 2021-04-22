@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "model": "instance.instance",
+    "pk": 1,
+    "fields": {
+      "instance_state": 28,
+      "form": 44,
+      "user": 1,
+      "group": 685,
+      "creation_date": "2021-04-16T12:44:42.792Z",
+      "modification_date": "2021-04-16T12:44:42.792Z",
+      "previous_instance_state": 28,
+      "identifier": null,
+      "location": null
+    }
+  },
+  {
+    "model": "instance.instance",
+    "pk": 2,
+    "fields": {
+      "instance_state": 28,
+      "form": 121,
+      "user": 1,
+      "group": 685,
+      "creation_date": "2021-04-16T12:48:20.891Z",
+      "modification_date": "2021-04-16T12:48:20.891Z",
+      "previous_instance_state": 28,
+      "identifier": null,
+      "location": null
+    }
+  }
+]

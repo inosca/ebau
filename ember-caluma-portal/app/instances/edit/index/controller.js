@@ -78,7 +78,7 @@ export default class InstancesEditIndexController extends Controller {
   get isRejection() {
     return (
       parseInt(this.get("instance.instanceState.id")) ===
-      config.ebau.instanceStates.rejected
+      config.APPLICATION.instanceStates.rejected
     );
   }
 
