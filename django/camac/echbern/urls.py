@@ -14,7 +14,7 @@ redirects = {
 }
 
 urlpatterns = []
-if settings.ECH_API:
+if settings.APPLICATION.get("ECH_API"):
     urlpatterns = [
         url(
             r"application/(?P<instance_id>\d+)/?$",

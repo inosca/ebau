@@ -15,7 +15,7 @@ from ..document_merge_service import DMSClient, DMSVisitor
 def caluma_form_fixture(db, form_question_factory, question_factory):
     kt_bern_path = Path(settings.ROOT_DIR) / "kt_bern"
 
-    for path in (kt_bern_path / "config").glob("caluma_*.json"):
+    for path in sorted((kt_bern_path / "config").glob("caluma_*.json")):
         call_command("loaddata", path)
 
     call_command("loaddata", kt_bern_path / "data" / "caluma_form.json")
