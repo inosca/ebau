@@ -1,18 +1,18 @@
 [
-{
-  "model": "caluma_form.document",
-  "pk": "f51fc1cd-7118-4433-91a0-f0b00ae8b2c8",
-  "fields": {
-    "created_at": "2021-04-13T14:01:30.451Z",
-    "modified_at": "2021-04-13T14:01:30.451Z",
-    "created_by_user": "admin",
-    "created_by_group": null,
-    "modified_by_user": "admin",
-    "modified_by_group": null,
-    "family": "f51fc1cd-7118-4433-91a0-f0b00ae8b2c8",
-    "form": "dashboard",
-    "source": null,
-    "meta": {}
+  {
+    "model": "caluma_form.document",
+    "pk": "f51fc1cd-7118-4433-91a0-f0b00ae8b2c8",
+    "fields": {
+      "created_at": "2021-04-13T14:01:30.451Z",
+      "modified_at": "2021-04-13T14:01:30.451Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "family": "f51fc1cd-7118-4433-91a0-f0b00ae8b2c8",
+      "form": "dashboard",
+      "source": null,
+      "meta": {}
+    }
   }
-}
 ]
