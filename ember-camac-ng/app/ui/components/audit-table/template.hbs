@@ -1,0 +1,50 @@
+<table class="uk-table uk-table-striped uk-table-small uk-table-middle">
+  <thead>
+    <tr>
+      <th>{{t "audit.type"}}</th>
+      <th>{{t "audit.municipality"}}</th>
+      <th>{{t "audit.modified"}}</th>
+      <th><span hidden>{{t "audit.actions"}}</span></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each @audits as |audit|}}
+      <AuditTable::row
+        @audit={{audit}}
+        @documentData={{@documentData}}
+        @disabled={{@disabled}}
+        @onlyCopy={{@onlyCopy}}
+        @onRefresh={{@onRefresh}}
+      />
+    {{else}}
+      <tr>
+        <td colspan="4" class="uk-text-center">{{t "global.empty"}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+{{#if this.canCreate}}
+  <div class="uk-text-center">
+    <button
+      type="button"
+      class="uk-button uk-button-default"
+      title={{t "audit.new"}}
+      >
+      <UkIcon @icon="plus" />
+    </button>
+    <div uk-dropdown>
+      {{#if this.create.isRunning}}
+        <div class="uk-flex-center uk-flex-middle uk-width-1-1">
+          <UkSpinner />
+        </div>
+      {{else}}
+        <ul class="uk-nav uk-dropdown-nav uk-text-left">
+          {{#each this.forms as |form|}}
+            <li><a href="#" {{on "click" (perform this.create form)}}>{{t (concat "audit.forms." form)}}</a></li>
+          {{/each}}
+        </ul>
+      {{/if}}
+    </div>
+  </div>
+{{/if}}
