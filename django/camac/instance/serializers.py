@@ -28,6 +28,8 @@ from camac.core.models import (
     InstanceLocation,
     InstanceService,
     ProposalActivation,
+    WorkflowEntry,
+    WorkflowItem,
 )
 from camac.core.serializers import MultilingualField, MultilingualSerializer
 from camac.core.utils import create_history_entry, generate_ebau_nr
@@ -56,6 +58,7 @@ from . import document_merge_service, models, validators
 SUBMIT_DATE_CHAPTER = 100001
 SUBMIT_DATE_QUESTION_ID = 20036
 SUBMIT_DATE_FORMAT = "%Y-%m-%dT%H:%M:%S%z"
+WORKFLOW_ITEM_DOSSIEREINGANG_UR = 10
 
 request_logger = getLogger("django.request")
 
@@ -444,29 +447,12 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         )
 
     def get_public_status(self, instance):
-        # TODO Instead of a new field, we should actually modify the values of instance_state
-        STATUS_MAP = {
-            be_constants.INSTANCE_STATE_NEW: be_constants.PUBLIC_INSTANCE_STATE_CREATING,
-            be_constants.INSTANCE_STATE_EBAU_NUMMER_VERGEBEN: be_constants.PUBLIC_INSTANCE_STATE_RECEIVING,
-            be_constants.INSTANCE_STATE_CORRECTION_IN_PROGRESS: be_constants.PUBLIC_INSTANCE_STATE_COMMUNAL,
-            be_constants.INSTANCE_STATE_IN_PROGRESS: be_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
-            be_constants.INSTANCE_STATE_IN_PROGRESS_INTERNAL: be_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
-            be_constants.INSTANCE_STATE_KOORDINATION: be_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
-            be_constants.INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT: be_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
-            be_constants.INSTANCE_STATE_ZIRKULATION: be_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
-            be_constants.INSTANCE_STATE_REJECTED: be_constants.PUBLIC_INSTANCE_STATE_REJECTED,
-            be_constants.INSTANCE_STATE_CORRECTED: be_constants.PUBLIC_INSTANCE_STATE_CORRECTED,
-            be_constants.INSTANCE_STATE_SB1: be_constants.PUBLIC_INSTANCE_STATE_SB1,
-            be_constants.INSTANCE_STATE_SB2: be_constants.PUBLIC_INSTANCE_STATE_SB2,
-            be_constants.INSTANCE_STATE_TO_BE_FINISHED: be_constants.PUBLIC_INSTANCE_STATE_FINISHED,
-            be_constants.INSTANCE_STATE_FINISHED: be_constants.PUBLIC_INSTANCE_STATE_FINISHED,
-            be_constants.INSTANCE_STATE_ARCHIVED: be_constants.PUBLIC_INSTANCE_STATE_ARCHIVED,
-            be_constants.INSTANCE_STATE_DONE: be_constants.PUBLIC_INSTANCE_STATE_DONE,
-            be_constants.INSTANCE_STATE_DONE_INTERNAL: be_constants.PUBLIC_INSTANCE_STATE_DONE,
-        }
+        config = settings.APPLICATION["CALUMA"].get("PUBLIC_STATUS")
+        if not config:
+            return instance.instance_state.name
 
-        return STATUS_MAP.get(
-            instance.instance_state_id, be_constants.PUBLIC_INSTANCE_STATE_CREATING
+        return config.get("MAP", {}).get(
+            instance.instance_state_id, config.get("DEFAULT", "")
         )
 
     included_serializers = {
@@ -867,10 +853,10 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         return False
 
     def should_generate_identifier_for_municipality(self):
-        return settings.APPLICATION["CALUMA"].get("CREATE_IN_PROCESS")
+        return settings.APPLICATION["CALUMA"].get("GENERATE_IDENTIFIER")
 
     def should_generate_identifier_for_coordination(self):
-        return settings.APPLICATION["CALUMA"].get("CREATE_IN_PROCESS")
+        return settings.APPLICATION["CALUMA"].get("GENERATE_IDENTIFIER")
 
     instance_field = None
 
@@ -1032,12 +1018,12 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             case.document.pk, "is-paper", "is-paper-yes" if is_paper else "is-paper-no"
         )
 
-        if settings.APPLICATION["CALUMA"].get("SYNC_FORM_TYPE"):  # pragma: no cover
+        if settings.APPLICATION["CALUMA"].get("SYNC_FORM_TYPE"):
             form_type = ur_constants.CALUMA_FORM_MAPPING.get(instance.form.pk)
             if not form_type:
                 raise RuntimeError(
                     f"Unmapped form {instance.form.name} (ID {instance.form.pk})"
-                )
+                )  # pragma: no cover
 
             caluma_api.update_or_create_answer(
                 case.document.pk, "form-type", "form-type-" + form_type
@@ -1124,9 +1110,9 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
     def _set_submit_date(self, validated_data):
         submit_date = timezone.now().strftime(SUBMIT_DATE_FORMAT)
-        changed = CalumaApi().set_submit_date(self.instance.pk, submit_date)
 
-        if changed:
+        changed = CalumaApi().set_submit_date(self.instance.pk, submit_date)
+        if settings.APPLICATION.get("SET_SUBMIT_DATE_CAMAC_ANSWER") and changed:
             # Set submit date in Camac first...
             # TODO drop this after this is not used anymore in Camac
             Answer.objects.get_or_create(
@@ -1136,6 +1122,15 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 chapter_id=SUBMIT_DATE_CHAPTER,
                 # CAMAC date is formatted in "dd.mm.yyyy"
                 defaults={"answer": submit_date},
+            )
+        elif settings.APPLICATION.get("SET_SUBMIT_DATE_CAMAC_WORKFLOW"):
+            workflow_item = WorkflowItem.objects.get(pk=WORKFLOW_ITEM_DOSSIEREINGANG_UR)
+
+            WorkflowEntry.objects.create(
+                workflow_date=submit_date,
+                instance=self.instance,
+                workflow_item=workflow_item,
+                group=self.instance.group_id,
             )
 
     def _get_pdf_section(self, instance, form_slug):
@@ -1213,7 +1208,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         ):
             source_instance.previous_instance_state = source_instance.instance_state
             source_instance.instance_state = models.InstanceState.objects.get(
-                name="finished"
+                name=settings.APPLICATION["INSTANCE_STATE_REJECTION_COMPLETE"]
             )
             source_instance.save()
 
@@ -1249,9 +1244,19 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 name="circulation_init"
             )
 
+        if settings.APPLICATION["CALUMA"].get("USE_LOCATION"):
+            instance.location_id = int(
+                case.document.answers.get(question_id="municipality").value
+            )
+
+            self._update_instance_location(instance)
+
         instance.save()
 
-        if not instance.responsible_service(filter_type="municipality"):
+        if settings.APPLICATION.get(
+            "USE_INSTANCE_SERVICE"
+        ) and not instance.responsible_service(filter_type="municipality"):
+
             municipality = case.document.answers.get(question_id="gemeinde").value
 
             InstanceService.objects.create(
@@ -1260,6 +1265,11 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 active=1,
                 activation_date=None,
             )
+
+        if settings.APPLICATION["CALUMA"].get("GENERATE_IDENTIFIER"):
+            # Give dossier a unique dossier number
+            case.meta["dossier-number"] = generate_identifier(instance)
+            case.save()
 
         self._generate_and_store_pdf(instance)
         self._set_submit_date(validated_data)

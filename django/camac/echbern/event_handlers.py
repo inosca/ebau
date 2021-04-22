@@ -450,7 +450,7 @@ def if_ech_enabled(func):
             else False
         )
 
-        if settings.ECH_API and not instance_ignored:
+        if settings.APPLICATION.get("ECH_API") and not instance_ignored:
             return func(*args, **kwargs)
 
     return wrapper

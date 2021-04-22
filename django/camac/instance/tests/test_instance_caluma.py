@@ -10,8 +10,7 @@ from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
 from camac.conftest import CALUMA_FORM_TYPES_SLUGS
-from camac.constants import kt_bern as constants
-from camac.constants.kt_bern import DECISIONS_BEWILLIGT
+from camac.constants import kt_bern as be_constants, kt_uri as ur_constants
 from camac.core.models import Chapter, ProposalActivation, Question, QuestionType
 from camac.echbern import event_handlers
 from camac.echbern.data_preparation import DocumentParser
@@ -21,6 +20,7 @@ from camac.instance.models import Instance
 from camac.instance.serializers import (
     SUBMIT_DATE_CHAPTER,
     SUBMIT_DATE_QUESTION_ID,
+    WORKFLOW_ITEM_DOSSIEREINGANG_UR,
     CalumaInstanceSerializer,
     CalumaInstanceSubmitSerializer,
 )
@@ -89,15 +89,12 @@ def mock_generate_and_store_pdf(mocker):
 @pytest.mark.parametrize("service_group__name", ["municipality"])
 @pytest.mark.parametrize("instance_state__name", ["new"])
 @pytest.mark.parametrize("paper", [False, True])
-@pytest.mark.parametrize("archive", [False, True])
-@pytest.mark.parametrize("create_with_camac_form", [False, True])
-@pytest.mark.parametrize("uri_process", [False, True])
 @pytest.mark.parametrize(
     "copy,modification,extend_validity",
     [(False, False, True), (True, False, False), (True, True, False)],
 )
 @pytest.mark.parametrize("role__name", ["Municipality", "Coordination"])
-def test_create_instance_caluma(
+def test_create_instance_caluma_be(
     db,
     admin_client,
     instance_state,
@@ -109,9 +106,6 @@ def test_create_instance_caluma(
     application_settings,
     attachment,
     paper,
-    uri_process,
-    create_with_camac_form,
-    archive,
     copy,
     modification,
     user_factory,
@@ -127,51 +121,23 @@ def test_create_instance_caluma(
         }
         headers.update({"x-camac-group": group.pk})
 
-    # Uri states
-    instance_state_factory(name="comm")
     instance_state_factory(name="old")
-    instance_state_factory(name="ext")
 
     application_settings["CALUMA"]["MODIFICATION_ALLOW_FORMS"] = ["main-form"]
-    application_settings["CALUMA"]["CREATE_IN_PROCESS"] = uri_process
-    application_settings["CALUMA"]["USE_LOCATION"] = uri_process
     application_settings["ARCHIVE_FORMS"] = [form.pk]
 
     location = Location.objects.first()
-    if create_with_camac_form:
-        application_settings["FORM_MAPPING"] = {"main-form": [form.pk]}
-        body = {
-            "attributes": {"caluma-form": "main-form", "location": location.pk},
-            "relationships": {
-                "form": {
-                    "data": {
-                        "type": "forms",
-                        "id": form.pk,
-                    },
-                },
-                "location": {
-                    "data": {
-                        "type": "locations",
-                        "id": location.pk,
-                    },
+    body = {
+        "attributes": {"caluma-form": "main-form"},
+        "relationships": {
+            "location": {
+                "data": {
+                    "type": "locations",
+                    "id": location.pk,
                 },
             },
-        }
-    else:
-        body = {
-            "attributes": {"caluma-form": "main-form"},
-            "relationships": {
-                "location": {
-                    "data": {
-                        "type": "locations",
-                        "id": location.pk,
-                    },
-                },
-            },
-        }
-
-    if uri_process:
-        body["attributes"]["lead"] = 1
+        },
+    }
 
     data = {"data": {"type": "instances", **body}, "extend_validity_for": 1}
 
@@ -192,13 +158,6 @@ def test_create_instance_caluma(
     )
 
     instance = Instance.objects.get(pk=instance_id)
-    if uri_process:
-        assert instance.location == admin_client.user.groups.first().locations.first()
-
-        assert "dossier-number" in case.meta
-
-    if archive:
-        assert instance.instance_state.name == "old"
 
     # questions for application extension of validity period
     caluma_form_models.Question.objects.create(
@@ -206,14 +165,16 @@ def test_create_instance_caluma(
         type=caluma_form_models.Question.TYPE_INTEGER,
     )
     QuestionType.objects.create(question_type_id=1, name="Text")
-    Question.objects.create(question_id=constants.QUESTION_EBAU_NR, question_type_id=1)
+    Question.objects.create(
+        question_id=be_constants.QUESTION_EBAU_NR, question_type_id=1
+    )
     QuestionType.objects.create(question_type_id=5, name="Radiobox")
     Question.objects.create(
-        question_id=constants.QUESTION_EBAU_NR_EXISTS, question_type_id=5
+        question_id=be_constants.QUESTION_EBAU_NR_EXISTS, question_type_id=5
     )
 
     # chapter for application extension of validity period
-    Chapter.objects.create(pk=constants.INSTANCE_STATE_EBAU_NUMMER_VERGEBEN)
+    Chapter.objects.create(pk=be_constants.INSTANCE_STATE_EBAU_NUMMER_VERGEBEN)
 
     if extend_validity:
         data["data"]["attributes"].update({"extend-validity-for": str(instance_id)})
@@ -278,6 +239,126 @@ def test_create_instance_caluma(
             assert attachment.name == new_attachment.name
             assert attachment.uuid != new_attachment.uuid
             assert attachment.path.name != new_attachment.path.name
+
+
+@pytest.mark.freeze_time("2019-05-02")
+@pytest.mark.parametrize("service_group__name", ["municipality"])
+@pytest.mark.parametrize("instance_state__name", ["new"])
+@pytest.mark.parametrize("archive", [False, True])
+@pytest.mark.parametrize(
+    "copy,modification",
+    [(False, False), (True, False), (True, True)],
+)
+@pytest.mark.parametrize("role__name", ["Municipality", "Coordination"])
+def test_create_instance_caluma_ur(
+    db,
+    admin_client,
+    instance_state,
+    instance_state_factory,
+    form,
+    mock_nfd_permissions,
+    group,
+    caluma_workflow_config_ur,
+    application_settings,
+    attachment,
+    copy,
+    archive,
+    modification,
+    user_factory,
+    instance_service_factory,
+    mocker,
+):
+    # Uri states
+    instance_state_factory(name="comm")
+    instance_state_factory(name="old")
+    instance_state_factory(name="ext")
+
+    application_settings["CALUMA"]["MODIFICATION_ALLOW_FORMS"] = ["main-form"]
+    if archive:
+        application_settings["ARCHIVE_FORMS"] = [form.pk]
+
+    location = Location.objects.first()
+    mocker.patch.dict(
+        ur_constants.CALUMA_FORM_MAPPING,
+        {form.pk: "camac-form"},
+    )
+    body = {
+        "attributes": {"caluma-form": "main-form", "location": location.pk, "lead": 1},
+        "relationships": {
+            "form": {
+                "data": {
+                    "type": "forms",
+                    "id": form.pk,
+                },
+            },
+            "location": {
+                "data": {
+                    "type": "locations",
+                    "id": location.pk,
+                },
+            },
+        },
+    }
+
+    data = {"data": {"type": "instances", **body}}
+
+    create_resp = admin_client.post(reverse("instance-list"), data)
+
+    assert create_resp.status_code == status.HTTP_201_CREATED, create_resp.content
+
+    instance_id = int(create_resp.json()["data"]["id"])
+    case = caluma_workflow_models.Case.objects.get(
+        **{"meta__camac-instance-id": instance_id}
+    )
+
+    instance = Instance.objects.get(pk=instance_id)
+    assert instance.location == admin_client.user.groups.first().locations.first()
+
+    assert "dossier-number" in case.meta
+
+    assert instance.instance_state.name == "old" if archive else "new"
+
+    # do a second request including pk, copying the existing instance
+    if copy:
+        # link attachment to old instance
+        attachment.instance_id = instance_id
+        attachment.save()
+
+        instance_service_factory(
+            instance=instance, service=admin_client.user.groups.first().service
+        )
+
+        if not modification:
+            old_instance = instance
+            old_instance.instance_state = instance_state_factory(name="rejected")
+            old_instance.save()
+
+        data["data"]["attributes"].update(
+            {"copy-source": str(instance_id), "is-modification": modification}
+        )
+
+        if not archive:
+            copy_resp = admin_client.post(reverse("instance-list"), data)
+
+            assert copy_resp.status_code == status.HTTP_201_CREATED, create_resp.content
+            new_instance_id = int(copy_resp.json()["data"]["id"])
+            new_instance = Instance.objects.get(pk=new_instance_id)
+
+            new_case = caluma_workflow_models.Case.objects.get(
+                **{"meta__camac-instance-id": new_instance_id}
+            )
+
+            if modification:
+                assert new_instance.attachments.count() == 0
+                assert new_case.document.answers.filter(
+                    question_id="projektaenderung", value="projektaenderung-ja"
+                ).exists()
+            else:
+                new_attachment = new_instance.attachments.first()
+
+                assert attachment.name == new_attachment.name
+                assert attachment.uuid != new_attachment.uuid
+                assert attachment.path.name != new_attachment.path.name
 
 
 @pytest.mark.parametrize("instance_state__name", ["new"])
@@ -385,7 +466,7 @@ def test_instance_list(
     """,
     ],
 )
-def test_instance_submit(
+def test_instance_submit_be(
     mocker,
     admin_client,
     role,
@@ -448,10 +529,113 @@ def test_instance_submit(
 @pytest.mark.parametrize(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
+@pytest.mark.parametrize("new_instance_state_name", ["subm"])
+@pytest.mark.parametrize("has_personalien_gesuchstellerin", [True, False])
+@pytest.mark.parametrize(
+    "notification_template__body",
+    [
+        """
+    Guten Tag
+
+    Im eBau gibt es einen neuen Eingang vom Typ {{FORM_NAME}} mit der Dossier-Nr. {{INSTANCE_ID}}.
+
+    {{DOSSIER_LINK}}
+
+    Freundliche Grüsse
+    {{LEITBEHOERDE_NAME}}
+    """,
+        """
+
+    Guten Tag
+
+    Ihr/e {{FORM_NAME}} mit der Dossier-Nr. {{INSTANCE_ID}} wurde erfolgreich übermittelt. Das Verfahren wird nun ausgelöst. Sie werden über Statusänderungen informiert.
+
+    {{DOSSIER_LINK}}
+
+    Gerne möchten wir erfahren wie einfach die elektronische Eingabe eines Gesuches war. Wir bitten Sie daher, sich 2 - 3 Minuten Zeit zu nehmen und den folgenden Fragebogen zu beantworten. Besten Dank.
+
+    https://www.onlineumfragen.com/login.cfm?umfrage=87201
+
+    """,
+    ],
+)
+def test_instance_submit_ur(
+    mocker,
+    admin_client,
+    role,
+    role_factory,
+    group_factory,
+    instance,
+    instance_state_factory,
+    service,
+    admin_user,
+    new_instance_state_name,
+    notification_template,
+    submit_date_question,
+    settings,
+    mock_public_status,
+    multilang,
+    application_settings,
+    mock_nfd_permissions,
+    mock_generate_and_store_pdf,
+    ech_mandatory_answers_einfache_vorabklaerung,
+    caluma_workflow_config_ur,
+    has_personalien_gesuchstellerin,
+    caluma_admin_user,
+    location_factory,
+    workflow_item_factory,
+):
+    application_settings["NOTIFICATIONS"]["SUBMIT"] = [
+        {"template_slug": notification_template.slug, "recipient_types": ["applicant"]}
+    ]
+    application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
+    application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
+
+    workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_DOSSIEREINGANG_UR)
+
+    case = workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
+        form=caluma_form_models.Form.objects.get(pk="main-form"),
+        meta={"camac-instance-id": instance.pk},
+        user=caluma_admin_user,
+    )
+    location = location_factory(location_id="1")
+
+    case.document.answers.create(value=str(location.pk), question_id="municipality")
+
+    group_factory(role=role_factory(name="support"))
+    mocker.patch.object(
+        DocumentParser,
+        "parse_answers",
+        return_value=ech_mandatory_answers_einfache_vorabklaerung,
+    )
+    instance_state_factory(name=new_instance_state_name)
+
+    mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
+
+    response = admin_client.post(reverse("instance-submit", args=[instance.pk]))
+
+    instance.refresh_from_db()
+
+    assert response.status_code == status.HTTP_200_OK
+
+    assert len(mail.outbox) == 1
+    assert instance.user.email in mail.outbox[0].recipients()
+
+    assert mail.outbox[0].subject.startswith("[eBau Test]: ")
+
+    assert instance.instance_state.name == "subm"
+
+
+@pytest.mark.parametrize("service_group__name", ["municipality"])
+@pytest.mark.parametrize("instance_state__name", ["new"])
+@pytest.mark.parametrize(
+    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+)
 @pytest.mark.parametrize(
     "is_building_police_procedure,is_extend_validity", [(True, False), (False, True)]
 )
-def test_instance_submit_state_change(
+def test_instance_submit_state_change_be(
     mocker,
     admin_client,
     role,
@@ -598,7 +782,9 @@ def test_instance_report(
     )
 
     if instance_state.name == "sb1":
-        docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=instance.pk)
+        docx_decision_factory(
+            decision=be_constants.DECISIONS_BEWILLIGT, instance=instance.pk
+        )
 
         service = instance.responsible_service()
         construction_control = construction_control_for(service)
@@ -673,7 +859,9 @@ def test_instance_finalize(
     )
 
     if instance_state.name == "sb2":
-        docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=instance.pk)
+        docx_decision_factory(
+            decision=be_constants.DECISIONS_BEWILLIGT, instance=instance.pk
+        )
 
         service = instance.responsible_service()
         construction_control = construction_control_for(service)
@@ -921,9 +1109,6 @@ def test_instance_delete(
     attachment,
     paper,
 ):
-    application_settings["CALUMA"]["CREATE_IN_PROCESS"] = False
-    application_settings["CALUMA"]["USE_LOCATION"] = False
-
     instance_state_factory(name="new")
     instance_state_factory(name="comm")
     # first create instance with all documents
@@ -1054,8 +1239,10 @@ def test_instance_submit_suggestions(
     expected_services,
     caluma_admin_user,
 ):
-    circulation_state_factory(circulation_state_id=constants.CIRCULATION_STATE_WORKING)
-    circulation_type_factory(circulation_type_id=constants.CIRCULATION_TYPE_STANDARD)
+    circulation_state_factory(
+        circulation_state_id=be_constants.CIRCULATION_STATE_WORKING
+    )
+    circulation_type_factory(circulation_type_id=be_constants.CIRCULATION_TYPE_STANDARD)
     application_settings["NOTIFICATIONS"]["SUBMIT"] = [
         {"template_slug": notification_template.slug, "recipient_types": ["applicant"]}
     ]
@@ -1119,7 +1306,9 @@ def test_rejection(
     new_state = instance_state_factory(name="new")
     subm_state = instance_state_factory(name="subm")
     rejected_state = instance_state_factory(name="rejected")
-    finished_state = instance_state_factory(name="finished")
+    finished_state = instance_state_factory(
+        name=application_settings["INSTANCE_STATE_REJECTION_COMPLETE"]
+    )
 
     create_response = admin_client.post(
         reverse("instance-list"),
@@ -1335,8 +1524,6 @@ def test_create_instance_caluma_internal_forms(
     error,
 ):
     application_settings["CALUMA"]["INTERNAL_FORMS"] = ["main-form"]
-    application_settings["CALUMA"]["CREATE_IN_PROCESS"] = False
-    application_settings["CALUMA"]["USE_LOCATION"] = False
 
     if role.name == "Municipality":
         application_settings["PAPER"] = {
@@ -1390,8 +1577,6 @@ def test_create_instance_caluma_modification(
 
     application_settings["CALUMA"]["MODIFICATION_ALLOW_FORMS"] = ["baugesuch"]
     application_settings["CALUMA"]["MODIFICATION_DISALLOW_STATES"] = ["new"]
-    application_settings["CALUMA"]["CREATE_IN_PROCESS"] = False
-    application_settings["CALUMA"]["USE_LOCATION"] = False
 
     create_response = admin_client.post(
         reverse("instance-list"),

@@ -6,6 +6,20 @@ module.exports = function (environment) {
     `build env: APPLICATION: ${process.env.APPLICATION}, KEYCLOAK_HOST: ${process.env.KEYCLOAK_HOST}`
   );
   const app = process.env.APPLICATION || "kt_bern";
+  const instanceStatesBe = {
+    new: 1,
+    rejected: 10000,
+    archived: 20009,
+    inCorrection: 20007,
+    finished: 120000,
+    sb1: 20011,
+    sb2: 20013,
+  };
+  const instanceStatesUr = {
+    new: 28,
+    finished: 25, // done
+    archived: 33, // old
+  };
   const appConfig = {
     kt_bern: {
       name: "be",
@@ -25,6 +39,19 @@ module.exports = function (environment) {
       documents: {
         feedbackSection: 3,
       },
+      instanceStates: instanceStatesBe,
+      modification: {
+        allowForms: ["baugesuch", "baugesuch-generell", "baugesuch-mit-uvp"],
+        disallowStates: [
+          instanceStatesBe.new,
+          instanceStatesBe.rejected,
+          instanceStatesBe.archived,
+          instanceStatesBe.inCorrection,
+          instanceStatesBe.finished,
+          instanceStatesBe.sb1,
+          instanceStatesBe.sb2,
+        ],
+      },
     },
     kt_uri: {
       name: "ur",
@@ -38,6 +65,15 @@ module.exports = function (environment) {
         ],
       },
       documents: {},
+      instanceStates: instanceStatesUr,
+      modification: {
+        allowForms: ["building-permit"],
+        disallowStates: [
+          instanceStatesUr.new,
+          instanceStatesUr.archived,
+          instanceStatesUr.finished,
+        ],
+      },
     },
   }[app];
 
@@ -112,21 +148,19 @@ module.exports = function (environment) {
           ],
         },
       },
-      instanceStates: {
-        new: 1,
-        rejected: 10000,
-        archived: 20009,
-        inCorrection: 20007,
-        finished: 120000,
-        sb1: 20011,
-        sb2: 20013,
-      },
       internalForms: [
         "migriertes-dossier",
         "baupolizeiliches-verfahren",
         "zutrittsermaechtigung",
         "klaerung-baubewilligungspflicht",
       ],
+    },
+    urec: {
+      instanceStates: {
+        new: 28,
+        done: 25,
+        old: 33,
+      },
     },
   };
 
