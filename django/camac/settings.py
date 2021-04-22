@@ -1646,6 +1646,7 @@ DOCUMENT_MERGE_SERVICE_URL = build_url(
 )
 
 ECH_EXCLUDED_FORMS = [
+    "verlaengerung-geltungsdauer",
     "migriertes-dossier",
     "baupolizeiliches-verfahren",
     "hecken-feldgehoelze-baeume",
