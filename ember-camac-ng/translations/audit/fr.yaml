@@ -4,8 +4,9 @@ audit:
   complete: "Clore l'examen"
   skip: "Sauter l'examen"
   copy: "Copier l'examen"
-  createPdf: "Télécharger le PDF"
+  createPdf: "Télécharger l'examen au format PDF"
   titleMeta: 'Dernière modification par <span title="{service}">{user}</span> le {date}'
+  showSameEbauNumber: "Examens des dossiers ayant le même N° eBau"
 
   type: "Type du examen"
   municipality: "Autorité directrice"

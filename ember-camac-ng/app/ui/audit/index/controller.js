@@ -1,27 +1,28 @@
 import { getOwner, setOwner } from "@ember/application";
 import { A } from "@ember/array";
 import Controller, { inject as controller } from "@ember/controller";
+import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import { decodeId } from "ember-caluma/helpers/decode-id";
-import { dropTask, task } from "ember-concurrency-decorators";
-import { saveAs } from "file-saver";
+import { dropTask } from "ember-concurrency-decorators";
 
 import { confirmTask } from "camac-ng/decorators";
 import completeWorkItem from "camac-ng/gql/mutations/complete-work-item";
-import copyDocument from "camac-ng/gql/mutations/copy-document";
-import createAuditDocument from "camac-ng/gql/mutations/create-audit-document";
-import deleteDocument from "camac-ng/gql/mutations/delete-document";
-import linkAuditDocument from "camac-ng/gql/mutations/link-audit-document";
 import skipWorkItem from "camac-ng/gql/mutations/skip-work-item";
 
 class Audit {
   @service store;
   @service shoebox;
 
-  constructor(raw) {
+  constructor(raw, caseData) {
     this._raw = raw;
+    this._caseData = caseData;
+  }
+
+  get instanceId() {
+    return this._caseData.instanceId;
   }
 
   get id() {
@@ -77,193 +78,69 @@ export default class AuditIndexController extends Controller {
 
   @controller("audit") auditController;
 
-  @tracked pdfLoading = [];
-  @tracked deleteLoading = [];
+  @tracked showSameEbauNumber = false;
 
   get disabled() {
     return this.auditController.disabled;
-  }
-
-  get forms() {
-    return ["fp-form", "mp-form", "bab-form"];
   }
 
   get audits() {
     return A(
       this.auditController.auditWorkItem?.document.answers.edges.flatMap(
         (edge) =>
-          edge.node.value.map((raw) => {
-            const audit = new Audit(raw);
-
-            setOwner(audit, getOwner(this));
-
-            return audit;
-          })
+          edge.node.value.map((raw) =>
+            this.createAudit(raw, this.auditController.auditWorkItem.caseData)
+          )
       )
     )
       .sortBy("type", "createdAt")
       .reverse();
   }
 
-  getTableAnswerValue(audit, form) {
-    const tableAnswer = audit.answers.edges
-      .map((edge) => edge.node)
-      .find((node) => node.question.rowForm.slug === form);
+  get auditsWithSameEbauNumber() {
+    const workItems = this.auditController.audits?.filter(
+      (workItem) => workItem.caseData.instanceId !== this.model
+    );
 
-    if (!tableAnswer) {
-      return [];
-    }
-
-    return tableAnswer.value.map((doc) => decodeId(doc.id));
+    return workItems
+      ?.map((workItem) => {
+        return {
+          instanceId: workItem.caseData.instanceId,
+          form: workItem.caseData.form,
+          audits: workItem.document.answers.edges.flatMap((edge) =>
+            edge.node.value.map((raw) =>
+              this.createAudit(raw, workItem.caseData)
+            )
+          ),
+        };
+      })
+      .filter((auditGroup) => auditGroup.audits.length);
   }
 
-  @dropTask
-  *createAudit(form, event) {
-    event.preventDefault();
+  get documentData() {
+    const document = this.auditController.auditWorkItem?.document;
 
-    try {
-      // create empty document
-      const documentId = yield this.apollo.mutate(
-        {
-          mutation: createAuditDocument,
-          variables: { form },
-        },
-        "saveDocument.document.id"
-      );
-
-      const value = new Set(
-        this.getTableAnswerValue(
-          this.auditController.auditWorkItem.document,
-          form
-        )
-      );
-
-      value.add(decodeId(documentId));
-
-      // link document to the right table
-      yield this.apollo.mutate({
-        mutation: linkAuditDocument,
-        variables: {
-          question: form,
-          document: decodeId(this.auditController.auditWorkItem.document.id),
-          value: [...value],
-        },
-      });
-
-      yield this.auditController.fetchAudit.perform();
-
-      yield this.transitionToRoute("audit.edit", decodeId(documentId));
-    } catch (error) {
-      this.notifications.error(this.intl.t("audit.createError"));
-    }
-  }
-
-  @task
-  *createPdf(audit) {
-    try {
-      this.pdfLoading = [...this.pdfLoading, audit.id];
-
-      const response = yield this.fetch.fetch(
-        `/api/v1/instances/${this.model}/generate-pdf?document-id=${audit.id}`
-      );
-      if (!response.ok) {
-        throw new Error(`${response.status}: ${response.statusText}`);
+    return (
+      document && {
+        id: decodeId(document.id),
+        ...document.answers.edges.reduce((obj, { node }) => {
+          return {
+            ...obj,
+            [node.question.rowForm.slug]: node.value.map((doc) =>
+              decodeId(doc.id)
+            ),
+          };
+        }, {}),
       }
-
-      const filename = response.headers
-        .get("content-disposition")
-        .match(/filename="(.*)"/)[1];
-
-      saveAs(yield response.blob(), filename);
-    } catch (error) {
-      this.notifications.error(this.intl.t("audit.createPdfError"));
-    } finally {
-      this.pdfLoading = this.pdfLoading.filter((id) => id !== audit.id);
-    }
+    );
   }
 
-  @task
-  @confirmTask("audit.deleteConfirm")
-  *deleteAudit(audit) {
-    try {
-      this.deleteLoading = [...this.deleteLoading, audit.id];
+  createAudit(rawDocument, caseData) {
+    const audit = new Audit(rawDocument, caseData);
 
-      const value = new Set(
-        this.getTableAnswerValue(
-          this.auditController.auditWorkItem.document,
-          audit.form
-        )
-      );
+    setOwner(audit, getOwner(this));
 
-      value.delete(audit.id);
-
-      // unlink audit
-      yield this.apollo.mutate({
-        mutation: linkAuditDocument,
-        variables: {
-          question: audit.form,
-          document: decodeId(this.auditController.auditWorkItem.document.id),
-          value: [...value],
-        },
-      });
-
-      // delete document
-      yield this.apollo.mutate({
-        mutation: deleteDocument,
-        variables: { id: audit.id },
-      });
-
-      yield this.auditController.fetchAudit.perform();
-
-      this.notifications.success(this.intl.t("audit.deleteSuccess"));
-    } catch (error) {
-      this.notifications.error(this.intl.t("audit.deleteError"));
-    } finally {
-      this.deleteLoading = this.deleteLoading.filter((id) => id !== audit.id);
-    }
-  }
-
-  @dropTask
-  @confirmTask("audit.copyConfirm")
-  *copyAudit(audit) {
-    try {
-      // copy document
-      const document = yield this.apollo.mutate(
-        {
-          mutation: copyDocument,
-          variables: { source: audit.id },
-        },
-        "copyDocument.document"
-      );
-
-      const documentId = decodeId(document.id);
-      const form = document.form.slug;
-
-      const value = new Set(
-        this.getTableAnswerValue(
-          this.auditController.auditWorkItem.document,
-          form
-        )
-      );
-
-      value.add(documentId);
-
-      // link document to the right table
-      yield this.apollo.mutate({
-        mutation: linkAuditDocument,
-        variables: {
-          question: form,
-          document: decodeId(this.auditController.auditWorkItem.document.id),
-          value: [...value],
-        },
-      });
-
-      yield this.auditController.fetchAudit.perform();
-
-      yield this.transitionToRoute("audit.edit", documentId);
-    } catch (error) {
-      this.notifications.error(this.intl.t("audit.copyError"));
-    }
+    return audit;
   }
 
   @dropTask
@@ -304,5 +181,10 @@ export default class AuditIndexController extends Controller {
         this.notifications.error(this.intl.t("audit.completeError"));
       }
     }
+  }
+
+  @action
+  toggleShowSameEbauNumber() {
+    this.showSameEbauNumber = !this.showSameEbauNumber;
   }
 }

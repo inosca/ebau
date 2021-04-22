@@ -1,11 +1,18 @@
-query GetAudit($instanceId: GenericScalar!) {
+query GetAudit($ebauNumber: GenericScalar!) {
   allCases(
-    filter: [{ metaValue: { key: "camac-instance-id", value: $instanceId } }]
-    first: 1
+    filter: [{ metaValue: { key: "ebau-number", value: $ebauNumber } }]
   ) {
     edges {
       node {
         id
+        meta
+        document {
+          id
+          form {
+            slug
+            name
+          }
+        }
         workItems(filter: [{ task: "audit" }], first: 1) {
           edges {
             node {
