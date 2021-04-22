@@ -351,10 +351,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
     def get_dossier_nr(self, instance):
         """Dossier number - Kanton Uri."""
-        try:
-            return Answer.get_value_by_cqi(instance, 2, 6, 1, fail_on_not_found=True)
-        except Answer.DoesNotExist:
-            return "-"
+        return CalumaApi().get_dossier_number(instance) or "-"
 
     def get_internal_dossier_link(self, instance):
         return settings.INTERNAL_INSTANCE_URL_TEMPLATE.format(instance_id=instance.pk)
