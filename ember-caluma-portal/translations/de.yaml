@@ -262,7 +262,23 @@ instances:
 
   status:
     title: "Status"
+    # Uri states
+    comm: "Bearbeitung Leitbehörde"
+    ext: "Bearbeitung Koordinationsstelle"
+    circ: "In Zirkulation"
+    redac: "Zirkulation bei Gemeinde"
+    arch: "Archiviert"
+    del: "Gelöscht"
+    new: "Neu Erstellt"
+    nfd: "Nachforderung Dokumente"
+    subm: "Eingereicht bei Gemeinde"
+    rej: "Abgelehnt"
+    ext_gem: "Dossiers bleibt bei Gemeindebaubehörde"
+    old: "Archivdossier"
 
+
+
+    # Bern states
     creation: "Neu"
     receiving: "Empfang Gemeinde"
     communal: "Bearbeitung Gemeinde"

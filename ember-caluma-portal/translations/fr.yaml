@@ -273,7 +273,21 @@ instances:
 
   status:
     title: "État"
+    # Uri states
+    comm: ""
+    ext: ""
+    circ: ""
+    redac: ""
+    arch: ""
+    del: ""
+    new: ""
+    nfd: ""
+    subm: ""
+    rej: ""
+    ext_gem: ""
+    old: ""
 
+    # Bern states
     creation: "Noveau"
     receiving: "Communauté d'accueil"
     communal: "Traitement communautaire"
