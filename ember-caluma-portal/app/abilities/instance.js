@@ -88,12 +88,8 @@ export default class InstanceAbility extends Ability {
     return (
       state &&
       form &&
-      ["baugesuch", "baugesuch-generell", "baugesuch-mit-uvp"].includes(form) &&
-      ![
-        config.ebau.instanceStates.new,
-        config.ebau.instanceStates.finished,
-        config.ebau.instanceStates.archived,
-      ].includes(state)
+      (config.APPLICATION?.modification?.allowForms || []).includes(form) &&
+      !(config.APPLICATION?.modification?.disallowStates || []).includes(state)
     );
   }
 
@@ -101,14 +97,14 @@ export default class InstanceAbility extends Ability {
   get canCreateCopy() {
     return (
       parseInt(this.get("model.instanceState.id")) ===
-      config.ebau.instanceStates.rejected
+      config.APPLICATION.instanceStates.rejected
     );
   }
 
   @computed("model.instanceState.id")
   get canDelete() {
     return (
-      config.ebau.instanceStates.new ===
+      config.APPLICATION.instanceStates.new ===
       parseInt(this.get("model.instanceState.id"))
     );
   }
@@ -116,8 +112,8 @@ export default class InstanceAbility extends Ability {
   @computed("model.instanceState.id")
   get canExtendValidity() {
     return [
-      config.ebau.instanceStates.sb1,
-      config.ebau.instanceStates.sb2,
+      config.APPLICATION.instanceStates.sb1,
+      config.APPLICATION.instanceStates.sb2,
     ].includes(parseInt(this.get("model.instanceState.id")));
   }
 }

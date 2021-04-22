@@ -217,31 +217,7 @@
   },
   {
     "model": "core.aformtransition",
-    "pk": 1036,
-    "fields": {
-      "current_instance_state": 30,
-      "next_instance_state": 31
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1061,
-    "fields": {
-      "current_instance_state": 30,
-      "next_instance_state": 29
-    }
-  },
-  {
-    "model": "core.aformtransition",
     "pk": 1062,
-    "fields": {
-      "current_instance_state": 29,
-      "next_instance_state": 30
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1066,
     "fields": {
       "current_instance_state": 29,
       "next_instance_state": 30
@@ -604,15 +580,6 @@
   },
   {
     "model": "core.anotification",
-    "pk": 1066,
-    "fields": {
-      "template": "nachforderung-zusatzlicher-unterlagen",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_SubmitterList",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
     "pk": 1067,
     "fields": {
       "template": "dossier-weitergeleitet-an-koordinationsstelle",
@@ -643,16 +610,7 @@
     "pk": 1126,
     "fields": {
       "template": "dossier-angenommen",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_SubmitterList",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 1129,
-    "fields": {
-      "template": "dossier-abgewiesen",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_SubmitterList",
+      "recipient_type": "Notification_Manager_Applicant",
       "processor": "Notification_Processor_SendEmailAPI"
     }
   },
@@ -1137,37 +1095,9 @@
   },
   {
     "model": "core.aphp",
-    "pk": 1058,
-    "fields": {
-      "php_class": "DossierNR"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1059,
-    "fields": {
-      "php_class": "SetAuthority"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1060,
-    "fields": {
-      "php_class": "SetAuthority"
-    }
-  },
-  {
-    "model": "core.aphp",
     "pk": 1064,
     "fields": {
       "php_class": "SaveFormPerson"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1093,
-    "fields": {
-      "php_class": "SetAuthority"
     }
   },
   {
@@ -2845,20 +2775,6 @@
   },
   {
     "model": "core.action",
-    "pk": 1034,
-    "fields": {
-      "available_action": "save",
-      "button": 745,
-      "name": "Dossier speichern",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 1035,
     "fields": {
       "available_action": "formtransition",
@@ -2869,34 +2785,6 @@
       "error_message": "Beim akzeptieren ist ein Fehler aufgetreten",
       "execute_always": 0,
       "sort": 3
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1036,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 747,
-      "name": "Transition von SUBM zu REJ",
-      "description": "Ein Dossier abweisen",
-      "success_message": "Dossier abgewiesen",
-      "error_message": "Dossier konnte nicht abgewiesen werden",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1055,
-    "fields": {
-      "available_action": "save",
-      "button": 746,
-      "name": "Speichern",
-      "description": "speichern beim akzeptieren",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 0
     }
   },
   {
@@ -2915,62 +2803,6 @@
   },
   {
     "model": "core.action",
-    "pk": 1058,
-    "fields": {
-      "available_action": "php",
-      "button": 746,
-      "name": "Dossier-NR generieren",
-      "description": "Dossier nummer beim \u00fcbernehmen in Camac generieren",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1059,
-    "fields": {
-      "available_action": "php",
-      "button": 745,
-      "name": "Speichere die Leitbeh\u00f6rde",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1060,
-    "fields": {
-      "available_action": "php",
-      "button": 746,
-      "name": "Speichere die Leitbeh\u00f6rde",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1061,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 752,
-      "name": "Transition von SUBM zu NFD",
-      "description": "B\u00fcrger-Dossier von SUBM zu NFD mutieren",
-      "success_message": "Nachforderung zum Dossier erfolgreich erstellt.",
-      "error_message": "Nachforderung zum Dossier konnte nicht erstellt werden.",
-      "execute_always": 0,
-      "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 1062,
     "fields": {
       "available_action": "formtransition",
@@ -2985,20 +2817,6 @@
   },
   {
     "model": "core.action",
-    "pk": 1063,
-    "fields": {
-      "available_action": "save",
-      "button": 752,
-      "name": "Speichern",
-      "description": "Speichern vor Nachforderung",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 1064,
     "fields": {
       "available_action": "php",
@@ -3007,20 +2825,6 @@
       "description": null,
       "success_message": null,
       "error_message": null,
-      "execute_always": 0,
-      "sort": 4
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1066,
-    "fields": {
-      "available_action": "notification",
-      "button": 752,
-      "name": "E-Mail mit Nachforderungstext verschicken",
-      "description": "",
-      "success_message": "E-Mail wurde an den Gesuchsteller versandt!",
-      "error_message": "E-Mail an den Gesuchsteller konnte nicht versandt werden.",
       "execute_always": 0,
       "sort": 4
     }
@@ -3125,34 +2929,6 @@
   },
   {
     "model": "core.action",
-    "pk": 1092,
-    "fields": {
-      "available_action": "workflow",
-      "button": 752,
-      "name": "Workflow Datum Nachforderung setzen",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 3
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1093,
-    "fields": {
-      "available_action": "php",
-      "button": 752,
-      "name": "Speichere die Leitbeh\u00f6rde",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 1097,
     "fields": {
       "available_action": "formtransition",
@@ -3228,25 +3004,11 @@
       "available_action": "notification",
       "button": 746,
       "name": "E-Mail an Gesuchsteller schicken",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
       "execute_always": 0,
       "sort": 5
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1129,
-    "fields": {
-      "available_action": "notification",
-      "button": 747,
-      "name": "E-Mail an Gesuchsteller schicken",
-      "description": "",
-      "success_message": "E-Mail wurde an den Gesuchsteller versandt!",
-      "error_message": "E-Mail an den Gesuchsteller konnte nicht versandt werden.",
-      "execute_always": 0,
-      "sort": 1
     }
   },
   {
@@ -7216,7 +6978,7 @@
     "fields": {
       "question": 141,
       "value": "internemitteilung",
-      "name": "Interner Kurzbericht via CAMAC",
+      "name": "Interner Kurzbericht via URec",
       "sort": 3
     }
   },
@@ -12292,29 +12054,11 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 173,
-    "fields": {
-      "button": 747,
-      "role": 6,
-      "instance_state": 30
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 175,
     "fields": {
       "button": 748,
       "role": 1103,
       "instance_state": 29
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 176,
-    "fields": {
-      "button": 752,
-      "role": 6,
-      "instance_state": 30
     }
   },
   {
@@ -12369,15 +12113,6 @@
       "button": 755,
       "role": 1103,
       "instance_state": 29
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 184,
-    "fields": {
-      "button": 745,
-      "role": 6,
-      "instance_state": 30
     }
   },
   {
@@ -15838,7 +15573,7 @@
       "description": "Freigeben f\u00fcr KOOR BG",
       "class_field": "release_koor in_form_group:31",
       "hidden": 0,
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -15874,7 +15609,7 @@
       "description": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -15910,7 +15645,7 @@
       "description": "Gemeinde COMM und DONE",
       "class_field": "",
       "hidden": 0,
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -16174,7 +15909,7 @@
       "description": "Freigeben f\u00fcr KOOR NP",
       "class_field": "release_koor in_form_group:141",
       "hidden": 0,
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -16186,7 +15921,7 @@
       "description": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 0
+      "sort": 1
     }
   },
   {
@@ -16455,38 +16190,14 @@
   },
   {
     "model": "core.button",
-    "pk": 745,
-    "fields": {
-      "instance_resource": 672,
-      "name": "Speichern",
-      "description": "",
-      "class_field": "",
-      "hidden": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.button",
     "pk": 746,
     "fields": {
-      "instance_resource": 672,
+      "instance_resource": 180000,
       "name": "Dossier annehmen",
       "description": "Akzeptieren vom Dossier, d.h., in den echten Workflow \u00fcbernehmen",
       "class_field": "button_accept",
       "hidden": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 747,
-    "fields": {
-      "instance_resource": 672,
-      "name": "Abweisen",
-      "description": "Button zum Abweisen eines Dossiers",
-      "class_field": "reject-msg",
-      "hidden": 0,
-      "sort": 2
+      "sort": 0
     }
   },
   {
@@ -16499,18 +16210,6 @@
       "class_field": "portal_save_and_continue",
       "hidden": 0,
       "sort": 1
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 752,
-    "fields": {
-      "instance_resource": 672,
-      "name": "Nachforderung",
-      "description": "Nachforderung bei B\u00fcrger-Dossier",
-      "class_field": "nfd-msg",
-      "hidden": 0,
-      "sort": 3
     }
   },
   {
@@ -17110,7 +16809,7 @@
       "description": null,
       "class_field": "oereb",
       "hidden": 1,
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -17206,7 +16905,7 @@
       "description": null,
       "class_field": "release_buildingauthority in_form_group:61",
       "hidden": 0,
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -22404,21 +22103,6 @@
   },
   {
     "model": "core.instanceresource",
-    "pk": 672,
-    "fields": {
-      "available_instance_resource": "editformpage",
-      "resource": 250,
-      "name": "Dossier bearbeiten",
-      "description": "",
-      "template": "/form/form-edit.phtml",
-      "class_field": "",
-      "hidden": 0,
-      "sort": 1,
-      "form_group": 248
-    }
-  },
-  {
-    "model": "core.instanceresource",
     "pk": 674,
     "fields": {
       "available_instance_resource": "page",
@@ -22429,21 +22113,6 @@
       "class_field": "",
       "hidden": 0,
       "sort": 7,
-      "form_group": 247
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 676,
-    "fields": {
-      "available_instance_resource": "apidocuments",
-      "resource": 250,
-      "name": "Dokumente",
-      "description": "Ansicht der Dokumente nach einreichung Dossier",
-      "template": "",
-      "class_field": "",
-      "hidden": 0,
-      "sort": 2,
       "form_group": 247
     }
   },
@@ -22504,21 +22173,6 @@
       "class_field": "",
       "hidden": 0,
       "sort": 6,
-      "form_group": 247
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 682,
-    "fields": {
-      "available_instance_resource": "formpage",
-      "resource": 250,
-      "name": "Personen- und Projektdaten",
-      "description": "",
-      "template": "/form/form-read.phtml",
-      "class_field": "",
-      "hidden": 0,
-      "sort": 0,
       "form_group": 247
     }
   },
@@ -26573,14 +26227,6 @@
     }
   },
   {
-    "model": "core.ireditformpage",
-    "pk": 672,
-    "fields": {
-      "page": 1,
-      "pdf_class": null
-    }
-  },
-  {
     "model": "core.ireditnotice",
     "pk": 367,
     "fields": {
@@ -26683,14 +26329,6 @@
   {
     "model": "core.irformpage",
     "pk": 677,
-    "fields": {
-      "page": 1,
-      "pdf_class": ""
-    }
-  },
-  {
-    "model": "core.irformpage",
-    "pk": 682,
     "fields": {
       "page": 1,
       "pdf_class": ""
@@ -29483,15 +29121,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 371,
-    "fields": {
-      "instance_resource": 676,
-      "role": 6,
-      "instance_state": 30
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 372,
     "fields": {
       "instance_resource": 671,
@@ -29505,24 +29134,6 @@
     "fields": {
       "instance_resource": 678,
       "role": 1103,
-      "instance_state": 30
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 374,
-    "fields": {
-      "instance_resource": 682,
-      "role": 6,
-      "instance_state": 29
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 375,
-    "fields": {
-      "instance_resource": 672,
-      "role": 6,
       "instance_state": 30
     }
   },
@@ -29542,15 +29153,6 @@
       "instance_resource": 651,
       "role": 1103,
       "instance_state": 1
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 378,
-    "fields": {
-      "instance_resource": 676,
-      "role": 6,
-      "instance_state": 29
     }
   },
   {
@@ -36637,6 +36239,24 @@
     }
   },
   {
+    "model": "core.irroleacl",
+    "pk": 12000000,
+    "fields": {
+      "instance_resource": 46,
+      "role": 6,
+      "instance_state": 30
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000001,
+    "fields": {
+      "instance_resource": 46,
+      "role": 7,
+      "instance_state": 30
+    }
+  },
+  {
     "model": "core.irserviceacl",
     "pk": 1,
     "fields": {
@@ -41693,17 +41313,17 @@
     }
   },
   {
-    "model": "core.rlist",
-    "pk": 122,
+    "model": "core.remberlist",
+    "pk": 12000000,
     "fields": {
-      "query": "SELECT\n  \"INSTANCE\".\"INSTANCE_ID\",\n  \"ANSWER_DOK_NR\".\"ANSWER\"   AS \"DOSSIER_NR\",\n  \"FORM\".\"NAME\"              AS \"FORM\",\n  \"ACTIVATION\".\"DEADLINE_DATE\" AS \"DEADLINE\",\n  \"LOCATION\".\"NAME\"          AS \"COMMUNITY\",\n\n  (\n    SELECT\n      STRING_AGG(\"ANSWER_LIST\".\"NAME\", ', ' ORDER BY \"ANSWER_LIST\".\"NAME\")\n    FROM\n      table(json_unserialize((\n          SELECT\n            \"ANSWER\" as \"ANSW\"\n          FROM\n            \"ANSWER\"\n          WHERE\n            \"ANSWER\".\"INSTANCE_ID\" = \"INSTANCE\".\"INSTANCE_ID\"\n            AND\n            \"QUESTION_ID\" = 97\n            AND\n            \"CHAPTER_ID\" = 21\n            AND\n            \"ITEM\" = 1\n          ))\n        )\n    JOIN \"ANSWER_LIST\" ON (\n      \"VAL\" = \"ANSWER_LIST_ID\"\n    )\n  ) AS \"INTENT\",\n  \"ANSWER_CITY\".\"ANSWER\"     AS \"CITY\",\n  \"INSTANCE_STATE\".\"NAME\"    AS \"STATE\",\n  \"ACTIVATION\".\"REASON\"      AS \"REASON\"\nFROM\n  \"INSTANCE\"\nJOIN\n  \"INSTANCE_LOCATION\" ON (\n    \"INSTANCE\".\"INSTANCE_ID\" = \"INSTANCE_LOCATION\".\"INSTANCE_ID\"\n  )\nJOIN\n  \"LOCATION\" ON (\n   \"INSTANCE_LOCATION\".\"LOCATION_ID\" = \"LOCATION\".\"LOCATION_ID\"\n  )\nJOIN\n  FORM ON (\n    \"INSTANCE\".\"FORM_ID\" = \"FORM\".\"FORM_ID\"\n)\nJOIN \"ANSWER_DOK_NR\" ON (\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_DOK_NR\".\"INSTANCE_ID\"\n)\nLEFT JOIN\n  \"ANSWER\" \"ANSWER_PETITION\" ON (\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_PETITION\".\"INSTANCE_ID\"\n    AND\n    \"ANSWER_PETITION\".\"QUESTION_ID\" = 23\n    AND\n    \"ANSWER_PETITION\".\"CHAPTER_ID\" = 1\n    AND\n    \"ANSWER_PETITION\".\"ITEM\" = 1\n  )\nLEFT JOIN\n  \"ANSWER\" \"ANSWER_CITY\" ON (\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_CITY\".\"INSTANCE_ID\"\n    AND\n    \"ANSWER_CITY\".\"QUESTION_ID\" = 63\n    AND\n    \"ANSWER_CITY\".\"CHAPTER_ID\" = 1\n    AND\n    \"ANSWER_CITY\".\"ITEM\" = 1\n  )\nJOIN\n  \"CIRCULATION\" ON (\n    \"CIRCULATION\".\"INSTANCE_ID\" = \"INSTANCE\".\"INSTANCE_ID\"\n  )\nJOIN\n  \"INSTANCE_STATE\" ON (\n  \"INSTANCE_STATE\".\"INSTANCE_STATE_ID\" = \"INSTANCE\".\"INSTANCE_STATE_ID\"\n)\nJOIN\n  \"ACTIVATION\" ON (\n    \"ACTIVATION\".\"CIRCULATION_ID\" = \"CIRCULATION\".\"CIRCULATION_ID\"\n    AND\n    \"ACTIVATION\".\"SERVICE_ID\" = [SERVICE_ID]\n  )\n  ORDER BY DOSSIER_NR\n  "
+      "instance_states": "30"
     }
   },
   {
     "model": "core.rlist",
-    "pk": 250,
+    "pk": 122,
     "fields": {
-      "query": "SELECT\r\n  \"INSTANCE\".\"INSTANCE_ID\"     AS \"INSTANCE_ID\",\r\n  \"FORM\".\"NAME\"                AS \"FORM\",\r\n  \"LOCATION\".\"NAME\"            AS \"COMMUNITY\",\r\n  \"USER\".\"USERNAME\"            AS \"USER\",\r\n  \"APPLICANT_VIEW\".\"APPLICANT\",\r\n  (SELECT STRING_AGG(\"NAME\", ', ' ORDER BY \"NAME\")\r\n    FROM \"INTENTIONS\" WHERE \"INSTANCE_ID\" = \"INSTANCE\".\"INSTANCE_ID\") AS \"INTENT\",\r\n  CASE\r\n    WHEN \"ANSWER_STREET_BG\".\"ANSWER\" IS NOT NULL THEN \"ANSWER_STREET_BG\".\"ANSWER\"\r\n    WHEN \"ANSWER_STREET_NP\".\"ANSWER\" IS NOT NULL THEN \"ANSWER_STREET_NP\".\"ANSWER\"\r\n  END AS \"STREET\",\r\n  \"GET_INST_STATE_NAME_BY_ID\"(\"INSTANCE\".\"INSTANCE_STATE_ID\")   \"STATE\",\r\n  \"GET_INST_STATE_DESCRIPTION\"(\"GET_INST_STATE_NAME_BY_ID\"(\"INSTANCE\".\"INSTANCE_STATE_ID\"))    \"STATE_DESCRIPTION\"\r\nFROM\r\n  \"INSTANCE\"\r\nJOIN\r\n  \"INSTANCE_LOCATION\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"INSTANCE_LOCATION\".\"INSTANCE_ID\"\r\n  )\r\nJOIN\r\n  \"LOCATION\" ON (\r\n   \"INSTANCE_LOCATION\".\"LOCATION_ID\" = \"LOCATION\".\"LOCATION_ID\"\r\n  )\r\nJOIN\r\n  \"FORM\" ON (\r\n    \"INSTANCE\".\"FORM_ID\" = \"FORM\".\"FORM_ID\"\r\n)\r\nJOIN\r\n  \"USER\" ON (\r\n    \"INSTANCE\".\"USER_ID\" = \"USER\".\"USER_ID\"\r\n)\r\nLEFT JOIN \"ANSWER_STREET_BG\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_STREET_BG\".\"INSTANCE_ID\"\r\n  )\r\nLEFT JOIN \"ANSWER_STREET_NP\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_STREET_NP\".\"INSTANCE_ID\"\r\n  )\r\nJOIN\r\n  \"GROUP_LOCATION\" ON (\r\n    \"GROUP_LOCATION\".\"GROUP_ID\" = [GROUP_ID]\r\n  )\r\nJOIN\r\n  \"GROUP\" ON (\r\n    \"GROUP\".\"GROUP_ID\" = [GROUP_ID]\r\n  )\r\nLEFT JOIN \"APPLICANT_VIEW\" ON (\r\n  \"INSTANCE\".\"INSTANCE_ID\" = \"APPLICANT_VIEW\".\"INSTANCE_ID\"\r\n)\r\n\r\nWHERE\r\n  (\r\n  \"INSTANCE\".\"INSTANCE_STATE_ID\" = \"GET_INST_STATE_ID_BY_NAME\"('subm')\r\n  OR\r\n  \"INSTANCE\".\"INSTANCE_STATE_ID\" = \"GET_INST_STATE_ID_BY_NAME\"('nfd')\r\n  )\r\n  AND\r\n  \"GROUP_LOCATION\".\"LOCATION_ID\" = \"INSTANCE_LOCATION\".\"LOCATION_ID\""
+      "query": "SELECT\n  \"INSTANCE\".\"INSTANCE_ID\",\n  \"ANSWER_DOK_NR\".\"ANSWER\"   AS \"DOSSIER_NR\",\n  \"FORM\".\"NAME\"              AS \"FORM\",\n  \"ACTIVATION\".\"DEADLINE_DATE\" AS \"DEADLINE\",\n  \"LOCATION\".\"NAME\"          AS \"COMMUNITY\",\n\n  (\n    SELECT\n      STRING_AGG(\"ANSWER_LIST\".\"NAME\", ', ' ORDER BY \"ANSWER_LIST\".\"NAME\")\n    FROM\n      table(json_unserialize((\n          SELECT\n            \"ANSWER\" as \"ANSW\"\n          FROM\n            \"ANSWER\"\n          WHERE\n            \"ANSWER\".\"INSTANCE_ID\" = \"INSTANCE\".\"INSTANCE_ID\"\n            AND\n            \"QUESTION_ID\" = 97\n            AND\n            \"CHAPTER_ID\" = 21\n            AND\n            \"ITEM\" = 1\n          ))\n        )\n    JOIN \"ANSWER_LIST\" ON (\n      \"VAL\" = \"ANSWER_LIST_ID\"\n    )\n  ) AS \"INTENT\",\n  \"ANSWER_CITY\".\"ANSWER\"     AS \"CITY\",\n  \"INSTANCE_STATE\".\"NAME\"    AS \"STATE\",\n  \"ACTIVATION\".\"REASON\"      AS \"REASON\"\nFROM\n  \"INSTANCE\"\nJOIN\n  \"INSTANCE_LOCATION\" ON (\n    \"INSTANCE\".\"INSTANCE_ID\" = \"INSTANCE_LOCATION\".\"INSTANCE_ID\"\n  )\nJOIN\n  \"LOCATION\" ON (\n   \"INSTANCE_LOCATION\".\"LOCATION_ID\" = \"LOCATION\".\"LOCATION_ID\"\n  )\nJOIN\n  FORM ON (\n    \"INSTANCE\".\"FORM_ID\" = \"FORM\".\"FORM_ID\"\n)\nJOIN \"ANSWER_DOK_NR\" ON (\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_DOK_NR\".\"INSTANCE_ID\"\n)\nLEFT JOIN\n  \"ANSWER\" \"ANSWER_PETITION\" ON (\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_PETITION\".\"INSTANCE_ID\"\n    AND\n    \"ANSWER_PETITION\".\"QUESTION_ID\" = 23\n    AND\n    \"ANSWER_PETITION\".\"CHAPTER_ID\" = 1\n    AND\n    \"ANSWER_PETITION\".\"ITEM\" = 1\n  )\nLEFT JOIN\n  \"ANSWER\" \"ANSWER_CITY\" ON (\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_CITY\".\"INSTANCE_ID\"\n    AND\n    \"ANSWER_CITY\".\"QUESTION_ID\" = 63\n    AND\n    \"ANSWER_CITY\".\"CHAPTER_ID\" = 1\n    AND\n    \"ANSWER_CITY\".\"ITEM\" = 1\n  )\nJOIN\n  \"CIRCULATION\" ON (\n    \"CIRCULATION\".\"INSTANCE_ID\" = \"INSTANCE\".\"INSTANCE_ID\"\n  )\nJOIN\n  \"INSTANCE_STATE\" ON (\n  \"INSTANCE_STATE\".\"INSTANCE_STATE_ID\" = \"INSTANCE\".\"INSTANCE_STATE_ID\"\n)\nJOIN\n  \"ACTIVATION\" ON (\n    \"ACTIVATION\".\"CIRCULATION_ID\" = \"CIRCULATION\".\"CIRCULATION_ID\"\n    AND\n    \"ACTIVATION\".\"SERVICE_ID\" = [SERVICE_ID]\n  )\n  ORDER BY DOSSIER_NR\n  "
     }
   },
   {
@@ -41793,96 +41413,6 @@
       "resource": 122,
       "column_name": "REASON",
       "alias": "Grund",
-      "sort": 8
-    }
-  },
-  {
-    "model": "core.rlistcolumn",
-    "pk": 646,
-    "fields": {
-      "resource": 250,
-      "column_name": "INSTANCE_ID",
-      "alias": "ID",
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.rlistcolumn",
-    "pk": 657,
-    "fields": {
-      "resource": 250,
-      "column_name": "FORM",
-      "alias": "Verfahren",
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.rlistcolumn",
-    "pk": 658,
-    "fields": {
-      "resource": 250,
-      "column_name": "COMMUNITY",
-      "alias": "Gemeinde",
-      "sort": 2
-    }
-  },
-  {
-    "model": "core.rlistcolumn",
-    "pk": 659,
-    "fields": {
-      "resource": 250,
-      "column_name": "USER",
-      "alias": "Ersteller",
-      "sort": 3
-    }
-  },
-  {
-    "model": "core.rlistcolumn",
-    "pk": 660,
-    "fields": {
-      "resource": 250,
-      "column_name": "APPLICANT",
-      "alias": "Gesuchsteller",
-      "sort": 4
-    }
-  },
-  {
-    "model": "core.rlistcolumn",
-    "pk": 661,
-    "fields": {
-      "resource": 250,
-      "column_name": "INTENT",
-      "alias": "Vorhaben",
-      "sort": 5
-    }
-  },
-  {
-    "model": "core.rlistcolumn",
-    "pk": 662,
-    "fields": {
-      "resource": 250,
-      "column_name": "STREET",
-      "alias": "Strasse/Flurname",
-      "sort": 6
-    }
-  },
-  {
-    "model": "core.rlistcolumn",
-    "pk": 663,
-    "fields": {
-      "resource": 250,
-      "column_name": "STATE",
-      "alias": "Status",
-      "sort": 7
-    }
-  },
-  {
-    "model": "core.rlistcolumn",
-    "pk": 664,
-    "fields": {
-      "resource": 250,
-      "column_name": "STATE_DESCRIPTION",
-      "alias": "Statusbeschreibung",
       "sort": 8
     }
   },
@@ -42145,14 +41675,6 @@
     "fields": {
       "resource": 287,
       "role": 1127
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 31,
-    "fields": {
-      "resource": 250,
-      "role": 6
     }
   },
   {
@@ -42756,6 +42278,14 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 12000000,
+    "fields": {
+      "resource": 12000000,
+      "role": 6
+    }
+  },
+  {
     "model": "core.rsearch",
     "pk": 42,
     "fields": {
@@ -43242,7 +42772,7 @@
       "template": "/global/search.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 28
+      "sort": 29
     }
   },
   {
@@ -43255,7 +42785,7 @@
       "template": "/buildom/search.phtml",
       "class_field": "",
       "hidden": 1,
-      "sort": 26
+      "sort": 27
     }
   },
   {
@@ -43286,19 +42816,6 @@
   },
   {
     "model": "core.resource",
-    "pk": 250,
-    "fields": {
-      "available_resource": "list",
-      "name": "Eingang Online - Dossiers",
-      "description": "Dossiers, die von den B\u00fcrgern eingereicht wurden",
-      "template": "/list/portal-list.phtml",
-      "class_field": "show_list_count",
-      "hidden": 0,
-      "sort": 9
-    }
-  },
-  {
-    "model": "core.resource",
     "pk": 251,
     "fields": {
       "available_resource": "page",
@@ -43307,7 +42824,7 @@
       "template": "/portal/create.phtml",
       "class_field": "",
       "hidden": 0,
-      "sort": 35
+      "sort": 34
     }
   },
   {
@@ -43320,7 +42837,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -43333,7 +42850,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 21
+      "sort": 22
     }
   },
   {
@@ -43346,7 +42863,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -43359,7 +42876,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 22
+      "sort": 23
     }
   },
   {
@@ -43372,7 +42889,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -43385,7 +42902,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -43398,7 +42915,7 @@
       "template": "/list/index-portal.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 37
+      "sort": 36
     }
   },
   {
@@ -43411,7 +42928,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 24
+      "sort": 25
     }
   },
   {
@@ -43424,7 +42941,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 23
+      "sort": 24
     }
   },
   {
@@ -43437,7 +42954,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -43450,7 +42967,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -43463,7 +42980,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -43476,7 +42993,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 25
+      "sort": 26
     }
   },
   {
@@ -43489,7 +43006,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -43554,7 +43071,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -43619,7 +43136,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -43632,7 +43149,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -43658,7 +43175,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 27
+      "sort": 28
     }
   },
   {
@@ -43671,7 +43188,7 @@
       "template": "/ember/form-builder.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 36
+      "sort": 35
     }
   },
   {
@@ -43685,6 +43202,19 @@
       "class_field": null,
       "hidden": 0,
       "sort": 32
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 12000000,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Eingang Online - Dossiers",
+      "description": "Dossiers, die von den B\u00fcrgern eingereicht wurden",
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 10
     }
   },
   {
@@ -43829,14 +43359,6 @@
     "fields": {
       "workflow_item": 14,
       "multi_value": 3
-    }
-  },
-  {
-    "model": "core.workflowaction",
-    "pk": 1092,
-    "fields": {
-      "workflow_item": 13,
-      "multi_value": 2
     }
   },
   {

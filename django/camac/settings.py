@@ -8,6 +8,7 @@ import environ
 from django.db.models.expressions import Q
 from django.utils.translation import gettext_lazy
 
+from camac.constants import kt_bern as be_constants
 from camac.utils import build_url
 
 env = environ.Env()
@@ -179,15 +180,18 @@ APPLICATIONS = {
             "surname",
         ],
         "PORTAL_GROUP": None,
-        "FORM_MAPPING": {"building-permit": [1]},
         "CALUMA": {
             "FORM_PERMISSIONS": ["main"],
             "HAS_PROJECT_CHANGE": False,
-            "CREATE_IN_PROCESS": True,
-            "USE_LOCATION": True,
+            "CREATE_IN_PROCESS": False,
+            "GENERATE_IDENTIFIER": False,
+            "USE_LOCATION": False,
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
         },
         "PDF": {"SECTION": 1},
+        "ECH_API": True,
+        "INSTANCE_STATE_REJECTION_COMPLETE": "finished",
+        "SET_SUBMIT_DATE_CAMAC_ANSWER": True,
     },
     "kt_schwyz": {
         "LOG_NOTIFICATIONS": True,
@@ -600,6 +604,7 @@ APPLICATIONS = {
             },
             "HAS_PROJECT_CHANGE": True,
             "CREATE_IN_PROCESS": False,
+            "GENERATE_IDENTIFIER": False,
             "USE_LOCATION": False,
             "AUDIT_FORMS": [
                 "dossierpruefung",
@@ -641,6 +646,28 @@ APPLICATIONS = {
                 "parzelle",
             ],
             "PUBLICATION_FORM": "publikation",
+            "PUBLIC_STATUS": {
+                "MAP": {
+                    be_constants.INSTANCE_STATE_NEW: be_constants.PUBLIC_INSTANCE_STATE_CREATING,
+                    be_constants.INSTANCE_STATE_EBAU_NUMMER_VERGEBEN: be_constants.PUBLIC_INSTANCE_STATE_RECEIVING,
+                    be_constants.INSTANCE_STATE_CORRECTION_IN_PROGRESS: be_constants.PUBLIC_INSTANCE_STATE_COMMUNAL,
+                    be_constants.INSTANCE_STATE_IN_PROGRESS: be_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
+                    be_constants.INSTANCE_STATE_IN_PROGRESS_INTERNAL: be_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
+                    be_constants.INSTANCE_STATE_KOORDINATION: be_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
+                    be_constants.INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT: be_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
+                    be_constants.INSTANCE_STATE_ZIRKULATION: be_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
+                    be_constants.INSTANCE_STATE_REJECTED: be_constants.PUBLIC_INSTANCE_STATE_REJECTED,
+                    be_constants.INSTANCE_STATE_CORRECTED: be_constants.PUBLIC_INSTANCE_STATE_CORRECTED,
+                    be_constants.INSTANCE_STATE_SB1: be_constants.PUBLIC_INSTANCE_STATE_SB1,
+                    be_constants.INSTANCE_STATE_SB2: be_constants.PUBLIC_INSTANCE_STATE_SB2,
+                    be_constants.INSTANCE_STATE_TO_BE_FINISHED: be_constants.PUBLIC_INSTANCE_STATE_FINISHED,
+                    be_constants.INSTANCE_STATE_FINISHED: be_constants.PUBLIC_INSTANCE_STATE_FINISHED,
+                    be_constants.INSTANCE_STATE_ARCHIVED: be_constants.PUBLIC_INSTANCE_STATE_ARCHIVED,
+                    be_constants.INSTANCE_STATE_DONE: be_constants.PUBLIC_INSTANCE_STATE_DONE,
+                    be_constants.INSTANCE_STATE_DONE_INTERNAL: be_constants.PUBLIC_INSTANCE_STATE_DONE,
+                },
+                "DEFAULT": be_constants.PUBLIC_INSTANCE_STATE_CREATING,
+            },
         },
         "PORTAL_GROUP": 6,
         "DEMO_MODE_GROUPS": [
@@ -687,6 +714,7 @@ APPLICATIONS = {
             },
             "ALLOWED_SERVICE_GROUPS": {"SB1": [3], "SB2": [3], "DEFAULT": [2, 20000]},
         },
+        "ECH_API": True,
         "DOCUMENT_MERGE_SERVICE": {
             "_base": {
                 "people_sources": {
@@ -762,6 +790,8 @@ APPLICATIONS = {
         # please also update django/Makefile command when changing apps here
         "SEQUENCE_NAMESPACE_APPS": ["core", "responsible", "document"],
         "HAS_EBAU_NUMBER": True,
+        "INSTANCE_STATE_REJECTION_COMPLETE": "finished",
+        "SET_SUBMIT_DATE_CAMAC_ANSWER": True,
         "SUGGESTIONS": [
             (
                 "art-versickerung-dach",
@@ -1073,16 +1103,33 @@ APPLICATIONS = {
         ],
         "CALUMA": {
             "FORM_PERMISSIONS": ["main"],
-            "HAS_PROJECT_CHANGE": False,
+            "HAS_PROJECT_CHANGE": True,
             "CREATE_IN_PROCESS": True,
+            "GENERATE_IDENTIFIER": True,
             "USE_LOCATION": True,
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
             "SYNC_FORM_TYPE": True,
+            "SUBMIT_TASKS": [],
+            "MODIFICATION_ALLOW_FORMS": [
+                "building-permit",
+            ],
+            "MODIFICATION_DISALLOW_STATES": [
+                "new",
+                "done",
+                "old",
+            ],
+        },
+        "PDF": {
+            "SECTION": {
+                "MAIN": {"DEFAULT": 12000000, "PAPER": 12000000},
+            }
         },
         "DOCUMENT_MERGE_SERVICE": {
             "building-permit": {
                 "forms": [
                     "building-permit",
+                    "preliminary-clarification",
+                    "commercial-permit",
                 ],
                 "template": "2-level-extended",
                 "people_sources": {
@@ -1112,6 +1159,7 @@ APPLICATIONS = {
                     "is-paper",
                     "einreichen",
                     "gis-karte",
+                    "form-type",
                 ],
             },
         },
@@ -1130,10 +1178,6 @@ APPLICATIONS = {
                     68,  # Sekretariate Gemeindebaubehörden
                 ]
             },
-        },
-        "FORM_MAPPING": {
-            "building-permit": [44, 47, 21, 61, 290, 141, 121],
-            "kantonsgebiet": [247, 291],
         },
         "ROLE_PERMISSIONS": {
             "Bundesstelle": "coordination",
@@ -1158,6 +1202,18 @@ APPLICATIONS = {
             # "Admin": None,
             # "Architect": None,
             # "Guest": None,  # TODO AFAIK we don't grant unauthenticated users access to endpoints
+        },
+        "NOTIFICATIONS": {
+            "SUBMIT": [
+                {
+                    "template_slug": "dossier-eingereicht-gesuchsteller",
+                    "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "dossier-eingereicht-gemeinde",
+                    "recipient_types": ["municipality_users"],
+                },
+            ],
         },
         # The following services don't receive notifications if they have
         # overdue circulation activations.
@@ -1197,6 +1253,8 @@ APPLICATIONS = {
         ],
         "ENABLE_PUBLIC_ENDPOINTS": True,
         "PUBLIC_ATTACHMENT_SECTIONS": [12000008],
+        "INSTANCE_STATE_REJECTION_COMPLETE": "arch",
+        "SET_SUBMIT_DATE_CAMAC_WORKFLOW": True,
     },
 }
 
@@ -1587,7 +1645,6 @@ DOCUMENT_MERGE_SERVICE_URL = build_url(
     env.str("DOCUMENT_MERGE_SERVICE_URL", "http://document-merge-service:8000/api/v1/")
 )
 
-ECH_API = env.bool("ECH_API", default=True)
 ECH_EXCLUDED_FORMS = [
     "migriertes-dossier",
     "baupolizeiliches-verfahren",

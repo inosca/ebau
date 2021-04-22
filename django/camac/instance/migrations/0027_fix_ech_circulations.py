@@ -3,7 +3,9 @@ from django.conf import settings
 
 
 def fix_ech_circulations(apps, schema_editor):
-    if settings.APPLICATION_NAME != "kt_bern" or not settings.ECH_API:
+    if settings.APPLICATION_NAME != "kt_bern" or not settings.APPLICATION.get(
+        "ECH_API"
+    ):
         return
 
     for circulation in apps.get_model("core", "Circulation").objects.filter(

@@ -1,3 +1,4 @@
+import copy
 import glob
 import inspect
 import logging
@@ -82,18 +83,22 @@ Faker.add_provider(MultilangProvider)
 Faker.add_provider(FreezegunAwareDatetimeProvider)
 
 
-FORM_QUESTION_MAP = [
+FORM_QUESTION_MAP_BE = [
     ("main-form", "gemeinde"),
     ("main-form", "is-paper"),
     ("main-form", "baubeschrieb"),
     ("main-form", "personalien-sb"),
     ("main-form", "personalien-gesuchstellerin"),
-    ("main-form", "municipality"),  # Kt. UR
-    ("main-form", "leitbehoerde"),  # Kt. UR
     ("sb1", "is-paper"),
     ("sb1", "personalien-sb1-sb2"),
     ("sb2", "is-paper"),
     ("nfd", "is-paper"),
+]
+
+FORM_QUESTION_MAP_UR = [
+    ("main-form", "is-paper"),
+    ("main-form", "municipality"),
+    ("main-form", "leitbehoerde"),
 ]
 
 CALUMA_FORM_TYPES_SLUGS = [
@@ -111,6 +116,7 @@ CALUMA_FORM_TYPES_SLUGS = [
     "klaerung-baubewilligungspflicht",
     "zutrittsermaechtigung",
     "verlaengerung-geltungsdauer",
+    "building-permit",
 ]
 
 
@@ -195,7 +201,7 @@ def admin_client(db, admin_user, request_mock):
 
 @pytest.fixture
 def application_settings(settings):
-    application_dict = dict(settings.APPLICATION)
+    application_dict = copy.deepcopy(settings.APPLICATION)
     # settings fixture only restores per attribute
     # so need to set copy of dict
     settings.APPLICATION = application_dict
@@ -214,7 +220,8 @@ def use_caluma_form(application_settings):
         "FORM_PERMISSIONS": ["main", "sb1", "sb2", "nfd", "dossierpruefung"],
         "HAS_PROJECT_CHANGE": True,
         "CREATE_IN_PROCESS": False,
-        "USE_LOCATION": True,
+        "USE_LOCATION": False,
+        "GENERATE_IDENTIFIER": False,
     }
 
 
@@ -377,6 +384,11 @@ def caluma_config_be(settings, use_caluma_form):
 
 
 @pytest.fixture
+def caluma_config_ur(settings, use_caluma_form):
+    settings.APPLICATION["CALUMA"] = settings.APPLICATIONS["kt_uri"]["CALUMA"]
+
+
+@pytest.fixture
 def caluma_config_sz(settings):
     settings.APPLICATION["CALUMA"] = deepcopy(
         settings.APPLICATIONS["kt_schwyz"]["CALUMA"]
@@ -411,7 +423,7 @@ def use_instance_service(application_settings):
 
 @pytest.fixture
 def caluma_workflow_config_be(
-    settings, caluma_forms, caluma_config_be, use_instance_service
+    settings, caluma_forms_be, caluma_config_be, use_instance_service
 ):
 
     for slug in CALUMA_FORM_TYPES_SLUGS:
@@ -438,6 +450,29 @@ def caluma_workflow_config_be(
 
 
 @pytest.fixture
+def caluma_workflow_config_ur(settings, caluma_forms_ur, caluma_config_ur):
+
+    for slug in CALUMA_FORM_TYPES_SLUGS:
+        caluma_form_models.Form.objects.create(slug=slug)
+
+    call_command("loaddata", settings.ROOT_DIR("kt_uri/config/caluma_workflow.json"))
+
+    workflow = caluma_workflow_models.Workflow.objects.first()
+    main_form = caluma_form_models.Form.objects.get(pk="main-form")
+
+    workflow.allow_forms.clear()
+    workflow.allow_forms.add(main_form)
+    workflow.save()
+
+    caluma_form_models.Form.objects.filter(pk__in=CALUMA_FORM_TYPES_SLUGS).delete()
+
+    yield workflow
+
+    caluma_workflow_models.Case.objects.all().delete()
+    caluma_workflow_models.Workflow.objects.all().delete()
+
+
+@pytest.fixture
 def caluma_audit(caluma_workflow_config_be):
     for slug in CALUMA_FORM_TYPES_SLUGS:
         caluma_form_models.Form.objects.create(slug=slug)
@@ -458,7 +493,7 @@ def caluma_publication(caluma_workflow_config_be):
 
 
 @pytest.fixture
-def caluma_workflow_config_sz(settings, caluma_forms, caluma_config_sz):
+def caluma_workflow_config_sz(settings, caluma_forms_be, caluma_config_sz):
     caluma_form_models.Form.objects.create(slug="baugesuch"),
 
     call_command("loaddata", settings.ROOT_DIR("kt_schwyz/config/caluma_workflow.json"))
@@ -477,7 +512,7 @@ def no(lang):
 
 
 @pytest.fixture
-def caluma_forms(settings):
+def caluma_forms_be(settings):
     # forms
     caluma_form_models.Form.objects.create(
         slug="main-form", meta={"is-main-form": True}, name="Baugesuch"
@@ -499,14 +534,6 @@ def caluma_forms(settings):
         slug="gemeinde",
         type=caluma_form_models.Question.TYPE_DYNAMIC_CHOICE,
         data_source="Municipalities",
-    )
-    caluma_form_models.Question.objects.create(
-        slug="municipality",
-        type=caluma_form_models.Question.TYPE_TEXT,
-    )
-    caluma_form_models.Question.objects.create(
-        slug="leitbehoerde",
-        type=caluma_form_models.Question.TYPE_TEXT,
     )
     settings.DATA_SOURCE_CLASSES = [
         "camac.caluma.extensions.data_sources.Municipalities"
@@ -586,7 +613,64 @@ def caluma_forms(settings):
     )
 
     # link questions with forms
-    for form_id, question_id in FORM_QUESTION_MAP:
+    for form_id, question_id in FORM_QUESTION_MAP_BE:
+        caluma_form_models.FormQuestion.objects.create(
+            form_id=form_id, question_id=question_id
+        )
+
+
+@pytest.fixture
+def caluma_forms_ur(settings):
+    # forms
+    caluma_form_models.Form.objects.create(
+        slug="main-form", meta={"is-main-form": True}, name="Baugesuch"
+    )
+
+    # dynamic choice options get cached, so we clear them
+    # to ensure the new "gemeinde" options will be valid
+    cache.clear()
+
+    # questions
+    caluma_form_models.Question.objects.create(
+        slug="municipality",
+        type=caluma_form_models.Question.TYPE_TEXT,
+    )
+    caluma_form_models.Question.objects.create(
+        slug="leitbehoerde",
+        type=caluma_form_models.Question.TYPE_TEXT,
+    )
+    form_type_question = caluma_form_models.Question.objects.create(
+        slug="form-type",
+        type=caluma_form_models.Question.TYPE_CHOICE,
+    )
+    form_type_option = caluma_form_models.Option.objects.create(
+        slug="form-type-camac-form", label="Camac Form"
+    )
+    caluma_form_models.QuestionOption.objects.create(
+        question=form_type_question, option=form_type_option
+    )
+
+    settings.DATA_SOURCE_CLASSES = ["camac.caluma.extensions.data_sources.Locations"]
+
+    for slug, lang in [("is-paper", "en"), ("projektaenderung", "de")]:
+        question = caluma_form_models.Question.objects.create(
+            slug=slug, type=caluma_form_models.Question.TYPE_CHOICE
+        )
+        options = [
+            caluma_form_models.Option.objects.create(
+                slug=f"{slug}-{yes(lang)}", label="Ja"
+            ),
+            caluma_form_models.Option.objects.create(
+                slug=f"{slug}-{no(lang)}", label="Nein"
+            ),
+        ]
+        for option in options:
+            caluma_form_models.QuestionOption.objects.create(
+                question=question, option=option
+            )
+
+    # link questions with forms
+    for form_id, question_id in FORM_QUESTION_MAP_UR:
         caluma_form_models.FormQuestion.objects.create(
             form_id=form_id, question_id=question_id
         )
