@@ -273,7 +273,6 @@ instances:
     new: "Neu Erstellt"
     nfd: "Nachforderung Dokumente"
     subm: "Eingereicht bei Gemeinde"
-    rej: "Abgelehnt"
     ext_gem: "Dossiers bleibt bei Gemeindebaubehörde"
     old: "Archivdossier"
 

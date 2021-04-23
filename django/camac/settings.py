@@ -192,6 +192,11 @@ APPLICATIONS = {
         "ECH_API": True,
         "INSTANCE_STATE_REJECTION_COMPLETE": "finished",
         "SET_SUBMIT_DATE_CAMAC_ANSWER": True,
+        "REJECTION_FEEDBACK_QUESTION": {
+            "CHAPTER": 20001,
+            "QUESTION": 20037,
+            "ITEM": 1,
+        },
     },
     "kt_schwyz": {
         "LOG_NOTIFICATIONS": True,
@@ -792,6 +797,11 @@ APPLICATIONS = {
         "HAS_EBAU_NUMBER": True,
         "INSTANCE_STATE_REJECTION_COMPLETE": "finished",
         "SET_SUBMIT_DATE_CAMAC_ANSWER": True,
+        "REJECTION_FEEDBACK_QUESTION": {
+            "CHAPTER": 20001,
+            "QUESTION": 20037,
+            "ITEM": 1,
+        },
         "SUGGESTIONS": [
             (
                 "art-versickerung-dach",
@@ -1254,6 +1264,11 @@ APPLICATIONS = {
         "ENABLE_PUBLIC_ENDPOINTS": True,
         "INSTANCE_STATE_REJECTION_COMPLETE": "arch",
         "SET_SUBMIT_DATE_CAMAC_WORKFLOW": True,
+        "REJECTION_FEEDBACK_QUESTION": {
+            "CHAPTER": 12000000,
+            "QUESTION": 12000000,
+            "ITEM": 1,
+        },
     },
 }
 

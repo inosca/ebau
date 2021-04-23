@@ -33,7 +33,8 @@ export default class BeDocumentsFormComponent extends Component {
     );
 
     return (
-      !this.args.disabled && state !== config.ebau.instanceStates.inCorrection
+      !this.args.disabled &&
+      state !== config.APPLICATION.instanceStates.inCorrection
     );
   }
 
