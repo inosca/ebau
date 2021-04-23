@@ -1156,6 +1156,9 @@ APPLICATIONS = {
             "client_identification_personIdentification_firstName": "vorname-gesuchstellerin",
             "projectAnnouncementDate": "submit",
         },
+        "MUNICIPALITY_DATA_SHEET": APPLICATION_DIR(
+            "Verwaltungskreise und -regionen der Gemeinden.csv"
+        ),
     },
     "kt_uri": {
         "LOG_NOTIFICATIONS": False,

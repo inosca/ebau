@@ -6,6 +6,7 @@ from django.contrib.postgres.fields import JSONField
 from django.db import models
 
 from camac.core.models import HistoryActionConfig
+from camac.user.models import User
 
 from ..core import models as core_models
 
@@ -127,7 +128,7 @@ class Instance(models.Model):
         Form, models.DO_NOTHING, db_column="FORM_ID", related_name="+"
     )
     user = models.ForeignKey(
-        "user.User", models.DO_NOTHING, db_column="USER_ID", related_name="+"
+        User, models.DO_NOTHING, db_column="USER_ID", related_name="+"
     )
     group = models.ForeignKey(
         "user.Group", models.DO_NOTHING, db_column="GROUP_ID", related_name="+"
@@ -199,6 +200,9 @@ class Instance(models.Model):
 
         return self.group.service
 
+    def responsible_user(self):
+        return User.objects.filter(responsible_services__instance=self).first()
+
     class Meta:
         managed = True
         db_table = "INSTANCE"
@@ -212,7 +216,7 @@ class InstanceResponsibility(models.Model):
         "user.Service", models.CASCADE, db_column="SERVICE_ID", related_name="+"
     )
     user = models.ForeignKey(
-        "user.User",
+        User,
         models.DO_NOTHING,
         db_column="USER_ID",
         related_name="responsibilities",
@@ -227,7 +231,7 @@ class JournalEntry(models.Model):
     service = models.ForeignKey(
         "user.Service", models.DO_NOTHING, related_name="+", null=True
     )
-    user = models.ForeignKey("user.User", models.DO_NOTHING, related_name="+")
+    user = models.ForeignKey(User, models.DO_NOTHING, related_name="+")
     text = models.TextField(blank=True, null=True)
     creation_date = models.DateTimeField()
     modification_date = models.DateTimeField()
@@ -246,7 +250,7 @@ class HistoryEntry(core_models.MultilingualModel, models.Model):
     service = models.ForeignKey(
         "user.Service", models.DO_NOTHING, related_name="+", null=True
     )
-    user = models.ForeignKey("user.User", models.DO_NOTHING, related_name="+")
+    user = models.ForeignKey(User, models.DO_NOTHING, related_name="+")
     created_at = models.DateTimeField(auto_now_add=True)
     title = models.TextField(blank=True, null=True)
     body = models.TextField(blank=True, null=True)
@@ -277,7 +281,7 @@ class Issue(models.Model):
         "user.Service", models.DO_NOTHING, related_name="+", null=True
     )
     user = models.ForeignKey(
-        "user.User", models.DO_NOTHING, related_name="+", blank=True, null=True
+        User, models.DO_NOTHING, related_name="+", blank=True, null=True
     )
     deadline_date = models.DateField()
     state = models.CharField(
@@ -292,7 +296,7 @@ class IssueTemplate(models.Model):
         "user.Service", models.DO_NOTHING, related_name="+", null=True
     )
     user = models.ForeignKey(
-        "user.User", models.DO_NOTHING, related_name="+", blank=True, null=True
+        User, models.DO_NOTHING, related_name="+", blank=True, null=True
     )
     deadline_length = models.PositiveIntegerField()
     text = models.TextField()

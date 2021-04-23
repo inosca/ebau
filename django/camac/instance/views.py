@@ -1,17 +1,21 @@
+import csv
 import mimetypes
 from datetime import timedelta
 
 import django_excel
 from caluma.caluma_form import models as form_models
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
+from dateutil.parser import parse as dateutil_parse
 from django.conf import settings
 from django.contrib.postgres.fields.jsonb import KeyTextTransform
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.files import File
 from django.db import transaction
-from django.db.models import OuterRef, Q, Subquery
+from django.db.models import IntegerField, OuterRef, Q, Subquery
+from django.db.models.functions import Cast
 from django.http import HttpResponse
 from django.utils import timezone
+from django.utils.translation import gettext as _
 from rest_framework import response, status
 from rest_framework.decorators import action
 from rest_framework.generics import ListAPIView, RetrieveAPIView
@@ -20,10 +24,11 @@ from rest_framework_json_api import views
 from rest_framework_json_api.views import ReadOnlyModelViewSet
 
 from camac.caluma.api import CalumaApi
-from camac.core.models import InstanceService, WorkflowEntry
+from camac.core.models import Activation, DocxDecision, InstanceService, WorkflowEntry
 from camac.core.views import SendfileHttpResponse
 from camac.document.models import Attachment, AttachmentSection
 from camac.notification.utils import send_mail
+from camac.user.models import Service
 from camac.user.permissions import ReadOnly, permission_aware
 from camac.utils import DocxRenderer
 
@@ -464,6 +469,186 @@ class InstanceView(
 
         response.write(buf.read())
         return response
+
+    def _load_municipality_sheet(self):
+        sheet = settings.APPLICATION.get("MUNICIPALITY_DATA_SHEET")
+        reader = csv.DictReader(open(sheet))
+        return {
+            row["Gemeinde"]: {
+                key: row[key] for key in ["Verwaltungskreis", "Verwaltungsregion"]
+            }
+            for row in reader
+        }
+
+    @action(methods=["get"], detail=False)
+    def export(self, request):
+        """Export filtered instances to given file format."""
+        if not self.request.query_params.get("instance_id"):
+            return response.Response(
+                "Must provide 'instance_id' query parameter.",
+                status.HTTP_400_BAD_REQUEST,
+            )
+        if len(self.request.query_params["instance_id"].split(",")) > 1000:
+            return response.Response(
+                "Maximum 1000 instances allowed at a time.", status.HTTP_400_BAD_REQUEST
+            )
+
+        current_service = self.request.group.service
+
+        queryset = (
+            self.get_queryset()
+            .select_related("instance_state")
+            .prefetch_related(
+                "responsible_services", "tags", "circulations__activations"
+            )
+        )
+        queryset = self.filter_queryset(queryset).order_by("pk")
+
+        documents = (
+            form_models.Document.objects.select_related("case")
+            .prefetch_related("answers")
+            .filter(
+                **{
+                    "case__meta__camac-instance-id__in": list(
+                        queryset.values_list("pk", flat=True)
+                    )
+                }
+            )
+            .annotate(
+                instance_id=Cast(
+                    KeyTextTransform("camac-instance-id", "case__meta"),
+                    output_field=IntegerField(),
+                )
+            )
+            .order_by("instance_id")
+        )
+
+        municipalities = self._load_municipality_sheet()
+        caluma_api = CalumaApi()
+
+        data = []
+
+        for instance, document in zip(queryset, documents):
+            assert (
+                instance.pk == document.case.meta["camac-instance-id"]
+            ), f"Instance {instance.pk} and document {document.pk} don't match"
+
+            submit_date = document.case.meta.get("submit-date")
+            submit_date = (
+                dateutil_parse(submit_date).strftime(settings.SHORT_DATE_FORMAT)
+                if submit_date
+                else submit_date
+            )
+
+            responsible_user = instance.responsible_user()
+            responsible_user = (
+                responsible_user.get_full_name() if responsible_user else ""
+            )
+
+            muni_id = caluma_api.get_gemeinde(document)
+            municipality = (
+                Service.objects.get(pk=muni_id)
+                .get_name("de")
+                .replace("Leitbehörde ", "")
+                if muni_id
+                else ""
+            )
+            municipality_data = municipalities.get(municipality, {})
+
+            instance_activations = Activation.objects.filter(
+                circulation__instance_id=instance.pk
+            )
+
+            in_rsta = (
+                instance_activations.filter(
+                    service_id=instance.instance_services.first().service
+                )
+                .order_by("start_date")
+                .first()
+            )
+            in_rsta_date = (
+                in_rsta.start_date.strftime(settings.SHORT_DATE_FORMAT)
+                if in_rsta
+                else None
+            )
+
+            activations = instance_activations.filter(service_id=current_service.pk)
+
+            in_activation = activations.order_by("start_date").first()
+            in_activation_date = (
+                in_activation.start_date.strftime(settings.SHORT_DATE_FORMAT)
+                if in_activation
+                else None
+            )
+            out_activation = activations.order_by("end_date").last()
+            out_activation_date = (
+                out_activation.end_date.strftime(settings.SHORT_DATE_FORMAT)
+                if out_activation and out_activation.end_date
+                else None
+            )
+            circulation_answer = (
+                out_activation.circulation_answer.get_name()
+                if out_activation and out_activation.circulation_answer
+                else None
+            )
+
+            decision = DocxDecision.objects.filter(instance=instance.pk).first()
+            decision_date = (
+                decision.decision_date.strftime(settings.SHORT_DATE_FORMAT)
+                if decision
+                else None
+            )
+
+            doc_data = [
+                document.case.meta.get("ebau-number"),
+                instance.pk,
+                document.form.name.translate(),
+                caluma_api.get_address(document),
+                submit_date,
+                instance.instance_state.get_name(),
+                responsible_user,
+                caluma_api.get_gesuchsteller(document),
+                municipality,
+                municipality_data.get("Verwaltungskreis", ""),
+                municipality_data.get("Verwaltungsregion", ""),
+                in_rsta_date,
+                in_activation_date,
+                out_activation_date,
+                decision_date,
+                circulation_answer,
+                ", ".join(set([act.service.get_name() for act in activations])),
+                ", ".join(
+                    instance.tags.filter(service=current_service).values_list(
+                        "name", flat=True
+                    )
+                ),
+            ]
+
+            data.append(doc_data)
+
+        header = [
+            _("eBau No."),
+            _("Instance No."),
+            _("Application Type"),
+            _("Address"),
+            _("Submission Date"),
+            _("Status"),
+            _("Responsible"),
+            _("Applicant"),
+            _("Municipality"),
+            _("Administrative District"),
+            _("Administrative Region"),
+            _("Arrival RSTA"),
+            _("Arrival Department"),
+            _("Departure Department"),
+            _("Decision"),
+            _("Assessment"),
+            _("Involved Departments"),
+            _("Tags"),
+        ]
+
+        sheet = django_excel.pe.Sheet([header] + data)
+        return django_excel.make_response(sheet, file_type="csv", file_name="list.csv")
 
     @action(methods=["post"], detail=True)
     @transaction.atomic
