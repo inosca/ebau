@@ -674,7 +674,7 @@
     "model": "instance.instancestate",
     "pk": 31,
     "fields": {
-      "name": "rej",
+      "name": "rejected",
       "sort": 13,
       "description": ""
     }
