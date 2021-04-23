@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-03 08:32+0200\n"
-"PO-Revision-Date: 2021-06-03 08:33+0200\n"
+"POT-Creation-Date: 2021-06-23 12:57+0200\n"
+"PO-Revision-Date: 2021-06-23 13:08+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -79,7 +79,7 @@ msgid ""
 "attachment PKs!"
 msgstr ""
 
-#: camac/document/permissions.py:179
+#: camac/document/permissions.py:177
 msgid "Only active service can change context"
 msgstr ""
 
@@ -106,7 +106,7 @@ msgstr ""
 msgid "Invalid mime type for template. Allowed types are: docx"
 msgstr ""
 
-#: camac/document/views.py:365
+#: camac/document/views.py:373
 msgid "Specifying an \"attachments\" filter is mandatory!"
 msgstr ""
 
@@ -318,7 +318,79 @@ msgstr ""
 msgid "Invalid form type %(form)s."
 msgstr ""
 
-#: camac/notification/serializers.py:899
+#: camac/instance/views.py:630
+msgid "eBau No."
+msgstr "N° eBau"
+
+#: camac/instance/views.py:631
+msgid "Instance No."
+msgstr "Numéro de dossier"
+
+#: camac/instance/views.py:632
+msgid "Application Type"
+msgstr "Type de demande"
+
+#: camac/instance/views.py:633
+msgid "Address"
+msgstr "Adresse"
+
+#: camac/instance/views.py:634
+msgid "Submission Date"
+msgstr "Date de réception"
+
+#: camac/instance/views.py:635
+msgid "Status"
+msgstr "État"
+
+#: camac/instance/views.py:636
+msgid "Responsible"
+msgstr "Personne requérante"
+
+#: camac/instance/views.py:637
+msgid "Applicant"
+msgstr "Requérant/e"
+
+#: camac/instance/views.py:638
+msgid "Municipality"
+msgstr "Municipalité"
+
+#: camac/instance/views.py:639
+msgid "Administrative District"
+msgstr "Arrondissement administratif"
+
+#: camac/instance/views.py:640
+msgid "Administrative Region"
+msgstr "Région adminstrative"
+
+#: camac/instance/views.py:641
+msgid "Arrival RSTA"
+msgstr "Reception préfecture"
+
+#: camac/instance/views.py:642
+msgid "Arrival Department"
+msgstr "Reception office spécialisé"
+
+#: camac/instance/views.py:643
+msgid "Departure Department"
+msgstr "Sortie office spécialisé"
+
+#: camac/instance/views.py:644
+msgid "Decision"
+msgstr "Décision"
+
+#: camac/instance/views.py:645
+msgid "Assessment"
+msgstr "Evaluation"
+
+#: camac/instance/views.py:646
+msgid "Involved Departments"
+msgstr "Office spécialisé impliquée"
+
+#: camac/instance/views.py:647
+msgid "Tags"
+msgstr "Mots-clés"
+
+#: camac/notification/serializers.py:910
 #, python-format
 msgid "Notification sent to %(receiver)s (%(subject)s)"
 msgstr "Notification envoyée à %(receiver)s (%(subject)s)"
@@ -335,19 +407,19 @@ msgstr ""
 msgid "Objection %(objection) already has a representative"
 msgstr ""
 
-#: camac/settings.py:560
+#: camac/settings.py:567
 msgid "Circulation reopened"
 msgstr "Réouverture de la circulation"
 
-#: camac/settings.py:565
+#: camac/settings.py:572
 msgid "Circulation skipped"
 msgstr "Sans procédure de circulation"
 
-#: camac/settings.py:570
+#: camac/settings.py:577
 msgid "Circulation completed"
 msgstr "Procédure de circulation close"
 
-#: camac/settings.py:575
+#: camac/settings.py:582
 msgid "Procedure completed"
 msgstr "Procédure de demande de permis de construire complétée"
 
@@ -375,6 +447,3 @@ msgstr ""
 #: camac/user/authentication.py:167
 msgid "User is deactivated."
 msgstr ""
-
-#~ msgid "Applicant"
-#~ msgstr "Requérant/e"

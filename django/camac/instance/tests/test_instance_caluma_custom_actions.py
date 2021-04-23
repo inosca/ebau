@@ -1,5 +1,7 @@
+import pathlib
+
 import pytest
-from caluma.caluma_form import models as caluma_form_models
+from caluma.caluma_form import api as form_api, models as caluma_form_models
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from caluma.caluma_workflow.models import Task
 from django.core import mail
@@ -687,3 +689,81 @@ def test_fix_work_items(
             assert sorted(case.work_items.values_list("task_id", flat=True)) == sorted(
                 expected_work_items
             )
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("service__name", ["Leitbehörde Burgdorf"])
+def test_caluma_export_be(
+    db,
+    admin_client,
+    instance,
+    instance_service_factory,
+    service,
+    caluma_workflow_config_be,
+    caluma_admin_user,
+    application_settings,
+    settings,
+):
+    settings.APPLICATION_NAME = "kt_bern"
+    application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
+        "kt_bern",
+        pathlib.Path(settings.APPLICATIONS["kt_bern"]["MUNICIPALITY_DATA_SHEET"]).name,
+    )
+
+    case = workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
+        form=caluma_form_models.Form.objects.get(pk="main-form"),
+        meta={"camac-instance-id": instance.pk},
+        user=caluma_admin_user,
+    )
+
+    instance_service_factory(
+        instance=instance, service=admin_client.user.groups.first().service
+    )
+
+    case.document.answers.create(value=str(service.pk), question_id="gemeinde")
+
+    row_doc = form_api.save_document(
+        caluma_form_models.Form.objects.get(pk="personalien-tabelle")
+    )
+    form_api.save_answer(
+        caluma_form_models.Question.objects.get(pk="vorname-gesuchstellerin"),
+        row_doc,
+        value="Max",
+    )
+    form_api.save_answer(
+        caluma_form_models.Question.objects.get(pk="name-gesuchstellerin"),
+        row_doc,
+        value="Muster",
+    )
+
+    form_api.save_answer(
+        caluma_form_models.Question.objects.get(pk="personalien-gesuchstellerin"),
+        case.document,
+        value=[str(row_doc.pk)],
+    )
+
+    url = reverse("instance-export")
+    resp = admin_client.get(url, {"instance_id": instance.pk})
+
+    assert resp.status_code == status.HTTP_200_OK
+    content = resp.content.decode("utf-8")
+    lines = content.strip().split("\r\n")
+    assert len(lines) == 2
+    assert str(instance.pk) in lines[1]
+
+
+@pytest.mark.parametrize(
+    "query",
+    [
+        {},
+        {"foo": "bar"},
+        {"instance_id": ""},
+        {"instance_id": ",".join(str(i) for i in range(10000, 11001))},
+    ],
+)
+def test_caluma_export_bad_request(admin_client, query):
+    url = reverse("instance-export")
+    resp = admin_client.get(url, query)
+
+    assert resp.status_code == status.HTTP_400_BAD_REQUEST
