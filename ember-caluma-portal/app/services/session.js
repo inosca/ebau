@@ -21,6 +21,8 @@ export default class CustomSession extends Session {
   @service store;
   @service intl;
   @service moment;
+  @service router;
+  @service session;
 
   @tracked groups = [];
 
@@ -36,11 +38,18 @@ export default class CustomSession extends Session {
   }
 
   @lastValue("_user") user;
-  @computed("data.authenticated.is_authenticated", "fetchUser")
+  @computed(
+    "data.authenticated.access_token",
+    "fetchUser",
+    "session.isAuthenticated"
+  )
   get _user() {
-    this.fetchUser.perform();
+    if (this.session.isAuthenticated) {
+      this.fetchUser.perform();
 
-    return this.fetchUser;
+      return this.fetchUser;
+    }
+    return null;
   }
 
   @alias("data.group") group;

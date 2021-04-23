@@ -961,7 +961,8 @@ def test_attachment_public_access(
         5, attachment__instance=pub_instance
     )
     aasa = aas.attachment
-    aass = aas.attachmentsection
+    aasa.context = {"isPublished": True}
+    aasa.save()
 
     url = reverse("attachment-list")
     res = client.get(url)
@@ -971,7 +972,6 @@ def test_attachment_public_access(
     assert len(res.json()["data"]) == 0
 
     application_settings["ENABLE_PUBLIC_ENDPOINTS"] = True
-    application_settings["PUBLIC_ATTACHMENT_SECTIONS"] = [aass.pk]
     application_settings["PUBLICATION_DURATION"] = timedelta(days=30)
 
     # publicated attachments are visible
@@ -999,7 +999,8 @@ def test_attachment_public_access(
     assert aasa.download_history.count() == 1
     assert aasa.download_history.first().name == "Anonymous User"
 
-    application_settings["PUBLIC_ATTACHMENT_SECTIONS"].append(aas2.attachmentsection.pk)
+    aas2.attachment.context = {"isPublished": True}
+    aas2.attachment.save()
     url = reverse("attachment-list")
     res = client.get(url)
     assert res.status_code == status.HTTP_200_OK

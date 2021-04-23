@@ -1,0 +1,70 @@
+<h1>{{t "publicInstances.title"}}</h1>
+<table class="uk-table uk-table-striped uk-table-hover uk-table-responsive">
+  <thead>
+    <tr>
+      <th class="uk-text-nowrap">{{t "publicInstances.dossierNumber"}}</th>
+      <th class="uk-text-nowrap">{{t "publicInstances.municipality"}}</th>
+      <th class="uk-text-nowrap">{{t "publicInstances.applicant"}}</th>
+      <th class="uk-text-nowrap">{{t "publicInstances.street"}}</th>
+      <th class="uk-text-nowrap">{{t "publicInstances.parcel"}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each this.instances as |publicInstance|}}
+    <tr>
+      <td>
+        <LinkTo
+          class="uk-text-bold"
+          @route="public-instances.detail"
+          @model={{publicInstance.instanceId}}
+        >
+          {{publicInstance.dossierNr}}
+        </LinkTo>
+      </td>
+      <td>{{publicInstance.municipality}}</td>
+      <td>{{publicInstance.applicant}}</td>
+      <td>{{publicInstance.street}}</td>
+      <td>{{publicInstance.parcels}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+{{#if this.getPublicInstances.isRunning}}
+  <div class="uk-text-center">
+    <UkSpinner />
+  </div>
+{{ else }}
+  <ul class="uk-pagination">
+    <li class={{if (lte this.page 1) "uk-disabled" ""}}>
+      <button
+        class="uk-button uk-button-link"
+        type="button"
+        {{on "click" (perform this.getPublicInstances (sub this.page 1))}}
+      >
+        <span hidden>{{t "publicInstances.previousPage"}}</span>
+        <span uk-pagination-previous></span>
+      </button>
+    </li>
+    {{#each this.pages as |page|}}
+      <li class={{if (eq page this.meta.pagination.page) "uk-active" ""}}>
+        <button
+          class="uk-button uk-button-link"
+          type="button"
+          {{on "click" (perform this.getPublicInstances page )}}
+        >
+          {{page}}
+        </button>
+      </li>
+    {{/each}}
+    <li class={{if (gte this.page this.meta.pagination.pages) "uk-disabled" ""}}>
+      <button
+        class="uk-button uk-button-link"
+        type="button"
+        {{on "click" (perform this.getPublicInstances (add this.page 1))}}
+      >
+        <span hidden>{{t "publicInstances.nextPage"}}</span>
+        <span uk-pagination-next></span>
+      </button>
+    </li>
+  </ul>
+{{/if}}
