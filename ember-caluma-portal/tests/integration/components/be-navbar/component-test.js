@@ -51,6 +51,7 @@ module("Integration | Component | be-navbar", function (hooks) {
 
   test("it renders the static navigation", async function (assert) {
     assert.expect(3);
+    this.owner.lookup("service:session").set("isAuthenticated", true);
 
     await render(hbs`<BeNavbar />`);
 
