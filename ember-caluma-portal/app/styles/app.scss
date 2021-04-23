@@ -22,3 +22,7 @@ $badge-in-tab-ratio: 0.85;
   border-radius: $badge-border-radius * $badge-in-tab-ratio;
   font-size: $badge-font-size * $badge-in-tab-ratio;
 }
+
+.white-space-pre-line {
+  white-space: pre-line;
+}
