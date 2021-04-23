@@ -97,14 +97,14 @@ class InstanceQuerysetMixin(object):
         publication_duration = settings.APPLICATION.get("PUBLICATION_DURATION")
         publication_earliest_start = timezone.now() - publication_duration
         publication_filter = (
-            Q(**{publication_user_permission_expr: user})
-            & Q(**{publication_date_gte: publication_earliest_start})
+            Q(**{publication_date_gte: publication_earliest_start})
             & Q(**{publication_date_lt: timezone.now()})
             & Q(**{publication_published: True})
         )
 
         # In SZ users need to be granted access to a published dossier.
         if settings.APPLICATION.get("PUBLICATION_INVITE_ONLY", False):
+            publication_filter &= Q(**{publication_user_permission_expr: user})
             publication_filter &= Q(
                 **{publication_user_permission_status_expr: "accepted"}
             )

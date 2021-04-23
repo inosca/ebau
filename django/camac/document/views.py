@@ -142,9 +142,7 @@ class AttachmentQuerysetMixin:
         )
         return self.queryset.filter(
             instance__pk__in=instances,
-            attachment_sections__pk__in=settings.APPLICATION.get(
-                "PUBLIC_ATTACHMENT_SECTIONS", []
-            ),
+            context__isPublished=True,
         )
 
 

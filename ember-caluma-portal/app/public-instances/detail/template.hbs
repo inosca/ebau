@@ -1,0 +1,30 @@
+<h1 {{did-insert (perform this.getPublicAttachments)}}>{{t "publicInstancesDetail.title"}}</h1>
+<table class="uk-table uk-table-striped uk-table-hover uk-table-responsive">
+  <thead>
+    <tr>
+      <th class="uk-text-nowrap">{{t "publicInstancesDetail.fileName"}}</th>
+      <th class="uk-text-nowrap">{{t "publicInstancesDetail.size"}}</th>
+      <th class="uk-text-nowrap">{{t "publicInstancesDetail.date"}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each this.attachments as |attachment|}}
+      <tr>
+        <td>
+          <button
+            class="uk-button uk-button-link"
+            title="{{t "publicInstancesDetail.download"}}"
+            type="button"
+            {{on "click" (perform attachment.download)}}
+          >
+            {{attachment.name}}
+          </button>
+        </td>
+        <td>{{attachment.filesize}}</td>
+        <td>{{moment-format attachment.date "DD.MM.YYYY"}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+<p>{{t "publicInstancesDetail.copyrightText"}}</p>
+<p>{{t "publicInstancesDetail.privacyText"}}</p>
