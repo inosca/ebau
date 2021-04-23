@@ -63,11 +63,18 @@ class CalumaApi:
             **{"family__meta__camac-instance-id": instance_id}
         ).delete()
 
-    def get_ebau_number(self, instance):
-        case = caluma_workflow_models.Case.objects.filter(
-            **{"meta__camac-instance-id": instance.pk}
+    def get_case(self, instance_id):
+        return caluma_workflow_models.Case.objects.filter(
+            **{"meta__camac-instance-id": instance_id}
         ).first()
+
+    def get_ebau_number(self, instance):
+        case = self.get_case(instance.pk)
         return case.meta.get("ebau-number", "-") if case else None
+
+    def get_dossier_number(self, instance):
+        case = self.get_case(instance.pk)
+        return case.meta.get("dossier-number", "-") if case else None
 
     def get_municipality(self, instance):
         answer = caluma_form_models.Answer.objects.filter(
