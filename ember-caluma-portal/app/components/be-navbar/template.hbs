@@ -54,21 +54,30 @@
         <div class="uk-navbar-left">
           <ul class="uk-navbar-nav">
             {{! template-lint-disable no-unknown-arguments-for-builtin-components }}
-            <LinkTo @route="index" @tagName="li" @activeClass="uk-active">
-              <a href="#">
-                {{t "nav.index"}}
-              </a>
-            </LinkTo>
-            <LinkTo @route="instances" @tagName="li" @activeClass="uk-active">
-              <a href="#">
-                {{t "nav.instances"}}
-              </a>
-            </LinkTo>
-            <LinkTo @route="support" @tagName="li" @activeClass="uk-active">
-              <a href="#">
-                {{t "nav.support"}}
-              </a>
-            </LinkTo>
+            {{#if this.session.isAuthenticated}}
+              <LinkTo @route="index" @tagName="li" @activeClass="uk-active">
+                <a href="#">
+                  {{t "nav.index"}}
+                </a>
+              </LinkTo>
+              <LinkTo @route="instances" @tagName="li" @activeClass="uk-active">
+                <a href="#">
+                  {{t "nav.instances"}}
+                </a>
+              </LinkTo>
+              <LinkTo @route="support" @tagName="li" @activeClass="uk-active">
+                <a href="#">
+                  {{t "nav.support"}}
+                </a>
+              </LinkTo>
+            {{/if}}
+            {{#if (is-application "ur")}}
+              <LinkTo @route="public-instances" @tagName="li" @activeClass="uk-active">
+                <a href="#">
+                  {{t "nav.publicInstance"}}
+                </a>
+              </LinkTo>
+            {{/if}}
           </ul>
         </div>
 
@@ -122,14 +131,16 @@
                 </a>
               </li>
             {{/each}}
-            <li>
-              <a href="#" title={{t "nav.logout"}} {{on "click" this.logout}}>
-                <UkIcon @icon="sign-out" />
-                <span class="uk-hidden">
-                  {{t "nav.logout"}}
-                </span>
-              </a>
-            </li>
+            {{#if this.session.isAuthenticated}}
+              <li>
+                <a href="#" title={{t "nav.logout"}} {{on "click" this.logout}}>
+                  <UkIcon @icon="sign-out" />
+                  <span class="uk-hidden">
+                    {{t "nav.logout"}}
+                  </span>
+                </a>
+              </li>
+            {{/if}}
           </ul>
         </div>
       </div>

@@ -1,0 +1,21 @@
+publicInstances:
+  title: ""
+  dossierNumber: ""
+  municipality: ""
+  applicant: ""
+  street: ""
+  parcel: ""
+  loadError: ""
+  nextPage: ""
+  previousPage: ""
+
+publicInstancesDetail:
+  title: ""
+  fileName: ""
+  size: ""
+  date: ""
+  download: ""
+  loadError: ""
+  downloadError: ""
+  copyrightText: ""
+  privacyText: ""
