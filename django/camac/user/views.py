@@ -53,7 +53,7 @@ class PublicUserView(viewsets.ReadOnlyModelViewSet):
     swagger_schema = None
     filterset_class = filters.PublicUserFilterSet
     serializer_class = serializers.PublicUserSerializer
-    queryset = models.User.objects.all()
+    queryset = models.User.objects.all().distinct()
 
 
 class ServiceView(viewsets.ModelViewSet):
