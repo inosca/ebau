@@ -383,10 +383,6 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
     # TODO once more than one Camac-NG project uses Caluma as a form
     # this serializer needs to be split up into what is actually
     # Caluma and what is project specific
-    REJECTION_CHAPTER = 20001
-    REJECTION_QUESTION = 20037
-    REJECTION_ITEM = 1
-
     permissions = serializers.SerializerMethodField()
 
     instance_state = serializers.ResourceRelatedField(
@@ -1060,9 +1056,9 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
     def get_rejection_feedback(self, instance):
         return Answer.get_value_by_cqi(
             instance,
-            self.REJECTION_CHAPTER,
-            self.REJECTION_QUESTION,
-            self.REJECTION_ITEM,
+            settings.APPLICATION["REJECTION_FEEDBACK_QUESTION"].get("CHAPTER"),
+            settings.APPLICATION["REJECTION_FEEDBACK_QUESTION"].get("QUESTION"),
+            settings.APPLICATION["REJECTION_FEEDBACK_QUESTION"].get("ITEM"),
             default="",
         )
 
