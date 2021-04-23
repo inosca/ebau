@@ -72,6 +72,9 @@ export default class BeNavbarComponent extends Component {
   @lastValue("fetchGroups") groups;
   @dropTask
   *fetchGroups() {
+    if (!this.session.isAuthenticated) {
+      return;
+    }
     try {
       const groups = yield this.store.query("public-group", {
         role: selectableGroups.roles.join(","),

@@ -1252,7 +1252,6 @@ APPLICATIONS = {
             "notification.NotificationTemplateT",
         ],
         "ENABLE_PUBLIC_ENDPOINTS": True,
-        "PUBLIC_ATTACHMENT_SECTIONS": [12000008],
         "INSTANCE_STATE_REJECTION_COMPLETE": "arch",
         "SET_SUBMIT_DATE_CAMAC_WORKFLOW": True,
     },
