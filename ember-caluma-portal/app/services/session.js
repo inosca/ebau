@@ -21,7 +21,6 @@ export default class CustomSession extends Session {
   @service store;
   @service intl;
   @service moment;
-  @service router;
   @service session;
 
   @tracked groups = [];
