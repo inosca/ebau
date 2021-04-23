@@ -41,10 +41,11 @@ class ServiceFilterSet(FilterSet):
 
 class PublicUserFilterSet(FilterSet):
     username = CharMultiValueFilter()
+    service = NumberMultiValueFilter(field_name="groups__service")
 
     class Meta:
         model = models.User
-        fields = ("username",)
+        fields = ("username", "service")
 
 
 class UserFilterSet(FilterSet):
