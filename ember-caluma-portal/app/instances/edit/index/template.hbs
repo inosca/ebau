@@ -10,14 +10,14 @@
     >
       <tbody>
         <tr>
-          <th class="uk-text-bold uk-width-1-6">
-            {{t "instances.ebau"}}
+          <th class="uk-text-bold uk-width-1-6 uk-text-top">
+            {{t (concat "instances.special-id-" (application-name))}}
           </th>
           <td class="uk-width-1-3">
             {{or this.data.ebauNr "-"}}
           </td>
           <th class="uk-text-bold uk-width-1-6">
-            {{t "instances.address"}}
+            {{t (concat "instances.address-" (application-name))}}
           </th>
           <td class="uk-width-1-3">
             {{or this.data.address "-"}}
@@ -38,29 +38,40 @@
           </td>
         </tr>
         <tr>
-          <th class="uk-text-bold uk-width-1-6">
+          <th class="uk-text-bold uk-width-1-6 uk-text-top">
             {{t "instances.status.title"}}
           </th>
           <td class="uk-width-1-3">
             {{this.instance.status}}
           </td>
-          <th class="uk-text-bold uk-width-1-6">
-            {{t "instances.lead"}}
-          </th>
-          <td class="uk-width-1-3">
-            {{or this.instance.activeService.name "-"}}
-          </td>
+          {{#if this.instance.activeService.name}}
+            <th class="uk-text-bold uk-width-1-6">
+              {{t "instances.lead"}}
+            </th>
+            <td class="uk-width-1-3">
+              {{or this.instance.activeService.name "-"}}
+            </td>
+          {{else}}
+            <th class="uk-text-bold">
+              {{t (concat "instances.building-specification-" (application-name))}}
+            </th>
+            <td>
+              {{or this.data.buildingSpecification "-"}}
+            </td>
+          {{/if}}
         </tr>
         <tr>
           {{! TODO: Druckansicht }}
           <td></td>
           <td></td>
-          <th class="uk-text-bold">
-            {{t "instances.buildingSpecification"}}
-          </th>
-          <td>
-            {{or this.data.buildingSpecification "-"}}
-          </td>
+          {{#if this.instance.activeService.name}}
+            <th class="uk-text-bold">
+              {{t (concat "instances.building-specification-" (application-name))}}
+            </th>
+            <td>
+              {{or this.data.buildingSpecification "-"}}
+            </td>
+          {{/if}}
         </tr>
       </tbody>
     </table>

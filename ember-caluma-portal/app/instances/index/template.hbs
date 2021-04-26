@@ -24,7 +24,7 @@
       </div>
     </div>
     <div>
-      <label class="uk-form-label" for="instanceId">{{t "instances.instanceId"}}</label>
+      <label class="uk-form-label" for="instanceId">{{t (concat "instances.instance-id-" (application-name))}}</label>
       <div class="uk-form-controls">
         <input
           type="number"
@@ -38,7 +38,7 @@
       </div>
     </div>
     <div>
-      <label class="uk-form-label" for="ebau">{{t "instances.ebau"}}</label>
+      <label class="uk-form-label" for="ebau">{{t (concat "instances.special-id-" (application-name))}}</label>
       <div class="uk-form-controls">
         <input
           type="text"
@@ -64,7 +64,7 @@
       </div>
     </div>
     <div>
-      <label class="uk-form-label" for="address">{{t "instances.address"}}</label>
+      <label class="uk-form-label" for="address">{{t (concat "instances.address-" (application-name))}}</label>
       <div class="uk-form-controls">
         <input
           type="text"
@@ -146,11 +146,11 @@
   <table class="uk-table uk-table-striped uk-table-hover uk-table-responsive">
     <thead>
       <tr>
-        <th class="uk-text-nowrap">{{t "instances.instanceId"}}</th>
-        <th class="uk-text-nowrap">{{t "instances.ebau"}}</th>
+        <th class="uk-text-nowrap">{{t (concat "instances.instance-id-" (application-name))}}</th>
+        <th class="uk-text-nowrap">{{t (concat "instances.special-id-" (application-name))}}</th>
         <th class="uk-text-nowrap">{{t "instances.type"}}</th>
         <th class="uk-text-nowrap">{{t "instances.municipality"}}</th>
-        <th class="uk-text-nowrap">{{t "instances.address"}}</th>
+        <th class="uk-text-nowrap">{{t (concat "instances.address-" (application-name))}}</th>
         <th class="uk-text-nowrap">{{t "instances.submitDate"}}</th>
         <th class="uk-text-nowrap">{{t "instances.status.title"}}</th>
         <th class="uk-text-nowrap">{{t "instances.description"}}</th>
