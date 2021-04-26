@@ -32,6 +32,7 @@ export default class InstancesEditApplicantsController extends Controller {
       this.notification.success(this.intl.t("instances.applicants.addSuccess"));
     } catch (error) {
       // eslint-ignore-next-line no-console
+      console.error(error);
       yield user.destroyRecord();
       this.notification.danger(
         parseError(error) || this.intl.t("instances.applicants.addError")
@@ -51,6 +52,7 @@ export default class InstancesEditApplicantsController extends Controller {
       );
     } catch (error) {
       // eslint-ignore-next-line no-console
+      console.error(error);
       this.notification.danger(
         parseError(error) || this.intl.t("instances.applicants.deleteError")
       );
