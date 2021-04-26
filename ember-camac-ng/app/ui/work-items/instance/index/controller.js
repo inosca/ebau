@@ -7,7 +7,7 @@ import calumaQuery from "ember-caluma/caluma-query";
 import { allWorkItems } from "ember-caluma/caluma-query/queries";
 import { dropTask, restartableTask } from "ember-concurrency-decorators";
 
-import getManualWorkItemsCount from "camac-ng/gql/queries/get-manual-work-items-count";
+import getManualWorkItemsCount from "camac-ng/gql/queries/get-manual-work-items-count.graphql";
 import getProcessData from "camac-ng/utils/work-item";
 
 export default class WorkItemsInstanceIndexController extends Controller {

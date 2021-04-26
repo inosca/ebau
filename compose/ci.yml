@@ -121,6 +121,14 @@ services:
     networks:
       - camac-ng.local
 
+  ember-ebau-core:
+    image: acr.run/camac-ng/camac-ng/ember-ebau-core:${CI_COMMIT_REF_SLUG:-master}
+    build:
+      context: ../
+      dockerfile: ./ember-ebau-core/Dockerfile
+      cache_from:
+        - acr.run/camac-ng/camac-ng/ember-ebau-core:master
+
   php:
     image: acr.run/camac-ng/camac-ng/php:${CI_COMMIT_REF_SLUG:-master}
     build:

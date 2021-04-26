@@ -4,8 +4,8 @@ import { queryManager } from "ember-apollo-client";
 import { decodeId } from "ember-caluma/helpers/decode-id";
 import { dropTask } from "ember-concurrency-decorators";
 
-import createAuditDocument from "camac-ng/gql/mutations/create-audit-document";
-import linkAuditDocument from "camac-ng/gql/mutations/link-audit-document";
+import createAuditDocument from "camac-ng/gql/mutations/create-audit-document.graphql";
+import linkAuditDocument from "camac-ng/gql/mutations/link-audit-document.graphql";
 
 export default class AuditTableComponent extends Component {
   @service notifications;

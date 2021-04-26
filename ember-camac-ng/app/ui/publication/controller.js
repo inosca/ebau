@@ -3,7 +3,7 @@ import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 
-import getPublications from "camac-ng/gql/queries/get-publications";
+import getPublications from "camac-ng/gql/queries/get-publications.graphql";
 
 export default class PublicationController extends Controller {
   @service notifications;

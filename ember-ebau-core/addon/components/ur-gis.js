@@ -4,7 +4,7 @@ import { isEmpty } from "@ember/utils";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
-import saveDocumentMutation from "ember-caluma/gql/mutations/save-document";
+import saveDocumentMutation from "ember-caluma/gql/mutations/save-document.graphql";
 import { parseDocument } from "ember-caluma/lib/parsers";
 import {
   dropTask,
@@ -14,8 +14,6 @@ import {
 import fetch from "fetch";
 import html2canvas from "html2canvas";
 import { all } from "rsvp";
-
-import ENV from "camac-ng/config/environment";
 
 const { L } = window;
 
@@ -118,7 +116,6 @@ export default class UrGisComponent extends Component {
   @service notification;
   @service intl;
   @service calumaStore;
-  @service shoebox;
   @service fetch;
   @service store;
 
@@ -127,11 +124,17 @@ export default class UrGisComponent extends Component {
   @tracked zoom = 13;
   @tracked _search = "";
   @tracked parcels = [];
+
   minZoom = 10;
   maxZoom = 18;
   layers = LAYERS.join(",");
   lowOpacityLayers = LOW_OPACITY_LAYERS.join(",");
-  gisURL = ENV.APP.gisUrl;
+
+  get config() {
+    return getOwner(this).resolveRegistration("config:environment")?.[
+      "ember-ebau-core"
+    ];
+  }
 
   _map = null;
   _value = null;
@@ -152,7 +155,7 @@ export default class UrGisComponent extends Component {
       const maxX = x + 1;
       const maxY = y + 1;
       const response = yield fetch(
-        `${this.gisURL}?SERVICE=WMS&VERSION=1.3.0&HEIGHT=101&WIDTH=101&request=GetCapabilities&REQUEST=GetFeatureInfo&FORMAT=image/png&LAYERS=${layerList}&QUERY_LAYERS=${layerList}&INFO_FORMAT=application/json&I=50&J=50&CRS=EPSG:3857&BBOX=${minX},${minY},${maxX},${maxY}&FEATURE_COUNT=10`,
+        `${this.config.gisUrl}?SERVICE=WMS&VERSION=1.3.0&HEIGHT=101&WIDTH=101&request=GetCapabilities&REQUEST=GetFeatureInfo&FORMAT=image/png&LAYERS=${layerList}&QUERY_LAYERS=${layerList}&INFO_FORMAT=application/json&I=50&J=50&CRS=EPSG:3857&BBOX=${minX},${minY},${maxX},${maxY}&FEATURE_COUNT=10`,
         {
           mode: "cors",
         }
@@ -290,8 +293,8 @@ export default class UrGisComponent extends Component {
     this.uploadBlob.perform(image);
     container.remove();
 
-    this.populateFields.perform(this.parcels);
-    this.populateTable.perform(this.parcels);
+    yield this.populateFields.perform(this.parcels);
+    yield this.populateTable.perform(this.parcels);
   }
 
   @dropTask
@@ -409,9 +412,12 @@ export default class UrGisComponent extends Component {
           <Literal>${parcelOrBuildingleaseNr} ${searchMunicipalityBy}</Literal>
         </PropertyIsEqualTo>`,
       });
-      const response = yield fetch(`${this.gisURL}?${params.toString()}`, {
-        mode: "cors",
-      });
+      const response = yield fetch(
+        `${this.config.gisUrl}?${params.toString()}`,
+        {
+          mode: "cors",
+        }
+      );
       const data = yield response.json();
       if (data.features.length === 0) {
         this.notification.danger(this.intl.t("gis.noParcelNumber"));
@@ -453,17 +459,15 @@ export default class UrGisComponent extends Component {
     formData.append("instance", instanceId);
     formData.append(
       "attachment_sections",
-      ENV.APP.attachmentSections.applicant
+      this.config.attachmentSections.applicant
     );
     formData.append("path", blob, "Parzellenbild.png");
-    yield this.fetch.fetch(
-      `/api/v1/attachments?group=${this.shoebox.content.groupId}`,
-      {
-        method: "POST",
-        body: formData,
-        headers: { "content-type": undefined },
-      }
-    );
+
+    yield this.fetch.fetch(`/api/v1/attachments`, {
+      method: "POST",
+      body: formData,
+      headers: { "content-type": undefined },
+    });
   }
 
   @restartableTask
