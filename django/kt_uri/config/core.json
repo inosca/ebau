@@ -43329,7 +43329,7 @@
       "name": "Baubegleitungssgeb\u00fchren",
       "description": null,
       "template": null,
-      "class_field": null,
+      "class_field": "hasPendingBillingEntry",
       "hidden": 0,
       "sort": 25
     }
@@ -43342,7 +43342,7 @@
       "name": "Erfasste Auflagen",
       "description": null,
       "template": null,
-      "class_field": null,
+      "class_field": "hasPendingSanction",
       "hidden": 0,
       "sort": 24
     }

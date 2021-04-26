@@ -153,6 +153,8 @@ class InstanceFilterSet(FilterSet):
 
 class CalumaInstanceFilterSet(InstanceFilterSet):
     is_paper = BooleanFilter(method="filter_is_paper")
+    has_pending_billing_entry = BooleanFilter(method="filter_has_pending_billing_entry")
+    has_pending_sanction = BooleanFilter(method="filter_has_pending_sanction")
 
     sanction_creator = NumberFilter(field_name="sanctions__service")
     sanction_control_instance = NumberFilter(field_name="sanctions__control_instance")
@@ -183,8 +185,28 @@ class CalumaInstanceFilterSet(InstanceFilterSet):
 
         return queryset.exclude(**_filter)
 
+    def filter_has_pending_billing_entry(self, queryset, name, value):
+        _filter = {"billing_entries__invoiced": False}
+
+        if value:
+            return queryset.filter(**_filter)
+
+        return queryset.exclude(**_filter)
+
+    def filter_has_pending_sanction(self, queryset, name, value):
+        _filter = {"sanctions__is_finished": False}
+
+        if value:
+            return queryset.filter(**_filter)
+
+        return queryset.exclude(**_filter)
+
     class Meta(InstanceFilterSet.Meta):
-        fields = InstanceFilterSet.Meta.fields + ("is_paper",)
+        fields = InstanceFilterSet.Meta.fields + (
+            "is_paper",
+            "has_pending_billing_entry",
+            "has_pending_sanction",
+        )
 
 
 class InstanceResponsibilityFilterSet(FilterSet):

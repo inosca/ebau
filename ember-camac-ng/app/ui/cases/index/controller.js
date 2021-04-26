@@ -17,10 +17,18 @@ const filterQueryParams = [
 ];
 
 export default class CasesIndexController extends Controller {
-  queryParams = ["displaySearch", "hasActivation", ...filterQueryParams];
+  queryParams = [
+    "displaySearch",
+    "hasActivation",
+    "hasPendingBillingEntry",
+    "hasPendingSanction",
+    ...filterQueryParams,
+  ];
 
   @tracked displaySearch = false;
   @tracked hasActivation = false;
+  @tracked hasPendingBillingEntry = false;
+  @tracked hasPendingSanction = false;
 
   @objectFromQueryParams(...filterQueryParams)
   caseFilter;
