@@ -4,7 +4,7 @@ import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 
-import getInstanceCaseQuery from "camac-ng/gql/queries/get-instance-case";
+import getInstanceCaseQuery from "camac-ng/gql/queries/get-instance-case.graphql";
 
 export default class FormController extends Controller {
   queryParams = ["displayedForm"];

@@ -5,6 +5,7 @@
 !.env
 !./ember-camac-ng
 !./ember-caluma-portal
+!./ember-ebau-core
 **/*.swp
 **/Dockerfile
 **/node_modules

@@ -3,8 +3,8 @@ import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 
-import getAudit from "camac-ng/gql/queries/get-audit";
-import getEbauNumber from "camac-ng/gql/queries/get-ebau-number";
+import getAudit from "camac-ng/gql/queries/get-audit.graphql";
+import getEbauNumber from "camac-ng/gql/queries/get-ebau-number.graphql";
 
 export default class AuditController extends Controller {
   @service store;
