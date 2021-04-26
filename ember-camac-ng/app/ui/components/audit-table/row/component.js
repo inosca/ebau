@@ -6,9 +6,9 @@ import { dropTask } from "ember-concurrency-decorators";
 import { saveAs } from "file-saver";
 
 import { confirmTask } from "camac-ng/decorators";
-import copyDocument from "camac-ng/gql/mutations/copy-document";
-import deleteDocument from "camac-ng/gql/mutations/delete-document";
-import linkAuditDocument from "camac-ng/gql/mutations/link-audit-document";
+import copyDocument from "camac-ng/gql/mutations/copy-document.graphql";
+import deleteDocument from "camac-ng/gql/mutations/delete-document.graphql";
+import linkAuditDocument from "camac-ng/gql/mutations/link-audit-document.graphql";
 
 export default class AuditTableRowComponent extends Component {
   @service fetch;

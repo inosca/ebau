@@ -7,8 +7,8 @@ import { dropTask } from "ember-concurrency-decorators";
 import moment from "moment";
 
 import ENV from "camac-ng/config/environment";
-import createWorkItem from "camac-ng/gql/mutations/create-work-item";
-import allCases from "camac-ng/gql/queries/all-cases";
+import createWorkItem from "camac-ng/gql/mutations/create-work-item.graphql";
+import allCases from "camac-ng/gql/queries/all-cases.graphql";
 
 class NewWorkItem {
   @tracked case;
