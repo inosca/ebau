@@ -39,6 +39,10 @@ export default class ApplicationRouter extends Route.extend(
       component: "be-gis",
     });
     this.calumaOptions.registerComponentOverride({
+      label: "GIS-Karte (Kt. UR)",
+      component: "ur-gis",
+    });
+    this.calumaOptions.registerComponentOverride({
       label: "Einreichen Button",
       component: "be-submit-instance",
       type: "CheckboxQuestion",

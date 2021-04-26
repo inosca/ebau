@@ -9,8 +9,8 @@ import { decodeId } from "ember-caluma/helpers/decode-id";
 import { dropTask } from "ember-concurrency-decorators";
 
 import { confirmTask } from "camac-ng/decorators";
-import completeWorkItem from "camac-ng/gql/mutations/complete-work-item";
-import skipWorkItem from "camac-ng/gql/mutations/skip-work-item";
+import completeWorkItem from "camac-ng/gql/mutations/complete-work-item.graphql";
+import skipWorkItem from "camac-ng/gql/mutations/skip-work-item.graphql";
 
 class Audit {
   @service store;
