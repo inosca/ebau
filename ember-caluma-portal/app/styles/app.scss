@@ -26,3 +26,15 @@ $badge-in-tab-ratio: 0.85;
 .white-space-pre-line {
   white-space: pre-line;
 }
+
+p a {
+  text-decoration: underline;
+}
+
+.leaflet-pane {
+  z-index: 0;
+}
+
+.leaflet-top {
+  z-index: 0;
+}

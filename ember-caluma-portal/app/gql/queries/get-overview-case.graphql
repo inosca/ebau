@@ -28,6 +28,14 @@ query GetOverviewCase($instanceId: GenericScalar!) {
               "gemeinde"
               "parzelle"
               "parzellennummer"
+              # Uri slugs
+              "parcel-street"
+              "street"
+              "street-number"
+              "parcel-city"
+              "city"
+              "proposal-description"
+              "municipality"
             ]
           ) {
             edges {
