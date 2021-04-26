@@ -7,7 +7,7 @@ import { dropTask, lastValue } from "ember-concurrency-decorators";
 
 import config from "camac-ng/config/environment";
 import { confirmTask } from "camac-ng/decorators";
-import getFormsQuery from "camac-ng/gql/queries/get-forms";
+import getFormsQuery from "camac-ng/gql/queries/get-forms.graphql";
 import parseErrors from "camac-ng/utils/parse-errors";
 
 export default class SupportController extends Controller {

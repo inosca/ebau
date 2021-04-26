@@ -1,8 +1,9 @@
-FROM danlynn/ember-cli:3.20.0 as build
+FROM danlynn/ember-cli:3.24.0 as build
 
 ARG APPLICATION
 
 COPY package.json yarn.lock /myapp/
+COPY ember-ebau-core /myapp/ember-ebau-core
 COPY ./ember-camac-ng/package.json /myapp/ember-camac-ng/
 
 RUN yarn workspace camac-ng install

@@ -1140,6 +1140,8 @@ APPLICATIONS = {
                     "building-permit",
                     "preliminary-clarification",
                     "commercial-permit",
+                    "proposal-declaration",
+                    "solar-declaration",
                 ],
                 "template": "2-level-extended",
                 "people_sources": {
