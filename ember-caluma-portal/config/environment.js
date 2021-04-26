@@ -99,6 +99,10 @@ module.exports = function (environment) {
       afterLogoutUri: "/login",
       forwardParams: ["kc_idp_hint"],
     },
+    "ember-ebau-core": {
+      gisUrl: "/lisag/ows",
+      attachmentSections: { applicant: "12000000" },
+    },
     apollo: {
       apiURL: "/graphql/",
     },
@@ -161,11 +165,7 @@ module.exports = function (environment) {
   };
 
   if (environment === "development") {
-    // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
-    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV["ember-ebau-core"].gisUrl = "http://camac-ng.local/lisag/ows";
   }
 
   if (environment === "test") {

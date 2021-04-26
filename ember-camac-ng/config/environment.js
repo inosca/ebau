@@ -25,12 +25,12 @@ module.exports = function (environment) {
         Date: false,
       },
     },
-
+    "ember-ebau-core": {
+      gisUrl: "https://service.lisag.ch/ows",
+      attachmentSections: { applicant: "12000000" },
+    },
     APP: {
       rootElement: "#ember-camac-ng",
-      gisUrl: "https://service.lisag.ch/ows",
-      // special attachment section mapping
-      attachmentSections: { applicant: "12000000" },
     },
 
     APPLICATIONS: {
@@ -59,12 +59,7 @@ module.exports = function (environment) {
   };
 
   if (environment === "development") {
-    ENV.APP.gisUrl = "http://camac-ng.local/lisag/ows";
-    // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
-    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV["ember-ebau-core"].gisUrl = "http://camac-ng.local/lisag/ows";
   }
 
   if (environment === "test") {

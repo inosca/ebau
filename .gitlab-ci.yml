@@ -68,6 +68,23 @@ lint-ember-caluma-portal:
       - compose/ci.yml
       - .gitlab-ci.yml
 
+lint-ember-ebau-core:
+  stage: lint
+  image: node:lts
+  before_script:
+    - cd ember-ebau-core
+    - yarn
+  script:
+    - yarn lint
+  only:
+    refs:
+      - master
+      - merge_requests
+    changes:
+      - ember-ebau-core/**/*
+      - compose/ci.yml
+      - .gitlab-ci.yml
+
 # TODO: This needs to reconfigured so it also works with kt_uri and kt_schwyz (See package.json).
 lint-php:
   stage: lint
@@ -139,6 +156,24 @@ test-ember-caluma-portal:
       - merge_requests
     changes:
       - ember-caluma-portal/**/*
+      - compose/ci.yml
+      - .gitlab-ci.yml
+
+test-ember-ebau-core:
+  stage: test
+  services:
+    - docker:dind
+  script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
+    - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --ignore-pull-failures --quiet ember-caluma-portal"
+    - eval $COMPOSE build --pull ember-ebau-core
+    - eval $COMPOSE run --rm --no-deps ember-ebau-core yarn test:ember-compatibility
+  only:
+    refs:
+      - master
+      - merge_requests
+    changes:
+      - ember-ebau-core/**/*
       - compose/ci.yml
       - .gitlab-ci.yml
 
