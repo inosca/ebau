@@ -3,9 +3,9 @@ import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 
-import completeWorkItem from "camac-ng/gql/mutations/complete-work-item";
-import getCreatePublication from "camac-ng/gql/queries/get-create-publication";
-import getPublication from "camac-ng/gql/queries/get-publication";
+import completeWorkItem from "camac-ng/gql/mutations/complete-work-item.graphql";
+import getCreatePublication from "camac-ng/gql/queries/get-create-publication.graphql";
+import getPublication from "camac-ng/gql/queries/get-publication.graphql";
 
 export default class PublicationEditController extends Controller {
   @service notifications;

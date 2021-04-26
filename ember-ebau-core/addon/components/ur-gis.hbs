@@ -1,8 +1,11 @@
 {{#unless @disabled}}
   <div>
-    <button class="button" type="button" {{on "click" (perform this.search)}}>
+    <UkButton
+      @on-click={{perform this.search}}
+      @loading={{this.search.isRunning}}
+    >
       {{t "gis.findParcel"}}
-    </button>
+    </UkButton>
   </div>
 {{/unless}}
 
@@ -21,14 +24,14 @@
     @format="image/png"
     @version="1.1.1"
     @layers={{this.layers}}
-    @url={{this.gisURL}}
+    @url={{this.config.gisUrl}}
   />
   <map.wms-tile
     @transparent={{true}}
     @format="image/png"
     @version="1.1.1"
     @layers={{this.lowOpacityLayers}}
-    @url={{this.gisURL}}
+    @url={{this.config.gisUrl}}
     @opacity={{0.5}}
   />
 
@@ -56,18 +59,13 @@
 <p class="parcelInfo"></p>
 {{#unless @disabled}}
   <div>
-    <button
-      class="button uk-margin-small-top"
-      disabled={{
-        or
-        (not this.parcels)
-        this.getFeatures.isRunning
-        this.applySelection.isRunning
-      }}
-      type="button"
-      {{on "click" (perform this.applySelection)}}
+    <UkButton
+      class="uk-margin-small-top"
+      @disabled={{not this.parcels}}
+      @loading={{or this.getFeatures.isRunning this.applySelection.isRunning}}
+      @on-click={{perform this.applySelection}}
     >
       {{t "gis.submitParcel"}}
-    </button>
+    </UkButton>
   </div>
 {{/unless}}

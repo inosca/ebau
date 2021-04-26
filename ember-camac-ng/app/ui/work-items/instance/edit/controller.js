@@ -8,8 +8,8 @@ import { allWorkItems } from "ember-caluma/caluma-query/queries";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 import moment from "moment";
 
-import completeWorkItem from "camac-ng/gql/mutations/complete-work-item";
-import saveWorkItem from "camac-ng/gql/mutations/save-workitem";
+import completeWorkItem from "camac-ng/gql/mutations/complete-work-item.graphql";
+import saveWorkItem from "camac-ng/gql/mutations/save-workitem.graphql";
 import getProcessData from "camac-ng/utils/work-item";
 
 export default class WorkItemsInstanceEditController extends Controller {
