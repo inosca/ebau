@@ -1014,6 +1014,76 @@ def test_caluma_instance_list_filter(
     assert len(json["data"]) == expected_count
 
 
+@pytest.mark.parametrize("role__name", ["Applicant"])
+@pytest.mark.parametrize(
+    "has_pending_billing_entry,expected_count", [("1", 1), ("0", 2), ("", 3)]
+)
+def test_has_pending_billing_entry_filter(
+    admin_user,
+    admin_client,
+    instance_factory,
+    caluma_admin_user,
+    billing_entry_factory,
+    has_pending_billing_entry,
+    expected_count,
+    use_caluma_form,
+):
+
+    # instances without pending billing entry
+    billing_entry_factory(instance=instance_factory(user=admin_user), invoiced=1)
+    billing_entry_factory(instance=instance_factory(user=admin_user), invoiced=1)
+
+    # instance with pending billing entry
+    instance_with_pending_billing_entry = instance_factory(user=admin_user)
+    billing_entry_factory(instance=instance_with_pending_billing_entry, invoiced=0)
+
+    url = reverse("instance-list")
+    response = admin_client.get(
+        url, data={"has_pending_billing_entry": has_pending_billing_entry}
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+
+    json = response.json()
+
+    assert len(json["data"]) == expected_count
+
+
+@pytest.mark.parametrize("role__name", ["Applicant"])
+@pytest.mark.parametrize(
+    "has_pending_sanction,expected_count", [("1", 1), ("0", 2), ("", 3)]
+)
+def test_has_pending_sanction_filter(
+    admin_user,
+    admin_client,
+    instance_factory,
+    caluma_admin_user,
+    has_pending_sanction,
+    expected_count,
+    use_caluma_form,
+    sanction_factory,
+):
+
+    # instances without pending sanction
+    sanction_factory(instance=instance_factory(user=admin_user), is_finished=1)
+    sanction_factory(instance=instance_factory(user=admin_user), is_finished=1)
+
+    # instance with pending sanction
+    instance_with_pending_sanction = instance_factory(user=admin_user)
+    sanction_factory(instance=instance_with_pending_sanction, is_finished=0)
+
+    url = reverse("instance-list")
+    response = admin_client.get(
+        url, data={"has_pending_sanction": has_pending_sanction}
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+
+    json = response.json()
+
+    assert len(json["data"]) == expected_count
+
+
 @pytest.mark.parametrize(
     "form_slug,has_document_id,expected_status",
     [
