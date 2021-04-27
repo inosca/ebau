@@ -286,5 +286,29 @@
       "service": null,
       "type": "email"
     }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 1452,
+    "fields": {
+      "slug": "01-gesuchsbearbeitungs-einladung-neu",
+      "purpose": "0.1 Gesuchsbearbeitungs Einladung, Neu",
+      "subject": "Sie wurden eingeladen an einem Baugesuch mitzuarbeiten",
+      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nSie wurden eingeladen am Baugesuch {{ public_dossier_link }} mitzuarbeiten.\r\n\r\nUm das Baugesuch einsehen und bearbeiten zu k\u00f6nnen, ist eine Registration auf dem URec Portal des Kanton Uri erforderlich.\r\nUnter folgendem Link k\u00f6nnen Sie sich registrieren: {{ registration_link }}",
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 1453,
+    "fields": {
+      "slug": "02-gesuchsbearbeitungs-einladung-bestehend",
+      "purpose": "0.2 Gesuchsbearbeitungs Einladung, Bestehend",
+      "subject": "Sie wurden eingeladen an einem Baugesuch mitzuarbeiten",
+      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nSie wurden eingeladen am Baugesuch {{ public_dossier_link }} mitzuarbeiten.",
+      "service": null,
+      "type": "email"
+    }
   }
 ]
