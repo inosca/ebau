@@ -171,6 +171,8 @@ export default class CaseTableComponent extends Component {
       instance_state: this.args.filter.instanceState || "",
       location: this.args.filter.municipality,
       service: this.args.hasActivation ? this.shoebox.content.serviceId : null,
+      has_pending_billing_entry: this.args.hasPendingBillingEntry,
+      has_pending_sanction: this.args.hasPendingSanction,
     };
     this.casesQuery.fetch({
       order: [{ meta: "camac-instance-id" }],
