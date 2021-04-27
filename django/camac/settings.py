@@ -1226,6 +1226,10 @@ APPLICATIONS = {
                     "recipient_types": ["municipality_users"],
                 },
             ],
+            "APPLICANT": {
+                "NEW": "01-gesuchsbearbeitungs-einladung-neu",
+                "EXISTING": "02-gesuchsbearbeitungs-einladung-bestehend",
+            },
         },
         # The following services don't receive notifications if they have
         # overdue circulation activations.
