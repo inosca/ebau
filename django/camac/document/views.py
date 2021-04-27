@@ -484,7 +484,11 @@ class TemplateView(views.ModelViewSet):
 
         def activation_sort(activation):
             service = Service.objects.get(name=activation["service"])
-            return (service.service_group.name, service.sort)
+            return (
+                service.service_group.name,
+                service.service_parent.pk if service.service_parent else 0,
+                service.sort,
+            )
 
         data["activations"].sort(key=activation_sort)
 
