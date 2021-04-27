@@ -1586,8 +1586,13 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
                 ).first()
 
                 if circulation_work_item:
-                    # skip the work item to continue the workflow
-                    workflow_api.skip_work_item(circulation_work_item, caluma_user)
+                    if (
+                        circulation_work_item.status
+                        == workflow_models.WorkItem.STATUS_READY
+                    ):
+                        # skip the work item to continue the workflow
+                        workflow_api.skip_work_item(circulation_work_item, caluma_user)
+
                     # then delete it since the ciruclation will be deleted
                     circulation_work_item.delete()
 
