@@ -183,7 +183,8 @@ clean: ## Remove temporary files / build artefacts etc
 release: ## Draft a new release
 	@if [ -z $(version) ]; then echo "Please pass a version: make release version=x.x.x"; exit 1; fi
 	@echo $(version) > VERSION.txt
-	@sed -i -e 's/"version": ".*",/"version": "$(version)",/g' ember-*/package.json
+	@sed -i -e 's/"version": ".*",/"version": "$(version)",/g' ember-camac-ng/package.json
+	@sed -i -e 's/"version": ".*",/"version": "$(version)",/g' ember-caluma-portal/package.json
 	@sed -i -e 's/appVersion = ".*"/appVersion = "$(version)"/g' php/kt_bern/configs/application.ini
 	@sed -i -e 's/__version__ = ".*"/__version__ = "$(version)"/g' django/camac/camac_metadata.py
 
