@@ -1,4 +1,9 @@
 {{#if this.displaySearch}}
   <CaseFilter @onChange={{this.setCaseFilter}} @filter={{this.caseFilter}} />
 {{/if}}
-<CaseTable @filter={{this.caseFilter}} @hasActivation={{this.hasActivation}} />
+<CaseTable
+  @filter={{this.caseFilter}}
+  @hasActivation={{this.hasActivation}}
+  @hasPendingBillingEntry={{this.hasPendingBillingEntry}}
+  @hasPendingSanction={{this.hasPendingSanction}}
+/>
