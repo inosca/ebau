@@ -1346,21 +1346,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "dokumente-v2.ausnahmebegruendung-dokument",
-    "fields": {
-      "created_at": "2021-03-08T13:41:46.856Z",
-      "modified_at": "2021-03-08T13:41:46.856Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente-v2",
-      "question": "ausnahmebegruendung-dokument",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "dokumente-v2.ausnahmegesuch-energie-dokument",
     "fields": {
       "created_at": "2021-03-08T13:41:46.763Z",
@@ -1391,36 +1376,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "dokumente-v2.baubewilligung-ausbauprojekte-dokument",
-    "fields": {
-      "created_at": "2021-03-08T13:41:46.849Z",
-      "modified_at": "2021-03-08T13:41:46.849Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente-v2",
-      "question": "baubewilligung-ausbauprojekte-dokument",
-      "sort": 6
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "dokumente-v2.baubewilligungsakte-dokument",
-    "fields": {
-      "created_at": "2021-03-08T13:41:46.852Z",
-      "modified_at": "2021-03-08T13:41:46.852Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente-v2",
-      "question": "baubewilligungsakte-dokument",
-      "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "dokumente-v2.baugrunduntersuchung-dokument",
     "fields": {
       "created_at": "2021-03-08T13:41:46.744Z",
@@ -1432,21 +1387,6 @@
       "form": "dokumente-v2",
       "question": "baugrunduntersuchung-dokument",
       "sort": 31
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "dokumente-v2.berechnung-kinderspielplaetze-dokument",
-    "fields": {
-      "created_at": "2021-03-08T13:41:46.508Z",
-      "modified_at": "2021-03-08T13:41:46.508Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente-v2",
-      "question": "berechnung-kinderspielplaetze-dokument",
-      "sort": 85
     }
   },
   {
@@ -1511,21 +1451,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "dokumente-v2.bewehrungsplan-bewehrungsliste-dokument",
-    "fields": {
-      "created_at": "2021-03-08T13:41:46.623Z",
-      "modified_at": "2021-03-08T13:41:46.623Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente-v2",
-      "question": "bewehrungsplan-bewehrungsliste-dokument",
-      "sort": 59
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "dokumente-v2.bodenschutzkonzept-dokument-v2",
     "fields": {
       "created_at": "2021-03-08T14:39:11.702Z",
@@ -1567,36 +1492,6 @@
       "form": "dokumente-v2",
       "question": "brandschutzplan-dokument",
       "sort": 71
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "dokumente-v2.dokumente-der-bauausfuehrung-dokument",
-    "fields": {
-      "created_at": "2021-03-08T13:41:46.860Z",
-      "modified_at": "2021-03-08T13:41:46.860Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente-v2",
-      "question": "dokumente-der-bauausfuehrung-dokument",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "dokumente-v2.einverstaendniserklaerung-wald-dokument",
-    "fields": {
-      "created_at": "2021-03-08T13:41:46.812Z",
-      "modified_at": "2021-03-08T13:41:46.812Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente-v2",
-      "question": "einverstaendniserklaerung-wald-dokument",
-      "sort": 15
     }
   },
   {
@@ -1736,21 +1631,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "dokumente-v2.formular-erdbebensicherheit-ebs",
-    "fields": {
-      "created_at": "2021-03-08T13:41:46.865Z",
-      "modified_at": "2021-03-08T13:41:46.865Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente-v2",
-      "question": "formular-erdbebensicherheit-ebs",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "dokumente-v2.gefahrengutachten-dokument",
     "fields": {
       "created_at": "2021-03-08T13:41:46.827Z",
@@ -1762,21 +1642,6 @@
       "form": "dokumente-v2",
       "question": "gefahrengutachten-dokument",
       "sort": 11
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "dokumente-v2.gemeindespezifisches-formular",
-    "fields": {
-      "created_at": "2021-03-08T13:41:46.869Z",
-      "modified_at": "2021-03-08T13:41:46.869Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente-v2",
-      "question": "gemeindespezifisches-formular",
-      "sort": 1
     }
   },
   {
@@ -1976,36 +1841,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "dokumente-v2.konzessionsgesuch-kuehlwasser-dokument",
-    "fields": {
-      "created_at": "2021-03-08T13:41:46.608Z",
-      "modified_at": "2021-03-08T13:41:46.608Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente-v2",
-      "question": "konzessionsgesuch-kuehlwasser-dokument",
-      "sort": 63
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "dokumente-v2.konzessionsgesuch-waermepumpe-dokument",
-    "fields": {
-      "created_at": "2021-03-08T13:41:46.605Z",
-      "modified_at": "2021-03-08T13:41:46.605Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente-v2",
-      "question": "konzessionsgesuch-waermepumpe-dokument",
-      "sort": 64
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "dokumente-v2.kurzbericht-gemaess-stfv-dokument",
     "fields": {
       "created_at": "2021-03-08T13:41:46.685Z",
@@ -2047,21 +1882,6 @@
       "form": "dokumente-v2",
       "question": "nachweis-anforderungen-dokument",
       "sort": 24
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "dokumente-v2.naeherbau-grenzbaurecht-dokument",
-    "fields": {
-      "created_at": "2021-03-08T13:41:46.562Z",
-      "modified_at": "2021-03-08T13:41:46.562Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente-v2",
-      "question": "naeherbau-grenzbaurecht-dokument",
-      "sort": 74
     }
   },
   {
@@ -2257,21 +2077,6 @@
       "form": "dokumente-v2",
       "question": "rueckbau-checkliste-selbstdeklaration-dokument",
       "sort": 23
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "dokumente-v2.schadstoffermittlung-gutachten-dokument",
-    "fields": {
-      "created_at": "2021-03-08T13:41:46.787Z",
-      "modified_at": "2021-03-08T13:41:46.787Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente-v2",
-      "question": "schadstoffermittlung-gutachten-dokument",
-      "sort": 21
     }
   },
   {
@@ -2486,21 +2291,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "dokumente-v2.umweltvertraeglichkeitsbericht-dokument",
-    "fields": {
-      "created_at": "2021-03-08T13:41:46.836Z",
-      "modified_at": "2021-03-08T13:41:46.836Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente-v2",
-      "question": "umweltvertraeglichkeitsbericht-dokument",
-      "sort": 9
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "dokumente-v2.versickerungsanlagen-dokument-v2",
     "fields": {
       "created_at": "2021-03-15T14:12:09.871Z",
@@ -2576,21 +2366,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "dokumente-v2.voruntersuchung-dokument",
-    "fields": {
-      "created_at": "2021-03-08T13:41:46.831Z",
-      "modified_at": "2021-03-08T13:41:46.831Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente-v2",
-      "question": "voruntersuchung-dokument",
-      "sort": 10
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "dokumente-v2.weitere-angaben-regeneration-ews-dokument",
     "fields": {
       "created_at": "2021-03-08T13:41:46.584Z",
@@ -2606,21 +2381,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "dokumente-v2.werkleitungsplan-dokument",
-    "fields": {
-      "created_at": "2021-03-08T13:41:46.669Z",
-      "modified_at": "2021-03-08T13:41:46.669Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente-v2",
-      "question": "werkleitungsplan-dokument",
-      "sort": 48
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "dokumente-v2.zustimmung-der-anstoesser-dokument-v2",
     "fields": {
       "created_at": "2021-03-15T14:20:17.617Z",
@@ -2632,21 +2392,6 @@
       "form": "dokumente-v2",
       "question": "zustimmung-der-anstoesser-dokument-v2",
       "sort": 76
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "dokumente-v2.zustimmung-der-nachbarn-dokument",
-    "fields": {
-      "created_at": "2021-03-08T13:41:46.558Z",
-      "modified_at": "2021-03-08T13:41:46.558Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente-v2",
-      "question": "zustimmung-der-nachbarn-dokument",
-      "sort": 75
     }
   },
   {
@@ -7063,8 +6808,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Zustimmung des Eigent\\u00fcmers f\\u00fcr den Anschluss an die Sammelkan\\u00e4le bzw. zur Einleitung in einen Vorfluter wenn die Gemeinde nicht Eigent\\u00fcmerin ist\", \"fr\": \"Consentement du propri\\u00e9taire pour le raccordement aux collecteurs ou au cours d'eau (si la commune n'est pas propri\\u00e9taire)\"}",
       "type": "multiple_choice",
-      "is_required": "'sind-belange-des-gewaesserschutzes-betroffen-v2-ja' == 'sind-belange-des-gewaesserschutzes-betroffen-v2'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('sind-belange-des-gewaesserschutzes-betroffen-v2-ja' == 'sind-belange-des-gewaesserschutzes-betroffen-v2'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
@@ -7621,8 +7366,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Bodenschutzkonzept einer zertifizierten Bodenkundlichen Baubegleitung (BBB)\", \"fr\": \"Plan de protection du sol d'un suivi p\\u00e9dologique de chantier (SPC) effectu\\u00e9 par un sp\\u00e9cialiste certifi\\u00e9\"}",
       "type": "multiple_choice",
-      "is_required": "'total-beanspruchte-unversiegelte-baustellenflaeche-v2'|answer >= 5000 || 'mehr-als-1500-m3-bodenmaterial'|answer == 'mehr-als-1500-m3-bodenmaterial-ja' || 'betrifft-das-bauvorhaben-einen-leitungsbau-1000-v2'|answer == 'betrifft-das-bauvorhaben-einen-leitungsbau-1000-v2-ja' || 'gesamte-beanspruchte-flaeche-2000-v2'|answer == 'gesamte-beanspruchte-flaeche-2000-v2-ja' || 'hoehe-groesser-als-1800-m-ue-m'|answer == 'hoehe-groesser-als-1800-m-ue-m-ja'",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('total-beanspruchte-unversiegelte-baustellenflaeche-v2'|answer >= 5000 || 'mehr-als-1500-m3-bodenmaterial'|answer == 'mehr-als-1500-m3-bodenmaterial-ja' || 'betrifft-das-bauvorhaben-einen-leitungsbau-1000-v2'|answer == 'betrifft-das-bauvorhaben-einen-leitungsbau-1000-v2-ja' || 'gesamte-beanspruchte-flaeche-2000-v2'|answer == 'gesamte-beanspruchte-flaeche-2000-v2-ja' || 'hoehe-groesser-als-1800-m-ue-m'|answer == 'hoehe-groesser-als-1800-m-ue-m-ja')",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
@@ -7852,8 +7597,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Entw\\u00e4sserung \\u00fcber Oberfl\\u00e4chengew\\u00e4sser\", \"fr\": \"Evacuation par les eaux superficielles\"}",
       "type": "multiple_choice",
-      "is_required": "'art-versickerung-platz-v2-oberflachengewasser' in 'art-versickerung-platz-v2'|answer ||\n'art-versickerung-dach-v2-oberflachengewasser' in 'art-versickerung-dach-v2'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('art-versickerung-platz-v2-oberflachengewasser' in 'art-versickerung-platz-v2'|answer ||\n'art-versickerung-dach-v2-oberflachengewasser' in 'art-versickerung-dach-v2'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": null, \"fr\": \"\"}",
@@ -7885,8 +7630,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Entw\\u00e4sserung \\u00fcber Mischwasserkanal\", \"fr\": \"Evacuation par le canal des eaux mixtes\"}",
       "type": "multiple_choice",
-      "is_required": "'art-versickerung-platz-v2-mischwasserkanal' in 'art-versickerung-platz-v2'|answer ||\n'art-versickerung-dach-v2-mischwasserkanal' in 'art-versickerung-dach-v2'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('art-versickerung-platz-v2-mischwasserkanal' in 'art-versickerung-platz-v2'|answer ||\n'art-versickerung-dach-v2-mischwasserkanal' in 'art-versickerung-dach-v2'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": null, \"fr\": \"\"}",
@@ -7918,8 +7663,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Entw\\u00e4sserung \\u00fcber Regenwasserkanal\", \"fr\": \"Evacuation par le canal des eaux pluviales\"}",
       "type": "multiple_choice",
-      "is_required": "'art-versickerung-platz-v2-regenwasserkanal' in 'art-versickerung-platz-v2'|answer ||\n'art-versickerung-dach-v2-regenwasserkanal' in 'art-versickerung-dach-v2'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('art-versickerung-platz-v2-regenwasserkanal' in 'art-versickerung-platz-v2'|answer ||\n'art-versickerung-dach-v2-regenwasserkanal' in 'art-versickerung-dach-v2'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": null, \"fr\": \"\"}",
@@ -8293,8 +8038,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Gesuch f\\u00fcr eine Ausnahmebewilligung mit hydrogeologisches Gutachten und Nachweis, dass die Durchflusskapazit\\u00e4t des Grundwassers gegen\\u00fcber dem unbeinflussten Zustand um h\\u00f6chstens 10% vemindert wird.\", \"fr\": \"Demande de d\\u00e9rogation accompagn\\u00e9e d'une expertise hydrog\\u00e9ologique et de la preuve que la capacit\\u00e9 d\\u2019\\u00e9coulement des eaux souterraines est r\\u00e9duite de 10 % au plus par rapport \\u00e0 l\\u2019\\u00e9tat non influenc\\u00e9 par les installations en question.\"}",
       "type": "multiple_choice",
-      "is_required": "'gesuch-fuer-ausnahmebewilligung-v2-ja' == 'gesuch-fuer-ausnahmebewilligung-v2'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('gesuch-fuer-ausnahmebewilligung-v2-ja' == 'gesuch-fuer-ausnahmebewilligung-v2'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": null, \"fr\": \"\"}",
@@ -8449,8 +8194,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Gew\\u00e4sserschutz Landwirtschaft\", \"fr\": \"Protection des eaux dans l'agriculture\"}",
       "type": "multiple_choice",
-      "is_required": "'nutzungsart-landwirtschaft' in 'nutzungsart'|answer ||\n'ableitung-in-guellegrube-v2-ja' == 'ableitung-in-guellegrube-v2'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('nutzungsart-landwirtschaft' in 'nutzungsart'|answer ||\n'ableitung-in-guellegrube-v2-ja' == 'ableitung-in-guellegrube-v2'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": null, \"fr\": \"\"}",
@@ -8572,8 +8317,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Grundst\\u00fccksentw\\u00e4sserungsplan SN 592 000\", \"fr\": \"Plan d'\\u00e9vacuation des eaux du bien-fonds conforme \\u00e0 la norme SN 592 000\"}",
       "type": "multiple_choice",
-      "is_required": "'sind-belange-des-gewaesserschutzes-betroffen-v2-ja' == 'sind-belange-des-gewaesserschutzes-betroffen-v2'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('sind-belange-des-gewaesserschutzes-betroffen-v2-ja' == 'sind-belange-des-gewaesserschutzes-betroffen-v2'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
@@ -8758,8 +8503,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Kanalisationskatasterplan\", \"fr\": \"Plan des canalisations\"}",
       "type": "multiple_choice",
-      "is_required": "'sind-belange-des-gewaesserschutzes-betroffen-v2-ja' == 'sind-belange-des-gewaesserschutzes-betroffen-v2'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('sind-belange-des-gewaesserschutzes-betroffen-v2-ja' == 'sind-belange-des-gewaesserschutzes-betroffen-v2'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
@@ -8978,8 +8723,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Meldeblatt f\\u00fcr Terrainver\\u00e4nderungen\", \"fr\": \"Demande de remodelages de terrain\"}",
       "type": "multiple_choice",
-      "is_required": "'gesamte-beanspruchte-flaeche-2000-v2'|answer == 'gesamte-beanspruchte-flaeche-2000-v2-nein'",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('gesamte-beanspruchte-flaeche-2000-v2'|answer == 'gesamte-beanspruchte-flaeche-2000-v2-nein')",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
@@ -9266,8 +9011,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Plan der tempor\\u00e4ren und definitiven Fl\\u00e4che\", \"fr\": \"Plan des surfaces temporaires et d\\u00e9finitives\"}",
       "type": "multiple_choice",
-      "is_required": "'total-beanspruchte-unversiegelte-baustellenflaeche-v2'|answer >= 2000 || 'bodenabtrag-mit-unterboden-oder-200-oberboden-v2'|answer == 'bodenabtrag-mit-unterboden-oder-200-oberboden-v2-ja'",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('total-beanspruchte-unversiegelte-baustellenflaeche-v2'|answer >= 2000 || 'bodenabtrag-mit-unterboden-oder-200-oberboden-v2'|answer == 'bodenabtrag-mit-unterboden-oder-200-oberboden-v2-ja')",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
@@ -9884,8 +9629,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Pl\\u00e4ne, Berichte und Berechnungen \\u00fcber neue und bestehende Versickerungsanlagen\", \"fr\": \"Plans, rapports et notes de calcul relatifs aux installations d'infiltration\"}",
       "type": "multiple_choice",
-      "is_required": "'sind-belange-des-gewaesserschutzes-betroffen-v2-ja' == 'sind-belange-des-gewaesserschutzes-betroffen-v2'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('sind-belange-des-gewaesserschutzes-betroffen-v2-ja' == 'sind-belange-des-gewaesserschutzes-betroffen-v2'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
@@ -9917,8 +9662,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Deklaration zur Verwertung von abgetragenem Boden\", \"fr\": \"D\\u00e9claration sur la valorisation de mat\\u00e9riaux terreux d\\u00e9cap\\u00e9s\"}",
       "type": "multiple_choice",
-      "is_required": "'mehr-als-500-m3-bodenmaterial'|answer == 'mehr-als-500-m3-bodenmaterial-ja' || 'mit-invasiven-neophyten-belasteter-boden'|answer == 'mit-invasiven-neophyten-belasteter-boden-ja'",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('mehr-als-500-m3-bodenmaterial'|answer == 'mehr-als-500-m3-bodenmaterial-ja' || 'mit-invasiven-neophyten-belasteter-boden'|answer == 'mit-invasiven-neophyten-belasteter-boden-ja')",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
@@ -10010,8 +9755,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Zustimmung der Anst\\u00f6sser falls die Versickerung nicht publiziert wurde\", \"fr\": \"Consentement des voisins si l'infiltration n'a pas fait l'objet d'une publication\"}",
       "type": "multiple_choice",
-      "is_required": "'sind-belange-des-gewaesserschutzes-betroffen-v2-ja' == 'sind-belange-des-gewaesserschutzes-betroffen-v2'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('sind-belange-des-gewaesserschutzes-betroffen-v2-ja' == 'sind-belange-des-gewaesserschutzes-betroffen-v2'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": null, \"fr\": \"\"}",
