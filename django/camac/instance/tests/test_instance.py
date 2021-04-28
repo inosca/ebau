@@ -10,6 +10,7 @@ from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
+from camac.constants import kt_uri as uri_constants
 from camac.core.models import InstanceLocation, WorkflowEntry
 from camac.instance import serializers
 from camac.instance.models import HistoryEntryT
@@ -939,6 +940,45 @@ def test_instance_list_commission(db, admin_client, has_assignment, request, ins
         assert json["data"][0]["id"] == str(instance.pk)
     else:
         assert len(json["data"]) == 0
+
+
+@pytest.mark.parametrize("role__name", ["OrganizationReadonly"])
+def test_instance_list_organization_readonly(
+    db, admin_client, request, instance_factory, location_factory, form_factory
+):
+    """Ensure that a readonly organization only sees their own dossiers."""
+
+    visible_form = form_factory(pk=uri_constants.FORM_VORABKLAERUNG_MIT_KANTON)
+    hidden_form = form_factory(pk=uri_constants.FORM_REKLAME)
+    instance = instance_factory(
+        instance_state__name="new",
+        form_id=visible_form.pk,
+        location=admin_client.user.groups.first().locations.first(),
+    )
+    instance = instance_factory(
+        instance_state__name="circ",
+        form_id=hidden_form.pk,
+        location=admin_client.user.groups.first().locations.first(),
+    )
+    instance = instance_factory(
+        instance_state__name="circ",
+        form_id=visible_form.pk,
+        location=location_factory(),
+    )
+
+    instance = instance_factory(
+        instance_state__name="circ",
+        form_id=visible_form.pk,
+        location=admin_client.user.groups.first().locations.first(),
+    )
+
+    url = reverse("instance-list")
+    response = admin_client.get(url)
+    assert response.status_code == status.HTTP_200_OK
+
+    json = response.json()
+    assert len(json["data"]) == 1
+    assert json["data"][0]["id"] == str(instance.pk)
 
 
 @pytest.mark.parametrize("instance__user", [(LazyFixture("admin_user"))])
