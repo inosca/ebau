@@ -148,6 +148,7 @@ APPLICATIONS = {
             "PublicReader": "public_reader",
             "Support": "support",
             "Commission": "commission",
+            "OrganizationReadonly": "organization_readonly",
         },
         "IS_MULTILINGUAL": False,
         "NOTIFICATIONS": {"SUBMIT": None, "APPLICANT": {"NEW": None, "EXISTING": None}},
