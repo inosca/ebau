@@ -2125,21 +2125,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.ausnahmebegruendung-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:38.859Z",
-      "modified_at": "2019-09-25T10:19:38.859Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "ausnahmebegruendung-dokument",
-      "sort": 12
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "6-dokumente.ausnahmegesuch-energie-dokument",
     "fields": {
       "created_at": "2019-09-25T10:19:34.444Z",
@@ -2170,36 +2155,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.baubewilligung-ausbauprojekte-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:37.936Z",
-      "modified_at": "2019-09-25T10:19:37.936Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "baubewilligung-ausbauprojekte-dokument",
-      "sort": 14
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.baubewilligungsakte-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:38.492Z",
-      "modified_at": "2019-09-25T10:19:38.492Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "baubewilligungsakte-dokument",
-      "sort": 13
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "6-dokumente.baugrunduntersuchung-dokument",
     "fields": {
       "created_at": "2019-09-25T10:19:34.266Z",
@@ -2211,21 +2166,6 @@
       "form": "6-dokumente",
       "question": "baugrunduntersuchung-dokument",
       "sort": 37
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.berechnung-kinderspielplaetze-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.604Z",
-      "modified_at": "2019-09-25T10:19:33.604Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "berechnung-kinderspielplaetze-dokument",
-      "sort": 91
     }
   },
   {
@@ -2290,21 +2230,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.bewehrungsplan-bewehrungsliste-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.812Z",
-      "modified_at": "2019-09-25T10:19:33.812Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "bewehrungsplan-bewehrungsliste-dokument",
-      "sort": 65
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "6-dokumente.bodenschutzkonzept-dokument",
     "fields": {
       "created_at": "2019-09-25T10:19:34.944Z",
@@ -2346,36 +2271,6 @@
       "form": "6-dokumente",
       "question": "brandschutzplan-dokument",
       "sort": 77
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.dokumente-der-bauausfuehrung-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:39.397Z",
-      "modified_at": "2019-09-25T10:19:39.397Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "dokumente-der-bauausfuehrung-dokument",
-      "sort": 11
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.einverstaendniserklaerung-wald-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:35.336Z",
-      "modified_at": "2019-09-25T10:19:35.336Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "einverstaendniserklaerung-wald-dokument",
-      "sort": 23
     }
   },
   {
@@ -2515,21 +2410,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.formular-erdbebensicherheit-ebs",
-    "fields": {
-      "created_at": "2019-11-06T07:19:47.272Z",
-      "modified_at": "2019-11-06T07:19:47.272Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "formular-erdbebensicherheit-ebs",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "6-dokumente.gefahrengutachten-dokument",
     "fields": {
       "created_at": "2019-09-25T10:19:36.208Z",
@@ -2541,21 +2421,6 @@
       "form": "6-dokumente",
       "question": "gefahrengutachten-dokument",
       "sort": 19
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.gemeindespezifisches-formular",
-    "fields": {
-      "created_at": "2019-11-06T07:22:06.427Z",
-      "modified_at": "2019-11-06T07:22:06.427Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "gemeindespezifisches-formular",
-      "sort": 1
     }
   },
   {
@@ -2755,36 +2620,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.konzessionsgesuch-kuehlwasser-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.778Z",
-      "modified_at": "2019-09-25T10:19:33.778Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "konzessionsgesuch-kuehlwasser-dokument",
-      "sort": 69
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.konzessionsgesuch-waermepumpe-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.770Z",
-      "modified_at": "2019-09-25T10:19:33.770Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "konzessionsgesuch-waermepumpe-dokument",
-      "sort": 70
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "6-dokumente.kurzbericht-gemaess-stfv-dokument",
     "fields": {
       "created_at": "2019-09-25T10:19:34.011Z",
@@ -2841,21 +2676,6 @@
       "form": "6-dokumente",
       "question": "nachweis-anforderungen-dokument",
       "sort": 31
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.naeherbau-grenzbaurecht-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.695Z",
-      "modified_at": "2019-09-25T10:19:33.695Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "naeherbau-grenzbaurecht-dokument",
-      "sort": 80
     }
   },
   {
@@ -3036,21 +2856,6 @@
       "form": "6-dokumente",
       "question": "rueckbau-checkliste-selbstdeklaration-dokument",
       "sort": 30
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.schadstoffermittlung-gutachten-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:34.776Z",
-      "modified_at": "2019-09-25T10:19:34.776Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "schadstoffermittlung-gutachten-dokument",
-      "sort": 28
     }
   },
   {
@@ -3265,21 +3070,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.umweltvertraeglichkeitsbericht-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:36.758Z",
-      "modified_at": "2019-09-25T10:19:36.758Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "umweltvertraeglichkeitsbericht-dokument",
-      "sort": 17
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "6-dokumente.versickerungsanlagen-dokument",
     "fields": {
       "created_at": "2019-09-25T10:19:34.126Z",
@@ -3355,21 +3145,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.voruntersuchung-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:36.412Z",
-      "modified_at": "2019-09-25T10:19:36.412Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "voruntersuchung-dokument",
-      "sort": 18
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "6-dokumente.weitere-angaben-regeneration-ews-dokument",
     "fields": {
       "created_at": "2019-09-25T10:19:33.730Z",
@@ -3385,21 +3160,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.werkleitungsplan-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.944Z",
-      "modified_at": "2019-09-25T10:19:33.944Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "werkleitungsplan-dokument",
-      "sort": 54
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "6-dokumente.zustimmung-der-anstoesser-dokument",
     "fields": {
       "created_at": "2019-09-25T10:19:33.682Z",
@@ -3411,21 +3171,6 @@
       "form": "6-dokumente",
       "question": "zustimmung-der-anstoesser-dokument",
       "sort": 82
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.zustimmung-der-nachbarn-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.689Z",
-      "modified_at": "2019-09-25T10:19:33.689Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "zustimmung-der-nachbarn-dokument",
-      "sort": 81
     }
   },
   {
@@ -27615,8 +27360,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Zustimmung des Eigent\\u00fcmers f\\u00fcr den Anschluss an die Sammelkan\\u00e4le bzw. zur Einleitung in einen Vorfluter wenn die Gemeinde nicht Eigent\\u00fcmerin ist\", \"fr\": \"Consentement du propri\\u00e9taire pour le raccordement aux collecteurs ou au cours d'eau (si la commune n'est pas propri\\u00e9taire)\"}",
       "type": "multiple_choice",
-      "is_required": "'sind-belange-des-gewasserschutzes-betroffen-ja' == 'sind-belange-des-gewasserschutzes-betroffen'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('sind-belange-des-gewasserschutzes-betroffen-ja' == 'sind-belange-des-gewasserschutzes-betroffen'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -28749,40 +28494,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "ausnahmebegruendung-dokument",
-    "fields": {
-      "created_at": "2019-05-13T12:50:15.741Z",
-      "modified_at": "2019-05-13T12:50:15.741Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ausnahmebegr\\u00fcndung\", \"fr\": \"Motivation de la d\\u00e9rogation\"}",
-      "type": "multiple_choice",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true,
-        "widgetOverride": null,
-        "documentCategory": "bauen-ausserhalb-bauzone"
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "ausnahmegesuch-energie-dokument",
     "fields": {
       "created_at": "2019-05-13T12:28:16.027Z",
@@ -28793,8 +28504,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Ausnahmegesuch Energie\", \"fr\": \"Demande de d\\u00e9rogation (\\u00e9nergie)\"}",
       "type": "multiple_choice",
-      "is_required": "'ausnahme-im-sinne-von-artikel-64-kenv-ja' == 'ausnahme-im-sinne-von-artikel-64-kenv'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('ausnahme-im-sinne-von-artikel-64-kenv-ja' == 'ausnahme-im-sinne-von-artikel-64-kenv'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -28861,8 +28572,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Ausn\\u00fctzung\", \"fr\": \"Utilisation\"}",
       "type": "multiple_choice",
-      "is_required": "null != 'ausnuetzung'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!(null != 'ausnuetzung'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -29129,74 +28840,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "baubewilligung-ausbauprojekte-dokument",
-    "fields": {
-      "created_at": "2019-05-13T12:49:21.275Z",
-      "modified_at": "2019-05-13T12:49:21.275Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Baubewilligung von Um- und Ausbauprojekten\", \"fr\": \"Permis de construire concernant des projets de transformation\"}",
-      "type": "multiple_choice",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true,
-        "widgetOverride": null,
-        "documentCategory": "bauen-ausserhalb-bauzone"
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "baubewilligungsakte-dokument",
-    "fields": {
-      "created_at": "2019-05-13T12:49:46.950Z",
-      "modified_at": "2019-05-13T12:49:46.950Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Baubewilligungsakte\", \"fr\": \"Dossier du permis de construire\"}",
-      "type": "multiple_choice",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true,
-        "widgetOverride": null,
-        "documentCategory": "bauen-ausserhalb-bauzone"
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "bauende",
     "fields": {
       "created_at": "2021-01-26T16:38:43.576Z",
@@ -29237,8 +28880,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Baugrunduntersuchung / Hydrogeologisches Gutachten\", \"fr\": \"Etudes g\\u00e9otechniques ou expertises hydrog\\u00e9ologiques\"}",
       "type": "multiple_choice",
-      "is_required": "'bauten-oder-pfaehlen-im-grundwasser-ja' == 'bauten-oder-pfaehlen-im-grundwasser'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('bauten-oder-pfaehlen-im-grundwasser-ja' == 'bauten-oder-pfaehlen-im-grundwasser'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -29337,8 +28980,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Baumf\\u00e4llbegr\\u00fcndung\", \"fr\": \"Motif d'abbatage d'un arbre\"}",
       "type": "multiple_choice",
-      "is_required": "'ist-eine-ersatzpflanzung-vorgesehen-nein' == 'ist-eine-ersatzpflanzung-vorgesehen'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('ist-eine-ersatzpflanzung-vorgesehen-nein' == 'ist-eine-ersatzpflanzung-vorgesehen'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
@@ -29369,8 +29012,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Baumf\\u00e4llgutachten\", \"fr\": \"Rapport d'expert pour l'abattage d'un arbre\"}",
       "type": "multiple_choice",
-      "is_required": "'ist-eine-ersatzpflanzung-vorgesehen-ja' == 'ist-eine-ersatzpflanzung-vorgesehen'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('ist-eine-ersatzpflanzung-vorgesehen-ja' == 'ist-eine-ersatzpflanzung-vorgesehen'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
@@ -30309,40 +29952,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "berechnung-kinderspielplaetze-dokument",
-    "fields": {
-      "created_at": "2019-05-13T11:11:37.443Z",
-      "modified_at": "2019-05-13T11:11:37.443Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Berechnung Kinderspielpl\\u00e4tze / Aufenthaltsbereiche\", \"fr\": \"Calcul relatif aux places de jeux pour enfants et aux aires de loisirs\"}",
-      "type": "multiple_choice",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true,
-        "widgetOverride": null,
-        "documentCategory": "bauwerk-allgemein"
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "berechnungen-abstellplaetze-dokument",
     "fields": {
       "created_at": "2019-05-13T11:07:35.658Z",
@@ -30353,8 +29962,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Berechnungen Abstellpl\\u00e4tze\", \"fr\": \"Calcul du nombre de places de stationnement\"}",
       "type": "multiple_choice",
-      "is_required": "'auto-oder-fahrradabstellplaetze-ja' == 'auto-oder-fahrradabstellplaetze'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('auto-oder-fahrradabstellplaetze-ja' == 'auto-oder-fahrradabstellplaetze'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -30960,8 +30569,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Beschrieb der L\\u00fcftung/Best\\u00e4tigung des L\\u00fcftungsbauers, dass die L\\u00fcftung keinen Rauch in die \\u00fcbrigen R\\u00e4ume des Betriebs gelangen l\\u00e4sst\", \"fr\": \"Description de la ventilation / Confirmation par le fabricant de la ventilation que celle-ci emp\\u00eache toute fum\\u00e9e de parvenir dans les autres locaux de l\\u2019\\u00e9tablissement\"}",
       "type": "multiple_choice",
-      "is_required": "'ist-ein-fumoir-betroffen-ja' == 'ist-ein-fumoir-betroffen'|answer \n||\n[\n  'fumoir-neu',\n  'fumoir-bestehend',\n  'fumoir-erweiterung'\n] intersects 'fumoir'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('ist-ein-fumoir-betroffen-ja' == 'ist-ein-fumoir-betroffen'|answer \n||\n[\n  'fumoir-neu',\n  'fumoir-bestehend',\n  'fumoir-erweiterung'\n] intersects 'fumoir'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -31091,8 +30700,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Auftragsbest\\u00e4tigung des Fachb\\u00fcro f\\u00fcr die hydrogeologische Begleitung\", \"fr\": \"Confirmation du mandat d'expertise hydrog\\u00e9ologique\"}",
       "type": "multiple_choice",
-      "is_required": "'bauten-oder-pfaehlen-im-grundwasser-ja' == 'bauten-oder-pfaehlen-im-grundwasser'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('bauten-oder-pfaehlen-im-grundwasser-ja' == 'bauten-oder-pfaehlen-im-grundwasser'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -31287,8 +30896,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Betriebskonzept Gastgewerbe\", \"fr\": \"H\\u00f4tellerie et restauration: conception d'exploitation\"}",
       "type": "multiple_choice",
-      "is_required": "null != 'betriebskonzept'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!(null != 'betriebskonzept'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -31360,40 +30969,6 @@
       "configuration": {},
       "meta": {
         "widgetOverride": null
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "bewehrungsplan-bewehrungsliste-dokument",
-    "fields": {
-      "created_at": "2019-05-13T11:43:40.777Z",
-      "modified_at": "2019-05-13T11:43:40.777Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Bewehrungsplan und Bewehrungsliste\", \"fr\": \"Plans de coffrage et d\\u2019armature avec liste des aciers\"}",
-      "type": "multiple_choice",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true,
-        "widgetOverride": null,
-        "documentCategory": "spezialformulare-zivilschutz"
       },
       "data_source": null,
       "row_form": null,
@@ -31737,8 +31312,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Bodenschutzkonzept\", \"fr\": \"Plan de protection du sol\"}",
       "type": "multiple_choice",
-      "is_required": "'hoehe-groesser-als-1800-m-ue-m-ja' == 'hoehe-groesser-als-1800-m-ue-m'|answer ||\n'leitungsbau-auf-landwirtschaftlichem-boden-ja' == 'leitungsbau-auf-landwirtschaftlichem-boden'|answer ||\n'beanspruchte-flaeche-ober-unterboden-5000-m2-ja' == 'beanspruchte-flaeche-ober-unterboden-5000-m2'|answer ||\n'mehr-als-1500-m3-bodenmaterial-ja' == 'mehr-als-1500-m3-bodenmaterial'|answer ||\n'beanspruchte-flache-ober-unterboden-2000-m2-ja' == 'beanspruchte-flache-ober-unterboden-2000-m2'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('hoehe-groesser-als-1800-m-ue-m-ja' == 'hoehe-groesser-als-1800-m-ue-m'|answer ||\n'leitungsbau-auf-landwirtschaftlichem-boden-ja' == 'leitungsbau-auf-landwirtschaftlichem-boden'|answer ||\n'beanspruchte-flaeche-ober-unterboden-5000-m2-ja' == 'beanspruchte-flaeche-ober-unterboden-5000-m2'|answer ||\n'mehr-als-1500-m3-bodenmaterial-ja' == 'mehr-als-1500-m3-bodenmaterial'|answer ||\n'beanspruchte-flache-ober-unterboden-2000-m2-ja' == 'beanspruchte-flache-ober-unterboden-2000-m2'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -31868,8 +31443,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Brandschutzkonzept\", \"fr\": \"Strat\\u00e9gie de protection contre l'incendie\"}",
       "type": "multiple_choice",
-      "is_required": "[\n  'qss-stufe-2',\n  'qss-stufe-3'\n] intersects 'qss-stufe'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!([\n  'qss-stufe-2',\n  'qss-stufe-3'\n] intersects 'qss-stufe'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -31902,8 +31477,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Brandschutzplan\", \"fr\": \"Plan de protection contre l'incendie\"}",
       "type": "multiple_choice",
-      "is_required": "[\n  'qss-stufe-2',\n  'qss-stufe-3'\n] intersects 'qss-stufe'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!([\n  'qss-stufe-2',\n  'qss-stufe-3'\n] intersects 'qss-stufe'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -32520,40 +32095,6 @@
       "configuration": {},
       "meta": {
         "widgetOverride": null
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "dokumente-der-bauausfuehrung-dokument",
-    "fields": {
-      "created_at": "2019-05-13T12:50:44.824Z",
-      "modified_at": "2019-05-13T12:50:44.824Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Dokumente der Bauausf\\u00fchrung\", \"fr\": \"Documents relatifs \\u00e0 l\\u2019ex\\u00e9cution des travaux\"}",
-      "type": "multiple_choice",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true,
-        "widgetOverride": null,
-        "documentCategory": "selbstdeklaration-2"
       },
       "data_source": null,
       "row_form": null,
@@ -33635,40 +33176,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "einverstaendniserklaerung-wald-dokument",
-    "fields": {
-      "created_at": "2019-05-13T12:42:36.193Z",
-      "modified_at": "2019-05-13T12:42:36.193Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Einverst\\u00e4ndniserkl\\u00e4rung Rodung / Aufforstung\", \"fr\": \"D\\u00e9claration de consentement d\\u00e9frichement / reboisement\"}",
-      "type": "multiple_choice",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true,
-        "widgetOverride": null,
-        "documentCategory": "spezialformulare-wald"
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "empfindlichkeitsstufe",
     "fields": {
       "created_at": "2019-03-28T15:11:45.653Z",
@@ -33775,8 +33282,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Energiedokumente\", \"fr\": \"Document relatifs \\u00e0 l'\\u00e9nergie\"}",
       "type": "multiple_choice",
-      "is_required": "'ist-das-vorhaben-energierelevant-ja' == 'ist-das-vorhaben-energierelevant'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('ist-das-vorhaben-energierelevant-ja' == 'ist-das-vorhaben-energierelevant'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -33809,8 +33316,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Begr\\u00fcndung f\\u00fcr Entfernen von Hecken und Feldgeh\\u00f6lzen\", \"fr\": \"Motifs de la suppression de haies et de bosquets champ\\u00eatres\"}",
       "type": "multiple_choice",
-      "is_required": "'gesuchstyp-hecke-feldgehoelz' == 'gesuchstyp'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('gesuchstyp-hecke-feldgehoelz' == 'gesuchstyp'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
@@ -33873,8 +33380,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Entsorgungskonzept\", \"fr\": \"Plan de gestion des d\\u00e9chets\"}",
       "type": "multiple_choice",
-      "is_required": "'sind-bauschadstoffe-zu-erwarten-ja' == 'sind-bauschadstoffe-zu-erwarten'|answer ||\n'umfasst-die-bauabfallmenge-200-kubikmeter-ja' == 'umfasst-die-bauabfallmenge-200-kubikmeter'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('sind-bauschadstoffe-zu-erwarten-ja' == 'sind-bauschadstoffe-zu-erwarten'|answer ||\n'umfasst-die-bauabfallmenge-200-kubikmeter-ja' == 'umfasst-die-bauabfallmenge-200-kubikmeter'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -33940,8 +33447,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Entw\\u00e4sserung \\u00fcber Oberfl\\u00e4chengew\\u00e4sser\", \"fr\": \"Evacuation par les eaux superficielles\"}",
       "type": "multiple_choice",
-      "is_required": "'art-versickerung-platz-oberflachengewasser' in 'art-versickerung-platz'|answer ||\n'art-versickerung-dach-oberflachengewasser' in 'art-versickerung-dach'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('art-versickerung-platz-oberflachengewasser' in 'art-versickerung-platz'|answer ||\n'art-versickerung-dach-oberflachengewasser' in 'art-versickerung-dach'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -33974,8 +33481,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Entw\\u00e4sserung \\u00fcber Mischwasserkanal\", \"fr\": \"Evacuation par le canal des eaux mixtes\"}",
       "type": "multiple_choice",
-      "is_required": "'art-versickerung-platz-mischwasserkanal' in 'art-versickerung-platz'|answer ||\n'art-versickerung-dach-mischwasserkanal' in 'art-versickerung-dach'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('art-versickerung-platz-mischwasserkanal' in 'art-versickerung-platz'|answer ||\n'art-versickerung-dach-mischwasserkanal' in 'art-versickerung-dach'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -34008,8 +33515,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Entw\\u00e4sserung \\u00fcber Regenwasserkanal\", \"fr\": \"Evacuation par le canal des eaux pluviales\"}",
       "type": "multiple_choice",
-      "is_required": "'art-versickerung-platz-regenwasserkanal' in 'art-versickerung-platz'|answer ||\n'art-versickerung-dach-regenwasserkanal' in 'art-versickerung-dach'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('art-versickerung-platz-regenwasserkanal' in 'art-versickerung-platz'|answer ||\n'art-versickerung-dach-regenwasserkanal' in 'art-versickerung-dach'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -34106,8 +33613,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Erdw\\u00e4rmensondendimensionierung\", \"fr\": \"Dimensionnement des sondes g\\u00e9othermiques\"}",
       "type": "multiple_choice",
-      "is_required": "'dimensionierung-erdwaermesonden-andere-grundlage' == 'dimensionierung-erdwaermesonden'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('dimensionierung-erdwaermesonden-andere-grundlage' == 'dimensionierung-erdwaermesonden'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -34462,8 +33969,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Fassaden / Ansichten (inklusive Angaben zu Fensterfl\\u00e4chen)\", \"fr\": \"Fa\\u00e7ades (indications sur les surfaces vitr\\u00e9es comprises)\"}",
       "type": "multiple_choice",
-      "is_required": "'wurden-vorabklaerungen-durchgefuehrt-ja' == 'wurden-vorabklaerungen-durchgefuehrt'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('wurden-vorabklaerungen-durchgefuehrt-ja' == 'wurden-vorabklaerungen-durchgefuehrt'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -34560,8 +34067,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Fassadenplan mit eingezeichnetem Reklamestandort\", \"fr\": \"Plan des fa\\u00e7ades avec indication de l\\u2019emplacement de la r\\u00e9clame\"}",
       "type": "multiple_choice",
-      "is_required": "'gibt-es-bewilligungspflichtige-reklame-ja' == 'gibt-es-bewilligungspflichtige-reklame'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('gibt-es-bewilligungspflichtige-reklame-ja' == 'gibt-es-bewilligungspflichtige-reklame'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -34949,8 +34456,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Formular f\\u00fcr andere thermoaktive Elemente\", \"fr\": \"Formulaire pour autres \\u00e9l\\u00e9ments thermoactifs\"}",
       "type": "multiple_choice",
-      "is_required": "'regeneration-oder-aktive-thermische-aufladung-nein' == 'regeneration-oder-aktive-thermische-aufladung'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('regeneration-oder-aktive-thermische-aufladung-nein' == 'regeneration-oder-aktive-thermische-aufladung'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -34961,36 +34468,6 @@
         "widgetOverride": null,
         "documentCategory": "spezialformulare-waermepumpen"
       },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "formular-erdbebensicherheit-ebs",
-    "fields": {
-      "created_at": "2019-11-06T07:19:47.192Z",
-      "modified_at": "2019-11-06T07:22:45.942Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Formular Erdbebensicherheit (EbS)\", \"fr\": \"Formulaire S\\u00e9S S\\u00e9curit\\u00e9 Sismique\"}",
-      "type": "multiple_choice",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": \"\"}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -35873,8 +35350,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Gefahrengutachten\", \"fr\": \"Expertise sur l\\u2019exposition aux dangers naturels\"}",
       "type": "multiple_choice",
-      "is_required": "'handelt-es-sich-um-ein-sensibles-objekt-ja' == 'handelt-es-sich-um-ein-sensibles-objekt'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('handelt-es-sich-um-ein-sensibles-objekt-ja' == 'handelt-es-sich-um-ein-sensibles-objekt'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -35948,36 +35425,6 @@
         "widgetOverride": "cf-field/input/powerselect"
       },
       "data_source": "Municipalities",
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "gemeindespezifisches-formular",
-    "fields": {
-      "created_at": "2019-11-06T07:22:06.354Z",
-      "modified_at": "2019-11-06T07:23:10.190Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Gemeindespezifisches Formular (5.0, 5.1, 5.2, 5.3 5.4, 5.5, 5.8)\", \"fr\": \"Formulaire sp\\u00e9cifique aux communes (5.0, 5.1, 5.2, 5.3, 5.4, 5.5, 5.5, 5.8)\"}",
-      "type": "multiple_choice",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": \"\"}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
       "row_form": null,
       "sub_form": null,
       "source": null,
@@ -36255,8 +35702,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Geschossfl\\u00e4chen\", \"fr\": \"Surfaces de plancher\"}",
       "type": "multiple_choice",
-      "is_required": "null != 'geschossflaeche-in-quadratmeter'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!(null != 'geschossflaeche-in-quadratmeter'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -36289,8 +35736,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Gesuch f\\u00fcr eine Ausnahmebewilligung mit hydrogeologisches Gutachten und Nachweis, dass die Durchflusskapazit\\u00e4t des Grundwassers gegen\\u00fcber dem unbeinflussten Zustand um h\\u00f6chstens 10% vemindert wird.\", \"fr\": \"Demande de d\\u00e9rogation accompagn\\u00e9e d'une expertise hydrog\\u00e9ologique et de la preuve que la capacit\\u00e9 d\\u2019\\u00e9coulement des eaux souterraines est r\\u00e9duite de 10 % au plus par rapport \\u00e0 l\\u2019\\u00e9tat non influenc\\u00e9 par les installations en question.\"}",
       "type": "multiple_choice",
-      "is_required": "'bauten-oder-pfaehlen-im-grundwasser-ja' == 'bauten-oder-pfaehlen-im-grundwasser'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('bauten-oder-pfaehlen-im-grundwasser-ja' == 'bauten-oder-pfaehlen-im-grundwasser'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -36323,8 +35770,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Gesuch um Erleichterung oder Befreiung W\\u00e4rmeschutz\", \"fr\": \"Demande d'all\\u00e9gement ou de dispense en mati\\u00e8re d\\u2019isolation thermique\"}",
       "type": "multiple_choice",
-      "is_required": "'erleichterungen-waermeschutz-ja' == 'erleichterungen-waermeschutz'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('erleichterungen-waermeschutz-ja' == 'erleichterungen-waermeschutz'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -36357,8 +35804,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Gesuch zur Ausnahme gem\\u00e4ss Art 31 Abs. 2 LSV\", \"fr\": \"Demande de d\\u00e9rogation en vertu de l'article 31, alin\\u00e9a 2 OPB\"}",
       "type": "multiple_choice",
-      "is_required": "'grenzwerte-fenster-ueberschritten-ja' == 'grenzwerte-fenster-ueberschritten'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('grenzwerte-fenster-ueberschritten-ja' == 'grenzwerte-fenster-ueberschritten'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -36547,8 +35994,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Gew\\u00e4sserschutz Landwirtschaft\", \"fr\": \"Protection des eaux dans l'agriculture\"}",
       "type": "multiple_choice",
-      "is_required": "'nutzungsart-landwirtschaft' in 'nutzungsart'|answer ||\n'ableitung-in-guellegrube-ja' == 'ableitung-in-guellegrube'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('nutzungsart-landwirtschaft' in 'nutzungsart'|answer ||\n'ableitung-in-guellegrube-ja' == 'ableitung-in-guellegrube'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -36773,8 +36220,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Gr\\u00fcnfl\\u00e4che\", \"fr\": \"Surface verte\"}",
       "type": "multiple_choice",
-      "is_required": "null != 'gruenflache-in-quadratmeter'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!(null != 'gruenflache-in-quadratmeter'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -36872,8 +36319,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Grundriss (Massst\\u00e4blich (1:100 / 1:50) mit Angabe der Bodenfl\\u00e4che)\", \"fr\": \"Plan de surface (\\u00e0 l'\\u00e9chelle (1:100 / 1:50) avec indication de la surface au sol)\"}",
       "type": "multiple_choice",
-      "is_required": "!(\n  'vorabklaerung' in form ||\n  'is-paper'|answer == 'is-paper-yes' ||\n  (\n    'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n    'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-weitere\"]' &&\n    'baubeschrieb'|answer|stringify == '[\"baubeschrieb-andere\"]'\n  )\n)",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "'vorabklaerung' in form ||\n'is-paper'|answer == 'is-paper-yes' ||\n(\n  'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n  'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-weitere\"]' &&\n  'baubeschrieb'|answer|stringify == '[\"baubeschrieb-andere\"]'\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -36906,8 +36353,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Grundriss\", \"fr\": \"Vue en plan\"}",
       "type": "multiple_choice",
-      "is_required": "!(\n  'vorabklaerung' in form ||\n  'is-paper'|answer == 'is-paper-yes' ||\n  (\n    'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n    'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-weitere\"]' &&\n    'baubeschrieb'|answer|stringify == '[\"baubeschrieb-andere\"]'\n  )\n)",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "'vorabklaerung' in form ||\n'is-paper'|answer == 'is-paper-yes' ||\n(\n  'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n  'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-weitere\"]' &&\n  'baubeschrieb'|answer|stringify == '[\"baubeschrieb-andere\"]'\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -36940,8 +36387,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Grundst\\u00fccksentw\\u00e4sserungsplan SN 592 000\", \"fr\": \"Plan d'\\u00e9vacuation des eaux du bien-fonds conforme \\u00e0 la norme SN 592 000\"}",
       "type": "multiple_choice",
-      "is_required": "'sind-belange-des-gewasserschutzes-betroffen-ja' == 'sind-belange-des-gewasserschutzes-betroffen'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('sind-belange-des-gewasserschutzes-betroffen-ja' == 'sind-belange-des-gewasserschutzes-betroffen'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -37707,8 +37154,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Hydrogeologisches Gutachten bei Grundwassernutzung oder Bericht \\u00fcber die \\u00f6kologischen Auswirkungen auf das Oberfl\\u00e4chengew\\u00e4sser\", \"fr\": \"Expertise hydrog\\u00e9ologique en cas d'utilisation d'eaux souterraines ou rapport concernant l'impact \\u00e9cologique sur les eaux de surface\"}",
       "type": "multiple_choice",
-      "is_required": "'welche-waermepumpen-wasser' in 'welche-waermepumpen'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('welche-waermepumpen-wasser' in 'welche-waermepumpen'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -37741,8 +37188,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Auftragsbest\\u00e4tigung f\\u00fcr Hydrogeologische Begleitung\", \"fr\": \"Confirmation du mandat donn\\u00e9 \\u00e0 un/e expert/e en hydrog\\u00e9ologie\"}",
       "type": "multiple_choice",
-      "is_required": "'bauten-oder-pfaehlen-im-grundwasser-ja' == 'bauten-oder-pfaehlen-im-grundwasser'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('bauten-oder-pfaehlen-im-grundwasser-ja' == 'bauten-oder-pfaehlen-im-grundwasser'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -38027,8 +37474,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Inanspruchnahme Boden\", \"fr\": \"Utilisation de terrain\"}",
       "type": "multiple_choice",
-      "is_required": "'rechtliche-sicherung-fremden-bodens-ja' == 'rechtliche-sicherung-fremden-bodens'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('rechtliche-sicherung-fremden-bodens-ja' == 'rechtliche-sicherung-fremden-bodens'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -38730,8 +38177,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Kanalisationskatasterplan\", \"fr\": \"Plan des canalisations\"}",
       "type": "multiple_choice",
-      "is_required": "'sind-belange-des-gewasserschutzes-betroffen-ja' == 'sind-belange-des-gewasserschutzes-betroffen'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('sind-belange-des-gewasserschutzes-betroffen-ja' == 'sind-belange-des-gewasserschutzes-betroffen'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -39201,74 +38648,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "konzessionsgesuch-kuehlwasser-dokument",
-    "fields": {
-      "created_at": "2019-05-13T11:41:14.282Z",
-      "modified_at": "2019-05-13T11:41:14.282Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Konzessionsgesuch f\\u00fcr den Betrieb einer K\\u00fchlwasseranlage\", \"fr\": \"Demande de concession pour eau de refroidissement\"}",
-      "type": "multiple_choice",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true,
-        "widgetOverride": null,
-        "documentCategory": "spezialformulare-waermepumpen"
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "konzessionsgesuch-waermepumpe-dokument",
-    "fields": {
-      "created_at": "2019-05-13T11:39:43.231Z",
-      "modified_at": "2019-05-13T11:39:43.231Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Konzessionsgesuch f\\u00fcr den Betrieb einer W\\u00e4rmepumpe\", \"fr\": \"Demande de concession pour l'exploitation d'une pompe \\u00e0 chaleur\"}",
-      "type": "multiple_choice",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true,
-        "widgetOverride": null,
-        "documentCategory": "spezialformulare-waermepumpen"
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "kurzbericht-datum",
     "fields": {
       "created_at": "2019-05-04T12:09:26.418Z",
@@ -39309,8 +38688,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Kurzbericht gem\\u00e4ss StFV\", \"fr\": \"Rapport succinct selon l'OPAM\"}",
       "type": "multiple_choice",
-      "is_required": "'mengenschwelle-sonderabfaelle-ueberschritten-ja' == 'mengenschwelle-sonderabfaelle-ueberschritten'|answer ||\n'mengenschwelle-hochaktive-stoffe-ja' == 'mengenschwelle-hochaktive-stoffe'|answer ||\n'liegt-risikoermittlung-vor-ja' == 'liegt-risikoermittlung-vor'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('mengenschwelle-sonderabfaelle-ueberschritten-ja' == 'mengenschwelle-sonderabfaelle-ueberschritten'|answer ||\n'mengenschwelle-hochaktive-stoffe-ja' == 'mengenschwelle-hochaktive-stoffe'|answer ||\n'liegt-risikoermittlung-vor-ja' == 'liegt-risikoermittlung-vor'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -40294,8 +39673,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Meldeblatt f\\u00fcr Terrainver\\u00e4nderungen zur Bodenaufwertung\", \"fr\": \"Avis concernant le remodelage de terrain pour la valorisation du sol\"}",
       "type": "multiple_choice",
-      "is_required": "'terrainveraenderung-weniger-als-2000m2-ja' == 'terrainveraenderung-weniger-als-2000m2'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('terrainveraenderung-weniger-als-2000m2-ja' == 'terrainveraenderung-weniger-als-2000m2'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -40328,8 +39707,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Meldeblatt zur Fruchtfolgefl\\u00e4che\", \"fr\": \"Avis concernant une surface d'assolement\"}",
       "type": "multiple_choice",
-      "is_required": "'fruchtfolgeflaeche-ausgeschieden-ja' == 'fruchtfolgeflaeche-ausgeschieden'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('fruchtfolgeflaeche-ausgeschieden-ja' == 'fruchtfolgeflaeche-ausgeschieden'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -40769,8 +40148,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"L\\u00e4rmgutachten\", \"fr\": \"Relev\\u00e9 de bruit\"}",
       "type": "multiple_choice",
-      "is_required": "(\n  'grenzwerte-ueberschritten-ja' == 'grenzwerte-ueberschritten'|answer ||\n  'grenzwerte-fenster-ueberschritten-ja'== 'grenzwerte-fenster-ueberschritten'|answer\n)",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!((\n  'grenzwerte-ueberschritten-ja' == 'grenzwerte-ueberschritten'|answer ||\n  'grenzwerte-fenster-ueberschritten-ja'== 'grenzwerte-fenster-ueberschritten'|answer\n))",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
@@ -40780,40 +40159,6 @@
         "hideLabel": true,
         "widgetOverride": null,
         "documentCategory": "spezialformulare-immissionsschutz"
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "naeherbau-grenzbaurecht-dokument",
-    "fields": {
-      "created_at": "2019-05-13T11:26:48.043Z",
-      "modified_at": "2019-05-13T11:26:48.043Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"N\\u00e4herbau- / Grenzbaurecht\", \"fr\": \"Droit de construire en de\\u00e7\\u00e0 de la limite l\\u00e9gale / distance \\u00e0 la limite\"}",
-      "type": "multiple_choice",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true,
-        "widgetOverride": null,
-        "documentCategory": "zustimmungen"
       },
       "data_source": null,
       "row_form": null,
@@ -43964,8 +43309,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Pl\\u00e4ne Fumoir\", \"fr\": \"Plans du fumoir\"}",
       "type": "multiple_choice",
-      "is_required": "'ist-ein-fumoir-betroffen-ja' == 'ist-ein-fumoir-betroffen'|answer \n||\n[\n  'fumoir-neu',\n  'fumoir-bestehend',\n  'fumoir-erweiterung'\n] intersects 'fumoir'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('ist-ein-fumoir-betroffen-ja' == 'ist-ein-fumoir-betroffen'|answer \n||\n[\n  'fumoir-neu',\n  'fumoir-bestehend',\n  'fumoir-erweiterung'\n] intersects 'fumoir'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -43998,8 +43343,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Pfahl-, Injektions- oder Ankerpl\\u00e4ne, Situation und Schnittpl\\u00e4ne mit Koten in m \\u00fc.M. (falls geplant)\", \"fr\": \"Plans de situation et coupes des installations: pieux, palplanches, injections, ancrages (m s. m.), le cas \\u00e9ch\\u00e9ant\"}",
       "type": "multiple_choice",
-      "is_required": "'bauten-oder-pfaehlen-im-grundwasser-ja' == 'bauten-oder-pfaehlen-im-grundwasser'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('bauten-oder-pfaehlen-im-grundwasser-ja' == 'bauten-oder-pfaehlen-im-grundwasser'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -44032,8 +43377,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Pl\\u00e4ne - Zugang zum Arbeitsbereich \\u00fcber Schleusen\", \"fr\": \"Plans - Acc\\u00e8s \\u00e0 la zone de travail \\u00e0 travers un sas\"}",
       "type": "multiple_choice",
-      "is_required": "'zugang-zum-arbeitsbereich-ueber-schleuse-ja' == 'zugang-zum-arbeitsbereich-ueber-schleuse'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('zugang-zum-arbeitsbereich-ueber-schleuse-ja' == 'zugang-zum-arbeitsbereich-ueber-schleuse'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -44066,8 +43411,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Pl\\u00e4ne - Atmosph\\u00e4rischer Unterdruck\", \"fr\": \"Plans - Pression atmosph\\u00e9rique\"}",
       "type": "multiple_choice",
-      "is_required": "'atmosphaerischer-unterdruck-ja' == 'atmosphaerischer-unterdruck'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('atmosphaerischer-unterdruck-ja' == 'atmosphaerischer-unterdruck'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -44100,8 +43445,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Pl\\u00e4ne Gastgewerbebetrieb\", \"fr\": \"Plans de l'\\u00e9tablissement d'h\\u00f4tellerie ou de restauration\"}",
       "type": "multiple_choice",
-      "is_required": "'ist-ein-fumoir-betroffen-ja' == 'ist-ein-fumoir-betroffen'|answer \n||\n[\n  'fumoir-neu',\n  'fumoir-bestehend',\n  'fumoir-erweiterung'\n] intersects 'fumoir'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('ist-ein-fumoir-betroffen-ja' == 'ist-ein-fumoir-betroffen'|answer \n||\n[\n  'fumoir-neu',\n  'fumoir-bestehend',\n  'fumoir-erweiterung'\n] intersects 'fumoir'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -44850,8 +44195,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"QS-Verantwortlicher und Projektorganisation\", \"fr\": \"Responsable du syst\\u00e8me d\\u2019assurance qualit\\u00e9 et organisation de projet\"}",
       "type": "multiple_choice",
-      "is_required": "[\n  'qss-stufe-2',\n  'qss-stufe-3'\n] intersects 'qss-stufe'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!([\n  'qss-stufe-2',\n  'qss-stufe-3'\n] intersects 'qss-stufe'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -44916,8 +44261,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Qualit\\u00e4tssicherungskonzept\", \"fr\": \"Syst\\u00e8me d\\u2019assurance qualit\\u00e9\"}",
       "type": "multiple_choice",
-      "is_required": "[\n  'qss-stufe-2',\n  'qss-stufe-3'\n] intersects 'qss-stufe'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!([\n  'qss-stufe-2',\n  'qss-stufe-3'\n] intersects 'qss-stufe'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -45044,8 +44389,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Regierungsratsbeschluss zum Bauinventar\", \"fr\": \"Arr\\u00eat\\u00e9 du Conseil-ex\\u00e9cutif concernant le recensement architectural\"}",
       "type": "multiple_choice",
-      "is_required": "'rrb-ja' == 'rrb'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('rrb-ja' == 'rrb'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -45200,8 +44545,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Risikoermittlung gem\\u00e4ss StFV\", \"fr\": \"Etude de risque selon l'OPAM\"}",
       "type": "multiple_choice",
-      "is_required": "'liegt-risikoermittlung-vor-ja' == 'liegt-risikoermittlung-vor'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('liegt-risikoermittlung-vor-ja' == 'liegt-risikoermittlung-vor'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -45234,8 +44579,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Rodungs- und Ersatzaufforstungsplan\", \"fr\": \"Plan de d\\u00e9frichement et de reboisement de compensation\"}",
       "type": "multiple_choice",
-      "is_required": "'ist-fuer-das-vorhaben-eine-rodung-notwendig-ja' == 'ist-fuer-das-vorhaben-eine-rodung-notwendig'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('ist-fuer-das-vorhaben-eine-rodung-notwendig-ja' == 'ist-fuer-das-vorhaben-eine-rodung-notwendig'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -45268,8 +44613,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Rodungsgesuchsformular BAFU\", \"fr\": \"formulaire de demande de d\\u00e9frichement\"}",
       "type": "multiple_choice",
-      "is_required": "'ist-fuer-das-vorhaben-eine-rodung-notwendig-ja' == 'ist-fuer-das-vorhaben-eine-rodung-notwendig'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('ist-fuer-das-vorhaben-eine-rodung-notwendig-ja' == 'ist-fuer-das-vorhaben-eine-rodung-notwendig'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -45366,8 +44711,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"R\\u00fcckbau Checkliste / Selbstdeklaration\", \"fr\": \"Liste de contr\\u00f4le pour le d\\u00e9mant\\u00e8lement / D\\u00e9claration spontan\\u00e9e\"}",
       "type": "multiple_choice",
-      "is_required": "'werden-bestehende-bauten-zurueckgebaut-ja' == 'werden-bestehende-bauten-zurueckgebaut'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('werden-bestehende-bauten-zurueckgebaut-ja' == 'werden-bestehende-bauten-zurueckgebaut'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -45543,40 +44888,6 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "schadstoffermittlung-gutachten-dokument",
-    "fields": {
-      "created_at": "2019-05-13T12:30:42.051Z",
-      "modified_at": "2019-05-13T14:08:15.007Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Schadstoffermittlung / Gutachten\", \"fr\": \"D\\u00e9tection de polluants / expertise\"}",
-      "type": "multiple_choice",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true,
-        "widgetOverride": null,
-        "documentCategory": "spezialformulare-entsorgung-bodenschutz"
-      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -45827,8 +45138,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Schnitt\", \"fr\": \"Coupe\"}",
       "type": "multiple_choice",
-      "is_required": "!(\n  'vorabklaerung' in form ||\n  'is-paper'|answer == 'is-paper-yes' ||\n  (\n    'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n    'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-weitere\"]' &&\n    'baubeschrieb'|answer|stringify == '[\"baubeschrieb-andere\"]'\n  )\n)",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "'vorabklaerung' in form ||\n'is-paper'|answer == 'is-paper-yes' ||\n(\n  'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n  'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-weitere\"]' &&\n  'baubeschrieb'|answer|stringify == '[\"baubeschrieb-andere\"]'\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -45861,8 +45172,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Schnittplan mit Untergeschoss und Baugrubenumschliessung, eingezeichneter Wasserhaltung sowie mittlerem Grundwasserspiegel (mit den entsprechenden Koten in m \\u00fc.M.)\", \"fr\": \"Coupe des sous-sols avec indication de l'enceinte de la fouille, description du syst\\u00e8me d'\\u00e9puisement et du niveau moyen de la nappe phr\\u00e9atique (cotes en m s. m.)\"}",
       "type": "multiple_choice",
-      "is_required": "'bauten-oder-pfaehlen-im-grundwasser-ja' == 'bauten-oder-pfaehlen-im-grundwasser'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('bauten-oder-pfaehlen-im-grundwasser-ja' == 'bauten-oder-pfaehlen-im-grundwasser'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -46085,8 +45396,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Schutzraum (1:50)\", \"fr\": \"Abri (1:50)\"}",
       "type": "multiple_choice",
-      "is_required": "'sammelschutzraum-ja' == 'sammelschutzraum'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('sammelschutzraum-ja' == 'sammelschutzraum'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -46244,8 +45555,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Sicherheitsdatenbl\\u00e4tter St\\u00f6rfallvorsorge\", \"fr\": \"Fiches de donn\\u00e9es de s\\u00e9curit\\u00e9 (pr\\u00e9vention des accidents majeurs)\"}",
       "type": "multiple_choice",
-      "is_required": "'gentechnisch-veraenderte-pathogene-organismen-ja' == 'gentechnisch-veraenderte-pathogene-organismen'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('gentechnisch-veraenderte-pathogene-organismen-ja' == 'gentechnisch-veraenderte-pathogene-organismen'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -46368,8 +45679,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Vertrag - mit Sicherungsleistung befreite Geb\\u00e4ude\", \"fr\": \"Contrat - b\\u00e2timent/s dont les propri\\u00e9taires ont \\u00e9t\\u00e9 exempt\\u00e9s, moyennant une s\\u00fbret\\u00e9, de l'obligation de construire un abri\"}",
       "type": "multiple_choice",
-      "is_required": "'integration-anderer-gebaeude-ja' == 'integration-anderer-gebaeude'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('integration-anderer-gebaeude-ja' == 'integration-anderer-gebaeude'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -46402,8 +45713,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Sicherungsmassnahme\", \"fr\": \"Mesure de s\\u00fbret\\u00e9\"}",
       "type": "multiple_choice",
-      "is_required": "[\n  'vorbereitende-massnahmen-rammen',\n  'vorbereitende-massnahmen-pfahlen',\n  'vorbereitende-massnahmen-sprengen'\n] intersects 'vorbereitende-massnahmen'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!([\n  'vorbereitende-massnahmen-rammen',\n  'vorbereitende-massnahmen-pfahlen',\n  'vorbereitende-massnahmen-sprengen'\n] intersects 'vorbereitende-massnahmen'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -46560,8 +45871,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Situationsplan\", \"fr\": \"Plan de situation\"}",
       "type": "multiple_choice",
-      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "'vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes'",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -46626,8 +45937,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Situationsplan\", \"fr\": \"Plan de situation\"}",
       "type": "multiple_choice",
-      "is_required": "'gesuchstyp-baum' == 'gesuchstyp'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('gesuchstyp-baum' == 'gesuchstyp'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
@@ -46724,8 +46035,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Skizze der Reklame mit Farbangaben\", \"fr\": \"Croquis de la r\\u00e9clame (avec l\\u2019indication des couleurs)\"}",
       "type": "multiple_choice",
-      "is_required": "'gibt-es-bewilligungspflichtige-reklame-ja' == 'gibt-es-bewilligungspflichtige-reklame'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('gibt-es-bewilligungspflichtige-reklame-ja' == 'gibt-es-bewilligungspflichtige-reklame'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -46857,8 +46168,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Sondenmodell mit Datenblatt\", \"fr\": \"Mod\\u00e8le de sonde avec fiche informative\"}",
       "type": "multiple_choice",
-      "is_required": "'sondenmodell-anderes-sondenmodell' in 'sondenmodelle'|answer|mapby('sondenmodell')",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('sondenmodell-anderes-sondenmodell' in 'sondenmodelle'|answer|mapby('sondenmodell'))",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -47056,8 +46367,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Sterilisation Abwasser\", \"fr\": \"St\\u00e9rilisation des eaux us\\u00e9es\"}",
       "type": "multiple_choice",
-      "is_required": "'sterilisation-des-abwassers-ja' == 'sterilisation-des-abwassers'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('sterilisation-des-abwassers-ja' == 'sterilisation-des-abwassers'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -47246,8 +46557,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Stoffliste St\\u00f6rfallvorsorge\", \"fr\": \"Liste des substances (pr\\u00e9vention des accidents majeurs)\"}",
       "type": "multiple_choice",
-      "is_required": "'gentechnisch-veraenderte-pathogene-organismen-ja' == 'gentechnisch-veraenderte-pathogene-organismen'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('gentechnisch-veraenderte-pathogene-organismen-ja' == 'gentechnisch-veraenderte-pathogene-organismen'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -49080,8 +48391,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"\\u00dcberbauung in %\", \"fr\": \"Occupation du sol en %\"}",
       "type": "multiple_choice",
-      "is_required": "null != 'ueberbauung-in-prozent'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!(null != 'ueberbauung-in-prozent'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -49182,8 +48493,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"\\u00dcbersichtsplan 1:25'000\", \"fr\": \"Plan d'ensemble 1:25'000\"}",
       "type": "multiple_choice",
-      "is_required": "'ist-fuer-das-vorhaben-eine-rodung-notwendig-ja' == 'ist-fuer-das-vorhaben-eine-rodung-notwendig'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('ist-fuer-das-vorhaben-eine-rodung-notwendig-ja' == 'ist-fuer-das-vorhaben-eine-rodung-notwendig'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -49278,8 +48589,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Umgebungsplan\", \"fr\": \"Plan d\\u2019am\\u00e9nagement des abords\"}",
       "type": "multiple_choice",
-      "is_required": "'wurden-vorabklaerungen-durchgefuehrt-ja' == 'wurden-vorabklaerungen-durchgefuehrt'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('wurden-vorabklaerungen-durchgefuehrt-ja' == 'wurden-vorabklaerungen-durchgefuehrt'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -49289,40 +48600,6 @@
         "hideLabel": true,
         "widgetOverride": null,
         "documentCategory": "plaene"
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "umweltvertraeglichkeitsbericht-dokument",
-    "fields": {
-      "created_at": "2019-05-13T12:46:39.870Z",
-      "modified_at": "2019-06-06T16:11:38.835Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Umweltvertr\\u00e4glichkeitsbericht\", \"fr\": \"Rapport relatif \\u00e0 l\\u2019impact sur l\\u2019environnement\"}",
-      "type": "multiple_choice",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true,
-        "widgetOverride": null,
-        "documentCategory": "baugesuch-mit-uvp"
       },
       "data_source": null,
       "row_form": null,
@@ -49539,8 +48816,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Pl\\u00e4ne, Berichte und Berechnungen \\u00fcber neue und bestehende Versickerungsanlagen\", \"fr\": \"Plans, rapports et notes de calcul relatifs aux installations d'infiltration\"}",
       "type": "multiple_choice",
-      "is_required": "'sind-belange-des-gewasserschutzes-betroffen-ja' == 'sind-belange-des-gewasserschutzes-betroffen'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('sind-belange-des-gewasserschutzes-betroffen-ja' == 'sind-belange-des-gewasserschutzes-betroffen'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -49637,8 +48914,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Vertrag zum Bauinventar\", \"fr\": \"Contrat relatif au recensement architectural\"}",
       "type": "multiple_choice",
-      "is_required": "'vertrag-ja' == 'vertrag'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('vertrag-ja' == 'vertrag'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -49895,8 +49172,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Deklaration zur Verwertung von abgetragenem Boden\", \"fr\": \"D\\u00e9claration concernant la valorisation de mat\\u00e9riaux terreux d\\u00e9cap\\u00e9s\"}",
       "type": "multiple_choice",
-      "is_required": "'mehr-als-500-m3-bodenmaterial-ja' == 'mehr-als-500-m3-bodenmaterial'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('mehr-als-500-m3-bodenmaterial-ja' == 'mehr-als-500-m3-bodenmaterial'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -49961,8 +49238,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Vollmacht\", \"fr\": \"Procuration\"}",
       "type": "multiple_choice",
-      "is_required": "'vollmacht-mit-handlungsspielraum' in 'personalien-vertreterin-mit-vollmacht'|answer|mapby('vollmacht')",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('vollmacht-mit-handlungsspielraum' in 'personalien-vertreterin-mit-vollmacht'|answer|mapby('vollmacht'))",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -49995,8 +49272,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Vorabkl\\u00e4rung\", \"fr\": \"Demande pr\\u00e9alable\"}",
       "type": "multiple_choice",
-      "is_required": "'wurden-vorabklaerungen-durchgefuehrt-ja' == 'wurden-vorabklaerungen-durchgefuehrt'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('wurden-vorabklaerungen-durchgefuehrt-ja' == 'wurden-vorabklaerungen-durchgefuehrt'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -50371,40 +49648,6 @@
         "max_length": null
       },
       "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "voruntersuchung-dokument",
-    "fields": {
-      "created_at": "2019-05-13T12:46:09.036Z",
-      "modified_at": "2019-05-13T12:46:09.036Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Voruntersuchung\", \"fr\": \"Investigation pr\\u00e9alable\"}",
-      "type": "multiple_choice",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true,
-        "widgetOverride": null,
-        "documentCategory": "baugesuch-mit-uvp"
-      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -50812,8 +50055,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Weitere Angaben bei Regeneration der EWS\", \"fr\": \"informations suppl\\u00e9mentaires concernant r\\u00e9g\\u00e9n\\u00e9ration des sondes thermiques\"}",
       "type": "multiple_choice",
-      "is_required": "'regeneration-oder-aktive-thermische-aufladung-nein' == 'regeneration-oder-aktive-thermische-aufladung'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('regeneration-oder-aktive-thermische-aufladung-nein' == 'regeneration-oder-aktive-thermische-aufladung'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -51147,40 +50390,6 @@
       "configuration": {},
       "meta": {
         "widgetOverride": null
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "werkleitungsplan-dokument",
-    "fields": {
-      "created_at": "2019-05-13T11:52:30.173Z",
-      "modified_at": "2019-05-13T11:52:30.173Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Werkleitungsplan\", \"fr\": \"Plan des conduites\"}",
-      "type": "multiple_choice",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true,
-        "widgetOverride": null,
-        "documentCategory": "plaene"
       },
       "data_source": null,
       "row_form": null,
@@ -51971,45 +51180,11 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Zustimmung der Anst\\u00f6sser falls die Versickerung nicht publiziert wurde\", \"fr\": \"Consentement des voisins si l'infiltration n'a pas fait l'objet d'une publication\"}",
       "type": "multiple_choice",
-      "is_required": "'sind-belange-des-gewasserschutzes-betroffen-ja' == 'sind-belange-des-gewasserschutzes-betroffen'|answer",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!('sind-belange-des-gewasserschutzes-betroffen-ja' == 'sind-belange-des-gewasserschutzes-betroffen'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true,
-        "widgetOverride": null,
-        "documentCategory": "zustimmungen"
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "zustimmung-der-nachbarn-dokument",
-    "fields": {
-      "created_at": "2019-05-13T11:26:25.035Z",
-      "modified_at": "2019-05-13T11:26:25.035Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Zustimmung der Nachbarn nach 27 / 4 BewD\", \"fr\": \"Accord des voisins selon l'article 27, alin\\u00e9a 4 DPC\"}",
-      "type": "multiple_choice",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
@@ -52974,21 +52149,6 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "ausnahmebegruendung-dokument.ausnahmebegruendung-dokument-ja",
-    "fields": {
-      "created_at": "2019-05-13T10:41:13.495Z",
-      "modified_at": "2019-05-16T07:16:52.013Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "ausnahmebegruendung-dokument",
-      "option": "ausnahmebegruendung-dokument-ja",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
     "pk": "ausnahmegesuch-energie-dokument.ausnahmegesuch-energie-dokument-ja",
     "fields": {
       "created_at": "2019-05-23T08:04:02.645Z",
@@ -53270,36 +52430,6 @@
       "question": "baubeschrieb",
       "option": "baubeschrieb-umnutzung",
       "sort": 7
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "baubewilligung-ausbauprojekte-dokument.baubewilligung-ausbauprojekte-dokument-ja",
-    "fields": {
-      "created_at": "2019-05-13T10:41:13.495Z",
-      "modified_at": "2019-05-16T07:16:52.013Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "baubewilligung-ausbauprojekte-dokument",
-      "option": "baubewilligung-ausbauprojekte-dokument-ja",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "baubewilligungsakte-dokument.baubewilligungsakte-dokument-ja",
-    "fields": {
-      "created_at": "2019-05-13T10:41:13.495Z",
-      "modified_at": "2019-05-16T07:16:52.013Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "baubewilligungsakte-dokument",
-      "option": "baubewilligungsakte-dokument-ja",
-      "sort": 1
     }
   },
   {
@@ -53754,21 +52884,6 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "berechnung-kinderspielplaetze-dokument.berechnung-kinderspielplaetze-dokument-ja",
-    "fields": {
-      "created_at": "2019-05-13T10:41:13.495Z",
-      "modified_at": "2019-05-16T07:16:52.013Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "berechnung-kinderspielplaetze-dokument",
-      "option": "berechnung-kinderspielplaetze-dokument-ja",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
     "pk": "berechnungen-abstellplaetze-dokument.berechnungen-abstellplaetze-dokument-ja",
     "fields": {
       "created_at": "2019-05-13T10:41:13.495Z",
@@ -53960,21 +53075,6 @@
       "question": "betriebsweise",
       "option": "betriebsweise-monovalent",
       "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "bewehrungsplan-bewehrungsliste-dokument.bewehrungsplan-bewehrungsliste-dokument-ja",
-    "fields": {
-      "created_at": "2019-05-13T10:41:13.495Z",
-      "modified_at": "2019-05-16T07:16:52.013Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "bewehrungsplan-bewehrungsliste-dokument",
-      "option": "bewehrungsplan-bewehrungsliste-dokument-ja",
-      "sort": 1
     }
   },
   {
@@ -54489,21 +53589,6 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "dokumente-der-bauausfuehrung-dokument.dokumente-der-bauausfuehrung-dokument-ja",
-    "fields": {
-      "created_at": "2019-05-13T10:41:13.495Z",
-      "modified_at": "2019-05-16T07:16:52.013Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "dokumente-der-bauausfuehrung-dokument",
-      "option": "dokumente-der-bauausfuehrung-dokument-ja",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
     "pk": "duschmoeglichkeit-in-der-schleuse.duschmoglichkeit-in-der-schleuse-ja",
     "fields": {
       "created_at": "2019-05-10T16:46:00.609Z",
@@ -54634,21 +53719,6 @@
       "modified_by_group": null,
       "question": "einreichen-button",
       "option": "einreichen-button-eingereicht",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "einverstaendniserklaerung-wald-dokument.einverstaendniserklaerung-wald-dokument-ja",
-    "fields": {
-      "created_at": "2019-05-13T10:41:13.495Z",
-      "modified_at": "2019-05-16T07:16:52.013Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "einverstaendniserklaerung-wald-dokument",
-      "option": "einverstaendniserklaerung-wald-dokument-ja",
       "sort": 1
     }
   },
@@ -55179,21 +54249,6 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "formular-erdbebensicherheit-ebs.formular-erdbebensicherheit-ebs-ja",
-    "fields": {
-      "created_at": "2019-11-06T07:22:45.947Z",
-      "modified_at": "2019-11-06T07:22:45.947Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "formular-erdbebensicherheit-ebs",
-      "option": "formular-erdbebensicherheit-ebs-ja",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
     "pk": "forstliche-baute.forstliche-baute-ja",
     "fields": {
       "created_at": "2020-04-01T07:05:43.783Z",
@@ -55610,21 +54665,6 @@
       "question": "gefahrenstufe",
       "option": "gefahrenstufe-unbestimmt",
       "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "gemeindespezifisches-formular.gemeindespezifisches-formular-ja",
-    "fields": {
-      "created_at": "2019-11-06T07:23:10.195Z",
-      "modified_at": "2019-11-06T07:23:10.195Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "gemeindespezifisches-formular",
-      "option": "gemeindespezifisches-formular-ja",
-      "sort": 1
     }
   },
   {
@@ -57264,36 +56304,6 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "konzessionsgesuch-kuehlwasser-dokument.konzessionsgesuch-kuehlwasser-dokument-ja",
-    "fields": {
-      "created_at": "2019-05-13T10:41:13.495Z",
-      "modified_at": "2019-05-16T07:16:52.013Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "konzessionsgesuch-kuehlwasser-dokument",
-      "option": "konzessionsgesuch-kuehlwasser-dokument-ja",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "konzessionsgesuch-waermepumpe-dokument.konzessionsgesuch-waermepumpe-dokument-ja",
-    "fields": {
-      "created_at": "2019-05-13T10:41:13.495Z",
-      "modified_at": "2019-05-16T07:16:52.013Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "konzessionsgesuch-waermepumpe-dokument",
-      "option": "konzessionsgesuch-waermepumpe-dokument-ja",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
     "pk": "kurzbericht-gemaess-stfv-dokument.kurzbericht-gemaess-stfv-dokument-ja",
     "fields": {
       "created_at": "2019-05-22T09:36:03.205Z",
@@ -58129,21 +57139,6 @@
       "modified_by_group": null,
       "question": "nachweis-anforderungen-dokument",
       "option": "nachweis-anforderungen-dokument-ja",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "naeherbau-grenzbaurecht-dokument.naeherbau-grenzbaurecht-dokument-ja",
-    "fields": {
-      "created_at": "2019-05-13T10:41:13.495Z",
-      "modified_at": "2019-05-16T07:16:52.013Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "naeherbau-grenzbaurecht-dokument",
-      "option": "naeherbau-grenzbaurecht-dokument-ja",
       "sort": 1
     }
   },
@@ -59709,21 +58704,6 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "schadstoffermittlung-gutachten-dokument.schadstoffermittlung-gutachten-dokument-ja",
-    "fields": {
-      "created_at": "2019-05-13T10:41:13.495Z",
-      "modified_at": "2019-05-16T07:16:52.013Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "schadstoffermittlung-gutachten-dokument",
-      "option": "schadstoffermittlung-gutachten-dokument-ja",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
     "pk": "schalldruckpegelabnahme.schalldruckpegelabnahme-ja",
     "fields": {
       "created_at": "2021-01-25T10:04:21.205Z",
@@ -60804,21 +59784,6 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "umweltvertraeglichkeitsbericht-dokument.umweltvertraeglichkeitsbericht-dokument-ja",
-    "fields": {
-      "created_at": "2019-06-06T16:11:38.860Z",
-      "modified_at": "2019-06-06T16:11:38.860Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "umweltvertraeglichkeitsbericht-dokument",
-      "option": "umweltvertraeglichkeitsbericht-dokument-ja",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
     "pk": "versickerung-dachflaechen.versickerung-dachflaechen-ja",
     "fields": {
       "created_at": "2019-05-10T16:45:59.702Z",
@@ -61399,21 +60364,6 @@
       "modified_by_group": null,
       "question": "vorbereitende-massnahmen",
       "option": "vorbereitende-massnahmen-sprengen",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "voruntersuchung-dokument.voruntersuchung-dokument-ja",
-    "fields": {
-      "created_at": "2019-05-13T10:41:13.495Z",
-      "modified_at": "2019-05-16T07:16:52.013Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "voruntersuchung-dokument",
-      "option": "voruntersuchung-dokument-ja",
       "sort": 1
     }
   },
@@ -62319,21 +61269,6 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "werkleitungsplan-dokument.werkleitungsplan-dokument-ja",
-    "fields": {
-      "created_at": "2019-05-13T10:41:13.495Z",
-      "modified_at": "2019-05-16T07:16:52.013Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "werkleitungsplan-dokument",
-      "option": "werkleitungsplan-dokument-ja",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
     "pk": "wildtierschutz.wildtierschutz-ja",
     "fields": {
       "created_at": "2019-09-18T09:49:40.349Z",
@@ -63154,21 +62089,6 @@
       "modified_by_group": null,
       "question": "zustimmung-der-anstoesser-dokument",
       "option": "zustimmung-der-anstoesser-dokument-ja",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "zustimmung-der-nachbarn-dokument.zustimmung-der-nachbarn-dokument-ja",
-    "fields": {
-      "created_at": "2019-05-13T10:41:13.495Z",
-      "modified_at": "2019-05-16T07:16:52.013Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "zustimmung-der-nachbarn-dokument",
-      "option": "zustimmung-der-nachbarn-dokument-ja",
       "sort": 1
     }
   }
