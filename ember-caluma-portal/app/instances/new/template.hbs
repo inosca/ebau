@@ -19,8 +19,8 @@
             <div class="uk-text-center">
               <p class="uk-flex-inline uk-text-large uk-flex-middle">
                 {{t (concat "instances.new." category ".title")}}
-                {{#if (t (concat "instances.new." category ".info"))}}
-                  <CfField::info @text={{t (concat "instances.new." category ".info")}} />
+                {{#if (t (concat "instances.new." category ".info-" (application-name)))}}
+                  <CfField::info @text={{t (concat "instances.new." category ".info-" (application-name))}} />
                 {{/if}}
               </p>
               {{#each forms as |form|}}

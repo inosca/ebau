@@ -6,7 +6,7 @@
     <h2>
       {{this.instance.mainForm.name}} {{this.instance.typeDetail}}
       <span class="uk-text-light">
-        ({{t "instances.instanceId"}} {{this.model}})
+        ({{t (concat "instances.instance-id-" (application-name))}} {{this.model}})
       </span>
     </h2>
   {{/unless}}
