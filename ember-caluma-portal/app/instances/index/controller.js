@@ -40,22 +40,22 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
     return [
       {
         value: "camac-instance-id:desc",
-        label: "instances.instanceId",
+        label: `instances.instance-id-${config.APPLICATION.name}`,
         direction: "instances.desc",
       },
       {
         value: "camac-instance-id:asc",
-        label: "instances.instanceId",
+        label: `instances.instance-id-${config.APPLICATION.name}`,
         direction: "instances.asc",
       },
       {
         value: "ebau-number:desc",
-        label: "instances.ebau",
+        label: `instances.special-id-${config.APPLICATION.name}`,
         direction: "instances.desc",
       },
       {
         value: "ebau-number:asc",
-        label: "instances.ebau",
+        label: `instances.special-id-${config.APPLICATION.name}`,
         direction: "instances.asc",
       },
       {
