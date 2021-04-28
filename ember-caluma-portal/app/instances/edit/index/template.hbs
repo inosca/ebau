@@ -5,76 +5,38 @@
     </h2>
   </div>
   <div class="uk-width-2-3">
-    <table
-      class="uk-table uk-table-justify uk-table-small instance-overview__info-table"
-    >
-      <tbody>
-        <tr>
-          <th class="uk-text-bold uk-width-1-6 uk-text-top">
-            {{t (concat "instances.special-id-" (application-name))}}
-          </th>
-          <td class="uk-width-1-3">
-            {{or this.data.ebauNr "-"}}
-          </td>
-          <th class="uk-text-bold uk-width-1-6">
-            {{t (concat "instances.address-" (application-name))}}
-          </th>
-          <td class="uk-width-1-3">
-            {{or this.data.address "-"}}
-          </td>
-        </tr>
-        <tr>
-          <th class="uk-text-bold uk-width-1-6">
-            {{t "instances.type"}}
-          </th>
-          <td class="uk-width-1-3">
-            {{this.data.type}}
-          </td>
-          <th class="uk-text-bold uk-width-1-6">
-            {{t "instances.municipality"}}
-          </th>
-          <td class="uk-width-1-3">
-            {{or this.data.municipality "-"}}
-          </td>
-        </tr>
-        <tr>
-          <th class="uk-text-bold uk-width-1-6 uk-text-top">
-            {{t "instances.status.title"}}
-          </th>
-          <td class="uk-width-1-3">
-            {{this.instance.status}}
-          </td>
-          {{#if this.instance.activeService.name}}
-            <th class="uk-text-bold uk-width-1-6">
-              {{t "instances.lead"}}
-            </th>
-            <td class="uk-width-1-3">
-              {{or this.instance.activeService.name "-"}}
-            </td>
-          {{else}}
-            <th class="uk-text-bold">
-              {{t (concat "instances.building-specification-" (application-name))}}
-            </th>
-            <td>
-              {{or this.data.buildingSpecification "-"}}
-            </td>
-          {{/if}}
-        </tr>
-        <tr>
-          {{! TODO: Druckansicht }}
-          <td></td>
-          <td></td>
-          {{#if this.instance.activeService.name}}
-            <th class="uk-text-bold">
-              {{t (concat "instances.building-specification-" (application-name))}}
-            </th>
-            <td>
-              {{or this.data.buildingSpecification "-"}}
-            </td>
-          {{/if}}
-        </tr>
-      </tbody>
-    </table>
+    <div class="uk-width-1-1" uk-grid>
+      <BeOverviewGridCell
+        @label={{t (concat "instances.special-id-" (application-name))}}
+        @value={{or this.data.ebauNr "-"}}
+      />
+      <BeOverviewGridCell
+        @label={{t (concat "instances.address-" (application-name))}}
+        @value={{or this.data.address "-"}}
+      />
+      <BeOverviewGridCell
+        @label={{t "instances.type"}}
+        @value={{or this.data.type "-"}}
+      />
+      <BeOverviewGridCell
+        @label={{t "instances.municipality"}}
+        @value={{or this.data.municipality "-"}}
+      />
+      <BeOverviewGridCell
+        @label={{t "instances.status.title"}}
+        @value={{or this.instance.status "-"}}
+      />
+      {{#if (eq (application-name) "be")}}
+        <BeOverviewGridCell
+          @label={{t "instances.lead"}}
+          @value={{or this.instance.activeService.name "-"}}
+        />
+      {{/if}}
+      <BeOverviewGridCell
+        @label={{t (concat "instances.building-specification-" (application-name))}}
+        @value={{or this.data.buildingSpecification "-"}}
+      />
+    </div>
   </div>
 </div>
 
