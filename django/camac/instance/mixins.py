@@ -193,14 +193,22 @@ class InstanceQuerysetMixin(object):
     def get_queryset_for_support(self, group=None):
         return self.get_base_queryset()
 
-    def get_queryset_for_organization_readonly(self, group=None):  # pragma: no cover
-        # temporary, actual rules still need to be specified
+    def get_queryset_for_organization_readonly(self, group=None):
         group = self._get_group(group)
         queryset = self.get_base_queryset()
         instance_field = self._get_instance_filter_expr("pk", "in")
+        instance_states = ["ext", "ext_gem", "circ", "redac", "done"]
+        form_ids = [
+            uri_constants.FORM_VORABKLAERUNG_MIT_KANTON,
+            uri_constants.FORM_BAUGESUCH_MIT_KANTON,
+            uri_constants.FORM_BAUGESUCH_OHNE_KANTON,
+            uri_constants.FORM_VORABKLAERUNG_OHNE_KANTON,
+        ]
 
         instances_for_location = models.Instance.objects.filter(
-            location__in=group.locations.all()
+            location__in=group.locations.all(),
+            instance_state__name__in=instance_states,
+            form__form_id__in=form_ids,
         )
 
         return queryset.filter(**{instance_field: instances_for_location})
