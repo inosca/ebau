@@ -21,6 +21,7 @@ from django.utils.timezone import now
 from camac.constants import kt_uri as uri_constants
 from camac.core.models import Answer, ChapterPage
 from camac.instance.models import Instance, JournalEntry
+from camac.instance.serializers import generate_identifier
 from camac.migrate_to_caluma import question_map
 from camac.user.models import Location, User
 
@@ -689,6 +690,12 @@ class Command(BaseCommand):
         self._fill_journal_entries(document, inst)
         self._set_municipality(document, inst)
         self._extract_parcel_number(document, inst)
+        if (
+            inst.instance_state.name == "subm"
+            and not document.case.meta["dossier-number"]
+        ):
+            document.case.meta["dossier-number"] = generate_identifier(inst)
+            document.case.save()
 
         log.info(
             f"Finished instance form for {inst.instance_id}, transferred {num_answers} answers"
