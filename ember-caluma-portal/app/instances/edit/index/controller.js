@@ -9,6 +9,8 @@ import config from "../../../config/environment";
 
 import getOverviewCaseQuery from "ember-caluma-portal/gql/queries/get-overview-case.graphql";
 
+const { answerSlugs } = config.APPLICATION;
+
 const findAnswer = (answers, slug) => {
   const answer = answers.find((answer) => answer.question.slug === slug);
 
@@ -23,15 +25,16 @@ const findAnswer = (answers, slug) => {
 
 function getAddress(answers) {
   const street =
-    findAnswer(answers, "strasse-flurname") ||
-    findAnswer(answers, "strasse-gesuchstellerin");
+    findAnswer(answers, answerSlugs.objectStreet) ||
+    findAnswer(answers, answerSlugs.applicantStreet);
 
   const number =
-    findAnswer(answers, "nr") || findAnswer(answers, "nummer-gesuchstellerin");
+    findAnswer(answers, answerSlugs.objectNumber) ||
+    findAnswer(answers, answerSlugs.applicantNumber);
 
   const city =
-    findAnswer(answers, "ort-grundstueck") ||
-    findAnswer(answers, "ort-gesuchstellerin");
+    findAnswer(answers, answerSlugs.objectLocation) ||
+    findAnswer(answers, answerSlugs.applicantLocation);
 
   return [[street, number].filter(Boolean).join(" "), city]
     .filter(Boolean)
@@ -39,7 +42,7 @@ function getAddress(answers) {
 }
 
 function getEbauNr(raw) {
-  return raw.meta["ebau-number"];
+  return raw.meta[answerSlugs.specialId];
 }
 
 function getType(raw) {
@@ -47,7 +50,9 @@ function getType(raw) {
 }
 
 function getMunicipality(answers) {
-  const answer = answers.find((answer) => answer.question.slug === "gemeinde");
+  const answer = answers.find(
+    (answer) => answer.question.slug === answerSlugs.municipality
+  );
   const selectedOption =
     answer &&
     answer.question.options.edges.find((option) => {
@@ -58,7 +63,7 @@ function getMunicipality(answers) {
 }
 
 function getBuildingSpecification(answers) {
-  return findAnswer(answers, "beschreibung-bauvorhaben");
+  return findAnswer(answers, answerSlugs.constructionDescription);
 }
 
 export default class InstancesEditIndexController extends Controller {
