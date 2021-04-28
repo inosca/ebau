@@ -12,6 +12,8 @@
 @import "pikaday";
 @import "visibility";
 
+@import "components/ur-gis";
+
 $badge-in-tab-ratio: 0.85;
 
 .uk-tab > li > a .uk-badge {
@@ -25,16 +27,4 @@ $badge-in-tab-ratio: 0.85;
 
 .white-space-pre-line {
   white-space: pre-line;
-}
-
-p a {
-  text-decoration: underline;
-}
-
-.leaflet-pane {
-  z-index: 0;
-}
-
-.leaflet-top {
-  z-index: 0;
 }
