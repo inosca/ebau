@@ -63,7 +63,7 @@
 
     <div class="row">
       <div class="label">
-        <label>
+        <label for="title">
           {{t "workItems.title"}}
           <span class="mandatory">
             *
@@ -71,18 +71,18 @@
         </label>
       </div>
       <div class="column-2">
-        <Input @type="text" @value={{mut this.workItem.title}} />
+        <Input @type="text" @value={{mut this.workItem.title}} name="title" id="title" />
       </div>
     </div>
 
     <div class="row">
       <div class="label">
-        <label>
+        <label for="description">
           {{t "workItems.description"}}
         </label>
       </div>
       <div class="column-2">
-        <Textarea @value={{this.workItem.description}} />
+        <Textarea @value={{this.workItem.description}} name="description" id="description" />
       </div>
     </div>
 
