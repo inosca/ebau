@@ -28,6 +28,9 @@ workItems:
   fetchError: "Erreur lors du chargement des tâches"
   saveError: "Erreur en sauvegarder la tâche"
 
+  editFormLabel: "Formulaire pour modifier une tâche"
+  completeFormLabel: "Formulaire pour terminer une tâche"
+
   actions:
     title: "Actions"
     highlight: "Marquage"

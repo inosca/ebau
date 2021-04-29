@@ -11,12 +11,18 @@ support:
     title: "eBau-Nummer ändern"
     description: "Hier können Sie falsch vergebene eBau-Nummern korrigieren. Wenn Sie das untenstehende Feld leer lassen, wird eine neue eBau-Nummer generiert. Der Dossierstatus wird dabei nicht verändert."
 
+    form-label: "Formular zum Ändern der eBau-Nummer"
+    label: "eBau-Nummer"
+
     confirm: "Wollen Sie die eBau-Nummer wirklich ändern?"
     error: "Fehler beim Ändern der eBau-Nummer"
 
   change-form:
     title: "Dossiertyp ändern"
     description: "Hier können Sie falsche Dossiertypen korrigieren. Dies ist nur mit den Typen '<strong'>Baugesuch'</strong'>, '<strong'>Generelles Baugesuch'</strong'> und '<strong'>Baugesuch mit UVP'</strong'> möglich."
+
+    form-label: "Formular zum Ändern des Dossiertyps"
+    label: "Dossiertyp"
 
     confirm: "Wollen Sie den Dossiertyp wirklich ändern?"
     error: "Fehler beim Ändern des Dossiertyps"
