@@ -4,7 +4,7 @@ import { alias } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 
-import config from "ember-caluma-portal/config/environment";
+import config from "caluma-portal/config/environment";
 
 const {
   languages,

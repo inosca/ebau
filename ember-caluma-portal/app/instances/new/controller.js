@@ -8,8 +8,8 @@ import {
 } from "ember-concurrency-decorators";
 import QueryParams from "ember-parachute";
 
-import config from "ember-caluma-portal/config/environment";
-import getRootFormsQuery from "ember-caluma-portal/gql/queries/get-root-forms.graphql";
+import config from "caluma-portal/config/environment";
+import getRootFormsQuery from "caluma-portal/gql/queries/get-root-forms.graphql";
 
 export default class InstancesNewController extends Controller.extend(
   new QueryParams().Mixin
