@@ -1,8 +1,8 @@
-import EmberRouterScroll from "ember-router-scroll";
+import EmberRouter from "@ember/routing/router";
 
 import config from "camac-ng/config/environment";
 
-export default class Router extends EmberRouterScroll {
+export default class Router extends EmberRouter {
   location = config.locationType;
   rootURL = config.rootURL;
 }

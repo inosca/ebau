@@ -6,7 +6,6 @@
     "ember-ebau-core"
   ],
   "resolutions": {
-    "ember-concurrency": "^1.3.0",
-    "uikit": "3.6.19"
+    "ember-concurrency": "^1.3.0"
   }
 }
