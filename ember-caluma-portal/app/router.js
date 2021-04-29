@@ -1,6 +1,6 @@
 import EmberRouter from "@ember/routing/router";
 
-import config from "ember-caluma-portal/config/environment";
+import config from "caluma-portal/config/environment";
 
 export default class Router extends EmberRouter {
   location = config.locationType;
