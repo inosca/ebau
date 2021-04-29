@@ -27317,7 +27317,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": "be-hidden-input"
+        "widgetOverride": "cf-hidden-input"
       },
       "data_source": null,
       "row_form": null,
@@ -29897,7 +29897,7 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
-        "widgetOverride": "be-hidden-input"
+        "widgetOverride": "cf-hidden-input"
       },
       "data_source": null,
       "row_form": null,
@@ -33374,7 +33374,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": "be-hidden-input"
+        "widgetOverride": "cf-hidden-input"
       },
       "data_source": null,
       "row_form": null,
