@@ -1,7 +1,7 @@
 dashboard:
   generalData: "Generelle Daten"
   personalData: "Personalien"
-  buildingProjectStatus: "Bauprojektstatus"
+  buildingProjectStatus: "Projektstatus"
   projectAuthor: "Projektverfasser"
   landowner: "Grundeigentümer"
   invoiceRecipient: "Rechnungsempfänger"
