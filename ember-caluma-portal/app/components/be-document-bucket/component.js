@@ -5,7 +5,7 @@ import { tracked } from "@glimmer/tracking";
 import { dropTask, task } from "ember-concurrency-decorators";
 import UIkit from "uikit";
 
-import config from "ember-caluma-portal/config/environment";
+import config from "caluma-portal/config/environment";
 
 function requiredArgument(_, name) {
   return {

@@ -3,7 +3,7 @@ import { hbs } from "ember-cli-htmlbars";
 import { setupRenderingTest } from "ember-qunit";
 import { module } from "qunit";
 
-import testIf from "ember-caluma-portal/tests/helpers/test-if";
+import testIf from "caluma-portal/tests/helpers/test-if";
 
 module("Integration | Helper | application-name", function (hooks) {
   setupRenderingTest(hooks);

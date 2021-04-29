@@ -1,6 +1,6 @@
 import { test, skip } from "qunit";
 
-import config from "ember-caluma-portal/config/environment";
+import config from "caluma-portal/config/environment";
 
 export default function testIf(appName) {
   if (config.APPLICATION.name === appName) {

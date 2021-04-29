@@ -9,8 +9,8 @@ import moment from "moment";
 
 import { Mixin } from "./query-params";
 
-import config from "ember-caluma-portal/config/environment";
-import getRootFormsQuery from "ember-caluma-portal/gql/queries/get-root-forms.graphql";
+import config from "caluma-portal/config/environment";
+import getRootFormsQuery from "caluma-portal/gql/queries/get-root-forms.graphql";
 
 const getRecursiveSources = (form, forms) => {
   if (!form.source?.slug) {

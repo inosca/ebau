@@ -3,7 +3,7 @@ import { module, test } from "qunit";
 
 import config from "../../../config/environment";
 
-import testIf from "ember-caluma-portal/tests/helpers/test-if";
+import testIf from "caluma-portal/tests/helpers/test-if";
 
 module("Unit | Ability | instance", function (hooks) {
   setupTest(hooks);
