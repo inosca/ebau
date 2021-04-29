@@ -7249,7 +7249,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": "be-hidden-input"
+        "widgetOverride": "cf-hidden-input"
       },
       "data_source": null,
       "row_form": null,
