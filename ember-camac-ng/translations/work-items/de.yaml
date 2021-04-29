@@ -28,6 +28,9 @@ workItems:
   fetchError: "Fehler beim Laden der Aufgaben"
   saveError: "Fehler beim Speichern der Aufgabe"
 
+  editFormLabel: "Formular zum Bearbeiten einer Aufgabe"
+  completeFormLabel: "Formular zum Abschliessen einer Aufgabe"
+
   actions:
     title: "Aktionen"
     highlight: "Markierung"
