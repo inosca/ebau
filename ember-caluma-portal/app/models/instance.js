@@ -3,7 +3,7 @@ import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
 import { lastValue, dropTask } from "ember-concurrency-decorators";
 
-import getFormQuery from "ember-caluma-portal/gql/queries/get-form.graphql";
+import getFormQuery from "caluma-portal/gql/queries/get-form.graphql";
 
 export default class Instance extends Model {
   @service intl;

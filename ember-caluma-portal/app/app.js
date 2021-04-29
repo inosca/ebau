@@ -2,7 +2,7 @@ import Application from "@ember/application";
 import loadInitializers from "ember-load-initializers";
 import Resolver from "ember-resolver";
 
-import config from "ember-caluma-portal/config/environment";
+import config from "caluma-portal/config/environment";
 
 // Intl polyfills
 import "@formatjs/intl-locale/polyfill";

@@ -5,7 +5,7 @@ import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 import QueryParams from "ember-parachute";
 
-import config from "ember-caluma-portal/config/environment";
+import config from "caluma-portal/config/environment";
 
 const FEEDBACK_ATTACHMENT_SECTION =
   config.APPLICATION.documents.feedbackSection;
