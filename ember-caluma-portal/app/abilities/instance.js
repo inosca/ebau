@@ -29,11 +29,11 @@ export default class InstanceAbility extends Ability {
 
   @computed("session.{group,groups.[]}")
   get canCreatePaper() {
-    return !!(
+    return Boolean(
       this.session.group &&
-      (this.session.groups || []).find(
-        (group) => group.canCreatePaper && group.id === this.session.group
-      )
+        (this.session.groups || []).find(
+          (group) => group.canCreatePaper && group.id === this.session.group
+        )
     );
   }
 
@@ -58,11 +58,11 @@ export default class InstanceAbility extends Ability {
     const userId = parseInt(this.get("session.user.id"));
 
     // must be an applicant or support
-    return (
+    return Boolean(
       this.session.isSupport ||
-      applicants.find(
-        (applicant) => parseInt(applicant.get("invitee.id")) === userId
-      )
+        applicants.find(
+          (applicant) => parseInt(applicant.get("invitee.id")) === userId
+        )
     );
   }
 
