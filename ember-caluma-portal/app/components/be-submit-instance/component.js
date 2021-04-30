@@ -16,7 +16,7 @@ export default class BeSubmitInstanceComponent extends Component {
 
   @computed(
     "args.field.document.fields",
-    "field.document.fields.@each.{hidden,isInvalid,optional}"
+    "args.field.document.fields.@each.{hidden,isInvalid,optional}"
   )
   get invalidFields() {
     return this.args.field.document.fields.filter(

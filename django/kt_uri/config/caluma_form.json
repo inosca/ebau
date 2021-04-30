@@ -3265,6 +3265,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "dokumente.bemerkungen-dokumente",
+    "fields": {
+      "created_at": "2021-04-30T13:22:11.445Z",
+      "modified_at": "2021-04-30T13:22:11.445Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "bemerkungen-dokumente",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "dokumente.brandschutzkonzept",
     "fields": {
       "created_at": "2021-04-08T08:36:43.654Z",
@@ -3275,7 +3290,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "brandschutzkonzept",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -3290,7 +3305,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "brandschutzplan",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -3305,7 +3320,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "dachaufsicht",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -3320,7 +3335,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "energienachweis",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -3335,7 +3350,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "entwaesserungsplan",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -3350,7 +3365,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "fassadenplaene",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -3365,7 +3380,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "fotodokumentation",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -3380,7 +3395,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "grundrissplaene",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -3395,7 +3410,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "laengenprofile",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -3410,7 +3425,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "normalprofil",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -3425,7 +3440,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "produktbeschrieb",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -3440,7 +3455,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "querprofile",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -3455,7 +3470,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "schnittplaene",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -3470,7 +3485,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "situationsplan-1-1000",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -3485,7 +3500,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "situationsplan-1-500",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -3500,7 +3515,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "technischer-beschrieb",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -3515,7 +3530,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "werkleitungsplan",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -23870,6 +23885,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "bemerkungen-dokumente",
+    "fields": {
+      "created_at": "2021-04-30T13:22:11.334Z",
+      "modified_at": "2021-04-30T13:22:11.334Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "bemerkungen-druckbehaelter",
     "fields": {
       "created_at": "2020-11-04T09:53:22.692Z",
@@ -26351,15 +26399,15 @@
     "pk": "erklaerung-standortgebundenheit",
     "fields": {
       "created_at": "2021-03-11T16:53:01.265Z",
-      "modified_at": "2021-03-11T16:53:01.265Z",
+      "modified_at": "2021-04-30T13:14:28.167Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Erkl\\u00e4rung zur Standortgebundenheit\", \"fr\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "!(\"landwirtschaftlich-begruendet-nein\" == \"landwirtschaftlich-begruendet\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -31880,14 +31928,14 @@
     "pk": "municipality",
     "fields": {
       "created_at": "2020-07-12T10:30:23.480Z",
-      "modified_at": "2021-02-02T13:00:15.927Z",
+      "modified_at": "2021-04-30T13:18:42.347Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Gemeinde\", \"fr\": null}",
       "type": "dynamic_choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "True",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
@@ -32794,18 +32842,18 @@
     "pk": "parzellen-oder-baurechtsnummer",
     "fields": {
       "created_at": "2020-09-15T11:53:30.983Z",
-      "modified_at": "2020-09-15T11:53:30.983Z",
+      "modified_at": "2021-04-30T13:18:34.923Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Parzellen- oder Baurechtsnummer\", \"fr\": null}",
       "type": "integer",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_value": null,
