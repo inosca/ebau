@@ -119,7 +119,7 @@ module.exports = function (environment) {
       endSessionEndpoint: "/logout",
       userinfoEndpoint: "/userinfo",
       afterLogoutUri: "/login",
-      forwardParams: ["kc_idp_hint"],
+      loginHintName: "kc_idp_hint",
     },
     "ember-ebau-core": {
       gisUrl: "/lisag/ows",
