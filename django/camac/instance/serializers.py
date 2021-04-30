@@ -121,9 +121,7 @@ def generate_identifier(instance, year=None):
         sequence = int(max_identifier[-3:])
 
         identifier = "{0}-{1}-{2}".format(
-            identifier_start,
-            year,
-            str(sequence + 1).zfill(3),
+            identifier_start, year, str(sequence + 1).zfill(3)
         )
 
     return identifier
@@ -363,7 +361,7 @@ class CamacInstanceChangeFormSerializer(serializers.Serializer):
             work_item=work_item,
             user=self.context["request"].caluma_info.context.user,
             context={
-                "notification-body": f'Die Leitbehörde hat ihres Gesuch von einem "{previous_form.description}" zu einem "{instance.form.description}" umgewandelt, da der vorherige Gesuchstyp inkorrekt war.'
+                "notification-body": f'Die Leitbehörde hat ihr Gesuch von "{previous_form.description}" zu "{instance.form.description}" umgewandelt, da der vorherige Gesuchstyp inkorrekt war. Ergänzen Sie bitte die fehlenden Angaben und reichen das Gesuch nochmals ein. - Besten Dank für Ihr Verständnis.'
             },
         )
 
@@ -783,12 +781,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         for slug in settings.APPLICATION["CALUMA"].get(
             "EXTEND_VALIDITY_COPY_TABLE_QUESTIONS", []
         ):
-            caluma_api.copy_table_answer(
-                slug,
-                slug,
-                old_document,
-                new_document,
-            )
+            caluma_api.copy_table_answer(slug, slug, old_document, new_document)
 
         form_api.save_answer(
             form_models.Question.objects.get(pk="dossiernummer"),
@@ -1377,9 +1370,7 @@ class CalumaInstanceArchiveSerializer(serializers.Serializer):
 
         # create a history entry
         create_history_entry(
-            self.instance,
-            self.context["request"].user,
-            gettext_noop("Archived"),
+            self.instance, self.context["request"].user, gettext_noop("Archived")
         )
 
         return instance
@@ -1706,11 +1697,7 @@ class CalumaInstanceFixWorkItemsSerializer(serializers.Serializer):
 
     class Meta:
         resource_name = "instance-fix-work-items"
-        fields = (
-            "dry",
-            "sync_circulation",
-            "output",
-        )
+        fields = ("dry", "sync_circulation", "output")
         read_only_fields = ("output",)
 
 
