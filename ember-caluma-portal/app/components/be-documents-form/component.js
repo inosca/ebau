@@ -47,6 +47,12 @@ export default class BeDocumentsFormComponent extends Component {
     );
   }
 
+  get allOtherFields() {
+    return this.args.fieldset.fields.filter(
+      (field) => field.questionType !== "MultipleChoiceQuestion"
+    );
+  }
+
   get requiredTags() {
     return this.allRequiredTags.reduce((tree, tag) => {
       const category = tag.question.meta.documentCategory || DEFAULT_CATEGORY;

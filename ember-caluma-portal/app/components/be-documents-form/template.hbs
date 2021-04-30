@@ -25,6 +25,14 @@
   <hr>
 {{/if}}
 
+{{#if this.allOtherFields.length}}
+  {{#each this.allOtherFields as |field|}}
+    <CfField/input @field={{field}} />
+  {{/each}}
+  <hr>
+{{/if}}
+
+
 <div
   uk-grid
   masonry="true"
