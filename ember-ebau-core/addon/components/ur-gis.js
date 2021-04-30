@@ -318,12 +318,11 @@ export default class UrGisComponent extends Component {
               value = parcel[field.question.slug];
             }
 
-            if (!isEmpty(value)) {
-              field.answer.set("value", String(value));
-            } else {
-              field.answer.set("value", "");
+            // don't write to fields that were not found in GIS
+            if (value === undefined || value === null) {
+              return;
             }
-
+            field.answer.set("value", String(value));
             await field.save.perform();
             await field.validate.perform();
           })
