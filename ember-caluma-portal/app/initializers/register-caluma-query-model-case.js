@@ -1,4 +1,4 @@
-import CustomCaseModel from "ember-caluma-portal/caluma-query/models/case";
+import CustomCaseModel from "caluma-portal/caluma-query/models/case";
 
 export function initialize(application) {
   application.register("caluma-query-model:case", CustomCaseModel);

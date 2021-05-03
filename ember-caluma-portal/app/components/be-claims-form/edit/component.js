@@ -5,7 +5,7 @@ import { dropTask, restartableTask } from "ember-concurrency-decorators";
 import moment from "moment";
 import { all } from "rsvp";
 
-import config from "ember-caluma-portal/config/environment";
+import config from "caluma-portal/config/environment";
 
 export default class BeClaimsFormEditComponent extends Component {
   @service notification;

@@ -7,7 +7,7 @@ COPY package.json yarn.lock /myapp/
 COPY ember-ebau-core /myapp/ember-ebau-core
 COPY ./ember-caluma-portal/package.json ./ember-caluma-portal/yarn.lock /myapp/ember-caluma-portal/
 
-RUN yarn workspace ember-caluma-portal install
+RUN yarn workspace caluma-portal install
 
 COPY ember-caluma-portal /myapp/ember-caluma-portal
 
