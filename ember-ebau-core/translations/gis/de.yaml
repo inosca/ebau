@@ -1,8 +1,9 @@
 gis:
-  parcelNumber: 'Parzellennummer'
-  buildingLeaseNumber: 'Baurechtsnummer'
-  findParcel: 'Parzelle finden'
-  submitParcel: 'Daten übernehmen'
-  noParcelNumber: 'Es wurde keine entsprechende Parzellen- oder Baurechtsnummer gefunden'
-  technicalError: 'Ein technischer Fehler ist aufgetreten'
-  loadingError: 'Beim Laden ist ein Fehler aufgetreten'
+  parcelNumber: "Parzellennummer"
+  buildingLeaseNumber: "Baurechtsnummer"
+  findParcel: "Parzelle finden"
+  submitParcel: "Daten übernehmen"
+  noParcelNumber: "Es wurde keine entsprechende Parzellen- oder Baurechtsnummer gefunden"
+  technicalError: "Ein technischer Fehler ist aufgetreten"
+  loadingError: "Beim Laden ist ein Fehler aufgetreten"
+  info-text-ur: "Um die Adressdaten automatisch zu übernehmen, klicken Sie bitte auf den roten Punkt des betroffenen Gebäudes."
