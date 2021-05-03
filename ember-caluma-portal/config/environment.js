@@ -40,6 +40,7 @@ module.exports = function (environment) {
       },
       documents: {
         feedbackSection: 3,
+        excludeFromDocuments: ["dokumente-platzhalter"],
       },
       instanceStates: instanceStatesBe,
       modification: {
@@ -77,7 +78,9 @@ module.exports = function (environment) {
           1131, // Support
         ],
       },
-      documents: {},
+      documents: {
+        excludeFromDocuments: [],
+      },
       instanceStates: instanceStatesUr,
       modification: {
         allowForms: ["building-permit"],
