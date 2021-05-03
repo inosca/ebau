@@ -139,6 +139,7 @@ gis:
     title: "Daten übernehmen?"
     yes: "Ja"
     no: "Nein"
+  info-text-ur: "Um die Adressdaten automatisch zu übernehmen, klicken Sie bitte auf den roten Punkt des betroffenen Gebäudes."
 
   notifications:
     min-one: "Sie müssen mindestens eine Parzelle auswählen."
@@ -190,6 +191,8 @@ instances:
   asc: "aufsteigend"
   masterData: "Stammdaten"
   lead: "Leitbehörde"
+  building-specification-be: "Baubeschrieb"
+  building-specification-ur: "Vorhaben"
   actions: "Aktionen"
   activateFurtherPersons: "Weitere Personen freischalten"
   activateFurtherPersonsText: "Im Menü Berechtigungen können weitere Personen für die Bearbeitung dieses Dossiers freigeschalten werden."
@@ -207,6 +210,7 @@ instances:
   deleteInstanceError: "Das Dossier konnte nicht gelöscht werden"
   deleteInstanceSuccess: "Das Dossier wurde erfolgreich gelöscht"
   reasonForRejection: "Begründung Rückweisung"
+  rejection-info-text-ur: "Bitte öffnen Sie das Formular mittels 'Dossier neu einreichen' erneut und ergänzen Sie die fehlenden Angaben."
   modificationTitle: "Neue Projektänderung"
   modificationText: "Hat sich an Ihrem Bauvorhaben etwas geändert? Hier
     können Sie eine Projektänderung erfassen, ohne die bestehenden Daten neu

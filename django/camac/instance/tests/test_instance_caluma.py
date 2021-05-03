@@ -954,8 +954,10 @@ def test_generate_and_store_pdf(
     serializer = CalumaInstanceSubmitSerializer()
 
     application_settings["DOCUMENT_MERGE_SERVICE"] = {
-        "main-form": {"template": "some-template"},
-        "nfd": {"template": "some-template"},
+        "FORM": {
+            "main-form": {"template": "some-template"},
+            "nfd": {"template": "some-template"},
+        },
     }
 
     case = workflow_api.start_case(
@@ -1126,9 +1128,11 @@ def test_generate_pdf_action(
     mocker.patch("rest_framework.authentication.get_authorization_header")
 
     application_settings["DOCUMENT_MERGE_SERVICE"] = {
-        "main-form": {"template": "some-template"},
-        "nfd": {"template": "some-template"},
-        "mp-form": {"template": "some-template"},
+        "FORM": {
+            "main-form": {"template": "some-template"},
+            "nfd": {"template": "some-template"},
+            "mp-form": {"template": "some-template"},
+        },
     }
 
     case = workflow_api.start_case(

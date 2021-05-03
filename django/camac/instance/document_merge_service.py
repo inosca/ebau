@@ -8,6 +8,7 @@ from caluma.caluma_form.validators import DocumentValidator
 from django.conf import settings
 from django.core.files.base import ContentFile
 from django.db.models import Q
+from django.utils.module_loading import import_string
 from django.utils.text import slugify
 from django.utils.translation import get_language, gettext as _
 from rest_framework import exceptions
@@ -18,10 +19,12 @@ from camac.utils import build_url
 request_logger = getLogger("django.request")
 
 
-def get_form_type_key(form_slug):
-    configs = settings.APPLICATION.get("DOCUMENT_MERGE_SERVICE", {})
+def get_form_config():
+    return settings.APPLICATION.get("DOCUMENT_MERGE_SERVICE", {}).get("FORM", {})
 
-    for key, config in configs.items():
+
+def get_form_type_key(form_slug):
+    for key, config in get_form_config().items():
         if form_slug in config.get("forms", []):
             return key
 
@@ -29,9 +32,7 @@ def get_form_type_key(form_slug):
 
 
 def get_form_type_config(form_slug):
-    return settings.APPLICATION.get("DOCUMENT_MERGE_SERVICE", {}).get(
-        get_form_type_key(form_slug), {}
-    )
+    return get_form_config().get(get_form_type_key(form_slug), {})
 
 
 class DMSHandler:
@@ -66,10 +67,29 @@ class DMSHandler:
                 _("No template specified for form '%(form_slug)s'.")
                 % {"form_slug": doc.form.slug}
             )
+        pdf_settings = settings.APPLICATION.get("PDF", {})
+
+        municipality = None
+        if pdf_settings.get("MUNICIPALITY_SLUG"):
+            try:
+                import pdb
+
+                pdb.set_trace()
+                municipality_id = doc.answers.get(
+                    question_id=pdf_settings.get("MUNICIPALITY_SLUG")
+                ).value
+                municipality = (
+                    import_string(pdf_settings.get("MUNICIPALITY_MODEL"))
+                    .objects.get(pk=municipality_id)
+                    .name
+                )
+            except Answer.DoesNotExist:
+                pass
 
         data = {
             "caseId": instance_id,
             "caseType": str(doc.form.name),
+            "municipality": municipality,
             "sections": self.visitor.visit(doc),
             "signatureSectionTitle": _("Signatures"),
             "signatureTitle": _("Signature"),
@@ -365,15 +385,12 @@ class DMSVisitor:
         if self.template_type not in [
             "baugesuch",
             "selbstdeklaration",
+            "building-permit",
         ]:
             return
 
-        slugs = settings.APPLICATION.get("DOCUMENT_MERGE_SERVICE", {}).get("_base", {})
-        slugs.update(
-            settings.APPLICATION.get("DOCUMENT_MERGE_SERVICE", {}).get(
-                self.template_type, {}
-            )
-        )
+        slugs = get_form_config().get("_base", {})
+        slugs.update(get_form_config().get(self.template_type, {}))
 
         personalien_form = Form.objects.get(slug=slugs["personalien"])
 
@@ -393,7 +410,7 @@ class DMSVisitor:
 
             children.append(
                 {
-                    "label": re.match(r".* - (.*)$", table["label"]).group(1),
+                    "label": table["label"],
                     "people": [
                         {
                             slugs["people_names"][field["slug"]]: field["value"]
