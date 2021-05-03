@@ -5,22 +5,22 @@
     </h2>
   </div>
   <div class="uk-width-2-3">
-    <div class="uk-width-1-1" uk-grid>
+    <div class="uk-width-1-1 uk-grid-small" uk-grid>
       <BeOverviewGridCell
         @label={{t (concat "instances.special-id-" (application-name))}}
-        @value={{or this.data.ebauNr "-"}}
+        @value={{or this.case.specialId "-"}}
       />
       <BeOverviewGridCell
         @label={{t (concat "instances.address-" (application-name))}}
-        @value={{or this.data.address "-"}}
+        @value={{or this.case.address "-"}}
       />
       <BeOverviewGridCell
         @label={{t "instances.type"}}
-        @value={{or this.data.type "-"}}
+        @value={{or this.case.type "-"}}
       />
       <BeOverviewGridCell
         @label={{t "instances.municipality"}}
-        @value={{or this.data.municipality "-"}}
+        @value={{or this.case.municipality "-"}}
       />
       <BeOverviewGridCell
         @label={{t "instances.status.title"}}
@@ -33,8 +33,8 @@
         />
       {{/if}}
       <BeOverviewGridCell
-        @label={{t (concat "instances.building-specification-" (application-name))}}
-        @value={{or this.data.buildingSpecification "-"}}
+        @label={{t (concat "instances.description-" (application-name))}}
+        @value={{or this.case.description "-"}}
       />
     </div>
   </div>

@@ -3,13 +3,16 @@ import { inject as service } from "@ember/service";
 import CaseModel from "ember-caluma/caluma-query/models/case";
 import moment from "moment";
 
+import config from "caluma-portal/config/environment";
+
+const { answerSlugs } = config.APPLICATION;
+
 export default class CustomCaseModel extends CaseModel {
   @service store;
 
   _findAnswer(slug) {
-    const answers = this.raw.document.answers.edges.map(({ node }) => node);
     const answer =
-      answers.find((answer) => answer.question.slug === slug) || {};
+      this.answers.find((answer) => answer.question.slug === slug) || {};
 
     const key = Object.keys(answer).find((key) => /Value$/.test(key));
 
@@ -17,7 +20,6 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   @reads("raw.meta.camac-instance-id") instanceId;
-  @reads("raw.meta.ebau-number") ebau;
   @reads("raw.document.form.name") type;
   @reads("instance.status") status;
   @reads("instance.isPaper") isPaper;
@@ -27,9 +29,27 @@ export default class CustomCaseModel extends CaseModel {
     return this.store.peekRecord("instance", this.instanceId);
   }
 
-  get municipality() {
-    const slug = this._findAnswer("gemeinde");
+  get specialId() {
+    return this.raw.meta[answerSlugs.specialId];
+  }
 
+  get answers() {
+    return this.raw.document.answers.edges.map(({ node }) => node);
+  }
+
+  get municipality() {
+    const answer = this.answers.find(
+      (answer) => answer.question.slug === answerSlugs.municipality
+    );
+    const selectedOption =
+      answer &&
+      answer.question.options.edges.find((option) => {
+        return answer.stringValue === option.node.slug;
+      });
+
+    return selectedOption && selectedOption.node.label;
+
+    /*
     return (
       slug &&
       this.store
@@ -37,6 +57,7 @@ export default class CustomCaseModel extends CaseModel {
         ?.name?.replace(/Leitbehörde|Municipalité/, "")
         .trim()
     );
+    */
   }
 
   get submitDate() {
@@ -46,31 +67,20 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get description() {
-    return this._findAnswer("beschreibung-bauvorhaben");
+    return this._findAnswer(answerSlugs.description);
   }
 
   get address() {
-    return [
-      [
-        this._findAnswer("strasse-gesuchstellerin") ||
-          this._findAnswer("strasse-flurname"),
-        this._findAnswer("nummer-gesuchstellerin") || this._findAnswer("nr"),
-      ]
-        .filter(Boolean)
-        .join(" ")
-        .trim(),
-      [
-        this._findAnswer("plz-gesuchstellerin") || null,
-        this._findAnswer("ort-gesuchstellerin") ||
-          this._findAnswer("ort-grundstueck"),
-      ]
-        .filter(Boolean)
-        .join(" ")
-        .trim(),
+    const streetAndNr = [
+      this._findAnswer(answerSlugs.objectStreet),
+      this._findAnswer(answerSlugs.objectNumber),
     ]
       .filter(Boolean)
-      .join(", ")
+      .join(" ")
       .trim();
+    const city = this._findAnswer(answerSlugs.objectLocation)?.trim();
+
+    return [streetAndNr, city].filter(Boolean).join(", ").trim();
   }
 
   static fragment = `{
@@ -84,16 +94,11 @@ export default class CustomCaseModel extends CaseModel {
       }
       answers(
         questions: [
-          "gemeinde"
-          "strasse-gesuchstellerin"
-          "nummer-gesuchstellerin"
-          "plz-gesuchstellerin"
-          "ort-gesuchstellerin"
-          "beschreibung-bauvorhaben"
-          "gemeinde"
-          "strasse-flurname"
-          "nr"
-          "ort-grundstueck"
+          "${answerSlugs.municipality}"
+          "${answerSlugs.description}"
+          "${answerSlugs.objectStreet}"
+          "${answerSlugs.objectNumber}"
+          "${answerSlugs.objectLocation}"
         ]
       ) {
         edges {
@@ -101,6 +106,16 @@ export default class CustomCaseModel extends CaseModel {
             id
             question {
               slug
+              ... on DynamicChoiceQuestion {
+                options {
+                  edges {
+                    node {
+                      slug
+                      label
+                    }
+                  }
+                }
+              }
             }
             ...on StringAnswer {
               stringValue: value
