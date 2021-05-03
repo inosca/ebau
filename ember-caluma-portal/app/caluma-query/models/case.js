@@ -1,4 +1,3 @@
-import { reads } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
 import CaseModel from "ember-caluma/caluma-query/models/case";
 import moment from "moment";
@@ -19,11 +18,9 @@ export default class CustomCaseModel extends CaseModel {
     return answer && key ? answer[key] : null;
   }
 
-  @reads("raw.meta.camac-instance-id") instanceId;
-  @reads("raw.document.form.name") type;
-  @reads("instance.status") status;
-  @reads("instance.isPaper") isPaper;
-  @reads("instance.isModification") isModification;
+  get instanceId() {
+    return this.raw.meta["camac-instance-id"];
+  }
 
   get instance() {
     return this.store.peekRecord("instance", this.instanceId);
@@ -31,6 +28,22 @@ export default class CustomCaseModel extends CaseModel {
 
   get specialId() {
     return this.raw.meta[answerSlugs.specialId];
+  }
+
+  get type() {
+    return this.raw.document.form.name;
+  }
+
+  get status() {
+    return this.instance.status;
+  }
+
+  get isPaper() {
+    return this.instance.isPaper;
+  }
+
+  get isModification() {
+    return this.instance.isModification;
   }
 
   get answers() {
