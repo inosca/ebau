@@ -65,6 +65,7 @@ module.exports = function (environment) {
         description: "beschreibung-bauvorhaben",
         municipality: "gemeinde",
         specialId: "ebau-number",
+        parcelNumber: "parzellennummer",
       },
     },
     kt_uri: {
@@ -100,6 +101,7 @@ module.exports = function (environment) {
         description: "proposal-description",
         municipality: "municipality",
         specialId: "dossier-number",
+        parcelNumber: "parcel-number",
       },
     },
   }[app];
