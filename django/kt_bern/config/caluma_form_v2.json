@@ -3221,36 +3221,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "gewaesserschutz-wassergefaehrdende-fluessigkeiten-v2.gebinde-in-grundwasserschutzzone-v2",
-    "fields": {
-      "created_at": "2021-03-15T15:37:27.826Z",
-      "modified_at": "2021-03-15T15:37:27.826Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "gewaesserschutz-wassergefaehrdende-fluessigkeiten-v2",
-      "question": "gebinde-in-grundwasserschutzzone-v2",
-      "sort": 21
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "gewaesserschutz-wassergefaehrdende-fluessigkeiten-v2.gebindelager-mit-totalem-nutzvolumen-v2",
-    "fields": {
-      "created_at": "2021-03-15T15:34:13.579Z",
-      "modified_at": "2021-03-15T15:34:13.579Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "gewaesserschutz-wassergefaehrdende-fluessigkeiten-v2",
-      "question": "gebindelager-mit-totalem-nutzvolumen-v2",
-      "sort": 22
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "gewaesserschutz-wassergefaehrdende-fluessigkeiten-v2.lageranlagen-v2",
     "fields": {
       "created_at": "2021-03-15T16:12:26.905Z",
@@ -3277,21 +3247,6 @@
       "form": "gewaesserschutz-wassergefaehrdende-fluessigkeiten-v2",
       "question": "lagerung-von-stoffen-v2",
       "sort": 24
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "gewaesserschutz-wassergefaehrdende-fluessigkeiten-v2.lagerung-wassergefaehrdender-fluessigkeiten-titel-v2",
-    "fields": {
-      "created_at": "2021-03-15T15:31:17.057Z",
-      "modified_at": "2021-03-15T15:31:17.057Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "gewaesserschutz-wassergefaehrdende-fluessigkeiten-v2",
-      "question": "lagerung-wassergefaehrdender-fluessigkeiten-titel-v2",
-      "sort": 23
     }
   },
   {
@@ -3412,36 +3367,6 @@
       "form": "gewaesserschutz-wassergefaehrdende-fluessigkeiten-v2",
       "question": "stofflagerung-titel-v2",
       "sort": 18
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "gewaesserschutz-wassergefaehrdende-fluessigkeiten-v2.tankanlage-ueber-2000-liter-v2",
-    "fields": {
-      "created_at": "2021-03-15T15:41:47.578Z",
-      "modified_at": "2021-03-15T15:41:47.578Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "gewaesserschutz-wassergefaehrdende-fluessigkeiten-v2",
-      "question": "tankanlage-ueber-2000-liter-v2",
-      "sort": 20
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "gewaesserschutz-wassergefaehrdende-fluessigkeiten-v2.tanks-in-gewaesserschutzbereichen-v2",
-    "fields": {
-      "created_at": "2021-03-15T15:43:44.642Z",
-      "modified_at": "2021-03-15T15:43:44.642Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "gewaesserschutz-wassergefaehrdende-fluessigkeiten-v2",
-      "question": "tanks-in-gewaesserschutzbereichen-v2",
-      "sort": 19
     }
   },
   {
@@ -4964,6 +4889,22 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "auffangwanne-v2-gemeinsame-auffangwanne",
+    "fields": {
+      "created_at": "2021-05-03T12:16:31.925Z",
+      "modified_at": "2021-05-03T12:16:54.827Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gemeinsame Auffangwanne\", \"fr\": \"Un seul bassin\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "auffangwanne-v2-kunststoff",
     "fields": {
       "created_at": "2021-03-16T17:01:44.219Z",
@@ -4989,6 +4930,22 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Stahl\", \"fr\": \"Acier\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "auffangwanne-v2-zweiwandige-tanks",
+    "fields": {
+      "created_at": "2021-05-03T12:16:31.923Z",
+      "modified_at": "2021-05-03T12:16:54.802Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zweiwandige Tanks\", \"fr\": \"R\\u00e9servoirs \\u00e0 2 parois\"}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5357,70 +5314,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Spezialf\\u00fcllsicherung\", \"fr\": \"Intercepteur sp\\u00e9cial\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "gebinde-in-grundwasserschutzzone-v2-ja",
-    "fields": {
-      "created_at": "2021-03-15T15:37:27.501Z",
-      "modified_at": "2021-03-15T15:38:09.207Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "gebinde-in-grundwasserschutzzone-v2-nein",
-    "fields": {
-      "created_at": "2021-03-15T15:37:27.529Z",
-      "modified_at": "2021-03-15T15:38:09.170Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": \"Non\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "gebindelager-mit-totalem-nutzvolumen-v2-ja",
-    "fields": {
-      "created_at": "2021-03-15T15:34:13.307Z",
-      "modified_at": "2021-03-16T16:52:46.129Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "gebindelager-mit-totalem-nutzvolumen-v2-nein",
-    "fields": {
-      "created_at": "2021-03-15T15:34:13.291Z",
-      "modified_at": "2021-03-16T16:52:46.118Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": \"Non\"}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6216,70 +6109,6 @@
     "fields": {
       "created_at": "2021-03-12T12:48:34.142Z",
       "modified_at": "2021-03-12T12:55:13.817Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": \"Non\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "tankanlage-ueber-2000-liter-v2-ja",
-    "fields": {
-      "created_at": "2021-03-15T15:41:47.245Z",
-      "modified_at": "2021-03-15T15:42:09.349Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "tankanlage-ueber-2000-liter-v2-nein",
-    "fields": {
-      "created_at": "2021-03-15T15:41:47.310Z",
-      "modified_at": "2021-03-15T15:42:09.310Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": \"Non\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "tanks-in-gewaesserschutzbereichen-v2-ja",
-    "fields": {
-      "created_at": "2021-03-15T15:43:44.385Z",
-      "modified_at": "2021-03-15T15:44:11.017Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "tanks-in-gewaesserschutzbereichen-v2-nein",
-    "fields": {
-      "created_at": "2021-03-15T15:43:44.403Z",
-      "modified_at": "2021-03-15T15:44:11.053Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
@@ -7878,66 +7707,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "gebinde-in-grundwasserschutzzone-v2",
-    "fields": {
-      "created_at": "2021-03-15T15:37:27.709Z",
-      "modified_at": "2021-03-15T15:38:09.415Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ist das Gebinde / Tankanlage in einer Grundwasserschutzzone S3, Sm und / oder einem Grundwasserschutzareal?\", \"fr\": \"Le r\\u00e9cipient / r\\u00e9servoir est-il plac\\u00e9 dans une zone de protection des eaux souterraines S3, Sm ou autre?\"}",
-      "type": "choice",
-      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
-      "is_hidden": "'gebindelager-mit-totalem-nutzvolumen-v2'|answer != 'gebindelager-mit-totalem-nutzvolumen-v2-ja'",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": \"\"}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "gebindelager-mit-totalem-nutzvolumen-v2",
-    "fields": {
-      "created_at": "2021-03-15T15:34:13.444Z",
-      "modified_at": "2021-03-16T16:52:46.276Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Gebindelager mit totalem Nutzvolumen > 450 l oder Tankanlagen mit > 450 l pro Tank\", \"fr\": \"Entreposage de r\\u00e9cipients d'un volume utile total > 450 l ou petits r\\u00e9servoirs  > 450 l par r\\u00e9servoir\"}",
-      "type": "choice",
-      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
-      "is_hidden": "!('bewilligungspflichtig-v2-ja' in 'lagerung-von-stoffen-v2'|answer|mapby('bewilligungspflichtig-v2'))",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "geplanter-start-der-erdarbeiten-v2",
     "fields": {
       "created_at": "2021-03-08T12:22:29.410Z",
@@ -8623,36 +8392,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "lagerung-wassergefaehrdender-fluessigkeiten-titel-v2",
-    "fields": {
-      "created_at": "2021-03-15T15:31:16.858Z",
-      "modified_at": "2021-03-16T16:52:37.790Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Lagerung wassergef\\u00e4hrdender Fl\\u00fcssigkeiten\", \"fr\": \"Entreposage de liquides pouvant polluer les eaux\"}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "!('bewilligungspflichtig-v2-ja' in 'lagerung-von-stoffen-v2'|answer|mapby('bewilligungspflichtig-v2'))",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
-      "static_content": "{\"de\": \"***\\n**Lagerung wassergef\\u00e4hrdender Fl\\u00fcssigkeiten**\", \"fr\": \"***\\n**Entreposage de liquides pouvant polluer les eaux**\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "leckwarnsystem-v2",
     "fields": {
       "created_at": "2021-03-16T16:40:59.035Z",
@@ -9280,36 +9019,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "tankanlage-ueber-2000-liter-v2",
-    "fields": {
-      "created_at": "2021-03-15T15:41:47.432Z",
-      "modified_at": "2021-03-15T15:42:09.569Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Handelt es sich um eine Tankanlage mit Beh\\u00e4ltern, die jeweils gr\\u00f6sser als 2000 l sind?\", \"fr\": \"S'agit-il d'une citerne avec des compartiments d'une contenance > 2000 l chacun?\"}",
-      "type": "choice",
-      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
-      "is_hidden": "'gebindelager-mit-totalem-nutzvolumen-v2'|answer != 'gebindelager-mit-totalem-nutzvolumen-v2-ja'",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": \"\"}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "tankfabrikant-v2",
     "fields": {
       "created_at": "2021-03-15T15:53:03.974Z",
@@ -9330,36 +9039,6 @@
         "max_length": null,
         "min_length": null
       },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "tanks-in-gewaesserschutzbereichen-v2",
-    "fields": {
-      "created_at": "2021-03-15T15:43:44.528Z",
-      "modified_at": "2021-03-15T15:44:11.258Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Werden Tanks und Rohrleitungen in Gew\\u00e4sserschutzbereichen Ao, Au, Zo, Zu erdverlegt?\", \"fr\": \"Des r\\u00e9servoirs ou des conduites sont-ils enterr\\u00e9s dans des secteurs de protection des eaux Ao, Au, Zo, Zu?\"}",
-      "type": "choice",
-      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
-      "is_hidden": "'gebindelager-mit-totalem-nutzvolumen-v2'|answer != 'gebindelager-mit-totalem-nutzvolumen-v2-ja'",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": \"\"}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -10048,31 +9727,61 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "auffangwanne-v2.auffangwanne-v2-kunststoff",
+    "pk": "auffangwanne-v2.auffangwanne-v2-gemeinsame-auffangwanne",
     "fields": {
-      "created_at": "2021-03-16T17:02:10.630Z",
-      "modified_at": "2021-03-16T17:02:10.630Z",
+      "created_at": "2021-05-03T12:16:55.276Z",
+      "modified_at": "2021-05-03T12:16:55.276Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "auffangwanne-v2",
+      "option": "auffangwanne-v2-gemeinsame-auffangwanne",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "auffangwanne-v2.auffangwanne-v2-kunststoff",
+    "fields": {
+      "created_at": "2021-05-03T12:16:55.285Z",
+      "modified_at": "2021-05-03T12:16:55.285Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "auffangwanne-v2",
       "option": "auffangwanne-v2-kunststoff",
-      "sort": 1
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "auffangwanne-v2.auffangwanne-v2-stahl",
     "fields": {
-      "created_at": "2021-03-16T17:02:10.634Z",
-      "modified_at": "2021-03-16T17:02:10.634Z",
+      "created_at": "2021-05-03T12:16:55.290Z",
+      "modified_at": "2021-05-03T12:16:55.290Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "auffangwanne-v2",
       "option": "auffangwanne-v2-stahl",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "auffangwanne-v2.auffangwanne-v2-zweiwandige-tanks",
+    "fields": {
+      "created_at": "2021-05-03T12:16:55.281Z",
+      "modified_at": "2021-05-03T12:16:55.281Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "auffangwanne-v2",
+      "option": "auffangwanne-v2-zweiwandige-tanks",
       "sort": 2
     }
   },
@@ -10419,66 +10128,6 @@
       "question": "fuellsicherung-v2",
       "option": "fuellsicherung-v2-spezialfuellsicherung",
       "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "gebinde-in-grundwasserschutzzone-v2.gebinde-in-grundwasserschutzzone-v2-ja",
-    "fields": {
-      "created_at": "2021-03-15T15:38:09.426Z",
-      "modified_at": "2021-03-15T15:38:09.426Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "gebinde-in-grundwasserschutzzone-v2",
-      "option": "gebinde-in-grundwasserschutzzone-v2-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "gebinde-in-grundwasserschutzzone-v2.gebinde-in-grundwasserschutzzone-v2-nein",
-    "fields": {
-      "created_at": "2021-03-15T15:38:09.422Z",
-      "modified_at": "2021-03-15T15:38:09.422Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "gebinde-in-grundwasserschutzzone-v2",
-      "option": "gebinde-in-grundwasserschutzzone-v2-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "gebindelager-mit-totalem-nutzvolumen-v2.gebindelager-mit-totalem-nutzvolumen-v2-ja",
-    "fields": {
-      "created_at": "2021-03-16T16:52:46.287Z",
-      "modified_at": "2021-03-16T16:52:46.287Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "gebindelager-mit-totalem-nutzvolumen-v2",
-      "option": "gebindelager-mit-totalem-nutzvolumen-v2-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "gebindelager-mit-totalem-nutzvolumen-v2.gebindelager-mit-totalem-nutzvolumen-v2-nein",
-    "fields": {
-      "created_at": "2021-03-16T16:52:46.283Z",
-      "modified_at": "2021-03-16T16:52:46.283Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "gebindelager-mit-totalem-nutzvolumen-v2",
-      "option": "gebindelager-mit-totalem-nutzvolumen-v2-nein",
-      "sort": 1
     }
   },
   {
@@ -11228,66 +10877,6 @@
       "modified_by_group": null,
       "question": "sind-belange-des-gewaesserschutzes-betroffen-v2",
       "option": "sind-belange-des-gewaesserschutzes-betroffen-v2-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "tankanlage-ueber-2000-liter-v2.tankanlage-ueber-2000-liter-v2-ja",
-    "fields": {
-      "created_at": "2021-03-15T15:42:09.579Z",
-      "modified_at": "2021-03-15T15:42:09.579Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "tankanlage-ueber-2000-liter-v2",
-      "option": "tankanlage-ueber-2000-liter-v2-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "tankanlage-ueber-2000-liter-v2.tankanlage-ueber-2000-liter-v2-nein",
-    "fields": {
-      "created_at": "2021-03-15T15:42:09.576Z",
-      "modified_at": "2021-03-15T15:42:09.576Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "tankanlage-ueber-2000-liter-v2",
-      "option": "tankanlage-ueber-2000-liter-v2-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "tanks-in-gewaesserschutzbereichen-v2.tanks-in-gewaesserschutzbereichen-v2-ja",
-    "fields": {
-      "created_at": "2021-03-15T15:44:11.269Z",
-      "modified_at": "2021-03-15T15:44:11.269Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "tanks-in-gewaesserschutzbereichen-v2",
-      "option": "tanks-in-gewaesserschutzbereichen-v2-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "tanks-in-gewaesserschutzbereichen-v2.tanks-in-gewaesserschutzbereichen-v2-nein",
-    "fields": {
-      "created_at": "2021-03-15T15:44:11.265Z",
-      "modified_at": "2021-03-15T15:44:11.265Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "tanks-in-gewaesserschutzbereichen-v2",
-      "option": "tanks-in-gewaesserschutzbereichen-v2-nein",
       "sort": 1
     }
   },
