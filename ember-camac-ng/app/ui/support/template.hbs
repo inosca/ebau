@@ -19,14 +19,15 @@
     <div>
       <p class="uk-text-large">{{t "support.ebau-number.title"}}</p>
       <p>{{t "support.ebau-number.description"}}</p>
-      <form {{on "submit" (perform this.changeEbauNumber)}}>
+      <form aria-label={{t "support.ebau-number.form-label"}} {{on "submit" (perform this.changeEbauNumber)}}>
         <div class="uk-grid-small" uk-grid>
           <div class="uk-width-expand">
             <Input
               @type="text"
-              @pattern="\d{4}-\d+"
               @value={{this.ebauNumber}}
-              @disabled={{cannot "set ebau number of instance" this.instance}}
+              aria-label={{t "support.ebau-number.label"}}
+              disabled={{cannot "set ebau number of instance" this.instance}}
+              pattern="\d{4}-\d+"
               class="uk-input uk-form-small"
             />
           </div>
@@ -44,11 +45,12 @@
     <div>
       <p class="uk-text-large">{{t "support.change-form.title"}}</p>
       <p>{{t "support.change-form.description" htmlSafe=true}}</p>
-      <form {{on "submit" (perform this.changeForm)}}>
+      <form aria-label={{t "support.change-form.form-label"}} {{on "submit" (perform this.changeForm)}}>
         <div class="uk-grid-small" uk-grid>
           <div class="uk-width-expand">
             <select
               class="uk-select uk-form-small"
+              aria-label={{t "support.change-form.label"}}
               disabled={{cannot "change form of instance" this.instance}}
               required
               {{on "change" (fn (mut this.form))}}
@@ -86,7 +88,7 @@
                 <Input
                   @type="checkbox"
                   @checked={{this.dry}}
-                  @disabled={{not this.dryRunDone}}
+                  disabled={{not this.dryRunDone}}
                   class="uk-checkbox"
                 />
                 {{t "support.fix-work-items.dry"}}
