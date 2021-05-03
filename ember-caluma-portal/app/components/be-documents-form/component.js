@@ -49,7 +49,11 @@ export default class BeDocumentsFormComponent extends Component {
 
   get allOtherFields() {
     return this.args.fieldset.fields.filter(
-      (field) => field.questionType !== "MultipleChoiceQuestion"
+      (field) =>
+        field.questionType !== "MultipleChoiceQuestion" &&
+        !config.APPLICATION.documents.excludeFromDocuments.includes(
+          field.question.slug
+        )
     );
   }
 
