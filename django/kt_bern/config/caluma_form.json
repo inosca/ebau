@@ -15328,22 +15328,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "ausnahmebegruendung-dokument-ja",
-    "fields": {
-      "created_at": "2019-04-10T11:41:29.253Z",
-      "modified_at": "2019-04-26T11:09:21.752Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ausnahmebegr\\u00fcndung\", \"fr\": \"Motivation de la d\\u00e9rogation\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "ausnahmegesuch-energie-dokument-ja",
     "fields": {
       "created_at": "2019-04-10T11:41:29.253Z",
@@ -15641,38 +15625,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Umnutzung\", \"fr\": \"Changement d'affectation\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "baubewilligung-ausbauprojekte-dokument-ja",
-    "fields": {
-      "created_at": "2019-04-10T11:41:29.253Z",
-      "modified_at": "2019-04-26T11:09:21.752Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Baubewilligung von Um- und Ausbauprojekten\", \"fr\": \"Permis de construire concernant des projets de transformation\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "baubewilligungsakte-dokument-ja",
-    "fields": {
-      "created_at": "2019-04-10T11:41:29.253Z",
-      "modified_at": "2019-04-26T11:09:21.752Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Baubewilligungsakte\", \"fr\": \"Dossier du permis de construire\"}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16160,22 +16112,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "berechnung-kinderspielplaetze-dokument-ja",
-    "fields": {
-      "created_at": "2019-04-10T11:41:29.253Z",
-      "modified_at": "2019-04-26T11:09:21.752Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Berechnung Kinderspielpl\\u00e4tze / Aufenthaltsbereiche\", \"fr\": \"Calcul relatif aux places de jeux pour enfants et aux aires de loisirs\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "berechnungen-abstellplaetze-dokument-ja",
     "fields": {
       "created_at": "2019-04-10T11:41:29.253Z",
@@ -16377,22 +16313,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Monovalent\", \"fr\": \"Monovalent\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "bewehrungsplan-bewehrungsliste-dokument-ja",
-    "fields": {
-      "created_at": "2019-04-10T11:41:29.253Z",
-      "modified_at": "2019-04-26T11:09:21.752Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Bewehrungsplan und Bewehrungsliste\", \"fr\": \"Plans de coffrage et d\\u2019armature avec liste des aciers\"}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16944,22 +16864,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "dokumente-der-bauausfuehrung-dokument-ja",
-    "fields": {
-      "created_at": "2019-04-10T11:41:29.253Z",
-      "modified_at": "2019-04-26T11:09:21.752Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Dokumente der Bauausf\\u00fchrung\", \"fr\": \"Documents relatifs \\u00e0 l\\u2019ex\\u00e9cution des travaux\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "duschmoglichkeit-in-der-schleuse-ja",
     "fields": {
       "created_at": "2019-04-02T13:52:00.831Z",
@@ -17097,22 +17001,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingereicht\", \"fr\": \"soumis/transmis\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "einverstaendniserklaerung-wald-dokument-ja",
-    "fields": {
-      "created_at": "2019-04-10T11:41:29.253Z",
-      "modified_at": "2019-04-26T11:09:21.752Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Einverst\\u00e4ndniserkl\\u00e4rung Rodung / Aufforstung\", \"fr\": \"D\\u00e9claration de consentement d\\u00e9frichement / reboisement\"}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17680,22 +17568,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "formular-erdbebensicherheit-ebs-ja",
-    "fields": {
-      "created_at": "2019-11-06T07:19:47.123Z",
-      "modified_at": "2019-11-06T07:22:45.845Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Formular Erdbebensicherheit (EbS)\", \"fr\": \"Formulaire S\\u00e9S S\\u00e9curit\\u00e9 Sismique\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "forstliche-baute-ja",
     "fields": {
       "created_at": "2019-04-08T13:24:40.803Z",
@@ -18137,22 +18009,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Unbestimmt\", \"fr\": \"Ind\\u00e9termin\\u00e9\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "gemeindespezifisches-formular-ja",
-    "fields": {
-      "created_at": "2019-11-06T07:22:06.302Z",
-      "modified_at": "2019-11-06T07:23:10.100Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Gemeindespezifisches Formular (5.0, 5.1, 5.2, 5.3 5.4, 5.5, 5.8)\", \"fr\": \"Formulaire sp\\u00e9cifique aux communes (5.0, 5.1, 5.2, 5.3, 5.4, 5.5, 5.5, 5.8)\"}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -19904,38 +19760,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "konzessionsgesuch-kuehlwasser-dokument-ja",
-    "fields": {
-      "created_at": "2019-04-10T11:41:29.253Z",
-      "modified_at": "2019-04-26T11:09:21.752Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Konzessionsgesuch f\\u00fcr den Betrieb einer K\\u00fchlwasseranlage\", \"fr\": \"Demande de concession pour eau de refroidissement\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "konzessionsgesuch-waermepumpe-dokument-ja",
-    "fields": {
-      "created_at": "2019-04-10T11:41:29.253Z",
-      "modified_at": "2019-04-26T11:09:21.752Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Konzessionsgesuch f\\u00fcr den Betrieb einer W\\u00e4rmepumpe\", \"fr\": \"Demande de concession pour l'exploitation d'une pompe \\u00e0 chaleur\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "kurzbericht-gemaess-stfv-dokument-ja",
     "fields": {
       "created_at": "2019-04-10T11:41:29.253Z",
@@ -20825,22 +20649,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nachweis Anforderungen gem\\u00e4ss Art 31 LSV\", \"fr\": \"Preuve du respect des exigences \\u00e9nonc\\u00e9es \\u00e0 l'article 31 OPB\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "naeherbau-grenzbaurecht-dokument-ja",
-    "fields": {
-      "created_at": "2019-04-10T11:41:29.253Z",
-      "modified_at": "2019-04-26T11:09:21.752Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"N\\u00e4herbau- / Grenzbaurecht\", \"fr\": \"Droit de construire en de\\u00e7\\u00e0 de la limite l\\u00e9gale / distance \\u00e0 la limite\"}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -22496,22 +22304,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "schadstoffermittlung-gutachten-dokument-ja",
-    "fields": {
-      "created_at": "2019-04-10T11:41:29.253Z",
-      "modified_at": "2019-04-26T11:09:21.752Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Schadstoffermittlung / Gutachten\", \"fr\": \"D\\u00e9tection de polluants / expertise\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "schalldruckpegelabnahme-ja",
     "fields": {
       "created_at": "2019-04-09T07:10:35.083Z",
@@ -23664,22 +23456,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "umweltvertraeglichkeitsbericht-dokument-ja",
-    "fields": {
-      "created_at": "2019-04-10T11:41:29.253Z",
-      "modified_at": "2019-06-06T16:11:33.140Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Umweltvertr\\u00e4glichkeitsbericht\", \"fr\": \"Rapport relatif \\u00e0 l\\u2019impact sur l\\u2019environnement\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "versickerung-dachflaechen-ja",
     "fields": {
       "created_at": "2019-04-09T12:29:51.249Z",
@@ -24297,22 +24073,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Sprengen\", \"fr\": \"Minage\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "voruntersuchung-dokument-ja",
-    "fields": {
-      "created_at": "2019-04-10T11:41:29.253Z",
-      "modified_at": "2019-04-26T11:09:21.752Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Voruntersuchung\", \"fr\": \"Investigation pr\\u00e9alable\"}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -25280,22 +25040,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "werkleitungsplan-dokument-ja",
-    "fields": {
-      "created_at": "2019-04-10T11:41:29.253Z",
-      "modified_at": "2019-04-26T11:09:21.752Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Werkleitungsplan\", \"fr\": \"Plan des conduites\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "wildtierschutz-ja",
     "fields": {
       "created_at": "2019-04-01T11:18:15.267Z",
@@ -26169,22 +25913,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Zustimmung der Anst\\u00f6sser falls die Versickerung nicht publiziert wurde\", \"fr\": \"Consentement des voisins si l'infiltration n'a pas fait l'objet d'une publication\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "zustimmung-der-nachbarn-dokument-ja",
-    "fields": {
-      "created_at": "2019-04-10T11:41:29.253Z",
-      "modified_at": "2019-04-26T11:09:21.752Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Zustimmung der Nachbarn nach 27 / 4 BewD\", \"fr\": \"Accord des voisins selon l'article 27, alin\\u00e9a 4 DPC\"}",
       "is_archived": false,
       "meta": {},
       "source": null
