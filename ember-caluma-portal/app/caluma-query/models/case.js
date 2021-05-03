@@ -61,16 +61,6 @@ export default class CustomCaseModel extends CaseModel {
       });
 
     return selectedOption && selectedOption.node.label;
-
-    /*
-    return (
-      slug &&
-      this.store
-        .peekRecord("public-service", slug)
-        ?.name?.replace(/Leitbehörde|Municipalité/, "")
-        .trim()
-    );
-    */
   }
 
   get submitDate() {
