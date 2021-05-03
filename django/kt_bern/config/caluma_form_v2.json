@@ -9409,10 +9409,10 @@
     "pk": "total-beanspruchte-unversiegelte-baustellenflaeche-v2",
     "fields": {
       "created_at": "2021-03-08T12:17:03.504Z",
-      "modified_at": "2021-03-08T12:58:41.045Z",
+      "modified_at": "2021-05-03T08:28:39.214Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Total beanspruchte, unversiegelte (z.B. Wiese) Baustellenfl\\u00e4che (inkl. Installationspl\\u00e4tze, Bauplatzerschliessung, Depotfl\\u00e4chen etc.) in m\\u00b2\", \"fr\": \"Total de la surface meuble (p.ex. prairie) requise pour le chantier (y c. emplacements pour les installations, desserte du chantier, d\\u00e9p\\u00f4ts, etc.) en m\\u00b2\"}",
       "type": "integer",
@@ -9420,7 +9420,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": \"\"}",
-      "info_text": "{\"de\": \"[Merkblatt Anforderungen an ein Bodenschutzkonzept](https://www.vol.be.ch/vol/de/index/landwirtschaft/landwirtschaft/formulare_merkblaetter/BodenSchiessanlagen.assetref/dam/documents/VOL/LANAT/de/Landwirtschaft/Boden%20-%20Terrainver%C3%A4nderung/Bodenschutz%20beim%20Bauen/Merkblatt_Bodenschutzkonzept_Cercle_Sol_NWCH_d.pdf)\\n\\nDie Liste der BBB ist auf [www.soil.ch](https://soil.ch) zu finden\", \"fr\": \"[Notice - Exigences relatives aux plans de protection du sol](https://www.vol.be.ch/vol/fr/index/landwirtschaft/landwirtschaft/formulare_merkblaetter/BodenSchiessanlagen.assetref/dam/documents/VOL/LANAT/fr/Landwirtschaft/Sols%20-remodelage%20du%20terrain/Protection%20du%20sol%20-%20Remodelage%20du%20terrain/Merkblatt_Bodenschutzkonzept_Cercle_Sol_NWCH_f.pdf)\\n\\nLa liste des SPCs est disponible sur [www.soil.ch](https://soil.ch)\"}",
+      "info_text": "{\"de\": \"[Merkblatt Anforderungen an ein Bodenschutzkonzept](https://www.weu.be.ch/de/start/themen/umwelt/boden/bodenschutz-beim-bauen/bodenschutz-bei-bauvorhaben.html)\\n\\nDie Liste der BBB ist auf [www.soil.ch](https://soil.ch) zu finden\", \"fr\": \"[Notice - Exigences relatives aux plans de protection du sol](https://www.weu.be.ch/fr/start/themen/umwelt/boden/bodenschutz-beim-bauen/bodenschutz-bei-bauvorhaben.html)\\n\\nLa liste des SPCs est disponible sur [www.soil.ch](https://soil.ch)\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_value": null,
