@@ -5,7 +5,7 @@ import { setupApplicationTest } from "ember-qunit";
 import { authenticateSession } from "ember-simple-auth/test-support";
 import { module, test } from "qunit";
 
-import testIf from "ember-caluma-portal/tests/helpers/test-if";
+import testIf from "caluma-portal/tests/helpers/test-if";
 
 module("Acceptance | navigation", function (hooks) {
   setupApplicationTest(hooks);
