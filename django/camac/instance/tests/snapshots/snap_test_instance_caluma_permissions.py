@@ -606,7 +606,8 @@ snapshots['test_instance_permissions_be[Municipality-construction-control-subm-i
         'read'
     ],
     'main': [
-        'read'
+        'read',
+        'write'
     ],
     'nfd': [
         'read'
@@ -941,7 +942,8 @@ snapshots['test_instance_permissions_be[Municipality-district-subm-instance__use
         'read'
     ],
     'main': [
-        'read'
+        'read',
+        'write'
     ],
     'nfd': [
         'read'
@@ -1276,7 +1278,8 @@ snapshots['test_instance_permissions_be[Municipality-municipality-subm-instance_
         'read'
     ],
     'main': [
-        'read'
+        'read',
+        'write'
     ],
     'nfd': [
         'read'

@@ -41433,7 +41433,7 @@
     "fields": {
       "question": 12000000,
       "chapter": 12000000,
-      "required": 0,
+      "required": 1,
       "item": 1,
       "sort": 0
     }
