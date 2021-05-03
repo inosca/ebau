@@ -7,7 +7,7 @@ import UIkit from "uikit";
 
 import config from "../../../config/environment";
 
-import getOverviewCaseQuery from "ember-caluma-portal/gql/queries/get-overview-case.graphql";
+import getOverviewCaseQuery from "caluma-portal/gql/queries/get-overview-case.graphql";
 
 const { answerSlugs } = config.APPLICATION;
 

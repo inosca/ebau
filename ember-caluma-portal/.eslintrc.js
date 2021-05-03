@@ -12,6 +12,6 @@ module.exports = {
     "ember/no-component-lifecycle-hooks": "warn",
   },
   settings: {
-    "import/internal-regex": "^ember-caluma-portal/",
+    "import/internal-regex": "^caluma-portal/",
   },
 };

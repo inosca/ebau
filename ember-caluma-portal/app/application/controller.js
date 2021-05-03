@@ -1,6 +1,6 @@
 import Controller from "@ember/controller";
 
-import config from "ember-caluma-portal/config/environment";
+import config from "caluma-portal/config/environment";
 
 const { environment } = config;
 

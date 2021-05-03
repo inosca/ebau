@@ -5,7 +5,7 @@ import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
 
-import testIf from "ember-caluma-portal/tests/helpers/test-if";
+import testIf from "caluma-portal/tests/helpers/test-if";
 
 module("Integration | Component | be-navbar", function (hooks) {
   setupRenderingTest(hooks);
