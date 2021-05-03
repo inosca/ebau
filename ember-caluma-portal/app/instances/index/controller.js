@@ -147,7 +147,6 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
               "strasse-flurname",
               "strasse-gesuchstellerin",
               "nr",
-              "nummer-gesuchstellerin",
               "plz-gesuchstellerin",
               "ort-grundstueck",
               "ort-gesuchstellerin",
