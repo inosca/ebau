@@ -205,27 +205,11 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
       .map(({ meta }) => meta["camac-instance-id"])
       .filter(Boolean);
 
-    const serviceIds = cases
-      .map(
-        ({ document }) =>
-          document.answers.edges
-            .map(({ node }) => node)
-            .find((answer) => answer.question.slug === "gemeinde")?.stringValue
-      )
-      .filter(Boolean);
-
     if (instanceIds.length) {
       await this.store.query("instance", {
         instance_id: instanceIds.join(","),
       });
     }
-
-    if (serviceIds.length) {
-      await this.store.query("public-service", {
-        service_id: serviceIds.join(","),
-      });
-    }
-
     return cases;
   }
 
