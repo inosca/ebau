@@ -106,7 +106,7 @@ module.exports = function (environment) {
     process.env.KEYCLOAK_HOST || "http://camac-ng-keycloak.local";
 
   const ENV = {
-    modulePrefix: "ember-caluma-portal",
+    modulePrefix: "caluma-portal",
     environment,
     rootURL: "/",
     locationType: "auto",
