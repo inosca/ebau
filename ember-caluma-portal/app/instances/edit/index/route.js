@@ -9,7 +9,7 @@ export default class InstancesEditIndexRoute extends Route {
   setupController(controller, model) {
     super.setupController(controller, model);
 
-    controller.dataTask.perform();
+    controller.fetchCase.perform();
   }
 
   redirect() {
