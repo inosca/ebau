@@ -15,16 +15,11 @@ query GetOverviewCase($instanceId: GenericScalar!) {
           }
           answers(
             questions: [
-              "strasse-gesuchstellerin"
-              "nummer-gesuchstellerin"
-              "plz-gesuchstellerin"
-              "ort-gesuchstellerin"
               "strasse-flurname"
               "nr"
               "ort-grundstueck"
               "beschreibung-bauvorhaben"
               "beschreibung-projektaenderung"
-              "personalien-gesuchstellerin"
               "gemeinde"
               "parzelle"
               "parzellennummer"
