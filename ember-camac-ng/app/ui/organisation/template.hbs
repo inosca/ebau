@@ -16,12 +16,11 @@
         </div>
       <div class="column-2">
         <Input
-          class="text"
           @type="text"
           @value={{this.service.phone}}
-          @required={{false}}
-          @name="phone"
-          @maxlength={{16}}
+          maxlength="16"
+          class="text"
+          name="phone"
           id="phone"
         />
       </div>
@@ -35,13 +34,12 @@
         </div>
       <div class="column-2">
         <Input
-          class="text"
           @type="number"
           @value={{this.service.zip}}
-          @required={{false}}
-          @name="zip"
-          @minlength={{4}}
-          @maxlength={{4}}
+          min="1000"
+          max="9999"
+          class="text"
+          name="zip"
           id="zip"
         />
       </div>
@@ -55,12 +53,12 @@
       </div>
       <div class="column-2">
         <Input
-          class="text"
           @type="text"
           @value={{this.service.city}}
-          @required={{true}}
-          @name="city"
+          class="text"
+          name="city"
           id="city"
+          required
         />
       </div>
     </div>
@@ -73,11 +71,10 @@
         </div>
       <div class="column-2">
         <Input
-          class="text"
           @type="text"
           @value={{this.service.address}}
-          @required={{false}}
-          @name="address"
+          class="text"
+          name="address"
           id="address"
         />
       </div>
@@ -91,12 +88,12 @@
       </div>
       <div class="column-2">
         <Input
-          class="text"
           @type="email"
           @value={{this.service.email}}
-          @required={{true}}
-          @name="email"
+          class="text"
+          name="email"
           id="email"
+          required
         />
       </div>
     </div>
@@ -109,11 +106,10 @@
       </div>
       <div class="column-2">
         <Input
-          class="text"
           @type="url"
           @value={{this.service.website}}
-          @required={{false}}
-          @name="website"
+          class="text"
+          name="website"
           id="website"
         />
       </div>
@@ -129,10 +125,10 @@
         <Input
           @type="checkbox"
           @checked={{this.service.notification}}
-          @name="notification"
           class="uk-checkbox"
-          {{on "change" (fn (mut this.service.notification) (not this.service.notification))}}
+          name="notification"
           id="notification"
+          {{on "change" (fn (mut this.service.notification) (not this.service.notification))}}
         />
       </div>
     </div>
