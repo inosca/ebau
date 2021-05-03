@@ -189,7 +189,7 @@ APPLICATIONS = {
             "USE_LOCATION": False,
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
         },
-        "PDF": {"SECTION": 1},
+        "STORE_PDF": {"SECTION": 1},
         "ECH_API": True,
         "INSTANCE_STATE_REJECTION_COMPLETE": "finished",
         "SET_SUBMIT_DATE_CAMAC_ANSWER": True,
@@ -408,7 +408,7 @@ APPLICATIONS = {
             "anlassbewilligungen-verkehrsbewilligungen-v2",
             "projektgenehmigungsgesuch-gemass-ss15-strag-v2",
         ],
-        "PDF": {"SECTION": 1},
+        "STORE_PDF": {"SECTION": 1},
         "DUMP_CONFIG_GROUPS": {
             "email_notifications": {
                 "notification.NotificationTemplate": Q(type="email"),
@@ -434,6 +434,7 @@ APPLICATIONS = {
             "construction-control-admin": "municipality",
             "support": "support",
         },
+        "INSTANCE_PERMISSIONS": {"MUNICIPALITY_WRITE": ["correction"]},
         "NOTIFICATIONS": {
             "SUBMIT": [
                 {
@@ -708,7 +709,7 @@ APPLICATIONS = {
                 ],
             },
         },
-        "PDF": {
+        "STORE_PDF": {
             "SECTION": {
                 "MAIN": {"DEFAULT": 1, "PAPER": 13},
                 "SB1": {"DEFAULT": 6, "PAPER": 10},
@@ -725,70 +726,74 @@ APPLICATIONS = {
         },
         "ECH_API": True,
         "DOCUMENT_MERGE_SERVICE": {
-            "_base": {
-                "people_sources": {
-                    "personalien-sb1-sb2",
-                    "personalien-gesuchstellerin",
-                    "personalien-vertreterin-mit-vollmacht",
-                    "personalien-grundeigentumerin",
-                    "personalien-gebaudeeigentumerin",
-                    "personalien-projektverfasserin",
+            "FORM": {
+                "_base": {
+                    "people_sources": {
+                        "personalien-sb1-sb2",
+                        "personalien-gesuchstellerin",
+                        "personalien-vertreterin-mit-vollmacht",
+                        "personalien-grundeigentumerin",
+                        "personalien-gebaudeeigentumerin",
+                        "personalien-projektverfasserin",
+                    },
+                    "people_names": {
+                        "name-gesuchstellerin": "familyName",
+                        "vorname-gesuchstellerin": "givenName",
+                    },
                 },
-                "people_names": {
-                    "name-gesuchstellerin": "familyName",
-                    "vorname-gesuchstellerin": "givenName",
+                "baugesuch": {
+                    "forms": [
+                        "baugesuch",
+                        "baugesuch-v2",
+                        "baugesuch-mit-uvp",
+                        "baugesuch-mit-uvp-v2",
+                        "baugesuch-generell",
+                        "baugesuch-generell-v2",
+                        "vorabklaerung-einfach",
+                        "vorabklaerung-vollstaendig",
+                        "vorabklaerung-vollstaendig-v2",
+                        "hecken-feldgehoelze-baeume",
+                        "baupolizeiliches-verfahren",
+                        "zutrittsermaechtigung",
+                        "klaerung-baubewilligungspflicht",
+                        "verlaengerung-geltungsdauer",
+                    ],
+                    "template": "form",
+                    "personalien": "personalien",
+                    "exclude_slugs": [
+                        "is-paper",
+                        "projektaenderung",
+                        "einreichen-button",
+                        "karte",
+                    ],
+                },
+                "selbstdeklaration": {
+                    "forms": ["sb1", "sb2"],
+                    "template": "form",
+                    "personalien": "selbstdeklaration-sb1",
+                    "exclude_slugs": [
+                        "is-paper",
+                        "einreichen-button-sb1",
+                        "einreichen-button-sb2",
+                        "dokumente-sb1",
+                        "dokumente-sb2",
+                    ],
+                },
+                "regular-exams": {
+                    "forms": ["fp-form", "bab-form"],
+                    "template": "audit-form",
+                    "exclude_slugs": [
+                        "bab-01-07-1972-um-und-ausgebaut-meldung",
+                        "bab-naehe-von-schutzenswerten-gebaeuden-meldung",
+                    ],
+                },
+                "material-exam": {
+                    "forms": ["mp-form"],
+                    "template": "form",
                 },
             },
-            "baugesuch": {
-                "forms": [
-                    "baugesuch",
-                    "baugesuch-v2",
-                    "baugesuch-mit-uvp",
-                    "baugesuch-mit-uvp-v2",
-                    "baugesuch-generell",
-                    "baugesuch-generell-v2",
-                    "vorabklaerung-einfach",
-                    "vorabklaerung-vollstaendig",
-                    "vorabklaerung-vollstaendig-v2",
-                    "hecken-feldgehoelze-baeume",
-                    "baupolizeiliches-verfahren",
-                    "zutrittsermaechtigung",
-                    "klaerung-baubewilligungspflicht",
-                    "verlaengerung-geltungsdauer",
-                ],
-                "template": "form",
-                "personalien": "personalien",
-                "exclude_slugs": [
-                    "is-paper",
-                    "projektaenderung",
-                    "einreichen-button",
-                    "karte",
-                ],
-            },
-            "selbstdeklaration": {
-                "forms": ["sb1", "sb2"],
-                "template": "form",
-                "personalien": "selbstdeklaration-sb1",
-                "exclude_slugs": [
-                    "is-paper",
-                    "einreichen-button-sb1",
-                    "einreichen-button-sb2",
-                    "dokumente-sb1",
-                    "dokumente-sb2",
-                ],
-            },
-            "regular-exams": {
-                "forms": ["fp-form", "bab-form"],
-                "template": "audit-form",
-                "exclude_slugs": [
-                    "bab-01-07-1972-um-und-ausgebaut-meldung",
-                    "bab-naehe-von-schutzenswerten-gebaeuden-meldung",
-                ],
-            },
-            "material-exam": {
-                "forms": ["mp-form"],
-                "template": "form",
-            },
+            "MUNICIPALITY_SLUG": "gemeinde",
+            "MUNICIPALITY_MODEL": "camac.user.models.Service",
         },
         "GROUP_RENAME_ON_SERVICE_RENAME": True,
         "SERVICE_UPDATE_ALLOWED_ROLES": [
@@ -1133,51 +1138,42 @@ APPLICATIONS = {
                 "old",
             ],
         },
-        "PDF": {
+        "STORE_PDF": {
             "SECTION": {
                 "MAIN": {"DEFAULT": 12000000, "PAPER": 12000000},
-            }
+            },
         },
         "DOCUMENT_MERGE_SERVICE": {
-            "building-permit": {
-                "forms": [
-                    "building-permit",
-                    "preliminary-clarification",
-                    "commercial-permit",
-                    "proposal-declaration",
-                    "solar-declaration",
-                ],
-                "template": "2-level-extended",
-                "people_sources": {
-                    # FIXME copy from BE, adapt to UR form
-                    "personalien-gesuchstellerin": {
-                        "familyName": "name-gesuchstellerin",
-                        "givenName": "vorname-gesuchstellerin",
+            "FORM": {
+                "building-permit": {
+                    "forms": [
+                        "building-permit",
+                        "preliminary-clarification",
+                        "commercial-permit",
+                        "proposal-declaration",
+                        "solar-declaration",
+                    ],
+                    "people_sources": {
+                        "applicant",
+                        "landowner",
+                        "project-author",
                     },
-                    "personalien-vertreterin-mit-vollmacht": {
-                        "familyName": "name-vertreterin",
-                        "givenName": "vorname-vertreterin",
+                    "people_names": {
+                        "last-name": "familyName",
+                        "first-name": "givenName",
                     },
-                    "personalien-grundeigentumerin": {
-                        "familyName": "name-grundeigentuemerin",
-                        "givenName": "vorname-grundeigentuemerin",
-                    },
-                    "personalien-gebaudeeigentumerin": {
-                        "familyName": "name-gebaeudeeigentuemerin",
-                        "givenName": "vorname-gebaeudeeigentuemerin",
-                    },
-                    "personalien-projektverfasserin": {
-                        "familyName": "name-projektverfasserin",
-                        "givenName": "vorname-projektverfasserin",
-                    },
+                    "template": "2-level-extended",
+                    "personalien": "personalien",
+                    "exclude_slugs": [
+                        "is-paper",
+                        "einreichen",
+                        "gis-karte",
+                        "form-type",
+                    ],
                 },
-                "exclude_slugs": [
-                    "is-paper",
-                    "einreichen",
-                    "gis-karte",
-                    "form-type",
-                ],
             },
+            "MUNICIPALITY_SLUG": "municipality",
+            "MUNICIPALITY_MODEL": "camac.user.models.Location",
         },
         "ARCHIVE_FORMS": [293, 294],
         "PAPER": {
@@ -1219,6 +1215,7 @@ APPLICATIONS = {
             # "Architect": None,
             # "Guest": None,  # TODO AFAIK we don't grant unauthenticated users access to endpoints
         },
+        "INSTANCE_PERMISSIONS": {"MUNICIPALITY_WRITE": ["comm", "old", "subm"]},
         "NOTIFICATIONS": {
             "SUBMIT": [
                 {

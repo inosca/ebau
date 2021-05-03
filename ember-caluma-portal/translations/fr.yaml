@@ -144,6 +144,7 @@ gis:
     title: "Reprendre les données"
     yes: "Oui"
     no: "Non"
+  info-text-ur: ""
 
   notifications:
     min-one: "Vous devez sélectionner au moins une parcelle."
@@ -177,7 +178,8 @@ instances:
   submitDate: "Date de soumission"
   submitDateFrom: "Date de soumission de"
   submitDateTo: "Date de soumission à"
-  description: "Description"
+  description-be: "Description"
+  description-ur: ""
   municipality: "Commune"
   address-be: "Adresse"
   address-ur: ""
@@ -213,6 +215,7 @@ instances:
   deleteInstanceError: "Le dossier n'a pas pu être supprimé"
   deleteInstanceSuccess: "Le dossier a été supprimé avec succès"
   reasonForRejection: "Motifs de rejet"
+  rejection-info-text-ur: ""
   modificationTitle: "Nouveau changement de projet"
   modificationText: "Y a-t-il eu des changements dans votre projet de
     construction ? Ici, vous pouvez modifier le projet sans avoir à saisir à
