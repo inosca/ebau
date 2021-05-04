@@ -12,6 +12,8 @@ import { Mixin } from "./query-params";
 import config from "caluma-portal/config/environment";
 import getRootFormsQuery from "caluma-portal/gql/queries/get-root-forms.graphql";
 
+const { answerSlugs } = config.APPLICATION;
+
 const getRecursiveSources = (form, forms) => {
   if (!form.source?.slug) {
     return [];
@@ -49,12 +51,12 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
         direction: "instances.asc",
       },
       {
-        value: "ebau-number:desc",
+        value: `${answerSlugs.specialId}:desc`,
         label: `instances.special-id-${config.APPLICATION.name}`,
         direction: "instances.desc",
       },
       {
-        value: "ebau-number:asc",
+        value: `${answerSlugs.specialId}:asc`,
         label: `instances.special-id-${config.APPLICATION.name}`,
         direction: "instances.asc",
       },
@@ -127,7 +129,7 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
       {
         metaValue: [
           { key: "camac-instance-id", value: this.instanceId },
-          { key: "ebau-number", value: this.ebau },
+          { key: answerSlugs.specialId, value: this.specialId },
           {
             key: "submit-date",
             value: toDateTime(moment(this.submitFrom).startOf("day")),
@@ -144,13 +146,9 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
         searchAnswers: [
           {
             questions: [
-              "strasse-flurname",
-              "strasse-gesuchstellerin",
-              "nr",
-              "nummer-gesuchstellerin",
-              "plz-gesuchstellerin",
-              "ort-grundstueck",
-              "ort-gesuchstellerin",
+              answerSlugs.objectStreet,
+              answerSlugs.objectNumber,
+              answerSlugs.objectLocation,
             ],
             value: this.address,
           },
@@ -159,7 +157,7 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
       {
         hasAnswer: [
           {
-            question: "parzellennummer",
+            question: answerSlugs.parcelNumber,
             lookup: "CONTAINS",
             value: this.parcel,
           },
@@ -206,12 +204,13 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
       .map(({ meta }) => meta["camac-instance-id"])
       .filter(Boolean);
 
-    const serviceIds = cases
+    const municipalityRefs = cases
       .map(
         ({ document }) =>
           document.answers.edges
             .map(({ node }) => node)
-            .find((answer) => answer.question.slug === "gemeinde")?.stringValue
+            .find((answer) => answer.question.slug === answerSlugs.municipality)
+            ?.stringValue
       )
       .filter(Boolean);
 
@@ -221,9 +220,9 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
       });
     }
 
-    if (serviceIds.length) {
-      await this.store.query("public-service", {
-        service_id: serviceIds.join(","),
+    if (municipalityRefs.length) {
+      await this.store.query(config.APPLICATION.municipalityModel, {
+        location_id: [...new Set(municipalityRefs)].join(","),
       });
     }
 
