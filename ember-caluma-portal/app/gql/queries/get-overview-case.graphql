@@ -38,16 +38,6 @@ query GetOverviewCase($instanceId: GenericScalar!) {
                 id
                 question {
                   slug
-                  ... on DynamicChoiceQuestion {
-                    options {
-                      edges {
-                        node {
-                          slug
-                          label
-                        }
-                      }
-                    }
-                  }
                 }
                 ... on StringAnswer {
                   stringValue: value
