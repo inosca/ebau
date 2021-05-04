@@ -38,14 +38,14 @@
       </div>
     </div>
     <div>
-      <label class="uk-form-label" for="ebau">{{t (concat "instances.special-id-" (application-name))}}</label>
+      <label class="uk-form-label" for="specialId">{{t (concat "instances.special-id-" (application-name))}}</label>
       <div class="uk-form-controls">
         <input
           type="text"
           class="uk-input"
-          name="ebau"
-          id="ebau"
-          value={{this.ebau}}
+          name="specialId"
+          id="specialId"
+          value={{this.specialId}}
           {{on "change" this.updateFilter}}
         >
       </div>
@@ -153,7 +153,7 @@
         <th class="uk-text-nowrap">{{t (concat "instances.address-" (application-name))}}</th>
         <th class="uk-text-nowrap">{{t "instances.submitDate"}}</th>
         <th class="uk-text-nowrap">{{t "instances.status.title"}}</th>
-        <th class="uk-text-nowrap">{{t "instances.description"}}</th>
+        <th class="uk-text-nowrap">{{t (concat "instances.description-" (application-name))}}</th>
       </tr>
     </thead>
     <tbody>
@@ -162,7 +162,7 @@
           <td>
             <LinkTo @route="instances.edit" @model={{case.instanceId}} class="uk-text-bold">{{case.instanceId}}</LinkTo>
           </td>
-          <td class="uk-text-nowrap">{{case.ebau}}</td>
+          <td class="uk-text-nowrap">{{case.specialId}}</td>
           <td class="uk-text-nowrap">{{case.type}} {{case.instance.typeDetail}}</td>
           <td>{{case.municipality}}</td>
           <td class="uk-text-truncate" title={{case.address}}>{{case.address}}</td>
