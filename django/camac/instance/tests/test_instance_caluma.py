@@ -909,10 +909,12 @@ def test_instance_finalize(
 
 @pytest.mark.parametrize("paper", [(True, False)])
 @pytest.mark.parametrize("form_slug", [(None), ("nfd")])
+@pytest.mark.parametrize("service_group__name", ["municipality"])
 def test_generate_and_store_pdf(
     db,
     instance,
     admin_user,
+    service,
     group,
     attachment_section_factory,
     document_factory,
@@ -928,7 +930,7 @@ def test_generate_and_store_pdf(
     attachment_section_default = attachment_section_factory()
     attachment_section_paper = attachment_section_factory()
 
-    application_settings["PDF"] = {
+    application_settings["STORE_PDF"] = {
         "SECTION": {
             form_slug.upper()
             if form_slug
@@ -954,8 +956,12 @@ def test_generate_and_store_pdf(
     serializer = CalumaInstanceSubmitSerializer()
 
     application_settings["DOCUMENT_MERGE_SERVICE"] = {
-        "main-form": {"template": "some-template"},
-        "nfd": {"template": "some-template"},
+        "FORM": {
+            "main-form": {"template": "some-template"},
+            "nfd": {"template": "some-template"},
+        },
+        "MUNICIPALITY_SLUG": "gemeinde",
+        "MUNICIPALITY_MODEL": "camac.user.models.Service",
     }
 
     case = workflow_api.start_case(
@@ -964,6 +970,8 @@ def test_generate_and_store_pdf(
         meta={"camac-instance-id": instance.pk},
         user=caluma_admin_user,
     )
+
+    case.document.answers.create(value=str(service.pk), question_id="gemeinde")
 
     if form_slug:
         workflow_api.complete_work_item(
@@ -1126,9 +1134,11 @@ def test_generate_pdf_action(
     mocker.patch("rest_framework.authentication.get_authorization_header")
 
     application_settings["DOCUMENT_MERGE_SERVICE"] = {
-        "main-form": {"template": "some-template"},
-        "nfd": {"template": "some-template"},
-        "mp-form": {"template": "some-template"},
+        "FORM": {
+            "main-form": {"template": "some-template"},
+            "nfd": {"template": "some-template"},
+            "mp-form": {"template": "some-template"},
+        },
     }
 
     case = workflow_api.start_case(
