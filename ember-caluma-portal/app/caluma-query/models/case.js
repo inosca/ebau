@@ -1,7 +1,10 @@
-import { reads } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
 import CaseModel from "ember-caluma/caluma-query/models/case";
 import moment from "moment";
+
+import config from "caluma-portal/config/environment";
+
+const { answerSlugs } = config.APPLICATION;
 
 export default class CustomCaseModel extends CaseModel {
   @service store;
@@ -16,24 +19,41 @@ export default class CustomCaseModel extends CaseModel {
     return answer && key ? answer[key] : null;
   }
 
-  @reads("raw.meta.camac-instance-id") instanceId;
-  @reads("raw.meta.ebau-number") ebau;
-  @reads("raw.document.form.name") type;
-  @reads("instance.status") status;
-  @reads("instance.isPaper") isPaper;
-  @reads("instance.isModification") isModification;
+  get instanceId() {
+    return this.raw.meta["camac-instance-id"];
+  }
 
   get instance() {
     return this.store.peekRecord("instance", this.instanceId);
   }
 
+  get specialId() {
+    return this.raw.meta[answerSlugs.specialId];
+  }
+
+  get type() {
+    return this.raw.document.form.name;
+  }
+
+  get status() {
+    return this.instance.status;
+  }
+
+  get isPaper() {
+    return this.instance.isPaper;
+  }
+
+  get isModification() {
+    return this.instance.isModification;
+  }
+
   get municipality() {
-    const slug = this._findAnswer("gemeinde");
+    const slug = this._findAnswer(answerSlugs.municipality);
 
     return (
       slug &&
       this.store
-        .peekRecord("public-service", slug)
+        .peekRecord(config.APPLICATION.municipalityModel, slug)
         ?.name?.replace(/Leitbehörde|Municipalité/, "")
         .trim()
     );
@@ -46,31 +66,20 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get description() {
-    return this._findAnswer("beschreibung-bauvorhaben");
+    return this._findAnswer(answerSlugs.description);
   }
 
   get address() {
-    return [
-      [
-        this._findAnswer("strasse-gesuchstellerin") ||
-          this._findAnswer("strasse-flurname"),
-        this._findAnswer("nummer-gesuchstellerin") || this._findAnswer("nr"),
-      ]
-        .filter(Boolean)
-        .join(" ")
-        .trim(),
-      [
-        this._findAnswer("plz-gesuchstellerin") || null,
-        this._findAnswer("ort-gesuchstellerin") ||
-          this._findAnswer("ort-grundstueck"),
-      ]
-        .filter(Boolean)
-        .join(" ")
-        .trim(),
+    const streetAndNr = [
+      this._findAnswer(answerSlugs.objectStreet),
+      this._findAnswer(answerSlugs.objectNumber),
     ]
       .filter(Boolean)
-      .join(", ")
+      .join(" ")
       .trim();
+    const city = this._findAnswer(answerSlugs.objectLocation)?.trim();
+
+    return [streetAndNr, city].filter(Boolean).join(", ").trim();
   }
 
   static fragment = `{
@@ -84,16 +93,11 @@ export default class CustomCaseModel extends CaseModel {
       }
       answers(
         questions: [
-          "gemeinde"
-          "strasse-gesuchstellerin"
-          "nummer-gesuchstellerin"
-          "plz-gesuchstellerin"
-          "ort-gesuchstellerin"
-          "beschreibung-bauvorhaben"
-          "gemeinde"
-          "strasse-flurname"
-          "nr"
-          "ort-grundstueck"
+          "${answerSlugs.municipality}"
+          "${answerSlugs.description}"
+          "${answerSlugs.objectStreet}"
+          "${answerSlugs.objectNumber}"
+          "${answerSlugs.objectLocation}"
         ]
       ) {
         edges {

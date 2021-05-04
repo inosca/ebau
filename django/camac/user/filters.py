@@ -17,7 +17,7 @@ from .permissions import get_permission_func
 class LocationFilterSet(FilterSet):
     class Meta:
         model = models.Location
-        fields = ("name", "communal_federal_number")
+        fields = ("location_id", "name", "communal_federal_number")
 
 
 class PublicServiceFilterSet(FilterSet):
