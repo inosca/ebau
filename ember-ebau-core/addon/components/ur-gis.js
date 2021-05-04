@@ -150,10 +150,10 @@ export default class UrGisComponent extends Component {
     const { x, y } = LatLngToEPSG3857(latlng);
     try {
       const layerList = LAYERS.join(",");
-      const minX = x - 1;
-      const minY = y - 1;
-      const maxX = x + 1;
-      const maxY = y + 1;
+      const minX = x - 10;
+      const minY = y - 10;
+      const maxX = x + 10;
+      const maxY = y + 10;
       const response = yield fetch(
         `${this.config.gisUrl}?SERVICE=WMS&VERSION=1.3.0&HEIGHT=101&WIDTH=101&request=GetCapabilities&REQUEST=GetFeatureInfo&FORMAT=image/png&LAYERS=${layerList}&QUERY_LAYERS=${layerList}&INFO_FORMAT=application/json&I=50&J=50&CRS=EPSG:3857&BBOX=${minX},${minY},${maxX},${maxY}&FEATURE_COUNT=10`,
         {
@@ -212,18 +212,7 @@ export default class UrGisComponent extends Component {
           features.push("Archäologisches Fundwartungsgebiet");
         }
 
-        const filteredFeatures = features.filter(
-          (feature) => feature !== undefined
-        );
-
         const parcelNumber = liegenschaftFeature.properties.nummer;
-
-        document.querySelector(
-          ".parcelInfo"
-        ).innerHTML = `Parzelle ${parcelNumber}: ${[
-          grundnutzung,
-          ...filteredFeatures,
-        ].join(", ")}`;
 
         const coordinates = liegenschaftFeature.geometry.coordinates[0][0].map(
           EPSG3857toLatLng
@@ -259,6 +248,23 @@ export default class UrGisComponent extends Component {
         if (selbstrechtFeature) {
           parcel["building-law-number"] = selbstrechtFeature.properties.nummer;
         }
+
+        const parcelInfo = `Parzelle ${parcelNumber}: ${[
+          [parcel["parcel-street"], parcel["street-number"]]
+            .filter(Boolean)
+            .join(" "),
+          [parcel["parcel-zip"], parcel["parcel-city"]]
+            .filter(Boolean)
+            .join(" "),
+        ]
+          .filter(Boolean)
+          .join(", ")}`;
+
+        const nutzungInfo = [grundnutzung, ueberlagerteNutzungen].join(", ");
+
+        parcel.parcelInfo = parcelInfo;
+        parcel.nutzungInfo = nutzungInfo;
+
         this.parcels.pushObject(parcel);
       }
     } catch (error) {
