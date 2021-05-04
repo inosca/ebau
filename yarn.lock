@@ -5933,10 +5933,9 @@ ember-caluma@^7.0.5, ember-caluma@^7.0.6:
     slugify "^1.5.0"
     uuid "^8.3.1"
 
-ember-can@^3.0.0:
+ember-can@anehx/ember-can#patch-1:
   version "3.0.0"
-  resolved "https://registry.yarnpkg.com/ember-can/-/ember-can-3.0.0.tgz#86988e2ec35ece0ac7b28f7c436228485911528a"
-  integrity sha512-URgfnVIe2O6bkgC1OAKGuKwbNklwONpT4MbQM17g7v0IKoHW+k6mL1iGQzBIPdjTBtlwRJNAl6nddYE8T5UVig==
+  resolved "https://codeload.github.com/anehx/ember-can/tar.gz/be1685b4771e576343e1d5ad149da40eaa391e14"
   dependencies:
     ember-cli-babel "^7.13.2"
     ember-cli-htmlbars "^4.2.1"
