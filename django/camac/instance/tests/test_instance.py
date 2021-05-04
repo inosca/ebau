@@ -366,7 +366,7 @@ def test_instance_submit(
     application_settings["WORKFLOW_ITEMS"]["SUBMIT"] = workflow_item.pk
     application_settings["INSTANCE_IDENTIFIER_FORM_ABBR"] = {"vbs": "PV"}
     application_settings["SHORT_DOSSIER_NUMBER"] = short_dossier_number
-    application_settings["PDF"]["SECTION"] = attachment_section.pk
+    application_settings["STORE_PDF"]["SECTION"] = attachment_section.pk
 
     case = workflow_api.start_case(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),

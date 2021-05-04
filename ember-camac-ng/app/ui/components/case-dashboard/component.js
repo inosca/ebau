@@ -41,7 +41,7 @@ export default class CaseDashboardComponent extends Component {
   *fetchCase() {
     yield this.store.query("instance", {
       instance_id: this.args.caseId,
-      include: "instance_state,user,form",
+      include: "instance_state,user,form,location",
     });
 
     const journalEntries = yield this.store.query("journal-entry", {
