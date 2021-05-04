@@ -67,19 +67,16 @@ class DMSHandler:
                 _("No template specified for form '%(form_slug)s'.")
                 % {"form_slug": doc.form.slug}
             )
-        pdf_settings = settings.APPLICATION.get("PDF", {})
+        dms_settings = settings.APPLICATION.get("DOCUMENT_MERGE_SERVICE", {})
 
-        municipality = None
-        if pdf_settings.get("MUNICIPALITY_SLUG"):
+        municipality = "-"
+        if dms_settings.get("MUNICIPALITY_SLUG"):
             try:
-                import pdb
-
-                pdb.set_trace()
                 municipality_id = doc.answers.get(
-                    question_id=pdf_settings.get("MUNICIPALITY_SLUG")
+                    question_id=dms_settings.get("MUNICIPALITY_SLUG")
                 ).value
                 municipality = (
-                    import_string(pdf_settings.get("MUNICIPALITY_MODEL"))
+                    import_string(dms_settings.get("MUNICIPALITY_MODEL"))
                     .objects.get(pk=municipality_id)
                     .name
                 )
