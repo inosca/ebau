@@ -4,8 +4,6 @@ import { inject as service } from "@ember/service";
 import BaseAuthenticator from "ember-simple-auth/authenticators/base";
 import fetch from "fetch";
 
-const TOKEN_REFRESH_LEEWAY = 30 * 1000; // 30 seconds
-
 export default class CamacAuthenticator extends BaseAuthenticator {
   @service shoebox;
 
@@ -34,13 +32,16 @@ export default class CamacAuthenticator extends BaseAuthenticator {
   }
 
   handleToken(token) {
-    const { expires } = token;
+    const {
+      expires_in: expiresIn,
+      token_refresh_leeway: tokenRefreshLeeway,
+    } = token;
 
-    const diff = new Date(expires * 1000) - new Date() - TOKEN_REFRESH_LEEWAY;
+    const timeout = expiresIn - tokenRefreshLeeway;
 
-    if (diff > 0) {
+    if (timeout > 0) {
       cancel(this._timer);
-      this._timer = later(this, "refresh", diff);
+      this._timer = later(this, "refresh", timeout * 1000);
     } else {
       this.refresh();
     }
