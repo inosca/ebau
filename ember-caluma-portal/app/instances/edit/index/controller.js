@@ -1,20 +1,19 @@
 import Controller, { inject as controller } from "@ember/controller";
 import { reads } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
-import { queryManager } from "ember-apollo-client";
-import { dropTask, lastValue } from "ember-concurrency-decorators";
+import calumaQuery from "ember-caluma/caluma-query";
+import { allCases } from "ember-caluma/caluma-query/queries";
+import { dropTask } from "ember-concurrency-decorators";
 import UIkit from "uikit";
 
 import config from "../../../config/environment";
 
-import CustomCaseModel from "caluma-portal/caluma-query/models/case";
-import getOverviewCaseQuery from "caluma-portal/gql/queries/get-overview-case.graphql";
-
 export default class InstancesEditIndexController extends Controller {
-  @queryManager apollo;
   @service fetch;
   @service notification;
   @service intl;
+
+  @calumaQuery({ query: allCases }) cases;
 
   @controller("instances.edit") editController;
   @reads("editController.hasFeedbackSection") hasFeedbackSection;
@@ -31,20 +30,19 @@ export default class InstancesEditIndexController extends Controller {
     );
   }
 
-  @lastValue("fetchCase") case;
+  get case() {
+    return this.cases.value?.[0];
+  }
+
   @dropTask
   *fetchCase() {
-    const raw = yield this.apollo.query(
-      {
-        fetchPolicy: "network-only",
-        query: getOverviewCaseQuery,
-        variables: {
-          instanceId: this.model,
+    yield this.cases.fetch({
+      filter: [
+        {
+          metaValue: [{ key: "camac-instance-id", value: this.model }],
         },
-      },
-      "allCases.edges.firstObject.node"
-    );
-    return new CustomCaseModel(raw);
+      ],
+    });
   }
 
   @dropTask
