@@ -85,6 +85,25 @@ snapshots['test_instance_permissions_be[Applicant-None-coordination-instance__us
     ]
 }
 
+snapshots['test_instance_permissions_be[Applicant-None-correction-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
 snapshots['test_instance_permissions_be[Applicant-None-evaluated-instance__user0] 1'] = {
     'case-meta': [
         'read'
@@ -385,6 +404,29 @@ snapshots['test_instance_permissions_be[Municipality-construction-control-coordi
     ]
 }
 
+snapshots['test_instance_permissions_be[Municipality-construction-control-correction-instance__user0] 1'] = {
+    'case-meta': [
+        'read',
+        'write'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read',
+        'write'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
 snapshots['test_instance_permissions_be[Municipality-construction-control-evaluated-instance__user0] 1'] = {
     'case-meta': [
         'read',
@@ -606,8 +648,7 @@ snapshots['test_instance_permissions_be[Municipality-construction-control-subm-i
         'read'
     ],
     'main': [
-        'read',
-        'write'
+        'read'
     ],
     'nfd': [
         'read'
@@ -715,6 +756,29 @@ snapshots['test_instance_permissions_be[Municipality-district-coordination-insta
     'publikation': [
         'read',
         'write'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[Municipality-district-correction-instance__user0] 1'] = {
+    'case-meta': [
+        'read',
+        'write'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read',
+        'write'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
     ],
     'sb1': [
     ],
@@ -942,8 +1006,7 @@ snapshots['test_instance_permissions_be[Municipality-district-subm-instance__use
         'read'
     ],
     'main': [
-        'read',
-        'write'
+        'read'
     ],
     'nfd': [
         'read'
@@ -1051,6 +1114,29 @@ snapshots['test_instance_permissions_be[Municipality-municipality-coordination-i
     'publikation': [
         'read',
         'write'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[Municipality-municipality-correction-instance__user0] 1'] = {
+    'case-meta': [
+        'read',
+        'write'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read',
+        'write'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
     ],
     'sb1': [
     ],
@@ -1278,8 +1364,7 @@ snapshots['test_instance_permissions_be[Municipality-municipality-subm-instance_
         'read'
     ],
     'main': [
-        'read',
-        'write'
+        'read'
     ],
     'nfd': [
         'read'
@@ -1363,6 +1448,26 @@ snapshots['test_instance_permissions_be[Service-service-coordination-instance__u
     ],
     'dossierpruefung': [
         'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[Service-service-correction-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
     ],
     'main': [
         'read'
@@ -1680,6 +1785,37 @@ snapshots['test_instance_permissions_be[Support-None-conclusion-instance__user0]
 }
 
 snapshots['test_instance_permissions_be[Support-None-coordination-instance__user0] 1'] = {
+    'case-meta': [
+        'read',
+        'write'
+    ],
+    'dossierpruefung': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read',
+        'write'
+    ],
+    'nfd': [
+        'read',
+        'write'
+    ],
+    'publikation': [
+        'read',
+        'write'
+    ],
+    'sb1': [
+        'read',
+        'write'
+    ],
+    'sb2': [
+        'read',
+        'write'
+    ]
+}
+
+snapshots['test_instance_permissions_be[Support-None-correction-instance__user0] 1'] = {
     'case-meta': [
         'read',
         'write'
