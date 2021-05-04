@@ -493,7 +493,9 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         if state != "new":
             permissions.add("read")
 
-        if state in ["correction", "comm", "old"]:
+        if state in settings.APPLICATION.get("INSTANCE_PERMISSIONS", {}).get(
+            "MUNICIPALITY_WRITE", []
+        ):
             permissions.add("write")
 
         if (
@@ -1127,7 +1129,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         section_type = "PAPER" if CalumaApi().is_paper(instance) else "DEFAULT"
 
         return AttachmentSection.objects.get(
-            pk=settings.APPLICATION["PDF"]["SECTION"][form_name][section_type]
+            pk=settings.APPLICATION["STORE_PDF"]["SECTION"][form_name][section_type]
         )
 
     def _generate_and_store_pdf(self, instance, form_slug=None):

@@ -37,6 +37,7 @@ def sort_permissions(permissions):
         "circulation_init",
         "circulation",
         "coordination",
+        "correction",
         "sb1",
         "sb2",
         "conclusion",
@@ -73,6 +74,9 @@ def test_instance_permissions_be(
     application_settings["CALUMA"]["FORM_PERMISSIONS"] = settings.APPLICATIONS[
         "kt_bern"
     ]["CALUMA"]["FORM_PERMISSIONS"]
+    application_settings["INSTANCE_PERMISSIONS"] = settings.APPLICATIONS["kt_bern"][
+        "INSTANCE_PERMISSIONS"
+    ]
 
     response = admin_client.get(reverse("instance-detail", args=[instance.pk]))
 

@@ -15,6 +15,7 @@ export default class InstanceModel extends Model {
   @belongsTo user;
   @belongsTo form;
   @belongsTo instanceState;
+  @belongsTo location;
 
   @hasMany circulations;
   @hasMany services;

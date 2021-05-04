@@ -42,7 +42,7 @@ snapshots["test_document_merge_service_snapshot[baugesuch] 1"] = [
                             "E-Mail",
                             "Hinweis Gesuchsteller/in",
                         ],
-                        "label": "Personalien - Gesuchsteller/in",
+                        "label": "Gesuchsteller/in",
                         "rows": [
                             [
                                 {
@@ -1257,7 +1257,7 @@ snapshots["test_document_merge_service_snapshot[sb1] 1"] = [
                     "E-Mail",
                     "Hinweis Gesuchsteller/in",
                 ],
-                "label": "Personalien - Verantwortliche Person Selbstdeklaration Baukontrolle",
+                "label": "Verantwortliche Person Selbstdeklaration Baukontrolle",
                 "rows": [
                     [
                         {
@@ -1496,7 +1496,7 @@ snapshots["test_document_merge_service_snapshot[sb2] 1"] = [
                     "E-Mail",
                     "Hinweis Gesuchsteller/in",
                 ],
-                "label": "Personalien - Verantwortliche Person Selbstdeklaration Baukontrolle",
+                "label": "Verantwortliche Person Selbstdeklaration Baukontrolle",
                 "rows": [
                     [
                         {

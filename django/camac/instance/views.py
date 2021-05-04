@@ -459,7 +459,9 @@ class InstanceView(
         attachment.path.save(filename, file)
         attachment.size = attachment.path.size
         attachment.attachment_sections.add(
-            AttachmentSection.objects.get(pk=settings.APPLICATION["PDF"]["SECTION"])
+            AttachmentSection.objects.get(
+                pk=settings.APPLICATION["STORE_PDF"]["SECTION"]
+            )
         )
         attachment.save()
 
