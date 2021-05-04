@@ -56,7 +56,11 @@
   {{/each}}
 </LeafletMap>
 
-<p class="parcelInfo"></p>
+
+{{#each this.parcels as |parcel|}}
+  <p>{{parcel.parcelInfo}}<br>{{parcel.nutzungInfo}}</p>
+{{/each}}
+
 {{#unless @disabled}}
   <div>
     <UkButton
