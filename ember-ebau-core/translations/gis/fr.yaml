@@ -1,9 +1,10 @@
 # Not needed in french
 gis:
-  parcelNumber: ''
-  buildingLeaseNumber: ''
-  findParcel: ''
-  submitParcel: ''
-  noParcelNumber: ''
-  technicalError: ''
-  loadingError: ''
+  parcelNumber: ""
+  buildingLeaseNumber: ""
+  findParcel: ""
+  submitParcel: ""
+  noParcelNumber: ""
+  technicalError: ""
+  loadingError: ""
+  info-text-ur: ""

@@ -26,7 +26,7 @@
         @label={{t "instances.status.title"}}
         @value={{or this.instance.status "-"}}
       />
-      {{#if (eq (application-name) "be")}}
+      {{#if (is-application "be")}}
         <BeOverviewGridCell
           @label={{t "instances.lead"}}
           @value={{or this.instance.activeService.name "-"}}
@@ -55,6 +55,9 @@
           {{~this.instance.rejectionFeedback~}}
         </p>
       </div>
+      {{#if (is-application "ur")}}
+        <p>{{t "instances.rejection-info-text-ur"}}</p>
+      {{/if}}
     </div>
   </div>
 

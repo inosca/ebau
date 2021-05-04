@@ -118,6 +118,10 @@ export default class CustomCaseModel extends CaseModel {
     return this.instance?.get("instanceState.uppercaseName");
   }
 
+  get communalFederalNumber() {
+    return this.instance?.get("location.communalFederalNumber");
+  }
+
   get coordination() {
     const description = this.instance?.get("form.description");
 

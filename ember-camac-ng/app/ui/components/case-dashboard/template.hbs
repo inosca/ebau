@@ -112,7 +112,9 @@
             {{#each this.models.caseModel.parcelNumbers as |parcelNumber|}}
               <li>
                 <a
-                  href="https://egov.ur.ch/teraspur/cgi2TERwww.asp?usr=eigentum&pass=terintra2014&gem=1201&nr={{
+                  href="https://egov.ur.ch/teraspur/cgi2TERwww.asp?usr=eigentum&pass=terintra2014&gem={{
+                    this.models.caseModel.communalFederalNumber
+                  }}&nr={{
                     parcelNumber
                   }}"
                   target="_blank"
