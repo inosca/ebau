@@ -51,16 +51,15 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get municipality() {
-    const answer = this.answers.find(
-      (answer) => answer.question.slug === answerSlugs.municipality
-    );
-    const selectedOption =
-      answer &&
-      answer.question.options.edges.find((option) => {
-        return answer.stringValue === option.node.slug;
-      });
+    const slug = this._findAnswer(answerSlugs.municipality);
 
-    return selectedOption && selectedOption.node.label;
+    return (
+      slug &&
+      this.store
+        .peekRecord(config.APPLICATION.municipalityModel, slug)
+        ?.name?.replace(/Leitbehörde|Municipalité/, "")
+        .trim()
+    );
   }
 
   get submitDate() {
@@ -109,16 +108,6 @@ export default class CustomCaseModel extends CaseModel {
             id
             question {
               slug
-              ... on DynamicChoiceQuestion {
-                options {
-                  edges {
-                    node {
-                      slug
-                      label
-                    }
-                  }
-                }
-              }
             }
             ...on StringAnswer {
               stringValue: value
