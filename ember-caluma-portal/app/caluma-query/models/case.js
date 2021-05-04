@@ -10,8 +10,9 @@ export default class CustomCaseModel extends CaseModel {
   @service store;
 
   _findAnswer(slug) {
+    const answers = this.raw.document.answers.edges.map(({ node }) => node);
     const answer =
-      this.answers.find((answer) => answer.question.slug === slug) || {};
+      answers.find((answer) => answer.question.slug === slug) || {};
 
     const key = Object.keys(answer).find((key) => /Value$/.test(key));
 
@@ -44,10 +45,6 @@ export default class CustomCaseModel extends CaseModel {
 
   get isModification() {
     return this.instance.isModification;
-  }
-
-  get answers() {
-    return this.raw.document.answers.edges.map(({ node }) => node);
   }
 
   get municipality() {
