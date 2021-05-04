@@ -1,6 +1,6 @@
-{{#if @loading}}
+{{#if (eq this.state "loading")}}
   <div class="uk-padding uk-flex uk-flex-center"><UkSpinner @ratio="2" /></div>
-{{else if (not @hasPermission)}}
+{{else if (eq this.state "no-permission")}}
   <div class="uk-text-center">
     <h1 class="uk-heading-2xlarge">{{t "notfound.title"}}</h1>
     <h3>{{t "notfound.subtitle"}}</h3>
@@ -9,3 +9,8 @@
 {{else}}
   {{yield}}
 {{/if}}
+
+<template
+  {{did-insert (perform this.setTemplate)}}
+  {{did-update (perform this.setTemplate) @loading @hasPermission}}
+></template>
