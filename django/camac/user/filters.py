@@ -15,6 +15,8 @@ from .permissions import get_permission_func
 
 
 class LocationFilterSet(FilterSet):
+    location_id = NumberMultiValueFilter()
+
     class Meta:
         model = models.Location
         fields = ("location_id", "name", "communal_federal_number")
