@@ -36,6 +36,7 @@ def test_parcel_extraction(input, expected):
         ("Fr. 30.50", "30.5"),
         ("Fr. 30.000", "30"),
         ("Mio 2.4", "2400000"),
+        ("...2.4...", "2.4"),
     ],
 )
 def test_extract_number(input, expected):
