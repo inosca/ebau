@@ -262,6 +262,9 @@ class Transform:
                 # can happen if input value is "fr. 130'000.--"
                 new_value = new_value[1:]
 
+            if new_value == "":
+                return None
+
             new_value = str(factor * float(new_value))
             return re.sub("\.0*$", "", new_value)
         except ValueError:
