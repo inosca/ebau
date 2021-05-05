@@ -249,15 +249,23 @@ class Transform:
 
     @staticmethod
     def extract_number(value):
-        new_value = re.sub(r"[^0-9\.]", "", str(value))
-        if new_value.endswith("."):
-            # can happen if input value is "fr 130'000.--"
-            new_value = new_value[:-1]
-        if new_value.startswith("."):
-            # can happen if input value is "fr. 130'000.--"
-            new_value = new_value[1:]
+        try:
+            factor = 1
+            if "mio" in value.lower():
+                factor = 1000000
 
-        return new_value
+            new_value = re.sub(r"[^0-9\.]", "", str(value))
+            new_value = new_value.strip(".")
+
+            if new_value == "":
+                return None
+
+            new_value = str(factor * float(new_value))
+            return re.sub("\.0*$", "", new_value)
+        except ValueError:
+            log.critical(f"number could not be extracted from : {value}")
+            __import__("pdb").set_trace()  # noqa
+            pass
 
     @staticmethod
     def extract_first_number(value):
