@@ -61,6 +61,31 @@ def extract_parcels(parcel_string):
     return filtered_numbers
 
 
+def extract_number(new_value, slug, ind):
+    try:
+        # some mild sanitizing
+        factor = 1
+        if "mio" in new_value.lower():
+            factor = 1000000
+
+        value = re.sub("[^\d.]", "", new_value)
+        value = re.sub("\.0*$", "", value)
+        value = re.sub("^\.", "", value)
+        value = re.sub("['`]", "", value)
+
+        if value == "":
+            return None
+        if "." in value:
+            return factor * float(value)
+        return factor * int(value)
+    except ValueError:
+        log.critical(
+            f"{ind}Integer answer {slug} contains non-integer value: {new_value}"
+        )
+        __import__("pdb").set_trace()  # noqa
+        pass
+
+
 class Command(BaseCommand):
     """Migrate dossiers from old Camac to Caluma/Camac-NG."""
 
@@ -429,25 +454,7 @@ class Command(BaseCommand):
         answer.meta["migrated_from_answerid"].append(old_ans.pk)
         answer.meta["migrated_from_questionid"].append(old_ans.question_id)
         if answer.question.type == answer.question.TYPE_INTEGER:
-            try:
-                # some mild sanitizing
-                value = re.sub("\.0*$", "", new_value)
-                value = re.sub("['`]", "", value)
-                if "price" in slug and "." in value:
-                    # prices in francs is enough
-                    value = re.sub(r"\.[0-9]+$", "", value)
-                if value == "":
-                    value = None
-                if "." in value:
-                    answer.value = float(value)
-                else:
-                    answer.value = int(value)
-            except ValueError:
-                log.critical(
-                    f"{ind}Integer answer {slug} contains non-integer value: {new_value}"
-                )
-                __import__("pdb").set_trace()  # noqa
-                pass
+            answer.value = extract_number(new_value, slug, ind)
         elif answer.question.type == answer.question.TYPE_FLOAT:
             try:
                 # some minimal sanitizing that doesn't affect the actual value
