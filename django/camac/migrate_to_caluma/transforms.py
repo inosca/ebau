@@ -255,12 +255,7 @@ class Transform:
                 factor = 1000000
 
             new_value = re.sub(r"[^0-9\.]", "", str(value))
-            if new_value.endswith("."):
-                # can happen if input value is "fr 130'000.--"
-                new_value = new_value[:-1]
-            if new_value.startswith("."):
-                # can happen if input value is "fr. 130'000.--"
-                new_value = new_value[1:]
+            new_value = new_value.strip(".")
 
             if new_value == "":
                 return None
