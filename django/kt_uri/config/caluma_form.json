@@ -12030,7 +12030,7 @@
     "pk": "energienachweis-ja",
     "fields": {
       "created_at": "2021-04-08T09:04:01.253Z",
-      "modified_at": "2021-04-27T07:10:40.455Z",
+      "modified_at": "2021-05-05T11:33:36.615Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -26167,7 +26167,7 @@
     "pk": "energienachweis",
     "fields": {
       "created_at": "2021-04-08T09:04:01.375Z",
-      "modified_at": "2021-04-27T07:10:40.658Z",
+      "modified_at": "2021-05-05T11:33:36.840Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -26175,7 +26175,7 @@
       "label": "{\"de\": \"Energienachweis\", \"fr\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "!([\n 'art-der-hochbaute-einfamilienhaus',\n 'art-der-hochbaute-doppeleinfamilienhaus',\n 'art-der-hochbaute-mehrfamilienhaus',\n 'art-der-hochbaute-geschaftshaus',\n 'art-der-hochbaute-wohn-und-geschaftshaus',\n 'art-der-hochbaute-industrie',\n 'art-der-hochbaute-bauten-und-anlagen-gastgewerbe',\n 'art-der-hochbaute-heim-mit-unterkunft',\n 'art-der-hochbaute-wohnheim-ohne-pflege',\n 'art-der-hochbaute-spital',\n 'art-der-hochbaute-schulen',\n 'art-der-hochbaute-sporthallen',\n 'art-der-hochbaute-tourismusanlagen',\n 'art-der-hochbaute-kirchen',\n 'art-der-hochbaute-kulturbauten',\n 'art-der-hochbaute-landwirtschaft-betrieb-wohnteil'\n] intersects \n'gebaeude'|answer|mapby('art-der-hochbaute') && !('energienachweis-nachtraeglich-ja' in 'energienachweis-nachtraeglich'|answer))",
+      "is_hidden": "!([\n 'art-der-hochbaute-einfamilienhaus',\n 'art-der-hochbaute-doppeleinfamilienhaus',\n 'art-der-hochbaute-mehrfamilienhaus',\n 'art-der-hochbaute-geschaftshaus',\n 'art-der-hochbaute-wohn-und-geschaftshaus',\n 'art-der-hochbaute-industrie',\n 'art-der-hochbaute-bauten-und-anlagen-gastgewerbe',\n 'art-der-hochbaute-heim-mit-unterkunft',\n 'art-der-hochbaute-wohnheim-ohne-pflege',\n 'art-der-hochbaute-spital',\n 'art-der-hochbaute-schulen',\n 'art-der-hochbaute-sporthallen',\n 'art-der-hochbaute-tourismusanlagen',\n 'art-der-hochbaute-kirchen',\n 'art-der-hochbaute-kulturbauten',\n 'art-der-hochbaute-landwirtschaft-betrieb-wohnteil'\n] intersects \n'gebaeude'|answer|mapby('art-der-hochbaute') && !('energienachweis-nachtraeglich-ja' == 'energienachweis-nachtraeglich'|answer))",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -41173,8 +41173,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energienachweis.energienachweis-ja",
     "fields": {
-      "created_at": "2021-04-27T07:10:40.667Z",
-      "modified_at": "2021-04-27T07:10:40.667Z",
+      "created_at": "2021-05-05T11:33:36.850Z",
+      "modified_at": "2021-05-05T11:33:36.850Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
