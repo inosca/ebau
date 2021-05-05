@@ -249,6 +249,10 @@ class Transform:
 
     @staticmethod
     def extract_number(value):
+        factor = 1
+        if "mio" in value.lower():
+            factor = 1000000
+
         new_value = re.sub(r"[^0-9\.]", "", str(value))
         if new_value.endswith("."):
             # can happen if input value is "fr 130'000.--"
