@@ -17,31 +17,30 @@
       </label>
     </div>
 
-    {{#unless this.disabled}}
+    {{#if (can "edit work item of audit" this.auditController.auditWorkItem)}}
       <div>
         <button class="uk-button uk-button-default" type="button" {{on "click" (perform this.skipAudit)}}>{{t "audit.skip"}}</button>
         <button class="uk-button uk-button-primary" type="button" {{on "click" (perform this.completeAudit)}}>{{t "audit.complete"}}</button>
       </div>
-    {{/unless}}
+    {{/if}}
   </div>
 
   <AuditTable
-    @audits={{this.audits}}
-    @documentData={{this.documentData}}
-    @disabled={{this.disabled}}
+    @audits={{this.auditController.audits}}
+    @documentData={{this.auditController.documentData}}
+    @workItem={{this.auditController.auditWorkItem}}
     @onRefresh={{perform this.auditController.fetchAudit}}
   />
 
   {{#if this.showSameEbauNumber}}
-    {{#each this.auditsWithSameEbauNumber as |auditGroup|}}
+    {{#each this.auditController.auditsWithSameEbauNumber as |auditGroup|}}
       <div class="uk-margin-top">
         <strong>{{auditGroup.instanceId}} - {{auditGroup.form}}</strong>
         <hr>
         <AuditTable
           @audits={{auditGroup.audits}}
-          @documentData={{this.documentData}}
-          @disabled={{this.disabled}}
-          @onlyCopy={{true}}
+          @documentData={{this.auditController.documentData}}
+          @workItem={{this.auditController.auditWorkItem}}
           @onRefresh={{perform this.auditController.fetchAudit}}
         />
       </div>
