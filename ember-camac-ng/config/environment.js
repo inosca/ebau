@@ -50,6 +50,10 @@ module.exports = function (environment) {
       },
       kt_uri: {
         allowApplicantManualWorkItem: false,
+        activeCirculationStates: [
+          1, // RUN
+          41, // NFD
+        ],
       },
     },
 

@@ -5,6 +5,8 @@ import Component from "@glimmer/component";
 import calumaQuery from "ember-caluma/caluma-query";
 import { allCases } from "ember-caluma/caluma-query/queries";
 
+import config from "camac-ng/config/environment";
+
 export default class CaseTableComponent extends Component {
   @service store;
   @service intl;
@@ -170,7 +172,9 @@ export default class CaseTableComponent extends Component {
     const camacFilters = {
       instance_state: this.args.filter.instanceState || "",
       location: this.args.filter.municipality,
-      service: this.args.hasActivation ? this.shoebox.content.serviceId : null,
+      circulation_state: this.args.hasActivation
+        ? config.APPLICATION.activeCirculationStates
+        : null,
       has_pending_billing_entry: this.args.hasPendingBillingEntry,
       has_pending_sanction: this.args.hasPendingSanction,
     };
