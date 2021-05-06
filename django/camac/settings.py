@@ -154,6 +154,7 @@ APPLICATIONS = {
             "Commission": "commission",
             "OrganizationReadonly": "organization_readonly",
         },
+        "ROLE_INHERITANCE": {"trusted_service": "service"},
         "IS_MULTILINGUAL": False,
         "NOTIFICATIONS": {"SUBMIT": None, "APPLICANT": {"NEW": None, "EXISTING": None}},
         "PUBLICATION_DURATION": timedelta(days=30),
@@ -1225,6 +1226,7 @@ APPLICATIONS = {
             # "Architect": None,
             # "Guest": None,  # TODO AFAIK we don't grant unauthenticated users access to endpoints
         },
+        "ROLE_INHERITANCE": {"trusted_service": "service"},
         "INSTANCE_PERMISSIONS": {"MUNICIPALITY_WRITE": ["comm", "old", "subm"]},
         "NOTIFICATIONS": {
             "SUBMIT": [
