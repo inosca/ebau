@@ -1174,6 +1174,7 @@ APPLICATIONS = {
                         "allgemeine-informationen-baugesuch-vorabklaerung",
                         "allgemeine-informationen-meldung-solaranlage",
                         "allgemeine-informationen-proposal-declaration",
+                        "parzellen-oder-baurechtsnummer",
                     ],
                 },
             },
