@@ -161,7 +161,14 @@ class CalumaInstanceFilterSet(InstanceFilterSet):
     sanction_control_instance = NumberFilter(field_name="sanctions__control_instance")
 
     def filter_is_applicant(self, queryset, name, value):
-        return queryset.filter(involved_applicants__invitee=self.request.user)
+        user = self.request.user
+        if not user:
+            return queryset.none()
+
+        _filter = {"involved_applicants__invitee": self.request.user}
+        if value:
+            return queryset.filter(**_filter)
+        return queryset.exclude(**_filter)
 
     def filter_is_paper(self, queryset, name, value):
         _filter = {
