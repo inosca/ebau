@@ -26,4 +26,8 @@ export default class ShoeboxService extends Service {
 
     return role && role[0];
   }
+
+  get isReadOnlyRole() {
+    return this.role?.endsWith("-readonly");
+  }
 }
