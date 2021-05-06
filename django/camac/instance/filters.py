@@ -92,12 +92,12 @@ class ResponsibleServiceUserFilter(CharFilter):
         )
 
 
-class CirculationStateFilter(NumberFilter):
+class CirculationStateFilter(NumberMultiValueFilter):
     def filter(self, qs, value, *args, **kwargs):
         if value:
             return qs.filter(
                 circulations__activations__service=self.parent.request.group.service,
-                circulations__activations__circulation_state__pk=int(value),
+                circulations__activations__circulation_state__pk__in=value,
             )
 
         return super().filter(qs, value)
