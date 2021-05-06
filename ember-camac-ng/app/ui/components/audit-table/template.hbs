@@ -12,8 +12,7 @@
       <AuditTable::row
         @audit={{audit}}
         @documentData={{@documentData}}
-        @disabled={{@disabled}}
-        @onlyCopy={{@onlyCopy}}
+        @workItem={{@workItem}}
         @onRefresh={{@onRefresh}}
       />
     {{else}}
@@ -24,7 +23,7 @@
   </tbody>
 </table>
 
-{{#if this.canCreate}}
+{{#if (can "edit work item of audit" @workItem)}}
   <div class="uk-text-center">
     <button
       type="button"

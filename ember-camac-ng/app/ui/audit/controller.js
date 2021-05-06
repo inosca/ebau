@@ -1,35 +1,87 @@
+import { getOwner, setOwner } from "@ember/application";
+import { A } from "@ember/array";
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
+import { decodeId } from "ember-caluma/helpers/decode-id";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 
 import getAudit from "camac-ng/gql/queries/get-audit.graphql";
 import getEbauNumber from "camac-ng/gql/queries/get-ebau-number.graphql";
+import Audit from "camac-ng/ui/audit/audit";
 
 export default class AuditController extends Controller {
   @service store;
-  @service shoebox;
   @service notifications;
   @service intl;
 
   @queryManager apollo;
 
-  get disabled() {
-    return (
-      this.auditWorkItem?.status !== "READY" ||
-      !this.auditWorkItem.addressedGroups
-        .map((id) => parseInt(id))
-        .includes(parseInt(this.shoebox.content.serviceId))
-    );
-  }
-
   get auditWorkItem() {
-    return this.audits?.find(
+    return this.auditWorkItems?.find(
       (workItem) => workItem.caseData.instanceId === this.model
     );
   }
 
-  @lastValue("fetchAudit") audits;
+  get audits() {
+    return A(
+      this.auditWorkItem?.document.answers.edges.flatMap((edge) =>
+        edge.node.value.map((raw) =>
+          this.createAudit(raw, this.auditWorkItem.caseData)
+        )
+      )
+    )
+      .sortBy("type", "createdAt")
+      .reverse();
+  }
+
+  get auditsWithSameEbauNumber() {
+    const workItems = this.auditWorkItems?.filter(
+      (workItem) => workItem.caseData.instanceId !== this.model
+    );
+
+    return workItems
+      ?.map((workItem) => {
+        return {
+          instanceId: workItem.caseData.instanceId,
+          form: workItem.caseData.form,
+          audits: workItem.document.answers.edges.flatMap((edge) =>
+            edge.node.value.map((raw) =>
+              this.createAudit(raw, workItem.caseData)
+            )
+          ),
+        };
+      })
+      .filter((auditGroup) => auditGroup.audits.length);
+  }
+
+  get documentData() {
+    const document = this.auditWorkItem?.document;
+
+    return (
+      document && {
+        id: decodeId(document.id),
+        ...document.answers.edges.reduce((obj, { node }) => {
+          return {
+            ...obj,
+            [node.question.rowForm.slug]: node.value.map((doc) =>
+              decodeId(doc.id)
+            ),
+          };
+        }, {}),
+      }
+    );
+  }
+
+  createAudit(rawDocument, caseData) {
+    const audit = new Audit(rawDocument, caseData);
+
+    setOwner(audit, getOwner(this));
+
+    return audit;
+  }
+
+  @lastValue("fetchAudit") auditWorkItems;
   @dropTask
   *fetchAudit() {
     try {
