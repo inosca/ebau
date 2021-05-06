@@ -176,6 +176,19 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
     ];
   }
 
+  get serializedHeaders() {
+    const camacFilters = {
+      is_applicant: true,
+    };
+
+    return {
+      "x-camac-filters": Object.entries(camacFilters)
+        .filter(([, value]) => value)
+        .map((entry) => entry.join("="))
+        .join("&"),
+    };
+  }
+
   @dropTask
   *getRootForms() {
     return (yield this.apollo.query(
@@ -191,6 +204,11 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
     yield this.cases.fetch({
       order: this.serializedOrder,
       filter: this.serializedFilter,
+      queryOptions: {
+        context: {
+          headers: this.serializedHeaders,
+        },
+      },
     });
   }
 
