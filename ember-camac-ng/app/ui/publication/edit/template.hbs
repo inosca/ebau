@@ -1,7 +1,7 @@
 {{#if this.publication}}
   <CfContent
     @documentId={{decode-id this.publication.document.id}}
-    @disabled={{this.disabled}}
+    @disabled={{cannot "edit publication" this.publication}}
   />
 {{/if}}
 

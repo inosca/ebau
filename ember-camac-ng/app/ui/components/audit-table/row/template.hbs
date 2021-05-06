@@ -20,21 +20,21 @@
       @onClick={{perform this.pdf}}
       title={{t "audit.createPdf"}}
     />
-    {{#if (and (not @disabled) @audit.canEdit)}}
+    {{#if (can "edit work item of audit" @workItem)}}
       <IconButton
         @icon="copy"
         @loading={{this.copy.isRunning}}
         @onClick={{perform this.copy}}
         title={{t "audit.copy"}}
       />
-      {{#unless @onlyCopy}}
-        <IconButton
-          @icon="trash"
-          @loading={{this.delete.isRunning}}
-          @onClick={{perform this.delete}}
-          title={{t "audit.delete"}}
-        />
-      {{/unless}}
+    {{/if}}
+    {{#if (can "edit audit" @workItem audit=@audit)}}
+      <IconButton
+        @icon="trash"
+        @loading={{this.delete.isRunning}}
+        @onClick={{perform this.delete}}
+        title={{t "audit.delete"}}
+      />
     {{/if}}
   </td>
 </tr>
