@@ -175,7 +175,10 @@ export default class CaseTableComponent extends Component {
       has_pending_sanction: this.args.hasPendingSanction,
     };
     this.casesQuery.fetch({
-      order: [{ meta: "camac-instance-id" }],
+      order: [
+        { documentAnswer: "municipality" },
+        { meta: "dossier-number", direction: "DESC" },
+      ],
       filter: this.gqlFilter,
       queryOptions: {
         context: {
