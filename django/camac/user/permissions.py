@@ -72,9 +72,13 @@ def get_permission_func(cls, name, group):
     perm = perms.get(group.role.name) if group else "public"
 
     if perm:
-        perm_func = "{0}_for_{1}".format(name, perm)
+        perm_func = f"{name}_for_{perm}"
         if hasattr(cls, perm_func):
             return getattr(cls, perm_func)
+        parent = settings.APPLICATION.get("ROLE_INHERITANCE", {}).get(perm)
+        parent_perm_func = f"{name}_for_{parent}"
+        if parent and hasattr(cls, parent_perm_func):
+            return getattr(cls, parent_perm_func)
 
     return None
 
