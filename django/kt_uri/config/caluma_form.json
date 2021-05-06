@@ -1145,7 +1145,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "anzahl-arbeitnehmer-im-ganzen-betrieb",
-      "sort": 85
+      "sort": 86
     }
   },
   {
@@ -1160,7 +1160,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "anzahl-arbeitnehmer-in-den-projektierten-raeumen",
-      "sort": 86
+      "sort": 87
     }
   },
   {
@@ -1175,7 +1175,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "arbeitnehmer-titel",
-      "sort": 87
+      "sort": 88
     }
   },
   {
@@ -1190,7 +1190,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "arbeitsraeume-titel",
-      "sort": 80
+      "sort": 81
     }
   },
   {
@@ -1220,7 +1220,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "art-der-beleuchtung",
-      "sort": 67
+      "sort": 68
     }
   },
   {
@@ -1235,7 +1235,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "art-der-lueftung",
-      "sort": 71
+      "sort": 72
     }
   },
   {
@@ -1250,7 +1250,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "art-der-notbeleuchtung",
-      "sort": 66
+      "sort": 67
     }
   },
   {
@@ -1265,7 +1265,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "auflistung-der-stoffe",
-      "sort": 60
+      "sort": 61
     }
   },
   {
@@ -1295,7 +1295,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "ausgaenge-titel",
-      "sort": 76
+      "sort": 77
     }
   },
   {
@@ -1310,7 +1310,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "begruendung-plangenehmigungspflicht",
-      "sort": 90
+      "sort": 91
     }
   },
   {
@@ -1340,7 +1340,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "bemerkungen",
-      "sort": 63
+      "sort": 64
     }
   },
   {
@@ -1400,7 +1400,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "beschreibung-schweissanlage",
-      "sort": 52
+      "sort": 53
     }
   },
   {
@@ -1445,7 +1445,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "betriebeinrichtungen-titel",
-      "sort": 62
+      "sort": 63
     }
   },
   {
@@ -1490,7 +1490,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "erste-hilfe",
-      "sort": 84
+      "sort": 85
     }
   },
   {
@@ -1505,7 +1505,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "erstehilfe",
-      "sort": 83
+      "sort": 84
     }
   },
   {
@@ -1535,7 +1535,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "ex-zonen",
-      "sort": 55
+      "sort": 56
     }
   },
   {
@@ -1550,7 +1550,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "ex-zonen-elektronische-ueberwachung",
-      "sort": 54
+      "sort": 55
     }
   },
   {
@@ -1595,7 +1595,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "fensterflaeche-in-den-arbeitsraeumen-in-m2",
-      "sort": 79
+      "sort": 80
     }
   },
   {
@@ -1610,7 +1610,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "feuerwiderstand",
-      "sort": 74
+      "sort": 75
     }
   },
   {
@@ -1625,7 +1625,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "foerderanlagen",
-      "sort": 46
+      "sort": 52
     }
   },
   {
@@ -1700,7 +1700,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "gefaehrliche-substanzen",
-      "sort": 56
+      "sort": 57
     }
   },
   {
@@ -1715,7 +1715,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "gefahrstoff",
-      "sort": 59
+      "sort": 60
     }
   },
   {
@@ -1760,7 +1760,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "gesundheitsschaedliche-stoffe-titel",
-      "sort": 61
+      "sort": 62
     }
   },
   {
@@ -1775,7 +1775,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "gibt-es-oertliche-absaugungen",
-      "sort": 70
+      "sort": 71
     }
   },
   {
@@ -1790,7 +1790,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "gibt-es-verunreinigte-luft",
-      "sort": 69
+      "sort": 70
     }
   },
   {
@@ -1820,7 +1820,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "heizung-raumtemperatur",
-      "sort": 77
+      "sort": 78
     }
   },
   {
@@ -1850,7 +1850,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "innerbetriebliche-emissionen-titel",
-      "sort": 64
+      "sort": 65
     }
   },
   {
@@ -1910,7 +1910,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "kuenstliche-beleuchtung-titel",
-      "sort": 68
+      "sort": 69
     }
   },
   {
@@ -1925,7 +1925,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "kuenstliche-lueftung-klimatisierung",
-      "sort": 65
+      "sort": 66
     }
   },
   {
@@ -1985,7 +1985,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "lueftung-titel",
-      "sort": 72
+      "sort": 73
     }
   },
   {
@@ -2030,7 +2030,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "material-der-treppen",
-      "sort": 75
+      "sort": 76
     }
   },
   {
@@ -2105,7 +2105,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "ort-menge-lueftung",
-      "sort": 57
+      "sort": 58
     }
   },
   {
@@ -2135,7 +2135,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "persoenliche-schutzausruestung",
-      "sort": 82
+      "sort": 83
     }
   },
   {
@@ -2150,7 +2150,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "persoenliche-schutzausruestung-hinweis",
-      "sort": 81
+      "sort": 82
     }
   },
   {
@@ -2180,7 +2180,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "planbesprechung-arbeitsinspektorat",
-      "sort": 89
+      "sort": 90
     }
   },
   {
@@ -2195,7 +2195,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "plangenehmigungspflicht",
-      "sort": 91
+      "sort": 92
     }
   },
   {
@@ -2210,7 +2210,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "pruefung-der-plangenehmigungspflicht",
-      "sort": 92
+      "sort": 93
     }
   },
   {
@@ -2270,7 +2270,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "schliesssystem-der-ausgaenge",
-      "sort": 73
+      "sort": 74
     }
   },
   {
@@ -2300,7 +2300,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "schweissanlagen-titel",
-      "sort": 53
+      "sort": 54
     }
   },
   {
@@ -2390,7 +2390,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "themen-arbeitssicherheit",
-      "sort": 88
+      "sort": 89
     }
   },
   {
@@ -2420,7 +2420,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "verhaeltnis-der-bodenflaeche-zur-fensterflaeche",
-      "sort": 78
+      "sort": 79
     }
   },
   {
@@ -2450,7 +2450,7 @@
       "modified_by_group": null,
       "form": "arbeitssicherheit",
       "question": "verwendung-verarbeitung",
-      "sort": 58
+      "sort": 59
     }
   },
   {
@@ -20958,7 +20958,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"##Allgemeinde Informationen zu verwaltungsinternen Verfahren\\n\\nAlle internen Verfahren werden k\\u00fcnftig, analog wie das zum Beispiel beim Baubewilligungsverfahren gemacht wird, mit dem benutzergef\\u00fchrten Formular erfasst. Die Themen \\\"Personalien\\\" und \\\"Lokalisierung\\\" sind dabei bei allen Verfahren identisch.\\n\\n**Auswahl des Verfahrens**\\nZur Vereinfachung der Datenstruktur werden die diversen Verfahrenstypen in den drei Themen \\\"Mitberichtsverfahren Kanton\\\", Mitberichtsverfahren Bund\\\" und \\\"PGV Kanton\\\" zusammengef\\u00fchrt.  Bis auf weiteres k\\u00f6nnen Sie, wenn Sie ein neues Dossier erstellen m\\u00f6chten,  wie gewohnt im CAMAC Menu \\\"Neues Dossier erstellen\\\" das Verfahren ausw\\u00e4hlen. Im Formular wird das dazugeh\\u00f6rige Thema angezeigt. In einem zweiten Schritt k\\u00f6nnen Sie dann die definitive Auswahl des Verfahrens t\\u00e4tigen (im Endausbau von URec wird die erste Auswahl wegfallen).\\n\\n##Klassierung der Verfahren##\\n**Mitberichtsverfahren Kanton** sind alle Verfahren bei denen die kantonalen Fachstellen einen Mitbericht zu handen einer **kantonalen Leitbeh\\u00f6rde** abgeben (z.B. ein Mitbericht zu einem Konzessionsverfahren - Leitbeh\\u00f6rde ist das Amt f\\u00fcr Energie).\\n\\n**Mitberichtsverfahren Bund** sind Verfahren, bei denen die kantonalen Fachstellen einen direkten oder einen koordinierten Mitbericht zu handen einer Bundesstelle abgeben (z.B. ein Mitberichtsverfahren zu einem PGV nach Seilbahngesetz - Leitbeh\\u00f6rde ist das BAV, zust\\u00e4ndig f\\u00fcr die Koordination der kantonalen R\\u00fcckmeldungen ist das ARE).\\n\\n**PGV Kanton** beinhaltet alle Plangenehmigungsverfahren die direkt von einer kantonalen Stelle geleitet werden (z.B. PGV Kantonsstrasse - Leitbeh\\u00f6rde ist die Baudirektion).\\n\\n**Geb\\u00fchren** \\nWir bitten Sie, im Rahmen der internen Verfahren auf die Erhebung von Geb\\u00fchren zu verzichten.\\n\\nBei Fragen wenden Sie sich bitte an das [Amt f\\u00fcr Raumentwicklung](https://www.ur.ch/_rte/amt/847) oder schreiben Sie uns eine Nachricht an:[Support URec](raumplanung@ur.ch)\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"##Allgemeinde Informationen zu verwaltungsinternen Verfahren\\n\\nAlle internen Verfahren werden k\\u00fcnftig, analog wie das zum Beispiel beim Baubewilligungsverfahren gemacht wird, mit dem benutzergef\\u00fchrten Formular erfasst. Die Themen \\\"Personalien\\\" und \\\"Lokalisierung\\\" sind dabei bei allen Verfahren identisch.\\n\\n**Auswahl des Verfahrens**\\nZur Vereinfachung der Datenstruktur werden die diversen Verfahrenstypen in den drei Themen \\\"Mitberichtsverfahren Kanton\\\", Mitberichtsverfahren Bund\\\" und \\\"PGV Kanton\\\" zusammengef\\u00fchrt.  Bis auf weiteres k\\u00f6nnen Sie, wenn Sie ein neues Dossier erstellen m\\u00f6chten,  wie gewohnt im CAMAC Menu \\\"Neues Dossier erstellen\\\" das Verfahren ausw\\u00e4hlen. Im Formular wird das dazugeh\\u00f6rige Thema angezeigt. In einem zweiten Schritt k\\u00f6nnen Sie dann die definitive Auswahl des Verfahrens t\\u00e4tigen (im Endausbau von URec wird die erste Auswahl wegfallen).\\n\\n##Klassierung der Verfahren##\\n**Mitberichtsverfahren Kanton** sind alle Verfahren bei denen die kantonalen Fachstellen einen Mitbericht zu handen einer **kantonalen Leitbeh\\u00f6rde** abgeben (z.B. ein Mitbericht zu einem Konzessionsverfahren - Leitbeh\\u00f6rde ist das Amt f\\u00fcr Energie).\\n\\n**Mitberichtsverfahren Bund** sind Verfahren, bei denen die kantonalen Fachstellen einen direkten oder einen koordinierten Mitbericht zu handen einer Bundesstelle abgeben (z.B. ein Mitberichtsverfahren zu einem PGV nach Seilbahngesetz - Leitbeh\\u00f6rde ist das BAV, zust\\u00e4ndig f\\u00fcr die Koordination der kantonalen R\\u00fcckmeldungen ist das ARE).\\n\\n**PGV Kanton** beinhaltet alle Plangenehmigungsverfahren die direkt von einer kantonalen Stelle geleitet werden (z.B. PGV Kantonsstrasse - Leitbeh\\u00f6rde ist die Baudirektion).\\n\\n**Geb\\u00fchren** \\nWir bitten Sie, im Rahmen der internen Verfahren auf die Erhebung von Geb\\u00fchren zu verzichten.\\n\\nBei Fragen wenden Sie sich bitte an das [Amt f\\u00fcr Raumentwicklung](https://www.ur.ch/_rte/amt/847) oder schreiben Sie uns eine Nachricht an:[Support URec](mailto:urec@ur.ch)\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -21408,7 +21408,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"##Allgemeine Informationen zu verwaltungsinternen Verfahren\\n\\nAlle internen Verfahren werden k\\u00fcnftig, analog wie das zum Beispiel beim Baubewilligungsverfahren gemacht wird, mit dem benutzergef\\u00fchrten Formular erfasst. Die Themen \\\"Personalien\\\" und \\\"Lokalisierung\\\" sind dabei bei allen Verfahren identisch.\\n\\n**Auswahl des Verfahrens**\\nZur Vereinfachung der Datenstruktur werden die diversen Verfahrenstypen in den drei Themen \\\"Mitberichtsverfahren Kanton\\\", Mitberichtsverfahren Bund\\\" und \\\"PGV Kanton\\\" zusammengef\\u00fchrt.  Bis auf weiteres k\\u00f6nnen Sie, wenn Sie ein neues Dossier erstellen m\\u00f6chten,  wie gewohnt im CAMAC Menu \\\"Neues Dossier erstellen\\\" das Verfahren ausw\\u00e4hlen. Im Formular wird das dazugeh\\u00f6rige Thema angezeigt. In einem zweiten Schritt k\\u00f6nnen Sie dann die definitive Auswahl des Verfahrens t\\u00e4tigen (im Endausbau von URec wird die erste Auswahl wegfallen).\\n\\n##Klassierung der Verfahren##\\n**Mitberichtsverfahren Kanton (MBV Kanton)** beinhaltet alle Mitberichtsverfahren die von einer kantonalen Stelle geleitet werden (z.B. Konzessionsverfahren - Leitbeh\\u00f6rde ist das Amt f\\u00fcr Energie).\\n\\n**Mitberichtsverfahren Bund(MBV Bund)** sind Verfahren, bei denen die kantonalen Fachstellen einen direkten oder einen koordinierten Mitbericht zu handen einer Bundesstelle abgeben (z.B. ein Mitberichtsverfahren zu einem PGV nach Seilbahngesetz - Leitbeh\\u00f6rde ist das BAV, zust\\u00e4ndig f\\u00fcr die Koordination der R\\u00fcckmeldungen der kantonalen Fachstellen ist das ARE).\\n\\n**Plangenehmigungsverfahren Kanton (PGV Kanton** beinhaltet alle Plangenehmigungsverfahren die von einer kantonalen Stelle geleitet werden (z.B. PGV Kantonsstrasse - Leitbeh\\u00f6rde ist die Baudirektion).\\n\\nWir bitten Sie, im Rahmen der internen Verfahren auf die **Erhebung von Geb\\u00fchren** zu verzichten.\\n\\nBei Fragen wenden Sie sich bitte an das [Amt f\\u00fcr Raumentwicklung](https://www.ur.ch/_rte/amt/847) oder schreiben Sie uns eine Nachricht an:[Support URec](raumplanung@ur.ch)\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"##Allgemeine Informationen zu verwaltungsinternen Verfahren\\n\\nAlle internen Verfahren werden k\\u00fcnftig, analog wie das zum Beispiel beim Baubewilligungsverfahren gemacht wird, mit dem benutzergef\\u00fchrten Formular erfasst. Die Themen \\\"Personalien\\\" und \\\"Lokalisierung\\\" sind dabei bei allen Verfahren identisch.\\n\\n**Auswahl des Verfahrens**\\nZur Vereinfachung der Datenstruktur werden die diversen Verfahrenstypen in den drei Themen \\\"Mitberichtsverfahren Kanton\\\", Mitberichtsverfahren Bund\\\" und \\\"PGV Kanton\\\" zusammengef\\u00fchrt.  Bis auf weiteres k\\u00f6nnen Sie, wenn Sie ein neues Dossier erstellen m\\u00f6chten,  wie gewohnt im CAMAC Menu \\\"Neues Dossier erstellen\\\" das Verfahren ausw\\u00e4hlen. Im Formular wird das dazugeh\\u00f6rige Thema angezeigt. In einem zweiten Schritt k\\u00f6nnen Sie dann die definitive Auswahl des Verfahrens t\\u00e4tigen (im Endausbau von URec wird die erste Auswahl wegfallen).\\n\\n##Klassierung der Verfahren##\\n**Mitberichtsverfahren Kanton (MBV Kanton)** beinhaltet alle Mitberichtsverfahren die von einer kantonalen Stelle geleitet werden (z.B. Konzessionsverfahren - Leitbeh\\u00f6rde ist das Amt f\\u00fcr Energie).\\n\\n**Mitberichtsverfahren Bund(MBV Bund)** sind Verfahren, bei denen die kantonalen Fachstellen einen direkten oder einen koordinierten Mitbericht zu handen einer Bundesstelle abgeben (z.B. ein Mitberichtsverfahren zu einem PGV nach Seilbahngesetz - Leitbeh\\u00f6rde ist das BAV, zust\\u00e4ndig f\\u00fcr die Koordination der R\\u00fcckmeldungen der kantonalen Fachstellen ist das ARE).\\n\\n**Plangenehmigungsverfahren Kanton (PGV Kanton** beinhaltet alle Plangenehmigungsverfahren die von einer kantonalen Stelle geleitet werden (z.B. PGV Kantonsstrasse - Leitbeh\\u00f6rde ist die Baudirektion).\\n\\nWir bitten Sie, im Rahmen der internen Verfahren auf die **Erhebung von Geb\\u00fchren** zu verzichten.\\n\\nBei Fragen wenden Sie sich bitte an das [Amt f\\u00fcr Raumentwicklung](https://www.ur.ch/_rte/amt/847) oder schreiben Sie uns eine Nachricht an:[Support URec](mailto:urec@ur.ch)\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -21587,7 +21587,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"#### Allgemeine Informationen zum Ausf\\u00fcllen der Formulare\\n\\nFunktionsweise:\\nDas Gesuchsformular ist mit einer logischen Nutzerf\\u00fchrung hinterlegt.\\nBegriffserl\\u00e4uterungen und Hilfestellungstexte k\\u00f6nnen Sie sich durch Klicken auf das Hilfeicon anzeigen lassen.\\n\\nEs gibt Pflichtfelder, die zwingend auszuf\\u00fcllen sind. Diese sind mit einem ? markiert.\\n\\nDOKUMENTE: Unter GESUCHSUNTERLAGEN gibt es verschiedene Unterlagenkategorien, in welche Sie Ihre Gesuchsunterlagen hochladen k\\u00f6nnen.\\nBitte beachten! Aus rechtlichen Gr\\u00fcnden (\\u00f6ffentliche Bauplanauflage und Visierung der bewilligten Pl\\u00e4ne) m\\u00fcssen, nebst der digitalen Eingabe, zwei physische Dossiers (Planunterlagen) bei der zust\\u00e4ndigen Gemeinde eingereicht werden. Die hier hochgeladenen Dokumente sind Bestandteil der \\u00f6ffentlichen Bauplanauflage und k\\u00f6nnen auch online eingesehen werden.\\n\\nSPEICHERN / DRUCKEN: Ihre Eingaben werden automatisch gespeichert, sobald Sie das Feld verlassen. So haben Sie die M\\u00f6glichkeit, jederzeit abzubrechen und zu einem beliebigen Zeitpunkt fortzufahren. Sie k\\u00f6nnen Ihr Gesuchsformular jederzeit als pdf-Dokument abspeichern und folglich auch ausdrucken (unter EINREICHEN mit Klick auf PDF GENERIEREN).\\n\\nGESUCH EINREICHEN: Das Gesuch kann erst eingereicht werden, wenn alle Pflichtangaben gemacht wurden. Nach dem Einreichen k\\u00f6nnen keine Anpassungen mehr vorgenommen werden. Im Falle nachtr\\u00e4glicher Erg\\u00e4nzungen oder Korrekturen bitten wir Sie sich mit der zust\\u00e4ndigen Bauverwaltung der Gemeinde in Verbindung zu setzen.\\n\\nL\\u00d6SCHEN: Begonnene, aber noch nicht eingereichte Gesuche, k\\u00f6nnen Sie l\\u00f6schen.\\n\\nVERFAHRENSABLAUF: Solange Sie ein Gesuch nicht eingereicht haben, bleibt der Status auf \\u201eNeu\\u201c. Nach Einreichung des Gesuchs wird sich der Status immer dem jeweiligen Verfahrensstand anpassen. Das Dossier durchl\\u00e4uft folgende Status: Neu / Eingereicht / Von Gemeinde angenommen / In Zirkulation / Bauentscheid ausstehend / Nachforderung / Bewilligt / (Abgelehnt) / Archiviert.\\n\\nHILFE: Im Falle von Problemen oder Fragen, welche durch die hinterlegten Hilfestellungen nicht gekl\\u00e4rt werden, k\\u00f6nnen Sie sich entweder an die zust\\u00e4ndige Bauverwaltung der entsprechenden Gemeinde oder an das Amt f\\u00fcr Raumentwicklung raumplanung@ur.ch wenden.\", \"fr\": null}",
+      "info_text": "{\"de\": \"#### Allgemeine Informationen zum Ausf\\u00fcllen der Formulare\\n\\nFunktionsweise:\\nDas Gesuchsformular ist mit einer logischen Nutzerf\\u00fchrung hinterlegt.\\nBegriffserl\\u00e4uterungen und Hilfestellungstexte k\\u00f6nnen Sie sich durch Klicken auf das Hilfeicon anzeigen lassen.\\n\\nEs gibt Pflichtfelder, die zwingend auszuf\\u00fcllen sind. Diese sind mit einem ? markiert.\\n\\nDOKUMENTE: Unter GESUCHSUNTERLAGEN gibt es verschiedene Unterlagenkategorien, in welche Sie Ihre Gesuchsunterlagen hochladen k\\u00f6nnen.\\nBitte beachten! Aus rechtlichen Gr\\u00fcnden (\\u00f6ffentliche Bauplanauflage und Visierung der bewilligten Pl\\u00e4ne) m\\u00fcssen, nebst der digitalen Eingabe, zwei physische Dossiers (Planunterlagen) bei der zust\\u00e4ndigen Gemeinde eingereicht werden. Die hier hochgeladenen Dokumente sind Bestandteil der \\u00f6ffentlichen Bauplanauflage und k\\u00f6nnen auch online eingesehen werden.\\n\\nSPEICHERN / DRUCKEN: Ihre Eingaben werden automatisch gespeichert, sobald Sie das Feld verlassen. So haben Sie die M\\u00f6glichkeit, jederzeit abzubrechen und zu einem beliebigen Zeitpunkt fortzufahren. Sie k\\u00f6nnen Ihr Gesuchsformular jederzeit als pdf-Dokument abspeichern und folglich auch ausdrucken (unter EINREICHEN mit Klick auf PDF GENERIEREN).\\n\\nGESUCH EINREICHEN: Das Gesuch kann erst eingereicht werden, wenn alle Pflichtangaben gemacht wurden. Nach dem Einreichen k\\u00f6nnen keine Anpassungen mehr vorgenommen werden. Im Falle nachtr\\u00e4glicher Erg\\u00e4nzungen oder Korrekturen bitten wir Sie sich mit der zust\\u00e4ndigen Bauverwaltung der Gemeinde in Verbindung zu setzen.\\n\\nL\\u00d6SCHEN: Begonnene, aber noch nicht eingereichte Gesuche, k\\u00f6nnen Sie l\\u00f6schen.\\n\\nVERFAHRENSABLAUF: Solange Sie ein Gesuch nicht eingereicht haben, bleibt der Status auf \\u201eNeu\\u201c. Nach Einreichung des Gesuchs wird sich der Status immer dem jeweiligen Verfahrensstand anpassen. Das Dossier durchl\\u00e4uft folgende Status: Neu / Eingereicht / Von Gemeinde angenommen / In Zirkulation / Bauentscheid ausstehend / Nachforderung / Bewilligt / (Abgelehnt) / Archiviert.\\n\\nHILFE: Im Falle von Problemen oder Fragen, welche durch die hinterlegten Hilfestellungen nicht gekl\\u00e4rt werden, k\\u00f6nnen Sie sich entweder an die zust\\u00e4ndige Bauverwaltung der entsprechenden Gemeinde oder an das Amt f\\u00fcr Raumentwicklung mailto:urec@ur.ch wenden.\", \"fr\": null}",
       "static_content": "{\"de\": \"#### Allgemeine Informationen zum Ausf\\u00fcllen der Formulare:\\n\\nDieses Benutzergef\\u00fchrte Formular ersetzt das bisherige Formular A und weitere teils fachthemenbezogene Einzelformulare. Die Funktionsweise zu Themen wie: Speichern, Drucken, Einreichen, L\\u00f6schen und zum Status finden Sie im Infotext. Solche Infotexte sind bei den meisten Feldern, die ausgef\\u00fcllt werden k\\u00f6nnen, hinterlegt.\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -21737,7 +21737,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"####ANLEITUNG\\nNachdem Sie die Gemeinde, in der das Vorhaben geplant ist und das Verfahren ausgew\\u00e4hlt haben k\\u00f6nnen Sie nun Ihr Vorhaben und alle dazu geh\\u00f6renden Angaben und Unterlagen Schrittweise wie folgt erfassen:\\n\\n###Punkt 1\\nBestimmen Sie im Menu LOKALISIERUNG (wird links eingeblendet) den genauen Standort wo das Vorhaben realisiert wird. Sie k\\u00f6nnen:\\n- einen Punktstandort ausw\\u00e4hlen (z.B. f\\u00fcr kleinere Objekte, f\\u00fcr eine Mobilfunkanlage usw.)\\n- ein Linienobjekt ausw\\u00e4hlen (z.B. f\\u00fcr die Erfassung eines Bewirtschaftungsweges, eines Wanderweges, einer Fernw\\u00e4rmeleitung usw.) \\n- eine Fl\\u00e4che ausw\\u00e4hlen (z.B. Eintrag des Grundrisses eines MFH, oder die Festlegung des Perimeters einer Terrainver\\u00e4nderung usw.) \\n\\nDas System wird die betroffenen Parzellen Nummern, die Egrid Nummern und die entsprechenden Daten aus der Nutzungsplanung sowie weitere, im Geoinformationssystem des Kantons erfasste Daten auslesen und teilweise direkt in die daf\\u00fcr vorgesehenen Felder abf\\u00fcllen.\\n\\n###Punkt 2\\nErfassen Sie im Menu PERSONALIEN die Daten von allen Personen die am Verfahren beteiligt sind. Dabei ist zu beachten, dass, sofern Grundeigent\\u00fcmer, Projektverfasser oder Rechnungsempf\\u00e4nger nicht indentisch sind, f\\u00fcr diese Personen ein separates Datenblatt auszuf\\u00fcllen ist. Es k\\u00f6nnen beliebig viele Personen erfasst werden. Ebenfalls k\\u00f6nnen bei allen Personen die Daten von stellvertretenden Personen erfasst werden.\\n\\n###Punkt 3\\nErfassen Sie das BAUPROJEKT. Je nachdem, ob das Bauprojekt Hochbauten und Tiefbauten beinhaltet, m\\u00fcssen allenfalls unter \\\"Art des Bauwerks\\\" beide Arten ausgew\\u00e4hlt werden. \\n\\nDie Formulare werden, je nach getroffener Auswahl in der Menuf\\u00fchrung, links angezeigt (z.B. wenn Sie bei der Auswahl \\\"Nutzung / Zweck\\\" die Rubrik \\\"Dienstleistung und Verkauf\\\" ausw\\u00e4hlen, wird das Fachthema Arbeitssicherheit und Gesundheitsschutz angezeigt usw. \\n\\nErfassen Sie nun mit der Tabelle \\\"Geb\\u00e4ude und Anlagen\\\" f\\u00fcr jeden Teil des Bauprojekts einen entsprechenden Datensatz. Hier ist zu beachten, dass f\\u00fcr jedes Geb\\u00e4ude eine Bezeichnung anzugeben ist (z.B. HAUS A) damit die Daten aus der Tabelle \\\"Haus- und Geb\\u00e4udetechnik\\\" den entsprechenden Bauten zugeordnet werden kann.\\nVerfahren Sie gleich mit der Tabelle \\\"Haus- und Geb\\u00e4udetechnik\\\" und bezeichen Sie im obersten Feld das Geb\\u00e4ude, zu der die erfasste Haustechnik geh\\u00f6rt.\\n\\nUnter dem Menu Tiefbau k\\u00f6nnen Sie nach dem gleichen Muster mehrere Tiebbauanlagen erfassen.\\n\\n###Punkt 4\\nF\\u00fcllen Sie alle Felder aus, die je nach Fachthema eingeblendet sind. Ein Thema ist vollst\\u00e4ndig ausgef\\u00fcllt wenn alle Pflichtfelder ausgef\\u00fcllt sind und hinter dem Formular ein H\\u00e4ckchen erscheint.\\n\\n###Punkt 5\\nDokumente; im Menu GESUCHSUNTERLAGEN stehen verschiedene Unterlagenkategorien zur Verf\\u00fcgung, in die Sie Ihre Gesuchsunterlagen hochladen k\\u00f6nnen.\\n\\n###Punkt 6\\nUnterschriften. Bitte beachten Sie, dass aus rechtlichen Gr\\u00fcnden (\\u00f6ffentliche Bauplanauflage und Visierung der bewilligten Pl\\u00e4ne) in der Regel, nebst der digitalen Eingabe, zwei physische Dossiers samt Unterschriften (Planunterlagen) bei der zust\\u00e4ndigen Gemeinde eingereicht werden m\\u00fcssen.  Bei kleinen Vorhaben mit entsprechend wenig Planbeilagen (maximal A3) kann allenfalls (mit R\\u00fccksprache bei der zust\\u00e4ndigen Gemeinde) auf die physische Zustellung der Unterlagen verzichtet werden. Das Unterschriftenblatt ist jedoch, in jedem Fall auszuf\\u00fcllen, auszudrucken und der Gemeindebaubeh\\u00f6rde zuzustellen. Einzig bei so genannten qualifiziert digital signierten Dokumenten entf\\u00e4llt die physische Zustellung der Unterlagen g\\u00e4nzlich. \\n\\nBitte beachten: Bei s\\u00e4mtlichen Baurechtssituationen (ZGB Baurechte und Allmend-Baurechte) ist der Baurechtsnehmer in der Regel zwat Eigent\\u00fcmer der Baute jedoch nicht Grundeigent\\u00fcmer. Ein Baugesuch muss deshalb entweder vom Gesuchsteller unterzeichnet sein oder es muss, falls es sich beim Grundeigent\\u00fcmer um eine juristische Person handelt (Korporation Uri und Korporation Ursern) ein entsprechneder Protokollauszug vorliegen.\\n\\n###Online Anzeige\\nDie hier hochgeladenen Dokumente sind Bestandteil der \\u00f6ffentlichen Bauplanauflage und k\\u00f6nnen auch online eingesehen werden. Sie haben die M\\u00f6glichkeit, im Portal jene Dokumente, die Sie als vertraulich einstufen und nicht f\\u00fcr die Online Publikation freigeben m\\u00f6chten, entsprechend zu kennzeichnen.\\n\\n###Speichern / Drucken\\nIhre Eingaben werden automatisch gespeichert, sobald Sie das Feld verlassen. So haben Sie die M\\u00f6glichkeit, jederzeit abzubrechen und zu einem beliebigen Zeitpunkt fortzufahren. Sie k\\u00f6nnen Ihr Gesuchsformular jederzeit als pdf-Dokument abspeichern und folglich auch ausdrucken (unter EINREICHEN mit Klick auf PDF GENERIEREN).\\n\\n###Gesuch einreichen\\nDas Gesuch kann erst eingereicht werden, wenn alle Pflichtangaben gemacht wurden. Nach dem Einreichen k\\u00f6nnen keine Anpassungen mehr vorgenommen werden. Im Falle nachtr\\u00e4glicher Erg\\u00e4nzungen oder Korrekturen bitten wir Sie sich mit der zust\\u00e4ndigen Bauverwaltung der Gemeinde in Verbindung zu setzen.\\n\\n###L\\u00f6schen\\nBegonnene, aber noch nicht eingereichte Gesuche, k\\u00f6nnen Sie l\\u00f6schen.\\n\\n###Verfahrensstand\\nSolange Sie ein Gesuch nicht eingereicht haben, bleibt der Status auf \\u201eNeu\\u201c. Nach Einreichung des Gesuchs wird sich der Status immer dem jeweiligen Verfahrensstand anpassen. Das Dossier durchl\\u00e4uft folgende Status: Neu / Eingereicht / Von Gemeinde angenommen / In Zirkulation / Bauentscheid ausstehend / Nachforderung / Bewilligt / (Abgelehnt) / Archiviert.\\n\\n###Hilfe\\nIm Falle von Problemen oder Fragen, welche durch die hinterlegten Hilfestellungen nicht gekl\\u00e4rt werden, k\\u00f6nnen Sie sich entweder an die zust\\u00e4ndige Bauverwaltung der entsprechenden Gemeinde oder an das Amt f\\u00fcr Raumentwicklung raumplanung@ur.ch wenden.\", \"fr\": null}",
+      "info_text": "{\"de\": \"####ANLEITUNG\\nNachdem Sie die Gemeinde, in der das Vorhaben geplant ist und das Verfahren ausgew\\u00e4hlt haben k\\u00f6nnen Sie nun Ihr Vorhaben und alle dazu geh\\u00f6renden Angaben und Unterlagen Schrittweise wie folgt erfassen:\\n\\n###Punkt 1\\nBestimmen Sie im Menu LOKALISIERUNG (wird links eingeblendet) den genauen Standort wo das Vorhaben realisiert wird. Sie k\\u00f6nnen:\\n- einen Punktstandort ausw\\u00e4hlen (z.B. f\\u00fcr kleinere Objekte, f\\u00fcr eine Mobilfunkanlage usw.)\\n- ein Linienobjekt ausw\\u00e4hlen (z.B. f\\u00fcr die Erfassung eines Bewirtschaftungsweges, eines Wanderweges, einer Fernw\\u00e4rmeleitung usw.) \\n- eine Fl\\u00e4che ausw\\u00e4hlen (z.B. Eintrag des Grundrisses eines MFH, oder die Festlegung des Perimeters einer Terrainver\\u00e4nderung usw.) \\n\\nDas System wird die betroffenen Parzellen Nummern, die Egrid Nummern und die entsprechenden Daten aus der Nutzungsplanung sowie weitere, im Geoinformationssystem des Kantons erfasste Daten auslesen und teilweise direkt in die daf\\u00fcr vorgesehenen Felder abf\\u00fcllen.\\n\\n###Punkt 2\\nErfassen Sie im Menu PERSONALIEN die Daten von allen Personen die am Verfahren beteiligt sind. Dabei ist zu beachten, dass, sofern Grundeigent\\u00fcmer, Projektverfasser oder Rechnungsempf\\u00e4nger nicht indentisch sind, f\\u00fcr diese Personen ein separates Datenblatt auszuf\\u00fcllen ist. Es k\\u00f6nnen beliebig viele Personen erfasst werden. Ebenfalls k\\u00f6nnen bei allen Personen die Daten von stellvertretenden Personen erfasst werden.\\n\\n###Punkt 3\\nErfassen Sie das BAUPROJEKT. Je nachdem, ob das Bauprojekt Hochbauten und Tiefbauten beinhaltet, m\\u00fcssen allenfalls unter \\\"Art des Bauwerks\\\" beide Arten ausgew\\u00e4hlt werden. \\n\\nDie Formulare werden, je nach getroffener Auswahl in der Menuf\\u00fchrung, links angezeigt (z.B. wenn Sie bei der Auswahl \\\"Nutzung / Zweck\\\" die Rubrik \\\"Dienstleistung und Verkauf\\\" ausw\\u00e4hlen, wird das Fachthema Arbeitssicherheit und Gesundheitsschutz angezeigt usw. \\n\\nErfassen Sie nun mit der Tabelle \\\"Geb\\u00e4ude und Anlagen\\\" f\\u00fcr jeden Teil des Bauprojekts einen entsprechenden Datensatz. Hier ist zu beachten, dass f\\u00fcr jedes Geb\\u00e4ude eine Bezeichnung anzugeben ist (z.B. HAUS A) damit die Daten aus der Tabelle \\\"Haus- und Geb\\u00e4udetechnik\\\" den entsprechenden Bauten zugeordnet werden kann.\\nVerfahren Sie gleich mit der Tabelle \\\"Haus- und Geb\\u00e4udetechnik\\\" und bezeichen Sie im obersten Feld das Geb\\u00e4ude, zu der die erfasste Haustechnik geh\\u00f6rt.\\n\\nUnter dem Menu Tiefbau k\\u00f6nnen Sie nach dem gleichen Muster mehrere Tiebbauanlagen erfassen.\\n\\n###Punkt 4\\nF\\u00fcllen Sie alle Felder aus, die je nach Fachthema eingeblendet sind. Ein Thema ist vollst\\u00e4ndig ausgef\\u00fcllt wenn alle Pflichtfelder ausgef\\u00fcllt sind und hinter dem Formular ein H\\u00e4ckchen erscheint.\\n\\n###Punkt 5\\nDokumente; im Menu GESUCHSUNTERLAGEN stehen verschiedene Unterlagenkategorien zur Verf\\u00fcgung, in die Sie Ihre Gesuchsunterlagen hochladen k\\u00f6nnen.\\n\\n###Punkt 6\\nUnterschriften. Bitte beachten Sie, dass aus rechtlichen Gr\\u00fcnden (\\u00f6ffentliche Bauplanauflage und Visierung der bewilligten Pl\\u00e4ne) in der Regel, nebst der digitalen Eingabe, zwei physische Dossiers samt Unterschriften (Planunterlagen) bei der zust\\u00e4ndigen Gemeinde eingereicht werden m\\u00fcssen.  Bei kleinen Vorhaben mit entsprechend wenig Planbeilagen (maximal A3) kann allenfalls (mit R\\u00fccksprache bei der zust\\u00e4ndigen Gemeinde) auf die physische Zustellung der Unterlagen verzichtet werden. Das Unterschriftenblatt ist jedoch, in jedem Fall auszuf\\u00fcllen, auszudrucken und der Gemeindebaubeh\\u00f6rde zuzustellen. Einzig bei so genannten qualifiziert digital signierten Dokumenten entf\\u00e4llt die physische Zustellung der Unterlagen g\\u00e4nzlich. \\n\\nBitte beachten: Bei s\\u00e4mtlichen Baurechtssituationen (ZGB Baurechte und Allmend-Baurechte) ist der Baurechtsnehmer in der Regel zwat Eigent\\u00fcmer der Baute jedoch nicht Grundeigent\\u00fcmer. Ein Baugesuch muss deshalb entweder vom Gesuchsteller unterzeichnet sein oder es muss, falls es sich beim Grundeigent\\u00fcmer um eine juristische Person handelt (Korporation Uri und Korporation Ursern) ein entsprechneder Protokollauszug vorliegen.\\n\\n###Online Anzeige\\nDie hier hochgeladenen Dokumente sind Bestandteil der \\u00f6ffentlichen Bauplanauflage und k\\u00f6nnen auch online eingesehen werden. Sie haben die M\\u00f6glichkeit, im Portal jene Dokumente, die Sie als vertraulich einstufen und nicht f\\u00fcr die Online Publikation freigeben m\\u00f6chten, entsprechend zu kennzeichnen.\\n\\n###Speichern / Drucken\\nIhre Eingaben werden automatisch gespeichert, sobald Sie das Feld verlassen. So haben Sie die M\\u00f6glichkeit, jederzeit abzubrechen und zu einem beliebigen Zeitpunkt fortzufahren. Sie k\\u00f6nnen Ihr Gesuchsformular jederzeit als pdf-Dokument abspeichern und folglich auch ausdrucken (unter EINREICHEN mit Klick auf PDF GENERIEREN).\\n\\n###Gesuch einreichen\\nDas Gesuch kann erst eingereicht werden, wenn alle Pflichtangaben gemacht wurden. Nach dem Einreichen k\\u00f6nnen keine Anpassungen mehr vorgenommen werden. Im Falle nachtr\\u00e4glicher Erg\\u00e4nzungen oder Korrekturen bitten wir Sie sich mit der zust\\u00e4ndigen Bauverwaltung der Gemeinde in Verbindung zu setzen.\\n\\n###L\\u00f6schen\\nBegonnene, aber noch nicht eingereichte Gesuche, k\\u00f6nnen Sie l\\u00f6schen.\\n\\n###Verfahrensstand\\nSolange Sie ein Gesuch nicht eingereicht haben, bleibt der Status auf \\u201eNeu\\u201c. Nach Einreichung des Gesuchs wird sich der Status immer dem jeweiligen Verfahrensstand anpassen. Das Dossier durchl\\u00e4uft folgende Status: Neu / Eingereicht / Von Gemeinde angenommen / In Zirkulation / Bauentscheid ausstehend / Nachforderung / Bewilligt / (Abgelehnt) / Archiviert.\\n\\n###Hilfe\\nIm Falle von Problemen oder Fragen, welche durch die hinterlegten Hilfestellungen nicht gekl\\u00e4rt werden, k\\u00f6nnen Sie sich entweder an die zust\\u00e4ndige Bauverwaltung der entsprechenden Gemeinde oder an das Amt f\\u00fcr Raumentwicklung mailto:urec@ur.ch wenden.\", \"fr\": null}",
       "static_content": "{\"de\": \"##Willkommen bei URec.\\n\\nWir danken Ihnen, dass Sie diese Dienstleistung nutzen.\\n\\nSie m\\u00fcssen kein Computerprofi sein, damit Sie sich hier zurechtfinden. Das Ausf\\u00fcllen der Formulare wird jedoch etwas Zeit beanspruchen. Zeit die gut investiert ist. Die Erfahrungen der letzten Jahre aus hunderten von Dossiers haben gezeigt, dass die meiste Zeit dann verloren geht, wenn Dossiers unvollst\\u00e4ndig sind oder gar falsche Angaben enthalten.\\n\\nDieses benutzergef\\u00fchrte Formular ersetzt das bisherige Formular A (pdf) und weitere teils fachthemenbezogene Einzelformulare. Das Gesuchsformular ist mit einer logischen Nutzerf\\u00fchrung hinterlegt.\\n\\nBei vielen Portalen muss man sich von A nach B durchklicken. Hier k\\u00f6nnen Sie jederzeit und von Beginn an von einem Thema zum anderen wechseln. Ihre Eingaben werden fortlaufend gespeichert. **Das hat den Vorteil, dass Sie die Formulare in beliebiger Reihenfolge ausf\\u00fcllen k\\u00f6nnen.** Das System zeigt Ihnen ganz zum Schluss an, welche Pflichtfelder noch ausgef\\u00fcllt werden m\\u00fcssen.\\n\\nIm Infotext rechts finden Sie eine kurze Anleitung zu den wichtigsten Schritten die beim Ausf\\u00fcllen der Formulare zu beachten sind.\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -27271,19 +27271,19 @@
     "pk": "foerderanlagen",
     "fields": {
       "created_at": "2020-10-29T11:56:33.260Z",
-      "modified_at": "2020-10-29T12:48:12.501Z",
+      "modified_at": "2021-05-06T15:12:55.191Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"F\\u00f6rderanlagen\", \"fr\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "!(\"welche-foerderanlagen-foerdereinrichtungen\" in \"welche-foerderanlagen\"|answer)",
+      "is_hidden": "!(\"themen-arbeitssicherheit-foerderanlagen\" in \"themen-arbeitssicherheit\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"#### F\\u00f6rderanlagen\\nHinweise zu F\\u00f6rderanlagen sind in den Normen SN EN 619 \\\"Stetigf\\u00f6rderer und Systeme - Sicherheits- und EMV-Anforderungen an mechanische F\\u00f6rdereinrichtungen f\\u00fcr St\\u00fcckgut\\\" und SN EN 620 \\\"Stetigf\\u00f6rderer und Systeme - Sicherheits- und EMV-Anforderungen f\\u00fcr ortsfeste Gutf\\u00f6rderer f\\u00fcr Sch\\u00fcttgut\\\" sowie in den Suva-Checklisten 67022 und 67024 enthalten.\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"---\\n\\n#### F\\u00f6rderanlagen\\nHinweise zu F\\u00f6rderanlagen sind in den Normen SN EN 619 \\\"Stetigf\\u00f6rderer und Systeme - Sicherheits- und EMV-Anforderungen an mechanische F\\u00f6rdereinrichtungen f\\u00fcr St\\u00fcckgut\\\" und SN EN 620 \\\"Stetigf\\u00f6rderer und Systeme - Sicherheits- und EMV-Anforderungen f\\u00fcr ortsfeste Gutf\\u00f6rderer f\\u00fcr Sch\\u00fcttgut\\\" sowie in den Suva-Checklisten 67022 und 67024 enthalten.\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -29655,7 +29655,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"##Willkommen bei URec.\\n\\n##Allgemeine Informationen zu verwaltungsinternen Verfahren\\n\\nAlle internen Verfahren werden k\\u00fcnftig, analog wie das zum Beispiel beim Baubewilligungsverfahren gemacht wird, mit dem benutzergef\\u00fchrten Formular erfasst. Die Themen \\\"Personalien\\\" und \\\"Lokalisierung\\\" sind dabei bei allen Verfahren identisch.\\n\\n**Auswahl des Verfahrens**\\nZur Vereinfachung der Datenstruktur werden die diversen Verfahrenstypen in den drei Themen \\\"Mitberichtsverfahren Kanton\\\", Mitberichtsverfahren Bund\\\" und \\\"PGV Kanton\\\" zusammengef\\u00fchrt.  Bis auf weiteres k\\u00f6nnen Sie, wenn Sie ein neues Dossier erstellen m\\u00f6chten,  wie gewohnt im CAMAC Menu \\\"Neues Dossier erstellen\\\" das Verfahren ausw\\u00e4hlen. Im Formular wird das dazugeh\\u00f6rige Thema angezeigt. In einem zweiten Schritt k\\u00f6nnen Sie dann die definitive Auswahl des Verfahrens t\\u00e4tigen (im Endausbau von URec wird die erste Auswahl wegfallen).\\n\\n##Klassierung der Verfahren##\\n**Mitberichtsverfahren Kanton (MBV Kanton)** beinhaltet alle Mitberichtsverfahren die von einer kantonalen Stelle geleitet werden (z.B. Konzessionsverfahren - Leitbeh\\u00f6rde ist das Amt f\\u00fcr Energie).\\n\\n**Mitberichtsverfahren Bund (MBV Bund)** sind Verfahren, bei denen die kantonalen Fachstellen einen direkten oder einen koordinierten Mitbericht zu handen einer Bundesstelle abgeben (z.B. ein Mitberichtsverfahren zu einem PGV nach Seilbahngesetz - Leitbeh\\u00f6rde ist das BAV, zust\\u00e4ndig f\\u00fcr die Koordination der R\\u00fcckmeldungen der kantonalen Fachstellen ist das ARE).\\n\\n**Plangenehmigungsverfahren Kanton (PGV Kanton)** beinhaltet alle Plangenehmigungsverfahren die von einer kantonalen Stelle geleitet werden (z.B. PGV Kantonsstrasse - Leitbeh\\u00f6rde ist die Baudirektion).\\n\\nWir bitten Sie, im Rahmen der internen Verfahren auf die **Erhebung von Geb\\u00fchren** zu verzichten.\\n\\nBei Fragen wenden Sie sich bitte an das [Amt f\\u00fcr Raumentwicklung](https://www.ur.ch/_rte/amt/847) oder schreiben Sie uns eine Nachricht an: [Support URec](raumplanung@ur.ch)\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"##Willkommen bei URec.\\n\\n##Allgemeine Informationen zu verwaltungsinternen Verfahren\\n\\nAlle internen Verfahren werden k\\u00fcnftig, analog wie das zum Beispiel beim Baubewilligungsverfahren gemacht wird, mit dem benutzergef\\u00fchrten Formular erfasst. Die Themen \\\"Personalien\\\" und \\\"Lokalisierung\\\" sind dabei bei allen Verfahren identisch.\\n\\n**Auswahl des Verfahrens**\\nZur Vereinfachung der Datenstruktur werden die diversen Verfahrenstypen in den drei Themen \\\"Mitberichtsverfahren Kanton\\\", Mitberichtsverfahren Bund\\\" und \\\"PGV Kanton\\\" zusammengef\\u00fchrt.  Bis auf weiteres k\\u00f6nnen Sie, wenn Sie ein neues Dossier erstellen m\\u00f6chten,  wie gewohnt im CAMAC Menu \\\"Neues Dossier erstellen\\\" das Verfahren ausw\\u00e4hlen. Im Formular wird das dazugeh\\u00f6rige Thema angezeigt. In einem zweiten Schritt k\\u00f6nnen Sie dann die definitive Auswahl des Verfahrens t\\u00e4tigen (im Endausbau von URec wird die erste Auswahl wegfallen).\\n\\n##Klassierung der Verfahren##\\n**Mitberichtsverfahren Kanton (MBV Kanton)** beinhaltet alle Mitberichtsverfahren die von einer kantonalen Stelle geleitet werden (z.B. Konzessionsverfahren - Leitbeh\\u00f6rde ist das Amt f\\u00fcr Energie).\\n\\n**Mitberichtsverfahren Bund (MBV Bund)** sind Verfahren, bei denen die kantonalen Fachstellen einen direkten oder einen koordinierten Mitbericht zu handen einer Bundesstelle abgeben (z.B. ein Mitberichtsverfahren zu einem PGV nach Seilbahngesetz - Leitbeh\\u00f6rde ist das BAV, zust\\u00e4ndig f\\u00fcr die Koordination der R\\u00fcckmeldungen der kantonalen Fachstellen ist das ARE).\\n\\n**Plangenehmigungsverfahren Kanton (PGV Kanton)** beinhaltet alle Plangenehmigungsverfahren die von einer kantonalen Stelle geleitet werden (z.B. PGV Kantonsstrasse - Leitbeh\\u00f6rde ist die Baudirektion).\\n\\nWir bitten Sie, im Rahmen der internen Verfahren auf die **Erhebung von Geb\\u00fchren** zu verzichten.\\n\\nBei Fragen wenden Sie sich bitte an das [Amt f\\u00fcr Raumentwicklung](https://www.ur.ch/_rte/amt/847) oder schreiben Sie uns eine Nachricht an: [Support URec](mailto:urec@ur.ch)\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -32685,6 +32685,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "parcel-location",
+    "fields": {
+      "created_at": "2021-05-06T11:35:29.503Z",
+      "modified_at": "2021-05-06T11:35:29.503Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ort\", \"fr\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "parcel-number",
     "fields": {
       "created_at": "2020-09-01T15:00:10.157Z",
@@ -32721,14 +32754,14 @@
     "pk": "parcel-street",
     "fields": {
       "created_at": "2020-09-01T15:04:37.678Z",
-      "modified_at": "2021-05-03T10:02:35.656Z",
+      "modified_at": "2021-05-06T15:16:37.752Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Strasse/Flurname\", \"fr\": null}",
       "type": "text",
-      "is_required": "true",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
@@ -35838,14 +35871,14 @@
     "pk": "street-number",
     "fields": {
       "created_at": "2020-08-27T15:36:05.230Z",
-      "modified_at": "2021-05-03T10:02:43.145Z",
+      "modified_at": "2021-05-06T15:16:47.159Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Nummer\", \"fr\": null}",
       "type": "text",
-      "is_required": "true",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
