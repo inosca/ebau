@@ -54,12 +54,16 @@ def sort_permissions(permissions):
 @pytest.mark.parametrize(
     "role__name,service_group__name",
     [
-        ("Applicant", None),
-        ("Municipality", "municipality"),
-        ("Municipality", "district"),
-        ("Municipality", "construction-control"),
-        ("Service", "service"),
-        ("Support", None),
+        ("applicant", None),
+        ("municipality-lead", "municipality"),
+        ("municipality-lead", "district"),
+        ("municipality-readonly", "municipality"),
+        ("municipality-readonly", "district"),
+        ("construction-control", "construction-control"),
+        ("construction-control-readonly", "construction-control"),
+        ("service-lead", "service"),
+        ("service-readonly", "service"),
+        ("support", None),
     ],
 )
 def test_instance_permissions_be(
@@ -71,6 +75,9 @@ def test_instance_permissions_be(
     snapshot,
     application_settings,
 ):
+    application_settings["ROLE_PERMISSIONS"] = settings.APPLICATIONS["kt_bern"][
+        "ROLE_PERMISSIONS"
+    ]
     application_settings["CALUMA"]["FORM_PERMISSIONS"] = settings.APPLICATIONS[
         "kt_bern"
     ]["CALUMA"]["FORM_PERMISSIONS"]
