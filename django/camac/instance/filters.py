@@ -153,11 +153,15 @@ class InstanceFilterSet(FilterSet):
 
 class CalumaInstanceFilterSet(InstanceFilterSet):
     is_paper = BooleanFilter(method="filter_is_paper")
+    is_applicant = BooleanFilter(method="filter_is_applicant")
     has_pending_billing_entry = BooleanFilter(method="filter_has_pending_billing_entry")
     has_pending_sanction = BooleanFilter(method="filter_has_pending_sanction")
 
     sanction_creator = NumberFilter(field_name="sanctions__service")
     sanction_control_instance = NumberFilter(field_name="sanctions__control_instance")
+
+    def filter_is_applicant(self, queryset, name, value):
+        return queryset.filter(involved_applicants__invitee=self.request.user)
 
     def filter_is_paper(self, queryset, name, value):
         _filter = {
