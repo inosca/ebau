@@ -160,7 +160,7 @@ class CalumaInstanceFilterSet(InstanceFilterSet):
     sanction_creator = NumberFilter(field_name="sanctions__service")
     sanction_control_instance = NumberFilter(field_name="sanctions__control_instance")
 
-    def filter_is_applicant(self, queryset, name, value):
+    def filter_is_applicant(self, queryset, name, value):  # pragma: no cover
         user = self.request.user
         if not user:
             return queryset.none()
