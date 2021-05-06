@@ -47,6 +47,10 @@ DEMO_MODE = env.bool("DEMO_MODE", default=False)
 # See https://docs.djangoproject.com/en/2.2/ref/settings/#secure-proxy-ssl-header
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
+# UR uses camac.ur.ch and camac.kt.ur.ch to refer to the same system. This makes sure
+# that django infers the correct base uri in FileFields (build_absolute_uri).
+USE_X_FORWARDED_HOST = True
+
 # Application definition
 
 INSTALLED_APPS = [
