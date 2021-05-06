@@ -7,7 +7,7 @@ from snapshottest import Snapshot
 
 snapshots = Snapshot()
 
-snapshots['test_instance_permissions_be[Applicant-None-circulation-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[applicant-None-circulation-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
@@ -26,7 +26,7 @@ snapshots['test_instance_permissions_be[Applicant-None-circulation-instance__use
     ]
 }
 
-snapshots['test_instance_permissions_be[Applicant-None-circulation_init-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[applicant-None-circulation_init-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
@@ -45,7 +45,7 @@ snapshots['test_instance_permissions_be[Applicant-None-circulation_init-instance
     ]
 }
 
-snapshots['test_instance_permissions_be[Applicant-None-conclusion-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[applicant-None-conclusion-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
@@ -66,7 +66,7 @@ snapshots['test_instance_permissions_be[Applicant-None-conclusion-instance__user
     ]
 }
 
-snapshots['test_instance_permissions_be[Applicant-None-coordination-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[applicant-None-coordination-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
@@ -85,7 +85,7 @@ snapshots['test_instance_permissions_be[Applicant-None-coordination-instance__us
     ]
 }
 
-snapshots['test_instance_permissions_be[Applicant-None-correction-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[applicant-None-correction-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
@@ -104,7 +104,7 @@ snapshots['test_instance_permissions_be[Applicant-None-correction-instance__user
     ]
 }
 
-snapshots['test_instance_permissions_be[Applicant-None-evaluated-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[applicant-None-evaluated-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
@@ -123,7 +123,7 @@ snapshots['test_instance_permissions_be[Applicant-None-evaluated-instance__user0
     ]
 }
 
-snapshots['test_instance_permissions_be[Applicant-None-finished-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[applicant-None-finished-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
@@ -142,7 +142,7 @@ snapshots['test_instance_permissions_be[Applicant-None-finished-instance__user0]
     ]
 }
 
-snapshots['test_instance_permissions_be[Applicant-None-finished_internal-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[applicant-None-finished_internal-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
@@ -161,7 +161,7 @@ snapshots['test_instance_permissions_be[Applicant-None-finished_internal-instanc
     ]
 }
 
-snapshots['test_instance_permissions_be[Applicant-None-in_progress-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[applicant-None-in_progress-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
@@ -180,7 +180,7 @@ snapshots['test_instance_permissions_be[Applicant-None-in_progress-instance__use
     ]
 }
 
-snapshots['test_instance_permissions_be[Applicant-None-in_progress_internal-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[applicant-None-in_progress_internal-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
@@ -199,7 +199,7 @@ snapshots['test_instance_permissions_be[Applicant-None-in_progress_internal-inst
     ]
 }
 
-snapshots['test_instance_permissions_be[Applicant-None-new-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[applicant-None-new-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
@@ -219,7 +219,7 @@ snapshots['test_instance_permissions_be[Applicant-None-new-instance__user0] 1'] 
     ]
 }
 
-snapshots['test_instance_permissions_be[Applicant-None-rejected-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[applicant-None-rejected-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
@@ -238,7 +238,7 @@ snapshots['test_instance_permissions_be[Applicant-None-rejected-instance__user0]
     ]
 }
 
-snapshots['test_instance_permissions_be[Applicant-None-sb1-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[applicant-None-sb1-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
@@ -259,7 +259,7 @@ snapshots['test_instance_permissions_be[Applicant-None-sb1-instance__user0] 1'] 
     ]
 }
 
-snapshots['test_instance_permissions_be[Applicant-None-sb2-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[applicant-None-sb2-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
@@ -281,7 +281,7 @@ snapshots['test_instance_permissions_be[Applicant-None-sb2-instance__user0] 1'] 
     ]
 }
 
-snapshots['test_instance_permissions_be[Applicant-None-subm-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[applicant-None-subm-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
@@ -300,25 +300,18 @@ snapshots['test_instance_permissions_be[Applicant-None-subm-instance__user0] 1']
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-construction-control-circulation-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[construction-control-construction-control-circulation-instance__user0] 1'] = {
     'case-meta': [
-        'read',
-        'write'
+        'read'
     ],
     'dossierpruefung': [
-        'read',
-        'write'
     ],
     'main': [
         'read'
     ],
     'nfd': [
-        'read',
-        'write'
     ],
     'publikation': [
-        'read',
-        'write'
     ],
     'sb1': [
     ],
@@ -326,25 +319,18 @@ snapshots['test_instance_permissions_be[Municipality-construction-control-circul
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-construction-control-circulation_init-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[construction-control-construction-control-circulation_init-instance__user0] 1'] = {
     'case-meta': [
-        'read',
-        'write'
+        'read'
     ],
     'dossierpruefung': [
-        'read',
-        'write'
     ],
     'main': [
         'read'
     ],
     'nfd': [
-        'read',
-        'write'
     ],
     'publikation': [
-        'read',
-        'write'
     ],
     'sb1': [
     ],
@@ -352,23 +338,18 @@ snapshots['test_instance_permissions_be[Municipality-construction-control-circul
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-construction-control-conclusion-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[construction-control-construction-control-conclusion-instance__user0] 1'] = {
     'case-meta': [
-        'read',
-        'write'
+        'read'
     ],
     'dossierpruefung': [
-        'read'
     ],
     'main': [
         'read'
     ],
     'nfd': [
-        'read'
     ],
     'publikation': [
-        'read',
-        'write'
     ],
     'sb1': [
         'read'
@@ -378,25 +359,18 @@ snapshots['test_instance_permissions_be[Municipality-construction-control-conclu
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-construction-control-coordination-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[construction-control-construction-control-coordination-instance__user0] 1'] = {
     'case-meta': [
-        'read',
-        'write'
+        'read'
     ],
     'dossierpruefung': [
-        'read',
-        'write'
     ],
     'main': [
         'read'
     ],
     'nfd': [
-        'read',
-        'write'
     ],
     'publikation': [
-        'read',
-        'write'
     ],
     'sb1': [
     ],
@@ -404,20 +378,16 @@ snapshots['test_instance_permissions_be[Municipality-construction-control-coordi
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-construction-control-correction-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[construction-control-construction-control-correction-instance__user0] 1'] = {
     'case-meta': [
-        'read',
-        'write'
+        'read'
     ],
     'dossierpruefung': [
-        'read'
     ],
     'main': [
-        'read',
-        'write'
+        'read'
     ],
     'nfd': [
-        'read'
     ],
     'publikation': [
     ],
@@ -427,22 +397,18 @@ snapshots['test_instance_permissions_be[Municipality-construction-control-correc
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-construction-control-evaluated-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[construction-control-construction-control-evaluated-instance__user0] 1'] = {
     'case-meta': [
-        'read',
-        'write'
+        'read'
     ],
     'dossierpruefung': [
-        'read'
     ],
     'main': [
         'read'
     ],
     'nfd': [
-        'read'
     ],
     'publikation': [
-        'read'
     ],
     'sb1': [
     ],
@@ -450,22 +416,18 @@ snapshots['test_instance_permissions_be[Municipality-construction-control-evalua
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-construction-control-finished-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[construction-control-construction-control-finished-instance__user0] 1'] = {
     'case-meta': [
-        'read',
-        'write'
+        'read'
     ],
     'dossierpruefung': [
-        'read'
     ],
     'main': [
         'read'
     ],
     'nfd': [
-        'read'
     ],
     'publikation': [
-        'read'
     ],
     'sb1': [
     ],
@@ -473,22 +435,18 @@ snapshots['test_instance_permissions_be[Municipality-construction-control-finish
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-construction-control-finished_internal-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[construction-control-construction-control-finished_internal-instance__user0] 1'] = {
     'case-meta': [
-        'read',
-        'write'
+        'read'
     ],
     'dossierpruefung': [
-        'read'
     ],
     'main': [
         'read'
     ],
     'nfd': [
-        'read'
     ],
     'publikation': [
-        'read'
     ],
     'sb1': [
     ],
@@ -496,23 +454,18 @@ snapshots['test_instance_permissions_be[Municipality-construction-control-finish
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-construction-control-in_progress-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[construction-control-construction-control-in_progress-instance__user0] 1'] = {
     'case-meta': [
-        'read',
-        'write'
+        'read'
     ],
     'dossierpruefung': [
-        'read'
     ],
     'main': [
         'read'
     ],
     'nfd': [
-        'read'
     ],
     'publikation': [
-        'read',
-        'write'
     ],
     'sb1': [
     ],
@@ -520,25 +473,18 @@ snapshots['test_instance_permissions_be[Municipality-construction-control-in_pro
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-construction-control-in_progress_internal-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[construction-control-construction-control-in_progress_internal-instance__user0] 1'] = {
     'case-meta': [
-        'read',
-        'write'
+        'read'
     ],
     'dossierpruefung': [
-        'read',
-        'write'
     ],
     'main': [
         'read'
     ],
     'nfd': [
-        'read',
-        'write'
     ],
     'publikation': [
-        'read',
-        'write'
     ],
     'sb1': [
     ],
@@ -546,17 +492,17 @@ snapshots['test_instance_permissions_be[Municipality-construction-control-in_pro
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-construction-control-new-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[construction-control-construction-control-new-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
     'dossierpruefung': [
-        'read'
     ],
     'main': [
+        'read',
+        'write'
     ],
     'nfd': [
-        'read'
     ],
     'publikation': [
     ],
@@ -566,23 +512,18 @@ snapshots['test_instance_permissions_be[Municipality-construction-control-new-in
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-construction-control-rejected-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[construction-control-construction-control-rejected-instance__user0] 1'] = {
     'case-meta': [
-        'read',
-        'write'
+        'read'
     ],
     'dossierpruefung': [
-        'read'
     ],
     'main': [
         'read'
     ],
     'nfd': [
-        'read'
     ],
     'publikation': [
-        'read',
-        'write'
     ],
     'sb1': [
     ],
@@ -590,68 +531,59 @@ snapshots['test_instance_permissions_be[Municipality-construction-control-reject
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-construction-control-sb1-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[construction-control-construction-control-sb1-instance__user0] 1'] = {
     'case-meta': [
-        'read',
-        'write'
+        'read'
     ],
     'dossierpruefung': [
-        'read'
     ],
     'main': [
         'read'
     ],
     'nfd': [
-        'read'
     ],
     'publikation': [
-        'read',
-        'write'
     ],
     'sb1': [
+        'read',
+        'write'
     ],
     'sb2': [
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-construction-control-sb2-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[construction-control-construction-control-sb2-instance__user0] 1'] = {
     'case-meta': [
-        'read',
-        'write'
+        'read'
     ],
     'dossierpruefung': [
-        'read'
     ],
     'main': [
         'read'
     ],
     'nfd': [
-        'read'
     ],
     'publikation': [
-        'read',
-        'write'
     ],
     'sb1': [
         'read'
     ],
     'sb2': [
+        'read',
+        'write'
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-construction-control-subm-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[construction-control-construction-control-subm-instance__user0] 1'] = {
     'case-meta': [
-        'read',
-        'write'
+        'read'
     ],
     'dossierpruefung': [
-        'read'
     ],
     'main': [
         'read'
     ],
     'nfd': [
-        'read'
     ],
     'publikation': [
     ],
@@ -661,25 +593,21 @@ snapshots['test_instance_permissions_be[Municipality-construction-control-subm-i
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-district-circulation-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[construction-control-readonly-construction-control-circulation-instance__user0] 1'] = {
     'case-meta': [
-        'read',
-        'write'
+        'read'
     ],
     'dossierpruefung': [
-        'read',
-        'write'
+        'read'
     ],
     'main': [
         'read'
     ],
     'nfd': [
-        'read',
-        'write'
+        'read'
     ],
     'publikation': [
-        'read',
-        'write'
+        'read'
     ],
     'sb1': [
     ],
@@ -687,25 +615,21 @@ snapshots['test_instance_permissions_be[Municipality-district-circulation-instan
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-district-circulation_init-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[construction-control-readonly-construction-control-circulation_init-instance__user0] 1'] = {
     'case-meta': [
-        'read',
-        'write'
+        'read'
     ],
     'dossierpruefung': [
-        'read',
-        'write'
+        'read'
     ],
     'main': [
         'read'
     ],
     'nfd': [
-        'read',
-        'write'
+        'read'
     ],
     'publikation': [
-        'read',
-        'write'
+        'read'
     ],
     'sb1': [
     ],
@@ -713,10 +637,9 @@ snapshots['test_instance_permissions_be[Municipality-district-circulation_init-i
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-district-conclusion-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[construction-control-readonly-construction-control-conclusion-instance__user0] 1'] = {
     'case-meta': [
-        'read',
-        'write'
+        'read'
     ],
     'dossierpruefung': [
         'read'
@@ -728,34 +651,31 @@ snapshots['test_instance_permissions_be[Municipality-district-conclusion-instanc
         'read'
     ],
     'publikation': [
-        'read',
-        'write'
+        'read'
     ],
     'sb1': [
+        'read'
     ],
     'sb2': [
+        'read'
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-district-coordination-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[construction-control-readonly-construction-control-coordination-instance__user0] 1'] = {
     'case-meta': [
-        'read',
-        'write'
+        'read'
     ],
     'dossierpruefung': [
-        'read',
-        'write'
+        'read'
     ],
     'main': [
         'read'
     ],
     'nfd': [
-        'read',
-        'write'
+        'read'
     ],
     'publikation': [
-        'read',
-        'write'
+        'read'
     ],
     'sb1': [
     ],
@@ -763,17 +683,15 @@ snapshots['test_instance_permissions_be[Municipality-district-coordination-insta
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-district-correction-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[construction-control-readonly-construction-control-correction-instance__user0] 1'] = {
     'case-meta': [
-        'read',
-        'write'
+        'read'
     ],
     'dossierpruefung': [
         'read'
     ],
     'main': [
-        'read',
-        'write'
+        'read'
     ],
     'nfd': [
         'read'
@@ -786,10 +704,9 @@ snapshots['test_instance_permissions_be[Municipality-district-correction-instanc
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-district-evaluated-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[construction-control-readonly-construction-control-evaluated-instance__user0] 1'] = {
     'case-meta': [
-        'read',
-        'write'
+        'read'
     ],
     'dossierpruefung': [
         'read'
@@ -809,10 +726,9 @@ snapshots['test_instance_permissions_be[Municipality-district-evaluated-instance
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-district-finished-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[construction-control-readonly-construction-control-finished-instance__user0] 1'] = {
     'case-meta': [
-        'read',
-        'write'
+        'read'
     ],
     'dossierpruefung': [
         'read'
@@ -832,10 +748,9 @@ snapshots['test_instance_permissions_be[Municipality-district-finished-instance_
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-district-finished_internal-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[construction-control-readonly-construction-control-finished_internal-instance__user0] 1'] = {
     'case-meta': [
-        'read',
-        'write'
+        'read'
     ],
     'dossierpruefung': [
         'read'
@@ -855,10 +770,9 @@ snapshots['test_instance_permissions_be[Municipality-district-finished_internal-
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-district-in_progress-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[construction-control-readonly-construction-control-in_progress-instance__user0] 1'] = {
     'case-meta': [
-        'read',
-        'write'
+        'read'
     ],
     'dossierpruefung': [
         'read'
@@ -870,8 +784,7 @@ snapshots['test_instance_permissions_be[Municipality-district-in_progress-instan
         'read'
     ],
     'publikation': [
-        'read',
-        'write'
+        'read'
     ],
     'sb1': [
     ],
@@ -879,25 +792,21 @@ snapshots['test_instance_permissions_be[Municipality-district-in_progress-instan
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-district-in_progress_internal-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[construction-control-readonly-construction-control-in_progress_internal-instance__user0] 1'] = {
     'case-meta': [
-        'read',
-        'write'
+        'read'
     ],
     'dossierpruefung': [
-        'read',
-        'write'
+        'read'
     ],
     'main': [
         'read'
     ],
     'nfd': [
-        'read',
-        'write'
+        'read'
     ],
     'publikation': [
-        'read',
-        'write'
+        'read'
     ],
     'sb1': [
     ],
@@ -905,7 +814,7 @@ snapshots['test_instance_permissions_be[Municipality-district-in_progress_intern
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-district-new-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[construction-control-readonly-construction-control-new-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
@@ -925,10 +834,9 @@ snapshots['test_instance_permissions_be[Municipality-district-new-instance__user
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-district-rejected-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[construction-control-readonly-construction-control-rejected-instance__user0] 1'] = {
     'case-meta': [
-        'read',
-        'write'
+        'read'
     ],
     'dossierpruefung': [
         'read'
@@ -940,8 +848,7 @@ snapshots['test_instance_permissions_be[Municipality-district-rejected-instance_
         'read'
     ],
     'publikation': [
-        'read',
-        'write'
+        'read'
     ],
     'sb1': [
     ],
@@ -949,10 +856,9 @@ snapshots['test_instance_permissions_be[Municipality-district-rejected-instance_
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-district-sb1-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[construction-control-readonly-construction-control-sb1-instance__user0] 1'] = {
     'case-meta': [
-        'read',
-        'write'
+        'read'
     ],
     'dossierpruefung': [
         'read'
@@ -964,8 +870,7 @@ snapshots['test_instance_permissions_be[Municipality-district-sb1-instance__user
         'read'
     ],
     'publikation': [
-        'read',
-        'write'
+        'read'
     ],
     'sb1': [
     ],
@@ -973,10 +878,9 @@ snapshots['test_instance_permissions_be[Municipality-district-sb1-instance__user
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-district-sb2-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[construction-control-readonly-construction-control-sb2-instance__user0] 1'] = {
     'case-meta': [
-        'read',
-        'write'
+        'read'
     ],
     'dossierpruefung': [
         'read'
@@ -988,19 +892,18 @@ snapshots['test_instance_permissions_be[Municipality-district-sb2-instance__user
         'read'
     ],
     'publikation': [
-        'read',
-        'write'
+        'read'
     ],
     'sb1': [
+        'read'
     ],
     'sb2': [
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-district-subm-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[construction-control-readonly-construction-control-subm-instance__user0] 1'] = {
     'case-meta': [
-        'read',
-        'write'
+        'read'
     ],
     'dossierpruefung': [
         'read'
@@ -1019,7 +922,7 @@ snapshots['test_instance_permissions_be[Municipality-district-subm-instance__use
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-municipality-circulation-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[municipality-lead-district-circulation-instance__user0] 1'] = {
     'case-meta': [
         'read',
         'write'
@@ -1045,7 +948,7 @@ snapshots['test_instance_permissions_be[Municipality-municipality-circulation-in
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-municipality-circulation_init-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[municipality-lead-district-circulation_init-instance__user0] 1'] = {
     'case-meta': [
         'read',
         'write'
@@ -1071,7 +974,7 @@ snapshots['test_instance_permissions_be[Municipality-municipality-circulation_in
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-municipality-conclusion-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[municipality-lead-district-conclusion-instance__user0] 1'] = {
     'case-meta': [
         'read',
         'write'
@@ -1095,7 +998,7 @@ snapshots['test_instance_permissions_be[Municipality-municipality-conclusion-ins
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-municipality-coordination-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[municipality-lead-district-coordination-instance__user0] 1'] = {
     'case-meta': [
         'read',
         'write'
@@ -1121,7 +1024,7 @@ snapshots['test_instance_permissions_be[Municipality-municipality-coordination-i
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-municipality-correction-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[municipality-lead-district-correction-instance__user0] 1'] = {
     'case-meta': [
         'read',
         'write'
@@ -1144,7 +1047,7 @@ snapshots['test_instance_permissions_be[Municipality-municipality-correction-ins
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-municipality-evaluated-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[municipality-lead-district-evaluated-instance__user0] 1'] = {
     'case-meta': [
         'read',
         'write'
@@ -1167,7 +1070,7 @@ snapshots['test_instance_permissions_be[Municipality-municipality-evaluated-inst
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-municipality-finished-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[municipality-lead-district-finished-instance__user0] 1'] = {
     'case-meta': [
         'read',
         'write'
@@ -1190,7 +1093,7 @@ snapshots['test_instance_permissions_be[Municipality-municipality-finished-insta
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-municipality-finished_internal-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[municipality-lead-district-finished_internal-instance__user0] 1'] = {
     'case-meta': [
         'read',
         'write'
@@ -1213,7 +1116,7 @@ snapshots['test_instance_permissions_be[Municipality-municipality-finished_inter
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-municipality-in_progress-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[municipality-lead-district-in_progress-instance__user0] 1'] = {
     'case-meta': [
         'read',
         'write'
@@ -1237,7 +1140,7 @@ snapshots['test_instance_permissions_be[Municipality-municipality-in_progress-in
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-municipality-in_progress_internal-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[municipality-lead-district-in_progress_internal-instance__user0] 1'] = {
     'case-meta': [
         'read',
         'write'
@@ -1263,7 +1166,7 @@ snapshots['test_instance_permissions_be[Municipality-municipality-in_progress_in
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-municipality-new-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[municipality-lead-district-new-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
@@ -1283,7 +1186,7 @@ snapshots['test_instance_permissions_be[Municipality-municipality-new-instance__
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-municipality-rejected-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[municipality-lead-district-rejected-instance__user0] 1'] = {
     'case-meta': [
         'read',
         'write'
@@ -1307,7 +1210,7 @@ snapshots['test_instance_permissions_be[Municipality-municipality-rejected-insta
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-municipality-sb1-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[municipality-lead-district-sb1-instance__user0] 1'] = {
     'case-meta': [
         'read',
         'write'
@@ -1331,7 +1234,7 @@ snapshots['test_instance_permissions_be[Municipality-municipality-sb1-instance__
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-municipality-sb2-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[municipality-lead-district-sb2-instance__user0] 1'] = {
     'case-meta': [
         'read',
         'write'
@@ -1355,21 +1258,1345 @@ snapshots['test_instance_permissions_be[Municipality-municipality-sb2-instance__
     ]
 }
 
-snapshots['test_instance_permissions_be[Municipality-municipality-subm-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[municipality-lead-district-subm-instance__user0] 1'] = {
     'case-meta': [
         'read',
         'write'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'main': [
         'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-lead-municipality-circulation-instance__user0] 1'] = {
+    'case-meta': [
+        'read',
+        'write'
+    ],
+    'dossierpruefung': [
+        'read',
+        'write'
     ],
     'main': [
         'read'
     ],
     'nfd': [
+        'read',
+        'write'
+    ],
+    'publikation': [
+        'read',
+        'write'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-lead-municipality-circulation_init-instance__user0] 1'] = {
+    'case-meta': [
+        'read',
+        'write'
+    ],
+    'dossierpruefung': [
+        'read',
+        'write'
+    ],
+    'main': [
         'read'
+    ],
+    'nfd': [
+        'read',
+        'write'
     ],
     'publikation': [
+        'read',
+        'write'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-lead-municipality-conclusion-instance__user0] 1'] = {
+    'case-meta': [
+        'read',
+        'write'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+        'read',
+        'write'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-lead-municipality-coordination-instance__user0] 1'] = {
+    'case-meta': [
+        'read',
+        'write'
+    ],
+    'dossierpruefung': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read',
+        'write'
+    ],
+    'publikation': [
+        'read',
+        'write'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-lead-municipality-correction-instance__user0] 1'] = {
+    'case-meta': [
+        'read',
+        'write'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read',
+        'write'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-lead-municipality-evaluated-instance__user0] 1'] = {
+    'case-meta': [
+        'read',
+        'write'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-lead-municipality-finished-instance__user0] 1'] = {
+    'case-meta': [
+        'read',
+        'write'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-lead-municipality-finished_internal-instance__user0] 1'] = {
+    'case-meta': [
+        'read',
+        'write'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-lead-municipality-in_progress-instance__user0] 1'] = {
+    'case-meta': [
+        'read',
+        'write'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+        'read',
+        'write'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-lead-municipality-in_progress_internal-instance__user0] 1'] = {
+    'case-meta': [
+        'read',
+        'write'
+    ],
+    'dossierpruefung': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read',
+        'write'
+    ],
+    'publikation': [
+        'read',
+        'write'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-lead-municipality-new-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-lead-municipality-rejected-instance__user0] 1'] = {
+    'case-meta': [
+        'read',
+        'write'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+        'read',
+        'write'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-lead-municipality-sb1-instance__user0] 1'] = {
+    'case-meta': [
+        'read',
+        'write'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+        'read',
+        'write'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-lead-municipality-sb2-instance__user0] 1'] = {
+    'case-meta': [
+        'read',
+        'write'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+        'read',
+        'write'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-lead-municipality-subm-instance__user0] 1'] = {
+    'case-meta': [
+        'read',
+        'write'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-readonly-district-circulation-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-readonly-district-circulation_init-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-readonly-district-conclusion-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-readonly-district-coordination-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-readonly-district-correction-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-readonly-district-evaluated-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-readonly-district-finished-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-readonly-district-finished_internal-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-readonly-district-in_progress-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-readonly-district-in_progress_internal-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-readonly-district-new-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-readonly-district-rejected-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-readonly-district-sb1-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-readonly-district-sb2-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-readonly-district-subm-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-readonly-municipality-circulation-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-readonly-municipality-circulation_init-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-readonly-municipality-conclusion-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-readonly-municipality-coordination-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-readonly-municipality-correction-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-readonly-municipality-evaluated-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-readonly-municipality-finished-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-readonly-municipality-finished_internal-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-readonly-municipality-in_progress-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-readonly-municipality-in_progress_internal-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-readonly-municipality-new-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-readonly-municipality-rejected-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-readonly-municipality-sb1-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-readonly-municipality-sb2-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[municipality-readonly-municipality-subm-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+        'read'
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[service-lead-service-circulation-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[service-lead-service-circulation_init-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[service-lead-service-conclusion-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+        'read'
+    ],
+    'sb2': [
+        'read'
+    ]
+}
+
+snapshots['test_instance_permissions_be[service-lead-service-coordination-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[service-lead-service-correction-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[service-lead-service-evaluated-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[service-lead-service-finished-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[service-lead-service-finished_internal-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[service-lead-service-in_progress-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[service-lead-service-in_progress_internal-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[service-lead-service-new-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+    ],
+    'main': [
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[service-lead-service-rejected-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[service-lead-service-sb1-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[service-lead-service-sb2-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+        'read'
+    ],
+    'sb1': [
+        'read'
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[service-lead-service-subm-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'dossierpruefung': [
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+        'read'
     ],
     'sb1': [
     ],
@@ -1377,7 +2604,7 @@ snapshots['test_instance_permissions_be[Municipality-municipality-subm-instance_
     ]
 }
 
-snapshots['test_instance_permissions_be[Service-service-circulation-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[service-readonly-service-circulation-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
@@ -1398,7 +2625,7 @@ snapshots['test_instance_permissions_be[Service-service-circulation-instance__us
     ]
 }
 
-snapshots['test_instance_permissions_be[Service-service-circulation_init-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[service-readonly-service-circulation_init-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
@@ -1419,7 +2646,7 @@ snapshots['test_instance_permissions_be[Service-service-circulation_init-instanc
     ]
 }
 
-snapshots['test_instance_permissions_be[Service-service-conclusion-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[service-readonly-service-conclusion-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
@@ -1442,7 +2669,7 @@ snapshots['test_instance_permissions_be[Service-service-conclusion-instance__use
     ]
 }
 
-snapshots['test_instance_permissions_be[Service-service-coordination-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[service-readonly-service-coordination-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
@@ -1463,7 +2690,7 @@ snapshots['test_instance_permissions_be[Service-service-coordination-instance__u
     ]
 }
 
-snapshots['test_instance_permissions_be[Service-service-correction-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[service-readonly-service-correction-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
@@ -1483,7 +2710,7 @@ snapshots['test_instance_permissions_be[Service-service-correction-instance__use
     ]
 }
 
-snapshots['test_instance_permissions_be[Service-service-evaluated-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[service-readonly-service-evaluated-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
@@ -1504,7 +2731,7 @@ snapshots['test_instance_permissions_be[Service-service-evaluated-instance__user
     ]
 }
 
-snapshots['test_instance_permissions_be[Service-service-finished-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[service-readonly-service-finished-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
@@ -1525,7 +2752,7 @@ snapshots['test_instance_permissions_be[Service-service-finished-instance__user0
     ]
 }
 
-snapshots['test_instance_permissions_be[Service-service-finished_internal-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[service-readonly-service-finished_internal-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
@@ -1546,7 +2773,7 @@ snapshots['test_instance_permissions_be[Service-service-finished_internal-instan
     ]
 }
 
-snapshots['test_instance_permissions_be[Service-service-in_progress-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[service-readonly-service-in_progress-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
@@ -1567,7 +2794,7 @@ snapshots['test_instance_permissions_be[Service-service-in_progress-instance__us
     ]
 }
 
-snapshots['test_instance_permissions_be[Service-service-in_progress_internal-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[service-readonly-service-in_progress_internal-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
@@ -1588,7 +2815,7 @@ snapshots['test_instance_permissions_be[Service-service-in_progress_internal-ins
     ]
 }
 
-snapshots['test_instance_permissions_be[Service-service-new-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[service-readonly-service-new-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
@@ -1607,7 +2834,7 @@ snapshots['test_instance_permissions_be[Service-service-new-instance__user0] 1']
     ]
 }
 
-snapshots['test_instance_permissions_be[Service-service-rejected-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[service-readonly-service-rejected-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
@@ -1628,7 +2855,7 @@ snapshots['test_instance_permissions_be[Service-service-rejected-instance__user0
     ]
 }
 
-snapshots['test_instance_permissions_be[Service-service-sb1-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[service-readonly-service-sb1-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
@@ -1649,7 +2876,7 @@ snapshots['test_instance_permissions_be[Service-service-sb1-instance__user0] 1']
     ]
 }
 
-snapshots['test_instance_permissions_be[Service-service-sb2-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[service-readonly-service-sb2-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
@@ -1671,7 +2898,7 @@ snapshots['test_instance_permissions_be[Service-service-sb2-instance__user0] 1']
     ]
 }
 
-snapshots['test_instance_permissions_be[Service-service-subm-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[service-readonly-service-subm-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],
@@ -1691,7 +2918,7 @@ snapshots['test_instance_permissions_be[Service-service-subm-instance__user0] 1'
     ]
 }
 
-snapshots['test_instance_permissions_be[Support-None-circulation-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[support-None-circulation-instance__user0] 1'] = {
     'case-meta': [
         'read',
         'write'
@@ -1722,7 +2949,7 @@ snapshots['test_instance_permissions_be[Support-None-circulation-instance__user0
     ]
 }
 
-snapshots['test_instance_permissions_be[Support-None-circulation_init-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[support-None-circulation_init-instance__user0] 1'] = {
     'case-meta': [
         'read',
         'write'
@@ -1753,7 +2980,7 @@ snapshots['test_instance_permissions_be[Support-None-circulation_init-instance__
     ]
 }
 
-snapshots['test_instance_permissions_be[Support-None-conclusion-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[support-None-conclusion-instance__user0] 1'] = {
     'case-meta': [
         'read',
         'write'
@@ -1784,7 +3011,7 @@ snapshots['test_instance_permissions_be[Support-None-conclusion-instance__user0]
     ]
 }
 
-snapshots['test_instance_permissions_be[Support-None-coordination-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[support-None-coordination-instance__user0] 1'] = {
     'case-meta': [
         'read',
         'write'
@@ -1815,7 +3042,7 @@ snapshots['test_instance_permissions_be[Support-None-coordination-instance__user
     ]
 }
 
-snapshots['test_instance_permissions_be[Support-None-correction-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[support-None-correction-instance__user0] 1'] = {
     'case-meta': [
         'read',
         'write'
@@ -1846,7 +3073,7 @@ snapshots['test_instance_permissions_be[Support-None-correction-instance__user0]
     ]
 }
 
-snapshots['test_instance_permissions_be[Support-None-evaluated-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[support-None-evaluated-instance__user0] 1'] = {
     'case-meta': [
         'read',
         'write'
@@ -1877,7 +3104,7 @@ snapshots['test_instance_permissions_be[Support-None-evaluated-instance__user0] 
     ]
 }
 
-snapshots['test_instance_permissions_be[Support-None-finished-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[support-None-finished-instance__user0] 1'] = {
     'case-meta': [
         'read',
         'write'
@@ -1908,7 +3135,7 @@ snapshots['test_instance_permissions_be[Support-None-finished-instance__user0] 1
     ]
 }
 
-snapshots['test_instance_permissions_be[Support-None-finished_internal-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[support-None-finished_internal-instance__user0] 1'] = {
     'case-meta': [
         'read',
         'write'
@@ -1939,7 +3166,7 @@ snapshots['test_instance_permissions_be[Support-None-finished_internal-instance_
     ]
 }
 
-snapshots['test_instance_permissions_be[Support-None-in_progress-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[support-None-in_progress-instance__user0] 1'] = {
     'case-meta': [
         'read',
         'write'
@@ -1970,7 +3197,7 @@ snapshots['test_instance_permissions_be[Support-None-in_progress-instance__user0
     ]
 }
 
-snapshots['test_instance_permissions_be[Support-None-in_progress_internal-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[support-None-in_progress_internal-instance__user0] 1'] = {
     'case-meta': [
         'read',
         'write'
@@ -2001,7 +3228,7 @@ snapshots['test_instance_permissions_be[Support-None-in_progress_internal-instan
     ]
 }
 
-snapshots['test_instance_permissions_be[Support-None-new-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[support-None-new-instance__user0] 1'] = {
     'case-meta': [
         'read',
         'write'
@@ -2032,7 +3259,7 @@ snapshots['test_instance_permissions_be[Support-None-new-instance__user0] 1'] = 
     ]
 }
 
-snapshots['test_instance_permissions_be[Support-None-rejected-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[support-None-rejected-instance__user0] 1'] = {
     'case-meta': [
         'read',
         'write'
@@ -2063,7 +3290,7 @@ snapshots['test_instance_permissions_be[Support-None-rejected-instance__user0] 1
     ]
 }
 
-snapshots['test_instance_permissions_be[Support-None-sb1-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[support-None-sb1-instance__user0] 1'] = {
     'case-meta': [
         'read',
         'write'
@@ -2094,7 +3321,7 @@ snapshots['test_instance_permissions_be[Support-None-sb1-instance__user0] 1'] = 
     ]
 }
 
-snapshots['test_instance_permissions_be[Support-None-sb2-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[support-None-sb2-instance__user0] 1'] = {
     'case-meta': [
         'read',
         'write'
@@ -2125,7 +3352,7 @@ snapshots['test_instance_permissions_be[Support-None-sb2-instance__user0] 1'] = 
     ]
 }
 
-snapshots['test_instance_permissions_be[Support-None-subm-instance__user0] 1'] = {
+snapshots['test_instance_permissions_be[support-None-subm-instance__user0] 1'] = {
     'case-meta': [
         'read',
         'write'

@@ -456,6 +456,11 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         "involved_applicants": "camac.applicants.serializers.ApplicantSerializer",
     }
 
+    def _is_read_only(self):
+        group = self.context["request"].group
+
+        return group.role.name.endswith("-readonly") if group else False
+
     @permission_aware
     def _get_main_form_permissions(self, instance):
         permissions = set(["read"])
@@ -493,8 +498,12 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         if state != "new":
             permissions.add("read")
 
-        if state in settings.APPLICATION.get("INSTANCE_PERMISSIONS", {}).get(
-            "MUNICIPALITY_WRITE", []
+        if (
+            state
+            in settings.APPLICATION.get("INSTANCE_PERMISSIONS", {}).get(
+                "MUNICIPALITY_WRITE", []
+            )
+            and not self._is_read_only()
         ):
             permissions.add("write")
 
@@ -610,12 +619,16 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
     def _get_nfd_form_permissions_for_municipality(self, instance):
         permissions = set(["read"])
 
-        if instance.instance_state.name in [
-            "circulation_init",
-            "circulation",
-            "coordination",
-            "in_progress_internal",
-        ]:
+        if (
+            instance.instance_state.name
+            in [
+                "circulation_init",
+                "circulation",
+                "coordination",
+                "in_progress_internal",
+            ]
+            and not self._is_read_only()
+        ):
             permissions.add("write")
 
         return permissions
@@ -636,12 +649,16 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
     def _get_dossierpruefung_form_permissions_for_municipality(self, instance):
         permissions = set(["read"])
 
-        if instance.instance_state.name in [
-            "circulation_init",
-            "circulation",
-            "coordination",
-            "in_progress_internal",
-        ]:
+        if (
+            instance.instance_state.name
+            in [
+                "circulation_init",
+                "circulation",
+                "coordination",
+                "in_progress_internal",
+            ]
+            and not self._is_read_only()
+        ):
             permissions.add("write")
 
         return permissions
@@ -662,11 +679,16 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         if instance.instance_state.name not in ["new", "subm", "correction"]:
             permissions.add("read")
 
-        if "read" in permissions and instance.instance_state.name not in [
-            "evaluated",
-            "finished",
-            "finished_internal",
-        ]:
+        if (
+            "read" in permissions
+            and instance.instance_state.name
+            not in [
+                "evaluated",
+                "finished",
+                "finished_internal",
+            ]
+            and not self._is_read_only()
+        ):
             permissions.add("write")
 
         return permissions
@@ -684,7 +706,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
     def _get_case_meta_permissions_for_municipality(self, instance):
         permissions = set(["read"])
 
-        if instance.instance_state.name != "new":
+        if instance.instance_state.name != "new" and not self._is_read_only():
             permissions.add("write")
 
         return permissions
