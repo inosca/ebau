@@ -188,9 +188,23 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
   *getCases() {
     yield this.getRootForms.last;
 
+    const camacFilters = {
+      is_applicant: true,
+    };
+
     yield this.cases.fetch({
       order: this.serializedOrder,
       filter: this.serializedFilter,
+      queryOptions: {
+        context: {
+          headers: {
+            "x-camac-filters": Object.entries(camacFilters)
+              .filter(([, value]) => value)
+              .map((entry) => entry.join("="))
+              .join("&"),
+          },
+        },
+      },
     });
   }
 
