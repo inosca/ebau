@@ -2032,11 +2032,12 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
         )
 
     def get_parcels(self, case):
-        return ", ".join(
+        parcels = list(
             form_models.Answer.objects.filter(
                 question_id="parcel-number", document__family=case.document
             ).values_list("value", flat=True)
         )
+        return ", ".join([str(p) for p in parcels])
 
     class Meta:
         model = workflow_models.Case
