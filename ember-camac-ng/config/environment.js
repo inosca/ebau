@@ -35,6 +35,7 @@ module.exports = function (environment) {
 
     APPLICATIONS: {
       kt_bern: {
+        GWRCantonAbbreviation: "BE",
         allowApplicantManualWorkItem: false,
         instanceStates: {
           archived: 20009,
@@ -46,9 +47,11 @@ module.exports = function (environment) {
         ],
       },
       kt_schwyz: {
+        GWRCantonAbbreviation: "SZ",
         allowApplicantManualWorkItem: true,
       },
       kt_uri: {
+        GWRCantonAbbreviation: "UR",
         allowApplicantManualWorkItem: false,
         activeCirculationStates: [
           1, // RUN
