@@ -1227,7 +1227,9 @@ APPLICATIONS = {
             # "Guest": None,  # TODO AFAIK we don't grant unauthenticated users access to endpoints
         },
         "ROLE_INHERITANCE": {"trusted_service": "service"},
-        "INSTANCE_PERMISSIONS": {"MUNICIPALITY_WRITE": ["comm", "old", "subm"]},
+        "INSTANCE_PERMISSIONS": {
+            "MUNICIPALITY_WRITE": ["comm", "ext_gem", "done", "old", "control"]
+        },
         "NOTIFICATIONS": {
             "SUBMIT": [
                 {
