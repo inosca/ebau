@@ -28,65 +28,91 @@ const KEYS_TABLE = [
 const REGEXP_ORIGIN = /^(https?:\/\/[^/]+)/i;
 
 const FIELD_MAP = {
-  ARCHINV_FUNDST: {
-    path: "gebiet-mit-archaeologischen-objekten",
-    values: {
-      true: "gebiet-mit-archaeologischen-objekten-ja",
-      false: "gebiet-mit-archaeologischen-objekten-nein",
+  ARCHINV_FUNDST: [
+    {
+      path: "gebiet-mit-archaeologischen-objekten",
+      values: {
+        true: "gebiet-mit-archaeologischen-objekten-ja",
+        false: "gebiet-mit-archaeologischen-objekten-nein",
+      },
     },
-  },
-  BALISKBS_KBS: {
-    path: "belasteter-standort",
-    values: {
-      true: "belasteter-standort-ja",
-      false: "belasteter-standort-nein",
+  ],
+  BALISKBS_KBS: [
+    {
+      path: "belasteter-standort",
+      values: {
+        true: "belasteter-standort-ja",
+        false: "belasteter-standort-nein",
+      },
     },
-  },
-  BAUINV_BAUINV_VW: {
-    path: "handelt-es-sich-um-ein-baudenkmal",
-    values: {
-      true: "handelt-es-sich-um-ein-baudenkmal-ja",
-      false: "handelt-es-sich-um-ein-baudenkmal-nein",
+  ],
+  BAUINV_BAUINV_VW: [
+    {
+      path: "handelt-es-sich-um-ein-baudenkmal",
+      values: {
+        true: "handelt-es-sich-um-ein-baudenkmal-ja",
+        false: "handelt-es-sich-um-ein-baudenkmal-nein",
+      },
     },
-  },
-  GK5_SY: {
-    path: "gebiet-mit-naturgefahren",
-    values: {
-      true: "gebiet-mit-naturgefahren-ja",
-      false: "gebiet-mit-naturgefahren-nein",
+  ],
+  GK5_SY: [
+    {
+      path: "gebiet-mit-naturgefahren",
+      values: {
+        true: "gebiet-mit-naturgefahren-ja",
+        false: "gebiet-mit-naturgefahren-nein",
+      },
     },
-  },
+  ],
   // The question GSK25_GSK_VW is not present in our form.
   //GSK25_GSK_VW: {},
-  GSKT_BEZEICH_DE: {
-    path: "gewaesserschutzbereich",
-    values: {
-      "übriger Bereich üB": "gewaesserschutzbereich-ueb",
-      "Gewässerschutzbereich Ao": "gewaesserschutzbereich-ao",
-      "Gewässerschutzbereich Au": "gewaesserschutzbereich-au",
-      // deprecated: "Provisorischer Zuströmbereich Zu": "gewaesserschutzbereich-zu",
+  GSKT_BEZEICH_DE: [
+    {
+      path: "gewaesserschutzbereich",
+      values: {
+        "übriger Bereich üB": "gewaesserschutzbereich-ueb",
+        "Gewässerschutzbereich Ao": "gewaesserschutzbereich-ao",
+        "Gewässerschutzbereich Au": "gewaesserschutzbereich-au",
+        // deprecated: "Provisorischer Zuströmbereich Zu": "gewaesserschutzbereich-zu",
+      },
     },
-  },
-  NSG_NSGP: {
-    path: "naturschutz",
-    values: {
-      true: "naturschutz-ja",
-      false: "naturschutz-nein",
+    {
+      path: "gewaesserschutzbereich-v2",
+      values: {
+        "übriger Bereich üB": "gewaesserschutzbereich-v2-ueb",
+        "Gewässerschutzbereich Ao": "gewaesserschutzbereich-v2-ao",
+        "Gewässerschutzbereich Au": "gewaesserschutzbereich-v2-au",
+      },
     },
-  },
-  UZP_BAU_VW: {
-    path: "nutzungszone",
-  },
-  UZP_LSG_VW: {
-    path: "objekt-des-besonderen-landschaftsschutzes",
-    values: {
-      true: "objekt-des-besonderen-landschaftsschutzes-ja",
-      false: "objekt-des-besonderen-landschaftsschutzes-nein",
+  ],
+  NSG_NSGP: [
+    {
+      path: "naturschutz",
+      values: {
+        true: "naturschutz-ja",
+        false: "naturschutz-nein",
+      },
     },
-  },
-  UZP_UEO_VW: {
-    path: "ueberbauungsordnung",
-  },
+  ],
+  UZP_BAU_VW: [
+    {
+      path: "nutzungszone",
+    },
+  ],
+  UZP_LSG_VW: [
+    {
+      path: "objekt-des-besonderen-landschaftsschutzes",
+      values: {
+        true: "objekt-des-besonderen-landschaftsschutzes-ja",
+        false: "objekt-des-besonderen-landschaftsschutzes-nein",
+      },
+    },
+  ],
+  UZP_UEO_VW: [
+    {
+      path: "ueberbauungsordnung",
+    },
+  ],
 };
 
 /**
@@ -167,19 +193,10 @@ export default class BeGisComponent extends Component {
     // This try/catch block is necessary as long as we don't have a mock
     // backend for the integration tests.
     try {
-      // GET FIRST E-GRID NUMBER FOR CURRENT PARCELS
-      // Find the table with the parcels.
-      const table = this.field.document.fields.find(
-        (field) => field.question.slug === KEY_TABLE_QUESTION
-      );
-      // Find the E-Grid field of the first parcel.
-      const rows = table && table.answer.value;
-      const field =
-        rows &&
-        rows[0].fields.find((field) => field.question.slug === KEY_TABLE_EGRID);
-      // Set the selection and egrid variables.
-      const selection = field && field.answer.value;
-      const egrid = selection ? selection : "EGRID";
+      // Get the egrid number for the first of the currently selected parcels
+      const table = this.field.document.findAnswer(KEY_TABLE_QUESTION);
+      const selection = (table?.length && table[0][KEY_TABLE_EGRID]) || null;
+      const egrid = selection || "EGRID";
 
       const search = [
         "baseURL=https://www.map.apps.be.ch/pub",
@@ -433,33 +450,40 @@ export default class BeGisComponent extends Component {
         responses.map((res) => res.json().then(({ data }) => data))
       );
 
-      Object.entries(FIELD_MAP).forEach(([key, { path, values }]) => {
-        const field = this.field.document.findField(path);
-        const type = field.question.__typename;
-        let value = reduceArrayValues(raw)[key];
-        let valuePretty = value;
+      Object.entries(FIELD_MAP).forEach(([key, fields]) => {
+        fields.forEach(({ path, values }) => {
+          const field = this.field.document.findField(path);
 
-        if (value === undefined) {
-          return;
-        }
+          if (!field) {
+            return;
+          }
 
-        if (type === "ChoiceQuestion") {
-          value = values[value];
-          valuePretty = field.question.choiceOptions.edges.find(
-            (edge) => edge.node.slug === value
-          ).node.label;
-        } else if (type === "MultipleChoiceQuestion") {
-          value = Array.isArray(value) ? value : [value];
-          value = value.map((val) => values[val]);
-          valuePretty = field.question.multipleChoiceOptions.edges
-            .filter((edge) => edge.node.slug.includes(value))
-            .map((edge) => edge.node.label);
-        } else if (Array.isArray(value)) {
-          value = value.join(", ");
-          valuePretty = value;
-        }
+          const type = field.question.__typename;
+          let value = reduceArrayValues(raw)[key];
+          let valuePretty = value;
 
-        this.gisData.pushObject({ field, value, valuePretty });
+          if (value === undefined) {
+            return;
+          }
+
+          if (type === "ChoiceQuestion") {
+            value = values[value];
+            valuePretty = field.question.choiceOptions.edges.find(
+              (edge) => edge.node.slug === value
+            ).node.label;
+          } else if (type === "MultipleChoiceQuestion") {
+            value = Array.isArray(value) ? value : [value];
+            value = value.map((val) => values[val]);
+            valuePretty = field.question.multipleChoiceOptions.edges
+              .filter((edge) => edge.node.slug.includes(value))
+              .map((edge) => edge.node.label);
+          } else if (Array.isArray(value)) {
+            value = value.join(", ");
+            valuePretty = value;
+          }
+
+          this.gisData.pushObject({ field, value, valuePretty });
+        });
       });
 
       this.set("showConfirmation", true);
