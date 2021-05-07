@@ -13,6 +13,7 @@ export default class AuditIndexController extends Controller {
   @service notifications;
   @service intl;
   @service fetch;
+  @service can;
 
   @queryManager apollo;
 
@@ -23,6 +24,15 @@ export default class AuditIndexController extends Controller {
   @dropTask
   @confirmTask("audit.skipConfirm")
   *skipAudit() {
+    if (
+      this.can.cannot(
+        "edit work item of audit",
+        this.auditController.auditWorkItem
+      )
+    ) {
+      return;
+    }
+
     try {
       yield this.apollo.mutate({
         mutation: skipWorkItem,
@@ -40,6 +50,15 @@ export default class AuditIndexController extends Controller {
   @dropTask
   @confirmTask("audit.completeConfirm")
   *completeAudit() {
+    if (
+      this.can.cannot(
+        "edit work item of audit",
+        this.auditController.auditWorkItem
+      )
+    ) {
+      return;
+    }
+
     try {
       yield this.apollo.mutate({
         mutation: completeWorkItem,

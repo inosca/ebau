@@ -8,6 +8,7 @@ export default class ResponsibleController extends Controller {
   @service shoebox;
   @service notifications;
   @service intl;
+  @service can;
 
   @tracked _selectedUser;
 
@@ -62,6 +63,10 @@ export default class ResponsibleController extends Controller {
   @dropTask
   *saveResponsibility(event) {
     event.preventDefault();
+
+    if (this.can.cannot("edit responsible-service")) {
+      return;
+    }
 
     try {
       const responsibility =

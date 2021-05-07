@@ -5,6 +5,14 @@ export default class PublicationAbility extends Ability {
   @service shoebox;
 
   get canEdit() {
-    return this.model.status === "READY" && !this.shoebox.isReadOnlyRole;
+    return (
+      this.shoebox.role === "municipality" &&
+      !this.shoebox.isReadOnlyRole &&
+      this.model?.status === "READY"
+    );
+  }
+
+  get canCreate() {
+    return this.shoebox.role === "municipality" && !this.shoebox.isReadOnlyRole;
   }
 }
