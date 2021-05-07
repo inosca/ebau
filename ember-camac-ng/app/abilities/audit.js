@@ -6,6 +6,7 @@ export default class InstanceAbility extends Ability {
 
   get canEditWorkItem() {
     return (
+      this.shoebox.role === "municipality" &&
       !this.shoebox.isReadOnlyRole &&
       this.model?.status === "READY" &&
       this.model?.addressedGroups

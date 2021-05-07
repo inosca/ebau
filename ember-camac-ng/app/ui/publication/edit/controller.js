@@ -10,6 +10,7 @@ import getPublication from "camac-ng/gql/queries/get-publication.graphql";
 export default class PublicationEditController extends Controller {
   @service notifications;
   @service intl;
+  @service can;
 
   @queryManager apollo;
 
@@ -50,7 +51,7 @@ export default class PublicationEditController extends Controller {
 
   @dropTask
   *createPublication() {
-    if (!this.createPublicationWorkItem) {
+    if (this.can.cannot("create publication")) {
       return;
     }
 

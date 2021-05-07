@@ -15,6 +15,7 @@ export default class AuditTableRowComponent extends Component {
   @service notifications;
   @service intl;
   @service router;
+  @service can;
 
   @queryManager apollo;
 
@@ -41,6 +42,14 @@ export default class AuditTableRowComponent extends Component {
   @dropTask
   @confirmTask("audit.deleteConfirm")
   *delete() {
+    if (
+      this.can.cannot("edit audit", this.args.workItem, {
+        audit: this.args.audit,
+      })
+    ) {
+      return;
+    }
+
     try {
       const value = new Set(this.args.documentData[this.args.audit.form] || []);
 
@@ -73,6 +82,14 @@ export default class AuditTableRowComponent extends Component {
   @dropTask
   @confirmTask("audit.copyConfirm")
   *copy() {
+    if (
+      this.can.cannot("edit audit", this.args.workItem, {
+        audit: this.args.audit,
+      })
+    ) {
+      return;
+    }
+
     try {
       // copy document
       const document = yield this.apollo.mutate(
