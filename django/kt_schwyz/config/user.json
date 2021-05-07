@@ -756,35 +756,40 @@
     "model": "user.servicegroup",
     "pk": 1,
     "fields": {
-      "name": "Externe Fachstellen"
+      "name": "Externe Fachstellen",
+      "sort": 3
     }
   },
   {
     "model": "user.servicegroup",
     "pk": 2,
     "fields": {
-      "name": "Fachstellen"
+      "name": "Fachstellen",
+      "sort": 2
     }
   },
   {
     "model": "user.servicegroup",
     "pk": 3,
     "fields": {
-      "name": "Gemeinde"
+      "name": "Gemeinde",
+      "sort": 4
     }
   },
   {
     "model": "user.servicegroup",
     "pk": 4,
     "fields": {
-      "name": "Baugesuchszentrale"
+      "name": "Baugesuchszentrale",
+      "sort": 1
     }
   },
   {
     "model": "user.servicegroup",
     "pk": 5,
     "fields": {
-      "name": "Fachstellen Gemeinden"
+      "name": "Fachstellen Gemeinden",
+      "sort": 5
     }
   }
 ]
