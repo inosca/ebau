@@ -682,8 +682,8 @@ snapshots["test_document_merge_service_snapshot[baugesuch] 1"] = [
                     {
                         "choices": [
                             {"checked": False, "label": "üB"},
-                            {"checked": False, "label": "Ao"},
-                            {"checked": True, "label": "Au"},
+                            {"checked": False, "label": "Aₒ"},
+                            {"checked": True, "label": "Aᵤ"},
                         ],
                         "label": "Gewässerschutzbereich",
                         "slug": "gewaesserschutzbereich",
