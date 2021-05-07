@@ -31,7 +31,7 @@ export default class JournalController extends Controller {
 
   @dropTask
   *saveEntry(entry) {
-    if (this.can.cannot("edit journal entry")) return;
+    if (this.can.cannot("edit journal-entry")) return;
 
     yield entry.save();
 
@@ -45,7 +45,7 @@ export default class JournalController extends Controller {
 
   @action
   addNewEntry() {
-    if (this.can.cannot("edit journal entry")) return;
+    if (this.can.cannot("edit journal-entry")) return;
 
     this.newEntry = this.store.createRecord("journal-entry", {
       instance: this.instance,
