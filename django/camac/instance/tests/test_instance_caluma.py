@@ -1043,7 +1043,9 @@ def test_has_pending_billing_entry_filter(
 
     # instance with pending billing entry
     instance_with_pending_billing_entry = instance_factory(user=admin_user)
-    billing_entry_factory(instance=instance_with_pending_billing_entry, invoiced=0)
+    billing_entry_factory(
+        instance=instance_with_pending_billing_entry, invoiced=0, type=1
+    )
 
     url = reverse("instance-list")
     response = admin_client.get(
