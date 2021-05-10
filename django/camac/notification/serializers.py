@@ -5,6 +5,7 @@ from logging import getLogger
 
 import inflection
 import jinja2
+from caluma.caluma_form import models as caluma_form_models
 from django.conf import settings
 from django.core.mail import EmailMessage, get_connection
 from django.db.models import Q, Sum
@@ -159,53 +160,61 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
         return result
 
-    def _get_first_available_answer(self, instance, cqi_list):
-        """Return the value of the first answer found in the given list.
-
-        The CQI list is a list of 3-tuples which represent a Camac
-        chapter, question, item. The first triplet to that results in
-        a matching answer for our instance is returned.
-        """
-        for cqi in cqi_list:
-            try:
-                return Answer.get_value_by_cqi(instance, *cqi, fail_on_not_found=True)
-
-            except Answer.DoesNotExist:
-                continue
-        return ""
-
     def get_vorhaben(self, instance):
-        proposal = self._get_first_available_answer(
-            instance, uri_constants.CQI_FOR_PROPOSAL
-        )
-        description = self._get_first_available_answer(
-            instance, uri_constants.CQI_FOR_PROPOSAL_DESCRIPTION
-        )
-        return ", ".join(filter(None, [proposal, description]))
+        proposals = CalumaApi().get_selected_option_labels("proposal", instance) or []
+        description_slugs = [
+            "proposal-description",
+            "beschreibung-zu-mbv",
+            "bezeichnung",
+            "vorhaben-proposal-description",
+            "veranstaltung-beschrieb",
+        ]
+        descriptions = [
+            CalumaApi().get_answer_value(slug, instance) for slug in description_slugs
+        ]
+        return ", ".join(filter(None, proposals + descriptions))
 
     def get_parzelle(self, instance):
-        return self._get_first_available_answer(
-            instance, uri_constants.CQI_FOR_PARZELLE
-        )
+        rows = CalumaApi().get_table_answer("parcels", instance)
+        if rows:
+            numbers = [r.answers.get(question_id="parcel-number").value for r in rows]
+            return ", ".join(numbers)
+        return None
 
     def get_street(self, instance):
-        return self._get_first_available_answer(instance, uri_constants.CQI_FOR_STREET)
+        return CalumaApi().get_answer_value("parcel-street", instance)
+
+    def _get_row_answer_value(self, row, slug, fallback=None):
+        try:
+            return row.first().answers.get(question_id=slug).value
+        except caluma_form_models.Answer.DoesNotExist:
+            return fallback
 
     def get_gesuchsteller(self, instance):
-        organisation = self._get_first_available_answer(
-            instance, uri_constants.CQI_FOR_APPLICANT_ORGANISATION
-        )
-        name = self._get_first_available_answer(
-            instance, uri_constants.CQI_FOR_APPLICANT_NAME
-        )
-        street = self._get_first_available_answer(
-            instance, uri_constants.CQI_FOR_APPLICANT_STREET
-        )
-        city = self._get_first_available_answer(
-            instance, uri_constants.CQI_FOR_APPLICANT_ZIP_CITY
-        )
+        row = CalumaApi().get_table_answer("applicant", instance)
 
-        return ", ".join(filter(None, [organisation, name, street, city]))
+        if not row:
+            return
+
+        first_name = self._get_row_answer_value(row, "first-name", "")
+        last_name = self._get_row_answer_value(row, "last-name", "")
+        organisation = self._get_row_answer_value(row, "juristic-person-name", "")
+        street = self._get_row_answer_value(row, "street", "")
+        number = self._get_row_answer_value(row, "street-number", "")
+        zip = self._get_row_answer_value(row, "zip", "")
+        city = self._get_row_answer_value(row, "city", "")
+
+        return ", ".join(
+            filter(
+                None,
+                [
+                    organisation,
+                    f"{first_name} {last_name}",
+                    f"{street} {number}",
+                    f"{zip} {city}",
+                ],
+            )
+        )
 
     def get_activation(self, instance):
         if not hasattr(self, "activation"):
@@ -213,7 +222,13 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return ActivationMergeSerializer(self.activation).data
 
     def get_rejection_feedback(self, instance):  # pragma: no cover
-        return Answer.get_value_by_cqi(instance, 20001, 20037, 1, default="")
+        return Answer.get_value_by_cqi(
+            instance,
+            settings.APPLICATION["REJECTION_FEEDBACK_QUESTION"].get("CHAPTER"),
+            settings.APPLICATION["REJECTION_FEEDBACK_QUESTION"].get("QUESTION"),
+            settings.APPLICATION["REJECTION_FEEDBACK_QUESTION"].get("ITEM"),
+            default="",
+        )
 
     def get_answer_period_date(self, instace):
         answer_period_date = date.today() + timedelta(days=settings.MERGE_ANSWER_PERIOD)
