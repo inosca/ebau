@@ -280,6 +280,7 @@ class RoleT(models.Model):
 class ServiceGroup(core_models.MultilingualModel, models.Model):
     service_group_id = models.AutoField(db_column="SERVICE_GROUP_ID", primary_key=True)
     name = models.CharField(db_column="NAME", max_length=100, blank=True, null=True)
+    sort = models.IntegerField(blank=True, null=True)
 
     class Meta:
         managed = True
