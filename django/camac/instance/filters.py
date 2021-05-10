@@ -197,7 +197,7 @@ class CalumaInstanceFilterSet(InstanceFilterSet):
         return queryset.exclude(**_filter)
 
     def filter_has_pending_billing_entry(self, queryset, name, value):
-        _filter = {"billing_entries__invoiced": False}
+        _filter = {"billing_entries__invoiced": False, "billing_entries__type": 1}
 
         if value:
             return queryset.filter(**_filter)
