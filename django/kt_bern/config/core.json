@@ -41563,7 +41563,7 @@
       "instance_resource": 20008,
       "name": null,
       "description": null,
-      "class_field": "btn buttonstyle success",
+      "class_field": "btn buttonstyle success leitung_only",
       "hidden": 0,
       "sort": 0
     }
@@ -41575,7 +41575,7 @@
       "instance_resource": 20008,
       "name": null,
       "description": null,
-      "class_field": "btn buttonstyle send",
+      "class_field": "btn buttonstyle send leitung_only",
       "hidden": 0,
       "sort": 1
     }
@@ -41599,7 +41599,7 @@
       "instance_resource": 20009,
       "name": null,
       "description": null,
-      "class_field": null,
+      "class_field": "leitung_only",
       "hidden": 0,
       "sort": 0
     }
@@ -41695,7 +41695,7 @@
       "instance_resource": 20039,
       "name": null,
       "description": null,
-      "class_field": "btn buttonstyle success",
+      "class_field": "btn buttonstyle success leitung_only",
       "hidden": 0,
       "sort": 0
     }
@@ -41707,7 +41707,7 @@
       "instance_resource": 20039,
       "name": null,
       "description": null,
-      "class_field": "btn buttonstyle send",
+      "class_field": "btn buttonstyle send leitung_only",
       "hidden": 0,
       "sort": 1
     }
@@ -41719,7 +41719,7 @@
       "instance_resource": 20040,
       "name": null,
       "description": null,
-      "class_field": null,
+      "class_field": "leitung_only",
       "hidden": 0,
       "sort": 0
     }
@@ -41779,7 +41779,7 @@
       "instance_resource": 20070,
       "name": null,
       "description": null,
-      "class_field": "active_baukontrolle_only",
+      "class_field": "active_baukontrolle_only leitung_only",
       "hidden": 0,
       "sort": 3
     }
@@ -49911,7 +49911,7 @@
       "name": null,
       "description": null,
       "template": "/circulation/list-notice.phtml",
-      "class_field": "menu-category-process",
+      "class_field": "menu-category-process leitung_only",
       "hidden": 0,
       "sort": 9,
       "form_group": 40000
