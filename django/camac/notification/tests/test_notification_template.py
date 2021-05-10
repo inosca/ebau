@@ -1,5 +1,4 @@
 import functools
-import random
 from datetime import date, datetime
 from time import mktime
 
@@ -1075,62 +1074,107 @@ def test_portal_submission_placeholder(
     "notification_template__body",
     ["parz={{parzelle}}, gs={{GESUCHSTELLER}}, vorhaben={{vorhaben}}"],
 )
-def test_first_available_answer(
+def test_ur_placeholders(
     admin_client,
     db,
     instance,
     camac_answer_factory,
     instance_service,
     mocker,
-    camac_question_factory,
     notification_template,
+    caluma_workflow_config_ur,
+    caluma_admin_user,
     mailoutbox,
     settings,
 ):
-    parzelle_questions = camac_question_factory.create_batch(3)
-    gesuchsteller_questions = camac_question_factory.create_batch(2)
-    q_vorhaben = camac_question_factory()
-    q_proposal_description = camac_question_factory()
-    q_vorhaben.answerlist.create(name="foo", value=55, sort=1)
-    q_vorhaben.answerlist.create(name="bar", value=99, sort=2)
+    option = caluma_form_models.Option.objects.create(
+        pk="proposal-neubau", label="Neubau"
+    )
+    proposal_question = caluma_form_models.Question.objects.create(
+        slug="proposal",
+        type=caluma_form_models.Question.TYPE_MULTIPLE_CHOICE,
+    )
+    proposal_question.options.add(option)
+    proposal_question.save()
 
-    ans_vorhaben = camac_answer_factory(
-        answer='["55","99"]', instance=instance, question=q_vorhaben
+    caluma_form_models.Question.objects.create(
+        slug="proposal-description",
+        type=caluma_form_models.Question.TYPE_TEXT,
     )
-    ans_proposal_description = camac_answer_factory(
-        answer="description", instance=instance, question=q_proposal_description
+    parcel_form = caluma_form_models.Form.objects.create(slug="parcel-form")
+    parcel_question = caluma_form_models.Question.objects.create(
+        slug="parcel-number",
+        type=caluma_form_models.Question.TYPE_TEXT,
     )
-    ans_parzelle = camac_answer_factory(
-        answer="asdf", question=random.choice(parzelle_questions), instance=instance
+    caluma_form_models.FormQuestion.objects.create(
+        form=parcel_form, question=parcel_question
     )
-    # we don't do ans_gesuchsteller, just to see if "no-answer" fallback works
 
-    mocker.patch(
-        "camac.constants.kt_uri.CQI_FOR_PROPOSAL",
-        [(ans_vorhaben.chapter_id, ans_vorhaben.question_id, ans_vorhaben.item)],
+    caluma_form_models.Question.objects.create(
+        slug="parcels",
+        type=caluma_form_models.Question.TYPE_TABLE,
+        row_form=parcel_form,
     )
-    mocker.patch(
-        "camac.constants.kt_uri.CQI_FOR_PROPOSAL_DESCRIPTION",
-        [
-            (
-                ans_proposal_description.chapter_id,
-                ans_proposal_description.question_id,
-                ans_proposal_description.item,
-            )
-        ],
+
+    personal_data_form = caluma_form_models.Form.objects.create(
+        slug="personal-data-form"
     )
-    mocker.patch(
-        "camac.constants.kt_uri.CQI_FOR_PARZELLE",
-        [(ans_parzelle.chapter_id, question.pk, 1) for question in parzelle_questions],
+    personal_questions = [
+        caluma_form_models.Question.objects.create(
+            slug=slug,
+            type=caluma_form_models.Question.TYPE_TEXT,
+        )
+        for slug in [
+            "first-name",
+            "last-name",
+            "juristic-person-name",
+            "street",
+            "street-number",
+            "zip",
+            "city",
+        ]
+    ]
+    [
+        caluma_form_models.FormQuestion.objects.create(
+            form=personal_data_form, question=question
+        )
+        for question in personal_questions
+    ]
+
+    caluma_form_models.Question.objects.create(
+        slug="applicant",
+        type=caluma_form_models.Question.TYPE_TABLE,
+        row_form=personal_data_form,
     )
-    mocker.patch(
-        "camac.constants.kt_uri.CQI_FOR_GESUCHSTELLER",
-        [
-            # fake chapter ID and item, we expect this not to be found
-            (9999, question.pk, 99)
-            for question in gesuchsteller_questions
-        ],
+
+    case = workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
+        form=caluma_form_models.Form.objects.get(pk="main-form"),
+        meta={"camac-instance-id": instance.pk},
+        user=caluma_admin_user,
     )
+    case.document.answers.create(
+        value="my description", question_id="proposal-description"
+    )
+    case.document.answers.create(value="proposal-neubau", question_id="proposal")
+    parcel_row_doc = caluma_form_models.Document.objects.create(form=parcel_form)
+    parcel_row_doc.answers.create(value="123", question=parcel_question)
+
+    parcel_table_answer = case.document.answers.create(question_id="parcels")
+    parcel_table_answer.documents.add(parcel_row_doc)
+    parcel_table_answer.save()
+
+    applicant_row_doc = caluma_form_models.Document.objects.create(
+        form=personal_data_form
+    )
+    [
+        applicant_row_doc.answers.create(value=question.slug, question=question)
+        for question in personal_questions[:-1]  # test for missing answers as well
+    ]
+
+    table_answer = case.document.answers.create(question_id="applicant")
+    table_answer.documents.add(applicant_row_doc)
+    table_answer.save()
 
     sendmail_serializer = PermissionlessNotificationTemplateSendmailSerializer(
         data={
@@ -1149,7 +1193,7 @@ def test_first_available_answer(
 
     assert (
         mailoutbox[0].body
-        == f"{settings.EMAIL_PREFIX_BODY}parz={ans_parzelle.answer}, gs=, vorhaben=foo, bar, description"
+        == f"{settings.EMAIL_PREFIX_BODY}parz=123, gs=juristic-person-name, first-name last-name, street street-number, zip , vorhaben=Neubau, my description"
     )
 
 

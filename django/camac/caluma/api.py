@@ -12,6 +12,7 @@ from caluma.caluma_workflow.events import post_complete_case, post_create_work_i
 from caluma.caluma_workflow.utils import get_jexl_groups
 from django.conf import settings
 from django.db.models import Count, Q
+from django.utils import translation
 from django.utils.timezone import now
 
 from camac.user.models import Service
@@ -77,14 +78,44 @@ class CalumaApi:
         return case.meta.get("dossier-number", "-") if case else None
 
     def get_municipality(self, instance):
+        return self.get_answer_value("gemeinde", instance)
+
+    def get_answer_value(self, question_slug, instance):
         answer = caluma_form_models.Answer.objects.filter(
             **{
                 "document__case__meta__camac-instance-id": instance.pk,
-                "question_id": "gemeinde",
+                "question_id": question_slug,
             }
         ).first()
 
         return answer.value if answer else None
+
+    def get_selected_option_labels(self, question_slug, instance):
+        try:
+            question = caluma_form_models.Question.objects.get(pk=question_slug)
+        except caluma_form_models.Question.DoesNotExist:
+            return None
+
+        if question.type not in ["choice", "multiple_choice"]:
+            raise RuntimeError(
+                f"attempted to get selected option of non-choice question {question_slug} ({question.type})"
+            )  # pragma: no cover
+        options = self.get_answer_value(question_slug, instance)
+        selected = question.options.filter(pk=options)
+        lang = translation.get_language()
+        return [s.label.get(lang) for s in selected]
+
+    def get_table_answer(self, question_slug, instance):
+        try:
+            answer = caluma_form_models.Answer.objects.get(
+                **{
+                    "document__case__meta__camac-instance-id": instance.pk,
+                    "question_id": question_slug,
+                }
+            )
+            return answer.documents.all()
+        except caluma_form_models.Answer.DoesNotExist:
+            return None
 
     def get_nfd_form_permissions(self, instance):
         permissions = set()
