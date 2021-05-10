@@ -1,5 +1,6 @@
 cases:
   tableHeaders:
+    deadlineColor: ""
     instanceId: "ID"
     dossierNr: "Dossier-Nr"
     form: "Verfahren"
