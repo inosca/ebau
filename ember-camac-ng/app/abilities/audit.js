@@ -1,7 +1,7 @@
 import { inject as service } from "@ember/service";
 import { Ability } from "ember-can";
 
-export default class InstanceAbility extends Ability {
+export default class AuditAbility extends Ability {
   @service shoebox;
 
   get canEditWorkItem() {

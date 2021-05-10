@@ -6,7 +6,6 @@ import { dropTask, lastValue } from "ember-concurrency-decorators";
 
 export default class JournalController extends Controller {
   @service store;
-  @service can;
 
   @tracked newEntry = null;
   @tracked newEntries = [];
@@ -31,8 +30,6 @@ export default class JournalController extends Controller {
 
   @dropTask
   *saveEntry(entry) {
-    if (this.can.cannot("edit journal-entry")) return;
-
     yield entry.save();
 
     if (this.newEntry) {
@@ -45,8 +42,6 @@ export default class JournalController extends Controller {
 
   @action
   addNewEntry() {
-    if (this.can.cannot("edit journal-entry")) return;
-
     this.newEntry = this.store.createRecord("journal-entry", {
       instance: this.instance,
       visibility: "own_organization",
