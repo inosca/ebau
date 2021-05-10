@@ -161,11 +161,11 @@ export default class CustomCaseModel extends CaseModel {
 
   get processingDeadline() {
     const activations = this.store.peekAll("activation");
-    const activation = activations.filter(
+    const activation = activations?.find(
       (activation) =>
         Number(activation.get("circulation.instance.id")) === this.instanceId
-    )[0];
-    return activation.deadlineDate;
+    );
+    return activation?.deadlineDate;
   }
 
   get activationWarning() {
