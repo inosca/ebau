@@ -516,28 +516,32 @@
     "model": "user.servicegroup",
     "pk": 1,
     "fields": {
-      "name": "service"
+      "name": "service",
+      "sort": null
     }
   },
   {
     "model": "user.servicegroup",
     "pk": 2,
     "fields": {
-      "name": "municipality"
+      "name": "municipality",
+      "sort": null
     }
   },
   {
     "model": "user.servicegroup",
     "pk": 3,
     "fields": {
-      "name": "construction-control"
+      "name": "construction-control",
+      "sort": null
     }
   },
   {
     "model": "user.servicegroup",
     "pk": 20000,
     "fields": {
-      "name": "district"
+      "name": "district",
+      "sort": null
     }
   },
   {

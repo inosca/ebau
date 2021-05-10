@@ -531,126 +531,144 @@
     "model": "user.servicegroup",
     "pk": 1,
     "fields": {
-      "name": "Koordinationsstellen"
+      "name": "Koordinationsstellen",
+      "sort": null
     }
   },
   {
     "model": "user.servicegroup",
     "pk": 2,
     "fields": {
-      "name": "Fachstellen Baudirektion"
+      "name": "Fachstellen Baudirektion",
+      "sort": null
     }
   },
   {
     "model": "user.servicegroup",
     "pk": 21,
     "fields": {
-      "name": "Ausserkantonale Fachstellen"
+      "name": "Ausserkantonale Fachstellen",
+      "sort": null
     }
   },
   {
     "model": "user.servicegroup",
     "pk": 41,
     "fields": {
-      "name": "Gemeinder\u00e4te - externe Pendenzen"
+      "name": "Gemeinder\u00e4te - externe Pendenzen",
+      "sort": null
     }
   },
   {
     "model": "user.servicegroup",
     "pk": 61,
     "fields": {
-      "name": "Fachstellen Justizdirektion"
+      "name": "Fachstellen Justizdirektion",
+      "sort": null
     }
   },
   {
     "model": "user.servicegroup",
     "pk": 62,
     "fields": {
-      "name": "Fachstellen Gesundheits- Sozial- und Umweltdirektion"
+      "name": "Fachstellen Gesundheits- Sozial- und Umweltdirektion",
+      "sort": null
     }
   },
   {
     "model": "user.servicegroup",
     "pk": 63,
     "fields": {
-      "name": "Fachstellen Sicherheitsdirektion"
+      "name": "Fachstellen Sicherheitsdirektion",
+      "sort": null
     }
   },
   {
     "model": "user.servicegroup",
     "pk": 64,
     "fields": {
-      "name": "Fachstellen Volkswirtschaftsdirektion"
+      "name": "Fachstellen Volkswirtschaftsdirektion",
+      "sort": null
     }
   },
   {
     "model": "user.servicegroup",
     "pk": 65,
     "fields": {
-      "name": "Fachstellen Bildungs- und Kulturdirektion"
+      "name": "Fachstellen Bildungs- und Kulturdirektion",
+      "sort": null
     }
   },
   {
     "model": "user.servicegroup",
     "pk": 66,
     "fields": {
-      "name": "Fachstellen Finanzdirektion"
+      "name": "Fachstellen Finanzdirektion",
+      "sort": null
     }
   },
   {
     "model": "user.servicegroup",
     "pk": 67,
     "fields": {
-      "name": "Mitglieder Baukommissionen"
+      "name": "Mitglieder Baukommissionen",
+      "sort": null
     }
   },
   {
     "model": "user.servicegroup",
     "pk": 68,
     "fields": {
-      "name": "Sekretariate Gemeindebaubeh\u00f6rden"
+      "name": "Sekretariate Gemeindebaubeh\u00f6rden",
+      "sort": null
     }
   },
   {
     "model": "user.servicegroup",
     "pk": 69,
     "fields": {
-      "name": "Gemeinde Service Stellen"
+      "name": "Gemeinde Service Stellen",
+      "sort": null
     }
   },
   {
     "model": "user.servicegroup",
     "pk": 70,
     "fields": {
-      "name": "Bundesstellen"
+      "name": "Bundesstellen",
+      "sort": null
     }
   },
   {
     "model": "user.servicegroup",
     "pk": 71,
     "fields": {
-      "name": "Infrastrukturanlagen Pendenzen von Koordinationstellen"
+      "name": "Infrastrukturanlagen Pendenzen von Koordinationstellen",
+      "sort": null
     }
   },
   {
     "model": "user.servicegroup",
     "pk": 72,
     "fields": {
-      "name": "Infrastrukturanlagen Pendenzen von Gemeinden"
+      "name": "Infrastrukturanlagen Pendenzen von Gemeinden",
+      "sort": null
     }
   },
   {
     "model": "user.servicegroup",
     "pk": 73,
     "fields": {
-      "name": "Gemeinder\u00e4te - interne Pendenzen"
+      "name": "Gemeinder\u00e4te - interne Pendenzen",
+      "sort": null
     }
   },
   {
     "model": "user.servicegroup",
     "pk": 74,
     "fields": {
-      "name": "Umweltschutzverb\u00e4nde"
+      "name": "Umweltschutzverb\u00e4nde",
+      "sort": null
     }
   }
 ]
