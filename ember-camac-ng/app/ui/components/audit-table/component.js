@@ -11,7 +11,6 @@ export default class AuditTableComponent extends Component {
   @service notifications;
   @service router;
   @service intl;
-  @service can;
 
   @queryManager apollo;
 
@@ -22,10 +21,6 @@ export default class AuditTableComponent extends Component {
   @dropTask
   *create(form, event) {
     event.preventDefault();
-
-    if (this.can.cannot("edit work item of audit", this.args.workItem)) {
-      return;
-    }
 
     try {
       // create empty document
