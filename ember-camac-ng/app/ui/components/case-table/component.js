@@ -143,6 +143,7 @@ export default class CaseTableComponent extends Component {
         ];
       case "service":
         return [
+          "deadlineColor",
           "instanceId",
           "dossierNr",
           "coordination",
@@ -151,8 +152,7 @@ export default class CaseTableComponent extends Component {
           "applicant",
           "intent",
           "street",
-          "reason",
-          "caseStatus",
+          "processingDeadline",
         ];
 
       default:
