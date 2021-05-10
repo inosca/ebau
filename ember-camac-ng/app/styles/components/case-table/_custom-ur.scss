@@ -1,11 +1,47 @@
 tr.activation-warning {
   &.nfd {
-    color: $activation-warning-nfd;
+    td:first-child {
+      &::before {
+        content: "";
+        display: inline-flex;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        margin: 1px 0 0 5px;
+        padding: 0;
+        border: 1px solid darken($activation-warning-nfd, 10%);
+        background-color: $activation-warning-nfd;
+      }
+    }
   }
   &.expired {
-    color: $activation-warning-expired;
+    td:first-child {
+      &::before {
+        content: "";
+        display: inline-flex;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        margin: 1px 0 0 5px;
+        padding: 0;
+        border: 1px solid darken($activation-warning-expired, 10%);
+        background-color: $activation-warning-expired;
+      }
+    }
   }
   &.due-shortly {
-    color: $activation-warning-due-shortly;
+    td:first-child {
+      &::before {
+        content: "";
+        display: inline-flex;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        margin: 1px 0 0 5px;
+        padding: 0;
+        border: 1px solid darken($activation-warning-due-shortly, 10%);
+        background-color: $activation-warning-due-shortly;
+      }
+    }
   }
 }

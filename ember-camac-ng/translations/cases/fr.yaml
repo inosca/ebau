@@ -1,6 +1,7 @@
 # Not needed in french
 cases:
   tableHeaders:
+    deadlineColor: ""
     instanceId: ""
     dossierNr: ""
     form: ""

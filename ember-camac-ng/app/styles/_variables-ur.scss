@@ -30,6 +30,6 @@ $modal-z-index: 1;
 $button-disabled-background: $global-muted-background;
 
 // Activation
-$activation-warning-nfd: rgb(0, 0, 255);
-$activation-warning-due-shortly: rgb(172 93 0);
-$activation-warning-expired: rgb(255, 0, 0);
+$activation-warning-nfd: blue;
+$activation-warning-due-shortly: #f48707;
+$activation-warning-expired: red;
