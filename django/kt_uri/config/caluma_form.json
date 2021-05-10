@@ -3025,36 +3025,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "cantonal-territory-usage.dokumente",
-    "fields": {
-      "created_at": "2021-04-09T13:27:34.834Z",
-      "modified_at": "2021-04-09T13:27:34.835Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "cantonal-territory-usage",
-      "question": "dokumente",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "cantonal-territory-usage.einreichen",
-    "fields": {
-      "created_at": "2020-12-07T15:47:55.907Z",
-      "modified_at": "2020-12-07T15:47:55.907Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "cantonal-territory-usage",
-      "question": "einreichen",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "cantonal-territory-usage.lokalisierung",
     "fields": {
       "created_at": "2020-12-07T15:47:44.561Z",
