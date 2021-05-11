@@ -3259,7 +3259,7 @@
       }
     },
     "datenverschnitt-reptilien": {
-      "label": "Ihr Vorhaben tangiert ein Reptiliengebiet. Auf allfällige Reptilienlebensräume ist Rücksicht zu nehmen. Zu konkreten Reptilienvorkommen und planerischen Massnahmen gibt das Amt für Natur, Jagd und Fischerei Auskunft.",
+      "label": "Ihr Vorhaben tangiert ein Reptiliengebiet. Auf allfällige Reptilienlebensräume ist Rücksicht zu nehmen. Zu konkreten Reptilienvorkommen und planerischen Massnahmen gibt das Amt für Wald und Natur Auskunft.",
       "hint": "Sogenannte Reptilienvorranggebiete umfassen Kern- und Fördergebiete.\n**Kerngebiete:** Reptiliengebiete von überregionaler Bedeutung mit Vorkommen von mindestens vier einheimischen Reptilienarten. In diesen Gebieten sind ein dauerhafter Schutz der Vorkommen und eine grossräumige Vernetzung anzustreben.\n**Fördergebiete:** Reptiliengebiete von regionaler Bedeutung mit Vorkommen von mindestens drei einheimischen Reptilienarten oder besonders bedeutsamen Vorkommen einer Art. In diesen Gebieten sind der Erhalt oder die gezielte Neuschaffung geeigneter Lebensräume anzustreben.",
       "type": "checkbox",
       "required": false,
@@ -4566,7 +4566,7 @@
       }
     },
     "fischerei-ufervegetation-beeintrachtigt-info": {
-      "label": "Im Projekt muss für entsprechenden Ersatz gesorgt werden. Für Auskünfte ist die Abteilung Fischerei des Amtes für Natur, Jagd und Fischerei zuständig.",
+      "label": "Im Projekt muss für entsprechenden Ersatz gesorgt werden. Für Auskünfte ist die Abteilung Fischerei des Amtes für Gewässer zuständig.",
       "hint": "Dieser Hinweis erfolgt, damit Sie schon vor Einreichen des Gesuchs auf diese Anforderungen aufmerksam gemacht worden sind. Ohne vorgängige Berücksichtigung dieser Anforderungen ist davon auszugehen, dass für Ihr Vorhaben eine Projektanpassung erforderlich sein wird.",
       "type": "checkbox",
       "required": false,
@@ -4576,7 +4576,7 @@
       }
     },
     "datenverschnitt-fisch": {
-      "label": "Falls Ihr Bauvorhaben technische Eingriffe im Gewässer beinhaltet, sind Aufwertungsmassnahmen vorzusehen. Zu Art und Umfang von Aufwertungsmassnahmen gibt die Abteilung Fischerei des Amtes für Natur, Jagd und Fischerei Auskunft.",
+      "label": "Falls Ihr Bauvorhaben technische Eingriffe im Gewässer beinhaltet, sind Aufwertungsmassnahmen vorzusehen. Zu Art und Umfang von Aufwertungsmassnahmen gibt die Abteilung Fischerei des Amtes für Gewässer Auskunft.",
       "hint": "Dieser Hinweis erfolgt, damit Sie schon vor Einreichen des Gesuchs auf diese Anforderungen aufmerksam gemacht worden sind. Ohne vorgängige Berücksichtigung dieser Anforderungen ist davon auszugehen, dass für Ihr Vorhaben eine Projektanpassung erforderlich sein wird.",
       "type": "checkbox",
       "required": false,
