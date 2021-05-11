@@ -5898,6 +5898,15 @@
     }
   },
   {
+    "model": "core.airaction",
+    "pk": 12000005,
+    "fields": {
+      "available_instance_resource": "gwr",
+      "action_name": "index",
+      "hidden": 0
+    }
+  },
+  {
     "model": "core.answerlist",
     "pk": 1,
     "fields": {
@@ -10885,6 +10894,15 @@
       "module_name": "default",
       "controller_name": "form",
       "description": "Wizard for the creation of a form"
+    }
+  },
+  {
+    "model": "core.availableinstanceresource",
+    "pk": "gwr",
+    "fields": {
+      "module_name": "gwr",
+      "controller_name": "gwr",
+      "description": "GWR module"
     }
   },
   {
