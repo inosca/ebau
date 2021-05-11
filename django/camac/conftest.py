@@ -575,6 +575,9 @@ def caluma_forms_be(settings):
     question = caluma_form_models.Question.objects.create(
         slug="art-versickerung-dach", type=caluma_form_models.Question.TYPE_TEXT
     )
+    caluma_form_models.Question.objects.create(
+        slug="beschreibung-bauvorhaben", type=caluma_form_models.Question.TYPE_TEXT
+    )
 
     # sb1 and sb2
     applicant_table = caluma_form_models.Form.objects.create(slug="personalien-tabelle")
