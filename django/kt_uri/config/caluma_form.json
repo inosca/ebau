@@ -33465,7 +33465,7 @@
       "label": "{\"de\": \"Bauprojekt\", \"fr\": null}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "!(\n  \"form-type\"|answer in [\n    \"form-type-building-permit-canton\",\n    \"form-type-building-permit-municipality\",\n    \"form-type-preliminary-clarification-canton\",\n    \"form-type-preliminary-clarification-municipality\",\n    \"form-type-bgbb\",\n    \"form-type-archiv\"\n     ]\n)",
+      "is_hidden": "!(\n  \"form-type\"|answer in [\n    \"form-type-building-permit-canton\",\n    \"form-type-building-permit-municipality\",\n    \"form-type-preliminary-clarification-canton\",\n    \"form-type-preliminary-clarification-municipality\",\n    \"form-type-bgbb\",\n    \"form-type-archiv\",\n    \"form-type-archiv-afj\"\n    ]\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
