@@ -23,11 +23,11 @@ export default class CaseFilterComponent extends Component {
       {
         query: gql`
           query BuildingPermitQuestion {
-            allQuestions(slugs: ["building-permit-type"]) {
+            allQuestions(slugs: ["form-type"]) {
               edges {
                 node {
                   ... on ChoiceQuestion {
-                    options {
+                    options(orderBy: LABEL_ASC) {
                       edges {
                         node {
                           slug
@@ -58,6 +58,7 @@ export default class CaseFilterComponent extends Component {
     // The || null is so queryParams with value "" are not put into the url
     this._filter = {
       ...this.args.filter,
+      ...this._filter,
       [field]: event?.target?.value || null,
     };
   }
