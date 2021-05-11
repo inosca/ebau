@@ -1,5 +1,4 @@
 import { assert } from "@ember/debug";
-import { later, cancel } from "@ember/runloop";
 import { inject as service } from "@ember/service";
 import BaseAuthenticator from "ember-simple-auth/authenticators/base";
 import fetch from "fetch";
@@ -18,34 +17,31 @@ export default class CamacAuthenticator extends BaseAuthenticator {
 
     assert("No token data passed in shoebox", token);
 
-    return this.handleToken(token);
+    return this.parseData(token);
   }
 
   async refresh() {
-    const token = await fetch("/index/token", {
-      credentials: "same-origin",
-    }).then((response) => response.json());
+    try {
+      const response = await fetch("/index/token", {
+        credentials: "same-origin",
+        mode: "same-origin",
+        redirect: "error",
+      });
+      const data = await response.json();
 
-    const data = this.handleToken(token);
-
-    this.trigger("sessionDataUpdated", data);
+      this.trigger("sessionDataUpdated", this.parseData(data));
+    } catch (error) {
+      location.reload();
+    }
   }
 
-  handleToken(token) {
-    const {
-      expires_in: expiresIn,
-      token_refresh_leeway: tokenRefreshLeeway,
-    } = token;
-
-    const timeout = expiresIn - tokenRefreshLeeway;
-
-    if (timeout > 0) {
-      cancel(this._timer);
-      this._timer = later(this, "refresh", timeout * 1000);
-    } else {
-      this.refresh();
-    }
-
-    return token;
+  parseData(raw) {
+    return {
+      ...raw,
+      refreshAt: new Date(
+        new Date().getTime() +
+          (raw.expires_in - raw.token_refresh_leeway) * 1000
+      ),
+    };
   }
 }
