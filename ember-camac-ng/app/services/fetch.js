@@ -18,12 +18,15 @@ export default class FetchService extends Service {
   @service shoebox;
 
   async fetch(resource, init = {}) {
-    init.headers = cleanObject({
-      ...this.headers,
+    const headers = {
+      "accept-language": this.shoebox.content.language,
+      "x-camac-group": this.shoebox.content.groupId,
       accept: CONTENT_TYPE,
       "content-type": CONTENT_TYPE,
-      ...(init.headers || {}),
-    });
+      authorization: await this.session.getAuthorizationHeader(),
+    };
+
+    init.headers = cleanObject({ ...headers, ...(init.headers || {}) });
 
     const response = await fetch(resource, init);
 
@@ -51,13 +54,5 @@ export default class FetchService extends Service {
     }
 
     return response;
-  }
-
-  get headers() {
-    return {
-      authorization: `Bearer ${this.session.data.authenticated.access_token}`,
-      "accept-language": this.shoebox.content.language,
-      "x-camac-group": this.shoebox.content.groupId,
-    };
   }
 }
