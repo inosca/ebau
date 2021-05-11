@@ -7,14 +7,13 @@ export default class AuditEditController extends Controller {
   @service materialExamSwitcher;
 
   @controller("audit") auditController;
-  @controller("audit.index") auditIndexController;
 
   queryParams = ["displayedForm"];
 
   get audit() {
     return [
-      ...(this.auditIndexController.audits || []),
-      ...(this.auditIndexController.auditsWithSameEbauNumber || []).flatMap(
+      ...(this.auditController.audits || []),
+      ...(this.auditController.auditsWithSameEbauNumber || []).flatMap(
         (group) => group.audits
       ),
     ].find((audit) => audit.id === this.model);
@@ -22,18 +21,6 @@ export default class AuditEditController extends Controller {
 
   get isMaterialExam() {
     return this.audit?.form === "mp-form";
-  }
-
-  get disabled() {
-    // audits from the same ebau number should be read-only
-    if (
-      !this.audit ||
-      !this.auditIndexController.audits.find((audit) => audit.id === this.model)
-    ) {
-      return true;
-    }
-
-    return this.auditController.disabled || !this.audit.canEdit;
   }
 
   @dropTask

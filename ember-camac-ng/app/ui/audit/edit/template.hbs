@@ -27,7 +27,7 @@
 
 <CfContent
   @documentId={{this.model}}
-  @disabled={{this.disabled}}
+  @disabled={{cannot "edit audit" this.auditController.auditWorkItem audit=this.audit}}
 as |content|>
   {{#if (gt content.document.fieldsets.length 1)}}
     <div uk-grid>

@@ -16,14 +16,18 @@ export default class ShoeboxService extends Service {
 
   get role() {
     const roleId = this.content.roleId;
-    const config = this.content.config.roles;
+    const roles = this.content.config?.roles;
 
-    if (!roleId) return null;
+    if (!roleId || !roles) return null;
 
-    const role = Object.entries(config).find(([, ids]) =>
+    const role = Object.entries(roles).find(([, ids]) =>
       ids.map((id) => parseInt(id)).includes(roleId)
     );
 
     return role && role[0];
+  }
+
+  get isReadOnlyRole() {
+    return this.role?.endsWith("-readonly");
   }
 }

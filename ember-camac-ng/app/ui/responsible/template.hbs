@@ -26,41 +26,43 @@
     </tbody>
   </table>
 
-  <form {{on "submit" (perform this.saveResponsibility)}} class="uk-form-stacked">
-    <label class="uk-form-label" for="responsible-user-select">
-      {{t "responsible.responsible"}}
-    </label>
-    <div uk-grid>
-      <div class="uk-width-expand">
-        <PowerSelect
-          @searchEnabled={{true}}
-          @searchField="fullName"
-          @renderInPlace={{true}}
-          @options={{this.users}}
-          @selected={{this.selectedUser}}
-          @noMatchesMessage={{t "global.noMatch"}}
-          @onChange={{fn (mut this.selectedUser)}}
-          @allowClear={{true}}
-          class="uk-form-controls"
-          id="responsible-user-select"
-          data-test-responsible-user-select as |user|
-        >
-          {{user.fullName}}
-        </PowerSelect>
-      </div>
-      <div>
-        <div class="uk-text-right uk-margin">
-          <button
-            disabled={{not this.selectedUser}}
-            title={{if this.selectedUser "" (t "responsible.noResponsibleChosen")}}
-            class="uk-button uk-button-primary"
-            type="submit"
-            data-test-save-responsible
+  {{#if (can "edit responsible-service")}}
+    <form {{on "submit" (perform this.saveResponsibility)}} class="uk-form-stacked">
+      <label class="uk-form-label" for="responsible-user-select">
+        {{t "responsible.responsible"}}
+      </label>
+      <div uk-grid>
+        <div class="uk-width-expand">
+          <PowerSelect
+            @searchEnabled={{true}}
+            @searchField="fullName"
+            @renderInPlace={{true}}
+            @options={{this.users}}
+            @selected={{this.selectedUser}}
+            @noMatchesMessage={{t "global.noMatch"}}
+            @onChange={{fn (mut this.selectedUser)}}
+            @allowClear={{true}}
+            class="uk-form-controls"
+            id="responsible-user-select"
+            data-test-responsible-user-select as |user|
           >
-            {{t "global.save"}}
-          </button>
+            {{user.fullName}}
+          </PowerSelect>
+        </div>
+        <div>
+          <div class="uk-text-right uk-margin">
+            <button
+              disabled={{not this.selectedUser}}
+              title={{if this.selectedUser "" (t "responsible.noResponsibleChosen")}}
+              class="uk-button uk-button-primary"
+              type="submit"
+              data-test-save-responsible
+            >
+              {{t "global.save"}}
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-  </form>
+    </form>
+  {{/if}}
 {{/if}}
