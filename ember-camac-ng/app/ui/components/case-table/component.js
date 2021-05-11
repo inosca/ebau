@@ -31,7 +31,7 @@ export default class CaseTableComponent extends Component {
       buildingPermitType: {
         hasAnswer: [
           {
-            question: "building-permit-type",
+            question: "form-type",
             value: filter.buildingPermitType,
           },
         ],
@@ -68,7 +68,7 @@ export default class CaseTableComponent extends Component {
         hasAnswer: [
           {
             question: "parcel-number",
-            lookup: "EXACT",
+            lookup: "CONTAINS",
             value: filter.parcelNumber,
           },
         ],
