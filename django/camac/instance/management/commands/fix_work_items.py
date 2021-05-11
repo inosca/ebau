@@ -8,11 +8,11 @@ from caluma.caluma_workflow.models import Case, Task, WorkItem
 from caluma.caluma_workflow.utils import create_work_items
 from django.core.management.base import BaseCommand
 from django.db import transaction
-from django.db.models import Count
+from django.db.models import Count, F
 from django.utils.timezone import now
 
 from camac.caluma.api import CalumaApi
-from camac.core.models import Activation, Circulation
+from camac.core.models import Activation, Circulation, DocxDecision
 from camac.instance.models import Instance, InstanceState
 
 REQUIRED_CONFIG = {
@@ -74,6 +74,9 @@ class Command(BaseCommand):
         parser.add_argument(
             "--sync-circulation", action="store_true", dest="sync_circulation"
         )
+        parser.add_argument(
+            "--premature-decision", action="store_true", dest="premature_decision"
+        )
 
     def get_instance_filters(self, path="pk"):
         return {path: self.instance} if self.instance else {}
@@ -103,6 +106,8 @@ class Command(BaseCommand):
         self.fix_circulation_addressed_group()
         if options["sync_circulation"]:
             self.fix_circulation()
+        if options["premature_decision"]:
+            self.fix_premature_decision()
         self.fix_required_tasks()
 
         if len(self.fixed_instances.keys()):
@@ -455,4 +460,55 @@ class Command(BaseCommand):
             self.style.WARNING(
                 f"Assigned {unassigned_circulation_work_items.count()} circulation work items"
             )
+        )
+
+    def fix_premature_decision(self):
+        """Fix instances where the decision WI was created prematurely.
+
+        Fix decided cases where instances don't have a DocxDecision.
+        See EBAUBEOPS-141
+        """
+
+        completed = set(
+            WorkItem.objects.filter(task_id="decision", status="completed").values_list(
+                "case__meta__camac-instance-id", flat=True
+            )
+        )
+
+        decided = set(
+            DocxDecision.objects.filter(instance__in=completed).values_list(
+                "instance", flat=True
+            )
+        )
+
+        # this matches the 17 reported cases
+        broken = completed - decided
+
+        work_items = WorkItem.objects.filter(
+            task_id__in=["create-publication", "create-manual-workitems", "decision"],
+            **{"case__meta__camac-instance-id__in": broken},
+        )
+        work_items.update(
+            status=WorkItem.STATUS_READY,
+            closed_at=None,
+            closed_by_user=None,
+            closed_by_group=None,
+        )
+
+        instances = Instance.objects.filter(pk__in=broken)
+        instances.update(instance_state=F("previous_instance_state"))
+
+        cases = Case.objects.filter(**{"meta__camac-instance-id__in": broken})
+        cases.update(
+            status=Case.STATUS_RUNNING,
+            closed_at=None,
+            closed_by_user=None,
+            closed_by_group=None,
+        )
+
+        for pk in broken:
+            self.fixed_instances[pk].append("Premature decision")
+
+        self.stdout.write(
+            self.style.WARNING(f"Reopened {len(broken)} prematurely decided cases.")
         )
