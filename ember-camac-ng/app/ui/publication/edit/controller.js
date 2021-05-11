@@ -15,10 +15,6 @@ export default class PublicationEditController extends Controller {
 
   @controller("publication") publicationController;
 
-  get disabled() {
-    return this.publication?.status !== "READY";
-  }
-
   @lastValue("fetchPublication") publication;
   @dropTask
   *fetchPublication() {
@@ -54,10 +50,6 @@ export default class PublicationEditController extends Controller {
 
   @dropTask
   *createPublication() {
-    if (!this.createPublicationWorkItem) {
-      return;
-    }
-
     try {
       yield this.apollo.mutate({
         mutation: completeWorkItem,

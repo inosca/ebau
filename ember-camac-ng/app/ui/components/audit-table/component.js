@@ -18,10 +18,6 @@ export default class AuditTableComponent extends Component {
     return ["fp-form", "mp-form", "bab-form"];
   }
 
-  get canCreate() {
-    return !this.args.disabled && !this.args.onlyCopy;
-  }
-
   @dropTask
   *create(form, event) {
     event.preventDefault();

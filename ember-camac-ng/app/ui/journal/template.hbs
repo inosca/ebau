@@ -32,17 +32,15 @@
       {{t "global.save"}}
     </button>
   </div>
-{{else}}
-  {{#unless this.readOnly}}
-    <button
-      type="button"
-      class="button buttonstyle btn success"
-      data-test-new
-      {{on "click" this.addNewEntry}}
-    >
-      {{t "journal.create"}}
-    </button>
-  {{/unless}}
+{{else if (can "edit journal-entry")}}
+  <button
+    type="button"
+    class="button buttonstyle btn success"
+    data-test-new
+    {{on "click" this.addNewEntry}}
+  >
+    {{t "journal.create"}}
+  </button>
 {{/if}}
 
 <div class="journal"  {{did-insert (perform this.fetchEntries)}}>
@@ -62,7 +60,7 @@
               minute="2-digit"
               hour12=false
             }}
-          </span> - 
+          </span> -
           <span class="name">{{entry.user.fullName}}</span>
           {{#if entry.edit}}
             <div class="journal__edit__buttons">
@@ -94,7 +92,7 @@
                 </button>
               {{/unless}}
             </div>
-          {{else}}
+          {{else if (can "edit journal-entry")}}
             {{#unless this.readOnly}}
               <button
                 class="journal__edit__button"
