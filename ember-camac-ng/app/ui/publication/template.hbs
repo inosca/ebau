@@ -1,8 +1,6 @@
-<span {{did-insert (perform this.fetchPublications)}}></span>
-
 <Notifications @style="uikit" />
 
-<ul class="uk-nav">
+<ul class="uk-nav" {{did-insert (perform this.fetchPublications)}}>
   {{#each this.publications as |publication|}}
     <li>
       <LinkTo
