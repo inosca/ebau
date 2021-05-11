@@ -10,6 +10,7 @@ from rest_framework.test import APIClient
 from camac.caluma.api import CalumaApi
 from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
+    ECH_JUDGEMENT_DECLINED,
     INSTANCE_RESOURCE_ZIRKULATION,
     NOTICE_TYPE_NEBENBESTIMMUNG,
     NOTICE_TYPE_STELLUNGNAHME,
@@ -29,7 +30,7 @@ from camac.instance.models import Instance, InstanceState
 from camac.instance.serializers import CalumaInstanceChangeResponsibleServiceSerializer
 from camac.user.models import Service
 
-from .signals import accompanying_report_send, circulation_started, task_send
+from .signals import accompanying_report_send, circulation_started, ruling, task_send
 from .utils import judgement_to_decision
 
 
@@ -124,10 +125,10 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
             return False, None
 
         if self.instance.instance_state.name == "circulation_init":
-            if self.data.eventNotice.decisionRuling.judgement != 4:
+            if self.data.eventNotice.decisionRuling.judgement != ECH_JUDGEMENT_DECLINED:
                 return (
                     False,
-                    'For instances in the state "Zirkulation initialisieren", only a NoticeRuling with judgement "4" is allowed.',
+                    f'For instances in the state "Zirkulation initialisieren", only a NoticeRuling with judgement "{ECH_JUDGEMENT_DECLINED}" is allowed.',
                 )
             return True, None
         if self.instance.instance_state.name not in ["coordination", "circulation"]:
@@ -146,7 +147,8 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
                 status=403,
             )
 
-        workflow_slug = self.get_case().workflow_id
+        case = self.get_case()
+        workflow_slug = case.workflow_id
         judgement = self.data.eventNotice.decisionRuling.judgement
 
         try:
@@ -164,15 +166,31 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
             decision_type="UNKNOWN_ECH",
         )
 
-        # we might have a running circulation, skip it
-        self.skip_work_item("circulation")
-        self.skip_work_item("start-decision")
-        # if we don't have one, skip the whole circulation
-        self.skip_work_item("skip-circulation")
+        if judgement == ECH_JUDGEMENT_DECLINED:
+            # reject instance
+            self.instance.instance_state = InstanceState.objects.get(name="rejected")
+            self.instance.save()
 
-        # this handle status changes and assignment of the construction control
-        # for "normal" judgements
-        self.complete_work_item("decision")
+            # send eCH event
+            ruling.send(
+                sender=self.__class__,
+                instance=self.instance,
+                user_pk=self.user.pk,
+                group_pk=self.group.pk,
+            )
+
+            # suspend case
+            workflow_api.suspend_case(case=case, user=self.caluma_user)
+        else:
+            # we might have a running circulation, skip it
+            self.skip_work_item("circulation")
+            self.skip_work_item("start-decision")
+            # if we don't have one, skip the whole circulation
+            self.skip_work_item("skip-circulation")
+
+            # this handle status changes and assignment of the construction control
+            # for "normal" judgements
+            self.complete_work_item("decision")
 
         self.link_to_section(attachments)
 
