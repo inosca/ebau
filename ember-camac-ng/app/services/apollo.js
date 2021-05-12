@@ -14,17 +14,14 @@ export default class CustomApolloService extends ApolloService.extend(
 
     const middleware = setContext(async (_, context) => ({
       ...context,
-      headers: { ...context.headers, ...this.headers },
+      headers: {
+        authorization: await this.session.getAuthorizationHeader(),
+        "accept-language": this.shoebox.content.language,
+        "x-camac-group": this.shoebox.content.groupId,
+        ...context.headers,
+      },
     }));
 
     return middleware.concat(httpLink);
-  }
-
-  get headers() {
-    return {
-      authorization: `Bearer ${this.session.data.authenticated.access_token}`,
-      "accept-language": this.shoebox.content.language,
-      "x-camac-group": this.shoebox.content.groupId,
-    };
   }
 }
