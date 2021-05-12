@@ -14,7 +14,15 @@ def vcr_config():
 
 
 @pytest.mark.parametrize(
-    "egrid", ["CH643546955207", "CH673533354667", "CH851446093521", "doesntexist"]
+    "egrid",
+    [
+        "CH643546955207",
+        "CH673533354667",
+        "CH851446093521",
+        "doesntexist",
+        "emptymultisurface",
+        "emptygis",
+    ],
 )
 @pytest.mark.vcr()
 def test_gis_canton(egrid, client, vcr_config, snapshot):
