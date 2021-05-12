@@ -41,7 +41,11 @@ def get_multisurface(egrid):
         )
     )
 
-    root = etree.fromstring(request.text)
+    try:
+        root = etree.fromstring(request.text)
+    except etree.XMLSyntaxError:
+        raise ValueError("Can't parse document")
+
     try:
         multisurface = root.find(".//gml:MultiSurface", root.nsmap)
         return etree.tostring(multisurface, encoding="unicode").replace(
@@ -115,7 +119,12 @@ def get_gis_data(multisurface):
 
     tag_list = []
     data = {}
-    et = get_root(request_kanton)
+
+    try:
+        et = get_root(request_kanton)
+    except etree.XMLSyntaxError:
+        raise ValueError("Can't parse document")
+
     # Find all layers beneath featureMember
     for child in et.findall("./{http://www.opengis.net/gml/3.2}featureMember/"):
         tag_list.append(child.tag)
