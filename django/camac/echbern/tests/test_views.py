@@ -12,6 +12,9 @@ from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
     DECISION_JUDGEMENT_MAP,
     DECISIONS_ABGESCHRIEBEN,
+    ECH_JUDGEMENT_APPROVED_WITH_RESERVATION,
+    ECH_JUDGEMENT_DECLINED,
+    ECH_JUDGEMENT_WRITTEN_OFF,
     VORABKLAERUNG_DECISIONS_BEWILLIGT_MIT_VORBEHALT,
 )
 from camac.core.models import (
@@ -254,7 +257,7 @@ def test_send(
         attachment.attachment_sections.add(attachment_section_beteiligte_behoerden)
 
     state = instance_state_factory(name="circulation_init")
-    expected_state = instance_state_factory(name="finished")
+    expected_state = instance_state_factory(name="rejected")
     ech_instance.instance_state = state
     ech_instance.save()
 
@@ -286,7 +289,13 @@ def test_send_400_no_data(admin_client):
     assert response.status_code == 400
 
 
-@pytest.mark.parametrize("is_vorabklaerung,judgement", [(False, 2), (True, 3)])
+@pytest.mark.parametrize(
+    "is_vorabklaerung,judgement",
+    [
+        (False, ECH_JUDGEMENT_APPROVED_WITH_RESERVATION),
+        (True, ECH_JUDGEMENT_WRITTEN_OFF),
+    ],
+)
 def test_send_400_invalid_judgement(
     is_vorabklaerung,
     judgement,
@@ -340,7 +349,7 @@ def test_send_400_invalid_judgement(
     response = admin_client.post(
         url,
         data=xml_data("notice_ruling").replace(
-            "<ns2:judgement>4</ns2:judgement>",
+            f"<ns2:judgement>{ECH_JUDGEMENT_DECLINED}</ns2:judgement>",
             f"<ns2:judgement>{judgement}</ns2:judgement>",
         ),
         content_type="application/xml",
