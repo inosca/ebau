@@ -7,10 +7,6 @@ from snapshottest import Snapshot
 
 snapshots = Snapshot()
 
-snapshots['test_gis_canton[doesntexist] 1'] = {
-    'errors': 'No multisurface found'
-}
-
 snapshots['test_gis_canton[CH643546955207] 1'] = {
     'data': {
         'ARCHINV_FUNDST': False,
@@ -56,4 +52,16 @@ snapshots['test_gis_canton[CH851446093521] 1'] = {
         ],
         'UZP_LSG_VW': False
     }
+}
+
+snapshots['test_gis_canton[doesntexist] 1'] = {
+    'errors': 'No multisurface found'
+}
+
+snapshots['test_gis_canton[emptygis] 1'] = {
+    'errors': "Can't parse document"
+}
+
+snapshots['test_gis_canton[emptymultisurface] 1'] = {
+    'errors': "Can't parse document"
 }
