@@ -275,6 +275,14 @@ export default class UrGisComponent extends Component {
 
   @restartableTask
   *applySelection() {
+    const parcelBounds = L.featureGroup(
+      this.parcels.map((p) => L.polyline(p.coordinates))
+    ).getBounds();
+    yield this._map.target.fitBounds(parcelBounds);
+
+    yield this.populateFields.perform(this.parcels);
+    yield this.populateTable.perform(this.parcels);
+
     const container = this._map.target._container.cloneNode(true);
     document.querySelector("body").appendChild(container);
     container.style.height = this._map.target._container.clientHeight
@@ -298,9 +306,6 @@ export default class UrGisComponent extends Component {
     const image = yield new Promise((resolve) => canvas.toBlob(resolve));
     this.uploadBlob.perform(image);
     container.remove();
-
-    yield this.populateFields.perform(this.parcels);
-    yield this.populateTable.perform(this.parcels);
   }
 
   @dropTask
