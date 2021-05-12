@@ -1563,7 +1563,7 @@
       "success_message": "",
       "error_message": "",
       "execute_always": 0,
-      "sort": 4
+      "sort": 2
     }
   },
   {
@@ -1913,7 +1913,7 @@
       "success_message": "E-Mail zum Start der Zirkulation wurde versandt",
       "error_message": "E-Mail zum Start der Zirkulation konnte nicht versendet werden",
       "execute_always": 0,
-      "sort": 5
+      "sort": 3
     }
   },
   {
@@ -1927,7 +1927,7 @@
       "success_message": "Workflow-Datum gesetzt",
       "error_message": "Workflow-Datum konnte nicht gesetzt werden",
       "execute_always": 1,
-      "sort": 4
+      "sort": 2
     }
   },
   {
@@ -2095,7 +2095,7 @@
       "success_message": "E-Mail zum Start der Zirkulation wurde versandt",
       "error_message": "E-Mail zum Start der Zirkulation konnte nicht versendet werden",
       "execute_always": 0,
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -2231,11 +2231,11 @@
       "available_action": "php",
       "button": 216,
       "name": "IDLE auf RUN setzen",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 3
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 1,
+      "sort": 5
     }
   },
   {
@@ -2245,11 +2245,11 @@
       "available_action": "php",
       "button": 432,
       "name": "IDLE auf RUN setzen",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 3
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 1,
+      "sort": 4
     }
   },
   {
@@ -2515,7 +2515,7 @@
       "success_message": "E-Mail zum Start der Zirkulation wurde versandt",
       "error_message": "E-Mail zum Start der Zirkulation konnte nicht versendet werden",
       "execute_always": 0,
-      "sort": 5
+      "sort": 3
     }
   },
   {
@@ -2525,11 +2525,11 @@
       "available_action": "php",
       "button": 689,
       "name": "IDLE auf RUN setzen",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
       "execute_always": 1,
-      "sort": 3
+      "sort": 5
     }
   },
   {
@@ -2543,7 +2543,7 @@
       "success_message": "Workflow-Datum gesetzt",
       "error_message": "Workflow-Datum konnte nicht gesetzt werden",
       "execute_always": 1,
-      "sort": 4
+      "sort": 2
     }
   },
   {
@@ -3173,7 +3173,7 @@
       "success_message": "E-Mail zum Start der Zirkulation wurde versandt",
       "error_message": "E-Mail zum Start der Zirkulation konnte nicht versendet werden",
       "execute_always": 0,
-      "sort": 5
+      "sort": 3
     }
   },
   {
@@ -3183,11 +3183,11 @@
       "available_action": "php",
       "button": 771,
       "name": "IDLE auf RUN setzen",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 3
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 1,
+      "sort": 4
     }
   },
   {
@@ -3201,7 +3201,7 @@
       "success_message": "",
       "error_message": "",
       "execute_always": 0,
-      "sort": 4
+      "sort": 2
     }
   },
   {
@@ -3481,7 +3481,7 @@
       "success_message": "E-Mail zum Start der Zirkulation wurde versandt",
       "error_message": "E-Mail zum Start der Zirkulation konnte nicht versendet werden",
       "execute_always": 0,
-      "sort": 5
+      "sort": 3
     }
   },
   {
@@ -3491,11 +3491,11 @@
       "available_action": "php",
       "button": 795,
       "name": "IDLE auf RUN setzen",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 3
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 1,
+      "sort": 4
     }
   },
   {
@@ -3509,7 +3509,7 @@
       "success_message": "",
       "error_message": "",
       "execute_always": 0,
-      "sort": 4
+      "sort": 2
     }
   },
   {
@@ -3747,7 +3747,7 @@
       "success_message": "E-Mail zum Start der Zirkulation wurde versandt",
       "error_message": "E-Mail zum Start der Zirkulation konnte nicht versendet werden",
       "execute_always": 0,
-      "sort": 5
+      "sort": 3
     }
   },
   {
@@ -3757,11 +3757,11 @@
       "available_action": "php",
       "button": 807,
       "name": "IDLE auf RUN setzen",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 3
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 1,
+      "sort": 4
     }
   },
   {
@@ -3775,7 +3775,7 @@
       "success_message": "",
       "error_message": "",
       "execute_always": 0,
-      "sort": 4
+      "sort": 2
     }
   },
   {
@@ -4013,7 +4013,7 @@
       "success_message": "E-Mail zum Start der Zirkulation wurde versandt",
       "error_message": "E-Mail zum Start der Zirkulation konnte nicht versendet werden",
       "execute_always": 0,
-      "sort": 5
+      "sort": 3
     }
   },
   {
@@ -4023,11 +4023,11 @@
       "available_action": "php",
       "button": 827,
       "name": "IDLE auf RUN setzen",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 3
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 1,
+      "sort": 5
     }
   },
   {
@@ -4041,7 +4041,7 @@
       "success_message": "",
       "error_message": "",
       "execute_always": 0,
-      "sort": 4
+      "sort": 2
     }
   },
   {
@@ -4391,7 +4391,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 6
+      "sort": 4
     }
   },
   {
