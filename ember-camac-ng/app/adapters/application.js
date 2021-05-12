@@ -6,12 +6,16 @@ export default class ApplicationAdapter extends JSONAPIAdapter {
   @service shoebox;
 
   namespace = "api/v1";
+  useFetch = true;
 
-  get headers() {
-    return {
-      authorization: `Bearer ${this.session.data.authenticated.access_token}`,
+  async _fetchRequest(options) {
+    options.headers = {
+      ...options.headers,
+      authorization: await this.session.getAuthorizationHeader(),
       "accept-language": this.shoebox.content.language,
       "x-camac-group": this.shoebox.content.groupId,
     };
+
+    return await super._fetchRequest(options);
   }
 }
