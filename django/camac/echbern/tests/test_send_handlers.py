@@ -5,6 +5,9 @@ from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
     ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
     DECISIONS_BEWILLIGT,
+    ECH_JUDGEMENT_APPROVED,
+    ECH_JUDGEMENT_DECLINED,
+    ECH_JUDGEMENT_WRITTEN_OFF,
     INSTANCE_RESOURCE_ZIRKULATION,
     NOTICE_TYPE_NEBENBESTIMMUNG,
     NOTICE_TYPE_STELLUNGNAHME,
@@ -54,13 +57,62 @@ def test_resolve_send_handler(xml_file, expected_send_handler):
 @pytest.mark.parametrize(
     "judgement,instance_state_name,has_permission,is_vorabklaerung,active,expected_state_name",
     [
-        (4, "circulation_init", True, False, "leitbehoerde", "finished"),
-        (3, "circulation_init", False, False, "leitbehoerde", None),
-        (1, "coordination", True, False, "leitbehoerde", "sb1"),
-        (1, "circulation", True, False, "leitbehoerde", "sb1"),
-        (1, "circulation", True, False, "rsta", "sb1"),
-        (1, "circulation", True, True, "leitbehoerde", "evaluated"),
-        (4, "subm", False, "leitbehoerde", False, None),
+        (
+            ECH_JUDGEMENT_DECLINED,
+            "circulation_init",
+            True,
+            False,
+            "leitbehoerde",
+            "rejected",
+        ),
+        (
+            ECH_JUDGEMENT_WRITTEN_OFF,
+            "circulation_init",
+            False,
+            False,
+            "leitbehoerde",
+            None,
+        ),
+        (
+            ECH_JUDGEMENT_APPROVED,
+            "coordination",
+            True,
+            False,
+            "leitbehoerde",
+            "sb1",
+        ),
+        (
+            ECH_JUDGEMENT_APPROVED,
+            "circulation",
+            True,
+            False,
+            "leitbehoerde",
+            "sb1",
+        ),
+        (
+            ECH_JUDGEMENT_APPROVED,
+            "circulation",
+            True,
+            False,
+            "rsta",
+            "sb1",
+        ),
+        (
+            ECH_JUDGEMENT_APPROVED,
+            "circulation",
+            True,
+            True,
+            "leitbehoerde",
+            "evaluated",
+        ),
+        (
+            ECH_JUDGEMENT_DECLINED,
+            "subm",
+            False,
+            "leitbehoerde",
+            False,
+            None,
+        ),
     ],
 )
 def test_notice_ruling_send_handler(
@@ -184,7 +236,7 @@ def test_notice_ruling_send_handler(
 
         expected_service = (
             active_service
-            if is_vorabklaerung or expected_state_name == "finished"
+            if is_vorabklaerung or expected_state_name == "rejected"
             else service_baukontrolle
         )
         assert ech_instance.responsible_service() == expected_service
