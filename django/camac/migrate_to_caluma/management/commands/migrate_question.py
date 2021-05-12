@@ -11,12 +11,6 @@ from camac.instance.models import Instance
 log = getLogger(__name__)
 
 
-class DryRun(BaseException):
-    """Used to jump out of atomic block to implement dryrun."""
-
-    pass
-
-
 class Command(BaseCommand):
     """Migrate single question from old Camac to Caluma/Camac-NG."""
 
@@ -26,23 +20,15 @@ class Command(BaseCommand):
         super().__init__(*args, **kwargs)
         self._dry_run = False
 
-    def add_arguments(self, parser):
-        parser.add_argument(
-            "--dry", help="Dry-run migration (don't commit DB)", action="store_true"
-        )
-
     def handle(self, *args, **options):
         for instance in Instance.objects.all():
             try:
                 self.migrate_instance(instance)
-            except DryRun:
-                log.info("Dry run: rolling back migration")
             except KeyboardInterrupt:
                 log.fatal("User-requested stop. Current instance will not be saved")
                 return
             except RuntimeError as exc:
                 log.error(str(exc))
-                # TODO: abort instance or whole migration?
                 break
 
     @transaction.atomic
@@ -53,22 +39,38 @@ class Command(BaseCommand):
         caluma_case = workflow_models.Case.objects.filter(
             **{"meta__camac-instance-id": instance.instance_id}
         ).first()
-        caluma_question = caluma_case.document.form.questions.filter(
-            slug="oereb-verfahren"
-        )
-        if not caluma_question.exists():
-            return
-        caluma_answer = caluma_case.document.answers.filter(
-            question_id="bezeichnung"
-        ).first()
-        if caluma_answer:
+
+        if not caluma_case:
             return
 
+        caluma_question = caluma_case.document.form.questions.filter(
+            slug__in=[
+                "oereb-verfahren",
+                "mitberichtsverfahren-koor-bg",
+                "mitberichtsverfahren-bund",
+            ]
+        )
+
+        if not caluma_question.exists():
+            return
+
+        if caluma_case.document.form.slug == "oereb":
+            self._create_answer(instance, caluma_case, camac_answer, "bezeichnung")
+
+        if caluma_case.document.form.slug in ["mitbericht-kanton", "mitbericht-bund"]:
+            self._create_answer(
+                instance, caluma_case, camac_answer, "beschreibung-zu-mbv"
+            )
+
+    def _create_answer(self, instance, caluma_case, camac_answer, slug):
+        caluma_answer = caluma_case.document.answers.filter(question_id=slug).first()
+        if caluma_answer:
+            return
         form_models.Answer.objects.create(
             document=caluma_case.document,
             value=camac_answer.answer,
-            question_id="bezeichnung",
+            question_id=slug,
         )
-
-        if self._dry_run:
-            raise DryRun()
+        print(
+            f"Answer created: {instance.pk}, {caluma_case.meta['dossier-number']}, {instance.group.name}, {slug}, {camac_answer.answer}"
+        )
