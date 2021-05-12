@@ -70,7 +70,9 @@ export default class CustomCaseModel extends CaseModel {
     return (
       getAnswer(this.raw.document, "proposal-description")?.node.stringValue ||
       getAnswer(this.raw.document, "beschreibung-zu-mbv")?.node.stringValue ||
-      getAnswer(this.raw.document, "bezeichnung")?.node.stringValue
+      getAnswer(this.raw.document, "bezeichnung")?.node.stringValue ||
+      getAnswer(this.raw.document, "vorhaben-proposal-description")?.node
+        .stringValue
     );
   }
 
@@ -213,6 +215,7 @@ export default class CustomCaseModel extends CaseModel {
         "proposal-description",
         "beschreibung-zu-mbv",
         "bezeichnung",
+        "vorhaben-proposal-description",
         "municipality",
         "parcels",
         "status-bauprojekt",
