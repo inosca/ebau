@@ -67,8 +67,11 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get intent() {
-    return getAnswer(this.raw.document, "proposal-description")?.node
-      .stringValue;
+    return (
+      getAnswer(this.raw.document, "proposal-description")?.node.stringValue ||
+      getAnswer(this.raw.document, "beschreibung-zu-mbv")?.node.stringValue ||
+      getAnswer(this.raw.document, "bezeichnung")?.node.stringValue
+    );
   }
 
   get authority() {
@@ -208,6 +211,8 @@ export default class CustomCaseModel extends CaseModel {
         "street-number",
         "form-type",
         "proposal-description",
+        "beschreibung-zu-mbv",
+        "bezeichnung",
         "municipality",
         "parcels",
         "status-bauprojekt",
