@@ -130,12 +130,7 @@ def test_create_instance_caluma_be(
     body = {
         "attributes": {"caluma-form": "main-form"},
         "relationships": {
-            "location": {
-                "data": {
-                    "type": "locations",
-                    "id": location.pk,
-                },
-            },
+            "location": {"data": {"type": "locations", "id": location.pk}}
         },
     }
 
@@ -161,8 +156,7 @@ def test_create_instance_caluma_be(
 
     # questions for application extension of validity period
     caluma_form_models.Question.objects.create(
-        slug="dossiernummer",
-        type=caluma_form_models.Question.TYPE_INTEGER,
+        slug="dossiernummer", type=caluma_form_models.Question.TYPE_INTEGER
     )
     QuestionType.objects.create(question_type_id=1, name="Text")
     Question.objects.create(
@@ -246,8 +240,7 @@ def test_create_instance_caluma_be(
 @pytest.mark.parametrize("instance_state__name", ["new"])
 @pytest.mark.parametrize("archive", [False, True])
 @pytest.mark.parametrize(
-    "copy,modification",
-    [(False, False), (True, False), (True, True)],
+    "copy,modification", [(False, False), (True, False), (True, True)]
 )
 @pytest.mark.parametrize("role__name", ["Municipality", "Coordination"])
 def test_create_instance_caluma_ur(
@@ -278,25 +271,12 @@ def test_create_instance_caluma_ur(
         application_settings["ARCHIVE_FORMS"] = [form.pk]
 
     location = Location.objects.first()
-    mocker.patch.dict(
-        ur_constants.CALUMA_FORM_MAPPING,
-        {form.pk: "camac-form"},
-    )
+    mocker.patch.dict(ur_constants.CALUMA_FORM_MAPPING, {form.pk: "camac-form"})
     body = {
         "attributes": {"caluma-form": "main-form", "location": location.pk, "lead": 1},
         "relationships": {
-            "form": {
-                "data": {
-                    "type": "forms",
-                    "id": form.pk,
-                },
-            },
-            "location": {
-                "data": {
-                    "type": "locations",
-                    "id": location.pk,
-                },
-            },
+            "form": {"data": {"type": "forms", "id": form.pk}},
+            "location": {"data": {"type": "locations", "id": location.pk}},
         },
     }
 
@@ -361,6 +341,40 @@ def test_create_instance_caluma_ur(
                 assert attachment.path.name != new_attachment.path.name
 
 
+@pytest.mark.parametrize("service_group__name", ["municipality"])
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_create_instance_caluma_ur_wrong_location(
+    db,
+    admin_client,
+    instance_state_factory,
+    form,
+    location_factory,
+    caluma_workflow_config_ur,
+):
+    instance_state_factory(name="comm")
+    instance_state_factory(name="new")
+
+    location = location_factory()
+
+    body = {
+        "attributes": {"caluma-form": "main-form", "location": location.pk, "lead": 1},
+        "relationships": {
+            "form": {"data": {"type": "forms", "id": form.pk}},
+            "location": {"data": {"type": "locations", "id": location.pk}},
+        },
+    }
+
+    data = {"data": {"type": "instances", **body}}
+
+    resp = admin_client.post(reverse("instance-list"), data)
+
+    assert resp.status_code == status.HTTP_400_BAD_REQUEST
+    assert (
+        resp.json()["errors"][0]["detail"]
+        == "Provided location is not present in group locations"
+    )
+
+
 @pytest.mark.parametrize("instance_state__name", ["new"])
 def test_copy_without_permission(
     admin_client,
@@ -378,7 +392,7 @@ def test_copy_without_permission(
                 "copy-source": str(instance.instance_id),
                 "caluma-form": "main-form",
             },
-        },
+        }
     }
 
     copy_resp = admin_client.post(reverse("instance-list"), data)
@@ -866,13 +880,7 @@ def test_instance_finalize(
         service = instance.responsible_service()
         construction_control = construction_control_for(service)
 
-        for task_id in [
-            "submit",
-            "ebau-number",
-            "skip-circulation",
-            "decision",
-            "sb1",
-        ]:
+        for task_id in ["submit", "ebau-number", "skip-circulation", "decision", "sb1"]:
             workflow_api.complete_work_item(
                 work_item=case.work_items.get(task_id=task_id),
                 user=caluma_admin_user,
@@ -1140,7 +1148,7 @@ def test_generate_pdf_action(
             "main-form": {"template": "some-template"},
             "nfd": {"template": "some-template"},
             "mp-form": {"template": "some-template"},
-        },
+        }
     }
 
     case = workflow_api.start_case(
@@ -1203,12 +1211,7 @@ def test_instance_delete(
         }
         headers.update({"x-camac-group": group.pk})
 
-    data = {
-        "data": {
-            "type": "instances",
-            "attributes": {"caluma-form": "main-form"},
-        }
-    }
+    data = {"data": {"type": "instances", "attributes": {"caluma-form": "main-form"}}}
 
     create_resp = admin_client.post(reverse("instance-list"), data, **headers)
 
@@ -1662,14 +1665,7 @@ def test_create_instance_caluma_modification(
 
     create_response = admin_client.post(
         reverse("instance-list"),
-        {
-            "data": {
-                "type": "instances",
-                "attributes": {
-                    "caluma_form": caluma_form,
-                },
-            }
-        },
+        {"data": {"type": "instances", "attributes": {"caluma_form": caluma_form}}},
     )
     instance_id = create_response.json()["data"]["id"]
 
