@@ -92,6 +92,7 @@ export default class CustomCaseModel extends CaseModel {
         name
       }
       answers(
+        visibleInContext: true
         questions: [
           "${answerSlugs.municipality}"
           "${answerSlugs.description}"
