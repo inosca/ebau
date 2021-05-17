@@ -910,7 +910,6 @@ APPLICATIONS = {
                 "geplante-anlagen-solar-oder-photovoltaik-anlage",
                 [20054],
             ),
-            ("gewaesserschutzbereich", "gewaesserschutzbereich-zu", [20050]),
             ("grundwasserschutzzonen", "grundwasserschutzzonen-s1", [20050]),
             ("grundwasserschutzzonen", "grundwasserschutzzonen-s2sh", [20050]),
             ("grundwasserschutzzonen", "grundwasserschutzzonen-s3sm", [20050]),
