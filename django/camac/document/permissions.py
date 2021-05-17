@@ -143,7 +143,7 @@ PERMISSIONS = {
                 12000007,
             ],
         },
-        "organization_readonly": {"read": [12000004]},
+        "organization_readonly": {"read": [12000000]},
         "commission": {
             "read": [
                 12000004,
