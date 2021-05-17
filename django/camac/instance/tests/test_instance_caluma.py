@@ -341,6 +341,40 @@ def test_create_instance_caluma_ur(
                 assert attachment.path.name != new_attachment.path.name
 
 
+@pytest.mark.parametrize("service_group__name", ["municipality"])
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_create_instance_caluma_ur_wrong_location(
+    db,
+    admin_client,
+    instance_state_factory,
+    form,
+    location_factory,
+    caluma_workflow_config_ur,
+):
+    instance_state_factory(name="comm")
+    instance_state_factory(name="new")
+
+    location = location_factory()
+
+    body = {
+        "attributes": {"caluma-form": "main-form", "location": location.pk, "lead": 1},
+        "relationships": {
+            "form": {"data": {"type": "forms", "id": form.pk}},
+            "location": {"data": {"type": "locations", "id": location.pk}},
+        },
+    }
+
+    data = {"data": {"type": "instances", **body}}
+
+    resp = admin_client.post(reverse("instance-list"), data)
+
+    assert resp.status_code == status.HTTP_400_BAD_REQUEST
+    assert (
+        resp.json()["errors"][0]["detail"]
+        == "Provided location is not present in group locations"
+    )
+
+
 @pytest.mark.parametrize("instance_state__name", ["new"])
 def test_copy_without_permission(
     admin_client,
