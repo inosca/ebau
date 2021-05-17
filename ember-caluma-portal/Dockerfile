@@ -5,7 +5,7 @@ ARG KEYCLOAK_HOST
 
 COPY package.json yarn.lock /myapp/
 COPY ember-ebau-core /myapp/ember-ebau-core
-COPY ./ember-caluma-portal/package.json ./ember-caluma-portal/yarn.lock /myapp/ember-caluma-portal/
+COPY ./ember-caluma-portal/package.json /myapp/ember-caluma-portal/
 
 RUN yarn workspace caluma-portal install
 
