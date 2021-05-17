@@ -18,6 +18,7 @@ from django.db.models import Max, Q
 from django.utils import timezone
 from django.utils.translation import gettext as _, gettext_noop
 from rest_framework import exceptions
+from rest_framework.exceptions import ValidationError
 from rest_framework_json_api import relations, serializers
 
 from camac.caluma.api import CalumaApi
@@ -682,11 +683,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         if (
             "read" in permissions
             and instance.instance_state.name
-            not in [
-                "evaluated",
-                "finished",
-                "finished_internal",
-            ]
+            not in ["evaluated", "finished", "finished_internal"]
             and not self._is_read_only()
         ):
             permissions.add("write")
@@ -844,7 +841,12 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             data["instance_state"] = models.InstanceState.objects.get(name="comm")
 
         if settings.APPLICATION["CALUMA"].get("USE_LOCATION"):
-            data["location"] = group.locations.first()
+            if data.get("location", False) not in group.locations.all():
+                raise ValidationError(
+                    "Provided location is not present in group locations"
+                )
+
+            data["location"] = data.get("location", group.locations.first())
 
         return data
 
