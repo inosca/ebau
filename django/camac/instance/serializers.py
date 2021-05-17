@@ -682,11 +682,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         if (
             "read" in permissions
             and instance.instance_state.name
-            not in [
-                "evaluated",
-                "finished",
-                "finished_internal",
-            ]
+            not in ["evaluated", "finished", "finished_internal"]
             and not self._is_read_only()
         ):
             permissions.add("write")
