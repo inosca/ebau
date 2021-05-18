@@ -194,7 +194,7 @@ export default class CustomCaseModel extends CaseModel {
       return "nfd";
     } else if (moment(activation.deadlineDate) < now) {
       return "expired";
-    } else if (moment(activation.deadlineDate).subtract("2", "weeks") < now) {
+    } else if (moment(activation.deadlineDate).subtract("5", "days") < now) {
       return "due-shortly";
     }
 
