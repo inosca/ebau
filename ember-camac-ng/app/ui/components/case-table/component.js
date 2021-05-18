@@ -58,7 +58,7 @@ export default class CaseTableComponent extends Component {
       applicantName: {
         searchAnswers: [
           {
-            questions: ["first-name", "last-name"],
+            questions: ["first-name", "last-name", "juristic-person-name"],
             lookup: "CONTAINS",
             value: filter.applicantName,
           },
