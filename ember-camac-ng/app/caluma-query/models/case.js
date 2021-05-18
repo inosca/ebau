@@ -72,7 +72,8 @@ export default class CustomCaseModel extends CaseModel {
       getAnswer(this.raw.document, "beschreibung-zu-mbv")?.node.stringValue ||
       getAnswer(this.raw.document, "bezeichnung")?.node.stringValue ||
       getAnswer(this.raw.document, "vorhaben-proposal-description")?.node
-        .stringValue
+        .stringValue ||
+      getAnswer(this.raw.document, "veranstaltung-beschrieb")?.node.stringValue
     );
   }
 
@@ -216,6 +217,7 @@ export default class CustomCaseModel extends CaseModel {
         "beschreibung-zu-mbv",
         "bezeichnung",
         "vorhaben-proposal-description",
+        "veranstaltung-beschrieb",
         "municipality",
         "parcels",
         "status-bauprojekt",
