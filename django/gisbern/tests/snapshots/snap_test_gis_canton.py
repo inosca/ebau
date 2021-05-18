@@ -14,10 +14,18 @@ snapshots['test_gis_canton[CH643546955207] 1'] = {
         'BAUINV_BAUINV_VW': True,
         'GK5_SY': False,
         'GSK25_GSK_VW': True,
-        'GSKT_BEZEICH_DE': 'übriger Bereich üB',
+        'GSKT_BEZEICH_DE': [
+            'Gewässerschutzbereich Ao',
+            'übriger Bereich üB'
+        ],
         'NSG_NSGP': True,
+        'UZP_BAU_VW': [
+        ],
         'UZP_LSG_VW': False,
-        'UZP_UEO_VW': 'Teilzonenplan Moorlandschaft Nr. 336 Amsoldingen'
+        'UZP_UEO_VW': [
+            'Teilzonenplan Moorlandschaft 336 Amsoldingen',
+            'Teilzonenplan Moorlandschaft Nr. 336 Amsoldingen'
+        ]
     }
 }
 
@@ -28,13 +36,19 @@ snapshots['test_gis_canton[CH673533354667] 1'] = {
         'BAUINV_BAUINV_VW': False,
         'GK5_SY': True,
         'GSK25_GSK_VW': True,
-        'GSKT_BEZEICH_DE': 'Gewässerschutzbereich Au',
+        'GSKT_BEZEICH_DE': [
+            'Gewässerschutzbereich Au'
+        ],
         'NSG_NSGP': False,
         'UZP_BAU_VW': [
+            'Gewerbezone G2',
             'Zone für öffentliche Nutzung'
         ],
         'UZP_LSG_VW': False,
-        'UZP_UEO_VW': 'Chräjeninsel'
+        'UZP_UEO_VW': [
+            'Aarolina',
+            'Chräjeninsel'
+        ]
     }
 }
 
@@ -45,12 +59,19 @@ snapshots['test_gis_canton[CH851446093521] 1'] = {
         'BAUINV_BAUINV_VW': True,
         'GK5_SY': False,
         'GSK25_GSK_VW': True,
-        'GSKT_BEZEICH_DE': 'Gewässerschutzbereich Ao',
+        'GSKT_BEZEICH_DE': [
+            'Gewässerschutzbereich Ao',
+            'Gewässerschutzbereich Au'
+        ],
         'NSG_NSGP': False,
         'UZP_BAU_VW': [
-            'Wohnzone 2 E2 '
+            'Wohnzone 1 E1',
+            'Wohnzone 2 E2',
+            'Zone für öffentliche Nutzung ZöN 7'
         ],
-        'UZP_LSG_VW': False
+        'UZP_LSG_VW': False,
+        'UZP_UEO_VW': [
+        ]
     }
 }
 
