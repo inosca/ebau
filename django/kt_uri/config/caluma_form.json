@@ -8575,6 +8575,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "umweltschutz.aushub-erforderlich",
+    "fields": {
+      "created_at": "2021-05-19T11:27:13.751Z",
+      "modified_at": "2021-05-19T11:27:13.751Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "umweltschutz",
+      "question": "aushub-erforderlich",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "umweltschutz.aussenbeleuchtung",
     "fields": {
       "created_at": "2020-11-04T15:18:04.855Z",
@@ -8600,7 +8615,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "beschreibung-aushub",
-      "sort": 19
+      "sort": 18
     }
   },
   {
@@ -8780,7 +8795,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "ort-verwendung-humus",
-      "sort": 17
+      "sort": 16
     }
   },
   {
@@ -8870,7 +8885,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "verwendung-aushub",
-      "sort": 20
+      "sort": 19
     }
   },
   {
@@ -8885,7 +8900,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "verwendung-humus",
-      "sort": 18
+      "sort": 17
     }
   },
   {
@@ -11025,6 +11040,38 @@
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "aushub-erforderlich-ja",
+    "fields": {
+      "created_at": "2021-05-19T11:27:13.402Z",
+      "modified_at": "2021-05-19T11:27:13.402Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "aushub-erforderlich-nein",
+    "fields": {
+      "created_at": "2021-05-19T11:27:13.416Z",
+      "modified_at": "2021-05-19T11:27:13.416Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
       "is_archived": false,
@@ -17421,12 +17468,12 @@
     "pk": "schutzraum-antrag",
     "fields": {
       "created_at": "2020-11-05T07:32:48.953Z",
-      "modified_at": "2021-03-11T16:39:18.528Z",
+      "modified_at": "2021-05-19T11:26:12.901Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
-      "label": "{\"de\": \"Es wird ein Antrag auf Befreiung von der Schutzraumpflicht gestellt\", \"fr\": null}",
+      "label": "{\"de\": \"Es wird ein Antrag auf Befreiung von der Schutzraumbaupflicht gestellt\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17469,10 +17516,10 @@
     "pk": "schutzraum-neu",
     "fields": {
       "created_at": "2020-11-05T07:32:48.953Z",
-      "modified_at": "2021-03-11T16:39:18.529Z",
+      "modified_at": "2021-05-19T11:26:12.892Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Es wird ein neuer Schutzraum gebaut\", \"fr\": null}",
       "is_archived": false,
@@ -20061,10 +20108,10 @@
     "pk": "verwendung-aushub-ja",
     "fields": {
       "created_at": "2020-11-04T13:02:28.184Z",
-      "modified_at": "2021-03-11T13:57:45.373Z",
+      "modified_at": "2021-05-19T11:27:49.098Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
       "is_archived": false,
@@ -20077,10 +20124,10 @@
     "pk": "verwendung-aushub-nein",
     "fields": {
       "created_at": "2020-11-04T13:02:28.186Z",
-      "modified_at": "2021-03-11T13:57:45.371Z",
+      "modified_at": "2021-05-19T11:27:49.117Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
       "is_archived": false,
@@ -20093,10 +20140,10 @@
     "pk": "verwendung-humus-ja",
     "fields": {
       "created_at": "2020-11-04T13:05:22.494Z",
-      "modified_at": "2021-03-11T13:57:55.674Z",
+      "modified_at": "2021-05-19T11:27:59.178Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
       "is_archived": false,
@@ -20109,10 +20156,10 @@
     "pk": "verwendung-humus-nein",
     "fields": {
       "created_at": "2020-11-04T13:05:22.495Z",
-      "modified_at": "2021-03-11T13:57:55.676Z",
+      "modified_at": "2021-05-19T11:27:59.188Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
       "is_archived": false,
@@ -23048,6 +23095,36 @@
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"---\\n\\n#### Ausg\\u00e4nge, Fluchtwege\\n\\nDie Lage der Treppenh\\u00e4user, die zus\\u00e4tzlichen Ausg\\u00e4nge und Fluchtwege, die Laufbreite der Treppen sowie die Art und Drehrichtung der T\\u00fcren m\\u00fcssen in den Pl\\u00e4nen ersichtlich sein.\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "aushub-erforderlich",
+    "fields": {
+      "created_at": "2021-05-19T11:27:13.609Z",
+      "modified_at": "2021-05-19T11:27:13.609Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist f\\u00fcr das Vorhaben ein Aushub erforderlich?\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -34938,12 +35015,12 @@
     "pk": "schutzraum",
     "fields": {
       "created_at": "2020-11-05T07:32:49.038Z",
-      "modified_at": "2021-03-11T16:39:18.680Z",
+      "modified_at": "2021-05-19T11:26:13.474Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
-      "label": "{\"de\": \"Wird ein neuer Schutzraum gebaut oder ein Antrag um Schutzraumbefreiung gestellt?\", \"fr\": null}",
+      "label": "{\"de\": \"Wird ein neuer Schutzraum gebaut oder ein Antrag um Befreiung von der Schutzraumbaupflicht gestellt?\", \"fr\": null}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "!(\"schutzraumrelevante-massnahmen-ja\" == \"schutzraumrelevante-massnahmen\"|answer)",
@@ -37765,15 +37842,15 @@
     "pk": "verwendung-aushub",
     "fields": {
       "created_at": "2020-11-04T13:02:28.282Z",
-      "modified_at": "2021-03-11T13:57:45.491Z",
+      "modified_at": "2021-05-19T11:27:49.346Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Wird der anfallende Aushub im Rahmen des Bauprojekts vor Ort wieder verwendet?\", \"fr\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "!(\"aushub-erforderlich-ja\" == \"aushub-erforderlich\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -37795,15 +37872,15 @@
     "pk": "verwendung-humus",
     "fields": {
       "created_at": "2020-11-04T13:05:22.586Z",
-      "modified_at": "2021-03-11T13:57:55.778Z",
+      "modified_at": "2021-05-19T11:27:59.332Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Wird der anfallende Humus im Rahmen des Bauprojekts vor Ort wieder verwendet?\", \"fr\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "!(\"aushub-erforderlich-ja\" == \"aushub-erforderlich\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -40442,6 +40519,36 @@
       "modified_by_group": null,
       "question": "asbest",
       "option": "asbest-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "aushub-erforderlich.aushub-erforderlich-ja",
+    "fields": {
+      "created_at": "2021-05-19T11:27:13.627Z",
+      "modified_at": "2021-05-19T11:27:13.627Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "aushub-erforderlich",
+      "option": "aushub-erforderlich-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "aushub-erforderlich.aushub-erforderlich-nein",
+    "fields": {
+      "created_at": "2021-05-19T11:27:13.620Z",
+      "modified_at": "2021-05-19T11:27:13.620Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "aushub-erforderlich",
+      "option": "aushub-erforderlich-nein",
       "sort": 1
     }
   },
@@ -46344,11 +46451,11 @@
     "model": "caluma_form.questionoption",
     "pk": "schutzraum.schutzraum-antrag",
     "fields": {
-      "created_at": "2021-03-11T16:39:18.693Z",
-      "modified_at": "2021-03-11T16:39:18.693Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2021-05-19T11:26:13.489Z",
+      "modified_at": "2021-05-19T11:26:13.489Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "schutzraum",
       "option": "schutzraum-antrag",
@@ -46359,11 +46466,11 @@
     "model": "caluma_form.questionoption",
     "pk": "schutzraum.schutzraum-neu",
     "fields": {
-      "created_at": "2021-03-11T16:39:18.698Z",
-      "modified_at": "2021-03-11T16:39:18.698Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2021-05-19T11:26:13.494Z",
+      "modified_at": "2021-05-19T11:26:13.494Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "schutzraum",
       "option": "schutzraum-neu",
@@ -48789,11 +48896,11 @@
     "model": "caluma_form.questionoption",
     "pk": "verwendung-aushub.verwendung-aushub-ja",
     "fields": {
-      "created_at": "2021-03-11T13:57:45.502Z",
-      "modified_at": "2021-03-11T13:57:45.502Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-05-19T11:27:49.369Z",
+      "modified_at": "2021-05-19T11:27:49.369Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "verwendung-aushub",
       "option": "verwendung-aushub-ja",
@@ -48804,11 +48911,11 @@
     "model": "caluma_form.questionoption",
     "pk": "verwendung-aushub.verwendung-aushub-nein",
     "fields": {
-      "created_at": "2021-03-11T13:57:45.498Z",
-      "modified_at": "2021-03-11T13:57:45.498Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-05-19T11:27:49.354Z",
+      "modified_at": "2021-05-19T11:27:49.354Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "verwendung-aushub",
       "option": "verwendung-aushub-nein",
@@ -48819,11 +48926,11 @@
     "model": "caluma_form.questionoption",
     "pk": "verwendung-humus.verwendung-humus-ja",
     "fields": {
-      "created_at": "2021-03-11T13:57:55.792Z",
-      "modified_at": "2021-03-11T13:57:55.792Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-05-19T11:27:59.351Z",
+      "modified_at": "2021-05-19T11:27:59.352Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "verwendung-humus",
       "option": "verwendung-humus-ja",
@@ -48834,11 +48941,11 @@
     "model": "caluma_form.questionoption",
     "pk": "verwendung-humus.verwendung-humus-nein",
     "fields": {
-      "created_at": "2021-03-11T13:57:55.789Z",
-      "modified_at": "2021-03-11T13:57:55.789Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-05-19T11:27:59.345Z",
+      "modified_at": "2021-05-19T11:27:59.345Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "verwendung-humus",
       "option": "verwendung-humus-nein",
