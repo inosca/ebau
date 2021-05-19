@@ -42033,7 +42033,7 @@
     "model": "core.remberlist",
     "pk": 314,
     "fields": {
-      "instance_states": "32,23,25,34"
+      "instance_states": "32"
     }
   },
   {
