@@ -20,6 +20,7 @@ from camac.instance.models import Instance
 from camac.instance.serializers import (
     SUBMIT_DATE_CHAPTER,
     SUBMIT_DATE_QUESTION_ID,
+    WORKFLOW_ITEM_DOSSIER_ERFASST_UR,
     WORKFLOW_ITEM_DOSSIEREINGANG_UR,
     CalumaInstanceSerializer,
     CalumaInstanceSubmitSerializer,
@@ -260,6 +261,7 @@ def test_create_instance_caluma_ur(
     user_factory,
     instance_service_factory,
     mocker,
+    workflow_item_factory,
 ):
     # Uri states
     instance_state_factory(name="comm")
@@ -267,6 +269,11 @@ def test_create_instance_caluma_ur(
     instance_state_factory(name="ext")
 
     application_settings["CALUMA"]["MODIFICATION_ALLOW_FORMS"] = ["main-form"]
+    application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
+    application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
+
+    workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_DOSSIER_ERFASST_UR)
+
     if archive:
         application_settings["ARCHIVE_FORMS"] = [form.pk]
 
