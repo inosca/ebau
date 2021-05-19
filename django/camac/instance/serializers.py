@@ -60,6 +60,7 @@ SUBMIT_DATE_CHAPTER = 100001
 SUBMIT_DATE_QUESTION_ID = 20036
 SUBMIT_DATE_FORMAT = "%Y-%m-%dT%H:%M:%S%z"
 WORKFLOW_ITEM_DOSSIEREINGANG_UR = 10
+WORKFLOW_ITEM_DOSSIER_ERFASST_UR = 12
 
 request_logger = getLogger("django.request")
 
@@ -830,6 +831,17 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             answer=ebau_number,
         )
 
+    def _set_creation_date(self, instance):
+        creation_date = timezone.now().strftime(SUBMIT_DATE_FORMAT)
+        workflow_item = WorkflowItem.objects.get(pk=WORKFLOW_ITEM_DOSSIER_ERFASST_UR)
+
+        WorkflowEntry.objects.create(
+            workflow_date=creation_date,
+            instance=instance,
+            workflow_item=workflow_item,
+            group=instance.group_id,
+        )
+
     @permission_aware
     def validate(self, data):
         return data
@@ -959,6 +971,10 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             user=self.context["request"].caluma_info.context.user,
             meta=case_meta,
         )
+
+        # Reuse the SET_SUBMIT_DATE_CAMAC_WORKFLOW flag because since this defines the workflow date usage
+        if settings.APPLICATION.get("SET_SUBMIT_DATE_CAMAC_WORKFLOW"):
+            self._set_creation_date(instance)
 
         self.initialize_caluma(
             instance, source_instance, case, is_modification, is_paper
