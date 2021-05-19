@@ -841,7 +841,10 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             data["instance_state"] = models.InstanceState.objects.get(name="comm")
 
         if settings.APPLICATION["CALUMA"].get("USE_LOCATION"):
-            if data.get("location", False) not in group.locations.all():
+            if (
+                data.get("location", False)
+                and data["location"] not in group.locations.all()
+            ):
                 raise ValidationError(
                     "Provided location is not present in group locations"
                 )
