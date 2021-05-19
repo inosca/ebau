@@ -397,7 +397,7 @@ class CalumaApi:
                     "meta__circulation-id": circulation.pk,
                 }
             )
-        except caluma_workflow_models.WorkItem.DoesNotExist:
+        except caluma_workflow_models.WorkItem.DoesNotExist:  # pragma: no cover
             log.error(f"No work item found for circulation {circulation.pk}")
             return
 
