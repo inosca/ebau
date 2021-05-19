@@ -19,6 +19,7 @@ from camac.constants.kt_bern import (
 from camac.core.models import (
     Activation,
     Circulation,
+    CirculationAnswer,
     CirculationState,
     DocxDecision,
     InstanceService,
@@ -93,18 +94,20 @@ class BaseSendHandler:
             **{"meta__camac-instance-id": int(self.get_instance_id())}
         )
 
-    def complete_work_item(self, task, context={}):
-        return self._process_work_item("complete", task, context)
+    def complete_work_item(self, task, filters={}, context={}):
+        return self._process_work_item("complete", task, filters, context)
 
-    def skip_work_item(self, task, context={}):
-        return self._process_work_item("skip", task, context)
+    def skip_work_item(self, task, filters={}, context={}):
+        return self._process_work_item("skip", task, filters, context)
 
-    def _process_work_item(self, action, task, context):
+    def _process_work_item(self, action, task, filters, context):
         fn = getattr(workflow_api, f"{action}_work_item")
         work_item = (
             self.get_case()
             .work_items.filter(
-                task_id=task, status=caluma_workflow_models.WorkItem.STATUS_READY
+                task_id=task,
+                status=caluma_workflow_models.WorkItem.STATUS_READY,
+                **filters,
             )
             .first()
         )
@@ -286,10 +289,15 @@ class AccompanyingReportSendHandler(BaseSendHandler):
     def apply(self):
         documents = self._get_documents()
 
+        self.activation.circulation_answer = CirculationAnswer.objects.get(
+            name="unknown"
+        )
         self.activation.circulation_state = CirculationState.objects.get(name="DONE")
         self.activation.save()
 
-        CalumaApi().sync_circulation(self.activation.circulation, self.caluma_user)
+        self.complete_work_item(
+            "activation", {"meta__activation-id": self.activation.pk}
+        )
 
         answer = "; ".join(self.data.eventAccompanyingReport.remark)
         clause = "; ".join(self.data.eventAccompanyingReport.ancillaryClauses)
@@ -380,8 +388,8 @@ class TaskSendHandler(BaseSendHandler):
                 name=trunc(timezone.now().timestamp()),
             )
             context = {"circulation-id": circulation.pk}
-            self.complete_work_item("init-circulation", context)
-            self.complete_work_item("start-circulation", context)
+            self.complete_work_item("init-circulation", {}, context)
+            self.complete_work_item("start-circulation", {}, context)
 
         return circulation
 
