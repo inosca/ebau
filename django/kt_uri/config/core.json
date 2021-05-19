@@ -1321,7 +1321,7 @@
       "available_action": "formtransition",
       "button": 4,
       "name": "Freigeben an Gemeinde COMM - EXT",
-      "description": "",
+      "description": null,
       "success_message": "Dossier erfolgreich freigegeben.",
       "error_message": "Beim Freigeben des Dossiers ist ein Fehler aufgetreten!",
       "execute_always": 0,
@@ -17052,7 +17052,7 @@
       "instance_resource": 180000,
       "name": "Freigeben f\u00fcr Gemeindebaubeh\u00f6rde",
       "description": null,
-      "class_field": "release_buildingauthority in_form_group:61",
+      "class_field": "release_buildingauthority in_form_group:61,12000000",
       "hidden": 0,
       "sort": 4
     }
@@ -18873,6 +18873,14 @@
     "fields": {
       "name": "Alle Dossiers mit Publikation",
       "description": "Alle Dossiers bei welchen eine Form von Publikation m\u00f6glich ist"
+    }
+  },
+  {
+    "model": "core.formgroup",
+    "pk": 12000000,
+    "fields": {
+      "name": "Solargesuche, Meldung Vorhaben und Reklamegesuche von der Gemeinde",
+      "description": "Wird f\u00fcr die Anzeige des Buttons \"Freigabe an Gemeindebaubeh\u00f6rde\" benutzt"
     }
   },
   {
@@ -21345,6 +21353,30 @@
     "fields": {
       "form_group": 161,
       "form": 295
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000003,
+    "fields": {
+      "form_group": 12000000,
+      "form": 141
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000004,
+    "fields": {
+      "form_group": 12000000,
+      "form": 121
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000005,
+    "fields": {
+      "form_group": 12000000,
+      "form": 290
     }
   },
   {
