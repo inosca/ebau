@@ -304,11 +304,10 @@ instances:
     receiving: "Communauté d'accueil"
     communal: "Traitement communautaire"
     in-progress: "Programme de procédure"
-    sb1: "Déclaration spontanée"
-    sb2: "Graduation"
+    sb1: "Déclaration spontanée 1"
+    sb2: "Déclaration spontanée 2"
     finished: "Décision finalisé"
     rejected: "Repoussé"
-    corrected: "Corrigé par l'autorité directrice"
     archived: "Archivé"
     done: "Finalisé"
 

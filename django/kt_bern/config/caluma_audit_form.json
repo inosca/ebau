@@ -3173,7 +3173,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-zustaendigkeit-baubewilligung",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -3188,6 +3188,21 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-zustaendigkeit-bauvorhaben",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "fp-form.fp-zustaendigkeit-hinweis",
+    "fields": {
+      "created_at": "2021-05-20T08:32:35.111Z",
+      "modified_at": "2021-05-20T08:32:35.111Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "fp-form",
+      "question": "fp-zustaendigkeit-hinweis",
       "sort": 3
     }
   },
@@ -19833,8 +19848,38 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"Bauvorhaben in der Landwirtschaftszone bed\\u00fcrfen in jedem Fall einer Verf\\u00fcgung des Amtes f\\u00fcr Gemeinden und Raumordnung hinsichtlich der Zonenkonformit\\u00e4t (Art. 16/22 RPG) oder f\\u00fcr die Ausnahmebewilligung nach Art. 24 - 24d oder Art. 37a RPG.\", \"fr\": \"Les projets de construction dans une zone agricole requi\\u00e8rent dans tous les cas une d\\u00e9cision de l'OACOT sur la conformit\\u00e9 \\u00e0 l'affectation de la zone (art. 16/22 LAT) ou une d\\u00e9rogation au sens des articles 24 \\u00e0 24d ou 37a LAT.\"}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "fp-zustaendigkeit-hinweis",
+    "fields": {
+      "created_at": "2021-05-20T08:32:34.938Z",
+      "modified_at": "2021-05-20T08:35:15.581Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"\", \"fr\": \"\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-margin-remove\\\"><strong>Hinweis:</strong> Bauvorhaben in der Landwirtschaftszone bed\\u00fcrfen in jedem Fall einer Verf\\u00fcgung des Amtes f\\u00fcr Gemeinden und Raumordnung hinsichtlich der Zonenkonformit\\u00e4t (Art. 16/22 RPG) oder f\\u00fcr die Ausnahmebewilligung nach Art. 24 - 24d oder Art. 37a RPG.</div>\", \"fr\": \"<div class=\\\"uk-alert uk-margin-remove\\\"><strong>Remarque :</strong> Les projets de construction dans une zone agricole requi\\u00e8rent dans tous les cas une d\\u00e9cision de l'OACOT sur la conformit\\u00e9 \\u00e0 l'affectation de la zone (art. 16/22 LAT) ou une d\\u00e9rogation au sens des articles 24 \\u00e0 24d ou 37a LAT.</div>\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
