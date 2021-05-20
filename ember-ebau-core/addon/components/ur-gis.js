@@ -227,7 +227,9 @@ export default class UrGisComponent extends Component {
           municipality,
           grundnutzung,
           "parcel-number": parcelNumber,
-          "parzellen-oder-baurechtsnummer": parcelNumber,
+          "parzellen-oder-baurechtsnummer": selbstrechtFeature
+            ? selbstrechtFeature.properties.nummer
+            : parcelNumber,
           "e-grid": egrid,
           "coordinates-east": LatLngToEPSG2056(latlng).x,
           "coordinates-north": LatLngToEPSG2056(latlng).y,
@@ -246,6 +248,11 @@ export default class UrGisComponent extends Component {
         }
 
         if (selbstrechtFeature) {
+          parcel[
+            "coordinates-baurecht"
+          ] = selbstrechtFeature.geometry.coordinates[0][0].map(
+            EPSG3857toLatLng
+          );
           parcel["building-law-number"] = selbstrechtFeature.properties.nummer;
         }
 
@@ -276,7 +283,13 @@ export default class UrGisComponent extends Component {
   @restartableTask
   *applySelection() {
     const parcelBounds = L.featureGroup(
-      this.parcels.map((p) => L.polyline(p.coordinates))
+      this.parcels.map((p) =>
+        L.polyline(
+          this.parcels[0]["building-law-number"]
+            ? p["coordinates-baurecht"]
+            : p.coordinates
+        )
+      )
     ).getBounds();
     yield this._map.target.fitBounds(parcelBounds);
 
