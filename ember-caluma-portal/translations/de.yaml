@@ -295,11 +295,10 @@ instances:
     receiving: "Empfang Gemeinde"
     communal: "Bearbeitung Gemeinde"
     in-progress: "Verfahrensprogramm"
-    sb1: "Selbstdeklaration"
-    sb2: "Abschluss"
+    sb1: "Selbstdeklaration 1"
+    sb2: "Selbstdeklaration 2"
     finished: "Beurteilung abgeschlossen"
     rejected: "Zurückgewiesen"
-    corrected: "Korrigiert von Leitbehörde"
     archived: "Archiviert"
     done: "Abgeschlossen"
 
