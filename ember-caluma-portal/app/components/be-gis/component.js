@@ -84,6 +84,21 @@ const FIELD_MAP = {
         "Gewässerschutzbereich Au": "gewaesserschutzbereich-v2-au",
       },
     },
+    {
+      path: "grundwasserschutzzonen-v2",
+      values: {
+        "Grundwasserschutzzone S1": "grundwasserschutzzonen-v2-s1",
+        "Grundwasserschutzzone S2": "grundwasserschutzzonen-v2-s2",
+        "Grundwasserschutzzone S3": "grundwasserschutzzonen-v2-s3-s3zu",
+        "Grundwasserschutzzone S3Zu": "grundwasserschutzzonen-v2-s3-s3zu",
+        "Grundwasserschutzzone Sh": "grundwasserschutzzonen-v2-sh",
+        "Grundwasserschutzzone Sm": "grundwasserschutzzonen-v2-sm",
+        "Grundwasserschutzzone SA1": "grundwasserschutzzonen-v2-sa",
+        "Grundwasserschutzzone SA2": "grundwasserschutzzonen-v2-sa",
+        "Grundwasserschutzzone SA3": "grundwasserschutzzonen-v2-sa",
+        "Grundwasserschutzzone SBW": "grundwasserschutzzonen-v2-sbw",
+      },
+    },
   ],
   NSG_NSGP: [
     {
@@ -468,15 +483,15 @@ export default class BeGisComponent extends Component {
 
           if (type === "ChoiceQuestion") {
             value = values[value];
-            valuePretty = field.question.choiceOptions.edges.find(
-              (edge) => edge.node.slug === value
-            ).node.label;
+            valuePretty = field.options.find(({ slug }) => slug === value)
+              ?.label;
           } else if (type === "MultipleChoiceQuestion") {
             value = Array.isArray(value) ? value : [value];
-            value = value.map((val) => values[val]);
-            valuePretty = field.question.multipleChoiceOptions.edges
-              .filter((edge) => edge.node.slug.includes(value))
-              .map((edge) => edge.node.label);
+            value = value.map((val) => values[val]).filter(Boolean);
+            valuePretty = field.options
+              .filter(({ slug }) => value.includes(slug))
+              .map(({ label }) => label)
+              .join(", ");
           } else if (Array.isArray(value)) {
             value = value.join(", ");
             valuePretty = value;
