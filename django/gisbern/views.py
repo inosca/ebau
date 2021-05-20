@@ -117,13 +117,17 @@ def get_gis_data(multisurface):
         data=xml_kanton,
     )
 
-    tag_list = []
-    data = {}
-
     try:
         et = get_root(request_kanton)
     except etree.XMLSyntaxError:
         raise ValueError("Can't parse document")
+
+    tag_list = []
+    data = {}
+
+    usage_zones = set()
+    building_regulations = set()
+    water_protection_zones = set()
 
     # Find all layers beneath featureMember
     for child in et.findall("./{http://www.opengis.net/gml/3.2}featureMember/"):
@@ -135,26 +139,30 @@ def get_gis_data(multisurface):
 
         # Nutzungszone ([String])
         if "GEODB.UZP_BAU_VW" in child.tag:
-            zones = []
             for item in child.findall(
                 "a42geo_a42geo_ebau_kt_wfs_d_fk:ZONE_LO", et.nsmap
             ):
-                zones.append(item.text)
-                data["UZP_BAU_VW"] = zones
+                usage_zones.add(item.text.strip())
 
         # Überbauungsordnung (String)
         if "GEODB.UZP_UEO_VW" in child.tag:
             for item in child.findall(
                 "a42geo_a42geo_ebau_kt_wfs_d_fk:ZONE_LO", et.nsmap
             ):
-                data["UZP_UEO_VW"] = item.text
+                building_regulations.add(item.text.strip())
 
         # Gewässerschutz (String)
         for item in child.findall(
             "a42geo_a42geo_ebau_kt_wfs_d_fk:GSKT_BEZEICH_DE", et.nsmap
         ):
-            data["GSKT_BEZEICH_DE"] = item.text  # pragma: no cover
-    return data
+            water_protection_zones.add(item.text.strip())
+
+    return {
+        **data,
+        "UZP_BAU_VW": sorted(usage_zones),
+        "UZP_UEO_VW": sorted(building_regulations),
+        "GSKT_BEZEICH_DE": sorted(water_protection_zones),
+    }
 
 
 def get_root(request):

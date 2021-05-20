@@ -52,7 +52,7 @@ as |Modal|>
       {{#each this.gisData as |data|}}
         <li>
           <strong>{{data.field.question.label}}</strong><br>
-          {{data.valuePretty}}
+          {{or data.valuePretty "-"}}
         </li>
       {{/each}}
     </ul>
