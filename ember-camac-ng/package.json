@@ -61,7 +61,7 @@
     "ember-concurrency-decorators": "^2.0.1",
     "ember-data": "~3.24.0",
     "ember-ebau-core": "0.0.0",
-    "ember-ebau-gwr": "velrest/ember-ebau-gwr#7029054e4f859124a470445949fb3dd5a34816bf",
+    "ember-ebau-gwr": "velrest/ember-ebau-gwr#468a6a9dc2b2954b7e6b2e0c96a60da37766bdee",
     "ember-engines": "^0.8.14",
     "ember-export-application-global": "^2.0.1",
     "ember-fetch": "^8.0.2",
