@@ -9,3 +9,5 @@ dashboard:
   editing: "Bearbeitung"
   parcels: "Parzellen"
   egrid: "EGRID"
+  basicUsage: "Grundnutzung"
+  overlayUsage: "Überlagerte Nutzung"
