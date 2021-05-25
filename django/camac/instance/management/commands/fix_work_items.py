@@ -9,6 +9,7 @@ from caluma.caluma_workflow.utils import create_work_items
 from django.core.management.base import BaseCommand
 from django.db import transaction
 from django.db.models import Count, F
+from django.db.models.expressions import Q
 from django.utils.timezone import now
 
 from camac.caluma.api import CalumaApi
@@ -525,8 +526,12 @@ class Command(BaseCommand):
         See EBAUBEOPS-149, but there are more cases.
         """
 
-        cases = Case.objects.prefetch_related("work_items").filter(
-            work_items__task_id="sb1", work_items__status="canceled"
+        cases = (
+            Case.objects.prefetch_related("work_items")
+            .annotate(
+                sb1_count=Count("work_items__pk", filter=Q(work_items__task_id="sb1"))
+            )
+            .filter(sb1_count__gte=2)
         )
 
         broken = []
@@ -537,10 +542,8 @@ class Command(BaseCommand):
             pk = case.meta["camac-instance-id"]
             broken.append(pk)
             self.fixed_instances[pk].append("Duplicated sb1")
-            case.work_items.filter(task_id="sb1", status="canceled").delete()
+            case.work_items.filter(task_id="sb1").exclude(status="ready").delete()
 
         self.stdout.write(
-            self.style.WARNING(
-                f"Removed {len(broken)} duplicated 'canceled' sb1 work items."
-            )
+            self.style.WARNING(f"Fixed {len(broken)} duplicated sb1 work items.")
         )
