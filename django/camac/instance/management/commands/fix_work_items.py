@@ -77,6 +77,9 @@ class Command(BaseCommand):
         parser.add_argument(
             "--premature-decision", action="store_true", dest="premature_decision"
         )
+        parser.add_argument(
+            "--duplicated-sb1", action="store_true", dest="duplicated_sb1"
+        )
 
     def get_instance_filters(self, path="pk"):
         return {path: self.instance} if self.instance else {}
@@ -108,6 +111,8 @@ class Command(BaseCommand):
             self.fix_circulation()
         if options["premature_decision"]:
             self.fix_premature_decision()
+        if options["duplicated_sb1"]:
+            self.fix_duplicated_sb1()
         self.fix_required_tasks()
 
         if len(self.fixed_instances.keys()):
@@ -511,4 +516,31 @@ class Command(BaseCommand):
 
         self.stdout.write(
             self.style.WARNING(f"Reopened {len(broken)} prematurely decided cases.")
+        )
+
+    def fix_duplicated_sb1(self):
+        """Fix instances where sb1 is duplicated.
+
+        Remove canceled version, if there is another one in "ready" status.
+        See EBAUBEOPS-149, but there are more cases.
+        """
+
+        cases = Case.objects.prefetch_related("work_items").filter(
+            work_items__task_id="sb1", work_items__status="canceled"
+        )
+
+        broken = []
+        for case in cases:
+            if not case.work_items.filter(task_id="sb1", status="ready").exists():
+                continue
+
+            pk = case.meta["camac-instance-id"]
+            broken.append(pk)
+            self.fixed_instances[pk].append("Duplicated sb1")
+            case.work_items.filter(task_id="sb1", status="canceled").delete()
+
+        self.stdout.write(
+            self.style.WARNING(
+                f"Removed {len(broken)} duplicated 'canceled' sb1 work items."
+            )
         )
