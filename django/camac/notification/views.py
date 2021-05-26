@@ -1,7 +1,8 @@
 from django.db.models import Q
 from django.utils.translation import gettext as _
-from rest_framework import response, status, viewsets
+from rest_framework import response, status
 from rest_framework.decorators import action
+from rest_framework_json_api.views import ModelViewSet
 
 from camac.user.permissions import permission_aware
 
@@ -9,7 +10,7 @@ from . import filters, models, serializers
 from .utils import send_mail
 
 
-class NotificationTemplateView(viewsets.ModelViewSet):
+class NotificationTemplateView(ModelViewSet):
     swagger_schema = None
     queryset = models.NotificationTemplate.objects.all()
     serializer_class = serializers.NotificationTemplateSerializer
