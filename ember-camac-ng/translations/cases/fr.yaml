@@ -15,7 +15,7 @@ cases:
     coordinationShort: ""
     reason: ""
     caseStatus: ""
-    parcel: ""
+    parcelNumbers: ""
     createdAt: ""
     modifiedAt: ""
     submitDate: ""
