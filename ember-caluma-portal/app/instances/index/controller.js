@@ -1,5 +1,6 @@
 import Controller from "@ember/controller";
 import { action } from "@ember/object";
+import { inject as service } from "@ember/service";
 import { isEmpty } from "@ember/utils";
 import { queryManager } from "ember-apollo-client";
 import calumaQuery from "ember-caluma/caluma-query";
@@ -28,6 +29,8 @@ const toDateTime = (date) => (date.isValid() ? date.utc().format() : null);
 
 export default class InstancesIndexController extends Controller.extend(Mixin) {
   @queryManager apollo;
+
+  @service intl;
 
   @calumaQuery({ query: allCases, options: "options" }) cases;
 
@@ -92,6 +95,30 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
   }
 
   get formFilterOptions() {
+    const categories = [
+      "preliminary-clarification",
+      "building-permit",
+      "special-procedure",
+      "others",
+    ];
+
+    return categories
+      .map((category) => {
+        const options = this.forms
+          .filter((form) => form.category === category)
+          .sort((a, b) => a.order - b.order);
+
+        return options.length
+          ? {
+              groupName: this.intl.t(`instances.new.${category}.title`),
+              options,
+            }
+          : null;
+      })
+      .filter(Boolean);
+  }
+
+  get forms() {
     const raw = (this.getRootForms.lastSuccessful?.value || []).filter(
       (form) =>
         this.isInternal || !config.ebau.internalForms.includes(form.slug)
@@ -102,6 +129,8 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
       .map((form) => ({
         name: form.name,
         value: [form.slug, ...getRecursiveSources(form, raw)],
+        category: form.meta.category || "others",
+        order: form.meta.order,
         isEqual(other) {
           return this.value.join(",") === other.value.join(",");
         },
@@ -109,7 +138,7 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
   }
 
   get selectedTypes() {
-    return this.formFilterOptions.filter((form) =>
+    return this.forms.filter((form) =>
       form.value.some((value) => this.types.includes(value))
     );
   }
