@@ -26,9 +26,16 @@ class MultilingualModel:
 
     def get_trans_obj(self, lang=None):
         lang = lang or translation.get_language()
-        match = self.trans.filter(language=lang).first()
+
+        # we filter the translation in python so we don't trigger another query
+        # when the translations are already prefetched which they should be in
+        # most cases
+        trans = self.trans.all()
+        match = next(filter(lambda t: t.language == lang, trans), None)
         if not match:
-            match = self.trans.filter(language=settings.LANGUAGE_CODE).first()
+            match = next(
+                filter(lambda t: t.language == settings.LANGUAGE_CODE, trans), None
+            )
         return match
 
     def __str__(self):
