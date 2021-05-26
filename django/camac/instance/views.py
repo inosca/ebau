@@ -11,11 +11,12 @@ from django.db import transaction
 from django.db.models import OuterRef, Q, Subquery
 from django.http import HttpResponse
 from django.utils import timezone
-from rest_framework import response, status, viewsets
+from rest_framework import response, status
 from rest_framework.decorators import action
 from rest_framework.generics import ListAPIView, RetrieveAPIView
 from rest_framework.settings import api_settings
 from rest_framework_json_api import views
+from rest_framework_json_api.views import ReadOnlyModelViewSet
 
 from camac.caluma.api import CalumaApi
 from camac.core.models import InstanceService, WorkflowEntry
@@ -29,7 +30,7 @@ from ..utils import get_paper_settings
 from . import document_merge_service, filters, mixins, models, serializers, validators
 
 
-class InstanceStateView(viewsets.ReadOnlyModelViewSet):
+class InstanceStateView(ReadOnlyModelViewSet):
     swagger_schema = None
     serializer_class = serializers.InstanceStateSerializer
     ordering = ("sort", "name")
@@ -38,7 +39,7 @@ class InstanceStateView(viewsets.ReadOnlyModelViewSet):
         return models.InstanceState.objects.all()
 
 
-class FormView(viewsets.ReadOnlyModelViewSet):
+class FormView(ReadOnlyModelViewSet):
     swagger_schema = None
     serializer_class = serializers.FormSerializer
     filterset_class = filters.FormFilterSet
