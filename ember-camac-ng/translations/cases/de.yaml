@@ -14,7 +14,7 @@ cases:
     coordinationShort: "Kurzname Koordinationsstelle"
     reason: "Grund"
     caseStatus: "Status"
-    parcel: "Parzelle"
+    parcelNumbers: "Parzellen"
     createdAt: "Erstellt am"
     modifiedAt: "Geändert am"
     submitDate: "Eingereicht am"
