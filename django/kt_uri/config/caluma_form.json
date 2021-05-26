@@ -26168,10 +26168,10 @@
     "pk": "e-mail",
     "fields": {
       "created_at": "2020-08-27T15:38:40.256Z",
-      "modified_at": "2020-08-28T15:03:25.465Z",
+      "modified_at": "2021-05-25T15:06:14.790Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"E-Mail\", \"fr\": null}",
       "type": "text",
@@ -26185,7 +26185,9 @@
         "max_length": null,
         "min_length": null
       },
-      "meta": {},
+      "meta": {
+        "formatValidators": ["email"]
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
