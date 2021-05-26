@@ -71,12 +71,12 @@ module("Integration | Component | be-navbar", function (hooks) {
 
     await render(hbs`<BeNavbar />`);
 
-    assert.dom(".uk-navbar-right ul > li:nth-of-type(2) > a").hasText("de");
-    assert.dom(".uk-navbar-right ul > li:nth-of-type(3) > a").hasText("fr");
+    assert.dom(".uk-navbar-right ul > li:nth-of-type(1) > a").hasText("de");
+    assert.dom(".uk-navbar-right ul > li:nth-of-type(2) > a").hasText("fr");
 
     await this.setLanguage("de");
+    assert.dom(".uk-navbar-right ul > li:nth-of-type(1)").hasClass("uk-active");
+    await click(".uk-navbar-right ul > li:nth-of-type(2) > a");
     assert.dom(".uk-navbar-right ul > li:nth-of-type(2)").hasClass("uk-active");
-    await click(".uk-navbar-right ul > li:nth-of-type(3) > a");
-    assert.dom(".uk-navbar-right ul > li:nth-of-type(3)").hasClass("uk-active");
   });
 });
