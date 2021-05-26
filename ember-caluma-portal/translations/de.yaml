@@ -273,6 +273,9 @@ instances:
       info-be: ""
       info-ur: ""
 
+    others:
+      title: "Andere"
+
   status:
     title: "Status"
     # Uri states
