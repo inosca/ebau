@@ -113,6 +113,17 @@ export default class CustomCaseModel extends CaseModel {
     return this.getPersonData("invoice-recipient");
   }
 
+  get basicUsage() {
+    return getAnswer(this.raw.document, "grundnutzung")?.node.stringValue ?? "";
+  }
+
+  get overlayUsage() {
+    return (
+      getAnswer(this.raw.document, "ueberlagerte-nutzungen")?.node
+        .stringValue ?? ""
+    );
+  }
+
   get form() {
     const answer = getAnswer(this.raw.document, "form-type");
     return answer?.node.question.options.edges.find(
@@ -222,6 +233,8 @@ export default class CustomCaseModel extends CaseModel {
         "parcels",
         "status-bauprojekt",
         "leitbehoerde",
+        "grundnutzung",
+        "ueberlagerte-nutzungen",
       ]) {
         edges {
           node {
