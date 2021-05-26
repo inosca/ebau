@@ -48937,7 +48937,7 @@
     "fields": {
       "circulation_type": 20000,
       "circulation_answer_type": 1,
-      "name": null,
+      "name": "draft",
       "sort": 0
     }
   },
@@ -48947,7 +48947,7 @@
     "fields": {
       "circulation_type": 20000,
       "circulation_answer_type": 1,
-      "name": null,
+      "name": "positive",
       "sort": 1
     }
   },
@@ -48957,7 +48957,7 @@
     "fields": {
       "circulation_type": 20000,
       "circulation_answer_type": 1,
-      "name": null,
+      "name": "negative",
       "sort": 2
     }
   },
@@ -48967,7 +48967,7 @@
     "fields": {
       "circulation_type": 20000,
       "circulation_answer_type": 1,
-      "name": null,
+      "name": "not_concerned",
       "sort": 3
     }
   },
@@ -48977,7 +48977,7 @@
     "fields": {
       "circulation_type": 20000,
       "circulation_answer_type": 1,
-      "name": null,
+      "name": "claim",
       "sort": 4
     }
   },
@@ -48987,7 +48987,7 @@
     "fields": {
       "circulation_type": 20000,
       "circulation_answer_type": 1,
-      "name": null,
+      "name": "obligated",
       "sort": 5
     }
   },
@@ -48997,8 +48997,18 @@
     "fields": {
       "circulation_type": 20000,
       "circulation_answer_type": 1,
-      "name": null,
+      "name": "not_obligated",
       "sort": 6
+    }
+  },
+  {
+    "model": "core.circulationanswer",
+    "pk": 15000000,
+    "fields": {
+      "circulation_type": 20000,
+      "circulation_answer_type": 1,
+      "name": "unknown",
+      "sort": 7
     }
   },
   {
@@ -49125,6 +49135,24 @@
       "circulation_answer": 150001,
       "language": "fr",
       "name": "Non soumis \u00e0 l'octroi d'un permis de construire"
+    }
+  },
+  {
+    "model": "core.circulationanswert",
+    "pk": 15000000,
+    "fields": {
+      "circulation_answer": 15000000,
+      "language": "de",
+      "name": "Unbekannt"
+    }
+  },
+  {
+    "model": "core.circulationanswert",
+    "pk": 15000001,
+    "fields": {
+      "circulation_answer": 15000000,
+      "language": "fr",
+      "name": "Inconnu"
     }
   },
   {
