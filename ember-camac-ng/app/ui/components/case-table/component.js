@@ -162,7 +162,7 @@ export default class CaseTableComponent extends Component {
           "applicant",
           "intent",
           "street",
-          "parcel",
+          "parcelNumbers",
         ];
     }
   }
