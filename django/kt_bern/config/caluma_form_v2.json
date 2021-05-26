@@ -48,6 +48,7 @@
       "name": "{\"de\": \"Generelles Baugesuch\", \"fr\": \"Demande de permis de construire g\\u00e9n\\u00e9ral\"}",
       "description": "{\"de\": \"Generelles Baugesuch (v2)\", \"fr\": \"Demande de permis de construire g\\u00e9n\\u00e9ral (v2)\"}",
       "meta": {
+        "order": 3,
         "category": "building-permit",
         "is-creatable": true,
         "is-main-form": true
@@ -70,6 +71,7 @@
       "name": "{\"de\": \"Baugesuch mit UVP\", \"fr\": \"Demande de permis de construire avec EIE\"}",
       "description": "{\"de\": \"Baugesuch mit UVP v2\", \"fr\": \"Baugesuch mit UVP v2\"}",
       "meta": {
+        "order": 2,
         "category": "building-permit",
         "is-creatable": true,
         "is-main-form": true
@@ -92,6 +94,7 @@
       "name": "{\"de\": \"Baugesuch\", \"fr\": \"Demande de permis de construire\"}",
       "description": "{\"de\": \"Baugesuch (v2)\", \"fr\": \"Demande de permis de construire (v2)\"}",
       "meta": {
+        "order": 1,
         "category": "building-permit",
         "is-creatable": true,
         "is-main-form": true
@@ -312,6 +315,7 @@
       "name": "{\"de\": \"Vollst\\u00e4ndige Vorabkl\\u00e4rung\", \"fr\": \"Demandes pr\\u00e9alables compl\\u00e8tes\"}",
       "description": "{\"de\": \"Vollst\\u00e4ndige Vorabkl\\u00e4rung (v2)\", \"fr\": \"Demandes pr\\u00e9alables compl\\u00e8tes (v2)\"}",
       "meta": {
+        "order": 2,
         "category": "preliminary-clarification",
         "is-creatable": true,
         "is-main-form": true

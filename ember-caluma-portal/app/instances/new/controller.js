@@ -59,7 +59,10 @@ export default class InstancesNewController extends Controller.extend(
       .reduce(
         (grouped, { node: form }) => ({
           ...grouped,
-          [form.meta.category]: [...(grouped[form.meta.category] || []), form],
+          [form.meta.category]: [
+            ...(grouped[form.meta.category] || []),
+            form,
+          ].sort((a, b) => a.meta.order - b.meta.order),
         }),
         {}
       );
