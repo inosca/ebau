@@ -366,6 +366,7 @@
       "name": "{\"de\": \"Baupolizeiliches Verfahren\", \"fr\": \"Proc\\u00e9dure de police des constructions\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
+        "order": 4,
         "category": "special-procedure",
         "is-creatable": true,
         "is-main-form": true
@@ -856,6 +857,7 @@
       "name": "{\"de\": \"Hecken / Feldgeh\\u00f6lze / B\\u00e4ume\", \"fr\": \"Haies / bosquets champ\\u00eatres / arbres\"}",
       "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {
+        "order": 1,
         "category": "special-procedure",
         "is-creatable": true,
         "is-main-form": true
@@ -932,6 +934,7 @@
       "name": "{\"de\": \"Kl\\u00e4rung Baubewilligungspflicht\", \"fr\": \"Clarification de l'octroi d'un permis de construire\"}",
       "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {
+        "order": 2,
         "category": "special-procedure",
         "is-creatable": true,
         "is-main-form": true
@@ -1449,6 +1452,7 @@
       "name": "{\"de\": \"Einfache Vorabkl\\u00e4rung\", \"fr\": \"Demandes pr\\u00e9alables simples\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
+        "order": 1,
         "category": "preliminary-clarification",
         "is-creatable": true,
         "is-main-form": true
@@ -1619,6 +1623,7 @@
       "name": "{\"de\": \"Zutrittserm\\u00e4chtigung\", \"fr\": \"Autorisation d'acc\\u00e8s\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
+        "order": 3,
         "category": "special-procedure",
         "is-creatable": true,
         "is-main-form": true
