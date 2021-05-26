@@ -1,5 +1,5 @@
 {{#unless this.embedded}}
-  <nav class="be-navbar" {{did-insert (perform this.fetchGroups)}}>
+  <nav class="be-navbar">
     <div class="uk-container uk-flex uk-flex-column">
       <div class="uk-width-1-1 uk-position-relative">
         <LinkTo @route="index" class="be-logo uk-link-reset">
@@ -83,47 +83,49 @@
 
         <div class="uk-navbar-right">
           <ul class="uk-navbar-nav">
-            <li>
-              <a href="#">
-                {{this.user.fullName}}
-                {{#if this.group}}
-                  ({{this.group.name}})
-                {{/if}}
-              </a>
-              {{#if this.groups.length}}
-                <div
-                  uk-dropdown
-                  animation="uk-animation-slide-top-small"
-                  duration="300"
-                  mode="click"
-                  pos="bottom-right"
-                >
-                  <ul class="uk-nav uk-dropdown-nav">
-                    <li class={{unless this.group "uk-active"}}>
-                      <a
-                        data-test-no-group
-                        href="#"
-                        {{on "click" (fn this.setGroup null)}}
-                      >
-                        {{t "nav.applicant"}}
-                      </a>
-                    </li>
-                    <li class="uk-nav-divider"></li>
-                    {{#each this.groups as |g|}}
-                      <li class={{if (eq g.id this.group.id) "uk-active"}}>
+            {{#if this.session.isAuthenticated}}
+              <li {{did-insert (perform this.fetchGroups)}}>
+                <a href="#">
+                  {{this.user.fullName}}
+                  {{#if this.group}}
+                    ({{this.group.name}})
+                  {{/if}}
+                </a>
+                {{#if this.groups.length}}
+                  <div
+                    uk-dropdown
+                    animation="uk-animation-slide-top-small"
+                    duration="300"
+                    mode="click"
+                    pos="bottom-right"
+                  >
+                    <ul class="uk-nav uk-dropdown-nav">
+                      <li class={{unless this.group "uk-active"}}>
                         <a
-                          data-test-group={{g.id}}
+                          data-test-no-group
                           href="#"
-                          {{on "click" (fn this.setGroup g.id)}}
+                          {{on "click" (fn this.setGroup null)}}
                         >
-                          {{g.name}}
+                          {{t "nav.applicant"}}
                         </a>
                       </li>
-                    {{/each}}
-                  </ul>
-                </div>
-              {{/if}}
-            </li>
+                      <li class="uk-nav-divider"></li>
+                      {{#each this.groups as |g|}}
+                        <li class={{if (eq g.id this.group.id) "uk-active"}}>
+                          <a
+                            data-test-group={{g.id}}
+                            href="#"
+                            {{on "click" (fn this.setGroup g.id)}}
+                          >
+                            {{g.name}}
+                          </a>
+                        </li>
+                      {{/each}}
+                    </ul>
+                  </div>
+                {{/if}}
+              </li>
+            {{/if}}
             {{#each this.languages as |lang|}}
               <li class={{if (eq lang this.language) "uk-active"}}>
                 <a href="#" {{on "click" (fn this.setLanguage lang)}}>
