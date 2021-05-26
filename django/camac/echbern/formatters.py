@@ -10,13 +10,7 @@ from django.utils import timezone
 from pyxb import IncompleteElementContentError, UnprocessedElementContentError
 
 from camac import camac_metadata
-from camac.constants.kt_bern import (
-    CIRCULATION_ANSWER_NACHFORDERUNG,
-    CIRCULATION_ANSWER_NEGATIV,
-    CIRCULATION_ANSWER_NICHT_BETROFFEN,
-    CIRCULATION_ANSWER_POSITIV,
-    QUESTION_EBAU_NR,
-)
+from camac.constants.kt_bern import QUESTION_EBAU_NR
 from camac.core.models import Answer, DocxDecision
 from camac.instance.models import Instance
 from camac.utils import build_url
@@ -663,10 +657,11 @@ def accompanying_report(
     nebenbestimmung,
 ):
     judgement_mapping = {
-        CIRCULATION_ANSWER_POSITIV: 1,
-        CIRCULATION_ANSWER_NEGATIV: 4,
-        CIRCULATION_ANSWER_NICHT_BETROFFEN: 1,
-        CIRCULATION_ANSWER_NACHFORDERUNG: 4,
+        "positive": 1,
+        "negative": 4,
+        "not_concerned": 1,
+        "claim": 4,
+        "unknown": None,
     }
 
     return ns_application.eventAccompanyingReportType(
@@ -681,7 +676,7 @@ def accompanying_report(
         ancillaryClauses=[assure_string_length(nebenbestimmung, max_length=950)]
         if nebenbestimmung
         else [],
-        judgement=judgement_mapping[circulation_answer.pk]
+        judgement=judgement_mapping[circulation_answer.name]
         if circulation_answer
         else None,
     )

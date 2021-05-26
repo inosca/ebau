@@ -6,7 +6,6 @@ from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_BEILAGEN_SB1,
     ATTACHMENT_SECTION_BEILAGEN_SB2,
     ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
-    CIRCULATION_ANSWER_POSITIV,
     NOTICE_TYPE_NEBENBESTIMMUNG,
     NOTICE_TYPE_STELLUNGNAHME,
 )
@@ -195,7 +194,7 @@ def test_accompanying_report_event_handler(
         )
 
     if circulation_answer_exists:
-        circulation_answer_factory(pk=CIRCULATION_ANSWER_POSITIV)
+        circulation_answer_factory(name="positive")
 
     eh = event_handlers.AccompanyingReportEventHandler(
         ech_instance, None, None, context={"activation-id": activation.pk}

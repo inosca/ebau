@@ -628,6 +628,7 @@ def test_accompanying_report_send_handler(
     attachment_factory,
     attachment_section_factory,
     circulation_state_factory,
+    circulation_answer_factory,
     instance_state_factory,
     activation_factory,
     user_group_factory,
@@ -649,6 +650,7 @@ def test_accompanying_report_send_handler(
         )
 
     done_state = circulation_state_factory(pk=2, name="DONE")
+    unknown_answer = circulation_answer_factory(name="unknown")
 
     support_group = admin_user.groups.first()
     support_group.service = ech_instance.services.first()
@@ -690,6 +692,7 @@ def test_accompanying_report_send_handler(
         assert Activation.objects.count() == 1
         activation = Activation.objects.first()
         assert activation.circulation_state == done_state
+        assert activation.circulation_answer == unknown_answer
         assert Notice.objects.count() == 2
 
     else:
