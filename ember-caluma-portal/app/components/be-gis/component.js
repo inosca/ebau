@@ -3,6 +3,7 @@ import { A } from "@ember/array";
 import Component from "@ember/component";
 import { computed, action } from "@ember/object";
 import { inject as service } from "@ember/service";
+import { isEmpty } from "@ember/utils";
 import { queryManager } from "ember-apollo-client";
 import saveDocumentMutation from "ember-caluma/gql/mutations/save-document.graphql";
 import Document from "ember-caluma/lib/document";
@@ -527,12 +528,14 @@ export default class BeGisComponent extends Component {
   @dropTask
   *saveAdditionalData() {
     yield all(
-      this.gisData.map(async ({ field, value }) => {
-        field.answer.set("value", value);
+      this.gisData
+        .filter(({ value }) => !isEmpty(value))
+        .map(async ({ field, value }) => {
+          field.answer.set("value", value);
 
-        await field.save.perform();
-        await field.validate.perform();
-      })
+          await field.save.perform();
+          await field.validate.perform();
+        })
     );
 
     this.set("showConfirmation", false);
