@@ -839,7 +839,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             workflow_date=creation_date,
             instance=instance,
             workflow_item=workflow_item,
-            group=instance.group_id,
+            group=1,
         )
 
     @permission_aware
@@ -1164,7 +1164,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 workflow_date=submit_date,
                 instance=self.instance,
                 workflow_item=workflow_item,
-                group=self.instance.group_id,
+                group=1,
             )
 
     def _get_pdf_section(self, instance, form_slug):
