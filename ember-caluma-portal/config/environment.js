@@ -56,6 +56,7 @@ module.exports = function (environment) {
         ],
       },
       municipalityModel: "public-service",
+      municipalityFilterKey: "service_id",
       answerSlugs: {
         objectStreet: "strasse-flurname",
         objectNumber: "nr",
@@ -91,6 +92,7 @@ module.exports = function (environment) {
         ],
       },
       municipalityModel: "location",
+      municipalityFilterKey: "location_id",
       answerSlugs: {
         objectStreet: "parcel-street",
         objectNumber: "street-number",

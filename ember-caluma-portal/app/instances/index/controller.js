@@ -240,7 +240,9 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
 
     if (municipalityRefs.length) {
       await this.store.query(config.APPLICATION.municipalityModel, {
-        location_id: [...new Set(municipalityRefs)].join(","),
+        [config.APPLICATION.municipalityFilterKey]: [
+          ...new Set(municipalityRefs),
+        ].join(","),
       });
     }
 
