@@ -83,23 +83,34 @@ def test_group_instance_filter(
 
 
 def test_public_group_list(
-    admin_client, admin_user, group, user_group_factory, group_factory
+    admin_client,
+    admin_user,
+    group,
+    user_group_factory,
+    group_factory,
+    django_assert_num_queries,
+    multilang,
 ):
-    user_group = user_group_factory(
-        user=admin_user, group__disabled=False, default_group=False
+    user_group_factory.create_batch(
+        5, user=admin_user, group__disabled=False, default_group=False
     )
+
     group_factory(disabled=True)  # new group which may not appear in result
+
     url = reverse("publicgroup-list")
 
-    response = admin_client.get(url)
-    assert response.status_code == status.HTTP_200_OK
+    # Queries:
+    # - 1 for fetching the groups
+    # - 1 for prefetching the group translations
+    # - 3 for prefetching the included models
+    # - 3 for prefetching the included models' translations
+    included = ["service", "service.service_group", "role"]
+    with django_assert_num_queries(8):
+        response = admin_client.get(url, data={"include": ",".join(included)})
+        assert response.status_code == status.HTTP_200_OK
 
-    json = response.json()
-    assert len(json["data"]) == 2
-    assert {int(entry["id"]) for entry in json["data"]} == {
-        group.pk,
-        user_group.group.pk,
-    }
+        json = response.json()
+        assert len(json["data"]) == 6
 
 
 def test_public_group_detail(admin_client, group, multilang, application_settings):
