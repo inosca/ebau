@@ -183,10 +183,9 @@ class CustomPermission(BasePermission):
 
     @permission_for(RemoveAnswer)
     def has_permission_for_removeanswer(self, mutation, info):
-        answer = json.loads(info.context.body)["variables"]["input"]["answer"]
-        document = Document.objects.get(answers__pk=answer)
+        answer = mutation.get_params(info)["input"]["answer"]
 
-        return self.has_camac_edit_permission(document.family, info)
+        return self.has_camac_edit_permission(answer.document.family, info)
 
     @object_permission_for(RemoveAnswer)
     def has_object_permission_for_removeanswer(self, mutation, info, answer):
