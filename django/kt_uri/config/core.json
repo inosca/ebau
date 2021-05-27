@@ -56,1265 +56,6 @@
     }
   },
   {
-    "model": "core.aformtransition",
-    "pk": 9,
-    "fields": {
-      "current_instance_state": 21,
-      "next_instance_state": 22
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 227,
-    "fields": {
-      "current_instance_state": 22,
-      "next_instance_state": 21
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 247,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 27
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 248,
-    "fields": {
-      "current_instance_state": 21,
-      "next_instance_state": 27
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 249,
-    "fields": {
-      "current_instance_state": 24,
-      "next_instance_state": 25
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 252,
-    "fields": {
-      "current_instance_state": 24,
-      "next_instance_state": 26
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 254,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 26
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 351,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 23
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 652,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 27
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 653,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 26
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 657,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 23
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 697,
-    "fields": {
-      "current_instance_state": 21,
-      "next_instance_state": 22
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 730,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 21
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 791,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 25
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 972,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 23
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 992,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 26
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 993,
-    "fields": {
-      "current_instance_state": 24,
-      "next_instance_state": 26
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1005,
-    "fields": {
-      "current_instance_state": 26,
-      "next_instance_state": 21
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1007,
-    "fields": {
-      "current_instance_state": 26,
-      "next_instance_state": 21
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1035,
-    "fields": {
-      "current_instance_state": 30,
-      "next_instance_state": 21
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1062,
-    "fields": {
-      "current_instance_state": 29,
-      "next_instance_state": 30
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1070,
-    "fields": {
-      "current_instance_state": 29,
-      "next_instance_state": 30
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1097,
-    "fields": {
-      "current_instance_state": 26,
-      "next_instance_state": 21
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1098,
-    "fields": {
-      "current_instance_state": 26,
-      "next_instance_state": 22
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1099,
-    "fields": {
-      "current_instance_state": 26,
-      "next_instance_state": 22
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1101,
-    "fields": {
-      "current_instance_state": 26,
-      "next_instance_state": 22
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1131,
-    "fields": {
-      "current_instance_state": 23,
-      "next_instance_state": 24
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1141,
-    "fields": {
-      "current_instance_state": 22,
-      "next_instance_state": 27
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1142,
-    "fields": {
-      "current_instance_state": 24,
-      "next_instance_state": 26
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1145,
-    "fields": {
-      "current_instance_state": 26,
-      "next_instance_state": 22
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1163,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 23
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1200,
-    "fields": {
-      "current_instance_state": 22,
-      "next_instance_state": 27
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1201,
-    "fields": {
-      "current_instance_state": 24,
-      "next_instance_state": 26
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1203,
-    "fields": {
-      "current_instance_state": 26,
-      "next_instance_state": 22
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1206,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 23
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1224,
-    "fields": {
-      "current_instance_state": 22,
-      "next_instance_state": 27
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1225,
-    "fields": {
-      "current_instance_state": 24,
-      "next_instance_state": 26
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1227,
-    "fields": {
-      "current_instance_state": 26,
-      "next_instance_state": 22
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1230,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 23
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1274,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 27
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1275,
-    "fields": {
-      "current_instance_state": 24,
-      "next_instance_state": 26
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1277,
-    "fields": {
-      "current_instance_state": 26,
-      "next_instance_state": 22
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1280,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 23
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1378,
-    "fields": {
-      "current_instance_state": 21,
-      "next_instance_state": 32
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1406,
-    "fields": {
-      "current_instance_state": 21,
-      "next_instance_state": 27
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1407,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 26
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1443,
-    "fields": {
-      "current_instance_state": 21,
-      "next_instance_state": 22
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1448,
-    "fields": {
-      "current_instance_state": 24,
-      "next_instance_state": 25
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1449,
-    "fields": {
-      "current_instance_state": 24,
-      "next_instance_state": 25
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 1456,
-    "fields": {
-      "current_instance_state": 23,
-      "next_instance_state": 24
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 12000002,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 31
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 12000003,
-    "fields": {
-      "current_instance_state": 31,
-      "next_instance_state": null
-    }
-  },
-  {
-    "model": "core.alocation",
-    "pk": 1009,
-    "fields": {}
-  },
-  {
-    "model": "core.alocation",
-    "pk": 1030,
-    "fields": {}
-  },
-  {
-    "model": "core.alocation",
-    "pk": 1132,
-    "fields": {}
-  },
-  {
-    "model": "core.alocationqc",
-    "pk": 7,
-    "fields": {
-      "action": 1030,
-      "question": 2,
-      "chapter": 3
-    }
-  },
-  {
-    "model": "core.alocationqc",
-    "pk": 8,
-    "fields": {
-      "action": 1132,
-      "question": 2,
-      "chapter": 3
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 228,
-    "fields": {
-      "template": "dossier-an-gemeinde-zuruck-geschickt",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_MunicipalityUsers",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 251,
-    "fields": {
-      "template": "dossier-an-gemeinde-zuruck-geschickt1",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_MunicipalityUsers",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 658,
-    "fields": {
-      "template": "zirkulation-gestartet",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 698,
-    "fields": {
-      "template": "dossier-id-von-gemeinde-frei-geschalten1",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_KoorNpUsers",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 734,
-    "fields": {
-      "template": "zirkulation-gestartet1",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 792,
-    "fields": {
-      "template": "dossier-an-gemeinde-zuruck-geschickt1",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_MunicipalityUsers",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 835,
-    "fields": {
-      "template": "zirkulation-gestartet1",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 840,
-    "fields": {
-      "template": "zirkulation-gestartet",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 973,
-    "fields": {
-      "template": "zirkulation-gestartet1",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 978,
-    "fields": {
-      "template": "zirkulation-gestartet1",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 1067,
-    "fields": {
-      "template": "dossier-weitergeleitet-an-koordinationsstelle",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_SubmitterList",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 1068,
-    "fields": {
-      "template": "dossier-von-koordinationsstelle-fur-baueingaben-an-die-gemeinde-zuruckgeschickt",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_SubmitterList",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 1069,
-    "fields": {
-      "template": "dossier-instance_id-von-gemeinde-frei-geschalten",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_KoorBgUsers",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 1126,
-    "fields": {
-      "template": "dossier-angenommen",
-      "recipient_type": "Notification_Manager_Applicant",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 1130,
-    "fields": {
-      "template": "dossier-von-koordinationsstelle-fur-baueingaben-an-die-gemeinde-zuruckgeschickt1",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_SubmitterList",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 1132,
-    "fields": {
-      "template": "neues-online-dossier-erganzt",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_MunicipalityUsers",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 1149,
-    "fields": {
-      "template": "zirkulation-gestartet1",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 1180,
-    "fields": {
-      "template": "zirkulation-gestartet1",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 1207,
-    "fields": {
-      "template": "zirkulation-gestartet1",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 1212,
-    "fields": {
-      "template": "zirkulation-gestartet1",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 1231,
-    "fields": {
-      "template": "zirkulation-gestartet1",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 1236,
-    "fields": {
-      "template": "zirkulation-gestartet1",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 1281,
-    "fields": {
-      "template": "zirkulation-gestartet1",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 1286,
-    "fields": {
-      "template": "zirkulation-gestartet1",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 1297,
-    "fields": {
-      "template": "oreb-meldung",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_Lisag",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 1318,
-    "fields": {
-      "template": "oreb-meldung",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_Lisag",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 1337,
-    "fields": {
-      "template": "oreb-meldung",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_Lisag",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 1357,
-    "fields": {
-      "template": "oreb-meldung",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_Lisag",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 1358,
-    "fields": {
-      "template": "oreb-meldung",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_Lisag",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 1360,
-    "fields": {
-      "template": "oreb-meldung",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_Lisag",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 1369,
-    "fields": {
-      "template": "zirkulation-abgeschlossen",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_SubmitterList",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 1374,
-    "fields": {
-      "template": "zirkulation-gestartet1",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 1375,
-    "fields": {
-      "template": "zirkulation-gestartet1",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 1382,
-    "fields": {
-      "template": "gemeindezirkulation-gestartet",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 1386,
-    "fields": {
-      "template": "gemeindezirkulation-gestartet",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 1411,
-    "fields": {
-      "template": "zirkulation-gestartet16",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 1417,
-    "fields": {
-      "template": "zirkulation-gestartet16",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 1445,
-    "fields": {
-      "template": "dossier-id-von-bundesstelle-frei-geschalten",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_ResponsibleKoor",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 12000004,
-    "fields": {
-      "template": "dossier-abgewiesen",
-      "recipient_type": "Notification_Manager_Applicant",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.apageredirect",
-    "pk": 711,
-    "fields": {
-      "resource": 267,
-      "instance_resource": 315,
-      "air_action_name": "edit"
-    }
-  },
-  {
-    "model": "core.apageredirect",
-    "pk": 732,
-    "fields": {
-      "resource": 288,
-      "instance_resource": 467,
-      "air_action_name": "edit"
-    }
-  },
-  {
-    "model": "core.apageredirect",
-    "pk": 733,
-    "fields": {
-      "resource": 122,
-      "instance_resource": null,
-      "air_action_name": null
-    }
-  },
-  {
-    "model": "core.apageredirect",
-    "pk": 735,
-    "fields": {
-      "resource": 302,
-      "instance_resource": null,
-      "air_action_name": null
-    }
-  },
-  {
-    "model": "core.apageredirect",
-    "pk": 737,
-    "fields": {
-      "resource": 267,
-      "instance_resource": 314,
-      "air_action_name": "index"
-    }
-  },
-  {
-    "model": "core.apageredirect",
-    "pk": 738,
-    "fields": {
-      "resource": 288,
-      "instance_resource": 486,
-      "air_action_name": "index"
-    }
-  },
-  {
-    "model": "core.apageredirect",
-    "pk": 976,
-    "fields": {
-      "resource": 264,
-      "instance_resource": 625,
-      "air_action_name": "edit"
-    }
-  },
-  {
-    "model": "core.apageredirect",
-    "pk": 1056,
-    "fields": {
-      "resource": 251,
-      "instance_resource": 678,
-      "air_action_name": "list"
-    }
-  },
-  {
-    "model": "core.apageredirect",
-    "pk": 1071,
-    "fields": {
-      "resource": 251,
-      "instance_resource": 678,
-      "air_action_name": "list"
-    }
-  },
-  {
-    "model": "core.apageredirect",
-    "pk": 1152,
-    "fields": {
-      "resource": 289,
-      "instance_resource": 702,
-      "air_action_name": "edit"
-    }
-  },
-  {
-    "model": "core.apageredirect",
-    "pk": 1158,
-    "fields": {
-      "resource": 289,
-      "instance_resource": 1,
-      "air_action_name": null
-    }
-  },
-  {
-    "model": "core.apageredirect",
-    "pk": 1210,
-    "fields": {
-      "resource": 296,
-      "instance_resource": 717,
-      "air_action_name": "edit"
-    }
-  },
-  {
-    "model": "core.apageredirect",
-    "pk": 1234,
-    "fields": {
-      "resource": 297,
-      "instance_resource": 1,
-      "air_action_name": null
-    }
-  },
-  {
-    "model": "core.apageredirect",
-    "pk": 1284,
-    "fields": {
-      "resource": 298,
-      "instance_resource": null,
-      "air_action_name": null
-    }
-  },
-  {
-    "model": "core.apageredirect",
-    "pk": 1414,
-    "fields": {
-      "resource": 316,
-      "instance_resource": 763,
-      "air_action_name": "edit"
-    }
-  },
-  {
-    "model": "core.apageredirect",
-    "pk": 1425,
-    "fields": {
-      "resource": 302,
-      "instance_resource": null,
-      "air_action_name": null
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 260,
-    "fields": {
-      "php_class": "ChangeDossierType"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 490,
-    "fields": {
-      "php_class": "CircEnd"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 610,
-    "fields": {
-      "php_class": "ReopenCirculation"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 631,
-    "fields": {
-      "php_class": "EditNotice"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 662,
-    "fields": {
-      "php_class": "ReopenCirculation"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 670,
-    "fields": {
-      "php_class": "EditNotice"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 831,
-    "fields": {
-      "php_class": "CircStart"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 832,
-    "fields": {
-      "php_class": "CircStart"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 834,
-    "fields": {
-      "php_class": "CircStart"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 841,
-    "fields": {
-      "php_class": "CircStart"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 870,
-    "fields": {
-      "php_class": "SaveCommissionAssignments"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 913,
-    "fields": {
-      "php_class": "SetNFD"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 914,
-    "fields": {
-      "php_class": "SetNFDComplete"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 974,
-    "fields": {
-      "php_class": "CircStart"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 979,
-    "fields": {
-      "php_class": "CircStart"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 982,
-    "fields": {
-      "php_class": "ReopenCirculation"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1010,
-    "fields": {
-      "php_class": "DossierNR"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1064,
-    "fields": {
-      "php_class": "SaveFormPerson"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1105,
-    "fields": {
-      "php_class": "RedirectToPortal"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1150,
-    "fields": {
-      "php_class": "CircStart"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1157,
-    "fields": {
-      "php_class": "EditNotice"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1181,
-    "fields": {
-      "php_class": "CircStart"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1184,
-    "fields": {
-      "php_class": "ReopenCirculation"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1208,
-    "fields": {
-      "php_class": "CircStart"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1213,
-    "fields": {
-      "php_class": "CircStart"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1216,
-    "fields": {
-      "php_class": "ReopenCirculation"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1232,
-    "fields": {
-      "php_class": "CircStart"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1237,
-    "fields": {
-      "php_class": "CircStart"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1240,
-    "fields": {
-      "php_class": "ReopenCirculation"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1282,
-    "fields": {
-      "php_class": "CircStart"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1287,
-    "fields": {
-      "php_class": "CircStart"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1290,
-    "fields": {
-      "php_class": "ReopenCirculation"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1374,
-    "fields": {
-      "php_class": "RedirectToInstance"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1379,
-    "fields": {
-      "php_class": "CheckIfNFDPossible"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1383,
-    "fields": {
-      "php_class": "CircStart"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1387,
-    "fields": {
-      "php_class": "CircStart"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1388,
-    "fields": {
-      "php_class": "ReopenCirculation"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1412,
-    "fields": {
-      "php_class": "CircStart"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1415,
-    "fields": {
-      "php_class": "ReopenCirculation"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1418,
-    "fields": {
-      "php_class": "CircStart"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1423,
-    "fields": {
-      "php_class": "BundesstelleCircEnd"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1435,
-    "fields": {
-      "php_class": "MunicipalityCircEnd"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1455,
-    "fields": {
-      "php_class": "MunicipalityCircEnd"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1457,
-    "fields": {
-      "php_class": "CreateInstanceNG"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 20001,
-    "fields": {
-      "php_class": "CreateInstanceNG"
-    }
-  },
-  {
     "model": "core.action",
     "pk": 9,
     "fields": {
@@ -5151,6 +3892,422 @@
     }
   },
   {
+    "model": "core.aformtransition",
+    "pk": 9,
+    "fields": {
+      "current_instance_state": 21,
+      "next_instance_state": 22
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 227,
+    "fields": {
+      "current_instance_state": 22,
+      "next_instance_state": 21
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 247,
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 27
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 248,
+    "fields": {
+      "current_instance_state": 21,
+      "next_instance_state": 27
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 249,
+    "fields": {
+      "current_instance_state": 24,
+      "next_instance_state": 25
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 252,
+    "fields": {
+      "current_instance_state": 24,
+      "next_instance_state": 26
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 254,
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 26
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 351,
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 23
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 652,
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 27
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 653,
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 26
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 657,
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 23
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 697,
+    "fields": {
+      "current_instance_state": 21,
+      "next_instance_state": 22
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 730,
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 21
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 791,
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 25
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 972,
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 23
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 992,
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 26
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 993,
+    "fields": {
+      "current_instance_state": 24,
+      "next_instance_state": 26
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1005,
+    "fields": {
+      "current_instance_state": 26,
+      "next_instance_state": 21
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1007,
+    "fields": {
+      "current_instance_state": 26,
+      "next_instance_state": 21
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1035,
+    "fields": {
+      "current_instance_state": 30,
+      "next_instance_state": 21
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1062,
+    "fields": {
+      "current_instance_state": 29,
+      "next_instance_state": 30
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1070,
+    "fields": {
+      "current_instance_state": 29,
+      "next_instance_state": 30
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1097,
+    "fields": {
+      "current_instance_state": 26,
+      "next_instance_state": 21
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1098,
+    "fields": {
+      "current_instance_state": 26,
+      "next_instance_state": 22
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1099,
+    "fields": {
+      "current_instance_state": 26,
+      "next_instance_state": 22
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1101,
+    "fields": {
+      "current_instance_state": 26,
+      "next_instance_state": 22
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1131,
+    "fields": {
+      "current_instance_state": 23,
+      "next_instance_state": 24
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1141,
+    "fields": {
+      "current_instance_state": 22,
+      "next_instance_state": 27
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1142,
+    "fields": {
+      "current_instance_state": 24,
+      "next_instance_state": 26
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1145,
+    "fields": {
+      "current_instance_state": 26,
+      "next_instance_state": 22
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1163,
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 23
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1200,
+    "fields": {
+      "current_instance_state": 22,
+      "next_instance_state": 27
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1201,
+    "fields": {
+      "current_instance_state": 24,
+      "next_instance_state": 26
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1203,
+    "fields": {
+      "current_instance_state": 26,
+      "next_instance_state": 22
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1206,
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 23
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1224,
+    "fields": {
+      "current_instance_state": 22,
+      "next_instance_state": 27
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1225,
+    "fields": {
+      "current_instance_state": 24,
+      "next_instance_state": 26
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1227,
+    "fields": {
+      "current_instance_state": 26,
+      "next_instance_state": 22
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1230,
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 23
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1274,
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 27
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1275,
+    "fields": {
+      "current_instance_state": 24,
+      "next_instance_state": 26
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1277,
+    "fields": {
+      "current_instance_state": 26,
+      "next_instance_state": 22
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1280,
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 23
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1378,
+    "fields": {
+      "current_instance_state": 21,
+      "next_instance_state": 32
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1406,
+    "fields": {
+      "current_instance_state": 21,
+      "next_instance_state": 27
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1407,
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 26
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1443,
+    "fields": {
+      "current_instance_state": 21,
+      "next_instance_state": 22
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1448,
+    "fields": {
+      "current_instance_state": 24,
+      "next_instance_state": 25
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1449,
+    "fields": {
+      "current_instance_state": 24,
+      "next_instance_state": 25
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 1456,
+    "fields": {
+      "current_instance_state": 23,
+      "next_instance_state": 24
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 12000002,
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 31
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 12000003,
+    "fields": {
+      "current_instance_state": 31,
+      "next_instance_state": null
+    }
+  },
+  {
     "model": "core.airaction",
     "pk": 1,
     "fields": {
@@ -5895,6 +5052,390 @@
       "available_instance_resource": "apidocuments",
       "action_name": "download",
       "hidden": 1
+    }
+  },
+  {
+    "model": "core.alocation",
+    "pk": 1009,
+    "fields": {}
+  },
+  {
+    "model": "core.alocation",
+    "pk": 1030,
+    "fields": {}
+  },
+  {
+    "model": "core.alocation",
+    "pk": 1132,
+    "fields": {}
+  },
+  {
+    "model": "core.alocationqc",
+    "pk": 7,
+    "fields": {
+      "action": 1030,
+      "question": 2,
+      "chapter": 3
+    }
+  },
+  {
+    "model": "core.alocationqc",
+    "pk": 8,
+    "fields": {
+      "action": 1132,
+      "question": 2,
+      "chapter": 3
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 228,
+    "fields": {
+      "template": "dossier-an-gemeinde-zuruck-geschickt",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_MunicipalityUsers",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 251,
+    "fields": {
+      "template": "dossier-an-gemeinde-zuruck-geschickt1",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_MunicipalityUsers",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 658,
+    "fields": {
+      "template": "zirkulation-gestartet",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 698,
+    "fields": {
+      "template": "dossier-id-von-gemeinde-frei-geschalten1",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_KoorNpUsers",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 734,
+    "fields": {
+      "template": "zirkulation-gestartet1",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 792,
+    "fields": {
+      "template": "dossier-an-gemeinde-zuruck-geschickt1",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_MunicipalityUsers",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 835,
+    "fields": {
+      "template": "zirkulation-gestartet1",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 840,
+    "fields": {
+      "template": "zirkulation-gestartet",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 973,
+    "fields": {
+      "template": "zirkulation-gestartet1",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 978,
+    "fields": {
+      "template": "zirkulation-gestartet1",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 1067,
+    "fields": {
+      "template": "dossier-weitergeleitet-an-koordinationsstelle",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_SubmitterList",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 1068,
+    "fields": {
+      "template": "dossier-von-koordinationsstelle-fur-baueingaben-an-die-gemeinde-zuruckgeschickt",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_SubmitterList",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 1069,
+    "fields": {
+      "template": "dossier-instance_id-von-gemeinde-frei-geschalten",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_KoorBgUsers",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 1126,
+    "fields": {
+      "template": "dossier-angenommen",
+      "recipient_type": "Notification_Manager_Applicant",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 1130,
+    "fields": {
+      "template": "dossier-von-koordinationsstelle-fur-baueingaben-an-die-gemeinde-zuruckgeschickt1",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_SubmitterList",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 1132,
+    "fields": {
+      "template": "neues-online-dossier-erganzt",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_MunicipalityUsers",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 1149,
+    "fields": {
+      "template": "zirkulation-gestartet1",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 1180,
+    "fields": {
+      "template": "zirkulation-gestartet1",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 1207,
+    "fields": {
+      "template": "zirkulation-gestartet1",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 1212,
+    "fields": {
+      "template": "zirkulation-gestartet1",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 1231,
+    "fields": {
+      "template": "zirkulation-gestartet1",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 1236,
+    "fields": {
+      "template": "zirkulation-gestartet1",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 1281,
+    "fields": {
+      "template": "zirkulation-gestartet1",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 1286,
+    "fields": {
+      "template": "zirkulation-gestartet1",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 1297,
+    "fields": {
+      "template": "oreb-meldung",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_Lisag",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 1318,
+    "fields": {
+      "template": "oreb-meldung",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_Lisag",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 1337,
+    "fields": {
+      "template": "oreb-meldung",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_Lisag",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 1357,
+    "fields": {
+      "template": "oreb-meldung",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_Lisag",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 1358,
+    "fields": {
+      "template": "oreb-meldung",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_Lisag",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 1360,
+    "fields": {
+      "template": "oreb-meldung",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_Lisag",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 1369,
+    "fields": {
+      "template": "zirkulation-abgeschlossen",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_SubmitterList",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 1374,
+    "fields": {
+      "template": "zirkulation-gestartet1",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 1375,
+    "fields": {
+      "template": "zirkulation-gestartet1",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 1382,
+    "fields": {
+      "template": "gemeindezirkulation-gestartet",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 1386,
+    "fields": {
+      "template": "gemeindezirkulation-gestartet",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 1411,
+    "fields": {
+      "template": "zirkulation-gestartet16",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 1417,
+    "fields": {
+      "template": "zirkulation-gestartet16",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 1445,
+    "fields": {
+      "template": "dossier-id-von-bundesstelle-frei-geschalten",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_ResponsibleKoor",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 12000004,
+    "fields": {
+      "template": "dossier-abgewiesen",
+      "recipient_type": "Notification_Manager_Applicant",
+      "processor": "Notification_Processor_SendEmailAPI"
     }
   },
   {
@@ -8467,6 +8008,465 @@
     "fields": {
       "name": "Gemeinden (ohne Diverse/Alle Gemeinden/Bundesamt*)",
       "query": "SELECT\r\n  \"COMMUNAL_FEDERAL_NUMBER\", \"NAME\"\r\nFROM\r\n  \"LOCATION\"\r\n\r\nWHERE\r\n  \"LOCATION_ID\" IN (\r\n    SELECT\r\n      \"LOCATION_ID\"\r\n    FROM\r\n      \"GROUP_LOCATION\"\r\n    WHERE\r\n      \"GROUP_ID\" = [GROUP_ID]\r\n    )\r\n    OR\r\n    [ROLE_ID] NOT IN (6, 7, 1105)\r\nAND \"LOCATION_ID\" NOT IN (\r\n    21,\r\n    22)\r\nORDER BY \"NAME\""
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 711,
+    "fields": {
+      "resource": 267,
+      "instance_resource": 315,
+      "air_action_name": "edit"
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 732,
+    "fields": {
+      "resource": 288,
+      "instance_resource": 467,
+      "air_action_name": "edit"
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 733,
+    "fields": {
+      "resource": 122,
+      "instance_resource": null,
+      "air_action_name": null
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 735,
+    "fields": {
+      "resource": 302,
+      "instance_resource": null,
+      "air_action_name": null
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 737,
+    "fields": {
+      "resource": 267,
+      "instance_resource": 314,
+      "air_action_name": "index"
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 738,
+    "fields": {
+      "resource": 288,
+      "instance_resource": 486,
+      "air_action_name": "index"
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 976,
+    "fields": {
+      "resource": 264,
+      "instance_resource": 625,
+      "air_action_name": "edit"
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 1056,
+    "fields": {
+      "resource": 251,
+      "instance_resource": 678,
+      "air_action_name": "list"
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 1071,
+    "fields": {
+      "resource": 251,
+      "instance_resource": 678,
+      "air_action_name": "list"
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 1152,
+    "fields": {
+      "resource": 289,
+      "instance_resource": 702,
+      "air_action_name": "edit"
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 1158,
+    "fields": {
+      "resource": 289,
+      "instance_resource": 1,
+      "air_action_name": null
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 1210,
+    "fields": {
+      "resource": 296,
+      "instance_resource": 717,
+      "air_action_name": "edit"
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 1234,
+    "fields": {
+      "resource": 297,
+      "instance_resource": 1,
+      "air_action_name": null
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 1284,
+    "fields": {
+      "resource": 298,
+      "instance_resource": null,
+      "air_action_name": null
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 1414,
+    "fields": {
+      "resource": 316,
+      "instance_resource": 763,
+      "air_action_name": "edit"
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 1425,
+    "fields": {
+      "resource": 302,
+      "instance_resource": null,
+      "air_action_name": null
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 260,
+    "fields": {
+      "php_class": "ChangeDossierType"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 490,
+    "fields": {
+      "php_class": "CircEnd"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 610,
+    "fields": {
+      "php_class": "ReopenCirculation"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 631,
+    "fields": {
+      "php_class": "EditNotice"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 662,
+    "fields": {
+      "php_class": "ReopenCirculation"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 670,
+    "fields": {
+      "php_class": "EditNotice"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 831,
+    "fields": {
+      "php_class": "CircStart"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 832,
+    "fields": {
+      "php_class": "CircStart"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 834,
+    "fields": {
+      "php_class": "CircStart"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 841,
+    "fields": {
+      "php_class": "CircStart"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 870,
+    "fields": {
+      "php_class": "SaveCommissionAssignments"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 913,
+    "fields": {
+      "php_class": "SetNFD"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 914,
+    "fields": {
+      "php_class": "SetNFDComplete"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 974,
+    "fields": {
+      "php_class": "CircStart"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 979,
+    "fields": {
+      "php_class": "CircStart"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 982,
+    "fields": {
+      "php_class": "ReopenCirculation"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 1010,
+    "fields": {
+      "php_class": "DossierNR"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 1064,
+    "fields": {
+      "php_class": "SaveFormPerson"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 1105,
+    "fields": {
+      "php_class": "RedirectToPortal"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 1150,
+    "fields": {
+      "php_class": "CircStart"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 1157,
+    "fields": {
+      "php_class": "EditNotice"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 1181,
+    "fields": {
+      "php_class": "CircStart"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 1184,
+    "fields": {
+      "php_class": "ReopenCirculation"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 1208,
+    "fields": {
+      "php_class": "CircStart"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 1213,
+    "fields": {
+      "php_class": "CircStart"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 1216,
+    "fields": {
+      "php_class": "ReopenCirculation"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 1232,
+    "fields": {
+      "php_class": "CircStart"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 1237,
+    "fields": {
+      "php_class": "CircStart"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 1240,
+    "fields": {
+      "php_class": "ReopenCirculation"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 1282,
+    "fields": {
+      "php_class": "CircStart"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 1287,
+    "fields": {
+      "php_class": "CircStart"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 1290,
+    "fields": {
+      "php_class": "ReopenCirculation"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 1374,
+    "fields": {
+      "php_class": "RedirectToInstance"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 1379,
+    "fields": {
+      "php_class": "CheckIfNFDPossible"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 1383,
+    "fields": {
+      "php_class": "CircStart"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 1387,
+    "fields": {
+      "php_class": "CircStart"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 1388,
+    "fields": {
+      "php_class": "ReopenCirculation"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 1412,
+    "fields": {
+      "php_class": "CircStart"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 1415,
+    "fields": {
+      "php_class": "ReopenCirculation"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 1418,
+    "fields": {
+      "php_class": "CircStart"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 1423,
+    "fields": {
+      "php_class": "BundesstelleCircEnd"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 1435,
+    "fields": {
+      "php_class": "MunicipalityCircEnd"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 1455,
+    "fields": {
+      "php_class": "MunicipalityCircEnd"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 1457,
+    "fields": {
+      "php_class": "CreateInstanceNG"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 20001,
+    "fields": {
+      "php_class": "CreateInstanceNG"
     }
   },
   {
@@ -11065,6 +11065,14 @@
       "module_name": "useradmin",
       "controller_name": "user",
       "description": "Group settings"
+    }
+  },
+  {
+    "model": "core.billingconfig",
+    "pk": 1,
+    "fields": {
+      "name": "hourly_rate",
+      "value": "100"
     }
   },
   {
@@ -15412,14 +15420,6 @@
       "button": 949,
       "role": 1061,
       "instance_state": 34
-    }
-  },
-  {
-    "model": "core.billingconfig",
-    "pk": 1,
-    "fields": {
-      "name": "hourly_rate",
-      "value": "100"
     }
   },
   {
@@ -36998,6 +36998,60 @@
   },
   {
     "model": "core.irroleacl",
+    "pk": 12000041,
+    "fields": {
+      "instance_resource": 180010,
+      "role": 4,
+      "instance_state": 33
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000042,
+    "fields": {
+      "instance_resource": 180010,
+      "role": 1021,
+      "instance_state": 33
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000043,
+    "fields": {
+      "instance_resource": 2000000,
+      "role": 4,
+      "instance_state": 33
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000044,
+    "fields": {
+      "instance_resource": 2000000,
+      "role": 1021,
+      "instance_state": 33
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000045,
+    "fields": {
+      "instance_resource": 12000001,
+      "role": 4,
+      "instance_state": 33
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000046,
+    "fields": {
+      "instance_resource": 12000001,
+      "role": 1021,
+      "instance_state": 33
+    }
+  },
+  {
+    "model": "core.irroleacl",
     "pk": 12000047,
     "fields": {
       "instance_resource": 180003,
@@ -42310,6 +42364,474 @@
     }
   },
   {
+    "model": "core.resource",
+    "pk": 22,
+    "fields": {
+      "available_resource": "page",
+      "name": "Neues Dossier erstellen",
+      "description": "Dossier erstellen-Seite",
+      "template": "/global/home.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 31
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 42,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Dossier suchen",
+      "description": "Allgemeine Suche",
+      "template": "/global/search.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 29
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 102,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Dossiersuche",
+      "description": "Dossiersuche BK eingeschr\u00e4nkt auf die Gemeinde",
+      "template": "/buildom/search.phtml",
+      "class_field": "",
+      "hidden": 1,
+      "sort": 27
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 122,
+    "fields": {
+      "available_resource": "list",
+      "name": "Pendenzenliste Subfachstelle",
+      "description": "Pendenzenliste f\u00fcr die SubFachstellen",
+      "template": "",
+      "class_field": "",
+      "hidden": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 248,
+    "fields": {
+      "available_resource": "portal",
+      "name": "Portal User Resource",
+      "description": "Diese Resource stellt die API f\u00fcr das i-Web Portal bereit",
+      "template": "",
+      "class_field": "",
+      "hidden": 0,
+      "sort": 33
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 251,
+    "fields": {
+      "available_resource": "page",
+      "name": "Portal Resource",
+      "description": "Base Resource zum w\u00e4hlen, welches Dossier kreiert werden soll",
+      "template": "/portal/create.phtml",
+      "class_field": "",
+      "hidden": 0,
+      "sort": 34
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 264,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Dossierzirkulation starten",
+      "description": "Dossierzirkulation starten f\u00fcr die Koordinationsstelle Baudirektion BD",
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 15
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 266,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Dossierzirkulation beendet",
+      "description": "Dossierzirkulation bei den Fachstellen abgeschlossen",
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 22
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 267,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Dossierzirkulation starten",
+      "description": "Dossierzirkulation starten f\u00fcr Koord Baugesuche BG",
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 13
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 287,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Dossiers in Zirkulation",
+      "description": "",
+      "template": "",
+      "class_field": "",
+      "hidden": 0,
+      "sort": 23
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 288,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Dossierzirkulation starten",
+      "description": "Dossierzirkulation starten f\u00fcr Koord NP",
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 14
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 289,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Dossierzirkulation starten",
+      "description": "Dossierzirkulation starten f\u00fcr Koord Umweltschutz AfU",
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 16
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 293,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Bauplanauflage",
+      "description": null,
+      "template": "/list/index-portal.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 36
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 294,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Baubegleitungssgeb\u00fchren",
+      "description": null,
+      "template": null,
+      "class_field": "hasPendingBillingEntry",
+      "hidden": 0,
+      "sort": 25
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 295,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Erfasste Auflagen",
+      "description": null,
+      "template": null,
+      "class_field": "hasPendingSanction",
+      "hidden": 0,
+      "sort": 24
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 296,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Dossierzirkulation starten",
+      "description": "Dossierzirkulation starten f\u00fcr Koord Landwirtschaft ALA",
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 17
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 297,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Dossierzirkulation starten",
+      "description": "Dossierzirkulation starten f\u00fcr Koord Energie AfE",
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 18
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 298,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Dossierzirkulation starten",
+      "description": "Dossierzirkulation starten f\u00fcr Koord AFJ SD",
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 19
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 300,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Bau- und Einspracheentscheid zugestellt",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 26
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 301,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Dossierbearbeitung starten",
+      "description": "Dossierbearbeitung startenf\u00fcr Gemeinden",
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 11
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 302,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Zur Pr\u00fcfung zugewiesene Dossiers",
+      "description": "Zur Pr\u00fcfung zugewiesene Dossiers f\u00fcr Vernehmlassungsstellen",
+      "template": null,
+      "class_field": "hasActivation",
+      "hidden": 0,
+      "sort": 4
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 303,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Dossiers in Zirkulation",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 6
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 304,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "In Zirkulation (KOOR BD)",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 1,
+      "sort": 7
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 305,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "In Zirkulation (KOOR ARE NP)",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 1,
+      "sort": 8
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 306,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Kantonale Pr\u00fcfung beendet",
+      "description": "Kantonale Pr\u00fcfung beendet f\u00fcr Gemeinden",
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 21
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 307,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Laufende Baubewilligungsverfahren und Vorabkl\u00e4rungen",
+      "description": "Dossiers die bei den Gemeinden und dem Kanton in Bearbeitung sind, Anzeige f\u00fcr Organisation mit Leserechten",
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 3
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 309,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Zur Pr\u00fcfung zugewiesene Dossiers",
+      "description": "Zur Pr\u00fcfung zugewiesene Dossiers f\u00fcr die Kommissionsmitglieder",
+      "template": null,
+      "class_field": "show_list_count",
+      "hidden": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 310,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Erledigte Dossiers",
+      "description": "Erledigte Dossiers f\u00fcr die Kommissionsmitglieder",
+      "template": "",
+      "class_field": "show_list_count",
+      "hidden": 0,
+      "sort": 2
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 312,
+    "fields": {
+      "available_resource": "statistics",
+      "name": "Geb\u00fchren-Statistik",
+      "description": "Erlaubt das Erstellen von Dossier \u00fcbergreifenden Auswertungen",
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 30
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 314,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Aufgaben Gemeindebaubeh\u00f6rde",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 20
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 316,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Dossierbearbeitung starten",
+      "description": "Dossierbearbeitung starten Bundesstellen",
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 12
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 317,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Zur Pr\u00fcfung zugewiesene Dossiers",
+      "description": "Zur Pr\u00fcfung zugewiesene Dossiers f\u00fcr Vernehmlassungsstellen Gemeindezirkulation",
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 5
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 318,
+    "fields": {
+      "available_resource": "useradmin",
+      "name": "Einstellungen",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 28
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 20000,
+    "fields": {
+      "available_resource": "page",
+      "name": "Form Builder",
+      "description": null,
+      "template": "/ember/form-builder.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 35
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 20001,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Portal Dossiers",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 32
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 12000000,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Eingang Online - Dossiers",
+      "description": "Dossiers, die von den B\u00fcrgern eingereicht wurden",
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 10
+    }
+  },
+  {
     "model": "core.rlist",
     "pk": 122,
     "fields": {
@@ -43737,474 +44259,6 @@
       "query": "(? = 0 OR \"SANCTION\".\"SERVICE_ID\" = ?) AND \"SANCTION\".\"IS_FINISHED\" = 0",
       "wildcard": 0,
       "class_field": ""
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 22,
-    "fields": {
-      "available_resource": "page",
-      "name": "Neues Dossier erstellen",
-      "description": "Dossier erstellen-Seite",
-      "template": "/global/home.phtml",
-      "class_field": null,
-      "hidden": 0,
-      "sort": 31
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 42,
-    "fields": {
-      "available_resource": "emberlist",
-      "name": "Dossier suchen",
-      "description": "Allgemeine Suche",
-      "template": "/global/search.phtml",
-      "class_field": null,
-      "hidden": 0,
-      "sort": 29
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 102,
-    "fields": {
-      "available_resource": "emberlist",
-      "name": "Dossiersuche",
-      "description": "Dossiersuche BK eingeschr\u00e4nkt auf die Gemeinde",
-      "template": "/buildom/search.phtml",
-      "class_field": "",
-      "hidden": 1,
-      "sort": 27
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 122,
-    "fields": {
-      "available_resource": "list",
-      "name": "Pendenzenliste Subfachstelle",
-      "description": "Pendenzenliste f\u00fcr die SubFachstellen",
-      "template": "",
-      "class_field": "",
-      "hidden": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 248,
-    "fields": {
-      "available_resource": "portal",
-      "name": "Portal User Resource",
-      "description": "Diese Resource stellt die API f\u00fcr das i-Web Portal bereit",
-      "template": "",
-      "class_field": "",
-      "hidden": 0,
-      "sort": 33
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 251,
-    "fields": {
-      "available_resource": "page",
-      "name": "Portal Resource",
-      "description": "Base Resource zum w\u00e4hlen, welches Dossier kreiert werden soll",
-      "template": "/portal/create.phtml",
-      "class_field": "",
-      "hidden": 0,
-      "sort": 34
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 264,
-    "fields": {
-      "available_resource": "emberlist",
-      "name": "Dossierzirkulation starten",
-      "description": "Dossierzirkulation starten f\u00fcr die Koordinationsstelle Baudirektion BD",
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 15
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 266,
-    "fields": {
-      "available_resource": "emberlist",
-      "name": "Dossierzirkulation beendet",
-      "description": "Dossierzirkulation bei den Fachstellen abgeschlossen",
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 22
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 267,
-    "fields": {
-      "available_resource": "emberlist",
-      "name": "Dossierzirkulation starten",
-      "description": "Dossierzirkulation starten f\u00fcr Koord Baugesuche BG",
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 13
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 287,
-    "fields": {
-      "available_resource": "emberlist",
-      "name": "Dossiers in Zirkulation",
-      "description": "",
-      "template": "",
-      "class_field": "",
-      "hidden": 0,
-      "sort": 23
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 288,
-    "fields": {
-      "available_resource": "emberlist",
-      "name": "Dossierzirkulation starten",
-      "description": "Dossierzirkulation starten f\u00fcr Koord NP",
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 14
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 289,
-    "fields": {
-      "available_resource": "emberlist",
-      "name": "Dossierzirkulation starten",
-      "description": "Dossierzirkulation starten f\u00fcr Koord Umweltschutz AfU",
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 16
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 293,
-    "fields": {
-      "available_resource": "emberlist",
-      "name": "Bauplanauflage",
-      "description": null,
-      "template": "/list/index-portal.phtml",
-      "class_field": null,
-      "hidden": 0,
-      "sort": 36
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 294,
-    "fields": {
-      "available_resource": "emberlist",
-      "name": "Baubegleitungssgeb\u00fchren",
-      "description": null,
-      "template": null,
-      "class_field": "hasPendingBillingEntry",
-      "hidden": 0,
-      "sort": 25
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 295,
-    "fields": {
-      "available_resource": "emberlist",
-      "name": "Erfasste Auflagen",
-      "description": null,
-      "template": null,
-      "class_field": "hasPendingSanction",
-      "hidden": 0,
-      "sort": 24
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 296,
-    "fields": {
-      "available_resource": "emberlist",
-      "name": "Dossierzirkulation starten",
-      "description": "Dossierzirkulation starten f\u00fcr Koord Landwirtschaft ALA",
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 17
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 297,
-    "fields": {
-      "available_resource": "emberlist",
-      "name": "Dossierzirkulation starten",
-      "description": "Dossierzirkulation starten f\u00fcr Koord Energie AfE",
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 18
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 298,
-    "fields": {
-      "available_resource": "emberlist",
-      "name": "Dossierzirkulation starten",
-      "description": "Dossierzirkulation starten f\u00fcr Koord AFJ SD",
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 19
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 300,
-    "fields": {
-      "available_resource": "emberlist",
-      "name": "Bau- und Einspracheentscheid zugestellt",
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 26
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 301,
-    "fields": {
-      "available_resource": "emberlist",
-      "name": "Dossierbearbeitung starten",
-      "description": "Dossierbearbeitung startenf\u00fcr Gemeinden",
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 11
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 302,
-    "fields": {
-      "available_resource": "emberlist",
-      "name": "Zur Pr\u00fcfung zugewiesene Dossiers",
-      "description": "Zur Pr\u00fcfung zugewiesene Dossiers f\u00fcr Vernehmlassungsstellen",
-      "template": null,
-      "class_field": "hasActivation",
-      "hidden": 0,
-      "sort": 4
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 303,
-    "fields": {
-      "available_resource": "emberlist",
-      "name": "Dossiers in Zirkulation",
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 6
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 304,
-    "fields": {
-      "available_resource": "emberlist",
-      "name": "In Zirkulation (KOOR BD)",
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 1,
-      "sort": 7
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 305,
-    "fields": {
-      "available_resource": "emberlist",
-      "name": "In Zirkulation (KOOR ARE NP)",
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 1,
-      "sort": 8
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 306,
-    "fields": {
-      "available_resource": "emberlist",
-      "name": "Kantonale Pr\u00fcfung beendet",
-      "description": "Kantonale Pr\u00fcfung beendet f\u00fcr Gemeinden",
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 21
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 307,
-    "fields": {
-      "available_resource": "emberlist",
-      "name": "Laufende Baubewilligungsverfahren und Vorabkl\u00e4rungen",
-      "description": "Dossiers die bei den Gemeinden und dem Kanton in Bearbeitung sind, Anzeige f\u00fcr Organisation mit Leserechten",
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 3
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 309,
-    "fields": {
-      "available_resource": "emberlist",
-      "name": "Zur Pr\u00fcfung zugewiesene Dossiers",
-      "description": "Zur Pr\u00fcfung zugewiesene Dossiers f\u00fcr die Kommissionsmitglieder",
-      "template": null,
-      "class_field": "show_list_count",
-      "hidden": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 310,
-    "fields": {
-      "available_resource": "emberlist",
-      "name": "Erledigte Dossiers",
-      "description": "Erledigte Dossiers f\u00fcr die Kommissionsmitglieder",
-      "template": "",
-      "class_field": "show_list_count",
-      "hidden": 0,
-      "sort": 2
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 312,
-    "fields": {
-      "available_resource": "statistics",
-      "name": "Geb\u00fchren-Statistik",
-      "description": "Erlaubt das Erstellen von Dossier \u00fcbergreifenden Auswertungen",
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 30
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 314,
-    "fields": {
-      "available_resource": "emberlist",
-      "name": "Aufgaben Gemeindebaubeh\u00f6rde",
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 20
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 316,
-    "fields": {
-      "available_resource": "emberlist",
-      "name": "Dossierbearbeitung starten",
-      "description": "Dossierbearbeitung starten Bundesstellen",
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 12
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 317,
-    "fields": {
-      "available_resource": "emberlist",
-      "name": "Zur Pr\u00fcfung zugewiesene Dossiers",
-      "description": "Zur Pr\u00fcfung zugewiesene Dossiers f\u00fcr Vernehmlassungsstellen Gemeindezirkulation",
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 5
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 318,
-    "fields": {
-      "available_resource": "useradmin",
-      "name": "Einstellungen",
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 28
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 20000,
-    "fields": {
-      "available_resource": "page",
-      "name": "Form Builder",
-      "description": null,
-      "template": "/ember/form-builder.phtml",
-      "class_field": null,
-      "hidden": 0,
-      "sort": 35
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 20001,
-    "fields": {
-      "available_resource": "emberlist",
-      "name": "Portal Dossiers",
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 32
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 12000000,
-    "fields": {
-      "available_resource": "emberlist",
-      "name": "Eingang Online - Dossiers",
-      "description": "Dossiers, die von den B\u00fcrgern eingereicht wurden",
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 10
     }
   },
   {
