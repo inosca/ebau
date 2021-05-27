@@ -49,6 +49,7 @@ omit=
     camac/core/management/commands/migrate_einfache_vorabklaerung.py
     camac/core/management/commands/migrate_uri_attachment_sections.py
     camac/core/management/commands/fix_einfache_vorabklaerung.py
+    camac/core/management/commands/restore_preliminary_clarification.py
     camac/echbern/management/commands/fix_ech_circulation_answer.py
     # Audit migration
     camac/core/management/commands/config/
