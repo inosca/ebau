@@ -2058,24 +2058,14 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
 
         applicant_doc = ans.documents.last()
 
-        try:
-            return " ".join(
-                [
-                    getattr(
-                        applicant_doc.answers.filter(question_id=q).first(), "value", ""
-                    )
-                    for q in ["title", "first-name", "last-name"]
-                ]
-            )
-        except TypeError:
-            return " ".join(
-                [
-                    getattr(
-                        applicant_doc.answers.filter(question_id=q).first(), "value", ""
-                    )
-                    for q in ["first-name", "last-name"]
-                ]
-            )
+        answers = filter(
+            None,
+            [
+                applicant_doc.answers.filter(question_id=q).first()
+                for q in ["title", "first-name", "last-name"]
+            ],
+        )
+        return " ".join([a.value for a in answers if a.value])
 
     def get_street(self, case):
         return getattr(
