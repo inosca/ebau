@@ -20,7 +20,7 @@ export default class App extends Application {
   podModulePrefix = config.podModulePrefix;
   Resolver = Resolver;
   engines = {
-    emberCaluma: {
+    "ember-caluma": {
       dependencies: {
         services: [
           "apollo",
