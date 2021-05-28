@@ -10,13 +10,21 @@ export default class CustomCaseModel extends CaseModel {
   @service store;
 
   _findAnswer(slug) {
-    const answers = this.raw.document.answers.edges.map(({ node }) => node);
-    const answer =
-      answers.find((answer) => answer.question.slug === slug) || {};
+    const answer = this.raw.document.answers.edges
+      .map(({ node }) => node)
+      .find((answer) => answer.question.slug === slug);
 
-    const key = Object.keys(answer).find((key) => /Value$/.test(key));
+    if (!answer) {
+      return null;
+    }
 
-    return answer && key ? answer[key] : null;
+    if (answer.selectedOption) {
+      return answer.selectedOption.label;
+    }
+
+    const valueKey = Object.keys(answer).find((key) => /^\w+Value$/.test(key));
+
+    return answer[valueKey];
   }
 
   get instanceId() {
@@ -48,15 +56,7 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get municipality() {
-    const slug = this._findAnswer(answerSlugs.municipality);
-
-    return (
-      slug &&
-      this.store
-        .peekRecord(config.APPLICATION.municipalityModel, slug)
-        ?.name?.replace(/Leitbehörde|Municipalité/, "")
-        .trim()
-    );
+    return this._findAnswer(answerSlugs.municipality);
   }
 
   get submitDate() {
@@ -108,6 +108,9 @@ export default class CustomCaseModel extends CaseModel {
             }
             ...on StringAnswer {
               stringValue: value
+              selectedOption {
+                label
+              }
             }
             ...on IntegerAnswer {
               integerValue: value
