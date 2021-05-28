@@ -31,6 +31,7 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
   @queryManager apollo;
 
   @service intl;
+  @service session;
 
   @calumaQuery({ query: allCases, options: "options" }) cases;
 
@@ -206,9 +207,7 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
   }
 
   get serializedHeaders() {
-    const camacFilters = {
-      is_applicant: true,
-    };
+    const camacFilters = this.session.group ? {} : { is_applicant: true };
 
     return {
       "x-camac-filters": Object.entries(camacFilters)
@@ -247,31 +246,11 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
   }
 
   async processNew(cases) {
-    const instanceIds = cases
-      .map(({ meta }) => meta["camac-instance-id"])
-      .filter(Boolean);
-
-    const municipalityRefs = cases
-      .map(
-        ({ document }) =>
-          document.answers.edges
-            .map(({ node }) => node)
-            .find((answer) => answer.question.slug === answerSlugs.municipality)
-            ?.stringValue
-      )
-      .filter(Boolean);
+    const instanceIds = cases.map(({ meta }) => meta["camac-instance-id"]);
 
     if (instanceIds.length) {
       await this.store.query("instance", {
         instance_id: instanceIds.join(","),
-      });
-    }
-
-    if (municipalityRefs.length) {
-      await this.store.query(config.APPLICATION.municipalityModel, {
-        [config.APPLICATION.municipalityFilterKey]: [
-          ...new Set(municipalityRefs),
-        ].join(","),
       });
     }
 
