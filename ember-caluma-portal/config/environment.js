@@ -55,8 +55,6 @@ module.exports = function (environment) {
           instanceStatesBe.sb2,
         ],
       },
-      municipalityModel: "public-service",
-      municipalityFilterKey: "service_id",
       answerSlugs: {
         objectStreet: "strasse-flurname",
         objectNumber: "nr",
@@ -91,8 +89,6 @@ module.exports = function (environment) {
           instanceStatesUr.old,
         ],
       },
-      municipalityModel: "location",
-      municipalityFilterKey: "location_id",
       answerSlugs: {
         objectStreet: "parcel-street",
         objectNumber: "street-number",
