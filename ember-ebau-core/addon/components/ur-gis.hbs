@@ -26,14 +26,6 @@
     @layers={{this.layers}}
     @url={{this.config.gisUrl}}
   />
-  <map.wms-tile
-    @transparent={{true}}
-    @format="image/png"
-    @version="1.1.1"
-    @layers={{this.lowOpacityLayers}}
-    @url={{this.config.gisUrl}}
-    @opacity={{0.5}}
-  />
 
   {{#each this.parcels as |parcel|}}
     <map.polygon
