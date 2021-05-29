@@ -72,6 +72,7 @@ services:
       - ENABLE_HISTORICAL_API=true
       - KEYCLOAK_REALM=urec
       - GWR_WSK_ID=351388
+      - DJANGO_USE_X_FORWARDED_HOST=True
     volumes:
       - djangomedia:/var/lib/camac/media
       - djangotmpmedia:/tmp/camac/tmpfiles
