@@ -49,7 +49,7 @@ SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 # UR uses camac.ur.ch and camac.kt.ur.ch to refer to the same system. This makes sure
 # that django infers the correct base uri in FileFields (build_absolute_uri).
-USE_X_FORWARDED_HOST = True
+USE_X_FORWARDED_HOST = env.bool("DJANGO_USE_X_FORWARDED_HOST", False)
 
 # Application definition
 
