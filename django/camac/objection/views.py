@@ -1,5 +1,5 @@
 from django.utils import timezone
-from rest_framework import viewsets
+from rest_framework_json_api.views import ModelViewSet
 
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.user.permissions import permission_aware
@@ -7,7 +7,7 @@ from camac.user.permissions import permission_aware
 from . import filters, models, serializers
 
 
-class ObjectionTimeframeView(viewsets.ModelViewSet):
+class ObjectionTimeframeView(ModelViewSet):
     swagger_schema = None
     serializer_class = serializers.ObjectionTimeframeSerializer
     filterset_class = filters.ObjectionTimeframeFilterSet
@@ -46,7 +46,7 @@ class ObjectionTimeframeView(viewsets.ModelViewSet):
         return True
 
 
-class ObjectionView(viewsets.ModelViewSet, InstanceQuerysetMixin):
+class ObjectionView(InstanceQuerysetMixin, ModelViewSet):
     swagger_schema = None
     serializer_class = serializers.ObjectionSerializer
     filterset_class = filters.ObjectionFilterSet
@@ -103,7 +103,7 @@ class ObjectionView(viewsets.ModelViewSet, InstanceQuerysetMixin):
         return True
 
 
-class ObjectionParticipantView(viewsets.ModelViewSet):
+class ObjectionParticipantView(ModelViewSet):
     swagger_schema = None
     serializer_class = serializers.ObjectionParticipantSerializer
     filterset_class = filters.ObjectionParticipantFilterSet

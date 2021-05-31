@@ -6,11 +6,12 @@ from django.conf import settings
 from django.http import HttpResponse
 from django.utils import timezone
 from django.utils.encoding import escape_uri_path, smart_bytes
+from django.utils.module_loading import import_string
 from pyproj import CRS, Transformer
-from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from rest_framework_json_api import django_filters, filters as json_api_filters, views
+from rest_framework_json_api import django_filters, filters as json_api_filters
+from rest_framework_json_api.views import ModelViewSet, ReadOnlyModelViewSet
 
 from camac.caluma.api import CalumaApi
 from camac.instance.mixins import InstanceQuerysetMixin
@@ -20,7 +21,75 @@ from camac.user.permissions import permission_aware
 from . import filters, models, serializers
 
 
-class PublicationEntryView(views.ModelViewSet):
+class MultilangMixin:
+    def _is_multilang_model(self, model):
+        return issubclass(model, models.MultilingualModel)
+
+    def _get_included_serializer(self, serializer, path):
+        parts = path.split(".")
+
+        for i, part in enumerate(parts, 1):
+            included = getattr(serializer, "included_serializers", {}).get(part)
+
+            # if it's a string, import the class
+            if isinstance(included, str):
+                included = import_string(included)
+
+            # if it's a nested include follow the path
+            if i < len(parts):
+                return self._get_included_serializer(included, ".".join(parts[i:]))
+
+            return included
+
+    def _get_multilang_prefetch_for_include(self, serializer, include):
+        included_serializer = self._get_included_serializer(serializer, include)
+
+        # included model is not multilang, continue
+        if not self._is_multilang_model(included_serializer.Meta.model):
+            return None
+
+        lookup = "__".join(include.split("."))
+        return [f"{lookup}__trans"]
+
+    def get_prefetch_related(self, include):
+        prefetch_for_include = super().get_prefetch_related(include)
+
+        if not settings.APPLICATION.get("IS_MULTILINGUAL"):
+            return prefetch_for_include
+
+        # the direct translation models must always be prefetched
+        if include == "__all__":
+            if self._is_multilang_model(self.queryset.model):
+                return (prefetch_for_include if prefetch_for_include else []) + [
+                    "trans"
+                ]
+
+            return prefetch_for_include
+
+        multilang_prefetch_for_include = self._get_multilang_prefetch_for_include(
+            self.serializer_class, include
+        )
+
+        prefetch = set()
+        if prefetch_for_include:
+            prefetch.update(prefetch_for_include)
+        if multilang_prefetch_for_include:
+            prefetch.update(multilang_prefetch_for_include)
+
+        return list(prefetch) if len(prefetch) else None
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+
+        if settings.APPLICATION.get("IS_MULTILINGUAL") and self._is_multilang_model(
+            queryset.model
+        ):
+            return queryset.prefetch_related("trans")
+
+        return queryset
+
+
+class PublicationEntryView(ModelViewSet):
     swagger_schema = None
     filterset_class = filters.PublicationEntryFilterSet
     serializer_class = serializers.PublicationEntrySerializer
@@ -224,7 +293,7 @@ class PublicationEntryView(views.ModelViewSet):
         return Response([], 204)
 
 
-class PublicationEntryUserPermissionView(views.ModelViewSet):
+class PublicationEntryUserPermissionView(ModelViewSet):
     swagger_schema = None
     filterset_class = filters.PublicationEntryUserPermissionFilterSet
     serializer_class = serializers.PublicationEntryUserPermissionSerializer
@@ -332,7 +401,7 @@ class SendfileHttpResponse(HttpResponse):
         self["X-Sendfile"] = smart_bytes(str(abs_path))
 
 
-class AuthorityView(viewsets.ReadOnlyModelViewSet):
+class AuthorityView(ReadOnlyModelViewSet):
     """Only used in Kt. UR for 'Leitbehörde'."""
 
     swagger_schema = None
@@ -340,7 +409,7 @@ class AuthorityView(viewsets.ReadOnlyModelViewSet):
     queryset = models.Authority.objects.all()
 
 
-class WorkflowEntryView(viewsets.ReadOnlyModelViewSet, InstanceQuerysetMixin):
+class WorkflowEntryView(ReadOnlyModelViewSet, InstanceQuerysetMixin):
     """Only used in Kt. UR."""
 
     swagger_schema = None

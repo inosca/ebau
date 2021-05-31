@@ -1,4 +1,4 @@
-from rest_framework import viewsets
+from rest_framework_json_api.views import ModelViewSet
 
 from camac.instance.mixins import InstanceEditableMixin
 from camac.user.permissions import permission_aware
@@ -6,7 +6,7 @@ from camac.user.permissions import permission_aware
 from . import filters, models, serializers
 
 
-class ResponsibleServiceView(InstanceEditableMixin, viewsets.ModelViewSet):
+class ResponsibleServiceView(InstanceEditableMixin, ModelViewSet):
     """
     View to handle responsible services.
 
