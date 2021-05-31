@@ -1087,16 +1087,6 @@ def test_ur_placeholders(
     mailoutbox,
     settings,
 ):
-    option = caluma_form_models.Option.objects.create(
-        pk="proposal-neubau", label="Neubau"
-    )
-    proposal_question = caluma_form_models.Question.objects.create(
-        slug="proposal",
-        type=caluma_form_models.Question.TYPE_MULTIPLE_CHOICE,
-    )
-    proposal_question.options.add(option)
-    proposal_question.save()
-
     caluma_form_models.Question.objects.create(
         slug="proposal-description",
         type=caluma_form_models.Question.TYPE_TEXT,
@@ -1156,7 +1146,6 @@ def test_ur_placeholders(
     case.document.answers.create(
         value="my description", question_id="proposal-description"
     )
-    case.document.answers.create(value="proposal-neubau", question_id="proposal")
     parcel_row_doc = caluma_form_models.Document.objects.create(form=parcel_form)
     parcel_row_doc.answers.create(value="123", question=parcel_question)
 
@@ -1193,7 +1182,7 @@ def test_ur_placeholders(
 
     assert (
         mailoutbox[0].body
-        == f"{settings.EMAIL_PREFIX_BODY}parz=123, gs=juristic-person-name, first-name last-name, street street-number, zip , vorhaben=Neubau, my description"
+        == f"{settings.EMAIL_PREFIX_BODY}parz=123, gs=juristic-person-name, first-name last-name, street street-number, zip , vorhaben=my description"
     )
 
 
