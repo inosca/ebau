@@ -15,12 +15,11 @@ from drf_yasg import openapi
 from drf_yasg.errors import SwaggerGenerationError
 from drf_yasg.inspectors import SwaggerAutoSchema
 from drf_yasg.utils import param_list_to_odict, swagger_auto_schema
-from rest_framework import exceptions, generics, viewsets
+from rest_framework import exceptions, generics
 from rest_framework.decorators import action
 from rest_framework.exceptions import NotFound, ValidationError
 from rest_framework.serializers import Serializer
-from rest_framework.viewsets import ReadOnlyModelViewSet
-from rest_framework_json_api import views
+from rest_framework_json_api.views import ModelViewSet, ReadOnlyModelViewSet
 from sorl.thumbnail import delete, get_thumbnail
 
 from camac.core.views import SendfileHttpResponse
@@ -155,7 +154,7 @@ class AttachmentView(
     AttachmentQuerysetMixin,
     InstanceEditableMixin,
     InstanceQuerysetMixin,
-    views.ModelViewSet,
+    ModelViewSet,
 ):
     queryset = models.Attachment.objects.all()
     permission_classes = [DefaultOrPublicReadOnly]
@@ -385,7 +384,7 @@ class AttachmentDownloadView(
         return response
 
 
-class AttachmentSectionView(viewsets.ReadOnlyModelViewSet):
+class AttachmentSectionView(ReadOnlyModelViewSet):
     queryset = models.AttachmentSection.objects
     ordering = ("sort", "name")
     serializer_class = serializers.AttachmentSectionSerializer
@@ -413,7 +412,7 @@ class AttachmentSectionView(viewsets.ReadOnlyModelViewSet):
         return super().list(request, *args, **kwargs)
 
 
-class TemplateView(views.ModelViewSet):
+class TemplateView(ModelViewSet):
     swagger_schema = None
     queryset = models.Template.objects
     filterset_class = filters.TemplateFilterSet
@@ -505,7 +504,7 @@ class TemplateView(views.ModelViewSet):
         return response
 
 
-class AttachmentDownloadHistoryView(viewsets.ReadOnlyModelViewSet):
+class AttachmentDownloadHistoryView(ReadOnlyModelViewSet):
     swagger_schema = None
     queryset = models.AttachmentDownloadHistory.objects.all()
     ordering_fields = ("date_time", "name")

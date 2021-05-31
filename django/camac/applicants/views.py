@@ -1,5 +1,5 @@
 from django.conf import settings
-from rest_framework import viewsets
+from rest_framework_json_api.views import ModelViewSet
 
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.notification.utils import send_mail
@@ -8,14 +8,14 @@ from camac.user.permissions import permission_aware
 from . import filters, models, serializers
 
 
-class ApplicantsView(viewsets.ModelViewSet, InstanceQuerysetMixin):
+class ApplicantsView(ModelViewSet, InstanceQuerysetMixin):
     swagger_schema = None
     filterset_class = filters.ApplicantFilterSet
     serializer_class = serializers.ApplicantSerializer
     queryset = models.Applicant.objects.all().select_related(
         "invitee", "instance", "instance__instance_state"
     )
-    prefetch_for_included = {"invitee": ["service"], "user": ["service"]}
+    prefetch_for_includes = {"invitee": ["service"], "user": ["service"]}
 
     def create(self, request):
         created = super().create(request)
