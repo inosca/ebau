@@ -161,7 +161,6 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return result
 
     def get_vorhaben(self, instance):
-        proposals = CalumaApi().get_selected_option_labels("proposal", instance) or []
         description_slugs = [
             "proposal-description",
             "beschreibung-zu-mbv",
@@ -172,7 +171,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         descriptions = [
             CalumaApi().get_answer_value(slug, instance) for slug in description_slugs
         ]
-        return ", ".join(filter(None, proposals + descriptions))
+        return ", ".join(filter(None, descriptions))
 
     def get_parzelle(self, instance):
         rows = CalumaApi().get_table_answer("parcels", instance)
@@ -222,11 +221,12 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return ActivationMergeSerializer(self.activation).data
 
     def get_rejection_feedback(self, instance):  # pragma: no cover
+        rejection_config = settings.APPLICATION["REJECTION_FEEDBACK_QUESTION"]
         return Answer.get_value_by_cqi(
             instance,
-            settings.APPLICATION["REJECTION_FEEDBACK_QUESTION"].get("CHAPTER"),
-            settings.APPLICATION["REJECTION_FEEDBACK_QUESTION"].get("QUESTION"),
-            settings.APPLICATION["REJECTION_FEEDBACK_QUESTION"].get("ITEM"),
+            rejection_config.get("CHAPTER"),
+            rejection_config.get("QUESTION"),
+            rejection_config.get("ITEM"),
             default="",
         )
 
