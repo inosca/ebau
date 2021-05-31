@@ -1,5 +1,6 @@
 import { action } from "@ember/object";
 import Component from "@glimmer/component";
+import moment from "moment";
 
 export default class CaseFilterDateComponent extends Component {
   get value() {
@@ -15,6 +16,8 @@ export default class CaseFilterDateComponent extends Component {
 
   @action
   updateFilter(date) {
-    this.args.updateFilter({ target: { value: date && date.toISOString() } });
+    this.args.updateFilter({
+      target: { value: date && moment(date).format(moment.HTML5_FMT.DATE) },
+    });
   }
 }

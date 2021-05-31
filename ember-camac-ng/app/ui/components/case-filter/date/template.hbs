@@ -2,6 +2,7 @@
   <PikadayInput
     @onSelection={{this.updateFilter}}
     @format="DD.MM.YYYY"
+    @useUTC={{true}}
     @placeholder={{or
       @placeholder
       (t (concat "cases.filters." @filterName "-placeholder"))
