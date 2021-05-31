@@ -15343,6 +15343,78 @@
     }
   },
   {
+    "model": "core.broleacl",
+    "pk": 12000006,
+    "fields": {
+      "button": 762,
+      "role": 3,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000007,
+    "fields": {
+      "button": 762,
+      "role": 3,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000008,
+    "fields": {
+      "button": 949,
+      "role": 1061,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000009,
+    "fields": {
+      "button": 949,
+      "role": 1061,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000010,
+    "fields": {
+      "button": 949,
+      "role": 1061,
+      "instance_state": 32
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000011,
+    "fields": {
+      "button": 949,
+      "role": 1061,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000012,
+    "fields": {
+      "button": 949,
+      "role": 1061,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000013,
+    "fields": {
+      "button": 949,
+      "role": 1061,
+      "instance_state": 34
+    }
+  },
+  {
     "model": "core.billingconfig",
     "pk": 1,
     "fields": {
@@ -16453,7 +16525,7 @@
       "name": "Status\u00e4nderung",
       "description": "\u00c4ndert den Status des Dossiers",
       "class_field": null,
-      "hidden": 1,
+      "hidden": 0,
       "sort": 5
     }
   },
