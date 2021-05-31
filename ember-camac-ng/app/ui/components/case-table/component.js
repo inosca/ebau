@@ -4,6 +4,7 @@ import { htmlSafe } from "@ember/template";
 import Component from "@glimmer/component";
 import calumaQuery from "ember-caluma/caluma-query";
 import { allCases } from "ember-caluma/caluma-query/queries";
+import moment from "moment";
 
 import config from "camac-ng/config/environment";
 
@@ -44,6 +45,24 @@ export default class CaseTableComponent extends Component {
           },
         ],
       },
+      createdBefore: {
+        metaValue: [
+          {
+            key: "submit-date",
+            lookup: "LTE",
+            value: moment.utc(filter.createdBefore).endOf("day"),
+          },
+        ],
+      },
+      createdAfter: {
+        metaValue: [
+          {
+            key: "submit-date",
+            lookup: "GTE",
+            value: moment.utc(filter.createdAfter).startOf("day"),
+          },
+        ],
+      },
       proposalDescription: {
         hasAnswer: [
           {
@@ -53,8 +72,6 @@ export default class CaseTableComponent extends Component {
           },
         ],
       },
-      createdBefore: { createdBefore: filter.createdBefore },
-      createdAfter: { createdAfter: filter.createdAfter },
       applicantName: {
         searchAnswers: [
           {
