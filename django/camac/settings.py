@@ -734,16 +734,27 @@ APPLICATIONS = {
             "FORM": {
                 "_base": {
                     "people_sources": {
-                        "personalien-sb1-sb2",
+                        # bulding permit
                         "personalien-gesuchstellerin",
                         "personalien-vertreterin-mit-vollmacht",
                         "personalien-grundeigentumerin",
                         "personalien-gebaudeeigentumerin",
                         "personalien-projektverfasserin",
+                        "personalien-sb",
+                        # sb1 & sb2
+                        "personalien-sb1-sb2",
                     },
                     "people_names": {
                         "name-gesuchstellerin": "familyName",
                         "vorname-gesuchstellerin": "givenName",
+                        "name-vertreterin": "familyName",
+                        "vorname-vertreterin": "givenName",
+                        "name-grundeigentuemerin": "familyName",
+                        "vorname-grundeigentuemerin": "givenName",
+                        "name-gebaeudeeigentuemerin": "familyName",
+                        "vorname-gebaeudeeigentuemerin": "givenName",
+                        "name-projektverfasserin": "familyName",
+                        "vorname-projektverfasserin": "givenName",
                     },
                 },
                 "baugesuch": {
