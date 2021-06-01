@@ -3,7 +3,7 @@ from logging import getLogger
 
 from caluma.caluma_core.events import send_event
 from caluma.caluma_form import models as caluma_form_models
-from caluma.caluma_form.validators import DocumentValidator
+from caluma.caluma_form.validators import AnswerValidator, DocumentValidator
 from caluma.caluma_workflow import (
     api as caluma_workflow_api,
     models as caluma_workflow_models,
@@ -77,14 +77,29 @@ class CalumaApi:
         return case.meta.get("dossier-number", "-") if case else None
 
     def get_municipality(self, instance):
+        return self.get_answer_value("gemeinde", instance)
+
+    def get_answer_value(self, question_slug, instance):
         answer = caluma_form_models.Answer.objects.filter(
             **{
                 "document__case__meta__camac-instance-id": instance.pk,
-                "question_id": "gemeinde",
+                "question_id": question_slug,
             }
         ).first()
 
         return answer.value if answer else None
+
+    def get_table_answer(self, question_slug, instance):
+        try:
+            answer = caluma_form_models.Answer.objects.get(
+                **{
+                    "document__case__meta__camac-instance-id": instance.pk,
+                    "question_id": question_slug,
+                }
+            )
+            return answer.documents.all()
+        except caluma_form_models.Answer.DoesNotExist:
+            return None
 
     def get_nfd_form_permissions(self, instance):
         permissions = set()
@@ -129,9 +144,15 @@ class CalumaApi:
 
         return document
 
-    def update_or_create_answer(self, document_id, question_slug, value):
+    def update_or_create_answer(self, document, question_slug, value, user):
+        question = caluma_form_models.Question.objects.get(slug=question_slug)
+
+        AnswerValidator().validate(
+            question=question, document=document, user=user, value=value
+        )
+
         return caluma_form_models.Answer.objects.update_or_create(
-            document_id=document_id,
+            document=document,
             question_id=question_slug,
             defaults={"value": value},
         )

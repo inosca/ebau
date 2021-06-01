@@ -4,6 +4,7 @@ import pytest
 
 from ..extensions.countries import COUNTRIES
 from ..extensions.data_sources import (
+    Authorities,
     Countries,
     Locations,
     Mitberichtsverfahren,
@@ -44,6 +45,7 @@ def test_mitberichtsverfahren(db, role, location_factory, expected_count):
 @pytest.mark.parametrize(
     "test_class,expected,is_rsta",
     [
+        (Authorities, [[1, "Baukommission Altdorf"]], False),
         (Municipalities, [[1, {"de": "Bern", "fr": "Berne"}]], False),
         (
             Municipalities,
@@ -76,6 +78,7 @@ def test_data_sources(
     test_class,
     expected,
     is_rsta,
+    authority_factory,
 ):
     if is_rsta:
         service1 = service_factory(
@@ -96,6 +99,7 @@ def test_data_sources(
         service_t_factory(
             service=service1, name="Autorité directrice Berne", language="fr"
         )
+        authority_factory(pk=1, name="Baukommission Altdorf")
 
     service2 = service_factory(
         pk=2,
