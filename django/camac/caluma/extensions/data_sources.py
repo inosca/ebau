@@ -3,6 +3,7 @@ from caluma.caluma_data_source.utils import data_source_cache
 from django.core.cache import cache
 from django.utils.translation import gettext as _, override
 
+from camac.core.models import Authority
 from camac.user.models import Location, Service
 
 from .countries import COUNTRIES
@@ -242,3 +243,10 @@ class Countries(BaseDataSource):
     @data_source_cache(timeout=3600)
     def get_data(self, info):
         return COUNTRIES
+
+
+class Authorities(BaseDataSource):
+    info = "List of authorities from camac"
+
+    def get_data(self, info):
+        return [[authority.pk, authority.name] for authority in Authority.objects.all()]
