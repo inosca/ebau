@@ -841,6 +841,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             workflow_item=workflow_item,
             group=1,
         )
+        CalumaApi().set_submit_date(instance.pk, creation_date)
 
     @permission_aware
     def validate(self, data):
@@ -973,8 +974,11 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         )
 
         # Reuse the SET_SUBMIT_DATE_CAMAC_WORKFLOW flag because since this defines the workflow date usage
-        if settings.APPLICATION.get("SET_SUBMIT_DATE_CAMAC_WORKFLOW"):
-            self._set_creation_date(instance)
+        if (
+            settings.APPLICATION.get("SET_SUBMIT_DATE_CAMAC_WORKFLOW")
+            and validated_data["group"]
+        ):
+            self.set_creation_date(instance, validated_data)
 
         self.initialize_caluma(
             instance, source_instance, case, is_modification, is_paper
@@ -991,6 +995,14 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         )
 
         return instance
+
+    def set_creation_date(self, instance, validated_data):
+        perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
+        if perms.get(validated_data["group"].role.name) in [
+            "coordination",
+            "municipality",
+        ]:
+            self._set_creation_date(instance)
 
     def initialize_camac(
         self,
