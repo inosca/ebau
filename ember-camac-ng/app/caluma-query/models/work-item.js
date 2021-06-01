@@ -141,13 +141,15 @@ export default class CustomWorkItemModel extends WorkItemModel {
 
   get instanceDescription() {
     if (this.shoebox.content.application === "kt_schwyz") {
-      const { value } = this.store
+      const formFields = this.store
         .peekAll("form-field")
-        .find(
-          (field) =>
-            field.instance.get("id") === this.instanceId.toString() &&
-            field.name === "bezeichnung"
+        .filter(
+          (field) => field.instance.get("id") === this.instanceId.toString()
         );
+
+      const { value } =
+        formFields.find((field) => field.name === "bezeichnung-override") ||
+        formFields.find((field) => field.name === "bezeichnung");
 
       return value;
     }
