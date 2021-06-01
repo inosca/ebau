@@ -31431,7 +31431,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Leitbeh\\u00f6rde\", \"fr\": null}",
-      "type": "text",
+      "type": "dynamic_choice",
       "is_required": "false",
       "is_hidden": "true",
       "is_archived": false,
@@ -31442,8 +31442,10 @@
         "max_length": null,
         "min_length": null
       },
-      "meta": {},
-      "data_source": null,
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": "Authorities",
       "row_form": null,
       "sub_form": null,
       "source": null,

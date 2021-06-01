@@ -1061,7 +1061,10 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             old_document.delete()
 
         caluma_api.update_or_create_answer(
-            case.document.pk, "is-paper", "is-paper-yes" if is_paper else "is-paper-no"
+            case.document,
+            "is-paper",
+            "is-paper-yes" if is_paper else "is-paper-no",
+            self.context["request"].caluma_info.context.user,
         )
 
         if settings.APPLICATION["CALUMA"].get("SYNC_FORM_TYPE"):
@@ -1072,24 +1075,36 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
                 )  # pragma: no cover
 
             caluma_api.update_or_create_answer(
-                case.document.pk, "form-type", "form-type-" + form_type
+                case.document,
+                "form-type",
+                "form-type-" + form_type,
+                self.context["request"].caluma_info.context.user,
             )
 
         if settings.APPLICATION["CALUMA"].get("HAS_PROJECT_CHANGE"):
             caluma_api.update_or_create_answer(
-                case.document.pk,
+                case.document,
                 "projektaenderung",
                 "projektaenderung-ja" if is_modification else "projektaenderung-nein",
+                self.context["request"].caluma_info.context.user,
             )
 
         if settings.APPLICATION["CALUMA"].get("USE_LOCATION") and instance.location:
             caluma_api.update_or_create_answer(
-                case.document.pk, "municipality", instance.location.pk
+                case.document,
+                "municipality",
+                str(instance.location.pk),
+                self.context["request"].caluma_info.context.user,
             )
 
             # Synchronize the 'Leitbehörde' for display in the dashboard
             lead = self.context["request"].data["lead"]
-            caluma_api.update_or_create_answer(case.document.pk, "leitbehoerde", lead)
+            caluma_api.update_or_create_answer(
+                case.document,
+                "leitbehoerde",
+                str(lead),
+                self.context["request"].caluma_info.context.user,
+            )
 
         if group.pk == settings.APPLICATION.get("PORTAL_GROUP", False):
             # TODO pre-fill user data into personal data table
@@ -1101,7 +1116,12 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             source = Municipalities()
 
             if source.validate_answer_value(value, case.document, "gemeinde", None):
-                caluma_api.update_or_create_answer(case.document.pk, "gemeinde", value)
+                caluma_api.update_or_create_answer(
+                    case.document,
+                    "gemeinde",
+                    value,
+                    self.context["request"].caluma_info.context.user,
+                )
 
     def get_rejection_feedback(self, instance):
         return Answer.get_value_by_cqi(

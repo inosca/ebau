@@ -51,6 +51,17 @@ class CamacChapterFactory(DjangoModelFactory):
         model = models.Chapter
 
 
+class QuestionChapterFactory(DjangoModelFactory):
+    question = SubFactory(CamacQuestionFactory)
+    chapter = SubFactory(CamacChapterFactory)
+    required = False
+    item = 1
+    sort = 7
+
+    class Meta:
+        model = models.QuestionChapter
+
+
 class CamacAnswerFactory(DjangoModelFactory):
     answer = None
     question = SubFactory(CamacQuestionFactory)
@@ -59,6 +70,16 @@ class CamacAnswerFactory(DjangoModelFactory):
 
     class Meta:
         model = models.Answer
+
+
+class AnswerListFactory(DjangoModelFactory):
+    question = SubFactory(CamacQuestionFactory)
+    value = Faker("slug")
+    name = Faker("slug")
+    sort = 7
+
+    class Meta:
+        model = models.AnswerList
 
 
 class AvailableResourceFactory(DjangoModelFactory):

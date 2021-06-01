@@ -262,6 +262,7 @@ def test_create_instance_caluma_ur(
     instance_service_factory,
     mocker,
     workflow_item_factory,
+    authority_factory,
 ):
     # Uri states
     instance_state_factory(name="comm")
@@ -271,6 +272,8 @@ def test_create_instance_caluma_ur(
     application_settings["CALUMA"]["MODIFICATION_ALLOW_FORMS"] = ["main-form"]
     application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
+
+    authority_factory(name="Foo")
 
     workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_DOSSIER_ERFASST_UR)
 
