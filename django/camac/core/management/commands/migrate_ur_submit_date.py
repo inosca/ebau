@@ -11,14 +11,13 @@ class Command(BaseCommand):
     help = "Add the workflow date to the case meta as submit date"
 
     def handle(self, *args, **kwargs):
-        # for case in Case.objects.all().exclude(meta__has_key="submit-date"):
-        for case in Case.objects.all():
+        for case in Case.objects.all().exclude(meta__has_key="submit-date"):
             workflow_date = self.get_workflow_date(case)
             if workflow_date:
                 case.meta.update(
                     {"submit-date": workflow_date.strftime("%Y-%m-%dT%H:%M:%S%z")}
                 )
-                # case.save()
+                case.save()
                 self.stdout.write(
                     f"The submit date for the case with instance_id {case.meta['camac-instance-id']} was set to {workflow_date}"
                 )
