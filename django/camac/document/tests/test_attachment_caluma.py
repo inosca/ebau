@@ -3,6 +3,7 @@ from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
+from camac.constants import kt_bern as constants
 from camac.document import models
 
 from .data import django_file
@@ -20,23 +21,95 @@ from .data import django_file
     ],
 )
 @pytest.mark.parametrize(
-    "role__name,instance_state__name,status_code",
+    "role__name,instance_state__name,allowed_section,status_code",
     [
-        ("Applicant", "new", status.HTTP_204_NO_CONTENT),
-        ("Applicant", "rejected", status.HTTP_403_FORBIDDEN),
-        ("Applicant", "correction", status.HTTP_403_FORBIDDEN),
-        ("Applicant", "sb1", status.HTTP_204_NO_CONTENT),
-        ("Applicant", "sb2", status.HTTP_204_NO_CONTENT),
-        ("Applicant", "conclusion", status.HTTP_403_FORBIDDEN),
-        ("Support", "new", status.HTTP_204_NO_CONTENT),
-        ("Support", "rejected", status.HTTP_204_NO_CONTENT),
-        ("Support", "correction", status.HTTP_204_NO_CONTENT),
-        ("Support", "sb1", status.HTTP_204_NO_CONTENT),
-        ("Support", "sb2", status.HTTP_204_NO_CONTENT),
-        ("Support", "conclusion", status.HTTP_204_NO_CONTENT),
+        (
+            "Applicant",
+            "new",
+            constants.ATTACHMENT_SECTION_BEILAGEN_GESUCH,
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            "Applicant",
+            "rejected",
+            constants.ATTACHMENT_SECTION_BEILAGEN_GESUCH,
+            status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "Applicant",
+            "correction",
+            constants.ATTACHMENT_SECTION_BEILAGEN_GESUCH,
+            status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "Applicant",
+            "new",
+            constants.ATTACHMENT_SECTION_INTERN,
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            "Applicant",
+            "sb1",
+            constants.ATTACHMENT_SECTION_BEILAGEN_GESUCH,
+            status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "Applicant",
+            "sb1",
+            constants.ATTACHMENT_SECTION_INTERN,
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            "Applicant",
+            "sb2",
+            constants.ATTACHMENT_SECTION_BEILAGEN_GESUCH,
+            status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "Applicant",
+            "conclusion",
+            constants.ATTACHMENT_SECTION_BEILAGEN_GESUCH,
+            status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "Support",
+            "new",
+            constants.ATTACHMENT_SECTION_BEILAGEN_GESUCH,
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            "Support",
+            "rejected",
+            constants.ATTACHMENT_SECTION_BEILAGEN_GESUCH,
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            "Support",
+            "correction",
+            constants.ATTACHMENT_SECTION_BEILAGEN_GESUCH,
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            "Support",
+            "sb1",
+            constants.ATTACHMENT_SECTION_BEILAGEN_GESUCH,
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            "Support",
+            "sb2",
+            constants.ATTACHMENT_SECTION_BEILAGEN_GESUCH,
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            "Support",
+            "conclusion",
+            constants.ATTACHMENT_SECTION_BEILAGEN_GESUCH,
+            status.HTTP_204_NO_CONTENT,
+        ),
     ],
 )
-def test_attachment_delete(
+def test_attachment_caluma_delete(
     admin_client,
     attachment_attachment_sections,
     attachment_section_group_acl,
@@ -45,7 +118,14 @@ def test_attachment_delete(
     acl_mode,
     use_caluma_form,
     mocker,
+    allowed_section,
 ):
+    aasas = attachment_attachment_sections.attachmentsection
+    aasas.pk = allowed_section
+    aasas.save()
+    attachment_attachment_sections.attachmentsection_id = allowed_section
+    attachment_attachment_sections.save()
+
     url = reverse(
         "attachment-detail", args=[attachment_attachment_sections.attachment.pk]
     )
