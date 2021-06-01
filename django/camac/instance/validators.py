@@ -223,14 +223,14 @@ class FormDataValidator(object):
         return form_def
 
     def get_active_modules_questions(self):  # noqa: C901
-        IGNORED_MODULE = "freigegebene-unterlagen"
+        IGNORED_MODULES = ["freigegebene-unterlagen", "meta"]
         form_def = self.get_form_def(self.instance.form.name)
         relevant_data = []
         signature = {"slug": "signature", "title": "Unterschriften", "people": {}}
         bauherrschaft = {"slug": "bauherrschaft", "title": "", "people": []}
 
         for module_name in form_def:
-            if module_name == IGNORED_MODULE:
+            if module_name in IGNORED_MODULES:
                 continue
 
             active_questions = []
