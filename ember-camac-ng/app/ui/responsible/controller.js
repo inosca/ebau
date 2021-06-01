@@ -10,29 +10,11 @@ export default class ResponsibleController extends Controller {
   @service intl;
 
   @tracked _selectedUser;
-
-  get responsibilites() {
-    return this.store
-      .peekAll("responsible-service")
-      .filter(
-        (responsibleService) =>
-          parseInt(responsibleService.belongsTo("instance").id()) ===
-          parseInt(this.model.id)
-      );
-  }
-
-  get users() {
-    return this.store
-      .peekAll("user")
-      .filter(
-        (user) =>
-          parseInt(user.belongsTo("service").id()) ===
-          this.shoebox.content.serviceId
-      );
-  }
+  @tracked responsibilities = [];
+  @tracked users = [];
 
   get current() {
-    return this.responsibilites.find(
+    return this.responsibilities.find(
       (responsibleService) =>
         parseInt(responsibleService.belongsTo("service").id()) ===
         this.shoebox.content.serviceId
@@ -49,12 +31,12 @@ export default class ResponsibleController extends Controller {
 
   @dropTask
   *fetchData() {
-    yield this.store.query("responsible-service", {
+    this.responsibilities = yield this.store.query("responsible-service", {
       instance: this.model.id,
       include: "responsible_user,service",
     });
 
-    yield this.store.query("user", {
+    this.users = yield this.store.query("user", {
       service: this.shoebox.content.serviceId,
     });
   }
@@ -73,6 +55,7 @@ export default class ResponsibleController extends Controller {
       responsibility.responsibleUser = this.selectedUser;
 
       yield responsibility.save();
+      yield this.fetchData.perform();
 
       this.notifications.success(this.intl.t("responsible.saveSuccess"));
     } catch (error) {
