@@ -48,13 +48,10 @@ const LAYERS = [
   "raumplanung:sondernutzungsplanung",
   "weitere:wanderwege_uri",
   "weitere:archaeologische_funderwartungsgebiete",
-  "av:gebaeudeadressen",
-  "t08_selbstrecht_ims_overview",
-];
-
-const LOW_OPACITY_LAYERS = [
   "av:t04_boflaeche_sw",
+  "t08_selbstrecht_ims_overview",
   "leitungen:ur34_Abwasseranlagen_(Eigentum)",
+  "av:gebaeudeadressen",
 ];
 
 const RESOLUTIONS = [50, 20, 10, 5, 2.5, 2, 1.5, 1, 0.5, 0.25, 0.1, 0.05];
@@ -128,7 +125,6 @@ export default class UrGisComponent extends Component {
   minZoom = 10;
   maxZoom = 18;
   layers = LAYERS.join(",");
-  lowOpacityLayers = LOW_OPACITY_LAYERS.join(",");
 
   get config() {
     return getOwner(this).resolveRegistration("config:environment")?.[
@@ -172,7 +168,6 @@ export default class UrGisComponent extends Component {
           });
 
         const grundnutzung = features.shift();
-        const ueberlagerteNutzungen = features.join(", ");
 
         const gebaeudeAdressenFeature = filterFeatureById(
           data.features,
@@ -212,6 +207,7 @@ export default class UrGisComponent extends Component {
           features.push("Archäologisches Fundwartungsgebiet");
         }
 
+        const ueberlagerteNutzungen = features.filter(Boolean).join(", ");
         const parcelNumber = liegenschaftFeature.properties.nummer;
 
         const coordinates = liegenschaftFeature.geometry.coordinates[0][0].map(
@@ -267,7 +263,9 @@ export default class UrGisComponent extends Component {
           .filter(Boolean)
           .join(", ")}`;
 
-        const nutzungInfo = [grundnutzung, ueberlagerteNutzungen].join(", ");
+        const nutzungInfo = [grundnutzung, ueberlagerteNutzungen]
+          .filter(Boolean)
+          .join(", ");
 
         parcel.parcelInfo = parcelInfo;
         parcel.nutzungInfo = nutzungInfo;
