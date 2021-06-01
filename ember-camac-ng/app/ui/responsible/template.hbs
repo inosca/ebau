@@ -2,7 +2,7 @@
 
 <span {{did-insert (perform this.fetchData)}}></span>
 
-{{#if this.fetchData.isRunning}}
+{{#if (and this.fetchData.isRunning (not this.fetchData.lastSuccessful))}}
   <div class="uk-text-center">
     <UkSpinner @ratio={{2}} />
   </div>
@@ -15,7 +15,7 @@
       </tr>
     </thead>
     <tbody>
-      {{#each this.responsibilites as |responsibility|}}
+      {{#each this.responsibilities as |responsibility|}}
         <tr>
           <td>{{responsibility.service.name}}</td>
           <td>{{responsibility.responsibleUser.fullName}}</td>
