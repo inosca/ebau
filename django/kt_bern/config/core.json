@@ -136,15 +136,6 @@
   },
   {
     "model": "core.anotification",
-    "pk": 150000,
-    "fields": {
-      "template": "03-dossierkorrektur-gesuchsteller",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_Applicant",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
     "pk": 150006,
     "fields": {
       "template": "05-bericht-erstellt",
@@ -1009,20 +1000,6 @@
     "fields": {
       "available_action": "php",
       "button": 140000,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 150000,
-    "fields": {
-      "available_action": "notification",
-      "button": 20047,
       "name": null,
       "description": null,
       "success_message": null,
@@ -2137,18 +2114,6 @@
       "language": "de",
       "name": "ECH0211 - Status Notification",
       "description": "Notify ECH0211 clients about status change",
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 150000,
-    "fields": {
-      "action": 150000,
-      "language": "de",
-      "name": "Gesuchsteller \u00fcber Dossierkorrektur informieren",
-      "description": null,
       "success_message": null,
       "error_message": null
     }
