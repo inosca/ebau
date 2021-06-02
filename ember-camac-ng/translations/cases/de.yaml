@@ -44,3 +44,5 @@ cases:
     proposalDescription-placeholder: "Detailbeschreibung Vorhaben"
     applicantName: "Gesuchsteller"
     applicantName-placeholder: "Marc Muster"
+    street: "Strasse / Flurname"
+    street-placeholder: "Musterstrasse 1"
