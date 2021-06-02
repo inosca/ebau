@@ -458,13 +458,13 @@ APPLICATIONS = {
                 },
                 {
                     "template_slug": "11-meldung-selbstdeklaration-baukontrolle",
-                    "recipient_types": ["construction_control"],
+                    "recipient_types": ["construction_control", "service"],
                 },
             ],
             "FINALIZE": [
                 {
                     "template_slug": "13-meldung-termine-pflichtkontrollen-baukontrolle",
-                    "recipient_types": ["construction_control"],
+                    "recipient_types": ["construction_control", "service"],
                 }
             ],
             "APPLICANT": {
