@@ -274,18 +274,23 @@ build-kt_uri-production:
   only:
     - production-ur
 
-# Create a minimal tarball which is deployable by
-# https://github.com/camac-suisse/ansible-role-camac
-.build-tarball:
+build-kt_bern-tarball:
+  # Create a minimal tarball which is deployable by
+  # https://github.com/camac-suisse/ansible-role-camac
+  variables:
+    APPLICATION: kt_bern
+    COMPOSE: docker-compose -f compose/kt_bern.yml -f compose/kt_bern-prod.yml
+    SERVICES: "php django ember-caluma-portal ember-camac-ng document-merge-service"
   stage: build
   services:
     - docker:dind
   script:
-    # pull and build needed containers: php, ember-caluma-portal and document-merge-service (with db)
+    # pull, build and start needed containers
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
-    - eval $COMPOSE pull --ignore-pull-failures --quiet php ember-caluma-portal ember-camac-ng document-merge-service
-    - eval $COMPOSE build --pull
-    - eval $COMPOSE up -d php django ember-caluma-portal ember-camac-ng document-merge-service
+    - eval $COMPOSE pull --parallel --ignore-pull-failures --quiet $SERVICES
+    - eval $COMPOSE build --parallel $SERVICES
+    - eval $COMPOSE up -d --no-deps $SERVICES
+    # create folder for tarball
     - mkdir tarball
     # copy php to tarball
     - docker cp $(eval $COMPOSE ps -q php):/var/www/camac tarball/camac
@@ -316,13 +321,7 @@ build-kt_uri-production:
   artifacts:
     paths:
       - "camac-be-*.tar.gz"
-    expire_in: 1 month
-
-build-kt_bern-production:
-  extends: .build-tarball
-  variables:
-    APPLICATION: kt_bern
-    COMPOSE: docker-compose -f compose/kt_bern.yml -f compose/kt_bern-prod.yml
+    expire_in: 6 months
   only:
     - /^v\d+\.\d+\.\d+(-rc\d+)?$/
   except:
