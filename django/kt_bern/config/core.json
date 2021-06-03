@@ -144,6 +144,15 @@
     }
   },
   {
+    "model": "core.anotification",
+    "pk": 15000000,
+    "fields": {
+      "template": "02-rueckweisung-gemeinde",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_InactiveMunicipality",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
     "model": "core.apageredirect",
     "pk": 10053,
     "fields": {
@@ -1527,6 +1536,20 @@
     }
   },
   {
+    "model": "core.action",
+    "pk": 15000000,
+    "fields": {
+      "available_action": "notification",
+      "button": 20022,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 6
+    }
+  },
+  {
     "model": "core.actioncase",
     "pk": 150034,
     "fields": {
@@ -1584,7 +1607,7 @@
     "fields": {
       "action": 10036,
       "language": "de",
-      "name": "Email: Zur\u00fcckgewiesen",
+      "name": "Notifikation Gesuchsteller",
       "description": null,
       "success_message": "E-Mail an Gesuchstellende gesendet",
       "error_message": "Beim Senden der E-Mail Notifikation an die Gesuchstellenden ist ein Fehler aufgetreten"
@@ -2653,6 +2676,18 @@
       "action": 1200119,
       "language": "fr",
       "name": "Histoire: DC2 compl\u00e9t\u00e9e manuellement",
+      "description": null,
+      "success_message": null,
+      "error_message": null
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 15000000,
+    "fields": {
+      "action": 15000000,
+      "language": "de",
+      "name": "Notifikation Gemeinde",
       "description": null,
       "success_message": null,
       "error_message": null
