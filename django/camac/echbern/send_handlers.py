@@ -3,9 +3,9 @@ from math import trunc
 
 import pytz
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
-from django.urls import reverse
+from django.conf import settings
 from django.utils import timezone
-from rest_framework.test import APIClient
+from django.utils.translation import gettext_noop
 
 from camac.caluma.api import CalumaApi
 from camac.constants.kt_bern import (
@@ -14,7 +14,6 @@ from camac.constants.kt_bern import (
     INSTANCE_RESOURCE_ZIRKULATION,
     NOTICE_TYPE_NEBENBESTIMMUNG,
     NOTICE_TYPE_STELLUNGNAHME,
-    NOTIFICATION_ECH,
 )
 from camac.core.models import (
     Activation,
@@ -26,9 +25,11 @@ from camac.core.models import (
     Notice,
     NoticeType,
 )
+from camac.core.utils import create_history_entry
 from camac.document.models import Attachment, AttachmentSection
 from camac.instance.models import Instance, InstanceState
 from camac.instance.serializers import CalumaInstanceChangeResponsibleServiceSerializer
+from camac.notification.utils import send_mail_without_request
 from camac.user.models import Service
 
 from .signals import accompanying_report_send, circulation_started, ruling, task_send
@@ -120,6 +121,24 @@ class BaseSendHandler:
 
     def apply(self):  # pragma: no cover
         raise NotImplementedError()
+
+    def send_notification(self, config_key, **extra):
+        for notification_config in settings.APPLICATION["NOTIFICATIONS"][config_key]:
+            send_mail_without_request(
+                notification_config.get("template_slug"),
+                self.user.username,
+                self.group.pk,
+                recipient_types=notification_config.get("recipient_types"),
+                instance={"id": self.instance.pk, "type": "instances"},
+                **extra,
+            )
+
+    def create_history_entry(self, text):
+        create_history_entry(
+            instance=self.instance,
+            user=self.user,
+            text=text,
+        )
 
 
 class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
@@ -321,6 +340,11 @@ class AccompanyingReportSendHandler(BaseSendHandler):
             context={"activation-id": self.activation.pk},
         )
 
+        self.send_notification(
+            "ECH_ACCOMPANYING_REPORT",
+            activation={"id": self.activation.pk, "type": "activations"},
+        )
+
 
 class CloseArchiveDossierSendHandler(BaseSendHandler):
     def has_permission(self):
@@ -420,7 +444,7 @@ class TaskSendHandler(BaseSendHandler):
 
         start_date = timezone.now().replace(hour=4, minute=0, second=0, microsecond=0)
 
-        return Activation.objects.create(
+        activation = Activation.objects.create(
             circulation=circulation,
             service=service,
             start_date=start_date,
@@ -433,12 +457,14 @@ class TaskSendHandler(BaseSendHandler):
             email_sent=0,
         )
 
-    def apply(self):
-        circulation = self._get_circulation()
-        service = self._get_service()
-        activation = self._create_activation(circulation, service)
-
         CalumaApi().sync_circulation(circulation, self.caluma_user)
+
+        return activation
+
+    def apply(self):
+        activation = self._create_activation(
+            self._get_circulation(), self._get_service()
+        )
 
         task_send.send(
             sender=self.__class__,
@@ -447,32 +473,12 @@ class TaskSendHandler(BaseSendHandler):
             group_pk=self.group.pk,
         )
 
-        mail_data = {
-            "data": {
-                "type": "notification-template-sendmails",
-                "id": None,
-                "attributes": {
-                    "template-slug": NOTIFICATION_ECH,
-                    "recipient-types": ["unnotified_service"],
-                },
-                "relationships": {
-                    "instance": {"data": {"type": "instances", "id": self.instance.pk}},
-                    "activation": {
-                        "data": {"type": "activations", "id": activation.pk}
-                    },
-                },
-            }
-        }
-        url = reverse("notificationtemplate-sendmail")
-        client = APIClient()
-        client.credentials(HTTP_AUTHORIZATION=self.auth_header)
-        client.force_authenticate(user=self.user)
-        resp = client.post(url, data=mail_data)
-        if not resp.status_code == 204:
-            raise SendHandlerException("Failed to send mails!")
+        self.send_notification(
+            "ECH_TASK", activation={"id": activation.pk, "type": "activations"}
+        )
 
 
-class NoticeKindOfProceedingsSendHandler(DocumentAccessibilityMixin, TaskSendHandler):
+class KindOfProceedingsSendHandler(DocumentAccessibilityMixin, TaskSendHandler):
     def __init__(self, data, queryset, user, group, auth_header, caluma_user):
         super().__init__(data, queryset, user, group, auth_header, caluma_user)
         self.attachments = self.get_attachments(
@@ -491,7 +497,7 @@ class NoticeKindOfProceedingsSendHandler(DocumentAccessibilityMixin, TaskSendHan
         if self.instance.instance_state.name != "circulation_init":
             return (
                 False,
-                'You can only send a "NoticeKindOfProceedings" for instances in the state "Zirkulation initialisieren".',
+                'You can only send a "KindOfProceedings" for instances in the state "Zirkulation initialisieren".',
             )
 
         return True, None
@@ -517,6 +523,9 @@ class NoticeKindOfProceedingsSendHandler(DocumentAccessibilityMixin, TaskSendHan
             group_pk=self.group.pk,
         )
 
+        self.send_notification("ECH_KIND_OF_PROCEEDINGS")
+        self.create_history_entry(gettext_noop("Circulation started"))
+
         self.link_to_section(attachments)
 
         return circulation
@@ -529,7 +538,7 @@ def resolve_send_handler(data):
         "eventCloseArchiveDossier": CloseArchiveDossierSendHandler,
         "eventNotice": NoticeRulingSendHandler,
         "eventRequest": TaskSendHandler,
-        "eventKindOfProceedings": NoticeKindOfProceedingsSendHandler,
+        "eventKindOfProceedings": KindOfProceedingsSendHandler,
     }
     for event in handler_mapping:
         if getattr(data, event) is not None:

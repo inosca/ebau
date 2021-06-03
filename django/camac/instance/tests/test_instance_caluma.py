@@ -1588,7 +1588,7 @@ def test_change_responsible_service_audit_validation(
     assert response.status_code == status.HTTP_400_BAD_REQUEST
 
     assert len(result["errors"])
-    assert "Invalid audit" == result["errors"][0]["detail"]
+    assert "Ungültige Prüfung" == result["errors"][0]["detail"]
 
 
 @pytest.mark.parametrize("service_group__name", ["municipality"])
