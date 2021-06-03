@@ -683,6 +683,15 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         groups = Group.objects.filter(name="Lisag")
         return [{"to": group.email} for group in groups]
 
+    def _get_recipients_inactive_municipality(self, instance):
+        if (
+            instance.responsible_service(filter_type="municipality").service_group.name
+            != "district"
+        ):
+            return []
+
+        return self._get_recipients_caluma_municipality(instance)
+
     def _get_recipients_caluma_municipality(self, instance):
         municipality_service_id = CalumaApi().get_municipality(instance)
 
