@@ -30,7 +30,7 @@ from camac.echbern.schema.ech_0211_2_0 import CreateFromDocument
 from .. import views
 from ..event_handlers import EventHandlerException, StatusNotificationEventHandler
 from ..models import Message
-from ..send_handlers import NoticeKindOfProceedingsSendHandler, NoticeRulingSendHandler
+from ..send_handlers import KindOfProceedingsSendHandler, NoticeRulingSendHandler
 from .caluma_document_data import baugesuch_data, vorabklaerung_data
 from .utils import xml_data
 
@@ -385,7 +385,7 @@ def test_send_403_attachment_permissions(
         NoticeRulingSendHandler, "has_permission", return_value=(True, None)
     )
     mocker.patch.object(
-        NoticeKindOfProceedingsSendHandler, "has_permission", return_value=(True, None)
+        KindOfProceedingsSendHandler, "has_permission", return_value=(True, None)
     )
 
     attachment_section_beteiligte_behoerden = attachment_section_factory(

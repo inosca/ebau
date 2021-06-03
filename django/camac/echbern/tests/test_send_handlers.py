@@ -11,7 +11,6 @@ from camac.constants.kt_bern import (
     INSTANCE_RESOURCE_ZIRKULATION,
     NOTICE_TYPE_NEBENBESTIMMUNG,
     NOTICE_TYPE_STELLUNGNAHME,
-    NOTIFICATION_ECH,
 )
 from camac.core.models import Activation, DocxDecision, InstanceService, Notice
 from camac.echbern.tests.utils import xml_data
@@ -23,7 +22,7 @@ from ..send_handlers import (
     AccompanyingReportSendHandler,
     ChangeResponsibilitySendHandler,
     CloseArchiveDossierSendHandler,
-    NoticeKindOfProceedingsSendHandler,
+    KindOfProceedingsSendHandler,
     NoticeRulingSendHandler,
     SendHandlerException,
     TaskSendHandler,
@@ -39,7 +38,7 @@ from ..send_handlers import (
         ("close_dossier", CloseArchiveDossierSendHandler),
         ("notice_ruling", NoticeRulingSendHandler),
         ("task", TaskSendHandler),
-        ("kind_of_proceedings", NoticeKindOfProceedingsSendHandler),
+        ("kind_of_proceedings", KindOfProceedingsSendHandler),
         ("accompanying_report", None),
     ],
 )
@@ -404,14 +403,13 @@ def test_close_dossier_send_handler(
 
 
 @pytest.mark.parametrize(
-    "has_circulation,has_done_circulation,has_service,valid_service_id,has_template,success",
+    "has_circulation,has_done_circulation,has_service,valid_service_id,success",
     [
-        (True, False, True, True, True, True),
-        (False, True, True, True, True, True),
-        (False, False, True, True, True, True),
-        (True, False, False, True, True, False),
-        (True, False, True, False, True, False),
-        (True, False, True, True, False, False),
+        (True, False, True, True, True),
+        (False, True, True, True, True),
+        (False, False, True, True, True),
+        (True, False, False, True, False),
+        (True, False, True, False, False),
     ],
 )
 def test_task_send_handler(
@@ -419,7 +417,6 @@ def test_task_send_handler(
     has_done_circulation,
     has_service,
     valid_service_id,
-    has_template,
     success,
     admin_user,
     circulation_factory,
@@ -430,12 +427,19 @@ def test_task_send_handler(
     circulation_state_factory,
     activation_factory,
     instance_resource_factory,
-    notification_template_factory,
     mailoutbox,
     caluma_admin_user,
+    application_settings,
+    notification_template,
 ):
-    if has_template:
-        notification_template_factory(slug=NOTIFICATION_ECH)
+    application_settings["NOTIFICATIONS"] = {
+        "ECH_TASK": [
+            {
+                "template_slug": notification_template.slug,
+                "recipient_types": ["unnotified_service"],
+            }
+        ]
+    }
 
     instance_resource_factory(pk=INSTANCE_RESOURCE_ZIRKULATION)
     circulation_state_factory(pk=1, name="RUN")
@@ -513,7 +517,7 @@ def test_task_send_handler(
         assert len(mailoutbox) == 1
 
         assert activation.ech_msg_created is True
-        assert "s1@example.com" in mailoutbox[0].to
+        assert service.email in mailoutbox[0].to
 
     else:
         with pytest.raises(SendHandlerException):
@@ -543,7 +547,7 @@ def test_task_send_handler_no_permission(
 
 
 @pytest.mark.parametrize("has_permission", [True, False])
-def test_notice_kind_of_proceedings_send_handler(
+def test_kind_of_proceedings_send_handler(
     has_permission,
     attachment_section_factory,
     attachment_factory,
@@ -553,7 +557,19 @@ def test_notice_kind_of_proceedings_send_handler(
     instance_state_factory,
     instance_resource_factory,
     caluma_admin_user,
+    notification_template,
+    application_settings,
+    mailoutbox,
 ):
+    application_settings["NOTIFICATIONS"] = {
+        "ECH_KIND_OF_PROCEEDINGS": [
+            {
+                "template_slug": notification_template.slug,
+                "recipient_types": ["applicant"],
+            }
+        ]
+    }
+
     attachment_section_beteiligte_behoerden = attachment_section_factory(
         pk=ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN
     )
@@ -587,7 +603,7 @@ def test_notice_kind_of_proceedings_send_handler(
 
     data = CreateFromDocument(xml_data("kind_of_proceedings"))
 
-    handler = NoticeKindOfProceedingsSendHandler(
+    handler = KindOfProceedingsSendHandler(
         data=data,
         queryset=Instance.objects,
         user=admin_user,
@@ -616,6 +632,10 @@ def test_notice_kind_of_proceedings_send_handler(
             pk=ATTACHMENT_SECTION_ALLE_BETEILIGTEN
         )
 
+        assert (
+            ech_instance.involved_applicants.first().invitee.email in mailoutbox[0].to
+        )
+
 
 @pytest.mark.parametrize("has_attachment", [True, False])
 @pytest.mark.parametrize("has_activation", [True, False])
@@ -634,7 +654,20 @@ def test_accompanying_report_send_handler(
     user_group_factory,
     notice_type_factory,
     caluma_admin_user,
+    notification_template,
+    application_settings,
+    service,
+    mailoutbox,
 ):
+    application_settings["NOTIFICATIONS"] = {
+        "ECH_ACCOMPANYING_REPORT": [
+            {
+                "template_slug": notification_template.slug,
+                "recipient_types": ["activation_service_parent"],
+            }
+        ]
+    }
+
     user_group = user_group_factory(default_group=1)
 
     notice_type_factory(pk=NOTICE_TYPE_STELLUNGNAHME)
@@ -647,6 +680,7 @@ def test_accompanying_report_send_handler(
             service=user_group.group.service,
             user=user_group.user,
             circulation_answer=None,
+            service_parent=service,
         )
 
     done_state = circulation_state_factory(pk=2, name="DONE")
@@ -694,6 +728,8 @@ def test_accompanying_report_send_handler(
         assert activation.circulation_state == done_state
         assert activation.circulation_answer == unknown_answer
         assert Notice.objects.count() == 2
+
+        assert service.email in mailoutbox[0].to
 
     else:
         with pytest.raises(SendHandlerException):
