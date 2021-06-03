@@ -444,6 +444,9 @@ APPLICATIONS = {
             "support": "support",
         },
         "INSTANCE_PERMISSIONS": {"MUNICIPALITY_WRITE": ["correction"]},
+        "CUSTOM_NOTIFICATION_TYPES": [
+            "inactive_municipality",
+        ],
         "NOTIFICATIONS": {
             "SUBMIT": [
                 {
