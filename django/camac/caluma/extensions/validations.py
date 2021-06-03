@@ -13,6 +13,9 @@ CLAIM_STATUS_IN_PROGRESS = "nfd-tabelle-status-in-bearbeitung"
 CLAIM_STATUS_ANSWERED = "nfd-tabelle-status-beantwortet"
 
 NOTIFICATION_CLAIM_IN_PROGRESS = "03-zusatzliche-unterlagen-notwendig-gesuchsteller"
+NOTIFICATION_CLAIM_IN_PROGRESS_MUNICIPALITY = (
+    "03-zusaetzliche-unterlagen-notwendig-gemeinde"
+)
 NOTIFICATION_CLAIM_ANSWERED = "03-nachforderung-beantwortet-leitbehorde"
 
 
@@ -58,12 +61,21 @@ class CustomValidation(BaseValidation):
                 self._send_claim_notification(
                     info, instance, NOTIFICATION_CLAIM_IN_PROGRESS, ["applicant"]
                 )
+                self._send_claim_notification(
+                    info,
+                    instance,
+                    NOTIFICATION_CLAIM_IN_PROGRESS_MUNICIPALITY,
+                    ["inactive_municipality"],
+                )
 
             if new_status == CLAIM_STATUS_ANSWERED:
                 # claim is answered, inform the active service and create an
                 # eCH event
                 self._send_claim_notification(
-                    info, instance, NOTIFICATION_CLAIM_ANSWERED, ["leitbehoerde"]
+                    info,
+                    instance,
+                    NOTIFICATION_CLAIM_ANSWERED,
+                    ["leitbehoerde", "inactive_municipality"],
                 )
                 self._send_claim_ech_event(info, instance)
 
