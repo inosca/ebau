@@ -267,9 +267,11 @@ def get_realestateinformation(answers):
                             # mrMrs="1",  # mapping?
                             # title="Dr Med",
                             firstName=assure_string_length(
-                                owner["vorname"], max_length=30
+                                owner.get("vorname", "unknown"), max_length=30
                             ),
-                            lastName=assure_string_length(owner["name"], max_length=30),
+                            lastName=assure_string_length(
+                                owner.get("name", "unknown"), max_length=30
+                            ),
                         ),
                         addressInformation=ns_address.addressInformationType(
                             # not the same as swissAddressInformationType (obv..)
@@ -547,8 +549,8 @@ def get_relationship_to_person(answers: AnswersDict):
 
 def person_type(person):
     pers_identification = ech_0044_4_1.personIdentificationLightType(
-        officialName=assure_string_length(person["name"], max_length=30),
-        firstName=assure_string_length(person["vorname"], max_length=30),
+        officialName=assure_string_length(person.get("name"), max_length=30),
+        firstName=assure_string_length(person.get("vorname"), max_length=30),
     )
     org_identification = None
     if handle_ja_nein_bool(person["juristische-person"]):
@@ -558,7 +560,8 @@ def person_type(person):
                 person["name-juristische-person"], max_length=255
             ),
             organisationAdditionalName=assure_string_length(
-                f'{person["vorname"]} {person["name"]}', max_length=255
+                f'{person.get("vorname", "")} {person.get("name", "")}'.strip(),
+                max_length=255,
             ),
             uid=ns_company_identification.uidStructureType(
                 # We don't bother with UIDs
@@ -592,8 +595,8 @@ def get_applicant_data(answers):
     if "personalien-gesuchstellerin" in answers:
         pers_infos = answers["personalien-gesuchstellerin"][0]
         return {
-            "vorname": pers_infos["vorname-gesuchstellerin"],
-            "name": pers_infos["name-gesuchstellerin"],
+            "vorname": pers_infos.get("vorname-gesuchstellerin"),
+            "name": pers_infos.get("name-gesuchstellerin"),
             "strasse": pers_infos["strasse-gesuchstellerin"],
             "nummer": pers_infos.get("nummer-gesuchstellerin"),
             "ort": pers_infos["ort-gesuchstellerin"],
