@@ -3,6 +3,7 @@ from django.urls import reverse
 from rest_framework import status
 
 from camac.document import models
+from camac.document.permissions import rebuild_app_permissions, section_permissions
 
 
 @pytest.mark.parametrize("role__name", [("Applicant")])
@@ -62,3 +63,76 @@ def test_attachment_section_detail(
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
+
+
+@pytest.mark.parametrize(
+    "role__name,group_id,section_id,permission,expected",
+    [
+        (
+            "trusted_service",
+            283,  # Lisag
+            12000007,
+            models.ADMINSERVICE_PERMISSION,
+            {12000007: "adminsvc"},
+        ),
+        (
+            "trusted_service",
+            283,  # Lisag
+            123,
+            models.ADMINSERVICE_PERMISSION,
+            {123: "adminsvc", 12000007: "adminsvc"},
+        ),
+        (
+            "coordination",
+            21,  # KOOR NP
+            123,
+            models.ADMINSERVICE_PERMISSION,
+            {123: "adminsvc", 12000007: "adminsvc"},
+        ),
+        (
+            "trusted_service",
+            123,  # Non-existent
+            123,
+            models.ADMINSERVICE_PERMISSION,
+            {123: "adminsvc"},
+        ),
+    ],
+)
+def test_attachment_section_special_permissions_ur(
+    db,
+    mocker,
+    role,
+    group_factory,
+    section_id,
+    permission,
+    expected,
+    group_id,
+    settings,
+):
+    settings.APPLICATION_NAME = "kt_uri"
+    lisag_group = group_factory(pk=group_id, role=role)
+
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {"kt_uri": {role.name.lower(): {permission: [section_id]}}},
+    )
+
+    permissions = section_permissions(lisag_group)
+
+    assert permissions == expected
+
+
+@pytest.mark.parametrize(
+    "data", [{"trusted_service": {"read": [1, 2, 3], "adminsvc": [23, 33]}}]
+)
+def test_rebuild_app_permissions(data):
+    permissions = rebuild_app_permissions(data)
+    assert permissions == {
+        "trusted_service": {
+            1: "read",
+            2: "read",
+            3: "read",
+            23: "adminsvc",
+            33: "adminsvc",
+        }
+    }
