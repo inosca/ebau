@@ -45,3 +45,5 @@ cases:
     proposalDescription-placeholder: ""
     applicantName: ""
     applicantName-placeholder: ""
+    street: ""
+    street-placeholder: ""

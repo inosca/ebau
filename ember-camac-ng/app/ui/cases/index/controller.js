@@ -14,6 +14,7 @@ const filterQueryParams = [
   "createdBefore",
   "proposalDescription",
   "applicantName",
+  "street",
 ];
 
 export default class CasesIndexController extends Controller {
