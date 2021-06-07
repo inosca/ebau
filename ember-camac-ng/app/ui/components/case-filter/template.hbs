@@ -19,6 +19,12 @@
         @updateFilter={{fn this.updateFilter "applicantName"}}
       />
 
+      <CaseFilter::Input
+        @filterName="street"
+        @value={{@filter.street}}
+        @updateFilter={{fn this.updateFilter "street"}}
+      />
+
       <CaseFilter::Select
         @filterName="municipality"
         @updateFilter={{fn this.updateFilter "municipality"}}
