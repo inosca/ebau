@@ -3,6 +3,8 @@ from django.db.models import Q
 from django.utils.translation import gettext as _
 from rest_framework import exceptions
 
+from camac.constants import kt_uri as uri_constants
+
 # Permissions configuration:
 # Top-Level keys are the internal role names. The second-level keys are
 # the permissions, followed by a list of sections where the permission applies.
@@ -93,13 +95,11 @@ PERMISSIONS = {
                 12000000,
                 12000004,
                 12000007,
-                12000008,
             ],
         },
         "service": {
             "read": [
                 12000004,
-                12000008,
             ],
             "adminint": [12000001],
             "adminsvc": [
@@ -111,7 +111,6 @@ PERMISSIONS = {
         "trusted_service": {
             "read": [
                 12000004,
-                12000008,
             ],
             "adminint": [12000001],
             "adminsvc": [
@@ -128,7 +127,6 @@ PERMISSIONS = {
                 12000004,
                 12000005,
                 12000006,
-                12000008,
             ],
         },
         "support": {
@@ -202,12 +200,49 @@ LOOSEN_FILTERS = {
 }
 
 
-def section_permissions_for_role(role):
+def special_permissions_uri(group):
+    if group.group_id in [uri_constants.LISAG_GROUP_ID, uri_constants.KOOR_NP_GROUP_ID]:
+        return {uri_constants.LISAG_ATTACHMENT_SECTION_ID: "adminsvc"}
+    return {}
+
+
+SPECIAL_PERMISSIONS = {"kt_uri": special_permissions_uri}
+
+PERMISSION_ORDERED = ["read", "write", "adminint", "adminsvc", "admin"]
+
+
+def rebuild_app_permissions(permissions):
+    result = {}
+    for role, value in permissions.items():
+        result[role] = {}
+        for permission, sections in value.items():
+            for section in sections:
+                result[role][section] = permission
+    return result
+
+
+def section_permissions(group):
+    role = group.role
     app_name = settings.APPLICATION_NAME
-    app_permissions = PERMISSIONS[app_name]
+    all_app_permissions = rebuild_app_permissions(PERMISSIONS[app_name])
     role_perms = settings.APPLICATIONS[app_name].get("ROLE_PERMISSIONS", {})
     role_name_int = role_perms.get(role.name, role.name).lower()
-    if role_name_int not in app_permissions:
+
+    if role_name_int not in all_app_permissions:
         # fallback
         role_name_int = role.name.lower()
-    return app_permissions.get(role_name_int, {})
+
+    app_permissions = all_app_permissions.get(role_name_int, {})
+    special_permissions = SPECIAL_PERMISSIONS.get(app_name, lambda _: None)(group)
+
+    if not special_permissions:
+        return app_permissions
+
+    for section, special_permission in special_permissions.items():
+        regular_permission = all_app_permissions[role_name_int].get(section)
+        if not regular_permission or PERMISSION_ORDERED.index(
+            special_permission
+        ) > PERMISSION_ORDERED.index(regular_permission):
+            app_permissions[section] = special_permission
+
+    return app_permissions
