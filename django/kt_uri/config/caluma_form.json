@@ -34457,10 +34457,10 @@
     "pk": "representative-country",
     "fields": {
       "created_at": "2020-08-28T14:54:28.075Z",
-      "modified_at": "2021-02-11T08:36:15.393Z",
+      "modified_at": "2021-06-02T14:01:39.898Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Land\", \"fr\": null}",
       "type": "dynamic_multiple_choice",
@@ -34471,7 +34471,9 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
       "data_source": "Countries",
       "row_form": null,
       "sub_form": null,
