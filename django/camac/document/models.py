@@ -1,4 +1,3 @@
-from functools import reduce
 from uuid import uuid4
 
 import reversion
@@ -110,8 +109,8 @@ class Attachment(models.Model):
 
 class AttachmentSectionQuerySet(models.QuerySet):
     def filter_group(self, group):
-        permission_info = permissions.section_permissions_for_role(group.role)
-        visible_section_ids = reduce(lambda a, b: a + b, permission_info.values(), [])
+        permission_info = permissions.section_permissions(group)
+        visible_section_ids = permission_info.keys()
 
         return self.filter(pk__in=visible_section_ids)
 
@@ -158,10 +157,10 @@ class AttachmentSection(core_models.MultilingualModel, models.Model):
     )
 
     def get_mode(self, group):
-        permission_info = permissions.section_permissions_for_role(group.role)
+        permission_info = permissions.section_permissions(group)
 
-        for mode, section_ids in permission_info.items():
-            if self.pk in section_ids:
+        for section_id, mode in permission_info.items():
+            if self.pk == section_id:
                 return mode
 
     class Meta:

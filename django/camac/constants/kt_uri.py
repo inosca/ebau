@@ -12,6 +12,11 @@ ROLE_MUNICIPALITY = 6  # Sekretariat der Gemeindebaubehörde
 
 INSTANCE_STATES_PRIVATE = ["new", "new_portal"]
 
+LISAG_ATTACHMENT_SECTION_ID = 12000007
+
+LISAG_GROUP_ID = 283
+KOOR_NP_GROUP_ID = 21
+
 # Question identifiers (Chapter/Question/Item) for various information that we need
 # Format: List of 3-tuples to implement fallback
 CQI_FOR_PROPOSAL = [(21, 97, 1)]
