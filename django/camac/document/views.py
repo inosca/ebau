@@ -4,7 +4,6 @@ import os
 import zipfile
 from datetime import timedelta
 from enum import Enum
-from functools import reduce
 
 from django.conf import settings
 from django.db.models import Q
@@ -83,27 +82,29 @@ class AttachmentQuerysetMixin:
     def get_base_queryset(self):
         queryset = super().get_base_queryset()
 
-        permission_info = permissions.section_permissions_for_role(
-            self.request.group.role
-        )
-        readable_sections = reduce(
-            lambda a, b: a + b,
-            [
-                sec
-                for perm, sec in permission_info.items()
-                if perm not in ("adminint", "applicant")
-            ],
-            [],
-        )
+        permission_info = permissions.section_permissions(self.request.group)
+        readable_sections = [
+            sec
+            for sec, perm in permission_info.items()
+            if perm not in ("adminint", "applicant")
+        ]
 
         if not readable_sections:
             readable_sections = []
         # adminint must be special-cased to also include the section in the filter
         # so it cannot be used with the other sections
-        adminint_sections = permission_info.get("adminint", [])
+        adminint_sections = {
+            section_id: permission
+            for (section_id, permission) in permission_info.items()
+            if permission == "adminint"
+        }
 
         # applicant is a role relative to the instance, so must be specialcased
-        applicant_sections = permission_info.get("applicant", [])
+        applicant_sections = {
+            section_id: permission
+            for (section_id, permission) in permission_info.items()
+            if permission == "applicant"
+        }
 
         # loosen_filter can be used to allow more
         # results than we'd allow by default. Since this is used
