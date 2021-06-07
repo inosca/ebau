@@ -799,6 +799,7 @@ APPLICATIONS = {
                         "projektaenderung",
                         "einreichen-button",
                         "karte",
+                        "dokumente-platzhalter",
                     ],
                 },
                 "selbstdeklaration": {
@@ -811,6 +812,7 @@ APPLICATIONS = {
                         "einreichen-button-sb2",
                         "dokumente-sb1",
                         "dokumente-sb2",
+                        "dokumente-platzhalter",
                     ],
                 },
                 "regular-exams": {
