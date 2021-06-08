@@ -290,6 +290,7 @@ instances:
     subm: "Eingereicht bei Gemeinde"
     ext_gem: "Dossiers bleibt bei Gemeindebaubehörde"
     old: "Archivdossier"
+    control: "Bau- und Einspracheentscheid zugestellt"
 
 
 
