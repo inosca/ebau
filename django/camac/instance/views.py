@@ -276,11 +276,21 @@ class InstanceView(
             )
             answers = form_models.Answer.objects.filter(document=case.document)
 
-            client = form_models.Answer.objects.filter(
-                document=answers.get(
-                    question__slug=answer_slugs.get("client", "")
-                ).documents.first()
-            )
+            try:
+                submit_date = case.work_items.get(
+                    task_id=answer_slugs.get("projectAnnouncementDate", "")
+                ).closed_at
+            except workflow_models.WorkItem.DoesNotExist:  # pragma: no cover
+                submit_date = None
+
+            try:
+                client = form_models.Answer.objects.filter(
+                    document=answers.get(
+                        question__slug=answer_slugs.get("client", "")
+                    ).documents.first()
+                )
+            except form_models.Answer.DoesNotExist:  # pragma: no cover
+                client = None
 
             def get_answer_value(slug, queryset):
                 answer = queryset.filter(question__slug=slug).first()
@@ -330,9 +340,7 @@ class InstanceView(
                     }
                     if client
                     else None,
-                    "projectAnnouncementDate": get_answer_value(
-                        answer_slugs.get("projectAnnouncementDate", ""), answers
-                    ),
+                    "projectAnnouncementDate": submit_date,
                 }
             )
 
