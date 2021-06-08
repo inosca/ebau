@@ -9,6 +9,7 @@ from caluma.caluma_form import models as caluma_form_models
 from django.conf import settings
 from django.core.mail import EmailMessage, get_connection
 from django.db.models import Q, Sum
+from django.utils import timezone
 from django.utils.text import slugify
 from django.utils.translation import gettext_noop
 from rest_framework import exceptions
@@ -245,15 +246,16 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
     def get_publications(self, instance):
         publications = []
+        current_tz = timezone.get_current_timezone()
 
         for publication in instance.publication_entries.filter(is_published=1).order_by(
             "publication_date"
         ):
             publications.append(
                 {
-                    "date": publication.publication_date.strftime(
-                        settings.MERGE_DATE_FORMAT
-                    ),
+                    "date": current_tz.normalize(
+                        publication.publication_date.astimezone(current_tz)
+                    ).strftime(settings.MERGE_DATE_FORMAT),
                     "calendar_week": publication.publication_date.isocalendar()[1],
                 }
             )

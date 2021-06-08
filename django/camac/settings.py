@@ -420,6 +420,7 @@ APPLICATIONS = {
                 "notification.NotificationTemplateT": Q(template__type="email"),
             },
         },
+        "REJECTION_FEEDBACK_QUESTION": {},
     },
     "kt_bern": {
         "LOG_NOTIFICATIONS": True,
