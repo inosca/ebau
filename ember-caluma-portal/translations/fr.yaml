@@ -301,6 +301,7 @@ instances:
     subm: ""
     ext_gem: ""
     old: ""
+    control: ""
 
     # Bern states
     creation: "Noveau"
