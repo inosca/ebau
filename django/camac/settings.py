@@ -1147,7 +1147,7 @@ APPLICATIONS = {
             "client_address_street": "strasse-gesuchstellerin",
             "client_identification_personIdentification_officialName": "name-gesuchstellerin",
             "client_identification_personIdentification_firstName": "vorname-gesuchstellerin",
-            "projectAnnouncementDate": "",
+            "projectAnnouncementDate": "submit",
         },
     },
     "kt_uri": {
