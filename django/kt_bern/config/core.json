@@ -50673,7 +50673,7 @@
       "description": null,
       "template": null,
       "class_field": "menu-category-primary",
-      "hidden": 0,
+      "hidden": 1,
       "sort": 24,
       "form_group": 40000
     }
