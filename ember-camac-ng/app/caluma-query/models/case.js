@@ -78,12 +78,8 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get authority() {
-    const authorityId = getAnswer(this.raw.document, "leitbehoerde")?.node
-      .stringValue;
-
-    return authorityId
-      ? this.store.findRecord("authority", Number(authorityId))
-      : "";
+    const answer = getAnswer(this.raw.document, "leitbehoerde");
+    return answer?.node.selectedOption.label;
   }
 
   get dossierNr() {
@@ -92,9 +88,7 @@ export default class CustomCaseModel extends CaseModel {
 
   get municipality() {
     const answer = getAnswer(this.raw.document, "municipality");
-    return answer?.node.question.options.edges.find(
-      (edge) => edge.node.slug === answer?.node.stringValue
-    )?.node.label;
+    return answer?.node.selectedOption.label;
   }
 
   get applicant() {
@@ -250,16 +244,6 @@ export default class CustomCaseModel extends CaseModel {
                   }
                 }
               }
-              ... on DynamicChoiceQuestion{
-                options {
-                  edges {
-                    node {
-                      slug
-                      label
-                    }
-                  }
-                }
-              }
             }
 
             ... on TableAnswer {
@@ -280,6 +264,9 @@ export default class CustomCaseModel extends CaseModel {
             }
             ... on StringAnswer {
               stringValue: value
+              selectedOption {
+                label
+              }
             }
             ... on IntegerAnswer {
               integerValue: value
