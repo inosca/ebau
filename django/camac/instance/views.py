@@ -2,6 +2,7 @@ import mimetypes
 from datetime import timedelta
 
 import django_excel
+from caluma.caluma_form import models as form_models
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
 from django.conf import settings
 from django.contrib.postgres.fields.jsonb import KeyTextTransform
@@ -267,9 +268,81 @@ class InstanceView(
     def gwr_data(self, request, pk):
         """Export instance data to GWR."""
 
-        # TODO: consider moving this to a serializer
-        if settings.APPLICATION["FORM_BACKEND"] == "caluma":  # pragma: no cover
-            return response.Response(status=status.HTTP_404_NOT_FOUND)
+        if settings.APPLICATION["FORM_BACKEND"] == "caluma":
+            answer_slugs = settings.APPLICATION.get("GWR_CALUMA_ANSWER_SLUGS", {})
+
+            case = workflow_models.Case.objects.get(
+                **{"meta__camac-instance-id": int(pk)}
+            )
+            answers = form_models.Answer.objects.filter(document=case.document)
+
+            try:
+                submit_date = case.work_items.get(
+                    task_id=answer_slugs.get("projectAnnouncementDate", "")
+                ).closed_at
+            except workflow_models.WorkItem.DoesNotExist:  # pragma: no cover
+                submit_date = None
+
+            try:
+                client = form_models.Answer.objects.filter(
+                    document=answers.get(
+                        question__slug=answer_slugs.get("client", "")
+                    ).documents.first()
+                )
+            except form_models.Answer.DoesNotExist:  # pragma: no cover
+                client = None
+
+            def get_answer_value(slug, queryset):
+                answer = queryset.filter(question__slug=slug).first()
+                if answer:
+                    return answer.value
+                return None
+
+            return response.Response(
+                {
+                    "constructionProjectDescription": get_answer_value(
+                        answer_slugs.get("constructionProjectDescription", ""), answers
+                    ),
+                    "totalCostsOfProject": get_answer_value(
+                        answer_slugs.get("totalCostsOfProject", ""), answers
+                    ),
+                    "client": {
+                        "address": {
+                            "town": get_answer_value(
+                                answer_slugs.get("client_address_town", ""), client
+                            ),
+                            "swissZipCode": get_answer_value(
+                                answer_slugs.get("client_address_swissZipCode", ""),
+                                client,
+                            ),
+                            "street": get_answer_value(
+                                answer_slugs.get("client_address_street", ""), client
+                            ),
+                        },
+                        "identification": {
+                            "personIdentification": {
+                                "officialName": get_answer_value(
+                                    answer_slugs.get(
+                                        "client_identification_personIdentification_officialName",
+                                        "",
+                                    ),
+                                    client,
+                                ),
+                                "firstName": get_answer_value(
+                                    answer_slugs.get(
+                                        "client_identification_personIdentification_firstName",
+                                        "",
+                                    ),
+                                    client,
+                                ),
+                            },
+                        },
+                    }
+                    if client
+                    else None,
+                    "projectAnnouncementDate": submit_date,
+                }
+            )
 
         instance = self.get_object()
 
