@@ -59,6 +59,7 @@ omit=
     camac/migrate_to_caluma/management/commands/delete_migrated_cases.py
     camac/migrate_to_caluma/management/commands/migrate_cases.py
     camac/migrate_to_caluma/management/commands/migrate_question.py
+    camac/migrate_to_caluma/management/commands/migrate_dynamic_choice.py
     camac/migrate_to_caluma/question_map.py
     camac/migrate_to_caluma/transforms.py
 
