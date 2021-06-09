@@ -203,6 +203,9 @@ APPLICATIONS = {
             "QUESTION": 20037,
             "ITEM": 1,
         },
+        "SIDE_EFFECTS": {
+            "document_downloaded": "camac.document.side_effects.create_workflow_entry",
+        },
     },
     "kt_schwyz": {
         "LOG_NOTIFICATIONS": True,
