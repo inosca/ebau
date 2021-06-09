@@ -345,12 +345,11 @@ class AttachmentDownloadView(
 
         self._create_history_entry(request, attachment)
 
-        side_effects_name = settings.APPLICATION.get("SIDE_EFFECTS", {}).get(
+        side_effect = settings.APPLICATION.get("SIDE_EFFECTS", {}).get(
             "document_downloaded"
         )
-        if side_effects_name:
-            side_effect = import_string(side_effects_name)
-            side_effect(attachment, request)
+        if side_effect:
+            import_string(side_effect)(attachment, request)
 
         response = SendfileHttpResponse(
             content_type=attachment.mime_type,
