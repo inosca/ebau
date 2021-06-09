@@ -32,7 +32,7 @@ from camac.user.models import Service
 from camac.user.permissions import DefaultOrPublicReadOnly, permission_aware
 from camac.utils import DocxRenderer
 
-from . import filters, models, permissions, serializers, side_effects
+from . import filters, models, permissions, serializers
 
 NOTICE_TYPE_ORDER = {
     "Antrag": 0,
@@ -345,7 +345,7 @@ class AttachmentDownloadView(
 
         self._create_history_entry(request, attachment)
 
-        side_effect_name = settings.APPLICATION.get("SIDE_EFFECTS", {}).get(
+        side_effects_name = settings.APPLICATION.get("SIDE_EFFECTS", {}).get(
             "document_downloaded"
         )
         if side_effects_name:
