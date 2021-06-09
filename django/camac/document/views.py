@@ -9,6 +9,7 @@ from django.conf import settings
 from django.db.models import Q
 from django.http import HttpResponse
 from django.utils import timezone
+from django.utils.module_loading import import_string
 from django.utils.translation import gettext as _
 from drf_yasg import openapi
 from drf_yasg.errors import SwaggerGenerationError
@@ -343,6 +344,12 @@ class AttachmentDownloadView(
         download_path = kwargs.get(self.lookup_field)
 
         self._create_history_entry(request, attachment)
+
+        side_effect = settings.APPLICATION.get("SIDE_EFFECTS", {}).get(
+            "document_downloaded"
+        )
+        if side_effect:
+            import_string(side_effect)(attachment, request)
 
         response = SendfileHttpResponse(
             content_type=attachment.mime_type,
