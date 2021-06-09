@@ -1342,6 +1342,9 @@ APPLICATIONS = {
             "client_identification_personIdentification_firstName": "representative-first-name",
             "projectAnnouncementDate": "",
         },
+        "SIDE_EFFECTS": {
+            "document_downloaded": "camac.document.side_effects.create_workflow_entry",
+        },
     },
 }
 
