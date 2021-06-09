@@ -19,7 +19,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         validator = AnswerValidator()
-        user = User("migration", "migration")
+        user = User()
         for case in workflow_models.Case.objects.all():
             answers = case.document.answers.filter(
                 question__type__in=[
