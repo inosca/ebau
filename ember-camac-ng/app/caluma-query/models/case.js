@@ -79,7 +79,7 @@ export default class CustomCaseModel extends CaseModel {
 
   get authority() {
     const answer = getAnswer(this.raw.document, "leitbehoerde");
-    return answer?.node.selectedOption.label;
+    return answer?.node.selectedOption?.label;
   }
 
   get dossierNr() {
@@ -88,7 +88,7 @@ export default class CustomCaseModel extends CaseModel {
 
   get municipality() {
     const answer = getAnswer(this.raw.document, "municipality");
-    return answer?.node.selectedOption.label;
+    return answer?.node.selectedOption?.label;
   }
 
   get applicant() {
