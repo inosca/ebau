@@ -361,3 +361,10 @@ class AuthorityFactory(DjangoModelFactory):
 
     class Meta:
         model = models.Authority
+
+
+class BuildingAuthorityButtonFactory(DjangoModelFactory):
+    label = Faker("name")
+
+    class Meta:
+        model = models.BuildingAuthorityButton

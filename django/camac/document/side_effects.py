@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.utils import timezone
 
 from camac.constants import kt_uri as uri_constants
@@ -5,9 +6,16 @@ from camac.core.models import BuildingAuthorityButtonstate, WorkflowEntry
 
 
 def create_workflow_entry(attachment, request):
-    # check if file is downloaded by gesuchsteller
-    if not request.group.role.pk == uri_constants.PORTAL_USER_ROLE:
-        return None
+    """When the applicant downloads decision documents, write workflow date."""
+
+    if not request.group or request.group.pk != settings.APPLICATION.get(
+        "APPLICANT_GROUP_ID"
+    ):
+        return
+
+    if not attachment.context.get("isDecision"):
+        return
+
     buttons = BuildingAuthorityButtonstate.objects.filter(
         instance=attachment.instance,
         building_authority_button_id__in=[
