@@ -9,6 +9,7 @@ from django.conf import settings
 from django.db.models import Q
 from django.http import HttpResponse
 from django.utils import timezone
+from django.utils.module_loading import import_string
 from django.utils.translation import gettext as _
 from drf_yasg import openapi
 from drf_yasg.errors import SwaggerGenerationError
@@ -31,7 +32,7 @@ from camac.user.models import Service
 from camac.user.permissions import DefaultOrPublicReadOnly, permission_aware
 from camac.utils import DocxRenderer
 
-from . import filters, models, permissions, serializers
+from . import filters, models, permissions, serializers, side_effects
 
 NOTICE_TYPE_ORDER = {
     "Antrag": 0,
@@ -343,6 +344,13 @@ class AttachmentDownloadView(
         download_path = kwargs.get(self.lookup_field)
 
         self._create_history_entry(request, attachment)
+
+        side_effect_name = settings.APPLICATION.get("SIDE_EFFECTS", {}).get(
+            "document_downloaded"
+        )
+        if side_effects_name:
+            side_effect = import_string(side_effects_name)
+            side_effect(attachment, request)
 
         response = SendfileHttpResponse(
             content_type=attachment.mime_type,
