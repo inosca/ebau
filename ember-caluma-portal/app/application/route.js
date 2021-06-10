@@ -58,11 +58,6 @@ export default class ApplicationRouter extends Route.extend(
       type: "StaticQuestion",
     });
     this.calumaOptions.registerComponentOverride({
-      label: "Nachforderungen Tabelle",
-      component: "be-claims-table",
-      type: "TableQuestion",
-    });
-    this.calumaOptions.registerComponentOverride({
       label: "Nachforderungen Formular",
       component: "be-claims-form",
       type: "Form",
