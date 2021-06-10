@@ -44,15 +44,18 @@ module.exports = function (environment) {
       },
       instanceStates: instanceStatesBe,
       modification: {
-        allowForms: ["baugesuch", "baugesuch-generell", "baugesuch-mit-uvp"],
+        allowForms: [
+          "baugesuch",
+          "baugesuch-v2",
+          "baugesuch-generell",
+          "baugesuch-generell-v2",
+          "baugesuch-mit-uvp",
+          "baugesuch-mit-uvp-v2",
+        ],
         disallowStates: [
           instanceStatesBe.new,
-          instanceStatesBe.rejected,
           instanceStatesBe.archived,
-          instanceStatesBe.inCorrection,
           instanceStatesBe.finished,
-          instanceStatesBe.sb1,
-          instanceStatesBe.sb2,
         ],
       },
       answerSlugs: {
