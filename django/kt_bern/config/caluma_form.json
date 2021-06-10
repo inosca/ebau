@@ -41082,16 +41082,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "hideLabel": true,
-        "widgetOverride": "be-claims-table",
-        "columnsToDisplay": [
-          "nfd-tabelle-frist",
-          "nfd-tabelle-beschreibung",
-          "nfd-tabelle-status",
-          "nfd-tabelle-bemerkung"
-        ]
-      },
+      "meta": {},
       "data_source": null,
       "row_form": "nfd-tabelle",
       "sub_form": null,
