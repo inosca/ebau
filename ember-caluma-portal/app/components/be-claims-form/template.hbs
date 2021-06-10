@@ -19,11 +19,11 @@
   <div class="uk-width-expand" {{did-insert (perform this.fetchServices)}}>
     {{#if this.editedClaim}}
       <BeClaimsForm::edit
-        @document={{this.document}}
-        @form={{this.fieldset.form}}
+        @document={{@document}}
+        @form={{@fieldset.form}}
         @claim={{this.editedClaim}}
         @tags={{this.tags}}
-        @instanceId={{this.context.instanceId}}
+        @instanceId={{@context.instanceId}}
         @onCancel={{fn this.setEditedClaim null}}
       />
     {{else}}
