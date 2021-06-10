@@ -75,6 +75,7 @@ export default class WorkItemsInstanceEditController extends Controller {
     try {
       return (yield this.store.query("public-user", {
         service: this.shoebox.content.serviceId,
+        disabled: false,
       })).toArray();
     } catch (error) {
       this.notifications.error(this.intl.t("workItems.fetchError"));
