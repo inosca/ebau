@@ -2,8 +2,8 @@ import { getOwner } from "@ember/application";
 import EmberObject, { action } from "@ember/object";
 import { reads } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
+import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
-import CfFormComponent from "ember-caluma/components/cf-form";
 import { dropTask } from "ember-concurrency-decorators";
 import moment from "moment";
 
@@ -54,18 +54,19 @@ class Claim extends EmberObject {
   }
 }
 
-export default class BeClaimsFormComponent extends CfFormComponent {
+export default class BeClaimsFormComponent extends Component {
   @service intl;
   @service store;
 
   @tracked activeClaimType = "pending";
+  @tracked editedClaim;
 
   get claimTypes() {
     return ["pending", "answered"];
   }
 
   get allClaims() {
-    const table = this.fieldset.document.findField("nfd-tabelle-table");
+    const table = this.args.fieldset.document.findField("nfd-tabelle-table");
 
     return table.answer.value.map((document) => {
       return Claim.create(getOwner(this).ownerInjection(), { document });
@@ -99,6 +100,6 @@ export default class BeClaimsFormComponent extends CfFormComponent {
   setEditedClaim(claim, event) {
     if (event) event.preventDefault();
 
-    this.set("editedClaim", claim);
+    this.editedClaim = claim;
   }
 }
