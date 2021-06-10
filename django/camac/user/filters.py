@@ -44,6 +44,7 @@ class ServiceFilterSet(FilterSet):
 class PublicUserFilterSet(FilterSet):
     username = CharMultiValueFilter()
     service = NumberMultiValueFilter(field_name="groups__service")
+    disabled = BooleanFilter()
 
     class Meta:
         model = models.User
