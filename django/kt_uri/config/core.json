@@ -18556,7 +18556,7 @@
     "pk": 211,
     "fields": {
       "name": "Rechnung AFJ",
-      "path": "billKOOR AFJ_aktuell.docx",
+      "path": "billKOORAFJ.docx",
       "type": 1.0
     }
   },
@@ -18565,7 +18565,7 @@
     "pk": 212,
     "fields": {
       "name": "Rechnung ALA",
-      "path": "billKOOR ALA_aktuell.docx",
+      "path": "billKOORALA.docx",
       "type": 1.0
     }
   },
@@ -18574,7 +18574,7 @@
     "pk": 213,
     "fields": {
       "name": "Rechnung AfE",
-      "path": "billKOOR AfE_aktuell.docx",
+      "path": "billKOORAfE.docx",
       "type": 1.0
     }
   },
@@ -18583,7 +18583,7 @@
     "pk": 214,
     "fields": {
       "name": "Rechnung AfU",
-      "path": "billKOOR AfU_aktuell.docx",
+      "path": "billKOORAfU.docx",
       "type": 1.0
     }
   },
