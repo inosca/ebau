@@ -1503,7 +1503,7 @@
       "available_action": "php",
       "button": 153,
       "name": "Dossier Typ Wechseln",
-      "description": "",
+      "description": null,
       "success_message": "Dossier erfolgreich umgewandelt",
       "error_message": "Dossier konnte nicht umgewandelt werden!",
       "execute_always": 1,
@@ -4406,20 +4406,6 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1376,
-    "fields": {
-      "available_action": "php",
-      "button": 153,
-      "name": "Zur\u00fcck zum Dossier",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
     }
   },
   {
@@ -19735,22 +19721,6 @@
   },
   {
     "model": "core.formgroupform",
-    "pk": 96,
-    "fields": {
-      "form_group": 221,
-      "form": 47
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 97,
-    "fields": {
-      "form_group": 221,
-      "form": 61
-    }
-  },
-  {
-    "model": "core.formgroupform",
     "pk": 100,
     "fields": {
       "form_group": 221,
@@ -21443,6 +21413,22 @@
     "fields": {
       "form_group": 12000000,
       "form": 290
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000007,
+    "fields": {
+      "form_group": 221,
+      "form": 47
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000008,
+    "fields": {
+      "form_group": 221,
+      "form": 61
     }
   },
   {
