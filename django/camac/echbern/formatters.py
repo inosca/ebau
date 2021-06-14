@@ -679,7 +679,7 @@ def accompanying_report(
         ancillaryClauses=[assure_string_length(nebenbestimmung, max_length=950)]
         if nebenbestimmung
         else [],
-        judgement=judgement_mapping[circulation_answer.name]
+        judgement=judgement_mapping.get(circulation_answer.name)
         if circulation_answer
         else None,
     )
