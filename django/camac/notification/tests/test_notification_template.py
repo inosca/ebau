@@ -435,6 +435,7 @@ def test_notification_template_sendmail_koor(
                 BILLING_TOTAL_KANTON: {{billing_total_kanton}}
                 BILLING_TOTAL: {{billing_total}}
                 CURRENT_SERVICE_DESCRIPTION: {{current_service_description}}
+                OBJECTIONS: {{objections}}
             """,
         )
     ],
@@ -450,6 +451,8 @@ def test_notification_placeholders(
     settings,
     workflow_entry_factory,
     billing_v2_entry_factory,
+    objection,
+    objection_participant_factory,
 ):
     settings.APPLICATION["WORKFLOW_ITEMS"]["SUBMIT"] = workflow_entry_factory(
         instance=instance, workflow_date=timezone.make_aware(datetime(2019, 7, 22, 10))
@@ -472,6 +475,8 @@ def test_notification_placeholders(
     kanton_amount = billing_v2_entry_factory(
         instance=instance, organization="cantonal"
     ).final_rate
+
+    objection_participant_factory(objection=objection, representative=1)
 
     url = reverse("notificationtemplate-sendmail")
 
@@ -513,6 +518,7 @@ def test_notification_placeholders(
         f"BILLING_TOTAL_KANTON: {kanton_amount}",
         f"BILLING_TOTAL: {round(kommunal_amount + kanton_amount, 2)}",
         f"CURRENT_SERVICE_DESCRIPTION: {admin_svc.description}",
+        f"OBJECTIONS: <QuerySet [<Objection: Objection object ({objection.id})>]>",
     ]
 
 

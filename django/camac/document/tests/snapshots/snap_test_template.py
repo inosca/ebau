@@ -1894,8 +1894,8 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
     </w:tblPr>
     <w:tblGrid>
       <w:gridCol w:w="2422"/>
-      <w:gridCol w:w="2699"/>
-      <w:gridCol w:w="1719"/>
+      <w:gridCol w:w="2698"/>
+      <w:gridCol w:w="1720"/>
       <w:gridCol w:w="1351"/>
       <w:gridCol w:w="1447"/>
     </w:tblGrid>
@@ -1927,7 +1927,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="2699" w:type="dxa"/>
+          <w:tcW w:w="2698" w:type="dxa"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000001"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000001"/>
@@ -1951,7 +1951,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1719" w:type="dxa"/>
+          <w:tcW w:w="1720" w:type="dxa"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000001"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000001"/>
@@ -2051,7 +2051,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="2699" w:type="dxa"/>
+          <w:tcW w:w="2698" w:type="dxa"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000001"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000001"/>
@@ -2075,7 +2075,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1719" w:type="dxa"/>
+          <w:tcW w:w="1720" w:type="dxa"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000001"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000001"/>
@@ -2743,6 +2743,31 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
         </w:p>
       </w:tc>
     </w:tr>
+  </w:tbl>
+  <w:p>
+    <w:pPr>
+      <w:pStyle w:val="Heading3"/>
+      <w:rPr/>
+    </w:pPr>
+    <w:r>
+      <w:rPr/>
+      <w:t>Einsprachen</w:t>
+    </w:r>
+  </w:p>
+  <w:tbl>
+    <w:tblPr>
+      <w:tblW w:w="9643" w:type="dxa"/>
+      <w:jc w:val="left"/>
+      <w:tblInd w:w="55" w:type="dxa"/>
+      <w:tblLayout w:type="fixed"/>
+      <w:tblCellMar>
+        <w:top w:w="55" w:type="dxa"/>
+        <w:left w:w="55" w:type="dxa"/>
+        <w:bottom w:w="55" w:type="dxa"/>
+        <w:right w:w="55" w:type="dxa"/>
+      </w:tblCellMar>
+    </w:tblPr>
+    <w:tblGrid/>
   </w:tbl>
   <w:p>
     <w:pPr>
