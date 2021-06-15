@@ -1,0 +1,203 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "sb2",
+    "fields": {
+      "created_at": "2019-06-17T10:53:32.170Z",
+      "modified_at": "2019-06-17T10:53:32.170Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Selbstdeklaration Baukontrolle 2\", \"fr\": \"D\\u00e9claration spontan\\u00e9e en mati\\u00e8re de contr\\u00f4le des constructions 2\"}",
+      "description": "{\"de\": \"\", \"fr\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "sb2.abschluss-sb2",
+    "fields": {
+      "created_at": "2019-09-25T10:19:38.561Z",
+      "modified_at": "2019-09-25T10:19:38.561Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "sb2",
+      "question": "abschluss-sb2",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "sb2.dokumente-sb2",
+    "fields": {
+      "created_at": "2019-09-25T10:19:39.093Z",
+      "modified_at": "2019-09-25T10:19:39.093Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "sb2",
+      "question": "dokumente-sb2",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "sb2.freigabequittung-sb2",
+    "fields": {
+      "created_at": "2019-09-25T10:19:39.570Z",
+      "modified_at": "2019-09-25T10:19:39.570Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "sb2",
+      "question": "freigabequittung-sb2",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "sb2.lagerung-von-stoffen-sb2",
+    "fields": {
+      "created_at": "2021-06-14T10:43:13.489Z",
+      "modified_at": "2021-06-14T10:43:13.489Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "sb2",
+      "question": "lagerung-von-stoffen-sb2",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abschluss-sb2",
+    "fields": {
+      "created_at": "2019-06-17T10:56:40.701Z",
+      "modified_at": "2019-06-17T10:56:40.701Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abschluss\", \"fr\": \"Graduation\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "abschluss-sb2",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "dokumente-sb2",
+    "fields": {
+      "created_at": "2019-06-17T10:57:29.422Z",
+      "modified_at": "2019-06-17T10:57:29.422Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dokumente\", \"fr\": \"Documents\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "be-documents-form",
+        "attachment-section": "'is-paper'|answer == 'is-paper-yes'? 11 : 5"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "dokumente-sb2",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "freigabequittung-sb2",
+    "fields": {
+      "created_at": "2019-06-17T10:59:56.054Z",
+      "modified_at": "2019-06-17T10:59:56.054Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Freigabequittung\", \"fr\": \"D\\u00e9claration de validation\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "freigabequittung-sb2",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "lagerung-von-stoffen-sb2",
+    "fields": {
+      "created_at": "2021-06-14T10:43:13.375Z",
+      "modified_at": "2021-06-16T06:07:20.180Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Lagerung von Stoffen\", \"fr\": \"Stockage de substances\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "gewaesserschutz-wassergefaehrdende-fluessigkeiten-v2",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  }
+]
