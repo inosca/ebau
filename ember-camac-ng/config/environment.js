@@ -26,7 +26,7 @@ module.exports = function (environment) {
       },
     },
     "ember-ebau-core": {
-      gisUrl: "https://service.lisag.ch/ows",
+      gisUrl: "/lisag/ows",
       attachmentSections: { applicant: "12000000" },
     },
     APP: {
