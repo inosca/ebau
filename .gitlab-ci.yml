@@ -259,7 +259,7 @@ build-kt_schwyz-production:
 build-kt_uri-stage:
   extends: .build-image-ur
   variables:
-    KEYCLOAK_HOST: https://camac-uri.sycloud.ch
+    KEYCLOAK_HOST: https://camac.ur.sycloud.ch
     APPLICATION: kt_uri
     COMPOSE: docker-compose -f compose/kt_uri.yml -f compose/kt_uri-stage.yml
   only:
@@ -369,10 +369,10 @@ deploy-kt_uri-stage:
   extends: .deploy
   environment:
     name: stage-kt_uri
-    url: https://camac-uri.sycloud.ch/
+    url: https://camac.ur.sycloud.ch/
   variables:
     APPLICATION: kt_uri
-    DOCKER_HOST: vm-camac-webapp-stage-01.cust.adfinis-sygroup.ch:2376
+    DOCKER_HOST: vm-kturi-urec-test-01.cust.adfinis.com:2376
     COMPOSE: docker-compose -f compose/kt_uri.yml -f compose/kt_uri-stage.yml
   only:
     - stage-ur
