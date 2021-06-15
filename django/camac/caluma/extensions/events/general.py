@@ -2,6 +2,8 @@ from logging import getLogger
 
 from caluma.caluma_core.events import on
 from caluma.caluma_form import models as caluma_form_models
+from caluma.caluma_form.jexl import QuestionJexl
+from caluma.caluma_form.structure import FieldSet
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.events import (
     post_complete_work_item,
@@ -46,6 +48,41 @@ def copy_sb_personal(sender, work_item, **kwargs):
                 target_question=config["TARGET"],
                 source_question_fallback=config["FALLBACK"],
             )
+
+
+@on(post_create_work_item, raise_exception=True)
+@transaction.atomic
+def copy_tank_installation(sender, work_item, **kwargs):
+    target_document = work_item.document
+    for config in get_caluma_setting("COPY_TANK_INSTALLATION", []):
+        if work_item.task_id == config["TASK"]:
+            source_document = config["DOCUMENT"](work_item)
+            structure = FieldSet(
+                source_document,
+                source_document.form,
+            )
+            qj = QuestionJexl(
+                {
+                    "document": source_document,
+                    "form": source_document.form,
+                    "structure": structure,
+                }
+            )
+            table_field = structure.get_field("lagerung-von-stoffen-v2")
+            if not table_field:
+                return
+
+            for row in table_field.children():
+                field = row.get_field("bewilligungspflichtig-v2")
+                hidden = qj.is_hidden(field)
+                if work_item.task_id == config["TASK"] and hidden:
+                    new_row = CalumaApi().copy_document(
+                        row.document.pk, family=target_document.family
+                    )
+                    target_table, _ = target_document.answers.get_or_create(
+                        question_id=config["TARGET"]
+                    )
+                    target_table.documents.add(new_row)
 
 
 @on(post_create_work_item, raise_exception=True)

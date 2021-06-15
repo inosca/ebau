@@ -1,13 +1,16 @@
 import json
 import re
 from collections import namedtuple
+from datetime import timedelta
 from io import StringIO
 from logging import getLogger
 from uuid import uuid4
 
+from caluma.caluma_core.events import send_event
 from caluma.caluma_form import api as form_api, models as form_models
 from caluma.caluma_form.validators import CustomValidationError
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
+from caluma.caluma_workflow.events import post_create_work_item
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.contrib.postgres.fields.jsonb import KeyTextTransform
@@ -1785,6 +1788,7 @@ class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
     def update(self, instance, validated_data):
         instance.previous_instance_state = instance.instance_state
         instance.instance_state = models.InstanceState.objects.get(name="conclusion")
+        user = self.context["request"].caluma_info.context.user
 
         instance.save()
 
@@ -1799,8 +1803,33 @@ class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
         if work_item:
             workflow_api.complete_work_item(
                 work_item=work_item,
-                user=self.context["request"].caluma_info.context.user,
+                user=user,
             )
+            if CalumaApi().get_table_answer("lagerung-von-stoffen-v2", instance):
+                awa_work_item = workflow_models.WorkItem.objects.create(
+                    created_by_user=user.username,
+                    created_by_group=user.group,
+                    name={
+                        "de": "Meldeformular an AWA weiterleiten",
+                        "fr": "Transmettre la notification à l'AWA",
+                    },
+                    deadline=timezone.now() + timedelta(days=10),
+                    task_id="create-manual-workitems",
+                    case=work_item.case,
+                    status=workflow_models.WorkItem.STATUS_READY,
+                    addressed_groups=[
+                        self.instance.responsible_service(
+                            filter_type="construction_control"
+                        ).pk
+                    ],
+                )
+                send_event(
+                    post_create_work_item,
+                    sender="finalize",
+                    work_item=awa_work_item,
+                    user=user,
+                    context=self.context,
+                )
 
         # generate and submit pdf
         self._generate_and_store_pdf(instance, "sb2")
