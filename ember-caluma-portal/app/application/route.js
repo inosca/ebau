@@ -4,27 +4,34 @@ import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
 import OIDCApplicationRouteMixin from "ember-simple-auth-oidc/mixins/oidc-application-route-mixin";
 
-export default class ApplicationRouter extends Route.extend(
+export default class ApplicationRoute extends Route.extend(
   OIDCApplicationRouteMixin
 ) {
   @service session;
   @service router;
   @service calumaOptions;
 
+  queryParams = {
+    language: { refreshModel: true },
+    group: { refreshModel: true },
+  };
+
   beforeModel(transition) {
     super.beforeModel(transition);
 
-    const { language, group } = get(transition, "to.queryParams") || {};
+    if (this.session.isAuthenticated) {
+      const { language, group } = get(transition, "to.queryParams") || {};
 
-    this.session.set("language", language || this.session.language);
-    this.session.set("data.group", group || this.session.group);
+      this.session.set("language", language || this.session.language);
+      this.session.set("data.group", group || this.session.group);
 
-    if (language || group) {
-      // after the transition remove the query params so we don't persist the
-      // language and group info twice (in the URL and in the session)
-      transition.then(() => {
-        this.replaceWith({ queryParams: { language: null, group: null } });
-      });
+      if (language || group) {
+        // after the transition remove the query params so we don't persist the
+        // language and group info twice (in the URL and in the session)
+        transition.then(() => {
+          this.replaceWith({ queryParams: { language: null, group: null } });
+        });
+      }
     }
 
     if (window.top !== window) {
