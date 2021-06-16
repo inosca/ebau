@@ -89,14 +89,38 @@ class CirculationView(InstanceQuerysetMixin, InstanceEditableMixin, views.ModelV
         ).first()
         if work_item:
             skip_work_item(
-                work_item=work_item,
-                user=self.request.caluma_info.context.user,
+                work_item=work_item, user=self.request.caluma_info.context.user
             )
 
         # set state of all activations to done
         circulation.activations.update(
             circulation_state=CirculationState.objects.get(name="DONE")
         )
+
+        return Response([], 204)
+
+    @action(methods=["PATCH"], detail=True)
+    @transaction.atomic
+    def end_all(self, request, pk=None):
+        circulation = self.get_object()
+
+        # skip all open circulation work items
+        circulation_work_item = WorkItem.objects.filter(
+            **{"meta__circulation-id": circulation.pk}
+        ).first()
+        if circulation_work_item:
+            for work_item in circulation_work_item.case.work_items.filter(
+                task="circulation", status="ready"
+            ):
+                skip_work_item(
+                    work_item=work_item, user=self.request.caluma_info.context.user
+                )
+
+        # set state of all activations to done
+        for circ in circulation.instance.circulations.all():
+            circ.activations.update(
+                circulation_state=CirculationState.objects.get(name="DONE")
+            )
 
         return Response([], 204)
 
