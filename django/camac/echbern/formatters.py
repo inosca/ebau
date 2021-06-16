@@ -363,10 +363,7 @@ def application(instance: Instance, answers: AnswersDict):
 
     return ns_application.planningPermissionApplicationType(
         description=assure_string_length(
-            answers.get(
-                "beschreibung-bauvorhaben",
-                answers.get("anfrage-zur-vorabklaerung", "unknown"),
-            ),
+            answers.get("beschreibung-bauvorhaben", "unknown"),
             min_length=3,
             max_length=950,
         ),
