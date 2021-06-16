@@ -11,8 +11,7 @@ from django.contrib.postgres.fields.jsonb import KeyTextTransform
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.files import File
 from django.db import transaction
-from django.db.models import IntegerField, OuterRef, Q, Subquery
-from django.db.models.functions import Cast
+from django.db.models import F, OuterRef, Q, Subquery
 from django.http import HttpResponse
 from django.utils import timezone
 from django.utils.translation import gettext as _
@@ -283,9 +282,7 @@ class InstanceView(
         if settings.APPLICATION["FORM_BACKEND"] == "caluma":
             answer_slugs = settings.APPLICATION.get("GWR_CALUMA_ANSWER_SLUGS", {})
 
-            case = workflow_models.Case.objects.get(
-                **{"meta__camac-instance-id": int(pk)}
-            )
+            case = workflow_models.Case.objects.get(instance__pk=pk)
             answers = form_models.Answer.objects.filter(document=case.document)
 
             try:
@@ -513,20 +510,8 @@ class InstanceView(
         documents = (
             form_models.Document.objects.select_related("case")
             .prefetch_related("answers")
-            .filter(
-                **{
-                    "case__meta__camac-instance-id__in": list(
-                        queryset.values_list("pk", flat=True)
-                    )
-                }
-            )
-            .annotate(
-                instance_id=Cast(
-                    KeyTextTransform("camac-instance-id", "case__meta"),
-                    output_field=IntegerField(),
-                )
-            )
-            .order_by("instance_id")
+            .filter(case__instance__pk__in=queryset.values_list("pk", flat=True))
+            .order_by("case__instance__pk")
         )
 
         municipalities = self._load_municipality_sheet()
@@ -536,7 +521,7 @@ class InstanceView(
 
         for instance, document in zip(queryset, documents):
             assert (
-                instance.pk == document.case.meta["camac-instance-id"]
+                instance.pk == document.case.instance.pk
             ), f"Instance {instance.pk} and document {document.pk} don't match"
 
             submit_date = document.case.meta.get("submit-date")
@@ -731,12 +716,9 @@ class InstanceView(
         attachment.save()
 
         workflow_api.complete_work_item(
-            work_item=workflow_models.WorkItem.objects.get(
-                **{
-                    "task_id__in": settings.APPLICATION["CALUMA"].get("SUBMIT_TASKS"),
-                    "status": workflow_models.WorkItem.STATUS_READY,
-                    "case__meta__camac-instance-id": instance.pk,
-                }
+            work_item=instance.case.work_items.get(
+                task_id__in=settings.APPLICATION["CALUMA"].get("SUBMIT_TASKS"),
+                status=workflow_models.WorkItem.STATUS_READY,
             ),
             user=request.caluma_info.context.user,
         )
@@ -805,12 +787,8 @@ class InstanceView(
         instance = self.get_object()
 
         # skip all open circulation work items
-        for work_item in workflow_models.WorkItem.objects.filter(
-            **{
-                "task": "circulation",
-                "status": "ready",
-                "case__meta__camac-instance-id": instance.pk,
-            }
+        for work_item in instance.case.work_items.filter(
+            task="circulation", status=workflow_models.WorkItem.STATUS_READY
         ):
             workflow_api.skip_work_item(
                 work_item=work_item, user=self.request.caluma_info.context.user
@@ -1293,23 +1271,14 @@ class PublicCalumaInstanceView(ListAPIView):
     filterset_class = filters.PublicCalumaInstanceFilterSet
 
     def get_queryset(self):
-        instances = models.Instance.objects.filter(
-            publication_entries__publication_date__gte=timezone.now()
-            - settings.APPLICATION.get("PUBLICATION_DURATION"),
-            publication_entries__publication_date__lt=timezone.now(),
-            publication_entries__is_published=True,
-        )
-
-        qs = (
+        return (
             workflow_models.Case.objects.filter(
-                **{
-                    "meta__camac-instance-id__in": list(
-                        instances.values_list("pk", flat=True)
-                    )
-                }
+                instance__publication_entries__publication_date__gte=timezone.now()
+                - settings.APPLICATION.get("PUBLICATION_DURATION"),
+                instance__publication_entries__publication_date__lt=timezone.now(),
+                instance__publication_entries__is_published=True,
             )
-            .annotate(instance_id=KeyTextTransform("camac-instance-id", "meta"))
+            .annotate(instance_id=F("instance__pk"))
             .annotate(dossier_nr=KeyTextTransform("dossier-number", "meta"))
             .order_by("dossier_nr")
         )
-        return qs

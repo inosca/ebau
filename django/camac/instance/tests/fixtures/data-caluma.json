@@ -12,7 +12,6 @@
       "source": null,
       "meta": {
         "submit-date": "2020-01-23T12:19:22",
-        "camac-instance-id": 3
       }
     }
   },
@@ -28,7 +27,6 @@
       "form": "sb2",
       "source": null,
       "meta": {
-        "camac-instance-id": 1
       }
     }
   },
@@ -130,7 +128,6 @@
       "meta": {
         "ebau-number": "2020-1",
         "submit-date": "2020-01-23T12:14:17",
-        "camac-instance-id": 1
       }
     }
   },
@@ -146,7 +143,6 @@
       "form": "sb1",
       "source": null,
       "meta": {
-        "camac-instance-id": 1
       }
     }
   },
@@ -162,8 +158,7 @@
       "form": "vorabklaerung-einfach",
       "source": null,
       "meta": {
-        "submit-date": "2019-11-05T06:59:54",
-        "camac-instance-id": 2
+        "submit-date": "2019-11-05T06:59:54"
       }
     }
   },

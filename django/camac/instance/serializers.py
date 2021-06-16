@@ -298,12 +298,15 @@ class SchwyzInstanceSerializer(InstanceSerializer):
     def create(self, validated_data):
         instance = super().create(validated_data)
 
-        workflow_api.start_case(
+        case = workflow_api.start_case(
             workflow=workflow_models.Workflow.objects.get(pk="building-permit"),
             form=form_models.Form.objects.get(pk="baugesuch"),
             user=self.context["request"].caluma_info.context.user,
             meta={"camac-instance-id": instance.pk},
         )
+
+        instance.case = case
+        instance.save()
 
         return instance
 
@@ -354,12 +357,9 @@ class CamacInstanceChangeFormSerializer(serializers.Serializer):
         meta.value = json.dumps(meta_value)
         meta.save()
 
-        work_item = workflow_models.WorkItem.objects.get(
-            **{
-                "task_id": settings.APPLICATION["CALUMA"]["REJECTION_TASK"],
-                "status": workflow_models.WorkItem.STATUS_READY,
-                "case__meta__camac-instance-id": instance.pk,
-            }
+        work_item = instance.case.work_items.get(
+            task_id=settings.APPLICATION["CALUMA"]["REJECTION_TASK"],
+            status=workflow_models.WorkItem.STATUS_READY,
         )
 
         workflow_api.complete_work_item(
@@ -784,12 +784,8 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             attachment.save()
 
     def _copy_extend_validity_answers(self, source, target):
-        old_document = form_models.Document.objects.get(
-            **{"case__meta__camac-instance-id": source.pk}
-        )
-        new_document = form_models.Document.objects.get(
-            **{"case__meta__camac-instance-id": target.pk}
-        )
+        old_document = source.case.document
+        new_document = target.case.document
 
         for answer in old_document.answers.filter(
             question_id__in=settings.APPLICATION["CALUMA"].get(
@@ -976,6 +972,9 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             meta=case_meta,
         )
 
+        instance.case = case
+        instance.save()
+
         # Reuse the SET_SUBMIT_DATE_CAMAC_WORKFLOW flag because since this defines the workflow date usage
         if (
             settings.APPLICATION.get("SET_SUBMIT_DATE_CAMAC_WORKFLOW")
@@ -1046,13 +1045,9 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         group = self.context["request"].group
 
         if source_instance:
-            source_document_pk = workflow_models.Case.objects.get(
-                **{"meta__camac-instance-id": source_instance.pk}
-            ).document.pk
-
             old_document = case.document
             new_document = caluma_api.copy_document(
-                source_document_pk,
+                source_instance.case.document.pk,
                 exclude_form_slugs=(
                     ["6-dokumente", "7-bestaetigung", "8-freigabequittung"]
                     if is_modification
@@ -1262,13 +1257,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         source_case = caluma_api.get_source_document_value(
             caluma_api.get_main_document(instance), "case"
         )
-        source_instance = (
-            models.Instance.objects.get(
-                pk=source_case.meta.get("camac-instance-id", None)
-            )
-            if source_case
-            else None
-        )
+        source_instance = source_case.instance if source_case else None
 
         if (
             source_instance
@@ -1294,9 +1283,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
     def update(self, instance, validated_data):
         request_logger.info(f"Submitting instance {instance.pk}")
 
-        case = workflow_models.Case.objects.get(
-            **{"meta__camac-instance-id": self.instance.pk}
-        )
+        case = self.instance.case
 
         instance.previous_instance_state = instance.instance_state
         instance.instance_state = models.InstanceState.objects.get(name="subm")
@@ -1346,12 +1333,9 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         self._create_answer_proposals(instance)
         self._update_rejected_instance(instance)
 
-        work_item = workflow_models.WorkItem.objects.filter(
-            **{
-                "task_id__in": settings.APPLICATION["CALUMA"]["SUBMIT_TASKS"],
-                "status": workflow_models.WorkItem.STATUS_READY,
-                "case__meta__camac-instance-id": self.instance.pk,
-            }
+        work_item = self.instance.case.work_items.filter(
+            task_id__in=settings.APPLICATION["CALUMA"]["SUBMIT_TASKS"],
+            status=workflow_models.WorkItem.STATUS_READY,
         ).first()
 
         if work_item:
@@ -1392,12 +1376,9 @@ class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
 
         instance.save()
 
-        work_item = workflow_models.WorkItem.objects.filter(
-            **{
-                "task_id": settings.APPLICATION["CALUMA"]["REPORT_TASK"],
-                "status": workflow_models.WorkItem.STATUS_READY,
-                "case__meta__camac-instance-id": self.instance.pk,
-            }
+        work_item = self.instance.case.work_items.filter(
+            task_id=settings.APPLICATION["CALUMA"]["REPORT_TASK"],
+            status=workflow_models.WorkItem.STATUS_READY,
         ).first()
 
         if work_item:
@@ -1435,9 +1416,7 @@ class CalumaInstanceArchiveSerializer(serializers.Serializer):
         instance.instance_state = models.InstanceState.objects.get(name="archived")
         instance.save()
 
-        case = workflow_models.Case.objects.get(
-            **{"meta__camac-instance-id": instance.pk}
-        )
+        case = instance.case
 
         # cancel the caluma case if it's still running or suspended (rejected)
         if case.status in [
@@ -1490,9 +1469,7 @@ class CalumaInstanceChangeFormSerializer(serializers.Serializer):
 
     @transaction.atomic
     def update(self, instance, validated_data):
-        case = workflow_models.Case.objects.get(
-            **{"meta__camac-instance-id": instance.pk}
-        )
+        case = instance.case
 
         case.document.form_id = validated_data["form"]
         case.document.save()
@@ -1535,13 +1512,7 @@ class CalumaInstanceSetEbauNumberSerializer(serializers.Serializer):
 
         municipality = self.instance.responsible_service(filter_type="municipality")
 
-        instances = models.Instance.objects.filter(
-            pk__in=list(
-                workflow_models.Case.objects.filter(
-                    **{"meta__ebau-number": value}
-                ).values_list("meta__camac-instance-id", flat=True)
-            )
-        )
+        instances = models.Instance.objects.filter(**{"case__meta__ebau-number": value})
 
         if not instances.exists():
             raise exceptions.ValidationError(_("This eBau number doesn't exist"))
@@ -1583,12 +1554,10 @@ class CalumaInstanceSetEbauNumberSerializer(serializers.Serializer):
 
     @transaction.atomic
     def update(self, instance, validated_data):
-        case = workflow_models.Case.objects.get(
-            **{"meta__camac-instance-id": instance.pk}
+        self._save_ebau_number(
+            instance, instance.case, validated_data.get("ebau_number")
         )
-
-        self._save_ebau_number(instance, case, validated_data.get("ebau_number"))
-        self._update_workflow(instance, case)
+        self._update_workflow(instance, instance.case)
 
         return instance
 
@@ -1795,12 +1764,9 @@ class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
 
         instance.save()
 
-        work_item = workflow_models.WorkItem.objects.filter(
-            **{
-                "task_id": settings.APPLICATION["CALUMA"]["FINALIZE_TASK"],
-                "status": workflow_models.WorkItem.STATUS_READY,
-                "case__meta__camac-instance-id": self.instance.pk,
-            }
+        work_item = instance.case.work_items.filter(
+            task_id=settings.APPLICATION["CALUMA"]["FINALIZE_TASK"],
+            status=workflow_models.WorkItem.STATUS_READY,
         ).first()
 
         if work_item:

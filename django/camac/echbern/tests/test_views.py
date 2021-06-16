@@ -115,12 +115,13 @@ def test_applications_list_exclude(
     workflow.allow_forms.add(form)
 
     instance = instance_factory(user=admin_user)
-    workflow_api.start_case(
+    case = workflow_api.start_case(
         workflow=workflow,
         form=form,
-        meta={"camac-instance-id": instance.pk},
         user=caluma_admin_user,
     )
+    instance.case = case
+    instance.save()
 
     url = reverse("applications")
 
@@ -337,9 +338,10 @@ def test_send_400_invalid_judgement(
             )
         ),
         form=caluma_form_models.Form.objects.get(slug="main-form"),
-        meta={"camac-instance-id": ech_instance.pk},
         user=caluma_admin_user,
     )
+    ech_instance.case = case
+    ech_instance.save()
 
     workflow_api.complete_work_item(
         work_item=case.work_items.get(task_id="submit"), user=caluma_admin_user

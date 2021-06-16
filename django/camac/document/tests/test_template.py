@@ -163,7 +163,7 @@ def test_template_destroy(admin_client, template, status_code):
 def test_template_merge(
     admin_client,
     template,
-    instance,
+    sz_instance,
     to_type,
     form_field,
     status_code,
@@ -190,7 +190,7 @@ def test_template_merge(
         activation=activation, notice_type=notice_type_hint, content="Inhalt Hinweis!"
     )
 
-    add_field = functools.partial(form_field_factory, instance=instance)
+    add_field = functools.partial(form_field_factory, instance=sz_instance)
     add_address_field = functools.partial(
         add_field,
         value=[
@@ -212,7 +212,7 @@ def test_template_merge(
     add_address_field(name="projektverfasser-planer")
 
     url = reverse("template-merge", args=[template.pk])
-    response = admin_client.get(url, data={"instance": instance.pk, "type": to_type})
+    response = admin_client.get(url, data={"instance": sz_instance.pk, "type": to_type})
     assert response.status_code == status_code
     if status_code == status.HTTP_200_OK:
         assert (

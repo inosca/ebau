@@ -53,8 +53,9 @@ def test_dynamic_task_after_decision(
         workflow=Workflow.objects.get(pk=workflow_id),
         form=Form.objects.get(pk="main-form"),
         user=caluma_admin_user,
-        meta={"camac-instance-id": instance.pk},
     )
+    instance.case = case
+    instance.save()
 
     for task_id in [
         "submit",
@@ -103,8 +104,9 @@ def test_dynamic_task_after_circulation(
         workflow=Workflow.objects.get(pk="building-permit"),
         form=Form.objects.get(pk="main-form"),
         user=caluma_admin_user,
-        meta={"camac-instance-id": instance.pk},
     )
+    instance.case = case
+    instance.save()
 
     for task_id in ["submit", "ebau-number", "init-circulation", "circulation"]:
         skip_work_item(case.work_items.get(task_id=task_id), caluma_admin_user)

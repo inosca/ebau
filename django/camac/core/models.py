@@ -3217,7 +3217,7 @@ class ProposalActivation(models.Model):
     )
     instance = models.ForeignKey(
         "instance.Instance",
-        models.DO_NOTHING,
+        models.CASCADE,
         db_column="INSTANCE_ID",
         related_name="+",
     )
@@ -3896,7 +3896,7 @@ class Sanction(models.Model):
     sanction_id = models.AutoField(db_column="SANCTION_ID", primary_key=True)
     instance = models.ForeignKey(
         "instance.Instance",
-        models.DO_NOTHING,
+        models.CASCADE,
         db_column="INSTANCE_ID",
         related_name="sanctions",
     )

@@ -118,7 +118,12 @@ def test_instance_search(admin_client, instance, form_field, search):
 
 @pytest.mark.parametrize("role__name", [("Support")])
 def test_instance_search_sanctions(
-    db, application_settings, instance, sanction_factory, instance_factory, admin_client
+    db,
+    application_settings,
+    ur_instance,
+    sanction_factory,
+    instance_factory,
+    admin_client,
 ):
     """Test that instances can be filtered by sanction creator and sanction
     control instance.
@@ -126,7 +131,7 @@ def test_instance_search_sanctions(
 
     application_settings["FORM_BACKEND"] = "caluma"
 
-    sanction = sanction_factory(instance=instance)
+    sanction = sanction_factory(instance=ur_instance)
 
     # The following instance should not turn up in the results.
     instance_factory()
@@ -142,7 +147,7 @@ def test_instance_search_sanctions(
         assert response.status_code == status.HTTP_200_OK
         json = response.json()
         assert len(json["data"]) == 1
-        assert json["data"][0]["id"] == str(instance.pk)
+        assert json["data"][0]["id"] == str(ur_instance.pk)
 
 
 @pytest.mark.parametrize(
@@ -244,18 +249,18 @@ def test_instance_update_location(admin_client, instance, location_factory):
     ],
 )
 def test_instance_destroy(
-    admin_client, instance, status_code, location_factory, application_settings
+    admin_client, sz_instance, status_code, location_factory, application_settings
 ):
     application_settings["CALUMA"]["CREATE_IN_PROCESS"] = True
 
-    url = reverse("instance-detail", args=[instance.pk])
+    url = reverse("instance-detail", args=[sz_instance.pk])
 
     """
     Add InstanceLocation relationship to make sure it also will be deleted
     when the instance is deleted (cascade deletion).
     """
     instance_location = InstanceLocation.objects.create(
-        location=location_factory(), instance=instance
+        location=location_factory(), instance=sz_instance
     )
 
     response = admin_client.delete(url)
@@ -374,9 +379,10 @@ def test_instance_submit(
     case = workflow_api.start_case(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
         form=caluma_form_models.Form.objects.get(pk="baugesuch"),
-        meta={"camac-instance-id": instance.pk},
         user=caluma_admin_user,
     )
+    instance.case = case
+    instance.save()
 
     # only create group in a successful run
     if status_code == status.HTTP_200_OK:
@@ -538,9 +544,10 @@ def test_instance_caluma_gwr_data(
     case = workflow_api.start_case(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
         form=caluma_form_models.Form.objects.get(pk="main-form"),
-        meta={"camac-instance-id": instance.pk},
         user=caluma_admin_user,
     )
+    instance.case = case
+    instance.save()
     case.document.answers.create(
         question_id="beschreibung-bauvorhaben", value="Bezeichnung"
     )
@@ -648,9 +655,8 @@ def test_instance_generate_identifier(
     prefix = "" if short_dossier_number else "13"
     identifier = prefix + "11-17-010"
     if use_caluma:
-        case_factory(
-            meta={"camac-instance-id": instance.pk, "dossier-number": identifier}
-        )
+        instance.case = case_factory(meta={"dossier-number": identifier})
+        instance.save()
     else:
         instance_factory(identifier=identifier)
 
@@ -1129,12 +1135,13 @@ def test_instance_change_form(
     caluma_form, _ = caluma_form_models.Form.objects.get_or_create(pk="baugesuch")
     workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
 
-    workflow_api.start_case(
+    case = workflow_api.start_case(
         workflow=workflow,
         form=caluma_form,
-        meta={"camac-instance-id": instance.pk},
         user=caluma_admin_user,
     )
+    instance.case = case
+    instance.save()
     work_item = caluma_workflow_models.WorkItem.objects.get(task_id="submit")
     workflow_api.complete_work_item(
         work_item=work_item,
@@ -1196,8 +1203,9 @@ def test_end_circulations(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
         form=caluma_form_models.Form.objects.get(pk="main-form"),
         user=caluma_admin_user,
-        meta={"camac-instance-id": circulation.instance.pk},
     )
+    circulation.instance.case = case
+    circulation.instance.save()
 
     for task_id in ["submit", "ebau-number", "init-circulation"]:
         workflow_api.skip_work_item(

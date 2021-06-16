@@ -31,9 +31,10 @@ def test_copy_papierdossier(
     case = workflow_api.start_case(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
         form=caluma_form_models.Form.objects.get(pk="main-form"),
-        meta={"camac-instance-id": instance.pk},
         user=caluma_admin_user,
     )
+    instance.case = case
+    instance.save()
 
     docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=instance)
 
@@ -78,9 +79,10 @@ def test_copy_sb_personalien(
     case = workflow_api.start_case(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
         form=caluma_form_models.Form.objects.get(pk="main-form"),
-        meta={"camac-instance-id": instance.pk},
         user=caluma_admin_user,
     )
+    instance.case = case
+    instance.save()
 
     docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=instance)
 
@@ -155,9 +157,10 @@ def test_copy_tank_installation(
     case = workflow_api.start_case(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
         form=caluma_form_models.Form.objects.get(pk="main-form"),
-        meta={"camac-instance-id": instance.pk},
         user=caluma_admin_user,
     )
+    instance.case = case
+    instance.save()
 
     docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=instance)
 
@@ -234,6 +237,7 @@ def test_notify_completed_work_item(
     caluma_admin_user,
     service_factory,
     user_factory,
+    instance,
     work_item_factory,
     mailoutbox,
     snapshot,
@@ -277,10 +281,13 @@ def test_notify_completed_work_item(
 
     work_item.case.meta = {
         **work_item.case.meta,
-        "camac-instance-id": 1,
         "ebau-number": "2020-01",
     }
     work_item.case.save()
+
+    instance.pk = 1
+    instance.case = work_item.case
+    instance.save()
 
     caluma_admin_user.group = str(services[0].pk)
 
@@ -311,8 +318,9 @@ def test_complete_case(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
         form=caluma_form_models.Form.objects.get(pk="main-form"),
         user=caluma_admin_user,
-        meta={"camac-instance-id": circulation.instance.pk},
     )
+    circulation.instance.case = case
+    circulation.instance.save()
 
     for task_id in ["submit", "ebau-number", "init-circulation"]:
         workflow_api.skip_work_item(
@@ -456,9 +464,10 @@ def test_set_assigned_user(
     work_item = work_item_factory(
         addressed_groups=addressed_groups, assigned_users=assigned_users
     )
+
     case = work_item.case
-    case.meta["camac-instance-id"] = str(instance.pk)
-    case.save()
+    instance.case = case
+    instance.save()
 
     send_event(
         post_create_work_item,
@@ -499,8 +508,8 @@ def test_audit_history(
     application_settings["CALUMA"]["AUDIT_TASK"] = work_item.task_id
 
     case = work_item.case
-    case.meta["camac-instance-id"] = str(instance.pk)
-    case.save()
+    instance.case = case
+    instance.save()
 
     if process_type == "skip":
         send_event(
@@ -609,8 +618,8 @@ def test_complete_decision(
     }
 
     case.workflow = workflow_factory(slug=workflow)
-    case.meta["camac-instance-id"] = str(instance.pk)
-    case.save()
+    instance.case = case
+    instance.save()
 
     if workflow == "internal":
         work_item_factory(case=case)
@@ -677,8 +686,8 @@ def test_complete_simple_workflow(
     ] = notification
 
     case = work_item.case
-    case.meta["camac-instance-id"] = str(instance.pk)
-    case.save()
+    instance.case = case
+    instance.save()
 
     send_event(
         post_complete_work_item,

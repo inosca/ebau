@@ -17,8 +17,7 @@
       "status": "running",
       "meta": {
         "ebau-number": "2021-1",
-        "submit-date": "2021-03-31T13:17:08+0000",
-        "camac-instance-id": 3
+        "submit-date": "2021-03-31T13:17:08+0000"
       },
       "family": "e9197275-36df-460c-b261-ff27f781c5d9",
       "workflow": "building-permit",
@@ -45,8 +44,7 @@
       "closed_by_group": null,
       "status": "running",
       "meta": {
-        "submit-date": "2021-03-31T13:17:08+0000",
-        "camac-instance-id": 3
+        "submit-date": "2021-03-31T13:17:08+0000"
       },
       "family": "e9197275-36df-460c-b261-ff27f781c5d9",
       "workflow": "building-permit",
@@ -72,9 +70,7 @@
       "closed_by_user": null,
       "closed_by_group": null,
       "status": "running",
-      "meta": {
-        "camac-instance-id": 3
-      },
+      "meta": {},
       "family": "e9197275-36df-460c-b261-ff27f781c5d9",
       "workflow": "building-permit",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
@@ -101,8 +97,7 @@
       "status": "running",
       "meta": {
         "migrated": true,
-        "submit-date": "2020-03-06T11:14:33+0000",
-        "camac-instance-id": 2
+        "submit-date": "2020-03-06T11:14:33+0000"
       },
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4"
     }
@@ -125,8 +120,7 @@
       "status": "running",
       "meta": {
         "ebau-number": "2021-1",
-        "submit-date": "2021-03-31T13:17:08+0000",
-        "camac-instance-id": 3
+        "submit-date": "2021-03-31T13:17:08+0000"
       },
       "document": "75980e39-1378-47d5-8253-4b19567569ff"
     }
@@ -148,8 +142,7 @@
       "workflow": "building-permit",
       "status": "running",
       "meta": {
-        "migrated": true,
-        "camac-instance-id": 1
+        "migrated": true
       },
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5"
     }
