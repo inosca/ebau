@@ -50,12 +50,16 @@ def ech_instance_case(ech_instance, caluma_admin_user):
             "preliminary-clarification" if is_vorabklaerung else "building-permit"
         )
 
-        return workflow_api.start_case(
+        case = workflow_api.start_case(
             workflow=caluma_workflow_models.Workflow.objects.get(pk=workflow_slug),
             form=caluma_form_models.Form.objects.get(slug="main-form"),
-            meta={"camac-instance-id": ech_instance.pk},
             user=caluma_admin_user,
         )
+
+        ech_instance.case = case
+        ech_instance.save()
+
+        return case
 
     return wrapper
 
@@ -79,18 +83,15 @@ def fill_document_ech(document, data):
 
 @pytest.fixture
 def vorabklaerung_einfach_filled(
-    caluma_config_bern, document_factory, answer_factory, caluma_admin_user
+    caluma_config_bern, instance_with_case, instance_factory
 ):
-    case = workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(
-            slug="preliminary-clarification"
-        ),
-        form=caluma_form_models.Form.objects.get(slug="vorabklaerung-einfach"),
-        meta={"camac-instance-id": 2},
-        user=caluma_admin_user,
+    instance = instance_with_case(
+        instance_factory(),
+        workflow="preliminary-clarification",
+        form="vorabklaerung-einfach",
     )
 
-    document = case.document
+    document = instance.case.document
     fill_document_ech(document, slugs_vorabklaerung_einfach["top"])
     return document
 
@@ -98,19 +99,16 @@ def vorabklaerung_einfach_filled(
 @pytest.fixture
 def baugesuch_filled(
     caluma_config_bern,
-    document_factory,
     answer_factory,
     answer_document_factory,
-    caluma_admin_user,
+    instance_with_case,
+    instance_factory,
 ):
-    case = workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(slug="baugesuch-generell-v2"),
-        meta={"camac-instance-id": 1},
-        user=caluma_admin_user,
+    instance = instance_with_case(
+        instance_factory(), workflow="building-permit", form="baugesuch-generell-v2"
     )
 
-    document = case.document
+    document = instance.case.document
 
     for key, data in slugs_baugesuch.items():
         if key == "top":

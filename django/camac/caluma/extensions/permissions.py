@@ -32,7 +32,6 @@ from django.db.models import Q
 
 from camac.caluma.utils import CamacRequest
 from camac.constants.kt_bern import DASHBOARD_FORM_SLUG
-from camac.instance.models import Instance
 from camac.utils import build_url, headers
 
 log = getLogger()
@@ -87,9 +86,7 @@ class CustomPermission(BasePermission):
         if not case:
             return True
 
-        instance = Instance.objects.get(pk=case.family.meta.get("camac-instance-id"))
-
-        return instance.responsible_service(
+        return case.instance.responsible_service(
             filter_type="municipality"
         ).pk == get_current_service_id(info)
 
@@ -215,10 +212,8 @@ class CustomPermission(BasePermission):
         else:
             return False
 
-        instance_id = case.meta.get("camac-instance-id")
-
         resp = requests.get(
-            build_url(settings.API_HOST, f"/api/v1/instances/{instance_id}"),
+            build_url(settings.API_HOST, f"/api/v1/instances/{case.instance.pk}"),
             headers=headers(info),
         )
 

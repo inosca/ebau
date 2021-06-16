@@ -4,7 +4,6 @@ from time import mktime
 
 import pytest
 from caluma.caluma_form import models as caluma_form_models
-from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.core.exceptions import ObjectDoesNotExist
 from django.urls import reverse
 from django.utils import timezone
@@ -122,7 +121,7 @@ def test_notification_template_destroy(
 @pytest.mark.freeze_time("2017-1-1")
 def test_notification_template_merge(
     admin_client,
-    instance,
+    sz_instance,
     notification_template,
     status_code,
     activation,
@@ -137,7 +136,7 @@ def test_notification_template_merge(
     application_settings["QUESTIONS_WITH_OVERRIDE"] = ["bezeichnung"]
     application_settings["LOCATION_NAME_QUESTION"] = "durchmesser-der-bohrung"
 
-    add_field = functools.partial(form_field_factory, instance=instance)
+    add_field = functools.partial(form_field_factory, instance=sz_instance)
     add_field(
         name="punkte", value=[{"lat": 47.02433179952733, "lng": 8.634144559228435}]
     )
@@ -150,14 +149,14 @@ def test_notification_template_merge(
 
     url = reverse("notificationtemplate-merge", args=[notification_template.pk])
 
-    response = admin_client.get(url, data={"instance": instance.pk})
+    response = admin_client.get(url, data={"instance": sz_instance.pk})
     assert response.status_code == status_code
     if status_code == status.HTTP_200_OK:
         json = response.json()
-        assert json["data"]["attributes"]["subject"] == instance.identifier
+        assert json["data"]["attributes"]["subject"] == sz_instance.identifier
         assert json["data"]["attributes"]["body"] == "identifier 21.01.2017"
         assert json["data"]["id"] == "{0}-{1}".format(
-            notification_template.slug, instance.pk
+            notification_template.slug, sz_instance.pk
         )
         assert json["data"]["type"] == "notification-template-merges"
 
@@ -182,8 +181,9 @@ def test_notification_template_merge(
     ],
 )
 def test_notification_template_sendmail(
+    db,
     admin_client,
-    instance_service,
+    be_instance,
     responsible_service_factory,
     instance_responsibility_factory,
     notification_template,
@@ -192,30 +192,21 @@ def test_notification_template_sendmail(
     activation,
     new_responsible_model,
     settings,
-    caluma_workflow_config_be,
-    caluma_admin_user,
 ):
     url = reverse("notificationtemplate-sendmail")
     if new_responsible_model:
         responsible = instance_responsibility_factory(
-            instance=instance_service.instance, service=instance_service.service
+            instance=be_instance, service=be_instance.responsible_service()
         )
         responsible_email = responsible.user.email
     else:
         responsible = responsible_service_factory(
-            instance=instance_service.instance, service=instance_service.service
+            instance=be_instance, service=be_instance.responsible_service()
         )
         responsible_email = responsible.responsible_user.email
 
-    case = workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(slug="building-permit"),
-        form=caluma_form_models.Form.objects.get(slug="main-form"),
-        meta={"camac-instance-id": instance_service.instance.pk},
-        user=caluma_admin_user,
-    )
-
-    case.document.answers.create(
-        question_id="gemeinde", value=str(instance_service.service.pk)
+    be_instance.case.document.answers.create(
+        question_id="gemeinde", value=str(be_instance.responsible_service().pk)
     )
 
     data = {
@@ -236,9 +227,7 @@ def test_notification_template_sendmail(
                 ],
             },
             "relationships": {
-                "instance": {
-                    "data": {"type": "instances", "id": instance_service.instance.pk}
-                },
+                "instance": {"data": {"type": "instances", "id": be_instance.pk}},
                 "activation": {"data": {"type": "activations", "id": activation.pk}},
             },
         }
@@ -275,7 +264,7 @@ def test_notification_template_sendmail(
         ]
         assert (
             mailoutbox[0].subject
-            == settings.EMAIL_PREFIX_SUBJECT + instance_service.instance.identifier
+            == settings.EMAIL_PREFIX_SUBJECT + be_instance.identifier
         )
         assert mailoutbox[0].body == settings.EMAIL_PREFIX_BODY + "Test body"
 
@@ -300,34 +289,22 @@ def test_notification_template_sendmail(
 def test_notification_template_sendmail_rsta_forms(
     admin_client,
     instance_service,
-    responsible_service_factory,
-    instance_responsibility_factory,
+    instance_with_case,
     notification_template,
     mailoutbox,
     activation,
     settings,
     caluma_workflow_config_be,
     form_slug,
-    caluma_admin_user,
 ):
     url = reverse("notificationtemplate-sendmail")
 
     for slug in CALUMA_FORM_TYPES_SLUGS:
         caluma_form_models.Form.objects.create(slug=slug)
 
-    form = caluma_form_models.Form.objects.get(pk=form_slug)
-    workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
-    workflow.slug = "internal"
-    workflow.allow_forms.add(form)
-    workflow.save()
-    case = workflow_api.start_case(
-        workflow=workflow,
-        form=form,
-        meta={"camac-instance-id": instance_service.instance.pk},
-        user=caluma_admin_user,
-    )
+    instance_with_case(instance_service.instance, workflow="internal", form=form_slug)
 
-    case.document.answers.create(
+    instance_service.instance.case.document.answers.create(
         question_id="gemeinde", value=str(instance_service.service.pk)
     )
 
@@ -378,7 +355,7 @@ def test_notification_template_sendmail_koor(
     status_code,
     mailoutbox,
     activation,
-    instance,
+    ur_instance,
     settings,
     instance_state_factory,
     use_forbidden_state,
@@ -392,7 +369,7 @@ def test_notification_template_sendmail_koor(
       excludes instances being edited before submission)
     """
     if use_forbidden_state:
-        use_forbidden_state = [instance.instance_state.name]
+        use_forbidden_state = [ur_instance.instance_state.name]
     else:
         use_forbidden_state = [instance_state_factory().name]
 
@@ -409,7 +386,7 @@ def test_notification_template_sendmail_koor(
                 "recipient-types": ["service"],
             },
             "relationships": {
-                "instance": {"data": {"type": "instances", "id": instance.pk}},
+                "instance": {"data": {"type": "instances", "id": ur_instance.pk}},
                 "activation": {"data": {"type": "activations", "id": activation.pk}},
             },
         }
@@ -443,8 +420,7 @@ def test_notification_template_sendmail_koor(
 def test_notification_placeholders(
     admin_client,
     admin_user,
-    instance,
-    instance_service,
+    sz_instance,
     notification_template,
     mailoutbox,
     activation,
@@ -455,25 +431,29 @@ def test_notification_placeholders(
     objection_participant_factory,
 ):
     settings.APPLICATION["WORKFLOW_ITEMS"]["SUBMIT"] = workflow_entry_factory(
-        instance=instance, workflow_date=timezone.make_aware(datetime(2019, 7, 22, 10))
+        instance=sz_instance,
+        workflow_date=timezone.make_aware(datetime(2019, 7, 22, 10)),
     ).workflow_item.pk
     settings.APPLICATION["WORKFLOW_ITEMS"][
         "INSTANCE_COMPLETE"
     ] = workflow_entry_factory(
-        instance=instance, workflow_date=timezone.make_aware(datetime(2019, 8, 23, 10))
+        instance=sz_instance,
+        workflow_date=timezone.make_aware(datetime(2019, 8, 23, 10)),
     ).workflow_item.pk
     settings.APPLICATION["WORKFLOW_ITEMS"]["START_CIRC"] = workflow_entry_factory(
-        instance=instance, workflow_date=timezone.make_aware(datetime(2019, 9, 24, 10))
+        instance=sz_instance,
+        workflow_date=timezone.make_aware(datetime(2019, 9, 24, 10)),
     ).workflow_item.pk
     settings.APPLICATION["WORKFLOW_ITEMS"]["DECISION"] = workflow_entry_factory(
-        instance=instance, workflow_date=timezone.make_aware(datetime(2019, 10, 24, 10))
+        instance=sz_instance,
+        workflow_date=timezone.make_aware(datetime(2019, 10, 24, 10)),
     ).workflow_item.pk
 
     kommunal_amount = billing_v2_entry_factory(
-        instance=instance, organization="municipal"
+        instance=sz_instance, organization="municipal"
     ).final_rate
     kanton_amount = billing_v2_entry_factory(
-        instance=instance, organization="cantonal"
+        instance=sz_instance, organization="cantonal"
     ).final_rate
 
     objection_participant_factory(objection=objection, representative=1)
@@ -488,7 +468,7 @@ def test_notification_placeholders(
                 "recipient-types": ["applicant"],
             },
             "relationships": {
-                "instance": {"data": {"type": "instances", "id": instance.pk}}
+                "instance": {"data": {"type": "instances", "id": sz_instance.pk}}
             },
         }
     }
@@ -562,8 +542,7 @@ def test_notification_placeholders(
 def test_notification_caluma_placeholders(
     admin_client,
     admin_user,
-    instance,
-    instance_service,
+    be_instance,
     notification_template,
     mailoutbox,
     activation_factory,
@@ -596,7 +575,7 @@ def test_notification_caluma_placeholders(
     assert not len(mailoutbox)
 
     circulation = circulation_factory(
-        instance=instance, name=int(mktime(date(2020, 1, 2).timetuple()))
+        instance=be_instance, name=int(mktime(date(2020, 1, 2).timetuple()))
     )
 
     activations = [
@@ -619,12 +598,8 @@ def test_notification_caluma_placeholders(
         service_parent=activations[0].service,
     )
 
-    workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(slug="building-permit"),
-        form=caluma_form_models.Form.objects.get(slug="main-form"),
-        meta={"camac-instance-id": instance.pk, "ebau-number": "2019-01"},
-        user=caluma_admin_user,
-    )
+    be_instance.case.meta["ebau-number"] = "2019-01"
+    be_instance.case.save()
 
     data = {
         "data": {
@@ -634,7 +609,7 @@ def test_notification_caluma_placeholders(
                 "recipient-types": ["applicant"],
             },
             "relationships": {
-                "instance": {"data": {"type": "instances", "id": instance.pk}}
+                "instance": {"data": {"type": "instances", "id": be_instance.pk}}
             },
         }
     }
@@ -681,10 +656,10 @@ def test_notification_caluma_placeholders(
             "BASE_URL: http://camac-ng.local",
             "EBAU_NUMBER: 2019-01",
             "FORM_NAME: Baugesuch",
-            f"INSTANCE_ID: {instance.pk}",
-            f"LEITBEHOERDE_NAME: {instance_service.service.get_name()}",
-            f"INTERNAL_DOSSIER_LINK: http://camac-ng.local/index/redirect-to-instance-resource/instance-id/{instance.pk}",
-            f"PUBLIC_DOSSIER_LINK: http://caluma-portal.local/instances/{instance.pk}",
+            f"INSTANCE_ID: {be_instance.pk}",
+            f"LEITBEHOERDE_NAME: {be_instance.responsible_service().get_name()}",
+            f"INTERNAL_DOSSIER_LINK: http://camac-ng.local/index/redirect-to-instance-resource/instance-id/{be_instance.pk}",
+            f"PUBLIC_DOSSIER_LINK: http://caluma-portal.local/instances/{be_instance.pk}",
             f"COMPLETED_ACTIVATIONS: {done_activations}",
             f"TOTAL_ACTIVATIONS: {total_activations}",
             f"PENDING_ACTIVATIONS: {total_activations-done_activations}",
@@ -698,7 +673,7 @@ def test_notification_caluma_placeholders(
 
 
 def test_notification_template_merge_without_context(
-    db, instance, notification_template, mocker, system_operation_user
+    db, be_instance, notification_template, mocker, system_operation_user
 ):
     """Test sendmail without request context.
 
@@ -717,7 +692,7 @@ def test_notification_template_merge_without_context(
             "type": "notification-templates",
             "id": notification_template.pk,
         },
-        "instance": {"id": instance.pk, "type": "instances"},
+        "instance": {"id": be_instance.pk, "type": "instances"},
     }
 
     sendmail_serializer = PermissionlessNotificationTemplateSendmailSerializer(
@@ -727,7 +702,7 @@ def test_notification_template_merge_without_context(
     sendmail_serializer.save()
 
     entry = HistoryEntry.objects.latest("created_at")
-    assert entry.instance == instance
+    assert entry.instance == be_instance
     assert entry.user == system_operation_user
 
 
@@ -870,7 +845,7 @@ def test_recipient_type_municipality_users(
 
 @pytest.mark.parametrize("service__email", [None, "", "foo@example.org"])
 def test_recipient_type_unnotified_service_users(
-    db, instance, activation, user_group, mocker, notification_template, service
+    db, ur_instance, activation, user_group, mocker, notification_template, service
 ):
     mocker.patch(
         "camac.constants.kt_uri.CIRCULATION_STATE_IDLE", activation.circulation_state_id
@@ -888,13 +863,13 @@ def test_recipient_type_unnotified_service_users(
                 "type": "notification-templates",
                 "id": notification_template.pk,
             },
-            "instance": {"type": "instances", "id": instance.pk},
+            "instance": {"type": "instances", "id": ur_instance.pk},
         },
         context={"request": FakeRequest(group=user_group.group, user=user_group.user)},
     )
     serializer.is_valid()
     assert not serializer.errors
-    res = serializer._get_recipients_unnotified_service_users(instance)
+    res = serializer._get_recipients_unnotified_service_users(ur_instance)
 
     if service.email:
         assert res == [{"to": "foo@example.org"}]
@@ -947,7 +922,7 @@ def test_recipient_type_lisag(db, instance, group):
 @pytest.mark.parametrize("service__email", [None, "user@camac.ch"])
 def test_recipient_type_activation_service(
     db,
-    instance,
+    be_instance,
     activation,
     group,
     user,
@@ -969,7 +944,7 @@ def test_recipient_type_activation_service(
             "type": "notification-templates",
             "id": notification_template.pk,
         },
-        "instance": {"id": instance.pk, "type": "instances"},
+        "instance": {"id": be_instance.pk, "type": "instances"},
         **(
             {"activation": {"id": activation.pk, "type": "activations"}}
             if with_activation
@@ -985,7 +960,7 @@ def test_recipient_type_activation_service(
     serializer.save()
 
     if with_activation:
-        res = serializer._get_recipients_activation_service(instance)
+        res = serializer._get_recipients_activation_service(be_instance)
 
         if service.email is None:
             assert res == []
@@ -993,16 +968,15 @@ def test_recipient_type_activation_service(
             assert res == [{"to": service.email}]
     else:
         with pytest.raises(exceptions.ValidationError):
-            serializer._get_recipients_activation_service(instance)
+            serializer._get_recipients_activation_service(be_instance)
 
 
 @pytest.mark.parametrize("with_activation", [True, False])
 @pytest.mark.parametrize("service__email", [None, "user@camac.ch"])
 def test_recipient_type_circulation_service(
     db,
-    instance,
+    be_instance,
     activation,
-    user_group_factory,
     group,
     user,
     with_activation,
@@ -1019,7 +993,7 @@ def test_recipient_type_circulation_service(
             "type": "notification-templates",
             "id": notification_template.pk,
         },
-        "instance": {"id": instance.pk, "type": "instances"},
+        "instance": {"id": be_instance.pk, "type": "instances"},
         **(
             {"activation": {"id": activation.pk, "type": "activations"}}
             if with_activation
@@ -1035,14 +1009,14 @@ def test_recipient_type_circulation_service(
     serializer.save()
 
     if with_activation:
-        res = serializer._get_recipients_circulation_service(instance)
+        res = serializer._get_recipients_circulation_service(be_instance)
         if service.email is None:
             assert res == []
         else:
             assert res == [{"to": service.email}]
     else:
         with pytest.raises(exceptions.ValidationError):
-            serializer._get_recipients_circulation_service(instance)
+            serializer._get_recipients_circulation_service(be_instance)
 
 
 @pytest.mark.parametrize(
@@ -1051,27 +1025,20 @@ def test_recipient_type_circulation_service(
 )
 def test_recipient_inactive_municipality(
     db,
-    instance,
-    instance_service,
-    caluma_workflow_config_be,
-    caluma_admin_user,
+    be_instance,
     service_group,
     expected,
     service_factory,
 ):
     municipality = service_factory(email="bauen@example.ch")
 
-    case = workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(pk="main-form"),
-        meta={"camac-instance-id": instance.pk},
-        user=caluma_admin_user,
+    be_instance.case.document.answers.create(
+        value=str(municipality.pk), question_id="gemeinde"
     )
-    case.document.answers.create(value=str(municipality.pk), question_id="gemeinde")
 
     serializer = serializers.NotificationTemplateSendmailSerializer()
 
-    assert serializer._get_recipients_inactive_municipality(instance) == expected
+    assert serializer._get_recipients_inactive_municipality(be_instance) == expected
 
 
 @pytest.mark.parametrize(
@@ -1112,7 +1079,7 @@ def test_portal_submission_placeholder(
 def test_ur_placeholders(
     admin_client,
     db,
-    instance,
+    ur_instance,
     camac_answer_factory,
     instance_service,
     mocker,
@@ -1172,19 +1139,15 @@ def test_ur_placeholders(
         row_form=personal_data_form,
     )
 
-    case = workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(pk="main-form"),
-        meta={"camac-instance-id": instance.pk},
-        user=caluma_admin_user,
-    )
-    case.document.answers.create(
+    ur_instance.case.document.answers.create(
         value="my description", question_id="proposal-description"
     )
     parcel_row_doc = caluma_form_models.Document.objects.create(form=parcel_form)
     parcel_row_doc.answers.create(value="123", question=parcel_question)
 
-    parcel_table_answer = case.document.answers.create(question_id="parcels")
+    parcel_table_answer = ur_instance.case.document.answers.create(
+        question_id="parcels"
+    )
     parcel_table_answer.documents.add(parcel_row_doc)
     parcel_table_answer.save()
 
@@ -1196,7 +1159,7 @@ def test_ur_placeholders(
         for question in personal_questions[:-1]  # test for missing answers as well
     ]
 
-    table_answer = case.document.answers.create(question_id="applicant")
+    table_answer = ur_instance.case.document.answers.create(question_id="applicant")
     table_answer.documents.add(applicant_row_doc)
     table_answer.save()
 
@@ -1207,7 +1170,7 @@ def test_ur_placeholders(
                 "type": "notification-templates",
                 "id": notification_template.pk,
             },
-            "instance": {"id": instance.pk, "type": "instances"},
+            "instance": {"id": ur_instance.pk, "type": "instances"},
         }
     )
     sendmail_serializer.is_valid(raise_exception=True)
@@ -1230,8 +1193,7 @@ def test_ur_placeholders(
 def test_notification_template_sendmail_activation(
     db,
     admin_client,
-    instance,
-    instance_service,
+    be_instance,
     activation,
     nfd_completion_date,
     notification_template,
@@ -1253,7 +1215,7 @@ def test_notification_template_sendmail_activation(
                 "type": "notification-templates",
                 "id": notification_template.pk,
             },
-            "instance": {"id": instance.pk, "type": "instances"},
+            "instance": {"id": be_instance.pk, "type": "instances"},
             "activation": {"id": activation.pk, "type": "activations"},
         }
     )
@@ -1301,9 +1263,7 @@ def test_notification_template_delete_by_purpose(admin_client, notification_temp
 )
 def test_notification_template_service_no_notification(
     db,
-    admin_client,
-    instance,
-    instance_service,
+    be_instance,
     activation,
     nfd_completion_date,
     notification_template,
@@ -1327,7 +1287,7 @@ def test_notification_template_service_no_notification(
                 "type": "notification-templates",
                 "id": notification_template.pk,
             },
-            "instance": {"id": instance.pk, "type": "instances"},
+            "instance": {"id": be_instance.pk, "type": "instances"},
             "activation": {"id": activation.pk, "type": "activations"},
         }
     )
@@ -1339,13 +1299,11 @@ def test_notification_template_service_no_notification(
 
 def test_recipient_unanswered_activation(
     db,
-    instance,
-    caluma_workflow_config_be,
-    caluma_admin_user,
+    be_instance,
     activation_factory,
     circulation_factory,
 ):
-    circulation = circulation_factory(instance=instance)
+    circulation = circulation_factory(instance=be_instance)
     activation_factory(circulation=circulation, circulation_state__name="DONE")
     activation_factory(
         circulation=circulation,
@@ -1353,15 +1311,8 @@ def test_recipient_unanswered_activation(
         service__email="test@example.com",
     )
 
-    workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(pk="main-form"),
-        meta={"camac-instance-id": instance.pk},
-        user=caluma_admin_user,
-    )
-
     serializer = serializers.NotificationTemplateSendmailSerializer()
 
-    assert serializer._get_recipients_unanswered_activation(instance) == [
+    assert serializer._get_recipients_unanswered_activation(be_instance) == [
         {"to": "test@example.com"}
     ]

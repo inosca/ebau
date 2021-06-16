@@ -85,16 +85,6 @@ class Command(BaseCommand):
     def get_instance_filters(self, path="pk"):
         return {path: self.instance} if self.instance else {}
 
-    def get_case(self, instance):
-        try:
-            return Case.objects.get(**{"meta__camac-instance-id": instance.pk})
-        except Case.DoesNotExist:
-            self.stdout.write(
-                self.style.ERROR(f"No case for instance {instance.pk} found")
-            )
-
-        return None
-
     @transaction.atomic
     def handle(self, *args, **options):
         tid = transaction.savepoint()
@@ -151,9 +141,7 @@ class Command(BaseCommand):
             ),
             **self.get_instance_filters(),
         ):
-            case = self.get_case(instance)
-            if not case:
-                continue
+            case = instance.case
 
             count += 1
             if case.status == Case.STATUS_RUNNING:
@@ -207,9 +195,7 @@ class Command(BaseCommand):
             ),
         ).filter(circulations__activations__circulation_state__name="RUN"):
             work_item_count += 1
-            case = self.get_case(instance)
-            if not case:
-                continue
+            case = instance.case
 
             for work_item in case.work_items.filter(
                 task_id__in=["init-circulation", "skip-circulation"],
@@ -223,7 +209,7 @@ class Command(BaseCommand):
                 ).exists():
                     created_work_items = create_work_items(
                         tasks=Task.objects.filter(pk="circulation"),
-                        case=self.get_case(instance),
+                        case=instance.case,
                         user=self.user,
                         context={"circulation-id": circulation.pk},
                     )
@@ -323,9 +309,7 @@ class Command(BaseCommand):
             instance_state__name__in=REQUIRED_CONFIG.keys(),
             **self.get_instance_filters(),
         ).order_by("instance_state__name"):
-            case = self.get_case(instance)
-            if not case:
-                continue
+            case = instance.case
 
             config = REQUIRED_CONFIG[instance.instance_state.name]
 
@@ -404,9 +388,7 @@ class Command(BaseCommand):
             ),
             **self.get_instance_filters(),
         ):
-            case = self.get_case(instance)
-            if not case:
-                continue
+            case = instance.case
 
             count += 1
 
