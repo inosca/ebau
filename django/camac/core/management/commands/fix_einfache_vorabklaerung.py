@@ -34,9 +34,7 @@ class Command(BaseCommand):
         sid = transaction.savepoint()
 
         instance_filters = (
-            {"case__meta__camac-instance-id": options["instance"]}
-            if options["instance"]
-            else {}
+            {"case__instance__pk": options["instance"]} if options["instance"] else {}
         )
 
         self.failures = defaultdict(list)
@@ -67,7 +65,7 @@ class Command(BaseCommand):
         )
 
         if not answer:
-            self.failures[document.case.meta.get("camac-instance-id")].append(slug)
+            self.failures[document.case.instance.pk].append(slug)
             return None
 
         return answer.value
@@ -128,7 +126,7 @@ class Command(BaseCommand):
         if not table:
             self.stdout.write(
                 self.style.WARNING(
-                    f"{document.case.meta.get('camac-instance-id')}: No table for parcel found"
+                    f"{document.case.instance.pk}: No table for parcel found"
                 )
             )
             return
@@ -153,17 +151,13 @@ class Command(BaseCommand):
                             value=value,
                         )
                     except CustomValidationError:
-                        self.failures[
-                            document.case.meta.get("camac-instance-id")
-                        ].append(old_slug)
+                        self.failures[document.case.instance.pk].append(old_slug)
 
     def summary(self):
         instance_ids = list(
             Instance.objects.filter(
                 pk__in=list(
-                    self.migrated_documents.values_list(
-                        "case__meta__camac-instance-id", flat=True
-                    )
+                    self.migrated_documents.values_list("case__instance__pk", flat=True)
                 )
             )
             .exclude(instance_state__name__in=["new", "archived"])

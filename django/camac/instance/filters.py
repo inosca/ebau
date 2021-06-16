@@ -3,9 +3,8 @@ import re
 from caluma.caluma_workflow.models import Case
 from django.conf import settings
 from django.core.validators import EMPTY_VALUES
-from django.db.models import F, Func, OuterRef, PositiveIntegerField, Subquery, Value
+from django.db.models import OuterRef, Subquery
 from django.db.models.constants import LOOKUP_SEP
-from django.db.models.functions import Cast
 from django_filters.rest_framework import (
     BooleanFilter,
     CharFilter,
@@ -172,23 +171,8 @@ class CalumaInstanceFilterSet(InstanceFilterSet):
 
     def filter_is_paper(self, queryset, name, value):
         _filter = {
-            "pk__in": Case.objects.filter(
-                **{
-                    "document__answers__question_id": "is-paper",
-                    "document__answers__value": "is-paper-yes",
-                }
-            )
-            .annotate(
-                instance_id=Cast(
-                    Func(
-                        F("meta"),
-                        Value("camac-instance-id"),
-                        function="jsonb_extract_path_text",
-                    ),
-                    output_field=PositiveIntegerField(),
-                )
-            )
-            .values_list("instance_id", flat=True)
+            "case__document__answers__question_id": "is-paper",
+            "case__document__answers__value": "is-paper-yes",
         }
 
         if value:
@@ -356,10 +340,7 @@ class FormFieldOrdering(OrderingFilter):
 
 
 class PublicCalumaInstanceFilterSet(FilterSet):
-    instance = NumberFilter(method="instance_filter")
-
-    def instance_filter(self, queryset, name, value):
-        return queryset.filter(**{"meta__camac-instance-id": int(value)})
+    instance = NumberFilter(field_name="instance__pk")
 
     class Meta:
         model = Case

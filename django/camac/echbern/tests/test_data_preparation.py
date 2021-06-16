@@ -17,9 +17,7 @@ def all_question_slugs(table):
     return slugs
 
 
-def test_get_document(
-    vorabklaerung_einfach_filled, baugesuch_filled, instance_factory, mocker
-):
+def test_get_document(vorabklaerung_einfach_filled, baugesuch_filled, mocker):
     # Instead of building a corresponding document, we just "whitelist" all
     # occurring question slugs, effectively removing the impact of the
     # DocumentValidator.visible_questions call.
@@ -28,8 +26,7 @@ def test_get_document(
     )
     mock.return_value = all_question_slugs(slugs_baugesuch)
     # Test Baugesuch
-    instance_1 = instance_factory(pk=1)
-    data = get_document(instance_1.pk)
+    data = get_document(baugesuch_filled.case.instance.pk)
     # Make sure the order of sub-lists is consistent
     data["parzelle"] = sorted(data["parzelle"], key=lambda k: k["e-grid-nr"])
     data["personalien-gesuchstellerin"] = sorted(
@@ -38,7 +35,6 @@ def test_get_document(
     assert data == baugesuch_data
 
     # Test Vorabklärung
-    instance_2 = instance_factory(pk=2)
     mock.return_value = all_question_slugs(slugs_vorabklaerung_einfach)
-    data = get_document(instance_2.pk)
+    data = get_document(vorabklaerung_einfach_filled.case.instance.pk)
     assert data == vorabklaerung_data

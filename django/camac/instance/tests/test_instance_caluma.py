@@ -144,9 +144,7 @@ def test_create_instance_caluma_be(
     assert create_resp.status_code == status.HTTP_201_CREATED, create_resp.content
 
     instance_id = int(create_resp.json()["data"]["id"])
-    case = caluma_workflow_models.Case.objects.get(
-        **{"meta__camac-instance-id": instance_id}
-    )
+    case = caluma_workflow_models.Case.objects.get(instance__pk=instance_id)
 
     assert (
         case.document.answers.filter(
@@ -181,9 +179,7 @@ def test_create_instance_caluma_be(
         new_instance_id = int(resp.json()["data"]["id"])
         new_instance = Instance.objects.get(pk=new_instance_id)
 
-        new_case = caluma_workflow_models.Case.objects.get(
-            **{"meta__camac-instance-id": new_instance_id}
-        )
+        new_case = caluma_workflow_models.Case.objects.get(instance__pk=new_instance_id)
         assert (
             instance.pk
             == [
@@ -221,9 +217,7 @@ def test_create_instance_caluma_be(
         new_instance_id = int(copy_resp.json()["data"]["id"])
         new_instance = Instance.objects.get(pk=new_instance_id)
 
-        new_case = caluma_workflow_models.Case.objects.get(
-            **{"meta__camac-instance-id": new_instance_id}
-        )
+        new_case = caluma_workflow_models.Case.objects.get(instance__pk=new_instance_id)
 
         if modification:
             assert new_instance.attachments.count() == 0
@@ -299,9 +293,7 @@ def test_create_instance_caluma_ur(
     assert create_resp.status_code == status.HTTP_201_CREATED, create_resp.content
 
     instance_id = int(create_resp.json()["data"]["id"])
-    case = caluma_workflow_models.Case.objects.get(
-        **{"meta__camac-instance-id": instance_id}
-    )
+    case = caluma_workflow_models.Case.objects.get(instance__pk=instance_id)
 
     instance = Instance.objects.get(pk=instance_id)
     assert instance.location == admin_client.user.groups.first().locations.first()
@@ -337,7 +329,7 @@ def test_create_instance_caluma_ur(
             new_instance = Instance.objects.get(pk=new_instance_id)
 
             new_case = caluma_workflow_models.Case.objects.get(
-                **{"meta__camac-instance-id": new_instance_id}
+                instance__pk=new_instance_id
             )
 
             if modification:
@@ -424,7 +416,7 @@ def test_copy_without_permission(
 )
 def test_instance_list(
     admin_client,
-    instance,
+    be_instance,
     activation,
     group,
     editable,
@@ -432,7 +424,6 @@ def test_instance_list(
     mock_public_status,
     use_caluma_form,
     multilang,
-    instance_service,
     responsible_service,
     mock_nfd_permissions,
 ):
@@ -452,7 +443,7 @@ def test_instance_list(
 
     json = response.json()
     assert len(json["data"]) == 1
-    assert json["data"][0]["id"] == str(instance.pk)
+    assert json["data"][0]["id"] == str(be_instance.pk)
     assert set(json["data"][0]["meta"]["editable"]) == set(editable)
 
 
@@ -498,7 +489,7 @@ def test_instance_submit_be(
     role,
     role_factory,
     group_factory,
-    instance,
+    be_instance,
     instance_state_factory,
     service,
     admin_user,
@@ -521,14 +512,9 @@ def test_instance_submit_be(
         {"template_slug": notification_template.slug, "recipient_types": ["applicant"]}
     ]
 
-    case = workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(pk="main-form"),
-        meta={"camac-instance-id": instance.pk},
-        user=caluma_admin_user,
+    be_instance.case.document.answers.create(
+        value=str(service.pk), question_id="gemeinde"
     )
-
-    case.document.answers.create(value=str(service.pk), question_id="gemeinde")
 
     group_factory(role=role_factory(name="support"))
     mocker.patch.object(
@@ -540,12 +526,12 @@ def test_instance_submit_be(
 
     mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
 
-    response = admin_client.post(reverse("instance-submit", args=[instance.pk]))
+    response = admin_client.post(reverse("instance-submit", args=[be_instance.pk]))
 
     assert response.status_code == status.HTTP_200_OK
 
     assert len(mail.outbox) == 1
-    assert instance.user.email in mail.outbox[0].recipients()
+    assert be_instance.user.email in mail.outbox[0].recipients()
 
     assert mail.outbox[0].subject.startswith("[eBau Test]: ")
 
@@ -591,7 +577,7 @@ def test_instance_submit_ur(
     role,
     role_factory,
     group_factory,
-    instance,
+    ur_instance,
     instance_state_factory,
     service,
     admin_user,
@@ -619,15 +605,11 @@ def test_instance_submit_ur(
 
     workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_DOSSIEREINGANG_UR)
 
-    case = workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(pk="main-form"),
-        meta={"camac-instance-id": instance.pk},
-        user=caluma_admin_user,
-    )
     location = location_factory(location_id="1")
 
-    case.document.answers.create(value=str(location.pk), question_id="municipality")
+    ur_instance.case.document.answers.create(
+        value=str(location.pk), question_id="municipality"
+    )
 
     group_factory(role=role_factory(name="support"))
     mocker.patch.object(
@@ -639,18 +621,18 @@ def test_instance_submit_ur(
 
     mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
 
-    response = admin_client.post(reverse("instance-submit", args=[instance.pk]))
+    response = admin_client.post(reverse("instance-submit", args=[ur_instance.pk]))
 
-    instance.refresh_from_db()
+    ur_instance.refresh_from_db()
 
     assert response.status_code == status.HTTP_200_OK
 
     assert len(mail.outbox) == 1
-    assert instance.user.email in mail.outbox[0].recipients()
+    assert ur_instance.user.email in mail.outbox[0].recipients()
 
     assert mail.outbox[0].subject.startswith("[eBau Test]: ")
 
-    assert instance.instance_state.name == "subm"
+    assert ur_instance.instance_state.name == "subm"
 
 
 @pytest.mark.parametrize("service_group__name", ["municipality"])
@@ -667,7 +649,7 @@ def test_instance_submit_state_change_be(
     role,
     role_factory,
     group_factory,
-    instance,
+    be_instance,
     instance_state_factory,
     service,
     admin_user,
@@ -710,14 +692,15 @@ def test_instance_submit_state_change_be(
 
     workflow.allow_forms.add(form)
     workflow.save()
-    case = workflow_api.start_case(
-        workflow=workflow,
-        form=form,
-        meta={"camac-instance-id": instance.pk},
-        user=caluma_admin_user,
-    )
 
-    case.document.answers.create(value=str(service.pk), question_id="gemeinde")
+    be_instance.case.workflow = workflow
+    be_instance.case.save()
+    be_instance.case.document.form = form
+    be_instance.case.document.save()
+
+    be_instance.case.document.answers.create(
+        value=str(service.pk), question_id="gemeinde"
+    )
 
     group_factory(role=role_factory(name="support"))
     mocker.patch.object(
@@ -728,15 +711,15 @@ def test_instance_submit_state_change_be(
     instance_state_factory(name="subm")
     mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
 
-    admin_client.post(reverse("instance-submit", args=[instance.pk]))
+    admin_client.post(reverse("instance-submit", args=[be_instance.pk]))
 
-    instance.refresh_from_db()
+    be_instance.refresh_from_db()
 
     if is_extend_validity:
-        assert instance.instance_state.name == "circulation_init"
+        assert be_instance.instance_state.name == "circulation_init"
 
     if is_building_police_procedure:
-        assert instance.instance_state.name == "in_progress_internal"
+        assert be_instance.instance_state.name == "in_progress_internal"
 
 
 @pytest.mark.parametrize("role__name,instance__user", [("Canton", LazyFixture("user"))])
@@ -774,7 +757,7 @@ def test_responsible_user(admin_client, instance, user, service, multilang):
 def test_instance_report(
     admin_client,
     role,
-    instance,
+    be_instance,
     instance_service,
     service_group,
     instance_state,
@@ -800,29 +783,22 @@ def test_instance_report(
         }
     ]
 
-    case = workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(pk="main-form"),
-        meta={"camac-instance-id": instance.pk},
-        user=caluma_admin_user,
-    )
-
     if instance_state.name == "sb1":
         docx_decision_factory(
-            decision=be_constants.DECISIONS_BEWILLIGT, instance=instance
+            decision=be_constants.DECISIONS_BEWILLIGT, instance=be_instance
         )
 
-        service = instance.responsible_service()
+        service = be_instance.responsible_service()
         construction_control = construction_control_for(service)
 
         for task_id in ["submit", "ebau-number", "skip-circulation", "decision"]:
             workflow_api.complete_work_item(
-                work_item=case.work_items.get(task_id=task_id),
+                work_item=be_instance.case.work_items.get(task_id=task_id),
                 user=caluma_admin_user,
                 context={"group-id": service.pk},
             )
 
-    response = admin_client.post(reverse("instance-report", args=[instance.pk]))
+    response = admin_client.post(reverse("instance-report", args=[be_instance.pk]))
 
     assert response.status_code == expected_status
 
@@ -831,12 +807,14 @@ def test_instance_report(
 
         recipients = flatten([m.to for m in mail.outbox])
 
-        assert instance.user.email in recipients
+        assert be_instance.user.email in recipients
         assert construction_control.email in recipients
 
-        case.refresh_from_db()
-        assert case.status == "running"
-        assert case.work_items.filter(task_id="sb2", status="ready").exists()
+        be_instance.case.refresh_from_db()
+        assert be_instance.case.status == "running"
+        assert be_instance.case.work_items.filter(
+            task_id="sb2", status="ready"
+        ).exists()
 
 
 @pytest.mark.parametrize(
@@ -854,8 +832,7 @@ def test_instance_report(
 def test_instance_finalize(
     admin_client,
     role,
-    instance,
-    instance_service,
+    be_instance,
     service_group,
     instance_state,
     instance_state_factory,
@@ -866,7 +843,6 @@ def test_instance_finalize(
     multilang,
     mock_nfd_permissions,
     mock_generate_and_store_pdf,
-    caluma_workflow_config_be,
     docx_decision_factory,
     caluma_admin_user,
     create_awa_workitem,
@@ -883,51 +859,46 @@ def test_instance_finalize(
         }
     ]
 
-    case = workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(pk="main-form"),
-        meta={"camac-instance-id": instance.pk},
-        user=caluma_admin_user,
-    )
-
     if instance_state.name == "sb2":
         docx_decision_factory(
-            decision=be_constants.DECISIONS_BEWILLIGT, instance=instance
+            decision=be_constants.DECISIONS_BEWILLIGT, instance=be_instance
         )
 
-        service = instance.responsible_service()
+        service = be_instance.responsible_service()
         construction_control = construction_control_for(service)
 
         for task_id in ["submit", "ebau-number", "skip-circulation", "decision", "sb1"]:
             workflow_api.complete_work_item(
-                work_item=case.work_items.get(task_id=task_id),
+                work_item=be_instance.case.work_items.get(task_id=task_id),
                 user=caluma_admin_user,
                 context={"group-id": service.pk},
             )
 
-        instance.instance_state = instance_state
-        instance.save()
+        be_instance.instance_state = instance_state
+        be_instance.save()
 
     if create_awa_workitem:
         table_form = caluma_form_models.Form.objects.create(
             slug="lagerung-von-stoffen-tabelle-v2"
         )
         form_question_factory(
-            form=case.document.form,
+            form=be_instance.case.document.form,
             question=caluma_form_models.Question.objects.create(
                 slug="lagerung-von-stoffen-v2",
                 type=caluma_form_models.Question.TYPE_TABLE,
                 row_form=table_form,
             ),
         )
-        table = case.document.answers.create(question_id="lagerung-von-stoffen-v2")
+        table = be_instance.case.document.answers.create(
+            question_id="lagerung-von-stoffen-v2"
+        )
         row = caluma_form_models.Document.objects.create(
             form_id="lagerung-von-stoffen-tabelle-v2"
         )
 
         table.documents.add(row)
 
-    response = admin_client.post(reverse("instance-finalize", args=[instance.pk]))
+    response = admin_client.post(reverse("instance-finalize", args=[be_instance.pk]))
 
     assert response.status_code == expected_status
 
@@ -936,11 +907,13 @@ def test_instance_finalize(
 
         recipients = flatten([m.to for m in mail.outbox])
 
-        assert instance.user.email in recipients
+        assert be_instance.user.email in recipients
         assert construction_control.email in recipients
 
         assert sorted(
-            case.work_items.filter(status="ready").values_list("task_id", flat=True)
+            be_instance.case.work_items.filter(status="ready").values_list(
+                "task_id", flat=True
+            )
         ) == sorted(
             [
                 "check-sb1",
@@ -961,7 +934,7 @@ def test_instance_finalize(
 @pytest.mark.parametrize("service_group__name", ["municipality"])
 def test_generate_and_store_pdf(
     db,
-    instance,
+    be_instance,
     admin_user,
     service,
     group,
@@ -1013,53 +986,46 @@ def test_generate_and_store_pdf(
         "MUNICIPALITY_MODEL": "camac.user.models.Service",
     }
 
-    case = workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(pk="main-form"),
-        meta={"camac-instance-id": instance.pk},
-        user=caluma_admin_user,
+    be_instance.case.document.answers.create(
+        value=str(service.pk), question_id="gemeinde"
     )
-
-    case.document.answers.create(value=str(service.pk), question_id="gemeinde")
 
     if form_slug:
         workflow_api.complete_work_item(
-            work_item=case.work_items.get(task_id="submit"), user=caluma_admin_user
+            work_item=be_instance.case.work_items.get(task_id="submit"),
+            user=caluma_admin_user,
         )
 
-    serializer._generate_and_store_pdf(instance, form_slug=form_slug)
+    serializer._generate_and_store_pdf(be_instance, form_slug=form_slug)
 
     assert attachment_section_paper.attachments.count() == 1 if paper else 0
     assert attachment_section_default.attachments.count() == 0 if paper else 1
 
 
-@pytest.mark.parametrize("role__name", ["Applicant"])
+@pytest.mark.parametrize(
+    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+)
 @pytest.mark.parametrize("is_paper,expected_count", [("1", 1), ("0", 2), ("", 3)])
 def test_caluma_instance_list_filter(
     admin_client,
     instance_factory,
+    instance_with_case,
+    be_instance,
     is_paper,
     expected_count,
     role,
     admin_user,
     mock_public_status,
     mock_nfd_permissions,
-    caluma_workflow_config_be,
-    caluma_admin_user,
 ):
     # not paper instances
-    instance_factory(user=admin_user)
-    instance_factory(user=admin_user)
+    instance_with_case(instance_factory(user=admin_user))
+    instance_with_case(instance_factory(user=admin_user))
 
     # paper instance
-    paper_instance = instance_factory(user=admin_user)
-    case = workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(pk="main-form"),
-        meta={"camac-instance-id": paper_instance.pk},
-        user=caluma_admin_user,
+    be_instance.case.document.answers.create(
+        question_id="is-paper", value="is-paper-yes"
     )
-    case.document.answers.create(question_id="is-paper", value="is-paper-yes")
 
     url = reverse("instance-list")
     response = admin_client.get(url, data={"is_paper": is_paper})
@@ -1071,30 +1037,32 @@ def test_caluma_instance_list_filter(
     assert len(json["data"]) == expected_count
 
 
-@pytest.mark.parametrize("role__name", ["Applicant"])
+@pytest.mark.parametrize(
+    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+)
 @pytest.mark.parametrize(
     "has_pending_billing_entry,expected_count", [("1", 1), ("0", 2), ("", 3)]
 )
 def test_has_pending_billing_entry_filter(
     admin_user,
     admin_client,
+    ur_instance,
+    instance_with_case,
     instance_factory,
-    caluma_admin_user,
     billing_entry_factory,
     has_pending_billing_entry,
     expected_count,
-    use_caluma_form,
 ):
-
     # instances without pending billing entry
-    billing_entry_factory(instance=instance_factory(user=admin_user), invoiced=1)
-    billing_entry_factory(instance=instance_factory(user=admin_user), invoiced=1)
+    billing_entry_factory(
+        instance=instance_with_case(instance_factory(user=admin_user)), invoiced=1
+    )
+    billing_entry_factory(
+        instance=instance_with_case(instance_factory(user=admin_user)), invoiced=1
+    )
 
     # instance with pending billing entry
-    instance_with_pending_billing_entry = instance_factory(user=admin_user)
-    billing_entry_factory(
-        instance=instance_with_pending_billing_entry, invoiced=0, type=1
-    )
+    billing_entry_factory(instance=ur_instance, invoiced=0, type=1)
 
     url = reverse("instance-list")
     response = admin_client.get(
@@ -1108,28 +1076,32 @@ def test_has_pending_billing_entry_filter(
     assert len(json["data"]) == expected_count
 
 
-@pytest.mark.parametrize("role__name", ["Applicant"])
+@pytest.mark.parametrize(
+    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+)
 @pytest.mark.parametrize(
     "has_pending_sanction,expected_count", [("1", 1), ("0", 2), ("", 3)]
 )
 def test_has_pending_sanction_filter(
     admin_user,
     admin_client,
+    ur_instance,
+    instance_with_case,
     instance_factory,
-    caluma_admin_user,
+    sanction_factory,
     has_pending_sanction,
     expected_count,
-    use_caluma_form,
-    sanction_factory,
 ):
-
     # instances without pending sanction
-    sanction_factory(instance=instance_factory(user=admin_user), is_finished=1)
-    sanction_factory(instance=instance_factory(user=admin_user), is_finished=1)
+    sanction_factory(
+        instance=instance_with_case(instance_factory(user=admin_user)), is_finished=1
+    )
+    sanction_factory(
+        instance=instance_with_case(instance_factory(user=admin_user)), is_finished=1
+    )
 
     # instance with pending sanction
-    instance_with_pending_sanction = instance_factory(user=admin_user)
-    sanction_factory(instance=instance_with_pending_sanction, is_finished=0)
+    sanction_factory(instance=ur_instance, is_finished=0)
 
     url = reverse("instance-list")
     response = admin_client.get(
@@ -1159,7 +1131,7 @@ def test_generate_pdf_action(
     admin_client,
     user,
     group,
-    instance,
+    be_instance,
     caluma_form,
     document_factory,
     form_factory,
@@ -1192,19 +1164,13 @@ def test_generate_pdf_action(
         }
     }
 
-    case = workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(pk="main-form"),
-        meta={"camac-instance-id": instance.pk},
-        user=caluma_admin_user,
-    )
-
     if form_slug:
         workflow_api.complete_work_item(
-            work_item=case.work_items.get(task_id="submit"), user=caluma_admin_user
+            work_item=be_instance.case.work_items.get(task_id="submit"),
+            user=caluma_admin_user,
         )
 
-    url = reverse("instance-generate-pdf", args=[instance.pk])
+    url = reverse("instance-generate-pdf", args=[be_instance.pk])
     data = {"form-slug": form_slug} if form_slug else {}
 
     if has_document_id:
@@ -1341,7 +1307,7 @@ def test_instance_submit_suggestions(
     role,
     role_factory,
     group_factory,
-    instance,
+    be_instance,
     instance_state_factory,
     service,
     service_factory,
@@ -1373,14 +1339,9 @@ def test_instance_submit_suggestions(
         {"template_slug": notification_template.slug, "recipient_types": ["applicant"]}
     ]
 
-    case = workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(pk="main-form"),
-        meta={"camac-instance-id": instance.pk},
-        user=caluma_admin_user,
+    be_instance.case.document.answers.create(
+        value=str(service.pk), question_id="gemeinde"
     )
-
-    case.document.answers.create(value=str(service.pk), question_id="gemeinde")
 
     if sugg_config:
         application_settings["SUGGESTIONS"] = sugg_config
@@ -1389,7 +1350,7 @@ def test_instance_submit_suggestions(
                 service_factory(pk=service_id)
 
         for ans in sugg_answer_values:
-            case.document.answers.create(question_id=ans[0], value=ans[1])
+            be_instance.case.document.answers.create(question_id=ans[0], value=ans[1])
 
     group_factory(role=role_factory(name="support"))
     mocker.patch.object(
@@ -1401,7 +1362,7 @@ def test_instance_submit_suggestions(
 
     mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
 
-    response = admin_client.post(reverse("instance-submit", args=[instance.pk]))
+    response = admin_client.post(reverse("instance-submit", args=[be_instance.pk]))
 
     assert response.status_code == status.HTTP_200_OK
 
@@ -1470,9 +1431,7 @@ def test_rejection(
 
     assert new_instance.instance_state == new_state
 
-    case = caluma_workflow_models.Case.objects.get(
-        **{"meta__camac-instance-id": new_instance.pk}
-    )
+    case = new_instance.case
 
     case.document.answers.create(value=str(service.pk), question_id="gemeinde")
     mocker.patch.object(
@@ -1501,16 +1460,15 @@ def test_rejection(
 @pytest.mark.parametrize("is_migrated", [True, False])
 def test_instance_name(
     admin_client,
+    caluma_workflow_config_be,
     instance,
-    instance_service,
+    instance_with_case,
     group,
     role,
     multilang,
-    caluma_workflow_config_be,
     is_paper,
     is_modification,
     is_migrated,
-    caluma_admin_user,
 ):
     def yes_no_german(boolean):
         return "ja" if boolean else "nein"
@@ -1518,30 +1476,23 @@ def test_instance_name(
     def yes_no_english(boolean):
         return "yes" if boolean else "no"
 
-    if is_migrated:
-        workflow = caluma_workflow_models.Workflow.objects.get(pk="migrated")
-        form = caluma_form_models.Form.objects.get(pk="migriertes-dossier")
-    else:
-        workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
-        form = caluma_form_models.Form.objects.get(pk="main-form")
-
-    case = workflow_api.start_case(
-        workflow=workflow,
-        form=form,
-        meta={"camac-instance-id": instance.pk},
-        user=caluma_admin_user,
+    instance = instance_with_case(
+        instance,
+        "migrated" if is_migrated else "building-permit",
+        "migriertes-dossier" if is_migrated else "main-form",
+        {"instance": instance.pk},
     )
 
     if is_migrated:
-        case.document.answers.create(
+        instance.case.document.answers.create(
             question_id="geschaeftstyp",
             value="geschaeftstyp-baupolizeiliches-verfahren",
         )
     else:
-        case.document.answers.create(
+        instance.case.document.answers.create(
             question_id="is-paper", value=f"is-paper-{yes_no_english(is_paper)}"
         )
-        case.document.answers.create(
+        instance.case.document.answers.create(
             question_id="projektaenderung",
             value=f"projektaenderung-{yes_no_german(is_modification)}",
         )
@@ -1569,7 +1520,7 @@ def test_change_responsible_service_audit_validation(
     db,
     admin_client,
     admin_user,
-    instance,
+    be_instance,
     instance_service,
     notification_template,
     role,
@@ -1581,20 +1532,15 @@ def test_change_responsible_service_audit_validation(
     application_settings,
     caluma_admin_user,
 ):
-    case = workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(pk="main-form"),
-        meta={"camac-instance-id": instance.pk},
-        user=caluma_admin_user,
-    )
     new_service = service_factory()
 
     for task_id in ["submit", "ebau-number"]:
         workflow_api.complete_work_item(
-            work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user
+            work_item=be_instance.case.work_items.get(task_id=task_id),
+            user=caluma_admin_user,
         )
 
-    audit = case.work_items.get(task_id="audit")
+    audit = be_instance.case.work_items.get(task_id="audit")
     invalid_document = caluma_form_models.Document.objects.create(form_id="fp-form")
     table_answer = audit.document.answers.create(
         question_id="fp-form", value=[str(invalid_document.pk)]
@@ -1602,7 +1548,7 @@ def test_change_responsible_service_audit_validation(
     table_answer.documents.add(invalid_document)
 
     response = admin_client.post(
-        reverse("instance-change-responsible-service", args=[instance.pk]),
+        reverse("instance-change-responsible-service", args=[be_instance.pk]),
         {
             "data": {
                 "type": "instance-change-responsible-services",
@@ -1751,31 +1697,27 @@ def test_public_caluma_instance_enabled_empty_qs(
 def test_public_caluma_instance_filter_instance(
     db,
     admin_client,
-    instance,
+    ur_instance,
     enable_public_urls,
-    caluma_workflow_config_ur,
-    caluma_admin_user,
     publication_entry_factory,
     location_factory,
 ):
     publication_entry_factory(
         publication_date=timezone.now() - timedelta(days=1),
-        instance=instance,
+        instance=ur_instance,
         is_published=True,
     )
 
-    case = workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(pk="main-form"),
-        meta={"camac-instance-id": instance.pk, "dossier-number": 123},
-        user=caluma_admin_user,
-    )
     location = location_factory(location_id="1")
 
-    case.document.answers.create(value=str(location.pk), question_id="municipality")
+    ur_instance.case.meta["dossier-number"] = 123
+    ur_instance.case.save()
+    ur_instance.case.document.answers.create(
+        value=str(location.pk), question_id="municipality"
+    )
 
     url = reverse("public-caluma-instance")
-    resp = admin_client.get(url, {"instance": instance.pk})
+    resp = admin_client.get(url, {"instance": ur_instance.pk})
 
     assert resp.status_code == status.HTTP_200_OK
     assert len(resp.json()["data"]) == 1
