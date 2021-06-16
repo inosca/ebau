@@ -12,7 +12,6 @@ from simple_history.utils import bulk_create_with_history
 from camac.caluma.api import CalumaApi
 from camac.constants.kt_bern import SERVICE_GROUP_RSTA
 from camac.core.models import Answer as CamacAnswer
-from camac.instance.models import Instance
 from camac.user.models import Service
 
 from .config import bab, formal_exam, material_exam
@@ -94,14 +93,13 @@ class Command(BaseCommand):
             .values_list("instance_id", flat=True)
         )
 
-        cases = Case.objects.filter(
-            **{"meta__camac-instance-id__in": instance_pks}
-        ).exclude(work_items__task_id="audit")
+        cases = Case.objects.filter(instance__pk__in=instance_pks).exclude(
+            work_items__task_id="audit"
+        )
         count = cases.count()
 
         for i, case in enumerate(cases, 1):
-            instance_id = case.meta.get("camac-instance-id")
-            instance = Instance.objects.get(pk=instance_id)
+            instance = case.instance
             service = instance.responsible_service(filter_type="municipality")
             WorkItem.objects.create(
                 task_id="audit",
@@ -112,7 +110,7 @@ class Command(BaseCommand):
 
             self.stdout.write(
                 self.style.SUCCESS(
-                    f"Created missing audit workitem of instance {instance_id}\t({i} / {count})"
+                    f"Created missing audit workitem of instance {instance.pk}\t({i} / {count})"
                 )
             )
 
@@ -123,9 +121,7 @@ class Command(BaseCommand):
         count = audit_work_items.count()
 
         for i, work_item in enumerate(audit_work_items):
-            instance = Instance.objects.get(
-                pk=work_item.case.meta.get("camac-instance-id")
-            )
+            instance = work_item.case.instance
 
             audit = Document.objects.create(form_id="dossierpruefung")
 

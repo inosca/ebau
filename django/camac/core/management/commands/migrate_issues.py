@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from caluma.caluma_workflow.models import Case, Task, WorkItem
+from caluma.caluma_workflow.models import Task, WorkItem
 from django.core.management.base import BaseCommand
 from django.db import transaction
 
@@ -17,9 +17,7 @@ class Command(BaseCommand):
         self.stdout.write("Migrating all Issues to WorkItems")
         task = Task.objects.get(slug="create-manual-workitems")
         for issue in Issue.objects.all():
-            case = Case.objects.get(
-                meta__contains={"camac-instance-id": issue.instance.pk}
-            )
+            case = issue.instance.case
             deadline = datetime(
                 issue.deadline_date.year,
                 issue.deadline_date.month,

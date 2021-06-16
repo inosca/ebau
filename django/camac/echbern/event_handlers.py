@@ -441,10 +441,8 @@ def if_ech_enabled(func):
         instance = kwargs.get("instance")
         instance_ignored = (
             Case.objects.filter(
-                **{
-                    "meta__camac-instance-id": instance.pk,
-                    "document__form__in": settings.ECH_EXCLUDED_FORMS,
-                }
+                instance__pk=instance.pk,
+                document__form__in=settings.ECH_EXCLUDED_FORMS,
             ).exists()
             if instance
             else False

@@ -247,6 +247,6 @@ class DocumentParser:
 
 
 def get_document(instance_id):
-    case = Case.objects.get(**{"meta__camac-instance-id": instance_id})
+    case = Case.objects.get(instance__pk=instance_id)
     dp = DocumentParser(case.document)
     return dp.answers

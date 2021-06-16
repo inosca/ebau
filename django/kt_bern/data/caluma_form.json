@@ -32,9 +32,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "id": "6264eb71-3b70-452f-a95c-0f980da8253b",
-      "meta": {
-        "camac-instance-id": 1
-      },
+      "meta": {},
       "family": "6264eb71-3b70-452f-a95c-0f980da8253b",
       "form": "nfd",
       "source": null,
@@ -118,9 +116,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "id": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "meta": {
-        "camac-instance-id": 2
-      },
+      "meta": {},
       "family": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
       "form": "vorabklaerung-einfach",
       "source": null,
@@ -183,9 +179,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "id": "82986e34-47b4-4793-aec9-49d7cbb5986d",
-      "meta": {
-        "camac-instance-id": 1
-      },
+      "meta": {},
       "family": "82986e34-47b4-4793-aec9-49d7cbb5986d",
       "form": "sb1",
       "source": null,
@@ -311,9 +305,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "id": "cb3d4d28-86a9-42f9-ba0b-f90876b61976",
-      "meta": {
-        "camac-instance-id": 2
-      },
+      "meta": {},
       "family": "cb3d4d28-86a9-42f9-ba0b-f90876b61976",
       "form": "nfd",
       "source": null,
@@ -439,9 +431,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "id": "f9f24236-ada9-4363-8ee2-522e58428836",
-      "meta": {
-        "camac-instance-id": 1
-      },
+      "meta": {},
       "family": "f9f24236-ada9-4363-8ee2-522e58428836",
       "form": "sb2",
       "source": null,
@@ -525,9 +515,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "id": "9e66710f-31ad-4b40-8845-dca1586d9223",
-      "meta": {
-        "camac-instance-id": 2
-      },
+      "meta": {},
       "family": "9e66710f-31ad-4b40-8845-dca1586d9223",
       "form": "sb1",
       "source": null,
@@ -611,9 +599,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "id": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "meta": {
-        "camac-instance-id": 1
-      },
+      "meta": {},
       "family": "961f2def-a94a-435f-b8b4-93390c7b40e5",
       "form": "baugesuch",
       "source": null,
@@ -635,8 +621,7 @@
       "modified_by_group": null,
       "id": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
       "meta": {
-        "submit-date": "2020-03-06T11:14:33+0000",
-        "camac-instance-id": 2
+        "submit-date": "2020-03-06T11:14:33+0000"
       },
       "family": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
       "form": "vorabklaerung-einfach",
@@ -679,9 +664,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "id": "dd645aba-6efa-4103-b23e-19b0ad1e9625",
-      "meta": {
-        "camac-instance-id": 2
-      },
+      "meta": {},
       "family": "dd645aba-6efa-4103-b23e-19b0ad1e9625",
       "form": "sb2",
       "source": null,

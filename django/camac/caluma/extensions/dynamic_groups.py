@@ -12,9 +12,6 @@ log = logging.getLogger()
 
 
 class CustomDynamicGroups(BaseDynamicGroups):
-    def _get_instance(self, case):
-        return Instance.objects.get(pk=case.meta.get("camac-instance-id"))
-
     def _get_activation(self, context):
         if not context:
             return Activation.objects.none()
@@ -27,8 +24,12 @@ class CustomDynamicGroups(BaseDynamicGroups):
 
         return Circulation.objects.filter(pk=context.get("circulation-id")).first()
 
-    def _get_responsible_service(self, case, filter_type):
-        instance = self._get_instance(case)
+    def _get_responsible_service(self, case, filter_type, context):
+        instance = (
+            case.instance
+            if hasattr(case, "instance")
+            else Instance.objects.get(pk=context.get("instance"))
+        )
         service = instance.responsible_service(filter_type=filter_type)
 
         if not service:
@@ -40,13 +41,13 @@ class CustomDynamicGroups(BaseDynamicGroups):
 
     @register_dynamic_group("municipality")
     def resolve_municipality(self, task, case, user, prev_work_item, context, **kwargs):
-        return self._get_responsible_service(case, "municipality")
+        return self._get_responsible_service(case, "municipality", context)
 
     @register_dynamic_group("construction_control")
     def resolve_construction_control(
         self, task, case, user, prev_work_item, context, **kwargs
     ):
-        return self._get_responsible_service(case, "construction_control")
+        return self._get_responsible_service(case, "construction_control", context)
 
     @register_dynamic_group("circulation_service")
     def resolve_circulation_service(
