@@ -44334,7 +44334,7 @@
       "name": "Zur Pr\u00fcfung zugewiesene Dossiers",
       "description": "Zur Pr\u00fcfung zugewiesene Dossiers f\u00fcr Vernehmlassungsstellen Gemeindezirkulation",
       "template": null,
-      "class_field": null,
+      "class_field": "hasActivation",
       "hidden": 0,
       "sort": 5
     }
