@@ -74,28 +74,12 @@ class Command(BaseCommand):
         # Skip circ workItems which have no open camac circulation
         self.skip_unfinished_circs()
 
-        # Manual workItem repair block
-        self.stdout.write("Start repairing manual workItems")
+        # Manual workItem and depreciate workItem repair block
+        self.stdout.write("Start repairing manual and depreciate workItems")
         for instance_rmwi in Instance.objects.exclude(
             instance_state__name__in=["new", "arch"]
         ):  # _rmwi stands for "repair manual workItem"
-            case = Case.objects.get(**{"meta__camac-instance-id": instance_rmwi.pk})
-            manual_work_item = WorkItem.objects.filter(
-                task_id="create-manual-workitems",
-                case=case,
-                status=WorkItem.STATUS_READY,
-            ).first()
-
-            if not manual_work_item:
-                if self.verbose:
-                    self.stdout.write(
-                        f"No workItem 'create-manual-workitems' found in instance {instance_rmwi.pk}, creating"
-                    )
-
-                self.create_work_item_from_task(
-                    case,
-                    "create-manual-workitems",
-                )
+            self.repair_missing_work_items(instance_rmwi)
 
         # Detect possible issues
         self.detect_duplicates()
@@ -154,6 +138,41 @@ class Command(BaseCommand):
                     self.stdout.write(
                         f"Skipped work item 'check-statement' for activation {activation.pk} that's already in review"
                     )
+
+    def repair_missing_work_items(self, instance):
+        case = Case.objects.get(**{"meta__camac-instance-id": instance.pk})
+        manual_work_item = WorkItem.objects.filter(
+            task_id="create-manual-workitems",
+            case=case,
+            status=WorkItem.STATUS_READY,
+        ).first()
+
+        if not manual_work_item:
+            if self.verbose:
+                self.stdout.write(
+                    f"No workItem 'create-manual-workitems' found in instance {instance.pk}, creating"
+                )
+
+            self.create_work_item_from_task(
+                case,
+                "create-manual-workitems",
+                additional_filters={"status": WorkItem.STATUS_READY},
+            )
+
+        depreciate_work_item = WorkItem.objects.filter(
+            task_id="depreciate-case", case=case, status=WorkItem.STATUS_READY
+        ).first()
+        if not depreciate_work_item:
+            if self.verbose:
+                self.stdout.write(
+                    f"No workItem 'depreciate-case' found in instance {instance.pk}, creating"
+                )
+
+            self.create_work_item_from_task(
+                case,
+                "depreciate-case",
+                additional_filters={"status": WorkItem.STATUS_READY},
+            )
 
     def create_work_item_from_task(
         self,
