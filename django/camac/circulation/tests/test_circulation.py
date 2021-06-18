@@ -341,3 +341,57 @@ def test_end_circulation(
         case.work_items.get(**{"meta__circulation-id": circulation.pk}).status
         == WorkItem.STATUS_SKIPPED
     )
+
+
+@pytest.mark.parametrize(
+    "role__name,instance__user", [("Municipality", LazyFixture("admin_user"))]
+)
+def test_end_all_circulation(
+    admin_client,
+    instance_service,
+    circulation,
+    circulation_factory,
+    activation,
+    caluma_workflow_config_be,
+    caluma_admin_user,
+    activation_factory,
+    circulation_state_factory,
+):
+    new_state = circulation_state_factory(name="DONE")
+
+    case = start_case(
+        workflow=Workflow.objects.get(pk="building-permit"),
+        form=Form.objects.get(pk="main-form"),
+        user=caluma_admin_user,
+        meta={"camac-instance-id": circulation.instance.pk},
+    )
+
+    for task_id in ["submit", "ebau-number", "init-circulation"]:
+        skip_work_item(
+            case.work_items.get(task_id=task_id),
+            caluma_admin_user,
+            context={"circulation-id": circulation.pk},
+        )
+
+    second_circulation = circulation_factory(instance=circulation.instance)
+    WorkItem.objects.create(
+        task_id="circulation",
+        case=case,
+        status=WorkItem.STATUS_READY,
+        meta={"circulation-id": second_circulation.pk},
+    )
+
+    response = admin_client.patch(reverse("circulation-end-all", args=[circulation.pk]))
+
+    activation.refresh_from_db()
+
+    assert response.status_code == status.HTTP_204_NO_CONTENT
+    assert activation.circulation_state == new_state
+    assert (
+        case.work_items.get(**{"meta__circulation-id": circulation.pk}).status
+        == WorkItem.STATUS_SKIPPED
+    )
+    assert (
+        case.work_items.get(**{"meta__circulation-id": second_circulation.pk}).status
+        == WorkItem.STATUS_SKIPPED
+    )
