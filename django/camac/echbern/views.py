@@ -24,6 +24,7 @@ from .models import Message
 from .parsers import ECHXMLParser
 from .send_handlers import SendHandlerException, get_send_handler
 from .serializers import ApplicationsSerializer
+from .throttling import ECHMessageThrottle
 
 logger = logging.getLogger(__name__)
 
@@ -102,7 +103,8 @@ class MessageView(RetrieveModelMixin, GenericViewSet):
     queryset = Message.objects
     serializer_class = Serializer
     renderer_classes = (XMLRenderer,)
-    # throttle_scope = "ech_polling"
+
+    throttle_classes = [ECHMessageThrottle]
 
     def get_queryset(self):
         qs = super().get_queryset()
