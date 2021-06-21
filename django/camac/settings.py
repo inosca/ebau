@@ -1612,10 +1612,6 @@ REST_FRAMEWORK = {
     ),
     "TEST_REQUEST_DEFAULT_FORMAT": "vnd.api+json",
     "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
-    "DEFAULT_THROTTLE_CLASSES": ("camac.user.throttling.GroupScopedRateThrottle",),
-    "DEFAULT_THROTTLE_RATES": {
-        "ech_polling": "1/min",
-    },
 }
 
 JSON_API_FORMAT_FIELD_NAMES = "dasherize"
