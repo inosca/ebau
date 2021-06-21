@@ -18,5 +18,5 @@ def test_message_throttling(
     response3 = admin_client.get(f"{url}?group={group2.pk}")
 
     assert response1.status_code == status.HTTP_204_NO_CONTENT
-    assert response2.status_code == status.HTTP_429_TOO_MANY_REQUESTS
+    assert response2.status_code == status.HTTP_204_NO_CONTENT
     assert response3.status_code == status.HTTP_204_NO_CONTENT
