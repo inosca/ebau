@@ -1,22 +1,35 @@
+import pytest
 from django.urls import reverse
 from rest_framework import status
 
 
+@pytest.mark.parametrize(
+    "params,expected_status",
+    [
+        # last param
+        (
+            {"group": 1, "last": "b91d065e-76a3-4dbd-bd1d-c06ab43612ce"},
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            {"group": 1, "last": "b91d065e-76a3-4dbd-bd1d-c06ab43612ce"},
+            status.HTTP_429_TOO_MANY_REQUESTS,
+        ),
+        # no last param, use group as fallback
+        ({"group": 2}, status.HTTP_204_NO_CONTENT),
+        ({"group": 2}, status.HTTP_429_TOO_MANY_REQUESTS),
+    ],
+)
 def test_message_throttling(
-    db, service, admin_client, admin_user, group_factory, user_group_factory
+    db, service, admin_client, admin_user, user_group_factory, params, expected_status
 ):
-    group1 = group_factory()
-    group2 = group_factory()
-
-    user_group_factory(user=admin_user, group=group1)
-    user_group_factory(user=admin_user, group=group2)
+    user_group_factory(user=admin_user, group__pk=1)
+    user_group_factory(user=admin_user, group__pk=2)
 
     url = reverse("message")
 
-    response1 = admin_client.get(f"{url}?group={group1.pk}")
-    response2 = admin_client.get(f"{url}?group={group1.pk}")
-    response3 = admin_client.get(f"{url}?group={group2.pk}")
+    query = "&".join([f"{key}={value}" for key, value in params.items()])
 
-    assert response1.status_code == status.HTTP_204_NO_CONTENT
-    assert response2.status_code == status.HTTP_204_NO_CONTENT
-    assert response3.status_code == status.HTTP_204_NO_CONTENT
+    response = admin_client.get(f"{url}?{query}")
+
+    assert response.status_code == expected_status
