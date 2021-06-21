@@ -102,7 +102,7 @@ class MessageView(RetrieveModelMixin, GenericViewSet):
     queryset = Message.objects
     serializer_class = Serializer
     renderer_classes = (XMLRenderer,)
-    throttle_scope = "ech_polling"
+    # throttle_scope = "ech_polling"
 
     def get_queryset(self):
         qs = super().get_queryset()
