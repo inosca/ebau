@@ -450,6 +450,10 @@ export default class BeGisComponent extends Component {
 
   @dropTask
   *fetchAdditionalData(parcels) {
+    if (/^vorabklaerung-einfach/.test(this.field.document.rootForm.slug)) {
+      return;
+    }
+
     this.set("gisData", A());
 
     const responses = yield all(
