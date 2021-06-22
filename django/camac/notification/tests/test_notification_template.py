@@ -1040,6 +1040,35 @@ def test_recipient_type_circulation_service(
 
 
 @pytest.mark.parametrize(
+    "service_group__name,expected",
+    [("district", [{"to": "bauen@example.ch"}]), ("municipality", [])],
+)
+def test_recipient_inactive_municipality(
+    db,
+    instance,
+    instance_service,
+    caluma_workflow_config_be,
+    caluma_admin_user,
+    service_group,
+    expected,
+    service_factory,
+):
+    municipality = service_factory(email="bauen@example.ch")
+
+    case = workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
+        form=caluma_form_models.Form.objects.get(pk="main-form"),
+        meta={"camac-instance-id": instance.pk},
+        user=caluma_admin_user,
+    )
+    case.document.answers.create(value=str(municipality.pk), question_id="gemeinde")
+
+    serializer = serializers.NotificationTemplateSendmailSerializer()
+
+    assert serializer._get_recipients_inactive_municipality(instance) == expected
+
+
+@pytest.mark.parametrize(
     "submitter_type",
     [
         serializers.NotificationTemplateSendmailSerializer.SUBMITTER_TYPE_APPLICANT,

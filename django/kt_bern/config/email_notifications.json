@@ -63,7 +63,7 @@
     "model": "notification.notificationtemplate",
     "pk": 6,
     "fields": {
-      "slug": "02-aufforderung-bereinigung-baugesuch",
+      "slug": "02-rueckweisung-gemeinde",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -171,7 +171,7 @@
     "model": "notification.notificationtemplate",
     "pk": 16,
     "fields": {
-      "slug": "05-zusatzliche-infos-notwendig-behorden",
+      "slug": "03-zusaetzliche-unterlagen-notwendig-gemeinde",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -532,11 +532,11 @@
     "pk": 11,
     "fields": {
       "template": 6,
-      "template_slug": "02-aufforderung-bereinigung-baugesuch",
+      "template_slug": "02-rueckweisung-gemeinde",
       "language": "de",
-      "purpose": "02 Aufforderung Bereinigung Dossier",
-      "subject": "Aufforderung Bereinigung Dossier (eBau-Nr. {{EBAU_NUMBER}}) / Invitation \u00e0 corriger le dossier (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDas Dossier mit der eBau-Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) wurde formell gepr\u00fcft. Sie erhalten den Brief mit dem Pr\u00fcfresultat beigef\u00fcgt.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLe dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) a fait l'objet d'un examen formel dont le r\u00e9sultat vous est communiqu\u00e9 dans le courrier ci-joint.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}"
+      "purpose": "02 R\u00fcckweisung (Gemeinde)",
+      "subject": "Dossier aufgrund von M\u00e4ngeln abgewiesen oder nicht darauf eingetreten (eBau Nr. {{EBAU_NUMBER}}) / Dossier rejet\u00e9 en raison de d\u00e9fauts ou non satisfaite (n\u00b0 eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDie Baubewilligungsbeh\u00f6rde {{LEITBEHOERDE_NAME}} hat das Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) zur\u00fcckgewiesen.\r\n\r\nMitteilung der Baubewilligungsbeh\u00f6rde:\r\n\r\n{{REJECTION_FEEDBACK}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur, \r\n\r\nL'autorit\u00e9 du permis de construire {{LEITBEHOERDE_NAME}} a rejet\u00e9 le dossier avec eBau N\u00b0 {{EBAU_NUMBER}}. ({{INSTANCE_ID}}).\r\n\r\nCommunication de l'autorit\u00e9 d'octroi du permis de construire:\r\n\r\n{{REJECTION_FEEDBACK}}"
     }
   },
   {
@@ -570,7 +570,7 @@
       "template": 9,
       "template_slug": "02-baugesuch-aufgrund-mangel-abweisen-oder-nicht-eintreten-art-18-bewd",
       "language": "de",
-      "purpose": "02 Dossier aufgrund M\u00e4ngel abweisen oder nicht eintreten (Art. 18 BewD)",
+      "purpose": "02 R\u00fcckweisung (Gesuchsteller)",
       "subject": "Dossier aufgrund von M\u00e4ngeln abgewiesen oder nicht darauf eingetreten (eBau Nr. {{EBAU_NUMBER}}) / Dossier rejet\u00e9 en raison de d\u00e9fauts ou non satisfaite (n\u00b0 eBau {{EBAU_NUMBER}})",
       "body": "Guten Tag\r\n\r\nDie Baubewilligungsbeh\u00f6rde {{LEITBEHOERDE_NAME}} hat das Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) zur\u00fcckgewiesen. Das Dossier kann nun angepasst und erneut eingereicht werden.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nMitteilung der Baubewilligungsbeh\u00f6rde:\r\n\r\n{{REJECTION_FEEDBACK}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur, \r\n\r\nL'autorit\u00e9 du permis de construire {{LEITBEHOERDE_NAME}} a rejet\u00e9 le dossier avec eBau N\u00b0 {{EBAU_NUMBER}}. ({{INSTANCE_ID}}). Le dossier peut maintenant \u00eatre adapt\u00e9e et soumise \u00e0 nouveau. \r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nCommunication de l'autorit\u00e9 d'octroi du permis de construire:\r\n\r\n{{REJECTION_FEEDBACK}}"
     }
@@ -640,11 +640,11 @@
     "pk": 31,
     "fields": {
       "template": 16,
-      "template_slug": "05-zusatzliche-infos-notwendig-behorden",
+      "template_slug": "03-zusaetzliche-unterlagen-notwendig-gemeinde",
       "language": "de",
-      "purpose": "05 Zus\u00e4tzliche Infos notwendig (Beh\u00f6rden)",
-      "subject": "Zus\u00e4tzliche Infos notwendig (eBau Nr. {{EBAU_NUMBER}}) / Compl\u00e9ment d'information requis (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDie Pr\u00fcfung hat ergeben, dass f\u00fcr die Beurteilung des Dossiers mit der eBau Nr. {{EBAU_NUMBER}} noch weitere Unterlagen / Dokumente gem\u00e4ss beigef\u00fcgtem Anhang notwendig sind. \r\n\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nIl ressort d'un premier examen que d'autres documents / indications (selon le document annex\u00e9) sont n\u00e9cessaires au traitement du dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}}. \r\n\r\n{{LEITBEHOERDE_NAME}}"
+      "purpose": "03 Zus\u00e4tzliche Unterlagen notwendig (Gemeinde)",
+      "subject": "Zus\u00e4tzliche Unterlagen notwendig (eBau Nr. {{EBAU_NUMBER}}) / Documents compl\u00e9mentaires requis (n\u00b0 eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDie Pr\u00fcfung hat ergeben, dass f\u00fcr die Beurteilung des Dossiers mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) noch weitere Unterlagen / Dokumente notwendig sind.\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nIl ressort d'un premier examen que d'autres documents / indications (selon le document annex\u00e9) sont n\u00e9cessaires \u00e0 l'appr\u00e9ciation du dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}})."
     }
   },
   {
