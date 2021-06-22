@@ -531,6 +531,16 @@ class TemplateView(ModelViewSet):
         response.write(buf.read())
         return response
 
+    @action(methods=["get"], detail=True)
+    def download(self, request, pk=None):
+        template = self.get_object()
+
+        response = HttpResponse(template.path)
+        response["Content-Disposition"] = f'attachment; filename="{template.path.name}"'
+        response["Content-Type"] = mimetypes.guess_type(template.path.name)[0]
+
+        return response
+
 
 class AttachmentDownloadHistoryView(ReadOnlyModelViewSet):
     swagger_schema = None
