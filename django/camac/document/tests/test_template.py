@@ -230,3 +230,24 @@ def test_template_merge(
                     output.write(response.content)
                 print("Template output changed. Check file at %s" % output.name)
                 raise
+
+
+@pytest.mark.parametrize(
+    "role__name,template__path",
+    [
+        (
+            "Municipality",
+            django_file("template.docx"),
+        )
+    ],
+)
+def test_template_download(
+    snapshot,
+    admin_client,
+    template,
+):
+    url = reverse("template-download", args=[template.pk])
+    response = admin_client.get(url)
+    docx = DocxTemplate(BytesIO(response.content))
+    xml = etree.tostring(docx._element.body, encoding="unicode", pretty_print=True)
+    snapshot.assert_match(xml)
