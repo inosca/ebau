@@ -161,6 +161,12 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
         return result
 
+    def format_date(self, date):
+        current_tz = timezone.get_current_timezone()
+        return current_tz.normalize(date.astimezone(current_tz)).strftime(
+            settings.MERGE_DATE_FORMAT
+        )
+
     def get_vorhaben(self, instance):
         description_slugs = [
             "proposal-description",
@@ -240,22 +246,19 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
         return (
             publication_entry
-            and publication_entry.publication_date.strftime(settings.MERGE_DATE_FORMAT)
+            and self.format_date(publication_entry.publication_date)
             or ""
         )
 
     def get_publications(self, instance):
         publications = []
-        current_tz = timezone.get_current_timezone()
 
         for publication in instance.publication_entries.filter(is_published=1).order_by(
             "publication_date"
         ):
             publications.append(
                 {
-                    "date": current_tz.normalize(
-                        publication.publication_date.astimezone(current_tz)
-                    ).strftime(settings.MERGE_DATE_FORMAT),
+                    "date": self.format_date(publication.publication_date),
                     "calendar_week": publication.publication_date.isocalendar()[1],
                 }
             )
@@ -387,7 +390,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             instance=instance, workflow_item=item_id
         ).first()
         if entry:
-            return entry.workflow_date.strftime(settings.MERGE_DATE_FORMAT)
+            return self.format_date(entry.workflow_date)
         return "---"
 
     def get_date_dossiervollstandig(self, instance):
