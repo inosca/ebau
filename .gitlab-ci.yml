@@ -280,7 +280,7 @@ build-kt_bern-tarball:
   variables:
     APPLICATION: kt_bern
     COMPOSE: docker-compose -f compose/kt_bern.yml -f compose/kt_bern-prod.yml
-    SERVICES: "php django ember-caluma-portal ember-camac-ng document-merge-service"
+    SERVICES: "php ember-caluma-portal ember-camac-ng document-merge-service"
   stage: build
   services:
     - docker:dind
