@@ -19,12 +19,19 @@ from django.utils.translation import gettext as _
 from rest_framework import response, status
 from rest_framework.decorators import action
 from rest_framework.generics import ListAPIView, RetrieveAPIView
+from rest_framework.response import Response
 from rest_framework.settings import api_settings
 from rest_framework_json_api import views
 from rest_framework_json_api.views import ReadOnlyModelViewSet
 
 from camac.caluma.api import CalumaApi
-from camac.core.models import Activation, DocxDecision, InstanceService, WorkflowEntry
+from camac.core.models import (
+    Activation,
+    CirculationState,
+    DocxDecision,
+    InstanceService,
+    WorkflowEntry,
+)
 from camac.core.views import SendfileHttpResponse
 from camac.document.models import Attachment, AttachmentSection
 from camac.notification.utils import send_mail
@@ -340,7 +347,7 @@ class InstanceView(
                                     ),
                                     client,
                                 ),
-                            },
+                            }
                         },
                     }
                     if client
@@ -378,7 +385,7 @@ class InstanceView(
                         "personIdentification": {
                             "officialName": client["name"],
                             "firstName": client["vorname"],
-                        },
+                        }
                     },
                 }
                 if client
@@ -411,8 +418,7 @@ class InstanceView(
 
         def applicant_names(instance):
             overrides = models.FormField.objects.filter(
-                instance=instance,
-                name="projektverfasser-planer-override",
+                instance=instance, name="projektverfasser-planer-override"
             ).values("value")
 
             applicants = overrides if len(overrides) else (instance.applicants or [])
@@ -792,6 +798,31 @@ class InstanceView(
     @action(methods=["post"], detail=True, url_path="fix-work-items")
     def fix_work_items(self, request, pk=None):
         return self._custom_serializer_action(request, pk)
+
+    @action(methods=["PATCH"], detail=True, url_path="end-circulations")
+    @transaction.atomic
+    def end_circulations(self, request, pk=None):
+        instance = self.get_object()
+
+        # skip all open circulation work items
+        for work_item in workflow_models.WorkItem.objects.filter(
+            **{
+                "task": "circulation",
+                "status": "ready",
+                "case__meta__camac-instance-id": instance.pk,
+            }
+        ):
+            workflow_api.skip_work_item(
+                work_item=work_item, user=self.request.caluma_info.context.user
+            )
+
+        # set state of all activations to done
+        for circ in instance.circulations.all():
+            circ.activations.update(
+                circulation_state=CirculationState.objects.get(name="DONE")
+            )
+
+        return Response([], 204)
 
 
 class InstanceResponsibilityView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
@@ -1251,9 +1282,7 @@ class IssueTemplateSetView(views.ModelViewSet):
         return response.Response([], 204)
 
 
-class PublicCalumaInstanceView(
-    ListAPIView,
-):
+class PublicCalumaInstanceView(ListAPIView):
     """Public view for published instances (kt_uri).
 
     Visibility is toggled in urls.py via ENABLE_PUBLIC_ENDPOINTS application settings.
