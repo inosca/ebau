@@ -603,6 +603,15 @@ def caluma_forms_be(settings):
         slug="name-applicant", type=caluma_form_models.Question.TYPE_TEXT
     )
 
+    # main form
+
+    question = caluma_form_models.Question.objects.create(
+        slug="vorname-gesuchstellerin", type=caluma_form_models.Question.TYPE_TEXT
+    )
+    question = caluma_form_models.Question.objects.create(
+        slug="name-gesuchstellerin", type=caluma_form_models.Question.TYPE_TEXT
+    )
+
     # migrated
     geschaeftstyp = caluma_form_models.Question.objects.create(
         slug="geschaeftstyp", type=caluma_form_models.Question.TYPE_CHOICE
