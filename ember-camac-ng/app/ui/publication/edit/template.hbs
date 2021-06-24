@@ -5,7 +5,7 @@
   />
 {{/if}}
 
-{{#if (can "create publication" this.createPublicationWorkItem)}}
+{{#if (and (can "create publication") this.createPublicationWorkItem)}}
   <UkButton
     @color="primary"
     @disabled={{this.createPublication.isRunning}}
