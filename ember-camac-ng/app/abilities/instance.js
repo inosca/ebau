@@ -28,7 +28,9 @@ export default class InstanceAbility extends Ability {
   get canChangeForm() {
     return (
       this.isSupport &&
-      config.APPLICATION.interchangeableForms.includes(this.model.calumaForm)
+      config.APPLICATION.interchangeableForms
+        .flat()
+        .includes(this.model.calumaForm)
     );
   }
 
