@@ -317,6 +317,12 @@ def test_archive(
 @pytest.mark.parametrize(
     "role__name,current_form_slug,new_form_slug,expected_status",
     [
+        (
+            "Support",
+            "baugesuch-v2",
+            "baugesuch-generell-v2",
+            status.HTTP_204_NO_CONTENT,
+        ),
         ("Support", "baugesuch", "baugesuch-generell", status.HTTP_204_NO_CONTENT),
         ("Support", "baugesuch", "baugesuch-mit-uvp", status.HTTP_204_NO_CONTENT),
         ("Support", "baugesuch-generell", "baugesuch", status.HTTP_204_NO_CONTENT),
@@ -335,6 +341,7 @@ def test_archive(
         ),
         ("Support", "einfache-vorabklaerung", "baugesuch", status.HTTP_400_BAD_REQUEST),
         ("Support", "baugesuch", "einfache-vorabklaerung", status.HTTP_400_BAD_REQUEST),
+        ("Support", "baugesuch", "baugesuch-v2", status.HTTP_400_BAD_REQUEST),
         ("Municipality", "baugesuch", "baugesuch-generell", status.HTTP_403_FORBIDDEN),
     ],
 )
