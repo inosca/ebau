@@ -89,8 +89,7 @@ class CirculationView(InstanceQuerysetMixin, InstanceEditableMixin, views.ModelV
         ).first()
         if work_item:
             skip_work_item(
-                work_item=work_item,
-                user=self.request.caluma_info.context.user,
+                work_item=work_item, user=self.request.caluma_info.context.user
             )
 
         # set state of all activations to done

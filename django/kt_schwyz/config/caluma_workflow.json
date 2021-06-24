@@ -178,7 +178,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['reject-form', 'complete-check']|tasks"
+      "next": "['reject-form', 'complete-check', 'depreciate-case']|tasks"
     }
   },
   {
