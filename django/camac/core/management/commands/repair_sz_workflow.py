@@ -7,12 +7,14 @@ from caluma.caluma_workflow.models import Case, Task, WorkItem
 from caluma.caluma_workflow.utils import get_jexl_groups
 from django.core.management.base import BaseCommand
 from django.db import transaction
+from django.db.models import Count
 from django.utils import timezone
 
 from camac.caluma.api import CalumaApi
 from camac.caluma.extensions.events.circulation import (
     post_complete_circulation_work_item,
 )
+from camac.core.models import Circulation
 from camac.instance.models import Instance, InstanceResponsibility
 
 
@@ -69,28 +71,18 @@ class Command(BaseCommand):
 
             self.repair_circulation(instance, case)
 
-        # Manual workItem repair block
-        self.stdout.write("Start repairing manual workItems")
+        # Skip circ workItems which have no open camac circulation
+        self.skip_unfinished_circs()
+
+        # Manual workItem and depreciate workItem repair block
+        self.stdout.write("Start repairing manual and depreciate workItems")
         for instance_rmwi in Instance.objects.exclude(
             instance_state__name__in=["new", "arch"]
         ):  # _rmwi stands for "repair manual workItem"
-            case = Case.objects.get(**{"meta__camac-instance-id": instance_rmwi.pk})
-            manual_work_item = WorkItem.objects.filter(
-                task_id="create-manual-workitems",
-                case=case,
-                status=WorkItem.STATUS_READY,
-            ).first()
+            self.repair_missing_work_items(instance_rmwi)
 
-            if not manual_work_item:
-                if self.verbose:
-                    self.stdout.write(
-                        f"No workItem 'create-manual-workitems' found in instance {instance_rmwi.pk}, creating"
-                    )
-
-                self.create_work_item_from_task(
-                    case,
-                    "create-manual-workitems",
-                )
+        # Detect possible issues
+        self.detect_duplicates()
 
         # Cleanup after repair is done
         post_complete_work_item.connect(post_complete_circulation_work_item)
@@ -146,6 +138,41 @@ class Command(BaseCommand):
                     self.stdout.write(
                         f"Skipped work item 'check-statement' for activation {activation.pk} that's already in review"
                     )
+
+    def repair_missing_work_items(self, instance):
+        case = Case.objects.get(**{"meta__camac-instance-id": instance.pk})
+        manual_work_item = WorkItem.objects.filter(
+            task_id="create-manual-workitems",
+            case=case,
+            status=WorkItem.STATUS_READY,
+        ).first()
+
+        if not manual_work_item:
+            if self.verbose:
+                self.stdout.write(
+                    f"No workItem 'create-manual-workitems' found in instance {instance.pk}, creating"
+                )
+
+            self.create_work_item_from_task(
+                case,
+                "create-manual-workitems",
+                additional_filters={"status": WorkItem.STATUS_READY},
+            )
+
+        depreciate_work_item = WorkItem.objects.filter(
+            task_id="depreciate-case", case=case, status=WorkItem.STATUS_READY
+        ).first()
+        if not depreciate_work_item:
+            if self.verbose:
+                self.stdout.write(
+                    f"No workItem 'depreciate-case' found in instance {instance.pk}, creating"
+                )
+
+            self.create_work_item_from_task(
+                case,
+                "depreciate-case",
+                additional_filters={"status": WorkItem.STATUS_READY},
+            )
 
     def create_work_item_from_task(
         self,
@@ -214,3 +241,36 @@ class Command(BaseCommand):
             self.stdout.write(f"Created work item {work_item.pk} {work_item.name}")
 
         return work_item
+
+    def detect_duplicates(self):
+        dups = (
+            WorkItem.objects.values("meta__circulation-id")
+            .annotate(circ_item_count=Count("meta__circulation-id"))
+            .filter(circ_item_count__gt=1)
+        )
+
+        self.stdout.write("Possible problems detected")
+        for dup in dups:
+            if dup["meta__circulation-id"] is not None:
+                self.stdout.write(f"Multiple circulation work items: {dup}")
+
+    def skip_unfinished_circs(self):
+        anonymous_user = AnonymousUser()
+        active_circ_wis = WorkItem.objects.filter(task="circulation", status="ready")
+        for circ_wi in active_circ_wis:
+            circ = Circulation.objects.get(
+                circulation_id=circ_wi.meta["circulation-id"]
+            )
+            if (
+                circ.activations.count() > 0
+                and circ.activations.exclude(circulation_state__name="DONE").count()
+                == 0
+            ):
+                self.stdout.write(
+                    f"Active circ workItem ({circ_wi}) without active camac circ ({circ.pk}): skip"
+                )
+                caluma_workflow_api.skip_work_item(
+                    circ_wi,
+                    anonymous_user,
+                    {"circulation-id": circ.pk},
+                )
