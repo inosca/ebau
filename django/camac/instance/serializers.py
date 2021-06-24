@@ -1459,28 +1459,31 @@ class CalumaInstanceArchiveSerializer(serializers.Serializer):
 class CalumaInstanceChangeFormSerializer(serializers.Serializer):
     """Handle changing the form of an instance."""
 
-    interchangeable_forms = ["baugesuch", "baugesuch-generell", "baugesuch-mit-uvp"]
+    interchangeable_forms = [
+        ["baugesuch", "baugesuch-generell", "baugesuch-mit-uvp"],
+        ["baugesuch-v2", "baugesuch-generell-v2", "baugesuch-mit-uvp-v2"],
+    ]
 
     form = serializers.CharField()
 
     def validate_form(self, value):
-        if value not in self.interchangeable_forms:
-            raise exceptions.ValidationError(
-                _("'%(form)s' is not a valid form type") % {"form": value}
-            )
-
-        return value
-
-    def validate(self, data):
         current_form = CalumaApi().get_form_slug(self.instance)
+        valid_forms = next(
+            filter(lambda f: current_form in f, self.interchangeable_forms), None
+        )
 
-        if current_form not in self.interchangeable_forms:
+        if not valid_forms:
             raise exceptions.ValidationError(
                 _("The current form '%(form)s' can't be changed")
                 % {"form": current_form}
             )
 
-        return data
+        if value not in valid_forms:
+            raise exceptions.ValidationError(
+                _("'%(form)s' is not a valid form type") % {"form": value}
+            )
+
+        return value
 
     @transaction.atomic
     def update(self, instance, validated_data):
