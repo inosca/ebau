@@ -65,7 +65,11 @@ export default class SupportController extends Controller {
     const forms = yield this.apollo.query(
       {
         query: getFormsQuery,
-        variables: { forms: config.APPLICATION.interchangeableForms },
+        variables: {
+          forms: config.APPLICATION.interchangeableForms.find((forms) =>
+            forms.includes(this.instance.calumaForm)
+          ),
+        },
       },
       "allForms.edges"
     );
