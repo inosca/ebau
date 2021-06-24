@@ -41,9 +41,8 @@ module.exports = function (environment) {
           archived: 20009,
         },
         interchangeableForms: [
-          "baugesuch",
-          "baugesuch-generell",
-          "baugesuch-mit-uvp",
+          ["baugesuch", "baugesuch-generell", "baugesuch-mit-uvp"],
+          ["baugesuch-v2", "baugesuch-generell-v2", "baugesuch-mit-uvp-v2"],
         ],
       },
       kt_schwyz: {
