@@ -1,0 +1,13 @@
+<li>
+  {{#if @used}}
+    {{! template-lint-disable no-obsolete-elements }}
+    <s>
+      {{this.name}} <span class="uk-text-meta">{{@person.email}}</span>
+    </s>
+    <UkIcon @icon="check" class="uk-text-success uk-margin-small-left" />
+  {{else}}
+    <a href="" {{on "click" (fn this.select @person.email)}}>
+      {{this.name}} <span class="uk-text-meta">{{@person.email}}</span>
+    </a>
+  {{/if}}
+</li>

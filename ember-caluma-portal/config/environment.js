@@ -67,6 +67,20 @@ module.exports = function (environment) {
         specialId: "ebau-number",
         parcelNumber: "parzellennummer",
       },
+      personalSuggestions: {
+        tableQuestions: [
+          "personalien-gesuchstellerin",
+          "personalien-vertreterin-mit-vollmacht",
+          "personalien-grundeigentumerin",
+          "personalien-projektverfasserin",
+          "personalien-gebaudeeigentumerin",
+          "personalien-sb",
+        ],
+        firstNameRegexp: "^vorname-.*$",
+        lastNameRegexp: "^name-.*$",
+        juristicNameRegexp: "^name-juristische-person.*$",
+        emailRegexp: "^e-mail-.*$",
+      },
     },
     kt_uri: {
       name: "ur",
@@ -101,6 +115,18 @@ module.exports = function (environment) {
         municipality: "municipality",
         specialId: "dossier-number",
         parcelNumber: "parcel-number",
+      },
+      personalSuggestions: {
+        tableQuestions: [
+          "applicant",
+          "landowner",
+          "project-author",
+          "invoice-recipient",
+        ],
+        firstNameRegexp: "^first-name$",
+        lastNameRegexp: "^last-name$",
+        juristicNameRegexp: "^juristic-person-name$",
+        emailRegexp: "^e-mail$",
       },
     },
   }[app];
