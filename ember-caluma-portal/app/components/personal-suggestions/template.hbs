@@ -1,0 +1,31 @@
+<BasicDropdown as |dd|>
+  <dd.Trigger {{did-insert (perform this.fetchSuggestions)}}>
+    {{yield}}
+  </dd.Trigger>
+  <dd.Content class="uk-box-shadow-medium uk-padding-small">
+    {{#if this.fetchSuggestions.isRunning}}
+      <div class="uk-padding">
+        <UkSpinner />
+      </div>
+    {{else if this.suggestions}}
+      {{#each this.suggestions as |category|}}
+        {{#if category.suggestions}}
+          <strong>{{category.label}}</strong>
+          <ul>
+            {{#each category.suggestions as |person|}}
+              <PersonalSuggestions::Entry
+                @person={{person}}
+                @used={{includes person.email @usedEmails}}
+                @onSelect={{@onSelect}}
+              />
+            {{/each}}
+          </ul>
+        {{/if}}
+      {{/each}}
+    {{else}}
+      <div class="uk-padding">
+        {{t "instances.applicants.noSuggestions"}}
+      </div>
+    {{/if}}
+  </dd.Content>
+</BasicDropdown>
