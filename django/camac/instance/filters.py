@@ -353,3 +353,14 @@ class FormFieldOrdering(OrderingFilter):
             ).order_by(ordering)
 
         return queryset
+
+
+class PublicCalumaInstanceFilterSet(FilterSet):
+    instance = NumberFilter(method="instance_filter")
+
+    def instance_filter(self, queryset, name, value):
+        return queryset.filter(**{"meta__camac-instance-id": int(value)})
+
+    class Meta:
+        model = Case
+        fields = ["instance"]
