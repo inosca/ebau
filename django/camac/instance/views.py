@@ -1290,6 +1290,7 @@ class PublicCalumaInstanceView(ListAPIView):
 
     permission_classes = [ReadOnly]
     serializer_class = serializers.PublicCalumaInstanceSerializer
+    filterset_class = filters.PublicCalumaInstanceFilterSet
 
     def get_queryset(self):
         instances = models.Instance.objects.filter(
