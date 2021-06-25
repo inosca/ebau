@@ -1,7 +1,8 @@
-<h1 {{did-insert (perform this.getPublicAttachments)}}>{{t "publicInstancesDetail.title"}}</h1>
+<h1 {{did-insert (perform this.getPublicAttachments)}} {{did-insert (perform this.getCurrentDossierNr)}}>{{t "publicInstancesDetail.title"}}</h1>
 <table class="uk-table uk-table-striped uk-table-hover uk-table-responsive">
   <thead>
     <tr>
+      <th class="uk-text-nowrap">{{t "publicInstances.dossierNumber"}}</th>
       <th class="uk-text-nowrap">{{t "publicInstancesDetail.fileName"}}</th>
       <th class="uk-text-nowrap">{{t "publicInstancesDetail.size"}}</th>
       <th class="uk-text-nowrap">{{t "publicInstancesDetail.date"}}</th>
@@ -10,6 +11,9 @@
   <tbody>
     {{#each this.attachments as |attachment|}}
       <tr>
+        <td>
+          {{this.dossierNr}}
+        </td>
         <td>
           <button
             class="uk-button uk-button-link"
