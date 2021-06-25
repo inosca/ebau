@@ -1,3 +1,4 @@
+from datetime import timedelta
 from pathlib import Path
 
 import pytest
@@ -6,6 +7,7 @@ from caluma.caluma_workflow import api as workflow_api, models as caluma_workflo
 from django.core import mail
 from django.urls import clear_url_caches, reverse
 from django.urls.exceptions import NoReverseMatch
+from django.utils import timezone
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
@@ -1715,6 +1717,39 @@ def test_public_caluma_instance_enabled_empty_qs(
 
     assert resp.status_code == status.HTTP_200_OK
     assert len(resp.json()["data"]) == 0
+
+
+def test_public_caluma_instance_filter_instance(
+    db,
+    admin_client,
+    instance,
+    enable_public_urls,
+    caluma_workflow_config_ur,
+    caluma_admin_user,
+    publication_entry_factory,
+    location_factory,
+):
+    publication_entry_factory(
+        publication_date=timezone.now() - timedelta(days=1),
+        instance=instance,
+        is_published=True,
+    )
+
+    case = workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
+        form=caluma_form_models.Form.objects.get(pk="main-form"),
+        meta={"camac-instance-id": instance.pk, "dossier-number": 123},
+        user=caluma_admin_user,
+    )
+    location = location_factory(location_id="1")
+
+    case.document.answers.create(value=str(location.pk), question_id="municipality")
+
+    url = reverse("public-caluma-instance")
+    resp = admin_client.get(url, {"instance": instance.pk})
+
+    assert resp.status_code == status.HTTP_200_OK
+    assert len(resp.json()["data"]) == 1
 
 
 def test_public_caluma_instance_disabled():
