@@ -326,6 +326,7 @@ instances:
     user: "Ajouté par"
     email: "e-mail"
     unregistered: "pas encore enregistré"
+    noSuggestions: "Aucune donnée personnelle trouvée"
 
     add: "Inviter"
 
