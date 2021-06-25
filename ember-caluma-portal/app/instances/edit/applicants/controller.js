@@ -1,5 +1,4 @@
 import Controller, { inject as controller } from "@ember/controller";
-import { reads } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
 import { dropTask } from "ember-concurrency-decorators";
 
@@ -10,7 +9,14 @@ export default class InstancesEditApplicantsController extends Controller {
   @service notification;
 
   @controller("instances.edit") editController;
-  @reads("editController.instance.involvedApplicants") applicants;
+
+  get applicants() {
+    return this.editController.instance?.involvedApplicants;
+  }
+
+  get usedEmails() {
+    return this.applicants?.map((applicant) => applicant.email);
+  }
 
   @dropTask
   *add(event) {
