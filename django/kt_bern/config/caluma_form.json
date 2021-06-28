@@ -10792,7 +10792,7 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "personalien-gebaudeeigentumerin",
-      "sort": 3
+      "sort": 1
     }
   },
   {
@@ -10807,7 +10807,7 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "personalien-gesuchstellerin",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -10822,7 +10822,7 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "personalien-grundeigentumerin",
-      "sort": 4
+      "sort": 2
     }
   },
   {
@@ -10837,7 +10837,7 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "personalien-projektverfasserin",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -10852,7 +10852,7 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "personalien-sb",
-      "sort": 1
+      "sort": 6
     }
   },
   {
@@ -10867,7 +10867,22 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "personalien-vertreterin-mit-vollmacht",
-      "sort": 5
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien.verantwortliche-person-sb-identisch",
+    "fields": {
+      "created_at": "2021-06-28T08:41:16.113Z",
+      "modified_at": "2021-06-28T08:41:16.114Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien",
+      "question": "verantwortliche-person-sb-identisch",
+      "sort": 7
     }
   },
   {
@@ -10882,7 +10897,7 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "weitere-personen",
-      "sort": 6
+      "sort": 5
     }
   },
   {
@@ -23366,6 +23381,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "verantwortliche-person-sb-identisch-ja",
+    "fields": {
+      "created_at": "2021-06-28T08:41:15.780Z",
+      "modified_at": "2021-06-28T08:44:31.532Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "verantwortliche-person-sb-identisch-nein",
+    "fields": {
+      "created_at": "2021-06-28T08:41:15.798Z",
+      "modified_at": "2021-06-28T08:44:31.559Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": \"Non\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "versickerung-dachflaechen-ja",
     "fields": {
       "created_at": "2019-04-09T12:29:51.249Z",
@@ -24495,7 +24542,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Verantwortliche Person Selbstdeklaration Baukontrolle\", \"fr\": \"Personne responsable d\\u00e9claration spontan\\u00e9e en mati\\u00e8re de contr\\u00f4le des constructions\"}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -42704,7 +42751,7 @@
       "label": "{\"de\": \"Verantwortliche Person Selbstdeklaration Baukontrolle\", \"fr\": \"Personne responsable d\\u00e9claration spontan\\u00e9e en mati\\u00e8re de contr\\u00f4le des constructions\"}",
       "type": "table",
       "is_required": "true",
-      "is_hidden": "!('weitere-personen-verantwortliche-person-sb' in 'weitere-personen'|answer\n)",
+      "is_hidden": "!('weitere-personen-verantwortliche-person-sb' in 'weitere-personen'|answer || 'verantwortliche-person-sb-identisch'|answer == 'verantwortliche-person-sb-identisch-nein')",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -48168,6 +48215,36 @@
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"***\\n**Verantwortliche Person Gastgewerbe:**\", \"fr\": \"***\\n**Personne responsable de l'\\u00e9tablissement:**\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "verantwortliche-person-sb-identisch",
+    "fields": {
+      "created_at": "2021-06-28T08:41:16.005Z",
+      "modified_at": "2021-06-28T08:44:31.952Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist die verantwortliche Person f\\u00fcr die Selbstdeklaration Baukontrolle identisch mit dem/r Gesuchsteller/in?\", \"fr\": \"La personne responsable de la d\\u00e9claration spontan\\u00e9e en mati\\u00e8re de contr\\u00f4le des constructions est-elle identique \\u00e0 la personne requ\\u00e9rante ?\"}",
+      "type": "choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -59255,6 +59332,36 @@
       "modified_by_group": null,
       "question": "umgebungsplan-dokument",
       "option": "umgebungsplan-dokument-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "verantwortliche-person-sb-identisch.verantwortliche-person-sb-identisch-ja",
+    "fields": {
+      "created_at": "2021-06-28T08:44:31.963Z",
+      "modified_at": "2021-06-28T08:44:31.963Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "verantwortliche-person-sb-identisch",
+      "option": "verantwortliche-person-sb-identisch-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "verantwortliche-person-sb-identisch.verantwortliche-person-sb-identisch-nein",
+    "fields": {
+      "created_at": "2021-06-28T08:44:31.959Z",
+      "modified_at": "2021-06-28T08:44:31.959Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "verantwortliche-person-sb-identisch",
+      "option": "verantwortliche-person-sb-identisch-nein",
       "sort": 1
     }
   },
