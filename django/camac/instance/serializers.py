@@ -2106,6 +2106,7 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
     dossier_nr = serializers.CharField(read_only=True)
     municipality = serializers.SerializerMethodField()
     applicant = serializers.SerializerMethodField()
+    intent = serializers.SerializerMethodField()
     street = serializers.SerializerMethodField()
     parcels = serializers.SerializerMethodField()
 
@@ -2130,6 +2131,16 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
             ],
         )
         return " ".join([a.value for a in answers if a.value])
+
+    def get_intent(self, case):
+        ans = case.document.answers.filter(
+            question_id__in=ur_constants.INTENT_SLUGS
+        ).first()
+
+        if not ans:
+            return
+
+        return ans.value
 
     def get_street(self, case):
         return getattr(
