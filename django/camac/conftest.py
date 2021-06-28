@@ -378,6 +378,16 @@ def nfd_completion_date(
 
 
 @pytest.fixture
+def gwr_config_be(settings):
+    settings.APPLICATION["GWR"] = deepcopy(settings.APPLICATIONS["kt_bern"]["GWR"])
+
+
+@pytest.fixture
+def gwr_config_ur(settings):
+    settings.APPLICATION["GWR"] = deepcopy(settings.APPLICATIONS["kt_uri"]["GWR"])
+
+
+@pytest.fixture
 def caluma_config_be(settings, use_caluma_form):
     settings.APPLICATION["CALUMA"] = deepcopy(
         settings.APPLICATIONS["kt_bern"]["CALUMA"]
