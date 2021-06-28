@@ -1312,24 +1312,6 @@
   },
   {
     "model": "caluma_form.form",
-    "pk": "sb2",
-    "fields": {
-      "created_at": "2019-06-17T10:53:32.170Z",
-      "modified_at": "2019-06-17T10:53:32.170Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"Selbstdeklaration Baukontrolle 2\", \"fr\": \"D\\u00e9claration spontan\\u00e9e en mati\\u00e8re de contr\\u00f4le des constructions 2\"}",
-      "description": "{\"de\": \"\", \"fr\": null}",
-      "meta": {},
-      "is_published": false,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.form",
     "pk": "selbstdeklaration-sb1",
     "fields": {
       "created_at": "2019-06-17T09:58:37.066Z",
@@ -3536,21 +3518,6 @@
       "form": "abschluss-sb2",
       "question": "bedingungen-auflagen-eingehalten",
       "sort": 10
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "abschluss-sb2.meldung-tankanlage",
-    "fields": {
-      "created_at": "2019-09-25T10:19:38.851Z",
-      "modified_at": "2019-09-25T10:19:38.851Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "abschluss-sb2",
-      "question": "meldung-tankanlage",
-      "sort": 2
     }
   },
   {
@@ -11426,51 +11393,6 @@
       "form": "sb1",
       "question": "selbstdeklaration-sb1",
       "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "sb2.abschluss-sb2",
-    "fields": {
-      "created_at": "2019-09-25T10:19:38.561Z",
-      "modified_at": "2019-09-25T10:19:38.561Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "sb2",
-      "question": "abschluss-sb2",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "sb2.dokumente-sb2",
-    "fields": {
-      "created_at": "2019-09-25T10:19:39.093Z",
-      "modified_at": "2019-09-25T10:19:39.093Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "sb2",
-      "question": "dokumente-sb2",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "sb2.freigabequittung-sb2",
-    "fields": {
-      "created_at": "2019-09-25T10:19:39.570Z",
-      "modified_at": "2019-09-25T10:19:39.570Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "sb2",
-      "question": "freigabequittung-sb2",
-      "sort": 1
     }
   },
   {
@@ -20404,38 +20326,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "meldung-tankanlage-ja",
-    "fields": {
-      "created_at": "2019-06-17T11:43:27.859Z",
-      "modified_at": "2019-06-17T11:43:27.859Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "meldung-tankanlage-nein",
-    "fields": {
-      "created_at": "2019-06-17T11:43:27.869Z",
-      "modified_at": "2019-06-17T11:43:27.869Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": \"Non\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "mengenschwelle-hochaktive-stoffe-ja",
     "fields": {
       "created_at": "2019-04-02T14:11:50.289Z",
@@ -26431,36 +26321,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "abschluss-sb2",
-    "fields": {
-      "created_at": "2019-06-17T10:56:40.701Z",
-      "modified_at": "2019-06-17T10:56:40.701Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Abschluss\", \"fr\": \"Graduation\"}",
-      "type": "form",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": "abschluss-sb2",
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "abstaende-titel",
     "fields": {
       "created_at": "2019-05-04T13:00:58.048Z",
@@ -31952,39 +31812,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "dokumente-sb2",
-    "fields": {
-      "created_at": "2019-06-17T10:57:29.422Z",
-      "modified_at": "2019-06-17T10:57:29.422Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Dokumente\", \"fr\": \"Documents\"}",
-      "type": "form",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "widgetOverride": "be-documents-form",
-        "attachment-section": "'is-paper'|answer == 'is-paper-yes'? 11 : 5"
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": "dokumente-sb2",
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "dokumente-vorabklaerung-form",
     "fields": {
       "created_at": "2019-10-08T12:24:56.453Z",
@@ -34376,36 +34203,6 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "freigabequittung-sb1",
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "freigabequittung-sb2",
-    "fields": {
-      "created_at": "2019-06-17T10:59:56.054Z",
-      "modified_at": "2019-06-17T10:59:56.054Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Freigabequittung\", \"fr\": \"D\\u00e9claration de validation\"}",
-      "type": "form",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": "freigabequittung-sb2",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -39467,36 +39264,6 @@
         "widgetOverride": null,
         "documentCategory": "spezialformulare-entsorgung-bodenschutz"
       },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "meldung-tankanlage",
-    "fields": {
-      "created_at": "2019-06-17T11:43:28.073Z",
-      "modified_at": "2019-06-17T11:43:28.073Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Meldung Tankanlage\", \"fr\": \"Avis concernant la citerne\"}",
-      "type": "choice",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -56623,36 +56390,6 @@
       "modified_by_group": null,
       "question": "meldeblatt-zur-fruchtfolgeflaeche-dokument",
       "option": "meldeblatt-zur-fruchtfolgeflaeche-dokument-ja",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "meldung-tankanlage.meldung-tankanlage-ja",
-    "fields": {
-      "created_at": "2019-06-17T11:43:28.087Z",
-      "modified_at": "2019-06-17T11:43:28.087Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "meldung-tankanlage",
-      "option": "meldung-tankanlage-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "meldung-tankanlage.meldung-tankanlage-nein",
-    "fields": {
-      "created_at": "2019-06-17T11:43:28.084Z",
-      "modified_at": "2019-06-17T11:43:28.084Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "meldung-tankanlage",
-      "option": "meldung-tankanlage-nein",
       "sort": 1
     }
   },

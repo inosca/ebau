@@ -1684,15 +1684,6 @@ snapshots["test_document_merge_service_snapshot[sb2] 1"] = [
                 "type": "ChoiceQuestion",
             },
             {
-                "choices": [
-                    {"checked": False, "label": "Ja"},
-                    {"checked": False, "label": "Nein"},
-                ],
-                "label": "Meldung Tankanlage",
-                "slug": "meldung-tankanlage",
-                "type": "ChoiceQuestion",
-            },
-            {
                 "label": "Bauende",
                 "slug": "bauende",
                 "type": "DateQuestion",
@@ -1701,6 +1692,34 @@ snapshots["test_document_merge_service_snapshot[sb2] 1"] = [
         ],
         "label": "Abschluss",
         "slug": "abschluss-sb2",
+        "type": "FormQuestion",
+    },
+    {
+        "children": [
+            {
+                "columns": [
+                    "Lagerstoff",
+                    "Neu / Bestehend",
+                    "Menge",
+                    "Massangabe",
+                    "Anlageart",
+                    "Anzahl Behälter",
+                    "Lagerort",
+                    "Brennbare Flüssigkeit / Gas",
+                    "Flammpunkt",
+                    "Gesundheitsschädlich oder explosiv",
+                    "Wassergefährdend",
+                    "Wassergefährdungsklasse",
+                    "Bewilligungspflichtig?",
+                ],
+                "label": "Lagerung von Stoffen",
+                "rows": [],
+                "slug": "lagerung-von-stoffen-v2",
+                "type": "TableQuestion",
+            }
+        ],
+        "label": "Lagerung von Stoffen",
+        "slug": "lagerung-von-stoffen-sb2",
         "type": "FormQuestion",
     },
     {
