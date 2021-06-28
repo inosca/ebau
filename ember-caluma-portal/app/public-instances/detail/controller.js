@@ -22,4 +22,22 @@ export default class PublicInstancesDetailController extends Controller {
       this.notification.danger(this.intl.t("publicInstancesDetail.loadError"));
     }
   }
+
+  get dossierNr() {
+    return this.getCurrentDossierNr.lastSuccessful?.value?.dossierNr;
+  }
+
+  @dropTask
+  *getCurrentDossierNr() {
+    try {
+      const publicInstance = yield this.store.query("public-caluma-instance", {
+        instance: this.model,
+      });
+      return publicInstance.toArray()[0];
+    } catch (e) {
+      this.notification.danger(
+        this.intl.t("publicInstancesDetail.dossierNrError")
+      );
+    }
+  }
 }
