@@ -23,6 +23,14 @@ WORKFLOW_ENTRY_RECEIVED_PRELIMINARY_DECISION = 130000
 BUILDINGAUTHORITY_BUTTON_DECISION = 14
 BUILDINGAUTHORITY_BUTTON_PRELIMINARY_DECISION = 15
 
+INTENT_SLUGS = [
+    "proposal-description",
+    "beschreibung-zu-mbv",
+    "bezeichnung",
+    "vorhaben-proposal-description",
+    "veranstaltung-beschrieb",
+]
+
 # Question identifiers (Chapter/Question/Item) for various information that we need
 # Format: List of 3-tuples to implement fallback
 CQI_FOR_PROPOSAL = [(21, 97, 1)]
