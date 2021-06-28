@@ -845,6 +845,10 @@ def test_instance_report(
     "instance_state__name,expected_status",
     [("sb2", status.HTTP_200_OK), ("new", status.HTTP_403_FORBIDDEN)],
 )
+@pytest.mark.parametrize(
+    "create_awa_workitem",
+    [True, False],
+)
 def test_instance_finalize(
     admin_client,
     role,
@@ -863,6 +867,8 @@ def test_instance_finalize(
     caluma_workflow_config_be,
     docx_decision_factory,
     caluma_admin_user,
+    create_awa_workitem,
+    form_question_factory,
 ):
     instance_state_factory(name="coordination")
     instance_state_factory(name="sb1")
@@ -900,11 +906,30 @@ def test_instance_finalize(
         instance.instance_state = instance_state
         instance.save()
 
+    if create_awa_workitem:
+        table_form = caluma_form_models.Form.objects.create(
+            slug="lagerung-von-stoffen-tabelle-v2"
+        )
+        form_question_factory(
+            form=case.document.form,
+            question=caluma_form_models.Question.objects.create(
+                slug="lagerung-von-stoffen-v2",
+                type=caluma_form_models.Question.TYPE_TABLE,
+                row_form=table_form,
+            ),
+        )
+        table = case.document.answers.create(question_id="lagerung-von-stoffen-v2")
+        row = caluma_form_models.Document.objects.create(
+            form_id="lagerung-von-stoffen-tabelle-v2"
+        )
+
+        table.documents.add(row)
+
     response = admin_client.post(reverse("instance-finalize", args=[instance.pk]))
 
     assert response.status_code == expected_status
 
-    if expected_status == status.HTTP_200_OK:
+    if expected_status == status.HTTP_200_OK and not create_awa_workitem:
         assert len(mail.outbox) == 2
 
         recipients = flatten([m.to for m in mail.outbox])
@@ -922,6 +947,10 @@ def test_instance_finalize(
                 "create-manual-workitems",
                 "create-publication",
             ]
+        )
+    elif expected_status == status.HTTP_200_OK and create_awa_workitem:
+        assert caluma_workflow_models.WorkItem.objects.get(
+            name__de="Meldeformular an AWA weiterleiten"
         )
 
 
