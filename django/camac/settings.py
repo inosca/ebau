@@ -510,6 +510,12 @@ APPLICATIONS = {
                     "recipient_types": ["service"],
                 },
             ],
+            "END_CIRCULATION": [
+                {
+                    "template_slug": "03-verfahren-vorzeitig-beendet",
+                    "recipient_types": ["unanswered_activation"],
+                },
+            ],
             "ECH_KIND_OF_PROCEEDINGS": [
                 {
                     "template_slug": "03-verfahrensablauf-gesuchsteller",

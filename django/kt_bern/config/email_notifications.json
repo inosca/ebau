@@ -255,7 +255,7 @@
     "model": "notification.notificationtemplate",
     "pk": 23,
     "fields": {
-      "slug": "10-zugriffsanfrage",
+      "slug": "03-verfahren-vorzeitig-beendet",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -724,11 +724,11 @@
     "pk": 45,
     "fields": {
       "template": 23,
-      "template_slug": "10-zugriffsanfrage",
+      "template_slug": "03-verfahren-vorzeitig-beendet",
       "language": "de",
-      "purpose": "10 Zugriffsanfrage",
-      "subject": "Zugriffsanfrage (eBau Nr. {{EBAU_NUMBER}}) / Question relative \u00e0 l'acc\u00e8s (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nWir haben Ihre Anfrage f\u00fcr den Zugriff auf das Dossier mit der eBau Nr. {{EBAU_NUMBER}} erhalten.\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nVotre demande relative \u00e0 l'acc\u00e8s au dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} nous est bien parvenue.\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}"
+      "purpose": "03 Verfahren vorzeitig beendet",
+      "subject": "Verfahren vorzeitig beendet (eBau Nr. {{EBAU_NUMBER}}) / Proc\u00e9dure cl\u00f4tur\u00e9e pr\u00e9matur\u00e9ment (n\u00b0 eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDie Leitbeh\u00f6rde hat das Verfahren zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) vorzeitig beendet. Es sind deshalb keine weiteren Aktionen von Ihrer Seite mehr notwendig.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nBonjour,\r\n\r\nL'autorit\u00e9 directrice a clos la proc\u00e9dure sur le dossier avec le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) pr\u00e9matur\u00e9ment. Par cons\u00e9quent, aucune autre action n'est requise de votre part.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{LEITBEHOERDE_NAME}}"
     }
   },
   {

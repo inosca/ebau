@@ -1329,3 +1329,33 @@ def test_notification_template_service_no_notification(
     sendmail_serializer.save()
 
     assert len(mailoutbox) == 0
+
+
+def test_recipient_unanswered_activation(
+    db,
+    instance,
+    caluma_workflow_config_be,
+    caluma_admin_user,
+    activation_factory,
+    circulation_factory,
+):
+    circulation = circulation_factory(instance=instance)
+    activation_factory(circulation=circulation, circulation_state__name="DONE")
+    activation_factory(
+        circulation=circulation,
+        circulation_state__name="RUN",
+        service__email="test@example.com",
+    )
+
+    workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
+        form=caluma_form_models.Form.objects.get(pk="main-form"),
+        meta={"camac-instance-id": instance.pk},
+        user=caluma_admin_user,
+    )
+
+    serializer = serializers.NotificationTemplateSendmailSerializer()
+
+    assert serializer._get_recipients_unanswered_activation(instance) == [
+        {"to": "test@example.com"}
+    ]

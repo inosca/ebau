@@ -1,6 +1,7 @@
 import django_excel
 from caluma.caluma_workflow.api import skip_work_item
 from caluma.caluma_workflow.models import WorkItem
+from django.conf import settings
 from django.db import transaction
 from django.db.models import OuterRef, Subquery
 from rest_framework.decorators import action
@@ -13,6 +14,7 @@ from camac.core.models import Activation, Circulation, CirculationState
 from camac.instance.filters import FormFieldOrdering
 from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.models import FormField
+from camac.notification.utils import send_mail
 
 from . import filters, serializers
 
@@ -90,6 +92,18 @@ class CirculationView(InstanceQuerysetMixin, InstanceEditableMixin, views.ModelV
         if work_item:
             skip_work_item(
                 work_item=work_item, user=self.request.caluma_info.context.user
+            )
+
+        # send notifications
+        notification_config = settings.APPLICATION["NOTIFICATIONS"].get(
+            "END_CIRCULATION", []
+        )
+        for config in notification_config:
+            send_mail(
+                config["template_slug"],
+                self.get_serializer_context(),
+                recipient_types=config["recipient_types"],
+                instance={"type": "instances", "id": circulation.instance.pk},
             )
 
         # set state of all activations to done
