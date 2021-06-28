@@ -112,14 +112,19 @@ snapshots["test_document_merge_service_snapshot[baugesuch] 1"] = [
                     },
                     {
                         "choices": [
+                            {"checked": False, "label": "Ja"},
+                            {"checked": False, "label": "Nein"},
+                        ],
+                        "label": "Ist die verantwortliche Person für die Selbstdeklaration Baukontrolle identisch mit dem/r Gesuchsteller/in?",
+                        "slug": "verantwortliche-person-sb-identisch",
+                        "type": "ChoiceQuestion",
+                    },
+                    {
+                        "choices": [
                             {"checked": False, "label": "Vertreter/in mit Vollmacht"},
                             {"checked": False, "label": "Projektverfasser/in"},
                             {"checked": False, "label": "Grundeigentümer/in"},
                             {"checked": False, "label": "Gebäudeeigentümer/in"},
-                            {
-                                "checked": False,
-                                "label": "Verantwortliche Person Selbstdeklaration Baukontrolle",
-                            },
                         ],
                         "label": "Sind neben den Gesuchstellenden weitere Personen beteiligt?",
                         "slug": "weitere-personen",
