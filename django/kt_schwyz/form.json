@@ -1290,7 +1290,7 @@
           {
             "name": "bettenzahl",
             "label": "Wie hoch ist die vorgesehene Bettenzahl?",
-            "type": "number",
+            "type": "number-separator",
             "required": false,
             "config": {
               "min": 0
@@ -1356,7 +1356,7 @@
           {
             "name": "leistung",
             "label": "Leistung in kW",
-            "type": "number",
+            "type": "number-separator",
             "required": false,
             "config": {
               "min": 0
@@ -1427,7 +1427,7 @@
                   "name": "flache",
                   "label": "Fläche",
                   "hint": "Bei der Angabe der Wohnungsfläche ist die bewohnbare Bruttofläche in m² anzugeben. Alle Zimmer, Küchen, Kochnischen, Badezimmer, Abstellräume, Gänge, Veranden usw. sind einzurechnen (offene Balkone/Terrassen, unbewohnbare Keller- oder Dachräume gehören nicht dazu).",
-                  "type": "number",
+                  "type": "number-separator",
                   "required": false,
                   "config": {
                     "min": 0
@@ -1941,7 +1941,7 @@
     "hohe-der-anlage": {
       "label": "Wie hoch ist die Anlage in m?",
       "hint": "Diese Information ist relevant für die Karte der Luftfahrthindernisse. Ab einer gewissen Höhe müssen solche Objekte durch den Kanton der zuständigen Stelle gemeldet werden.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "'Antennen' in 'art-der-anlage'|value",
       "config": {
@@ -2830,7 +2830,7 @@
           {
             "name": "ubrige-lagerflache",
             "label": "Übrige Lagerfläche in m²",
-            "type": "number",
+            "type": "number-separator",
             "required": true,
             "config": {
               "min": 0
@@ -2839,7 +2839,7 @@
           {
             "name": "remisenflache",
             "label": "Remisenfläche in m²",
-            "type": "number",
+            "type": "number-separator",
             "required": true,
             "config": {
               "min": 1
@@ -2898,7 +2898,7 @@
           {
             "name": "grosse",
             "label": "Grösse in m³",
-            "type": "number",
+            "type": "number-separator",
             "required": true,
             "config": {
               "min": 1
@@ -2921,7 +2921,7 @@
           {
             "name": "jauchegrube-flache",
             "label": "In Jauchegrube entwässerte Flächen (Laufhof / Waschplatz) in m²",
-            "type": "number",
+            "type": "number-separator",
             "required": true,
             "config": {
               "min": 0
@@ -2941,7 +2941,7 @@
           {
             "name": "flache",
             "label": "Fläche in m²",
-            "type": "number",
+            "type": "number-separator",
             "required": true,
             "config": {
               "min": 1
@@ -3065,7 +3065,7 @@
           {
             "name": "abgf",
             "label": "aBGF in m²",
-            "type": "number",
+            "type": "number-separator",
             "required": true,
             "config": {
               "min": 0
@@ -3074,7 +3074,7 @@
           {
             "name": "gnf",
             "label": "BNF in m²",
-            "type": "number",
+            "type": "number-separator",
             "required": true,
             "config": {
               "min": 0
@@ -3110,7 +3110,7 @@
           {
             "name": "abgf",
             "label": "aBGF in m²",
-            "type": "number",
+            "type": "number-separator",
             "required": true,
             "config": {
               "min": 0
@@ -3119,7 +3119,7 @@
           {
             "name": "gnf",
             "label": "BNF in m²",
-            "type": "number",
+            "type": "number-separator",
             "required": true,
             "config": {
               "min": 0
@@ -3155,7 +3155,7 @@
           {
             "name": "abgf",
             "label": "aBGF in m²",
-            "type": "number",
+            "type": "number-separator",
             "required": true,
             "config": {
               "min": 0
@@ -3164,7 +3164,7 @@
           {
             "name": "gnf",
             "label": "BNF in m²",
-            "type": "number",
+            "type": "number-separator",
             "required": true,
             "config": {
               "min": 0
@@ -3200,7 +3200,7 @@
           {
             "name": "abgf",
             "label": "aBGF in m²",
-            "type": "number",
+            "type": "number-separator",
             "required": true,
             "config": {
               "min": 0
@@ -3209,7 +3209,7 @@
           {
             "name": "gnf",
             "label": "GNF in m²",
-            "type": "number",
+            "type": "number-separator",
             "required": true,
             "config": {
               "min": 0
@@ -3560,7 +3560,7 @@
     "energie-photovoltaik-gesamtleistung": {
       "label": "Gesamtleistung in kWpeak:",
       "hint": "Kilowatt Peak ist eine im Bereich Photovoltaik gebräuchliche, aber nicht normgerechte Bezeichnung für die elektrische Leistung von Solarzellen.  Die Einheit dient dazu, unterschiedliche Solarzellen und Solarmodule unter genormten Testbedingungen vergleichen zu können. ",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Photovoltaische Solaranlage (Stromproduktion)' in 'energie-art'|value",
       "config": {
@@ -3570,7 +3570,7 @@
     "energie-photovoltaik-jahresertrag": {
       "label": "Erwarteter Jahresertrag in kWh / Jahr:",
       "hint": "Geben Sie bitte den erwarteten Jahresertrag in Kilowattstunden pro Jahr an.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Photovoltaische Solaranlage (Stromproduktion)' in 'energie-art'|value",
       "config": {
@@ -3580,7 +3580,7 @@
     "energie-photovoltaik-flache": {
       "label": "Gesamtfläche der Anlage in m² (ohne Blindfläche):",
       "hint": "Geben Sie bitte die Gesamtfläche der Anlage ohne Blindfläche an, wobei mit Blindflächen inaktive Elementflächen gemeint sind.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Photovoltaische Solaranlage (Stromproduktion)' in 'energie-art'|value",
       "config": {
@@ -3643,7 +3643,7 @@
     "arbeitssicherheit-arbeitnehmer-raumen": {
       "label": "Wie viele Arbeitnehmer arbeiten in den projektierten Räumen?",
       "hint": "Vollzeit- und Teilzeitarbeitnehmer sind unabhängig von Ihrem Arbeitspensum zu zählen.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Arbeitnehmer' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
@@ -3653,7 +3653,7 @@
     "arbeitssicherheit-arbeitnehmer-betrieb": {
       "label": "Wie viele Arbeitnehmer arbeiten im ganzen Betrieb nach Projektumsetzung?",
       "hint": "Bitte geben Sie die Anzahl sämtlicher Arbeitnehmer an, inklusive der personellen Veränderungen, welche durch das Projekt ausgelöst werden.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Arbeitnehmer' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
@@ -3663,7 +3663,7 @@
     "arbeitssicherheit-arbeitsraume-hohe": {
       "label": "Höhe in den Arbeitsräumen in m:",
       "hint": "Die lichte Höhe der Arbeitsräume hat mindestens zu betragen:\n- 2,75 m bei einer Bodenfläche von höchstens 100 m²;\n- 3,00 m bei einer Bodenfläche von höchstens 250 m²;\n- 3,50 m bei einer Bodenfläche von höchstens 400 m²;\n- 4,00 m bei einer Bodenfläche von mehr als 400 m².",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Arbeitsräume' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
@@ -3673,7 +3673,7 @@
     "arbeitssicherheit-arbeitsraume-fensterflache": {
       "label": "Fensterfläche in den Arbeitsräumen in m²:",
       "hint": "Die Fläche aller Fassadenfenster und Dachlichter muss bei Verwendung von normal durchsichtigem Glas ein Verhältnis zur Bodenfläche von mindestens 1 zu 8 haben.\nMindestens die Hälfte der oben vorgeschriebenen Fensterfläche muss in Form von durchsichtig verglasten Fassadenfenstern ausgeführt werden. Der Rest kann mittels Oblichtern realisiert werden.\nVon den Arbeitsplätzen aus ist der Blick ins Freie durch Fassadenfenster zu gewährleisten, soweit es Betriebseinrichtungen und Produktionstechnik gestatten.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Arbeitsräume' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
@@ -3683,7 +3683,7 @@
     "arbeitssicherheit-arbeitsraume-bodenflache-fensterflache": {
       "label": "Verhältnis der Bodenfläche zu Fensterfläche in den Arbeitsräumen (pro Raum):",
       "hint": "**Beispiel:** Angenommen in einem Raum betrage die Bodenfläche 100 m2 und die Fensterfläche 20 m2. Daraus ergibt sich ein Verhältnis von 5:1 (= 100:20). Damit ist das geforderte Mindest-Verhältnis von 8:1 eingehalten.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Arbeitsräume' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
@@ -3693,7 +3693,7 @@
     "arbeitssicherheit-arbeitsraume-brustungshohen": {
       "label": "Brüstungshöhen in den Arbeitsräumen in m:",
       "hint": "Die Höhe der Fensterbrüstung ist der Arbeitsweise anzupassen. Sie soll nicht mehr als 1,20 m betragen.\nBei überwiegend stehender Arbeitsweise können ausnahmsweise auch maximal 1,50 m Brüstungshöhe zugelassen werden.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Arbeitsräume' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
@@ -3711,7 +3711,7 @@
     "arbeitssicherheit-ausgange-laufbreite": {
       "label": "Laufbreite der Treppen:",
       "hint": "Hauptverkehrswege im Innern von Gebäuden müssen wenigstens 1,20 m breit sein.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Ausgänge' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
@@ -4039,7 +4039,7 @@
     "arbeitssicherheit-sozialraume-anzahl": {
       "label": "Anzahl Sozialräume:",
       "hint": "Die Anforderungen an die Sozialräume, d. h. Garderoben, Waschanlagen/Duschen, Toiletten, Sanitätsräume, Ess- und Aufenthaltsräume, richten sich nach den betrieblichen Verhältnissen. Dazu gehören das Arbeitszeitsystem (normale Tagesarbeit, Schichtbetrieb), die Art der Arbeit, der Grad der Verunreinigung der Arbeitnehmerinnen und Arbeitnehmer und der Arbeitskleidung sowie die Notwendigkeit und das Ausmass des Kleiderwechsels aus hygienischen und produktionstechnischen Gründen.\nBei der Gestaltung von Sozialräumen ist es angebracht, behindertengerechte Massnahmen vorzusehen.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Sozialräume' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
@@ -4256,7 +4256,7 @@
     "grundwasser-bohrtiefe": {
       "label": "Bohrtiefe pro Sonde in m:",
       "hint": "Geben Sie bitte an, wie tief die Sonden in den Boden reichen.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe bzw. Sole / Wasser-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
       "config": {
@@ -4360,7 +4360,7 @@
     "grundwasser-verlegungstiefe": {
       "label": "Verlegungstiefe in m:",
       "hint": "Geben Sie bitte die geplante Verlegungstiefe der Register resp. Erdwärmetauscher in Metern an.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe bzw. Sole / Wasser-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdkollektoren / Erdwärmekörbe'",
       "config": {
@@ -4419,7 +4419,7 @@
     "grundwasser-sondierbohrung-tiefe": {
       "label": "Vorgesehene Bohrtiefen in m:",
       "hint": "Geben Sie bitte die geplante Bohrtiefe in Metern an.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "'Sondierbohrung' in 'art-der-anlage'|value",
       "config": {
@@ -4743,7 +4743,7 @@
     "kw-1-1-1-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
       "hint": "Geben Sie bitte die maximale Menge der vorgesehenen Wasserentnahme in Litern pro Minute an.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
@@ -4817,7 +4817,7 @@
     "kw-1-1-1-baute-warmebedarf": {
       "label": "Wie hoch ist der Wärmebedarf in Watt?",
       "hint": "Geben Sie bitte den Wärmebedarf in Watt an, allenfalls als Schätzung.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
@@ -4861,7 +4861,7 @@
     "kw-1-1-1-baute-kaltemitteleinfullungen": {
       "label": "Kältemitteleinfüllung(en) in kg:",
       "hint": "Geben Sie bitte die Menge des Kältemittels in Kilogramm an.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
@@ -4871,7 +4871,7 @@
     "kw-1-1-1-baute-leistung-verdampfer": {
       "label": "Leistung Verdampfer in Watt:",
       "hint": "Geben Sie bitte die Leistung des Verdampfers in Watt an.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
@@ -4923,7 +4923,7 @@
     "kw-1-1-2-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
       "hint": "Geben Sie bitte die maximale Menge der vorgesehenen Wasserentnahme in Litern pro Minute an.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
       "config": {
@@ -4991,7 +4991,7 @@
     "kw-1-1-3-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
       "hint": "Geben Sie bitte die maximale Menge der vorgesehenen Wasserentnahme in Litern pro Minute an.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
       "config": {
@@ -5084,7 +5084,7 @@
     "kw-1-2-1-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
       "hint": "Geben Sie bitte die maximale Menge der vorgesehenen Wasserentnahme in Litern pro Minute an.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
@@ -5134,7 +5134,7 @@
     "kw-1-2-1-baute-warmebedarf": {
       "label": "Wie hoch ist der Wärmebedarf in Watt?",
       "hint": "Geben Sie bitte den Wärmebedarf in Watt an, allenfalls als Schätzung.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
@@ -5178,7 +5178,7 @@
     "kw-1-2-1-baute-kaltemitteleinfullungen": {
       "label": "Kältemitteleinfüllung(en) in kg:",
       "hint": "Geben Sie bitte die Menge des Kältemittels in Kilogramm an.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
@@ -5188,7 +5188,7 @@
     "kw-1-2-1-baute-leistung-verdampfer": {
       "label": "Leistung Verdampfer in Watt:",
       "hint": "Geben Sie bitte die Leistung des Verdampfers in Watt an.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
@@ -5258,7 +5258,7 @@
     "kw-1-2-2-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
       "hint": "Geben Sie bitte die maximale Menge der vorgesehenen Wasserentnahme in Litern pro Minute an.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
       "config": {
@@ -5342,7 +5342,7 @@
     "kw-1-3-1-entnahmestandort-tiefe": {
       "label": "Auf welcher Seetiefe erfolgt die Rückführung des Wassers in m?",
       "hint": "Geben Sie bitte in Metern an, auf welcher Seetiefe die Rückführung erfolgen soll.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
@@ -5352,7 +5352,7 @@
     "kw-1-3-1-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
       "hint": "Geben Sie bitte die maximale Menge der vorgesehenen Wasserentnahme in Litern pro Minute an.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
@@ -5426,7 +5426,7 @@
     "kw-1-3-1-baute-warmebedarf": {
       "label": "Wie hoch ist der Wärmebedarf in Watt?",
       "hint": "Geben Sie bitte den Wärmebedarf in Watt an, allenfalls als Schätzung.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
@@ -5470,7 +5470,7 @@
     "kw-1-3-1-baute-kaltemitteleinfullungen": {
       "label": "Kältemitteleinfüllung(en) in kg:",
       "hint": "Geben Sie bitte die Menge des Kältemittels in Kilogramm an.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
@@ -5480,7 +5480,7 @@
     "kw-1-3-1-baute-leistung-verdampfer": {
       "label": "Leistung Verdampfer in Watt:",
       "hint": "Geben Sie bitte die Leistung des Verdampfers in Watt an.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
@@ -5532,7 +5532,7 @@
     "kw-1-3-2-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
       "hint": "Geben Sie bitte die maximale Menge der vorgesehenen Wasserentnahme in Litern pro Minute an.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
       "config": {
@@ -5600,7 +5600,7 @@
     "kw-1-3-3-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
       "hint": "Geben Sie bitte die maximale Menge der vorgesehenen Wasserentnahme in Litern pro Minute an.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
       "config": {
@@ -5686,7 +5686,7 @@
     "kw-1-4-1-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
       "hint": "Geben Sie bitte die maximale Menge der vorgesehenen Wasserentnahme in Litern pro Minute an.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
@@ -5760,7 +5760,7 @@
     "kw-1-4-1-baute-warmebedarf": {
       "label": "Wie hoch ist der Wärmebedarf in Watt?",
       "hint": "Geben Sie bitte den Wärmebedarf in Watt an, allenfalls als Schätzung.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
@@ -5804,7 +5804,7 @@
     "kw-1-4-1-baute-kaltemitteleinfullungen": {
       "label": "Kältemitteleinfüllung(en) in kg:",
       "hint": "Geben Sie bitte die Menge des Kältemittels in Kilogramm an.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
@@ -5814,7 +5814,7 @@
     "kw-1-4-1-baute-leistung-verdampfer": {
       "label": "Leistung Verdampfer in Watt:",
       "hint": "Geben Sie bitte die Leistung des Verdampfers in Watt an.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
@@ -5858,7 +5858,7 @@
     "kw-1-4-2-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
       "hint": "Geben Sie bitte die maximale Menge der vorgesehenen Wasserentnahme in Litern pro Minute an.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Trinkwasser'",
       "config": {
@@ -5918,7 +5918,7 @@
     "kw-1-4-3-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
       "hint": "Geben Sie bitte die maximale Menge der vorgesehenen Wasserentnahme in Litern pro Minute an.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
       "config": {
