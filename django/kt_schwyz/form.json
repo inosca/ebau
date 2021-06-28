@@ -4612,7 +4612,7 @@
       "label": "Projektpläne und Projektbeschrieb",
       "hint": "Die Unterlagen sind als pdf-Dokumente hochzuladen. Der Dateiname soll kurz und aussagekräftig sein.  Lassen Sie Projektnummern resp. -bezeichnungen, welche Sie für Ihre interne Dokumentablage benötigen, bitte weg.\n\nUnter die Begriffe *Projektpläne und Projektbeschrieb* fallen Gesuchsunterlagen wie z. B. Situationspläne, Grundrisse, Schnitt- und Fassadenpläne, Kanalisationspläne, Siedlungsentwässerungspläne, Umgebungspläne, Projektbeschrieb, Planverzeichnis.",
       "type": "document",
-      "required": false,
+      "required": true,
       "config": {}
     },
     "dokument-weitere-gesuchsunterlagen": {
