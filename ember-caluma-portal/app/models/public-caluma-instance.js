@@ -5,6 +5,7 @@ export default class PublicCalumaInstanceModel extends Model {
   @attr dossierNr;
   @attr municipality;
   @attr applicant;
+  @attr intent;
   @attr street;
   @attr parcels;
 }
