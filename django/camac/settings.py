@@ -616,6 +616,15 @@ APPLICATIONS = {
                     "FALLBACK": None,
                 },
             ],
+            "COPY_TANK_INSTALLATION": [
+                {
+                    "TASK": "sb2",
+                    "DOCUMENT": lambda work_item: work_item.case.document,
+                    "SOURCE": "lagerung-von-stoffen-v2",
+                    "TARGET": "lagerung-von-stoffen-v2",
+                    "FALLBACK": None,
+                },
+            ],
             "PRE_COMPLETE": {
                 "start-decision": {
                     "complete": ["check-activation"],
@@ -1134,6 +1143,13 @@ APPLICATIONS = {
                     question__forms__pk__endswith="-v2",
                     document__isnull=True,
                 ),
+            },
+            "caluma_form_sb2": {
+                "caluma_form.Form": Q(pk="sb2"),
+                "caluma_form.FormQuestion": Q(form__pk="sb2"),
+                "caluma_form.Question": Q(forms__pk="sb2"),
+                "caluma_form.QuestionOption": Q(question__forms__pk="sb2"),
+                "caluma_form.Option": Q(questions__forms__pk="sb2"),
             },
         },
         "DUMP_CONFIG_EXCLUDED_MODELS": [

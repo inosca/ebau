@@ -138,6 +138,94 @@ def test_copy_sb_personalien(
         assert sb2_row.answers.get(question_id="name-sb").value == "Test123"
 
 
+@pytest.mark.parametrize(
+    "bewilligungspflichtig_hidden,expect_copy", [("true", True), ("false", False)]
+)
+def test_copy_tank_installation(
+    db,
+    instance,
+    caluma_admin_user,
+    caluma_workflow_config_be,
+    docx_decision_factory,
+    question_factory,
+    form_question_factory,
+    bewilligungspflichtig_hidden,
+    expect_copy,
+):
+    case = workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
+        form=caluma_form_models.Form.objects.get(pk="main-form"),
+        meta={"camac-instance-id": instance.pk},
+        user=caluma_admin_user,
+    )
+
+    docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=instance.pk)
+
+    table_form = caluma_form_models.Form.objects.create(
+        slug="lagerung-von-stoffen-tabelle-v2"
+    )
+    form_question_factory(
+        form=case.document.form,
+        question=caluma_form_models.Question.objects.create(
+            slug="lagerung-von-stoffen-v2",
+            type=caluma_form_models.Question.TYPE_TABLE,
+            row_form=table_form,
+        ),
+    )
+
+    form_question_factory(
+        form=table_form,
+        question=caluma_form_models.Question.objects.create(
+            slug="lagerstoff", type=caluma_form_models.Question.TYPE_TEXT
+        ),
+    )
+
+    form_question_factory(
+        form=table_form,
+        question=caluma_form_models.Question.objects.create(
+            slug="bewilligungspflichtig-v2",
+            type=caluma_form_models.Question.TYPE_CHOICE,
+            is_hidden=bewilligungspflichtig_hidden,
+        ),
+    )
+
+    table = case.document.answers.create(question_id="lagerung-von-stoffen-v2")
+    row = caluma_form_models.Document.objects.create(
+        form_id="lagerung-von-stoffen-tabelle-v2"
+    )
+
+    row.answers.create(question_id="lagerstoff", value="Ethanol")
+    row.answers.create(
+        question_id="bewilligungspflichtig-v2", value="bewilligungspflichtig-v2-ja"
+    )
+    table.documents.add(row)
+
+    for task_id in [
+        "submit",
+        "ebau-number",
+        "publication",
+        "audit",
+        "init-circulation",
+        "circulation",
+        "start-decision",
+        "decision",
+        "sb1",
+    ]:
+        workflow_api.skip_work_item(
+            work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user
+        )
+
+    sb2_row = caluma_form_models.Document.objects.filter(
+        form=table_form, family=case.work_items.get(task_id="sb2").document
+    ).first()
+
+    if expect_copy:
+        assert sb2_row
+        assert sb2_row.answers.get(question_id="lagerstoff").value == "Ethanol"
+    else:
+        assert not sb2_row
+
+
 @pytest.mark.freeze_time("2020-08-11")
 @pytest.mark.parametrize("application_name", ["kt_bern", "kt_schwyz"])
 @pytest.mark.parametrize("notify_completed", [True, False])

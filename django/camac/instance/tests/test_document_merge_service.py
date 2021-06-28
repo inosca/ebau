@@ -14,9 +14,18 @@ from ..document_merge_service import DMSClient, DMSVisitor
 @pytest.fixture
 def caluma_form_fixture(db, form_question_factory, question_factory):
     kt_bern_path = Path(settings.ROOT_DIR) / "kt_bern"
+    paths = [
+        "caluma_form.json",
+        "caluma_form_v2.json",
+        "caluma_form_sb2.json",
+        "caluma_audit_form.json",
+        "caluma_publication_form.json",
+        "caluma_workflow.json",
+    ]
 
-    for path in sorted((kt_bern_path / "config").glob("caluma_*.json")):
-        call_command("loaddata", path)
+    # for path in sorted((kt_bern_path / "config").glob("caluma_*.json")):
+    for path in paths:
+        call_command("loaddata", kt_bern_path / "config" / path)
 
     call_command("loaddata", kt_bern_path / "data" / "caluma_form.json")
 
@@ -65,7 +74,7 @@ def test_document_merge_service_snapshot(
     if form_slug == "mp-form":
         document = document_factory(form_id="mp-form")
 
-    root_document = Document.objects.get(form_id=form_slug)
+    root_document = Document.objects.filter(form_id=form_slug).first()
 
     if form_slug == "mp-form":
         questions = [
