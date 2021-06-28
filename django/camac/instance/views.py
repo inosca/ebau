@@ -39,7 +39,15 @@ from camac.user.permissions import ReadOnly, permission_aware
 from camac.utils import DocxRenderer
 
 from ..utils import get_paper_settings
-from . import document_merge_service, filters, mixins, models, serializers, validators
+from . import (
+    document_merge_service,
+    filters,
+    gwr_lookups,
+    mixins,
+    models,
+    serializers,
+    validators,
+)
 
 
 class InstanceStateView(ReadOnlyModelViewSet):
@@ -286,17 +294,10 @@ class InstanceView(
         """Export instance data to GWR."""
 
         if settings.APPLICATION["FORM_BACKEND"] == "caluma":
-            answer_slugs = settings.APPLICATION.get("GWR_CALUMA_ANSWER_SLUGS", {})
+            answer_slugs = settings.APPLICATION["GWR"].get("ANSWER_SLUGS", {})
 
             case = workflow_models.Case.objects.get(instance__pk=pk)
             answers = form_models.Answer.objects.filter(document=case.document)
-
-            try:
-                submit_date = case.work_items.get(
-                    task_id=answer_slugs.get("projectAnnouncementDate", "")
-                ).closed_at
-            except workflow_models.WorkItem.DoesNotExist:  # pragma: no cover
-                submit_date = None
 
             try:
                 client = form_models.Answer.objects.filter(
@@ -307,55 +308,94 @@ class InstanceView(
             except form_models.Answer.DoesNotExist:  # pragma: no cover
                 client = None
 
-            def get_answer_value(slug, queryset):
-                answer = queryset.filter(question__slug=slug).first()
-                if answer:
-                    return answer.value
-                return None
+            try:
+                plot = form_models.Answer.objects.filter(
+                    document=answers.get(
+                        question__slug=answer_slugs.get("plot", "")
+                    ).documents.first()
+                )
+            except form_models.Answer.DoesNotExist:  # pragma: no cover
+                plot = None
 
             return response.Response(
                 {
-                    "constructionProjectDescription": get_answer_value(
-                        answer_slugs.get("constructionProjectDescription", ""), answers
+                    "officialConstructionProjectFileNo": gwr_lookups.get_dossier_number(
+                        case
                     ),
-                    "totalCostsOfProject": get_answer_value(
-                        answer_slugs.get("totalCostsOfProject", ""), answers
+                    "constructionProjectDescription": gwr_lookups.get_answer_value_from_list(
+                        "constructionProjectDescription", answers
                     ),
+                    "constructionLocalisation": {
+                        "municipalityName": gwr_lookups.get_municipality_answer_value(
+                            "constructionLocalisation_municipalityName", answers
+                        )
+                    },
+                    "typeOfConstructionProject": gwr_lookups.get_mapped_answer_value(
+                        "typeOfConstructionProject", answers
+                    ),
+                    "totalCostsOfProject": gwr_lookups.get_answer_value(
+                        "totalCostsOfProject", answers
+                    ),
+                    "realestateIdentification": {
+                        "EGRID": gwr_lookups.get_answer_value(
+                            "realestateIdentification_EGRID",
+                            plot,
+                        ),
+                        "number": gwr_lookups.get_answer_value(
+                            "realestateIdentification_number",
+                            plot,
+                        ),
+                    },
                     "client": {
                         "address": {
-                            "town": get_answer_value(
-                                answer_slugs.get("client_address_town", ""), client
+                            "town": gwr_lookups.get_answer_value(
+                                "client_address_town", client
                             ),
-                            "swissZipCode": get_answer_value(
-                                answer_slugs.get("client_address_swissZipCode", ""),
+                            "swissZipCode": gwr_lookups.get_answer_value(
+                                "client_address_swissZipCode",
                                 client,
                             ),
-                            "street": get_answer_value(
-                                answer_slugs.get("client_address_street", ""), client
+                            "street": gwr_lookups.get_answer_value(
+                                "client_address_street", client
+                            ),
+                            "houseNumber": gwr_lookups.get_answer_value(
+                                "client_address_houseNumber",
+                                client,
+                            ),
+                            "country": gwr_lookups.get_answer_value(
+                                "client_address_country", client
                             ),
                         },
                         "identification": {
                             "personIdentification": {
-                                "officialName": get_answer_value(
-                                    answer_slugs.get(
-                                        "client_identification_personIdentification_officialName",
-                                        "",
-                                    ),
+                                "officialName": gwr_lookups.get_answer_value(
+                                    "client_identification_personIdentification_officialName",
                                     client,
                                 ),
-                                "firstName": get_answer_value(
-                                    answer_slugs.get(
-                                        "client_identification_personIdentification_firstName",
-                                        "",
-                                    ),
+                                "firstName": gwr_lookups.get_answer_value(
+                                    "client_identification_personIdentification_firstName",
                                     client,
                                 ),
-                            }
+                            },
+                            "isOrganisation": {
+                                gwr_lookups.get_mapped_answer_value(
+                                    "client_identification_isOrganisation",
+                                    client,
+                                )
+                            },
+                            "organisationIdentification": {
+                                "organisationName": gwr_lookups.get_answer_value(
+                                    "client_identification_organisationIdentification_organisationName",
+                                    client,
+                                )
+                            },
                         },
                     }
                     if client
                     else None,
-                    "projectAnnouncementDate": submit_date,
+                    "projectAnnouncementDate": gwr_lookups.get_submit_date(
+                        pk, case, answer_slugs
+                    ),
                 }
             )
 
@@ -388,7 +428,7 @@ class InstanceView(
                         "personIdentification": {
                             "officialName": client["name"],
                             "firstName": client["vorname"],
-                        }
+                        },
                     },
                 }
                 if client
