@@ -3,6 +3,7 @@
   &:not(.disable-uikit) {
     @import "ember-uikit";
     @import "ember-caluma";
+    @import "ember-ebau-gwr";
   }
 
   @import "modules/history";
