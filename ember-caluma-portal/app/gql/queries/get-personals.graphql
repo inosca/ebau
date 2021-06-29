@@ -1,0 +1,46 @@
+query GetPersonals($instanceId: GenericScalar!, $tableQuestions: [ID]!) {
+  allCases(
+    filter: [{ metaValue: { key: "camac-instance-id", value: $instanceId } }]
+    first: 1
+  ) {
+    edges {
+      node {
+        id
+        document {
+          id
+          answers(
+            filter: [{ questions: $tableQuestions }, { visibleInContext: true }]
+          ) {
+            edges {
+              node {
+                id
+                question {
+                  slug
+                  label
+                }
+                ... on TableAnswer {
+                  value {
+                    id
+                    answers(filter: [{ visibleInContext: true }]) {
+                      edges {
+                        node {
+                          id
+                          question {
+                            slug
+                          }
+                          ... on StringAnswer {
+                            value
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
