@@ -1,4 +1,5 @@
 import pytest
+from django.conf import settings
 from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
@@ -119,7 +120,15 @@ def test_attachment_caluma_delete(
     use_caluma_form,
     mocker,
     allowed_section,
+    application_settings,
 ):
+    application_settings["ATTACHMENT_READ_ONLY_STATES"] = settings.APPLICATIONS[
+        "kt_bern"
+    ]["ATTACHMENT_READ_ONLY_STATES"]
+    application_settings[
+        "ATTACHMENT_READ_ONLY_EXCLUDE_SECTIONS"
+    ] = settings.APPLICATIONS["kt_bern"]["ATTACHMENT_READ_ONLY_EXCLUDE_SECTIONS"]
+
     aasas = attachment_attachment_sections.attachmentsection
     aasas.pk = allowed_section
     aasas.save()
