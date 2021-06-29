@@ -22,7 +22,6 @@ from rest_framework.serializers import Serializer
 from rest_framework_json_api.views import ModelViewSet, ReadOnlyModelViewSet
 from sorl.thumbnail import delete, get_thumbnail
 
-from camac.constants import kt_bern as constants
 from camac.core.views import SendfileHttpResponse
 from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.models import Instance
@@ -209,27 +208,13 @@ class AttachmentView(
 
     @permission_aware
     def has_object_destroy_permission(self, obj):
-        form_backend = settings.APPLICATION.get("FORM_BACKEND")
-        state = obj.instance.instance_state.name
-
         if (
-            form_backend == "caluma"
-            and state
-            in [
-                "rejected",
-                "correction",
-                "sb1",
-                "sb2",
-                "conclusion",
-                "finished",
-                "finished_internal",
-                "evaluated",
-            ]
+            obj.instance.instance_state.name
+            in settings.APPLICATION.get("ATTACHMENT_READ_ONLY_STATES", [])
             and not obj.attachment_sections.filter(
-                pk__in=[
-                    constants.ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
-                    constants.ATTACHMENT_SECTION_INTERN,
-                ]
+                pk__in=settings.APPLICATION.get(
+                    "ATTACHMENT_READ_ONLY_EXCLUDE_SECTIONS", []
+                )
             ).exists()
         ):
             # The permission layer may allow creating and updating. However we

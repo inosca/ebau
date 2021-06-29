@@ -724,6 +724,19 @@ APPLICATIONS = {
                 "DEFAULT": be_constants.PUBLIC_INSTANCE_STATE_CREATING,
             },
         },
+        "ATTACHMENT_READ_ONLY_STATES": [
+            "rejected",
+            "correction",
+            "sb1",
+            "sb2",
+            "conclusion",
+            "finished",
+            "finished_internal",
+            "evaluated",
+        ],
+        "ATTACHMENT_READ_ONLY_EXCLUDE_SECTIONS": [
+            be_constants.ATTACHMENT_SECTION_INTERN
+        ],
         "PORTAL_GROUP": 6,
         "DEMO_MODE_GROUPS": [
             20003,
