@@ -604,6 +604,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             "activation_service_parent",
             "circulation_service",
             "activation_service",
+            "unanswered_activation",
             *settings.APPLICATION.get("CUSTOM_NOTIFICATION_TYPES", []),
         )
     )
@@ -773,6 +774,17 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
     def _get_recipients_service(self, instance):
         services = Service.objects.filter(
             pk__in=instance.circulations.values("activations__service")
+        )
+
+        return flatten(
+            [self._get_responsible(instance, service) for service in services]
+        )
+
+    def _get_recipients_unanswered_activation(self, instance):
+        services = Service.objects.filter(
+            pk__in=Activation.objects.filter(circulation__instance=instance)
+            .exclude(circulation_state__name="DONE")
+            .values_list("service__pk", flat=True)
         )
 
         return flatten(
