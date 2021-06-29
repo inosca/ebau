@@ -44,6 +44,7 @@ services:
       - DJANGO_MEDIA_ROOT=/var/lib/camac/media
       - DJANGO_UNOCONV_URL=http://unoconv:3000
       - DJANGO_CLAMD_TCP_ADDR=clamav
+      - DJANGO_MERGE_DATE_FORMAT=%-d. %B %Y
       - APPLICATION=${APPLICATION}
       - CACHE_BACKEND=django.core.cache.backends.memcached.MemcachedCache
       - CACHE_LOCATION=cache:11211
