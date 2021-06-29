@@ -145,6 +145,33 @@
   },
   {
     "model": "core.anotification",
+    "pk": 12000000,
+    "fields": {
+      "template": "08-entscheid-amts-und-fachstellen",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_Service",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 12000001,
+    "fields": {
+      "template": "08-entscheid-gesuchsteller",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_Applicant",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 12000002,
+    "fields": {
+      "template": "08-entscheid-gemeindeleitbehorde",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_Leitbehoerde",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
     "pk": 15000000,
     "fields": {
       "template": "02-rueckweisung-gemeinde",
@@ -1537,6 +1564,48 @@
   },
   {
     "model": "core.action",
+    "pk": 12000000,
+    "fields": {
+      "available_action": "notification",
+      "button": 12000000,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000001,
+    "fields": {
+      "available_action": "notification",
+      "button": 12000000,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000002,
+    "fields": {
+      "available_action": "notification",
+      "button": 12000000,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 2
+    }
+  },
+  {
+    "model": "core.action",
     "pk": 15000000,
     "fields": {
       "available_action": "notification",
@@ -2679,6 +2748,42 @@
       "description": null,
       "success_message": null,
       "error_message": null
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 12000000,
+    "fields": {
+      "action": 12000000,
+      "language": "de",
+      "name": "Notification: Entscheid verf\u00fcgen Fachstelle",
+      "description": null,
+      "success_message": "E-Mail an Fachstelle gesendet",
+      "error_message": "Beim Senden der E-Mail Notifikation an die Fachstelle ist ein Fehler aufgetreten"
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 12000001,
+    "fields": {
+      "action": 12000001,
+      "language": "de",
+      "name": "Notification: Entscheid verf\u00fcgen Gesuchsteller",
+      "description": null,
+      "success_message": "E-Mail an Gesuchstellende gesendet",
+      "error_message": "Beim Senden der E-Mail Notifikation an die Gesuchstellenden ist ein Fehler aufgetreten"
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 12000002,
+    "fields": {
+      "action": 12000002,
+      "language": "de",
+      "name": "Notification: Entscheid verf\u00fcgen Leitbeh\u00f6rde",
+      "description": null,
+      "success_message": "E-Mail an Leitbeh\u00f6rde gesendet",
+      "error_message": "Beim Senden der E-Mail Notifikation an die Leitbeh\u00f6rde ist ein Fehler aufgetreten"
     }
   },
   {
@@ -41899,6 +42004,18 @@
     }
   },
   {
+    "model": "core.button",
+    "pk": 12000000,
+    "fields": {
+      "instance_resource": 20023,
+      "name": null,
+      "description": null,
+      "class_field": "confirm",
+      "hidden": 0,
+      "sort": 1
+    }
+  },
+  {
     "model": "core.buttont",
     "pk": 20002,
     "fields": {
@@ -42465,6 +42582,16 @@
       "button": 1200001,
       "language": "fr",
       "name": "Compl\u00e9ter d\u00e9claration spontan\u00e9e 2",
+      "description": null
+    }
+  },
+  {
+    "model": "core.buttont",
+    "pk": 12000000,
+    "fields": {
+      "button": 12000000,
+      "language": "de",
+      "name": "Entscheid verf\u00fcgen",
       "description": null
     }
   },

@@ -13,7 +13,12 @@ from django.urls import reverse
 from django.utils import timezone
 from pytest_factoryboy import LazyFixture
 
-from camac.constants.kt_bern import DECISIONS_ABGELEHNT, DECISIONS_BEWILLIGT
+from camac.constants.kt_bern import (
+    DECISION_TYPE_BUILDING_PERMIT,
+    DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
+    DECISIONS_ABGELEHNT,
+    DECISIONS_BEWILLIGT,
+)
 from camac.instance.models import HistoryEntryT
 
 
@@ -528,20 +533,47 @@ def test_audit_history(
 
 
 @pytest.mark.parametrize(
-    "workflow,decision,expected_instance_state,expected_text",
+    "workflow,decision,decision_type,expected_instance_state,expected_text",
     [
-        ("building-permit", DECISIONS_BEWILLIGT, "sb1", "Bauentscheid verfügt"),
-        ("building-permit", DECISIONS_ABGELEHNT, "finished", "Bauentscheid verfügt"),
-        ("migrated", DECISIONS_BEWILLIGT, "finished", "Beurteilung abgeschlossen"),
+        (
+            "building-permit",
+            DECISIONS_BEWILLIGT,
+            DECISION_TYPE_BUILDING_PERMIT,
+            "sb1",
+            "Bauentscheid verfügt",
+        ),
+        (
+            "building-permit",
+            DECISIONS_ABGELEHNT,
+            DECISION_TYPE_BUILDING_PERMIT,
+            "finished",
+            "Bauentscheid verfügt",
+        ),
+        (
+            "building-permit",
+            DECISIONS_ABGELEHNT,
+            DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
+            "sb1",
+            "Bauentscheid verfügt",
+        ),
+        (
+            "migrated",
+            DECISIONS_BEWILLIGT,
+            DECISION_TYPE_BUILDING_PERMIT,
+            "finished",
+            "Beurteilung abgeschlossen",
+        ),
         (
             "preliminary-clarification",
             DECISIONS_BEWILLIGT,
+            DECISION_TYPE_BUILDING_PERMIT,
             "evaluated",
             "Beurteilung abgeschlossen",
         ),
         (
             "internal",
             DECISIONS_BEWILLIGT,
+            DECISION_TYPE_BUILDING_PERMIT,
             "finished_internal",
             "Beurteilung abgeschlossen",
         ),
@@ -565,12 +597,15 @@ def test_complete_decision(
     instance_state_factory,
     workflow,
     decision,
+    decision_type,
     expected_instance_state,
     expected_text,
     multilang,
     use_instance_service,
 ):
-    docx_decision_factory(decision=decision, instance=instance)
+    docx_decision_factory(
+        decision=decision, decision_type=decision_type, instance=instance
+    )
     instance_state_factory(name=expected_instance_state)
 
     instance_service_factory(
