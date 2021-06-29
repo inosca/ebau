@@ -317,6 +317,7 @@ instances:
     user: "Hinzugefügt von"
     email: "E-Mail"
     unregistered: "noch nicht registriert"
+    noSuggestions: "Keine Personalien gefunden"
 
     add: "Einladen"
 

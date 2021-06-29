@@ -43,16 +43,22 @@
   <form uk-grid class="uk-grid-small" onsubmit={{perform this.add}}>
     <div class="uk-width-expand">
       <div class="uk-inline uk-width-1-1">
-        <UkIcon @icon="mail" class="uk-form-icon" />
-        <Input
-          class="uk-input"
-          id="email"
-          name="email"
-          placeholder={{t "instances.applicants.email"}}
-          required={{true}}
-          @type="email"
-          @value={{this.email}}
-        />
+        <PersonalSuggestions
+          @instanceId={{this.editController.instance.id}}
+          @usedEmails={{this.usedEmails}}
+          @onSelect={{fn (mut this.email)}}
+        >
+          <UkIcon @icon="mail" class="uk-form-icon" />
+          <Input
+            class="uk-input"
+            id="email"
+            name="email"
+            placeholder={{t "instances.applicants.email"}}
+            required={{true}}
+            @type="email"
+            @value={{this.email}}
+          />
+        </PersonalSuggestions>
       </div>
     </div>
     <div class="uk-width-auto">
