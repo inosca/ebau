@@ -312,9 +312,19 @@ def test_end_circulation(
     activation,
     caluma_workflow_config_be,
     caluma_admin_user,
-    activation_factory,
     circulation_state_factory,
+    notification_template,
+    application_settings,
 ):
+    application_settings["NOTIFICATIONS"] = {
+        "END_CIRCULATION": [
+            {
+                "template_slug": notification_template.slug,
+                "recipient_types": ["unanswered_activation"],
+            }
+        ]
+    }
+
     new_state = circulation_state_factory(name="DONE")
 
     case = start_case(
