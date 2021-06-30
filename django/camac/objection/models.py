@@ -15,6 +15,7 @@ class Objection(models.Model):
         "instance.Instance", models.CASCADE, related_name="objections"
     )
     creation_date = models.DateField()
+    title = models.CharField(max_length=200, blank=True, null=True)
 
 
 class ObjectionParticipant(models.Model):
