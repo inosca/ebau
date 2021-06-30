@@ -13,6 +13,58 @@ from django.utils.translation import override
 from ..master_data import MasterData
 
 
+def _question(slug):
+    return (
+        {"question_id": slug}
+        if caluma_form_models.Question.objects.filter(pk=slug).exists()
+        else {"question__pk": slug}
+    )
+
+
+def add_answer(
+    document,
+    question,
+    value,
+    value_key="value",
+    label=None,
+):
+    answer = caluma_form_factories.AnswerFactory(
+        document=document, **{value_key: value, **_question(question)}
+    )
+
+    if label:
+        if not isinstance(label, list):
+            label = [label]
+
+        if not isinstance(value, list):
+            value = [value]
+
+        for val, lab in zip(value, label):
+            if not isinstance(lab, dict):
+                lab = {"de": lab, "fr": lab}
+
+            caluma_form_factories.QuestionOptionFactory(
+                question_id=question, option__slug=val, option__label=lab
+            )
+
+    return answer
+
+
+def add_table_answer(document, question, rows):
+    answer = add_answer(document, question, None)
+
+    for i, row in enumerate(reversed(rows)):
+        row_document = caluma_form_factories.DocumentFactory()
+        for column, value in row.items():
+            add_answer(row_document, column, value)
+
+        caluma_form_factories.AnswerDocumentFactory(
+            document=row_document, answer=answer, sort=i
+        )
+
+    return answer
+
+
 def test_master_data_exceptions(
     db,
     application_settings,
@@ -82,14 +134,9 @@ def test_master_data_parsers(
         meta={"my-date": "2021-08-18", "my-datetime": "2021-08-18T06:58:08.397Z"}
     )
 
-    caluma_form_factories.AnswerFactory(
-        question__slug="my-success", value="my-success-yes", document=case.document
-    )
-
-    caluma_form_factories.AnswerFactory(
-        question__slug="multiple-choice",
-        value=["multiple-choice-yes", "multiple-choice-no"],
-        document=case.document,
+    add_answer(case.document, "my-success", "my-success-yes")
+    add_answer(
+        case.document, "multiple-choice", ["multiple-choice-yes", "multiple-choice-no"]
     )
 
     master_data = MasterData(case)
@@ -114,42 +161,40 @@ def be_master_data_case(
     }
     be_instance.case.save()
 
+    document = be_instance.case.document
+
     # Simple data
-    caluma_form_factories.AnswerFactory(
-        question_id="is-paper",
-        document=be_instance.case.document,
-        value="is-paper-no",
+    add_answer(document, "is-paper", "is-paper-no")
+    add_answer(document, "beschreibung-bauvorhaben", "Grosses Haus")
+    add_answer(document, "beschreibung-projektaenderung", "Doch eher kleines Haus")
+    add_answer(document, "strasse-flurname", "Musterstrasse")
+    add_answer(document, "nr", 4)
+    add_answer(document, "baukosten-in-chf", 199000)
+    add_answer(document, "ort-grundstueck", "Musterhausen")
+    add_answer(document, "baubeschrieb", "baubeschrieb-neubau", label="Neubau")
+    add_answer(
+        document,
+        "gewaesserschutzbereich-v2",
+        ["gewaesserschutzbereich-v2-au"],
+        label=[{"de": "Aᵤ", "fr": "Aᵤ"}],
     )
-    caluma_form_factories.AnswerFactory(
-        question_id="beschreibung-bauvorhaben",
-        document=be_instance.case.document,
-        value="Grosses Haus",
+    add_answer(
+        document,
+        "nutzungsart",
+        ["nutzungsart-wohnen"],
+        label=[{"de": "Wohnen", "fr": "Vivre"}],
     )
-    caluma_form_factories.AnswerFactory(
-        question__slug="beschreibung-projektaenderung",
-        document=be_instance.case.document,
-        value="Doch eher kleines Haus",
+    add_answer(document, "nutzungszone", "Wohnzone W2")
+    add_answer(document, "ueberbauungsordnung", "Überbauung XY")
+    add_answer(document, "sachverhalt", "Sachverhalt Test")
+    add_answer(document, "schuetzenswert", "schuetzenswert-ja", label="Ja")
+    add_answer(document, "erhaltenswert", "erhaltenswert-nein", label="Nein")
+    add_answer(document, "k-objekt", "k-objekt-nein", label="Nein")
+    add_answer(
+        document, "baugruppe-bauinventar", "baugruppe-bauinventar-nein", label="Nein"
     )
-    caluma_form_factories.AnswerFactory(
-        question__slug="strasse-flurname",
-        document=be_instance.case.document,
-        value="Musterstrasse",
-    )
-    caluma_form_factories.AnswerFactory(
-        question__slug="nr",
-        document=be_instance.case.document,
-        value=4,
-    )
-    caluma_form_factories.AnswerFactory(
-        question__slug="baukosten-in-chf",
-        document=be_instance.case.document,
-        value=199000,
-    )
-    caluma_form_factories.AnswerFactory(
-        question__slug="ort-grundstueck",
-        document=be_instance.case.document,
-        value="Musterhausen",
-    )
+    add_answer(document, "rrb", "rrb-ja", label="Ja")
+    add_answer(document, "vertrag", "vertrag-ja", label="Ja")
 
     # Municipality
     caluma_form_factories.DynamicOptionFactory(
@@ -159,125 +204,99 @@ def be_master_data_case(
         label={"de": "Bern", "fr": "Berne"},
     )
 
-    # Plot
-    row_form = caluma_form_factories.FormFactory(slug="parzelle-tabelle")
-    table_answer_plot = caluma_form_factories.AnswerFactory(
-        question__slug="parzelle",
-        question__type=caluma_form_models.Question.TYPE_TEXT,
-        document=be_instance.case.document,
+    # Table data
+    add_table_answer(
+        document,
+        "parzelle",
+        [
+            {
+                "parzellennummer": 473,
+                "e-grid-nr": "CH334687350542",
+                "lagekoordinaten-ost": 2599941,
+                "lagekoordinaten-nord": 1198923,
+            },
+            {
+                "parzellennummer": 2592,
+                "e-grid-nr": "CH913553467614",
+                "lagekoordinaten-ost": 2601995,
+                "lagekoordinaten-nord": 1201340,
+            },
+        ],
     )
-    caluma_form_factories.FormQuestionFactory(
-        form=row_form,
-        question__slug="parzellennummer",
-        question__type=caluma_form_models.Question.TYPE_CHOICE,
+    add_table_answer(
+        document,
+        "personalien-gesuchstellerin",
+        [
+            {
+                "vorname-gesuchstellerin": "Max",
+                "name-gesuchstellerin": "Mustermann",
+                "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-ja",
+                "name-juristische-person-gesuchstellerin": "ACME AG",
+                "strasse-gesuchstellerin": "Teststrasse",
+                "nummer-gesuchstellerin": 123,
+                "ort-gesuchstellerin": "Testhausen",
+                "plz-gesuchstellerin": 1234,
+            }
+        ],
     )
-    caluma_form_factories.FormQuestionFactory(
-        form=row_form,
-        question__slug="e-grid-nr",
-        question__type=caluma_form_models.Question.TYPE_CHOICE,
+    add_table_answer(
+        document,
+        "personalien-projektverfasserin",
+        [
+            {
+                "vorname-projektverfasserin": "Hans",
+                "name-projektverfasserin": "Müller",
+                "strasse-projektverfasserin": "Einweg",
+                "nummer-projektverfasserin": 9,
+                "plz-projektverfasserin": 3000,
+                "ort-projektverfasserin": "Bern",
+            },
+        ],
     )
-    plot_row = caluma_form_factories.DocumentFactory(form=row_form)
-    table_answer_plot.documents.add(plot_row)
-    caluma_form_factories.AnswerFactory(
-        question_id="parzellennummer",
-        value="123456789",
-        document=plot_row,
+    add_table_answer(
+        document,
+        "personalien-gebaudeeigentumerin",
+        [
+            {
+                "vorname-gebaeudeeigentuemerin": "Peter",
+                "name-gebaeudeeigentuemerin": "Meier",
+                "strasse-gebaeudeeigentuemerin": "Thunstrasse",
+                "nummer-gebaeudeeigentuemerin": 88,
+                "plz-gebaeudeeigentuemerin": 3002,
+                "ort-gebaeudeeigentuemerin": "Bern",
+            },
+        ],
     )
-    caluma_form_factories.AnswerFactory(
-        question_id="e-grid-nr",
-        value="CH123456789",
-        document=plot_row,
+    add_table_answer(
+        document,
+        "personalien-grundeigentumerin",
+        [
+            {
+                "vorname-grundeigentuemerin": "Sandra",
+                "name-grundeigentuemerin": "Holzer",
+                "strasse-grundeigentuemerin": "Bernweg",
+                "nummer-grundeigentuemerin": 12,
+                "plz-grundeigentuemerin": 3002,
+                "ort-grundeigentuemerin": "Bern",
+            },
+        ],
     )
-
-    # Applicant
-    table_answer_applicant = caluma_form_factories.AnswerFactory(
-        question_id="personalien-gesuchstellerin", document=be_instance.case.document
-    )
-    applicant_row = caluma_form_factories.DocumentFactory(form_id="personalien-tabelle")
-    table_answer_applicant.documents.add(applicant_row)
-    caluma_form_factories.AnswerFactory(
-        question_id="vorname-gesuchstellerin",
-        value="Max",
-        document=applicant_row,
-    )
-    caluma_form_factories.AnswerFactory(
-        question_id="name-gesuchstellerin",
-        value="Mustermann",
-        document=applicant_row,
-    )
-    caluma_form_factories.AnswerFactory(
-        question__slug="juristische-person-gesuchstellerin",
-        value="juristische-person-gesuchstellerin-ja",
-        document=applicant_row,
-    )
-    caluma_form_factories.AnswerFactory(
-        question__slug="name-juristische-person-gesuchstellerin",
-        value="ACME AG",
-        document=applicant_row,
-    )
-    caluma_form_factories.AnswerFactory(
-        question__slug="strasse-gesuchstellerin",
-        value="Teststrasse",
-        document=applicant_row,
-    )
-    caluma_form_factories.AnswerFactory(
-        question__slug="nummer-gesuchstellerin",
-        value=123,
-        document=applicant_row,
-    )
-    caluma_form_factories.AnswerFactory(
-        question__slug="ort-gesuchstellerin",
-        value="Testhausen",
-        document=applicant_row,
-    )
-    caluma_form_factories.AnswerFactory(
-        question__slug="plz-gesuchstellerin",
-        value=1234,
-        document=applicant_row,
+    add_table_answer(
+        document,
+        "personalien-vertreterin-mit-vollmacht",
+        [
+            {
+                "juristische-person-vertreterin": "juristische-person-vertreterin-ja",
+                "name-juristische-person-vertreterin": "Mustermann und Söhne AG",
+                "strasse-vertreterin": "Juristenweg",
+                "nummer-vertreterin": 99,
+                "plz-vertreterin": 3008,
+                "ort-vertreterin": "Bern",
+            },
+        ],
     )
 
     return be_instance.case
-
-
-@pytest.mark.parametrize("language", ["de", "fr"])
-def test_master_data_be(
-    db,
-    be_master_data_case,
-    snapshot,
-    application_settings,
-    django_assert_num_queries,
-    language,
-):
-    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
-        "MASTER_DATA"
-    ]
-
-    # This should never trigger more than 5 queries on the DB:
-    # 1. Query for fetching case
-    # 2. Query for prefetching direct answers on case.document
-    # 3. Query for prefetching row documents
-    # 4. Query for prefetching answer on previously prefetched row documents
-    # 5. Query for prefetching dynamic options
-    with django_assert_num_queries(5), override(language):
-        case = (
-            caluma_workflow_models.Case.objects.filter(pk=be_master_data_case.pk)
-            .select_related("document")
-            .prefetch_related(
-                "document__answers",
-                "document__answers__documents__answers",
-                "document__dynamicoption_set",
-            )
-            .first()
-        )
-
-        master_data = MasterData(case)
-
-        snapshot.assert_match(
-            {
-                key: getattr(master_data, key)
-                for key in application_settings["MASTER_DATA"].keys()
-            }
-        )
 
 
 @pytest.fixture
@@ -285,32 +304,15 @@ def ur_master_data_case(db, ur_instance, workflow_entry_factory):
     ur_instance.case.meta = {"dossier-number": "1201-21-003"}
     ur_instance.case.save()
 
+    document = ur_instance.case.document
+
     # Simple data
-    caluma_form_factories.AnswerFactory(
-        question__slug="proposal-description",
-        document=ur_instance.case.document,
-        value="Grosses Haus",
-    )
-    caluma_form_factories.AnswerFactory(
-        question__slug="parcel-street",
-        document=ur_instance.case.document,
-        value="Musterstrasse",
-    )
-    caluma_form_factories.AnswerFactory(
-        question__slug="parcel-street-number",
-        document=ur_instance.case.document,
-        value=4,
-    )
-    caluma_form_factories.AnswerFactory(
-        question__slug="construction-cost",
-        document=ur_instance.case.document,
-        value=129000,
-    )
-    caluma_form_factories.AnswerFactory(
-        question__slug="parcel-city",
-        document=ur_instance.case.document,
-        value="Musterdorf",
-    )
+    add_answer(document, "proposal-description", "Grosses Haus")
+    add_answer(document, "parcel-street", "Musterstrasse")
+    add_answer(document, "parcel-street-number", 4)
+    add_answer(document, "construction-cost", 129000)
+    add_answer(document, "parcel-city", "Musterdorf")
+    add_answer(document, "category", ["category-hochbaute", "category-tiefbaute"])
 
     # Municipality
     caluma_form_factories.DynamicOptionFactory(
@@ -321,92 +323,34 @@ def ur_master_data_case(db, ur_instance, workflow_entry_factory):
     )
 
     # Plot
-    row_form = caluma_form_factories.FormFactory(slug="parcels")
-    table_answer_plot = caluma_form_factories.AnswerFactory(
-        question__slug="parcels",
-        question__type=caluma_form_models.Question.TYPE_TEXT,
-        document=ur_instance.case.document,
-    )
-    caluma_form_factories.FormQuestionFactory(
-        form=row_form,
-        question__slug="parcel-number",
-        question__type=caluma_form_models.Question.TYPE_INTEGER,
-    )
-    caluma_form_factories.FormQuestionFactory(
-        form=row_form,
-        question__slug="e-grid",
-        question__type=caluma_form_models.Question.TYPE_TEXT,
-    )
-    plot_row = caluma_form_factories.DocumentFactory(form=row_form)
-    table_answer_plot.documents.add(plot_row)
-    caluma_form_factories.AnswerFactory(
-        question_id="parcel-number",
-        value=123456789,
-        document=plot_row,
-    )
-    caluma_form_factories.AnswerFactory(
-        question_id="e-grid",
-        value="CH123456789",
-        document=plot_row,
+    add_table_answer(
+        document,
+        "parcels",
+        [
+            {
+                "parcel-number": 123456789,
+                "e-grid": "CH123456789",
+            }
+        ],
     )
 
     # Applicant
-    table_answer_applicant = caluma_form_factories.AnswerFactory(
-        question__slug="applicant", document=ur_instance.case.document
-    )
-    applicant_row = caluma_form_factories.DocumentFactory(form__slug="personal-table")
-    table_answer_applicant.documents.add(applicant_row)
-    caluma_form_factories.AnswerFactory(
-        question__slug="first-name",
-        value="Max",
-        document=applicant_row,
-    )
-    caluma_form_factories.AnswerFactory(
-        question__slug="last-name",
-        value="Mustermann",
-        document=applicant_row,
-    )
-    caluma_form_factories.AnswerFactory(
-        question__slug="is-juristic-person",
-        value="is-juristic-person-yes",
-        document=applicant_row,
-    )
-    caluma_form_factories.AnswerFactory(
-        question__slug="juristic-person-name",
-        value="ACME AG",
-        document=applicant_row,
-    )
-    caluma_form_factories.AnswerFactory(
-        question__slug="street",
-        value="Teststrasse",
-        document=applicant_row,
-    )
-    caluma_form_factories.AnswerFactory(
-        question__slug="street-number",
-        value=123,
-        document=applicant_row,
-    )
-    caluma_form_factories.AnswerFactory(
-        question__slug="zip",
-        value=1233,
-        document=applicant_row,
-    )
-    caluma_form_factories.AnswerFactory(
-        question__slug="city",
-        value="Musterdorf",
-        document=applicant_row,
-    )
-    caluma_form_factories.AnswerFactory(
-        question__slug="country",
-        value="Schweiz",
-        document=applicant_row,
-    )
-
-    # Category
-    caluma_form_factories.AnswerFactory(
-        question__slug="category",
-        value=["category-hochbaute", "category-tiefbaute"],
-        document=ur_instance.case.document,
+    add_table_answer(
+        document,
+        "applicant",
+        [
+            {
+                "first-name": "Max",
+                "last-name": "Mustermann",
+                "is-juristic-person": "is-juristic-person-yes",
+                "juristic-person-name": "ACME AG",
+                "street": "Teststrasse",
+                "street-number": 123,
+                "zip": 1233,
+                "city": "Musterdorf",
+                "country": "Schweiz",
+            }
+        ],
     )
 
     # Submit date
@@ -418,45 +362,6 @@ def ur_master_data_case(db, ur_instance, workflow_entry_factory):
     )
 
     return ur_instance.case
-
-
-def test_master_data_ur(
-    db,
-    ur_master_data_case,
-    snapshot,
-    application_settings,
-    django_assert_num_queries,
-):
-    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
-
-    # This should never trigger more than 6 queries on the DB:
-    # 1. Query for fetching case
-    # 2. Query for prefetching direct answers on case.document
-    # 3. Query for prefetching row documents
-    # 4. Query for prefetching answer on previously prefetched row documents
-    # 5. Query for prefetching dynamic options
-    # 6. Query for prefetching workflow entries
-    with django_assert_num_queries(6):
-        case = (
-            caluma_workflow_models.Case.objects.filter(pk=ur_master_data_case.pk)
-            .select_related("document", "instance")
-            .prefetch_related(
-                "document__answers",
-                "document__answers__documents__answers",
-                "document__dynamicoption_set",
-                "instance__workflowentry_set",
-            )
-            .first()
-        )
-
-        master_data = MasterData(case)
-
-        snapshot.assert_match(
-            {
-                key: getattr(master_data, key)
-                for key in application_settings["MASTER_DATA"].keys()
-            }
-        )
 
 
 @pytest.fixture
@@ -490,29 +395,100 @@ def sz_master_data_case(db, sz_instance, form_field_factory, workflow_entry_fact
     return sz_instance.case
 
 
-def test_master_data_sz(
+@pytest.mark.parametrize(
+    "application_name,language,case,select_related,prefetch_related,num_queries",
+    [
+        (
+            "kt_bern",
+            "de",
+            pytest.lazy_fixture("be_master_data_case"),
+            ["document"],
+            [
+                "document__answers",
+                "document__answers__question__options",
+                "document__answers__answerdocument_set",
+                "document__answers__answerdocument_set__document__answers",
+                "document__dynamicoption_set",
+            ],
+            # 1. Query for fetching case
+            # 2. Query for prefetching direct answers on case.document
+            # 3. Query for prefetching questions of answers
+            # 4. Query for prefetching options for questions
+            # 5. Query for prefetching row document relation tables
+            # 6. Query for prefetching row documents
+            # 7. Query for prefetching answer on previously prefetched row documents
+            # 8. Query for prefetching dynamic options
+            8,
+        ),
+        (
+            "kt_bern",
+            "fr",
+            pytest.lazy_fixture("be_master_data_case"),
+            ["document"],
+            [
+                "document__answers",
+                "document__answers__question__options",
+                "document__answers__answerdocument_set",
+                "document__answers__answerdocument_set__document__answers",
+                "document__dynamicoption_set",
+            ],
+            8,
+        ),
+        (
+            "kt_uri",
+            "de",
+            pytest.lazy_fixture("ur_master_data_case"),
+            ["document", "instance"],
+            [
+                "document__answers",
+                "document__answers__answerdocument_set",
+                "document__answers__answerdocument_set__document__answers",
+                "document__dynamicoption_set",
+                "instance__workflowentry_set",
+            ],
+            # 1. Query for fetching case
+            # 2. Query for prefetching direct answers on case.document
+            # 3. Query for prefetching row document relation tables
+            # 4. Query for prefetching row documents
+            # 5. Query for prefetching answer on previously prefetched row documents
+            # 6. Query for prefetching dynamic options
+            # 7. Query for prefetching workflow entries
+            7,
+        ),
+        (
+            "kt_schwyz",
+            "de",
+            pytest.lazy_fixture("sz_master_data_case"),
+            ["instance"],
+            ["instance__fields", "instance__workflowentry_set"],
+            # 1. Query for fetching case
+            # 2. Query for prefetching fields
+            # 3. Query for prefetching workflow entries
+            3,
+        ),
+    ],
+)
+def test_master_data(
     db,
-    sz_master_data_case,
     snapshot,
     application_settings,
     django_assert_num_queries,
+    application_name,
+    language,
+    case,
+    select_related,
+    prefetch_related,
+    num_queries,
 ):
-    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_schwyz"][
+    application_settings["MASTER_DATA"] = settings.APPLICATIONS[application_name][
         "MASTER_DATA"
     ]
 
-    # This should never trigger more than 6 queries on the DB:
-    # 1. Query for fetching case
-    # 2. Query for prefetching fields
-    # 3. Query for prefetching workflow entries
-    with django_assert_num_queries(3):
+    with django_assert_num_queries(num_queries), override(language):
         case = (
-            caluma_workflow_models.Case.objects.filter(pk=sz_master_data_case.pk)
-            .select_related("instance")
-            .prefetch_related(
-                "instance__fields",
-                "instance__workflowentry_set",
-            )
+            caluma_workflow_models.Case.objects.filter(pk=case.pk)
+            .select_related(*select_related)
+            .prefetch_related(*prefetch_related)
             .first()
         )
 

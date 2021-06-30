@@ -41,6 +41,7 @@ from camac.instance.serializers import SUBMIT_DATE_FORMAT
 from camac.notification import factories as notification_factories
 from camac.objection import factories as objection_factories
 from camac.responsible import factories as responsible_factories
+from camac.tags import factories as tags_factories
 from camac.user import factories as user_factories
 from camac.user.models import Group, User
 from camac.utils import build_url
@@ -72,6 +73,7 @@ register_module(applicant_factories)
 register_module(responsible_factories)
 register_module(ech_factories)
 register_module(objection_factories)
+register_module(tags_factories)
 
 # caluma factories
 register_module(caluma_form_factories, prefix="caluma")

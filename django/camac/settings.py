@@ -1273,7 +1273,159 @@ APPLICATIONS = {
                     }
                 },
             ),
+            "building_owners": (
+                "table",
+                "personalien-gebaudeeigentumerin",
+                {
+                    "column_mapping": {
+                        "last_name": "name-gebaeudeeigentuemerin",
+                        "first_name": "vorname-gebaeudeeigentuemerin",
+                        "street": "strasse-gebaeudeeigentuemerin",
+                        "street_number": "nummer-gebaeudeeigentuemerin",
+                        "zip": "plz-gebaeudeeigentuemerin",
+                        "town": "ort-gebaeudeeigentuemerin",
+                        "is_juristic_person": (
+                            "juristische-person-gebaeudeeigentuemerin",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "juristische-person-gebaeudeeigentuemer-ja": True,
+                                            "juristische-person-gebaeudeeigentuemer-nein": False,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "juristic_name": "name-juristische-person-gebaeudeeigentuemerin",
+                    }
+                },
+            ),
+            "landowners": (
+                "table",
+                "personalien-grundeigentumerin",
+                {
+                    "column_mapping": {
+                        "last_name": "name-grundeigentuemerin",
+                        "first_name": "vorname-grundeigentuemerin",
+                        "street": "strasse-grundeigentuemerin",
+                        "street_number": "nummer-grundeigentuemerin",
+                        "zip": "plz-grundeigentuemerin",
+                        "town": "ort-grundeigentuemerin",
+                        "is_juristic_person": (
+                            "juristische-person-grundeigentuemerin",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "juristische-person-grundeigentuemerin-ja": True,
+                                            "juristische-person-grundeigentuemerin-nein": False,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "juristic_name": "name-juristische-person-grundeigentuemerin",
+                    }
+                },
+            ),
+            "project_authors": (
+                "table",
+                "personalien-projektverfasserin",
+                {
+                    "column_mapping": {
+                        "last_name": "name-projektverfasserin",
+                        "first_name": "vorname-projektverfasserin",
+                        "street": "strasse-projektverfasserin",
+                        "street_number": "nummer-projektverfasserin",
+                        "zip": "plz-projektverfasserin",
+                        "town": "ort-projektverfasserin",
+                        "is_juristic_person": (
+                            "juristische-person-projektverfasserin",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "juristische-person-projektverfasserin-ja": True,
+                                            "juristische-person-projektverfasserin-nein": False,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "juristic_name": "name-juristische-person-projektverfasserin",
+                    }
+                },
+            ),
+            "legal_representatives": (
+                "table",
+                "personalien-vertreterin-mit-vollmacht",
+                {
+                    "column_mapping": {
+                        "last_name": "name-vertreterin",
+                        "first_name": "vorname-vertreterin",
+                        "street": "strasse-vertreterin",
+                        "street_number": "nummer-vertreterin",
+                        "zip": "plz-vertreterin",
+                        "town": "ort-vertreterin",
+                        "is_juristic_person": (
+                            "juristische-person-vertreterin",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "juristische-person-vertreterin-ja": True,
+                                            "juristische-person-vertreterin-nein": False,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "juristic_name": "name-juristische-person-vertreterin",
+                    }
+                },
+            ),
             "dossier_number": ("case_meta", "ebau-number"),
+            "project": ("answer", "baubeschrieb", {"value_parser": "option_label"}),
+            "water_protection_area": (
+                "answer",
+                ["gewaesserschutzbereich", "gewaesserschutzbereich-v2"],
+                {"value_parser": "option_label"},
+            ),
+            "usage_type": ("answer", "nutzungsart", {"value_parser": "option_label"}),
+            "usage_zone": ("answer", "nutzungszone"),
+            "development_regulations": ("answer", "ueberbauungsordnung"),
+            "situation": ("answer", "sachverhalt"),
+            "monument_worth_protecting": (
+                "answer",
+                "schuetzenswert",
+                {"value_parser": "option_label"},
+            ),
+            "monument_worth_preserving": (
+                "answer",
+                "erhaltenswert",
+                {"value_parser": "option_label"},
+            ),
+            "monument_k_object": (
+                "answer",
+                "k-objekt",
+                {"value_parser": "option_label"},
+            ),
+            "monument_inventory": (
+                "answer",
+                "baugruppe-bauinventar",
+                {"value_parser": "option_label"},
+            ),
+            "monument_rrb": ("answer", "rrb", {"value_parser": "option_label"}),
+            "monument_contract": (
+                "answer",
+                "vertrag",
+                {"value_parser": "option_label"},
+            ),
             "proposal": ("answer", "beschreibung-bauvorhaben"),
             "modification": ("answer", "beschreibung-projektaenderung"),
             "street": ("answer", "strasse-flurname"),
@@ -1288,6 +1440,8 @@ APPLICATIONS = {
                     "column_mapping": {
                         "plot_number": "parzellennummer",
                         "egrid_number": "e-grid-nr",
+                        "coord_east": "lagekoordinaten-ost",
+                        "coord_north": "lagekoordinaten-nord",
                     }
                 },
             ),
