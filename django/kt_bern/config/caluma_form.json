@@ -3187,7 +3187,7 @@
       "modified_by_group": null,
       "form": "7-bestaetigung",
       "question": "anforderungen-eingehalten",
-      "sort": 13
+      "sort": 12
     }
   },
   {
@@ -3202,7 +3202,22 @@
       "modified_by_group": null,
       "form": "7-bestaetigung",
       "question": "bauprofile-bleiben-bis-bauentscheid-stehen",
-      "sort": 12
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "7-bestaetigung.bestaetigung-berechtigung-bauherrschaft",
+    "fields": {
+      "created_at": "2021-06-28T14:07:46.568Z",
+      "modified_at": "2021-06-28T14:07:46.568Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "7-bestaetigung",
+      "question": "bestaetigung-berechtigung-bauherrschaft",
+      "sort": 1
     }
   },
   {
@@ -3217,7 +3232,7 @@
       "modified_by_group": null,
       "form": "7-bestaetigung",
       "question": "bestaetigung-generalvollmacht",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -3232,7 +3247,7 @@
       "modified_by_group": null,
       "form": "7-bestaetigung",
       "question": "bestaetigung-gis",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -3247,7 +3262,7 @@
       "modified_by_group": null,
       "form": "7-bestaetigung",
       "question": "bestaetigung-liegenschaftsentwaesserung",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -3262,7 +3277,7 @@
       "modified_by_group": null,
       "form": "7-bestaetigung",
       "question": "bestaetigung-mit-unterschrift",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -3277,7 +3292,7 @@
       "modified_by_group": null,
       "form": "7-bestaetigung",
       "question": "bestaetigung-wald",
-      "sort": 11
+      "sort": 10
     }
   },
   {
@@ -3292,7 +3307,7 @@
       "modified_by_group": null,
       "form": "7-bestaetigung",
       "question": "bestaetigung-wald-text",
-      "sort": 10
+      "sort": 9
     }
   },
   {
@@ -3307,7 +3322,7 @@
       "modified_by_group": null,
       "form": "7-bestaetigung",
       "question": "einhaltung-asbestvorgaben",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -3322,7 +3337,7 @@
       "modified_by_group": null,
       "form": "7-bestaetigung",
       "question": "einhaltung-radonvorgaben",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -3337,7 +3352,7 @@
       "modified_by_group": null,
       "form": "7-bestaetigung",
       "question": "keine-tangierung-natur-wild-vogelschutz",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -16126,6 +16141,22 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bestaetigung-berechtigung-bauherrschaft-ja",
+    "fields": {
+      "created_at": "2021-06-28T14:07:46.269Z",
+      "modified_at": "2021-06-28T14:08:52.134Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt, dass die Bauherrschaft Berechtigung (via Tab \\\"Berechtigungen\\\") auf das Dossier erhalten hat.\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -30267,6 +30298,38 @@
       "configuration": {},
       "meta": {
         "widgetOverride": null
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bestaetigung-berechtigung-bauherrschaft",
+    "fields": {
+      "created_at": "2021-06-28T14:07:46.445Z",
+      "modified_at": "2021-06-28T14:08:52.319Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt, dass die Bauherrschaft Berechtigung (via Tab \\\"Berechtigungen\\\") auf das Dossier erhalten hat.\", \"fr\": null}",
+      "type": "multiple_choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
       },
       "data_source": null,
       "row_form": null,
@@ -52522,6 +52585,21 @@
       "modified_by_group": null,
       "question": "besondere-brandrisiken",
       "option": "besondere-brandrisiken-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bestaetigung-berechtigung-bauherrschaft.bestaetigung-berechtigung-bauherrschaft-ja",
+    "fields": {
+      "created_at": "2021-06-28T14:08:52.327Z",
+      "modified_at": "2021-06-28T14:08:52.327Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "bestaetigung-berechtigung-bauherrschaft",
+      "option": "bestaetigung-berechtigung-bauherrschaft-ja",
       "sort": 1
     }
   },
