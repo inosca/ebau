@@ -259,7 +259,7 @@ build-kt_schwyz-production:
 build-kt_uri-stage:
   extends: .build-image-ur
   variables:
-    KEYCLOAK_HOST: https://camac-uri.sycloud.ch
+    KEYCLOAK_HOST: https://camac.ur.sycloud.ch
     APPLICATION: kt_uri
     COMPOSE: docker-compose -f compose/kt_uri.yml -f compose/kt_uri-stage.yml
   only:
