@@ -19,19 +19,17 @@ export default class ApplicationRoute extends Route.extend(
   beforeModel(transition) {
     super.beforeModel(transition);
 
-    if (this.session.isAuthenticated) {
-      const { language, group } = get(transition, "to.queryParams") || {};
+    const { language, group } = get(transition, "to.queryParams") || {};
 
-      this.session.set("language", language || this.session.language);
-      this.session.set("data.group", group || this.session.group);
+    this.session.set("language", language || this.session.language);
+    this.session.set("data.group", group || this.session.group);
 
-      if (language || group) {
-        // after the transition remove the query params so we don't persist the
-        // language and group info twice (in the URL and in the session)
-        transition.then(() => {
-          this.replaceWith({ queryParams: { language: null, group: null } });
-        });
-      }
+    if (language || group) {
+      // after the transition remove the query params so we don't persist the
+      // language and group info twice (in the URL and in the session)
+      transition.then(() => {
+        this.replaceWith({ queryParams: { language: null, group: null } });
+      });
     }
 
     if (window.top !== window) {
