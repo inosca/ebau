@@ -114,6 +114,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     billing_total_kanton = serializers.SerializerMethodField()
     billing_total = serializers.SerializerMethodField()
     my_activations = serializers.SerializerMethodField()
+    objections = serializers.SerializerMethodField()
 
     vorhaben = serializers.SerializerMethodField()
     parzelle = serializers.SerializerMethodField()
@@ -444,6 +445,23 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             )
 
         return activations
+
+    def get_objections(self, instance):
+        objections = instance.objections.all()
+
+        for objection in objections:
+            objection.participants = objection.objection_participants.all()
+
+            if objection.objection_participants.filter(representative=1).exists():
+                objection.participants = objection.objection_participants.filter(
+                    representative=1
+                )
+
+            objection.creation_date = objection.creation_date.strftime(
+                settings.MERGE_DATE_FORMAT
+            )
+
+        return objections
 
     def get_total_activations(self, instance):
         return instance.activations.count()
