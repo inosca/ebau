@@ -1,0 +1,24 @@
+<table class="uk-table uk-table-striped">
+  <tbody>
+    <tr>
+      <td class="uk-text-bold">{{t "statistics.avg-process-time"}}</td>
+      <td class="uk-text-right">
+        {{#if this.fetchActivationsSummary.isRunning}}
+          <UkSpinner ratio={{0.5}} />
+        {{else}}
+          {{t "statistics.days" count=this.averageProcessingTime}}
+        {{/if}}
+      </td>
+    </tr>
+    <tr>
+      <td class="uk-text-bold">{{t "statistics.deadline-quota"}}</td>
+      <td class="uk-text-right">
+        {{#if this.fetchActivationsSummary.isRunning}}
+          <UkSpinner ratio={{0.5}} />
+        {{else}}
+          {{this.deadlineQuota}}%
+        {{/if}}
+      </td>
+    </tr>
+  </tbody>
+</table>

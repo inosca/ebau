@@ -1,0 +1,49 @@
+<form class="uk-margin">
+  <div class="uk-grid-small uk-width-1-4 uk-child-width-1-1" uk-grid>
+    <div>
+      <label class="uk-text-bold" for="procedure">{{t "statistics.procedure"}}</label>
+      <select class="uk-select" id="procedure" {{on "change" this.setProcedure}}>
+        <option value="">{{t "statistics.procedures.all"}}</option>
+        {{#each this.procedures as |opt|}}
+          <option
+            value={{opt}}
+            selected={{eq opt this.procedure}}
+          >{{t (concat "statistics.procedures." opt)}}</option>
+        {{/each}}
+      </select>
+    </div>
+  </div>
+</form>
+
+<table class="uk-table uk-table-striped">
+  <thead>
+    <tr>
+      <th>{{t "statistics.year"}}</th>
+      <th class="uk-width-1-4 uk-text-right">{{t "statistics.instance-count"}}</th>
+      <th class="uk-width-1-4 uk-text-right">{{t "statistics.avg-cycle-time"}}</th>
+      <th class="uk-width-1-4 uk-text-right">{{t "statistics.avg-net-cycle-time"}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#if this.fetchCycleTimes.isRunning}}
+      <tr>
+        <td class="uk-text-center" colspan="4"><UkSpinner /></td>
+      </tr>
+    {{else}}
+      {{#each (sort-by "year:desc" this.cycleTimes) as |row|}}
+        <tr>
+          <td class="uk-text-bold">{{row.year}}</td>
+          <td class="uk-text-right">{{row.count}}</td>
+          <td class="uk-text-right">{{t "statistics.days" count=row.avg_total_cycle_time}}</td>
+          <td class="uk-text-right">{{t "statistics.days" count=row.avg_net_cycle_time}}</td>
+        </tr>
+      {{else}}
+        <tr>
+          <td class="uk-text-center uk-text-italic" colspan="4">
+            {{t "statistics.empty" type=(t (concat "statistics.procedures." (or this.procedure "all")))}}
+          </td>
+        </tr>
+      {{/each}}
+    {{/if}}
+  </tbody>
+</table>
