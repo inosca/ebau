@@ -1734,8 +1734,8 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
     </w:tblPr>
     <w:tblGrid>
       <w:gridCol w:w="2422"/>
-      <w:gridCol w:w="2699"/>
-      <w:gridCol w:w="1719"/>
+      <w:gridCol w:w="2698"/>
+      <w:gridCol w:w="1720"/>
       <w:gridCol w:w="1351"/>
       <w:gridCol w:w="1447"/>
     </w:tblGrid>
@@ -1767,7 +1767,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="2699" w:type="dxa"/>
+          <w:tcW w:w="2698" w:type="dxa"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000001"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000001"/>
@@ -1791,7 +1791,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1719" w:type="dxa"/>
+          <w:tcW w:w="1720" w:type="dxa"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000001"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000001"/>
@@ -1956,7 +1956,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="2699" w:type="dxa"/>
+          <w:tcW w:w="2698" w:type="dxa"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000001"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000001"/>
@@ -1994,7 +1994,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1719" w:type="dxa"/>
+          <w:tcW w:w="1720" w:type="dxa"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000001"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000001"/>
@@ -3093,6 +3093,693 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
         <w:p>
           <w:pPr>
             <w:pStyle w:val="TableContents"/>
+            <w:widowControl w:val="false"/>
+            <w:rPr/>
+          </w:pPr>
+          <w:r>
+            <w:rPr>
+              <w:lang w:val="de-CH" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
+            </w:rPr>
+            <w:t>{%tr endfor %}</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+    </w:tr>
+  </w:tbl>
+  <w:p>
+    <w:pPr>
+      <w:pStyle w:val="Heading3"/>
+      <w:rPr/>
+    </w:pPr>
+    <w:r>
+      <w:rPr/>
+      <w:t>Einsprachen</w:t>
+    </w:r>
+  </w:p>
+  <w:tbl>
+    <w:tblPr>
+      <w:tblW w:w="9643" w:type="dxa"/>
+      <w:jc w:val="left"/>
+      <w:tblInd w:w="55" w:type="dxa"/>
+      <w:tblLayout w:type="fixed"/>
+      <w:tblCellMar>
+        <w:top w:w="55" w:type="dxa"/>
+        <w:left w:w="55" w:type="dxa"/>
+        <w:bottom w:w="55" w:type="dxa"/>
+        <w:right w:w="55" w:type="dxa"/>
+      </w:tblCellMar>
+    </w:tblPr>
+    <w:tblGrid>
+      <w:gridCol w:w="1606"/>
+      <w:gridCol w:w="1606"/>
+      <w:gridCol w:w="1607"/>
+      <w:gridCol w:w="1606"/>
+      <w:gridCol w:w="1675"/>
+      <w:gridCol w:w="1543"/>
+    </w:tblGrid>
+    <w:tr>
+      <w:trPr/>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="9643" w:type="dxa"/>
+          <w:gridSpan w:val="6"/>
+          <w:tcBorders>
+            <w:top w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:right w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+          </w:tcBorders>
+        </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:keepNext w:val="true"/>
+            <w:rPr/>
+          </w:pPr>
+          <w:r>
+            <w:rPr/>
+            <w:t>{%tr for objection in objections %}</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+    </w:tr>
+    <w:tr>
+      <w:trPr/>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="1606" w:type="dxa"/>
+          <w:tcBorders>
+            <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+          </w:tcBorders>
+        </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:keepNext w:val="true"/>
+            <w:rPr>
+              <w:b/>
+              <w:b/>
+              <w:bCs/>
+            </w:rPr>
+          </w:pPr>
+          <w:r>
+            <w:rPr>
+              <w:b/>
+              <w:bCs/>
+            </w:rPr>
+            <w:t>Datum</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="3213" w:type="dxa"/>
+          <w:gridSpan w:val="2"/>
+          <w:tcBorders>
+            <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+          </w:tcBorders>
+        </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:rPr/>
+          </w:pPr>
+          <w:r>
+            <w:rPr/>
+            <w:t>{{ o</w:t>
+          </w:r>
+          <w:r>
+            <w:rPr/>
+            <w:t xml:space="preserve">bjection.creation_date </w:t>
+          </w:r>
+          <w:r>
+            <w:rPr/>
+            <w:t>}}</w:t>
+          </w:r>
+        </w:p>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:rPr/>
+          </w:pPr>
+          <w:r>
+            <w:rPr/>
+          </w:r>
+        </w:p>
+      </w:tc>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="1606" w:type="dxa"/>
+          <w:tcBorders>
+            <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+          </w:tcBorders>
+        </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:rPr>
+              <w:b/>
+              <w:b/>
+              <w:bCs/>
+            </w:rPr>
+          </w:pPr>
+          <w:r>
+            <w:rPr>
+              <w:b/>
+              <w:bCs/>
+            </w:rPr>
+            <w:t>Titel</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="3218" w:type="dxa"/>
+          <w:gridSpan w:val="2"/>
+          <w:tcBorders>
+            <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:right w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+          </w:tcBorders>
+        </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:rPr/>
+          </w:pPr>
+          <w:r>
+            <w:rPr/>
+            <w:t>{{ o</w:t>
+          </w:r>
+          <w:r>
+            <w:rPr/>
+            <w:t>bjection.</w:t>
+          </w:r>
+          <w:r>
+            <w:rPr/>
+            <w:t>title }}</w:t>
+          </w:r>
+        </w:p>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:rPr/>
+          </w:pPr>
+          <w:r>
+            <w:rPr/>
+          </w:r>
+        </w:p>
+      </w:tc>
+    </w:tr>
+    <w:tr>
+      <w:trPr/>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="1606" w:type="dxa"/>
+          <w:tcBorders>
+            <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+          </w:tcBorders>
+        </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:keepNext w:val="true"/>
+            <w:rPr>
+              <w:b/>
+              <w:b/>
+              <w:bCs/>
+            </w:rPr>
+          </w:pPr>
+          <w:r>
+            <w:rPr>
+              <w:b/>
+              <w:bCs/>
+            </w:rPr>
+            <w:t>Firma</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="1606" w:type="dxa"/>
+          <w:tcBorders>
+            <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+          </w:tcBorders>
+        </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:rPr>
+              <w:b/>
+              <w:b/>
+              <w:bCs/>
+            </w:rPr>
+          </w:pPr>
+          <w:r>
+            <w:rPr>
+              <w:b/>
+              <w:bCs/>
+            </w:rPr>
+            <w:t>Name</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="1607" w:type="dxa"/>
+          <w:tcBorders>
+            <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+          </w:tcBorders>
+        </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:rPr>
+              <w:rFonts w:ascii="Liberation Serif" w:hAnsi="Liberation Serif" w:eastAsia="Noto Sans CJK SC Regular" w:cs="FreeSans"/>
+              <w:b/>
+              <w:b/>
+              <w:bCs/>
+              <w:color w:val="00000A"/>
+              <w:kern w:val="0"/>
+              <w:sz w:val="24"/>
+              <w:szCs w:val="24"/>
+              <w:lang w:val="en-US" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
+            </w:rPr>
+          </w:pPr>
+          <w:r>
+            <w:rPr>
+              <w:rFonts w:eastAsia="Noto Sans CJK SC Regular" w:cs="FreeSans"/>
+              <w:b/>
+              <w:bCs/>
+              <w:color w:val="00000A"/>
+              <w:kern w:val="0"/>
+              <w:sz w:val="24"/>
+              <w:szCs w:val="24"/>
+              <w:lang w:val="en-US" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
+            </w:rPr>
+            <w:t>Strasse</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="1606" w:type="dxa"/>
+          <w:tcBorders>
+            <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+          </w:tcBorders>
+        </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:rPr>
+              <w:rFonts w:ascii="Liberation Serif" w:hAnsi="Liberation Serif" w:eastAsia="Noto Sans CJK SC Regular" w:cs="FreeSans"/>
+              <w:b/>
+              <w:b/>
+              <w:bCs/>
+              <w:color w:val="00000A"/>
+              <w:kern w:val="0"/>
+              <w:sz w:val="24"/>
+              <w:szCs w:val="24"/>
+              <w:lang w:val="en-US" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
+            </w:rPr>
+          </w:pPr>
+          <w:r>
+            <w:rPr>
+              <w:rFonts w:eastAsia="Noto Sans CJK SC Regular" w:cs="FreeSans"/>
+              <w:b/>
+              <w:bCs/>
+              <w:color w:val="00000A"/>
+              <w:kern w:val="0"/>
+              <w:sz w:val="24"/>
+              <w:szCs w:val="24"/>
+              <w:lang w:val="en-US" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
+            </w:rPr>
+            <w:t>Ort</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="1675" w:type="dxa"/>
+          <w:tcBorders>
+            <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+          </w:tcBorders>
+        </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:rPr>
+              <w:b/>
+              <w:b/>
+              <w:bCs/>
+            </w:rPr>
+          </w:pPr>
+          <w:r>
+            <w:rPr>
+              <w:b/>
+              <w:bCs/>
+            </w:rPr>
+            <w:t>E-Mail</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="1543" w:type="dxa"/>
+          <w:tcBorders>
+            <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:right w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+          </w:tcBorders>
+        </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:rPr>
+              <w:b/>
+              <w:b/>
+              <w:bCs/>
+            </w:rPr>
+          </w:pPr>
+          <w:r>
+            <w:rPr>
+              <w:b/>
+              <w:bCs/>
+            </w:rPr>
+            <w:t>Tel. Nr.</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+    </w:tr>
+    <w:tr>
+      <w:trPr/>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="9643" w:type="dxa"/>
+          <w:gridSpan w:val="6"/>
+          <w:tcBorders>
+            <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:right w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+          </w:tcBorders>
+        </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:keepNext w:val="true"/>
+            <w:rPr/>
+          </w:pPr>
+          <w:r>
+            <w:rPr/>
+            <w:t xml:space="preserve">{%tr for </w:t>
+          </w:r>
+          <w:r>
+            <w:rPr>
+              <w:rFonts w:eastAsia="Noto Sans CJK SC Regular" w:cs="FreeSans"/>
+              <w:color w:val="00000A"/>
+              <w:kern w:val="0"/>
+              <w:sz w:val="24"/>
+              <w:szCs w:val="24"/>
+              <w:lang w:val="en-US" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
+            </w:rPr>
+            <w:t>participant</w:t>
+          </w:r>
+          <w:r>
+            <w:rPr/>
+            <w:t xml:space="preserve"> in objection.</w:t>
+          </w:r>
+          <w:r>
+            <w:rPr/>
+            <w:t>participants</w:t>
+          </w:r>
+          <w:r>
+            <w:rPr/>
+            <w:t xml:space="preserve"> %}</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+    </w:tr>
+    <w:tr>
+      <w:trPr/>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="1606" w:type="dxa"/>
+          <w:tcBorders>
+            <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+          </w:tcBorders>
+        </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:keepNext w:val="true"/>
+            <w:rPr/>
+          </w:pPr>
+          <w:r>
+            <w:rPr/>
+            <w:t xml:space="preserve">{{ </w:t>
+          </w:r>
+          <w:r>
+            <w:rPr>
+              <w:rFonts w:eastAsia="Noto Sans CJK SC Regular" w:cs="FreeSans"/>
+              <w:color w:val="00000A"/>
+              <w:kern w:val="0"/>
+              <w:sz w:val="24"/>
+              <w:szCs w:val="24"/>
+              <w:lang w:val="en-US" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
+            </w:rPr>
+            <w:t xml:space="preserve">participant.company </w:t>
+          </w:r>
+          <w:r>
+            <w:rPr/>
+            <w:t>}}</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="1606" w:type="dxa"/>
+          <w:tcBorders>
+            <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+          </w:tcBorders>
+        </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:rPr/>
+          </w:pPr>
+          <w:r>
+            <w:rPr/>
+            <w:t xml:space="preserve">{{ </w:t>
+          </w:r>
+          <w:r>
+            <w:rPr>
+              <w:rFonts w:eastAsia="Noto Sans CJK SC Regular" w:cs="FreeSans"/>
+              <w:color w:val="00000A"/>
+              <w:kern w:val="0"/>
+              <w:sz w:val="24"/>
+              <w:szCs w:val="24"/>
+              <w:lang w:val="en-US" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
+            </w:rPr>
+            <w:t xml:space="preserve">participant.name </w:t>
+          </w:r>
+          <w:r>
+            <w:rPr/>
+            <w:t>}}</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="1607" w:type="dxa"/>
+          <w:tcBorders>
+            <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+          </w:tcBorders>
+        </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:rPr/>
+          </w:pPr>
+          <w:r>
+            <w:rPr/>
+            <w:t xml:space="preserve">{{ </w:t>
+          </w:r>
+          <w:r>
+            <w:rPr>
+              <w:rFonts w:eastAsia="Noto Sans CJK SC Regular" w:cs="FreeSans"/>
+              <w:color w:val="00000A"/>
+              <w:kern w:val="0"/>
+              <w:sz w:val="24"/>
+              <w:szCs w:val="24"/>
+              <w:lang w:val="en-US" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
+            </w:rPr>
+            <w:t xml:space="preserve">participant.address </w:t>
+          </w:r>
+          <w:r>
+            <w:rPr/>
+            <w:t>}}</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="1606" w:type="dxa"/>
+          <w:tcBorders>
+            <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+          </w:tcBorders>
+        </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:rPr/>
+          </w:pPr>
+          <w:r>
+            <w:rPr/>
+            <w:t xml:space="preserve">{{ </w:t>
+          </w:r>
+          <w:r>
+            <w:rPr>
+              <w:rFonts w:eastAsia="Noto Sans CJK SC Regular" w:cs="FreeSans"/>
+              <w:color w:val="00000A"/>
+              <w:kern w:val="0"/>
+              <w:sz w:val="24"/>
+              <w:szCs w:val="24"/>
+              <w:lang w:val="en-US" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
+            </w:rPr>
+            <w:t xml:space="preserve">participant.city </w:t>
+          </w:r>
+          <w:r>
+            <w:rPr/>
+            <w:t>}}</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="1675" w:type="dxa"/>
+          <w:tcBorders>
+            <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+          </w:tcBorders>
+        </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:rPr/>
+          </w:pPr>
+          <w:r>
+            <w:rPr/>
+            <w:t xml:space="preserve">{{ </w:t>
+          </w:r>
+          <w:r>
+            <w:rPr>
+              <w:rFonts w:eastAsia="Noto Sans CJK SC Regular" w:cs="FreeSans"/>
+              <w:color w:val="00000A"/>
+              <w:kern w:val="0"/>
+              <w:sz w:val="24"/>
+              <w:szCs w:val="24"/>
+              <w:lang w:val="en-US" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
+            </w:rPr>
+            <w:t xml:space="preserve">participant.email </w:t>
+          </w:r>
+          <w:r>
+            <w:rPr/>
+            <w:t>}}</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="1543" w:type="dxa"/>
+          <w:tcBorders>
+            <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:right w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+          </w:tcBorders>
+        </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:rPr/>
+          </w:pPr>
+          <w:r>
+            <w:rPr/>
+            <w:t xml:space="preserve">{{ </w:t>
+          </w:r>
+          <w:r>
+            <w:rPr>
+              <w:rFonts w:eastAsia="Noto Sans CJK SC Regular" w:cs="FreeSans"/>
+              <w:color w:val="00000A"/>
+              <w:kern w:val="0"/>
+              <w:sz w:val="24"/>
+              <w:szCs w:val="24"/>
+              <w:lang w:val="en-US" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
+            </w:rPr>
+            <w:t xml:space="preserve">participant.phone </w:t>
+          </w:r>
+          <w:r>
+            <w:rPr/>
+            <w:t>}}</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+    </w:tr>
+    <w:tr>
+      <w:trPr/>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="9643" w:type="dxa"/>
+          <w:gridSpan w:val="6"/>
+          <w:tcBorders>
+            <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:right w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+          </w:tcBorders>
+        </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:keepNext w:val="true"/>
+            <w:widowControl w:val="false"/>
+            <w:rPr/>
+          </w:pPr>
+          <w:r>
+            <w:rPr>
+              <w:lang w:val="de-CH" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
+            </w:rPr>
+            <w:t>{%tr endfor %}</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+    </w:tr>
+    <w:tr>
+      <w:trPr/>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="9643" w:type="dxa"/>
+          <w:gridSpan w:val="6"/>
+          <w:tcBorders>
+            <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:right w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+          </w:tcBorders>
+        </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:keepNext w:val="true"/>
             <w:widowControl w:val="false"/>
             <w:rPr/>
           </w:pPr>
