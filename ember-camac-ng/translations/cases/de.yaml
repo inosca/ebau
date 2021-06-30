@@ -32,6 +32,8 @@ cases:
     municipality-placeholder: "Alle Gemeinden"
     instanceState: "Status"
     instanceState-placeholder: "Alle Status"
+    service: "Fachstelle"
+    service-placeholder: "Alle Fachstellen"
     parcelNumber: "Parzellen- / Baurechtsnummer"
     parcelNumber-placeholder: "1234"
     createdAfter: "Erstellung von"

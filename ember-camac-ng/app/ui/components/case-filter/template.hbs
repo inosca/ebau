@@ -51,6 +51,15 @@
       />
 
       <CaseFilter::Select
+        @filterName="service"
+        @updateFilter={{fn this.updateFilter "service"}}
+        @filterOptions={{this.filterData.services}}
+        @valueField="id"
+        @labelField="name"
+        @value={{@filter.service}}
+      />
+
+      <CaseFilter::Select
         @filterName="buildingPermitType"
         @updateFilter={{fn this.updateFilter "buildingPermitType"}}
         @filterOptions={{this.filterData.buildingPermitTypes}}
