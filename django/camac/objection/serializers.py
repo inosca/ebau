@@ -62,7 +62,7 @@ class ObjectionSerializer(serializers.ModelSerializer, InstanceEditableMixin):
 
     class Meta:
         model = models.Objection
-        fields = ("instance", "creation_date", "objection_participants")
+        fields = ("instance", "creation_date", "title", "objection_participants")
 
 
 class ObjectionTimeframeSerializer(serializers.ModelSerializer, InstanceEditableMixin):
