@@ -1150,6 +1150,17 @@ snapshots["test_document_merge_service_snapshot[baugesuch] 1"] = [
                 "slug": "bestaetigung-gis",
                 "type": "MultipleChoiceQuestion",
             },
+            {
+                "choices": [
+                    {
+                        "checked": False,
+                        "label": 'Der/die Gesuchsteller/in bestätigt, dass die Bauherrschaft Berechtigung (via Tab "Berechtigungen") auf das Dossier erhalten hat.',
+                    }
+                ],
+                "label": 'Der/die Gesuchsteller/in bestätigt, dass die Bauherrschaft Berechtigung (via Tab "Berechtigungen") auf das Dossier erhalten hat.',
+                "slug": "bestaetigung-berechtigung-bauherrschaft",
+                "type": "MultipleChoiceQuestion",
+            },
         ],
         "label": "Bestätigung",
         "slug": "7-bestaetigung",
