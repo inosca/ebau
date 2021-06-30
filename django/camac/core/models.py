@@ -4020,7 +4020,7 @@ class BillingV2Entry(models.Model):
     # Structural: Which instance is the item billed to?
     instance = models.ForeignKey(
         "instance.Instance",
-        models.DO_NOTHING,
+        models.CASCADE,
         db_column="INSTANCE_ID",
         related_name="+",
     )

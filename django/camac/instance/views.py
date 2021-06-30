@@ -54,6 +54,7 @@ from . import (
     serializers,
     validators,
 )
+from .placeholders.serializers import DMSPlaceholdersSerializer
 
 
 class InstanceStateView(ReadOnlyModelViewSet):
@@ -164,6 +165,7 @@ class InstanceView(
                 "archive": serializers.CalumaInstanceArchiveSerializer,
                 "change_form": serializers.CalumaInstanceChangeFormSerializer,
                 "fix_work_items": serializers.CalumaInstanceFixWorkItemsSerializer,
+                "dms_placeholders": DMSPlaceholdersSerializer,
                 "default": serializers.CalumaInstanceSerializer,
             },
             "camac-ng": {
@@ -760,6 +762,17 @@ class InstanceView(
 
         return Response([], 204)
 
+    @swagger_auto_schema(auto_schema=None)
+    @action(
+        methods=["get"],
+        detail=True,
+        renderer_classes=[JSONRenderer],
+        url_path="dms-placeholders",
+    )
+    def dms_placeholders(self, request, pk):
+        serializer = self.get_serializer(self.get_object())
+        return response.Response(serializer.data)
+
 
 class InstanceResponsibilityView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
 
@@ -1246,10 +1259,10 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
         queryset = (
             super()
             .get_queryset_for_public()
-            .select_related("document")
             .prefetch_related(
                 "document__answers",
-                "document__answers__documents__answers",
+                "document__answers__answerdocument_set",
+                "document__answers__answerdocument_set__document__answers",
                 "document__dynamicoption_set",
             )
             .annotate(instance_id=F("instance__pk"))
