@@ -30,4 +30,8 @@ export default class ShoeboxService extends Service {
   get isReadOnlyRole() {
     return this.role?.endsWith("-readonly");
   }
+
+  get isAdminRole() {
+    return this.role?.endsWith("-admin");
+  }
 }
