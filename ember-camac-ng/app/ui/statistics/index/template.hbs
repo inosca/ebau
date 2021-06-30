@@ -1,0 +1,47 @@
+<form class="uk-margin">
+  <div class="uk-grid-small uk-width-1-2 uk-child-width-1-2" uk-grid>
+    <div>
+      <label class="uk-text-bold">{{t "statistics.from"}}</label>
+      <PikadayInput
+        class="uk-input"
+        @value={{this.from}}
+        @onSelection={{fn this.setFilter "from"}}
+      />
+    </div>
+    <div>
+      <label class="uk-text-bold">{{t "statistics.to"}}</label>
+      <PikadayInput
+        class="uk-input"
+        @value={{this.to}}
+        @onSelection={{fn this.setFilter "to"}}
+      />
+    </div>
+  </div>
+</form>
+
+<table class="uk-table uk-table-striped">
+  <tbody>
+    <tr>
+      <td class="uk-text-bold">{{t "statistics.instance-count"}}</td>
+      <td class="uk-text-right">
+        {{#if this.fetchInstancesSummary.isRunning}}
+          <UkSpinner ratio={{0.5}} />
+        {{else}}
+          {{this.instanceCount}}
+        {{/if}}
+      </td>
+    </tr>
+    {{#if (can "view statistic" "claims")}}
+      <tr>
+      <td class="uk-text-bold">{{t "statistics.claim-count"}}</td>
+        <td class="uk-text-right">
+          {{#if this.fetchClaimsSummary.isRunning}}
+            <UkSpinner ratio={{0.5}} />
+          {{else}}
+            {{this.claimCount}}
+          {{/if}}
+        </td>
+      </tr>
+    {{/if}}
+  </tbody>
+</table>
