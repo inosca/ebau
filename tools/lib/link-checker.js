@@ -37,9 +37,13 @@ export async function checkLink(url) {
     return true;
   }
 
-  const response = await fetch(url);
+  try {
+    const response = await fetch(url);
 
-  return response.ok;
+    return response.ok;
+  } catch (error) {
+    return false;
+  }
 }
 
 export function getLinksFromMarkdown(text) {
