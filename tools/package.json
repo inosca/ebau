@@ -4,7 +4,8 @@
   "description": "Tools for the camac-ng repo",
   "scripts": {
     "test": "tap",
-    "link-checker": "node bin/link-checker.js"
+    "link-checker": "node bin/link-checker.js",
+    "extract-be-links": "node bin/extract-be-links.js"
   },
   "dependencies": {
     "csv-writer": "^1.6.0",
