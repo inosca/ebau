@@ -2,7 +2,7 @@ import { checkLink, extract } from "../lib/link-checker.js";
 import { createObjectCsvWriter } from "csv-writer";
 
 const csvWriter = createObjectCsvWriter({
-  path: "result.csv",
+  path: "link-checks.csv",
   header: [
     { id: "pk", title: "Frage" },
     { id: "link", title: "Link" },
