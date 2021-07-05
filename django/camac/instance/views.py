@@ -654,7 +654,7 @@ class InstanceView(
         ]
 
         sheet = django_excel.pe.Sheet([header] + data)
-        return django_excel.make_response(sheet, file_type="csv", file_name="list.csv")
+        return django_excel.make_response(sheet, file_type="xlsx")
 
     @action(methods=["post"], detail=True)
     @transaction.atomic

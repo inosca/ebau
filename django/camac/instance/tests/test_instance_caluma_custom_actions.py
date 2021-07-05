@@ -1,5 +1,6 @@
 import pathlib
 
+import pyexcel
 import pytest
 from caluma.caluma_form import api as form_api, models as caluma_form_models
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
@@ -710,6 +711,7 @@ def test_caluma_export_be(
     caluma_admin_user,
     application_settings,
     settings,
+    snapshot,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
@@ -751,13 +753,10 @@ def test_caluma_export_be(
     )
 
     url = reverse("instance-export")
-    resp = admin_client.get(url, {"instance_id": instance.pk})
-
-    assert resp.status_code == status.HTTP_200_OK
-    content = resp.content.decode("utf-8")
-    lines = content.strip().split("\r\n")
-    assert len(lines) == 2
-    assert str(instance.pk) in lines[1]
+    response = admin_client.get(url, {"instance_id": instance.pk})
+    assert response.status_code == status.HTTP_200_OK
+    book = pyexcel.get_book(file_content=response.content, file_type="xlsx")
+    assert instance.pk in book.get_dict()["pyexcel sheet"][1]
 
 
 @pytest.mark.parametrize(
