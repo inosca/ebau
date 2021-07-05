@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-28 10:36+0200\n"
-"PO-Revision-Date: 2021-07-28 10:37+0200\n"
+"PO-Revision-Date: 2021-08-11 12:30+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -118,27 +118,67 @@ msgstr "Der \"attachments\" Filter ist obligatorisch!"
 msgid "Circulation started"
 msgstr "Zirkulation gestartet"
 
-#: camac/instance/document_merge_service.py:58
+#: camac/instance/document_merge_service.py:122 camac/instance/views.py:639
+msgid "Address"
+msgstr "Adresse"
+
+#: camac/instance/document_merge_service.py:123
+msgid "Plots"
+msgstr "Parzelle(n)"
+
+#: camac/instance/document_merge_service.py:124 camac/instance/views.py:643
+msgid "Applicant"
+msgstr "Gesuchsteller/in"
+
+#: camac/instance/document_merge_service.py:125
+msgid "Keywords"
+msgstr "Stichworte"
+
+#: camac/instance/document_merge_service.py:126 camac/instance/views.py:644
+msgid "Municipality"
+msgstr "Gemeinde"
+
+#: camac/instance/document_merge_service.py:127
+msgid "Authority"
+msgstr "Leitbehörde"
+
+#: camac/instance/document_merge_service.py:128 camac/instance/views.py:642
+msgid "Responsible"
+msgstr "Zuständig"
+
+#: camac/instance/document_merge_service.py:129
+msgid "Input date"
+msgstr "Eingangsdatum"
+
+#: camac/instance/document_merge_service.py:130
+msgid "Description"
+msgstr "Beschreibung"
+
+#: camac/instance/document_merge_service.py:131
+msgid "Modification"
+msgstr "Projektänderung"
+
+#: camac/instance/document_merge_service.py:155
 #, python-format
 msgid "None or multiple caluma Documents found for instance: %(instance)s"
 msgstr ""
 "Keines oder mehrere Caluma Dokumente für das Dossier %(instance)s gefunden"
 
-#: camac/instance/document_merge_service.py:67
+#: camac/instance/document_merge_service.py:164
 #, python-format
 msgid "No template specified for form '%(form_slug)s'."
 msgstr "Keine Druckvorlage für das Caluma Formular %(form_slug)s spezifiziert."
 
-#: camac/instance/document_merge_service.py:91
-#: camac/instance/document_merge_service.py:425
+#: camac/instance/document_merge_service.py:192
+#: camac/instance/document_merge_service.py:549
 msgid "Signatures"
 msgstr "Unterschriften"
 
-#: camac/instance/document_merge_service.py:92
+#: camac/instance/document_merge_service.py:193
 msgid "Signature"
 msgstr "Unterschrift"
 
-#: camac/instance/document_merge_service.py:93
+#: camac/instance/document_merge_service.py:194
 msgid "Place and date"
 msgstr "Ort und Datum"
 
@@ -340,10 +380,6 @@ msgstr "Dossier-Nr."
 msgid "Application Type"
 msgstr "Gesuchstyp"
 
-#: camac/instance/views.py:639
-msgid "Address"
-msgstr "Adresse"
-
 #: camac/instance/views.py:640
 msgid "Submission Date"
 msgstr "Eingabedatum"
@@ -351,18 +387,6 @@ msgstr "Eingabedatum"
 #: camac/instance/views.py:641
 msgid "Status"
 msgstr "Status"
-
-#: camac/instance/views.py:642
-msgid "Responsible"
-msgstr "Zuständig"
-
-#: camac/instance/views.py:643
-msgid "Applicant"
-msgstr "Gesuchsteller/in"
-
-#: camac/instance/views.py:644
-msgid "Municipality"
-msgstr "Gemeinde"
 
 #: camac/instance/views.py:645
 msgid "Administrative District"
