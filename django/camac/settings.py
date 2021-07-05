@@ -895,6 +895,7 @@ APPLICATIONS = {
             },
             "MUNICIPALITY_SLUG": "gemeinde",
             "MUNICIPALITY_MODEL": "camac.user.models.Service",
+            "ADD_HEADER_DATA": True,
         },
         "GROUP_RENAME_ON_SERVICE_RENAME": True,
         "SERVICE_UPDATE_ALLOWED_ROLES": [
@@ -1321,6 +1322,7 @@ APPLICATIONS = {
             },
             "MUNICIPALITY_SLUG": "municipality",
             "MUNICIPALITY_MODEL": "camac.user.models.Location",
+            "ADD_HEADER_DATA": False,
         },
         "ARCHIVE_FORMS": [293, 294],
         "PAPER": {
