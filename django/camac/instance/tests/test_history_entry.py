@@ -27,7 +27,7 @@ def test_history_entry_list(admin_client, history_entry, activation, size):
         ("Applicant", status.HTTP_403_FORBIDDEN),
         ("Canton", status.HTTP_403_FORBIDDEN),
         ("Service", status.HTTP_403_FORBIDDEN),
-        ("Municipality", status.HTTP_403_FORBIDDEN),
+        ("Municipality", status.HTTP_201_CREATED),
         ("Support", status.HTTP_201_CREATED),
     ],
 )
