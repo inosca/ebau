@@ -111,7 +111,7 @@ services:
     image: mailhog/mailhog
 
   clamav:
-    image: dinkel/clamavd
+    image: tiredofit/clamav:2.1.1
 
   keycloak:
     depends_on:
