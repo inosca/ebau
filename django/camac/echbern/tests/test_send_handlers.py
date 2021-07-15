@@ -225,7 +225,7 @@ def test_notice_ruling_send_handler(
         handler.apply()
         ech_instance.refresh_from_db()
         assert ech_instance.instance_state == expected_state
-        assert DocxDecision.objects.get(instance=ech_instance.pk)
+        assert DocxDecision.objects.get(instance=ech_instance)
         assert Message.objects.count() == 1
         assert Message.objects.first().receiver == ech_instance.responsible_service()
         attachment.refresh_from_db()
@@ -355,7 +355,7 @@ def test_close_dossier_send_handler(
     ech_instance.save()
 
     circulation_factory(instance=ech_instance)
-    docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=ech_instance.pk)
+    docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=ech_instance)
 
     case = ech_instance_case()
 

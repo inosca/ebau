@@ -809,7 +809,7 @@ def test_instance_report(
 
     if instance_state.name == "sb1":
         docx_decision_factory(
-            decision=be_constants.DECISIONS_BEWILLIGT, instance=instance.pk
+            decision=be_constants.DECISIONS_BEWILLIGT, instance=instance
         )
 
         service = instance.responsible_service()
@@ -892,7 +892,7 @@ def test_instance_finalize(
 
     if instance_state.name == "sb2":
         docx_decision_factory(
-            decision=be_constants.DECISIONS_BEWILLIGT, instance=instance.pk
+            decision=be_constants.DECISIONS_BEWILLIGT, instance=instance
         )
 
         service = instance.responsible_service()

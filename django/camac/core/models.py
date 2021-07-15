@@ -4078,8 +4078,12 @@ class BillingV2Entry(models.Model):
 
 
 class DocxDecision(models.Model):
-    instance = models.AutoField(
-        "instance.Instance", db_column="INSTANCE_ID", primary_key=True
+    instance = models.OneToOneField(
+        "instance.Instance",
+        on_delete=models.DO_NOTHING,
+        db_column="INSTANCE_ID",
+        primary_key=True,
+        related_name="decision",
     )
     decision = models.CharField(db_column="DECISION", max_length=30)
     decision_type = models.CharField(

@@ -35,7 +35,7 @@ def test_copy_papierdossier(
         user=caluma_admin_user,
     )
 
-    docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=instance.pk)
+    docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=instance)
 
     case.document.answers.create(question_id="is-paper", value=expected_value)
 
@@ -82,7 +82,7 @@ def test_copy_sb_personalien(
         user=caluma_admin_user,
     )
 
-    docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=instance.pk)
+    docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=instance)
 
     case.document.answers.create(question_id="is-paper", value="is-paper-no")
 
@@ -159,7 +159,7 @@ def test_copy_tank_installation(
         user=caluma_admin_user,
     )
 
-    docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=instance.pk)
+    docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=instance)
 
     table_form = caluma_form_models.Form.objects.create(
         slug="lagerung-von-stoffen-tabelle-v2"
@@ -570,7 +570,7 @@ def test_complete_decision(
     multilang,
     use_instance_service,
 ):
-    docx_decision_factory(decision=decision, instance=instance.pk)
+    docx_decision_factory(decision=decision, instance=instance)
     instance_state_factory(name=expected_instance_state)
 
     instance_service_factory(
