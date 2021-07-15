@@ -32,7 +32,7 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
 
         if workflow == "building-permit":
             approved = DocxDecision.objects.filter(
-                instance=instance.pk,
+                instance=instance,
                 decision=DECISIONS_BEWILLIGT,
             ).exists()
             history_text = gettext_noop("Decision decreed")

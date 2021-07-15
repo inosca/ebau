@@ -482,11 +482,10 @@ class Command(BaseCommand):
         )
 
         decided = set(
-            DocxDecision.objects.filter(instance__in=completed).values_list(
+            DocxDecision.objects.filter(instance_id__in=completed).values_list(
                 "instance", flat=True
             )
         )
-
         # this matches the 17 reported cases
         broken = completed - decided
 

@@ -143,7 +143,7 @@ class CirculationAnswerFactory(DjangoModelFactory):
 
 
 class DocxDecisionFactory(DjangoModelFactory):
-    instance = fuzzy.FuzzyInteger(500)
+    instance = SubFactory(InstanceFactory)
     decision = fuzzy.FuzzyChoice(["accepted", "denied", "writtenOff"])
     decision_type = fuzzy.FuzzyChoice(
         [
