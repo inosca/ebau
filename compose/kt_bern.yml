@@ -36,7 +36,6 @@ services:
     depends_on:
       - db
       - cache
-      - clamav
       - keycloak
       - mailhog
     environment:
@@ -44,7 +43,7 @@ services:
       - DATABASE_NAME=${APPLICATION}
       - DJANGO_CACHE_LOCATION=cache:11211
       - DJANGO_MEDIA_ROOT=/var/lib/camac/media
-      - DJANGO_CLAMD_TCP_ADDR=clamav
+      - DJANGO_CLAMD_ENABLED=false
       - APPLICATION=${APPLICATION}
       - CACHE_BACKEND=django.core.cache.backends.memcached.MemcachedCache
       - CACHE_LOCATION=cache:11211
@@ -105,9 +104,6 @@ services:
 
   mailhog:
     image: mailhog/mailhog
-
-  clamav:
-    image: dinkel/clamavd
 
   keycloak:
     depends_on:
