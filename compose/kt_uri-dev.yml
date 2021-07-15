@@ -156,6 +156,5 @@ services:
         "wait-for-it.sh db:5432 -- ./manage.py migrate && uwsgi",
       ]
 
-
 networks:
   camac-ng.local:
