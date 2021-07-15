@@ -19,12 +19,6 @@ services:
           - caluma-portal.local
           - camac-ng-keycloak.local
 
-  clamav:
-    ports:
-      - "3310:3310"
-    networks:
-      - camac-ng.local
-
   db:
     # Workaround, same name of image as cache_from
     # better be named differently once following is fixed:
