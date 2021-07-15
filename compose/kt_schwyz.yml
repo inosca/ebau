@@ -103,7 +103,7 @@ services:
     image: zrrrzzt/docker-unoconv-webservice:8.9.4
 
   clamav:
-    image: dinkel/clamavd
+    image: tiredofit/clamav:2.1.1
 
   keycloak:
     depends_on:
