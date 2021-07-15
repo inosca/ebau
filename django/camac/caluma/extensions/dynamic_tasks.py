@@ -11,7 +11,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
         if (
             case.workflow_id == "building-permit"
             and DocxDecision.objects.filter(
-                instance=case.meta.get("camac-instance-id"),
+                instance_id=case.meta.get("camac-instance-id"),
                 decision=DECISIONS_BEWILLIGT,
             ).exists()
         ):
