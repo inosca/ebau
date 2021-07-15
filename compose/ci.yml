@@ -164,7 +164,7 @@ services:
       - camac-ng.local
 
   clamav:
-    image: dinkel/clamavd
+    image: tiredofit/clamav:2.1.1
     networks:
       - camac-ng.local
 
