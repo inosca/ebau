@@ -26,13 +26,13 @@ lint-yml:
   before_script:
     - yarn global add prettier
   script:
-    - prettier -c *.yml
+    - prettier -c **/*.yml
   only:
     refs:
       - master
       - merge_requests
     changes:
-      - "*.yml"
+      - "**/*.yml"
 
 lint-ember-camac-ng:
   stage: lint
