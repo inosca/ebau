@@ -32,5 +32,10 @@ module.exports = function (defaults) {
     `*/*-{${UNUSED_ENVS}}.hbs`
   );
 
+  app.trees.public = stew.rm(
+    stew.rename(app.trees.public, `-${ENV}.ico`, ".ico"),
+    `*/*-{${UNUSED_ENVS}}.ico`
+  );
+
   return app.toTree();
 };
