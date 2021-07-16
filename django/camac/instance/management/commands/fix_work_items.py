@@ -482,12 +482,16 @@ class Command(BaseCommand):
         )
 
         decided = set(
-            DocxDecision.objects.filter(instance_id__in=completed).values_list(
-                "instance", flat=True
+            DocxDecision.objects.filter(instance__pk__in=completed).values_list(
+                "instance__pk", flat=True
             )
         )
-        # this matches the 17 reported cases
+
         broken = completed - decided
+
+        if not broken:
+            self.stdout.write(self.style.NOTICE("No prematurely decided cases found."))
+            return
 
         work_items = WorkItem.objects.filter(
             task_id__in=["create-publication", "create-manual-workitems", "decision"],
