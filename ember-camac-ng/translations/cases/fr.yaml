@@ -33,6 +33,8 @@ cases:
     municipality-placeholder: ""
     instanceState: ""
     instanceState-placeholder: ""
+    service: ""
+    service-placeholder: ""
     parcelNumber: ""
     parcelNumber-placeholder: ""
     createdAfter: ""

@@ -4,6 +4,7 @@ from django.db.models import Q
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework.mixins import RetrieveModelMixin
 from rest_framework.viewsets import GenericViewSet
+from rest_framework_json_api import filters as json_api_filters
 from rest_framework_json_api.views import (
     AutoPrefetchMixin,
     ModelViewSet,
@@ -61,6 +62,8 @@ class ServiceView(MultilangMixin, ModelViewSet):
     filterset_class = filters.ServiceFilterSet
     serializer_class = serializers.ServiceSerializer
     queryset = models.Service.objects.all()
+    filter_backends = [json_api_filters.OrderingFilter]
+    ordering = ["name"]
 
     def has_destroy_permission(self):
         return False

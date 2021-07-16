@@ -198,6 +198,7 @@ export default class CaseTableComponent extends Component {
     const camacFilters = {
       instance_state: this.args.filter.instanceState || "",
       location: this.args.filter.municipality,
+      service: this.args.filter.service,
       circulation_state: this.args.hasActivation
         ? config.APPLICATION.activeCirculationStates
         : null,
