@@ -19,6 +19,23 @@ export default class CaseFilterComponent extends Component {
     const municipalities = yield this.store.findAll("location");
     const instanceStates = yield this.store.findAll("instance-state");
 
+    const externalServiceGroupIds = [
+      "21",
+      "70",
+      "2",
+      "65",
+      "66",
+      "62",
+      "61",
+      "63",
+      "64",
+      "41",
+      "71",
+    ];
+    const services = yield this.store.query("service", {
+      service_group_id: externalServiceGroupIds.join(","),
+    });
+
     const buildingPermitTypes = (yield this.apollo.query(
       {
         query: gql`
@@ -51,6 +68,7 @@ export default class CaseFilterComponent extends Component {
       municipalities,
       buildingPermitTypes,
       instanceStates,
+      services,
     };
   }
 
