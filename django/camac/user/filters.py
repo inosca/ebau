@@ -35,10 +35,11 @@ class PublicServiceFilterSet(FilterSet):
 
 class ServiceFilterSet(FilterSet):
     service_id = NumberMultiValueFilter()
+    service_group_id = NumberMultiValueFilter()
 
     class Meta:
         model = models.Service
-        fields = ("service_id",)
+        fields = ("service_id", "service_group_id")
 
 
 class PublicUserFilterSet(FilterSet):

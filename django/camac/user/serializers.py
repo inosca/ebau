@@ -128,6 +128,7 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
     included_serializers = {
         "users": "camac.user.serializers.UserSerializer",
         "service_parent": "camac.user.serializers.ServiceSerializer",
+        "service_group": "camac.user.serializers.PublicServiceGroupSerializer",
     }
 
     def update(self, instance, validated_data):
@@ -194,9 +195,10 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
             "phone",
             "users",
             "service_parent",
+            "service_group",
             "sort",
         )
-        read_only_fields = ("users", "sort", "service_parent")
+        read_only_fields = ("users", "sort", "service_parent", "service_group")
 
 
 class GroupSerializer(MultilingualSerializer, serializers.ModelSerializer):
