@@ -20,6 +20,7 @@ const DATA = {
   notification: 1,
   userIds: null,
   activationIds: null,
+  serviceGroupId: null,
 };
 
 DATA.description = DATA.name;
