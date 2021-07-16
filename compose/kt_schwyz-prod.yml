@@ -96,7 +96,7 @@ services:
     restart: always
 
   clamav:
-    image: dinkel/clamavd
+    image: tiredofit/clamav:2.1.1
     restart: always
 
   keycloak:
