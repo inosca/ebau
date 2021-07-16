@@ -19,5 +19,5 @@ repos:
     - id: flake8
       name: flake8
       language: system
-      entry: flake8
+      entry: flake8 --config django/.flake8
       types: [python]
