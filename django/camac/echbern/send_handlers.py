@@ -103,15 +103,12 @@ class BaseSendHandler:
 
     def _process_work_item(self, action, task, filters, context):
         fn = getattr(workflow_api, f"{action}_work_item")
-        work_item = (
-            self.get_case()
-            .work_items.filter(
-                task_id=task,
-                status=caluma_workflow_models.WorkItem.STATUS_READY,
-                **filters,
-            )
-            .first()
-        )
+        work_item = caluma_workflow_models.WorkItem.objects.filter(
+            case__family=self.get_case(),
+            task_id=task,
+            status=caluma_workflow_models.WorkItem.STATUS_READY,
+            **filters,
+        ).first()
 
         if work_item and fn:
             fn(work_item=work_item, user=self.caluma_user, context=context)
