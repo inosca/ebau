@@ -4168,7 +4168,7 @@
       "hint": "Dies ist ein Hinweis, welcher sich aus der Lokalisierung Ihres Vorhabens ergibt. Bei Fragen wenden Sie sich bitte an die zuständige Bauverwaltung.\n**Wichtig:** In den Plänen müssen Gewässerraum und -abstand eingetragen sein, um Ihr Vorhaben materiell beurteilen zu können.",
       "type": "checkbox",
       "required": false,
-      "active-expression": "'ms:ch.sz.a006.swisstlm3d.gewaesser.stehendesgewaesser' in 'layer'|value|mapby('name') || 'ms:ch.sz.a006.swisstlm3d.gewaesser.fliessgewaesser' in 'layer'|value|mapby('name') || 'ms:ch.sz.awb.grp.awb_gewaesserraum' in 'layer'|value|mapby('name')",
+      "active-expression": "'ms:ch.sz.a006.swisstlm3d.gewaesser.stehendesgewaesser' in 'layer'|value|mapby('name') || 'ms:ch.sz.a154a.referenzgeometrie_standgewaesser.uferlinie' in 'layer'|value|mapby('name') || 'ms:ch.sz.a006.swisstlm3d.gewaesser.fliessgewaesser' in 'layer'|value|mapby('name') || 'ms:ch.sz.a041b.gewaessernetz.mwert.karto' in 'layer'|value|mapby('name') || 'ms:ch.sz.awb.grp.awb_gewaesserraum' in 'layer'|value|mapby('name')",
       "config": {
         "options": ["Erledigt"]
       }
