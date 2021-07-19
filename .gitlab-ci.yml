@@ -8,12 +8,6 @@ variables:
   APPLICATION: demo
   COMPOSE_HTTP_TIMEOUT: 300
 
-before_script:
-  - mkdir /root/.docker
-  - echo "$RUNNER_DOCKER_CAPEM" > /root/.docker/ca.pem
-  - echo "$RUNNER_DOCKER_CERTPEM" > /root/.docker/cert.pem
-  - echo "$RUNNER_DOCKER_KEYPEM" > /root/.docker/key.pem
-
 stages:
   - lint
   - test
@@ -345,6 +339,11 @@ deploy-kt_schwyz-stage:
   environment:
     name: stage-kt_schwyz
     url: https://camac-schwyz.sycloud.ch/
+  before_script:
+    - mkdir /root/.docker
+    - echo "$SZ_RUNNER_DOCKER_CAPEM" > /root/.docker/ca.pem
+    - echo "$SZ_RUNNER_DOCKER_CERTPEM" > /root/.docker/cert.pem
+    - echo "$SZ_RUNNER_DOCKER_KEYPEM" > /root/.docker/key.pem
   variables:
     APPLICATION: kt_schwyz
     DOCKER_HOST: vm-camac-webapp-stage-02.cust.adfinis-sygroup.ch:2376
@@ -357,6 +356,11 @@ deploy-kt_schwyz-production:
   environment:
     name: production-kt_schwyz
     url: https://behoerden.ebau-sz.ch/
+  before_script:
+    - mkdir /root/.docker
+    - echo "$SZ_RUNNER_DOCKER_CAPEM" > /root/.docker/ca.pem
+    - echo "$SZ_RUNNER_DOCKER_CERTPEM" > /root/.docker/cert.pem
+    - echo "$SZ_RUNNER_DOCKER_KEYPEM" > /root/.docker/key.pem
   variables:
     DOCKER_HOST: vm-kantonsz-web-01.cust.adfinis-sygroup.ch:2376
     # TODO We should make kt_schwyz-prod.yml base on kt_schwyz.yml
@@ -370,6 +374,11 @@ deploy-kt_uri-stage:
   environment:
     name: stage-kt_uri
     url: https://camac.ur.sycloud.ch/
+  before_script:
+    - mkdir /root/.docker
+    - echo "$UR_RUNNER_DOCKER_CAPEM" > /root/.docker/ca.pem
+    - echo "$UR_RUNNER_DOCKER_CERTPEM" > /root/.docker/cert.pem
+    - echo "$UR_RUNNER_DOCKER_KEYPEM" > /root/.docker/key.pem
   variables:
     APPLICATION: kt_uri
     DOCKER_HOST: vm-kturi-urec-test-01.cust.adfinis.com:2376
