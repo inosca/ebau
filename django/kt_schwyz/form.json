@@ -4627,7 +4627,6 @@
       "hint": "Unter dem Titel *Postfach* finden Sie alle Dokumente, welche Ihnen durch die zuständige Behörde elektronisch zugestellt worden sind. Durch Klicken auf das \"Wolken-Symbol\" können Sie das jeweilige Dokument herunterladen.",
       "type": "document",
       "required": false,
-      "active-expression": "state != 'new'",
       "config": {}
     },
     "dokument-publikation": {
