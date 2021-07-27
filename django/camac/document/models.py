@@ -186,6 +186,7 @@ class AttachmentSectionT(models.Model):
         db_table = "ATTACHMENT_SECTION_T"
 
 
+# TODO: Split `write` in `create` and `update`
 WRITE_PERMISSION = "write"
 READ_PERMISSION = "read"
 ADMIN_PERMISSION = "admin"

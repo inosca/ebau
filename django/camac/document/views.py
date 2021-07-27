@@ -172,7 +172,8 @@ class AttachmentView(
     def has_object_destroy_base_permission(self, obj):
         return self.has_permission(obj, PermissionMode.destroy)
 
-    # Called from serializer
+    # Called from serializer (only by webdav integration)
+    # TODO: Rename to `has_update_permission`
     def has_write_permission(self, obj):
         return self.has_permission(obj, PermissionMode.write)
 
@@ -182,29 +183,38 @@ class AttachmentView(
             attachment_section.get_mode(group)
             for attachment_section in obj.attachment_sections.all()
         }
-        # get_mode() can return None if no access mode configured.
-        # This must be removed again to avoid false positives when
-        # checking if there are any section modes
-        section_modes.discard(None)
 
-        attachment_admin_permissions = section_modes - {
-            models.READ_PERMISSION,
-            models.PUBLIC_PERMISSION,
-        }
         if mode == PermissionMode.destroy:
-            attachment_admin_permissions = section_modes - {
-                models.WRITE_PERMISSION,
-            }
+            destroy_permission = models.ADMIN_PERMISSION in section_modes
 
-        if models.ADMINSERVICE_PERMISSION in attachment_admin_permissions:
-            return (
-                obj.service == group.service
-                and super().has_object_destroy_permission(obj)
+            if not destroy_permission and bool(
+                {
+                    models.ADMINSERVICE_PERMISSION,
+                    models.ADMININTERNAL_PERMISSION,
+                }.intersection(section_modes)
+            ):
+                destroy_permission = obj.service == group.service
+
+            return destroy_permission and super().has_object_destroy_permission(obj)
+
+        if mode == PermissionMode.write:
+            write_permission = bool(
+                {
+                    models.WRITE_PERMISSION,
+                    models.ADMIN_PERMISSION,
+                    models.ADMINSERVICE_PERMISSION,
+                }.intersection(section_modes)
             )
 
-        return bool(
-            attachment_admin_permissions
-        ) and super().has_object_destroy_permission(obj)
+            if (
+                not write_permission
+                and models.ADMININTERNAL_PERMISSION in section_modes
+            ):
+                write_permission = obj.service == group.service
+
+            return write_permission and super().has_object_update_permission(obj)
+
+        return False  # pragma: no cover
 
     @permission_aware
     def has_object_destroy_permission(self, obj):
