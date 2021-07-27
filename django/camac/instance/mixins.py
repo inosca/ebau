@@ -314,9 +314,6 @@ class InstanceEditableMixin(AttributeMixin):
         instance = self.get_instance(obj)
         return self.has_editable_permission(instance)
 
-    def has_object_destroy_permission(self, obj):
-        return self.has_object_update_permission(obj)
-
     def _validate_instance_editablity(
         self, instance, is_editable_callable=lambda: True
     ):
