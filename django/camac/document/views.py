@@ -195,7 +195,7 @@ class AttachmentView(
             ):
                 destroy_permission = obj.service == group.service
 
-            return destroy_permission and super().has_object_destroy_permission(obj)
+            return destroy_permission and super().has_object_update_permission(obj)
 
         if mode == PermissionMode.write:
             write_permission = bool(
