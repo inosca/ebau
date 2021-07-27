@@ -31,7 +31,7 @@ from .data import django_file
         ("attachments/files/852/important.docx", True),
     ],
 )
-@pytest.mark.parametrize("mode", ["admin", "read"])
+@pytest.mark.parametrize("mode", ["admin", "read", "adminint"])
 def test_attachment_list(
     admin_client,
     attachment_attachment_sections,
@@ -72,7 +72,14 @@ def test_attachment_list(
     data = json["data"]
     assert len(data) == 1
     assert data[0]["id"] == str(attachment_attachment_sections.attachment.pk)
-    can_write = role.name not in ("Applicant", "Reader") and mode == "admin"
+    can_write = role.name not in ("Applicant", "Reader") and (
+        mode == "admin"
+        or (
+            mode == "adminint"
+            and attachment_attachment_sections.attachment.service
+            == admin_client.user.get_default_group().service
+        )
+    )
     assert (data[0]["attributes"]["webdav-link"] is not None) == (can_write and is_docx)
 
 
@@ -767,6 +774,13 @@ def test_attachment_loosen_filter(
             django_file("test-thumbnail.jpg"),
             LazyFixture(lambda service_factory: service_factory()),
             models.ADMIN_PERMISSION,
+            status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "rejected",
+            django_file("test-thumbnail.jpg"),
+            LazyFixture(lambda service_factory: service_factory()),
+            models.READ_PERMISSION,
             status.HTTP_403_FORBIDDEN,
         ),
         (
