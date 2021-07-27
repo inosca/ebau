@@ -64,7 +64,7 @@
                   />
                 </div>
               {{/unless}}
-              {{#if (contains @instance.instanceState.name (array "new" "rejected"))}}
+              {{#unless @readonly}}
                 <button
                   data-test-delete-document
                   class="uk-icon-button confirm-delete-{{doc.id}}"
@@ -95,7 +95,7 @@
                     type="button"
                   ></button>
                 </span>
-              {{/if}}
+              {{/unless}}
             </td>
           </tr>
         {{/each}}
