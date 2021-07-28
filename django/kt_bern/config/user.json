@@ -545,6 +545,14 @@
     }
   },
   {
+    "model": "user.servicegroup",
+    "pk": 20001,
+    "fields": {
+      "name": "lead-service",
+      "sort": null
+    }
+  },
+  {
     "model": "user.servicegroupt",
     "pk": 20000,
     "fields": {
@@ -578,6 +586,15 @@
       "service_group": 20000,
       "language": "de",
       "name": "Leitbeh\u00f6rde RSTA"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20004,
+    "fields": {
+      "service_group": 20001,
+      "language": "de",
+      "name": "Leitbeh\u00f6rde Fachstelle"
     }
   }
 ]
