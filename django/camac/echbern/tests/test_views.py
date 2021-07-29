@@ -50,7 +50,7 @@ def test_application_retrieve_full(
     decision = DECISIONS_ABGESCHRIEBEN
     if is_vorabklaerung:
         decision = VORABKLAERUNG_DECISIONS_BEWILLIGT_MIT_VORBEHALT
-    docx_decision_factory(instance=ech_instance.pk, decision=decision)
+    docx_decision_factory(instance=ech_instance, decision=decision)
 
     i = instance_factory()
 
@@ -277,7 +277,7 @@ def test_send(
         assert response.status_code == 201
         ech_instance.refresh_from_db()
         assert ech_instance.instance_state == expected_state
-        assert DocxDecision.objects.get(instance=ech_instance.pk)
+        assert DocxDecision.objects.get(instance=ech_instance)
     else:
         assert response.status_code == 403
 
