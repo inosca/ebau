@@ -179,7 +179,7 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
 
         # TODO: where should we write self.data.eventNotice.decisionRuling.ruling ?
         DocxDecision.objects.create(
-            instance=self.instance.pk,
+            instance=self.instance,
             decision=decision,
             decision_date=self.data.eventNotice.decisionRuling.date,
             decision_type="UNKNOWN_ECH",

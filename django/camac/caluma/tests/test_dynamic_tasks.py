@@ -47,7 +47,7 @@ def test_dynamic_task_after_decision(
     circulation,
     expected_case_status,
 ):
-    docx_decision_factory(decision=decision, instance=instance.pk)
+    docx_decision_factory(decision=decision, instance=instance)
 
     case = start_case(
         workflow=Workflow.objects.get(pk=workflow_id),
