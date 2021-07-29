@@ -434,7 +434,7 @@ def application(instance: Instance, answers: AnswersDict):
         # directive  minOccurs=0
         decisionRuling=[
             decision_ruling(instance, decision, answers)
-            for decision in DocxDecision.objects.filter(instance=instance.pk)
+            for decision in DocxDecision.objects.filter(instance=instance)
         ],
         document=get_documents(instance.attachments.all()),
         referencedPlanningPermissionApplication=[
