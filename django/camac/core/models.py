@@ -4080,7 +4080,7 @@ class BillingV2Entry(models.Model):
 class DocxDecision(models.Model):
     instance = models.OneToOneField(
         "instance.Instance",
-        on_delete=models.DO_NOTHING,
+        on_delete=models.CASCADE,
         db_column="INSTANCE_ID",
         primary_key=True,
         related_name="decision",
