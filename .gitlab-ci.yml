@@ -259,6 +259,15 @@ build-kt_uri-stage:
   only:
     - stage-ur
 
+build-kt_uri-stage-old:
+  extends: .build-image-ur
+  variables:
+    KEYCLOAK_HOST: https://camac-uri.sycloud.ch
+    APPLICATION: kt_uri
+    COMPOSE: docker-compose -f compose/kt_uri.yml -f compose/kt_uri-stage.yml
+  only:
+    - stage-ur-old
+
 build-kt_uri-production:
   extends: .build-image-ur
   variables:
