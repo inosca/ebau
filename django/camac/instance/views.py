@@ -1024,9 +1024,6 @@ class HistoryEntryView(
     def has_create_permission(self):
         return False
 
-    def has_create_permission_for_municipality(self):
-        return True
-
     def has_create_permission_for_support(self):
         return True
 
