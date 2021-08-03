@@ -260,6 +260,12 @@ class InstanceView(
     def has_object_fix_work_items_permission_for_support(self, instance):
         return True
 
+    def has_object_end_circulations_permission(self, instance):
+        return (
+            instance.responsible_service(filter_type="municipality")
+            == self.request.group.service
+        )
+
     @transaction.atomic
     def destroy(self, request, pk=None):
         instance_id = self.get_object().pk
