@@ -39,6 +39,7 @@ class CirculationView(InstanceQuerysetMixin, InstanceEditableMixin, views.ModelV
     def has_object_destroy_permission(self, instance):
         return (
             self.has_base_object_permission(instance)
+            and instance.service == self.request.group.service
             and not instance.activations.count()
         )
 
@@ -49,7 +50,10 @@ class CirculationView(InstanceQuerysetMixin, InstanceEditableMixin, views.ModelV
         return self.has_base_object_permission(instance)
 
     def has_object_end_permission(self, instance):
-        return self.has_base_object_permission(instance)
+        return (
+            self.has_base_object_permission(instance)
+            and instance.service == self.request.group.service
+        )
 
     @transaction.atomic
     def perform_destroy(self, circulation):
