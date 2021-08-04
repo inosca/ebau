@@ -203,6 +203,8 @@ APPLICATIONS = {
             "QUESTION": 20037,
             "ITEM": 1,
         },
+        # GWR fields have various "lookup types", see gwr_lookups.py
+        # gwr_field_name: (lookup_type, lookup, extra_options)
         "GWR": {
             "ANSWER_SLUGS": {},
             "ANSWER_MAPPING": {},
@@ -1208,14 +1210,16 @@ APPLICATIONS = {
             "notification.NotificationTemplate",
             "notification.NotificationTemplateT",
         ],
-        "GWR": {
+        # GWR fields have various "lookup types", see gwr_lookups.py
+        # gwr_field_name: (lookup_type, lookup, extra_options)
+        "GWR_EXPORT": {
             "ANSWER_SLUGS": {
                 "client": "personalien-gesuchstellerin",
-                "plot": None,
                 "officialConstructionProjectFileNo": None,
                 "constructionProjectDescription": ["beschreibung-bauvorhaben"],
                 "constructionLocalisation_municipalityName": None,
                 "typeOfConstructionProject": None,
+                "typeOfConstruction": None,
                 "totalCostsOfProject": "baukosten-in-chf",
                 "client_address_town": "ort-gesuchstellerin",
                 "client_address_swissZipCode": "plz-gesuchstellerin",
@@ -1230,9 +1234,7 @@ APPLICATIONS = {
                 "realestateIdentification_number": None,
             },
             "ANSWER_MAPPING": {},
-            "SUBMIT_DATE": {
-                "TASK": "submit",
-            },
+            "SUBMIT_DATE": ("submit_date_from_task", [10, 12]),
         },
         "MUNICIPALITY_DATA_SHEET": APPLICATION_DIR(
             "Verwaltungskreise und -regionen der Gemeinden.csv"
@@ -1419,42 +1421,91 @@ APPLICATIONS = {
             "QUESTION": 12000000,
             "ITEM": 1,
         },
-        "GWR": {
-            "ANSWER_SLUGS": {
-                "client": "applicant",
-                "plot": "parcels",
-                "officialConstructionProjectFileNo": "dossier-number",
-                "constructionProjectDescription": [
+        # GWR fields have various "lookup types", see gwr_lookups.py
+        # gwr_field_name: (lookup_type, lookup, extra_options)
+        "GWR_EXPORT": {
+            "client": (
+                "client",
+                "applicant",
+                {
+                    "address_town": "city",
+                    "address_swissZipCode": "zip",
+                    "address_street": "street",
+                    "address_houseNumber": "street-number",
+                    "address_country": "country",
+                    "identification_personIdentification_officialName": "last-name",
+                    "identification_personIdentification_firstName": "first-name",
+                    "identification_isOrganisation": (
+                        "is-juristic-person",
+                        {
+                            "is-juristic-person-no": False,
+                            "is-juristic-person-yes": True,
+                        },
+                    ),
+                    "identification_organisationIdentification_organisationName": "juristic-person-name",
+                },
+            ),
+            "officialConstructionProjectFileNo": (
+                "case_meta",
+                "dossier-number",
+            ),
+            "constructionProjectDescription": (
+                "answer",
+                [
                     "proposal-description",
                     "beschreibung-zu-mbv",
                     "bezeichnung",
                     "vorhaben-proposal-description",
                     "veranstaltung-beschrieb",
                 ],
-                "constructionLocalisation_municipalityName": "municipality",
-                "typeOfConstructionProject": "category",
-                "totalCostsOfProject": "construction-cost",
-                "client_address_town": "city",
-                "client_address_swissZipCode": "zip",
-                "client_address_street": "street",
-                "client_address_houseNumber": "street-number",
-                "client_address_country": "country",
-                "client_identification_personIdentification_officialName": "last-name",
-                "client_identification_personIdentification_firstName": "first-name",
-                "client_identification_isOrganisation": "is-juristic-person",
-                "client_identification_organisationIdentification_organisationName": "juristic-person-name",
-                "realestateIdentification_EGRID": "e-grid",
-                "realestateIdentification_number": "parcel-number",
-            },
-            "ANSWER_MAPPING": {
-                "category-hochbaute": 6011,
-                "category-tiefbaute": 6010,
-                "is-juristic-person-no": False,
-                "is-juristic-person-yes": True,
-            },
-            "SUBMIT_DATE": {
-                "WORKFLOW_ENTRY": [10, 12],
-            },
+            ),
+            "constructionLocalisation_municipalityName": (
+                "location",
+                "municipality",
+            ),
+            "typeOfConstructionProject": (
+                "answer",
+                "category",
+                {
+                    "category-hochbaute": 6011,
+                    "category-tiefbaute": 6010,
+                },
+            ),
+            "typeOfConstruction": (
+                "answer",
+                "gebaeude.art-der-hochbaute",
+                {
+                    "art-der-hochbaute-einfamilienhaus": 6271,
+                    "art-der-hochbaute-doppeleinfamilienhaus": 6272,
+                    "art-der-hochbaute-mehrfamilienhaus": 6273,
+                    "art-der-hochbaute-wohn-und-geschaftshaus": 6274,
+                    "art-der-hochbaute-geschaftshaus": 6294,
+                    "art-der-hochbaute-garage-oder-carport": 6278,
+                    "art-der-hochbaute-parkhaus": 6235,
+                    "art-der-hochbaute-bauten-und-anlagen-gastgewerbe": 6295,
+                    "art-der-hochbaute-heim-mit-unterkunft": 6254,
+                    "art-der-hochbaute-wohnheim-ohne-pflege": 6276,
+                    "art-der-hochbaute-spital": 6253,
+                    "art-der-hochbaute-schulen": 6251,
+                    "art-der-hochbaute-sporthallen": 6259,
+                    "art-der-hochbaute-tourismusanlagen": 6256,
+                    "art-der-hochbaute-kirchen": 6257,
+                    "art-der-hochbaute-kulturbauten": 6258,
+                    "art-der-hochbaute-oekonomie-mit-tieren-mit-tieren": 6281,
+                    "art-der-hochbaute-oekonomiegebaude": 6281,
+                    "art-der-hochbaute-landwirtschaft": 6281,
+                    "art-der-hochbaute-forstwirtschaft": 6282,
+                    "art-der-hochbaute-materiallager": 6292,
+                    "art-der-hochbaute-silo": 6292,
+                    "art-der-hochbaute-kommunikationsanlagen": 6245,
+                    "art-der-hochbaute-kehrichtentsorgungsanlagen": 6222,
+                    "art-der-hochbaute-andere": 6299,
+                },
+            ),
+            "totalCostsOfProject": ("answer", "construction-cost"),
+            "realestateIdentification_EGRID": ("answer", "parcels.e-grid"),
+            "realestateIdentification_number": ("answer", "parcels.parcel-number"),
+            "projectAnnouncementDate": ("submit_date_from_workflow", [10, 12]),
         },
         "SIDE_EFFECTS": {
             "document_downloaded": "camac.document.side_effects.create_workflow_entry",
