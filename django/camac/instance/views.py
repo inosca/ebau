@@ -294,107 +294,44 @@ class InstanceView(
         """Export instance data to GWR."""
 
         if settings.APPLICATION["FORM_BACKEND"] == "caluma":
-            answer_slugs = settings.APPLICATION["GWR"].get("ANSWER_SLUGS", {})
-
             case = workflow_models.Case.objects.get(instance__pk=pk)
-            answers = form_models.Answer.objects.filter(document=case.document)
-
-            try:
-                client = form_models.Answer.objects.filter(
-                    document=answers.get(
-                        question__slug=answer_slugs.get("client", "")
-                    ).documents.first()
-                )
-            except form_models.Answer.DoesNotExist:  # pragma: no cover
-                client = None
-
-            try:
-                plot = form_models.Answer.objects.filter(
-                    document=answers.get(
-                        question__slug=answer_slugs.get("plot", "")
-                    ).documents.first()
-                )
-            except form_models.Answer.DoesNotExist:  # pragma: no cover
-                plot = None
 
             return response.Response(
                 {
-                    "officialConstructionProjectFileNo": gwr_lookups.get_dossier_number(
-                        case
+                    "officialConstructionProjectFileNo": gwr_lookups.resolve(
+                        "officialConstructionProjectFileNo", case
                     ),
-                    "constructionProjectDescription": gwr_lookups.get_answer_value_from_list(
-                        "constructionProjectDescription", answers
+                    "constructionProjectDescription": gwr_lookups.resolve(
+                        "constructionProjectDescription", case
                     ),
                     "constructionLocalisation": {
-                        "municipalityName": gwr_lookups.get_municipality_answer_value(
-                            "constructionLocalisation_municipalityName", answers
+                        "municipalityName": gwr_lookups.resolve(
+                            "constructionLocalisation_municipalityName", case
                         )
                     },
-                    "typeOfConstructionProject": gwr_lookups.get_mapped_answer_value(
-                        "typeOfConstructionProject", answers
+                    "typeOfConstructionProject": gwr_lookups.resolve(
+                        "typeOfConstructionProject", case
                     ),
-                    "totalCostsOfProject": gwr_lookups.get_answer_value(
-                        "totalCostsOfProject", answers
+                    "typeOfConstruction": gwr_lookups.resolve(
+                        "typeOfConstruction", case
+                    ),
+                    "totalCostsOfProject": gwr_lookups.resolve(
+                        "totalCostsOfProject", case
                     ),
                     "realestateIdentification": {
-                        "EGRID": gwr_lookups.get_answer_value(
+                        "EGRID": gwr_lookups.resolve(
                             "realestateIdentification_EGRID",
-                            plot,
+                            case,
                         ),
-                        "number": gwr_lookups.get_answer_value(
+                        "number": gwr_lookups.resolve(
                             "realestateIdentification_number",
-                            plot,
+                            case,
                         ),
                     },
-                    "client": {
-                        "address": {
-                            "town": gwr_lookups.get_answer_value(
-                                "client_address_town", client
-                            ),
-                            "swissZipCode": gwr_lookups.get_answer_value(
-                                "client_address_swissZipCode",
-                                client,
-                            ),
-                            "street": gwr_lookups.get_answer_value(
-                                "client_address_street", client
-                            ),
-                            "houseNumber": gwr_lookups.get_answer_value(
-                                "client_address_houseNumber",
-                                client,
-                            ),
-                            "country": gwr_lookups.get_answer_value(
-                                "client_address_country", client
-                            ),
-                        },
-                        "identification": {
-                            "personIdentification": {
-                                "officialName": gwr_lookups.get_answer_value(
-                                    "client_identification_personIdentification_officialName",
-                                    client,
-                                ),
-                                "firstName": gwr_lookups.get_answer_value(
-                                    "client_identification_personIdentification_firstName",
-                                    client,
-                                ),
-                            },
-                            "isOrganisation": {
-                                gwr_lookups.get_mapped_answer_value(
-                                    "client_identification_isOrganisation",
-                                    client,
-                                )
-                            },
-                            "organisationIdentification": {
-                                "organisationName": gwr_lookups.get_answer_value(
-                                    "client_identification_organisationIdentification_organisationName",
-                                    client,
-                                )
-                            },
-                        },
-                    }
-                    if client
-                    else None,
-                    "projectAnnouncementDate": gwr_lookups.get_submit_date(
-                        pk, case, answer_slugs
+                    "client": gwr_lookups.resolve("client", case),
+                    "projectAnnouncementDate": gwr_lookups.resolve(
+                        "projectAnnouncementDate",
+                        case,
                     ),
                 }
             )
