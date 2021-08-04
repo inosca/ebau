@@ -8511,60 +8511,6 @@
   },
   {
     "model": "core.araction",
-    "pk": 6,
-    "fields": {
-      "available_resource": "glossary",
-      "action_name": "index",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.araction",
-    "pk": 7,
-    "fields": {
-      "available_resource": "glossary",
-      "action_name": "add-category",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.araction",
-    "pk": 8,
-    "fields": {
-      "available_resource": "glossary",
-      "action_name": "edit-category",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.araction",
-    "pk": 9,
-    "fields": {
-      "available_resource": "glossary",
-      "action_name": "add-sentence",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.araction",
-    "pk": 10,
-    "fields": {
-      "available_resource": "glossary",
-      "action_name": "edit-sentence",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.araction",
-    "pk": 11,
-    "fields": {
-      "available_resource": "glossary",
-      "action_name": "list",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.araction",
     "pk": 12,
     "fields": {
       "available_resource": "portal",
@@ -10997,15 +10943,6 @@
       "module_name": "default",
       "controller_name": "form",
       "description": "Page with a list of forms"
-    }
-  },
-  {
-    "model": "core.availableresource",
-    "pk": "glossary",
-    "fields": {
-      "module_name": "glossary",
-      "controller_name": "index",
-      "description": "Glossary"
     }
   },
   {
