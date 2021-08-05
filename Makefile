@@ -207,3 +207,9 @@ django-shell:
 .PHONY: user-admin
 user-admin: ## Add most recent user to admin group
 	@docker-compose exec db psql -Ucamac ${APPLICATION} -c 'insert into "USER_GROUP" ("DEFAULT_GROUP", "GROUP_ID", "USER_ID") values (1, 1, (select "USER_ID" from "USER" order by "USER_ID" desc limit 1));'
+
+.PHONY: debug-django
+debug-django: ## start a api container with service ports for debugging
+	@docker-compose stop django
+	@echo "run ./manage.py runserver 0:80 to start debug server"
+	@docker-compose run --user root --use-alias --service-ports django bash
