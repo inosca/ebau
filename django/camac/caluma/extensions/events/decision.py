@@ -5,9 +5,14 @@ from caluma.caluma_workflow.events import post_complete_work_item
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.db import transaction
+from django.db.models import Q
 from django.utils.translation import gettext_noop
 
-from camac.constants.kt_bern import DECISIONS_BEWILLIGT
+from camac.constants.kt_bern import (
+    DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
+    DECISIONS_ABGELEHNT,
+    DECISIONS_BEWILLIGT,
+)
 from camac.core.models import DocxDecision
 from camac.core.utils import create_history_entry
 from camac.echbern.signals import ruling
@@ -31,10 +36,17 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
         instance_state_name = "finished"
 
         if workflow == "building-permit":
-            approved = DocxDecision.objects.filter(
-                instance=instance,
-                decision=DECISIONS_BEWILLIGT,
-            ).exists()
+            approved = (
+                DocxDecision.objects.filter(instance=instance)
+                .filter(
+                    Q(decision=DECISIONS_BEWILLIGT)
+                    | Q(
+                        decision=DECISIONS_ABGELEHNT,
+                        decision_type=DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
+                    ),
+                )
+                .exists()
+            )
             history_text = gettext_noop("Decision decreed")
 
             if approved:
