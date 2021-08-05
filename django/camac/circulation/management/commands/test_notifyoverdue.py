@@ -39,8 +39,12 @@ def pending_activation(db, activation_factory, running_state, future_date):
 
 
 @pytest.fixture
-def due_activation(db, activation_factory, running_state, past_date):
-    return activation_factory(deadline_date=past_date, circulation_state=running_state)
+def due_activation(db, activation_factory, running_state, past_date, be_instance):
+    return activation_factory(
+        deadline_date=past_date,
+        circulation_state=running_state,
+        circulation__instance=be_instance,
+    )
 
 
 @pytest.mark.freeze_time("2017-05-21")
@@ -170,6 +174,7 @@ def test_notify_once(
     db,
     mailoutbox,
     activation_callback_notice_factory,
+    be_instance,
     activation,
     notification_template,
     admin_user,

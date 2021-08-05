@@ -3,6 +3,7 @@ from datetime import datetime
 
 import pytest
 from django.urls import reverse
+from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
 from camac.core.models import WorkflowEntry
@@ -30,6 +31,7 @@ def test_publication_list(admin_client, publication_entry, activation, size):
         assert json["data"][0]["id"] == str(publication_entry.pk)
 
 
+@pytest.mark.parametrize("publication_entry__instance", [LazyFixture("sz_instance")])
 @pytest.mark.parametrize(
     "role__name,status_code",
     [
@@ -182,7 +184,9 @@ def test_publication_no_publication(
     case_factory,
 ):
     task = task_factory()
-    case = case_factory(meta={"camac-instance-id": publication_entry.instance.pk})
+    case = case_factory()
+    publication_entry.instance.case = case
+    publication_entry.instance.save()
     application_settings["CALUMA"] = {"PUBLICATION_TASK_SLUG": task.slug}
     work_item_factory(status="ready", task=task, case=case, child_case=None)
 

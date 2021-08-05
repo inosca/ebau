@@ -11,7 +11,8 @@
       "modification_date": "2020-11-23T14:15:07Z",
       "previous_instance_state": 5,
       "identifier": "72-20-001",
-      "location": 26
+      "location": 26,
+      "case": "21f2cb9f-2c45-49a5-9351-d85b0eaa6ad5"
     }
   },
   {
@@ -26,7 +27,8 @@
       "modification_date": "2020-11-23T13:40:26.708Z",
       "previous_instance_state": 1,
       "identifier": "72-20-002",
-      "location": 26
+      "location": 26,
+      "case": "4e5c5224-66f3-4ebf-937e-99be66ee79e3"
     }
   },
   {
@@ -41,7 +43,8 @@
       "modification_date": "2020-11-23T14:12:51Z",
       "previous_instance_state": 2,
       "identifier": "72-20-003",
-      "location": 26
+      "location": 26,
+      "case": "cd2eb86c-e2e9-4c4c-ac53-057b30b434f7"
     }
   },
   {
@@ -56,7 +59,8 @@
       "modification_date": "2020-11-23T14:20:55Z",
       "previous_instance_state": 3,
       "identifier": "72-20-004",
-      "location": 26
+      "location": 26,
+      "case": "e26389d9-da0d-4809-b38a-eb1503002f3b"
     }
   },
   {
@@ -71,7 +75,8 @@
       "modification_date": "2020-11-23T14:05:08.122Z",
       "previous_instance_state": 1,
       "identifier": null,
-      "location": 26
+      "location": 26,
+      "case": "5ecfb2d0-0917-4350-96d2-ed28a25ecbfb"
     }
   },
   {
