@@ -458,6 +458,16 @@ APPLICATIONS = {
                     "recipient_types": ["leitbehoerde"],
                 },
             ],
+            "SUBMIT_PRELIMINARY_CLARIFICATION": [
+                {
+                    "template_slug": "00-empfang-vorabklaerung-gesuchsteller",
+                    "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "00-empfang-anfragebaugesuch-behorden",
+                    "recipient_types": ["leitbehoerde"],
+                },
+            ],
             "REPORT": [
                 {
                     "template_slug": "11-meldung-selbstdeklaration-gesuchsteller",
