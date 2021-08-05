@@ -451,7 +451,10 @@ class CalumaApi:
             for work_item in caluma_workflow_models.WorkItem.objects.filter(
                 **{
                     f"{groups_type}__contains": [from_group_id],
-                    "status": caluma_workflow_models.WorkItem.STATUS_READY,
+                    "status__in": [
+                        caluma_workflow_models.WorkItem.STATUS_READY,
+                        caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
+                    ],
                     "case__family__instance__pk": instance_id,
                 }
             ):
