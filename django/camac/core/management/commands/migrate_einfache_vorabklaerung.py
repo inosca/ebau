@@ -88,7 +88,7 @@ class Command(BaseCommand):
                 pass
             except CustomValidationError as e:
                 self.stdout.write(
-                    f"Value for answer with slug {old_slug} on dossier with instance-id {document.case.meta['camac-instance-id']} was not valid. Original error message: {e}"
+                    f"Value for answer with slug {old_slug} on dossier with instance-id {document.case.instance.pk} was not valid. Original error message: {e}"
                 )
 
         form_api.save_answer(
@@ -126,7 +126,7 @@ class Command(BaseCommand):
                 pass
             except CustomValidationError as e:
                 self.stdout.write(
-                    f"Value for answer with slug {old_slug} on dossier with instance-id {document.case.meta['camac-instance-id']} was not valid. Original error message: {e}"
+                    f"Value for answer with slug {old_slug} on dossier with instance-id {document.case.instance.pk} was not valid. Original error message: {e}"
                 )
 
         form_api.save_answer(

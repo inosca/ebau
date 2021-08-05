@@ -113,8 +113,9 @@ def test_sync_circulation(
         workflow=Workflow.objects.get(pk="building-permit"),
         form=Form.objects.get(pk="main-form"),
         user=caluma_admin_user,
-        meta={"camac-instance-id": circulation.instance.pk},
     )
+    circulation.instance.case = case
+    circulation.instance.save()
 
     for task_id in ["submit", "ebau-number", "init-circulation"]:
         skip_work_item(
@@ -270,8 +271,9 @@ def test_delete_circulation(
         workflow=Workflow.objects.get(pk="building-permit"),
         form=Form.objects.get(pk="main-form"),
         user=caluma_admin_user,
-        meta={"camac-instance-id": circulation.instance.pk},
     )
+    circulation.instance.case = case
+    circulation.instance.save()
 
     for task_id in ["submit", "ebau-number", "init-circulation"]:
         skip_work_item(
@@ -331,8 +333,9 @@ def test_end_circulation(
         workflow=Workflow.objects.get(pk="building-permit"),
         form=Form.objects.get(pk="main-form"),
         user=caluma_admin_user,
-        meta={"camac-instance-id": circulation.instance.pk},
     )
+    circulation.instance.case = case
+    circulation.instance.save()
 
     for task_id in ["submit", "ebau-number", "init-circulation"]:
         skip_work_item(

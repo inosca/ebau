@@ -4,7 +4,6 @@ from caluma.caluma_form.schema import SaveDocumentStringAnswer
 
 from camac.caluma.utils import CamacRequest
 from camac.echbern.signals import file_subsequently
-from camac.instance.models import Instance
 from camac.notification.utils import send_mail
 
 CLAIM_QUESTION = "nfd-tabelle-table"
@@ -39,10 +38,7 @@ class CustomValidation(BaseValidation):
     @validation_for(SaveDocumentStringAnswer)
     def validate_save_document_string_answer(self, mutation, data, info):
         if data["question"].slug == CLAIM_STATUS_QUESTION:
-            instance_id = data["document"].family.work_item.case.family.meta[
-                "camac-instance-id"
-            ]
-            instance = Instance.objects.get(pk=instance_id)
+            instance = data["document"].family.work_item.case.instance
             new_status = data["value"]
 
             try:

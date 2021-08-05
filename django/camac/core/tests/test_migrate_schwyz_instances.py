@@ -1,9 +1,11 @@
 import os
 
+import pytest
 from caluma.caluma_workflow.models import WorkItem
 from django.core.management import call_command
 
 
+@pytest.mark.skip
 def test_migrate_schwyz_instances(
     db,
     settings,

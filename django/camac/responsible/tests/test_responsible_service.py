@@ -33,7 +33,9 @@ def test_responsible_service_create(
     work_item_factory,
     case_factory,
 ):
-    case = case_factory(meta={"camac-instance-id": instance.pk})
+    case = case_factory()
+    instance.case = case
+    instance.save()
     work_item = work_item_factory(
         case=case, addressed_groups=[instance.group.service.pk]
     )
@@ -83,7 +85,9 @@ def test_responsible_service_update(
     case_factory,
     admin_user,
 ):
-    case = case_factory(meta={"camac-instance-id": responsible_service.instance.pk})
+    case = case_factory()
+    responsible_service.instance.case = case
+    responsible_service.instance.save()
     work_item = work_item_factory(
         case=case, addressed_groups=[responsible_service.service.pk]
     )
