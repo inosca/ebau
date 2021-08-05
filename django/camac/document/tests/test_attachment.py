@@ -352,7 +352,7 @@ def test_attachment_context_filter(
 )
 def test_attachment_create(
     admin_client,
-    instance,
+    sz_instance,
     attachment_section,
     activation,
     mime_type,
@@ -372,7 +372,11 @@ def test_attachment_create(
     )
 
     path = django_file(filename)
-    data = {"instance": instance.pk, "path": path.file, "group": instance.group.pk}
+    data = {
+        "instance": sz_instance.pk,
+        "path": path.file,
+        "group": sz_instance.group.pk,
+    }
     response = admin_client.post(url, data=data, format="multipart")
     assert response.status_code == status_code
 
@@ -386,7 +390,7 @@ def test_attachment_create(
         assert relationships["attachment-sections"]["data"][0]["id"] == str(
             attachment_section.pk
         )
-        assert relationships["group"]["data"]["id"] == str(instance.group.pk)
+        assert relationships["group"]["data"]["id"] == str(sz_instance.group.pk)
 
         # download uploaded attachment
         response = admin_client.get(attributes["path"])
@@ -396,7 +400,7 @@ def test_attachment_create(
         )
         assert response["Content-Type"].startswith(mime_type)
         assert response["X-Accel-Redirect"] == "/attachments/files/%s/%s" % (
-            instance.pk,
+            sz_instance.pk,
             filename,
         )
 
@@ -851,7 +855,7 @@ def test_attachment_delete(
 )
 def test_attachment_mime_type(
     admin_client,
-    instance,
+    sz_instance,
     attachment_section,
     activation,
     filename,
@@ -869,7 +873,11 @@ def test_attachment_mime_type(
     )
 
     path = django_file(filename)
-    data = {"instance": instance.pk, "path": path.file, "group": instance.group.pk}
+    data = {
+        "instance": sz_instance.pk,
+        "path": path.file,
+        "group": sz_instance.group.pk,
+    }
     response = admin_client.post(url, data=data, format="multipart")
     assert response.status_code == status_code
 

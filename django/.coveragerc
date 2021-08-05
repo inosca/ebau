@@ -62,5 +62,10 @@ omit=
     camac/migrate_to_caluma/management/commands/migrate_dynamic_option.py
     camac/migrate_to_caluma/question_map.py
     camac/migrate_to_caluma/transforms.py
+    # Old migrations and their tests
+    camac/core/management/commands/migrate_issues.py
+    camac/core/management/commands/migrate_schwyz_instances.py
+    camac/core/tests/test_migrate_issues.py
+    camac/core/tests/test_migrate_schwyz_instances.py
 
 show_missing = True

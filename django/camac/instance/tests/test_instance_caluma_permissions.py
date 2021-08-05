@@ -3,7 +3,7 @@ from caluma.caluma_form import (
     factories as caluma_form_factories,
     models as caluma_form_models,
 )
-from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
+from caluma.caluma_workflow import api as workflow_api
 from django.conf import settings
 from django.urls import reverse
 from pytest_factoryboy import LazyFixture
@@ -69,7 +69,7 @@ def sort_permissions(permissions):
 def test_instance_permissions_be(
     admin_client,
     activation,
-    instance,
+    be_instance,
     instance_state,
     use_caluma_form,
     snapshot,
@@ -85,7 +85,7 @@ def test_instance_permissions_be(
         "INSTANCE_PERMISSIONS"
     ]
 
-    response = admin_client.get(reverse("instance-detail", args=[instance.pk]))
+    response = admin_client.get(reverse("instance-detail", args=[be_instance.pk]))
 
     assert response.status_code == status.HTTP_200_OK
 
@@ -100,7 +100,7 @@ def test_instance_permissions_be(
 def test_instance_permissions_ur(
     admin_client,
     activation,
-    instance,
+    ur_instance,
     instance_state,
     use_caluma_form,
     snapshot,
@@ -110,7 +110,7 @@ def test_instance_permissions_ur(
         "kt_uri"
     ]["CALUMA"]["FORM_PERMISSIONS"]
 
-    response = admin_client.get(reverse("instance-detail", args=[instance.pk]))
+    response = admin_client.get(reverse("instance-detail", args=[ur_instance.pk]))
 
     assert response.status_code == status.HTTP_200_OK
 
@@ -153,19 +153,11 @@ def nfd_table_question(row_form):
 
 @pytest.fixture
 def nfd_case(
-    instance,
-    caluma_workflow_config_be,
+    be_instance,
     nfd_form,
     caluma_admin_user,
 ):
-    case = workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(slug="building-permit"),
-        form=caluma_form_models.Form.objects.get(slug="main-form"),
-        meta={"camac-instance-id": instance.pk},
-        user=caluma_admin_user,
-    )
-
-    return case
+    return be_instance.case
 
 
 @pytest.fixture
@@ -271,7 +263,7 @@ def test_instance_paper_permissions(
     admin_client,
     admin_user,
     role,
-    instance,
+    be_instance,
     instance_state,
     group_name,
     form_slug,
@@ -296,7 +288,7 @@ def test_instance_paper_permissions(
 
     for name, group in groups.items():
         user_group_factory(group=group, user=admin_user)
-        instance_service_factory(instance=instance, service=group.service)
+        instance_service_factory(instance=be_instance, service=group.service)
 
     application_settings["PAPER"] = {
         "ALLOWED_ROLES": {
@@ -312,7 +304,7 @@ def test_instance_paper_permissions(
     }
 
     response = admin_client.get(
-        reverse("instance-detail", args=[instance.pk]),
+        reverse("instance-detail", args=[be_instance.pk]),
         data={"group": groups.get(group_name).pk},
     )
 

@@ -92,7 +92,7 @@ class BaseSendHandler:
 
     def get_case(self):
         return caluma_workflow_models.Case.objects.get(
-            **{"meta__camac-instance-id": int(self.get_instance_id())}
+            instance__pk=self.get_instance_id()
         )
 
     def complete_work_item(self, task, filters={}, context={}):

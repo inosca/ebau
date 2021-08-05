@@ -17,7 +17,7 @@ def app_settings_with_notif_templates(application_settings, notification_templat
 @pytest.mark.parametrize(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
-def test_applicant_list(admin_client, role, instance, django_assert_num_queries):
+def test_applicant_list(admin_client, role, be_instance, django_assert_num_queries):
     url = reverse("applicant-list")
 
     with django_assert_num_queries(2):
@@ -27,8 +27,8 @@ def test_applicant_list(admin_client, role, instance, django_assert_num_queries)
         assert len(response.json()["data"]) == 1
 
 
-def test_applicant_update(admin_client, instance):
-    url = reverse("applicant-detail", args=[instance.involved_applicants.first().pk])
+def test_applicant_update(admin_client, be_instance):
+    url = reverse("applicant-detail", args=[be_instance.involved_applicants.first().pk])
 
     response = admin_client.patch(url)
 
@@ -47,12 +47,17 @@ def test_applicant_update(admin_client, instance):
     ],
 )
 def test_applicant_delete(
-    admin_client, role, instance, applicant_factory, extra_applicants, expected_status
+    admin_client,
+    role,
+    be_instance,
+    applicant_factory,
+    extra_applicants,
+    expected_status,
 ):
     if extra_applicants:
-        applicant_factory.create_batch(extra_applicants, instance=instance)
+        applicant_factory.create_batch(extra_applicants, instance=be_instance)
 
-    url = reverse("applicant-detail", args=[instance.involved_applicants.first().pk])
+    url = reverse("applicant-detail", args=[be_instance.involved_applicants.first().pk])
 
     response = admin_client.delete(url)
 
@@ -79,7 +84,7 @@ def test_applicant_create(
     admin_client,
     user_factory,
     role,
-    instance,
+    be_instance,
     applicant_factory,
     passed_email,
     existing_user,
@@ -89,7 +94,7 @@ def test_applicant_create(
     url = reverse("applicant-list")
 
     applicant_factory(
-        instance=instance,
+        instance=be_instance,
         invitee=user_factory(email="exists@example.com"),
         email="exists@example.com",
     )
@@ -103,7 +108,7 @@ def test_applicant_create(
                 "type": "applicants",
                 "attributes": {"email": passed_email},
                 "relationships": {
-                    "instance": {"data": {"id": instance.pk, "type": "instances"}}
+                    "instance": {"data": {"id": be_instance.pk, "type": "instances"}}
                 },
             }
         },
@@ -123,7 +128,7 @@ def test_applicant_create(
 
 @pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
 def test_applicant_create_multiple_users(
-    admin_client, instance, user_factory, app_settings_with_notif_templates
+    admin_client, be_instance, user_factory, app_settings_with_notif_templates
 ):
     url = reverse("applicant-list")
 
@@ -137,7 +142,7 @@ def test_applicant_create_multiple_users(
                 "type": "applicants",
                 "attributes": {"email": "test@example.com"},
                 "relationships": {
-                    "instance": {"data": {"id": instance.pk, "type": "instances"}}
+                    "instance": {"data": {"id": be_instance.pk, "type": "instances"}}
                 },
             }
         },

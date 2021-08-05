@@ -18,10 +18,6 @@ from camac.utils import filters
 class CustomVisibility(Authenticated, InstanceQuerysetMixin):
     """Custom visibility for Kanton Bern.
 
-    Note: This expects that each document has a meta property that stores the
-    CAMAC instance identifier, named "camac-instance-id". Each node is
-    filtered by indirectly looking for the value of said property.
-
     To avoid multiple db lookups, the result is cached in the
     request object, and reused if the need arises. Caching beyond a request is
     not done but might become a future optimisation.
@@ -41,38 +37,28 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
 
         return queryset.filter(
             # document is accessible through CAMAC ACLs
-            Q(**{"family__case__family__meta__camac-instance-id__in": instance_ids})
-            | Q(
-                **{
-                    "family__work_item__case__family__meta__camac-instance-id__in": instance_ids
-                }
-            )
+            Q(family__case__family__instance__pk__in=instance_ids)
+            | Q(family__work_item__case__family__instance__pk__in=instance_ids)
             # OR dashboard documents
             | Q(form_id=DASHBOARD_FORM_SLUG)
             # OR unlinked table documents created by the requesting user
             | Q(
-                **{
-                    "family__case__meta__camac-instance-id__isnull": True,
-                    "family": F("pk"),
-                    "created_by_user": info.context.user.username,
-                }
+                family__case__instance__isnull=True,
+                family=F("pk"),
+                created_by_user=info.context.user.username,
             )
         )
 
     @filter_queryset_for(workflow_schema.Case)
     def filter_queryset_for_case(self, node, queryset, info):
         return queryset.filter(
-            **{"family__meta__camac-instance-id__in": self._all_visible_instances(info)}
+            family__instance__pk__in=self._all_visible_instances(info)
         )
 
     @filter_queryset_for(workflow_schema.WorkItem)
     def filter_queryset_for_work_items(self, node, queryset, info):
         return queryset.filter(
-            **{
-                "case__family__meta__camac-instance-id__in": self._all_visible_instances(
-                    info
-                )
-            }
+            case__family__instance__pk__in=self._all_visible_instances(info)
         )
 
     def get_base_queryset(self):

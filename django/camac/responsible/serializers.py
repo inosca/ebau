@@ -38,10 +38,7 @@ class ResponsibleServiceSerializer(InstanceEditableMixin, serializers.ModelSeria
     def _reassign_work_items(self, responsible_service):
         # reassign all tasks of this instance for this service to the
         # responsible user
-        WorkItem.objects.filter(
-            **{
-                "case__family__meta__camac-instance-id": responsible_service.instance.pk,
-                "addressed_groups": [responsible_service.service.pk],
-                "status": WorkItem.STATUS_READY,
-            }
+        responsible_service.instance.case.work_items.filter(
+            addressed_groups=[responsible_service.service.pk],
+            status=WorkItem.STATUS_READY,
         ).update(assigned_users=[responsible_service.responsible_user.username])

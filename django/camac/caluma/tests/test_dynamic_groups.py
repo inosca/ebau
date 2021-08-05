@@ -50,8 +50,9 @@ def test_dynamic_group_bern(
         workflow=Workflow.objects.get(pk="building-permit"),
         form=Form.objects.get(pk="main-form"),
         user=caluma_admin_user,
-        meta={"camac-instance-id": instance.pk},
     )
+    instance.case = case
+    instance.save()
 
     for (name, expected) in [
         ("municipality", [str(municipality.pk)]),
@@ -72,8 +73,9 @@ def test_dynamic_group_schwyz(
         workflow=Workflow.objects.get(pk="building-permit"),
         form=Form.objects.get(pk="baugesuch"),
         user=caluma_admin_user,
-        meta={"camac-instance-id": instance.pk},
     )
+    instance.case = case
+    instance.save()
 
     assert CustomDynamicGroups().resolve("municipality")(
         None, case, None, None, None
