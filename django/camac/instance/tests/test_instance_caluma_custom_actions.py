@@ -40,11 +40,9 @@ def ebau_number_question(db, camac_question_factory, camac_chapter_factory):
 def test_set_ebau_number(
     db,
     admin_client,
-    admin_user,
     caluma_admin_user,
-    caluma_workflow_config_be,
-    instance,
-    instance_service,
+    be_instance,
+    instance_with_case,
     instance_state,
     role,
     ebau_number_question,
@@ -60,24 +58,22 @@ def test_set_ebau_number(
     instance_state_factory(name="circulation_init")
 
     # create existing instance with ebau-number 2020-1 in a different municipality
-    instance_other = instance_service_factory(service=service_factory()).instance
+    instance_other = instance_with_case(
+        instance_service_factory(service=service_factory()).instance
+    )
     camac_answer_factory(
         instance=instance_other,
         question_id=constants.QUESTION_EBAU_NR,
         chapter_id=constants.CHAPTER_EBAU_NR,
         answer="2020-1",
     )
-    workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(pk="main-form"),
-        meta={"camac-instance-id": instance_other.pk, "ebau-number": "2020-1"},
-        user=caluma_admin_user,
-    )
+    instance_other.case.meta["ebau-number"] = "2020-1"
+    instance_other.case.save()
 
     # create existing instance with ebau-number 2020-2 with same municipality involved
-    instance_same = instance_factory()
+    instance_same = instance_with_case(instance_factory())
     instance_service_factory(
-        service=instance.responsible_service(filter_type="municipality"),
+        service=be_instance.responsible_service(filter_type="municipality"),
         instance=instance_same,
         active=0,
     )
@@ -87,43 +83,30 @@ def test_set_ebau_number(
         chapter_id=constants.CHAPTER_EBAU_NR,
         answer="2020-2",
     )
-    workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(pk="main-form"),
-        meta={"camac-instance-id": instance_same.pk, "ebau-number": "2020-2"},
-        user=caluma_admin_user,
-    )
+    instance_same.case.meta["ebau-number"] = "2020-2"
+    instance_same.case.save()
 
     # instance with different municipality but also ebau-nr 2020-2
-    instance_indirect = instance_service_factory(service=service_factory()).instance
+    instance_indirect = instance_with_case(
+        instance_service_factory(service=service_factory()).instance
+    )
     camac_answer_factory(
         instance=instance_indirect,
         question_id=constants.QUESTION_EBAU_NR,
         chapter_id=constants.CHAPTER_EBAU_NR,
         answer="2020-2",
     )
-    workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(pk="main-form"),
-        meta={"camac-instance-id": instance_indirect.pk, "ebau-number": "2020-2"},
-        user=caluma_admin_user,
-    )
-
-    # create case for the instance which will be assigned a new ebau number
-    case = workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(pk="main-form"),
-        meta={"camac-instance-id": instance.pk},
-        user=caluma_admin_user,
-    )
+    instance_indirect.case.meta["ebau-number"] = "2020-2"
+    instance_indirect.case.save()
 
     # "submit" instance
     workflow_api.skip_work_item(
-        work_item=case.work_items.get(task_id="submit"), user=caluma_admin_user
+        work_item=be_instance.case.work_items.get(task_id="submit"),
+        user=caluma_admin_user,
     )
 
     response = admin_client.post(
-        reverse("instance-set-ebau-number", args=[instance.pk]),
+        reverse("instance-set-ebau-number", args=[be_instance.pk]),
         {
             "data": {
                 "type": "instance-set-ebau-numbers",
@@ -139,10 +122,10 @@ def test_set_ebau_number(
         assert len(result["errors"])
         assert expected_error == result["errors"][0]["detail"]
     else:
-        case.refresh_from_db()
+        be_instance.case.refresh_from_db()
 
         assert response.status_code == status.HTTP_204_NO_CONTENT
-        assert case.meta["ebau-number"] == expected_ebau_number
+        assert be_instance.case.meta["ebau-number"] == expected_ebau_number
 
 
 @pytest.mark.freeze_time("2020-12-03")
@@ -224,6 +207,7 @@ def test_set_ebau_number_workflow(
     caluma_workflow_config_be,
     instance,
     instance_service,
+    instance_with_case,
     instance_state,
     role,
     ebau_number_question,
@@ -235,16 +219,10 @@ def test_set_ebau_number_workflow(
 ):
     instance_state_factory(name="circulation_init")
 
-    workflow = caluma_workflow_models.Workflow.objects.get(pk=caluma_workflow)
-    case = workflow_api.start_case(
-        workflow=workflow,
-        form=workflow.allow_forms.first(),
-        meta={"camac-instance-id": instance.pk},
-        user=caluma_admin_user,
-    )
+    instance_with_case(instance, workflow=caluma_workflow)
 
     workflow_api.skip_work_item(
-        work_item=case.work_items.get(task_id="submit"), user=caluma_admin_user
+        work_item=instance.case.work_items.get(task_id="submit"), user=caluma_admin_user
     )
 
     response = admin_client.post(
@@ -260,13 +238,13 @@ def test_set_ebau_number_workflow(
     assert response.status_code == expected_status
 
     if expected_status == status.HTTP_204_NO_CONTENT:
-        case.refresh_from_db()
+        instance.case.refresh_from_db()
         instance.refresh_from_db()
 
         assert instance.instance_state.name == expected_instance_state
-        assert case.meta["ebau-number"] == "2020-1"
+        assert instance.case.meta["ebau-number"] == "2020-1"
         assert (
-            case.work_items.filter(
+            instance.case.work_items.filter(
                 task_id="ebau-number",
                 status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
             ).exists()
@@ -285,35 +263,23 @@ def test_set_ebau_number_workflow(
 def test_archive(
     db,
     admin_client,
-    admin_user,
-    caluma_admin_user,
-    caluma_workflow_config_be,
-    instance,
-    instance_service,
+    be_instance,
     role,
     instance_state_factory,
     expected_status,
 ):
     instance_state_factory(name="archived")
-    workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
 
-    case = workflow_api.start_case(
-        workflow=workflow,
-        form=workflow.allow_forms.first(),
-        meta={"camac-instance-id": instance.pk},
-        user=caluma_admin_user,
-    )
-
-    response = admin_client.post(reverse("instance-archive", args=[instance.pk]))
+    response = admin_client.post(reverse("instance-archive", args=[be_instance.pk]))
 
     assert response.status_code == expected_status
 
     if expected_status == status.HTTP_204_NO_CONTENT:
-        case.refresh_from_db()
-        instance.refresh_from_db()
+        be_instance.case.refresh_from_db()
+        be_instance.refresh_from_db()
 
-        assert case.status == caluma_workflow_models.Case.STATUS_CANCELED
-        assert instance.instance_state.name == "archived"
+        assert be_instance.case.status == caluma_workflow_models.Case.STATUS_CANCELED
+        assert be_instance.instance_state.name == "archived"
 
 
 @pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
@@ -355,6 +321,7 @@ def test_change_form(
     caluma_admin_user,
     caluma_workflow_config_be,
     instance,
+    instance_with_case,
     instance_service,
     role,
     current_form_slug,
@@ -369,12 +336,7 @@ def test_change_form(
     workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
     workflow.allow_forms.add(current_form, new_form)
 
-    case = workflow_api.start_case(
-        workflow=workflow,
-        form=current_form,
-        meta={"camac-instance-id": instance.pk},
-        user=caluma_admin_user,
-    )
+    instance_with_case(instance, form=current_form)
 
     response = admin_client.post(
         reverse("instance-change-form", args=[instance.pk]),
@@ -390,9 +352,9 @@ def test_change_form(
     assert response.status_code == expected_status
 
     if expected_status == status.HTTP_204_NO_CONTENT:
-        case.refresh_from_db()
+        instance.case.refresh_from_db()
 
-        assert case.document.form_id == new_form_slug
+        assert instance.case.document.form_id == new_form_slug
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
@@ -402,11 +364,9 @@ def test_change_form(
 def test_change_responsible_service_circulations(
     db,
     admin_client,
-    admin_user,
     role,
+    be_instance,
     instance_state,
-    instance_service,
-    caluma_workflow_config_be,
     service_factory,
     circulation_factory,
     activation_factory,
@@ -414,24 +374,13 @@ def test_change_responsible_service_circulations(
     should_sync,
     caluma_admin_user,
 ):
-    instance = instance_service.instance
-    instance.instance_state = instance_state
-    instance.save()
-
-    old_service = instance.responsible_service()
+    old_service = be_instance.responsible_service()
     sub_service = service_factory(service_parent=old_service)
     new_service = service_factory()
     some_service = service_factory()
 
-    case = workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(pk="main-form"),
-        meta={"camac-instance-id": instance.pk},
-        user=caluma_admin_user,
-    )
-
-    c1 = circulation_factory(instance=instance, service=old_service)
-    c2 = circulation_factory(instance=instance, service=old_service)
+    c1 = circulation_factory(instance=be_instance, service=old_service)
+    c2 = circulation_factory(instance=be_instance, service=old_service)
 
     # from the old service to some service, stays
     a1 = activation_factory(circulation=c1, service_parent=old_service)
@@ -446,12 +395,13 @@ def test_change_responsible_service_circulations(
 
     for task_id in ["submit", "ebau-number", "init-circulation"]:
         workflow_api.complete_work_item(
-            work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user
+            work_item=be_instance.case.work_items.get(task_id=task_id),
+            user=caluma_admin_user,
         )
 
     for circulation in [c1, c2]:
         work_item_factory(
-            case=case,
+            case=be_instance.case,
             child_case=None,  # this will be properly created in the sync method
             task=Task.objects.get(pk="circulation"),
             meta={"circulation-id": circulation.pk},
@@ -460,7 +410,7 @@ def test_change_responsible_service_circulations(
         CalumaApi().sync_circulation(circulation, caluma_admin_user)
 
     response = admin_client.post(
-        reverse("instance-change-responsible-service", args=[instance.pk]),
+        reverse("instance-change-responsible-service", args=[be_instance.pk]),
         {
             "data": {
                 "type": "instance-change-responsible-services",
@@ -475,8 +425,8 @@ def test_change_responsible_service_circulations(
     assert response.status_code == status.HTTP_204_NO_CONTENT
 
     if should_sync:
-        assert instance.circulations.filter(pk=c1.pk).exists()
-        assert not instance.circulations.filter(pk=c2.pk).exists()
+        assert be_instance.circulations.filter(pk=c1.pk).exists()
+        assert not be_instance.circulations.filter(pk=c2.pk).exists()
 
         c1.refresh_from_db()
 
@@ -504,15 +454,13 @@ def test_change_responsible_service(
     db,
     admin_client,
     admin_user,
-    instance,
-    instance_service,
+    be_instance,
     notification_template,
     role,
     group,
     service_factory,
     user_factory,
     user_group_factory,
-    caluma_workflow_config_be,
     application_settings,
     service_type,
     expected_status,
@@ -523,17 +471,10 @@ def test_change_responsible_service(
         "recipient_types": ["leitbehoerde"],
     }
 
-    case = workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(pk="main-form"),
-        meta={"camac-instance-id": instance.pk},
-        user=caluma_admin_user,
-    )
-
     if expected_status == status.HTTP_400_BAD_REQUEST:
-        old_service = instance.responsible_service()
+        old_service = be_instance.responsible_service()
     else:
-        old_service = instance.responsible_service(filter_type=service_type)
+        old_service = be_instance.responsible_service(filter_type=service_type)
     new_service = service_factory()
 
     group.service = old_service
@@ -541,7 +482,8 @@ def test_change_responsible_service(
 
     for task_id in ["submit", "ebau-number"]:
         workflow_api.complete_work_item(
-            work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user
+            work_item=be_instance.case.work_items.get(task_id=task_id),
+            user=caluma_admin_user,
         )
 
     # other user is no member of the new service
@@ -549,25 +491,25 @@ def test_change_responsible_service(
     # admin user is a member of the new service
     user_group_factory(user=admin_user, group__service=new_service)
 
-    init_circulation = case.work_items.get(task_id="init-circulation")
+    init_circulation = be_instance.case.work_items.get(task_id="init-circulation")
     init_circulation.assigned_users = [admin_user.username, other_user.username]
     init_circulation.save()
 
     assert (
-        case.work_items.filter(
+        be_instance.case.work_items.filter(
             status="ready", addressed_groups__contains=[str(old_service.pk)]
         ).count()
         == 6
     )
     assert (
-        case.work_items.filter(
+        be_instance.case.work_items.filter(
             status="ready", addressed_groups__contains=[str(new_service.pk)]
         ).count()
         == 0
     )
 
     response = admin_client.post(
-        reverse("instance-change-responsible-service", args=[instance.pk]),
+        reverse("instance-change-responsible-service", args=[be_instance.pk]),
         {
             "data": {
                 "type": "instance-change-responsible-services",
@@ -582,20 +524,20 @@ def test_change_responsible_service(
     assert response.status_code == expected_status
 
     if expected_status == status.HTTP_204_NO_CONTENT:
-        instance.refresh_from_db()
+        be_instance.refresh_from_db()
 
         # responsible service changed
-        assert not instance.instance_services.filter(
+        assert not be_instance.instance_services.filter(
             active=1, service=old_service
         ).exists()
-        assert instance.responsible_service(filter_type=service_type) == new_service
+        assert be_instance.responsible_service(filter_type=service_type) == new_service
 
         # notification was sent
         assert len(mail.outbox) == 1
         assert new_service.email in mail.outbox[0].recipients()
 
         # history entry was created
-        history = HistoryEntry.objects.filter(instance=instance).last()
+        history = HistoryEntry.objects.filter(instance=be_instance).last()
         assert (
             history.trans.get(language="de").title
             == f"Neue Leitbehörde: {new_service.trans.get(language='de').name}"
@@ -603,13 +545,13 @@ def test_change_responsible_service(
 
         # caluma work items are reassigned
         assert (
-            case.work_items.filter(
+            be_instance.case.work_items.filter(
                 status="ready", addressed_groups__contains=[str(old_service.pk)]
             ).count()
             == 0
         )
         assert (
-            case.work_items.filter(
+            be_instance.case.work_items.filter(
                 status="ready", addressed_groups__contains=[str(new_service.pk)]
             ).count()
             == 6
@@ -648,12 +590,8 @@ def test_change_responsible_service(
 def test_fix_work_items(
     db,
     admin_client,
-    admin_user,
-    caluma_admin_user,
-    caluma_workflow_config_be,
-    instance,
+    be_instance,
     instance_state,
-    instance_service,
     service_group,
     snapshot,
     role,
@@ -662,18 +600,11 @@ def test_fix_work_items(
     expected_status,
     expected_work_items,
 ):
-    case = workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(pk="main-form"),
-        meta={"camac-instance-id": instance.pk},
-        user=caluma_admin_user,
-    )
-
     # simulate broken state
-    case.work_items.all().delete()
+    be_instance.case.work_items.all().delete()
 
     response = admin_client.post(
-        reverse("instance-fix-work-items", args=[instance.pk]),
+        reverse("instance-fix-work-items", args=[be_instance.pk]),
         {
             "data": {
                 "type": "instance-fix-work-items",
@@ -687,16 +618,16 @@ def test_fix_work_items(
     if response.status_code == status.HTTP_200_OK:
         raw_output = response.json()["data"]["attributes"]["output"]
 
-        snapshot.assert_match(raw_output.replace(str(instance.pk), "INSTANCE_ID"))
+        snapshot.assert_match(raw_output.replace(str(be_instance.pk), "INSTANCE_ID"))
 
-        case.refresh_from_db()
+        be_instance.case.refresh_from_db()
 
         if dry:
-            assert case.work_items.count() == 0
+            assert be_instance.case.work_items.count() == 0
         else:
-            assert sorted(case.work_items.values_list("task_id", flat=True)) == sorted(
-                expected_work_items
-            )
+            assert sorted(
+                be_instance.case.work_items.values_list("task_id", flat=True)
+            ) == sorted(expected_work_items)
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
@@ -704,14 +635,11 @@ def test_fix_work_items(
 def test_caluma_export_be(
     db,
     admin_client,
-    instance,
+    be_instance,
     instance_service_factory,
     service,
-    caluma_workflow_config_be,
-    caluma_admin_user,
     application_settings,
     settings,
-    snapshot,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
@@ -719,18 +647,13 @@ def test_caluma_export_be(
         pathlib.Path(settings.APPLICATIONS["kt_bern"]["MUNICIPALITY_DATA_SHEET"]).name,
     )
 
-    case = workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(pk="main-form"),
-        meta={"camac-instance-id": instance.pk},
-        user=caluma_admin_user,
-    )
-
     instance_service_factory(
-        instance=instance, service=admin_client.user.groups.first().service
+        instance=be_instance, service=admin_client.user.groups.first().service
     )
 
-    case.document.answers.create(value=str(service.pk), question_id="gemeinde")
+    be_instance.case.document.answers.create(
+        value=str(service.pk), question_id="gemeinde"
+    )
 
     row_doc = form_api.save_document(
         caluma_form_models.Form.objects.get(pk="personalien-tabelle")
@@ -748,15 +671,15 @@ def test_caluma_export_be(
 
     form_api.save_answer(
         caluma_form_models.Question.objects.get(pk="personalien-gesuchstellerin"),
-        case.document,
+        be_instance.case.document,
         value=[str(row_doc.pk)],
     )
 
     url = reverse("instance-export")
-    response = admin_client.get(url, {"instance_id": instance.pk})
+    response = admin_client.get(url, {"instance_id": be_instance.pk})
     assert response.status_code == status.HTTP_200_OK
     book = pyexcel.get_book(file_content=response.content, file_type="xlsx")
-    assert instance.pk in book.get_dict()["pyexcel sheet"][1]
+    assert be_instance.pk in book.get_dict()["pyexcel sheet"][1]
 
 
 @pytest.mark.parametrize(

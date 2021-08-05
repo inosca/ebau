@@ -66,12 +66,8 @@ class PublicationEntrySerializer(serializers.ModelSerializer):
                 workflow_date=instance.publication_date.replace(microsecond=0),
             )
 
-            work_item = workflow_models.WorkItem.objects.filter(
-                **{
-                    "task_id": "publication",
-                    "case__meta__camac-instance-id": self.instance.instance.pk,
-                    "status": workflow_models.WorkItem.STATUS_READY,
-                }
+            work_item = self.instance.instance.case.work_items.filter(
+                task_id="publication", status=workflow_models.WorkItem.STATUS_READY
             ).first()
 
             # TODO: test this

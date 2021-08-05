@@ -29,7 +29,7 @@ def get_caluma_setting(key, default=None):
 
 
 def get_instance_id(work_item):
-    return work_item.case.family.meta.get("camac-instance-id")
+    return work_item.case.family.instance.pk
 
 
 def get_instance(work_item):

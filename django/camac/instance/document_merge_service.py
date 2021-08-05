@@ -45,11 +45,11 @@ class DMSHandler:
             _filter = {"pk": document_id}
         elif form_slug:
             _filter = {
-                "work_item__case__meta__camac-instance-id": instance_id,
+                "work_item__case__instance__pk": instance_id,
                 "form_id": form_slug,
             }
         else:
-            _filter = {"case__meta__camac-instance-id": instance_id}
+            _filter = {"case__instance__pk": instance_id}
 
         try:
             doc = Document.objects.get(**_filter)

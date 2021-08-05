@@ -13,6 +13,7 @@ from caluma.caluma_form import (
 )
 from caluma.caluma_user.models import OIDCUser
 from caluma.caluma_workflow import (
+    api as workflow_api,
     factories as caluma_workflow_factories,
     models as caluma_workflow_models,
 )
@@ -434,6 +435,8 @@ def caluma_workflow_config_be(
     workflows = caluma_workflow_models.Workflow.objects.all()
     main_form = caluma_form_models.Form.objects.get(pk="main-form")
 
+    workflows.update(allow_all_forms=True)
+
     for workflow in workflows.filter(
         pk__in=["building-permit", "preliminary-clarification"]
     ):
@@ -700,3 +703,36 @@ def portal_user(portal_group, user_factory, user_group_factory):
     user = user_factory()
     user_group_factory(group=portal_group, user=user, default_group=1)
     return user
+
+
+@pytest.fixture
+def instance_with_case(db, caluma_admin_user):
+    def wrapper(instance, workflow="building-permit", form="main-form", context={}):
+        instance.case = workflow_api.start_case(
+            workflow=caluma_workflow_models.Workflow.objects.get(pk=workflow),
+            form=caluma_form_models.Form.objects.get(pk=form),
+            user=caluma_admin_user,
+            context=context,
+        )
+        instance.save()
+
+        return instance
+
+    return wrapper
+
+
+@pytest.fixture
+def be_instance(instance_service, caluma_workflow_config_be, instance_with_case):
+    return instance_with_case(
+        instance_service.instance, context={"instance": instance_service.instance}
+    )
+
+
+@pytest.fixture
+def sz_instance(instance, caluma_workflow_config_sz, instance_with_case):
+    return instance_with_case(instance, form="baugesuch")
+
+
+@pytest.fixture
+def ur_instance(instance, caluma_workflow_config_ur, instance_with_case):
+    return instance_with_case(instance)

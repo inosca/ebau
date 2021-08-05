@@ -3,8 +3,10 @@ from datetime import timedelta
 import pytest
 from django.core.management import call_command
 from django.utils import timezone
+from pytest_factoryboy.fixture import LazyFixture
 
 
+@pytest.mark.parametrize("circulation__instance", [LazyFixture("be_instance")])
 def test_sendreminders(
     db,
     circulation,
@@ -54,7 +56,7 @@ def test_sendreminders_caluma(
     application_settings,
     db,
     mailoutbox,
-    instance,
+    be_instance,
     work_item_factory,
     task_factory,
     snapshot,

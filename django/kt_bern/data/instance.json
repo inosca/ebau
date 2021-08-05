@@ -11,7 +11,8 @@
       "modification_date": "2020-03-06T11:10:26.099Z",
       "previous_instance_state": 1,
       "identifier": null,
-      "location": null
+      "location": null,
+      "case": "edf81bff-4f33-48d6-b8de-2aee7643a97e"
     }
   },
   {
@@ -26,7 +27,8 @@
       "modification_date": "2020-03-06T11:13:35.906Z",
       "previous_instance_state": 1,
       "identifier": null,
-      "location": null
+      "location": null,
+      "case": "7d2bb3fe-83a1-4abc-a6c8-732c366678b1"
     }
   },
   {
@@ -41,7 +43,8 @@
       "modification_date": "2021-03-31T12:32:53.885Z",
       "previous_instance_state": 20011,
       "identifier": null,
-      "location": null
+      "location": null,
+      "case": "e9197275-36df-460c-b261-ff27f781c5d9"
     }
   },
   {

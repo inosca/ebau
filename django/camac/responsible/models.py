@@ -82,7 +82,7 @@ class ASetresponsiblegroup(models.Model):
 class ResponsibleService(models.Model):
     instance = models.ForeignKey(
         "instance.Instance",
-        models.DO_NOTHING,
+        models.CASCADE,
         db_column="INSTANCE_ID",
         related_name="responsible_services",
     )

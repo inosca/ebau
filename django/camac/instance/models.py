@@ -148,6 +148,13 @@ class Instance(models.Model):
         "user.Location", models.PROTECT, null=True, blank=True, db_column="LOCATION_ID"
     )
     services = models.ManyToManyField("user.Service", through="core.InstanceService")
+    case = models.OneToOneField(
+        "caluma_workflow.Case",
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE,
+        related_name="instance",
+    )
 
     def _responsible_service_instance_service(self, filter_type=None, **kwargs):
         active_services_settings = settings.APPLICATION.get("ACTIVE_SERVICES", {})

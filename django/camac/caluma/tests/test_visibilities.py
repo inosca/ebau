@@ -26,12 +26,13 @@ def test_document_visibility(
     activation_factory(circulation__instance=instance, service=group.service)
 
     for instance in [instance, instance_factory(group=group), instance_factory()]:
-        workflow_api.start_case(
+        case = workflow_api.start_case(
             workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
             form=caluma_form_models.Form.objects.get(pk="main-form"),
-            meta={"camac-instance-id": instance.pk},
             user=caluma_admin_user,
         )
+        instance.case = case
+        instance.save()
 
     result = caluma_admin_schema_executor(
         """
@@ -98,12 +99,13 @@ def test_document_visibility_filter(
     )
 
     for instance in [instance1, instance2]:
-        workflow_api.start_case(
+        case = workflow_api.start_case(
             workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
             form=caluma_form_models.Form.objects.get(pk="main-form"),
-            meta={"camac-instance-id": instance.pk},
             user=caluma_admin_user,
         )
+        instance.case = case
+        instance.save()
 
     request = rf.get(
         "/graphql",
@@ -168,9 +170,10 @@ def test_work_item_visibility(
         case = workflow_api.start_case(
             workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
             form=caluma_form_models.Form.objects.get(pk="main-form"),
-            meta={"camac-instance-id": instance.pk},
             user=caluma_admin_user,
         )
+        instance.case = case
+        instance.save()
 
         case.document.answers.create(question_id="is-paper", value="is-paper-no")
 
@@ -205,7 +208,7 @@ def test_work_item_visibility(
 
     # should be same as from graphql query
     visible = caluma_workflow_models.WorkItem.objects.filter(
-        **{"case__meta__camac-instance-id": visible_instance.pk}
+        case__instance__pk=visible_instance.pk
     )
 
     assert visible.count() == 4
@@ -216,7 +219,7 @@ def test_work_item_visibility(
 
     # not so for not_visible_instance
     not_visible = caluma_workflow_models.WorkItem.objects.filter(
-        **{"case__meta__camac-instance-id": not_visible_instance.pk}
+        case__instance__pk=not_visible_instance.pk
     )
     assert not_visible.count() == 4
     assert (

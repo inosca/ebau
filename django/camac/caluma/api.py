@@ -30,12 +30,7 @@ class CalumaApi:
     """
 
     def _get_main_form(self, instance):
-        try:
-            return caluma_workflow_models.Case.objects.get(
-                **{"meta__camac-instance-id": instance.pk}
-            ).document.form
-        except caluma_workflow_models.Case.DoesNotExist:
-            return None
+        return instance.case.document.form
 
     def get_form_name(self, instance):
         form = self._get_main_form(instance)
@@ -46,9 +41,7 @@ class CalumaApi:
         return form.slug if form else None
 
     def _get_main_document(self, instance):
-        return caluma_workflow_models.Case.objects.get(
-            **{"meta__camac-instance-id": instance.pk}
-        ).document
+        return instance.case.document
 
     def get_main_document(self, instance):
         document = self._get_main_document(instance)
@@ -60,42 +53,29 @@ class CalumaApi:
 
     def delete_instance_case(self, instance_id):
         return caluma_workflow_models.Case.objects.filter(
-            **{"family__meta__camac-instance-id": instance_id}
+            family__instance__pk=instance_id
         ).delete()
 
-    def get_case(self, instance_id):
-        return caluma_workflow_models.Case.objects.filter(
-            **{"meta__camac-instance-id": instance_id}
-        ).first()
-
     def get_ebau_number(self, instance):
-        case = self.get_case(instance.pk)
-        return case.meta.get("ebau-number", "-") if case else None
+        return instance.case.meta.get("ebau-number", "-")
 
     def get_dossier_number(self, instance):
-        case = self.get_case(instance.pk)
-        return case.meta.get("dossier-number", "-") if case else None
+        return instance.case.meta.get("dossier-number", "-")
 
     def get_municipality(self, instance):
         return self.get_answer_value("gemeinde", instance)
 
     def get_answer_value(self, question_slug, instance):
-        answer = caluma_form_models.Answer.objects.filter(
-            **{
-                "document__case__meta__camac-instance-id": instance.pk,
-                "question_id": question_slug,
-            }
+        answer = instance.case.document.answers.filter(
+            question_id=question_slug
         ).first()
 
         return answer.value if answer else None
 
     def get_table_answer(self, question_slug, instance):
         try:
-            answer = caluma_form_models.Answer.objects.get(
-                **{
-                    "document__case__meta__camac-instance-id": instance.pk,
-                    "question_id": question_slug,
-                }
+            answer = instance.case.document.answers.get(
+                question_id=question_slug,
             )
             return answer.documents.all()
         except caluma_form_models.Answer.DoesNotExist:
@@ -105,11 +85,9 @@ class CalumaApi:
         permissions = set()
 
         answers = caluma_form_models.Answer.objects.filter(
-            **{
-                "question_id": "nfd-tabelle-status",
-                "document__family__form_id": "nfd",
-                "document__family__work_item__case__family__meta__camac-instance-id": instance.pk,
-            }
+            question_id="nfd-tabelle-status",
+            document__family__form_id="nfd",
+            document__family__work_item__case__family__instance__pk=instance.pk,
         )
 
         if answers.exclude(value="nfd-tabelle-status-entwurf").exists():
@@ -158,9 +136,7 @@ class CalumaApi:
         )
 
     def set_submit_date(self, instance_id, submit_date):
-        case = caluma_workflow_models.Case.objects.get(
-            **{"meta__camac-instance-id": instance_id}
-        )
+        case = caluma_workflow_models.Case.objects.get(instance__pk=instance_id)
 
         if "submit-date" in case.meta:  # pragma: no cover
             # instance was already submitted, this is probably a re-submit
@@ -179,34 +155,23 @@ class CalumaApi:
         return True
 
     def is_paper(self, instance):
-        return caluma_form_models.Answer.objects.filter(
-            **{
-                "document__case__meta__camac-instance-id": instance.pk,
-                "question_id": "is-paper",
-                "value": "is-paper-yes",
-            }
+        return instance.case.document.answers.filter(
+            question_id="is-paper",
+            value="is-paper-yes",
         ).exists()
 
     def is_modification(self, instance):
-        return caluma_form_models.Answer.objects.filter(
-            **{
-                "document__case__meta__camac-instance-id": instance.pk,
-                "question_id": "projektaenderung",
-                "value": "projektaenderung-ja",
-            }
+        return instance.case.document.answers.filter(
+            question_id="projektaenderung",
+            value="projektaenderung-ja",
         ).exists()
 
     def is_migrated(self, instance):
-        return caluma_workflow_models.Case.objects.filter(
-            **{"meta__camac-instance-id": instance.pk, "workflow_id": "migrated"}
-        ).exists()
+        return instance.case.workflow_id == "migrated"
 
     def get_migration_type(self, instance):
-        answer = caluma_form_models.Answer.objects.filter(
-            **{
-                "document__case__meta__camac-instance-id": instance.pk,
-                "question_id": "geschaeftstyp",
-            }
+        answer = instance.case.document.answers.filter(
+            question_id="geschaeftstyp"
         ).first()
 
         if not answer:  # pragma: no cover
@@ -411,10 +376,9 @@ class CalumaApi:
         caluma_settings = settings.APPLICATION.get("CALUMA", {})
 
         try:
-            work_item = caluma_workflow_models.WorkItem.objects.get(
+            work_item = circulation.instance.case.work_items.get(
                 **{
                     "task_id": caluma_settings.get("CIRCULATION_TASK"),
-                    "case__meta__camac-instance-id": circulation.instance.pk,
                     "meta__circulation-id": circulation.pk,
                 }
             )
@@ -488,7 +452,7 @@ class CalumaApi:
                 **{
                     f"{groups_type}__contains": [from_group_id],
                     "status": caluma_workflow_models.WorkItem.STATUS_READY,
-                    "case__family__meta__camac-instance-id": instance_id,
+                    "case__family__instance__pk": instance_id,
                 }
             ):
                 groups = set(getattr(work_item, groups_type))
@@ -528,7 +492,7 @@ class CalumaApi:
             **{
                 "task_id": caluma_settings.get("AUDIT_TASK"),
                 "status": caluma_workflow_models.WorkItem.STATUS_READY,
-                "case__family__meta__camac-instance-id": instance_id,
+                "case__family__instance__pk": instance_id,
             }
         ).first()
 
@@ -546,11 +510,9 @@ class CalumaApi:
         publication_slug = caluma_settings.get("PUBLICATION_TASK_SLUG", "")
 
         work_item = caluma_workflow_models.WorkItem.objects.filter(
-            **{
-                "status": caluma_workflow_models.WorkItem.STATUS_READY,
-                "case__family__meta__camac-instance-id": instance.pk,
-                "task__slug": publication_slug,
-            }
+            status=caluma_workflow_models.WorkItem.STATUS_READY,
+            case__family__instance__pk=instance.pk,
+            task__slug=publication_slug,
         ).first()
 
         if work_item:
