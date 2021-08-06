@@ -775,8 +775,10 @@ def test_recipient_type_submitter_list(
     submitter_type,
     is_portal_form,
 ):
-    if is_portal_form:
-        mocker.patch("camac.constants.kt_uri.PORTAL_FORMS", [instance.form.pk])
+    mocker.patch(
+        "camac.constants.kt_uri.PORTAL_FORMS",
+        [instance.form.pk if is_portal_form else 9999999999],
+    )
 
     ans_email = camac_answer_factory(answer=submitter_email, instance=instance)
     ans_submitter_type = camac_answer_factory(answer=submitter_type, instance=instance)
