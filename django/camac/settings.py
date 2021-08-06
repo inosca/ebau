@@ -753,11 +753,17 @@ APPLICATIONS = {
         "USE_INSTANCE_SERVICE": True,
         "ACTIVE_SERVICES": {
             "MUNICIPALITY": {
-                "FILTERS": {"service__service_group__pk__in": [2, 20000]},
+                "FILTERS": {
+                    "service__service_group__name__in": [
+                        "municipality",
+                        "district",
+                        "lead-service",
+                    ]
+                },
                 "DEFAULT": True,
             },
             "CONSTRUCTION_CONTROL": {
-                "FILTERS": {"service__service_group__pk": 3},
+                "FILTERS": {"service__service_group__name": "construction-control"},
                 "INSTANCE_STATES": [
                     "sb1",
                     "sb2",
