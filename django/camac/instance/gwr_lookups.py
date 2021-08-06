@@ -11,12 +11,12 @@ def resolve(lookup_key, case):
         resolver = config[0]
         return globals()[f"get_{resolver}"](*config[1:], case=case)
 
-    return None
+    return None  # pragma: no cover
 
 
 def get_answer(lookup, *args, case):
     if not lookup:
-        return None
+        return None  # pragma: no cover
     queryset = case.document.answers
 
     try:
@@ -73,7 +73,7 @@ def get_client(lookup, options, case):
         if type(config) is tuple:
             slug, mapping = config
         else:
-            slug = config
+            slug = config  # pragma: no cover
 
         answer = client.filter(question__slug=slug).first()
 
