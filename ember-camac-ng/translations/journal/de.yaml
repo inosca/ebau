@@ -3,7 +3,12 @@ journal:
   title-sz: "Notizen"
 
   create: "Eintrag erstellen"
-  edit: "Eintrag bearbeiten"
+  edit: "Bearbeiten"
   textareaNew: "Textbereich für neuen Eintrag"
   textareaEdit: "Textbereich zum editieren des Eintrages"
   noEntries: "Keine Journaleinträge vorhanden"
+
+  visibility: "Sichtbarkeit des Eintrags"
+  visibilityOwn: "Eigene Fachstelle"
+  visibilityAuthorities: "Alle Fachstellen"
+  visibleForAuthorities: "Sichtbar für alle Fachstellen"
