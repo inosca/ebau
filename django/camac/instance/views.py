@@ -918,6 +918,8 @@ class JournalEntryView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
     serializer_class = serializers.JournalEntrySerializer
     filterset_class = filters.JournalEntryFilterSet
     queryset = models.JournalEntry.objects.all()
+    ordering_fields = "creation_date"
+    ordering = "-creation_date"
 
     def get_base_queryset(self):
         queryset = super().get_base_queryset()
