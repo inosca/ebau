@@ -428,7 +428,7 @@ class TaskSendHandler(BaseSendHandler):
             raise SendHandlerException("Unknown service!")
 
     def _create_activation(self, circulation, service):
-        circulation_state = CirculationState.objects.get(pk=1)
+        circulation_state = CirculationState.objects.get(name="RUN")
         try:
             deadline_date_raw = self.data.eventRequest.directive.deadline
             deadline_date = deadline_date_raw.astimezone(pytz.UTC) + timezone.timedelta(

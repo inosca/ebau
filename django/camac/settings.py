@@ -1213,28 +1213,33 @@ APPLICATIONS = {
         # GWR fields have various "lookup types", see gwr_lookups.py
         # gwr_field_name: (lookup_type, lookup, extra_options)
         "GWR_DATA": {
-            "ANSWER_SLUGS": {
-                "client": "personalien-gesuchstellerin",
-                "officialConstructionProjectFileNo": None,
-                "constructionProjectDescription": ["beschreibung-bauvorhaben"],
-                "constructionLocalisation_municipalityName": None,
-                "typeOfConstructionProject": None,
-                "typeOfConstruction": None,
-                "totalCostsOfProject": "baukosten-in-chf",
-                "client_address_town": "ort-gesuchstellerin",
-                "client_address_swissZipCode": "plz-gesuchstellerin",
-                "client_address_street": "strasse-gesuchstellerin",
-                "client_address_houseNumber": None,
-                "client_address_country": None,
-                "client_identification_personIdentification_officialName": "name-gesuchstellerin",
-                "client_identification_personIdentification_firstName": "vorname-gesuchstellerin",
-                "client_identification_isOrganisation": None,
-                "client_identification_organisationIdentification_organisationName": None,
-                "realestateIdentification_EGRID": None,
-                "realestateIdentification_number": None,
-            },
-            "ANSWER_MAPPING": {},
-            "SUBMIT_DATE": ("submit_date_from_task", "submit"),
+            "client": (
+                "applicant",
+                "personalien-gesuchstellerin",
+                {
+                    "address_town": "ort-gesuchstellerin",
+                    "address_swissZipCode": "plz-gesuchstellerin",
+                    "address_street": "strasse-gesuchstellerin",
+                    "address_houseNumber": None,
+                    "address_country": None,
+                    "identification_personIdentification_officialName": "name-gesuchstellerin",
+                    "identification_personIdentification_firstName": "vorname-gesuchstellerin",
+                    "identification_isOrganisation": None,
+                    "identification_organisationIdentification_organisationName": None,
+                },
+            ),
+            "officialConstructionProjectFileNo": (
+                "case_meta",
+                "ebau-number",
+            ),
+            "constructionProjectDescription": ("answer", "beschreibung-bauvorhaben"),
+            "constructionLocalisation_municipalityName": None,
+            "typeOfConstructionProject": None,
+            "typeOfConstruction": None,
+            "totalCostsOfProject": ("answer", "baukosten-in-chf"),
+            "realestateIdentification_EGRID": None,
+            "realestateIdentification_number": None,
+            "projectAnnouncementDate": ("case_meta", "submit-date"),
         },
         "MUNICIPALITY_DATA_SHEET": APPLICATION_DIR(
             "Verwaltungskreise und -regionen der Gemeinden.csv"
@@ -1425,7 +1430,7 @@ APPLICATIONS = {
         # gwr_field_name: (lookup_type, lookup, extra_options)
         "GWR_DATA": {
             "client": (
-                "client",
+                "applicant",
                 "applicant",
                 {
                     "address_town": "city",
