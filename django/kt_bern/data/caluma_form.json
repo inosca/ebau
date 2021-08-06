@@ -2459,6 +2459,30 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "3bd0fdb0-848b-48a6-b935-b0ebdcb33984",
+    "fields": {
+      "created_at": "2021-08-05T09:05:00.247Z",
+      "modified_at": "2021-08-05T09:05:00.247Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "history_question_type": "choice",
+      "id": "fad95db9-0053-429d-9a17-767dfaf6d647",
+      "value": "verantwortliche-person-sb-identisch-ja",
+      "meta": {},
+      "date": null,
+      "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "question": "verantwortliche-person-sb-identisch",
+      "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
+      "file": null,
+      "history_date": "2021-08-05T09:05:00.249Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "3f1755cb-1070-42a3-9d2b-f13d0018100c",
     "fields": {
       "created_at": "2020-03-06T11:10:26.161Z",
@@ -4589,6 +4613,30 @@
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
       "file": null,
       "history_date": "2020-03-06T11:12:13.274Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "916faa94-5a5e-4894-8f61-4ef374897bbc",
+    "fields": {
+      "created_at": "2021-08-05T09:05:05.353Z",
+      "modified_at": "2021-08-05T09:05:05.353Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "history_question_type": "multiple_choice",
+      "id": "628e457d-5845-4ba7-8d72-417c4ca68bb6",
+      "value": ["bestaetigung-berechtigung-bauherrschaft-ja"],
+      "meta": {},
+      "date": null,
+      "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "question": "bestaetigung-berechtigung-bauherrschaft",
+      "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
+      "file": null,
+      "history_date": "2021-08-05T09:05:05.355Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -9197,6 +9245,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "628e457d-5845-4ba7-8d72-417c4ca68bb6",
+    "fields": {
+      "created_at": "2021-08-05T09:05:05.353Z",
+      "modified_at": "2021-08-05T09:05:05.353Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "bestaetigung-berechtigung-bauherrschaft",
+      "value": ["bestaetigung-berechtigung-bauherrschaft-ja"],
+      "meta": {},
+      "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "64ceefdb-2f88-4916-8de1-8ae5994fe2bd",
     "fields": {
       "created_at": "2021-03-31T12:46:52.251Z",
@@ -11711,6 +11777,24 @@
       "value": "Burgdorf",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "fad95db9-0053-429d-9a17-767dfaf6d647",
+    "fields": {
+      "created_at": "2021-08-05T09:05:00.247Z",
+      "modified_at": "2021-08-05T09:05:00.247Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "verantwortliche-person-sb-identisch",
+      "value": "verantwortliche-person-sb-identisch-ja",
+      "meta": {},
+      "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
       "date": null,
       "file": null
     }

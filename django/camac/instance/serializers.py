@@ -1365,8 +1365,16 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             group_pk=self.context["request"].group.pk,
         )
 
+        notification_key = (
+            "SUBMIT_PRELIMINARY_CLARIFICATION"
+            if "preliminary-clarification" == case.workflow_id
+            else "SUBMIT"
+        )
+
         # send out emails upon submission
-        for notification_config in settings.APPLICATION["NOTIFICATIONS"]["SUBMIT"]:
+        for notification_config in settings.APPLICATION["NOTIFICATIONS"][
+            notification_key
+        ]:
             self._notify_submit(**notification_config)
 
         return instance

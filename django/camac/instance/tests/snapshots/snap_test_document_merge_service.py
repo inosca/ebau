@@ -112,7 +112,7 @@ snapshots["test_document_merge_service_snapshot[baugesuch] 1"] = [
                     },
                     {
                         "choices": [
-                            {"checked": False, "label": "Ja"},
+                            {"checked": True, "label": "Ja"},
                             {"checked": False, "label": "Nein"},
                         ],
                         "label": "Ist die verantwortliche Person für die Selbstdeklaration Baukontrolle identisch mit dem/r Gesuchsteller/in?",
@@ -1153,7 +1153,7 @@ snapshots["test_document_merge_service_snapshot[baugesuch] 1"] = [
             {
                 "choices": [
                     {
-                        "checked": False,
+                        "checked": True,
                         "label": 'Der/die Gesuchsteller/in bestätigt, dass die Bauherrschaft Berechtigung (via Tab "Berechtigungen") auf das Dossier erhalten hat.',
                     }
                 ],
