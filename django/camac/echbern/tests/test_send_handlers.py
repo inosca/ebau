@@ -224,6 +224,7 @@ def test_notice_ruling_send_handler(
         expected_state = instance_state_factory(name=expected_state_name)
         handler.apply()
         ech_instance.refresh_from_db()
+        assert ech_instance.previous_instance_state == state
         assert ech_instance.instance_state == expected_state
         assert DocxDecision.objects.get(instance=ech_instance)
         assert Message.objects.count() == 1
@@ -621,6 +622,7 @@ def test_kind_of_proceedings_send_handler(
             == ech_instance.responsible_service(filter_type="municipality")
         )
         ech_instance.refresh_from_db()
+        assert ech_instance.previous_instance_state.name == "circulation_init"
         assert ech_instance.instance_state.name == "circulation"
 
         assert Message.objects.count() == 1
