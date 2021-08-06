@@ -27,7 +27,7 @@
     "model": "notification.notificationtemplate",
     "pk": 3,
     "fields": {
-      "slug": "00-empfang-stellungnahme-zu-voranfrage",
+      "slug": "00-empfang-vorabklaerung-gesuchsteller",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -474,7 +474,7 @@
       "template": 1,
       "template_slug": "00-empfang-anfragebaugesuch-gesuchsteller",
       "language": "de",
-      "purpose": "00 Empfang Anfrage/Baugesuch (Gesuchsteller)",
+      "purpose": "00 Empfang Baugesuch (Gesuchsteller)",
       "subject": "Erfolgreiche Einreichung / Formulaire d\u00e9pos\u00e9 avec succ\u00e8s",
       "body": "Guten Tag\r\n\r\nIhr Dossier mit der Dossier-Nr. {{INSTANCE_ID}} wurde erfolgreich \u00fcbermittelt. Alle auf eBau hochgeladenen Pl\u00e4ne und Dokumente m\u00fcssen unterschrieben, datiert und in mindestens zweifacher Ausfertigung mit dem Gesuchsformular bei der zust\u00e4ndigen Gemeinde eingereicht werden. Das Dossier wird erst bearbeitet, wenn die Gemeinde das Papierdossier erhalten hat.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nGerne m\u00f6chten wir erfahren wie einfach die elektronische Eingabe eines Dossiers war. Wir bitten Sie daher, sich 2 - 3 Minuten Zeit zu nehmen und den folgenden Fragebogen zu beantworten. Besten Dank.\r\n\r\nhttps://www.onlineumfragen.com/login.cfm?umfrage=87201\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nVotre dossier portant le num\u00e9ro de dossier {{INSTANCE_ID}} a \u00e9t\u00e9 d\u00e9pos\u00e9/e avec succ\u00e8s. Tous les plans et documents t\u00e9l\u00e9charg\u00e9s sur eBau doivent \u00eatre sign\u00e9s, dat\u00e9s et envoy\u00e9s en au moins deux exemplaires avec le formulaire de demande de permis de construire \u00e0 la commune responsable. Le dossier ne sera trait\u00e9 que lorsque la commune aura re\u00e7u le dossier papier.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}"
     }
@@ -496,11 +496,11 @@
     "pk": 5,
     "fields": {
       "template": 3,
-      "template_slug": "00-empfang-stellungnahme-zu-voranfrage",
+      "template_slug": "00-empfang-vorabklaerung-gesuchsteller",
       "language": "de",
-      "purpose": "00 Empfang Stellungnahme zu Voranfrage",
-      "subject": "Voranfrage wurde \u00fcbermittelt (eBau-Nr. {{EBAU_NUMBER}}) / Demande pr\u00e9alable transmise (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDie Voranfrage mit der eBau-Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) wurde erfolgreich an den / die Anfragesteller(in) /oder die Anfragestellenden \u00fcbermittelt.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa demande pr\u00e9alable portant le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) a \u00e9t\u00e9 trait\u00e9e puis transmise avec succ\u00e8s \u00e0 l'auteur/e de la question.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}"
+      "purpose": "00 Empfang Vorabkl\u00e4rung (Gesuchsteller)",
+      "subject": "Erfolgreiche Einreichung / Formulaire d\u00e9pos\u00e9 avec succ\u00e8s",
+      "body": "Guten Tag\r\n\r\nIhr Dossier mit der Dossier-Nr. {{INSTANCE_ID}} wurde erfolgreich \u00fcbermittelt.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nGerne m\u00f6chten wir erfahren wie einfach die elektronische Eingabe eines Dossiers war. Wir bitten Sie daher, sich 2 - 3 Minuten Zeit zu nehmen und den folgenden Fragebogen zu beantworten. Besten Dank.\r\n\r\nhttps://www.onlineumfragen.com/login.cfm?umfrage=87201\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nVotre dossier portant le num\u00e9ro de dossier {{INSTANCE_ID}} a \u00e9t\u00e9 d\u00e9pos\u00e9/e avec succ\u00e8s.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}"
     }
   },
   {
