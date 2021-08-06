@@ -351,6 +351,7 @@ class InstanceView(
         except WorkflowEntry.DoesNotExist:
             submit_date = None
 
+        # TODO refactor to use gwr_lookups as well (see above)
         return response.Response(
             {
                 "constructionProjectDescription": self._get_field_value("bezeichnung"),
