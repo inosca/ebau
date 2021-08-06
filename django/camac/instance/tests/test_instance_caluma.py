@@ -1458,17 +1458,20 @@ def test_rejection(
 @pytest.mark.parametrize("is_paper", [True, False])
 @pytest.mark.parametrize("is_modification", [True, False])
 @pytest.mark.parametrize("is_migrated", [True, False])
+@pytest.mark.parametrize("is_kog", [True, False])
 def test_instance_name(
     admin_client,
     caluma_workflow_config_be,
     instance,
     instance_with_case,
     group,
+    instance_service_factory,
     role,
     multilang,
     is_paper,
     is_modification,
     is_migrated,
+    is_kog,
 ):
     def yes_no_german(boolean):
         return "ja" if boolean else "nein"
@@ -1482,6 +1485,7 @@ def test_instance_name(
         "migriertes-dossier" if is_migrated else "main-form",
         {"instance": instance.pk},
     )
+    service_group = instance_service_factory(instance=instance).service.service_group
 
     if is_migrated:
         instance.case.document.answers.create(
@@ -1496,6 +1500,10 @@ def test_instance_name(
             question_id="projektaenderung",
             value=f"projektaenderung-{yes_no_german(is_modification)}",
         )
+
+    if is_kog:
+        service_group.name = "lead-service"
+        service_group.save()
 
     url = reverse("instance-detail", args=[instance.pk])
 
@@ -1513,6 +1521,8 @@ def test_instance_name(
             assert "(Papier)" in name
         if is_modification:
             assert "(Projektänderung)" in name
+        if is_kog:
+            assert "(KoG)" in name
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])

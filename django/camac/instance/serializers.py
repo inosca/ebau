@@ -734,6 +734,9 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         migrated = api.is_migrated(instance)
         paper = api.is_paper(instance)
         modification = api.is_modification(instance)
+        is_kog = instance.instance_services.filter(
+            service__service_group__name="lead-service", active=1
+        )
 
         if migrated:
             name = api.get_migration_type(instance)[1]
@@ -744,6 +747,9 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
         if not migrated and modification:
             parts.append(_("modification"))
+
+        if not migrated and is_kog:
+            parts.append(_("coordinated"))
 
         parts = [f"({part})" for part in parts]
 
