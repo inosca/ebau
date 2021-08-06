@@ -8,4 +8,15 @@ export default class JournalEntryModel extends Model {
   @belongsTo instance;
   @belongsTo user;
   @belongsTo service;
+
+  get visibilityBoolean() {
+    switch (this.visibility) {
+      case "authorities":
+        return true;
+      case "own_organization":
+        return false;
+      default:
+        return false;
+    }
+  }
 }
