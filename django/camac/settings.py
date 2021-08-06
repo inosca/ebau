@@ -595,8 +595,11 @@ APPLICATIONS = {
             ],
             "MODIFICATION_ALLOW_FORMS": [
                 "baugesuch",
+                "baugesuch-v2",
                 "baugesuch-generell",
+                "baugesuch-generell-v2",
                 "baugesuch-mit-uvp",
+                "baugesuch-mit-uvp-v2",
             ],
             "MODIFICATION_DISALLOW_STATES": [
                 "new",
