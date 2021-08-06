@@ -4,20 +4,16 @@ import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 
+import ENV from "camac-ng/config/environment";
+
 export default class JournalController extends Controller {
   @service store;
+  @service shoebox;
 
   @tracked newEntry = null;
   @tracked newEntries = [];
-  @tracked editText = "";
 
-  get entries() {
-    return [...(this.fetchedEntries || []).toArray(), ...this.newEntries]
-      .sortBy("creationDate")
-      .reverse();
-  }
-
-  @lastValue("fetchEntries") fetchedEntries;
+  @lastValue("fetchEntries") entries;
   @dropTask
   *fetchEntries() {
     this.instance = this.store.findRecord("instance", this.model.id);
@@ -30,31 +26,44 @@ export default class JournalController extends Controller {
 
   @dropTask
   *saveEntry(entry) {
+    entry.instance = this.instance;
+
+    if (entry.visibility) {
+      entry.visibility = "authorities";
+    } else {
+      entry.visibility = "own_organization";
+    }
+
     yield entry.save();
 
     if (this.newEntry) {
-      this.newEntries.pushObject(entry);
-      this.newEntry = undefined;
+      this.fetchEntries.perform();
+      this.initializeNewEntry();
     }
 
+    entry.set("edit", false);
     return entry;
   }
 
   @action
-  addNewEntry() {
+  initializeNewEntry() {
     this.newEntry = this.store.createRecord("journal-entry", {
-      instance: this.instance,
-      visibility: "own_organization",
+      visibility: ENV.APPLICATION.journalDefaultVisibility,
     });
   }
 
   @action
-  cancelNewEntry() {
-    this.newEntry = undefined;
+  cancelEditEntry(entry) {
+    entry.set("edit", false);
+    entry.rollbackAttributes();
   }
 
   @action
-  cancelEditEntry(entry) {
-    entry.rollbackAttributes();
+  resizeTextarea(event) {
+    const element = event.srcElement ?? event;
+    const offset = element.offsetHeight - element.clientHeight;
+
+    element.style.height = "auto"; // Retract textarea
+    element.style.height = `${element.scrollHeight + offset}px`; // Expand textarea
   }
 }

@@ -6,114 +6,126 @@
   {{/if}}
 </h1>
 
-{{#if this.newEntry}}
-  <div class="form journal__create">
+{{#if (can "edit journal-entry")}}
+  <div>
     <Textarea
-      class="journal__new"
+      class="uk-textarea journal-textarea"
       @value={{this.newEntry.text}}
-      cols="50"
-      rows="10"
+      rows="5"
       aria-label="{{t "journal.textareaNew"}}"
+      {{on "input" this.resizeTextarea}}
+      data-test-new-entry
     />
 
-    <button
-      type="button"
-      class="button buttonstyle btn"
-      {{on "click" this.cancelNewEntry}}
-    >
-      {{t "global.cancel"}}
-    </button>
-    <button
-      type="button"
-      class="button buttonstyle btn success"
-      data-test-new-save
-      {{on "click" (perform this.saveEntry this.newEntry)}}
-    >
-      {{t "global.save"}}
-    </button>
+    <div class="uk-flex uk-flex-between uk-margin">
+      <UkToggleSwitch
+        @value={{this.newEntry.visibilityBoolean}}
+        @onLabel={{t "journal.visibilityAuthorities"}}
+        @offLabel={{t "journal.visibilityOwn"}}
+        @showLabels={{true}}
+        @size="small"
+        title={{t "journal.visibility"}}
+      />
+      <UkButton
+        @type="button"
+        @color="primary"
+        @on-click={{perform this.saveEntry this.newEntry}}
+        data-test-new-save
+      >
+        {{t "global.save"}}
+      </UkButton>
+    </div>
   </div>
-{{else if (can "edit journal-entry")}}
-  <button
-    type="button"
-    class="button buttonstyle btn success"
-    data-test-new
-    {{on "click" this.addNewEntry}}
-  >
-    {{t "journal.create"}}
-  </button>
+
+  <hr class="uk-hr"/>
 {{/if}}
 
-<div class="journal"  {{did-insert (perform this.fetchEntries)}}>
+<div class="uk-margin" data-test-journal-list>
   {{#if this.fetchEntries.isRunning}}
     <LoadingText />
   {{else if this.entries.length}}
-    {{#each this.entries as |entry|}}
-      <fieldset>
-        <legend class="journal__info">
-          <span class="date">
-            {{format-date
-              entry.creationDate
-              day="2-digit"
-              month="2-digit"
-              year="numeric"
-              hour="2-digit"
-              minute="2-digit"
-              hour12=false
-            }}
-          </span> -
-          <span class="name">{{entry.user.fullName}}</span>
-          {{#if entry.edit}}
-            <div class="journal__edit__buttons">
-              <button
-                class="journal__edit__button"
-                type="button"
-                title={{t "global.cancel"}}
-                {{on
-                  "click"
-                  (queue
-                    (fn this.cancelEditEntry entry) (toggle "edit" entry)
-                  )
-                }}
-              >
-                <FaIcon @icon="ban" />
-              </button>
-              {{#unless this.readOnly}}
-                <button
-                  class="journal__edit__button"
-                  type="button"
-                  title={{t "global.save"}}
-                  data-test-edit-save
-                  {{on
-                    "click"
-                    (queue (perform this.saveEntry entry) (toggle "edit" entry))
+    <ul class="uk-comment-list">
+      {{#each this.entries as |entry|}}
+        <li>
+          <article class="uk-comment">
+            <header class="uk-comment-header uk-flex uk-flex-between">
+              <div>
+                <span>{{entry.user.fullName}}</span>
+                -
+                <span class="uk-text-italic">
+                  {{format-date
+                    entry.creationDate
+                    day="2-digit"
+                    month="2-digit"
+                    year="numeric"
+                    hour="2-digit"
+                    minute="2-digit"
+                    hour12=false
                   }}
-                >
-                  <FaIcon @icon="save" />
-                </button>
-              {{/unless}}
+                </span>
+                {{#if entry.visibilityBoolean}}
+                  <i class="fa fa-eye uk-margin-small-left" title={{t "journal.visibleForAuthorities"}}></i>
+                {{/if}}
+              </div>
+              {{#if (and (can "edit journal-entry") (not this.readOnly entry.edit))}}
+                <div>
+                  <button
+                    class="uk-button uk-button-text uk-text-small"
+                    type="button"
+                    title={{t "journal.edit" }}
+                    {{on "click" (toggle "edit" entry)}}
+                    data-test-edit-entry
+                  >
+                    <UkIcon @icon="pencil" /> {{t "journal.edit"}}
+                  </button>
+                </div>
+              {{/if}}
+            </header>
+            <div class="uk-comment-body">
+              {{#if entry.edit}}
+                <Textarea
+                  @value={{entry.text}}
+                  class="uk-textarea journal-textarea"
+                  aria-label={{t "journal.textareaEdit" }}
+                  rows="5"
+                  {{on "input" this.resizeTextarea}}
+                  {{did-insert this.resizeTextarea}}
+                  data-test-edit
+                />
+                <div class="uk-flex uk-flex-between uk-margin">
+                  <UkToggleSwitch
+                    @value={{entry.visibilityBoolean}}
+                    @onLabel={{t "journal.visibilityAuthorities"}}
+                    @offLabel={{t "journal.visibilityOwn"}}
+                    @showLabels={{true}}
+                    @size="small"
+                    title={{t "journal.visibility"}}
+                  />
+                  <div>
+                    <UkButton
+                      @type="button"
+                      @on-click={{fn this.cancelEditEntry entry}}
+                    >
+                      {{t "global.cancel"}}
+                    </UkButton>
+                    <UkButton
+                      @type="button"
+                      @color="primary"
+                      @on-click={{perform this.saveEntry entry}}
+                      data-test-edit-save
+                    >
+                      {{t "global.save"}}
+                    </UkButton>
+                  </div>
+                </div>
+              {{else}}
+                <span class="journal-entry-text">{{entry.text}}</span>
+              {{/if}}
             </div>
-          {{else if (can "edit journal-entry")}}
-            {{#unless this.readOnly}}
-              <button
-                class="journal__edit__button"
-                type="button"
-                title={{t "journal.edit"}}
-                {{on "click" (toggle "edit" entry)}}
-              >
-                <FaIcon @icon="edit" />
-              </button>
-            {{/unless}}
-          {{/if}}
-        </legend>
-        <div class="form journal__body">
-          {{#if entry.edit}}
-            <Textarea @value={{entry.text}} aria-label={{t "journal.textareaEdit"}} data-test-edit />
-          {{else}}
-            <span>{{entry.text}}</span>
-          {{/if}}
-        </div>
-      </fieldset>
-    {{/each}}
+          </article>
+        </li>
+      {{/each}}
+    </ul>
   {{else}}
     {{t "global.empty"}}
   {{/if}}
