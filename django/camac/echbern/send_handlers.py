@@ -187,6 +187,7 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
 
         if judgement == ECH_JUDGEMENT_DECLINED:
             # reject instance
+            self.instance.previous_instance_state = self.instance.instance_state
             self.instance.instance_state = InstanceState.objects.get(name="rejected")
             self.instance.save()
 
@@ -508,9 +509,8 @@ class KindOfProceedingsSendHandler(DocumentAccessibilityMixin, TaskSendHandler):
                 status=403,
             )
 
-        circulation = self._get_circulation()
-        instance_state = InstanceState.objects.get(name="circulation")
-        self.instance.instance_state = instance_state
+        self.instance.previous_instance_state = self.instance.instance_state
+        self.instance.instance_state = InstanceState.objects.get(name="circulation")
         self.instance.save()
 
         circulation_started.send(
@@ -525,7 +525,7 @@ class KindOfProceedingsSendHandler(DocumentAccessibilityMixin, TaskSendHandler):
 
         self.link_to_section(attachments)
 
-        return circulation
+        return self._get_circulation()
 
 
 def resolve_send_handler(data):
