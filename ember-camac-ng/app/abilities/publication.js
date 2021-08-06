@@ -13,6 +13,10 @@ export default class PublicationAbility extends Ability {
   }
 
   get canCreate() {
-    return this.shoebox.role === "municipality" && !this.shoebox.isReadOnlyRole;
+    return (
+      this.shoebox.role === "municipality" &&
+      !this.shoebox.isReadOnlyRole &&
+      this.model?.status !== "READY"
+    );
   }
 }
