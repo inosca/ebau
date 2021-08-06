@@ -205,7 +205,7 @@ APPLICATIONS = {
         },
         # GWR fields have various "lookup types", see gwr_lookups.py
         # gwr_field_name: (lookup_type, lookup, extra_options)
-        "GWR": {
+        "GWR_DATA": {
             "ANSWER_SLUGS": {},
             "ANSWER_MAPPING": {},
             "SUBMIT_DATE": {},
@@ -1212,7 +1212,7 @@ APPLICATIONS = {
         ],
         # GWR fields have various "lookup types", see gwr_lookups.py
         # gwr_field_name: (lookup_type, lookup, extra_options)
-        "GWR_EXPORT": {
+        "GWR_DATA": {
             "ANSWER_SLUGS": {
                 "client": "personalien-gesuchstellerin",
                 "officialConstructionProjectFileNo": None,
@@ -1234,7 +1234,7 @@ APPLICATIONS = {
                 "realestateIdentification_number": None,
             },
             "ANSWER_MAPPING": {},
-            "SUBMIT_DATE": ("submit_date_from_task", [10, 12]),
+            "SUBMIT_DATE": ("submit_date_from_task", "submit"),
         },
         "MUNICIPALITY_DATA_SHEET": APPLICATION_DIR(
             "Verwaltungskreise und -regionen der Gemeinden.csv"
@@ -1423,7 +1423,7 @@ APPLICATIONS = {
         },
         # GWR fields have various "lookup types", see gwr_lookups.py
         # gwr_field_name: (lookup_type, lookup, extra_options)
-        "GWR_EXPORT": {
+        "GWR_DATA": {
             "client": (
                 "client",
                 "applicant",
@@ -1505,7 +1505,7 @@ APPLICATIONS = {
             "totalCostsOfProject": ("answer", "construction-cost"),
             "realestateIdentification_EGRID": ("answer", "parcels.e-grid"),
             "realestateIdentification_number": ("answer", "parcels.parcel-number"),
-            "projectAnnouncementDate": ("submit_date_from_workflow", [10, 12]),
+            "projectAnnouncementDate": ("submit_date_from_workflow_entry", [10, 12]),
         },
         "SIDE_EFFECTS": {
             "document_downloaded": "camac.document.side_effects.create_workflow_entry",
