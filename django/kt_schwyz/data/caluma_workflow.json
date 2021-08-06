@@ -40,7 +40,9 @@
       "closed_by_user": null,
       "closed_by_group": null,
       "status": "running",
-      "meta": {},
+      "meta": {
+        "camac-instance-id": 3
+      },
       "family": "cd2eb86c-e2e9-4c4c-ac53-057b30b434f7",
       "workflow": "building-permit",
       "document": "96c7605e-f1ec-4f78-b1ae-4c923e40296f",
@@ -65,7 +67,9 @@
       "closed_by_user": null,
       "closed_by_group": null,
       "status": "running",
-      "meta": {},
+      "meta": {
+        "camac-instance-id": 4
+      },
       "family": "e26389d9-da0d-4809-b38a-eb1503002f3b",
       "workflow": "building-permit",
       "document": "cf47cfb4-fbe0-4dc4-b053-e8b0dc4bc722",
@@ -90,7 +94,9 @@
       "closed_by_user": null,
       "closed_by_group": null,
       "status": "running",
-      "meta": {},
+      "meta": {
+        "camac-instance-id": 1
+      },
       "family": "21f2cb9f-2c45-49a5-9351-d85b0eaa6ad5",
       "workflow": "building-permit",
       "document": "ac37a014-405b-4b54-86ad-77dc0bdb9918",
@@ -165,7 +171,9 @@
       "closed_by_user": null,
       "closed_by_group": null,
       "status": "running",
-      "meta": {},
+      "meta": {
+        "camac-instance-id": 2
+      },
       "family": "4e5c5224-66f3-4ebf-937e-99be66ee79e3",
       "workflow": "building-permit",
       "document": "3ba608f8-2015-46fd-8fb9-c6c5e7bb68c6",
@@ -190,7 +198,9 @@
       "closed_by_user": null,
       "closed_by_group": null,
       "status": "running",
-      "meta": {},
+      "meta": {
+        "camac-instance-id": 5
+      },
       "family": "5ecfb2d0-0917-4350-96d2-ed28a25ecbfb",
       "workflow": "building-permit",
       "document": "932aee7e-2912-47a2-b395-aaa6f73e2315",
@@ -215,7 +225,9 @@
       "closed_by_group": null,
       "workflow": "building-permit",
       "status": "running",
-      "meta": {},
+      "meta": {
+        "camac-instance-id": 1
+      },
       "document": "ac37a014-405b-4b54-86ad-77dc0bdb9918"
     }
   },
@@ -235,7 +247,9 @@
       "closed_by_group": null,
       "workflow": "building-permit",
       "status": "running",
-      "meta": {},
+      "meta": {
+        "camac-instance-id": 2
+      },
       "document": "3ba608f8-2015-46fd-8fb9-c6c5e7bb68c6"
     }
   },
@@ -255,7 +269,9 @@
       "closed_by_group": null,
       "workflow": "building-permit",
       "status": "running",
-      "meta": {},
+      "meta": {
+        "camac-instance-id": 5
+      },
       "document": "932aee7e-2912-47a2-b395-aaa6f73e2315"
     }
   },
@@ -315,7 +331,9 @@
       "closed_by_group": null,
       "workflow": "building-permit",
       "status": "running",
-      "meta": {},
+      "meta": {
+        "camac-instance-id": 3
+      },
       "document": "96c7605e-f1ec-4f78-b1ae-4c923e40296f"
     }
   },
@@ -335,7 +353,9 @@
       "closed_by_group": null,
       "workflow": "building-permit",
       "status": "running",
-      "meta": {},
+      "meta": {
+        "camac-instance-id": 4
+      },
       "document": "cf47cfb4-fbe0-4dc4-b053-e8b0dc4bc722"
     }
   },
