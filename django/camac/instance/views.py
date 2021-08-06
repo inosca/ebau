@@ -18,6 +18,7 @@ from django.utils.translation import gettext as _
 from rest_framework import response, status
 from rest_framework.decorators import action
 from rest_framework.generics import ListAPIView, RetrieveAPIView
+from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
 from rest_framework.settings import api_settings
 from rest_framework_json_api import views
@@ -289,52 +290,15 @@ class InstanceView(
         except ObjectDoesNotExist:
             return None
 
-    @action(methods=["get"], detail=True)
+    @action(methods=["get"], detail=True, renderer_classes=[JSONRenderer])
     def gwr_data(self, request, pk):
         """Export instance data to GWR."""
 
         if settings.APPLICATION["FORM_BACKEND"] == "caluma":
             case = workflow_models.Case.objects.get(instance__pk=pk)
 
-            return response.Response(
-                {
-                    "officialConstructionProjectFileNo": gwr_lookups.resolve(
-                        "officialConstructionProjectFileNo", case
-                    ),
-                    "constructionProjectDescription": gwr_lookups.resolve(
-                        "constructionProjectDescription", case
-                    ),
-                    "constructionLocalisation": {
-                        "municipalityName": gwr_lookups.resolve(
-                            "constructionLocalisation_municipalityName", case
-                        )
-                    },
-                    "typeOfConstructionProject": gwr_lookups.resolve(
-                        "typeOfConstructionProject", case
-                    ),
-                    "typeOfConstruction": gwr_lookups.resolve(
-                        "typeOfConstruction", case
-                    ),
-                    "totalCostsOfProject": gwr_lookups.resolve(
-                        "totalCostsOfProject", case
-                    ),
-                    "realestateIdentification": {
-                        "EGRID": gwr_lookups.resolve(
-                            "realestateIdentification_EGRID",
-                            case,
-                        ),
-                        "number": gwr_lookups.resolve(
-                            "realestateIdentification_number",
-                            case,
-                        ),
-                    },
-                    "client": gwr_lookups.resolve("client", case),
-                    "projectAnnouncementDate": gwr_lookups.resolve(
-                        "projectAnnouncementDate",
-                        case,
-                    ),
-                }
-            )
+            resolver = gwr_lookups.GwrSerializer(case)
+            return response.Response(resolver.data)
 
         instance = self.get_object()
 
