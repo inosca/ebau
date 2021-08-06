@@ -6,7 +6,7 @@ from camac.user.models import Location
 
 
 def resolve(lookup_key, case):
-    config = settings.APPLICATION["GWR"].get("ANSWER_SLUGS", {}).get(lookup_key)
+    config = settings.APPLICATION["GWR_DATA"].get(lookup_key)
     if config:
         resolver = config[0]
         return globals()[f"get_{resolver}"](*config[1:], case=case)
@@ -15,31 +15,35 @@ def resolve(lookup_key, case):
 
 
 def get_answer(lookup, *args, case):
-    queryset = case.document.answers
     if not lookup:
         return None
-    if type(lookup) == list:
-        value = queryset.filter(question__slug__in=lookup).first().value
-    else:
-        parts = lookup.split(".")
-        if len(parts) > 1:
-            queryset = form_models.Answer.objects.filter(
-                document=queryset.get(question__slug=parts[0]).documents.first()
-            )
-            value = queryset.filter(question__slug=parts[1]).first().value
-        else:
-            value = queryset.filter(question__slug=parts[0]).first().value
+    queryset = case.document.answers
 
-    value = value[0] if isinstance(value, list) else value
-    mapping = args[0] if len(args) > 0 else None
-    return mapping.get(value) if mapping else value
+    try:
+        if type(lookup) == list:
+            value = queryset.filter(question__slug__in=lookup).first().value
+        else:
+            parts = lookup.split(".")
+            if len(parts) > 1:
+                queryset = form_models.Answer.objects.filter(
+                    document=queryset.get(question__slug=parts[0]).documents.first()
+                )
+                value = queryset.filter(question__slug=parts[1]).first().value
+            else:
+                value = queryset.filter(question__slug=parts[0]).first().value
+
+        value = value[0] if isinstance(value, list) else value
+        mapping = args[0] if len(args) > 0 else None
+        return mapping.get(value) if mapping else value
+    except AttributeError:
+        return None
 
 
 def get_location(lookup, case):
     value = get_answer(lookup, case=case)
-    if not value:
-        return None
-    return Location.objects.get(pk=value).name
+    if value:
+        return Location.objects.get(pk=value).name
+    return None  # pragma: no cover
 
 
 def get_case_meta(lookup, case):
@@ -47,33 +51,36 @@ def get_case_meta(lookup, case):
 
 
 def get_submit_date_from_task(lookup, case):
-    return case.work_items.get(task_id="submit").closed_at
+    return case.work_items.get(task_id=lookup).closed_at
 
 
-def get_submit_date_from_workflow(workflow_item_ids, case):
-    return WorkflowEntry.objects.get(
-        instance_id=case.meta["camac-instance-id"],
+def get_submit_date_from_workflow_entry(workflow_item_ids, case):
+    entry = WorkflowEntry.objects.filter(
+        instance_id=case.instance.pk,
         workflow_item_id__in=workflow_item_ids,
-    ).workflow_date.strftime("%Y-%m-%d")
+    ).first()
+    return entry.workflow_date.strftime("%Y-%m-%d") if entry else None
 
 
 def get_client(lookup, options, case):
+    # closure for shorthand calls
+    def find_answer(lookup_key):
+        config = options.get(lookup_key)
+        if not config:
+            return None
+
+        mapping = None
+        if type(config) is tuple:
+            slug, mapping = config
+        else:
+            slug = config
+
+        answer = client.filter(question__slug=slug).first()
+
+        value = answer.value if answer else None
+        return mapping.get(value) if mapping else value
+
     try:
-
-        def find_answer(lookup_key):
-            config = options[lookup_key]
-
-            mapping = None
-            if type(config) is tuple:
-                slug, mapping = config
-            else:
-                slug = config
-
-            answer = client.filter(question__slug=slug).first()
-
-            value = answer.value if answer else None
-            return mapping.get(value) if mapping else value
-
         client = form_models.Answer.objects.filter(
             document=case.document.answers.get(question__slug=lookup).documents.first()
         )
