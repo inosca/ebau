@@ -476,50 +476,6 @@ def test_instance_export_list(
     assert "Bezeichnung" in row
 
 
-@pytest.mark.parametrize("role__name", ["Municipality"])
-@pytest.mark.parametrize("has_client", [True, False])
-def test_instance_gwr_data(
-    admin_client,
-    user,
-    instance,
-    form_field_factory,
-    django_assert_num_queries,
-    has_client,
-):
-    url = reverse("instance-gwr-data", args=[instance.pk])
-
-    add_field = functools.partial(form_field_factory, instance=instance)
-    add_field(name="bezeichnung", value="Bezeichnung")
-    if has_client:
-        add_field(
-            name="bauherrschaft",
-            value=[
-                {
-                    "name": "Muster",
-                    "vorname": "Hans",
-                    "ort": "Musterhausen",
-                    "plz": 1234,
-                    "strasse": "Musterstrasse",
-                }
-            ],
-        )
-
-    response = admin_client.get(url)
-    assert response.status_code == status.HTTP_200_OK
-    data = response.json()["data"]
-    assert data["constructionProjectDescription"] == "Bezeichnung"
-    assert data["totalCostsOfProject"] is None
-
-    if has_client:
-        assert data["client"]["address"]["town"] == "Musterhausen"
-        assert (
-            data["client"]["identification"]["personIdentification"]["officialName"]
-            == "Muster"
-        )
-    else:
-        assert data["client"] is None
-
-
 @pytest.mark.parametrize("attachment__question", ["dokument-parzellen"])
 @pytest.mark.parametrize(
     "role__name,instance__user,form__name,status_code,to_type",
