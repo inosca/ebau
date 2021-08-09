@@ -131,6 +131,7 @@ gis:
   title: "Karte"
   apply-button: "Daten übernehmen"
   attention: "Achtung"
+  parcel: "Parzelle"
   no-map:
     message: "Wird die Karte nicht richtig dargestellt?"
     link: "Neu laden"

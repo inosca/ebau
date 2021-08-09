@@ -135,7 +135,8 @@ freigabequittung:
 gis:
   title: "Carte"
   apply-button: "Reprendre les données"
-  attention: "Achtung"
+  attention: "Attention"
+  parcel: "Parcelle"
   no-map:
     message: "La carte ne s'affiche pas correctement?"
     link: "Recharger"
