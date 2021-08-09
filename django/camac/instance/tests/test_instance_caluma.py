@@ -82,6 +82,7 @@ def mock_generate_and_store_pdf(mocker):
     "copy,modification,extend_validity",
     [(False, False, True), (True, False, False), (True, True, False)],
 )
+@pytest.mark.parametrize("convert_to_building_permit", [False, True])
 @pytest.mark.parametrize("role__name", ["Municipality", "Coordination"])
 def test_create_instance_caluma_be(
     db,
@@ -100,6 +101,7 @@ def test_create_instance_caluma_be(
     user_factory,
     extend_validity,
     instance_service_factory,
+    convert_to_building_permit,
 ):
     headers = {}
 
@@ -177,6 +179,13 @@ def test_create_instance_caluma_be(
 
     # do a second request including pk, copying the existing instance
     if copy:
+        # convert vollstaendige vorabklaerung to building permit
+        if convert_to_building_permit:
+            instance.case.document.form = caluma_form_models.Form.objects.create(
+                pk="vorabklaerung-vollstaendig-v2"
+            )
+            instance.case.document.save()
+
         # link attachment to old instance
         attachment.instance_id = instance_id
         attachment.save()
