@@ -105,7 +105,7 @@ test-ember:
   script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
     - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --ignore-pull-failures --quiet ember"
-    - eval $COMPOSE build --pull ember
+    - eval $COMPOSE build ember
     - eval $COMPOSE run --rm --no-deps ember yarn test
   only:
     refs:
@@ -123,7 +123,7 @@ test-ember-camac-ng:
   script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
     - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --ignore-pull-failures --quiet ember-camac-ng"
-    - eval $COMPOSE build --pull ember-camac-ng
+    - eval $COMPOSE build ember-camac-ng
     - eval $COMPOSE run --rm --no-deps ember-camac-ng yarn test:ember
   only:
     refs:
@@ -141,7 +141,7 @@ test-ember-caluma-portal:
   script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
     - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --ignore-pull-failures --quiet ember-caluma-portal"
-    - eval $COMPOSE build --pull ember-caluma-portal
+    - eval $COMPOSE build ember-caluma-portal
     - eval $COMPOSE run --rm --no-deps -e APPLICATION=kt_bern ember-caluma-portal yarn test:ember
     - eval $COMPOSE run --rm --no-deps -e APPLICATION=kt_uri ember-caluma-portal yarn test:ember
   only:
@@ -159,8 +159,8 @@ test-ember-ebau-core:
     - docker:dind
   script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
-    - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --ignore-pull-failures --quiet ember-caluma-portal"
-    - eval $COMPOSE build --pull ember-ebau-core
+    - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --ignore-pull-failures --quiet ember-ebau-core"
+    - eval $COMPOSE build ember-ebau-core
     - eval $COMPOSE run --rm --no-deps ember-ebau-core yarn test:ember-compatibility
   only:
     refs:
@@ -177,9 +177,9 @@ test-django:
     - docker:dind
   script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
-    - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --ignore-pull-failures --quiet django db"
-    - eval $COMPOSE up -d --build db clamav unoconv
-    - eval $COMPOSE build --pull django
+    - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --ignore-pull-failures --quiet django db clamav unoconv"
+    - eval $COMPOSE build --parallel django db clamav unoconv
+    - eval $COMPOSE up -d db clamav unoconv
     - eval $COMPOSE run --rm --no-deps django make install-dev test
   only:
     refs:
@@ -206,14 +206,13 @@ php-security-checker:
 .build-image:
   stage: build
   variables:
-    CONTAINERS: ember django php db
+    CONTAINERS: ember ember-camac-ng ember-caluma-portal django php db
   services:
     - docker:dind
   script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
-    - eval $COMPOSE pull --ignore-pull-failures --quiet $CONTAINERS
-    - eval $COMPOSE build --pull
-    - eval $COMPOSE push
+    - eval $COMPOSE build --pull --parallel $CONTAINERS
+    - eval $COMPOSE push $CONTAINERS
 
 build:
   extends: .build-image
@@ -236,22 +235,11 @@ build-kt_schwyz-production:
     APPLICATION: kt_schwyz
     # TODO We should make kt_schwyz-prod.yml base on kt_schwyz.yml
     COMPOSE: docker-compose -f compose/kt_schwyz-prod.yml
-    CONTAINERS: ember ember-camac-ng django php
   only:
     - production-sz
 
-.build-image-ur:
-  stage: build
-  services:
-    - docker:dind
-  script:
-    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
-    - eval $COMPOSE pull --ignore-pull-failures --quiet $CONTAINERS
-    - eval $COMPOSE build --pull
-    - eval $COMPOSE push
-
 build-kt_uri-stage:
-  extends: .build-image-ur
+  extends: .build-image
   variables:
     KEYCLOAK_HOST: https://camac.ur.sycloud.ch
     APPLICATION: kt_uri
@@ -260,7 +248,7 @@ build-kt_uri-stage:
     - stage-ur
 
 build-kt_uri-stage-old:
-  extends: .build-image-ur
+  extends: .build-image
   variables:
     KEYCLOAK_HOST: https://camac-uri.sycloud.ch
     APPLICATION: kt_uri
@@ -269,7 +257,7 @@ build-kt_uri-stage-old:
     - stage-ur-old
 
 build-kt_uri-production:
-  extends: .build-image-ur
+  extends: .build-image
   variables:
     KEYCLOAK_HOST: https://camac.ur.ch
     APPLICATION: kt_uri
@@ -290,8 +278,7 @@ build-kt_bern-tarball:
   script:
     # pull, build and start needed containers
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
-    - eval $COMPOSE pull --parallel --ignore-pull-failures --quiet $SERVICES
-    - eval $COMPOSE build --parallel $SERVICES
+    - eval $COMPOSE build --pull --parallel $SERVICES
     - eval $COMPOSE up -d --no-deps $SERVICES
     # create folder for tarball
     - mkdir tarball
