@@ -247,6 +247,14 @@ export default class BeGisComponent extends Component {
     }
   }
 
+  get oerebLinkData() {
+    const tables = this.field.document.findAnswer(KEY_TABLE_QUESTION);
+    return tables.map((table) => ({
+      egrid: table[KEY_TABLE_EGRID],
+      parcel: table[KEY_TABLE_PARCEL],
+    }));
+  }
+
   @computed("link")
   get origin() {
     // The regular expression extracts the scheme and hostname from the link.
