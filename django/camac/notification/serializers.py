@@ -181,27 +181,29 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         ]
         return ", ".join(filter(None, descriptions))
 
+    def _get_row_answer_value(self, row, slug, fallback=None):
+        try:
+            return row.answers.get(question_id=slug).value
+        except caluma_form_models.Answer.DoesNotExist:
+            return fallback
+
     def get_parzelle(self, instance):
         rows = CalumaApi().get_table_answer("parcels", instance)
         if rows:
-            numbers = [r.answers.get(question_id="parcel-number").value for r in rows]
-            return ", ".join(numbers)
+            numbers = [self._get_row_answer_value(row, "parcel-number") for row in rows]
+            return ", ".join([n for n in numbers if n is not None])
         return None
 
     def get_street(self, instance):
         return CalumaApi().get_answer_value("parcel-street", instance)
 
-    def _get_row_answer_value(self, row, slug, fallback=None):
-        try:
-            return row.first().answers.get(question_id=slug).value
-        except caluma_form_models.Answer.DoesNotExist:
-            return fallback
-
     def get_gesuchsteller(self, instance):
-        row = CalumaApi().get_table_answer("applicant", instance)
+        rows = CalumaApi().get_table_answer("applicant", instance)
 
-        if not row:
+        if not rows:
             return
+
+        row = rows.first()
 
         first_name = self._get_row_answer_value(row, "first-name", "")
         last_name = self._get_row_answer_value(row, "last-name", "")
