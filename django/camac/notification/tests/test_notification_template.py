@@ -1072,6 +1072,7 @@ def test_portal_submission_placeholder(
 
 @pytest.mark.parametrize("service__email", ["test@example.com"])
 @pytest.mark.parametrize("role__name", ["support"])
+@pytest.mark.parametrize("has_parcel_filled", [True, False])
 @pytest.mark.parametrize(
     "notification_template__body",
     ["parz={{parzelle}}, gs={{GESUCHSTELLER}}, vorhaben={{vorhaben}}"],
@@ -1088,6 +1089,7 @@ def test_ur_placeholders(
     caluma_admin_user,
     mailoutbox,
     settings,
+    has_parcel_filled,
 ):
     caluma_form_models.Question.objects.create(
         slug="proposal-description",
@@ -1143,7 +1145,8 @@ def test_ur_placeholders(
         value="my description", question_id="proposal-description"
     )
     parcel_row_doc = caluma_form_models.Document.objects.create(form=parcel_form)
-    parcel_row_doc.answers.create(value="123", question=parcel_question)
+    if has_parcel_filled:
+        parcel_row_doc.answers.create(value="123", question=parcel_question)
 
     parcel_table_answer = ur_instance.case.document.answers.create(
         question_id="parcels"
@@ -1178,9 +1181,11 @@ def test_ur_placeholders(
 
     assert len(mailoutbox) == 1
 
+    expected_parcel = "123" if has_parcel_filled else ""
+
     assert (
         mailoutbox[0].body
-        == f"{settings.EMAIL_PREFIX_BODY}parz=123, gs=juristic-person-name, first-name last-name, street street-number, zip , vorhaben=my description"
+        == f"{settings.EMAIL_PREFIX_BODY}parz={expected_parcel}, gs=juristic-person-name, first-name last-name, street street-number, zip , vorhaben=my description"
     )
 
 
