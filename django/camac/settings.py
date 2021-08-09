@@ -748,7 +748,11 @@ APPLICATIONS = {
             "evaluated",
         ],
         "ATTACHMENT_READ_ONLY_EXCLUDE_SECTIONS": [
-            be_constants.ATTACHMENT_SECTION_INTERN
+            be_constants.ATTACHMENT_SECTION_INTERN,
+            be_constants.ATTACHMENT_SECTION_BEILAGEN_SB1,
+            be_constants.ATTACHMENT_SECTION_BEILAGEN_SB1_PAPIER,
+            be_constants.ATTACHMENT_SECTION_BEILAGEN_SB2,
+            be_constants.ATTACHMENT_SECTION_BEILAGEN_SB2_PAPIER,
         ],
         "PORTAL_GROUP": 6,
         "DEMO_MODE_GROUPS": [
