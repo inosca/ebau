@@ -3,6 +3,12 @@
 
   <p class="uk-text-center uk-text-large">{{t "instances.new.kind"}}</p>
 
+  {{#if this.convertFrom}}
+    <div class="uk-background-muted uk-margin-auto uk-width-1-2 uk-text-center uk-padding-small">
+      {{t "instances.new.convertFromInfo" dossierId=this.convertFrom ebauNr=(if this.ebauNumber (concat " (" this.ebauNumber ")"))}}
+    </div>
+  {{/if}}
+
   {{#let (can "create paper instance") as |isPaper|}}
     {{#if isPaper}}
       <div class="uk-flex uk-flex-center uk-margin-large-top">
@@ -30,6 +36,7 @@
                   @color={{if (eq form.slug this.selectedForm.slug) "secondary" "default"}}
                   @on-click={{fn (mut this.selectedForm) form}}
                   class="uk-margin-small-bottom"
+                  disabled={{and this.convertFrom (not-eq form.meta.category "building-permit")}}
                 />
               {{/each}}
             </div>
@@ -43,7 +50,7 @@
         @color="primary"
         @label={{t "global.continue"}}
         @disabled={{or (not this.selectedForm) this.save.isRunning}}
-        @loading={{this.save.isRunning}}
+        @loading={{or this.save.isRunning this.convertToBuildingPermit.isRunning}}
         @on-click={{perform this.save}}
       />
     </div>
