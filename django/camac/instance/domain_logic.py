@@ -201,6 +201,9 @@ class CreateInstanceLogic:
                     else ["8-freigabequittung"]
                 ),
             )
+            new_document.form = old_document.form
+            new_document.save()
+
             case.document = new_document
             case.save()
             old_document.delete()

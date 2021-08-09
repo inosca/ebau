@@ -224,10 +224,14 @@ instances:
   extensionPeriodOfValidityTitle: "Verlängerung Geltungsdauer"
   extensionPeriodOfValidityText: "Hier kann eine Verlängerung der Geltungsdauer beantragt werden."
   extensionPeriodOfValidityButton: "Beantragen"
+  createBuildingPermitTitle: "Baugesuch erstellen"
+  createBuildingPermitText: "Hier haben Sie die Möglichkeit die bereits ausgefüllten Daten der vollständigen Vorabklärung in ein neues Baugesuch zu übernehmen."
+  createBuildingPermitButton: "Baugesuch erstellen"
 
   new:
     title: "Neues Dossier"
     kind: "Um welche Art von Dossier handelt es sich?"
+    convertFromInfo: "Sie erstellen ein neues Dossier aus den bereits bestehenden Daten der vollständigen Vorabklärung {dossierId}{ebauNr}."
 
     preliminary-clarification:
       title: "Vorabklärung"

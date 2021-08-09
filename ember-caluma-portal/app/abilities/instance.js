@@ -101,6 +101,13 @@ export default class InstanceAbility extends Ability {
     );
   }
 
+  @computed("model.calumaForm")
+  get canConvertToBuildingPermit() {
+    return config.APPLICATION.completePreliminaryClarificationSlugs.includes(
+      this.get("model.calumaForm")
+    );
+  }
+
   @computed("model.instanceState.id")
   get canDelete() {
     return (
