@@ -229,10 +229,14 @@ instances:
   extensionPeriodOfValidityTitle: "Prolongation de la durée de validité du permis de construire"
   extensionPeriodOfValidityText: "Vous pouvez demander une prolongation de la durée de validité du permis de construire."
   extensionPeriodOfValidityButton: "Demander"
+  createBuildingPermitTitle: ""
+  createBuildingPermitText: ""
+  createBuildingPermitButton: ""
 
   new:
     title: "Nouveau dossier"
     kind: "De quel type de dossier s'agit-il?"
+    convertFromInfo: ""
 
     preliminary-clarification:
       title: "Demande préalable"

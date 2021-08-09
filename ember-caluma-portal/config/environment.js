@@ -29,6 +29,10 @@ module.exports = function (environment) {
       locales: ["de", "fr"],
       supportGroups: [10000],
       useConfidential: false,
+      completePreliminaryClarificationSlugs: [
+        "vorabklaerung-vollstaendig",
+        "vorabklaerung-vollstaendig-v2",
+      ],
       selectableGroups: {
         roles: [
           3, // Leitung Leitbehörde
@@ -93,6 +97,7 @@ module.exports = function (environment) {
       locales: ["de"],
       supportGroups: [1070],
       useConfidential: true,
+      completePreliminaryClarificationSlugs: [],
       selectableGroups: {
         roles: [
           1131, // Support
