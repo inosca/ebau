@@ -114,26 +114,66 @@ msgstr ""
 msgid "Circulation started"
 msgstr "Procédure de circulation lancée"
 
-#: camac/instance/document_merge_service.py:58
+#: camac/instance/document_merge_service.py:122 camac/instance/views.py:639
+msgid "Address"
+msgstr "Adresse"
+
+#: camac/instance/document_merge_service.py:123
+msgid "Plots"
+msgstr "Parcelle(s)"
+
+#: camac/instance/document_merge_service.py:124 camac/instance/views.py:643
+msgid "Applicant"
+msgstr "Requérant/e"
+
+#: camac/instance/document_merge_service.py:125
+msgid "Keywords"
+msgstr "Mots-clés"
+
+#: camac/instance/document_merge_service.py:126 camac/instance/views.py:644
+msgid "Municipality"
+msgstr "Municipalité"
+
+#: camac/instance/document_merge_service.py:127
+msgid "Authority"
+msgstr "Autorité directrice"
+
+#: camac/instance/document_merge_service.py:128 camac/instance/views.py:642
+msgid "Responsible"
+msgstr "Personne requérante"
+
+#: camac/instance/document_merge_service.py:129
+msgid "Input date"
+msgstr "Date de réception"
+
+#: camac/instance/document_merge_service.py:130
+msgid "Description"
+msgstr "Description"
+
+#: camac/instance/document_merge_service.py:131
+msgid "Modification"
+msgstr "Modification du projet"
+
+#: camac/instance/document_merge_service.py:155
 #, python-format
 msgid "None or multiple caluma Documents found for instance: %(instance)s"
 msgstr ""
 
-#: camac/instance/document_merge_service.py:67
+#: camac/instance/document_merge_service.py:164
 #, python-format
 msgid "No template specified for form '%(form_slug)s'."
 msgstr ""
 
-#: camac/instance/document_merge_service.py:91
-#: camac/instance/document_merge_service.py:425
+#: camac/instance/document_merge_service.py:192
+#: camac/instance/document_merge_service.py:549
 msgid "Signatures"
 msgstr "Signatures"
 
-#: camac/instance/document_merge_service.py:92
+#: camac/instance/document_merge_service.py:193
 msgid "Signature"
 msgstr "Signature"
 
-#: camac/instance/document_merge_service.py:93
+#: camac/instance/document_merge_service.py:194
 msgid "Place and date"
 msgstr "Lieu et date"
 
@@ -334,10 +374,6 @@ msgstr "Numéro de dossier"
 msgid "Application Type"
 msgstr "Type de demande"
 
-#: camac/instance/views.py:639
-msgid "Address"
-msgstr "Adresse"
-
 #: camac/instance/views.py:640
 msgid "Submission Date"
 msgstr "Date de réception"
@@ -345,18 +381,6 @@ msgstr "Date de réception"
 #: camac/instance/views.py:641
 msgid "Status"
 msgstr "État"
-
-#: camac/instance/views.py:642
-msgid "Responsible"
-msgstr "Personne requérante"
-
-#: camac/instance/views.py:643
-msgid "Applicant"
-msgstr "Requérant/e"
-
-#: camac/instance/views.py:644
-msgid "Municipality"
-msgstr "Municipalité"
 
 #: camac/instance/views.py:645
 msgid "Administrative District"
