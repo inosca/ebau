@@ -7,6 +7,52 @@ from snapshottest import Snapshot
 
 snapshots = Snapshot()
 
+snapshots["test_document_merge_service_cover_sheet_with_header_values 1"] = {
+    "addressHeader": "",
+    "addressHeaderLabel": "Adresse",
+    "applicantHeader": "Bar, Foo",
+    "applicantHeaderLabel": "Gesuchsteller/in",
+    "authorityHeader": "Olivia Miller",
+    "authorityHeaderLabel": "Leitbehörde",
+    "descriptionHeader": None,
+    "descriptionHeaderLabel": "Beschreibung",
+    "inputDateHeader": "01.01.2021 (02.01.2021)",
+    "inputDateHeaderLabel": "Eingangsdatum",
+    "modificationHeader": None,
+    "modificationHeaderLabel": "Projektänderung",
+    "municipalityHeader": "Barbarafurt",
+    "municipalityHeaderLabel": "Gemeinde",
+    "plotsHeader": "123",
+    "plotsHeaderLabel": "Parzelle(n)",
+    "responsibleHeader": "testuser",
+    "responsibleHeaderLabel": "Zuständig",
+    "tagHeader": "some tag",
+    "tagHeaderLabel": "Stichworte",
+}
+
+snapshots["test_document_merge_service_cover_sheet_without_header_values 1"] = {
+    "addressHeader": "",
+    "addressHeaderLabel": "Adresse",
+    "applicantHeader": None,
+    "applicantHeaderLabel": "Gesuchsteller/in",
+    "authorityHeader": None,
+    "authorityHeaderLabel": "Leitbehörde",
+    "descriptionHeader": None,
+    "descriptionHeaderLabel": "Beschreibung",
+    "inputDateHeader": "01.01.2021",
+    "inputDateHeaderLabel": "Eingangsdatum",
+    "modificationHeader": None,
+    "modificationHeaderLabel": "Projektänderung",
+    "municipalityHeader": "-",
+    "municipalityHeaderLabel": "Gemeinde",
+    "plotsHeader": None,
+    "plotsHeaderLabel": "Parzelle(n)",
+    "responsibleHeader": None,
+    "responsibleHeaderLabel": "Zuständig",
+    "tagHeader": None,
+    "tagHeaderLabel": "Stichworte",
+}
+
 snapshots["test_document_merge_service_snapshot[baugesuch] 1"] = [
     {
         "children": [
