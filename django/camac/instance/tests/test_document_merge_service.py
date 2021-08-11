@@ -1,14 +1,18 @@
 from pathlib import Path
 
 import pytest
-from caluma.caluma_form.models import Document
+from caluma.caluma_form.models import Answer, Document, Form, Question
+from caluma.caluma_workflow.api import start_case
+from caluma.caluma_workflow.models import Workflow
 from django.conf import settings
 from django.core.cache import cache
 from django.core.management import call_command
 
+from camac.responsible.models import ResponsibleService
+from camac.tags.models import Tags
 from camac.utils import build_url
 
-from ..document_merge_service import DMSClient, DMSVisitor
+from ..document_merge_service import DMSClient, DMSHandler, DMSVisitor
 
 
 @pytest.fixture
@@ -124,3 +128,154 @@ def test_document_merge_service_client(db, requests_mock):
     result = client.merge({"foo": "some data"}, template)
 
     assert result == expected
+
+
+def test_document_merge_service_cover_sheet_with_header_values(
+    db,
+    dms_settings,
+    service_factory,
+    service_t_factory,
+    service_group_factory,
+    instance_service_factory,
+    caluma_form_fixture,
+    instance,
+    rf,
+    caluma_admin_user,
+    group,
+    mocker,
+    form_question_factory,
+    user_factory,
+    snapshot,
+):
+    municipality = service_factory(
+        pk=2,
+        service_group=service_group_factory(pk=2, name="municipality"),
+    )
+    service_t_factory(
+        pk=2, service=municipality, name="Leitbehörde Burgdorf", language="de"
+    )
+
+    case = start_case(
+        workflow=Workflow.objects.get(pk="building-permit"),
+        form=Form.objects.get(pk="baugesuch"),
+        user=caluma_admin_user,
+        meta={
+            "camac-instance-id": instance.pk,
+            "submit-date": "2021-01-01",
+            "paper-submit-date": "2021-01-02",
+        },
+    )
+    instance.case = case
+    instance.save()
+
+    # Prepare plot answer
+    plot_table_form = Form.objects.get(slug="parzelle-tabelle")
+    plot_question = Question.objects.get(slug="parzelle")
+    plot_question.row_form = plot_table_form
+
+    form_question_factory(
+        form=case.document.form,
+        question=plot_question,
+    )
+    plot_table = case.document.answers.create(question_id="parzelle")
+    plot_row = Document.objects.create(form_id="parzelle-tabelle")
+    plot_row.answers.create(question_id="parzellennummer", value="123")
+    plot_table.documents.add(plot_row)
+
+    # Prepare applicant answer
+    applicant_table_form = Form.objects.get(slug="personalien")
+    applicant_question = Question.objects.get(slug="personalien-gesuchstellerin")
+    applicant_question.row_form = applicant_table_form
+
+    form_question_factory(
+        form=case.document.form,
+        question=applicant_question,
+    )
+    applicant_table = case.document.answers.create(
+        question_id="personalien-gesuchstellerin"
+    )
+    applicant_row = Document.objects.create(form_id="personalien-tabelle")
+    applicant_row.answers.create(question_id="vorname-gesuchstellerin", value="Foo")
+    applicant_row.answers.create(question_id="name-gesuchstellerin", value="Bar")
+    applicant_table.documents.add(applicant_row)
+
+    # Prepare tags
+    Tags.objects.create(name="some tag", instance=instance, service=municipality)
+
+    # Prepare authority
+    instance_service = instance_service_factory(
+        instance=instance, service=municipality, active=1
+    )
+    instance.instance_services.add(instance_service)
+
+    # Prepare responsible
+    ResponsibleService.objects.create(
+        instance=instance,
+        service=municipality,
+        responsible_user=user_factory(name="testuser"),
+    )
+
+    root_document = Document.objects.filter(case=case, form_id="baugesuch").first()
+    root_document.answers.add(Answer.objects.filter(question_id="gemeinde").first())
+
+    request = rf.request(HTTP_AUTHORIZATION="Bearer some_token", X_CAMAC_GROUP=group.pk)
+
+    client = mocker.patch(
+        "camac.instance.document_merge_service.DMSClient"
+    ).return_value
+    client.merge.return_value = b"some binary data"
+
+    handler = DMSHandler()
+    handler.generate_pdf(instance.pk, request, None, root_document.pk)
+
+    merge_data, template = client.merge.call_args[0]
+
+    assert template == "form"
+    assert merge_data["addressHeaderLabel"]
+    snapshot.assert_match(
+        {k: v for k, v in client.merge.call_args[0][0].items() if "Header" in k}
+    )
+
+
+def test_document_merge_service_cover_sheet_without_header_values(
+    db,
+    dms_settings,
+    caluma_form_fixture,
+    instance,
+    rf,
+    caluma_admin_user,
+    group,
+    mocker,
+    snapshot,
+):
+    case = start_case(
+        workflow=Workflow.objects.get(pk="building-permit"),
+        form=Form.objects.get(pk="baugesuch"),
+        user=caluma_admin_user,
+        meta={
+            "camac-instance-id": instance.pk,
+            "submit-date": "2021-01-01",
+        },
+    )
+    instance.case = case
+    instance.save()
+
+    root_document = Document.objects.filter(case=case, form_id="baugesuch").first()
+
+    request = rf.request(HTTP_AUTHORIZATION="Bearer some_token", X_CAMAC_GROUP=group.pk)
+
+    client = mocker.patch(
+        "camac.instance.document_merge_service.DMSClient"
+    ).return_value
+    client.merge.return_value = b"some binary data"
+
+    handler = DMSHandler()
+    handler.generate_pdf(instance.pk, request, None, root_document.pk)
+
+    merge_data, template = client.merge.call_args[0]
+
+    assert template == "form"
+    assert merge_data["addressHeaderLabel"]
+    snapshot.assert_match(
+        {k: v for k, v in client.merge.call_args[0][0].items() if "Header" in k}
+    )
