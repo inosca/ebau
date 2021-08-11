@@ -443,7 +443,8 @@ def test_task_send_handler(
     }
 
     instance_resource_factory(pk=INSTANCE_RESOURCE_ZIRKULATION)
-    circulation_state_factory(pk=1, name="RUN")
+    circulation_state_factory(name="RUN")
+    state_done = circulation_state_factory(name="DONE")
     state = instance_state_factory(name="circulation")
     ech_instance.instance_state = state
     ech_instance.save()
@@ -474,7 +475,7 @@ def test_task_send_handler(
         if has_done_circulation:
             activation_factory(
                 circulation=circulation,
-                circulation_state__name="DONE",
+                circulation_state=state_done,
                 ech_msg_created=True,
             )
             workflow_api.skip_work_item(

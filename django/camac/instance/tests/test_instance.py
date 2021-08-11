@@ -4,10 +4,7 @@ import functools
 import pyexcel
 import pytest
 import pytz
-from caluma.caluma_form import (
-    factories as caluma_form_factories,
-    models as caluma_form_models,
-)
+from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.urls import reverse
 from pytest_factoryboy import LazyFixture
@@ -477,100 +474,6 @@ def test_instance_export_list(
     row = sheet[0]
     assert "Muster Hans, Beispiel Jean" in row
     assert "Bezeichnung" in row
-
-
-@pytest.mark.parametrize("role__name", ["Municipality"])
-@pytest.mark.parametrize("has_client", [True, False])
-def test_instance_gwr_data(
-    admin_client,
-    user,
-    instance,
-    form_field_factory,
-    django_assert_num_queries,
-    has_client,
-):
-    url = reverse("instance-gwr-data", args=[instance.pk])
-
-    add_field = functools.partial(form_field_factory, instance=instance)
-    add_field(name="bezeichnung", value="Bezeichnung")
-    if has_client:
-        add_field(
-            name="bauherrschaft",
-            value=[
-                {
-                    "name": "Muster",
-                    "vorname": "Hans",
-                    "ort": "Musterhausen",
-                    "plz": 1234,
-                    "strasse": "Musterstrasse",
-                }
-            ],
-        )
-
-    response = admin_client.get(url)
-    assert response.status_code == status.HTTP_200_OK
-    data = response.json()["data"]
-    assert data["constructionProjectDescription"] == "Bezeichnung"
-    assert data["totalCostsOfProject"] is None
-
-    if has_client:
-        assert data["client"]["address"]["town"] == "Musterhausen"
-        assert (
-            data["client"]["identification"]["personIdentification"]["officialName"]
-            == "Muster"
-        )
-    else:
-        assert data["client"] is None
-
-
-@pytest.mark.parametrize("role__name", ["Municipality"])
-def test_instance_caluma_gwr_data(
-    admin_client,
-    user,
-    instance,
-    use_caluma_form,
-    caluma_workflow_config_be,
-    caluma_forms_be,
-    caluma_admin_user,
-    application_settings,
-):
-    application_settings["GWR_CALUMA_ANSWER_SLUGS"] = {
-        "client": "personalien-gesuchstellerin",
-        "constructionProjectDescription": "beschreibung-bauvorhaben",
-        "client_address_town": "name-sb",
-        "client_identification_personIdentification_officialName": "name-applicant",
-    }
-
-    case = workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(pk="main-form"),
-        user=caluma_admin_user,
-    )
-    instance.case = case
-    instance.save()
-    case.document.answers.create(
-        question_id="beschreibung-bauvorhaben", value="Bezeichnung"
-    )
-    table_answer = case.document.answers.create(
-        question_id="personalien-gesuchstellerin"
-    )
-    row = caluma_form_factories.DocumentFactory(form_id="personalien-tabelle")
-    table_answer.documents.add(row)
-    row.answers.create(question_id="name-sb", value="Musterhausen")
-    row.answers.create(question_id="name-applicant", value="Muster")
-
-    url = reverse("instance-gwr-data", args=[instance.pk])
-
-    response = admin_client.get(url)
-    assert response.status_code == status.HTTP_200_OK
-    data = response.json()["data"]
-    assert data["constructionProjectDescription"] == "Bezeichnung"
-    assert data["totalCostsOfProject"] is None
-    assert data["client"]["address"]["town"] == "Musterhausen"
-    assert (
-        data["client"]["identification"]["personIdentification"]["officialName"]
-        == "Muster"
-    )
 
 
 @pytest.mark.parametrize("attachment__question", ["dokument-parzellen"])
