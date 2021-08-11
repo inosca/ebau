@@ -18,6 +18,7 @@ from django.utils.translation import gettext as _
 from rest_framework import response, status
 from rest_framework.decorators import action
 from rest_framework.generics import ListAPIView, RetrieveAPIView
+from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
 from rest_framework.settings import api_settings
 from rest_framework_json_api import views
@@ -39,7 +40,15 @@ from camac.user.permissions import ReadOnly, permission_aware
 from camac.utils import DocxRenderer
 
 from ..utils import get_paper_settings
-from . import document_merge_service, filters, mixins, models, serializers, validators
+from . import (
+    document_merge_service,
+    filters,
+    gwr_lookups,
+    mixins,
+    models,
+    serializers,
+    validators,
+)
 
 
 class InstanceStateView(ReadOnlyModelViewSet):
@@ -281,83 +290,15 @@ class InstanceView(
         except ObjectDoesNotExist:
             return None
 
-    @action(methods=["get"], detail=True)
+    @action(methods=["get"], detail=True, renderer_classes=[JSONRenderer])
     def gwr_data(self, request, pk):
         """Export instance data to GWR."""
 
         if settings.APPLICATION["FORM_BACKEND"] == "caluma":
-            answer_slugs = settings.APPLICATION.get("GWR_CALUMA_ANSWER_SLUGS", {})
-
             case = workflow_models.Case.objects.get(instance__pk=pk)
-            answers = form_models.Answer.objects.filter(document=case.document)
 
-            try:
-                submit_date = case.work_items.get(
-                    task_id=answer_slugs.get("projectAnnouncementDate", "")
-                ).closed_at
-            except workflow_models.WorkItem.DoesNotExist:  # pragma: no cover
-                submit_date = None
-
-            try:
-                client = form_models.Answer.objects.filter(
-                    document=answers.get(
-                        question__slug=answer_slugs.get("client", "")
-                    ).documents.first()
-                )
-            except form_models.Answer.DoesNotExist:  # pragma: no cover
-                client = None
-
-            def get_answer_value(slug, queryset):
-                answer = queryset.filter(question__slug=slug).first()
-                if answer:
-                    return answer.value
-                return None
-
-            return response.Response(
-                {
-                    "constructionProjectDescription": get_answer_value(
-                        answer_slugs.get("constructionProjectDescription", ""), answers
-                    ),
-                    "totalCostsOfProject": get_answer_value(
-                        answer_slugs.get("totalCostsOfProject", ""), answers
-                    ),
-                    "client": {
-                        "address": {
-                            "town": get_answer_value(
-                                answer_slugs.get("client_address_town", ""), client
-                            ),
-                            "swissZipCode": get_answer_value(
-                                answer_slugs.get("client_address_swissZipCode", ""),
-                                client,
-                            ),
-                            "street": get_answer_value(
-                                answer_slugs.get("client_address_street", ""), client
-                            ),
-                        },
-                        "identification": {
-                            "personIdentification": {
-                                "officialName": get_answer_value(
-                                    answer_slugs.get(
-                                        "client_identification_personIdentification_officialName",
-                                        "",
-                                    ),
-                                    client,
-                                ),
-                                "firstName": get_answer_value(
-                                    answer_slugs.get(
-                                        "client_identification_personIdentification_firstName",
-                                        "",
-                                    ),
-                                    client,
-                                ),
-                            }
-                        },
-                    }
-                    if client
-                    else None,
-                    "projectAnnouncementDate": submit_date,
-                }
-            )
+            resolver = gwr_lookups.GwrSerializer(case)
+            return response.Response(resolver.data)
 
         instance = self.get_object()
 
@@ -374,6 +315,7 @@ class InstanceView(
         except WorkflowEntry.DoesNotExist:
             submit_date = None
 
+        # TODO refactor to use gwr_lookups as well (see above)
         return response.Response(
             {
                 "constructionProjectDescription": self._get_field_value("bezeichnung"),
@@ -388,7 +330,7 @@ class InstanceView(
                         "personIdentification": {
                             "officialName": client["name"],
                             "firstName": client["vorname"],
-                        }
+                        },
                     },
                 }
                 if client
