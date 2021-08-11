@@ -1,5 +1,8 @@
 from django.conf import settings
 from django.conf.urls import include, url
+from ebau_gwr.linker.views import GWRLinkViewSet
+from ebau_gwr.token_proxy.views import TokenProxyView
+from rest_framework.routers import SimpleRouter
 
 from camac.caluma.views import CamacAuthenticatedGraphQLView
 from camac.swagger.views import SCHEMA_VIEW
@@ -7,6 +10,23 @@ from camac.swagger.views import SCHEMA_VIEW
 # TODO: Ensure that only the necessary routes are registered dependening on
 # settings.APPLICATION_NAME
 
+
+class UnswaggeredGWRLinkViewSet(GWRLinkViewSet):
+    swagger_schema = None
+
+
+class UnswaggeredTokenProxyView(TokenProxyView):
+    swagger_schema = None
+
+
+r = SimpleRouter(trailing_slash=False)
+
+r.register(
+    r"^api/v1/housing-stat-token",
+    UnswaggeredTokenProxyView,
+    basename="housingstattoken",
+)
+r.register(r"^api/v1/linker/gwr-links", UnswaggeredGWRLinkViewSet)
 
 urlpatterns = [
     url(r"^api/v1/", include("camac.applicants.urls")),
@@ -40,11 +60,9 @@ urlpatterns = [
         CamacAuthenticatedGraphQLView.as_view(graphiql=settings.DEBUG),
         name="graphql",
     ),
-    url(r"^api/v1/linker/", include("ebau_gwr.linker.urls")),
-    url(r"^api/v1/", include("ebau_gwr.token_proxy.urls")),
     # url(r'^api/docs/$', schema_view),
     # url(r'^api/auth/$', include('keycloak_adapter.urls')),
-]
+] + r.urls
 
 if settings.ENABLE_SILK:  # pragma: no cover
     urlpatterns.append(url(r"^api/silk/", include("silk.urls", namespace="silk")))
