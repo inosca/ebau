@@ -1,7 +1,7 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
-import { dropTask, lastValue } from "ember-concurrency-decorators";
+import { dropTask } from "ember-concurrency-decorators";
 
 export default class PublicInstancesIndexController extends Controller {
   @service store;
@@ -9,30 +9,34 @@ export default class PublicInstancesIndexController extends Controller {
   @service intl;
 
   @tracked page = 1;
+  @tracked instances = [];
 
-  get meta() {
-    return this.instances?.meta;
+  get hasNextPage() {
+    const pagination = this.fetchInstances.lastSuccessful?.value?.meta
+      .pagination;
+
+    return pagination && pagination.page < pagination.pages;
   }
 
-  queryParams = ["page"];
-
-  get pages() {
-    return Array.from({ length: this.meta?.pagination.pages }).map(
-      (_, i) => i + 1
-    );
-  }
-  @lastValue("getPublicInstances") instances;
   @dropTask
-  *getPublicInstances(page) {
+  *fetchInstances() {
     try {
-      if (page) {
-        this.page = page;
-      }
-      return yield this.store.query("public-caluma-instance", {
+      const instances = yield this.store.query("public-caluma-instance", {
         page: { number: this.page, size: 20 },
       });
+
+      this.instances = [...this.instances, ...instances.toArray()];
+
+      return instances;
     } catch (e) {
       this.notification.danger(this.intl.t("publicInstances.loadError"));
     }
+  }
+
+  @dropTask
+  *fetchMore() {
+    this.page++;
+
+    yield this.fetchInstances.perform();
   }
 }
