@@ -7111,16 +7111,16 @@ ember-in-element-polyfill@^1.0.0, ember-in-element-polyfill@^1.0.1:
     ember-cli-htmlbars "^5.3.1"
     ember-cli-version-checker "^5.1.2"
 
-ember-in-viewport@^3.10.0:
-  version "3.10.0"
-  resolved "https://registry.yarnpkg.com/ember-in-viewport/-/ember-in-viewport-3.10.0.tgz#0b35fa8f7ae493adbb1d6395f668490725d86fd5"
-  integrity sha512-qXS/OHUvm1z8KXYOr+Fe/j4llicLqf9eICxgL8/oy6lG3ZQrkbU08Ut7OWVLra8uoqiV6zCmRZEDAVSIOibqIw==
+ember-in-viewport@^3.10.2:
+  version "3.10.2"
+  resolved "https://registry.yarnpkg.com/ember-in-viewport/-/ember-in-viewport-3.10.2.tgz#78ad3d42ba94354fd05e7adb7a701da351041556"
+  integrity sha512-mOLqknUm+OjPqyYq9BO+h9RIcI3dhebPpfd8jM90/GXVv7jLNz1szq5nk0K0yZT861kY+dEjGLqLGqo1J4pSDQ==
   dependencies:
     ember-auto-import "^1.11.2"
     ember-cli-babel "^7.26.3"
     ember-modifier "^2.1.0"
     fast-deep-equal "^2.0.1"
-    intersection-observer-admin "~0.3.0"
+    intersection-observer-admin "~0.3.2"
     raf-pool "~0.1.4"
 
 "ember-inflector@^2.0.0 || ^3.0.0 || ^4.0.0":
@@ -9807,10 +9807,10 @@ internal-slot@^1.0.3:
     has "^1.0.3"
     side-channel "^1.0.4"
 
-intersection-observer-admin@~0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/intersection-observer-admin/-/intersection-observer-admin-0.3.0.tgz#b317469813aee4fadac64c53e917a4046d935f40"
-  integrity sha512-S5CsK0o52tVJWGALZdk/sCAewWEQMLc2iemPjAnxmSwk/9Bul0PAQrjwX/KWg/xYN4nm3x/LgLOEPTNKEBlGyQ==
+intersection-observer-admin@~0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/intersection-observer-admin/-/intersection-observer-admin-0.3.2.tgz#0b6e95ce7272a383e8bbdd47f9ff48de9eab9919"
+  integrity sha512-kJEcF9iVRuI4thXiJd28UzFDgvFHBNUgwkKA4F0bPMmRdzc+1Eq7/J13n2gSgfZ5tsVxb+wJOV7k3DXcsc7D6Q==
 
 intersection-observer@^0.12.0:
   version "0.12.0"

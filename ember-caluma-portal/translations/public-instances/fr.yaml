@@ -9,6 +9,8 @@ publicInstances:
   loadError: ""
   nextPage: ""
   previousPage: ""
+  emptyTitle: ""
+  emptyText: ""
 
 publicInstancesDetail:
   title: ""
