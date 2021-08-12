@@ -1,0 +1,19 @@
+query GetMunicipalities($municipalityQuestion: String!) {
+  allQuestions(filter: [{ slug: $municipalityQuestion }], first: 1) {
+    edges {
+      node {
+        slug
+        ... on DynamicChoiceQuestion {
+          options {
+            edges {
+              node {
+                slug
+                label
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
