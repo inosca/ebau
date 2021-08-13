@@ -1242,6 +1242,36 @@ APPLICATIONS = {
             "realestateIdentification_number": None,
             "projectAnnouncementDate": ("case_meta", "submit-date"),
         },
+        "MASTER_DATA": {
+            "personal_data": (
+                "table",
+                "personalien-gesuchstellerin",
+                {
+                    "town": "ort-gesuchstellerin",
+                    "zip": "plz-gesuchstellerin",
+                    "street": "strasse-gesuchstellerin",
+                    "street_number": "nr-gesuchstellerin",
+                    "last_name": "name-gesuchstellerin",
+                    "first_name": "vorname-gesuchstellerin",
+                    "is_juristic_person": "juristische-person-gesuchstellerin",
+                    "juristic_person_name": "name-juristische-person",
+                },
+            ),
+            "ebau_number": ("case_meta", "ebau-number"),
+            "proposal": ("answer", "beschreibung-bauvorhaben"),
+            "street": ("answer", "strasse"),
+            "street_number": ("answer", "nr"),
+            "construction_costs": ("answer", "baukosten-in-chf"),
+            "municipality": ("dynamic_option", "gemeinde"),
+            "plot_data": (
+                "table",
+                "parzelle",
+                {
+                    "plot_number": "parzellennummer",
+                    "e_grid_number": "e-grid-nr",
+                },
+            ),
+        },
         "MUNICIPALITY_DATA_SHEET": APPLICATION_DIR(
             "Verwaltungskreise und -regionen der Gemeinden.csv"
         ),
