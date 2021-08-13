@@ -4,16 +4,33 @@ from django.db import migrations, models
 import django.db.models.deletion
 
 
+def delete_decisions(apps, schema_editor):
+    Instance = apps.get_model("instance", "Instance")
+    DocxDecision = apps.get_model("core", "DocxDecision")
+
+    DocxDecision.objects.exclude(
+        instance__in=Instance.objects.values_list("pk", flat=True)
+    ).delete()
+
+
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0081_auto_20210715_1032'),
+        ("core", "0081_auto_20210715_1032"),
     ]
 
     operations = [
+        migrations.RunPython(delete_decisions, migrations.RunPython.noop),
         migrations.AlterField(
-            model_name='docxdecision',
-            name='instance',
-            field=models.OneToOneField(db_column='INSTANCE_ID', on_delete=django.db.models.deletion.CASCADE, primary_key=True, related_name='decision', serialize=False, to='instance.Instance'),
+            model_name="docxdecision",
+            name="instance",
+            field=models.OneToOneField(
+                db_column="INSTANCE_ID",
+                on_delete=django.db.models.deletion.CASCADE,
+                primary_key=True,
+                related_name="decision",
+                serialize=False,
+                to="instance.Instance",
+            ),
         ),
     ]
