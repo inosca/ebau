@@ -1259,6 +1259,7 @@ APPLICATIONS = {
             ),
             "ebau_number": ("case_meta", "ebau-number"),
             "proposal": ("answer", "beschreibung-bauvorhaben"),
+            "modification": ("answer", "beschreibung-projektaenderung"),
             "street": ("answer", "strasse"),
             "street_number": ("answer", "nr"),
             "construction_costs": ("answer", "baukosten-in-chf"),
@@ -1271,6 +1272,8 @@ APPLICATIONS = {
                     "e_grid_number": "e-grid-nr",
                 },
             ),
+            "submit_date": ("case_meta", "submit-date"),
+            "paper_submit_date": ("case_meta", "paper-submit-date"),
         },
         "MUNICIPALITY_DATA_SHEET": APPLICATION_DIR(
             "Verwaltungskreise und -regionen der Gemeinden.csv"
