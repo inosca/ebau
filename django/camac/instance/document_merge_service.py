@@ -15,15 +15,18 @@ from django.utils.translation import get_language, gettext as _
 from rest_framework import exceptions
 from rest_framework.authentication import get_authorization_header
 
-from camac.caluma.api import CalumaApi
 from camac.constants.kt_bern import SERVICE_GROUP_LEITBEHOERDE_GEMEINDE
 from camac.core.models import InstanceService
+from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
 from camac.tags.models import Tags
-from camac.user.models import ServiceT
 from camac.utils import build_url
 
 request_logger = getLogger("django.request")
+
+
+def enforce_string(value):
+    return value if value is not None else ""
 
 
 def get_form_config():
@@ -40,33 +43,6 @@ def get_form_type_key(form_slug):
 
 def get_form_type_config(form_slug):
     return get_form_config().get(get_form_type_key(form_slug), {})
-
-
-def get_header_plots(instance_id):
-    queryset = CalumaApi().get_table_answer(
-        "parzelle", Instance.objects.get(pk=instance_id)
-    )
-    if not queryset:
-        return None
-    plots = [plot.answers.get(question_id="parzellennummer").value for plot in queryset]
-    return ", ".join(plots)
-
-
-def get_header_applicants(instance_id):
-    queryset = CalumaApi().get_table_answer(
-        "personalien-gesuchstellerin", Instance.objects.get(pk=instance_id)
-    )
-    if not queryset:
-        return None
-    applicants = []
-    for applicant in queryset:
-        applicants.append(
-            applicant.answers.get(question_id="name-gesuchstellerin").value
-        )
-        applicants.append(
-            applicant.answers.get(question_id="vorname-gesuchstellerin").value
-        )
-    return ", ".join(applicants)
 
 
 def get_header_tags(instance_id):
@@ -94,27 +70,6 @@ def get_header_responsible(instance_id):
     if not instance.responsible_user():
         return None
     return instance.responsible_user().get_full_name()
-
-
-def get_header_input_date(case):
-    submit_date = dateutil_parse(case.meta["submit-date"]).strftime(
-        settings.SHORT_DATE_FORMAT
-    )
-    try:
-        paper_submit_date = dateutil_parse(case.meta["paper-submit-date"]).strftime(
-            settings.SHORT_DATE_FORMAT
-        )
-
-        return f"{submit_date} ({paper_submit_date})"
-    except KeyError:
-        return f"{submit_date}"
-
-
-def get_header_description(document, slug):
-    try:
-        return Answer.objects.get(document=document, question_id=slug).value
-    except Answer.DoesNotExist:
-        return None
 
 
 def get_header_labels():
@@ -191,23 +146,49 @@ class DMSHandler:
         }
 
         if dms_settings.get("ADD_HEADER_DATA"):
+            master_data = MasterData(doc.case)
             header_data = {
-                "addressHeader": CalumaApi().get_address(doc),
-                "plotsHeader": get_header_plots(instance_id),
-                "applicantHeader": get_header_applicants(instance_id),
-                "municipalityHeader": ServiceT.objects.get(pk=municipality_id).city
-                if "municipality_id" in locals()
+                "addressHeader": ", ".join(
+                    [
+                        ", ".join(
+                            filter(
+                                None,
+                                [
+                                    f'{enforce_string(obj.get("street",))} {enforce_string(obj.get("street_number"))}'.strip(),
+                                    obj.get("town"),
+                                ],
+                            )
+                        )
+                        for obj in master_data.personal_data
+                    ]
+                ),
+                "plotsHeader": ", ".join(
+                    [obj["plot_number"] for obj in master_data.plot_data]
+                ),
+                "applicantHeader": " ".join(
+                    [
+                        f'{obj["first_name"]} {obj["last_name"]}'
+                        for obj in master_data.personal_data
+                    ]
+                ).replace(" None", ""),
+                "municipalityHeader": master_data.municipality.get("label")
+                if master_data.municipality
                 else "-",
                 "tagHeader": get_header_tags(instance_id),
                 "authorityHeader": get_header_authority(instance_id),
                 "responsibleHeader": get_header_responsible(instance_id),
-                "inputDateHeader": get_header_input_date(doc.case),
-                "descriptionHeader": get_header_description(
-                    doc, "beschreibung-bauvorhaben"
-                ),
-                "modificationHeader": get_header_description(
-                    doc, "beschreibung-projektaenderung"
-                ),
+                "inputDateHeader": dateutil_parse(master_data.submit_date).strftime(
+                    settings.SHORT_DATE_FORMAT
+                )
+                if master_data.submit_date
+                else "",
+                "paperInputDateHeader": dateutil_parse(
+                    master_data.paper_submit_date
+                ).strftime(settings.SHORT_DATE_FORMAT)
+                if master_data.paper_submit_date
+                else "",
+                "descriptionHeader": master_data.proposal,
+                "modificationHeader": master_data.modification,
             }
 
             data.update(get_header_labels())
