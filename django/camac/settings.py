@@ -1247,20 +1247,26 @@ APPLICATIONS = {
                 "table",
                 "personalien-gesuchstellerin",
                 {
-                    "town": "ort-gesuchstellerin",
-                    "zip": "plz-gesuchstellerin",
-                    "street": "strasse-gesuchstellerin",
-                    "street_number": "nr-gesuchstellerin",
-                    "last_name": "name-gesuchstellerin",
-                    "first_name": "vorname-gesuchstellerin",
-                    "is_juristic_person": "juristische-person-gesuchstellerin",
-                    "juristic_person_name": "name-juristische-person",
+                    "column_mapping": {
+                        "last_name": "name-gesuchstellerin",
+                        "first_name": "vorname-gesuchstellerin",
+                        "is_juristic_person": (
+                            "juristische-person-gesuchstellerin",
+                            {
+                                "value_mapping": {
+                                    "juristische-person-gesuchstellerin-ja": True,
+                                    "juristische-person-gesuchstellerin-nein": False,
+                                }
+                            },
+                        ),
+                        "juristic_person_name": "name-juristische-person-gesuchstellerin",
+                    }
                 },
             ),
             "ebau_number": ("case_meta", "ebau-number"),
             "proposal": ("answer", "beschreibung-bauvorhaben"),
             "modification": ("answer", "beschreibung-projektaenderung"),
-            "street": ("answer", "strasse"),
+            "street": ("answer", "strasse-flurname"),
             "street_number": ("answer", "nr"),
             "construction_costs": ("answer", "baukosten-in-chf"),
             "municipality": ("dynamic_option", "gemeinde"),
@@ -1268,8 +1274,10 @@ APPLICATIONS = {
                 "table",
                 "parzelle",
                 {
-                    "plot_number": "parzellennummer",
-                    "e_grid_number": "e-grid-nr",
+                    "column_mapping": {
+                        "plot_number": "parzellennummer",
+                        "e_grid_number": "e-grid-nr",
+                    }
                 },
             ),
             "submit_date": ("case_meta", "submit-date"),
@@ -1278,6 +1286,8 @@ APPLICATIONS = {
         "MUNICIPALITY_DATA_SHEET": APPLICATION_DIR(
             "Verwaltungskreise und -regionen der Gemeinden.csv"
         ),
+        "ENABLE_PUBLIC_ENDPOINTS": True,
+        "PUBLICATION_BACKEND": "caluma",
     },
     "kt_uri": {
         "LOG_NOTIFICATIONS": False,
@@ -1454,12 +1464,52 @@ APPLICATIONS = {
             "notification.NotificationTemplateT",
         ],
         "ENABLE_PUBLIC_ENDPOINTS": True,
+        "PUBLICATION_BACKEND": "camac-ng",
         "INSTANCE_STATE_REJECTION_COMPLETE": "arch",
         "SET_SUBMIT_DATE_CAMAC_WORKFLOW": True,
         "REJECTION_FEEDBACK_QUESTION": {
             "CHAPTER": 12000000,
             "QUESTION": 12000000,
             "ITEM": 1,
+        },
+        "MASTER_DATA": {
+            "personal_data": (
+                "table",
+                "applicant",
+                {
+                    "column_mapping": {
+                        "last_name": "last-name",
+                        "first_name": "first-name",
+                        "is_juristic_person": (
+                            "is-juristic-person",
+                            {
+                                "value_mapping": {
+                                    "is-juristic-person-no": False,
+                                    "is-juristic-person-yes": True,
+                                }
+                            },
+                        ),
+                        "juristic_name": "juristic-person-name",
+                    }
+                },
+            ),
+            "proposal": (
+                "answer",
+                [
+                    "proposal-description",
+                    "beschreibung-zu-mbv",
+                    "bezeichnung",
+                    "vorhaben-proposal-description",
+                    "veranstaltung-beschrieb",
+                ],
+            ),
+            "plot_data": (
+                "table",
+                "parcels",
+                {"column_mapping": {"plot_number": "parcel-number"}},
+            ),
+            "street": ("answer", "street"),
+            "street_number": ("answer", "street-number"),
         },
         # GWR fields have various "lookup types", see gwr_lookups.py
         # gwr_field_name: (lookup_type, lookup, extra_options)
