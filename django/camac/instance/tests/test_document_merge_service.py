@@ -146,10 +146,15 @@ def test_document_merge_service_cover_sheet_with_header_values(
     form_question_factory,
     user_factory,
     snapshot,
+    application_settings,
 ):
+    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
+        "MASTER_DATA"
+    ]
+
     municipality = service_factory(
         pk=2,
-        service_group=service_group_factory(pk=2, name="municipality"),
+        service_group=service_group_factory(pk=2, name="gemeinde"),
     )
     service_t_factory(
         pk=2, service=municipality, name="Leitbehörde Burgdorf", language="de"
@@ -247,7 +252,12 @@ def test_document_merge_service_cover_sheet_without_header_values(
     group,
     mocker,
     snapshot,
+    application_settings,
 ):
+    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
+        "MASTER_DATA"
+    ]
+
     case = start_case(
         workflow=Workflow.objects.get(pk="building-permit"),
         form=Form.objects.get(pk="baugesuch"),
