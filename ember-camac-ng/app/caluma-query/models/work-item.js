@@ -181,12 +181,20 @@ export default class CustomWorkItemModel extends WorkItemModel {
       const config = this.shoebox.content.config.directLink;
       const role = this.shoebox.role;
 
-      const template = config[configKey][role];
+      let template = config[configKey][role];
       const data = {
         INSTANCE_ID: this.instanceId,
         CIRCULATION_ID: this.raw.meta["circulation-id"],
         ACTIVATION_ID: this.raw.meta["activation-id"],
       };
+
+      if (
+        this.showbox.application === "kt_schwyz" &&
+        configKey === "start-circulation" &&
+        this.shoebox.roleId === 11
+      ) {
+        template = config[configKey].municipalityService;
+      }
 
       return Object.entries(data).reduce(
         (str, [key, value]) => str.replace(`{{${key}}}`, value),
