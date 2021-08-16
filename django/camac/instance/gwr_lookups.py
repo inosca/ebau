@@ -59,7 +59,9 @@ class GwrSerializer(serializers.Serializer):
                 parts = lookup.split(".")
                 if len(parts) > 1:
                     queryset = form_models.Answer.objects.filter(
-                        document=queryset.get(question__slug=parts[0]).documents.first()
+                        document=queryset.filter(question__slug=parts[0])
+                        .first()
+                        .documents.first()
                     )
                     value = queryset.filter(question__slug=parts[1]).first().value
                 else:
