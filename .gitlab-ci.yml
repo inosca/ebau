@@ -225,6 +225,7 @@ build-kt_schwyz-stage:
     KEYCLOAK_URL: https://camac-schwyz.sycloud.ch/auth/realms/ebau/protocol/openid-connect
     APPLICATION: kt_schwyz
     COMPOSE: docker-compose -f compose/kt_schwyz.yml -f compose/kt_schwyz-stage.yml
+    CONTAINERS: ember ember-camac-ng django php db
   only:
     - stage-sz
 
@@ -235,6 +236,7 @@ build-kt_schwyz-production:
     APPLICATION: kt_schwyz
     # TODO We should make kt_schwyz-prod.yml base on kt_schwyz.yml
     COMPOSE: docker-compose -f compose/kt_schwyz-prod.yml
+    CONTAINERS: ember ember-camac-ng django php db
   only:
     - production-sz
 
@@ -244,6 +246,7 @@ build-kt_uri-stage:
     KEYCLOAK_HOST: https://camac.ur.sycloud.ch
     APPLICATION: kt_uri
     COMPOSE: docker-compose -f compose/kt_uri.yml -f compose/kt_uri-stage.yml
+    CONTAINERS: ember-camac-ng ember-caluma-portal django php db
   only:
     - stage-ur
 
@@ -253,6 +256,7 @@ build-kt_uri-stage-old:
     KEYCLOAK_HOST: https://camac-uri.sycloud.ch
     APPLICATION: kt_uri
     COMPOSE: docker-compose -f compose/kt_uri.yml -f compose/kt_uri-stage.yml
+    CONTAINERS: ember-camac-ng ember-caluma-portal django php db
   only:
     - stage-ur-old
 
