@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 
 from caluma.caluma_form import models as form_models
+from dateutil.parser import ParserError, parse as dateutil_parse
 from django.conf import settings
 from django.utils.translation import get_language
 
@@ -30,6 +31,30 @@ class MasterData(object):
 
         return fn(lookup, **kwargs)
 
+    def _parse_value(self, value, default=None, value_parser=None):
+        if not value_parser or not value:
+            return value if value else default
+
+        options = {}
+
+        if isinstance(value_parser, tuple):
+            parser_name, options = value_parser
+        else:
+            parser_name = value_parser
+
+        parser = getattr(self, f"{parser_name}_parser", None)
+
+        if not parser:
+            raise AttributeError(
+                f"Parser '{parser_name}' is not defined in master data class"
+            )
+
+        return parser(
+            value,
+            default=default,
+            **options,
+        )
+
     def _get_cell_value(self, row, lookup_config):
         options = {}
 
@@ -38,16 +63,9 @@ class MasterData(object):
         else:
             lookup = lookup_config
 
-        value = self.answer_resolver(lookup, document=row)
+        return self.answer_resolver(lookup, document=row, **options)
 
-        if options.get("value_mapping"):
-            return options.get("value_mapping").get(value)
-
-        return value
-
-    def answer_resolver(
-        self, lookup, value_key="value", document=None, default=None, value_mapping={}
-    ):
+    def answer_resolver(self, lookup, value_key="value", document=None, **kwargs):
         """Resolve data from caluma answers.
 
         Example configuration for a "normal" value:
@@ -80,10 +98,14 @@ class MasterData(object):
                 "answer",
                 "my-choice",
                 {
-                    "value_mapping": {
-                        "my-choice-yes": True,
-                        "my-choice-no": False,
-                    }
+                    "value_parser": (
+                        {
+                            "mapping": {
+                                "my-choice-yes": True,
+                                "my-choice-no": False,
+                            }
+                        }
+                    ),
                     "default": False
                 }
             )
@@ -101,9 +123,12 @@ class MasterData(object):
             ),
             None,
         )
-        return getattr(answer, value_key, default) if answer else default
 
-    def case_meta_resolver(self, lookup, default=None):
+        return self._parse_value(
+            getattr(answer, value_key, None) if answer else None, **kwargs
+        )
+
+    def case_meta_resolver(self, lookup, **kwargs):
         """Resolve data from the case meta.
 
         Example configuration:
@@ -111,11 +136,14 @@ class MasterData(object):
         MASTER_DATA = {
             "identifier": {
                 "case_meta",
-                "ebau-number"
+                "some-date",
+                {
+                    "value_parser": "date"
+                }
             }
         }
         """
-        return self.case.meta.get(lookup, default)
+        return self._parse_value(self.case.meta.get(lookup), **kwargs)
 
     def table_resolver(self, lookup, column_mapping={}):
         """Resolve data from caluma table answers.
@@ -133,10 +161,15 @@ class MasterData(object):
                         "is_juristic_person": (
                             "is-juristic-person",
                             {
-                                "value_mapping": {
-                                    "is-juristic-person-yes": True,
-                                    "is-juristic-person-no": False,
-                                }
+                                "value_parser": (
+                                    "value_mapping"
+                                    {
+                                        "mapping": {
+                                            "is-juristic-person-yes": True,
+                                            "is-juristic-person-no": False,
+                                        }
+                                    }
+                                )
                             }
                         ),
                     }
@@ -184,3 +217,18 @@ class MasterData(object):
             if dynamic_option
             else default
         )
+
+    def datetime_parser(self, value, default, **kwargs):
+        try:
+            return dateutil_parse(value)
+        except ParserError:  # pragma: no cover
+            return default
+
+    def date_parser(self, value, default, **kwargs):
+        try:
+            return dateutil_parse(value).date()
+        except ParserError:  # pragma: no cover
+            return default
+
+    def value_mapping_parser(self, value, default, mapping={}, **kwargs):
+        return mapping.get(value, default)

@@ -2,7 +2,7 @@
 # snapshottest: v1 - https://goo.gl/zC4yUc
 from __future__ import unicode_literals
 
-from snapshottest import Snapshot
+from snapshottest import GenericRepr, Snapshot
 
 
 snapshots = Snapshot()
@@ -16,13 +16,13 @@ snapshots['test_document_merge_service_cover_sheet_with_header_values 1'] = {
     'authorityHeaderLabel': 'Leitbehörde',
     'descriptionHeader': None,
     'descriptionHeaderLabel': 'Beschreibung',
-    'inputDateHeader': '01.01.2021',
+    'inputDateHeader': GenericRepr('datetime.datetime(2021, 1, 1, 0, 0)'),
     'inputDateHeaderLabel': 'Eingangsdatum',
     'modificationHeader': None,
     'modificationHeaderLabel': 'Projektänderung',
     'municipalityHeader': '-',
     'municipalityHeaderLabel': 'Gemeinde',
-    'paperInputDateHeader': '02.01.2021',
+    'paperInputDateHeader': GenericRepr('datetime.datetime(2021, 1, 2, 0, 0)'),
     'plotsHeader': '123',
     'plotsHeaderLabel': 'Parzelle(n)',
     'responsibleHeader': 'testuser',
@@ -40,13 +40,13 @@ snapshots['test_document_merge_service_cover_sheet_without_header_values 1'] = {
     'authorityHeaderLabel': 'Leitbehörde',
     'descriptionHeader': None,
     'descriptionHeaderLabel': 'Beschreibung',
-    'inputDateHeader': '01.01.2021',
+    'inputDateHeader': GenericRepr('datetime.datetime(2021, 1, 1, 0, 0)'),
     'inputDateHeaderLabel': 'Eingangsdatum',
     'modificationHeader': None,
     'modificationHeaderLabel': 'Projektänderung',
     'municipalityHeader': '-',
     'municipalityHeaderLabel': 'Gemeinde',
-    'paperInputDateHeader': '',
+    'paperInputDateHeader': None,
     'plotsHeader': '',
     'plotsHeaderLabel': 'Parzelle(n)',
     'responsibleHeader': None,
@@ -1903,7 +1903,7 @@ snapshots['test_document_merge_service_snapshot[sb1] 1'] = [
                 'label': 'Ab wann ist eine Kontrolle möglich?',
                 'slug': 'ab-wann-ist-eine-kontrolle-moeglich',
                 'type': 'DateQuestion',
-                'value': '2021-04-07'
+                'value': GenericRepr('datetime.date(2021, 4, 7)')
             }
         ],
         'label': 'Selbstdeklaration',
