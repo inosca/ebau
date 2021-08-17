@@ -3,11 +3,7 @@ from logging import getLogger
 
 import requests
 from caluma.caluma_core.mutation import Mutation
-from caluma.caluma_core.permissions import (
-    BasePermission,
-    object_permission_for,
-    permission_for,
-)
+from caluma.caluma_core.permissions import object_permission_for, permission_for
 from caluma.caluma_form.models import Document
 from caluma.caluma_form.schema import (
     CopyDocument,
@@ -16,6 +12,7 @@ from caluma.caluma_form.schema import (
     SaveDocument,
     SaveDocumentAnswer,
 )
+from caluma.caluma_user.permissions import IsAuthenticated
 from caluma.caluma_workflow.models import Case
 from caluma.caluma_workflow.schema import (
     CancelWorkItem,
@@ -53,7 +50,7 @@ def get_current_service_id(info):
     return info.context.user.group
 
 
-class CustomPermission(BasePermission):
+class CustomPermission(IsAuthenticated):
     @permission_for(Mutation)
     def has_permission_default(self, mutation, info):
         log.debug(

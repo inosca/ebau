@@ -15,6 +15,16 @@ from camac.instance.models import Instance
 from camac.utils import filters
 
 
+def disallow_public_access(fn):
+    def wrapper(self, node, queryset, info):
+        if not info.context.user.is_authenticated:
+            return queryset.none()
+
+        return fn(self, node, queryset, info)
+
+    return wrapper
+
+
 class CustomVisibility(Authenticated, InstanceQuerysetMixin):
     """Custom visibility for Kanton Bern.
 
@@ -30,10 +40,18 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
         self.group = None
         self.user = None
 
+    @filter_queryset_for(form_schema.Question)
+    @filter_queryset_for(form_schema.Form)
+    @filter_queryset_for(form_schema.Option)
+    @filter_queryset_for(form_schema.DynamicOption)
+    def filter_queryset_public(self, node, queryset, info):
+        # this is blueprint data which is uncritical and can be exposed publicly
+        return queryset
+
     @filter_queryset_for(form_schema.Document)
     @filter_queryset_for(historical_form_schema.HistoricalDocument)
     def filter_queryset_for_document(self, node, queryset, info):
-        instance_ids = self._all_visible_instances(info)
+        instance_ids = self._all_visible_instances(info, True)
 
         return queryset.filter(
             # document is accessible through CAMAC ACLs
@@ -49,13 +67,22 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
             )
         )
 
+    @filter_queryset_for(form_schema.Answer)
+    @filter_queryset_for(historical_form_schema.HistoricalAnswer)
+    def filter_queryset_for_answer(self, node, queryset, info):
+        # return all answers, since answers can only be accessed via documents
+        # which are already properly protected
+        return queryset
+
     @filter_queryset_for(workflow_schema.Case)
+    @disallow_public_access
     def filter_queryset_for_case(self, node, queryset, info):
         return queryset.filter(
             family__instance__pk__in=self._all_visible_instances(info)
         )
 
     @filter_queryset_for(workflow_schema.WorkItem)
+    @disallow_public_access
     def filter_queryset_for_work_items(self, node, queryset, info):
         return queryset.filter(
             case__family__instance__pk__in=self._all_visible_instances(info)
@@ -66,7 +93,7 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
         instance_state_expr = self._get_instance_filter_expr("instance_state")
         return Instance.objects.all().select_related(instance_state_expr)
 
-    def _all_visible_instances(self, info):
+    def _all_visible_instances(self, info, include_public=False):
         """Fetch visible camac instances and cache the result.
 
         Take user's group from a custom HTTP header named `X-CAMAC-GROUP` or use
@@ -78,18 +105,26 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
         if result is not None:  # pragma: no cover
             return result
 
-        camac_request = CamacRequest(info)
+        instance_ids = Instance.objects.none()
 
-        self.user = camac_request.request.user
-        self.group = camac_request.request.group
+        if info.context.user.is_authenticated:
+            camac_request = CamacRequest(info)
 
-        filtered = CalumaInstanceFilterSet(
-            data=filters(camac_request.request),
-            queryset=self.get_queryset(self.group),
-            request=camac_request.request,
-        )
+            self.user = camac_request.request.user
+            self.group = camac_request.request.group
 
-        instance_ids = list(filtered.qs.values_list("pk", flat=True))
+            filtered = CalumaInstanceFilterSet(
+                data=filters(camac_request.request),
+                queryset=self.get_queryset(self.group),
+                request=camac_request.request,
+            )
+
+            instance_ids = instance_ids.union(filtered.qs.values_list("pk", flat=True))
+
+        if include_public:
+            instance_ids = instance_ids.union(
+                self.get_queryset_for_public().values_list("pk", flat=True)
+            )
 
         setattr(info.context, "_visibility_instances_cache", instance_ids)
         return instance_ids
