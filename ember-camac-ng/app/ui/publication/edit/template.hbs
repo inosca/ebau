@@ -1,17 +1,36 @@
-{{#if this.publication}}
+{{#if (and this.publication (not this.fetchPublication.isRunning))}}
   <CfContent
     @documentId={{decode-id this.publication.document.id}}
     @disabled={{cannot "edit publication" this.publication}}
-  />
-{{/if}}
+  as |content|>
+    <content.form />
 
-{{#if (and (can "create publication") this.createPublicationWorkItem)}}
-  <UkButton
-    @color="primary"
-    @disabled={{this.createPublication.isRunning}}
-    @loading={{this.createPublication.isRunning}}
-    @on-click={{perform this.createPublication}}
-  >
-    {{t "publication.new"}}
-  </UkButton>
+    {{#if (can "edit publication" this.publication)}}
+      <DocumentValidity
+        @document={{content.document}}
+        @validateOnEnter={{false}}
+        as |isValid validate|
+      >
+        <TaskButton
+          @task="fill-publication"
+          @mutation="complete"
+          @filters={{this.filters}}
+          @disabled={{and (not-eq isValid null) (not isValid)}}
+          @beforeMutate={{fn this.beforeComplete validate}}
+          @onSuccess={{this.afterComplete}}
+          @label={{t "publication.complete"}}
+        />
+      </DocumentValidity>
+    {{/if}}
+
+    {{#if (can "create publication" this.publication)}}
+      <TaskButton
+        @task="create-publication"
+        @mutation="complete"
+        @filters={{this.filters}}
+        @onSuccess={{this.afterCreate}}
+        @label={{t "publication.new"}}
+      />
+    {{/if}}
+  </CfContent>
 {{/if}}
