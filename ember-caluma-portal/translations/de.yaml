@@ -26,6 +26,7 @@ nav:
   support: "Support"
   publicInstance: "Bauplanauflage"
   logout: "Ausloggen"
+  login: "Einloggen"
   applicants: "Berechtigungen"
   language: "Sprache"
   instances: "Dossiers"

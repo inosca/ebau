@@ -1,5 +1,6 @@
 import logging
 
+from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.db.models import Q
 from django.db.models.constants import LOOKUP_SEP
@@ -41,6 +42,14 @@ class InstanceQuerysetMixin(object):
         if self.instance_field:
             instance_field = self.instance_field.replace(".", LOOKUP_SEP)
             result = instance_field + LOOKUP_SEP + result
+
+        if (
+            hasattr(super(), "get_queryset")
+            and super().get_queryset().model.__name__ == "Case"
+        ):
+            # This removes duplicate lookups like "instance__case__xy" if
+            # querying cases directly
+            result = result.replace(f"instance{LOOKUP_SEP}case{LOOKUP_SEP}", "")
 
         if expr:
             result = result + LOOKUP_SEP + expr
@@ -221,6 +230,69 @@ class InstanceQuerysetMixin(object):
             "instance"
         )
         return queryset.filter(**{instance_field: instances_with_invite})
+
+    def get_queryset_for_public(self, group=None):
+        queryset = self.get_base_queryset()
+
+        if settings.APPLICATION.get("PUBLICATION_BACKEND") == "caluma":
+            return (
+                queryset.filter(
+                    **{
+                        self._get_instance_filter_expr(
+                            "case__work_items__task_id"
+                        ): "fill-publication",
+                        self._get_instance_filter_expr(
+                            "case__work_items__status"
+                        ): WorkItem.STATUS_COMPLETED,
+                        self._get_instance_filter_expr(
+                            "case__work_items__closed_by_user__isnull"
+                        ): False,  # make sure the work item was closed manually, not via cronjob
+                        self._get_instance_filter_expr(
+                            "case__work_items__document__answers__question_id"
+                        ): "publikation-startdatum",
+                        self._get_instance_filter_expr(
+                            "case__work_items__document__answers__date__lte"
+                        ): timezone.now(),
+                    }
+                )
+                .filter(
+                    **{
+                        self._get_instance_filter_expr(
+                            "case__work_items__task_id"
+                        ): "fill-publication",
+                        self._get_instance_filter_expr(
+                            "case__work_items__status"
+                        ): WorkItem.STATUS_COMPLETED,
+                        self._get_instance_filter_expr(
+                            "case__work_items__closed_by_user__isnull"
+                        ): False,  # make sure the work item was closed manually, not via cronjob
+                        self._get_instance_filter_expr(
+                            "case__work_items__document__answers__question_id"
+                        ): "publikation-ablaufdatum",
+                        self._get_instance_filter_expr(
+                            "case__work_items__document__answers__date__gte"
+                        ): timezone.now(),
+                    }
+                )
+                .distinct()
+            )
+        elif settings.APPLICATION.get("PUBLICATION_BACKEND") == "camac-ng":
+            return queryset.filter(
+                **{
+                    self._get_instance_filter_expr(
+                        "publication_entries__publication_date__gte"
+                    ): timezone.now()
+                    - settings.APPLICATION.get("PUBLICATION_DURATION"),
+                    self._get_instance_filter_expr(
+                        "publication_entries__publication_date__lt"
+                    ): timezone.now(),
+                    self._get_instance_filter_expr(
+                        "publication_entries__is_published"
+                    ): True,
+                }
+            )
+
+        return queryset.none()
 
     def _instances_with_activation(self, group):
         return Circulation.objects.filter(activations__service=group.service).values(

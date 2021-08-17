@@ -1510,6 +1510,7 @@ APPLICATIONS = {
             ),
             "street": ("answer", "street"),
             "street_number": ("answer", "street-number"),
+            "municipality": ("dynamic_option", "municipality"),
         },
         # GWR fields have various "lookup types", see gwr_lookups.py
         # gwr_field_name: (lookup_type, lookup, extra_options)

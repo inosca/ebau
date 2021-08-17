@@ -26,6 +26,7 @@ nav:
   support: "Support"
   publicInstance: ""
   logout: "Déconnexion"
+  login: "Connexion"
   applicants: "Autorisation"
   language: "Langue"
   instances: "Dossiers"
