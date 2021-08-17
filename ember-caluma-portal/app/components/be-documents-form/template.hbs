@@ -17,7 +17,7 @@
     <p class="uk-margin">{{t (concat "documents.tags." title)}}</p>
     <div class="uk-margin-left">
       {{#each fields as |field|}}
-        <CfField/input @field={{field}} />
+        <CfField/input @field={{field}} @disabled={{@disabled}} />
       {{/each}}
     </div>
   {{/each-in}}
@@ -27,7 +27,7 @@
 
 {{#if this.allOtherFields.length}}
   {{#each this.allOtherFields as |field|}}
-    <CfField/input @field={{field}} />
+    <CfField/input @field={{field}} @disabled={{@disabled}} />
   {{/each}}
   <hr>
 {{/if}}
