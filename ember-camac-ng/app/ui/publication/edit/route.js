@@ -8,7 +8,6 @@ export default class PublicationEditRoute extends Route {
   setupController(controller, model) {
     super.setupController(controller, model);
 
-    controller.fetchCreateWorkItem.perform();
     controller.fetchPublication.perform();
   }
 }
