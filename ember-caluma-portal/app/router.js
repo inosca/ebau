@@ -35,6 +35,9 @@ Router.map(function () {
 
   this.route("notfound", { path: "/*path" });
   this.route("public-instances", { resetNamespace }, function () {
-    this.route("detail", { path: "/:instance_id" });
+    this.route("detail", { path: "/:instance_id" }, function () {
+      this.route("form");
+      this.route("documents");
+    });
   });
 });
