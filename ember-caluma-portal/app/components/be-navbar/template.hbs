@@ -71,13 +71,11 @@
                 </a>
               </LinkTo>
             {{/if}}
-            {{#if (is-application "ur")}}
-              <LinkTo @route="public-instances" @tagName="li" @activeClass="uk-active">
-                <a href="#">
-                  {{t "nav.publicInstance"}}
-                </a>
-              </LinkTo>
-            {{/if}}
+            <LinkTo @route="public-instances" @tagName="li" @activeClass="uk-active">
+              <a href="#">
+                {{t "nav.publicInstance"}}
+              </a>
+            </LinkTo>
           </ul>
         </div>
 
@@ -141,6 +139,15 @@
                     {{t "nav.logout"}}
                   </span>
                 </a>
+              </li>
+            {{else}}
+              <li>
+                <LinkTo @route="login" title={{t "nav.login"}}>
+                  <UkIcon @icon="sign-in" />
+                  <span class="uk-hidden">
+                    {{t "nav.login"}}
+                  </span>
+                </LinkTo>
               </li>
             {{/if}}
           </ul>

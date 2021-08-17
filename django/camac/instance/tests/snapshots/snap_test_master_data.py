@@ -66,6 +66,10 @@ snapshots['test_master_data_be[fr] 1'] = {
 }
 
 snapshots['test_master_data_ur 1'] = {
+    'municipality': {
+        'label': 'Altdorf',
+        'slug': '1'
+    },
     'personal_data': [
         {
             'first_name': 'Max',
