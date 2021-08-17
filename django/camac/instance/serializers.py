@@ -44,9 +44,10 @@ from camac.echbern.signals import (
     sb1_submitted,
     sb2_submitted,
 )
+from camac.instance.master_data import MasterData
 from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.notification.utils import send_mail
-from camac.user.models import Group, Location, Service
+from camac.user.models import Group, Service
 from camac.user.permissions import permission_aware
 from camac.user.relations import (
     CurrentUserResourceRelatedField,
@@ -2080,9 +2081,10 @@ class IssueTemplateSetApplySerializer(InstanceEditableMixin, serializers.Seriali
 
 
 class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cover
-    """Serialize public caluma instances (kt_uri)."""
+    """Serialize public caluma instances."""
 
-    instance_id = serializers.CharField(read_only=True)
+    document_id = serializers.CharField(read_only=True)
+    instance_id = serializers.IntegerField(read_only=True)
     dossier_nr = serializers.CharField(read_only=True)
     municipality = serializers.SerializerMethodField()
     applicant = serializers.SerializerMethodField()
@@ -2090,52 +2092,47 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
     street = serializers.SerializerMethodField()
     parcels = serializers.SerializerMethodField()
 
+    _master_data_cache = {}
+
+    def get_master_data(self, case):
+        if case.pk not in self._master_data_cache:
+            self._master_data_cache[case.pk] = MasterData(case)
+
+        return self._master_data_cache[case.pk]
+
     def get_municipality(self, case):
-        return Location.objects.get(
-            pk=case.document.answers.get(question_id="municipality").value
-        ).name
+        return self.get_master_data(case).municipality.get("label")
 
     def get_applicant(self, case):
-        ans = case.document.answers.filter(question_id="applicant").first()
-
-        if not ans:
-            return
-
-        applicant_doc = ans.documents.last()
-
-        answers = filter(
-            None,
+        return ", ".join(
             [
-                applicant_doc.answers.filter(question_id=q).first()
-                for q in ["title", "first-name", "last-name"]
-            ],
+                (
+                    applicant.get("juristic_name", "")
+                    if applicant.get("is_juristic_person")
+                    else f"{applicant.get('first_name', '')} {applicant.get('last_name', '')}"
+                ).strip()
+                for applicant in self.get_master_data(case).personal_data
+            ]
         )
-        return " ".join([a.value for a in answers if a.value])
 
     def get_intent(self, case):
-        ans = case.document.answers.filter(
-            question_id__in=ur_constants.INTENT_SLUGS
-        ).first()
-
-        if not ans:
-            return
-
-        return ans.value
+        return self.get_master_data(case).proposal
 
     def get_street(self, case):
-        return getattr(
-            case.document.answers.filter(question_id="parcel-street").first(),
-            "value",
-            "",
-        )
+        return " ".join(
+            filter(
+                None,
+                [
+                    self.get_master_data(case).street,
+                    self.get_master_data(case).street_number,
+                ],
+            )
+        ).strip()
 
     def get_parcels(self, case):
-        parcels = list(
-            form_models.Answer.objects.filter(
-                question_id="parcel-number", document__family=case.document
-            ).values_list("value", flat=True)
+        return ", ".join(
+            [plot.get("plot_number") for plot in self.get_master_data(case).plot_data]
         )
-        return ", ".join([str(p) for p in parcels])
 
     class Meta:
         model = workflow_models.Case

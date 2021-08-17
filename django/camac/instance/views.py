@@ -11,7 +11,10 @@ from django.contrib.postgres.fields.jsonb import KeyTextTransform
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.files import File
 from django.db import transaction
-from django.db.models import F, OuterRef, Q, Subquery
+from django.db.models import F, OuterRef, Q, Subquery, Value
+from django.db.models.expressions import Func
+from django.db.models.fields import IntegerField
+from django.db.models.functions import Cast
 from django.http import HttpResponse
 from django.utils import timezone
 from django.utils.translation import gettext as _
@@ -1208,7 +1211,7 @@ class IssueTemplateSetView(views.ModelViewSet):
         return response.Response([], 204)
 
 
-class PublicCalumaInstanceView(ListAPIView):
+class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
     """Public view for published instances (kt_uri).
 
     Visibility is toggled in urls.py via ENABLE_PUBLIC_ENDPOINTS application settings.
@@ -1217,16 +1220,46 @@ class PublicCalumaInstanceView(ListAPIView):
     permission_classes = [ReadOnly]
     serializer_class = serializers.PublicCalumaInstanceSerializer
     filterset_class = filters.PublicCalumaInstanceFilterSet
+    queryset = workflow_models.Case.objects.all()
+
+    instance_field = "instance"
 
     def get_queryset(self):
-        return (
-            workflow_models.Case.objects.filter(
-                instance__publication_entries__publication_date__gte=timezone.now()
-                - settings.APPLICATION.get("PUBLICATION_DURATION"),
-                instance__publication_entries__publication_date__lt=timezone.now(),
-                instance__publication_entries__is_published=True,
+        queryset = (
+            super()
+            .get_queryset_for_public()
+            .select_related("document")
+            .prefetch_related(
+                "document__answers",
+                "document__answers__documents__answers",
+                "document__dynamicoption_set",
             )
             .annotate(instance_id=F("instance__pk"))
-            .annotate(dossier_nr=KeyTextTransform("dossier-number", "meta"))
-            .order_by("dossier_nr")
         )
+
+        if settings.APPLICATION.get("PUBLICATION_BACKEND") == "caluma":
+            return queryset.annotate(
+                dossier_nr=KeyTextTransform("ebau-number", "meta"),
+                year=Cast(
+                    Func(
+                        F("dossier_nr"),
+                        Value("-\d+$"),
+                        Value(""),
+                        function="regexp_replace",
+                    ),
+                    IntegerField(),
+                ),
+                nr=Cast(
+                    Func(
+                        F("dossier_nr"),
+                        Value("^\d+-"),
+                        Value(""),
+                        function="regexp_replace",
+                    ),
+                    IntegerField(),
+                ),
+            ).order_by("year", "nr")
+
+        return queryset.annotate(
+            dossier_nr=KeyTextTransform("dossier-number", "meta"),
+        ).order_by("dossier_nr")
