@@ -1,4 +1,5 @@
 import pytest
+from caluma.caluma_user.models import AnonymousUser
 from caluma.caluma_user.views import HttpResponseUnauthorized
 from graphene_django.views import HttpError
 
@@ -31,9 +32,20 @@ def test_authenticate_caluma(rf, settings, admin_user, group, mocker):
 
 
 @pytest.mark.parametrize(
-    "has_token,username", [(False, None), (True, "nonexistent-username")]
+    "has_token,enable_public_caluma,username",
+    [(False, False, None), (False, True, None), (True, False, "nonexistent-username")],
 )
-def test_unauthorized_caluma(rf, mocker, settings, has_token, username):
+def test_unauthorized_caluma(
+    rf,
+    mocker,
+    settings,
+    application_settings,
+    has_token,
+    enable_public_caluma,
+    username,
+):
+    application_settings["ENABLE_PUBLIC_CALUMA"] = enable_public_caluma
+
     if has_token:
         headers = {"HTTP_AUTHORIZATION": "Bearer some_token"}
         userinfo = mocker.patch(
@@ -48,7 +60,12 @@ def test_unauthorized_caluma(rf, mocker, settings, has_token, username):
     # A request without a token will result in an AnonymousUser in caluma
     request = rf.request(**headers)
 
-    with pytest.raises(HttpError) as e:
-        CamacAuthenticatedGraphQLView().get_user(request)
+    if has_token or not enable_public_caluma:
+        with pytest.raises(HttpError) as e:
+            CamacAuthenticatedGraphQLView().get_user(request)
 
-    assert isinstance(e.value.response, HttpResponseUnauthorized)
+        assert isinstance(e.value.response, HttpResponseUnauthorized)
+    else:
+        assert isinstance(
+            CamacAuthenticatedGraphQLView().get_user(request), AnonymousUser
+        )
