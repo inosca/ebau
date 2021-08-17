@@ -207,6 +207,14 @@ def ur_master_data_case(
         value=4,
     )
 
+    # Municipality
+    caluma_form_factories.DynamicOptionFactory(
+        question_id="municipality",
+        document=ur_instance.case.document,
+        slug="1",
+        label={"de": "Altdorf"},
+    )
+
     # Plot
     row_form = caluma_form_factories.FormFactory(slug="parcels")
     table_answer_plot = caluma_form_factories.AnswerFactory(
