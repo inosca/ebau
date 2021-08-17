@@ -1,5 +1,7 @@
 publication:
   new: "Neue Publikation erstellen"
+  complete: "Publikation freigeben"
+  confirm: "<strong>Achtung:</strong> Während der Publikationsdauer ist das Dossier öffentlich aufgelegt und kann eingesehen werden. Dieser Schritt kann nicht mehr rückgängig gemacht werden."
   loadingError: "Fehler beim Laden der Publikation"
   createError: "Fehler beim Erstellen der Publikation"
   publicationOf: "Publikation vom "
