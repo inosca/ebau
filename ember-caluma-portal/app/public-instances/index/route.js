@@ -1,9 +1,14 @@
 import Route from "@ember/routing/route";
 
 export default class PublicInstancesIndexRoute extends Route {
+  queryParams = {
+    municipality: { refresh: true },
+  };
+
   setupController(controller, model) {
     super.setupController(controller, model);
 
+    controller.fetchMunicipalities.perform();
     controller.fetchInstances.perform();
   }
 
@@ -11,8 +16,7 @@ export default class PublicInstancesIndexRoute extends Route {
     super.resetController(controller, isExiting, transition);
 
     if (isExiting) {
-      controller.page = 1;
-      controller.instances = [];
+      controller.reset();
     }
   }
 }
