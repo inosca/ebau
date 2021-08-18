@@ -35,8 +35,8 @@ module("Acceptance | journal", function (hooks) {
   test("it can create a journal entry", async function (assert) {
     await visit(`/instances/${this.instance.id}/journal`);
 
-    await fillIn("[data-test-new-entry]", "Lorem ipsum");
-    await click("[data-test-new-save]");
+    await fillIn("[data-test-textarea]", "Lorem ipsum");
+    await click("[data-test-save]");
 
     assert.dom("article").exists({ count: 1 });
     assert.dom(".uk-comment-body").hasText("Lorem ipsum");
@@ -50,8 +50,8 @@ module("Acceptance | journal", function (hooks) {
     await visit(`/instances/${this.instance.id}/journal`);
 
     await click("[data-test-edit-entry]");
-    await fillIn("[data-test-edit]", "Lorem ipsum");
-    await click("[data-test-edit-save]");
+    await fillIn(".uk-comment [data-test-textarea]", "Lorem ipsum");
+    await click(".uk-comment [data-test-save]");
 
     assert.dom("article").exists({ count: 1 });
     assert.dom(".uk-comment-body").hasText("Lorem ipsum");

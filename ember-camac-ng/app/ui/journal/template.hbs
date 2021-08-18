@@ -7,37 +7,12 @@
 </h1>
 
 {{#if (can "edit journal-entry")}}
-  <div>
-    <Textarea
-      class="uk-textarea journal-textarea"
-      @value={{this.newEntry.text}}
-      rows="5"
-      aria-label="{{t "journal.textareaNew"}}"
-      {{on "input" this.resizeTextarea}}
-      data-test-new-entry
-    />
+  <JournalTextarea
+    @journalEntry={{this.newEntry}}
+    @onSaveNewJournalEntry={{this.refetchEntries}}
+  />
 
-    <div class="uk-flex uk-flex-between uk-margin">
-      <UkToggleSwitch
-        @value={{this.newEntry.visibilityBoolean}}
-        @onLabel={{t "journal.visibilityAuthorities"}}
-        @offLabel={{t "journal.visibilityOwn"}}
-        @showLabels={{true}}
-        @size="small"
-        title={{t "journal.visibility"}}
-      />
-      <UkButton
-        @type="button"
-        @color="primary"
-        @on-click={{perform this.saveEntry this.newEntry}}
-        data-test-new-save
-      >
-        {{t "global.save"}}
-      </UkButton>
-    </div>
-  </div>
-
-  <hr class="uk-hr"/>
+  <hr/>
 {{/if}}
 
 <div class="uk-margin" data-test-journal-list>
@@ -46,84 +21,7 @@
   {{else if this.entries.length}}
     <ul class="uk-comment-list">
       {{#each this.entries as |entry|}}
-        <li>
-          <article class="uk-comment">
-            <header class="uk-comment-header uk-flex uk-flex-between">
-              <div>
-                <span>{{entry.user.fullName}}</span>
-                -
-                <span class="uk-text-italic">
-                  {{format-date
-                    entry.creationDate
-                    day="2-digit"
-                    month="2-digit"
-                    year="numeric"
-                    hour="2-digit"
-                    minute="2-digit"
-                    hour12=false
-                  }}
-                </span>
-                {{#if entry.visibilityBoolean}}
-                  <i class="fa fa-eye uk-margin-small-left" title={{t "journal.visibleForAuthorities"}}></i>
-                {{/if}}
-              </div>
-              {{#if (and (can "edit journal-entry") (not this.readOnly entry.edit))}}
-                <div>
-                  <button
-                    class="uk-button uk-button-text uk-text-small"
-                    type="button"
-                    title={{t "journal.edit" }}
-                    {{on "click" (toggle "edit" entry)}}
-                    data-test-edit-entry
-                  >
-                    <UkIcon @icon="pencil" /> {{t "journal.edit"}}
-                  </button>
-                </div>
-              {{/if}}
-            </header>
-            <div class="uk-comment-body">
-              {{#if entry.edit}}
-                <Textarea
-                  @value={{entry.text}}
-                  class="uk-textarea journal-textarea"
-                  aria-label={{t "journal.textareaEdit" }}
-                  rows="5"
-                  {{on "input" this.resizeTextarea}}
-                  {{did-insert this.resizeTextarea}}
-                  data-test-edit
-                />
-                <div class="uk-flex uk-flex-between uk-margin">
-                  <UkToggleSwitch
-                    @value={{entry.visibilityBoolean}}
-                    @onLabel={{t "journal.visibilityAuthorities"}}
-                    @offLabel={{t "journal.visibilityOwn"}}
-                    @showLabels={{true}}
-                    @size="small"
-                    title={{t "journal.visibility"}}
-                  />
-                  <div>
-                    <UkButton
-                      @type="button"
-                      @on-click={{fn this.cancelEditEntry entry}}
-                    >
-                      {{t "global.cancel"}}
-                    </UkButton>
-                    <UkButton
-                      @type="button"
-                      @color="primary"
-                      @on-click={{perform this.saveEntry entry}}
-                      data-test-edit-save
-                    >
-                      {{t "global.save"}}
-                    </UkButton>
-                  </div>
-                </div>
-              {{else}}
-                <span class="journal-entry-text">{{entry.text}}</span>
-              {{/if}}
-            </div>
-          </article>
-        </li>
+        <JournalEntry @journalEntry={{entry}} @onSaveNewJournalEntry={{this.refetchEntries}}/>
       {{/each}}
     </ul>
   {{else}}
