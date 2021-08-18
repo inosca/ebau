@@ -2,7 +2,7 @@
 # snapshottest: v1 - https://goo.gl/zC4yUc
 from __future__ import unicode_literals
 
-from snapshottest import Snapshot
+from snapshottest import GenericRepr, Snapshot
 
 
 snapshots = Snapshot()
@@ -10,12 +10,13 @@ snapshots = Snapshot()
 snapshots['test_master_data_be[de] 1'] = {
     'construction_costs': 199000,
     'ebau_number': '2021-1',
+    'is_paper': False,
     'modification': 'Doch eher kleines Haus',
     'municipality': {
         'label': 'Bern',
         'slug': '1'
     },
-    'paper_submit_date': '2021-03-20T13:17:08+0000',
+    'paper_submit_date': GenericRepr('datetime.datetime(2021, 3, 20, 13, 17, 8, tzinfo=tzutc())'),
     'personal_data': [
         {
             'first_name': 'Max',
@@ -33,18 +34,19 @@ snapshots['test_master_data_be[de] 1'] = {
     'proposal': 'Grosses Haus',
     'street': 'Musterstrasse',
     'street_number': 4,
-    'submit_date': '2021-03-31T13:17:08+0000'
+    'submit_date': GenericRepr('datetime.datetime(2021, 3, 31, 13, 17, 8, tzinfo=tzutc())')
 }
 
 snapshots['test_master_data_be[fr] 1'] = {
     'construction_costs': 199000,
     'ebau_number': '2021-1',
+    'is_paper': False,
     'modification': 'Doch eher kleines Haus',
     'municipality': {
         'label': 'Berne',
         'slug': '1'
     },
-    'paper_submit_date': '2021-03-20T13:17:08+0000',
+    'paper_submit_date': GenericRepr('datetime.datetime(2021, 3, 20, 13, 17, 8, tzinfo=tzutc())'),
     'personal_data': [
         {
             'first_name': 'Max',
@@ -62,7 +64,13 @@ snapshots['test_master_data_be[fr] 1'] = {
     'proposal': 'Grosses Haus',
     'street': 'Musterstrasse',
     'street_number': 4,
-    'submit_date': '2021-03-31T13:17:08+0000'
+    'submit_date': GenericRepr('datetime.datetime(2021, 3, 31, 13, 17, 8, tzinfo=tzutc())')
+}
+
+snapshots['test_master_data_parsers 1'] = {
+    'date': GenericRepr('datetime.date(2021, 8, 18)'),
+    'datetime': GenericRepr('datetime.datetime(2021, 8, 18, 6, 58, 8, 397000, tzinfo=tzutc())'),
+    'success': True
 }
 
 snapshots['test_master_data_ur 1'] = {
