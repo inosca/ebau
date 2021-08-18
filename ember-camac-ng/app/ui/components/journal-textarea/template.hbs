@@ -1,0 +1,39 @@
+<div>
+  <Textarea
+    class="uk-textarea"
+    @value={{@journalEntry.text}}
+    rows="5"
+    aria-label="{{t "journal.textareaEdit"}}"
+    {{autoresize-textarea}}
+    data-test-textarea
+  />
+
+  <div class="uk-flex uk-flex-between uk-margin">
+    <UkToggleSwitch
+      @value={{@journalEntry.visibility}}
+      @onLabel={{t "journal.visibilityAuthorities"}}
+      @offLabel={{t "journal.visibilityOwn"}}
+      @showLabels={{true}}
+      @size="small"
+      title={{t "journal.visibility"}}
+    />
+      <div> 
+        {{#if @showCancel}}
+          <UkButton
+            @type="button"
+            @on-click={{fn this.cancelEditEntry @journalEntry}}
+          >
+            {{t "global.cancel"}}
+          </UkButton>
+        {{/if}}
+        <UkButton
+          @type="button"
+          @color="primary"
+          @on-click={{perform this.saveEntry @journalEntry}}
+          data-test-save
+        >
+          {{t "global.save"}}
+        </UkButton>
+      </div>
+  </div>
+</div>

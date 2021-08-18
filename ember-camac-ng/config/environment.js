@@ -37,7 +37,7 @@ module.exports = function (environment) {
       kt_bern: {
         GWRCantonAbbreviation: "BE",
         allowApplicantManualWorkItem: false,
-        journalDefaultVisibility: "own_organisation",
+        journalDefaultVisibility: false,
         instanceStates: {
           archived: 20009,
         },
@@ -49,12 +49,12 @@ module.exports = function (environment) {
       kt_schwyz: {
         GWRCantonAbbreviation: "SZ",
         allowApplicantManualWorkItem: true,
-        journalDefaultVisibility: "own_organisation",
+        journalDefaultVisibility: false,
       },
       kt_uri: {
         GWRCantonAbbreviation: "UR",
         allowApplicantManualWorkItem: false,
-        journalDefaultVisibility: "authorities",
+        journalDefaultVisibility: true,
         activeCirculationStates: [
           1, // RUN
           41, // NFD
