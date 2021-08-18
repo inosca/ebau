@@ -7,33 +7,13 @@ export default class PublicInstancesDetailController extends Controller {
   @service notification;
   @service intl;
 
-  @lastValue("getPublicAttachments") attachments;
+  @lastValue("fetchPublicInstance") publicInstance;
   @dropTask
-  *getPublicAttachments() {
+  *fetchPublicInstance() {
     try {
-      return yield this.store.query("attachment", {
+      return (yield this.store.query("public-caluma-instance", {
         instance: this.model,
-        context: JSON.stringify({
-          key: "isPublished",
-          value: true,
-        }),
-      });
-    } catch (e) {
-      this.notification.danger(this.intl.t("publicInstancesDetail.loadError"));
-    }
-  }
-
-  get dossierNr() {
-    return this.getCurrentDossierNr.lastSuccessful?.value?.dossierNr;
-  }
-
-  @dropTask
-  *getCurrentDossierNr() {
-    try {
-      const publicInstance = yield this.store.query("public-caluma-instance", {
-        instance: this.model,
-      });
-      return publicInstance.toArray()[0];
+      }))?.toArray()?.[0];
     } catch (e) {
       this.notification.danger(
         this.intl.t("publicInstancesDetail.dossierNrError")

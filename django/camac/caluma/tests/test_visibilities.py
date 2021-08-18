@@ -1,8 +1,19 @@
+from datetime import timedelta
+
 import pytest
 from caluma.caluma_core.relay import extract_global_id
-from caluma.caluma_form import models as caluma_form_models
-from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
+from caluma.caluma_form import (
+    factories as caluma_form_factories,
+    models as caluma_form_models,
+)
+from caluma.caluma_user.models import AnonymousUser
+from caluma.caluma_workflow import (
+    api as workflow_api,
+    factories as caluma_workflow_factories,
+    models as caluma_workflow_models,
+)
 from caluma.schema import schema
+from django.utils import timezone
 
 
 @pytest.mark.parametrize(
@@ -228,3 +239,101 @@ def test_work_item_visibility(
         ).intersection(visible_workitems)
         == set()
     )
+
+
+def test_public_visibility(
+    db,
+    rf,
+):
+    caluma_form_factories.QuestionFactory.create_batch(3)
+    caluma_workflow_factories.CaseFactory.create_batch(3)
+
+    questions_query = """
+        query {
+            allQuestions {
+                edges {
+                    node {
+                        id
+                    }
+                }
+            }
+        }
+    """
+    questions_result = schema.execute(
+        questions_query, context_value=rf.get("/graphql"), middleware=[]
+    )
+
+    assert len(questions_result.data["allQuestions"]["edges"]) == 3
+
+    cases_query = """
+        query {
+            allCases {
+                edges {
+                    node {
+                        id
+                    }
+                }
+            }
+        }
+    """
+    cases_request = rf.get("/graphql")
+    cases_request.user = AnonymousUser()
+    cases_result = schema.execute(
+        cases_query, context_value=cases_request, middleware=[]
+    )
+
+    assert len(cases_result.data["allCases"]["edges"]) == 0
+
+
+def test_public_document_visibility(
+    db,
+    rf,
+    be_instance,
+    application_settings,
+    settings,
+):
+    application_settings["PUBLICATION_BACKEND"] = "caluma"
+
+    publication_document = caluma_form_factories.DocumentFactory()
+    caluma_form_factories.AnswerFactory(
+        document=publication_document,
+        question__slug="publikation-startdatum",
+        date=timezone.now() - timedelta(days=1),
+    )
+    caluma_form_factories.AnswerFactory(
+        document=publication_document,
+        question__slug="publikation-ablaufdatum",
+        date=timezone.now() + timedelta(days=12),
+    )
+    caluma_workflow_factories.WorkItemFactory(
+        task_id="fill-publication",
+        status="completed",
+        document=publication_document,
+        case=be_instance.case,
+        closed_by_user="admin",
+    )
+
+    query = """
+        query {
+            allDocuments {
+                edges {
+                    node {
+                        id
+                        answers {
+                            edges {
+                                node {
+                                    id
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    """
+    request = rf.get("/graphql")
+    request.user = AnonymousUser()
+    result = schema.execute(query, context_value=request, middleware=[])
+
+    assert len(result.data["allDocuments"]["edges"]) == 2
+    assert len(result.data["allDocuments"]["edges"][1]["node"]["answers"]["edges"]) == 2
