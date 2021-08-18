@@ -341,6 +341,15 @@ class FormFieldOrdering(OrderingFilter):
 
 class PublicCalumaInstanceFilterSet(FilterSet):
     instance = NumberFilter(field_name="instance__pk")
+    municipality = NumberFilter(method="filter_municipality")
+
+    def filter_municipality(self, queryset, name, value):
+        municipality_question = settings.APPLICATION["MASTER_DATA"]["municipality"][1]
+
+        return queryset.filter(
+            document__answers__question_id=municipality_question,
+            document__answers__value=str(value),
+        ).distinct()
 
     class Meta:
         model = Case
