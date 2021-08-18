@@ -13,7 +13,8 @@ publicInstances:
   emptyText: "Sobald die Gemeinde ein Dossier zur Publikation freigegeben hat, wird das Dossier hier in der Liste auftauchen."
 
 publicInstancesDetail:
-  title: "Dokumente"
+  documents: "Dokumente"
+  form: "Formular"
   fileName: "Dateiname"
   size: "Grösse"
   date: "Datum"
