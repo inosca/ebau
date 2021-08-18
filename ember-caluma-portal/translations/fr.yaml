@@ -151,7 +151,6 @@ gis:
   notifications:
     min-one: "Vous devez sélectionner au moins une parcelle."
     max-one: "Dans le cas d'une simple clarification préliminaire, un maximum d'une parcelle peut être sélectionné."
-    max-twenty: "Vous devez limiter votre sélection à 20 parcelles."
     error-additional: "Une erreur s'est produite lors de la demande d'informations supplémentaires. Veuillez réessayer d'accepter les données."
 
 submit:
