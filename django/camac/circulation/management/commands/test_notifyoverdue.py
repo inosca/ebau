@@ -115,7 +115,6 @@ def test_action_overdue_deadline_date(
         assert notification is None
 
 
-@pytest.mark.django_db(transaction=True)
 @pytest.mark.freeze_time("2017-05-21")
 @pytest.mark.parametrize(
     "day_offset,will_notify,template_slug,recipient_type",
