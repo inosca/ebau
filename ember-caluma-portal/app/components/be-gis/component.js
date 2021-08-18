@@ -248,7 +248,7 @@ export default class BeGisComponent extends Component {
   }
 
   get oerebLinkData() {
-    const tables = this.field.document.findAnswer(KEY_TABLE_QUESTION);
+    const tables = this.field.document.findAnswer(KEY_TABLE_QUESTION) || [];
     return tables.map((table) => ({
       egrid: table[KEY_TABLE_EGRID],
       parcel: table[KEY_TABLE_PARCEL],
@@ -557,10 +557,6 @@ export default class BeGisComponent extends Component {
   applySelection() {
     if (!this.parcels?.length) {
       this.notification.danger(this.intl.t("gis.notifications.min-one"));
-      return;
-    }
-    if (this.parcels.length > 20) {
-      this.notification.danger(this.intl.t("gis.notifications.max-twenty"));
       return;
     }
 
