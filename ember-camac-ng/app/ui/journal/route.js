@@ -8,7 +8,6 @@ export default class JournalRoute extends Route {
   setupController(controller, model) {
     super.setupController(controller, model);
 
-    controller.fetchEntries.perform();
-    controller.initializeNewEntry();
+    controller.refetchEntries();
   }
 }

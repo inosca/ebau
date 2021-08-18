@@ -4,11 +4,10 @@ journal:
 
   create: "Eintrag erstellen"
   edit: "Bearbeiten"
-  textareaNew: "Textbereich für neuen Eintrag"
-  textareaEdit: "Textbereich zum editieren des Eintrages"
+  textareaEdit: "Textbereich zum editieren eines Eintrages"
   noEntries: "Keine Journaleinträge vorhanden"
 
   visibility: "Sichtbarkeit des Eintrags"
-  visibilityOwn: "Eigene Fachstelle"
-  visibilityAuthorities: "Alle Fachstellen"
+  visibilityOwn: "Eigene Organisation"
+  visibilityAuthorities: "Alle Beteiligten"
   visibleForAuthorities: "Sichtbar für alle Fachstellen"

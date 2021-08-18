@@ -11,59 +11,33 @@ export default class JournalController extends Controller {
   @service shoebox;
 
   @tracked newEntry = null;
-  @tracked newEntries = [];
 
   @lastValue("fetchEntries") entries;
   @dropTask
   *fetchEntries() {
-    this.instance = this.store.findRecord("instance", this.model.id);
-
     return yield this.store.query("journal-entry", {
       instance: this.model.id,
       include: "user",
     });
   }
 
+  @lastValue("initializeNewEntry") instance;
   @dropTask
-  *saveEntry(entry) {
-    entry.instance = this.instance;
+  *initializeNewEntry() {
+    const instance = yield this.instance ??
+      this.store.findRecord("instance", this.model.id);
 
-    if (entry.visibility) {
-      entry.visibility = "authorities";
-    } else {
-      entry.visibility = "own_organization";
-    }
-
-    yield entry.save();
-
-    if (this.newEntry) {
-      this.fetchEntries.perform();
-      this.initializeNewEntry();
-    }
-
-    entry.set("edit", false);
-    return entry;
-  }
-
-  @action
-  initializeNewEntry() {
     this.newEntry = this.store.createRecord("journal-entry", {
       visibility: ENV.APPLICATION.journalDefaultVisibility,
     });
+    this.newEntry.instance = instance;
+
+    return instance;
   }
 
   @action
-  cancelEditEntry(entry) {
-    entry.set("edit", false);
-    entry.rollbackAttributes();
-  }
-
-  @action
-  resizeTextarea(event) {
-    const element = event.srcElement ?? event;
-    const offset = element.offsetHeight - element.clientHeight;
-
-    element.style.height = "auto"; // Retract textarea
-    element.style.height = `${element.scrollHeight + offset}px`; // Expand textarea
+  refetchEntries() {
+    this.fetchEntries.perform();
+    this.initializeNewEntry.perform();
   }
 }
