@@ -1,3 +1,4 @@
+import json
 import re
 from importlib import import_module
 from logging import getLogger
@@ -5,9 +6,9 @@ from logging import getLogger
 import requests
 from caluma.caluma_form.models import Answer, Document, Form, Question
 from caluma.caluma_form.validators import DocumentValidator
-from dateutil.parser import parse as dateutil_parse
 from django.conf import settings
 from django.core.files.base import ContentFile
+from django.core.serializers.json import DjangoJSONEncoder
 from django.db.models import Q
 from django.utils.module_loading import import_string
 from django.utils.text import slugify
@@ -177,16 +178,8 @@ class DMSHandler:
                 "tagHeader": get_header_tags(instance_id),
                 "authorityHeader": get_header_authority(instance_id),
                 "responsibleHeader": get_header_responsible(instance_id),
-                "inputDateHeader": dateutil_parse(master_data.submit_date).strftime(
-                    settings.SHORT_DATE_FORMAT
-                )
-                if master_data.submit_date
-                else "",
-                "paperInputDateHeader": dateutil_parse(
-                    master_data.paper_submit_date
-                ).strftime(settings.SHORT_DATE_FORMAT)
-                if master_data.paper_submit_date
-                else "",
+                "inputDateHeader": master_data.submit_date,
+                "paperInputDateHeader": master_data.paper_submit_date,
                 "descriptionHeader": master_data.proposal,
                 "modificationHeader": master_data.modification,
             }
@@ -211,12 +204,16 @@ class DMSClient:
         self.url = url
 
     def merge(self, data, template, convert="pdf", add_headers={}):
-        headers = {"authorization": self.auth_token}
+        headers = {"authorization": self.auth_token, "content-type": "application/json"}
         headers.update(add_headers)
         url = build_url(self.url, f"/template/{template}/merge", trailing=True)
 
         response = requests.post(
-            url, json={"convert": convert, "data": data}, headers=headers
+            url,
+            # use the django json encoder to correctly encode dates and
+            # datetimes without manual parsing
+            data=json.dumps({"convert": convert, "data": data}, cls=DjangoJSONEncoder),
+            headers=headers,
         )
         response.raise_for_status()
 
@@ -440,11 +437,7 @@ class DMSVisitor:
         return {"value": answer.value if answer else None}
 
     def _visit_date_question(self, node, parent_doc=None, answer=None, **_):
-        return {
-            "value": answer.date.strftime("%Y-%m-%d")
-            if answer and answer.date
-            else None
-        }
+        return {"value": answer.date if answer and answer.date else None}
 
     def _visit_question(self, node, parent_doc=None, flatten=False):
 
