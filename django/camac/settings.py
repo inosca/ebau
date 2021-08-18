@@ -203,13 +203,6 @@ APPLICATIONS = {
             "QUESTION": 20037,
             "ITEM": 1,
         },
-        # GWR fields have various "lookup types", see gwr_lookups.py
-        # gwr_field_name: (lookup_type, lookup, extra_options)
-        "GWR_DATA": {
-            "ANSWER_SLUGS": {},
-            "ANSWER_MAPPING": {},
-            "SUBMIT_DATE": {},
-        },
         "SIDE_EFFECTS": {
             "document_downloaded": "camac.document.side_effects.create_workflow_entry",
         },
@@ -1211,37 +1204,6 @@ APPLICATIONS = {
             "notification.NotificationTemplate",
             "notification.NotificationTemplateT",
         ],
-        # GWR fields have various "lookup types", see gwr_lookups.py
-        # gwr_field_name: (lookup_type, lookup, extra_options)
-        "GWR_DATA": {
-            "client": (
-                "applicant",
-                "personalien-gesuchstellerin",
-                {
-                    "address_town": "ort-gesuchstellerin",
-                    "address_swissZipCode": "plz-gesuchstellerin",
-                    "address_street": "strasse-gesuchstellerin",
-                    "address_houseNumber": None,
-                    "address_country": None,
-                    "identification_personIdentification_officialName": "name-gesuchstellerin",
-                    "identification_personIdentification_firstName": "vorname-gesuchstellerin",
-                    "identification_isOrganisation": None,
-                    "identification_organisationIdentification_organisationName": None,
-                },
-            ),
-            "officialConstructionProjectFileNo": (
-                "case_meta",
-                "ebau-number",
-            ),
-            "constructionProjectDescription": ("answer", "beschreibung-bauvorhaben"),
-            "constructionLocalisation_municipalityName": None,
-            "typeOfConstructionProject": None,
-            "typeOfConstruction": None,
-            "totalCostsOfProject": ("answer", "baukosten-in-chf"),
-            "realestateIdentification_EGRID": None,
-            "realestateIdentification_number": None,
-            "projectAnnouncementDate": ("case_meta", "submit-date"),
-        },
         "MASTER_DATA": {
             "personal_data": (
                 "table",
@@ -1250,6 +1212,10 @@ APPLICATIONS = {
                     "column_mapping": {
                         "last_name": "name-gesuchstellerin",
                         "first_name": "vorname-gesuchstellerin",
+                        "street": "strasse-gesuchstellerin",
+                        "street_number": "nummer-gesuchstellerin",
+                        "zip": "plz-gesuchstellerin",
+                        "town": "ort-gesuchstellerin",
                         "is_juristic_person": (
                             "juristische-person-gesuchstellerin",
                             {
@@ -1264,11 +1230,11 @@ APPLICATIONS = {
                                 )
                             },
                         ),
-                        "juristic_person_name": "name-juristische-person-gesuchstellerin",
+                        "juristic_name": "name-juristische-person-gesuchstellerin",
                     }
                 },
             ),
-            "ebau_number": ("case_meta", "ebau-number"),
+            "dossier_number": ("case_meta", "ebau-number"),
             "proposal": ("answer", "beschreibung-bauvorhaben"),
             "modification": ("answer", "beschreibung-projektaenderung"),
             "street": ("answer", "strasse-flurname"),
@@ -1281,7 +1247,7 @@ APPLICATIONS = {
                 {
                     "column_mapping": {
                         "plot_number": "parzellennummer",
-                        "e_grid_number": "e-grid-nr",
+                        "egrid_number": "e-grid-nr",
                     }
                 },
             ),
@@ -1499,6 +1465,11 @@ APPLICATIONS = {
                     "column_mapping": {
                         "last_name": "last-name",
                         "first_name": "first-name",
+                        "street": "street",
+                        "street_number": "street-number",
+                        "zip": "zip",
+                        "town": "city",
+                        "country": "country",
                         "is_juristic_person": (
                             "is-juristic-person",
                             {
@@ -1530,97 +1501,74 @@ APPLICATIONS = {
             "plot_data": (
                 "table",
                 "parcels",
-                {"column_mapping": {"plot_number": "parcel-number"}},
-            ),
-            "street": ("answer", "street"),
-            "street_number": ("answer", "street-number"),
-            "municipality": ("dynamic_option", "municipality"),
-        },
-        # GWR fields have various "lookup types", see gwr_lookups.py
-        # gwr_field_name: (lookup_type, lookup, extra_options)
-        "GWR_DATA": {
-            "client": (
-                "applicant",
-                "applicant",
                 {
-                    "address_town": "city",
-                    "address_swissZipCode": "zip",
-                    "address_street": "street",
-                    "address_houseNumber": "street-number",
-                    "address_country": "country",
-                    "identification_personIdentification_officialName": "last-name",
-                    "identification_personIdentification_firstName": "first-name",
-                    "identification_isOrganisation": (
-                        "is-juristic-person",
-                        {
-                            "is-juristic-person-no": False,
-                            "is-juristic-person-yes": True,
-                        },
-                    ),
-                    "identification_organisationIdentification_organisationName": "juristic-person-name",
+                    "column_mapping": {
+                        "plot_number": "parcel-number",
+                        "egrid_number": "e-grid",
+                    }
                 },
             ),
-            "officialConstructionProjectFileNo": (
-                "case_meta",
-                "dossier-number",
-            ),
-            "constructionProjectDescription": (
-                "answer",
-                [
-                    "proposal-description",
-                    "beschreibung-zu-mbv",
-                    "bezeichnung",
-                    "vorhaben-proposal-description",
-                    "veranstaltung-beschrieb",
-                ],
-            ),
-            "constructionLocalisation_municipalityName": (
-                "location",
-                "municipality",
-            ),
-            "typeOfConstructionProject": (
+            "street": ("answer", "parcel-street"),
+            "street_number": ("answer", "parcel-street-number"),
+            "dossier_number": ("case_meta", "dossier-number"),
+            "municipality": ("dynamic_option", "municipality"),
+            "category": (
                 "answer",
                 "category",
                 {
-                    "category-hochbaute": 6011,
-                    "category-tiefbaute": 6010,
+                    "value_parser": (
+                        "value_mapping",
+                        {
+                            "mapping": {
+                                "category-hochbaute": 6011,
+                                "category-tiefbaute": 6010,
+                            }
+                        },
+                    ),
                 },
             ),
-            "typeOfConstruction": (
-                "answer",
-                "gebaeude.art-der-hochbaute",
+            "type_of_construction": (
+                "table",
+                "gebaeude",
                 {
-                    "art-der-hochbaute-einfamilienhaus": 6271,
-                    "art-der-hochbaute-doppeleinfamilienhaus": 6272,
-                    "art-der-hochbaute-mehrfamilienhaus": 6273,
-                    "art-der-hochbaute-wohn-und-geschaftshaus": 6274,
-                    "art-der-hochbaute-geschaftshaus": 6294,
-                    "art-der-hochbaute-garage-oder-carport": 6278,
-                    "art-der-hochbaute-parkhaus": 6235,
-                    "art-der-hochbaute-bauten-und-anlagen-gastgewerbe": 6295,
-                    "art-der-hochbaute-heim-mit-unterkunft": 6254,
-                    "art-der-hochbaute-wohnheim-ohne-pflege": 6276,
-                    "art-der-hochbaute-spital": 6253,
-                    "art-der-hochbaute-schulen": 6251,
-                    "art-der-hochbaute-sporthallen": 6259,
-                    "art-der-hochbaute-tourismusanlagen": 6256,
-                    "art-der-hochbaute-kirchen": 6257,
-                    "art-der-hochbaute-kulturbauten": 6258,
-                    "art-der-hochbaute-oekonomie-mit-tieren-mit-tieren": 6281,
-                    "art-der-hochbaute-oekonomiegebaude": 6281,
-                    "art-der-hochbaute-landwirtschaft": 6281,
-                    "art-der-hochbaute-forstwirtschaft": 6282,
-                    "art-der-hochbaute-materiallager": 6292,
-                    "art-der-hochbaute-silo": 6292,
-                    "art-der-hochbaute-kommunikationsanlagen": 6245,
-                    "art-der-hochbaute-kehrichtentsorgungsanlagen": 6222,
-                    "art-der-hochbaute-andere": 6299,
+                    "column_mapping": {
+                        "art_der_hochbaute": (
+                            "art-der-hochbaute",
+                            {
+                                "value_mapping": {
+                                    "art-der-hochbaute-einfamilienhaus": 6271,
+                                    "art-der-hochbaute-doppeleinfamilienhaus": 6272,
+                                    "art-der-hochbaute-mehrfamilienhaus": 6273,
+                                    "art-der-hochbaute-wohn-und-geschaftshaus": 6274,
+                                    "art-der-hochbaute-geschaftshaus": 6294,
+                                    "art-der-hochbaute-garage-oder-carport": 6278,
+                                    "art-der-hochbaute-parkhaus": 6235,
+                                    "art-der-hochbaute-bauten-und-anlagen-gastgewerbe": 6295,
+                                    "art-der-hochbaute-heim-mit-unterkunft": 6254,
+                                    "art-der-hochbaute-wohnheim-ohne-pflege": 6276,
+                                    "art-der-hochbaute-spital": 6253,
+                                    "art-der-hochbaute-schulen": 6251,
+                                    "art-der-hochbaute-sporthallen": 6259,
+                                    "art-der-hochbaute-tourismusanlagen": 6256,
+                                    "art-der-hochbaute-kirchen": 6257,
+                                    "art-der-hochbaute-kulturbauten": 6258,
+                                    "art-der-hochbaute-oekonomie-mit-tieren-mit-tieren": 6281,
+                                    "art-der-hochbaute-oekonomiegebaude": 6281,
+                                    "art-der-hochbaute-landwirtschaft": 6281,
+                                    "art-der-hochbaute-forstwirtschaft": 6282,
+                                    "art-der-hochbaute-materiallager": 6292,
+                                    "art-der-hochbaute-silo": 6292,
+                                    "art-der-hochbaute-kommunikationsanlagen": 6245,
+                                    "art-der-hochbaute-kehrichtentsorgungsanlagen": 6222,
+                                    "art-der-hochbaute-andere": 6299,
+                                }
+                            },
+                        )
+                    }
                 },
             ),
-            "totalCostsOfProject": ("answer", "construction-cost"),
-            "realestateIdentification_EGRID": ("answer", "parcels.e-grid"),
-            "realestateIdentification_number": ("answer", "parcels.parcel-number"),
-            "projectAnnouncementDate": ("submit_date_from_workflow_entry", [10, 12]),
+            "construction_costs": ("answer", "construction-cost"),
+            "submit_date": ("workflow_entry", [10, 12]),
         },
         "SIDE_EFFECTS": {
             "document_downloaded": "camac.document.side_effects.create_workflow_entry",

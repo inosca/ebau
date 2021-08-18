@@ -10,6 +10,8 @@ from caluma.caluma_workflow import (
 from django.conf import settings
 from django.utils.translation import override
 
+from camac.core.factories import WorkflowEntryFactory, WorkflowItemFactory
+
 from ..master_data import MasterData
 
 
@@ -60,6 +62,18 @@ def test_master_data_parsers(
                     {"mapping": {"my-success-yes": True, "my-success-no": False}},
                 )
             },
+            "multiple-choice",
+            {
+                "value_parser": (
+                    "value_mapping",
+                    {
+                        "mapping": {
+                            "multiple-choice-yes": True,
+                            "multiple-choice-no": False,
+                        }
+                    },
+                )
+            },
         ),
     }
 
@@ -69,6 +83,12 @@ def test_master_data_parsers(
 
     caluma_form_factories.AnswerFactory(
         question__slug="my-success", value="my-success-yes", document=case.document
+    )
+
+    caluma_form_factories.AnswerFactory(
+        question__slug="multiple-choice",
+        value=["multiple-choice-yes", "multiple-choice-no"],
+        document=case.document,
     )
 
     master_data = MasterData(case)
@@ -189,6 +209,26 @@ def be_master_data_case(
         value="ACME AG",
         document=applicant_row,
     )
+    caluma_form_factories.AnswerFactory(
+        question__slug="strasse-gesuchstellerin",
+        value="Teststrasse",
+        document=applicant_row,
+    )
+    caluma_form_factories.AnswerFactory(
+        question__slug="nummer-gesuchstellerin",
+        value=123,
+        document=applicant_row,
+    )
+    caluma_form_factories.AnswerFactory(
+        question__slug="ort-gesuchstellerin",
+        value="Testhausen",
+        document=applicant_row,
+    )
+    caluma_form_factories.AnswerFactory(
+        question__slug="plz-gesuchstellerin",
+        value=1234,
+        document=applicant_row,
+    )
 
     return be_instance.case
 
@@ -206,11 +246,12 @@ def test_master_data_be(
         "MASTER_DATA"
     ]
 
-    # This should never trigger more than 4 queries on the DB:
+    # This should never trigger more than 5 queries on the DB:
     # 1. Query for fetching case
     # 2. Query for prefetching direct answers on case.document
     # 3. Query for prefetching row documents
     # 4. Query for prefetching answer on previously prefetched row documents
+    # 5. Query for prefetching dynamic options
     with django_assert_num_queries(5), override(language):
         case = (
             caluma_workflow_models.Case.objects.filter(pk=be_master_data_case.pk)
@@ -248,14 +289,19 @@ def ur_master_data_case(
         value="Grosses Haus",
     )
     caluma_form_factories.AnswerFactory(
-        question__slug="street",
+        question__slug="parcel-street",
         document=ur_instance.case.document,
         value="Musterstrasse",
     )
     caluma_form_factories.AnswerFactory(
-        question__slug="street-number",
+        question__slug="parcel-street-number",
         document=ur_instance.case.document,
         value=4,
+    )
+    caluma_form_factories.AnswerFactory(
+        question__slug="construction-cost",
+        document=ur_instance.case.document,
+        value=129000,
     )
 
     # Municipality
@@ -276,13 +322,23 @@ def ur_master_data_case(
     caluma_form_factories.FormQuestionFactory(
         form=row_form,
         question__slug="parcel-number",
-        question__type=caluma_form_models.Question.TYPE_CHOICE,
+        question__type=caluma_form_models.Question.TYPE_INTEGER,
+    )
+    caluma_form_factories.FormQuestionFactory(
+        form=row_form,
+        question__slug="e-grid",
+        question__type=caluma_form_models.Question.TYPE_TEXT,
     )
     plot_row = caluma_form_factories.DocumentFactory(form=row_form)
     table_answer_plot.documents.add(plot_row)
     caluma_form_factories.AnswerFactory(
         question_id="parcel-number",
         value="123456789",
+        document=plot_row,
+    )
+    caluma_form_factories.AnswerFactory(
+        question_id="e-grid",
+        value="CH123456789",
         document=plot_row,
     )
 
@@ -312,6 +368,46 @@ def ur_master_data_case(
         value="ACME AG",
         document=applicant_row,
     )
+    caluma_form_factories.AnswerFactory(
+        question__slug="street",
+        value="Teststrasse",
+        document=applicant_row,
+    )
+    caluma_form_factories.AnswerFactory(
+        question__slug="street-number",
+        value="123",
+        document=applicant_row,
+    )
+    caluma_form_factories.AnswerFactory(
+        question__slug="zip",
+        value="1233",
+        document=applicant_row,
+    )
+    caluma_form_factories.AnswerFactory(
+        question__slug="city",
+        value="Musterdorf",
+        document=applicant_row,
+    )
+    caluma_form_factories.AnswerFactory(
+        question__slug="country",
+        value="Schweiz",
+        document=applicant_row,
+    )
+
+    # Category
+    caluma_form_factories.AnswerFactory(
+        question__slug="category",
+        value=["category-hochbaute", "category-tiefbaute"],
+        document=ur_instance.case.document,
+    )
+
+    # WorkflowEntry
+    WorkflowEntryFactory(
+        instance=ur_instance,
+        workflow_date="2021-07-16 08:00:06+00",
+        group=1,
+        workflow_item=WorkflowItemFactory(workflow_item_id=12),
+    )
 
     return ur_instance.case
 
@@ -325,19 +421,22 @@ def test_master_data_ur(
 ):
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
 
-    # This should never trigger more than 4 queries on the DB:
+    # This should never trigger more than 6 queries on the DB:
     # 1. Query for fetching case
     # 2. Query for prefetching direct answers on case.document
     # 3. Query for prefetching row documents
     # 4. Query for prefetching answer on previously prefetched row documents
-    with django_assert_num_queries(5):
+    # 5. Query for prefetching dynamic options
+    # 6. Query for prefetching workflow entries
+    with django_assert_num_queries(6):
         case = (
             caluma_workflow_models.Case.objects.filter(pk=ur_master_data_case.pk)
-            .select_related("document")
+            .select_related("document", "instance")
             .prefetch_related(
                 "document__answers",
                 "document__answers__documents__answers",
                 "document__dynamicoption_set",
+                "instance__workflowentry_set",
             )
             .first()
         )
