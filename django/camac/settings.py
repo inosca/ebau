@@ -1253,10 +1253,15 @@ APPLICATIONS = {
                         "is_juristic_person": (
                             "juristische-person-gesuchstellerin",
                             {
-                                "value_mapping": {
-                                    "juristische-person-gesuchstellerin-ja": True,
-                                    "juristische-person-gesuchstellerin-nein": False,
-                                }
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "juristische-person-gesuchstellerin-ja": True,
+                                            "juristische-person-gesuchstellerin-nein": False,
+                                        }
+                                    },
+                                )
                             },
                         ),
                         "juristic_person_name": "name-juristische-person-gesuchstellerin",
@@ -1280,8 +1285,22 @@ APPLICATIONS = {
                     }
                 },
             ),
-            "submit_date": ("case_meta", "submit-date"),
-            "paper_submit_date": ("case_meta", "paper-submit-date"),
+            "submit_date": ("case_meta", "submit-date", {"value_parser": "datetime"}),
+            "paper_submit_date": (
+                "case_meta",
+                "paper-submit-date",
+                {"value_parser": "datetime"},
+            ),
+            "is_paper": (
+                "answer",
+                "is-paper",
+                {
+                    "value_parser": (
+                        "value_mapping",
+                        {"mapping": {"is-paper-yes": True, "is-paper-no": False}},
+                    )
+                },
+            ),
         },
         "MUNICIPALITY_DATA_SHEET": APPLICATION_DIR(
             "Verwaltungskreise und -regionen der Gemeinden.csv"
@@ -1483,10 +1502,15 @@ APPLICATIONS = {
                         "is_juristic_person": (
                             "is-juristic-person",
                             {
-                                "value_mapping": {
-                                    "is-juristic-person-no": False,
-                                    "is-juristic-person-yes": True,
-                                }
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "is-juristic-person-no": False,
+                                            "is-juristic-person-yes": True,
+                                        }
+                                    },
+                                )
                             },
                         ),
                         "juristic_name": "juristic-person-name",

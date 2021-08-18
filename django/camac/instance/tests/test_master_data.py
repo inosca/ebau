@@ -17,9 +17,12 @@ def test_master_data_exceptions(
     db,
     application_settings,
 ):
-    application_settings["MASTER_DATA"] = {"bar": ("unconfigured", "bar")}
+    application_settings["MASTER_DATA"] = {
+        "bar": ("unconfigured", "bar"),
+        "baz": ("case_meta", "baz", {"value_parser": "boolean"}),
+    }
 
-    master_data = MasterData(caluma_workflow_factories.CaseFactory())
+    master_data = MasterData(caluma_workflow_factories.CaseFactory(meta={"baz": True}))
 
     with pytest.raises(AttributeError) as e:
         assert master_data.foo
@@ -32,6 +35,49 @@ def test_master_data_exceptions(
     assert (
         str(e.value)
         == "Resolver 'unconfigured' used in key 'bar' is not defined in master data class"
+    )
+
+    with pytest.raises(AttributeError) as e:
+        assert master_data.baz
+
+    assert str(e.value) == "Parser 'boolean' is not defined in master data class"
+
+
+def test_master_data_parsers(
+    db,
+    application_settings,
+    snapshot,
+):
+    application_settings["MASTER_DATA"] = {
+        "date": ("case_meta", "my-date", {"value_parser": "date"}),
+        "datetime": ("case_meta", "my-datetime", {"value_parser": "datetime"}),
+        "success": (
+            "answer",
+            "my-success",
+            {
+                "value_parser": (
+                    "value_mapping",
+                    {"mapping": {"my-success-yes": True, "my-success-no": False}},
+                )
+            },
+        ),
+    }
+
+    case = caluma_workflow_factories.CaseFactory(
+        meta={"my-date": "2021-08-18", "my-datetime": "2021-08-18T06:58:08.397Z"}
+    )
+
+    caluma_form_factories.AnswerFactory(
+        question__slug="my-success", value="my-success-yes", document=case.document
+    )
+
+    master_data = MasterData(case)
+
+    snapshot.assert_match(
+        {
+            key: getattr(master_data, key)
+            for key in application_settings["MASTER_DATA"].keys()
+        }
     )
 
 
@@ -48,6 +94,11 @@ def be_master_data_case(
     be_instance.case.save()
 
     # Simple data
+    caluma_form_factories.AnswerFactory(
+        question_id="is-paper",
+        document=be_instance.case.document,
+        value="is-paper-no",
+    )
     caluma_form_factories.AnswerFactory(
         question_id="beschreibung-bauvorhaben",
         document=be_instance.case.document,
