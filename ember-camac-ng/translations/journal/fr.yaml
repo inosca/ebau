@@ -10,5 +10,5 @@ journal:
 
   visibility: "Visibilité de l'entrée"
   visibilityOwn: "Service propre"
-  visibilityAuthorities: "Tous services"
+  visibilityAuthorities: "Tous les participants"
   visibleForAuthorities: "Visible pour tous services"
