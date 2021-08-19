@@ -246,6 +246,7 @@ class AttachmentView(
     @swagger_auto_schema(
         tags=["File download service"],
         manual_parameters=[group_param],
+        operation_description=get_operation_description(),
         operation_summary="Get file information",
     )
     def retrieve(self, request, *args, **kwargs):
@@ -254,6 +255,7 @@ class AttachmentView(
     @swagger_auto_schema(
         tags=["File download service"],
         manual_parameters=[group_param],
+        operation_description=get_operation_description(),
         operation_summary="Get list of file information",
     )
     def list(self, request, *args, **kwargs):
@@ -263,7 +265,7 @@ class AttachmentView(
         tags=["File upload service"],
         manual_parameters=[group_param],
         operation_summary="Upload a file",
-        operation_description=get_operation_description(["GemDat", "CMI"]),
+        operation_description=get_operation_description(),
         auto_schema=FileUploadSwaggerAutoSchema,
     )
     def create(self, request, *args, **kwargs):
@@ -276,6 +278,7 @@ class AttachmentView(
     @swagger_auto_schema(
         tags=["File delete service"],
         manual_parameters=[group_param],
+        operation_description=get_operation_description(),
         operation_summary="Delete a file",
     )
     def destroy(self, request, *args, **kwargs):
@@ -360,7 +363,7 @@ class AttachmentDownloadView(
         operation_summary="Download one or multiple files",
         operation_description=(
             "If multiple files are requested, they are served together in a *.zip file."
-            f"\n\n{get_operation_description(['GemDat', 'CMI'])}"
+            f"\n\n{get_operation_description()}"
         ),
     )
     def list(self, request, **kwargs):
@@ -421,6 +424,7 @@ class AttachmentSectionView(ReadOnlyModelViewSet):
     @swagger_auto_schema(
         tags=["File-Section service"],
         manual_parameters=[group_param],
+        operation_description=get_operation_description(),
         operation_summary="Get file section information",
     )
     def retrieve(self, request, *args, **kwargs):
@@ -429,6 +433,7 @@ class AttachmentSectionView(ReadOnlyModelViewSet):
     @swagger_auto_schema(
         tags=["File-Section service"],
         manual_parameters=[group_param],
+        operation_description=get_operation_description(),
         operation_summary="Get list of file section information",
     )
     def list(self, request, *args, **kwargs):
