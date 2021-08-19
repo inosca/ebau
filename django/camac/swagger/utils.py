@@ -8,7 +8,7 @@ group_param = openapi.Parameter(
 )
 
 
-def get_operation_description(companies: list):
+def get_operation_description(companies: list = ["GemDat", "CMI", "Nexplore"]) -> str:
     if not len(companies):  # pragma: no cover
         return ""
 
