@@ -40,7 +40,7 @@ class ApplicationView(ECHInstanceQuerysetMixin, RetrieveModelMixin, GenericViewS
         tags=["ECH"],
         manual_parameters=[group_param],
         operation_summary="Get baseDelivery for instance",
-        operation_description=get_operation_description(["GemDat", "CMI"]),
+        operation_description=get_operation_description(),
         responses={"200": "eCH-0211 baseDelivery"},
     )
     def retrieve(self, request, instance_id=None, **kwargs):
@@ -82,7 +82,7 @@ class ApplicationsView(ECHInstanceQuerysetMixin, ListModelMixin, GenericViewSet)
         tags=["ECH"],
         manual_parameters=[group_param],
         operation_summary="Get list of accessible instances",
-        operation_description=get_operation_description(["GemDat", "CMI"]),
+        operation_description=get_operation_description(),
     )
     def list(self, request, *args, **kwargs):
         return super().list(request, *args, **kwargs)
@@ -129,7 +129,7 @@ class MessageView(RetrieveModelMixin, GenericViewSet):
         tags=["ECH"],
         manual_parameters=[group_param, last_param],
         operation_summary="Get message",
-        operation_description=get_operation_description(["GemDat", "CMI"]),
+        operation_description=get_operation_description(),
         responses={"200": "eCH-0211 message"},
     )
     def retrieve(self, request, *args, **kwargs):
@@ -182,7 +182,7 @@ class SendView(ECHInstanceQuerysetMixin, GenericViewSet):
         tags=["ECH"],
         manual_parameters=[group_param],
         operation_summary="Send message",
-        operation_description=get_operation_description(["GemDat", "CMI"]),
+        operation_description=get_operation_description(),
         request_body=openapi.Schema(
             type=openapi.TYPE_STRING,
             description="An event wrapped in a [eCH-0211-Delivery](https://www.ech.ch/standards/43552).",
