@@ -18,6 +18,8 @@ from django.db.models.functions import Cast
 from django.http import HttpResponse
 from django.utils import timezone
 from django.utils.translation import gettext as _
+from drf_yasg import openapi
+from drf_yasg.utils import swagger_auto_schema
 from rest_framework import response, status
 from rest_framework.decorators import action
 from rest_framework.generics import ListAPIView, RetrieveAPIView
@@ -38,6 +40,7 @@ from camac.core.models import (
 from camac.core.views import SendfileHttpResponse
 from camac.document.models import Attachment, AttachmentSection
 from camac.notification.utils import send_mail
+from camac.swagger.utils import get_operation_description, group_param
 from camac.user.models import Service
 from camac.user.permissions import ReadOnly, permission_aware
 from camac.utils import DocxRenderer
@@ -89,7 +92,6 @@ class FormConfigDownloadView(RetrieveAPIView):
 class InstanceView(
     mixins.InstanceQuerysetMixin, mixins.InstanceEditableMixin, views.ModelViewSet
 ):
-    swagger_schema = None
     instance_field = None
     """
     Instance field is actually model itself.
@@ -277,6 +279,23 @@ class InstanceView(
             == self.request.group.service
         )
 
+    @swagger_auto_schema(auto_schema=None)
+    def retrieve(self, request, *args, **kwargs):  # pragma: no cover
+        return super().retrieve(request, *args, **kwargs)
+
+    @swagger_auto_schema(auto_schema=None)
+    def list(self, request, *args, **kwargs):  # pragma: no cover
+        return super().list(request, *args, **kwargs)
+
+    @swagger_auto_schema(auto_schema=None)
+    def create(self, request, *args, **kwargs):  # pragma: no cover
+        return super().create(request, *args, **kwargs)
+
+    @swagger_auto_schema(auto_schema=None)
+    def partial_update(self, request, *args, **kwargs):  # pragma: no cover
+        return super().partial_update(request, *args, **kwargs)
+
+    @swagger_auto_schema(auto_schema=None)
     @transaction.atomic
     def destroy(self, request, pk=None):
         instance_id = self.get_object().pk
@@ -293,6 +312,7 @@ class InstanceView(
         except ObjectDoesNotExist:
             return None
 
+    @swagger_auto_schema(auto_schema=None)
     @action(methods=["get"], detail=True, renderer_classes=[JSONRenderer])
     def gwr_data(self, request, pk):
         """Export instance data to GWR."""
@@ -342,6 +362,7 @@ class InstanceView(
             }
         )
 
+    @swagger_auto_schema(auto_schema=None)
     @action(methods=["get"], detail=False)
     def export_list(self, request):
         """Export filtered instances to given file format."""
@@ -409,6 +430,7 @@ class InstanceView(
         renderer = DocxRenderer("camac/instance/templates/form-export.docx", data)
         return renderer.convert(type)
 
+    @swagger_auto_schema(auto_schema=None)
     @action(methods=["get"], detail=True)
     def export_detail(self, request, pk=None):
         to_type = self.request.query_params.get("type", "docx")
@@ -434,6 +456,7 @@ class InstanceView(
             for row in reader
         }
 
+    @swagger_auto_schema(auto_schema=None)
     @action(methods=["get"], detail=False)
     def export(self, request):
         """Export filtered instances to given file format."""
@@ -592,6 +615,7 @@ class InstanceView(
         sheet = django_excel.pe.Sheet([header] + data)
         return django_excel.make_response(sheet, file_type="xlsx")
 
+    @swagger_auto_schema(auto_schema=None)
     @action(methods=["post"], detail=True)
     @transaction.atomic
     def submit(self, request, pk=None):
@@ -688,22 +712,49 @@ class InstanceView(
 
         return response.Response(data=serializer.data, status=status_code)
 
+    @swagger_auto_schema(auto_schema=None)
     @action(methods=["post"], detail=True)
     def report(self, request, pk=None):
         return self._custom_serializer_action(request, pk)
 
+    @swagger_auto_schema(auto_schema=None)
     @action(methods=["post"], detail=True)
     def finalize(self, request, pk=None):
         return self._custom_serializer_action(request, pk)
 
+    @swagger_auto_schema(auto_schema=None)
     @action(methods=["post"], detail=True, url_path="change-responsible-service")
     def change_responsible_service(self, request, pk=None):
         return self._custom_serializer_action(request, pk, status.HTTP_204_NO_CONTENT)
 
+    @swagger_auto_schema(auto_schema=None)
     @action(methods=["post"], detail=True, url_path="set-ebau-number")
     def set_ebau_number(self, request, pk=None):
         return self._custom_serializer_action(request, pk, status.HTTP_204_NO_CONTENT)
 
+    @swagger_auto_schema(
+        tags=["PDF generation service"],
+        manual_parameters=[
+            group_param,
+            openapi.Parameter(
+                "form-slug",
+                openapi.IN_QUERY,
+                description="The form that should be used instead of the main form. E.g. 'sb1' or 'sb2' for self-declaration forms.",
+                type=openapi.TYPE_STRING,
+                format=openapi.FORMAT_SLUG,
+            ),
+            openapi.Parameter(
+                "document-id",
+                openapi.IN_QUERY,
+                description="The UUID of the document that should be converted to a PDF. If passed, this will override the form-slug parameter.",
+                type=openapi.TYPE_STRING,
+                format=openapi.FORMAT_UUID,
+            ),
+        ],
+        operation_description=get_operation_description(["Nexplore"]),
+        operation_summary="Generate a PDF for an instance",
+        responses={"200": "PDF file"},
+    )
     @action(methods=["get"], detail=True, url_path="generate-pdf")
     def generate_pdf(self, request, pk=None):
         form_slug = self.request.query_params.get("form-slug")
@@ -720,18 +771,22 @@ class InstanceView(
         )
         return response
 
+    @swagger_auto_schema(auto_schema=None)
     @action(methods=["post"], detail=True)
     def archive(self, request, pk=None):
         return self._custom_serializer_action(request, pk, status.HTTP_204_NO_CONTENT)
 
+    @swagger_auto_schema(auto_schema=None)
     @action(methods=["post"], detail=True, url_path="change-form")
     def change_form(self, request, pk=None):
         return self._custom_serializer_action(request, pk, status.HTTP_204_NO_CONTENT)
 
+    @swagger_auto_schema(auto_schema=None)
     @action(methods=["post"], detail=True, url_path="fix-work-items")
     def fix_work_items(self, request, pk=None):
         return self._custom_serializer_action(request, pk)
 
+    @swagger_auto_schema(auto_schema=None)
     @action(methods=["PATCH"], detail=True, url_path="end-circulations")
     @transaction.atomic
     def end_circulations(self, request, pk=None):
@@ -1216,6 +1271,8 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
 
     Visibility is toggled in urls.py via ENABLE_PUBLIC_ENDPOINTS application settings.
     """
+
+    swagger_schema = None
 
     permission_classes = [ReadOnly]
     serializer_class = serializers.PublicCalumaInstanceSerializer

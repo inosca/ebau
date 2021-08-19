@@ -110,7 +110,7 @@ class PublicServiceView(MultilangMixin, PreloadIncludesMixin, ReadOnlyModelViewS
         tags=["Service"],
         manual_parameters=[group_param],
         operation_summary="Get service information",
-        operation_description=get_operation_description(["GemDat", "CMI"]),
+        operation_description=get_operation_description(),
     )
     def retrieve(self, request, *args, **kwargs):  # pragma: no cover
         return super().retrieve(request, *args, **kwargs)
@@ -118,6 +118,7 @@ class PublicServiceView(MultilangMixin, PreloadIncludesMixin, ReadOnlyModelViewS
     @swagger_auto_schema(
         tags=["Service"],
         manual_parameters=[group_param],
+        operation_description=get_operation_description(),
         operation_summary="Get list of service information",
     )
     def list(self, request, *args, **kwargs):
@@ -140,7 +141,11 @@ class MeView(
     def get_object(self, *args, **kwargs):
         return self.request.user
 
-    @swagger_auto_schema(tags=["User"], operation_summary="Get current user")
+    @swagger_auto_schema(
+        tags=["User"],
+        operation_description=get_operation_description(),
+        operation_summary="Get current user",
+    )
     def retrieve(self, request, *args, **kwargs):
         return super().retrieve(request, *args, **kwargs)
 
@@ -172,6 +177,7 @@ class GroupView(MultilangMixin, PreloadIncludesMixin, ReadOnlyModelViewSet):
     @swagger_auto_schema(
         tags=["User"],
         manual_parameters=[group_param],
+        operation_description=get_operation_description(),
         operation_summary="Get group information",
     )
     def retrieve(self, request, *args, **kwargs):
@@ -180,6 +186,7 @@ class GroupView(MultilangMixin, PreloadIncludesMixin, ReadOnlyModelViewSet):
     @swagger_auto_schema(
         tags=["User"],
         manual_parameters=[group_param],
+        operation_description=get_operation_description(),
         operation_summary="Get list of group information",
     )
     def list(self, request, *args, **kwargs):
