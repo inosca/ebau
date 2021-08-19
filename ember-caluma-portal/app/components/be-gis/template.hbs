@@ -34,15 +34,17 @@
     </small>
   </div>
 </div>
-<div class="uk-margin-top uk-background-muted uk-padding-small">
-  <ul class="uk-margin-remove-bottom">
-    {{#each this.oerebLinkData as |data|}}
-      <li>
-        <a href="https://oerebview.apps.be.ch/#!/d/{{data.egrid}}" target="_blank" rel="noopener noreferrer">{{ t "gis.parcel" }} {{data.parcel}} ({{data.egrid}})</a>
-      </li>
-    {{/each}}
-  </ul>
-</div>
+{{#if this.oerebLinkData.length}}
+  <div class="uk-margin-top uk-background-muted uk-padding-small">
+    <ul class="uk-margin-remove-bottom">
+      {{#each this.oerebLinkData as |data|}}
+        <li>
+          <a href="https://oerebview.apps.be.ch/#!/d/{{data.egrid}}" target="_blank" rel="noopener noreferrer">{{ t "gis.parcel" }} {{data.parcel}} ({{data.egrid}})</a>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+{{/if}}
 
 <UkModal @visible={{this.showInstructions}} @on-hide={{fn (mut this.showInstructions) false}} as |Modal|>
   <Modal.body>{{t "gis.info-override"}}</Modal.body>
