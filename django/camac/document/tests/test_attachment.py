@@ -994,6 +994,7 @@ def test_attachment_public_access(
     assert len(res.json()["data"]) == 0
 
     application_settings["ENABLE_PUBLIC_ENDPOINTS"] = True
+    application_settings["PUBLICATION_BACKEND"] = "camac-ng"
     application_settings["PUBLICATION_DURATION"] = timedelta(days=30)
 
     # publicated attachments are visible
