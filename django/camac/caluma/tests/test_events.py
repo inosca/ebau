@@ -587,9 +587,10 @@ def test_audit_history(
 )
 def test_complete_decision(
     db,
-    instance,
+    be_instance,
     caluma_admin_user,
     application_settings,
+    settings,
     mailoutbox,
     group,
     role,
@@ -610,12 +611,12 @@ def test_complete_decision(
     use_instance_service,
 ):
     docx_decision_factory(
-        decision=decision, decision_type=decision_type, instance=instance
+        decision=decision, decision_type=decision_type, instance=be_instance
     )
     instance_state_factory(name=expected_instance_state)
 
     instance_service_factory(
-        instance=instance,
+        instance=be_instance,
         service=service_factory(
             trans__name="Leitbehörde Bern",
             trans__language="de",
@@ -649,9 +650,9 @@ def test_complete_decision(
         ],
     }
 
-    case.workflow = workflow_factory(slug=workflow)
-    instance.case = case
-    instance.save()
+    case.workflow = caluma_workflow_models.Workflow.objects.get(slug=workflow)
+    be_instance.case = case
+    be_instance.save()
 
     if workflow == "internal":
         work_item_factory(case=case)
@@ -665,16 +666,16 @@ def test_complete_decision(
         context={},
     )
 
-    instance.refresh_from_db()
+    be_instance.refresh_from_db()
 
-    assert instance.instance_state.name == expected_instance_state
+    assert be_instance.instance_state.name == expected_instance_state
     assert len(mailoutbox) == 1
     assert HistoryEntryT.objects.filter(
-        history_entry__instance=instance, title=expected_text, language="de"
+        history_entry__instance=be_instance, title=expected_text, language="de"
     ).exists()
 
     if expected_instance_state == "sb1":
-        assert instance.responsible_service() == construction_control
+        assert be_instance.responsible_service() == construction_control
 
 
 @pytest.mark.parametrize(

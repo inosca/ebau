@@ -172,6 +172,70 @@ APPLICATIONS = {
             "ALLOWED_ROLES": {"DEFAULT": []},
             "ALLOWED_SERVICE_GROUPS": {"DEFAULT": []},
         },
+        "MASTER_DATA": {
+            "personal_data": (
+                "table",
+                "personalien-gesuchstellerin",
+                {
+                    "column_mapping": {
+                        "last_name": "name-gesuchstellerin",
+                        "first_name": "vorname-gesuchstellerin",
+                        "street": "strasse-gesuchstellerin",
+                        "street_number": "nummer-gesuchstellerin",
+                        "zip": "plz-gesuchstellerin",
+                        "town": "ort-gesuchstellerin",
+                        "is_juristic_person": (
+                            "juristische-person-gesuchstellerin",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "juristische-person-gesuchstellerin-ja": True,
+                                            "juristische-person-gesuchstellerin-nein": False,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "juristic_name": "name-juristische-person-gesuchstellerin",
+                    }
+                },
+            ),
+            "dossier_number": ("case_meta", "ebau-number"),
+            "proposal": ("answer", "beschreibung-bauvorhaben"),
+            "modification": ("answer", "beschreibung-projektaenderung"),
+            "street": ("answer", "strasse-flurname"),
+            "street_number": ("answer", "nr"),
+            "construction_costs": ("answer", "baukosten-in-chf"),
+            "municipality": ("dynamic_option", "gemeinde"),
+            "plot_data": (
+                "table",
+                "parzelle",
+                {
+                    "column_mapping": {
+                        "plot_number": "parzellennummer",
+                        "egrid_number": "e-grid-nr",
+                    }
+                },
+            ),
+            "submit_date": ("case_meta", "submit-date", {"value_parser": "datetime"}),
+            "paper_submit_date": (
+                "case_meta",
+                "paper-submit-date",
+                {"value_parser": "datetime"},
+            ),
+            "is_paper": (
+                "answer",
+                "is-paper",
+                {
+                    "value_parser": (
+                        "value_mapping",
+                        {"mapping": {"is-paper-yes": True, "is-paper-no": False}},
+                    )
+                },
+            ),
+        },
         "GROUP_RENAME_ON_SERVICE_RENAME": True,
         "SERVICE_UPDATE_ALLOWED_ROLES": [
             "Administration Leitbehörde"
