@@ -9,7 +9,7 @@ snapshots = Snapshot()
 
 snapshots['test_master_data_be[de] 1'] = {
     'construction_costs': 199000,
-    'ebau_number': '2021-1',
+    'dossier_number': '2021-1',
     'is_paper': False,
     'modification': 'Doch eher kleines Haus',
     'municipality': {
@@ -21,13 +21,17 @@ snapshots['test_master_data_be[de] 1'] = {
         {
             'first_name': 'Max',
             'is_juristic_person': True,
-            'juristic_person_name': 'ACME AG',
-            'last_name': 'Mustermann'
+            'juristic_name': 'ACME AG',
+            'last_name': 'Mustermann',
+            'street': 'Teststrasse',
+            'street_number': 123,
+            'town': 'Testhausen',
+            'zip': 1234
         }
     ],
     'plot_data': [
         {
-            'e_grid_number': 'CH123456789',
+            'egrid_number': 'CH123456789',
             'plot_number': '123456789'
         }
     ],
@@ -39,7 +43,7 @@ snapshots['test_master_data_be[de] 1'] = {
 
 snapshots['test_master_data_be[fr] 1'] = {
     'construction_costs': 199000,
-    'ebau_number': '2021-1',
+    'dossier_number': '2021-1',
     'is_paper': False,
     'modification': 'Doch eher kleines Haus',
     'municipality': {
@@ -51,13 +55,17 @@ snapshots['test_master_data_be[fr] 1'] = {
         {
             'first_name': 'Max',
             'is_juristic_person': True,
-            'juristic_person_name': 'ACME AG',
-            'last_name': 'Mustermann'
+            'juristic_name': 'ACME AG',
+            'last_name': 'Mustermann',
+            'street': 'Teststrasse',
+            'street_number': 123,
+            'town': 'Testhausen',
+            'zip': 1234
         }
     ],
     'plot_data': [
         {
-            'e_grid_number': 'CH123456789',
+            'egrid_number': 'CH123456789',
             'plot_number': '123456789'
         }
     ],
@@ -74,24 +82,39 @@ snapshots['test_master_data_parsers 1'] = {
 }
 
 snapshots['test_master_data_ur 1'] = {
+    'category': [
+        6011,
+        6010
+    ],
+    'construction_costs': 129000,
+    'dossier_number': '1201-21-003',
     'municipality': {
         'label': 'Altdorf',
         'slug': '1'
     },
     'personal_data': [
         {
+            'country': 'Schweiz',
             'first_name': 'Max',
             'is_juristic_person': True,
             'juristic_name': 'ACME AG',
-            'last_name': 'Mustermann'
+            'last_name': 'Mustermann',
+            'street': 'Teststrasse',
+            'street_number': '123',
+            'town': 'Musterdorf',
+            'zip': '1233'
         }
     ],
     'plot_data': [
         {
+            'egrid_number': 'CH123456789',
             'plot_number': '123456789'
         }
     ],
     'proposal': 'Grosses Haus',
     'street': 'Musterstrasse',
-    'street_number': 4
+    'street_number': 4,
+    'submit_date': GenericRepr('datetime.datetime(2021, 7, 16, 8, 0, 6, tzinfo=<UTC>)'),
+    'type_of_construction': [
+    ]
 }

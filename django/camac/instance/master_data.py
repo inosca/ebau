@@ -162,7 +162,7 @@ class MasterData(object):
                             "is-juristic-person",
                             {
                                 "value_parser": (
-                                    "value_mapping"
+                                    "value_mapping",
                                     {
                                         "mapping": {
                                             "is-juristic-person-yes": True,
@@ -218,6 +218,28 @@ class MasterData(object):
             else default
         )
 
+    def workflow_entry_resolver(self, workflow_item_ids, default=None, **kwargs):
+        """Resolve data from the workflow entry.
+
+        Example configuration:
+
+        MASTER_DATA = {
+            "submit_date": (
+                "workflow_entry",
+                [10, 12], # ids of the required workflow-items
+            )
+        }
+        """
+        entry = next(
+            filter(
+                lambda entry: entry.workflow_item_id in workflow_item_ids,
+                self.case.instance.workflowentry_set.all(),
+            ),
+            None,
+        )
+
+        return entry.workflow_date if entry else default
+
     def datetime_parser(self, value, default, **kwargs):
         try:
             return dateutil_parse(value)
@@ -231,4 +253,7 @@ class MasterData(object):
             return default
 
     def value_mapping_parser(self, value, default, mapping={}, **kwargs):
+        if isinstance(value, list):
+            return [mapping.get(v, default) for v in value]
+
         return mapping.get(value, default)
