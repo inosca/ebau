@@ -4,57 +4,40 @@ import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 
+import ENV from "camac-ng/config/environment";
+
 export default class JournalController extends Controller {
   @service store;
+  @service shoebox;
 
   @tracked newEntry = null;
-  @tracked newEntries = [];
-  @tracked editText = "";
 
-  get entries() {
-    return [...(this.fetchedEntries || []).toArray(), ...this.newEntries]
-      .sortBy("creationDate")
-      .reverse();
-  }
-
-  @lastValue("fetchEntries") fetchedEntries;
+  @lastValue("fetchEntries") entries;
   @dropTask
   *fetchEntries() {
-    this.instance = this.store.findRecord("instance", this.model.id);
-
     return yield this.store.query("journal-entry", {
       instance: this.model.id,
       include: "user",
     });
   }
 
+  @lastValue("initializeNewEntry") instance;
   @dropTask
-  *saveEntry(entry) {
-    yield entry.save();
+  *initializeNewEntry() {
+    const instance = yield this.instance ??
+      this.store.findRecord("instance", this.model.id);
 
-    if (this.newEntry) {
-      this.newEntries.pushObject(entry);
-      this.newEntry = undefined;
-    }
-
-    return entry;
-  }
-
-  @action
-  addNewEntry() {
     this.newEntry = this.store.createRecord("journal-entry", {
-      instance: this.instance,
-      visibility: "own_organization",
+      visibility: ENV.APPLICATION.journalDefaultVisibility,
     });
+    this.newEntry.instance = instance;
+
+    return instance;
   }
 
   @action
-  cancelNewEntry() {
-    this.newEntry = undefined;
-  }
-
-  @action
-  cancelEditEntry(entry) {
-    entry.rollbackAttributes();
+  refetchEntries() {
+    this.fetchEntries.perform();
+    this.initializeNewEntry.perform();
   }
 }

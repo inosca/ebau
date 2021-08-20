@@ -23,24 +23,23 @@ module("Acceptance | journal", function (hooks) {
 
     await visit(`/instances/${this.instance.id}/journal`);
 
-    assert.dom("fieldset").exists({ count: 5 });
+    assert.dom("article").exists({ count: 5 });
   });
 
   test("it handles empty state", async function (assert) {
     await visit(`/instances/${this.instance.id}/journal`);
 
-    assert.dom(".journal").hasText("t:global.empty:()");
+    assert.dom("[data-test-journal-list]").hasText("t:global.empty:()");
   });
 
   test("it can create a journal entry", async function (assert) {
     await visit(`/instances/${this.instance.id}/journal`);
 
-    await click("[data-test-new]");
-    await fillIn(".journal__new", "Lorem ipsum");
-    await click("[data-test-new-save]");
+    await fillIn("[data-test-textarea]", "Lorem ipsum");
+    await click("[data-test-save]");
 
-    assert.dom("fieldset").exists({ count: 1 });
-    assert.dom(".journal__body").hasText("Lorem ipsum");
+    assert.dom("article").exists({ count: 1 });
+    assert.dom(".uk-comment-body").hasText("Lorem ipsum");
   });
 
   test("it can edit a journal entry", async function (assert) {
@@ -50,11 +49,11 @@ module("Acceptance | journal", function (hooks) {
 
     await visit(`/instances/${this.instance.id}/journal`);
 
-    await click(".journal__edit__button");
-    await fillIn("[data-test-edit]", "Lorem ipsum");
-    await click("[data-test-edit-save]");
+    await click("[data-test-edit-entry]");
+    await fillIn(".uk-comment [data-test-textarea]", "Lorem ipsum");
+    await click(".uk-comment [data-test-save]");
 
-    assert.dom("fieldset").exists({ count: 1 });
-    assert.dom(".journal__body").hasText("Lorem ipsum");
+    assert.dom("article").exists({ count: 1 });
+    assert.dom(".uk-comment-body").hasText("Lorem ipsum");
   });
 });
