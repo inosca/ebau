@@ -73,7 +73,7 @@ class MasterData(object):
         MASTER_DATA = {
             "some_string": (
                 "answer",
-                # This could also be multiple, the first with an answer will be returned
+                # question slug of the answer, can also be multiple
                 "my-string"
             )
         }
@@ -218,7 +218,7 @@ class MasterData(object):
             else default
         )
 
-    def workflow_entry_resolver(self, workflow_item_ids, default=None, **kwargs):
+    def workflow_entry_resolver(self, lookup, default=None, **kwargs):
         """Resolve data from the workflow entry.
 
         Example configuration:
@@ -226,19 +226,75 @@ class MasterData(object):
         MASTER_DATA = {
             "submit_date": (
                 "workflow_entry",
-                [10, 12], # ids of the required workflow-items
+                # ids of the workflow items, can also be multiple
+                10
             )
         }
         """
+        if not isinstance(lookup, list):
+            lookup = [lookup]
+
         entry = next(
             filter(
-                lambda entry: entry.workflow_item_id in workflow_item_ids,
+                lambda entry: entry.workflow_item_id in lookup,
                 self.case.instance.workflowentry_set.all(),
             ),
             None,
         )
 
         return entry.workflow_date if entry else default
+
+    def ng_answer_resolver(self, lookup, **kwargs):
+        """Resolve data from camac-ng fields.
+
+        Example configuration:
+
+        MASTER_DATA = {
+            "some_string": (
+                "ng_answer",
+                # name of the field
+                "my-field"
+            )
+        }
+        """
+        field = next(
+            filter(
+                lambda field: field.name == lookup,
+                self.case.instance.fields.all(),
+            ),
+            None,
+        )
+
+        return self._parse_value(field.value if field else None, **kwargs)
+
+    def ng_table_resolver(self, lookup, column_mapping={}, **kwargs):
+        """Resolve data from camac-ng table fields.
+
+        Example configuration:
+
+        MASTER_DATA = {
+            "applicant": {
+                "ng_table",
+                "bauherrschaft",
+                {
+                    "column_mapping": {
+                        "last_name": "name",
+                        "first_name": "vorname",
+                        "street": "strasse",
+                        "zip": "plz",
+                        "town": "ort",
+                    }
+                }
+            }
+        }
+        """
+        return [
+            {
+                key: row.get(lookup_config)
+                for key, lookup_config in column_mapping.items()
+            }
+            for row in self.ng_answer_resolver(lookup, default=[])
+        ]
 
     def datetime_parser(self, value, default, **kwargs):
         try:
