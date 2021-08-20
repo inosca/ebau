@@ -61,6 +61,7 @@ def test_sendreminders_caluma(
     task_factory,
     snapshot,
     service_factory,
+    service_t_factory,
     user_factory,
     is_overdue,
     is_not_viewed,
@@ -73,6 +74,11 @@ def test_sendreminders_caluma(
 
     user = user_factory()
     services = service_factory.create_batch(2)
+
+    if multilingual:
+        for service in services:
+            for language in ["de", "fr"]:
+                service_t_factory(language=language, service=service)
 
     deadline = (
         timezone.now() - timedelta(days=1)
