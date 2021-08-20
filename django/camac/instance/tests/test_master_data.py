@@ -10,8 +10,6 @@ from caluma.caluma_workflow import (
 from django.conf import settings
 from django.utils.translation import override
 
-from camac.core.factories import WorkflowEntryFactory, WorkflowItemFactory
-
 from ..master_data import MasterData
 
 

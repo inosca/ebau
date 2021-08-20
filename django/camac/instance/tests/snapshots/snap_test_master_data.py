@@ -84,8 +84,7 @@ snapshots['test_master_data_parsers 1'] = {
 }
 
 snapshots['test_master_data_sz 1'] = {
-    'construction_costs': 129000,
-    'personal_data': [
+    'applicants': [
         {
             'first_name': 'Max',
             'last_name': 'Mustermann',
@@ -94,6 +93,7 @@ snapshots['test_master_data_sz 1'] = {
             'zip': 1233
         }
     ],
+    'construction_costs': 129000,
     'proposal': 'Grosses Haus',
     'submit_date': GenericRepr('datetime.datetime(2021, 7, 16, 8, 0, 6, tzinfo=<UTC>)')
 }
