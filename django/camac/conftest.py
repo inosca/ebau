@@ -37,6 +37,7 @@ from camac.document.tests.data import django_file
 from camac.echbern import factories as ech_factories
 from camac.faker import FreezegunAwareDatetimeProvider
 from camac.instance import factories as instance_factories
+from camac.instance.serializers import SUBMIT_DATE_FORMAT
 from camac.notification import factories as notification_factories
 from camac.objection import factories as objection_factories
 from camac.responsible import factories as responsible_factories
@@ -723,9 +724,18 @@ def instance_with_case(db, caluma_admin_user):
 
 @pytest.fixture
 def be_instance(instance_service, caluma_workflow_config_be, instance_with_case):
-    return instance_with_case(
+    instance = instance_with_case(
         instance_service.instance, context={"instance": instance_service.instance}
     )
+    instance.refresh_from_db()
+    instance.case.meta.update(
+        {
+            "submit-date": instance.creation_date.strftime(SUBMIT_DATE_FORMAT),
+            "paper-submit-date": instance.creation_date.strftime(SUBMIT_DATE_FORMAT),
+        }
+    )
+    instance.case.save()
+    return instance
 
 
 @pytest.fixture
