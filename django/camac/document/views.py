@@ -2,13 +2,11 @@ import io
 import mimetypes
 import os
 import zipfile
-from datetime import timedelta
 from enum import Enum
 
 from django.conf import settings
 from django.db.models import Q
 from django.http import HttpResponse
-from django.utils import timezone
 from django.utils.module_loading import import_string
 from django.utils.translation import gettext as _
 from drf_yasg import openapi
@@ -79,6 +77,7 @@ class FileUploadSwaggerAutoSchema(SwaggerAutoSchema):
 
 
 class AttachmentQuerysetMixin:
+    @permission_aware
     def get_base_queryset(self):
         queryset = super().get_base_queryset()
 
@@ -131,20 +130,8 @@ class AttachmentQuerysetMixin:
             | loosen_filter(self.request)
         ).distinct()
 
-    def get_queryset_for_public(self):
-        if not settings.APPLICATION.get("ENABLE_PUBLIC_ENDPOINTS"):
-            return self.queryset.none()
-
-        instances = Instance.objects.filter(
-            publication_entries__publication_date__gte=timezone.now()
-            - settings.APPLICATION.get("PUBLICATION_DURATION", timedelta()),
-            publication_entries__publication_date__lt=timezone.now(),
-            publication_entries__is_published=True,
-        )
-        return self.queryset.filter(
-            instance__pk__in=instances,
-            context__isPublished=True,
-        )
+    def get_base_queryset_for_public(self):
+        return super().get_base_queryset().filter(context__isPublished=True)
 
 
 class PermissionMode(Enum):
