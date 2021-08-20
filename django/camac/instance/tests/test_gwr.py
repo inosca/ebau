@@ -173,14 +173,17 @@ def test_gwr_data_ur(
 def test_instance_gwr_data_sz(
     admin_client,
     user,
-    instance,
+    sz_instance,
+    application_settings,
     form_field_factory,
-    django_assert_num_queries,
     has_client,
 ):
-    url = reverse("instance-gwr-data", args=[instance.pk])
+    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_schwyz"][
+        "MASTER_DATA"
+    ]
+    url = reverse("instance-gwr-data", args=[sz_instance.pk])
 
-    add_field = functools.partial(form_field_factory, instance=instance)
+    add_field = functools.partial(form_field_factory, instance=sz_instance)
     add_field(name="bezeichnung", value="Bezeichnung")
     if has_client:
         add_field(
