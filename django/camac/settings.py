@@ -446,8 +446,8 @@ APPLICATIONS = {
                 "title": "Materieller Prüfbericht",
             }
         ],
-	"MASTER_DATA": {
-            "personal_data": (
+        "MASTER_DATA": {
+            "applicants": (
                 "ng_table",
                 "bauherrschaft",
                 {
