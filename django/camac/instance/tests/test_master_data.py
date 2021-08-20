@@ -283,10 +283,7 @@ def test_master_data_be(
 
 
 @pytest.fixture
-def ur_master_data_case(
-    db,
-    ur_instance,
-):
+def ur_master_data_case(db, ur_instance, workflow_entry_factory):
     ur_instance.case.meta = {"dossier-number": "1201-21-003"}
     ur_instance.case.save()
 
@@ -346,7 +343,7 @@ def ur_master_data_case(
     table_answer_plot.documents.add(plot_row)
     caluma_form_factories.AnswerFactory(
         question_id="parcel-number",
-        value="123456789",
+        value=123456789,
         document=plot_row,
     )
     caluma_form_factories.AnswerFactory(
@@ -388,12 +385,12 @@ def ur_master_data_case(
     )
     caluma_form_factories.AnswerFactory(
         question__slug="street-number",
-        value="123",
+        value=123,
         document=applicant_row,
     )
     caluma_form_factories.AnswerFactory(
         question__slug="zip",
-        value="1233",
+        value=1233,
         document=applicant_row,
     )
     caluma_form_factories.AnswerFactory(
@@ -414,12 +411,12 @@ def ur_master_data_case(
         document=ur_instance.case.document,
     )
 
-    # WorkflowEntry
-    WorkflowEntryFactory(
+    # Submit date
+    workflow_entry_factory(
         instance=ur_instance,
         workflow_date="2021-07-16 08:00:06+00",
         group=1,
-        workflow_item=WorkflowItemFactory(workflow_item_id=12),
+        workflow_item__pk=12,
     )
 
     return ur_instance.case
@@ -449,6 +446,73 @@ def test_master_data_ur(
                 "document__answers",
                 "document__answers__documents__answers",
                 "document__dynamicoption_set",
+                "instance__workflowentry_set",
+            )
+            .first()
+        )
+
+        master_data = MasterData(case)
+
+        snapshot.assert_match(
+            {
+                key: getattr(master_data, key)
+                for key in application_settings["MASTER_DATA"].keys()
+            }
+        )
+
+
+@pytest.fixture
+def sz_master_data_case(db, sz_instance, form_field_factory, workflow_entry_factory):
+    # Simple data
+    form_field_factory(instance=sz_instance, name="bezeichnung", value="Grosses Haus")
+    form_field_factory(instance=sz_instance, name="baukosten", value=129000)
+
+    # Applicant
+    form_field_factory(
+        instance=sz_instance,
+        name="bauherrschaft",
+        value=[
+            {
+                "vorname": "Max",
+                "name": "Mustermann",
+                "strasse": "Teststrasse",
+                "plz": 1233,
+                "ort": "Musterdorf",
+            }
+        ],
+    )
+
+    # Submit date
+    workflow_entry_factory(
+        instance=sz_instance,
+        workflow_date="2021-07-16 08:00:06+00",
+        workflow_item__pk=10,
+    )
+
+    return sz_instance.case
+
+
+def test_master_data_sz(
+    db,
+    sz_master_data_case,
+    snapshot,
+    application_settings,
+    django_assert_num_queries,
+):
+    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_schwyz"][
+        "MASTER_DATA"
+    ]
+
+    # This should never trigger more than 6 queries on the DB:
+    # 1. Query for fetching case
+    # 2. Query for prefetching fields
+    # 3. Query for prefetching workflow entries
+    with django_assert_num_queries(3):
+        case = (
+            caluma_workflow_models.Case.objects.filter(pk=sz_master_data_case.pk)
+            .select_related("instance")
+            .prefetch_related(
+                "instance__fields",
                 "instance__workflowentry_set",
             )
             .first()
