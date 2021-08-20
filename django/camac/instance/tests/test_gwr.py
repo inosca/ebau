@@ -5,8 +5,11 @@ from caluma.caluma_form import (
     factories as caluma_form_factories,
     models as caluma_form_models,
 )
+from django.conf import settings
 from django.urls import reverse
 from rest_framework import status
+
+from camac.core.factories import WorkflowEntryFactory, WorkflowItemFactory
 
 
 def test_gwr_data_ur(
@@ -26,117 +29,138 @@ def test_gwr_data_ur(
     location_factory,
     snapshot,
 ):
-    case = ur_instance.case
-    case.meta["dossier-number"] = "1200-00-00"
-    case.save()
+    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
 
-    workitem = case.work_items.first()
-    workitem.closed_at = "2021-07-15 08:00:06+00"
-    workitem.save()
+    ur_instance.case.meta = {"dossier-number": "1201-21-003"}
+    ur_instance.case.save()
 
-    workflow_entry = workflow_entry_factory(
-        instance=instance,
-        workflow_date="2021-07-16 08:00:06+00",
-        group=1,
+    # Simple data
+    caluma_form_factories.AnswerFactory(
+        question__slug="proposal-description",
+        document=ur_instance.case.document,
+        value="Grosses Haus",
+    )
+    caluma_form_factories.AnswerFactory(
+        question__slug="parcel-street",
+        document=ur_instance.case.document,
+        value="Musterstrasse",
+    )
+    caluma_form_factories.AnswerFactory(
+        question__slug="parcel-street-number",
+        document=ur_instance.case.document,
+        value=4,
+    )
+    caluma_form_factories.AnswerFactory(
+        question__slug="construction-cost",
+        document=ur_instance.case.document,
+        value=129000,
     )
 
-    application_settings["GWR_DATA"] = {
-        "typeOfConstructionProject": (
-            "answer",
-            "category",
-            {
-                "category-hochbaute": 6011,
-            },
-        ),
-        "officialConstructionProjectFileNo": ("case_meta", "dossier-number"),
-        "client": (
-            "applicant",
-            "applicant",
-            {
-                "identification_isOrganisation": (
-                    "is-juristic-person",
-                    {
-                        "is-juristic-person-no": False,
-                        "is-juristic-person-yes": True,
-                    },
-                ),
-            },
-        ),
-        "constructionLocalisation_municipalityName": ("location", "municipality"),
-        "projectAnnouncementDate": (
-            "submit_date_from_workflow_entry",
-            [12, workflow_entry.workflow_item.pk],
-        ),
-        "realestateIdentification_number": ("submit_date_from_task", "placeholder"),
-        "totalCostsOfProject": ("submit_date_from_workflow_entry", [12]),
-        "constructionProjectDescription": (
-            "answer",
-            [
-                "proposal-description",
-                "beschreibung-zu-mbv",
-                "bezeichnung",
-                "vorhaben-proposal-description",
-                "veranstaltung-beschrieb",
-            ],
-        ),
-        "realestateIdentification_EGRID": ("answer", "parcels.e-grid"),
-        "typeOfConstruction": ("location", "unanswered"),
-    }
-
-    category_question = question_factory(
-        slug="category", type=caluma_form_models.Question.TYPE_MULTIPLE_CHOICE
-    )
-    question_factory(slug="unanswered", type=caluma_form_models.Question.TYPE_TEXT)
-
-    description_question = question_factory(
-        slug="proposal-description", type=caluma_form_models.Question.TYPE_TEXT
-    )
-    answer_factory(
-        question=category_question, document=case.document, value=["category-hochbaute"]
-    )
-    answer_factory(
-        question=description_question, document=case.document, value="Neues Haus"
-    )
-    location = location_factory(name="Musterhausen")
-    answer_factory(
-        question_id="municipality", document=case.document, value=location.pk
+    # Municipality
+    caluma_form_factories.DynamicOptionFactory(
+        question_id="municipality",
+        document=ur_instance.case.document,
+        slug="1",
+        label={"de": "Altdorf"},
     )
 
-    applicant_question = question_factory(
-        slug="applicant", type=caluma_form_models.Question.TYPE_TABLE
+    # Plot
+    row_form = caluma_form_factories.FormFactory(slug="parcels")
+    table_answer_plot = caluma_form_factories.AnswerFactory(
+        question__slug="parcels",
+        question__type=caluma_form_models.Question.TYPE_TEXT,
+        document=ur_instance.case.document,
     )
-    parcel_question = question_factory(
-        slug="parcels", type=caluma_form_models.Question.TYPE_TABLE
+    caluma_form_factories.FormQuestionFactory(
+        form=row_form,
+        question__slug="parcel-number",
+        question__type=caluma_form_models.Question.TYPE_CHOICE,
+    )
+    caluma_form_factories.FormQuestionFactory(
+        form=row_form,
+        question__slug="e-grid",
+        question__type=caluma_form_models.Question.TYPE_TEXT,
+    )
+    plot_row = caluma_form_factories.DocumentFactory(form=row_form)
+    table_answer_plot.documents.add(plot_row)
+    caluma_form_factories.AnswerFactory(
+        question_id="parcel-number",
+        value=123456789,
+        document=plot_row,
+    )
+    caluma_form_factories.AnswerFactory(
+        question_id="e-grid",
+        value="CH123456789",
+        document=plot_row,
     )
 
-    table_answer_applicant = answer_factory(
-        question=applicant_question, document=case.document
+    # Applicant
+    table_answer_applicant = caluma_form_factories.AnswerFactory(
+        question__slug="applicant", document=ur_instance.case.document
     )
-    table_answer_parcel = answer_factory(
-        question=parcel_question, document=case.document
-    )
-
-    table_form_applicant = caluma_form_factories.FormFactory(slug="personal-data-table")
-    table_form_parcel = caluma_form_factories.FormFactory(slug="parcel-table")
-
-    applicant_row = caluma_form_factories.DocumentFactory(form=table_form_applicant)
-    parcel_row = caluma_form_factories.DocumentFactory(form=table_form_parcel)
-
+    applicant_row = caluma_form_factories.DocumentFactory(form__slug="personal-table")
     table_answer_applicant.documents.add(applicant_row)
-    table_answer_parcel.documents.add(parcel_row)
-
-    is_organisation_question = question_factory(
-        slug="is-juristic-person", type=caluma_form_models.Question.TYPE_CHOICE
+    caluma_form_factories.AnswerFactory(
+        question__slug="first-name",
+        value="Max",
+        document=applicant_row,
     )
-    egrid_nr_question = question_factory(
-        slug="e-grid", type=caluma_form_models.Question.TYPE_TEXT
+    caluma_form_factories.AnswerFactory(
+        question__slug="last-name",
+        value="Mustermann",
+        document=applicant_row,
     )
-    answer_factory(
-        question=is_organisation_question,
+    caluma_form_factories.AnswerFactory(
+        question__slug="is-juristic-person",
         value="is-juristic-person-yes",
         document=applicant_row,
     )
-    answer_factory(question=egrid_nr_question, value="12345", document=parcel_row)
+    caluma_form_factories.AnswerFactory(
+        question__slug="juristic-person-name",
+        value="ACME AG",
+        document=applicant_row,
+    )
+    caluma_form_factories.AnswerFactory(
+        question__slug="street",
+        value="Teststrasse",
+        document=applicant_row,
+    )
+    caluma_form_factories.AnswerFactory(
+        question__slug="street-number",
+        value=123,
+        document=applicant_row,
+    )
+    caluma_form_factories.AnswerFactory(
+        question__slug="zip",
+        value=1233,
+        document=applicant_row,
+    )
+    caluma_form_factories.AnswerFactory(
+        question__slug="city",
+        value="Musterdorf",
+        document=applicant_row,
+    )
+    caluma_form_factories.AnswerFactory(
+        question__slug="country",
+        value="Schweiz",
+        document=applicant_row,
+    )
+
+    # Category
+    caluma_form_factories.AnswerFactory(
+        question__slug="category",
+        value="category-hochbaute",
+        document=ur_instance.case.document,
+    )
+
+    # WorkflowEntry
+    WorkflowEntryFactory(
+        instance=ur_instance,
+        workflow_date="2021-07-16 08:00:06+00",
+        group=1,
+        workflow_item=WorkflowItemFactory(workflow_item_id=12),
+    )
+
     url = reverse("instance-gwr-data", args=[instance.pk])
 
     response = admin_client.get(url)

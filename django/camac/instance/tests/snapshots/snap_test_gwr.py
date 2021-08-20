@@ -10,34 +10,35 @@ snapshots = Snapshot()
 snapshots['test_gwr_data_ur 1'] = {
     'client': {
         'address': {
-            'country': None,
-            'houseNumber': None,
-            'street': None,
-            'swissZipCode': None,
-            'town': None
+            'country': 'Schweiz',
+            'houseNumber': 123,
+            'street': 'Teststrasse',
+            'swissZipCode': 1233,
+            'town': 'Musterdorf'
         },
         'identification': {
             'isOrganisation': True,
             'organisationIdentification': {
-                'organisationName': None
+                'organisationName': 'ACME AG'
             },
             'personIdentification': {
-                'firstName': None,
-                'officialName': None
+                'firstName': 'Max',
+                'officialName': 'Mustermann'
             }
         }
     },
     'constructionLocalisation': {
-        'municipalityName': 'Musterhausen'
+        'municipalityName': 'Altdorf'
     },
-    'constructionProjectDescription': 'Neues Haus',
-    'officialConstructionProjectFileNo': '1200-00-00',
+    'constructionProjectDescription': 'Grosses Haus',
+    'officialConstructionProjectFileNo': '1201-21-003',
     'projectAnnouncementDate': '2021-07-16',
     'realestateIdentification': {
-        'EGRID': '12345',
-        'number': '2021-07-15T08:00:06Z'
+        'EGRID': 'CH123456789',
+        'number': 123456789
     },
-    'totalCostsOfProject': None,
-    'typeOfConstruction': None,
+    'totalCostsOfProject': 129000,
+    'typeOfConstruction': [
+    ],
     'typeOfConstructionProject': 6011
 }
