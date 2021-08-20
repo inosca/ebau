@@ -17,6 +17,7 @@ from camac.echbern.tests.caluma_document_data import baugesuch_data
 from camac.instance.models import Instance
 from camac.instance.serializers import (
     SUBMIT_DATE_CHAPTER,
+    SUBMIT_DATE_FORMAT,
     SUBMIT_DATE_QUESTION_ID,
     WORKFLOW_ITEM_DOSSIER_ERFASST_UR,
     WORKFLOW_ITEM_DOSSIEREINGANG_UR,
@@ -821,6 +822,7 @@ def test_instance_finalize(
     role,
     be_instance,
     service_group,
+    case_factory,
     instance_state,
     instance_state_factory,
     construction_control_for,
@@ -835,6 +837,7 @@ def test_instance_finalize(
     create_awa_workitem,
     form_question_factory,
 ):
+
     instance_state_factory(name="coordination")
     instance_state_factory(name="sb1")
     instance_state_factory(name="conclusion")
@@ -845,7 +848,13 @@ def test_instance_finalize(
             "recipient_types": ["applicant", "construction_control"],
         }
     ]
-
+    be_instance.case.meta.update(
+        {
+            "submit-date": be_instance.creation_date.strftime(SUBMIT_DATE_FORMAT),
+            "paper-submit-date": be_instance.creation_date.strftime(SUBMIT_DATE_FORMAT),
+        }
+    )
+    be_instance.case.save()
     if instance_state.name == "sb2":
         docx_decision_factory(
             decision=be_constants.DECISIONS_BEWILLIGT, instance=be_instance

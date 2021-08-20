@@ -4,6 +4,7 @@ from caluma.caluma_workflow import api as workflow_api, models as caluma_workflo
 
 from camac.constants.kt_bern import QUESTION_EBAU_NR
 from camac.echbern.data_preparation import slugs_baugesuch, slugs_vorabklaerung_einfach
+from camac.instance.serializers import SUBMIT_DATE_FORMAT
 
 
 @pytest.fixture
@@ -39,7 +40,6 @@ def ech_instance(
     camac_answer_factory(
         instance=inst_serv.instance, question__pk=QUESTION_EBAU_NR, answer="2020-1"
     )
-
     return inst_serv.instance
 
 
@@ -54,8 +54,13 @@ def ech_instance_case(ech_instance, caluma_admin_user):
             workflow=caluma_workflow_models.Workflow.objects.get(pk=workflow_slug),
             form=caluma_form_models.Form.objects.get(slug="main-form"),
             user=caluma_admin_user,
+            meta={
+                "submit-date": ech_instance.creation_date.strftime(SUBMIT_DATE_FORMAT),
+                "paper-submit-date": ech_instance.creation_date.strftime(
+                    SUBMIT_DATE_FORMAT
+                ),
+            },
         )
-
         ech_instance.case = case
         ech_instance.save()
 
