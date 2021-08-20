@@ -1,14 +1,18 @@
 import datetime
-from typing import Callable
+from typing import Callable, List, Tuple, Union
 
+import caluma.caluma_core
 import pytest
+from caluma.caluma_core.events import send_event
 from caluma.caluma_form import (
     factories as caluma_form_factories,
     models as caluma_form_models,
 )
+from caluma.caluma_workflow.events import post_complete_work_item
 from dateutil import relativedelta
 from django.urls import reverse
 
+from camac.instance.models import Instance, InstanceState
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
 
 
@@ -40,6 +44,8 @@ def nfd_tabelle_form():
 def nfd_tabelle_document_row(nfd_tabelle_form: caluma_form_models.Form) -> Callable:
     def wrapper(service_id, status, date_request=None, date_response=None, family=None):
         defaults = {}
+        if family:
+            defaults.update({"family": family})
         document = caluma_form_factories.DocumentFactory(
             form=nfd_tabelle_form, **defaults
         )
@@ -49,6 +55,21 @@ def nfd_tabelle_document_row(nfd_tabelle_form: caluma_form_models.Form) -> Calla
         caluma_form_factories.AnswerFactory(
             document=document, question_id="nfd-tabelle-status", value=status
         )
+        if date_request:
+            caluma_form_factories.AnswerFactory(
+                document=document,
+                question_id="nfd-tabelle-datum-anfrage",
+                # HELP: this is kind of awkward to set both value and date.. is this the way?
+                # value=date_request.strftime(SUBMIT_DATE_FORMAT),
+                date=date_request,
+            )
+        if date_response:
+            caluma_form_factories.AnswerFactory(
+                document=document,
+                question_id="nfd-tabelle-datum-antwort",
+                # value=date_response.strftime(SUBMIT_DATE_FORMAT),
+                date=date_response,
+            )
         return document
 
     return wrapper
@@ -151,3 +172,305 @@ def test_activation_summary(
     result = response.json()
     assert result["avg-processing-time"] == expected_proc_time_avg
     assert result["deadline-quota"] == expected_deadline_quota
+
+
+@pytest.mark.freeze_time
+@pytest.mark.parametrize("instance_state__name", ["sb1"])
+@pytest.mark.parametrize(
+    "role__name,case_cycletime,expected_total_cycletime",
+    [
+        ("Support", 66, 88),  # add 22 for previously rejected
+        ("Municipality", 66, 88),  # add 22 for previously rejected
+        ("Service", 0, 22),
+        ("Applicant", 0, 22),
+    ],
+)  # noqa
+def test_instance_cycle_time_total(
+    db,  # noqa
+    be_instance,
+    instance_with_case,
+    instance_factory,
+    instance_state,  # noqa
+    history_entry_factory,
+    history_entry_t_factory,
+    case_factory,
+    activation_factory,
+    work_item_factory,
+    nfd_tabelle_document_row,
+    role,
+    admin_client,
+    group,
+    docx_decision_factory,
+    application_settings,
+    settings,
+    freezer,
+    django_assert_num_queries,
+    caluma_admin_user,
+    case_cycletime,
+    expected_total_cycletime,
+):
+    """
+    Compute complete cycle time for an instance
+
+    Cycletime is available if instance is in a completed state
+
+    Cycletime depends on
+     - related case's paper-submit-date OR submit-date
+     - previously rejected issue's added cycle time
+    @return:
+    """
+
+    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
+        "MASTER_DATA"
+    ]
+
+    # For access to various fixtures functions for creating rejected applications are defined
+    # here.
+    def rejected_application_factory(
+        parent_application: Instance, offset: int = 30, duration: int = 5
+    ) -> Instance:
+        """
+        Create a rejected application predating a parent application
+
+        This requires the instance_with_case fixture as well as
+
+        @param parent_application: Application instance succeeding rejected instance
+        @param offset: num of days the rejected application predates its parent
+        @param duration: num of days until rejection
+        @return: instance of rejected application: Instance
+        """
+        instance_state_finished, created = InstanceState.objects.get_or_create(
+            name="finished"
+        )  # HELP: what's the right way to do this
+        instance_state_rejected, created = InstanceState.objects.get_or_create(
+            name="rejected"
+        )
+        rejected_application = instance_with_case(
+            instance_factory(
+                instance_state=instance_state_finished,
+                previous_instance_state=instance_state_rejected,
+                creation_date=parent_application.creation_date
+                - datetime.timedelta(days=offset),
+            )
+        )
+        freezer.move_to(
+            parent_application.creation_date
+            - datetime.timedelta(days=offset - duration)
+        )
+        history_entry_t_factory(
+            history_entry__instance=rejected_application,
+            language="de",
+            title="Dossier zurückgewiesen",
+        )
+        rejected_application.case.meta.update(
+            {
+                "submit-date": rejected_application.creation_date.strftime(
+                    SUBMIT_DATE_FORMAT
+                ),
+                "paper-submit-date": rejected_application.creation_date.strftime(
+                    SUBMIT_DATE_FORMAT
+                ),
+            }
+        )
+        rejected_application.case.document.source = parent_application.case.document
+        rejected_application.case.document.save()
+        return rejected_application
+
+    def create_nest_rejected_applications(
+        parent: Instance, iterations: List[Tuple[int, int]]
+    ) -> Union[Instance, Callable]:
+        """
+        Recursively nest created instances aka applications
+
+        The iterations tuples reflect the offset of days predating the parent's creation date and number of days
+        that should be cumulated for the total.
+        """
+        if not iterations:
+            return parent
+        else:
+            new_parent = rejected_application_factory(parent, *iterations.pop())
+            return create_nest_rejected_applications(new_parent, iterations)
+
+    previously_rejected_iterations = [(30, 5), (30, 5), (12, 12)]
+    create_nest_rejected_applications(be_instance, previously_rejected_iterations)
+    be_instance.case.meta.update(
+        {
+            "submit-date": be_instance.creation_date.strftime(SUBMIT_DATE_FORMAT),
+            "paper-submit-date": be_instance.creation_date.strftime(SUBMIT_DATE_FORMAT),
+        }
+    )
+    be_instance.case.save()
+    docx_decision_factory(
+        instance=be_instance,
+        decision_date=(
+            be_instance.creation_date + datetime.timedelta(days=case_cycletime)
+        ).date(),
+    )
+    # In order to test correct subtraction of time awaiting responses from applicant
+    # overlap of multiple requests must be counted no more than once
+    nfd_form = caluma_form_models.Form.objects.get(slug="nfd")
+    nfd_document = caluma_form_factories.DocumentFactory(form=nfd_form)
+    question_table = caluma_form_factories.QuestionFactory(
+        slug="nfd-tabelle-table", type=caluma_form_models.Question.TYPE_TABLE
+    )
+    caluma_form_factories.FormQuestionFactory(form=nfd_form, question=question_table)
+
+    work_item_factory(
+        case=be_instance.case,
+        task_id="nfd",
+        document=nfd_document,
+    )
+
+    table_answer = nfd_document.answers.create(question_id="nfd-tabelle-table")
+    # add some incomplete rows that should be ignored completely
+    doc_no_response_date = nfd_tabelle_document_row(
+        group.service_id,
+        "nfd-tabelle-status-beantwortet",
+        date_request=be_instance.creation_date + datetime.timedelta(days=5),
+        date_response=be_instance.creation_date + datetime.timedelta(days=5),
+        family=nfd_document,
+    )
+    date_response_answer = doc_no_response_date.answers.get(
+        question_id="nfd-tabelle-datum-antwort"
+    )
+    date_response_answer.date = None
+    date_response_answer.save()
+    table_answer.documents.add(doc_no_response_date)
+    # overlap group 1 adds 5 days
+    days_to_subtract = 5
+    table_answer.documents.add(
+        nfd_tabelle_document_row(
+            group.service_id,
+            "nfd-tabelle-status-beantwortet",
+            date_request=be_instance.creation_date + datetime.timedelta(days=5),
+            date_response=be_instance.creation_date
+            + datetime.timedelta(days=5)
+            + datetime.timedelta(days=3),
+            family=nfd_document,
+        )
+    )
+    table_answer.documents.add(
+        nfd_tabelle_document_row(
+            group.service_id,
+            "nfd-tabelle-status-beantwortet",
+            date_request=be_instance.creation_date + datetime.timedelta(days=7),
+            date_response=be_instance.creation_date
+            + datetime.timedelta(days=7)
+            + datetime.timedelta(days=3),
+            family=nfd_document,
+        )
+    )
+    # overlap group 2 adds 7 days with three overlapping processes
+    # of which one is irrelevant b/c encompassed by the others
+    days_to_subtract += 7
+    table_answer.documents.add(
+        nfd_tabelle_document_row(
+            group.service_id,
+            "nfd-tabelle-status-beantwortet",
+            date_request=be_instance.creation_date + datetime.timedelta(days=15),
+            date_response=be_instance.creation_date
+            + datetime.timedelta(days=15)
+            + datetime.timedelta(days=5),
+            family=nfd_document,
+        )
+    )
+    table_answer.documents.add(
+        nfd_tabelle_document_row(
+            group.service_id,
+            "nfd-tabelle-status-beantwortet",
+            date_request=be_instance.creation_date + datetime.timedelta(days=17),
+            date_response=be_instance.creation_date
+            + datetime.timedelta(days=17)
+            + datetime.timedelta(days=2),
+            family=nfd_document,
+        )
+    )
+    table_answer.documents.add(
+        nfd_tabelle_document_row(
+            group.service_id,
+            "nfd-tabelle-status-beantwortet",
+            date_request=be_instance.creation_date + datetime.timedelta(days=18),
+            date_response=be_instance.creation_date
+            + datetime.timedelta(days=18)
+            + datetime.timedelta(days=4),
+            family=nfd_document,
+        )
+    )
+    # single claim without overlap of 2 days
+    nfd_tabelle_document_row(
+        group.service_id,
+        "nfd-tabelle-status-beantwortet",
+        date_request=be_instance.creation_date + datetime.timedelta(days=1),
+        date_response=be_instance.creation_date
+        + datetime.timedelta(days=1)
+        + datetime.timedelta(days=2),
+        family=nfd_document,
+    )
+    days_to_subtract += 2
+    work_item = work_item_factory(
+        case=be_instance.case,
+        task_id="decision",  # settings['APPLICATION']['kt_bern']['CALUMA']['DECISION_TASK']
+    )
+
+    send_event(
+        post_complete_work_item,
+        sender="post_complete_work_item",
+        work_item=work_item,
+        user=caluma_admin_user,
+        context={},
+    )
+    be_instance.refresh_from_db()
+    assert be_instance.case.meta["net_cycle_time"] == (
+        expected_total_cycletime
+        + sum([x[1] for x in previously_rejected_iterations])
+        - days_to_subtract
+    )
+
+
+@pytest.mark.parametrize("instance_state__name", ["finished"])
+def test_handles_incomplete_cases(
+    db,
+    group,
+    be_instance,
+    docx_decision_factory,
+    nfd_tabelle_document_row,
+    nfd_tabelle_form,
+    work_item_factory,
+    caluma_admin_user,
+    settings,
+    application_settings,
+):
+    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
+        "MASTER_DATA"
+    ]
+    be_instance.case.meta.update(
+        {
+            "submit-date": be_instance.creation_date.strftime(SUBMIT_DATE_FORMAT),
+            "paper-submit-date": be_instance.creation_date.strftime(SUBMIT_DATE_FORMAT),
+        }
+    )
+    be_instance.case.save()
+    nfd_form = caluma_form_models.Form.objects.get(slug="nfd")
+    nfd_document = caluma_form_factories.DocumentFactory(form=nfd_form)
+    question_table = caluma_form_factories.QuestionFactory(
+        slug="nfd-tabelle-table", type=caluma_form_models.Question.TYPE_TABLE
+    )
+    caluma_form_factories.FormQuestionFactory(form=nfd_form, question=question_table)
+
+    work_item_factory(
+        case=be_instance.case,
+        task_id="nfd",
+        document=nfd_document,
+    )
+    work_item = work_item_factory(
+        case=be_instance.case,
+        task_id="decision",  # settings['APPLICATION']['kt_bern']['CALUMA']['DECISION_TASK']
+    )
+    with pytest.raises((caluma.caluma_core.events.SignalHandlingError, AttributeError)):
+        send_event(
+            post_complete_work_item,
+            sender="post_complete_work_item",
+            work_item=work_item,
+            user=caluma_admin_user,
+            context={},
+        )

@@ -124,6 +124,8 @@ def test_notice_ruling_send_handler(
     admin_user,
     ech_instance,
     ech_instance_case,
+    settings,
+    application_settings,
     instance_state_factory,
     attachment_factory,
     attachment_section_factory,
@@ -259,10 +261,11 @@ def test_change_responsibility_send_handler(
     instance_state_factory,
     service_factory,
     instance_service_factory,
-    ech_instance,
+    ech_instance_case,
     multilang,
     caluma_admin_user,
 ):
+    ech_instance = ech_instance_case().instance
     instance_state = instance_state_factory(name=instance_state_name)
     ech_instance.instance_state = instance_state
     ech_instance.save()
