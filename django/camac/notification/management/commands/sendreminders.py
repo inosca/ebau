@@ -32,11 +32,16 @@ def get_task_trans(count, lang, controlling=False):
 
 
 def render_service_template(
-    addressed_overdue, addressed_not_viewed, controlling_overdue
+    addressed_overdue, addressed_not_viewed, controlling_overdue, service
 ):
+    if settings.APPLICATION.get("IS_MULTILINGUAL"):
+        name = service.trans.filter(language="de").first().name
+    else:
+        name = service.name
+
     text = f"""Guten Tag
 
-Ihre Organisation hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+Ihre Organisation ({name}) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
 
 - {addressed_overdue} überfällige {get_task_trans(addressed_overdue, "de")}
 - {addressed_not_viewed} ungelesene {get_task_trans(addressed_not_viewed, "de")}
@@ -46,6 +51,7 @@ Ihre Organisation hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötige
 """
 
     if settings.APPLICATION.get("IS_MULTILINGUAL", False):
+        name_fr = service.trans.filter(language="fr").first().name
         text = (
             text
             + f"""
@@ -53,7 +59,7 @@ Ihre Organisation hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötige
 
 Bonjour,
 
-Votre organisation a les tâches suivantes dans eBau qui requièrent une attention particulière :
+Votre organisation ({name_fr}) a les tâches suivantes dans eBau qui requièrent une attention particulière :
 
 - {addressed_overdue} {get_task_trans(addressed_overdue, "fr")} en retard
 - {addressed_not_viewed} {get_task_trans(addressed_not_viewed, "fr")} non lue{"s" if addressed_not_viewed != 1 else ""}
@@ -66,8 +72,10 @@ Votre organisation a les tâches suivantes dans eBau qui requièrent une attenti
     return text
 
 
-def render_user_template(addressed_overdue, addressed_not_viewed):
-    text = f"""Guten Tag
+def render_user_template(addressed_overdue, addressed_not_viewed, user):
+    name = f"{user.surname} {user.name}"
+
+    text = f"""Guten Tag {name}
 
 Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 
@@ -82,7 +90,7 @@ Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
             + f"""
 *** version française ***
 
-Bonjour,
+Bonjour {name},
 
 Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
 
@@ -172,7 +180,7 @@ class Command(BaseCommand):
                 emails.append(
                     mail.EmailMessage(
                         subject,
-                        render_user_template(overdue_items, not_viewed_items),
+                        render_user_template(overdue_items, not_viewed_items, user),
                         settings.DEFAULT_FROM_EMAIL,
                         [user.email],
                     )
@@ -201,7 +209,10 @@ class Command(BaseCommand):
                     mail.EmailMessage(
                         subject,
                         render_service_template(
-                            addressed_overdue, addressed_not_viewed, controlling_overdue
+                            addressed_overdue,
+                            addressed_not_viewed,
+                            controlling_overdue,
+                            service,
                         ),
                         settings.DEFAULT_FROM_EMAIL,
                         [service.email],
