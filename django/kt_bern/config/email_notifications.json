@@ -860,7 +860,7 @@
       "language": "de",
       "purpose": "08 Entscheid (Gemeinde/Leitbeh\u00f6rde)",
       "subject": "Information \u00fcber Entscheid (eBau Nr. {{EBAU_NUMBER}}) / Information sur le prononc\u00e9 de la d\u00e9cision (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDer Bauentscheid zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} wurde gef\u00e4llt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\r\n\r\n{{BASE_URL}}/apidocuments/list/list/instance-resource-id/20068/instance-id/{{INSTANCE_ID}}\r\n\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa d\u00e9cision relative au dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} a \u00e9t\u00e9 rendue. Elle est jointe en annexe, accompagn\u00e9e de l'indication des voies de droit.\r\n\r\n{{BASE_URL}}/apidocuments/list/list/instance-resource-id/20068/instance-id/{{INSTANCE_ID}}\r\n\r\n{{LEITBEHOERDE_NAME}}"
+      "body": "Guten Tag\r\n\r\nDer Bauentscheid zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} wurde gef\u00e4llt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa d\u00e9cision relative au dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} a \u00e9t\u00e9 rendue. Elle est jointe en annexe, accompagn\u00e9e de l'indication des voies de droit.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\n{{LEITBEHOERDE_NAME}}"
     }
   },
   {
@@ -872,7 +872,7 @@
       "language": "de",
       "purpose": "08 Entscheid (Amts- und Fachstellen)",
       "subject": "Information \u00fcber Entscheid (eBau Nr. {{EBAU_NUMBER}}) / Information sur le prononc\u00e9 de la d\u00e9cision (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDer Bauentscheid zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} wurde gef\u00e4llt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\r\n\r\n{{BASE_URL}}/apidocuments/list/list/instance-resource-id/20069/instance-id/{{INSTANCE_ID}}\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa d\u00e9cision relative \u00e0 l'affaire portant le num\u00e9ro eBau {{EBAU_NUMBER}} a \u00e9t\u00e9 rendue et vous la trouverez en annexe.\r\n\r\n{{BASE_URL}}/apidocuments/list/list/instance-resource-id/20069/instance-id/{{INSTANCE_ID}}\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}"
+      "body": "Guten Tag\r\n\r\nDer Bauentscheid zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} wurde gef\u00e4llt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa d\u00e9cision relative \u00e0 l'affaire portant le num\u00e9ro eBau {{EBAU_NUMBER}} a \u00e9t\u00e9 rendue et vous la trouverez en annexe.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}"
     }
   },
   {
