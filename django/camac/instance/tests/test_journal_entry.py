@@ -68,6 +68,7 @@ def test_journal_entry_list(admin_client, journal_entry, activation, size):
         ("Municipality", status.HTTP_200_OK),
         ("Canton", status.HTTP_200_OK),
         ("Service", status.HTTP_200_OK),
+        ("Coordination", status.HTTP_200_OK),
     ],
 )
 def test_journal_entry_update(admin_client, journal_entry, activation, status_code):
