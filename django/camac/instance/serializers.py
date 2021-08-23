@@ -58,7 +58,7 @@ from camac.user.relations import (
 from camac.user.serializers import CurrentGroupDefault, CurrentServiceDefault
 
 from ..utils import get_paper_settings
-from . import document_merge_service, models, validators
+from . import document_merge_service, models, validators, domain_logic
 
 SUBMIT_DATE_CHAPTER = 100001
 SUBMIT_DATE_QUESTION_ID = 20036
@@ -851,39 +851,9 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
     @permission_aware
     def validate(self, data):
-        return data
-
-    def validate_for_municipality(self, data):
-        group = self.context["request"].group
-
-        if settings.APPLICATION["CALUMA"].get("CREATE_IN_PROCESS"):
-            data["instance_state"] = models.InstanceState.objects.get(name="comm")
-
-        if settings.APPLICATION["CALUMA"].get("USE_LOCATION"):
-            if (
-                data.get("location", False)
-                and data["location"] not in group.locations.all()
-            ):
-                raise ValidationError(
-                    "Provided location is not present in group locations"
-                )
-
-            data["location"] = data.get("location", group.locations.first())
-
-        return data
-
-    def validate_for_coordination(self, data):  # pragma: no cover
-        if settings.APPLICATION["CALUMA"].get("CREATE_IN_PROCESS"):
-            # FIXME: Bundesstelle has role "coordination, but is
-            # actually more like a municipality (dossiers start in COMM)
-            is_federal = (
-                self.context["request"].group.service.pk
-                == ur_constants.BUNDESSTELLE_SERVICE_ID
-            )
-            state = "comm" if is_federal else "ext"
-            data["instance_state"] = models.InstanceState.objects.get(name=state)
-
-        return data
+        return domain_logic.CreateInstanceLogic.validate(
+            data, self.context.get("request").group
+        )
 
     @permission_aware
     def should_generate_identifier(self):
