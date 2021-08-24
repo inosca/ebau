@@ -590,7 +590,6 @@ def test_complete_decision(
     be_instance,
     caluma_admin_user,
     application_settings,
-    settings,
     mailoutbox,
     group,
     role,

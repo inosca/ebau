@@ -1,7 +1,6 @@
 import datetime
 from typing import Callable, List, Tuple, Union
 
-import caluma.caluma_core
 import pytest
 from caluma.caluma_core.events import send_event
 from caluma.caluma_form import (
@@ -59,15 +58,12 @@ def nfd_tabelle_document_row(nfd_tabelle_form: caluma_form_models.Form) -> Calla
             caluma_form_factories.AnswerFactory(
                 document=document,
                 question_id="nfd-tabelle-datum-anfrage",
-                # HELP: this is kind of awkward to set both value and date.. is this the way?
-                # value=date_request.strftime(SUBMIT_DATE_FORMAT),
                 date=date_request,
             )
         if date_response:
             caluma_form_factories.AnswerFactory(
                 document=document,
                 question_id="nfd-tabelle-datum-antwort",
-                # value=date_response.strftime(SUBMIT_DATE_FORMAT),
                 date=date_response,
             )
         return document
@@ -101,12 +97,7 @@ def test_summary_instances(admin_client, instance_factory, case_factory):
     "role__name,expected", [("Support", 2), ("Municipality", 1), ("Service", 0)]
 )
 def test_summary_claims(
-    service_factory,
-    admin_client,
-    role,
-    group,
-    nfd_tabelle_document_row,
-    expected,  # noqa
+    service_factory, admin_client, role, group, nfd_tabelle_document_row, expected
 ):
     nfd_tabelle_document_row(group.service_id, "nfd-tabelle-status-beantwortet")
     nfd_tabelle_document_row(group.service_id, "nfd-tabelle-status-entwurf")
@@ -166,9 +157,7 @@ def test_activation_summary(
     )
     with django_assert_num_queries(expected_num_queries):
         response = admin_client.get(reverse("activations-summary"))
-    # test: Support gets data for all
-    # test: Service gets data for own activations
-    # test: other user gets no data
+
     result = response.json()
     assert result["avg-processing-time"] == expected_proc_time_avg
     assert result["deadline-quota"] == expected_deadline_quota
@@ -179,32 +168,27 @@ def test_activation_summary(
 @pytest.mark.parametrize(
     "role__name,case_cycletime,expected_total_cycletime",
     [
-        ("Support", 66, 88),  # add 22 for previously rejected
-        ("Municipality", 66, 88),  # add 22 for previously rejected
+        ("Support", 66, 88),
+        ("Municipality", 66, 88),
         ("Service", 0, 22),
         ("Applicant", 0, 22),
     ],
-)  # noqa
+)
 def test_instance_cycle_time_total(
     db,  # noqa
     be_instance,
     instance_with_case,
     instance_factory,
     instance_state,  # noqa
-    history_entry_factory,
+    instance_service_factory,
+    service_factory,
     history_entry_t_factory,
-    case_factory,
-    activation_factory,
     work_item_factory,
     nfd_tabelle_document_row,
     role,
-    admin_client,
     group,
     docx_decision_factory,
-    application_settings,
-    settings,
     freezer,
-    django_assert_num_queries,
     caluma_admin_user,
     case_cycletime,
     expected_total_cycletime,
@@ -220,12 +204,6 @@ def test_instance_cycle_time_total(
     @return:
     """
 
-    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
-        "MASTER_DATA"
-    ]
-
-    # For access to various fixtures functions for creating rejected applications are defined
-    # here.
     def rejected_application_factory(
         parent_application: Instance, offset: int = 30, duration: int = 5
     ) -> Instance:
@@ -241,16 +219,17 @@ def test_instance_cycle_time_total(
         """
         instance_state_finished, created = InstanceState.objects.get_or_create(
             name="finished"
-        )  # HELP: what's the right way to do this
+        )
         instance_state_rejected, created = InstanceState.objects.get_or_create(
             name="rejected"
+        )
+        freezer.move_to(
+            parent_application.creation_date - datetime.timedelta(days=offset)
         )
         rejected_application = instance_with_case(
             instance_factory(
                 instance_state=instance_state_finished,
                 previous_instance_state=instance_state_rejected,
-                creation_date=parent_application.creation_date
-                - datetime.timedelta(days=offset),
             )
         )
         freezer.move_to(
@@ -287,27 +266,21 @@ def test_instance_cycle_time_total(
         """
         if not iterations:
             return parent
-        else:
-            new_parent = rejected_application_factory(parent, *iterations.pop())
-            return create_nest_rejected_applications(new_parent, iterations)
 
-    previously_rejected_iterations = [(30, 5), (30, 5), (12, 12)]
+        new_parent = rejected_application_factory(parent, *iterations.pop())
+        return create_nest_rejected_applications(new_parent, iterations)
+
+    previously_rejected_iterations = [(30, 5), (30, 5), (12, 12), (11, 0)]
     create_nest_rejected_applications(be_instance, previously_rejected_iterations)
-    be_instance.case.meta.update(
-        {
-            "submit-date": be_instance.creation_date.strftime(SUBMIT_DATE_FORMAT),
-            "paper-submit-date": be_instance.creation_date.strftime(SUBMIT_DATE_FORMAT),
-        }
-    )
-    be_instance.case.save()
+
     docx_decision_factory(
         instance=be_instance,
         decision_date=(
             be_instance.creation_date + datetime.timedelta(days=case_cycletime)
         ).date(),
     )
-    # In order to test correct subtraction of time awaiting responses from applicant
-    # overlap of multiple requests must be counted no more than once
+
+    # Ensure overlap of multiple requests are not counted double
     nfd_form = caluma_form_models.Form.objects.get(slug="nfd")
     nfd_document = caluma_form_factories.DocumentFactory(form=nfd_form)
     question_table = caluma_form_factories.QuestionFactory(
@@ -319,6 +292,23 @@ def test_instance_cycle_time_total(
         case=be_instance.case,
         task_id="nfd",
         document=nfd_document,
+    )
+
+    # the following 2 blocks are neccessary for satisfying prerequisites
+    # for the `post_complete_decision` signal
+    instance_service_factory(
+        instance=be_instance,
+        service=service_factory(
+            trans__name="Leitbehörde Bern",
+            trans__language="de",
+            service_group__name="municipality",
+        ),
+        active=1,
+    )
+    service_factory(
+        trans__name="Baukontrolle Bern",
+        trans__language="de",
+        service_group__name="construction-control",
     )
 
     table_answer = nfd_document.answers.create(question_id="nfd-tabelle-table")
@@ -336,6 +326,7 @@ def test_instance_cycle_time_total(
     date_response_answer.date = None
     date_response_answer.save()
     table_answer.documents.add(doc_no_response_date)
+
     # overlap group 1 adds 5 days
     days_to_subtract = 5
     table_answer.documents.add(
@@ -360,6 +351,7 @@ def test_instance_cycle_time_total(
             family=nfd_document,
         )
     )
+
     # overlap group 2 adds 7 days with three overlapping processes
     # of which one is irrelevant b/c encompassed by the others
     days_to_subtract += 7
@@ -396,6 +388,7 @@ def test_instance_cycle_time_total(
             family=nfd_document,
         )
     )
+
     # single claim without overlap of 2 days
     nfd_tabelle_document_row(
         group.service_id,
@@ -407,10 +400,7 @@ def test_instance_cycle_time_total(
         family=nfd_document,
     )
     days_to_subtract += 2
-    work_item = work_item_factory(
-        case=be_instance.case,
-        task_id="decision",  # settings['APPLICATION']['kt_bern']['CALUMA']['DECISION_TASK']
-    )
+    work_item = work_item_factory(case=be_instance.case, task_id="decision")
 
     send_event(
         post_complete_work_item,
@@ -432,17 +422,9 @@ def test_handles_incomplete_cases(
     db,
     group,
     be_instance,
-    docx_decision_factory,
-    nfd_tabelle_document_row,
-    nfd_tabelle_form,
     work_item_factory,
     caluma_admin_user,
-    settings,
-    application_settings,
 ):
-    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
-        "MASTER_DATA"
-    ]
     be_instance.case.meta.update(
         {
             "submit-date": be_instance.creation_date.strftime(SUBMIT_DATE_FORMAT),
@@ -462,15 +444,13 @@ def test_handles_incomplete_cases(
         task_id="nfd",
         document=nfd_document,
     )
-    work_item = work_item_factory(
-        case=be_instance.case,
-        task_id="decision",  # settings['APPLICATION']['kt_bern']['CALUMA']['DECISION_TASK']
+    work_item = work_item_factory(case=be_instance.case, task_id="decision")
+    send_event(
+        post_complete_work_item,
+        sender="post_complete_work_item",
+        work_item=work_item,
+        user=caluma_admin_user,
+        context={},
     )
-    with pytest.raises((caluma.caluma_core.events.SignalHandlingError, AttributeError)):
-        send_event(
-            post_complete_work_item,
-            sender="post_complete_work_item",
-            work_item=work_item,
-            user=caluma_admin_user,
-            context={},
-        )
+    assert not be_instance.case.meta.get("total_cycle_time")
+    assert not be_instance.case.meta.get("net_cycle_time")
