@@ -266,6 +266,7 @@ build-kt_uri-production:
     KEYCLOAK_HOST: https://camac.ur.ch
     APPLICATION: kt_uri
     COMPOSE: docker-compose -f compose/kt_uri.yml -f compose/kt_uri-prod.yml
+    CONTAINERS: ember-camac-ng ember-caluma-portal django php db
   only:
     - production-ur
 
