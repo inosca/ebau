@@ -40,6 +40,7 @@ def ech_instance(
     camac_answer_factory(
         instance=inst_serv.instance, question__pk=QUESTION_EBAU_NR, answer="2020-1"
     )
+
     return inst_serv.instance
 
 
@@ -61,6 +62,7 @@ def ech_instance_case(ech_instance, caluma_admin_user):
                 ),
             },
         )
+
         ech_instance.case = case
         ech_instance.save()
 

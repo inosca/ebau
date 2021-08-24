@@ -822,7 +822,6 @@ def test_instance_finalize(
     role,
     be_instance,
     service_group,
-    case_factory,
     instance_state,
     instance_state_factory,
     construction_control_for,
@@ -848,6 +847,7 @@ def test_instance_finalize(
             "recipient_types": ["applicant", "construction_control"],
         }
     ]
+
     be_instance.case.meta.update(
         {
             "submit-date": be_instance.creation_date.strftime(SUBMIT_DATE_FORMAT),
@@ -855,6 +855,7 @@ def test_instance_finalize(
         }
     )
     be_instance.case.save()
+
     if instance_state.name == "sb2":
         docx_decision_factory(
             decision=be_constants.DECISIONS_BEWILLIGT, instance=be_instance
