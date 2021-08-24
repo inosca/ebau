@@ -389,9 +389,10 @@ def test_copy_without_permission(
     assert copy_resp.status_code == status.HTTP_400_BAD_REQUEST
 
 
+@pytest.mark.freeze_time("2018-04-17")
 @pytest.mark.parametrize(
-    "instance_state__name,instance__creation_date",
-    [("new", "2018-04-17T09:31:56+02:00")],
+    "instance_state__name",
+    ["new"],
 )
 @pytest.mark.parametrize(
     "role__name,instance__user,editable",
