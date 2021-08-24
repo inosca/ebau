@@ -14,3 +14,8 @@ class ClaimSummarySerializer(serializers.Serializer):
 class ActivationSummarySerializer(serializers.Serializer):
     class Meta:
         resource_name = "activations-summary"
+
+
+class InstancesCycleTimeSerializer(serializers.Serializer):
+    class Meta:
+        resource_name = "instances-cycle-times"

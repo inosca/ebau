@@ -10,6 +10,7 @@ from caluma.caluma_form import (
 from caluma.caluma_workflow.events import post_complete_work_item
 from dateutil import relativedelta
 from django.urls import reverse
+from django.utils import timezone
 
 from camac.instance.models import Instance, InstanceState
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
@@ -410,7 +411,7 @@ def test_instance_cycle_time_total(
         context={},
     )
     be_instance.refresh_from_db()
-    assert be_instance.case.meta["net_cycle_time"] == (
+    assert be_instance.case.meta["net-cycle-time"] == (
         expected_total_cycletime
         + sum([x[1] for x in previously_rejected_iterations])
         - days_to_subtract
@@ -454,3 +455,67 @@ def test_handles_incomplete_cases(
     )
     assert not be_instance.case.meta.get("total_cycle_time")
     assert not be_instance.case.meta.get("net_cycle_time")
+
+
+@pytest.mark.freeze_time
+@pytest.mark.parametrize(
+    "role__name,has_access",
+    [
+        ("Support", True),
+        ("Municipality", True),
+        ("Service", False),
+        ("Applicant", False),
+    ],
+)
+def test_instance_cycle_time_view(
+    db,
+    group,
+    role,
+    be_instance,  # creates required objects for workflow_api
+    instance_service_factory,
+    instance_factory,
+    instance_with_case,
+    admin_user,
+    admin_client,
+    docx_decision_factory,
+    freezer,
+    has_access,
+):
+
+    cycle_time = 4
+    num_years = 3
+    years = []
+    now = timezone.now()
+    for year_offset in range(num_years):
+        then = now - relativedelta.relativedelta(years=year_offset)
+        years.append(then.year)
+        freezer.move_to(then)
+        now = timezone.now()
+        cycle_time += cycle_time * year_offset
+        for i in range(1, 4):
+            instance = instance_with_case(
+                instance_factory(user=admin_user, creation_date=now)
+            )
+            instance_service_factory(instance=instance, service=group.service)
+            submitted = instance.creation_date
+            instance.case.meta.update(
+                {
+                    "submit-date": submitted.strftime(SUBMIT_DATE_FORMAT),
+                    "paper-submit-date": (
+                        submitted + datetime.timedelta(days=4)
+                    ).strftime(SUBMIT_DATE_FORMAT),
+                    "total-cycle-time": cycle_time,
+                    "net-cycle-time": cycle_time - cycle_time // 3,
+                }
+            )
+            instance.case.save()
+            docx_decision_factory(
+                instance=instance,
+                decision_date=(submitted + datetime.timedelta(days=(3 * i))).date(),
+            )
+            cycle_time += 6
+    resp = admin_client.get(reverse("instances-cycle-times")).json()
+    assert (len(resp) > 0) == has_access
+    if has_access:
+        # assert there is a value for each year for which decisions have been created
+        assert sorted([year_data["year"] for year_data in resp]) == sorted(years)
