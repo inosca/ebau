@@ -379,9 +379,12 @@ def nfd_completion_date(
 
 
 @pytest.fixture
-def caluma_config_be(settings, use_caluma_form):
-    settings.APPLICATION["CALUMA"] = deepcopy(
+def caluma_config_be(settings, application_settings, use_caluma_form):
+    application_settings["CALUMA"] = deepcopy(
         settings.APPLICATIONS["kt_bern"]["CALUMA"]
+    )
+    application_settings["MASTER_DATA"] = deepcopy(
+        settings.APPLICATIONS["kt_bern"]["MASTER_DATA"]
     )
 
 
@@ -727,7 +730,6 @@ def be_instance(instance_service, caluma_workflow_config_be, instance_with_case)
     instance = instance_with_case(
         instance_service.instance, context={"instance": instance_service.instance}
     )
-    instance.refresh_from_db()
     instance.case.meta.update(
         {
             "submit-date": instance.creation_date.strftime(SUBMIT_DATE_FORMAT),

@@ -59,7 +59,6 @@ def _compute_total_idle_days(
 
     merged_ranges = []
     elim = []
-    # TODO:
     for i in range(len(sorted_durations)):
         if i in elim:
             continue
@@ -107,7 +106,9 @@ def _retrieve_waiting_periods(
         response_answer = row.answers.filter(
             question_id="nfd-tabelle-datum-antwort"
         ).first()
-        if request_answer.date is None or response_answer.date is None:
+        if (request_answer and request_answer.date) is None or (
+            response_answer and response_answer.date
+        ) is None:
             continue
         results.append((request_answer.date, response_answer.date))
     return sorted(results, key=lambda pair: pair[0])
@@ -115,6 +116,9 @@ def _retrieve_waiting_periods(
 
 def _get_cycle_time(instance: Instance) -> Tuple[int]:
     extra_time = _get_rejected_instance_cycletime(instance)
+    # If predating instance has no duration it's pointless to calculate waiting periods
+    if not extra_time:
+        return 0, 0
     idle_time = _compute_total_idle_days(_retrieve_waiting_periods(instance))
     return extra_time, idle_time
 
@@ -137,7 +141,7 @@ def compute_cycle_time(instance: Instance) -> Dict:
             instance.decision.decision_date - cycle_start.date()
         ).days
     except AttributeError:
-        return
+        return {}
 
     cumulated_idle_time = _compute_total_idle_days(_retrieve_waiting_periods(instance))
 
@@ -145,8 +149,6 @@ def compute_cycle_time(instance: Instance) -> Dict:
         extra_time, idle_time = _get_cycle_time(inst)
         cumulated_extra_time += extra_time
         cumulated_idle_time += idle_time
-
-    # TODO: cumulate and substract idle_time of previously recjected instances
 
     return dict(
         total_cycle_time=cumulated_extra_time,

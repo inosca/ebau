@@ -124,8 +124,6 @@ def test_notice_ruling_send_handler(
     admin_user,
     ech_instance,
     ech_instance_case,
-    settings,
-    application_settings,
     instance_state_factory,
     attachment_factory,
     attachment_section_factory,
