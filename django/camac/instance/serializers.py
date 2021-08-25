@@ -690,7 +690,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
     @permission_aware
     def validate(self, data):
         return domain_logic.CreateInstanceLogic.validate(
-            data, self.context.get("request").group
+            self.context.get("request").group, data
         )
 
     instance_field = None
@@ -706,13 +706,14 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         visible_instances = super().get_queryset(group)
 
         return domain_logic.CreateInstanceLogic.create(
-            self.initial_data.get("is_modification", False),
-            self.initial_data.get("caluma_form", None),
             validated_data,
-            self.context.get("request").caluma_info.context.user,
-            group,
-            self.context["request"],
-            visible_instances,
+            caluma_user=self.context["request"].caluma_info.context.user,
+            camac_user=self.context["request"].user,
+            group=group,
+            lead=self.initial_data.get("lead", None),
+            modification=self.initial_data.get("is_modification", False),
+            calumaform=self.initial_data.get("caluma_form", None),
+            visible_instances=visible_instances,
         )
 
     def get_rejection_feedback(self, instance):
