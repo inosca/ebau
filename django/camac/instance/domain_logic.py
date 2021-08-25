@@ -197,7 +197,7 @@ class CreateInstanceLogic:
         is_paper,
         group,
         user,
-        request,
+        lead,
     ):
 
         if source_instance:
@@ -252,7 +252,6 @@ class CreateInstanceLogic:
             )
 
             # Synchronize the 'Leitbehörde' for display in the dashboard
-            lead = request.data["lead"]
             caluma_api.update_or_create_answer(
                 case.document,
                 "leitbehoerde",
@@ -402,8 +401,32 @@ class CreateInstanceLogic:
 
     @staticmethod
     def create(
-        modification, calumaform, data, user, group, request, visible_instances=None
+        data,
+        user,
+        camac_user,
+        group,
+        lead="",
+        modification=False,
+        calumaform=None,
+        visible_instances=None,
     ):
+        """Create an instance.
+
+        :param data: A dict with the data to create the instance
+        :type  data: dict
+
+        :param user: The caluma user
+        :type  user: object
+
+        :param camac_user: The camac user
+        :type  camac_user: object
+
+        :param group: The group for which the instance will be created
+        :type  group: object
+
+        :return: The created instance.
+        :rtype: object
+        """
         # Docstring!
         copy_source = data.pop("copy_source", None)
         extend_validity_for = data.pop("extend_validity_for", None)
@@ -457,10 +480,10 @@ class CreateInstanceLogic:
         instance = Instance.objects.create(**data)
 
         instance.involved_applicants.create(
-            user=request.user,
-            invitee=request.user,
+            user=camac_user,
+            invitee=camac_user,
             created=timezone.now(),
-            email=request.user.email,
+            email=camac_user.email,
         )
 
         if settings.APPLICATION["CALUMA"].get("USE_LOCATION"):  # pragma: no cover
@@ -500,7 +523,7 @@ class CreateInstanceLogic:
             is_paper,
             group,
             user,
-            request,
+            lead,
         )
 
         CreateInstanceLogic.initialize_camac(
