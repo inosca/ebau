@@ -20,8 +20,8 @@ from django.utils.timezone import now
 
 from camac.constants import kt_uri as uri_constants
 from camac.core.models import Answer, ChapterPage
-from camac.instance.models import Instance, JournalEntry
 from camac.instance.domain_logic import CreateInstanceLogic
+from camac.instance.models import Instance, JournalEntry
 from camac.migrate_to_caluma import question_map
 from camac.user.models import Location, User
 
