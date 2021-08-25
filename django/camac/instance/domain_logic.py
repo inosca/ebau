@@ -44,7 +44,7 @@ def permission_aware(group, *args, **kwargs):
 
 class CreateInstanceLogic:
     @staticmethod
-    def validate(data, group):
+    def validate(group, data):
         return permission_aware(group, data) or data
 
     @staticmethod
@@ -151,7 +151,7 @@ class CreateInstanceLogic:
             sequence = int(max_identifier[-3:])
 
             identifier = "{0}-{1}-{2}".format(
-                identifier_start, year, str(sequence + 1).zfill(3)
+                identifier_start, str(year).zfill(2), str(sequence + 1).zfill(3)
             )
 
         return identifier
@@ -197,7 +197,7 @@ class CreateInstanceLogic:
         is_paper,
         group,
         user,
-        request,
+        lead,
     ):
 
         if source_instance:
@@ -252,7 +252,6 @@ class CreateInstanceLogic:
             )
 
             # Synchronize the 'Leitbehörde' for display in the dashboard
-            lead = request.data["lead"]
             caluma_api.update_or_create_answer(
                 case.document,
                 "leitbehoerde",
@@ -402,8 +401,32 @@ class CreateInstanceLogic:
 
     @staticmethod
     def create(
-        modification, calumaform, data, user, group, request, visible_instances=None
+        data,
+        caluma_user,
+        camac_user,
+        group,
+        lead="",
+        modification=False,
+        calumaform=None,
+        visible_instances=None,
     ):
+        """Create an instance.
+
+        :param data: A dict with the data to create the instance
+        :type  data: dict
+
+        :param user: The caluma user
+        :type  user: object
+
+        :param camac_user: The camac user
+        :type  camac_user: object
+
+        :param group: The group for which the instance will be created
+        :type  group: object
+
+        :return: The created instance.
+        :rtype: object
+        """
         # Docstring!
         copy_source = data.pop("copy_source", None)
         extend_validity_for = data.pop("extend_validity_for", None)
@@ -457,10 +480,10 @@ class CreateInstanceLogic:
         instance = Instance.objects.create(**data)
 
         instance.involved_applicants.create(
-            user=request.user,
-            invitee=request.user,
+            user=camac_user,
+            invitee=camac_user,
             created=timezone.now(),
-            email=request.user.email,
+            email=camac_user.email,
         )
 
         if settings.APPLICATION["CALUMA"].get("USE_LOCATION"):  # pragma: no cover
@@ -481,7 +504,7 @@ class CreateInstanceLogic:
         case = workflow_api.start_case(
             workflow=workflow,
             form=form_models.Form.objects.get(pk=caluma_form),
-            user=user,
+            user=caluma_user,
             meta=case_meta,
         )
 
@@ -499,8 +522,8 @@ class CreateInstanceLogic:
             is_modification,
             is_paper,
             group,
-            user,
-            request,
+            caluma_user,
+            lead,
         )
 
         CreateInstanceLogic.initialize_camac(
@@ -511,7 +534,7 @@ class CreateInstanceLogic:
             is_paper,
             extend_validity_for,
             case,
-            user,
+            caluma_user,
         )
 
         return instance
