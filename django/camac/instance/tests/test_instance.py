@@ -12,7 +12,7 @@ from rest_framework import status
 
 from camac.constants import kt_uri as uri_constants
 from camac.core.models import InstanceLocation, WorkflowEntry
-from camac.instance import serializers
+from camac.instance import domain_logic, serializers
 from camac.instance.models import HistoryEntryT
 
 
@@ -563,7 +563,7 @@ def test_instance_generate_identifier(
     else:
         instance_factory(identifier=identifier)
 
-    new_identifier = serializers.generate_identifier(instance)
+    new_identifier = domain_logic.CreateInstanceLogic.generate_identifier(instance)
 
     assert new_identifier == prefix + "11-17-011"
 
