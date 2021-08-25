@@ -7,6 +7,8 @@
       <div class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
         {{#if @journalEntry.visibility}}
           <i title={{t "journal.visibleForAuthorities" }} ><FaIcon @icon="eye"/></i>
+        {{else}}
+          <i title={{t "journal.visibleForOwnOrganization" }} ><FaIcon @icon="eye-slash"/></i>
         {{/if}}
         <span>
           {{format-date

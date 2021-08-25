@@ -8,6 +8,8 @@ journal:
   noEntries: "Keine Journaleinträge vorhanden"
 
   visibility: "Sichtbarkeit des Eintrags"
+  visibilityFor: "Sichtbarkeit:"
   visibilityOwn: "Eigene Organisation"
   visibilityAuthorities: "Alle Beteiligten"
-  visibleForAuthorities: "Sichtbar für alle Fachstellen"
+  visibleForAuthorities: "Sichtbar für alle Beteiligten"
+  visibleForOwnOrganization: "Sichtbar für eigene Organisation"
