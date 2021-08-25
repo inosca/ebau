@@ -66,10 +66,6 @@ request_logger = getLogger("django.request")
 caluma_api = CalumaApi()
 
 
-def generate_identifier(instance, year=None):
-    return domain_logic.CreateInstanceLogic.generate_identifier(instance, year)
-
-
 class NewInstanceStateDefault(object):
     def __call__(self):
         return models.InstanceState.objects.get(name="new")
@@ -922,7 +918,9 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
         if settings.APPLICATION["CALUMA"].get("GENERATE_IDENTIFIER"):
             # Give dossier a unique dossier number
-            case.meta["dossier-number"] = generate_identifier(instance)
+            case.meta[
+                "dossier-number"
+            ] = domain_logic.CreateInstanceLogic.generate_identifier(instance)
             case.save()
 
         self._generate_and_store_pdf(instance)
@@ -1465,7 +1463,9 @@ class InstanceSubmitSerializer(InstanceSerializer):
         if location is None:
             raise exceptions.ValidationError(_("No location assigned."))
 
-        data["identifier"] = generate_identifier(self.instance)
+        data["identifier"] = domain_logic.CreateInstanceLogic.generate_identifier(
+            self.instance
+        )
         form_validator = validators.FormDataValidator(self.instance)
         form_validator.validate()
 

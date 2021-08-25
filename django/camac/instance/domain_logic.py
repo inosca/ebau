@@ -1,4 +1,5 @@
 import json
+import inspect
 from uuid import uuid4
 
 from caluma.caluma_form import api as form_api, models as form_models
@@ -32,17 +33,22 @@ WORKFLOW_ITEM_DOSSIER_ERFASST_UR = 12
 caluma_api = CalumaApi()
 
 
+def permission_aware(group, *args, **kwargs):
+    method_name = inspect.stack()[1].function
+    perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
+    perm = perms.get(group.role.name)
+    permission_func = getattr(CreateInstanceLogic, f"{method_name}_for_{perm}", None)
+
+    return permission_func(group, *args, **kwargs) if permission_func else None
+
+
 class CreateInstanceLogic:
     @staticmethod
     def validate(data, group):
-        perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
-        perm = perms.get(group.role.name)
-        permission_func = getattr(CreateInstanceLogic, f"validate_for_{perm}", None)
-
-        return permission_func(data, group) if permission_func else data
+        return permission_aware(group, data) or data
 
     @staticmethod
-    def validate_for_municipality(data, group):
+    def validate_for_municipality(group, data):
         if settings.APPLICATION["CALUMA"].get("CREATE_IN_PROCESS"):
             data["instance_state"] = models.InstanceState.objects.get(name="comm")
 
@@ -60,7 +66,7 @@ class CreateInstanceLogic:
         return data
 
     @staticmethod
-    def validate_for_coordination(data, group):  # pragma: no cover
+    def validate_for_coordination(group, data):  # pragma: no cover
         if settings.APPLICATION["CALUMA"].get("CREATE_IN_PROCESS"):
             # FIXME: Bundesstelle has role "coordination, but is
             # actually more like a municipality (dossiers start in COMM)
@@ -152,20 +158,14 @@ class CreateInstanceLogic:
 
     @staticmethod
     def should_generate_identifier(group):
-        perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
-        perm = perms.get(group.role.name)
-        permission_func = getattr(
-            CreateInstanceLogic, f"should_generate_identifier_for_{perm}", None
-        )
-
-        return permission_func() if permission_func else False
+        return permission_aware(group) or False
 
     @staticmethod
-    def should_generate_identifier_for_municipality():
+    def should_generate_identifier_for_municipality(group):
         return settings.APPLICATION["CALUMA"].get("GENERATE_IDENTIFIER")
 
     @staticmethod
-    def should_generate_identifier_for_coordination():
+    def should_generate_identifier_for_coordination(group):
         return settings.APPLICATION["CALUMA"].get("GENERATE_IDENTIFIER")
 
     @staticmethod
