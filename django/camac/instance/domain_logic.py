@@ -1,5 +1,5 @@
-import json
 import inspect
+import json
 from uuid import uuid4
 
 from caluma.caluma_form import api as form_api, models as form_models
