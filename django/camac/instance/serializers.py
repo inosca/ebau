@@ -730,7 +730,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             caluma_form in settings.APPLICATION["CALUMA"].get("INTERNAL_FORMS", [])
             and not is_paper
         ):
-            raise ValidationError(
+            raise exceptions.ValidationError(
                 _(
                     "The form '%(form)s' can only be used by an internal role"
                     % {"form": caluma_form}
