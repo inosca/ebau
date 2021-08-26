@@ -149,16 +149,17 @@ class CreateInstanceLogic:
 
         return identifier
 
-    @staticmethod
-    def should_generate_identifier(group):
-        return permission_aware(group) or False
+    @classmethod
+    @permission_aware
+    def should_generate_identifier(cls, group):
+        return False
 
-    @staticmethod
-    def should_generate_identifier_for_municipality(group):
+    @classmethod
+    def should_generate_identifier_for_municipality(cls, group):
         return settings.APPLICATION["CALUMA"].get("GENERATE_IDENTIFIER")
 
-    @staticmethod
-    def should_generate_identifier_for_coordination(group):
+    @classmethod
+    def should_generate_identifier_for_coordination(cls, group):
         return settings.APPLICATION["CALUMA"].get("GENERATE_IDENTIFIER")
 
     @staticmethod
@@ -488,7 +489,7 @@ class CreateInstanceLogic:
 
         case_meta = {"camac-instance-id": instance.pk}
 
-        if CreateInstanceLogic.should_generate_identifier(group):
+        if CreateInstanceLogic.should_generate_identifier(group=group):
             # Give dossier a unique dossier number
             case_meta["dossier-number"] = CreateInstanceLogic.generate_identifier(
                 instance, year
