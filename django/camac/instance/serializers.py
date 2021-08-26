@@ -4,29 +4,24 @@ from collections import namedtuple
 from datetime import timedelta
 from io import StringIO
 from logging import getLogger
-from uuid import uuid4
 
 from caluma.caluma_core.events import send_event
-from caluma.caluma_form import api as form_api, models as form_models
+from caluma.caluma_form import models as form_models
 from caluma.caluma_form.validators import CustomValidationError
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
 from caluma.caluma_workflow.events import post_create_work_item
 from django.conf import settings
 from django.contrib.auth import get_user_model
-from django.contrib.postgres.fields.jsonb import KeyTextTransform
-from django.core.files.base import ContentFile
 from django.core.management import call_command
 from django.db import transaction
-from django.db.models import Max, Q
+from django.db.models import Q
 from django.utils import timezone
 from django.utils.translation import gettext as _, gettext_noop
 from rest_framework import exceptions
-from rest_framework.exceptions import ValidationError
 from rest_framework_json_api import relations, serializers
 
 from camac.caluma.api import CalumaApi
-from camac.caluma.extensions.data_sources import Municipalities
-from camac.constants import kt_bern as be_constants, kt_uri as ur_constants
+from camac.constants import kt_bern as be_constants
 from camac.core.models import (
     Answer,
     InstanceLocation,
@@ -58,7 +53,7 @@ from camac.user.relations import (
 from camac.user.serializers import CurrentGroupDefault, CurrentServiceDefault
 
 from ..utils import get_paper_settings
-from . import document_merge_service, models, validators
+from . import document_merge_service, domain_logic, models, validators
 
 SUBMIT_DATE_CHAPTER = 100001
 SUBMIT_DATE_QUESTION_ID = 20036
@@ -69,68 +64,6 @@ WORKFLOW_ITEM_DOSSIER_ERFASST_UR = 12
 request_logger = getLogger("django.request")
 
 caluma_api = CalumaApi()
-
-
-def generate_identifier(instance, year=None):
-    """
-    Build identifier for instance.
-
-    Format for normal forms:
-    two last digits of communal location number
-    year in two digits
-    unique sequence
-    Example: 11-18-001
-
-    Format for special forms:
-    two letter abbreviation of form
-    year in two digits
-    unique sequence
-    Example: AV-20-014
-    """
-    identifier = instance.identifier
-    if not identifier:
-        year = (year or timezone.now().year) % 100
-
-        name = instance.form.name
-        abbreviations = settings.APPLICATION.get("INSTANCE_IDENTIFIER_FORM_ABBR", {})
-        meta = models.FormField.objects.filter(instance=instance, name="meta").first()
-        if meta:
-            meta_value = json.loads(meta.value)
-            name = meta_value["formType"]
-
-        if name in abbreviations.keys():
-            identifier_start = abbreviations[name]
-        elif settings.APPLICATION.get("SHORT_DOSSIER_NUMBER", False):
-            identifier_start = instance.location.communal_federal_number[-2:]
-        else:
-            identifier_start = instance.location.communal_federal_number
-
-        start = "{0}-{1}-".format(identifier_start, year)
-
-        if settings.APPLICATION["CALUMA"].get("SAVE_DOSSIER_NUMBER_IN_CALUMA"):
-            max_identifier = (
-                workflow_models.Case.objects.filter(
-                    **{"meta__dossier-number__startswith": start}
-                )
-                .annotate(dossier_nr=KeyTextTransform("dossier-number", "meta"))
-                .aggregate(max_identifier=Max("dossier_nr"))["max_identifier"]
-                or "00-00-000"
-            )
-        else:
-            max_identifier = (
-                models.Instance.objects.filter(identifier__startswith=start).aggregate(
-                    max_identifier=Max("identifier")
-                )["max_identifier"]
-                or "00-00-000"
-            )
-
-        sequence = int(max_identifier[-3:])
-
-        identifier = "{0}-{1}-{2}".format(
-            identifier_start, year, str(sequence + 1).zfill(3)
-        )
-
-    return identifier
 
 
 class NewInstanceStateDefault(object):
@@ -225,8 +158,6 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
 
     @transaction.atomic
     def create(self, validated_data):
-        validated_data["modification_date"] = timezone.now()
-        validated_data["creation_date"] = timezone.now()
         instance = super().create(validated_data)
 
         instance.involved_applicants.create(
@@ -756,144 +687,11 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
         return " ".join([str(name), *parts])
 
-    def _copy_applicants(self, source, target):
-        for applicant in source.involved_applicants.all():
-            target.involved_applicants.update_or_create(
-                invitee=applicant.invitee,
-                defaults={
-                    "created": timezone.now(),
-                    "user": applicant.user,
-                    "email": applicant.email,
-                },
-            )
-
-    def _copy_attachments(self, source, target):
-        for attachment in source.attachments.all():
-            try:
-                new_file = ContentFile(attachment.path.read())
-            except FileNotFoundError:  # pragma: no cover
-                # file does not exist so use the old file
-                new_file = attachment.path
-
-            # store sections first
-            sections = attachment.attachment_sections.all()
-
-            # copy the file
-            new_file.name = attachment.path.name
-            attachment.path = new_file
-
-            attachment.attachment_id = None
-            attachment.instance = target
-            attachment.uuid = uuid4()
-            attachment.save()
-
-            attachment.attachment_sections.set(sections)
-            attachment.save()
-
-    def _copy_extend_validity_answers(self, source, target):
-        old_document = source.case.document
-        new_document = target.case.document
-
-        for answer in old_document.answers.filter(
-            question_id__in=settings.APPLICATION["CALUMA"].get(
-                "EXTEND_VALIDITY_COPY_QUESTIONS", []
-            )
-        ):
-            form_api.save_answer(
-                answer.question,
-                new_document,
-                self.context["request"].caluma_info.context.user,
-                answer.value,
-            )
-
-        for slug in settings.APPLICATION["CALUMA"].get(
-            "EXTEND_VALIDITY_COPY_TABLE_QUESTIONS", []
-        ):
-            caluma_api.copy_table_answer(slug, slug, old_document, new_document)
-
-        form_api.save_answer(
-            form_models.Question.objects.get(pk="dossiernummer"),
-            new_document,
-            self.context["request"].caluma_info.context.user,
-            int(source.pk),
-        )
-
-    def _copy_ebau_number(self, source_instance, target_instance, case):
-        ebau_number = caluma_api.get_ebau_number(source_instance)
-        case.meta["ebau-number"] = ebau_number
-        case.save()
-        Answer.objects.create(
-            instance=target_instance,
-            question_id=be_constants.QUESTION_EBAU_NR_EXISTS,
-            chapter_id=be_constants.CHAPTER_EBAU_NR,
-            item=1,
-            answer="yes",
-        )
-        Answer.objects.create(
-            instance=target_instance,
-            question_id=be_constants.QUESTION_EBAU_NR,
-            chapter_id=be_constants.CHAPTER_EBAU_NR,
-            item=1,
-            answer=ebau_number,
-        )
-
-    def _set_creation_date(self, instance):
-        creation_date = timezone.now().strftime(SUBMIT_DATE_FORMAT)
-        workflow_item = WorkflowItem.objects.get(pk=WORKFLOW_ITEM_DOSSIER_ERFASST_UR)
-
-        WorkflowEntry.objects.create(
-            workflow_date=creation_date,
-            instance=instance,
-            workflow_item=workflow_item,
-            group=1,
-        )
-        CalumaApi().set_submit_date(instance.pk, creation_date)
-
     @permission_aware
     def validate(self, data):
-        return data
-
-    def validate_for_municipality(self, data):
-        group = self.context["request"].group
-
-        if settings.APPLICATION["CALUMA"].get("CREATE_IN_PROCESS"):
-            data["instance_state"] = models.InstanceState.objects.get(name="comm")
-
-        if settings.APPLICATION["CALUMA"].get("USE_LOCATION"):
-            if (
-                data.get("location", False)
-                and data["location"] not in group.locations.all()
-            ):
-                raise ValidationError(
-                    "Provided location is not present in group locations"
-                )
-
-            data["location"] = data.get("location", group.locations.first())
-
-        return data
-
-    def validate_for_coordination(self, data):  # pragma: no cover
-        if settings.APPLICATION["CALUMA"].get("CREATE_IN_PROCESS"):
-            # FIXME: Bundesstelle has role "coordination, but is
-            # actually more like a municipality (dossiers start in COMM)
-            is_federal = (
-                self.context["request"].group.service.pk
-                == ur_constants.BUNDESSTELLE_SERVICE_ID
-            )
-            state = "comm" if is_federal else "ext"
-            data["instance_state"] = models.InstanceState.objects.get(name=state)
-
-        return data
-
-    @permission_aware
-    def should_generate_identifier(self):
-        return False
-
-    def should_generate_identifier_for_municipality(self):
-        return settings.APPLICATION["CALUMA"].get("GENERATE_IDENTIFIER")
-
-    def should_generate_identifier_for_coordination(self):
-        return settings.APPLICATION["CALUMA"].get("GENERATE_IDENTIFIER")
+        return domain_logic.CreateInstanceLogic.validate(
+            data, group=self.context.get("request").group
+        )
 
     instance_field = None
 
@@ -903,26 +701,24 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         return models.Instance.objects.all().select_related(instance_state_expr)
 
     def create(self, validated_data):
+        group = self.context.get("request").group
+        visible_instances = super().get_queryset(group)
 
         copy_source = validated_data.pop("copy_source", None)
-        group = self.context["request"].group
-        queryset = super().get_queryset(group)
-        extend_validity_for = validated_data.pop("extend_validity_for", None)
+        is_modification = self.initial_data.get("is_modification", False)
 
         source_instance = None
         if copy_source:
             try:
-                source_instance = queryset.get(pk=copy_source)
+                source_instance = visible_instances.get(pk=copy_source)
             except models.Instance.DoesNotExist:
                 raise exceptions.ValidationError(_("Source instance not found"))
 
             caluma_form = caluma_api.get_form_slug(source_instance)
-            is_modification = self.initial_data.get("is_modification", False)
             is_paper = caluma_api.is_paper(source_instance)
         else:
-            caluma_form = self.initial_data.get("caluma_form")
-
             is_modification = False
+            caluma_form = self.initial_data.get("caluma_form", None)
             is_paper = (
                 group.service  # group needs to have a service
                 and group.service.service_group.pk
@@ -949,184 +745,17 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         ):
             raise exceptions.ValidationError(_("Project modification is not allowed"))
 
-        form = validated_data.get("form")
-        if form and form.pk in settings.APPLICATION.get("ARCHIVE_FORMS", []):
-            validated_data["instance_state"] = models.InstanceState.objects.get(
-                name="old"
-            )
-
-        year = validated_data.pop("year", None)
-
-        instance = super().create(validated_data)
-
-        if settings.APPLICATION["CALUMA"].get("USE_LOCATION"):  # pragma: no cover
-            self._update_instance_location(instance)
-
-        workflow = workflow_models.Workflow.objects.filter(
-            Q(allow_forms__in=[caluma_form]) | Q(allow_all_forms=True)
-        ).first()
-
-        case_meta = {"camac-instance-id": instance.pk}
-
-        if self.should_generate_identifier():
-            # Give dossier a unique dossier number
-            case_meta["dossier-number"] = generate_identifier(instance, year)
-
-        case = workflow_api.start_case(
-            workflow=workflow,
-            form=form_models.Form.objects.get(pk=caluma_form),
-            user=self.context["request"].caluma_info.context.user,
-            meta=case_meta,
+        return domain_logic.CreateInstanceLogic.create(
+            validated_data,
+            caluma_user=self.context["request"].caluma_info.context.user,
+            camac_user=self.context["request"].user,
+            group=group,
+            lead=self.initial_data.get("lead", None),
+            is_modification=is_modification,
+            is_paper=is_paper,
+            caluma_form=caluma_form,
+            source_instance=source_instance,
         )
-
-        instance.case = case
-        instance.save()
-
-        # Reuse the SET_SUBMIT_DATE_CAMAC_WORKFLOW flag because since this defines the workflow date usage
-        if (
-            settings.APPLICATION.get("SET_SUBMIT_DATE_CAMAC_WORKFLOW")
-            and validated_data["group"]
-        ):
-            self.set_creation_date(instance, validated_data)
-
-        self.initialize_caluma(
-            instance, source_instance, case, is_modification, is_paper
-        )
-
-        self.initialize_camac(
-            instance,
-            source_instance,
-            group,
-            is_modification,
-            is_paper,
-            extend_validity_for,
-            case,
-        )
-
-        return instance
-
-    def set_creation_date(self, instance, validated_data):
-        perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
-        if perms.get(validated_data["group"].role.name) in [
-            "coordination",
-            "municipality",
-        ]:
-            self._set_creation_date(instance)
-
-    def initialize_camac(
-        self,
-        instance,
-        source_instance,
-        group,
-        is_modification,
-        is_paper,
-        extend_validity_for,
-        case,
-    ):
-
-        if is_paper:
-            # remove the previously created applicants
-            instance.involved_applicants.all().delete()
-
-            # create instance service for permissions
-            InstanceService.objects.create(
-                instance=instance,
-                service_id=group.service.pk,
-                active=1,
-                activation_date=None,
-            )
-
-        if source_instance and not is_modification:
-            self._copy_applicants(source_instance, instance)
-            self._copy_attachments(source_instance, instance)
-        elif extend_validity_for:
-            extend_validity_instance = models.Instance.objects.get(
-                pk=extend_validity_for
-            )
-            self._copy_ebau_number(extend_validity_instance, instance, case)
-            self._copy_extend_validity_answers(extend_validity_instance, instance)
-
-    def initialize_caluma(
-        self, instance, source_instance, case, is_modification, is_paper
-    ):
-        group = self.context["request"].group
-
-        if source_instance:
-            old_document = case.document
-            new_document = caluma_api.copy_document(
-                source_instance.case.document.pk,
-                exclude_form_slugs=(
-                    ["6-dokumente", "7-bestaetigung", "8-freigabequittung"]
-                    if is_modification
-                    else ["8-freigabequittung"]
-                ),
-            )
-            case.document = new_document
-            case.save()
-            old_document.delete()
-
-        caluma_api.update_or_create_answer(
-            case.document,
-            "is-paper",
-            "is-paper-yes" if is_paper else "is-paper-no",
-            self.context["request"].caluma_info.context.user,
-        )
-
-        if settings.APPLICATION["CALUMA"].get("SYNC_FORM_TYPE"):
-            form_type = ur_constants.CALUMA_FORM_MAPPING.get(instance.form.pk)
-            if not form_type:
-                raise RuntimeError(
-                    f"Unmapped form {instance.form.name} (ID {instance.form.pk})"
-                )  # pragma: no cover
-
-            caluma_api.update_or_create_answer(
-                case.document,
-                "form-type",
-                "form-type-" + form_type,
-                self.context["request"].caluma_info.context.user,
-            )
-
-        if settings.APPLICATION["CALUMA"].get("HAS_PROJECT_CHANGE"):
-            caluma_api.update_or_create_answer(
-                case.document,
-                "projektaenderung",
-                "projektaenderung-ja" if is_modification else "projektaenderung-nein",
-                self.context["request"].caluma_info.context.user,
-            )
-
-        if settings.APPLICATION["CALUMA"].get("USE_LOCATION") and instance.location:
-            caluma_api.update_or_create_answer(
-                case.document,
-                "municipality",
-                str(instance.location.pk),
-                self.context["request"].caluma_info.context.user,
-            )
-
-            # Synchronize the 'Leitbehörde' for display in the dashboard
-            lead = self.context["request"].data["lead"]
-            caluma_api.update_or_create_answer(
-                case.document,
-                "leitbehoerde",
-                str(lead),
-                self.context["request"].caluma_info.context.user,
-            )
-
-        if group.pk == settings.APPLICATION.get("PORTAL_GROUP", False):
-            # TODO pre-fill user data into personal data table
-            pass
-
-        if is_paper:
-            # prefill municipality question if possible
-            value = str(group.service.pk)
-            source = Municipalities()
-
-            if source.validate_answer_value(value, case.document, "gemeinde", None):
-                caluma_api.update_or_create_answer(
-                    case.document,
-                    "gemeinde",
-                    value,
-                    self.context["request"].caluma_info.context.user,
-                )
 
     def get_rejection_feedback(self, instance):
         return Answer.get_value_by_cqi(
@@ -1331,7 +960,9 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
         if settings.APPLICATION["CALUMA"].get("GENERATE_IDENTIFIER"):
             # Give dossier a unique dossier number
-            case.meta["dossier-number"] = generate_identifier(instance)
+            case.meta[
+                "dossier-number"
+            ] = domain_logic.CreateInstanceLogic.generate_identifier(instance)
             case.save()
 
         self._generate_and_store_pdf(instance)
@@ -1874,7 +1505,9 @@ class InstanceSubmitSerializer(InstanceSerializer):
         if location is None:
             raise exceptions.ValidationError(_("No location assigned."))
 
-        data["identifier"] = generate_identifier(self.instance)
+        data["identifier"] = domain_logic.CreateInstanceLogic.generate_identifier(
+            self.instance
+        )
         form_validator = validators.FormDataValidator(self.instance)
         form_validator.validate()
 
