@@ -37,7 +37,7 @@ caluma_api = CalumaApi()
 class CreateInstanceLogic:
     @classmethod
     @permission_aware
-    def validate(cls, group, data):
+    def validate(cls, data, group):
         return data
 
     @classmethod
