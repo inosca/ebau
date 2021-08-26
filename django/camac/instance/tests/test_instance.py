@@ -12,23 +12,24 @@ from rest_framework import status
 
 from camac.constants import kt_uri as uri_constants
 from camac.core.models import InstanceLocation, WorkflowEntry
-from camac.instance import serializers
+from camac.instance import domain_logic, serializers
 from camac.instance.models import HistoryEntryT
 
 
+@pytest.mark.freeze_time("2018-04-17")
 @pytest.mark.parametrize(
-    "instance_state__name,instance__creation_date",
-    [("new", "2018-04-17T09:31:56+02:00")],
+    "instance_state__name",
+    ["new"],
 )
 @pytest.mark.parametrize(
     "role__name,instance__user,num_queries,editable",
     [
-        ("Applicant", LazyFixture("admin_user"), 17, {"instance", "form", "document"}),
+        ("Applicant", LazyFixture("admin_user"), 18, {"instance", "form", "document"}),
         # reader should see instances from other users but has no editables
-        ("Reader", LazyFixture("user"), 17, set()),
-        ("Canton", LazyFixture("user"), 17, {"form", "document"}),
-        ("Municipality", LazyFixture("user"), 16, {"form", "document"}),
-        ("Service", LazyFixture("user"), 16, {"document"}),
+        ("Reader", LazyFixture("user"), 18, set()),
+        ("Canton", LazyFixture("user"), 18, {"form", "document"}),
+        ("Municipality", LazyFixture("user"), 17, {"form", "document"}),
+        ("Service", LazyFixture("user"), 17, {"document"}),
     ],
 )
 def test_instance_list(
@@ -45,6 +46,7 @@ def test_instance_list(
     circulation_factory,
     activation_factory,
     mocker,
+    snapshot,
 ):
     application_settings["INSTANCE_ACCESS_TYPE_ROLES"] = {
         "municipality": ["Municipality"],
@@ -57,8 +59,7 @@ def test_instance_list(
     group_location_factory(group=group)
 
     service = instance_service_factory(instance=instance).service
-    circulation = circulation_factory(service=service)
-    activation_factory(service=service, circulation=circulation)
+    activation_factory(service=service, circulation=instance.circulations.first())
 
     included = serializers.InstanceSerializer.included_serializers
     with django_assert_num_queries(num_queries):
@@ -76,8 +77,7 @@ def test_instance_list(
     assert len(json["data"]) == 1
     assert json["data"][0]["id"] == str(instance.pk)
     assert set(json["data"][0]["meta"]["editable"]) == set(editable)
-    # included previous_instance_state and instance_state are the same
-    assert len(json["included"]) == len(included) - 1
+    snapshot.assert_match([i["type"] for i in json["included"]])
 
 
 @pytest.mark.parametrize(
@@ -563,7 +563,7 @@ def test_instance_generate_identifier(
     else:
         instance_factory(identifier=identifier)
 
-    new_identifier = serializers.generate_identifier(instance)
+    new_identifier = domain_logic.CreateInstanceLogic.generate_identifier(instance)
 
     assert new_identifier == prefix + "11-17-011"
 
