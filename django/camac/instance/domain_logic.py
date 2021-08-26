@@ -399,10 +399,9 @@ class CreateInstanceLogic:
         caluma_user,
         camac_user,
         group,
-        lead="",
-        modification=False,
-        calumaform=None,
-        visible_instances=None,
+        lead=None,
+        is_modification=False,
+        caluma_form=None,
     ):
         """Create an instance.
 
@@ -421,49 +420,7 @@ class CreateInstanceLogic:
         :return: The created instance.
         :rtype: object
         """
-        # Docstring!
-        copy_source = data.pop("copy_source", None)
         extend_validity_for = data.pop("extend_validity_for", None)
-
-        source_instance = None
-        if copy_source:
-            try:
-                source_instance = visible_instances.get(pk=copy_source)
-            except models.Instance.DoesNotExist:
-                raise ValidationError(_("Source instance not found"))
-
-            caluma_form = caluma_api.get_form_slug(source_instance)
-            is_modification = modification
-            is_paper = caluma_api.is_paper(source_instance)
-        else:
-            caluma_form = calumaform
-
-            is_modification = False
-            is_paper = (
-                group.service  # group needs to have a service
-                and group.service.service_group.pk
-                in get_paper_settings()["ALLOWED_SERVICE_GROUPS"]
-                and group.role.pk in get_paper_settings()["ALLOWED_ROLES"]
-            )
-
-        if (
-            caluma_form in settings.APPLICATION["CALUMA"].get("INTERNAL_FORMS", [])
-            and not is_paper
-        ):
-            raise ValidationError(
-                _(
-                    "The form '%(form)s' can only be used by an internal role"
-                    % {"form": caluma_form}
-                )
-            )
-
-        if is_modification and (
-            caluma_form
-            not in settings.APPLICATION["CALUMA"].get("MODIFICATION_ALLOW_FORMS", [])
-            or source_instance.instance_state.name
-            in settings.APPLICATION["CALUMA"].get("MODIFICATION_DISALLOW_STATES", [])
-        ):
-            raise ValidationError(_("Project modification is not allowed"))
 
         form = data.get("form")
         if form and form.pk in settings.APPLICATION.get("ARCHIVE_FORMS", []):
