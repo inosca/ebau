@@ -690,7 +690,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
     @permission_aware
     def validate(self, data):
         return domain_logic.CreateInstanceLogic.validate(
-            data, self.context.get("request").group
+            data, group=self.context.get("request").group
         )
 
     instance_field = None
