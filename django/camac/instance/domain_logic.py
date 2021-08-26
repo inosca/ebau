@@ -23,6 +23,7 @@ from camac.core.models import (
     WorkflowItem,
 )
 from camac.instance.models import Instance
+from camac.user.permissions import permission_aware
 
 from ..utils import get_paper_settings
 from . import models
@@ -33,22 +34,23 @@ WORKFLOW_ITEM_DOSSIER_ERFASST_UR = 12
 caluma_api = CalumaApi()
 
 
-def permission_aware(group, *args, **kwargs):
-    method_name = inspect.stack()[1].function
-    perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
-    perm = perms.get(group.role.name)
-    permission_func = getattr(CreateInstanceLogic, f"{method_name}_for_{perm}", None)
-
-    return permission_func(group, *args, **kwargs) if permission_func else None
+# def permission_aware(group, *args, **kwargs):
+#     method_name = inspect.stack()[1].function
+#     perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
+#     perm = perms.get(group.role.name)
+#     permission_func = getattr(CreateInstanceLogic, f"{method_name}_for_{perm}", None)
+#
+#     return permission_func(group, *args, **kwargs) if permission_func else None
 
 
 class CreateInstanceLogic:
-    @staticmethod
-    def validate(data, group):
-        return permission_aware(group, data) or data
+    @classmethod
+    @permission_aware
+    def validate(cls, group, data):
+        return data
 
-    @staticmethod
-    def validate_for_municipality(group, data):
+    @classmethod
+    def validate_for_municipality(cls, data, group):
         if settings.APPLICATION["CALUMA"].get("CREATE_IN_PROCESS"):
             data["instance_state"] = models.InstanceState.objects.get(name="comm")
 
@@ -65,8 +67,8 @@ class CreateInstanceLogic:
 
         return data
 
-    @staticmethod
-    def validate_for_coordination(group, data):  # pragma: no cover
+    @classmethod
+    def validate_for_coordination(cls, data, group):  # pragma: no cover
         if settings.APPLICATION["CALUMA"].get("CREATE_IN_PROCESS"):
             # FIXME: Bundesstelle has role "coordination, but is
             # actually more like a municipality (dossiers start in COMM)
