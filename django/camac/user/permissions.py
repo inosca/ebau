@@ -45,7 +45,7 @@ def permission_aware(func):
     @wraps(func)
     def wrapper(self, *args, **kwargs):
         # on view request is directly on instance
-        group = get_group(self)
+        group = kwargs.get("group") or get_group(self)
         permission_func = get_permission_func(self, func.__name__, group)
         if permission_func:
             return permission_func(*args, **kwargs)
