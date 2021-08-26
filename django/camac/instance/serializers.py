@@ -743,7 +743,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             or source_instance.instance_state.name
             in settings.APPLICATION["CALUMA"].get("MODIFICATION_DISALLOW_STATES", [])
         ):
-            raise ValidationError(_("Project modification is not allowed"))
+            raise exceptions.ValidationError(_("Project modification is not allowed"))
 
         return domain_logic.CreateInstanceLogic.create(
             validated_data,
