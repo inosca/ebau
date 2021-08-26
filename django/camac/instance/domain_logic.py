@@ -1,4 +1,3 @@
-import inspect
 import json
 from uuid import uuid4
 
@@ -9,7 +8,6 @@ from django.contrib.postgres.fields.jsonb import KeyTextTransform
 from django.core.files.base import ContentFile
 from django.db.models import Max, Q
 from django.utils import timezone
-from django.utils.translation import gettext as _
 from rest_framework.exceptions import ValidationError
 
 from camac.caluma.api import CalumaApi
@@ -25,7 +23,6 @@ from camac.core.models import (
 from camac.instance.models import Instance
 from camac.user.permissions import permission_aware
 
-from ..utils import get_paper_settings
 from . import models
 
 SUBMIT_DATE_FORMAT = "%Y-%m-%dT%H:%M:%S%z"
