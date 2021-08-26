@@ -133,8 +133,10 @@ class Instance(models.Model):
     group = models.ForeignKey(
         "user.Group", models.DO_NOTHING, db_column="GROUP_ID", related_name="+"
     )
-    creation_date = models.DateTimeField(db_column="CREATION_DATE")
-    modification_date = models.DateTimeField(db_column="MODIFICATION_DATE")
+    creation_date = models.DateTimeField(db_column="CREATION_DATE", auto_now_add=True)
+    modification_date = models.DateTimeField(
+        db_column="MODIFICATION_DATE", auto_now_add=True
+    )
     previous_instance_state = models.ForeignKey(
         InstanceState,
         models.DO_NOTHING,
