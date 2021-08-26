@@ -704,15 +704,15 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         group = self.context.get("request").group
         visible_instances = super().get_queryset(group)
 
-        copy_source = data.pop("copy_source", None)
-        is_modification = (self.initial_data.get("is_modification", False),)
+        copy_source = validated_data.pop("copy_source", None)
+        is_modification = self.initial_data.get("is_modification", False)
 
         source_instance = None
         if copy_source:
             try:
                 source_instance = visible_instances.get(pk=copy_source)
             except models.Instance.DoesNotExist:
-                raise ValidationError(_("Source instance not found"))
+                raise exceptions.ValidationError(_("Source instance not found"))
 
             caluma_form = caluma_api.get_form_slug(source_instance)
             is_paper = caluma_api.is_paper(source_instance)
@@ -754,6 +754,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             is_modification=is_modification,
             is_paper=is_paper,
             caluma_form=caluma_form,
+            source_instance=source_instance,
         )
 
     def get_rejection_feedback(self, instance):
