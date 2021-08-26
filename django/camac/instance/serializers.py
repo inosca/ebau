@@ -701,9 +701,49 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         return models.Instance.objects.all().select_related(instance_state_expr)
 
     def create(self, validated_data):
-
         group = self.context.get("request").group
         visible_instances = super().get_queryset(group)
+
+        copy_source = data.pop("copy_source", None)
+        is_modification = (self.initial_data.get("is_modification", False),)
+
+        source_instance = None
+        if copy_source:
+            try:
+                source_instance = visible_instances.get(pk=copy_source)
+            except models.Instance.DoesNotExist:
+                raise ValidationError(_("Source instance not found"))
+
+            caluma_form = caluma_api.get_form_slug(source_instance)
+            is_paper = caluma_api.is_paper(source_instance)
+        else:
+            is_modification = False
+            caluma_form = self.initial_data.get("caluma_form", None)
+            is_paper = (
+                group.service  # group needs to have a service
+                and group.service.service_group.pk
+                in get_paper_settings()["ALLOWED_SERVICE_GROUPS"]
+                and group.role.pk in get_paper_settings()["ALLOWED_ROLES"]
+            )
+
+        if (
+            caluma_form in settings.APPLICATION["CALUMA"].get("INTERNAL_FORMS", [])
+            and not is_paper
+        ):
+            raise ValidationError(
+                _(
+                    "The form '%(form)s' can only be used by an internal role"
+                    % {"form": caluma_form}
+                )
+            )
+
+        if is_modification and (
+            caluma_form
+            not in settings.APPLICATION["CALUMA"].get("MODIFICATION_ALLOW_FORMS", [])
+            or source_instance.instance_state.name
+            in settings.APPLICATION["CALUMA"].get("MODIFICATION_DISALLOW_STATES", [])
+        ):
+            raise ValidationError(_("Project modification is not allowed"))
 
         return domain_logic.CreateInstanceLogic.create(
             validated_data,
@@ -711,9 +751,9 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             camac_user=self.context["request"].user,
             group=group,
             lead=self.initial_data.get("lead", None),
-            modification=self.initial_data.get("is_modification", False),
-            calumaform=self.initial_data.get("caluma_form", None),
-            visible_instances=visible_instances,
+            is_modification=is_modification,
+            is_paper=is_paper,
+            caluma_form=caluma_form,
         )
 
     def get_rejection_feedback(self, instance):
