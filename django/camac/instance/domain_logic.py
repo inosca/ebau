@@ -401,24 +401,16 @@ class CreateInstanceLogic:
         group,
         lead=None,
         is_modification=False,
+        is_paper=False,
         caluma_form=None,
+        source_instance=None,
+        copy_source=False,
     ):
         """Create an instance.
 
-        :param data: A dict with the data to create the instance
-        :type  data: dict
-
-        :param user: The caluma user
-        :type  user: object
-
-        :param camac_user: The camac user
-        :type  camac_user: object
-
-        :param group: The group for which the instance will be created
-        :type  group: object
-
-        :return: The created instance.
-        :rtype: object
+        We assume that the caller can be trusted, so basic validations
+        (e.g. if user is allowed to create a copy of the given source instance)
+        are skipped here and performed in the serializer instead.
         """
         extend_validity_for = data.pop("extend_validity_for", None)
 
