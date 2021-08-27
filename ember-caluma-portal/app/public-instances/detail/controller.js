@@ -15,9 +15,7 @@ export default class PublicInstancesDetailController extends Controller {
         instance: this.model,
       }))?.toArray()?.[0];
     } catch (e) {
-      this.notification.danger(
-        this.intl.t("publicInstancesDetail.dossierNrError")
-      );
+      this.notification.danger(this.intl.t("publicInstancesDetail.loadError"));
     }
   }
 }

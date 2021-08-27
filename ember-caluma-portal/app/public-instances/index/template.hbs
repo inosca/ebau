@@ -23,12 +23,12 @@
   <table class="uk-table uk-table-striped uk-table-hover uk-table-responsive">
     <thead>
       <tr>
-        <th class="uk-text-nowrap">{{t "publicInstances.dossierNumber"}}</th>
-        <th class="uk-text-nowrap">{{t "publicInstances.municipality"}}</th>
+        <th class="uk-text-nowrap">{{t (concat "instances.special-id-" (application-name))}}</th>
+        <th class="uk-text-nowrap">{{t "instances.municipality"}}</th>
         <th class="uk-text-nowrap">{{t "publicInstances.applicant"}}</th>
-        <th class="uk-text-nowrap">{{t "publicInstances.intent"}}</th>
-        <th class="uk-text-nowrap">{{t "publicInstances.street"}}</th>
-        <th class="uk-text-nowrap">{{t "publicInstances.parcel"}}</th>
+        <th class="uk-text-nowrap">{{t (concat "instances.description-" (application-name))}}</th>
+        <th class="uk-text-nowrap">{{t (concat "instances.address-" (application-name))}}</th>
+        <th class="uk-text-nowrap">{{t "instances.parcel"}}</th>
       </tr>
     </thead>
     <tbody>
