@@ -456,12 +456,9 @@ def test_set_assigned_user(
     addressed_groups = []
     assigned_users = [user_factory().username] if has_assigned_users else []
 
-    if application_name == "kt_bern":
-        service = responsible_service_factory(
-            instance=instance, responsible_user=user
-        ).service
-    else:
-        service = instance_responsibility_factory(instance=instance, user=user).service
+    service = responsible_service_factory(
+        instance=instance, responsible_user=user
+    ).service
 
     if has_addressed_groups:
         addressed_groups = [service.pk] if service else [123]

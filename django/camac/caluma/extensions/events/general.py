@@ -177,14 +177,11 @@ def set_assigned_user(sender, work_item, user, **kwargs):
     instance = get_instance(work_item)
     service = user_models.Service.objects.get(pk=addressed_group)
 
-    responsible_old = instance.responsible_services.filter(service=service).values_list(
+    responsible = instance.responsible_services.filter(service=service).values_list(
         "responsible_user__username", flat=True
     )
-    responsible_new = instance.responsibilities.filter(service=service).values_list(
-        "user__username", flat=True
-    )
 
-    work_item.assigned_users = list(responsible_new.union(responsible_old))
+    work_item.assigned_users = list(responsible)
     work_item.save()
 
 
