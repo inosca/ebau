@@ -61,7 +61,7 @@
     "ember-concurrency-decorators": "^2.0.1",
     "ember-data": "~3.24.0",
     "ember-ebau-core": "0.0.0",
-    "ember-ebau-gwr": "^2.5.1",
+    "ember-ebau-gwr": "^2.6.0",
     "ember-engines": "^0.8.14",
     "ember-export-application-global": "^2.0.1",
     "ember-fetch": "^8.0.2",
