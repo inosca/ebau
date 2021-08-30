@@ -4372,3 +4372,22 @@ class ActionCase(models.Model):
     class Meta:
         managed = True
         db_table = "ACTION_CASE"
+
+
+class IrTaskform(models.Model):
+    instance_resource = models.OneToOneField(
+        InstanceResource,
+        models.CASCADE,
+        db_column="INSTANCE_RESOURCE_ID",
+        primary_key=True,
+        related_name="+",
+    )
+    task = models.ForeignKey(
+        "caluma_workflow.Task",
+        on_delete=models.CASCADE,
+        db_column="TASK",
+    )
+
+    class Meta:
+        managed = True
+        db_table = "IR_TASKFORM"
