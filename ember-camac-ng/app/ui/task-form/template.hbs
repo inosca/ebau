@@ -1,0 +1,15 @@
+{{#if this.fetchWorkItem.isRunning}}
+  <div class="uk-text-center">
+    <UkSpinner @ratio={{2}} />
+  </div>
+{{else if this.workItem.document.id}}
+  <CfContent
+    @documentId={{decode-id this.workItem.document.id}}
+    @disabled={{cannot "edit task-form" this.workItem}}
+    @context={{this.context}}
+  />
+{{else}}
+  <div class="uk-text-center uk-text-italic">
+    {{t "task-form.empty" moduleName=this.moduleName}}
+  </div>
+{{/if}}

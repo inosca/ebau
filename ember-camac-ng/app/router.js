@@ -49,4 +49,5 @@ Router.map(function () {
       this.route("edit", { path: "/edit/:workitem_uuid" });
     }
   );
+  this.route("task-form", { path: "instances/:instance_id/task-form/:task" });
 });
