@@ -972,6 +972,9 @@ class JournalEntryView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
     def has_object_update_permission_for_canton(self, obj):
         return obj.user == self.request.user
 
+    def has_object_update_permission_for_coordination(self, obj):
+        return self.has_object_update_permission_for_canton(obj)
+
     def has_object_update_permission_for_service(self, obj):
         return self.has_object_update_permission_for_canton(obj)
 
