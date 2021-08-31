@@ -8,16 +8,7 @@ from snapshottest import GenericRepr, Snapshot
 snapshots = Snapshot()
 
 snapshots['test_master_data_be[de] 1'] = {
-    'construction_costs': 199000,
-    'dossier_number': '2021-1',
-    'is_paper': False,
-    'modification': 'Doch eher kleines Haus',
-    'municipality': {
-        'label': 'Bern',
-        'slug': '1'
-    },
-    'paper_submit_date': GenericRepr('datetime.datetime(2021, 3, 20, 13, 17, 8, tzinfo=tzutc())'),
-    'personal_data': [
+    'applicants': [
         {
             'first_name': 'Max',
             'is_juristic_person': True,
@@ -29,6 +20,15 @@ snapshots['test_master_data_be[de] 1'] = {
             'zip': 1234
         }
     ],
+    'construction_costs': 199000,
+    'dossier_number': '2021-1',
+    'is_paper': False,
+    'modification': 'Doch eher kleines Haus',
+    'municipality': {
+        'label': 'Bern',
+        'slug': '1'
+    },
+    'paper_submit_date': GenericRepr('datetime.datetime(2021, 3, 20, 13, 17, 8, tzinfo=tzutc())'),
     'plot_data': [
         {
             'egrid_number': 'CH123456789',
@@ -42,16 +42,7 @@ snapshots['test_master_data_be[de] 1'] = {
 }
 
 snapshots['test_master_data_be[fr] 1'] = {
-    'construction_costs': 199000,
-    'dossier_number': '2021-1',
-    'is_paper': False,
-    'modification': 'Doch eher kleines Haus',
-    'municipality': {
-        'label': 'Berne',
-        'slug': '1'
-    },
-    'paper_submit_date': GenericRepr('datetime.datetime(2021, 3, 20, 13, 17, 8, tzinfo=tzutc())'),
-    'personal_data': [
+    'applicants': [
         {
             'first_name': 'Max',
             'is_juristic_person': True,
@@ -63,6 +54,15 @@ snapshots['test_master_data_be[fr] 1'] = {
             'zip': 1234
         }
     ],
+    'construction_costs': 199000,
+    'dossier_number': '2021-1',
+    'is_paper': False,
+    'modification': 'Doch eher kleines Haus',
+    'municipality': {
+        'label': 'Berne',
+        'slug': '1'
+    },
+    'paper_submit_date': GenericRepr('datetime.datetime(2021, 3, 20, 13, 17, 8, tzinfo=tzutc())'),
     'plot_data': [
         {
             'egrid_number': 'CH123456789',
@@ -82,17 +82,7 @@ snapshots['test_master_data_parsers 1'] = {
 }
 
 snapshots['test_master_data_ur 1'] = {
-    'category': [
-        6011,
-        6010
-    ],
-    'construction_costs': 129000,
-    'dossier_number': '1201-21-003',
-    'municipality': {
-        'label': 'Altdorf',
-        'slug': '1'
-    },
-    'personal_data': [
+    'applicants': [
         {
             'country': 'Schweiz',
             'first_name': 'Max',
@@ -105,6 +95,16 @@ snapshots['test_master_data_ur 1'] = {
             'zip': '1233'
         }
     ],
+    'category': [
+        6011,
+        6010
+    ],
+    'construction_costs': 129000,
+    'dossier_number': '1201-21-003',
+    'municipality': {
+        'label': 'Altdorf',
+        'slug': '1'
+    },
     'plot_data': [
         {
             'egrid_number': 'CH123456789',
