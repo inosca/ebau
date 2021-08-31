@@ -88,6 +88,7 @@ INSTALLED_APPS = [
     "camac.echbern.apps.EchbernConfig",
     "camac.migrate_to_caluma",
     "camac.stats.apps.StatsConfig",
+    "camac.parashift",
     "sorl.thumbnail",
     "django_clamd",
     "reversion",
@@ -206,6 +207,20 @@ APPLICATIONS = {
         },
         "SIDE_EFFECTS": {
             "document_downloaded": "camac.document.side_effects.create_workflow_entry",
+        },
+        "DOSSIER_IMPORT": {
+            "REQUIRED_KEYS": [
+                "parashift-id",
+                "parzelle-nr",
+                "erfassungsjahr",
+                "vorhaben",
+                "ort",
+                "baurecht-nr",
+                "gemeinde",
+                "gesuchsteller",
+                "documents",
+            ],
+            "USER": "462afaba-aeb7-494a-8596-3497b81ed701",
         },
     },
     "kt_schwyz": {
@@ -1240,6 +1255,7 @@ APPLICATIONS = {
             "modification": ("answer", "beschreibung-projektaenderung"),
             "street": ("answer", "strasse-flurname"),
             "street_number": ("answer", "nr"),
+            "city": ("answer", "ort-grundstueck"),
             "construction_costs": ("answer", "baukosten-in-chf"),
             "municipality": ("dynamic_option", "gemeinde"),
             "plot_data": (
@@ -1513,6 +1529,7 @@ APPLICATIONS = {
             ),
             "street": ("answer", "parcel-street"),
             "street_number": ("answer", "parcel-street-number"),
+            "city": ("answer", "parcel-city"),
             "dossier_number": ("case_meta", "dossier-number"),
             "municipality": ("dynamic_option", "municipality"),
             "category": (
@@ -1575,6 +1592,20 @@ APPLICATIONS = {
         },
         "SIDE_EFFECTS": {
             "document_downloaded": "camac.document.side_effects.create_workflow_entry",
+        },
+        "DOSSIER_IMPORT": {
+            "REQUIRED_KEYS": [
+                "parashift-id",
+                "parzelle-nr",
+                "erfassungsjahr",
+                "vorhaben",
+                "ort",
+                "baurecht-nr",
+                "gemeinde",
+                "gesuchsteller",
+                "documents",
+            ],
+            "USER": "admin",
         },
     },
 }
@@ -2043,3 +2074,22 @@ GWR_FERNET_KEY = env.str(
     "GWR_FERNET_KEY", default=default("RvjN3KHR3rZl9knGv3w_HkfapedVQ8F_TihgrFJgbXc=")
 )
 GWR_HOUSING_STAT_WSK_ID = env.int("GWR_WSK_ID", default=default(0))
+
+# Parashift
+PARASHIFT_BASE_URI = env.str(
+    "PARASHIFT_BASE_URI", default="https://api.parashift.io/v2"
+)
+
+PARASHIFT_SOURCE_FILES_URI = env.str(
+    "PARASHIFT_SOURCE_FILES_URI",
+    default="https://individual-extraction.api.parashift.io/v1",
+)
+
+PARASHIFT_TENANT_ID = env.int(
+    "PARASHIFT_TENANT_ID",
+    default=default(1665),
+)
+PARASHIFT_API_KEY = env.str(
+    "PARASHIFT_API_KEY",
+    default=default("ey..."),
+)

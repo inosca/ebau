@@ -7,7 +7,12 @@ from factory.django import DjangoModelFactory
 
 from camac.constants import kt_uri as constants
 from camac.instance.factories import InstanceFactory
-from camac.user.factories import GroupFactory, ServiceFactory, UserFactory
+from camac.user.factories import (
+    GroupFactory,
+    LocationFactory,
+    ServiceFactory,
+    UserFactory,
+)
 
 from . import models
 
@@ -361,6 +366,14 @@ class AuthorityFactory(DjangoModelFactory):
 
     class Meta:
         model = models.Authority
+
+
+class AuthorityLocationFactory(DjangoModelFactory):
+    authority = SubFactory(AuthorityFactory)
+    location = SubFactory(LocationFactory)
+
+    class Meta:
+        model = models.AuthorityLocation
 
 
 class BuildingAuthorityButtonFactory(DjangoModelFactory):
