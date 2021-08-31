@@ -15,7 +15,7 @@ class MasterData(object):
 
         if not config:
             raise AttributeError(
-                f"Key '{lookup_key}' is not configured in master data config"
+                f"Key '{lookup_key}' is not configured in master data config. Available keys are: {', '.join(settings.APPLICATION['MASTER_DATA'].keys())}"
             )
 
         resolver, *args = config

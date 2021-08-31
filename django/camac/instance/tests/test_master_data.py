@@ -29,7 +29,10 @@ def test_master_data_exceptions(
     with pytest.raises(AttributeError) as e:
         assert master_data.foo
 
-    assert str(e.value) == "Key 'foo' is not configured in master data config"
+    assert (
+        str(e.value)
+        == "Key 'foo' is not configured in master data config. Available keys are: bar, baz"
+    )
 
     with pytest.raises(AttributeError) as e:
         assert master_data.bar
@@ -143,6 +146,11 @@ def be_master_data_case(
         question__slug="baukosten-in-chf",
         document=be_instance.case.document,
         value=199000,
+    )
+    caluma_form_factories.AnswerFactory(
+        question__slug="ort-grundstueck",
+        document=be_instance.case.document,
+        value="Musterhausen",
     )
 
     # Municipality
@@ -302,6 +310,11 @@ def ur_master_data_case(
         question__slug="construction-cost",
         document=ur_instance.case.document,
         value=129000,
+    )
+    caluma_form_factories.AnswerFactory(
+        question__slug="parcel-city",
+        document=ur_instance.case.document,
+        value="Musterdorf",
     )
 
     # Municipality
