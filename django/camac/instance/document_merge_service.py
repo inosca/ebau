@@ -160,7 +160,7 @@ class DMSHandler:
                                 ],
                             )
                         )
-                        for obj in master_data.personal_data
+                        for obj in master_data.applicants
                     ]
                 ),
                 "plotsHeader": ", ".join(
@@ -169,7 +169,7 @@ class DMSHandler:
                 "applicantHeader": " ".join(
                     [
                         f'{obj["first_name"]} {obj["last_name"]}'
-                        for obj in master_data.personal_data
+                        for obj in master_data.applicants
                     ]
                 ).replace(" None", ""),
                 "municipalityHeader": master_data.municipality.get("label")
