@@ -22,6 +22,7 @@ pyexcel-webio==0.1.4
 pyexcel-xlsx==0.6.0
 git+https://github.com/mozilla/pyjexl.git@dab0618f0d81926759cd0e6ccfd3dcdb08a13ca1#egg=pyjexl
 PyJWT==1.7.1
+PyPDF2==1.26.0
 pyproj==3.0.0.post1
 python-dateutil==2.8.1
 python-keycloak==0.22.0

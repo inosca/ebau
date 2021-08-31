@@ -20,6 +20,7 @@ snapshots['test_master_data_be[de] 1'] = {
             'zip': 1234
         }
     ],
+    'city': 'Musterhausen',
     'construction_costs': 199000,
     'dossier_number': '2021-1',
     'is_paper': False,
@@ -54,6 +55,7 @@ snapshots['test_master_data_be[fr] 1'] = {
             'zip': 1234
         }
     ],
+    'city': 'Musterhausen',
     'construction_costs': 199000,
     'dossier_number': '2021-1',
     'is_paper': False,
@@ -99,6 +101,7 @@ snapshots['test_master_data_ur 1'] = {
         6011,
         6010
     ],
+    'city': 'Musterdorf',
     'construction_costs': 129000,
     'dossier_number': '1201-21-003',
     'municipality': {
