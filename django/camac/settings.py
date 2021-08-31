@@ -2085,11 +2085,5 @@ PARASHIFT_SOURCE_FILES_URI = env.str(
     default="https://individual-extraction.api.parashift.io/v1",
 )
 
-PARASHIFT_TENANT_ID = env.int(
-    "PARASHIFT_TENANT_ID",
-    default=default(1665),
-)
-PARASHIFT_API_KEY = env.str(
-    "PARASHIFT_API_KEY",
-    default=default("ey..."),
-)
+PARASHIFT_TENANT_ID = env.int("PARASHIFT_TENANT_ID", default=1665)
+PARASHIFT_API_KEY = env.str("PARASHIFT_API_KEY", default="ey...")
