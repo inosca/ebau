@@ -19,24 +19,24 @@ class GwrSerializer(serializers.Serializer):
     projectAnnouncementDate = serializers.SerializerMethodField()
 
     def get_client(self, case):
-        personal_data = self.master_data.personal_data[0]
+        applicant = self.master_data.applicants[0]
         return {
             "address": {
-                "town": personal_data.get("town"),
-                "swissZipCode": personal_data.get("zip"),
-                "street": personal_data.get("street"),
-                "houseNumber": personal_data.get("street_number"),
-                "country": personal_data.get("country"),
+                "town": applicant.get("town"),
+                "swissZipCode": applicant.get("zip"),
+                "street": applicant.get("street"),
+                "houseNumber": applicant.get("street_number"),
+                "country": applicant.get("country"),
             },
             "identification": {
                 "personIdentification": {
-                    "officialName": personal_data.get("last_name"),
-                    "firstName": personal_data.get("first_name"),
+                    "officialName": applicant.get("last_name"),
+                    "firstName": applicant.get("first_name"),
                 },
-                "isOrganisation": personal_data.get("is_juristic_person"),
+                "isOrganisation": applicant.get("is_juristic_person"),
                 "organisationIdentification": {
-                    "organisationName": personal_data.get("juristic_name")
-                    if personal_data.get("is_juristic_person")
+                    "organisationName": applicant.get("juristic_name")
+                    if applicant.get("is_juristic_person")
                     else None
                 },
             },

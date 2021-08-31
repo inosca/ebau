@@ -1744,7 +1744,7 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
                     if applicant.get("is_juristic_person")
                     else f"{applicant.get('first_name', '')} {applicant.get('last_name', '')}"
                 ).strip()
-                for applicant in self.get_master_data(case).personal_data
+                for applicant in self.get_master_data(case).applicants
             ]
         )
 
