@@ -1206,7 +1206,7 @@ APPLICATIONS = {
             "notification.NotificationTemplateT",
         ],
         "MASTER_DATA": {
-            "personal_data": (
+            "applicants": (
                 "table",
                 "personalien-gesuchstellerin",
                 {
@@ -1461,7 +1461,7 @@ APPLICATIONS = {
             "ITEM": 1,
         },
         "MASTER_DATA": {
-            "personal_data": (
+            "applicants": (
                 "table",
                 "applicant",
                 {
