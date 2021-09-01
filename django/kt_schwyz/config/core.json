@@ -399,8 +399,8 @@
       "button": 4,
       "name": "Fachbericht speichern",
       "description": null,
-      "success_message": "Fachbericht erfolgreich gespeichert",
-      "error_message": "Fachbericht konnte nicht gespeichert werden",
+      "success_message": "Fachbericht erfolgreich gespeichert.",
+      "error_message": "Fachbericht konnte nicht gespeichert werden.",
       "execute_always": 0,
       "sort": 0
     }
@@ -413,8 +413,8 @@
       "button": 5,
       "name": "circ state to OK",
       "description": null,
-      "success_message": "Stellungnahme erfolgreich abgeschlossen",
-      "error_message": "Stellungnahme konnte nicht abgeschlossen werden",
+      "success_message": "Stellungnahme erfolgreich abgeschlossen.",
+      "error_message": "Stellungnahme konnte nicht abgeschlossen werden.",
       "execute_always": 0,
       "sort": 2
     }
@@ -441,8 +441,8 @@
       "button": 8,
       "name": "save",
       "description": null,
-      "success_message": "Zirkulation erfolgreich aktualisiert",
-      "error_message": "Zirkulation konnte nicht aktualisiert werden",
+      "success_message": "Zirkulation erfolgreich aktualisiert.",
+      "error_message": "Zirkulation konnte nicht aktualisiert werden.",
       "execute_always": 0,
       "sort": 0
     }
@@ -469,8 +469,8 @@
       "button": 9,
       "name": "Dossierstatus setzen circ",
       "description": null,
-      "success_message": "Zirkulation erfolgreich gestartet",
-      "error_message": "Zirkulation konnte nicht gestartet werden",
+      "success_message": "Zirkulation erfolgreich gestartet.",
+      "error_message": "Zirkulation konnte nicht gestartet werden.",
       "execute_always": 0,
       "sort": 1
     }
@@ -539,8 +539,8 @@
       "button": 11,
       "name": "save",
       "description": null,
-      "success_message": "Zirkulation erfolgreich aktualisiert",
-      "error_message": "Zirkulation konnte nicht aktualisiert werden",
+      "success_message": "Zirkulation erfolgreich aktualisiert.",
+      "error_message": "Zirkulation konnte nicht aktualisiert werden.",
       "execute_always": 0,
       "sort": 0
     }
@@ -567,8 +567,8 @@
       "button": 22,
       "name": "circ state to DONE",
       "description": null,
-      "success_message": "Zirkulation erfolgreich abgeschlossen",
-      "error_message": "Zirkulation konnte nicht abgeschlossen werden",
+      "success_message": "Zirkulation erfolgreich abgeschlossen.",
+      "error_message": "Zirkulation konnte nicht abgeschlossen werden.",
       "execute_always": 0,
       "sort": 0
     }
@@ -581,8 +581,8 @@
       "button": 9,
       "name": "Email Stellungnahme",
       "description": null,
-      "success_message": "Email wurde erfolgreich versandt",
-      "error_message": "Email konnte nicht versandt werden",
+      "success_message": "Email wurde erfolgreich versandt.",
+      "error_message": "Email konnte nicht versandt werden.",
       "execute_always": 0,
       "sort": 4
     }
@@ -595,8 +595,8 @@
       "button": 24,
       "name": "Fachbericht speichern",
       "description": null,
-      "success_message": "Die Fachbericht wurde erfolgreich gespeichert",
-      "error_message": "Die Fachbericht konnte nicht gespeichert werden",
+      "success_message": "Der Fachbericht wurde erfolgreich gespeichert.",
+      "error_message": "Der Fachbericht konnte nicht gespeichert werden.",
       "execute_always": 0,
       "sort": 0
     }
@@ -651,8 +651,8 @@
       "button": 10,
       "name": "Email Stellungnahme",
       "description": null,
-      "success_message": "Email wurde erfolgreich versandt",
-      "error_message": "Email konnte nicht versandt werden",
+      "success_message": "Email wurde erfolgreich versandt.",
+      "error_message": "Email konnte nicht versandt werden.",
       "execute_always": 0,
       "sort": 3
     }
@@ -693,8 +693,8 @@
       "button": 28,
       "name": "Email Stellungnahme",
       "description": null,
-      "success_message": "Email wurde erfolgreich versandt",
-      "error_message": "Email konnte nicht versandt werden",
+      "success_message": "Email wurde erfolgreich versandt.",
+      "error_message": "Email konnte nicht versandt werden.",
       "execute_always": 0,
       "sort": 3
     }
@@ -721,8 +721,8 @@
       "button": 29,
       "name": "save",
       "description": null,
-      "success_message": "Zirkulation erfolgreich aktualisiert",
-      "error_message": "Zirkulation konnte nicht aktualisiert werden",
+      "success_message": "Zirkulation erfolgreich aktualisiert.",
+      "error_message": "Zirkulation konnte nicht aktualisiert werden.",
       "execute_always": 0,
       "sort": 0
     }
@@ -749,8 +749,8 @@
       "button": 31,
       "name": "activation idle to run",
       "description": null,
-      "success_message": "Erfolgreich zur Zirkulation hinzugef\u00fcgt",
-      "error_message": "Konnte nicht zur Zirkulation hinzugef\u00fcgt werden",
+      "success_message": "Erfolgreich zur Zirkulation hinzugef\u00fcgt.",
+      "error_message": "Konnte nicht zur Zirkulation hinzugef\u00fcgt werden.",
       "execute_always": 0,
       "sort": 1
     }
@@ -763,8 +763,8 @@
       "button": 31,
       "name": "Email Stellungnahme",
       "description": null,
-      "success_message": "Email erfolgreich versendet",
-      "error_message": "Email konnte nicht versendet werden",
+      "success_message": "Email erfolgreich versendet.",
+      "error_message": "Email konnte nicht versendet werden.",
       "execute_always": 0,
       "sort": 2
     }
@@ -777,8 +777,8 @@
       "button": 32,
       "name": "circ state to DONE",
       "description": null,
-      "success_message": "Zirkulation abgeschlossen",
-      "error_message": "Zirkulation konnte nicht abgeschlossen werden",
+      "success_message": "Zirkulation abgeschlossen.",
+      "error_message": "Zirkulation konnte nicht abgeschlossen werden.",
       "execute_always": 0,
       "sort": 0
     }
@@ -791,8 +791,8 @@
       "button": 33,
       "name": "Create new circulation",
       "description": null,
-      "success_message": "Neue Zirkulation erstellt",
-      "error_message": "Die neue Zirkulation konnte nicht erstellt werden",
+      "success_message": "Neue Zirkulation erstellt.",
+      "error_message": "Die neue Zirkulation konnte nicht erstellt werden.",
       "execute_always": 0,
       "sort": 0
     }
@@ -819,8 +819,8 @@
       "button": 35,
       "name": "Create new circulation",
       "description": null,
-      "success_message": "Neue Zirkulation erstellt",
-      "error_message": "Die neue Zirkulation konnte nicht erstellt werden",
+      "success_message": "Neue Zirkulation erstellt.",
+      "error_message": "Die neue Zirkulation konnte nicht erstellt werden.",
       "execute_always": 0,
       "sort": 0
     }
@@ -847,8 +847,8 @@
       "button": 36,
       "name": "Create new circulation",
       "description": null,
-      "success_message": "Neue Zirkulation erstellt",
-      "error_message": "Die neue Zirkulation konnte nicht erstellt werden",
+      "success_message": "Neue Zirkulation erstellt.",
+      "error_message": "Die neue Zirkulation konnte nicht erstellt werden.",
       "execute_always": 0,
       "sort": 0
     }
@@ -889,8 +889,8 @@
       "button": 39,
       "name": "save",
       "description": null,
-      "success_message": "Zirkulation erfolgreich aktualisiert",
-      "error_message": "Zirkulation konnte nicht aktualisiert werden",
+      "success_message": "Zirkulation erfolgreich aktualisiert.",
+      "error_message": "Zirkulation konnte nicht aktualisiert werden.",
       "execute_always": 0,
       "sort": 0
     }
@@ -903,8 +903,8 @@
       "button": 40,
       "name": "Create new circulation",
       "description": null,
-      "success_message": "Neue Zirkulation erstellt",
-      "error_message": "Die neue Zirkulation konnte nicht erstellt werden",
+      "success_message": "Neue Zirkulation erstellt.",
+      "error_message": "Die neue Zirkulation konnte nicht erstellt werden.",
       "execute_always": 0,
       "sort": 0
     }
@@ -945,8 +945,8 @@
       "button": 41,
       "name": "Dossierstatus setzen circ",
       "description": null,
-      "success_message": "Zirkulation erfolgreich gestartet",
-      "error_message": "Zirkulation konnte nicht gestartet werden",
+      "success_message": "Zirkulation erfolgreich gestartet.",
+      "error_message": "Zirkulation konnte nicht gestartet werden.",
       "execute_always": 0,
       "sort": 1
     }
@@ -987,8 +987,8 @@
       "button": 41,
       "name": "Email Stellungnahme",
       "description": null,
-      "success_message": "Email wurde erfolgreich versandt",
-      "error_message": "Email konnte nicht versandt werden",
+      "success_message": "Email wurde erfolgreich versandt.",
+      "error_message": "Email konnte nicht versandt werden.",
       "execute_always": 0,
       "sort": 4
     }
@@ -1029,8 +1029,8 @@
       "button": 42,
       "name": "Email Stellungnahme",
       "description": null,
-      "success_message": "Email wurde erfolgreich versandt",
-      "error_message": "Email konnte nicht versandt werden",
+      "success_message": "Email wurde erfolgreich versandt.",
+      "error_message": "Email konnte nicht versandt werden.",
       "execute_always": 0,
       "sort": 2
     }
