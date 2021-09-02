@@ -192,6 +192,22 @@
         {{t "instances.deleteInstance"}}
       </UkButton>
     {{/if}}
+
+    {{#if (can "convert to building permit instance" this.instance)}}
+      <h3 class="instance-overview__action-title">
+        {{t "instances.createBuildingPermitTitle"}}
+      </h3>
+      <p>
+        {{t "instances.createBuildingPermitText"}}
+      </p>
+      <LinkTo
+        @route="instances.new"
+        @query={{hash convertFrom=this.instance.id}}
+        class="uk-button uk-button-default"
+      >
+        {{t "instances.createBuildingPermitButton"}}
+      </LinkTo>
+    {{/if}}
   </div>
 </div>
 
