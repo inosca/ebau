@@ -83,18 +83,20 @@ class ParashiftImporter:
         record["barcodes"].pop(0)
         documents = []
         for index, code in enumerate(record["barcodes"], start=1):
+            start = code["page"]
+            stop = None
+            for c in record["barcodes"]:
+                if c["page"] > start:
+                    stop = c["page"] - 1
+                    break
+
+            if stop is None:
+                stop = pdf.numPages - 1
+
             output = PdfFileWriter()
 
-            pages = [code["page"] for code in record["barcodes"]]
-            missing_pages = [
-                x for x in range(pages[0], pages[-1] + 1) if x not in pages
-            ]
-
-            if code["page"] in pages and code["page"] + 1 not in missing_pages:
-                output.addPage(pdf.getPage(code["page"]))
-            else:
-                output.addPage(pdf.getPage(code["page"]))
-                output.addPage(pdf.getPage(code["page"] + 1))
+            for page in range(start, stop + 1):
+                output.addPage(pdf.getPage(page))
 
             bytes_file = io.BytesIO()
             output.write(bytes_file)
