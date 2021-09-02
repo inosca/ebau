@@ -32,7 +32,7 @@
   "dependencies": {
     "ember-apollo-client": "^3.1.0",
     "ember-auto-import": "^1.11.3",
-    "ember-caluma": "^7.5.0",
+    "ember-caluma": "^8.0.0",
     "ember-cli-babel": "^7.26.4",
     "ember-cli-htmlbars": "^5.3.1",
     "ember-fetch": "^8.0.4",
