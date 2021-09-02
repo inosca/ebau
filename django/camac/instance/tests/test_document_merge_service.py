@@ -1,7 +1,7 @@
 from pathlib import Path
 
 import pytest
-from caluma.caluma_form.models import Answer, Document, Form, Question
+from caluma.caluma_form.models import Answer, Document, DynamicOption, Form, Question
 from caluma.caluma_workflow.api import start_case
 from caluma.caluma_workflow.models import Workflow
 from django.conf import settings
@@ -147,6 +147,7 @@ def test_document_merge_service_cover_sheet_with_header_values(
     user_factory,
     snapshot,
     application_settings,
+    answer_factory,
 ):
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
         "MASTER_DATA"
@@ -202,7 +203,27 @@ def test_document_merge_service_cover_sheet_with_header_values(
     applicant_row = Document.objects.create(form_id="personalien-tabelle")
     applicant_row.answers.create(question_id="vorname-gesuchstellerin", value="Foo")
     applicant_row.answers.create(question_id="name-gesuchstellerin", value="Bar")
+    applicant_row.answers.create(
+        question_id="juristische-person-gesuchstellerin",
+        value="juristische-person-gesuchstellerin-ja",
+    )
+    applicant_row.answers.create(
+        question_id="name-juristische-person-gesuchstellerin", value="Test AG"
+    )
     applicant_table.documents.add(applicant_row)
+
+    # Prepare plot address
+    answer_factory(
+        question_id="strasse-flurname",
+        value="Bahnhofstrasse",
+        document=instance.case.document,
+    )
+    answer_factory(question_id="nr", value="2", document=instance.case.document)
+    answer_factory(
+        question_id="ort-grundstueck",
+        value="Testhausen",
+        document=instance.case.document,
+    )
 
     # Prepare tags
     Tags.objects.create(name="some tag", instance=instance, service=municipality)
@@ -218,6 +239,24 @@ def test_document_merge_service_cover_sheet_with_header_values(
         instance=instance,
         service=municipality,
         responsible_user=user_factory(name="testuser"),
+    )
+
+    # Prepare modification
+    answer_factory(
+        question_id="beschreibung-projektaenderung",
+        value="Anbau Haus",
+        document=instance.case.document,
+    )
+
+    # Prepare proposal
+    answer_factory(
+        question_id="beschreibung-bauvorhaben",
+        value="Bau Einfamilienhaus",
+        document=instance.case.document,
+    )
+
+    DynamicOption.objects.create(
+        document=instance.case.document, question_id="gemeinde", label="Testhausen"
     )
 
     root_document = Document.objects.filter(case=case, form_id="baugesuch").first()
