@@ -440,6 +440,12 @@ APPLICATIONS = {
             },
         },
         "REJECTION_FEEDBACK_QUESTION": {},
+        "FORM_FIELD_HISTORY_ENTRY": [
+            {
+                "name": "materieller-pruefbericht-bemerkung",
+                "title": "Materieller Prüfbericht",
+            }
+        ],
     },
     "kt_bern": {
         "LOG_NOTIFICATIONS": True,
