@@ -8,7 +8,6 @@
     {{#if (can "edit publication" this.publication)}}
       <DocumentValidity
         @document={{content.document}}
-        @validateOnEnter={{false}}
         as |isValid validate|
       >
         <TaskButton
