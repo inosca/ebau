@@ -3,6 +3,7 @@ from django.conf.urls import url
 from camac.stats.views import (
     ActivationSummaryView,
     ClaimSummaryView,
+    InstancesCycleTimesView,
     InstanceSummaryView,
 )
 
@@ -13,5 +14,10 @@ urlpatterns = [
         r"activations-summary",
         ActivationSummaryView.as_view(),
         name="activations-summary",
+    ),
+    url(
+        r"instances-cycle-times",
+        InstancesCycleTimesView.as_view(),
+        name="instances-cycle-times",
     ),
 ]

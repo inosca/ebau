@@ -20,11 +20,13 @@ from rest_framework.response import Response
 from camac.core.models import Activation
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.instance.models import Instance
+from camac.stats.cycle_time import aggregate_cycle_times
 from camac.user.permissions import permission_aware
 
 from .serializers import (
     ActivationSummarySerializer,
     ClaimSummarySerializer,
+    InstancesCycleTimeSerializer,
     InstanceSummarySerializer,
 )
 
@@ -112,3 +114,23 @@ class ActivationSummaryView(ListAPIView):
                 and round(res.get("deadline_quota"), 2),
             }
         )
+
+
+class InstancesCycleTimesView(InstanceQuerysetMixin, ListAPIView):
+    renderer_classes = [JSONRenderer]
+    swagger_schema = None
+    queryset = Instance.objects.filter(
+        case__meta__has_keys=["total-cycle-time", "net-cycle-time"]
+    )
+    serializer_class = InstancesCycleTimeSerializer
+    instance_field = None
+
+    @permission_aware
+    def get_queryset(self):
+        return self.queryset.none()
+
+    def get_queryset_for_service(self):
+        return self.queryset.none()
+
+    def get(self, request: Request, *args, **kwargs):
+        return Response(aggregate_cycle_times(self.get_queryset()))
