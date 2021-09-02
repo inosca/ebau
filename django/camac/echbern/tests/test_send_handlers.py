@@ -259,10 +259,11 @@ def test_change_responsibility_send_handler(
     instance_state_factory,
     service_factory,
     instance_service_factory,
-    ech_instance,
+    ech_instance_case,
     multilang,
     caluma_admin_user,
 ):
+    ech_instance = ech_instance_case().instance
     instance_state = instance_state_factory(name=instance_state_name)
     ech_instance.instance_state = instance_state
     ech_instance.save()
