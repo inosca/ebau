@@ -60,6 +60,10 @@ SUBMIT_DATE_QUESTION_ID = 20036
 SUBMIT_DATE_FORMAT = "%Y-%m-%dT%H:%M:%S%z"
 WORKFLOW_ITEM_DOSSIEREINGANG_UR = 10
 WORKFLOW_ITEM_DOSSIER_ERFASST_UR = 12
+COMPLETE_PRELIMINARY_CLARIFICATION_SLUGS_BE = [
+    "vorabklaerung-vollstaendig",
+    "vorabklaerung-vollstaendig-v2",
+]
 
 request_logger = getLogger("django.request")
 
@@ -715,6 +719,9 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
                 raise exceptions.ValidationError(_("Source instance not found"))
 
             caluma_form = caluma_api.get_form_slug(source_instance)
+            if caluma_form in COMPLETE_PRELIMINARY_CLARIFICATION_SLUGS_BE:
+                caluma_form = self.initial_data.get("caluma_form")
+
             is_paper = caluma_api.is_paper(source_instance)
         else:
             is_modification = False
