@@ -18,15 +18,17 @@
             }}
           </span>
 
-          {{#if @journalEntry.visibility}}
-            <i title={{t "journal.visibilityAuthorities" }}>
+          <i
+            class="uk-flex"
+            title={{if @journalEntry.visibility (t "journal.visibleForAuthorities") (t "journal.visibleForOwnOrganization")}}
+          >
+            {{#if @journalEntry.visibility}}
               <FaIcon @icon="eye" />
-            </i>
-          {{else}}
-            <i title={{t "journal.visibleForOwnOrganization" }}>
+            {{else}}
               <FaIcon @icon="eye-slash" />
-            </i>
-          {{/if}}
+            {{/if}}
+          </i>
+
         </div>
         {{#if (and (can "edit journal-entry") (not @journalEntry.edit))}}
           <div>

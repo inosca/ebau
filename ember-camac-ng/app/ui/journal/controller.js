@@ -31,7 +31,7 @@ export default class JournalController extends Controller {
       visibility: ENV.APPLICATION.journalDefaultVisibility,
     });
     this.newEntry.instance = instance;
-    this.newEntry.edit = true
+    this.newEntry.edit = true;
 
     return instance;
   }
