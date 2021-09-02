@@ -119,21 +119,18 @@ class ActivationSummaryView(ListAPIView):
 class InstancesCycleTimesView(InstanceQuerysetMixin, ListAPIView):
     renderer_classes = [JSONRenderer]
     swagger_schema = None
-    queryset = Instance.objects.filter(case__meta__has_key="total-cycle-time").filter(
-        case__meta__has_key="net-cycle-time"
+    queryset = Instance.objects.filter(
+        case__meta__has_keys=["total-cycle-time", "net-cycle-time"]
     )
     serializer_class = InstancesCycleTimeSerializer
     instance_field = None
 
     @permission_aware
     def get_queryset(self):
-        return super().get_queryset().none()
+        return self.queryset.none()
 
-    def get_queryset_for_municipality(self):
-        return super().get_queryset_for_municipality()
-
-    def get_queryset_for_support(self):
-        return super().get_queryset_for_support()
+    def get_queryset_for_service(self):
+        return self.queryset.none()
 
     def get(self, request: Request, *args, **kwargs):
         return Response(aggregate_cycle_times(self.get_queryset()))
