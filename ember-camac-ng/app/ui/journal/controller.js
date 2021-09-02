@@ -31,6 +31,7 @@ export default class JournalController extends Controller {
       visibility: ENV.APPLICATION.journalDefaultVisibility,
     });
     this.newEntry.instance = instance;
+    this.newEntry.edit = true
 
     return instance;
   }
@@ -38,6 +39,6 @@ export default class JournalController extends Controller {
   @action
   refetchEntries() {
     this.fetchEntries.perform();
-    this.initializeNewEntry.perform();
+    this.newEntry = null;
   }
 }

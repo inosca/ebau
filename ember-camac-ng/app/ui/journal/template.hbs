@@ -1,16 +1,18 @@
-<h1>
-  {{#if (eq this.shoebox.content.application "kt_schwyz")}}
-    {{t "journal.title-sz"}}
-  {{else}}
-    {{t "journal.title"}}
-  {{/if}}
-</h1>
-
 {{#if (can "edit journal-entry")}}
-  <JournalTextarea
-    @journalEntry={{this.newEntry}}
-    @onSaveNewJournalEntry={{this.refetchEntries}}
-  />
+  {{#if this.newEntry.edit}}
+    <JournalTextarea
+      @journalEntry={{this.newEntry}}
+      @onSaveNewJournalEntry={{this.refetchEntries}}
+    />
+  {{else}}
+    <UkButton
+      @type="button"
+      @color="primary"
+      @on-click={{perform this.initializeNewEntry}}
+    >
+      {{t "journal.create"}}
+    </UkButton>
+  {{/if}}
 
   <hr/>
 {{/if}}
