@@ -72,7 +72,13 @@ def nfd_tabelle_document_row(nfd_tabelle_form: caluma_form_models.Form) -> Calla
     return wrapper
 
 
-def test_summary_instances(admin_client, instance_factory, case_factory):
+@pytest.mark.parametrize(
+    "role__name,expected",
+    [("Support", 5), ("Municipality", 0), ("Service", 0), (None, 0)],
+)
+def test_summary_instances(
+    admin_client, instance_factory, case_factory, group, expected
+):
     num_instances = 5
     instances = instance_factory.create_batch(num_instances)
     run = 0
@@ -91,7 +97,7 @@ def test_summary_instances(admin_client, instance_factory, case_factory):
         run += 1
     url = reverse("instances-summary")
     response = admin_client.get(url)
-    assert response.json() == num_instances
+    assert response.json() == expected
 
 
 @pytest.mark.parametrize(
