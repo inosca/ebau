@@ -117,12 +117,8 @@ export default class SupportController extends Controller {
     } catch (error) {
       let text = this.intl.t("support.ebau-number.error");
 
-      if (error.response) {
-        const { errors } = yield error.response.json();
-
-        if (errors) {
-          text = parseErrors(errors);
-        }
+      if (error.body?.errors) {
+        text = parseErrors(error.body.errors);
       }
 
       this.notifications.error(text);
