@@ -2,6 +2,9 @@ import datetime
 from typing import Dict, List, Tuple
 
 from caluma.caluma_form.models import Document
+from django.contrib.postgres.fields.jsonb import KeyTextTransform
+from django.db.models import Avg, Count, IntegerField, QuerySet
+from django.db.models.functions import Cast, ExtractYear
 
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
@@ -150,7 +153,36 @@ def compute_cycle_time(instance: Instance) -> Dict:
         cumulated_extra_time += extra_time
         cumulated_idle_time += idle_time
 
-    return dict(
-        total_cycle_time=cumulated_extra_time,
-        net_cycle_time=cumulated_extra_time - cumulated_idle_time,
+    return {
+        "total-cycle-time": cumulated_extra_time,
+        "net-cycle-time": cumulated_extra_time - cumulated_idle_time,
+    }
+
+
+def aggregate_cycle_times(instances: QuerySet) -> Dict:
+    # Categorize by year and aggregate (AVG) instances's cycle times.
+    return (
+        instances.annotate(year=ExtractYear("decision__decision_date"))
+        .values("year")
+        .annotate(
+            avg_total_cycle_time=Cast(
+                Avg(
+                    Cast(
+                        KeyTextTransform("total-cycle-time", "case__meta"),
+                        output_field=IntegerField(),
+                    )
+                ),
+                output_field=IntegerField(),
+            ),
+            avg_net_cycle_time=Cast(
+                Avg(
+                    Cast(
+                        KeyTextTransform("net-cycle-time", "case__meta"),
+                        output_field=IntegerField(),
+                    )
+                ),
+                output_field=IntegerField(),
+            ),
+            count=Count("pk"),
+        )
     )
