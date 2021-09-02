@@ -49,7 +49,7 @@ export default class PublicationEditController extends Controller {
   async beforeComplete(validateFn) {
     return (
       (await validateFn()) &&
-      (await confirm(this.intl.t("publication.confirmComplete")))
+      (await confirm(this.intl.t("publication.confirm")))
     );
   }
 
