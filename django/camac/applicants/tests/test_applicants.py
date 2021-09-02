@@ -74,6 +74,8 @@ def test_applicant_delete(
         ("Applicant", "User@example.com", True, status.HTTP_201_CREATED),
         ("Applicant", "exists@example.com", None, status.HTTP_400_BAD_REQUEST),
         ("Applicant", "Exists@example.com", None, status.HTTP_400_BAD_REQUEST),
+        ("Applicant", "old@example.com", None, status.HTTP_201_CREATED),
+        ("Applicant", "new@example.com", None, status.HTTP_400_BAD_REQUEST),
         ("Municipality", "test@example.com", None, status.HTTP_403_FORBIDDEN),
         ("Service", "test@example.com", None, status.HTTP_403_FORBIDDEN),
         ("Canton", "test@example.com", None, status.HTTP_403_FORBIDDEN),
@@ -97,6 +99,17 @@ def test_applicant_create(
         instance=be_instance,
         invitee=user_factory(email="exists@example.com"),
         email="exists@example.com",
+    )
+
+    # This simulates a case where a user was invited with an email, then changed
+    # it's email (which is totally possible) and then another user registered
+    # with that old email address. That user should be allowed to be invited
+    # since it's a different user.
+    user_factory(email="old@example.com"),
+    applicant_factory(
+        instance=be_instance,
+        invitee=user_factory(email="new@example.com"),
+        email="old@example.com",
     )
 
     user_factory(email="user@example.com")
