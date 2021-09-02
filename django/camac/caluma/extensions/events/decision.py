@@ -19,9 +19,19 @@ from camac.echbern.signals import ruling
 from camac.instance.models import InstanceState
 from camac.instance.utils import set_construction_control
 from camac.notification.utils import send_mail_without_request
+from camac.stats.cycle_time import compute_cycle_time
 from camac.user.models import User
 
 from .general import get_caluma_setting, get_instance
+
+
+@on(post_complete_work_item, raise_exception=True)
+@transaction.atomic
+def set_cycle_time_post_decision_complete(sender, work_item, user, context, **kwargs):
+    if work_item.task_id == get_caluma_setting("DECISION_TASK"):
+        instance = get_instance(work_item)
+        instance.case.meta.update(compute_cycle_time(instance))
+        instance.case.save()
 
 
 @on(post_complete_work_item, raise_exception=True)
