@@ -2417,6 +2417,15 @@
     }
   },
   {
+    "model": "core.araction",
+    "pk": 21,
+    "fields": {
+      "available_resource": "page",
+      "action_name": "template",
+      "hidden": 0
+    }
+  },
+  {
     "model": "core.availableaction",
     "pk": "addhistory",
     "fields": {
@@ -2896,6 +2905,15 @@
       "module_name": "issue",
       "controller_name": "issuetemplates",
       "description": "Dashboard for template issues"
+    }
+  },
+  {
+    "model": "core.availableresource",
+    "pk": "page",
+    "fields": {
+      "module_name": "default",
+      "controller_name": "index",
+      "description": "Display page from template"
     }
   },
   {
@@ -15579,6 +15597,13 @@
     }
   },
   {
+    "model": "core.rpage",
+    "pk": 24,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
     "model": "core.rroleacl",
     "pk": 1,
     "fields": {
@@ -15987,6 +16012,14 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 62,
+    "fields": {
+      "resource": 24,
+      "role": 12
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 1,
     "fields": {
@@ -16205,6 +16238,19 @@
       "class_field": null,
       "hidden": 0,
       "sort": 0
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 24,
+    "fields": {
+      "available_resource": "page",
+      "name": "FormBuilder",
+      "description": null,
+      "template": "/ember-camac-ng/formbuilder.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 17
     }
   },
   {
