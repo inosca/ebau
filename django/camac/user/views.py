@@ -92,6 +92,9 @@ class ServiceView(MultilangMixin, ModelViewSet):
     def get_queryset_for_coordination(self):
         return super().get_queryset()
 
+    def get_queryset_for_reader(self):
+        return super().get_queryset()
+
 
 class PublicServiceView(MultilangMixin, PreloadIncludesMixin, ReadOnlyModelViewSet):
     filterset_class = filters.PublicServiceFilterSet
