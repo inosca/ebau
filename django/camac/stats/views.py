@@ -57,16 +57,15 @@ class ClaimSummaryView(ListAPIView):
         return Response(self.get_queryset().count())
 
 
-class InstanceSummaryView(ListAPIView, InstanceQuerysetMixin):
+class InstanceSummaryView(InstanceQuerysetMixin, ListAPIView):
     renderer_classes = [JSONRenderer]
     swagger_schema = None
     queryset = Instance.objects.all()
-
     serializer_class = InstanceSummarySerializer
+    instance_field = None
 
     def get(self, request, *args, **kwargs):
-        queryset = self.filter_queryset(self.get_queryset())
-        return Response(queryset.count())
+        return Response(self.get_queryset().count())
 
 
 class ActivationSummaryView(ListAPIView):
