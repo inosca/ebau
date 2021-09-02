@@ -24,6 +24,7 @@ from camac.caluma.api import CalumaApi
 from camac.constants import kt_bern as be_constants
 from camac.core.models import (
     Answer,
+    HistoryActionConfig,
     InstanceLocation,
     InstanceService,
     ProposalActivation,
@@ -1566,6 +1567,22 @@ class FormFieldSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             )
 
         return name
+
+    def save(self):
+        self.save_side_effects(self.validated_data)
+        return super().save()
+
+    def save_side_effects(self, data):
+        for form_field in settings.APPLICATION.get("FORM_FIELD_HISTORY_ENTRY", []):
+            if data["name"] == form_field["name"]:
+                models.HistoryEntry.objects.create(
+                    instance=data["instance"],
+                    created_at=timezone.now(),
+                    user=self.context["request"].user,
+                    history_type=HistoryActionConfig.HISTORY_TYPE_NOTIFICATION,
+                    title=form_field["title"],
+                    body=data["value"],
+                )
 
     class Meta:
         model = models.FormField

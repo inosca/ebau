@@ -88,7 +88,23 @@ def test_form_field_detail(admin_client, form_field, form_field__value):
 def test_form_field_update(admin_client, form_field, status_code):
     url = reverse("form-field-detail", args=[form_field.pk])
 
-    response = admin_client.patch(url)
+    data = {
+        "data": {
+            "type": "form-fields",
+            "id": form_field.pk,
+            "attributes": {
+                "name": form_field.name,
+                "value": {"test-name": "test-value"},
+            },
+            "relationships": {
+                "instance": {
+                    "data": {"type": "instances", "id": form_field.instance.pk}
+                }
+            },
+        }
+    }
+
+    response = admin_client.patch(url, data=data)
     assert response.status_code == status_code
 
 
@@ -215,3 +231,47 @@ def test_form_field_list_filtering(
         int(entry["relationships"]["instance"]["data"]["id"]) for entry in json["data"]
     )
     assert set(instance_ids) == instances_from_json
+
+
+@pytest.mark.parametrize(
+    "role__name,instance_state__name,instance__user,form_field__name",
+    [
+        (
+            "Applicant",
+            "new",
+            LazyFixture("admin_user"),
+            "kategorie-des-vorhabens",
+        ),
+    ],
+)
+def test_form_field_side_effect_history_entry(
+    admin_client, form_field, application_settings
+):
+    application_settings["FORM_FIELD_HISTORY_ENTRY"] = (
+        {"name": "kategorie-des-vorhabens", "title": "testeee"},
+    )
+
+    url = reverse("form-field-detail", args=[form_field.pk])
+
+    data = {
+        "data": {
+            "type": "form-fields",
+            "id": form_field.pk,
+            "attributes": {
+                "name": form_field.name,
+                "value": {"test-name": "test-value"},
+            },
+            "relationships": {
+                "instance": {
+                    "data": {"type": "instances", "id": form_field.instance.pk}
+                }
+            },
+        }
+    }
+
+    response = admin_client.patch(url, data=data)
+    assert response.status_code == status.HTTP_200_OK
+    assert (
+        models.HistoryEntry.objects.all().first().title
+        == application_settings["FORM_FIELD_HISTORY_ENTRY"][0]["title"]
+    )

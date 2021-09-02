@@ -6117,7 +6117,8 @@
         "options": [
           "ordentliches Verfahren",
           "vereinfachtes Verfahren",
-          "Meldeverfahren"
+          "Meldeverfahren",
+          "Vorabklärung/ Vorentscheid"
         ]
       }
     },
@@ -6131,6 +6132,22 @@
       }
     },
     "vollstaendigkeitspruefung-bemerkung": {
+      "restrict": ["municipality", "service", "reader"],
+      "label": "Bemerkung:",
+      "type": "text",
+      "required": false,
+      "config": {}
+    },
+    "materieller-pruefbericht": {
+      "restrict": ["municipality", "service", "reader"],
+      "label": "Materieller Prüfbericht",
+      "type": "radio",
+      "required": false,
+      "config": {
+        "options": ["Nein", "Ja"]
+      }
+    },
+    "materieller-pruefbericht-bemerkung": {
       "restrict": ["municipality", "service", "reader"],
       "label": "Bemerkung:",
       "type": "text",
