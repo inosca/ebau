@@ -1,7 +1,4 @@
 history:
-  title: "Histoire"
-  event: "Événement"
-
   types:
     notification: "Notification"
     status-change: "Changement d'état"
