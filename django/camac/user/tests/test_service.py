@@ -11,6 +11,7 @@ from rest_framework import status
         ("Canton", 1),
         ("Municipality", 1),
         ("Coordination", 1),
+        ("Reader", 1),
     ],
 )
 def test_service_list(admin_client, service, size):
