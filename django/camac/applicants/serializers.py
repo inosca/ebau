@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.db.models import Q
 from django.utils.translation import gettext as _
 from rest_framework.exceptions import ValidationError
 from rest_framework_json_api import relations, serializers
@@ -27,7 +28,13 @@ class ApplicantSerializer(serializers.ModelSerializer, InstanceEditableMixin):
             email=data["email"], disabled=False
         ).first()
 
-        if data["instance"].involved_applicants.filter(email=data["email"]).exists():
+        unique_filter = (
+            Q(email=data["email"])
+            if data["invitee"] is None
+            else Q(invitee=data["invitee"])
+        )
+
+        if data["instance"].involved_applicants.filter(unique_filter).exists():
             raise ValidationError(
                 _("Email '%(email)s' has already access to instance %(instance)s")
                 % {"email": data["email"], "instance": data["instance"].pk}
