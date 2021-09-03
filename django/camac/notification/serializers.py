@@ -36,7 +36,7 @@ from camac.utils import flatten, get_responsible_koor_service_id
 from ..core import models as core_models
 from . import models
 
-request_logger = getLogger("django.request")
+logger = getLogger(__name__)
 
 
 class NoticeMergeSerializer(serializers.Serializer):
@@ -894,6 +894,8 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         emails = []
         post_send = []
 
+        connection = get_connection()
+
         for recipient_type in sorted(validated_data["recipient_types"]):
             recipients = getattr(self, "_get_recipients_%s" % recipient_type)(instance)
             subject = subj_prefix + validated_data["subject"]
@@ -911,6 +913,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
                     EmailMessage(
                         subject=subject,
                         body=body,
+                        connection=connection,
                         # EmailMessage needs "to" and "cc" to be lists
                         **{
                             k: [e.strip() for e in email.split(",")]
@@ -918,10 +921,6 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
                             if email
                         },
                     )
-                )
-
-                request_logger.info(
-                    f'Sent email "{subject}" to {self._recipient_log(recipient)}'
                 )
 
             post_send.append(
@@ -963,14 +962,33 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
                     body,
                 )
 
-        if emails:
-            connection = get_connection()
-            connection.send_messages(emails)
+        self._send_mails(emails, connection)
 
         for fn in post_send:
             fn(instance)
 
         return len(emails)
+
+    def _send_mails(self, emails, connection):
+        if emails:
+            connection.open()
+            exceptions = []
+            for email in emails:
+                try:
+                    email.send()
+                    logger.info(f'Sent email "{email.subject}" to {email.to}')
+                except Exception as e:
+                    exceptions.append((e, email))
+            connection.close()
+
+            if len(exceptions) > 0:
+                error_msgs = "\n".join(
+                    [
+                        f"to {email.to}, cc {email.cc}: {str(exception)}"
+                        for exception, email in exceptions
+                    ]
+                )
+                logger.error(f"Failed to send {len(exceptions)} emails: {error_msgs}")
 
     class Meta:
         resource_name = "notification-template-sendmails"
