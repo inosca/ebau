@@ -5831,15 +5831,6 @@
   },
   {
     "model": "core.airaction",
-    "pk": 78,
-    "fields": {
-      "available_instance_resource": "journal",
-      "action_name": "index",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.airaction",
     "pk": 180000,
     "fields": {
       "available_instance_resource": "dashboard",
@@ -5881,15 +5872,6 @@
       "available_instance_resource": "apidocuments",
       "action_name": "download",
       "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 12000005,
-    "fields": {
-      "available_instance_resource": "gwr",
-      "action_name": "index",
-      "hidden": 0
     }
   },
   {
@@ -10830,29 +10812,11 @@
   },
   {
     "model": "core.availableinstanceresource",
-    "pk": "gwr",
-    "fields": {
-      "module_name": "gwr",
-      "controller_name": "gwr",
-      "description": "GWR module"
-    }
-  },
-  {
-    "model": "core.availableinstanceresource",
     "pk": "history",
     "fields": {
       "module_name": "history",
       "controller_name": "history",
       "description": "Show instance history"
-    }
-  },
-  {
-    "model": "core.availableinstanceresource",
-    "pk": "journal",
-    "fields": {
-      "module_name": "journal",
-      "controller_name": "journal",
-      "description": "Show instance journal"
     }
   },
   {
@@ -23214,11 +23178,11 @@
     "model": "core.instanceresource",
     "pk": 772,
     "fields": {
-      "available_instance_resource": "journal",
+      "available_instance_resource": "page",
       "resource": 267,
       "name": "Journal",
       "description": null,
-      "template": null,
+      "template": "/ember-camac-ng/journal.phtml",
       "class_field": null,
       "hidden": 0,
       "sort": 4,
@@ -23244,11 +23208,11 @@
     "model": "core.instanceresource",
     "pk": 20001,
     "fields": {
-      "available_instance_resource": "journal",
+      "available_instance_resource": "page",
       "resource": 301,
       "name": "Journal",
       "description": null,
-      "template": null,
+      "template": "/ember-camac-ng/journal.phtml",
       "class_field": null,
       "hidden": 0,
       "sort": 3,
@@ -23529,11 +23493,11 @@
     "model": "core.instanceresource",
     "pk": 12000001,
     "fields": {
-      "available_instance_resource": "journal",
+      "available_instance_resource": "page",
       "resource": 302,
       "name": "Journal",
       "description": null,
-      "template": null,
+      "template": "/ember-camac-ng/journal.phtml",
       "class_field": null,
       "hidden": 0,
       "sort": 3,
@@ -23574,11 +23538,11 @@
     "model": "core.instanceresource",
     "pk": 12000004,
     "fields": {
-      "available_instance_resource": "journal",
+      "available_instance_resource": "page",
       "resource": 288,
       "name": "Journal",
       "description": null,
-      "template": null,
+      "template": "/ember-camac-ng/journal.phtml",
       "class_field": null,
       "hidden": 0,
       "sort": 3,
@@ -23589,11 +23553,11 @@
     "model": "core.instanceresource",
     "pk": 12000005,
     "fields": {
-      "available_instance_resource": "journal",
+      "available_instance_resource": "page",
       "resource": 264,
       "name": "Journal",
       "description": null,
-      "template": null,
+      "template": "/ember-camac-ng/journal.phtml",
       "class_field": null,
       "hidden": 0,
       "sort": 3,
@@ -23604,11 +23568,11 @@
     "model": "core.instanceresource",
     "pk": 12000006,
     "fields": {
-      "available_instance_resource": "journal",
+      "available_instance_resource": "page",
       "resource": 296,
       "name": "Journal",
       "description": null,
-      "template": null,
+      "template": "/ember-camac-ng/journal.phtml",
       "class_field": null,
       "hidden": 0,
       "sort": 3,
@@ -23619,11 +23583,11 @@
     "model": "core.instanceresource",
     "pk": 12000007,
     "fields": {
-      "available_instance_resource": "journal",
+      "available_instance_resource": "page",
       "resource": 297,
       "name": "Journal",
       "description": null,
-      "template": null,
+      "template": "/ember-camac-ng/journal.phtml",
       "class_field": null,
       "hidden": 0,
       "sort": 3,
@@ -23634,11 +23598,11 @@
     "model": "core.instanceresource",
     "pk": 12000008,
     "fields": {
-      "available_instance_resource": "journal",
+      "available_instance_resource": "page",
       "resource": 289,
       "name": "Journal",
       "description": null,
-      "template": null,
+      "template": "/ember-camac-ng/journal.phtml",
       "class_field": null,
       "hidden": 0,
       "sort": 3,
@@ -23649,11 +23613,11 @@
     "model": "core.instanceresource",
     "pk": 14000000,
     "fields": {
-      "available_instance_resource": "gwr",
+      "available_instance_resource": "page",
       "resource": 301,
       "name": "GWR",
       "description": null,
-      "template": null,
+      "template": "/ember-camac-ng/gwr.phtml",
       "class_field": null,
       "hidden": 1,
       "sort": 14,
@@ -26891,6 +26855,20 @@
   },
   {
     "model": "core.irpage",
+    "pk": 772,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 20001,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
     "pk": 20004,
     "fields": {
       "pdf_class": null
@@ -26913,6 +26891,55 @@
   {
     "model": "core.irpage",
     "pk": 2000002,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 12000001,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 12000004,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 12000005,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 12000006,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 12000007,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 12000008,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 14000000,
     "fields": {
       "pdf_class": null
     }
