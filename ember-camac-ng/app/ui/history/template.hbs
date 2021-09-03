@@ -1,11 +1,3 @@
-<h1>
-  {{#if (eq this.shoebox.content.application "kt_schwyz")}}
-    {{t "history.title-sz"}}
-  {{else}}
-    {{t "history.title"}}
-  {{/if}}
-</h1>
-
 <table class="history" {{did-insert (perform this.fetchEntries)}}>
   <thead>
     <tr>
