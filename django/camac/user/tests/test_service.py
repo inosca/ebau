@@ -146,6 +146,44 @@ def test_service_update_permissions(
 
 
 @pytest.mark.parametrize(
+    "role__name",
+    ["Municipality"],
+)
+@pytest.mark.parametrize(
+    "email,success",
+    [
+        ("not.an.email", False),
+        (" VALID@eXample.COM", True),
+        ("foo@bar.ch, nope@, x@y.com", False),
+    ],
+)
+def test_service_update_invalid_email(
+    admin_client, service, application_settings, email, success
+):
+    application_settings["SERVICE_UPDATE_ALLOWED_ROLES"] = ["Municipality"]
+    url = reverse("service-detail", args=[service.pk])
+    old_email = service.email
+    data = {
+        "data": {
+            "type": "services",
+            "id": service.pk,
+            "attributes": {
+                "email": email,
+                "description": "service name",
+                "city": "city name",
+            },
+        }
+    }
+    response = admin_client.patch(url, data=data)
+
+    expected_status = status.HTTP_200_OK if success else status.HTTP_400_BAD_REQUEST
+    assert response.status_code == expected_status
+    service.refresh_from_db()
+    expected_email = email.lower().strip() if success else old_email
+    assert service.email == expected_email
+
+
+@pytest.mark.parametrize(
     "role__name,status_code",
     [
         ("Applicant", status.HTTP_403_FORBIDDEN),
