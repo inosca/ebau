@@ -2130,15 +2130,6 @@
   },
   {
     "model": "core.airaction",
-    "pk": 52,
-    "fields": {
-      "available_instance_resource": "editresponsibleuser",
-      "action_name": "edit-responsible-user",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.airaction",
     "pk": 53,
     "fields": {
       "available_instance_resource": "templatecenter",
@@ -2160,15 +2151,6 @@
     "pk": 55,
     "fields": {
       "available_instance_resource": "objection",
-      "action_name": "index",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 56,
-    "fields": {
-      "available_instance_resource": "journal",
       "action_name": "index",
       "hidden": 0
     }
@@ -2223,15 +2205,6 @@
     "pk": 10003,
     "fields": {
       "available_instance_resource": "workitemlistinstance",
-      "action_name": "index",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 10004,
-    "fields": {
-      "available_instance_resource": "gwr",
       "action_name": "index",
       "hidden": 0
     }
@@ -2507,14 +2480,6 @@
   },
   {
     "model": "core.availableaction",
-    "pk": "journal",
-    "fields": {
-      "module_name": "journal",
-      "description": "Generate Journal Entry"
-    }
-  },
-  {
-    "model": "core.availableaction",
     "pk": "location",
     "fields": {
       "module_name": "default",
@@ -2693,15 +2658,6 @@
   },
   {
     "model": "core.availableinstanceresource",
-    "pk": "editresponsibleuser",
-    "fields": {
-      "module_name": "responsible",
-      "controller_name": "index",
-      "description": "Edit responsible user"
-    }
-  },
-  {
-    "model": "core.availableinstanceresource",
     "pk": "formerror",
     "fields": {
       "module_name": "default",
@@ -2738,15 +2694,6 @@
   },
   {
     "model": "core.availableinstanceresource",
-    "pk": "gwr",
-    "fields": {
-      "module_name": "gwr",
-      "controller_name": "gwr",
-      "description": "GWR module"
-    }
-  },
-  {
-    "model": "core.availableinstanceresource",
     "pk": "history",
     "fields": {
       "module_name": "history",
@@ -2770,15 +2717,6 @@
       "module_name": "issue",
       "controller_name": "issue",
       "description": "Issue management"
-    }
-  },
-  {
-    "model": "core.availableinstanceresource",
-    "pk": "journal",
-    "fields": {
-      "module_name": "journal",
-      "controller_name": "journal",
-      "description": "journal"
     }
   },
   {
@@ -4930,11 +4868,11 @@
     "model": "core.instanceresource",
     "pk": 21,
     "fields": {
-      "available_instance_resource": "editresponsibleuser",
+      "available_instance_resource": "page",
       "resource": 1,
       "name": "Verantwortliche Person",
       "description": null,
-      "template": null,
+      "template": "/ember-camac-ng/responsible.phtml",
       "class_field": null,
       "hidden": 0,
       "sort": 7,
@@ -4945,11 +4883,11 @@
     "model": "core.instanceresource",
     "pk": 22,
     "fields": {
-      "available_instance_resource": "editresponsibleuser",
+      "available_instance_resource": "page",
       "resource": 6,
       "name": "Verantwortliche Person",
       "description": null,
-      "template": null,
+      "template": "/ember-camac-ng/responsible.phtml",
       "class_field": null,
       "hidden": 0,
       "sort": 6,
@@ -5005,11 +4943,11 @@
     "model": "core.instanceresource",
     "pk": 26,
     "fields": {
-      "available_instance_resource": "journal",
+      "available_instance_resource": "page",
       "resource": 1,
       "name": "Notizen",
       "description": null,
-      "template": null,
+      "template": "/ember-camac-ng/journal.phtml",
       "class_field": null,
       "hidden": 0,
       "sort": 14,
@@ -5200,11 +5138,11 @@
     "model": "core.instanceresource",
     "pk": 41,
     "fields": {
-      "available_instance_resource": "journal",
+      "available_instance_resource": "page",
       "resource": 6,
       "name": "Notizen",
       "description": null,
-      "template": null,
+      "template": "/ember-camac-ng/journal.phtml",
       "class_field": null,
       "hidden": 0,
       "sort": 11,
@@ -5335,11 +5273,11 @@
     "model": "core.instanceresource",
     "pk": 52,
     "fields": {
-      "available_instance_resource": "gwr",
+      "available_instance_resource": "page",
       "resource": 1,
       "name": "GWR",
       "description": null,
-      "template": null,
+      "template": "/ember-camac-ng/gwr.phtml",
       "class_field": null,
       "hidden": 1,
       "sort": 18,
@@ -6979,14 +6917,6 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 347,
-    "fields": {
-      "available_instance_resource": "editresponsibleuser",
-      "available_action": "addhistory"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 348,
     "fields": {
       "available_instance_resource": "page",
@@ -6998,14 +6928,6 @@
     "pk": 349,
     "fields": {
       "available_instance_resource": "editformpages",
-      "available_action": "addhistory"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 350,
-    "fields": {
-      "available_instance_resource": "journal",
       "available_action": "addhistory"
     }
   },
@@ -7023,14 +6945,6 @@
     "fields": {
       "available_instance_resource": "buildingauthority",
       "available_action": "addhistory"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 353,
-    "fields": {
-      "available_instance_resource": "journal",
-      "available_action": "workitem"
     }
   },
   {
@@ -7222,14 +7136,6 @@
     "pk": 377,
     "fields": {
       "available_instance_resource": "allformpages",
-      "available_action": "workitem"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 378,
-    "fields": {
-      "available_instance_resource": "editresponsibleuser",
       "available_action": "workitem"
     }
   },
@@ -7516,6 +7422,41 @@
       "instance_resource": 18,
       "group": 7,
       "instance_state": 7
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 21,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 22,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 26,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 41,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 52,
+    "fields": {
+      "pdf_class": null
     }
   },
   {
