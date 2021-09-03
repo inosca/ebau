@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AnonymousUser
+from django.core.validators import validate_email
 from rest_framework_json_api import relations, serializers
 
 from camac.core.serializers import MultilingualField, MultilingualSerializer
@@ -130,6 +131,12 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
         "service_parent": "camac.user.serializers.ServiceSerializer",
         "service_group": "camac.user.serializers.PublicServiceGroupSerializer",
     }
+
+    def validate_email(self, value):
+        emails = [email.lower().strip() for email in value.split(",")]
+        for email in emails:
+            validate_email(email)
+        return ",".join(emails)
 
     def update(self, instance, validated_data):
         old_name = instance.get_name()
