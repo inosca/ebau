@@ -4,6 +4,7 @@ from pathlib import Path
 import pytest
 from django.conf import settings
 from django.core.management import call_command
+from PyPDF2 import PdfFileReader
 
 from camac.instance.master_data import MasterData
 from camac.parashift.parashift import ParashiftImporter, ParashiftValidationError
@@ -191,3 +192,36 @@ def test_command_data_error(parashift_mock, requests_mock):
     out = io.StringIO()
     call_command("parashift_import", "138866", "138867", stderr=out)
     assert out.getvalue() == "Couldn't import dossiers: Couldn't fetch original PDF.\n"
+
+
+def test_pdf_cropping():
+    record = {
+        "gesuchsteller": "Kanton Uri, v.d. Baudirektion Uri",
+        "erfassungsjahr": 1992,
+        "parzelle-nr": 11,
+        "baurecht-nr": None,
+        "gemeinde": "Gurtnellen 1209",
+        "ort": "Platti, Amsteg",
+        "vorhaben": "Erschliessungsstrasse",
+        "parashift-id": "138866",
+        "barcodes": [
+            {"type": "Gurtnellen 1209", "page": 0},
+            {"type": "Fachstellen", "page": 1},
+            {"type": "Fachstellen", "page": 3},
+            {"type": "Fachstellen", "page": 4},
+            {"type": "Gesuchsteller", "page": 8},
+        ],
+        "document": io.BytesIO((DATA_DIR / "dossier.pdf").open("br").read()),
+    }
+    documents = ParashiftImporter().crop_pdf(record)
+    assert len(documents) == 4
+    for counter, doc in enumerate(documents, 1):
+        assert doc["name"] == f"{counter}.pdf"
+
+    doc1 = documents[0]["data"]
+    pdf = PdfFileReader(doc1)
+    assert pdf.getNumPages() == 2
+
+    doc4 = documents[-1]["data"]
+    pdf = PdfFileReader(doc4)
+    assert pdf.getNumPages() == 4
