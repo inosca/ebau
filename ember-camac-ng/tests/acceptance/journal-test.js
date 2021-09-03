@@ -35,6 +35,7 @@ module("Acceptance | journal", function (hooks) {
   test("it can create a journal entry", async function (assert) {
     await visit(`/instances/${this.instance.id}/journal`);
 
+    await click("[data-test-create]");
     await fillIn("[data-test-textarea]", "Lorem ipsum");
     await click("[data-test-save]");
 

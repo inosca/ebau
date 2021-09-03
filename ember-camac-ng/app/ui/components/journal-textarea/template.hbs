@@ -8,28 +8,22 @@
     data-test-textarea
   />
   <form class="uk-flex uk-flex-between uk-form-stacked uk-margin-top">
-    <div>
-
-      <label class="uk-form-label uk-text-uppercase">{{t "journal.visibilityFor" }}</label>
-
-        <UkToggleSwitch
-          @value={{@journalEntry.visibility}}
-          @onLabel={{t "journal.visibilityAuthorities"}}
-          @offLabel={{t "journal.visibilityOwn"}}
-          @showLabels={{true}}
-          @size="small"
-          title={{t "journal.visibility"}}
-        />
-    </div>
+    <UkToggleSwitch
+      @value={{@journalEntry.visibility}}
+      @offLabel=""
+      @onLabel={{t "journal.visibleForAuthorities"}}
+      @showLabels={{true}}
+      @size="small"
+      title={{t "journal.visibility"}}
+      class="x-small"
+    />
     <div> 
-      {{#if @showCancel}}
-        <UkButton
-          @type="button"
-          @on-click={{fn this.cancelEditEntry @journalEntry}}
-        >
-          {{t "global.cancel"}}
-        </UkButton>
-      {{/if}}
+      <UkButton
+        @type="button"
+        @on-click={{fn this.cancelEditEntry @journalEntry}}
+      >
+        {{t "global.cancel"}}
+      </UkButton>
       <UkButton
         @type="button"
         @color="primary"
