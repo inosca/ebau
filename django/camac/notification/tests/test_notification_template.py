@@ -5,6 +5,7 @@ from time import mktime
 import pytest
 from caluma.caluma_form import models as caluma_form_models
 from django.core.exceptions import ObjectDoesNotExist
+from django.core.mail import EmailMessage
 from django.urls import reverse
 from django.utils import timezone
 from pytest_factoryboy import LazyFixture
@@ -159,6 +160,85 @@ def test_notification_template_merge(
             notification_template.slug, sz_instance.pk
         )
         assert json["data"]["type"] == "notification-template-merges"
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_notification_template_sendmail_exception_handling(
+    db,
+    admin_client,
+    activation_factory,
+    mocker,
+    notification_template,
+    be_instance,
+    circulation,
+    mailoutbox,
+    service_factory,
+    caplog,
+    settings,
+):
+    settings.ADMINS = [("Admin", "admin@example.com")]
+    original_send = EmailMessage.send
+
+    def on_send(self, *args, **kwargs):
+        if "not.an.email" in self.to:
+            raise Exception("Invalid E-Mail")
+        original_send(self, *args, **kwargs)
+
+    mocker.patch("django.core.mail.EmailMessage.send", new=on_send)
+
+    admin_service = admin_client.user.groups.first().service
+    activation_factory(
+        circulation=circulation,
+        email_sent=0,
+        service_parent=admin_service,
+        service=service_factory(email="valid@example.com"),
+    )
+    activation_factory(
+        circulation=circulation,
+        email_sent=0,
+        service_parent=admin_service,
+        service=service_factory(email="not.an.email"),
+    )
+    activation_factory(
+        circulation=circulation,
+        email_sent=0,
+        service_parent=admin_service,
+        service=service_factory(email="fine@example.com"),
+    )
+    be_instance.case.document.answers.create(
+        question_id="gemeinde", value=str(be_instance.responsible_service().pk)
+    )
+
+    data = {
+        "data": {
+            "type": "notification-template-sendmails",
+            "id": None,
+            "attributes": {
+                "template-slug": notification_template.slug,
+                "body": "Test body",
+                "recipient-types": [
+                    "unnotified_service",
+                ],
+            },
+            "relationships": {
+                "instance": {"data": {"type": "instances", "id": be_instance.pk}},
+            },
+        }
+    }
+
+    url = reverse("notificationtemplate-sendmail")
+
+    admin_client.post(url, data=data)
+    assert len(mailoutbox) == 3
+    expected_subject = f"[eBau Test]: {notification_template.subject}"
+    assert sorted([(m.to, m.subject) for m in mailoutbox]) == [
+        (
+            ["admin@example.com"],
+            "[Django] ERROR: Failed to send 1 emails: to ['not.an.email'], cc []: Invalid E-Mail",
+        ),
+        (["fine@example.com"], expected_subject),
+        (["valid@example.com"], expected_subject),
+    ]
 
 
 @pytest.mark.parametrize(

@@ -1697,7 +1697,10 @@ LOGGING = {
             "class": "django.utils.log.AdminEmailHandler",
         },
     },
-    "loggers": {"django": {"handlers": ["console", "mail_admins"], "level": "INFO"}},
+    "loggers": {
+        "django": {"handlers": ["console", "mail_admins"], "level": "INFO"},
+        "camac": {"handlers": ["console", "mail_admins"], "level": "INFO"},
+    },
 }
 
 REQUEST_LOGGING_METHODS = env.list(
