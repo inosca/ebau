@@ -179,28 +179,10 @@ export default class CustomWorkItemModel extends WorkItemModel {
   _getDirectLinkFor(configKey) {
     try {
       const config = this.shoebox.content.config.directLink;
-      const role = this.shoebox.role;
 
-      let template = config[configKey][role];
-
-      if (
-        this.shoebox.content.application === "kt_schwyz" &&
-        configKey === "start-circulation" &&
-        this.shoebox.content.roleId === 11
-      ) {
-        template = config[configKey].municipalityService;
-      }
-
-      const data = {
-        INSTANCE_ID: this.instanceId,
-        CIRCULATION_ID: this.raw.meta["circulation-id"],
-        ACTIVATION_ID: this.raw.meta["activation-id"],
-      };
-
-      return Object.entries(data).reduce(
-        (str, [key, value]) => str.replace(`{{${key}}}`, value),
-        template
-      );
+      return `/index/redirect-to-instance-resource/instance-id/${this.instanceId}?${config[configKey]}`
+        .replace("{{CIRCULATION_ID}}", this.raw.meta["circulation-id"])
+        .replace("{{ACTIVATION_ID}}", this.raw.meta["activation-id"]);
     } catch (error) {
       return null;
     }
