@@ -26,8 +26,15 @@ from camac.utils import build_url
 request_logger = getLogger("django.request")
 
 
-def enforce_string(value):
-    return value if value is not None else ""
+def format_applicant(raw):
+    parts = []
+
+    if raw.get("is_juristic_person"):
+        parts.append(raw.get("juristic_name"))
+
+    parts.append(" ".join(filter(None, [raw.get("first_name"), raw.get("last_name")])))
+
+    return ", ".join(filter(None, parts))
 
 
 def get_form_config():
@@ -150,28 +157,31 @@ class DMSHandler:
             master_data = MasterData(doc.case)
             header_data = {
                 "addressHeader": ", ".join(
-                    [
-                        ", ".join(
-                            filter(
-                                None,
-                                [
-                                    f'{enforce_string(obj.get("street",))} {enforce_string(obj.get("street_number"))}'.strip(),
-                                    obj.get("town"),
-                                ],
-                            )
-                        )
-                        for obj in master_data.applicants
-                    ]
+                    filter(
+                        None,
+                        [
+                            " ".join(
+                                filter(
+                                    None,
+                                    [
+                                        master_data.street,
+                                        master_data.street_number,
+                                    ],
+                                )
+                            ),
+                            master_data.city,
+                        ],
+                    )
                 ),
                 "plotsHeader": ", ".join(
                     [obj["plot_number"] for obj in master_data.plot_data]
                 ),
-                "applicantHeader": " ".join(
+                "applicantHeader": ", ".join(
                     [
-                        f'{obj["first_name"]} {obj["last_name"]}'
-                        for obj in master_data.applicants
+                        format_applicant(applicant)
+                        for applicant in master_data.applicants
                     ]
-                ).replace(" None", ""),
+                ),
                 "municipalityHeader": master_data.municipality.get("label")
                 if master_data.municipality
                 else "-",
