@@ -1657,11 +1657,11 @@ APPLICATIONS["kt_bern"]["DUMP_CONFIG_GROUPS"] = {
 APPLICATION = APPLICATIONS.get(APPLICATION_NAME, {})
 
 PUBLIC_BASE_URL = build_url(
-    env.str("DJANGO_PUBLIC_BASE_URL", default="http://caluma-portal.local")
+    env.str("DJANGO_PUBLIC_BASE_URL", default=default("http://caluma-portal.local"))
 )
 
 INTERNAL_BASE_URL = build_url(
-    env.str("DJANGO_INTERNAL_BASE_URL", default="http://camac-ng.local")
+    env.str("DJANGO_INTERNAL_BASE_URL", default=default("http://camac-ng.local"))
 )
 
 PUBLIC_INSTANCE_URL_TEMPLATE = env.str(
