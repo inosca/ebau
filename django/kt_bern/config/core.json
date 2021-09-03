@@ -3263,15 +3263,6 @@
   },
   {
     "model": "core.airaction",
-    "pk": 20000,
-    "fields": {
-      "available_instance_resource": "publication",
-      "action_name": "index",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.airaction",
     "pk": 20047,
     "fields": {
       "available_instance_resource": "editdecision",
@@ -3416,15 +3407,6 @@
   },
   {
     "model": "core.airaction",
-    "pk": 20064,
-    "fields": {
-      "available_instance_resource": "editresponsibleuser",
-      "action_name": "edit-responsible-user",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.airaction",
     "pk": 20067,
     "fields": {
       "available_instance_resource": "docxdecision",
@@ -3506,15 +3488,6 @@
   },
   {
     "model": "core.airaction",
-    "pk": 140004,
-    "fields": {
-      "available_instance_resource": "journal",
-      "action_name": "index",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.airaction",
     "pk": 150000,
     "fields": {
       "available_instance_resource": "claim",
@@ -3536,33 +3509,6 @@
     "pk": 150004,
     "fields": {
       "available_instance_resource": "revisionhistory",
-      "action_name": "index",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 150005,
-    "fields": {
-      "available_instance_resource": "audit",
-      "action_name": "index",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 150006,
-    "fields": {
-      "available_instance_resource": "support",
-      "action_name": "index",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 150007,
-    "fields": {
-      "available_instance_resource": "gwr",
       "action_name": "index",
       "hidden": 0
     }
@@ -40504,15 +40450,6 @@
   },
   {
     "model": "core.araction",
-    "pk": 150000,
-    "fields": {
-      "available_resource": "organisation",
-      "action_name": "index",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.araction",
     "pk": 150001,
     "fields": {
       "available_resource": "textcomponentadmin",
@@ -40706,14 +40643,6 @@
   },
   {
     "model": "core.availableaction",
-    "pk": "setserviceresponsible",
-    "fields": {
-      "module_name": "responsible",
-      "description": "Set service responsible"
-    }
-  },
-  {
-    "model": "core.availableaction",
     "pk": "validate",
     "fields": {
       "module_name": "default",
@@ -40744,15 +40673,6 @@
       "module_name": "apidocuments",
       "controller_name": "list",
       "description": "List of instance documents (API source)"
-    }
-  },
-  {
-    "model": "core.availableinstanceresource",
-    "pk": "audit",
-    "fields": {
-      "module_name": "audit",
-      "controller_name": "audit",
-      "description": "Caluma based audit module"
     }
   },
   {
@@ -40883,15 +40803,6 @@
   },
   {
     "model": "core.availableinstanceresource",
-    "pk": "editresponsibleuser",
-    "fields": {
-      "module_name": "responsible",
-      "controller_name": "index",
-      "description": "Edit responsible user"
-    }
-  },
-  {
-    "model": "core.availableinstanceresource",
     "pk": "formerror",
     "fields": {
       "module_name": "default",
@@ -40928,29 +40839,11 @@
   },
   {
     "model": "core.availableinstanceresource",
-    "pk": "gwr",
-    "fields": {
-      "module_name": "gwr",
-      "controller_name": "gwr",
-      "description": "GWR module"
-    }
-  },
-  {
-    "model": "core.availableinstanceresource",
     "pk": "history",
     "fields": {
       "module_name": "history",
       "controller_name": "history",
       "description": "Show instance history"
-    }
-  },
-  {
-    "model": "core.availableinstanceresource",
-    "pk": "journal",
-    "fields": {
-      "module_name": "journal",
-      "controller_name": "journal",
-      "description": "Show instance journal"
     }
   },
   {
@@ -41000,15 +40893,6 @@
   },
   {
     "model": "core.availableinstanceresource",
-    "pk": "publication",
-    "fields": {
-      "module_name": "publication",
-      "controller_name": "publication",
-      "description": "Caluma based publication module"
-    }
-  },
-  {
-    "model": "core.availableinstanceresource",
     "pk": "revisionhistory",
     "fields": {
       "module_name": "revisionhistory",
@@ -41023,15 +40907,6 @@
       "module_name": "service",
       "controller_name": "service",
       "description": "Responsible Service"
-    }
-  },
-  {
-    "model": "core.availableinstanceresource",
-    "pk": "support",
-    "fields": {
-      "module_name": "support",
-      "controller_name": "support",
-      "description": "Utilities for support"
     }
   },
   {
@@ -41095,15 +40970,6 @@
       "module_name": "default",
       "controller_name": "list",
       "description": "Page with a list of instances"
-    }
-  },
-  {
-    "model": "core.availableresource",
-    "pk": "organisation",
-    "fields": {
-      "module_name": "organisation",
-      "controller_name": "organisation",
-      "description": "Edit own organisation"
     }
   },
   {
@@ -49995,11 +49861,11 @@
     "model": "core.instanceresource",
     "pk": 20012,
     "fields": {
-      "available_instance_resource": "publication",
+      "available_instance_resource": "page",
       "resource": 20006,
       "name": null,
       "description": null,
-      "template": null,
+      "template": "/ember-camac-ng/publication.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 14,
@@ -50040,11 +49906,11 @@
     "model": "core.instanceresource",
     "pk": 20019,
     "fields": {
-      "available_instance_resource": "editresponsibleuser",
+      "available_instance_resource": "page",
       "resource": 20006,
       "name": null,
       "description": null,
-      "template": null,
+      "template": "/ember-camac-ng/responsible.phtml",
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 4,
@@ -50055,11 +49921,11 @@
     "model": "core.instanceresource",
     "pk": 20020,
     "fields": {
-      "available_instance_resource": "editresponsibleuser",
+      "available_instance_resource": "page",
       "resource": 20007,
       "name": null,
       "description": null,
-      "template": null,
+      "template": "/ember-camac-ng/responsible.phtml",
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 4,
@@ -50299,7 +50165,7 @@
       "resource": 20006,
       "name": null,
       "description": null,
-      "template": "/document-merge/document-merge.phtml",
+      "template": "/ember-camac-ng/document-merge.phtml",
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 3,
@@ -50314,7 +50180,7 @@
       "resource": 20007,
       "name": null,
       "description": null,
-      "template": "/document-merge/document-merge.phtml",
+      "template": "/ember-camac-ng/document-merge.phtml",
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 3,
@@ -50325,11 +50191,11 @@
     "model": "core.instanceresource",
     "pk": 20077,
     "fields": {
-      "available_instance_resource": "editresponsibleuser",
+      "available_instance_resource": "page",
       "resource": 20008,
       "name": null,
       "description": null,
-      "template": null,
+      "template": "/ember-camac-ng/responsible.phtml",
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 3,
@@ -50430,12 +50296,12 @@
     "model": "core.instanceresource",
     "pk": 140004,
     "fields": {
-      "available_instance_resource": "journal",
+      "available_instance_resource": "page",
       "resource": 20006,
       "name": null,
       "description": null,
-      "template": null,
-      "class_field": null,
+      "template": "/ember-camac-ng/journal.phtml",
+      "class_field": "menu-category-analysis",
       "hidden": 0,
       "sort": 22,
       "form_group": 40000
@@ -50445,11 +50311,11 @@
     "model": "core.instanceresource",
     "pk": 140005,
     "fields": {
-      "available_instance_resource": "journal",
+      "available_instance_resource": "page",
       "resource": 20008,
       "name": null,
       "description": null,
-      "template": null,
+      "template": "/ember-camac-ng/journal.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
       "sort": 6,
@@ -50475,11 +50341,11 @@
     "model": "core.instanceresource",
     "pk": 140007,
     "fields": {
-      "available_instance_resource": "journal",
+      "available_instance_resource": "page",
       "resource": 20007,
       "name": null,
       "description": null,
-      "template": null,
+      "template": "/ember-camac-ng/journal.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
       "sort": 12,
@@ -50640,11 +50506,11 @@
     "model": "core.instanceresource",
     "pk": 150009,
     "fields": {
-      "available_instance_resource": "audit",
+      "available_instance_resource": "page",
       "resource": 20006,
       "name": null,
       "description": null,
-      "template": null,
+      "template": "/ember-camac-ng/audit.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 6,
@@ -50655,12 +50521,12 @@
     "model": "core.instanceresource",
     "pk": 150010,
     "fields": {
-      "available_instance_resource": "audit",
+      "available_instance_resource": "page",
       "resource": 20007,
       "name": null,
       "description": null,
-      "template": null,
-      "class_field": null,
+      "template": "/ember-camac-ng/audit.phtml",
+      "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 5,
       "form_group": 40000
@@ -50670,11 +50536,11 @@
     "model": "core.instanceresource",
     "pk": 150011,
     "fields": {
-      "available_instance_resource": "support",
+      "available_instance_resource": "page",
       "resource": 150000,
       "name": null,
       "description": null,
-      "template": null,
+      "template": "/ember-camac-ng/support.phtml",
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 0,
@@ -50685,11 +50551,11 @@
     "model": "core.instanceresource",
     "pk": 14000000,
     "fields": {
-      "available_instance_resource": "gwr",
+      "available_instance_resource": "page",
       "resource": 20006,
       "name": null,
       "description": null,
-      "template": null,
+      "template": "/ember-camac-ng/gwr.phtml",
       "class_field": "menu-category-process",
       "hidden": 1,
       "sort": 16,
@@ -52033,14 +51899,6 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 10038,
-    "fields": {
-      "available_instance_resource": "publication",
-      "available_action": "notification"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 10040,
     "fields": {
       "available_instance_resource": "editformpages",
@@ -52132,14 +51990,6 @@
     "pk": 10063,
     "fields": {
       "available_instance_resource": "docxdecision",
-      "available_action": "notification"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 10066,
-    "fields": {
-      "available_instance_resource": "editresponsibleuser",
       "available_action": "notification"
     }
   },
@@ -52505,134 +52355,6 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 20104,
-    "fields": {
-      "available_instance_resource": "editresponsibleuser",
-      "available_action": "save"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20106,
-    "fields": {
-      "available_instance_resource": "editresponsibleuser",
-      "available_action": "formtransition"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20107,
-    "fields": {
-      "available_instance_resource": "editresponsibleuser",
-      "available_action": "php"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20124,
-    "fields": {
-      "available_instance_resource": "editresponsibleuser",
-      "available_action": "setserviceresponsible"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20128,
-    "fields": {
-      "available_instance_resource": "editformpage",
-      "available_action": "setserviceresponsible"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20129,
-    "fields": {
-      "available_instance_resource": "editformpages",
-      "available_action": "setserviceresponsible"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20130,
-    "fields": {
-      "available_instance_resource": "formpage",
-      "available_action": "setserviceresponsible"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20131,
-    "fields": {
-      "available_instance_resource": "formpages",
-      "available_action": "setserviceresponsible"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20132,
-    "fields": {
-      "available_instance_resource": "allformpages",
-      "available_action": "setserviceresponsible"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20133,
-    "fields": {
-      "available_instance_resource": "editcirculation",
-      "available_action": "setserviceresponsible"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20134,
-    "fields": {
-      "available_instance_resource": "circulation",
-      "available_action": "setserviceresponsible"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20135,
-    "fields": {
-      "available_instance_resource": "editnotice",
-      "available_action": "setserviceresponsible"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20136,
-    "fields": {
-      "available_instance_resource": "letter",
-      "available_action": "setserviceresponsible"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20137,
-    "fields": {
-      "available_instance_resource": "editletter",
-      "available_action": "setserviceresponsible"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20138,
-    "fields": {
-      "available_instance_resource": "page",
-      "available_action": "setserviceresponsible"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20139,
-    "fields": {
-      "available_instance_resource": "formwizard",
-      "available_action": "setserviceresponsible"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 20144,
     "fields": {
       "available_instance_resource": "docxdecision",
@@ -52660,14 +52382,6 @@
     "pk": 40004,
     "fields": {
       "available_instance_resource": "auditlog",
-      "available_action": "addhistory"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 40005,
-    "fields": {
-      "available_instance_resource": "editresponsibleuser",
       "available_action": "addhistory"
     }
   },
@@ -52764,14 +52478,6 @@
     "pk": 40021,
     "fields": {
       "available_instance_resource": "apidocuments",
-      "available_action": "addhistory"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 40022,
-    "fields": {
-      "available_instance_resource": "publication",
       "available_action": "addhistory"
     }
   },
@@ -52905,14 +52611,6 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 150004,
-    "fields": {
-      "available_instance_resource": "publication",
-      "available_action": "workitem"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 150005,
     "fields": {
       "available_instance_resource": "editdecisionnote",
@@ -52993,14 +52691,6 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 150017,
-    "fields": {
-      "available_instance_resource": "editresponsibleuser",
-      "available_action": "workitem"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 150019,
     "fields": {
       "available_instance_resource": "notification",
@@ -53028,14 +52718,6 @@
     "pk": 150022,
     "fields": {
       "available_instance_resource": "editcirculation",
-      "available_action": "workitem"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 150023,
-    "fields": {
-      "available_instance_resource": "journal",
       "available_action": "workitem"
     }
   },
@@ -53169,14 +52851,6 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 150046,
-    "fields": {
-      "available_instance_resource": "journal",
-      "available_action": "case"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 150048,
     "fields": {
       "available_instance_resource": "page",
@@ -53212,14 +52886,6 @@
     "pk": 150054,
     "fields": {
       "available_instance_resource": "docxdecision",
-      "available_action": "case"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 150056,
-    "fields": {
-      "available_instance_resource": "editresponsibleuser",
       "available_action": "case"
     }
   },
@@ -53348,14 +53014,6 @@
     "pk": 150075,
     "fields": {
       "available_instance_resource": "decisionnote",
-      "available_action": "case"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 150077,
-    "fields": {
-      "available_instance_resource": "publication",
       "available_action": "case"
     }
   },
@@ -54698,6 +54356,27 @@
   },
   {
     "model": "core.irpage",
+    "pk": 20012,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 20019,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 20020,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
     "pk": 20067,
     "fields": {
       "pdf_class": null
@@ -54733,7 +54412,63 @@
   },
   {
     "model": "core.irpage",
+    "pk": 20077,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 140004,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 140005,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 140007,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
     "pk": 150001,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 150009,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 150010,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 150011,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 14000000,
     "fields": {
       "pdf_class": null
     }
@@ -113861,6 +113596,13 @@
     }
   },
   {
+    "model": "core.rpage",
+    "pk": 150002,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
     "model": "core.rroleacl",
     "pk": 10000,
     "fields": {
@@ -114386,10 +114128,10 @@
     "model": "core.resource",
     "pk": 150002,
     "fields": {
-      "available_resource": "organisation",
+      "available_resource": "page",
       "name": null,
       "description": null,
-      "template": null,
+      "template": "/ember-camac-ng/organisation.phtml",
       "class_field": null,
       "hidden": 0,
       "sort": 8
