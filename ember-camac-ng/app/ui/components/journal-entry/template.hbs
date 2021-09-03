@@ -5,22 +5,31 @@
         <span>{{@journalEntry.user.fullName}}</span>
       </div>
       <div class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
-        {{#if @journalEntry.visibility}}
-          <i title={{t "journal.visibleForAuthorities" }} ><FaIcon @icon="eye"/></i>
-        {{else}}
-          <i title={{t "journal.visibleForOwnOrganization" }} ><FaIcon @icon="eye-slash"/></i>
-        {{/if}}
-        <span>
-          {{format-date
-            @journalEntry.creationDate
-            day="2-digit"
-            month="2-digit"
-            year="numeric"
-            hour="2-digit"
-            minute="2-digit"
-            hour12=false
-          }}
-        </span>
+        <div>
+          <span class="uk-margin-small-right">
+            {{format-date
+              @journalEntry.creationDate
+              day="2-digit"
+              month="2-digit"
+              year="numeric"
+              hour="2-digit"
+              minute="2-digit"
+              hour12=false
+            }}
+          </span>
+
+          <i
+            class="uk-flex"
+            title={{if @journalEntry.visibility (t "journal.visibleForAuthorities") (t "journal.visibleForOwnOrganization")}}
+          >
+            {{#if @journalEntry.visibility}}
+              <FaIcon @icon="eye" />
+            {{else}}
+              <FaIcon @icon="eye-slash" />
+            {{/if}}
+          </i>
+
+        </div>
         {{#if (and (can "edit journal-entry") (not @journalEntry.edit))}}
           <div>
             <UkButton
@@ -40,8 +49,6 @@
       {{#if @journalEntry.edit}}
         <JournalTextarea
           @journalEntry={{@journalEntry}}
-          @onSaveNewJournalEntry={{@onSaveNewJournalEntry}}
-          @showCancel={{true}}
         />
       {{else}}
         <span class="journal-entry-text">{{@journalEntry.text}}</span>
