@@ -105,7 +105,7 @@ class CirculationView(InstanceQuerysetMixin, InstanceEditableMixin, views.ModelV
         for config in notification_config:
             send_mail(
                 config["template_slug"],
-                self.get_serializer_context(),
+                dict(self.get_serializer_context(), **{"circulation": circulation}),
                 recipient_types=config["recipient_types"],
                 instance={"type": "instances", "id": circulation.instance.pk},
             )

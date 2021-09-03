@@ -802,7 +802,10 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
 
     def _get_recipients_unanswered_activation(self, instance):
         services = Service.objects.filter(
-            pk__in=Activation.objects.filter(circulation__instance=instance)
+            pk__in=Activation.objects.filter(
+                circulation__instance=instance,
+                circulation=self.context.get("circulation"),
+            )
             .exclude(circulation_state__name="DONE")
             .values_list("service__pk", flat=True)
         )
