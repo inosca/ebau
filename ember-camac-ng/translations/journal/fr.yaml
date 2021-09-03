@@ -1,7 +1,4 @@
 journal:
-  title: "Journal"
-  title-sz: ""
-
   create: "Créer une entrée"
   edit: "Modifier l'entrée"
   textareaNew: "Zone de texte pour la nouvelle entrée"
@@ -9,8 +6,5 @@ journal:
   noEntries: "Aucune entrée de journal disponible"
 
   visibility: "Visibilité de l'entrée"
-  visibilityFor: "Visibilité"
-  visibilityOwn: "Service propre"
-  visibilityAuthorities: "Tous les participants"
   visibleForAuthorities: "Visible pour tous les participants"
   visibleForOwnOrganization: "Visible pour sa propre organisation"
