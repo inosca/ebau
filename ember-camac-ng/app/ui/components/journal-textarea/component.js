@@ -19,8 +19,10 @@ export default class JournalTextareaComponent extends Component {
 
   @action
   cancelEditEntry(entry) {
-    entry.edit = false;
-
     entry.rollbackAttributes();
+
+    if (!entry.isDeleted) {
+      entry.edit = false;
+    }
   }
 }
