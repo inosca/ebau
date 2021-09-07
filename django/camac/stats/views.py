@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from caluma.caluma_form.models import Document
 from django.db.models import (
     Avg,
@@ -12,6 +14,7 @@ from django.db.models import (
     Sum,
     When,
 )
+from django.utils.timezone import now
 from rest_framework.generics import ListAPIView
 from rest_framework.renderers import JSONRenderer
 from rest_framework.request import Request
@@ -128,6 +131,9 @@ class InstancesCycleTimesView(InstanceQuerysetMixin, ListAPIView):
     swagger_schema = None
     queryset = Instance.objects.filter(
         case__meta__has_keys=["total-cycle-time", "net-cycle-time"]
+    ).exclude(
+        decision__decision_date__lt=datetime(1970, 1, 1),
+        decision__decision_date__gt=now(),
     )
     serializer_class = InstancesCycleTimeSerializer
     instance_field = None
