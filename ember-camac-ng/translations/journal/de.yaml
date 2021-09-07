@@ -1,4 +1,5 @@
 journal:
+  title: "Journal"
   create: "Eintrag erstellen"
   edit: "Bearbeiten"
   textareaEdit: "Textbereich zum editieren eines Eintrages"
