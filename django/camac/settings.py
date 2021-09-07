@@ -777,7 +777,8 @@ APPLICATIONS = {
                 "DEFAULT": be_constants.PUBLIC_INSTANCE_STATE_CREATING,
             },
         },
-        "ATTACHMENT_READ_ONLY_STATES": [
+        "ATTACHMENT_RUNNING_ACTIVATION_STATES": ["RUN"],
+        "ATTACHMENT_AFTER_DECISION_STATES": [
             "rejected",
             "correction",
             "sb1",
@@ -786,13 +787,6 @@ APPLICATIONS = {
             "finished",
             "finished_internal",
             "evaluated",
-        ],
-        "ATTACHMENT_READ_ONLY_EXCLUDE_SECTIONS": [
-            be_constants.ATTACHMENT_SECTION_INTERN,
-            be_constants.ATTACHMENT_SECTION_BEILAGEN_SB1,
-            be_constants.ATTACHMENT_SECTION_BEILAGEN_SB1_PAPIER,
-            be_constants.ATTACHMENT_SECTION_BEILAGEN_SB2,
-            be_constants.ATTACHMENT_SECTION_BEILAGEN_SB2_PAPIER,
         ],
         "PORTAL_GROUP": 6,
         "DEMO_MODE_GROUPS": [
