@@ -354,3 +354,53 @@ def test_end_circulation(
         case.work_items.get(**{"meta__circulation-id": circulation.pk}).status
         == WorkItem.STATUS_SKIPPED
     )
+
+
+@pytest.mark.parametrize(
+    "role__name,instance__user", [("Municipality", LazyFixture("admin_user"))]
+)
+def test_prematurely_end_circulation(
+    db,
+    role,
+    instance_service,
+    caluma_workflow_config_be,
+    admin_client,
+    init_circulation_with_activations,
+    instance,
+    be_instance,
+    circulation_state_factory,
+    caluma_admin_user,
+    notification_template,
+    application_settings,
+):
+    application_settings["NOTIFICATIONS"] = {
+        "END_CIRCULATION": [
+            {
+                "template_slug": notification_template.slug,
+                "recipient_types": ["unanswered_activation"],
+            }
+        ]
+    }
+    state_done = circulation_state_factory(name="DONE")
+    state_inprogress = circulation_state_factory(name="WORKING")
+    circulation_to_end = init_circulation_with_activations(
+        be_instance, instance_service.service, (state_done, state_inprogress)
+    )
+    another_circulation = init_circulation_with_activations(
+        be_instance, instance_service.service, (state_inprogress, state_inprogress)
+    )
+
+    admin_client.patch(reverse("circulation-end", args=[circulation_to_end.pk]))
+
+    assert all(
+        [
+            a.circulation_state == state_done
+            for a in circulation_to_end.activations.all()
+        ]
+    )
+    assert all(
+        [
+            a.circulation_state == state_inprogress
+            for a in another_circulation.activations.all()
+        ]
+    )

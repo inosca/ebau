@@ -108,6 +108,7 @@ class CirculationView(InstanceQuerysetMixin, InstanceEditableMixin, views.ModelV
                 self.get_serializer_context(),
                 recipient_types=config["recipient_types"],
                 instance={"type": "instances", "id": circulation.instance.pk},
+                circulation={"type": "circulations", "id": circulation.pk},
             )
 
         # set state of all activations to done
