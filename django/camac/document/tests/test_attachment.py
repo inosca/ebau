@@ -9,7 +9,7 @@ from PIL import Image
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
-from camac.document import models, serializers
+from camac.document import models, permissions, serializers
 
 from .data import django_file
 
@@ -31,7 +31,14 @@ from .data import django_file
         ("attachments/files/852/important.docx", True),
     ],
 )
-@pytest.mark.parametrize("mode", ["admin", "read", "adminint"])
+@pytest.mark.parametrize(
+    "mode",
+    [
+        permissions.AdminPermission,
+        permissions.ReadPermission,
+        permissions.AdminInternalPermission,
+    ],
+)
 def test_attachment_list(
     admin_client,
     attachment_attachment_sections,
@@ -73,9 +80,9 @@ def test_attachment_list(
     assert len(data) == 1
     assert data[0]["id"] == str(attachment_attachment_sections.attachment.pk)
     can_write = role.name not in ("Applicant", "Reader") and (
-        mode == "admin"
+        mode == permissions.AdminPermission
         or (
-            mode == "adminint"
+            mode == permissions.AdminInternalPermission
             and attachment_attachment_sections.attachment.service
             == admin_client.user.get_default_group().service
         )
@@ -128,7 +135,9 @@ def test_attachment_context_filter(
         {
             "demo": {
                 "applicant": {
-                    "admin": [attachment_attachment_sections.attachmentsection_id]
+                    permissions.AdminPermission: [
+                        attachment_attachment_sections.attachmentsection_id
+                    ]
                 }
             }
         },
@@ -156,7 +165,7 @@ def test_attachment_context_filter(
             LazyFixture("location"),  # instance__location
             LazyFixture("service"),  # activation__service
             LazyFixture("group"),  # instance__group
-            models.ADMIN_PERMISSION,  # attachment_section_group_acl__mode
+            permissions.AdminPermission,  # mode
             status.HTTP_201_CREATED,  # status_code
         ),
         # user with role Municipality creates valid jpg attachment on an
@@ -170,7 +179,7 @@ def test_attachment_context_filter(
             LazyFixture("location"),
             LazyFixture("service"),
             LazyFixture("group"),
-            models.ADMIN_PERMISSION,
+            permissions.AdminPermission,
             status.HTTP_201_CREATED,
         ),
         # user with role Service creates valid jpg attachment on an
@@ -184,7 +193,7 @@ def test_attachment_context_filter(
             LazyFixture(lambda location_factory: location_factory()),
             LazyFixture("service"),
             LazyFixture("group"),
-            models.ADMIN_PERMISSION,
+            permissions.AdminPermission,
             status.HTTP_201_CREATED,
         ),
         # user with role Service creates valid jpg attachment on an
@@ -198,7 +207,7 @@ def test_attachment_context_filter(
             LazyFixture(lambda location_factory: location_factory()),
             LazyFixture("service"),
             LazyFixture("group"),
-            models.ADMININTERNAL_PERMISSION,
+            permissions.AdminInternalPermission,
             status.HTTP_201_CREATED,
         ),
         # user with role Service creates valid jpg attachment on an
@@ -212,7 +221,7 @@ def test_attachment_context_filter(
             LazyFixture(lambda location_factory: location_factory()),
             LazyFixture("service"),
             LazyFixture("group"),
-            models.ADMINSERVICE_PERMISSION,
+            permissions.AdminServicePermission,
             status.HTTP_201_CREATED,
         ),
         # user with role Canton creates valid jpg attachment on any
@@ -225,7 +234,7 @@ def test_attachment_context_filter(
             LazyFixture(lambda location_factory: location_factory()),
             LazyFixture("service"),
             LazyFixture("group"),
-            models.ADMIN_PERMISSION,
+            permissions.AdminPermission,
             status.HTTP_201_CREATED,
         ),
         # user with role Applicant tries to create invalid gif attachment
@@ -238,7 +247,7 @@ def test_attachment_context_filter(
             LazyFixture("location"),
             LazyFixture("service"),
             LazyFixture("group"),
-            models.ADMIN_PERMISSION,
+            permissions.AdminPermission,
             status.HTTP_400_BAD_REQUEST,
         ),
         # user with role Applicant tries to create valid pdf attachment
@@ -252,7 +261,7 @@ def test_attachment_context_filter(
             LazyFixture("location"),
             LazyFixture("service"),
             LazyFixture("group"),
-            models.ADMIN_PERMISSION,
+            permissions.AdminPermission,
             status.HTTP_400_BAD_REQUEST,
         ),
         # user with role Applicant tries to create valid jpg attachment
@@ -265,7 +274,7 @@ def test_attachment_context_filter(
             LazyFixture("location"),
             LazyFixture("service"),
             LazyFixture("group"),
-            models.READ_PERMISSION,
+            permissions.ReadPermission,
             status.HTTP_400_BAD_REQUEST,
         ),
         # user with role Municipality tries to create valid jpg attachment
@@ -279,7 +288,7 @@ def test_attachment_context_filter(
             LazyFixture(lambda location_factory: location_factory()),
             LazyFixture(lambda service_factory: service_factory()),
             LazyFixture("group"),
-            models.ADMIN_PERMISSION,
+            permissions.AdminPermission,
             status.HTTP_400_BAD_REQUEST,
         ),
         # user with role Municipality tries to create valid jpg attachment
@@ -293,7 +302,7 @@ def test_attachment_context_filter(
             LazyFixture(lambda location_factory: location_factory()),
             LazyFixture("service"),
             LazyFixture("group"),
-            models.ADMIN_PERMISSION,
+            permissions.AdminPermission,
             status.HTTP_201_CREATED,
         ),
         # user with role Municipality creates valid jpg attachment on an
@@ -307,7 +316,7 @@ def test_attachment_context_filter(
             LazyFixture("location"),
             LazyFixture("service"),
             LazyFixture(lambda group_factory: group_factory()),
-            models.ADMIN_PERMISSION,
+            permissions.AdminPermission,
             status.HTTP_400_BAD_REQUEST,
         ),
         # user with role Service tries to create valid jpg attachment
@@ -321,7 +330,7 @@ def test_attachment_context_filter(
             LazyFixture("location"),
             LazyFixture(lambda service_factory: service_factory()),
             LazyFixture("group"),
-            models.ADMIN_PERMISSION,
+            permissions.AdminPermission,
             status.HTTP_400_BAD_REQUEST,
         ),
         # reader can't create anything, not even with admin permissions
@@ -333,7 +342,7 @@ def test_attachment_context_filter(
             LazyFixture("location"),
             LazyFixture("service"),
             LazyFixture("group"),
-            models.ADMIN_PERMISSION,
+            permissions.AdminPermission,
             status.HTTP_400_BAD_REQUEST,
         ),
         # support can upload attachments
@@ -345,7 +354,7 @@ def test_attachment_context_filter(
             LazyFixture("location"),
             LazyFixture("service"),
             LazyFixture("group"),
-            models.ADMIN_PERMISSION,
+            permissions.AdminPermission,
             status.HTTP_201_CREATED,
         ),
     ],
@@ -415,7 +424,7 @@ def test_attachment_download_404(admin_client, attachment):
 
 @pytest.mark.parametrize(
     "role__name,instance__user,instance_state__name,acl_mode",
-    [("Applicant", LazyFixture("admin_user"), "new", models.ADMIN_PERMISSION)],
+    [("Applicant", LazyFixture("admin_user"), "new", permissions.AdminPermission)],
 )
 @pytest.mark.parametrize("multi", [False, True])
 @pytest.mark.parametrize("document", ["multiple-pages.pdf", "important.docx"])
@@ -506,7 +515,6 @@ def test_attachment_thumbnail(
     admin_client,
     attachment_attachment_sections,
     attachment_attachment_section_factory,
-    attachment_section_group_acl,
     status_code,
     mocker,
 ):
@@ -520,7 +528,7 @@ def test_attachment_thumbnail(
         {
             "demo": {
                 "applicant": {
-                    "admin": [
+                    permissions.AdminPermission: [
                         section.pk for section in models.AttachmentSection.objects.all()
                     ]
                 }
@@ -548,7 +556,6 @@ def test_attachment_update(
     attachment_section,
     attachment_attachment_sections,
     attachment_attachment_section_factory,
-    attachment_section_group_acl,
     status_code,
     send_path,
     mocker,
@@ -562,7 +569,7 @@ def test_attachment_update(
         {
             "demo": {
                 "canton": {
-                    "admin": [
+                    permissions.AdminPermission: [
                         section.pk for section in models.AttachmentSection.objects.all()
                     ]
                 }
@@ -611,7 +618,6 @@ def test_attachment_update_context(
     admin_user,
     attachment_section,
     attachment_attachment_sections,
-    attachment_section_group_acl,
     group_factory,
     status_code,
     is_active_service,
@@ -631,7 +637,7 @@ def test_attachment_update_context(
     # fix permissions
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
-        {"demo": {"canton": {"admin": [attachment_section.pk]}}},
+        {"demo": {"canton": {permissions.AdminPermission: [attachment_section.pk]}}},
     )
 
     data = {
@@ -661,7 +667,6 @@ def test_attachment_update_context(
 def test_attachment_detail(
     admin_client,
     attachment_attachment_sections,
-    attachment_section_group_acl,
     role,
     mocker,
 ):
@@ -674,7 +679,9 @@ def test_attachment_detail(
         {
             "demo": {
                 role.name.lower(): {
-                    "admin": [attachment_attachment_sections.attachmentsection_id]
+                    permissions.AdminPermission: [
+                        attachment_attachment_sections.attachmentsection_id
+                    ]
                 }
             }
         },
@@ -695,7 +702,7 @@ def test_attachment_loosen_filter(
     # permissons: Our user has no permission
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
-        {"demo": {role.name.lower(): {"admin": []}}},
+        {"demo": {role.name.lower(): {permissions.AdminPermission: []}}},
     )
 
     # First test in here: attachment was not marked and thus not visible
@@ -728,77 +735,77 @@ def test_attachment_loosen_filter(
             "new",
             django_file("multiple-pages.pdf"),
             LazyFixture(lambda service_factory: service_factory()),
-            models.ADMIN_PERMISSION,
+            permissions.AdminPermission,
             status.HTTP_204_NO_CONTENT,
         ),
         (
             "new",
             django_file("test-thumbnail.jpg"),
             LazyFixture(lambda service_factory: service_factory()),
-            models.ADMIN_PERMISSION,
+            permissions.AdminPermission,
             status.HTTP_204_NO_CONTENT,
         ),
         (
             "new",
             django_file("no-thumbnail.txt"),
             LazyFixture(lambda service_factory: service_factory()),
-            models.ADMIN_PERMISSION,
-            status.HTTP_204_NO_CONTENT,
-        ),
-        (
-            "new",
-            django_file("no-thumbnail.txt"),
-            LazyFixture("service"),
-            models.ADMININTERNAL_PERMISSION,
+            permissions.AdminPermission,
             status.HTTP_204_NO_CONTENT,
         ),
         (
             "new",
             django_file("no-thumbnail.txt"),
             LazyFixture("service"),
-            models.ADMINSERVICE_PERMISSION,
+            permissions.AdminInternalPermission,
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            "new",
+            django_file("no-thumbnail.txt"),
+            LazyFixture("service"),
+            permissions.AdminServicePermission,
             status.HTTP_204_NO_CONTENT,
         ),
         (
             "new",
             django_file("test-thumbnail.jpg"),
             LazyFixture(lambda service_factory: service_factory()),
-            models.WRITE_PERMISSION,
+            permissions.WritePermission,
             status.HTTP_403_FORBIDDEN,
         ),
         (
             "subm",
             django_file("test-thumbnail.jpg"),
             LazyFixture(lambda service_factory: service_factory()),
-            models.WRITE_PERMISSION,
+            permissions.WritePermission,
             status.HTTP_403_FORBIDDEN,
         ),
         (
             "subm",
             django_file("test-thumbnail.jpg"),
             LazyFixture(lambda service_factory: service_factory()),
-            models.ADMIN_PERMISSION,
+            permissions.WritePermission,
             status.HTTP_403_FORBIDDEN,
         ),
         (
             "rejected",
             django_file("test-thumbnail.jpg"),
             LazyFixture(lambda service_factory: service_factory()),
-            models.READ_PERMISSION,
+            permissions.ReadPermission,
             status.HTTP_403_FORBIDDEN,
         ),
         (
             "new",
             django_file("no-thumbnail.txt"),
             LazyFixture(lambda service_factory: service_factory()),
-            models.ADMININTERNAL_PERMISSION,
+            permissions.AdminInternalPermission,
             status.HTTP_404_NOT_FOUND,
         ),
         (
             "new",
             django_file("no-thumbnail.txt"),
             LazyFixture(lambda service_factory: service_factory()),
-            models.ADMINSERVICE_PERMISSION,
+            permissions.AdminServicePermission,
             status.HTTP_403_FORBIDDEN,
         ),
     ],
@@ -837,7 +844,7 @@ def test_attachment_delete(
             LazyFixture("location"),  # instance__location
             LazyFixture("service"),  # activation__service
             LazyFixture("group"),  # instance__group
-            models.ADMIN_PERMISSION,  # attachment_section_group_acl__mode
+            permissions.AdminPermission,  # mode
         )
     ],
 )
@@ -869,7 +876,13 @@ def test_attachment_mime_type(
     # fix permissions
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
-        {"demo": {role.name.lower(): {"admin": [attachment_section.pk]}}},
+        {
+            "demo": {
+                role.name.lower(): {
+                    permissions.AdminPermission: [attachment_section.pk]
+                }
+            }
+        },
     )
 
     path = django_file(filename)
@@ -910,7 +923,10 @@ def test_attachment_section_filters(
         {
             "demo": {
                 role.name.lower(): {
-                    "admin": [section_visible_1.pk, section_visible_2.pk]
+                    permissions.AdminPermission: [
+                        section_visible_1.pk,
+                        section_visible_2.pk,
+                    ]
                 }
             }
         },
@@ -1041,3 +1057,225 @@ def test_attachment_public_access(
     url = reverse("attachmentsection-list")
     response = client.get(url)
     assert response.status_code == status.HTTP_401_UNAUTHORIZED
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize(
+    "instance_state__name,attachment__path,attachment__service,acl_mode,has_running_activation,status_code",
+    [
+        (
+            "circulation",
+            django_file("no-thumbnail.txt"),
+            LazyFixture(lambda service_factory: service_factory()),
+            permissions.AdminBeforeDecisionPermission,
+            False,
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            "finished",
+            django_file("no-thumbnail.txt"),
+            LazyFixture(lambda service_factory: service_factory()),
+            permissions.AdminBeforeDecisionPermission,
+            False,
+            status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "finished",
+            django_file("no-thumbnail.txt"),
+            LazyFixture(lambda service_factory: service_factory()),
+            permissions.AdminServiceBeforeDecisionPermission,
+            False,
+            status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "finished",
+            django_file("no-thumbnail.txt"),
+            LazyFixture("service"),
+            permissions.AdminServiceBeforeDecisionPermission,
+            False,
+            status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "finished",
+            django_file("no-thumbnail.txt"),
+            LazyFixture("service"),
+            permissions.AdminServiceBeforeDecisionPermission,
+            False,
+            status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "circulation",
+            django_file("no-thumbnail.txt"),
+            LazyFixture("service"),
+            permissions.AdminServiceRunningActivationPermission,
+            True,
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            "circulation",
+            django_file("no-thumbnail.txt"),
+            LazyFixture("service"),
+            permissions.AdminServiceRunningActivationPermission,
+            False,
+            status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "finished",
+            django_file("no-thumbnail.txt"),
+            LazyFixture("service"),
+            permissions.AdminServiceRunningActivationPermission,
+            True,
+            status.HTTP_403_FORBIDDEN,
+        ),
+    ],
+)
+def test_attachment_delete_custom_admin_modes(
+    db,
+    activation,
+    admin_client,
+    application_settings,
+    attachment_attachment_sections,
+    mocker,
+    acl_mode,
+    has_running_activation,
+    status_code,
+):
+    application_settings["ATTACHMENT_AFTER_DECISION_STATES"] = ["finished"]
+
+    if has_running_activation:
+        application_settings["ATTACHMENT_RUNNING_ACTIVATION_STATES"] = [
+            activation.circulation_state.name
+        ]
+
+    url = reverse(
+        "attachment-detail", args=[attachment_attachment_sections.attachment.pk]
+    )
+    # fix permissions
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {
+            "demo": {
+                "municipality": {
+                    acl_mode: [
+                        section.pk for section in models.AttachmentSection.objects.all()
+                    ]
+                }
+            }
+        },
+    )
+
+    response = admin_client.delete(url)
+    assert response.status_code == status_code
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize(
+    "instance_state__name,attachment__service,status_code,error",
+    [
+        (
+            "circulation",
+            LazyFixture(lambda service_factory: service_factory()),
+            status.HTTP_400_BAD_REQUEST,
+            "Nicht ausreichend Berechtigungen um eine Datei in den Ordner 'new' hochzuladen.",
+        ),
+        (
+            "finished",
+            LazyFixture("service"),
+            status.HTTP_400_BAD_REQUEST,
+            "Nicht ausreichend Berechtigungen um eine Datei aus dem Ordner 'delete' zu löschen.",
+        ),
+        (
+            "circulation",
+            LazyFixture("service"),
+            status.HTTP_200_OK,
+            None,
+        ),
+    ],
+)
+def test_attachment_update_section(
+    db,
+    admin_client,
+    application_settings,
+    mocker,
+    instance_state,
+    attachment,
+    attachment_section_factory,
+    attachment_attachment_section_factory,
+    status_code,
+    error,
+):
+    application_settings["ATTACHMENT_AFTER_DECISION_STATES"] = ["finished"]
+
+    section_existing = attachment_section_factory(name="existing")
+    section_new = attachment_section_factory(name="new")
+    section_delete = attachment_section_factory(name="delete")
+
+    attachment_attachment_section_factory(
+        attachment=attachment, attachmentsection=section_existing
+    )
+    attachment_attachment_section_factory(
+        attachment=attachment, attachmentsection=section_delete
+    )
+
+    url = reverse("attachment-detail", args=[attachment.pk])
+    # fix permissions
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {
+            "demo": {
+                "municipality": {
+                    permissions.AdminPermission: [section_existing.pk],
+                    permissions.AdminInternalPermission: [section_new.pk],
+                    permissions.AdminBeforeDecisionPermission: [section_delete.pk],
+                }
+            }
+        },
+    )
+
+    data = {
+        "data": {
+            "type": "attachments",
+            "id": attachment.pk,
+            "relationships": {
+                "attachment-sections": {
+                    "data": [
+                        {"type": "attachment-sections", "id": section_existing.pk},
+                        {"type": "attachment-sections", "id": section_new.pk},
+                    ]
+                }
+            },
+        }
+    }
+
+    response = admin_client.patch(url, data=data)
+    assert response.status_code == status_code
+
+    if status_code == status.HTTP_400_BAD_REQUEST:
+        assert response.json()["errors"][0]["detail"] == error
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_attachment_delete_multiple_sections(
+    db,
+    admin_client,
+    attachment_attachment_section_factory,
+    attachment,
+    mocker,
+):
+    sections = [
+        aas.attachmentsection.pk
+        for aas in attachment_attachment_section_factory.create_batch(
+            2, attachment=attachment
+        )
+    ]
+
+    # fix permissions
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {"demo": {"municipality": {permissions.AdminPermission: sections}}},
+    )
+
+    url = reverse("attachment-detail", args=[attachment.pk])
+
+    response = admin_client.delete(url)
+    assert response.status_code == status.HTTP_403_FORBIDDEN

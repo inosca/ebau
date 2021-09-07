@@ -135,8 +135,6 @@ DUMP_CONFIG_MODELS = [
     "core.TemplateGenerateAction",
     "core.WorkflowAction",
     "core.WorkflowRole",
-    "document.AttachmentSectionRoleAcl",
-    "document.AttachmentSectionServiceAcl",
     "responsible.IrEditresponsibleuser",
     "responsible.IrEditresponsiblegroup",
     "responsible.ASetresponsiblegroup",
