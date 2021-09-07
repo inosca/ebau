@@ -1384,11 +1384,15 @@ def test_notification_template_service_no_notification(
     assert len(mailoutbox) == 0
 
 
+@pytest.mark.parametrize("service__email", ["test@example.com"])
+@pytest.mark.parametrize("role__name", ["support"])
 def test_recipient_unanswered_activation(
     db,
     be_instance,
     activation_factory,
     circulation_factory,
+    notification_template,
+    user_group,
 ):
     circulation = circulation_factory(instance=be_instance)
     activation_factory(circulation=circulation, circulation_state__name="DONE")
@@ -1398,7 +1402,21 @@ def test_recipient_unanswered_activation(
         service__email="test@example.com",
     )
 
-    serializer = serializers.NotificationTemplateSendmailSerializer()
+    # to get access to validated data the serializer needs to be setup in full
+    serializer = serializers.NotificationTemplateSendmailSerializer(
+        data={
+            "recipient_types": ["unanswered_activation"],
+            "instance": {"type": "instances", "id": be_instance.pk},
+            "notification_template": {
+                "type": "notification-templates",
+                "id": notification_template.pk,
+            },
+            "circulation": {"type": "circulations", "id": circulation.pk},
+        },
+        # request is needed in context to get access
+        context={"request": FakeRequest(group=user_group.group, user=user_group.user)},
+    )
+    serializer.is_valid()
 
     assert serializer._get_recipients_unanswered_activation(be_instance) == [
         {"to": "test@example.com"}
