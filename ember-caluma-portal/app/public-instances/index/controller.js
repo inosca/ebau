@@ -7,6 +7,7 @@ import { dropTask, lastValue } from "ember-concurrency-decorators";
 
 import config from "caluma-portal/config/environment";
 import getMunicipalities from "caluma-portal/gql/queries/get-municipalities.graphql";
+import { hasFeature } from "caluma-portal/helpers/has-feature";
 
 const { answerSlugs } = config.APPLICATION;
 
@@ -61,6 +62,10 @@ export default class PublicInstancesIndexController extends Controller {
   @lastValue("fetchMunicipalities") municipalities;
   @dropTask
   *fetchMunicipalities() {
+    if (!hasFeature("publication.municipalityFilter")) {
+      return [];
+    }
+
     try {
       const options =
         (yield this.apollo.query(
