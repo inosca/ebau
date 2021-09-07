@@ -37,6 +37,17 @@ class InstanceSummaryFilterSet(FilterSet):
         fields = ("period",)
 
 
+class ClaimSummaryFilterSet(InstanceSummaryFilterSet):
+    period = BaseCSVFilter(method="filter_documents_for_period")
+
+    def filter_documents_for_period(self, queryset, name, value):
+        return queryset.filter(
+            case__instance__in=self.filter_submitted_in_period(
+                queryset.values("case__instance"), name, value
+            )
+        )
+
+
 class InstanceCycleTimeFilterSet(FilterSet):
     procedure = CharFilter(method="filter_procedure_types")
 
