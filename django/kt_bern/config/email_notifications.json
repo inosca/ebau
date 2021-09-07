@@ -883,8 +883,8 @@
       "template_slug": "11-meldung-selbstdeklaration-baukontrolle",
       "language": "de",
       "purpose": "11 Meldung Selbstdeklaration (Baukontrolle)",
-      "subject": "Meldung Selbstdeklaration - eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) / Avis concernant la d\u00e9claration spontan\u00e9e (n\u00b0 eBau {{EBAU_NUMBER}}) ({{INSTANCE_ID}})",
-      "body": " Guten Tag\r\n\r\nDie Meldung zur Selbstdeklaration Baukontrolle 1 (SB1) vom Dossier mit der eBau-Nummer {{EBAU_NUMBER}} ({{INSTANCE_ID}}) ist eingetroffen.\r\n\r\neBau\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLe message \u00e0 l'autod\u00e9claration de Building Control 1 (SB1) du fichier avec le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) est arriv\u00e9.\r\n\r\neBau"
+      "subject": "Meldung Selbstdeklaration (eBau Nr. {{EBAU_NUMBER}}) / Avis concernant la d\u00e9claration spontan\u00e9e (n\u00b0 eBau {{EBAU_NUMBER}})",
+      "body": " Guten Tag\r\n\r\nDie Meldung zur Selbstdeklaration Baukontrolle 1 (SB1) vom Dossier mit der eBau-Nummer {{EBAU_NUMBER}} ({{INSTANCE_ID}}) ist eingetroffen.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\neBau\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLe message \u00e0 l'autod\u00e9claration de Building Control 1 (SB1) du fichier avec le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) est arriv\u00e9.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\neBau"
     }
   },
   {
@@ -895,8 +895,8 @@
       "template_slug": "13-meldung-termine-pflichtkontrollen-baukontrolle",
       "language": "de",
       "purpose": "13 Meldung Termine Pflichtkontrollen (Baukontrolle)",
-      "subject": "Meldung zur Baukontrolle Selbstdeklaration Baukontrolle 2 - eBau Nr.  {{EBAU_NUMBER}} ({{INSTANCE_ID}}) / Avis de r\u00e9ception du contr\u00f4le des constructions DC1  la d\u00e9claration spontan\u00e9e la contr\u00f4le des constructions DC2  (n\u00b0 eBau {{EBAU_NUMBER}}) ({{INSTANCE_ID}})",
-      "body": "Guten Tag\r\n\r\nDie Meldung zur Selbstdeklaration Baukontrolle 2 (SB2) vom Dossier mit der eBau-Nummer {{EBAU_NUMBER}} ({{INSTANCE_ID}}) ist eingetroffen.\r\n\r\neBau\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nL'avis faisant suite \u00e0 l'autod\u00e9claration en mati\u00e8re de contr\u00f4le des constructions DC2 avec le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) a \u00e9t\u00e9 envoy\u00e9.\r\n\r\neBau"
+      "subject": "Meldung Selbstdeklaration 2 (eBau Nr. {{EBAU_NUMBER}}) / Avis concernant la d\u00e9claration spontan\u00e9e DC2 (n\u00b0 eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDie Meldung zur Selbstdeklaration Baukontrolle 2 (SB2) vom Dossier mit der eBau-Nummer {{EBAU_NUMBER}} ({{INSTANCE_ID}}) ist eingetroffen.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\neBau\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nL'avis faisant suite \u00e0 l'autod\u00e9claration en mati\u00e8re de contr\u00f4le des constructions DC2 avec le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) a \u00e9t\u00e9 envoy\u00e9.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\neBau"
     }
   },
   {
