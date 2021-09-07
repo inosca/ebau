@@ -1,19 +1,21 @@
 <h1>{{t "publicInstances.title"}}</h1>
 
-<div>
-  <label class="uk-form-label" for="type">{{t "instances.municipality"}}</label>
-  <div class="uk-form-controls">
-    <PowerSelect
-      @selected={{this.selectedMunicipality}}
-      @options={{this.municipalities}}
-      @searchEnabled={{true}}
-      @searchField="label"
-      @onChange={{this.updateMunicipality}}
-    as |option|>
-      {{option.label}}
-    </PowerSelect>
+{{#if (has-feature "publication.municipalityFilter")}}
+  <div>
+    <label class="uk-form-label" for="type">{{t "instances.municipality"}}</label>
+    <div class="uk-form-controls">
+      <PowerSelect
+        @selected={{this.selectedMunicipality}}
+        @options={{this.municipalities}}
+        @searchEnabled={{true}}
+        @searchField="label"
+        @onChange={{this.updateMunicipality}}
+      as |option|>
+        {{option.label}}
+      </PowerSelect>
+    </div>
   </div>
-</div>
+{{/if}}
 
 {{#if (and this.fetchInstances.isRunning (eq this.instances.length 0))}}
   <div class="uk-text-center uk-padding">
