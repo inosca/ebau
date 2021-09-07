@@ -21,6 +21,7 @@ from camac.core.models import Activation
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.instance.models import Instance
 from camac.stats.cycle_time import aggregate_cycle_times
+from camac.stats.filters import InstanceCycleTimeFilterSet, InstanceSummaryFilterSet
 from camac.user.permissions import permission_aware
 
 from .serializers import (
@@ -58,6 +59,7 @@ class ClaimSummaryView(ListAPIView):
 
 
 class InstanceSummaryView(InstanceQuerysetMixin, ListAPIView):
+    filterset_class = InstanceSummaryFilterSet
     renderer_classes = [JSONRenderer]
     swagger_schema = None
     queryset = Instance.objects.all()
@@ -65,7 +67,7 @@ class InstanceSummaryView(InstanceQuerysetMixin, ListAPIView):
     instance_field = None
 
     def get(self, request, *args, **kwargs):
-        return Response(self.get_queryset().count())
+        return Response(self.filter_queryset(self.queryset).count())
 
 
 class ActivationSummaryView(ListAPIView):
@@ -116,6 +118,7 @@ class ActivationSummaryView(ListAPIView):
 
 
 class InstancesCycleTimesView(InstanceQuerysetMixin, ListAPIView):
+    filterset_class = InstanceCycleTimeFilterSet
     renderer_classes = [JSONRenderer]
     swagger_schema = None
     queryset = Instance.objects.filter(
@@ -132,4 +135,6 @@ class InstancesCycleTimesView(InstanceQuerysetMixin, ListAPIView):
         return self.queryset.none()
 
     def get(self, request: Request, *args, **kwargs):
-        return Response(aggregate_cycle_times(self.get_queryset()))
+        return Response(
+            aggregate_cycle_times(self.filter_queryset(self.get_queryset()))
+        )
