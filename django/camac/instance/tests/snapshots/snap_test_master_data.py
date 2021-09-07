@@ -83,6 +83,21 @@ snapshots['test_master_data_parsers 1'] = {
     'success': True
 }
 
+snapshots['test_master_data_sz 1'] = {
+    'applicants': [
+        {
+            'first_name': 'Max',
+            'last_name': 'Mustermann',
+            'street': 'Teststrasse',
+            'town': 'Musterdorf',
+            'zip': 1233
+        }
+    ],
+    'construction_costs': 129000,
+    'proposal': 'Grosses Haus',
+    'submit_date': GenericRepr('datetime.datetime(2021, 7, 16, 8, 0, 6, tzinfo=<UTC>)')
+}
+
 snapshots['test_master_data_ur 1'] = {
     'applicants': [
         {
@@ -92,9 +107,9 @@ snapshots['test_master_data_ur 1'] = {
             'juristic_name': 'ACME AG',
             'last_name': 'Mustermann',
             'street': 'Teststrasse',
-            'street_number': '123',
+            'street_number': 123,
             'town': 'Musterdorf',
-            'zip': '1233'
+            'zip': 1233
         }
     ],
     'category': [
@@ -111,7 +126,7 @@ snapshots['test_master_data_ur 1'] = {
     'plot_data': [
         {
             'egrid_number': 'CH123456789',
-            'plot_number': '123456789'
+            'plot_number': 123456789
         }
     ],
     'proposal': 'Grosses Haus',
