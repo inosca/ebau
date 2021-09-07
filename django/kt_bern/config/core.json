@@ -3514,6 +3514,15 @@
     }
   },
   {
+    "model": "core.airaction",
+    "pk": 15000000,
+    "fields": {
+      "available_instance_resource": "taskform",
+      "action_name": "index",
+      "hidden": 0
+    }
+  },
+  {
     "model": "core.answerlist",
     "pk": 1,
     "fields": {
@@ -40907,6 +40916,15 @@
       "module_name": "service",
       "controller_name": "service",
       "description": "Responsible Service"
+    }
+  },
+  {
+    "model": "core.availableinstanceresource",
+    "pk": "taskform",
+    "fields": {
+      "module_name": "taskform",
+      "controller_name": "taskform",
+      "description": "Render a Caluma form of a given task"
     }
   },
   {

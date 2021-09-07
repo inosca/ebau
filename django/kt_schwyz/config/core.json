@@ -2210,6 +2210,15 @@
     }
   },
   {
+    "model": "core.airaction",
+    "pk": 10004,
+    "fields": {
+      "available_instance_resource": "taskform",
+      "action_name": "index",
+      "hidden": 0
+    }
+  },
+  {
     "model": "core.araction",
     "pk": 1,
     "fields": {
@@ -2762,6 +2771,15 @@
       "module_name": "publication",
       "controller_name": "publish",
       "description": "Publish a document"
+    }
+  },
+  {
+    "model": "core.availableinstanceresource",
+    "pk": "taskform",
+    "fields": {
+      "module_name": "taskform",
+      "controller_name": "taskform",
+      "description": "Render a Caluma form of a given task"
     }
   },
   {
