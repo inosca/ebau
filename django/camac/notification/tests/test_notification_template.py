@@ -1384,7 +1384,6 @@ def test_notification_template_service_no_notification(
     assert len(mailoutbox) == 0
 
 
-@pytest.mark.parametrize("service__email", ["test@example.com"])
 @pytest.mark.parametrize("role__name", ["support"])
 def test_recipient_unanswered_activation(
     db,
@@ -1395,13 +1394,27 @@ def test_recipient_unanswered_activation(
     user_group,
 ):
     circulation = circulation_factory(instance=be_instance)
+    other_circulation = circulation_factory(instance=be_instance)
+
     activation_factory(circulation=circulation, circulation_state__name="DONE")
     activation_factory(
         circulation=circulation,
         circulation_state__name="RUN",
         service__email="test@example.com",
     )
-
+    # Notifications must be sent to pertaining circulations only, therefore we
+    # setup some extra activations belonging to another circulation. These must not
+    # appear in the recipients' list
+    activation_factory(
+        circulation=other_circulation,
+        circulation__state="RUN",
+        service__email="tist@example",
+    )
+    activation_factory(
+        circulation=other_circulation,
+        circulation__state="RUN",
+        service__email="tust@example",
+    )
     # to get access to validated data the serializer needs to be setup in full
     serializer = serializers.NotificationTemplateSendmailSerializer(
         data={
