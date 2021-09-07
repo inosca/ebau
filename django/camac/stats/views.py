@@ -21,7 +21,11 @@ from camac.core.models import Activation
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.instance.models import Instance
 from camac.stats.cycle_time import aggregate_cycle_times
-from camac.stats.filters import InstanceCycleTimeFilterSet, InstanceSummaryFilterSet
+from camac.stats.filters import (
+    ClaimSummaryFilterSet,
+    InstanceCycleTimeFilterSet,
+    InstanceSummaryFilterSet,
+)
 from camac.user.permissions import permission_aware
 
 from .serializers import (
@@ -34,6 +38,7 @@ from .serializers import (
 
 class ClaimSummaryView(ListAPIView):
     renderer_classes = [JSONRenderer]
+    filterset_class = ClaimSummaryFilterSet
     swagger_schema = None
     queryset = Document.objects.filter(form_id="nfd-tabelle").exclude(
         answers__question_id="nfd-tabelle-status",
@@ -55,7 +60,7 @@ class ClaimSummaryView(ListAPIView):
         return self.queryset
 
     def get(self, request, *args, **kwargs):
-        return Response(self.get_queryset().count())
+        return Response(self.filter_queryset(self.get_queryset()).count())
 
 
 class InstanceSummaryView(InstanceQuerysetMixin, ListAPIView):
