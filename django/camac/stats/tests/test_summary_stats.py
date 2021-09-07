@@ -8,6 +8,7 @@ from caluma.caluma_form import (
     factories as caluma_form_factories,
     models as caluma_form_models,
 )
+from caluma.caluma_form.models import Document
 from caluma.caluma_workflow.events import post_complete_work_item
 from dateutil import relativedelta
 from django.urls import reverse
@@ -17,7 +18,7 @@ from faker import Faker
 
 from camac.instance.models import Instance, InstanceState
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
-from camac.stats.views import InstanceSummaryView
+from camac.stats.views import ClaimSummaryView, InstanceSummaryView
 
 
 @pytest.fixture
@@ -124,11 +125,19 @@ def test_summary_filter_period(
     )
     instance_summary_view = InstanceSummaryView()
     backend = DjangoFilterBackend()
-    filtered_queryset = backend.filter_queryset(
+    filtered_instances = backend.filter_queryset(
         request, Instance.objects.all(), instance_summary_view
     )
     assert sorted(
-        list(filtered_queryset.values_list("case__meta__expected", flat=True))
+        list(filtered_instances.values_list("case__meta__expected", flat=True))
+    ) == sorted(expected)
+
+    claims_summary_view = ClaimSummaryView()
+    filtered_claims = backend.filter_queryset(
+        request, Document.objects.all(), claims_summary_view
+    )
+    assert sorted(
+        list(filtered_claims.values_list("case__meta__expected", flat=True))
     ) == sorted(expected)
 
 
