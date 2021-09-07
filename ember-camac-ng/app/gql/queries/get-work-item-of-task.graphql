@@ -1,0 +1,20 @@
+query GetWorkItemOfTask($instanceId: GenericScalar!, $task: ID!) {
+  allWorkItems(
+    filter: [
+      { rootCaseMetaValue: { key: "camac-instance-id", value: $instanceId } }
+      { task: $task }
+    ]
+    first: 1
+  ) {
+    edges {
+      node {
+        id
+        status
+        addressedGroups
+        document {
+          id
+        }
+      }
+    }
+  }
+}
