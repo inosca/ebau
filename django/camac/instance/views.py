@@ -8,7 +8,6 @@ from caluma.caluma_workflow import api as workflow_api, models as workflow_model
 from dateutil.parser import parse as dateutil_parse
 from django.conf import settings
 from django.contrib.postgres.fields.jsonb import KeyTextTransform
-from django.core.exceptions import ObjectDoesNotExist
 from django.core.files import File
 from django.db import transaction
 from django.db.models import F, OuterRef, Q, Subquery, Value
@@ -306,61 +305,14 @@ class InstanceView(
 
         return response
 
-    def _get_field_value(self, name):
-        try:
-            return self.get_object().fields.get(name=name).value
-        except ObjectDoesNotExist:
-            return None
-
     @swagger_auto_schema(auto_schema=None)
     @action(methods=["get"], detail=True, renderer_classes=[JSONRenderer])
     def gwr_data(self, request, pk):
         """Export instance data to GWR."""
+        case = workflow_models.Case.objects.get(instance__pk=pk)
+        resolver = gwr_lookups.GwrSerializer(case)
 
-        if settings.APPLICATION["FORM_BACKEND"] == "caluma":
-            case = workflow_models.Case.objects.get(instance__pk=pk)
-
-            resolver = gwr_lookups.GwrSerializer(case)
-            return response.Response(resolver.data)
-
-        instance = self.get_object()
-
-        clients = self._get_field_value("bauherrschaft")
-        client = clients[0] if clients else None
-
-        workflow_submit_item = settings.APPLICATION.get("WORKFLOW_ITEMS", {}).get(
-            "SUBMIT"
-        )
-        try:
-            submit_date = WorkflowEntry.objects.get(
-                instance=instance, workflow_item__pk=workflow_submit_item
-            ).workflow_date
-        except WorkflowEntry.DoesNotExist:
-            submit_date = None
-
-        # TODO refactor to use gwr_lookups as well (see above)
-        return response.Response(
-            {
-                "constructionProjectDescription": self._get_field_value("bezeichnung"),
-                "totalCostsOfProject": self._get_field_value("baukosten"),
-                "client": {
-                    "address": {
-                        "town": client["ort"],
-                        "swissZipCode": client["plz"],
-                        "street": client["strasse"],
-                    },
-                    "identification": {
-                        "personIdentification": {
-                            "officialName": client["name"],
-                            "firstName": client["vorname"],
-                        },
-                    },
-                }
-                if client
-                else None,
-                "projectAnnouncementDate": submit_date,
-            }
-        )
+        return response.Response(resolver.data)
 
     @swagger_auto_schema(auto_schema=None)
     @action(methods=["get"], detail=False)
