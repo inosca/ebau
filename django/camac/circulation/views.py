@@ -105,9 +105,10 @@ class CirculationView(InstanceQuerysetMixin, InstanceEditableMixin, views.ModelV
         for config in notification_config:
             send_mail(
                 config["template_slug"],
-                dict(self.get_serializer_context(), **{"circulation": circulation}),
+                self.get_serializer_context(),
                 recipient_types=config["recipient_types"],
                 instance={"type": "instances", "id": circulation.instance.pk},
+                circulation={"type": "circulations", "id": circulation.pk},
             )
 
         # set state of all activations to done
