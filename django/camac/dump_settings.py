@@ -92,6 +92,7 @@ DUMP_CONFIG_MODELS = [
     "core.IrPage",
     "core.IrRoleAcl",
     "core.IrServiceAcl",
+    "core.IrTaskform",
     "core.Municipality",
     "core.NoticeTypeT",
     "core.Page",
