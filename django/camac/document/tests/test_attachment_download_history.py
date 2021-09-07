@@ -5,6 +5,7 @@ from rest_framework import status
 
 from camac.constants import kt_uri as uri_constants
 from camac.core.models import BuildingAuthorityButtonstate, WorkflowEntry
+from camac.document import permissions
 
 from .data import django_file
 
@@ -68,7 +69,9 @@ def test_attachment_download_history_create(
         {
             "demo": {
                 role.name.lower(): {
-                    "admin": [attachment_attachment_sections.attachmentsection_id]
+                    permissions.AdminPermission: [
+                        attachment_attachment_sections.attachmentsection_id
+                    ]
                 }
             }
         },

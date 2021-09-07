@@ -2,7 +2,6 @@ import io
 import mimetypes
 import os
 import zipfile
-from enum import Enum
 
 from django.conf import settings
 from django.db.models import Q
@@ -85,7 +84,7 @@ class AttachmentQuerysetMixin:
         readable_sections = [
             sec
             for sec, perm in permission_info.items()
-            if perm not in ("adminint", "applicant")
+            if perm not in (permissions.AdminInternalPermission, "applicant")
         ]
 
         if not readable_sections:
@@ -95,7 +94,7 @@ class AttachmentQuerysetMixin:
         adminint_sections = {
             section_id: permission
             for (section_id, permission) in permission_info.items()
-            if permission == "adminint"
+            if permission == permissions.AdminInternalPermission
         }
 
         # applicant is a role relative to the instance, so must be specialcased
@@ -134,11 +133,6 @@ class AttachmentQuerysetMixin:
         return super().get_base_queryset().filter(context__isPublished=True)
 
 
-class PermissionMode(Enum):
-    destroy = 1
-    write = 2
-
-
 class AttachmentView(
     AttachmentQuerysetMixin,
     InstanceEditableMixin,
@@ -156,73 +150,23 @@ class AttachmentView(
     }
     ordering_fields = ("name", "date", "size")
 
-    def has_object_destroy_base_permission(self, obj):
-        return self.has_permission(obj, PermissionMode.destroy)
-
-    # Called from serializer (only by webdav integration)
-    # TODO: Rename to `has_update_permission`
-    def has_write_permission(self, obj):
-        return self.has_permission(obj, PermissionMode.write)
-
-    def has_permission(self, obj, mode=PermissionMode.destroy):
-        group = self.request.group
-        section_modes = {
-            attachment_section.get_mode(group)
-            for attachment_section in obj.attachment_sections.all()
-        }
-
-        if mode == PermissionMode.destroy:
-            destroy_permission = models.ADMIN_PERMISSION in section_modes
-
-            if not destroy_permission and bool(
-                {
-                    models.ADMINSERVICE_PERMISSION,
-                    models.ADMININTERNAL_PERMISSION,
-                }.intersection(section_modes)
-            ):
-                destroy_permission = obj.service == group.service
-
-            return destroy_permission and super().has_object_update_permission(obj)
-
-        if mode == PermissionMode.write:
-            write_permission = bool(
-                {
-                    models.WRITE_PERMISSION,
-                    models.ADMIN_PERMISSION,
-                    models.ADMINSERVICE_PERMISSION,
-                }.intersection(section_modes)
+    def has_object_update_permission(self, attachment):
+        has_WritePermission = any(
+            (
+                section.can_write(attachment, self.request.group)
+                for section in attachment.attachment_sections.all()
             )
+        )
 
-            if (
-                not write_permission
-                and models.ADMININTERNAL_PERMISSION in section_modes
-            ):
-                write_permission = obj.service == group.service
+        return has_WritePermission and super().has_object_update_permission(attachment)
 
-            return write_permission and super().has_object_update_permission(obj)
-
-        return False  # pragma: no cover
-
-    @permission_aware
-    def has_object_destroy_permission(self, obj):
-        if (
-            obj.instance.instance_state.name
-            in settings.APPLICATION.get("ATTACHMENT_READ_ONLY_STATES", [])
-            and not obj.attachment_sections.filter(
-                pk__in=settings.APPLICATION.get(
-                    "ATTACHMENT_READ_ONLY_EXCLUDE_SECTIONS", []
-                )
-            ).exists()
-        ):
-            # The permission layer may allow creating and updating. However we
-            # don't want to allow deleting in those states, unless they are
-            # managed internally only.
+    def has_object_destroy_permission(self, attachment):
+        if attachment.attachment_sections.count() > 1:
             return False
 
-        return self.has_object_destroy_base_permission(obj)
-
-    def has_object_destroy_permission_for_support(self, obj):
-        return self.has_object_destroy_base_permission(obj)
+        return attachment.attachment_sections.first().can_destroy(
+            attachment, self.request.group
+        )
 
     def perform_destroy(self, instance):
         """Delete image cache before deleting attachment."""
