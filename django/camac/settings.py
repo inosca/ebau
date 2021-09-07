@@ -446,6 +446,24 @@ APPLICATIONS = {
                 "title": "Materieller Prüfbericht",
             }
         ],
+        "MASTER_DATA": {
+            "applicants": (
+                "ng_table",
+                "bauherrschaft",
+                {
+                    "column_mapping": {
+                        "last_name": "name",
+                        "first_name": "vorname",
+                        "street": "strasse",
+                        "zip": "plz",
+                        "town": "ort",
+                    }
+                },
+            ),
+            "proposal": ("ng_answer", "bezeichnung"),
+            "construction_costs": ("ng_answer", "baukosten"),
+            "submit_date": ("workflow_entry", 10),
+        },
     },
     "kt_bern": {
         "LOG_NOTIFICATIONS": True,
