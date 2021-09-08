@@ -33,7 +33,7 @@
         <NewFormGridEntry
           @form={{find-by
             "name"
-            "vorentscheid-gemass-ss84-pbg-v3"
+            "vorentscheid-gemass-ss84-pbg-v4"
             this.forms.lastSuccessful.value
           }}
           @onSetForm={{fn (mut @model.form)}}
@@ -47,14 +47,14 @@
         <NewFormGridEntry
           @form={{find-by
             "name"
-            "baugesuch-reklamegesuch-v3"
+            "baugesuch-reklamegesuch-v4"
             this.forms.lastSuccessful.value
           }}
           @onSetForm={{fn (mut @model.form)}}
           @selectedForm={{@model.form}}
         />
         <NewFormGridEntry
-          @form={{find-by "name" "projektanderung-v3" this.forms.lastSuccessful.value}}
+          @form={{find-by "name" "projektanderung-v4" this.forms.lastSuccessful.value}}
           @onSetForm={{fn (mut @model.form)}}
           @selectedForm={{@model.form}}
         />

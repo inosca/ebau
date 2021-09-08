@@ -20,6 +20,7 @@ module("Integration | Component | camac-gwr", function (hooks) {
       value: [
         {
           uuid: "testuuid",
+          gebaeudebezeichnung: "test gebäude",
           adresse: "test",
           f2: "2",
           f3: "1",
@@ -43,6 +44,13 @@ module("Integration | Component | camac-gwr", function (hooks) {
             required: true,
             config: {
               columns: [
+                {
+                  name: "gebaeudebezeichnung",
+                  label: "f0",
+                  type: "text",
+                  required: true,
+                  config: {},
+                },
                 {
                   name: "adresse",
                   label: "f1",
@@ -68,7 +76,7 @@ module("Integration | Component | camac-gwr", function (hooks) {
                   name: "f4",
                   label: "f4",
                   type: "checkbox",
-                  required: true,
+                  required: false,
                   config: { options: ["1", "2", "3"] },
                 },
                 {
@@ -105,7 +113,7 @@ module("Integration | Component | camac-gwr", function (hooks) {
     );
 
     assert.dom(".uk-card").exists({ count: 2 });
-    assert.dom(".uk-card:first-child").hasText("test");
+    assert.dom(".uk-card:first-child").hasText("test gebäude");
   });
 
   test("it can edit a building", async function (assert) {
@@ -116,7 +124,7 @@ module("Integration | Component | camac-gwr", function (hooks) {
     );
 
     assert.dom(".uk-card").exists({ count: 2 });
-    assert.dom(".uk-card:first-child").hasText("test");
+    assert.dom(".uk-card:first-child").hasText("test gebäude");
 
     await click(`[data-test-gwr-building=${this.building.value[0].uuid}]`);
 
@@ -129,7 +137,7 @@ module("Integration | Component | camac-gwr", function (hooks) {
 
     await click("button.uk-button-primary");
 
-    assert.dom(".uk-card:first-child").hasText("address 123");
+    assert.dom(".uk-card:last-child").hasText("address 123");
   });
 
   test("it can add a building", async function (assert) {

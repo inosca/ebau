@@ -12,7 +12,7 @@
             <UkIcon @icon="home" @ratio={{3}}/>
           </card.header>
           <div class="uk-text-bolder uk-text-center uk-padding-small">
-            {{row.adresse}}
+            {{if row.gebaeudebezeichnung row.gebaeudebezeichnung row.adresse}}
           </div>
         </UkCard>
       </div>
