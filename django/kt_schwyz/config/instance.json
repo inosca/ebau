@@ -225,6 +225,33 @@
     }
   },
   {
+    "model": "instance.form",
+    "pk": 26,
+    "fields": {
+      "form_state": 1,
+      "name": "baugesuch-reklamegesuch-v4",
+      "description": "Baugesuch"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 27,
+    "fields": {
+      "form_state": 1,
+      "name": "projektanderung-v4",
+      "description": "Projekt\u00e4nderung zu bewilligtem Baugesuch"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 28,
+    "fields": {
+      "form_state": 1,
+      "name": "vorentscheid-gemass-ss84-pbg-v4",
+      "description": "Vorentscheid gem\u00e4ss \u00a7 84 PBG"
+    }
+  },
+  {
     "model": "instance.formstate",
     "pk": 1,
     "fields": {

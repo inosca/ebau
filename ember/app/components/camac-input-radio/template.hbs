@@ -1,14 +1,27 @@
-{{#each config.options as |option|}}
-  <label class="uk-form-label uk-margin-right">
-    <input
-      type="radio"
-      class="uk-radio uk-margin-small-right"
-      name={{elementId}}
-      value={{option}}
-      disabled={{if @readonly "disabled"}}
-      checked={{eq option @model.value}}
-      onchange={{fn (optional @on-change) option}}
-    />
+{{#if (gt config.options.length this.numberOfOptions) }}
+  <PowerSelect
+    @searchEnabled={{true}}
+    @allowClear={{true}}
+    @options={{config.options}}
+    @disabled={{@readonly}}
+    @selected={{@model.value}}
+    @onChange={{@on-change}} as |option|
+  >
     {{option}}
-  </label>
-{{/each}}
+  </PowerSelect>
+{{else}}
+  {{#each config.options as |option|}}
+    <label class="uk-form-label uk-margin-right">
+      <input
+        type="radio"
+        class="uk-radio uk-margin-small-right"
+        name={{elementId}}
+        value={{option}}
+        disabled={{if @readonly "disabled"}}
+        checked={{eq option @model.value}}
+        onchange={{fn (optional @on-change) option}}
+      />
+      {{option}}
+    </label>
+  {{/each}}
+{{/if}}

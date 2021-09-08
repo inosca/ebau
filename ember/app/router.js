@@ -27,6 +27,7 @@ Router.map(function () {
           this.route("kategorisierung");
           this.route("kategorisierung-vorabklarung");
           this.route("gwr");
+          this.route("gwr-v2");
           this.route("allgemeine-informationen-zum-vorhaben");
           this.route("allgemeine-informationen-zum-vorhaben-v2");
           this.route("allgemeine-informationen-zum-vorhaben-v3");
