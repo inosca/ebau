@@ -171,6 +171,26 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             data["size"] = path.size
             data["mime_type"] = path.content_type
             data["name"] = path.name
+
+        if not self.instance:
+            return data
+
+        user_service = self.context["request"].group.service
+        attachment = self.instance
+        active_service = attachment.instance.responsible_service(
+            filter_type="municipality"
+        )
+
+        # check if context is changed and if its the active service
+        if not user_service or (
+            active_service != user_service
+            and data.get("context", attachment.context) != attachment.context
+        ):
+            # context changed, but we're not active service
+            raise exceptions.ValidationError(
+                _("Only active service can change context")
+            )
+
         return data
 
     def create(self, validated_data):
