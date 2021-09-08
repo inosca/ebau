@@ -4,7 +4,7 @@ from factory.django import DjangoModelFactory, ImageField
 
 from camac.instance.factories import InstanceFactory
 from camac.notification.factories import NotificationTemplateFactory
-from camac.user.factories import GroupFactory, RoleFactory, ServiceFactory, UserFactory
+from camac.user.factories import GroupFactory, ServiceFactory, UserFactory
 
 from . import models
 
@@ -42,24 +42,6 @@ class AttachmentAttachmentSectionFactory(DjangoModelFactory):
 
     class Meta:
         model = models.Attachment.attachment_sections.through
-
-
-class AttachmentSectionRoleAclFactory(DjangoModelFactory):
-    attachment_section = SubFactory(AttachmentSectionFactory)
-    role = SubFactory(RoleFactory)
-    mode = models.ADMIN_PERMISSION
-
-    class Meta:
-        model = models.AttachmentSectionRoleAcl
-
-
-class AttachmentSectionGroupAclFactory(DjangoModelFactory):
-    attachment_section = SubFactory(AttachmentSectionFactory)
-    group = SubFactory(GroupFactory)
-    mode = models.ADMIN_PERMISSION
-
-    class Meta:
-        model = models.AttachmentSectionGroupAcl
 
 
 class TemplateFactory(DjangoModelFactory):
