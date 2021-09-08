@@ -2,133 +2,246 @@ from django.conf import settings
 from django.db.models import Q
 
 from camac.constants import kt_uri as uri_constants
+from camac.core.models import Activation
+
+
+class Permission:
+    write = False
+    destroy = False
+
+    @classmethod
+    def can_write(cls, attachment, group) -> bool:
+        return cls.write
+
+    @classmethod
+    def can_destroy(cls, attachment, group) -> bool:
+        return cls.destroy
+
+
+class ReadPermission(Permission):
+    """Read permission."""
+
+    pass
+
+
+class WritePermission(ReadPermission):
+    """Read and write permission."""
+
+    write = True
+
+
+class AdminPermission(WritePermission):
+    """Read, write and delete permission."""
+
+    destroy = True
+
+
+class AdminServicePermission(AdminPermission):
+    """Read and write permissions for all attachments but delete only on attachments owned by the current service."""
+
+    @classmethod
+    def is_owned_by_service(cls, attachment, group) -> bool:
+        return not attachment or attachment.service == group.service
+
+    @classmethod
+    def can_destroy(cls, attachment, group) -> bool:
+        return cls.is_owned_by_service(attachment, group) and super().can_destroy(
+            attachment,
+            group,
+        )
+
+
+class AdminInternalPermission(AdminServicePermission):
+    """Read, write and delete permission on attachments owned by the current service."""
+
+    @classmethod
+    def can_write(cls, attachment, group) -> bool:
+        return cls.is_owned_by_service(attachment, group) and super().can_write(
+            attachment,
+            group,
+        )
+
+
+class AdminBeforeDecisionPermission(AdminPermission):
+    """Read and write permission, but delete only before the decision."""
+
+    @classmethod
+    def is_after_decision(cls, attachment, group) -> bool:
+        return not attachment or (
+            attachment.instance.instance_state.name
+            not in settings.APPLICATION.get("ATTACHMENT_AFTER_DECISION_STATES", [])
+        )
+
+    @classmethod
+    def can_destroy(cls, attachment, group) -> bool:
+        return cls.is_after_decision(attachment, group) and super().can_destroy(
+            attachment,
+            group,
+        )
+
+
+class AdminServiceBeforeDecisionPermission(
+    AdminBeforeDecisionPermission, AdminServicePermission
+):
+    """Read and write permission, but delete only conditionally.
+
+    Deleting is allowed when all of the following conditions are true:
+
+    - Instance state is before the decision
+    - Service has a running activation or is involved via instance service
+    """
+
+    pass
+
+
+class AdminServiceRunningActivationPermission(AdminServiceBeforeDecisionPermission):
+    """Read and write permission, but delete only conditionally.
+
+    Deleting is allowed when all of the following conditions are true:
+
+    - Attachment is owned by the current service
+    - Instance state is before the decision
+    - Service has a running activation or is involved via instance service
+    """
+
+    @classmethod
+    def has_running_activation(cls, attachment, group) -> bool:
+        return (
+            not attachment
+            or Activation.objects.filter(
+                service=group.service,
+                circulation__instance=attachment.instance,
+                circulation_state__name__in=settings.APPLICATION.get(
+                    "ATTACHMENT_RUNNING_ACTIVATION_STATES", []
+                ),
+            ).exists()
+        )
+
+    @classmethod
+    def is_involved_beyond_circulation(cls, attachment, group) -> bool:
+        return (
+            not attachment
+            or attachment.instance.instance_services.filter(
+                service=group.service
+            ).exists()
+        )
+
+    @classmethod
+    def can_destroy(cls, attachment, group) -> bool:
+        return (
+            cls.is_involved_beyond_circulation(attachment, group)
+            or cls.has_running_activation(attachment, group)
+        ) and super().can_destroy(attachment, group)
+
 
 # Permissions configuration:
 # Top-Level keys are the internal role names. The second-level keys are
 # the permissions, followed by a list of sections where the permission applies.
 # If not mentioned, no permission is granted.
-#
-# Permission types:
-#   * "read"
-#   * "write" (read+write, NO DELETE)
-#   * "admin" (read+write+delete)
-#   * "adminsvc" (admin, but only delete documents where service=self.group.service)
-#   * "adminint" (admin, but can only see documents created within own service)
 PERMISSIONS = {
     "kt_bern": {
-        "municipality-lead": {
-            "read": [1, 7, 8],
-            "adminsvc": [2, 3],
-            "adminint": [4],
-            "admin": [13, 12],
+        "applicant": {
+            AdminPermission: [1, 5, 6, 7],
+            ReadPermission: [3],
         },
-        "applicant": {"admin": [1, 5, 6, 7, 13, 10, 11, 12], "read": [3]},
+        # municipality
+        "municipality-lead": {
+            AdminBeforeDecisionPermission: [12, 13],
+            AdminServiceRunningActivationPermission: [2, 3],
+            AdminInternalPermission: [4],
+            ReadPermission: [1, 7, 8],
+        },
+        "municipality-clerk": {
+            AdminBeforeDecisionPermission: [12, 13],
+            AdminServiceRunningActivationPermission: [2, 3],
+            AdminInternalPermission: [4],
+            ReadPermission: [1, 7, 8],
+        },
+        "municipality-readonly": {
+            ReadPermission: [1, 2, 3, 4, 7, 8, 12, 13],
+        },
+        # service
         "service-lead": {
-            "adminsvc": [2],
-            "read": [3, 1, 7, 8, 13, 12],
-            "adminint": [4],
+            AdminServiceRunningActivationPermission: [2],
+            AdminInternalPermission: [4],
+            ReadPermission: [3, 1, 7, 8, 13, 12],
         },
         "service-clerk": {
-            "adminint": [4],
-            "read": [1, 3, 7, 8, 13, 12],
-            "adminsvc": [2],
+            AdminServiceRunningActivationPermission: [2],
+            AdminInternalPermission: [4],
+            ReadPermission: [1, 3, 7, 8, 13, 12],
         },
+        "service-readonly": {
+            ReadPermission: [1, 2, 3, 4, 7, 8, 13, 12],
+        },
+        "subservice": {
+            AdminServiceRunningActivationPermission: [2],
+            AdminInternalPermission: [4],
+            ReadPermission: [1, 3, 7, 8, 13, 12],
+        },
+        # construction control
         "construction-control-lead": {
-            "adminsvc": [2, 3],
-            "read": [1, 5, 6, 7, 8, 13, 12],
-            "adminint": [4],
-            "admin": [10, 11],
-        },
-        "support": {"admin": [1, 2, 3, 4, 5, 6, 7, 13, 10, 11, 12], "read": [8]},
-        "service-readonly": {"read": [1, 2, 3, 4, 7, 8, 13, 12]},
-        "municipality-readonly": {"read": [1, 2, 3, 4, 7, 8, 13, 12]},
-        "construction-control-readonly": {
-            "read": [1, 2, 3, 4, 5, 6, 7, 8, 13, 10, 11, 12]
-        },
-        "subservice": {"adminsvc": [2], "read": [1, 3, 7, 8, 13, 12], "adminint": [4]},
-        "municipality-clerk": {
-            "adminint": [4],
-            "read": [1, 7, 8],
-            "adminsvc": [2, 3],
-            "admin": [13, 12],
+            "admin-service-after-decision": [2, 3],
+            AdminPermission: [10, 11],
+            AdminInternalPermission: [4],
+            ReadPermission: [1, 5, 6, 7, 8, 13, 12],
         },
         "construction-control-clerk": {
-            "adminint": [4],
-            "read": [1, 5, 6, 7, 8, 13, 12],
-            "adminsvc": [2, 3],
-            "admin": [10, 11],
+            "admin-service-after-decision": [2, 3],
+            AdminPermission: [10, 11],
+            AdminInternalPermission: [4],
+            ReadPermission: [1, 5, 6, 7, 8, 12, 13],
+        },
+        "construction-control-readonly": {
+            ReadPermission: [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13]
+        },
+        "support": {
+            AdminPermission: [1, 2, 3, 4, 5, 6, 7, 10, 11, 12, 13],
+            ReadPermission: [8],
         },
     },
     "kt_schwyz": {
-        "municipality": {"admin": [1, 4, 5, 6, 7, 8, 9, 10, 11]},
-        "portal": {"admin": [1], "read": [5, 9, 4]},
+        "municipality": {AdminPermission: [1, 4, 5, 6, 7, 8, 9, 10, 11]},
+        "portal": {AdminPermission: [1], ReadPermission: [5, 9, 4]},
         "fachstelle": {
-            "read": [1, 5, 4, 6, 9, 10, 11],
-            "adminint": [2],
-            "adminsvc": [8],
+            ReadPermission: [1, 5, 4, 6, 9, 10, 11],
+            AdminInternalPermission: [2],
+            AdminServicePermission: [8],
         },
-        "kanton": {"read": [1, 2, 11], "admin": [8, 6, 9, 10]},
-        "publikation": {"read": [4]},
-        "gemeinde sachbearbeiter": {"admin": [6, 7, 1, 4, 5, 8, 9, 10, 11]},
+        "kanton": {ReadPermission: [1, 2, 11], AdminPermission: [8, 6, 9, 10]},
+        "publikation": {ReadPermission: [4]},
+        "gemeinde sachbearbeiter": {AdminPermission: [6, 7, 1, 4, 5, 8, 9, 10, 11]},
         "fachstelle sachbearbeiter": {
-            "read": [1, 4, 5, 6, 9, 10, 11],
-            "adminint": [2],
-            "adminsvc": [8],
+            ReadPermission: [1, 4, 5, 6, 9, 10, 11],
+            AdminInternalPermission: [2],
+            AdminServicePermission: [8],
         },
-        "fachstelle leitbehörde": {"admin": [1, 4, 5, 6, 7, 8, 9, 10, 11]},
-        "lesezugriff": {"read": [1, 8, 4, 5, 6, 10, 11]},
+        "fachstelle leitbehörde": {AdminPermission: [1, 4, 5, 6, 7, 8, 9, 10, 11]},
+        "lesezugriff": {ReadPermission: [1, 8, 4, 5, 6, 10, 11]},
     },
     "kt_uri": {
         "municipality": {
-            "read": [
-                12000002,
-                12000003,
-                12000006,
-            ],
-            "write": [
-                12000005,
-            ],
-            "adminint": [12000001],
-            "adminsvc": [
-                12000000,
-                12000004,
-                12000007,
-            ],
+            ReadPermission: [12000002, 12000003, 12000006],
+            WritePermission: [12000005],
+            AdminInternalPermission: [12000001],
+            AdminServicePermission: [12000000, 12000004, 12000007],
         },
         "service": {
-            "read": [
-                12000004,
-            ],
-            "adminint": [12000001],
-            "adminsvc": [
-                12000000,
-                12000002,
-                12000003,
-            ],
+            ReadPermission: [12000004],
+            AdminInternalPermission: [12000001],
+            AdminServicePermission: [12000000, 12000002, 12000003],
         },
         "trusted_service": {
-            "read": [
-                12000004,
-            ],
-            "adminint": [12000001],
-            "adminsvc": [
-                12000000,
-                12000002,
-                12000003,
-            ],
+            ReadPermission: [12000004],
+            AdminInternalPermission: [12000001],
+            AdminServicePermission: [12000000, 12000002, 12000003],
         },
         "coordination": {
-            "adminint": [12000001],
-            "adminsvc": [
-                12000000,
-                12000002,
-                12000004,
-                12000005,
-                12000006,
-            ],
+            AdminInternalPermission: [12000001],
+            AdminServicePermission: [12000000, 12000002, 12000004, 12000005, 12000006],
         },
         "support": {
-            "admin": [
+            AdminPermission: [
                 12000000,
                 12000001,
                 12000002,
@@ -139,22 +252,12 @@ PERMISSIONS = {
                 12000007,
             ],
         },
-        "organization_readonly": {"read": [12000000]},
-        "commission": {
-            "read": [
-                12000004,
-                12000000,
-                12000002,
-                12000003,
-            ]
-        },
-        "portal user": {"adminsvc": [12000000]},
+        "organization_readonly": {ReadPermission: [12000000]},
+        "commission": {ReadPermission: [12000004, 12000000, 12000002, 12000003]},
+        "portal user": {AdminServicePermission: [12000000]},
     },
-    "demo": {"applicant": {"admin": [250, 251]}},
+    "demo": {"applicant": {AdminPermission: [250, 251]}},
 }
-
-# Custom attachment validators. Use this to apply any custom validation rules
-VALIDATE_ATTACHMENTS = {}
 
 # Loosen filters allow additional visibility. They are used as an "OR"
 # to the other filters, and as such can be used to allow additional
@@ -180,13 +283,22 @@ LOOSEN_FILTERS = {
 
 def special_permissions_uri(group):
     if group.group_id in [uri_constants.LISAG_GROUP_ID, uri_constants.KOOR_NP_GROUP_ID]:
-        return {uri_constants.LISAG_ATTACHMENT_SECTION_ID: "adminsvc"}
+        return {uri_constants.LISAG_ATTACHMENT_SECTION_ID: AdminServicePermission}
     return {}
 
 
 SPECIAL_PERMISSIONS = {"kt_uri": special_permissions_uri}
 
-PERMISSION_ORDERED = ["read", "write", "adminint", "adminsvc", "admin"]
+PERMISSION_ORDERED = [
+    ReadPermission,
+    WritePermission,
+    AdminInternalPermission,
+    AdminServiceRunningActivationPermission,
+    AdminServiceBeforeDecisionPermission,
+    AdminServicePermission,
+    AdminBeforeDecisionPermission,
+    AdminPermission,
+]
 
 
 def rebuild_app_permissions(permissions):
