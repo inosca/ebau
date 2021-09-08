@@ -435,7 +435,7 @@ snapshots['test_document_merge_service_snapshot[baugesuch] 1'] = [
                             },
                             {
                                 'checked': False,
-                                'label': 'Andere'
+                                'label': 'Andere (z.B. Tiefbauanlage, Reklamevorhaben, ...)'
                             }
                         ],
                         'label': 'Für welche Nutzungsart dient das Bauvorhaben?',
