@@ -1,7 +1,5 @@
 from django.conf import settings
 from django.db.models import Q
-from django.utils.translation import gettext as _
-from rest_framework import exceptions
 
 from camac.constants import kt_uri as uri_constants
 
@@ -155,34 +153,8 @@ PERMISSIONS = {
     "demo": {"applicant": {"admin": [250, 251]}},
 }
 
-
-def ensure_active_service_for_context_update(serializer, data):
-    """Enforce changes to the context field only happen by active service.
-
-    In EBAU-BE, the context contains flags whether an attachment is a decision,
-    which only users of the active service (Leitbehörde) are allowed to change.
-    """
-    if not serializer.instance:
-        return data
-
-    user_service = serializer.context["request"].group.service
-    attachment = serializer.instance
-    active_service = attachment.instance.responsible_service(filter_type="municipality")
-
-    if not user_service or (
-        active_service != user_service
-        and data.get("context", attachment.context) != attachment.context
-    ):
-        # context changed, but we're not active service
-        raise exceptions.ValidationError(_("Only active service can change context"))
-    return data
-
-
 # Custom attachment validators. Use this to apply any custom validation rules
-VALIDATE_ATTACHMENTS = {
-    "kt_bern": ensure_active_service_for_context_update,
-    "demo": ensure_active_service_for_context_update,
-}
+VALIDATE_ATTACHMENTS = {}
 
 # Loosen filters allow additional visibility. They are used as an "OR"
 # to the other filters, and as such can be used to allow additional
