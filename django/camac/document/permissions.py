@@ -119,11 +119,20 @@ class AdminServiceRunningActivationPermission(AdminServiceBeforeDecisionPermissi
 
     @classmethod
     def is_involved_beyond_circulation(cls, attachment, group) -> bool:
+        use_instance_service = settings.APPLICATION.get("USE_INSTANCE_SERVICE")
+
         return (
             not attachment
-            or attachment.instance.instance_services.filter(
-                service=group.service
-            ).exists()
+            or (
+                use_instance_service
+                and attachment.instance.instance_services.filter(
+                    service=group.service
+                ).exists()
+            )
+            or (
+                not use_instance_service
+                and attachment.instance.group.service == group.service
+            )
         )
 
     @classmethod
@@ -132,6 +141,10 @@ class AdminServiceRunningActivationPermission(AdminServiceBeforeDecisionPermissi
             cls.is_involved_beyond_circulation(attachment, group)
             or cls.has_running_activation(attachment, group)
         ) and super().can_destroy(attachment, group)
+
+    @classmethod
+    def can_write(cls, attachment, group) -> bool:
+        return cls.can_destroy(attachment, group)
 
 
 # Permissions configuration:
