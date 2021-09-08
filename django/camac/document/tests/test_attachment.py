@@ -1139,6 +1139,7 @@ def test_attachment_delete_custom_admin_modes(
     acl_mode,
     has_running_activation,
     status_code,
+    use_instance_service,
 ):
     application_settings["ATTACHMENT_AFTER_DECISION_STATES"] = ["finished"]
 
@@ -1279,3 +1280,65 @@ def test_attachment_delete_multiple_sections(
 
     response = admin_client.delete(url)
     assert response.status_code == status.HTTP_403_FORBIDDEN
+
+
+@pytest.mark.parametrize("role__name", ["Service"])
+@pytest.mark.parametrize(
+    "circulation_state__name,status_code",
+    [("RUN", status.HTTP_200_OK), ("DONE", status.HTTP_400_BAD_REQUEST)],
+)
+def test_attachment_update_custom_permissions(
+    db,
+    admin_client,
+    application_settings,
+    mocker,
+    activation,
+    attachment,
+    attachment_section_factory,
+    attachment_attachment_section_factory,
+    status_code,
+    use_instance_service,
+):
+    application_settings["ATTACHMENT_RUNNING_ACTIVATION_STATES"] = ["RUN"]
+
+    existing_section = attachment_section_factory(name="existing")
+    new_section = attachment_section_factory(name="new")
+
+    attachment_attachment_section_factory(
+        attachment=attachment, attachmentsection=existing_section
+    )
+
+    url = reverse("attachment-detail", args=[attachment.pk])
+
+    # fix permissions
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {
+            "demo": {
+                "service": {
+                    permissions.AdminPermission: [existing_section.pk],
+                    permissions.AdminServiceRunningActivationPermission: [
+                        new_section.pk
+                    ],
+                }
+            }
+        },
+    )
+
+    data = {
+        "data": {
+            "type": "attachments",
+            "id": attachment.pk,
+            "relationships": {
+                "attachment-sections": {
+                    "data": [
+                        {"type": "attachment-sections", "id": existing_section.pk},
+                        {"type": "attachment-sections", "id": new_section.pk},
+                    ]
+                }
+            },
+        }
+    }
+
+    response = admin_client.patch(url, data=data)
+    assert response.status_code == status_code
