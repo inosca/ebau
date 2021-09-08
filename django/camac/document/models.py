@@ -156,12 +156,22 @@ class AttachmentSection(core_models.MultilingualModel, models.Model):
         default=_get_default_mime_types,
     )
 
-    def get_mode(self, group):
-        permission_info = permissions.section_permissions(group)
+    def get_permission(self, group):
+        return permissions.section_permissions(group).get(self.pk)
 
-        for section_id, mode in permission_info.items():
-            if self.pk == section_id:
-                return mode
+    def can_destroy(self, attachment, group):
+        permission_class = self.get_permission(group)
+        return (
+            permission_class.can_destroy(attachment, group)
+            if permission_class
+            else False
+        )
+
+    def can_write(self, attachment, group):
+        permission_class = self.get_permission(group)
+        return (
+            permission_class.can_write(attachment, group) if permission_class else False
+        )
 
     class Meta:
         managed = True
@@ -184,80 +194,6 @@ class AttachmentSectionT(models.Model):
     class Meta:
         managed = True
         db_table = "ATTACHMENT_SECTION_T"
-
-
-# TODO: Split `write` in `create` and `update`
-WRITE_PERMISSION = "write"
-READ_PERMISSION = "read"
-ADMIN_PERMISSION = "admin"
-ADMINSERVICE_PERMISSION = "adminsvc"
-ADMININTERNAL_PERMISSION = "adminint"
-PUBLIC_PERMISSION = "public"
-
-ATTACHMENT_MODE = (
-    (READ_PERMISSION, "Read permissions"),
-    (WRITE_PERMISSION, "Read and write permissions"),
-    (ADMIN_PERMISSION, "Read, write and delete permissions"),
-    (
-        ADMINSERVICE_PERMISSION,
-        "Read, write permissions for all attachments but delete only on service attachments",
-    ),
-    (
-        ADMININTERNAL_PERMISSION,
-        "Read, write and delete permission only on service attachments",
-    ),
-    (PUBLIC_PERMISSION, "Read permission without restrictions"),
-)
-
-
-class AttachmentSectionRoleAcl(models.Model):
-    id = models.AutoField(db_column="ID", primary_key=True)
-    attachment_section = models.ForeignKey(
-        AttachmentSection,
-        models.CASCADE,
-        db_column="ATTACHMENT_SECTION_ID",
-        related_name="role_acls",
-    )
-    role = models.ForeignKey(
-        "user.Role", models.CASCADE, db_column="ROLE_ID", related_name="+"
-    )
-    mode = models.CharField(db_column="MODE", max_length=10, choices=ATTACHMENT_MODE)
-
-    class Meta:
-        managed = True
-        db_table = "ATTACHMENT_SECTION_ROLE"
-        unique_together = (("attachment_section", "role"),)
-
-
-class AttachmentSectionGroupAcl(models.Model):
-    attachment_section = models.ForeignKey(
-        AttachmentSection, models.CASCADE, related_name="group_acls"
-    )
-    group = models.ForeignKey("user.Group", models.CASCADE, related_name="+")
-    mode = models.CharField(max_length=10, choices=ATTACHMENT_MODE)
-
-    class Meta:
-        unique_together = (("attachment_section", "group"),)
-        db_table = "ATTACHMENT_SECTION_GROUP"
-
-
-class AttachmentSectionServiceAcl(models.Model):
-    id = models.AutoField(db_column="ID", primary_key=True)
-    attachment_section = models.ForeignKey(
-        AttachmentSection,
-        models.CASCADE,
-        db_column="ATTACHMENT_SECTION_ID",
-        related_name="service_acls",
-    )
-    service = models.ForeignKey(
-        "user.Service", models.CASCADE, db_column="SERVICE_ID", related_name="+"
-    )
-    mode = models.CharField(db_column="MODE", max_length=20, choices=ATTACHMENT_MODE)
-
-    class Meta:
-        managed = True
-        db_table = "ATTACHMENT_SECTION_SERVICE"
-        unique_together = (("attachment_section", "service"),)
 
 
 class Template(models.Model):

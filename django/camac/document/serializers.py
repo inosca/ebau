@@ -5,6 +5,7 @@ from pathlib import Path
 from django.conf import settings
 from django.utils.translation import gettext as _
 from django_clamd.validators import validate_file_infection
+from inflection import dasherize, underscore
 from manabi.token import Key, Token
 from manabi.util import from_string
 from rest_framework import exceptions
@@ -22,22 +23,25 @@ from camac.user.relations import (
 )
 from camac.user.serializers import CurrentGroupDefault, CurrentServiceDefault
 
-from . import models, permissions
+from . import models
 
 
 class AttachmentSectionSerializer(
     core_serializers.MultilingualSerializer, serializers.ModelSerializer
 ):
-    mode = serializers.SerializerMethodField()
+    permission_name = serializers.SerializerMethodField()
     description = core_serializers.MultilingualField()
 
-    def get_mode(self, instance):
-        request = self.context["request"]
-        return instance.get_mode(request.group)
+    def get_permission_name(self, instance):
+        permission_class = instance.get_permission(self.context["request"].group)
+
+        return dasherize(
+            underscore(permission_class.__name__.replace("Permission", ""))
+        )
 
     class Meta:
         model = models.AttachmentSection
-        meta_fields = ("mode",)
+        meta_fields = ("permission_name",)
         fields = ("name", "description")
 
 
@@ -74,7 +78,7 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         ):
             return None
         view = self.context.get("view")
-        if not view.has_write_permission(instance):
+        if not view.has_object_update_permission(instance):
             return None
         key = Key(from_string(settings.MANABI_SHARED_KEY))
         token = Token(key, path)
@@ -94,30 +98,35 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         if not attachment_sections:
             attachment_sections = self._get_default_attachment_sections(group)
 
-        existing_section_ids = set()
-        if self.instance:
-            existing_section_ids = set(
-                s.attachment_section_id for s in self.instance.attachment_sections.all()
-            )
+        existing_section_ids = (
+            set(self.instance.attachment_sections.values_list("pk", flat=True))
+            if self.instance
+            else set()
+        )
 
         for attachment_section in attachment_sections:
             if attachment_section.attachment_section_id in existing_section_ids:
                 # document already assigned, so even if it's forbidden,
                 # it's not a violation
                 continue
-            mode = attachment_section.get_mode(group)
-            if mode not in [
-                models.WRITE_PERMISSION,
-                models.ADMIN_PERMISSION,
-                models.ADMININTERNAL_PERMISSION,
-                models.ADMINSERVICE_PERMISSION,
-            ]:
+            if not attachment_section.can_write(self.instance, group):
+                raise exceptions.ValidationError(
+                    _("Insufficent permissions to add file to section '%(section)s'.")
+                    % {"section": attachment_section.get_name()}
+                )
+
+        deleted_attachment_sections = models.AttachmentSection.objects.filter(
+            pk__in=existing_section_ids
+            - set([section.pk for section in attachment_sections])
+        )
+
+        for attachment_section in deleted_attachment_sections:
+            if not attachment_section.can_destroy(self.instance, group):
                 raise exceptions.ValidationError(
                     _(
-                        "Not sufficent permissions to add file to "
-                        "section %(section)s."
+                        "Insufficent permissions to delete file from section '%(section)s'."
                     )
-                    % {"section": attachment_section.name}
+                    % {"section": attachment_section.get_name()}
                 )
 
         return attachment_sections
@@ -149,12 +158,24 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         validate_file_infection(path)
         return path
 
-    def validate(self, data):
-        custom_validate = permissions.VALIDATE_ATTACHMENTS.get(
-            settings.APPLICATION_NAME, lambda _, data: data
-        )
-        data = custom_validate(self, data)
+    def validate_context(self, context):
+        # don't validate if context is new or unchanged
+        if not self.instance or context == self.instance.context:
+            return context
 
+        service = self.context["request"].group.service
+        active_service = self.instance.instance.responsible_service(
+            filter_type="municipality"
+        )
+
+        if not service or active_service != service:
+            raise exceptions.ValidationError(
+                _("Only active service can change context")
+            )
+
+        return context
+
+    def validate(self, data):
         if "path" in data:
             path = data["path"]
 
@@ -171,25 +192,6 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             data["size"] = path.size
             data["mime_type"] = path.content_type
             data["name"] = path.name
-
-        if not self.instance:
-            return data
-
-        user_service = self.context["request"].group.service
-        attachment = self.instance
-        active_service = attachment.instance.responsible_service(
-            filter_type="municipality"
-        )
-
-        # check if context is changed and if its the active service
-        if not user_service or (
-            active_service != user_service
-            and data.get("context", attachment.context) != attachment.context
-        ):
-            # context changed, but we're not active service
-            raise exceptions.ValidationError(
-                _("Only active service can change context")
-            )
 
         return data
 
