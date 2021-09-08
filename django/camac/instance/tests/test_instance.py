@@ -357,7 +357,6 @@ def test_instance_submit(
     notification_template,
     mailoutbox,
     attachment_section,
-    attachment_section_group_acl_factory,
     role,
     short_dossier_number,
     mocker,
@@ -385,9 +384,6 @@ def test_instance_submit(
     if status_code == status.HTTP_200_OK:
         group = group_factory(role=role_factory(name="Municipality"))
         group_location_factory(group=group, location=instance.location)
-        attachment_section_group_acl_factory(
-            group=admin_user.groups.first(), attachment_section=attachment_section
-        )
 
     instance_state_factory(name="subm")
     url = reverse("instance-submit", args=[instance.pk])

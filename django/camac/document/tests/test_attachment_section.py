@@ -2,8 +2,7 @@ import pytest
 from django.urls import reverse
 from rest_framework import status
 
-from camac.document import models
-from camac.document.permissions import rebuild_app_permissions, section_permissions
+from camac.document import permissions
 
 
 @pytest.mark.parametrize("role__name", [("Applicant")])
@@ -11,8 +10,6 @@ def test_attachment_section_list(
     admin_user,
     admin_client,
     attachment_section_factory,
-    attachment_section_role_acl_factory,
-    attachment_section_group_acl_factory,
     role,
     mocker,
 ):
@@ -29,7 +26,7 @@ def test_attachment_section_list(
         {
             "demo": {
                 role.name.lower(): {
-                    models.ADMIN_PERMISSION: [attachment_section_role.pk]
+                    permissions.AdminPermission: [attachment_section_role.pk]
                 }
             }
         },
@@ -43,20 +40,20 @@ def test_attachment_section_list(
     json = response.json()
     assert len(json["data"]) == 1
     assert json["data"][0]["id"] == str(attachment_section_role.pk)
-    assert json["data"][0]["meta"]["mode"] == models.ADMIN_PERMISSION
+    assert json["data"][0]["meta"]["permission-name"] == "admin"
 
 
 @pytest.mark.parametrize("role__name", [("Applicant")])
-def test_attachment_section_detail(
-    admin_client, attachment_section, attachment_section_group_acl, role, mocker
-):
+def test_attachment_section_detail(admin_client, attachment_section, role, mocker):
     url = reverse("attachmentsection-detail", args=[attachment_section.pk])
     # fix permissions
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
         {
             "demo": {
-                role.name.lower(): {models.ADMIN_PERMISSION: [attachment_section.pk]}
+                role.name.lower(): {
+                    permissions.AdminPermission: [attachment_section.pk]
+                }
             }
         },
     )
@@ -72,29 +69,35 @@ def test_attachment_section_detail(
             "trusted_service",
             283,  # Lisag
             12000007,
-            models.ADMINSERVICE_PERMISSION,
-            {12000007: "adminsvc"},
+            permissions.AdminServicePermission,
+            {12000007: permissions.AdminServicePermission},
         ),
         (
             "trusted_service",
             283,  # Lisag
             123,
-            models.ADMINSERVICE_PERMISSION,
-            {123: "adminsvc", 12000007: "adminsvc"},
+            permissions.AdminServicePermission,
+            {
+                123: permissions.AdminServicePermission,
+                12000007: permissions.AdminServicePermission,
+            },
         ),
         (
             "coordination",
             21,  # KOOR NP
             123,
-            models.ADMINSERVICE_PERMISSION,
-            {123: "adminsvc", 12000007: "adminsvc"},
+            permissions.AdminServicePermission,
+            {
+                123: permissions.AdminServicePermission,
+                12000007: permissions.AdminServicePermission,
+            },
         ),
         (
             "trusted_service",
             123,  # Non-existent
             123,
-            models.ADMINSERVICE_PERMISSION,
-            {123: "adminsvc"},
+            permissions.AdminServicePermission,
+            {123: permissions.AdminServicePermission},
         ),
     ],
 )
@@ -117,22 +120,27 @@ def test_attachment_section_special_permissions_ur(
         {"kt_uri": {role.name.lower(): {permission: [section_id]}}},
     )
 
-    permissions = section_permissions(lisag_group)
-
-    assert permissions == expected
+    assert permissions.section_permissions(lisag_group) == expected
 
 
 @pytest.mark.parametrize(
-    "data", [{"trusted_service": {"read": [1, 2, 3], "adminsvc": [23, 33]}}]
+    "data",
+    [
+        {
+            "trusted_service": {
+                permissions.ReadPermission: [1, 2, 3],
+                permissions.AdminServicePermission: [23, 33],
+            }
+        }
+    ],
 )
 def test_rebuild_app_permissions(data):
-    permissions = rebuild_app_permissions(data)
-    assert permissions == {
+    assert permissions.rebuild_app_permissions(data) == {
         "trusted_service": {
-            1: "read",
-            2: "read",
-            3: "read",
-            23: "adminsvc",
-            33: "adminsvc",
+            1: permissions.ReadPermission,
+            2: permissions.ReadPermission,
+            3: permissions.ReadPermission,
+            23: permissions.AdminServicePermission,
+            33: permissions.AdminServicePermission,
         }
     }
