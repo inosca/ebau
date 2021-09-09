@@ -58,6 +58,8 @@ INSTALLED_APPS = [
     "django.contrib.postgres",
     "django.contrib.contenttypes",
     "django.contrib.staticfiles",
+    "rest_framework",
+    "rest_framework_json_api",
     # Caluma and it's dependencies:
     "caluma.caluma_core.apps.DefaultConfig",
     "caluma.caluma_user.apps.DefaultConfig",

@@ -62,27 +62,37 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         "service": "camac.user.serializers.ServiceSerializer",
     }
 
-    def get_webdav_link(self, instance):
-        if not settings.MANABI_ENABLE:  # pragma: no cover
-            return None
-        path = Path(instance.path.name)
+    def has_write_permission(self, attachment, sections=None):
+        return any(
+            (
+                section.can_write(attachment, self.context["request"].group)
+                for section in (
+                    sections if sections else attachment.attachment_sections.all()
+                )
+            )
+        )
 
+    def get_webdav_link(self, instance):
+        view = self.context["view"]
+        if (
+            not settings.MANABI_ENABLE
+            or not view.has_object_update_permission(instance)
+            or not self.has_write_permission(instance)
+        ):
+            return None
+
+        path = Path(instance.path.name)
         file_handlers = {
             "word": [".doc", ".docx"],
             "excel": [".xls", ".xlsx"],
             "powerpoint": [".ppt", ".pptx"],
         }
 
-        if path.suffix not in list(
-            itertools.chain(*[v for key, v in file_handlers.items()])
-        ):
+        if path.suffix not in list(itertools.chain(*file_handlers.values())):
             return None
-        view = self.context.get("view")
-        if not view.has_object_update_permission(instance):
-            return None
+
         key = Key(from_string(settings.MANABI_SHARED_KEY))
         token = Token(key, path)
-
         handler = next(
             handler for handler, types in file_handlers.items() if path.suffix in types
         )
@@ -169,13 +179,16 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         )
 
         if not service or active_service != service:
-            raise exceptions.ValidationError(
-                _("Only active service can change context")
-            )
+            raise exceptions.PermissionDenied()
 
         return context
 
     def validate(self, data):
+        if not self.has_write_permission(
+            self.instance, data.get("attachment_sections")
+        ):
+            raise exceptions.PermissionDenied()
+
         if "path" in data:
             path = data["path"]
 
