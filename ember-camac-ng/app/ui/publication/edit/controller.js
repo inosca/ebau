@@ -10,6 +10,7 @@ import confirm from "camac-ng/utils/confirm";
 export default class PublicationEditController extends Controller {
   @service notifications;
   @service intl;
+  @service shoebox;
 
   @queryManager apollo;
 
@@ -17,7 +18,7 @@ export default class PublicationEditController extends Controller {
 
   get filters() {
     return [
-      { status: "READY" },
+      { addressedGroups: [this.shoebox.content.serviceId] },
       {
         caseMetaValue: [
           {
