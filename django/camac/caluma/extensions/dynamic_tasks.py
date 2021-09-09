@@ -1,6 +1,11 @@
 from caluma.caluma_workflow.dynamic_tasks import BaseDynamicTasks, register_dynamic_task
+from django.db.models import Q
 
-from camac.constants.kt_bern import DECISIONS_BEWILLIGT
+from camac.constants.kt_bern import (
+    DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
+    DECISIONS_ABGELEHNT,
+    DECISIONS_BEWILLIGT,
+)
 from camac.core.models import Circulation, DocxDecision
 
 
@@ -9,10 +14,15 @@ class CustomDynamicTasks(BaseDynamicTasks):
     def resolve_after_decision(self, case, user, prev_work_item, context):
         if (
             case.workflow_id == "building-permit"
-            and DocxDecision.objects.filter(
-                instance=case.instance,
-                decision=DECISIONS_BEWILLIGT,
-            ).exists()
+            and DocxDecision.objects.filter(instance=case.instance)
+            .filter(
+                Q(decision=DECISIONS_BEWILLIGT)
+                | Q(
+                    decision=DECISIONS_ABGELEHNT,
+                    decision_type=DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
+                ),
+            )
+            .exists()
         ):
             return ["sb1", "create-manual-workitems", "create-publication"]
 
