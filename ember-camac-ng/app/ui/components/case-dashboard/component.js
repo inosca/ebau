@@ -8,7 +8,10 @@ import { all } from "rsvp";
 
 import CustomCaseModel from "camac-ng/caluma-query/models/case";
 
-const WORKFLOW_ITEM_ID = 12; // Dossier erfasst
+const WORKFLOW_ITEM_IDS = [
+  12, // Dossier erfasst
+  14, // Dossier angenommen
+];
 
 function convertToBase64(blob) {
   return new Promise((resolve) => {
@@ -57,11 +60,17 @@ export default class CaseDashboardComponent extends Component {
     });
 
     const workflowEntries = yield this.store.query("workflowEntry", {
-      instance: this.args.caseId,
-      workflow_item_id: WORKFLOW_ITEM_ID,
+      filter: {
+        instance: this.args.caseId,
+        workflow_item_id: WORKFLOW_ITEM_IDS.toString(),
+      },
     });
 
-    const acceptDate = workflowEntries.get("firstObject")?.workflowDate;
+    const acceptDate =
+      workflowEntries.find(
+        (we) =>
+          we.belongsTo("workflowItem").id() === WORKFLOW_ITEM_IDS[1].toString()
+      )?.workflowDate || workflowEntries[0]?.workflowDate;
 
     const serviceList = yield all(
       activations.toArray().map((activation) => activation.service)
