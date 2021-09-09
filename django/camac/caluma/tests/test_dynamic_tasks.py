@@ -4,6 +4,8 @@ from caluma.caluma_workflow.api import skip_work_item, start_case
 from caluma.caluma_workflow.models import Case, Workflow, WorkItem
 
 from camac.constants.kt_bern import (
+    DECISION_TYPE_BUILDING_PERMIT,
+    DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
     DECISIONS_ABGELEHNT,
     DECISIONS_ABGESCHRIEBEN,
     DECISIONS_BEWILLIGT,
@@ -14,25 +16,49 @@ from camac.constants.kt_bern import (
 
 
 @pytest.mark.parametrize(
-    "workflow_id,decision,expected_case_status",
+    "workflow_id,decision,decision_type,expected_case_status",
     [
-        ("building-permit", DECISIONS_ABGELEHNT, Case.STATUS_COMPLETED),
-        ("building-permit", DECISIONS_ABGESCHRIEBEN, Case.STATUS_COMPLETED),
-        ("building-permit", DECISIONS_BEWILLIGT, Case.STATUS_RUNNING),
+        (
+            "building-permit",
+            DECISIONS_ABGELEHNT,
+            DECISION_TYPE_BUILDING_PERMIT,
+            Case.STATUS_COMPLETED,
+        ),
+        (
+            "building-permit",
+            DECISIONS_ABGESCHRIEBEN,
+            DECISION_TYPE_BUILDING_PERMIT,
+            Case.STATUS_COMPLETED,
+        ),
+        (
+            "building-permit",
+            DECISIONS_BEWILLIGT,
+            DECISION_TYPE_BUILDING_PERMIT,
+            Case.STATUS_RUNNING,
+        ),
         (
             "preliminary-clarification",
             VORABKLAERUNG_DECISIONS_BEWILLIGT,
+            None,
             Case.STATUS_COMPLETED,
         ),
         (
             "preliminary-clarification",
             VORABKLAERUNG_DECISIONS_BEWILLIGT_MIT_VORBEHALT,
+            None,
             Case.STATUS_COMPLETED,
         ),
         (
             "preliminary-clarification",
             VORABKLAERUNG_DECISIONS_NEGATIVE,
+            None,
             Case.STATUS_COMPLETED,
+        ),
+        (
+            "building-permit",
+            DECISIONS_ABGELEHNT,
+            DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
+            Case.STATUS_RUNNING,
         ),
     ],
 )
@@ -44,10 +70,13 @@ def test_dynamic_task_after_decision(
     instance,
     workflow_id,
     decision,
+    decision_type,
     circulation,
     expected_case_status,
 ):
-    docx_decision_factory(decision=decision, instance=instance)
+    docx_decision_factory(
+        decision=decision, decision_type=decision_type, instance=instance
+    )
 
     case = start_case(
         workflow=Workflow.objects.get(pk=workflow_id),
