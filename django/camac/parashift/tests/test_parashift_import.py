@@ -89,8 +89,8 @@ def test_command(parashift_data, parashift_mock, application_settings):
 
     assert master_data.applicants[0]["last_name"] == "Kanton Uri, v.d. Baudirektion Uri"
     assert master_data.proposal == "Erschliessungsstrasse"
-    assert master_data.plot_data[0]["plot_number"] == 11
-    assert master_data.city == "Platti, Amsteg"
+    assert master_data.plot_data[0]["plot_number"] == "11"
+    assert master_data.street == "Platti, Amsteg"
 
     answers = instance.case.document.answers.all()
     assert answers.get(question_id="form-type").value == "form-type-archiv"
