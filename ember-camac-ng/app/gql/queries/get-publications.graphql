@@ -5,7 +5,10 @@ query GetPublications($instanceId: GenericScalar!) {
     edges {
       node {
         id
-        workItems(filter: [{ task: "fill-publication" }]) {
+        workItems(
+          filter: [{ task: "fill-publication" }]
+          order: [{ attribute: CREATED_AT }]
+        ) {
           edges {
             node {
               id
