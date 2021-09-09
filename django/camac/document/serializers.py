@@ -66,22 +66,18 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         "service": "camac.user.serializers.ServiceSerializer",
     }
 
-    def has_write_permission(self, attachment, sections=None):
-        return any(
-            (
-                section.can_write(attachment, self.context["request"].group)
-                for section in (
-                    sections if sections else attachment.attachment_sections.all()
-                )
-            )
-        )
-
     def get_webdav_link(self, instance):
         view = self.context["view"]
+        group = self.context["request"].group
         if (
             not settings.MANABI_ENABLE
             or not view.has_object_update_permission(instance)
-            or not self.has_write_permission(instance)
+            or not any(
+                (
+                    section.can_write(instance, group)
+                    for section in instance.attachment_sections.all()
+                )
+            )
         ):
             return None
 
@@ -188,11 +184,6 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         return context
 
     def validate(self, data):
-        if not self.has_write_permission(
-            self.instance, data.get("attachment_sections")
-        ):
-            raise exceptions.PermissionDenied()
-
         if "path" in data:
             path = data["path"]
 
