@@ -23,7 +23,7 @@ from camac.user.relations import (
 )
 from camac.user.serializers import CurrentGroupDefault, CurrentServiceDefault
 
-from . import models
+from . import models, permissions
 
 
 class AttachmentSectionSerializer(
@@ -35,8 +35,12 @@ class AttachmentSectionSerializer(
     def get_permission_name(self, instance):
         permission_class = instance.get_permission(self.context["request"].group)
 
-        return dasherize(
-            underscore(permission_class.__name__.replace("Permission", ""))
+        return (
+            dasherize(underscore(permission_class.__name__.replace("Permission", "")))
+            if issubclass(permission_class, permissions.Permission)
+            else permission_class
+            if isinstance(permission_class, str)
+            else None
         )
 
     class Meta:
