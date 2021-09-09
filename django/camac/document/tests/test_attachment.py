@@ -603,12 +603,12 @@ def test_attachment_update(
 @pytest.mark.parametrize(
     "attachment__context,new_context,permission,status_code,is_active_service",
     [
-        # attachment is in no writable section: forbidden
+        # attachment is in no writable section: ok
         (
             {"foo": "bar"},
             None,
             permissions.ReadPermission,
-            status.HTTP_403_FORBIDDEN,
+            status.HTTP_200_OK,
             False,
         ),
         # change context, but not active service: forbidden
