@@ -6,6 +6,7 @@ from logging import getLogger
 import requests
 from caluma.caluma_form.models import Answer, Document, Form, Question
 from caluma.caluma_form.validators import DocumentValidator
+from caluma.caluma_workflow.models import Case
 from django.conf import settings
 from django.core.files.base import ContentFile
 from django.core.serializers.json import DjangoJSONEncoder
@@ -143,9 +144,14 @@ class DMSHandler:
             except Answer.DoesNotExist:
                 pass
 
+        case = Case.objects.get(instance__pk=instance_id)
+        master_data = MasterData(case)
+
         data = {
             "caseId": instance_id,
-            "caseType": str(doc.form.name),
+            "caseType": str(case.document.form.name),
+            "formType": str(doc.form.name) if case.document.pk != doc.pk else "",
+            "dossierNr": master_data.dossier_number,
             "municipality": municipality,
             "sections": self.visitor.visit(doc),
             "signatureSectionTitle": _("Signatures"),
@@ -154,7 +160,6 @@ class DMSHandler:
         }
 
         if dms_settings.get("ADD_HEADER_DATA"):
-            master_data = MasterData(doc.case)
             header_data = {
                 "addressHeader": ", ".join(
                     filter(
