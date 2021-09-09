@@ -119,7 +119,7 @@ class CreateInstanceLogic:
             else:
                 identifier_start = instance.location.communal_federal_number
 
-            start = "{0}-{1}-".format(identifier_start, year)
+            start = "{0}-{1}-".format(identifier_start, str(year).zfill(2))
 
             if settings.APPLICATION["CALUMA"].get("SAVE_DOSSIER_NUMBER_IN_CALUMA"):
                 max_identifier = (

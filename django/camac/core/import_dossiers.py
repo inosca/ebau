@@ -86,8 +86,10 @@ def _import_dossier(data):
 def _write_answers(instance, data):
     # write the parcel-number and building-law-numer in the parcels table
     plot_table = instance.case.document.answers.create(question_id="parcels")
-    plot_row = Document.objects.create(form_id="parcel-table")
-    plot_row.answers.create(question_id="parcel-number", value=data["parzelle-nr"])
+    plot_row = Document.objects.create(
+        form_id="parcel-table", family=instance.case.document
+    )
+    plot_row.answers.create(question_id="parcel-number", value=str(data["parzelle-nr"]))
     plot_row.answers.create(
         question_id="building-law-number", value=data["baurecht-nr"]
     )
@@ -95,7 +97,9 @@ def _write_answers(instance, data):
 
     # write the last-name in the applicant table
     applicant_table = instance.case.document.answers.create(question_id="applicant")
-    applicant_row = Document.objects.create(form_id="personal-data-table")
+    applicant_row = Document.objects.create(
+        form_id="personal-data-table", family=instance.case.document
+    )
     applicant_row.answers.create(question_id="last-name", value=data["gesuchsteller"])
     applicant_table.documents.add(applicant_row)
 
@@ -108,7 +112,12 @@ def _write_answers(instance, data):
     Answer.objects.create(
         value=data["ort"],
         document=instance.case.document,
-        question=Question.objects.get(slug="parcel-city"),
+        question=Question.objects.get(slug="parcel-street"),
+    )
+    Answer.objects.create(
+        value=data["parzelle-nr"],
+        document=instance.case.document,
+        question=Question.objects.get(slug="parzellen-oder-baurechtsnummer"),
     )
     print(f"The Instance with Nr. {instance.pk} has been imported")
 
