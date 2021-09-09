@@ -133,7 +133,9 @@ def parashift_data(
     authority_location_factory,
     caluma_workflow_config_ur,
     attachment_section_factory,
+    user_factory,
 ):
+    user_factory(username="import@koor-bg.ur.ch")
     instance_state_factory(instance_state_id=25)
     group_factory(group_id=142)
     location = location_factory(communal_federal_number=1209)
@@ -165,4 +167,5 @@ def parashift_data(
     caluma_form_factories.FormFactory(slug="personal-data-table")
 
     caluma_form_factories.QuestionFactory(slug="proposal-description")
-    caluma_form_factories.QuestionFactory(slug="parcel-city")
+    caluma_form_factories.QuestionFactory(slug="parcel-street")
+    caluma_form_factories.QuestionFactory(slug="parzellen-oder-baurechtsnummer")

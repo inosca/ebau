@@ -220,7 +220,7 @@ APPLICATIONS = {
                 "gesuchsteller",
                 "documents",
             ],
-            "USER": "462afaba-aeb7-494a-8596-3497b81ed701",
+            "USER": "import@koor-bg.ur.ch",
         },
     },
     "kt_schwyz": {
