@@ -3,6 +3,7 @@ from typing import Dict, List, Tuple
 
 from caluma.caluma_form.models import Document
 from django.contrib.postgres.fields.jsonb import KeyTextTransform
+from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Avg, Count, IntegerField, QuerySet
 from django.db.models.functions import Cast, ExtractYear
 
@@ -113,6 +114,8 @@ def _retrieve_waiting_periods(
             response_answer and response_answer.date
         ) is None:
             continue
+        if response_answer.date > instance.decision.decision_date:
+            continue
         results.append((request_answer.date, response_answer.date))
     return sorted(results, key=lambda pair: pair[0])
 
@@ -140,11 +143,12 @@ def compute_cycle_time(instance: Instance) -> Dict:
     cycle_start = master_data.paper_submit_date or master_data.submit_date
 
     try:
-        cumulated_extra_time = (
-            instance.decision.decision_date - cycle_start.date()
-        ).days
-    except AttributeError:
+        if cycle_start.date() > instance.decision.decision_date:
+            return {}
+    except (ObjectDoesNotExist, AttributeError):
         return {}
+
+    cumulated_extra_time = (instance.decision.decision_date - cycle_start.date()).days
 
     cumulated_idle_time = _compute_total_idle_days(_retrieve_waiting_periods(instance))
 
