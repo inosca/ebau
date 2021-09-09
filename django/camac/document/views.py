@@ -150,16 +150,6 @@ class AttachmentView(
     }
     ordering_fields = ("name", "date", "size")
 
-    def has_object_update_permission(self, attachment):
-        has_WritePermission = any(
-            (
-                section.can_write(attachment, self.request.group)
-                for section in attachment.attachment_sections.all()
-            )
-        )
-
-        return has_WritePermission and super().has_object_update_permission(attachment)
-
     def has_object_destroy_permission(self, attachment):
         if attachment.attachment_sections.count() > 1:
             return False
