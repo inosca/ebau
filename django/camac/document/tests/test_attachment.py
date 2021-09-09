@@ -601,16 +601,48 @@ def test_attachment_update(
 
 @pytest.mark.parametrize("role__name", [("Canton")])
 @pytest.mark.parametrize(
-    "attachment__context,new_context,status_code,is_active_service",
+    "attachment__context,new_context,permission,status_code,is_active_service",
     [
-        # change context, but not active service: fail
-        ({"foo": "bar"}, {"asdf": "xyz"}, status.HTTP_400_BAD_REQUEST, False),
+        # attachment is in no writable section: forbidden
+        (
+            {"foo": "bar"},
+            None,
+            permissions.ReadPermission,
+            status.HTTP_403_FORBIDDEN,
+            False,
+        ),
+        # change context, but not active service: forbidden
+        (
+            {"foo": "bar"},
+            {"asdf": "xyz"},
+            permissions.AdminPermission,
+            status.HTTP_403_FORBIDDEN,
+            False,
+        ),
         # change context as active service: ok
-        ({"foo": "bar"}, {"asdf": "xyz"}, status.HTTP_200_OK, True),
+        (
+            {"foo": "bar"},
+            {"asdf": "xyz"},
+            permissions.AdminPermission,
+            status.HTTP_200_OK,
+            True,
+        ),
         # no change (field not filled): ok
-        ({"foo": "bar"}, None, status.HTTP_200_OK, False),
+        (
+            {"foo": "bar"},
+            None,
+            permissions.AdminPermission,
+            status.HTTP_200_OK,
+            False,
+        ),
         # no change (field filled but with same value): ok
-        ({"foo": "bar"}, {"foo": "bar"}, status.HTTP_200_OK, False),
+        (
+            {"foo": "bar"},
+            {"foo": "bar"},
+            permissions.AdminPermission,
+            status.HTTP_200_OK,
+            False,
+        ),
     ],
 )
 def test_attachment_update_context(
@@ -623,6 +655,7 @@ def test_attachment_update_context(
     is_active_service,
     new_context,
     mocker,
+    permission,
 ):
     aasa = attachment_attachment_sections.attachment
     url = reverse("attachment-detail", args=[aasa.pk])
@@ -637,7 +670,7 @@ def test_attachment_update_context(
     # fix permissions
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
-        {"demo": {"canton": {permissions.AdminPermission: [attachment_section.pk]}}},
+        {"demo": {"canton": {permission: [attachment_section.pk]}}},
     )
 
     data = {
