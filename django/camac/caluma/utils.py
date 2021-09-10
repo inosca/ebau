@@ -1,6 +1,7 @@
 from copy import copy
 
-from caluma.caluma_user.models import OIDCUser
+from caluma.caluma_user.models import AnonymousUser, OIDCUser
+from django.contrib.auth.models import AnonymousUser as AnonymousCamacUser
 from jwt import decode as jwt_decode
 from rest_framework.authentication import get_authorization_header
 
@@ -36,13 +37,18 @@ class CamacRequest:
         self.request = copy(info.context)
         oidc_user = self.request.user
         self.request.user = self._get_camac_user(oidc_user)
-        self.request.auth = jwt_decode(oidc_user.token, verify=False)
+        self.request.auth = (
+            jwt_decode(oidc_user.token, verify=False) if oidc_user.token else None
+        )
         camac_group = get_group(self.request)
         self.request.group = camac_group
         self.request.oidc_user = oidc_user
         self.request.query_params = self.request.GET
 
     def _get_camac_user(self, oidc_user):
+        if isinstance(oidc_user, AnonymousUser):
+            return AnonymousCamacUser()
+
         return User.objects.get(username=oidc_user.username)
 
 

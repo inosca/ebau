@@ -24,6 +24,7 @@ export default class CustomSession extends Session {
   @service session;
 
   @tracked groups = [];
+  @tracked enforcePublicAccess = false;
 
   @restartableTask
   *fetchUser() {
@@ -80,7 +81,12 @@ export default class CustomSession extends Session {
     this.moment.setLocale(value);
   }
 
-  @computed("isAuthenticated", "data.authenticated", "group")
+  @computed(
+    "data.authenticated",
+    "enforcePublicAccess",
+    "group",
+    "isAuthenticated"
+  )
   get authHeaders() {
     if (!this.isAuthenticated) return {};
 
@@ -90,6 +96,7 @@ export default class CustomSession extends Session {
     return {
       ...(token ? { [tokenKey]: `${authPrefix} ${token}` } : {}),
       ...(this.group ? { "x-camac-group": this.group } : {}),
+      ...(this.enforcePublicAccess ? { "x-camac-public-access": true } : {}),
     };
   }
 

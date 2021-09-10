@@ -8,9 +8,7 @@ from camac.request import get_request
 
 def get_group(obj):
     request = get_request(obj)
-    if request:
-        return request.group
-    return getattr(obj, "group", None)
+    return None if request.META.get("HTTP_X_CAMAC_PUBLIC_ACCESS") else request.group
 
 
 def permission_aware(func):
