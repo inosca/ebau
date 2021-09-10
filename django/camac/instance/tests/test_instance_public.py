@@ -13,6 +13,7 @@ from django.urls.exceptions import NoReverseMatch
 from django.utils import timezone
 from rest_framework import status
 
+from camac.document import permissions
 from camac.instance import urls
 
 
@@ -98,8 +99,6 @@ def test_public_caluma_instance_ur(
     num_queries,
     num_instances,
 ):
-    ur_instance.involved_applicants.first().delete()
-
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
     application_settings["PUBLICATION_DURATION"] = timedelta(days=30)
     application_settings["PUBLICATION_BACKEND"] = "camac-ng"
@@ -136,6 +135,68 @@ def test_public_caluma_instance_ur(
         assert result[0]["attributes"]["instance-id"] == ur_instance.pk
         assert result[0]["attributes"]["dossier-nr"] == "123"
         assert result[0]["attributes"]["municipality"] == "Altdorf"
+
+
+@pytest.mark.parametrize("role__name", ["Applicant"])
+@pytest.mark.parametrize(
+    "headers,is_applicant,num_documents",
+    [
+        ({}, True, 2),
+        ({"HTTP_X_CAMAC_PUBLIC_ACCESS": True}, True, 1),
+        ({}, False, 0),
+        ({"HTTP_X_CAMAC_PUBLIC_ACCESS": True}, False, 1),
+    ],
+)
+def test_public_caluma_documents_ur(
+    db,
+    application_settings,
+    admin_client,
+    admin_user,
+    ur_instance,
+    enable_public_urls,
+    publication_entry_factory,
+    django_assert_num_queries,
+    attachment_section_factory,
+    attachment_attachment_section_factory,
+    applicant_factory,
+    headers,
+    is_applicant,
+    num_documents,
+    mocker,
+):
+    if is_applicant:
+        applicant_factory(invitee=admin_user, instance=ur_instance)
+
+    application_settings["PUBLICATION_DURATION"] = timedelta(days=30)
+    application_settings["PUBLICATION_BACKEND"] = "camac-ng"
+
+    publication_entry_factory(
+        publication_date=timezone.now() - timedelta(days=1),
+        instance=ur_instance,
+        is_published=True,
+    )
+    section = attachment_section_factory()
+    attachment_attachment_section_factory(
+        attachmentsection=section,
+        attachment__context={"isPublished": True},
+        attachment__instance=ur_instance,
+    )
+    attachment_attachment_section_factory(
+        attachmentsection=section, attachment__instance=ur_instance
+    )
+
+    # fix permissions
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {"demo": {"applicant": {permissions.AdminPermission: [section.pk]}}},
+    )
+
+    response = admin_client.get(reverse("attachment-list"), **headers)
+    assert response.status_code == status.HTTP_200_OK
+
+    result = response.json()["data"]
+
+    assert len(result) == num_documents
 
 
 @pytest.mark.parametrize("role__name", ["Applicant"])

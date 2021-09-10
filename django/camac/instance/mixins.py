@@ -80,45 +80,15 @@ class InstanceQuerysetMixin(object):
     @permission_aware
     def get_queryset(self, group=None):
         queryset = self.get_base_queryset()
-        applicants_expr = self._get_instance_filter_expr("involved_applicants__invitee")
-        publication_user_permission_expr = self._get_instance_filter_expr(
-            "publication_entries__user_permissions__user"
-        )
-        publication_user_permission_status_expr = self._get_instance_filter_expr(
-            "publication_entries__user_permissions__status"
-        )
-        publication_date_gte = self._get_instance_filter_expr(
-            "publication_entries__publication_date", "gte"
-        )
-        publication_date_lt = self._get_instance_filter_expr(
-            "publication_entries__publication_date", "lt"
-        )
-        publication_published = self._get_instance_filter_expr(
-            "publication_entries__is_published"
-        )
-
-        user = self._get_user()
 
         # A user should see dossiers which he submitted or has been invited to.
-        applicant_filter = Q(**{applicants_expr: user})
-
-        # A user should see dossiers which are currenty published
-        publication_duration = settings.APPLICATION.get("PUBLICATION_DURATION")
-        publication_earliest_start = timezone.now() - publication_duration
-        publication_filter = (
-            Q(**{publication_date_gte: publication_earliest_start})
-            & Q(**{publication_date_lt: timezone.now()})
-            & Q(**{publication_published: True})
+        return queryset.filter(
+            **{
+                self._get_instance_filter_expr(
+                    "involved_applicants__invitee"
+                ): self._get_user()
+            }
         )
-
-        # In SZ users need to be granted access to a published dossier.
-        if settings.APPLICATION.get("PUBLICATION_INVITE_ONLY", False):
-            publication_filter &= Q(**{publication_user_permission_expr: user})
-            publication_filter &= Q(
-                **{publication_user_permission_status_expr: "accepted"}
-            )
-
-        return queryset.filter(applicant_filter | publication_filter).distinct()
 
     def get_queryset_for_public_reader(self, group=None):
         queryset = self.get_base_queryset()
