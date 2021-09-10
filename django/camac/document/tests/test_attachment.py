@@ -1036,13 +1036,13 @@ def test_attachment_public_access(
     aasa.save()
 
     url = reverse("attachment-list")
-    res = client.get(url)
 
-    # nothing is visible without the settings
+    # nothing is visible without publication backend
+    application_settings["PUBLICATION_BACKEND"] = None
+    res = client.get(url)
     assert res.status_code == status.HTTP_200_OK
     assert len(res.json()["data"]) == 0
 
-    application_settings["ENABLE_PUBLIC_ENDPOINTS"] = True
     application_settings["PUBLICATION_BACKEND"] = "camac-ng"
     application_settings["PUBLICATION_DURATION"] = timedelta(days=30)
 
