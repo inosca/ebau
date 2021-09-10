@@ -101,3 +101,19 @@ def test_sendreminders_caluma(
     snapshot.assert_match(
         [(mail.subject, mail.body, mail.to, mail.cc) for mail in mailoutbox]
     )
+
+
+@pytest.mark.parametrize("user__disabled", [1])
+def test_dont_send_reminders_caluma(db, user, service, work_item_factory, mailoutbox):
+    service.disabled = 1
+    service.save()
+    work_item_factory(
+        status="ready",
+        meta={"not-viewed": True},
+        deadline=timezone.now() - timedelta(days=1),
+        assigned_users=[user.username],
+        addressed_groups=[service.pk],
+        controlling_groups=[service.pk],
+    )
+    call_command("sendreminders", "--caluma")
+    assert len(mailoutbox) == 0
