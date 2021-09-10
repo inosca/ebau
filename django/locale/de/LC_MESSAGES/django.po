@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-10 16:01+0200\n"
+"POT-Creation-Date: 2021-09-10 16:03+0200\n"
 "PO-Revision-Date: 2021-09-08 11:52+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -103,11 +103,17 @@ msgstr ""
 "Der aktuelle Dateityp kann nicht als Dokument hochgeladen werden. Erlaubte "
 "Dateitypen für Abschnitt %(section_name)s sind: %(allowed_mime_types)s"
 
-#: camac/document/serializers.py:245
+#: camac/document/serializers.py:191
+msgid ""
+"Changing decision document mark after decision is enacted is not allowed."
+msgstr ""
+"Nach dem Entscheid dürfen Entscheiddokumente nicht mehr hinzugefügt oder entfernt werden."
+
+#: camac/document/serializers.py:249
 msgid "Path may not be changed."
 msgstr "Der Pfad darf nicht geändert werden."
 
-#: camac/document/serializers.py:288
+#: camac/document/serializers.py:292
 msgid "Invalid mime type for template. Allowed types are: docx"
 msgstr ""
 "Der aktuelle Dateityp kann nicht als Vorlage hochgeladen werden. Erlaubte "
