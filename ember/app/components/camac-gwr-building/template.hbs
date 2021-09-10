@@ -5,7 +5,7 @@
         {{#if isNew}}
           Gebäude hinzufügen
         {{else}}
-          Gebäude "{{_value.adresse}}" {{if readonly "ansehen" "bearbeiten"}}
+          Gebäude "{{if _value.gebaeudebezeichnung _value.gebaeudebezeichnung _value.adresse}}" {{if readonly "ansehen" "bearbeiten"}}
         {{/if}}
       </card.title>
       <button type="button" uk-close {{action (optional on-close)}}></button>

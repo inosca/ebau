@@ -191,6 +191,38 @@
       "fachthemen.fischerei",
       "gesuchsunterlagen"
     ],
+    "baugesuch-reklamegesuch-v4": [
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung",
+      "grundinformationen.allgemeine-informationen-zum-vorhaben-v3",
+      "grundinformationen.ausnahmebewilligungen",
+      "grundinformationen.gwr-v2",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft",
+      "personalien.projektverfasser-planer",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "gesuchsunterlagen"
+    ],
     "projektanderung-v3": [
       "projektanderung",
       "grundinformationen",
@@ -205,6 +237,20 @@
       "personalien.projektverfasser-planer",
       "gesuchsunterlagen"
     ],
+    "projektanderung-v4": [
+      "projektanderung",
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung",
+      "grundinformationen.allgemeine-informationen-zum-vorhaben-v3",
+      "grundinformationen.ausnahmebewilligungen",
+      "grundinformationen.gwr-v2",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft",
+      "personalien.projektverfasser-planer",
+      "gesuchsunterlagen"
+    ],
     "vorentscheid-gemass-ss84-pbg-v3": [
       "vorentscheid",
       "grundinformationen",
@@ -212,6 +258,38 @@
       "grundinformationen.kategorisierung",
       "grundinformationen.allgemeine-informationen-zum-vorhaben-v3",
       "grundinformationen.gwr",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft",
+      "personalien.projektverfasser-planer",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "gesuchsunterlagen"
+    ],
+    "vorentscheid-gemass-ss84-pbg-v4": [
+      "vorentscheid",
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung",
+      "grundinformationen.allgemeine-informationen-zum-vorhaben-v3",
+      "grundinformationen.gwr-v2",
       "personalien",
       "personalien.grundeigentumerschaft",
       "personalien.bauherrschaft",
@@ -572,6 +650,11 @@
       "title": "Gebäude- und Wohnungsregister",
       "parent": "grundinformationen",
       "questions": ["gwr"]
+    },
+    "grundinformationen.gwr-v2": {
+      "title": "Gebäude- und Wohnungsregister",
+      "parent": "grundinformationen",
+      "questions": ["gwr-v2"]
     },
     "grundinformationen.allgemeine-informationen-zum-vorhaben": {
       "title": "Allgemeine Informationen zum Vorhaben",
@@ -1443,6 +1526,343 @@
                       "Küche (min. 4m²)",
                       "Kochnische (unter 4m²)",
                       "Weder Küche noch Kochnische"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "gwr-v2": {
+      "label": "Gebäude- und Wohnungsregister",
+      "hint": "**Gebäude- und Wohnungsregister (GWR)**: Das GWR ist eine Datensammlung des Bundes und enthält die wichtigsten Grunddaten zu Gebäuden und Wohnungen. Es wird für Statistik-, Forschungs- und Planungszwecke genutzt und dient den Kantonen und Gemeinden für den Vollzug gesetzlicher Aufgaben.",
+      "type": "gwr",
+      "required": false,
+      "active-expression": "'Baute(n)' in 'kategorie-des-vorhabens'|value",
+      "config": {
+        "columns": [
+          {
+            "name": "gebaeudebezeichnung",
+            "label": "Freie Gebäudebezeichnung",
+            "hint": "Bei grösseren Bauvorhaben mit mehreren Gebäuden kann es zur Unterscheidung der einzelnen Gebäude hilfreich sein, den einzelnen Bauten eigene Bezeichnungen zu geben (z.B. Haus A, Haus B etc.).",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "adresse",
+            "label": "Gebäudeadresse",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "vers-nr",
+            "label": "Gebäudevers. Nr.",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "kataster-nr",
+            "label": "Kataster Nr.",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "kategorie",
+            "label": "Gebäudekategorie",
+            "hint": "**Provisorische Unterkünfte:**\nMobile oder provisorische Unterkünfte die dauernd bewohnt sind oder als Arbeitsstätte dienen.\n*Beispiele: Wohnwagen, Waggons, Wohnschiff e, Baracken , Verkaufsstände, Baustellenbaracken.*\n\n**Gebäude mit ausschliesslicher Wohnnutzung:**\nGebäude mit reiner Wohnnutzung bestehen ausschliesslich aus Wohnungen und haben keine Nebennutzung. Zu dieser Kategorie gehören sowohl Einfamilien- als auch Mehrfamilienhäuser.\n*Beispiele: Villen, Mehrfamilienhäuser ohne Geschäfte, Büroräumlichkeiten u.dgl., Chalets, Wochenendhäuser, Doppel- und Reiheneinfamilienhäuser, Terrassenhäuser usw.*\n\n**Andere Wohngebäude (Wohngebäude mit Nebennutzung):**\nWohngebäude mit Nebennutzung bestehen mehrheitlich aus Wohnungen, enthalten aber auch industrielle, gewerbliche, kommerzielle oder landwirtschaftliche Räumlichkeiten.\n*Beispiele: Wohngebäude mit Wohnungen und z.B. einem Geschäft, einer Werkstatt oder einer Bank im Erdgeschoss, Wohngebäude mit Wohnungen und Arztpraxen oder Büroräumlichkeiten im Gebäude, Landwirtschaftliche Betriebsgebäude mit Wohnteil, Ferienhäuser mit Sportgeschäft im Erdgeschoss.*\n\n**Gebäude mit teilweiser Wohnnutzung:**\nGebäude mit teilweiser Wohnnutzung enthalten Wohnungen, bestehen aber mehrheitlich aus industriellen, gewerblichen, kommerziellen oder landwirtschaftlichen Räumlichkeiten.\n*Beispiele: Schulhäuser, Fabriken, Verwaltungsgebäude usw. mit einer Abwartswohnung o.dgl., Gebäude mit Räumlichkeiten für Kollektivhaushalte bzw. für gemeinschaftliches Wohnen wie Kliniken, Heime, Internate, Strafanstalten usw. Gebäude für touristische Zwecke fallen ebenfalls in diese Kategorie.*\n\n**Gebäude ohne Wohnnutzung:**\nGebäude ohne Wohnnutzung umfassen ausschliesslich Räumlichkeiten ohne Wohnnutzung wie industrielle, gewerbliche, kommerzielle oder landwirtschaftliche Räumlichkeiten.\n*Beispiele: Schul- , Kultur- , Industrie- , Lager- , Büro- oder Verwaltungsgebäude, Kirchen, Sporthallen, landwirtschaftliche Betriebsgebäude, Nebenbauten wie Garagen, Kleintierställe, Bienenhäuser usw.*\n\n**Sonderbauten:**\nSonderbauten sind Bauwerke, die nicht zur Beherbergung von Menschen, Tieren oder Sachen bestimmt sind.\n*Beispiele: Telefonkabinen, offene Hallen, Carports, Parkhäuser, Perronüberdachungen usw.*",
+            "type": "radio",
+            "required": false,
+            "config": {
+              "options": [
+                "Provisorische Unterkunft",
+                "Gebäude mit ausschliesslicher Wohnnutzung",
+                "Andere Wohngebäude (Wohngebäude mit Nebennutzung)",
+                "Gebäude mit teilweiser Wohnnutzung",
+                "Gebäude ohne Wohnnutzung",
+                "Sonderbau"
+              ]
+            }
+          },
+          {
+            "name": "beherbungsbetrieb",
+            "label": "Handelt es sich um einen Beherbergungsbetrieb A oder B?",
+            "hint": "Als Beherbergungsbetriebe A und B gelten:\n\n**Beherbergungsbetrieb A:**\nBauten, in denen dauernd oder vorübergehend 10 oder mehr kranke, pflegebedürftige oder auf fremde Hilfe angewiesene Personen aufgenommen werden (z.B. Krankenhäuser, Alters- und Pflegeheime, Heime für Behinderte, Strafanstalten, geschlossene Erziehungsanstalten).\n\n**Beherbergungsbetrieb B:**\nBauten, in denen dauernd oder vorübergehend 15 oder mehr Personen aufgenommen werden, welche nicht auf fremde Hilfe angewiesen sind (z.B. Hotels, Pensionen, Ferienheime).",
+            "type": "radio",
+            "required": false,
+            "config": {
+              "options": ["Ja", "Nein"]
+            }
+          },
+          {
+            "name": "bettenzahl",
+            "label": "Wie hoch ist die vorgesehene Bettenzahl?",
+            "type": "number-separator",
+            "required": false,
+            "config": {
+              "min": 0
+            }
+          },
+          {
+            "name": "zivilschutzraum",
+            "label": "Verfügt das Gebäude über einen Zivilschutzraum?",
+            "type": "radio",
+            "required": false,
+            "config": {
+              "options": ["Ja", "Nein"]
+            }
+          },
+          {
+            "name": "heizungsart",
+            "label": "Wärmeerzeuger Heizung",
+            "hint": "Der Wärmeerzeuger entspricht der Art der technischen Installation, die im Gebäude für die Heizung der Räume genutzt wird.",
+            "type": "radio",
+            "required": false,
+            "config": {
+              "options": [
+                "Kein Wärmeerzeuger",
+                "Wärmepumpe für ein Gebäude",
+                "Wärmepumpe für mehrere Gebäude",
+                "Thermische Solaranlage für ein Gebäude",
+                "Thermische Solaranlage für mehrere Gebäude",
+                "Heizkessel (generisch) für ein Gebäude",
+                "Heizkessel (generisch) für mehrere Gebäude",
+                "Heizkessel nicht kondensierend für ein Gebäude",
+                "Heizkessel nicht kondensierend für mehrere Gebäude",
+                "Heizkessel kondensierend für ein Gebäude",
+                "Heizkessel kondensierend für mehrere Gebäude",
+                "Ofen",
+                "Wärmekraftkopplungsanlage für ein Gebäude",
+                "Wärmekraftkopplungsanlage für mehrere Gebäude",
+                "Elektrospeicher-Zentralheizung für ein Gebäude",
+                "Elektrospeicher-Zentralheizung für mehrere Gebäude",
+                "Elektro direkt",
+                "Wärmetauscher (einschliesslich für Fernwärme) für ein Gebäude",
+                "Wärmetauscher (einschliesslich für Fernwärme) für mehrere Gebäude",
+                "Andere",
+                "Noch nicht festgelegt"
+              ]
+            }
+          },
+          {
+            "name": "begruendung-waermeerzeuger-noch-nicht-festgelegt",
+            "label": "Begründung",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "energietrager-heizung",
+            "label": "Energie-/Wärmequelle Heizung",
+            "hint": "Mit «Energie-/Wärmequelle Heizung» ist die vom Wärmeerzeuger genutzte Hauptenergiequelle gemeint. Die Hilfsenergie, die für das Funktionieren der Installation genutzt wird (z.B. Elektrizität für Wärmepumpen), ist nicht zu nennen.",
+            "type": "radio",
+            "required": false,
+            "config": {
+              "options": [
+                "Keine",
+                "Luft",
+                "Erdwärme (generisch)",
+                "Erdwärmesonde",
+                "Erdregister",
+                "Wasser (Grundwasser, Oberflächenwasser, Abwasser)",
+                "Gas",
+                "Heizöl",
+                "Holz (generisch)",
+                "Holz (Stückholz)",
+                "Holz (Pellets)",
+                "Abwärme (innerhalb des Gebäudes)",
+                "Elektrizität",
+                "Sonne (thermisch)",
+                "Fernwärme (generisch)",
+                "Fernwärme (Hochtemperatur)",
+                "Fernwärme (Niedertemperatur)",
+                "Unbestimmt",
+                "Andere",
+                "Noch nicht festgelegt"
+              ]
+            }
+          },
+          {
+            "name": "begruendung-energietraeger-heizung-noch-nicht-festgelegt",
+            "label": "Begründung",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "waermeerzeuger-warmwasser",
+            "label": "Wärmeerzeuger Warmwasser",
+            "hint": "Der Wärmeerzeuger entspricht der Art der technischen Installation, die im Gebäude für das Aufbereiten von Brauchwarmwasser genutzt wird. Kleinboiler sind dezentrale Installationen, die in der Regel Warmwasser für einen einzigen Wasserhahn oder eine einzige Dusche aufbereiten. Zentrale Gasboiler werden als Heizkessel erfasst.",
+            "type": "radio",
+            "required": false,
+            "config": {
+              "options": [
+                "Keine",
+                "Luft",
+                "Erdwärme (generisch)",
+                "Erdwärmesonde",
+                "Erdregister",
+                "Wasser (Grundwasser, Oberflächenwasser, Abwasser)",
+                "Gas",
+                "Heizöl",
+                "Holz (generisch)",
+                "Holz (Stückholz)",
+                "Holz (Pellets)",
+                "Abwärme (innerhalb des Gebäudes)",
+                "Elektrizität",
+                "Sonne (thermisch)",
+                "Fernwärme (generisch)",
+                "Fernwärme (Hochtemperatur)",
+                "Fernwärme (Niedertemperatur)",
+                "Unbestimmt",
+                "Andere",
+                "Noch nicht festgelegt"
+              ]
+            }
+          },
+          {
+            "name": "begruendung-waermeerzeuger-warmwasser-noch-nicht-festgelegt",
+            "label": "Begründung",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "energietrager-warmwasser",
+            "label": "Energie-/Wärmequelle Warmwasser",
+            "hint": "Mit «Energie-/Wärmequelle Warmwasser» ist die vom Wärmeerzeuger genutzte Hauptenergiequelle gemeint. Die Hilfsenergie, die für das Funktionieren der Installation genutzt wird (z.B. Elektrizität für Wärmepumpen), ist nicht zu nennen.",
+            "type": "radio",
+            "required": false,
+            "config": {
+              "options": [
+                "Keine",
+                "Luft",
+                "Erdwärme (generisch)",
+                "Erdwärmesonde",
+                "Erdregister",
+                "Wasser (Grundwasser, Oberflächenwasser, Abwasser)",
+                "Gas",
+                "Heizöl",
+                "Holz (generisch)",
+                "Holz (Stückholz)",
+                "Holz (Pellets)",
+                "Abwärme (innerhalb des Gebäudes)",
+                "Elektrizität",
+                "Sonne (thermisch)",
+                "Fernwärme (generisch)",
+                "Fernwärme (Hochtemperatur)",
+                "Fernwärme (Niedertemperatur)",
+                "Unbestimmt",
+                "Andere",
+                "Noch nicht festgelegt"
+              ]
+            }
+          },
+          {
+            "name": "begruendung-energietraeger-warmwasser-noch-nicht-festgelegt",
+            "label": "Begründung",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "leistung",
+            "label": "Leistung in kW",
+            "type": "number-separator",
+            "required": false,
+            "config": {
+              "min": 0
+            }
+          },
+          {
+            "name": "geschosse",
+            "label": "Anzahl Geschosse",
+            "hint": "Das Parterre ist bei der Anzahl Geschosse mitzuzählen. Dach- /Untergeschosse sind nur mitzuzählen, wenn sie teilweise für Wohnzwecke vorgesehen sind. Kellergeschosse sind nicht zu berücksichtigen.",
+            "type": "number",
+            "required": false,
+            "config": {
+              "min": 1
+            }
+          },
+          {
+            "name": "wohnraeume",
+            "label": "Anzahl separate Wohnräume",
+            "hint": "Als separate Wohnräume gelten bewohnbare Einzelzimmer, die über keine Kocheinrichtung verfügen und nicht zu einer Wohnung gehören. Darunter sind insbesondere Mansarden ohne eigene Kocheinrichtung in Mehrfamilienhäusern zu verstehen.<br>Auch als separate Wohnräume werden die Zimmer für Bewohnerinnen und Bewohner von Gebäuden für Kollektivhaushalte bzw. für gemeinschaftliches Wohnen wie Kliniken, Heime, Internate, Strafanstalten oder Gebäude für touristische Zwecke, bezeichnet.",
+            "type": "number",
+            "required": false,
+            "config": {
+              "min": 1
+            }
+          },
+          {
+            "name": "wohnungen",
+            "label": "Wohnungsliste",
+            "hint": "Bitte geben Sie pro Wohnung dieses Gebäudes die verlangten Informationen an. Durch Anklicken des Quadrats mit dem «Plus-Zeichen» können Sie die Eingabemaske öffnen – pro Wohnung jeweils eine Eingabemaske.",
+            "type": "table",
+            "required": false,
+            "config": {
+              "columns": [
+                {
+                  "name": "stockwerk",
+                  "label": "Stockwerk",
+                  "hint": "Die Stockwerkangabe bezeichnet das Stockwerk bezogen auf den Eingang des Gebäudes (= Parterre). Bei Wohnungen mit mehreren Stockwerken wird das Stockwerk erfasst, auf dem sich der (Haupt-) Eingang der Wohnung befindet.",
+                  "type": "text",
+                  "required": false,
+                  "config": {}
+                },
+                {
+                  "name": "maisonette",
+                  "label": "Mehrgeschossige Wohnung (Maisonette)",
+                  "hint": "Falls die Wohnung mehrere Geschosse umfasst, wählen Sie bitte «Ja».",
+                  "type": "radio",
+                  "required": false,
+                  "config": {
+                    "options": ["Ja", "Nein"]
+                  }
+                },
+                {
+                  "name": "lage",
+                  "label": "Lage auf dem Stockwerk",
+                  "hint": "Die Lage auf dem Stockwerk dient dazu, einzelne Wohnungen eines Gebäudes, welche bezüglich der Stockwerkangabe und der Anzahl Zimmer identisch sind, voneinander unterscheiden zu können.<br>Es kann sich um Angaben wie «Links» / «Mitte» / «Rechts» oder andere eindeutige und beständige Charakteristiken wie «Nord» / «Ost» / «Süd» / «West» handeln.<br>Für Wohnungen in Gebäuden mit mehr als drei Wohnungen pro Stockwerk kann anstelle einer Lagebezeichnung die Erfassung einer physischen Wohnungsnummer hilfreich sein.",
+                  "type": "text",
+                  "required": false,
+                  "config": {}
+                },
+                {
+                  "name": "zimmer",
+                  "label": "Anzahl Zimmer",
+                  "hint": "Die Anzahl Zimmer umfasst alle bewohnbaren Räume der Wohnung wie Wohnzimmer, Schlafzimmer usw. Nicht gezählt werden Küche, Badezimmer, Duschen, Toiletten, Abstellräume, Korridore, halbe Zimmer, Veranden sowie zusätzliche separate Wohnräume ausserhalb der Wohnung.",
+                  "type": "number",
+                  "required": false,
+                  "config": {
+                    "min": 0
+                  }
+                },
+                {
+                  "name": "flache",
+                  "label": "Wohnungsfläche",
+                  "hint": "Als Wohnungsfläche ist die Summe der Flächen sämtlicher Zimmer, Küchen, Kochnischen, Badezimmer, Toiletten, Abstellräume, Gänge, Veranden usw. einer Wohnung zu verstehen. Die Fläche ist in m2 anzugeben.<br>Zusätzliche separate Wohnräume (z.B. Mansarden), offene Balkone und Terrassen sowie nicht bewohnbare Keller- und Dachgeschossräume fallen bei der Berechnung der Wohnungsfläche ausser Betracht.<br>Wo keine genauen Flächen ermittelt werden können, sind Schätzwerte (Länge x Breite der Wohnung) zu erfassen.<br>Wo Bruttowohnflächen verfügbar sind, sind die Bruttowerte anzugeben.",
+                  "type": "number-separator",
+                  "required": false,
+                  "config": {
+                    "min": 0
+                  }
+                },
+                {
+                  "name": "kocheinrichtung",
+                  "label": "Kocheinrichtung",
+                  "hint": "Unter Kocheinrichtung sind feste Installationen zu verstehen, die für die Zubereitung von Mahlzeiten und das Spülen von Geschirr vorgesehen sind. Dabei ist nicht relevant, ob die Kocheinrichtung ausgebaut ist, sondern ob die technischen Installationen grundsätzlich vorhanden sind.",
+                  "type": "radio",
+                  "required": false,
+                  "config": {
+                    "options": [
+                      "Ja",
+                      "Nein"
                     ]
                   }
                 }

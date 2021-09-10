@@ -424,10 +424,13 @@ APPLICATIONS = {
         "INTERCHANGEABLE_FORMS": [
             "vorentscheid-gemass-ss84-pbg-v2",
             "vorentscheid-gemass-ss84-pbg-v3",
+            "vorentscheid-gemass-ss84-pbg-v4",
             "baugesuch-reklamegesuch-v2",
             "baugesuch-reklamegesuch-v3",
+            "baugesuch-reklamegesuch-v4",
             "projektanderung-v2",
             "projektanderung-v3",
+            "projektanderung-v4",
             "technische-bewilligung",
             "baumeldung-fur-geringfugiges-vorhaben-v2",
             "baumeldung-fur-geringfugiges-vorhaben-v3",
