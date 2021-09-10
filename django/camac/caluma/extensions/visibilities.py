@@ -39,6 +39,7 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
         super().__init__(*args, **kwargs)
         self.group = None
         self.user = None
+        self.request = None
 
     @filter_queryset_for(form_schema.Question)
     @filter_queryset_for(form_schema.Form)
@@ -51,7 +52,7 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
     @filter_queryset_for(form_schema.Document)
     @filter_queryset_for(historical_form_schema.HistoricalDocument)
     def filter_queryset_for_document(self, node, queryset, info):
-        instance_ids = self._all_visible_instances(info, True)
+        instance_ids = self._all_visible_instances(info)
 
         return queryset.filter(
             # document is accessible through CAMAC ACLs
@@ -93,7 +94,7 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
         instance_state_expr = self._get_instance_filter_expr("instance_state")
         return Instance.objects.all().select_related(instance_state_expr)
 
-    def _all_visible_instances(self, info, include_public=False):
+    def _all_visible_instances(self, info):
         """Fetch visible camac instances and cache the result.
 
         Take user's group from a custom HTTP header named `X-CAMAC-GROUP` or use
@@ -105,26 +106,15 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
         if result is not None:  # pragma: no cover
             return result
 
-        instance_ids = Instance.objects.none()
+        self.request = CamacRequest(info).request
 
-        if info.context.user.is_authenticated:
-            camac_request = CamacRequest(info)
+        filtered = CalumaInstanceFilterSet(
+            data=filters(self.request),
+            queryset=self.get_queryset(),
+            request=self.request,
+        )
 
-            self.user = camac_request.request.user
-            self.group = camac_request.request.group
-
-            filtered = CalumaInstanceFilterSet(
-                data=filters(camac_request.request),
-                queryset=self.get_queryset(self.group),
-                request=camac_request.request,
-            )
-
-            instance_ids = instance_ids.union(filtered.qs.values_list("pk", flat=True))
-
-        if include_public:
-            instance_ids = instance_ids.union(
-                self.get_queryset_for_public().values_list("pk", flat=True)
-            )
+        instance_ids = filtered.qs.values_list("pk", flat=True)
 
         setattr(info.context, "_visibility_instances_cache", instance_ids)
         return instance_ids
