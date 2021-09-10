@@ -599,6 +599,7 @@ def test_attachment_update(
     assert response.status_code == status_code
 
 
+@pytest.mark.parametrize("instance_state__name", [("finished")])
 @pytest.mark.parametrize("role__name", [("Canton")])
 @pytest.mark.parametrize(
     "attachment__context,new_context,permission,status_code,is_active_service",
@@ -643,11 +644,21 @@ def test_attachment_update(
             status.HTTP_200_OK,
             False,
         ),
+        # change of isDecision after instance's decision has been enacted
+        (
+            {"isDecision": True},
+            {"isDecision": False},
+            permissions.WritePermission,
+            status.HTTP_400_BAD_REQUEST,
+            True,
+        ),
     ],
 )
 def test_attachment_update_context(
     admin_client,
     admin_user,
+    application_settings,
+    instance_state,
     attachment_section,
     attachment_attachment_sections,
     group_factory,
@@ -659,6 +670,10 @@ def test_attachment_update_context(
 ):
     aasa = attachment_attachment_sections.attachment
     url = reverse("attachment-detail", args=[aasa.pk])
+
+    finished_state_name = "finished"
+    application_settings["ATTACHMENT_AFTER_DECISION_STATES"] = [finished_state_name]
+    aasa.instance.instance_state = instance_state
 
     if is_active_service:
         aasa.instance.group = admin_user.groups.first()
