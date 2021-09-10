@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-08 10:43+0200\n"
+"POT-Creation-Date: 2021-09-10 16:01+0200\n"
 "PO-Revision-Date: 2020-02-28 14:55+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -77,36 +77,32 @@ msgid ""
 "attachment PKs!"
 msgstr ""
 
-#: camac/document/serializers.py:114
+#: camac/document/serializers.py:124
 #, python-format
 msgid "Insufficent permissions to add file to section '%(section)s'."
 msgstr ""
 
-#: camac/document/serializers.py:127
+#: camac/document/serializers.py:137
 #, python-format
 msgid "Insufficent permissions to delete file from section '%(section)s'."
 msgstr ""
 
-#: camac/document/serializers.py:145
+#: camac/document/serializers.py:155
 #, python-format
 msgid ""
 "Invalid mime type for attachment. Allowed types for section %(section_name)s "
 "are: %(allowed_mime_types)s"
 msgstr ""
 
-#: camac/document/serializers.py:173
-msgid "Only active service can change context"
-msgstr ""
-
-#: camac/document/serializers.py:231
+#: camac/document/serializers.py:245
 msgid "Path may not be changed."
 msgstr ""
 
-#: camac/document/serializers.py:274
+#: camac/document/serializers.py:288
 msgid "Invalid mime type for template. Allowed types are: docx"
 msgstr ""
 
-#: camac/document/views.py:302
+#: camac/document/views.py:292
 msgid "Specifying an \"attachments\" filter is mandatory!"
 msgstr ""
 
@@ -114,66 +110,66 @@ msgstr ""
 msgid "Circulation started"
 msgstr ""
 
-#: camac/instance/document_merge_service.py:85 camac/instance/views.py:550
+#: camac/instance/document_merge_service.py:86 camac/instance/views.py:550
 msgid "Address"
 msgstr ""
 
-#: camac/instance/document_merge_service.py:86
+#: camac/instance/document_merge_service.py:87
 msgid "Plots"
 msgstr ""
 
-#: camac/instance/document_merge_service.py:87 camac/instance/views.py:554
+#: camac/instance/document_merge_service.py:88 camac/instance/views.py:554
 msgid "Applicant"
 msgstr ""
 
-#: camac/instance/document_merge_service.py:88
+#: camac/instance/document_merge_service.py:89
 msgid "Keywords"
 msgstr ""
 
-#: camac/instance/document_merge_service.py:89 camac/instance/views.py:555
+#: camac/instance/document_merge_service.py:90 camac/instance/views.py:555
 msgid "Municipality"
 msgstr ""
 
-#: camac/instance/document_merge_service.py:90
+#: camac/instance/document_merge_service.py:91
 msgid "Authority"
 msgstr ""
 
-#: camac/instance/document_merge_service.py:91 camac/instance/views.py:553
+#: camac/instance/document_merge_service.py:92 camac/instance/views.py:553
 msgid "Responsible"
 msgstr ""
 
-#: camac/instance/document_merge_service.py:92
+#: camac/instance/document_merge_service.py:93
 msgid "Input date"
 msgstr ""
 
-#: camac/instance/document_merge_service.py:93
+#: camac/instance/document_merge_service.py:94
 msgid "Description"
 msgstr ""
 
-#: camac/instance/document_merge_service.py:94
+#: camac/instance/document_merge_service.py:95
 msgid "Modification"
 msgstr ""
 
-#: camac/instance/document_merge_service.py:118
+#: camac/instance/document_merge_service.py:119
 #, python-format
 msgid "None or multiple caluma Documents found for instance: %(instance)s"
 msgstr ""
 
-#: camac/instance/document_merge_service.py:127
+#: camac/instance/document_merge_service.py:128
 #, python-format
 msgid "No template specified for form '%(form_slug)s'."
 msgstr ""
 
-#: camac/instance/document_merge_service.py:151
-#: camac/instance/document_merge_service.py:529
+#: camac/instance/document_merge_service.py:157
+#: camac/instance/document_merge_service.py:534
 msgid "Signatures"
 msgstr ""
 
-#: camac/instance/document_merge_service.py:152
+#: camac/instance/document_merge_service.py:158
 msgid "Signature"
 msgstr ""
 
-#: camac/instance/document_merge_service.py:153
+#: camac/instance/document_merge_service.py:159
 msgid "Place and date"
 msgstr ""
 
@@ -432,19 +428,19 @@ msgstr ""
 msgid "Objection %(objection) already has a representative"
 msgstr ""
 
-#: camac/settings.py:623
+#: camac/settings.py:628
 msgid "Circulation reopened"
 msgstr ""
 
-#: camac/settings.py:628
+#: camac/settings.py:633
 msgid "Circulation skipped"
 msgstr ""
 
-#: camac/settings.py:633
+#: camac/settings.py:638
 msgid "Circulation completed"
 msgstr ""
 
-#: camac/settings.py:638
+#: camac/settings.py:643
 msgid "Procedure completed"
 msgstr ""
 
