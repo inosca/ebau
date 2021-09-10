@@ -84,7 +84,7 @@ export default class CaseTableComponent extends Component {
       street: {
         searchAnswers: [
           {
-            questions: ["parcel-street", "street-number"],
+            questions: ["parcel-street", "street-number", "parcel-city"],
             lookup: "CONTAINS",
             value: filter.street,
           },
