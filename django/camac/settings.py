@@ -162,6 +162,7 @@ APPLICATIONS = {
         "IS_MULTILINGUAL": False,
         "NOTIFICATIONS": {"SUBMIT": None, "APPLICANT": {"NEW": None, "EXISTING": None}},
         "PUBLICATION_DURATION": timedelta(days=30),
+        "PUBLICATION_BACKEND": "camac-ng",
         "FORM_BACKEND": "camac-ng",
         "WORKFLOW_ITEMS": {
             "SUBMIT": None,
@@ -180,7 +181,6 @@ APPLICATIONS = {
         ],  # if unset, all are allowed
         # please also update django/Makefile command when changing apps here
         "SEQUENCE_NAMESPACE_APPS": ["core", "responsible", "document"],
-        "PUBLICATION_INVITE_ONLY": True,
         "NOTIFICATIONS_EXCLUDED_TASKS": [],
         "OIDC_SYNC_USER_ATTRIBUTES": [
             "language",
@@ -248,6 +248,7 @@ APPLICATIONS = {
             "PUBLICATION_PERMISSION": "publikation-einsehen",
         },
         "PUBLICATION_DURATION": timedelta(days=30),
+        "PUBLICATION_BACKEND": "camac-ng",
         "IS_MULTILINGUAL": False,
         "FORM_BACKEND": "camac-ng",
         "COORDINATE_QUESTION": "punkte",
@@ -280,7 +281,6 @@ APPLICATIONS = {
         },
         # please also update django/Makefile command when changing apps here
         "SEQUENCE_NAMESPACE_APPS": [],
-        "PUBLICATION_INVITE_ONLY": True,
         "NOTIFICATIONS_EXCLUDED_TASKS": [],
         "CALUMA": {
             "CIRCULATION_WORKFLOW": "circulation",
