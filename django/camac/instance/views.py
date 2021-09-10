@@ -1238,7 +1238,11 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
 
     instance_field = "instance"
 
+    @permission_aware
     def get_queryset(self):
+        return super().get_queryset().none()
+
+    def get_queryset_for_public(self):
         queryset = (
             super()
             .get_queryset_for_public()
