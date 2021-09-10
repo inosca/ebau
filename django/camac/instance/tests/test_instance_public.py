@@ -75,12 +75,17 @@ def test_public_caluma_instance_enabled_empty_qs(
     if with_client == "public":
         resp = client.get(url)
     else:
-        resp = admin_client.get(url)
+        resp = admin_client.get(url, HTTP_X_CAMAC_PUBLIC_ACCESS=True)
 
     assert resp.status_code == status.HTTP_200_OK
     assert len(resp.json()["data"]) == 0
 
 
+@pytest.mark.parametrize("role__name", ["Applicant"])
+@pytest.mark.parametrize(
+    "headers,num_queries,num_instances",
+    [({}, 1, 0), ({"HTTP_X_CAMAC_PUBLIC_ACCESS": True}, 3, 1)],
+)
 def test_public_caluma_instance_ur(
     db,
     application_settings,
@@ -89,7 +94,12 @@ def test_public_caluma_instance_ur(
     enable_public_urls,
     publication_entry_factory,
     django_assert_num_queries,
+    headers,
+    num_queries,
+    num_instances,
 ):
+    ur_instance.involved_applicants.first().delete()
+
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
     application_settings["PUBLICATION_DURATION"] = timedelta(days=30)
     application_settings["PUBLICATION_BACKEND"] = "camac-ng"
@@ -112,21 +122,27 @@ def test_public_caluma_instance_ur(
 
     url = reverse("public-caluma-instance")
 
-    with django_assert_num_queries(3):
-        response = admin_client.get(url, {"instance": ur_instance.pk})
+    with django_assert_num_queries(num_queries):
+        response = admin_client.get(url, {"instance": ur_instance.pk}, **headers)
 
     assert response.status_code == status.HTTP_200_OK
 
     result = response.json()["data"]
 
-    assert len(result) == 1
+    assert len(result) == num_instances
 
-    assert result[0]["id"] == str(ur_instance.case.pk)
-    assert result[0]["attributes"]["instance-id"] == ur_instance.pk
-    assert result[0]["attributes"]["dossier-nr"] == "123"
-    assert result[0]["attributes"]["municipality"] == "Altdorf"
+    if num_instances > 0:
+        assert result[0]["id"] == str(ur_instance.case.pk)
+        assert result[0]["attributes"]["instance-id"] == ur_instance.pk
+        assert result[0]["attributes"]["dossier-nr"] == "123"
+        assert result[0]["attributes"]["municipality"] == "Altdorf"
 
 
+@pytest.mark.parametrize("role__name", ["Applicant"])
+@pytest.mark.parametrize(
+    "headers,num_queries,num_instances",
+    [({}, 1, 0), ({"HTTP_X_CAMAC_PUBLIC_ACCESS": True}, 3, 1)],
+)
 def test_public_caluma_instance_be(
     db,
     application_settings,
@@ -135,7 +151,13 @@ def test_public_caluma_instance_be(
     enable_public_urls,
     django_assert_num_queries,
     running_caluma_publication,
+    applicant_factory,
+    headers,
+    num_queries,
+    num_instances,
 ):
+    be_instance.involved_applicants.first().delete()
+
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
         "MASTER_DATA"
     ]
@@ -154,17 +176,20 @@ def test_public_caluma_instance_be(
 
     url = reverse("public-caluma-instance")
 
-    with django_assert_num_queries(3):
-        response = admin_client.get(url, {"instance": be_instance.pk})
+    with django_assert_num_queries(num_queries):
+        response = admin_client.get(url, {"instance": be_instance.pk}, **headers)
 
     assert response.status_code == status.HTTP_200_OK
 
-    result = response.json()["data"][0]
+    result = response.json()["data"]
 
-    assert result["id"] == str(be_instance.case.pk)
-    assert result["attributes"]["instance-id"] == be_instance.pk
-    assert result["attributes"]["dossier-nr"] == "2021-55"
-    assert result["attributes"]["municipality"] == "Bern"
+    assert len(result) == num_instances
+
+    if num_instances > 0:
+        assert result[0]["id"] == str(be_instance.case.pk)
+        assert result[0]["attributes"]["instance-id"] == be_instance.pk
+        assert result[0]["attributes"]["dossier-nr"] == "2021-55"
+        assert result[0]["attributes"]["municipality"] == "Bern"
 
 
 def test_public_caluma_instance_municipality_filter(
@@ -201,7 +226,9 @@ def test_public_caluma_instance_municipality_filter(
     url = reverse("public-caluma-instance")
 
     response = admin_client.get(
-        url, {"municipality": 1, "fields[public-caluma-instances]": "id"}
+        url,
+        {"municipality": 1, "fields[public-caluma-instances]": "id"},
+        HTTP_X_CAMAC_PUBLIC_ACCESS=True,
     )
 
     assert response.status_code == status.HTTP_200_OK
