@@ -19,10 +19,6 @@ export default class PublicInstancesDetailDocumentsController extends Controller
     try {
       return yield this.store.query("attachment", {
         instance: this.model,
-        context: JSON.stringify({
-          key: "isPublished",
-          value: true,
-        }),
       });
     } catch (e) {
       this.notification.danger(this.intl.t("publicInstancesDetail.loadError"));
