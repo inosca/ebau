@@ -166,9 +166,11 @@ class Command(BaseCommand):
             for item in work_items.values_list("assigned_users", flat=True)
             for username in item
         )
-        all_assigned_users = User.objects.filter(
-            username__in=all_assigned_usernames
-        ).order_by("username")
+        all_assigned_users = (
+            User.objects.exclude(disabled=1)
+            .filter(username__in=all_assigned_usernames)
+            .order_by("username")
+        )
 
         for user in all_assigned_users:
             user_items = work_items.filter(assigned_users__contains=[user.username])
@@ -192,7 +194,11 @@ class Command(BaseCommand):
             for item in work_items.values("addressed_groups", "controlling_groups")
             for group in item["addressed_groups"] + item["controlling_groups"]
         )
-        all_services = Service.objects.filter(pk__in=all_service_ids).order_by("pk")
+        all_services = (
+            Service.objects.exclude(disabled=1)
+            .filter(pk__in=all_service_ids)
+            .order_by("pk")
+        )
 
         for service in all_services:
             addressed = work_items.filter(addressed_groups__contains=[str(service.pk)])
