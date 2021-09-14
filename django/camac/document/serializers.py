@@ -181,6 +181,15 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         if not service or active_service != service:
             raise exceptions.PermissionDenied()
 
+        # prevent changing document's isDecision flag after case decision has been enacted
+        if self.instance.instance.instance_state.name in settings.APPLICATION.get(
+            "ATTACHMENT_AFTER_DECISION_STATES", []
+        ) and context.get("isDecision") != self.instance.context.get("isDecision"):
+            raise exceptions.ValidationError(
+                _(
+                    "Changing decision document mark after decision is enacted is not allowed."
+                )
+            )
         return context
 
     def validate(self, data):
