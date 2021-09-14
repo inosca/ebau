@@ -1331,6 +1331,7 @@ APPLICATIONS = {
             "koor_bg_users",
             "responsible_koor",
         ],
+        "DOCUMENTS_SKIP_CONTEXT_VALIDATION": True,
         "CALUMA": {
             "FORM_PERMISSIONS": ["main"],
             "HAS_PROJECT_CHANGE": True,
