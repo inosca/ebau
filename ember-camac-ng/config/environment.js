@@ -4,7 +4,7 @@ module.exports = function (environment) {
   const ENV = {
     modulePrefix: "camac-ng",
     environment,
-    rootURL: "/",
+    rootURL: "/ember/",
     locationType: "hash",
     podModulePrefix: "camac-ng/ui",
     historySupportMiddleware: true,
