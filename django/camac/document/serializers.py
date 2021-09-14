@@ -173,13 +173,14 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         if not self.instance or context == self.instance.context:
             return context
 
-        service = self.context["request"].group.service
-        active_service = self.instance.instance.responsible_service(
-            filter_type="municipality"
-        )
+        if not settings.APPLICATION.get("DOCUMENTS_SKIP_CONTEXT_VALIDATION"):
+            service = self.context["request"].group.service
+            active_service = self.instance.instance.responsible_service(
+                filter_type="municipality"
+            )
 
-        if not service or active_service != service:
-            raise exceptions.PermissionDenied()
+            if not service or active_service != service:
+                raise exceptions.PermissionDenied()
 
         # prevent changing document's isDecision flag after case decision has been enacted
         if self.instance.instance.instance_state.name in settings.APPLICATION.get(
