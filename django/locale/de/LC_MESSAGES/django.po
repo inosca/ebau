@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-08 10:43+0200\n"
+"POT-Creation-Date: 2021-09-10 16:03+0200\n"
 "PO-Revision-Date: 2021-09-08 11:52+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -80,21 +80,21 @@ msgid ""
 "attachment PKs!"
 msgstr ""
 
-#: camac/document/serializers.py:114
+#: camac/document/serializers.py:124
 #, python-format
 msgid "Insufficent permissions to add file to section '%(section)s'."
 msgstr ""
 "Nicht ausreichend Berechtigungen um eine Datei in den Ordner '%(section)s' "
 "hochzuladen."
 
-#: camac/document/serializers.py:127
+#: camac/document/serializers.py:137
 #, python-format
 msgid "Insufficent permissions to delete file from section '%(section)s'."
 msgstr ""
 "Nicht ausreichend Berechtigungen um eine Datei aus dem Ordner '%(section)s' "
 "zu löschen."
 
-#: camac/document/serializers.py:145
+#: camac/document/serializers.py:155
 #, python-format
 msgid ""
 "Invalid mime type for attachment. Allowed types for section %(section_name)s "
@@ -103,21 +103,23 @@ msgstr ""
 "Der aktuelle Dateityp kann nicht als Dokument hochgeladen werden. Erlaubte "
 "Dateitypen für Abschnitt %(section_name)s sind: %(allowed_mime_types)s"
 
-#: camac/document/serializers.py:173
-msgid "Only active service can change context"
+#: camac/document/serializers.py:191
+msgid ""
+"Changing decision document mark after decision is enacted is not allowed."
 msgstr ""
+"Nach dem Entscheid dürfen Entscheiddokumente nicht mehr hinzugefügt oder entfernt werden."
 
-#: camac/document/serializers.py:231
+#: camac/document/serializers.py:249
 msgid "Path may not be changed."
 msgstr "Der Pfad darf nicht geändert werden."
 
-#: camac/document/serializers.py:274
+#: camac/document/serializers.py:292
 msgid "Invalid mime type for template. Allowed types are: docx"
 msgstr ""
 "Der aktuelle Dateityp kann nicht als Vorlage hochgeladen werden. Erlaubte "
 "Dateitypen sind: docx"
 
-#: camac/document/views.py:302
+#: camac/document/views.py:292
 msgid "Specifying an \"attachments\" filter is mandatory!"
 msgstr "Der \"attachments\" Filter ist obligatorisch!"
 
@@ -125,67 +127,67 @@ msgstr "Der \"attachments\" Filter ist obligatorisch!"
 msgid "Circulation started"
 msgstr "Zirkulation gestartet"
 
-#: camac/instance/document_merge_service.py:85 camac/instance/views.py:550
+#: camac/instance/document_merge_service.py:86 camac/instance/views.py:550
 msgid "Address"
 msgstr "Adresse"
 
-#: camac/instance/document_merge_service.py:86
+#: camac/instance/document_merge_service.py:87
 msgid "Plots"
 msgstr "Parzelle(n)"
 
-#: camac/instance/document_merge_service.py:87 camac/instance/views.py:554
+#: camac/instance/document_merge_service.py:88 camac/instance/views.py:554
 msgid "Applicant"
 msgstr "Gesuchsteller/in"
 
-#: camac/instance/document_merge_service.py:88
+#: camac/instance/document_merge_service.py:89
 msgid "Keywords"
 msgstr "Stichworte"
 
-#: camac/instance/document_merge_service.py:89 camac/instance/views.py:555
+#: camac/instance/document_merge_service.py:90 camac/instance/views.py:555
 msgid "Municipality"
 msgstr "Gemeinde"
 
-#: camac/instance/document_merge_service.py:90
+#: camac/instance/document_merge_service.py:91
 msgid "Authority"
 msgstr "Leitbehörde"
 
-#: camac/instance/document_merge_service.py:91 camac/instance/views.py:553
+#: camac/instance/document_merge_service.py:92 camac/instance/views.py:553
 msgid "Responsible"
 msgstr "Zuständig"
 
-#: camac/instance/document_merge_service.py:92
+#: camac/instance/document_merge_service.py:93
 msgid "Input date"
 msgstr "Eingangsdatum"
 
-#: camac/instance/document_merge_service.py:93
+#: camac/instance/document_merge_service.py:94
 msgid "Description"
 msgstr "Beschreibung"
 
-#: camac/instance/document_merge_service.py:94
+#: camac/instance/document_merge_service.py:95
 msgid "Modification"
 msgstr "Projektänderung"
 
-#: camac/instance/document_merge_service.py:118
+#: camac/instance/document_merge_service.py:119
 #, python-format
 msgid "None or multiple caluma Documents found for instance: %(instance)s"
 msgstr ""
 "Keines oder mehrere Caluma Dokumente für das Dossier %(instance)s gefunden"
 
-#: camac/instance/document_merge_service.py:127
+#: camac/instance/document_merge_service.py:128
 #, python-format
 msgid "No template specified for form '%(form_slug)s'."
 msgstr "Keine Druckvorlage für das Caluma Formular %(form_slug)s spezifiziert."
 
-#: camac/instance/document_merge_service.py:151
-#: camac/instance/document_merge_service.py:529
+#: camac/instance/document_merge_service.py:157
+#: camac/instance/document_merge_service.py:534
 msgid "Signatures"
 msgstr "Unterschriften"
 
-#: camac/instance/document_merge_service.py:152
+#: camac/instance/document_merge_service.py:158
 msgid "Signature"
 msgstr "Unterschrift"
 
-#: camac/instance/document_merge_service.py:153
+#: camac/instance/document_merge_service.py:159
 msgid "Place and date"
 msgstr "Ort und Datum"
 
@@ -448,19 +450,19 @@ msgstr ""
 msgid "Objection %(objection) already has a representative"
 msgstr ""
 
-#: camac/settings.py:623
+#: camac/settings.py:628
 msgid "Circulation reopened"
 msgstr "Zirkulation wiedereröffnet"
 
-#: camac/settings.py:628
+#: camac/settings.py:633
 msgid "Circulation skipped"
 msgstr "Zirkulation übersprungen"
 
-#: camac/settings.py:633
+#: camac/settings.py:638
 msgid "Circulation completed"
 msgstr "Zirkulation abgeschlossen"
 
-#: camac/settings.py:638
+#: camac/settings.py:643
 msgid "Procedure completed"
 msgstr "Baugesuchsverfahren abgeschlossen"
 
