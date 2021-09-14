@@ -7,19 +7,23 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- START_HEAD -->
     {{content-for "head"}}
 
     <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
     <link integrity="" rel="stylesheet" href="{{rootURL}}assets/camac-ng.css">
 
     {{content-for "head-footer"}}
+    <!-- END_HEAD -->
   </head>
   <body id="ember-camac-ng">
+    <!-- START_BODY -->
     {{content-for "body"}}
 
     <script src="{{rootURL}}assets/vendor.js"></script>
     <script src="{{rootURL}}assets/camac-ng.js"></script>
 
     {{content-for "body-footer"}}
+    <!-- END_BODY -->
   </body>
 </html>
