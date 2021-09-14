@@ -16,6 +16,7 @@ const UNUSED_ENVS = ENVS.filter((e) => e !== ENV).join("|");
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
     sourcemaps: { enabled: true },
+    SRI: { enabled: false },
     fingerprint: { enabled: false },
     "ember-cli-babel": { includePolyfill: true },
   });
