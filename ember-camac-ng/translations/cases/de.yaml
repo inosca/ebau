@@ -34,6 +34,8 @@ cases:
     instanceState-placeholder: "Alle Status"
     service: "Fachstelle"
     service-placeholder: "Alle Fachstellen"
+    pendingSanctionsControlInstance: "Auflagen zur Kontrolle"
+    pendingSanctionsControlInstance-placeholder: "Alle Kontrollinstanzen"
     parcelNumber: "Parzellen- / Baurechtsnummer"
     parcelNumber-placeholder: "1234"
     createdAfter: "Erstellung von"
