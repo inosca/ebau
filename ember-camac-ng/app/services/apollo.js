@@ -1,7 +1,7 @@
 import { setContext } from "@apollo/client/link/context";
 import { inject as service } from "@ember/service";
+import CalumaApolloServiceMixin from "@projectcaluma/ember-core/mixins/caluma-apollo-service-mixin";
 import ApolloService from "ember-apollo-client/services/apollo";
-import CalumaApolloServiceMixin from "ember-caluma/mixins/caluma-apollo-service-mixin";
 
 export default class CustomApolloService extends ApolloService.extend(
   CalumaApolloServiceMixin

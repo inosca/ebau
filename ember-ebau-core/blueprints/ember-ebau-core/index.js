@@ -6,8 +6,7 @@ module.exports = {
   afterInstall() {
     return this.addAddonsToProject({
       packages: [
-        { name: "ember-apollo-client" },
-        { name: "ember-caluma" },
+        { name: "@projectcaluma/ember-form" },
         { name: "ember-leaflet" },
       ],
     });

@@ -1,8 +1,8 @@
 import Controller, { inject as controller } from "@ember/controller";
 import { reads } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
-import calumaQuery from "ember-caluma/caluma-query";
-import { allCases } from "ember-caluma/caluma-query/queries";
+import calumaQuery from "@projectcaluma/ember-core/caluma-query";
+import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
 import { dropTask } from "ember-concurrency-decorators";
 import UIkit from "uikit";
 
