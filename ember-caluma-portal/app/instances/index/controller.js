@@ -2,9 +2,9 @@ import Controller from "@ember/controller";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { isEmpty } from "@ember/utils";
+import calumaQuery from "@projectcaluma/ember-core/caluma-query";
+import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
-import calumaQuery from "ember-caluma/caluma-query";
-import { allCases } from "ember-caluma/caluma-query/queries";
 import { dropTask } from "ember-concurrency-decorators";
 import moment from "moment";
 
