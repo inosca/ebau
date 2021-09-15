@@ -1,6 +1,6 @@
 import Route from "@ember/routing/route";
+import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { queryManager } from "ember-apollo-client";
-import { decodeId } from "ember-caluma/helpers/decode-id";
 
 import getLatestPublication from "camac-ng/gql/queries/get-latest-publication.graphql";
 

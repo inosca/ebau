@@ -87,7 +87,9 @@ module.exports = function (/* environment */) {
      */
     requiresTranslation(key, locale) {
       return (
-        !key.startsWith("caluma.") && require("./locales").includes(locale)
+        !key.startsWith("caluma.") &&
+        !key.startsWith("ember-gwr.") &&
+        require("./locales").includes(locale)
       );
     },
   };

@@ -1,7 +1,7 @@
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
+import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { queryManager } from "ember-apollo-client";
-import { decodeId } from "ember-caluma/helpers/decode-id";
 import { dropTask } from "ember-concurrency-decorators";
 
 import createAuditDocument from "camac-ng/gql/mutations/create-audit-document.graphql";

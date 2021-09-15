@@ -2,8 +2,8 @@ import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
+import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { queryManager } from "ember-apollo-client";
-import { decodeId } from "ember-caluma/helpers/decode-id";
 import { dropTask } from "ember-concurrency-decorators";
 
 import saveDashboardContent from "caluma-portal/gql/mutations/save-dashboard-content.graphql";
