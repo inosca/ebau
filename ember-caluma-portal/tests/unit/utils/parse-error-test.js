@@ -6,7 +6,6 @@ import parseError from "caluma-portal/utils/parse-error";
 module("Unit | Utility | parse-error", function () {
   test("it works", function (assert) {
     assert.equal(
-      "Some error, Some other error",
       parseError(
         new AdapterError([
           {
@@ -22,7 +21,8 @@ module("Unit | Utility | parse-error", function () {
             source: { pointer: "/foo/bar/some-field" },
           },
         ])
-      )
+      ),
+      "Some error, Some other error"
     );
   });
 });

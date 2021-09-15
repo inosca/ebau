@@ -496,8 +496,9 @@ export default class BeGisComponent extends Component {
 
           if (type === "ChoiceQuestion") {
             value = values[value];
-            valuePretty = field.options.find(({ slug }) => slug === value)
-              ?.label;
+            valuePretty = field.options.find(
+              ({ slug }) => slug === value
+            )?.label;
           } else if (type === "MultipleChoiceQuestion") {
             value = Array.isArray(value) ? value : [value];
             value = value.map((val) => values[val]).filter(Boolean);
