@@ -210,9 +210,8 @@ export default class UrGisComponent extends Component {
         const ueberlagerteNutzungen = features.filter(Boolean).join(", ");
         const parcelNumber = liegenschaftFeature.properties.nummer;
 
-        const coordinates = liegenschaftFeature.geometry.coordinates[0][0].map(
-          EPSG3857toLatLng
-        );
+        const coordinates =
+          liegenschaftFeature.geometry.coordinates[0][0].map(EPSG3857toLatLng);
         const egrid = liegenschaftFeature.properties.egris_egrid;
         const municipality = liegenschaftFeature.properties.gemeinde;
 
@@ -244,11 +243,8 @@ export default class UrGisComponent extends Component {
         }
 
         if (selbstrechtFeature) {
-          parcel[
-            "coordinates-baurecht"
-          ] = selbstrechtFeature.geometry.coordinates[0][0].map(
-            EPSG3857toLatLng
-          );
+          parcel["coordinates-baurecht"] =
+            selbstrechtFeature.geometry.coordinates[0][0].map(EPSG3857toLatLng);
           parcel["building-law-number"] = selbstrechtFeature.properties.nummer;
         }
 
