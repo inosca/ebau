@@ -60,6 +60,15 @@
       />
 
       <CaseFilter::Select
+        @filterName="pendingSanctionsControlInstance"
+        @updateFilter={{fn this.updateFilter "pendingSanctionsControlInstance"}}
+        @filterOptions={{this.filterData.services}}
+        @valueField="id"
+        @labelField="name"
+        @value={{@filter.pendingSanctionsControlInstance}}
+      />
+
+      <CaseFilter::Select
         @filterName="buildingPermitType"
         @updateFilter={{fn this.updateFilter "buildingPermitType"}}
         @filterOptions={{this.filterData.buildingPermitTypes}}
