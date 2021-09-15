@@ -2,7 +2,7 @@
 import { computed } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { isEmpty } from "@ember/utils";
-import Field from "ember-caluma/lib/field";
+import Field from "@projectcaluma/ember-form/lib/field";
 
 const EXCLUDED_SLUGS = [
   "mp-erforderliche-beilagen-vorhanden",

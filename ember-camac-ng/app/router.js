@@ -26,7 +26,7 @@ Router.map(function () {
   });
   this.route("form", { path: "/instances/:id/form" });
 
-  this.mount("ember-caluma", {
+  this.mount("@projectcaluma/ember-form-builder", {
     as: "form-builder",
     path: "/form-builder",
     resetNamespace: true,
