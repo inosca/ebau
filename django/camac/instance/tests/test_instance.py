@@ -806,6 +806,23 @@ def test_instance_filter_is_applicant(admin_client, instance):
     assert len(json["data"]) == 0
 
 
+@pytest.mark.parametrize(
+    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+)
+@pytest.mark.parametrize("is_finished,expected", [(True, 0), (False, 1)])
+def test_instance_filter_pending_sanctions_control_instance(
+    admin_client, admin_user, instance, sanction_factory, is_finished, expected
+):
+    url = reverse("instance-list")
+    sanction = sanction_factory(instance=instance, is_finished=is_finished)
+
+    response = admin_client.get(
+        url, data={"pending_sanctions_control_instance": sanction.control_instance_id}
+    )
+    assert response.status_code == status.HTTP_200_OK
+    assert len(response.json()["data"]) == expected
+
+
 @pytest.mark.parametrize("role__name", ["Applicant"])
 def test_instance_form_field_ordering(
     admin_client, admin_user, instance_factory, form_field_factory

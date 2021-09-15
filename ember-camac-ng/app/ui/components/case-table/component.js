@@ -204,6 +204,8 @@ export default class CaseTableComponent extends Component {
         : null,
       has_pending_billing_entry: this.args.hasPendingBillingEntry,
       has_pending_sanction: this.args.hasPendingSanction,
+      pending_sanctions_control_instance: this.args.filter
+        .pendingSanctionsControlInstance,
     };
     this.casesQuery.fetch({
       order: [{ meta: "dossier-number" }],
