@@ -34,9 +34,6 @@ module.exports = function (environment) {
       // used in submit and camac-property-selector
       municipalityNames: [],
 
-      // enables publication view
-      showPublications: true,
-
       gisHost: "map-t.geo.sz.ch",
 
       // Form location mapping in order of definition
@@ -283,8 +280,6 @@ module.exports = function (environment) {
 
     ENV.APP.gisHost =
       "map.geo.sz.ch/mapserv_proxy?ogcserver=source for image/png";
-
-    ENV.APP.showPublications = false;
   }
 
   return ENV;

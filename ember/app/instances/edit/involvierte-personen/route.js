@@ -2,7 +2,7 @@ import Route from "@ember/routing/route";
 
 export default class InstancesEditInvolviertePersonenRoute extends Route {
   afterModel(model) {
-    if (!model.meta["access-type"]) {
+    if (model.meta["access-type"] === "public") {
       this.transitionTo("instances.edit.index");
     }
   }

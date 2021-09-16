@@ -130,7 +130,18 @@ class AttachmentQuerysetMixin:
         ).distinct()
 
     def get_base_queryset_for_public(self):
-        return super().get_base_queryset().filter(context__isPublished=True)
+        return (
+            super()
+            .get_base_queryset()
+            .filter(
+                Q(context__isPublished=True)
+                | Q(
+                    attachment_sections__pk__in=settings.APPLICATION.get(
+                        "PUBLICATION_ATTACHMENT_SECTION", []
+                    )
+                )
+            )
+        )
 
 
 class AttachmentView(
