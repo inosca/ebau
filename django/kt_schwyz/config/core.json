@@ -1382,7 +1382,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -1480,7 +1480,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -1523,6 +1523,34 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 2
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 159,
+    "fields": {
+      "available_action": "workflow",
+      "button": 3,
+      "name": "Workflow Datum R\u00fcckweisung",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 2
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 160,
+    "fields": {
+      "available_action": "workflow",
+      "button": 38,
+      "name": "Workflow Datum Abschreibung",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
     }
   },
   {
@@ -7179,6 +7207,14 @@
     "fields": {
       "available_instance_resource": "allformpages",
       "available_action": "workitem"
+    }
+  },
+  {
+    "model": "core.instanceresourceaction",
+    "pk": 378,
+    "fields": {
+      "available_instance_resource": "integritydashboard",
+      "available_action": "workflow"
     }
   },
   {
@@ -16320,26 +16356,10 @@
   },
   {
     "model": "core.workflowaction",
-    "pk": 19,
-    "fields": {
-      "workflow_item": 44,
-      "multi_value": 3
-    }
-  },
-  {
-    "model": "core.workflowaction",
     "pk": 63,
     "fields": {
       "workflow_item": 13,
       "multi_value": 1
-    }
-  },
-  {
-    "model": "core.workflowaction",
-    "pk": 87,
-    "fields": {
-      "workflow_item": 44,
-      "multi_value": 3
     }
   },
   {
@@ -16351,16 +16371,19 @@
     }
   },
   {
-    "model": "core.workflowitem",
-    "pk": 1,
+    "model": "core.workflowaction",
+    "pk": 159,
     "fields": {
-      "position": 5,
-      "name": "Pr\u00fcfung durch Gemeinde",
-      "automatical": 0,
-      "different_color": 0,
-      "is_workflow": 1,
-      "is_building_authority": 1,
-      "workflow_section": 1
+      "workflow_item": 81,
+      "multi_value": 1
+    }
+  },
+  {
+    "model": "core.workflowaction",
+    "pk": 160,
+    "fields": {
+      "workflow_item": 83,
+      "multi_value": 1
     }
   },
   {
@@ -16368,21 +16391,8 @@
     "pk": 10,
     "fields": {
       "position": 1,
-      "name": "Dossiereingang",
+      "name": "Gesuchseingang",
       "automatical": 0,
-      "different_color": 0,
-      "is_workflow": 1,
-      "is_building_authority": 1,
-      "workflow_section": 1
-    }
-  },
-  {
-    "model": "core.workflowitem",
-    "pk": 12,
-    "fields": {
-      "position": 2,
-      "name": "Dossier erfasst",
-      "automatical": 1,
       "different_color": 0,
       "is_workflow": 1,
       "is_building_authority": 1,
@@ -16393,8 +16403,8 @@
     "model": "core.workflowitem",
     "pk": 13,
     "fields": {
-      "position": 3,
-      "name": "Nachforderung Gemeindebaubeh\u00f6rde",
+      "position": 5,
+      "name": "Nachforderung",
       "automatical": 0,
       "different_color": 0,
       "is_workflow": 1,
@@ -16406,8 +16416,8 @@
     "model": "core.workflowitem",
     "pk": 14,
     "fields": {
-      "position": 4,
-      "name": "Dossier vollstandig",
+      "position": 3,
+      "name": "Dossier formell vollstandig",
       "automatical": 0,
       "different_color": 0,
       "is_workflow": 1,
@@ -16419,112 +16429,8 @@
     "model": "core.workflowitem",
     "pk": 15,
     "fields": {
-      "position": 6,
+      "position": 4,
       "name": "Publikation",
-      "automatical": 1,
-      "different_color": 0,
-      "is_workflow": 1,
-      "is_building_authority": 1,
-      "workflow_section": 1
-    }
-  },
-  {
-    "model": "core.workflowitem",
-    "pk": 16,
-    "fields": {
-      "position": 8,
-      "name": "Weiterleitung an Koord",
-      "automatical": 1,
-      "different_color": 0,
-      "is_workflow": 1,
-      "is_building_authority": 1,
-      "workflow_section": 1
-    }
-  },
-  {
-    "model": "core.workflowitem",
-    "pk": 21,
-    "fields": {
-      "position": 7,
-      "name": "Eingang Einsprachen",
-      "automatical": 0,
-      "different_color": 0,
-      "is_workflow": 1,
-      "is_building_authority": 1,
-      "workflow_section": 1
-    }
-  },
-  {
-    "model": "core.workflowitem",
-    "pk": 41,
-    "fields": {
-      "position": 9,
-      "name": "Akten Nachforderung KOORD",
-      "automatical": 0,
-      "different_color": 0,
-      "is_workflow": 1,
-      "is_building_authority": 0,
-      "workflow_section": 1
-    }
-  },
-  {
-    "model": "core.workflowitem",
-    "pk": 42,
-    "fields": {
-      "position": 10,
-      "name": "Nachforderung Fachstelle",
-      "automatical": 1,
-      "different_color": 0,
-      "is_workflow": 1,
-      "is_building_authority": 0,
-      "workflow_section": 1
-    }
-  },
-  {
-    "model": "core.workflowitem",
-    "pk": 43,
-    "fields": {
-      "position": 11,
-      "name": "Dossier vollst\u00e4ndig",
-      "automatical": 0,
-      "different_color": 0,
-      "is_workflow": 1,
-      "is_building_authority": 0,
-      "workflow_section": 1
-    }
-  },
-  {
-    "model": "core.workflowitem",
-    "pk": 44,
-    "fields": {
-      "position": 12,
-      "name": "Start Zirkulation",
-      "automatical": 1,
-      "different_color": 0,
-      "is_workflow": 1,
-      "is_building_authority": 0,
-      "workflow_section": 1
-    }
-  },
-  {
-    "model": "core.workflowitem",
-    "pk": 45,
-    "fields": {
-      "position": 13,
-      "name": "Zirkulation beendet",
-      "automatical": 1,
-      "different_color": 0,
-      "is_workflow": 1,
-      "is_building_authority": 0,
-      "workflow_section": 1
-    }
-  },
-  {
-    "model": "core.workflowitem",
-    "pk": 46,
-    "fields": {
-      "position": 14,
-      "name": "R\u00fcckgabe an Gemeinde",
       "automatical": 1,
       "different_color": 0,
       "is_workflow": 1,
@@ -16536,8 +16442,8 @@
     "model": "core.workflowitem",
     "pk": 47,
     "fields": {
-      "position": 15,
-      "name": "Bau- und Einspracheentscheid",
+      "position": 10,
+      "name": "Bauentscheid",
       "automatical": 0,
       "different_color": 0,
       "is_workflow": 1,
@@ -16547,100 +16453,9 @@
   },
   {
     "model": "core.workflowitem",
-    "pk": 48,
-    "fields": {
-      "position": 18,
-      "name": "Rechtsmittel Gemeinderat",
-      "automatical": 0,
-      "different_color": 0,
-      "is_workflow": 1,
-      "is_building_authority": 1,
-      "workflow_section": 2
-    }
-  },
-  {
-    "model": "core.workflowitem",
-    "pk": 49,
-    "fields": {
-      "position": 20,
-      "name": "Entscheid Regierungsrat",
-      "automatical": 0,
-      "different_color": 0,
-      "is_workflow": 1,
-      "is_building_authority": 1,
-      "workflow_section": 2
-    }
-  },
-  {
-    "model": "core.workflowitem",
-    "pk": 50,
-    "fields": {
-      "position": 21,
-      "name": "Rechtsmittel Regierungsrat",
-      "automatical": 0,
-      "different_color": 0,
-      "is_workflow": 1,
-      "is_building_authority": 1,
-      "workflow_section": 2
-    }
-  },
-  {
-    "model": "core.workflowitem",
-    "pk": 51,
-    "fields": {
-      "position": 19,
-      "name": "Entscheid Gemeinderat",
-      "automatical": 0,
-      "different_color": 0,
-      "is_workflow": 1,
-      "is_building_authority": 1,
-      "workflow_section": 2
-    }
-  },
-  {
-    "model": "core.workflowitem",
-    "pk": 52,
-    "fields": {
-      "position": 22,
-      "name": "Rechtsmittel Verwaltungsgericht",
-      "automatical": 0,
-      "different_color": 0,
-      "is_workflow": 1,
-      "is_building_authority": 1,
-      "workflow_section": 2
-    }
-  },
-  {
-    "model": "core.workflowitem",
-    "pk": 53,
-    "fields": {
-      "position": 23,
-      "name": "Entscheid Verwaltungsgericht",
-      "automatical": 0,
-      "different_color": 0,
-      "is_workflow": 1,
-      "is_building_authority": 1,
-      "workflow_section": 2
-    }
-  },
-  {
-    "model": "core.workflowitem",
-    "pk": 54,
-    "fields": {
-      "position": 26,
-      "name": "Entsch. rechtskr\u00e4ftig",
-      "automatical": 0,
-      "different_color": 0,
-      "is_workflow": 1,
-      "is_building_authority": 1,
-      "workflow_section": 2
-    }
-  },
-  {
-    "model": "core.workflowitem",
     "pk": 55,
     "fields": {
-      "position": 27,
+      "position": 13,
       "name": "Baubeginn erfolgt",
       "automatical": 0,
       "different_color": 0,
@@ -16653,8 +16468,8 @@
     "model": "core.workflowitem",
     "pk": 56,
     "fields": {
-      "position": 28,
-      "name": "Abnahme Schnurger\u00fcst",
+      "position": 14,
+      "name": "Schnurger\u00fcstabnahme",
       "automatical": 0,
       "different_color": 0,
       "is_workflow": 1,
@@ -16666,8 +16481,8 @@
     "model": "core.workflowitem",
     "pk": 57,
     "fields": {
-      "position": 35,
-      "name": "Bau beendet Info an Abwasser",
+      "position": 19,
+      "name": "Meldung an Werke",
       "automatical": 1,
       "different_color": 0,
       "is_workflow": 1,
@@ -16679,8 +16494,8 @@
     "model": "core.workflowitem",
     "pk": 58,
     "fields": {
-      "position": 29,
-      "name": "Abnahme Rohbau",
+      "position": 16,
+      "name": "Rohbauabnahme",
       "automatical": 0,
       "different_color": 0,
       "is_workflow": 1,
@@ -16692,111 +16507,20 @@
     "model": "core.workflowitem",
     "pk": 59,
     "fields": {
-      "position": 31,
-      "name": "Endabnahme erfolgt",
+      "position": 18,
+      "name": "Schlussabnahme",
       "automatical": 0,
       "different_color": 0,
       "is_workflow": 1,
       "is_building_authority": 1,
       "workflow_section": 3
-    }
-  },
-  {
-    "model": "core.workflowitem",
-    "pk": 60,
-    "fields": {
-      "position": 34,
-      "name": "Meldung Grundbuchvermessung",
-      "automatical": 0,
-      "different_color": 0,
-      "is_workflow": 0,
-      "is_building_authority": 0,
-      "workflow_section": 3
-    }
-  },
-  {
-    "model": "core.workflowitem",
-    "pk": 61,
-    "fields": {
-      "position": 38,
-      "name": "Verfahren abgeschlossen",
-      "automatical": 0,
-      "different_color": 0,
-      "is_workflow": 1,
-      "is_building_authority": 1,
-      "workflow_section": 3
-    }
-  },
-  {
-    "model": "core.workflowitem",
-    "pk": 62,
-    "fields": {
-      "position": 39,
-      "name": "Dossier archiviert",
-      "automatical": 1,
-      "different_color": 0,
-      "is_workflow": 1,
-      "is_building_authority": 0,
-      "workflow_section": 3
-    }
-  },
-  {
-    "model": "core.workflowitem",
-    "pk": 63,
-    "fields": {
-      "position": 24,
-      "name": "Rechtsmittel Bundesgericht",
-      "automatical": 0,
-      "different_color": 0,
-      "is_workflow": 1,
-      "is_building_authority": 1,
-      "workflow_section": 2
-    }
-  },
-  {
-    "model": "core.workflowitem",
-    "pk": 64,
-    "fields": {
-      "position": 25,
-      "name": "Entscheid Bundesgericht",
-      "automatical": 0,
-      "different_color": 0,
-      "is_workflow": 1,
-      "is_building_authority": 1,
-      "workflow_section": 2
-    }
-  },
-  {
-    "model": "core.workflowitem",
-    "pk": 65,
-    "fields": {
-      "position": 16,
-      "name": "Einsprachefrist",
-      "automatical": 1,
-      "different_color": 0,
-      "is_workflow": 1,
-      "is_building_authority": 1,
-      "workflow_section": 1
-    }
-  },
-  {
-    "model": "core.workflowitem",
-    "pk": 66,
-    "fields": {
-      "position": 40,
-      "name": "Meldung Baubewilligung an Geometer",
-      "automatical": 1,
-      "different_color": 0,
-      "is_workflow": 1,
-      "is_building_authority": 1,
-      "workflow_section": 1
     }
   },
   {
     "model": "core.workflowitem",
     "pk": 67,
     "fields": {
-      "position": 30,
+      "position": 17,
       "name": "Bau beendet",
       "automatical": 0,
       "different_color": 0,
@@ -16809,8 +16533,8 @@
     "model": "core.workflowitem",
     "pk": 68,
     "fields": {
-      "position": 32,
-      "name": "Bau beendet Info an Geometer",
+      "position": 20,
+      "name": "Meldung an Geometer",
       "automatical": 1,
       "different_color": 0,
       "is_workflow": 1,
@@ -16822,8 +16546,8 @@
     "model": "core.workflowitem",
     "pk": 69,
     "fields": {
-      "position": 33,
-      "name": "Bau beendet Info an Liegenschaftssch\u00e4tzung",
+      "position": 21,
+      "name": "Meldung an Liegenschaftssch\u00e4tzung",
       "automatical": 1,
       "different_color": 0,
       "is_workflow": 1,
@@ -16833,89 +16557,102 @@
   },
   {
     "model": "core.workflowitem",
-    "pk": 70,
+    "pk": 81,
     "fields": {
-      "position": 36,
-      "name": "Grundbuchanmeldung",
-      "automatical": 1,
-      "different_color": 0,
-      "is_workflow": 1,
-      "is_building_authority": 1,
-      "workflow_section": 3
-    }
-  },
-  {
-    "model": "core.workflowitem",
-    "pk": 71,
-    "fields": {
-      "position": 41,
-      "name": "Baubewilligung g\u00fcltig bis",
-      "automatical": 0,
-      "different_color": 0,
-      "is_workflow": 0,
-      "is_building_authority": 1,
-      "workflow_section": 3
-    }
-  },
-  {
-    "model": "core.workflowitem",
-    "pk": 72,
-    "fields": {
-      "position": 17,
-      "name": "Versand Baubewilligung",
-      "automatical": 0,
-      "different_color": 0,
-      "is_workflow": 0,
-      "is_building_authority": 1,
-      "workflow_section": 3
-    }
-  },
-  {
-    "model": "core.workflowitem",
-    "pk": 73,
-    "fields": {
-      "position": 42,
-      "name": "Verl\u00e4ngerung Baubewilligung bis",
-      "automatical": 0,
-      "different_color": 0,
-      "is_workflow": 0,
-      "is_building_authority": 1,
-      "workflow_section": 3
-    }
-  },
-  {
-    "model": "core.workflowitem",
-    "pk": 74,
-    "fields": {
-      "position": 43,
-      "name": "AC gestartet",
+      "position": 2,
+      "name": "R\u00fcckweisung",
       "automatical": 1,
       "different_color": 0,
       "is_workflow": 1,
       "is_building_authority": 0,
-      "workflow_section": 4
+      "workflow_section": 1
     }
   },
   {
     "model": "core.workflowitem",
-    "pk": 79,
+    "pk": 82,
     "fields": {
-      "position": 44,
-      "name": "AC beendet",
+      "position": 6,
+      "name": "R\u00fcckzug",
+      "automatical": 0,
+      "different_color": 0,
+      "is_workflow": 1,
+      "is_building_authority": 0,
+      "workflow_section": 1
+    }
+  },
+  {
+    "model": "core.workflowitem",
+    "pk": 83,
+    "fields": {
+      "position": 7,
+      "name": "Abschreibung",
       "automatical": 1,
       "different_color": 0,
       "is_workflow": 1,
       "is_building_authority": 0,
-      "workflow_section": 4
+      "workflow_section": 1
     }
   },
   {
     "model": "core.workflowitem",
-    "pk": 80,
+    "pk": 84,
     "fields": {
-      "position": 37,
-      "name": "\u00d6REB Meldung",
-      "automatical": 1,
+      "position": 8,
+      "name": "Sistierung",
+      "automatical": 0,
+      "different_color": 0,
+      "is_workflow": 1,
+      "is_building_authority": 0,
+      "workflow_section": 1
+    }
+  },
+  {
+    "model": "core.workflowitem",
+    "pk": 85,
+    "fields": {
+      "position": 9,
+      "name": "Kant. Gesamtentscheid",
+      "automatical": 0,
+      "different_color": 0,
+      "is_workflow": 1,
+      "is_building_authority": 0,
+      "workflow_section": 1
+    }
+  },
+  {
+    "model": "core.workflowitem",
+    "pk": 86,
+    "fields": {
+      "position": 11,
+      "name": "Beschwerdefrist",
+      "automatical": 0,
+      "different_color": 0,
+      "is_workflow": 1,
+      "is_building_authority": 0,
+      "workflow_section": 1
+    }
+  },
+  {
+    "model": "core.workflowitem",
+    "pk": 87,
+    "fields": {
+      "position": 12,
+      "name": "Baufreigabe",
+      "automatical": 0,
+      "different_color": 0,
+      "is_workflow": 1,
+      "is_building_authority": 0,
+      "workflow_section": 3
+    }
+  },
+  {
+    "model": "core.workflowitem",
+    "pk": 88,
+    "fields": {
+      "position": 15,
+      "name": "Kanalisationsabnahme",
+      "automatical": 0,
       "different_color": 0,
       "is_workflow": 1,
       "is_building_authority": 0,
@@ -16924,7 +16661,7 @@
   },
   {
     "model": "core.workflowrole",
-    "pk": 5,
+    "pk": 11,
     "fields": {
       "workflow_item": 10,
       "role": 3
@@ -16932,15 +16669,7 @@
   },
   {
     "model": "core.workflowrole",
-    "pk": 6,
-    "fields": {
-      "workflow_item": 12,
-      "role": 3
-    }
-  },
-  {
-    "model": "core.workflowrole",
-    "pk": 7,
+    "pk": 12,
     "fields": {
       "workflow_item": 13,
       "role": 3
@@ -16948,7 +16677,7 @@
   },
   {
     "model": "core.workflowrole",
-    "pk": 8,
+    "pk": 13,
     "fields": {
       "workflow_item": 14,
       "role": 3
@@ -16956,17 +16685,97 @@
   },
   {
     "model": "core.workflowrole",
-    "pk": 9,
+    "pk": 15,
     "fields": {
-      "workflow_item": 1,
+      "workflow_item": 82,
       "role": 3
     }
   },
   {
     "model": "core.workflowrole",
-    "pk": 10,
+    "pk": 17,
     "fields": {
-      "workflow_item": 15,
+      "workflow_item": 84,
+      "role": 3
+    }
+  },
+  {
+    "model": "core.workflowrole",
+    "pk": 18,
+    "fields": {
+      "workflow_item": 85,
+      "role": 3
+    }
+  },
+  {
+    "model": "core.workflowrole",
+    "pk": 19,
+    "fields": {
+      "workflow_item": 47,
+      "role": 3
+    }
+  },
+  {
+    "model": "core.workflowrole",
+    "pk": 20,
+    "fields": {
+      "workflow_item": 86,
+      "role": 3
+    }
+  },
+  {
+    "model": "core.workflowrole",
+    "pk": 21,
+    "fields": {
+      "workflow_item": 87,
+      "role": 3
+    }
+  },
+  {
+    "model": "core.workflowrole",
+    "pk": 22,
+    "fields": {
+      "workflow_item": 55,
+      "role": 3
+    }
+  },
+  {
+    "model": "core.workflowrole",
+    "pk": 23,
+    "fields": {
+      "workflow_item": 56,
+      "role": 3
+    }
+  },
+  {
+    "model": "core.workflowrole",
+    "pk": 24,
+    "fields": {
+      "workflow_item": 88,
+      "role": 3
+    }
+  },
+  {
+    "model": "core.workflowrole",
+    "pk": 25,
+    "fields": {
+      "workflow_item": 58,
+      "role": 3
+    }
+  },
+  {
+    "model": "core.workflowrole",
+    "pk": 26,
+    "fields": {
+      "workflow_item": 67,
+      "role": 3
+    }
+  },
+  {
+    "model": "core.workflowrole",
+    "pk": 27,
+    "fields": {
+      "workflow_item": 59,
       "role": 3
     }
   },
@@ -16974,32 +16783,24 @@
     "model": "core.workflowsection",
     "pk": 1,
     "fields": {
-      "name": "Ordentliches Verfahren",
-      "sort": null
+      "name": "Bewilligungsverfahren",
+      "sort": 1
     }
   },
   {
     "model": "core.workflowsection",
     "pk": 2,
     "fields": {
-      "name": "Rechtsmittelverfahren",
-      "sort": null
+      "name": "Beschwerdeverfahren",
+      "sort": 2
     }
   },
   {
     "model": "core.workflowsection",
     "pk": 3,
     "fields": {
-      "name": "Realisierungsphase",
-      "sort": null
-    }
-  },
-  {
-    "model": "core.workflowsection",
-    "pk": 4,
-    "fields": {
-      "name": "Auflagen-Controlling",
-      "sort": null
+      "name": "Baukontrolle/ Realisierung",
+      "sort": 3
     }
   }
 ]
