@@ -263,6 +263,8 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
 
 
 class SchwyzInstanceSerializer(InstanceSerializer):
+    caluma_form = serializers.SerializerMethodField()
+
     @transaction.atomic
     def create(self, validated_data):
         instance = super().create(validated_data)
@@ -294,6 +296,14 @@ class SchwyzInstanceSerializer(InstanceSerializer):
 
     def get_permissions_for_public(self, instance):
         return {}
+
+    def get_caluma_form(self, instance):
+        return CalumaApi().get_form_slug(instance)
+
+    class Meta(InstanceSerializer.Meta):
+        fields = InstanceSerializer.Meta.fields + ("caluma_form",)
+        read_only_fields = InstanceSerializer.Meta.read_only_fields + ("caluma_form",)
+        meta_fields = InstanceSerializer.Meta.meta_fields
 
 
 class CamacInstanceChangeFormSerializer(serializers.Serializer):
