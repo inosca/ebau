@@ -1,4 +1,4 @@
-<h1 {{did-insert (queue (perform this.publications))}}>
+<h1>
   Publikationen
 </h1>
 <table class="uk-table uk-table-striped uk-table-hover uk-table-responsive">
@@ -17,14 +17,14 @@
     </tr>
   </thead>
   <tbody>
-    {{#if this.publications.isRunning}}
+    {{#if this.getPublications.isRunning}}
       <tr>
         <td class="uk-text-center" colspan="5">
           <UkSpinner />
         </td>
       </tr>
     {{else}}
-      {{#each this.publications.lastSuccessful.value as |publication|}}
+      {{#each this.publications as |publication|}}
         <tr>
           <td>
             <LinkTo

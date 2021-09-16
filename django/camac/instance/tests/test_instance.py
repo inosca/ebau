@@ -22,14 +22,21 @@ from camac.instance.models import HistoryEntryT
     ["new"],
 )
 @pytest.mark.parametrize(
-    "role__name,instance__user,num_queries,editable",
+    "role__name,instance__user,num_queries,num_instances,editable",
     [
-        ("Applicant", LazyFixture("admin_user"), 18, {"instance", "form", "document"}),
+        (
+            "Applicant",
+            LazyFixture("admin_user"),
+            18,
+            1,
+            {"instance", "form", "document"},
+        ),
         # reader should see instances from other users but has no editables
-        ("Reader", LazyFixture("user"), 18, set()),
-        ("Canton", LazyFixture("user"), 18, {"form", "document"}),
-        ("Municipality", LazyFixture("user"), 17, {"form", "document"}),
-        ("Service", LazyFixture("user"), 17, {"document"}),
+        ("Reader", LazyFixture("user"), 18, 1, set()),
+        ("Canton", LazyFixture("user"), 18, 1, {"form", "document"}),
+        ("Municipality", LazyFixture("user"), 17, 1, {"form", "document"}),
+        ("Service", LazyFixture("user"), 17, 1, {"document"}),
+        ("Public", LazyFixture("user"), 2, 0, {}),
     ],
 )
 def test_instance_list(
@@ -38,6 +45,7 @@ def test_instance_list(
     instance,
     activation,
     num_queries,
+    num_instances,
     group,
     django_assert_num_queries,
     editable,
@@ -48,11 +56,6 @@ def test_instance_list(
     mocker,
     snapshot,
 ):
-    application_settings["INSTANCE_ACCESS_TYPE_ROLES"] = {
-        "municipality": ["Municipality"],
-        "service": ["Service"],
-    }
-
     url = reverse("instance-list")
 
     # verify that two locations may be assigned to group
@@ -74,10 +77,11 @@ def test_instance_list(
     assert response.status_code == status.HTTP_200_OK
 
     json = response.json()
-    assert len(json["data"]) == 1
-    assert json["data"][0]["id"] == str(instance.pk)
-    assert set(json["data"][0]["meta"]["editable"]) == set(editable)
-    snapshot.assert_match([i["type"] for i in json["included"]])
+    assert len(json["data"]) == num_instances
+    if num_instances:
+        assert json["data"][0]["id"] == str(instance.pk)
+        assert set(json["data"][0]["meta"]["editable"]) == set(editable)
+        snapshot.assert_match([i["type"] for i in json["included"]])
 
 
 @pytest.mark.parametrize(
@@ -581,6 +585,20 @@ def test_instance_generate_identifier(
             datetime.datetime(2017, 6, 28, tzinfo=pytz.UTC),
             True,
             status.HTTP_200_OK,
+        ),
+        (
+            "Public",
+            LazyFixture("admin_user"),
+            datetime.datetime(2017, 6, 28, tzinfo=pytz.UTC),
+            True,
+            status.HTTP_200_OK,
+        ),
+        (
+            "Public",
+            LazyFixture("user"),
+            datetime.datetime(2016, 6, 28, tzinfo=pytz.UTC),
+            True,
+            status.HTTP_404_NOT_FOUND,
         ),
         (
             "PublicReader",

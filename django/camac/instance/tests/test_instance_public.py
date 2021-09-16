@@ -185,10 +185,124 @@ def test_public_caluma_documents_ur(
         attachmentsection=section, attachment__instance=ur_instance
     )
 
-    # fix permissions
+    # fix attachment permissions
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
         {"demo": {"applicant": {permissions.AdminPermission: [section.pk]}}},
+    )
+
+    response = admin_client.get(reverse("attachment-list"), **headers)
+    assert response.status_code == status.HTTP_200_OK
+
+    result = response.json()["data"]
+
+    assert len(result) == num_documents
+
+
+@pytest.mark.parametrize("role__name", ["Applicant"])
+@pytest.mark.parametrize(
+    "headers,num_queries,num_instances",
+    [({}, 2, 0), ({"HTTP_X_CAMAC_PUBLIC_ACCESS": True}, 5, 1)],
+)
+def test_public_instance_sz(
+    db,
+    application_settings,
+    admin_client,
+    instance,
+    publication_entry_factory,
+    django_assert_num_queries,
+    headers,
+    num_queries,
+    num_instances,
+):
+    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_schwyz"][
+        "MASTER_DATA"
+    ]
+    application_settings["PUBLICATION_DURATION"] = timedelta(days=30)
+    application_settings["PUBLICATION_BACKEND"] = "camac-ng"
+
+    publication_entry_factory(
+        publication_date=timezone.now() - timedelta(days=1),
+        instance=instance,
+        is_published=True,
+    )
+
+    url = reverse("instance-list")
+
+    with django_assert_num_queries(num_queries):
+        response = admin_client.get(url, {"instance": instance.pk}, **headers)
+
+    assert response.status_code == status.HTTP_200_OK
+
+    result = response.json()["data"]
+
+    assert len(result) == num_instances
+
+    if num_instances > 0:
+        assert result[0]["id"] == str(instance.pk)
+        assert set(result[0]["meta"]["editable"]) == set()
+        assert result[0]["meta"]["access-type"] == "public"
+
+
+@pytest.mark.parametrize("role__name", ["Applicant"])
+@pytest.mark.parametrize(
+    "headers,is_applicant,num_documents",
+    [
+        ({}, True, 2),
+        ({"HTTP_X_CAMAC_PUBLIC_ACCESS": True}, True, 1),
+        ({}, False, 0),
+        ({"HTTP_X_CAMAC_PUBLIC_ACCESS": True}, False, 1),
+    ],
+)
+def test_public_documents_sz(
+    db,
+    application_settings,
+    admin_client,
+    admin_user,
+    instance,
+    publication_entry_factory,
+    django_assert_num_queries,
+    attachment_section_factory,
+    attachment_attachment_section_factory,
+    applicant_factory,
+    headers,
+    is_applicant,
+    num_documents,
+    mocker,
+):
+    if is_applicant:
+        applicant_factory(invitee=admin_user, instance=instance)
+
+    application_settings["PUBLICATION_DURATION"] = timedelta(days=30)
+    application_settings["PUBLICATION_BACKEND"] = "camac-ng"
+
+    publication_entry_factory(
+        publication_date=timezone.now() - timedelta(days=1),
+        instance=instance,
+        is_published=True,
+    )
+    section = attachment_section_factory()
+    section_public = attachment_section_factory()
+    attachment_attachment_section_factory(
+        attachmentsection=section_public,
+        attachment__instance=instance,
+    )
+    attachment_attachment_section_factory(
+        attachmentsection=section, attachment__instance=instance
+    )
+
+    application_settings["PUBLICATION_ATTACHMENT_SECTION"] = [section_public.pk]
+
+    # fix attachment permissions
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {
+            "demo": {
+                "applicant": {
+                    permissions.AdminPermission: [section_public.pk, section.pk]
+                }
+            }
+        },
     )
 
     response = admin_client.get(reverse("attachment-list"), **headers)

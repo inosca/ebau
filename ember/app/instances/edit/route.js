@@ -6,6 +6,7 @@ import { all } from "rsvp";
 export default class InstancesEditRoute extends Route {
   @service ajax;
   @service questionStore;
+  @service session;
 
   queryParams = {
     group: { refreshModel: true },
@@ -14,6 +15,7 @@ export default class InstancesEditRoute extends Route {
 
   async model({ instance_id: id, group, publication = false }) {
     this.viewedByPublication = publication;
+    this.session.set("data.enforcePublicAccess", this.viewedByPublication);
 
     const response = await this.ajax.request(`/api/v1/instances/${id}`, {
       data: {
@@ -22,6 +24,7 @@ export default class InstancesEditRoute extends Route {
       },
       headers: {
         Accept: "application/vnd.api+json",
+        ...(this.viewedByPublication ? { "x-camac-public-access": true } : {}),
       },
     });
 
@@ -99,6 +102,7 @@ export default class InstancesEditRoute extends Route {
       // have too much unnecessary data in the memory
       this.store.unloadAll();
       this.questionStore.clear();
+      this.session.set("data.enforcePublicAccess", false);
     }
   }
 }

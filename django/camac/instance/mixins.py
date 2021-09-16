@@ -79,7 +79,16 @@ class InstanceQuerysetMixin(object):
 
     @permission_aware
     def get_queryset(self, group=None):
-        return self.get_base_queryset()
+        queryset = self.get_base_queryset()
+
+        # A user should see dossiers which he submitted or has been invited to.
+        return queryset.filter(
+            **{
+                self._get_instance_filter_expr(
+                    "involved_applicants__invitee"
+                ): self._get_user()
+            }
+        )
 
     def get_queryset_for_public_reader(self, group=None):
         queryset = self.get_base_queryset()
@@ -251,7 +260,7 @@ class InstanceQuerysetMixin(object):
                         "publication_entries__is_published"
                     ): True,
                 }
-            )
+            ).distinct()
 
         return queryset.none()
 
@@ -329,6 +338,9 @@ class InstanceEditableMixin(AttributeMixin):
         return {"form", "document"}
 
     def get_editable_for_reader(self, instance):
+        return set()
+
+    def get_editable_for_public(self, instance):
         return set()
 
     def get_editable_for_public_reader(self, instance):
