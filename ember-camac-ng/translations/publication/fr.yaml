@@ -1,7 +1,7 @@
 publication:
   new: "Créer une nouvelle publication"
-  complete: "Publier la publication"
-  confirm: "<strong>Attention:</strong> Pendant la période de publication, le dossier est ouvert au public et peut être inspecté. Cette étape ne peut plus être inversée."
+  complete: "Autoriser la publication"
+  confirm: "<strong>Attention:</strong> Pendant la publication, le dossier est accessible au public et peut être consulté. Cette étape ne peut plus être inversée."
   loadingError: "Erreur lors du téléchargement de la publication"
   createError: "Erreur lors de la création de la publication"
   publicationOf: "Publication du "
