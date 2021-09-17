@@ -12,15 +12,18 @@ from camac.utils import build_url
 DATA_DIR = Path(settings.ROOT_DIR) / "camac" / "parashift" / "tests" / "data"
 
 
-@pytest.fixture()
-def parashift_mock(requests_mock):
+@pytest.fixture(params=[True, False])
+def parashift_mock(request, requests_mock):
     values = {
         "parzelle-nr": "11",
         "erfassungsjahr": "92",
         "vorhaben": "Erschliessungsstrasse",
         "ort": "Platti, Amsteg",
         "baurecht-nr": None,
-        "gesuchsteller": "Kanton Uri, v.d. Baudirektion Uri",
+        "gesuchsteller": "Kanton Uri, v.d. Baudirektion Uri" if request.param else None,
+        "gesuchsteller-backup": "Kanton Uri, v.d. Baudirektion Uri"
+        if not request.param
+        else None,
     }
 
     parashift_dossier_data = {
