@@ -23,8 +23,9 @@ module("Unit | Initializer | register-custom-caluma-models", function (hooks) {
   test("it works", async function (assert) {
     await this.application.boot();
 
-    assert.ok(
-      this.application.resolveRegistration("caluma-model:field") === CustomField
+    assert.strictEqual(
+      this.application.resolveRegistration("caluma-model:field"),
+      CustomField
     );
   });
 });
