@@ -13,8 +13,8 @@ module("Unit | Transform | journal visibility", function (hooks) {
 
   test("it deserializes", function (assert) {
     const transform = this.owner.lookup("transform:journal-visibility");
-    assert.equal(transform.deserialize("authorities"), true);
-    assert.equal(transform.deserialize("own_organization"), false);
-    assert.equal(transform.deserialize("all"), false);
+    assert.true(transform.deserialize("authorities"));
+    assert.false(transform.deserialize("own_organization"));
+    assert.false(transform.deserialize("all"));
   });
 });

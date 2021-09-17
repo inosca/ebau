@@ -48,7 +48,8 @@ export default class BeSubmitInstanceComponent extends Component {
   @dropTask
   *submit() {
     // mark instance as submitted (optimistic) because after submitting, answer cannot be saved anymore
-    this.args.field.answer.value = this.args.field.question.multipleChoiceOptions.edges[0].node.slug;
+    this.args.field.answer.value =
+      this.args.field.question.multipleChoiceOptions.edges[0].node.slug;
     yield this.args.field.save.perform();
 
     try {

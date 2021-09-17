@@ -25,8 +25,8 @@ export default class PublicInstancesIndexController extends Controller {
   queryParams = ["municipality"];
 
   get hasNextPage() {
-    const pagination = this.fetchInstances.lastSuccessful?.value?.meta
-      .pagination;
+    const pagination =
+      this.fetchInstances.lastSuccessful?.value?.meta.pagination;
 
     return pagination && pagination.page < pagination.pages;
   }

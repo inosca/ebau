@@ -23,9 +23,12 @@
     {{content-for "body"}}
 
     <script integrity="" src="{{rootURL}}assets/vendor.js"></script>
+    <script integrity="" src="{{rootURL}}assets/caluma-portal.js"></script>
+
+    <!-- Polyfills for IE11 -->
     <script
-      integrity=""
-      src="{{rootURL}}assets/caluma-portal.js"
+      crossorigin="anonymous"
+      src="https://polyfill.io/v3/polyfill.min.js?features=Intl"
     ></script>
 
     {{content-for "body-footer"}}
