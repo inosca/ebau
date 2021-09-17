@@ -1,5 +1,5 @@
 import { inject as service } from "@ember/service";
-import { decodeId } from "ember-caluma/helpers/decode-id";
+import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 
 export default class Audit {
   @service store;

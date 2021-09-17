@@ -1,4 +1,4 @@
-import graphqlHandler from "ember-caluma/mirage-graphql";
+import graphqlHandler from "@projectcaluma/ember-testing/mirage-graphql";
 
 import config from "../config/environment";
 
