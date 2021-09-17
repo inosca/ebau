@@ -4,10 +4,10 @@ import Component from "@ember/component";
 import { computed, action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { isEmpty } from "@ember/utils";
+import saveDocumentMutation from "@projectcaluma/ember-form/gql/mutations/save-document.graphql";
+import Document from "@projectcaluma/ember-form/lib/document";
+import { parseDocument } from "@projectcaluma/ember-form/lib/parsers";
 import { queryManager } from "ember-apollo-client";
-import saveDocumentMutation from "ember-caluma/gql/mutations/save-document.graphql";
-import Document from "ember-caluma/lib/document";
-import { parseDocument } from "ember-caluma/lib/parsers";
 import { dropTask } from "ember-concurrency-decorators";
 import { all } from "rsvp";
 
@@ -496,8 +496,9 @@ export default class BeGisComponent extends Component {
 
           if (type === "ChoiceQuestion") {
             value = values[value];
-            valuePretty = field.options.find(({ slug }) => slug === value)
-              ?.label;
+            valuePretty = field.options.find(
+              ({ slug }) => slug === value
+            )?.label;
           } else if (type === "MultipleChoiceQuestion") {
             value = Array.isArray(value) ? value : [value];
             value = value.map((val) => values[val]).filter(Boolean);

@@ -6,7 +6,6 @@
     "ember-ebau-core"
   ],
   "resolutions": {
-    "ember-concurrency": "^1.3.0",
-    "validated-changeset": "0.14.5"
+    "ember-concurrency": "1.3.0"
   }
 }

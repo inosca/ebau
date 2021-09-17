@@ -1,5 +1,5 @@
 import { inject as service } from "@ember/service";
-import CaseModel from "ember-caluma/caluma-query/models/case";
+import CaseModel from "@projectcaluma/ember-core/caluma-query/models/case";
 import moment from "moment";
 
 function getAnswer(document, slug) {
