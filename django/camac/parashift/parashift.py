@@ -41,6 +41,7 @@ class ParashiftImporter:
 
     schema = {
         "gesuchsteller": None,
+        "gesuchsteller-backup": None,
         "erfassungsjahr": None,
         "parzelle-nr": None,
         "baurecht-nr": None,
@@ -178,6 +179,11 @@ class ParashiftImporter:
             value = self._post_process_value(identifier, value)
 
             record[identifier] = value
+
+        if not record["gesuchsteller"]:
+            record["gesuchsteller"] = record["gesuchsteller-backup"]
+
+        del record["gesuchsteller-backup"]
 
         record["document"] = self._fetch_document(para_id)
 
