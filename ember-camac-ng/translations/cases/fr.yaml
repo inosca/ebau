@@ -35,6 +35,8 @@ cases:
     instanceState-placeholder: ""
     service: ""
     service-placeholder: ""
+    pendingSanctionsControlInstance: ""
+    pendingSanctionsControlInstance-placeholder: ""
     parcelNumber: ""
     parcelNumber-placeholder: ""
     createdAfter: ""
