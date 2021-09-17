@@ -1,8 +1,8 @@
 publicInstances:
-  title: "Übersicht laufende Bauplanauflagen"
+  title: "Übersicht laufende Baugesuchsunterlagen"
   applicant: "Gesuchsteller/in"
-  loadError: "Fehler beim Laden der Bauplanauflagen"
-  emptyTitle: "Es gibt keine laufenden Bauplanauflagen!"
+  loadError: "Fehler beim Laden der Baugesuchsunterlagen"
+  emptyTitle: "Es gibt keine laufenden Baugesuchsunterlagen!"
   emptyText: "Sobald die Gemeinde ein Dossier zur Publikation freigegeben hat, wird das Dossier hier in der Liste auftauchen."
 
 publicInstancesDetail:
