@@ -25,7 +25,7 @@ def test_import(
         "gemeinde": "Gurtnellen 1209",
         "ort": "Platti, Amsteg",
         "vorhaben": "Erschliessungsstrasse",
-        "parashift-id": "138866",
+        "external-id": "138866",
         "barcodes": [
             {"type": "Gurtnellen 1209", "page": 0},
             {"type": "Fachstellen", "page": 1},
@@ -203,7 +203,7 @@ def test_pdf_cropping():
         "gemeinde": "Gurtnellen 1209",
         "ort": "Platti, Amsteg",
         "vorhaben": "Erschliessungsstrasse",
-        "parashift-id": "138866",
+        "external-id": "138866",
         "barcodes": [
             {"type": "Gurtnellen 1209", "page": 0},
             {"type": "Fachstellen", "page": 1},

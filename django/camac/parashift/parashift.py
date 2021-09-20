@@ -36,7 +36,7 @@ class ParashiftImporter:
     )
     LIST_URI_FORMAT = build_url(
         settings.PARASHIFT_BASE_URI,
-        "/documents?filter[id_lte]={to_id}&filter[id_gte]={from_id}",
+        "/documents?page[size]=100&filter[id_lte]={to_id}&filter[id_gte]={from_id}",
     )
 
     schema = {
@@ -48,7 +48,7 @@ class ParashiftImporter:
         "gemeinde": None,
         "ort": None,
         "vorhaben": None,
-        "parashift-id": None,
+        "external-id": None,
         "barcodes": [],
         "document": None,
     }
@@ -84,6 +84,15 @@ class ParashiftImporter:
         record["barcodes"].pop(0)
         documents = []
         for index, code in enumerate(record["barcodes"], start=1):
+            section = uri_constants.PARASHIFT_ATTACHMENT_SECTION_MAPPING.get(
+                code["type"]
+            )
+            if not section:
+                print(
+                    f"{record['external-id']}: unexpected barcode type {code['type']}, skipping"
+                )
+                continue
+
             start = code["page"]
             stop = None
             for c in record["barcodes"]:
@@ -118,13 +127,15 @@ class ParashiftImporter:
         ).json()
 
         records = [self.fetch_data(rec["id"]) for rec in result["data"]]
+        records = [r for r in records if r is not None]
 
+        print(f"found {len(records)} dossiers, start cropping...")
         for record in records:
             record["documents"] = self.crop_pdf(record)
 
         return import_dossiers(records)
 
-    def _post_process_value(self, identifier, value):
+    def _post_process_value(self, identifier, value, parashift_id):
         post_process = self.post_process.get(identifier)
 
         if post_process is None:
@@ -134,7 +145,7 @@ class ParashiftImporter:
             return post_process[0](value)
         except Exception as e:
             raise ParashiftValidationError(
-                f"{identifier}: {post_process[1]}",
+                f"{parashift_id}: {identifier}: {post_process[1]}",
                 original_exception=e,
             )
 
@@ -155,7 +166,7 @@ class ParashiftImporter:
         json_doc = self._get(self.DATA_URI_FORMAT.format(document_id=para_id)).json()
         record = self._record_blueprint
 
-        record["parashift-id"] = json_doc["data"]["id"]
+        record["external-id"] = json_doc["data"]["id"]
 
         for field in json_doc["included"]:
             identifier = field["attributes"]["identifier"]
@@ -176,7 +187,13 @@ class ParashiftImporter:
             if identifier not in record or value is None:
                 continue
 
-            value = self._post_process_value(identifier, value)
+            try:
+                value = self._post_process_value(
+                    identifier, value, record["external-id"]
+                )
+            except Exception as e:
+                print(e)
+                return None
 
             record[identifier] = value
 
