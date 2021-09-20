@@ -41,11 +41,13 @@ def _import_dossier(data):
             )  # pragma: no cover
 
     imported_instance = models.Instance.objects.filter(
-        **{"case__meta__external-id": data["parashift-id"]}
+        **{"case__meta__external-id": data["external-id"]}
     ).first()
 
     if imported_instance:  # pragma: no cover
-        print(f"The instance with Nr. {imported_instance.pk} has already been imported")
+        print(
+            f"The instance with external ID {data['external-id']} has already been imported (Instance ID: {imported_instance.pk})"
+        )
         return
 
     creation_data = {
@@ -71,7 +73,7 @@ def _import_dossier(data):
         source_instance=None,
     )
 
-    instance.case.meta["external-id"] = data["parashift-id"]
+    instance.case.meta["external-id"] = data["external-id"]
     instance.case.save()
 
     instance.form.description = "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
@@ -119,7 +121,9 @@ def _write_answers(instance, data):
         document=instance.case.document,
         question=Question.objects.get(slug="parzellen-oder-baurechtsnummer"),
     )
-    print(f"The Instance with Nr. {instance.pk} has been imported")
+    print(
+        f"The Instance with external ID {data['external-id']} has been imported (Instance ID: {instance.pk})"
+    )
 
 
 def _write_attachments(instance, data):
