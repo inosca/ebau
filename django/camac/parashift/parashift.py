@@ -87,7 +87,7 @@ class ParashiftImporter:
             section = uri_constants.PARASHIFT_ATTACHMENT_SECTION_MAPPING.get(
                 code["type"]
             )
-            if not section:
+            if not section:  # pragma: no cover
                 print(
                     f"{record['external-id']}: unexpected barcode type {code['type']}, skipping"
                 )

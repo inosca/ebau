@@ -1,13 +1,12 @@
 import io
 from pathlib import Path
 
-import pytest
 from django.conf import settings
 from django.core.management import call_command
 from PyPDF2 import PdfFileReader
 
 from camac.instance.master_data import MasterData
-from camac.parashift.parashift import ParashiftImporter, ParashiftValidationError
+from camac.parashift.parashift import ParashiftImporter
 from camac.utils import build_url
 
 DATA_DIR = Path(settings.ROOT_DIR) / "camac" / "parashift" / "tests" / "data"
@@ -43,7 +42,7 @@ def test_import(
     assert record == expected
 
 
-def test_import_validation_error(requests_mock):
+def test_import_validation_error(requests_mock, capsys):
     broken_data = {
         "data": {
             "id": "138866",
@@ -69,14 +68,9 @@ def test_import_validation_error(requests_mock):
     )
 
     client = ParashiftImporter()
-    with pytest.raises(ParashiftValidationError) as e:
-        client.fetch_data("138866")
-
-    assert e.value.args[0] == "parzelle-nr: Must be an integer!"
-    assert (
-        e.value.original_exception.args[0]
-        == "invalid literal for int() with base 10: 'string not int'"
-    )
+    record = client.fetch_data("138866")
+    assert record is None
+    assert capsys.readouterr().out == "138866: parzelle-nr: Must be an integer!\n"
 
 
 def test_command(parashift_data, parashift_mock, application_settings):
@@ -105,7 +99,7 @@ def test_command(parashift_data, parashift_mock, application_settings):
     assert attachment.path.size == 91779
 
 
-def test_command_validation_error(requests_mock):
+def test_command_validation_error(requests_mock, capsys):
     data = {
         "data": {
             "id": "138866",
@@ -154,11 +148,9 @@ def test_command_validation_error(requests_mock):
         json=data,
     )
 
-    out = io.StringIO()
-    call_command("parashift_import", "138866", "138867", stderr=out)
-    assert (
-        out.getvalue() == "Couldn't import dossiers: parzelle-nr: Must be an integer!\n"
-    )
+    call_command("parashift_import", "138866", "138867")
+    out = capsys.readouterr().out
+    assert out.rsplit("\n")[0] == "138866: parzelle-nr: Must be an integer!"
 
 
 def test_command_data_error(parashift_mock, requests_mock):
