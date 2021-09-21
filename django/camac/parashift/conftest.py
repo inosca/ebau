@@ -53,8 +53,18 @@ def parashift_mock(request, requests_mock):
 
     requests_mock.register_uri(
         "GET",
-        ParashiftImporter.LIST_URI_FORMAT.format(from_id=138866, to_id=138867),
+        ParashiftImporter.LIST_URI_FORMAT.format(
+            from_id=138866, to_id=138867, page_number=1
+        ),
         json={"data": [{"id": "138866"}]},
+    )
+
+    requests_mock.register_uri(
+        "GET",
+        ParashiftImporter.TOTAL_RECORDS_URI.format(
+            from_id=138866, to_id=138867, page_number=1
+        ),
+        json={"data": [{"id": "138866"}], "meta": {"stats": {"total": {"count": 1}}}},
     )
 
     requests_mock.register_uri(
