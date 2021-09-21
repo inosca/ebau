@@ -92,7 +92,7 @@
       "sort": 7,
       "notification_template": null,
       "recipient_types": null,
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"text/plain\", \"application/octet-stream\"]"
     }
   },
   {
