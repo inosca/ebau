@@ -212,7 +212,7 @@ APPLICATIONS = {
         },
         "DOSSIER_IMPORT": {
             "REQUIRED_KEYS": [
-                "parashift-id",
+                "external-id",
                 "parzelle-nr",
                 "erfassungsjahr",
                 "vorhaben",
@@ -1619,7 +1619,7 @@ APPLICATIONS = {
         },
         "DOSSIER_IMPORT": {
             "REQUIRED_KEYS": [
-                "parashift-id",
+                "external-id",
                 "parzelle-nr",
                 "erfassungsjahr",
                 "vorhaben",
