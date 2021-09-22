@@ -73,7 +73,7 @@
             {{/if}}
             <LinkTo @route="public-instances" @tagName="li" @activeClass="uk-active">
               <a href="#">
-                {{t "nav.publicInstance"}}
+                {{t (concat "nav.public-instance-" (application-name))}}
               </a>
             </LinkTo>
           </ul>

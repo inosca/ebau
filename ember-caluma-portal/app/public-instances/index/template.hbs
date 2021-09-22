@@ -1,4 +1,4 @@
-<h1>{{t "publicInstances.title"}}</h1>
+<h1>{{t (concat "publicInstances.title-" (application-name))}}</h1>
 
 {{#if (has-feature "publication.municipalityFilter")}}
   <div>
@@ -68,8 +68,12 @@
 {{else}}
   <UkFlex @horizontal="center" @vertical="middle" @direction="column">
     <div class="uk-text-center uk-width-large">
-      <object data="/assets/images/stamp-document.svg" class="uk-width-medium">{{t "publicInstances.emptyTitle"}}</object>
-      <p class="uk-margin-remove-top uk-text-large">{{t "publicInstances.emptyTitle"}}</p>
+      <object data="/assets/images/stamp-document.svg" class="uk-width-medium">
+        {{t (concat "publicInstances.empty-title-" (application-name))}}
+      </object>
+      <p class="uk-margin-remove-top uk-text-large">
+        {{t (concat "publicInstances.empty-title-" (application-name))}}
+      </p>
       <p>{{t "publicInstances.emptyText"}}</p>
     </div>
   </UkFlex>
