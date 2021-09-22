@@ -112,6 +112,7 @@ def test_command_validation_error(requests_mock, capsys):
                 },
             }
         ],
+        "meta": {"stats": {"total": {"count": 1}}},
     }
 
     broken_data = {
@@ -128,6 +129,7 @@ def test_command_validation_error(requests_mock, capsys):
                 },
             }
         ],
+        "meta": {"stats": {"total": {"count": 1}}},
     }
 
     requests_mock.register_uri(
@@ -162,6 +164,7 @@ def test_command_data_error(parashift_mock, requests_mock):
             }
         ],
         "included": [],
+        "meta": {"stats": {"total": {"count": 1}}},
     }
 
     requests_mock.register_uri(
