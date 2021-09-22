@@ -18,6 +18,7 @@ const filterQueryParams = [
   "street",
   "service",
   "pendingSanctionsControlInstance",
+  "workflow"
 ];
 
 export default class CasesIndexController extends Controller {

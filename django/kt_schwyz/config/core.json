@@ -5296,21 +5296,6 @@
   },
   {
     "model": "core.instanceresource",
-    "pk": 46,
-    "fields": {
-      "available_instance_resource": "editformpage",
-      "resource": 22,
-      "name": "Formular",
-      "description": "Formular der Gesch\u00e4ftskontrollen",
-      "template": "/ember/instance.phtml",
-      "class_field": null,
-      "hidden": 0,
-      "sort": 0,
-      "form_group": 1
-    }
-  },
-  {
-    "model": "core.instanceresource",
     "pk": 47,
     "fields": {
       "available_instance_resource": "editcirculation",
@@ -5411,6 +5396,21 @@
       "class_field": null,
       "hidden": 0,
       "sort": 13,
+      "form_group": 1
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 54,
+    "fields": {
+      "available_instance_resource": "workitemlistinstance",
+      "resource": 22,
+      "name": "Aufgaben",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 0,
       "form_group": 1
     }
   },
@@ -7468,14 +7468,6 @@
   {
     "model": "core.ireditformpage",
     "pk": 34,
-    "fields": {
-      "page": 1,
-      "pdf_class": null
-    }
-  },
-  {
-    "model": "core.ireditformpage",
-    "pk": 46,
     "fields": {
       "page": 1,
       "pdf_class": null
@@ -11541,24 +11533,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 649,
-    "fields": {
-      "instance_resource": 46,
-      "role": 3,
-      "instance_state": 1
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 650,
-    "fields": {
-      "instance_resource": 46,
-      "role": 8,
-      "instance_state": 1
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 651,
     "fields": {
       "instance_resource": 3,
@@ -14303,6 +14277,51 @@
     }
   },
   {
+    "model": "core.irroleacl",
+    "pk": 1002,
+    "fields": {
+      "instance_resource": 54,
+      "role": 5,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1003,
+    "fields": {
+      "instance_resource": 54,
+      "role": 11,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1004,
+    "fields": {
+      "instance_resource": 54,
+      "role": 7,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1005,
+    "fields": {
+      "instance_resource": 54,
+      "role": 3,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1006,
+    "fields": {
+      "instance_resource": 54,
+      "role": 8,
+      "instance_state": 1
+    }
+  },
+  {
     "model": "core.irserviceacl",
     "pk": 1,
     "fields": {
@@ -15653,17 +15672,17 @@
   },
   {
     "model": "core.rapilistcirculationtype",
-    "pk": 16,
+    "pk": 18,
     "fields": {
-      "resource": 22,
+      "resource": 8,
       "circulation_type": 1
     }
   },
   {
     "model": "core.rapilistcirculationtype",
-    "pk": 18,
+    "pk": 19,
     "fields": {
-      "resource": 8,
+      "resource": 22,
       "circulation_type": 1
     }
   },
@@ -15949,14 +15968,6 @@
   },
   {
     "model": "core.rapilistinstancestate",
-    "pk": 79,
-    "fields": {
-      "resource": 22,
-      "instance_state": 1
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
     "pk": 89,
     "fields": {
       "resource": 8,
@@ -16033,6 +16044,14 @@
     "fields": {
       "resource": 8,
       "instance_state": 10
+    }
+  },
+  {
+    "model": "core.rapilistinstancestate",
+    "pk": 99,
+    "fields": {
+      "resource": 22,
+      "instance_state": 1
     }
   },
   {
@@ -16479,6 +16498,54 @@
     "fields": {
       "resource": 1,
       "role": 12
+    }
+  },
+ {
+    "model": "core.rroleacl",
+    "pk": 65,
+    "fields": {
+      "resource": 22,
+      "role": 11
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 66,
+    "fields": {
+      "resource": 22,
+      "role": 7
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 67,
+    "fields": {
+      "resource": 17,
+      "role": 11
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 68,
+    "fields": {
+      "resource": 17,
+      "role": 5
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 69,
+    "fields": {
+      "resource": 17,
+      "role": 7
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 70,
+    "fields": {
+      "resource": 22,
+      "role": 5
     }
   },
   {

@@ -107,6 +107,9 @@ export default class CaseTableComponent extends Component {
           },
         ],
       },
+      workflow: {
+        workflow: filter.workflow,
+      },
     };
 
     return Object.entries(filter)
@@ -147,6 +150,9 @@ export default class CaseTableComponent extends Component {
   }
 
   get tableHeaders() {
+    if (this.shoebox.content.customTableHeaders) {
+      return this.shoebox.content.customTableHeaders;
+    }
     // TODO camac_legacy: Remove this in the future
     switch (this.shoebox.role) {
       case "municipality":
@@ -161,7 +167,6 @@ export default class CaseTableComponent extends Component {
           "street",
           "instanceState",
         ];
-
       case "coordination":
         return [
           "instanceId",
@@ -188,7 +193,6 @@ export default class CaseTableComponent extends Component {
           "street",
           "processingDeadline",
         ];
-
       default:
         return [
           "dossierNr",
