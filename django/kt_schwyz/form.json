@@ -1590,18 +1590,9 @@
             }
           },
           {
-            "name": "beherbungsbetrieb",
-            "label": "Handelt es sich um einen Beherbergungsbetrieb A oder B?",
-            "hint": "Als Beherbergungsbetriebe A und B gelten:\n\n**Beherbergungsbetrieb A:**\nBauten, in denen dauernd oder vorübergehend 10 oder mehr kranke, pflegebedürftige oder auf fremde Hilfe angewiesene Personen aufgenommen werden (z.B. Krankenhäuser, Alters- und Pflegeheime, Heime für Behinderte, Strafanstalten, geschlossene Erziehungsanstalten).\n\n**Beherbergungsbetrieb B:**\nBauten, in denen dauernd oder vorübergehend 15 oder mehr Personen aufgenommen werden, welche nicht auf fremde Hilfe angewiesen sind (z.B. Hotels, Pensionen, Ferienheime).",
-            "type": "radio",
-            "required": false,
-            "config": {
-              "options": ["Ja", "Nein"]
-            }
-          },
-          {
             "name": "bettenzahl",
-            "label": "Wie hoch ist die vorgesehene Bettenzahl?",
+            "label": "Falls es sich um einen Beherbergungsbetrieb A oder B handelt: Wie hoch ist die vorgesehene Bettenzahl?",
+            "hint": "Als Beherbergungsbetriebe A und B gelten:\n\n**Beherbergungsbetrieb A:**\nBauten, in denen dauernd oder vorübergehend 10 oder mehr kranke, pflegebedürftige oder auf fremde Hilfe angewiesene Personen aufgenommen werden (z.B. Krankenhäuser, Alters- und Pflegeheime, Heime für Behinderte, Strafanstalten, geschlossene Erziehungsanstalten).\n\n**Beherbergungsbetrieb B:**\nBauten, in denen dauernd oder vorübergehend 15 oder mehr Personen aufgenommen werden, welche nicht auf fremde Hilfe angewiesen sind (z.B. Hotels, Pensionen, Ferienheime).",
             "type": "number-separator",
             "required": false,
             "config": {
@@ -1651,7 +1642,7 @@
           },
           {
             "name": "begruendung-waermeerzeuger-noch-nicht-festgelegt",
-            "label": "Begründung",
+            "label": "Falls noch nicht festgelegt: Begründung",
             "type": "text",
             "required": false,
             "config": {}
@@ -1689,7 +1680,7 @@
           },
           {
             "name": "begruendung-energietraeger-heizung-noch-nicht-festgelegt",
-            "label": "Begründung",
+            "label": "Falls noch nicht festgelegt: Begründung",
             "type": "text",
             "required": false,
             "config": {}
@@ -1727,7 +1718,7 @@
           },
           {
             "name": "begruendung-waermeerzeuger-warmwasser-noch-nicht-festgelegt",
-            "label": "Begründung",
+            "label": "Falls noch nicht festgelegt: Begründung",
             "type": "text",
             "required": false,
             "config": {}
@@ -1765,7 +1756,7 @@
           },
           {
             "name": "begruendung-energietraeger-warmwasser-noch-nicht-festgelegt",
-            "label": "Begründung",
+            "label": "Falls noch nicht festgelegt: Begründung",
             "type": "text",
             "required": false,
             "config": {}
@@ -1782,7 +1773,7 @@
           {
             "name": "geschosse",
             "label": "Anzahl Geschosse",
-            "hint": "Das Parterre ist bei der Anzahl Geschosse mitzuzählen. Dach- /Untergeschosse sind nur mitzuzählen, wenn sie teilweise für Wohnzwecke vorgesehen sind. Kellergeschosse sind nicht zu berücksichtigen.",
+            "hint": "Das Erdgeschoss ist bei der Anzahl Geschosse mitzuzählen. Dach- und Untergeschosse sollen nur mitgezählt werden, sofern sie zumindest teilweise für Wohnzwecke dienen oder geheizt sind. Nicht mitzuzählen sind Kellergeschosse.",
             "type": "number",
             "required": false,
             "config": {
@@ -1796,7 +1787,7 @@
             "type": "number",
             "required": false,
             "config": {
-              "min": 1
+              "min": 0
             }
           },
           {
@@ -1817,7 +1808,7 @@
                 },
                 {
                   "name": "maisonette",
-                  "label": "Mehrgeschossige Wohnung (Maisonette)",
+                  "label": "Maisonette",
                   "hint": "Falls die Wohnung mehrere Geschosse umfasst, wählen Sie bitte «Ja».",
                   "type": "radio",
                   "required": false,
@@ -1827,7 +1818,7 @@
                 },
                 {
                   "name": "lage",
-                  "label": "Lage auf dem Stockwerk",
+                  "label": "Lage",
                   "hint": "Die Lage auf dem Stockwerk dient dazu, einzelne Wohnungen eines Gebäudes, welche bezüglich der Stockwerkangabe und der Anzahl Zimmer identisch sind, voneinander unterscheiden zu können.<br>Es kann sich um Angaben wie «Links» / «Mitte» / «Rechts» oder andere eindeutige und beständige Charakteristiken wie «Nord» / «Ost» / «Süd» / «West» handeln.<br>Für Wohnungen in Gebäuden mit mehr als drei Wohnungen pro Stockwerk kann anstelle einer Lagebezeichnung die Erfassung einer physischen Wohnungsnummer hilfreich sein.",
                   "type": "text",
                   "required": false,
@@ -1845,7 +1836,7 @@
                 },
                 {
                   "name": "flache",
-                  "label": "Wohnungsfläche",
+                  "label": "Fläche",
                   "hint": "Als Wohnungsfläche ist die Summe der Flächen sämtlicher Zimmer, Küchen, Kochnischen, Badezimmer, Toiletten, Abstellräume, Gänge, Veranden usw. einer Wohnung zu verstehen. Die Fläche ist in m2 anzugeben.<br>Zusätzliche separate Wohnräume (z.B. Mansarden), offene Balkone und Terrassen sowie nicht bewohnbare Keller- und Dachgeschossräume fallen bei der Berechnung der Wohnungsfläche ausser Betracht.<br>Wo keine genauen Flächen ermittelt werden können, sind Schätzwerte (Länge x Breite der Wohnung) zu erfassen.<br>Wo Bruttowohnflächen verfügbar sind, sind die Bruttowerte anzugeben.",
                   "type": "number-separator",
                   "required": false,
