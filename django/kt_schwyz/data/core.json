@@ -820,25 +820,5 @@
       "workflow_item": 14,
       "group": 1
     }
-  },
-  {
-    "model": "core.workflowentry",
-    "pk": 8,
-    "fields": {
-      "workflow_date": "2020-11-23T14:14:49Z",
-      "instance": 1,
-      "workflow_item": 44,
-      "group": 1
-    }
-  },
-  {
-    "model": "core.workflowentry",
-    "pk": 9,
-    "fields": {
-      "workflow_date": "2020-11-23T14:20:55Z",
-      "instance": 4,
-      "workflow_item": 44,
-      "group": 1
-    }
   }
 ]
