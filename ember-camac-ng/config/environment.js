@@ -59,6 +59,10 @@ module.exports = function (environment) {
 
         allowApplicantManualWorkItem: true,
         journalDefaultVisibility: false,
+        newCase: {
+          calumaWorkflow: "internal-document",
+          camacForm: 11,
+        },
       },
       kt_uri: {
         gwr: {
