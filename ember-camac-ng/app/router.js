@@ -36,6 +36,7 @@ Router.map(function () {
     this.route("detail", { path: "/:case_id" }, function () {
       this.route("dashboard");
     });
+    this.route("new");
   });
   this.route("audit", { path: "instances/:instance_id/audit" }, function () {
     this.route("edit", { path: "/edit/:document_uuid" });

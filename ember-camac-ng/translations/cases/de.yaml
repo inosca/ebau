@@ -15,6 +15,7 @@ cases:
     coordinationShort: "Kurzname Koordinationsstelle"
     reason: "Grund"
     caseStatus: "Status"
+    caseType: "Typ"
     parcelNumbers: "Parzellen"
     createdAt: "Erstellt am"
     modifiedAt: "Geändert am"
@@ -62,3 +63,13 @@ cases:
     unLinkInstanceSuccess: "Die Verknüpfung der Dossiers wurde erfolgreich gelöscht"
     unLinkInstanceError: "Beim Löschen der Verknüpfung ist etwas schief gelaufen"
     enterDossierNumber: "Dossiernummer eingeben"
+
+  new:
+    title: "Neues Gesuch erstellen"
+    type: "Wählen Sie den Dokumententyp aus"
+
+  status:
+    RUNNING: "Offen"
+    COMPLETED: "Abgeschlossen"
+    CANCELED: "Abgebrochen"
+    SUSPENDED: "Pausiert"
