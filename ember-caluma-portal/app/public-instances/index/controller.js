@@ -55,7 +55,9 @@ export default class PublicInstancesIndexController extends Controller {
 
       return instances;
     } catch (e) {
-      this.notification.danger(this.intl.t("publicInstances.loadError"));
+      this.notification.danger(
+        this.intl.t(`publicInstances.load-error-${config.APPLICATION.name}`)
+      );
     }
   }
 
