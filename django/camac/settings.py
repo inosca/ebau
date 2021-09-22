@@ -1629,7 +1629,7 @@ APPLICATIONS = {
                 "gesuchsteller",
                 "documents",
             ],
-            "USER": "admin",
+            "USER": "import@koor-bg.ur.ch",
         },
     },
 }
