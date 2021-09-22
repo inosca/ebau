@@ -1,4 +1,5 @@
 import io
+import math
 
 import requests
 from django.conf import settings
@@ -36,7 +37,11 @@ class ParashiftImporter:
     )
     LIST_URI_FORMAT = build_url(
         settings.PARASHIFT_BASE_URI,
-        "/documents?page[size]=100&filter[id_lte]={to_id}&filter[id_gte]={from_id}",
+        "/documents?page[size]=100&page[number]={page_number}&sort=id&filter[id_lte]={to_id}&filter[id_gte]={from_id}",
+    )
+    TOTAL_RECORDS_URI = build_url(
+        settings.PARASHIFT_BASE_URI,
+        "/documents?stats[total]=count&filter[id_lte]={to_id}&filter[id_gte]={from_id}",
     )
 
     schema = {
@@ -122,18 +127,31 @@ class ParashiftImporter:
         return documents
 
     def run(self, from_id, to_id):
-        result = self._get(
-            self.LIST_URI_FORMAT.format(to_id=to_id, from_id=from_id)
-        ).json()
+        total_records = self._get(
+            self.TOTAL_RECORDS_URI.format(to_id=to_id, from_id=from_id)
+        ).json()["meta"]["stats"]["total"]["count"]
 
-        records = [self.fetch_data(rec["id"]) for rec in result["data"]]
-        records = [r for r in records if r is not None]
+        total_pages = math.ceil(total_records / 100)
 
-        print(f"found {len(records)} dossiers, start cropping...")
-        for record in records:
-            record["documents"] = self.crop_pdf(record)
+        dossiers = []
+        for page_number in range(1, (total_pages + 1)):
 
-        return import_dossiers(records)
+            result = self._get(
+                self.LIST_URI_FORMAT.format(
+                    to_id=to_id, from_id=from_id, page_number=page_number
+                )
+            ).json()
+
+            records = [self.fetch_data(rec["id"]) for rec in result["data"]]
+            records = [r for r in records if r is not None]
+
+            print(f"found {len(records)} dossiers, start cropping...")
+            for record in records:
+                record["documents"] = self.crop_pdf(record)
+
+            dossiers += import_dossiers(records)
+
+        return dossiers
 
     def _post_process_value(self, identifier, value, parashift_id):
         post_process = self.post_process.get(identifier)
@@ -162,6 +180,11 @@ class ParashiftImporter:
 
         return file
 
+    overrides = {
+        "201726": {"gemeinde": "Hospental 1210"},
+        "203966": {"baurecht-nr": 807},
+    }
+
     def fetch_data(self, para_id):
         json_doc = self._get(self.DATA_URI_FORMAT.format(document_id=para_id)).json()
         record = self._record_blueprint
@@ -180,7 +203,10 @@ class ParashiftImporter:
                     ],
                     key=lambda k: k["page"],
                 )
-                record["gemeinde"] = value
+                record["gemeinde"] = (
+                    self.overrides.get(record["external-id"], {}).get("gemeinde")
+                    or value
+                )
 
                 continue
 
@@ -188,9 +214,9 @@ class ParashiftImporter:
                 continue
 
             try:
-                value = self._post_process_value(
-                    identifier, value, record["external-id"]
-                )
+                value = self.overrides.get(record["external-id"], {}).get(
+                    identifier
+                ) or self._post_process_value(identifier, value, record["external-id"])
             except Exception as e:
                 print(e)
                 return None
