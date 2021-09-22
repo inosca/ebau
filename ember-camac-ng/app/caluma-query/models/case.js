@@ -14,6 +14,7 @@ function getAnswer(document, slugOrSlugs) {
 export default class CustomCaseModel extends CaseModel {
   @service store;
   @service shoebox;
+  @service intl;
 
   getPersonData(question) {
     const answer = getAnswer(this.raw.document, question);
@@ -52,7 +53,10 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get instance() {
-    return this.store.peekRecord("instance", this.instanceId);
+    if (this.instanceId) {
+      return this.store.peekRecord("instance", this.instanceId);
+    }
+    return null;
   }
 
   get user() {
@@ -80,7 +84,7 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get dossierNr() {
-    return this.raw.meta["dossier-number"];
+    return this.raw.meta["dossier-number"] ?? this.instance.identifier;
   }
 
   get municipality() {
@@ -161,7 +165,11 @@ export default class CustomCaseModel extends CaseModel {
   }
   get caseStatus() {
     //TODO camac_legacy: Not yet implemented
-    return null;
+    return this.intl.t(`cases.status.${this.raw.status}`);
+  }
+
+  get caseType() {
+    return this.raw.workflow.name;
   }
 
   get buildingProjectStatus() {
@@ -223,9 +231,21 @@ export default class CustomCaseModel extends CaseModel {
     return null;
   }
 
+  get internalDocumentNumber() {
+    return getAnswer(this.raw.document, "");
+  }
+
+  get internalDocumentDescription() {
+    return getAnswer(this.raw.document, "");
+  }
+
   static fragment = `{
     meta
     id
+    status
+    workflow {
+      name
+    }
     document {
       answers(questions: [
         "applicant",

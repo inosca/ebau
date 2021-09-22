@@ -20,7 +20,7 @@ export function loadingTask(target, property, desc) {
 }
 
 export function objectFromQueryParams(...fields) {
-  // There is no easy way of putting the fileds directly into the queryParams array.
+  // There is no easy way of putting the fields directly into the queryParams array.
   // So you need to set the array yourself.
   return function (target, property, desc) {
     fields.forEach((field) => {
@@ -54,7 +54,6 @@ export function objectFromQueryParams(...fields) {
         this[key] = object[key];
       });
     };
-
     return desc;
   };
 }

@@ -1,0 +1,9 @@
+query GetWorkflow($filter: [WorkflowFilterSetType]) {
+  allWorkflows(filter: $filter) {
+    edges {
+      node {
+        id
+      }
+    }
+  }
+}

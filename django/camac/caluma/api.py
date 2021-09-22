@@ -40,6 +40,13 @@ class CalumaApi:
         form = self._get_main_form(instance)
         return form.slug if form else None
 
+    def _get_main_workflow(self, instance):
+        return instance.case.workflow
+
+    def get_workflow_slug(self, instance):
+        workflow = self._get_main_workflow(instance)
+        return workflow.slug if workflow else None
+
     def _get_main_document(self, instance):
         return instance.case.document
 
