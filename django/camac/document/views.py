@@ -26,8 +26,8 @@ from camac.notification.serializers import InstanceMergeSerializer
 from camac.swagger.utils import get_operation_description, group_param
 from camac.user.models import Service
 from camac.user.permissions import (
-    IsApplication,
     DefaultPermission,
+    IsApplication,
     ReadOnly,
     permission_aware,
 )
