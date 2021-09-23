@@ -267,7 +267,7 @@ PERMISSIONS = {
         },
         "organization_readonly": {ReadPermission: [12000000]},
         "commission": {ReadPermission: [12000004, 12000000, 12000002, 12000003]},
-        "portal user": {AdminServicePermission: [12000000]},
+        "portal user": {AdminServicePermission: [12000000], ReadPermission: [12000001]},
     },
     "demo": {"applicant": {AdminPermission: [250, 251]}},
 }
