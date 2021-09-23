@@ -79,6 +79,9 @@ export default class InstancesEditController extends Controller {
   @service router;
   @service ajax;
 
+  queryParams = ["group", "publication"];
+  @tracked publication = null;
+
   @computedTask("_modules", "model.instance.form.name")
   modules;
 
