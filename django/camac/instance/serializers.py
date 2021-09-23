@@ -119,6 +119,9 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
 
         return access_type
 
+    def get_access_type_for_public(self, obj):
+        return "public"
+
     def get_access_type_for_municipality(self, obj):
         return "municipality"
 

@@ -8,7 +8,7 @@ from camac.user.permissions import permission_aware
 from . import filters, models, serializers
 
 
-class ApplicantsView(ModelViewSet, InstanceQuerysetMixin):
+class ApplicantsView(InstanceQuerysetMixin, ModelViewSet):
     swagger_schema = None
     filterset_class = filters.ApplicantFilterSet
     serializer_class = serializers.ApplicantSerializer
@@ -48,7 +48,7 @@ class ApplicantsView(ModelViewSet, InstanceQuerysetMixin):
     def has_create_permission_for_canton(self):
         return False
 
-    def has_object_update_permission(self, obj):
+    def has_update_permission(self):
         return False
 
     @permission_aware
