@@ -184,7 +184,6 @@ class InstanceFilterSet(FilterSet):
 
 class CalumaInstanceFilterSet(InstanceFilterSet):
     is_paper = BooleanFilter(method="filter_is_paper")
-    is_applicant = BooleanFilter(method="filter_is_applicant")
 
     sanction_creator = NumberFilter(field_name="sanctions__service")
     sanction_control_instance = NumberFilter(field_name="sanctions__control_instance")
