@@ -5,7 +5,7 @@
         Gesuch
       </LinkTo>
     </li>
-    {{#if @model.meta.access-type}}
+    {{#if (not (eq @model.meta.access-type "public"))}}
       <li
         class={{if
           (eq this.router.currentRouteName "instances.edit.involvierte-personen")
@@ -48,8 +48,7 @@
         </LinkTo>
       </li>
     {{/if}}
-      {{!--
-      Publications are disabled because the legality of it is not clear
+    {{#if (not (eq @model.instance.state "new"))}}
       <li
         class={{if
           (eq this.router.currentRouteName "instances.edit.publikationsdokumente")
@@ -63,7 +62,7 @@
           Publikationsdokumente
         </LinkTo>
       </li>
-      --}}
+    {{/if}}
   </ul>
 
   {{#if (eq this.currentPage "form")}}

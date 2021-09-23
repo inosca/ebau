@@ -17,27 +17,24 @@
     </tr>
   </thead>
   <tbody>
-    {{#if this.publications.isRunning}}
+    {{#if this.getPublications.isRunning}}
       <tr>
         <td class="uk-text-center" colspan="5">
           <UkSpinner />
         </td>
       </tr>
     {{else}}
-      {{#each this.publicationList as |publication|}}
+      {{#each this.publications as |publication|}}
         <tr>
           <td>
-            {{#if (eq publication.status "accepted")}}
-              <LinkTo
-                @route="instances.edit"
-                @model={{publication.instance.id}}
-                title="Klicken Sie um das Gesuch anzuschauen"
-              >
-                {{publication.instance.identifier}}
-              </LinkTo>
-            {{else}}
+            <LinkTo
+              @route="instances.edit"
+              @model={{publication.instance.id}}
+              @query={{hash publication=publication.id}}
+              title="Klicken Sie um das Gesuch anzuschauen"
+            >
               {{publication.instance.identifier}}
-            {{/if}}
+            </LinkTo>
           </td>
           <td>
             {{publication.description}}
@@ -46,35 +43,13 @@
             {{publication.instance.location.name}}
           </td>
           <td>
-            {{#if (eq publication.status "pending")}}
-              <span
-                class="uk-icon-button"
-                uk-icon="clock"
-                title="Die Gemeinde bearbeitet ihre Anfrage"
-              ></span>
-            {{else if (eq publication.status "accepted")}}
-              <button
-                type="button"
-                title="Klicken Sie um das Gesuch anzuschauen"
-                class="uk-icon-button"
-                uk-icon="file-text"
-                {{on "click" (perform this.navigate publication.instance)}}
-              ></button>
-            {{else if (eq publication.status "denied")}}
-              <span
-                class="uk-icon-button"
-                uk-icon="minus-circle"
-                title="Ihnen wurde der Zugriff verwiesen"
-              ></span>
-            {{else}}
-              <button
-                type="button"
-                title="Zugriff anfordern"
-                class="uk-icon-button"
-                uk-icon="pull"
-                onclick={{perform this.requestPermission publication}}
-              ></button>
-            {{/if}}
+            <button
+              type="button"
+              title="Klicken Sie um das Gesuch anzuschauen"
+              class="uk-icon-button"
+              uk-icon="file-text"
+              {{on "click" (perform this.navigate publication)}}
+            ></button>
           </td>
         </tr>
       {{else}}
@@ -87,35 +62,3 @@
     {{/if}}
   </tbody>
 </table>
-
-<div id="modal-publication" uk-modal>
-  <div class="uk-modal-dialog uk-modal-body">
-    <form {{on "submit" (perform this.requestPermission)}}>
-      <button type="button" class="uk-modal-close-default" uk-close></button>
-
-      <h2 class="uk-modal-title">
-        Zugriff zur Publikation anfordern
-      </h2>
-
-      <div class="uk-margin">
-        <label class="uk-form-label uk-text-bolder">
-          Mitteilung
-        </label>
-        <Textarea class="uk-textarea" />
-      </div>
-
-      <div class="uk-text-right">
-        <UkButton class="uk-modal-close">
-          Abbrechen
-        </UkButton>
-        <UkButton
-          @loading={{this.requestPermission.isRunning}}
-          @color="primary"
-          @type="submit"
-        >
-          Anfragen
-        </UkButton>
-      </div>
-    </form>
-  </div>
-</div>

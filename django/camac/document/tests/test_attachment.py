@@ -1036,9 +1036,9 @@ def test_attachment_public_access(
     attachment_attachment_section_factory,
     publication_entry_factory,
     application_settings,
+    settings,
 ):
     """Test unauthenticated, public access to publicated attachments."""
-
     pub_instance = publication_entry_factory(
         publication_date=timezone.now() - timedelta(days=1), is_published=True
     ).instance
@@ -1061,12 +1061,19 @@ def test_attachment_public_access(
     application_settings["PUBLICATION_BACKEND"] = "camac-ng"
     application_settings["PUBLICATION_DURATION"] = timedelta(days=30)
 
-    # publicated attachments are visible
+    # published attachments are visible
     res = client.get(url)
     assert res.status_code == status.HTTP_200_OK
     assert len(res.json()["data"]) == 1
     data = res.json()["data"][0]
     assert data["id"] == str(aasa.pk)
+
+    # Kt. SZ doesn't have public access to documents
+    settings.APPLICATION_NAME = "kt_schwyz"
+    res = client.get(url)
+    assert res.status_code == status.HTTP_401_UNAUTHORIZED
+
+    settings.APPLICATION_NAME = "demo"
 
     url = reverse("attachment-detail", args=[aasa.pk])
     res = client.get(url)

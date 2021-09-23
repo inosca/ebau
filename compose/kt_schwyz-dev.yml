@@ -62,6 +62,7 @@ services:
       - DATABASE_USER=camac
       - DJANGO_EMAIL_HOST=mailhog
       - DJANGO_EMAIL_PORT=1025
+      - DJANGO_MERGE_DATE_FORMAT=%d.%m.%Y
       - OAUTHLIB_INSECURE_TRANSPORT=1
       - OIDC_USERINFO_ENDPOINT=http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
       - GWR_FERNET_KEY=GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=

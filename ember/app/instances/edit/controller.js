@@ -1,7 +1,6 @@
 import { getOwner } from "@ember/application";
 import Controller from "@ember/controller";
 import EmberObject, { computed, get } from "@ember/object";
-import { gt } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import computedTask from "citizen-portal/lib/computed-task";
@@ -80,12 +79,15 @@ export default class InstancesEditController extends Controller {
   @service router;
   @service ajax;
 
+  queryParams = ["group", "publication"];
+  @tracked publication = null;
+
   @computedTask("_modules", "model.instance.form.name")
   modules;
 
   @task
   *_modules() {
-    const { forms, modules } = yield this.get("questionStore.config");
+    const { forms, modules } = yield this.questionStore.config;
 
     const usedModules = (forms[this.get("model.instance.form.name")] || [])
       .map((name) => ({ name, ...modules[name] } || null))
@@ -97,9 +99,9 @@ export default class InstancesEditController extends Controller {
           container: getOwner(this).__container__,
 
           link: `instances.edit.${name}`,
-          instance: this.get("model.instance.id"),
-          editableTypes: this.get("model.meta.editable"),
-          isApplicant: this.get("model.meta.access-type") === "applicant",
+          instance: this.model.instance.id,
+          editableTypes: this.model.meta.editable,
+          isApplicant: this.model.meta["access-type"] === "applicant",
           name,
           title,
           questions,
@@ -121,7 +123,7 @@ export default class InstancesEditController extends Controller {
   @computed("modules.lastSuccessful.value.[]")
   get navigation() {
     return (this.modules.lastSuccessful?.value || []).reduce((nav, mod) => {
-      if (mod.get("parent")) {
+      if (mod.parent) {
         const parent = nav.find((n) => n.get("name") === mod.get("parent"));
 
         parent.set("submodules", [
@@ -131,11 +133,11 @@ export default class InstancesEditController extends Controller {
           mod,
         ]);
       } else if (
-        !this.get("model.meta.access-type") &&
-        mod.get("name") !== "gesuchsunterlagen"
+        this.model.meta["access-type"] === "public" &&
+        mod.name !== "gesuchsunterlagen"
       ) {
         nav.push(mod);
-      } else {
+      } else if (this.model.meta["access-type"] !== "public" && !mod.parent) {
         nav.push(mod);
       }
 
@@ -154,7 +156,7 @@ export default class InstancesEditController extends Controller {
       ...(this.modules.lastSuccessful?.value || [])
         .filter(({ state }) => Boolean(state))
         .mapBy("link"),
-      ...(this.get("model.meta.editable").some((e) => editableTypes.includes(e))
+      ...(this.model.meta.editable.some((e) => editableTypes.includes(e))
         ? ["instances.edit.submit"]
         : []),
     ];
@@ -162,10 +164,12 @@ export default class InstancesEditController extends Controller {
 
   @computed("links.[]", "router.currentRouteName")
   get currentIndex() {
-    return (this.links || []).indexOf(this.get("router.currentRouteName"));
+    return (this.links || []).indexOf(this.router.currentRouteName);
   }
 
-  @gt("currentIndex", 0) hasPrev;
+  get hasPrev() {
+    return this.currentIndex > 0;
+  }
   @computed("links.length", "currentIndex.lastSuccessful.value")
   get hasNext() {
     return this.currentIndex < (this.links.length || 0) - 1;
@@ -173,7 +177,7 @@ export default class InstancesEditController extends Controller {
 
   @computed("router.currentRouteName")
   get currentPage() {
-    switch (this.get("router.currentRouteName")) {
+    switch (this.router.currentRouteName) {
       case "instances.edit.involvierte-personen":
         return "applicants";
       case "instances.edit.freigegebene-unterlagen":

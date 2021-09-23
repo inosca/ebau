@@ -260,7 +260,7 @@ class InstanceQuerysetMixin(object):
                         "publication_entries__is_published"
                     ): True,
                 }
-            )
+            ).distinct()
 
         return queryset.none()
 
@@ -338,6 +338,9 @@ class InstanceEditableMixin(AttributeMixin):
         return {"form", "document"}
 
     def get_editable_for_reader(self, instance):
+        return set()
+
+    def get_editable_for_public(self, instance):
         return set()
 
     def get_editable_for_public_reader(self, instance):
