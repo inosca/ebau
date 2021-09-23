@@ -25,7 +25,12 @@ from camac.instance.models import Instance
 from camac.notification.serializers import InstanceMergeSerializer
 from camac.swagger.utils import get_operation_description, group_param
 from camac.user.models import Service
-from camac.user.permissions import DefaultOrPublicReadOnly, permission_aware
+from camac.user.permissions import (
+    DefaultPermission,
+    IsApplication,
+    ReadOnly,
+    permission_aware,
+)
 from camac.utils import DocxRenderer
 
 from . import filters, models, permissions, serializers
@@ -130,7 +135,18 @@ class AttachmentQuerysetMixin:
         ).distinct()
 
     def get_base_queryset_for_public(self):
-        return super().get_base_queryset().filter(context__isPublished=True)
+        return (
+            super()
+            .get_base_queryset()
+            .filter(
+                Q(context__isPublished=True)
+                | Q(
+                    attachment_sections__pk__in=settings.APPLICATION.get(
+                        "PUBLICATION_ATTACHMENT_SECTION", []
+                    )
+                )
+            )
+        )
 
 
 class AttachmentView(
@@ -140,7 +156,7 @@ class AttachmentView(
     ModelViewSet,
 ):
     queryset = models.Attachment.objects.all()
-    permission_classes = [DefaultOrPublicReadOnly]
+    permission_classes = [DefaultPermission | (~IsApplication("kt_schwyz") & ReadOnly)]
     serializer_class = serializers.AttachmentSerializer
     filterset_class = filters.AttachmentFilterSet
     instance_editable_permission = "document"
@@ -241,7 +257,7 @@ class AttachmentDownloadView(
     pagination_class = None
     # use empty serializer to avoid an exception on schema generation
     serializer_class = Serializer
-    permission_classes = [DefaultOrPublicReadOnly]
+    permission_classes = [DefaultPermission | (~IsApplication("kt_schwyz") & ReadOnly)]
 
     def _create_history_entry(self, request, attachment):
         fields = {
