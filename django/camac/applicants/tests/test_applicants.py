@@ -15,16 +15,22 @@ def app_settings_with_notif_templates(application_settings, notification_templat
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+    "role__name,instance__user,expected_applicants",
+    [
+        ("Applicant", LazyFixture("admin_user"), 1),
+        ("Public", LazyFixture("user"), 0),
+    ],
 )
-def test_applicant_list(admin_client, role, be_instance, django_assert_num_queries):
+def test_applicant_list(
+    admin_client, role, be_instance, django_assert_num_queries, expected_applicants
+):
     url = reverse("applicant-list")
 
     with django_assert_num_queries(2):
         response = admin_client.get(url)
 
         assert response.status_code == status.HTTP_200_OK
-        assert len(response.json()["data"]) == 1
+        assert len(response.json()["data"]) == expected_applicants
 
 
 def test_applicant_update(admin_client, be_instance):
@@ -48,11 +54,11 @@ def test_applicant_update(admin_client, be_instance):
 )
 def test_applicant_delete(
     admin_client,
-    role,
     be_instance,
     applicant_factory,
     extra_applicants,
     expected_status,
+    activation,
 ):
     if extra_applicants:
         applicant_factory.create_batch(extra_applicants, instance=be_instance)

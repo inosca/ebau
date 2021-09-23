@@ -3274,6 +3274,7 @@ class PublicationEntry(models.Model):
         blank=True,
         null=True,
     )
+    publication_views = models.IntegerField(default=0)
 
     class Meta:
         managed = True
@@ -3324,19 +3325,6 @@ class Publication(models.Model):
     class Meta:
         managed = True
         db_table = "PUBLICATION"
-
-
-class PublicationEntryUserPermission(models.Model):
-    PENDING = "pending"
-    STATES = [(PENDING, "Pending"), ("accepted", "Accepted"), ("denied", "Denied")]
-    status = models.CharField(max_length=10, choices=STATES, default=PENDING)
-    publication_entry = models.ForeignKey(
-        PublicationEntry, models.DO_NOTHING, related_name="user_permissions"
-    )
-    user = models.ForeignKey("user.User", models.DO_NOTHING, related_name="+")
-
-    class Meta:
-        unique_together = ["publication_entry", "user"]
 
 
 class Question(MultilingualModel, models.Model):

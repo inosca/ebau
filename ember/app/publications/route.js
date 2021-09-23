@@ -1,10 +1,8 @@
 import Route from "@ember/routing/route";
 
-export default Route.extend({
-  setupController(controller, ...args) {
-    this._super(...args);
-
-    controller.publications.perform();
-    controller.publicationPermissions.perform();
-  },
-});
+export default class PublicationsRoute extends Route {
+  setupController(controller, model) {
+    super.setupController(controller, model);
+    controller.getPublications.perform();
+  }
+}

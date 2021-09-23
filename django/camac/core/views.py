@@ -3,6 +3,7 @@ from uuid import uuid4
 
 import requests
 from django.conf import settings
+from django.db.models import F
 from django.http import HttpResponse
 from django.utils import timezone
 from django.utils.encoding import escape_uri_path, smart_bytes
@@ -292,50 +293,12 @@ class PublicationEntryView(ModelViewSet):
 
         return Response([], 204)
 
-
-class PublicationEntryUserPermissionView(ModelViewSet):
-    swagger_schema = None
-    filterset_class = filters.PublicationEntryUserPermissionFilterSet
-    serializer_class = serializers.PublicationEntryUserPermissionSerializer
-    queryset = models.PublicationEntryUserPermission.objects.all()
-    prefetch_for_includes = {"user": ["user"]}
-
-    @permission_aware
-    def get_queryset(self):
-        return models.PublicationEntryUserPermission.objects.filter(
-            user=self.request.user,
-            publication_entry__publication_date__gte=timezone.now()
-            - settings.APPLICATION.get("PUBLICATION_DURATION"),
-            publication_entry__publication_date__lt=timezone.now(),
+    @action(methods=["post"], detail=True)
+    def viewed(self, request, pk=None):
+        models.PublicationEntry.objects.filter(pk=pk).update(
+            publication_views=F("publication_views") + 1
         )
-
-    def get_queryset_for_municipality(self):
-        return models.PublicationEntryUserPermission.objects.filter(
-            publication_entry__instance__group=self.request.group
-        )
-
-    def get_queryset_for_service(self):
-        return models.PublicationEntryUserPermission.objects.none()
-
-    @permission_aware
-    def has_create_permission(self):
-        return True
-
-    def has_create_permission_for_municipality(self):
-        return False
-
-    def has_create_permission_for_service(self):
-        return False
-
-    @permission_aware
-    def has_update_permission(self):
-        return False
-
-    def has_update_permission_for_municipality(self):
-        return True
-
-    def has_destroy_permission(self):
-        return False
+        return Response([], 204)
 
 
 class SendfileHttpResponse(HttpResponse):

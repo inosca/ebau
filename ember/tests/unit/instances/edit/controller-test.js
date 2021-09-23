@@ -91,8 +91,8 @@ module("Unit | Controller | instances/edit", function (hooks) {
 
     const controller = this.owner.lookup("controller:instances/edit");
 
-    controller.set("model", this.model);
-    controller.set("router", this.router);
+    controller.model = this.model;
+    controller.router = this.router;
 
     const modules = await run(async () => controller.get("modules").perform());
 
@@ -104,8 +104,8 @@ module("Unit | Controller | instances/edit", function (hooks) {
 
     const controller = this.owner.lookup("controller:instances/edit");
 
-    controller.set("model", this.model);
-    controller.set("router", this.router);
+    controller.model = this.model;
+    controller.router = this.router;
 
     await run(async () => controller.get("modules").perform());
 
@@ -124,13 +124,12 @@ module("Unit | Controller | instances/edit", function (hooks) {
 
     const controller = this.owner.lookup("controller:instances/edit");
 
-    controller.set("model", this.model);
-    controller.set("router", this.router);
+    controller.model = this.model;
+    controller.router = this.router;
 
-    await run(async () => controller.get("modules").perform());
+    await run(async () => controller.modules.perform());
 
-    const navigation = controller.get("navigation");
-
+    const navigation = controller.navigation;
     assert.equal(navigation.length, 3);
     assert.deepEqual(
       navigation.map(({ name }) => name),
@@ -191,11 +190,11 @@ module("Unit | Controller | instances/edit", function (hooks) {
 
     const controller = this.owner.lookup("controller:instances/edit");
 
-    controller.set("model", {
+    controller.model = {
       ...this.model,
       meta: { editable: ["document"], "access-type": "applicant" },
-    });
-    controller.set("router", this.router);
+    };
+    controller.router = this.router;
 
     const modules = await run(async () => controller.get("modules").perform());
 
