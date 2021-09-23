@@ -144,9 +144,30 @@ class ReadOnly(permissions.BasePermission):
         return request.method in permissions.SAFE_METHODS
 
 
-DefaultOrPublicReadOnly = (
+DefaultPermission = (
     # identical to DEFAULT_PERMISSION_CLASSES
     permissions.IsAuthenticated
     & IsGroupMember
     & ViewPermissions
-) | ReadOnly
+)
+
+DefaultOrPublicReadOnly = DefaultPermission | ReadOnly
+
+
+class ReadOnly(permissions.BasePermission):
+    def has_permission(self, request, view):
+        return request.method in permissions.SAFE_METHODS
+
+    def has_object_permission(self, request, view, obj):
+        return request.method in permissions.SAFE_METHODS
+
+
+def IsApplication(application):
+    class DynamicPermission(permissions.BasePermission):
+        def has_permission(self, request, view):
+            return settings.APPLICATION_NAME == application
+
+        def has_object_permission(self, request, view, obj):
+            return settings.APPLICATION_NAME == application
+
+    return DynamicPermission
