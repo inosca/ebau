@@ -10,7 +10,7 @@ export default class InstancesEditRoute extends Route {
 
   queryParams = {
     group: { refreshModel: true },
-    publication: {},
+    publication: { refreshModel: true },
   };
 
   async model({ instance_id: id, group, publication = false }) {
@@ -96,13 +96,14 @@ export default class InstancesEditRoute extends Route {
     }
   }
 
-  resetController(_, isExiting) {
+  resetController(controller, isExiting) {
     if (isExiting) {
       // We clear the store and the question store at this point so we do not
       // have too much unnecessary data in the memory
       this.store.unloadAll();
       this.questionStore.clear();
       this.session.set("data.enforcePublicAccess", false);
+      controller.publication = null;
     }
   }
 }
