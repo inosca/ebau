@@ -1,4 +1,3 @@
-import EmberObject from "@ember/object";
 import { render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import setupMirage from "ember-cli-mirage/test-support/setup-mirage";
@@ -12,13 +11,14 @@ module("Integration | Component | journal-entry", function (hooks) {
   setupIntl(hooks);
 
   test("it renders", async function (assert) {
-    this.set(
-      "journal",
-      EmberObject.create({ user: { id: 1 }, text: "Test Text" })
-    );
+    const journal = this.server.create("journal-entry");
+    const model = await this.owner
+      .lookup("service:store")
+      .query("journal-entry", { include: "user" });
+    this.set("model", model.toArray()[0]);
 
-    await render(hbs`<JournalEntry @journalEntry={{this.journal}}/>`);
+    await render(hbs`<JournalEntry @journalEntry={{this.model}}/>`);
 
-    assert.dom(".journal-entry-text").hasText("Test Text");
+    assert.dom(".journal-entry-text").hasText(journal.text);
   });
 });
