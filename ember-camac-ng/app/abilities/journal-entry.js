@@ -4,13 +4,15 @@ import { Ability } from "ember-can";
 export default class JournalEntryAbility extends Ability {
   @service shoebox;
 
-  get canEdit() {
-    if (this.model) {
-      return (
-        !this.shoebox.isReadOnlyRole &&
-        this.shoebox.content.userId === parseInt(this.model.get("user.id"))
-      );
-    }
+  get canAdd() {
     return !this.shoebox.isReadOnlyRole;
+  }
+
+  get canEdit() {
+    return (
+      this.canAdd &&
+      this.shoebox.content.userId ===
+        parseInt(this.model?.belongsTo("user").id())
+    );
   }
 }
