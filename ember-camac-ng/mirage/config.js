@@ -16,6 +16,7 @@ export default function () {
 
   this.get("/api/v1/journal-entries");
   this.post("/api/v1/journal-entries");
+  this.get("/api/v1/journal-entries/:id");
   this.patch("/api/v1/journal-entries/:id");
 
   this.get("/api/v1/responsible-services");
