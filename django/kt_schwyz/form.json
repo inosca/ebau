@@ -565,7 +565,16 @@
       "gesuchsunterlagen",
       "meta"
     ],
-    "geschaeftskontrolle": ["geschaeftskontrolle"]
+    "geschaeftskontrolle": ["geschaeftskontrolle"],
+    "migriertes-dossier": [
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft",
+      "personalien.projektverfasser-planer",
+      "grundinformationen",
+      "grundinformationen.migriertes-dossier",
+      "migriertes-dossier"
+    ]
   },
   "modules": {
     "grundinformationen": {
@@ -702,6 +711,16 @@
       "title": "Ausnahmebewilligungen",
       "parent": "grundinformationen",
       "questions": ["ausnahmen", "ausnahmen-andere", "ausnahmen-begrundung"]
+    },
+    "grundinformationen.migriertes-dossier": {
+      "title": "Lokalisierung",
+      "parent": "grundinformationen",
+      "questions": [
+        "bezeichnung",
+        "projektnummer",
+        "parzellen",
+        "punkte"
+      ]
     },
     "personalien": {
       "title": "Personalien",
@@ -1239,6 +1258,29 @@
       "title": "Meta",
       "parent": null,
       "questions": ["meta"]
+    },
+    "migriertes-dossier": {
+      "title": "Daten",
+      "parent": null,
+      "questions": [
+        "kommunale-gesuchsnummer",
+        "kantonale-gesuchsnummer",
+        "parzellen",
+        "punkte",
+        "bezeichnung",
+        "betroffene-nutzungszonen",
+        "verfahrensart-migriertes-dossier",
+        "datum-gesuchseingang",
+        "publikationsdatum",
+        "tb-datum",
+        "datum-baubeginn",
+        "datum-schnurgeruestabnahme",
+        "datum-schlussabnahme",
+        "datum-bauende",
+        "freies-textfeld-1",
+        "freies-textfeld-2",
+        "link"
+      ]
     }
   },
   "questions": {
@@ -7291,6 +7333,78 @@
     },
     "meta": {
       "label": "Meta",
+      "type": "text",
+      "required": false,
+      "config": {}
+    },
+    "kommunale-gesuchsnummer": {
+      "label": "Kommunale Gesuchsnummer",
+      "type": "text",
+      "required": true,
+      "config": {}
+    },
+    "kantonale-gesuchsnummer": {
+      "label": "Kantonale Gesuchsnummer",
+      "type": "text",
+      "required": false,
+      "config": {}
+    },
+    "verfahrensart-migriertes-dossier": {
+      "label": "Verfahrensart",
+      "type": "text",
+      "required": false,
+      "config": {}
+    },
+    "datum-gesuchseingang": {
+      "label": "Datum Gesuchseingang",
+      "type": "date",
+      "required": true,
+      "config": {}
+    },
+    "publikationsdatum": {
+      "label": "Publikationsdatum",
+      "type": "date",
+      "required": false,
+      "config": {}
+    },
+    "datum-baubeginn": {
+      "label": "Datum Baubeginn",
+      "type": "date",
+      "required": false,
+      "config": {}
+    },
+    "datum-schnurgeruestabnahme": {
+      "label": "Datum Schnurgerüstabnahme",
+      "type": "date",
+      "required": false,
+      "config": {}
+    },
+    "datum-schlussabnahme": {
+      "label": "Datum Schlussabnahme",
+      "type": "date",
+      "required": false,
+      "config": {}
+    },
+    "datum-bauende": {
+      "label": "Datum Bauende",
+      "type": "date",
+      "required": false,
+      "config": {}
+    },
+    "freies-textfeld-1": {
+      "label": "Freies Textfeld 1",
+      "type": "text",
+      "required": false,
+      "config": {}
+    },
+    "freies-textfeld-2": {
+      "label": "Freies Textfeld 2",
+      "type": "text",
+      "required": false,
+      "config": {}
+    },
+    "link": {
+      "label": "Link",
       "type": "text",
       "required": false,
       "config": {}
