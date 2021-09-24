@@ -64,6 +64,27 @@
   },
   {
     "model": "caluma_form.historicaldocument",
+    "pk": "3b0439a9-6ddc-4f46-b5d3-ed256b85ce0c",
+    "fields": {
+      "history_user_id": "admin",
+      "created_at": "2021-09-15T12:25:58.066Z",
+      "modified_at": "2021-09-15T12:25:58.066Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "id": "8bc58126-ea46-4656-bb77-c9491848a066",
+      "meta": {},
+      "family": "8bc58126-ea46-4656-bb77-c9491848a066",
+      "form": "haustechnik",
+      "source": null,
+      "history_date": "2021-09-15T12:25:58.067Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicaldocument",
     "pk": "53d6e54b-f22f-445a-93c8-fbe2914f7987",
     "fields": {
       "history_user_id": "admin",
@@ -253,6 +274,27 @@
   },
   {
     "model": "caluma_form.historicaldocument",
+    "pk": "d21f573e-ca49-44a9-b065-a25362690f4d",
+    "fields": {
+      "history_user_id": "admin",
+      "created_at": "2021-09-15T12:25:58.066Z",
+      "modified_at": "2021-09-15T12:26:02.205Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "id": "8bc58126-ea46-4656-bb77-c9491848a066",
+      "meta": {},
+      "family": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "form": "haustechnik",
+      "source": null,
+      "history_date": "2021-09-15T12:26:02.206Z",
+      "history_change_reason": null,
+      "history_type": "~"
+    }
+  },
+  {
+    "model": "caluma_form.historicaldocument",
     "pk": "d5ccfb09-7fd2-4712-b191-29ed55833fa2",
     "fields": {
       "history_user_id": "admin",
@@ -268,6 +310,27 @@
       "form": "personal-data-table",
       "source": null,
       "history_date": "2021-04-16T12:45:30.176Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicaldocument",
+    "pk": "f8a41dbf-0bc9-4f5b-b6f7-52597de970ea",
+    "fields": {
+      "history_user_id": "admin",
+      "created_at": "2021-09-15T12:25:46.968Z",
+      "modified_at": "2021-09-15T12:25:46.968Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "id": "8122bc8e-e6ac-4a5e-ad93-111a89afb532",
+      "meta": {},
+      "family": "8122bc8e-e6ac-4a5e-ad93-111a89afb532",
+      "form": "gebaeude-tabelle",
+      "source": null,
+      "history_date": "2021-09-15T12:25:46.969Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -322,6 +385,22 @@
   },
   {
     "model": "caluma_form.document",
+    "pk": "8122bc8e-e6ac-4a5e-ad93-111a89afb532",
+    "fields": {
+      "created_at": "2021-09-15T12:25:46.968Z",
+      "modified_at": "2021-09-15T12:25:46.968Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "family": "8122bc8e-e6ac-4a5e-ad93-111a89afb532",
+      "form": "gebaeude-tabelle",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "caluma_form.document",
     "pk": "87223761-ac43-4d36-986c-30692b858d56",
     "fields": {
       "created_at": "2021-04-16T12:45:19.343Z",
@@ -348,6 +427,22 @@
       "modified_by_group": null,
       "family": "a2a3c0b2-26be-496a-b733-97c00401c2f5",
       "form": "reklame-tabelle",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "caluma_form.document",
+    "pk": "8bc58126-ea46-4656-bb77-c9491848a066",
+    "fields": {
+      "created_at": "2021-09-15T12:25:58.066Z",
+      "modified_at": "2021-09-15T12:26:02.205Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "family": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "form": "haustechnik",
       "source": null,
       "meta": {}
     }
@@ -1050,6 +1145,30 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "317a54f2-5c6a-4801-a912-9ebfc8903dd7",
+    "fields": {
+      "created_at": "2021-09-15T12:26:02.178Z",
+      "modified_at": "2021-09-15T12:26:02.178Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "history_question_type": "table",
+      "id": "ddad6cf0-a131-4308-b956-98eeb8f205ee",
+      "value": null,
+      "meta": {},
+      "date": null,
+      "history_user_id": "admin",
+      "question": "haustechnik-tabelle",
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "file": null,
+      "history_date": "2021-09-15T12:26:02.179Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "31be6b4d-0d9b-480f-b5a6-a7519ee4462c",
     "fields": {
       "created_at": "2021-04-19T05:45:25.685Z",
@@ -1164,6 +1283,30 @@
       "document": "6f7e2a73-f992-4202-8fe6-fbb90bdf926a",
       "file": null,
       "history_date": "2021-04-19T05:44:55.967Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "42cd5b42-c605-41bb-8b21-4f10a7c110f4",
+    "fields": {
+      "created_at": "2021-09-15T12:26:31.283Z",
+      "modified_at": "2021-09-15T12:26:31.283Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "history_question_type": "multiple_choice",
+      "id": "057c297c-c50f-4ec4-94b3-b045e8490542",
+      "value": ["grundrissplaene-ja"],
+      "meta": {},
+      "date": null,
+      "history_user_id": "admin",
+      "question": "grundrissplaene",
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "file": null,
+      "history_date": "2021-09-15T12:26:31.284Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -1314,6 +1457,30 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "5293e5f6-935a-4ff1-b3bc-6e6a75705083",
+    "fields": {
+      "created_at": "2021-09-15T12:26:08.711Z",
+      "modified_at": "2021-09-15T12:26:08.711Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "history_question_type": "choice",
+      "id": "1033181b-2bf6-41f2-b143-43072d0a6e53",
+      "value": "aushub-erforderlich-nein",
+      "meta": {},
+      "date": null,
+      "history_user_id": "admin",
+      "question": "aushub-erforderlich",
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "file": null,
+      "history_date": "2021-09-15T12:26:08.712Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "53f45b48-4378-4b28-bfe6-6b8bf0a580ac",
     "fields": {
       "created_at": "2021-04-19T05:48:46.393Z",
@@ -1410,6 +1577,30 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "5a59e13e-a66a-40ca-a3a1-6c3bc9193cfa",
+    "fields": {
+      "created_at": "2021-09-15T12:26:31.982Z",
+      "modified_at": "2021-09-15T12:26:31.982Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "history_question_type": "multiple_choice",
+      "id": "5432520d-89c8-4e80-8159-2b07a9e649e9",
+      "value": ["schnittplaene-ja"],
+      "meta": {},
+      "date": null,
+      "history_user_id": "admin",
+      "question": "schnittplaene",
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "file": null,
+      "history_date": "2021-09-15T12:26:31.983Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "5b00ec9c-41d4-45d6-88f6-bdbe01c5b95f",
     "fields": {
       "created_at": "2021-04-16T12:45:21.959Z",
@@ -1428,6 +1619,30 @@
       "document": "87223761-ac43-4d36-986c-30692b858d56",
       "file": null,
       "history_date": "2021-04-16T12:45:21.960Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "5b56b366-d171-44e4-bb43-e2beee2783c7",
+    "fields": {
+      "created_at": "2021-09-15T12:26:01.080Z",
+      "modified_at": "2021-09-15T12:26:01.081Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "history_question_type": "choice",
+      "id": "f6f87e8c-a429-46b8-a137-947cb76c64b5",
+      "value": "haustechnische-anlagen-erstellt-nein",
+      "meta": {},
+      "date": null,
+      "history_user_id": "admin",
+      "question": "haustechnische-anlagen-erstellt",
+      "document": "8bc58126-ea46-4656-bb77-c9491848a066",
+      "file": null,
+      "history_date": "2021-09-15T12:26:01.081Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -1500,6 +1715,30 @@
       "document": "c3f6bf95-85d4-44ee-8649-d3a6a8281de1",
       "file": null,
       "history_date": "2021-04-19T05:45:05.862Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "66a9ac42-8ee7-4bbf-b9a6-9408c23f7220",
+    "fields": {
+      "created_at": "2021-09-15T12:26:29.286Z",
+      "modified_at": "2021-09-15T12:26:29.286Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "history_question_type": "multiple_choice",
+      "id": "baa70b80-4493-4c27-8987-49c5ab88c81a",
+      "value": ["brandschutzplan-ja"],
+      "meta": {},
+      "date": null,
+      "history_user_id": "admin",
+      "question": "brandschutzplan",
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "file": null,
+      "history_date": "2021-09-15T12:26:29.287Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -1746,6 +1985,30 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "87c48935-8574-4c37-9500-d908a4b9631f",
+    "fields": {
+      "created_at": "2021-09-15T12:26:30.543Z",
+      "modified_at": "2021-09-15T12:26:30.543Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "history_question_type": "multiple_choice",
+      "id": "8df3c1aa-a9dc-4361-a1e6-2f930b58b742",
+      "value": ["brandschutzkonzept-ja"],
+      "meta": {},
+      "date": null,
+      "history_user_id": "admin",
+      "question": "brandschutzkonzept",
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "file": null,
+      "history_date": "2021-09-15T12:26:30.544Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "8a5d9962-c4fd-492d-b14f-d9c5ba38d569",
     "fields": {
       "created_at": "2021-04-16T12:45:09.466Z",
@@ -1932,6 +2195,30 @@
       "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
       "file": null,
       "history_date": "2021-04-16T12:46:24.389Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "a092688d-0838-48f7-9df7-4addcbf167fe",
+    "fields": {
+      "created_at": "2021-09-15T12:26:21.327Z",
+      "modified_at": "2021-09-15T12:26:21.327Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "history_question_type": "multiple_choice",
+      "id": "c1752f1c-475d-4e31-b7d4-903105d01f4e",
+      "value": ["das-vorhaben-betrifft-keine-energetisch-relevanten-bauten"],
+      "meta": {},
+      "date": null,
+      "history_user_id": "admin",
+      "question": "das-vorhaben-betrifft",
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "file": null,
+      "history_date": "2021-09-15T12:26:21.329Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -2172,6 +2459,30 @@
       "document": "a2a3c0b2-26be-496a-b733-97c00401c2f5",
       "file": null,
       "history_date": "2021-04-16T12:48:21.028Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "b9372581-ade2-4eb8-8e3b-687bb045fb7d",
+    "fields": {
+      "created_at": "2021-09-15T12:25:53.387Z",
+      "modified_at": "2021-09-15T12:25:53.387Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "history_question_type": "choice",
+      "id": "65f030fe-2f2a-4e4f-8326-4a77fb398e8a",
+      "value": "art-der-hochbaute-einfamilienhaus",
+      "meta": {},
+      "date": null,
+      "history_user_id": "admin",
+      "question": "art-der-hochbaute",
+      "document": "900c58ae-642c-4f79-8586-1dcc09d60f4a",
+      "file": null,
+      "history_date": "2021-09-15T12:25:53.388Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -2562,6 +2873,30 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "dae78aab-f153-4297-b377-eff8c38374b3",
+    "fields": {
+      "created_at": "2021-09-15T12:26:32.580Z",
+      "modified_at": "2021-09-15T12:26:32.580Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "history_question_type": "multiple_choice",
+      "id": "c279be44-ea3c-4178-a158-1aca0a718de0",
+      "value": ["fassadenplaene-ja"],
+      "meta": {},
+      "date": null,
+      "history_user_id": "admin",
+      "question": "fassadenplaene",
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "file": null,
+      "history_date": "2021-09-15T12:26:32.581Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "e16e266d-0679-4d48-8eaa-8116aea64bb9",
     "fields": {
       "created_at": "2021-04-16T12:48:38.472Z",
@@ -2778,6 +3113,30 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "ef015d4e-28e1-4333-8a6b-e3a78513c3d6",
+    "fields": {
+      "created_at": "2021-09-15T12:26:28.564Z",
+      "modified_at": "2021-09-15T12:26:28.564Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "history_question_type": "multiple_choice",
+      "id": "fb3b9caf-975a-4635-a1ca-e94a21865095",
+      "value": ["situationsplan-1-500-ja"],
+      "meta": {},
+      "date": null,
+      "history_user_id": "admin",
+      "question": "situationsplan-1-500",
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "file": null,
+      "history_date": "2021-09-15T12:26:28.565Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "ef4aa436-db47-4b66-99c4-b060b4459a3a",
     "fields": {
       "created_at": "2021-04-16T12:46:19.078Z",
@@ -2796,6 +3155,30 @@
       "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
       "file": null,
       "history_date": "2021-04-16T12:46:19.079Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "f224f16b-6fd8-473b-9baa-9258c5674e84",
+    "fields": {
+      "created_at": "2021-09-15T12:26:34.233Z",
+      "modified_at": "2021-09-15T12:26:34.233Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "history_question_type": "multiple_choice",
+      "id": "52057376-b2df-4ff6-bab2-aec9abadd2a2",
+      "value": ["werkleitungsplan-ja"],
+      "meta": {},
+      "date": null,
+      "history_user_id": "admin",
+      "question": "werkleitungsplan",
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "file": null,
+      "history_date": "2021-09-15T12:26:34.234Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -3024,6 +3407,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "057c297c-c50f-4ec4-94b3-b045e8490542",
+    "fields": {
+      "created_at": "2021-09-15T12:26:31.283Z",
+      "modified_at": "2021-09-15T12:26:31.283Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "grundrissplaene",
+      "value": ["grundrissplaene-ja"],
+      "meta": {},
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "0bed4f9c-f9c3-4b91-9200-37052d2409f9",
     "fields": {
       "created_at": "2021-04-16T12:45:32.741Z",
@@ -3072,6 +3473,24 @@
       "value": "a@b.ch",
       "meta": {},
       "document": "c3f6bf95-85d4-44ee-8649-d3a6a8281de1",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "1033181b-2bf6-41f2-b143-43072d0a6e53",
+    "fields": {
+      "created_at": "2021-09-15T12:26:08.711Z",
+      "modified_at": "2021-09-15T12:26:08.711Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "aushub-erforderlich",
+      "value": "aushub-erforderlich-nein",
+      "meta": {},
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
       "date": null,
       "file": null
     }
@@ -3528,6 +3947,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "52057376-b2df-4ff6-bab2-aec9abadd2a2",
+    "fields": {
+      "created_at": "2021-09-15T12:26:34.233Z",
+      "modified_at": "2021-09-15T12:26:34.233Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "werkleitungsplan",
+      "value": ["werkleitungsplan-ja"],
+      "meta": {},
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "534b866e-33fe-43db-a5e3-7ea42b61e12e",
     "fields": {
       "created_at": "2021-04-16T12:46:13.054Z",
@@ -3538,6 +3975,24 @@
       "modified_by_group": null,
       "question": "status-bauprojekt",
       "value": "status-bauprojekt-regulaer",
+      "meta": {},
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "5432520d-89c8-4e80-8159-2b07a9e649e9",
+    "fields": {
+      "created_at": "2021-09-15T12:26:31.982Z",
+      "modified_at": "2021-09-15T12:26:31.982Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "schnittplaene",
+      "value": ["schnittplaene-ja"],
       "meta": {},
       "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
       "date": null,
@@ -3630,6 +4085,24 @@
       "value": "Max",
       "meta": {},
       "document": "29863250-9219-4a14-be23-742522283f96",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "65f030fe-2f2a-4e4f-8326-4a77fb398e8a",
+    "fields": {
+      "created_at": "2021-09-15T12:25:53.387Z",
+      "modified_at": "2021-09-15T12:25:53.387Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "art-der-hochbaute",
+      "value": "art-der-hochbaute-einfamilienhaus",
+      "meta": {},
+      "document": "900c58ae-642c-4f79-8586-1dcc09d60f4a",
       "date": null,
       "file": null
     }
@@ -3844,6 +4317,24 @@
       "modified_by_group": null,
       "question": "municipality",
       "value": "1",
+      "meta": {},
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "8df3c1aa-a9dc-4361-a1e6-2f930b58b742",
+    "fields": {
+      "created_at": "2021-09-15T12:26:30.543Z",
+      "modified_at": "2021-09-15T12:26:30.543Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "brandschutzkonzept",
+      "value": ["brandschutzkonzept-ja"],
       "meta": {},
       "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
       "date": null,
@@ -4122,6 +4613,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "baa70b80-4493-4c27-8987-49c5ab88c81a",
+    "fields": {
+      "created_at": "2021-09-15T12:26:29.286Z",
+      "modified_at": "2021-09-15T12:26:29.286Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "brandschutzplan",
+      "value": ["brandschutzplan-ja"],
+      "meta": {},
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "bf7d065c-8205-40a8-aa39-d596b9b39550",
     "fields": {
       "created_at": "2021-04-16T12:46:59.884Z",
@@ -4150,6 +4659,42 @@
       "modified_by_group": null,
       "question": "parzellen-oder-baurechtsnummer",
       "value": 123456,
+      "meta": {},
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "c1752f1c-475d-4e31-b7d4-903105d01f4e",
+    "fields": {
+      "created_at": "2021-09-15T12:26:21.327Z",
+      "modified_at": "2021-09-15T12:26:21.327Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "das-vorhaben-betrifft",
+      "value": ["das-vorhaben-betrifft-keine-energetisch-relevanten-bauten"],
+      "meta": {},
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "c279be44-ea3c-4178-a158-1aca0a718de0",
+    "fields": {
+      "created_at": "2021-09-15T12:26:32.580Z",
+      "modified_at": "2021-09-15T12:26:32.580Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "fassadenplaene",
+      "value": ["fassadenplaene-ja"],
       "meta": {},
       "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
       "date": null,
@@ -4374,6 +4919,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "ddad6cf0-a131-4308-b956-98eeb8f205ee",
+    "fields": {
+      "created_at": "2021-09-15T12:26:02.178Z",
+      "modified_at": "2021-09-15T12:26:02.178Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "haustechnik-tabelle",
+      "value": null,
+      "meta": {},
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "e0a8d909-70cf-425e-b068-e3fc12b4e0c0",
     "fields": {
       "created_at": "2021-04-16T12:46:59.164Z",
@@ -4464,6 +5027,42 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "f6f87e8c-a429-46b8-a137-947cb76c64b5",
+    "fields": {
+      "created_at": "2021-09-15T12:26:01.080Z",
+      "modified_at": "2021-09-15T12:26:01.081Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "haustechnische-anlagen-erstellt",
+      "value": "haustechnische-anlagen-erstellt-nein",
+      "meta": {},
+      "document": "8bc58126-ea46-4656-bb77-c9491848a066",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "fb3b9caf-975a-4635-a1ca-e94a21865095",
+    "fields": {
+      "created_at": "2021-09-15T12:26:28.564Z",
+      "modified_at": "2021-09-15T12:26:28.564Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "situationsplan-1-500",
+      "value": ["situationsplan-1-500-ja"],
+      "meta": {},
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "fe6ca905-9642-4e70-ab99-1c4a8e393742",
     "fields": {
       "created_at": "2021-04-16T12:48:35.007Z",
@@ -4496,6 +5095,26 @@
       "answer": "a5ff344d-0887-4223-8bb5-9b291bf77a32",
       "document": "8a486756-6a61-4646-b04b-a8f7597fb3e1",
       "history_date": "2021-04-16T12:48:46.776Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswerdocument",
+    "pk": "531a943e-3e36-4c65-ac41-4b939cc237e2",
+    "fields": {
+      "history_user_id": "admin",
+      "created_at": "2021-09-15T12:26:02.195Z",
+      "modified_at": "2021-09-15T12:26:02.195Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "id": "74bae391-764a-4469-b3a6-0bef5d22839a",
+      "sort": 1,
+      "answer": "ddad6cf0-a131-4308-b956-98eeb8f205ee",
+      "document": "8bc58126-ea46-4656-bb77-c9491848a066",
+      "history_date": "2021-09-15T12:26:02.196Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -4592,6 +5211,21 @@
       "modified_by_group": null,
       "answer": "49accf94-47a3-47d1-940a-795bcd2e901a",
       "document": "29863250-9219-4a14-be23-742522283f96",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.answerdocument",
+    "pk": "74bae391-764a-4469-b3a6-0bef5d22839a",
+    "fields": {
+      "created_at": "2021-09-15T12:26:02.195Z",
+      "modified_at": "2021-09-15T12:26:02.195Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "answer": "ddad6cf0-a131-4308-b956-98eeb8f205ee",
+      "document": "8bc58126-ea46-4656-bb77-c9491848a066",
       "sort": 1
     }
   },
