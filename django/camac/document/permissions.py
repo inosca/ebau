@@ -66,7 +66,7 @@ class AdminBeforeDecisionPermission(AdminPermission):
     """Read and write permission, but delete only before the decision."""
 
     @classmethod
-    def is_after_decision(cls, attachment, group) -> bool:
+    def is_before_decision(cls, attachment, group) -> bool:
         return not attachment or (
             attachment.instance.instance_state.name
             not in settings.APPLICATION.get("ATTACHMENT_AFTER_DECISION_STATES", [])
@@ -74,7 +74,7 @@ class AdminBeforeDecisionPermission(AdminPermission):
 
     @classmethod
     def can_destroy(cls, attachment, group) -> bool:
-        return cls.is_after_decision(attachment, group) and super().can_destroy(
+        return cls.is_before_decision(attachment, group) and super().can_destroy(
             attachment,
             group,
         )
@@ -194,13 +194,13 @@ PERMISSIONS = {
         },
         # construction control
         "construction-control-lead": {
-            "admin-service-after-decision": [2, 3],
+            AdminServicePermission: [2, 3],
             AdminPermission: [10, 11],
             AdminInternalPermission: [4],
             ReadPermission: [1, 5, 6, 7, 8, 13, 12],
         },
         "construction-control-clerk": {
-            "admin-service-after-decision": [2, 3],
+            AdminServicePermission: [2, 3],
             AdminPermission: [10, 11],
             AdminInternalPermission: [4],
             ReadPermission: [1, 5, 6, 7, 8, 12, 13],
