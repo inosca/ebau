@@ -3,6 +3,7 @@ from django.db.models import Q
 
 from camac.constants import kt_uri as uri_constants
 from camac.core.models import Activation
+from camac.instance.models import Instance
 
 
 class Permission:
@@ -87,21 +88,20 @@ class AdminServiceBeforeDecisionPermission(
 
     Deleting is allowed when all of the following conditions are true:
 
+    - Attachment is owned by the current service
     - Instance state is before the decision
-    - Service has a running activation or is involved via instance service
     """
 
     pass
 
 
-class AdminServiceRunningActivationPermission(AdminServiceBeforeDecisionPermission):
+class AdminServiceRunningActivationPermission(AdminServicePermission):
     """Read and write permission, but delete only conditionally.
 
     Deleting is allowed when all of the following conditions are true:
 
     - Attachment is owned by the current service
-    - Instance state is before the decision
-    - Service has a running activation or is involved via instance service
+    - Service has a running activation
     """
 
     @classmethod
@@ -118,33 +118,16 @@ class AdminServiceRunningActivationPermission(AdminServiceBeforeDecisionPermissi
         )
 
     @classmethod
-    def is_involved_beyond_circulation(cls, attachment, group) -> bool:
-        use_instance_service = settings.APPLICATION.get("USE_INSTANCE_SERVICE")
-
-        return (
-            not attachment
-            or (
-                use_instance_service
-                and attachment.instance.instance_services.filter(
-                    service=group.service
-                ).exists()
-            )
-            or (
-                not use_instance_service
-                and attachment.instance.group.service == group.service
-            )
+    def can_destroy(cls, attachment, group) -> bool:
+        return cls.has_running_activation(attachment, group) and super().can_destroy(
+            attachment, group
         )
 
     @classmethod
-    def can_destroy(cls, attachment, group) -> bool:
-        return (
-            cls.is_involved_beyond_circulation(attachment, group)
-            or cls.has_running_activation(attachment, group)
-        ) and super().can_destroy(attachment, group)
-
-    @classmethod
     def can_write(cls, attachment, group) -> bool:
-        return cls.can_destroy(attachment, group)
+        return cls.has_running_activation(attachment, group) and super().can_write(
+            attachment, group
+        )
 
 
 # Permissions configuration:
@@ -159,14 +142,14 @@ PERMISSIONS = {
         },
         # municipality
         "municipality-lead": {
-            AdminBeforeDecisionPermission: [12, 13],
-            AdminServiceRunningActivationPermission: [2, 3],
+            AdminBeforeDecisionPermission: [3, 12, 13],
+            AdminServiceBeforeDecisionPermission: [2],
             AdminInternalPermission: [4],
             ReadPermission: [1, 7, 8],
         },
         "municipality-clerk": {
-            AdminBeforeDecisionPermission: [12, 13],
-            AdminServiceRunningActivationPermission: [2, 3],
+            AdminBeforeDecisionPermission: [3, 12, 13],
+            AdminServiceBeforeDecisionPermission: [2],
             AdminInternalPermission: [4],
             ReadPermission: [1, 7, 8],
         },
@@ -177,7 +160,7 @@ PERMISSIONS = {
         "service-lead": {
             AdminServiceRunningActivationPermission: [2],
             AdminInternalPermission: [4],
-            ReadPermission: [3, 1, 7, 8, 13, 12],
+            ReadPermission: [1, 3, 7, 8, 13, 12],
         },
         "service-clerk": {
             AdminServiceRunningActivationPermission: [2],
@@ -320,16 +303,31 @@ def rebuild_app_permissions(permissions):
     return result
 
 
-def section_permissions(group):
-    role = group.role
+def section_permissions(group, instance=None):
+    role = group.role.name
     app_name = settings.APPLICATION_NAME
+
+    # use service permissions for municipalities that are involved via
+    # activation and not via instance service
+    if (
+        settings.APPLICATION.get("USE_INSTANCE_SERVICE")
+        and instance
+        and role.startswith("municipality-")
+    ):
+        instance = (
+            instance
+            if isinstance(instance, Instance)
+            else Instance.objects.get(pk=instance)
+        )
+        if not instance.instance_services.filter(service=group.service).exists():
+            role = role.replace("municipality-", "service-")
+
     all_app_permissions = rebuild_app_permissions(PERMISSIONS[app_name])
     role_perms = settings.APPLICATIONS[app_name].get("ROLE_PERMISSIONS", {})
-    role_name_int = role_perms.get(role.name, role.name).lower()
-
+    role_name_int = role_perms.get(role, role).lower()
     if role_name_int not in all_app_permissions:
         # fallback
-        role_name_int = role.name.lower()
+        role_name_int = role.lower()
 
     app_permissions = all_app_permissions.get(role_name_int, {})
     special_permissions = SPECIAL_PERMISSIONS.get(app_name, lambda _: None)(group)
