@@ -144,3 +144,40 @@ def test_rebuild_app_permissions(data):
             33: permissions.AdminServicePermission,
         }
     }
+
+
+@pytest.mark.parametrize("role__name", ["municipality-lead"])
+@pytest.mark.parametrize(
+    "is_involved,expected_permission", [(True, "admin"), (False, "read")]
+)
+def test_attachment_section_permissions_kt_bern(
+    db,
+    mocker,
+    admin_client,
+    instance,
+    instance_service_factory,
+    group,
+    attachment_section,
+    is_involved,
+    expected_permission,
+    use_instance_service,
+):
+    if is_involved:
+        instance_service_factory(instance=instance, service=group.service)
+
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {
+            "demo": {
+                "municipality-lead": {
+                    permissions.AdminPermission: [attachment_section.pk]
+                },
+                "service-lead": {permissions.ReadPermission: [attachment_section.pk]},
+            }
+        },
+    )
+
+    url = reverse("attachmentsection-detail", args=[attachment_section.pk])
+    response = admin_client.get(url, {"instance": instance.pk})
+
+    assert response.json()["data"]["meta"]["permission-name"] == expected_permission

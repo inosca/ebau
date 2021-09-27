@@ -1,3 +1,4 @@
+import inspect
 import itertools
 import mimetypes
 from pathlib import Path
@@ -33,14 +34,21 @@ class AttachmentSectionSerializer(
     description = core_serializers.MultilingualField()
 
     def get_permission_name(self, instance):
-        permission_class = instance.get_permission(self.context["request"].group)
+        permission_class = instance.get_permission(
+            self.context["request"].group,
+            self.context["request"].query_params.get("instance"),
+        )
 
-        if isinstance(permission_class, str):
-            return permission_class  # pragma: no cover
-        if issubclass(permission_class, permissions.Permission):
+        if inspect.isclass(permission_class) and issubclass(
+            permission_class, permissions.Permission
+        ):
             return dasherize(
                 underscore(permission_class.__name__.replace("Permission", ""))
             )
+
+        elif isinstance(permission_class, str):  # pragma: no cover
+            return permission_class
+
         return None  # pragma: no cover
 
     class Meta:
