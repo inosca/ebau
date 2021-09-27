@@ -85,7 +85,9 @@ class AttachmentQuerysetMixin:
     def get_base_queryset(self):
         queryset = super().get_base_queryset()
 
-        permission_info = permissions.section_permissions(self.request.group)
+        permission_info = permissions.section_permissions(
+            self.request.group, self.request.query_params.get("instance")
+        )
         readable_sections = [
             sec
             for sec, perm in permission_info.items()
@@ -356,7 +358,9 @@ class AttachmentSectionView(ReadOnlyModelViewSet):
         if getattr(self, "swagger_fake_view", False):
             return models.AttachmentSection.objects.none()
         queryset = super().get_queryset()
-        return queryset.filter_group(self.request.group)
+        return queryset.filter_group(
+            self.request.group, self.request.query_params.get("instance")
+        )
 
     @swagger_auto_schema(
         tags=["File-Section service"],

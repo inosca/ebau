@@ -1174,14 +1174,6 @@ def test_attachment_public_access(
             False,
             status.HTTP_403_FORBIDDEN,
         ),
-        (
-            "finished",
-            django_file("no-thumbnail.txt"),
-            LazyFixture("service"),
-            permissions.AdminServiceRunningActivationPermission,
-            True,
-            status.HTTP_403_FORBIDDEN,
-        ),
     ],
 )
 def test_attachment_delete_custom_admin_modes(
