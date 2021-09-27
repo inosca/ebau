@@ -1,11 +1,11 @@
 publicInstances:
   title-ur: "Übersicht laufende Bauplanauflagen"
-  title-be: "Übersicht laufende Baugesuchsunterlagen"
+  title-be: "Öffentlich aufgelegte Baugesuche"
   applicant: "Gesuchsteller/in"
   load-error-ur: "Fehler beim Laden der Bauplanauflagen"
-  load-error-be: "Fehler beim Laden der Baugesuchsunterlagen"
+  load-error-be: "Fehler beim Laden der öffentlich aufgelegten Baugesuche"
   empty-title-ur: "Es gibt keine laufenden Bauplanauflagen!"
-  empty-title-be: "Es gibt keine laufenden Baugesuchsunterlagen!"
+  empty-title-be: "Es gibt keine öffentlich aufgelegten Baugesuche!"
   emptyText: "Sobald die Gemeinde ein Dossier zur Publikation freigegeben hat, wird das Dossier hier in der Liste auftauchen."
 
 publicInstancesDetail:

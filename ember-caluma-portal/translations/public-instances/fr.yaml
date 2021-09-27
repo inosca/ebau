@@ -1,8 +1,11 @@
 publicInstances:
-  title: "Aperçu des dossiers de demande de permis de construire en cours"
+  title-ur: ""
+  title-be: "Aperçu des dossiers de demande de permis de construire en cours"
   applicant: "Requérant/e"
-  loadError: "Erreur lors du téléchargement du dossier de demande de permis de construire"
-  emptyTitle: "Il n'y a pas de dossiers de demande de permis de construire en cours !"
+  load-error-ur: ""
+  load-error-be: "Erreur lors du téléchargement du dossier de demande de permis de construire"
+  empty-title-ur: ""
+  empty-title-be: "Il n'y a pas de dossiers de demande de permis de construire en cours !"
   emptyText: "Dès que la commune a autorisé la publication d'un dossier, celui-ci apparaît ici dans la liste."
 
 publicInstancesDetail:
