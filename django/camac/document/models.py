@@ -108,8 +108,8 @@ class Attachment(models.Model):
 
 
 class AttachmentSectionQuerySet(models.QuerySet):
-    def filter_group(self, group):
-        permission_info = permissions.section_permissions(group)
+    def filter_group(self, group, instance=None):
+        permission_info = permissions.section_permissions(group, instance)
         visible_section_ids = permission_info.keys()
 
         return self.filter(pk__in=visible_section_ids)
@@ -156,11 +156,11 @@ class AttachmentSection(core_models.MultilingualModel, models.Model):
         default=_get_default_mime_types,
     )
 
-    def get_permission(self, group):
-        return permissions.section_permissions(group).get(self.pk)
+    def get_permission(self, group, instance=None):
+        return permissions.section_permissions(group, instance).get(self.pk)
 
     def can_destroy(self, attachment, group):
-        permission_class = self.get_permission(group)
+        permission_class = self.get_permission(group, attachment.instance)
         return (
             permission_class.can_destroy(attachment, group)
             if permission_class
@@ -168,7 +168,9 @@ class AttachmentSection(core_models.MultilingualModel, models.Model):
         )
 
     def can_write(self, attachment, group):
-        permission_class = self.get_permission(group)
+        permission_class = self.get_permission(
+            group, attachment.instance if attachment else None
+        )
         return (
             permission_class.can_write(attachment, group) if permission_class else False
         )
