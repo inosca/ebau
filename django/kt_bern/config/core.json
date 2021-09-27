@@ -53707,7 +53707,7 @@
     "fields": {
       "instance_resource": 140002,
       "language": "fr",
-      "name": "Historique procédure",
+      "name": "Historique proc\u00e9dure",
       "description": null
     }
   },
@@ -53757,7 +53757,7 @@
     "fields": {
       "instance_resource": 140006,
       "language": "fr",
-      "name": "Historique procédure",
+      "name": "Historique proc\u00e9dure",
       "description": null
     }
   },
@@ -53807,7 +53807,7 @@
     "fields": {
       "instance_resource": 140008,
       "language": "fr",
-      "name": "Historique procédure",
+      "name": "Historique proc\u00e9dure",
       "description": null
     }
   },
@@ -53927,7 +53927,7 @@
     "fields": {
       "instance_resource": 150004,
       "language": "fr",
-      "name": "Aperçu des modifications",
+      "name": "Aper\u00e7u des modifications",
       "description": null
     }
   },
@@ -53947,7 +53947,7 @@
     "fields": {
       "instance_resource": 150005,
       "language": "fr",
-      "name": "Aperçu des modifications",
+      "name": "Aper\u00e7u des modifications",
       "description": null
     }
   },
@@ -53967,7 +53967,7 @@
     "fields": {
       "instance_resource": 150006,
       "language": "fr",
-      "name": "Aperçu des modifications",
+      "name": "Aper\u00e7u des modifications",
       "description": null
     }
   },
@@ -53987,7 +53987,7 @@
     "fields": {
       "instance_resource": 150007,
       "language": "fr",
-      "name": "Aperçu des modifications",
+      "name": "Aper\u00e7u des modifications",
       "description": null
     }
   },
