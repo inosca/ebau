@@ -1,9 +1,18 @@
+import Service from "@ember/service";
 import { visit, click, fillIn } from "@ember/test-helpers";
 import setupMirage from "ember-cli-mirage/test-support/setup-mirage";
 import { setupIntl } from "ember-intl/test-support";
 import { setupApplicationTest } from "ember-qunit";
 import { authenticateSession } from "ember-simple-auth/test-support";
 import { module, test } from "qunit";
+
+const USER_ID = 1;
+
+class FakeShoebox extends Service {
+  get content() {
+    return { userId: USER_ID };
+  }
+}
 
 module("Acceptance | journal", function (hooks) {
   setupApplicationTest(hooks);
@@ -44,8 +53,11 @@ module("Acceptance | journal", function (hooks) {
   });
 
   test("it can edit a journal entry", async function (assert) {
+    this.owner.register("service:shoebox", FakeShoebox);
+
     this.server.create("journal-entry", {
       instanceId: this.instance.id,
+      userId: USER_ID,
     });
 
     await visit(`/instances/${this.instance.id}/journal`);
