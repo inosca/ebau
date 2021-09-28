@@ -30,7 +30,7 @@
           </i>
 
         </div>
-        {{#if (and (can "edit journal-entry") (not @journalEntry.edit))}}
+        {{#if (and (can "edit journal-entry" @journalEntry) (not @journalEntry.edit))}}
           <div>
             <UkButton
               @color="text"
