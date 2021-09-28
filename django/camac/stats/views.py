@@ -10,6 +10,7 @@ from django.db.models import (
     FloatField,
     Func,
     IntegerField,
+    Q,
     QuerySet,
     Sum,
     When,
@@ -132,8 +133,8 @@ class InstancesCycleTimesView(InstanceQuerysetMixin, ListAPIView):
     queryset = Instance.objects.filter(
         case__meta__has_keys=["total-cycle-time", "net-cycle-time"]
     ).exclude(
-        decision__decision_date__lt=datetime(1970, 1, 1),
-        decision__decision_date__gt=now(),
+        Q(decision__decision_date__lt=datetime(1970, 1, 1))
+        | Q(decision__decision_date__gt=now())
     )
     serializer_class = InstancesCycleTimeSerializer
     instance_field = None

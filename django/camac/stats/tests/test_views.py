@@ -285,6 +285,26 @@ def test_instance_cycle_time_view(
             instance.case.save()
             cycle_time += 6
 
+    exclude_years = [1649, 2049]
+    for year in exclude_years:
+        freezer.move_to(datetime.datetime(year, 1, 1))
+        excl_instance = instance_with_case(instance_factory(user=admin_user))
+        instance_service_factory(instance=excl_instance, service=group.service)
+        submitted = excl_instance.creation_date
+        excl_instance.case.meta.update(
+            {
+                "submit-date": submitted.strftime(SUBMIT_DATE_FORMAT),
+                "total-cycle-time": 11,
+                "net-cycle-time": 11,
+            }
+        )
+        docx_decision_factory(
+            instance=excl_instance,
+            decision_type=decision_types[1] and decision_types[1].upper(),
+            decision_date=(submitted + datetime.timedelta(days=3)).date(),
+        )
+        excl_instance.case.save()
+
     url = reverse("instances-cycle-times")
 
     for procedure in decision_types:
@@ -292,7 +312,7 @@ def test_instance_cycle_time_view(
             url, {"procedure": procedure or "prelim"}
         ).json()  # "prelim" keyword is used for decisions that have `decision_type=None`
         if has_access:
-            assert sum([re["count"] for re in resp]) == num_years
+            assert resp.pop().get("count") is not None
         else:
             assert resp == []
 
@@ -303,5 +323,11 @@ def test_instance_cycle_time_view(
     if has_access:
         # assert there is a value for each year for which decisions have been created
         assert sorted([year_data["year"] for year_data in resp]) == sorted(years)
+        assert (
+            set([year_data["year"] for year_data in resp]).intersection(
+                set(exclude_years)
+            )
+            == set()
+        )
 
     assert len(admin_client.get(url, {"procedure": "something"}).json()) == 0
