@@ -12,9 +12,12 @@ module("Integration | Component | journal-entry", function (hooks) {
 
   test("it renders", async function (assert) {
     const journal = this.server.create("journal-entry");
-    this.set("journal", journal);
+    const model = await this.owner
+      .lookup("service:store")
+      .query("journal-entry", { include: "user" });
+    this.set("model", model.toArray()[0]);
 
-    await render(hbs`<JournalEntry @journalEntry={{this.journal}}/>`);
+    await render(hbs`<JournalEntry @journalEntry={{this.model}}/>`);
 
     assert.dom(".journal-entry-text").hasText(journal.text);
   });
