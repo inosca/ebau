@@ -10,10 +10,14 @@ def migrate_case(apps, schema_editor):
     Instance.objects.annotate(
         case_pk=models.Subquery(
             Case.objects.annotate(
-                instance_id=models.functions.Cast(
+                instance_id_text=models.functions.Cast(
                     KeyTransform("camac-instance-id", "meta"),
+                    output_field=models.TextField(),
+                ),
+                instance_id=models.functions.Cast(
+                    "instance_id_text",
                     output_field=models.IntegerField(),
-                )
+                ),
             )
             .filter(instance_id=models.OuterRef("pk"))
             .values("pk")[:1]
