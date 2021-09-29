@@ -71,11 +71,13 @@
                 </a>
               </LinkTo>
             {{/if}}
-            <LinkTo @route="public-instances" @tagName="li" @activeClass="uk-active">
-              <a href="#">
-                {{t (concat "nav.public-instance-" (application-name))}}
-              </a>
-            </LinkTo>
+            {{#if (has-feature "publication.list")}}
+              <LinkTo @route="public-instances" @tagName="li" @activeClass="uk-active">
+                <a href="#">
+                  {{t (concat "nav.public-instance-" (application-name))}}
+                </a>
+              </LinkTo>
+            {{/if}}
           </ul>
         </div>
 
