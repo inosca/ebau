@@ -1,3 +1,5 @@
+@import "ember-uikit/variables-theme";
+
 .uk-table {
   border-right: none;
   border-bottom: none;
@@ -10,8 +12,18 @@
   }
 }
 
+.uk-tab {
+  margin-left: (-$tab-margin-horizontal) !important;
+  padding: 0 !important;
+
+  > * {
+    margin-bottom: 0 !important;
+    padding-left: $tab-margin-horizontal !important;
+    background-image: none !important;
+  }
+}
+
 .uk-list,
-.uk-tab,
 .uk-nav {
   margin: 0 !important;
   padding: 0 !important;
