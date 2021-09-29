@@ -113621,6 +113621,13 @@
     }
   },
   {
+    "model": "core.rpage",
+    "pk": 15000000,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
     "model": "core.rroleacl",
     "pk": 10000,
     "fields": {
@@ -114013,6 +114020,38 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 15000000,
+    "fields": {
+      "resource": 15000000,
+      "role": 10000
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 15000005,
+    "fields": {
+      "resource": 15000000,
+      "role": 20009
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 15000006,
+    "fields": {
+      "resource": 15000000,
+      "role": 20008
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 15000007,
+    "fields": {
+      "resource": 15000000,
+      "role": 20007
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 10000,
     "fields": {
@@ -114035,7 +114074,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -114087,7 +114126,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -114100,7 +114139,7 @@
       "template": "/dashboard/help.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -114152,7 +114191,7 @@
       "template": "/ember-camac-ng/organisation.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -114166,6 +114205,19 @@
       "class_field": null,
       "hidden": 0,
       "sort": 12
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 15000000,
+    "fields": {
+      "available_resource": "page",
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/statistics.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 6
     }
   },
   {
@@ -114405,6 +114457,26 @@
       "resource": 140000,
       "language": "fr",
       "name": "T\u00e2ches",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 15000000,
+    "fields": {
+      "resource": 15000000,
+      "language": "de",
+      "name": "Statistiken",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 15000001,
+    "fields": {
+      "resource": 15000000,
+      "language": "fr",
+      "name": "Statistiques",
       "description": null
     }
   },

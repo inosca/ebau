@@ -2,6 +2,7 @@ import datetime
 from collections import namedtuple
 
 import pytest
+from caluma.caluma_form import factories as caluma_form_factories
 from caluma.caluma_form.models import Document
 from dateutil import relativedelta
 from django.urls import reverse
@@ -27,11 +28,20 @@ from camac.stats.views import ClaimSummaryView, InstanceSummaryView
     ],
 )
 def test_summary_filter_period(
-    admin_client, instance_factory, case_factory, filter_params, expected
+    admin_client,
+    instance_factory,
+    case_factory,
+    document_factory,
+    work_item_factory,
+    filter_params,
+    expected,
 ):
+    caluma_form_factories.FormFactory(slug="nfd")
+    caluma_form_factories.FormFactory(slug="nfd-tabelle")
+
     def make_instance(exp_meta, paper_submit_date, submit_date):
         instance = instance_factory()
-        case_factory.create(
+        case = case_factory(
             instance=instance,
             meta={
                 "expected": exp_meta,
@@ -39,6 +49,9 @@ def test_summary_filter_period(
                 "paper-submit-date": paper_submit_date,
             },
         )
+        claim_doc = document_factory(form_id="nfd")
+        document_factory(form_id="nfd-tabelle", family=claim_doc)
+        work_item_factory(document=claim_doc, case=case)
         instance.save()
 
     make_instance(
@@ -71,10 +84,14 @@ def test_summary_filter_period(
 
     claims_summary_view = ClaimSummaryView()
     filtered_claims = backend.filter_queryset(
-        request, Document.objects.all(), claims_summary_view
+        request, Document.objects.filter(form_id="nfd-tabelle"), claims_summary_view
     )
     assert sorted(
-        list(filtered_claims.values_list("case__meta__expected", flat=True))
+        list(
+            filtered_claims.values_list(
+                "family__work_item__case__meta__expected", flat=True
+            )
+        )
     ) == sorted(expected)
 
 
