@@ -114216,7 +114216,7 @@
       "description": null,
       "template": "/ember-camac-ng/statistics.phtml",
       "class_field": null,
-      "hidden": 0,
+      "hidden": 1,
       "sort": 6
     }
   },
