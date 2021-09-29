@@ -50,4 +50,10 @@ Router.map(function () {
     }
   );
   this.route("task-form", { path: "instances/:instance_id/task-form/:task" });
+  this.route("statistics", function () {
+    this.route("avg-cycle-time");
+    this.route("cycle-time");
+    this.route("process-time");
+    this.route("processing-time");
+  });
 });
