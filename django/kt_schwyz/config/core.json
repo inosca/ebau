@@ -5401,7 +5401,7 @@
   },
   {
     "model": "core.instanceresource",
-    "pk": 54,
+    "pk": 55,
     "fields": {
       "available_instance_resource": "workitemlistinstance",
       "resource": 22,
@@ -7474,6 +7474,14 @@
     }
   },
   {
+    "model": "core.ireditformpage",
+    "pk": 55,
+    "fields": {
+      "page": 1,
+      "pdf_class": null
+    }
+  },
+  {
     "model": "core.ireditnotice",
     "pk": 14,
     "fields": {
@@ -7566,9 +7574,9 @@
     "model": "core.irroleacl",
     "pk": 1,
     "fields": {
-      "instance_resource": 1,
-      "role": 3,
-      "instance_state": 2
+      "instance_resource": 54,
+      "role": 11,
+      "instance_state": 5
     }
   },
   {
@@ -14055,9 +14063,9 @@
     "model": "core.irroleacl",
     "pk": 977,
     "fields": {
-      "instance_resource": 54,
-      "role": 11,
-      "instance_state": 5
+      "instance_resource": 55,
+      "role": 5,
+      "instance_state": 1
     }
   },
   {
@@ -16500,12 +16508,12 @@
       "role": 12
     }
   },
- {
+  {
     "model": "core.rroleacl",
     "pk": 65,
     "fields": {
-      "resource": 22,
-      "role": 11
+      "resource": 25,
+      "role": 3
     }
   },
   {
@@ -16536,24 +16544,24 @@
     "model": "core.rroleacl",
     "pk": 69,
     "fields": {
-      "resource": 17,
-      "role": 7
+      "resource": 24,
+      "role": 3
     }
   },
   {
     "model": "core.rroleacl",
     "pk": 70,
     "fields": {
-      "resource": 22,
-      "role": 5
+      "resource": 17,
+      "role": 7
     }
   },
   {
     "model": "core.rroleacl",
-    "pk": 65,
+    "pk": 71,
     "fields": {
-      "resource": 25,
-      "role": 3
+      "resource": 22,
+      "role": 5
     }
   },
   {

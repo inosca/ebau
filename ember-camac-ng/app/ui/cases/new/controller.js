@@ -1,8 +1,8 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
-import calumaQuery from "ember-caluma/caluma-query";
-import { allForms } from "ember-caluma/caluma-query/queries";
+import calumaQuery from "@projectcaluma/ember-core/caluma-query";
+import { allForms } from "@projectcaluma/ember-core/caluma-query/queries";
 import {
   restartableTask,
   dropTask,
@@ -13,7 +13,7 @@ import ENV from "camac-ng/config/environment";
 
 export default class CasesNewController extends Controller {
   @service fetch;
-  @service router
+  @service shoebox;
 
   @tracked selectedForm = null;
 
@@ -58,11 +58,17 @@ export default class CasesNewController extends Controller {
       };
     }
 
-    yield this.fetch.fetch(`/api/v1/instances`, {
+    const response = yield this.fetch.fetch(`/api/v1/instances`, {
       method: "POST",
       body: JSON.stringify(body),
     });
 
-    // TODO transition to list resource
+    const {
+      data: { id: instanceId },
+    } = yield response.json();
+
+    location.assign(
+      `/index/redirect-to-instance-resource/instance-id/${instanceId}/`
+    );
   }
 }
