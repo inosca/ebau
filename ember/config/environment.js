@@ -278,8 +278,7 @@ module.exports = function (environment) {
       "Bezirk Schwyz",
     ];
 
-    ENV.APP.gisHost =
-      "map.geo.sz.ch/mapserv_proxy?ogcserver=source for image/png";
+    ENV.APP.gisHost = "map.geo.sz.ch";
   }
 
   return ENV;
