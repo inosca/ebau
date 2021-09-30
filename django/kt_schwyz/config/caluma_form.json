@@ -2852,6 +2852,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "description",
+    "fields": {
+      "created_at": "2021-09-29T06:54:25.861Z",
+      "modified_at": "2021-09-29T06:59:39.948Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "6",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": "6",
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "rechtsmittelverfahren-1-instanz-regierungsrat",
     "fields": {
       "created_at": "2021-10-29T10:13:47.324Z",

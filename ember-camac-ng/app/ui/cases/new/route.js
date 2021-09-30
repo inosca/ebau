@@ -1,4 +1,4 @@
-import Route from '@ember/routing/route';
+import Route from "@ember/routing/route";
 
 export default class CasesNewRoute extends Route {
   resetController(controller, isExiting) {
