@@ -1311,8 +1311,8 @@ APPLICATIONS = {
         "MUNICIPALITY_DATA_SHEET": APPLICATION_DIR(
             "Verwaltungskreise und -regionen der Gemeinden.csv"
         ),
-        "ENABLE_PUBLIC_ENDPOINTS": True,
-        "ENABLE_PUBLIC_CALUMA": True,
+        "ENABLE_PUBLIC_ENDPOINTS": False,
+        "ENABLE_PUBLIC_CALUMA": False,
         "PUBLICATION_BACKEND": "caluma",
     },
     "kt_uri": {
