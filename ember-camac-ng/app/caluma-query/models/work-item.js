@@ -13,6 +13,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
   @service router;
   @service intl;
   @service notifications;
+  @service can;
 
   @tracked meta = this.raw.meta;
   @tracked notViewed = this.raw.meta["not-viewed"];
@@ -75,32 +76,18 @@ export default class CustomWorkItemModel extends WorkItemModel {
     return parseInt(this.createdByGroup?.id) === this.shoebox.content.serviceId;
   }
 
+  get isControlledByCurrentService() {
+    return (
+      parseInt(this.controllingGroups[0]) === this.shoebox.content.serviceId
+    );
+  }
+
   get isReady() {
     return this.raw.status === "READY";
   }
 
   get isCompleted() {
     return this.raw.status === "COMPLETED";
-  }
-
-  get canEdit() {
-    return this.isReady && this.isAddressedToCurrentService;
-  }
-
-  get canEditAsCreator() {
-    return (
-      this.isReady &&
-      this.isCreatedByCurrentService &&
-      this.raw.task.slug === "create-manual-workitems"
-    );
-  }
-
-  get canComplete() {
-    return (
-      this.isReady &&
-      this.isAddressedToCurrentService &&
-      this.raw.task.meta["is-manually-completable"]
-    );
   }
 
   get responsible() {
@@ -160,7 +147,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   get directLink() {
-    if (!this.canEdit) return null;
+    if (this.can.cannot("edit work-item", this)) return null;
 
     return this._getDirectLinkFor(this.raw.task.slug) || this.editLink;
   }
@@ -173,7 +160,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
       this.id
     );
 
-    return this.canEdit && url && `${url}${hash}`;
+    return this.can.can("edit work-item", this) && url && `${url}${hash}`;
   }
 
   _getDirectLinkFor(configKey) {
