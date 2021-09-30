@@ -17,7 +17,7 @@ from rest_framework.decorators import action
 from rest_framework.exceptions import NotFound, ValidationError
 from rest_framework.serializers import Serializer
 from rest_framework_json_api.views import ModelViewSet, ReadOnlyModelViewSet
-from sorl.thumbnail import delete, get_thumbnail
+from sorl.thumbnail import get_thumbnail
 
 from camac.core.views import SendfileHttpResponse
 from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
@@ -175,12 +175,6 @@ class AttachmentView(
         return attachment.attachment_sections.first().can_destroy(
             attachment, self.request.group
         )
-
-    def perform_destroy(self, instance):
-        """Delete image cache before deleting attachment."""
-        if instance.path:
-            delete(instance.path)
-        super().perform_destroy(instance)
 
     @swagger_auto_schema(
         tags=["File download service"],
