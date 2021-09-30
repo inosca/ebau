@@ -87,6 +87,7 @@ module.exports = function (environment) {
       },
       features: {
         publication: {
+          list: false,
           form: true,
           municipalityFilter: true,
         },
@@ -141,6 +142,7 @@ module.exports = function (environment) {
       },
       features: {
         publication: {
+          list: true,
           form: false,
           municipalityFilter: false,
         },
