@@ -7,12 +7,9 @@ import moment from "moment";
 export default class WorkItemListItemComponent extends Component {
   @service router;
   @service intl;
+  @service can;
 
   get actions() {
-    if (!this.args.workItem.isAddressedToCurrentService) {
-      return [];
-    }
-
     return [
       this.editAction,
       this.toggleReadAction,
@@ -21,6 +18,10 @@ export default class WorkItemListItemComponent extends Component {
   }
 
   get editAction() {
+    if (this.can.cannot("edit work-item", this.args.workItem)) {
+      return null;
+    }
+
     return {
       action: performHelper([this.edit], {}),
       title: this.intl.t("workItems.actions.edit"),
@@ -28,6 +29,10 @@ export default class WorkItemListItemComponent extends Component {
   }
 
   get toggleReadAction() {
+    if (this.can.cannot("toggle read work-item", this.args.workItem)) {
+      return null;
+    }
+
     const key = this.args.workItem.notViewed
       ? "workItems.actions.markAsRead"
       : "workItems.actions.markAsUnread";
@@ -39,7 +44,7 @@ export default class WorkItemListItemComponent extends Component {
   }
 
   get assignToMeAction() {
-    if (this.args.workItem.isAssignedToCurrentUser) {
+    if (this.can.cannot("assign to me work-item", this.args.workItem)) {
       return null;
     }
 
