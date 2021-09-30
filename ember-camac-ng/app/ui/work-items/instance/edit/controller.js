@@ -1,7 +1,6 @@
 import Controller from "@ember/controller";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
-import { tracked } from "@glimmer/tracking";
 import calumaQuery from "@projectcaluma/ember-core/caluma-query";
 import { allWorkItems } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
@@ -19,9 +18,7 @@ export default class WorkItemsInstanceEditController extends Controller {
   @service notifications;
   @service intl;
   @service shoebox;
-  @service moment;
-
-  @tracked workItem;
+  @service router;
 
   @calumaQuery({
     query: allWorkItems,
@@ -57,19 +54,19 @@ export default class WorkItemsInstanceEditController extends Controller {
     return workItems;
   }
 
-  @dropTask()
+  @lastValue("fetchWorkItems") workItem;
+  @dropTask
   *fetchWorkItems() {
     try {
       yield this.workItemsQuery.fetch({ filter: [{ id: this.model }] });
 
-      this.workItem = this.workItemsQuery.value[0];
+      return this.workItemsQuery.value[0];
     } catch (error) {
       this.notifications.error(this.intl.t("workItems.fetchError"));
     }
   }
 
   @lastValue("fetchUserChoices") userChoices;
-
   @dropTask
   *fetchUserChoices() {
     try {
@@ -79,16 +76,6 @@ export default class WorkItemsInstanceEditController extends Controller {
       })).toArray();
     } catch (error) {
       this.notifications.error(this.intl.t("workItems.fetchError"));
-    }
-  }
-
-  @dropTask
-  *workItemAssignUsers(event) {
-    event.preventDefault();
-
-    if (yield this.workItem.assignToUser(this.workItem.assignedUser)) {
-      this.notifications.success(this.intl.t("workItems.saveSuccess"));
-      this.transitionToRoute("work-items.instance.index");
     }
   }
 
@@ -114,15 +101,20 @@ export default class WorkItemsInstanceEditController extends Controller {
 
       this.notifications.success(this.intl.t("workItems.finishSuccess"));
 
-      this.transitionToRoute("work-items.instance.index");
+      this.router.transitionTo("work-items.instance.index");
     } catch (error) {
       this.notifications.error(this.intl.t("workItems.saveError"));
     }
   }
 
   @dropTask
-  *saveManualWorkItem(event) {
+  *saveWorkItem(event) {
     event.preventDefault();
+
+    let assignedUsers;
+    if (this.workItem.assignedUser) {
+      assignedUsers = this.workItem.assignedUsers;
+    }
 
     try {
       yield this.apollo.mutate({
@@ -132,6 +124,7 @@ export default class WorkItemsInstanceEditController extends Controller {
             workItem: this.workItem.id,
             description: this.workItem.description,
             deadline: this.workItem.deadline,
+            assignedUsers,
             meta: JSON.stringify(this.workItem?.meta),
           },
         },
@@ -139,7 +132,7 @@ export default class WorkItemsInstanceEditController extends Controller {
 
       this.notifications.success(this.intl.t("workItems.saveSuccess"));
 
-      this.transitionToRoute("work-items.instance.index");
+      this.router.transitionTo("work-items.instance.index");
     } catch (error) {
       this.notifications.error(this.intl.t("workItems.saveError"));
     }
