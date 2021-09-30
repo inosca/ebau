@@ -38,6 +38,10 @@ def is_addressed_to_service(work_item, service_id):
     return str(service_id) in work_item.addressed_groups
 
 
+def is_controlled_by_service(work_item, service_id):
+    return str(service_id) in work_item.controlling_groups
+
+
 def is_created_by_service(work_item, service_id):
     return work_item.created_by_group == str(service_id)
 
@@ -48,6 +52,10 @@ def is_addressed_to_applicant(work_item):
 
 def get_current_service_id(info):
     return info.context.user.group
+
+
+def validate_parameters(valid_parameters, parameters):
+    return all(param in valid_parameters for param in parameters)
 
 
 class CustomPermission(IsAuthenticated):
@@ -102,9 +110,35 @@ class CustomPermission(IsAuthenticated):
             return True
 
         service = get_current_service_id(info)
+        params = mutation.get_params(info)
 
-        return is_created_by_service(work_item, service) or is_addressed_to_service(
-            work_item, service
+        # creator, addressed and controlling service can edit their work item
+        # but addressed and controlling can only edit the listed fields
+        return (
+            is_created_by_service(work_item, service)
+            or (
+                is_addressed_to_service(work_item, service)
+                and validate_parameters(
+                    [
+                        "work_item",
+                        "assigned_users",
+                    ],
+                    params["input"],
+                )
+            )
+            or (
+                is_controlled_by_service(work_item, service)
+                and validate_parameters(
+                    [
+                        "work_item",
+                        "deadline",
+                        "description",
+                        "meta",
+                        "assigned_users",
+                    ],
+                    params["input"],
+                )
+            )
         )
 
     @permission_for(CancelWorkItem)
