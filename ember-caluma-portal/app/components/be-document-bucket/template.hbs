@@ -25,7 +25,7 @@
         <UkIcon @icon="cloud-upload" @ratio={{3}} class="uk-margin-bottom" />
         <div class="uk-text-small uk-text-muted">
           {{#if dropzone.supported}}{{t "documents.drag"}}{{/if}}
-          <FileUpload @name={{this.slug}} @accept={{this.allowedMimetypes}} @onfileadd={{perform this.upload}}>
+          <FileUpload @name={{this.slug}} @accept={{this.allowedMimetypes}} @onFileAdd={{perform this.upload}}>
             <span class="uk-link">{{t "documents.click"}}</span>
           </FileUpload>
         </div>
