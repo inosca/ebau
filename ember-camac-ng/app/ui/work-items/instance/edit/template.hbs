@@ -95,7 +95,7 @@
   </div>
 
   {{#unless this.isWorkItemCompleted}}
-    {{#if this.workItem.canEditAsCreator}}
+    {{#if (can "edit as creator work-item" this.workItem)}}
       <form
         class="form form-edit work-item-form"
         {{on "submit" (perform this.saveManualWorkItem)}}
@@ -171,7 +171,7 @@
           </button>
         </div>
       </form>
-    {{else if this.workItem.canEdit}}
+    {{else if (can "edit work-item" this.workItem)}}
       <form
         class="form form-edit work-item-form"
         aria-label={{t "work-items.editFormLabel"}}
@@ -217,7 +217,7 @@
     {{/if}}
   {{/unless}}
 
-  {{#if this.workItem.canComplete}}
+  {{#if (can "complete work-item" this.workItem)}}
     <h3 class="hide-be">
       {{t "workItems.actions.finish"}}
     </h3>
