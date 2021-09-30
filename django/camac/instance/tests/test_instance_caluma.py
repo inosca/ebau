@@ -1883,3 +1883,32 @@ def test_create_instance_caluma_modification(
 
     assert response.status_code == expected_status
     assert "Projektänderung nicht erlaubt" in response.json()["errors"][0]["detail"]
+
+
+@pytest.mark.freeze_time("2019-05-02")
+@pytest.mark.parametrize("instance_state__name", ["new"])
+def test_instance_create_caluma_sz(
+    admin_client, admin_user, form, instance_state, instance, caluma_workflow_config_sz
+):
+    url = reverse("instance-list")
+
+    location_data = (
+        {"type": "locations", "id": instance.location.pk} if instance.location else None
+    )
+
+    data = {
+        "data": {
+            "type": "instances",
+            "id": None,
+            "relationships": {
+                "form": {"data": {"type": "forms", "id": form.pk}},
+                "location": {"data": location_data},
+            },
+            "attributes": {
+                "caluma_workflow": "internal-document",
+            },
+        }
+    }
+
+    response = admin_client.post(url, data=data)
+    assert response.status_code == status.HTTP_201_CREATED
