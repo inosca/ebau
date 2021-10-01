@@ -35,7 +35,10 @@ module.exports = function (environment) {
 
     APPLICATIONS: {
       kt_bern: {
-        GWRCantonAbbreviation: "BE",
+        gwr: {
+          cantonAbbreviation: "BE",
+          importModels: ["project"],
+        },
         allowApplicantManualWorkItem: false,
         journalDefaultVisibility: false,
         instanceStates: {
@@ -47,12 +50,19 @@ module.exports = function (environment) {
         ],
       },
       kt_schwyz: {
-        GWRCantonAbbreviation: "SZ",
+        gwr: {
+          cantonAbbreviation: "SZ",
+          importModels: ["project"],
+        },
+
         allowApplicantManualWorkItem: true,
         journalDefaultVisibility: false,
       },
       kt_uri: {
-        GWRCantonAbbreviation: "UR",
+        gwr: {
+          cantonAbbreviation: "UR",
+          importModels: ["project"],
+        },
         allowApplicantManualWorkItem: false,
         journalDefaultVisibility: true,
         activeCirculationStates: [
