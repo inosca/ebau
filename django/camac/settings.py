@@ -91,6 +91,7 @@ INSTALLED_APPS = [
     "camac.migrate_to_caluma",
     "camac.stats.apps.StatsConfig",
     "camac.parashift",
+    "camac.dossier_import.apps.DossierImportConfig",
     "sorl.thumbnail",
     "django_clamd",
     "reversion",
