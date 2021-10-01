@@ -60,17 +60,15 @@ export default class CaseDashboardComponent extends Component {
     });
 
     const workflowEntries = yield this.store.query("workflowEntry", {
-      filter: {
-        instance: this.args.caseId,
-        workflow_item_id: WORKFLOW_ITEM_IDS.toString(),
-      },
+      instance: this.args.caseId,
+      workflow_item_id: WORKFLOW_ITEM_IDS.toString(),
     });
 
     const acceptDate =
       workflowEntries.find(
         (we) =>
           we.belongsTo("workflowItem").id() === WORKFLOW_ITEM_IDS[1].toString()
-      )?.workflowDate || workflowEntries[0]?.workflowDate;
+      )?.workflowDate || workflowEntries.firstObject?.workflowDate;
 
     const serviceList = yield all(
       activations.toArray().map((activation) => activation.service)
@@ -143,7 +141,7 @@ export default class CaseDashboardComponent extends Component {
     const modelInstance = new CustomCaseModel(caseRecord?.[0]?.node);
     setOwner(modelInstance, getOwner(this));
 
-    const models = {
+    return {
       caseModel: modelInstance,
       journalEntries,
       involvedServices,
@@ -151,7 +149,5 @@ export default class CaseDashboardComponent extends Component {
       acceptDate,
       parcelPicture,
     };
-
-    return models;
   }
 }
