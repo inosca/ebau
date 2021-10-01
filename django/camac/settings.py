@@ -246,7 +246,7 @@ APPLICATIONS = {
                 "EXISTING": "gesuchsbearbeitungs-einladung-bestehend",
             },
         },
-        "PUBLICATION_DURATION": timedelta(days=30),
+        "PUBLICATION_DURATION": timedelta(days=20),
         "PUBLICATION_BACKEND": "camac-ng",
         "PUBLICATION_ATTACHMENT_SECTION": [4],
         "IS_MULTILINGUAL": False,
