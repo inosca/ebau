@@ -13,4 +13,10 @@ export default class GwrDataImportService extends Service {
     );
     return await data.json();
   }
+
+  async fetchBuildings() {}
+
+  async fetchDwellings() {}
+
+  async fetchEntrances() {}
 }
