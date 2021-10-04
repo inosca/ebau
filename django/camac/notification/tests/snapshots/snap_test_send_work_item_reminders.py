@@ -7,13 +7,13 @@ from snapshottest import Snapshot
 
 snapshots = Snapshot()
 
-snapshots['test_sendreminders_caluma[False-False-True-False-0-False] 1'] = [
+snapshots['test_send_work_item_reminders[False-False-True-False-0-False] 1'] = [
 ]
 
-snapshots['test_sendreminders_caluma[False-False-True-False-0-True] 1'] = [
+snapshots['test_send_work_item_reminders[False-False-True-False-0-True] 1'] = [
 ]
 
-snapshots['test_sendreminders_caluma[False-True-False-False-1-False] 1'] = [
+snapshots['test_send_work_item_reminders[False-True-False-False-1-False] 1'] = [
     (
         'Erinnerung an Aufgaben',
         '''Guten Tag
@@ -34,7 +34,7 @@ http://camac-ng.local
     )
 ]
 
-snapshots['test_sendreminders_caluma[False-True-False-False-1-True] 1'] = [
+snapshots['test_send_work_item_reminders[False-True-False-False-1-True] 1'] = [
     (
         'Erinnerung an Aufgaben / Rappel des tâches',
         '''Guten Tag
@@ -67,7 +67,7 @@ http://camac-ng.local
     )
 ]
 
-snapshots['test_sendreminders_caluma[False-True-True-False-2-False] 1'] = [
+snapshots['test_send_work_item_reminders[False-True-True-False-2-False] 1'] = [
     (
         'Erinnerung an Aufgaben',
         '''Guten Tag  Rebecca Gonzalez
@@ -105,7 +105,7 @@ http://camac-ng.local
     )
 ]
 
-snapshots['test_sendreminders_caluma[False-True-True-False-2-True] 1'] = [
+snapshots['test_send_work_item_reminders[False-True-True-False-2-True] 1'] = [
     (
         'Erinnerung an Aufgaben / Rappel des tâches',
         '''Guten Tag  Rebecca Gonzalez
@@ -166,7 +166,7 @@ http://camac-ng.local
     )
 ]
 
-snapshots['test_sendreminders_caluma[True-False-True-False-2-False] 1'] = [
+snapshots['test_send_work_item_reminders[True-False-True-False-2-False] 1'] = [
     (
         'Erinnerung an Aufgaben',
         '''Guten Tag  Rebecca Gonzalez
@@ -204,7 +204,7 @@ http://camac-ng.local
     )
 ]
 
-snapshots['test_sendreminders_caluma[True-False-True-False-2-True] 1'] = [
+snapshots['test_send_work_item_reminders[True-False-True-False-2-True] 1'] = [
     (
         'Erinnerung an Aufgaben / Rappel des tâches',
         '''Guten Tag  Rebecca Gonzalez
@@ -265,7 +265,7 @@ http://camac-ng.local
     )
 ]
 
-snapshots['test_sendreminders_caluma[True-True-True-False-2-False] 1'] = [
+snapshots['test_send_work_item_reminders[True-True-True-False-2-False] 1'] = [
     (
         'Erinnerung an Aufgaben',
         '''Guten Tag  Rebecca Gonzalez
@@ -303,7 +303,7 @@ http://camac-ng.local
     )
 ]
 
-snapshots['test_sendreminders_caluma[True-True-True-False-2-True] 1'] = [
+snapshots['test_send_work_item_reminders[True-True-True-False-2-True] 1'] = [
     (
         'Erinnerung an Aufgaben / Rappel des tâches',
         '''Guten Tag  Rebecca Gonzalez
@@ -364,7 +364,7 @@ http://camac-ng.local
     )
 ]
 
-snapshots['test_sendreminders_caluma[True-True-True-True-3-False] 1'] = [
+snapshots['test_send_work_item_reminders[True-True-True-True-3-False] 1'] = [
     (
         'Erinnerung an Aufgaben',
         '''Guten Tag  Rebecca Gonzalez
@@ -420,7 +420,7 @@ http://camac-ng.local
     )
 ]
 
-snapshots['test_sendreminders_caluma[True-True-True-True-3-True] 1'] = [
+snapshots['test_send_work_item_reminders[True-True-True-True-3-True] 1'] = [
     (
         'Erinnerung an Aufgaben / Rappel des tâches',
         '''Guten Tag  Rebecca Gonzalez
