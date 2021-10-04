@@ -6,14 +6,7 @@ from django.core import mail
 from django.core.management.base import BaseCommand
 from django.db.models import Q
 
-from camac.core.models import Activation
-from camac.notification.serializers import (
-    PermissionlessNotificationTemplateSendmailSerializer,
-)
-from camac.notification.utils import send_mail
 from camac.user.models import Service, User
-
-TEMPLATE_REMINDER_CIRCULATION = "05-meldung-fristuberschreitung-fachstelle"
 
 
 def get_task_trans(count, lang, controlling=False):
@@ -105,40 +98,9 @@ Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
 
 
 class Command(BaseCommand):
-    help = """
-    (Bern): Send reminders for all activation which exceeded their deadline.
-    """
-
-    def add_arguments(self, parser):
-        parser.add_argument(
-            "--caluma",
-            action="store_true",
-            default=False,
-            help="Use caluma WorkItems for determining reminders",
-        )
+    help = "Send reminders for unread or overdue work items."
 
     def handle(self, *args, **options):
-        if options["caluma"]:
-            self.handle_caluma(*args, **options)
-            return
-
-        activations = Activation.objects.filter(
-            ~Q(circulation_state__name="DONE"),
-            deadline_date__date=date.today(),
-            circulation__instance__instance_state__name="circulation",
-        )
-        instances = {a.circulation.instance for a in activations}
-        for instance in instances:
-            print(f"Sending reminders for instance {instance.pk}")
-            send_mail(
-                TEMPLATE_REMINDER_CIRCULATION,
-                {},
-                PermissionlessNotificationTemplateSendmailSerializer,
-                recipient_types=["activation_deadline_today"],
-                instance={"id": instance.pk, "type": "instances"},
-            )
-
-    def handle_caluma(self, *args, **options):
 
         subject = "Erinnerung an Aufgaben"
         if settings.APPLICATION.get("IS_MULTILINGUAL", False):
@@ -225,7 +187,7 @@ class Command(BaseCommand):
                     )
                 )
 
-        print(f"sendreminders: sending {len(emails)} reminders")
+        print(f"sending {len(emails)} reminders")
 
         if emails:
             connection = mail.get_connection()
