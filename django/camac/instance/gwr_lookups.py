@@ -75,8 +75,8 @@ class GwrSerializer(serializers.Serializer):
     def get_typeOfConstruction(self, case):
         # TODO Configure this for BE and SZ
         try:
-            return self.master_data.type_of_construction
-        except AttributeError:  # pragma: no cover
+            return self.master_data.type_of_construction[0]["art_der_hochbaute"]
+        except (AttributeError, IndexError):  # pragma: no cover
             return None
 
     def get_totalCostsOfProject(self, case):
@@ -90,7 +90,7 @@ class GwrSerializer(serializers.Serializer):
                 "number": plot_data["plot_number"],
                 "EGRID": plot_data["egrid_number"],
             }
-        except AttributeError:  # pragma: no cover
+        except (AttributeError, IndexError):  # pragma: no cover
             return None
 
     def get_projectAnnouncementDate(self, case):
