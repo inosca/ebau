@@ -38,7 +38,6 @@ snapshots['test_gwr_data_ur 1'] = {
         'number': 123456789
     },
     'totalCostsOfProject': 129000,
-    'typeOfConstruction': [
-    ],
+    'typeOfConstruction': None,
     'typeOfConstructionProject': 6011
 }
