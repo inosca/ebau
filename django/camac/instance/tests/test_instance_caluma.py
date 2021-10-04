@@ -988,8 +988,6 @@ def test_generate_and_store_pdf(
             "main-form": {"template": "some-template"},
             "nfd": {"template": "some-template"},
         },
-        "MUNICIPALITY_SLUG": "gemeinde",
-        "MUNICIPALITY_MODEL": "camac.user.models.Service",
     }
 
     be_instance.case.document.answers.create(

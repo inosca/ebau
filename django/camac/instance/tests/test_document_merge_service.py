@@ -1,7 +1,7 @@
 from pathlib import Path
 
 import pytest
-from caluma.caluma_form.models import Answer, Document, DynamicOption, Form, Question
+from caluma.caluma_form.models import Document, DynamicOption, Form, Question
 from caluma.caluma_workflow.api import start_case
 from caluma.caluma_workflow.models import Workflow
 from django.conf import settings
@@ -255,12 +255,18 @@ def test_document_merge_service_cover_sheet_with_header_values(
         document=instance.case.document,
     )
 
-    DynamicOption.objects.create(
-        document=instance.case.document, question_id="gemeinde", label="Testhausen"
+    # Municipality
+    answer_factory(
+        question_id="gemeinde",
+        value="1",
+        document=instance.case.document,
     )
-
-    root_document = Document.objects.filter(case=case, form_id="baugesuch").first()
-    root_document.answers.add(Answer.objects.filter(question_id="gemeinde").first())
+    DynamicOption.objects.create(
+        document=instance.case.document,
+        question_id="gemeinde",
+        slug="1",
+        label="Testhausen",
+    )
 
     request = rf.request(HTTP_AUTHORIZATION="Bearer some_token", X_CAMAC_GROUP=group.pk)
 
@@ -270,7 +276,7 @@ def test_document_merge_service_cover_sheet_with_header_values(
     client.merge.return_value = b"some binary data"
 
     handler = DMSHandler()
-    handler.generate_pdf(instance.pk, request, None, root_document.pk)
+    handler.generate_pdf(instance.pk, request, None, instance.case.document.pk)
 
     merge_data, template = client.merge.call_args[0]
 
