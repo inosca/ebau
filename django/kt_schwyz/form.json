@@ -1693,26 +1693,17 @@
             "required": false,
             "config": {
               "options": [
-                "Keine",
-                "Luft",
-                "Erdwärme (generisch)",
-                "Erdwärmesonde",
-                "Erdregister",
-                "Wasser (Grundwasser, Oberflächenwasser, Abwasser)",
-                "Gas",
-                "Heizöl",
-                "Holz (generisch)",
-                "Holz (Stückholz)",
-                "Holz (Pellets)",
-                "Abwärme (innerhalb des Gebäudes)",
-                "Elektrizität",
-                "Sonne (thermisch)",
-                "Fernwärme (generisch)",
-                "Fernwärme (Hochtemperatur)",
-                "Fernwärme (Niedertemperatur)",
-                "Unbestimmt",
-                "Andere",
-                "Noch nicht festgelegt"
+                "Kein Wärmeerzeuger",
+                "Wärmepumpe",
+                "Thermische Solaranlage",
+                "Heizkessel (generisch)",
+                "Heizkessel nicht kondensierend",
+                "Heizkessel kondensierend",
+                "Wärmekraftkopplungsanlage",
+                "Zentraler Elektroboiler",
+                "Kleinboiler",
+                "Wärmetauscher (einschliesslich für Fernwärme)",
+                "Andere"
               ]
             }
           },
