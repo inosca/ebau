@@ -57,6 +57,11 @@ def test_gwr_data_ur(
     )
 
     # Municipality
+    caluma_form_factories.AnswerFactory(
+        question_id="municipality",
+        document=ur_instance.case.document,
+        value="1",
+    )
     caluma_form_factories.DynamicOptionFactory(
         question_id="municipality",
         document=ur_instance.case.document,
