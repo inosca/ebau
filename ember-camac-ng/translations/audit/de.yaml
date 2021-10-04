@@ -17,7 +17,7 @@ audit:
 
   deleteConfirm: "Wollen Sie die Prüfung wirklich löschen?"
   skipConfirm: '<span>Wollen Sie die Prüfung wirklich überspringen?</span><div class="uk-margin uk-text-italic"><strong>Achtung:</strong> Diese Aktion kann nicht mehr rückgängig gemacht werden! Falls Sie einen Wechsel der Leitbehörde beabsichtigen, sollten Sie dies der neuen Leitbehörde überlassen.</div>'
-  completeConfirm: '<span>Wollen Sie die Prüfung wirklich abschliessen?</span><div class="uk-margin uk-text-italic"><strong>Achtung:</strong> Diese Aktion kann nicht mehr rückgängig gemacht werden! Falls Sie einen Wechsel der Leitbehörde beabsichtigen, sollten Sie dies der neuen Leitbehörde überlassen.</div>'
+  completeConfirm: '<span>Wollen Sie die Prüfung wirklich abschliessen?</span><div class="uk-margin uk-text-italic"><strong>Achtung:</strong> Diese Aktion kann nicht mehr rückgängig gemacht werden! Falls Sie einen Wechsel der Leitbehörde beabsichtigen, sollten Sie dies der neuen Leitbehörde überlassen.</div><div class="uk-margin uk-text-italic"><strong>Hinweis:</strong> Falls Sie die Dossierprüfung nicht im System ausgefüllt haben, können Sie die Aufgabe mit "Prüfung überspringen" abschliessen.</div>'
   copyConfirm: "Wollen Sie die Prüfung wirklich kopieren?"
 
   deleteSuccess: "Die Prüfung wurde erfolgreich gelöscht."

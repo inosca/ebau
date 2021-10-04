@@ -17,7 +17,7 @@ audit:
 
   deleteConfirm: "Voulez-vous vraiment supprimer l'examen ?"
   skipConfirm: '<span>Voulez-vous vraiment sauter lexamen du dossier ?</span><div class="uk-margin uk-text-italic"><strong>Attention :</strong> Cette action ne peut être annulée ! Si vous avez lintention de changer dautorité directrice, vous devez laisser cette tâche à la nouvelle autorité directrice.</div>'
-  completeConfirm: '<span>Voulez-vous vraiment clore lexamen du dossier ?</span><div class="uk-margin uk-text-italic"><strong>Attention :</strong> Cette action ne peut être annulée ! Si vous avez lintention de changer dautorité directrice, vous devez laisser cette tâche à la nouvelle autorité directrice.</div>'
+  completeConfirm: '<span>Voulez-vous vraiment clore lexamen du dossier ?</span><div class="uk-margin uk-text-italic"><strong>Attention :</strong> Cette action ne peut être annulée ! Si vous avez lintention de changer dautorité directrice, vous devez laisser cette tâche à la nouvelle autorité directrice.</div><div class="uk-margin uk-text-italic"><strong>Note :</strong> Si vous n''avez pas effectué l''examen du dossier dans le système, vous pouvez compléter la tâche en cliquant sur "Sauter l''examen".</div>'
   copyConfirm: "Voulez-vous vraiment copier l'examen ?"
 
   deleteSuccess: "L'examen a été supprimé avec succès."
