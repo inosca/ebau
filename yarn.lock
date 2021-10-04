@@ -6977,16 +6977,7 @@ ember-ebau-gwr@3.1.1:
     handlebars "^4.7.6"
     yarn.lock "^0.0.1-security"
 
-ember-element-helper@^0.3.1:
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/ember-element-helper/-/ember-element-helper-0.3.2.tgz#a0e384c266c6fb0e39803708d6f5e83ce6dba659"
-  integrity sha512-t4lrekoRb/jVQeg/N1V0kzehV6cw0YAH1hG1H2+Ykl35YxpYdX7/8hKtaGzVPxceemUVFO7fUorEQ6Y//wpWdA==
-  dependencies:
-    ember-cli-babel "^7.17.2"
-    ember-cli-htmlbars "^5.1.0"
-    ember-compatibility-helpers "^1.2.1"
-
-ember-element-helper@^0.5.2:
+ember-element-helper@0.5.5, ember-element-helper@^0.3.1, ember-element-helper@^0.5.2:
   version "0.5.5"
   resolved "https://registry.yarnpkg.com/ember-element-helper/-/ember-element-helper-0.5.5.tgz#4a9ecb4dce57ee7f5ceb868a53c7b498c729f056"
   integrity sha512-Tu3hsI+/mjHBUvw62Qi+YDZtKkn59V66CjwbgfNTZZ7aHf4gFm1ow4zJ4WLnpnie8p9FvOmIUxwl5HvgPJIcFA==
