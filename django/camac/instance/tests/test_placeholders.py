@@ -77,9 +77,11 @@ def test_dms_placeholders(
         document=document,
     )
 
-    be_master_data_case.document.dynamicoption_set.update(
-        slug=service_factory().pk,
+    municipality = service_factory()
+    be_master_data_case.document.answers.filter(question_id="gemeinde").update(
+        value=str(municipality.pk)
     )
+    be_master_data_case.document.dynamicoption_set.update(slug=str(municipality.pk))
 
     activation_factory.create_batch(
         2, service__service_group__name="district", circulation__instance=be_instance
