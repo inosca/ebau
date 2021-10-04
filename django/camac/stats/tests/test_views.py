@@ -95,7 +95,8 @@ def test_summary_filter_period(
     ) == sorted(expected)
 
 
-def test_summary_instances(admin_client, instance_factory, case_factory, freezer):
+@pytest.mark.parametrize("role__name", ["Support"])
+def test_summary_instances(admin_client, instance_factory, case_factory, freezer, role):
     fake = Faker()
     period_length = 10
     beginning_of_time = datetime.datetime(1980, 12, 31)
