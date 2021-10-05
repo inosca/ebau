@@ -98,7 +98,13 @@ export default class WorkItemsIndexController extends Controller {
     }
 
     if (this.role === "control") {
-      filter.push({ controllingGroups: [this.shoebox.content.serviceId] });
+      filter.push(
+        { controllingGroups: [this.shoebox.content.serviceId] },
+        {
+          addressedGroups: [this.shoebox.content.serviceId],
+          invert: true,
+        }
+      );
     } else {
       filter.push({ addressedGroups: [this.shoebox.content.serviceId] });
     }

@@ -79,6 +79,13 @@ export default class WorkItemsInstanceIndexController extends Controller {
       { [filterKey]: [this.shoebox.content.serviceId] },
     ];
 
+    if (filterKey === "controllingGroups") {
+      filter.push({
+        addressedGroups: [this.shoebox.content.serviceId],
+        invert: true,
+      });
+    }
+
     yield this.readyWorkItemsQuery.fetch({
       filter: [...filter, { status: "READY" }],
       order: [{ attribute: "DEADLINE", direction: "ASC" }],
