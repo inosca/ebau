@@ -76,7 +76,7 @@ class InstanceSummaryView(InstanceQuerysetMixin, ListAPIView):
     instance_field = None
 
     def get(self, request, *args, **kwargs):
-        return Response(self.filter_queryset(self.queryset).count())
+        return Response(self.filter_queryset(self.get_queryset()).count())
 
 
 class ActivationSummaryView(ListAPIView):
