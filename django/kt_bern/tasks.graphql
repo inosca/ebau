@@ -39,6 +39,7 @@ mutation CreateEBauNumberTask {
       slug: "ebau-number"
       name: "eBau-Nummer vergeben"
       addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
       leadTime: 432000 # 5 days
     }
   ) {
@@ -64,6 +65,7 @@ mutation CreateInitCirculationTask {
       slug: "init-circulation"
       name: "Zirkulation initialisieren"
       addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
       leadTime: 864000 # 10 days
     }
   ) {
@@ -78,6 +80,7 @@ mutation CreateAuditTask {
       form: "dossierpruefung"
       name: "Dossier prüfen"
       addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
       leadTime: 864000 # 10 days
       meta: "{\"is-manually-completable\":true}"
     }
@@ -92,6 +95,7 @@ mutation CreatePublicationTask {
       slug: "publication"
       name: "Dossier publizieren"
       addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
       leadTime: 864000 # 10 days
       meta: "{\"is-manually-completable\":true}"
     }
@@ -169,6 +173,7 @@ mutation CreateCheckActivationTask {
       slug: "check-activation"
       name: "Stellungnahmen prüfen"
       addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
       leadTime: 864000 # 10 days
       meta: "{\"is-manually-completable\":true}"
     }
@@ -183,6 +188,7 @@ mutation CreateStartDecisionTask {
       slug: "start-decision"
       name: "Entscheid starten"
       addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
       leadTime: 864000 # 10 days
     }
   ) {
@@ -196,6 +202,7 @@ mutation CreateDecisionTask {
       slug: "decision"
       name: "Entscheid verfügen"
       addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
       leadTime: 864000 # 10 days
     }
   ) {
@@ -234,6 +241,7 @@ mutation CreateCheckSb1Task {
       slug: "check-sb1"
       name: "Selbstdeklaration 1 prüfen"
       addressGroups: "['construction_control']|groups"
+      controlGroups: "['construction_control']|groups"
       leadTime: 432000 # 5 days
       meta: "{\"is-manually-completable\":true}"
     }
@@ -262,6 +270,7 @@ mutation CreateCheckSb2Task {
       slug: "check-sb2"
       name: "Selbstdeklaration 2 prüfen"
       addressGroups: "['construction_control']|groups"
+      controlGroups: "['construction_control']|groups"
       leadTime: 432000 # 5 days
     }
   ) {
@@ -275,6 +284,7 @@ mutation CreateCompleteTask {
       slug: "complete"
       name: "Baugesuchsverfahren abschliessen"
       addressGroups: "['construction_control']|groups"
+      controlGroups: "['construction_control']|groups"
       leadTime: 864000 # 10 days
     }
   ) {
