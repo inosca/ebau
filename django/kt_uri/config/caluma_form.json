@@ -7190,7 +7190,7 @@
       "modified_by_group": null,
       "form": "projektdaten",
       "question": "bauprojekt-titel",
-      "sort": 25
+      "sort": 24
     }
   },
   {
@@ -7235,7 +7235,7 @@
       "modified_by_group": null,
       "form": "projektdaten",
       "question": "category",
-      "sort": 18
+      "sort": 20
     }
   },
   {
@@ -7270,6 +7270,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "projektdaten.hinweis-art-der-arbeiten",
+    "fields": {
+      "created_at": "2021-10-05T12:41:48.866Z",
+      "modified_at": "2021-10-05T12:41:48.866Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "projektdaten",
+      "question": "hinweis-art-der-arbeiten",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "projektdaten.hochbau",
     "fields": {
       "created_at": "2020-09-19T09:49:35.173Z",
@@ -7285,6 +7300,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "projektdaten.kind-of-work-underground",
+    "fields": {
+      "created_at": "2021-10-05T12:40:10.790Z",
+      "modified_at": "2021-10-05T12:40:10.790Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "projektdaten",
+      "question": "kind-of-work-underground",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "projektdaten.mindest-und-grenzabstaende",
     "fields": {
       "created_at": "2020-11-02T07:25:21.439Z",
@@ -7296,21 +7326,6 @@
       "form": "projektdaten",
       "question": "mindest-und-grenzabstaende",
       "sort": 7
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "projektdaten.proposal",
-    "fields": {
-      "created_at": "2020-09-18T14:35:13.317Z",
-      "modified_at": "2020-09-18T14:35:13.317Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "projektdaten",
-      "question": "proposal",
-      "sort": 20
     }
   },
   {
@@ -7332,8 +7347,8 @@
     "model": "caluma_form.formquestion",
     "pk": "projektdaten.purpose",
     "fields": {
-      "created_at": "2020-09-18T14:36:05.921Z",
-      "modified_at": "2020-09-18T14:36:05.921Z",
+      "created_at": "2021-10-05T12:44:27.340Z",
+      "modified_at": "2021-10-05T12:44:27.341Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": null,
@@ -7431,21 +7446,6 @@
       "form": "projektdaten",
       "question": "tiefbau",
       "sort": 13
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "projektdaten.umbau",
-    "fields": {
-      "created_at": "2020-09-23T07:12:17.021Z",
-      "modified_at": "2020-09-23T07:12:17.021Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "projektdaten",
-      "question": "umbau",
-      "sort": 19
     }
   },
   {
@@ -15182,6 +15182,54 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kind-of-work-underground-abbruch",
+    "fields": {
+      "created_at": "2021-10-05T12:40:10.562Z",
+      "modified_at": "2021-10-05T13:01:38.327Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abbruch\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kind-of-work-underground-neubau",
+    "fields": {
+      "created_at": "2021-10-05T12:40:10.556Z",
+      "modified_at": "2021-10-05T13:01:38.316Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neubau\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kind-of-work-underground-umbau",
+    "fields": {
+      "created_at": "2021-10-05T12:40:10.583Z",
+      "modified_at": "2021-10-05T13:01:38.344Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sanierung / Umbau\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -29531,6 +29579,36 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "hinweis-art-der-arbeiten",
+    "fields": {
+      "created_at": "2021-10-05T12:41:48.769Z",
+      "modified_at": "2021-10-05T12:42:42.321Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Art der Arbeiten\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\n  (\"category-hochbaute\" || \"\") in \"category\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"Die Art der Hochbauarbeiten ist im Abschnitt \\\"Hochbau\\\" in der Tabelle \\\"Geb\\u00e4ude und Anlagen\\\" anzugeben.\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "hinweis-bab-fachthema",
     "fields": {
       "created_at": "2020-11-11T10:45:09.180Z",
@@ -30736,6 +30814,36 @@
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"**Aufgrund der aktuellen Auswahl muss kein L\\u00e4rmgutachten eingereicht werden!**\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "kind-of-work-underground",
+    "fields": {
+      "created_at": "2021-10-05T12:40:10.684Z",
+      "modified_at": "2021-10-05T13:01:38.581Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art der Tiefbauarbeiten\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "!(\n  \"category-tiefbaute\" in \"category\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -44614,6 +44722,51 @@
       "question": "ist-eine-anlage-des-langsamverkehrs-betroffen",
       "option": "ist-eine-anlage-des-langsamverkehrs-betroffen-nein",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kind-of-work-underground.kind-of-work-underground-abbruch",
+    "fields": {
+      "created_at": "2021-10-05T13:01:38.588Z",
+      "modified_at": "2021-10-05T13:01:38.588Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "kind-of-work-underground",
+      "option": "kind-of-work-underground-abbruch",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kind-of-work-underground.kind-of-work-underground-neubau",
+    "fields": {
+      "created_at": "2021-10-05T13:01:38.596Z",
+      "modified_at": "2021-10-05T13:01:38.596Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "kind-of-work-underground",
+      "option": "kind-of-work-underground-neubau",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kind-of-work-underground.kind-of-work-underground-umbau",
+    "fields": {
+      "created_at": "2021-10-05T13:01:38.591Z",
+      "modified_at": "2021-10-05T13:01:38.591Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "kind-of-work-underground",
+      "option": "kind-of-work-underground-umbau",
+      "sort": 2
     }
   },
   {
