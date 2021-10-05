@@ -29,6 +29,7 @@ export default CamacInputComponent.extend({
   headers: computed("token", function () {
     return {
       Authorization: `Bearer ${this.token}`,
+      "x-camac-public-access": true,
     };
   }),
 
