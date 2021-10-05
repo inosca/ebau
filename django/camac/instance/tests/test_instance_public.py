@@ -85,7 +85,7 @@ def test_public_caluma_instance_enabled_empty_qs(
 @pytest.mark.parametrize("role__name", ["Applicant"])
 @pytest.mark.parametrize(
     "headers,num_queries,num_instances",
-    [({}, 1, 0), ({"HTTP_X_CAMAC_PUBLIC_ACCESS": True}, 3, 1)],
+    [({}, 1, 0), ({"HTTP_X_CAMAC_PUBLIC_ACCESS": True}, 4, 1)],
 )
 def test_public_caluma_instance_ur(
     db,
@@ -316,7 +316,7 @@ def test_public_documents_sz(
 @pytest.mark.parametrize("role__name", ["Applicant"])
 @pytest.mark.parametrize(
     "headers,num_queries,num_instances",
-    [({}, 1, 0), ({"HTTP_X_CAMAC_PUBLIC_ACCESS": True}, 3, 1)],
+    [({}, 1, 0), ({"HTTP_X_CAMAC_PUBLIC_ACCESS": True}, 4, 1)],
 )
 def test_public_caluma_instance_be(
     db,

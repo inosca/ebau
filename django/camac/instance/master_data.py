@@ -31,7 +31,7 @@ class MasterData(object):
 
         return fn(lookup, **kwargs)
 
-    def _parse_value(self, value, default=None, value_parser=None):
+    def _parse_value(self, value, default=None, value_parser=None, answer=None):
         if not value_parser or not value:
             return value if value else default
 
@@ -52,6 +52,7 @@ class MasterData(object):
         return parser(
             value,
             default=default,
+            answer=answer,
             **options,
         )
 
@@ -125,7 +126,9 @@ class MasterData(object):
         )
 
         return self._parse_value(
-            getattr(answer, value_key, None) if answer else None, **kwargs
+            getattr(answer, value_key, None) if answer else None,
+            answer=answer,
+            **kwargs,
         )
 
     def case_meta_resolver(self, lookup, **kwargs):
@@ -177,16 +180,21 @@ class MasterData(object):
             }
         }
         """
-        rows = self.answer_resolver(
-            lookup, "documents", default=form_models.Document.objects.none()
+        answer_documents = self.answer_resolver(
+            lookup, "answerdocument_set", default=form_models.Document.objects.none()
         )
 
         return [
             {
-                key: self._get_cell_value(row, lookup_config)
+                key: self._get_cell_value(answer_document.document, lookup_config)
                 for key, lookup_config in column_mapping.items()
             }
-            for row in rows.all()
+            for answer_document in reversed(
+                sorted(
+                    answer_documents.all(),
+                    key=lambda answer_document: answer_document.sort,
+                )
+            )
         ]
 
     def dynamic_option_resolver(self, lookup, default=None):
@@ -310,6 +318,19 @@ class MasterData(object):
 
     def value_mapping_parser(self, value, default, mapping={}, **kwargs):
         if isinstance(value, list):
-            return [mapping.get(v, default) for v in value]
+            return [
+                self.value_mapping_parser(v, default, mapping=mapping) for v in value
+            ]
 
         return mapping.get(value, default)
+
+    def option_label_parser(self, value, default, answer=None, **kwargs):
+        if isinstance(value, list):
+            return [self.option_label_parser(v, default, answer=answer) for v in value]
+
+        option = next(
+            filter(lambda option: option.pk == value, answer.question.options.all()),
+            None,
+        )
+
+        return option.label.get(get_language()) if option else default
