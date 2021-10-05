@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 import pytest
 from django.core.management import call_command
 from django.utils import timezone
@@ -30,7 +32,7 @@ def test_send_activation_reminders(
 
     activation.circulation = circulation
     activation.circulation_state = circulation_state
-    activation.deadline_date = timezone.now()
+    activation.deadline_date = timezone.now() - timedelta(days=1)
     activation.save()
 
     call_command("send_activation_reminders")
