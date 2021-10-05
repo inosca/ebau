@@ -767,7 +767,7 @@ def test_notification_template_merge_without_context(
     """
 
     data = {
-        "recipient_types": ["activation_deadline_today"],
+        "recipient_types": ["activation_deadline_yesterday"],
         "notification_template": {
             "type": "notification-templates",
             "id": notification_template.pk,
@@ -1021,7 +1021,7 @@ def test_recipient_type_activation_service(
     """
 
     data = {
-        "recipient_types": ["activation_deadline_today"],
+        "recipient_types": ["activation_deadline_yesterday"],
         "notification_template": {
             "type": "notification-templates",
             "id": notification_template.pk,
@@ -1070,7 +1070,7 @@ def test_recipient_type_circulation_service(
     """
 
     data = {
-        "recipient_types": ["activation_deadline_today"],
+        "recipient_types": ["activation_deadline_yesterday"],
         "notification_template": {
             "type": "notification-templates",
             "id": notification_template.pk,
