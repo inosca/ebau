@@ -3,40 +3,6 @@ from datetime import timedelta
 import pytest
 from django.core.management import call_command
 from django.utils import timezone
-from pytest_factoryboy.fixture import LazyFixture
-
-
-@pytest.mark.parametrize("circulation__instance", [LazyFixture("be_instance")])
-def test_sendreminders(
-    db,
-    circulation,
-    circulation_state,
-    activation,
-    notification_template,
-    system_operation_user,
-    mailoutbox,
-    mocker,
-):
-
-    mocker.patch(
-        "camac.notification.management.commands.sendreminders.TEMPLATE_REMINDER_CIRCULATION",
-        notification_template.slug,
-    )
-
-    instance_state = circulation.instance.instance_state
-    instance_state.name = "circulation"
-    instance_state.save()
-
-    circulation_state.name = "RUN"
-    circulation_state.save()
-
-    activation.circulation = circulation
-    activation.circulation_state = circulation_state
-    activation.deadline_date = timezone.now()
-    activation.save()
-
-    call_command("sendreminders")
-    assert len(mailoutbox) == 1
 
 
 @pytest.mark.freeze_time("2020-08-10")
@@ -52,7 +18,7 @@ def test_sendreminders(
         (False, False, True, False, 0),
     ],
 )
-def test_sendreminders_caluma(
+def test_send_work_item_reminders(
     application_settings,
     db,
     mailoutbox,
@@ -95,7 +61,7 @@ def test_sendreminders_caluma(
         controlling_groups=[str(services[1].pk)] if has_controlling else [],
     )
 
-    call_command("sendreminders", "--caluma")
+    call_command("send_work_item_reminders")
 
     assert len(mailoutbox) == outbox_count
     snapshot.assert_match(
@@ -115,5 +81,5 @@ def test_dont_send_reminders_caluma(db, user, service, work_item_factory, mailou
         addressed_groups=[service.pk],
         controlling_groups=[service.pk],
     )
-    call_command("sendreminders", "--caluma")
+    call_command("send_work_item_reminders")
     assert len(mailoutbox) == 0
