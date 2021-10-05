@@ -612,7 +612,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
     SUBMITTER_TYPE_CQI = (103, 257, 1)
     recipient_types = serializers.MultipleChoiceField(
         choices=(
-            "activation_deadline_today",
+            "activation_deadline_yesterday",
             "applicant",
             "municipality",
             "caluma_municipality",
@@ -736,11 +736,11 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             if applicant.invitee
         ]
 
-    def _get_recipients_activation_deadline_today(self, instance):
-        """Return recipients of activations for an instance which  deadline expires exactly today."""
+    def _get_recipients_activation_deadline_yesterday(self, instance):
+        """Return recipients of activations for an instance which deadline expired yesterday."""
         activations = Activation.objects.filter(
             ~Q(circulation_state__name="DONE"),
-            deadline_date__date=date.today(),
+            deadline_date__date=date.today() - timedelta(days=1),
             circulation__instance__instance_state__name="circulation",
             circulation__instance=instance,
         )
