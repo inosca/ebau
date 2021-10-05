@@ -95,12 +95,12 @@
   </div>
 
   {{#unless this.isWorkItemCompleted}}
-    {{#if (can "edit as creator work-item" this.workItem)}}
-      <form
-        class="form form-edit work-item-form"
-        {{on "submit" (perform this.saveManualWorkItem)}}
-      >
-        <fieldset>
+    <form
+      class="form form-edit work-item-form"
+      {{on "submit" (perform this.saveWorkItem)}}
+    >
+      <fieldset>
+        {{#if (can "edit work-item" this.workItem)}}
           <legend class="hide-sz">
             {{t "workItems.actions.edit"}}
           </legend>
@@ -159,27 +159,9 @@
               </label>
             </div>
           </div>
-        </fieldset>
-
-        <div class="row buttons-container">
-          <LinkTo @route="work-items.instance.index" class="button buttonstyle btn">
-            {{t "global.cancel"}}
-          </LinkTo>
-
-          <button class="button buttonstyle btn success" type="submit">
-            {{t "global.save"}}
-          </button>
-        </div>
-      </form>
-    {{else if (can "edit work-item" this.workItem)}}
-      <form
-        class="form form-edit work-item-form"
-        aria-label={{t "work-items.editFormLabel"}}
-        {{did-insert (perform this.fetchUserChoices)}}
-        {{on "submit" (perform this.workItemAssignUsers)}}
-      >
-        <fieldset>
-          <div class="row">
+        {{/if}}
+        {{#if this.workItem.isAddressedToCurrentService}}
+          <div class="row" {{did-insert (perform this.fetchUserChoices)}}>
             <div class="label">
               <label>
                 {{t "workItems.assignedUser"}}
@@ -202,19 +184,19 @@
               </PowerSelect>
             </div>
           </div>
-        </fieldset>
+        {{/if}}
+      </fieldset>
 
-        <div class="row buttons-container">
-          <LinkTo @route="work-items.instance.index" class="button buttonstyle btn">
-            {{t "global.cancel"}}
-          </LinkTo>
+      <div class="row buttons-container">
+        <LinkTo @route="work-items.instance.index" class="button buttonstyle btn">
+          {{t "global.cancel"}}
+        </LinkTo>
 
-          <button class="button buttonstyle btn success" type="submit">
-            {{t "global.save"}}
-          </button>
-        </div>
-      </form>
-    {{/if}}
+        <button class="button buttonstyle btn success" type="submit">
+          {{t "global.save"}}
+        </button>
+      </div>
+    </form>
   {{/unless}}
 
   {{#if (can "complete work-item" this.workItem)}}
