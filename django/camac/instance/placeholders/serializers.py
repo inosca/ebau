@@ -10,7 +10,7 @@ from rest_framework.fields import ReadOnlyField
 from ..master_data import MasterData
 from . import fields
 from .aliases import ALIASES
-from .utils import clean_join, human_readable_date
+from .utils import clean_join, get_option_label, human_readable_date
 
 
 class DMSPlaceholdersSerializer(serializers.Serializer):
@@ -111,7 +111,9 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     bauentscheid = serializers.SerializerMethodField()
     bauvorhaben = fields.JointField(
         fields=[
-            fields.MasterDataField(source="project", join_by=", "),
+            fields.MasterDataField(
+                source="project", parser=get_option_label, join_by=", "
+            ),
             fields.MasterDataField(source="proposal"),
         ],
         separator=", ",
@@ -184,7 +186,7 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     )
     gesuchsteller = fields.MasterDataPersonField(source="applicants", only_first=True)
     gewaesserschutzbereich = fields.MasterDataField(
-        source="water_protection_area", join_by=", "
+        source="water_protection_area", parser=get_option_label, join_by=", "
     )
     grundeigentuemer_address_1 = fields.MasterDataPersonField(
         source="landowners", only_first=True, fields=["address_1"]
@@ -201,12 +203,18 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     instance_id = serializers.IntegerField(source="pk")
     inventar = fields.JointField(
         fields=[
-            fields.MasterDataField(source="monument_worth_protecting"),
-            fields.MasterDataField(source="monument_worth_preserving"),
-            fields.MasterDataField(source="monument_k_object"),
-            fields.MasterDataField(source="monument_inventory"),
-            fields.MasterDataField(source="monument_rrb"),
-            fields.MasterDataField(source="monument_contract"),
+            fields.MasterDataField(
+                source="monument_worth_protecting", parser=get_option_label
+            ),
+            fields.MasterDataField(
+                source="monument_worth_preserving", parser=get_option_label
+            ),
+            fields.MasterDataField(source="monument_k_object", parser=get_option_label),
+            fields.MasterDataField(
+                source="monument_inventory", parser=get_option_label
+            ),
+            fields.MasterDataField(source="monument_rrb", parser=get_option_label),
+            fields.MasterDataField(source="monument_contract", parser=get_option_label),
         ],
         separator=", ",
     )
@@ -290,7 +298,9 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     nebenbestimmungen = fields.ActivationsField(
         only_own=True, props=["collateral"], join_by="\n\n"
     )
-    nutzung = fields.MasterDataField(source="usage_type", join_by=", ")
+    nutzung = fields.MasterDataField(
+        source="usage_type", parser=get_option_label, join_by=", "
+    )
     nutzungszone = fields.MasterDataField(source="usage_zone")
     parzelle = serializers.SerializerMethodField()
     projektverfasser_address_1 = fields.MasterDataPersonField(

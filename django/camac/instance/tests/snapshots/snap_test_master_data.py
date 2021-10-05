@@ -62,12 +62,30 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
         }
     ],
     'modification': 'Doch eher kleines Haus',
-    'monument_contract': 'Ja',
-    'monument_inventory': 'Nein',
-    'monument_k_object': 'Nein',
-    'monument_rrb': 'Ja',
-    'monument_worth_preserving': 'Nein',
-    'monument_worth_protecting': 'Ja',
+    'monument_contract': {
+        'label': 'Ja',
+        'slug': 'vertrag-ja'
+    },
+    'monument_inventory': {
+        'label': 'Nein',
+        'slug': 'baugruppe-bauinventar-nein'
+    },
+    'monument_k_object': {
+        'label': 'Nein',
+        'slug': 'k-objekt-nein'
+    },
+    'monument_rrb': {
+        'label': 'Ja',
+        'slug': 'rrb-ja'
+    },
+    'monument_worth_preserving': {
+        'label': 'Nein',
+        'slug': 'erhaltenswert-nein'
+    },
+    'monument_worth_protecting': {
+        'label': 'Ja',
+        'slug': 'schuetzenswert-ja'
+    },
     'municipality': {
         'label': 'Bern',
         'slug': '1'
@@ -87,7 +105,10 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
             'plot_number': 2592
         }
     ],
-    'project': 'Neubau',
+    'project': {
+        'label': 'Neubau',
+        'slug': 'baubeschrieb-neubau'
+    },
     'project_authors': [
         {
             'first_name': 'Hans',
@@ -106,11 +127,17 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
     'street_number': 4,
     'submit_date': GenericRepr('datetime.datetime(2021, 3, 31, 13, 17, 8, tzinfo=tzutc())'),
     'usage_type': [
-        'Wohnen'
+        {
+            'label': 'Wohnen',
+            'slug': 'nutzungsart-wohnen'
+        }
     ],
     'usage_zone': 'Wohnzone W2',
     'water_protection_area': [
-        'Aᵤ'
+        {
+            'label': 'Aᵤ',
+            'slug': 'gewaesserschutzbereich-v2-au'
+        }
     ]
 }
 
@@ -169,12 +196,30 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
         }
     ],
     'modification': 'Doch eher kleines Haus',
-    'monument_contract': 'Ja',
-    'monument_inventory': 'Nein',
-    'monument_k_object': 'Nein',
-    'monument_rrb': 'Ja',
-    'monument_worth_preserving': 'Nein',
-    'monument_worth_protecting': 'Ja',
+    'monument_contract': {
+        'label': 'Ja',
+        'slug': 'vertrag-ja'
+    },
+    'monument_inventory': {
+        'label': 'Nein',
+        'slug': 'baugruppe-bauinventar-nein'
+    },
+    'monument_k_object': {
+        'label': 'Nein',
+        'slug': 'k-objekt-nein'
+    },
+    'monument_rrb': {
+        'label': 'Ja',
+        'slug': 'rrb-ja'
+    },
+    'monument_worth_preserving': {
+        'label': 'Nein',
+        'slug': 'erhaltenswert-nein'
+    },
+    'monument_worth_protecting': {
+        'label': 'Ja',
+        'slug': 'schuetzenswert-ja'
+    },
     'municipality': {
         'label': 'Berne',
         'slug': '1'
@@ -194,7 +239,10 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
             'plot_number': 2592
         }
     ],
-    'project': 'Neubau',
+    'project': {
+        'label': 'Neubau',
+        'slug': 'baubeschrieb-neubau'
+    },
     'project_authors': [
         {
             'first_name': 'Hans',
@@ -213,11 +261,17 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
     'street_number': 4,
     'submit_date': GenericRepr('datetime.datetime(2021, 3, 31, 13, 17, 8, tzinfo=tzutc())'),
     'usage_type': [
-        'Vivre'
+        {
+            'label': 'Vivre',
+            'slug': 'nutzungsart-wohnen'
+        }
     ],
     'usage_zone': 'Wohnzone W2',
     'water_protection_area': [
-        'Aᵤ'
+        {
+            'label': 'Aᵤ',
+            'slug': 'gewaesserschutzbereich-v2-au'
+        }
     ]
 }
 
