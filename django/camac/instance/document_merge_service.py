@@ -11,7 +11,6 @@ from django.conf import settings
 from django.core.files.base import ContentFile
 from django.core.serializers.json import DjangoJSONEncoder
 from django.db.models import Q
-from django.utils.module_loading import import_string
 from django.utils.text import slugify
 from django.utils.translation import get_language, gettext as _
 from rest_framework import exceptions
@@ -130,20 +129,6 @@ class DMSHandler:
             )
         dms_settings = settings.APPLICATION.get("DOCUMENT_MERGE_SERVICE", {})
 
-        municipality = "-"
-        if dms_settings.get("MUNICIPALITY_SLUG"):
-            try:
-                municipality_id = doc.answers.get(
-                    question_id=dms_settings.get("MUNICIPALITY_SLUG")
-                ).value
-                municipality = (
-                    import_string(dms_settings.get("MUNICIPALITY_MODEL"))
-                    .objects.get(pk=municipality_id)
-                    .name
-                )
-            except Answer.DoesNotExist:
-                pass
-
         case = Case.objects.get(instance__pk=instance_id)
         master_data = MasterData(case)
 
@@ -152,7 +137,9 @@ class DMSHandler:
             "caseType": str(case.document.form.name),
             "formType": str(doc.form.name) if case.document.pk != doc.pk else "",
             "dossierNr": master_data.dossier_number,
-            "municipality": municipality,
+            "municipality": master_data.municipality.get("label")
+            if master_data.municipality
+            else "-",
             "sections": self.visitor.visit(doc),
             "signatureSectionTitle": _("Signatures"),
             "signatureTitle": _("Signature"),
