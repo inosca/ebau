@@ -608,6 +608,7 @@ APPLICATIONS = {
                 "nfd",
                 "dossierpruefung",
                 "publikation",
+                "neighborhood-orientation",
             ],
             "CIRCULATION_WORKFLOW": "circulation",
             "CIRCULATION_TASK": "circulation",
@@ -698,7 +699,12 @@ APPLICATIONS = {
                 "init-circulation": {"cancel": ["skip-circulation"]},
                 "start-circulation": {"cancel": ["check-activation", "start-decision"]},
                 "decision": {
-                    "skip": ["audit", "publication", "fill-publication"],
+                    "skip": [
+                        "audit",
+                        "publication",
+                        "fill-publication",
+                        "neighborhood-orientation",
+                    ],
                     "cancel": [
                         "reopen-circulation",
                         "create-manual-workitems",
@@ -1230,6 +1236,17 @@ APPLICATIONS = {
                 "caluma_form.Question": Q(forms__pk="sb2"),
                 "caluma_form.QuestionOption": Q(question__forms__pk="sb2"),
                 "caluma_form.Option": Q(questions__forms__pk="sb2"),
+            },
+            "caluma_neighborhood_orientation_form": {
+                "caluma_form.Form": Q(pk="neighborhood-orientation"),
+                "caluma_form.FormQuestion": Q(form__pk="neighborhood-orientation"),
+                "caluma_form.Question": Q(forms__pk="neighborhood-orientation"),
+                "caluma_form.QuestionOption": Q(
+                    question__forms__pk="neighborhood-orientation"
+                ),
+                "caluma_form.Option": Q(
+                    questions__forms__pk="neighborhood-orientation"
+                ),
             },
         },
         "DUMP_CONFIG_EXCLUDED_MODELS": [

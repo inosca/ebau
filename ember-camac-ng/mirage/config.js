@@ -1,3 +1,7 @@
+import graphqlHandler from "@projectcaluma/ember-testing/mirage-graphql";
+
+import config from "../config/environment";
+
 /* eslint-disable ember/no-get */
 export default function () {
   // this.urlPrefix = "";
@@ -24,6 +28,8 @@ export default function () {
   this.patch("/api/v1/responsible-services/:id");
 
   this.get("/api/v1/notification-templates");
+
+  this.post(config.apollo.apiURL, graphqlHandler(this), 200);
 
   this.passthrough("/index/token");
 }

@@ -637,6 +637,9 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
     def _get_publikation_form_permissions_for_support(self, instance):
         return set(["read", "write"])
 
+    def _get_neighborhood_orientation_form_permissions(self, instance):
+        return self._get_publikation_form_permissions(instance)
+
     @permission_aware
     def _get_case_meta_permissions(self, instance):
         return set(["read"])
@@ -659,7 +662,11 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         return {
             "case-meta": self._get_case_meta_permissions(instance),
             **{
-                form: sorted(getattr(self, f"_get_{form}_form_permissions")(instance))
+                form: sorted(
+                    getattr(self, f"_get_{form.replace('-','_')}_form_permissions")(
+                        instance
+                    )
+                )
                 for form in settings.APPLICATION.get("CALUMA", {}).get(
                     "FORM_PERMISSIONS", set()
                 )

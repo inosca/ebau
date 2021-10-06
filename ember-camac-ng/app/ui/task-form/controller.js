@@ -12,8 +12,12 @@ export default class TaskFormController extends Controller {
     return this.shoebox.content?.moduleName;
   }
 
+  get params() {
+    return { instanceId: this.model.instance_id, task: this.model.task };
+  }
+
   get context() {
-    return { ...this.model, workItemId: this.workItem?.id };
+    return { ...this.params, workItemId: this.workItem?.id };
   }
 
   @lastValue("fetchWorkItem") workItem;
@@ -22,7 +26,7 @@ export default class TaskFormController extends Controller {
     const response = yield this.apollo.query({
       query: getWorkItemOfTask,
       fetchPolicy: "network-only",
-      variables: this.model,
+      variables: this.params,
     });
 
     return response.allWorkItems.edges[0]?.node;
