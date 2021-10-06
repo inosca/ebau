@@ -85,7 +85,7 @@ def test_public_caluma_instance_enabled_empty_qs(
 @pytest.mark.parametrize("role__name", ["Applicant"])
 @pytest.mark.parametrize(
     "headers,num_queries,num_instances",
-    [({}, 1, 0), ({"HTTP_X_CAMAC_PUBLIC_ACCESS": True}, 4, 1)],
+    [({}, 1, 0), ({"HTTP_X_CAMAC_PUBLIC_ACCESS": True}, 5, 1)],
 )
 def test_public_caluma_instance_ur(
     db,
@@ -112,8 +112,13 @@ def test_public_caluma_instance_ur(
     ur_instance.case.meta["dossier-number"] = 123
     ur_instance.case.save()
 
+    AnswerFactory(
+        question_id="municipality",
+        document=ur_instance.case.document,
+        value="1",
+    )
     DynamicOptionFactory(
-        slug=1,
+        slug="1",
         label={"de": "Altdorf"},
         document=ur_instance.case.document,
         question_id="municipality",
@@ -316,7 +321,7 @@ def test_public_documents_sz(
 @pytest.mark.parametrize("role__name", ["Applicant"])
 @pytest.mark.parametrize(
     "headers,num_queries,num_instances",
-    [({}, 1, 0), ({"HTTP_X_CAMAC_PUBLIC_ACCESS": True}, 4, 1)],
+    [({}, 1, 0), ({"HTTP_X_CAMAC_PUBLIC_ACCESS": True}, 5, 1)],
 )
 def test_public_caluma_instance_be(
     db,
@@ -342,8 +347,13 @@ def test_public_caluma_instance_be(
     be_instance.case.meta["ebau-number"] = "2021-55"
     be_instance.case.save()
 
+    AnswerFactory(
+        question_id="gemeinde",
+        document=be_instance.case.document,
+        value="1",
+    )
     DynamicOptionFactory(
-        slug=1,
+        slug="1",
         label={"de": "Bern", "fr": "Berne"},
         document=be_instance.case.document,
         question_id="gemeinde",
