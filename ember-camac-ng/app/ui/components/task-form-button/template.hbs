@@ -1,0 +1,16 @@
+{{#unless @disabled}}
+  <DocumentValidity
+    @document={{@field.document}}
+    as |isValid validate|
+  >
+    <WorkItemButton
+      @workItemId={{@context.workItemId}}
+      @mutation={{@field.question.meta.mutation}}
+      @label={{@field.question.label}}
+      @disabled={{and (not-eq isValid null) (not isValid)}}
+      @color="primary"
+      @beforeMutate={{fn this.beforeMutate validate}}
+      @onSuccess={{this.refreshWorkItem}}
+    />
+  </DocumentValidity>
+{{/unless}}

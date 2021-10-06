@@ -1,8 +1,8 @@
 import Route from "@ember/routing/route";
 
 export default class TaskFormRoute extends Route {
-  model({ instance_id: instanceId, task }) {
-    return { instanceId, task };
+  model(params) {
+    return params;
   }
 
   setupController(controller, model) {
