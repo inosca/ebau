@@ -1,0 +1,10 @@
+<CamacForm @instance={{@model.instance}} @meta={{@model.meta}} as |form|>
+  <form.input @identifier="bezeichnung">
+    <h4>
+      Bezeichnung und Lokalisierung des Vorhabens
+    </h4>
+  </form.input>
+  <form.input @identifier="projektnummer"/>
+  <form.table @identifier="parzellen"/>
+  <form.table @identifier="punkte"/>
+</CamacForm>

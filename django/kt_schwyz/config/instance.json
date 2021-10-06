@@ -252,6 +252,15 @@
     }
   },
   {
+    "model": "instance.form",
+    "pk": 29,
+    "fields": {
+      "form_state": 1,
+      "name": "migriertes-dossier",
+      "description": "Migriertes Dossier"
+    }
+  },
+  {
     "model": "instance.formstate",
     "pk": 1,
     "fields": {

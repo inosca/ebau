@@ -32,7 +32,9 @@ Router.map(function () {
           this.route("allgemeine-informationen-zum-vorhaben-v2");
           this.route("allgemeine-informationen-zum-vorhaben-v3");
           this.route("ausnahmebewilligungen");
+          this.route("migriertes-dossier");
         });
+        this.route("migriertes-dossier");
         this.route("personalien", function () {
           this.route("grundeigentumerschaft");
           this.route("bauherrschaft");
