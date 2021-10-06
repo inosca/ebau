@@ -197,35 +197,6 @@ class MasterData(object):
             )
         ]
 
-    def dynamic_option_resolver(self, lookup, default=None):
-        """Resolve data from dynamic options.
-
-        Example configuration:
-
-        MASTER_DATA = {
-            "municipality": {
-                "dynamic_option",
-                "municipality"
-            }
-        }
-        """
-        dynamic_option = next(
-            filter(
-                lambda dynamic_option: dynamic_option.question_id == lookup,
-                self.case.document.dynamicoption_set.all(),
-            ),
-            None,
-        )
-
-        return (
-            {
-                "slug": dynamic_option.slug,
-                "label": dynamic_option.label.get(get_language()),
-            }
-            if dynamic_option
-            else default
-        )
-
     def workflow_entry_resolver(self, lookup, default=None, **kwargs):
         """Resolve data from the workflow entry.
 
@@ -334,3 +305,26 @@ class MasterData(object):
         )
 
         return option.label.get(get_language()) if option else default
+
+    def dynamic_option_parser(self, value, default, answer=None, **kwargs):
+        if isinstance(value, list):  # pragma: no cover
+            return [
+                self.dynamic_option_parser(v, default, answer=answer) for v in value
+            ]
+
+        dynamic_option = next(
+            filter(
+                lambda dynamic_option: dynamic_option.slug == value,
+                self.case.document.dynamicoption_set.all(),
+            ),
+            None,
+        )
+
+        return (
+            {
+                "slug": dynamic_option.slug,
+                "label": dynamic_option.label.get(get_language()),
+            }
+            if dynamic_option
+            else default
+        )

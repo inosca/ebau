@@ -197,6 +197,7 @@ def be_master_data_case(
     add_answer(document, "vertrag", "vertrag-ja", label="Ja")
 
     # Municipality
+    add_answer(document, "gemeinde", "1")
     caluma_form_factories.DynamicOptionFactory(
         question_id="gemeinde",
         document=be_instance.case.document,
@@ -315,6 +316,7 @@ def ur_master_data_case(db, ur_instance, workflow_entry_factory):
     add_answer(document, "category", ["category-hochbaute", "category-tiefbaute"])
 
     # Municipality
+    add_answer(document, "municipality", "1")
     caluma_form_factories.DynamicOptionFactory(
         question_id="municipality",
         document=ur_instance.case.document,
