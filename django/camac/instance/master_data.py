@@ -66,7 +66,14 @@ class MasterData(object):
 
         return self.answer_resolver(lookup, document=row, **options)
 
-    def answer_resolver(self, lookup, value_key="value", document=None, **kwargs):
+    def answer_resolver(
+        self,
+        lookup,
+        value_key="value",
+        document=None,
+        document_from_work_item=None,
+        **kwargs,
+    ):
         """Resolve data from caluma answers.
 
         Example configuration for a "normal" value:
@@ -115,12 +122,22 @@ class MasterData(object):
         if not isinstance(lookup, list):
             lookup = [lookup]
 
+        if not document and document_from_work_item:
+            work_item = next(
+                filter(
+                    lambda work_item: work_item.task_id == document_from_work_item,
+                    self.case.work_items.all(),
+                ),
+                None,
+            )
+            document = work_item.document if work_item else None
+        elif not document:
+            document = self.case.document
+
         answer = next(
             filter(
                 lambda answer: answer.question_id in lookup,
-                document.answers.all()
-                if document
-                else self.case.document.answers.all(),
+                document.answers.all() if document else [],
             ),
             None,
         )
@@ -148,7 +165,7 @@ class MasterData(object):
         """
         return self._parse_value(self.case.meta.get(lookup), **kwargs)
 
-    def table_resolver(self, lookup, column_mapping={}):
+    def table_resolver(self, lookup, column_mapping={}, **kwargs):
         """Resolve data from caluma table answers.
 
         Example configuration:
@@ -181,7 +198,10 @@ class MasterData(object):
         }
         """
         answer_documents = self.answer_resolver(
-            lookup, "answerdocument_set", default=form_models.Document.objects.none()
+            lookup,
+            "answerdocument_set",
+            default=form_models.Document.objects.none(),
+            **kwargs,
         )
 
         return [
