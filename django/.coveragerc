@@ -53,6 +53,7 @@ omit=
     camac/core/management/commands/restore_preliminary_clarification.py
     camac/echbern/management/commands/fix_ech_circulation_answer.py
     camac/core/management/commands/migrate_work_item_controlling.py
+    camac/core/management/commands/initialize_neighborhood_orientation.py
     # Audit migration
     camac/core/management/commands/config/
     camac/core/management/commands/migrate_audit.py
