@@ -418,3 +418,61 @@ def test_public_caluma_instance_municipality_filter(
 
     assert response.status_code == status.HTTP_200_OK
     assert len(response.json()["data"]) == 3
+
+
+def test_neighborhood_orientation_instance_be(
+    db,
+    application_settings,
+    client,
+    be_instance,
+    enable_public_urls,
+):
+    application_settings["PUBLICATION_BACKEND"] = "caluma"
+    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
+        "MASTER_DATA"
+    ]
+
+    be_instance.case.meta["ebau-number"] = "2021-55"
+    be_instance.case.save()
+
+    AnswerFactory(
+        question_id="gemeinde",
+        document=be_instance.case.document,
+        value="1",
+    )
+    DynamicOptionFactory(
+        slug=1,
+        label={"de": "Bern", "fr": "Berne"},
+        document=be_instance.case.document,
+        question_id="gemeinde",
+    )
+
+    document = DocumentFactory()
+    AnswerFactory(
+        document=document,
+        question__slug="neighborhood-orientation-start-date",
+        date=timezone.now().date() - timedelta(days=1),
+    )
+    AnswerFactory(
+        document=document,
+        question__slug="neighborhood-orientation-end-date",
+        date=timezone.now().date() + timedelta(days=1),
+    )
+    WorkItemFactory(
+        task_id="neighborhood-orientation",
+        status="completed",
+        document=document,
+        case=be_instance.case,
+    )
+
+    url = reverse("public-caluma-instance")
+
+    response = client.get(
+        url,
+        {"instance": be_instance.pk},
+        HTTP_X_CAMAC_PUBLIC_ACCESS_KEY=str(document.pk)[:7],
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+
+    assert len(response.json()["data"])
