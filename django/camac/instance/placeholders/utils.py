@@ -12,6 +12,15 @@ def clean_join(*parts: Any, separator: Optional[str] = " ") -> str:
     return separator.join([str(part).strip() for part in parts if part]).strip()
 
 
+def get_option_label(option: dict) -> str:
+    """Get the label of an option.
+
+    >>> get_option_label({"slug": "test-option", "label": "Test Option"})
+    "Test Option"
+    """
+    return option.get("label")
+
+
 def human_readable_date(value: Union[datetime, date, None]) -> str:
     """Format date or datetime to a human readable date.
 
