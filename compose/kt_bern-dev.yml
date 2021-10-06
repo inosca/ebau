@@ -85,6 +85,8 @@ services:
       - APPLICATION_ENV=development
     networks:
       - camac-ng.local
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     command: [
         "/bin/sh",
         "-c",
