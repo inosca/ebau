@@ -1,11 +1,24 @@
+import base64
+from io import BytesIO
+
+import qrcode
+from django.conf import settings
 from django.db.models import Sum
 from django.utils.translation import gettext_lazy as _
 from rest_framework import serializers
+from rest_framework.fields import ReadOnlyField
 
 from camac.core.models import Activation, BillingV2Entry
 from camac.user.models import Service
+from camac.utils import build_url
 
-from .utils import clean_join, human_readable_date
+from .utils import (
+    clean_join,
+    get_person_address_1,
+    get_person_address_2,
+    get_person_name,
+    human_readable_date,
+)
 
 
 class DeprecatedField(serializers.ReadOnlyField):
@@ -302,17 +315,21 @@ class MasterDataPersonField(MasterDataField):
     def parse_row(self, row):
         parts = []
 
-        if "juristic_name" in self.fields and row.get("is_juristic_person"):
-            parts.append(clean_join(row.get("juristic_name")))
+        if "juristic_name" in self.fields:
+            parts.append(
+                get_person_name(row, include_name=False, include_juristic_name=True)
+            )
 
         if "name" in self.fields:
-            parts.append(clean_join(row.get("first_name"), row.get("last_name")))
+            parts.append(
+                get_person_name(row, include_name=True, include_juristic_name=False)
+            )
 
         if "address_1" in self.fields:
-            parts.append(clean_join(row.get("street"), row.get("street_number")))
+            parts.append(get_person_address_1(row))
 
         if "address_2" in self.fields:
-            parts.append(clean_join(row.get("zip"), row.get("town")))
+            parts.append(get_person_address_2(row))
 
         return clean_join(*parts, separator=", ")
 
@@ -320,6 +337,57 @@ class MasterDataPersonField(MasterDataField):
         if not value or not len(value):  # pragma: no cover
             return ""
 
-        value = value[:1] if self.only_first else value
-
         return clean_join(*[self.parse_row(row) for row in value], separator=", ")
+
+    def get_attribute(self, instance):
+        value = super().get_attribute(instance)
+
+        return value[:1] if self.only_first and value else value
+
+
+class MasterDataDictPersonField(MasterDataField):
+    def to_representation(self, value):
+        return [
+            {
+                "NAME": get_person_name(person),
+                "ADDRESS_1": get_person_address_1(person),
+                "ADDRESS_2": get_person_address_2(person),
+            }
+            for person in (value if value else [])
+        ]
+
+
+class NeighborhoodOrientationLinkField(ReadOnlyField):
+    def __init__(
+        self,
+        as_qrcode=False,
+        **kwargs,
+    ):
+        super().__init__(**kwargs)
+
+        self.as_qrcode = as_qrcode
+
+    def get_attribute(self, instance):
+        work_item = instance.case.work_items.filter(
+            task_id="neighborhood-orientation"
+        ).first()
+
+        return (
+            build_url(
+                settings.PUBLIC_BASE_URL,
+                f"/public-instances/{instance.pk}?key={str(work_item.document.pk)[:7]}",
+            )
+            if work_item
+            else None
+        )
+
+    def to_representation(self, value):
+        if not self.as_qrcode:
+            return value
+
+        data = BytesIO()
+        img = qrcode.make(value)
+        img.save(data, "PNG")
+        data_b64 = base64.b64encode(data.getvalue())
+
+        return f"data:image/png;base64,{data_b64.decode('utf-8')}"

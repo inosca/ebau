@@ -1,4 +1,3 @@
-import json
 from datetime import date
 
 import pytest
@@ -13,6 +12,7 @@ from .test_master_data import add_answer, be_master_data_case  # noqa
 
 @pytest.mark.freeze_time("2021-08-30")
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db(transaction=True, reset_sequences=True)
 def test_dms_placeholders(
     db,
     activation_factory,
@@ -120,6 +120,4 @@ def test_dms_placeholders(
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
-    snapshot.assert_match(
-        json.loads(json.dumps(response.json()).replace(str(be_instance.pk), "9999"))
-    )
+    snapshot.assert_match(response.json())

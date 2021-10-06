@@ -28,6 +28,7 @@ python-dateutil==2.8.1
 python-keycloak==0.22.0
 python-memcached==1.59
 PyXB==1.2.6
+qrcode==7.3.1
 requests==2.25.0
 # TODO: fixes issues with imagemagick, remove once this is merged:
 # https://github.com/jazzband/sorl-thumbnail/pull/661
