@@ -295,16 +295,20 @@ class MasterData(object):
 
         return mapping.get(value, default)
 
-    def option_label_parser(self, value, default, answer=None, **kwargs):
+    def option_parser(self, value, default, answer=None, **kwargs):
         if isinstance(value, list):
-            return [self.option_label_parser(v, default, answer=answer) for v in value]
+            return [self.option_parser(v, default, answer=answer) for v in value]
 
         option = next(
             filter(lambda option: option.pk == value, answer.question.options.all()),
             None,
         )
 
-        return option.label.get(get_language()) if option else default
+        return (
+            {"slug": value, "label": option.label.get(get_language())}
+            if option
+            else default
+        )
 
     def dynamic_option_parser(self, value, default, answer=None, **kwargs):
         if isinstance(value, list):  # pragma: no cover
