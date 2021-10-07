@@ -61,7 +61,7 @@ module.exports = function (environment) {
       kt_uri: {
         gwr: {
           cantonAbbreviation: "UR",
-          importModels: ["project"],
+          importModels: ["project", "building", "dwelling"],
         },
         allowApplicantManualWorkItem: false,
         journalDefaultVisibility: true,
