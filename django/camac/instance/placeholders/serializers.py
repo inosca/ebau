@@ -74,6 +74,9 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     bauentscheid_abschreibungsverfuegung = fields.BooleanCompareField(
         source="decision.decision_type", compare_to="ABSCHREIBUNGSVERFUEGUNG"
     )
+    bauentscheid_baubewilligungsfrei = fields.BooleanCompareField(
+        source="decision.decision_type", compare_to="BAUBEWILLIGUNGSFREI"
+    )
     bauentscheid_bauabschlag_mit_whst = fields.BooleanCompareField(
         source="decision.decision_type", compare_to="BAUABSCHLAG_MIT_WHST"
     )
