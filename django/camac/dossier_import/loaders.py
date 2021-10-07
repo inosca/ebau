@@ -18,7 +18,7 @@ class DossierLoader:
     dossier_class = Dossier
 
 
-class XlsxDossierLoader:
+class XlsxDossierLoader(DossierLoader):
     base_dir: str = "/tmp/dossier_import"
     path_to_dossiers_file: str
     simple_fields = [
@@ -149,7 +149,7 @@ class XlsxDossierLoader:
                 }
             ),
         )
-        dossier.Meta.target_status = dossier_row.get(self.ListField.status.value)
+        dossier.Meta.target_state = dossier_row.get(self.ListField.status.value)
         dossier.Meta.workflow = dossier_row.get(self.ListField.workflow.value)
         return dossier
 
