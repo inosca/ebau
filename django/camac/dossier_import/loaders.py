@@ -1,7 +1,4 @@
-import shutil
-import zipfile
 from enum import Enum
-from pathlib import Path
 
 import pyexcel
 
@@ -11,15 +8,13 @@ from camac.dossier_import.dossier_classes import (
     Person,
     SiteAddress,
 )
-from camac.dossier_import.models import DossierImport
 
 
 class DossierLoader:
     dossier_class = Dossier
 
 
-class XlsxDossierLoader(DossierLoader):
-    base_dir: str = "/tmp/dossier_import"
+class XlsxFileDossierLoader(DossierLoader):
     path_to_dossiers_file: str
     simple_fields = [
         "id",
@@ -87,16 +82,8 @@ class XlsxDossierLoader(DossierLoader):
         projectauthor_phone = "PROJECTAUTHOR-PHONE"
         projectauthor_email = "PROJECTAUTHOR-EMAIL"
 
-    def __init__(self, import_case: DossierImport, filepath: str):
-        path = Path(f"{self.base_dir}") / str(import_case.id)
-        Path(path).mkdir(parents=True, exist_ok=True)
-        try:
-            with zipfile.ZipFile(filepath, "r") as archive:
-                self.path_to_dossiers_file = archive.extract(
-                    "dossiers.xlsx", path=Path(self.base_dir) / str(import_case.id)
-                )
-        except FileNotFoundError:
-            raise
+    def __init__(self, filepath: str):
+        self.path_to_dossiers_file = filepath
 
     def _get_data_dict(self):
         pass
@@ -165,7 +152,3 @@ class XlsxDossierLoader(DossierLoader):
         for record in records:
             dossiers.append(self._load_dossier(record))
         return dossiers
-
-    def clean_up(self, import_case):
-        """Remove import case's temp dir."""
-        shutil.rmtree(str(Path(self.base_dir) / str(import_case.id)))

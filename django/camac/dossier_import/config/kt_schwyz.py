@@ -1,9 +1,16 @@
-from caluma.caluma_user.models import BaseUser
-from django.db import transaction
+import mimetypes
+import shutil
+from pathlib import Path
 
+from caluma.caluma_user.models import BaseUser
+from django.conf import settings
+from django.db import transaction
+from django.utils.timezone import now
+
+from camac.document.models import Attachment, AttachmentSection
 from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.importers import DossierImporter
-from camac.dossier_import.loaders import XlsxDossierLoader
+from camac.dossier_import.loaders import XlsxFileDossierLoader
 from camac.dossier_import.writers import (
     CamacNgAnswerFieldWriter,
     CamacNgListAnswerWriter,
@@ -55,7 +62,7 @@ class KtSchwyzDossierWriter(DossierWriter):
 
 
 class KtSchwyzXlsxDossierImporter(DossierImporter):
-    loader_class = XlsxDossierLoader
+    loader_class = XlsxFileDossierLoader
     dossier_writer = KtSchwyzDossierWriter
 
     @transaction.atomic
@@ -101,7 +108,36 @@ class KtSchwyzXlsxDossierImporter(DossierImporter):
 
     def _handle_dossier_attachments(self, dossier: Dossier):
         """Create attachments for dossier."""
-        pass
+
+        user = User.objects.get(username=self.settings["USER"])
+        group = Group.objects.get(name=self.settings["GROUP"])
+
+        documents_dir = Path(self.temp_dir) / str(self.import_case.id) / str(dossier.id)
+
+        for document in documents_dir.iterdir():
+            path = f"{settings.MEDIA_ROOT}/attachments/files/{dossier.Meta.instance.pk}"
+            Path(path).mkdir(parents=True, exist_ok=True)
+            target_file = Path(path) / document.name
+            shutil.copyfile(document, str(target_file))
+
+            mime_type, _ = mimetypes.guess_type(target_file)
+
+            attachment = Attachment.objects.create(
+                instance=dossier.Meta.instance,
+                user=user,
+                service=group.service,
+                group=group,
+                name=document.name,
+                context={},
+                path=str(target_file),
+                size=target_file.stat().st_size,
+                date=now(),
+                mime_type=mime_type,
+            )
+            attachment_section = AttachmentSection.objects.get(
+                attachment_section_id=self.settings["ATTACHMENT_SECTION_ID"]
+            )
+            attachment_section.attachments.add(attachment)
 
     def _set_workflow_state(self):
         """Fast-Forward case to Dossier.Meta.target_state."""
