@@ -1,3 +1,6 @@
+import shutil
+import zipfile
+from pathlib import Path
 from typing import List
 
 from django.conf import settings
@@ -25,6 +28,7 @@ class DossierImporter:
 
     loader_class: DossierLoader = DossierLoader
     dossiers: List[Dossier] = None
+    temp_dir: str = "/tmp/dossier_import"
 
     def __init__(self, location):
         self.location = Location.objects.get(name=location)
@@ -44,9 +48,22 @@ class DossierImporter:
         """
         self.import_case.status = self.import_case.IMPORT_STATUS_INPROGRESS
         self.import_case.save()
+        path = Path(f"{self.temp_dir}") / str(self.import_case.id)
+        Path(path).mkdir(parents=True, exist_ok=True)
+        try:
+            with zipfile.ZipFile(path_to_file, "r") as archive:
+                path = Path(self.temp_dir) / str(self.import_case.id)
+                archive.extractall(path=path)
+                dossiers_filepath = str(path / "dossiers.xlsx")
+        except FileNotFoundError:
+            raise
         loader = self.get_loader()
-        self.loader = loader(self.import_case, path_to_file)
+        self.loader = loader(dossiers_filepath)
         self.dossiers = self.loader.load()
+
+    def clean_up(self):
+        """Remove import case's temp dir."""
+        shutil.rmtree(str(Path(self.temp_dir) / str(self.import_case.id)))
 
     def import_dossiers(self, rollback=False):
         savepoint = transaction.savepoint()
@@ -59,10 +76,6 @@ class DossierImporter:
 
     def validate_import(self, dossiers: List[Dossier]):
         self.import_dossiers(dossiers, rollback=True)
-
-    def clean_up(self):
-        if self.loader:
-            self.loader.clean_up(self.import_case)
 
     def _initialize_case(self):
         """Obtain an ID for the import case."""

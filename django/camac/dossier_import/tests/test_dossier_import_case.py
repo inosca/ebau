@@ -17,9 +17,11 @@ def initialized_dossier_importer(
     form_state_factory,
     instance_state_factory,
     workflow_factory,
+    attachment_section_factory,
 ):
     def wrapper(config, location: str, path_to_file: str = TEST_IMPORT_FILE):
         application_settings = settings.APPLICATIONS[config]
+
         workflow_factory(pk="building-permit", allow_all_forms=True)  # TODO: check
         form_state_factory(pk=1)
         form_factory(
@@ -32,6 +34,9 @@ def initialized_dossier_importer(
             "INSTANCE_STATE_MAPPING"
         ].values():
             instance_state_factory(pk=mapping)
+        attachment_section_factory(
+            pk=application_settings["DOSSIER_IMPORT"]["ATTACHMENT_SECTION_ID"]
+        )
 
         importer_cls = import_string(
             application_settings["DOSSIER_IMPORT"]["XLSX_IMPORTER_CLASS"]
@@ -68,3 +73,4 @@ def test_create_instance_dossier_import_case(
             ).count()
             == 2
         )
+    importer.clean_up()

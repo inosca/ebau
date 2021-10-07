@@ -460,6 +460,7 @@ APPLICATIONS = {
             "USER": "service-account-camac-admin",
             "GROUP": "Admin",
             "FORM_ID": 1,  # baugesuch
+            "ATTACHMENT_SECTION_ID": 2,  # attachmentsechtion for imported documents
         },
         "MASTER_DATA": {
             "applicants": (
