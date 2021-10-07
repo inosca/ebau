@@ -197,14 +197,14 @@ class MasterData(object):
             )
         ]
 
-    def workflow_entry_resolver(self, lookup, default=None, **kwargs):
-        """Resolve data from the workflow entry.
+    def first_workflow_entry_resolver(self, lookup, default=None, **kwargs):
+        """Resolve data from the first workflow entry.
 
         Example configuration:
 
         MASTER_DATA = {
             "submit_date": (
-                "workflow_entry",
+                "first_workflow_entry",
                 # ID of the workflow item, can also be multiple
                 10
             )
@@ -221,7 +221,57 @@ class MasterData(object):
             None,
         )
 
-        return entry.workflow_date if entry else default
+        return self._parse_value(entry.workflow_date if entry else default, **kwargs)
+
+    def last_workflow_entry_resolver(self, lookup, default=None, **kwargs):
+        """Resolve data from the last workflow entry.
+
+        Example configuration:
+
+        MASTER_DATA = {
+            "submit_date": (
+                "last_workflow_entry",
+                # ID of the workflow item, can also be multiple
+                10
+            )
+        }
+        """
+
+        if not isinstance(lookup, list):
+            lookup = [lookup]  # pragma: no cover
+
+        entries = list(
+            filter(
+                lambda entry: entry.workflow_item_id in lookup,
+                self.case.instance.workflowentry_set.all(),
+            )
+        )
+
+        entry = max(entries, key=lambda entry: entry.group, default=default)
+        return self._parse_value(entry.workflow_date if entry else default, **kwargs)
+
+    def php_answer_resolver(self, lookup, default=None, **kwargs):
+        """Resolve data from old school camac answers.
+
+        Example configuration:
+
+        MASTER_DATA = {
+            "some_string": (
+                "php_answer",
+                # question ID
+                123
+            )
+        }
+        """
+        answer = next(
+            filter(
+                lambda answer: answer.question_id == lookup,
+                self.case.instance.answers.all(),
+            ),
+            None,
+        )
+
+        return self._parse_value(answer.answer if answer else default, **kwargs)
 
     def ng_answer_resolver(self, lookup, **kwargs):
         """Resolve data from camac-ng fields.
