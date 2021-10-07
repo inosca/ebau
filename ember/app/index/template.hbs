@@ -21,7 +21,7 @@
   <UkFlex {{did-insert (perform this.fetchWorkItems)}} @horizontal="center" class="uk-flex-center@s">
     <LinkTo
       @route="instances.index"
-      class="uk-button uk-button-default uk-width-medium uk-height-medium uk-flex uk-flex-middle uk-flex-column"
+      class="uk-button uk-button-default uk-width-medium uk-height-medium uk-flex uk-flex-middle uk-flex-column uk-position-relative"
     >
       <div class="title-card">
         <UkIcon @icon="pencil" ratio={{3}}/>
@@ -29,10 +29,16 @@
 oder
 Gesuch einsehen</div>
       </div>
+      {{#if this.workItemsQuery.totalCount}}
+        <span
+          title="Anzahl von offenen Aufgaben"
+          class="uk-badge uk-position-absolute uk-position-top-right uk-position-small"
+        >
+          {{this.workItemsQuery.totalCount}}
+        </span>
+      {{/if}}
     </LinkTo>
-    {{#if this.workItemsQuery.totalCount}}
-      <span title="Anzahl von offenen Aufgaben" class="uk-badge uk-position-absolute uk-position-small">{{this.workItemsQuery.totalCount}}</span>
-    {{/if}}
+
   </UkFlex>
 
   <UkFlex @horizontal="center" class="uk-flex-left@s">

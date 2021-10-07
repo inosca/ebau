@@ -48,7 +48,7 @@
         </LinkTo>
       </li>
     {{/if}}
-    {{#if (not (eq @model.instance.state "new"))}}
+    {{#if this.publication}}
       <li
         class={{if
           (eq this.router.currentRouteName "instances.edit.publikationsdokumente")
