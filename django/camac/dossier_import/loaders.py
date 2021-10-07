@@ -124,30 +124,36 @@ class XlsxDossierLoader(DossierLoader):
                     for key in SiteAddress.__annotations__.keys()
                 }
             ),
-            applicant=Person(
-                **{
-                    key: dossier_row.get(
-                        getattr(self.ListField, f"applicant_{key}").value
-                    )
-                    for key in Person.__annotations__.keys()
-                }
-            ),
-            landowner=Person(
-                **{
-                    key: dossier_row.get(
-                        getattr(self.ListField, f"landowner_{key}").value
-                    )
-                    for key in Person.__annotations__.keys()
-                }
-            ),
-            project_author=Person(
-                **{
-                    key: dossier_row.get(
-                        getattr(self.ListField, f"projectauthor_{key}").value
-                    )
-                    for key in Person.__annotations__.keys()
-                }
-            ),
+            applicant=[
+                Person(
+                    **{
+                        key: dossier_row.get(
+                            getattr(self.ListField, f"applicant_{key}").value
+                        )
+                        for key in Person.__annotations__.keys()
+                    }
+                )
+            ],
+            landowner=[
+                Person(
+                    **{
+                        key: dossier_row.get(
+                            getattr(self.ListField, f"landowner_{key}").value
+                        )
+                        for key in Person.__annotations__.keys()
+                    }
+                )
+            ],
+            project_author=[
+                Person(
+                    **{
+                        key: dossier_row.get(
+                            getattr(self.ListField, f"projectauthor_{key}").value
+                        )
+                        for key in Person.__annotations__.keys()
+                    }
+                )
+            ],
         )
         dossier.Meta.target_state = dossier_row.get(self.ListField.status.value)
         dossier.Meta.workflow = dossier_row.get(self.ListField.workflow.value)

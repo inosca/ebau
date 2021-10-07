@@ -61,3 +61,10 @@ def test_create_instance_dossier_import_case(
 ):
     importer = initialized_dossier_importer(config, location)
     importer.import_dossiers()
+    for dossier in importer.dossiers:
+        assert (
+            dossier.Meta.instance.fields.filter(
+                name__in=["bauherrschaft", "bezeichnung"]
+            ).count()
+            == 2
+        )
