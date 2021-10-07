@@ -211,7 +211,7 @@
     "fields": {
       "instance_state": 20000,
       "language": "de",
-      "name": "eBau-Nummer zu vergeben",
+      "name": "eBau-Nummer vergeben",
       "description": null
     }
   },
@@ -351,7 +351,7 @@
     "fields": {
       "instance_state": 20000,
       "language": "fr",
-      "name": "Num\u00e9ro eBau \u00e0 attribuer",
+      "name": "Attribuer un num\u00e9ro eBau",
       "description": null
     }
   },
