@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Optional
+from typing import List, Optional
 
 from camac.instance.models import Instance
 
@@ -46,9 +46,9 @@ class Dossier:
     profile_approval_date: Optional[str] = None
     completion_date: Optional[str] = None
     link: Optional[str] = None
-    applicant: Optional[Person] = None
-    landowner: Optional[Person] = None
-    project_author: Optional[Person] = None
+    applicant: Optional[List[Person]] = None
+    landowner: Optional[List[Person]] = None
+    project_author: Optional[List[Person]] = None
 
     class Meta:
         TARGET_STATUS_CHOICES = ["SUBMITTED", "APPROVED", "DONE"]
