@@ -63,7 +63,10 @@ class KtSchwyzDossierWriter(DossierWriter):
         spit out a reasonably generic starting point.
         """
         camac_user = User.objects.get(username=self.importer.settings["USER"])
-        group = Group.objects.get(service_id=self.importer.import_case.service.pk)
+        group = Group.objects.get(
+            service_id=self.importer.import_case.service.pk,
+            role_id=self.importer.settings["ROLE_ID_GROUP"],
+        )
         instance_state = InstanceState.objects.get(
             pk=self.importer.settings["INSTANCE_STATE_MAPPING"][
                 dossier.Meta.target_state
@@ -106,7 +109,10 @@ class KtSchwyzDossierWriter(DossierWriter):
         """Create attachments for dossier."""
 
         user = User.objects.get(username=self.importer.settings["USER"])
-        group = Group.objects.get(service_id=self.importer.import_case.service.pk)
+        group = Group.objects.get(
+            service_id=self.importer.import_case.service.pk,
+            role_id=self.importer.settings["ROLE_ID_GROUP"],
+        )
 
         documents_dir = Path(self.importer.additional_data_source) / str(dossier.id)
 

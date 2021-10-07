@@ -27,8 +27,9 @@ class DossierImporter:
     temp_dir: str = settings.DOSSIER_IMPORT_TMP_DIR
     additional_data_source: Optional[str] = None
 
-    def __init__(self, location):
+    def __init__(self, settings: dict = settings.APPLICATION["DOSSIER_IMPORT"]):
         self.import_case = self._initialize_case()
+        self.settings = settings
         self.loader = None
 
     @classmethod
