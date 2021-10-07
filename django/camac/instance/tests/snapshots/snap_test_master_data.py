@@ -290,7 +290,7 @@ snapshots['test_master_data[kt_schwyz-de-sz_master_data_case-select_related3-pre
     'submit_date': GenericRepr('datetime.datetime(2021, 7, 16, 8, 0, 6, tzinfo=<UTC>)')
 }
 
-snapshots['test_master_data[kt_uri-de-ur_master_data_case-select_related2-prefetch_related2-7] 1'] = {
+snapshots['test_master_data[kt_uri-de-ur_master_data_case-select_related2-prefetch_related2-8] 1'] = {
     'applicants': [
         {
             'country': 'Schweiz',
@@ -304,20 +304,60 @@ snapshots['test_master_data[kt_uri-de-ur_master_data_case-select_related2-prefet
             'zip': 1233
         }
     ],
+    'approval_reason': '5031',
+    'buildings': [
+        {
+            'building_category': 1060,
+            'name': 'Villa',
+            'proposal': [
+                6001
+            ]
+        }
+    ],
     'category': [
         6011,
         6010
     ],
     'city': 'Musterdorf',
     'construction_costs': 129000,
+    'construction_end_date': GenericRepr('datetime.datetime(2021, 7, 30, 8, 0, 6, tzinfo=<UTC>)'),
+    'construction_start_date': GenericRepr('datetime.datetime(2021, 7, 25, 8, 0, 6, tzinfo=<UTC>)'),
+    'decision_date': GenericRepr('datetime.datetime(2021, 7, 20, 8, 0, 6, tzinfo=<UTC>)'),
     'dossier_number': '1201-21-003',
+    'dwellings': [
+        {
+            'area': '420',
+            'floor': '1. OG',
+            'has_kitchen_facilities': True,
+            'kitchen_facilities': 'kocheinrichtung-kochnische-greater-4-m2',
+            'location_on_floor': 'Süd',
+            'multiple_floors': True,
+            'name_of_building': 'Villa',
+            'number_of_rooms': '20',
+            'usage_limitation': 3401
+        }
+    ],
+    'energy_devices': [
+        {
+            'energy_source': 7570,
+            'information_source': 869,
+            'is_heating': True,
+            'is_main_heating': True,
+            'is_warm_water': False,
+            'name_of_building': 'Villa',
+            'type': 'anlagetyp-hauptheizung'
+        }
+    ],
     'municipality': {
         'label': 'Altdorf',
         'slug': '1'
     },
     'plot_data': [
         {
+            'coordinates_east': 2690970.9,
+            'coordinates_north': 1192891.9,
             'egrid_number': 'CH123456789',
+            'origin_of_coordinates': 901,
             'plot_number': 123456789
         }
     ],
@@ -325,7 +365,11 @@ snapshots['test_master_data[kt_uri-de-ur_master_data_case-select_related2-prefet
     'street': 'Musterstrasse',
     'street_number': 4,
     'submit_date': GenericRepr('datetime.datetime(2021, 7, 16, 8, 0, 6, tzinfo=<UTC>)'),
+    'type_of_applicant': '6161',
     'type_of_construction': [
+        {
+            'art_der_hochbaute': 6235
+        }
     ]
 }
 
