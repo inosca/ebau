@@ -1,6 +1,8 @@
 from dataclasses import dataclass
 from typing import Optional
 
+from camac.instance.models import Instance
+
 
 @dataclass
 class Coordinates:
@@ -52,5 +54,6 @@ class Dossier:
         TARGET_STATUS_CHOICES = ["SUBMITTED", "APPROVED", "DONE"]
         WORKFLOW_CHOICES = ["BUILDINGPERMIT", "PRELIMINARY"]
 
-        target_status: str
+        target_state: str
         workflow: Optional[str]
+        instance: Optional[Instance]

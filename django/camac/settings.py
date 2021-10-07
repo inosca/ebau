@@ -454,6 +454,13 @@ APPLICATIONS = {
                 "title": "Materieller Prüfbericht",
             }
         ],
+        "DOSSIER_IMPORT": {
+            "XLSX_IMPORTER_CLASS": "camac.dossier_import.config.kt_schwyz.KtSchwyzXlsxDossierImporter",
+            "INSTANCE_STATE_MAPPING": {"SUBMITTED": 2, "APPROVED": 3, "DONE": 8},
+            "USER": "service-account-camac-admin",
+            "GROUP": "Admin",
+            "FORM_ID": 1,  # baugesuch
+        },
         "MASTER_DATA": {
             "applicants": (
                 "ng_table",
@@ -2544,3 +2551,7 @@ PARASHIFT_SOURCE_FILES_URI = env.str(
 
 PARASHIFT_TENANT_ID = env.int("PARASHIFT_TENANT_ID", default=1665)
 PARASHIFT_API_KEY = env.str("PARASHIFT_API_KEY", default="ey...")
+
+DOSSIER_IMPORT_TMP_DIR = env.path(
+    "DOSSIER_IMPORT_TMP_DIR", default="tmp/dossier_import"
+)

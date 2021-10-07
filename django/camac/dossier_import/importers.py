@@ -1,12 +1,13 @@
 from typing import List
 
+from django.conf import settings
 from django.db import transaction
 
 from camac.dossier_import.dossier_classes import Dossier
-from camac.dossier_import.loaders import XlsxDossierLoader
+from camac.dossier_import.loaders import DossierLoader
 from camac.dossier_import.models import DossierImport
-from camac.dossier_import.serializers import DossierSerializer
 from camac.instance.models import Instance
+from camac.user.models import Location
 
 
 class DossierImporter:
@@ -15,24 +16,19 @@ class DossierImporter:
 
     Tasks to perform
 
-     - create an instance of the import case (unique reference for audit and application in prod)
      - with reference to import extract from dossier_import.zip to /tmp/dossier-import/<import_case_id>/
         - file: `dossiers.xlsx`
         - dir: attachments/
-
-     - load dossiers:
-        - every dossier (row in .xsls) is read an
-        - append load report on each case
-        - checks:
-          - completeness (MissingValueError)
-          - parsable (ParserError)
+     - create an instance of the import case (unique reference for audit and application in prod)
+     - set properties from the Dossier according to client specific implementation of _handle_dossier
     """
 
-    loader_class: XlsxDossierLoader = XlsxDossierLoader
-    serializer_class: DossierSerializer = DossierSerializer
+    loader_class: DossierLoader = DossierLoader
     dossiers: List[Dossier] = None
 
-    def __init__(self):
+    def __init__(self, location):
+        self.location = Location.objects.get(name=location)
+        self.settings = settings.APPLICATION["DOSSIER_IMPORT"]
         self.import_case = self._initialize_case()
         self.loader = None
 
@@ -40,18 +36,22 @@ class DossierImporter:
     def get_loader(cls):
         return cls.loader_class
 
-    def intialize(self, path_to_file):
+    def initialize(self, location: str, path_to_file: str):
+        """Set import specific props and get going.
+
+        location: defines the data's original "Gemeinde"
+        path_to_file: points to the zip-file that holds metadata and attachments
+        """
         self.import_case.status = self.import_case.IMPORT_STATUS_INPROGRESS
         self.import_case.save()
         loader = self.get_loader()
         self.loader = loader(self.import_case, path_to_file)
         self.dossiers = self.loader.load()
 
-    def import_dossiers(self, dossiers: List[Dossier], rollback=False):
+    def import_dossiers(self, rollback=False):
         savepoint = transaction.savepoint()
         for dossier in self.dossiers:
             self._handle_dossier(dossier)
-
         if rollback:
             transaction.savepoint_rollback(savepoint)
         else:
@@ -70,26 +70,22 @@ class DossierImporter:
 
     @transaction.atomic
     def _handle_dossier(self, dossier: Dossier):
-        instance = self._create_instance(dossier)
-        serializer = self.serializer_class(instance)
-        serializer.save()
-        self._set_workflow_state()
-        self._handle_dossier_attachments(dossier)
+        raise NotImplementedError  # pragma: no cover
 
-    def _validate_dossier_attachment(self, dossier: Dossier) -> bool:
-        pass
+    def _create_instance(self, *args, **kwargs) -> Instance:
+        raise NotImplementedError  # pragma: no cover
 
     def _handle_dossier_attachments(self, dossier: Dossier):
         """Create attachments for dossier."""
-        pass
-
-    def _create_instance(self) -> Instance:
-        pass
+        raise NotImplementedError  # pragma: no cover
 
     def _set_workflow_state(self):
         """Fast-Forward case to Dossier.Meta.target_state."""
-        pass
+        raise NotImplementedError  # pragma: no cover
 
     def _ensure_retrieveable(self):
-        """Make imported dossier appear in results when searched for by internal id."""
-        pass
+        """Make imported dossiers identifiable.
+
+        E. g. client deployment specific location for storing `internal id
+        """
+        raise NotImplementedError  # pragma: no cover
