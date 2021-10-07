@@ -100,7 +100,7 @@ class PublicationEntryView(ModelViewSet):
         json_api_filters.OrderingFilter,
         django_filters.DjangoFilterBackend,
     )
-    ordering_fields = ["publication_date"]
+    ordering_fields = ["publication_date", "instance__location__name"]
     ordering = ["publication_date"]
 
     @permission_aware
