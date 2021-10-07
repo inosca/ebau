@@ -1,9 +1,28 @@
+from io import StringIO
 from pathlib import Path
 
 import pytest
+from django.core.management import call_command
 from django.utils.module_loading import import_string
 
 TEST_IMPORT_FILE = "data/import-example.zip"
+
+
+@pytest.mark.xfail("I failed to set application to the one I want to test.")
+@pytest.mark.parametrize("config,service_id", [("kt_schwyz", 42)])
+def test_import_dossiers_manage_command(
+    db, initialized_dossier_importer, settings, config, service_id
+):
+    out = StringIO()
+    call_command(
+        "import_dossiers",
+        service_id,
+        TEST_IMPORT_FILE,
+        stdout=out,
+        stderr=StringIO(),
+    )
+    out = out.getvalue()
+    assert out
 
 
 @pytest.fixture
@@ -41,8 +60,7 @@ def initialized_dossier_importer(
         importer_cls = import_string(
             application_settings["DOSSIER_IMPORT"]["XLSX_IMPORTER_CLASS"]
         )
-        importer = importer_cls(service_id)
-        importer.settings = application_settings["DOSSIER_IMPORT"]
+        importer = importer_cls(settings=application_settings["DOSSIER_IMPORT"])
         importer.initialize(service_id, path_to_archive)
         return importer
 
