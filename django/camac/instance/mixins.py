@@ -311,7 +311,7 @@ class InstanceEditableMixin(AttributeMixin):
 
         # Kt. Bern
         if form_backend == "caluma" and state in [
-            "subm",  # eBau-Nummer zu vergeben
+            "subm",  # eBau-Nummer vergeben
             "circulation_init",  # Zirkulation initialisieren
             "circulation",  # In Zirkulation
             "coordination",  # In Koordination
