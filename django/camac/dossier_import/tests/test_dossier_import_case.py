@@ -32,6 +32,7 @@ def initialized_dossier_importer(
     service_factory,
     user_factory,
     group_factory,
+    role_factory,
     form_factory,
     form_state_factory,
     instance_state_factory,
@@ -47,7 +48,8 @@ def initialized_dossier_importer(
             pk=application_settings["DOSSIER_IMPORT"]["FORM_ID"], form_state_id=1
         )
         service = service_factory(service_id=service_id)
-        group_factory(service=service)
+        role = role_factory(pk=application_settings["DOSSIER_IMPORT"]["ROLE_ID_GROUP"])
+        group_factory(service=service, role=role)
         user_factory(username=application_settings["DOSSIER_IMPORT"]["USER"])
         for mapping in application_settings["DOSSIER_IMPORT"][
             "INSTANCE_STATE_MAPPING"
@@ -68,20 +70,11 @@ def initialized_dossier_importer(
 
 
 @pytest.mark.parametrize("config,service_id", [("kt_schwyz", 42)])
-def test_start_dossier_import_case(
-    db, initialized_dossier_importer, settings, config, service_id
-):
-    importer = initialized_dossier_importer(config, service_id)
-
-    importer.clean_up()
-
-
-@pytest.mark.parametrize("config,service_id", [("kt_schwyz", 42)])
 def test_create_instance_dossier_import_case(
     db, initialized_dossier_importer, settings, config, service_id
 ):
     importer = initialized_dossier_importer(config, service_id)
     importer.import_dossiers()
-    assert len(importer.messages) == 2
+    assert len(importer.import_case.messages) == 2
     assert not Path(f"/app/tmp/dossier_import/{str(importer.import_case.id)}").exists()
     importer.clean_up()
