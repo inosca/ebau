@@ -5,4 +5,12 @@ export default class PublicationsRoute extends Route {
     super.setupController(controller, model);
     controller.fetchPublications.perform();
   }
+
+  resetController(controller, isExiting, transition) {
+    super.resetController(controller, isExiting, transition);
+
+    if (isExiting) {
+      controller.reset();
+    }
+  }
 }
