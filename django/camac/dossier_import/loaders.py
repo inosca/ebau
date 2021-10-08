@@ -1,3 +1,4 @@
+from dataclasses import fields
 from enum import Enum
 
 import pyexcel
@@ -96,17 +97,17 @@ class XlsxFileDossierLoader(DossierLoader):
         """
         dossier = Dossier(
             **{
-                key: dossier_row.get(getattr(self.ListField, key).value)
+                key: dossier_row.get(getattr(Dossier.Meta.ListField, key).value)
                 for key in self.simple_fields
             },
             coordinates=Coordinates(
-                n=dossier_row[self.ListField.coordinate_n.value],
-                e=dossier_row[self.ListField.coordinate_e.value],
+                n=dossier_row[Dossier.Meta.ListField.coordinate_n.value],
+                e=dossier_row[Dossier.Meta.ListField.coordinate_e.value],
             ),
             address=SiteAddress(
                 **{
                     key: dossier_row.get(
-                        getattr(self.ListField, f"address_{key}").value
+                        getattr(Dossier.Meta.ListField, f"address_{key}").value
                     )
                     for key in SiteAddress.__annotations__.keys()
                 }
@@ -114,10 +115,12 @@ class XlsxFileDossierLoader(DossierLoader):
             applicant=[
                 Person(
                     **{
-                        key: dossier_row.get(
-                            getattr(self.ListField, f"applicant_{key}").value
+                        field.name: dossier_row.get(
+                            getattr(
+                                Dossier.Meta.ListField, f"applicant_{field.name}"
+                            ).value
                         )
-                        for key in Person.__annotations__.keys()
+                        for field in fields(Person)
                     }
                 )
             ],
@@ -125,7 +128,7 @@ class XlsxFileDossierLoader(DossierLoader):
                 Person(
                     **{
                         key: dossier_row.get(
-                            getattr(self.ListField, f"landowner_{key}").value
+                            getattr(Dossier.Meta.ListField, f"landowner_{key}").value
                         )
                         for key in Person.__annotations__.keys()
                     }
@@ -135,15 +138,17 @@ class XlsxFileDossierLoader(DossierLoader):
                 Person(
                     **{
                         key: dossier_row.get(
-                            getattr(self.ListField, f"projectauthor_{key}").value
+                            getattr(
+                                Dossier.Meta.ListField, f"projectauthor_{key}"
+                            ).value
                         )
                         for key in Person.__annotations__.keys()
                     }
                 )
             ],
         )
-        dossier.Meta.target_state = dossier_row.get(self.ListField.status.value)
-        dossier.Meta.workflow = dossier_row.get(self.ListField.workflow.value)
+        dossier.Meta.target_state = dossier_row.get(Dossier.Meta.ListField.status.value)
+        dossier.Meta.workflow = dossier_row.get(Dossier.Meta.ListField.workflow.value)
         return dossier
 
     def load(self):

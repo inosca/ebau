@@ -31,21 +31,34 @@ PERSON_MAPPING = {
 
 
 class KtSchwyzDossierWriter(DossierWriter):
-    id: str = None
+    id: str = CamacNgAnswerFieldWriter(target="kommunale-gesuchsnummer")
     proposal = CamacNgAnswerFieldWriter(target="bezeichnung")
-    cantonal_id = None
-    parcel = None
+    cantonal_id = CamacNgAnswerFieldWriter(target="kantonale-gesuchsnummer")
+    parcel = CamacNgAnswerFieldWriter(target="parzellen")
     egrid = None
-    coordinates = None
+    coordinates = CamacNgAnswerFieldWriter(target="punkte", renderer="coordinates")
     address = None
-    usage = None
-    type = None
-    publication_date = None
-    decision_date = None
-    construction_start_date = None
-    profile_approval_date = None
-    completion_date = None
-    link = None
+    usage = CamacNgAnswerFieldWriter(target="betroffene-nutzungszonen")
+    type = CamacNgAnswerFieldWriter(target="verfahrensart-migriertes-dossier")
+    publication_date = CamacNgAnswerFieldWriter(
+        target="publikationsdatum", renderer="datetime"
+    )
+    construction_start_date = CamacNgAnswerFieldWriter(
+        target="datum-baubeginn", renderer="datetime"
+    )
+    profile_approval_date = CamacNgAnswerFieldWriter(
+        target="datum-schnurgeruestabnahme", renderer="datetime"
+    )
+    decision_date = CamacNgAnswerFieldWriter(target="tb-datum", renderer="datetime")
+    final_approval_date = CamacNgAnswerFieldWriter(
+        target="datum-schlussabnahme", renderer="datetime"
+    )
+    completion_date = CamacNgAnswerFieldWriter(
+        target="datum-bauende", renderer="datetime"
+    )
+    link = CamacNgAnswerFieldWriter(target="link")
+    custom_1 = CamacNgAnswerFieldWriter(target="freies-textfeld-1")
+    custom_2 = CamacNgAnswerFieldWriter(target="freies-textfeld-2")
     applicant = CamacNgListAnswerWriter(
         target="bauherrschaft", column_mapping=PERSON_MAPPING
     )
