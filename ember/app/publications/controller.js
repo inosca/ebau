@@ -18,6 +18,11 @@ export default class IndexController extends Controller {
     return pagination && pagination.page < pagination.pages;
   }
 
+  reset() {
+    this.page = 1;
+    this.publications = [];
+  }
+
   @restartableTask
   *fetchPublications() {
     const publications = yield this.store.query("publication-entry", {
