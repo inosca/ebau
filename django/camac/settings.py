@@ -456,11 +456,11 @@ APPLICATIONS = {
         ],
         "DOSSIER_IMPORT": {
             "XLSX_IMPORTER_CLASS": "camac.dossier_import.config.kt_schwyz.KtSchwyzXlsxDossierImporter",
-            "INSTANCE_STATE_MAPPING": {"SUBMITTED": 2, "APPROVED": 3, "DONE": 8},
+            "INSTANCE_STATE_MAPPING": {"SUBMITTED": 2, "APPROVED": 8, "DONE": 10},
             "USER": "service-account-camac-admin",
-            "GROUP": "Admin",
-            "FORM_ID": 1,  # baugesuch
-            "ATTACHMENT_SECTION_ID": 2,  # attachmentsechtion for imported documents
+            "FORM_ID": 29,  # "migriertes-dossier"
+            "ATTACHMENT_SECTION_ID": 2,  # attachmentsection for imported documents
+            "TEMP_DIR": "/tmp/dossier_import/",
         },
         "MASTER_DATA": {
             "applicants": (
@@ -2554,5 +2554,5 @@ PARASHIFT_TENANT_ID = env.int("PARASHIFT_TENANT_ID", default=1665)
 PARASHIFT_API_KEY = env.str("PARASHIFT_API_KEY", default="ey...")
 
 DOSSIER_IMPORT_TMP_DIR = env.path(
-    "DOSSIER_IMPORT_TMP_DIR", default="tmp/dossier_import"
+    "DOSSIER_IMPORT_TMP_DIR", default="/tmp/dossier_import"
 )
