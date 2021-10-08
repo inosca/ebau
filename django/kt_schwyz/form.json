@@ -699,6 +699,12 @@
       "questions": [
         "geometer-v3",
         "geometer-name",
+        "plankote",
+        "fixpunkt",
+        "fixpunkt-nummer",
+        "fixpunkt-hoehe",
+        "fixpunkt-e-koordinate",
+        "fixpunkt-n-koordinate",
         "baugespann-errichtet",
         "baugespann-errichtet-wann",
         "kein-baugespann-begrundung",
@@ -2436,6 +2442,57 @@
       "type": "text",
       "required": false,
       "config": {}
+    },
+    "plankote": {
+      "label": "Plankote +/- 0.00 (in m ü. M.)",
+      "hint": "Die Plankote +/- 0.00 entspricht der Höhe 0 im lokalen Höhenbezugssystem (Höhenangaben des Bauprojektes). Gleichzeitig hat die Plankote +/- 0.00 im Fixpunktsystem der Amtlichen Vermessung eine Höhe, welche in Metern über Meer angegeben wird. Diese Höhenangabe soll in diesem Feld eingetragen werden.",
+      "type": "number-separator",
+      "required": false,
+      "config": {
+        "min": 0
+      }
+    },
+    "fixpunkt": {
+      "label": "Fixpunkt",
+      "hint": "Die Angaben zu Höhen- und Lagefixpunkten können z. B. dem WebGIS SZ (Geokategorie Grundstückskataster) entnommen werden. Dort wird das Fixpunktsystem der Amtlichen Vermessung darstellt.",
+      "type": "radio",
+      "require": false,
+      "config": {
+        "options": [
+          "Höhenfixpunkt",
+          "Lagefixpunkt"
+        ]
+      }
+    },
+    "fixpunkt-nummer": {
+      "label": "Nummer",
+      "type": "text",
+      "required": false,
+      "config": {}
+    },
+    "fixpunkt-hoehe": {
+      "label": "Höhe (in m ü. M.)",
+      "type": "number",
+      "require": false,
+      "config": {
+        "min": 0
+      }
+    },
+    "fixpunkt-e-koordinate": {
+      "label": "E-Koordinate",
+      "type": "number",
+      "require": false,
+      "config": {
+        "min": 0
+      }
+    },
+    "fixpunkt-n-koordinate": {
+      "label": "N-Koordinate",
+      "type": "number",
+      "require": false,
+      "config": {
+        "min": 0
+      }
     },
     "baugespann-errichtet": {
       "label": "Wird ein Baugespann errichtet?",
