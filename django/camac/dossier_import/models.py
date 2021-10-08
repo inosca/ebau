@@ -2,6 +2,8 @@ from caluma.caluma_core.models import UUIDModel
 from django.contrib.postgres.fields import JSONField
 from django.db import models
 
+from camac.user.models import Service
+
 
 class DossierImport(UUIDModel):
     """An import case for identification and recording results and meta info.
@@ -33,5 +35,8 @@ class DossierImport(UUIDModel):
 
     status = models.CharField(
         max_length=32, choices=IMPORT_STATUS_CHOICES, default=IMPORT_STATUS_NEW
+    )
+    service = models.ForeignKey(
+        Service, models.SET_NULL, related_name="+", null=True, blank=True
     )
     messages = JSONField(default=list)
