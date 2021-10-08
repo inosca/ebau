@@ -3286,7 +3286,7 @@
             "type": "number-separator",
             "required": true,
             "config": {
-              "min": 1
+              "min": 0
             }
           },
           {
