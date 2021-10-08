@@ -1,33 +1,62 @@
 from dataclasses import fields
 from typing import Optional
 
-from camac.dossier_import.dossier_classes import Dossier
+from camac.dossier_import.dossier_classes import Coordinates, Dossier
 from camac.dossier_import.importers import DossierImporter
 from camac.dossier_import.loaders import DossierLoader
 from camac.instance.models import Instance
+from camac.instance.serializers import SUBMIT_DATE_FORMAT
 
 
 class FieldWriter:
     target: str
     value = None
 
-    def __init__(self, target: str, owner=None, column_mapping: Optional[dict] = None):
+    def __init__(
+        self,
+        target: str,
+        owner=None,
+        column_mapping: Optional[dict] = None,
+        renderer: Optional[str] = None,
+    ):
         self.target = target
         self.column_mapping = column_mapping
+        self.renderer = renderer
         self.owner = owner
 
     def write(self, instance: Instance, value):
         raise NotImplementedError
 
+    def render(self, value):
+        if self.renderer:
+            try:
+                renderer = getattr(self, f"render_{self.renderer}")
+            except AttributeError:
+                raise NotImplementedError(
+                    f"Renderer {self.renderer} is not configured for {self.__name__}"
+                )
+            return renderer(value)
+        return value
+
+    def render_coordinates(self, value):
+        if value:
+            fs = fields(Coordinates)
+            return {field.name: getattr(value, field.name) for field in fs}
+
+    def render_datetime(self, value):
+        try:
+            return value.strftime(SUBMIT_DATE_FORMAT)
+        except Exception:
+            raise
+
 
 class CamacNgAnswerFieldWriter(FieldWriter):
     def write(self, instance, value):
-        (
-            form_field,
-            created,
-        ) = instance.fields.get_or_create(name=self.target, defaults=dict(value=value))
+        (form_field, created,) = instance.fields.get_or_create(
+            name=self.target, defaults=dict(value=self.render(value))
+        )
         if not created:
-            form_field.value = value
+            form_field.value = self.render(value)
             form_field.save()
 
 
@@ -64,6 +93,9 @@ class DossierWriter:
 
     def write_fields(self, instance: Instance, dossier: Dossier):
         for field in fields(dossier):
+            value = getattr(dossier, field.name, None)
+            if not value:
+                return
             writer = getattr(self, field.name, None)
             if writer:
                 writer.write(instance, getattr(dossier, field.name))
