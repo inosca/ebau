@@ -2,20 +2,21 @@
   <PowerSelect
     @searchEnabled={{true}}
     @allowClear={{true}}
-    @options={{config.options}}
+    @options={{@config.options}}
     @disabled={{@readonly}}
     @selected={{@model.value}}
+    @renderInPlace={{true}}
     @onChange={{@on-change}} as |option|
   >
     {{option}}
   </PowerSelect>
 {{else}}
-  {{#each config.options as |option|}}
+  {{#each @config.options as |option|}}
     <label class="uk-form-label uk-margin-right">
       <input
         type="radio"
         class="uk-radio uk-margin-small-right"
-        name={{elementId}}
+        name={{this.elementId}}
         value={{option}}
         disabled={{if @readonly "disabled"}}
         checked={{eq option @model.value}}
