@@ -1,5 +1,5 @@
-import EmberObject from "@ember/object";
-import { render, fillIn, focus, blur } from "@ember/test-helpers";
+import { render, fillIn } from "@ember/test-helpers";
+import { tracked } from "@glimmer/tracking";
 import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
@@ -10,52 +10,53 @@ module("Integration | Component | camac-input-number-separator", function (
   setupRenderingTest(hooks);
 
   test("it renders", async function (assert) {
-    await render(hbs`{{camac-input-number-separator}}`);
+    assert.expect(1);
+
+    await render(hbs`
+      <CamacInputNumberSeparator
+        @on-change={{fn (mut this.value)}}
+      />
+    `);
 
     assert.dom("input[type=text]").exists();
   });
 
   test("it shows thousand separators", async function (assert) {
-    this.set(
-      "model",
-      EmberObject.create({
-        value: 2,
-      })
-    );
+    assert.expect(10);
 
-    await render(
-      hbs`{{camac-input-number-separator model=model on-change=(action (mut model.value))}}`
-    );
+    this.model = new (class {
+      @tracked value = 5;
+    })();
 
-    await focus("input[type=text]");
+    await render(hbs`
+      <CamacInputNumberSeparator
+        @model={{this.model}}
+        @on-change={{fn (mut this.model.value)}}
+      />`);
+
     await fillIn("input[type=text]", 5);
-    await blur("input[type=text]");
 
-    assert.equal(this.get("model.value"), 5);
+    assert.equal(this.model.value, 5);
     assert.dom("input[type=text]").hasValue("5");
 
-    await focus("input[type=text]");
     await fillIn("input[type=text]", "");
-    await blur("input[type=text]");
 
-    assert.equal(this.get("model.value"), 0);
-    assert.dom("input[type=text]").hasValue("0");
+    assert.equal(this.model.value, "");
+    assert.dom("input[type=text]").hasValue("");
 
-    await focus("input[type=text]");
     await fillIn("input[type=text]", 5000);
-    await blur("input[type=text]");
 
-    assert.equal(this.get("model.value"), "5000");
+    assert.equal(this.model.value, "5000");
     assert.dom("input[type=text]").hasValue("5’000");
 
-    await focus("input[type=text]");
-    await fillIn("input[type=text]", "5000.50");
-    await blur("input[type=text]");
+    await fillIn("input[type=text]", "5000,50");
 
-    assert.equal(this.get("model.value"), "5000.50");
+    assert.equal(this.model.value, "5000.50");
     assert.dom("input[type=text]").hasValue("5’000.5");
 
-    await focus("input[type=text]");
-    assert.dom("input[type=text]").hasValue("5000.5");
+    await fillIn("input[type=text]", "50'000'000,50");
+
+    assert.equal(this.model.value, "50000000.50");
+    assert.dom("input[type=text]").hasValue("50’000’000.5");
   });
 });
