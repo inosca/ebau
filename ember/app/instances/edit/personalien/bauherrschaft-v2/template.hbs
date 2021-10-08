@@ -1,0 +1,12 @@
+<CamacForm @instance={{@model.instance}} @meta={{@model.meta}} as |form|>
+  <form.table @identifier="bauherrschaft-v2"/>
+  {{#if this.questionActive}}
+    <UkButton
+      @on-click={{this.copyQuestionValue}}
+      class="uk-align-center uk-margin-remove-vertical"
+      @disabled={{unless this.grundeigentumerschaftValue "true"}}
+    >
+      Grundeigentümerschafts Personalien Übernehmen
+    </UkButton>
+  {{/if}}
+</CamacForm>
