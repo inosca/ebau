@@ -10,7 +10,7 @@ TEST_IMPORT_FILE = "data/import-example.zip"
 def initialized_dossier_importer(
     db,
     settings,
-    location_factory,
+    service_factory,
     user_factory,
     group_factory,
     form_factory,
@@ -19,7 +19,7 @@ def initialized_dossier_importer(
     workflow_factory,
     attachment_section_factory,
 ):
-    def wrapper(config, location: str, path_to_file: str = TEST_IMPORT_FILE):
+    def wrapper(config, service_id: int, path_to_archive: str = TEST_IMPORT_FILE):
         application_settings = settings.APPLICATIONS[config]
 
         workflow_factory(pk="building-permit", allow_all_forms=True)  # TODO: check
@@ -27,9 +27,9 @@ def initialized_dossier_importer(
         form_factory(
             pk=application_settings["DOSSIER_IMPORT"]["FORM_ID"], form_state_id=1
         )
-        location_factory(name=location)
+        service = service_factory(service_id=service_id)
+        group_factory(service=service)
         user_factory(username=application_settings["DOSSIER_IMPORT"]["USER"])
-        group_factory(name=application_settings["DOSSIER_IMPORT"]["GROUP"])
         for mapping in application_settings["DOSSIER_IMPORT"][
             "INSTANCE_STATE_MAPPING"
         ].values():
@@ -41,36 +41,29 @@ def initialized_dossier_importer(
         importer_cls = import_string(
             application_settings["DOSSIER_IMPORT"]["XLSX_IMPORTER_CLASS"]
         )
-        importer = importer_cls(location)
+        importer = importer_cls(service_id)
         importer.settings = application_settings["DOSSIER_IMPORT"]
-        importer.initialize(location, path_to_file)
+        importer.initialize(service_id, path_to_archive)
         return importer
 
     return wrapper
 
 
-@pytest.mark.parametrize("config,location", [("kt_schwyz", "Feuisisberg")])
+@pytest.mark.parametrize("config,service_id", [("kt_schwyz", 42)])
 def test_start_dossier_import_case(
-    db, initialized_dossier_importer, settings, config, location
+    db, initialized_dossier_importer, settings, config, service_id
 ):
-    importer = initialized_dossier_importer(config, location)
-    assert hasattr(importer, "import_case")
-    assert len(importer.dossiers) == 2
+    importer = initialized_dossier_importer(config, service_id)
+
     importer.clean_up()
-    assert not Path(f"/app/tmp/dossier_import/{str(importer.import_case.id)}").exists()
 
 
-@pytest.mark.parametrize("config,location", [("kt_schwyz", "Feuisisberg")])
+@pytest.mark.parametrize("config,service_id", [("kt_schwyz", 42)])
 def test_create_instance_dossier_import_case(
-    db, initialized_dossier_importer, settings, config, location
+    db, initialized_dossier_importer, settings, config, service_id
 ):
-    importer = initialized_dossier_importer(config, location)
+    importer = initialized_dossier_importer(config, service_id)
     importer.import_dossiers()
-    for dossier in importer.dossiers:
-        assert (
-            dossier.Meta.instance.fields.filter(
-                name__in=["bauherrschaft", "bezeichnung"]
-            ).count()
-            == 2
-        )
+    assert len(importer.messages) == 2
+    assert not Path(f"/app/tmp/dossier_import/{str(importer.import_case.id)}").exists()
     importer.clean_up()
