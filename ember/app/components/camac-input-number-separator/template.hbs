@@ -1,0 +1,8 @@
+<input 
+  type="text"
+  class="uk-input {{if @title "uk-form-danger"}}" 
+  value={{this.displayValue}}
+  disabled={{@readonly}}
+  title={{@title}}
+  {{on "change" this.onChange}}
+>

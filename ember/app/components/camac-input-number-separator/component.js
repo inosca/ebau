@@ -1,51 +1,20 @@
-import Component from "@ember/component";
+import { action } from "@ember/object";
+import Component from "@glimmer/component";
 
 // The component to display numbers with thousands separators
-export default Component.extend({
-  tagName: "input",
+export default class CamacInputNumberSeparatorComponent extends Component {
+  get displayValue() {
+    return this.args.model?.value
+      ? Number(this.args.model.value).toLocaleString("de-CH")
+      : "";
+  }
 
-  classNames: ["uk-input"],
-  classNameBindings: ["title:uk-form-danger"],
-
-  attributeBindings: [
-    "type",
-    "displayValue:value",
-    "readonly:disabled",
-    "title",
-  ],
-
-  type: "text",
-
-  title: "",
-  displayValue: "",
-
-  didReceiveAttrs() {
-    this.set(
-      "displayValue",
-      Number(
-        this.get("model.value") ? this.get("model.value") : 0
-      ).toLocaleString("de-CH")
-    );
-  },
-
-  change(e) {
+  @action
+  onChange(e) {
     e.preventDefault();
 
-    this.getWithDefault("attrs.on-change", () => {})(
-      Number(e.target.value.replace(/,/, "."))
+    this.args["on-change"]?.(
+      Number(e.target.value.replace(/,/, ".").replace(/[^0-9.]/g, ""))
     );
-  },
-
-  focusIn(e) {
-    this.set("displayValue", e.target.value.replace(/’/g, ""));
-  },
-
-  focusOut(e) {
-    if (!e.target.value.match(/’/)) {
-      this.set(
-        "displayValue",
-        Number(e.target.value.replace(/,/, ".")).toLocaleString("de-CH")
-      );
-    }
-  },
-});
+  }
+}
