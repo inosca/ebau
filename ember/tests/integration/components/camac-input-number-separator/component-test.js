@@ -39,10 +39,10 @@ module("Integration | Component | camac-input-number-separator", function (
     assert.equal(this.model.value, 5);
     assert.dom("input[type=text]").hasValue("5");
 
-    await fillIn("input[type=text]", "");
+    await fillIn("input[type=text]", 0);
 
-    assert.equal(this.model.value, "");
-    assert.dom("input[type=text]").hasValue("");
+    assert.equal(this.model.value, "0");
+    assert.dom("input[type=text]").hasValue("0");
 
     await fillIn("input[type=text]", 5000);
 
