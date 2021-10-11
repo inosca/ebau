@@ -205,6 +205,48 @@ class InstanceQuerysetMixin(object):
         queryset = self.get_base_queryset()
 
         if settings.APPLICATION.get("PUBLICATION_BACKEND") == "caluma":
+            public_access_key = self._get_request().META.get(
+                "HTTP_X_CAMAC_PUBLIC_ACCESS_KEY"
+            )
+
+            if public_access_key:
+                return (
+                    queryset.filter(
+                        **{
+                            self._get_instance_filter_expr(
+                                "case__work_items__task_id"
+                            ): "neighborhood-orientation",
+                            self._get_instance_filter_expr(
+                                "case__work_items__document__pk__startswith"
+                            ): public_access_key,
+                            self._get_instance_filter_expr(
+                                "case__work_items__status"
+                            ): WorkItem.STATUS_COMPLETED,
+                        }
+                    )
+                    .filter(
+                        **{
+                            self._get_instance_filter_expr(
+                                "case__work_items__document__answers__question_id"
+                            ): "neighborhood-orientation-start-date",
+                            self._get_instance_filter_expr(
+                                "case__work_items__document__answers__date__lte"
+                            ): timezone.now(),
+                        }
+                    )
+                    .filter(
+                        **{
+                            self._get_instance_filter_expr(
+                                "case__work_items__document__answers__question_id"
+                            ): "neighborhood-orientation-end-date",
+                            self._get_instance_filter_expr(
+                                "case__work_items__document__answers__date__gte"
+                            ): timezone.now(),
+                        }
+                    )
+                    .distinct()
+                )
+
             return (
                 queryset.filter(
                     **{
@@ -217,6 +259,10 @@ class InstanceQuerysetMixin(object):
                         self._get_instance_filter_expr(
                             "case__work_items__closed_by_user__isnull"
                         ): False,  # make sure the work item was closed manually, not via cronjob
+                    }
+                )
+                .filter(
+                    **{
                         self._get_instance_filter_expr(
                             "case__work_items__document__answers__question_id"
                         ): "publikation-startdatum",
@@ -227,15 +273,6 @@ class InstanceQuerysetMixin(object):
                 )
                 .filter(
                     **{
-                        self._get_instance_filter_expr(
-                            "case__work_items__task_id"
-                        ): "fill-publication",
-                        self._get_instance_filter_expr(
-                            "case__work_items__status"
-                        ): WorkItem.STATUS_COMPLETED,
-                        self._get_instance_filter_expr(
-                            "case__work_items__closed_by_user__isnull"
-                        ): False,  # make sure the work item was closed manually, not via cronjob
                         self._get_instance_filter_expr(
                             "case__work_items__document__answers__question_id"
                         ): "publikation-ablaufdatum",

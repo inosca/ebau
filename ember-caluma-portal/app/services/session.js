@@ -22,6 +22,7 @@ export default class CustomSession extends Session {
   @service intl;
   @service moment;
   @service session;
+  @service router;
 
   @tracked groups = [];
   @tracked enforcePublicAccess = false;
@@ -85,18 +86,23 @@ export default class CustomSession extends Session {
     "data.authenticated",
     "enforcePublicAccess",
     "group",
-    "isAuthenticated"
+    "isAuthenticated",
+    "router.currentRoute.queryParams.key"
   )
   get authHeaders() {
     if (!this.isAuthenticated) return {};
 
     const token = this.get(`data.authenticated.${tokenPropertyName}`);
     const tokenKey = authHeaderName.toLowerCase();
+    const publicAccessKey = this.router.currentRoute?.queryParams?.key;
 
     return {
       ...(token ? { [tokenKey]: `${authPrefix} ${token}` } : {}),
       ...(this.group ? { "x-camac-group": this.group } : {}),
       ...(this.enforcePublicAccess ? { "x-camac-public-access": true } : {}),
+      ...(publicAccessKey
+        ? { "x-camac-public-access-key": publicAccessKey }
+        : {}),
     };
   }
 

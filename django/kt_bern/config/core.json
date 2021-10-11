@@ -49781,7 +49781,7 @@
       "template": null,
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 15,
+      "sort": 16,
       "form_group": 40000
     }
   },
@@ -49871,7 +49871,7 @@
       "template": null,
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 20,
+      "sort": 21,
       "form_group": 40000
     }
   },
@@ -49976,7 +49976,7 @@
       "template": "/form/rueckmeldungen.phtml",
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 19,
+      "sort": 20,
       "form_group": 40000
     }
   },
@@ -50066,7 +50066,7 @@
       "template": null,
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 21,
+      "sort": 22,
       "form_group": 40000
     }
   },
@@ -50291,7 +50291,7 @@
       "template": null,
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 17,
+      "sort": 18,
       "form_group": 40000
     }
   },
@@ -50306,7 +50306,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 24,
+      "sort": 25,
       "form_group": 40000
     }
   },
@@ -50321,7 +50321,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 22,
+      "sort": 23,
       "form_group": 40000
     }
   },
@@ -50396,7 +50396,7 @@
       "template": null,
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 18,
+      "sort": 19,
       "form_group": 40000
     }
   },
@@ -50456,7 +50456,7 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 23,
+      "sort": 24,
       "form_group": 40000
     }
   },
@@ -50576,7 +50576,7 @@
       "template": "/ember-camac-ng/gwr.phtml",
       "class_field": "menu-category-process",
       "hidden": 1,
-      "sort": 16,
+      "sort": 17,
       "form_group": 40000
     }
   },
@@ -50592,6 +50592,21 @@
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 11,
+      "form_group": 40000
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 15000001,
+    "fields": {
+      "available_instance_resource": "taskform",
+      "resource": 20006,
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": "menu-category-process",
+      "hidden": 0,
+      "sort": 15,
       "form_group": 40000
     }
   },
@@ -54138,6 +54153,26 @@
       "instance_resource": 14000000,
       "language": "fr",
       "name": "RegBL",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 15000003,
+    "fields": {
+      "instance_resource": 15000001,
+      "language": "de",
+      "name": "Nachbarschaftsorientierung",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 15000004,
+    "fields": {
+      "instance_resource": 15000001,
+      "language": "fr",
+      "name": "Communication aux voisins et aux voisines",
       "description": null
     }
   },
@@ -62643,6 +62678,175 @@
       "instance_resource": 20020,
       "role": 20002,
       "instance_state": 120003
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000336,
+    "fields": {
+      "instance_resource": 15000001,
+      "role": 3,
+      "instance_state": 20003
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000337,
+    "fields": {
+      "instance_resource": 15000001,
+      "role": 3,
+      "instance_state": 20004
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000338,
+    "fields": {
+      "instance_resource": 15000001,
+      "role": 3,
+      "instance_state": 20005
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000339,
+    "fields": {
+      "instance_resource": 15000001,
+      "role": 3,
+      "instance_state": 20010
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000340,
+    "fields": {
+      "instance_resource": 15000001,
+      "role": 3,
+      "instance_state": 20011
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000341,
+    "fields": {
+      "instance_resource": 15000001,
+      "role": 3,
+      "instance_state": 20013
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000342,
+    "fields": {
+      "instance_resource": 15000001,
+      "role": 3,
+      "instance_state": 20014
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000343,
+    "fields": {
+      "instance_resource": 15000001,
+      "role": 3,
+      "instance_state": 10000
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000344,
+    "fields": {
+      "instance_resource": 15000001,
+      "role": 3,
+      "instance_state": 120000
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000345,
+    "fields": {
+      "instance_resource": 15000001,
+      "role": 20003,
+      "instance_state": 20003
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000346,
+    "fields": {
+      "instance_resource": 15000001,
+      "role": 20003,
+      "instance_state": 20004
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000347,
+    "fields": {
+      "instance_resource": 15000001,
+      "role": 20003,
+      "instance_state": 20005
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000348,
+    "fields": {
+      "instance_resource": 15000001,
+      "role": 20003,
+      "instance_state": 20010
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000349,
+    "fields": {
+      "instance_resource": 15000001,
+      "role": 20003,
+      "instance_state": 20011
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000350,
+    "fields": {
+      "instance_resource": 15000001,
+      "role": 20003,
+      "instance_state": 20013
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000351,
+    "fields": {
+      "instance_resource": 15000001,
+      "role": 20003,
+      "instance_state": 20014
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000352,
+    "fields": {
+      "instance_resource": 15000001,
+      "role": 20003,
+      "instance_state": 10000
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000353,
+    "fields": {
+      "instance_resource": 15000001,
+      "role": 20003,
+      "instance_state": 120000
+    }
+  },
+  {
+    "model": "core.irtaskform",
+    "pk": 15000001,
+    "fields": {
+      "task": "neighborhood-orientation"
     }
   },
   {
