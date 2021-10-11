@@ -51,7 +51,7 @@ def test_submit_event(
 
     else:
         assert not Message.objects.exists()
-        assert len(caplog.messages) == 3
+        assert len(caplog.messages) == 1
 
 
 @pytest.mark.parametrize(
