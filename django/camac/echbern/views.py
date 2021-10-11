@@ -185,7 +185,7 @@ class SendView(ECHInstanceQuerysetMixin, GenericViewSet):
         operation_description=get_operation_description(),
         request_body=openapi.Schema(
             type=openapi.TYPE_STRING,
-            description="An event wrapped in a [eCH-0211-Delivery](https://www.ech.ch/standards/43552).",
+            description="An event wrapped in a [eCH-0211-Delivery](https://www.ech.ch/standards/60526).",
         ),
         responses={"201": "success"},
     )
