@@ -104,6 +104,19 @@ mutation CreatePublicationTask {
   }
 }
 
+mutation CreateNeighborhoodInformationTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "neighborhood-orientation"
+      name: "Nachbarschaftsorientierung"
+      form: "neighborhood-orientation"
+      addressGroups: "['municipality']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
 mutation CreateFillPublicationTask {
   saveCompleteTaskFormTask(
     input: {

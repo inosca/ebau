@@ -54,6 +54,18 @@ export default class ApplicationRoute extends ApplicationRouteBase {
       component: "cf-textarea-textcomponent",
       type: "TextareaQuestion",
     });
+
+    this.calumaOptions.registerComponentOverride({
+      label: "QR Code",
+      component: "qr-code",
+      type: "StaticQuestion",
+    });
+
+    this.calumaOptions.registerComponentOverride({
+      label: "Task form button",
+      component: "task-form-button",
+      type: "StaticQuestion",
+    });
   }
 
   sessionInvalidated() {
