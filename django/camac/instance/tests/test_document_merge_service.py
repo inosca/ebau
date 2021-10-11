@@ -24,6 +24,7 @@ def caluma_form_fixture(db, form_question_factory, question_factory):
         "caluma_form_sb2.json",
         "caluma_audit_form.json",
         "caluma_publication_form.json",
+        "caluma_neighborhood_orientation_form.json",
         "caluma_workflow.json",
     ]
 
