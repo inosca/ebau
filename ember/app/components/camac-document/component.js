@@ -26,11 +26,18 @@ export default CamacInputComponent.extend({
 
   token: reads("session.data.authenticated.access_token"),
 
+  enforcePublicAccess: reads("session.data.enforcePublicAccess"),
+
   headers: computed("token", function () {
-    return {
+    const headers = {
       Authorization: `Bearer ${this.token}`,
-      "x-camac-public-access": true,
     };
+
+    if (this.enforcePublicAccess) {
+      headers["x-camac-public-access"] = true;
+    }
+
+    return headers;
   }),
 
   tokenChanged: observer("token", function () {
