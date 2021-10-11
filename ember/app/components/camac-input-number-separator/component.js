@@ -4,7 +4,7 @@ import Component from "@glimmer/component";
 // The component to display numbers with thousands separators
 export default class CamacInputNumberSeparatorComponent extends Component {
   get displayValue() {
-    return this.args.model?.value
+    return this.args.model?.value !== undefined
       ? Number(this.args.model.value).toLocaleString("de-CH")
       : "";
   }
