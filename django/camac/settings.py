@@ -827,11 +827,10 @@ APPLICATIONS = {
             "CONSTRUCTION_CONTROL": {
                 "FILTERS": {"service__service_group__name": "construction-control"},
                 "INSTANCE_STATES": [
-                    "sb1",
-                    "sb2",
-                    "conclusion",
-                    "finished",
-                    "finished_internal",
+                    ("sb1", "coordination"),
+                    ("sb2", "sb1"),
+                    ("conclusion", "sb2"),
+                    ("finished", "conclusion"),
                 ],
             },
         },
