@@ -104,9 +104,9 @@ class DossierWriter:
         instance = self.create_instance(dossier)
         self.write_fields(instance, dossier)
         self._handle_dossier_attachments(dossier)
-        self._set_workflow_state()
+        self._set_workflow_state(instance, dossier.Meta.target_state)
 
-    def _set_workflow_state(self):
+    def _set_workflow_state(self, instance: Instance, target_state: str):
         """Fast-Forward case to Dossier.Meta.target_state."""
         raise NotImplementedError
 

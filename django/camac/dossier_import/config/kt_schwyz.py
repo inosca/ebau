@@ -2,8 +2,10 @@ import mimetypes
 import shutil
 import zipfile
 from pathlib import Path
+from typing import List
 
 from caluma.caluma_user.models import BaseUser
+from caluma.caluma_workflow.api import skip_work_item
 from django.conf import settings
 from django.db import transaction
 from django.utils.timezone import now
@@ -115,8 +117,8 @@ class KtSchwyzDossierWriter(DossierWriter):
         message["import"] = "success"
         self.importer.import_case.messages.append(message)
         self.importer.import_case.save()
-        # self._handle_dossier_attachments(dossier, instance)
-        # self._set_workflow_state()
+        # TODO: implement setting on workflow state on import
+        self._set_workflow_state(instance, dossier.Meta.target_state)
 
     def _handle_dossier_attachments(self, dossier: Dossier, instance: Instance):
         """Create attachments for dossier."""
@@ -153,6 +155,73 @@ class KtSchwyzDossierWriter(DossierWriter):
                 attachment_section_id=self.importer.settings["ATTACHMENT_SECTION_ID"]
             )
             attachment_section.attachments.add(attachment)
+
+    def _set_workflow_state(self, instance: Instance, target_state) -> List[dict]:
+        """Advance instance's case through defined workflow sequence to target state.
+
+        In order to advance to a specified worklow state after every flow all tasks need to be
+        in a status other than ready so that the relevant work_item can be completed.
+
+        Therefore every target_state needs to be informed on the sibling work-items and how to handle
+        them before completion and progression to the next task in line.
+
+        This is configured in the following:
+
+        <TARGETSTATE> = [
+            (<task_to_complete>: [<task_to_sikp>, ... ]),
+            ...
+        ]
+
+        If required this could be extended with the option to handle sibling tasks differently on each stage, such
+         as cancelling them instead of skipping.
+        """
+        messages = []
+
+        # configure workflow state advance path and strategies
+        SUBMITTED = ["submit"]
+        APPROVED = SUBMITTED + [
+            "complete-check",
+            "skip-circulation",
+            "make-decision",
+        ]
+        DONE = APPROVED + ["archive-instance"]
+
+        path_to_state = {"SUBMITTED": SUBMITTED, "APPROVED": APPROVED, "DONE": DONE}
+
+        default_context = {"no-notification": True}
+
+        caluma_user = BaseUser(
+            username=self.importer.settings["USER"],
+            group=self.importer.import_case.service.pk,
+        )
+        caluma_user.camac_group = Group.objects.get(
+            service_id=self.importer.import_case.service.pk,
+            role_id=self.importer.settings["ROLE_ID_GROUP"],
+        ).pk
+
+        # In order for a work item to be completed no sibling work items can be
+        # in state ready. They have to be dealt with in advance.
+        for task_id in path_to_state[target_state]:
+            work_item = instance.case.work_items.get(task_id=task_id)
+            if work_item.status in [
+                work_item.STATUS_COMPLETED,
+                work_item.STATUS_SKIPPED,
+            ]:
+                continue
+            try:
+                skip_work_item(work_item, user=caluma_user, context=default_context)
+            except Exception as e:
+                messages.append(
+                    {
+                        "set_workflow_state": f"Skip work item with task_id {task_id} failed with {e}."
+                    }
+                )
+        messages.append(
+            {
+                "set_workflow_state": f"Advance workflow state to {target_state} successful."
+            }
+        )
+        return messages
 
 
 class KtSchwyzXlsxDossierImporter(DossierImporter):
