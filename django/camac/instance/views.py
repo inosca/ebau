@@ -320,6 +320,10 @@ class InstanceView(
     @action(methods=["get"], detail=False)
     def export_list(self, request):
         """Export filtered instances to given file format."""
+        resource_instance_state_ids = [
+            val.strip() for val in request.query_params["instance-state-ids"].split(",")
+        ]
+
         fields_queryset = models.FormField.objects.filter(instance=OuterRef("pk"))
         queryset = (
             self.get_queryset()
@@ -336,7 +340,8 @@ class InstanceView(
                     fields_queryset.filter(name="bezeichnung").values("value")[:1]
                 )
             )
-        )
+        ).filter(instance_state__in=resource_instance_state_ids)
+
         queryset = self.filter_queryset(queryset)
 
         def applicant_names(instance):
