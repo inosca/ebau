@@ -14,8 +14,11 @@ export default class InstancesEditRoute extends Route {
   };
 
   async model({ instance_id: id, group, publication = false }) {
-    this.viewedByPublication = Boolean(publication);
-    this.session.set("data.enforcePublicAccess", this.viewedByPublication);
+    this.viewedByPublication = publication;
+    this.session.set(
+      "data.enforcePublicAccess",
+      Boolean(this.viewedByPublication)
+    );
 
     const response = await this.ajax.request(`/api/v1/instances/${id}`, {
       data: {
