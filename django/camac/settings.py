@@ -543,12 +543,8 @@ APPLICATIONS = {
                     "recipient_types": ["applicant"],
                 },
                 {
-                    "template_slug": "08-entscheid-gemeindeleitbehorde",
-                    "recipient_types": ["leitbehoerde"],
-                },
-                {
-                    "template_slug": "08-entscheid-amts-und-fachstellen",
-                    "recipient_types": ["service"],
+                    "template_slug": "08-entscheid-behoerden",
+                    "recipient_types": ["leitbehoerde", "service"],
                 },
             ],
             "DECISION_PRELIMINARY_CLARIFICATION": [
@@ -557,12 +553,8 @@ APPLICATIONS = {
                     "recipient_types": ["applicant"],
                 },
                 {
-                    "template_slug": "08-entscheid-gemeindeleitbehorde",
-                    "recipient_types": ["leitbehoerde"],
-                },
-                {
-                    "template_slug": "08-entscheid-amts-und-fachstellen",
-                    "recipient_types": ["service"],
+                    "template_slug": "08-stellungnahme-zu-voranfrage-behoerden",
+                    "recipient_types": ["leitbehoerde", "service"],
                 },
             ],
             "END_CIRCULATION": [
