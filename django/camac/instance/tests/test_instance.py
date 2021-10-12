@@ -450,13 +450,25 @@ def test_instance_submit(
 
 @pytest.mark.parametrize("role__name", ["Canton"])
 def test_instance_export_list(
-    admin_client, user, instance_factory, django_assert_num_queries, form_field_factory
+    admin_client,
+    user,
+    instance_factory,
+    django_assert_num_queries,
+    form_field_factory,
+    instance_state_factory,
 ):
     url = reverse("instance-export-list")
     instances = instance_factory.create_batch(2, user=user)
-    instance = instances[0]
+    instance_1 = instances[0]
+    instance_2 = instances[1]
 
-    add_field = functools.partial(form_field_factory, instance=instance)
+    instance_1.instance_state = instance_state_factory(pk=1)
+    instance_1.save()
+
+    instance_2.instance_state = instance_state_factory(pk=2)
+    instance_2.save()
+
+    add_field = functools.partial(form_field_factory, instance=instance_1)
     add_field(
         name="projektverfasser-planer",
         value=[{"name": "Muster Hans"}, {"name": "Beispiel Jean"}],
@@ -464,7 +476,12 @@ def test_instance_export_list(
     add_field(name="bezeichnung", value="Bezeichnung")
 
     with django_assert_num_queries(4):
-        response = admin_client.get(url)
+        response = admin_client.get(
+            url,
+            data={
+                "instance-state-ids": f"{instance_1.instance_state_id},{instance_2.instance_state_id}"
+            },
+        )
     assert response.status_code == status.HTTP_200_OK
 
     book = pyexcel.get_book(file_content=response.content, file_type="xlsx")
