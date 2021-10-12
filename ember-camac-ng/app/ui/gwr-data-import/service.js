@@ -2,7 +2,8 @@ import Service, { inject as service } from "@ember/service";
 
 export default class GwrDataImportService extends Service {
   @service fetch;
-  async fetchProject(instanceId) {
+
+  async fetchImportData(instanceId) {
     const data = await this.fetch.fetch(
       `/api/v1/instances/${instanceId}/gwr_data`,
       {
@@ -14,9 +15,21 @@ export default class GwrDataImportService extends Service {
     return await data.json();
   }
 
-  async fetchBuildings() {}
+  async fetchProject(instanceId) {
+    return await this.fetchImportData(instanceId);
+  }
 
-  async fetchDwellings() {}
+  async fetchBuildings(instanceId) {
+    const importData = await this.fetchImportData(instanceId);
+    return importData.work;
+  }
+
+  async fetchDwellings(instanceId) {
+    const importData = await this.fetchImportData(instanceId);
+    return importData.work.flatMap(
+      (buildingWork) => buildingWork.building.dwellings
+    );
+  }
 
   async fetchEntrances() {}
 }
