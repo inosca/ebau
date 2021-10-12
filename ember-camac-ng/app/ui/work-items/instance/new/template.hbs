@@ -25,6 +25,7 @@
       </div>
       <div class="column-2">
         <PowerSelect
+          @required={{true}}
           @searchEnabled={{true}}
           @searchField="name"
           @renderInPlace={{true}}
@@ -71,7 +72,7 @@
         </label>
       </div>
       <div class="column-2">
-        <Input @type="text" @value={{mut this.workItem.title}} name="title" id="title" />
+        <Input @type="text" @value={{mut this.workItem.title}} name="title" id="title" required={{true}} />
       </div>
     </div>
 
@@ -97,6 +98,7 @@
       </div>
       <div class="column-2">
         <PikadayInput
+          required={{true}}
           @value={{this.workItem.deadline}}
           @useUTC={{true}}
           @onSelection={{this.setDeadline}}
