@@ -178,7 +178,15 @@ class Instance(models.Model):
                 if config.get("DEFAULT"):
                     default_active_service_config = config
 
-                if self.instance_state.name in config.get("INSTANCE_STATES", []):
+                if any(
+                    [
+                        self.instance_state.name == current_state
+                        and self.previous_instance_state.name == previous_state
+                        for current_state, previous_state in config.get(
+                            "INSTANCE_STATES", []
+                        )
+                    ]
+                ):
                     active_service_config = config
 
             active_service_config = (
