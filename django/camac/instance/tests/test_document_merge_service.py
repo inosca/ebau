@@ -1,22 +1,19 @@
 from pathlib import Path
 
 import pytest
-from caluma.caluma_form.models import Document, DynamicOption, Form, Question
-from caluma.caluma_workflow.api import start_case
-from caluma.caluma_workflow.models import Workflow
+from caluma.caluma_form.models import Document, DynamicOption
 from django.conf import settings
 from django.core.cache import cache
 from django.core.management import call_command
 
-from camac.responsible.models import ResponsibleService
-from camac.tags.models import Tags
 from camac.utils import build_url
 
 from ..document_merge_service import DMSClient, DMSHandler, DMSVisitor
+from .test_master_data import add_answer, add_table_answer
 
 
 @pytest.fixture
-def caluma_form_fixture(db, form_question_factory, question_factory):
+def caluma_form_fixture(db):
     kt_bern_path = Path(settings.ROOT_DIR) / "kt_bern"
     paths = [
         "caluma_form.json",
@@ -40,6 +37,9 @@ def dms_settings(application_settings):
     application_settings["DOCUMENT_MERGE_SERVICE"] = settings.APPLICATIONS["kt_bern"][
         "DOCUMENT_MERGE_SERVICE"
     ]
+    application_settings["DOCUMENT_MERGE_SERVICE"]["FORM"]["baugesuch"]["forms"].append(
+        "main-form"
+    )
 
 
 @pytest.mark.parametrize(
@@ -60,13 +60,8 @@ def test_document_merge_service_snapshot(
     caluma_form_fixture,
     form_slug,
     dms_settings,
-    form_question_factory,
-    question_factory,
     document_factory,
-    camac_answer_factory,
-    instance_factory,
     answer_factory,
-    multilang,
 ):
     cache.clear()
     municipality = service_factory(
@@ -131,172 +126,110 @@ def test_document_merge_service_client(db, requests_mock):
     assert result == expected
 
 
+@pytest.mark.django_db(transaction=True, reset_sequences=True)
 def test_document_merge_service_cover_sheet_with_header_values(
     db,
     dms_settings,
     service_factory,
-    service_t_factory,
-    service_group_factory,
-    instance_service_factory,
-    caluma_form_fixture,
-    instance,
-    rf,
-    caluma_admin_user,
+    tag_factory,
+    be_instance,
     group,
-    mocker,
-    form_question_factory,
     user_factory,
     snapshot,
     application_settings,
-    answer_factory,
 ):
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
         "MASTER_DATA"
     ]
+    be_instance.case.meta = {
+        "camac-instance-id": be_instance.pk,
+        "ebau-number": "2021-99",
+        "submit-date": "2021-01-01",
+        "paper-submit-date": "2021-01-02",
+    }
+    be_instance.case.save()
 
     municipality = service_factory(
-        pk=2,
-        service_group=service_group_factory(pk=2, name="gemeinde"),
+        service_group__name="municipality",
+        trans__language="de",
+        trans__name="Leitbehörde Burgdorf",
     )
-    service_t_factory(
-        pk=2, service=municipality, name="Leitbehörde Burgdorf", language="de"
-    )
-
-    case = start_case(
-        workflow=Workflow.objects.get(pk="building-permit"),
-        form=Form.objects.get(pk="baugesuch"),
-        user=caluma_admin_user,
-        meta={
-            "camac-instance-id": instance.pk,
-            "submit-date": "2021-01-01",
-            "paper-submit-date": "2021-01-02",
-        },
-    )
-    instance.case = case
-    instance.save()
+    group.service = municipality
+    group.save()
 
     # Prepare plot answer
-    plot_table_form = Form.objects.get(slug="parzelle-tabelle")
-    plot_question = Question.objects.get(slug="parzelle")
-    plot_question.row_form = plot_table_form
-
-    form_question_factory(
-        form=case.document.form,
-        question=plot_question,
+    add_table_answer(
+        be_instance.case.document,
+        "parzelle",
+        [
+            {
+                "parzellennummer": "123",
+            }
+        ],
     )
-    plot_table = case.document.answers.create(question_id="parzelle")
-    plot_row = Document.objects.create(form_id="parzelle-tabelle")
-    plot_row.answers.create(question_id="parzellennummer", value="123")
-    plot_table.documents.add(plot_row)
 
     # Prepare applicant answer
-    applicant_table_form = Form.objects.get(slug="personalien")
-    applicant_question = Question.objects.get(slug="personalien-gesuchstellerin")
-    applicant_question.row_form = applicant_table_form
-
-    form_question_factory(
-        form=case.document.form,
-        question=applicant_question,
+    add_table_answer(
+        be_instance.case.document,
+        "personalien-gesuchstellerin",
+        [
+            {
+                "vorname-gesuchstellerin": "Foo",
+                "name-gesuchstellerin": "Bar",
+                "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-ja",
+                "name-juristische-person-gesuchstellerin": "Test AG",
+            }
+        ],
     )
-    applicant_table = case.document.answers.create(
-        question_id="personalien-gesuchstellerin"
-    )
-    applicant_row = Document.objects.create(form_id="personalien-tabelle")
-    applicant_row.answers.create(question_id="vorname-gesuchstellerin", value="Foo")
-    applicant_row.answers.create(question_id="name-gesuchstellerin", value="Bar")
-    applicant_row.answers.create(
-        question_id="juristische-person-gesuchstellerin",
-        value="juristische-person-gesuchstellerin-ja",
-    )
-    applicant_row.answers.create(
-        question_id="name-juristische-person-gesuchstellerin", value="Test AG"
-    )
-    applicant_table.documents.add(applicant_row)
 
     # Prepare plot address
-    answer_factory(
-        question_id="strasse-flurname",
-        value="Bahnhofstrasse",
-        document=instance.case.document,
-    )
-    answer_factory(question_id="nr", value="2", document=instance.case.document)
-    answer_factory(
-        question_id="ort-grundstueck",
-        value="Testhausen",
-        document=instance.case.document,
-    )
+    add_answer(be_instance.case.document, "strasse-flurname", "Bahnhofstrasse")
+    add_answer(be_instance.case.document, "nr", "2")
+    add_answer(be_instance.case.document, "ort-grundstueck", "Testhausen")
 
     # Prepare tags
-    Tags.objects.create(name="some tag", instance=instance, service=municipality)
+    tag_factory(name="some tag", instance=be_instance, service=municipality)
 
     # Prepare authority
-    instance_service = instance_service_factory(
-        instance=instance, service=municipality, active=1
-    )
-    instance.instance_services.add(instance_service)
+    be_instance.instance_services.all().delete()
+    be_instance.instance_services.create(service=municipality, active=1)
 
     # Prepare responsible
-    ResponsibleService.objects.create(
-        instance=instance,
+    be_instance.responsible_services.create(
         service=municipality,
         responsible_user=user_factory(name="testuser"),
     )
 
     # Prepare modification
-    answer_factory(
-        question_id="beschreibung-projektaenderung",
-        value="Anbau Haus",
-        document=instance.case.document,
-    )
+    add_answer(be_instance.case.document, "beschreibung-projektaenderung", "Anbau Haus")
 
     # Prepare proposal
-    answer_factory(
-        question_id="beschreibung-bauvorhaben",
-        value="Bau Einfamilienhaus",
-        document=instance.case.document,
+    add_answer(
+        be_instance.case.document, "beschreibung-bauvorhaben", "Bau Einfamilienhaus"
     )
 
     # Municipality
-    answer_factory(
-        question_id="gemeinde",
-        value="1",
-        document=instance.case.document,
-    )
+    add_answer(be_instance.case.document, "gemeinde", "1")
     DynamicOption.objects.create(
-        document=instance.case.document,
+        document=be_instance.case.document,
         question_id="gemeinde",
         slug="1",
         label="Testhausen",
     )
 
-    request = rf.request(HTTP_AUTHORIZATION="Bearer some_token", X_CAMAC_GROUP=group.pk)
-
-    client = mocker.patch(
-        "camac.instance.document_merge_service.DMSClient"
-    ).return_value
-    client.merge.return_value = b"some binary data"
-
-    handler = DMSHandler()
-    handler.generate_pdf(instance.pk, request, None, instance.case.document.pk)
-
-    merge_data, template = client.merge.call_args[0]
-
-    assert template == "form"
-    assert merge_data["addressHeaderLabel"]
     snapshot.assert_match(
-        {k: v for k, v in client.merge.call_args[0][0].items() if "Header" in k}
+        DMSHandler().get_meta_data(
+            be_instance, be_instance.case.document, group.service
+        )
     )
 
 
+@pytest.mark.django_db(transaction=True, reset_sequences=True)
 def test_document_merge_service_cover_sheet_without_header_values(
     db,
     dms_settings,
-    caluma_form_fixture,
-    instance,
-    rf,
-    caluma_admin_user,
+    be_instance,
     group,
-    mocker,
     snapshot,
     application_settings,
 ):
@@ -304,34 +237,16 @@ def test_document_merge_service_cover_sheet_without_header_values(
         "MASTER_DATA"
     ]
 
-    case = start_case(
-        workflow=Workflow.objects.get(pk="building-permit"),
-        form=Form.objects.get(pk="baugesuch"),
-        user=caluma_admin_user,
-        meta={
-            "camac-instance-id": instance.pk,
-            "submit-date": "2021-01-01",
-        },
-    )
-    instance.case = case
-    instance.save()
+    be_instance.case.meta = {
+        "camac-instance-id": be_instance.pk,
+        "submit-date": "2021-01-01",
+    }
+    be_instance.case.save()
 
-    root_document = Document.objects.filter(case=case, form_id="baugesuch").first()
+    be_instance.instance_services.all().delete()
 
-    request = rf.request(HTTP_AUTHORIZATION="Bearer some_token", X_CAMAC_GROUP=group.pk)
-
-    client = mocker.patch(
-        "camac.instance.document_merge_service.DMSClient"
-    ).return_value
-    client.merge.return_value = b"some binary data"
-
-    handler = DMSHandler()
-    handler.generate_pdf(instance.pk, request, None, root_document.pk)
-
-    merge_data, template = client.merge.call_args[0]
-
-    assert template == "form"
-    assert merge_data["addressHeaderLabel"]
     snapshot.assert_match(
-        {k: v for k, v in client.merge.call_args[0][0].items() if "Header" in k}
+        DMSHandler().get_meta_data(
+            be_instance, be_instance.case.document, group.service
+        )
     )
