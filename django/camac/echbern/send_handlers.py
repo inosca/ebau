@@ -254,12 +254,12 @@ class ChangeResponsibilitySendHandler(BaseSendHandler):
         }
 
         Request = namedtuple(
-            "Request", ["user", "group", "caluma_info", "query_params"]
+            "Request", ["user", "group", "caluma_info", "query_params", "META"]
         )
         CalumaInfo = namedtuple("CalumaInfo", "context")
         Context = namedtuple("Context", "user")
         request = Request(
-            self.user, self.group, CalumaInfo(Context(self.caluma_user)), {}
+            self.user, self.group, CalumaInfo(Context(self.caluma_user)), {}, {}
         )
 
         serializer = CalumaInstanceChangeResponsibleServiceSerializer(
