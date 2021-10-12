@@ -8,6 +8,7 @@ from snapshottest import Snapshot
 snapshots = Snapshot()
 
 snapshots['test_gwr_data_ur 1'] = {
+    'buildingPermitIssueDate': '2021-07-20',
     'client': {
         'address': {
             'country': 'Schweiz',
@@ -21,10 +22,7 @@ snapshots['test_gwr_data_ur 1'] = {
             'organisationIdentification': {
                 'organisationName': 'ACME AG'
             },
-            'personIdentification': {
-                'firstName': 'Max',
-                'officialName': 'Mustermann'
-            }
+            'personIdentification': None
         }
     },
     'constructionLocalisation': {
@@ -33,11 +31,59 @@ snapshots['test_gwr_data_ur 1'] = {
     'constructionProjectDescription': 'Grosses Haus',
     'officialConstructionProjectFileNo': '1201-21-003',
     'projectAnnouncementDate': '2021-07-16',
+    'projectCompletionDate': '2021-08-05',
+    'projectStartDate': '2021-07-25',
     'realestateIdentification': {
         'EGRID': 'CH123456789',
         'number': 123456789
     },
     'totalCostsOfProject': 129000,
-    'typeOfConstruction': None,
-    'typeOfConstructionProject': 6011
+    'typeOfClient': 6161,
+    'typeOfConstruction': 6235,
+    'typeOfConstructionProject': 6011,
+    'typeOfPermit': 5031,
+    'work': [
+        {
+            'building': {
+                'buildingCategory': 1060,
+                'coordinates': {
+                    'east': 2690970.9,
+                    'north': 1192891.9,
+                    'originOfCoordinates': 901
+                },
+                'dateOfConstruction': {
+                    'yearMonthDay': '2021-08-05'
+                },
+                'dwellings': [
+                    {
+                        'floor': '1. OG',
+                        'kitchen': True,
+                        'locationOfDwellingOnFloor': 'Süd',
+                        'multipleFloor': True,
+                        'noOfHabitableRooms': '20',
+                        'surfaceAreaOfDwelling': '420',
+                        'usageLimitation': 3401
+                    }
+                ],
+                'nameOfBuilding': 'Villa',
+                'realestateIdentification': {
+                    'EGRID': 'CH123456789',
+                    'number': 123456789
+                },
+                'thermotechnicalDeviceForHeating1': {
+                    'energySourceHeating': 7570,
+                    'informationSourceHeating': 869,
+                    'revisionDate': '2021-10-07'
+                },
+                'thermotechnicalDeviceForHeating2': None,
+                'thermotechnicalDeviceForWarmWater1': None,
+                'thermotechnicalDeviceForWarmWater2': {
+                    'energySourceHeating': 7520,
+                    'informationSourceHeating': 869,
+                    'revisionDate': '2021-10-07'
+                }
+            },
+            'kindOfWork': 6001
+        }
+    ]
 }
