@@ -147,7 +147,7 @@
     "model": "core.anotification",
     "pk": 12000000,
     "fields": {
-      "template": "08-entscheid-amts-und-fachstellen",
+      "template": "08-entscheid-behoerden",
       "recipient_type": "Custom_Plugin_Notification_Recipient_Service",
       "processor": "Notification_Processor_SendEmailAPI"
     }
@@ -165,7 +165,7 @@
     "model": "core.anotification",
     "pk": 12000002,
     "fields": {
-      "template": "08-entscheid-gemeindeleitbehorde",
+      "template": "08-entscheid-behoerden",
       "recipient_type": "Custom_Plugin_Notification_Recipient_Leitbehoerde",
       "processor": "Notification_Processor_SendEmailAPI"
     }

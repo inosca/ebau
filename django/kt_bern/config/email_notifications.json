@@ -387,7 +387,7 @@
     "model": "notification.notificationtemplate",
     "pk": 34,
     "fields": {
-      "slug": "08-entscheid-gemeindeleitbehorde",
+      "slug": "08-stellungnahme-zu-voranfrage-behoerden",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -399,7 +399,7 @@
     "model": "notification.notificationtemplate",
     "pk": 35,
     "fields": {
-      "slug": "08-entscheid-amts-und-fachstellen",
+      "slug": "08-entscheid-behoerden",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -856,11 +856,11 @@
     "pk": 67,
     "fields": {
       "template": 34,
-      "template_slug": "08-entscheid-gemeindeleitbehorde",
+      "template_slug": "08-stellungnahme-zu-voranfrage-behoerden",
       "language": "de",
-      "purpose": "08 Entscheid (Gemeinde/Leitbeh\u00f6rde)",
-      "subject": "Information \u00fcber Entscheid (eBau Nr. {{EBAU_NUMBER}}) / Information sur le prononc\u00e9 de la d\u00e9cision (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDer Bauentscheid zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} wurde gef\u00e4llt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa d\u00e9cision relative au dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} a \u00e9t\u00e9 rendue. Elle est jointe en annexe, accompagn\u00e9e de l'indication des voies de droit.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\n{{LEITBEHOERDE_NAME}}"
+      "purpose": "08 Stellungnahme zu Voranfrage (Beh\u00f6rden)",
+      "subject": "Stellungnahme zu Voranfrage (eBau Nr. {{EBAU_NUMBER}}) / Observations sur l'enqu\u00eate pr\u00e9liminaire (n\u00b0 eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nSie finden die Stellungnahme / Antwort zur Voranfrage mit der eBau Nr. {{EBAU_NUMBER}} in den eBau-Dokumenten:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nVous trouverez la d\u00e9claration / r\u00e9ponse \u00e0 l'enqu\u00eate pr\u00e9liminaire avec le num\u00e9ro eBau {{EBAU_NUMBER}} dans les documents eBau :\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\n{{LEITBEHOERDE_NAME}}"
     }
   },
   {
@@ -868,11 +868,11 @@
     "pk": 69,
     "fields": {
       "template": 35,
-      "template_slug": "08-entscheid-amts-und-fachstellen",
+      "template_slug": "08-entscheid-behoerden",
       "language": "de",
-      "purpose": "08 Entscheid (Amts- und Fachstellen)",
+      "purpose": "08 Entscheid (Beh\u00f6rden)",
       "subject": "Information \u00fcber Entscheid (eBau Nr. {{EBAU_NUMBER}}) / Information sur le prononc\u00e9 de la d\u00e9cision (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDer Bauentscheid zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} wurde gef\u00e4llt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa d\u00e9cision relative \u00e0 l'affaire portant le num\u00e9ro eBau {{EBAU_NUMBER}} a \u00e9t\u00e9 rendue et vous la trouverez en annexe.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}"
+      "body": "Guten Tag\r\n\r\nDer Bauentscheid zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} wurde gef\u00e4llt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa d\u00e9cision relative \u00e0 l'affaire portant le num\u00e9ro eBau {{EBAU_NUMBER}} a \u00e9t\u00e9 rendue et vous la trouverez en annexe.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\n{{LEITBEHOERDE_NAME}}"
     }
   },
   {
@@ -908,7 +908,7 @@
       "language": "de",
       "purpose": "08 Stellungnahme zu Voranfrage (Gesuchsteller)",
       "subject": "Stellungnahme zu Voranfrage (eBau Nr. {{EBAU_NUMBER}}) / Observations sur l'enqu\u00eate pr\u00e9liminaire (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nSie finden die Stellungnahme zur Voranfrage mit der eBau Nr. {{EBAU_NUMBER}} in den eBau-Dokumenten:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\n{{CURRENT_SERVICE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nVous trouverez la d\u00e9claration \u00e0 l'enqu\u00eate pr\u00e9liminaire avec le num\u00e9ro eBau {{EBAU_NUMBER}} dans les documents eBau :\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\n{{CURRENT_SERVICE}}"
+      "body": "Guten Tag\r\n\r\nSie finden die Stellungnahme zur Voranfrage mit der eBau Nr. {{EBAU_NUMBER}} in den eBau-Dokumenten:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nVous trouverez la d\u00e9claration \u00e0 l'enqu\u00eate pr\u00e9liminaire avec le num\u00e9ro eBau {{EBAU_NUMBER}} dans les documents eBau :\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}"
     }
   },
   {
