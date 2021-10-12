@@ -3,12 +3,13 @@ from pathlib import Path
 
 import pytest
 from django.core.management import call_command
-from django.utils.module_loading import import_string
 
-TEST_IMPORT_FILE = "data/import-example.zip"
+from camac.dossier_import.config.kt_schwyz import KtSchwyzDossierWriter
+
+TEST_IMPORT_FILE = "tests/data/import-example.zip"
 
 
-@pytest.mark.xfail("I failed to set application to the one I want to test.")
+@pytest.mark.skip("I failed to set application to the one I want to test.")
 @pytest.mark.parametrize("config,service_id", [("kt_schwyz", 42)])
 def test_import_dossiers_manage_command(
     db, initialized_dossier_importer, settings, config, service_id
@@ -25,50 +26,6 @@ def test_import_dossiers_manage_command(
     assert out
 
 
-@pytest.fixture
-def initialized_dossier_importer(
-    db,
-    settings,
-    service_factory,
-    user_factory,
-    group_factory,
-    role_factory,
-    form_factory,
-    form_state_factory,
-    instance_state_factory,
-    workflow_factory,
-    attachment_section_factory,
-):
-    def wrapper(config, service_id: int, path_to_archive: str = TEST_IMPORT_FILE):
-        application_settings = settings.APPLICATIONS[config]
-
-        workflow_factory(pk="building-permit", allow_all_forms=True)  # TODO: check
-        form_state_factory(pk=1)
-        form_factory(
-            pk=application_settings["DOSSIER_IMPORT"]["FORM_ID"], form_state_id=1
-        )
-        service = service_factory(service_id=service_id)
-        role = role_factory(pk=application_settings["DOSSIER_IMPORT"]["ROLE_ID_GROUP"])
-        group_factory(service=service, role=role)
-        user_factory(username=application_settings["DOSSIER_IMPORT"]["USER"])
-        for mapping in application_settings["DOSSIER_IMPORT"][
-            "INSTANCE_STATE_MAPPING"
-        ].values():
-            instance_state_factory(pk=mapping)
-        attachment_section_factory(
-            pk=application_settings["DOSSIER_IMPORT"]["ATTACHMENT_SECTION_ID"]
-        )
-
-        importer_cls = import_string(
-            application_settings["DOSSIER_IMPORT"]["XLSX_IMPORTER_CLASS"]
-        )
-        importer = importer_cls(settings=application_settings["DOSSIER_IMPORT"])
-        importer.initialize(service_id, path_to_archive)
-        return importer
-
-    return wrapper
-
-
 @pytest.mark.parametrize("config,service_id", [("kt_schwyz", 42)])
 def test_create_instance_dossier_import_case(
     db, initialized_dossier_importer, settings, config, service_id
@@ -78,3 +35,56 @@ def test_create_instance_dossier_import_case(
     assert len(importer.import_case.messages) == 2
     assert not Path(f"/app/tmp/dossier_import/{str(importer.import_case.id)}").exists()
     importer.clean_up()
+
+
+@pytest.mark.parametrize(
+    "instance_status,expected_work_items_states",
+    [
+        (
+            "SUBMITTED",
+            [
+                ("submit", "skipped"),
+                ("create-manual-workitems", "ready"),
+                ("complete-check", "ready"),
+                ("depreciate-case", "ready"),
+                ("reject-form", "ready"),
+            ],
+        ),  # "Gesuch einreichen"
+        (
+            "APPROVED",
+            [
+                ("submit", "skipped"),
+                ("create-manual-workitems", "ready"),
+                ("reject-form", "canceled"),
+                ("complete-check", "skipped"),
+                ("publication", "ready"),
+                ("start-circulation", "canceled"),
+                ("skip-circulation", "skipped"),
+                ("depreciate-case", "canceled"),
+                ("reopen-circulation", "canceled"),
+                ("make-decision", "skipped"),
+            ],
+        ),  # "Entscheid verfügen"
+        pytest.param(
+            "DONE",
+            [("archive-instance", "skipped")],
+            marks=pytest.mark.skip(
+                "There is something weird in the 'PRE_COMPLETE' config of `make-decision` and `archive-instance`: depreciate-case is cancelled by make-decision which in turn conditions post_complete to not create archive instance. completing or skipping depreciate-case would however cancel each and every work-item"
+            ),
+        ),  # "Dossier archivieren"
+    ],
+)
+def test_set_workflow_state_sz(
+    db,
+    sz_instance,
+    initialized_dossier_importer,
+    instance_status,
+    expected_work_items_states,
+):
+    importer = initialized_dossier_importer("kt_schwyz", 42)
+    writer = KtSchwyzDossierWriter(importer=importer)
+    writer._set_workflow_state(sz_instance, instance_status)
+    for task_id, expected_status in expected_work_items_states:
+        assert (
+            sz_instance.case.work_items.get(task_id=task_id).status == expected_status
+        )
