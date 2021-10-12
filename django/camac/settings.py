@@ -467,7 +467,7 @@ APPLICATIONS = {
             ),
             "proposal": ("ng_answer", "bezeichnung"),
             "construction_costs": ("ng_answer", "baukosten"),
-            "submit_date": ("workflow_entry", 10),
+            "submit_date": ("first_workflow_entry", 10),
         },
     },
     "kt_bern": {
@@ -1706,6 +1706,9 @@ APPLICATIONS = {
                     "column_mapping": {
                         "plot_number": "parcel-number",
                         "egrid_number": "e-grid",
+                        "coordinates_east": "coordinates-east",
+                        "coordinates_north": "coordinates-north",
+                        "origin_of_coordinates": ("default", {"default": 901}),
                     }
                 },
             ),
@@ -1731,6 +1734,7 @@ APPLICATIONS = {
                             }
                         },
                     ),
+                    "default": [],
                 },
             ),
             "type_of_construction": (
@@ -1763,13 +1767,17 @@ APPLICATIONS = {
                                             "art-der-hochbaute-kulturbauten": 6258,
                                             "art-der-hochbaute-oekonomie-mit-tieren-mit-tieren": 6281,
                                             "art-der-hochbaute-oekonomiegebaude": 6281,
-                                            "art-der-hochbaute-landwirtschaft": 6281,
                                             "art-der-hochbaute-forstwirtschaft": 6282,
                                             "art-der-hochbaute-materiallager": 6292,
                                             "art-der-hochbaute-silo": 6292,
                                             "art-der-hochbaute-kommunikationsanlagen": 6245,
                                             "art-der-hochbaute-kehrichtentsorgungsanlagen": 6222,
                                             "art-der-hochbaute-andere": 6299,
+                                            "art-der-hochbaute-energieholzlager": 6292,
+                                            "art-der-hochbaute-industrie": 6299,
+                                            "art-der-hochbaute-landwirtschaft-betrieb-wohnteil": 6281,
+                                            "art-der-hochbaute-reklamebauten": 6299,
+                                            "art-der-hochbaute-brennstofflager": 6292,
                                         }
                                     },
                                 )
@@ -1779,7 +1787,221 @@ APPLICATIONS = {
                 },
             ),
             "construction_costs": ("answer", "construction-cost"),
-            "submit_date": ("workflow_entry", [10, 12]),
+            "submit_date": ("first_workflow_entry", [10, 12]),
+            "decision_date": ("last_workflow_entry", [47]),
+            "construction_start_date": (
+                "first_workflow_entry",
+                [55],
+            ),
+            "construction_end_date": (
+                "last_workflow_entry",
+                [67],
+            ),
+            "approval_reason": ("php_answer", 264, {"default": 5000}),
+            "type_of_applicant": ("php_answer", 267),
+            "energy_devices": (
+                "table",
+                "haustechnik-tabelle",
+                {
+                    "column_mapping": {
+                        "name_of_building": "gehoert-zu-gebaeudenummer",
+                        "type": "anlagetyp",
+                        "information_source": (
+                            "default",
+                            {"default": 869},
+                        ),  # Gemäss Baubewilligung
+                        "is_heating": (
+                            "anlagetyp",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "anlagetyp-analgetyp-klima": False,
+                                            "anlagetyp-aufzuege": False,
+                                            "anlagetyp-betankungsanlage": False,
+                                            "anlagetyp-lueftungsanlage": False,
+                                            "anlagetyp-notstrom-aggregat": False,
+                                            "anlagetyp-photovoltaische-solaranlage": False,
+                                            "anlagetyp-tankanlagen": False,
+                                            "anlagetyp-thermische-solaranlage": False,
+                                            "anlagetyp-warmwasser": False,
+                                            "anlagetyp-hauptheizung": True,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "is_warm_water": (
+                            "anlagetyp",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "anlagetyp-analgetyp-klima": False,
+                                            "anlagetyp-aufzuege": False,
+                                            "anlagetyp-betankungsanlage": False,
+                                            "anlagetyp-lueftungsanlage": False,
+                                            "anlagetyp-notstrom-aggregat": False,
+                                            "anlagetyp-photovoltaische-solaranlage": False,
+                                            "anlagetyp-tankanlagen": False,
+                                            "anlagetyp-thermische-solaranlage": False,
+                                            "anlagetyp-warmwasser": True,
+                                            "anlagetyp-hauptheizung": False,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "is_main_heating": (
+                            "heizsystem-art",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "-hauptheizung": True,
+                                            "-zusatzheizung": False,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "energy_source": (
+                            "hauptheizungsanlage",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "hauptheizungsanlage-abwaerme": 7550,
+                                            "hauptheizungsanlage-andere": 7599,
+                                            "hauptheizungsanlage-elektrizitaet": 7560,
+                                            "hauptheizungsanlage-erdsonde": 7511,
+                                            "hauptheizungsanlage-erdwaerme": 7510,
+                                            "hauptheizungsanlage-erdwaermesonde": 7511,
+                                            "hauptheizungsanlage-fernwaerme": 7580,
+                                            "hauptheizungsanlage-gas": 7520,
+                                            "hauptheizungsanlage-grundwasserwaermepumpe": 7513,
+                                            "hauptheizungsanlage-heizoel": 7530,
+                                            "hauptheizungsanlage-holz": 7540,
+                                            "hauptheizungsanlage-holzschnitzel-pellets": 7542,
+                                            "hauptheizungsanlage-kachelofen-schwedenofen": 7550,
+                                            "hauptheizungsanlage-luftwaermepumpe": 7501,
+                                            "hauptheizungsanlage-sonne-thermisch": 7570,
+                                            "hauptheizungsanlage-stueckholz": 7541,
+                                            "hauptheizungsanlage-unbestimmt": 7598,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                    },
+                },
+            ),
+            "buildings": (
+                "table",
+                "gebaeude",
+                {
+                    "column_mapping": {
+                        "name": "gebaeudenummer-bezeichnung",
+                        "proposal": (
+                            "proposal",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "proposal-neubau": 6001,
+                                            "proposal-umbau-erneuerung-sanierung": 6002,
+                                            "proposal-abbruch-rueckbau": 6007,
+                                        }
+                                    },
+                                ),
+                                "default": [],
+                            },
+                        ),
+                        "building_category": (
+                            "gebaeudekategorie",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "gebaeudekategorie-andere": 1030,
+                                            "gebaeudekategorie-ausschliessliche-wohnnutzung": 1020,
+                                            "gebaeudekategorie-ohne-wohnnutzung": 1060,
+                                            "gebaeudekategorie-provisorische-unterkunft": 1010,
+                                            "gebaeudekategorie-sonderbau": 1080,
+                                            "gebaeudekategorie-teilweise-wohnnutzung": 1040,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                    }
+                },
+            ),
+            "dwellings": (
+                "table",
+                "wohnungen",
+                {
+                    "column_mapping": {
+                        "name_of_building": "zugehoerigkeit",
+                        "floor": "stockwerk",
+                        "location_on_floor": "lage",
+                        "number_of_rooms": "wohnungsgroesse",
+                        "kitchen_facilities": "kocheinrichtung",
+                        "has_kitchen_facilities": (
+                            "kocheinrichtung",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "kocheinrichtung-keine-kocheinrichtung": False,
+                                            "kocheinrichtung-kochnische-greater-4-m2": True,
+                                            "kocheinrichtung-kueche-less-4-m2": True,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "area": "flaeche-in-m2",
+                        "multiple_floors": (
+                            "mehrgeschossige-wohnung",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "mehrgeschossige-wohnung-ja": True,
+                                            "mehrgeschossige-wohnung-nein": False,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "usage_limitation": (
+                            "zwg",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "zwg-keine": 3401,
+                                            "zwg-erstwohnung": 3402,
+                                            "zwg-touristisch-a": 3403,
+                                            "zwg-touristisch-b": 3404,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                    }
+                },
+            ),
         },
         "SIDE_EFFECTS": {
             "document_downloaded": "camac.document.side_effects.create_workflow_entry",

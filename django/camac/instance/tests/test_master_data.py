@@ -50,8 +50,8 @@ def add_answer(
     return answer
 
 
-def add_table_answer(document, question, rows):
-    answer = add_answer(document, question, None)
+def add_table_answer(document, question, rows, table_answer=None):
+    answer = add_answer(document, question, None) if not table_answer else table_answer
 
     for i, row in enumerate(reversed(rows)):
         row_document = caluma_form_factories.DocumentFactory()
@@ -301,7 +301,7 @@ def be_master_data_case(
 
 
 @pytest.fixture
-def ur_master_data_case(db, ur_instance, workflow_entry_factory):
+def ur_master_data_case(db, ur_instance, workflow_entry_factory, camac_answer_factory):
     ur_instance.case.meta = {"dossier-number": "1201-21-003"}
     ur_instance.case.save()
 
@@ -332,6 +332,8 @@ def ur_master_data_case(db, ur_instance, workflow_entry_factory):
             {
                 "parcel-number": 123456789,
                 "e-grid": "CH123456789",
+                "coordinates-east": 2690970.9,
+                "coordinates-north": 1192891.9,
             }
         ],
     )
@@ -361,6 +363,86 @@ def ur_master_data_case(db, ur_instance, workflow_entry_factory):
         workflow_date="2021-07-16 08:00:06+00",
         group=1,
         workflow_item__pk=12,
+    )
+
+    # Decision date
+    workflow_entry_factory(
+        instance=ur_instance,
+        workflow_date="2021-07-20 08:00:06+00",
+        group=1,
+        workflow_item__pk=47,
+    )
+
+    # Construction start date
+    workflow_entry_factory(
+        instance=ur_instance,
+        workflow_date="2021-07-25 08:00:06+00",
+        group=1,
+        workflow_item__pk=55,
+    )
+
+    # Construction end date
+    workflow_entry_factory(
+        instance=ur_instance,
+        workflow_date="2021-07-30 08:00:06+00",
+        group=1,
+        workflow_item__pk=67,
+    )
+
+    # Approval reason
+    camac_answer_factory(answer=5031, question__question_id=264, instance=ur_instance)
+
+    # Type of applicant
+    camac_answer_factory(
+        answer=6161,
+        question__question_id=267,
+        instance=ur_instance,
+    )
+
+    # Buildings
+    add_table_answer(
+        document,
+        "gebaeude",
+        [
+            {
+                "art-der-hochbaute": "art-der-hochbaute-parkhaus",
+                "gebaeudenummer-bezeichnung": "Villa",
+                "proposal": ["proposal-neubau"],
+                "gebaeudekategorie": "gebaeudekategorie-ohne-wohnnutzung",
+            }
+        ],
+    )
+
+    # Dwellings
+    add_table_answer(
+        document,
+        "wohnungen",
+        [
+            {
+                "zugehoerigkeit": "Villa",
+                "stockwerk": "1. OG",
+                "lage": "Süd",
+                "wohnungsgroesse": "20",
+                "kocheinrichtung": "kocheinrichtung-kochnische-greater-4-m2",
+                "flaeche-in-m2": "420",
+                "mehrgeschossige-wohnung": "mehrgeschossige-wohnung-ja",
+                "zwg": "zwg-keine",
+            }
+        ],
+    )
+
+    # Energy devices
+    add_table_answer(
+        document,
+        "haustechnik-tabelle",
+        [
+            {
+                "gehoert-zu-gebaeudenummer": "Villa",
+                "anlagetyp": "anlagetyp-hauptheizung",
+                "heizsystem-art": "-hauptheizung",
+                "hauptheizungsanlage": "hauptheizungsanlage-sonne-thermisch",
+            },
+        ],
     )
 
     return ur_instance.case
@@ -447,6 +529,7 @@ def sz_master_data_case(db, sz_instance, form_field_factory, workflow_entry_fact
                 "document__answers__answerdocument_set__document__answers",
                 "document__dynamicoption_set",
                 "instance__workflowentry_set",
+                "instance__answers",
             ],
             # 1. Query for fetching case
             # 2. Query for prefetching direct answers on case.document
@@ -455,7 +538,8 @@ def sz_master_data_case(db, sz_instance, form_field_factory, workflow_entry_fact
             # 5. Query for prefetching answer on previously prefetched row documents
             # 6. Query for prefetching dynamic options
             # 7. Query for prefetching workflow entries
-            7,
+            # 8. Query for prefetching camac core answers
+            8,
         ),
         (
             "kt_schwyz",

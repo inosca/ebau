@@ -760,7 +760,10 @@ class AirAction(models.Model):
 class Answer(models.Model):
     id = models.AutoField(db_column="ID", primary_key=True)
     instance = models.ForeignKey(
-        "instance.Instance", models.CASCADE, db_column="INSTANCE_ID", related_name="+"
+        "instance.Instance",
+        models.CASCADE,
+        db_column="INSTANCE_ID",
+        related_name="answers",
     )
     question = models.ForeignKey(
         "Question", models.DO_NOTHING, db_column="QUESTION_ID", related_name="+"
