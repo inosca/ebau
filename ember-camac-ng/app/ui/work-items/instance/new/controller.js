@@ -104,6 +104,10 @@ export default class WorkItemNewController extends Controller {
   *createWorkItem(event) {
     event.preventDefault();
 
+    if (!this.workItem.addressedGroups.length) {
+      return;
+    }
+
     const extra = {
       ...(this.workItem.assignedUsers.length
         ? { assignedUsers: this.workItem.assignedUsers }
