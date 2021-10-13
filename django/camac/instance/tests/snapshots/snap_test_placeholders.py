@@ -21,6 +21,16 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'ALLE_GRUNDEIGENTUEMER': 'Sandra Holzer',
     'ALLE_GRUNDEIGENTUEMER_NAME_ADDRESS': 'Sandra Holzer, Bernweg 12, 3002 Bern',
     'ALLE_GRUNDEIGENTUEMER_NAME_ADRESSE': 'Sandra Holzer, Bernweg 12, 3002 Bern',
+    'ALLE_NACHBARN': [
+        {
+            'ADDRESS_1': 'Teststrasse 124',
+            'ADDRESS_2': '1234 Testhausen',
+            'ADRESSE_1': 'Teststrasse 124',
+            'ADRESSE_2': '1234 Testhausen',
+            'NAME': 'Karl Nachbarsson',
+            'NOM': 'Karl Nachbarsson'
+        }
+    ],
     'ALLE_PROJEKTVERFASSER': 'Hans Müller',
     'ALLE_PROJEKTVERFASSER_NAME_ADDRESS': 'Hans Müller, Einweg 9, 3000 Bern',
     'ALLE_PROJEKTVERFASSER_NAME_ADRESSE': 'Hans Müller, Einweg 9, 3000 Bern',
@@ -110,6 +120,8 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'COMMUNE_LIEU': 'West Hannahfort',
     'COMMUNE_NOM_ADRESSE': 'Gemeinde William Rodriguez, West Hannahfort',
     'COMMUNE_TELEPHONE': '',
+    'COMMUNICATION_AUX_VOISINS_CODE_QR': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAAAGaAQAAAAAefbjOAAADAElEQVR4nO2cTW6jQBCFvxqQsgTJB8hR2jeYM82R5gZwlBxgJFhGavRm0T/gZJWxBzu4vEAB8wlaqbx+9aBj4suf8cfXGXDIIYcccsghh44JWf60wGxmZ8DOs5lZv1j+yfIX32RMDl0FBUnSBNBFgMWgkzTQ5I0kXUL73Z5D+0OrMqTdqhZzm45lBbnT7Tm0G9R+PDD2k4DYauyBMICYb3Alh74pFKalKEMX0TBX93DrKzn0kFDRiE6QpGDuYXxNlkEGTYQZtknWg4/JoRtAo5mZ9QA0Iry12HluIUxgZ5bUatzr9hzaWyO2AtC9myCmHY09pssTHn5MDl0DkbrKMAHQSJpyu5m6T02w/VaShgcfk0M3giRFGF8jdu4iMOdpooQStTf9PmNy6Ouf/GdPk4RiDaKSWqRNkhHXiGeAckVoqtOEItDFWhuNNHQlrgxeEUeHNj4iC8XGVsA22e7kGvEEUJGCTiq/+KIRQ90NU6O06xpxeKim2Esr5hcBCxp/gtE1MmgEvJuY29KEPviYHLoBFKZGuc2YcziVJ4wUTr0kR3Gv23PoDs6yeIYwre5htZx5wvBZ4/hQqQhtvWOSDACCYiqQ1Xd6RRwaqnkEaEhHqoucaglcpBVeEYeGNhWxNp6bSGooyfb25Acfk0PXQJ9DStUmMylDTag69xHPABU9KHaiKAPFQiQfUaNsr4ijQ9uKGEp/qaG70IiNjHhFHB26eBq+JpU1z65GM5lPr4jDQzWzbKLlzLIRzCc09n9aMZ8waLEgsDDse3sO7Q7VPKL4iPVBRs4sqU2I5xHPA61rukoosRhjXzxmWr7BYnn3W4zJoatmjTQbzCcsvLVofI2thelEftc2e4u4++05tDu0dZZpXpgAytq+TZ5dH274rPFkUOorFiPo3fSrz8f+w5UcekTo0yo/5h4LU4+F3ydZ0LK+GuFPw58A+rimS3nTRCCitAy0i625j3gOaPNcA6pxSK9dpj60nlnexnUfcWjI/D+TOeSQQw455JBD/wj9BfLKhenNnOo8AAAAAElFTkSuQmCC',
+    'COMMUNICATION_AUX_VOISINS_LIEN': 'http://caluma-portal.local/public-instances/1?key=5a49823',
     'COORDONEE': '2’599’941 / 1’198’923; 2’601’995 / 1’201’340',
     'DECISION': 'positive',
     'DECISION_CATEGORIE': 'GESAMT',
@@ -126,9 +138,9 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'DECISION_TYPE': 'GESAMT',
     'DEPOT_DEMANDE_DATE': '31. März 2021',
     'DISPOSITIONS_ANNEXES': 'Baby strategy majority address eight least season.',
-    'DOSSIER_LINK': 'http://camac-ng.local/index/redirect-to-instance-resource/instance-id/9999',
-    'DOSSIER_NR': 9999,
-    'DOSSIER_NUMERO': 9999,
+    'DOSSIER_LINK': 'http://camac-ng.local/index/redirect-to-instance-resource/instance-id/1',
+    'DOSSIER_NR': 1,
+    'DOSSIER_NUMERO': 1,
     'DOSSIER_TYP': 'Baugesuch',
     'DOSSIER_TYPE': 'Baugesuch',
     'EBAU_NR': '2021-1',
@@ -258,7 +270,7 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'GRUNDEIGENTUEMER_NAME_ADDRESS': 'Sandra Holzer, Bernweg 12, 3002 Bern',
     'GRUNDEIGENTUEMER_NAME_ADRESSE': 'Sandra Holzer, Bernweg 12, 3002 Bern',
     'HEUTE': '30. August 2021',
-    'INSTANCE_ID': 9999,
+    'INSTANCE_ID': 1,
     'INVENTAR': 'Ja, Nein, Nein, Nein, Ja, Ja',
     'JURISTIC_NAME': 'ACME AG',
     'JURISTISCHER_NAME': 'ACME AG',
@@ -308,12 +320,26 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'MON_ORGANISATION_TELEPHONE': '',
     'MUNICIPALITY': 'William Rodriguez',
     'MUNICIPALITY_ADDRESS': 'West Hannahfort',
+    'NACHBARSCHAFTSORIENTIERUNG_LINK': 'http://caluma-portal.local/public-instances/1?key=5a49823',
+    'NACHBARSCHAFTSORIENTIERUNG_QR_CODE': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAAAGaAQAAAAAefbjOAAADAElEQVR4nO2cTW6jQBCFvxqQsgTJB8hR2jeYM82R5gZwlBxgJFhGavRm0T/gZJWxBzu4vEAB8wlaqbx+9aBj4suf8cfXGXDIIYcccsghh44JWf60wGxmZ8DOs5lZv1j+yfIX32RMDl0FBUnSBNBFgMWgkzTQ5I0kXUL73Z5D+0OrMqTdqhZzm45lBbnT7Tm0G9R+PDD2k4DYauyBMICYb3Alh74pFKalKEMX0TBX93DrKzn0kFDRiE6QpGDuYXxNlkEGTYQZtknWg4/JoRtAo5mZ9QA0Iry12HluIUxgZ5bUatzr9hzaWyO2AtC9myCmHY09pssTHn5MDl0DkbrKMAHQSJpyu5m6T02w/VaShgcfk0M3giRFGF8jdu4iMOdpooQStTf9PmNy6Ouf/GdPk4RiDaKSWqRNkhHXiGeAckVoqtOEItDFWhuNNHQlrgxeEUeHNj4iC8XGVsA22e7kGvEEUJGCTiq/+KIRQ90NU6O06xpxeKim2Esr5hcBCxp/gtE1MmgEvJuY29KEPviYHLoBFKZGuc2YcziVJ4wUTr0kR3Gv23PoDs6yeIYwre5htZx5wvBZ4/hQqQhtvWOSDACCYiqQ1Xd6RRwaqnkEaEhHqoucaglcpBVeEYeGNhWxNp6bSGooyfb25Acfk0PXQJ9DStUmMylDTag69xHPABU9KHaiKAPFQiQfUaNsr4ijQ9uKGEp/qaG70IiNjHhFHB26eBq+JpU1z65GM5lPr4jDQzWzbKLlzLIRzCc09n9aMZ8waLEgsDDse3sO7Q7VPKL4iPVBRs4sqU2I5xHPA61rukoosRhjXzxmWr7BYnn3W4zJoatmjTQbzCcsvLVofI2thelEftc2e4u4++05tDu0dZZpXpgAytq+TZ5dH274rPFkUOorFiPo3fSrz8f+w5UcekTo0yo/5h4LU4+F3ydZ0LK+GuFPw58A+rimS3nTRCCitAy0i625j3gOaPNcA6pxSK9dpj60nlnexnUfcWjI/D+TOeSQQw455JBD/wj9BfLKhenNnOo8AAAAAElFTkSuQmCC',
     'NAME': '',
     'NEBENBESTIMMUNGEN': 'Baby strategy majority address eight least season.',
     'NEBENBESTIMMUNGEN_MAPPED': [
         {
             'FACHSTELLE': 'John Thomas',
             'TEXT': 'Baby strategy majority address eight least season.'
+        }
+    ],
+    'NEIGHBORHOOD_ORIENTATION_LINK': 'http://caluma-portal.local/public-instances/1?key=5a49823',
+    'NEIGHBORHOOD_ORIENTATION_QR_CODE': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAAAGaAQAAAAAefbjOAAADAElEQVR4nO2cTW6jQBCFvxqQsgTJB8hR2jeYM82R5gZwlBxgJFhGavRm0T/gZJWxBzu4vEAB8wlaqbx+9aBj4suf8cfXGXDIIYcccsghh44JWf60wGxmZ8DOs5lZv1j+yfIX32RMDl0FBUnSBNBFgMWgkzTQ5I0kXUL73Z5D+0OrMqTdqhZzm45lBbnT7Tm0G9R+PDD2k4DYauyBMICYb3Alh74pFKalKEMX0TBX93DrKzn0kFDRiE6QpGDuYXxNlkEGTYQZtknWg4/JoRtAo5mZ9QA0Iry12HluIUxgZ5bUatzr9hzaWyO2AtC9myCmHY09pssTHn5MDl0DkbrKMAHQSJpyu5m6T02w/VaShgcfk0M3giRFGF8jdu4iMOdpooQStTf9PmNy6Ouf/GdPk4RiDaKSWqRNkhHXiGeAckVoqtOEItDFWhuNNHQlrgxeEUeHNj4iC8XGVsA22e7kGvEEUJGCTiq/+KIRQ90NU6O06xpxeKim2Esr5hcBCxp/gtE1MmgEvJuY29KEPviYHLoBFKZGuc2YcziVJ4wUTr0kR3Gv23PoDs6yeIYwre5htZx5wvBZ4/hQqQhtvWOSDACCYiqQ1Xd6RRwaqnkEaEhHqoucaglcpBVeEYeGNhWxNp6bSGooyfb25Acfk0PXQJ9DStUmMylDTag69xHPABU9KHaiKAPFQiQfUaNsr4ijQ9uKGEp/qaG70IiNjHhFHB26eBq+JpU1z65GM5lPr4jDQzWzbKLlzLIRzCc09n9aMZ8waLEgsDDse3sO7Q7VPKL4iPVBRs4sqU2I5xHPA61rukoosRhjXzxmWr7BYnn3W4zJoatmjTQbzCcsvLVofI2thelEftc2e4u4++05tDu0dZZpXpgAytq+TZ5dH274rPFkUOorFiPo3fSrz8f+w5UcekTo0yo/5h4LU4+F3ydZ0LK+GuFPw58A+rimS3nTRCCitAy0i625j3gOaPNcA6pxSK9dpj60nlnexnUfcWjI/D+TOeSQQw455JBD/wj9BfLKhenNnOo8AAAAAElFTkSuQmCC',
+    'NEIGHBORS': [
+        {
+            'ADDRESS_1': 'Teststrasse 124',
+            'ADDRESS_2': '1234 Testhausen',
+            'ADRESSE_1': 'Teststrasse 124',
+            'ADRESSE_2': '1234 Testhausen',
+            'NAME': 'Karl Nachbarsson',
+            'NOM': 'Karl Nachbarsson'
         }
     ],
     'NOM_LEGAL': 'ACME AG',
@@ -423,6 +449,16 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'VERTRETER_ADRESSE_2': '3008 Bern',
     'VERTRETER_NAME_ADDRESS': 'Mustermann und Söhne AG, Juristenweg 99, 3008 Bern',
     'VERTRETER_NAME_ADRESSE': 'Mustermann und Söhne AG, Juristenweg 99, 3008 Bern',
+    'VOISINS_TOUS': [
+        {
+            'ADDRESS_1': 'Teststrasse 124',
+            'ADDRESS_2': '1234 Testhausen',
+            'ADRESSE_1': 'Teststrasse 124',
+            'ADRESSE_2': '1234 Testhausen',
+            'NAME': 'Karl Nachbarsson',
+            'NOM': 'Karl Nachbarsson'
+        }
+    ],
     'ZIRKULATION_ALLE': [
         {
             'FRIST': '05.09.2021',
