@@ -714,10 +714,11 @@ APPLICATIONS = {
                 },
                 "reopen-circulation": {"cancel": ["decision"]},
                 "complete": {
-                    "skip": ["check-sb1", "check-sb2", "fill-publication"],
+                    "skip": ["check-sb1", "check-sb2"],
                     "cancel": [
                         "create-manual-workitems",
                         "create-publication",
+                        "fill-publication",
                     ],
                 },
             },
