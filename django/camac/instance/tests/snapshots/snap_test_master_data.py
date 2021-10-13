@@ -7,7 +7,7 @@ from snapshottest import GenericRepr, Snapshot
 
 snapshots = Snapshot()
 
-snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefetch_related0-8] 1'] = {
+snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefetch_related0-14] 1'] = {
     'applicants': [
         {
             'first_name': 'Max',
@@ -90,6 +90,18 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
         'label': 'Bern',
         'slug': '1'
     },
+    'neighbors': [
+        {
+            'first_name': 'Karl',
+            'is_juristic_person': None,
+            'juristic_name': None,
+            'last_name': 'Nachbarsson',
+            'street': 'Teststrasse',
+            'street_number': 124,
+            'town': 'Testhausen',
+            'zip': 1234
+        }
+    ],
     'paper_submit_date': GenericRepr('datetime.datetime(2021, 3, 20, 13, 17, 8, tzinfo=tzutc())'),
     'plot_data': [
         {
@@ -141,7 +153,7 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
     ]
 }
 
-snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefetch_related1-8] 1'] = {
+snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefetch_related1-14] 1'] = {
     'applicants': [
         {
             'first_name': 'Max',
@@ -224,6 +236,18 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
         'label': 'Berne',
         'slug': '1'
     },
+    'neighbors': [
+        {
+            'first_name': 'Karl',
+            'is_juristic_person': None,
+            'juristic_name': None,
+            'last_name': 'Nachbarsson',
+            'street': 'Teststrasse',
+            'street_number': 124,
+            'town': 'Testhausen',
+            'zip': 1234
+        }
+    ],
     'paper_submit_date': GenericRepr('datetime.datetime(2021, 3, 20, 13, 17, 8, tzinfo=tzutc())'),
     'plot_data': [
         {
