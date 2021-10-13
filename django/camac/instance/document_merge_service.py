@@ -1,12 +1,10 @@
 import json
 import re
 from importlib import import_module
-from logging import getLogger
 
 import requests
 from caluma.caluma_form.models import Answer, Document, Form, Question
 from caluma.caluma_form.validators import DocumentValidator
-from caluma.caluma_workflow.models import Case
 from django.conf import settings
 from django.core.files.base import ContentFile
 from django.core.serializers.json import DjangoJSONEncoder
@@ -16,25 +14,10 @@ from django.utils.translation import get_language, gettext as _
 from rest_framework import exceptions
 from rest_framework.authentication import get_authorization_header
 
-from camac.constants.kt_bern import SERVICE_GROUP_LEITBEHOERDE_GEMEINDE
-from camac.core.models import InstanceService
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
-from camac.tags.models import Tags
+from camac.instance.placeholders.utils import clean_join, get_person_name
 from camac.utils import build_url
-
-request_logger = getLogger("django.request")
-
-
-def format_applicant(raw):
-    parts = []
-
-    if raw.get("is_juristic_person"):
-        parts.append(raw.get("juristic_name"))
-
-    parts.append(" ".join(filter(None, [raw.get("first_name"), raw.get("last_name")])))
-
-    return ", ".join(filter(None, parts))
 
 
 def get_form_config():
@@ -53,31 +36,28 @@ def get_form_type_config(form_slug):
     return get_form_config().get(get_form_type_key(form_slug), {})
 
 
-def get_header_tags(instance_id):
-    queryset = Tags.objects.filter(instance_id=instance_id)
-    if not queryset:
-        return None
-    tags = [tag.name for tag in queryset]
-    return ", ".join(tags)
+def get_header_tags(instance, current_service):
+    tags = instance.tags.filter(service=current_service)
+
+    return ", ".join(tags.values_list("name", flat=True)) if tags.exists() else None
 
 
-def get_header_authority(instance_id):
-    try:
-        instance = Instance.objects.get(pk=instance_id)
+def get_header_authority(instance):
+    service = instance.responsible_service(filter_type="municipality")
 
-        instance_service = instance.instance_services.get(
-            service__service_group_id=SERVICE_GROUP_LEITBEHOERDE_GEMEINDE
-        )
-        return instance_service.service.get_name()
-    except InstanceService.DoesNotExist:
-        return None
+    return service.get_name() if service else None
 
 
-def get_header_responsible(instance_id):
-    instance = Instance.objects.get(pk=instance_id)
-    if not instance.responsible_user():
-        return None
-    return instance.responsible_user().get_full_name()
+def get_header_responsible(instance, current_service):
+    responsible_service = instance.responsible_services.filter(
+        service=current_service
+    ).first()
+
+    return (
+        responsible_service.responsible_user.get_full_name()
+        if responsible_service
+        else None
+    )
 
 
 def get_header_labels():
@@ -99,6 +79,63 @@ class DMSHandler:
     def __init__(self):
         self.visitor = DMSVisitor()
 
+    def get_meta_data(self, instance, document, service):
+        master_data = MasterData(instance.case)
+
+        data = {
+            "caseId": instance.pk,
+            "caseType": str(instance.case.document.form.name),
+            "formType": str(document.form.name)
+            if instance.case.document.pk != document.pk
+            else None,
+            "dossierNr": master_data.dossier_number,
+            "municipality": master_data.municipality.get("label")
+            if master_data.municipality
+            else None,
+            "signatureSectionTitle": _("Signatures"),
+            "signatureTitle": _("Signature"),
+            "signatureMetadata": _("Place and date"),
+        }
+
+        if settings.APPLICATION.get("DOCUMENT_MERGE_SERVICE", {}).get(
+            "ADD_HEADER_DATA"
+        ):
+            header_data = {
+                "addressHeader": clean_join(
+                    clean_join(
+                        master_data.street,
+                        master_data.street_number,
+                    ),
+                    master_data.city,
+                    separator=", ",
+                ),
+                "plotsHeader": ", ".join(
+                    [obj["plot_number"] for obj in master_data.plot_data]
+                )
+                if master_data.plot_data
+                else None,
+                "applicantHeader": ", ".join(
+                    [get_person_name(applicant) for applicant in master_data.applicants]
+                )
+                if master_data.applicants
+                else None,
+                "municipalityHeader": master_data.municipality.get("label")
+                if master_data.municipality
+                else None,
+                "tagHeader": get_header_tags(instance, service),
+                "authorityHeader": get_header_authority(instance),
+                "responsibleHeader": get_header_responsible(instance, service),
+                "inputDateHeader": master_data.submit_date,
+                "paperInputDateHeader": master_data.paper_submit_date,
+                "descriptionHeader": master_data.proposal,
+                "modificationHeader": master_data.modification,
+            }
+
+            data.update(get_header_labels())
+            data.update(header_data)
+
+        return data
+
     def generate_pdf(self, instance_id, request, form_slug=None, document_id=None):
         # get caluma document and generate data for document merge service
         if document_id:
@@ -112,89 +149,39 @@ class DMSHandler:
             _filter = {"case__instance__pk": instance_id}
 
         try:
-            doc = Document.objects.get(**_filter)
+            document = Document.objects.get(**_filter)
         except (Document.DoesNotExist, Document.MultipleObjectsReturned):
-            message = _(
-                "None or multiple caluma Documents found for instance: %(instance)s"
-            ) % {"instance": instance_id}
-            request_logger.error(message)
-            raise exceptions.ValidationError(message)
+            raise exceptions.ValidationError(
+                _("None or multiple caluma Documents found for instance: %(instance)s")
+                % {"instance": instance_id}
+            )
 
-        template = get_form_type_config(doc.form.slug).get("template")
+        template = get_form_type_config(document.form.slug).get("template")
 
         if template is None:  # pragma: no cover
             raise exceptions.ValidationError(
                 _("No template specified for form '%(form_slug)s'.")
-                % {"form_slug": doc.form.slug}
+                % {"form_slug": document.form.slug}
             )
-        dms_settings = settings.APPLICATION.get("DOCUMENT_MERGE_SERVICE", {})
-
-        case = Case.objects.get(instance__pk=instance_id)
-        master_data = MasterData(case)
-
-        data = {
-            "caseId": instance_id,
-            "caseType": str(case.document.form.name),
-            "formType": str(doc.form.name) if case.document.pk != doc.pk else "",
-            "dossierNr": master_data.dossier_number,
-            "municipality": master_data.municipality.get("label")
-            if master_data.municipality
-            else "-",
-            "sections": self.visitor.visit(doc),
-            "signatureSectionTitle": _("Signatures"),
-            "signatureTitle": _("Signature"),
-            "signatureMetadata": _("Place and date"),
-        }
-
-        if dms_settings.get("ADD_HEADER_DATA"):
-            header_data = {
-                "addressHeader": ", ".join(
-                    filter(
-                        None,
-                        [
-                            " ".join(
-                                filter(
-                                    None,
-                                    [
-                                        master_data.street,
-                                        master_data.street_number,
-                                    ],
-                                )
-                            ),
-                            master_data.city,
-                        ],
-                    )
-                ),
-                "plotsHeader": ", ".join(
-                    [obj["plot_number"] for obj in master_data.plot_data]
-                ),
-                "applicantHeader": ", ".join(
-                    [
-                        format_applicant(applicant)
-                        for applicant in master_data.applicants
-                    ]
-                ),
-                "municipalityHeader": master_data.municipality.get("label")
-                if master_data.municipality
-                else "-",
-                "tagHeader": get_header_tags(instance_id),
-                "authorityHeader": get_header_authority(instance_id),
-                "responsibleHeader": get_header_responsible(instance_id),
-                "inputDateHeader": master_data.submit_date,
-                "paperInputDateHeader": master_data.paper_submit_date,
-                "descriptionHeader": master_data.proposal,
-                "modificationHeader": master_data.modification,
-            }
-
-            data.update(get_header_labels())
-            data.update(header_data)
 
         # merge pdf and store as attachment
         auth = get_authorization_header(request)
         dms_client = DMSClient(auth)
-        pdf = dms_client.merge(data, template)
+        pdf = dms_client.merge(
+            {
+                **self.get_meta_data(
+                    Instance.objects.get(pk=instance_id),
+                    document,
+                    request.group.service,
+                ),
+                "sections": self.visitor.visit(document),
+            },
+            template,
+        )
 
-        _file = ContentFile(pdf, slugify(f"{instance_id}-{doc.form.name}") + ".pdf")
+        _file = ContentFile(
+            pdf, slugify(f"{instance_id}-{document.form.name}") + ".pdf"
+        )
         _file.content_type = "application/pdf"
 
         return _file
