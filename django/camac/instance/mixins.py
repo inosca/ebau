@@ -95,8 +95,13 @@ class InstanceQuerysetMixin(object):
         instance_field = self._get_instance_filter_expr("pk", "in")
 
         instances = models.Instance.objects.filter(
-            publication_entries__publication_date__gte=timezone.now()
-            - settings.APPLICATION.get("PUBLICATION_DURATION"),
+            (
+                Q(
+                    publication_entries__publication_date__gte=timezone.now()
+                    - settings.APPLICATION.get("PUBLICATION_DURATION")
+                )
+                | Q(publication_entries__publication_end_date__gte=timezone.now())
+            ),
             publication_entries__publication_date__lt=timezone.now(),
             publication_entries__is_published=True,
             location__in=self._get_group().locations.all(),
@@ -285,18 +290,31 @@ class InstanceQuerysetMixin(object):
             )
         elif settings.APPLICATION.get("PUBLICATION_BACKEND") == "camac-ng":
             return queryset.filter(
+                (
+                    Q(
+                        **{
+                            self._get_instance_filter_expr(
+                                "publication_entries__publication_date__gte"
+                            ): timezone.now()
+                            - settings.APPLICATION.get("PUBLICATION_DURATION")
+                        }
+                    )
+                    | Q(
+                        **{
+                            self._get_instance_filter_expr(
+                                "publication_entries__publication_end_date__gte"
+                            ): timezone.now()
+                        }
+                    )
+                ),
                 **{
-                    self._get_instance_filter_expr(
-                        "publication_entries__publication_date__gte"
-                    ): timezone.now()
-                    - settings.APPLICATION.get("PUBLICATION_DURATION"),
                     self._get_instance_filter_expr(
                         "publication_entries__publication_date__lt"
                     ): timezone.now(),
                     self._get_instance_filter_expr(
                         "publication_entries__is_published"
                     ): True,
-                }
+                },
             ).distinct()
 
         return queryset.none()
